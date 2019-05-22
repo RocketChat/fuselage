@@ -1,0 +1,17 @@
+{
+  "name": "@rocket.chat/livechat-all",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "app"
+  ],
+  "devDependencies": {
+    "lerna": "^3.14.1",
+    "microbundle": "^0.11.0"
+  },
+  "scripts": {
+    "start": "lerna run start --parallel"
+  }
+}

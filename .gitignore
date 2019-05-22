@@ -1,0 +1,7 @@
+node_modules
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.tmp
+.DS_Store
+.vscode

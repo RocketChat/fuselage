@@ -1,0 +1,39 @@
+{
+  "name": "@rocket.chat/fuselage",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
+  "source": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "microbundle watch --jsx React.createElement",
+    "build": "microbundle build --jsx React.createElement",
+    "test:results": "jest --json --outputFile=.storybook/jest-results.json",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@storybook/addon-a11y": "^5.0.11",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-backgrounds": "^5.0.11",
+    "@storybook/addon-centered": "^5.0.11",
+    "@storybook/addon-info": "^5.0.11",
+    "@storybook/addon-jest": "^5.0.11",
+    "@storybook/addon-knobs": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addon-notes": "^5.0.11",
+    "@storybook/addon-options": "^5.0.11",
+    "@storybook/addon-viewport": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "@storybook/theming": "^5.0.11",
+    "babel-loader": "^8.0.6",
+    "node-sass": "^4.12.0"
+  }
+}
