@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css, keyframes } from '@emotion/core';
 import {
   border,
   borderRadius,
@@ -11,7 +11,6 @@ import {
 } from '../variables';
 
 
-const buttonPadding = '0.782rem';
 const buttonSquareSize = '36px';
 const buttonPaddingSmall = '0 0.5rem';
 const buttonHeightSmall = '28px';
@@ -94,12 +93,6 @@ export const primary = css`
   background-color: ${ buttonPrimaryBackground };
 `;
 
-export const nude = css`
-  border: none;
-  background-color: inherit;
-  font-weight: 400;
-`;
-
 export const secondary = css`
   color: ${ buttonSecondaryTextColor };
   border: 0;
@@ -111,6 +104,12 @@ export const outline = css`
   border-width: 2px;
   border-style: solid;
   background: transparent;
+`;
+
+export const nude = css`
+  border: none;
+  background-color: inherit;
+  font-weight: 400;
 `;
 
 export const cancel = css`
@@ -144,17 +143,17 @@ export const noPadding = css`
   padding-left: 0;
 `;
 
-export const primaryAndNude = css`
-  ${ primary };
-  ${ nude };
-  color: ${ buttonPrimaryBackground };
-`;
-
 export const primaryAndOutline = css`
   ${ primary };
   ${ outline };
   color: ${ buttonPrimaryBackground };
   border-color: ${ buttonPrimaryBackground };
+`;
+
+export const primaryAndNude = css`
+  ${ primary };
+  ${ nude };
+  color: ${ buttonPrimaryBackground };
 `;
 
 export const secondaryAndOutline = css`
@@ -169,4 +168,39 @@ export const cancelAndOutline = css`
   ${ outline };
   color: ${ buttonCancelColor };
   border-color: ${ buttonCancelColor };
+`;
+
+export const full = css`
+  @media (max-width: 779px) {
+    width: 100%;
+  }
+`;
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const loading = css`
+  position: relative;
+  padding-right: calc(3 * 0.782rem);
+  transition: padding-right 0.3s;
+
+  &::before {
+    position: absolute;
+    top: 25%;
+    right: 0.782rem;
+    display: block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    animation: ${ spin } 1s infinite cubic-bezier(0.14, 0.48, 0.45, 0.63);
+    border: 0.15rem solid rgba(127, 127, 127, 0.5);
+    border-top-color: white;
+    border-radius: 50%;
+  }
 `;
