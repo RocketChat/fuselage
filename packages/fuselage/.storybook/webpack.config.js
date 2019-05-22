@@ -14,7 +14,6 @@ module.exports = async ({ config, mode }) => {
       },
       'sass-loader',
     ],
-    include: path.resolve(__dirname, '../'),
   });
 
   return config;

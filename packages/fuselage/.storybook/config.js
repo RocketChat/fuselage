@@ -13,16 +13,16 @@ addParameters({
 			brandTitle: manifest.name,
 			brandImage: 'https://rocket.chat/images/default/logo--dark.svg',
 			brandUrl: manifest.homepage,
+      gridCellSize: 8,
 		}),
 		hierarchySeparator: /\//,
 		hierarchyRootSeparator: /\|/,
-	},
+  },
 	backgrounds: [
 		{
 			name: 'white',
 			value: 'white',
-			default: true,
-		},
+    },
 	],
 });
 

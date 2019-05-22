@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button } from '@rocket.chat/fuselage'
-import '@rocket.chat/fuselage/dist/index.css';
+import { Button } from '@rocket.chat/fuselage';
 import './App.css'
 
 

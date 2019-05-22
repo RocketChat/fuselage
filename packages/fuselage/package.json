@@ -2,13 +2,11 @@
   "name": "@rocket.chat/fuselage",
   "version": "0.0.0",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/index.umd.js",
   "source": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "microbundle watch --jsx React.createElement",
-    "build": "microbundle build --jsx React.createElement",
+    "start": "webpack --watch --mode development",
+    "build": "webpack --mode production",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -16,9 +14,9 @@
   "peerDependencies": {
     "react": "^16.8.6"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@emotion/core": "^10.0.10",
     "@storybook/addon-a11y": "^5.0.11",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-backgrounds": "^5.0.11",
