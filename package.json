@@ -9,12 +9,26 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@rocket.chat/eslint-config": "^0.3.0",
     "babel-loader": "^8.0.6",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
+    "husky": "^2.3.0",
     "jest": "^24.8.0",
     "lerna": "^3.14.1",
     "webpack-cli": "^3.3.2"
   },
   "scripts": {
-    "start": "lerna run start --parallel"
+    "start": "lerna run start --parallel",
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "lint": "lerna run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "cross-env CI=true yarn test"
+    }
   }
 }

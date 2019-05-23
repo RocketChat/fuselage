@@ -1,4 +1,5 @@
 import { css, keyframes } from '@emotion/core';
+
 import {
   border,
   borderRadius,
@@ -39,7 +40,7 @@ export const base = css`
   border-width: ${ buttonBorderWidth };
   border-style: solid;
   border-color: #000000;
-  border-radius: ${ buttonBorderRadius};
+  border-radius: ${ buttonBorderRadius };
   background-color: transparent;
   font-size: ${ buttonTextSize };
   font-weight: 600;

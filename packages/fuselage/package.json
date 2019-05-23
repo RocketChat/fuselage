@@ -7,16 +7,19 @@
   "scripts": {
     "start": "webpack --watch --mode development",
     "build": "webpack --mode production",
+    "lint": "eslint src",
     "test": "jest",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "dependencies": {
+    "@emotion/core": "^10.0.10"
+  },
   "peerDependencies": {
     "react": "^16.8.6"
   },
   "devDependencies": {
-    "@emotion/core": "^10.0.10",
     "@storybook/addon-a11y": "^5.0.11",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-backgrounds": "^5.0.11",
