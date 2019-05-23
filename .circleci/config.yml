@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
@@ -18,14 +18,9 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - run: yarn test
-
+      - setup_remote_docker
       - run:
-        command: yarn storybook
-        working_directory: ~/repo/packages/fuselage
-        background: true
-
-      - run: sleep 5
-
-      - run:
-        command: yarn loki test
-        working_directory: ~/repo/packages/fuselage
+          command: |
+            yarn build-storybook
+            yarn loki test --verboseRenderer --requireReference --reactUri file:./storybook-static
+          working_directory: ~/repo/packages/fuselage
