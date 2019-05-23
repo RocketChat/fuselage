@@ -1,4 +1,5 @@
 import { addDecorator, configure, addParameters } from '@storybook/react';
+import 'loki/configure-react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withTests } from '@storybook/addon-jest';
 import { create } from '@storybook/theming';
