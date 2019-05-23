@@ -18,3 +18,14 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - run: yarn test
+
+      - run:
+        command: yarn storybook
+        working_directory: ~/repo/packages/fuselage
+        background: true
+
+      - run: sleep 5
+
+      - run:
+        command: yarn loki test
+        working_directory: ~/repo/packages/fuselage
