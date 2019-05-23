@@ -3,7 +3,9 @@ import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+
 import { centeredWithWidth } from '../helpers/storybook';
+
 import { Button } from './index';
 
 
@@ -272,9 +274,7 @@ storiesOf('Button', module)
     >
       {text('text', buttonText)}
     </Button>
-  ))
-;
-
+  ));
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .addDecorator(centeredWithWidth('100vw'))
@@ -298,5 +298,4 @@ storiesOf('Button', module)
     >
       {text('text', buttonText)}
     </Button>
-  ), { viewport: { defaultViewport: 'iphonex' } })
-;
+  ), { viewport: { defaultViewport: 'iphonex' } });
