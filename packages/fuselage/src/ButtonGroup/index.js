@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import styled from '@emotion/styled';
 
 import * as styles from './styles';
 
 
-export const ButtonGroup = styled(function ButtonGroup({
+export function ButtonGroup({
   wrap,
   stretch,
   vertical,
@@ -21,7 +20,6 @@ export const ButtonGroup = styled(function ButtonGroup({
         vertical && styles.vertical,
       ]}
       {...props}
-      className={['rcx-button-group', className].filter(Boolean).join(' ')}
     />
   );
-})();
+}

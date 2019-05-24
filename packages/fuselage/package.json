@@ -20,7 +20,6 @@
     "react": "^16.8.6"
   },
   "devDependencies": {
-    "@emotion/styled": "^10.0.11",
     "@storybook/addon-a11y": "^5.0.11",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-backgrounds": "^5.0.11",

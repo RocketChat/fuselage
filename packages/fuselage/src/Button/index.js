@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import styled from '@emotion/styled';
 
 import * as styles from './styles';
 
 
-export const Button = styled(function Button({
+export function Button({
   invisible,
   primary,
   secondary,
@@ -18,7 +17,6 @@ export const Button = styled(function Button({
   noPadding,
   loading,
   full,
-  className,
   ...props
 }) {
   return (
@@ -43,7 +41,6 @@ export const Button = styled(function Button({
         full && styles.full,
       ]}
       {...props}
-      className={['rcx-button', className].filter(Boolean).join(' ')}
     />
   );
-})();
+}
