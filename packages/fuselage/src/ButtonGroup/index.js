@@ -8,7 +8,6 @@ export function ButtonGroup({
   wrap,
   stretch,
   vertical,
-  className,
   ...props
 }) {
   return (
