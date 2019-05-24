@@ -88,6 +88,22 @@ export const defaultFontWeightHeader = '500';
 /*
  * General Typography
  */
+export const fontFamily = [
+  '-apple-system',
+  'BlinkMacSystemFont',
+  'Segoe UI',
+  'Roboto',
+  'Oxygen',
+  'Ubuntu',
+  'Cantarell',
+  'Helvetica Neue',
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol',
+  'Meiryo UI',
+  'Arial',
+  'sans-serif',
+].map((fontFamily) => `'${ fontFamily }'`).join(', ');
 export const textDefaultSize = '1rem';
 export const textDefaultWeight = '500';
 export const textSmallSize = '0.875rem';
