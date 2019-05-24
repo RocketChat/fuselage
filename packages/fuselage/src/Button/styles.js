@@ -9,6 +9,7 @@ import {
   rcColorError,
   colorGrayMedium,
   colorDarkMedium,
+  fontFamily,
 } from '../variables';
 
 
@@ -42,6 +43,7 @@ export const base = css`
   border-color: #000000;
   border-radius: ${ buttonBorderRadius };
   background-color: transparent;
+  font-family: ${ fontFamily };
   font-size: ${ buttonTextSize };
   font-weight: 600;
   align-items: center;
