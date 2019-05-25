@@ -8,6 +8,7 @@ module.exports = async ({ config, mode }) => {
         options: {
           importLoaders: 1,
           modules: true,
+          localIdentName: '[local]--[hash:base64]',
         },
       },
       'sass-loader',

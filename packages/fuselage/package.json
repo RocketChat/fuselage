@@ -13,9 +13,6 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "dependencies": {
-    "@emotion/core": "^10.0.10"
-  },
   "peerDependencies": {
     "react": "^16.8.6"
   },
@@ -36,6 +33,12 @@
     "@storybook/theming": "^5.0.11",
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.9",
+    "identity-obj-proxy": "^3.0.0",
     "node-sass": "^4.12.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(scss)$": "identity-obj-proxy"
+    }
   }
 }

@@ -1,7 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React from 'react';
 
-import * as styles from './styles';
+import { useStyle } from '../helpers/hooks';
+import styles from './styles.scss';
 
 
 export function Button({
@@ -17,29 +17,25 @@ export function Button({
   noPadding,
   loading,
   full,
+  className,
   ...props
 }) {
   return (
     <button
-      css={[
-        styles.base,
-        invisible && styles.invisible,
-        primary && styles.primary,
-        secondary && styles.secondary,
-        outline && styles.outline,
-        nude && styles.nude,
-        cancel && styles.cancel,
-        small && styles.small,
-        square && styles.square,
-        stack && styles.stack,
-        noPadding && styles.noPadding,
-        primary && outline && styles.primaryAndOutline,
-        primary && nude && styles.primaryAndNude,
-        secondary && outline && styles.secondaryAndOutline,
-        cancel && outline && styles.cancelAndOutline,
-        loading && styles.loading,
-        full && styles.full,
-      ]}
+      className={useStyle(styles, 'Button', {
+        invisible,
+        primary,
+        secondary,
+        outline,
+        nude,
+        cancel,
+        small,
+        square,
+        stack,
+        noPadding,
+        loading,
+        full,
+      }, className)}
       {...props}
     />
   );

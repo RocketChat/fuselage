@@ -8,8 +8,8 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.scss$/,
@@ -24,23 +24,23 @@ module.exports = {
           },
           'sass-loader',
         ],
-      }
-    ]
+      },
+    ],
   },
   externals: {
     react: {
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'React',
-      root: 'React'
+      root: 'React',
     },
-  } ,
+  },
   output: {
     path: path.join(__dirname, './dist'),
     filename: 'index.js',
     library: 'RocketChatFuselage',
     libraryTarget: 'umd',
     publicPath: '/dist/',
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
 };

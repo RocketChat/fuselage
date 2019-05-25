@@ -1,24 +1,21 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React from 'react';
 
-import * as styles from './styles';
+import { useStyle } from '../helpers/hooks';
+import styles from './styles.scss';
 
 
 export function Tabs({
   children,
+  className,
   ...props
 }) {
   return (
     <div
-      css={[
-        styles.base,
-      ]}
+      className={useStyle(styles, 'Tabs', {}, className)}
       {...props}
     >
       <div
-        css={[
-          styles.wrapper,
-        ]}
+        className={useStyle(styles, 'Tabs__wrapper')}
       >
         {children}
       </div>

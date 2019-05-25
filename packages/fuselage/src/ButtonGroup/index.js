@@ -1,24 +1,27 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React from 'react';
 
-import * as styles from './styles';
+import { useStyle, useChildrenWithClassName } from '../helpers/hooks';
+import styles from './styles.scss';
 
 
 export function ButtonGroup({
   wrap,
   stretch,
   vertical,
+  children,
+  className,
   ...props
 }) {
   return (
     <div
-      css={[
-        styles.base,
-        wrap && styles.wrap,
-        stretch && styles.stretch,
-        vertical && styles.vertical,
-      ]}
+      className={useStyle(styles, 'ButtonGroup', {
+        wrap,
+        stretch,
+        vertical,
+      }, className)}
       {...props}
-    />
+    >
+      {useChildrenWithClassName(styles, 'ButtonGroup', 'Button', children)}
+    </div>
   );
 }

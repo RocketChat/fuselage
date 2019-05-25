@@ -1,19 +1,17 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React from 'react';
 
-import * as styles from './styles';
+import { useStyle } from '../helpers/hooks';
+import styles from './styles.scss';
 
 
 export function Tab({
   active,
+  className,
   ...props
 }) {
   return (
     <div
-      css={[
-        styles.base,
-        active && styles.active,
-      ]}
+      className={useStyle(styles, 'Tab', { active }, className)}
       {...props}
     />
   );
