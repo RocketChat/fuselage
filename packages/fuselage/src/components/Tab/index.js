@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useStyle } from '../helpers/hooks';
+import { useStyle } from '../../helpers/hooks';
 import styles from './styles.scss';
 
 

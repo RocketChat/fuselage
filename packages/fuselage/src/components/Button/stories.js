@@ -4,7 +4,7 @@ import centered from '@storybook/addon-centered/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
-import { centeredWithWidth } from '../helpers/storybook';
+import { centeredWithWidth } from '../../helpers/storybook';
 
 import { Button } from './index';
 

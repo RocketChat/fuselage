@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useStyle, useChildrenWithClassName } from '../helpers/hooks';
+import { useStyle, useChildrenWithClassName } from '../../helpers/hooks';
 import styles from './styles.scss';
 
 
