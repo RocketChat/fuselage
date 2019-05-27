@@ -7,7 +7,8 @@
   "scripts": {
     "start": "webpack --watch --mode development",
     "build": "webpack --mode production",
-    "lint": "eslint src",
+    "eslint": "eslint src",
+    "stylelint": "stylelint 'src/**/*.scss'",
     "test": "jest",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
     "storybook": "start-storybook -p 6006",
@@ -34,7 +35,9 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.9",
     "identity-obj-proxy": "^3.0.0",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "stylelint": "^10.0.1",
+    "stylelint-order": "^3.0.0"
   },
   "jest": {
     "moduleNameMapper": {

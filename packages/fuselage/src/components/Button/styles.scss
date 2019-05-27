@@ -1,6 +1,5 @@
 @import '../../variables.scss';
 
-
 $button-square-size: 36px;
 $button-padding: 0.782rem;
 $button-padding-small: 0 0.5rem;
@@ -18,172 +17,190 @@ $button-secondary-background: var(--color-gray-medium, $color-gray-medium);
 $button-secondary-text-color: var(--color-dark-medium, $color-dark-medium);
 
 .Button {
-  position: relative;
-  display: flex;
-  height: 40px;
-  padding: 0 1.5rem;
-  cursor: pointer;
-  transition: opacity 0.3s, background-color 0.3s, color 0.3s;
-  text-align: center;
-  color: #000000;
-  border-width: var(--button-border-width, $button-border-width);
-  border-style: solid;
-  border-color: #000000;
-  border-radius: var(--button-border-radius, $button-border-radius);
-  background-color: transparent;
-  font-family: var(--default-font-family, $default-font-family);
-  font-size: var(--button-text-size, $button-text-size);
-  font-weight: 600;
-  align-items: center;
-  justify-content: center;
+	position: relative;
 
-  &:not([disabled]):hover {
-    opacity: 0.6;
-  }
+	display: flex;
 
-  &:active,
-  &:focus:hover {
-    outline: none;
-  }
+	height: 40px;
+	padding: 0 1.5rem;
 
-  &:active {
-    transform: translateY(2px);
-    opacity: 0.9;
-  }
+	cursor: pointer;
+	transition: opacity 0.3s, background-color 0.3s, color 0.3s;
+	text-align: center;
 
-  &:active::before {
-    top: -2px;
-  }
+	color: #000000;
+	border-width: var(--button-border-width, $button-border-width);
+	border-style: solid;
+	border-color: #000000;
+	border-radius: var(--button-border-radius, $button-border-radius);
+	background-color: transparent;
 
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    content: "";
-    cursor: pointer;
-  }
+	font-family: var(--default-font-family, $default-font-family);
+	font-size: var(--button-text-size, $button-text-size);
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
 
-  &:disabled {
-    cursor: default;
-    color: var(--button-disabled-text-color, $button-disabled-text-color);
-    border: 0;
-    border-color: var(--button-disabled-background, $button-disabled-background);
-    background-color: var(--button-disabled-background, $button-disabled-background);
-  }
+	&:not([disabled]):hover {
+		opacity: 0.6;
+	}
+
+	&:active,
+	&:focus:hover {
+		outline: none;
+	}
+
+	&:active {
+		transform: translateY(2px);
+
+		opacity: 0.9;
+	}
+
+	&:active::before {
+		top: -2px;
+	}
+
+	&::before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		content: "";
+		cursor: pointer;
+	}
+
+	&:disabled {
+		cursor: default;
+
+		color: var(--button-disabled-text-color, $button-disabled-text-color);
+		border: 0;
+		border-color: var(--button-disabled-background, $button-disabled-background);
+		background-color: var(--button-disabled-background, $button-disabled-background);
+	}
 }
 
 .Button--invisible {
-  visibility: hidden;
+	visibility: hidden;
 }
 
 .Button--primary {
-  color: var(--button-primary-text-color, $button-primary-text-color);
-  border: 0;
-  background-color: var(--button-primary-background, $button-primary-background);
+	color: var(--button-primary-text-color, $button-primary-text-color);
+	border: 0;
+	background-color: var(--button-primary-background, $button-primary-background);
 }
 
 .Button--secondary {
-  color: var(--button-secondary-text-color, $button-secondary-text-color);
-  border: 0;
-  border-color: var(--button-secondary-background, $button-secondary-background);
-  background-color: var(--button-secondary-background, $button-secondary-background);
+	color: var(--button-secondary-text-color, $button-secondary-text-color);
+	border: 0;
+	border-color: var(--button-secondary-background, $button-secondary-background);
+	background-color: var(--button-secondary-background, $button-secondary-background);
 }
 
 .Button--outline {
-  border-width: 2px;
-  border-style: solid;
-  background: transparent;
+	border-width: 2px;
+	border-style: solid;
+	background: transparent;
 }
 
 .Button--nude {
-  border: none;
-  background-color: inherit;
-  font-weight: 400;
+	border: none;
+	background-color: inherit;
+
+	font-weight: 400;
 }
 
 .Button--cancel {
-  color: var(--button-primary-text-color, $button-primary-text-color);
-  border: 0;
-  border-color: var(--button-cancel-color, $button-cancel-color);
-  background-color: var(--button-cancel-color, $button-cancel-color);
+	color: var(--button-primary-text-color, $button-primary-text-color);
+	border: 0;
+	border-color: var(--button-cancel-color, $button-cancel-color);
+	background-color: var(--button-cancel-color, $button-cancel-color);
 }
 
 .Button--small {
-  height: var(--button-height-small, $button-height-small);
-  padding: var(--button-padding-small, $button-padding-small);
-  font-size: var(--button-text-size-small, $button-text-size-small);
+	height: var(--button-height-small, $button-height-small);
+	padding: var(--button-padding-small, $button-padding-small);
+
+	font-size: var(--button-text-size-small, $button-text-size-small);
 }
 
 .Button--square {
-  display: flex;
-  flex: 0 0 var(--button-square-size, $button-square-size);
-  margin: 0;
-  padding: 0;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex: 0 0 var(--button-square-size, $button-square-size);
+
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	justify-content: center;
 }
 
 .Button--stack {
-  width: 100%;
+	width: 100%;
 }
 
 .Button--noPadding {
-  padding-right: 0;
-  padding-left: 0;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .Button--primary.Button--outline {
-  color: var(--button-primary-background, $button-primary-background);
-  border-color: var(--button-primary-background, $button-primary-background);
+	color: var(--button-primary-background, $button-primary-background);
+	border-color: var(--button-primary-background, $button-primary-background);
 }
 
 .Button--primary.Button--nude {
-  color: var(--button-primary-background, $button-primary-background);
+	color: var(--button-primary-background, $button-primary-background);
 }
 
 .Button--secondary.Button--outline {
-  color: var(--button-secondary-background, $button-secondary-background);
-  border-color: var(--button-secondary-background, $button-secondary-background);
+	color: var(--button-secondary-background, $button-secondary-background);
+	border-color: var(--button-secondary-background, $button-secondary-background);
 }
 
 .Button--cancel.Button--outline {
-  color: var(--button-cancel-color, $button-cancel-color);
-  border-color: var(--button-cancel-color, $button-cancel-color);
+	color: var(--button-cancel-color, $button-cancel-color);
+	border-color: var(--button-cancel-color, $button-cancel-color);
 }
 
 .Button--full {
-  @media (max-width: 779px) {
-    width: 100%;
-  }
+	@media (max-width: 779px) {
+		width: 100%;
+	}
 }
 
 @keyframes Button--spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .Button--loading {
-  position: relative;
-  padding-right: calc(3 * 0.782rem);
-  transition: padding-right 0.3s;
+	position: relative;
 
-  &::before {
-    position: absolute;
-    top: 25%;
-    right: 0.782rem;
-    display: block;
-    width: 20px;
-    height: 20px;
-    content: "";
-    animation: Button--spin 1s infinite cubic-bezier(0.14, 0.48, 0.45, 0.63);
-    border: 0.15rem solid rgba(127, 127, 127, 0.5);
-    border-top-color: white;
-    border-radius: 50%;
-  }
+	padding-right: calc(3 * 0.782rem);
+
+	transition: padding-right 0.3s;
+
+	&::before {
+		position: absolute;
+		top: 25%;
+		right: 0.782rem;
+
+		display: block;
+
+		width: 20px;
+		height: 20px;
+
+		content: "";
+		animation: Button--spin 1s infinite cubic-bezier(0.14, 0.48, 0.45, 0.63);
+
+		border: 0.15rem solid rgba(127, 127, 127, 0.5);
+		border-top-color: white;
+		border-radius: 50%;
+	}
 }
