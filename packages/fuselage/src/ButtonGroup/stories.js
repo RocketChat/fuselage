@@ -8,7 +8,7 @@ import { Button } from '../Button';
 import { ButtonGroup } from './index';
 
 
-storiesOf('ButtonGroup', module)
+storiesOf('Components|ButtonGroup', module)
   .addDecorator(withKnobs)
   .addDecorator(centeredWithWidth('500px'))
   .addParameters({ jest: ['ButtonGroup'] })

@@ -8,7 +8,7 @@ import { Tab } from '../Tab';
 import { Tabs } from './index';
 
 
-storiesOf('Tabs', module)
+storiesOf('Components|Tabs', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['Tabs'] })

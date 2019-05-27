@@ -11,7 +11,7 @@ import { Button } from './index';
 
 const buttonText = 'Powered by Rocket.Chat';
 
-storiesOf('Button', module)
+storiesOf('Components|Button', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['Button'] })
@@ -275,7 +275,7 @@ storiesOf('Button', module)
       {text('text', buttonText)}
     </Button>
   ));
-storiesOf('Button', module)
+storiesOf('Components|Button', module)
   .addDecorator(withKnobs)
   .addDecorator(centeredWithWidth('100vw'))
   .addParameters({ jest: ['Button'] })
