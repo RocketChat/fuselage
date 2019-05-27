@@ -4,6 +4,8 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 import colorPalette from './colorPalette.scss';
+import { Button } from '../components/Button';
+import { ButtonGroup } from '../components/ButtonGroup';
 
 
 const Color = ({ color, name }) => (
@@ -39,4 +41,20 @@ storiesOf('Styles|Colors', module)
         <Color key={key} name={name} color={color} />
       ))}
     </ColorGrid>
+  ));
+
+storiesOf('Styles|Theming', module)
+  .addDecorator(withKnobs)
+  .addDecorator(centered)
+  .add('Example', () => (
+    <div style={{
+      '--button-primary-background': 'lightgreen',
+      '--button-cancel-color': 'tomato',
+    }}>
+      <ButtonGroup>
+        <Button primary>Yes</Button>
+        <Button>Maybe</Button>
+        <Button cancel>No</Button>
+      </ButtonGroup>
+    </div>
   ));

@@ -1,21 +1,23 @@
 import { Children, cloneElement, useMemo } from 'react';
 
 
-const flatMap = (arr, mapFunc) => {
+const flatMap = (arr, map = (x) => x) => {
   if (arr.flatMap) {
-    return arr.flatMap(mapFunc);
+    return arr.flatMap(map);
   }
 
   const result = [];
+
   for (const [index, elem] of arr.entries()) {
-    const x = mapFunc(elem, index, arr);
-    // We allow mapFunc() to return non-Arrays
+    const x = map(elem, index, arr);
+
     if (Array.isArray(x)) {
       result.push(...x);
     } else {
       result.push(x);
     }
   }
+
   return result;
 };
 
