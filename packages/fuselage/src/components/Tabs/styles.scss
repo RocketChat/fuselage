@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+
+.Tabs {
+	margin-bottom: 0.5rem;
+
+	border-bottom: 2px solid var(--color-gray-light, $color-gray-light);
+}
+
+.Tabs__wrapper {
+	display: flex;
+
+	width: 100%;
+	margin: 0 -1rem -2px;
+}

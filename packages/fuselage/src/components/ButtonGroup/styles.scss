@@ -1,0 +1,31 @@
+.ButtonGroup {
+	display: flex;
+
+	margin: 10px -5px;
+	flex-flow: row wrap;
+
+	& > .ButtonGroup__Button {
+		margin: 0 5px;
+	}
+}
+
+.ButtonGroup--wrap {
+	margin: 5px -5px;
+	flex-wrap: wrap;
+
+	& > .ButtonGroup__Button {
+		margin: 5px;
+	}
+}
+
+.ButtonGroup--stretch {
+	justify-content: stretch;
+
+	& > .ButtonGroup__Button {
+		flex: 1 1;
+	}
+}
+
+.ButtonGroup--vertical {
+	flex-direction: column;
+}
