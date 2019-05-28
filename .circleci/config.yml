@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.15
+      - image: yukinying/chrome-headless:63.0.3230.2
     working_directory: ~/repo
     steps:
       - checkout
