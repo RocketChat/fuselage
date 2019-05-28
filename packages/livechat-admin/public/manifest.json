@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "@rocket.chat/livechat-admin",
+  "name": "@rocket.chat/livechat-admin",
   "icons": [
     {
       "src": "favicon.ico",

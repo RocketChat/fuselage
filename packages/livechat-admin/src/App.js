@@ -6,9 +6,10 @@ import './App.css'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Button primary onClick={() => alert('Hello world!')}>Click me</Button>
-      </header>
+      <Button primary>Without theme</Button>
+      <div style={{ '--rc-color-button-primary': 'tomato' }}>
+        <Button primary>With theme</Button>
+      </div>
     </div>
   )
 }

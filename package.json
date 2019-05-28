@@ -17,13 +17,16 @@
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "lerna": "^3.14.1",
+    "npm-run-all": "^4.1.5",
     "webpack-cli": "^3.3.2"
   },
   "scripts": {
     "start": "lerna run start --parallel",
     "build": "lerna run build",
     "test": "lerna run test",
-    "lint": "lerna run lint"
+    "eslint": "lerna run eslint",
+    "stylelint": "lerna run stylelint",
+    "lint": "run-s eslint stylelint"
   },
   "husky": {
     "hooks": {
