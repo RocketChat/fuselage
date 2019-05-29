@@ -4,6 +4,8 @@ jobs:
     docker:
       - image: zenika/alpine-chrome:with-node
     working_directory: ~/repo
+    environment:
+      CHROME_PATH: /usr/bin/chromium-browser
     steps:
       - checkout
       - restore_cache:
@@ -19,8 +21,10 @@ jobs:
       - run:
           command: |
             cd ./packages/fuselage/
-            ls -la
             yarn build-storybook
+            # TODO workaround to run loki without using a docker container (we have chrome installed here)
+            # maybe change this workaround to --configurationFilter or --targetFilter
             cat package.json | sed s/\.docker/.app/ > package.json-new
             mv package.json-new package.json
-            CHROME_PATH=/usr/bin/chromium-browser yarn loki test --verboseRenderer--requireReference --reactUri file:./storybook-static
+            # end workaround
+            yarn loki test --verboseRenderer--requireReference --reactUri file:./storybook-static
