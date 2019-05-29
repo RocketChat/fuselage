@@ -44,3 +44,12 @@ jobs:
             cat package.json | sed s/\.docker/.app/ > package.json-new
             mv package.json-new package.json
             yarn loki test --verboseRenderer --requireReference --reactUri file:/tmp/storybook-static
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - loki:
+          requires:
+            - build
