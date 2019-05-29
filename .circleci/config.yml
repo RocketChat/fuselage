@@ -36,7 +36,10 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: yarn happo-ci
+      - run:
+          command: |
+            yarn happo-ci
+          working_directory: ~/repo/packages/fuselage/
 
 workflows:
   version: 2
