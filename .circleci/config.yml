@@ -2,8 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.15
-      - image: yukinying/chrome-headless:63.0.3230.2
+      - image: circleci/node:10.15-stretch-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -19,7 +18,6 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - run: yarn test
-      - setup_remote_docker
       - run:
           command: |
             yarn build-storybook
