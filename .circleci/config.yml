@@ -18,9 +18,28 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - run: yarn test
-      - setup_remote_docker
+      - run:
+        command: |
+            cd ~/repo/packages/fuselage
+            yarn build-storybook
+            mv .loki/current /tmp/loki/
+
+      - persist_to_workspace:
+          root: /tmp/
+          paths:
+            - loki
+
+  loki:
+    docker:
+      - image: circleci/node:10.15-stretch-browsers
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: /tmp
+      - checkout
       - run:
           command: |
-            yarn build-storybook
+            cd ~/repo/packages/fuselage
+            cat package.json | sed s/\.docker/.app/ > package.json-new
+            mv package.json-new package.json
             yarn loki test --verboseRenderer --requireReference --reactUri file:./storybook-static
-          working_directory: ~/repo/packages/fuselage
