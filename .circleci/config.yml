@@ -38,6 +38,7 @@ jobs:
       - run: yarn install
       - run:
           command: |
+            echo $DOUG
             yarn happo-ci
           working_directory: ~/repo/packages/fuselage/
 
