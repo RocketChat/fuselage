@@ -23,4 +23,4 @@ jobs:
             yarn build-storybook
             cat package.json | sed s/\.docker/.app/ > package.json-new
             mv package.json-new package.json
-            yarn loki test --verboseRenderer --chromeDockerImage=zenika/alpine-chrome:73 --requireReference --reactUri file:./storybook-static
+            CHROME_PATH=/usr/bin/chromium-browser yarn loki test --verboseRenderer--requireReference --reactUri file:./storybook-static
