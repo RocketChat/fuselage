@@ -19,7 +19,7 @@ jobs:
       - run: yarn build
       - run: yarn test
       - run:
-        command: |
+          command: |
             cd ~/repo/packages/fuselage
             yarn build-storybook
             mv .loki/current /tmp/loki/
