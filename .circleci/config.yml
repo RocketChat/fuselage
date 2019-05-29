@@ -18,6 +18,7 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - run: yarn test
+      - setup_remote_docker
       - run:
           command: |
             yarn build-storybook
