@@ -1,20 +1,30 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.15
+      - image: zenika/alpine-chrome:with-node
     working_directory: ~/repo
+    environment:
+      CHROME_PATH: /usr/bin/chromium-browser
     steps:
       - checkout
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+          key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
       - run: yarn
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
       - run: yarn lint
       - run: yarn build
       - run: yarn test
+      - run:
+          command: |
+            cd ./packages/fuselage/
+            yarn build-storybook
+            # TODO workaround to run loki without using a docker container (we have chrome installed here)
+            # maybe change this workaround to --configurationFilter or --targetFilter
+            cat package.json | sed s/\.docker/.app/ > package.json-new
+            mv package.json-new package.json
+            # end workaround
+            yarn loki test --verboseRenderer--requireReference --reactUri file:./storybook-static
