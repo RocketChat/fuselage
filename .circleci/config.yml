@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.15-stretch-browsers
+      - image: zenika/alpine-chrome:with-node
     working_directory: ~/repo
     steps:
       - checkout
@@ -23,45 +23,6 @@ jobs:
             cd ./packages/fuselage/
             ls -la
             yarn build-storybook
-            mv storybook-static /tmp/
-
-      - persist_to_workspace:
-          root: /tmp/
-          paths:
-            - storybook-static
-
-  loki:
-    docker:
-      - image: yukinying/chrome-headless:63.0.3230.2
-    working_directory: ~/repo
-    steps:
-      - attach_workspace:
-          at: /tmp
-      - checkout
-      - run:
-          command: |
-            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-            curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-            sudo apt-get update && sudo apt-get install -y yarn
-
-      - run:
-          command: |
-            yarn --version
-            yarn
-
-      - run:
-          command: |
-            cd ./packages/fuselage
             cat package.json | sed s/\.docker/.app/ > package.json-new
             mv package.json-new package.json
-            yarn loki test --verboseRenderer --requireReference --reactUri file:/tmp/storybook-static
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - loki:
-          requires:
-            - build
+            yarn loki test --verboseRenderer --chromeDockerImage=zenika/alpine-chrome:73 --requireReference --reactUri file:./storybook-static
