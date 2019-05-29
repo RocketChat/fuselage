@@ -28,7 +28,7 @@ jobs:
             mv package.json-new package.json
             # end workaround
             yarn loki test --verboseRenderer--requireReference --reactUri file:./storybook-static
-      - run: yarn happo-ci
+
   happo:
     docker:
       - image: circleci/node:10
@@ -37,3 +37,10 @@ jobs:
       - checkout
       - run: yarn install
       - run: yarn happo-ci
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - happo
