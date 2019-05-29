@@ -24,12 +24,10 @@ jobs:
             ls -la
             yarn build-storybook
             mv storybook-static /tmp/
-            mv .loki/current /tmp/loki/
 
       - persist_to_workspace:
           root: /tmp/
           paths:
-            - loki
             - storybook-static
 
   loki:
@@ -42,11 +40,7 @@ jobs:
       - checkout
       - run:
           command: |
-            mv /tmp/loki/current ./packages/fuselage/.loki/
-            mv /tmp/storybook-static ./packages/fuselage/
-      - run:
-          command: |
             cd ./packages/fuselage
             cat package.json | sed s/\.docker/.app/ > package.json-new
             mv package.json-new package.json
-            yarn loki test --verboseRenderer --requireReference --reactUri file:./storybook-static
+            yarn loki test --verboseRenderer --requireReference --reactUri file:/tmp/storybook-static
