@@ -32,12 +32,24 @@ jobs:
 
   loki:
     docker:
-      - image: circleci/node:10.15-stretch-browsers
+      - image: yukinying/chrome-headless:63.0.3230.2
     working_directory: ~/repo
     steps:
       - attach_workspace:
           at: /tmp
       - checkout
+      - run:
+          command: |
+            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+            curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+            sudo apt-get update && sudo apt-get install -y yarn
+
+      - run:
+          command: |
+            yarn --version
+            yarn
+
       - run:
           command: |
             cd ./packages/fuselage
