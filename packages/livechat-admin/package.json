@@ -15,7 +15,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "gh-pages --dist ./storybook-static --dest livechat-admin --message \"Deploy Storybook to Github Pages [skip ci]\" --user \"Guilherme Gazzo <guilherme.gazzo@rocket.chat>\""
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -12,7 +12,8 @@
     "test": "jest",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "gh-pages --dist ./storybook-static --dest fuselage --message \"Deploy Storybook to Github Pages [skip ci]\" --user \"Guilherme Gazzo <guilherme.gazzo@rocket.chat>\""
   },
   "peerDependencies": {
     "react": "^16.8.6"

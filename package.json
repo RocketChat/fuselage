@@ -28,6 +28,7 @@
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
+    "gh-pages": "^2.0.1",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "lerna": "^3.14.1",
@@ -42,7 +43,8 @@
     "stylelint": "lerna run stylelint",
     "lint": "run-s eslint stylelint",
     "storybook": "lerna run storybook --parallel",
-    "build-storybook": "lerna run build-storybook --parallel"
+    "build-storybook": "lerna run build-storybook --parallel",
+    "deploy-storybook": "lerna run deploy-storybook"
   },
   "husky": {
     "hooks": {
