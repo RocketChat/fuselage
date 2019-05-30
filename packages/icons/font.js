@@ -5,11 +5,18 @@ const svg2ttf = require('svg2ttf');
 const ttf2eot = require('ttf2eot');
 const ttf2woff = require('ttf2woff')
 const ttf2woff2 = require('ttf2woff2');
-const manifest = require('./package.json');
+const { createIconList, createIconListModule } = require('./helpers');
 const { getFontIcons } = require('./icons');
+const manifest = require('./package.json');
 
 
-const createSvgFont = (iconStreams) => new Promise((resolve, reject) => {
+const createSvgFont = (icons) => new Promise((resolve, reject) => {
+  const iconStreams = icons.map(({ name, path, unicode }) => {
+    const stream = fs.createReadStream(path);
+    stream.metadata = { name, unicode };
+    return stream;
+  });
+
   let buffer = Buffer.alloc(0);
 
   const fontStream = new SVGIcons2SVGFontStream({
@@ -102,67 +109,59 @@ ${ icons.map(({ name, unicode }) =>
 }`).join('\n\n') }
 `;
 
-const toCamelCase = (string) =>
-  string.replace(/([-_][a-z])/ig, (match) => match.toUpperCase().replace('-', '').replace('_', ''));
-
-const createIconList = (icons) =>
-`module.exports = ${ JSON.stringify(
-  icons.reduce((obj, { name }) => ({ ...obj, [toCamelCase(name)]: name }), {}), null, 2) };
-`;
-
-const createIconListModule = (icons) =>
-  icons.map(({ name }) => `export const ${ toCamelCase(name) } = ${ JSON.stringify(name) };`).join('\n');
-
 const createHtmlPreview = (icons) =>
 `<!DOCTYPE html>
 <meta charset="UTF-8">
-<title>${ manifest.name }</title>
+<title>${ manifest.name }: font</title>
 <style>
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 10px 20px;
-    text-align: center;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 10px 20px;
+  text-align: center;
 }
 
 .preview {
-    width: 100px;
-    display: inline-block;
-    margin: 10px;
+  width: 100px;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  margin: 10px;
 }
 
 .preview .inner {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    background: #f5f5f5;
-    border-radius: 3px 3px 0 0;
+  width: 100%;
+  height: 85px;
+  color: #333;
+  background: #f5f5f5;
+  line-height: 85px;
+  font-size: 40px;
+  text-align: center;
+  border-radius: 3px 3px 0 0;
 }
 
 .preview .inner i {
-    line-height: 85px;
-    font-size: 40px;
-    color: #333;
+  line-height: inherit;
 }
 
 .label {
-    display: inline-block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 5px;
-    font-size: 10px;
-    font-family: Monaco, monospace;
-    color: #666;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    background: #ddd;
-    border-radius: 0 0 3px 3px;
-    color: #666;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 10px;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'DejaVu Sans Mono', 'Liberation Mono', Menlo, Monaco, 'Courier New', monospace;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: #ddd;
+  border-radius: 0 0 3px 3px;
+  color: #666;
 }
 </style>
 <link rel="stylesheet" type="text/css" href="./RocketChat.css" />
-<h1>${ manifest.name }</h1>
+<h1>${ manifest.name }: <em>font</em></h1>
 ${ icons.map(({ name }) =>
 `<div class="preview">
   <div class="inner">
@@ -173,13 +172,8 @@ ${ icons.map(({ name }) =>
 
 const build = async () => {
   const icons = getFontIcons();
-  const iconStreams = icons.map(({ name, path, unicode }) => {
-    const stream = fs.createReadStream(path);
-    stream.metadata = { name, unicode };
-    return stream;
-  });
 
-  const svgFont = await createSvgFont(iconStreams);
+  const svgFont = await createSvgFont(icons);
   const ttfFont = createTtfFont(svgFont);
   const woffFont = createWoffFont(ttfFont);
   const woff2Font = createWoff2Font(ttfFont);
