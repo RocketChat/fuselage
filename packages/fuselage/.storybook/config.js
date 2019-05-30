@@ -2,6 +2,7 @@ import { addDecorator, addParameters, configure } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withTests } from '@storybook/addon-jest';
 import { create } from '@storybook/theming';
+import 'loki/configure-react';
 import manifest from '../package.json';
 import results from './jest-results.json';
 
