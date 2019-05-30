@@ -14,6 +14,9 @@
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/issues"
   },
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "node ./build"
   },
