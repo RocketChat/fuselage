@@ -1,4 +1,13 @@
+
+const path = require('path')
 module.exports = async ({ config, mode }) => {
+  config.entry.unshift('babel-polyfill');
+  config.module.rules.push({
+    test: /\.(js)$/,
+    include: /node_modules\/loki/,
+    loader: "babel-loader"
+  });
+
   config.module.rules.push({
     test: /\.scss$/,
     use: [

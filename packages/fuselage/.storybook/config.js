@@ -2,7 +2,7 @@ import { addDecorator, addParameters, configure } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withTests } from '@storybook/addon-jest';
 import { create } from '@storybook/theming';
-import 'loki/configure-react';
+import 'loki/configure-react.js';
 import "happo-plugin-storybook/register";
 import manifest from '../package.json';
 import results from './jest-results.json';
@@ -36,5 +36,5 @@ addDecorator(withTests({
 
 configure(() => {
   const jsStories = require.context('../src', true, /stories(\/index)?\.js$/);
-  jsStories.keys().forEach((filename) => jsStories(filename));
+  jsStories.keys().forEach(function (filename) { return jsStories(filename); });
 }, module);
