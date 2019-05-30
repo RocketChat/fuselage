@@ -2,8 +2,8 @@ const toCamelCase = (string) =>
   string.replace(/([-_][a-z])/ig, (match) => match.toUpperCase().replace('-', '').replace('_', ''));
 
 const createIconList = (icons) =>
-`module.exports = ${ JSON.stringify(
-  icons.reduce((obj, { name }) => ({ ...obj, [toCamelCase(name)]: name }), {}), null, 2) };
+  `module.exports = ${ JSON.stringify(
+    icons.reduce((obj, { name }) => ({ ...obj, [toCamelCase(name)]: name }), {}), null, 2) };
 `;
 
 const createIconListModule = (icons) =>

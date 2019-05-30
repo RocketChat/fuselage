@@ -1,8 +1,10 @@
 const fs = require('fs');
-const rimraf = require('rimraf');
 const util = require('util');
+
+const rimraf = require('rimraf');
 const { parseString, Builder } = require('xml2js');
-const { createIconList, createIconListModule } = require('./helpers');
+
+const { createIconList/* , createIconListModule */ } = require('./helpers');
 const { getSvgIcons } = require('./icons');
 const manifest = require('./package.json');
 
@@ -25,23 +27,23 @@ const createSvgSprite = async (icons) => {
   const xmlBuilder = new Builder({ headless: true });
 
   return (
-`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
+    `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
 ${ iconSvgs.map(({ name, viewBox, args }) => xmlBuilder.buildObject({
-  symbol: {
-		$: {
-			id: `icon-${ name }`,
-			viewBox,
-			fill: 'currentColor',
-		},
-		...args,
-	},
-})).join('\n') }
+      symbol: {
+        $: {
+          id: `icon-${ name }`,
+          viewBox,
+          fill: 'currentColor',
+        },
+        ...args,
+      },
+    })).join('\n') }
 </svg>`
   );
 };
 
 const createHtmlPreview = (icons, svgSprite) =>
-`<!DOCTYPE html>
+  `<!DOCTYPE html>
 <meta charset="UTF-8">
 <title>${ manifest.name }: SVG sprite</title>
 <style>
@@ -95,19 +97,19 @@ body {
 <h1>${ manifest.name }: <em>SVG sprite</em></h1>
 ${ svgSprite }
 ${ icons.map(({ name }) =>
-`<div class="preview">
+    `<div class="preview">
   <div class="inner">
     <svg class="icon"><use href="#icon-${ name }"/></svg>
   </div>
   <div class="label">${ name }</div>
-</div>`).join('\n')}`;
+</div>`).join('\n') }`;
 
 const build = async () => {
   const icons = getSvgIcons();
 
   const svgSprite = await createSvgSprite(icons);
   const iconList = createIconList(icons);
-  const iconListModule = createIconListModule(icons);
+  // const iconListModule = createIconListModule(icons);
   const htmlPreview = createHtmlPreview(icons, svgSprite);
 
   const outputDirPath = `${ __dirname }/dist/svg`;

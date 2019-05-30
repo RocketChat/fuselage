@@ -1,11 +1,13 @@
 const fs = require('fs');
+
 const rimraf = require('rimraf');
 const SVGIcons2SVGFontStream = require('svgicons2svgfont');
 const svg2ttf = require('svg2ttf');
 const ttf2eot = require('ttf2eot');
-const ttf2woff = require('ttf2woff')
+const ttf2woff = require('ttf2woff');
 const ttf2woff2 = require('ttf2woff2');
-const { createIconList, createIconListModule } = require('./helpers');
+
+const { createIconList/* , createIconListModule */ } = require('./helpers');
 const { getFontIcons } = require('./icons');
 const manifest = require('./package.json');
 
@@ -52,7 +54,7 @@ const createWoff2Font = (ttfFont) => Buffer.from(ttf2woff2(new Uint8Array(ttfFon
 const createEotFont = (ttfFont) => Buffer.from(ttf2eot(new Uint8Array(ttfFont)).buffer);
 
 const createCss = (icons) =>
-`@font-face {
+  `@font-face {
   font-family: "RocketChat";
   font-style: normal;
   font-weight: 400;
@@ -94,7 +96,7 @@ const createCss = (icons) =>
 }
 
 ${ new Array(10).fill(null).map((_, i) =>
-`.rcx-icon--${ i + 1 }x {
+    `.rcx-icon--${ i + 1 }x {
   font-size: ${ i + 1 }em;
 }`).join('\n\n') }
 
@@ -104,13 +106,13 @@ ${ new Array(10).fill(null).map((_, i) =>
 }
 
 ${ icons.map(({ name, unicode }) =>
-`.rcx-icon--${ name }::before {
+    `.rcx-icon--${ name }::before {
   content: "\\${ unicode[0].charCodeAt(0).toString(16) }";
 }`).join('\n\n') }
 `;
 
 const createHtmlPreview = (icons) =>
-`<!DOCTYPE html>
+  `<!DOCTYPE html>
 <meta charset="UTF-8">
 <title>${ manifest.name }: font</title>
 <style>
@@ -163,12 +165,12 @@ body {
 <link rel="stylesheet" type="text/css" href="./RocketChat.css" />
 <h1>${ manifest.name }: <em>font</em></h1>
 ${ icons.map(({ name }) =>
-`<div class="preview">
+    `<div class="preview">
   <div class="inner">
     <i class="rcx-icon rcx-icon--${ name }"></i>
   </div>
   <div class="label">${ name }</div>
-</div>`).join('\n')}`;
+</div>`).join('\n') }`;
 
 const build = async () => {
   const icons = getFontIcons();
@@ -180,7 +182,7 @@ const build = async () => {
   const eotFont = createEotFont(ttfFont);
   const css = createCss(icons);
   const iconList = createIconList(icons);
-  const iconListModule = createIconListModule(icons);
+  // const iconListModule = createIconListModule(icons);
   const htmlPreview = createHtmlPreview(icons);
 
   const outputDirPath = `${ __dirname }/dist/font`;

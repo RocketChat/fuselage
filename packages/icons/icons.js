@@ -1,27 +1,6 @@
-const glob = require('glob');
 const path = require('path');
 
-
-const getDirectional = () => glob.sync(`${ __dirname }/src/directional/*.svg`)
-  .map((match, i) => ({
-    name: path.basename(match, '.svg'),
-    path: match,
-    unicode: [ mirroredCharacters[i] ],
-  }));
-
-const getNeutral = () => glob.sync(`${ __dirname }/src/neutral/*.svg`)
-  .map((match, i) => ({
-    name: path.basename(match, '.svg'),
-    path: match,
-    unicode: [ String.fromCodePoint(0xe000 + i) ],
-  }));
-
-const getOther = () => glob.sync(`${ __dirname }/src/other/*.svg`)
-  .map((match, i) => ({
-    name: path.basename(match, '.svg'),
-    path: match,
-    unicode: [ String.fromCodePoint(0xe000 + i) ],
-  }));
+const glob = require('glob');
 
 const mirroredCharacters = [
   '\u0028', '\u0029', '\u003c', '\u003e', '\u005b', '\u005d', '\u007b', '\u007d', '\u00ab', '\u00bb', '\u0f3a',
@@ -63,9 +42,31 @@ const mirroredCharacters = [
   '\uff09', '\uff1c', '\uff1e', '\uff3b', '\uff3d', '\uff5b', '\uff5d', '\uff5f', '\uff60', '\uff62', '\uff63',
 ];
 
+
+const getDirectional = () => glob.sync(`${ __dirname }/src/directional/*.svg`)
+  .map((match, i) => ({
+    name: path.basename(match, '.svg'),
+    path: match,
+    unicode: [mirroredCharacters[i]],
+  }));
+
+const getNeutral = () => glob.sync(`${ __dirname }/src/neutral/*.svg`)
+  .map((match, i) => ({
+    name: path.basename(match, '.svg'),
+    path: match,
+    unicode: [String.fromCodePoint(0xe000 + i)],
+  }));
+
+const getOther = () => glob.sync(`${ __dirname }/src/other/*.svg`)
+  .map((match, i) => ({
+    name: path.basename(match, '.svg'),
+    path: match,
+    unicode: [String.fromCodePoint(0xe000 + i)],
+  }));
+
 const getFontIcons = () => [
-  ...getDirectional().map((icon, i) => ({ ...icon, unicode: [ mirroredCharacters[i] ] })),
-  ...getNeutral().map((icon, i) => ({ ...icon, unicode: [ String.fromCodePoint(0xe000 + i) ] })),
+  ...getDirectional().map((icon, i) => ({ ...icon, unicode: [mirroredCharacters[i]] })),
+  ...getNeutral().map((icon, i) => ({ ...icon, unicode: [String.fromCodePoint(0xe000 + i)] })),
 ].sort(({ name: a }, { name: b }) => a.localeCompare(b));
 
 const getSvgIcons = () => [

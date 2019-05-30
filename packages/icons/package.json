@@ -18,9 +18,11 @@
     "dist/"
   ],
   "scripts": {
-    "build": "node ./build"
+    "build": "node ./build",
+    "eslint": "eslint ."
   },
   "devDependencies": {
+    "glob": "^7.1.4",
     "rimraf": "^2.6.3",
     "svg2ttf": "^4.3.0",
     "svgicons2svgfont": "^9.0.4",
