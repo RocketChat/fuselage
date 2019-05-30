@@ -1,5 +1,5 @@
 module.exports = (api) => {
-  api.cache(false);
+  api.cache(true);
   return {
     presets: [
       [
@@ -22,8 +22,8 @@ module.exports = (api) => {
     plugins: [
       'emotion',
       '@babel/plugin-transform-destructuring',
+      '@babel/plugin-proposal-class-properties',
       'transform-es2015-arrow-functions',
-      'transform-class-properties',
       'syntax-class-properties',
     ],
   };

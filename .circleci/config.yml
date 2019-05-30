@@ -38,7 +38,7 @@ jobs:
       - run: yarn
       - run:
           command: |
-            yarn happo-ci
+            INSTALL_CMD="lerna bootstrap" yarn happo-ci
           working_directory: ~/repo/packages/fuselage/
 
 workflows:
