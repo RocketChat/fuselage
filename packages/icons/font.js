@@ -193,7 +193,7 @@ const build = async () => {
   fs.writeFileSync(`${ outputDirPath }/RocketChat.eot`, eotFont);
   fs.writeFileSync(`${ outputDirPath }/RocketChat.css`, css, { charset: 'utf8' });
   fs.writeFileSync(`${ outputDirPath }/index.js`, iconList, { charset: 'utf8' });
-  fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
+  // fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
   fs.writeFileSync(`${ outputDirPath }/index.html`, htmlPreview, { charset: 'utf8' });
 };
 

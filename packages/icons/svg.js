@@ -115,7 +115,7 @@ const build = async () => {
   fs.mkdirSync(outputDirPath, { recursive: true });
   fs.writeFileSync(`${ outputDirPath }/RocketChat.svg`, svgSprite);
   fs.writeFileSync(`${ outputDirPath }/index.js`, iconList, { charset: 'utf8' });
-  fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
+  // fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
   fs.writeFileSync(`${ outputDirPath }/index.html`, htmlPreview, { charset: 'utf8' });
 };
 
