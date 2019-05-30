@@ -1,0 +1,146 @@
+const fs = require('fs');
+const rimraf = require('rimraf');
+const SVGIcons2SVGFontStream = require('svgicons2svgfont');
+const svg2ttf = require('svg2ttf');
+const ttf2eot = require('ttf2eot');
+const ttf2woff = require('ttf2woff')
+const ttf2woff2 = require('ttf2woff2');
+const manifest = require('./package.json');
+const { getFontIcons } = require('./icons');
+
+
+const createSvgFont = (iconStreams) => new Promise((resolve, reject) => {
+  let buffer = Buffer.alloc(0);
+
+  const fontStream = new SVGIcons2SVGFontStream({
+    fontName: 'RocketChat',
+    fontHeight: 1024,
+    normalize: true,
+    log: () => {},
+  });
+
+  fontStream
+    .on('data', (data) => {
+      buffer = Buffer.concat([buffer, data]);
+    })
+    .on('error', (error) => reject(error))
+    .on('finish', () => resolve(buffer));
+
+  iconStreams.forEach((stream) => fontStream.write(stream));
+
+  fontStream.end();
+});
+
+const createTtfFont = (svgFont) => Buffer.from(svg2ttf(svgFont.toString('utf8'), {
+  copyright: manifest.copyright,
+  description: manifest.description,
+  url: manifest.homepage,
+  version: manifest.version.split('.').slice(0, 2).join('.'),
+}).buffer);
+
+const createWoffFont = (ttfFont) => Buffer.from(ttf2woff(new Uint8Array(ttfFont)).buffer);
+
+const createWoff2Font = (ttfFont) => Buffer.from(ttf2woff2(new Uint8Array(ttfFont)).buffer);
+
+const createEotFont = (ttfFont) => Buffer.from(ttf2eot(new Uint8Array(ttfFont)).buffer);
+
+const createCss = (icons) =>
+`@font-face {
+  font-family: "RocketChat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+
+  src: url("./RocketChat.eot");
+  src:
+    url("./RocketChat.eot?#iefix") format("embedded-opentype"),
+    url("./RocketChat.woff2") format("woff2"),
+    url("./RocketChat.woff") format("woff"),
+    url("./RocketChat.ttf") format("truetype"),
+    url("./RocketChat.svg#RocketChat") format("svg");
+}
+
+.rcx-icon {
+  display: inline-block;
+  font-family: "RocketChat";
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.rcx-icon--lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.rcx-icon--xs {
+  font-size: 0.75em;
+}
+
+.rcx-icon--sm {
+  font-size: 0.875em;
+}
+
+${ new Array(10).fill(null).map((_, i) =>
+`.rcx-icon--${ i + 1 }x {
+  font-size: ${ i + 1 }em;
+}`).join('\n\n') }
+
+.rcx-icon--fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+${ icons.map(({ name, unicode }) =>
+`.rcx-icon--${ name }::before {
+  content: "\\${ unicode[0].charCodeAt(0).toString(16) }";
+}`).join('\n\n') }
+`;
+
+const toCamelCase = (string) =>
+  string.replace(/([-_][a-z])/ig, (match) => match.toUpperCase().replace('-', '').replace('_', ''));
+
+const createIconList = (icons) =>
+`module.exports = ${ JSON.stringify(
+  icons.reduce((obj, { name }) => ({ ...obj, [toCamelCase(name)]: name }), {}), null, 2) };
+`;
+
+const createIconListModule = (icons) =>
+  icons.map(({ name }) => `export const ${ toCamelCase(name) } = ${ JSON.stringify(name) };`).join('\n');
+
+const build = async () => {
+  const icons = getFontIcons();
+  const iconStreams = icons.map(({ name, path, unicode }) => {
+    const stream = fs.createReadStream(path);
+    stream.metadata = { name, unicode };
+    return stream;
+  });
+
+  const svgFont = await createSvgFont(iconStreams);
+  const ttfFont = createTtfFont(svgFont);
+  const woffFont = createWoffFont(ttfFont);
+  const woff2Font = createWoff2Font(ttfFont);
+  const eotFont = createEotFont(ttfFont);
+  const css = createCss(icons);
+  const iconList = createIconList(icons);
+  const iconListModule = createIconListModule(icons);
+
+  const outputDirPath = `${ __dirname }/dist/font`;
+  rimraf.sync(outputDirPath);
+  fs.mkdirSync(outputDirPath, { recursive: true });
+  fs.writeFileSync(`${ outputDirPath }/RocketChat.svg`, svgFont);
+  fs.writeFileSync(`${ outputDirPath }/RocketChat.ttf`, ttfFont);
+  fs.writeFileSync(`${ outputDirPath }/RocketChat.woff`, woffFont);
+  fs.writeFileSync(`${ outputDirPath }/RocketChat.woff2`, woff2Font);
+  fs.writeFileSync(`${ outputDirPath }/RocketChat.eot`, eotFont);
+  fs.writeFileSync(`${ outputDirPath }/RocketChat.css`, css, { charset: 'utf8' });
+  fs.writeFileSync(`${ outputDirPath }/index.js`, iconList, { charset: 'utf8' });
+  fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
+};
+
+module.exports.build = build;
