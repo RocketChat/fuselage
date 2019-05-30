@@ -22,6 +22,8 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "test": "jest",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
+    "loki:test": "cross-env CHROME_PATH=/usr/bin/chromium-browser yarn loki test --chromeDockerImage=zenika/alpine-chrome:73 --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:update": "cross-env CHROME_PATH=/usr/bin/chromium-browser yarn loki update --chromeDockerImage=zenika/alpine-chrome:73 --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
