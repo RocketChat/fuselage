@@ -15,10 +15,9 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/issues"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "node ./build"
   },
   "devDependencies": {
-    "icon-font-generator": "^2.1.10",
     "rimraf": "^2.6.3",
     "svg2ttf": "^4.3.0",
     "svgicons2svgfont": "^9.0.4",

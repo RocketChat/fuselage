@@ -113,6 +113,64 @@ const createIconList = (icons) =>
 const createIconListModule = (icons) =>
   icons.map(({ name }) => `export const ${ toCamelCase(name) } = ${ JSON.stringify(name) };`).join('\n');
 
+const createHtmlPreview = (icons) =>
+`<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>${ manifest.name }</title>
+<style>
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.preview {
+    width: 100px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.preview .inner {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: #f5f5f5;
+    border-radius: 3px 3px 0 0;
+}
+
+.preview .inner i {
+    line-height: 85px;
+    font-size: 40px;
+    color: #333;
+}
+
+.label {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 10px;
+    font-family: Monaco, monospace;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: #ddd;
+    border-radius: 0 0 3px 3px;
+    color: #666;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="./RocketChat.css" />
+<h1>${ manifest.name }</h1>
+${ icons.map(({ name }) =>
+`<div class="preview">
+  <div class="inner">
+    <i class="rcx-icon rcx-icon--${ name }"></i>
+  </div>
+  <div class="label">${ name }</div>
+</div>`).join('\n')}`;
+
 const build = async () => {
   const icons = getFontIcons();
   const iconStreams = icons.map(({ name, path, unicode }) => {
@@ -129,6 +187,7 @@ const build = async () => {
   const css = createCss(icons);
   const iconList = createIconList(icons);
   const iconListModule = createIconListModule(icons);
+  const htmlPreview = createHtmlPreview(icons);
 
   const outputDirPath = `${ __dirname }/dist/font`;
   rimraf.sync(outputDirPath);
@@ -141,6 +200,7 @@ const build = async () => {
   fs.writeFileSync(`${ outputDirPath }/RocketChat.css`, css, { charset: 'utf8' });
   fs.writeFileSync(`${ outputDirPath }/index.js`, iconList, { charset: 'utf8' });
   fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
+  fs.writeFileSync(`${ outputDirPath }/index.html`, htmlPreview, { charset: 'utf8' });
 };
 
 module.exports.build = build;
