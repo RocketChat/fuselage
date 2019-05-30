@@ -27,13 +27,7 @@ jobs:
       CHROME_PATH: /usr/bin/chromium-browser
     steps:
       - checkout
-      - restore_cache:
-          key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
       - run: yarn
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
       - run: yarn build
       - run:
           command: |
@@ -52,16 +46,11 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - restore_cache:
-          key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
       - run: yarn
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
       - run: yarn build
+      - run: cp yarn.lock packages/fuselage
       - run:
-          command: yarn happo-ci
+          command: yarn lerna run happo-ci --scope @rocket.chat/fuselage
           environment:
             - INSTALL_CMD: lerna bootstrap
 

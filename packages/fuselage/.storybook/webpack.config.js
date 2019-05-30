@@ -1,12 +1,10 @@
-
-const path = require('path')
 module.exports = async ({ config, mode }) => {
-  config.entry.unshift('babel-polyfill');
-  config.module.rules.push({
-    test: /\.(js)$/,
-    include: /node_modules\/loki/,
-    loader: "babel-loader"
-  });
+  const jsRule = config.module.rules.find(({ test }) => test.test('index.js'))
+  jsRule.include = [
+    ...jsRule.include,
+    /node_modules\/loki/,
+  ];
+  delete jsRule.exclude;
 
   config.module.rules.push({
     test: /\.scss$/,
