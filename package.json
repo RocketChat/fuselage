@@ -27,7 +27,8 @@
     "test": "lerna run test",
     "eslint": "lerna run eslint",
     "stylelint": "lerna run stylelint",
-    "lint": "run-s eslint stylelint"
+    "lint": "run-s eslint stylelint",
+    "happo-ci": "lerna run happo-ci"
   },
   "husky": {
     "hooks": {
