@@ -1,0 +1,34 @@
+{
+  "name": "@rocket.chat/icons",
+  "version": "0.1.0",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "homepage": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Livechat.Admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/issues"
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "node ./build",
+    "eslint": "eslint ."
+  },
+  "devDependencies": {
+    "glob": "^7.1.4",
+    "rimraf": "^2.6.3",
+    "svg2ttf": "^4.3.0",
+    "svgicons2svgfont": "^9.0.4",
+    "ttf2eot": "^2.0.0",
+    "ttf2woff": "^2.0.1",
+    "ttf2woff2": "^3.0.0",
+    "xml2js": "^0.4.19"
+  }
+}

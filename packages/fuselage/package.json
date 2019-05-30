@@ -1,9 +1,20 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
   "main": "dist/index.js",
   "source": "src/index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Livechat.Admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/issues"
+  },
   "scripts": {
     "start": "webpack --watch --mode development",
     "build": "webpack --mode production",
@@ -11,6 +22,8 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "test": "jest",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
+    "loki:test": "cross-env CHROME_PATH=/usr/bin/chromium-browser yarn loki test --chromeDockerImage=zenika/alpine-chrome:73 --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:update": "cross-env CHROME_PATH=/usr/bin/chromium-browser yarn loki update --chromeDockerImage=zenika/alpine-chrome:73 --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -33,16 +46,15 @@
     "@storybook/react": "^5.0.11",
     "@storybook/theming": "^5.0.11",
     "babel-loader": "^8.0.6",
-    "loki": "^0.15.0",
-    "babel-plugin-emotion": "^10.0.9",
     "identity-obj-proxy": "^3.0.0",
+    "loki": "^0.15.0",
     "node-sass": "^4.12.0",
     "stylelint": "^10.0.1",
     "stylelint-order": "^3.0.0"
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(scss)$": "identity-obj-proxy"
+      "\\.(css|scss)$": "identity-obj-proxy"
     }
   },
   "loki": {
@@ -60,5 +72,8 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "dependencies": {
+    "@rocket.chat/icons": "^0.1.0"
   }
 }

@@ -1,9 +1,20 @@
 {
   "name": "@rocket.chat/livechat-admin",
   "version": "0.1.0",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Livechat.Admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/issues"
+  },
   "private": true,
   "dependencies": {
-    "@rocket.chat/fuselage": "^0.0.0",
+    "@rocket.chat/fuselage": "^0.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
