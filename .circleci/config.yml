@@ -57,9 +57,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - loki:
-          requires:
-            - build
+      # - loki:
+      #     requires:
+      #       - build
       - happo:
           requires:
             - build
