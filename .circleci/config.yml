@@ -4,8 +4,6 @@ jobs:
     docker:
       - image: circleci/node:10.15
     working_directory: ~/repo
-    environment:
-      CHROME_PATH: /usr/bin/chromium-browser
     steps:
       - checkout
       - restore_cache:
@@ -15,9 +13,13 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
-      - run: yarn lint
-      - run: yarn build
-      - run: yarn test
+      - run: yarn lerna run lint --stream
+      - run: yarn lerna run build --stream
+      - run: yarn lerna run test --stream
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - .
 
   loki:
     docker:
@@ -28,36 +30,36 @@ jobs:
     steps:
       - checkout
       - run: yarn
-      - run: yarn build
+      - run: yarn lerna run build --stream
+      - run: yarn lerna run build-storybook --scope @rocket.chat/fuselage --stream
       - run:
           command: |
-            cd ./packages/fuselage/
-            yarn build-storybook
-            # TODO workaround to run loki without using a docker container (we have chrome installed here)
-            # maybe change this workaround to --configurationFilter or --targetFilter
             cat package.json | sed s/\.docker/.app/ > package.json-new
             mv package.json-new package.json
-            # end workaround
-            yarn loki test --verboseRenderer--requireReference --reactUri file:./storybook-static
+          working_directory: ~/repo/packages/fuselage
+      - run:
+          command: yarn loki test --verboseRenderer--requireReference --reactUri file:./storybook-static
+          working_directory: ~/repo/packages/fuselage
 
   happo:
     docker:
       - image: circleci/node:10.15
     working_directory: ~/repo
     steps:
-      - checkout
-      - run: yarn
-      - run: yarn build
+      - attach_workspace:
+          at: ~/repo
       - run: cp yarn.lock packages/fuselage
       - run:
-          command: yarn lerna run happo-ci --scope @rocket.chat/fuselage
-          environment:
-            - INSTALL_CMD: lerna bootstrap
+          command: yarn lerna run happo-ci --scope @rocket.chat/fuselage --stream
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - loki
-      - happo
+      - loki:
+          requires:
+            - build
+      - happo:
+          requires:
+            - build
