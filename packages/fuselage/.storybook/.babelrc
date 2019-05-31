@@ -1,4 +1,5 @@
 {
+  "sourceType": "unambiguous",
   "presets": [
     [
       "@babel/preset-env",
@@ -10,7 +11,7 @@
             "Safari >= 7",
             "Explorer 11",
             "last 4 Edge versions"
-          ],
+          ]
         }
       }
     ],

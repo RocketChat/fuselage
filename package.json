@@ -43,9 +43,7 @@
     "eslint": "lerna run eslint",
     "stylelint": "lerna run stylelint",
     "lint": "run-s eslint stylelint",
-    "storybook": "lerna run storybook --parallel",
-    "build-storybook": "lerna run build-storybook --parallel",
-    "deploy-storybook": "lerna run deploy-storybook"
+    "storybook": "lerna run storybook --parallel"
   },
   "husky": {
     "hooks": {

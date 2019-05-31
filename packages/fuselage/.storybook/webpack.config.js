@@ -1,4 +1,11 @@
 module.exports = async ({ config, mode }) => {
+  const jsRule = config.module.rules.find(({ test }) => test.test('index.js'))
+  jsRule.include = [
+    ...jsRule.include,
+    /node_modules\/loki/,
+  ];
+  delete jsRule.exclude;
+
   config.module.rules.push({
     test: /\.scss$/,
     use: [
