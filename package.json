@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -10,11 +10,26 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@rocket.chat/eslint-config": "^0.3.0",
+    "@storybook/addon-a11y": "^5.0.11",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-backgrounds": "^5.0.11",
+    "@storybook/addon-centered": "^5.0.11",
+    "@storybook/addon-info": "^5.0.11",
+    "@storybook/addon-jest": "^5.0.11",
+    "@storybook/addon-knobs": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addon-notes": "^5.0.11",
+    "@storybook/addon-options": "^5.0.11",
+    "@storybook/addon-viewport": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "@storybook/theming": "^5.0.11",
     "babel-loader": "^8.0.6",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-import-resolver-lerna": "^1.1.0",
     "eslint-plugin-react": "^7.13.0",
+    "gh-pages": "^2.0.1",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "lerna": "^3.14.1",
@@ -27,7 +42,8 @@
     "test": "lerna run test",
     "eslint": "lerna run eslint",
     "stylelint": "lerna run stylelint",
-    "lint": "run-s eslint stylelint"
+    "lint": "run-s eslint stylelint",
+    "storybook": "lerna run storybook --parallel"
   },
   "husky": {
     "hooks": {

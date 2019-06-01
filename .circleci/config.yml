@@ -52,6 +52,16 @@ jobs:
       - run:
           command: yarn lerna run happo-ci --scope @rocket.chat/fuselage --stream
 
+  deploy-storybook:
+    docker:
+      - image: circleci/node:10.15
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: yarn lerna run build-storybook --parallel --stream
+      - run: yarn lerna run deploy-storybook --parallel --stream
+
 workflows:
   version: 2
   build_and_test:
@@ -63,3 +73,9 @@ workflows:
       - happo:
           requires:
             - build
+      - deploy-storybook:
+          requires:
+            - build
+          filters:
+              branches:
+                only: master

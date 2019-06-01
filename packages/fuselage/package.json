@@ -27,7 +27,8 @@
     "loki:test": "loki test --chromeDockerImage=zenika/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update": "loki update --chromeDockerImage=zenika/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "gh-pages --dist ./storybook-static --dest fuselage --message \"Deploy Storybook to Github Pages [skip ci]\" --user \"Guilherme Gazzo <guilherme.gazzo@rocket.chat>\""
   },
   "peerDependencies": {
     "react": "^16.8.6"
@@ -54,6 +55,7 @@
     "identity-obj-proxy": "^3.0.0",
     "loki": "^0.16.0",
     "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
     "stylelint": "^10.0.1",
     "stylelint-order": "^3.0.0"
   },
