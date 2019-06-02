@@ -38,7 +38,7 @@ jobs:
             mv package.json-new package.json
           working_directory: ~/repo/packages/fuselage
       - run:
-          command: yarn loki test --verboseRenderer--requireReference --reactUri file:./storybook-static
+          command: yarn run loki:test-ci
           working_directory: ~/repo/packages/fuselage
 
   happo:
@@ -67,9 +67,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-      # - loki:
-      #     requires:
-      #       - build
+      - loki:
+          requires:
+            - build
       - happo:
           requires:
             - build
