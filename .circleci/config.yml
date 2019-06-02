@@ -41,6 +41,10 @@ jobs:
           command: yarn run loki:test-ci
           working_directory: ~/repo/packages/fuselage
 
+      - store_artifacts:
+          path: ~/repo/packages/fuselage/.loki/
+
+
   happo:
     docker:
       - image: circleci/node:10.15
