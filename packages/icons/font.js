@@ -186,7 +186,9 @@ const build = async () => {
   const htmlPreview = createHtmlPreview(icons);
 
   const outputDirPath = `${ __dirname }/dist/font`;
-  rimraf.sync(outputDirPath);
+  if (fs.existsSync(outputDirPath)) {
+    rimraf.sync(outputDirPath);
+  }
   fs.mkdirSync(outputDirPath, { recursive: true });
   fs.writeFileSync(`${ outputDirPath }/RocketChat.svg`, svgFont);
   fs.writeFileSync(`${ outputDirPath }/RocketChat.ttf`, ttfFont);
