@@ -42,7 +42,7 @@ jobs:
           working_directory: ~/repo/packages/fuselage
 
       - store_artifacts:
-          path: ~/repo/packages/fuselage/.loki/
+          path: ~/repo/packages/fuselage/.loki/difference
 
 
   happo:
