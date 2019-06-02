@@ -23,7 +23,7 @@ jobs:
 
   loki:
     docker:
-      - image: zenika/alpine-chrome:with-node
+      - image: chinello/alpine-chrome:with-node
     working_directory: ~/repo
     environment:
       CHROME_PATH: /usr/bin/chromium-browser
