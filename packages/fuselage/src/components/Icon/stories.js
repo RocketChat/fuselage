@@ -30,7 +30,7 @@ const stories = storiesOf('Components|Icon', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['Icon'] })
-  .add('all', () => (
+  .lokiSkip('all', () => (
     <div style={{ display: 'flex', flexFlow: 'row wrap' }}>
       {Object.entries(iconNames).map(([varName, name], key) => (
         <IconDisplay key={key} name={name} varName={varName} color={color('color', 'gray')} size={number('size', 40)}>

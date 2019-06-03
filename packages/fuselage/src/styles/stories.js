@@ -35,7 +35,7 @@ const ColorGrid = ({ children }) => (
 storiesOf('Styles|Colors', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .add('Palette', () => (
+  .lokiSkip('Palette', () => (
     <ColorGrid>
       {Object.entries(colorPalette).map(([name, color], key) => (
         <Color key={key} name={name} color={color} />
