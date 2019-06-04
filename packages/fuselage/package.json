@@ -24,8 +24,10 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "test": "jest",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
-    "loki:test": "loki test --chromeDockerImage=zenika/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "loki:update": "loki update --chromeDockerImage=zenika/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "gh-pages --dist ./storybook-static --dest fuselage --message \"Deploy Storybook to Github Pages [skip ci]\" --user \"Guilherme Gazzo <guilherme.gazzo@rocket.chat>\""
