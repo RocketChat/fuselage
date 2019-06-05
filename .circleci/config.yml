@@ -54,7 +54,9 @@ jobs:
           at: ~/repo
       - run: cp yarn.lock packages/fuselage
       - run:
-          command: yarn lerna run happo-ci --scope @rocket.chat/fuselage --stream
+          command: yarn lerna run happo-ci
+          environment:
+            - INSTALL_CMD: lerna bootstrap
 
   deploy-storybook:
     docker:
