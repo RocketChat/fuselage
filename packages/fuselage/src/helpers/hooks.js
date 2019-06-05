@@ -1,4 +1,6 @@
-import { Children, cloneElement, useMemo } from 'react';
+import { Children, cloneElement, useLayoutEffect, useMemo } from 'react';
+
+import baseStyles from '../styles/index.scss';
 
 
 const flatMap = (arr, map = (x) => x) => {
@@ -21,14 +23,24 @@ const flatMap = (arr, map = (x) => x) => {
   return result;
 };
 
-export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassName) =>
-  useMemo(() => [
-    styles[rootClassName],
+export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassName) => {
+  useLayoutEffect(() => {
+    baseStyles.use();
+    styles.use();
+    return () => {
+      baseStyles.unuse();
+      styles.unuse();
+    };
+  }, [styles]);
+
+  return useMemo(() => [
+    styles.locals[rootClassName],
     ...flatMap(Object.entries(modifiers), ([modifier, value]) => [
-      value && styles[`${ rootClassName }--${ modifier }`],
-      typeof value !== 'boolean' && styles[`${ rootClassName }--${ modifier }-${ value }`],
+      value && styles.locals[`${ rootClassName }--${ modifier }`],
+      typeof value !== 'boolean' && styles.locals[`${ rootClassName }--${ modifier }-${ value }`],
     ]), forwardedClassName].filter(Boolean).join(' '),
   [modifiers, forwardedClassName]);
+};
 
 export const useChildrenWithClassName = (styles, rootClassName, childClassName, children) =>
   useMemo(() =>
