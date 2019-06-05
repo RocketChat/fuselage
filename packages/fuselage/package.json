@@ -83,6 +83,8 @@
     }
   },
   "dependencies": {
-    "@rocket.chat/icons": "^0.1.0"
+    "@rocket.chat/icons": "^0.1.0",
+    "css-vars-ponyfill": "^2.0.2",
+    "react-helmet": "^5.2.1"
   }
 }

@@ -1,43 +1,34 @@
-$color-dark-100: #0c0d0f;
-$color-dark-90: #1e232a;
-$color-dark-80: #2e343e;
-$color-dark-70: #53585f;
-$color-dark-30: #9da2a9;
-$color-dark-20: #caced1;
-$color-dark-10: #e0e5e8;
-$color-dark-05: #f1f2f4;
-$color-dark-blue: #175cc4;
-$color-blue: #1d74f5;
-$color-light-blue: #4eb2f5;
-$color-lighter-blue: #e8f2ff;
-$color-purple: #861da8;
-$color-red: #f5455c;
-$color-dark-red: #e0364d;
-$color-orange: #f59547;
-$color-yellow: #ffd21f;
-$color-dark-yellow: #f6c502;
-$color-green: #2de0a5;
-$color-dark-green: #26d198;
+$color-palette: (
+  color-dark-100: #0c0d0f,
+  color-dark-90: #1e232a,
+  color-dark-80: #2e343e,
+  color-dark-70: #53585f,
+  color-dark-30: #9da2a9,
+  color-dark-20: #caced1,
+  color-dark-10: #e0e5e8,
+  color-dark-05: #f1f2f4,
+  color-dark-blue: #175cc4,
+  color-blue: #1d74f5,
+  color-light-blue: #4eb2f5,
+  color-lighter-blue: #e8f2ff,
+  color-purple: #861da8,
+  color-red: #f5455c,
+  color-dark-red: #e0364d,
+  color-orange: #f59547,
+  color-yellow: #ffd21f,
+  color-dark-yellow: #f6c502,
+  color-green: #2de0a5,
+  color-dark-green: #26d198,
+);
 
 :export {
-  color-dark-100: $color-dark-100;
-  color-dark-90: $color-dark-90;
-  color-dark-80: $color-dark-80;
-  color-dark-70: $color-dark-70;
-  color-dark-30: $color-dark-30;
-  color-dark-20: $color-dark-20;
-  color-dark-10: $color-dark-10;
-  color-dark-05: $color-dark-05;
-  color-dark-blue: $color-dark-blue;
-  color-blue: $color-blue;
-  color-light-blue: $color-light-blue;
-  color-lighter-blue: $color-lighter-blue;
-  color-purple: $color-purple;
-  color-red: $color-red;
-  color-dark-red: $color-dark-red;
-  color-orange: $color-orange;
-  color-yellow: $color-yellow;
-  color-dark-yellow: $color-dark-yellow;
-  color-green: $color-green;
-  color-dark-green: $color-dark-green;
+  @each $name, $value in $color-palette {
+    #{$name}: $value;
+  }
+}
+
+:root {
+  @each $name, $value in $color-palette {
+    --#{$name}: #{$value};
+  }
 }

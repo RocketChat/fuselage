@@ -1,11 +1,13 @@
-import React from 'react';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { Helmet } from 'react-helmet';
 
-import colorPalette from './colorPalette.scss';
 import { Button } from '../components/Button';
 import { ButtonGroup } from '../components/ButtonGroup';
+import '../helpers/cssCustomPropertiesPonyfill';
+import colorPalette from './colorPalette.scss';
 
 
 const Color = ({ color, name }) => (
@@ -47,14 +49,19 @@ storiesOf('Styles|Theming', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .add('Example', () => (
-    <div style={{
-      '--button-primary-background': 'lightgreen',
-      '--button-cancel-color': 'tomato',
-    }}>
+    <>
+      <Helmet>
+        <style type="text/css">{`
+        :root {
+          --button-primary-background: lightgreen;
+          --button-cancel-color: tomato;
+        }
+        `}</style>
+      </Helmet>
       <ButtonGroup>
         <Button primary>Yes</Button>
         <Button>Maybe</Button>
         <Button cancel>No</Button>
       </ButtonGroup>
-    </div>
+    </>
   ));
