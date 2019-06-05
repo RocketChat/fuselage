@@ -63,7 +63,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|scss)$": "identity-obj-proxy"
+      "\\.(css|scss)$": "<rootDir>/mocks/styleMock.js"
     }
   },
   "loki": {
