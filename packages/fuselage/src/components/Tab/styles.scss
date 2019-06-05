@@ -1,23 +1,23 @@
 .Tab {
-	flex: 0 0 auto;
+  flex: 0 0 auto;
 
-	box-sizing: border-box;
-	margin: 0 1rem;
-	padding: 1rem 0;
+  box-sizing: border-box;
+  margin: 0 1rem;
+  padding: 1rem 0;
 
-	cursor: pointer;
-	transition: all 0.3s;
+  cursor: pointer;
+  transition: all 0.3s;
 
-	color: var(--rc-color-primary-light);
-	border-bottom: 2px solid transparent;
+  color: var(--rc-color-primary-light);
+  border-bottom: 2px solid transparent;
 
-	font-family: var(--default-font-family);
-	font-size: 1rem;
-	font-weight: 500;
-	line-height: 1.25rem;
+  font-family: var(--default-font-family);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25rem;
 }
 
 .Tab--active {
-	color: var(--rc-color-button-primary);
-	border-bottom-color: var(--rc-color-button-primary);
+  color: var(--rc-color-button-primary);
+  border-bottom-color: var(--rc-color-button-primary);
 }

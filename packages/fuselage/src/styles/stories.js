@@ -39,7 +39,7 @@ storiesOf('Styles|Colors', module)
   .addDecorator(centered)
   .lokiSkip('Palette', () => (
     <ColorGrid>
-      {Object.entries(colorPalette).map(([name, color], key) => (
+      {Object.entries(colorPalette.locals).map(([name, color], key) => (
         <Color key={key} name={name} color={color} />
       ))}
     </ColorGrid>
