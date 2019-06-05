@@ -54,6 +54,7 @@
     "babel-loader": "^8.0.6",
     "happo-plugin-storybook": "^2.4.0",
     "happo.io": "^3.15.0",
+    "husky": "^2.3.0",
     "identity-obj-proxy": "^3.0.0",
     "loki": "^0.16.0",
     "node-sass": "^4.12.0",
