@@ -20,7 +20,7 @@ storiesOf('Components|ButtonGroup', module)
     >
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>
-      <Button cancel>Button 3</Button>
+      <Button danger>Button 3</Button>
     </ButtonGroup>
   ))
   .add('wrap', () => (
@@ -31,7 +31,10 @@ storiesOf('Components|ButtonGroup', module)
     >
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>
-      <Button cancel>Button 3</Button>
+      <Button danger>Button 3</Button>
+      <Button bland>Button 4</Button>
+      <Button outline>Button 5</Button>
+      <Button nude>Button 6</Button>
     </ButtonGroup>
   ))
   .add('stretch', () => (
@@ -42,7 +45,7 @@ storiesOf('Components|ButtonGroup', module)
     >
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>
-      <Button cancel>Button 3</Button>
+      <Button danger>Button 3</Button>
     </ButtonGroup>
   ))
   .add('vertical', () => (
@@ -53,6 +56,6 @@ storiesOf('Components|ButtonGroup', module)
     >
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>
-      <Button cancel>Button 3</Button>
+      <Button danger>Button 3</Button>
     </ButtonGroup>
   ));

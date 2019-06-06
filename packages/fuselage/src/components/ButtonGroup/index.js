@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useStyle, useChildrenWithClassName } from '../../helpers/hooks';
+import { useStyle } from '../../helpers/hooks';
 import styles from './styles.scss';
 
 
@@ -21,7 +21,7 @@ export function ButtonGroup({
       }, className)}
       {...props}
     >
-      {useChildrenWithClassName(styles, 'ButtonGroup', 'Button', children)}
+      {children}
     </div>
   );
 }
