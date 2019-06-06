@@ -32,12 +32,7 @@ export function Button({
         bland,
         outline,
         nude,
-        small,
         square,
-        stack,
-        noPadding,
-        loading,
-        full,
       }, className)}
       {...props}
     />

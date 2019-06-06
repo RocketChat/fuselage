@@ -5,7 +5,6 @@ import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { centeredWithWidth } from '../../helpers/storybook';
 import { Icon } from '../Icon';
 
 import { Button } from './index';
@@ -95,38 +94,10 @@ storiesOf('Components|Button', module)
       rel="noopener noreferrer"
     />
   ))
-  .add('small', () => (
-    <Button
-      {...props({ small: true })}
-    />
-  ))
   .add('square', () => (
     <Button
       {...props({ square: true })}
-    />
-  ))
-  .add('stack', () => (
-    <Button
-      {...props({ stack: true })}
-    />
-  ))
-  .add('noPadding', () => (
-    <Button
-      {...props({ noPadding: true })}
-    />
-  ))
-  .add('loading', () => (
-    <Button
-      {...props({ loading: true })}
-    />
+    >
+      <Icon name={select('icon', icons, icons.plus)} />
+    </Button>
   ));
-
-storiesOf('Components|Button', module)
-  .addDecorator(withKnobs)
-  .addDecorator(centeredWithWidth('100vw'))
-  .addParameters({ jest: ['Button'] })
-  .add('full', () => (
-    <Button
-      {...props({ full: true })}
-    />
-  ), { viewport: { defaultViewport: 'iphonex' } });

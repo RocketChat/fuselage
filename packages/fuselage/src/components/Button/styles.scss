@@ -22,11 +22,7 @@
   --button-bland-font-weight: 500;
   --button-nude-font-weight: 400;
   --button-transition-duration: 300ms;
-  // TODO: standardize these vars
-  --button-square-size: 36px;
-  --button-padding-small: 0 0.5rem;
-  --button-height-small: 28px;
-  --button-text-size-small: 13px;
+  --button-square-size: 44px;
 }
 
 .Button {
@@ -186,70 +182,8 @@
   font-weight: var(--button-nude-font-weight);
 }
 
-.Button--small {
-  height: var(--button-height-small);
-  padding: var(--button-padding-small);
-
-  font-size: var(--button-text-size-small);
-}
-
 .Button--square {
-  display: flex;
-  flex: 0 0 var(--button-square-size);
-
-  margin: 0;
+  width: var(--button-square-size);
+  height: var(--button-square-size);
   padding: 0;
-  align-items: center;
-  justify-content: center;
-}
-
-.Button--stack {
-  width: 100%;
-}
-
-.Button--noPadding {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.Button--full {
-  @media (max-width: 779px) {
-    width: 100%;
-  }
-}
-
-@keyframes Button--spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.Button--loading {
-  position: relative;
-
-  padding-right: calc(3 * 0.782rem);
-
-  transition: padding-right 0.3s;
-
-  &::before {
-    position: absolute;
-    top: 25%;
-    right: 0.782rem;
-
-    display: block;
-
-    width: 20px;
-    height: 20px;
-
-    content: "";
-    animation: Button--spin 1s infinite cubic-bezier(0.14, 0.48, 0.45, 0.63);
-
-    border: 0.15rem solid rgba(127, 127, 127, 0.5);
-    border-top-color: white;
-    border-radius: 50%;
-  }
 }
