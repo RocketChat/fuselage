@@ -1,6 +1,6 @@
 :root {
   --button-height: 2.25rem;
-  --button-padding: 0 1.5rem;
+  --button-padding: 0.375rem 1.5rem;
   --button-border-width: var(--border);
   --button-border-radius: var(--border-radius);
   --button-default-background: transparent;
@@ -32,6 +32,8 @@
 .Button {
   position: relative;
 
+  display: inline-block;
+
   height: var(--button-height);
   padding: var(--button-padding);
 
@@ -43,6 +45,7 @@
     border-color var(--button-transition-duration),
     color var(--button-transition-duration);
   text-align: center;
+  text-decoration: none;
 
   color: var(--button-default-color);
   border-width: var(--button-border-width);

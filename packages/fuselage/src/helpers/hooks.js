@@ -28,8 +28,12 @@ export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassNa
     baseStyles.use();
     styles.use();
     return () => {
-      baseStyles.unuse();
-      styles.unuse();
+      try {
+        baseStyles.unuse();
+        styles.unuse();
+      } catch (error) {
+        console.warn(error);
+      }
     };
   }, [styles]);
 

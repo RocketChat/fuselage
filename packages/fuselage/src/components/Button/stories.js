@@ -86,6 +86,15 @@ storiesOf('Components|Button', module)
       <Icon name={select('icon', icons, icons.edit)} /> {text('text')}
     </Button>
   ))
+  .add('as link', () => (
+    <Button
+      {...props()}
+      is="a"
+      href="https://rocket.chat"
+      target="_blank"
+      rel="noopener noreferrer"
+    />
+  ))
   .add('small', () => (
     <Button
       {...props({ small: true })}
