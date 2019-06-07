@@ -40,7 +40,7 @@ export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassNa
   return useMemo(() => [
     styles.locals[rootClassName],
     ...flatMap(Object.entries(modifiers), ([modifier, value]) => [
-      value && styles.locals[`${ rootClassName }--${ modifier }`],
+      typeof value === 'boolean' && value && styles.locals[`${ rootClassName }--${ modifier }`],
       typeof value !== 'boolean' && styles.locals[`${ rootClassName }--${ modifier }-${ value }`],
     ]), forwardedClassName].filter(Boolean).join(' '),
   [modifiers, forwardedClassName]);

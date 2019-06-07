@@ -7,3 +7,19 @@ export const centeredWithWidth = (width) => (storyFn) => centered(() => (
     {storyFn()}
   </div>
 ));
+
+export const horizontallyCentered = (storyFn) => centered(() => (
+  <div style={{
+    height: '100vh',
+  }}>
+    {storyFn()}
+  </div>
+));
+
+export const verticallyCentered = (storyFn) => centered(() => (
+  <div style={{
+    width: '100vw',
+  }}>
+    {storyFn()}
+  </div>
+));
