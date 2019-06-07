@@ -31,6 +31,8 @@
   display: inline-block;
   overflow: hidden;
 
+  box-sizing: border-box;
+
   height: var(--button-height);
   padding: var(--button-padding);
 

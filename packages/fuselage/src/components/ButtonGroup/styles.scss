@@ -6,6 +6,8 @@
 .ButtonGroup {
   display: flex;
 
+  box-sizing: border-box;
+
   margin: var(--button-group-vertical-margin) calc(var(--button-group-gap) / 2);
   flex-flow: row nowrap;
 

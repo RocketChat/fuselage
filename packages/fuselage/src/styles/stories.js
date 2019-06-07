@@ -53,15 +53,15 @@ storiesOf('Styles|Theming', module)
       <Helmet>
         <style type="text/css">{`
         :root {
-          --button-primary-background: lightgreen;
-          --button-cancel-color: tomato;
+          --button-primary-background: navy;
+          --button-danger-background: tomato;
         }
         `}</style>
       </Helmet>
       <ButtonGroup>
         <Button primary>Yes</Button>
         <Button>Maybe</Button>
-        <Button cancel>No</Button>
+        <Button danger>No</Button>
       </ButtonGroup>
     </>
   ));
