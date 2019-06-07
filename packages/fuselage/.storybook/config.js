@@ -17,6 +17,7 @@ addParameters({
       brandUrl: manifest.homepage,
       gridCellSize: 8,
     }),
+    addonPanelInRight: true,
     hierarchySeparator: /\//,
     hierarchyRootSeparator: /\|/,
   },

@@ -1,8 +1,8 @@
 import React from 'react';
+import centered from '@storybook/addon-centered/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
-import { centeredWithWidth } from '../../helpers/storybook';
 import { Button } from '../Button';
 
 import { ButtonGroup } from './index';
@@ -10,7 +10,7 @@ import { ButtonGroup } from './index';
 
 storiesOf('Components|ButtonGroup', module)
   .addDecorator(withKnobs)
-  .addDecorator(centeredWithWidth('500px'))
+  .addDecorator(centered)
   .addParameters({ jest: ['ButtonGroup'] })
   .add('default', () => (
     <ButtonGroup
@@ -28,6 +28,7 @@ storiesOf('Components|ButtonGroup', module)
       wrap={boolean('wrap', true)}
       stretch={boolean('stretch', false)}
       vertical={boolean('vertical', false)}
+      style={{ width: '50vw' }}
     >
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>
@@ -42,6 +43,7 @@ storiesOf('Components|ButtonGroup', module)
       wrap={boolean('wrap', false)}
       stretch={boolean('stretch', true)}
       vertical={boolean('vertical', false)}
+      style={{ width: '100vw', margin: '0' }}
     >
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>

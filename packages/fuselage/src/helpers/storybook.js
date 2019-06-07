@@ -2,12 +2,6 @@ import React from 'react';
 import centered from '@storybook/addon-centered/react';
 
 
-export const centeredWithWidth = (maxWidth) => (storyFn) => centered(() => (
-  <div style={{ width: maxWidth }}>
-    {storyFn()}
-  </div>
-));
-
 export const horizontallyCentered = (storyFn) => centered(() => (
   <div style={{
     height: '100vh',
