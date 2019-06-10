@@ -53,8 +53,8 @@ storiesOf('Styles|Theming', module)
       <Helmet>
         <style type="text/css">{`
         :root {
-          --button-primary-background: navy;
-          --button-danger-background: tomato;
+          --rcx-button-primary-background: navy;
+          --rcx-button-danger-background: tomato;
         }
         `}</style>
       </Helmet>

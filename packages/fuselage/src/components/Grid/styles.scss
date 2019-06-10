@@ -10,8 +10,8 @@ $columns: (
 
 :root {
   @each $breakpoint in map-keys($width) {
-    --grid-#{$breakpoint}-width: #{map-get($width, $breakpoint)};
-    --grid-#{$breakpoint}-columns: #{map-get($columns, $breakpoint)};
+    --rcx-grid-#{$breakpoint}-width: #{map-get($width, $breakpoint)};
+    --rcx-grid-#{$breakpoint}-columns: #{map-get($columns, $breakpoint)};
   }
 }
 
@@ -28,7 +28,7 @@ $itemAlignments: flex-start, center, flex-end, stretch, baseline;
 
   @each $breakpoint in map-keys($width) {
     @media (min-width: map-get($width, $breakpoint)) {
-      min-width: var(--grid-#{$breakpoint}-width);
+      min-width: var(--rcx-grid-#{$breakpoint}-width);
     }
   }
 }
@@ -78,8 +78,8 @@ $itemAlignments: flex-start, center, flex-end, stretch, baseline;
   @for $i from 1 through map-get($columns, $breakpoint) {
     .Grid--#{$breakpoint}-#{$i} {
       @media (min-width: map-get($width, $breakpoint)) {
-        max-width: calc(100% / var(--grid-#{$breakpoint}-columns) * #{$i});
-        flex-basis: calc(100% / var(--grid-#{$breakpoint}-columns) * #{$i});
+        max-width: calc(100% / var(--rcx-grid-#{$breakpoint}-columns) * #{$i});
+        flex-basis: calc(100% / var(--rcx-grid-#{$breakpoint}-columns) * #{$i});
       }
     }
   }

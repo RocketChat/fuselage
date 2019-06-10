@@ -1,6 +1,6 @@
 :root {
-  --button-group-vertical-margin: 8px;
-  --button-group-gap: 8px;
+  --rcx-button-group-vertical-margin: 8px;
+  --rcx-button-group-gap: 8px;
 }
 
 .ButtonGroup {
@@ -8,11 +8,11 @@
 
   box-sizing: border-box;
 
-  margin: var(--button-group-vertical-margin) calc(var(--button-group-gap) / 2);
+  margin: var(--rcx-button-group-vertical-margin) calc(var(--rcx-button-group-gap) / 2);
   flex-flow: row nowrap;
 
   & > .Button {
-    margin: 0 calc(var(--button-group-gap) / 2);
+    margin: 0 calc(var(--rcx-button-group-gap) / 2);
   }
 }
 
@@ -20,7 +20,7 @@
   flex-wrap: wrap;
 
   & > .Button {
-    margin: calc(var(--button-group-gap) / 2);
+    margin: calc(var(--rcx-button-group-gap) / 2);
   }
 }
 
@@ -36,6 +36,6 @@
   flex-direction: column;
 
   & > .Button {
-    margin: calc(var(--button-group-gap) / 2) 0;
+    margin: calc(var(--rcx-button-group-gap) / 2) 0;
   }
 }

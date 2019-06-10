@@ -1,28 +1,28 @@
 :root {
-  --button-height: 2.25rem;
-  --button-padding: 0.375rem 1.5rem;
-  --button-border-width: var(--border);
-  --button-border-radius: var(--border-radius);
-  --button-default-background: transparent;
-  --button-default-color: var(--color-dark-900);
-  --button-disabled-background: var(--color-dark-300);
-  --button-disabled-color: var(--color-white);
-  --button-primary-background: var(--color-blue);
-  --button-primary-color: var(--color-white);
-  --button-secondary-background: var(--color-dark-500);
-  --button-secondary-color: var(--color-dark-800);
-  --button-danger-background: var(--color-red);
-  --button-danger-color: var(--color-white);
-  --button-bland-background: var(--color-dark-100);
-  --button-bland-color: var(--color-dark-700);
-  --button-font-family: var(--default-font-family);
-  --button-font-size: 0.875rem;
-  --button-line-height: 1.25rem;
-  --button-default-font-weight: 600;
-  --button-bland-font-weight: 500;
-  --button-nude-font-weight: 400;
-  --button-transition-duration: 300ms;
-  --button-square-size: 44px;
+  --rcx-button-height: 2.25rem;
+  --rcx-button-padding: 0.375rem 1.5rem;
+  --rcx-button-border-width: var(--border);
+  --rcx-button-border-radius: var(--border-radius);
+  --rcx-button-default-background: transparent;
+  --rcx-button-default-color: var(--color-dark-900);
+  --rcx-button-disabled-background: var(--color-dark-300);
+  --rcx-button-disabled-color: var(--color-white);
+  --rcx-button-primary-background: var(--color-blue);
+  --rcx-button-primary-color: var(--color-white);
+  --rcx-button-secondary-background: var(--color-dark-500);
+  --rcx-button-secondary-color: var(--color-dark-800);
+  --rcx-button-danger-background: var(--color-red);
+  --rcx-button-danger-color: var(--color-white);
+  --rcx-button-bland-background: var(--color-dark-100);
+  --rcx-button-bland-color: var(--color-dark-700);
+  --rcx-button-font-family: var(--default-font-family);
+  --rcx-button-font-size: 0.875rem;
+  --rcx-button-line-height: 1.25rem;
+  --rcx-button-default-font-weight: 600;
+  --rcx-button-bland-font-weight: 500;
+  --rcx-button-nude-font-weight: 400;
+  --rcx-button-transition-duration: 300ms;
+  --rcx-button-square-size: 44px;
 }
 
 .Button {
@@ -33,32 +33,32 @@
 
   box-sizing: border-box;
 
-  height: var(--button-height);
-  padding: var(--button-padding);
+  height: var(--rcx-button-height);
+  padding: var(--rcx-button-padding);
 
   cursor: pointer;
   transition:
-    opacity var(--button-transition-duration),
-    visibility var(--button-transition-duration),
-    background-color var(--button-transition-duration),
-    border-color var(--button-transition-duration),
-    color var(--button-transition-duration);
+    opacity var(--rcx-button-transition-duration),
+    visibility var(--rcx-button-transition-duration),
+    background-color var(--rcx-button-transition-duration),
+    border-color var(--rcx-button-transition-duration),
+    color var(--rcx-button-transition-duration);
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
   text-overflow: ellipsis;
 
-  color: var(--button-default-color);
-  border-width: var(--button-border-width);
+  color: var(--rcx-button-default-color);
+  border-width: var(--rcx-button-border-width);
   border-style: solid;
-  border-color: var(--button-default-color);
-  border-radius: var(--button-border-radius);
-  background-color: var(--button-default-background);
+  border-color: var(--rcx-button-default-color);
+  border-radius: var(--rcx-button-border-radius);
+  background-color: var(--rcx-button-default-background);
 
-  font-family: var(--button-font-family);
-  font-size: var(--button-font-size);
-  font-weight: var(--button-default-font-weight);
-  line-height: var(--button-line-height);
+  font-family: var(--rcx-button-font-family);
+  font-size: var(--rcx-button-font-size);
+  font-weight: var(--rcx-button-default-font-weight);
+  line-height: var(--rcx-button-line-height);
 
   &:not([disabled]):hover {
     opacity: 0.6;
@@ -93,72 +93,72 @@
   &:disabled {
     cursor: default;
 
-    color: var(--button-disabled-color);
-    border-color: var(--button-disabled-background);
-    background-color: var(--button-disabled-background);
+    color: var(--rcx-button-disabled-color);
+    border-color: var(--rcx-button-disabled-background);
+    background-color: var(--rcx-button-disabled-background);
   }
 
   .Icon {
     vertical-align: bottom;
 
-    font-size: var(--button-line-height);
+    font-size: var(--rcx-button-line-height);
   }
 }
 
 .Button--primary {
-  color: var(--button-primary-color);
-  border-color: var(--button-primary-background);
-  background-color: var(--button-primary-background);
+  color: var(--rcx-button-primary-color);
+  border-color: var(--rcx-button-primary-background);
+  background-color: var(--rcx-button-primary-background);
 
   &.Button--bland {
-    color: var(--button-primary-background);
+    color: var(--rcx-button-primary-background);
   }
 
   &.Button--outline {
-    color: var(--button-primary-background);
-    border-color: var(--button-primary-background);
+    color: var(--rcx-button-primary-background);
+    border-color: var(--rcx-button-primary-background);
   }
 
   &.Button--nude {
-    color: var(--button-primary-background);
+    color: var(--rcx-button-primary-background);
   }
 }
 
 .Button--secondary {
-  color: var(--button-secondary-color);
-  border-color: var(--button-secondary-background);
-  background-color: var(--button-secondary-background);
+  color: var(--rcx-button-secondary-color);
+  border-color: var(--rcx-button-secondary-background);
+  background-color: var(--rcx-button-secondary-background);
 
   &.Button--bland {
-    color: var(--button-secondary-color);
+    color: var(--rcx-button-secondary-color);
   }
 
   &.Button--outline {
-    color: var(--button-secondary-color);
-    border-color: var(--button-secondary-color);
+    color: var(--rcx-button-secondary-color);
+    border-color: var(--rcx-button-secondary-color);
   }
 
   &.Button--nude {
-    color: var(--button-secondary-color);
+    color: var(--rcx-button-secondary-color);
   }
 }
 
 .Button--danger {
-  color: var(--button-danger-color);
-  border-color: var(--button-danger-background);
-  background-color: var(--button-danger-background);
+  color: var(--rcx-button-danger-color);
+  border-color: var(--rcx-button-danger-background);
+  background-color: var(--rcx-button-danger-background);
 
   &.Button--bland {
-    color: var(--button-danger-background);
+    color: var(--rcx-button-danger-background);
   }
 
   &.Button--outline {
-    color: var(--button-danger-background);
-    border-color: var(--button-danger-background);
+    color: var(--rcx-button-danger-background);
+    border-color: var(--rcx-button-danger-background);
   }
 
   &.Button--nude {
-    color: var(--button-danger-background);
+    color: var(--rcx-button-danger-background);
   }
 }
 
@@ -169,11 +169,11 @@
 }
 
 .Button--bland {
-  color: var(--button-bland-color);
-  border-color: var(--button-bland-background);
-  background-color: var(--button-bland-background);
+  color: var(--rcx-button-bland-color);
+  border-color: var(--rcx-button-bland-background);
+  background-color: var(--rcx-button-bland-background);
 
-  font-weight: var(--button-bland-font-weight);
+  font-weight: var(--rcx-button-bland-font-weight);
 }
 
 .Button--outline {
@@ -184,11 +184,11 @@
   border: none;
   background: transparent;
 
-  font-weight: var(--button-nude-font-weight);
+  font-weight: var(--rcx-button-nude-font-weight);
 }
 
 .Button--square {
-  width: var(--button-square-size);
-  height: var(--button-square-size);
+  width: var(--rcx-button-square-size);
+  height: var(--rcx-button-square-size);
   padding: 0;
 }

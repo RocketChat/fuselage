@@ -1,14 +1,14 @@
 :root {
-  --tabs-margin: 0 0 0.5rem 0;
-  --tabs-line-color: var(--color-dark-300);
+  --rcx-tabs-margin: 0 0 0.5rem 0;
+  --rcx-tabs-line-color: var(--color-dark-300);
 }
 
 .Tabs {
 
   box-sizing: border-box;
-  margin: var(--tabs-margin);
+  margin: var(--rcx-tabs-margin);
 
-  border-bottom: var(--tab-line-width) solid var(--tabs-line-color);
+  border-bottom: var(--rcx-tab-line-width) solid var(--rcx-tabs-line-color);
 }
 
 .Tabs__wrapper {
@@ -16,5 +16,5 @@
   flex: 1;
 
   width: 100%;
-  margin: 0 calc(-1 * var(--tab-margin-horizontal)) calc(-1 * var(--tab-line-width));
+  margin: 0 calc(-1 * var(--rcx-tab-margin-horizontal)) calc(-1 * var(--rcx-tab-line-width));
 }

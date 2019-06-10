@@ -1,38 +1,38 @@
 :root {
-  --tab-margin-horizontal: 1rem;
-  --tab-padding: 1rem 0;
-  --tab-transition-duration: 300ms;
-  --tab-color: var(--color-dark-600);
-  --tab-line-width: 2px;
-  --tab-font-family: var(--default-font-family);
-  --tab-font-size: 1rem;
-  --tab-font-weight: 500;
-  --tab-line-height: 1.25;
-  --tab-active-color: var(--color-blue);
+  --rcx-tab-margin-horizontal: 1rem;
+  --rcx-tab-padding: 1rem 0;
+  --rcx-tab-transition-duration: 300ms;
+  --rcx-tab-color: var(--color-dark-600);
+  --rcx-tab-line-width: var(--border);
+  --rcx-tab-font-family: var(--default-font-family);
+  --rcx-tab-font-size: 1rem;
+  --rcx-tab-font-weight: 500;
+  --rcx-tab-line-height: 1.25;
+  --rcx-tab-active-color: var(--color-blue);
 }
 
 .Tab {
   flex: 0 0 auto;
 
   box-sizing: border-box;
-  margin: 0 var(--tab-margin-horizontal);
-  padding: var(--tab-padding);
+  margin: 0 var(--rcx-tab-margin-horizontal);
+  padding: var(--rcx-tab-padding);
 
   cursor: pointer;
   transition:
-    color var(--tab-transition-duration),
-    border var(--tab-transition-duration);
+    color var(--rcx-tab-transition-duration),
+    border var(--rcx-tab-transition-duration);
 
-  color: var(--tab-color);
-  border-bottom: var(--tab-line-width) solid transparent;
+  color: var(--rcx-tab-color);
+  border-bottom: var(--rcx-tab-line-width) solid transparent;
 
-  font-family: var(--tab-font-family);
-  font-size: var(--tab-font-size);
-  font-weight: var(--tab-font-weight);
-  line-height: var(--tab-line-height);
+  font-family: var(--rcx-tab-font-family);
+  font-size: var(--rcx-tab-font-size);
+  font-weight: var(--rcx-tab-font-weight);
+  line-height: var(--rcx-tab-line-height);
 }
 
 .Tab--active {
-  color: var(--tab-active-color);
-  border-bottom-color: var(--tab-active-color);
+  color: var(--rcx-tab-active-color);
+  border-bottom-color: var(--rcx-tab-active-color);
 }
