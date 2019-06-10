@@ -22,10 +22,6 @@ const props = (defaults = {}) => ({
   nude: boolean('nude', defaults.nude || false),
   small: boolean('small', defaults.small || false),
   square: boolean('square', defaults.square || false),
-  stack: boolean('stack', defaults.stack || false),
-  noPadding: boolean('noPadding', defaults.noPadding || false),
-  loading: boolean('loading', defaults.loading || false),
-  full: boolean('full', defaults.full || false),
   onClick: action('clicked'),
 });
 

@@ -15,10 +15,6 @@ export function Button({
   nude,
   small,
   square,
-  stack,
-  noPadding,
-  loading,
-  full,
   className,
   ...props
 }) {
