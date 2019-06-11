@@ -58,6 +58,10 @@
   align-items: center;
 }
 
+.CheckBox__wrapper--disabled {
+  cursor: not-allowed;
+}
+
 .CheckBox__fake {
   position: relative;
 
@@ -119,7 +123,7 @@
 }
 
 .CheckBox:disabled + .CheckBox__fake {
-  cursor: default;
+  cursor: not-allowed;
 
   color: var(--rcx-checkbox-disabled-color);
   border-color: var(--rcx-checkbox-disabled-border-color);

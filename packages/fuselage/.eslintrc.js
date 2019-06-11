@@ -8,6 +8,8 @@ module.exports = {
     indent: ['error', 2],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
+    'react/jsx-no-undef': 'error',
+    'react/jsx-fragments': ['error', 'syntax'],
   },
   settings: {
     'import/resolver': {

@@ -1,0 +1,70 @@
+:root {
+  --rcx-text-input-border-width: var(--border);
+  --rcx-text-input-border-radius: var(--border-radius);
+  --rcx-text-input-padding-vertical: 0.75rem;
+  --rcx-text-input-padding-horizontal: 1rem;
+  --rcx-text-input-color: var(--color-dark-800);
+  --rcx-text-input-placeholder-color: var(--color-dark-500);
+  --rcx-text-input-background-color: var(--color-white);
+  --rcx-text-input-border-color: var(--color-dark-300);
+  --rcx-text-input-focus-border-color: var(--color-dark-800);
+  --rcx-text-input-hover-border-color: var(--color-dark-500);
+  --rcx-text-input-disabled-background-color: var(--color-dark-300);
+  --rcx-text-input-disabled-color: var(--color-dark-500);
+  --rcx-text-input-font-family: var(--default-font-family);
+  --rcx-text-input-font-size: 0.875rem;
+  --rcx-text-input-font-weight: 500;
+  --rcx-text-input-line-height: 1.25rem;
+  --rcx-text-input-transition-duration: 300ms;
+}
+
+.TextInput {
+  box-sizing: border-box;
+
+  padding:
+    calc(var(--rcx-text-input-padding-vertical) - 2 * var(--rcx-text-input-border-width))
+    calc(var(--rcx-text-input-padding-horizontal) - 2 * var(--rcx-text-input-border-width));
+
+  transition:
+    border-color var(--rcx-text-input-transition-duration),
+    color var(--rcx-text-input-transition-duration),
+    background-color var(--rcx-text-input-transition-duration);
+
+  color: var(--rcx-text-input-color);
+
+  border-width: var(--rcx-text-input-border-width);
+  border-style: solid;
+  border-color: var(--rcx-text-input-border-color);
+  border-radius: var(--rcx-text-input-border-radius);
+
+  outline: none;
+  background-color: var(--rcx-text-input-background-color);
+
+  font-family: var(--rcx-text-input-font-family);
+  font-size: var(--rcx-text-input-font-size);
+  font-weight: var(--rcx-text-input-font-weight);
+  line-height: var(--rcx-text-input-line-height);
+
+  &::placeholder {
+    color: var(--rcx-text-input-placeholder-color);
+  }
+
+  @at-root textarea#{&} {
+    resize: none;
+  }
+
+  &:not([disabled]):focus {
+    border-color: var(--rcx-text-input-focus-border-color);
+  }
+
+  &:not([disabled]):hover {
+    border-color: var(--rcx-text-input-hover-border-color);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    color: var(--rcx-text-input-disabled-color);
+    background-color: var(--rcx-text-input-disabled-background-color);
+  }
+}

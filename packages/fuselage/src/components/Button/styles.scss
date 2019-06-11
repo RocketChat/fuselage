@@ -53,6 +53,8 @@
   border-style: solid;
   border-color: var(--rcx-button-default-color);
   border-radius: var(--rcx-button-border-radius);
+
+  outline: none;
   background-color: var(--rcx-button-default-background);
 
   font-family: var(--rcx-button-font-family);
@@ -91,11 +93,15 @@
   }
 
   &:disabled {
-    cursor: default;
+    cursor: not-allowed;
 
     color: var(--rcx-button-disabled-color);
     border-color: var(--rcx-button-disabled-background);
     background-color: var(--rcx-button-disabled-background);
+
+    &::before {
+      cursor: not-allowed;
+    }
   }
 
   .Icon {

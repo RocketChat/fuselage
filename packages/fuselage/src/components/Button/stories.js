@@ -22,7 +22,7 @@ const props = (defaults = {}) => ({
   nude: boolean('nude', defaults.nude || false),
   small: boolean('small', defaults.small || false),
   square: boolean('square', defaults.square || false),
-  onClick: action('clicked'),
+  onClick: action('change'),
 });
 
 storiesOf('Components|Button', module)
