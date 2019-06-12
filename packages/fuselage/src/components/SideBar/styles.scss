@@ -1,0 +1,67 @@
+:root {
+  --rcx-side-bar-min-width: 17.5rem;
+  --rcx-side-bar-background-color: var(--color-dark-100);
+  --rcx-side-bar-border-color: var(--color-dark-200);
+  --rcx-side-bar-border-width: 1px;
+  --rcx-side-bar-transition-duration: 300ms;
+}
+
+.SideBar {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex: 1 0 auto;
+
+  box-sizing: border-box;
+  min-width: var(--rcx-side-bar-min-width);
+
+  transition: transform var(--rcx-side-bar-transition-duration);
+  transform: translateX(-100%);
+
+  border-width: 0 var(--rcx-side-bar-border-width) 0 0;
+  border-style: solid;
+  border-color: var(--rcx-side-bar-border-color);
+  background-color: var(--rcx-side-bar-background-color);
+  align-items: stretch;
+  flex-flow: column nowrap;
+}
+
+.SideBar--docked {
+  position: static;
+
+  min-height: 100vh;
+
+  transform: translateX(0);
+}
+
+.SideBar--open {
+  transform: translateX(0);
+}
+
+.SideBar__Backdrop {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  visibility: hidden;
+
+  transition:
+    opacity var(--rcx-side-bar-transition-duration),
+    visibility var(--rcx-side-bar-transition-duration);
+
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.SideBar__Backdrop--visible {
+  visibility: visible;
+
+  opacity: 1;
+}

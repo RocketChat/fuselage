@@ -29,7 +29,6 @@
   position: relative;
 
   display: inline-block;
-  overflow: hidden;
 
   box-sizing: border-box;
 
@@ -42,7 +41,8 @@
     visibility var(--rcx-button-transition-duration),
     background-color var(--rcx-button-transition-duration),
     border-color var(--rcx-button-transition-duration),
-    color var(--rcx-button-transition-duration);
+    color var(--rcx-button-transition-duration),
+    transform var(--rcx-button-transition-duration);
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
@@ -62,34 +62,38 @@
   font-weight: var(--rcx-button-default-font-weight);
   line-height: var(--rcx-button-line-height);
 
-  &:not([disabled]):hover {
-    opacity: 0.6;
-  }
-
   &:active,
   &:focus:hover {
     outline: none;
   }
 
   &:active {
-    transform: translateY(2px);
+    transform: translateY(0.125rem);
 
     opacity: 0.9;
   }
 
   &:active::before {
-    top: -2px;
+    top: calc(-1 * (var(--rcx-button-border-width) + 0.125rem));
   }
 
   &::before {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: calc(-1 * var(--rcx-button-border-width));
+    right: calc(-1 * var(--rcx-button-border-width));
+    bottom: calc(-1 * var(--rcx-button-border-width));
+    left: calc(-1 * var(--rcx-button-border-width));
 
     content: "";
     cursor: pointer;
+  }
+
+  &:disabled::before {
+    display: none;
+  }
+
+  &:not([disabled]):hover {
+    opacity: 0.6;
   }
 
   &:disabled {
@@ -98,10 +102,6 @@
     color: var(--rcx-button-disabled-color);
     border-color: var(--rcx-button-disabled-background);
     background-color: var(--rcx-button-disabled-background);
-
-    &::before {
-      cursor: not-allowed;
-    }
   }
 
   .Icon {

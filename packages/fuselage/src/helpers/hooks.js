@@ -1,4 +1,4 @@
-import { Children, cloneElement, useLayoutEffect, useMemo } from 'react';
+import { Children, cloneElement, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 
 import baseStyles from '../styles/index.scss';
 
@@ -50,3 +50,33 @@ export const useChildrenWithClassName = (styles, rootClassName, childClassName, 
   useMemo(() =>
     Children.map(children, (child) =>
       cloneElement(child, { className: styles[`${ rootClassName }__${ childClassName }`] }), [children]));
+
+const useMediaQueryHook = (effect) => (query, defaultState = true) => {
+  const [state, setState] = useState(defaultState);
+
+  effect(() => {
+    let mounted = true;
+    const mql = window.matchMedia(query);
+
+    const handleChange = () => {
+      if (!mounted) {
+        return;
+      }
+
+      setState(!!mql.matches);
+    };
+
+    mql.addListener(handleChange);
+    setState(mql.matches);
+
+    return () => {
+      mounted = false;
+      mql.removeListener(handleChange);
+    };
+  }, [query]);
+
+  return state;
+};
+
+export const useMediaQuery = useMediaQueryHook(useEffect);
+export const useLayoutMediaQuery = useMediaQueryHook(useLayoutEffect);

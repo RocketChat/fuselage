@@ -27,9 +27,10 @@
   }
 
   &::-webkit-scrollbar-thumb {
+    transition: background-color var(--rcx-scrollable-area-transition-duration);
+
     border-radius: var(--rcx-scrollable-area-thumb-border-radius);
     background-color: var(--rcx-scrollable-area-thumb-background-color);
-    transition: background-color var(--rcx-scrollable-area-transition-duration);
   }
 
   &:hover::-webkit-scrollbar-thumb {

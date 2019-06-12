@@ -1,0 +1,76 @@
+:root {
+  --rcx-side-bar-header-padding: 1.5rem;
+  --rcx-side-bar-header-title-color: var(--color-dark-900);
+  --rcx-side-bar-header-title-font-family: var(--default-font-family);
+  --rcx-side-bar-header-title-font-size: 0.875rem;
+  --rcx-side-bar-header-title-font-weight: normal;
+  --rcx-side-bar-header-title-letter-spacing: -0.2px;
+  --rcx-side-bar-header-title-line-height: 1.25;
+  --rcx-side-bar-header-button-icon-size: 1.25rem;
+}
+
+.SideBar__Header {
+  display: flex;
+
+  box-sizing: border-box;
+  padding: var(--rcx-side-bar-header-padding);
+  flex-flow: row nowrap;
+}
+
+.SideBar__HeaderTitle {
+  flex: 1;
+
+  box-sizing: border-box;
+  margin: 0;
+
+  user-select: none;
+  letter-spacing: var(--rcx-side-bar-header-title-letter-spacing);
+
+  color: var(--rcx-side-bar-header-title-color);
+
+  font-family: var(--rcx-side-bar-header-title-font-family);
+  font-size: var(--rcx-side-bar-header-title-font-size);
+  font-weight: var(--rcx-side-bar-header-title-font-weight);
+  line-height: var(--rcx-side-bar-header-title-line-height);
+}
+
+.SideBar__HeaderButton {
+  position: relative;
+
+  display: flex;
+
+  box-sizing: border-box;
+  margin-left: auto;
+  padding: 0;
+
+  cursor: pointer;
+  transition: transform var(--rcx-button-transition-duration);
+
+  border: none;
+  outline: none;
+  background: none;
+  flex-flow: row nowrap;
+
+  &:active {
+    transform: translateY(0.125rem);
+  }
+
+  &:active::before {
+    top: -0.125rem;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: "";
+    cursor: pointer;
+  }
+
+  > .Icon {
+    font-size: var(--rcx-side-bar-header-button-icon-size);
+  }
+}
