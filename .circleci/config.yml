@@ -54,7 +54,10 @@ jobs:
           at: ~/repo
       - run: cp yarn.lock packages/fuselage
       - run:
-          command: yarn lerna run happo-ci --scope @rocket.chat/fuselage --stream
+          command: yarn lerna run happo-ci
+          environment:
+            - INSTALL_CMD: lerna bootstrap
+            - BASE_BRANCH: origin/develop
 
   deploy-storybook:
     docker:
@@ -77,6 +80,9 @@ workflows:
       - happo:
           requires:
             - build
+          filters:
+              branches:
+                ignore: develop
       - deploy-storybook:
           requires:
             - build

@@ -54,16 +54,18 @@
     "babel-loader": "^8.0.6",
     "happo-plugin-storybook": "^2.4.0",
     "happo.io": "^3.15.0",
+    "husky": "^2.3.0",
     "identity-obj-proxy": "^3.0.0",
     "loki": "^0.16.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "stylelint": "^10.0.1",
-    "stylelint-order": "^3.0.0"
+    "stylelint-order": "^3.0.0",
+    "webpack-cli": "^3.3.2"
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|scss)$": "identity-obj-proxy"
+      "\\.(css|scss)$": "<rootDir>/mocks/styleMock.js"
     }
   },
   "loki": {
@@ -83,6 +85,8 @@
     }
   },
   "dependencies": {
-    "@rocket.chat/icons": "^0.1.0"
+    "@rocket.chat/icons": "^0.1.0",
+    "css-vars-ponyfill": "^2.0.2",
+    "react-helmet": "^5.2.1"
   }
 }

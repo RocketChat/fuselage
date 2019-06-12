@@ -1,15 +1,29 @@
-import React from 'react';
+import * as icons from '@rocket.chat/icons/dist/font';
 import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
-import { centeredWithWidth } from '../../helpers/storybook';
+import { Icon } from '../Icon';
 
 import { Button } from './index';
 
 
-const buttonText = 'Powered by Rocket.Chat';
+const props = (defaults = {}) => ({
+  children: text('text', defaults.text || 'Powered by Rocket.Chat'),
+  primary: boolean('primary', defaults.primary || false),
+  secondary: boolean('secondary', defaults.secondary || false),
+  danger: boolean('danger', defaults.danger || false),
+  disabled: boolean('disabled', defaults.disabled || false),
+  hidden: boolean('hidden', defaults.hidden || false),
+  bland: boolean('bland', defaults.bland || false),
+  outline: boolean('outline', defaults.outline || false),
+  nude: boolean('nude', defaults.nude || false),
+  small: boolean('small', defaults.small || false),
+  square: boolean('square', defaults.square || false),
+  onClick: action('change'),
+});
 
 storiesOf('Components|Button', module)
   .addDecorator(withKnobs)
@@ -17,285 +31,69 @@ storiesOf('Components|Button', module)
   .addParameters({ jest: ['Button'] })
   .add('default', () => (
     <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
-  ))
-  .add('disabled', () => (
-    <Button
-      disabled={boolean('disabled', true)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
-  ))
-  .add('invisible', () => (
-    <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', true)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
+      {...props()}
+    />
   ))
   .add('primary', () => (
     <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', true)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
+      {...props({ primary: true })}
+    />
   ))
   .add('secondary', () => (
     <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', true)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
+      {...props({ secondary: true })}
+    />
+  ))
+  .add('danger', () => (
+    <Button
+      {...props({ danger: true })}
+    />
+  ))
+  .add('disabled', () => (
+    <Button
+      {...props({ disabled: true })}
+    />
+  ))
+  .add('hidden', () => (
+    <Button
+      {...props({ hidden: true })}
+    />
+  ))
+  .add('bland', () => (
+    <Button
+      {...props({ bland: true })}
+    />
   ))
   .add('outline', () => (
     <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', true)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
+      {...props({ outline: true })}
+    />
   ))
   .add('nude', () => (
     <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', true)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
+      {...props({ nude: true })}
+    />
+  ))
+  .add('with icon', () => (
+    <Button
+      {...props({ bland: true, text: 'Edit' })}
     >
-      {text('text', buttonText)}
+      <Icon name={select('icon', icons, icons.edit)} /> {text('text')}
     </Button>
   ))
-  .add('cancel', () => (
+  .add('as link', () => (
     <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', true)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
-  ))
-  .add('small', () => (
-    <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', true)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
+      {...props()}
+      is="a"
+      href="https://rocket.chat"
+      target="_blank"
+      rel="noopener noreferrer"
+    />
   ))
   .add('square', () => (
     <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', true)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
+      {...props({ square: true })}
     >
-      {text('text', buttonText)}
-    </Button>
-  ))
-  .add('stack', () => (
-    <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', true)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
-  ))
-  .add('noPadding', () => (
-    <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', true)}
-      loading={boolean('loading', false)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
-  ))
-  .add('loading', () => (
-    <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', true)}
-      full={boolean('full', false)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
+      <Icon name={select('icon', icons, icons.plus)} />
     </Button>
   ));
-storiesOf('Components|Button', module)
-  .addDecorator(withKnobs)
-  .addDecorator(centeredWithWidth('100vw'))
-  .addParameters({ jest: ['Button'] })
-  .add('full', () => (
-    <Button
-      disabled={boolean('disabled', false)}
-      invisible={boolean('invisible', false)}
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      outline={boolean('outline', false)}
-      nude={boolean('nude', false)}
-      cancel={boolean('cancel', false)}
-      small={boolean('small', false)}
-      square={boolean('square', false)}
-      stack={boolean('stack', false)}
-      noPadding={boolean('noPadding', false)}
-      loading={boolean('loading', false)}
-      full={boolean('full', true)}
-      onClick={action('clicked')}
-    >
-      {text('text', buttonText)}
-    </Button>
-  ), { viewport: { defaultViewport: 'iphonex' } });

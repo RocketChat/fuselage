@@ -1,0 +1,92 @@
+$unit: 0.5rem;
+
+$width: (
+  md: 64.5rem,
+);
+
+$columns: (
+  md: 16,
+);
+
+:root {
+  @each $breakpoint in map-keys($width) {
+    --rcx-grid-#{$breakpoint}-width: #{map-get($width, $breakpoint)};
+    --rcx-grid-#{$breakpoint}-columns: #{map-get($columns, $breakpoint)};
+  }
+}
+
+$directions: row, row-reverse;
+$justifications: flex-start, center, flex-end, space-between, space-around, space-evenly;
+$itemAlignments: flex-start, center, flex-end, stretch, baseline;
+
+.Grid {
+  box-sizing: border-box;
+}
+
+.Grid--container {
+  display: flex;
+
+  @each $breakpoint in map-keys($width) {
+    @media (min-width: map-get($width, $breakpoint)) {
+      min-width: var(--rcx-grid-#{$breakpoint}-width);
+    }
+  }
+}
+
+@for $gutter from 0 through 10 {
+  .Grid--gutter-#{$gutter} {
+    margin: 0 (-$gutter * 0.5rem / 2);
+  }
+
+  .Grid--outsideGutter.Grid--gutter-#{$gutter} {
+    margin: 0;
+    padding: 0 ($gutter * 0.5rem / 2);
+  }
+}
+
+@each $direction in $directions {
+  .Grid--direction-#{$direction} {
+    flex-direction: $direction;
+  }
+}
+
+@each $justification in $justifications {
+  .Grid--justification-#{$justification} {
+    justify-content: $justification;
+  }
+}
+
+@each $itemAlignment in $itemAlignments {
+  .Grid--itemAlignment-#{$itemAlignment} {
+    align-items: $itemAlignment;
+  }
+}
+
+.Grid--item {
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+@each $breakpoint in map-keys($width) {
+  .Grid--#{$breakpoint} {
+    @media (min-width: map-get($width, $breakpoint)) {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+  }
+
+  @for $i from 1 through map-get($columns, $breakpoint) {
+    .Grid--#{$breakpoint}-#{$i} {
+      @media (min-width: map-get($width, $breakpoint)) {
+        max-width: calc(100% / var(--rcx-grid-#{$breakpoint}-columns) * #{$i});
+        flex-basis: calc(100% / var(--rcx-grid-#{$breakpoint}-columns) * #{$i});
+      }
+    }
+  }
+}
+
+@for $gutter from 0 through 10 {
+  .Grid--gutter-#{$gutter} > .Grid--item {
+    padding: $gutter * 0.5rem / 2;
+  }
+}

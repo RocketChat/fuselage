@@ -1,25 +1,38 @@
-@import '../../variables.scss';
+:root {
+  --rcx-tab-margin-horizontal: 1rem;
+  --rcx-tab-padding: 1rem 0;
+  --rcx-tab-transition-duration: 300ms;
+  --rcx-tab-color: var(--color-dark-600);
+  --rcx-tab-line-width: var(--border);
+  --rcx-tab-font-family: var(--default-font-family);
+  --rcx-tab-font-size: 1rem;
+  --rcx-tab-font-weight: 500;
+  --rcx-tab-line-height: 1.25;
+  --rcx-tab-active-color: var(--color-blue);
+}
 
 .Tab {
-	flex: 0 0 auto;
+  flex: 0 0 auto;
 
-	box-sizing: border-box;
-	margin: 0 1rem;
-	padding: 1rem 0;
+  box-sizing: border-box;
+  margin: 0 var(--rcx-tab-margin-horizontal);
+  padding: var(--rcx-tab-padding);
 
-	cursor: pointer;
-	transition: all 0.3s;
+  cursor: pointer;
+  transition:
+    color var(--rcx-tab-transition-duration),
+    border var(--rcx-tab-transition-duration);
 
-	color: var(--rc-color-primary-light, $rc-color-primary-light);
-	border-bottom: 2px solid transparent;
+  color: var(--rcx-tab-color);
+  border-bottom: var(--rcx-tab-line-width) solid transparent;
 
-	font-family: var(--default-font-family, $default-font-family);
-	font-size: 1rem;
-	font-weight: 500;
-	line-height: 1.25rem;
+  font-family: var(--rcx-tab-font-family);
+  font-size: var(--rcx-tab-font-size);
+  font-weight: var(--rcx-tab-font-weight);
+  line-height: var(--rcx-tab-line-height);
 }
 
 .Tab--active {
-	color: var(--rc-color-button-primary, $rc-color-button-primary);
-	border-bottom-color: var(--rc-color-button-primary, $rc-color-button-primary);
+  color: var(--rcx-tab-active-color);
+  border-bottom-color: var(--rcx-tab-active-color);
 }

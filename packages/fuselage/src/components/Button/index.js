@@ -5,36 +5,30 @@ import styles from './styles.scss';
 
 
 export function Button({
-  invisible,
+  is: Component = 'button',
   primary,
   secondary,
+  danger,
+  hidden,
+  bland,
   outline,
   nude,
-  cancel,
   small,
   square,
-  stack,
-  noPadding,
-  loading,
-  full,
   className,
   ...props
 }) {
   return (
-    <button
+    <Component
       className={useStyle(styles, 'Button', {
-        invisible,
         primary,
         secondary,
+        danger,
+        hidden,
+        bland,
         outline,
         nude,
-        cancel,
-        small,
         square,
-        stack,
-        noPadding,
-        loading,
-        full,
       }, className)}
       {...props}
     />

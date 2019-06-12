@@ -1,31 +1,41 @@
+:root {
+  --rcx-button-group-vertical-margin: 8px;
+  --rcx-button-group-gap: 8px;
+}
+
 .ButtonGroup {
-	display: flex;
+  display: flex;
 
-	margin: 10px -5px;
-	flex-flow: row wrap;
+  box-sizing: border-box;
 
-	& > .ButtonGroup__Button {
-		margin: 0 5px;
-	}
+  margin: var(--rcx-button-group-vertical-margin) calc(var(--rcx-button-group-gap) / 2);
+  flex-flow: row nowrap;
+
+  & > .Button {
+    margin: 0 calc(var(--rcx-button-group-gap) / 2);
+  }
 }
 
 .ButtonGroup--wrap {
-	margin: 5px -5px;
-	flex-wrap: wrap;
+  flex-wrap: wrap;
 
-	& > .ButtonGroup__Button {
-		margin: 5px;
-	}
+  & > .Button {
+    margin: calc(var(--rcx-button-group-gap) / 2);
+  }
 }
 
 .ButtonGroup--stretch {
-	justify-content: stretch;
+  justify-content: stretch;
 
-	& > .ButtonGroup__Button {
-		flex: 1 1;
-	}
+  & > .Button {
+    flex: 1 0 auto;
+  }
 }
 
 .ButtonGroup--vertical {
-	flex-direction: column;
+  flex-direction: column;
+
+  & > .Button {
+    margin: calc(var(--rcx-button-group-gap) / 2) 0;
+  }
 }

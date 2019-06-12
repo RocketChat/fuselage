@@ -1,11 +1,13 @@
-import React from 'react';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { Helmet } from 'react-helmet';
 
-import colorPalette from './colorPalette.scss';
 import { Button } from '../components/Button';
 import { ButtonGroup } from '../components/ButtonGroup';
+import '../helpers/cssCustomPropertiesPonyfill';
+import colorPalette from './colorPalette.scss';
 
 
 const Color = ({ color, name }) => (
@@ -37,7 +39,7 @@ storiesOf('Styles|Colors', module)
   .addDecorator(centered)
   .lokiSkip('Palette', () => (
     <ColorGrid>
-      {Object.entries(colorPalette).map(([name, color], key) => (
+      {Object.entries(colorPalette.locals).map(([name, color], key) => (
         <Color key={key} name={name} color={color} />
       ))}
     </ColorGrid>
@@ -47,14 +49,19 @@ storiesOf('Styles|Theming', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .add('Example', () => (
-    <div style={{
-      '--button-primary-background': 'lightgreen',
-      '--button-cancel-color': 'tomato',
-    }}>
+    <>
+      <Helmet>
+        <style type="text/css">{`
+        :root {
+          --rcx-button-primary-background: navy;
+          --rcx-button-danger-background: tomato;
+        }
+        `}</style>
+      </Helmet>
       <ButtonGroup>
         <Button primary>Yes</Button>
         <Button>Maybe</Button>
-        <Button cancel>No</Button>
+        <Button danger>No</Button>
       </ButtonGroup>
-    </div>
+    </>
   ));
