@@ -12,6 +12,19 @@ module.exports = {
         },
       },
       {
+        test: /\.css$/,
+        use: [
+          'style-loader/useable',
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'url-loader',
+        }],
+      },
+      {
         test: /\.scss$/,
         use: [
           'style-loader/useable',
