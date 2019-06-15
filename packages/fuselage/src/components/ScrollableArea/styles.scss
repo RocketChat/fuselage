@@ -1,0 +1,38 @@
+:root {
+  --rcx-scrollable-area-gutter-width: 0.5rem;
+  --rcx-scrollable-area-gutter-background-color: transparent;
+  --rcx-scrollable-area-thumb-border-radius: var(--border-radius);
+  --rcx-scrollable-area-thumb-background-color: rgba(31, 35, 41, 0.05);
+  --rcx-scrollable-area-thumb-hover-background-color: rgba(31, 35, 41, 0.25);
+  --rcx-scrollable-area-transition-duration: 300ms;
+}
+
+.ScrollableArea {
+  display: flex;
+  overflow: auto;
+  flex: 1 1 0;
+
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+  flex-flow: column nowrap;
+
+  &::-webkit-scrollbar {
+    width: var(--rcx-scrollable-area-gutter-width);
+    height: var(--rcx-scrollable-area-gutter-width);
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--rcx-scrollable-area-gutter-background-color);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--rcx-scrollable-area-thumb-border-radius);
+    background-color: var(--rcx-scrollable-area-thumb-background-color);
+    transition: background-color var(--rcx-scrollable-area-transition-duration);
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: var(--rcx-scrollable-area-thumb-hover-background-color);
+  }
+}
