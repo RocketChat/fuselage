@@ -1,0 +1,66 @@
+:root {
+  --rcx-drawer-z-index: 2;
+  --rcx-drawer-transition-duration: 300ms;
+}
+
+.Drawer {
+  position: fixed;
+  z-index: var(--rcx-drawer-z-index);
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex: 0 0 auto;
+
+  box-sizing: border-box;
+
+  transition: transform var(--rcx-drawer-transition-duration);
+  transform: translateX(-100%);
+
+  flex-flow: column nowrap;
+}
+
+.Drawer--open {
+  transform: translateX(0);
+}
+
+.Drawer--reverse {
+  right: 0;
+  left: auto;
+
+  transform: translateX(100%);
+}
+
+.Drawer--reverse.Drawer--open {
+  transform: translateX(0);
+}
+
+.Drawer--docked {
+  position: static;
+
+  transform: translateX(0);
+}
+
+.Drawer__Backdrop {
+  position: fixed;
+  z-index: calc(var(--rcx-drawer-z-index) - 1);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  visibility: hidden;
+
+  transition:
+    opacity var(--rcx-drawer-transition-duration),
+    visibility var(--rcx-drawer-transition-duration);
+
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.Drawer__Backdrop--visible {
+  visibility: visible;
+
+  opacity: 1;
+}

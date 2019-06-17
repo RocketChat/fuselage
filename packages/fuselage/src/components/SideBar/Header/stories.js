@@ -10,11 +10,11 @@ import { SideBarHeader } from './index';
 
 
 const props = ({
-  title = '',
   closeable = false,
+  title = '',
 } = {}) => ({
-  title: text('title', title),
   closeable: boolean('closeable', closeable),
+  title: text('title', title),
   onClosing: action('closing'),
 });
 
