@@ -6,11 +6,21 @@
   "keywords": ["react", "community", "chat"],
   "website": "https://rocket.chat",
   "env": {
-    "BUILDPACK_URL": "https://github.com/gabrielgilini/heroku-buildpack-storybook.git",
     "HEROKU_APP_NAME": {
       "description": "Please re-enter your App Name from the top.",
       "required": true
     },
     "DEPLOY_PLATFORM": "heroku"
-  }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/Root-App/heroku-buildpack-storybook.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-static.git"
+    }
+  ]
 }
