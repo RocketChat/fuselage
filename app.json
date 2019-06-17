@@ -1,0 +1,16 @@
+{
+  "name": "Rocket.Chat.Livechat.Admin",
+  "description": "Livechat Admin for Rocket.Chat",
+  "repository": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin",
+  "logo": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat/master/public/images/logo/1024x1024.png",
+  "keywords": ["react", "community", "chat"],
+  "website": "https://rocket.chat",
+  "env": {
+    "BUILDPACK_URL": "https://github.com/gabrielgilini/heroku-buildpack-storybook.git",
+    "HEROKU_APP_NAME": {
+      "description": "Please re-enter your App Name from the top.",
+      "required": true
+    },
+    "DEPLOY_PLATFORM": "heroku"
+  }
+}
