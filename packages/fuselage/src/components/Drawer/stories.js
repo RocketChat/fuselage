@@ -29,15 +29,19 @@ const props = ({
 });
 
 const DrawerContent = () => (
-  <ButtonGroup>
-    <Button secondary>Drawer content</Button>
-  </ButtonGroup>
+  <div>
+    <ButtonGroup>
+      <Button secondary>Drawer content</Button>
+    </ButtonGroup>
+  </div>
 );
 
 const MainContent = () => (
-  <ButtonGroup>
-    <Button primary>Main content</Button>
-  </ButtonGroup>
+  <div>
+    <ButtonGroup>
+      <Button primary>Main content</Button>
+    </ButtonGroup>
+  </div>
 );
 
 storiesOf('Components|Drawer', module)
