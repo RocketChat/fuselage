@@ -61,6 +61,7 @@ export function Drawer({
   swipeAreaWidth = 20,
   onOpening = null,
   onClosing = null,
+  onDockStateChange = null,
   className,
   ...props
 }) {
@@ -164,6 +165,10 @@ export function Drawer({
   if (dockWhen) {
     docked = docked || canDockIt;
   }
+
+  useEffect(() => {
+    onDockStateChange && onDockStateChange(docked);
+  }, [docked]);
 
   const drawerClassName = useStyle(styles, 'Drawer', {
     docked,

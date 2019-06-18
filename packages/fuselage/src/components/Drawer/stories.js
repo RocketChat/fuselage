@@ -25,6 +25,7 @@ const props = ({
   swipeAreaWidth: number('swipeAreaWidth', swipeAreaWidth, { min: 0 }),
   onOpening: action('opening'),
   onClosing: action('closing'),
+  onDockStateChange: action('dockStateChange'),
 });
 
 const DrawerContent = () => (
