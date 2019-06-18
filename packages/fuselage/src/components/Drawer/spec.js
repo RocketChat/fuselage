@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import '../../../mocks/matchMediaMock';
+
 import { Drawer } from './index';
 
 
