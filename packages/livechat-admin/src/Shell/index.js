@@ -11,6 +11,7 @@ import {
   SideBarMenu,
   SideBarMenuItem,
 } from '@rocket.chat/fuselage';
+import styles from './styles.module.css';
 
 
 export function Shell({
@@ -44,7 +45,7 @@ export function Shell({
   };
 
   return (
-    <div style={{ width: '100vw', height: '100vh', display: 'flex', flexFlow: 'row nowrap', alignItems: 'stretch' }}>
+    <main className={styles.Shell}>
       <Drawer dockWhen="(min-width: 780px)" open={sideBarOpen} onOpening={handleSideBarOpening} onClosing={handleSideBarClosing} onDockStateChange={handleSideBarDockStateChange}>
         <SideBar>
           <SideBarHeader closeable={closeable} title="Livechat" onClosing={onClosing} />
@@ -92,6 +93,6 @@ export function Shell({
           {children}
         </ScrollableArea>
       </Page>
-    </div>
+    </main>
   );
 }
