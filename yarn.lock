@@ -2130,7 +2130,7 @@
     redux "^4.0.1"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-actions@^5.0.11":
+"@storybook/addon-actions@^5.0.11", "@storybook/addon-actions@^5.1.8":
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-5.1.8.tgz#98d6aff42fb7fa7477b4db6cf21da3ede18ede0d"
   integrity sha512-p4d3B5jzYMuQn4n/owbpkrFLKvn0bjuwl6pFda4DNYnhiWtornKvOGb4g0Wjtz1Pw61tkb1PZN+OJuQ8imifjw==
@@ -2195,7 +2195,7 @@
     upath "^1.1.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-knobs@^5.0.11":
+"@storybook/addon-knobs@^5.0.11", "@storybook/addon-knobs@^5.1.8":
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-5.1.8.tgz#f0b7cf1e14e647e2030055a8f9eb9e09e595fd5d"
   integrity sha512-GCcjc3iO8YQOKdOaA1pr4INzNA3gU/0qIpYg0En3CbNH9LodfBha3l91G64AH06rCqhAYWp5D482kptKRaFxOA==
@@ -2217,7 +2217,7 @@
     react-lifecycles-compat "^3.0.4"
     react-select "^2.2.0"
 
-"@storybook/addon-links@^5.0.11":
+"@storybook/addon-links@^5.0.11", "@storybook/addon-links@^5.1.8":
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-5.1.8.tgz#03c307e20b7b868cd0935a52062b1a442cb9d33f"
   integrity sha512-GSSgR2LM0HmBi8YBXsdzLsMaWaBs/u45Ahngcj9KNNwirWNvtAN571Kt/BMCiSe25q8aq/1MeZrENuIIvSe1bg==
@@ -2250,7 +2250,7 @@
     prop-types "^15.7.2"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-options@^5.0.11":
+"@storybook/addon-options@^5.0.11", "@storybook/addon-options@^5.1.8":
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-5.1.8.tgz#1cbd261f2fcae9f2ddc2765587adc7c984e3879c"
   integrity sha512-9gzU03ZP9D4fBZjPZHK1WCpR6N/u9YB7DqWVG5XFmyHae7W8TfSSv45eOQInwsNt9lx7MgqyaP+MAhNyDyo2pQ==
@@ -2259,7 +2259,7 @@
     core-js "^3.0.1"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-viewport@^5.0.11":
+"@storybook/addon-viewport@^5.0.11", "@storybook/addon-viewport@^5.1.8":
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-5.1.8.tgz#6d0dd86907399bb5e8f538a42c673cf21009a586"
   integrity sha512-EXNip7I74KG5wM/pl1pAsc8xfBwBfBMw0nBThAhbPxbw8mwubgflh9imCbnzDbSSO1I3afBtRjYwtFabWB5gEw==
@@ -2275,7 +2275,7 @@
     prop-types "^15.7.2"
     util-deprecate "^1.0.2"
 
-"@storybook/addons@5.1.8", "@storybook/addons@^5.0.11":
+"@storybook/addons@5.1.8", "@storybook/addons@^5.0.11", "@storybook/addons@^5.1.8":
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-5.1.8.tgz#d4c9bacd5cce58c3375a3c5b3b3e47ab0cee2818"
   integrity sha512-qV3NJyoxJWOb6E1pJXjrj4KJ77OHjNNC0tUzdiHPlWqc21Szu8AKIC7b3L6+fqwmZoAUg1XdtrynJwjXaNkVeQ==
@@ -2466,7 +2466,7 @@
     pretty-hrtime "^1.0.3"
     regenerator-runtime "^0.12.1"
 
-"@storybook/react@^5.0.11":
+"@storybook/react@^5.0.11", "@storybook/react@^5.1.8":
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-5.1.8.tgz#566d4a982051d15b8af06e0bf6222187edc3d444"
   integrity sha512-7lNbT2JBAOiXezG0s9UrWfUKubluS1M5ufyMUi8u+1JIvgSduS0q6FsRJV+dDAJFvDYEt03fpEZWgZU/bRUL/w==
@@ -2502,7 +2502,7 @@
     memoizerific "^1.11.3"
     qs "^6.6.0"
 
-"@storybook/theming@5.1.8", "@storybook/theming@^5.0.11":
+"@storybook/theming@5.1.8", "@storybook/theming@^5.0.11", "@storybook/theming@^5.1.8":
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-5.1.8.tgz#70981c26b962ae49cbdb0dd827d35cd9f1759107"
   integrity sha512-kfo2BAGb0i1ZTCvcHFG6dLkYAeM1HoIDpEfcGZN4DIjxYd76qmyG3HlAfWGo0KmPIUk8iBnXZs8LmuhK7woZsA==
