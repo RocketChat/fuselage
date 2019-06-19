@@ -1,0 +1,46 @@
+:root {
+  --rcx-side-bar-menu-padding: 0.5rem;
+  --rcx-side-bar-menu-title-padding: 0 1rem 0.5rem;
+  --rcx-side-bar-menu-title-color: var(--color-dark-800);
+  --rcx-side-bar-menu-title-font-family: var(--default-font-family);
+  --rcx-side-bar-menu-title-font-size: 0.75rem;
+  --rcx-side-bar-menu-title-font-weight: 600;
+  --rcx-side-bar-menu-title-letter-spacing: 0;
+  --rcx-side-bar-menu-title-line-height: 1rem;
+}
+
+.SideBar__Menu {
+  display: flex;
+
+  box-sizing: border-box;
+  padding: var(--rcx-side-bar-menu-padding);
+  flex-flow: column nowrap;
+}
+
+.SideBar__MenuTitle {
+  box-sizing: border-box;
+  padding: var(--rcx-side-bar-menu-title-padding);
+
+  user-select: none;
+
+  letter-spacing: var(--rcx-side-bar-menu-title-letter-spacing);
+
+  color: var(--rcx-side-bar-menu-title-color);
+
+  font-family: var(--rcx-side-bar-menu-title-font-family);
+  font-size: var(--rcx-side-bar-menu-title-font-size);
+  font-weight: var(--rcx-side-bar-menu-title-font-weight);
+  line-height: var(--rcx-side-bar-menu-title-line-height);
+}
+
+.SideBar__MenuList {
+  display: flex;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+  align-items: stretch;
+  flex-flow: column nowrap;
+}

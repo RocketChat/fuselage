@@ -1,0 +1,200 @@
+:root {
+  --rcx-button-height: 2.25rem;
+  --rcx-button-padding: 0.375rem 1.5rem;
+  --rcx-button-border-width: var(--border);
+  --rcx-button-border-radius: var(--border-radius);
+  --rcx-button-default-background: transparent;
+  --rcx-button-default-color: var(--color-dark-900);
+  --rcx-button-disabled-background: var(--color-dark-300);
+  --rcx-button-disabled-color: var(--color-white);
+  --rcx-button-primary-background: var(--color-blue);
+  --rcx-button-primary-color: var(--color-white);
+  --rcx-button-secondary-background: var(--color-dark-500);
+  --rcx-button-secondary-color: var(--color-dark-800);
+  --rcx-button-danger-background: var(--color-red);
+  --rcx-button-danger-color: var(--color-white);
+  --rcx-button-bland-background: var(--color-dark-100);
+  --rcx-button-bland-color: var(--color-dark-700);
+  --rcx-button-font-family: var(--default-font-family);
+  --rcx-button-font-size: 0.875rem;
+  --rcx-button-line-height: 1.25rem;
+  --rcx-button-default-font-weight: 600;
+  --rcx-button-bland-font-weight: 500;
+  --rcx-button-nude-font-weight: 400;
+  --rcx-button-transition-duration: 300ms;
+  --rcx-button-square-size: 44px;
+}
+
+.Button {
+  position: relative;
+
+  display: inline-block;
+
+  box-sizing: border-box;
+
+  height: var(--rcx-button-height);
+  padding: var(--rcx-button-padding);
+
+  cursor: pointer;
+  transition:
+    opacity var(--rcx-button-transition-duration),
+    visibility var(--rcx-button-transition-duration),
+    background-color var(--rcx-button-transition-duration),
+    border-color var(--rcx-button-transition-duration),
+    color var(--rcx-button-transition-duration),
+    transform var(--rcx-button-transition-duration);
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  text-overflow: ellipsis;
+
+  color: var(--rcx-button-default-color);
+  border-width: var(--rcx-button-border-width);
+  border-style: solid;
+  border-color: var(--rcx-button-default-color);
+  border-radius: var(--rcx-button-border-radius);
+
+  outline: none;
+  background-color: var(--rcx-button-default-background);
+
+  font-family: var(--rcx-button-font-family);
+  font-size: var(--rcx-button-font-size);
+  font-weight: var(--rcx-button-default-font-weight);
+  line-height: var(--rcx-button-line-height);
+
+  &:active,
+  &:focus:hover {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(0.125rem);
+
+    opacity: 0.9;
+  }
+
+  &:active::before {
+    top: calc(-1 * (var(--rcx-button-border-width) + 0.125rem));
+  }
+
+  &::before {
+    position: absolute;
+    top: calc(-1 * var(--rcx-button-border-width));
+    right: calc(-1 * var(--rcx-button-border-width));
+    bottom: calc(-1 * var(--rcx-button-border-width));
+    left: calc(-1 * var(--rcx-button-border-width));
+
+    content: "";
+    cursor: pointer;
+  }
+
+  &:disabled::before {
+    display: none;
+  }
+
+  &:not([disabled]):hover {
+    opacity: 0.6;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    color: var(--rcx-button-disabled-color);
+    border-color: var(--rcx-button-disabled-background);
+    background-color: var(--rcx-button-disabled-background);
+  }
+
+  .Icon {
+    vertical-align: bottom;
+
+    font-size: var(--rcx-button-line-height);
+  }
+}
+
+.Button--primary {
+  color: var(--rcx-button-primary-color);
+  border-color: var(--rcx-button-primary-background);
+  background-color: var(--rcx-button-primary-background);
+
+  &.Button--bland {
+    color: var(--rcx-button-primary-background);
+  }
+
+  &.Button--outline {
+    color: var(--rcx-button-primary-background);
+    border-color: var(--rcx-button-primary-background);
+  }
+
+  &.Button--nude {
+    color: var(--rcx-button-primary-background);
+  }
+}
+
+.Button--secondary {
+  color: var(--rcx-button-secondary-color);
+  border-color: var(--rcx-button-secondary-background);
+  background-color: var(--rcx-button-secondary-background);
+
+  &.Button--bland {
+    color: var(--rcx-button-secondary-color);
+  }
+
+  &.Button--outline {
+    color: var(--rcx-button-secondary-color);
+    border-color: var(--rcx-button-secondary-color);
+  }
+
+  &.Button--nude {
+    color: var(--rcx-button-secondary-color);
+  }
+}
+
+.Button--danger {
+  color: var(--rcx-button-danger-color);
+  border-color: var(--rcx-button-danger-background);
+  background-color: var(--rcx-button-danger-background);
+
+  &.Button--bland {
+    color: var(--rcx-button-danger-background);
+  }
+
+  &.Button--outline {
+    color: var(--rcx-button-danger-background);
+    border-color: var(--rcx-button-danger-background);
+  }
+
+  &.Button--nude {
+    color: var(--rcx-button-danger-background);
+  }
+}
+
+.Button--hidden {
+  visibility: hidden;
+
+  opacity: 0;
+}
+
+.Button--bland {
+  color: var(--rcx-button-bland-color);
+  border-color: var(--rcx-button-bland-background);
+  background-color: var(--rcx-button-bland-background);
+
+  font-weight: var(--rcx-button-bland-font-weight);
+}
+
+.Button--outline {
+  background: transparent;
+}
+
+.Button--nude {
+  border: none;
+  background: transparent;
+
+  font-weight: var(--rcx-button-nude-font-weight);
+}
+
+.Button--square {
+  width: var(--rcx-button-square-size);
+  height: var(--rcx-button-square-size);
+  padding: 0;
+}

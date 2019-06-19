@@ -1,0 +1,20 @@
+:root {
+  --rcx-tabs-margin: 0 0 0.5rem 0;
+  --rcx-tabs-line-color: var(--color-dark-300);
+}
+
+.Tabs {
+
+  box-sizing: border-box;
+  margin: var(--rcx-tabs-margin);
+
+  border-bottom: var(--rcx-tab-line-width) solid var(--rcx-tabs-line-color);
+}
+
+.Tabs__wrapper {
+  display: flex;
+  flex: 1;
+
+  width: 100%;
+  margin: 0 calc(-1 * var(--rcx-tab-margin-horizontal)) calc(-1 * var(--rcx-tab-line-width));
+}

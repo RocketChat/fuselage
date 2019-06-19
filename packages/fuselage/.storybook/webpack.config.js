@@ -1,15 +1,34 @@
-const path = require('path');
-
 module.exports = async ({ config, mode }) => {
+  const jsRule = config.module.rules.find(({ test }) => test.test('index.js'));
+  jsRule.include = [
+    ...jsRule.include,
+    /node_modules\/loki/,
+  ];
+  delete jsRule.exclude;
+
+  const cssRule = config.module.rules.find(({ test }) => test.test('index.css'));
+
+  cssRule.use = [
+    'style-loader/useable',
+      'css-loader',
+  ];
+
   config.module.rules.push({
     test: /\.scss$/,
     use: [
-      'style-loader',
+      'style-loader/useable',
       {
         loader: 'css-loader',
         options: {
           importLoaders: 1,
           modules: true,
+          getLocalIdent: (_, __, localName) => {
+            const localIdentName = localName
+              .replace(/_([A-Z])/g, (_, initialLetter) => `_${ initialLetter.toLowerCase() }`)
+              .replace(/\.?([A-Z])/g, (_, initialLetter) => `-${ initialLetter.toLowerCase() }`)
+              .replace(/^-/, '');
+            return `rcx-${ localIdentName }`;
+          },
         },
       },
       'sass-loader',

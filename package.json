@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -13,22 +13,27 @@
     "babel-loader": "^8.0.6",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
+    "eslint-import-resolver-lerna": "^1.1.0",
     "eslint-plugin-react": "^7.13.0",
+    "gh-pages": "^2.0.1",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "lerna": "^3.14.1",
+    "npm-run-all": "^4.1.5",
     "webpack-cli": "^3.3.2"
   },
   "scripts": {
     "start": "lerna run start --parallel",
     "build": "lerna run build",
     "test": "lerna run test",
-    "lint": "lerna run lint"
+    "eslint": "lerna run eslint",
+    "stylelint": "lerna run stylelint",
+    "lint": "run-s eslint stylelint",
+    "storybook": "lerna run storybook --parallel"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint",
-      "pre-push": "cross-env CI=true yarn test"
+      "pre-commit": "yarn lint"
     }
   }
 }

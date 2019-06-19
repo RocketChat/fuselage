@@ -1,1 +1,3 @@
-dist/
+/dist/
+/storybook-static/
+.out

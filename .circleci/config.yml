@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
@@ -7,14 +7,85 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+          key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
       - run: yarn
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn lint
-      - run: yarn build
-      - run: yarn test
+          key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
+      - run: yarn lerna run lint --stream
+      - run: yarn lerna run build --stream
+      - run: yarn lerna run test --stream
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - .
+
+  loki:
+    docker:
+      - image: chinello/alpine-chrome:with-node
+    working_directory: ~/repo
+    environment:
+      CHROME_PATH: /usr/bin/chromium-browser
+    steps:
+      - checkout
+      - run: yarn
+      - run: yarn lerna run build --stream
+      - run: yarn lerna run build-storybook --scope @rocket.chat/fuselage --stream
+      - run:
+          command: |
+            cat package.json | sed s/\.docker/.app/ > package.json-new
+            mv package.json-new package.json
+          working_directory: ~/repo/packages/fuselage
+      - run:
+          command: yarn run loki:test-ci
+          working_directory: ~/repo/packages/fuselage
+
+      - store_artifacts:
+          path: ~/repo/packages/fuselage/.loki/difference
+
+
+  happo:
+    docker:
+      - image: circleci/node:10.15
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: cp yarn.lock packages/fuselage
+      - run:
+          command: yarn lerna run happo-ci
+          environment:
+            - INSTALL_CMD: lerna bootstrap
+            - BASE_BRANCH: origin/develop
+
+  deploy-storybook:
+    docker:
+      - image: circleci/node:10.15
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: yarn lerna run build-storybook --parallel --stream
+      - run: yarn lerna run deploy-storybook --parallel --stream
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - loki:
+          requires:
+            - build
+      - happo:
+          requires:
+            - build
+          filters:
+              branches:
+                ignore: develop
+      - deploy-storybook:
+          requires:
+            - build
+          filters:
+              branches:
+                only: master

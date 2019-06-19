@@ -1,14 +1,15 @@
 import React from 'react'
-import { Button } from '@rocket.chat/fuselage';
+import { Button, Icon } from '@rocket.chat/fuselage';
 import './App.css'
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Button primary onClick={() => alert('Hello world!')}>Click me</Button>
-      </header>
+      <Button primary>Without theme <Icon name="cross" /></Button>
+      <div style={{ '--rcx-button-primary-background': 'tomato' }}>
+        <Button primary>With theme <Icon name="check" /></Button>
+      </div>
     </div>
   )
 }
