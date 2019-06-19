@@ -3,9 +3,9 @@ import React from 'react';
 import { Shell } from '../Shell';
 
 
-export function CurrentChats() {
+export function CurrentChats(props) {
   return (
-    <Shell title="Current Chats">
+    <Shell title="Current Chats" url="/current-chats" {...props}>
 
     </Shell>
   );

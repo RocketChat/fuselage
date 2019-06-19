@@ -14,7 +14,10 @@ import {
 
 export function Shell({
   children,
-  title
+  closeable = true,
+  title,
+  url,
+  onClosing,
 }) {
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const [sideBarDocked, setSideBarDocked] = useState(false);
@@ -40,39 +43,39 @@ export function Shell({
   };
 
   return (
-    <div style={{ width: '100%', height: '100%', display: 'flex', flexFlow: 'row nowrap', alignItems: 'stretch' }}>
+    <div style={{ width: '100vw', height: '100vh', display: 'flex', flexFlow: 'row nowrap', alignItems: 'stretch' }}>
       <Drawer dockWhen="(min-width: 780px)" open={sideBarOpen} onOpening={handleSideBarOpening} onClosing={handleSideBarClosing} onDockStateChange={handleSideBarDockStateChange}>
         <SideBar>
-          <SideBarHeader closeable={!sideBarDocked} title="Livechat" onClosing={handleSideBarClosing} />
+          <SideBarHeader closeable={closeable} title="Livechat" onClosing={onClosing} />
 
           <ScrollableArea>
             <SideBarMenu title="Monitoring">
-              <SideBarMenuItem>Real-time Monitoring</SideBarMenuItem>
-              <SideBarMenuItem>Current Chats</SideBarMenuItem>
-              <SideBarMenuItem>Analytics</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/real-time-monitoring'}>Real-time Monitoring</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/current-chats'}>Current Chats</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/analytics'}>Analytics</SideBarMenuItem>
             </SideBarMenu>
 
             <SideBarMenu title="User Managements">
-              <SideBarMenuItem>Managers</SideBarMenuItem>
-              <SideBarMenuItem>Monitors</SideBarMenuItem>
-              <SideBarMenuItem>Agents</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/users/managers'}>Managers</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/users/monitors'}>Monitors</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/users/agents'}>Agents</SideBarMenuItem>
             </SideBarMenu>
 
             <SideBarMenu title="Organization">
-              <SideBarMenuItem>Sections</SideBarMenuItem>
-              <SideBarMenuItem>Departments</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/sections'}>Sections</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/departments'}>Departments</SideBarMenuItem>
             </SideBarMenu>
 
             <SideBarMenu title="Settings">
-              <SideBarMenuItem>Custom Fields</SideBarMenuItem>
-              <SideBarMenuItem>Appearance</SideBarMenuItem>
-              <SideBarMenuItem>Office Hours</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/custom-fields'}>Custom Fields</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/appearance'}>Appearance</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/office-hours'}>Office Hours</SideBarMenuItem>
             </SideBarMenu>
 
             <SideBarMenu title="Integrations">
-              <SideBarMenuItem>Installation</SideBarMenuItem>
-              <SideBarMenuItem>Webhooks</SideBarMenuItem>
-              <SideBarMenuItem>Facebook Messenger</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/installation'}>Installation</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/webhooks'}>Webhooks</SideBarMenuItem>
+              <SideBarMenuItem active={url === '/facebook-messenger'}>Facebook Messenger</SideBarMenuItem>
             </SideBarMenu>
           </ScrollableArea>
         </SideBar>
