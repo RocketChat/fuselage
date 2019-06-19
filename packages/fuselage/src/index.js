@@ -6,7 +6,7 @@ export * from './components/CheckBox';
 export * from './components/Drawer';
 export * from './components/Grid';
 export * from './components/Icon';
-export * from './components/PageHeader';
+export * from './components/Page';
 export * from './components/ScrollableArea';
 export * from './components/SideBar';
 export * from './components/Tab';

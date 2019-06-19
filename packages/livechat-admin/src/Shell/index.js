@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   Drawer,
+  Page,
   PageHeader,
   PageHeaderTitle,
   PageHeaderBurgerButton,
@@ -81,13 +82,16 @@ export function Shell({
         </SideBar>
       </Drawer>
 
-      <div style={{ flex: '1', display: 'flex', flexFlow: 'column nowrap' }}>
+      <Page>
         <PageHeader>
           {!sideBarDocked && <PageHeaderBurgerButton onClick={handleBurgerButtonClick} />}
           <PageHeaderTitle>{title}</PageHeaderTitle>
         </PageHeader>
-        {children}
-      </div>
+
+        <ScrollableArea>
+          {children}
+        </ScrollableArea>
+      </Page>
     </div>
   );
 }
