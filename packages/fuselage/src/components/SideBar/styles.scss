@@ -1,0 +1,23 @@
+:root {
+  --rcx-side-bar-min-width: 17.5rem;
+  --rcx-side-bar-background-color: var(--color-dark-100);
+  --rcx-side-bar-border-color: var(--color-dark-200);
+  --rcx-side-bar-border-width: 1px;
+  --rcx-side-bar-transition-duration: 300ms;
+}
+
+.SideBar {
+  display: flex;
+  flex: 1 0 auto;
+
+  box-sizing: border-box;
+  min-width: var(--rcx-side-bar-min-width);
+  min-height: 100vh;
+
+  border-width: 0 var(--rcx-side-bar-border-width) 0 0;
+  border-style: solid;
+  border-color: var(--rcx-side-bar-border-color);
+  background-color: var(--rcx-side-bar-background-color);
+  align-items: stretch;
+  flex-flow: column nowrap;
+}
