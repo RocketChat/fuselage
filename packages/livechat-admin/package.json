@@ -26,8 +26,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook",
-    "deploy-storybook": "gh-pages --dist ./storybook-static --dest livechat-admin --message \"Deploy Storybook to Github Pages [skip ci]\" --user \"Guilherme Gazzo <guilherme.gazzo@rocket.chat>\""
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,6 +51,7 @@
     "@storybook/addon-viewport": "^5.1.8",
     "@storybook/addons": "^5.1.8",
     "@storybook/react": "^5.1.8",
-    "@storybook/theming": "^5.1.8"
+    "@storybook/theming": "^5.1.8",
+    "babel-loader": "^8.0.6"
   }
 }
