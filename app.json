@@ -17,9 +17,6 @@
       "url": "heroku/nodejs"
     },
     {
-      "url": "https://github.com/Root-App/heroku-buildpack-storybook.git"
-    },
-    {
       "url": "https://github.com/heroku/heroku-buildpack-static.git"
     }
   ]
