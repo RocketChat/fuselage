@@ -24,7 +24,6 @@
     "webpack-cli": "^3.3.2"
   },
   "scripts": {
-    "start": "lerna run start --parallel",
     "build": "lerna run build --stream",
     "postinstall": "lerna run build --stream",
     "build-storybook": "lerna run build-storybook --parallel --stream",
