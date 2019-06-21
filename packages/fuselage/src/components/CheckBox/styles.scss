@@ -1,25 +1,25 @@
 :root {
-  --rcx-checkbox-wrapper-height: 2rem;
-  --rcx-checkbox-size: 1rem;
-  --rcx-checkbox-margin: 0 0.5rem;
-  --rcx-checkbox-border-width: var(--border);
-  --rcx-checkbox-color: var(--color-white);
-  --rcx-checkbox-background-color: transparent;
-  --rcx-checkbox-border-color: var(--color-dark-500);
-  --rcx-checkbox-checked-color: var(--color-white);
-  --rcx-checkbox-checked-background-color: var(--color-blue);
-  --rcx-checkbox-checked-border-color: var(--color-dark-blue);
-  --rcx-checkbox-disabled-color: var(--color-white);
-  --rcx-checkbox-disabled-background-color: var(--color-dark-300);
-  --rcx-checkbox-disabled-border-color: var(--color-white);
-  --rcx-checkbox-border-radius: var(--border-radius);
-  --rcx-checkbox-label-color: var(--color-dark-700);
-  --rcx-checkbox-label-font-family: var(--default-font-family);
-  --rcx-checkbox-label-font-size: 0.875rem;
-  --rcx-checkbox-label-font-weight: 400;
-  --rcx-checkbox-label-line-height: 1.25rem;
-  --rcx-checkbox-label-letter-spacing: -0.2px;
-  --rcx-checkbox-transition-duration: 300ms;
+  --rcx-check-box-wrapper-height: 2rem;
+  --rcx-check-box-size: 1rem;
+  --rcx-check-box-margin: 0 0.5rem;
+  --rcx-check-box-border-width: var(--border);
+  --rcx-check-box-color: var(--color-white);
+  --rcx-check-box-background-color: transparent;
+  --rcx-check-box-border-color: var(--color-dark-500);
+  --rcx-check-box-checked-color: var(--color-white);
+  --rcx-check-box-checked-background-color: var(--color-blue);
+  --rcx-check-box-checked-border-color: var(--color-dark-blue);
+  --rcx-check-box-disabled-color: var(--color-white);
+  --rcx-check-box-disabled-background-color: var(--color-dark-300);
+  --rcx-check-box-disabled-border-color: var(--color-white);
+  --rcx-check-box-border-radius: var(--border-radius);
+  --rcx-check-box-label-color: var(--color-dark-700);
+  --rcx-check-box-label-font-family: var(--default-font-family);
+  --rcx-check-box-label-font-size: 0.875rem;
+  --rcx-check-box-label-font-weight: 400;
+  --rcx-check-box-label-line-height: 1.25rem;
+  --rcx-check-box-label-letter-spacing: -0.2px;
+  --rcx-check-box-transition-duration: 300ms;
 }
 
 .CheckBox {
@@ -44,17 +44,17 @@
 
   display: inline-flex;
 
-  height: var(--rcx-checkbox-wrapper-height);
+  height: var(--rcx-check-box-wrapper-height);
 
   cursor: pointer;
-  letter-spacing: var(--rcx-checkbox-label-letter-spacing);
+  letter-spacing: var(--rcx-check-box-label-letter-spacing);
 
-  color: var(--rcx-checkbox-label-color);
+  color: var(--rcx-check-box-label-color);
 
-  font-family: var(--rcx-checkbox-label-font-family);
-  font-size: var(--rcx-checkbox-label-font-size);
-  font-weight: var(--rcx-checkbox-label-font-weight);
-  line-height: var(--rcx-checkbox-label-line-height);
+  font-family: var(--rcx-check-box-label-font-family);
+  font-size: var(--rcx-check-box-label-font-size);
+  font-weight: var(--rcx-check-box-label-font-weight);
+  line-height: var(--rcx-check-box-label-line-height);
   align-items: center;
 }
 
@@ -68,44 +68,45 @@
   display: flex;
 
   box-sizing: border-box;
-  width: var(--rcx-checkbox-size);
-  height: var(--rcx-checkbox-size);
-  margin: var(--rcx-checkbox-margin);
+  width: var(--rcx-check-box-size);
+  height: var(--rcx-check-box-size);
+  margin: var(--rcx-check-box-margin);
 
   cursor: pointer;
   transition:
-    opacity var(--rcx-checkbox-transition-duration),
-    visibility var(--rcx-checkbox-transition-duration),
-    background-color var(--rcx-checkbox-transition-duration),
-    border-color var(--rcx-checkbox-transition-duration),
-    color var(--rcx-checkbox-transition-duration);
+    opacity var(--rcx-check-box-transition-duration),
+    visibility var(--rcx-check-box-transition-duration),
+    background-color var(--rcx-check-box-transition-duration),
+    border-color var(--rcx-check-box-transition-duration),
+    color var(--rcx-check-box-transition-duration),
+    transform var(--rcx-check-box-transition-duration);
 
-  color: var(--rcx-checkbox-color);
-  border: var(--rcx-checkbox-border-width) solid;
-  border-color: var(--rcx-checkbox-border-color);
-  border-radius: var(--rcx-checkbox-border-radius);
-  background-color: var(--rcx-checkbox-background-color);
+  color: var(--rcx-check-box-color);
+  border: var(--rcx-check-box-border-width) solid;
+  border-color: var(--rcx-check-box-border-color);
+  border-radius: var(--rcx-check-box-border-radius);
+  background-color: var(--rcx-check-box-background-color);
 
   & > .Icon {
     position: absolute;
-    top: calc(-1 * var(--rcx-checkbox-border-width));
-    right: calc(-1 * var(--rcx-checkbox-border-width));
-    bottom: calc(-1 * var(--rcx-checkbox-border-width));
-    left: calc(-1 * var(--rcx-checkbox-border-width));
+    top: calc(-1 * var(--rcx-check-box-border-width));
+    right: calc(-1 * var(--rcx-check-box-border-width));
+    bottom: calc(-1 * var(--rcx-check-box-border-width));
+    left: calc(-1 * var(--rcx-check-box-border-width));
 
     visibility: hidden;
 
     text-align: center;
 
-    font-size: var(--rcx-checkbox-size);
-    line-height: var(--rcx-checkbox-size);
+    font-size: var(--rcx-check-box-size);
+    line-height: var(--rcx-check-box-size);
   }
 }
 
 .CheckBox:checked + .CheckBox__fake {
-  color: var(--rcx-checkbox-checked-color);
-  border-color: var(--rcx-checkbox-checked-border-color);
-  background-color: var(--rcx-checkbox-checked-background-color);
+  color: var(--rcx-check-box-checked-color);
+  border-color: var(--rcx-check-box-checked-border-color);
+  background-color: var(--rcx-check-box-checked-background-color);
 
   & > .Icon {
     visibility: visible;
@@ -117,15 +118,19 @@
 }
 
 .CheckBox__wrapper:active .CheckBox:not([disabled]) + .CheckBox__fake {
-  transform: translateY(2px);
+  transform: translateY(0.125rem);
 
   opacity: 0.9;
+
+  &::before {
+    top: calc(-1 * (var(--rcx-check-box-border-width) + 0.125rem));
+  }
 }
 
 .CheckBox:disabled + .CheckBox__fake {
   cursor: not-allowed;
 
-  color: var(--rcx-checkbox-disabled-color);
-  border-color: var(--rcx-checkbox-disabled-border-color);
-  background-color: var(--rcx-checkbox-disabled-background-color);
+  color: var(--rcx-check-box-disabled-color);
+  border-color: var(--rcx-check-box-disabled-border-color);
+  background-color: var(--rcx-check-box-disabled-background-color);
 }
