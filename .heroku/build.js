@@ -27,7 +27,7 @@ const buildStorybook = async (packageName) => {
 
   console.log('Building static files directory...');
   await fs.ensureDir('static');
-  const html = '<!doctype html><meta http-equiv="Refresh" content="0; url=https://rocket.chat" />';
+  const html = '<!doctype html><meta http-equiv="Refresh" content="0; url=./livechat-admin/" />';
   await fs.outputFile('static/index.html', html);
 
   console.log('Building Storybooks...');
