@@ -1,18 +1,25 @@
 #!/usr/bin/env node
 'use strict';
+const { spawn } = require('child_process');
 const fs = require('fs-extra');
 const path = require('path');
-const storybook = require('@storybook/react/standalone');
 
 const buildStorybook = async (packageName) => {
-  process.chdir(path.join(__dirname, '../packages', packageName));
-  await storybook({
-    mode: 'static',
-    configDir: path.join(__dirname, '../packages', packageName, '.storybook'),
-    outputDir: path.join(__dirname, '../static', packageName),
+  const run = (...args) => new Promise((resolve, reject) => {
+    const childProcess = spawn(...args);
+    childProcess.on('close', (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(code);
+      }
+    });
   });
 
-  process.chdir(path.join(__dirname, '..'));
+  await run('node_modules/.bin/build-storybook', ['-o', path.join(__dirname, '../static', packageName)], {
+    stdio: 'inherit',
+    cwd: path.join(__dirname, '../packages', packageName),
+  });
 };
 
 (async () => {
@@ -20,8 +27,8 @@ const buildStorybook = async (packageName) => {
 
   console.log('Building static files directory...');
   await fs.ensureDir('static');
-  await fs.outputFile('static/index.html',
-    '<!doctype html><meta http-equiv="Refresh" content="0; url=https://rocket.chat" />');
+  const html = '<!doctype html><meta http-equiv="Refresh" content="0; url=https://rocket.chat" />';
+  await fs.outputFile('static/index.html', html);
 
   console.log('Building Storybooks...');
   await buildStorybook('fuselage');
