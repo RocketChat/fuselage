@@ -55,6 +55,10 @@ const useMediaQueryHook = (effect) => (query, defaultState = true) => {
   const [state, setState] = useState(defaultState);
 
   effect(() => {
+    if (!query) {
+      return;
+    }
+
     let mounted = true;
     const mql = window.matchMedia(query);
 

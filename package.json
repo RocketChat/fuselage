@@ -15,6 +15,7 @@
     "eslint": "^5.16.0",
     "eslint-import-resolver-lerna": "^1.1.0",
     "eslint-plugin-react": "^7.13.0",
+    "fs-extra": "^8.0.1",
     "gh-pages": "^2.0.1",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
@@ -23,13 +24,15 @@
     "webpack-cli": "^3.3.2"
   },
   "scripts": {
-    "start": "lerna run start --parallel",
-    "build": "lerna run build",
+    "build": "lerna run build --stream",
+    "postinstall": "lerna run build --stream",
+    "build-storybook": "lerna run build-storybook --parallel --stream",
     "test": "lerna run test",
     "eslint": "lerna run eslint",
     "stylelint": "lerna run stylelint",
     "lint": "run-s eslint stylelint",
-    "storybook": "lerna run storybook --parallel"
+    "storybook": "lerna run storybook --parallel",
+    "heroku-postbuild": "./.heroku/build.js"
   },
   "husky": {
     "hooks": {

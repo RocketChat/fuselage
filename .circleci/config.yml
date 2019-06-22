@@ -66,8 +66,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: yarn lerna run build-storybook --parallel --stream
-      - run: yarn lerna run deploy-storybook --parallel --stream
+      - run: .circleci/deploy-storybooks.js
 
 workflows:
   version: 2

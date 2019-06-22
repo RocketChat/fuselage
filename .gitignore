@@ -1,3 +1,4 @@
+/static
 node_modules/
 storybook-static/
 *.sublime-project
