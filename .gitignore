@@ -6,4 +6,3 @@ storybook-static/
 *.swp
 *.tmp
 .DS_Store
-.vscode
