@@ -4,6 +4,7 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 import { Button } from '../Button';
+import notes from './README.md';
 
 import { ButtonGroup } from './index';
 
@@ -11,7 +12,10 @@ import { ButtonGroup } from './index';
 storiesOf('Collections|ButtonGroup', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['ButtonGroup'] })
+  .addParameters({
+    jest: ['ButtonGroup'],
+    notes,
+  })
   .add('default', () => (
     <ButtonGroup
       wrap={boolean('wrap', false)}

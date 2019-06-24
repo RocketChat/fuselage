@@ -8,47 +8,17 @@ import { Button } from '../components/Button';
 import { ButtonGroup } from '../components/ButtonGroup';
 import '../helpers/cssCustomPropertiesPonyfill';
 import colorPalette from './colorPalette.scss';
+import colorPaletteNotes from './colorPalette.md';
+import themingNotes from './theming.md';
 
-
-const Color = ({ color, name }) => (
-  <div style={{
-    margin: '1rem',
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    alignItems: 'stretch',
-    overflow: 'hidden',
-    borderRadius: '0.75rem',
-    border: '1px solid lightgray',
-  }}>
-    <div style={{ backgroundColor: color, height: '5rem' }}></div>
-    <div style={{ padding: '0.5rem' }}>
-      <div style={{ textAlign: 'center', fontFamily: 'sans-serif' }}>{name}</div>
-      <div style={{ color: 'gray', textAlign: 'center', fontFamily: 'monospace', fontSize: '0.75rem' }}>{color}</div>
-    </div>
-  </div>
-);
-
-const ColorGrid = ({ children }) => (
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)' }}>
-    {children}
-  </div>
-);
-
-storiesOf('Styles|Colors', module)
-  .addDecorator(withKnobs)
-  .addDecorator(centered)
-  .lokiSkip('Palette', () => (
-    <ColorGrid>
-      {Object.entries(colorPalette.locals).map(([name, color], key) => (
-        <Color key={key} name={name} color={color} />
-      ))}
-    </ColorGrid>
-  ));
 
 storiesOf('Styles|Theming', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .add('Example', () => (
+  .addParameters({
+    notes: themingNotes,
+  })
+  .add('example', () => (
     <>
       <Helmet>
         <style type="text/css">{`
@@ -64,4 +34,28 @@ storiesOf('Styles|Theming', module)
         <Button danger>No</Button>
       </ButtonGroup>
     </>
-  ));
+  ), { notes: themingNotes })
+  .add('color palette', () => (
+    <div style={{ width: '100%', display: 'flex', flexFlow: 'row wrap' }}>
+      {Object.entries(colorPalette.locals).map(([name, color], key) => (
+        <div
+          key={key}
+          style={{ width: '2rem', height: '2rem', margin: '0.5rem', flex: '2', backgroundColor: color }}
+          title={`${ name } (${ color })`}
+        />
+      ))}
+    </div>
+  ), { notes: colorPaletteNotes.replace('[](#color-palette-table)', () => {
+    const maximumNameLenght = Object.keys(colorPalette.locals)
+      .reduce((a, b) => (a.length > b.length ? a.length : b.length), 0);
+    const header = [
+      `| ${ 'Name'.padEnd(maximumNameLenght + 4, ' ') } | Color     |`,
+      `|${ '-'.repeat(maximumNameLenght + 6) }|           |`,
+    ];
+    const rows = Object.entries(colorPalette.locals).map(([name, color]) => {
+      const colorSquare = `<span style="display: inline-block; border: 0.5rem solid ${ color }"></span>`;
+      return `| \`--${ name.padEnd(maximumNameLenght, ' ') }\` | ${ colorSquare } \`${ color }\``;
+    });
+
+    return `${ header.join('\n') }\n${ rows.join('\n') }`;
+  }) });

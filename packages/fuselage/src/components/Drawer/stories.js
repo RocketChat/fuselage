@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 
 import { Button } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
+import notes from './README.md';
 
 import { Drawer } from './index';
 
@@ -46,7 +47,10 @@ const MainContent = () => (
 
 storiesOf('Behaviors|Drawer', module)
   .addDecorator(withKnobs)
-  .addParameters({ jest: ['Drawer'] })
+  .addParameters({
+    jest: ['Drawer'],
+    notes,
+  })
   .add('default', () => (
     <div style={{ display: 'flex' }}>
       <Drawer {...props({ open: true })}>

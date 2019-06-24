@@ -2231,7 +2231,7 @@
     prop-types "^15.7.2"
     qs "^6.6.0"
 
-"@storybook/addon-notes@^5.0.11":
+"@storybook/addon-notes@^5.0.11", "@storybook/addon-notes@^5.1.9":
   version "5.1.9"
   resolved "https://registry.yarnpkg.com/@storybook/addon-notes/-/addon-notes-5.1.9.tgz#7a19373589b4280b9a10a107a0357e63d2d56f5c"
   integrity sha512-UE+/RNysKRo2ZqCaqllwwV59x2S1laZjF4Netcm0nf9dKNcnqOoSHlTs0t4m8WpmfBQKAde4p+8fJGP2bCM+8A==

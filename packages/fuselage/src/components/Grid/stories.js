@@ -3,6 +3,7 @@ import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 import { verticallyCentered } from '../../helpers/storybook';
+import notes from './README.md';
 
 import {
   Grid,
@@ -36,7 +37,10 @@ const Card = (props) => (
 storiesOf('Collections|Grid', module)
   .addDecorator(withKnobs)
   .addDecorator(verticallyCentered)
-  .addParameters({ jest: ['Grid'] })
+  .addParameters({
+    jest: ['Grid'],
+    notes,
+  })
   .add('default', () => (
     <Grid
       container

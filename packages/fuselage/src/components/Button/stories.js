@@ -6,6 +6,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import { Icon } from '../Icon';
+import notes from './README.md';
 
 import { Button } from './index';
 
@@ -28,7 +29,10 @@ const props = (defaults = {}) => ({
 storiesOf('Elements|Button', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['Button'] })
+  .addParameters({
+    jest: ['Button'],
+    notes,
+  })
   .add('default', () => (
     <Button
       {...props()}
