@@ -7,7 +7,7 @@ import { ScrollableArea } from '../ScrollableArea';
 import { SideBar, SideBarHeader, SideBarMenu, SideBarMenuItem } from './index';
 
 
-storiesOf('Components|SideBar', module)
+storiesOf('Views|SideBar', module)
   .addDecorator(centered)
   .addParameters({ jest: ['SideBar'] })
   .add('default', () => (

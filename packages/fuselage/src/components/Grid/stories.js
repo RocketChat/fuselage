@@ -33,7 +33,7 @@ const Card = (props) => (
   </div>
 );
 
-storiesOf('Components|Grid', module)
+storiesOf('Collections|Grid', module)
   .addDecorator(withKnobs)
   .addDecorator(verticallyCentered)
   .addParameters({ jest: ['Grid'] })

@@ -18,7 +18,7 @@ const props = ({
   onClosing: action('closing'),
 });
 
-storiesOf('Components|SideBar/SideBarHeader', module)
+storiesOf('Views|SideBar/SideBarHeader', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['SideBarHeader'] })

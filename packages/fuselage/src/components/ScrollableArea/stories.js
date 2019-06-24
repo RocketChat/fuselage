@@ -8,7 +8,7 @@ import { ButtonGroup } from '../ButtonGroup';
 import { ScrollableArea } from './index';
 
 
-storiesOf('Components|ScrollableArea', module)
+storiesOf('Behaviors|ScrollableArea', module)
   .addDecorator(centered)
   .addParameters({ jest: ['ScrollableArea'] })
   .add('horizontal', () => (

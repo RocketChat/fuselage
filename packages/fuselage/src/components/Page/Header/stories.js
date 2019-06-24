@@ -12,7 +12,7 @@ const titleProps = () => ({
   children: text('title/children', 'Page header title'),
 });
 
-storiesOf('Components|Page/PageHeader', module)
+storiesOf('Views|Page/PageHeader', module)
   .addDecorator(withKnobs)
   .addParameters({ jest: ['PageHeader'] })
   .add('default', () => (

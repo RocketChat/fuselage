@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 import { Tab } from './index';
 
 
-storiesOf('Components|Tab', module)
+storiesOf('Elements|Tab', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['Tab'] })

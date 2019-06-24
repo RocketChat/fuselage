@@ -53,7 +53,7 @@
       "",
       "const props = () => ({});",
       "",
-      "storiesOf('Components|$1', module)",
+      "storiesOf('$2|$1', module)",
       "  .addDecorator(withKnobs)",
       "  .addDecorator(centered)",
       "  .addParameters({ jest: ['$1'] })",

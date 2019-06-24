@@ -44,7 +44,7 @@ const MainContent = () => (
   </div>
 );
 
-storiesOf('Components|Drawer', module)
+storiesOf('Behaviors|Drawer', module)
   .addDecorator(withKnobs)
   .addParameters({ jest: ['Drawer'] })
   .add('default', () => (
@@ -72,7 +72,7 @@ storiesOf('Components|Drawer', module)
     </div>
   ));
 
-storiesOf('Components|Drawer', module)
+storiesOf('Behaviors|Drawer', module)
   .addDecorator(withKnobs)
   .addParameters({ jest: ['Drawer'] })
   .addParameters({ viewport: { defaultViewport: 'iphone5' } })

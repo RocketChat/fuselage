@@ -14,7 +14,7 @@ const props = ({
   title: text('title', title),
 });
 
-storiesOf('Components|SideBar/SideBarMenu', module)
+storiesOf('Views|SideBar/SideBarMenu', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['SideBarMenu'] })

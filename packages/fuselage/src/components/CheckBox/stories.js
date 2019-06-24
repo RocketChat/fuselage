@@ -16,7 +16,7 @@ const props = (defaults = {}) => ({
   },
 });
 
-storiesOf('Components|CheckBox', module)
+storiesOf('Elements|CheckBox', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['CheckBox'] })

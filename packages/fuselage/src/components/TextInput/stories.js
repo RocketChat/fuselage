@@ -17,7 +17,7 @@ const props = (defaults = {}) => ({
   onChange: action('change'),
 });
 
-storiesOf('Components|TextInput', module)
+storiesOf('Elements|TextInput', module)
   .addDecorator(centered)
   .addDecorator(withKnobs)
   .addParameters({ jest: ['TextInput'] })

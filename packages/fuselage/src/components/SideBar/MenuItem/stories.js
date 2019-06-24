@@ -18,7 +18,7 @@ const props = ({
   onClick: action('click'),
 });
 
-storiesOf('Components|SideBar/SideBarMenuItem', module)
+storiesOf('Views|SideBar/SideBarMenuItem', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['SideBarMenuItem'] })

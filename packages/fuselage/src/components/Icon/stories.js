@@ -26,7 +26,7 @@ const IconDisplay = ({ children, color, name, size, varName }) => (
   </div>
 );
 
-const stories = storiesOf('Components|Icon', module)
+const stories = storiesOf('Elements|Icon', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['Icon'] })

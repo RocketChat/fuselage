@@ -25,7 +25,7 @@ const props = (defaults = {}) => ({
   onClick: action('change'),
 });
 
-storiesOf('Components|Button', module)
+storiesOf('Elements|Button', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['Button'] })

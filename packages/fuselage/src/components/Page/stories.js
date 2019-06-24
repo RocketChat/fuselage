@@ -7,7 +7,7 @@ import { Page, PageHeader, PageHeaderTitle } from './index';
 
 const props = () => ({});
 
-storiesOf('Components|Page', module)
+storiesOf('Views|Page', module)
   .addDecorator(withKnobs)
   .addParameters({ jest: ['Page'] })
   .add('default', () => (
