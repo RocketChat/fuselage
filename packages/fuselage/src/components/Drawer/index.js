@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
-import { useLayoutMediaQuery, useStyle } from '../../helpers/hooks';
+import { useLayoutMediaQuery, useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
 
 
