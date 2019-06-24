@@ -13,7 +13,6 @@ export function Button({
   bland,
   outline,
   nude,
-  small,
   square,
   className,
   ...props
