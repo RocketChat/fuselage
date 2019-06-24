@@ -9,7 +9,7 @@ import { SideBar, SideBarHeader, SideBarMenu, SideBarMenuItem } from './index';
 
 storiesOf('Views|SideBar', module)
   .addDecorator(centered)
-  .addParameters({ jest: ['SideBar'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <SideBar>
       <SideBarHeader title="Header title" />

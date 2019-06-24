@@ -38,7 +38,7 @@ storiesOf('Collections|Grid', module)
   .addDecorator(withKnobs)
   .addDecorator(verticallyCentered)
   .addParameters({
-    jest: ['Grid'],
+    jest: ['spec'],
     notes,
   })
   .add('default', () => (

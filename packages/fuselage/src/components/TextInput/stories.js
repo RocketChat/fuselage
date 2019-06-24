@@ -20,7 +20,7 @@ const props = (defaults = {}) => ({
 storiesOf('Elements|TextInput', module)
   .addDecorator(centered)
   .addDecorator(withKnobs)
-  .addParameters({ jest: ['TextInput'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <TextInput
       {...props()}

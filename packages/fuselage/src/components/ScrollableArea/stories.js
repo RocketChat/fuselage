@@ -10,7 +10,7 @@ import { ScrollableArea } from './index';
 
 storiesOf('Behaviors|ScrollableArea', module)
   .addDecorator(centered)
-  .addParameters({ jest: ['ScrollableArea'] })
+  .addParameters({ jest: ['spec'] })
   .add('horizontal', () => (
     <ScrollableArea style={{ maxWidth: '10rem' }}>
       <ButtonGroup>

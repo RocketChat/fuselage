@@ -9,7 +9,7 @@ const props = () => ({});
 
 storiesOf('Views|Page', module)
   .addDecorator(withKnobs)
-  .addParameters({ jest: ['Page'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <Page {...props()}>
       <PageHeader>

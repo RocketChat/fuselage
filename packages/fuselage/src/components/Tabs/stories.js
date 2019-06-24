@@ -11,7 +11,7 @@ import { Tabs } from './index';
 storiesOf('Collections|Tabs', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['Tabs'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <Tabs>
       <Tab active>Tab text 1</Tab>

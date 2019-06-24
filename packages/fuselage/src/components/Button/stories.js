@@ -30,7 +30,7 @@ storiesOf('Elements|Button', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({
-    jest: ['Button'],
+    jest: ['spec'],
     notes,
   })
   .add('default', () => (

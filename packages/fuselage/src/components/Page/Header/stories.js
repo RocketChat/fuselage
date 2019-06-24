@@ -14,7 +14,7 @@ const titleProps = () => ({
 
 storiesOf('Views|Page/PageHeader', module)
   .addDecorator(withKnobs)
-  .addParameters({ jest: ['PageHeader'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <PageHeader>
       <PageHeaderTitle {...titleProps()} />

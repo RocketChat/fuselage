@@ -13,7 +13,7 @@ storiesOf('Collections|ButtonGroup', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({
-    jest: ['ButtonGroup'],
+    jest: ['spec'],
     notes,
   })
   .add('default', () => (

@@ -59,7 +59,7 @@
       "  .addDecorator(withKnobs)",
       "  .addDecorator(centered)",
       "  .addParameters({",
-      "     jest: ['$1'],",
+      "     jest: ['spec'],",
       "     notes,",
       "  })",
       "  .add('default', () => (",

@@ -48,7 +48,7 @@ const MainContent = () => (
 storiesOf('Behaviors|Drawer', module)
   .addDecorator(withKnobs)
   .addParameters({
-    jest: ['Drawer'],
+    jest: ['spec'],
     notes,
   })
   .add('default', () => (

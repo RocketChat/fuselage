@@ -21,7 +21,7 @@ const props = ({
 storiesOf('Views|SideBar/SideBarHeader', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['SideBarHeader'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <SideBar docked>
       <SideBarHeader {...props({ title: 'Header title', closeable: true })} />

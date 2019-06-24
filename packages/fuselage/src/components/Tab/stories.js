@@ -9,7 +9,7 @@ import { Tab } from './index';
 storiesOf('Elements|Tab', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['Tab'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <Tab
       active={boolean('active', false)}

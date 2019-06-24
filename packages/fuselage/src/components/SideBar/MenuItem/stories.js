@@ -21,7 +21,7 @@ const props = ({
 storiesOf('Views|SideBar/SideBarMenuItem', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['SideBarMenuItem'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <SideBar docked>
       <SideBarMenu >
