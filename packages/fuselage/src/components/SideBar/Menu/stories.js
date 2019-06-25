@@ -1,7 +1,7 @@
-import React from 'react';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { SideBar, SideBarMenuItem } from '../index';
 

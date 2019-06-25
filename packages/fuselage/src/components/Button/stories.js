@@ -44,49 +44,31 @@ storiesOf('Elements|Button', module)
     notes,
   })
   .add('default', () => (
-    <Button
-      {...props()}
-    />
+    <Button {...props()} />
   ))
   .add('primary', () => (
-    <Button
-      {...props({ primary: true })}
-    />
+    <Button {...props({ primary: true })} />
   ))
   .add('secondary', () => (
-    <Button
-      {...props({ secondary: true })}
-    />
+    <Button {...props({ secondary: true })} />
   ))
   .add('danger', () => (
-    <Button
-      {...props({ danger: true })}
-    />
+    <Button {...props({ danger: true })} />
   ))
   .add('disabled', () => (
-    <Button
-      {...props({ disabled: true })}
-    />
+    <Button {...props({ disabled: true })} />
   ))
   .add('hidden', () => (
-    <Button
-      {...props({ hidden: true })}
-    />
+    <Button {...props({ hidden: true })} />
   ))
   .add('bland', () => (
-    <Button
-      {...props({ bland: true })}
-    />
+    <Button {...props({ bland: true })} />
   ))
   .add('outline', () => (
-    <Button
-      {...props({ outline: true })}
-    />
+    <Button {...props({ outline: true })} />
   ))
   .add('nude', () => (
-    <Button
-      {...props({ nude: true })}
-    />
+    <Button {...props({ nude: true })} />
   ))
   .add('with icon', () => (
     <Button
@@ -108,7 +90,5 @@ storiesOf('Elements|Button', module)
     />
   ))
   .add('square', () => (
-    <Button
-      {...props({ square: true, children: <Icon name={select('children/icon', icons, icons.plus)} /> })}
-    />
+    <Button {...props({ square: true, children: <Icon name={select('children/icon', icons, icons.plus)} /> })} />
   ));

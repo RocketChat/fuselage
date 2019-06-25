@@ -4,39 +4,34 @@ import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
 
 
-export const GRID_DIRECTIONS = [
-  'row',
-  'row-reverse',
-];
+const directions = Object.freeze({
+  row: 'row',
+  rowReverse: 'row-reverse',
+});
 
-export const GRID_JUSTIFICATIONS = [
-  'flex-start',
-  'center',
-  'flex-end',
-  'space-between',
-  'space-around',
-  'space-evenly',
-];
+const justifications = Object.freeze({
+  flexStart: 'flex-start',
+  center: 'center',
+  flexEnd: 'flex-end',
+  spaceBetween: 'space-between',
+  spaceAround: 'space-around',
+  spaceEvenly: 'space-evenly',
+});
 
-export const GRID_ITEM_ALIGNMENTS = [
-  'flex-start',
-  'center',
-  'flex-end',
-  'stretch',
-  'baseline',
-];
-
-export const GRID_DEFAULT_DIRECTION = 'row';
-export const GRID_DEFAULT_JUSTIFICATION = 'center';
-export const GRID_DEFAULT_ITEM_ALIGNMENT = 'center';
-export const GRID_DEFAULT_GUTTER = 3;
+const itemAlignments = Object.freeze({
+  flexStart: 'flex-start',
+  center: 'center',
+  flexEnd: 'flex-end',
+  stretch: 'stretch',
+  baseline: 'baseline',
+});
 
 export function Grid({
   container,
-  direction = GRID_DEFAULT_DIRECTION,
-  justification = GRID_DEFAULT_JUSTIFICATION,
-  itemAlignment = GRID_DEFAULT_ITEM_ALIGNMENT,
-  gutter = GRID_DEFAULT_GUTTER,
+  direction = directions.row,
+  justification = justifications.center,
+  itemAlignment = itemAlignments.center,
+  gutter = 3,
   outsideGutter = true,
   item,
   xs,
@@ -67,3 +62,7 @@ export function Grid({
     />
   );
 }
+
+Grid.directions = directions;
+Grid.justifications = justifications;
+Grid.itemAlignments = itemAlignments;

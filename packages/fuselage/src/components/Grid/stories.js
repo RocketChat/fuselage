@@ -1,21 +1,26 @@
-import React from 'react';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { verticallyCentered } from '../../helpers/storybook';
 import notes from './README.md';
 
-import {
-  Grid,
-  GRID_DIRECTIONS,
-  GRID_JUSTIFICATIONS,
-  GRID_ITEM_ALIGNMENTS,
-  GRID_DEFAULT_DIRECTION,
-  GRID_DEFAULT_JUSTIFICATION,
-  GRID_DEFAULT_ITEM_ALIGNMENT,
-  GRID_DEFAULT_GUTTER,
-} from './index';
+import { Grid } from './index';
 
+
+const containerProps = ({
+  direction = Grid.directions.row,
+  justification = Grid.justifications.center,
+  itemAlignment = Grid.itemAlignments.center,
+  gutter = 3,
+  outsideGutter = true,
+} = {}) => ({
+  direction: select('direction', Grid.directions, direction),
+  justification: select('justification', Grid.justifications, justification),
+  itemAlignment: select('itemAlignment', Grid.itemAlignments, itemAlignment),
+  gutter: number('gutter', gutter),
+  outsideGutter: boolean('outsideGutter', outsideGutter),
+});
 
 const Card = (props) => (
   <div style={{
@@ -42,14 +47,7 @@ storiesOf('Collections|Grid', module)
     notes,
   })
   .add('default', () => (
-    <Grid
-      container
-      direction={select('direction', GRID_DIRECTIONS, GRID_DEFAULT_DIRECTION)}
-      justification={select('justification', GRID_JUSTIFICATIONS, GRID_DEFAULT_JUSTIFICATION)}
-      itemAlignment={select('itemAlignment', GRID_ITEM_ALIGNMENTS, GRID_DEFAULT_ITEM_ALIGNMENT)}
-      gutter={number('gutter', GRID_DEFAULT_GUTTER)}
-      outsideGutter={boolean('outsideGutter', true)}
-    >
+    <Grid container {...containerProps()}>
       <Grid item>
         <Card>1</Card>
       </Grid>
@@ -62,14 +60,7 @@ storiesOf('Collections|Grid', module)
     </Grid>
   ))
   .add('with direction set', () => (
-    <Grid
-      container
-      direction={select('direction', GRID_DIRECTIONS, 'row-reverse')}
-      justification={select('justification', GRID_JUSTIFICATIONS, GRID_DEFAULT_JUSTIFICATION)}
-      itemAlignment={select('itemAlignment', GRID_ITEM_ALIGNMENTS, GRID_DEFAULT_ITEM_ALIGNMENT)}
-      gutter={number('gutter', GRID_DEFAULT_GUTTER)}
-      outsideGutter={boolean('outsideGutter', true)}
-    >
+    <Grid container {...containerProps({ direction: Grid.directions.rowReverse })}>
       <Grid item>
         <Card>1</Card>
       </Grid>
@@ -82,14 +73,7 @@ storiesOf('Collections|Grid', module)
     </Grid>
   ))
   .add('with justification set', () => (
-    <Grid
-      container
-      direction={select('direction', GRID_DIRECTIONS, GRID_DEFAULT_DIRECTION)}
-      justification={select('justification', GRID_JUSTIFICATIONS, 'space-around')}
-      itemAlignment={select('itemAlignment', GRID_ITEM_ALIGNMENTS, GRID_DEFAULT_ITEM_ALIGNMENT)}
-      gutter={number('gutter', GRID_DEFAULT_GUTTER)}
-      outsideGutter={boolean('outsideGutter', true)}
-    >
+    <Grid container {...containerProps({ justification: Grid.justifications.spaceAround })}>
       <Grid item>
         <Card>1</Card>
       </Grid>
@@ -102,15 +86,7 @@ storiesOf('Collections|Grid', module)
     </Grid>
   ))
   .add('with item alignment set', () => (
-    <Grid
-      container
-      direction={select('direction', GRID_DIRECTIONS, GRID_DEFAULT_DIRECTION)}
-      justification={select('justification', GRID_JUSTIFICATIONS, GRID_DEFAULT_JUSTIFICATION)}
-      itemAlignment={select('itemAlignment', GRID_ITEM_ALIGNMENTS, 'stretch')}
-      gutter={number('gutter', GRID_DEFAULT_GUTTER)}
-      outsideGutter={boolean('outsideGutter', true)}
-      style={{ height: '10rem' }}
-    >
+    <Grid container {...containerProps({ itemAlignment: Grid.itemAlignments.stretch })} style={{ height: '10rem' }}>
       <Grid item>
         <Card>1</Card>
       </Grid>
@@ -123,14 +99,7 @@ storiesOf('Collections|Grid', module)
     </Grid>
   ))
   .add('with gutter set', () => (
-    <Grid
-      container
-      direction={select('direction', GRID_DIRECTIONS, GRID_DEFAULT_DIRECTION)}
-      justification={select('justification', GRID_JUSTIFICATIONS, GRID_DEFAULT_JUSTIFICATION)}
-      itemAlignment={select('itemAlignment', GRID_ITEM_ALIGNMENTS, GRID_DEFAULT_ITEM_ALIGNMENT)}
-      gutter={number('gutter', 1)}
-      outsideGutter={boolean('outsideGutter', true)}
-    >
+    <Grid container {...containerProps({ gutter: 1 })}>
       <Grid item>
         <Card>1</Card>
       </Grid>
@@ -143,14 +112,7 @@ storiesOf('Collections|Grid', module)
     </Grid>
   ))
   .add('without outside gutter', () => (
-    <Grid
-      container
-      direction={select('direction', GRID_DIRECTIONS, GRID_DEFAULT_DIRECTION)}
-      justification={select('justification', GRID_JUSTIFICATIONS, GRID_DEFAULT_JUSTIFICATION)}
-      itemAlignment={select('itemAlignment', GRID_ITEM_ALIGNMENTS, GRID_DEFAULT_ITEM_ALIGNMENT)}
-      gutter={number('gutter', GRID_DEFAULT_GUTTER)}
-      outsideGutter={boolean('outsideGutter', false)}
-    >
+    <Grid container {...containerProps({ outsideGutter: false })}>
       <Grid item>
         <Card>1</Card>
       </Grid>
@@ -202,14 +164,7 @@ storiesOf('Collections|Grid', module)
     </Grid>
   ))
   .add('with auto-layout', () => (
-    <Grid
-      container
-      direction={select('direction', GRID_DIRECTIONS, GRID_DEFAULT_DIRECTION)}
-      justification={select('justification', GRID_JUSTIFICATIONS, GRID_DEFAULT_JUSTIFICATION)}
-      itemAlignment={select('itemAlignment', GRID_ITEM_ALIGNMENTS, GRID_DEFAULT_ITEM_ALIGNMENT)}
-      gutter={number('gutter', GRID_DEFAULT_GUTTER)}
-      outsideGutter={boolean('outsideGutter', true)}
-    >
+    <Grid container {...containerProps()}>
       <Grid item md>
         <Card md />
       </Grid>
@@ -224,14 +179,7 @@ storiesOf('Collections|Grid', module)
   .add('breakpoints', () => (
     <>
       {[1, 2, 4, 8, 16].map((size) => (
-        <Grid
-          key={size}
-          container
-          direction={select('direction', GRID_DIRECTIONS, GRID_DEFAULT_DIRECTION)}
-          justification={select('justification', GRID_JUSTIFICATIONS, GRID_DEFAULT_JUSTIFICATION)}
-          itemAlignment={select('itemAlignment', GRID_ITEM_ALIGNMENTS, GRID_DEFAULT_ITEM_ALIGNMENT)}
-          gutter={number('gutter', GRID_DEFAULT_GUTTER)}
-        >
+        <Grid key={size} container {...containerProps()}>
           {new Array(16 / size).fill(null).map((_, key) => (
             <Grid key={key} item md={size}>
               <Card md={size} />
