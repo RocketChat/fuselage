@@ -11,3 +11,4 @@ export * from './components/ScrollableArea';
 export * from './components/SideBar';
 export * from './components/Tab';
 export * from './components/Tabs';
+export * from './components/TextInput';

@@ -7,19 +7,24 @@ import React from 'react';
 import { CheckBox } from './index';
 
 
-const props = (defaults = {}) => ({
-  ...!defaults.uncontrolled && {
-    checked: boolean('checked', defaults.checked || false),
-    disabled: boolean('disabled', defaults.disabled || false),
-    label: text('label', defaults.label || ''),
-    onChange: action('change'),
-  },
+const props = ({
+  checked = false,
+  value = '',
+  disabled = false,
+  label = '',
+  uncontrolled = false,
+} = {}) => ({
+  checked: uncontrolled ? undefined : boolean('checked', checked),
+  value: text('value', value),
+  disabled: boolean('disabled', disabled),
+  label: text('label', label),
+  onChange: action('change'),
 });
 
-storiesOf('Components|CheckBox', module)
+storiesOf('Elements|CheckBox', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['CheckBox'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <CheckBox
       {...props()}
@@ -35,13 +40,13 @@ storiesOf('Components|CheckBox', module)
       {...props({ disabled: true })}
     />
   ))
-  .add('uncontrolled', () => (
-    <CheckBox
-      {...props({ uncontrolled: true })}
-    />
-  ))
   .add('with label', () => (
     <CheckBox
       {...props({ label: 'Send me emails' })}
+    />
+  ))
+  .add('uncontrolled', () => (
+    <CheckBox
+      {...props({ uncontrolled: true })}
     />
   ));

@@ -1,10 +1,11 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, number, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { Button } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
+import notes from './README.md';
 
 import { Drawer } from './index';
 
@@ -44,9 +45,12 @@ const MainContent = () => (
   </div>
 );
 
-storiesOf('Components|Drawer', module)
+storiesOf('Behaviors|Drawer', module)
   .addDecorator(withKnobs)
-  .addParameters({ jest: ['Drawer'] })
+  .addParameters({
+    jest: ['spec'],
+    notes,
+  })
   .add('default', () => (
     <div style={{ display: 'flex' }}>
       <Drawer {...props({ open: true })}>
@@ -72,7 +76,7 @@ storiesOf('Components|Drawer', module)
     </div>
   ));
 
-storiesOf('Components|Drawer', module)
+storiesOf('Behaviors|Drawer', module)
   .addDecorator(withKnobs)
   .addParameters({ jest: ['Drawer'] })
   .addParameters({ viewport: { defaultViewport: 'iphone5' } })

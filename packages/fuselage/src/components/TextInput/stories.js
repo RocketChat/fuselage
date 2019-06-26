@@ -7,42 +7,43 @@ import React from 'react';
 import { TextInput } from '.';
 
 
-const props = (defaults = {}) => ({
-  value: text('value', defaults.value || ''),
-  placeholder: text('placeholder', defaults.placeholder || ''),
-  disabled: boolean('disabled', defaults.disabled || false),
-  multiline: boolean('multiline', defaults.multiline || false),
-  rows: number('rows', defaults.rows || 1),
-  password: boolean('password', defaults.password || false),
+const props = ({
+  value = '',
+  placeholder = '',
+  disabled = false,
+  multiline = false,
+  rows = 1,
+  password = false,
+  uncontrolled = false,
+} = {}) => ({
+  value: uncontrolled ? undefined : text('value', value),
+  placeholder: text('placeholder', placeholder),
+  disabled: boolean('disabled', disabled),
+  multiline: boolean('multiline', multiline),
+  rows: number('rows', rows),
+  password: boolean('password', password),
   onChange: action('change'),
 });
 
-storiesOf('Components|TextInput', module)
+storiesOf('Elements|TextInput', module)
   .addDecorator(centered)
   .addDecorator(withKnobs)
-  .addParameters({ jest: ['TextInput'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
-    <TextInput
-      {...props()}
-    />
+    <TextInput {...props()} />
   ))
   .add('filled', () => (
-    <TextInput
-      {...props({ value: 'Value' })}
-    />
+    <TextInput {...props({ value: 'Value' })} />
   ))
   .add('with placeholder', () => (
-    <TextInput
-      {...props({ placeholder: 'Type anything' })}
-    />
+    <TextInput {...props({ placeholder: 'Type anything' })} />
   ))
   .add('multiline', () => (
-    <TextInput
-      {...props({ multiline: true, rows: 3 })}
-    />
+    <TextInput {...props({ multiline: true, rows: 3 })} />
   ))
   .add('password', () => (
-    <TextInput
-      {...props({ value: 'p455w0rd', password: true })}
-    />
+    <TextInput {...props({ value: 'p455w0rd', password: true })} />
+  ))
+  .add('uncontrolled', () => (
+    <TextInput {...props({ uncontrolled: true })} />
   ));

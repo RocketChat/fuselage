@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button } from '../../Button';
-import { useStyle } from '../../../helpers/hooks';
+import { useStyle } from '../../../hooks/styles';
 import styles from './styles.scss';
 
 

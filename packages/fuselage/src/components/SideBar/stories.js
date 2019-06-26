@@ -1,15 +1,15 @@
-import React from 'react';
 import centered from '@storybook/addon-centered/react';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { ScrollableArea } from '../ScrollableArea';
 
 import { SideBar, SideBarHeader, SideBarMenu, SideBarMenuItem } from './index';
 
 
-storiesOf('Components|SideBar', module)
+storiesOf('Views|SideBar', module)
   .addDecorator(centered)
-  .addParameters({ jest: ['SideBar'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <SideBar>
       <SideBarHeader title="Header title" />

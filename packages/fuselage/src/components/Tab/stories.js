@@ -1,26 +1,26 @@
-import React from 'react';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { Tab } from './index';
 
 
-storiesOf('Components|Tab', module)
+const props = ({
+  active = false,
+  children = 'Tab text',
+} = {}) => ({
+  active: boolean('active', active),
+  children: text('children', children),
+});
+
+storiesOf('Elements|Tab', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['Tab'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
-    <Tab
-      active={boolean('active', false)}
-    >
-      {text('text', 'Tab text')}
-    </Tab>
+    <Tab {...props()} />
   ))
   .add('active', () => (
-    <Tab
-      active={boolean('active', true)}
-    >
-      {text('text', 'Tab text')}
-    </Tab>
+    <Tab {...props({ active: true })} />
   ));

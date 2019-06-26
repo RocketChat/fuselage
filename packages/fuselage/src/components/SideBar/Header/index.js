@@ -1,7 +1,7 @@
 import React from 'react';
 import { cross } from '@rocket.chat/icons/dist/font';
 
-import { useStyle } from '../../../helpers/hooks';
+import { useStyle } from '../../../hooks/styles';
 import { Icon } from '../../Icon';
 import styles from './styles.scss';
 

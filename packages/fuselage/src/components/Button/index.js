@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useStyle } from '../../helpers/hooks';
+import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
 
 
@@ -13,7 +13,6 @@ export function Button({
   bland,
   outline,
   nude,
-  small,
   square,
   className,
   ...props
