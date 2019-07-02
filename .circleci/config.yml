@@ -44,21 +44,6 @@ jobs:
       - store_artifacts:
           path: ~/repo/packages/fuselage/.loki/difference
 
-
-  happo:
-    docker:
-      - image: circleci/node:10.15
-    working_directory: ~/repo
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - run: cp yarn.lock packages/fuselage
-      - run:
-          command: yarn lerna run happo-ci
-          environment:
-            - INSTALL_CMD: lerna bootstrap
-            - BASE_BRANCH: origin/develop
-
   deploy-storybook:
     docker:
       - image: circleci/node:10.15
@@ -76,12 +61,6 @@ workflows:
       - loki:
           requires:
             - build
-      - happo:
-          requires:
-            - build
-          filters:
-              branches:
-                ignore: develop
       - deploy-storybook:
           requires:
             - build
