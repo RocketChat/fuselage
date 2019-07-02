@@ -3,7 +3,6 @@
 const path = require('path');
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const EsmWebpackPlugin = require('@purtuga/esm-webpack-plugin');
 
 module.exports = {
   module: {
@@ -59,7 +58,6 @@ module.exports = {
       reportFilename: '../bundle-report.html',
       openAnalyzer: false,
     }),
-    new EsmWebpackPlugin(),
   ],
   externals: [
     {
