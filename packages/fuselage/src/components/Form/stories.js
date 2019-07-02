@@ -4,9 +4,10 @@ import { withKnobs, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
+import { TextInput } from '../TextInput';
 import notes from './README.md';
 
-import { Form } from './index';
+import { Form, FormField } from './index';
 
 
 const props = ({
@@ -26,5 +27,13 @@ storiesOf('Collections|Form', module)
     notes,
   })
   .add('default', () => (
-    <Form {...props()} />
+    <Form {...props()}>
+      <FormField label="Email" description="The address to send your Cloud registration email to.">
+        <TextInput />
+      </FormField>
+
+      <FormField label="Token" description="Manually enter the token received from the Cloud Registration Email.">
+        <TextInput />
+      </FormField>
+    </Form>
   ));

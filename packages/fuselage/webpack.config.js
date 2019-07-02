@@ -1,15 +1,26 @@
+'use strict';
+
 const path = require('path');
 
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const EsmWebpackPlugin = require('@purtuga/esm-webpack-plugin');
 
 module.exports = {
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        type: 'javascript/auto',
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          'url-loader',
+        ],
       },
       {
         test: /\.css$/,
@@ -17,12 +28,6 @@ module.exports = {
           'style-loader/useable',
           'css-loader',
         ],
-      },
-      {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'url-loader',
-        }],
       },
       {
         test: /\.scss$/,
@@ -47,20 +52,33 @@ module.exports = {
       },
     ],
   },
-  externals: {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'React',
-      root: 'React',
+  plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      generateStatsFile: false,
+      reportFilename: '../bundle-report.html',
+      openAnalyzer: false,
+    }),
+    new EsmWebpackPlugin(),
+  ],
+  externals: [
+    {
+      react: {
+        commonjs: 'react',
+        commonjs2: 'react',
+        amd: 'React',
+        root: 'React',
+      },
     },
-  },
+  ],
   output: {
+    filename: 'fuselage.js',
     path: path.join(__dirname, './dist'),
-    filename: 'index.js',
     library: 'RocketChatFuselage',
     libraryTarget: 'umd',
-    publicPath: '/dist/',
-    umdNamedDefine: true,
+  },
+  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
+  performance: {
+    hints: false,
   },
 };

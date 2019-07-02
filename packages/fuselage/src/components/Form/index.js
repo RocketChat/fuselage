@@ -8,10 +8,14 @@ export function Form({
   className,
   ...props
 }) {
+  const formClassName = useStyle(styles, 'Form', {}, className);
+
   return (
     <form
-      className={useStyle(styles, 'Form', {}, className)}
+      className={formClassName}
       {...props}
     />
   );
 }
+
+export * from './Field';

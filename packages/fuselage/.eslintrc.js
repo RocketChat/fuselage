@@ -17,6 +17,9 @@ module.exports = {
         packages: path.join(__dirname, '..'),
       },
     },
+    react: {
+      version: 'detect',
+    },
   },
   'env': {
     'jest': true,

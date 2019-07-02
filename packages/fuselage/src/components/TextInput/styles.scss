@@ -21,6 +21,8 @@
 .TextInput {
   box-sizing: border-box;
 
+  width: 100%;
+
   padding:
     calc(var(--rcx-text-input-padding-vertical) - 2 * var(--rcx-text-input-border-width))
     calc(var(--rcx-text-input-padding-horizontal) - 2 * var(--rcx-text-input-border-width));

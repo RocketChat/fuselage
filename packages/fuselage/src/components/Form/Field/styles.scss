@@ -1,0 +1,91 @@
+:root {
+  --rcx-form-field-margin: 1.5rem 0.5rem;
+  --rcx-form-field-label-color: var(--color-dark-800);
+  --rcx-form-field-label-font-size: 0.875rem;
+  --rcx-form-field-label-font-family: var(--default-font-family);
+  --rcx-form-field-label-font-weight: normal;
+  --rcx-form-field-label-letter-spacing: 0;
+  --rcx-form-field-label-line-height: 1.25;
+  --rcx-form-field-label-error-color: var(--color-red);
+  --rcx-form-field-input-margin: 0.5rem 0;
+  --rcx-form-field-description-color: var(--color-dark-600);
+  --rcx-form-field-description-font-size: 0.75rem;
+  --rcx-form-field-description-font-family: var(--default-font-family);
+  --rcx-form-field-description-font-weight: normal;
+  --rcx-form-field-description-letter-spacing: 0;
+  --rcx-form-field-description-line-height: 1;
+  --rcx-form-field-description-error-color: var(--color-red);
+}
+
+.FormField {
+  display: flex;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: var(--rcx-form-field-margin);
+  flex-flow: column nowrap;
+}
+
+.FormField__Label {
+  display: flex;
+  flex: 1 0 auto;
+
+  box-sizing: border-box;
+  flex-flow: column nowrap;
+}
+
+.FormField__LabelSpan {
+
+  flex: 0 0 auto;
+
+  box-sizing: border-box;
+
+  letter-spacing: var(--rcx-form-field-label-letter-spacing);
+
+  color: var(--rcx-form-field-label-color);
+
+  font-family: var(--rcx-form-field-label-font-family);
+  font-size: var(--rcx-form-field-label-font-size);
+  font-weight: var(--rcx-form-field-label-font-weight);
+  line-height: var(--rcx-form-field-label-line-height);
+}
+
+.FormField__InputWrapper {
+  display: flex;
+  flex: 1 0 auto;
+
+  box-sizing: border-box;
+  margin: var(--rcx-form-field-input-margin);
+}
+
+.FormField__Description {
+  flex: 0 0 auto;
+
+  box-sizing: border-box;
+  min-height: calc(var(--rcx-form-item-description-line-height) * 1);
+
+  letter-spacing: var(--rcx-form-field-description-letter-spacing);
+
+  color: var(--rcx-form-field-description-color);
+
+  font-family: var(--rcx-form-field-description-font-family);
+  font-size: var(--rcx-form-field-description-font-size);
+  font-weight: var(--rcx-form-field-description-font-weight);
+  line-height: var(--rcx-form-field-description-line-height);
+}
+
+.FormField--error {
+  .FormField__LabelSpan {
+    color: var(--rcx-form-field-label-error-color);
+  }
+
+  .FormField__Description {
+    color: var(--rcx-form-field-description-error-color);
+  }
+}
+
+.FormField--required {
+  .FormField__LabelSpan::after {
+    content: " *";
+  }
+}
