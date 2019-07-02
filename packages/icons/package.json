@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "node ./build",
-    "eslint": "eslint ."
+    "lint": "eslint ."
   },
   "devDependencies": {
     "glob": "^7.1.4",
