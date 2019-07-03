@@ -29,7 +29,8 @@
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "update-storybook": "run-s test:results build-storybook loki:update"
   },
   "peerDependencies": {
     "react": "^16.8.6"
