@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import { ScrollableArea } from '../ScrollableArea';
-
 import { SideBar, SideBarHeader, SideBarMenu, SideBarMenuItem } from './index';
 
 

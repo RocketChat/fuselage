@@ -11,6 +11,7 @@ const props = ({
   value = '',
   placeholder = '',
   disabled = false,
+  error = false,
   multiline = false,
   rows = 1,
   password = false,
@@ -19,6 +20,7 @@ const props = ({
   value: uncontrolled ? undefined : text('value', value),
   placeholder: text('placeholder', placeholder),
   disabled: boolean('disabled', disabled),
+  error: boolean('error', error),
   multiline: boolean('multiline', multiline),
   rows: number('rows', rows),
   password: boolean('password', password),
@@ -43,6 +45,9 @@ storiesOf('Elements|TextInput', module)
   ))
   .add('password', () => (
     <TextInput {...props({ value: 'p455w0rd', password: true })} />
+  ))
+  .add('with error', () => (
+    <TextInput {...props({ error: true })} />
   ))
   .add('uncontrolled', () => (
     <TextInput {...props({ uncontrolled: true })} />
