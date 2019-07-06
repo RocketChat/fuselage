@@ -8,6 +8,7 @@ export * from './components/Form';
 export * from './components/Grid';
 export * from './components/Icon';
 export * from './components/Page';
+export * from './components/RadioButton';
 export * from './components/ScrollableArea';
 export * from './components/SideBar';
 export * from './components/Tab';
