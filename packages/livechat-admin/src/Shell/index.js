@@ -11,15 +11,18 @@ import {
   SideBarMenu,
   SideBarMenuItem,
 } from '@rocket.chat/fuselage';
+
 import styles from './styles.module.css';
 
 
 export function Shell({
   children,
   closeable = true,
+  headerChildren,
   title,
   url,
   onClosing,
+  ...props
 }) {
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const [sideBarDocked, setSideBarDocked] = useState(false);
@@ -46,7 +49,13 @@ export function Shell({
 
   return (
     <main className={styles.Shell}>
-      <Drawer dockWhen="(min-width: 780px)" open={sideBarOpen} onOpening={handleSideBarOpening} onClosing={handleSideBarClosing} onDockStateChange={handleSideBarDockStateChange}>
+      <Drawer
+        dockWhen="(min-width: 780px)"
+        open={sideBarOpen}
+        onOpening={handleSideBarOpening}
+        onClosing={handleSideBarClosing}
+        onDockStateChange={handleSideBarDockStateChange}
+      >
         <SideBar>
           <SideBarHeader closeable={closeable} title="Livechat" onClosing={onClosing} />
 
@@ -83,10 +92,11 @@ export function Shell({
         </SideBar>
       </Drawer>
 
-      <Page>
+      <Page {...props}>
         <PageHeader>
           {!sideBarDocked && <PageHeaderBurgerButton onClick={handleBurgerButtonClick} />}
           <PageHeaderTitle>{title}</PageHeaderTitle>
+          {headerChildren}
         </PageHeader>
 
         <ScrollableArea>

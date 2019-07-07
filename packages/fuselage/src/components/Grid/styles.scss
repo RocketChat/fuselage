@@ -26,11 +26,11 @@ $itemAlignments: flex-start, center, flex-end, stretch, baseline;
 .Grid--container {
   display: flex;
 
-  @each $breakpoint in map-keys($width) {
-    @media (min-width: map-get($width, $breakpoint)) {
-      min-width: var(--rcx-grid-#{$breakpoint}-width);
-    }
-  }
+  // @each $breakpoint in map-keys($width) {
+  //   @media (min-width: map-get($width, $breakpoint)) {
+  //     min-width: var(--rcx-grid-#{$breakpoint}-width);
+  //   }
+  // }
 }
 
 @for $gutter from 0 through 10 {

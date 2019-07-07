@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { Button, Icon } from '@rocket.chat/fuselage';
-import './App.css'
+import './App.css';
 
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
         <Button primary>With theme <Icon name="check" /></Button>
       </div>
     </div>
-  )
+  );
 }
 
 
-export default App
+export default App;

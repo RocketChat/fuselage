@@ -47,6 +47,7 @@
   height: var(--rcx-radio-button-wrapper-height);
 
   cursor: pointer;
+  user-select: none;
   letter-spacing: var(--rcx-radio-button-label-letter-spacing);
 
   color: var(--rcx-radio-button-label-color);
