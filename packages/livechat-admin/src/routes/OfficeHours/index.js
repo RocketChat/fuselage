@@ -8,25 +8,29 @@ import {
   FormItem,
   FormLabel,
   Grid,
+  Page,
+  PageHeader,
+  PageHeaderTitle,
+  ScrollableArea,
   TextInput,
   useUniqueId,
 } from '@rocket.chat/fuselage';
 
-import { Shell } from '../Shell';
+import { BurgerButton } from '../../components/SideBar';
 
 
 function OfficeHourDay({ label, disabled, enabledField, startField, endField }) {
   const openId = useUniqueId();
   const closeId = useUniqueId();
 
-  return <Grid container outsideGutter={false} justification="flex-start">
+  return <Grid container outsideGutter={false} justification='flex-start'>
     <Grid item md={3}>
       <CheckBox
         label={label}
         {...enabledField.input}
         disabled={disabled}
         checked={enabledField.input.value}
-        value="true"
+        value='true'
       />
     </Grid>
     <Grid item md={2}>
@@ -35,7 +39,7 @@ function OfficeHourDay({ label, disabled, enabledField, startField, endField }) 
         <TextInput
           {...startField.input}
           id={openId}
-          type="time"
+          type='time'
           disabled={disabled || !enabledField.input.value}
         />
       </FormItem>
@@ -46,7 +50,7 @@ function OfficeHourDay({ label, disabled, enabledField, startField, endField }) 
         <TextInput
           {...endField.input}
           id={closeId}
-          type="time"
+          type='time'
           disabled={disabled || !enabledField.input.value}
         />
       </FormItem>
@@ -54,7 +58,7 @@ function OfficeHourDay({ label, disabled, enabledField, startField, endField }) 
   </Grid>;
 }
 
-export function OfficeHours({ onSubmit = () => {}, ...props }) {
+export function OfficeHours({ onSubmit = () => {} }) {
   const { form, handleSubmit, pristine, modified, invalid, submitting } = useForm({
     onSubmit,
   });
@@ -111,34 +115,40 @@ export function OfficeHours({ onSubmit = () => {}, ...props }) {
     form.submit();
   };
 
-  return (
-    <Shell title="Office Hours" url="/office-hours" headerChildren={<ButtonGroup>
-      <Button
-        primary
-        disabled={pristine || !modified || invalid || submitting}
-        onClick={handleSaveClick}
-      >
+  return <Page is={Form} onSubmit={handleSubmit}>
+    <PageHeader>
+      <BurgerButton />
+      <PageHeaderTitle>Office Hours</PageHeaderTitle>
+      <ButtonGroup>
+        <Button
+          primary
+          disabled={pristine || !modified || invalid || submitting}
+          onClick={handleSaveClick}
+        >
         Save
-      </Button>
-    </ButtonGroup>} is={Form} onSubmit={handleSubmit} {...props}>
+        </Button>
+      </ButtonGroup>
+    </PageHeader>
+
+    <ScrollableArea>
       <Grid container>
         <Grid item md>
           <FormItem>
             <CheckBox
-              label="Office Hours Enabled"
+              label='Office Hours Enabled'
               {...officeHoursEnabled.input}
               checked={officeHoursEnabled.input.value}
-              value="true"
+              value='true'
             />
           </FormItem>
 
           <FormItem>
             <CheckBox
-              label="Allow online agents outside of office hours"
+              label='Allow online agents outside of office hours'
               {...allowOnlineAgentsOutsideOfOfficeHours.input}
               disabled={!officeHoursEnabled.input.value}
               checked={allowOnlineAgentsOutsideOfOfficeHours.input.value}
-              value="true"
+              value='true'
             />
           </FormItem>
 
@@ -152,6 +162,8 @@ export function OfficeHours({ onSubmit = () => {}, ...props }) {
           />)}
         </Grid>
       </Grid>
-    </Shell>
-  );
+    </ScrollableArea>
+  </Page>;
 }
+
+export default OfficeHours;

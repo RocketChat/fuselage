@@ -4,10 +4,15 @@
 }
 
 
-.Shell {
+.App {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
+}
+
+.App__routes {
+  flex: 1;
+  display: flex;
 }
