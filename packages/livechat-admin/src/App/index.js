@@ -10,20 +10,20 @@ const CurrentChats = lazy(() => import('../routes/CurrentChats'));
 const OfficeHours = lazy(() => import('../routes/OfficeHours'));
 
 export function App() {
-  return <React.Suspense fallback={<LoadingSplashScreen />}>
-    <main className={styles.App}>
-      <SideBarState>
-        <Location>
-          {({ location: { pathname: currentUrl } }) => <>
+  return <main className={styles.App}>
+    <Redirect noThrow from='/' to='/current-chats' />
+    <SideBarState>
+      <Location>
+        {({ location: { pathname: currentUrl } }) => <>
             <SideBar onClosing={console.log} url={currentUrl}/>
           </>}
-        </Location>
+      </Location>
+      <React.Suspense fallback={<LoadingSplashScreen />}>
         <Router className={styles.App__routes}>
-          <Redirect from='/' to='/current-chats' />
           <CurrentChats path='/current-chats' />
           <OfficeHours path='/office-hours' />
         </Router>
-      </SideBarState>
-    </main>
-  </React.Suspense>;
+      </React.Suspense>
+    </SideBarState>
+  </main>;
 }
