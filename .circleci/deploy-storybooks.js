@@ -27,6 +27,9 @@ const buildStorybook = async (packageName) => {
 (async () => {
   process.chdir(path.join(__dirname, '..'));
 
+  await buildStorybook('fuselage');
+  await buildStorybook('livechat-admin');
+
   console.log('Building static files directory...');
   await fs.ensureDir('static');
   const html = '<!doctype html><meta http-equiv="Refresh" content="0; url=./livechat-admin/" />';
