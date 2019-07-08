@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import { SideBar, SideBarMenu } from '../index';
-
 import { SideBarMenuItem } from './index';
 
 

@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import { Tab } from '../Tab';
-
 import { Tabs } from './index';
 
 

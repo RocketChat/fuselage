@@ -1,0 +1,22 @@
+:root {
+  --rcx-form-item-margin: 1.5rem 0;
+  --rcx-form-item-label-margin-bottom: 0.5rem;
+  --rcx-form-item-description-margin-top: 0.5rem;
+}
+
+.FormItem {
+  display: flex;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: var(--rcx-form-item-margin);
+  flex-flow: column nowrap;
+
+  .FormLabel {
+    margin-bottom: var(--rcx-form-item-label-margin-bottom);
+  }
+
+  .FormDescription {
+    margin-top: var(--rcx-form-item-description-margin-top);
+  }
+}

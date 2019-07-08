@@ -47,6 +47,7 @@
   height: var(--rcx-check-box-wrapper-height);
 
   cursor: pointer;
+  user-select: none;
   letter-spacing: var(--rcx-check-box-label-letter-spacing);
 
   color: var(--rcx-check-box-label-color);

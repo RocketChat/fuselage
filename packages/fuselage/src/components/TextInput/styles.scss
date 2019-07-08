@@ -16,10 +16,14 @@
   --rcx-text-input-font-weight: 500;
   --rcx-text-input-line-height: 1.25rem;
   --rcx-text-input-transition-duration: 300ms;
+  --rcx-text-input-error-color: var(--color-red);
+  --rcx-text-input-error-border-color: var(--color-red);
 }
 
 .TextInput {
   box-sizing: border-box;
+
+  width: 100%;
 
   padding:
     calc(var(--rcx-text-input-padding-vertical) - 2 * var(--rcx-text-input-border-width))
@@ -67,4 +71,9 @@
     color: var(--rcx-text-input-disabled-color);
     background-color: var(--rcx-text-input-disabled-background-color);
   }
+}
+
+.TextInput--error {
+  color: var(--rcx-text-input-error-color);
+  border-color: var(--rcx-text-input-error-border-color);
 }

@@ -6,12 +6,13 @@ import styles from './styles.scss';
 
 export function Page({
   className,
+  is: Component = 'section',
   ...props
 }) {
   const pageClassName = useStyle(styles, 'Page', {}, className);
 
   return (
-    <section
+    <Component
       className={pageClassName}
       {...props}
     />

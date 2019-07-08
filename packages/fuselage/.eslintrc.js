@@ -6,6 +6,10 @@ module.exports = {
   parser: 'babel-eslint',
   rules: {
     indent: ['error', 2],
+    'import/order': ['error', {
+      'newlines-between': 'always',
+      groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']]
+    }],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     'react/jsx-no-undef': 'error',
@@ -16,6 +20,9 @@ module.exports = {
       'eslint-import-resolver-lerna': {
         packages: path.join(__dirname, '..'),
       },
+    },
+    react: {
+      version: 'detect',
     },
   },
   'env': {

@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import { SideBar } from '../index';
-
 import { SideBarHeader } from './index';
 
 

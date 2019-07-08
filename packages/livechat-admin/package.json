@@ -14,9 +14,12 @@
   },
   "private": true,
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "@rocket.chat/fuselage": "^0.1.0",
+    "final-form": "^4.16.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-final-form-hooks": "^2.0.0",
     "react-scripts": "3.0.1"
   },
   "scripts": {

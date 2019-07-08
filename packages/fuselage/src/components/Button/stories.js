@@ -7,7 +7,6 @@ import React from 'react';
 
 import { Icon } from '../Icon';
 import notes from './README.md';
-
 import { Button } from './index';
 
 

@@ -4,7 +4,6 @@ import React from 'react';
 
 import { verticallyCentered } from '../../helpers/storybook';
 import notes from './README.md';
-
 import { Grid } from './index';
 
 

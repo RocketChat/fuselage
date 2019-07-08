@@ -5,8 +5,7 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "main": "dist/index.js",
-  "source": "src/index.js",
+  "main": "dist/fuselage.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -20,6 +19,9 @@
     "build": "webpack --mode production",
     "eslint": "eslint src",
     "stylelint": "stylelint 'src/**/*.scss'",
+    "lint": "run-s eslint stylelint",
+    "lint-staged": "lint-staged",
+    "analyze-bundle": "webpack-bundle-analyzer stats.json dist -O",
     "test": "jest",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
@@ -27,7 +29,8 @@
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "update-storybook": "run-s test:results build-storybook loki:update"
   },
   "peerDependencies": {
     "react": "^16.8.6"
@@ -48,13 +51,19 @@
     "@storybook/theming": "^5.0.11",
     "babel-loader": "^8.0.6",
     "eslint-plugin-react": "^7.13.0",
+    "final-form": "^4.16.1",
     "husky": "^2.3.0",
     "identity-obj-proxy": "^3.0.0",
+    "lint-staged": "^9.0.1",
     "loki": "^0.16.0",
     "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "react-final-form-hooks": "^2.0.0",
+    "react-helmet": "^5.2.1",
     "sass-loader": "^7.1.0",
     "stylelint": "^10.0.1",
     "stylelint-order": "^3.0.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2"
   },
   "jest": {
@@ -80,7 +89,6 @@
   },
   "dependencies": {
     "@rocket.chat/icons": "^0.1.0",
-    "css-vars-ponyfill": "^2.0.2",
-    "react-helmet": "^5.2.1"
+    "css-vars-ponyfill": "^2.0.2"
   }
 }

@@ -20,7 +20,6 @@
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "lerna": "^3.14.1",
-    "npm-run-all": "^4.1.5",
     "webpack-cli": "^3.3.2"
   },
   "scripts": {
@@ -28,15 +27,14 @@
     "postinstall": "lerna run build --stream",
     "build-storybook": "lerna run build-storybook --parallel --stream",
     "test": "lerna run test",
-    "eslint": "lerna run eslint",
-    "stylelint": "lerna run stylelint",
-    "lint": "run-s eslint stylelint",
+    "lint": "lerna run lint",
+    "lint-staged": "lerna run lint-staged",
     "storybook": "lerna run storybook --parallel",
     "heroku-postbuild": "./.heroku/build.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint"
+      "pre-commit": "yarn lint-staged"
     }
   }
 }
