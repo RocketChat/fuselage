@@ -10,6 +10,7 @@ import { createVariationsStory, createPropsFromKnobs } from '../../helpers/story
 
 const props = createPropsFromKnobs({
   checked: false,
+  indeterminate: false,
   value: '',
   hidden: false,
   disabled: false,
@@ -33,6 +34,12 @@ storiesOf('Elements|CheckBox', module)
       'unchecked / focus': { checked: false, className: 'focus' },
       'unchecked / hidden': { checked: false, hidden: true },
       'unchecked / disabled': { checked: false, disabled: true },
+      indeterminate: { indeterminate: true },
+      'indeterminate / hover': { indeterminate: true, className: 'hover' },
+      'indeterminate / active': { indeterminate: true, className: 'active' },
+      'indeterminate / focus': { indeterminate: true, className: 'focus' },
+      'indeterminate / hidden': { indeterminate: true, hidden: true },
+      'indeterminate / disabled': { indeterminate: true, disabled: true },
       checked: { checked: true },
       'checked / hover': { checked: true, className: 'hover' },
       'checked / active': { checked: true, className: 'active' },
@@ -43,6 +50,7 @@ storiesOf('Elements|CheckBox', module)
   }))
   .add('default', () => <CheckBox {...props()} />)
   .add('checked', () => <CheckBox {...props({ checked: true })} />)
+  .add('indeterminate', () => <CheckBox {...props({ indeterminate: true })} />)
   .add('hidden', () => <CheckBox {...props({ hidden: true })} />)
   .add('disabled', () => <CheckBox {...props({ disabled: true })} />)
   .add('with label', () => <CheckBox {...props({ label: 'Label' })} />)

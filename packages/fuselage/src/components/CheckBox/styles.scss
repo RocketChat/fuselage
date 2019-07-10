@@ -163,6 +163,27 @@
   }
 }
 
+.CheckBox__wrapper > .CheckBox__input:indeterminate ~ .CheckBox__fake {
+  color: var(--rcx-check-box-checked-color);
+  border-color: var(--rcx-check-box-checked-border-color);
+  background-color: var(--rcx-check-box-checked-background-color);
+
+  & > .Icon {
+    display: none;
+  }
+
+  &::before {
+    width: 100%;
+    height: 10%;
+    margin: auto;
+
+    content: "";
+
+    border-radius: var(--rcx-check-box-border-radius);
+    background-color: var(--rcx-check-box-checked-color);
+  }
+}
+
 .CheckBox__wrapper > .CheckBox__input:disabled ~ .CheckBox__fake {
   color: var(--rcx-check-box-disabled-color);
   border-color: var(--rcx-check-box-disabled-border-color);
