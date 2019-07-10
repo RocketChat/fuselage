@@ -115,7 +115,7 @@ export function OfficeHours({ onSubmit = () => {} }) {
     form.submit();
   };
 
-  return <Page is={Form} onSubmit={handleSubmit}>
+  return <Page as={Form} onSubmit={handleSubmit}>
     <PageHeader>
       <BurgerButton />
       <PageHeaderTitle>Office Hours</PageHeaderTitle>

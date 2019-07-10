@@ -5,7 +5,7 @@ import styles from './styles.scss';
 
 
 export function Button({
-  is: Component = 'button',
+  as: Component = 'button',
   primary,
   secondary,
   danger,

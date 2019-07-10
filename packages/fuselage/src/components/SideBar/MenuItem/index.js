@@ -5,7 +5,7 @@ import styles from './styles.scss';
 
 
 export function SideBarMenuItem({
-  is: MainComponent = 'a',
+  as: MainComponent = 'a',
   active,
   children,
   className,
