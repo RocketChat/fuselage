@@ -25,10 +25,18 @@ export const createPropsFromKnobs = (defaults = {}, itemName = null) => (overrid
       return { ...props, [propName]: defaultValue };
     }
 
+    if (typeof defaultValue === 'function') {
+      return { ...props, [propName]: defaultValue };
+    }
+
     const knobName = itemName ? `${ itemName } / ${ propName }` : propName;
 
     if (typeof defaultValue === 'boolean') {
       return { ...props, [propName]: boolean(knobName, defaultValue) };
+    }
+
+    if (typeof defaultValue === 'undefined') {
+      return props;
     }
 
     return { ...props, [propName]: text(knobName, defaultValue) };
@@ -42,10 +50,12 @@ export const createVariationsStory = (Component, { commonProps = {}, xAxis = {},
       color: '#333',
       margin: 0,
       padding: '0.5rem 1rem',
+      textAlign: 'center',
     },
     td: {
       margin: 0,
       padding: '0.5rem 1rem',
+      textAlign: 'center',
     },
   };
 

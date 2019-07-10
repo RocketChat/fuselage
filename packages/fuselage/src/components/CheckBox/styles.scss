@@ -1,7 +1,8 @@
 :root {
   --rcx-check-box-wrapper-height: 2rem;
+  --rcx-check-box-wrapper-inner-spacing: 0.25rem;
+  --rcx-check-box-wrapper-padding-horizontal: 0.5rem;
   --rcx-check-box-size: 1rem;
-  --rcx-check-box-margin: 0 0.5rem;
   --rcx-check-box-border-width: var(--border);
   --rcx-check-box-color: var(--color-white);
   --rcx-check-box-background-color: transparent;
@@ -19,10 +20,40 @@
   --rcx-check-box-label-font-weight: 400;
   --rcx-check-box-label-line-height: 1.25rem;
   --rcx-check-box-label-letter-spacing: -0.2px;
+  --rcx-check-box-label-disabled-color: var(--color-dark-300);
   --rcx-check-box-transition-duration: 300ms;
 }
 
-.CheckBox {
+.CheckBox__wrapper {
+  position: relative;
+
+  display: inline-flex;
+
+  height: var(--rcx-check-box-wrapper-height);
+  margin: 0 calc(-1 * var(--rcx-check-box-wrapper-inner-spacing));
+  padding: 0 var(--rcx-check-box-wrapper-inner-spacing);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    opacity var(--rcx-check-box-transition-duration),
+    visibility var(--rcx-check-box-transition-duration);
+  align-items: center;
+}
+
+.CheckBox__wrapper--hidden {
+  visibility: hidden;
+
+  opacity: 0;
+}
+
+.CheckBox__wrapper--disabled,
+*:disabled .CheckBox__wrapper {
+  cursor: not-allowed;
+}
+
+.CheckBox__input {
   position: absolute;
 
   overflow: hidden;
@@ -39,41 +70,14 @@
   clip-path: inset(50%);
 }
 
-.CheckBox__wrapper {
-  position: relative;
-
-  display: inline-flex;
-
-  height: var(--rcx-check-box-wrapper-height);
-
-  cursor: pointer;
-  user-select: none;
-  letter-spacing: var(--rcx-check-box-label-letter-spacing);
-
-  color: var(--rcx-check-box-label-color);
-
-  font-family: var(--rcx-check-box-label-font-family);
-  font-size: var(--rcx-check-box-label-font-size);
-  font-weight: var(--rcx-check-box-label-font-weight);
-  line-height: var(--rcx-check-box-label-line-height);
-  align-items: center;
-}
-
-.CheckBox__wrapper--disabled {
-  cursor: not-allowed;
-}
-
 .CheckBox__fake {
-  position: relative;
-
   display: flex;
 
   box-sizing: border-box;
   width: var(--rcx-check-box-size);
   height: var(--rcx-check-box-size);
-  margin: var(--rcx-check-box-margin);
+  margin: 0 var(--rcx-check-box-wrapper-inner-spacing);
 
-  cursor: pointer;
   transition:
     opacity var(--rcx-check-box-transition-duration),
     visibility var(--rcx-check-box-transition-duration),
@@ -89,13 +93,10 @@
   background-color: var(--rcx-check-box-background-color);
 
   & > .Icon {
-    position: absolute;
-    top: calc(-1 * var(--rcx-check-box-border-width));
-    right: calc(-1 * var(--rcx-check-box-border-width));
-    bottom: calc(-1 * var(--rcx-check-box-border-width));
-    left: calc(-1 * var(--rcx-check-box-border-width));
 
     visibility: hidden;
+
+    margin: calc(-1 * var(--rcx-check-box-border-width));
 
     text-align: center;
 
@@ -104,21 +105,39 @@
   }
 }
 
-.CheckBox:checked + .CheckBox__fake {
-  color: var(--rcx-check-box-checked-color);
-  border-color: var(--rcx-check-box-checked-border-color);
-  background-color: var(--rcx-check-box-checked-background-color);
+.CheckBox__label {
+  margin: 0 var(--rcx-check-box-wrapper-inner-spacing);
 
-  & > .Icon {
-    visibility: visible;
-  }
+  transition:
+    opacity var(--rcx-check-box-transition-duration),
+    visibility var(--rcx-check-box-transition-duration),
+    background-color var(--rcx-check-box-transition-duration),
+    border-color var(--rcx-check-box-transition-duration),
+    color var(--rcx-check-box-transition-duration),
+    transform var(--rcx-check-box-transition-duration);
+
+  letter-spacing: var(--rcx-check-box-label-letter-spacing);
+
+  color: var(--rcx-check-box-label-color);
+
+  font-family: var(--rcx-check-box-label-font-family);
+  font-size: var(--rcx-check-box-label-font-size);
+  font-weight: var(--rcx-check-box-label-font-weight);
+  line-height: var(--rcx-check-box-label-line-height);
 }
 
-.CheckBox:not([disabled]) + .CheckBox__fake:hover {
+.CheckBox__wrapper:hover > .CheckBox__input:not(:disabled) ~ .CheckBox__fake,
+.CheckBox__wrapper:global(.hover) > .CheckBox__input:not(:disabled) + .CheckBox__fake {
   opacity: 0.6;
 }
 
-.CheckBox__wrapper:active .CheckBox:not([disabled]) + .CheckBox__fake {
+.CheckBox__wrapper:hover > .CheckBox__input:not(:disabled) ~ .CheckBox__label,
+.CheckBox__wrapper:global(.hover) > .CheckBox__input:not(:disabled) + .CheckBox__fake + .CheckBox__label {
+  opacity: 0.6;
+}
+
+.CheckBox__wrapper:active > .CheckBox__input:not(:disabled) ~ .CheckBox__fake,
+.CheckBox__wrapper:global(.active) > .CheckBox__input:not(:disabled) ~ .CheckBox__fake {
   transform: translateY(0.125rem);
 
   opacity: 0.9;
@@ -128,10 +147,29 @@
   }
 }
 
-.CheckBox:disabled + .CheckBox__fake {
-  cursor: not-allowed;
+.CheckBox__wrapper:active > .CheckBox__input:not(:disabled) ~ .CheckBox__label,
+.CheckBox__wrapper:global(.active) > .CheckBox__input:not(:disabled) ~ .CheckBox__label {
+  transform: translateY(0.125rem);
 
+  opacity: 0.9;
+}
+
+.CheckBox__wrapper > .CheckBox__input:checked ~ .CheckBox__fake {
+  color: var(--rcx-check-box-checked-color);
+  border-color: var(--rcx-check-box-checked-border-color);
+  background-color: var(--rcx-check-box-checked-background-color);
+
+  & > .Icon {
+    visibility: visible;
+  }
+}
+
+.CheckBox__wrapper > .CheckBox__input:disabled ~ .CheckBox__fake {
   color: var(--rcx-check-box-disabled-color);
   border-color: var(--rcx-check-box-disabled-border-color);
   background-color: var(--rcx-check-box-disabled-background-color);
+}
+
+.CheckBox__wrapper > .CheckBox__input:disabled ~ .CheckBox__label {
+  color: var(--rcx-check-box-label-disabled-color);
 }
