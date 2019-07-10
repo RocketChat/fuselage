@@ -36,6 +36,7 @@
   padding: var(--rcx-button-padding);
 
   cursor: pointer;
+  user-select: none;
   transition:
     opacity var(--rcx-button-transition-duration),
     visibility var(--rcx-button-transition-duration),
@@ -62,18 +63,104 @@
   font-weight: var(--rcx-button-default-font-weight);
   line-height: var(--rcx-button-line-height);
 
+  &--primary {
+    color: var(--rcx-button-primary-color);
+    border-color: var(--rcx-button-primary-background);
+    background-color: var(--rcx-button-primary-background);
+  }
+
+  &--secondary {
+    color: var(--rcx-button-secondary-color);
+    border-color: var(--rcx-button-secondary-background);
+    background-color: var(--rcx-button-secondary-background);
+  }
+
+  &--danger {
+    color: var(--rcx-button-danger-color);
+    border-color: var(--rcx-button-danger-background);
+    background-color: var(--rcx-button-danger-background);
+  }
+
+  &--bland {
+    color: var(--rcx-button-bland-color);
+    border-color: var(--rcx-button-bland-background);
+    background-color: var(--rcx-button-bland-background);
+
+    font-weight: var(--rcx-button-bland-font-weight);
+
+    &.Button--primary {
+      color: var(--rcx-button-primary-background);
+    }
+
+    &.Button--secondary {
+      color: var(--rcx-button-secondary-color);
+    }
+
+    &.Button--danger {
+      color: var(--rcx-button-danger-background);
+    }
+  }
+
+  &--outline {
+    background: transparent;
+
+    &.Button--primary {
+      color: var(--rcx-button-primary-background);
+      border-color: var(--rcx-button-primary-background);
+    }
+
+    &.Button--secondary {
+      color: var(--rcx-button-secondary-color);
+      border-color: var(--rcx-button-secondary-color);
+    }
+
+    &.Button--danger {
+      color: var(--rcx-button-danger-background);
+      border-color: var(--rcx-button-danger-background);
+    }
+  }
+
+  &--nude {
+    border: none;
+    background: transparent;
+
+    font-weight: var(--rcx-button-nude-font-weight);
+
+    &.Button--primary {
+      color: var(--rcx-button-primary-background);
+    }
+
+    &.Button--secondary {
+      color: var(--rcx-button-secondary-color);
+    }
+
+    &.Button--danger {
+      color: var(--rcx-button-danger-background);
+    }
+  }
+
+  &--square {
+    width: var(--rcx-button-square-size);
+    height: var(--rcx-button-square-size);
+    padding: 0;
+  }
+
   &:active,
-  &:focus:hover {
+  &:global(.active),
+  &:focus:hover,
+  &:global(.focus):global(.hover) {
     outline: none;
   }
 
-  &:active {
+  &:active,
+  &:global(.active) {
     transform: translateY(0.125rem);
 
     opacity: 0.9;
   }
 
-  &:active::before {
+  &:active::before,
+  &:global(.active)::before {
     top: calc(-1 * (var(--rcx-button-border-width) + 0.125rem));
   }
 
@@ -88,15 +175,16 @@
     cursor: pointer;
   }
 
-  &:disabled::before {
+  &[disabled]::before {
     display: none;
   }
 
-  &:not([disabled]):hover {
+  &:not([disabled]):hover,
+  &:not([disabled]):global(.hover) {
     opacity: 0.6;
   }
 
-  &:disabled {
+  &[disabled] {
     cursor: not-allowed;
 
     color: var(--rcx-button-disabled-color);
@@ -104,97 +192,15 @@
     background-color: var(--rcx-button-disabled-background);
   }
 
+  &[hidden] {
+    visibility: hidden;
+
+    opacity: 0;
+  }
+
   .Icon {
     vertical-align: bottom;
 
     font-size: var(--rcx-button-line-height);
   }
-}
-
-.Button--primary {
-  color: var(--rcx-button-primary-color);
-  border-color: var(--rcx-button-primary-background);
-  background-color: var(--rcx-button-primary-background);
-
-  &.Button--bland {
-    color: var(--rcx-button-primary-background);
-  }
-
-  &.Button--outline {
-    color: var(--rcx-button-primary-background);
-    border-color: var(--rcx-button-primary-background);
-  }
-
-  &.Button--nude {
-    color: var(--rcx-button-primary-background);
-  }
-}
-
-.Button--secondary {
-  color: var(--rcx-button-secondary-color);
-  border-color: var(--rcx-button-secondary-background);
-  background-color: var(--rcx-button-secondary-background);
-
-  &.Button--bland {
-    color: var(--rcx-button-secondary-color);
-  }
-
-  &.Button--outline {
-    color: var(--rcx-button-secondary-color);
-    border-color: var(--rcx-button-secondary-color);
-  }
-
-  &.Button--nude {
-    color: var(--rcx-button-secondary-color);
-  }
-}
-
-.Button--danger {
-  color: var(--rcx-button-danger-color);
-  border-color: var(--rcx-button-danger-background);
-  background-color: var(--rcx-button-danger-background);
-
-  &.Button--bland {
-    color: var(--rcx-button-danger-background);
-  }
-
-  &.Button--outline {
-    color: var(--rcx-button-danger-background);
-    border-color: var(--rcx-button-danger-background);
-  }
-
-  &.Button--nude {
-    color: var(--rcx-button-danger-background);
-  }
-}
-
-.Button--hidden {
-  visibility: hidden;
-
-  opacity: 0;
-}
-
-.Button--bland {
-  color: var(--rcx-button-bland-color);
-  border-color: var(--rcx-button-bland-background);
-  background-color: var(--rcx-button-bland-background);
-
-  font-weight: var(--rcx-button-bland-font-weight);
-}
-
-.Button--outline {
-  background: transparent;
-}
-
-.Button--nude {
-  border: none;
-  background: transparent;
-
-  font-weight: var(--rcx-button-nude-font-weight);
-}
-
-.Button--square {
-  width: var(--rcx-button-square-size);
-  height: var(--rcx-button-square-size);
-  padding: 0;
 }

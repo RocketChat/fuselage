@@ -19,8 +19,8 @@ export const verticallyCentered = (storyFn) => centered(() => (
   </div>
 ));
 
-export const createPropsFromKnobs = (defaults = {}, itemName = null) => () =>
-  Object.entries(defaults).reduce((props, [propName, defaultValue]) => {
+export const createPropsFromKnobs = (defaults = {}, itemName = null) => (overrides = {}) =>
+  Object.entries({ ...defaults, ...overrides }).reduce((props, [propName, defaultValue]) => {
     if (propName === 'children' && React.isValidElement(defaultValue)) {
       return { ...props, [propName]: defaultValue };
     }
@@ -33,3 +33,38 @@ export const createPropsFromKnobs = (defaults = {}, itemName = null) => () =>
 
     return { ...props, [propName]: text(knobName, defaultValue) };
   }, {});
+
+export const createVariationsStory = (Component, { commonProps = {}, xAxis = {}, yAxis = {} } = {}) => {
+  const styles = {
+    th: {
+      fontFamily: 'sans-serif',
+      fontWeight: 'bold',
+      color: '#333',
+      margin: 0,
+      padding: '0.5rem 1rem',
+    },
+    td: {
+      margin: 0,
+      padding: '0.5rem 1rem',
+    },
+  };
+
+  return () => <table>
+    <thead>
+      <tr>
+        <th></th>
+        {Object.keys(xAxis).map((xVariation, key) => <th key={key} style={styles.th}>{xVariation}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {Object.entries(yAxis).map(([yVariation, yProps], y) => (
+        <tr key={y}>
+          <th style={styles.th}>{yVariation}</th>
+          {Object.values(xAxis).map((xProps, x) => <td key={x} style={styles.td}>
+            <Component {...commonProps} {...xProps} {...yProps} />
+          </td>)}
+        </tr>
+      ))}
+    </tbody>
+  </table>;
+};

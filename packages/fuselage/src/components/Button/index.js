@@ -6,29 +6,29 @@ import styles from './styles.scss';
 
 export function Button({
   as: Component = 'button',
-  primary,
-  secondary,
-  danger,
-  hidden,
   bland,
   outline,
   nude,
   square,
+  primary,
+  secondary,
+  danger,
   className,
   ...props
 }) {
+  const buttonClassName = useStyle(styles, 'Button', {
+    bland,
+    outline,
+    nude,
+    square,
+    primary,
+    secondary,
+    danger,
+  }, className);
+
   return (
     <Component
-      className={useStyle(styles, 'Button', {
-        primary,
-        secondary,
-        danger,
-        hidden,
-        bland,
-        outline,
-        nude,
-        square,
-      }, className)}
+      className={buttonClassName}
       {...props}
     />
   );
