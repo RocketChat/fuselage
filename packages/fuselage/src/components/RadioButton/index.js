@@ -15,7 +15,7 @@ export function RadioButton({
       className={useStyle(styles, 'RadioButton__wrapper', { disabled })}
     >
       <input
-        type="radio"
+        type='radio'
         disabled={disabled}
         className={useStyle(styles, 'RadioButton', {
         }, className)}

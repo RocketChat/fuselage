@@ -107,7 +107,7 @@ storiesOf('Elements|Button', module)
   .add('as link', () => (
     <Button
       {...props()}
-      as="a"
+      as='a'
       href={text('href', 'https://rocket.chat')}
       target={text('target', '_blank')}
       rel={text('rel', 'noopener noreferrer')}

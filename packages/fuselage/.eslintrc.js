@@ -10,6 +10,7 @@ module.exports = {
       'newlines-between': 'always',
       groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']]
     }],
+    'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     'react/jsx-no-undef': 'error',

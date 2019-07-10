@@ -28,11 +28,11 @@ function LoginForm() {
 
   return <Form onSubmit={handleSubmit}>
     <FormItem>
-      <TextInput placeholder="Username" {...username.input} />
+      <TextInput placeholder='Username' {...username.input} />
     </FormItem>
 
     <FormItem>
-      <TextInput password placeholder="Password" {...password.input} />
+      <TextInput password placeholder='Password' {...password.input} />
     </FormItem>
 
     <ButtonGroup stretch vertical>

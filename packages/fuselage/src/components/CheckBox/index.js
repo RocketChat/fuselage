@@ -12,23 +12,15 @@ export function CheckBox({
   className,
   ...props
 }) {
-  return (
-    <label
-      className={useStyle(styles, 'CheckBox__wrapper', { disabled })}
-    >
-      <input
-        type="checkbox"
-        disabled={disabled}
-        className={useStyle(styles, 'CheckBox', {
-        }, className)}
-        {...props}
-      />
-      <span
-        className={useStyle(styles, 'CheckBox__fake')}
-      >
-        <Icon name={check} />
-      </span>
-      {label}
-    </label>
-  );
+  const checkBoxClassName = useStyle(styles, 'CheckBox', {}, className);
+  const checkBoxWrapperClassName = useStyle(styles, 'CheckBox__wrapper', { disabled });
+  const checkBoxFakeClassName = useStyle(styles, 'CheckBox__fake');
+
+  return <label className={checkBoxWrapperClassName}>
+    <input type='checkbox' disabled={disabled} className={checkBoxClassName} {...props} />
+    <span className={checkBoxFakeClassName}>
+      <Icon name={check} />
+    </span>
+    {label}
+  </label>;
 }

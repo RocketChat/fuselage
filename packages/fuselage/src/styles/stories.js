@@ -21,7 +21,7 @@ storiesOf('Styles|Theming', module)
   .add('example', () => (
     <>
       <Helmet>
-        <style type="text/css">{`
+        <style type='text/css'>{`
         :root {
           --rcx-button-primary-background: navy;
           --rcx-button-danger-background: tomato;
