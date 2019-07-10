@@ -41,33 +41,9 @@ storiesOf('Elements|CheckBox', module)
       'checked / disabled': { checked: true, disabled: true },
     },
   }))
-  .add('default', () => (
-    <CheckBox
-      {...props()}
-    />
-  ))
-  .add('checked', () => (
-    <CheckBox
-      {...props({ checked: true })}
-    />
-  ))
-  .add('hidden', () => (
-    <CheckBox
-      {...props({ hidden: true })}
-    />
-  ))
-  .add('disabled', () => (
-    <CheckBox
-      {...props({ disabled: true })}
-    />
-  ))
-  .add('with label', () => (
-    <CheckBox
-      {...props({ label: 'Label' })}
-    />
-  ))
-  .add('uncontrolled', () => (
-    <CheckBox
-      {...props({ checked: undefined })}
-    />
-  ));
+  .add('default', () => <CheckBox {...props()} />)
+  .add('checked', () => <CheckBox {...props({ checked: true })} />)
+  .add('hidden', () => <CheckBox {...props({ hidden: true })} />)
+  .add('disabled', () => <CheckBox {...props({ disabled: true })} />)
+  .add('with label', () => <CheckBox {...props({ label: 'Label' })} />)
+  .add('uncontrolled', () => <CheckBox {...props({ checked: undefined })} />);

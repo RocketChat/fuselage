@@ -1,7 +1,7 @@
 :root {
   --rcx-radio-button-wrapper-height: 2rem;
+  --rcx-radio-button-wrapper-inner-spacing: 0.25rem;
   --rcx-radio-button-size: 1rem;
-  --rcx-radio-button-margin: 0 0.5rem;
   --rcx-radio-button-border-width: var(--border);
   --rcx-radio-button-color: var(--color-white);
   --rcx-radio-button-background-color: transparent;
@@ -22,7 +22,36 @@
   --rcx-radio-button-transition-duration: 300ms;
 }
 
-.RadioButton {
+.RadioButton__wrapper {
+  position: relative;
+
+  display: inline-flex;
+
+  height: var(--rcx-radio-button-wrapper-height);
+  margin: 0 calc(-1 * var(--rcx-radio-button-wrapper-inner-spacing));
+  padding: 0 var(--rcx-radio-button-wrapper-inner-spacing);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    opacity var(--rcx-radio-button-transition-duration),
+    visibility var(--rcx-radio-button-transition-duration);
+  align-items: center;
+}
+
+.RadioButton__wrapper--hidden {
+  visibility: hidden;
+
+  opacity: 0;
+}
+
+.RadioButton__wrapper--disabled,
+*:disabled .RadioButton__wrapper {
+  cursor: not-allowed;
+}
+
+.RadioButton__input {
   position: absolute;
 
   overflow: hidden;
@@ -39,41 +68,14 @@
   clip-path: inset(50%);
 }
 
-.RadioButton__wrapper {
-  position: relative;
-
-  display: inline-flex;
-
-  height: var(--rcx-radio-button-wrapper-height);
-
-  cursor: pointer;
-  user-select: none;
-  letter-spacing: var(--rcx-radio-button-label-letter-spacing);
-
-  color: var(--rcx-radio-button-label-color);
-
-  font-family: var(--rcx-radio-button-label-font-family);
-  font-size: var(--rcx-radio-button-label-font-size);
-  font-weight: var(--rcx-radio-button-label-font-weight);
-  line-height: var(--rcx-radio-button-label-line-height);
-  align-items: center;
-}
-
-.RadioButton__wrapper--disabled {
-  cursor: not-allowed;
-}
-
 .RadioButton__fake {
-  position: relative;
-
   display: flex;
 
   box-sizing: border-box;
   width: var(--rcx-radio-button-size);
   height: var(--rcx-radio-button-size);
-  margin: var(--rcx-radio-button-margin);
+  margin: 0 var(--rcx-radio-button-wrapper-inner-spacing);
 
-  cursor: pointer;
   transition:
     opacity var(--rcx-radio-button-transition-duration),
     visibility var(--rcx-radio-button-transition-duration),
@@ -92,7 +94,56 @@
   justify-content: center;
 }
 
-.RadioButton:checked + .RadioButton__fake {
+.RadioButton__label {
+  margin: 0 var(--rcx-radio-button-wrapper-inner-spacing);
+
+  transition:
+    opacity var(--rcx-radio-button-transition-duration),
+    visibility var(--rcx-radio-button-transition-duration),
+    background-color var(--rcx-radio-button-transition-duration),
+    border-color var(--rcx-radio-button-transition-duration),
+    color var(--rcx-radio-button-transition-duration),
+    transform var(--rcx-radio-button-transition-duration);
+
+  letter-spacing: var(--rcx-radio-button-label-letter-spacing);
+
+  color: var(--rcx-radio-button-label-color);
+
+  font-family: var(--rcx-radio-button-label-font-family);
+  font-size: var(--rcx-radio-button-label-font-size);
+  font-weight: var(--rcx-radio-button-label-font-weight);
+  line-height: var(--rcx-radio-button-label-line-height);
+}
+
+.RadioButton__wrapper:hover > .RadioButton__input:not(:disabled) ~ .RadioButton__fake,
+.RadioButton__wrapper:global(.hover) > .RadioButton__input:not(:disabled) + .RadioButton__fake {
+  opacity: 0.6;
+}
+
+.RadioButton__wrapper:hover > .RadioButton__input:not(:disabled) ~ .RadioButton__label,
+.RadioButton__wrapper:global(.hover) > .RadioButton__input:not(:disabled) + .RadioButton__fake + .RadioButton__label {
+  opacity: 0.6;
+}
+
+.RadioButton__wrapper:active > .RadioButton__input:not(:disabled) ~ .RadioButton__fake,
+.RadioButton__wrapper:global(.active) > .RadioButton__input:not(:disabled) ~ .RadioButton__fake {
+  transform: translateY(0.125rem);
+
+  opacity: 0.9;
+
+  &::before {
+    top: calc(-1 * (var(--rcx-radio-button-border-width) + 0.125rem));
+  }
+}
+
+.RadioButton__wrapper:active > .RadioButton__input:not(:disabled) ~ .RadioButton__label,
+.RadioButton__wrapper:global(.active) > .RadioButton__input:not(:disabled) ~ .RadioButton__label {
+  transform: translateY(0.125rem);
+
+  opacity: 0.9;
+}
+
+.RadioButton__wrapper > .RadioButton__input:checked ~ .RadioButton__fake {
   color: var(--rcx-radio-button-checked-color);
   border-color: var(--rcx-radio-button-checked-border-color);
   background-color: var(--rcx-radio-button-checked-background-color);
@@ -108,24 +159,12 @@
   }
 }
 
-.RadioButton:not([disabled]) + .RadioButton__fake:hover {
-  opacity: 0.6;
-}
-
-.RadioButton__wrapper:active .RadioButton:not([disabled]) + .RadioButton__fake {
-  transform: translateY(0.125rem);
-
-  opacity: 0.9;
-
-  &::before {
-    top: calc(-1 * (var(--rcx-radio-button-border-width) + 0.125rem));
-  }
-}
-
-.RadioButton:disabled + .RadioButton__fake {
-  cursor: not-allowed;
-
+.RadioButton__wrapper > .RadioButton__input:disabled ~ .RadioButton__fake {
   color: var(--rcx-radio-button-disabled-color);
   border-color: var(--rcx-radio-button-disabled-border-color);
   background-color: var(--rcx-radio-button-disabled-background-color);
+}
+
+.RadioButton__wrapper > .RadioButton__input:disabled ~ .RadioButton__label {
+  color: var(--rcx-radio-button-label-disabled-color);
 }
