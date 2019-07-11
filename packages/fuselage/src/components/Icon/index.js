@@ -1,5 +1,5 @@
-import React, { useLayoutEffect, useMemo } from 'react';
-import iconStyles from '@rocket.chat/icons/dist/font/RocketChat.css';
+import '@rocket.chat/icons/dist/font/RocketChat.css';
+import React, { useMemo } from 'react';
 
 
 export function Icon({
@@ -7,23 +7,10 @@ export function Icon({
   className,
   ...props
 }) {
-  useLayoutEffect(() => {
-    iconStyles.use();
-
-    return () => {
-      iconStyles.unuse();
-    };
-  }, []);
-
-  const extendedClassName = useMemo(
+  const iconClassName = useMemo(
     () => ['rcx-icon', name && `rcx-icon--${ name }`, className].filter(Boolean).join(' '),
     [name, className]
   );
 
-  return (
-    <i
-      className={extendedClassName}
-      {...props}
-    />
-  );
+  return <i className={iconClassName} {...props} />;
 }

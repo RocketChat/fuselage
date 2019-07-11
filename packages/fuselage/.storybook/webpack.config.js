@@ -6,13 +6,6 @@ module.exports = async ({ config, mode }) => {
   ];
   delete jsRule.exclude;
 
-  const cssRule = config.module.rules.find(({ test }) => test.test('index.css'));
-
-  cssRule.use = [
-    'style-loader/useable',
-      'css-loader',
-  ];
-
   config.module.rules.push({
     test: /\.scss$/,
     use: [
