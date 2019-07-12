@@ -8,7 +8,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         type: 'javascript/auto',
         exclude: /node_modules/,
         use: {
@@ -16,9 +16,20 @@ module.exports = {
         },
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.svg$/,
+        include: /packages\/icons/,
         use: [
-          'url-loader',
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        include: /packages\/icons/,
+        use: [
+          'file-loader',
         ],
       },
       {
@@ -68,6 +79,7 @@ module.exports = {
         root: 'React',
       },
     },
+    'css-vars-ponyfill',
   ],
   output: {
     filename: 'fuselage.js',
@@ -76,7 +88,4 @@ module.exports = {
     libraryTarget: 'umd',
   },
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
-  performance: {
-    hints: false,
-  },
 };

@@ -5,15 +5,17 @@ const toCamelCase = (string) =>
 
 const toIdentifier = (string) => (isValidIdentifier(string) ? string : `_${ string }`);
 
-const getIconNames = (icons) => Array.from(icons.reduce((set, { name }) => set.add(name), new Set()));
-
-const createIconList = (icons) => getIconNames(icons)
-  .map((name) => `exports.${ toIdentifier(toCamelCase(name)) } = ${ JSON.stringify(name) };`)
+const createIconList = (icons) => icons
+  .filter(({ mirror }) => !mirror)
+  .map(({ name }) => `exports.${ toIdentifier(toCamelCase(name)) } = ${ JSON.stringify(name) };`)
   .join('\n');
 
-const createIconListModule = (icons) => getIconNames(icons)
-  .map((name) => `export const ${ toIdentifier(toCamelCase(name)) } = ${ JSON.stringify(name) };`)
+const createIconListModule = (icons) => icons
+  .filter(({ mirror }) => !mirror)
+  .map(({ name }) => `export const ${ toIdentifier(toCamelCase(name)) } = ${ JSON.stringify(name) };`)
   .join('\n');
 
+module.exports.toCamelCase = toCamelCase;
+module.exports.toIdentifier = toIdentifier;
 module.exports.createIconList = createIconList;
 module.exports.createIconListModule = createIconListModule;

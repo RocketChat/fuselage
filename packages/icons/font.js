@@ -8,7 +8,7 @@ const ttf2eot = require('ttf2eot');
 const ttf2woff = require('ttf2woff');
 const ttf2woff2 = require('ttf2woff2');
 
-const { createIconList/* , createIconListModule */ } = require('./helpers');
+const { toCamelCase, toIdentifier, createIconList, createIconListModule } = require('./helpers');
 const { getFontIcons } = require('./icons');
 const manifest = require('./package.json');
 
@@ -139,6 +139,34 @@ ${ icons.filter(({ mirror }) => !mirror).map(({ name, unicode }) =>
 }`).join('\n\n') }
 `;
 
+const createMinimalCss = () => `@font-face {
+  font-family: "RocketChat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+
+  src: url("./RocketChat.eot");
+  src:
+    url("./RocketChat.eot?#iefix") format("embedded-opentype"),
+    url("./RocketChat.woff2") format("woff2"),
+    url("./RocketChat.woff") format("woff"),
+    url("./RocketChat.ttf") format("truetype"),
+    url("./RocketChat.svg#RocketChat") format("svg");
+}
+`;
+
+const createCharactersList = (icons) => icons
+  .filter(({ mirror }) => !mirror)
+  .map(({ name, unicode }) => [toIdentifier(toCamelCase(name)), JSON.stringify(unicode[0]).replace(/"/g, '\'')])
+  .map(([name, character]) => `exports.${ name } = ${ character };\n`)
+  .join('');
+
+const createCharactersListModule = (icons) => icons
+  .filter(({ mirror }) => !mirror)
+  .map(({ name, unicode }) => [toIdentifier(toCamelCase(name)), JSON.stringify(unicode[0]).replace(/"/g, '\'')])
+  .map(([name, character]) => `export const ${ name } = ${ character };\n`)
+  .join('');
+
 const createHtmlPreview = (icons) =>
   `<!DOCTYPE html>
 <meta charset="UTF-8">
@@ -209,8 +237,11 @@ const build = async () => {
   const woff2Font = createWoff2Font(ttfFont);
   const eotFont = createEotFont(ttfFont);
   const css = createCss(icons);
+  const minimalCss = createMinimalCss();
   const iconList = createIconList(icons);
-  // const iconListModule = createIconListModule(icons);
+  const iconListModule = createIconListModule(icons);
+  const charactersList = createCharactersList(icons);
+  const charactersListModule = createCharactersListModule(icons);
   const htmlPreview = createHtmlPreview(icons);
 
   const outputDirPath = `${ __dirname }/dist/font`;
@@ -224,8 +255,11 @@ const build = async () => {
   fs.writeFileSync(`${ outputDirPath }/RocketChat.woff2`, woff2Font);
   fs.writeFileSync(`${ outputDirPath }/RocketChat.eot`, eotFont);
   fs.writeFileSync(`${ outputDirPath }/RocketChat.css`, css, { charset: 'utf8' });
+  fs.writeFileSync(`${ outputDirPath }/RocketChat.minimal.css`, minimalCss, { charset: 'utf8' });
   fs.writeFileSync(`${ outputDirPath }/index.js`, iconList, { charset: 'utf8' });
-  // fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
+  fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
+  fs.writeFileSync(`${ outputDirPath }/characters.js`, charactersList, { charset: 'utf8' });
+  fs.writeFileSync(`${ outputDirPath }/characters.mjs`, charactersListModule, { charset: 'utf8' });
   fs.writeFileSync(`${ outputDirPath }/index.html`, htmlPreview, { charset: 'utf8' });
 };
 

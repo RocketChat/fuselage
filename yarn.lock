@@ -14072,6 +14072,14 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
+sass-ffi@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/sass-ffi/-/sass-ffi-0.0.2.tgz#7139dda91bc1ee7514c60a893ca1dbdd7cdd368d"
+  integrity sha512-CEOB54f7+xGCxUabpMkZgwNscr19K2Li0ZArriiWKRWq3fjpVSJiTsqx1lSPA20CxeShmOGLmKtMEtBdQJtLsw==
+  dependencies:
+    dot-prop "^4.2.0"
+    resolve "^1.10.1"
+
 sass-graph@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/sass-graph/-/sass-graph-2.2.4.tgz#13fbd63cd1caf0908b9fd93476ad43a51d1e0b49"

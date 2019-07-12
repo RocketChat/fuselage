@@ -38,7 +38,7 @@ function IconDisplay({ children, color, direction, name, size, varName }) {
       fontFamily: 'monospace',
       fontSize: '0.75rem',
     },
-  }), []);
+  }), [color, direction, size]);
 
   return <div style={styles.wrapper}>
     <div style={styles.icon}>

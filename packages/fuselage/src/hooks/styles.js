@@ -42,6 +42,7 @@ export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassNa
     ...flatMap(Object.entries(modifiers), ([modifier, value]) => [
       typeof value === 'boolean' && value && styles.locals[`${ rootClassName }--${ modifier }`],
       typeof value !== 'boolean' && styles.locals[`${ rootClassName }--${ modifier }-${ value }`],
+      typeof value !== 'boolean' && styles.locals[`${ rootClassName }--${ value }`],
     ]), forwardedClassName].filter(Boolean).join(' '),
   [modifiers, forwardedClassName]);
 };
