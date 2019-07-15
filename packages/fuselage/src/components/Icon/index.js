@@ -1,7 +1,7 @@
-import '@rocket.chat/icons/dist/font/RocketChat.minimal.css';
 import React from 'react';
 import * as characters from '@rocket.chat/icons/dist/font/characters.mjs';
 import * as names from '@rocket.chat/icons/dist/font/index.mjs';
+import '@rocket.chat/icons/dist/font/RocketChat.minimal.css';
 
 import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
@@ -16,8 +16,5 @@ export function Icon({
 }) {
   const iconClassName = useStyle(styles, 'Icon');
 
-
   return <i className={iconClassName} data-char={characters[mapNames[name]]} {...props} />;
 }
-
-export * from '@rocket.chat/icons/dist/font/index.mjs';

@@ -1,16 +1,21 @@
 import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import cssVars from 'css-vars-ponyfill';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { Button } from '../components/Button';
 import { ButtonGroup } from '../components/ButtonGroup';
-import '../helpers/cssCustomPropertiesPonyfill';
 import colorPalette from './colorPalette.scss';
 import colorPaletteNotes from './colorPalette.md';
 import themingNotes from './theming.md';
 
+
+cssVars({
+  onlyLegacy: true,
+  watch: true,
+});
 
 storiesOf('Styles|Theming', module)
   .addDecorator(withKnobs)

@@ -17,11 +17,6 @@ module.exports = {
     'react/jsx-fragments': ['error', 'syntax'],
   },
   settings: {
-    'import/resolver': {
-      'eslint-import-resolver-lerna': {
-        packages: path.join(__dirname, '..'),
-      },
-    },
     react: {
       version: 'detect',
     },

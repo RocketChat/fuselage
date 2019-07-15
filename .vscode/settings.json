@@ -14,5 +14,11 @@
 		"statusBar.background": "#42b883",
 		"statusBarItem.hoverBackground": "#359268",
 		"statusBar.foreground": "#15202b"
-	}
+  },
+  "eslint.workingDirectories": [
+    "packages/fuselage",
+    "packages/icons",
+    "packages/livechat-admin"
+	],
+	"eslint.enable": true
 }
