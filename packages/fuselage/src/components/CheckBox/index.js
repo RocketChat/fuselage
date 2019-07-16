@@ -13,19 +13,18 @@ export function CheckBox({
   ...props
 }) {
   const ref = useRef();
-  const checkBoxWrapperClassName = useStyle(styles, 'CheckBox__wrapper', {
+  const checkBoxWrapperClassName = useStyle(styles, 'rcx-check-box__wrapper', {
     disabled: props.disabled,
-    hidden: props.hidden,
   }, className);
-  const checkBoxInputClassName = useStyle(styles, 'CheckBox__input');
-  const checkBoxFakeClassName = useStyle(styles, 'CheckBox__fake');
-  const checkBoxLabelClassName = useStyle(styles, 'CheckBox__label');
+  const checkBoxInputClassName = useStyle(styles, 'rcx-check-box__input');
+  const checkBoxFakeClassName = useStyle(styles, 'rcx-check-box__fake');
+  const checkBoxLabelClassName = useStyle(styles, 'rcx-check-box__label');
 
   useEffect(() => {
     ref.current.indeterminate = indeterminate;
   }, [indeterminate]);
 
-  return <label className={checkBoxWrapperClassName}>
+  return <label className={checkBoxWrapperClassName} hidden={props.hidden}>
     <input type='checkbox' className={checkBoxInputClassName} ref={ref} {...props} />
     <span className={checkBoxFakeClassName}>
       <Icon name={check} />

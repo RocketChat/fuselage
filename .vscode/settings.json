@@ -16,9 +16,18 @@
 		"statusBar.foreground": "#15202b"
   },
   "eslint.workingDirectories": [
-    "packages/fuselage",
-    "packages/icons",
-    "packages/livechat-admin"
+    {
+			"directory": "packages/fuselage",
+			"changeProcessCWD": true
+		},
+    {
+			"directory": "packages/icons",
+			"changeProcessCWD": true
+		},
+    {
+      "directory": "packages/livechat-admin",
+      "changeProcessCWD": true
+    }
 	],
 	"eslint.enable": true
 }

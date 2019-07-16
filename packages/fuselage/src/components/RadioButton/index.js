@@ -9,17 +9,16 @@ export function RadioButton({
   className,
   ...props
 }) {
-  const radioButtonWrapperClassName = useStyle(styles, 'RadioButton__wrapper', {
+  const radioButtonWrapperClassName = useStyle(styles, 'rcx-radio-button__wrapper', {
     disabled: props.disabled,
-    hidden: props.hidden,
   }, className);
-  const radioButtonInputClassName = useStyle(styles, 'RadioButton__input');
-  const radioButtonFakeClassName = useStyle(styles, 'RadioButton__fake');
-  const radioButtonLabelClassName = useStyle(styles, 'RadioButton__label');
+  const radioButtonInputClassName = useStyle(styles, 'rcx-radio-button__input');
+  const radioButtonFakeClassName = useStyle(styles, 'rcx-radio-button__fake');
+  const radioButtonLabelClassName = useStyle(styles, 'rcx-radio-button__label');
 
-  return <label className={radioButtonWrapperClassName}>
+  return <label className={radioButtonWrapperClassName} hidden={props.hidden}>
     <input type='radio' className={radioButtonInputClassName} {...props} />
-    <span className={radioButtonFakeClassName}/>
+    <span className={radioButtonFakeClassName} />
     {label && <span className={radioButtonLabelClassName}>
       {label}
     </span>}

@@ -8,7 +8,7 @@ export function ScrollableArea({
   className,
   ...props
 }) {
-  const scrollableAreaClassName = useStyle(styles, 'ScrollableArea', {}, className);
+  const scrollableAreaClassName = useStyle(styles, 'rcx-scrollable-area', {}, className);
 
   return <div className={scrollableAreaClassName} {...props} />;
 }

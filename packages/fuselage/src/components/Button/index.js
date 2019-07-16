@@ -16,7 +16,7 @@ export function Button({
   className,
   ...props
 }) {
-  const buttonClassName = useStyle(styles, 'Button', {
+  const buttonClassName = useStyle(styles, 'rcx-button', {
     bland,
     outline,
     nude,
@@ -26,10 +26,5 @@ export function Button({
     danger,
   }, className);
 
-  return (
-    <Component
-      className={buttonClassName}
-      {...props}
-    />
-  );
+  return <Component className={buttonClassName} {...props} />;
 }

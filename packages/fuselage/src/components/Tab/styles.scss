@@ -1,38 +1,47 @@
-:root {
-  --rcx-tab-margin-horizontal: 1rem;
-  --rcx-tab-padding: 1rem 0;
-  --rcx-tab-transition-duration: 300ms;
-  --rcx-tab-color: var(--color-dark-600);
-  --rcx-tab-line-width: var(--border);
-  --rcx-tab-font-family: var(--default-font-family);
-  --rcx-tab-font-size: 1rem;
-  --rcx-tab-font-weight: 500;
-  --rcx-tab-line-height: 1.25;
-  --rcx-tab-active-color: var(--color-blue);
-}
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/typography.scss';
 
-.Tab {
+$name: 'rcx-tab';
+
+$default-theme: (
+  'margin-horizontal': 1rem,
+  'padding': 1rem 0,
+  'transition-duration': dimension('short-transition-duration'),
+  'color': color('dark-600'),
+  'line-width': dimension('border-width'),
+  'font-family': font-family('default'),
+  'font-size': 1rem,
+  'font-weight': 500,
+  'line-height': 1.25,
+  'active-color': color('blue'),
+);
+
+.#{$name} {
+  @include reset;
+
   flex: 0 0 auto;
 
-  box-sizing: border-box;
-  margin: 0 var(--rcx-tab-margin-horizontal);
-  padding: var(--rcx-tab-padding);
+  margin: 0 theme-var('margin-horizontal');
+  padding: theme-var('padding');
 
   cursor: pointer;
   transition:
-    color var(--rcx-tab-transition-duration),
-    border var(--rcx-tab-transition-duration);
+    color theme-var('transition-duration'),
+    border theme-var('transition-duration');
 
-  color: var(--rcx-tab-color);
-  border-bottom: var(--rcx-tab-line-width) solid transparent;
+  color: theme-var('color');
+  border-bottom: theme-var('line-width') solid transparent;
 
-  font-family: var(--rcx-tab-font-family);
-  font-size: var(--rcx-tab-font-size);
-  font-weight: var(--rcx-tab-font-weight);
-  line-height: var(--rcx-tab-line-height);
-}
+  font-family: theme-var('font-family');
+  font-size: theme-var('font-size');
+  font-weight: theme-var('font-weight');
+  line-height: theme-var('line-height');
 
-.Tab--active {
-  color: var(--rcx-tab-active-color);
-  border-bottom-color: var(--rcx-tab-active-color);
+  &--active {
+    color: theme-var('active-color');
+    border-bottom-color: theme-var('active-color');
+  }
 }

@@ -1,3 +1,6 @@
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+
 $unit: 0.5rem;
 
 $width: (
@@ -8,67 +11,61 @@ $columns: (
   md: 16,
 );
 
-:root {
-  @each $breakpoint in map-keys($width) {
-    --rcx-grid-#{$breakpoint}-width: #{map-get($width, $breakpoint)};
-    --rcx-grid-#{$breakpoint}-columns: #{map-get($columns, $breakpoint)};
-  }
-}
+$name: 'rcx-grid';
+
+$default-theme: (
+  'md-width': 64.5rem,
+  'md-columns': 16,
+);
 
 $directions: row, row-reverse;
 $justifications: flex-start, center, flex-end, space-between, space-around, space-evenly;
 $itemAlignments: flex-start, center, flex-end, stretch, baseline;
 
-.Grid {
-  box-sizing: border-box;
+.#{$name} {
+  @include reset;
 }
 
-.Grid--container {
+.#{$name}--container {
   display: flex;
-
-  // @each $breakpoint in map-keys($width) {
-  //   @media (min-width: map-get($width, $breakpoint)) {
-  //     min-width: var(--rcx-grid-#{$breakpoint}-width);
-  //   }
-  // }
 }
 
 @for $gutter from 0 through 10 {
-  .Grid--gutter-#{$gutter} {
+  .#{$name}--gutter-#{$gutter} {
     margin: 0 (-$gutter * 0.5rem / 2);
   }
 
-  .Grid--outsideGutter.Grid--gutter-#{$gutter} {
+  .#{$name}--outsideGutter.#{$name}--gutter-#{$gutter} {
     margin: 0;
     padding: 0 ($gutter * 0.5rem / 2);
   }
 }
 
 @each $direction in $directions {
-  .Grid--direction-#{$direction} {
+  .#{$name}--direction-#{$direction} {
     flex-direction: $direction;
   }
 }
 
 @each $justification in $justifications {
-  .Grid--justification-#{$justification} {
+  .#{$name}--justification-#{$justification} {
     justify-content: $justification;
   }
 }
 
 @each $itemAlignment in $itemAlignments {
-  .Grid--itemAlignment-#{$itemAlignment} {
+  .#{$name}--itemAlignment-#{$itemAlignment} {
     align-items: $itemAlignment;
   }
 }
 
-.Grid--item {
+.#{$name}--item {
   flex-grow: 0;
   flex-shrink: 1;
 }
 
 @each $breakpoint in map-keys($width) {
-  .Grid--#{$breakpoint} {
+  .#{$name}--#{$breakpoint} {
     @media (min-width: map-get($width, $breakpoint)) {
       flex-basis: 0;
       flex-grow: 1;
@@ -76,17 +73,17 @@ $itemAlignments: flex-start, center, flex-end, stretch, baseline;
   }
 
   @for $i from 1 through map-get($columns, $breakpoint) {
-    .Grid--#{$breakpoint}-#{$i} {
+    .#{$name}--#{$breakpoint}-#{$i} {
       @media (min-width: map-get($width, $breakpoint)) {
-        max-width: calc(100% / var(--rcx-grid-#{$breakpoint}-columns) * #{$i});
-        flex-basis: calc(100% / var(--rcx-grid-#{$breakpoint}-columns) * #{$i});
+        max-width: calc(100% / #{theme-var('#{$breakpoint}-columns')} * #{$i});
+        flex-basis: calc(100% / #{theme-var('#{$breakpoint}-columns')} * #{$i});
       }
     }
   }
 }
 
 @for $gutter from 0 through 10 {
-  .Grid--gutter-#{$gutter} > .Grid--item {
+  .#{$name}--gutter-#{$gutter} > .#{$name}--item {
     padding: $gutter * 0.5rem / 2;
   }
 }

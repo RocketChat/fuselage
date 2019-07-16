@@ -1,29 +1,40 @@
-:root {
-  --rcx-form-description-color: var(--color-dark-600);
-  --rcx-form-description-font-size: 0.75rem;
-  --rcx-form-description-font-family: var(--default-font-family);
-  --rcx-form-description-font-weight: normal;
-  --rcx-form-description-letter-spacing: 0;
-  --rcx-form-description-line-height: 1;
-  --rcx-form-description-error-color: var(--color-red);
-}
+@import '../../../helpers/mixins.scss';
+@import '../../../helpers/theme-var.scss';
+@import '../../../styles/color-palette.scss';
+@import '../../../styles/typography.scss';
 
-.FormDescription {
+$name: 'rcx-form-description';
+
+$default-theme: (
+  'color': color('dark-600'),
+  'font-size': 0.75rem,
+  'font-family': font-family('default'),
+  'font-weight': normal,
+  'letter-spacing': 0,
+  'line-height': 0.75rem,
+  'error-color': color('red'),
+);
+
+.#{$name} {
+  @include reset;
+  @include selectable-for-help;
+  @include used-in('../Item/styles.scss');
+
   flex: 0 0 auto;
 
   box-sizing: border-box;
-  min-height: calc(var(--rcx-form-item-description-line-height) * 1);
+  min-height: theme-var('line-height');
 
-  letter-spacing: var(--rcx-form-description-letter-spacing);
+  letter-spacing: theme-var('letter-spacing');
 
-  color: var(--rcx-form-description-color);
+  color: theme-var('color');
 
-  font-family: var(--rcx-form-description-font-family);
-  font-size: var(--rcx-form-description-font-size);
-  font-weight: var(--rcx-form-description-font-weight);
-  line-height: var(--rcx-form-description-line-height);
-}
+  font-family: theme-var('font-family');
+  font-size: theme-var('font-size');
+  font-weight: theme-var('font-weight');
+  line-height: theme-var('line-height');
 
-.FormDescription--error {
-  color: var(--rcx-form-description-error-color);
+  &--error {
+    color: theme-var('error-color');
+  }
 }

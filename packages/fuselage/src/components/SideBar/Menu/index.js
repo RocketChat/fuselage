@@ -10,21 +10,19 @@ export function SideBarMenu({
   className,
   ...props
 }) {
-  const sideBarMenuClassName = useStyle(styles, 'SideBar__Menu', {}, className);
-  const sideBarMenuTitleClassName = useStyle(styles, 'SideBar__MenuTitle');
-  const sideBarMenuListClassName = useStyle(styles, 'SideBar__MenuList');
+  const sideBarMenuClassName = useStyle(styles, 'rcx-side-bar__menu', {}, className);
+  const sideBarMenuTitleClassName = useStyle(styles, 'rcx-side-bar__menu-title');
+  const sideBarMenuListClassName = useStyle(styles, 'rcx-side-bar__menu-list');
 
-  return (
-    <nav className={sideBarMenuClassName} {...props}>
-      {title && (
-        <div className={sideBarMenuTitleClassName}>
-          {title}
-        </div>
-      )}
+  return <nav className={sideBarMenuClassName} {...props}>
+    {title && (
+      <div className={sideBarMenuTitleClassName}>
+        {title}
+      </div>
+    )}
 
-      <ul className={sideBarMenuListClassName}>
-        {children}
-      </ul>
-    </nav>
-  );
+    <ul className={sideBarMenuListClassName}>
+      {children}
+    </ul>
+  </nav>;
 }

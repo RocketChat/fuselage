@@ -1,4 +1,13 @@
-.Icon {
+@import '../../helpers/mixins.scss';
+
+$name: 'rcx-icon';
+
+.#{$name} {
+  @include reset;
+  @include used-in('../Button/styles.scss');
+  @include used-in('../CheckBox/styles.scss');
+  @include used-in('../SideBar/Header/styles.scss');
+
   display: inline-block;
 
   font-family: 'RocketChat';

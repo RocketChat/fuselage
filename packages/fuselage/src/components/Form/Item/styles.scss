@@ -1,22 +1,28 @@
-:root {
-  --rcx-form-item-margin: 1.5rem 0;
-  --rcx-form-item-label-margin-bottom: 0.5rem;
-  --rcx-form-item-description-margin-top: 0.5rem;
-}
+@import '../../../helpers/mixins.scss';
+@import '../../../helpers/theme-var.scss';
 
-.FormItem {
+$name: 'rcx-form-item';
+
+$default-theme: (
+  'margin': 1.5rem 0,
+  'label-margin-bottom': 0.5rem,
+  'description-margin-top': 0.5rem,
+);
+
+.#{$name} {
+  @include reset;
+
   display: flex;
 
-  box-sizing: border-box;
   width: 100%;
-  margin: var(--rcx-form-item-margin);
+  margin: theme-var('margin');
   flex-flow: column nowrap;
 
-  .FormLabel {
-    margin-bottom: var(--rcx-form-item-label-margin-bottom);
+  & > .rcx-form-label {
+    margin-bottom: theme-var('label-margin-bottom');
   }
 
-  .FormDescription {
-    margin-top: var(--rcx-form-item-description-margin-top);
+  & > .rcx-form-description {
+    margin-top: theme-var('description-margin-top');
   }
 }

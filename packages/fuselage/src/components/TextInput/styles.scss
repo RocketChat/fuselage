@@ -1,3 +1,33 @@
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/typography.scss';
+
+$name: 'rcx-text-input';
+
+$default-theme: (
+  'border-width': dimension('border-width'),
+  'border-radius': dimension('border-radius'),
+  'padding-vertical': 0.75rem,
+  'padding-horizontal': 1rem,
+  'color': color('dark-800'),
+  'placeholder-color': color('dark-500'),
+  'background-color': color('white'),
+  'border-color': color('dark-300'),
+  'focus-border-color': color('dark-800'),
+  'hover-border-color': color('dark-500'),
+  'disabled-background-color': color('dark-300'),
+  'disabled-color': color('dark-500'),
+  'font-family': font-family('default'),
+  'font-size': 0.875rem,
+  'font-weight': 500,
+  'line-height': 1.25rem,
+  'transition-duration': dimension('short-transition-duration'),
+  'error-color': color('red'),
+  'error-border-color': color('red'),
+);
+
 :root {
   --rcx-text-input-border-width: var(--border);
   --rcx-text-input-border-radius: var(--border-radius);
@@ -20,37 +50,37 @@
   --rcx-text-input-error-border-color: var(--color-red);
 }
 
-.TextInput {
-  box-sizing: border-box;
+.#{$name} {
+  @include reset;
 
   width: 100%;
 
   padding:
-    calc(var(--rcx-text-input-padding-vertical) - 2 * var(--rcx-text-input-border-width))
-    calc(var(--rcx-text-input-padding-horizontal) - 2 * var(--rcx-text-input-border-width));
+    calc(#{theme-var('padding-vertical')} - 2 * #{theme-var('border-width')})
+    calc(#{theme-var('padding-horizontal')} - 2 * #{theme-var('border-width')});
 
   transition:
-    border-color var(--rcx-text-input-transition-duration),
-    color var(--rcx-text-input-transition-duration),
-    background-color var(--rcx-text-input-transition-duration);
+    border-color theme-var('transition-duration'),
+    color theme-var('transition-duration'),
+    background-color theme-var('transition-duration');
 
-  color: var(--rcx-text-input-color);
+  color: theme-var('color');
 
-  border-width: var(--rcx-text-input-border-width);
+  border-width: theme-var('border-width');
   border-style: solid;
-  border-color: var(--rcx-text-input-border-color);
-  border-radius: var(--rcx-text-input-border-radius);
+  border-color: theme-var('border-color');
+  border-radius: theme-var('border-radius');
 
   outline: none;
-  background-color: var(--rcx-text-input-background-color);
+  background-color: theme-var('background-color');
 
-  font-family: var(--rcx-text-input-font-family);
-  font-size: var(--rcx-text-input-font-size);
-  font-weight: var(--rcx-text-input-font-weight);
-  line-height: var(--rcx-text-input-line-height);
+  font-family: theme-var('font-family');
+  font-size: theme-var('font-size');
+  font-weight: theme-var('font-weight');
+  line-height: theme-var('line-height');
 
   &::placeholder {
-    color: var(--rcx-text-input-placeholder-color);
+    color: theme-var('placeholder-color');
   }
 
   @at-root textarea#{&} {
@@ -58,22 +88,22 @@
   }
 
   &:not([disabled]):focus {
-    border-color: var(--rcx-text-input-focus-border-color);
+    border-color: theme-var('focus-border-color');
   }
 
   &:not([disabled]):hover {
-    border-color: var(--rcx-text-input-hover-border-color);
+    border-color: theme-var('hover-border-color');
   }
 
   &:disabled {
     cursor: not-allowed;
 
-    color: var(--rcx-text-input-disabled-color);
-    background-color: var(--rcx-text-input-disabled-background-color);
+    color: theme-var('disabled-color');
+    background-color: theme-var('disabled-background-color');
   }
-}
 
-.TextInput--error {
-  color: var(--rcx-text-input-error-color);
-  border-color: var(--rcx-text-input-error-border-color);
+  &--error {
+    color: theme-var('error-color');
+    border-color: theme-var('error-border-color');
+  }
 }

@@ -28,8 +28,8 @@ storiesOf('Styles|Theming', module)
       <Helmet>
         <style type='text/css'>{`
         :root {
-          --rcx-button-primary-background: navy;
-          --rcx-button-danger-background: tomato;
+          --rcx-button-primary-background-color: navy;
+          --rcx-button-danger-background-color: tomato;
         }
         `}</style>
       </Helmet>

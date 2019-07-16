@@ -42,25 +42,22 @@ export function Grid({
   className,
   ...props
 }) {
-  return (
-    <div
-      className={useStyle(styles, 'Grid', {
-        container,
-        direction,
-        justification,
-        itemAlignment,
-        gutter,
-        outsideGutter,
-        item,
-        xs,
-        sm,
-        md,
-        lg,
-        xl,
-      }, className)}
-      {...props}
-    />
-  );
+  const gridClassName = useStyle(styles, 'rcx-grid', {
+    container,
+    direction,
+    justification,
+    itemAlignment,
+    gutter,
+    outsideGutter,
+    item,
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+  }, className);
+
+  return <div className={gridClassName} {...props} />;
 }
 
 Grid.directions = directions;

@@ -9,7 +9,7 @@ export function FormDescription({
   error,
   ...props
 }) {
-  const formDescriptionClassName = useStyle(styles, 'FormDescription', { error }, className);
+  const formDescriptionClassName = useStyle(styles, 'rcx-form-description', { error }, className);
 
   return <small className={formDescriptionClassName} {...props} />;
 }

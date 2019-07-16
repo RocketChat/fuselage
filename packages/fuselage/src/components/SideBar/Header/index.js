@@ -13,23 +13,21 @@ export function SideBarHeader({
   className,
   ...props
 }) {
-  const sideBarHeaderClassName = useStyle(styles, 'SideBar__Header', {}, className);
-  const sideBarHeaderTitleClassName = useStyle(styles, 'SideBar__HeaderTitle');
-  const sideBarHeaderButtonClassName = useStyle(styles, 'SideBar__HeaderButton');
+  const sideBarHeaderClassName = useStyle(styles, 'rcx-side-bar__header', {}, className);
+  const sideBarHeaderTitleClassName = useStyle(styles, 'rcx-side-bar__header-title');
+  const sideBarHeaderButtonClassName = useStyle(styles, 'rcx-side-bar__header-button');
 
-  return (
-    <div className={sideBarHeaderClassName} {...props}>
-      {title && (
-        <h2 className={sideBarHeaderTitleClassName}>
-          {title}
-        </h2>
-      )}
+  return <div className={sideBarHeaderClassName} {...props}>
+    {title && (
+      <h2 className={sideBarHeaderTitleClassName}>
+        {title}
+      </h2>
+    )}
 
-      {closeable && (
-        <button className={sideBarHeaderButtonClassName} onClick={onClosing}>
-          <Icon name={cross} />
-        </button>
-      )}
-    </div>
-  );
+    {closeable && (
+      <button className={sideBarHeaderButtonClassName} onClick={onClosing}>
+        <Icon name={cross} />
+      </button>
+    )}
+  </div>;
 }

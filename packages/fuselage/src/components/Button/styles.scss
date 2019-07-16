@@ -1,122 +1,133 @@
-:root {
-  --rcx-button-height: 2.25rem;
-  --rcx-button-padding: 0.375rem 1.5rem;
-  --rcx-button-border-width: var(--border);
-  --rcx-button-border-radius: var(--border-radius);
-  --rcx-button-default-background: transparent;
-  --rcx-button-default-color: var(--color-dark-900);
-  --rcx-button-disabled-background: var(--color-dark-300);
-  --rcx-button-disabled-color: var(--color-white);
-  --rcx-button-primary-background: var(--color-blue);
-  --rcx-button-primary-color: var(--color-white);
-  --rcx-button-secondary-background: var(--color-dark-500);
-  --rcx-button-secondary-color: var(--color-dark-800);
-  --rcx-button-danger-background: var(--color-red);
-  --rcx-button-danger-color: var(--color-white);
-  --rcx-button-bland-background: var(--color-dark-100);
-  --rcx-button-bland-color: var(--color-dark-700);
-  --rcx-button-font-family: var(--default-font-family);
-  --rcx-button-font-size: 0.875rem;
-  --rcx-button-line-height: 1.25rem;
-  --rcx-button-default-font-weight: 600;
-  --rcx-button-bland-font-weight: 500;
-  --rcx-button-nude-font-weight: 400;
-  --rcx-button-transition-duration: 300ms;
-  --rcx-button-square-size: 44px;
-}
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/typography.scss';
 
-.Button {
+$name: 'rcx-button';
+
+$default-theme: (
+  'height': 2.25rem,
+  'padding': 0.375rem 1.5rem,
+  'border-width': dimension('border-width'),
+  'border-radius': dimension('border-radius'),
+  'default-background-color': transparent,
+  'default-color': color('dark-900'),
+  'disabled-background-color': color('dark-300'),
+  'disabled-color': color('white'),
+  'primary-background-color': color('blue'),
+  'primary-color': color('white'),
+  'secondary-background-color': color('dark-500'),
+  'secondary-color': color('dark-800'),
+  'danger-background-color': color('red'),
+  'danger-color': color('white'),
+  'bland-background-color': color('dark-100'),
+  'bland-color': color('dark-700'),
+  'font-family': font-family('default'),
+  'font-size': 0.875rem,
+  'line-height': 1.25rem,
+  'default-font-weight': 600,
+  'bland-font-weight': 500,
+  'nude-font-weight': 400,
+  'transition-duration': dimension('short-transition-duration'),
+  'square-size': 44px,
+  'active-translation': dimension('interactive-translation'),
+  'hover-opacity': dimension('interactive-opacity-hover'),
+  'active-opacity': dimension('interactive-opacity-active'),
+);
+
+.#{$name} {
+  @include reset;
+  @include disableable;
+  @include hideable;
+  @include unselectable;
+  @include used-in('../ButtonGroup/styles.scss');
+
   position: relative;
 
   display: inline-block;
 
-  box-sizing: border-box;
-
-  height: var(--rcx-button-height);
-  padding: var(--rcx-button-padding);
+  height: theme-var('height');
+  padding: theme-var('padding');
 
   cursor: pointer;
-  user-select: none;
   transition:
-    opacity var(--rcx-button-transition-duration),
-    visibility var(--rcx-button-transition-duration),
-    background-color var(--rcx-button-transition-duration),
-    border-color var(--rcx-button-transition-duration),
-    color var(--rcx-button-transition-duration),
-    transform var(--rcx-button-transition-duration);
+    background-color theme-var('transition-duration'),
+    border-color theme-var('transition-duration'),
+    color theme-var('transition-duration'),
+    transform theme-var('transition-duration');
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
   text-overflow: ellipsis;
 
-  color: var(--rcx-button-default-color);
-  border-width: var(--rcx-button-border-width);
+  color: theme-var('default-color');
+  border-width: theme-var('border-width');
   border-style: solid;
-  border-color: var(--rcx-button-default-color);
-  border-radius: var(--rcx-button-border-radius);
-
+  border-color: theme-var('default-color');
+  border-radius: theme-var('border-radius');
   outline: none;
-  background-color: var(--rcx-button-default-background);
+  background-color: theme-var('default-background-color');
 
-  font-family: var(--rcx-button-font-family);
-  font-size: var(--rcx-button-font-size);
-  font-weight: var(--rcx-button-default-font-weight);
-  line-height: var(--rcx-button-line-height);
+  font-family: theme-var('font-family');
+  font-size: theme-var('font-size');
+  font-weight: theme-var('default-font-weight');
+  line-height: theme-var('line-height');
 
   &--primary {
-    color: var(--rcx-button-primary-color);
-    border-color: var(--rcx-button-primary-background);
-    background-color: var(--rcx-button-primary-background);
+    color: theme-var('primary-color');
+    border-color: theme-var('primary-background-color');
+    background-color: theme-var('primary-background-color');
   }
 
   &--secondary {
-    color: var(--rcx-button-secondary-color);
-    border-color: var(--rcx-button-secondary-background);
-    background-color: var(--rcx-button-secondary-background);
+    color: theme-var('secondary-color');
+    border-color: theme-var('secondary-background-color');
+    background-color: theme-var('secondary-background-color');
   }
 
   &--danger {
-    color: var(--rcx-button-danger-color);
-    border-color: var(--rcx-button-danger-background);
-    background-color: var(--rcx-button-danger-background);
+    color: theme-var('danger-color');
+    border-color: theme-var('danger-background-color');
+    background-color: theme-var('danger-background-color');
   }
 
   &--bland {
-    color: var(--rcx-button-bland-color);
-    border-color: var(--rcx-button-bland-background);
-    background-color: var(--rcx-button-bland-background);
+    color: theme-var('bland-color');
+    border-color: theme-var('bland-background-color');
+    background-color: theme-var('bland-background-color');
 
-    font-weight: var(--rcx-button-bland-font-weight);
+    font-weight: theme-var('bland-font-weight');
 
-    &.Button--primary {
-      color: var(--rcx-button-primary-background);
+    &.#{$name}--primary {
+      color: theme-var('primary-background-color');
     }
 
-    &.Button--secondary {
-      color: var(--rcx-button-secondary-color);
+    &.#{$name}--secondary {
+      color: theme-var('secondary-color');
     }
 
-    &.Button--danger {
-      color: var(--rcx-button-danger-background);
+    &.#{$name}--danger {
+      color: theme-var('danger-background-color');
     }
   }
 
   &--outline {
     background: transparent;
 
-    &.Button--primary {
-      color: var(--rcx-button-primary-background);
-      border-color: var(--rcx-button-primary-background);
+    &.#{$name}--primary {
+      color: theme-var('primary-background-color');
+      border-color: theme-var('primary-background-color');
     }
 
-    &.Button--secondary {
-      color: var(--rcx-button-secondary-color);
-      border-color: var(--rcx-button-secondary-color);
+    &.#{$name}--secondary {
+      color: theme-var('secondary-color');
+      border-color: theme-var('secondary-color');
     }
 
-    &.Button--danger {
-      color: var(--rcx-button-danger-background);
-      border-color: var(--rcx-button-danger-background);
+    &.#{$name}--danger {
+      color: theme-var('danger-background-color');
+      border-color: theme-var('danger-background-color');
     }
   }
 
@@ -124,24 +135,24 @@
     border: none;
     background: transparent;
 
-    font-weight: var(--rcx-button-nude-font-weight);
+    font-weight: theme-var('nude-font-weight');
 
-    &.Button--primary {
-      color: var(--rcx-button-primary-background);
+    &.#{$name}--primary {
+      color: theme-var('primary-background-color');
     }
 
-    &.Button--secondary {
-      color: var(--rcx-button-secondary-color);
+    &.#{$name}--secondary {
+      color: theme-var('secondary-color');
     }
 
-    &.Button--danger {
-      color: var(--rcx-button-danger-background);
+    &.#{$name}--danger {
+      color: theme-var('danger-background-color');
     }
   }
 
   &--square {
-    width: var(--rcx-button-square-size);
-    height: var(--rcx-button-square-size);
+    width: theme-var('square-size');
+    height: theme-var('square-size');
     padding: 0;
   }
 
@@ -154,29 +165,29 @@
 
   &:not(:disabled):hover,
   &:not(:disabled):global(.hover) {
-    opacity: 0.6;
+    opacity: theme-var('hover-opacity');
   }
 
   &:not(:disabled):active,
   &:not(:disabled):global(.active) {
-    transform: translateY(0.125rem);
+    transform: translateY(#{theme-var('active-translation')});
 
-    opacity: 0.9;
+    opacity: theme-var('active-opacity');
   }
 
   &:active::before,
   &:global(.active)::before {
-    top: calc(-1 * (var(--rcx-button-border-width) + 0.125rem));
+    top: calc(-1 * (#{theme-var('border-width')} + #{theme-var('active-translation')}));
   }
 
   &::before {
     position: absolute;
-    top: calc(-1 * var(--rcx-button-border-width));
-    right: calc(-1 * var(--rcx-button-border-width));
-    bottom: calc(-1 * var(--rcx-button-border-width));
-    left: calc(-1 * var(--rcx-button-border-width));
+    top: calc(-1 * #{theme-var('border-width')});
+    right: calc(-1 * #{theme-var('border-width')});
+    bottom: calc(-1 * #{theme-var('border-width')});
+    left: calc(-1 * #{theme-var('border-width')});
 
-    content: "";
+    content: '';
     cursor: pointer;
   }
 
@@ -185,22 +196,14 @@
   }
 
   &:disabled {
-    cursor: not-allowed;
-
-    color: var(--rcx-button-disabled-color);
-    border-color: var(--rcx-button-disabled-background);
-    background-color: var(--rcx-button-disabled-background);
+    color: theme-var('disabled-color');
+    border-color: theme-var('disabled-background-color');
+    background-color: theme-var('disabled-background-color');
   }
 
-  &[hidden] {
-    visibility: hidden;
-
-    opacity: 0;
-  }
-
-  .Icon {
+  .rcx-icon {
     vertical-align: bottom;
 
-    font-size: var(--rcx-button-line-height);
+    font-size: theme-var('line-height');
   }
 }

@@ -17,14 +17,14 @@ export function TextInput({
       ? (
         <textarea
           rows={rows}
-          className={useStyle(styles, 'TextInput', { error, multiline }, className)}
+          className={useStyle(styles, 'rcx-text-input', { error, multiline }, className)}
           {...props}
         />
       )
       : (
         <input
           type={password ? 'password' : 'text'}
-          className={useStyle(styles, 'TextInput', { error }, className)}
+          className={useStyle(styles, 'rcx-text-input', { error }, className)}
           {...props}
         />
       )

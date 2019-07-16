@@ -10,7 +10,7 @@ export function FormLabel({
   required,
   ...props
 }) {
-  const formFieldLabelClassName = useStyle(styles, 'FormLabel', { required, error }, className);
+  const formFieldLabelClassName = useStyle(styles, 'rcx-form-label', { required, error }, className);
 
   return <label className={formFieldLabelClassName} {...props} />;
 }

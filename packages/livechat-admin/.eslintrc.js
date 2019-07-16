@@ -18,11 +18,6 @@ module.exports = {
     'react/jsx-curly-brace-presence': ['error', 'never'],
   },
   settings: {
-    'import/resolver': {
-      'eslint-import-resolver-lerna': {
-        packages: path.join(__dirname, '..'),
-      },
-    },
     react: {
       version: 'detect',
     },
