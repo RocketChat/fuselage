@@ -71,6 +71,7 @@
     "react-final-form-hooks": "^2.0.0",
     "react-helmet": "^5.2.1",
     "sass-loader": "^7.1.0",
+    "storybook-addon-jsx": "^7.1.2",
     "stylelint": "^10.0.1",
     "stylelint-order": "^3.0.0",
     "webpack-bundle-analyzer": "^3.3.2",

@@ -1,7 +1,5 @@
 import { Children, cloneElement, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 
-import baseStyles from '../styles/index.scss';
-
 
 const flatMap = (arr, map = (x) => x) => {
   if (arr.flatMap) {
@@ -25,11 +23,9 @@ const flatMap = (arr, map = (x) => x) => {
 
 export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassName) => {
   useLayoutEffect(() => {
-    baseStyles.use();
     styles.use();
     return () => {
       try {
-        baseStyles.unuse();
         styles.unuse();
       } catch (error) {
         console.warn(error);

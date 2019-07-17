@@ -1,6 +1,7 @@
-import React from 'react';
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { boolean, text } from '@storybook/addon-knobs/react';
+import React from 'react';
 
 
 export const horizontallyCentered = (storyFn) => centered(() => (
@@ -42,24 +43,72 @@ export const createPropsFromKnobs = (defaults = {}, itemName = null) => (overrid
     return { ...props, [propName]: text(knobName, defaultValue) };
   }, {});
 
-export const createVariationsStory = (Component, { commonProps = {}, xAxis = {}, yAxis = {} } = {}) => {
+export function TextSection({ children }) {
+  return <section className='markdown-body' style={{ margin: '1rem', fontSize: '14px' }}>
+    {children}
+  </section>;
+}
+
+export function ShowCaseSection({ children }) {
+  const style = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: '2rem',
+  };
+
+  return <div style={style}>
+    {children}
+  </div>;
+}
+
+export function Document({ children }) {
+  const style = {
+    margin: '1rem auto',
+    maxWidth: '768px',
+  };
+
+  return <>
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css'
+    />
+    <article style={style}>
+      {children}
+    </article>
+  </>;
+}
+
+export function VariationsTable({ component: Component, common = {}, xAxis = {}, yAxis = {} }) {
   const styles = {
+    table: {
+      borderCollapse: 'collapse',
+      margin: '0 auto',
+    },
     th: {
       fontFamily: 'sans-serif',
+      fontSize: '0.875rem',
       fontWeight: 'bold',
-      color: '#333',
+      border: '1px solid rgba(153, 153, 153, 0.15)',
+      color: '#999',
       margin: 0,
       padding: '0.5rem 1rem',
       textAlign: 'center',
     },
     td: {
+      border: '1px solid rgba(153, 153, 153, 0.15)',
       margin: 0,
       padding: '0.5rem 1rem',
-      textAlign: 'center',
+    },
+    wrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   };
 
-  return () => <table>
+  return <table style={styles.table}>
     <thead>
       <tr>
         <th></th>
@@ -71,10 +120,18 @@ export const createVariationsStory = (Component, { commonProps = {}, xAxis = {},
         <tr key={y}>
           <th style={styles.th}>{yVariation}</th>
           {Object.values(xAxis).map((xProps, x) => <td key={x} style={styles.td}>
-            <Component {...commonProps} {...xProps} {...yProps} />
+            <div style={styles.wrapper}>
+              <Component {...common} {...xProps} {...yProps} />
+            </div>
           </td>)}
         </tr>
       ))}
     </tbody>
   </table>;
+}
+
+export const handleEvent = (eventName) => {
+  const f = action(eventName);
+  f.toString = () => `action('${ eventName }')`;
+  return f;
 };
