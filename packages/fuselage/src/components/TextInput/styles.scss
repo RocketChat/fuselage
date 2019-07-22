@@ -24,8 +24,8 @@ $default-theme: (
   'font-weight': 500,
   'line-height': 1.25rem,
   'transition-duration': dimension('short-transition-duration'),
-  'error-color': color('red'),
-  'error-border-color': color('red'),
+  'error-color': color('red-500'),
+  'error-border-color': color('red-500'),
 );
 
 :root {

@@ -16,7 +16,7 @@ $default-theme: (
   'font-size': 1rem,
   'font-weight': 500,
   'line-height': 1.25,
-  'active-color': color('blue'),
+  'active-color': color('blue-500'),
 );
 
 .#{$name} {

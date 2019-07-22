@@ -12,7 +12,7 @@ $default-theme: (
   'font-weight': normal,
   'letter-spacing': 0,
   'line-height': 0.75rem,
-  'error-color': color('red'),
+  'error-color': color('red-500'),
 );
 
 .#{$name} {
