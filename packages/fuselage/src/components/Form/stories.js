@@ -32,7 +32,7 @@ function LoginForm() {
     </FormItem>
 
     <FormItem>
-      <TextInput password placeholder='Password' {...password.input} />
+      <TextInput type='password' placeholder='Password' {...password.input} />
     </FormItem>
 
     <ButtonGroup stretch vertical>

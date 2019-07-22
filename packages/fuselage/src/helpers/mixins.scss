@@ -22,6 +22,7 @@
 
 @mixin hideable {
   &[hidden] {
+    display: unset;
     visibility: hidden;
 
     opacity: 0;
@@ -56,5 +57,13 @@
 
 @mixin used-in($module-path, $component-name: $name) {
   /* stylelint-disable-next-line */
-  composes: $component-name from $module-path;
+  composes: #{$component-name} from '#{$module-path}';
+}
+
+@mixin rtl {
+  :global(.rtl) &,
+  &:global(.rtl),
+  [dir=rtl] & {
+    @content;
+  }
 }

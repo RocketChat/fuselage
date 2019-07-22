@@ -7,6 +7,7 @@ $name: 'rcx-icon';
   @include used-in('../Button/styles.scss');
   @include used-in('../CheckBox/styles.scss');
   @include used-in('../SideBar/Header/styles.scss');
+  @include used-in('../TextInput/styles.scss');
 
   display: inline-block;
 

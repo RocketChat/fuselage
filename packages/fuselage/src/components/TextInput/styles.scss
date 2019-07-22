@@ -12,46 +12,36 @@ $default-theme: (
   'padding-vertical': 0.75rem,
   'padding-horizontal': 1rem,
   'color': color('dark-800'),
+  'icon-color': color('dark-800'),
   'placeholder-color': color('dark-500'),
   'background-color': color('white'),
   'border-color': color('dark-300'),
-  'focus-border-color': color('dark-800'),
-  'hover-border-color': color('dark-500'),
-  'disabled-background-color': color('dark-300'),
+  'hover-border-color': color('dark-400'),
+  'hover-icon-color': color('dark-400'),
+  'focus-border-color': color('blue-500'),
+  'focus-caret-color': color('blue-500'),
+  'focus-icon-color': color('blue-500'),
+  'disabled-background-color': color('dark-100'),
+  'disabled-border-color': color('dark-100'),
   'disabled-color': color('dark-500'),
+  'disabled-icon-color': color('dark-500'),
   'font-family': font-family('default'),
   'font-size': 0.875rem,
   'font-weight': 500,
   'line-height': 1.25rem,
   'transition-duration': dimension('short-transition-duration'),
   'error-color': color('red-500'),
+  'error-icon-color': color('red-500'),
   'error-border-color': color('red-500'),
+  'icon-size': 1rem,
+  'icon-margin-horizontal': 1rem,
+  'icon-margin-vertical': 0.75rem,
 );
-
-:root {
-  --rcx-text-input-border-width: var(--border);
-  --rcx-text-input-border-radius: var(--border-radius);
-  --rcx-text-input-padding-vertical: 0.75rem;
-  --rcx-text-input-padding-horizontal: 1rem;
-  --rcx-text-input-color: var(--color-dark-800);
-  --rcx-text-input-placeholder-color: var(--color-dark-500);
-  --rcx-text-input-background-color: var(--color-white);
-  --rcx-text-input-border-color: var(--color-dark-300);
-  --rcx-text-input-focus-border-color: var(--color-dark-800);
-  --rcx-text-input-hover-border-color: var(--color-dark-500);
-  --rcx-text-input-disabled-background-color: var(--color-dark-300);
-  --rcx-text-input-disabled-color: var(--color-dark-500);
-  --rcx-text-input-font-family: var(--default-font-family);
-  --rcx-text-input-font-size: 0.875rem;
-  --rcx-text-input-font-weight: 500;
-  --rcx-text-input-line-height: 1.25rem;
-  --rcx-text-input-transition-duration: 300ms;
-  --rcx-text-input-error-color: var(--color-red);
-  --rcx-text-input-error-border-color: var(--color-red);
-}
 
 .#{$name} {
   @include reset;
+  @include disableable;
+  @include hideable;
 
   width: 100%;
 
@@ -79,31 +69,91 @@ $default-theme: (
   font-weight: theme-var('font-weight');
   line-height: theme-var('line-height');
 
-  &::placeholder {
-    color: theme-var('placeholder-color');
-  }
-
   @at-root textarea#{&} {
     resize: none;
   }
 
-  &:not([disabled]):focus {
-    border-color: theme-var('focus-border-color');
+  &::placeholder {
+    color: theme-var('placeholder-color');
   }
 
-  &:not([disabled]):hover {
+  &:not(:disabled):hover,
+  &:not(:disabled):global(.hover) {
     border-color: theme-var('hover-border-color');
   }
 
-  &:disabled {
-    cursor: not-allowed;
+  &:not(:disabled):focus,
+  &:not(:disabled):global(.focus) {
+    border-color: theme-var('focus-border-color');
+    caret-color: theme-var('focus-caret-color');
+  }
 
+  &:disabled {
     color: theme-var('disabled-color');
+    border-color: theme-var('disabled-border-color');
     background-color: theme-var('disabled-background-color');
   }
 
   &--error {
     color: theme-var('error-color');
     border-color: theme-var('error-border-color');
+  }
+}
+
+.#{$name}__wrapper {
+  position: relative;
+
+  display: inline-flex;
+
+  width: 100%;
+
+  & > .rcx-text-input {
+    padding-right: calc(2 * #{theme-var('icon-margin-horizontal')} + #{theme-var('icon-size')} - 2 * #{theme-var('border-width')});
+
+    & + .rcx-icon {
+      position: absolute;
+      top: #{theme-var('icon-margin-vertical')};
+      right: #{theme-var('icon-margin-horizontal')};
+
+      color: theme-var('icon-color');
+
+      font-size: #{theme-var('icon-size')};
+    }
+
+    @include rtl {
+      padding:
+        calc(#{theme-var('padding-vertical')} - 2 * #{theme-var('border-width')})
+        calc(#{theme-var('padding-horizontal')} - 2 * #{theme-var('border-width')});
+      padding-left: calc(2 * #{theme-var('icon-margin-horizontal')} + #{theme-var('icon-size')} - 2 * #{theme-var('border-width')});
+
+      & + .rcx-icon {
+        right: unset;
+        left: #{theme-var('icon-margin-horizontal')};
+      }
+    }
+
+    &:not(:disabled):hover + .rcx-icon,
+    &:not(:disabled):global(.hover) + .rcx-icon {
+      color: theme-var('hover-icon-color');
+    }
+
+    &:not(:disabled):focus + .rcx-icon,
+    &:not(:disabled):global(.focus) + .rcx-icon {
+      color: theme-var('focus-icon-color');
+    }
+
+    &:disabled + .rcx-icon {
+      color: theme-var('disabled-icon-color');
+    }
+
+    &[hidden] + .rcx-icon {
+      visibility: hidden;
+
+      opacity: 0;
+    }
+
+    &--error:not(:disabled) + .rcx-icon {
+      color: theme-var('error-icon-color');
+    }
   }
 }

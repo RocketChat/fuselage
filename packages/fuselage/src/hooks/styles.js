@@ -33,13 +33,15 @@ export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassNa
     };
   }, [styles]);
 
-  return useMemo(() => [
+  return useMemo(() => flatMap([
     styles.locals[rootClassName],
-    ...flatMap(Object.entries(modifiers), ([modifier, value]) => [
+    ...Object.entries(modifiers).map(([modifier, value]) => [
       typeof value === 'boolean' && value && styles.locals[`${ rootClassName }--${ modifier }`],
-      typeof value !== 'boolean' && styles.locals[`${ rootClassName }--${ modifier }-${ value }`],
-      typeof value !== 'boolean' && styles.locals[`${ rootClassName }--${ value }`],
-    ]), forwardedClassName].filter(Boolean).join(' '),
+      typeof value !== 'boolean' && value && styles.locals[`${ rootClassName }--${ modifier }-${ value }`],
+      typeof value !== 'boolean' && value && styles.locals[`${ rootClassName }--${ value }`],
+    ]),
+    forwardedClassName,
+  ]).filter(Boolean).join(' '),
   [modifiers, forwardedClassName]);
 };
 

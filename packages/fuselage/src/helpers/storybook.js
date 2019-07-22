@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
-import { boolean, text } from '@storybook/addon-knobs/react';
+import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import React from 'react';
 
 
@@ -36,12 +36,26 @@ export const createPropsFromKnobs = (defaults = {}, itemName = null) => (overrid
       return { ...props, [propName]: boolean(knobName, defaultValue) };
     }
 
+    if (typeof defaultValue === 'number') {
+      return { ...props, [propName]: number(knobName, defaultValue) };
+    }
+
+    if (Array.isArray(defaultValue) && defaultValue.length === 2) {
+      return { ...props, [propName]: select(knobName, { '': null, ...defaultValue[1] }, defaultValue[0]) };
+    }
+
     if (typeof defaultValue === 'undefined') {
       return props;
     }
 
     return { ...props, [propName]: text(knobName, defaultValue) };
   }, {});
+
+export const handleEvent = (eventName) => {
+  const f = action(eventName);
+  f.toString = () => `action('${ eventName }')`;
+  return f;
+};
 
 export function TextSection({ children }) {
   return <section className='markdown-body' style={{ margin: '1rem', fontSize: '14px' }}>
@@ -95,6 +109,7 @@ export function VariationsTable({ component: Component, common = {}, xAxis = {},
       margin: 0,
       padding: '0.5rem 1rem',
       textAlign: 'center',
+      whiteSpace: 'nowrap',
     },
     td: {
       border: '1px solid rgba(153, 153, 153, 0.15)',
@@ -129,9 +144,3 @@ export function VariationsTable({ component: Component, common = {}, xAxis = {},
     </tbody>
   </table>;
 }
-
-export const handleEvent = (eventName) => {
-  const f = action(eventName);
-  f.toString = () => `action('${ eventName }')`;
-  return f;
-};
