@@ -37,12 +37,16 @@ storiesOf('Elements|TextInput', module)
         disabled: { disabled: true },
         hidden: { hidden: true },
         error: { error: true },
+        'error + hover': { error: true, className: 'hover' },
+        'error + focus': { error: true, className: 'focus' },
         multiline: { rows: 3 },
         'multiline / hover': { rows: 3, className: 'hover' },
         'multiline / focus': { rows: 3, className: 'focus' },
         'multiline / disabled': { rows: 3, disabled: true },
         'multiline / hidden': { rows: 3, hidden: true },
         'multiline / error': { rows: 3, error: true },
+        'multiline / error + hover': { error: true, className: 'hover' },
+        'multiline / error + focus': { error: true, className: 'focus' },
       }}
     />
   </Document>);

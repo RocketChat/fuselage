@@ -17,10 +17,13 @@ $default-theme: (
   'background-color': color('white'),
   'border-color': color('dark-300'),
   'hover-border-color': color('dark-400'),
-  'hover-icon-color': color('dark-400'),
   'focus-border-color': color('blue-500'),
+  'focus-shadow': 0 0 0 0.25rem color('blue-100'),
   'focus-caret-color': color('blue-500'),
   'focus-icon-color': color('blue-500'),
+  'active-border-color': color('dark-600'),
+  'active-caret-color': color('dark-600'),
+  'active-shadow': none,
   'disabled-background-color': color('dark-100'),
   'disabled-border-color': color('dark-100'),
   'disabled-color': color('dark-500'),
@@ -33,6 +36,7 @@ $default-theme: (
   'error-color': color('red-500'),
   'error-icon-color': color('red-500'),
   'error-border-color': color('red-500'),
+  'error-focus-shadow': 0 0 0 0.25rem color('red-100'),
   'icon-size': 1rem,
   'icon-margin-horizontal': 1rem,
   'icon-margin-vertical': 0.75rem,
@@ -53,6 +57,8 @@ $default-theme: (
     border-color theme-var('transition-duration'),
     color theme-var('transition-duration'),
     background-color theme-var('transition-duration');
+
+  text-overflow: ellipsis;
 
   color: theme-var('color');
 
@@ -77,15 +83,23 @@ $default-theme: (
     color: theme-var('placeholder-color');
   }
 
-  &:not(:disabled):hover,
-  &:not(:disabled):global(.hover) {
+  &:hover,
+  &:global(.hover) {
     border-color: theme-var('hover-border-color');
   }
 
-  &:not(:disabled):focus,
-  &:not(:disabled):global(.focus) {
+  &:focus,
+  &:global(.focus) {
     border-color: theme-var('focus-border-color');
+    box-shadow: theme-var('focus-shadow');
     caret-color: theme-var('focus-caret-color');
+  }
+
+  &:global(.active),
+  &:active {
+    border-color: theme-var('active-border-color');
+    box-shadow: theme-var('active-shadow');
+    caret-color: theme-var('active-caret-color');
   }
 
   &:disabled {
@@ -94,9 +108,28 @@ $default-theme: (
     background-color: theme-var('disabled-background-color');
   }
 
+  &:invalid,
   &--error {
     color: theme-var('error-color');
     border-color: theme-var('error-border-color');
+
+    &:hover,
+    &:global(.hover) {
+      border-color: theme-var('error-border-color');
+    }
+
+    &:focus,
+    &:global(.focus) {
+      border-color: theme-var('error-border-color');
+      box-shadow: theme-var('error-focus-shadow');
+    }
+
+    &:global(.active),
+    &:active {
+      border-color: theme-var('active-border-color');
+      box-shadow: theme-var('active-shadow');
+      caret-color: theme-var('active-caret-color');
+    }
   }
 }
 
@@ -115,6 +148,9 @@ $default-theme: (
       top: #{theme-var('icon-margin-vertical')};
       right: #{theme-var('icon-margin-horizontal')};
 
+      transition: color theme-var('transition-duration');
+      pointer-events: none;
+
       color: theme-var('icon-color');
 
       font-size: #{theme-var('icon-size')};
@@ -132,11 +168,6 @@ $default-theme: (
       }
     }
 
-    &:not(:disabled):hover + .rcx-icon,
-    &:not(:disabled):global(.hover) + .rcx-icon {
-      color: theme-var('hover-icon-color');
-    }
-
     &:not(:disabled):focus + .rcx-icon,
     &:not(:disabled):global(.focus) + .rcx-icon {
       color: theme-var('focus-icon-color');
@@ -152,7 +183,15 @@ $default-theme: (
       opacity: 0;
     }
 
-    &--error:not(:disabled) + .rcx-icon {
+    &:invalid + .rcx-icon,
+    &--error + .rcx-icon {
+      color: theme-var('error-icon-color');
+    }
+
+    &:invalid:not(:disabled):focus + .rcx-icon,
+    &:invalid:not(:disabled):global(.focus) + .rcx-icon,
+    &--error:not(:disabled):focus + .rcx-icon,
+    &--error:not(:disabled):global(.focus) + .rcx-icon {
       color: theme-var('error-icon-color');
     }
   }
