@@ -7,10 +7,9 @@
 $name: 'rcx-text-input';
 
 $default-theme: (
+  'padding': 0.625rem 0.875rem,
   'border-width': dimension('border-width'),
   'border-radius': dimension('border-radius'),
-  'padding-vertical': 0.75rem,
-  'padding-horizontal': 1rem,
   'color': color('dark-800'),
   'icon-color': color('dark-800'),
   'placeholder-color': color('dark-500'),
@@ -32,31 +31,23 @@ $default-theme: (
   'font-size': 0.875rem,
   'font-weight': 500,
   'line-height': 1.25rem,
-  'transition-duration': dimension('short-transition-duration'),
   'error-color': color('red-500'),
   'error-icon-color': color('red-500'),
   'error-border-color': color('red-500'),
   'error-focus-shadow': 0 0 0 0.25rem color('red-100'),
-  'icon-size': 1rem,
+  'icon-size': 1.25rem,
   'icon-margin-horizontal': 1rem,
   'icon-margin-vertical': 0.75rem,
 );
 
-.#{$name} {
+.rcx-text-input {
   @include reset;
   @include disableable;
   @include hideable;
 
   width: 100%;
 
-  padding:
-    calc(#{theme-var('padding-vertical')} - 2 * #{theme-var('border-width')})
-    calc(#{theme-var('padding-horizontal')} - 2 * #{theme-var('border-width')});
-
-  transition:
-    border-color theme-var('transition-duration'),
-    color theme-var('transition-duration'),
-    background-color theme-var('transition-duration');
+  padding: theme-var('padding');
 
   text-overflow: ellipsis;
 
@@ -95,8 +86,8 @@ $default-theme: (
     caret-color: theme-var('focus-caret-color');
   }
 
-  &:global(.active),
-  &:active {
+  &:active,
+  &:global(.active) {
     border-color: theme-var('active-border-color');
     box-shadow: theme-var('active-shadow');
     caret-color: theme-var('active-caret-color');
@@ -124,8 +115,8 @@ $default-theme: (
       box-shadow: theme-var('error-focus-shadow');
     }
 
-    &:global(.active),
-    &:active {
+    &:active,
+    &:global(.active) {
       border-color: theme-var('active-border-color');
       box-shadow: theme-var('active-shadow');
       caret-color: theme-var('active-caret-color');
@@ -133,7 +124,7 @@ $default-theme: (
   }
 }
 
-.#{$name}__wrapper {
+.rcx-text-input__wrapper {
   position: relative;
 
   display: inline-flex;
@@ -145,26 +136,23 @@ $default-theme: (
 
     & + .rcx-icon {
       position: absolute;
-      top: #{theme-var('icon-margin-vertical')};
-      right: #{theme-var('icon-margin-horizontal')};
+      top: theme-var('icon-margin-vertical');
+      right: theme-var('icon-margin-horizontal');
 
-      transition: color theme-var('transition-duration');
       pointer-events: none;
 
       color: theme-var('icon-color');
 
-      font-size: #{theme-var('icon-size')};
+      font-size: theme-var('icon-size');
     }
 
     @include rtl {
-      padding:
-        calc(#{theme-var('padding-vertical')} - 2 * #{theme-var('border-width')})
-        calc(#{theme-var('padding-horizontal')} - 2 * #{theme-var('border-width')});
+      padding: theme-var('padding');
       padding-left: calc(2 * #{theme-var('icon-margin-horizontal')} + #{theme-var('icon-size')} - 2 * #{theme-var('border-width')});
 
       & + .rcx-icon {
         right: unset;
-        left: #{theme-var('icon-margin-horizontal')};
+        left: theme-var('icon-margin-horizontal');
       }
     }
 

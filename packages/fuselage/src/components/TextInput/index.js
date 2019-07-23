@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useStyle } from '../../hooks/styles';
+import { Icon } from '../Icon';
 import styles from './styles.scss';
 
 
@@ -28,7 +29,7 @@ export function TextInput({
   if (icon) {
     return <TextInputWrapper>
       {input}
-      {icon}
+      <Icon name={icon} />
     </TextInputWrapper>;
   }
 

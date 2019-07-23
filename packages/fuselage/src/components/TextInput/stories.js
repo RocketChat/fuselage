@@ -7,7 +7,6 @@ import { jsxDecorator } from 'storybook-addon-jsx';
 
 import { TextInput } from '.';
 import { Document, TextSection, VariationsTable, handleEvent, createPropsFromKnobs } from '../../helpers/storybook';
-import { Icon } from '../Icon';
 
 
 storiesOf('Elements|TextInput', module)
@@ -28,7 +27,7 @@ storiesOf('Elements|TextInput', module)
         default: {},
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'Value' },
-        'with icon': { icon: <Icon name='at' />, value: 'Value value value value value' },
+        'with icon': { icon: 'at', value: 'Long text as value' },
       }}
       yAxis={{
         default: {},
@@ -51,21 +50,16 @@ storiesOf('Elements|TextInput', module)
     />
   </Document>);
 
-const iconProps = createPropsFromKnobs({
-  name: ['', iconNames],
-}, 'icon');
 
-const props = ({ icon: iconOverrides = {}, ...overrides } = {}) => ({
-  ...createPropsFromKnobs({
-    value: '',
-    placeholder: '',
-    disabled: false,
-    hidden: false,
-    error: false,
-    rows: 1,
-    onChange: handleEvent('change'),
-  })(overrides),
-  icon: iconProps(iconOverrides).name && <Icon {...iconProps(iconOverrides)} />,
+const props = createPropsFromKnobs({
+  value: '',
+  placeholder: '',
+  disabled: false,
+  hidden: false,
+  error: false,
+  rows: 1,
+  icon: ['', iconNames],
+  onChange: handleEvent('change'),
 });
 
 storiesOf('Elements|TextInput', module)
@@ -79,6 +73,6 @@ storiesOf('Elements|TextInput', module)
   .add('disabled', () => <TextInput {...props({ disabled: true })} />)
   .add('hidden', () => <TextInput {...props({ hidden: true })} />)
   .add('with error', () => <TextInput {...props({ error: true })} />)
-  .add('with icon', () => <TextInput {...props({ icon: { name: ['mail', iconNames] } })} />)
+  .add('with icon', () => <TextInput {...props({ icon: ['mail', iconNames] })} />)
   .add('multiline', () => <TextInput {...props({ rows: 3 })} />)
   .add('uncontrolled', () => <TextInput {...props({ value: undefined, onChange: undefined })} />);
