@@ -11,7 +11,7 @@ import { Button } from './index';
 
 
 const props = createPropsFromKnobs({
-  children: 'Powered by Rocket.Chat',
+  children: 'Button',
   bland: false,
   outline: false,
   nude: false,
@@ -34,38 +34,36 @@ storiesOf('Elements|Button', module)
     </TextSection>
     <VariationsTable
       component={Button}
-      common={{ children: 'Text' }}
       xAxis={{
-        default: {},
-        bland: { bland: true },
-        outline: { outline: true },
-        nude: { nude: true },
+        text: { children: 'Button' },
+        'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
+        'text + icon': { children: <><Icon name='circled-arrow-down' /> Button</> },
       }}
       yAxis={{
-        normal: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
-        hidden: { hidden: true },
-        disabled: { disabled: true },
         primary: { primary: true },
         'primary / hover': { primary: true, className: 'hover' },
         'primary / active': { primary: true, className: 'active' },
         'primary / focus': { primary: true, className: 'focus' },
-        'primary / hidden': { primary: true, hidden: true },
         'primary / disabled': { primary: true, disabled: true },
-        secondary: { secondary: true },
-        'secondary / hover': { secondary: true, className: 'hover' },
-        'secondary / active': { secondary: true, className: 'active' },
-        'secondary / focus': { secondary: true, className: 'focus' },
-        'secondary / hidden': { secondary: true, hidden: true },
-        'secondary / disabled': { secondary: true, disabled: true },
+        'primary / hidden': { primary: true, hidden: true },
+        secondary: {},
+        'secondary / hover': { className: 'hover' },
+        'secondary / active': { className: 'active' },
+        'secondary / focus': { className: 'focus' },
+        'secondary / disabled': { disabled: true },
+        'secondary / hidden': { hidden: true },
+        ghost: { ghost: true },
+        'ghost / hover': { ghost: true, className: 'hover' },
+        'ghost / active': { ghost: true, className: 'active' },
+        'ghost / focus': { ghost: true, className: 'focus' },
+        'ghost / disabled': { ghost: true, disabled: true },
+        'ghost / hidden': { ghost: true, hidden: true },
         danger: { danger: true },
         'danger / hover': { danger: true, className: 'hover' },
         'danger / active': { danger: true, className: 'active' },
         'danger / focus': { danger: true, className: 'focus' },
-        'danger / hidden': { danger: true, hidden: true },
         'danger / disabled': { danger: true, disabled: true },
+        'danger / hidden': { danger: true, hidden: true },
       }}
     />
   </Document>);
@@ -75,52 +73,28 @@ storiesOf('Elements|Button', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['spec'] })
-  .add('default', () => (
-    <Button {...props()} />
-  ))
-  .add('bland', () => (
-    <Button {...props({ bland: true })} />
-  ))
-  .add('outline', () => (
-    <Button {...props({ outline: true })} />
-  ))
-  .add('nude', () => (
-    <Button {...props({ nude: true })} />
-  ))
-  .add('primary', () => (
-    <Button {...props({ primary: true })} />
-  ))
-  .add('secondary', () => (
-    <Button {...props({ secondary: true })} />
-  ))
-  .add('danger', () => (
-    <Button {...props({ danger: true })} />
-  ))
-  .add('disabled', () => (
-    <Button {...props({ disabled: true })} />
-  ))
-  .add('hidden', () => (
-    <Button {...props({ hidden: true })} />
-  ))
-  .add('with icon', () => (
-    <Button
-      {...props({
-        bland: true,
-        children: <>
+  .add('primary', () => <Button {...props({ primary: true })} />)
+  .add('secondary', () => <Button {...props()} />)
+  .add('ghost', () => <Button {...props({ ghost: true })} />)
+  .add('danger', () => <Button {...props({ danger: true })} />)
+  .add('disabled', () => <Button {...props({ disabled: true })} />)
+  .add('hidden', () => <Button {...props({ hidden: true })} />)
+  .add('with icon', () => <Button
+    {...props({
+      bland: true,
+      children: <>
           <Icon name={select('children/icon', icons, icons.edit)} /> {text('children/text', 'Edit')}
         </>,
-      })}
-    />
-  ))
-  .add('as link', () => (
-    <Button
-      {...props()}
-      as='a'
-      href={text('href', 'https://rocket.chat')}
-      target={text('target', '_blank')}
-      rel={text('rel', 'noopener noreferrer')}
-    />
-  ))
+    })}
+  />)
+  .add('as link', () => <Button
+    {...props()}
+    as='a'
+    href={text('href', 'https://rocket.chat')}
+    target={text('target', '_blank')}
+    rel={text('rel', 'noopener noreferrer')}
+  />
+  )
   .add('square', () => (
     <Button {...props({ square: true, children: <Icon name={select('children/icon', icons, icons.plus)} /> })} />
   ));

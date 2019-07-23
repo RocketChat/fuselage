@@ -6,24 +6,19 @@ import styles from './styles.scss';
 
 export function Button({
   as: Component = 'button',
-  bland,
-  outline,
-  nude,
   square,
   primary,
-  secondary,
+  ghost,
   danger,
   className,
   ...props
 }) {
   const buttonClassName = useStyle(styles, 'rcx-button', {
-    bland,
-    outline,
-    nude,
     square,
     primary,
-    secondary,
+    ghost,
     danger,
+    secondary: !primary && !ghost && !danger,
   }, className);
 
   return <Component className={buttonClassName} {...props} />;
