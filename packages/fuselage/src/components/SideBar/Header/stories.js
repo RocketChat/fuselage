@@ -1,11 +1,10 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { SideBar } from '../index';
-
 import { SideBarHeader } from './index';
 
 
@@ -18,10 +17,10 @@ const props = ({
   onClosing: action('closing'),
 });
 
-storiesOf('Components|SideBar/SideBarHeader', module)
+storiesOf('Views|SideBar/SideBarHeader', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['SideBarHeader'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <SideBar docked>
       <SideBarHeader {...props({ title: 'Header title', closeable: true })} />

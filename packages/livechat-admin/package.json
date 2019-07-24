@@ -14,9 +14,12 @@
   },
   "private": true,
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "@rocket.chat/fuselage": "^0.1.0",
+    "final-form": "^4.16.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-final-form-hooks": "^2.0.0",
     "react-scripts": "3.0.1"
   },
   "scripts": {
@@ -26,8 +29,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook",
-    "deploy-storybook": "gh-pages --dist ./storybook-static --dest livechat-admin --message \"Deploy Storybook to Github Pages [skip ci]\" --user \"Guilherme Gazzo <guilherme.gazzo@rocket.chat>\""
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,10 +50,12 @@
     "@storybook/addon-actions": "^5.1.8",
     "@storybook/addon-knobs": "^5.1.8",
     "@storybook/addon-links": "^5.1.8",
+    "@storybook/addon-notes": "^5.1.9",
     "@storybook/addon-options": "^5.1.8",
     "@storybook/addon-viewport": "^5.1.8",
     "@storybook/addons": "^5.1.8",
     "@storybook/react": "^5.1.8",
-    "@storybook/theming": "^5.1.8"
+    "@storybook/theming": "^5.1.8",
+    "babel-loader": "^8.0.6"
   }
 }

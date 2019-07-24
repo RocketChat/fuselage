@@ -1,0 +1,18 @@
+@import './color-palette.scss';
+@import './dimensions.scss';
+@import './typography.scss';
+
+/* stylelint-disable-next-line */
+:export {
+  @each $name, $value in $color-palette {
+    color-#{$name}: $value;
+  }
+
+  @each $name, $value in $dimensions {
+    dimension-#{$name}: $value;
+  }
+
+  @each $name, $value in $font-families {
+    font-family-#{$name}: $value;
+  }
+}

@@ -1,46 +1,52 @@
-:root {
-  --rcx-side-bar-menu-padding: 0.5rem;
-  --rcx-side-bar-menu-title-padding: 0 1rem 0.5rem;
-  --rcx-side-bar-menu-title-color: var(--color-dark-800);
-  --rcx-side-bar-menu-title-font-family: var(--default-font-family);
-  --rcx-side-bar-menu-title-font-size: 0.75rem;
-  --rcx-side-bar-menu-title-font-weight: 600;
-  --rcx-side-bar-menu-title-letter-spacing: 0;
-  --rcx-side-bar-menu-title-line-height: 1rem;
-}
+@import '../../../helpers/mixins.scss';
+@import '../../../helpers/theme-var.scss';
+@import '../../../styles/color-palette.scss';
+@import '../../../styles/typography.scss';
 
-.SideBar__Menu {
+$name: 'rcx-side-bar__menu';
+
+$default-theme: (
+  'padding': 0.5rem,
+  'title-padding': 0 1rem 0.5rem,
+  'title-color': color('dark-800'),
+  'title-font-family': font-family('default'),
+  'title-font-size': 0.75rem,
+  'title-font-weight': 600,
+  'title-letter-spacing': 0,
+  'title-line-height': 1rem,
+);
+
+.#{$name} {
+  @include reset;
+
   display: flex;
 
-  box-sizing: border-box;
-  padding: var(--rcx-side-bar-menu-padding);
+  padding: theme-var('padding');
   flex-flow: column nowrap;
 }
 
-.SideBar__MenuTitle {
-  box-sizing: border-box;
-  padding: var(--rcx-side-bar-menu-title-padding);
+.#{$name}-title {
+  @include reset;
+  @include selectable-for-help;
 
-  user-select: none;
+  padding: theme-var('title-padding');
 
-  letter-spacing: var(--rcx-side-bar-menu-title-letter-spacing);
+  letter-spacing: theme-var('title-letter-spacing');
 
-  color: var(--rcx-side-bar-menu-title-color);
+  color: theme-var('title-color');
 
-  font-family: var(--rcx-side-bar-menu-title-font-family);
-  font-size: var(--rcx-side-bar-menu-title-font-size);
-  font-weight: var(--rcx-side-bar-menu-title-font-weight);
-  line-height: var(--rcx-side-bar-menu-title-line-height);
+  font-family: theme-var('title-font-family');
+  font-size: theme-var('title-font-size');
+  font-weight: theme-var('title-font-weight');
+  line-height: theme-var('title-line-height');
 }
 
-.SideBar__MenuList {
+.#{$name}-list {
+  @include reset($list: true);
+  @include unselectable;
+
   display: flex;
 
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-
-  list-style-type: none;
   align-items: stretch;
   flex-flow: column nowrap;
 }

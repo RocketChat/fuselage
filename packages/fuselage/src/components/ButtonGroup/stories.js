@@ -1,35 +1,48 @@
-import React from 'react';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { jsxDecorator } from 'storybook-addon-jsx';
 
+import { Document, TextSection } from '../../helpers/storybook';
 import { Button } from '../Button';
-
 import { ButtonGroup } from './index';
 
 
-storiesOf('Components|ButtonGroup', module)
+const props = ({
+  wrap = false,
+  stretch = false,
+  vertical = false,
+} = {}) => ({
+  wrap: boolean('wrap', wrap),
+  stretch: boolean('stretch', stretch),
+  vertical: boolean('vertical', vertical),
+});
+
+storiesOf('Collections|ButtonGroup', module)
+  .lokiSkip('ButtonGroup', () => <Document>
+    <TextSection>
+      <h1>ButtonGroup</h1>
+      <p>
+      A container for grouping buttons that semantically share a common action context.
+      </p>
+    </TextSection>
+  </Document>);
+
+storiesOf('Collections|ButtonGroup', module)
+  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['ButtonGroup'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
-    <ButtonGroup
-      wrap={boolean('wrap', false)}
-      stretch={boolean('stretch', false)}
-      vertical={boolean('vertical', false)}
-    >
+    <ButtonGroup {...props()}>
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>
       <Button danger>Button 3</Button>
     </ButtonGroup>
   ))
   .add('wrap', () => (
-    <ButtonGroup
-      wrap={boolean('wrap', true)}
-      stretch={boolean('stretch', false)}
-      vertical={boolean('vertical', false)}
-      style={{ width: '50vw' }}
-    >
+    <ButtonGroup {...props({ wrap: true })} style={{ width: '50vw' }}>
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>
       <Button danger>Button 3</Button>
@@ -39,23 +52,14 @@ storiesOf('Components|ButtonGroup', module)
     </ButtonGroup>
   ))
   .add('stretch', () => (
-    <ButtonGroup
-      wrap={boolean('wrap', false)}
-      stretch={boolean('stretch', true)}
-      vertical={boolean('vertical', false)}
-      style={{ width: '100vw', margin: '0' }}
-    >
+    <ButtonGroup {...props({ stretch: true })} style={{ width: '100vw', margin: '0' }}>
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>
       <Button danger>Button 3</Button>
     </ButtonGroup>
   ))
   .add('vertical', () => (
-    <ButtonGroup
-      wrap={boolean('wrap', false)}
-      stretch={boolean('stretch', false)}
-      vertical={boolean('vertical', true)}
-    >
+    <ButtonGroup {...props({ vertical: true })}>
       <Button primary>Button 1</Button>
       <Button secondary>Button 2</Button>
       <Button danger>Button 3</Button>

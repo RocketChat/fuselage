@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
-import { useLayoutMediaQuery, useStyle } from '../../helpers/hooks';
+import { useLayoutMediaQuery, useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
 
 
@@ -11,7 +11,7 @@ function DrawerBackdrop({
 }) {
   const backdropRef = useRef(null);
   const [mounted, setMounted] = useState(open);
-  const drawerBackdropClassName = useStyle(styles, 'Drawer__Backdrop', { visible: open && mounted });
+  const drawerBackdropClassName = useStyle(styles, 'rcx-drawer__backdrop', { visible: open && mounted });
 
   useEffect(() => {
     if (open) {
@@ -43,12 +43,7 @@ function DrawerBackdrop({
     return null;
   }
 
-  return <div
-    ref={backdropRef}
-    className={drawerBackdropClassName}
-    style={{ opacity }}
-    {...props}
-  />;
+  return <div ref={backdropRef} className={drawerBackdropClassName} style={{ opacity }} {...props} />;
 }
 
 export function Drawer({
@@ -170,18 +165,16 @@ export function Drawer({
     onDockStateChange && onDockStateChange(docked);
   }, [docked]);
 
-  const drawerClassName = useStyle(styles, 'Drawer', {
+  const drawerClassName = useStyle(styles, 'rcx-drawer', {
     docked,
     open,
     reverse,
   }, className);
 
-  return (
-    <>
-      <div ref={drawerRef} className={drawerClassName} {...props}>
-        {children}
-      </div>
-      {!docked && <DrawerBackdrop open={open || slidingValue} opacity={slidingValue} onClick={onClosing} />}
-    </>
-  );
+  return <>
+    <div ref={drawerRef} className={drawerClassName} {...props}>
+      {children}
+    </div>
+    {!docked && <DrawerBackdrop open={open || slidingValue} opacity={slidingValue} onClick={onClosing} />}
+  </>;
 }

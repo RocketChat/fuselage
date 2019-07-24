@@ -1,0 +1,28 @@
+@import '../../../helpers/mixins.scss';
+@import '../../../helpers/theme-var.scss';
+
+$name: 'rcx-form-item';
+
+$default-theme: (
+  'margin': 1.5rem 0,
+  'label-margin-bottom': 0.5rem,
+  'description-margin-top': 0.5rem,
+);
+
+.#{$name} {
+  @include reset;
+
+  display: flex;
+
+  width: 100%;
+  margin: theme-var('margin');
+  flex-flow: column nowrap;
+
+  & > .rcx-form-label {
+    margin-bottom: theme-var('label-margin-bottom');
+  }
+
+  & > .rcx-form-description {
+    margin-top: theme-var('description-margin-top');
+  }
+}

@@ -1,11 +1,10 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { SideBar, SideBarMenu } from '../index';
-
 import { SideBarMenuItem } from './index';
 
 
@@ -18,10 +17,10 @@ const props = ({
   onClick: action('click'),
 });
 
-storiesOf('Components|SideBar/SideBarMenuItem', module)
+storiesOf('Views|SideBar/SideBarMenuItem', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['SideBarMenuItem'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <SideBar docked>
       <SideBarMenu >

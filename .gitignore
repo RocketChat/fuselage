@@ -1,3 +1,4 @@
+/static
 node_modules/
 storybook-static/
 *.sublime-project
@@ -5,4 +6,3 @@ storybook-static/
 *.swp
 *.tmp
 .DS_Store
-.vscode

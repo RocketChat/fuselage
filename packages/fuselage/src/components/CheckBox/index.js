@@ -1,34 +1,36 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { check } from '@rocket.chat/icons/dist/font';
 
-import { useStyle } from '../../helpers/hooks';
+import { useStyle } from '../../hooks/styles';
 import { Icon } from '../Icon';
 import styles from './styles.scss';
 
 
 export function CheckBox({
   label,
-  disabled,
+  indeterminate,
   className,
   ...props
 }) {
-  return (
-    <label
-      className={useStyle(styles, 'CheckBox__wrapper', { disabled })}
-    >
-      <input
-        type="checkbox"
-        disabled={disabled}
-        className={useStyle(styles, 'CheckBox', {
-        }, className)}
-        {...props}
-      />
-      <span
-        className={useStyle(styles, 'CheckBox__fake')}
-      >
-        <Icon name={check} />
-      </span>
+  const ref = useRef();
+  const checkBoxWrapperClassName = useStyle(styles, 'rcx-check-box__wrapper', {
+    disabled: props.disabled,
+  }, className);
+  const checkBoxInputClassName = useStyle(styles, 'rcx-check-box__input');
+  const checkBoxFakeClassName = useStyle(styles, 'rcx-check-box__fake');
+  const checkBoxLabelClassName = useStyle(styles, 'rcx-check-box__label');
+
+  useEffect(() => {
+    ref.current.indeterminate = indeterminate;
+  }, [indeterminate]);
+
+  return <label className={checkBoxWrapperClassName} hidden={props.hidden}>
+    <input type='checkbox' className={checkBoxInputClassName} ref={ref} {...props} />
+    <span className={checkBoxFakeClassName}>
+      <Icon name={check} />
+    </span>
+    {label && <span className={checkBoxLabelClassName}>
       {label}
-    </label>
-  );
+    </span>}
+  </label>;
 }

@@ -1,37 +1,53 @@
+'use strict';
+
 const path = require('path');
 
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-module.exports = {
+module.exports = (env, argv) => ({
+  entry: {
+    fuselage: path.resolve(__dirname, 'src/index.js'),
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
+    library: 'RocketChatFuselage',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+  },
+  devtool: argv.mode === 'production' ? 'source-map' : 'eval-source-map',
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-react', {
+                useBuiltIns: true,
+                development: argv.mode !== 'production',
+              }],
+            ],
+            plugins: ['@babel/plugin-transform-runtime'],
+          },
         },
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader/useable',
-          'css-loader',
-        ],
-      },
-      {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'url-loader',
-        }],
       },
       {
         test: /\.scss$/,
         use: [
-          'style-loader/useable',
+          {
+            loader: 'style-loader/useable',
+            options: {
+              singleton: true,
+              hmr: argv.mode !== 'production',
+            },
+          },
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
+              importLoaders: 2,
               modules: true,
               getLocalIdent: (_, __, localName) => {
                 const localIdentName = localName
@@ -42,25 +58,38 @@ module.exports = {
               },
             },
           },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                require('autoprefixer')(),
+                require('cssnano'),
+              ],
+            },
+          },
           'sass-loader',
         ],
       },
     ],
   },
-  externals: {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'React',
-      root: 'React',
+  externals: [
+    {
+      react: {
+        commonjs: 'react',
+        commonjs2: 'react',
+        amd: 'React',
+        root: 'React',
+      },
     },
-  },
-  output: {
-    path: path.join(__dirname, './dist'),
-    filename: 'index.js',
-    library: 'RocketChatFuselage',
-    libraryTarget: 'umd',
-    publicPath: '/dist/',
-    umdNamedDefine: true,
-  },
-};
+    /@rocket\.chat\/icons\/dist\/font/,
+  ],
+  plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      generateStatsFile: false,
+      reportFilename: '../bundle-report.html',
+      openAnalyzer: false,
+    }),
+  ],
+});

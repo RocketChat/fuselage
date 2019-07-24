@@ -1,21 +1,17 @@
 import React from 'react';
 
-import { useStyle } from '../../helpers/hooks';
+import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
 
 
 export function Page({
   className,
+  as: Component = 'section',
   ...props
 }) {
-  const pageClassName = useStyle(styles, 'Page', {}, className);
+  const pageClassName = useStyle(styles, 'rcx-page', {}, className);
 
-  return (
-    <section
-      className={pageClassName}
-      {...props}
-    />
-  );
+  return <Component className={pageClassName} {...props} />;
 }
 
 export * from './Header';

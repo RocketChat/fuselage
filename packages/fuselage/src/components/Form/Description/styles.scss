@@ -1,0 +1,40 @@
+@import '../../../helpers/mixins.scss';
+@import '../../../helpers/theme-var.scss';
+@import '../../../styles/color-palette.scss';
+@import '../../../styles/typography.scss';
+
+$name: 'rcx-form-description';
+
+$default-theme: (
+  'color': color('dark-600'),
+  'font-size': 0.75rem,
+  'font-family': font-family('default'),
+  'font-weight': normal,
+  'letter-spacing': 0,
+  'line-height': 0.75rem,
+  'error-color': color('red-500'),
+);
+
+.#{$name} {
+  @include reset;
+  @include selectable-for-help;
+  @include used-in('../Item/styles.scss');
+
+  flex: 0 0 auto;
+
+  box-sizing: border-box;
+  min-height: theme-var('line-height');
+
+  letter-spacing: theme-var('letter-spacing');
+
+  color: theme-var('color');
+
+  font-family: theme-var('font-family');
+  font-size: theme-var('font-size');
+  font-weight: theme-var('font-weight');
+  line-height: theme-var('line-height');
+
+  &--error {
+    color: theme-var('error-color');
+  }
+}

@@ -1,70 +1,186 @@
-:root {
-  --rcx-text-input-border-width: var(--border);
-  --rcx-text-input-border-radius: var(--border-radius);
-  --rcx-text-input-padding-vertical: 0.75rem;
-  --rcx-text-input-padding-horizontal: 1rem;
-  --rcx-text-input-color: var(--color-dark-800);
-  --rcx-text-input-placeholder-color: var(--color-dark-500);
-  --rcx-text-input-background-color: var(--color-white);
-  --rcx-text-input-border-color: var(--color-dark-300);
-  --rcx-text-input-focus-border-color: var(--color-dark-800);
-  --rcx-text-input-hover-border-color: var(--color-dark-500);
-  --rcx-text-input-disabled-background-color: var(--color-dark-300);
-  --rcx-text-input-disabled-color: var(--color-dark-500);
-  --rcx-text-input-font-family: var(--default-font-family);
-  --rcx-text-input-font-size: 0.875rem;
-  --rcx-text-input-font-weight: 500;
-  --rcx-text-input-line-height: 1.25rem;
-  --rcx-text-input-transition-duration: 300ms;
-}
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/typography.scss';
 
-.TextInput {
-  box-sizing: border-box;
+$name: 'rcx-text-input';
 
-  padding:
-    calc(var(--rcx-text-input-padding-vertical) - 2 * var(--rcx-text-input-border-width))
-    calc(var(--rcx-text-input-padding-horizontal) - 2 * var(--rcx-text-input-border-width));
+$default-theme: (
+  'padding': 0.625rem 0.875rem,
+  'border-width': dimension('border-width'),
+  'border-radius': dimension('border-radius'),
+  'color': color('dark-800'),
+  'icon-color': color('dark-800'),
+  'placeholder-color': color('dark-500'),
+  'background-color': color('white'),
+  'border-color': color('dark-300'),
+  'hover-border-color': color('dark-400'),
+  'focus-border-color': color('blue-500'),
+  'focus-shadow': 0 0 0 0.25rem color('blue-100'),
+  'focus-caret-color': color('blue-500'),
+  'focus-icon-color': color('blue-500'),
+  'active-border-color': color('dark-600'),
+  'active-caret-color': color('dark-600'),
+  'active-shadow': none,
+  'disabled-background-color': color('dark-100'),
+  'disabled-border-color': color('dark-100'),
+  'disabled-color': color('dark-500'),
+  'disabled-icon-color': color('dark-500'),
+  'font-family': font-family('default'),
+  'font-size': 0.875rem,
+  'font-weight': 500,
+  'line-height': 1.25rem,
+  'error-color': color('red-500'),
+  'error-icon-color': color('red-500'),
+  'error-border-color': color('red-500'),
+  'error-focus-shadow': 0 0 0 0.25rem color('red-100'),
+  'icon-size': 1.25rem,
+  'icon-margin-horizontal': 1rem,
+  'icon-margin-vertical': 0.75rem,
+);
 
-  transition:
-    border-color var(--rcx-text-input-transition-duration),
-    color var(--rcx-text-input-transition-duration),
-    background-color var(--rcx-text-input-transition-duration);
+.rcx-text-input {
+  @include reset;
+  @include disableable;
+  @include hideable;
 
-  color: var(--rcx-text-input-color);
+  width: 100%;
 
-  border-width: var(--rcx-text-input-border-width);
+  padding: theme-var('padding');
+
+  text-overflow: ellipsis;
+
+  color: theme-var('color');
+
+  border-width: theme-var('border-width');
   border-style: solid;
-  border-color: var(--rcx-text-input-border-color);
-  border-radius: var(--rcx-text-input-border-radius);
+  border-color: theme-var('border-color');
+  border-radius: theme-var('border-radius');
 
   outline: none;
-  background-color: var(--rcx-text-input-background-color);
+  background-color: theme-var('background-color');
 
-  font-family: var(--rcx-text-input-font-family);
-  font-size: var(--rcx-text-input-font-size);
-  font-weight: var(--rcx-text-input-font-weight);
-  line-height: var(--rcx-text-input-line-height);
-
-  &::placeholder {
-    color: var(--rcx-text-input-placeholder-color);
-  }
+  font-family: theme-var('font-family');
+  font-size: theme-var('font-size');
+  font-weight: theme-var('font-weight');
+  line-height: theme-var('line-height');
 
   @at-root textarea#{&} {
     resize: none;
   }
 
-  &:not([disabled]):focus {
-    border-color: var(--rcx-text-input-focus-border-color);
+  &::placeholder {
+    color: theme-var('placeholder-color');
   }
 
-  &:not([disabled]):hover {
-    border-color: var(--rcx-text-input-hover-border-color);
+  &:hover,
+  &:global(.hover) {
+    border-color: theme-var('hover-border-color');
+  }
+
+  &:focus,
+  &:global(.focus) {
+    border-color: theme-var('focus-border-color');
+    box-shadow: theme-var('focus-shadow');
+    caret-color: theme-var('focus-caret-color');
+  }
+
+  &:active,
+  &:global(.active) {
+    border-color: theme-var('active-border-color');
+    box-shadow: theme-var('active-shadow');
+    caret-color: theme-var('active-caret-color');
   }
 
   &:disabled {
-    cursor: not-allowed;
+    color: theme-var('disabled-color');
+    border-color: theme-var('disabled-border-color');
+    background-color: theme-var('disabled-background-color');
+  }
 
-    color: var(--rcx-text-input-disabled-color);
-    background-color: var(--rcx-text-input-disabled-background-color);
+  &:invalid,
+  &--error {
+    color: theme-var('error-color');
+    border-color: theme-var('error-border-color');
+
+    &:hover,
+    &:global(.hover) {
+      border-color: theme-var('error-border-color');
+    }
+
+    &:focus,
+    &:global(.focus) {
+      border-color: theme-var('error-border-color');
+      box-shadow: theme-var('error-focus-shadow');
+    }
+
+    &:active,
+    &:global(.active) {
+      border-color: theme-var('active-border-color');
+      box-shadow: theme-var('active-shadow');
+      caret-color: theme-var('active-caret-color');
+    }
+  }
+}
+
+.rcx-text-input__wrapper {
+  position: relative;
+
+  display: inline-flex;
+
+  width: 100%;
+
+  & > .rcx-text-input {
+    padding-right: calc(2 * #{theme-var('icon-margin-horizontal')} + #{theme-var('icon-size')} - 2 * #{theme-var('border-width')});
+
+    & + .rcx-icon {
+      position: absolute;
+      top: theme-var('icon-margin-vertical');
+      right: theme-var('icon-margin-horizontal');
+
+      pointer-events: none;
+
+      color: theme-var('icon-color');
+
+      font-size: theme-var('icon-size');
+    }
+
+    @include rtl {
+      padding: theme-var('padding');
+      padding-left: calc(2 * #{theme-var('icon-margin-horizontal')} + #{theme-var('icon-size')} - 2 * #{theme-var('border-width')});
+
+      & + .rcx-icon {
+        right: unset;
+        left: theme-var('icon-margin-horizontal');
+      }
+    }
+
+    &:not(:disabled):focus + .rcx-icon,
+    &:not(:disabled):global(.focus) + .rcx-icon {
+      color: theme-var('focus-icon-color');
+    }
+
+    &:disabled + .rcx-icon {
+      color: theme-var('disabled-icon-color');
+    }
+
+    &[hidden] + .rcx-icon {
+      visibility: hidden;
+
+      opacity: 0;
+    }
+
+    &:invalid + .rcx-icon,
+    &--error + .rcx-icon {
+      color: theme-var('error-icon-color');
+    }
+
+    &:invalid:not(:disabled):focus + .rcx-icon,
+    &:invalid:not(:disabled):global(.focus) + .rcx-icon,
+    &--error:not(:disabled):focus + .rcx-icon,
+    &--error:not(:disabled):global(.focus) + .rcx-icon {
+      color: theme-var('error-icon-color');
+    }
   }
 }

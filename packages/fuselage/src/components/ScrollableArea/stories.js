@@ -1,16 +1,15 @@
-import React from 'react';
 import centered from '@storybook/addon-centered/react';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { Button } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
-
 import { ScrollableArea } from './index';
 
 
-storiesOf('Components|ScrollableArea', module)
+storiesOf('Behaviors|ScrollableArea', module)
   .addDecorator(centered)
-  .addParameters({ jest: ['ScrollableArea'] })
+  .addParameters({ jest: ['spec'] })
   .add('horizontal', () => (
     <ScrollableArea style={{ maxWidth: '10rem' }}>
       <ButtonGroup>

@@ -1,3 +1,4 @@
 /dist/
 /storybook-static/
-.out
+/bundle-report.html
+/.out

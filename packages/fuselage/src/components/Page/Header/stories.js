@@ -1,10 +1,9 @@
-import React from 'react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { Button } from '../../Button';
 import { ButtonGroup } from '../../ButtonGroup';
-
 import { PageHeader, PageHeaderTitle, PageHeaderBurgerButton } from './index';
 
 
@@ -12,9 +11,9 @@ const titleProps = () => ({
   children: text('title/children', 'Page header title'),
 });
 
-storiesOf('Components|Page/PageHeader', module)
+storiesOf('Views|Page/PageHeader', module)
   .addDecorator(withKnobs)
-  .addParameters({ jest: ['PageHeader'] })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <PageHeader>
       <PageHeaderTitle {...titleProps()} />

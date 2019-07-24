@@ -1,0 +1,67 @@
+$color-palette: (
+  'dark-100': #f7f8fa,
+  'dark-200': #f2f3f5,
+  'dark-300': #eeeff1,
+  'dark-400': #e4e7ea,
+  'dark-500': #cbced1,
+  'dark-600': #9ea2a8,
+  'dark-700': #6c727a,
+  'dark-800': #2f343d,
+  'dark-900': #1f2329,
+
+  'blue-100': #e8f2ff,
+  'blue-200': #d1ebfe,
+  'blue-300': #76b7fc,
+  'blue-400': #549df9,
+  'blue-500': #1d74f5,
+  'blue-600': #095ad2,
+  'blue-700': #10529e,
+  'blue-800': #01336b,
+  'blue-900': #012247,
+
+  'green-100': #e5fbf4,
+  'green-200': #c0f6e4,
+  'green-300': #96f0d2,
+  'green-400': #6ce9c0,
+  'green-500': #2de0a5,
+  'green-600': #1ecb92,
+  'green-700': #19ac7c,
+  'green-800': #158d65,
+  'green-900': #106d4f,
+
+  'red-100': #fddade,
+  'red-200': #fbb5be,
+  'red-300': #f98f9d,
+  'red-400': #f76a7d,
+  'red-500': #f5455c,
+  'red-600': #db0c27,
+  'red-700': #b30a20,
+  'red-800': #8b0719,
+  'red-900': #630512,
+
+  'yellow-100': #fff6d6,
+  'yellow-200': #ffecad,
+  'yellow-300': #ffe383,
+  'yellow-400': #ffd95a,
+  'yellow-500': #ffd031,
+  'yellow-600': #f3be08,
+  'yellow-700': #dfac00,
+  'yellow-800': #b68d00,
+  'yellow-900': #8e6d00,
+
+  'purple': #861da8,
+
+  'orange': #f59547,
+
+  'black': #000000,
+
+  'white': #ffffff,
+);
+
+@function color($name) {
+  @if not map-get($color-palette, $name) {
+    @error There is no color named $name in the palette;
+  }
+
+  @return map-get($color-palette, $name);
+}

@@ -1,0 +1,13 @@
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+
+$name: 'rcx-form';
+
+$default-theme: (
+  'color': color('dark-900'),
+);
+
+.#{$name} {
+  color: theme-var('color');
+}

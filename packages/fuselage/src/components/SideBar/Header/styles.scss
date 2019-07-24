@@ -1,50 +1,63 @@
-:root {
-  --rcx-side-bar-header-padding: 1.5rem;
-  --rcx-side-bar-header-title-color: var(--color-dark-900);
-  --rcx-side-bar-header-title-font-family: var(--default-font-family);
-  --rcx-side-bar-header-title-font-size: 0.875rem;
-  --rcx-side-bar-header-title-font-weight: normal;
-  --rcx-side-bar-header-title-letter-spacing: -0.2px;
-  --rcx-side-bar-header-title-line-height: 1.25;
-  --rcx-side-bar-header-button-icon-size: 1.25rem;
-}
+@import '../../../helpers/mixins.scss';
+@import '../../../helpers/theme-var.scss';
+@import '../../../styles/color-palette.scss';
+@import '../../../styles/dimensions.scss';
+@import '../../../styles/typography.scss';
 
-.SideBar__Header {
+$name: 'rcx-side-bar__header';
+
+$default-theme: (
+  'padding': 1.5rem,
+  'title-color': color('dark-900'),
+  'title-font-family': font-family('default'),
+  'title-font-size': 0.875rem,
+  'title-font-weight': normal,
+  'title-letter-spacing': -0.2px,
+  'title-line-height': 1.25,
+  'button-icon-size': 1.25rem,
+  'button-active-translation': 0.125rem,
+  'transition-duration': dimension('short-transition-duration'),
+);
+
+.#{$name} {
+  @include reset;
+
   display: flex;
 
-  box-sizing: border-box;
-  padding: var(--rcx-side-bar-header-padding);
+  padding: theme-var('padding');
   flex-flow: row nowrap;
 }
 
-.SideBar__HeaderTitle {
+.#{$name}-title {
+  @include reset;
+  @include selectable-for-help;
+
   flex: 1;
 
-  box-sizing: border-box;
   margin: 0;
 
-  user-select: none;
-  letter-spacing: var(--rcx-side-bar-header-title-letter-spacing);
+  letter-spacing: theme-var('title-letter-spacing');
 
-  color: var(--rcx-side-bar-header-title-color);
+  color: theme-var('title-color');
 
-  font-family: var(--rcx-side-bar-header-title-font-family);
-  font-size: var(--rcx-side-bar-header-title-font-size);
-  font-weight: var(--rcx-side-bar-header-title-font-weight);
-  line-height: var(--rcx-side-bar-header-title-line-height);
+  font-family: theme-var('title-font-family');
+  font-size: theme-var('title-font-size');
+  font-weight: theme-var('title-font-weight');
+  line-height: theme-var('title-line-height');
 }
 
-.SideBar__HeaderButton {
+.#{$name}-button {
+  @include reset;
+
   position: relative;
 
   display: flex;
 
-  box-sizing: border-box;
   margin-left: auto;
   padding: 0;
 
   cursor: pointer;
-  transition: transform var(--rcx-button-transition-duration);
+  transition: transform theme-var('transition-duration');
 
   border: none;
   outline: none;
@@ -52,11 +65,11 @@
   flex-flow: row nowrap;
 
   &:active {
-    transform: translateY(0.125rem);
+    transform: translateY(#{theme-var('button-active-translation')});
   }
 
   &:active::before {
-    top: -0.125rem;
+    top: calc(-1 * #{theme-var('button-active-translation')});
   }
 
   &::before {
@@ -70,7 +83,7 @@
     cursor: pointer;
   }
 
-  > .Icon {
-    font-size: var(--rcx-side-bar-header-button-icon-size);
+  > .rcx-icon {
+    font-size: theme-var('button-icon-size');
   }
 }

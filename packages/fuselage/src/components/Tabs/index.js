@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useStyle } from '../../helpers/hooks';
+import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
 
 
@@ -9,16 +9,12 @@ export function Tabs({
   className,
   ...props
 }) {
-  return (
-    <div
-      className={useStyle(styles, 'Tabs', {}, className)}
-      {...props}
-    >
-      <div
-        className={useStyle(styles, 'Tabs__wrapper')}
-      >
-        {children}
-      </div>
+  const tabsClassName = useStyle(styles, 'rcx-tabs', {}, className);
+  const tabsWrapperClassName = useStyle(styles, 'rcx-tabs__wrapper');
+
+  return <div className={tabsClassName} {...props}>
+    <div className={tabsWrapperClassName}>
+      {children}
     </div>
-  );
+  </div>;
 }

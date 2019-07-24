@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useStyle } from '../../helpers/hooks';
+import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
 
 
@@ -9,7 +9,7 @@ export function SideBar({
   className,
   ...props
 }) {
-  const sideBarClassName = useStyle(styles, 'SideBar', {}, className);
+  const sideBarClassName = useStyle(styles, 'rcx-side-bar', {}, className);
 
   return (
     <div className={sideBarClassName} {...props}>

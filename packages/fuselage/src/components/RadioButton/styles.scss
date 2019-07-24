@@ -1,0 +1,158 @@
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/typography.scss';
+
+$name: 'rcx-radio-button';
+
+$default-theme: (
+  'wrapper-height': 2rem,
+  'wrapper-inner-spacing': 0.25rem,
+  'size': 1rem,
+  'border-width': dimension('border-width'),
+  'color': color('white'),
+  'background-color': transparent,
+  'border-color': color('dark-500'),
+  'checked-color': color('white'),
+  'checked-background-color': color('blue-500'),
+  'checked-border-color': color('blue-600'),
+  'disabled-color': color('white'),
+  'disabled-background-color': color('dark-300'),
+  'disabled-border-color': color('white'),
+  'border-radius': 50%,
+  'label-color': color('dark-700'),
+  'label-font-family': font-family('default'),
+  'label-font-size': 0.875rem,
+  'label-font-weight': 400,
+  'label-line-height': 1.25rem,
+  'label-letter-spacing': -0.2px,
+  'label-disabled-color': color('dark-300'),
+  'transition-duration': dimension('short-transition-duration'),
+  'active-translation': dimension('interactive-translation'),
+  'hover-opacity': dimension('interactive-opacity-hover'),
+  'active-opacity': dimension('interactive-opacity-active'),
+);
+
+.#{$name}__wrapper {
+  @include reset;
+  @include hideable;
+  @include disableable;
+  @include unselectable;
+
+  position: relative;
+
+  display: inline-flex;
+
+  height: theme-var('wrapper-height');
+  margin: 0 calc(-1 * #{theme-var('wrapper-inner-spacing')});
+  padding: 0 theme-var('wrapper-inner-spacing');
+
+  cursor: pointer;
+
+  align-items: center;
+}
+
+.#{$name}__input {
+  @include visually-hidden;
+}
+
+.#{$name}__fake {
+  @include reset;
+
+  display: flex;
+
+  width: theme-var('size');
+  height: theme-var('size');
+  margin: 0 theme-var('wrapper-inner-spacing');
+
+  transition:
+    background-color theme-var('transition-duration'),
+    border-color theme-var('transition-duration'),
+    color theme-var('transition-duration'),
+    transform theme-var('transition-duration');
+
+  color: theme-var('color');
+  border: theme-var('border-width') solid;
+  border-color: theme-var('border-color');
+  border-radius: theme-var('border-radius');
+  background-color: theme-var('background-color');
+
+  align-items: center;
+  justify-content: center;
+
+  .#{$name}__wrapper:hover > .#{$name}__input:not(:disabled) ~ &,
+  .#{$name}__wrapper:global(.hover) > .#{$name}__input:not(:disabled) ~ & {
+    opacity: theme-var('hover-opacity');
+  }
+
+  .#{$name}__wrapper:active > .#{$name}__input:not(:disabled) ~ &,
+  .#{$name}__wrapper:global(.active) > .#{$name}__input:not(:disabled) ~ & {
+    transform: translateY(#{theme-var('active-translation')});
+
+    opacity: theme-var('active-opacity');
+
+    &::before {
+      top: calc(-1 * (theme-var('border-width') + #{theme-var('active-translation')}));
+    }
+  }
+
+  .#{$name}__input:checked ~ & {
+    color: theme-var('checked-color');
+    border-color: theme-var('checked-border-color');
+    background-color: theme-var('checked-background-color');
+
+    &::before {
+      width: 50%;
+      height: 50%;
+
+      content: '';
+
+      border-radius: 50%;
+      background-color: theme-var('checked-color');
+    }
+  }
+
+  .#{$name}__input:disabled ~ & {
+    color: theme-var('disabled-color');
+    border-color: theme-var('disabled-border-color');
+    background-color: theme-var('disabled-background-color');
+  }
+}
+
+.#{$name}__label {
+  @include reset;
+
+  margin: 0 theme-var('wrapper-inner-spacing');
+
+  transition:
+    background-color theme-var('transition-duration'),
+    border-color theme-var('transition-duration'),
+    color theme-var('transition-duration'),
+    transform theme-var('transition-duration');
+
+  letter-spacing: theme-var('label-letter-spacing');
+
+  color: theme-var('label-color');
+
+  font-family: theme-var('label-font-family');
+  font-size: theme-var('label-font-size');
+  font-weight: theme-var('label-font-weight');
+  line-height: theme-var('label-line-height');
+
+  .#{$name}__wrapper:hover > .#{$name}__input:not(:disabled) ~ &,
+  .#{$name}__wrapper:global(.hover) > .#{$name}__input:not(:disabled) ~ & {
+    opacity: theme-var('hover-opacity');
+  }
+
+  .#{$name}__wrapper:active > .#{$name}__input:not(:disabled) ~ &,
+  .#{$name}__wrapper:global(.active) > .#{$name}__input:not(:disabled) ~ & {
+    transform: translateY(#{theme-var('active-translation')});
+
+    opacity: theme-var('active-opacity');
+  }
+
+  .#{$name}__input:disabled ~ & {
+    color: theme-var('label-disabled-color');
+  }
+}
