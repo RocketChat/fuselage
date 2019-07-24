@@ -14,5 +14,20 @@
 		"statusBar.background": "#42b883",
 		"statusBarItem.hoverBackground": "#359268",
 		"statusBar.foreground": "#15202b"
-	}
+  },
+  "eslint.workingDirectories": [
+    {
+			"directory": "packages/fuselage",
+			"changeProcessCWD": true
+		},
+    {
+			"directory": "packages/icons",
+			"changeProcessCWD": true
+		},
+    {
+      "directory": "packages/livechat-admin",
+      "changeProcessCWD": true
+    }
+	],
+	"eslint.enable": true
 }

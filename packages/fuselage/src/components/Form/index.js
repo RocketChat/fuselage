@@ -8,14 +8,9 @@ export function Form({
   className,
   ...props
 }) {
-  const formClassName = useStyle(styles, 'Form', {}, className);
+  const formClassName = useStyle(styles, 'rcx-form', {}, className);
 
-  return (
-    <form
-      className={formClassName}
-      {...props}
-    />
-  );
+  return <form className={formClassName} {...props} />;
 }
 
 export * from './Field';

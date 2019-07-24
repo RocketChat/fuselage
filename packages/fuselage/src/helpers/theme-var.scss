@@ -1,0 +1,7 @@
+@function theme-var($varname, $component-name: $name, $theme: $default-theme) {
+  @if not map-get($theme, $varname) {
+    @error "There is no #{$varname} variable in #{$component-name} default theme";
+  }
+
+  @return var(--#{$component-name}-#{$varname}, map-get($theme, $varname));
+}

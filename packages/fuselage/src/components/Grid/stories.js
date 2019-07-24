@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import { verticallyCentered } from '../../helpers/storybook';
-import notes from './README.md';
 import { Grid } from './index';
 
 
@@ -41,10 +40,7 @@ const Card = (props) => (
 storiesOf('Collections|Grid', module)
   .addDecorator(withKnobs)
   .addDecorator(verticallyCentered)
-  .addParameters({
-    jest: ['spec'],
-    notes,
-  })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <Grid container {...containerProps()}>
       <Grid item>

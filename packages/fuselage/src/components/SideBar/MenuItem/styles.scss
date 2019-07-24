@@ -1,60 +1,69 @@
-:root {
-  --rcx-side-bar-menu-item-padding: 0.5rem 1rem;
-  --rcx-side-bar-menu-item-border-radius: var(--border-radius);
-  --rcx-side-bar-menu-item-color: var(--color-dark-600);
-  --rcx-side-bar-menu-item-hover-background-color: var(--color-dark-200);
-  --rcx-side-bar-menu-item-active-background-color: var(--color-dark-300);
-  --rcx-side-bar-menu-item-active-hover-background-color: var(--color-dark-400);
-  --rcx-side-bar-menu-item-active-color: var(--color-dark-800);
-  --rcx-side-bar-menu-item-font-family: var(--default-font-family);
-  --rcx-side-bar-menu-item-font-size: 0.875rem;
-  --rcx-side-bar-menu-item-font-weight: normal;
-  --rcx-side-bar-menu-item-letter-spacing: -0.2px;
-  --rcx-side-bar-menu-item-line-height: 1.25;
-}
+@import '../../../helpers/mixins.scss';
+@import '../../../helpers/theme-var.scss';
+@import '../../../styles/color-palette.scss';
+@import '../../../styles/dimensions.scss';
+@import '../../../styles/typography.scss';
 
-.SideBar__MenuItem {
+$name: 'rcx-side-bar__menu-item';
+
+$default-theme: (
+  'padding': 0.5rem 1rem,
+  'border-radius': dimension('border-radius'),
+  'color': color('dark-600'),
+  'hover-background-color': color('dark-200'),
+  'active-background-color': color('dark-300'),
+  'active-hover-background-color': color('dark-400'),
+  'active-color': color('dark-800'),
+  'font-family': font-family('default'),
+  'font-size': 0.875rem,
+  'font-weight': normal,
+  'letter-spacing': -0.2px,
+  'line-height': 1.25,
+);
+
+.#{$name} {
+  @include reset;
+
   display: flex;
 
-  box-sizing: border-box;
-
-  border-radius: var(--rcx-side-bar-menu-item-border-radius);
+  border-radius: theme-var('border-radius');
   flex-flow: row nowrap;
 
   &:hover {
-    background-color: var(--rcx-side-bar-menu-item-hover-background-color);
+    background-color: theme-var('hover-background-color');
+  }
+
+  &--active {
+    color: theme-var('active-color');
+    background-color: theme-var('active-background-color');
+
+    &:hover {
+      background-color: theme-var('active-hover-background-color');
+    }
   }
 }
 
-.SideBar__MenuItem--active {
-  color: var(--rcx-side-bar-menu-item-active-color);
-  background-color: var(--rcx-side-bar-menu-item-active-background-color);
+.#{$name}-link {
+  @include reset;
+  @include unselectable;
 
-  &:hover {
-    background-color: var(--rcx-side-bar-menu-item-active-hover-background-color);
-  }
-}
-
-.SideBar__MenuItemLink {
   flex: 1 1 auto;
 
-  box-sizing: border-box;
-  padding: var(--rcx-side-bar-menu-item-padding);
+  padding: theme-var('padding');
 
   cursor: pointer;
-  user-select: none;
   text-align: unset;
   text-decoration: none;
 
-  letter-spacing: var(--rcx-side-bar-menu-item-letter-spacing);
+  letter-spacing: theme-var('letter-spacing');
 
-  color: var(--rcx-side-bar-menu-item-color);
+  color: theme-var('color');
   border: 0;
   outline: none;
   background: none;
 
-  font-family: var(--rcx-side-bar-menu-item-font-family);
-  font-size: var(--rcx-side-bar-menu-item-font-size);
-  font-weight: var(--rcx-side-bar-menu-item-font-weight);
-  line-height: var(--rcx-side-bar-menu-item-line-height);
+  font-family: theme-var('font-family');
+  font-size: theme-var('font-size');
+  font-weight: theme-var('font-weight');
+  line-height: theme-var('line-height');
 }

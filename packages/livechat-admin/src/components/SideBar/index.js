@@ -12,7 +12,7 @@ import { Link, Location } from '@reach/router';
 import { SideBarContext } from './SideBarContext';
 
 
-const MenuItem = ({ children, url, currentUrl }) => <SideBarMenuItem active={url === currentUrl} is={Link} to={url}>
+const MenuItem = ({ children, url, currentUrl }) => <SideBarMenuItem active={url === currentUrl} as={Link} to={url}>
   {children}
 </SideBarMenuItem>;
 

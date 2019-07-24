@@ -5,13 +5,10 @@ import styles from './styles.scss';
 
 
 export function FormItem({
-  children,
   className,
   ...props
 }) {
-  const formItemClassName = useStyle(styles, 'FormItem', {}, className);
+  const formItemClassName = useStyle(styles, 'rcx-form-item', {}, className);
 
-  return <div className={formItemClassName} {...props}>
-    {children}
-  </div>;
+  return <div className={formItemClassName} {...props} />;
 }

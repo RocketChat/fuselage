@@ -1,0 +1,17 @@
+$dimensions: (
+  'border-width': 2px,
+  'border-radius': 2px,
+  'interactive-translation': 0.125rem,
+  'interactive-opacity-hover': 0.6,
+  'interactive-opacity-active': 0.9,
+  'short-transition-duration': 100ms,
+  'long-transition-duration': 300ms,
+);
+
+@function dimension($name) {
+  @if not map-get($dimensions, $name) {
+    @error There is no dimension named $name;
+  }
+
+  @return map-get($dimensions, $name);
+}

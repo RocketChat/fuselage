@@ -6,25 +6,21 @@ import styles from './styles.scss';
 
 export function RadioButton({
   label,
-  disabled,
   className,
   ...props
 }) {
-  return (
-    <label
-      className={useStyle(styles, 'RadioButton__wrapper', { disabled })}
-    >
-      <input
-        type="radio"
-        disabled={disabled}
-        className={useStyle(styles, 'RadioButton', {
-        }, className)}
-        {...props}
-      />
-      <span
-        className={useStyle(styles, 'RadioButton__fake')}
-      />
+  const radioButtonWrapperClassName = useStyle(styles, 'rcx-radio-button__wrapper', {
+    disabled: props.disabled,
+  }, className);
+  const radioButtonInputClassName = useStyle(styles, 'rcx-radio-button__input');
+  const radioButtonFakeClassName = useStyle(styles, 'rcx-radio-button__fake');
+  const radioButtonLabelClassName = useStyle(styles, 'rcx-radio-button__label');
+
+  return <label className={radioButtonWrapperClassName} hidden={props.hidden}>
+    <input type='radio' className={radioButtonInputClassName} {...props} />
+    <span className={radioButtonFakeClassName} />
+    {label && <span className={radioButtonLabelClassName}>
       {label}
-    </label>
-  );
+    </span>}
+  </label>;
 }

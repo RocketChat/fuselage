@@ -5,7 +5,6 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "main": "dist/fuselage.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,6 +13,10 @@
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/issues"
   },
+  "main": "dist/fuselage.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "webpack --watch --mode development",
     "build": "webpack --mode production",
@@ -21,7 +24,6 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "lint": "run-s eslint stylelint",
     "lint-staged": "lint-staged",
-    "analyze-bundle": "webpack-bundle-analyzer stats.json dist -O",
     "test": "jest",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
@@ -36,6 +38,7 @@
     "react": "^16.8.6"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.5.0",
     "@storybook/addon-a11y": "^5.0.11",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-backgrounds": "^5.0.11",
@@ -49,7 +52,12 @@
     "@storybook/addons": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "@storybook/theming": "^5.0.11",
+    "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
+    "css-vars-ponyfill": "^2.0.2",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.0.1",
     "eslint-plugin-react": "^7.13.0",
     "final-form": "^4.16.1",
     "husky": "^2.3.0",
@@ -58,9 +66,12 @@
     "loki": "^0.16.0",
     "node-sass": "^4.12.0",
     "npm-run-all": "^4.1.5",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.8.6",
     "react-final-form-hooks": "^2.0.0",
     "react-helmet": "^5.2.1",
     "sass-loader": "^7.1.0",
+    "storybook-addon-jsx": "^7.1.2",
     "stylelint": "^10.0.1",
     "stylelint-order": "^3.0.0",
     "webpack-bundle-analyzer": "^3.3.2",
@@ -88,7 +99,18 @@
     }
   },
   "dependencies": {
-    "@rocket.chat/icons": "^0.1.0",
-    "css-vars-ponyfill": "^2.0.2"
+    "@rocket.chat/icons": "^0.1.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

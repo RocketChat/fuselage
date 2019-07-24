@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "glob": "^7.1.4",
+    "is-valid-identifier": "^2.0.2",
     "rimraf": "^2.6.3",
     "svg2ttf": "^4.3.0",
     "svgicons2svgfont": "^9.0.4",

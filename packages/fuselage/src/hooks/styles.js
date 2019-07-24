@@ -1,7 +1,5 @@
 import { Children, cloneElement, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 
-import baseStyles from '../styles/index.scss';
-
 
 const flatMap = (arr, map = (x) => x) => {
   if (arr.flatMap) {
@@ -25,11 +23,9 @@ const flatMap = (arr, map = (x) => x) => {
 
 export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassName) => {
   useLayoutEffect(() => {
-    baseStyles.use();
     styles.use();
     return () => {
       try {
-        baseStyles.unuse();
         styles.unuse();
       } catch (error) {
         console.warn(error);
@@ -37,12 +33,15 @@ export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassNa
     };
   }, [styles]);
 
-  return useMemo(() => [
+  return useMemo(() => flatMap([
     styles.locals[rootClassName],
-    ...flatMap(Object.entries(modifiers), ([modifier, value]) => [
+    ...Object.entries(modifiers).map(([modifier, value]) => [
       typeof value === 'boolean' && value && styles.locals[`${ rootClassName }--${ modifier }`],
-      typeof value !== 'boolean' && styles.locals[`${ rootClassName }--${ modifier }-${ value }`],
-    ]), forwardedClassName].filter(Boolean).join(' '),
+      typeof value !== 'boolean' && value && styles.locals[`${ rootClassName }--${ modifier }-${ value }`],
+      typeof value !== 'boolean' && value && styles.locals[`${ rootClassName }--${ value }`],
+    ]),
+    forwardedClassName,
+  ]).filter(Boolean).join(' '),
   [modifiers, forwardedClassName]);
 };
 

@@ -2,9 +2,10 @@ import centered from '@storybook/addon-centered/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { jsxDecorator } from 'storybook-addon-jsx';
 
+import { Document, TextSection } from '../../helpers/storybook';
 import { Button } from '../Button';
-import notes from './README.md';
 import { ButtonGroup } from './index';
 
 
@@ -19,12 +20,20 @@ const props = ({
 });
 
 storiesOf('Collections|ButtonGroup', module)
+  .lokiSkip('ButtonGroup', () => <Document>
+    <TextSection>
+      <h1>ButtonGroup</h1>
+      <p>
+      A container for grouping buttons that semantically share a common action context.
+      </p>
+    </TextSection>
+  </Document>);
+
+storiesOf('Collections|ButtonGroup', module)
+  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({
-    jest: ['spec'],
-    notes,
-  })
+  .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <ButtonGroup {...props()}>
       <Button primary>Button 1</Button>

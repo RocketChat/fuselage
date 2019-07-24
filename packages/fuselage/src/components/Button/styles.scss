@@ -1,200 +1,244 @@
-:root {
-  --rcx-button-height: 2.25rem;
-  --rcx-button-padding: 0.375rem 1.5rem;
-  --rcx-button-border-width: var(--border);
-  --rcx-button-border-radius: var(--border-radius);
-  --rcx-button-default-background: transparent;
-  --rcx-button-default-color: var(--color-dark-900);
-  --rcx-button-disabled-background: var(--color-dark-300);
-  --rcx-button-disabled-color: var(--color-white);
-  --rcx-button-primary-background: var(--color-blue);
-  --rcx-button-primary-color: var(--color-white);
-  --rcx-button-secondary-background: var(--color-dark-500);
-  --rcx-button-secondary-color: var(--color-dark-800);
-  --rcx-button-danger-background: var(--color-red);
-  --rcx-button-danger-color: var(--color-white);
-  --rcx-button-bland-background: var(--color-dark-100);
-  --rcx-button-bland-color: var(--color-dark-700);
-  --rcx-button-font-family: var(--default-font-family);
-  --rcx-button-font-size: 0.875rem;
-  --rcx-button-line-height: 1.25rem;
-  --rcx-button-default-font-weight: 600;
-  --rcx-button-bland-font-weight: 500;
-  --rcx-button-nude-font-weight: 400;
-  --rcx-button-transition-duration: 300ms;
-  --rcx-button-square-size: 44px;
-}
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/typography.scss';
 
-.Button {
+$name: 'rcx-button';
+
+$default-theme: (
+  'height': 2.75rem,
+  'padding': 0.625rem 0.875rem,
+  'border-width': dimension('border-width'),
+  'border-radius': dimension('border-radius'),
+  'font-family': font-family('default'),
+  'font-size': 0.875rem,
+  'font-weight': 500,
+  'square-size': 2.75rem,
+  'icon-size': 1.25rem,
+  'square-icon-size': 1.5rem,
+  'primary-color': color('white'),
+  'primary-background-color': color('blue-500'),
+  'primary-hover-background-color': color('blue-600'),
+  'primary-active-background-color': color('blue-700'),
+  'primary-focus-background-color': color('blue-500'),
+  'primary-focus-border-color': color('blue-700'),
+  'primary-focus-shadow': 0 0 0 6px color('blue-100'),
+  'primary-disabled-color': color('white'),
+  'primary-disabled-background-color': color('blue-200'),
+  'secondary-color': color('dark-800'),
+  'secondary-background-color': color('dark-300'),
+  'secondary-hover-background-color': color('dark-400'),
+  'secondary-active-background-color': color('dark-500'),
+  'secondary-focus-background-color': color('dark-300'),
+  'secondary-focus-border-color': color('dark-500'),
+  'secondary-focus-shadow': 0 0 0 6px color('dark-100'),
+  'secondary-disabled-color': color('dark-400'),
+  'secondary-disabled-background-color': color('dark-100'),
+  'ghost-color': color('dark-800'),
+  'ghost-background-color': transparent,
+  'ghost-hover-background-color': color('dark-400'),
+  'ghost-active-background-color': color('dark-500'),
+  'ghost-focus-background-color': color('dark-300'),
+  'ghost-focus-border-color': color('dark-500'),
+  'ghost-focus-shadow': 0 0 0 6px color('dark-100'),
+  'ghost-disabled-color': color('dark-400'),
+  'ghost-disabled-background-color': transparent,
+  'danger-color': color('white'),
+  'danger-background-color': color('red-500'),
+  'danger-hover-background-color': color('red-600'),
+  'danger-active-background-color': color('red-700'),
+  'danger-focus-background-color': color('red-500'),
+  'danger-focus-border-color': color('red-700'),
+  'danger-focus-shadow': 0 0 0 6px color('red-100'),
+  'danger-disabled-color': color('white'),
+  'danger-disabled-background-color': color('red-200'),
+);
+
+.rcx-button {
+  @include reset;
+  @include disableable;
+  @include hideable;
+  @include unselectable;
+  @include used-in('../ButtonGroup/styles.scss');
+
   position: relative;
 
   display: inline-block;
 
-  box-sizing: border-box;
-
-  height: var(--rcx-button-height);
-  padding: var(--rcx-button-padding);
+  height: theme-var('height');
+  padding: theme-var('padding');
 
   cursor: pointer;
-  transition:
-    opacity var(--rcx-button-transition-duration),
-    visibility var(--rcx-button-transition-duration),
-    background-color var(--rcx-button-transition-duration),
-    border-color var(--rcx-button-transition-duration),
-    color var(--rcx-button-transition-duration),
-    transform var(--rcx-button-transition-duration);
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
   text-overflow: ellipsis;
 
-  color: var(--rcx-button-default-color);
-  border-width: var(--rcx-button-border-width);
+  border-width: theme-var('border-width');
   border-style: solid;
-  border-color: var(--rcx-button-default-color);
-  border-radius: var(--rcx-button-border-radius);
-
+  border-radius: theme-var('border-radius');
   outline: none;
-  background-color: var(--rcx-button-default-background);
 
-  font-family: var(--rcx-button-font-family);
-  font-size: var(--rcx-button-font-size);
-  font-weight: var(--rcx-button-default-font-weight);
-  line-height: var(--rcx-button-line-height);
+  font-family: theme-var('font-family');
+  font-size: theme-var('font-size');
+  font-weight: theme-var('font-weight');
+  line-height: theme-var('icon-size');
 
   &:active,
-  &:focus:hover {
+  &:global(.active),
+  &:focus:hover,
+  &:global(.focus):global(.hover) {
     outline: none;
   }
 
-  &:active {
-    transform: translateY(0.125rem);
-
-    opacity: 0.9;
-  }
-
-  &:active::before {
-    top: calc(-1 * (var(--rcx-button-border-width) + 0.125rem));
-  }
-
-  &::before {
-    position: absolute;
-    top: calc(-1 * var(--rcx-button-border-width));
-    right: calc(-1 * var(--rcx-button-border-width));
-    bottom: calc(-1 * var(--rcx-button-border-width));
-    left: calc(-1 * var(--rcx-button-border-width));
-
-    content: "";
-    cursor: pointer;
-  }
-
-  &:disabled::before {
-    display: none;
-  }
-
-  &:not([disabled]):hover {
-    opacity: 0.6;
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-
-    color: var(--rcx-button-disabled-color);
-    border-color: var(--rcx-button-disabled-background);
-    background-color: var(--rcx-button-disabled-background);
-  }
-
-  .Icon {
+  .rcx-icon {
     vertical-align: bottom;
 
-    font-size: var(--rcx-button-line-height);
-  }
-}
-
-.Button--primary {
-  color: var(--rcx-button-primary-color);
-  border-color: var(--rcx-button-primary-background);
-  background-color: var(--rcx-button-primary-background);
-
-  &.Button--bland {
-    color: var(--rcx-button-primary-background);
+    font-size: theme-var('icon-size');
   }
 
-  &.Button--outline {
-    color: var(--rcx-button-primary-background);
-    border-color: var(--rcx-button-primary-background);
+  &--square {
+    width: theme-var('square-size');
+    height: theme-var('square-size');
+    padding: 0;
+
+    line-height: theme-var('square-icon-size');
+
+    .rcx-icon {
+      font-size: theme-var('square-icon-size');
+    }
   }
 
-  &.Button--nude {
-    color: var(--rcx-button-primary-background);
-  }
-}
+  &--primary {
+    color: theme-var('primary-color');
+    border-color: theme-var('primary-background-color');
+    background-color: theme-var('primary-background-color');
 
-.Button--secondary {
-  color: var(--rcx-button-secondary-color);
-  border-color: var(--rcx-button-secondary-background);
-  background-color: var(--rcx-button-secondary-background);
+    &:enabled:focus,
+    &:enabled:global(.focus) {
+      border-color: theme-var('primary-focus-border-color');
+      background-color: theme-var('primary-focus-background-color');
+      box-shadow: theme-var('primary-focus-shadow');
+    }
 
-  &.Button--bland {
-    color: var(--rcx-button-secondary-color);
-  }
+    &:enabled:hover,
+    &:enabled:global(.hover) {
+      border-color: theme-var('primary-hover-background-color');
+      background-color: theme-var('primary-hover-background-color');
+      box-shadow: none;
+    }
 
-  &.Button--outline {
-    color: var(--rcx-button-secondary-color);
-    border-color: var(--rcx-button-secondary-color);
-  }
+    &:enabled:active,
+    &:enabled:global(.active) {
+      border-color: theme-var('primary-active-background-color');
+      background-color: theme-var('primary-active-background-color');
+      box-shadow: none;
+    }
 
-  &.Button--nude {
-    color: var(--rcx-button-secondary-color);
-  }
-}
-
-.Button--danger {
-  color: var(--rcx-button-danger-color);
-  border-color: var(--rcx-button-danger-background);
-  background-color: var(--rcx-button-danger-background);
-
-  &.Button--bland {
-    color: var(--rcx-button-danger-background);
-  }
-
-  &.Button--outline {
-    color: var(--rcx-button-danger-background);
-    border-color: var(--rcx-button-danger-background);
+    &:disabled {
+      color: theme-var('primary-disabled-color');
+      border-color: theme-var('primary-disabled-background-color');
+      background-color: theme-var('primary-disabled-background-color');
+    }
   }
 
-  &.Button--nude {
-    color: var(--rcx-button-danger-background);
+  &--secondary {
+    color: theme-var('secondary-color');
+    border-color: theme-var('secondary-background-color');
+    background-color: theme-var('secondary-background-color');
+
+    &:enabled:focus,
+    &:enabled:global(.focus) {
+      border-color: theme-var('secondary-focus-border-color');
+      background-color: theme-var('secondary-focus-background-color');
+      box-shadow: theme-var('secondary-focus-shadow');
+    }
+
+    &:enabled:hover,
+    &:enabled:global(.hover) {
+      border-color: theme-var('secondary-hover-background-color');
+      background-color: theme-var('secondary-hover-background-color');
+      box-shadow: none;
+    }
+
+    &:enabled:active,
+    &:enabled:global(.active) {
+      border-color: theme-var('secondary-active-background-color');
+      background-color: theme-var('secondary-active-background-color');
+      box-shadow: none;
+    }
+
+    &:disabled {
+      color: theme-var('secondary-disabled-color');
+      border-color: theme-var('secondary-disabled-background-color');
+      background-color: theme-var('secondary-disabled-background-color');
+    }
   }
-}
 
-.Button--hidden {
-  visibility: hidden;
+  &--ghost {
+    color: theme-var('ghost-color');
+    border-color: theme-var('ghost-background-color');
+    background-color: theme-var('ghost-background-color');
 
-  opacity: 0;
-}
+    &:enabled:focus,
+    &:enabled:global(.focus) {
+      border-color: theme-var('ghost-focus-border-color');
+      background-color: theme-var('ghost-focus-background-color');
+      box-shadow: theme-var('ghost-focus-shadow');
+    }
 
-.Button--bland {
-  color: var(--rcx-button-bland-color);
-  border-color: var(--rcx-button-bland-background);
-  background-color: var(--rcx-button-bland-background);
+    &:enabled:hover,
+    &:enabled:global(.hover) {
+      border-color: theme-var('ghost-hover-background-color');
+      background-color: theme-var('ghost-hover-background-color');
+      box-shadow: none;
+    }
 
-  font-weight: var(--rcx-button-bland-font-weight);
-}
+    &:enabled:active,
+    &:enabled:global(.active) {
+      border-color: theme-var('ghost-active-background-color');
+      background-color: theme-var('ghost-active-background-color');
+      box-shadow: none;
+    }
 
-.Button--outline {
-  background: transparent;
-}
+    &:disabled {
+      color: theme-var('ghost-disabled-color');
+      border-color: theme-var('ghost-disabled-background-color');
+      background-color: theme-var('ghost-disabled-background-color');
+    }
+  }
 
-.Button--nude {
-  border: none;
-  background: transparent;
+  &--danger {
+    color: theme-var('danger-color');
+    border-color: theme-var('danger-background-color');
+    background-color: theme-var('danger-background-color');
 
-  font-weight: var(--rcx-button-nude-font-weight);
-}
+    &:enabled:focus,
+    &:enabled:global(.focus) {
+      border-color: theme-var('danger-focus-border-color');
+      background-color: theme-var('danger-focus-background-color');
+      box-shadow: theme-var('danger-focus-shadow');
+    }
 
-.Button--square {
-  width: var(--rcx-button-square-size);
-  height: var(--rcx-button-square-size);
-  padding: 0;
+    &:enabled:hover,
+    &:enabled:global(.hover) {
+      border-color: theme-var('danger-hover-background-color');
+      background-color: theme-var('danger-hover-background-color');
+      box-shadow: none;
+    }
+
+    &:enabled:active,
+    &:enabled:global(.active) {
+      border-color: theme-var('danger-active-background-color');
+      background-color: theme-var('danger-active-background-color');
+      box-shadow: none;
+    }
+
+    &:disabled {
+      color: theme-var('danger-disabled-color');
+      border-color: theme-var('danger-disabled-background-color');
+      background-color: theme-var('danger-disabled-background-color');
+    }
+  }
 }

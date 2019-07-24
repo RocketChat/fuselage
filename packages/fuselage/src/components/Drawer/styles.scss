@@ -1,49 +1,55 @@
-:root {
-  --rcx-drawer-z-index: 2;
-  --rcx-drawer-transition-duration: 300ms;
-}
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/dimensions.scss';
 
-.Drawer {
+$name: 'rcx-drawer';
+
+$default-theme: (
+  'z-index': 10,
+  'transition-duration': dimension('long-transition-duration'),
+);
+
+.#{$name} {
+  @include reset;
+
   position: fixed;
-  z-index: var(--rcx-drawer-z-index);
+  z-index: theme-var('z-index');
   top: 0;
   left: 0;
 
   display: flex;
   flex: 0 0 auto;
 
-  box-sizing: border-box;
-
-  transition: transform var(--rcx-drawer-transition-duration);
+  transition: transform theme-var('transition-duration');
   transform: translateX(-100%);
 
   flex-flow: column nowrap;
+
+  &--open {
+    transform: translateX(0);
+  }
+
+  &--reverse {
+    right: 0;
+    left: auto;
+
+    transform: translateX(100%);
+  }
+
+  &--reverse#{&}--open {
+    transform: translateX(0);
+  }
+
+  &--docked {
+    position: static;
+
+    transform: translateX(0);
+  }
 }
 
-.Drawer--open {
-  transform: translateX(0);
-}
-
-.Drawer--reverse {
-  right: 0;
-  left: auto;
-
-  transform: translateX(100%);
-}
-
-.Drawer--reverse.Drawer--open {
-  transform: translateX(0);
-}
-
-.Drawer--docked {
-  position: static;
-
-  transform: translateX(0);
-}
-
-.Drawer__Backdrop {
+.#{$name}__backdrop {
   position: fixed;
-  z-index: calc(var(--rcx-drawer-z-index) - 1);
+  z-index: calc(#{theme-var('z-index')} - 1);
   top: 0;
   right: 0;
   bottom: 0;
@@ -52,15 +58,15 @@
   visibility: hidden;
 
   transition:
-    opacity var(--rcx-drawer-transition-duration),
-    visibility var(--rcx-drawer-transition-duration);
+    opacity theme-var('transition-duration'),
+    visibility theme-var('transition-duration');
 
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.1);
-}
 
-.Drawer__Backdrop--visible {
-  visibility: visible;
+  &--visible {
+    visibility: visible;
 
-  opacity: 1;
+    opacity: 1;
+  }
 }

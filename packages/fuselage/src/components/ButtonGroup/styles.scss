@@ -1,43 +1,49 @@
-:root {
-  --rcx-button-group-vertical-margin: 8px;
-  --rcx-button-group-gap: 8px;
-}
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
 
-.ButtonGroup {
+$name: 'rcx-button-group';
+
+$default-theme: (
+  'vertical-margin': 0.5rem,
+  'gap': 0.5rem,
+);
+
+.#{$name} {
+  @include reset;
+  @include used-in('../Page/Header/styles.scss');
+
   display: flex;
 
-  box-sizing: border-box;
-
-  margin: var(--rcx-button-group-vertical-margin) calc(-1 * var(--rcx-button-group-gap) / 2);
+  margin: theme-var('vertical-margin') calc(-1 * #{theme-var('gap')} / 2);
   flex-flow: row nowrap;
 
-  & > .Button {
-    margin: 0 calc(var(--rcx-button-group-gap) / 2);
+  & > .rcx-button {
+    margin: 0 calc(#{theme-var('gap')} / 2);
   }
-}
 
-.ButtonGroup--wrap {
-  flex-wrap: wrap;
+  &--wrap {
+    flex-wrap: wrap;
 
-  & > .Button {
-    margin: calc(var(--rcx-button-group-gap) / 2);
+    & > .rcx-button {
+      margin: calc(#{theme-var('gap')} / 2);
+    }
   }
-}
 
-.ButtonGroup--stretch {
-  justify-content: stretch;
+  &--stretch {
+    justify-content: stretch;
 
-  & > .Button {
-    flex: 1 0 auto;
+    & > .rcx-button {
+      flex: 1 0 auto;
+    }
   }
-}
 
-.ButtonGroup--vertical {
-  flex-direction: column;
+  &--vertical {
+    flex-direction: column;
 
-  margin: var(--rcx-button-group-vertical-margin) 0;
+    margin: theme-var('vertical-margin') 0;
 
-  & > .Button {
-    margin: calc(var(--rcx-button-group-gap) / 2) 0;
+    & > .rcx-button {
+      margin: calc(#{theme-var('gap')} / 2) 0;
+    }
   }
 }

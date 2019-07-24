@@ -11,7 +11,7 @@ storiesOf('Views|SideBar', module)
   .addParameters({ jest: ['spec'] })
   .add('default', () => (
     <SideBar>
-      <SideBarHeader title="Header title" />
+      <SideBarHeader title='Header title' />
 
       <ScrollableArea>
         <SideBarMenu>
@@ -21,13 +21,13 @@ storiesOf('Views|SideBar', module)
           <SideBarMenuItem>Menu item #4</SideBarMenuItem>
         </SideBarMenu>
 
-        <SideBarMenu title="Menu #2">
+        <SideBarMenu title='Menu #2'>
           <SideBarMenuItem>Menu item #1</SideBarMenuItem>
           <SideBarMenuItem>Menu item #2</SideBarMenuItem>
           <SideBarMenuItem>Menu item #3</SideBarMenuItem>
         </SideBarMenu>
 
-        <SideBarMenu title="Menu #3">
+        <SideBarMenu title='Menu #3'>
           <SideBarMenuItem>Menu item #1</SideBarMenuItem>
           <SideBarMenuItem>Menu item #2</SideBarMenuItem>
           <SideBarMenuItem>Menu item #3</SideBarMenuItem>

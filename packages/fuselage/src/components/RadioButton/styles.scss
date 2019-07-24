@@ -1,131 +1,158 @@
-:root {
-  --rcx-radio-button-wrapper-height: 2rem;
-  --rcx-radio-button-size: 1rem;
-  --rcx-radio-button-margin: 0 0.5rem;
-  --rcx-radio-button-border-width: var(--border);
-  --rcx-radio-button-color: var(--color-white);
-  --rcx-radio-button-background-color: transparent;
-  --rcx-radio-button-border-color: var(--color-dark-500);
-  --rcx-radio-button-checked-color: var(--color-white);
-  --rcx-radio-button-checked-background-color: var(--color-blue);
-  --rcx-radio-button-checked-border-color: var(--color-dark-blue);
-  --rcx-radio-button-disabled-color: var(--color-white);
-  --rcx-radio-button-disabled-background-color: var(--color-dark-300);
-  --rcx-radio-button-disabled-border-color: var(--color-white);
-  --rcx-radio-button-border-radius: 50%;
-  --rcx-radio-button-label-color: var(--color-dark-700);
-  --rcx-radio-button-label-font-family: var(--default-font-family);
-  --rcx-radio-button-label-font-size: 0.875rem;
-  --rcx-radio-button-label-font-weight: 400;
-  --rcx-radio-button-label-line-height: 1.25rem;
-  --rcx-radio-button-label-letter-spacing: -0.2px;
-  --rcx-radio-button-transition-duration: 300ms;
-}
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/typography.scss';
 
-.RadioButton {
-  position: absolute;
+$name: 'rcx-radio-button';
 
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+$default-theme: (
+  'wrapper-height': 2rem,
+  'wrapper-inner-spacing': 0.25rem,
+  'size': 1rem,
+  'border-width': dimension('border-width'),
+  'color': color('white'),
+  'background-color': transparent,
+  'border-color': color('dark-500'),
+  'checked-color': color('white'),
+  'checked-background-color': color('blue-500'),
+  'checked-border-color': color('blue-600'),
+  'disabled-color': color('white'),
+  'disabled-background-color': color('dark-300'),
+  'disabled-border-color': color('white'),
+  'border-radius': 50%,
+  'label-color': color('dark-700'),
+  'label-font-family': font-family('default'),
+  'label-font-size': 0.875rem,
+  'label-font-weight': 400,
+  'label-line-height': 1.25rem,
+  'label-letter-spacing': -0.2px,
+  'label-disabled-color': color('dark-300'),
+  'transition-duration': dimension('short-transition-duration'),
+  'active-translation': dimension('interactive-translation'),
+  'hover-opacity': dimension('interactive-opacity-hover'),
+  'active-opacity': dimension('interactive-opacity-active'),
+);
 
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
+.#{$name}__wrapper {
+  @include reset;
+  @include hideable;
+  @include disableable;
+  @include unselectable;
 
-  white-space: nowrap;
-
-  border: 0;
-  clip-path: inset(50%);
-}
-
-.RadioButton__wrapper {
   position: relative;
 
   display: inline-flex;
 
-  height: var(--rcx-radio-button-wrapper-height);
+  height: theme-var('wrapper-height');
+  margin: 0 calc(-1 * #{theme-var('wrapper-inner-spacing')});
+  padding: 0 theme-var('wrapper-inner-spacing');
 
   cursor: pointer;
-  user-select: none;
-  letter-spacing: var(--rcx-radio-button-label-letter-spacing);
 
-  color: var(--rcx-radio-button-label-color);
-
-  font-family: var(--rcx-radio-button-label-font-family);
-  font-size: var(--rcx-radio-button-label-font-size);
-  font-weight: var(--rcx-radio-button-label-font-weight);
-  line-height: var(--rcx-radio-button-label-line-height);
   align-items: center;
 }
 
-.RadioButton__wrapper--disabled {
-  cursor: not-allowed;
+.#{$name}__input {
+  @include visually-hidden;
 }
 
-.RadioButton__fake {
-  position: relative;
+.#{$name}__fake {
+  @include reset;
 
   display: flex;
 
-  box-sizing: border-box;
-  width: var(--rcx-radio-button-size);
-  height: var(--rcx-radio-button-size);
-  margin: var(--rcx-radio-button-margin);
+  width: theme-var('size');
+  height: theme-var('size');
+  margin: 0 theme-var('wrapper-inner-spacing');
 
-  cursor: pointer;
   transition:
-    opacity var(--rcx-radio-button-transition-duration),
-    visibility var(--rcx-radio-button-transition-duration),
-    background-color var(--rcx-radio-button-transition-duration),
-    border-color var(--rcx-radio-button-transition-duration),
-    color var(--rcx-radio-button-transition-duration),
-    transform var(--rcx-radio-button-transition-duration);
+    background-color theme-var('transition-duration'),
+    border-color theme-var('transition-duration'),
+    color theme-var('transition-duration'),
+    transform theme-var('transition-duration');
 
-  color: var(--rcx-radio-button-color);
-  border: var(--rcx-radio-button-border-width) solid;
-  border-color: var(--rcx-radio-button-border-color);
-  border-radius: var(--rcx-radio-button-border-radius);
-  background-color: var(--rcx-radio-button-background-color);
+  color: theme-var('color');
+  border: theme-var('border-width') solid;
+  border-color: theme-var('border-color');
+  border-radius: theme-var('border-radius');
+  background-color: theme-var('background-color');
 
   align-items: center;
   justify-content: center;
-}
 
-.RadioButton:checked + .RadioButton__fake {
-  color: var(--rcx-radio-button-checked-color);
-  border-color: var(--rcx-radio-button-checked-border-color);
-  background-color: var(--rcx-radio-button-checked-background-color);
+  .#{$name}__wrapper:hover > .#{$name}__input:not(:disabled) ~ &,
+  .#{$name}__wrapper:global(.hover) > .#{$name}__input:not(:disabled) ~ & {
+    opacity: theme-var('hover-opacity');
+  }
 
-  &::before {
-    width: 50%;
-    height: 50%;
+  .#{$name}__wrapper:active > .#{$name}__input:not(:disabled) ~ &,
+  .#{$name}__wrapper:global(.active) > .#{$name}__input:not(:disabled) ~ & {
+    transform: translateY(#{theme-var('active-translation')});
 
-    content: "";
+    opacity: theme-var('active-opacity');
 
-    border-radius: 50%;
-    background-color: var(--rcx-radio-button-checked-color);
+    &::before {
+      top: calc(-1 * (theme-var('border-width') + #{theme-var('active-translation')}));
+    }
+  }
+
+  .#{$name}__input:checked ~ & {
+    color: theme-var('checked-color');
+    border-color: theme-var('checked-border-color');
+    background-color: theme-var('checked-background-color');
+
+    &::before {
+      width: 50%;
+      height: 50%;
+
+      content: '';
+
+      border-radius: 50%;
+      background-color: theme-var('checked-color');
+    }
+  }
+
+  .#{$name}__input:disabled ~ & {
+    color: theme-var('disabled-color');
+    border-color: theme-var('disabled-border-color');
+    background-color: theme-var('disabled-background-color');
   }
 }
 
-.RadioButton:not([disabled]) + .RadioButton__fake:hover {
-  opacity: 0.6;
-}
+.#{$name}__label {
+  @include reset;
 
-.RadioButton__wrapper:active .RadioButton:not([disabled]) + .RadioButton__fake {
-  transform: translateY(0.125rem);
+  margin: 0 theme-var('wrapper-inner-spacing');
 
-  opacity: 0.9;
+  transition:
+    background-color theme-var('transition-duration'),
+    border-color theme-var('transition-duration'),
+    color theme-var('transition-duration'),
+    transform theme-var('transition-duration');
 
-  &::before {
-    top: calc(-1 * (var(--rcx-radio-button-border-width) + 0.125rem));
+  letter-spacing: theme-var('label-letter-spacing');
+
+  color: theme-var('label-color');
+
+  font-family: theme-var('label-font-family');
+  font-size: theme-var('label-font-size');
+  font-weight: theme-var('label-font-weight');
+  line-height: theme-var('label-line-height');
+
+  .#{$name}__wrapper:hover > .#{$name}__input:not(:disabled) ~ &,
+  .#{$name}__wrapper:global(.hover) > .#{$name}__input:not(:disabled) ~ & {
+    opacity: theme-var('hover-opacity');
   }
-}
 
-.RadioButton:disabled + .RadioButton__fake {
-  cursor: not-allowed;
+  .#{$name}__wrapper:active > .#{$name}__input:not(:disabled) ~ &,
+  .#{$name}__wrapper:global(.active) > .#{$name}__input:not(:disabled) ~ & {
+    transform: translateY(#{theme-var('active-translation')});
 
-  color: var(--rcx-radio-button-disabled-color);
-  border-color: var(--rcx-radio-button-disabled-border-color);
-  background-color: var(--rcx-radio-button-disabled-background-color);
+    opacity: theme-var('active-opacity');
+  }
+
+  .#{$name}__input:disabled ~ & {
+    color: theme-var('label-disabled-color');
+  }
 }

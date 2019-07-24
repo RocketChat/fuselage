@@ -1,7 +1,8 @@
 import { addDecorator, addParameters, configure } from '@storybook/react';
-import { withA11y } from '@storybook/addon-a11y';
+// import { withA11y } from '@storybook/addon-a11y';
 import { withTests } from '@storybook/addon-jest';
 import { create } from '@storybook/theming';
+
 import 'loki/configure-react';
 import manifest from '../package.json';
 import results from './jest-results.json';
@@ -28,13 +29,11 @@ addParameters({
   ],
 });
 
-addDecorator(withA11y);
+// addDecorator(withA11y);
 
-addDecorator(withTests({
-  results,
-}));
+addDecorator(withTests({ results }));
 
 configure(() => {
-  const jsStories = require.context('../src', true, /stories(\/index)?\.js$/);
-  jsStories.keys().forEach(function (filename) { return jsStories(filename); });
+  const requireStories = require.context('../src', true, /stories(\/index)?\.js$/);
+  requireStories.keys().forEach(requireStories);
 }, module);

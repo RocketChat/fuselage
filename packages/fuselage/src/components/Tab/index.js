@@ -9,10 +9,7 @@ export function Tab({
   className,
   ...props
 }) {
-  return (
-    <div
-      className={useStyle(styles, 'Tab', { active }, className)}
-      {...props}
-    />
-  );
+  const tabClassName = useStyle(styles, 'rcx-tab', { active }, className);
+
+  return <div className={tabClassName} {...props} />;
 }

@@ -6,17 +6,12 @@ import styles from './styles.scss';
 
 export function Page({
   className,
-  is: Component = 'section',
+  as: Component = 'section',
   ...props
 }) {
-  const pageClassName = useStyle(styles, 'Page', {}, className);
+  const pageClassName = useStyle(styles, 'rcx-page', {}, className);
 
-  return (
-    <Component
-      className={pageClassName}
-      {...props}
-    />
-  );
+  return <Component className={pageClassName} {...props} />;
 }
 
 export * from './Header';

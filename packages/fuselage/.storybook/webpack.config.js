@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = async ({ config, mode }) => {
   const jsRule = config.module.rules.find(({ test }) => test.test('index.js'));
   jsRule.include = [
@@ -6,21 +8,20 @@ module.exports = async ({ config, mode }) => {
   ];
   delete jsRule.exclude;
 
-  const cssRule = config.module.rules.find(({ test }) => test.test('index.css'));
-
-  cssRule.use = [
-    'style-loader/useable',
-      'css-loader',
-  ];
-
   config.module.rules.push({
     test: /\.scss$/,
     use: [
-      'style-loader/useable',
+      {
+        loader: 'style-loader/useable',
+        options: {
+          singleton: true,
+          hmr: mode === 'development',
+        },
+      },
       {
         loader: 'css-loader',
         options: {
-          importLoaders: 1,
+          importLoaders: 2,
           modules: true,
           getLocalIdent: (_, __, localName) => {
             const localIdentName = localName
@@ -29,6 +30,16 @@ module.exports = async ({ config, mode }) => {
               .replace(/^-/, '');
             return `rcx-${ localIdentName }`;
           },
+        },
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          ident: 'postcss',
+          plugins: () => [
+            require('autoprefixer')(),
+            require('cssnano'),
+          ],
         },
       },
       'sass-loader',

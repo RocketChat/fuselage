@@ -1,13 +1,21 @@
-:root {
-  --rcx-scrollable-area-gutter-width: 0.5rem;
-  --rcx-scrollable-area-gutter-background-color: transparent;
-  --rcx-scrollable-area-thumb-border-radius: var(--border-radius);
-  --rcx-scrollable-area-thumb-background-color: rgba(31, 35, 41, 0.05);
-  --rcx-scrollable-area-thumb-hover-background-color: rgba(31, 35, 41, 0.25);
-  --rcx-scrollable-area-transition-duration: 300ms;
-}
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/dimensions.scss';
 
-.ScrollableArea {
+$name: 'rcx-scrollable-area';
+
+$default-theme: (
+  'gutter-width': 0.5rem,
+  'gutter-background-color': transparent,
+  'thumb-border-radius': dimension('border-radius'),
+  'thumb-background-color': rgba(31, 35, 41, 0.05),
+  'thumb-hover-background-color': rgba(31, 35, 41, 0.25),
+  'transition-duration': dimension('short-transition-duration'),
+);
+
+.#{$name} {
+  @include reset;
+
   display: flex;
   overflow: auto;
   flex: 1 1 0;
@@ -18,22 +26,22 @@
   flex-flow: column nowrap;
 
   &::-webkit-scrollbar {
-    width: var(--rcx-scrollable-area-gutter-width);
-    height: var(--rcx-scrollable-area-gutter-width);
+    width: theme-var('gutter-width');
+    height: theme-var('gutter-width');
   }
 
   &::-webkit-scrollbar-track {
-    background-color: var(--rcx-scrollable-area-gutter-background-color);
+    background-color: theme-var('gutter-background-color');
   }
 
   &::-webkit-scrollbar-thumb {
-    transition: background-color var(--rcx-scrollable-area-transition-duration);
+    transition: background-color theme-var('transition-duration');
 
-    border-radius: var(--rcx-scrollable-area-thumb-border-radius);
-    background-color: var(--rcx-scrollable-area-thumb-background-color);
+    border-radius: theme-var('thumb-border-radius');
+    background-color: theme-var('thumb-background-color');
   }
 
   &:hover::-webkit-scrollbar-thumb {
-    background-color: var(--rcx-scrollable-area-thumb-hover-background-color);
+    background-color: theme-var('thumb-hover-background-color');
   }
 }
