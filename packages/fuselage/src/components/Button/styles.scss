@@ -7,17 +7,20 @@
 $name: 'rcx-button';
 
 $default-theme: (
-  'height': 2.75rem,
-  'small-height': 2rem,
-  'padding': 0.625rem 0.875rem,
   'border-width': var-dimension('border-width'),
   'border-radius': var-dimension('border-radius'),
   'font-family': var-font-family('default'),
-  'font-size': 0.875rem,
   'font-weight': 500,
-  'square-size': 2.75rem,
-  'icon-size': 1.25rem,
-  'square-icon-size': 1.5rem,
+  'height': 2.5rem,
+  'padding-vertical': 0.5rem,
+  'padding-horizontal': 0.875rem,
+  'font-size': 0.875rem,
+  'line-height': 1.25rem,
+  'small-height': 2rem,
+  'small-padding-vertical': 0.375rem,
+  'small-padding-horizontal': 0.625rem,
+  'small-font-size': 0.75rem,
+  'small-line-height': 1rem,
   'basic-color': color('dark-800'),
   'basic-danger-color': color('red-500'),
   'basic-background-color': color('dark-300'),
@@ -147,18 +150,59 @@ $default-theme: (
   );
 }
 
+@mixin button-dimensions(
+  $height,
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $line-height,
+) {
+  height: $height;
+  padding: $padding-vertical $padding-horizontal;
+
+  font-size: $font-size;
+  line-height: $line-height;
+
+  & > .rcx-icon {
+    font-size: $line-height;
+  }
+
+  &.rcx-button--square {
+    width: $height;
+    padding: $padding-vertical 0;
+  }
+}
+
+@mixin medium-size {
+  @include button-dimensions(
+    $height: theme-var('height'),
+    $padding-vertical: theme-var('padding-vertical'),
+    $padding-horizontal: theme-var('padding-horizontal'),
+    $font-size: theme-var('font-size'),
+    $line-height: theme-var('line-height'),
+  );
+}
+
+@mixin small-size {
+  @include button-dimensions(
+    $height: theme-var('small-height'),
+    $padding-vertical: theme-var('small-padding-vertical'),
+    $padding-horizontal: theme-var('small-padding-horizontal'),
+    $font-size: theme-var('small-font-size'),
+    $line-height: theme-var('small-line-height'),
+  );
+}
+
 .rcx-button {
   @include reset;
   @include disableable;
+  @include hideable;
   @include unselectable;
   @include used-in('../ButtonGroup/styles.scss');
 
   position: relative;
 
   display: inline-block;
-
-  height: theme-var('height');
-  padding: theme-var('padding');
 
   cursor: pointer;
   text-align: center;
@@ -172,9 +216,7 @@ $default-theme: (
   outline: none;
 
   font-family: theme-var('font-family');
-  font-size: theme-var('font-size');
   font-weight: theme-var('font-weight');
-  line-height: theme-var('icon-size');
 
   &:active,
   &:global(.active),
@@ -185,24 +227,6 @@ $default-theme: (
 
   .rcx-icon {
     vertical-align: bottom;
-
-    font-size: theme-var('icon-size');
-  }
-
-  &--square {
-    width: theme-var('square-size');
-    height: theme-var('square-size');
-    padding: 0;
-
-    line-height: theme-var('square-icon-size');
-
-    .rcx-icon {
-      font-size: theme-var('square-icon-size');
-    }
-  }
-
-  &--small {
-    height: theme-var('small-height');
   }
 
   @include basic;
@@ -213,5 +237,11 @@ $default-theme: (
 
   &--ghost {
     @include ghost;
+  }
+
+  @include medium-size;
+
+  &--small {
+    @include small-size;
   }
 }
