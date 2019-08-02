@@ -15,3 +15,7 @@ $dimensions: (
 
   @return map-get($dimensions, $name);
 }
+
+@function var-dimension($name) {
+  @return var(--rcx-dimensions-#{$name}, dimension($name));
+}

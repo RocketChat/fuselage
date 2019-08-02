@@ -10,6 +10,8 @@ export function Button({
   primary,
   ghost,
   danger,
+  small,
+  invisible,
   className,
   ...props
 }) {
@@ -18,7 +20,8 @@ export function Button({
     primary,
     ghost,
     danger,
-    secondary: !primary && !ghost && !danger,
+    small,
+    invisible,
   }, className);
 
   return <Component className={buttonClassName} {...props} />;

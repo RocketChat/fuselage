@@ -32,38 +32,63 @@ storiesOf('Elements|Button', module)
       A button indicates a possible user action. By default, it's rendered as a HTML5 <code>{'<button>'}</code> element.
       </p>
     </TextSection>
+    <TextSection>
+      <h2>Basic</h2>
+    </TextSection>
     <VariationsTable
       component={Button}
       xAxis={{
         text: { children: 'Button' },
         'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
         'text + icon': { children: <><Icon name='circled-arrow-down' /> Button</> },
+        'text + icon + danger': { children: <><Icon name='circled-arrow-down' /> Button</>, danger: true },
       }}
       yAxis={{
-        primary: { primary: true },
-        'primary / hover': { primary: true, className: 'hover' },
-        'primary / active': { primary: true, className: 'active' },
-        'primary / focus': { primary: true, className: 'focus' },
-        'primary / disabled': { primary: true, disabled: true },
-        'primary / hidden': { primary: true, hidden: true },
-        secondary: {},
-        'secondary / hover': { className: 'hover' },
-        'secondary / active': { className: 'active' },
-        'secondary / focus': { className: 'focus' },
-        'secondary / disabled': { disabled: true },
-        'secondary / hidden': { hidden: true },
-        ghost: { ghost: true },
-        'ghost / hover': { ghost: true, className: 'hover' },
-        'ghost / active': { ghost: true, className: 'active' },
-        'ghost / focus': { ghost: true, className: 'focus' },
-        'ghost / disabled': { ghost: true, disabled: true },
-        'ghost / hidden': { ghost: true, hidden: true },
-        danger: { danger: true },
-        'danger / hover': { danger: true, className: 'hover' },
-        'danger / active': { danger: true, className: 'active' },
-        'danger / focus': { danger: true, className: 'focus' },
-        'danger / disabled': { danger: true, disabled: true },
-        'danger / hidden': { danger: true, hidden: true },
+        default: {},
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus' },
+        disabled: { disabled: true },
+      }}
+    />
+    <TextSection>
+      <h2>Primary</h2>
+    </TextSection>
+    <VariationsTable
+      component={Button}
+      common={{ primary: true }}
+      xAxis={{
+        text: { children: 'Button' },
+        'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
+        'text + icon': { children: <><Icon name='circled-arrow-down' /> Button</> },
+        'text + icon + danger': { children: <><Icon name='circled-arrow-down' /> Button</>, danger: true },
+      }}
+      yAxis={{
+        default: { primary: true },
+        hover: { primary: true, className: 'hover' },
+        active: { primary: true, className: 'active' },
+        focus: { primary: true, className: 'focus' },
+        disabled: { primary: true, disabled: true },
+      }}
+    />
+    <TextSection>
+      <h2>Ghost</h2>
+    </TextSection>
+    <VariationsTable
+      component={Button}
+      common={{ ghost: true }}
+      xAxis={{
+        text: { children: 'Button' },
+        'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
+        'text + icon': { children: <><Icon name='circled-arrow-down' /> Button</> },
+        'text + icon + danger': { children: <><Icon name='circled-arrow-down' /> Button</>, danger: true },
+      }}
+      yAxis={{
+        default: { ghost: true },
+        hover: { ghost: true, className: 'hover' },
+        active: { ghost: true, className: 'active' },
+        focus: { ghost: true, className: 'focus' },
+        disabled: { ghost: true, disabled: true },
       }}
     />
   </Document>);

@@ -8,57 +8,148 @@ $name: 'rcx-button';
 
 $default-theme: (
   'height': 2.75rem,
+  'small-height': 2rem,
   'padding': 0.625rem 0.875rem,
-  'border-width': dimension('border-width'),
-  'border-radius': dimension('border-radius'),
-  'font-family': font-family('default'),
+  'border-width': var-dimension('border-width'),
+  'border-radius': var-dimension('border-radius'),
+  'font-family': var-font-family('default'),
   'font-size': 0.875rem,
   'font-weight': 500,
   'square-size': 2.75rem,
   'icon-size': 1.25rem,
   'square-icon-size': 1.5rem,
+  'basic-color': color('dark-800'),
+  'basic-danger-color': color('red-500'),
+  'basic-background-color': color('dark-300'),
+  'basic-hover-background-color': color('dark-400'),
+  'basic-active-background-color': color('dark-500'),
+  'basic-focus-background-color': color('dark-300'),
+  'basic-focus-border-color': color('dark-500'),
+  'basic-focus-shadow-color': color('dark-100'),
+  'basic-disabled-color': color('dark-400'),
+  'basic-disabled-danger-color': color('red-100'),
+  'basic-disabled-background-color': color('dark-100'),
   'primary-color': color('white'),
   'primary-background-color': color('blue-500'),
+  'primary-danger-background-color': color('red-500'),
   'primary-hover-background-color': color('blue-600'),
+  'primary-danger-hover-background-color': color('red-600'),
   'primary-active-background-color': color('blue-700'),
+  'primary-danger-active-background-color': color('red-700'),
   'primary-focus-background-color': color('blue-500'),
+  'primary-danger-focus-background-color': color('red-500'),
   'primary-focus-border-color': color('blue-700'),
-  'primary-focus-shadow': 0 0 0 6px color('blue-100'),
-  'primary-disabled-color': color('white'),
+  'primary-danger-focus-border-color': color('red-700'),
+  'primary-focus-shadow-color': color('blue-100'),
+  'primary-danger-focus-shadow-color': color('red-100'),
   'primary-disabled-background-color': color('blue-200'),
-  'secondary-color': color('dark-800'),
-  'secondary-background-color': color('dark-300'),
-  'secondary-hover-background-color': color('dark-400'),
-  'secondary-active-background-color': color('dark-500'),
-  'secondary-focus-background-color': color('dark-300'),
-  'secondary-focus-border-color': color('dark-500'),
-  'secondary-focus-shadow': 0 0 0 6px color('dark-100'),
-  'secondary-disabled-color': color('dark-400'),
-  'secondary-disabled-background-color': color('dark-100'),
-  'ghost-color': color('dark-800'),
-  'ghost-background-color': transparent,
-  'ghost-hover-background-color': color('dark-400'),
-  'ghost-active-background-color': color('dark-500'),
-  'ghost-focus-background-color': color('dark-300'),
-  'ghost-focus-border-color': color('dark-500'),
-  'ghost-focus-shadow': 0 0 0 6px color('dark-100'),
-  'ghost-disabled-color': color('dark-400'),
-  'ghost-disabled-background-color': transparent,
-  'danger-color': color('white'),
-  'danger-background-color': color('red-500'),
-  'danger-hover-background-color': color('red-600'),
-  'danger-active-background-color': color('red-700'),
-  'danger-focus-background-color': color('red-500'),
-  'danger-focus-border-color': color('red-700'),
-  'danger-focus-shadow': 0 0 0 6px color('red-100'),
-  'danger-disabled-color': color('white'),
-  'danger-disabled-background-color': color('red-200'),
+  'primary-danger-disabled-background-color': color('red-200'),
 );
+
+@mixin button-colors(
+  $color: null,
+  $backgroundColor: null,
+  $hoverBackgroundColor: null,
+  $activeBackgroundColor: null,
+  $focusBackgroundColor: null,
+  $focusBorderColor: null,
+  $focusShadowColor: null,
+  $disabledColor: null,
+  $disabledBackgroundColor: null,
+) {
+  color: $color;
+  border-color: $backgroundColor;
+  background-color: $backgroundColor;
+
+  &:enabled:focus,
+  &:enabled:global(.focus) {
+    border-color: $focusBorderColor;
+    background-color: $focusBackgroundColor;
+
+    @if $focusShadowColor {
+      box-shadow: 0 0 0 6px $focusShadowColor;
+    }
+  }
+
+  &:enabled:hover,
+  &:enabled:global(.hover) {
+    border-color: $hoverBackgroundColor;
+    background-color: $hoverBackgroundColor;
+    box-shadow: none;
+  }
+
+  &:enabled:active,
+  &:enabled:global(.active) {
+    border-color: $activeBackgroundColor;
+    background-color: $activeBackgroundColor;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    color: $disabledColor;
+    border-color: $disabledBackgroundColor;
+    background-color: $disabledBackgroundColor;
+  }
+}
+
+@mixin basic {
+  @include button-colors(
+    $color: theme-var('basic-color'),
+    $backgroundColor: theme-var('basic-background-color'),
+    $hoverBackgroundColor: theme-var('basic-hover-background-color'),
+    $activeBackgroundColor: theme-var('basic-active-background-color'),
+    $focusBackgroundColor: theme-var('basic-focus-background-color'),
+    $focusBorderColor: theme-var('basic-focus-border-color'),
+    $focusShadowColor: theme-var('basic-focus-shadow-color'),
+    $disabledColor: theme-var('basic-disabled-color'),
+    $disabledBackgroundColor: theme-var('basic-disabled-background-color'),
+  );
+
+  &.rcx-button--danger {
+    @include button-colors(
+      $color: theme-var('basic-danger-color'),
+      $disabledColor: theme-var('basic-disabled-danger-color'),
+    );
+  }
+}
+
+@mixin primary {
+  @include button-colors(
+    $color: theme-var('primary-color'),
+    $backgroundColor: theme-var('primary-background-color'),
+    $hoverBackgroundColor: theme-var('primary-hover-background-color'),
+    $activeBackgroundColor: theme-var('primary-active-background-color'),
+    $focusBackgroundColor: theme-var('primary-focus-background-color'),
+    $focusBorderColor: theme-var('primary-focus-border-color'),
+    $focusShadowColor: theme-var('primary-focus-shadow-color'),
+    $disabledColor: theme-var('primary-color'),
+    $disabledBackgroundColor: theme-var('primary-disabled-background-color'),
+  );
+
+  &.rcx-button--danger {
+    @include button-colors(
+      $color: theme-var('primary-color'),
+      $backgroundColor: theme-var('primary-danger-background-color'),
+      $hoverBackgroundColor: theme-var('primary-danger-hover-background-color'),
+      $activeBackgroundColor: theme-var('primary-danger-active-background-color'),
+      $focusBackgroundColor: theme-var('primary-danger-focus-background-color'),
+      $focusBorderColor: theme-var('primary-danger-focus-border-color'),
+      $focusShadowColor: theme-var('primary-danger-focus-shadow-color'),
+      $disabledColor: theme-var('primary-color'),
+      $disabledBackgroundColor: theme-var('primary-danger-disabled-background-color'),
+    );
+  }
+}
+
+@mixin ghost {
+  @include button-colors(
+    $backgroundColor: transparent,
+  );
+}
 
 .rcx-button {
   @include reset;
   @include disableable;
-  @include hideable;
   @include unselectable;
   @include used-in('../ButtonGroup/styles.scss');
 
@@ -110,135 +201,17 @@ $default-theme: (
     }
   }
 
-  &--primary {
-    color: theme-var('primary-color');
-    border-color: theme-var('primary-background-color');
-    background-color: theme-var('primary-background-color');
-
-    &:enabled:focus,
-    &:enabled:global(.focus) {
-      border-color: theme-var('primary-focus-border-color');
-      background-color: theme-var('primary-focus-background-color');
-      box-shadow: theme-var('primary-focus-shadow');
-    }
-
-    &:enabled:hover,
-    &:enabled:global(.hover) {
-      border-color: theme-var('primary-hover-background-color');
-      background-color: theme-var('primary-hover-background-color');
-      box-shadow: none;
-    }
-
-    &:enabled:active,
-    &:enabled:global(.active) {
-      border-color: theme-var('primary-active-background-color');
-      background-color: theme-var('primary-active-background-color');
-      box-shadow: none;
-    }
-
-    &:disabled {
-      color: theme-var('primary-disabled-color');
-      border-color: theme-var('primary-disabled-background-color');
-      background-color: theme-var('primary-disabled-background-color');
-    }
+  &--small {
+    height: theme-var('small-height');
   }
 
-  &--secondary {
-    color: theme-var('secondary-color');
-    border-color: theme-var('secondary-background-color');
-    background-color: theme-var('secondary-background-color');
+  @include basic;
 
-    &:enabled:focus,
-    &:enabled:global(.focus) {
-      border-color: theme-var('secondary-focus-border-color');
-      background-color: theme-var('secondary-focus-background-color');
-      box-shadow: theme-var('secondary-focus-shadow');
-    }
-
-    &:enabled:hover,
-    &:enabled:global(.hover) {
-      border-color: theme-var('secondary-hover-background-color');
-      background-color: theme-var('secondary-hover-background-color');
-      box-shadow: none;
-    }
-
-    &:enabled:active,
-    &:enabled:global(.active) {
-      border-color: theme-var('secondary-active-background-color');
-      background-color: theme-var('secondary-active-background-color');
-      box-shadow: none;
-    }
-
-    &:disabled {
-      color: theme-var('secondary-disabled-color');
-      border-color: theme-var('secondary-disabled-background-color');
-      background-color: theme-var('secondary-disabled-background-color');
-    }
+  &--primary {
+    @include primary;
   }
 
   &--ghost {
-    color: theme-var('ghost-color');
-    border-color: theme-var('ghost-background-color');
-    background-color: theme-var('ghost-background-color');
-
-    &:enabled:focus,
-    &:enabled:global(.focus) {
-      border-color: theme-var('ghost-focus-border-color');
-      background-color: theme-var('ghost-focus-background-color');
-      box-shadow: theme-var('ghost-focus-shadow');
-    }
-
-    &:enabled:hover,
-    &:enabled:global(.hover) {
-      border-color: theme-var('ghost-hover-background-color');
-      background-color: theme-var('ghost-hover-background-color');
-      box-shadow: none;
-    }
-
-    &:enabled:active,
-    &:enabled:global(.active) {
-      border-color: theme-var('ghost-active-background-color');
-      background-color: theme-var('ghost-active-background-color');
-      box-shadow: none;
-    }
-
-    &:disabled {
-      color: theme-var('ghost-disabled-color');
-      border-color: theme-var('ghost-disabled-background-color');
-      background-color: theme-var('ghost-disabled-background-color');
-    }
-  }
-
-  &--danger {
-    color: theme-var('danger-color');
-    border-color: theme-var('danger-background-color');
-    background-color: theme-var('danger-background-color');
-
-    &:enabled:focus,
-    &:enabled:global(.focus) {
-      border-color: theme-var('danger-focus-border-color');
-      background-color: theme-var('danger-focus-background-color');
-      box-shadow: theme-var('danger-focus-shadow');
-    }
-
-    &:enabled:hover,
-    &:enabled:global(.hover) {
-      border-color: theme-var('danger-hover-background-color');
-      background-color: theme-var('danger-hover-background-color');
-      box-shadow: none;
-    }
-
-    &:enabled:active,
-    &:enabled:global(.active) {
-      border-color: theme-var('danger-active-background-color');
-      background-color: theme-var('danger-active-background-color');
-      box-shadow: none;
-    }
-
-    &:disabled {
-      color: theme-var('danger-disabled-color');
-      border-color: theme-var('danger-disabled-background-color');
-      background-color: theme-var('danger-disabled-background-color');
-    }
+    @include ghost;
   }
 }
