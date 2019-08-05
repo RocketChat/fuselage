@@ -4,7 +4,7 @@ $dimensions: (
   'interactive-translation': 0.125rem,
   'interactive-opacity-hover': 0.6,
   'interactive-opacity-active': 0.9,
-  'short-transition-duration': 100ms,
+  'short-transition-duration': 230ms, // see https://en.wikipedia.org/wiki/Human_processor_model
   'long-transition-duration': 300ms,
 );
 
