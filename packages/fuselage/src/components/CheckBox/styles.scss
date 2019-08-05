@@ -32,7 +32,7 @@ $default-theme: (
   'checked-disabled-background-color': color('blue-200'),
 );
 
-@mixin checkbox-colors(
+@mixin check-box-colors(
   $state: '',
   $color: null,
   $backgroundColor: null,
@@ -201,7 +201,7 @@ $default-theme: (
     @include indeterminate-icon;
   }
 
-  @include checkbox-colors(
+  @include check-box-colors(
     $color: theme-var('color'),
     $borderColor: theme-var('border-color'),
     $hoverBorderColor: theme-var('hover-border-color'),
@@ -211,7 +211,7 @@ $default-theme: (
     $disabledBackgroundColor: theme-var('disabled-background-color'),
     $disabledBorderColor: theme-var('disabled-border-color'),
   );
-  @include checkbox-colors(
+  @include check-box-colors(
     $state: ':checked',
     $backgroundColor: theme-var('checked-background-color'),
     $borderColor: theme-var('checked-background-color'),
@@ -225,7 +225,7 @@ $default-theme: (
     $disabledBackgroundColor: theme-var('checked-disabled-background-color'),
     $disabledBorderColor: theme-var('checked-disabled-background-color'),
   );
-  @include checkbox-colors(
+  @include check-box-colors(
     $state: ':indeterminate',
     $backgroundColor: theme-var('checked-background-color'),
     $borderColor: theme-var('checked-background-color'),
