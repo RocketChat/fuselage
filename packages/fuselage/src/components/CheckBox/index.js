@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { check } from '@rocket.chat/icons/dist/font';
 
 import { useStyle } from '../../hooks/styles';
-import { Icon } from '../Icon';
 import styles from './styles.scss';
 
 
@@ -26,9 +24,7 @@ export function CheckBox({
 
   return <label className={checkBoxWrapperClassName} hidden={props.hidden}>
     <input type='checkbox' className={checkBoxInputClassName} ref={ref} {...props} />
-    <span className={checkBoxFakeClassName}>
-      <Icon name={check} />
-    </span>
+    <span className={checkBoxFakeClassName} />
     {label && <span className={checkBoxLabelClassName}>
       {label}
     </span>}

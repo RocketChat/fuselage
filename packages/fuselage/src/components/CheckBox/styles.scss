@@ -7,178 +7,236 @@
 $name: 'rcx-check-box';
 
 $default-theme: (
-  'wrapper-height': 2rem,
-  'wrapper-inner-spacing': 0.25rem,
-  'size': 1rem,
-  'border-width': dimension('border-width'),
-  'color': color('white'),
-  'background-color': transparent,
-  'border-color': color('dark-500'),
-  'checked-color': color('white'),
-  'checked-background-color': color('blue-500'),
-  'checked-border-color': color('blue-600'),
-  'disabled-color': color('white'),
-  'disabled-background-color': color('dark-300'),
-  'disabled-border-color': color('white'),
-  'border-radius': dimension('border-radius'),
-  'label-color': color('dark-700'),
+  'size': var-dimension('input-line-height'),
+  'border-width': var-dimension('border-width'),
+  'border-radius': var-dimension('border-radius'),
+  'label-color': color('dark-800'),
   'label-font-family': font-family('default'),
   'label-font-size': 0.875rem,
   'label-font-weight': 400,
-  'label-line-height': 1.25rem,
-  'label-letter-spacing': -0.2px,
-  'label-disabled-color': color('dark-300'),
-  'transition-duration': dimension('short-transition-duration'),
-  'active-translation': dimension('interactive-translation'),
-  'hover-opacity': dimension('interactive-opacity-hover'),
-  'active-opacity': dimension('interactive-opacity-active'),
+  'label-line-height': var-dimension('input-line-height'),
+  'color': color('white'),
+  'border-color': color('dark-400'),
+  'hover-border-color': color('dark-500'),
+  'active-border-color': color('dark-600'),
+  'focus-border-color': color('blue-500'),
+  'focus-shadow-color': color('blue-100'),
+  'disabled-background-color': color('dark-200'),
+  'disabled-border-color': color('dark-200'),
+  'checked-background-color': color('blue-500'),
+  'checked-hover-background-color': color('blue-600'),
+  'checked-active-background-color': color('blue-700'),
+  'checked-focus-background-color': color('blue-500'),
+  'checked-focus-border-color': color('blue-700'),
+  'checked-focus-shadow-color': color('blue-100'),
+  'checked-disabled-background-color': color('blue-200'),
 );
 
-.#{$name}__wrapper {
-  @include reset;
-  @include hideable;
-  @include disableable;
-  @include unselectable;
+@mixin checkbox-colors(
+  $state: '',
+  $color: null,
+  $backgroundColor: null,
+  $borderColor: null,
+  $hoverBackgroundColor: null,
+  $hoverBorderColor: null,
+  $activeBackgroundColor: null,
+  $activeBorderColor: null,
+  $focusBackgroundColor: null,
+  $focusBorderColor: null,
+  $focusShadowColor: null,
+  $disabledBackgroundColor: null,
+  $disabledBorderColor: null,
+) {
+  // stylelint-disable selector-pseudo-class-no-unknown
+  &__input#{unquote($state)} + &__fake {
+    color: $color;
+  }
 
-  position: relative;
+  &__input:enabled#{unquote($state)} + &__fake {
+    border-color: $borderColor;
+    background-color: $backgroundColor;
+  }
 
-  display: inline-flex;
+  &__wrapper > &__input:enabled:focus#{unquote($state)} + &__fake,
+  &__wrapper:global(.focus) > &__input:enabled#{unquote($state)} + &__fake {
+    border-color: $focusBorderColor;
+    background-color: $focusBackgroundColor;
 
-  height: theme-var('wrapper-height');
-  margin: 0 calc(-1 * #{theme-var('wrapper-inner-spacing')});
-  padding: 0 theme-var('wrapper-inner-spacing');
+    @if $focusShadowColor {
+      box-shadow: 0 0 0 6px $focusShadowColor;
+    }
+  }
 
-  cursor: pointer;
+  &__wrapper > &__input:enabled:hover#{unquote($state)} + &__fake,
+  &__wrapper:global(.hover) > &__input:enabled#{unquote($state)} + &__fake {
+    border-color: $hoverBorderColor;
+    background-color: $hoverBackgroundColor;
+    box-shadow: none;
+  }
 
-  align-items: center;
+  &__wrapper > &__input:enabled:active#{unquote($state)} + &__fake,
+  &__wrapper:global(.active) > &__input:enabled#{unquote($state)} + &__fake {
+    border-color: $activeBorderColor;
+    background-color: $activeBackgroundColor;
+    box-shadow: none;
+  }
+
+  &__input:disabled#{unquote($state)} + &__fake {
+    border-color: $disabledBorderColor;
+    background-color: $disabledBackgroundColor;
+  }
 }
 
-.#{$name}__input {
-  @include visually-hidden;
+@mixin checked-icon {
+  &::before,
+  &::after {
+    visibility: visible;
+
+    opacity: 1;
+  }
+
+  &::before {
+    width: 12px;
+    height: 2px;
+
+    transform: translate(-4px, 2px) rotate(-45deg) translate(6px, 2px);
+
+    border-radius: 1px;
+  }
+
+  &::after {
+    width: 2px;
+    height: 6px;
+
+    transform: translate(-4px, 2px) rotate(-45deg);
+
+    border-radius: 1px;
+  }
 }
 
-.#{$name}__fake {
-  @include reset;
+@mixin indeterminate-icon {
+  &::before {
+    visibility: visible;
 
-  display: flex;
+    width: 12px;
+    height: 2px;
 
-  width: theme-var('size');
-  height: theme-var('size');
-  margin: 0 theme-var('wrapper-inner-spacing');
+    opacity: 1;
+    border-radius: 1px;
+  }
+}
 
-  transition:
-    background-color theme-var('transition-duration'),
-    border-color theme-var('transition-duration'),
-    color theme-var('transition-duration'),
-    transform theme-var('transition-duration');
+.rcx-check-box {
+  &__wrapper {
+    @include reset;
+    @include hideable;
+    @include disableable;
+    @include unselectable;
 
-  color: theme-var('color');
-  border: theme-var('border-width') solid;
-  border-color: theme-var('border-color');
-  border-radius: theme-var('border-radius');
-  background-color: theme-var('background-color');
+    position: relative;
 
-  align-items: center;
-  justify-content: center;
+    display: inline-flex;
 
-  & > .rcx-icon {
-    visibility: hidden;
+    cursor: pointer;
 
-    margin: calc(-1 * #{theme-var('border-width')});
-
-    text-align: center;
-
-    font-size: theme-var('size');
-    line-height: theme-var('size');
+    align-items: center;
   }
 
-  .#{$name}__wrapper:hover > .#{$name}__input:not(:disabled) ~ &,
-  .#{$name}__wrapper:global(.hover) > .#{$name}__input:not(:disabled) ~ & {
-    opacity: theme-var('hover-opacity');
+  &__input {
+    @include visually-hidden;
   }
 
-  .#{$name}__wrapper:active > .#{$name}__input:not(:disabled) ~ &,
-  .#{$name}__wrapper:global(.active) > .#{$name}__input:not(:disabled) ~ & {
-    transform: translateY(#{theme-var('active-translation')});
+  &__fake {
+    @include reset;
+    position: relative;
 
-    opacity: theme-var('active-opacity');
+    display: flex;
 
-    &::before {
-      top: calc(-1 * (theme-var('border-width') + #{theme-var('active-translation')}));
-    }
-  }
+    width: theme-var('size');
+    height: theme-var('size');
 
-  .#{$name}__input:checked ~ & {
-    color: theme-var('checked-color');
-    border-color: theme-var('checked-border-color');
-    background-color: theme-var('checked-background-color');
+    transition: all var-dimension('short-transition-duration');
 
-    & > .rcx-icon {
-      visibility: visible;
-    }
-  }
+    border: theme-var('border-width') solid;
+    border-radius: theme-var('border-radius');
 
-  .#{$name}__input:indeterminate ~ & {
-    color: theme-var('checked-color');
-    border-color: theme-var('checked-border-color');
-    background-color: theme-var('checked-background-color');
+    align-items: center;
+    justify-content: center;
 
-    & > .rcx-icon {
-      display: none;
-    }
+    &::before,
+    &::after {
+      position: absolute;
 
-    &::before {
-      width: 100%;
-      height: 10%;
-      margin: auto;
+      display: block;
+      visibility: hidden;
 
       content: '';
+      transition: all var-dimension('short-transition-duration');
 
-      border-radius: theme-var('border-radius');
-      background-color: theme-var('checked-color');
+      opacity: 0;
+      background-color: currentColor;
     }
   }
 
-  .#{$name}__input:disabled ~ & {
-    color: theme-var('disabled-color');
-    border-color: theme-var('disabled-border-color');
-    background-color: theme-var('disabled-background-color');
-  }
-}
+  &__label {
+    @include reset;
 
-.#{$name}__label {
-  @include reset;
+    margin: 0 0.625rem;
 
-  margin: 0 theme-var('wrapper-inner-spacing');
+    transition: all var-dimension('short-transition-duration');
 
-  transition:
-    background-color theme-var('transition-duration'),
-    border-color theme-var('transition-duration'),
-    color theme-var('transition-duration'),
-    transform theme-var('transition-duration');
+    color: theme-var('label-color');
 
-  letter-spacing: theme-var('label-letter-spacing');
-
-  color: theme-var('label-color');
-
-  font-family: theme-var('label-font-family');
-  font-size: theme-var('label-font-size');
-  font-weight: theme-var('label-font-weight');
-  line-height: theme-var('label-line-height');
-
-  .#{$name}__wrapper:hover > .#{$name}__input:not(:disabled) ~ &,
-  .#{$name}__wrapper:global(.hover) > .#{$name}__input:not(:disabled) ~ & {
-    opacity: theme-var('hover-opacity');
+    font-family: theme-var('label-font-family');
+    font-size: theme-var('label-font-size');
+    font-weight: theme-var('label-font-weight');
+    line-height: theme-var('label-line-height');
   }
 
-  .#{$name}__wrapper:active > .#{$name}__input:not(:disabled) ~ &,
-  .#{$name}__wrapper:global(.active) > .#{$name}__input:not(:disabled) ~ & {
-    transform: translateY(#{theme-var('active-translation')});
-
-    opacity: theme-var('active-opacity');
+  &__wrapper > &__input:checked + &__fake {
+    @include checked-icon;
   }
 
-  .#{$name}__input:disabled ~ & {
-    color: theme-var('label-disabled-color');
+  &__wrapper > &__input:indeterminate + &__fake {
+    @include indeterminate-icon;
   }
+
+  @include checkbox-colors(
+    $color: theme-var('color'),
+    $borderColor: theme-var('border-color'),
+    $hoverBorderColor: theme-var('hover-border-color'),
+    $activeBorderColor: theme-var('active-border-color'),
+    $focusBorderColor: theme-var('focus-border-color'),
+    $focusShadowColor: theme-var('focus-shadow-color'),
+    $disabledBackgroundColor: theme-var('disabled-background-color'),
+    $disabledBorderColor: theme-var('disabled-border-color'),
+  );
+  @include checkbox-colors(
+    $state: ':checked',
+    $backgroundColor: theme-var('checked-background-color'),
+    $borderColor: theme-var('checked-background-color'),
+    $hoverBackgroundColor: theme-var('checked-hover-background-color'),
+    $hoverBorderColor: theme-var('checked-hover-background-color'),
+    $activeBackgroundColor: theme-var('checked-active-background-color'),
+    $activeBorderColor: theme-var('checked-active-background-color'),
+    $focusBackgroundColor: theme-var('checked-focus-background-color'),
+    $focusBorderColor: theme-var('checked-focus-border-color'),
+    $focusShadowColor: theme-var('checked-focus-shadow-color'),
+    $disabledBackgroundColor: theme-var('checked-disabled-background-color'),
+    $disabledBorderColor: theme-var('checked-disabled-background-color'),
+  );
+  @include checkbox-colors(
+    $state: ':indeterminate',
+    $backgroundColor: theme-var('checked-background-color'),
+    $borderColor: theme-var('checked-background-color'),
+    $hoverBackgroundColor: theme-var('checked-hover-background-color'),
+    $hoverBorderColor: theme-var('checked-hover-background-color'),
+    $activeBackgroundColor: theme-var('checked-active-background-color'),
+    $activeBorderColor: theme-var('checked-active-background-color'),
+    $focusBackgroundColor: theme-var('checked-focus-background-color'),
+    $focusBorderColor: theme-var('checked-focus-border-color'),
+    $focusShadowColor: theme-var('checked-focus-shadow-color'),
+    $disabledBackgroundColor: theme-var('checked-disabled-background-color'),
+    $disabledBorderColor: theme-var('checked-disabled-background-color'),
+  );
 }
