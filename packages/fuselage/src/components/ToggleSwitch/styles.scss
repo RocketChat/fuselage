@@ -1,0 +1,198 @@
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/typography.scss';
+
+$name: 'rcx-toggle-switch';
+
+$default-theme: (
+  'track-width': 2.5rem,
+  'track-height': var-dimension('input-line-height'),
+  'thumb-size': calc(#{var-dimension('input-line-height')} - 2 * #{var-dimension('border-width')}),
+  'border-width': var-dimension('border-width'),
+  'border-radius': var-dimension('border-radius'),
+  'color': color('white'),
+  'background-color': color('dark-400'),
+  'hover-background-color': color('dark-500'),
+  'active-background-color': color('dark-600'),
+  'focus-background-color': color('dark-500'),
+  'focus-border-color': color('blue-500'),
+  'focus-shadow-color': color('blue-100'),
+  'disabled-color': color('dark-200'),
+  'disabled-background-color': color('dark-400'),
+  'checked-background-color': color('blue-500'),
+  'checked-hover-background-color': color('blue-600'),
+  'checked-active-background-color': color('blue-700'),
+  'checked-focus-background-color': color('blue-500'),
+  'checked-focus-border-color': color('blue-700'),
+  'checked-focus-shadow-color': color('blue-100'),
+  'checked-disabled-color': color('white'),
+  'checked-disabled-background-color': color('blue-200'),
+);
+
+@mixin toggle-switch-colors(
+  $state: '',
+  $color: null,
+  $backgroundColor: null,
+  $borderColor: null,
+  $hoverBackgroundColor: null,
+  $hoverBorderColor: null,
+  $activeBackgroundColor: null,
+  $activeBorderColor: null,
+  $focusBackgroundColor: null,
+  $focusBorderColor: null,
+  $focusShadowColor: null,
+  $disabledColor: null,
+  $disabledBackgroundColor: null,
+  $disabledBorderColor: null,
+) {
+  // stylelint-disable selector-pseudo-class-no-unknown
+  &__input#{unquote($state)} + &__fake {
+    color: $color;
+  }
+
+  &__input:enabled#{unquote($state)} + &__fake {
+    border-color: $borderColor;
+    background-color: $backgroundColor;
+  }
+
+  &__wrapper > &__input:enabled:focus#{unquote($state)} + &__fake,
+  &__wrapper:global(.focus) > &__input:enabled#{unquote($state)} + &__fake {
+    border-color: $focusBorderColor;
+    background-color: $focusBackgroundColor;
+
+    @if $focusShadowColor {
+      box-shadow: 0 0 0 6px $focusShadowColor;
+    }
+  }
+
+  &__wrapper > &__input:enabled:hover#{unquote($state)} + &__fake,
+  &__wrapper:global(.hover) > &__input:enabled#{unquote($state)} + &__fake {
+    border-color: $hoverBorderColor;
+    background-color: $hoverBackgroundColor;
+    box-shadow: none;
+  }
+
+  &__wrapper > &__input:enabled:active#{unquote($state)} + &__fake,
+  &__wrapper:global(.active) > &__input:enabled#{unquote($state)} + &__fake {
+    border-color: $activeBorderColor;
+    background-color: $activeBackgroundColor;
+    box-shadow: none;
+  }
+
+  &__input:disabled#{unquote($state)} + &__fake {
+    color: $disabledColor;
+    border-color: $disabledBorderColor;
+    background-color: $disabledBackgroundColor;
+  }
+}
+
+.rcx-toggle-switch {
+  &__wrapper {
+    @include reset;
+    @include hideable;
+    @include disableable;
+    @include unselectable;
+
+    position: relative;
+
+    display: inline-flex;
+
+    cursor: pointer;
+
+    align-items: center;
+  }
+
+  &__input {
+    @include visually-hidden;
+  }
+
+  &__fake {
+    @include reset;
+    position: relative;
+
+    display: flex;
+
+    width: theme-var('track-width');
+    height: theme-var('track-height');
+
+    transition: all var-dimension('short-transition-duration');
+
+    border: theme-var('border-width') solid;
+    border-radius: 9999px;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    &::before {
+      position: absolute;
+      left: 0%;
+
+      width: theme-var('thumb-size');
+      height: theme-var('thumb-size');
+
+      content: '';
+      transition: all var-dimension('short-transition-duration');
+
+      border-radius: 50%;
+
+      background-color: currentColor;
+    }
+
+    @include rtl {
+      &::before {
+        right: 0%;
+        left: unset;
+      }
+    }
+  }
+
+  &__wrapper > &__input:checked + &__fake {
+    &::before {
+      left: calc(100%);
+
+      transform: translateX(-100%);
+    }
+
+    @include rtl {
+      &::before {
+        right: calc(100%);
+        left: unset;
+
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  @include toggle-switch-colors(
+    $color: theme-var('color'),
+    $backgroundColor: theme-var('background-color'),
+    $borderColor: theme-var('background-color'),
+    $hoverBackgroundColor: theme-var('hover-background-color'),
+    $hoverBorderColor: theme-var('hover-background-color'),
+    $activeBackgroundColor: theme-var('active-background-color'),
+    $activeBorderColor: theme-var('active-background-color'),
+    $focusBackgroundColor: theme-var('focus-background-color'),
+    $focusBorderColor: theme-var('focus-border-color'),
+    $focusShadowColor: theme-var('focus-shadow-color'),
+    $disabledColor: theme-var('disabled-color'),
+    $disabledBackgroundColor: theme-var('disabled-background-color'),
+    $disabledBorderColor: theme-var('disabled-background-color'),
+  );
+  @include toggle-switch-colors(
+    $state: ':checked',
+    $backgroundColor: theme-var('checked-background-color'),
+    $borderColor: theme-var('checked-background-color'),
+    $hoverBackgroundColor: theme-var('checked-hover-background-color'),
+    $hoverBorderColor: theme-var('checked-hover-background-color'),
+    $activeBackgroundColor: theme-var('checked-active-background-color'),
+    $activeBorderColor: theme-var('checked-active-background-color'),
+    $focusBackgroundColor: theme-var('checked-focus-background-color'),
+    $focusBorderColor: theme-var('checked-focus-border-color'),
+    $focusShadowColor: theme-var('checked-focus-shadow-color'),
+    $disabledColor: theme-var('checked-disabled-color'),
+    $disabledBackgroundColor: theme-var('checked-disabled-background-color'),
+    $disabledBorderColor: theme-var('checked-disabled-background-color'),
+  );
+}
