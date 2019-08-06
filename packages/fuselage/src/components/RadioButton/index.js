@@ -5,12 +5,14 @@ import styles from './styles.scss';
 
 
 export function RadioButton({
-  label,
   className,
+  invisible,
+  label,
   ...props
 }) {
   const radioButtonWrapperClassName = useStyle(styles, 'rcx-radio-button__wrapper', {
     disabled: props.disabled,
+    invisible,
   }, className);
   const radioButtonInputClassName = useStyle(styles, 'rcx-radio-button__input');
   const radioButtonFakeClassName = useStyle(styles, 'rcx-radio-button__fake');

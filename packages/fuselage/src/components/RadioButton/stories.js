@@ -7,43 +7,59 @@ import { jsxDecorator } from 'storybook-addon-jsx';
 import { createPropsFromKnobs, Document, TextSection, VariationsTable, handleEvent } from '../../helpers/storybook';
 import { RadioButton } from './index';
 
-
-const props = createPropsFromKnobs({
-  checked: false,
-  value: '',
-  disabled: false,
-  label: '',
-  onChange: handleEvent('change'),
-});
-
 storiesOf('Elements|RadioButton', module)
   .lokiSkip('RadioButton', () => <Document>
     <TextSection>
       <h1>RadioButton</h1>
     </TextSection>
+    <TextSection>
+      <h2>Checked</h2>
+    </TextSection>
     <VariationsTable
       component={RadioButton}
-      common={{ onChange: () => {} }}
+      common={{ checked: true, onChange: () => {} }}
       xAxis={{
-        standalone: {},
+        default: {},
         'with label': { label: 'Label' },
       }}
       yAxis={{
-        unchecked: { checked: false },
-        'unchecked / hover': { checked: false, className: 'hover' },
-        'unchecked / active': { checked: false, className: 'active' },
-        'unchecked / focus': { checked: false, className: 'focus' },
-        'unchecked / hidden': { checked: false, hidden: true },
-        'unchecked / disabled': { checked: false, disabled: true },
-        checked: { checked: true },
-        'checked / hover': { checked: true, className: 'hover' },
-        'checked / active': { checked: true, className: 'active' },
-        'checked / focus': { checked: true, className: 'focus' },
-        'checked / hidden': { checked: true, hidden: true },
-        'checked / disabled': { checked: true, disabled: true },
+        default: { },
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus' },
+        disabled: { disabled: true },
+      }}
+    />
+    <TextSection>
+      <h2>Unchecked</h2>
+    </TextSection>
+    <VariationsTable
+      component={RadioButton}
+      common={{ checked: false, onChange: () => {} }}
+      xAxis={{
+        default: {},
+        'with label': { label: 'Label' },
+      }}
+      yAxis={{
+        default: { },
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus' },
+        disabled: { disabled: true },
       }}
     />
   </Document>);
+
+
+const props = createPropsFromKnobs({
+  checked: false,
+  disabled: false,
+  hidden: false,
+  invisible: false,
+  label: '',
+  value: '',
+  onChange: handleEvent('change'),
+});
 
 storiesOf('Elements|RadioButton', module)
   .addDecorator(jsxDecorator)
@@ -52,7 +68,8 @@ storiesOf('Elements|RadioButton', module)
   .addParameters({ jest: ['spec'] })
   .add('default', () => <RadioButton {...props()} />)
   .add('checked', () => <RadioButton {...props({ checked: true })} />)
-  .add('hidden', () => <RadioButton {...props({ hidden: true })} />)
   .add('disabled', () => <RadioButton {...props({ disabled: true })} />)
+  .add('invisible', () => <RadioButton {...props({ invisible: true })} />)
+  .add('hidden', () => <RadioButton {...props({ hidden: true })} />)
   .add('with label', () => <RadioButton {...props({ label: 'Label' })} />)
   .add('uncontrolled', () => <RadioButton {...props({ checked: undefined })} />);
