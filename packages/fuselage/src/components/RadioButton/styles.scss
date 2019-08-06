@@ -35,10 +35,10 @@ $default-theme: (
   &::before {
     visibility: visible;
 
-    opacity: 1;
-
     width: 6px;
     height: 6px;
+
+    opacity: 1;
 
     border-radius: 50%;
   }
@@ -179,7 +179,6 @@ $default-theme: (
     $disabledBackgroundColor: theme-var('disabled-background-color'),
     $disabledBorderColor: theme-var('disabled-border-color'),
   );
-
   @include radio-button-colors(
     $state: ':checked',
     $backgroundColor: theme-var('checked-background-color'),
