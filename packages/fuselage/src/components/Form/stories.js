@@ -40,11 +40,11 @@ function LoginForm() {
         Login
       </Button>
 
-      <Button nude>
+      <Button ghost>
         Register
       </Button>
 
-      <Button nude>
+      <Button ghost>
         Forgot my password
       </Button>
     </ButtonGroup>

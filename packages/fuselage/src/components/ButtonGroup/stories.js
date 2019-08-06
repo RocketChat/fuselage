@@ -1,23 +1,13 @@
 import centered from '@storybook/addon-centered/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { jsxDecorator } from 'storybook-addon-jsx';
 
-import { Document, TextSection } from '../../helpers/storybook';
+import { Document, TextSection, ShowCaseSection, createPropsFromKnobs } from '../../helpers/storybook';
 import { Button } from '../Button';
 import { ButtonGroup } from './index';
 
-
-const props = ({
-  wrap = false,
-  stretch = false,
-  vertical = false,
-} = {}) => ({
-  wrap: boolean('wrap', wrap),
-  stretch: boolean('stretch', stretch),
-  vertical: boolean('vertical', vertical),
-});
 
 storiesOf('Collections|ButtonGroup', module)
   .lokiSkip('ButtonGroup', () => <Document>
@@ -27,41 +17,75 @@ storiesOf('Collections|ButtonGroup', module)
       A container for grouping buttons that semantically share a common action context.
       </p>
     </TextSection>
+    <ShowCaseSection>
+      <ButtonGroup>
+        <Button primary>Yes</Button>
+        <Button danger>No</Button>
+        <Button>Maybe</Button>
+      </ButtonGroup>
+    </ShowCaseSection>
   </Document>);
+
+const props = createPropsFromKnobs({
+  blockStretch: false,
+  hidden: false,
+  invisible: false,
+  stretch: false,
+  vertical: false,
+  wrap: false,
+});
+
+const Buttons = ({ count }) => new Array(count).fill(undefined).map((_, i) =>
+  <Button key={i}>Button {i + 1}</Button>
+);
 
 storiesOf('Collections|ButtonGroup', module)
   .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
+  .addDecorator((storyFn) =>
+    <div
+      style={{
+        // border: '1px dashed lightgray',
+        width: '90vw',
+      }}
+    >
+      {storyFn()}
+    </div>
+  )
   .addDecorator(centered)
   .addParameters({ jest: ['spec'] })
-  .add('default', () => (
+  .add('default', () =>
     <ButtonGroup {...props()}>
-      <Button primary>Button 1</Button>
-      <Button secondary>Button 2</Button>
-      <Button danger>Button 3</Button>
+      <Buttons count={3} />
     </ButtonGroup>
-  ))
-  .add('wrap', () => (
-    <ButtonGroup {...props({ wrap: true })} style={{ width: '50vw' }}>
-      <Button primary>Button 1</Button>
-      <Button secondary>Button 2</Button>
-      <Button danger>Button 3</Button>
-      <Button bland>Button 4</Button>
-      <Button outline>Button 5</Button>
-      <Button nude>Button 6</Button>
+  )
+  .add('wrap', () =>
+    <ButtonGroup {...props({ wrap: true })}>
+      <Buttons count={20} />
     </ButtonGroup>
-  ))
-  .add('stretch', () => (
-    <ButtonGroup {...props({ stretch: true })} style={{ width: '100vw', margin: '0' }}>
-      <Button primary>Button 1</Button>
-      <Button secondary>Button 2</Button>
-      <Button danger>Button 3</Button>
+  )
+  .add('stretch', () =>
+    <ButtonGroup {...props({ stretch: true })}>
+      <Buttons count={3} />
     </ButtonGroup>
-  ))
-  .add('vertical', () => (
+  )
+  .add('vertical', () =>
     <ButtonGroup {...props({ vertical: true })}>
-      <Button primary>Button 1</Button>
-      <Button secondary>Button 2</Button>
-      <Button danger>Button 3</Button>
+      <Buttons count={3} />
     </ButtonGroup>
-  ));
+  )
+  .add('vertical with stretch', () =>
+    <ButtonGroup {...props({ stretch: true, vertical: true })}>
+      <Buttons count={3} />
+    </ButtonGroup>
+  )
+  .add('hidden', () =>
+    <ButtonGroup {...props({ hidden: true })}>
+      <Buttons count={3} />
+    </ButtonGroup>
+  )
+  .add('invisible', () =>
+    <ButtonGroup {...props({ invisible: true })}>
+      <Buttons count={3} />
+    </ButtonGroup>
+  );

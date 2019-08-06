@@ -5,17 +5,19 @@ import styles from './styles.scss';
 
 
 export function ButtonGroup({
-  wrap,
+  className,
+  invisible,
   stretch,
   vertical,
-  className,
+  wrap,
   ...props
 }) {
   const buttonGroupClassName = useStyle(styles, 'rcx-button-group', {
-    wrap,
+    invisible,
     stretch,
     vertical,
+    wrap,
   }, className);
 
-  return <div className={buttonGroupClassName} {...props}/>;
+  return <div className={buttonGroupClassName} role='group' {...props}/>;
 }
