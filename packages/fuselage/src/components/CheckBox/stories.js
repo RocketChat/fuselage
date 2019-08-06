@@ -71,11 +71,12 @@ storiesOf('Elements|CheckBox', module)
 
 const props = createPropsFromKnobs({
   checked: false,
-  indeterminate: false,
-  value: '',
-  hidden: false,
   disabled: false,
+  hidden: false,
+  indeterminate: false,
+  invisible: false,
   label: '',
+  value: '',
   onChange: handleEvent('change'),
 });
 
@@ -87,7 +88,8 @@ storiesOf('Elements|CheckBox', module)
   .add('default', () => <CheckBox {...props()} />)
   .add('checked', () => <CheckBox {...props({ checked: true })} />)
   .add('indeterminate', () => <CheckBox {...props({ indeterminate: true })} />)
-  .add('hidden', () => <CheckBox {...props({ hidden: true })} />)
   .add('disabled', () => <CheckBox {...props({ disabled: true })} />)
+  .add('invisible', () => <CheckBox {...props({ invisible: true })} />)
+  .add('hidden', () => <CheckBox {...props({ hidden: true })} />)
   .add('with label', () => <CheckBox {...props({ label: 'Label' })} />)
   .add('uncontrolled', () => <CheckBox {...props({ checked: undefined })} />);

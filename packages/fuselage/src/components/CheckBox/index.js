@@ -5,14 +5,16 @@ import styles from './styles.scss';
 
 
 export function CheckBox({
-  label,
-  indeterminate,
   className,
+  indeterminate,
+  invisible,
+  label,
   ...props
 }) {
   const ref = useRef();
   const checkBoxWrapperClassName = useStyle(styles, 'rcx-check-box__wrapper', {
     disabled: props.disabled,
+    invisible,
   }, className);
   const checkBoxInputClassName = useStyle(styles, 'rcx-check-box__input');
   const checkBoxFakeClassName = useStyle(styles, 'rcx-check-box__fake');

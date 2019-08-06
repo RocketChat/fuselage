@@ -53,9 +53,11 @@ storiesOf('Elements|RadioButton', module)
 
 const props = createPropsFromKnobs({
   checked: false,
-  value: '',
   disabled: false,
+  hidden: false,
+  invisible: false,
   label: '',
+  value: '',
   onChange: handleEvent('change'),
 });
 
@@ -66,7 +68,8 @@ storiesOf('Elements|RadioButton', module)
   .addParameters({ jest: ['spec'] })
   .add('default', () => <RadioButton {...props()} />)
   .add('checked', () => <RadioButton {...props({ checked: true })} />)
-  .add('hidden', () => <RadioButton {...props({ hidden: true })} />)
   .add('disabled', () => <RadioButton {...props({ disabled: true })} />)
+  .add('invisible', () => <RadioButton {...props({ invisible: true })} />)
+  .add('hidden', () => <RadioButton {...props({ hidden: true })} />)
   .add('with label', () => <RadioButton {...props({ label: 'Label' })} />)
   .add('uncontrolled', () => <RadioButton {...props({ checked: undefined })} />);
