@@ -4,46 +4,46 @@
 $name: 'rcx-button-group';
 
 $default-theme: (
-  'vertical-margin': 0.5rem,
-  'gap': 0.5rem,
+  'gutter': 1rem,
 );
 
-.#{$name} {
+.rcx-button-group {
   @include reset;
+  @include hideable;
   @include used-in('../Page/Header/styles.scss');
 
   display: flex;
 
-  margin: theme-var('vertical-margin') calc(-1 * #{theme-var('gap')} / 2);
+  margin: calc(-1 * #{theme-var('gutter')}) 0 0 calc(-1 * #{theme-var('gutter')});
+
+  align-items: center;
+
   flex-flow: row nowrap;
+  justify-content: center;
 
   & > .rcx-button {
-    margin: 0 calc(#{theme-var('gap')} / 2);
+    flex: 0 0 auto;
+
+    margin: theme-var('gutter') 0 0 theme-var('gutter');
   }
 
   &--wrap {
     flex-wrap: wrap;
-
-    & > .rcx-button {
-      margin: calc(#{theme-var('gap')} / 2);
-    }
   }
 
   &--stretch {
     justify-content: stretch;
 
     & > .rcx-button {
-      flex: 1 0 auto;
+      flex-grow: 1;
     }
   }
 
   &--vertical {
     flex-direction: column;
 
-    margin: theme-var('vertical-margin') 0;
-
-    & > .rcx-button {
-      margin: calc(#{theme-var('gap')} / 2) 0;
+    &.rcx-button-group--stretch {
+      align-items: stretch;
     }
   }
 }
