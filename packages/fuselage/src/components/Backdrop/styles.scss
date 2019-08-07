@@ -1,0 +1,31 @@
+@import '../../helpers/mixins.scss';
+@import '../../helpers/theme-var.scss';
+@import '../../styles/color-palette.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/typography.scss';
+
+$name: 'rcx-backdrop';
+
+$default-theme: (
+  'color': rgba(color('blue-900'), 0.5),
+);
+
+.rcx-backdrop {
+  @include reset;
+  @include hideable;
+  @include unselectable;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  transition: all var-dimension('short-transition-duration');
+
+  background-color: theme-var('color');
+}
+
+#rcx-backdrop__container {
+  z-index: var-dimension('backdrop-container-z-index');
+}
