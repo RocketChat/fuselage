@@ -46,7 +46,8 @@ storiesOf('Collections|ButtonGroup', module)
     <div
       style={{
         // border: '1px dashed lightgray',
-        width: '90vw',
+        boxSizing: 'border-box',
+        width: '100vw',
       }}
     >
       {storyFn()}

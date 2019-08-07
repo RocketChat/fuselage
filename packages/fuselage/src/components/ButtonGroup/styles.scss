@@ -14,7 +14,7 @@ $default-theme: (
 
   display: flex;
 
-  margin: calc(-1 * #{theme-var('gutter')} / 2);
+  margin: calc(-1 * #{theme-var('gutter')}) 0 0 calc(-1 * #{theme-var('gutter')});
 
   align-items: center;
 
@@ -24,7 +24,7 @@ $default-theme: (
   & > .rcx-button {
     flex: 0 0 auto;
 
-    margin: calc(#{theme-var('gutter')} / 2);
+    margin: theme-var('gutter') 0 0 theme-var('gutter');
   }
 
   &--wrap {

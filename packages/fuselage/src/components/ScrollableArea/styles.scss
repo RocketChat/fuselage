@@ -22,8 +22,10 @@ $default-theme: (
 
   width: 100%;
   height: 100%;
-  align-items: stretch;
+
+  align-items: flex-start;
   flex-flow: column nowrap;
+  justify-content: flex-start;
 
   &::-webkit-scrollbar {
     width: theme-var('gutter-width');
