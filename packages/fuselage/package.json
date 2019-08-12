@@ -8,10 +8,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Livechat.Admin.git"
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
   },
   "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/issues"
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "main": "dist/fuselage.js",
   "files": [

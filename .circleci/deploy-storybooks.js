@@ -28,11 +28,10 @@ const buildStorybook = async (packageName) => {
   process.chdir(path.join(__dirname, '..'));
 
   await buildStorybook('fuselage');
-  await buildStorybook('livechat-admin');
 
   console.log('Building static files directory...');
   await fs.ensureDir('static');
-  const html = '<!doctype html><meta http-equiv="Refresh" content="0; url=./livechat-admin/" />';
+  const html = '<!doctype html><meta http-equiv="Refresh" content="0; url=./fuselage/" />';
   await fs.outputFile('static/index.html', html);
 
   console.log('Publishing...');
@@ -40,7 +39,7 @@ const buildStorybook = async (packageName) => {
   const { GH_TOKEN } = process.env;
   await publish('static', {
     source: 'static/**/*',
-    ...GH_TOKEN && { repo: `https://${ GH_TOKEN }@github.com/RocketChat/Rocket.Chat.Livechat.Admin.git` },
+    ...GH_TOKEN && { repo: `https://${ GH_TOKEN }@github.com/RocketChat/Rocket.Chat.Fuselage.git` },
     message: 'Deploy Storybook to Github Pages [skip ci]',
     user: {
       name: 'Guilherme Gazzo',

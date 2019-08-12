@@ -23,11 +23,7 @@
     {
 			"directory": "packages/icons",
 			"changeProcessCWD": true
-		},
-    {
-      "directory": "packages/livechat-admin",
-      "changeProcessCWD": true
-    }
+		}
 	],
 	"eslint.enable": true
 }
