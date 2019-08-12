@@ -1,10 +1,10 @@
 <h1 align="center">Welcome to @rocket.chat/fuselage 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/RocketChat/Rocket.Chat.Livechat.Admin#readme">
+  <a href="https://github.com/RocketChat/Rocket.Chat.Fuselage#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
-  <a href="https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/graphs/commit-activity">
+  <a href="https://github.com/RocketChat/Rocket.Chat.Fuselage/graphs/commit-activity">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
   </a>
   <a href="https://twitter.com/RocketChat">
@@ -31,7 +31,7 @@ npm install --save @rocket.chat/fuselage
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
 
 ## Show your support
 

@@ -1,7 +1,7 @@
 {
-  "name": "Rocket.Chat.Livechat.Admin",
-  "description": "Livechat Admin for Rocket.Chat",
-  "repository": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin",
+  "name": "Rocket.Chat.Fuselage",
+  "description": "React implementation of Rocket.Chat's design system",
+  "repository": "https://github.com/RocketChat/Rocket.Chat.Fuselage",
   "logo": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat/master/public/images/logo/1024x1024.png",
   "keywords": ["react", "community", "chat"],
   "website": "https://rocket.chat",

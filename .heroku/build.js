@@ -27,10 +27,9 @@ const buildStorybook = async (packageName) => {
 
   console.log('Building static files directory...');
   await fs.ensureDir('static');
-  const html = '<!doctype html><meta http-equiv="Refresh" content="0; url=./livechat-admin/" />';
+  const html = '<!doctype html><meta http-equiv="Refresh" content="0; url=./fuselage/" />';
   await fs.outputFile('static/index.html', html);
 
   console.log('Building Storybooks...');
   await buildStorybook('fuselage');
-  await buildStorybook('livechat-admin');
 })();

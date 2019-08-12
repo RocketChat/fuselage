@@ -5,14 +5,14 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin#readme",
+  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Livechat.Admin.git"
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
   },
   "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Livechat.Admin/issues"
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "files": [
     "dist/"
