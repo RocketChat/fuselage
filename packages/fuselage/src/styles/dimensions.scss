@@ -1,10 +1,11 @@
 $dimensions: (
   'border-width': 2px,
   'border-radius': 2px,
+  'input-line-height': 1.25rem,
   'interactive-translation': 0.125rem,
   'interactive-opacity-hover': 0.6,
   'interactive-opacity-active': 0.9,
-  'short-transition-duration': 100ms,
+  'short-transition-duration': 230ms, // see https://en.wikipedia.org/wiki/Human_processor_model
   'long-transition-duration': 300ms,
 );
 
@@ -14,4 +15,8 @@ $dimensions: (
   }
 
   @return map-get($dimensions, $name);
+}
+
+@function var-dimension($name) {
+  @return var(--rcx-dimensions-#{$name}, dimension($name));
 }

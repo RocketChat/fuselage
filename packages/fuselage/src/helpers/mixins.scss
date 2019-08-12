@@ -21,8 +21,12 @@
 }
 
 @mixin hideable {
-  &[hidden] {
-    display: unset;
+  &[hidden],
+  &--hidden {
+    display: none;
+  }
+
+  &--invisible {
     visibility: hidden;
 
     opacity: 0;

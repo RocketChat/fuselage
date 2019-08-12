@@ -25,3 +25,7 @@ $font-families: (
 
   @return map-get($font-families, $name);
 }
+
+@function var-font-family($name) {
+  @return var(--rcx-typography-#{$name}, font-family($name));
+}

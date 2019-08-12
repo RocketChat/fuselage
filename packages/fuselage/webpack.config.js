@@ -49,13 +49,6 @@ module.exports = (env, argv) => ({
             options: {
               importLoaders: 2,
               modules: true,
-              getLocalIdent: (_, __, localName) => {
-                const localIdentName = localName
-                  .replace(/_([A-Z])/g, (_, initialLetter) => `_${ initialLetter.toLowerCase() }`)
-                  .replace(/\.?([A-Z])/g, (_, initialLetter) => `-${ initialLetter.toLowerCase() }`)
-                  .replace(/^-/, '');
-                return `rcx-${ localIdentName }`;
-              },
             },
           },
           {
