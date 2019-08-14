@@ -27,12 +27,15 @@ storiesOf('Collections|ButtonGroup', module)
   </Document>);
 
 const props = createPropsFromKnobs({
-  blockStretch: false,
   hidden: false,
   invisible: false,
   stretch: false,
   vertical: false,
   wrap: false,
+  align: [null, {
+    start: 'start',
+    end: 'end',
+  }],
 });
 
 const Buttons = ({ count }) => new Array(count).fill(undefined).map((_, i) =>
