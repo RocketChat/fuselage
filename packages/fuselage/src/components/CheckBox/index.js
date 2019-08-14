@@ -1,17 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { forwardRef, useEffect, useRef } from 'react';
 
 import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
+import { useMergedRefs } from '../../hooks/useMergedRefs';
 
 
-export function CheckBox({
+export const CheckBox = forwardRef(function CheckBox({
   className,
   indeterminate,
   invisible,
   label,
   ...props
-}) {
-  const ref = useRef();
+}, ref) {
+  const innerRef = useRef();
+  const mergedRef = useMergedRefs(ref, innerRef);
+
   const checkBoxWrapperClassName = useStyle(styles, 'rcx-check-box__wrapper', {
     disabled: props.disabled,
     invisible,
@@ -21,14 +24,14 @@ export function CheckBox({
   const checkBoxLabelClassName = useStyle(styles, 'rcx-check-box__label');
 
   useEffect(() => {
-    ref.current.indeterminate = indeterminate;
+    innerRef.current.indeterminate = indeterminate;
   }, [indeterminate]);
 
   return <label className={checkBoxWrapperClassName} hidden={props.hidden}>
-    <input type='checkbox' className={checkBoxInputClassName} ref={ref} {...props} />
+    <input type='checkbox' className={checkBoxInputClassName} ref={mergedRef} {...props} />
     <span className={checkBoxFakeClassName} />
     {label && <span className={checkBoxLabelClassName}>
       {label}
     </span>}
   </label>;
-}
+});

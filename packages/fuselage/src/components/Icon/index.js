@@ -9,12 +9,12 @@ import styles from './styles.scss';
 
 const mapNames = Object.entries(names).reduce((map, [symbol, name]) => Object.assign(map, { [name]: symbol }), {});
 
-export function Icon({
+export const Icon = React.forwardRef(function Icon({
   name,
   className,
   ...props
-}) {
+}, ref) {
   const iconClassName = useStyle(styles, 'rcx-icon');
 
-  return <i className={iconClassName} data-char={characters[mapNames[name]]} {...props} />;
-}
+  return <i className={iconClassName} data-char={characters[mapNames[name]]} ref={ref} {...props} />;
+});
