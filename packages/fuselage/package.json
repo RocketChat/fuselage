@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.1.1-alpha.0",
+  "version": "0.1.1-alpha.1",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -101,7 +101,7 @@
     }
   },
   "dependencies": {
-    "@rocket.chat/icons": "^0.1.1-alpha.0"
+    "@rocket.chat/icons": "^0.1.1-alpha.1"
   },
   "browserslist": {
     "production": [
