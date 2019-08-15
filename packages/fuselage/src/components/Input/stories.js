@@ -12,9 +12,14 @@ storiesOf('Elements|Input', module)
   .lokiSkip('Input', () => <Document>
     <TextSection>
       <h1>Input</h1>
+      <p>The purpose of the <code>Input</code> component is to allow user input.</p>
     </TextSection>
     <TextSection>
-      <h2><code>type='text'</code></h2>
+      <h2>Input types</h2>
+      <p>The `type` property defines how and whick kind of user input will be collected on <code>Input</code>.</p>
+    </TextSection>
+    <TextSection>
+      <h3><code>type='text'</code></h3>
     </TextSection>
     <VariationsTable
       component={Input}
@@ -35,14 +40,14 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { error: true },
-        'error + hover': { error: true, className: 'hover' },
-        'error + active': { error: true, className: 'active' },
-        'error + focus': { error: true, className: 'focus' },
+        error: { error: 'Error' },
+        'error + hover': { error: 'Error', className: 'hover' },
+        'error + active': { error: 'Error', className: 'active' },
+        'error + focus': { error: 'Error', className: 'focus' },
       }}
     />
     <TextSection>
-      <h2><code>type='password'</code></h2>
+      <h3><code>type='password'</code></h3>
     </TextSection>
     <VariationsTable
       component={Input}
@@ -63,14 +68,14 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { error: true },
-        'error + hover': { error: true, className: 'hover' },
-        'error + active': { error: true, className: 'active' },
-        'error + focus': { error: true, className: 'focus' },
+        error: { error: 'Error' },
+        'error + hover': { error: 'Error', className: 'hover' },
+        'error + active': { error: 'Error', className: 'active' },
+        'error + focus': { error: 'Error', className: 'focus' },
       }}
     />
     <TextSection>
-      <h2><code>type='textarea'</code></h2>
+      <h3><code>type='textarea'</code></h3>
     </TextSection>
     <VariationsTable
       component={Input}
@@ -91,14 +96,14 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { error: true },
-        'error + hover': { error: true, className: 'hover' },
-        'error + active': { error: true, className: 'active' },
-        'error + focus': { error: true, className: 'focus' },
+        error: { error: 'Error' },
+        'error + hover': { error: 'Error', className: 'hover' },
+        'error + active': { error: 'Error', className: 'active' },
+        'error + focus': { error: 'Error', className: 'focus' },
       }}
     />
     <TextSection>
-      <h2><code>type='select'</code></h2>
+      <h3><code>type='select'</code></h3>
     </TextSection>
     <VariationsTable
       component={Input}
@@ -123,10 +128,38 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { error: true },
-        'error + hover': { error: true, className: 'hover' },
-        'error + active': { error: true, className: 'active' },
-        'error + focus': { error: true, className: 'focus' },
+        error: { error: 'Error' },
+        'error + hover': { error: 'Error', className: 'hover' },
+        'error + active': { error: 'Error', className: 'active' },
+        'error + focus': { error: 'Error', className: 'focus' },
+      }}
+    />
+    <TextSection>
+      <h2>Add-ons</h2>
+      <p>The <code>Input</code> component can be equipped with form-related elements, like label and help text.</p>
+    </TextSection>
+    <VariationsTable
+      component={Input}
+      common={{
+        type: 'text',
+        value: '',
+        onChange: () => {},
+      }}
+      xAxis={{
+        'with label': { label: 'Label' },
+        required: { label: 'Label', required: true },
+        'with help': { help: 'Help text' },
+      }}
+      yAxis={{
+        default: {},
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus' },
+        disabled: { disabled: true },
+        error: { error: 'Error' },
+        'error + hover': { error: 'Error', className: 'hover' },
+        'error + active': { error: 'Error', className: 'active' },
+        'error + focus': { error: 'Error', className: 'focus' },
       }}
     />
   </Document>);

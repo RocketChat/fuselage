@@ -38,6 +38,20 @@ $default-theme: (
   'icon-size': 1.25rem,
   'icon-margin-horizontal': 1rem,
   'icon-margin-vertical': 0.75rem,
+  'label-margin': 0 0 0.5rem 0,
+  'label-color': color('dark-800'),
+  'label-font-family': var-font-family('default'),
+  'label-font-size': 0.875rem,
+  'label-font-weight': normal,
+  'label-line-height': 1.25rem,
+  'label-required-color': color('red-500'),
+  'label-error-color': color('red-500'),
+  'help-margin': 0.25rem 0 0 0,
+  'help-color': color('dark-600'),
+  'help-font-size': 0.875rem,
+  'help-font-family': var-font-family('default'),
+  'help-font-weight': normal,
+  'help-line-height': 1.25rem,
 );
 
 .rcx-input__container {
@@ -216,4 +230,59 @@ $default-theme: (
       color: theme-var('error-icon-color');
     }
   }
+}
+
+.rcx-input__label {
+  @include reset;
+  @include unselectable;
+
+  display: flex;
+
+  flex: 0 0 auto;
+
+  margin: theme-var('label-margin');
+
+  color: theme-var('label-color');
+
+  font-family: theme-var('label-font-family');
+  font-size: theme-var('label-font-size');
+  font-weight: theme-var('label-font-weight');
+  line-height: theme-var('label-line-height');
+  flex-flow: row nowrap;
+
+  & > .rcx-input__label-text {
+    overflow: hidden;
+    flex: 1 1 0;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  & > .rcx-input__label-error {
+    flex: 0 1 auto;
+
+    color: theme-var('label-error-color');
+  }
+
+  &--required > .rcx-input__label-text::before {
+    content: '* ';
+
+    color: theme-var('label-required-color');
+  }
+}
+
+.rcx-input__help {
+  @include reset;
+  @include selectable-for-help;
+
+  flex: 0 0 auto;
+
+  margin: theme-var('help-margin');
+
+  color: theme-var('help-color');
+
+  font-family: theme-var('help-font-family');
+  font-size: theme-var('help-font-size');
+  font-weight: theme-var('help-font-weight');
+  line-height: theme-var('help-line-height');
 }

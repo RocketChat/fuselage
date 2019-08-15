@@ -3,6 +3,7 @@ import React from 'react';
 import { useStyle } from '../../hooks/styles';
 import { Icon } from '../Icon';
 import styles from './styles.scss';
+import { useUniqueId } from '../../hooks/useUniqueId';
 
 
 const TextInput = React.forwardRef(function TextInput({
@@ -64,17 +65,49 @@ const SelectInput = React.forwardRef(function SelectInput({
   </span>;
 });
 
-export const Input = React.forwardRef(function Input({
+function Label({
+  children,
   error,
+  required,
+  ...props
+}) {
+  const labelClassName = useStyle(styles, 'rcx-input__label', { required });
+  const labelTextClassName = useStyle(styles, 'rcx-input__label-text');
+  const labelErrorClassName = useStyle(styles, 'rcx-input__label-error');
+
+  return <label className={labelClassName} {...props}>
+    <span className={labelTextClassName}>{children}</span>
+    <span className={labelErrorClassName}>{error}</span>
+  </label>;
+}
+
+function Help(props) {
+  const helpClassName = useStyle(styles, 'rcx-input__help');
+
+  return <span className={helpClassName} {...props} />;
+}
+
+export const Input = React.forwardRef(function Input({
+  accessKey,
+  error,
+  help,
   hidden,
-  type,
+  label,
+  required,
+  style,
+  type = 'text',
   ...props
 }, ref) {
   const inputClassName = useStyle(styles, 'rcx-input__container');
+  const id = useUniqueId();
 
-  return <div className={inputClassName} hidden={hidden}>
-    {(type === 'select' && <SelectInput error={!!error} ref={ref} {...props} />)
-    || (type === 'textarea' && <TextAreaInput error={!!error} ref={ref} {...props} />)
-    || <TextInput error={!!error} ref={ref} type={type} {...props} />}
+  return <div className={inputClassName} hidden={hidden} style={style}>
+    {label && <Label htmlFor={props.id || id} accessKey={accessKey} error={error} required={required}>{label}</Label>}
+
+    {(type === 'select' && <SelectInput error={!!error} id={id} ref={ref} {...props} />)
+    || (type === 'textarea' && <TextAreaInput error={!!error} id={id} ref={ref} {...props} />)
+    || <TextInput error={!!error} ref={ref} id={id} type={type} {...props} />}
+
+    {help && <Help>{help}</Help>}
   </div>;
 });
