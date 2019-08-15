@@ -46,4 +46,12 @@ $default-theme: (
       align-items: stretch;
     }
   }
+
+  &--align-start {
+    justify-content: flex-start;
+  }
+
+  &--align-end {
+    justify-content: flex-end;
+  }
 }

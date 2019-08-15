@@ -4,7 +4,7 @@ import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
 
 
-export function Button({
+export const Button = React.forwardRef(function Button({
   as: Component = 'button',
   className,
   danger,
@@ -14,7 +14,7 @@ export function Button({
   small,
   square,
   ...props
-}) {
+}, ref) {
   const buttonClassName = useStyle(styles, 'rcx-button', {
     danger,
     ghost,
@@ -24,5 +24,5 @@ export function Button({
     primary,
   }, className);
 
-  return <Component className={buttonClassName} {...props} />;
-}
+  return <Component className={buttonClassName} ref={ref} {...props} />;
+});

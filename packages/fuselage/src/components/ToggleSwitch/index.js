@@ -4,11 +4,11 @@ import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
 
 
-export function ToggleSwitch({
+export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
   className,
   invisible,
   ...props
-}) {
+}, ref) {
   const toggleSwitchWrapperClassName = useStyle(styles, 'rcx-toggle-switch__wrapper', {
     disabled: props.disabled,
     invisible,
@@ -17,7 +17,7 @@ export function ToggleSwitch({
   const toggleSwitchFakeClassName = useStyle(styles, 'rcx-toggle-switch__fake');
 
   return <label className={toggleSwitchWrapperClassName} hidden={props.hidden}>
-    <input type='checkbox' className={toggleSwitchInputClassName} {...props} />
+    <input type='checkbox' className={toggleSwitchInputClassName} ref={ref} {...props} />
     <span className={toggleSwitchFakeClassName} />
   </label>;
-}
+});
