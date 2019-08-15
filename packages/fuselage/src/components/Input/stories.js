@@ -97,4 +97,36 @@ storiesOf('Elements|Input', module)
         'error + focus': { error: true, className: 'focus' },
       }}
     />
+    <TextSection>
+      <h2><code>type='select'</code></h2>
+    </TextSection>
+    <VariationsTable
+      component={Input}
+      common={{
+        type: 'select',
+        children: <>
+          <option value='A'>Item A</option>
+          <option value='B'>Item B</option>
+          <option value='C'>Item C</option>
+        </>,
+        value: '',
+        onChange: () => {},
+      }}
+      xAxis={{
+        default: {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'B' },
+      }}
+      yAxis={{
+        default: {},
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus' },
+        disabled: { disabled: true },
+        error: { error: true },
+        'error + hover': { error: true, className: 'hover' },
+        'error + active': { error: true, className: 'active' },
+        'error + focus': { error: true, className: 'focus' },
+      }}
+    />
   </Document>);

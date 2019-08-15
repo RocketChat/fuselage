@@ -15,7 +15,7 @@ $default-theme: (
   'placeholder-color': color('dark-600'),
   'background-color': color('white'),
   'border-color': color('dark-500'),
-  'hover-border-color': color('dark-400'),
+  'hover-border-color': color('dark-600'),
   'focus-border-color': color('blue-500'),
   'focus-shadow': 0 0 0 0.25rem color('blue-100'),
   'focus-caret-color': color('blue-500'),
@@ -61,6 +61,7 @@ $default-theme: (
 
   resize: none;
 
+  transition: all var-dimension('short-transition-duration');
   text-overflow: ellipsis;
 
   color: theme-var('color');
@@ -134,6 +135,22 @@ $default-theme: (
   @at-root textarea#{&} {
     @include scrollable;
   }
+
+  @at-root select#{&} {
+    @include scrollable;
+
+    &--placeholder {
+      color: theme-var('placeholder-color');
+    }
+
+    & > option {
+      color: theme-var('color');
+    }
+
+    & > .rcx-input__element-placeholder {
+      color: theme-var('placeholder-color');
+    }
+  }
 }
 
 .rcx-input__wrapper {
@@ -144,6 +161,8 @@ $default-theme: (
   display: inline-flex;
 
   width: 100%;
+
+  transition: all var-dimension('short-transition-duration');
 
   & > .rcx-input__element {
     padding-right: calc(2 * #{theme-var('icon-margin-horizontal')} + #{theme-var('icon-size')} - 2 * #{theme-var('border-width')});
