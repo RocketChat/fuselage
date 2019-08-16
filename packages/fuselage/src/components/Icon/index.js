@@ -1,7 +1,6 @@
 import React from 'react';
 import * as characters from '@rocket.chat/icons/dist/font/characters';
 import * as names from '@rocket.chat/icons/dist/font/index';
-import '@rocket.chat/icons/dist/font/RocketChat.minimal.css';
 
 import { useStyle } from '../../hooks/styles';
 import styles from './styles.scss';
