@@ -1,5 +1,6 @@
 <h1>@rocket.chat/fuselage</h1>
 <p>
+  <img alt="Version" src="https://img.shields.io/npm/v/@rocket.chat/fuselage.svg">
   <a href="https://github.com/RocketChat/Rocket.Chat.Fuselage#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
