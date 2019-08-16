@@ -6,7 +6,12 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: yarn lerna publish from-package
+      - run:
+          name: Authenticate with registry
+          command: echo "//packagecloud.io/armando/node-test-package/npm/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: yarn lerna publish from-package
 
   build:
     docker:
@@ -77,4 +82,4 @@ workflows:
                 only: master
       - publish:
           requires:
-            - loki
+            - build
