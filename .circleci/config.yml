@@ -28,8 +28,9 @@ jobs:
     environment:
       CHROME_PATH: /usr/bin/chromium-browser
     steps:
-      - attach_workspace:
-          at: ~/repo
+      - checkout
+      - run: yarn
+      - run: yarn lerna run build --stream
       - run: yarn lerna run build-storybook --scope @rocket.chat/fuselage --stream
       - run:
           command: |
@@ -42,6 +43,7 @@ jobs:
 
       - store_artifacts:
           path: ~/repo/packages/fuselage/.loki/difference
+
 
   publish:
     docker:
