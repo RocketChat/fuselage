@@ -44,6 +44,21 @@ jobs:
       - store_artifacts:
           path: ~/repo/packages/fuselage/.loki/difference
 
+
+  publish:
+    docker:
+      - image: chinello/alpine-chrome:with-node
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: yarn lerna publish from-package
+
   deploy-storybook:
     docker:
       - image: circleci/node:10.15
@@ -67,3 +82,11 @@ workflows:
           filters:
               branches:
                 only: master
+      - publish:
+          requires:
+            - loki
+          filters:
+              branches:
+                only: master
+              tags:
+                only: /^v.*/
