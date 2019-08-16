@@ -1,7 +1,10 @@
+import centered from '@storybook/addon-centered/react';
+import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { jsxDecorator } from 'storybook-addon-jsx';
 
-import { Document, TextSection, VariationsTable } from '../../helpers/storybook';
+import { Document, TextSection, VariationsTable, createPropsFromKnobs, handleEvent } from '../../helpers/storybook';
 import { Input } from './index';
 
 
@@ -163,3 +166,47 @@ storiesOf('Elements|Input', module)
       }}
     />
   </Document>);
+
+const types = ['text', 'password', 'url', 'search', 'email', 'tel', 'url', 'textarea', 'select'];
+const props = createPropsFromKnobs({
+  disabled: false,
+  error: '',
+  help: '',
+  hidden: false,
+  icon: '',
+  invisible: false,
+  label: '',
+  placeholder: '',
+  required: false,
+  type: ['text', types],
+  value: '',
+  onChange: handleEvent('change'),
+});
+
+storiesOf('Elements|Input', module)
+  .addDecorator(jsxDecorator)
+  .addDecorator(withKnobs)
+  .addDecorator(centered)
+  .addParameters({ jest: ['spec'] })
+  .add('default', () => <Input {...props()} />)
+  .add('with placeholder', () => <Input {...props({ placeholder: 'Placeholder' })} />)
+  .add('with value', () => <Input {...props({ value: 'Value' })} />)
+  .add('disabled', () => <Input {...props({ disabled: true })} />)
+  .add('invisible', () => <Input {...props({ invisible: true })} />)
+  .add('hidden', () => <Input {...props({ hidden: true })} />)
+  .add('with label', () => <Input {...props({ label: 'Label' })} />)
+  .add('required', () => <Input {...props({ label: 'Label', required: true })} />)
+  .add('with error', () => <Input {...props({ error: 'Error' })} />)
+  .add('with label and error', () => <Input {...props({ label: 'Label', error: 'Error' })} />)
+  .add('with icon', () => <Input {...props({ icon: 'mail' })} />)
+  .add('with icon', () => <Input {...props({ icon: 'mail' })} />)
+  .add('of textarea type', () => <Input {...props({ type: ['textarea', types] })} />)
+  .add('of select type', () => <Input {...props({
+    type: ['select', types],
+    children: <>
+      <option value='A'>Item A</option>
+      <option value='B'>Item B</option>
+      <option value='C'>Item C</option>
+    </>,
+  })} />)
+  .add('uncontrolled', () => <Input {...props({ value: undefined })} />);

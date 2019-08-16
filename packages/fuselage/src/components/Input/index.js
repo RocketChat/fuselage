@@ -88,21 +88,21 @@ function Help(props) {
 }
 
 export const Input = React.forwardRef(function Input({
-  accessKey,
   error,
   help,
   hidden,
+  invisible,
   label,
   required,
   style,
   type = 'text',
   ...props
 }, ref) {
-  const inputClassName = useStyle(styles, 'rcx-input__container');
+  const inputContainerClassName = useStyle(styles, 'rcx-input__container', { invisible });
   const id = useUniqueId();
 
-  return <div className={inputClassName} hidden={hidden} style={style}>
-    {label && <Label htmlFor={props.id || id} accessKey={accessKey} error={error} required={required}>{label}</Label>}
+  return <div className={inputContainerClassName} hidden={hidden} style={style}>
+    {label && <Label htmlFor={props.id || id} error={error} required={required}>{label}</Label>}
 
     {(type === 'select' && <SelectInput error={!!error} id={id} ref={ref} {...props} />)
     || (type === 'textarea' && <TextAreaInput error={!!error} id={id} ref={ref} {...props} />)

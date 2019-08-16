@@ -56,17 +56,19 @@ $default-theme: (
 
 .rcx-input__container {
   @include reset;
+  @include hideable;
 
   display: flex;
 
   width: 100%;
+
+  transition: all var-dimension('short-transition-duration');
   flex-flow: column nowrap;
 }
 
 .rcx-input__element {
   @include reset;
   @include disableable;
-  @include hideable;
 
   width: 100%;
   min-width: 8rem;

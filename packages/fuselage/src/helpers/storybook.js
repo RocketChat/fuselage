@@ -41,6 +41,10 @@ export const createPropsFromKnobs = (defaults = {}, itemName = null) => (overrid
     }
 
     if (Array.isArray(defaultValue) && defaultValue.length === 2) {
+      if (Array.isArray(defaultValue[1])) {
+        return { ...props, [propName]: select(knobName, ['', ...defaultValue[1]], defaultValue[0]) };
+      }
+
       return { ...props, [propName]: select(knobName, { '': null, ...defaultValue[1] }, defaultValue[0]) };
     }
 
