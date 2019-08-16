@@ -82,4 +82,4 @@ workflows:
                 only: master
       - publish:
           requires:
-            - build
+            - loki
