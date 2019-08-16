@@ -1,5 +1,13 @@
 version: 2
 jobs:
+  publish:
+    docker:
+      - image: chinello/alpine-chrome:with-node
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: yarn lerna publish from-package
+
   build:
     docker:
       - image: circleci/node:10.15
@@ -67,3 +75,6 @@ workflows:
           filters:
               branches:
                 only: master
+      - publish:
+          requires:
+            - loki
