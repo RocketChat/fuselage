@@ -2,11 +2,11 @@
 
 $name: 'rcx-icon';
 
-.#{$name} {
+.rcx-icon {
   @include reset;
   @include used-in('../Button/styles.scss');
+  @include used-in('../Input/styles.scss');
   @include used-in('../SideBar/Header/styles.scss');
-  @include used-in('../TextInput/styles.scss');
 
   display: inline-block;
 
