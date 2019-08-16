@@ -1,6 +1,5 @@
 <h1 align="center">Welcome to Fuselage 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://lernajs.io/">
     <img alt="Lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" target="_blank" />
   </a>
