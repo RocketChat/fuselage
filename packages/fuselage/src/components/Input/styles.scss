@@ -57,6 +57,7 @@ $default-theme: (
 .rcx-input__container {
   @include reset;
   @include hideable;
+  @include used-in('../InputGroup/styles.scss');
 
   display: flex;
 
