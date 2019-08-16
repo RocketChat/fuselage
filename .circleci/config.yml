@@ -3,9 +3,9 @@ jobs:
   publish:
     docker:
       - image: chinello/alpine-chrome:with-node
-    working_directory: ~/repo
+    attach_workspace:
+      at: ~/repo
     steps:
-      - checkout
       - run:
           name: Authenticate with registry
           command: echo "//packagecloud.io/armando/node-test-package/npm/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
@@ -37,13 +37,11 @@ jobs:
   loki:
     docker:
       - image: chinello/alpine-chrome:with-node
-    working_directory: ~/repo
+    attach_workspace:
+      at: ~/repo
     environment:
       CHROME_PATH: /usr/bin/chromium-browser
     steps:
-      - checkout
-      - run: yarn
-      - run: yarn lerna run build --stream
       - run: yarn lerna run build-storybook --scope @rocket.chat/fuselage --stream
       - run:
           command: |
