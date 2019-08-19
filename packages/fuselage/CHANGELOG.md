@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.0...v0.2.0-alpha.2) (2019-08-19)
+
+
+### Bug Fixes
+
+* Don't embed the icon font ([#47](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/47)) ([e75bd25](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e75bd25))
+
+
+### Features
+
+* Add InputGroup component ([#48](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/48)) ([0830c8f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0830c8f))
+
+
+
+
+
 # [0.2.0-alpha.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.0...v0.2.0-alpha.1) (2019-08-16)
 
 
