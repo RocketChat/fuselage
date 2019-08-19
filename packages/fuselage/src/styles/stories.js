@@ -20,9 +20,9 @@ function ThemingTest() {
     <Helmet>
       <style type='text/css'>{`
       :root {
+        --rcx-button-basic-color: white;
+        --rcx-button-basic-background-color: olive;
         --rcx-button-primary-background-color: navy;
-        --rcx-button-secondary-background-color: turquoise;
-        --rcx-button-secondary-color: white;
         --rcx-button-danger-background-color: tomato;
       }
       `}</style>
@@ -30,8 +30,7 @@ function ThemingTest() {
     <ButtonGroup>
       <Button>One</Button>
       <Button primary>Two</Button>
-      <Button secondary>Three</Button>
-      <Button danger>Four</Button>
+      <Button primary danger>Three</Button>
     </ButtonGroup>
   </>;
 }
@@ -52,13 +51,11 @@ function ThemingReadme() {
       </p>
       <p>For instance, the following CSS code</p>
       <pre>{`:root {
-        --rcx-button-primary-background: navy;
-        --rcx-button-danger-background: tomato;
+        --rcx-button-primary-background-color: navy;
       }`}</pre>
       <p>
-        will enable <code>Button</code> elements which are decorated by <code>primary</code> and <code>danger</code>
-        properties to show a background of <span style={{ color: 'navy' }}>navy</span> and <span
-          style={{ color: 'tomato' }}>tomato</span> colors, respectively:
+        will enable <code>Button</code> elements which are decorated by <code>primary</code> property to show a
+        background of <span style={{ color: 'navy' }}>navy</span> color:
       </p>
     </TextSection>
     <ShowCaseSection>
@@ -67,7 +64,6 @@ function ThemingReadme() {
           <style type='text/css'>{`
           :root {
             --rcx-button-primary-background-color: navy;
-            --rcx-button-danger-background-color: tomato;
           }`}</style>
         </Helmet>
         <ButtonGroup>
@@ -86,8 +82,7 @@ function ThemingReadme() {
       <Helmet>
         <style type='text/css'>{\`
         :root {
-          --rcx-button-primary-background: navy;
-          --rcx-button-danger-background: tomato;
+          --rcx-button-primary-background-color: navy;
         }
         \`}</style>
       </Helmet>
