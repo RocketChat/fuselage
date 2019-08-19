@@ -16,7 +16,7 @@ const buildStorybook = async (packageName) => {
     });
   });
 
-  await run('node_modules/.bin/build-storybook', ['-o', path.join(__dirname, '../static', packageName)], {
+  await run('node_modules/.bin/build-storybook', ['-o', path.join(__dirname, '../static')], {
     stdio: 'inherit',
     cwd: path.join(__dirname, '../packages', packageName),
   });
@@ -27,8 +27,6 @@ const buildStorybook = async (packageName) => {
 
   console.log('Building static files directory...');
   await fs.ensureDir('static');
-  const html = '<!doctype html><meta http-equiv="Refresh" content="0; url=./fuselage/" />';
-  await fs.outputFile('static/index.html', html);
 
   console.log('Building Storybooks...');
   await buildStorybook('fuselage');
