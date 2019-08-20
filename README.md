@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Fuselage 👋</h1>
 <p>
-  <a href="https://lernajs.io/">
+  <a href="https://lerna.js.org/">
     <img alt="Lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" target="_blank" />
   </a>
   <a href="https://twitter.com/RocketChat">
