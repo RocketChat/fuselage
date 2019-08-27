@@ -199,7 +199,6 @@ storiesOf('Elements|Input', module)
   .add('with error', () => <Input {...props({ error: 'Error' })} />)
   .add('with label and error', () => <Input {...props({ label: 'Label', error: 'Error' })} />)
   .add('with icon', () => <Input {...props({ icon: 'mail' })} />)
-  .add('with icon', () => <Input {...props({ icon: 'mail' })} />)
   .add('of textarea type', () => <Input {...props({ type: ['textarea', types] })} />)
   .add('of select type', () => <Input {...props({
     type: ['select', types],
