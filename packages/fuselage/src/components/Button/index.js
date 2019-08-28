@@ -195,3 +195,4 @@ export const Button = styled(ButtonBase)`
   ${ primaryColorsVariant }
   ${ ghostColorsVariant }
 `;
+Button.displayName = 'Button';

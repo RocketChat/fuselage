@@ -31,3 +31,4 @@ export const Icon = styled(IconBase)`
     content: ${ ({ name }) => JSON.stringify(characters[mapNames[name]]) };
   }
 `;
+Icon.displayName = 'Icon';
