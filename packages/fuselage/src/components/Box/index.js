@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components';
 
+import { withProps } from '../../helpers/withProps';
 
-const mapProps = ({
+
+const UnstyledBox = withProps(styled.span, ({
   baseClassName,
   className,
+  invisible,
   ...props
 }) => ({
   className: [
@@ -14,9 +17,9 @@ const mapProps = ({
     className,
   ].filter(Boolean).join(' '),
   ...props,
-});
+}));
 
-export const Box = styled.span.attrs(mapProps)`
+export const Box = styled(UnstyledBox)`
   box-sizing: border-box;
   margin: 0;
   padding: 0;

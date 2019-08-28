@@ -21,6 +21,7 @@
     [
       "babel-plugin-styled-components",
       {
+        "displayName": false,
         "fileName": false
       }
     ]
