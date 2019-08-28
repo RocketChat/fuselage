@@ -8,14 +8,15 @@ import { withProps } from '../../helpers/withProps';
 
 const mapNames = Object.entries(names).reduce((map, [symbol, name]) => Object.assign(map, { [name]: symbol }), {});
 
-const UnstyledIcon = withProps(Box, ({ name, ...props }) => ({
+const IconBase = withProps(Box, ({ name, ...props }, ref) => ({
   'aria-hidden': 'true',
   as: 'i',
   baseClassName: 'rcx-icon',
   ...props,
+  ref,
 }));
 
-export const Icon = styled(UnstyledIcon)`
+export const Icon = styled(IconBase)`
   display: inline-block;
   font-family: 'RocketChat';
   font-weight: 400;

@@ -1,19 +1,12 @@
 import styled from 'styled-components';
 
-import { withProps } from '../../helpers/withProps';
 import typography from '../../tokens/typography';
 import { Box } from '../Box';
 
 
-const UnstyledText = withProps(Box, ({
-  fontName,
-  ...props
-}) => ({
-  ...props,
-}));
-
-export const Text = styled(UnstyledText)`
-  font-family: ${ ({ fontName = 'base' }) => typography.fonts[fontName] };
+export const Text = styled(Box)`
+  font-family: ${ ({ fontName = 'base' }) => typography[`${ fontName }Font`] };
   font-weight: 400;
   font-variant-numeric: tabular-nums;
+  text-decoration: none;
 `;

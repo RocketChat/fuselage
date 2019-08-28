@@ -109,7 +109,7 @@ storiesOf('Elements|Button', module)
   />)
   .add('as link', () => <Button
     {...props()}
-    as='a'
+    forwardedAs='a'
     href='https://rocket.chat'
     target='_blank'
     rel='noopener noreferrer'

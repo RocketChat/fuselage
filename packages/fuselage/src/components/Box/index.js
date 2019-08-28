@@ -1,25 +1,24 @@
 import styled, { css } from 'styled-components';
 
-import { withProps } from '../../helpers/withProps';
+import dimensions from '../../tokens/dimensions';
 
 
-const UnstyledBox = withProps(styled.span, ({
+export const Box = styled.span.attrs(({
   baseClassName,
   className,
   invisible,
+  modifiers = {},
   ...props
 }) => ({
   className: [
     baseClassName,
-    ...Object.entries(props).map(([modifier, value]) =>
+    ...Object.entries(modifiers).map(([modifier, value]) =>
       typeof value === 'boolean' && value && `${ baseClassName }--${ modifier }`,
     ),
     className,
   ].filter(Boolean).join(' '),
   ...props,
-}));
-
-export const Box = styled(UnstyledBox)`
+}))`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -27,7 +26,8 @@ export const Box = styled(UnstyledBox)`
   font-weight: normal;
   appearance: none;
   list-style: none;
-  transition: all 230ms;
+  transition: all ${ dimensions.shortTransitionDuration };
+  outline: none;
 
   &[hidden] {
     display: none;
