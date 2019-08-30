@@ -4,7 +4,14 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { jsxDecorator } from 'storybook-addon-jsx';
 
-import { createPropsFromKnobs, Document, VariationsTable, TextSection, handleEvent } from '../../helpers/storybook';
+import {
+  createPropsFromKnobs,
+  Document,
+  handleEvent,
+  ShowCaseSection,
+  TextSection,
+  VariationsTable,
+} from '../../helpers/storybook';
 import { ToggleSwitch } from './index';
 
 
@@ -17,8 +24,8 @@ storiesOf('Elements|ToggleSwitch', module)
       component={ToggleSwitch}
       common={{ onChange: () => {} }}
       xAxis={{
-        unchecked: { checked: false },
         checked: { checked: true },
+        unchecked: { checked: false },
       }}
       yAxis={{
         default: {},
@@ -28,6 +35,12 @@ storiesOf('Elements|ToggleSwitch', module)
         disabled: { disabled: true },
       }}
     />
+    <TextSection>
+      <h2>Uncontrolled</h2>
+    </TextSection>
+    <ShowCaseSection>
+      <ToggleSwitch />
+    </ShowCaseSection>
   </Document>);
 
 const props = createPropsFromKnobs({
@@ -48,7 +61,5 @@ storiesOf('Elements|ToggleSwitch', module)
   .add('default', () => <ToggleSwitch {...props()} />)
   .add('checked', () => <ToggleSwitch {...props({ checked: true })} />)
   .add('disabled', () => <ToggleSwitch {...props({ disabled: true })} />)
-  .add('invisible', () => <ToggleSwitch {...props({ invisible: true })} />)
   .add('hidden', () => <ToggleSwitch {...props({ hidden: true })} />)
-  .add('with label', () => <ToggleSwitch {...props({ label: 'Label' })} />)
-  .add('uncontrolled', () => <ToggleSwitch {...props({ checked: undefined })} />);
+  .add('invisible', () => <ToggleSwitch {...props({ invisible: true })} />);

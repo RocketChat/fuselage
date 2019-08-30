@@ -4,7 +4,14 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { jsxDecorator } from 'storybook-addon-jsx';
 
-import { createPropsFromKnobs, Document, VariationsTable, TextSection, handleEvent } from '../../helpers/storybook';
+import {
+  createPropsFromKnobs,
+  Document,
+  handleEvent,
+  ShowCaseSection,
+  TextSection,
+  VariationsTable,
+} from '../../helpers/storybook';
 import { CheckBox } from './index';
 
 
@@ -13,14 +20,13 @@ storiesOf('Elements|CheckBox', module)
     <TextSection>
       <h1>CheckBox</h1>
     </TextSection>
-    <TextSection>
-      <h2>Checked</h2>
-    </TextSection>
     <VariationsTable
       component={CheckBox}
-      common={{ checked: true, onChange: () => {} }}
+      common={{ onChange: () => {} }}
       xAxis={{
-        default: {},
+        checked: { checked: true },
+        unchecked: { checked: false },
+        indeterminate: { indeterminate: true },
         'with label': { label: 'Label' },
       }}
       yAxis={{
@@ -32,41 +38,11 @@ storiesOf('Elements|CheckBox', module)
       }}
     />
     <TextSection>
-      <h2>Indeterminate</h2>
+      <h2>Uncontrolled</h2>
     </TextSection>
-    <VariationsTable
-      component={CheckBox}
-      common={{ indeterminate: true, onChange: () => {} }}
-      xAxis={{
-        default: {},
-        'with label': { label: 'Label' },
-      }}
-      yAxis={{
-        default: { },
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
-        disabled: { disabled: true },
-      }}
-    />
-    <TextSection>
-      <h2>Unchecked</h2>
-    </TextSection>
-    <VariationsTable
-      component={CheckBox}
-      common={{ checked: false, onChange: () => {} }}
-      xAxis={{
-        default: {},
-        'with label': { label: 'Label' },
-      }}
-      yAxis={{
-        default: { },
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
-        disabled: { disabled: true },
-      }}
-    />
+    <ShowCaseSection>
+      <CheckBox />
+    </ShowCaseSection>
   </Document>);
 
 const props = createPropsFromKnobs({
@@ -85,11 +61,10 @@ storiesOf('Elements|CheckBox', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['spec'] })
-  .add('default', () => <CheckBox {...props()} />)
+  .add('unchecked', () => <CheckBox {...props()} />)
   .add('checked', () => <CheckBox {...props({ checked: true })} />)
   .add('indeterminate', () => <CheckBox {...props({ indeterminate: true })} />)
   .add('disabled', () => <CheckBox {...props({ disabled: true })} />)
-  .add('invisible', () => <CheckBox {...props({ invisible: true })} />)
-  .add('hidden', () => <CheckBox {...props({ hidden: true })} />)
   .add('with label', () => <CheckBox {...props({ label: 'Label' })} />)
-  .add('uncontrolled', () => <CheckBox {...props({ checked: undefined })} />);
+  .add('hidden', () => <CheckBox {...props({ hidden: true })} />)
+  .add('invisible', () => <CheckBox {...props({ invisible: true })} />);
