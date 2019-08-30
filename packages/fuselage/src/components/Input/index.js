@@ -18,7 +18,7 @@ const TextInput = React.forwardRef(function TextInput({
   if (icon) {
     return <span className={inputWrapperClassName}>
       <input className={inputElementClassName} ref={ref} {...props} />
-      <Icon name={icon} />
+      <Icon iconName={icon} />
     </span>;
   }
 
@@ -37,7 +37,7 @@ const TextAreaInput = React.forwardRef(function TextAreaInput({
   if (icon) {
     return <span className={inputWrapperClassName}>
       <textarea className={inputElementClassName} ref={ref} {...props} />
-      <Icon name={icon} />
+      <Icon iconName={icon} />
     </span>;
   }
 
@@ -61,7 +61,7 @@ const SelectInput = React.forwardRef(function SelectInput({
       <option value='' className={inputElementPlaceholderOptionClassName}>{placeholder}</option>
       {children}
     </select>
-    <Icon name='arrow-down' />
+    <Icon iconName='arrow-down' />
   </span>;
 });
 

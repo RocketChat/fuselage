@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 
-import { withProps } from '../../helpers/withProps';
+import { rebuildClassName } from '../../helpers/rebuildClassName';
 import { disableable } from '../../mixins/disableable';
+import { reset } from '../../mixins/reset';
 import { unselectable } from '../../mixins/unselectable';
+import { withText } from '../../mixins/withText';
 import { Icon } from '../Icon';
-import { Text } from '../Text';
 import theme from './theme';
 
 
@@ -147,29 +148,11 @@ const ghostColorsVariant = ({ ghost }) => ghost && colorsVariant({
   backgroundColor: 'transparent',
 });
 
-const ButtonBase = withProps(Text, ({
-  danger,
-  ghost,
-  primary,
-  small,
-  square,
-  ...props
-}) => ({
-  as: 'button',
-  baseClassName: 'rcx-button',
-  modifiers: {
-    danger,
-    ghost,
-    primary,
-    small,
-    square,
-  },
-  ...props,
-}));
-
-export const Button = styled(ButtonBase)`
+export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
+  ${ reset }
   ${ disableable }
   ${ unselectable }
+  ${ withText }
 
   display: inline-block;
 

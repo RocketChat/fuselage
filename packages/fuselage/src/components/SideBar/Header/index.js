@@ -26,7 +26,7 @@ export function SideBarHeader({
 
     {closeable && (
       <button className={sideBarHeaderButtonClassName} onClick={onClosing}>
-        <Icon name={cross} />
+        <Icon iconName={cross} />
       </button>
     )}
   </div>;

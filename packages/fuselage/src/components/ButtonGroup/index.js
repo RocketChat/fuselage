@@ -1,11 +1,14 @@
 import styled, { css } from 'styled-components';
 
-import { Box } from '../Box';
+import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { reset } from '../../mixins/reset';
 import { Button } from '../Button';
 import theme from './theme';
 
 
-export const ButtonGroup = styled(Box)`
+export const ButtonGroup = styled.div.attrs(rebuildClassName('rcx-button-group'))`
+  ${ reset }
+
   display: flex;
 
   margin: calc(-1 * ${ theme.gutter }) 0 0 calc(-1 * ${ theme.gutter });
