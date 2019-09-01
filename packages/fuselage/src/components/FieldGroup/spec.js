@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { InputGroup } from './index';
+import { FieldGroup } from './index';
 
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<InputGroup />, div);
+  ReactDOM.render(<FieldGroup />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

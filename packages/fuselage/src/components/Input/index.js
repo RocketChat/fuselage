@@ -1,113 +1,278 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 
-import { useStyle } from '../../hooks/styles';
+import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { reset } from '../../mixins/reset';
+import { disableable } from '../../mixins/disableable';
 import { Icon } from '../Icon';
-import styles from './styles.scss';
-import { useUniqueId } from '../../hooks/useUniqueId';
+import theme from './theme';
+import { withText } from '../../mixins/withText';
+import { scrollable } from '../../mixins/scrollable';
+import { whenRightToLeftOrientation } from '../../mixins/whenRightToLeftOrientation';
 
+
+const Wrapper = styled.span.attrs(rebuildClassName('rcx-input__wrapper'))`
+  ${ reset }
+
+  position: relative;
+
+  display: inline-flex;
+
+  width: 100%;
+`;
+
+const colorsVariant = ({
+  color,
+  borderColor,
+  backgroundColor,
+  placeholderColor,
+  hoverBorderColor,
+  focusBorderColor,
+  focusShadowColor,
+  focusCaretColor,
+  activeBorderColor,
+  activeCaretColor,
+  disabledColor,
+  disabledBorderColor,
+  disabledBackgroundColor,
+}) => css`
+  color: ${ color };
+  border-color: ${ borderColor };
+  background-color: ${ backgroundColor };
+
+  &::placeholder {
+    color: ${ placeholderColor };
+  }
+
+  ${ ({ hasPlaceholder }) => hasPlaceholder && css`
+    color: ${ placeholderColor };
+  ` }
+
+  &:hover,
+  &.hover {
+    border-color: ${ hoverBorderColor };
+  }
+
+  &:focus,
+  &.focus {
+    border-color: ${ focusBorderColor };
+    box-shadow: 0 0 0 6px ${ focusShadowColor };
+    caret-color: ${ focusCaretColor };
+  }
+
+  &:active,
+  &.active {
+    border-color: ${ activeBorderColor };
+    box-shadow: none;
+    caret-color: ${ activeCaretColor };
+  }
+
+  &:disabled {
+    color: ${ disabledColor };
+    border-color: ${ disabledBorderColor };
+    background-color: ${ disabledBackgroundColor };
+
+    ${ ({ hasPlaceholder }) => hasPlaceholder && css`
+      color: ${ placeholderColor };
+    ` }
+  }
+`;
+
+const normalColorsVariant = () => colorsVariant({
+  color: theme.color,
+  borderColor: theme.borderColor,
+  backgroundColor: theme.backgroundColor,
+  placeholderColor: theme.placeholderColor,
+  hoverBorderColor: theme.hoverBorderColor,
+  focusBorderColor: theme.focusBorderColor,
+  focusShadowColor: theme.focusShadowColor,
+  focusCaretColor: theme.focusCaretColor,
+  activeBorderColor: theme.activeBorderColor,
+  activeCaretColor: theme.activeCaretColor,
+  disabledColor: theme.disabledColor,
+  disabledBorderColor: theme.disabledBorderColor,
+  disabledBackgroundColor: theme.disabledBackgroundColor,
+});
+
+const errorColorsVariant = () => colorsVariant({
+  color: theme.errorColor,
+  borderColor: theme.errorBorderColor,
+  placeholderColor: theme.placeholderColor,
+  hoverBorderColor: theme.errorBorderColor,
+  focusBorderColor: theme.errorBorderColor,
+  focusShadowColor: theme.errorFocusShadowColor,
+  activeBorderColor: theme.activeBorderColor,
+  activeCaretColor: theme.activeCaretColor,
+});
+
+const inputBoxStyle = () => css`
+  ${ reset }
+  ${ disableable }
+  ${ withText }
+
+  width: 100%;
+  min-width: 8rem;
+
+  padding: ${ theme.padding };
+
+  resize: none;
+
+  text-overflow: ellipsis;
+
+  border-width: ${ theme.borderWidth };
+  border-style: solid;
+  border-radius: ${ theme.borderRadius };
+
+  outline: none;
+
+  font-family: ${ theme.fontFamily };
+  font-size: ${ theme.fontSize };
+  font-weight: ${ theme.fontWeight };
+  line-height: ${ theme.lineHeight };
+
+  ${ normalColorsVariant }
+
+  &:invalid {
+    ${ errorColorsVariant }
+  }
+
+  ${ ({ hasError }) => hasError && errorColorsVariant() }
+`;
+
+const iconInputBoxStyle = () => css`
+  ${ Wrapper } > & {
+    padding-right: calc(2 * ${ theme.iconMarginHorizontal } + ${ theme.iconSize } - 2 * ${ theme.borderWidth });
+
+    & + ${ Icon } {
+      position: absolute;
+      top: ${ theme.iconMarginVertical };
+      right: ${ theme.iconMarginHorizontal };
+
+      pointer-events: none;
+
+      color: ${ theme.iconColor };
+
+      font-size: ${ theme.iconSize };
+    }
+
+    ${ whenRightToLeftOrientation(() => css`
+      padding: ${ theme.padding };
+      padding-left: calc(2 * ${ theme.iconMarginHorizontal } + ${ theme.iconSize } - 2 * ${ theme.borderWidth });
+
+      & + ${ Icon } {
+        right: unset;
+        left: ${ theme.iconMarginHorizontal };
+      }
+    `) }
+
+    &:not(:disabled):focus + ${ Icon },
+    &:not(:disabled).focus + ${ Icon } {
+      color: ${ theme.focusIconColor };
+    }
+
+    &:disabled + ${ Icon } {
+      color: ${ theme.disabledIconColor };
+    }
+
+    &:invalid + ${ Icon } {
+      color: ${ theme.errorIconColor };
+    }
+
+    ${ ({ hasError }) => hasError && css`
+      & + ${ Icon } {
+        color: ${ theme.errorIconColor };
+      }
+    ` }
+
+    &:invalid:not(:disabled):focus + ${ Icon },
+    &:invalid:not(:disabled).focus + ${ Icon } {
+      color: ${ theme.errorIconColor };
+    }
+
+    ${ ({ hasError }) => hasError && css`
+      &:not(:disabled):focus + ${ Icon },
+      &:not(:disabled).focus + ${ Icon } {
+        color: ${ theme.errorIconColor };
+      }
+    ` }
+  }
+`;
+
+const TextInputElement = styled.input.attrs(rebuildClassName('rcx-input'))`
+  ${ inputBoxStyle }
+  ${ iconInputBoxStyle }
+`;
 
 const TextInput = React.forwardRef(function TextInput({
-  className,
-  error,
   icon,
   ...props
 }, ref) {
-  const inputWrapperClassName = useStyle(styles, 'rcx-input__wrapper');
-  const inputElementClassName = useStyle(styles, 'rcx-input__element', { error }, className);
-
   if (icon) {
-    return <span className={inputWrapperClassName}>
-      <input className={inputElementClassName} ref={ref} {...props} />
+    return <Wrapper>
+      <TextInputElement ref={ref} {...props} />
       <Icon iconName={icon} />
-    </span>;
+    </Wrapper>;
   }
 
-  return <input className={inputElementClassName} ref={ref} {...props} />;
+  return <TextInputElement ref={ref} {...props} />;
 });
+
+const TextAreaElement = styled.textarea.attrs(rebuildClassName('rcx-input'))`
+  ${ inputBoxStyle }
+  ${ iconInputBoxStyle }
+  ${ scrollable }
+`;
 
 const TextAreaInput = React.forwardRef(function TextAreaInput({
-  className,
-  error,
   icon,
   ...props
 }, ref) {
-  const inputWrapperClassName = useStyle(styles, 'rcx-input__wrapper');
-  const inputElementClassName = useStyle(styles, 'rcx-input__element', { error }, className);
-
   if (icon) {
-    return <span className={inputWrapperClassName}>
-      <textarea className={inputElementClassName} ref={ref} {...props} />
+    return <Wrapper>
+      <TextAreaElement ref={ref} {...props} />
       <Icon iconName={icon} />
-    </span>;
+    </Wrapper>;
   }
 
-  return <textarea className={inputElementClassName} ref={ref} {...props} />;
+  return <TextAreaElement ref={ref} {...props} />;
 });
+
+const SelectElement = styled.select.attrs(rebuildClassName('rcx-input'))`
+  ${ inputBoxStyle }
+  ${ iconInputBoxStyle }
+  ${ scrollable }
+
+  & > option {
+    color: ${ theme.color };
+  }
+`;
+
+const PlaceholderOption = styled.option.attrs(rebuildClassName('rcx-input__placeholder'))`
+  ${ SelectElement } > & {
+    color: ${ theme.placeholderColor };
+  }
+`;
 
 const SelectInput = React.forwardRef(function SelectInput({
   children,
-  className,
-  error,
   placeholder,
-  value,
   ...props
 }, ref) {
-  const inputWrapperClassName = useStyle(styles, 'rcx-input__wrapper');
-  const inputElementClassName = useStyle(styles, 'rcx-input__element', { error, placeholder: !value }, className);
-  const inputElementPlaceholderOptionClassName = useStyle(styles, 'rcx-input__element-placeholder');
-
-  return <span className={inputWrapperClassName}>
-    <select className={inputElementClassName} ref={ref} value={value} {...props}>
-      <option value='' className={inputElementPlaceholderOptionClassName}>{placeholder}</option>
+  return <Wrapper>
+    <SelectElement hasPlaceholder={!!placeholder} ref={ref} {...props}>
+      <PlaceholderOption value=''>{placeholder}</PlaceholderOption>
       {children}
-    </select>
+    </SelectElement>
     <Icon iconName='arrow-down' />
-  </span>;
+  </Wrapper>;
 });
-
-function Label({
-  children,
-  error,
-  required,
-  ...props
-}) {
-  const labelClassName = useStyle(styles, 'rcx-input__label', { required });
-  const labelTextClassName = useStyle(styles, 'rcx-input__label-text');
-  const labelErrorClassName = useStyle(styles, 'rcx-input__label-error');
-
-  return <label className={labelClassName} {...props}>
-    <span className={labelTextClassName}>{children}</span>
-    <span className={labelErrorClassName}>{error}</span>
-  </label>;
-}
-
-function Help(props) {
-  const helpClassName = useStyle(styles, 'rcx-input__help');
-
-  return <span className={helpClassName} {...props} />;
-}
 
 export const Input = React.forwardRef(function Input({
   error,
-  help,
-  hidden,
-  invisible,
-  label,
-  required,
-  style,
   type = 'text',
   ...props
 }, ref) {
-  const inputContainerClassName = useStyle(styles, 'rcx-input__container', { invisible });
-  const id = useUniqueId();
-
-  return <div className={inputContainerClassName} hidden={hidden} style={style}>
-    {label && <Label htmlFor={props.id || id} error={error} required={required}>{label}</Label>}
-
-    {(type === 'select' && <SelectInput error={!!error} id={id} ref={ref} {...props} />)
-    || (type === 'textarea' && <TextAreaInput error={!!error} id={id} ref={ref} {...props} />)
-    || <TextInput error={!!error} ref={ref} id={id} type={type} {...props} />}
-
-    {help && <Help>{help}</Help>}
-  </div>;
+  return (type === 'select' && <SelectInput hasError={error} ref={ref} {...props} />)
+    || (type === 'textarea' && <TextAreaInput hasError={error} ref={ref} {...props} />)
+    || <TextInput hasError={error} ref={ref} type={type} {...props} />;
 });

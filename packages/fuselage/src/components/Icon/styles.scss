@@ -1,7 +1,0 @@
-@import '../../helpers/mixins.scss';
-
-.rcx-icon {
-  @include used-in('../Button/styles.scss', 'rcx-icon');
-  @include used-in('../Input/styles.scss', 'rcx-icon');
-  @include used-in('../SideBar/Header/styles.scss', 'rcx-icon');
-}
