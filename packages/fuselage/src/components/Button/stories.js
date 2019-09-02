@@ -25,9 +25,9 @@ storiesOf('Elements|Button', module)
       component={Button}
       xAxis={{
         text: { children: 'Button' },
-        'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
-        'text + icon': { children: <><Icon name='circled-arrow-down' /> Button</> },
-        'text + icon + danger': { children: <><Icon name='circled-arrow-down' /> Button</>, danger: true },
+        'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },
+        'text + icon': { children: <><Icon iconName='circled-arrow-down' /> Button</> },
+        'text + icon + danger': { children: <><Icon iconName='circled-arrow-down' /> Button</>, danger: true },
       }}
       yAxis={{
         default: {},
@@ -45,9 +45,9 @@ storiesOf('Elements|Button', module)
       common={{ primary: true }}
       xAxis={{
         text: { children: 'Button' },
-        'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
-        'text + icon': { children: <><Icon name='circled-arrow-down' /> Button</> },
-        'text + icon + danger': { children: <><Icon name='circled-arrow-down' /> Button</>, danger: true },
+        'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },
+        'text + icon': { children: <><Icon iconName='circled-arrow-down' /> Button</> },
+        'text + icon + danger': { children: <><Icon iconName='circled-arrow-down' /> Button</>, danger: true },
       }}
       yAxis={{
         default: {},
@@ -65,9 +65,9 @@ storiesOf('Elements|Button', module)
       common={{ ghost: true }}
       xAxis={{
         text: { children: 'Button' },
-        'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
-        'text + icon': { children: <><Icon name='circled-arrow-down' /> Button</> },
-        'text + icon + danger': { children: <><Icon name='circled-arrow-down' /> Button</>, danger: true },
+        'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },
+        'text + icon': { children: <><Icon iconName='circled-arrow-down' /> Button</> },
+        'text + icon + danger': { children: <><Icon iconName='circled-arrow-down' /> Button</>, danger: true },
       }}
       yAxis={{
         default: {},
@@ -82,6 +82,7 @@ storiesOf('Elements|Button', module)
 const props = createPropsFromKnobs({
   danger: false,
   ghost: false,
+  hidden: false,
   invisible: false,
   primary: false,
   small: false,
@@ -103,18 +104,20 @@ storiesOf('Elements|Button', module)
   .add('with icon', () => <Button
     {...props({
       children: <>
-        <Icon name={select('children/icon', icons, icons.edit)} /> {text('children/text', 'Edit')}
+        <Icon iconName={select('children/icon', icons, icons.edit)} /> {text('children/text', 'Edit')}
       </>,
     })}
   />)
   .add('as link', () => <Button
     {...props()}
-    as='a'
+    forwardedAs='a'
     href='https://rocket.chat'
     target='_blank'
     rel='noopener noreferrer'
   />
   )
   .add('square', () => (
-    <Button {...props({ square: true, children: <Icon name={select('children/icon', icons, icons.plus)} /> })} />
-  ));
+    <Button {...props({ square: true, children: <Icon iconName={select('children/icon', icons, icons.plus)} /> })} />
+  ))
+  .add('hidden', () => <Button {...props({ hidden: true })} />)
+  .add('invisible', () => <Button {...props({ invisible: true })} />);

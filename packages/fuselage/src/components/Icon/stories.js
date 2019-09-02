@@ -66,7 +66,7 @@ storiesOf('Elements|Icon', module)
           direction={select('direction', ['ltr', 'rtl'], 'ltr')}
           size={number('size', 40)}
         >
-          <Icon name={name} />
+          <Icon iconName={name} />
         </IconDisplay>
       ))}
     </div>
@@ -79,14 +79,14 @@ Object.entries(iconNames).forEach(([varName, name]) => {
     .addParameters({ jest: ['spec'] })
     .add(varName, () => <>
       <Icon
-        name={name}
+        iconName={name}
         style={{
           color: color('color', 'gray'),
           fontSize: number('fontSize', 40),
         }}
       />
       <Icon
-        name={name}
+        iconName={name}
         style={{
           color: color('color', 'gray'),
           fontSize: number('fontSize', 40),

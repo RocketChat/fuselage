@@ -4,7 +4,14 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { jsxDecorator } from 'storybook-addon-jsx';
 
-import { createPropsFromKnobs, Document, TextSection, VariationsTable, handleEvent } from '../../helpers/storybook';
+import {
+  createPropsFromKnobs,
+  Document,
+  handleEvent,
+  ShowCaseSection,
+  TextSection,
+  VariationsTable,
+} from '../../helpers/storybook';
 import { RadioButton } from './index';
 
 storiesOf('Elements|RadioButton', module)
@@ -12,14 +19,12 @@ storiesOf('Elements|RadioButton', module)
     <TextSection>
       <h1>RadioButton</h1>
     </TextSection>
-    <TextSection>
-      <h2>Checked</h2>
-    </TextSection>
     <VariationsTable
       component={RadioButton}
-      common={{ checked: true, onChange: () => {} }}
+      common={{ onChange: () => {} }}
       xAxis={{
-        default: {},
+        checked: { checked: true },
+        unchecked: { checked: false },
         'with label': { label: 'Label' },
       }}
       yAxis={{
@@ -31,23 +36,11 @@ storiesOf('Elements|RadioButton', module)
       }}
     />
     <TextSection>
-      <h2>Unchecked</h2>
+      <h2>Uncontrolled</h2>
     </TextSection>
-    <VariationsTable
-      component={RadioButton}
-      common={{ checked: false, onChange: () => {} }}
-      xAxis={{
-        default: {},
-        'with label': { label: 'Label' },
-      }}
-      yAxis={{
-        default: { },
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
-        disabled: { disabled: true },
-      }}
-    />
+    <ShowCaseSection>
+      <RadioButton />
+    </ShowCaseSection>
   </Document>);
 
 
@@ -69,7 +62,6 @@ storiesOf('Elements|RadioButton', module)
   .add('default', () => <RadioButton {...props()} />)
   .add('checked', () => <RadioButton {...props({ checked: true })} />)
   .add('disabled', () => <RadioButton {...props({ disabled: true })} />)
-  .add('invisible', () => <RadioButton {...props({ invisible: true })} />)
-  .add('hidden', () => <RadioButton {...props({ hidden: true })} />)
   .add('with label', () => <RadioButton {...props({ label: 'Label' })} />)
-  .add('uncontrolled', () => <RadioButton {...props({ checked: undefined })} />);
+  .add('hidden', () => <RadioButton {...props({ hidden: true })} />)
+  .add('invisible', () => <RadioButton {...props({ invisible: true })} />);

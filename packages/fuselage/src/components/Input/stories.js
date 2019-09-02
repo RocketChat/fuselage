@@ -19,7 +19,7 @@ storiesOf('Elements|Input', module)
     </TextSection>
     <TextSection>
       <h2>Input types</h2>
-      <p>The `type` property defines how and whick kind of user input will be collected on <code>Input</code>.</p>
+      <p>The <code>type</code> property defines how and whick kind of user input will be collected on <code>Input</code>.</p>
     </TextSection>
     <TextSection>
       <h3><code>type='text'</code></h3>
@@ -43,10 +43,10 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { error: 'Error' },
-        'error + hover': { error: 'Error', className: 'hover' },
-        'error + active': { error: 'Error', className: 'active' },
-        'error + focus': { error: 'Error', className: 'focus' },
+        error: { hasError: true },
+        'error + hover': { hasError: true, className: 'hover' },
+        'error + active': { hasError: true, className: 'active' },
+        'error + focus': { hasError: true, className: 'focus' },
       }}
     />
     <TextSection>
@@ -71,10 +71,10 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { error: 'Error' },
-        'error + hover': { error: 'Error', className: 'hover' },
-        'error + active': { error: 'Error', className: 'active' },
-        'error + focus': { error: 'Error', className: 'focus' },
+        error: { hasError: true },
+        'error + hover': { hasError: true, className: 'hover' },
+        'error + active': { hasError: true, className: 'active' },
+        'error + focus': { hasError: true, className: 'focus' },
       }}
     />
     <TextSection>
@@ -99,10 +99,10 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { error: 'Error' },
-        'error + hover': { error: 'Error', className: 'hover' },
-        'error + active': { error: 'Error', className: 'active' },
-        'error + focus': { error: 'Error', className: 'focus' },
+        error: { hasError: true },
+        'error + hover': { hasError: true, className: 'hover' },
+        'error + active': { hasError: true, className: 'active' },
+        'error + focus': { hasError: true, className: 'focus' },
       }}
     />
     <TextSection>
@@ -131,38 +131,10 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { error: 'Error' },
-        'error + hover': { error: 'Error', className: 'hover' },
-        'error + active': { error: 'Error', className: 'active' },
-        'error + focus': { error: 'Error', className: 'focus' },
-      }}
-    />
-    <TextSection>
-      <h2>Add-ons</h2>
-      <p>The <code>Input</code> component can be equipped with form-related elements, like label and help text.</p>
-    </TextSection>
-    <VariationsTable
-      component={Input}
-      common={{
-        type: 'text',
-        value: '',
-        onChange: () => {},
-      }}
-      xAxis={{
-        'with label': { label: 'Label' },
-        required: { label: 'Label', required: true },
-        'with help': { help: 'Help text' },
-      }}
-      yAxis={{
-        default: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
-        disabled: { disabled: true },
-        error: { error: 'Error' },
-        'error + hover': { error: 'Error', className: 'hover' },
-        'error + active': { error: 'Error', className: 'active' },
-        'error + focus': { error: 'Error', className: 'focus' },
+        error: { hasError: true },
+        'error + hover': { hasError: true, className: 'hover' },
+        'error + active': { hasError: true, className: 'active' },
+        'error + focus': { hasError: true, className: 'focus' },
       }}
     />
   </Document>);
@@ -170,8 +142,7 @@ storiesOf('Elements|Input', module)
 const types = ['text', 'password', 'url', 'search', 'email', 'tel', 'url', 'textarea', 'select'];
 const props = createPropsFromKnobs({
   disabled: false,
-  error: '',
-  help: '',
+  hasError: false,
   hidden: false,
   icon: '',
   invisible: false,
@@ -192,12 +163,7 @@ storiesOf('Elements|Input', module)
   .add('with placeholder', () => <Input {...props({ placeholder: 'Placeholder' })} />)
   .add('with value', () => <Input {...props({ value: 'Value' })} />)
   .add('disabled', () => <Input {...props({ disabled: true })} />)
-  .add('invisible', () => <Input {...props({ invisible: true })} />)
-  .add('hidden', () => <Input {...props({ hidden: true })} />)
-  .add('with label', () => <Input {...props({ label: 'Label' })} />)
-  .add('required', () => <Input {...props({ label: 'Label', required: true })} />)
-  .add('with error', () => <Input {...props({ error: 'Error' })} />)
-  .add('with label and error', () => <Input {...props({ label: 'Label', error: 'Error' })} />)
+  .add('with error', () => <Input {...props({ hasError: true })} />)
   .add('with icon', () => <Input {...props({ icon: 'mail' })} />)
   .add('of textarea type', () => <Input {...props({ type: ['textarea', types] })} />)
   .add('of select type', () => <Input {...props({
@@ -208,4 +174,5 @@ storiesOf('Elements|Input', module)
       <option value='C'>Item C</option>
     </>,
   })} />)
-  .add('uncontrolled', () => <Input {...props({ value: undefined })} />);
+  .add('hidden', () => <Input {...props({ hidden: true })} />)
+  .add('invisible', () => <Input {...props({ invisible: true })} />);

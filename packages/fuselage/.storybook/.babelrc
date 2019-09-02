@@ -16,5 +16,14 @@
       }
     ],
     "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "displayName": false,
+        "fileName": false
+      }
+    ]
   ]
 }
