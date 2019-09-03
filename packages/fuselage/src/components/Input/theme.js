@@ -27,10 +27,11 @@ export default createTheme('rcx-input', {
   disabledIconColor: colors.dark500,
 
   text: createTheme('rcx-input', {
-    fontFamily: typography.boldParagraph.fontFamily,
-    fontSize: typography.boldParagraph.fontSize,
-    fontWeight: typography.boldParagraph.fontWeight,
-    lineHeight: typography.boldParagraph.lineHeight,
+    fontFamily: typography.variants.boldParagraph.fontFamily,
+    fontSize: typography.variants.boldParagraph.fontSize,
+    fontWeight: typography.variants.boldParagraph.fontWeight,
+    letterSpacing: typography.variants.boldParagraph.letterSpacing,
+    lineHeight: typography.variants.boldParagraph.lineHeight,
   }),
 
   errorColor: colors.red500,

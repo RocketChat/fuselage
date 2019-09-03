@@ -4,14 +4,16 @@ import typography from '../tokens/typography';
 
 
 export default createTheme('rcx-typography', {
-  headline: createTheme('rcx-typography-headline', typography.headline),
-  subtitle: createTheme('rcx-typography-subtitle', typography.subtitle),
-  boldSubtitle: createTheme('rcx-typography-bold-subtitle', typography.boldSubtitle),
-  paragraph: createTheme('rcx-typography-paragraph', typography.paragraph),
-  boldParagraph: createTheme('rcx-typography-bold-paragraph', typography.boldParagraph),
-  caption: createTheme('rcx-typography-caption', typography.caption),
-  boldCaption: createTheme('rcx-typography-bold-caption', typography.boldCaption),
-  micro: createTheme('rcx-typography-micro', typography.micro),
+  variants: {
+    headline: createTheme('rcx-typography-headline', typography.headline),
+    subtitle: createTheme('rcx-typography-subtitle', typography.subtitle),
+    boldSubtitle: createTheme('rcx-typography-bold-subtitle', typography.boldSubtitle),
+    paragraph: createTheme('rcx-typography-paragraph', typography.paragraph),
+    boldParagraph: createTheme('rcx-typography-bold-paragraph', typography.boldParagraph),
+    caption: createTheme('rcx-typography-caption', typography.caption),
+    boldCaption: createTheme('rcx-typography-bold-caption', typography.boldCaption),
+    micro: createTheme('rcx-typography-micro', typography.micro),
+  },
 
   colors: createTheme('rcx-typography-colors', {
     default: colors.dark800,

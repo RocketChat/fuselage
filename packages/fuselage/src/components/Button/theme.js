@@ -8,10 +8,10 @@ export default createTheme('rcx-button', {
   borderRadius: dimensions.borderRadius,
 
   mediumSize: createTheme('rcx-button-medium', {
-    fontFamily: typography.boldParagraph.fontFamily,
-    fontSize: typography.boldParagraph.fontSize,
-    fontWeight: typography.boldParagraph.fontWeight,
-    lineHeight: typography.boldParagraph.lineHeight,
+    fontFamily: typography.variants.boldParagraph.fontFamily,
+    fontSize: typography.variants.boldParagraph.fontSize,
+    fontWeight: typography.variants.boldParagraph.fontWeight,
+    lineHeight: typography.variants.boldParagraph.lineHeight,
     iconSize: '1rem',
     height: '2.5rem',
     paddingVertical: '0.5rem',
@@ -19,10 +19,10 @@ export default createTheme('rcx-button', {
   }),
 
   smallSize: createTheme('rcx-button-small', {
-    fontFamily: typography.boldCaption.fontFamily,
-    fontSize: typography.boldCaption.fontSize,
-    fontWeight: typography.boldCaption.fontWeight,
-    lineHeight: typography.boldCaption.lineHeight,
+    fontFamily: typography.variants.boldCaption.fontFamily,
+    fontSize: typography.variants.boldCaption.fontSize,
+    fontWeight: typography.variants.boldCaption.fontWeight,
+    lineHeight: typography.variants.boldCaption.lineHeight,
     iconSize: '0.75rem',
     height: '2rem',
     paddingVertical: '0.375rem',

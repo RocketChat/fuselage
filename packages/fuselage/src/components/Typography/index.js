@@ -1,32 +1,10 @@
-import { css } from 'styled-components';
+import styled from 'styled-components';
 
-import typography from '../theme/typography';
+import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { reset } from '../../mixins/reset';
+import { withTextVariant, withTextAlignment, withTextColor } from '../../mixins/withText';
+import typography from '../../theme/typography';
 
-
-export const withTextVariant = ({
-  fontFamily,
-  fontSize,
-  fontWeight = 'normal',
-  letterSpacing = 0,
-  lineHeight,
-}) => css`
-  font-family: ${ fontFamily };
-  font-size: ${ fontSize };
-  font-variant-numeric: tabular-nums;
-  font-weight: ${ fontWeight };
-  letter-spacing: ${ letterSpacing };
-  line-height: ${ lineHeight };
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: auto;
-  text-decoration: none;
-`;
-
-export const withTextAlignment = (textAlignment) =>
-  textAlignment && css`text-align: ${ textAlignment };`;
-
-export const withTextColor = (textColor) =>
-  textColor && css`color: ${ textColor };`;
 
 const textVariants = ({ textVariant }) =>
   (textVariant === 'headline' && withTextVariant(typography.variants.headline))
@@ -53,7 +31,33 @@ const textColorVariants = ({ textColor }) =>
   || (textColor === 'alternative' && withTextColor(typography.colors.alternative))
   || withTextColor(typography.colors.default);
 
-export const withText = css`
+export const Headline = styled.h1.attrs(({ level = 1 }) => ({
+  as: `h${ level }`,
+})).attrs(rebuildClassName('rcx-heading'))`
+  ${ reset }
+  ${ withTextVariant(typography.variants.headline) }
+  ${ textAlignmentVariants }
+  ${ textColorVariants }
+`;
+
+export const Subtitle = styled.h1.attrs(({ level = 2 }) => ({
+  as: `h${ level }`,
+})).attrs(rebuildClassName('rcx-subtitle'))`
+  ${ reset }
+  ${ ({ emphasis }) => withTextVariant(emphasis ? typography.variants.boldSubtitle : typography.variants.subtitle) }
+  ${ textAlignmentVariants }
+  ${ textColorVariants }
+`;
+
+export const Paragraph = styled.p.attrs(rebuildClassName('rcx-paragraph'))`
+  ${ reset }
+  ${ ({ emphasis }) => withTextVariant(emphasis ? typography.variants.boldParagraph : typography.variants.paragraph) }
+  ${ textAlignmentVariants }
+  ${ textColorVariants }
+`;
+
+export const Text = styled.div`
+  ${ reset }
   ${ textVariants }
   ${ textAlignmentVariants }
   ${ textColorVariants }

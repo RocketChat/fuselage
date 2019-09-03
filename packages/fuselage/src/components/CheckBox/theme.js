@@ -6,14 +6,15 @@ import typography from '../../theme/typography';
 export default createTheme('rcx-check-box', {
   borderWidth: dimensions.borderWidth,
   borderRadius: dimensions.borderRadius,
-  size: typography.paragraph.lineHeight,
+  size: typography.variants.paragraph.lineHeight,
 
   label: createTheme('rcx-check-box-label', {
     color: typography.colors.default,
-    fontFamily: typography.paragraph.fontFamily,
-    fontSize: typography.paragraph.fontSize,
-    fontWeight: typography.paragraph.fontWeight,
-    lineHeight: typography.paragraph.lineHeight,
+    fontFamily: typography.variants.paragraph.fontFamily,
+    fontSize: typography.variants.paragraph.fontSize,
+    fontWeight: typography.variants.paragraph.fontWeight,
+    letterSpacing: typography.variants.paragraph.letterSpacing,
+    lineHeight: typography.variants.paragraph.lineHeight,
   }),
 
   color: colors.white,

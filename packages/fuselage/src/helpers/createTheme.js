@@ -2,15 +2,24 @@ import { fromCameltoKebabCase } from './fromCamelToKebabCase';
 
 
 export const createTheme = (prefix, themeObject) => new Proxy(themeObject, {
-  get: (target, property) => {
-    if (typeof target[property] === 'object') {
-      return target[property];
+  get: (themeObject, key) => {
+    if (typeof key === 'symbol') {
+      return themeObject[key];
     }
 
-    if (typeof target[property] === 'function') {
-      return (...args) => `var(--${ prefix }-${ fromCameltoKebabCase(property) }, ${ target[property](...args) })`;
+    if (typeof themeObject[key] === 'undefined') {
+      console.log(key);
+      throw Error(`missing theme key: ${ key }`);
     }
 
-    return `var(--${ prefix }-${ fromCameltoKebabCase(property) }, ${ target[property] })`;
+    if (typeof themeObject[key] === 'object') {
+      return themeObject[key];
+    }
+
+    if (typeof themeObject[key] === 'function') {
+      return (...args) => `var(--${ prefix }-${ fromCameltoKebabCase(key) }, ${ themeObject[key](...args) })`;
+    }
+
+    return `var(--${ prefix }-${ fromCameltoKebabCase(key) }, ${ themeObject[key] })`;
   },
 });

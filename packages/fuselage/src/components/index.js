@@ -5,4 +5,5 @@ export * from './FieldGroup';
 export * from './Icon';
 export * from './Input';
 export * from './RadioButton';
+export * from './Typography';
 export * from './ToggleSwitch';

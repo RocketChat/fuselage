@@ -5,9 +5,9 @@ import colors from '../../tokens/colors';
 
 
 export default createTheme('rcx-toggle-switch', {
-  trackWidth: `calc(2 * ${ typography.paragraph.lineHeight })`,
-  trackHeight: typography.paragraph.lineHeight,
-  thumbSize: `calc(${ typography.paragraph.lineHeight } - 2 * ${ dimensions.borderWidth })`,
+  trackWidth: `calc(2 * ${ typography.variants.paragraph.lineHeight })`,
+  trackHeight: typography.variants.paragraph.lineHeight,
+  thumbSize: `calc(${ typography.variants.paragraph.lineHeight } - 2 * ${ dimensions.borderWidth })`,
   borderWidth: dimensions.borderWidth,
   borderRadius: '9999px',
   color: colors.white,
