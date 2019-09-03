@@ -6,6 +6,7 @@ import { reset } from '../../mixins/reset';
 import { selectableForHelp } from '../../mixins/selectableForHelp';
 import { unselectable } from '../../mixins/unselectable';
 import theme from './theme';
+import { withTextVariant } from '../../mixins/withText';
 
 
 const Container = styled.div.attrs(rebuildClassName('rcx-field__container'))`
@@ -21,20 +22,16 @@ const Container = styled.div.attrs(rebuildClassName('rcx-field__container'))`
 const LabelWrapper = styled.label.attrs(rebuildClassName('rcx-field__label-wrapper'))`
   ${ reset }
   ${ unselectable }
-
-  display: flex;
+  ${ withTextVariant(theme.label) }
 
   flex: 0 0 auto;
 
-  margin: ${ theme.labelMargin };
+  margin: ${ theme.label.margin };
 
-  color: ${ theme.labelColor };
-
-  font-family: ${ theme.labelFontFamily };
-  font-size: ${ theme.labelFontSize };
-  font-weight: ${ theme.labelFontWeight };
-  line-height: ${ theme.labelLineHeight };
+  display: flex;
   flex-flow: row nowrap;
+
+  color: ${ theme.label.color };
 `;
 
 const LabelText = styled.span.attrs(rebuildClassName('rcx-field__label-text'))`
@@ -48,7 +45,7 @@ const LabelText = styled.span.attrs(rebuildClassName('rcx-field__label-text'))`
     &::before {
       content: '* ';
 
-      color: ${ theme.labelRequiredColor };
+      color: ${ theme.label.requiredColor };
     }
   ` }
 `;
@@ -58,7 +55,7 @@ const LabelError = styled.span.attrs(rebuildClassName('rcx-field__label-error'))
 
   flex: 0 1 auto;
 
-  color: ${ theme.labelErrorColor };
+  color: ${ theme.label.errorColor };
 `;
 
 const HelpText = styled.span.attrs(rebuildClassName('rcx-field__help-text'))`
@@ -67,14 +64,14 @@ const HelpText = styled.span.attrs(rebuildClassName('rcx-field__help-text'))`
 
   flex: 0 0 auto;
 
-  margin: ${ theme.helpMargin };
+  margin: ${ theme.help.margin };
 
-  color: ${ theme.helpColor };
+  color: ${ theme.help.color };
 
-  font-family: ${ theme.helpFontFamily };
-  font-size: ${ theme.helpFontSize };
-  font-weight: ${ theme.helpFontWeight };
-  line-height: ${ theme.helpLineHeight };
+  font-family: ${ theme.help.fontFamily };
+  font-size: ${ theme.help.fontSize };
+  font-weight: ${ theme.help.fontWeight };
+  line-height: ${ theme.help.lineHeight };
 `;
 
 export const Field = styled(React.forwardRef(function Field(props, ref) {
