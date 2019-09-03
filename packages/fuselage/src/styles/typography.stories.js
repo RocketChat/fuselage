@@ -1,72 +1,83 @@
 import { storiesOf } from '@storybook/react';
-import React, { useState } from 'react';
+import React from 'react';
+import styled, { css } from 'styled-components';
 
-import { locals } from './exports.scss';
-import { Document, TextSection, ShowCaseSection } from '../helpers/storybook';
-
-const fontFamilies = Object.entries(locals)
-  .filter(([key]) => key.startsWith('font-family-'))
-  .map(([key, dimension]) => [key.slice('font-family-'.length), dimension]);
+import { Document, TextSection, VariationsTable } from '../helpers/storybook';
+import { reset } from '../mixins/reset';
+import { withText } from '../mixins/withText';
 
 
-function TypographyReadme({ fontFamilies }) {
-  const [fontFamily, setFontFamily] = useState(fontFamilies[0] && fontFamilies[0][1]);
-  const handleFontFamilyChange = ({ target: { value } }) => setFontFamily(value);
-  const [fontWeight, setFontWeight] = useState(400);
-  const handleFontWeightChange = ({ target: { value } }) => setFontWeight(value);
+const TextPreview = styled.div.attrs({ children: 'The quick brown fox jumps over the lazy dog.' })`
+  ${ reset }
+  ${ withText }
+  padding: 1rem;
+  ${ ({ textColor }) => textColor === 'alternative' && css`
+    background-color: black;
+  ` }
+`;
 
-  return <Document>
+storiesOf('Styles|Typography', module)
+  .lokiSkip('Typography', () => <Document>
     <TextSection>
       <h1>Typography</h1>
-      <h2>Font families</h2>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Family</th>
-            <th>Faces</th>
-          </tr>
-        </thead>
-        <tbody>
-          {fontFamilies.map(([name, value], key) => {
-            const fontFaces = value.split(/,/g)
-              .map((fontFace) => /^['"]?(.*?)['"]?$/.exec(fontFace)[1])
-              .join(', ');
-
-            return <tr key={key}>
-              <td>
-                <input type='radio' value={value} checked={fontFamily === value} onChange={handleFontFamilyChange} />
-              </td>
-              <td align='center'>{name}</td>
-              <td>{fontFaces}</td>
-            </tr>;
-          })}
-        </tbody>
-      </table>
-      <dl>
-        <dt>Weight</dt>
-        <dd>
-          <input
-            type='range'
-            min={100}
-            max={900}
-            step={100}
-            value={fontWeight}
-            onChange={handleFontWeightChange}
-          /> {fontWeight}
-        </dd>
-      </dl>
     </TextSection>
-    <ShowCaseSection>
-      <div style={{ fontFamily, fontWeight, margin: '1rem' }}>
-        The quick brown fox jumps over the lazy dog.
-      </div>
-      <div style={{ fontFamily, fontWeight, margin: '1rem' }}>
-        Um pequeno jabuti xereta viu dez cegonhas felizes.
-      </div>
-    </ShowCaseSection>
-  </Document>;
-}
+    <TextSection>
+      <h2>Variantions</h2>
+    </TextSection>
+    <VariationsTable
+      component={TextPreview}
+      xAxis={{ preview: {} }}
+      yAxis={{
+        headline: { textVariant: 'headline' },
+        subtitle: { textVariant: 'subtitle' },
+        'bold subtitle': { textVariant: 'boldSubtitle' },
+        paragraph: { textVariant: 'paragraph' },
+        'bold paragraph': { textVariant: 'boldParagraph' },
+        caption: { textVariant: 'caption' },
+        'bold caption': { textVariant: 'boldCaption' },
+        micro: { textVariant: 'micro' },
+      }}
+    />
+    <TextSection>
+      <h2>Colors</h2>
+    </TextSection>
+    <VariationsTable
+      component={TextPreview}
+      xAxis={{ preview: {} }}
+      yAxis={{
+        default: { textColor: 'default' },
+        info: { textColor: 'info' },
+        hint: { textColor: 'hint' },
+        disabled: { textColor: 'disabled' },
+        primary: { textColor: 'primary' },
+        success: { textColor: 'success' },
+        danger: { textColor: 'danger' },
+        warning: { textColor: 'warning' },
+        alternative: { textColor: 'alternative' },
+      }}
+    />
+  </Document>);
 
-storiesOf('Styles|Theming', module)
-  .lokiSkip('Typography', () => <TypographyReadme fontFamilies={fontFamilies} />);
+storiesOf('Styles|Typography', module)
+  .add('headline variant', () => <TextPreview textVariant='headline' />)
+  .add('subtitle variant', () => <TextPreview textVariant='subtitle' />)
+  .add('boldSubtitle variant', () => <TextPreview textVariant='boldSubtitle' />)
+  .add('paragraph variant', () => <TextPreview textVariant='paragraph' />)
+  .add('boldParagraph variant', () => <TextPreview textVariant='boldParagraph' />)
+  .add('caption variant', () => <TextPreview textVariant='caption' />)
+  .add('boldCaption variant', () => <TextPreview textVariant='boldCaption' />)
+  .add('micro variant', () => <TextPreview textVariant='micro' />)
+
+  .add('left alignment', () => <TextPreview textAlignment='left' />)
+  .add('center alignment', () => <TextPreview textAlignment='center' />)
+  .add('right alignment', () => <TextPreview textAlignment='right' />)
+
+  .add('default color', () => <TextPreview textColor='default' />)
+  .add('info color', () => <TextPreview textColor='info' />)
+  .add('hint color', () => <TextPreview textColor='hint' />)
+  .add('disabled color', () => <TextPreview textColor='disabled' />)
+  .add('primary color', () => <TextPreview textColor='primary' />)
+  .add('success color', () => <TextPreview textColor='success' />)
+  .add('danger color', () => <TextPreview textColor='danger' />)
+  .add('warning color', () => <TextPreview textColor='warning' />)
+  .add('alternative color', () => <TextPreview textColor='alternative' />);
