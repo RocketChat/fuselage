@@ -4,7 +4,7 @@ import typography from '../theme/typography';
 
 
 const textVariant = ({
-  fontFamily = typography.baseFont,
+  fontFamily,
   fontSize,
   fontWeight = 'normal',
   letterSpacing = 0,
@@ -72,3 +72,9 @@ export const withText = css`
   ${ textAlignmentVariants }
   ${ textColorVariants }
 `;
+
+export const withTextVariant = textVariant;
+
+export const withTextAlignment = (textAlignment) => textAlignmentVariants({ textAlignment });
+
+export const withTextColor = (textColor) => textColorVariants({ textColor });

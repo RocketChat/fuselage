@@ -4,24 +4,31 @@ import { rebuildClassName } from '../../helpers/rebuildClassName';
 import { disableable } from '../../mixins/disableable';
 import { reset } from '../../mixins/reset';
 import { unselectable } from '../../mixins/unselectable';
-import { withText } from '../../mixins/withText';
+import { withTextAlignment, withTextVariant } from '../../mixins/withText';
 import { Icon } from '../Icon';
 import theme from './theme';
+import { withTruncatedText } from '../../mixins/withTruncatedText';
 
 
 const sizeVariant = ({
   height,
   paddingVertical,
   paddingHorizontal,
+  fontFamily,
   fontSize,
+  fontWeight,
   lineHeight,
   iconSize,
 }) => css`
   height: ${ height };
   padding: ${ paddingVertical } ${ paddingHorizontal };
 
-  font-size: ${ fontSize };
-  line-height: ${ lineHeight };
+  ${ withTextVariant({
+    fontFamily,
+    fontSize,
+    fontWeight,
+    lineHeight,
+  }) }
 
   & > ${ Icon } {
     font-size: ${ iconSize };
@@ -37,23 +44,9 @@ const sizeVariant = ({
   ` }
 `;
 
-const mediumSizeVariant = () => sizeVariant({
-  height: theme.height,
-  paddingVertical: theme.paddingVertical,
-  paddingHorizontal: theme.paddingHorizontal,
-  fontSize: theme.fontSize,
-  lineHeight: theme.lineHeight,
-  iconSize: theme.iconSize,
-});
+const mediumSizeVariant = () => sizeVariant(theme.mediumSize);
 
-const smallSizeVariant = ({ small }) => small && sizeVariant({
-  height: theme.smallHeight,
-  paddingVertical: theme.smallPaddingVertical,
-  paddingHorizontal: theme.smallPaddingHorizontal,
-  fontSize: theme.smallFontSize,
-  lineHeight: theme.smallLineHeight,
-  iconSize: theme.smallIconSize,
-});
+const smallSizeVariant = ({ small }) => small && sizeVariant(theme.smallSize);
 
 const colorsVariant = ({
   color,
@@ -101,46 +94,46 @@ const colorsVariant = ({
 
 const basicColorsVariant = () => css`
   ${ colorsVariant({
-    color: theme.basicColor,
-    backgroundColor: theme.basicBackgroundColor,
-    hoverBackgroundColor: theme.basicHoverBackgroundColor,
-    activeBackgroundColor: theme.basicActiveBackgroundColor,
-    focusBackgroundColor: theme.basicFocusBackgroundColor,
-    focusBorderColor: theme.basicFocusBorderColor,
-    focusShadowColor: theme.basicFocusShadowColor,
-    disabledColor: theme.basicDisabledColor,
-    disabledBackgroundColor: theme.basicDisabledBackgroundColor,
+    color: theme.basicColors.color,
+    backgroundColor: theme.basicColors.backgroundColor,
+    hoverBackgroundColor: theme.basicColors.hoverBackgroundColor,
+    activeBackgroundColor: theme.basicColors.activeBackgroundColor,
+    focusBackgroundColor: theme.basicColors.focusBackgroundColor,
+    focusBorderColor: theme.basicColors.focusBorderColor,
+    focusShadowColor: theme.basicColors.focusShadowColor,
+    disabledColor: theme.basicColors.disabledColor,
+    disabledBackgroundColor: theme.basicColors.disabledBackgroundColor,
   }) }
 
   ${ ({ danger }) => danger && colorsVariant({
-    color: theme.basicDangerColor,
-    disabledColor: theme.basicDisabledDangerColor,
+    color: theme.basicColors.dangerColor,
+    disabledColor: theme.basicColors.disabledDangerColor,
   }) }
 `;
 
 const primaryColorsVariant = ({ primary }) => primary && css`
   ${ colorsVariant({
-    color: theme.primaryColor,
-    backgroundColor: theme.primaryBackgroundColor,
-    hoverBackgroundColor: theme.primaryHoverBackgroundColor,
-    activeBackgroundColor: theme.primaryActiveBackgroundColor,
-    focusBackgroundColor: theme.primaryFocusBackgroundColor,
-    focusBorderColor: theme.primaryFocusBorderColor,
-    focusShadowColor: theme.primaryFocusShadowColor,
-    disabledColor: theme.primaryColor,
-    disabledBackgroundColor: theme.primaryDisabledBackgroundColor,
+    color: theme.primaryColors.color,
+    backgroundColor: theme.primaryColors.backgroundColor,
+    hoverBackgroundColor: theme.primaryColors.hoverBackgroundColor,
+    activeBackgroundColor: theme.primaryColors.activeBackgroundColor,
+    focusBackgroundColor: theme.primaryColors.focusBackgroundColor,
+    focusBorderColor: theme.primaryColors.focusBorderColor,
+    focusShadowColor: theme.primaryColors.focusShadowColor,
+    disabledColor: theme.primaryColors.color,
+    disabledBackgroundColor: theme.primaryColors.disabledBackgroundColor,
   }) }
 
   ${ ({ danger }) => danger && colorsVariant({
-    color: theme.primaryColor,
-    backgroundColor: theme.primaryDangerBackgroundColor,
-    hoverBackgroundColor: theme.primaryDangerHoverBackgroundColor,
-    activeBackgroundColor: theme.primaryDangerActiveBackgroundColor,
-    focusBackgroundColor: theme.primaryDangerFocusBackgroundColor,
-    focusBorderColor: theme.primaryDangerFocusBorderColor,
-    focusShadowColor: theme.primaryDangerFocusShadowColor,
-    disabledColor: theme.primaryColor,
-    disabledBackgroundColor: theme.primaryDangerDisabledBackgroundColor,
+    color: theme.primaryColors.color,
+    backgroundColor: theme.primaryColors.dangerBackgroundColor,
+    hoverBackgroundColor: theme.primaryColors.dangerHoverBackgroundColor,
+    activeBackgroundColor: theme.primaryColors.dangerActiveBackgroundColor,
+    focusBackgroundColor: theme.primaryColors.dangerFocusBackgroundColor,
+    focusBorderColor: theme.primaryColors.dangerFocusBorderColor,
+    focusShadowColor: theme.primaryColors.dangerFocusShadowColor,
+    disabledColor: theme.primaryColors.color,
+    disabledBackgroundColor: theme.primaryColors.dangerDisabledBackgroundColor,
   }) }
 `;
 
@@ -152,7 +145,8 @@ export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
   ${ reset }
   ${ disableable }
   ${ unselectable }
-  ${ withText }
+  ${ withTextAlignment('center') }
+  ${ withTruncatedText }
 
   display: inline-block;
 
@@ -163,9 +157,6 @@ export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
   border-radius: ${ theme.borderRadius };
 
   text-align: center;
-
-  font-family: ${ theme.fontFamily };
-  font-weight: ${ theme.fontWeight };
 
   & > ${ Icon } {
     vertical-align: middle;
