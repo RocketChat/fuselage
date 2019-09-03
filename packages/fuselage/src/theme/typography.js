@@ -4,8 +4,6 @@ import typography from '../tokens/typography';
 
 
 export default createTheme('rcx-typography', {
-  baseFont: typography.baseFont,
-
   headline: createTheme('rcx-typography-headline', typography.headline),
   subtitle: createTheme('rcx-typography-subtitle', typography.subtitle),
   boldSubtitle: createTheme('rcx-typography-bold-subtitle', typography.boldSubtitle),
@@ -15,13 +13,15 @@ export default createTheme('rcx-typography', {
   boldCaption: createTheme('rcx-typography-bold-caption', typography.boldCaption),
   micro: createTheme('rcx-typography-micro', typography.micro),
 
-  default: colors.dark800,
-  info: colors.dark700,
-  hint: colors.dark600,
-  disabled: colors.dark400,
-  primary: colors.blue500,
-  success: colors.green500,
-  danger: colors.red500,
-  warning: colors.yellow700,
-  alternative: colors.white,
+  colors: createTheme('rcx-typography-colors', {
+    default: colors.dark800,
+    info: colors.dark700,
+    hint: colors.dark600,
+    disabled: colors.dark400,
+    primary: colors.blue500,
+    success: colors.green500,
+    danger: colors.red500,
+    warning: colors.yellow700,
+    alternative: colors.white,
+  }),
 });

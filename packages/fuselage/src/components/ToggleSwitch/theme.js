@@ -1,12 +1,13 @@
 import { createTheme } from '../../helpers/createTheme';
 import dimensions from '../../theme/dimensions';
+import typography from '../../theme/typography';
 import colors from '../../tokens/colors';
 
 
 export default createTheme('rcx-toggle-switch', {
-  trackWidth: '2.5rem',
-  trackHeight: dimensions.inputLineHeight,
-  thumbSize: `calc(${ dimensions.inputLineHeight } - 2 * ${ dimensions.borderWidth })`,
+  trackWidth: `calc(2 * ${ typography.paragraph.lineHeight })`,
+  trackHeight: typography.paragraph.lineHeight,
+  thumbSize: `calc(${ typography.paragraph.lineHeight } - 2 * ${ dimensions.borderWidth })`,
   borderWidth: dimensions.borderWidth,
   borderRadius: '9999px',
   color: colors.white,

@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import typography from '../theme/typography';
 
 
-const textVariant = ({
+export const withTextVariant = ({
   fontFamily,
   fontSize,
   fontWeight = 'normal',
@@ -22,59 +22,39 @@ const textVariant = ({
   text-decoration: none;
 `;
 
-const headlineVariant = () => textVariant(typography.headline);
-const subtitleVariant = () => textVariant(typography.subtitle);
-const boldSubtitleVariant = () => textVariant(typography.boldSubtitle);
-const paragraphVariant = () => textVariant(typography.paragraph);
-const boldParagraphVariant = () => textVariant(typography.boldParagraph);
-const captionVariant = () => textVariant(typography.caption);
-const boldCaptionVariant = () => textVariant(typography.boldCaption);
-const microVariant = () => textVariant(typography.micro);
-
-const textVariants = ({ textVariant }) =>
-  (textVariant === 'headline' && headlineVariant)
-  || (textVariant === 'subtitle' && subtitleVariant)
-  || (textVariant === 'boldSubtitle' && boldSubtitleVariant)
-  || (textVariant === 'paragraph' && paragraphVariant)
-  || (textVariant === 'boldParagraph' && boldParagraphVariant)
-  || (textVariant === 'caption' && captionVariant)
-  || (textVariant === 'boldCaption' && boldCaptionVariant)
-  || (textVariant === 'micro' && microVariant)
-  || paragraphVariant;
-
-const textAlignmentVariants = ({ textAlignment }) =>
+export const withTextAlignment = (textAlignment) =>
   textAlignment && css`text-align: ${ textAlignment };`;
 
-const defaultColorVariant = () => css`color: ${ typography.default };`;
-const infoColorVariant = () => css`color: ${ typography.info };`;
-const hintColorVariant = () => css`color: ${ typography.hint };`;
-const disabledColorVariant = () => css`color: ${ typography.disabled };`;
-const primaryColorVariant = () => css`color: ${ typography.primary };`;
-const successColorVariant = () => css`color: ${ typography.success };`;
-const dangerColorVariant = () => css`color: ${ typography.danger };`;
-const warningColorVariant = () => css`color: ${ typography.warning };`;
-const alternativeColorVariant = () => css`color: ${ typography.alternative };`;
+export const withTextColor = (textColor) =>
+  textColor && css`color: ${ textColor };`;
+
+const textVariants = ({ textVariant }) =>
+  (textVariant === 'headline' && withTextVariant(typography.headline))
+  || (textVariant === 'subtitle' && withTextVariant(typography.subtitle))
+  || (textVariant === 'boldSubtitle' && withTextVariant(typography.boldSubtitle))
+  || (textVariant === 'paragraph' && withTextVariant(typography.paragraph))
+  || (textVariant === 'boldParagraph' && withTextVariant(typography.boldParagraph))
+  || (textVariant === 'caption' && withTextVariant(typography.caption))
+  || (textVariant === 'boldCaption' && withTextVariant(typography.boldCaption))
+  || (textVariant === 'micro' && withTextVariant(typography.micro))
+  || withTextVariant(typography.paragraph);
+
+const textAlignmentVariants = ({ textAlignment }) => withTextAlignment(textAlignment);
 
 const textColorVariants = ({ textColor }) =>
-  (textColor === 'default' && defaultColorVariant)
-  || (textColor === 'info' && infoColorVariant)
-  || (textColor === 'hint' && hintColorVariant)
-  || (textColor === 'disabled' && disabledColorVariant)
-  || (textColor === 'primary' && primaryColorVariant)
-  || (textColor === 'success' && successColorVariant)
-  || (textColor === 'danger' && dangerColorVariant)
-  || (textColor === 'warning' && warningColorVariant)
-  || (textColor === 'alternative' && alternativeColorVariant)
-  || defaultColorVariant;
+  (textColor === 'default' && withTextColor(typography.colors.default))
+  || (textColor === 'info' && withTextColor(typography.colors.info))
+  || (textColor === 'hint' && withTextColor(typography.colors.hint))
+  || (textColor === 'disabled' && withTextColor(typography.colors.disabled))
+  || (textColor === 'primary' && withTextColor(typography.colors.primary))
+  || (textColor === 'success' && withTextColor(typography.colors.success))
+  || (textColor === 'danger' && withTextColor(typography.colors.danger))
+  || (textColor === 'warning' && withTextColor(typography.colors.warning))
+  || (textColor === 'alternative' && withTextColor(typography.colors.alternative))
+  || withTextColor(typography.colors.default);
 
 export const withText = css`
   ${ textVariants }
   ${ textAlignmentVariants }
   ${ textColorVariants }
 `;
-
-export const withTextVariant = textVariant;
-
-export const withTextAlignment = (textAlignment) => textAlignmentVariants({ textAlignment });
-
-export const withTextColor = (textColor) => textColorVariants({ textColor });

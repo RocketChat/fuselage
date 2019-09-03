@@ -6,7 +6,7 @@ import { reset } from '../../mixins/reset';
 import { disableable } from '../../mixins/disableable';
 import { Icon } from '../Icon';
 import theme from './theme';
-import { withText } from '../../mixins/withText';
+import { withTextVariant } from '../../mixins/withText';
 import { scrollable } from '../../mixins/scrollable';
 import { whenRightToLeftOrientation } from '../../mixins/whenRightToLeftOrientation';
 
@@ -108,7 +108,7 @@ const errorColorsVariant = () => colorsVariant({
 const inputBoxStyle = () => css`
   ${ reset }
   ${ disableable }
-  ${ withText }
+  ${ withTextVariant(theme.text) }
 
   width: 100%;
   min-width: 8rem;
@@ -125,10 +125,10 @@ const inputBoxStyle = () => css`
 
   outline: none;
 
-  font-family: ${ theme.fontFamily };
-  font-size: ${ theme.fontSize };
-  font-weight: ${ theme.fontWeight };
-  line-height: ${ theme.lineHeight };
+  &::placeholder {
+    ${ reset }
+    ${ withTextVariant(theme.text) }
+  }
 
   ${ normalColorsVariant }
 

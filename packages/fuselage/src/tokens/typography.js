@@ -16,8 +16,6 @@ const systemFont = [
 ].map((x) => (x.indexOf(' ') < 0 ? x : `'${ x }'`)).join(', ');
 
 export default {
-  baseFont: systemFont,
-
   headline: {
     fontFamily: systemFont,
     fontSize: '1.375rem',

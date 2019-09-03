@@ -5,7 +5,7 @@ import { rebuildClassName } from '../../helpers/rebuildClassName';
 import { reset } from '../../mixins/reset';
 import { visuallyHidden } from '../../mixins/visuallyHidden';
 import theme from './theme';
-import { withText } from '../../mixins/withText';
+import { withTextVariant, withTextColor } from '../../mixins/withText';
 import { disableable } from '../../mixins/disableable';
 import { unselectable } from '../../mixins/unselectable';
 
@@ -146,16 +146,10 @@ const Fake = styled.i.attrs(rebuildClassName('rcx-radio-button__fake'))`
 
 const Label = styled.span.attrs(rebuildClassName('rcx-radio-button__label'))`
   ${ reset }
-  ${ withText }
+  ${ withTextVariant(theme.label) }
+  ${ withTextColor(theme.label.color) }
 
   margin: 0 0.625rem;
-
-  color: ${ theme.labelColor };
-
-  font-family: ${ theme.labelFontFamily };
-  font-size: ${ theme.labelFontSize };
-  font-weight: ${ theme.labelFontWeight };
-  line-height: ${ theme.labelLineHeight };
 `;
 
 const Wrapper = styled.label.attrs(rebuildClassName('rcx-radio-button__wrapper'))`

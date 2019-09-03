@@ -25,7 +25,7 @@ storiesOf('Elements|RadioButton', module)
       xAxis={{
         checked: { checked: true },
         unchecked: { checked: false },
-        'with label': { label: 'Label' },
+        'with label': { checked: false, label: 'Label' },
       }}
       yAxis={{
         default: { },

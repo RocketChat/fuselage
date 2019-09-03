@@ -7,7 +7,7 @@ import { disableable } from '../../mixins/disableable';
 import { reset } from '../../mixins/reset';
 import { unselectable } from '../../mixins/unselectable';
 import { visuallyHidden } from '../../mixins/visuallyHidden';
-import { withText } from '../../mixins/withText';
+import { withTextVariant, withTextColor } from '../../mixins/withText';
 import theme from './theme';
 
 
@@ -206,16 +206,10 @@ const Fake = styled.i.attrs(rebuildClassName('rcx-check-box__fake'))`
 
 const Label = styled.span.attrs(rebuildClassName('rcx-check-box__label'))`
   ${ reset }
-  ${ withText }
+  ${ withTextVariant(theme.label) }
+  ${ withTextColor(theme.label.color) }
 
   margin: 0 0.625rem;
-
-  color: ${ theme.labelColor };
-
-  font-family: ${ theme.labelFontFamily };
-  font-size: ${ theme.labelFontSize };
-  font-weight: ${ theme.labelFontWeight };
-  line-height: ${ theme.labelLineHeight };
 `;
 
 export const CheckBox = React.forwardRef(function CheckBox({
