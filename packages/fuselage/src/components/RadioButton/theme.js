@@ -8,7 +8,7 @@ export default createTheme('rcx-radio-button', {
   borderWidth: dimensions.borderWidth,
   borderRadius: '50%',
   labelColor: colors.dark800,
-  labelFontFamily: typography.baseFont,
+  labelFontFamily: typography.p1.fontFamily,
   labelFontSize: '0.875rem',
   labelFontWeight: '400',
   labelLineHeight: dimensions.inputLineHeight,

@@ -6,7 +6,7 @@ import colors from '../../tokens/colors';
 export default createTheme('rcx-button', {
   borderWidth: dimensions.borderWidth,
   borderRadius: dimensions.borderRadius,
-  fontFamily: typography.baseFont,
+  fontFamily: typography.p1.fontFamily,
   fontWeight: 500,
   height: '2.5rem',
   paddingVertical: '0.5rem',
