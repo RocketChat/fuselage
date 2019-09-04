@@ -76,7 +76,7 @@ export default {
     fontFamily: defaultFontFamily,
     fontSize: '0.625rem',
     fontWeight: '600',
-    letterSpacing: '0.2px',
+    letterSpacing: '0.0125rem',
     lineHeight: '0.75rem',
   },
 };
