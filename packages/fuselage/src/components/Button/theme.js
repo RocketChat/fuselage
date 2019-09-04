@@ -1,12 +1,11 @@
 import { createTheme } from '../../helpers/createTheme';
-import dimensions from '../../theme/dimensions';
-import typography from '../../theme/typography';
+import theme from '../../styles/theme';
 import colors from '../../tokens/colors';
 
 export default createTheme('rcx-button', {
-  borderWidth: dimensions.borders.default.width,
-  borderRadius: dimensions.borders.default.radius,
-  fontFamily: typography.p1.fontFamily,
+  borderWidth: theme.borders.default.width,
+  borderRadius: theme.borders.default.radius,
+  fontFamily: theme.typography.p1.fontFamily,
   fontWeight: 500,
   height: '2.5rem',
   paddingVertical: '0.5rem',

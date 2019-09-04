@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import dimensions from '../theme/dimensions';
+import dimensions from '../styles/theme';
 
 
 export const reset = css`
