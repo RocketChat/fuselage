@@ -4,14 +4,14 @@ import colors from '../../tokens/colors';
 import typography from '../../theme/typography';
 
 export default createTheme('rcx-check-box', {
-  size: dimensions.inputLineHeight,
-  borderWidth: dimensions.borderWidth,
-  borderRadius: dimensions.borderRadius,
+  size: typography.p1.lineHeight,
+  borderWidth: dimensions.borders.default.width,
+  borderRadius: dimensions.borders.default.radius,
   labelColor: colors.dark800,
   labelFontFamily: typography.p1.fontFamily,
   labelFontSize: '0.875rem',
   labelFontWeight: '400',
-  labelLineHeight: dimensions.inputLineHeight,
+  labelLineHeight: typography.p1.lineHeight,
   color: colors.white,
   borderColor: colors.dark400,
   hoverBorderColor: colors.dark500,

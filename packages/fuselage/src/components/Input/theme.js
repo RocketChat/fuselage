@@ -6,8 +6,8 @@ import typography from '../../theme/typography';
 
 export default createTheme('rcx-input', {
   padding: '0.625rem 0.875rem',
-  borderWidth: dimensions.borderWidth,
-  borderRadius: dimensions.borderRadius,
+  borderWidth: dimensions.borders.default.width,
+  borderRadius: dimensions.borders.default.radius,
   color: colors.dark800,
   iconColor: colors.dark800,
   placeholderColor: colors.dark600,

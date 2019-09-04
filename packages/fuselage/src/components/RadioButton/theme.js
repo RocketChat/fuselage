@@ -4,14 +4,14 @@ import dimensions from '../../theme/dimensions';
 import typography from '../../theme/typography';
 
 export default createTheme('rcx-radio-button', {
-  size: dimensions.inputLineHeight,
-  borderWidth: dimensions.borderWidth,
+  size: typography.p1.lineHeight,
+  borderWidth: dimensions.borders.default.width,
   borderRadius: '50%',
   labelColor: colors.dark800,
   labelFontFamily: typography.p1.fontFamily,
   labelFontSize: '0.875rem',
   labelFontWeight: '400',
-  labelLineHeight: dimensions.inputLineHeight,
+  labelLineHeight: typography.p1.lineHeight,
   color: colors.white,
   borderColor: colors.dark400,
   hoverBorderColor: colors.dark500,

@@ -1,5 +1,12 @@
 import { createTheme } from '../helpers/createTheme';
-import dimensions from '../tokens/dimensions';
+import borders from '../tokens/borders';
+import transitions from '../tokens/transitions';
 
 
-export default createTheme('rcx-dimensions', dimensions);
+export default createTheme('rcx-dimensions', {
+  transitions: createTheme('rcx-transitions', transitions),
+  borders: Object.entries(borders).reduce((obj, [name, properties]) => ({
+    ...obj,
+    [name]: createTheme(`rcx-borders-${ name }`, properties),
+  }), {}),
+});

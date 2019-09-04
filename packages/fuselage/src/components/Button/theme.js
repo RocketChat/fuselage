@@ -4,8 +4,8 @@ import typography from '../../theme/typography';
 import colors from '../../tokens/colors';
 
 export default createTheme('rcx-button', {
-  borderWidth: dimensions.borderWidth,
-  borderRadius: dimensions.borderRadius,
+  borderWidth: dimensions.borders.default.width,
+  borderRadius: dimensions.borders.default.radius,
   fontFamily: typography.p1.fontFamily,
   fontWeight: 500,
   height: '2.5rem',
