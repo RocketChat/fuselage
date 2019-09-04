@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import dimensions from '../theme/dimensions';
+import dimensions from '../styles/theme';
 
 
 export const reset = css`
@@ -11,7 +11,7 @@ export const reset = css`
   font-weight: normal;
   appearance: none;
   list-style: none;
-  transition: all ${ dimensions.shortTransitionDuration };
+  transition: all ${ dimensions.transitions.shortDuration };
   outline: none;
 
   &[hidden] {

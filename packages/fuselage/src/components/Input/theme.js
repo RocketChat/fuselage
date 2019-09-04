@@ -1,13 +1,12 @@
 import { createTheme } from '../../helpers/createTheme';
 import colors from '../../tokens/colors';
-import dimensions from '../../theme/dimensions';
-import typography from '../../theme/typography';
+import theme from '../../styles/theme';
 
 
 export default createTheme('rcx-input', {
   padding: '0.625rem 0.875rem',
-  borderWidth: dimensions.borderWidth,
-  borderRadius: dimensions.borderRadius,
+  borderWidth: theme.borders.default.width,
+  borderRadius: theme.borders.default.radius,
   color: colors.dark800,
   iconColor: colors.dark800,
   placeholderColor: colors.dark600,
@@ -25,7 +24,7 @@ export default createTheme('rcx-input', {
   disabledBorderColor: colors.dark500,
   disabledColor: colors.dark800,
   disabledIconColor: colors.dark500,
-  fontFamily: typography.baseFont,
+  fontFamily: theme.typography.p1.fontFamily,
   fontSize: '0.875rem',
   fontWeight: '500',
   lineHeight: '1.25rem',
@@ -38,7 +37,7 @@ export default createTheme('rcx-input', {
   iconMarginVertical: '0.75rem',
   labelMargin: '0 0 0.5rem 0',
   labelColor: colors.dark800,
-  labelFontFamily: typography.baseFont,
+  labelFontFamily: theme.typography.p1.fontFamily,
   labelFontSize: '0.875rem',
   labelFontWeight: 'normal',
   labelLineHeight: '1.25rem',
@@ -47,7 +46,7 @@ export default createTheme('rcx-input', {
   helpMargin: '0.25rem 0 0 0',
   helpColor: colors.dark600,
   helpFontSize: '0.875rem',
-  helpFontFamily: typography.baseFont,
+  helpFontFamily: theme.typography.p1.fontFamily,
   helpFontWeight: 'normal',
   helpLineHeight: '1.25rem',
 });

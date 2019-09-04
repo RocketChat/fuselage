@@ -1,17 +1,16 @@
 import { createTheme } from '../../helpers/createTheme';
-import dimensions from '../../theme/dimensions';
+import theme from '../../styles/theme';
 import colors from '../../tokens/colors';
-import typography from '../../theme/typography';
 
 export default createTheme('rcx-check-box', {
-  size: dimensions.inputLineHeight,
-  borderWidth: dimensions.borderWidth,
-  borderRadius: dimensions.borderRadius,
+  size: theme.typography.p1.lineHeight,
+  borderWidth: theme.borders.default.width,
+  borderRadius: theme.borders.default.radius,
   labelColor: colors.dark800,
-  labelFontFamily: typography.baseFont,
+  labelFontFamily: theme.typography.p1.fontFamily,
   labelFontSize: '0.875rem',
   labelFontWeight: '400',
-  labelLineHeight: dimensions.inputLineHeight,
+  labelLineHeight: theme.typography.p1.lineHeight,
   color: colors.white,
   borderColor: colors.dark400,
   hoverBorderColor: colors.dark500,

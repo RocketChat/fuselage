@@ -1,17 +1,16 @@
 import { createTheme } from '../../helpers/createTheme';
 import colors from '../../tokens/colors';
-import dimensions from '../../theme/dimensions';
-import typography from '../../theme/typography';
+import theme from '../../styles/theme';
 
 export default createTheme('rcx-radio-button', {
-  size: dimensions.inputLineHeight,
-  borderWidth: dimensions.borderWidth,
+  size: theme.typography.p1.lineHeight,
+  borderWidth: theme.borders.default.width,
   borderRadius: '50%',
   labelColor: colors.dark800,
-  labelFontFamily: typography.baseFont,
+  labelFontFamily: theme.typography.p1.fontFamily,
   labelFontSize: '0.875rem',
   labelFontWeight: '400',
-  labelLineHeight: dimensions.inputLineHeight,
+  labelLineHeight: theme.typography.p1.lineHeight,
   color: colors.white,
   borderColor: colors.dark400,
   hoverBorderColor: colors.dark500,
