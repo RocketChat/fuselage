@@ -19,64 +19,63 @@ const systemFontFamily = [
   'sans-serif',
 ];
 
-const defaultFontFamily = [...baseFontFamily, ...systemFontFamily]
-  .map((x) => (x.indexOf(' ') < 0 ? x : `'${ x }'`)).join(', ');
+const defaultFontFamily = [...baseFontFamily, ...systemFontFamily];
 
 export default {
   h1: {
     fontFamily: defaultFontFamily,
-    fontSize: '1.375rem',
-    fontWeight: 'normal',
+    fontSize: 22,
+    fontWeight: '400',
     letterSpacing: 0,
-    lineHeight: '2rem',
+    lineHeight: 32,
   },
   s1: {
     fontFamily: defaultFontFamily,
-    fontSize: '1rem',
-    fontWeight: 'normal',
+    fontSize: 16,
+    fontWeight: '400',
     letterSpacing: 0,
-    lineHeight: '1.375rem',
+    lineHeight: 22,
   },
   s2: {
     fontFamily: defaultFontFamily,
-    fontSize: '1rem',
+    fontSize: 16,
     fontWeight: '500',
     letterSpacing: 0,
-    lineHeight: '1.375rem',
+    lineHeight: 22,
   },
   p1: {
     fontFamily: defaultFontFamily,
-    fontSize: '0.875rem',
-    fontWeight: 'normal',
+    fontSize: 14,
+    fontWeight: '400',
     letterSpacing: 0,
-    lineHeight: '1.25rem',
+    lineHeight: 20,
   },
   p2: {
     fontFamily: defaultFontFamily,
-    fontSize: '0.875rem',
+    fontSize: 14,
     fontWeight: '500',
     letterSpacing: 0,
-    lineHeight: '1.25rem',
+    lineHeight: 20,
   },
   c1: {
     fontFamily: defaultFontFamily,
-    fontSize: '0.75rem',
-    fontWeight: 'normal',
+    fontSize: 12,
+    fontWeight: '400',
     letterSpacing: 0,
-    lineHeight: '1rem',
+    lineHeight: 16,
   },
   c2: {
     fontFamily: defaultFontFamily,
-    fontSize: '0.75rem',
+    fontSize: 12,
     fontWeight: '600',
     letterSpacing: 0,
-    lineHeight: '1rem',
+    lineHeight: 16,
   },
   micro: {
     fontFamily: defaultFontFamily,
-    fontSize: '0.625rem',
+    fontSize: 10,
     fontWeight: '600',
-    letterSpacing: '0.0125rem',
-    lineHeight: '0.75rem',
+    letterSpacing: 0.2,
+    lineHeight: 12,
   },
 };
