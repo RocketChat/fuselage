@@ -2,7 +2,6 @@ import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { jsxDecorator } from 'storybook-addon-jsx';
 
 import { createPropsFromKnobs, Document, ShowCaseSection, TextSection } from '../../helpers/storybook';
 import { Field } from '../Field';
@@ -56,7 +55,6 @@ const Fields = ({ count }) => new Array(count).fill(undefined).map((_, i) =>
 );
 
 storiesOf('Collections|FieldGroup', module)
-  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['spec'] })

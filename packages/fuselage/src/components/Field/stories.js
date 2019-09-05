@@ -2,7 +2,6 @@ import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { jsxDecorator } from 'storybook-addon-jsx';
 
 import {
   createPropsFromKnobs,
@@ -71,7 +70,6 @@ const props = createPropsFromKnobs({
 });
 
 storiesOf('Elements|Field', module)
-  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['spec'] })

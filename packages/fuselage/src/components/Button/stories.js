@@ -3,7 +3,6 @@ import centered from '@storybook/addon-centered/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { jsxDecorator } from 'storybook-addon-jsx';
 
 import { Document, TextSection, VariationsTable, createPropsFromKnobs, handleEvent } from '../../helpers/storybook';
 import { Icon } from '../Icon';
@@ -92,7 +91,6 @@ const props = createPropsFromKnobs({
 });
 
 storiesOf('Elements|Button', module)
-  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['spec'] })

@@ -2,7 +2,6 @@ import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { jsxDecorator } from 'storybook-addon-jsx';
 
 import { Document, TextSection, ShowCaseSection, createPropsFromKnobs } from '../../helpers/storybook';
 import { Button } from '../Button';
@@ -43,7 +42,6 @@ const Buttons = ({ count }) => new Array(count).fill(undefined).map((_, i) =>
 );
 
 storiesOf('Collections|ButtonGroup', module)
-  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator((storyFn) =>
     <div
