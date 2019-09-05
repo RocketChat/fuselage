@@ -1,9 +1,8 @@
-import { createTheme } from '../../helpers/createTheme';
 import colors from '../../tokens/colors';
 import theme from '../../styles/theme';
 
 
-export default createTheme('rcx-input', {
+export default {
   padding: '0.625rem 0.875rem',
   borderWidth: theme.borders.default.width,
   borderRadius: theme.borders.default.radius,
@@ -49,4 +48,4 @@ export default createTheme('rcx-input', {
   helpFontFamily: theme.typography.p1.fontFamily,
   helpFontWeight: 'normal',
   helpLineHeight: '1.25rem',
-});
+};

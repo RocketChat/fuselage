@@ -1,8 +1,7 @@
-import { createTheme } from '../../helpers/createTheme';
 import theme from '../../styles/theme';
 import colors from '../../tokens/colors';
 
-export default createTheme('rcx-check-box', {
+export default {
   size: theme.typography.p1.lineHeight,
   borderWidth: theme.borders.default.width,
   borderRadius: theme.borders.default.radius,
@@ -26,4 +25,4 @@ export default createTheme('rcx-check-box', {
   checkedFocusBorderColor: colors.blue700,
   checkedFocusShadowColor: colors.blue100,
   checkedDisabledBackgroundColor: colors.blue200,
-});
+};

@@ -1,9 +1,8 @@
-import { createTheme } from '../../helpers/createTheme';
 import theme from '../../styles/theme';
 import colors from '../../tokens/colors';
 
 
-export default createTheme('rcx-toggle-switch', {
+export default {
   trackWidth: '2.5rem',
   trackHeight: theme.typography.p1.lineHeight,
   thumbSize: `calc(${ theme.typography.p1.lineHeight } - 2 * ${ theme.borders.default.width })`,
@@ -26,4 +25,4 @@ export default createTheme('rcx-toggle-switch', {
   checkedFocusShadowColor: colors.blue100,
   checkedDisabledColor: colors.white,
   checkedDisabledBackgroundColor: colors.blue200,
-});
+};

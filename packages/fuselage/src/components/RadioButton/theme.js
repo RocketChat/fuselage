@@ -1,8 +1,7 @@
-import { createTheme } from '../../helpers/createTheme';
 import colors from '../../tokens/colors';
 import theme from '../../styles/theme';
 
-export default createTheme('rcx-radio-button', {
+export default {
   size: theme.typography.p1.lineHeight,
   borderWidth: theme.borders.default.width,
   borderRadius: '50%',
@@ -26,4 +25,4 @@ export default createTheme('rcx-radio-button', {
   checkedFocusBorderColor: colors.blue700,
   checkedFocusShadowColor: colors.blue100,
   checkedDisabledBackgroundColor: colors.blue200,
-});
+};

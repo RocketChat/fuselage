@@ -1,9 +1,8 @@
-import { createTheme } from '../../helpers/createTheme';
 import colors from '../../tokens/colors';
 import theme from '../../styles/theme';
 
 
-export default createTheme('rcx-field', {
+export default {
   labelMargin: '0 0 0.5rem 0',
   labelColor: colors.dark800,
   labelFontFamily: theme.typography.p1.fontFamily,
@@ -18,4 +17,4 @@ export default createTheme('rcx-field', {
   helpFontFamily: theme.typography.p1.fontFamily,
   helpFontWeight: 'normal',
   helpLineHeight: '1.25rem',
-});
+};

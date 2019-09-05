@@ -1,8 +1,8 @@
-import { createTheme } from '../../helpers/createTheme';
 import theme from '../../styles/theme';
 import colors from '../../tokens/colors';
 
-export default createTheme('rcx-button', {
+
+export default {
   borderWidth: theme.borders.default.width,
   borderRadius: theme.borders.default.radius,
   fontFamily: theme.typography.p1.fontFamily,
@@ -45,4 +45,4 @@ export default createTheme('rcx-button', {
   primaryDangerFocusShadowColor: colors.red100,
   primaryDisabledBackgroundColor: colors.blue200,
   primaryDangerDisabledBackgroundColor: colors.red200,
-});
+};
