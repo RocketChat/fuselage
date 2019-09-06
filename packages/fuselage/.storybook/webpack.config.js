@@ -23,7 +23,6 @@ module.exports = async ({ config, mode }) => {
         options: {
           importLoaders: 2,
           modules: true,
-          localIdentName: '[local]',
         },
       },
       {

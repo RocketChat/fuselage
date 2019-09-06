@@ -1,29 +1,32 @@
 import * as characters from '@rocket.chat/icons/dist/font/characters';
 import * as names from '@rocket.chat/icons/dist/font/index';
+import React from 'react';
 import styled from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
-import { reset } from '../../mixins/reset';
+import { useStyles } from '../../hooks/useStyles';
+import styles from './styles.scss';
 
 
-const mapNames = Object.entries(names).reduce((map, [symbol, name]) => Object.assign(map, { [name]: symbol }), {});
+const nameToCharacterMapping = Object.entries(names).reduce((map, [symbol, name]) => ({
+  ...map,
+  [name]: characters[symbol],
+}), {});
 
-export const Icon = styled.i.attrs({ 'aria-hidden': 'true' }).attrs(rebuildClassName('rcx-icon'))`
-  ${ reset }
+export const Icon = styled(React.forwardRef(function Icon({
+  as: Component = 'i',
+  className,
+  iconName,
+  ...props
+}, ref) {
+  const iconClassName = useStyles(styles, 'icon', {}, className);
 
-  display: inline-block;
+  return <Component
+    aria-hidden='true'
+    children={nameToCharacterMapping[iconName]}
+    className={iconClassName}
+    ref={ref}
+    {...props}
+  />;
+}))``;
 
-  font-family: 'RocketChat';
-  font-weight: 400;
-  font-style: normal;
-  font-variant: normal;
-  line-height: 1;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: auto;
-
-  &::before {
-    content: ${ ({ iconName }) => JSON.stringify(characters[mapNames[iconName]]) };
-  }
-`;
 Icon.displayName = 'Icon';
