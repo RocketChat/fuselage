@@ -15,15 +15,21 @@ const nameToCharacterMapping = Object.entries(names).reduce((map, [symbol, name]
 export const Icon = styled(React.forwardRef(function Icon({
   as: Component = 'i',
   className,
+  hidden,
   iconName,
+  invisible,
   ...props
 }, ref) {
-  const iconClassName = useStyles(styles, 'icon', {}, className);
+  const classNames = useStyles(styles, ['icon'], {
+    hidden,
+    invisible,
+  }, className);
 
   return <Component
     aria-hidden='true'
     children={nameToCharacterMapping[iconName]}
-    className={iconClassName}
+    className={classNames.icon}
+    hidden={hidden}
     ref={ref}
     {...props}
   />;

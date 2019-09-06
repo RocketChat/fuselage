@@ -2,6 +2,9 @@
   display: inline-block;
 
   user-select: none;
+  transition: all var(--theme-transitions-short-duration);
+
+  opacity: var(--theme-test-opacity);
 
   font-family: 'RocketChat';
   font-weight: 400;
@@ -11,4 +14,17 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: auto;
+
+  &.hidden,
+  &--hidden,
+  &[hidden] {
+    display: none;
+  }
+
+  &.invisible,
+  &--invisible {
+    visibility: hidden;
+
+    opacity: 0;
+  }
 }
