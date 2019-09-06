@@ -1,181 +1,233 @@
 import styled, { css } from 'styled-components';
 
 import { rebuildClassName } from '../../helpers/rebuildClassName';
-import { disableable } from '../../mixins/disableable';
-import { reset } from '../../mixins/reset';
-import { unselectable } from '../../mixins/unselectable';
-import { withText } from '../../mixins/withText';
+import {
+  whenActive,
+  whenDisabled,
+  whenFocused,
+  whenHidden,
+  whenHovered,
+  whenInvisible,
+} from '../../mixins/state';
+import theme from '../../styles/theme';
+import colors from '../../tokens/colors';
 import { Icon } from '../Icon';
-import theme from './theme';
 
 
-const sizeVariant = ({
-  height,
-  paddingVertical,
-  paddingHorizontal,
-  fontSize,
-  lineHeight,
-  iconSize,
+const withSizeVariant = ({
+  border,
+  iconSizeRatio,
+  margin,
+  paddingX,
+  typography,
 }) => css`
-  height: ${ height };
-  padding: ${ paddingVertical } ${ paddingHorizontal };
+  border-width: ${ border.width };
+  margin: ${ margin };
+  padding: 0 calc(${ paddingX } - ${ border.width });
 
-  font-size: ${ fontSize };
-  line-height: ${ lineHeight };
+  border-radius: ${ border.radius };
+
+  font-family: ${ typography.fontFamily };
+  font-size: ${ typography.fontSize };
+  font-weight: ${ typography.fontWeight };
+  letter-spacing: ${ typography.letterSpacing };
+  line-height: calc(2 * ${ typography.lineHeight } - 2 * ${ border.width });
 
   & > ${ Icon } {
-    font-size: ${ iconSize };
+    font-size: calc(${ iconSizeRatio } * ${ typography.lineHeight });
   }
 
   ${ ({ square }) => square && css`
-    width: ${ height };
-    padding: ${ paddingVertical } 0;
+    width: calc(2 * ${ typography.lineHeight });
+    padding: 0;
 
-    & > .rcx-icon {
-      font-size: ${ lineHeight };
+    & > ${ Icon } {
+      font-size: ${ typography.lineHeight };
     }
   ` }
 `;
 
-const mediumSizeVariant = () => sizeVariant({
-  height: theme.height,
-  paddingVertical: theme.paddingVertical,
-  paddingHorizontal: theme.paddingHorizontal,
-  fontSize: theme.fontSize,
-  lineHeight: theme.lineHeight,
-  iconSize: theme.iconSize,
-});
-
-const smallSizeVariant = ({ small }) => small && sizeVariant({
-  height: theme.smallHeight,
-  paddingVertical: theme.smallPaddingVertical,
-  paddingHorizontal: theme.smallPaddingHorizontal,
-  fontSize: theme.smallFontSize,
-  lineHeight: theme.smallLineHeight,
-  iconSize: theme.smallIconSize,
-});
-
-const colorsVariant = ({
-  color,
+const withColorsVariant = ({
   backgroundColor,
+  color,
   hoverBackgroundColor,
   activeBackgroundColor,
   focusBackgroundColor,
   focusBorderColor,
   focusShadowColor,
-  disabledColor,
   disabledBackgroundColor,
+  disabledColor,
 }) => css`
-  color: ${ color };
-  border-color: ${ backgroundColor };
   background-color: ${ backgroundColor };
+  border-color: ${ backgroundColor };
+  color: ${ color };
 
-  &:enabled:focus,
-  &:enabled.focus {
-    border-color: ${ focusBorderColor };
+  ${ whenFocused(css`
     background-color: ${ focusBackgroundColor };
+    border-color: ${ focusBorderColor };
 
     ${ focusShadowColor && css`box-shadow: 0 0 0 6px ${ focusShadowColor };` }
-  }
+  `) }
 
-  &:enabled:hover,
-  &:enabled.hover {
-    border-color: ${ hoverBackgroundColor };
+  ${ whenHovered(css`
     background-color: ${ hoverBackgroundColor };
+    border-color: ${ hoverBackgroundColor };
     box-shadow: none;
-  }
+  `) }
 
-  &:enabled:active,
-  &:enabled.active {
-    border-color: ${ activeBackgroundColor };
+  ${ whenActive(css`
     background-color: ${ activeBackgroundColor };
+    border-color: ${ activeBackgroundColor };
     box-shadow: none;
-  }
+  `) }
 
-  &:disabled {
-    color: ${ disabledColor };
-    border-color: ${ disabledBackgroundColor };
+  ${ whenDisabled(css`
     background-color: ${ disabledBackgroundColor };
-  }
+    border-color: ${ disabledBackgroundColor };
+    color: ${ disabledColor };
+  `) }
 `;
 
-const basicColorsVariant = () => css`
-  ${ colorsVariant({
-    color: theme.basicColor,
-    backgroundColor: theme.basicBackgroundColor,
-    hoverBackgroundColor: theme.basicHoverBackgroundColor,
-    activeBackgroundColor: theme.basicActiveBackgroundColor,
-    focusBackgroundColor: theme.basicFocusBackgroundColor,
-    focusBorderColor: theme.basicFocusBorderColor,
-    focusShadowColor: theme.basicFocusShadowColor,
-    disabledColor: theme.basicDisabledColor,
-    disabledBackgroundColor: theme.basicDisabledBackgroundColor,
-  }) }
+const transitionsDuration = ({ theme }) => theme.transitions.shortDuration;
 
-  ${ ({ danger }) => danger && colorsVariant({
-    color: theme.basicDangerColor,
-    disabledColor: theme.basicDisabledDangerColor,
-  }) }
-`;
+const basicVariantColors = () => ({
+  backgroundColor: colors.dark300,
+  color: colors.dark800,
+  hoverBackgroundColor: colors.dark400,
+  activeBackgroundColor: colors.dark500,
+  focusBackgroundColor: colors.dark300,
+  focusBorderColor: colors.dark500,
+  focusShadowColor: colors.dark100,
+  disabledBackgroundColor: colors.dark100,
+  disabledColor: colors.dark400,
+});
 
-const primaryColorsVariant = ({ primary }) => primary && css`
-  ${ colorsVariant({
-    color: theme.primaryColor,
-    backgroundColor: theme.primaryBackgroundColor,
-    hoverBackgroundColor: theme.primaryHoverBackgroundColor,
-    activeBackgroundColor: theme.primaryActiveBackgroundColor,
-    focusBackgroundColor: theme.primaryFocusBackgroundColor,
-    focusBorderColor: theme.primaryFocusBorderColor,
-    focusShadowColor: theme.primaryFocusShadowColor,
-    disabledColor: theme.primaryColor,
-    disabledBackgroundColor: theme.primaryDisabledBackgroundColor,
-  }) }
+const basicDangerVariantColors = () => ({
+  backgroundColor: colors.dark300,
+  color: colors.red500,
+  hoverBackgroundColor: colors.dark400,
+  activeBackgroundColor: colors.dark500,
+  focusBackgroundColor: colors.dark300,
+  focusBorderColor: colors.dark500,
+  focusShadowColor: colors.dark100,
+  disabledBackgroundColor: colors.dark100,
+  disabledColor: colors.red100,
+});
 
-  ${ ({ danger }) => danger && colorsVariant({
-    color: theme.primaryColor,
-    backgroundColor: theme.primaryDangerBackgroundColor,
-    hoverBackgroundColor: theme.primaryDangerHoverBackgroundColor,
-    activeBackgroundColor: theme.primaryDangerActiveBackgroundColor,
-    focusBackgroundColor: theme.primaryDangerFocusBackgroundColor,
-    focusBorderColor: theme.primaryDangerFocusBorderColor,
-    focusShadowColor: theme.primaryDangerFocusShadowColor,
-    disabledColor: theme.primaryColor,
-    disabledBackgroundColor: theme.primaryDangerDisabledBackgroundColor,
-  }) }
-`;
+const primaryVariantColors = () => ({
+  backgroundColor: colors.blue500,
+  color: colors.white,
+  hoverBackgroundColor: colors.blue600,
+  activeBackgroundColor: colors.blue700,
+  focusBackgroundColor: colors.blue500,
+  focusBorderColor: colors.blue700,
+  focusShadowColor: colors.blue100,
+  disabledBackgroundColor: colors.blue200,
+  disabledColor: colors.white,
+});
 
-const ghostColorsVariant = ({ ghost }) => ghost && colorsVariant({
+const primaryDangerVariantColors = () => ({
+  backgroundColor: colors.red500,
+  color: colors.white,
+  hoverBackgroundColor: colors.red600,
+  activeBackgroundColor: colors.red700,
+  focusBackgroundColor: colors.red500,
+  focusBorderColor: colors.red700,
+  focusShadowColor: colors.red100,
+  disabledBackgroundColor: colors.red200,
+  disabledColor: colors.white,
+});
+
+const ghostVariantColors = () => ({
   backgroundColor: 'transparent',
+  color: colors.dark800,
+  hoverBackgroundColor: colors.dark400,
+  activeBackgroundColor: colors.dark500,
+  focusBackgroundColor: colors.dark300,
+  focusBorderColor: colors.dark500,
+  focusShadowColor: colors.dark100,
+  disabledBackgroundColor: colors.dark100,
+  disabledColor: colors.dark400,
+});
+
+const ghostDangerVariantColors = () => ({
+  backgroundColor: 'transparent',
+  color: colors.red500,
+  hoverBackgroundColor: colors.dark400,
+  activeBackgroundColor: colors.dark500,
+  focusBackgroundColor: colors.dark300,
+  focusBorderColor: colors.dark500,
+  focusShadowColor: colors.dark100,
+  disabledBackgroundColor: colors.dark100,
+  disabledColor: colors.red100,
+});
+
+const mediumSizeVariant = ({ theme }) => ({
+  border: theme.borders.default,
+  iconSizeRatio: 0.8,
+  margin: theme.spaces[0],
+  paddingX: theme.spaces[5],
+  typography: theme.typography.p2,
+});
+
+const smallSizeVariant = ({ theme }) => ({
+  border: theme.borders.default,
+  iconSizeRatio: 0.75,
+  margin: theme.spaces[0],
+  paddingX: theme.spaces[4],
+  typography: theme.typography.c2,
 });
 
 export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
-  ${ reset }
-  ${ disableable }
-  ${ unselectable }
-  ${ withText }
-
   display: inline-block;
 
-  cursor: pointer;
+  box-sizing: border-box;
 
-  border-width: ${ theme.borderWidth };
   border-style: solid;
-  border-radius: ${ theme.borderRadius };
 
+  appearance: none;
+  transition: all ${ transitionsDuration };
+  outline: none;
+
+  font-variant-numeric: tabular-nums;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
-  font-family: ${ theme.fontFamily };
-  font-weight: ${ theme.fontWeight };
+  cursor: pointer;
+  user-select: none;
 
   & > ${ Icon } {
     vertical-align: middle;
   }
 
-  ${ mediumSizeVariant }
-  ${ smallSizeVariant }
+  ${ ({ small, theme }) => withSizeVariant(
+    (small && smallSizeVariant({ theme }))
+  || mediumSizeVariant({ theme })
+  ) }
 
-  ${ basicColorsVariant }
-  ${ primaryColorsVariant }
-  ${ ghostColorsVariant }
+  ${ ({ danger, ghost, primary, theme }) => withColorsVariant(
+    (primary && danger && primaryDangerVariantColors({ theme }))
+  || (primary && primaryVariantColors({ theme }))
+  || (ghost && danger && ghostDangerVariantColors({ theme }))
+  || (ghost && ghostVariantColors({ theme }))
+  || (danger && basicDangerVariantColors({ theme }))
+  || basicVariantColors({ theme })
+  ) }
+
+  ${ whenHidden(css`display: none;`) }
+
+  ${ whenInvisible(css`
+    opacity: 0;
+    visibility: hidden;
+  `) }
+
+  ${ whenDisabled(css`cursor: not-allowed;`) }
 `;
+
+Button.defaultProps = {
+  theme,
+  type: 'button',
+};
+
 Button.displayName = 'Button';

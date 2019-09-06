@@ -1,5 +1,6 @@
 import { toREM } from '../helpers/toREM';
 import borders from '../tokens/borders';
+import spaces from '../tokens/spaces';
 import transitions from '../tokens/transitions';
 import typography from '../tokens/typography';
 
@@ -31,6 +32,7 @@ export default {
     ...obj,
     [name]: mapBorder(border),
   }), {}),
+  spaces: spaces.map(toREM),
   transitions,
   typography: Object.entries(typography).reduce((obj, [name, variant]) => ({
     ...obj,

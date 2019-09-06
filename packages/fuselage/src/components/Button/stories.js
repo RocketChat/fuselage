@@ -30,9 +30,9 @@ storiesOf('Elements|Button', module)
       }}
       yAxis={{
         default: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
+        hover: { hovered: true },
+        active: { active: true },
+        focus: { focused: true },
         disabled: { disabled: true },
       }}
     />
@@ -50,9 +50,9 @@ storiesOf('Elements|Button', module)
       }}
       yAxis={{
         default: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
+        hover: { hovered: true },
+        active: { active: true },
+        focus: { focused: true },
         disabled: { disabled: true },
       }}
     />
@@ -70,9 +70,9 @@ storiesOf('Elements|Button', module)
       }}
       yAxis={{
         default: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
+        hover: { hovered: true },
+        active: { active: true },
+        focus: { focused: true },
         disabled: { disabled: true },
       }}
     />
