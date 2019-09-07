@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useStyles } from '../../hooks/useStyles';
+import { Box } from '../Box';
 import styles from './styles.scss';
 
 
@@ -13,23 +14,17 @@ const nameToCharacterMapping = Object.entries(names).reduce((map, [symbol, name]
 }), {});
 
 export const Icon = styled(React.forwardRef(function Icon({
-  as: Component = 'i',
   className,
-  hidden,
   iconName,
-  invisible,
   ...props
 }, ref) {
-  const classNames = useStyles(styles, ['icon'], {
-    hidden,
-    invisible,
-  }, className);
+  const classNames = useStyles(styles, ['icon'], {}, className);
 
-  return <Component
+  return <Box
     aria-hidden='true'
+    as='i'
     children={nameToCharacterMapping[iconName]}
     className={classNames.icon}
-    hidden={hidden}
     ref={ref}
     {...props}
   />;

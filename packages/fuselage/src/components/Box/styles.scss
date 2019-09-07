@@ -1,0 +1,29 @@
+.rcx-box {
+  box-sizing: border-box;
+
+  transition: all var(--theme-transitions-short-duration);
+  letter-spacing: inherit;
+
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  line-height: 1;
+
+  appearance: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: auto;
+
+  &[hidden],
+  &.hidden,
+  &--hidden {
+    display: none;
+  }
+
+  &.invisible,
+  &--invisible {
+    visibility: hidden;
+
+    opacity: 0;
+  }
+}

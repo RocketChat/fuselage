@@ -55,7 +55,7 @@
       "storiesOf('$2|$1', module)",
       "  .addDecorator(withKnobs)",
       "  .addDecorator(centered)",
-      "  .addParameters({ jest: ['spec'] })",
+      "  .addParameters({ jest: ['$1/spec'] })",
       "  .add('default', () =>",
       "    <$1 {...props()} />",
       "  );"
