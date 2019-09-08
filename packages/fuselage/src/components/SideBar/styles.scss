@@ -1,14 +1,13 @@
 @import '../../helpers/mixins.scss';
 @import '../../helpers/theme-var.scss';
-@import '../../styles/color-palette.scss';
-@import '../../styles/dimensions.scss';
+@import '../../tokens/index.scss';
 
 $name: 'rcx-side-bar';
 
 $default-theme: (
   'min-width': 17.5rem,
-  'background-color': color('dark-100'),
-  'border-color': color('dark-200'),
+  'background-color': color('dark100'),
+  'border-color': color('dark200'),
   'border-width': 1px,
   'transition-duration': dimension('short-transition-duration'),
 );

@@ -1,7 +1,6 @@
 @import '../../../helpers/mixins.scss';
 @import '../../../helpers/theme-var.scss';
-@import '../../../styles/color-palette.scss';
-@import '../../../styles/typography.scss';
+@import '../../../tokens/index.scss';
 
 $name: 'rcx-page-header';
 
@@ -10,7 +9,7 @@ $default-theme: (
   'padding': 0.75rem 1.5rem,
   'background-color': color('white'),
   'box-shadow': 0 1.5px 2px 0 rgba(31, 35, 41, 0.08),
-  'title-color': color('dark-900'),
+  'title-color': color('dark900'),
   'title-font-family': font-family('default'),
   'title-font-size': 1.375rem,
   'title-font-weight': 400,

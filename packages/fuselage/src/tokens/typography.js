@@ -1,8 +1,5 @@
-const baseFontFamily = [
+const defaultFontFamily = [
   'Inter',
-];
-
-const systemFontFamily = [
   '-apple-system',
   'BlinkMacSystemFont',
   'Segoe UI',
@@ -18,8 +15,6 @@ const systemFontFamily = [
   'Arial',
   'sans-serif',
 ];
-
-const defaultFontFamily = [...baseFontFamily, ...systemFontFamily];
 
 export default {
   h1: {

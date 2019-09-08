@@ -1,8 +1,5 @@
 import { toREM } from '../helpers/toREM';
-import borders from '../tokens/borders';
-import spaces from '../tokens/spaces';
-import transitions from '../tokens/transitions';
-import typography from '../tokens/typography';
+import { borders, spaces, transitions, typography } from '../tokens';
 
 
 const mapBorder = ({

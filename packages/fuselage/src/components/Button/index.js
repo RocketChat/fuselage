@@ -10,7 +10,7 @@ import {
   whenInvisible,
 } from '../../mixins/state';
 import theme from '../../styles/theme';
-import colors from '../../tokens/colors';
+import { colors } from '../../tokens';
 import { Icon } from '../Icon';
 
 

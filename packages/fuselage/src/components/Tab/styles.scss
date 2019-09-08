@@ -1,8 +1,6 @@
 @import '../../helpers/mixins.scss';
 @import '../../helpers/theme-var.scss';
-@import '../../styles/color-palette.scss';
-@import '../../styles/dimensions.scss';
-@import '../../styles/typography.scss';
+@import '../../tokens/index.scss';
 
 $name: 'rcx-tab';
 
@@ -10,13 +8,13 @@ $default-theme: (
   'margin-horizontal': 1rem,
   'padding': 1rem 0,
   'transition-duration': dimension('short-transition-duration'),
-  'color': color('dark-600'),
+  'color': color('dark600'),
   'line-width': dimension('border-width'),
   'font-family': font-family('default'),
   'font-size': 1rem,
   'font-weight': 500,
   'line-height': 1.25,
-  'active-color': color('blue-500'),
+  'active-color': color('blue500'),
 );
 
 .#{$name} {

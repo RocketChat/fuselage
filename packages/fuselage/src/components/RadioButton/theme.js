@@ -1,4 +1,4 @@
-import colors from '../../tokens/colors';
+import { colors } from '../../tokens';
 import theme from '../../styles/theme';
 
 export default {

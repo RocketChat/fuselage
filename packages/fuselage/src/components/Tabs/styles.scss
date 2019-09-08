@@ -1,13 +1,12 @@
 @import '../../helpers/mixins.scss';
 @import '../../helpers/theme-var.scss';
-@import '../../styles/color-palette.scss';
-@import '../../styles/dimensions.scss';
+@import '../../tokens/index.scss';
 
 $name: 'rcx-tabs';
 
 $default-theme: (
   'margin': 0 0 0.5rem 0,
-  'line-color': color('dark-300'),
+  'line-color': color('dark300'),
   'line-width': dimension('border-width'),
   'margin-horizontal': 1rem,
 );

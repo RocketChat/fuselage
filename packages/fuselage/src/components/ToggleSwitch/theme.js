@@ -1,5 +1,5 @@
 import theme from '../../styles/theme';
-import colors from '../../tokens/colors';
+import { colors } from '../../tokens';
 
 
 export default {

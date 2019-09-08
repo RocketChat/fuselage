@@ -1,14 +1,13 @@
 @import '../../../helpers/mixins.scss';
 @import '../../../helpers/theme-var.scss';
-@import '../../../styles/color-palette.scss';
-@import '../../../styles/typography.scss';
+@import '../../../tokens/index.scss';
 
 $name: 'rcx-side-bar__menu';
 
 $default-theme: (
   'padding': 0.5rem,
   'title-padding': 0 1rem 0.5rem,
-  'title-color': color('dark-800'),
+  'title-color': color('dark800'),
   'title-font-family': font-family('default'),
   'title-font-size': 0.75rem,
   'title-font-weight': 600,

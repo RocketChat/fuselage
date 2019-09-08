@@ -1,0 +1,72 @@
+@import './borders.scss';
+@import './colors.scss';
+@import './spaces.scss';
+@import './transitions.scss';
+@import './typography.scss';
+
+$tokens: (
+  borders: $borders,
+  colors: $colors,
+  spaces: $spaces,
+  transitions: $transitions,
+  typography: $typography,
+);
+
+@function color($name) {
+  @if not map-get($colors, $name) {
+    @error There is no color named $name in the palette;
+  }
+
+  @return map-get($colors, $name);
+}
+
+$dimensions: (
+  'border-width': 2px,
+  'border-radius': 2px,
+  'short-transition-duration': 230ms, // see https://en.wikipedia.org/wiki/Human_processor_model
+  'long-transition-duration': 300ms,
+);
+
+@function dimension($name) {
+  @if not map-get($dimensions, $name) {
+    @error There is no dimension named $name;
+  }
+
+  @return map-get($dimensions, $name);
+}
+
+@function var-dimension($name) {
+  @return var(--rcx-dimensions-#{$name}, dimension($name));
+}
+
+$font-families: (
+  'default': (
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Helvetica Neue',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Meiryo UI',
+    Arial,
+    sans-serif,
+  ),
+  'icons': 'RocketChat',
+);
+
+@function font-family($name) {
+  @if not map-get($font-families, $name) {
+    @error There is no font family named $name in the set;
+  }
+
+  @return map-get($font-families, $name);
+}
+
+@function var-font-family($name) {
+  @return var(--rcx-typography-#{$name}, font-family($name));
+}
