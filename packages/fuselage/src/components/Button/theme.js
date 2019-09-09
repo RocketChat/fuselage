@@ -1,24 +1,7 @@
 import { createTheme } from '../../helpers/createTheme';
-import theme from '../../styles/theme';
 import colors from '../../tokens/colors';
 
 export default createTheme('rcx-button', {
-  borderWidth: theme.borders.default.width,
-  borderRadius: theme.borders.default.radius,
-  fontFamily: theme.typography.p1.fontFamily,
-  fontWeight: 500,
-  height: '2.5rem',
-  paddingVertical: '0.5rem',
-  paddingHorizontal: '0.875rem',
-  fontSize: '0.875rem',
-  lineHeight: '1.25rem',
-  iconSize: '1rem',
-  smallHeight: '2rem',
-  smallPaddingVertical: '0.375rem',
-  smallPaddingHorizontal: '0.625rem',
-  smallFontSize: '0.75rem',
-  smallLineHeight: '1rem',
-  smallIconSize: '0.75rem',
   basicColor: colors.dark800,
   basicDangerColor: colors.red500,
   basicBackgroundColor: colors.dark300,

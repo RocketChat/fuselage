@@ -1,58 +1,79 @@
 import styled, { css } from 'styled-components';
 
 import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { varTheme } from '../../helpers/varTheme';
 import { disableable } from '../../mixins/disableable';
 import { reset } from '../../mixins/reset';
 import { unselectable } from '../../mixins/unselectable';
 import { withText } from '../../mixins/withText';
+import borders from '../../styles/borders';
 import { Icon } from '../Icon';
 import theme from './theme';
+import typography from '../../styles/typography';
+import { whenFocused, whenHovered, whenActive, whenDisabled } from '../../mixins/state';
+import { toREM } from '../../helpers/toREM';
+import spaces from '../../styles/spaces';
 
 
-const sizeVariant = ({
-  height,
-  paddingVertical,
-  paddingHorizontal,
-  fontSize,
-  lineHeight,
-  iconSize,
-}) => css`
-  height: ${ height };
-  padding: ${ paddingVertical } ${ paddingHorizontal };
+const withSizeVariant = ({
+  variantName,
+  border,
+  paddingX,
+  typographicVariant,
+  iconSizeRatio,
+}) => {
+  border = {
+    width: varTheme('Button', `${ variantName }BorderWidth`, borders.default.width),
+    radius: varTheme('Button', `${ variantName }BorderRadius`, borders.default.radius),
+  };
 
-  font-size: ${ fontSize };
-  line-height: ${ lineHeight };
+  typographicVariant = {
+    fontFamily: varTheme('Button', `${ variantName }FontFamily`, typographicVariant.fontFamily),
+    fontSize: varTheme('Button', `${ variantName }FontSize`, typographicVariant.fontSize),
+    fontWeight: varTheme('Button', `${ variantName }FontWeight`, typographicVariant.fontWeight),
+    letterSpacing: varTheme('Button', `${ variantName }LetterSpacing`, typographicVariant.letterSpacing),
+    lineHeight: varTheme('Button', `${ variantName }LineHeight`, typographicVariant.lineHeight),
+  };
 
-  & > ${ Icon } {
-    font-size: ${ iconSize };
-  }
+  iconSizeRatio = varTheme('Button', `${ variantName }IconSizeRatio`, iconSizeRatio);
 
-  ${ ({ square }) => square && css`
-    width: ${ height };
-    padding: ${ paddingVertical } 0;
+  return css`
+    border-width: ${ border.width };
+    border-style: solid;
+    border-radius: ${ border.radius };
+    padding: 0 calc(${ paddingX } - ${ border.width });
+
+    ${ withText(typographicVariant) }
+
+    line-height: calc(2 * ${ typographicVariant.lineHeight } - 2 * ${ border.width });
 
     & > ${ Icon } {
-      font-size: ${ lineHeight };
+      font-size: ${ iconSizeRatio * typographicVariant.lineHeight };
     }
-  ` }
-`;
 
-const mediumSizeVariant = () => sizeVariant({
-  height: theme.height,
-  paddingVertical: theme.paddingVertical,
-  paddingHorizontal: theme.paddingHorizontal,
-  fontSize: theme.fontSize,
-  lineHeight: theme.lineHeight,
-  iconSize: theme.iconSize,
+    ${ ({ square }) => square && css`
+      width: calc(2 * ${ typographicVariant.lineHeight });
+      padding: 0;
+
+      & > ${ Icon } {
+        font-size: ${ typographicVariant.lineHeight };
+      }
+    ` }
+  `;
+};
+
+const mediumSizeVariant = () => withSizeVariant({
+  border: borders.defaults,
+  paddingX: spaces[5],
+  typographicVariant: typography.p2,
+  iconSizeRatio: 0.8,
 });
 
-const smallSizeVariant = ({ small }) => small && sizeVariant({
-  height: theme.smallHeight,
-  paddingVertical: theme.smallPaddingVertical,
-  paddingHorizontal: theme.smallPaddingHorizontal,
-  fontSize: theme.smallFontSize,
-  lineHeight: theme.smallLineHeight,
-  iconSize: theme.smallIconSize,
+const smallSizeVariant = ({ small }) => small && withSizeVariant({
+  border: borders.defaults,
+  paddingX: spaces[4],
+  typographicVariant: typography.c2,
+  iconSizeRatio: 0.75,
 });
 
 const colorsVariant = ({
@@ -70,33 +91,30 @@ const colorsVariant = ({
   border-color: ${ backgroundColor };
   background-color: ${ backgroundColor };
 
-  &:enabled:focus,
-  &:enabled.focus {
+  ${ whenFocused(css`
     border-color: ${ focusBorderColor };
     background-color: ${ focusBackgroundColor };
 
-    ${ focusShadowColor && css`box-shadow: 0 0 0 6px ${ focusShadowColor };` }
-  }
+    ${ focusShadowColor && css`box-shadow: 0 0 0 ${ toREM(6) } ${ focusShadowColor };` }
+  `) }
 
-  &:enabled:hover,
-  &:enabled.hover {
+  ${ whenHovered(css`
     border-color: ${ hoverBackgroundColor };
     background-color: ${ hoverBackgroundColor };
     box-shadow: none;
-  }
+  `) }
 
-  &:enabled:active,
-  &:enabled.active {
+  ${ whenActive(css`
     border-color: ${ activeBackgroundColor };
     background-color: ${ activeBackgroundColor };
     box-shadow: none;
-  }
+  `) }
 
-  &:disabled {
+  ${ whenDisabled(css`
     color: ${ disabledColor };
     border-color: ${ disabledBackgroundColor };
     background-color: ${ disabledBackgroundColor };
-  }
+  `) }
 `;
 
 const basicColorsVariant = () => css`
@@ -152,20 +170,16 @@ export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
   ${ reset }
   ${ disableable }
   ${ unselectable }
-  ${ withText }
 
   display: inline-block;
 
   cursor: pointer;
 
-  border-width: ${ theme.borderWidth };
+  border-width: ${ varTheme('Button', 'borderWidth', borders.default.width) };
   border-style: solid;
-  border-radius: ${ theme.borderRadius };
+  border-radius: ${ varTheme('Button', 'borderRadius', borders.default.radius) };
 
   text-align: center;
-
-  font-family: ${ theme.fontFamily };
-  font-weight: ${ theme.fontWeight };
 
   & > ${ Icon } {
     vertical-align: middle;
@@ -178,4 +192,9 @@ export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
   ${ primaryColorsVariant }
   ${ ghostColorsVariant }
 `;
+
+Button.defaultProps = {
+  type: 'button',
+};
+
 Button.displayName = 'Button';

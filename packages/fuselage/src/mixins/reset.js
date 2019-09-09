@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 
-import dimensions from '../styles/theme';
+import transitions from '../styles/transitions';
+import { whenHidden, whenInvisible } from './state';
 
 
 export const reset = css`
@@ -11,16 +12,13 @@ export const reset = css`
   font-weight: normal;
   appearance: none;
   list-style: none;
-  transition: all ${ dimensions.transitions.shortDuration };
+  transition: all ${ transitions.shortDuration };
   outline: none;
 
-  &[hidden] {
-    display: none;
-  }
+  ${ whenHidden(css`display: none;`) }
 
-  ${ ({ invisible }) => invisible && css`
-    visibility: hidden;
-
+  ${ whenInvisible(css`
     opacity: 0;
-  ` }
+    visibility: hidden;
+  `) }
 `;
