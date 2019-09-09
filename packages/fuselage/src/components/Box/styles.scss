@@ -1,9 +1,11 @@
 @import '../../styles/theme.scss';
 
 .rcx-box {
+  $transitions-duration: var-theme(box, transition-duration, get-token(transitions, short-duration));
+
   box-sizing: border-box;
 
-  transition: all var-theme(transitions-short-duration);
+  transition: all $transitions-duration;
   letter-spacing: inherit;
 
   font-family: inherit;
@@ -29,3 +31,5 @@
     opacity: 0;
   }
 }
+
+@include export-theme;

@@ -1,21 +1,53 @@
 @import '../../helpers/mixins.scss';
 @import '../../styles/theme.scss';
 
-@mixin variant($name) {
-  letter-spacing: var-theme(typography-#{$name}-letter-spacing);
-
-  font-family: var-theme(typography-#{$name}-font-family);
-  font-size: var-theme(typography-#{$name}-font-size);
-  font-weight: var-theme(typography-#{$name}-font-weight);
-  line-height: var-theme(typography-#{$name}-line-height);
-}
-
 .rcx-text {
-  @include variant(p1);
+  $variants: get-token(typography);
+  $color-variants: (
+    default: get-token(colors, dark800),
+    info: get-token(colors, dark700),
+    hint: get-token(colors, dark600),
+    disabled: get-token(colors, dark400),
+    alternative: get-token(colors, 'white'),
+    primary: get-token(colors, blue500),
+    success: get-token(colors, green500),
+    danger: get-token(colors, red500),
+    warning: get-token(colors, yellow700),
+  );
 
-  @each $name in map-keys(get-token('typography')) {
+  @mixin variant($name) {
+    $variant: map-get($variants, $name);
+    $prefix: variant-#{$name};
+
+    letter-spacing: var-theme(text, #{$prefix}-letter-spacing, to-rem(map-get($variant, letter-spacing)));
+
+    font-family: var-theme(text, #{$prefix}-font-family, map-get($variant, font-family));
+    font-size: var-theme(text, #{$prefix}-font-size, to-rem(map-get($variant, font-size)));
+    font-weight: var-theme(text, #{$prefix}-font-weight, map-get($variant, font-weight));
+    line-height: var-theme(text, #{$prefix}-line-height, to-rem(map-get($variant, line-height)));
+  }
+
+  @mixin color-variant($name) {
+    $variant: map-get($color-variants, $name);
+    $prefix: color-variant-#{$name};
+
+    color: var-theme(text, #{$prefix}-color, $variant);
+  }
+
+  @include variant(p1);
+  @include color-variant(default);
+
+  @each $name in map-keys($variants) {
     &--variant-#{$name} {
       @include variant($name);
     }
   }
+
+  @each $name in map-keys($color-variants) {
+    &--color-variant-#{$name} {
+      @include color-variant($name);
+    }
+  }
 }
+
+@include export-theme;

@@ -9,28 +9,28 @@ import { Text } from './index';
 
 const props = createPropsFromKnobs({
   children: 'Lorem ipsum dolor sit amet',
-  variant: ['p1', [
-    'h1',
-    's1',
-    's2',
-    'p1',
-    'p2',
-    'c1',
-    'c2',
-    'micro',
-  ]],
+  colorVariant: ['default', Text.colorVariants],
+  variant: ['p1', Text.variants],
 });
 
 storiesOf('Elements|Text', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .addParameters({ jest: ['Text/spec'] })
-  .add('default', () => <Text {...props()} />)
-  .add('h1 variant', () => <Text {...props({ variant: 'h1' })} />)
-  .add('s1 variant', () => <Text {...props({ variant: 's1' })} />)
-  .add('s2 variant', () => <Text {...props({ variant: 's2' })} />)
-  .add('p1 variant', () => <Text {...props({ variant: 'p1' })} />)
-  .add('p2 variant', () => <Text {...props({ variant: 'p2' })} />)
-  .add('c1 variant', () => <Text {...props({ variant: 'c1' })} />)
-  .add('c2 variant', () => <Text {...props({ variant: 'c2' })} />)
-  .add('micro variant', () => <Text {...props({ variant: 'micro' })} />);
+  .add('default', () => <Text {...props()} />);
+
+Text.colorVariants.forEach((colorVariant) => {
+  storiesOf('Elements|Text', module)
+    .addDecorator(withKnobs)
+    .addDecorator(centered)
+    .addParameters({ jest: ['Text/spec'] })
+    .add(`${ colorVariant } color variant`, () => <Text {...props({ colorVariant })} />);
+});
+
+Text.variants.forEach((variant) => {
+  storiesOf('Elements|Text', module)
+    .addDecorator(withKnobs)
+    .addDecorator(centered)
+    .addParameters({ jest: ['Text/spec'] })
+    .add(`${ variant } variant`, () => <Text {...props({ variant })} />);
+});

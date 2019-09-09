@@ -9,6 +9,14 @@ const toREM = (length) => {
   return length;
 };
 
+const theme = {};
+
+export const varTheme = (component, name, value) => {
+  theme[`${ component }-${ name }`] = value;
+
+  return `var(--rcx-theme-${ component }-${ name }, ${ value })`;
+};
+
 const mapBorder = ({
   width,
   radius,
@@ -32,11 +40,6 @@ const mapTypographicVariant = ({
 });
 
 export default {
-  'borders-default-width': toREM(borders.default.width),
-  'borders-default-radius': toREM(borders.default.radius),
-
-  'transitions-short-duration': toREM(transitions.shortDuration),
-
   borders: Object.entries(borders).reduce((obj, [name, border]) => ({
     ...obj,
     [name]: mapBorder(border),
