@@ -31,7 +31,7 @@ const sizeVariant = ({
     width: ${ height };
     padding: ${ paddingVertical } 0;
 
-    & > .rcx-icon {
+    & > ${ Icon } {
       font-size: ${ lineHeight };
     }
   ` }
