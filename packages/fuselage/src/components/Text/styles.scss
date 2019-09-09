@@ -1,0 +1,21 @@
+@import '../../helpers/mixins.scss';
+@import '../../styles/theme.scss';
+
+@mixin variant($name) {
+  letter-spacing: var-theme(typography-#{$name}-letter-spacing);
+
+  font-family: var-theme(typography-#{$name}-font-family);
+  font-size: var-theme(typography-#{$name}-font-size);
+  font-weight: var-theme(typography-#{$name}-font-weight);
+  line-height: var-theme(typography-#{$name}-line-height);
+}
+
+.rcx-text {
+  @include variant(p1);
+
+  @each $name in map-keys(get-token('typography')) {
+    &--variant-#{$name} {
+      @include variant($name);
+    }
+  }
+}

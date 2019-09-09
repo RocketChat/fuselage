@@ -12,6 +12,16 @@ $tokens: (
   typography: $typography,
 );
 
+@function get-token($keys...) {
+  $node: $tokens;
+
+  @each $key in $keys {
+    $node: map-get($node, $key);
+  }
+
+  @return $node;
+}
+
 @function color($name) {
   @if not map-get($colors, $name) {
     @error There is no color named $name in the palette;

@@ -2,12 +2,9 @@ import { useLayoutEffect, useMemo } from 'react';
 
 import { flatMap } from '../helpers/flatMap';
 import { fromCameltoKebabCase } from '../helpers/fromCamelToKebabCase';
-import { useTheme } from './useTheme';
 
 
 export const useStyle = (styles, root, modifiers = {}, forwardedClassName) => {
-  useTheme();
-
   useLayoutEffect(() => {
     styles.use();
 

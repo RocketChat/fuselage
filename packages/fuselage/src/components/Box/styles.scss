@@ -1,9 +1,9 @@
-@import '../../tokens/index.scss';
+@import '../../styles/theme.scss';
 
 .rcx-box {
   box-sizing: border-box;
 
-  transition: all var(--theme-transitions-short-duration);
+  transition: all var-theme(transitions-short-duration);
   letter-spacing: inherit;
 
   font-family: inherit;

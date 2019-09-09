@@ -1,0 +1,32 @@
+@import '../tokens/index.scss';
+
+@function toREM($length) {
+  @return #{$length / 16}rem;
+}
+
+@function var-theme($name) {
+  @if not map-has-key($theme, $name) {
+    @error 'The default theme has no var "#{$name}".';
+  }
+
+  @return var(--rcx-theme-#{$name}, map-get($theme, $name));
+}
+
+$theme: (
+  borders-default-width: torem(get-token('borders', 'default', 'width')),
+  borders-default-radius: torem(get-token('borders', 'default', 'radius')),
+  transitions-short-duration: get-token('transitions', 'short-duration'),
+);
+
+@each $name, $properties in get-token('typography') {
+  $theme: map-merge(
+    $theme,
+    (
+      typography-#{$name}-font-family: map-get($properties, font-family),
+      typography-#{$name}-font-size: torem(map-get($properties, font-size)),
+      typography-#{$name}-font-weight: map-get($properties, font-weight),
+      typography-#{$name}-letter-spacing: torem(map-get($properties, letter-spacing)),
+      typography-#{$name}-line-height: torem(map-get($properties, line-height)),
+    )
+  );
+}

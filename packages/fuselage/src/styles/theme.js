@@ -1,6 +1,13 @@
-import { toREM } from '../helpers/toREM';
 import { borders, spaces, transitions, typography } from '../tokens';
 
+
+const toREM = (length) => {
+  if (typeof length === 'number') {
+    return `${ length / 16 }rem`;
+  }
+
+  return length;
+};
 
 const mapBorder = ({
   width,
@@ -25,6 +32,11 @@ const mapTypographicVariant = ({
 });
 
 export default {
+  'borders-default-width': toREM(borders.default.width),
+  'borders-default-radius': toREM(borders.default.radius),
+
+  'transitions-short-duration': toREM(transitions.shortDuration),
+
   borders: Object.entries(borders).reduce((obj, [name, border]) => ({
     ...obj,
     [name]: mapBorder(border),
