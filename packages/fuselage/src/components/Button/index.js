@@ -1,18 +1,23 @@
 import styled, { css } from 'styled-components';
 
 import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { toREM } from '../../helpers/toREM';
 import { varTheme } from '../../helpers/varTheme';
-import { disableable } from '../../mixins/disableable';
-import { reset } from '../../mixins/reset';
-import { unselectable } from '../../mixins/unselectable';
-import { withText } from '../../mixins/withText';
+import {
+  withText,
+  whenFocused,
+  whenHovered,
+  whenActive,
+  whenDisabled,
+  normalized,
+  clickable,
+  withTruncatedText,
+} from '../../mixins';
 import borders from '../../styles/borders';
 import { Icon } from '../Icon';
-import theme from './theme';
 import typography from '../../styles/typography';
-import { whenFocused, whenHovered, whenActive, whenDisabled } from '../../mixins/state';
-import { toREM } from '../../helpers/toREM';
 import spaces from '../../styles/spaces';
+import colors from '../../tokens/colors';
 
 
 const withSizeVariant = ({
@@ -23,10 +28,10 @@ const withSizeVariant = ({
   iconSizeRatio,
 }) => {
   border = {
-    width: varTheme('Button', `${ variantName }BorderWidth`, borders.default.width),
-    radius: varTheme('Button', `${ variantName }BorderRadius`, borders.default.radius),
+    width: varTheme('Button', `${ variantName }BorderWidth`, border.width),
+    radius: varTheme('Button', `${ variantName }BorderRadius`, border.radius),
   };
-
+  paddingX = varTheme('Button', `${ variantName }PaddingX`, paddingX);
   typographicVariant = {
     fontFamily: varTheme('Button', `${ variantName }FontFamily`, typographicVariant.fontFamily),
     fontSize: varTheme('Button', `${ variantName }FontSize`, typographicVariant.fontSize),
@@ -34,7 +39,6 @@ const withSizeVariant = ({
     letterSpacing: varTheme('Button', `${ variantName }LetterSpacing`, typographicVariant.letterSpacing),
     lineHeight: varTheme('Button', `${ variantName }LineHeight`, typographicVariant.lineHeight),
   };
-
   iconSizeRatio = varTheme('Button', `${ variantName }IconSizeRatio`, iconSizeRatio);
 
   return css`
@@ -62,21 +66,24 @@ const withSizeVariant = ({
   `;
 };
 
-const mediumSizeVariant = () => withSizeVariant({
-  border: borders.defaults,
+const mediumSized = withSizeVariant({
+  variantName: 'mediumSize',
+  border: borders.default,
   paddingX: spaces[5],
   typographicVariant: typography.p2,
   iconSizeRatio: 0.8,
 });
 
-const smallSizeVariant = ({ small }) => small && withSizeVariant({
-  border: borders.defaults,
+const smallSized = withSizeVariant({
+  variantName: 'smallSize',
+  border: borders.default,
   paddingX: spaces[4],
   typographicVariant: typography.c2,
   iconSizeRatio: 0.75,
 });
 
-const colorsVariant = ({
+const withColorVariant = ({
+  variantName,
   color,
   backgroundColor,
   hoverBackgroundColor,
@@ -86,98 +93,133 @@ const colorsVariant = ({
   focusShadowColor,
   disabledColor,
   disabledBackgroundColor,
-}) => css`
-  color: ${ color };
-  border-color: ${ backgroundColor };
-  background-color: ${ backgroundColor };
+}) => {
+  color = varTheme('Button', `${ variantName }Color`, color);
+  backgroundColor = varTheme('Button', `${ variantName }BackgroundColor`, backgroundColor);
+  hoverBackgroundColor = varTheme('Button', `${ variantName }HoverBackgroundColor`, hoverBackgroundColor);
+  activeBackgroundColor = varTheme('Button', `${ variantName }ActiveBackgroundColor`, activeBackgroundColor);
+  focusBackgroundColor = varTheme('Button', `${ variantName }FocusBackgroundColor`, focusBackgroundColor);
+  focusBorderColor = varTheme('Button', `${ variantName }FocusBorderColor`, focusBorderColor);
+  focusShadowColor = varTheme('Button', `${ variantName }FocusShadowColor`, focusShadowColor);
+  disabledColor = varTheme('Button', `${ variantName }DisabledColor`, disabledColor);
+  disabledBackgroundColor = varTheme('Button', `${ variantName }DisabledBackgroundColor`, disabledBackgroundColor);
 
-  ${ whenFocused(css`
-    border-color: ${ focusBorderColor };
-    background-color: ${ focusBackgroundColor };
+  return css`
+    color: ${ color };
+    border-color: ${ backgroundColor };
+    background-color: ${ backgroundColor };
 
-    ${ focusShadowColor && css`box-shadow: 0 0 0 ${ toREM(6) } ${ focusShadowColor };` }
-  `) }
+    ${ whenFocused(css`
+      border-color: ${ focusBorderColor };
+      background-color: ${ focusBackgroundColor };
 
-  ${ whenHovered(css`
-    border-color: ${ hoverBackgroundColor };
-    background-color: ${ hoverBackgroundColor };
-    box-shadow: none;
-  `) }
+      ${ focusShadowColor && css`box-shadow: 0 0 0 ${ toREM(6) } ${ focusShadowColor };` }
+    `) }
 
-  ${ whenActive(css`
-    border-color: ${ activeBackgroundColor };
-    background-color: ${ activeBackgroundColor };
-    box-shadow: none;
-  `) }
+    ${ whenHovered(css`
+      border-color: ${ hoverBackgroundColor };
+      background-color: ${ hoverBackgroundColor };
+      box-shadow: none;
+    `) }
 
-  ${ whenDisabled(css`
-    color: ${ disabledColor };
-    border-color: ${ disabledBackgroundColor };
-    background-color: ${ disabledBackgroundColor };
-  `) }
-`;
+    ${ whenActive(css`
+      border-color: ${ activeBackgroundColor };
+      background-color: ${ activeBackgroundColor };
+      box-shadow: none;
+    `) }
 
-const basicColorsVariant = () => css`
-  ${ colorsVariant({
-    color: theme.basicColor,
-    backgroundColor: theme.basicBackgroundColor,
-    hoverBackgroundColor: theme.basicHoverBackgroundColor,
-    activeBackgroundColor: theme.basicActiveBackgroundColor,
-    focusBackgroundColor: theme.basicFocusBackgroundColor,
-    focusBorderColor: theme.basicFocusBorderColor,
-    focusShadowColor: theme.basicFocusShadowColor,
-    disabledColor: theme.basicDisabledColor,
-    disabledBackgroundColor: theme.basicDisabledBackgroundColor,
-  }) }
+    ${ whenDisabled(css`
+      color: ${ disabledColor };
+      border-color: ${ disabledBackgroundColor };
+      background-color: ${ disabledBackgroundColor };
+    `) }
+  `;
+};
 
-  ${ ({ danger }) => danger && colorsVariant({
-    color: theme.basicDangerColor,
-    disabledColor: theme.basicDisabledDangerColor,
-  }) }
-`;
+const basicColored = withColorVariant({
+  variantName: 'basic',
+  color: colors.dark800,
+  backgroundColor: colors.dark300,
+  hoverBackgroundColor: colors.dark400,
+  activeBackgroundColor: colors.dark500,
+  focusBackgroundColor: colors.dark300,
+  focusBorderColor: colors.dark500,
+  focusShadowColor: colors.dark100,
+  disabledColor: colors.dark400,
+  disabledBackgroundColor: colors.dark100,
+});
 
-const primaryColorsVariant = ({ primary }) => primary && css`
-  ${ colorsVariant({
-    color: theme.primaryColor,
-    backgroundColor: theme.primaryBackgroundColor,
-    hoverBackgroundColor: theme.primaryHoverBackgroundColor,
-    activeBackgroundColor: theme.primaryActiveBackgroundColor,
-    focusBackgroundColor: theme.primaryFocusBackgroundColor,
-    focusBorderColor: theme.primaryFocusBorderColor,
-    focusShadowColor: theme.primaryFocusShadowColor,
-    disabledColor: theme.primaryColor,
-    disabledBackgroundColor: theme.primaryDisabledBackgroundColor,
-  }) }
+const basicDangerColored = withColorVariant({
+  variantName: 'basicDanger',
+  color: colors.red500,
+  backgroundColor: colors.dark300,
+  hoverBackgroundColor: colors.dark400,
+  activeBackgroundColor: colors.dark500,
+  focusBackgroundColor: colors.dark300,
+  focusBorderColor: colors.dark500,
+  focusShadowColor: colors.dark100,
+  disabledColor: colors.red100,
+  disabledBackgroundColor: colors.dark100,
+});
 
-  ${ ({ danger }) => danger && colorsVariant({
-    color: theme.primaryColor,
-    backgroundColor: theme.primaryDangerBackgroundColor,
-    hoverBackgroundColor: theme.primaryDangerHoverBackgroundColor,
-    activeBackgroundColor: theme.primaryDangerActiveBackgroundColor,
-    focusBackgroundColor: theme.primaryDangerFocusBackgroundColor,
-    focusBorderColor: theme.primaryDangerFocusBorderColor,
-    focusShadowColor: theme.primaryDangerFocusShadowColor,
-    disabledColor: theme.primaryColor,
-    disabledBackgroundColor: theme.primaryDangerDisabledBackgroundColor,
-  }) }
-`;
+const primaryColored = withColorVariant({
+  variantName: 'primary',
+  color: colors.white,
+  backgroundColor: colors.blue500,
+  hoverBackgroundColor: colors.blue600,
+  activeBackgroundColor: colors.blue700,
+  focusBackgroundColor: colors.blue500,
+  focusBorderColor: colors.blue700,
+  focusShadowColor: colors.blue100,
+  disabledColor: colors.white,
+  disabledBackgroundColor: colors.blue200,
+});
 
-const ghostColorsVariant = ({ ghost }) => ghost && colorsVariant({
+const primaryDangerColored = withColorVariant({
+  variantName: 'primaryDanger',
+  color: colors.white,
+  backgroundColor: colors.red500,
+  hoverBackgroundColor: colors.red600,
+  activeBackgroundColor: colors.red700,
+  focusBackgroundColor: colors.red500,
+  focusBorderColor: colors.red700,
+  focusShadowColor: colors.red100,
+  disabledColor: colors.white,
+  disabledBackgroundColor: colors.red200,
+});
+
+const ghostColored = withColorVariant({
+  variantName: 'ghost',
+  color: colors.dark800,
   backgroundColor: 'transparent',
+  hoverBackgroundColor: colors.dark400,
+  activeBackgroundColor: colors.dark500,
+  focusBackgroundColor: colors.dark300,
+  focusBorderColor: colors.dark500,
+  focusShadowColor: colors.dark100,
+  disabledColor: colors.dark400,
+  disabledBackgroundColor: colors.dark100,
+});
+
+const ghostDangerColored = withColorVariant({
+  variantName: 'ghostDanger',
+  color: colors.red500,
+  backgroundColor: 'transparent',
+  hoverBackgroundColor: colors.dark400,
+  activeBackgroundColor: colors.dark500,
+  focusBackgroundColor: colors.dark300,
+  focusBorderColor: colors.dark500,
+  focusShadowColor: colors.dark100,
+  disabledColor: colors.red100,
+  disabledBackgroundColor: colors.dark100,
 });
 
 export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
-  ${ reset }
-  ${ disableable }
-  ${ unselectable }
+  ${ normalized }
+  ${ clickable }
+  ${ withTruncatedText }
 
   display: inline-block;
-
-  cursor: pointer;
-
-  border-width: ${ varTheme('Button', 'borderWidth', borders.default.width) };
-  border-style: solid;
-  border-radius: ${ varTheme('Button', 'borderRadius', borders.default.radius) };
 
   text-align: center;
 
@@ -185,16 +227,17 @@ export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
     vertical-align: middle;
   }
 
-  ${ mediumSizeVariant }
-  ${ smallSizeVariant }
+  ${ ({ small }) =>
+    (small && smallSized)
+    || mediumSized }
 
-  ${ basicColorsVariant }
-  ${ primaryColorsVariant }
-  ${ ghostColorsVariant }
+  ${ ({ danger, ghost, primary }) =>
+    (ghost && danger && ghostDangerColored)
+    || (ghost && ghostColored)
+    || (primary && danger && primaryDangerColored)
+    || (primary && primaryColored)
+    || (danger && basicDangerColored)
+    || basicColored }
 `;
-
-Button.defaultProps = {
-  type: 'button',
-};
 
 Button.displayName = 'Button';

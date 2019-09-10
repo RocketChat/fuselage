@@ -93,7 +93,7 @@ const props = createPropsFromKnobs({
 storiesOf('Elements|Button', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['Button/spec'] })
   .add('basic', () => <Button {...props()} />)
   .add('primary', () => <Button {...props({ primary: true })} />)
   .add('ghost', () => <Button {...props({ ghost: true })} />)
@@ -108,7 +108,7 @@ storiesOf('Elements|Button', module)
   />)
   .add('as link', () => <Button
     {...props()}
-    forwardedAs='a'
+    as='a'
     href='https://rocket.chat'
     target='_blank'
     rel='noopener noreferrer'

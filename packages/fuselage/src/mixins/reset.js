@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 import transitions from '../styles/transitions';
-import { whenHidden, whenInvisible } from './state';
+import { whenHidden, whenInvisible } from '.';
 
 
 export const reset = css`

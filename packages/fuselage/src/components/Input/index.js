@@ -6,7 +6,7 @@ import { reset } from '../../mixins/reset';
 import { disableable } from '../../mixins/disableable';
 import { Icon } from '../Icon';
 import theme from './theme';
-import { withText } from '../../mixins/withText';
+import { withText } from '../../mixins';
 import { scrollable } from '../../mixins/scrollable';
 import { whenRightToLeftOrientation } from '../../mixins/whenRightToLeftOrientation';
 

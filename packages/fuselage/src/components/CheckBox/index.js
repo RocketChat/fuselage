@@ -7,7 +7,7 @@ import { disableable } from '../../mixins/disableable';
 import { reset } from '../../mixins/reset';
 import { unselectable } from '../../mixins/unselectable';
 import { visuallyHidden } from '../../mixins/visuallyHidden';
-import { withText } from '../../mixins/withText';
+import { withText } from '../../mixins';
 import theme from './theme';
 
 

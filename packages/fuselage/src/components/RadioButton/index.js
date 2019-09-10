@@ -5,7 +5,7 @@ import { rebuildClassName } from '../../helpers/rebuildClassName';
 import { reset } from '../../mixins/reset';
 import { visuallyHidden } from '../../mixins/visuallyHidden';
 import theme from './theme';
-import { withText } from '../../mixins/withText';
+import { withText } from '../../mixins';
 import { disableable } from '../../mixins/disableable';
 import { unselectable } from '../../mixins/unselectable';
 
