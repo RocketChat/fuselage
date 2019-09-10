@@ -3,13 +3,19 @@ import * as names from '@rocket.chat/icons/dist/font/index';
 import styled from 'styled-components';
 
 import { rebuildClassName } from '../../helpers/rebuildClassName';
-import { reset } from '../../mixins/reset';
+import { normalized } from '../../mixins';
 
 
-const mapNames = Object.entries(names).reduce((map, [symbol, name]) => Object.assign(map, { [name]: symbol }), {});
+const nameToCharacterMapping = Object.entries(names).reduce((map, [symbol, name]) => ({
+  ...map,
+  [name]: characters[symbol],
+}), {});
 
-export const Icon = styled.i.attrs({ 'aria-hidden': 'true' }).attrs(rebuildClassName('rcx-icon'))`
-  ${ reset }
+export const Icon = styled.i.attrs(rebuildClassName('rcx-icon')).attrs(({ iconName }) => ({
+  'aria-hidden': 'true',
+  children: nameToCharacterMapping[iconName],
+}))`
+  ${ normalized }
 
   display: inline-block;
 
@@ -18,12 +24,6 @@ export const Icon = styled.i.attrs({ 'aria-hidden': 'true' }).attrs(rebuildClass
   font-style: normal;
   font-variant: normal;
   line-height: 1;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-rendering: auto;
-
-  &::before {
-    content: ${ ({ iconName }) => JSON.stringify(characters[mapNames[iconName]]) };
-  }
 `;
 Icon.displayName = 'Icon';

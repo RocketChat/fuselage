@@ -1,19 +1,28 @@
 import * as iconNames from '@rocket.chat/icons/dist/font';
-import centered from '@storybook/addon-centered/react';
 import { withKnobs, color, number, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import React, { useMemo } from 'react';
+import React from 'react';
 
+import { Document, TextSection, ShowCaseSection } from '../../helpers/storybook';
 import { Icon } from './index';
 
 
-function IconDisplay({ children, color, direction, name, size, varName }) {
-  const styles = useMemo(() => ({
+function Icons({
+  color,
+  direction,
+  size,
+}) {
+  const styles = {
+    container: {
+      display: 'flex',
+      flexFlow: 'row wrap',
+    },
     wrapper: {
       margin: '0.5rem',
-      width: '9rem',
+      minWidth: '9rem',
       display: 'flex',
       flexFlow: 'column nowrap',
+      flex: '1 0 auto',
       alignItems: 'stretch',
       overflow: 'hidden',
     },
@@ -27,71 +36,38 @@ function IconDisplay({ children, color, direction, name, size, varName }) {
     info: {
       padding: '0.5rem',
     },
-    varName: {
+    name: {
       color: 'gray',
       textAlign: 'center',
       fontFamily: 'sans-serif',
     },
-    name: {
-      color: 'lightgray',
-      textAlign: 'center',
-      fontFamily: 'monospace',
-      fontSize: '0.75rem',
-    },
-  }), [color, direction, size]);
+  };
 
-  return <div style={styles.wrapper}>
-    <div style={styles.icon}>
-      {children}
-    </div>
-    <div style={styles.info}>
-      <div style={styles.varName}>{varName}</div>
-      <div style={styles.name}>{name}</div>
-    </div>
+  return <div style={styles.container}>
+    {Object.values(iconNames).map((name, key) =>
+      <div key={key} style={styles.wrapper}>
+        <div style={styles.icon}>
+          <Icon iconName={name} />
+        </div>
+        <div style={styles.info}>
+          <div style={styles.name}>{name}</div>
+        </div>
+      </div>
+    )}
   </div>;
 }
 
 storiesOf('Elements|Icon', module)
   .addDecorator(withKnobs)
-  .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
-  .lokiSkip('all', () => (
-    <div style={{ display: 'flex', flexFlow: 'row wrap' }}>
-      {Object.entries(iconNames).map(([varName, name], key) => (
-        <IconDisplay
-          key={key}
-          name={name}
-          varName={varName}
-          color={color('color', 'gray')}
-          direction={select('direction', ['ltr', 'rtl'], 'ltr')}
-          size={number('size', 40)}
-        >
-          <Icon iconName={name} />
-        </IconDisplay>
-      ))}
-    </div>
-  ));
-
-Object.entries(iconNames).forEach(([varName, name]) => {
-  storiesOf('Elements|Icon', module)
-    .addDecorator(withKnobs)
-    .addDecorator(centered)
-    .addParameters({ jest: ['spec'] })
-    .add(varName, () => <>
-      <Icon
-        iconName={name}
-        style={{
-          color: color('color', 'gray'),
-          fontSize: number('fontSize', 40),
-        }}
+  .lokiSkip('Icon', () => <Document>
+    <TextSection>
+      <h1>Icon</h1>
+    </TextSection>
+    <ShowCaseSection>
+      <Icons
+        color={color('color', 'gray')}
+        direction={select('direction', ['ltr', 'rtl'], 'ltr')}
+        size={number('size', 40)}
       />
-      <Icon
-        iconName={name}
-        style={{
-          color: color('color', 'gray'),
-          fontSize: number('fontSize', 40),
-          direction: 'rtl',
-        }}
-      />
-    </>);
-});
+    </ShowCaseSection>
+  </Document>);
