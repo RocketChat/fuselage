@@ -1,102 +1,70 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { rebuildClassName } from '../../helpers/rebuildClassName';
-import { reset } from '../../mixins/reset';
-import { selectableForHelp } from '../../mixins/selectableForHelp';
-import { unselectable } from '../../mixins/unselectable';
-import theme from './theme';
+import {
+  helpTextSpacing,
+  helpTextColor,
+  helpTextFontFamily,
+  helpTextFontSize,
+  helpTextFontWeight,
+  helpTextLetterSpacing,
+  helpTextLineHeight,
+} from './theme';
+import { Label } from '../Label';
+import { normalized, withSelectableText, withText } from '../../mixins';
 
 
-const Container = styled.div.attrs(rebuildClassName('rcx-field__container'))`
-  ${ reset }
+const Container = styled.div.attrs(rebuildClassName('rcx-field'))`
+  ${ normalized }
 
   display: flex;
-
-  width: 100%;
 
   flex-flow: column nowrap;
 `;
 
-const LabelWrapper = styled.label.attrs(rebuildClassName('rcx-field__label-wrapper'))`
-  ${ reset }
-  ${ unselectable }
-
-  display: flex;
+const HelpText = styled.div.attrs(rebuildClassName('rcx-field__help-text'))`
+  ${ normalized }
+  ${ withSelectableText }
 
   flex: 0 0 auto;
 
-  margin: ${ theme.labelMargin };
+  margin: ${ helpTextSpacing } 0 0 0;
 
-  color: ${ theme.labelColor };
+  color: ${ helpTextColor };
 
-  font-family: ${ theme.labelFontFamily };
-  font-size: ${ theme.labelFontSize };
-  font-weight: ${ theme.labelFontWeight };
-  line-height: ${ theme.labelLineHeight };
-  flex-flow: row nowrap;
+  ${ withText({
+    fontFamily: helpTextFontFamily,
+    fontSize: helpTextFontSize,
+    fontWeight: helpTextFontWeight,
+    letterSpacing: helpTextLetterSpacing,
+    lineHeight: helpTextLineHeight,
+  }) }
 `;
 
-const LabelText = styled.span.attrs(rebuildClassName('rcx-field__label-text'))`
-  overflow: hidden;
-  flex: 1 1 0;
-
-  white-space: nowrap;
-  text-overflow: ellipsis;
-
-  ${ ({ required }) => required && css`
-    &::before {
-      content: '* ';
-
-      color: ${ theme.labelRequiredColor };
-    }
-  ` }
-`;
-
-const LabelError = styled.span.attrs(rebuildClassName('rcx-field__label-error'))`
-  ${ selectableForHelp }
-
-  flex: 0 1 auto;
-
-  color: ${ theme.labelErrorColor };
-`;
-
-const HelpText = styled.span.attrs(rebuildClassName('rcx-field__help-text'))`
-  ${ reset }
-  ${ selectableForHelp }
-
-  flex: 0 0 auto;
-
-  margin: ${ theme.helpMargin };
-
-  color: ${ theme.helpColor };
-
-  font-family: ${ theme.helpFontFamily };
-  font-size: ${ theme.helpFontSize };
-  font-weight: ${ theme.helpFontWeight };
-  line-height: ${ theme.helpLineHeight };
-`;
-
-export const Field = styled(React.forwardRef(function Field(props, ref) {
-  const {
-    children,
-    error,
-    helpText,
-    htmlFor,
-    label,
-    required,
-    ...remainingProps
-  } = props;
-
-  return <Container ref={ref} {...rebuildClassName('rcx-field')(props)} {...remainingProps}>
-    {label && <LabelWrapper htmlFor={htmlFor}>
-      <LabelText required={required}>{label}</LabelText>
-      {error && <LabelError>{error}</LabelError>}
-    </LabelWrapper>}
-
-    {children}
+export const Field = styled(React.forwardRef(function Field({
+  children,
+  className,
+  error,
+  helpText,
+  hidden,
+  htmlFor,
+  invisible,
+  label,
+  orientation,
+  required,
+  text,
+  ...props
+}, ref) {
+  return <Container className={className} hidden={hidden} invisible={invisible} ref={ref} {...props}>
+    {label
+      ? <Label error={error} htmlFor={htmlFor} required={required} text={label}>
+        {children}
+      </Label>
+      : children}
 
     {helpText && <HelpText>{helpText}</HelpText>}
   </Container>;
 }))``;
+
 Field.displayName = 'Field';

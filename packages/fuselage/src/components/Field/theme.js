@@ -1,21 +1,13 @@
-import { createTheme } from '../../helpers/createTheme';
-import colors from '../../tokens/colors';
-import theme from '../../styles/theme';
+import { varTheme } from '../../helpers/varTheme';
+import spaces from '../../styles/spaces';
+import textColors from '../../styles/textColors';
+import typography from '../../styles/typography';
 
 
-export default createTheme('rcx-field', {
-  labelMargin: '0 0 0.5rem 0',
-  labelColor: colors.dark800,
-  labelFontFamily: theme.typography.p1.fontFamily,
-  labelFontSize: '0.875rem',
-  labelFontWeight: 'normal',
-  labelLineHeight: '1.25rem',
-  labelRequiredColor: colors.red500,
-  labelErrorColor: colors.red500,
-  helpMargin: '0.25rem 0 0 0',
-  helpColor: colors.dark600,
-  helpFontSize: '0.875rem',
-  helpFontFamily: theme.typography.p1.fontFamily,
-  helpFontWeight: 'normal',
-  helpLineHeight: '1.25rem',
-});
+export const helpTextSpacing = varTheme('Field', 'helpTextSpacing', spaces[2]);
+export const helpTextColor = varTheme('Field', 'helpTextColor', textColors.hint);
+export const helpTextFontFamily = varTheme('Field', 'helpTextFontFamily', typography.p1.fontFamily);
+export const helpTextFontSize = varTheme('Field', 'helpTextFontSize', typography.p1.fontSize);
+export const helpTextFontWeight = varTheme('Field', 'helpTextFontWeight', typography.p1.fontWeight);
+export const helpTextLetterSpacing = varTheme('Field', 'helpTextLetterSpacing', typography.p1.letterSpacing);
+export const helpTextLineHeight = varTheme('Field', 'helpTextLineHeight', typography.p1.lineHeight);

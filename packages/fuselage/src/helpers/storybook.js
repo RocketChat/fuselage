@@ -2,6 +2,7 @@ import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import React from 'react';
+import styled from 'styled-components';
 
 
 export const horizontallyCentered = (storyFn) => centered(() => (
@@ -148,3 +149,20 @@ export function VariationsTable({ component: Component, common = {}, xAxis = {},
     </tbody>
   </table>;
 }
+
+const ArbitraryBox = styled.div`
+  background-image: repeating-linear-gradient(
+    45deg,
+    lightgray,
+    lightgray 10px,
+    white 10px,
+    white 20px
+  );
+  border: 1px solid lightgray;
+`;
+
+export const PseudoInput = styled(ArbitraryBox)`
+  width: 100%;
+  min-width: 6rem;
+  height: 2rem;
+`;

@@ -121,9 +121,12 @@ export const withText = ({
   text-decoration: none;
 `;
 
-
 export const withTruncatedText = css`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+`;
+
+export const withSelectableText = css`
+  user-select: text;
 `;

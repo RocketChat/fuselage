@@ -6,28 +6,13 @@ import React from 'react';
 import {
   createPropsFromKnobs,
   Document,
+  PseudoInput,
   ShowCaseSection,
   TextSection,
   VariationsTable,
 } from '../../helpers/storybook';
 import { Field } from './index';
 
-
-const ChildComponent = () => <div
-  style={{
-    backgroundImage: `repeating-linear-gradient(
-      45deg,
-      lightgray,
-      lightgray 10px,
-      white 10px,
-      white 20px
-    )`,
-    border: '1px solid lightgray',
-    width: '100%',
-    minWidth: '6rem',
-    height: '2rem',
-  }}
-/>;
 
 storiesOf('Elements|Field', module)
   .lokiSkip('Field', () => <Document>
@@ -39,7 +24,7 @@ storiesOf('Elements|Field', module)
     </TextSection>
     <VariationsTable
       component={Field}
-      common={{ label: 'Label', children: <ChildComponent /> }}
+      common={{ label: 'Label', children: <PseudoInput /> }}
       xAxis={{
         default: {},
         required: { required: true },
@@ -53,14 +38,14 @@ storiesOf('Elements|Field', module)
       <h2>Help</h2>
     </TextSection>
     <ShowCaseSection>
-      <Field helpText='Help text'>
-        <ChildComponent />
+      <Field helpText='Help text' style={{ width: '100%' }}>
+        <PseudoInput />
       </Field>
     </ShowCaseSection>
   </Document>);
 
 const props = createPropsFromKnobs({
-  children: <ChildComponent />,
+  children: <PseudoInput />,
   error: '',
   helpText: '',
   hidden: false,
@@ -72,7 +57,7 @@ const props = createPropsFromKnobs({
 storiesOf('Elements|Field', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['Field/spec'] })
   .add('default', () => <Field {...props()} />)
   .add('with label', () => <Field {...props({ label: 'Label' })} />)
   .add('with label, required', () => <Field {...props({ label: 'Label', required: true })} />)
