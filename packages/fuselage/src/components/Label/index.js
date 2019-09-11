@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useContext } from 'react';
 import styled, { css } from 'styled-components';
 
 import { rebuildClassName } from '../../helpers';
@@ -32,7 +32,7 @@ const Wrapper = styled.div.attrs(rebuildClassName('rcx-label__wrapper'))`
   flex-flow: row nowrap;
 `;
 
-const topOriented = css`
+const topPositioned = css`
   flex-flow: column nowrap;
   align-items: stretch;
 
@@ -41,7 +41,7 @@ const topOriented = css`
   }
 `;
 
-const startOriented = css`
+const startPositioned = css`
   flex-flow: row nowrap;
   align-items: center;
 
@@ -50,7 +50,7 @@ const startOriented = css`
   }
 `;
 
-const endOriented = css`
+const endPositioned = css`
   flex-flow: row-reverse nowrap;
   align-items: center;
 
@@ -64,10 +64,10 @@ const Container = styled.label.attrs(rebuildClassName('rcx-label'))`
 
   display: flex;
 
-  ${ ({ orientation }) =>
-    (orientation === 'top' && topOriented)
-    || (orientation === 'start' && startOriented)
-    || (orientation === 'end' && endOriented) }
+  ${ ({ position }) =>
+    (position === 'top' && topPositioned)
+    || (position === 'start' && startPositioned)
+    || (position === 'end' && endPositioned) }
 `;
 
 const withRequiredMark = css`
@@ -101,27 +101,41 @@ const Error = styled.span.attrs(rebuildClassName('rcx-label__error'))`
   color: ${ errorColor };
 `;
 
+const LabelContext = createContext(false);
+
+export const useIsInsideLabel = () => !!useContext(LabelContext);
+
 export const Label = styled(React.forwardRef(function Label({
   children,
   className,
   error,
-  orientation,
+  position,
   required,
   text,
   ...props
 }, ref) {
-  return <Container className={className} orientation={orientation} ref={ref} {...props}>
-    <Wrapper>
-      <Text required={required}>{text}</Text>
-      {error && <Error>{error}</Error>}
-    </Wrapper>
+  const isInsideLabel = useIsInsideLabel();
 
-    {children}
-  </Container>;
+  return <LabelContext.Provider value={true}>
+    <Container
+      as={isInsideLabel ? 'span' : 'label'}
+      className={className}
+      position={position}
+      ref={ref}
+      {...props}
+    >
+      {(text || error) && <Wrapper>
+        {text && <Text required={required}>{text}</Text>}
+        {error && <Error>{error}</Error>}
+      </Wrapper>}
+
+      {children}
+    </Container>
+  </LabelContext.Provider>;
 }))``;
 
 Label.defaultProps = {
-  orientation: 'top',
+  position: 'top',
 };
 
 Label.displayName = 'Label';

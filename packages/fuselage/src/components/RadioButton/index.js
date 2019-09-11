@@ -4,10 +4,10 @@ import styled, { css } from 'styled-components';
 import { rebuildClassName } from '../../helpers';
 import { reset } from '../../mixins/reset';
 import { visuallyHidden } from '../../mixins/visuallyHidden';
-import theme from './theme';
-import { withText } from '../../mixins';
 import { disableable } from '../../mixins/disableable';
 import { unselectable } from '../../mixins/unselectable';
+import { Label } from '../Label';
+import theme from './theme';
 
 
 const Input = styled.input.attrs({ type: 'radio' }).attrs(rebuildClassName('rcx-radio-button__input'))`
@@ -144,21 +144,7 @@ const Fake = styled.i.attrs(rebuildClassName('rcx-radio-button__fake'))`
   ${ checkedIconVariant }
 `;
 
-const Label = styled.span.attrs(rebuildClassName('rcx-radio-button__label'))`
-  ${ reset }
-  ${ withText }
-
-  margin: 0 0.625rem;
-
-  color: ${ theme.labelColor };
-
-  font-family: ${ theme.labelFontFamily };
-  font-size: ${ theme.labelFontSize };
-  font-weight: ${ theme.labelFontWeight };
-  line-height: ${ theme.labelLineHeight };
-`;
-
-const Wrapper = styled.label.attrs(rebuildClassName('rcx-radio-button__wrapper'))`
+const Container = styled(Label).attrs(rebuildClassName('rcx-radio-button__wrapper'))`
   ${ reset }
   ${ disableable }
   ${ unselectable }
@@ -172,14 +158,15 @@ const Wrapper = styled.label.attrs(rebuildClassName('rcx-radio-button__wrapper')
   align-items: center;
 `;
 
-export const RadioButton = React.forwardRef(function RadioButton({
-  label,
+export const RadioButton = styled(React.forwardRef(function RadioButton({
+  hidden,
+  invisible,
   ...props
 }, ref) {
-  return <Wrapper disabled={props.disabled} hidden={props.hidden} invisible={props.invisible}>
-    <Input ref={ref} {...props} />
+  return <Container hidden={hidden} invisible={invisible}>
+    <Input hidden={hidden} invisible={invisible} ref={ref} {...props} />
     <Fake />
-    {label && <Label>{label}</Label>}
-  </Wrapper>;
-});
+  </Container>;
+}))``;
+
 RadioButton.displayName = 'RadioButton';

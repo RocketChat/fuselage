@@ -26,8 +26,6 @@ export const whenFocused = (styles) => css`
   &.focus {
     ${ styles }
   }
-
-  ${ ({ focused }) => focused && styles }
 `;
 
 export const whenHovered = (styles) => css`
@@ -35,8 +33,6 @@ export const whenHovered = (styles) => css`
   &.hover {
     ${ styles }
   }
-
-  ${ ({ hovered }) => hovered && styles }
 `;
 
 export const whenActive = (styles) => css`
@@ -44,8 +40,6 @@ export const whenActive = (styles) => css`
   &.active {
     ${ styles }
   }
-
-  ${ ({ active }) => active && styles }
 `;
 
 export const whenDisabled = (styles) => css`
@@ -54,8 +48,6 @@ export const whenDisabled = (styles) => css`
   &:disabled {
     ${ styles }
   }
-
-  ${ ({ disabled }) => disabled && styles }
 `;
 
 export const normalized = css`

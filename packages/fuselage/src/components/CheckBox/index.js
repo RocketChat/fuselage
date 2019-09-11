@@ -7,11 +7,11 @@ import { disableable } from '../../mixins/disableable';
 import { reset } from '../../mixins/reset';
 import { unselectable } from '../../mixins/unselectable';
 import { visuallyHidden } from '../../mixins/visuallyHidden';
-import { withText } from '../../mixins';
+import { Label } from '../Label';
 import theme from './theme';
 
 
-const Wrapper = styled.label.attrs(rebuildClassName('rcx-check-box__wrapper'))`
+const Container = styled(Label).attrs(rebuildClassName('rcx-check-box__wrapper'))`
   ${ reset }
   ${ disableable }
   ${ unselectable }
@@ -204,23 +204,12 @@ const Fake = styled.i.attrs(rebuildClassName('rcx-check-box__fake'))`
   ${ indeterminateIconVariant }
 `;
 
-const Label = styled.span.attrs(rebuildClassName('rcx-check-box__label'))`
-  ${ reset }
-  ${ withText }
-
-  margin: 0 0.625rem;
-
-  color: ${ theme.labelColor };
-
-  font-family: ${ theme.labelFontFamily };
-  font-size: ${ theme.labelFontSize };
-  font-weight: ${ theme.labelFontWeight };
-  line-height: ${ theme.labelLineHeight };
-`;
-
-export const CheckBox = React.forwardRef(function CheckBox({
+export const CheckBox = styled(React.forwardRef(function CheckBox({
+  checked,
+  hidden,
   indeterminate,
-  label,
+  invisible,
+  onChange,
   ...props
 }, ref) {
   const innerRef = useRef();
@@ -230,10 +219,20 @@ export const CheckBox = React.forwardRef(function CheckBox({
     innerRef.current.indeterminate = indeterminate;
   }, [indeterminate]);
 
-  return <Wrapper disabled={props.disabled} hidden={props.hidden} invisible={props.invisible}>
-    <Input ref={mergedRef} {...props} />
+  return <Container hidden={hidden} invisible={invisible}>
+    <Input
+      checked={checked}
+      hidden={hidden}
+      invisible={invisible}
+      ref={mergedRef}
+      onChange={(event) => {
+        innerRef.current.indeterminate = indeterminate;
+        onChange && onChange.call(innerRef.current, event);
+      }}
+      {...props}
+    />
     <Fake />
-    {label && <Label>{label}</Label>}
-  </Wrapper>;
-});
+  </Container>;
+}))``;
+
 CheckBox.displayName = 'CheckBox';

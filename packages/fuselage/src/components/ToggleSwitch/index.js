@@ -6,11 +6,12 @@ import { disableable } from '../../mixins/disableable';
 import { reset } from '../../mixins/reset';
 import { unselectable } from '../../mixins/unselectable';
 import { visuallyHidden } from '../../mixins/visuallyHidden';
-import theme from './theme';
 import { whenRightToLeftOrientation } from '../../mixins/whenRightToLeftOrientation';
+import { Label } from '../Label';
+import theme from './theme';
 
 
-const Wrapper = styled.label.attrs(rebuildClassName('rcx-toggle-switch__wrapper'))`
+const Container = styled(Label).attrs(rebuildClassName('rcx-toggle-switch__wrapper'))`
   ${ reset }
   ${ disableable }
   ${ unselectable }
@@ -178,10 +179,15 @@ const Fake = styled.i.attrs(rebuildClassName('rcx-toggle-switch__fake'))`
   ${ thumbPositioning }
 `;
 
-export const ToggleSwitch = React.forwardRef(function ToggleSwitch(props, ref) {
-  return <Wrapper disabled={props.disabled} hidden={props.hidden} invisible={props.invisible}>
-    <Input ref={ref} {...props} />
+export const ToggleSwitch = styled(React.forwardRef(function ToggleSwitch({
+  hidden,
+  invisible,
+  ...props
+}, ref) {
+  return <Container hidden={hidden} invisible={invisible}>
+    <Input hidden={hidden} invisible={invisible} ref={ref} {...props} />
     <Fake />
-  </Wrapper>;
-});
+  </Container>;
+}))``;
+
 ToggleSwitch.displayName = 'ToggleSwitch';

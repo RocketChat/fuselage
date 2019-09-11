@@ -34,7 +34,7 @@ storiesOf('Elements|Label', module)
       }}
     />
     <TextSection>
-      <h2>Orientation around children</h2>
+      <h2>Position around children</h2>
     </TextSection>
     <VariationsTable
       component={Label}
@@ -45,9 +45,9 @@ storiesOf('Elements|Label', module)
         'with error': { error: 'Error' },
       }}
       yAxis={{
-        top: { orientation: 'top' },
-        start: { orientation: 'start' },
-        end: { orientation: 'end' },
+        top: { position: 'top' },
+        start: { position: 'start' },
+        end: { position: 'end' },
       }}
     />
   </Document>);
@@ -56,7 +56,7 @@ const props = createPropsFromKnobs({
   error: '',
   hidden: false,
   invisible: false,
-  orientation: [Label.defaultProps.orientation, ['top', 'start', 'end']],
+  position: [Label.defaultProps.position, ['top', 'start', 'end']],
   text: 'Label',
   required: false,
 });
@@ -69,8 +69,9 @@ storiesOf('Elements|Label', module)
   .add('required', () => <Label {...props({ required: true })} />)
   .add('with error', () => <Label {...props({ error: 'Error' })} />)
   .add('with children', () => <Label {...props({ children: <PseudoInput /> })} />)
-  .add('with children, top orientation', () => <Label {...props({ children: <PseudoInput />, orientation: 'top' })} />)
-  .add('with children, start orientation', () => <Label {...props({ children: <PseudoInput />, orientation: 'start' })} />)
-  .add('with children, end orientation', () => <Label {...props({ children: <PseudoInput />, orientation: 'end' })} />)
+  .add('with children, top position', () => <Label {...props({ children: <PseudoInput />, position: 'top' })} />)
+  .add('with children, start position', () => <Label {...props({ children: <PseudoInput />, position: 'start' })} />)
+  .add('with children, end position', () => <Label {...props({ children: <PseudoInput />, position: 'end' })} />)
+  .add('nested', () => <Label text='Outer label'><Label {...props()} /></Label>)
   .add('hidden', () => <Label {...props({ hidden: true })} />)
   .add('invisible', () => <Label {...props({ invisible: true })} />);

@@ -24,7 +24,6 @@ storiesOf('Elements|RadioButton', module)
       xAxis={{
         checked: { checked: true },
         unchecked: { checked: false },
-        'with label': { label: 'Label' },
       }}
       yAxis={{
         default: { },
@@ -48,7 +47,6 @@ const props = createPropsFromKnobs({
   disabled: false,
   hidden: false,
   invisible: false,
-  label: '',
   value: '',
   onChange: handleEvent('change'),
 });
@@ -60,6 +58,5 @@ storiesOf('Elements|RadioButton', module)
   .add('default', () => <RadioButton {...props()} />)
   .add('checked', () => <RadioButton {...props({ checked: true })} />)
   .add('disabled', () => <RadioButton {...props({ disabled: true })} />)
-  .add('with label', () => <RadioButton {...props({ label: 'Label' })} />)
   .add('hidden', () => <RadioButton {...props({ hidden: true })} />)
   .add('invisible', () => <RadioButton {...props({ invisible: true })} />);

@@ -26,7 +26,6 @@ storiesOf('Elements|CheckBox', module)
         checked: { checked: true },
         unchecked: { checked: false },
         indeterminate: { indeterminate: true },
-        'with label': { label: 'Label' },
       }}
       yAxis={{
         default: { },
@@ -50,7 +49,6 @@ const props = createPropsFromKnobs({
   hidden: false,
   indeterminate: false,
   invisible: false,
-  label: '',
   value: '',
   onChange: handleEvent('change'),
 });
@@ -58,11 +56,10 @@ const props = createPropsFromKnobs({
 storiesOf('Elements|CheckBox', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['CheckBox/spec'] })
   .add('unchecked', () => <CheckBox {...props()} />)
   .add('checked', () => <CheckBox {...props({ checked: true })} />)
   .add('indeterminate', () => <CheckBox {...props({ indeterminate: true })} />)
   .add('disabled', () => <CheckBox {...props({ disabled: true })} />)
-  .add('with label', () => <CheckBox {...props({ label: 'Label' })} />)
   .add('hidden', () => <CheckBox {...props({ hidden: true })} />)
   .add('invisible', () => <CheckBox {...props({ invisible: true })} />);
