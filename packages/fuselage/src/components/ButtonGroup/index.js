@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components';
 
 import { rebuildClassName } from '../../helpers';
-import { reset } from '../../mixins/reset';
+import { normalized } from '../../mixins';
 import { Button } from '../Button';
-import theme from './theme';
+import { spacing } from './theme';
 
 
 export const ButtonGroup = styled.div.attrs(rebuildClassName('rcx-button-group'))`
-  ${ reset }
+  ${ normalized }
 
   display: flex;
 
-  margin: calc(-1 * ${ theme.gutter }) 0 0 calc(-1 * ${ theme.gutter });
+  margin: calc(-1 * ${ spacing }) 0 0 calc(-1 * ${ spacing });
 
   align-items: center;
 
@@ -21,7 +21,7 @@ export const ButtonGroup = styled.div.attrs(rebuildClassName('rcx-button-group')
   & > ${ Button } {
     flex: 0 0 auto;
 
-    margin: ${ theme.gutter } 0 0 ${ theme.gutter };
+    margin: ${ spacing } 0 0 ${ spacing };
   }
 
   ${ ({ wrap }) => wrap && css`flex-wrap: wrap;` }
@@ -44,4 +44,5 @@ export const ButtonGroup = styled.div.attrs(rebuildClassName('rcx-button-group')
     (align === 'start' && css`justify-content: flex-start;`)
     || (align === 'end' && css`justify-content: flex-end;`) }
 `;
+
 ButtonGroup.displayName = 'ButtonGroup';

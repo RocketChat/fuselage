@@ -9,9 +9,10 @@ import {
   PseudoInput,
   ShowCaseSection,
   TextSection,
-  VariationsTable,
   ThemingVariables,
 } from '../../helpers/storybook';
+import { Hint } from '../Hint';
+import { Label } from '../Label';
 import { Field } from './index';
 
 
@@ -20,43 +21,26 @@ storiesOf('Elements|Field', module)
     <TextSection>
       <h1>Field</h1>
     </TextSection>
-    <TextSection>
-      <h2>Label</h2>
-    </TextSection>
-    <VariationsTable
-      component={Field}
-      common={{ label: 'Label', children: <PseudoInput /> }}
-      xAxis={{
-        default: {},
-        required: { required: true },
-      }}
-      yAxis={{
-        default: {},
-        error: { error: 'Error' },
-      }}
-    />
-    <TextSection>
-      <h2>Help</h2>
-    </TextSection>
     <ShowCaseSection>
       <Field helpText='Help text' style={{ width: '100%' }}>
-        <PseudoInput />
+        <Label text='Label'>
+          <PseudoInput />
+        </Label>
+        <Hint>Help text</Hint>
       </Field>
     </ShowCaseSection>
-    <TextSection>
-      <h2>Theming variables</h2>
-    </TextSection>
     <ThemingVariables componentName='field' />
   </Document>);
 
 const props = createPropsFromKnobs({
-  children: <PseudoInput />,
-  error: '',
-  helpText: '',
+  children: <>
+    <Label text='Label'>
+      <PseudoInput />
+    </Label>
+    <Hint>Help text</Hint>
+  </>,
   hidden: false,
   invisible: false,
-  label: '',
-  required: false,
 });
 
 storiesOf('Elements|Field', module)
@@ -64,9 +48,5 @@ storiesOf('Elements|Field', module)
   .addDecorator(centered)
   .addParameters({ jest: ['Field/spec'] })
   .add('default', () => <Field {...props()} />)
-  .add('with label', () => <Field {...props({ label: 'Label' })} />)
-  .add('with label, required', () => <Field {...props({ label: 'Label', required: true })} />)
-  .add('with label, errored', () => <Field {...props({ label: 'Label', error: 'Error' })} />)
-  .add('with help text', () => <Field {...props({ helpText: 'Help text' })} />)
   .add('hidden', () => <Field {...props({ hidden: true })} />)
   .add('invisible', () => <Field {...props({ invisible: true })} />);

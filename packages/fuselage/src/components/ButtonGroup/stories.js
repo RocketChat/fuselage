@@ -3,7 +3,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { Document, TextSection, ShowCaseSection, createPropsFromKnobs } from '../../helpers/storybook';
+import { Document, TextSection, ShowCaseSection, createPropsFromKnobs, ThemingVariables } from '../../helpers/storybook';
 import { Button } from '../Button';
 import { ButtonGroup } from './index';
 
@@ -23,6 +23,7 @@ storiesOf('Collections|ButtonGroup', module)
         <Button>Maybe</Button>
       </ButtonGroup>
     </ShowCaseSection>
+    <ThemingVariables componentName='button-group' />
   </Document>);
 
 const props = createPropsFromKnobs({
@@ -55,7 +56,7 @@ storiesOf('Collections|ButtonGroup', module)
     </div>
   )
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['ButtonGroup/spec'] })
   .add('default', () =>
     <ButtonGroup {...props()}>
       <Buttons count={3} />

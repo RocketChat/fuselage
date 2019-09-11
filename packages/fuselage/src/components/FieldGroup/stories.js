@@ -3,27 +3,17 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { createPropsFromKnobs, Document, ShowCaseSection, TextSection } from '../../helpers/storybook';
+import {
+  createPropsFromKnobs,
+  Document,
+  PseudoInput,
+  ShowCaseSection,
+  TextSection,
+} from '../../helpers/storybook';
 import { Field } from '../Field';
-import { Input } from '../Input';
+import { Label } from '../Label';
 import { FieldGroup } from './index';
 
-
-const ChildComponent = () => <div
-  style={{
-    backgroundImage: `repeating-linear-gradient(
-      45deg,
-      lightgray,
-      lightgray 10px,
-      white 10px,
-      white 20px
-    )`,
-    border: '1px solid lightgray',
-    width: '100%',
-    minWidth: '6rem',
-    height: '2rem',
-  }}
-/>;
 
 storiesOf('Collections|FieldGroup', module)
   .lokiSkip('FieldGroup', () => <Document>
@@ -33,11 +23,15 @@ storiesOf('Collections|FieldGroup', module)
     </TextSection>
     <ShowCaseSection>
       <FieldGroup>
-        <Field label='Email'>
-          <Input type='email' />
+        <Field>
+          <Label text='Label #1'>
+            <PseudoInput />
+          </Label>
         </Field>
-        <Field label='Password'>
-          <Input type='password' />
+        <Field>
+          <Label text='Label #2'>
+            <PseudoInput />
+          </Label>
         </Field>
       </FieldGroup>
     </ShowCaseSection>
@@ -50,14 +44,16 @@ const props = createPropsFromKnobs({
 
 const Fields = ({ count }) => new Array(count).fill(undefined).map((_, i) =>
   <Field key={i}>
-    <ChildComponent />
+    <Label>
+      <PseudoInput />
+    </Label>
   </Field>
 );
 
 storiesOf('Collections|FieldGroup', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['FieldGroup/spec'] })
   .add('default', () =>
     <FieldGroup {...props()}>
       <Fields count={3} />

@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import { rebuildClassName } from '../../helpers';
 import { reset } from '../../mixins/reset';
 import { Field } from '../Field';
-import theme from './theme';
+import { spacing } from './theme';
 
 
-export const FieldGroup = styled.fieldset.attrs({
+export const FieldGroup = styled.fieldset.attrs(rebuildClassName('rcx-field-group')).attrs({
   role: 'group',
-}).attrs(rebuildClassName('rcx-field-group'))`
+})`
   ${ reset }
 
   display: flex;
 
-  margin-top: calc(-1 * ${ theme.gutter });
+  margin-top: calc(-1 * ${ spacing });
 
   align-items: center;
 
@@ -23,7 +23,8 @@ export const FieldGroup = styled.fieldset.attrs({
   & > ${ Field } {
     flex: 0 0 auto;
 
-    margin-top: ${ theme.gutter };
+    margin-top: ${ spacing };
   }
 `;
+
 FieldGroup.displayName = 'FieldGroup';
