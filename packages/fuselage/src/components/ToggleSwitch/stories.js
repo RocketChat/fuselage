@@ -10,6 +10,7 @@ import {
   ShowCaseSection,
   TextSection,
   VariationsTable,
+  ThemingVariables,
 } from '../../helpers/storybook';
 import { ToggleSwitch } from './index';
 
@@ -40,6 +41,7 @@ storiesOf('Elements|ToggleSwitch', module)
     <ShowCaseSection>
       <ToggleSwitch />
     </ShowCaseSection>
+    <ThemingVariables componentName='toggle-switch' />
   </Document>);
 
 const props = createPropsFromKnobs({
@@ -55,7 +57,7 @@ const props = createPropsFromKnobs({
 storiesOf('Elements|ToggleSwitch', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['ToggleSwitch/spec'] })
   .add('default', () => <ToggleSwitch {...props()} />)
   .add('checked', () => <ToggleSwitch {...props({ checked: true })} />)
   .add('disabled', () => <ToggleSwitch {...props({ disabled: true })} />)

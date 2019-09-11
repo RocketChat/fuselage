@@ -3,13 +3,11 @@ import styled, { css } from 'styled-components';
 import { rebuildClassName } from '../../helpers';
 import {
   withText,
-  whenFocused,
-  whenHovered,
-  whenActive,
-  whenDisabled,
   normalized,
   clickable,
   withTruncatedText,
+  withBorder,
+  withButtonActionColors,
 } from '../../mixins';
 import { Icon } from '../Icon';
 import {
@@ -27,38 +25,26 @@ import {
 const withSizeVariant = ({
   border,
   paddingX,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  letterSpacing,
-  lineHeight,
+  typographicVariant,
   iconSizeRatio,
 }) => css`
-  border-width: ${ border.width };
-  border-style: solid;
-  border-radius: ${ border.radius };
+  ${ withBorder(border) }
   padding: 0 calc(${ paddingX } - ${ border.width });
 
-  ${ withText({
-    fontFamily,
-    fontSize,
-    fontWeight,
-    letterSpacing,
-    lineHeight,
-  }) }
+  ${ withText(typographicVariant) }
 
-  line-height: calc(2 * ${ lineHeight } - 2 * ${ border.width });
+  line-height: calc(2 * ${ typographicVariant.lineHeight } - 2 * ${ border.width });
 
   & > ${ Icon } {
-    font-size: ${ iconSizeRatio * lineHeight };
+    font-size: ${ iconSizeRatio * typographicVariant.lineHeight };
   }
 
   ${ ({ square }) => square && css`
-    width: calc(2 * ${ lineHeight });
+    width: calc(2 * ${ typographicVariant.lineHeight });
     padding: 0;
 
     & > ${ Icon } {
-      font-size: ${ lineHeight };
+      font-size: ${ typographicVariant.lineHeight };
     }
   ` }
 `;
@@ -66,53 +52,12 @@ const withSizeVariant = ({
 const mediumSized = withSizeVariant(mediumSizeParameters);
 const smallSized = withSizeVariant(smallSizeParameters);
 
-const withColorVariant = ({
-  color,
-  backgroundColor,
-  hoverBackgroundColor,
-  activeBackgroundColor,
-  focusBackgroundColor,
-  focusBorderColor,
-  focusShadowColor,
-  disabledColor,
-  disabledBackgroundColor,
-}) => css`
-  color: ${ color };
-  border-color: ${ backgroundColor };
-  background-color: ${ backgroundColor };
-
-  ${ whenFocused(css`
-    border-color: ${ focusBorderColor };
-    background-color: ${ focusBackgroundColor };
-
-    ${ focusShadowColor && css`box-shadow: 0 0 0 6px ${ focusShadowColor };` }
-  `) }
-
-  ${ whenHovered(css`
-    border-color: ${ hoverBackgroundColor };
-    background-color: ${ hoverBackgroundColor };
-    box-shadow: none;
-  `) }
-
-  ${ whenActive(css`
-    border-color: ${ activeBackgroundColor };
-    background-color: ${ activeBackgroundColor };
-    box-shadow: none;
-  `) }
-
-  ${ whenDisabled(css`
-    color: ${ disabledColor };
-    border-color: ${ disabledBackgroundColor };
-    background-color: ${ disabledBackgroundColor };
-  `) }
-`;
-
-const basicColored = withColorVariant(basicColors);
-const basicDangerColored = withColorVariant(basicDangerColors);
-const primaryColored = withColorVariant(primaryColors);
-const primaryDangerColored = withColorVariant(primaryDangerColors);
-const ghostColored = withColorVariant(ghostColors);
-const ghostDangerColored = withColorVariant(ghostDangerColors);
+const basicColored = withButtonActionColors(basicColors);
+const basicDangerColored = withButtonActionColors(basicDangerColors);
+const primaryColored = withButtonActionColors(primaryColors);
+const primaryDangerColored = withButtonActionColors(primaryDangerColors);
+const ghostColored = withButtonActionColors(ghostColors);
+const ghostDangerColored = withButtonActionColors(ghostDangerColors);
 
 export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
   ${ normalized }

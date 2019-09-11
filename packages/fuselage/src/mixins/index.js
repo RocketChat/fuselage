@@ -2,51 +2,53 @@ import { css } from 'styled-components';
 
 import transitions from '../styles/transitions';
 import typography from '../styles/typography';
+import borders from '../styles/borders';
+import { toREM } from '../helpers';
 
 
-export const whenHidden = (styles) => css`
+export const whenHidden = (content) => css`
   &.hidden,
   &[hidden] {
-    ${ styles }
+    ${ content }
   }
 
-  ${ ({ hidden }) => hidden && styles }
+  ${ ({ hidden }) => hidden && content }
 `;
 
-export const whenInvisible = (styles) => css`
+export const whenInvisible = (content) => css`
   &.invisible {
-    ${ styles }
+    ${ content }
   }
 
-  ${ ({ invisible }) => invisible && styles }
+  ${ ({ invisible }) => invisible && content }
 `;
 
-export const whenFocused = (styles) => css`
-  &:focus,
-  &.focus {
-    ${ styles }
-  }
-`;
-
-export const whenHovered = (styles) => css`
-  &:hover,
-  &.hover {
-    ${ styles }
+export const whenFocused = (content, source = '&', target = '') => css`
+  ${ source }:focus ${ target },
+  ${ source }.focus  ${ target }{
+    ${ content }
   }
 `;
 
-export const whenActive = (styles) => css`
-  &:active,
-  &.active {
-    ${ styles }
+export const whenHovered = (content, source = '&', target = '') => css`
+  ${ source }:hover ${ target },
+  ${ source }.hover ${ target } {
+    ${ content }
   }
 `;
 
-export const whenDisabled = (styles) => css`
-  &.disabled,
-  *:disabled &,
-  &:disabled {
-    ${ styles }
+export const whenActive = (content, source = '&', target = '') => css`
+  ${ source }:active ${ target },
+  ${ source }.active ${ target } {
+    ${ content }
+  }
+`;
+
+export const whenDisabled = (content, source = '&', target = '') => css`
+  ${ source }.disabled ${ target },
+  *:disabled ${ source } ${ target },
+  ${ source }:disabled ${ target }{
+    ${ content }
   }
 `;
 
@@ -95,6 +97,86 @@ export const clickable = css`
   cursor: pointer;
   outline: 0;
   ${ whenDisabled(css`cursor: not-allowed;`) }
+`;
+
+export const visuallyHidden = css`
+  position: absolute;
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  white-space: nowrap;
+
+  border: 0;
+  clip-path: inset(50%);
+`;
+
+export const withBorder = ({
+  width = borders.default.width,
+  radius = borders.default.radius,
+}) => css`
+  border-width: ${ width };
+  border-style: solid;
+  border-radius: ${ radius };
+`;
+
+export const withButtonActionColors = ({
+  color,
+  backgroundColor,
+  borderColor,
+  hoverBackgroundColor,
+  hoverBorderColor,
+  activeBackgroundColor,
+  activeBorderColor,
+  focusBackgroundColor,
+  focusBorderColor,
+  focusShadowColor,
+  disabledColor,
+  disabledBackgroundColor,
+  disabledBorderColor,
+}, source = '&', target = '') => css`
+  ${ source } ${ target } {
+    color: ${ color };
+    background-color: ${ backgroundColor };
+    border-color: ${ borderColor };
+  }
+
+  ${ whenFocused(css`
+    border-color: ${ focusBorderColor };
+    background-color: ${ focusBackgroundColor };
+
+  ${ focusShadowColor && css`box-shadow: 0 0 0 ${ toREM(6) } ${ focusShadowColor };` }
+  `, source, target) }
+
+  ${ whenHovered(css`
+    background-color: ${ hoverBackgroundColor };
+    border-color: ${ hoverBorderColor };
+    box-shadow: none;
+  `, source, target) }
+
+  ${ whenActive(css`
+    background-color: ${ activeBackgroundColor };
+    border-color: ${ activeBorderColor };
+    box-shadow: none;
+  `, source, target) }
+
+  ${ whenDisabled(css`
+    color: ${ disabledColor };
+    background-color: ${ disabledBackgroundColor };
+    border-color: ${ disabledBorderColor };
+  `, source, target) }
+`;
+
+export const whenRightToLeftOrientation = (content) => css`
+  .rtl &,
+  [dir=rtl] & {
+    ${ content }
+  }
 `;
 
 export const withText = ({

@@ -10,6 +10,7 @@ import {
   ShowCaseSection,
   TextSection,
   VariationsTable,
+  ThemingVariables,
 } from '../../helpers/storybook';
 import { CheckBox } from './index';
 
@@ -41,6 +42,7 @@ storiesOf('Elements|CheckBox', module)
     <ShowCaseSection>
       <CheckBox />
     </ShowCaseSection>
+    <ThemingVariables componentName='check-box' />
   </Document>);
 
 const props = createPropsFromKnobs({

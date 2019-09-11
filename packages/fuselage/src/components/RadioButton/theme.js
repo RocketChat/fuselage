@@ -1,25 +1,24 @@
+import { createTheme, createThemeVariant } from '../../helpers';
+import actions from '../../styles/actions';
 import borders from '../../styles/borders';
 import typography from '../../styles/typography';
-import colors from '../../tokens/colors';
 
 
-export default {
+export const {
+  size,
+  border,
+  icon,
+} = createTheme('radio-button', {
   size: typography.p1.lineHeight,
-  borderWidth: borders.default.width,
-  borderRadius: '50%',
-  color: colors.white,
-  borderColor: colors.dark400,
-  hoverBorderColor: colors.dark500,
-  activeBorderColor: colors.dark600,
-  focusBorderColor: colors.blue500,
-  focusShadowColor: colors.blue100,
-  disabledBackgroundColor: colors.dark200,
-  disabledBorderColor: colors.dark200,
-  checkedBackgroundColor: colors.blue500,
-  checkedHoverBackgroundColor: colors.blue600,
-  checkedActiveBackgroundColor: colors.blue700,
-  checkedFocusBackgroundColor: colors.blue500,
-  checkedFocusBorderColor: colors.blue700,
-  checkedFocusShadowColor: colors.blue100,
-  checkedDisabledBackgroundColor: colors.blue200,
-};
+  border: {
+    ...borders.default,
+    radius: '50%',
+  },
+  icon: {
+    size: 0.3,
+  },
+});
+
+export const uncheckedColors = createThemeVariant('radio-button', 'unchecked', actions.buttons.unchecked);
+
+export const checkedColors = createThemeVariant('radio-button', 'checked', actions.buttons.primary);

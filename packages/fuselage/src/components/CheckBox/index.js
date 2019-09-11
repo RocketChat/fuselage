@@ -1,207 +1,127 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { rebuildClassName } from '../../helpers';
 import { useMergedRefs } from '../../hooks/useMergedRefs';
-import { disableable } from '../../mixins/disableable';
-import { reset } from '../../mixins/reset';
-import { unselectable } from '../../mixins/unselectable';
-import { visuallyHidden } from '../../mixins/visuallyHidden';
+import {
+  normalized,
+  clickable,
+  visuallyHidden,
+  withBorder,
+  withButtonActionColors,
+} from '../../mixins';
 import { Label } from '../Label';
-import theme from './theme';
+import {
+  size,
+  border,
+  uncheckedColors,
+  checkedColors,
+  indeterminateColors,
+  icon,
+} from './theme';
 
 
 const Container = styled(Label).attrs(rebuildClassName('rcx-check-box__wrapper'))`
-  ${ reset }
-  ${ disableable }
-  ${ unselectable }
-
-  position: relative;
-
-  display: inline-flex;
-
-  cursor: pointer;
-
-  align-items: center;
+  ${ clickable }
 `;
 
-const Input = styled.input.attrs({ type: 'checkbox' }).attrs(rebuildClassName('rcx-check-box__input'))`
+const Input = styled.input.attrs(rebuildClassName('rcx-check-box__input')).attrs({
+  type: 'checkbox',
+})`
   ${ visuallyHidden }
 `;
 
-const colorsVariant = ({
-  state = null,
-  color = null,
-  backgroundColor = null,
-  borderColor = null,
-  hoverBackgroundColor = null,
-  hoverBorderColor = null,
-  activeBackgroundColor = null,
-  activeBorderColor = null,
-  focusBackgroundColor = null,
-  focusBorderColor = null,
-  focusShadowColor = null,
-  disabledBackgroundColor = null,
-  disabledBorderColor = null,
-}) => css`
-  ${ Input }${ state } + & {
-    color: ${ color };
-  }
+const withUncheckedColors = withButtonActionColors(uncheckedColors, Input, '+ &');
+const withCheckedColors = withButtonActionColors(checkedColors, css`${ Input }:checked`, '+ &');
+const withIndeterminateColors = withButtonActionColors(indeterminateColors, css`${ Input }:indeterminate`, '+ &');
 
-  ${ Input }:enabled${ state } + & {
-    border-color: ${ borderColor };
-    background-color: ${ backgroundColor };
-  }
+const withIcon = css`
+  &::before,
+  &::after {
+    content: '';
 
-  ${ Input }:enabled:focus${ state } + &,
-  ${ Input }:enabled.focus${ state } + & {
-    border-color: ${ focusBorderColor };
-    background-color: ${ focusBackgroundColor };
+    position: absolute;
+    left: 50%;
+    top: 50%;
 
-    box-shadow: 0 0 0 6px ${ focusShadowColor };
-  }
+    display: block;
 
-  & > ${ Input }:enabled:hover${ state } + &,
-  ${ Input }:enabled.hover${ state } + & {
-    border-color: ${ hoverBorderColor };
-    background-color: ${ hoverBackgroundColor };
-    box-shadow: none;
-  }
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
 
-  & > ${ Input }:enabled:active${ state } + &,
-  ${ Input }:enabled.active${ state } + & {
-    border-color: ${ activeBorderColor };
-    background-color: ${ activeBackgroundColor };
-    box-shadow: none;
-  }
-
-  ${ Input }:disabled${ state } + & {
-    border-color: ${ disabledBorderColor };
-    background-color: ${ disabledBackgroundColor };
+    background-color: currentColor;
   }
 `;
 
-const uncheckedColorsVariant = () => colorsVariant({
-  color: theme.color,
-  borderColor: theme.borderColor,
-  hoverBorderColor: theme.hoverBorderColor,
-  activeBorderColor: theme.activeBorderColor,
-  focusBorderColor: theme.focusBorderColor,
-  focusShadowColor: theme.focusShadowColor,
-  disabledBackgroundColor: theme.disabledBackgroundColor,
-  disabledBorderColor: theme.disabledBorderColor,
-});
-
-const checkedColorsVariant = () => colorsVariant({
-  state: ':checked',
-  backgroundColor: theme.checkedBackgroundColor,
-  borderColor: theme.checkedBackgroundColor,
-  hoverBackgroundColor: theme.checkedHoverBackgroundColor,
-  hoverBorderColor: theme.checkedHoverBackgroundColor,
-  activeBackgroundColor: theme.checkedActiveBackgroundColor,
-  activeBorderColor: theme.checkedActiveBackgroundColor,
-  focusBackgroundColor: theme.checkedFocusBackgroundColor,
-  focusBorderColor: theme.checkedFocusBorderColor,
-  focusShadowColor: theme.checkedFocusShadowColor,
-  disabledBackgroundColor: theme.checkedDisabledBackgroundColor,
-  disabledBorderColor: theme.checkedDisabledBackgroundColor,
-});
-
-const indeterminateColorsVariant = () => colorsVariant({
-  state: ':indeterminate',
-  backgroundColor: theme.checkedBackgroundColor,
-  borderColor: theme.checkedBackgroundColor,
-  hoverBackgroundColor: theme.checkedHoverBackgroundColor,
-  hoverBorderColor: theme.checkedHoverBackgroundColor,
-  activeBackgroundColor: theme.checkedActiveBackgroundColor,
-  activeBorderColor: theme.checkedActiveBackgroundColor,
-  focusBackgroundColor: theme.checkedFocusBackgroundColor,
-  focusBorderColor: theme.checkedFocusBorderColor,
-  focusShadowColor: theme.checkedFocusShadowColor,
-  disabledBackgroundColor: theme.checkedDisabledBackgroundColor,
-  disabledBorderColor: theme.checkedDisabledBackgroundColor,
-});
-
-const checkedIconVariant = () => css`
-  ${ Input }:checked + & {
-    &::before,
-    &::after {
-      visibility: visible;
-
-      opacity: 1;
-    }
-
-    &::before {
-      width: 12px;
-      height: 2px;
-
-      transform: translate(-4px, 2px) rotate(-45deg) translate(6px, 2px);
-
-      border-radius: 1px;
-    }
-
-    &::after {
-      width: 2px;
-      height: 6px;
-
-      transform: translate(-4px, 2px) rotate(-45deg);
-
-      border-radius: 1px;
-    }
-  }
-`;
-
-const indeterminateIconVariant = () => css`
-  ${ Input }:indeterminate + & {
-    &::before {
-      visibility: visible;
-
-      width: 12px;
-      height: 2px;
-
-      opacity: 1;
-      border-radius: 1px;
-    }
-  }
-`;
-
-const Fake = styled.i.attrs(rebuildClassName('rcx-check-box__fake'))`
-  ${ reset }
-
-  position: relative;
-
-  display: flex;
-
-  width: ${ theme.size };
-  height: ${ theme.size };
-
-  border: ${ theme.borderWidth } solid;
-  border-radius: ${ theme.borderRadius };
-
-  align-items: center;
-  justify-content: center;
+const withCheckedIcon = css`
+  ${ withIcon }
 
   &::before,
   &::after {
-    ${ reset }
-
-    position: absolute;
-
-    display: block;
-    visibility: hidden;
-
-    content: '';
-
-    opacity: 0;
-    background-color: currentColor;
+    border-radius: ${ icon.smoothness };
+    opacity: 1;
+    visibility: visible;
   }
 
-  ${ uncheckedColorsVariant }
-  ${ checkedColorsVariant }
-  ${ indeterminateColorsVariant }
+  &::before {
+    width: calc(${ icon.size } * ${ size });
+    height: ${ icon.thickness };
 
-  ${ checkedIconVariant }
-  ${ indeterminateIconVariant }
+    transform:
+      translate(-50%, -50%)
+      translate(calc(${ icon.size } * ${ size } / -3), calc(${ icon.size } * ${ size } / 6))
+      rotate(-45deg)
+      translate(calc(${ icon.size } * ${ size } / 2), calc(${ icon.size } * ${ size } / 6));
+  }
+
+  &::after {
+    width: ${ icon.thickness };
+    height: calc(0.5 * ${ icon.size } * ${ size });
+
+    transform:
+      translate(-50%, -50%)
+      translate(calc(${ icon.size } * ${ size } / -3), calc(${ icon.size } * ${ size } / 6))
+      rotate(-45deg);
+  }
+`;
+
+const withIndeterminateIcon = css`
+  ${ withIcon }
+
+  &::before {
+    width: calc(${ icon.size } * ${ size });
+    height: ${ icon.thickness };
+
+    border-radius: ${ icon.smoothness };
+    opacity: 1;
+    visibility: visible;
+  }
+`;
+
+const Fake = styled.i.attrs(rebuildClassName('rcx-check-box__fake')).attrs({
+  'aria-hidden': 'true',
+})`
+  ${ normalized }
+
+  position: relative;
+
+  width: ${ size };
+  height: ${ size };
+
+  ${ withBorder(border) }
+
+  ${ withUncheckedColors }
+  ${ withCheckedColors }
+  ${ withIndeterminateColors }
+
+  ${ Input }:checked + & {
+    ${ withCheckedIcon }
+  }
+
+  ${ Input }:indeterminate + & {
+    ${ withIndeterminateIcon }
+  }
 `;
 
 export const CheckBox = styled(React.forwardRef(function CheckBox({
@@ -215,7 +135,7 @@ export const CheckBox = styled(React.forwardRef(function CheckBox({
   const innerRef = useRef();
   const mergedRef = useMergedRefs(ref, innerRef);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     innerRef.current.indeterminate = indeterminate;
   }, [indeterminate]);
 

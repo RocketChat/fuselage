@@ -76,9 +76,6 @@ storiesOf('Elements|Button', module)
         disabled: { disabled: true },
       }}
     />
-    <TextSection>
-      <h2>Theming variables</h2>
-    </TextSection>
     <ThemingVariables componentName='button' />
   </Document>);
 

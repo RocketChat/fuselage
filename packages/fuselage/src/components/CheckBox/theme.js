@@ -1,24 +1,25 @@
+import { createTheme, createThemeVariant, toREM } from '../../helpers';
+import actions from '../../styles/actions';
 import borders from '../../styles/borders';
 import typography from '../../styles/typography';
-import colors from '../../tokens/colors';
 
-export default {
+
+export const {
+  size,
+  border,
+  icon,
+} = createTheme('check-box', {
   size: typography.p1.lineHeight,
-  borderWidth: borders.default.width,
-  borderRadius: borders.default.radius,
-  color: colors.white,
-  borderColor: colors.dark400,
-  hoverBorderColor: colors.dark500,
-  activeBorderColor: colors.dark600,
-  focusBorderColor: colors.blue500,
-  focusShadowColor: colors.blue100,
-  disabledBackgroundColor: colors.dark200,
-  disabledBorderColor: colors.dark200,
-  checkedBackgroundColor: colors.blue500,
-  checkedHoverBackgroundColor: colors.blue600,
-  checkedActiveBackgroundColor: colors.blue700,
-  checkedFocusBackgroundColor: colors.blue500,
-  checkedFocusBorderColor: colors.blue700,
-  checkedFocusShadowColor: colors.blue100,
-  checkedDisabledBackgroundColor: colors.blue200,
-};
+  border: borders.default,
+  icon: {
+    smoothness: toREM(1),
+    thickness: toREM(2),
+    size: 0.6,
+  },
+});
+
+export const uncheckedColors = createThemeVariant('check-box', 'unchecked', actions.buttons.unchecked);
+
+export const checkedColors = createThemeVariant('check-box', 'checked', actions.buttons.primary);
+
+export const indeterminateColors = createThemeVariant('check-box', 'indeterminate', actions.buttons.primary);

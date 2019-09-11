@@ -10,6 +10,7 @@ import {
   ShowCaseSection,
   TextSection,
   VariationsTable,
+  ThemingVariables,
 } from '../../helpers/storybook';
 import { RadioButton } from './index';
 
@@ -39,6 +40,7 @@ storiesOf('Elements|RadioButton', module)
     <ShowCaseSection>
       <RadioButton />
     </ShowCaseSection>
+    <ThemingVariables componentName='radio-button' />
   </Document>);
 
 
@@ -54,7 +56,7 @@ const props = createPropsFromKnobs({
 storiesOf('Elements|RadioButton', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['RadioButton/spec'] })
   .add('default', () => <RadioButton {...props()} />)
   .add('checked', () => <RadioButton {...props({ checked: true })} />)
   .add('disabled', () => <RadioButton {...props({ disabled: true })} />)

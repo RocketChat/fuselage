@@ -6,9 +6,8 @@ import { reset } from '../../mixins/reset';
 import { disableable } from '../../mixins/disableable';
 import { Icon } from '../Icon';
 import theme from './theme';
-import { withText } from '../../mixins';
+import { withText, whenRightToLeftOrientation } from '../../mixins';
 import { scrollable } from '../../mixins/scrollable';
-import { whenRightToLeftOrientation } from '../../mixins/whenRightToLeftOrientation';
 
 
 const Wrapper = styled.span.attrs(rebuildClassName('rcx-input__wrapper'))`
