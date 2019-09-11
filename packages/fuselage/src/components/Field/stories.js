@@ -10,6 +10,7 @@ import {
   ShowCaseSection,
   TextSection,
   VariationsTable,
+  ThemingVariables,
 } from '../../helpers/storybook';
 import { Field } from './index';
 
@@ -42,6 +43,10 @@ storiesOf('Elements|Field', module)
         <PseudoInput />
       </Field>
     </ShowCaseSection>
+    <TextSection>
+      <h2>Theming variables</h2>
+    </TextSection>
+    <ThemingVariables componentName='field' />
   </Document>);
 
 const props = createPropsFromKnobs({

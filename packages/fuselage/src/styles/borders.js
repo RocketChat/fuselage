@@ -1,11 +1,11 @@
 import borders from '../tokens/borders';
-import { toREM, themeVar } from '../helpers';
+import { createTheme, toREM } from '../helpers';
 
 
-export default Object.entries(borders).reduce((obj, [name, { width, radius }]) => ({
+export default createTheme('borders', Object.entries(borders).reduce((obj, [name, { width, radius }]) => ({
   ...obj,
   [name]: {
-    width: themeVar('borders', `${ name }-width`, toREM(width)),
-    radius: themeVar('borders', `${ name }-radius`, toREM(radius)),
+    width: toREM(width),
+    radius: toREM(radius),
   },
-}), {});
+}), {}));

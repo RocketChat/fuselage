@@ -4,6 +4,8 @@ import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import React from 'react';
 import styled from 'styled-components';
 
+import { themeVariables } from '.';
+
 
 export const horizontallyCentered = (storyFn) => centered(() => (
   <div style={{
@@ -166,3 +168,53 @@ export const PseudoInput = styled(ArbitraryBox)`
   min-width: 6rem;
   height: 2rem;
 `;
+
+export function ThemingVariables({ componentName }) {
+  const variables = Object.entries(themeVariables).filter(([name]) => name.startsWith(componentName));
+
+  const styles = {
+    table: {
+      borderCollapse: 'collapse',
+      margin: '0 auto',
+      maxWidth: '100%',
+    },
+    th: {
+      fontFamily: 'monospace',
+      fontSize: '0.875rem',
+      fontWeight: 'bold',
+      border: '1px solid rgba(153, 153, 153, 0.15)',
+      color: '#999',
+      margin: 0,
+      padding: '0.5rem 1rem',
+      textAlign: 'left',
+      whiteSpace: 'nowrap',
+    },
+    td: {
+      fontFamily: 'monospace',
+      fontSize: '0.875rem',
+      fontWeight: 'bold',
+      border: '1px solid rgba(153, 153, 153, 0.15)',
+      color: '#999',
+      margin: 0,
+      padding: '0.5rem 1rem',
+      textAlign: 'center',
+    },
+  };
+
+  return <table style={styles.table}>
+    <thead>
+      <tr>
+        <th style={styles.th}>Name</th>
+        <th style={styles.th}>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      {variables.map(([name, value], y) => (
+        <tr key={y}>
+          <th style={styles.th}>{name}</th>
+          <td style={styles.td}>{value}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>;
+}

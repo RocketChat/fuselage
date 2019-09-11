@@ -103,8 +103,6 @@ const Error = styled.span.attrs(rebuildClassName('rcx-label__error'))`
 
 const LabelContext = createContext(false);
 
-export const useIsInsideLabel = () => !!useContext(LabelContext);
-
 export const Label = styled(React.forwardRef(function Label({
   children,
   className,
@@ -114,7 +112,7 @@ export const Label = styled(React.forwardRef(function Label({
   text,
   ...props
 }, ref) {
-  const isInsideLabel = useIsInsideLabel();
+  const isInsideLabel = useContext(LabelContext);
 
   return <LabelContext.Provider value={true}>
     <Container

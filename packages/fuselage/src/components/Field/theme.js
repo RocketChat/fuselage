@@ -1,4 +1,4 @@
-import { themeVars } from '../../helpers';
+import { createTheme } from '../../helpers';
 import spaces from '../../styles/spaces';
 import textColors from '../../styles/textColors';
 import typography from '../../styles/typography';
@@ -11,7 +11,7 @@ export const {
   helpTextFontWeight,
   helpTextLetterSpacing,
   helpTextLineHeight,
-} = themeVars('Field', {
+} = createTheme('field', {
   helpTextSpacing: spaces[2],
   helpTextColor: textColors.hint,
   helpTextFontFamily: typography.p1.fontFamily,

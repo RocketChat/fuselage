@@ -1,25 +1,25 @@
-import { variantThemeVars } from '../../helpers';
+import { createThemeVariant } from '../../helpers';
 import borders from '../../styles/borders';
 import spaces from '../../styles/spaces';
 import typography from '../../styles/typography';
 import colors from '../../tokens/colors';
 
 
-export const mediumSizeParameters = variantThemeVars('Button', 'mediumSize', {
+export const mediumSizeParameters = createThemeVariant('button', 'medium-size', {
   border: borders.default,
   paddingX: spaces[5],
-  typographicVariant: typography.p2,
+  ...typography.p2,
   iconSizeRatio: 0.8,
 });
 
-export const smallSizeParameters = variantThemeVars('Button', 'smallSize', {
+export const smallSizeParameters = createThemeVariant('button', 'small-size', {
   border: borders.default,
   paddingX: spaces[4],
-  typographicVariant: typography.c2,
+  ...typography.c2,
   iconSizeRatio: 0.75,
 });
 
-export const basicColors = variantThemeVars('Button', 'basic', {
+export const basicColors = createThemeVariant('button', 'basic', {
   color: colors.dark800,
   backgroundColor: colors.dark300,
   hoverBackgroundColor: colors.dark400,
@@ -31,7 +31,7 @@ export const basicColors = variantThemeVars('Button', 'basic', {
   disabledBackgroundColor: colors.dark100,
 });
 
-export const basicDangerColors = variantThemeVars('Button', 'basicDanger', {
+export const basicDangerColors = createThemeVariant('button', 'basic-danger', {
   color: colors.red500,
   backgroundColor: colors.dark300,
   hoverBackgroundColor: colors.dark400,
@@ -43,7 +43,7 @@ export const basicDangerColors = variantThemeVars('Button', 'basicDanger', {
   disabledBackgroundColor: colors.dark100,
 });
 
-export const primaryColors = variantThemeVars('Button', 'primary', {
+export const primaryColors = createThemeVariant('button', 'primary', {
   color: colors.white,
   backgroundColor: colors.blue500,
   hoverBackgroundColor: colors.blue600,
@@ -55,7 +55,7 @@ export const primaryColors = variantThemeVars('Button', 'primary', {
   disabledBackgroundColor: colors.blue200,
 });
 
-export const primaryDangerColors = variantThemeVars('Button', 'primaryDanger', {
+export const primaryDangerColors = createThemeVariant('button', 'primary-danger', {
   color: colors.white,
   backgroundColor: colors.red500,
   hoverBackgroundColor: colors.red600,
@@ -67,7 +67,7 @@ export const primaryDangerColors = variantThemeVars('Button', 'primaryDanger', {
   disabledBackgroundColor: colors.red200,
 });
 
-export const ghostColors = variantThemeVars('Button', 'ghost', {
+export const ghostColors = createThemeVariant('button', 'ghost', {
   color: colors.dark800,
   backgroundColor: 'transparent',
   hoverBackgroundColor: colors.dark400,
@@ -79,7 +79,7 @@ export const ghostColors = variantThemeVars('Button', 'ghost', {
   disabledBackgroundColor: colors.dark100,
 });
 
-export const ghostDangerColors = variantThemeVars('Button', 'ghostDanger', {
+export const ghostDangerColors = createThemeVariant('button', 'ghost-danger', {
   color: colors.red500,
   backgroundColor: 'transparent',
   hoverBackgroundColor: colors.dark400,

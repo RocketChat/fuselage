@@ -9,6 +9,7 @@ import {
   TextSection,
   VariationsTable,
   PseudoInput,
+  ThemingVariables,
 } from '../../helpers/storybook';
 import { Label } from './index';
 
@@ -50,6 +51,10 @@ storiesOf('Elements|Label', module)
         end: { position: 'end' },
       }}
     />
+    <TextSection>
+      <h2>Label</h2>
+    </TextSection>
+    <ThemingVariables componentName='label' />
   </Document>);
 
 const props = createPropsFromKnobs({

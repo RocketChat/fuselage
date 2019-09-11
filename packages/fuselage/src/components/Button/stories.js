@@ -4,7 +4,7 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { Document, TextSection, VariationsTable, createPropsFromKnobs, handleEvent } from '../../helpers/storybook';
+import { Document, TextSection, VariationsTable, createPropsFromKnobs, handleEvent, ThemingVariables } from '../../helpers/storybook';
 import { Icon } from '../Icon';
 import { Button } from './index';
 
@@ -76,6 +76,10 @@ storiesOf('Elements|Button', module)
         disabled: { disabled: true },
       }}
     />
+    <TextSection>
+      <h2>Theming variables</h2>
+    </TextSection>
+    <ThemingVariables componentName='button' />
   </Document>);
 
 const props = createPropsFromKnobs({

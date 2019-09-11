@@ -27,7 +27,11 @@ import {
 const withSizeVariant = ({
   border,
   paddingX,
-  typographicVariant,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
   iconSizeRatio,
 }) => css`
   border-width: ${ border.width };
@@ -35,20 +39,26 @@ const withSizeVariant = ({
   border-radius: ${ border.radius };
   padding: 0 calc(${ paddingX } - ${ border.width });
 
-  ${ withText(typographicVariant) }
+  ${ withText({
+    fontFamily,
+    fontSize,
+    fontWeight,
+    letterSpacing,
+    lineHeight,
+  }) }
 
-  line-height: calc(2 * ${ typographicVariant.lineHeight } - 2 * ${ border.width });
+  line-height: calc(2 * ${ lineHeight } - 2 * ${ border.width });
 
   & > ${ Icon } {
-    font-size: ${ iconSizeRatio * typographicVariant.lineHeight };
+    font-size: ${ iconSizeRatio * lineHeight };
   }
 
   ${ ({ square }) => square && css`
-    width: calc(2 * ${ typographicVariant.lineHeight });
+    width: calc(2 * ${ lineHeight });
     padding: 0;
 
     & > ${ Icon } {
-      font-size: ${ typographicVariant.lineHeight };
+      font-size: ${ lineHeight };
     }
   ` }
 `;

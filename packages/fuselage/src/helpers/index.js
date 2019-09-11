@@ -11,15 +11,19 @@ export const toREM = (length) => {
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
-export const themeVar = (component, name, value) => {
+export const themeVariables = {};
+
+export const asThemeVariable = (componentName, name, value) => {
   if (isIE11) {
     return value;
   }
 
-  return `var(--rcx-${ fromCamelToKebabCase(component) }-${ fromCamelToKebabCase(name) }, ${ value })`;
+  themeVariables[`${ componentName }-${ name }`] = value;
+
+  return `var(--rcx-${ componentName }-${ name }, ${ value })`;
 };
 
-export const themeVars = (component, variables) => {
+export const createTheme = (componentName, variables) => {
   if (isIE11) {
     return variables;
   }
@@ -27,13 +31,13 @@ export const themeVars = (component, variables) => {
   return Object.entries(variables).reduce((variables, [name, value]) => ({
     ...variables,
     [name]: typeof value === 'object'
-      ? themeVars(`${ component }-${ name }`, value)
-      : themeVar(component, name, value),
+      ? createTheme(`${ componentName }-${ fromCamelToKebabCase(name) }`, value)
+      : asThemeVariable(componentName, fromCamelToKebabCase(name), value),
   }), {});
 };
 
-export const variantThemeVars = (component, variantName, variables) =>
-  themeVars(`${ component }-${ variantName }`, variables);
+export const createThemeVariant = (componentName, variantName, variables) =>
+  createTheme(`${ componentName }-${ variantName }`, variables);
 
 export const rebuildClassName = (baseClassName) => ({
   className,

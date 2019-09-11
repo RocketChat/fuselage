@@ -1,14 +1,14 @@
-import { themeVar } from '../helpers';
+import { createTheme } from '../helpers';
 import colors from '../tokens/colors';
 
-export default {
-  default: themeVar('colors', 'textDefault', colors.dark800),
-  info: themeVar('colors', 'textInfo ', colors.dark700),
-  hint: themeVar('colors', 'textHint ', colors.dark600),
-  disabled: themeVar('colors', 'textDisabled ', colors.dark400),
-  alternative: themeVar('colors', 'textAlternative ', colors.white),
-  primary: themeVar('colors', 'textPrimary ', colors.blue500),
-  success: themeVar('colors', 'textSuccess ', colors.green500),
-  danger: themeVar('colors', 'textDanger ', colors.red500),
-  warning: themeVar('colors', 'textWarning ', colors.yellow700),
-};
+export default createTheme('text', {
+  default: colors.dark800,
+  info: colors.dark700,
+  hint: colors.dark600,
+  disabled: colors.dark400,
+  alternative: colors.white,
+  primary: colors.blue500,
+  success: colors.green500,
+  danger: colors.red500,
+  warning: colors.yellow700,
+});

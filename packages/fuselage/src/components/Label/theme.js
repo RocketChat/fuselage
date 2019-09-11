@@ -1,4 +1,4 @@
-import { themeVars } from '../../helpers';
+import { createTheme } from '../../helpers';
 import spaces from '../../styles/spaces';
 import textColors from '../../styles/textColors';
 import typography from '../../styles/typography';
@@ -14,7 +14,7 @@ export const {
   color,
   requiredColor,
   errorColor,
-} = themeVars('Label', {
+} = createTheme('label', {
   spacing: spaces[3],
   ...typography.p1,
   color: textColors.default,
