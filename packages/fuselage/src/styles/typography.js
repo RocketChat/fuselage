@@ -1,6 +1,5 @@
 import typography from '../tokens/typography';
-import { varTheme } from '../helpers/varTheme';
-import { toREM } from '../helpers/toREM';
+import { themeVar, toREM } from '../helpers';
 
 
 export default Object.entries(typography).reduce((obj, [name, {
@@ -12,10 +11,10 @@ export default Object.entries(typography).reduce((obj, [name, {
 }]) => ({
   ...obj,
   [name]: {
-    fontFamily: varTheme('typography', `${ name }-font-family`, fontFamily),
-    fontSize: varTheme('typography', `${ name }-font-size`, toREM(fontSize)),
-    fontWeight: varTheme('typography', `${ name }-font-weight`, fontWeight),
-    letterSpacing: varTheme('typography', `${ name }-letter-spacing`, letterSpacing),
-    lineHeight: varTheme('typography', `${ name }-line-height`, lineHeight),
+    fontFamily: themeVar('typography', `${ name }-font-family`, fontFamily),
+    fontSize: themeVar('typography', `${ name }-font-size`, toREM(fontSize)),
+    fontWeight: themeVar('typography', `${ name }-font-weight`, fontWeight),
+    letterSpacing: themeVar('typography', `${ name }-letter-spacing`, letterSpacing),
+    lineHeight: themeVar('typography', `${ name }-line-height`, lineHeight),
   },
 }), {});

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { rebuildClassName } from '../../helpers';
 import { normalized, withTruncatedText, withText, withSelectableText } from '../../mixins';
 import {
   spacing,

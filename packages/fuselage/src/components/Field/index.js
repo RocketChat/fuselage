@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { rebuildClassName } from '../../helpers';
 import {
   helpTextSpacing,
   helpTextColor,

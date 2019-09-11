@@ -1,5 +1,3 @@
-import { createTheme } from '../../helpers/createTheme';
-
-export default createTheme('rcx-button-group', {
+export default {
   gutter: '1rem',
-});
+};

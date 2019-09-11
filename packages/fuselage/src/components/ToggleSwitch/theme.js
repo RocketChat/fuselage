@@ -1,13 +1,13 @@
-import { createTheme } from '../../helpers/createTheme';
-import theme from '../../styles/theme';
 import colors from '../../tokens/colors';
+import borders from '../../styles/borders';
+import typography from '../../styles/typography';
 
 
-export default createTheme('rcx-toggle-switch', {
+export default {
   trackWidth: '2.5rem',
-  trackHeight: theme.typography.p1.lineHeight,
-  thumbSize: `calc(${ theme.typography.p1.lineHeight } - 2 * ${ theme.borders.default.width })`,
-  borderWidth: theme.borders.default.width,
+  trackHeight: typography.p1.lineHeight,
+  thumbSize: `calc(${ typography.p1.lineHeight } - 2 * ${ borders.default.width })`,
+  borderWidth: borders.default.width,
   borderRadius: '9999px',
   color: colors.white,
   backgroundColor: colors.dark400,
@@ -26,4 +26,4 @@ export default createTheme('rcx-toggle-switch', {
   checkedFocusShadowColor: colors.blue100,
   checkedDisabledColor: colors.white,
   checkedDisabledBackgroundColor: colors.blue200,
-});
+};

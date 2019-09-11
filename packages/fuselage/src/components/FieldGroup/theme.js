@@ -1,6 +1,3 @@
-import { createTheme } from '../../helpers/createTheme';
-
-
-export default createTheme('rcx-field-group', {
+export default {
   gutter: '1.5rem',
-});
+};

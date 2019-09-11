@@ -1,16 +1,16 @@
-import { createTheme } from '../../helpers/createTheme';
-import theme from '../../styles/theme';
+import borders from '../../styles/borders';
+import typography from '../../styles/typography';
 import colors from '../../tokens/colors';
 
-export default createTheme('rcx-check-box', {
-  size: theme.typography.p1.lineHeight,
-  borderWidth: theme.borders.default.width,
-  borderRadius: theme.borders.default.radius,
+export default {
+  size: typography.p1.lineHeight,
+  borderWidth: borders.default.width,
+  borderRadius: borders.default.radius,
   labelColor: colors.dark800,
-  labelFontFamily: theme.typography.p1.fontFamily,
+  labelFontFamily: typography.p1.fontFamily,
   labelFontSize: '0.875rem',
   labelFontWeight: '400',
-  labelLineHeight: theme.typography.p1.lineHeight,
+  labelLineHeight: typography.p1.lineHeight,
   color: colors.white,
   borderColor: colors.dark400,
   hoverBorderColor: colors.dark500,
@@ -26,4 +26,4 @@ export default createTheme('rcx-check-box', {
   checkedFocusBorderColor: colors.blue700,
   checkedFocusShadowColor: colors.blue100,
   checkedDisabledBackgroundColor: colors.blue200,
-});
+};

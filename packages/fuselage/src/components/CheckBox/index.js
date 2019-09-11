@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { rebuildClassName } from '../../helpers';
 import { useMergedRefs } from '../../hooks/useMergedRefs';
 import { disableable } from '../../mixins/disableable';
 import { reset } from '../../mixins/reset';

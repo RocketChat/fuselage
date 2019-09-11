@@ -1,6 +1,5 @@
-import { toREM } from '../helpers/toREM';
-import { varTheme } from '../helpers/varTheme';
+import { toREM, themeVar } from '../helpers';
 import spaces from '../tokens/spaces';
 
 
-export default spaces.map((space, i) => varTheme('spaces', i.toString(10), toREM(space)));
+export default spaces.map((space, i) => themeVar('spaces', i.toString(10), toREM(space)));

@@ -2,7 +2,7 @@ import * as characters from '@rocket.chat/icons/dist/font/characters';
 import * as names from '@rocket.chat/icons/dist/font/index';
 import styled from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { rebuildClassName } from '../../helpers';
 import { normalized } from '../../mixins';
 
 
@@ -26,4 +26,5 @@ export const Icon = styled.i.attrs(rebuildClassName('rcx-icon')).attrs(({ iconNa
   line-height: 1;
   text-rendering: auto;
 `;
+
 Icon.displayName = 'Icon';

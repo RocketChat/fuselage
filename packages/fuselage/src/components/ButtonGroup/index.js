@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
+import { rebuildClassName } from '../../helpers';
 import { reset } from '../../mixins/reset';
 import { Button } from '../Button';
 import theme from './theme';

@@ -1,6 +1,6 @@
 import transitions from '../tokens/transitions';
-import { varTheme } from '../helpers/varTheme';
+import { themeVar } from '../helpers';
 
 export default {
-  shortDuration: varTheme('transitions', 'shortDuration', transitions.shortDuration),
+  shortDuration: themeVar('transitions', 'shortDuration', transitions.shortDuration),
 };
