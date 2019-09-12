@@ -11,7 +11,7 @@ export default createTheme('typography', Object.entries(typography).reduce((obj,
 }]) => ({
   ...obj,
   [name]: {
-    fontFamily,
+    fontFamily: fontFamily.map((x) => (x.indexOf(' ') < 0 ? x : `'${ x }'`)).join(', '),
     fontSize: toREM(fontSize),
     fontWeight,
     letterSpacing: toREM(letterSpacing),
