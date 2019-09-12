@@ -1,8 +1,7 @@
 import borders from '../../styles/borders';
+import spaces from '../../styles/spaces';
 import textStyles from '../../styles/textStyles';
 import colors from '../../tokens/colors';
-import { createTheme } from '../../helpers';
-import spaces from '../../styles/spaces';
 
 
 export default {
@@ -38,12 +37,10 @@ export const {
   iconMarginX,
   iconMarginY,
 } = {
-  ...createTheme('input', {
-    border: borders.default,
-  }),
+  border: borders.default,
   paddingX: spaces[5],
   paddingY: spaces[4],
-  textStyle: createTheme('input', textStyles.p1),
+  textStyle: textStyles.p1,
   iconMarginX: spaces[5],
   iconMarginY: spaces[4],
 };

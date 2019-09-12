@@ -9,32 +9,6 @@ export const toREM = (length) => {
   return length;
 };
 
-const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-
-export const asThemeVariable = (componentName, name, value) => {
-  if (isIE11) {
-    return value;
-  }
-
-  return `var(--rcx-${ componentName }-${ name }, ${ value })`;
-};
-
-export const createTheme = (componentName, variables) => {
-  if (isIE11) {
-    return variables;
-  }
-
-  return Object.entries(variables).reduce((variables, [name, value]) => ({
-    ...variables,
-    [name]: typeof value === 'object'
-      ? createTheme(`${ componentName }-${ fromCamelToKebabCase(name) }`, value)
-      : asThemeVariable(componentName, fromCamelToKebabCase(name), value),
-  }), {});
-};
-
-export const createThemeVariant = (componentName, variantName, variables) =>
-  createTheme(`${ componentName }-${ variantName }`, variables);
-
 export const rebuildClassName = (baseClassName) => ({
   className,
   ...props

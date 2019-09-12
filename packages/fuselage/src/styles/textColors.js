@@ -1,7 +1,7 @@
-import { createTheme } from '../helpers';
 import colors from '../tokens/colors';
 
-export default createTheme('text-colors', {
+
+export default {
   default: colors.dark800,
   info: colors.dark700,
   hint: colors.dark600,
@@ -11,4 +11,4 @@ export default createTheme('text-colors', {
   success: colors.green500,
   danger: colors.red500,
   warning: colors.yellow700,
-});
+};

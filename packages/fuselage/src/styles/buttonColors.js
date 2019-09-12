@@ -1,8 +1,7 @@
-import { createTheme } from '../helpers';
 import colors from '../tokens/colors';
 
 
-export default createTheme('button-colors', {
+export default {
   primary: {
     backgroundColor: colors.blue500,
     borderColor: colors.blue500,
@@ -78,4 +77,4 @@ export default createTheme('button-colors', {
     disabledBorderColor: colors.dark400,
     disabledColor: colors.dark200,
   },
-});
+};

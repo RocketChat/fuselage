@@ -14,6 +14,6 @@ export const Headline = styled.h1.attrs(rebuildClassName('headline'))`
 
   cursor: default;
 
-  ${ withText(theme) }
+  ${ withText(theme.textStyle) }
   ${ withSelectableText }
 `;

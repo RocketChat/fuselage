@@ -14,6 +14,6 @@ export const Paragraph = styled.p.attrs(rebuildClassName('paragraph'))`
 
   cursor: default;
 
-  ${ withText(theme) }
+  ${ withText(theme.textStyle) }
   ${ withSelectableText }
 `;

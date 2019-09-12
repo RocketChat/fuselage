@@ -14,6 +14,6 @@ export const Subtitle = styled.h2.attrs(rebuildClassName('subtitle'))`
 
   cursor: default;
 
-  ${ withText(theme) }
+  ${ withText(theme.textStyle) }
   ${ withSelectableText }
 `;

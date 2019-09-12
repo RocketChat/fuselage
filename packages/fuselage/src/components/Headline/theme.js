@@ -1,11 +1,10 @@
-import { createTheme } from '../../helpers';
 import spaces from '../../styles/spaces';
-import typography from '../../styles/textStyles';
-import textStyles from '../../styles/textColors';
+import textColors from '../../styles/textColors';
+import textStyles from '../../styles/textStyles';
 
 
-export default createTheme('headline', {
+export default {
   spacing: spaces[5],
-  ...typography.h1,
-  color: textStyles.default,
-});
+  color: textColors.default,
+  textStyle: textStyles.h1,
+};

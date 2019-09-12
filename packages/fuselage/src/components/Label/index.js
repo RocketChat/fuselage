@@ -5,11 +5,7 @@ import { rebuildClassName } from '../../helpers';
 import { normalized, withTruncatedText, withText, withSelectableText } from '../../mixins';
 import {
   spacing,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  letterSpacing,
-  lineHeight,
+  textStyle,
   color,
   requiredColor,
   errorColor,
@@ -17,13 +13,7 @@ import {
 
 const Wrapper = styled.div.attrs(rebuildClassName('label__wrapper'))`
   ${ normalized }
-  ${ withText({
-    fontFamily,
-    fontSize,
-    fontWeight,
-    letterSpacing,
-    lineHeight,
-  }) }
+  ${ withText(textStyle) }
 
   display: flex;
 
