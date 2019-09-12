@@ -2,22 +2,32 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { rebuildClassName } from '../../helpers';
-import { reset } from '../../mixins/reset';
-import { disableable } from '../../mixins/disableable';
+import {
+  withText,
+  whenRightToLeftOrientation,
+  withBorder,
+  normalized,
+  whenDisabled,
+  scrollable,
+  whenInvalid,
+} from '../../mixins';
 import { Icon } from '../Icon';
-import theme from './theme';
-import { withText, whenRightToLeftOrientation } from '../../mixins';
-import { scrollable } from '../../mixins/scrollable';
+import theme, {
+  border,
+  paddingX,
+  paddingY,
+  typographicVariant,
+  iconMarginX,
+  iconMarginY,
+} from './theme';
 
 
-const Wrapper = styled.span.attrs(rebuildClassName('rcx-input__wrapper'))`
-  ${ reset }
+const Container = styled.span.attrs(rebuildClassName('rcx-input__wrapper'))`
+  ${ normalized }
 
   position: relative;
 
-  display: inline-flex;
-
-  width: 100%;
+  display: flex;
 `;
 
 const colorsVariant = ({
@@ -35,9 +45,9 @@ const colorsVariant = ({
   disabledBorderColor,
   disabledBackgroundColor,
 }) => css`
-  color: ${ color };
-  border-color: ${ borderColor };
   background-color: ${ backgroundColor };
+  border-color: ${ borderColor };
+  color: ${ color };
 
   &::placeholder {
     color: ${ placeholderColor };
@@ -105,62 +115,52 @@ const errorColorsVariant = () => colorsVariant({
 });
 
 const inputBoxStyle = () => css`
-  ${ reset }
-  ${ disableable }
-  ${ withText }
+  ${ normalized }
 
   width: 100%;
   min-width: 8rem;
 
-  padding: ${ theme.padding };
-
-  resize: none;
+  padding: calc(${ paddingY } - ${ border.width }) calc(${ paddingX } - ${ border.width });
 
   text-overflow: ellipsis;
 
-  border-width: ${ theme.borderWidth };
-  border-style: solid;
-  border-radius: ${ theme.borderRadius };
+  appearance: none;
+  resize: none;
+  outline: 0;
 
-  outline: none;
+  ${ withBorder(border) }
 
-  font-family: ${ theme.fontFamily };
-  font-size: ${ theme.fontSize };
-  font-weight: ${ theme.fontWeight };
-  line-height: ${ theme.lineHeight };
+  ${ withText(typographicVariant) }
+
+  ${ whenDisabled(css`cursor: not-allowed;`) }
 
   ${ normalColorsVariant }
-
-  &:invalid {
-    ${ errorColorsVariant }
-  }
-
-  ${ ({ hasError }) => hasError && errorColorsVariant() }
+  ${ whenInvalid(errorColorsVariant) }
 `;
 
 const iconInputBoxStyle = () => css`
-  ${ Wrapper } > & {
-    padding-right: calc(2 * ${ theme.iconMarginHorizontal } + ${ theme.iconSize } - 2 * ${ theme.borderWidth });
+  ${ Container } > & {
+    padding-right: calc(2 * ${ iconMarginX } + ${ typographicVariant.lineHeight } - 2 * ${ border.width });
 
     & + ${ Icon } {
       position: absolute;
-      top: ${ theme.iconMarginVertical };
-      right: ${ theme.iconMarginHorizontal };
+      top: ${ iconMarginY };
+      right: ${ iconMarginX };
 
       pointer-events: none;
 
       color: ${ theme.iconColor };
 
-      font-size: ${ theme.iconSize };
+      font-size: ${ typographicVariant.lineHeight };
     }
 
     ${ whenRightToLeftOrientation(() => css`
       padding: ${ theme.padding };
-      padding-left: calc(2 * ${ theme.iconMarginHorizontal } + ${ theme.iconSize } - 2 * ${ theme.borderWidth });
+      padding-left: calc(2 * ${ iconMarginX } + ${ typographicVariant.lineHeight } - 2 * ${ border.width });
 
       & + ${ Icon } {
         right: unset;
-        left: ${ theme.iconMarginHorizontal };
+        left: ${ iconMarginX };
       }
     `) }
 
@@ -177,7 +177,7 @@ const iconInputBoxStyle = () => css`
       color: ${ theme.errorIconColor };
     }
 
-    ${ ({ hasError }) => hasError && css`
+    ${ ({ invalid }) => invalid && css`
       & + ${ Icon } {
         color: ${ theme.errorIconColor };
       }
@@ -188,7 +188,7 @@ const iconInputBoxStyle = () => css`
       color: ${ theme.errorIconColor };
     }
 
-    ${ ({ hasError }) => hasError && css`
+    ${ ({ invalid }) => invalid && css`
       &:not(:disabled):focus + ${ Icon },
       &:not(:disabled).focus + ${ Icon } {
         color: ${ theme.errorIconColor };
@@ -207,10 +207,10 @@ const TextInput = React.forwardRef(function TextInput({
   ...props
 }, ref) {
   if (icon) {
-    return <Wrapper>
+    return <Container>
       <TextInputElement ref={ref} {...props} />
       <Icon iconName={icon} />
-    </Wrapper>;
+    </Container>;
   }
 
   return <TextInputElement ref={ref} {...props} />;
@@ -227,10 +227,10 @@ const TextAreaInput = React.forwardRef(function TextAreaInput({
   ...props
 }, ref) {
   if (icon) {
-    return <Wrapper>
+    return <Container>
       <TextAreaElement ref={ref} {...props} />
       <Icon iconName={icon} />
-    </Wrapper>;
+    </Container>;
   }
 
   return <TextAreaElement ref={ref} {...props} />;
@@ -257,21 +257,22 @@ const SelectInput = React.forwardRef(function SelectInput({
   placeholder,
   ...props
 }, ref) {
-  return <Wrapper>
+  return <Container>
     <SelectElement hasPlaceholder={!!placeholder} ref={ref} {...props}>
       <PlaceholderOption value=''>{placeholder}</PlaceholderOption>
       {children}
     </SelectElement>
     <Icon iconName='arrow-down' />
-  </Wrapper>;
+  </Container>;
 });
 
-export const Input = React.forwardRef(function Input({
-  error,
+export const Input = styled(React.forwardRef(function Input({
   type = 'text',
   ...props
 }, ref) {
-  return (type === 'select' && <SelectInput hasError={error} ref={ref} {...props} />)
-    || (type === 'textarea' && <TextAreaInput hasError={error} ref={ref} {...props} />)
-    || <TextInput hasError={error} ref={ref} type={type} {...props} />;
-});
+  return (type === 'select' && <SelectInput ref={ref} {...props} />)
+    || (type === 'textarea' && <TextAreaInput ref={ref} {...props} />)
+    || <TextInput ref={ref} type={type} {...props} />;
+}))``;
+
+Input.displayName = 'Input';

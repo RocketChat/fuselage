@@ -42,10 +42,10 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { hasError: true },
-        'error + hover': { hasError: true, className: 'hover' },
-        'error + active': { hasError: true, className: 'active' },
-        'error + focus': { hasError: true, className: 'focus' },
+        invalid: { invalid: true },
+        'invalid + hover': { invalid: true, className: 'hover' },
+        'invalid + active': { invalid: true, className: 'active' },
+        'invalid + focus': { invalid: true, className: 'focus' },
       }}
     />
     <TextSection>
@@ -70,10 +70,10 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { hasError: true },
-        'error + hover': { hasError: true, className: 'hover' },
-        'error + active': { hasError: true, className: 'active' },
-        'error + focus': { hasError: true, className: 'focus' },
+        invalid: { invalid: true },
+        'invalid + hover': { invalid: true, className: 'hover' },
+        'invalid + active': { invalid: true, className: 'active' },
+        'invalid + focus': { invalid: true, className: 'focus' },
       }}
     />
     <TextSection>
@@ -98,10 +98,10 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { hasError: true },
-        'error + hover': { hasError: true, className: 'hover' },
-        'error + active': { hasError: true, className: 'active' },
-        'error + focus': { hasError: true, className: 'focus' },
+        invalid: { invalid: true },
+        'invalid + hover': { invalid: true, className: 'hover' },
+        'invalid + active': { invalid: true, className: 'active' },
+        'invalid + focus': { invalid: true, className: 'focus' },
       }}
     />
     <TextSection>
@@ -130,10 +130,10 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { hasError: true },
-        'error + hover': { hasError: true, className: 'hover' },
-        'error + active': { hasError: true, className: 'active' },
-        'error + focus': { hasError: true, className: 'focus' },
+        invalid: { invalid: true },
+        'invalid + hover': { invalid: true, className: 'hover' },
+        'invalid + active': { invalid: true, className: 'active' },
+        'invalid + focus': { invalid: true, className: 'focus' },
       }}
     />
   </Document>);
@@ -141,7 +141,7 @@ storiesOf('Elements|Input', module)
 const types = ['text', 'password', 'url', 'search', 'email', 'tel', 'url', 'textarea', 'select'];
 const props = createPropsFromKnobs({
   disabled: false,
-  hasError: false,
+  invalid: false,
   hidden: false,
   icon: '',
   invisible: false,
@@ -156,12 +156,12 @@ const props = createPropsFromKnobs({
 storiesOf('Elements|Input', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['Input/spec'] })
   .add('default', () => <Input {...props()} />)
   .add('with placeholder', () => <Input {...props({ placeholder: 'Placeholder' })} />)
   .add('with value', () => <Input {...props({ value: 'Value' })} />)
   .add('disabled', () => <Input {...props({ disabled: true })} />)
-  .add('with error', () => <Input {...props({ hasError: true })} />)
+  .add('invalid', () => <Input {...props({ invalid: true })} />)
   .add('with icon', () => <Input {...props({ icon: 'mail' })} />)
   .add('of textarea type', () => <Input {...props({ type: ['textarea', types] })} />)
   .add('of select type', () => <Input {...props({

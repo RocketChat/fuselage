@@ -1,12 +1,11 @@
 import borders from '../../styles/borders';
 import typography from '../../styles/typography';
 import colors from '../../tokens/colors';
+import { createTheme } from '../../helpers';
+import spaces from '../../styles/spaces';
 
 
 export default {
-  padding: '0.625rem 0.875rem',
-  borderWidth: borders.default.width,
-  borderRadius: borders.default.radius,
   color: colors.dark800,
   iconColor: colors.dark800,
   placeholderColor: colors.dark600,
@@ -24,29 +23,27 @@ export default {
   disabledBorderColor: colors.dark500,
   disabledColor: colors.dark800,
   disabledIconColor: colors.dark500,
-  fontFamily: typography.p1.fontFamily,
-  fontSize: '0.875rem',
-  fontWeight: '500',
-  lineHeight: '1.25rem',
+
   errorColor: colors.red500,
   errorIconColor: colors.red500,
   errorBorderColor: colors.red500,
   errorFocusShadowColor: colors.red100,
-  iconSize: '1.25rem',
-  iconMarginHorizontal: '1rem',
-  iconMarginVertical: '0.75rem',
-  labelMargin: '0 0 0.5rem 0',
-  labelColor: colors.dark800,
-  labelFontFamily: typography.p1.fontFamily,
-  labelFontSize: '0.875rem',
-  labelFontWeight: 'normal',
-  labelLineHeight: '1.25rem',
-  labelRequiredColor: colors.red500,
-  labelErrorColor: colors.red500,
-  helpMargin: '0.25rem 0 0 0',
-  helpColor: colors.dark600,
-  helpFontSize: '0.875rem',
-  helpFontFamily: typography.p1.fontFamily,
-  helpFontWeight: 'normal',
-  helpLineHeight: '1.25rem',
+};
+
+export const {
+  border,
+  paddingX,
+  paddingY,
+  typographicVariant,
+  iconMarginX,
+  iconMarginY,
+} = {
+  ...createTheme('input', {
+    border: borders.default,
+  }),
+  paddingX: spaces[5],
+  paddingY: spaces[4],
+  typographicVariant: createTheme('input', typography.p1),
+  iconMarginX: spaces[5],
+  iconMarginY: spaces[4],
 };

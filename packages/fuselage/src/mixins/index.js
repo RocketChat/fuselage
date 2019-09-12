@@ -23,6 +23,15 @@ export const whenInvisible = (content) => css`
   ${ ({ invisible }) => invisible && content }
 `;
 
+export const whenInvalid = (content) => css`
+  &:invalid,
+  &.invalid {
+    ${ content }
+  }
+
+  ${ ({ invalid }) => invalid && content }
+`;
+
 export const whenFocused = (content, source = '&', target = '') => css`
   ${ source }:focus ${ target },
   ${ source }.focus  ${ target }{
@@ -98,6 +107,27 @@ export const clickable = css`
   outline: 0;
   ${ whenDisabled(css`cursor: not-allowed;`) }
 `;
+
+export const scrollable = css`
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+`;
+
 
 export const visuallyHidden = css`
   position: absolute;

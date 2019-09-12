@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { rebuildClassName } from '../../helpers';
-import { reset } from '../../mixins/reset';
+import { normalized } from '../../mixins';
 import { Field } from '../Field';
 import { spacing } from './theme';
 
@@ -9,7 +9,7 @@ import { spacing } from './theme';
 export const FieldGroup = styled.fieldset.attrs(rebuildClassName('rcx-field-group')).attrs({
   role: 'group',
 })`
-  ${ reset }
+  ${ normalized }
 
   display: flex;
 

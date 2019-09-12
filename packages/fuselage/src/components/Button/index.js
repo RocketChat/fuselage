@@ -68,6 +68,8 @@ export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
 
   text-align: center;
 
+  appearance: none;
+
   & > ${ Icon } {
     vertical-align: middle;
   }
