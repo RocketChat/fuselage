@@ -2,7 +2,7 @@ import typography from '../tokens/typography';
 import { createTheme, toREM } from '../helpers';
 
 
-export default createTheme('typography', Object.entries(typography).reduce((obj, [name, {
+export default createTheme('text-styles', Object.entries(typography).reduce((obj, [name, {
   fontFamily,
   fontSize,
   fontWeight,

@@ -1,7 +1,7 @@
 import { createTheme } from '../helpers';
 import colors from '../tokens/colors';
 
-export default createTheme('text', {
+export default createTheme('text-colors', {
   default: colors.dark800,
   info: colors.dark700,
   hint: colors.dark600,

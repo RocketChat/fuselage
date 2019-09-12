@@ -1,7 +1,7 @@
 import { createTheme } from '../../helpers';
 import spaces from '../../styles/spaces';
 import textColors from '../../styles/textColors';
-import typography from '../../styles/typography';
+import textStyles from '../../styles/textStyles';
 
 
 export const {
@@ -16,7 +16,7 @@ export const {
   errorColor,
 } = createTheme('label', {
   spacing: spaces[3],
-  ...typography.p1,
+  ...textStyles.p1,
   color: textColors.default,
   requiredColor: textColors.danger,
   errorColor: textColors.danger,

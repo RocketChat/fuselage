@@ -1,6 +1,6 @@
 import { createTheme } from '../../helpers';
 import textColors from '../../styles/textColors';
-import typography from '../../styles/typography';
+import textStyles from '../../styles/textStyles';
 
 
 export const {
@@ -10,5 +10,5 @@ export const {
   ...createTheme('hint', {
     color: textColors.hint,
   }),
-  typographicVariant: createTheme('hint', typography.p1),
+  typographicVariant: createTheme('hint', textStyles.p1),
 };

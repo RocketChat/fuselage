@@ -4,8 +4,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { withText, withTruncatedText } from '../mixins';
-import typography from '../styles/typography';
 import textColors from '../styles/textColors';
+import textStyles from '../styles/textStyles';
 
 
 const VerticallyCenteredContainer = styled.div`
@@ -22,15 +22,15 @@ export const TextSection = styled.section.attrs({ className: 'markdown-body-' })
   font-size: 14px;
 
   h1 {
-    ${ withText(typography.h1) }
+    ${ withText(textStyles.h1) }
   }
 
   h2 {
-    ${ withText(typography.s1) }
+    ${ withText(textStyles.s1) }
   }
 
   p {
-    ${ withText(typography.p1) }
+    ${ withText(textStyles.p1) }
   }
 `;
 
@@ -110,7 +110,7 @@ const PropsVariationTable = styled.table`
 
   th {
     color: ${ textColors.hint };
-    ${ withText(typography.c2) }
+    ${ withText(textStyles.c2) }
     ${ withTruncatedText }
     text-align: center;
   }

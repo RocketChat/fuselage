@@ -1,7 +1,7 @@
 import { createTheme, createThemeVariant } from '../../helpers';
 import actions from '../../styles/actions';
 import borders from '../../styles/borders';
-import typography from '../../styles/typography';
+import textStyles from '../../styles/textStyles';
 
 
 export const {
@@ -12,7 +12,7 @@ export const {
     ...borders.default,
     radius: '9999px',
   },
-  size: typography.p1.lineHeight,
+  size: textStyles.p1.lineHeight,
 });
 
 export const onColors = createThemeVariant('toggle-switch', 'on', actions.buttons.primary);

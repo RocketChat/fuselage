@@ -1,5 +1,5 @@
 import borders from '../../styles/borders';
-import typography from '../../styles/typography';
+import textStyles from '../../styles/textStyles';
 import colors from '../../tokens/colors';
 import { createTheme } from '../../helpers';
 import spaces from '../../styles/spaces';
@@ -43,7 +43,7 @@ export const {
   }),
   paddingX: spaces[5],
   paddingY: spaces[4],
-  typographicVariant: createTheme('input', typography.p1),
+  typographicVariant: createTheme('input', textStyles.p1),
   iconMarginX: spaces[5],
   iconMarginY: spaces[4],
 };

@@ -2,7 +2,7 @@ import { createThemeVariant } from '../../helpers';
 import actions from '../../styles/actions';
 import borders from '../../styles/borders';
 import spaces from '../../styles/spaces';
-import typography from '../../styles/typography';
+import textStyles from '../../styles/textStyles';
 import colors from '../../tokens/colors';
 
 
@@ -12,7 +12,7 @@ export const mediumSizeParameters = {
     paddingX: spaces[5],
     iconSizeRatio: 0.8,
   }),
-  typographicVariant: createThemeVariant('button', 'medium-size', typography.p2),
+  typographicVariant: createThemeVariant('button', 'medium-size', textStyles.p2),
 };
 
 export const smallSizeParameters = {
@@ -21,7 +21,7 @@ export const smallSizeParameters = {
     paddingX: spaces[4],
     iconSizeRatio: 0.75,
   }),
-  typographicVariant: createThemeVariant('button', 'small-size', typography.c2),
+  typographicVariant: createThemeVariant('button', 'small-size', textStyles.c2),
 };
 
 export const basicColors = createThemeVariant('button', 'basic', actions.buttons.secondary);

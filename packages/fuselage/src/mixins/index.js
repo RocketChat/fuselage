@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 import transitions from '../styles/transitions';
-import typography from '../styles/typography';
+import textStyles from '../styles/textStyles';
 import borders from '../styles/borders';
 import { toREM } from '../helpers';
 
@@ -210,11 +210,11 @@ export const whenRightToLeftOrientation = (content) => css`
 `;
 
 export const withText = ({
-  fontFamily = typography.p1.fontFamily,
-  fontSize = typography.p1.fontSize,
-  fontWeight = typography.p1.fontWeight,
-  letterSpacing = typography.p1.letterSpacing,
-  lineHeight = typography.p1.lineHeight,
+  fontFamily = textStyles.p1.fontFamily,
+  fontSize = textStyles.p1.fontSize,
+  fontWeight = textStyles.p1.fontWeight,
+  letterSpacing = textStyles.p1.letterSpacing,
+  lineHeight = textStyles.p1.lineHeight,
 }) => css`
   font-family: ${ fontFamily };
   font-size: ${ fontSize };
