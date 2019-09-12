@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rebuildClassName } from '../../helpers';
 import {
   color,
-  typographicVariant,
+  textStyle,
 } from './theme';
 import { normalized, withSelectableText, withText } from '../../mixins';
 
@@ -16,7 +16,7 @@ export const Hint = styled.div.attrs(rebuildClassName('hint'))`
 
   color: ${ color };
 
-  ${ withText(typographicVariant) }
+  ${ withText(textStyle) }
 `;
 
 Hint.displayName = 'Hint';

@@ -5,10 +5,10 @@ import textStyles from '../../styles/textStyles';
 
 export const {
   color,
-  typographicVariant,
+  textStyle,
 } = {
   ...createTheme('hint', {
     color: textColors.hint,
   }),
-  typographicVariant: createTheme('hint', textStyles.p1),
+  textStyle: createTheme('hint', textStyles.p1),
 };

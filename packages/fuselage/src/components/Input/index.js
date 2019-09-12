@@ -16,7 +16,7 @@ import theme, {
   border,
   paddingX,
   paddingY,
-  typographicVariant,
+  textStyle,
   iconMarginX,
   iconMarginY,
 } from './theme';
@@ -130,7 +130,7 @@ const inputBoxStyle = () => css`
 
   ${ withBorder(border) }
 
-  ${ withText(typographicVariant) }
+  ${ withText(textStyle) }
 
   ${ whenDisabled(css`cursor: not-allowed;`) }
 
@@ -140,7 +140,7 @@ const inputBoxStyle = () => css`
 
 const iconInputBoxStyle = () => css`
   ${ Container } > & {
-    padding-right: calc(2 * ${ iconMarginX } + ${ typographicVariant.lineHeight } - 2 * ${ border.width });
+    padding-right: calc(2 * ${ iconMarginX } + ${ textStyle.lineHeight } - 2 * ${ border.width });
 
     & + ${ Icon } {
       position: absolute;
@@ -151,12 +151,12 @@ const iconInputBoxStyle = () => css`
 
       color: ${ theme.iconColor };
 
-      font-size: ${ typographicVariant.lineHeight };
+      font-size: ${ textStyle.lineHeight };
     }
 
     ${ whenRightToLeftOrientation(() => css`
       padding: ${ theme.padding };
-      padding-left: calc(2 * ${ iconMarginX } + ${ typographicVariant.lineHeight } - 2 * ${ border.width });
+      padding-left: calc(2 * ${ iconMarginX } + ${ textStyle.lineHeight } - 2 * ${ border.width });
 
       & + ${ Icon } {
         right: unset;

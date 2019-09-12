@@ -1,6 +1,6 @@
 import { createTheme, createThemeVariant } from '../../helpers';
-import actions from '../../styles/actions';
 import borders from '../../styles/borders';
+import buttonColors from '../../styles/buttonColors';
 import textStyles from '../../styles/textStyles';
 
 
@@ -19,6 +19,6 @@ export const {
   },
 });
 
-export const uncheckedColors = createThemeVariant('radio-button', 'unchecked', actions.buttons.unchecked);
+export const uncheckedColors = createThemeVariant('radio-button', 'unchecked', buttonColors.empty);
 
-export const checkedColors = createThemeVariant('radio-button', 'checked', actions.buttons.primary);
+export const checkedColors = createThemeVariant('radio-button', 'checked', buttonColors.primary);

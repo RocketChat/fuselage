@@ -1,6 +1,6 @@
 import { createTheme, createThemeVariant, toREM } from '../../helpers';
-import actions from '../../styles/actions';
 import borders from '../../styles/borders';
+import buttonColors from '../../styles/buttonColors';
 import textStyles from '../../styles/textStyles';
 
 
@@ -18,8 +18,8 @@ export const {
   },
 });
 
-export const uncheckedColors = createThemeVariant('check-box', 'unchecked', actions.buttons.unchecked);
+export const uncheckedColors = createThemeVariant('check-box', 'unchecked', buttonColors.empty);
 
-export const checkedColors = createThemeVariant('check-box', 'checked', actions.buttons.primary);
+export const checkedColors = createThemeVariant('check-box', 'checked', buttonColors.primary);
 
-export const indeterminateColors = createThemeVariant('check-box', 'indeterminate', actions.buttons.primary);
+export const indeterminateColors = createThemeVariant('check-box', 'indeterminate', buttonColors.primary);

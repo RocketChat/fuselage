@@ -1,6 +1,6 @@
 import { createTheme, createThemeVariant } from '../../helpers';
-import actions from '../../styles/actions';
 import borders from '../../styles/borders';
+import buttonColors from '../../styles/buttonColors';
 import textStyles from '../../styles/textStyles';
 
 
@@ -15,6 +15,6 @@ export const {
   size: textStyles.p1.lineHeight,
 });
 
-export const onColors = createThemeVariant('toggle-switch', 'on', actions.buttons.primary);
+export const onColors = createThemeVariant('toggle-switch', 'on', buttonColors.primary);
 
-export const offColors = createThemeVariant('toggle-switch', 'off', actions.buttons.toggleOff);
+export const offColors = createThemeVariant('toggle-switch', 'off', buttonColors.off);

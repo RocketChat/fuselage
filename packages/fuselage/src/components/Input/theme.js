@@ -34,7 +34,7 @@ export const {
   border,
   paddingX,
   paddingY,
-  typographicVariant,
+  textStyle,
   iconMarginX,
   iconMarginY,
 } = {
@@ -43,7 +43,7 @@ export const {
   }),
   paddingX: spaces[5],
   paddingY: spaces[4],
-  typographicVariant: createTheme('input', textStyles.p1),
+  textStyle: createTheme('input', textStyles.p1),
   iconMarginX: spaces[5],
   iconMarginY: spaces[4],
 };
