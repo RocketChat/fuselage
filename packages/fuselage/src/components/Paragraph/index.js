@@ -5,7 +5,7 @@ import { normalized, withText, withSelectableText } from '../../mixins';
 import theme from './theme';
 
 
-export const Paragraph = styled.p.attrs(rebuildClassName('rcx-paragraph'))`
+export const Paragraph = styled.p.attrs(rebuildClassName('paragraph'))`
   ${ normalized }
 
   margin-bottom: ${ theme.spacing };

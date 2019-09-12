@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import { spacing } from './theme';
 
 
-export const ButtonGroup = styled.div.attrs(rebuildClassName('rcx-button-group'))`
+export const ButtonGroup = styled.div.attrs(rebuildClassName('button-group'))`
   ${ normalized }
 
   display: flex;

@@ -59,7 +59,7 @@ const primaryDangerColored = withButtonActionColors(primaryDangerColors);
 const ghostColored = withButtonActionColors(ghostColors);
 const ghostDangerColored = withButtonActionColors(ghostDangerColors);
 
-export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
+export const Button = styled.button.attrs(rebuildClassName('button'))`
   ${ normalized }
   ${ clickable }
   ${ withTruncatedText }

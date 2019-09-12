@@ -15,7 +15,7 @@ import {
   errorColor,
 } from './theme';
 
-const Wrapper = styled.div.attrs(rebuildClassName('rcx-label__wrapper'))`
+const Wrapper = styled.div.attrs(rebuildClassName('label__wrapper'))`
   ${ normalized }
   ${ withText({
     fontFamily,
@@ -59,7 +59,7 @@ const endPositioned = css`
   }
 `;
 
-const Container = styled.label.attrs(rebuildClassName('rcx-label'))`
+const Container = styled.label.attrs(rebuildClassName('label'))`
   ${ normalized }
 
   display: flex;
@@ -78,7 +78,7 @@ const withRequiredMark = css`
   }
 `;
 
-const Text = styled.span.attrs(rebuildClassName('rcx-label__text'))`
+const Text = styled.span.attrs(rebuildClassName('label__text'))`
   ${ normalized }
   ${ withTruncatedText }
   ${ withSelectableText }
@@ -90,7 +90,7 @@ const Text = styled.span.attrs(rebuildClassName('rcx-label__text'))`
   ${ ({ required }) => required && withRequiredMark }
 `;
 
-const Error = styled.span.attrs(rebuildClassName('rcx-label__error'))`
+const Error = styled.span.attrs(rebuildClassName('label__error'))`
   ${ normalized }
   ${ withTruncatedText }
   ${ withSelectableText }

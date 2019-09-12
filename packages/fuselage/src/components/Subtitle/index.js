@@ -5,7 +5,7 @@ import { normalized, withText, withSelectableText } from '../../mixins';
 import theme from './theme';
 
 
-export const Subtitle = styled.h2.attrs(rebuildClassName('rcx-subtitle'))`
+export const Subtitle = styled.h2.attrs(rebuildClassName('subtitle'))`
   ${ normalized }
 
   margin-bottom: ${ theme.spacing };

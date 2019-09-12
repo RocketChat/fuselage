@@ -11,7 +11,7 @@ const nameToCharacterMapping = Object.entries(names).reduce((map, [symbol, name]
   [name]: characters[symbol],
 }), {});
 
-export const Icon = styled.i.attrs(rebuildClassName('rcx-icon')).attrs(({ iconName }) => ({
+export const Icon = styled.i.attrs(rebuildClassName('icon')).attrs(({ iconName }) => ({
   'aria-hidden': 'true',
   children: nameToCharacterMapping[iconName],
 }))`

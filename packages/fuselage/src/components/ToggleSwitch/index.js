@@ -19,11 +19,11 @@ import {
 } from './theme';
 
 
-const Container = styled(Label).attrs(rebuildClassName('rcx-toggle-switch__wrapper'))`
+const Container = styled(Label).attrs(rebuildClassName('toggle-switch__wrapper'))`
   ${ clickable }
 `;
 
-const Input = styled.input.attrs(rebuildClassName('rcx-toggle-switch__input')).attrs({
+const Input = styled.input.attrs(rebuildClassName('toggle-switch__input')).attrs({
   type: 'checkbox',
 })`
   ${ visuallyHidden }
@@ -64,7 +64,7 @@ const withThumb = () => css`
   }
 `;
 
-const Fake = styled.i.attrs(rebuildClassName('rcx-toggle-switch__fake')).attrs({
+const Fake = styled.i.attrs(rebuildClassName('toggle-switch__fake')).attrs({
   'aria-hidden': 'true',
 })`
   ${ normalized }

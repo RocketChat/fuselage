@@ -22,7 +22,7 @@ import theme, {
 } from './theme';
 
 
-const Container = styled.span.attrs(rebuildClassName('rcx-input__wrapper'))`
+const Container = styled.span.attrs(rebuildClassName('input__wrapper'))`
   ${ normalized }
 
   position: relative;
@@ -197,7 +197,7 @@ const iconInputBoxStyle = () => css`
   }
 `;
 
-const TextInputElement = styled.input.attrs(rebuildClassName('rcx-input'))`
+const TextInputElement = styled.input.attrs(rebuildClassName('input'))`
   ${ inputBoxStyle }
   ${ iconInputBoxStyle }
 `;
@@ -216,7 +216,7 @@ const TextInput = React.forwardRef(function TextInput({
   return <TextInputElement ref={ref} {...props} />;
 });
 
-const TextAreaElement = styled.textarea.attrs(rebuildClassName('rcx-input'))`
+const TextAreaElement = styled.textarea.attrs(rebuildClassName('input'))`
   ${ inputBoxStyle }
   ${ iconInputBoxStyle }
   ${ scrollable }
@@ -236,7 +236,7 @@ const TextAreaInput = React.forwardRef(function TextAreaInput({
   return <TextAreaElement ref={ref} {...props} />;
 });
 
-const SelectElement = styled.select.attrs(rebuildClassName('rcx-input'))`
+const SelectElement = styled.select.attrs(rebuildClassName('input'))`
   ${ inputBoxStyle }
   ${ iconInputBoxStyle }
   ${ scrollable }
@@ -246,7 +246,7 @@ const SelectElement = styled.select.attrs(rebuildClassName('rcx-input'))`
   }
 `;
 
-const PlaceholderOption = styled.option.attrs(rebuildClassName('rcx-input__placeholder'))`
+const PlaceholderOption = styled.option.attrs(rebuildClassName('input__placeholder'))`
   ${ SelectElement } > & {
     color: ${ theme.placeholderColor };
   }

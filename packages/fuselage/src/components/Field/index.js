@@ -6,7 +6,7 @@ import { Hint } from '../Hint';
 import { hintSpacing } from './theme';
 
 
-export const Field = styled.div.attrs(rebuildClassName('rcx-field'))`
+export const Field = styled.div.attrs(rebuildClassName('field'))`
   ${ normalized }
 
   display: flex;

@@ -5,7 +5,7 @@ import { normalized, withText, withSelectableText } from '../../mixins';
 import theme from './theme';
 
 
-export const Headline = styled.h1.attrs(rebuildClassName('rcx-headline'))`
+export const Headline = styled.h1.attrs(rebuildClassName('headline'))`
   ${ normalized }
 
   margin-bottom: ${ theme.spacing };

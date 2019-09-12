@@ -40,9 +40,9 @@ export const rebuildClassName = (baseClassName) => ({
   ...props
 }) => ({
   className: [
-    baseClassName,
+    `rcx-${ baseClassName }`,
     ...Object.entries(props).map(([modifier, value]) =>
-      typeof value === 'boolean' && value && `${ baseClassName }--${ modifier }`,
+      typeof value === 'boolean' && value && `rcx-${ baseClassName }--${ modifier }`,
     ),
     className,
   ].filter(Boolean).join(' '),

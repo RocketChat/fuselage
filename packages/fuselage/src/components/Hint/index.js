@@ -8,7 +8,7 @@ import {
 import { normalized, withSelectableText, withText } from '../../mixins';
 
 
-export const Hint = styled.div.attrs(rebuildClassName('rcx-hint'))`
+export const Hint = styled.div.attrs(rebuildClassName('hint'))`
   ${ normalized }
   ${ withSelectableText }
 

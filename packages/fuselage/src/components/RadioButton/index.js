@@ -19,11 +19,11 @@ import {
 } from './theme';
 
 
-const Container = styled(Label).attrs(rebuildClassName('rcx-radio-button__wrapper'))`
+const Container = styled(Label).attrs(rebuildClassName('radio-button__wrapper'))`
   ${ clickable }
 `;
 
-const Input = styled.input.attrs(rebuildClassName('rcx-radio-button__input')).attrs({
+const Input = styled.input.attrs(rebuildClassName('radio-button__input')).attrs({
   type: 'radio',
 })`
   ${ visuallyHidden }
@@ -52,7 +52,7 @@ const withCheckedIcon = css`
   }
 `;
 
-const Fake = styled.i.attrs(rebuildClassName('rcx-radio-button__fake')).attrs({
+const Fake = styled.i.attrs(rebuildClassName('radio-button__fake')).attrs({
   'aria-hidden': 'true',
 })`
   ${ normalized }
