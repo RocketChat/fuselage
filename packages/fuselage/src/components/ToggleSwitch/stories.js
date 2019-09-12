@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
@@ -6,11 +7,9 @@ import React from 'react';
 import {
   createPropsFromKnobs,
   Document,
-  handleEvent,
   ShowCaseSection,
   TextSection,
-  VariationsTable,
-  ThemingVariables,
+  PropsVariationSection,
 } from '../../helpers/storybook';
 import { ToggleSwitch } from './index';
 
@@ -20,7 +19,7 @@ storiesOf('Elements|ToggleSwitch', module)
     <TextSection>
       <h1>ToggleSwitch</h1>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={ToggleSwitch}
       common={{ onChange: () => {} }}
       xAxis={{
@@ -41,7 +40,6 @@ storiesOf('Elements|ToggleSwitch', module)
     <ShowCaseSection>
       <ToggleSwitch />
     </ShowCaseSection>
-    <ThemingVariables componentName='toggle-switch' />
   </Document>);
 
 const props = createPropsFromKnobs({
@@ -51,7 +49,7 @@ const props = createPropsFromKnobs({
   invisible: false,
   label: '',
   value: '',
-  onChange: handleEvent('change'),
+  onChange: action('change'),
 });
 
 storiesOf('Elements|ToggleSwitch', module)

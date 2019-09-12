@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
@@ -6,11 +7,9 @@ import React from 'react';
 import {
   createPropsFromKnobs,
   Document,
-  handleEvent,
   ShowCaseSection,
   TextSection,
-  VariationsTable,
-  ThemingVariables,
+  PropsVariationSection,
 } from '../../helpers/storybook';
 import { CheckBox } from './index';
 
@@ -20,7 +19,7 @@ storiesOf('Elements|CheckBox', module)
     <TextSection>
       <h1>CheckBox</h1>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={CheckBox}
       common={{ onChange: () => {} }}
       xAxis={{
@@ -42,7 +41,6 @@ storiesOf('Elements|CheckBox', module)
     <ShowCaseSection>
       <CheckBox />
     </ShowCaseSection>
-    <ThemingVariables componentName='check-box' />
   </Document>);
 
 const props = createPropsFromKnobs({
@@ -52,7 +50,7 @@ const props = createPropsFromKnobs({
   indeterminate: false,
   invisible: false,
   value: '',
-  onChange: handleEvent('change'),
+  onChange: action('change'),
 });
 
 storiesOf('Elements|CheckBox', module)

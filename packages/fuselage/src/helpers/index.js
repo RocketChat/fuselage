@@ -11,14 +11,10 @@ export const toREM = (length) => {
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
-export const themeVariables = {};
-
 export const asThemeVariable = (componentName, name, value) => {
   if (isIE11) {
     return value;
   }
-
-  themeVariables[`${ componentName }-${ name }`] = value;
 
   return `var(--rcx-${ componentName }-${ name }, ${ value })`;
 };

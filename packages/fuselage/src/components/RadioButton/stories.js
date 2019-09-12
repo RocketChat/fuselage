@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
@@ -6,11 +7,9 @@ import React from 'react';
 import {
   createPropsFromKnobs,
   Document,
-  handleEvent,
   ShowCaseSection,
   TextSection,
-  VariationsTable,
-  ThemingVariables,
+  PropsVariationSection,
 } from '../../helpers/storybook';
 import { RadioButton } from './index';
 
@@ -19,7 +18,7 @@ storiesOf('Elements|RadioButton', module)
     <TextSection>
       <h1>RadioButton</h1>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={RadioButton}
       common={{ onChange: () => {} }}
       xAxis={{
@@ -40,7 +39,6 @@ storiesOf('Elements|RadioButton', module)
     <ShowCaseSection>
       <RadioButton />
     </ShowCaseSection>
-    <ThemingVariables componentName='radio-button' />
   </Document>);
 
 
@@ -50,7 +48,7 @@ const props = createPropsFromKnobs({
   hidden: false,
   invisible: false,
   value: '',
-  onChange: handleEvent('change'),
+  onChange: action('change'),
 });
 
 storiesOf('Elements|RadioButton', module)

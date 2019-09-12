@@ -1,9 +1,10 @@
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { Document, TextSection, VariationsTable, createPropsFromKnobs, handleEvent } from '../../helpers/storybook';
+import { Document, TextSection, PropsVariationSection, createPropsFromKnobs } from '../../helpers/storybook';
 import { Input } from './index';
 
 
@@ -23,7 +24,7 @@ storiesOf('Elements|Input', module)
     <TextSection>
       <h3><code>type='text'</code></h3>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Input}
       common={{
         type: 'text',
@@ -51,7 +52,7 @@ storiesOf('Elements|Input', module)
     <TextSection>
       <h3><code>type='password'</code></h3>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Input}
       common={{
         type: 'password',
@@ -79,7 +80,7 @@ storiesOf('Elements|Input', module)
     <TextSection>
       <h3><code>type='textarea'</code></h3>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Input}
       common={{
         type: 'textarea',
@@ -107,7 +108,7 @@ storiesOf('Elements|Input', module)
     <TextSection>
       <h3><code>type='select'</code></h3>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Input}
       common={{
         type: 'select',
@@ -150,7 +151,7 @@ const props = createPropsFromKnobs({
   required: false,
   type: ['text', types],
   value: '',
-  onChange: handleEvent('change'),
+  onChange: action('change'),
 });
 
 storiesOf('Elements|Input', module)

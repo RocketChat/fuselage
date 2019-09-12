@@ -9,7 +9,6 @@ import {
   PseudoInput,
   ShowCaseSection,
   TextSection,
-  ThemingVariables,
 } from '../../helpers/storybook';
 import { Hint } from '../Hint';
 import { Label } from '../Label';
@@ -29,7 +28,6 @@ storiesOf('Elements|Field', module)
         <Hint>Help text</Hint>
       </Field>
     </ShowCaseSection>
-    <ThemingVariables componentName='field' />
   </Document>);
 
 const props = createPropsFromKnobs({

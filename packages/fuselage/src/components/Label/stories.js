@@ -7,9 +7,8 @@ import {
   createPropsFromKnobs,
   Document,
   TextSection,
-  VariationsTable,
+  PropsVariationSection,
   PseudoInput,
-  ThemingVariables,
 } from '../../helpers/storybook';
 import { Label } from './index';
 
@@ -22,7 +21,7 @@ storiesOf('Elements|Label', module)
     <TextSection>
       <h2>Errored and with required mark</h2>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Label}
       common={{ text: 'Label' }}
       xAxis={{
@@ -37,7 +36,7 @@ storiesOf('Elements|Label', module)
     <TextSection>
       <h2>Position around children</h2>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Label}
       common={{ text: 'Label', children: <PseudoInput /> }}
       xAxis={{
@@ -54,7 +53,6 @@ storiesOf('Elements|Label', module)
     <TextSection>
       <h2>Label</h2>
     </TextSection>
-    <ThemingVariables componentName='label' />
   </Document>);
 
 const props = createPropsFromKnobs({

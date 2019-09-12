@@ -3,7 +3,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { Document, TextSection, ShowCaseSection, createPropsFromKnobs, ThemingVariables } from '../../helpers/storybook';
+import { createPropsFromKnobs, Document, ShowCaseSection, TextSection } from '../../helpers/storybook';
 import { Button } from '../Button';
 import { ButtonGroup } from './index';
 
@@ -23,7 +23,6 @@ storiesOf('Collections|ButtonGroup', module)
         <Button>Maybe</Button>
       </ButtonGroup>
     </ShowCaseSection>
-    <ThemingVariables componentName='button-group' />
   </Document>);
 
 const props = createPropsFromKnobs({

@@ -8,7 +8,6 @@ import {
   Document,
   ShowCaseSection,
   TextSection,
-  ThemingVariables,
 } from '../../helpers/storybook';
 import { Hint } from './index';
 
@@ -23,7 +22,6 @@ storiesOf('Elements|Hint', module)
         Help text
       </Hint>
     </ShowCaseSection>
-    <ThemingVariables componentName='hint' />
   </Document>);
 
 const props = createPropsFromKnobs({
