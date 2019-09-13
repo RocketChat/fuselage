@@ -22,7 +22,7 @@ import theme, {
 } from './theme';
 
 
-const Container = styled.span.attrs(rebuildClassName('input__wrapper'))`
+const Container = styled.span`
   ${ normalized }
 
   position: relative;
@@ -246,7 +246,7 @@ const SelectElement = styled.select.attrs(rebuildClassName('input'))`
   }
 `;
 
-const PlaceholderOption = styled.option.attrs(rebuildClassName('input__placeholder'))`
+const PlaceholderOption = styled.option`
   ${ SelectElement } > & {
     color: ${ theme.placeholderColor };
   }

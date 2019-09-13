@@ -21,11 +21,11 @@ import {
 } from './theme';
 
 
-const Container = styled(Label).attrs(rebuildClassName('check-box__wrapper'))`
+const Container = styled(Label).attrs(rebuildClassName('check-box'))`
   ${ clickable }
 `;
 
-const Input = styled.input.attrs(rebuildClassName('check-box__input')).attrs({
+const Input = styled.input.attrs({
   type: 'checkbox',
 })`
   ${ visuallyHidden }
@@ -99,7 +99,7 @@ const withIndeterminateIcon = css`
   }
 `;
 
-const Fake = styled.i.attrs(rebuildClassName('check-box__fake')).attrs({
+const Fake = styled.i.attrs({
   'aria-hidden': 'true',
 })`
   ${ normalized }

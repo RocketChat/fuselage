@@ -11,7 +11,7 @@ import {
   errorColor,
 } from './theme';
 
-const Wrapper = styled.div.attrs(rebuildClassName('label__wrapper'))`
+const Wrapper = styled.div`
   ${ normalized }
   ${ withText(textStyle) }
 
@@ -68,7 +68,7 @@ const withRequiredMark = css`
   }
 `;
 
-const Text = styled.span.attrs(rebuildClassName('label__text'))`
+const Text = styled.span`
   ${ normalized }
   ${ withTruncatedText }
   ${ withSelectableText }
@@ -80,7 +80,7 @@ const Text = styled.span.attrs(rebuildClassName('label__text'))`
   ${ ({ required }) => required && withRequiredMark }
 `;
 
-const Error = styled.span.attrs(rebuildClassName('label__error'))`
+const Error = styled.span`
   ${ normalized }
   ${ withTruncatedText }
   ${ withSelectableText }
