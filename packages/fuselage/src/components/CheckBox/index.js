@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers';
+import { calc, rebuildClassName } from '../../helpers';
 import { useMergedRefs } from '../../hooks/useMergedRefs';
 import {
   normalized,
@@ -9,6 +9,7 @@ import {
   visuallyHidden,
   withBorder,
   withButtonActionColors,
+  whenIE11,
 } from '../../mixins';
 import { Label } from '../Label';
 import {
@@ -66,6 +67,15 @@ const withCheckedIcon = css`
     width: calc(${ icon.size } * ${ size });
     height: ${ icon.thickness };
 
+    ${ whenIE11(css`
+      transform:
+        translate(-50%, -50%)
+        translateX(${ calc((iconSize, size) => iconSize * size / -3, [icon.size, size]) })
+        translateY(${ calc((iconSize, size) => iconSize * size / 6, [icon.size, size]) })
+        rotate(-45deg)
+        translateX(${ calc((iconSize, size) => iconSize * size / 2, [icon.size, size]) })
+        translateY(${ calc((iconSize, size) => iconSize * size / 6, [icon.size, size]) });
+    `) }
     transform:
       translate(-50%, -50%)
       translate(calc(${ icon.size } * ${ size } / -3), calc(${ icon.size } * ${ size } / 6))
@@ -77,6 +87,13 @@ const withCheckedIcon = css`
     width: ${ icon.thickness };
     height: calc(0.5 * ${ icon.size } * ${ size });
 
+    ${ whenIE11(css`
+      transform:
+        translate(-50%, -50%)
+        translateX(${ calc((iconSize, size) => iconSize * size / -3, [icon.size, size]) })
+        translateY(${ calc((iconSize, size) => iconSize * size / 6, [icon.size, size]) })
+        rotate(-45deg);
+    `) }
     transform:
       translate(-50%, -50%)
       translate(calc(${ icon.size } * ${ size } / -3), calc(${ icon.size } * ${ size } / 6))

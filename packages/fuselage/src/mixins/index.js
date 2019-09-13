@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import transitions from '../styles/transitions';
 import textStyles from '../styles/textStyles';
 import borders from '../styles/borders';
-import { toREM } from '../helpers';
+import { toREM, isIE11 } from '../helpers';
 
 
 export const whenHidden = (content) => css`
@@ -128,7 +128,6 @@ export const scrollable = css`
   }
 `;
 
-
 export const visuallyHidden = css`
   position: absolute;
 
@@ -144,6 +143,15 @@ export const visuallyHidden = css`
 
   border: 0;
   clip-path: inset(50%);
+`;
+
+export const whenIE11 = (content) => (isIE11 ? content : css``);
+
+export const whenRightToLeftOrientation = (content) => css`
+  .rtl &,
+  [dir=rtl] & {
+    ${ content }
+  }
 `;
 
 export const withBorder = ({
@@ -200,13 +208,6 @@ export const withButtonActionColors = ({
     background-color: ${ disabledBackgroundColor };
     border-color: ${ disabledBorderColor };
   `, source, target) }
-`;
-
-export const whenRightToLeftOrientation = (content) => css`
-  .rtl &,
-  [dir=rtl] & {
-    ${ content }
-  }
 `;
 
 export const withText = ({
