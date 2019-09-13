@@ -17,7 +17,7 @@ export const verticallyCentered = (storyFn) => centered(() =>
     {storyFn()}
   </VerticallyCenteredContainer>);
 
-export const TextSection = styled.section.attrs({ className: 'markdown-body-' })`
+export const TextSection = styled.section`
   margin: 1rem;
   font-size: 14px;
 

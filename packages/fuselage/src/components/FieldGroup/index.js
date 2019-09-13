@@ -6,9 +6,7 @@ import { Field } from '../Field';
 import { spacing } from './theme';
 
 
-export const FieldGroup = styled.fieldset.attrs(rebuildClassName('field-group')).attrs({
-  role: 'group',
-})`
+export const FieldGroup = styled.fieldset.attrs(rebuildClassName('field-group')).attrs({ role: 'group' })`
   ${ normalized }
 
   display: flex;

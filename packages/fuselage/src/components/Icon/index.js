@@ -11,10 +11,8 @@ const nameToCharacterMapping = Object.entries(names).reduce((map, [symbol, name]
   [name]: characters[symbol],
 }), {});
 
-export const Icon = styled.i.attrs(rebuildClassName('icon')).attrs(({ iconName }) => ({
-  'aria-hidden': 'true',
-  children: nameToCharacterMapping[iconName],
-}))`
+export const Icon = styled.i.attrs(rebuildClassName('icon')).attrs({ 'aria-hidden': 'true' })
+  .attrs(({ iconName }) => ({ children: nameToCharacterMapping[iconName] }))`
   ${ normalized }
 
   display: inline-block;

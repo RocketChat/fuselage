@@ -17,3 +17,5 @@ export const Headline = styled.h1.attrs(rebuildClassName('headline'))`
   ${ withText(theme.textStyle) }
   ${ withSelectableText }
 `;
+
+Headline.displayName = 'Headline';

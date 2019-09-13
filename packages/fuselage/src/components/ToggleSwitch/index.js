@@ -23,9 +23,7 @@ const Container = styled(Label).attrs(rebuildClassName('toggle-switch'))`
   ${ clickable }
 `;
 
-const Input = styled.input.attrs({
-  type: 'checkbox',
-})`
+const Input = styled.input.attrs({ type: 'checkbox' })`
   ${ visuallyHidden }
 `;
 
@@ -64,9 +62,7 @@ const withThumb = () => css`
   }
 `;
 
-const Fake = styled.i.attrs({
-  'aria-hidden': 'true',
-})`
+const Fake = styled.i.attrs({ 'aria-hidden': 'true' })`
   ${ normalized }
 
   position: relative;

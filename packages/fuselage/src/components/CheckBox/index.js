@@ -25,9 +25,7 @@ const Container = styled(Label).attrs(rebuildClassName('check-box'))`
   ${ clickable }
 `;
 
-const Input = styled.input.attrs({
-  type: 'checkbox',
-})`
+const Input = styled.input.attrs({ type: 'checkbox' })`
   ${ visuallyHidden }
 `;
 
@@ -99,9 +97,7 @@ const withIndeterminateIcon = css`
   }
 `;
 
-const Fake = styled.i.attrs({
-  'aria-hidden': 'true',
-})`
+const Fake = styled.i.attrs({ 'aria-hidden': 'true' })`
   ${ normalized }
 
   position: relative;

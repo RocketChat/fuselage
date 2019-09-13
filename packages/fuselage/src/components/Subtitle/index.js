@@ -17,3 +17,5 @@ export const Subtitle = styled.h2.attrs(rebuildClassName('subtitle'))`
   ${ withText(theme.textStyle) }
   ${ withSelectableText }
 `;
+
+Subtitle.displayName = 'Subtitle';

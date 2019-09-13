@@ -17,3 +17,5 @@ export const Paragraph = styled.p.attrs(rebuildClassName('paragraph'))`
   ${ withText(theme.textStyle) }
   ${ withSelectableText }
 `;
+
+Paragraph.displayName = 'Paragraph';
