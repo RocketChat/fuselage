@@ -1,26 +1,26 @@
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { jsxDecorator } from 'storybook-addon-jsx';
 
 import {
   createPropsFromKnobs,
   Document,
-  handleEvent,
+  PropsVariationSection,
   ShowCaseSection,
   TextSection,
-  VariationsTable,
 } from '../../helpers/storybook';
 import { ToggleSwitch } from './index';
 
 
 storiesOf('Elements|ToggleSwitch', module)
+  .addParameters({ jest: ['ToggleSwitch/spec'] })
   .lokiSkip('ToggleSwitch', () => <Document>
     <TextSection>
       <h1>ToggleSwitch</h1>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={ToggleSwitch}
       common={{ onChange: () => {} }}
       xAxis={{
@@ -50,14 +50,13 @@ const props = createPropsFromKnobs({
   invisible: false,
   label: '',
   value: '',
-  onChange: handleEvent('change'),
+  onChange: action('change'),
 });
 
 storiesOf('Elements|ToggleSwitch', module)
-  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['ToggleSwitch/spec'] })
   .add('default', () => <ToggleSwitch {...props()} />)
   .add('checked', () => <ToggleSwitch {...props({ checked: true })} />)
   .add('disabled', () => <ToggleSwitch {...props({ disabled: true })} />)

@@ -1,29 +1,44 @@
-import { createTheme } from '../../helpers/createTheme';
-import theme from '../../styles/theme';
-import colors from '../../tokens/colors';
+import { theme } from '../../helpers';
+import borders from '../../styles/borders';
+import buttonColors from '../../styles/buttonColors';
+import textStyles from '../../styles/textStyles';
 
 
-export default createTheme('rcx-toggle-switch', {
-  trackWidth: '2.5rem',
-  trackHeight: theme.typography.p1.lineHeight,
-  thumbSize: `calc(${ theme.typography.p1.lineHeight } - 2 * ${ theme.borders.default.width })`,
-  borderWidth: theme.borders.default.width,
-  borderRadius: '9999px',
-  color: colors.white,
-  backgroundColor: colors.dark400,
-  hoverBackgroundColor: colors.dark500,
-  activeBackgroundColor: colors.dark600,
-  focusBackgroundColor: colors.dark500,
-  focusBorderColor: colors.blue500,
-  focusShadowColor: colors.blue100,
-  disabledColor: colors.dark200,
-  disabledBackgroundColor: colors.dark400,
-  checkedBackgroundColor: colors.blue500,
-  checkedHoverBackgroundColor: colors.blue600,
-  checkedActiveBackgroundColor: colors.blue700,
-  checkedFocusBackgroundColor: colors.blue500,
-  checkedFocusBorderColor: colors.blue700,
-  checkedFocusShadowColor: colors.blue100,
-  checkedDisabledColor: colors.white,
-  checkedDisabledBackgroundColor: colors.blue200,
-});
+export const size = theme('toggle-switch-size', textStyles.p1.lineHeight);
+
+export const border = {
+  width: theme('toggle-switch-border-width', borders.default.width),
+  radius: theme('toggle-switch-border-radius', '9999px'),
+};
+
+export const offColors = {
+  backgroundColor: theme('toggle-switch-background-color', buttonColors.off.backgroundColor),
+  borderColor: theme('toggle-switch-border-color', buttonColors.off.borderColor),
+  color: theme('toggle-switch-color', buttonColors.off.color),
+  hoverBackgroundColor: theme('toggle-switch-hover-background-color', buttonColors.off.hoverBackgroundColor),
+  hoverBorderColor: theme('toggle-switch-hover-border-color', buttonColors.off.hoverBorderColor),
+  activeBackgroundColor: theme('toggle-switch-active-background-color', buttonColors.off.activeBackgroundColor),
+  activeBorderColor: theme('toggle-switch-active-border-color', buttonColors.off.activeBorderColor),
+  focusBackgroundColor: theme('toggle-switch-focus-background-color', buttonColors.off.focusBackgroundColor),
+  focusBorderColor: theme('toggle-switch-focus-border-color', buttonColors.off.focusBorderColor),
+  focusShadowColor: theme('toggle-switch-focus-shadow-color', buttonColors.off.focusShadowColor),
+  disabledBackgroundColor: theme('toggle-switch-disabled-background-color', buttonColors.off.disabledBackgroundColor),
+  disabledBorderColor: theme('toggle-switch-disabled-border-color', buttonColors.off.disabledBorderColor),
+  disabledColor: theme('toggle-switch-disabled-color', buttonColors.off.disabledColor),
+};
+
+export const onColors = {
+  backgroundColor: theme('toggle-switch-on-background-color', buttonColors.primary.backgroundColor),
+  borderColor: theme('toggle-switch-on-border-color', buttonColors.primary.borderColor),
+  color: theme('toggle-switch-on-color', buttonColors.primary.color),
+  hoverBackgroundColor: theme('toggle-switch-on-hover-background-color', buttonColors.primary.hoverBackgroundColor),
+  hoverBorderColor: theme('toggle-switch-on-hover-border-color', buttonColors.primary.hoverBorderColor),
+  activeBackgroundColor: theme('toggle-switch-on-active-background-color', buttonColors.primary.activeBackgroundColor),
+  activeBorderColor: theme('toggle-switch-on-active-border-color', buttonColors.primary.activeBorderColor),
+  focusBackgroundColor: theme('toggle-switch-on-focus-background-color', buttonColors.primary.focusBackgroundColor),
+  focusBorderColor: theme('toggle-switch-on-focus-border-color', buttonColors.primary.focusBorderColor),
+  focusShadowColor: theme('toggle-switch-on-focus-shadow-color', buttonColors.primary.focusShadowColor),
+  disabledBackgroundColor: theme('toggle-switch-on-disabled-background-color', buttonColors.primary.disabledBackgroundColor),
+  disabledBorderColor: theme('toggle-switch-on-disabled-border-color', buttonColors.primary.disabledBorderColor),
+  disabledColor: theme('toggle-switch-on-disabled-color', buttonColors.primary.disabledColor),
+};

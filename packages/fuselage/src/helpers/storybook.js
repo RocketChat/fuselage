@@ -1,24 +1,63 @@
-import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import React from 'react';
+import styled from 'styled-components';
+
+import { withText, withTruncatedText } from '../mixins';
+import textColors from '../styles/textColors';
+import textStyles from '../styles/textStyles';
 
 
-export const horizontallyCentered = (storyFn) => centered(() => (
-  <div style={{
-    height: '100vh',
-  }}>
+const VerticallyCenteredContainer = styled.div`
+  width: 100vw;
+`;
+
+export const verticallyCentered = (storyFn) => centered(() =>
+  <VerticallyCenteredContainer>
     {storyFn()}
-  </div>
-));
+  </VerticallyCenteredContainer>);
 
-export const verticallyCentered = (storyFn) => centered(() => (
-  <div style={{
-    width: '100vw',
-  }}>
-    {storyFn()}
-  </div>
-));
+export const TextSection = styled.section`
+  margin: 1rem;
+  font-size: 14px;
+
+  h1 {
+    ${ withText(textStyles.h1) }
+  }
+
+  h2 {
+    ${ withText(textStyles.s1) }
+  }
+
+  p {
+    ${ withText(textStyles.p1) }
+  }
+`;
+
+export const ShowCaseSection = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+`;
+
+const ArbitraryBox = styled.div`
+  background-image: repeating-linear-gradient(
+    45deg,
+    lightgray,
+    lightgray 10px,
+    white 10px,
+    white 20px
+  );
+  border: 1px solid lightgray;
+`;
+
+export const PseudoInput = styled(ArbitraryBox)`
+  width: 100%;
+  min-width: 6rem;
+  height: 2rem;
+`;
 
 export const createPropsFromKnobs = (defaults = {}, itemName = null) => (overrides = {}) =>
   Object.entries({ ...defaults, ...overrides }).reduce((props, [propName, defaultValue]) => {
@@ -55,96 +94,53 @@ export const createPropsFromKnobs = (defaults = {}, itemName = null) => (overrid
     return { ...props, [propName]: text(knobName, defaultValue) };
   }, {});
 
-export const handleEvent = (eventName) => {
-  const f = action(eventName);
-  f.toString = () => `action('${ eventName }')`;
-  return f;
-};
+export const Document = styled.article`
+  margin: 1rem auto;
+  max-width: 768px;
+`;
 
-export function TextSection({ children }) {
-  return <section className='markdown-body' style={{ margin: '1rem', fontSize: '14px' }}>
-    {children}
-  </section>;
-}
+const PropsVariationTable = styled.table`
+  border-collapse: collapse;
+  margin: 1rem auto;
 
-export function ShowCaseSection({ children }) {
-  const style = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: '2rem',
-  };
+  th, td {
+    margin: 0;
+    padding: 0.5rem 1rem;
+  }
 
-  return <div style={style}>
-    {children}
-  </div>;
-}
+  th {
+    color: ${ textColors.hint };
+    ${ withText(textStyles.c2) }
+    ${ withTruncatedText }
+    text-align: center;
+  }
 
-export function Document({ children }) {
-  const style = {
-    margin: '1rem auto',
-    maxWidth: '768px',
-  };
+  td > div.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
 
-  return <>
-    <link
-      rel='stylesheet'
-      href='https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css'
-    />
-    <article style={style}>
-      {children}
-    </article>
-  </>;
-}
-
-export function VariationsTable({ component: Component, common = {}, xAxis = {}, yAxis = {} }) {
-  const styles = {
-    table: {
-      borderCollapse: 'collapse',
-      margin: '0 auto',
-    },
-    th: {
-      fontFamily: 'sans-serif',
-      fontSize: '0.875rem',
-      fontWeight: 'bold',
-      border: '1px solid rgba(153, 153, 153, 0.15)',
-      color: '#999',
-      margin: 0,
-      padding: '0.5rem 1rem',
-      textAlign: 'center',
-      whiteSpace: 'nowrap',
-    },
-    td: {
-      border: '1px solid rgba(153, 153, 153, 0.15)',
-      margin: 0,
-      padding: '0.5rem 1rem',
-    },
-    wrapper: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  };
-
-  return <table style={styles.table}>
+export function PropsVariationSection({ component: Component, common = {}, xAxis = {}, yAxis = {} }) {
+  return <PropsVariationTable>
     <thead>
       <tr>
         <th></th>
-        {Object.keys(xAxis).map((xVariation, key) => <th key={key} style={styles.th}>{xVariation}</th>)}
+        {Object.keys(xAxis).map((xVariation, key) => <th key={key}>{xVariation}</th>)}
       </tr>
     </thead>
     <tbody>
       {Object.entries(yAxis).map(([yVariation, yProps], y) => (
         <tr key={y}>
-          <th style={styles.th}>{yVariation}</th>
-          {Object.values(xAxis).map((xProps, x) => <td key={x} style={styles.td}>
-            <div style={styles.wrapper}>
+          <th>{yVariation}</th>
+          {Object.values(xAxis).map((xProps, x) => <td key={x}>
+            <div className='wrapper'>
               <Component {...common} {...xProps} {...yProps} />
             </div>
           </td>)}
         </tr>
       ))}
     </tbody>
-  </table>;
+  </PropsVariationTable>;
 }

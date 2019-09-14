@@ -1,185 +1,100 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
-import { reset } from '../../mixins/reset';
-import { visuallyHidden } from '../../mixins/visuallyHidden';
-import theme from './theme';
-import { withText } from '../../mixins/withText';
-import { disableable } from '../../mixins/disableable';
-import { unselectable } from '../../mixins/unselectable';
+import { extendClassName } from '../../helpers';
+import {
+  visuallyHidden,
+  normalized,
+  withBorder,
+  clickable,
+  withButtonActionColors,
+  whenDisabled,
+} from '../../mixins';
+import { Label } from '../Label';
+import {
+  size,
+  border,
+  uncheckedColors,
+  checkedColors,
+  icon,
+} from './theme';
 
 
-const Input = styled.input.attrs({ type: 'radio' }).attrs(rebuildClassName('rcx-radio-button__input'))`
+const Container = styled(Label)`
+  ${ clickable }
+`;
+
+const Input = styled.input`
   ${ visuallyHidden }
 `;
 
-const colorsVariant = ({
-  state = null,
-  color = null,
-  backgroundColor = null,
-  borderColor = null,
-  hoverBackgroundColor = null,
-  hoverBorderColor = null,
-  activeBackgroundColor = null,
-  activeBorderColor = null,
-  focusBackgroundColor = null,
-  focusBorderColor = null,
-  focusShadowColor = null,
-  disabledBackgroundColor = null,
-  disabledBorderColor = null,
-}) => css`
-  ${ Input }${ state } + & {
-    color: ${ color };
-  }
+const withUncheckedColors = withButtonActionColors(uncheckedColors, Input, '+ &');
+const withCheckedColors = withButtonActionColors(checkedColors, css`${ Input }:checked`, '+ &');
 
-  ${ Input }:enabled${ state } + & {
-    border-color: ${ borderColor };
-    background-color: ${ backgroundColor };
-  }
-
-  ${ Input }:enabled:focus${ state } + &,
-  ${ Input }:enabled.focus${ state } + & {
-    border-color: ${ focusBorderColor };
-    background-color: ${ focusBackgroundColor };
-
-    box-shadow: 0 0 0 6px ${ focusShadowColor };
-  }
-
-  ${ Input }:enabled:hover${ state } + &,
-  ${ Input }:enabled.hover${ state } + & {
-    border-color: ${ hoverBorderColor };
-    background-color: ${ hoverBackgroundColor };
-    box-shadow: none;
-  }
-
-  ${ Input }:enabled:active${ state } + &,
-  ${ Input }:enabled.active${ state } + & {
-    border-color: ${ activeBorderColor };
-    background-color: ${ activeBackgroundColor };
-    box-shadow: none;
-  }
-
-  ${ Input }:disabled${ state } + & {
-    border-color: ${ disabledBorderColor };
-    background-color: ${ disabledBackgroundColor };
-  }
-`;
-
-const uncheckedColorsVariant = () => colorsVariant({
-  color: theme.color,
-  borderColor: theme.borderColor,
-  hoverBorderColor: theme.hoverBorderColor,
-  activeBorderColor: theme.activeBorderColor,
-  focusBorderColor: theme.focusBorderColor,
-  focusShadowColor: theme.focusShadowColor,
-  disabledBackgroundColor: theme.disabledBackgroundColor,
-  disabledBorderColor: theme.disabledBorderColor,
-});
-
-const checkedColorsVariant = () => colorsVariant({
-  state: ':checked',
-  backgroundColor: theme.checkedBackgroundColor,
-  borderColor: theme.checkedBackgroundColor,
-  hoverBackgroundColor: theme.checkedHoverBackgroundColor,
-  hoverBorderColor: theme.checkedHoverBackgroundColor,
-  activeBackgroundColor: theme.checkedActiveBackgroundColor,
-  activeBorderColor: theme.checkedActiveBackgroundColor,
-  focusBackgroundColor: theme.checkedFocusBackgroundColor,
-  focusBorderColor: theme.checkedFocusBorderColor,
-  focusShadowColor: theme.checkedFocusShadowColor,
-  disabledBackgroundColor: theme.checkedDisabledBackgroundColor,
-  disabledBorderColor: theme.checkedDisabledBackgroundColor,
-});
-
-const checkedIconVariant = () => css`
-  ${ Input }:checked + & {
-    &::before {
-      visibility: visible;
-
-      width: 6px;
-      height: 6px;
-
-      opacity: 1;
-
-      border-radius: 50%;
-    }
-  }
-`;
-
-const Fake = styled.i.attrs(rebuildClassName('rcx-radio-button__fake'))`
-  ${ reset }
-
-  position: relative;
-
-  display: flex;
-
-  width: ${ theme.size };
-  height: ${ theme.size };
-
-  border: ${ theme.borderWidth } solid;
-  border-radius: ${ theme.borderRadius };
-
-  align-items: center;
-  justify-content: center;
-
-  &::before,
-  &::after {
-    ${ reset }
-
-    position: absolute;
-
-    display: block;
-    visibility: hidden;
-
+const withCheckedIcon = css`
+  &::before {
     content: '';
 
-    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    display: block;
+    width: calc(${ icon.size } * ${ size });
+    height: calc(${ icon.size } * ${ size });
+
+    transform: translate(-50%, -50%);
+
     background-color: currentColor;
+
+    border-radius: 50%;
   }
-
-  ${ uncheckedColorsVariant }
-  ${ checkedColorsVariant }
-
-  ${ checkedIconVariant }
 `;
 
-const Label = styled.span.attrs(rebuildClassName('rcx-radio-button__label'))`
-  ${ reset }
-  ${ withText }
-
-  margin: 0 0.625rem;
-
-  color: ${ theme.labelColor };
-
-  font-family: ${ theme.labelFontFamily };
-  font-size: ${ theme.labelFontSize };
-  font-weight: ${ theme.labelFontWeight };
-  line-height: ${ theme.labelLineHeight };
-`;
-
-const Wrapper = styled.label.attrs(rebuildClassName('rcx-radio-button__wrapper'))`
-  ${ reset }
-  ${ disableable }
-  ${ unselectable }
+const Fake = styled.i`
+  ${ normalized }
 
   position: relative;
 
-  display: inline-flex;
+  width: ${ size };
+  height: ${ size };
 
-  cursor: pointer;
+  ${ withBorder(border) }
 
-  align-items: center;
+  ${ withUncheckedColors }
+  ${ withCheckedColors }
+
+  ${ Input }:checked + & {
+    ${ withCheckedIcon }
+  }
+
+  ${ whenDisabled(css`cursor: not-allowed;`, Input, '+ &') }
 `;
 
-export const RadioButton = React.forwardRef(function RadioButton({
-  label,
+export const RadioButton = styled(React.forwardRef(function RadioButton({
+  className,
+  hidden,
+  invisible,
   ...props
 }, ref) {
-  return <Wrapper disabled={props.disabled} hidden={props.hidden} invisible={props.invisible}>
-    <Input ref={ref} {...props} />
-    <Fake />
-    {label && <Label>{label}</Label>}
-  </Wrapper>;
-});
+  return <Container
+    className={extendClassName('radio-button', className, {
+      hidden,
+      invisible,
+      ...props,
+    })}
+    hidden={hidden}
+    invisible={invisible}
+  >
+    <Input
+      hidden={hidden}
+      invisible={invisible}
+      ref={ref}
+      type='radio'
+      {...props}
+    />
+    <Fake aria-hidden='true' />
+  </Container>;
+}))``;
+
 RadioButton.displayName = 'RadioButton';

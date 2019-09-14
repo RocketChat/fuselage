@@ -1,5 +1,5 @@
-import { createTheme } from '../../helpers/createTheme';
+import { theme } from '../../helpers';
+import spaces from '../../styles/spaces';
 
-export default createTheme('rcx-button-group', {
-  gutter: '1rem',
-});
+
+export const spacing = theme('button-group-spacing', spaces[5]);

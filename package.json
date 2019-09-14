@@ -6,17 +6,11 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
     "cross-env": "^5.2.0",
     "fs-extra": "^8.0.1",
     "gh-pages": "^2.0.1",
     "husky": "^2.3.0",
-    "jest": "^24.8.0",
-    "lerna": "^3.14.1",
-    "webpack-cli": "^3.3.2"
+    "lerna": "^3.14.1"
   },
   "scripts": {
     "build": "lerna run build --stream",

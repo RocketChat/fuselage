@@ -1,27 +1,44 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
-import { reset } from '../../mixins/reset';
-import { disableable } from '../../mixins/disableable';
+import { rebuildClassName } from '../../helpers';
+import {
+  withText,
+  whenRightToLeftOrientation,
+  withBorder,
+  normalized,
+  whenDisabled,
+  scrollable,
+  whenInvalid,
+} from '../../mixins';
 import { Icon } from '../Icon';
-import theme from './theme';
-import { withText } from '../../mixins/withText';
-import { scrollable } from '../../mixins/scrollable';
-import { whenRightToLeftOrientation } from '../../mixins/whenRightToLeftOrientation';
+import {
+  border,
+  paddingX,
+  paddingY,
+  textStyle,
+  iconMarginX,
+  iconMarginY,
+  invalidColors,
+  normalColors,
+  iconColor,
+  focusIconColor,
+  disabledIconColor,
+  errorIconColor,
+  color,
+  placeholderColor,
+} from './theme';
 
 
-const Wrapper = styled.span.attrs(rebuildClassName('rcx-input__wrapper'))`
-  ${ reset }
+const Container = styled.span`
+  ${ normalized }
 
   position: relative;
 
-  display: inline-flex;
-
-  width: 100%;
+  display: flex;
 `;
 
-const colorsVariant = ({
+const withColors = ({
   color,
   borderColor,
   backgroundColor,
@@ -36,9 +53,9 @@ const colorsVariant = ({
   disabledBorderColor,
   disabledBackgroundColor,
 }) => css`
-  color: ${ color };
-  border-color: ${ borderColor };
   background-color: ${ backgroundColor };
+  border-color: ${ borderColor };
+  color: ${ color };
 
   &::placeholder {
     color: ${ placeholderColor };
@@ -78,127 +95,93 @@ const colorsVariant = ({
   }
 `;
 
-const normalColorsVariant = () => colorsVariant({
-  color: theme.color,
-  borderColor: theme.borderColor,
-  backgroundColor: theme.backgroundColor,
-  placeholderColor: theme.placeholderColor,
-  hoverBorderColor: theme.hoverBorderColor,
-  focusBorderColor: theme.focusBorderColor,
-  focusShadowColor: theme.focusShadowColor,
-  focusCaretColor: theme.focusCaretColor,
-  activeBorderColor: theme.activeBorderColor,
-  activeCaretColor: theme.activeCaretColor,
-  disabledColor: theme.disabledColor,
-  disabledBorderColor: theme.disabledBorderColor,
-  disabledBackgroundColor: theme.disabledBackgroundColor,
-});
-
-const errorColorsVariant = () => colorsVariant({
-  color: theme.errorColor,
-  borderColor: theme.errorBorderColor,
-  placeholderColor: theme.placeholderColor,
-  hoverBorderColor: theme.errorBorderColor,
-  focusBorderColor: theme.errorBorderColor,
-  focusShadowColor: theme.errorFocusShadowColor,
-  activeBorderColor: theme.activeBorderColor,
-  activeCaretColor: theme.activeCaretColor,
-});
+const withNormalColors = withColors(normalColors);
+const withInvalidColors = withColors(invalidColors);
 
 const inputBoxStyle = () => css`
-  ${ reset }
-  ${ disableable }
-  ${ withText }
+  ${ normalized }
 
   width: 100%;
   min-width: 8rem;
 
-  padding: ${ theme.padding };
-
-  resize: none;
+  padding: calc(${ paddingY } - ${ border.width }) calc(${ paddingX } - ${ border.width });
 
   text-overflow: ellipsis;
 
-  border-width: ${ theme.borderWidth };
-  border-style: solid;
-  border-radius: ${ theme.borderRadius };
+  appearance: none;
+  resize: none;
+  outline: 0;
 
-  outline: none;
+  ${ withBorder(border) }
 
-  font-family: ${ theme.fontFamily };
-  font-size: ${ theme.fontSize };
-  font-weight: ${ theme.fontWeight };
-  line-height: ${ theme.lineHeight };
+  ${ withText(textStyle) }
 
-  ${ normalColorsVariant }
+  ${ whenDisabled(css`cursor: not-allowed;`) }
 
-  &:invalid {
-    ${ errorColorsVariant }
-  }
-
-  ${ ({ hasError }) => hasError && errorColorsVariant() }
+  ${ withNormalColors }
+  ${ whenInvalid(withInvalidColors) }
 `;
 
 const iconInputBoxStyle = () => css`
-  ${ Wrapper } > & {
-    padding-right: calc(2 * ${ theme.iconMarginHorizontal } + ${ theme.iconSize } - 2 * ${ theme.borderWidth });
+  ${ Container } > & {
+    padding-right: calc(2 * ${ iconMarginX } + ${ textStyle.lineHeight } - 2 * ${ border.width });
 
     & + ${ Icon } {
       position: absolute;
-      top: ${ theme.iconMarginVertical };
-      right: ${ theme.iconMarginHorizontal };
+      top: ${ iconMarginY };
+      right: ${ iconMarginX };
 
       pointer-events: none;
 
-      color: ${ theme.iconColor };
+      color: ${ iconColor };
 
-      font-size: ${ theme.iconSize };
+      font-size: ${ textStyle.lineHeight };
     }
 
     ${ whenRightToLeftOrientation(() => css`
-      padding: ${ theme.padding };
-      padding-left: calc(2 * ${ theme.iconMarginHorizontal } + ${ theme.iconSize } - 2 * ${ theme.borderWidth });
+      padding: calc(${ paddingY } - ${ border.width }) calc(${ paddingX } - ${ border.width });
+      padding-left: calc(2 * ${ iconMarginX } + ${ textStyle.lineHeight } - 2 * ${ border.width });
 
       & + ${ Icon } {
         right: unset;
-        left: ${ theme.iconMarginHorizontal };
+        left: ${ iconMarginX };
       }
     `) }
 
     &:not(:disabled):focus + ${ Icon },
     &:not(:disabled).focus + ${ Icon } {
-      color: ${ theme.focusIconColor };
+      color: ${ focusIconColor };
     }
 
     &:disabled + ${ Icon } {
-      color: ${ theme.disabledIconColor };
+      color: ${ disabledIconColor };
     }
 
     &:invalid + ${ Icon } {
-      color: ${ theme.errorIconColor };
+      color: ${ errorIconColor };
     }
 
-    ${ ({ hasError }) => hasError && css`
+    ${ ({ invalid }) => invalid && css`
       & + ${ Icon } {
-        color: ${ theme.errorIconColor };
+        color: ${ errorIconColor };
       }
     ` }
 
     &:invalid:not(:disabled):focus + ${ Icon },
     &:invalid:not(:disabled).focus + ${ Icon } {
-      color: ${ theme.errorIconColor };
+      color: ${ errorIconColor };
     }
 
-    ${ ({ hasError }) => hasError && css`
+    ${ ({ invalid }) => invalid && css`
       &:not(:disabled):focus + ${ Icon },
       &:not(:disabled).focus + ${ Icon } {
-        color: ${ theme.errorIconColor };
+        color: ${ errorIconColor };
       }
     ` }
   }
 `;
 
-const TextInputElement = styled.input.attrs(rebuildClassName('rcx-input'))`
+const TextInputElement = styled.input.attrs(rebuildClassName('input'))`
   ${ inputBoxStyle }
   ${ iconInputBoxStyle }
 `;
@@ -208,16 +191,16 @@ const TextInput = React.forwardRef(function TextInput({
   ...props
 }, ref) {
   if (icon) {
-    return <Wrapper>
+    return <Container>
       <TextInputElement ref={ref} {...props} />
       <Icon iconName={icon} />
-    </Wrapper>;
+    </Container>;
   }
 
   return <TextInputElement ref={ref} {...props} />;
 });
 
-const TextAreaElement = styled.textarea.attrs(rebuildClassName('rcx-input'))`
+const TextAreaElement = styled.textarea.attrs(rebuildClassName('input'))`
   ${ inputBoxStyle }
   ${ iconInputBoxStyle }
   ${ scrollable }
@@ -228,28 +211,28 @@ const TextAreaInput = React.forwardRef(function TextAreaInput({
   ...props
 }, ref) {
   if (icon) {
-    return <Wrapper>
+    return <Container>
       <TextAreaElement ref={ref} {...props} />
       <Icon iconName={icon} />
-    </Wrapper>;
+    </Container>;
   }
 
   return <TextAreaElement ref={ref} {...props} />;
 });
 
-const SelectElement = styled.select.attrs(rebuildClassName('rcx-input'))`
+const SelectElement = styled.select.attrs(rebuildClassName('input'))`
   ${ inputBoxStyle }
   ${ iconInputBoxStyle }
   ${ scrollable }
 
   & > option {
-    color: ${ theme.color };
+    color: ${ color };
   }
 `;
 
-const PlaceholderOption = styled.option.attrs(rebuildClassName('rcx-input__placeholder'))`
+const PlaceholderOption = styled.option`
   ${ SelectElement } > & {
-    color: ${ theme.placeholderColor };
+    color: ${ placeholderColor };
   }
 `;
 
@@ -258,21 +241,22 @@ const SelectInput = React.forwardRef(function SelectInput({
   placeholder,
   ...props
 }, ref) {
-  return <Wrapper>
+  return <Container>
     <SelectElement hasPlaceholder={!!placeholder} ref={ref} {...props}>
       <PlaceholderOption value=''>{placeholder}</PlaceholderOption>
       {children}
     </SelectElement>
     <Icon iconName='arrow-down' />
-  </Wrapper>;
+  </Container>;
 });
 
-export const Input = React.forwardRef(function Input({
-  error,
+export const Input = styled(React.forwardRef(function Input({
   type = 'text',
   ...props
 }, ref) {
-  return (type === 'select' && <SelectInput hasError={error} ref={ref} {...props} />)
-    || (type === 'textarea' && <TextAreaInput hasError={error} ref={ref} {...props} />)
-    || <TextInput hasError={error} ref={ref} type={type} {...props} />;
-});
+  return (type === 'select' && <SelectInput ref={ref} {...props} />)
+    || (type === 'textarea' && <TextAreaInput ref={ref} {...props} />)
+    || <TextInput ref={ref} type={type} {...props} />;
+}))``;
+
+Input.displayName = 'Input';

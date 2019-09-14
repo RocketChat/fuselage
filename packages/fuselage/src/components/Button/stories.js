@@ -1,16 +1,22 @@
 import * as icons from '@rocket.chat/icons/dist/font';
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { jsxDecorator } from 'storybook-addon-jsx';
 
-import { Document, TextSection, VariationsTable, createPropsFromKnobs, handleEvent } from '../../helpers/storybook';
+import {
+  createPropsFromKnobs,
+  Document,
+  PropsVariationSection,
+  TextSection,
+} from '../../helpers/storybook';
 import { Icon } from '../Icon';
 import { Button } from './index';
 
 
 storiesOf('Elements|Button', module)
+  .addParameters({ jest: ['Button/spec'] })
   .lokiSkip('Button', () => <Document>
     <TextSection>
       <h1>Button</h1>
@@ -21,7 +27,7 @@ storiesOf('Elements|Button', module)
     <TextSection>
       <h2>Basic</h2>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Button}
       xAxis={{
         text: { children: 'Button' },
@@ -40,7 +46,7 @@ storiesOf('Elements|Button', module)
     <TextSection>
       <h2>Primary</h2>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Button}
       common={{ primary: true }}
       xAxis={{
@@ -60,7 +66,7 @@ storiesOf('Elements|Button', module)
     <TextSection>
       <h2>Ghost</h2>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Button}
       common={{ ghost: true }}
       xAxis={{
@@ -88,14 +94,13 @@ const props = createPropsFromKnobs({
   small: false,
   square: false,
   children: 'Button',
-  onClick: handleEvent('click'),
+  onClick: action('click'),
 });
 
 storiesOf('Elements|Button', module)
-  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['Button/spec'] })
   .add('basic', () => <Button {...props()} />)
   .add('primary', () => <Button {...props({ primary: true })} />)
   .add('ghost', () => <Button {...props({ ghost: true })} />)
@@ -110,10 +115,9 @@ storiesOf('Elements|Button', module)
   />)
   .add('as link', () => <Button
     {...props()}
-    forwardedAs='a'
+    as='a'
     href='https://rocket.chat'
-    target='_blank'
-    rel='noopener noreferrer'
+    external
   />
   )
   .add('square', () => (

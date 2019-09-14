@@ -1,6 +1,6 @@
 export default {
   default: {
-    width: '0.125rem',
-    radius: '0.125rem',
+    width: 2,
+    radius: 2,
   },
 };

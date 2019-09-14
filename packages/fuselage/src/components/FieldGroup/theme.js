@@ -1,6 +1,5 @@
-import { createTheme } from '../../helpers/createTheme';
+import { theme } from '../../helpers';
+import spaces from '../../styles/spaces';
 
 
-export default createTheme('rcx-field-group', {
-  gutter: '1.5rem',
-});
+export const spacing = theme('field-group-spacing', spaces[6]);

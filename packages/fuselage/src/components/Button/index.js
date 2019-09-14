@@ -1,181 +1,100 @@
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
-import { disableable } from '../../mixins/disableable';
-import { reset } from '../../mixins/reset';
-import { unselectable } from '../../mixins/unselectable';
-import { withText } from '../../mixins/withText';
+import { extendClassName } from '../../helpers';
+import {
+  withText,
+  normalized,
+  clickable,
+  withTruncatedText,
+  withBorder,
+  withButtonActionColors,
+} from '../../mixins';
 import { Icon } from '../Icon';
-import theme from './theme';
+import {
+  mediumSizeParameters,
+  smallSizeParameters,
+  basicColors,
+  basicDangerColors,
+  primaryColors,
+  primaryDangerColors,
+  ghostColors,
+  ghostDangerColors,
+} from './theme';
 
 
-const sizeVariant = ({
-  height,
-  paddingVertical,
-  paddingHorizontal,
-  fontSize,
-  lineHeight,
-  iconSize,
+const withSizeVariant = ({
+  border,
+  paddingX,
+  textStyle,
+  iconSizeRatio,
 }) => css`
-  height: ${ height };
-  padding: ${ paddingVertical } ${ paddingHorizontal };
+  ${ withBorder(border) }
+  padding: 0 calc(${ paddingX } - ${ border.width });
 
-  font-size: ${ fontSize };
-  line-height: ${ lineHeight };
+  ${ withText(textStyle) }
+
+  line-height: calc(2 * ${ textStyle.lineHeight } - 2 * ${ border.width });
 
   & > ${ Icon } {
-    font-size: ${ iconSize };
+    font-size: ${ iconSizeRatio * textStyle.lineHeight };
   }
 
   ${ ({ square }) => square && css`
-    width: ${ height };
-    padding: ${ paddingVertical } 0;
+    width: calc(2 * ${ textStyle.lineHeight });
+    padding: 0;
 
-    & > .rcx-icon {
-      font-size: ${ lineHeight };
+    & > ${ Icon } {
+      font-size: ${ textStyle.lineHeight };
     }
   ` }
 `;
 
-const mediumSizeVariant = () => sizeVariant({
-  height: theme.height,
-  paddingVertical: theme.paddingVertical,
-  paddingHorizontal: theme.paddingHorizontal,
-  fontSize: theme.fontSize,
-  lineHeight: theme.lineHeight,
-  iconSize: theme.iconSize,
-});
+const mediumSized = withSizeVariant(mediumSizeParameters);
+const smallSized = withSizeVariant(smallSizeParameters);
 
-const smallSizeVariant = ({ small }) => small && sizeVariant({
-  height: theme.smallHeight,
-  paddingVertical: theme.smallPaddingVertical,
-  paddingHorizontal: theme.smallPaddingHorizontal,
-  fontSize: theme.smallFontSize,
-  lineHeight: theme.smallLineHeight,
-  iconSize: theme.smallIconSize,
-});
+const basicColored = withButtonActionColors(basicColors);
+const basicDangerColored = withButtonActionColors(basicDangerColors);
+const primaryColored = withButtonActionColors(primaryColors);
+const primaryDangerColored = withButtonActionColors(primaryDangerColors);
+const ghostColored = withButtonActionColors(ghostColors);
+const ghostDangerColored = withButtonActionColors(ghostDangerColors);
 
-const colorsVariant = ({
-  color,
-  backgroundColor,
-  hoverBackgroundColor,
-  activeBackgroundColor,
-  focusBackgroundColor,
-  focusBorderColor,
-  focusShadowColor,
-  disabledColor,
-  disabledBackgroundColor,
-}) => css`
-  color: ${ color };
-  border-color: ${ backgroundColor };
-  background-color: ${ backgroundColor };
-
-  &:enabled:focus,
-  &:enabled.focus {
-    border-color: ${ focusBorderColor };
-    background-color: ${ focusBackgroundColor };
-
-    ${ focusShadowColor && css`box-shadow: 0 0 0 6px ${ focusShadowColor };` }
-  }
-
-  &:enabled:hover,
-  &:enabled.hover {
-    border-color: ${ hoverBackgroundColor };
-    background-color: ${ hoverBackgroundColor };
-    box-shadow: none;
-  }
-
-  &:enabled:active,
-  &:enabled.active {
-    border-color: ${ activeBackgroundColor };
-    background-color: ${ activeBackgroundColor };
-    box-shadow: none;
-  }
-
-  &:disabled {
-    color: ${ disabledColor };
-    border-color: ${ disabledBackgroundColor };
-    background-color: ${ disabledBackgroundColor };
-  }
-`;
-
-const basicColorsVariant = () => css`
-  ${ colorsVariant({
-    color: theme.basicColor,
-    backgroundColor: theme.basicBackgroundColor,
-    hoverBackgroundColor: theme.basicHoverBackgroundColor,
-    activeBackgroundColor: theme.basicActiveBackgroundColor,
-    focusBackgroundColor: theme.basicFocusBackgroundColor,
-    focusBorderColor: theme.basicFocusBorderColor,
-    focusShadowColor: theme.basicFocusShadowColor,
-    disabledColor: theme.basicDisabledColor,
-    disabledBackgroundColor: theme.basicDisabledBackgroundColor,
-  }) }
-
-  ${ ({ danger }) => danger && colorsVariant({
-    color: theme.basicDangerColor,
-    disabledColor: theme.basicDisabledDangerColor,
-  }) }
-`;
-
-const primaryColorsVariant = ({ primary }) => primary && css`
-  ${ colorsVariant({
-    color: theme.primaryColor,
-    backgroundColor: theme.primaryBackgroundColor,
-    hoverBackgroundColor: theme.primaryHoverBackgroundColor,
-    activeBackgroundColor: theme.primaryActiveBackgroundColor,
-    focusBackgroundColor: theme.primaryFocusBackgroundColor,
-    focusBorderColor: theme.primaryFocusBorderColor,
-    focusShadowColor: theme.primaryFocusShadowColor,
-    disabledColor: theme.primaryColor,
-    disabledBackgroundColor: theme.primaryDisabledBackgroundColor,
-  }) }
-
-  ${ ({ danger }) => danger && colorsVariant({
-    color: theme.primaryColor,
-    backgroundColor: theme.primaryDangerBackgroundColor,
-    hoverBackgroundColor: theme.primaryDangerHoverBackgroundColor,
-    activeBackgroundColor: theme.primaryDangerActiveBackgroundColor,
-    focusBackgroundColor: theme.primaryDangerFocusBackgroundColor,
-    focusBorderColor: theme.primaryDangerFocusBorderColor,
-    focusShadowColor: theme.primaryDangerFocusShadowColor,
-    disabledColor: theme.primaryColor,
-    disabledBackgroundColor: theme.primaryDangerDisabledBackgroundColor,
-  }) }
-`;
-
-const ghostColorsVariant = ({ ghost }) => ghost && colorsVariant({
-  backgroundColor: 'transparent',
-});
-
-export const Button = styled.button.attrs(rebuildClassName('rcx-button'))`
-  ${ reset }
-  ${ disableable }
-  ${ unselectable }
-  ${ withText }
+export const Button = styled.button.attrs(({
+  className,
+  external,
+  ...props
+}) => ({
+  className: extendClassName('button', className, props),
+  type: props.type || ((!props.as || props.as === 'button') && 'button') || undefined,
+  rel: props.rel || (props.as === 'a' && external && 'noopener noreferrer') || undefined,
+  target: props.target || (props.as === 'a' && external && '_blank') || undefined,
+}))`
+  ${ normalized }
+  ${ clickable }
+  ${ withTruncatedText }
 
   display: inline-block;
 
-  cursor: pointer;
-
-  border-width: ${ theme.borderWidth };
-  border-style: solid;
-  border-radius: ${ theme.borderRadius };
-
   text-align: center;
+  vertical-align: middle;
 
-  font-family: ${ theme.fontFamily };
-  font-weight: ${ theme.fontWeight };
+  appearance: none;
 
   & > ${ Icon } {
     vertical-align: middle;
   }
 
-  ${ mediumSizeVariant }
-  ${ smallSizeVariant }
+  ${ ({ small }) =>
+    (small && smallSized)
+    || mediumSized }
 
-  ${ basicColorsVariant }
-  ${ primaryColorsVariant }
-  ${ ghostColorsVariant }
+  ${ ({ danger, ghost, primary }) =>
+    (ghost && danger && ghostDangerColored)
+    || (ghost && ghostColored)
+    || (primary && danger && primaryDangerColored)
+    || (primary && primaryColored)
+    || (danger && basicDangerColored)
+    || basicColored }
 `;
+
 Button.displayName = 'Button';

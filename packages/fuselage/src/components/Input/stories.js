@@ -1,10 +1,10 @@
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { jsxDecorator } from 'storybook-addon-jsx';
 
-import { Document, TextSection, VariationsTable, createPropsFromKnobs, handleEvent } from '../../helpers/storybook';
+import { Document, TextSection, PropsVariationSection, createPropsFromKnobs } from '../../helpers/storybook';
 import { Input } from './index';
 
 
@@ -12,6 +12,7 @@ const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
   + 'incididunt ut labore et dolore magna aliqua.';
 
 storiesOf('Elements|Input', module)
+  .addParameters({ jest: ['Input/spec'] })
   .lokiSkip('Input', () => <Document>
     <TextSection>
       <h1>Input</h1>
@@ -24,7 +25,7 @@ storiesOf('Elements|Input', module)
     <TextSection>
       <h3><code>type='text'</code></h3>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Input}
       common={{
         type: 'text',
@@ -43,16 +44,16 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { hasError: true },
-        'error + hover': { hasError: true, className: 'hover' },
-        'error + active': { hasError: true, className: 'active' },
-        'error + focus': { hasError: true, className: 'focus' },
+        invalid: { invalid: true },
+        'invalid + hover': { invalid: true, className: 'hover' },
+        'invalid + active': { invalid: true, className: 'active' },
+        'invalid + focus': { invalid: true, className: 'focus' },
       }}
     />
     <TextSection>
       <h3><code>type='password'</code></h3>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Input}
       common={{
         type: 'password',
@@ -71,16 +72,16 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { hasError: true },
-        'error + hover': { hasError: true, className: 'hover' },
-        'error + active': { hasError: true, className: 'active' },
-        'error + focus': { hasError: true, className: 'focus' },
+        invalid: { invalid: true },
+        'invalid + hover': { invalid: true, className: 'hover' },
+        'invalid + active': { invalid: true, className: 'active' },
+        'invalid + focus': { invalid: true, className: 'focus' },
       }}
     />
     <TextSection>
       <h3><code>type='textarea'</code></h3>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Input}
       common={{
         type: 'textarea',
@@ -99,16 +100,16 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { hasError: true },
-        'error + hover': { hasError: true, className: 'hover' },
-        'error + active': { hasError: true, className: 'active' },
-        'error + focus': { hasError: true, className: 'focus' },
+        invalid: { invalid: true },
+        'invalid + hover': { invalid: true, className: 'hover' },
+        'invalid + active': { invalid: true, className: 'active' },
+        'invalid + focus': { invalid: true, className: 'focus' },
       }}
     />
     <TextSection>
       <h3><code>type='select'</code></h3>
     </TextSection>
-    <VariationsTable
+    <PropsVariationSection
       component={Input}
       common={{
         type: 'select',
@@ -131,10 +132,10 @@ storiesOf('Elements|Input', module)
         active: { className: 'active' },
         focus: { className: 'focus' },
         disabled: { disabled: true },
-        error: { hasError: true },
-        'error + hover': { hasError: true, className: 'hover' },
-        'error + active': { hasError: true, className: 'active' },
-        'error + focus': { hasError: true, className: 'focus' },
+        invalid: { invalid: true },
+        'invalid + hover': { invalid: true, className: 'hover' },
+        'invalid + active': { invalid: true, className: 'active' },
+        'invalid + focus': { invalid: true, className: 'focus' },
       }}
     />
   </Document>);
@@ -142,7 +143,7 @@ storiesOf('Elements|Input', module)
 const types = ['text', 'password', 'url', 'search', 'email', 'tel', 'url', 'textarea', 'select'];
 const props = createPropsFromKnobs({
   disabled: false,
-  hasError: false,
+  invalid: false,
   hidden: false,
   icon: '',
   invisible: false,
@@ -151,19 +152,18 @@ const props = createPropsFromKnobs({
   required: false,
   type: ['text', types],
   value: '',
-  onChange: handleEvent('change'),
+  onChange: action('change'),
 });
 
 storiesOf('Elements|Input', module)
-  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['Input/spec'] })
   .add('default', () => <Input {...props()} />)
   .add('with placeholder', () => <Input {...props({ placeholder: 'Placeholder' })} />)
   .add('with value', () => <Input {...props({ value: 'Value' })} />)
   .add('disabled', () => <Input {...props({ disabled: true })} />)
-  .add('with error', () => <Input {...props({ hasError: true })} />)
+  .add('invalid', () => <Input {...props({ invalid: true })} />)
   .add('with icon', () => <Input {...props({ icon: 'mail' })} />)
   .add('of textarea type', () => <Input {...props({ type: ['textarea', types] })} />)
   .add('of select type', () => <Input {...props({

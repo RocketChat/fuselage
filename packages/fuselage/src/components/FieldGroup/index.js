@@ -1,19 +1,23 @@
 import styled from 'styled-components';
 
-import { rebuildClassName } from '../../helpers/rebuildClassName';
-import { reset } from '../../mixins/reset';
+import { extendClassName } from '../../helpers';
+import { normalized } from '../../mixins';
 import { Field } from '../Field';
-import theme from './theme';
+import { spacing } from './theme';
 
 
-export const FieldGroup = styled.fieldset.attrs({
+export const FieldGroup = styled.fieldset.attrs(({
+  className,
+  ...props
+}) => ({
+  className: extendClassName('field-group', className, props),
   role: 'group',
-}).attrs(rebuildClassName('rcx-field-group'))`
-  ${ reset }
+}))`
+  ${ normalized }
 
   display: flex;
 
-  margin-top: calc(-1 * ${ theme.gutter });
+  margin-top: calc(-1 * ${ spacing });
 
   align-items: center;
 
@@ -23,7 +27,8 @@ export const FieldGroup = styled.fieldset.attrs({
   & > ${ Field } {
     flex: 0 0 auto;
 
-    margin-top: ${ theme.gutter };
+    margin-top: ${ spacing };
   }
 `;
+
 FieldGroup.displayName = 'FieldGroup';

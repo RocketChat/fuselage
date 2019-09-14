@@ -2,14 +2,19 @@ import centered from '@storybook/addon-centered/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { jsxDecorator } from 'storybook-addon-jsx';
 
-import { Document, TextSection, ShowCaseSection, createPropsFromKnobs } from '../../helpers/storybook';
+import {
+  createPropsFromKnobs,
+  Document,
+  ShowCaseSection,
+  TextSection,
+} from '../../helpers/storybook';
 import { Button } from '../Button';
 import { ButtonGroup } from './index';
 
 
 storiesOf('Collections|ButtonGroup', module)
+  .addParameters({ jest: ['ButtonGroup/spec'] })
   .lokiSkip('ButtonGroup', () => <Document>
     <TextSection>
       <h1>ButtonGroup</h1>
@@ -43,12 +48,10 @@ const Buttons = ({ count }) => new Array(count).fill(undefined).map((_, i) =>
 );
 
 storiesOf('Collections|ButtonGroup', module)
-  .addDecorator(jsxDecorator)
   .addDecorator(withKnobs)
   .addDecorator((storyFn) =>
     <div
       style={{
-        // border: '1px dashed lightgray',
         boxSizing: 'border-box',
         width: '100vw',
       }}
@@ -57,7 +60,7 @@ storiesOf('Collections|ButtonGroup', module)
     </div>
   )
   .addDecorator(centered)
-  .addParameters({ jest: ['spec'] })
+  .addParameters({ jest: ['ButtonGroup/spec'] })
   .add('default', () =>
     <ButtonGroup {...props()}>
       <Buttons count={3} />
