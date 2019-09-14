@@ -12,13 +12,21 @@ import {
   whenInvalid,
 } from '../../mixins';
 import { Icon } from '../Icon';
-import theme, {
+import {
   border,
   paddingX,
   paddingY,
   textStyle,
   iconMarginX,
   iconMarginY,
+  invalidColors,
+  normalColors,
+  iconColor,
+  focusIconColor,
+  disabledIconColor,
+  errorIconColor,
+  color,
+  placeholderColor,
 } from './theme';
 
 
@@ -30,7 +38,7 @@ const Container = styled.span`
   display: flex;
 `;
 
-const colorsVariant = ({
+const withColors = ({
   color,
   borderColor,
   backgroundColor,
@@ -87,32 +95,8 @@ const colorsVariant = ({
   }
 `;
 
-const normalColorsVariant = () => colorsVariant({
-  color: theme.color,
-  borderColor: theme.borderColor,
-  backgroundColor: theme.backgroundColor,
-  placeholderColor: theme.placeholderColor,
-  hoverBorderColor: theme.hoverBorderColor,
-  focusBorderColor: theme.focusBorderColor,
-  focusShadowColor: theme.focusShadowColor,
-  focusCaretColor: theme.focusCaretColor,
-  activeBorderColor: theme.activeBorderColor,
-  activeCaretColor: theme.activeCaretColor,
-  disabledColor: theme.disabledColor,
-  disabledBorderColor: theme.disabledBorderColor,
-  disabledBackgroundColor: theme.disabledBackgroundColor,
-});
-
-const errorColorsVariant = () => colorsVariant({
-  color: theme.errorColor,
-  borderColor: theme.errorBorderColor,
-  placeholderColor: theme.placeholderColor,
-  hoverBorderColor: theme.errorBorderColor,
-  focusBorderColor: theme.errorBorderColor,
-  focusShadowColor: theme.errorFocusShadowColor,
-  activeBorderColor: theme.activeBorderColor,
-  activeCaretColor: theme.activeCaretColor,
-});
+const withNormalColors = withColors(normalColors);
+const withInvalidColors = withColors(invalidColors);
 
 const inputBoxStyle = () => css`
   ${ normalized }
@@ -134,8 +118,8 @@ const inputBoxStyle = () => css`
 
   ${ whenDisabled(css`cursor: not-allowed;`) }
 
-  ${ normalColorsVariant }
-  ${ whenInvalid(errorColorsVariant) }
+  ${ withNormalColors }
+  ${ whenInvalid(withInvalidColors) }
 `;
 
 const iconInputBoxStyle = () => css`
@@ -149,13 +133,13 @@ const iconInputBoxStyle = () => css`
 
       pointer-events: none;
 
-      color: ${ theme.iconColor };
+      color: ${ iconColor };
 
       font-size: ${ textStyle.lineHeight };
     }
 
     ${ whenRightToLeftOrientation(() => css`
-      padding: ${ theme.padding };
+      padding: calc(${ paddingY } - ${ border.width }) calc(${ paddingX } - ${ border.width });
       padding-left: calc(2 * ${ iconMarginX } + ${ textStyle.lineHeight } - 2 * ${ border.width });
 
       & + ${ Icon } {
@@ -166,32 +150,32 @@ const iconInputBoxStyle = () => css`
 
     &:not(:disabled):focus + ${ Icon },
     &:not(:disabled).focus + ${ Icon } {
-      color: ${ theme.focusIconColor };
+      color: ${ focusIconColor };
     }
 
     &:disabled + ${ Icon } {
-      color: ${ theme.disabledIconColor };
+      color: ${ disabledIconColor };
     }
 
     &:invalid + ${ Icon } {
-      color: ${ theme.errorIconColor };
+      color: ${ errorIconColor };
     }
 
     ${ ({ invalid }) => invalid && css`
       & + ${ Icon } {
-        color: ${ theme.errorIconColor };
+        color: ${ errorIconColor };
       }
     ` }
 
     &:invalid:not(:disabled):focus + ${ Icon },
     &:invalid:not(:disabled).focus + ${ Icon } {
-      color: ${ theme.errorIconColor };
+      color: ${ errorIconColor };
     }
 
     ${ ({ invalid }) => invalid && css`
       &:not(:disabled):focus + ${ Icon },
       &:not(:disabled).focus + ${ Icon } {
-        color: ${ theme.errorIconColor };
+        color: ${ errorIconColor };
       }
     ` }
   }
@@ -242,13 +226,13 @@ const SelectElement = styled.select.attrs(rebuildClassName('input'))`
   ${ scrollable }
 
   & > option {
-    color: ${ theme.color };
+    color: ${ color };
   }
 `;
 
 const PlaceholderOption = styled.option`
   ${ SelectElement } > & {
-    color: ${ theme.placeholderColor };
+    color: ${ placeholderColor };
   }
 `;
 

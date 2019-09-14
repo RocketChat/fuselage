@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 
-import transitions from '../styles/transitions';
-import textStyles from '../styles/textStyles';
-import borders from '../styles/borders';
-import { toREM, isIE11 } from '../helpers';
+import { toREM, isIE11 } from './helpers';
+import transitions from './styles/transitions';
+import textStyles from './styles/textStyles';
+import borders from './styles/borders';
 
 
 export const whenHidden = (content) => css`

@@ -1,12 +1,18 @@
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers';
+import { extendClassName } from '../../helpers';
 import { normalized } from '../../mixins';
 import { Button } from '../Button';
 import { spacing } from './theme';
 
 
-export const ButtonGroup = styled.div.attrs(rebuildClassName('button-group')).attrs({ role: 'group' })`
+export const ButtonGroup = styled.div.attrs(({
+  className,
+  ...props
+}) => ({
+  className: extendClassName('button-group', className, props),
+  role: 'group',
+}))`
   ${ normalized }
 
   display: flex;

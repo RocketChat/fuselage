@@ -1,4 +1,5 @@
+import { theme } from '../../helpers';
 import spaces from '../../styles/spaces';
 
 
-export const spacing = spaces[5];
+export const spacing = theme('button-group-spacing', spaces[5]);

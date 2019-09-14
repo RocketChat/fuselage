@@ -7,13 +7,14 @@ import React from 'react';
 import {
   createPropsFromKnobs,
   Document,
+  PropsVariationSection,
   ShowCaseSection,
   TextSection,
-  PropsVariationSection,
 } from '../../helpers/storybook';
 import { RadioButton } from './index';
 
 storiesOf('Elements|RadioButton', module)
+  .addParameters({ jest: ['RadioButton/spec'] })
   .lokiSkip('RadioButton', () => <Document>
     <TextSection>
       <h1>RadioButton</h1>

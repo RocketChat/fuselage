@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import { calc, rebuildClassName } from '../../helpers';
+import { calc, extendClassName } from '../../helpers';
 import { useMergedRefs } from '../../hooks/useMergedRefs';
 import {
   normalized,
@@ -10,6 +10,7 @@ import {
   withBorder,
   withButtonActionColors,
   whenIE11,
+  whenDisabled,
 } from '../../mixins';
 import { Label } from '../Label';
 import {
@@ -22,11 +23,11 @@ import {
 } from './theme';
 
 
-const Container = styled(Label).attrs(rebuildClassName('check-box'))`
+const Container = styled(Label)`
   ${ clickable }
 `;
 
-const Input = styled.input.attrs({ type: 'checkbox' })`
+const Input = styled.input`
   ${ visuallyHidden }
 `;
 
@@ -114,7 +115,7 @@ const withIndeterminateIcon = css`
   }
 `;
 
-const Fake = styled.i.attrs({ 'aria-hidden': 'true' })`
+const Fake = styled.i`
   ${ normalized }
 
   position: relative;
@@ -135,10 +136,12 @@ const Fake = styled.i.attrs({ 'aria-hidden': 'true' })`
   ${ Input }:indeterminate + & {
     ${ withIndeterminateIcon }
   }
+
+  ${ whenDisabled(css`cursor: not-allowed;`, Input, '+ &') }
 `;
 
 export const CheckBox = styled(React.forwardRef(function CheckBox({
-  checked,
+  className,
   hidden,
   indeterminate,
   invisible,
@@ -152,19 +155,27 @@ export const CheckBox = styled(React.forwardRef(function CheckBox({
     innerRef.current.indeterminate = indeterminate;
   }, [indeterminate]);
 
-  return <Container hidden={hidden} invisible={invisible}>
+  return <Container
+    className={extendClassName('check-box', className, {
+      hidden,
+      invisible,
+      ...props,
+    })}
+    hidden={hidden}
+    invisible={invisible}
+  >
     <Input
-      checked={checked}
       hidden={hidden}
       invisible={invisible}
       ref={mergedRef}
+      type='checkbox'
       onChange={(event) => {
         innerRef.current.indeterminate = indeterminate;
         onChange && onChange.call(innerRef.current, event);
       }}
       {...props}
     />
-    <Fake />
+    <Fake aria-hidden='true' />
   </Container>;
 }))``;
 

@@ -2,7 +2,7 @@ import * as characters from '@rocket.chat/icons/dist/font/characters';
 import * as names from '@rocket.chat/icons/dist/font/index';
 import styled from 'styled-components';
 
-import { rebuildClassName } from '../../helpers';
+import { extendClassName } from '../../helpers';
 import { normalized } from '../../mixins';
 
 
@@ -11,8 +11,15 @@ const nameToCharacterMapping = Object.entries(names).reduce((map, [symbol, name]
   [name]: characters[symbol],
 }), {});
 
-export const Icon = styled.i.attrs(rebuildClassName('icon')).attrs({ 'aria-hidden': 'true' })
-  .attrs(({ iconName }) => ({ children: nameToCharacterMapping[iconName] }))`
+export const Icon = styled.i.attrs(({
+  className,
+  iconName,
+  ...props
+}) => ({
+  'aria-hidden': 'true',
+  className: extendClassName('icon', className, props),
+  children: nameToCharacterMapping[iconName],
+}))`
   ${ normalized }
 
   display: inline-block;

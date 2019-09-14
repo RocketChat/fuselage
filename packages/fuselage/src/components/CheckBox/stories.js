@@ -7,14 +7,15 @@ import React from 'react';
 import {
   createPropsFromKnobs,
   Document,
+  PropsVariationSection,
   ShowCaseSection,
   TextSection,
-  PropsVariationSection,
 } from '../../helpers/storybook';
 import { CheckBox } from './index';
 
 
 storiesOf('Elements|CheckBox', module)
+  .addParameters({ jest: ['CheckBox/spec'] })
   .lokiSkip('CheckBox', () => <Document>
     <TextSection>
       <h1>CheckBox</h1>

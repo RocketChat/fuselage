@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
-import { rebuildClassName } from '../../helpers';
+import { extendClassName } from '../../helpers';
 import { normalized } from '../../mixins';
 import { Field } from '../Field';
 import { spacing } from './theme';
 
 
-export const FieldGroup = styled.fieldset.attrs(rebuildClassName('field-group')).attrs({ role: 'group' })`
+export const FieldGroup = styled.fieldset.attrs(({
+  className,
+  ...props
+}) => ({
+  className: extendClassName('field-group', className, props),
+  role: 'group',
+}))`
   ${ normalized }
 
   display: flex;

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers';
+import { extendClassName } from '../../helpers';
 import {
   withText,
   normalized,
@@ -59,7 +59,16 @@ const primaryDangerColored = withButtonActionColors(primaryDangerColors);
 const ghostColored = withButtonActionColors(ghostColors);
 const ghostDangerColored = withButtonActionColors(ghostDangerColors);
 
-export const Button = styled.button.attrs(rebuildClassName('button'))`
+export const Button = styled.button.attrs(({
+  className,
+  external,
+  ...props
+}) => ({
+  className: extendClassName('button', className, props),
+  type: props.type || ((!props.as || props.as === 'button') && 'button') || undefined,
+  rel: props.rel || (props.as === 'a' && external && 'noopener noreferrer') || undefined,
+  target: props.target || (props.as === 'a' && external && '_blank') || undefined,
+}))`
   ${ normalized }
   ${ clickable }
   ${ withTruncatedText }
@@ -67,6 +76,7 @@ export const Button = styled.button.attrs(rebuildClassName('button'))`
   display: inline-block;
 
   text-align: center;
+  vertical-align: middle;
 
   appearance: none;
 

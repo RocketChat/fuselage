@@ -2,19 +2,23 @@ import styled from 'styled-components';
 
 import { rebuildClassName } from '../../helpers';
 import { normalized, withText, withSelectableText } from '../../mixins';
-import theme from './theme';
+import {
+  spacing,
+  color,
+  textStyle,
+} from './theme';
 
 
 export const Paragraph = styled.p.attrs(rebuildClassName('paragraph'))`
   ${ normalized }
 
-  margin-bottom: ${ theme.spacing };
+  margin-bottom: ${ spacing };
 
-  color: ${ theme.color };
+  color: ${ color };
 
   cursor: default;
 
-  ${ withText(theme.textStyle) }
+  ${ withText(textStyle) }
   ${ withSelectableText }
 `;
 

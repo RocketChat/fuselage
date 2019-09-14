@@ -59,6 +59,7 @@ function Icons({
 
 storiesOf('Elements|Icon', module)
   .addDecorator(withKnobs)
+  .addParameters({ jest: ['Icon/spec'] })
   .lokiSkip('Icon', () => <Document>
     <TextSection>
       <h1>Icon</h1>

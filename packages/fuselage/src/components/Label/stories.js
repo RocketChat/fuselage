@@ -6,14 +6,15 @@ import React from 'react';
 import {
   createPropsFromKnobs,
   Document,
-  TextSection,
   PropsVariationSection,
   PseudoInput,
+  TextSection,
 } from '../../helpers/storybook';
 import { Label } from './index';
 
 
 storiesOf('Elements|Label', module)
+  .addParameters({ jest: ['Label/spec'] })
   .lokiSkip('Label', () => <Document>
     <TextSection>
       <h1>Label</h1>
@@ -59,7 +60,7 @@ const props = createPropsFromKnobs({
   error: '',
   hidden: false,
   invisible: false,
-  position: [Label.defaultProps.position, ['top', 'start', 'end']],
+  position: ['top', ['top', 'start', 'end']],
   text: 'Label',
   required: false,
 });

@@ -20,17 +20,20 @@ export const toREM = (length) => {
   return length;
 };
 
-export const rebuildClassName = (baseClassName) => ({
-  className,
-  ...props
-}) => ({
-  className: [
+export const extendClassName = (baseClassName, className, props) =>
+  [
     `rcx-${ baseClassName }`,
     ...Object.entries(props).map(([modifier, value]) =>
       typeof value === 'boolean' && value && `rcx-${ baseClassName }--${ modifier }`,
     ),
     className,
-  ].filter(Boolean).join(' '),
+  ].filter(Boolean).join(' ');
+
+export const rebuildClassName = (baseClassName) => ({
+  className,
+  ...props
+}) => ({
+  className: extendClassName(baseClassName, className, props),
   ...props,
 });
 

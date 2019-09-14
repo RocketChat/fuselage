@@ -1,14 +1,19 @@
 import React, { createContext, useContext } from 'react';
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers';
-import { normalized, withTruncatedText, withText, withSelectableText } from '../../mixins';
+import { extendClassName } from '../../helpers';
+import {
+  normalized,
+  withTruncatedText,
+  withText,
+  withSelectableText,
+} from '../../mixins';
 import {
   spacing,
   textStyle,
   color,
-  requiredColor,
   errorColor,
+  requiredMarkColor,
 } from './theme';
 
 const Wrapper = styled.div`
@@ -49,7 +54,7 @@ const endPositioned = css`
   }
 `;
 
-const Container = styled.label.attrs(rebuildClassName('label'))`
+const Container = styled.label`
   ${ normalized }
 
   display: flex;
@@ -64,7 +69,7 @@ const withRequiredMark = css`
   &::before {
     content: '* ';
 
-    color: ${ requiredColor };
+    color: ${ requiredMarkColor };
   }
 `;
 
@@ -97,7 +102,7 @@ export const Label = styled(React.forwardRef(function Label({
   children,
   className,
   error,
-  position,
+  position = 'top',
   required,
   text,
   ...props
@@ -107,7 +112,10 @@ export const Label = styled(React.forwardRef(function Label({
   return <LabelContext.Provider value={true}>
     <Container
       as={isInsideLabel ? 'span' : 'label'}
-      className={className}
+      className={extendClassName('label', className, {
+        required,
+        ...props,
+      })}
       position={position}
       ref={ref}
       {...props}
@@ -121,9 +129,5 @@ export const Label = styled(React.forwardRef(function Label({
     </Container>
   </LabelContext.Provider>;
 }))``;
-
-Label.defaultProps = {
-  position: 'top',
-};
 
 Label.displayName = 'Label';

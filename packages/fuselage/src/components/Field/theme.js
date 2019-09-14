@@ -1,4 +1,5 @@
+import { theme } from '../../helpers';
 import spaces from '../../styles/spaces';
 
 
-export const hintSpacing = spaces[2];
+export const hintSpacing = theme('hint-spacing', spaces[2]);

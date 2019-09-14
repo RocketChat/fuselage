@@ -1,13 +1,14 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers';
+import { extendClassName } from '../../helpers';
 import {
   visuallyHidden,
   normalized,
   withBorder,
   clickable,
   withButtonActionColors,
+  whenDisabled,
 } from '../../mixins';
 import { Label } from '../Label';
 import {
@@ -19,11 +20,11 @@ import {
 } from './theme';
 
 
-const Container = styled(Label).attrs(rebuildClassName('radio-button__wrapper'))`
+const Container = styled(Label)`
   ${ clickable }
 `;
 
-const Input = styled.input.attrs(rebuildClassName('radio-button__input')).attrs({ type: 'radio' })`
+const Input = styled.input`
   ${ visuallyHidden }
 `;
 
@@ -50,7 +51,7 @@ const withCheckedIcon = css`
   }
 `;
 
-const Fake = styled.i.attrs(rebuildClassName('radio-button__fake')).attrs({ 'aria-hidden': 'true' })`
+const Fake = styled.i`
   ${ normalized }
 
   position: relative;
@@ -66,16 +67,33 @@ const Fake = styled.i.attrs(rebuildClassName('radio-button__fake')).attrs({ 'ari
   ${ Input }:checked + & {
     ${ withCheckedIcon }
   }
+
+  ${ whenDisabled(css`cursor: not-allowed;`, Input, '+ &') }
 `;
 
 export const RadioButton = styled(React.forwardRef(function RadioButton({
+  className,
   hidden,
   invisible,
   ...props
 }, ref) {
-  return <Container hidden={hidden} invisible={invisible}>
-    <Input hidden={hidden} invisible={invisible} ref={ref} {...props} />
-    <Fake />
+  return <Container
+    className={extendClassName('radio-button', className, {
+      hidden,
+      invisible,
+      ...props,
+    })}
+    hidden={hidden}
+    invisible={invisible}
+  >
+    <Input
+      hidden={hidden}
+      invisible={invisible}
+      ref={ref}
+      type='radio'
+      {...props}
+    />
+    <Fake aria-hidden='true' />
   </Container>;
 }))``;
 

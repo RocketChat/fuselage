@@ -16,6 +16,7 @@ import { Field } from './index';
 
 
 storiesOf('Elements|Field', module)
+  .addParameters({ jest: ['Field/spec'] })
   .lokiSkip('Field', () => <Document>
     <TextSection>
       <h1>Field</h1>

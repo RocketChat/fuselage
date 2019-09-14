@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 import { rebuildClassName } from '../../helpers';
-import theme from './theme';
 import { normalized, withSelectableText, withText } from '../../mixins';
+import {
+  color,
+  textStyle,
+} from './theme';
 
 
 export const Hint = styled.div.attrs(rebuildClassName('hint'))`
@@ -11,9 +14,9 @@ export const Hint = styled.div.attrs(rebuildClassName('hint'))`
 
   flex: 0 0 auto;
 
-  color: ${ theme.color };
+  color: ${ color };
 
-  ${ withText(theme.textStyle) }
+  ${ withText(textStyle) }
 `;
 
 Hint.displayName = 'Hint';

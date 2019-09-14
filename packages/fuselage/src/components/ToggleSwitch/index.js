@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { rebuildClassName } from '../../helpers';
+import { extendClassName } from '../../helpers';
 import {
   visuallyHidden,
   normalized,
@@ -9,6 +9,7 @@ import {
   withBorder,
   withButtonActionColors,
   whenRightToLeftOrientation,
+  whenDisabled,
 } from '../../mixins';
 import { Label } from '../Label';
 import {
@@ -19,11 +20,11 @@ import {
 } from './theme';
 
 
-const Container = styled(Label).attrs(rebuildClassName('toggle-switch'))`
+const Container = styled(Label)`
   ${ clickable }
 `;
 
-const Input = styled.input.attrs({ type: 'checkbox' })`
+const Input = styled.input`
   ${ visuallyHidden }
 `;
 
@@ -62,7 +63,7 @@ const withThumb = () => css`
   }
 `;
 
-const Fake = styled.i.attrs({ 'aria-hidden': 'true' })`
+const Fake = styled.i`
   ${ normalized }
 
   position: relative;
@@ -76,16 +77,33 @@ const Fake = styled.i.attrs({ 'aria-hidden': 'true' })`
   ${ withOnColors }
 
   ${ withThumb }
+
+  ${ whenDisabled(css`cursor: not-allowed;`, Input, '+ &') }
 `;
 
 export const ToggleSwitch = styled(React.forwardRef(function ToggleSwitch({
+  className,
   hidden,
   invisible,
   ...props
 }, ref) {
-  return <Container hidden={hidden} invisible={invisible}>
-    <Input hidden={hidden} invisible={invisible} ref={ref} {...props} />
-    <Fake />
+  return <Container
+    className={extendClassName('toggle-switch', className, {
+      hidden,
+      invisible,
+      ...props,
+    })}
+    hidden={hidden}
+    invisible={invisible}
+  >
+    <Input
+      hidden={hidden}
+      invisible={invisible}
+      ref={ref}
+      type='checkbox'
+      {...props}
+    />
+    <Fake aria-hidden='true' />
   </Container>;
 }))``;
 

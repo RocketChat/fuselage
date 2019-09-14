@@ -13,6 +13,7 @@ import { Hint } from './index';
 
 
 storiesOf('Elements|Hint', module)
+  .addParameters({ jest: ['Hint/spec'] })
   .lokiSkip('Hint', () => <Document>
     <TextSection>
       <h1>Hint</h1>

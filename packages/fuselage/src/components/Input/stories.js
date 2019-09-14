@@ -12,6 +12,7 @@ const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
   + 'incididunt ut labore et dolore magna aliqua.';
 
 storiesOf('Elements|Input', module)
+  .addParameters({ jest: ['Input/spec'] })
   .lokiSkip('Input', () => <Document>
     <TextSection>
       <h1>Input</h1>

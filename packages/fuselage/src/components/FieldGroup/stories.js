@@ -16,6 +16,7 @@ import { FieldGroup } from './index';
 
 
 storiesOf('Collections|FieldGroup', module)
+  .addParameters({ jest: ['FieldGroup/spec'] })
   .lokiSkip('FieldGroup', () => <Document>
     <TextSection>
       <h1>FieldGroup</h1>

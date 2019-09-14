@@ -7,14 +7,15 @@ import React from 'react';
 import {
   createPropsFromKnobs,
   Document,
+  PropsVariationSection,
   ShowCaseSection,
   TextSection,
-  PropsVariationSection,
 } from '../../helpers/storybook';
 import { ToggleSwitch } from './index';
 
 
 storiesOf('Elements|ToggleSwitch', module)
+  .addParameters({ jest: ['ToggleSwitch/spec'] })
   .lokiSkip('ToggleSwitch', () => <Document>
     <TextSection>
       <h1>ToggleSwitch</h1>

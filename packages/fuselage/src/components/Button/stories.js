@@ -5,12 +5,18 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { createPropsFromKnobs, Document, TextSection, PropsVariationSection } from '../../helpers/storybook';
+import {
+  createPropsFromKnobs,
+  Document,
+  PropsVariationSection,
+  TextSection,
+} from '../../helpers/storybook';
 import { Icon } from '../Icon';
 import { Button } from './index';
 
 
 storiesOf('Elements|Button', module)
+  .addParameters({ jest: ['Button/spec'] })
   .lokiSkip('Button', () => <Document>
     <TextSection>
       <h1>Button</h1>
@@ -111,8 +117,7 @@ storiesOf('Elements|Button', module)
     {...props()}
     as='a'
     href='https://rocket.chat'
-    target='_blank'
-    rel='noopener noreferrer'
+    external
   />
   )
   .add('square', () => (
