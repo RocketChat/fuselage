@@ -35,7 +35,9 @@
     "update-storybook": "run-s test:results build-storybook loki:update"
   },
   "peerDependencies": {
-    "react": "^16.8.6"
+    "@rocket.chat/icons": "^0.2.0-alpha.0",
+    "react": "^16.8.6",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -105,10 +107,6 @@
         "preset": "iPhone 7"
       }
     }
-  },
-  "dependencies": {
-    "@rocket.chat/icons": "^0.2.0-alpha.0",
-    "styled-components": "^4.3.2"
   },
   "browserslist": {
     "production": [

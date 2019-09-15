@@ -32,14 +32,13 @@
     "update-storybook": "run-s build-storybook loki:update"
   },
   "peerDependencies": {
-    "react": "^16.8.6"
+    "@rocket.chat/icons": "^0.2.0-alpha.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-env": "^7.4.5",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-backgrounds": "^5.0.11",
     "@storybook/addon-centered": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
@@ -60,11 +59,9 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.14.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "final-form": "^4.16.1",
     "fs-extra": "^8.0.1",
     "gh-pages": "^2.0.1",
     "husky": "^2.3.0",
-    "identity-obj-proxy": "^3.0.0",
     "lerna": "^3.14.1",
     "lint-staged": "^9.0.1",
     "loki": "^0.16.0",
@@ -72,12 +69,10 @@
     "npm-run-all": "^4.1.5",
     "postcss-loader": "^3.0.0",
     "react": "^16.8.6",
-    "react-final-form-hooks": "^2.0.0",
-    "react-helmet": "^5.2.1",
     "sass-loader": "^7.1.0",
+    "styled-components": "^4.3.2",
     "stylelint": "^10.0.1",
     "stylelint-order": "^3.0.0",
-    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2"
   },
   "loki": {
@@ -95,9 +90,5 @@
         "preset": "iPhone 7"
       }
     }
-  },
-  "dependencies": {
-    "@rocket.chat/icons": "^0.2.0-alpha.0",
-    "styled-components": "^4.3.2"
   }
 }

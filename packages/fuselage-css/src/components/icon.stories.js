@@ -1,3 +1,4 @@
+import '@rocket.chat/icons/dist/font/RocketChat.css';
 import * as iconNames from '@rocket.chat/icons/dist/font';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
