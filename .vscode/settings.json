@@ -1,13 +1,17 @@
 {
   "eslint.workingDirectories": [
     {
-			"directory": "packages/fuselage",
-			"changeProcessCWD": true
-		},
+      "directory": "packages/fuselage",
+      "changeProcessCWD": true
+    },
     {
-			"directory": "packages/icons",
-			"changeProcessCWD": true
-		}
-	],
-	"eslint.enable": true
+      "directory": "packages/fuselage-css",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/icons",
+      "changeProcessCWD": true
+    }
+  ],
+  "eslint.enable": true
 }

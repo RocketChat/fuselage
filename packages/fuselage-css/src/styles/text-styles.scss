@@ -1,0 +1,50 @@
+@import '../helpers.scss';
+@import '../tokens/typography.scss';
+
+$text-styles-h1-font-family: theme('text-styles-h1-font-family', get-map-value($typography, h1, font-family));
+$text-styles-h1-font-size: theme('text-styles-h1-font-size', to-rem(get-map-value($typography, h1, font-size)));
+$text-styles-h1-font-weight: theme('text-styles-h1-font-weight', get-map-value($typography, h1, font-weight));
+$text-styles-h1-letter-spacing: theme('text-styles-h1-letter-spacing', to-rem(get-map-value($typography, h1, letter-spacing)));
+$text-styles-h1-line-height: theme('text-styles-h1-line-height', to-rem(get-map-value($typography, h1, line-height)));
+
+$text-styles-s1-font-family: theme('text-styles-s1-font-family', get-map-value($typography, s1, font-family));
+$text-styles-s1-font-size: theme('text-styles-s1-font-size', to-rem(get-map-value($typography, s1, font-size)));
+$text-styles-s1-font-weight: theme('text-styles-s1-font-weight', get-map-value($typography, s1, font-weight));
+$text-styles-s1-letter-spacing: theme('text-styles-s1-letter-spacing', to-rem(get-map-value($typography, s1, letter-spacing)));
+$text-styles-s1-line-height: theme('text-styles-s1-line-height', to-rem(get-map-value($typography, s1, line-height)));
+
+$text-styles-s2-font-family: theme('text-styles-s2-font-family', get-map-value($typography, s2, font-family));
+$text-styles-s2-font-size: theme('text-styles-s2-font-size', to-rem(get-map-value($typography, s2, font-size)));
+$text-styles-s2-font-weight: theme('text-styles-s2-font-weight', get-map-value($typography, s2, font-weight));
+$text-styles-s2-letter-spacing: theme('text-styles-s2-letter-spacing', to-rem(get-map-value($typography, s2, letter-spacing)));
+$text-styles-s2-line-height: theme('text-styles-s2-line-height', to-rem(get-map-value($typography, s2, line-height)));
+
+$text-styles-p1-font-family: theme('text-styles-p1-font-family', get-map-value($typography, p1, font-family));
+$text-styles-p1-font-size: theme('text-styles-p1-font-size', to-rem(get-map-value($typography, p1, font-size)));
+$text-styles-p1-font-weight: theme('text-styles-p1-font-weight', get-map-value($typography, p1, font-weight));
+$text-styles-p1-letter-spacing: theme('text-styles-p1-letter-spacing', to-rem(get-map-value($typography, p1, letter-spacing)));
+$text-styles-p1-line-height: theme('text-styles-p1-line-height', to-rem(get-map-value($typography, p1, line-height)));
+
+$text-styles-p2-font-family: theme('text-styles-p2-font-family', get-map-value($typography, p2, font-family));
+$text-styles-p2-font-size: theme('text-styles-p2-font-size', to-rem(get-map-value($typography, p2, font-size)));
+$text-styles-p2-font-weight: theme('text-styles-p2-font-weight', get-map-value($typography, p2, font-weight));
+$text-styles-p2-letter-spacing: theme('text-styles-p2-letter-spacing', to-rem(get-map-value($typography, p2, letter-spacing)));
+$text-styles-p2-line-height: theme('text-styles-p2-line-height', to-rem(get-map-value($typography, p2, line-height)));
+
+$text-styles-c1-font-family: theme('text-styles-c1-font-family', get-map-value($typography, c1, font-family));
+$text-styles-c1-font-size: theme('text-styles-c1-font-size', to-rem(get-map-value($typography, c1, font-size)));
+$text-styles-c1-font-weight: theme('text-styles-c1-font-weight', get-map-value($typography, c1, font-weight));
+$text-styles-c1-letter-spacing: theme('text-styles-c1-letter-spacing', to-rem(get-map-value($typography, c1, letter-spacing)));
+$text-styles-c1-line-height: theme('text-styles-c1-line-height', to-rem(get-map-value($typography, c1, line-height)));
+
+$text-styles-c2-font-family: theme('text-styles-c2-font-family', get-map-value($typography, c2, font-family));
+$text-styles-c2-font-size: theme('text-styles-c2-font-size', to-rem(get-map-value($typography, c2, font-size)));
+$text-styles-c2-font-weight: theme('text-styles-c2-font-weight', get-map-value($typography, c2, font-weight));
+$text-styles-c2-letter-spacing: theme('text-styles-c2-letter-spacing', to-rem(get-map-value($typography, c2, letter-spacing)));
+$text-styles-c2-line-height: theme('text-styles-c2-line-height', to-rem(get-map-value($typography, c2, line-height)));
+
+$text-styles-micro-font-family: theme('text-styles-micro-font-family', get-map-value($typography, micro, font-family));
+$text-styles-micro-font-size: theme('text-styles-micro-font-size', to-rem(get-map-value($typography, micro, font-size)));
+$text-styles-micro-font-weight: theme('text-styles-micro-font-weight', get-map-value($typography, micro, font-weight));
+$text-styles-micro-letter-spacing: theme('text-styles-micro-letter-spacing', to-rem(get-map-value($typography, micro, letter-spacing)));
+$text-styles-micro-line-height: theme('text-styles-micro-line-height', to-rem(get-map-value($typography, micro, line-height)));

@@ -1,0 +1,111 @@
+@import '../helpers.scss';
+@import '../mixins.scss';
+@import '../styles/borders.scss';
+@import '../styles/button-colors.scss';
+@import '../styles/text-styles.scss';
+
+$size: theme('toggle-switch-size', $text-styles-p1-line-height);
+
+$border: (
+  width: theme('toggle-switch-border-width', $borders-default-width),
+  radius: theme('toggle-switch-border-radius', 9999px),
+);
+
+$off-colors: (
+  background-color: theme('toggle-switch-background-color', $button-colors-off-background-color),
+  border-color: theme('toggle-switch-border-color', $button-colors-off-border-color),
+  color: theme('toggle-switch-color', $button-colors-off-color),
+  hover-background-color: theme('toggle-switch-hover-background-color', $button-colors-off-hover-background-color),
+  hover-border-color: theme('toggle-switch-hover-border-color', $button-colors-off-hover-border-color),
+  active-background-color: theme('toggle-switch-active-background-color', $button-colors-off-active-background-color),
+  active-border-color: theme('toggle-switch-active-border-color', $button-colors-off-active-border-color),
+  focus-background-color: theme('toggle-switch-focus-background-color', $button-colors-off-focus-background-color),
+  focus-border-color: theme('toggle-switch-focus-border-color', $button-colors-off-focus-border-color),
+  focus-shadow-color: theme('toggle-switch-focus-shadow-color', $button-colors-off-focus-shadow-color),
+  disabled-background-color: theme('toggle-switch-disabled-background-color', $button-colors-off-disabled-background-color),
+  disabled-border-color: theme('toggle-switch-disabled-border-color', $button-colors-off-disabled-border-color),
+  disabled-color: theme('toggle-switch-disabled-color', $button-colors-off-disabled-color),
+);
+
+$on-colors: (
+  background-color: theme('toggle-switch-on-background-color', $button-colors-primary-background-color),
+  border-color: theme('toggle-switch-on-border-color', $button-colors-primary-border-color),
+  color: theme('toggle-switch-on-color', $button-colors-primary-color),
+  hover-background-color: theme('toggle-switch-on-hover-background-color', $button-colors-primary-hover-background-color),
+  hover-border-color: theme('toggle-switch-on-hover-border-color', $button-colors-primary-hover-border-color),
+  active-background-color: theme('toggle-switch-on-active-background-color', $button-colors-primary-active-background-color),
+  active-border-color: theme('toggle-switch-on-active-border-color', $button-colors-primary-active-border-color),
+  focus-background-color: theme('toggle-switch-on-focus-background-color', $button-colors-primary-focus-background-color),
+  focus-border-color: theme('toggle-switch-on-focus-border-color', $button-colors-primary-focus-border-color),
+  focus-shadow-color: theme('toggle-switch-on-focus-shadow-color', $button-colors-primary-focus-shadow-color),
+  disabled-background-color: theme('toggle-switch-on-disabled-background-color', $button-colors-primary-disabled-background-color),
+  disabled-border-color: theme('toggle-switch-on-disabled-border-color', $button-colors-primary-disabled-border-color),
+  disabled-color: theme('toggle-switch-on-disabled-color', $button-colors-primary-disabled-color),
+);
+
+@mixin with-off-colors {
+  @include with-button-action-colors($off-colors..., $source: '.rcx-toggle-switch__input', $target: '+ &');
+}
+
+@mixin with-on-colors {
+  @include with-button-action-colors($on-colors..., $source: '.rcx-toggle-switch__input:checked', $target: '+ &');
+}
+
+@mixin with-thumb {
+  &::before {
+    position: absolute;
+    left: 0%;
+
+    width: calc(#{$size} - 2 * #{map-get($border, width)});
+    height: calc(#{$size} - 2 * #{map-get($border, width)});
+
+    content: '';
+
+    border-radius: 50%;
+
+    background-color: currentColor;
+
+    @include when-right-to-left-orientation {
+      right: 0%;
+      left: unset;
+    }
+  }
+
+  .rcx-toggle-switch__input:checked + &::before {
+    left: 100%;
+
+    transform: translateX(-100%);
+
+    @include when-right-to-left-orientation {
+      right: 100%;
+
+      transform: translateX(100%);
+    }
+  }
+}
+
+.rcx-toggle-switch {
+  @include clickable;
+
+  display: flex;
+
+  &__input {
+    @include visually-hidden;
+  }
+
+  &__fake {
+    position: relative;
+
+    width: calc(2 * #{$size});
+    height: $size;
+
+    @include with-border($border...);
+    @include with-off-colors;
+    @include with-on-colors;
+    @include with-thumb;
+
+    @include when-disabled($source: '.rcx-toggle-switch__input', $target: '+ &') {
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,0 +1,240 @@
+@import '../helpers.scss';
+@import '../styles/borders.scss';
+
+$color: theme('input-color', map-get($colors, dark800));
+$icon-color: theme('input-icon-color', map-get($colors, dark800));
+$placeholder-color: theme('input-placeholder-color', map-get($colors, dark600));
+$focus-icon-color: theme('input-focus-icon-color', map-get($colors, blue500));
+$disabled-icon-color: theme('input-disabled-icon-color', map-get($colors, dark500));
+$error-icon-color: theme('input-error-icon-color', map-get($colors, red500));
+
+$border: (
+  width: theme('input-border-width', $borders-default-width),
+  radius: theme('input-border-radius', $borders-default-radius),
+);
+
+$padding-x: theme('input-padding-x', $spaces-5);
+
+$padding-y: theme('input-padding-y', $spaces-4);
+
+$text-style: (
+  font-family: theme('input-font-family', $text-styles-p1-font-family),
+  font-size: theme('input-font-size', $text-styles-p1-font-size),
+  font-weight: theme('input-font-weight', $text-styles-p1-font-weight),
+  letter-spacing: theme('input-letter-spacing', $text-styles-p1-letter-spacing),
+  line-height: theme('input-line-height', $text-styles-p1-line-height),
+);
+
+$icon-margin-x: theme('input-icon-margin-x', $spaces-5);
+
+$icon-margin-y: theme('input-icon-margin-y', $spaces-4);
+
+$normal-colors: (
+  background-color: theme('input-background-color', map-get($colors, 'white')),
+  border-color: theme('input-border-color', map-get($colors, dark500)),
+  color: theme('input-color', map-get($colors, dark800)),
+  placeholder-color: theme('input-placeholder-color', map-get($colors, dark600)),
+  hover-border-color: theme('input-hover-border-color', map-get($colors, dark600)),
+  focus-border-color: theme('input-focus-border-color', map-get($colors, blue500)),
+  focus-shadow-color: theme('input-focus-shadow-color', map-get($colors, blue100)),
+  focus-caret-color: theme('input-focus-caret-color', map-get($colors, blue500)),
+  active-border-color: theme('input-active-border-color', map-get($colors, dark600)),
+  active-caret-color: theme('input-active-caret-color', map-get($colors, dark600)),
+  disabled-background-color: theme('input-disabled-background-color', map-get($colors, dark200)),
+  disabled-border-color: theme('input-disabled-border-color', map-get($colors, dark500)),
+  disabled-color: theme('input-disabled-color', map-get($colors, dark800)),
+);
+
+$invalid-colors: (
+  background-color: theme('input-invalid-background-color', map-get($colors, 'white')),
+  border-color: theme('input-invalid-border-color', map-get($colors, red500)),
+  color: theme('input-invalid-color', map-get($colors, red500)),
+  placeholder-color: theme('input-invalid-placeholder-color', map-get($colors, dark600)),
+  hover-border-color: theme('input-invalid-hover-border-color', map-get($colors, red500)),
+  focus-border-color: theme('input-invalid-focus-border-color', map-get($colors, red500)),
+  focus-shadow-color: theme('input-invalid-focus-shadow-color', map-get($colors, red100)),
+  focus-caret-color: theme('input-invalid-focus-caret-color', map-get($colors, blue500)),
+  active-border-color: theme('input-invalid-active-border-color', map-get($colors, dark600)),
+  active-caret-color: theme('input-invalid-active-caret-color', map-get($colors, dark600)),
+  disabled-background-color: theme('input-invalid-disabled-background-color', map-get($colors, dark200)),
+  disabled-border-color: theme('input-invalid-disabled-border-color', map-get($colors, dark500)),
+  disabled-color: theme('input-invalid-disabled-color', map-get($colors, dark800)),
+);
+
+@mixin with-colors(
+  $color,
+  $border-color,
+  $background-color,
+  $placeholder-color,
+  $hover-border-color,
+  $focus-border-color,
+  $focus-shadow-color,
+  $focus-caret-color,
+  $active-border-color,
+  $active-caret-color,
+  $disabled-color,
+  $disabled-border-color,
+  $disabled-background-color,
+) {
+  color: $color;
+  border-color: $border-color;
+  background-color: $background-color;
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
+
+  &--has-placeholder {
+    color: $placeholder-color;
+  }
+
+  @include when-hovered {
+    border-color: $hover-border-color;
+  }
+
+  @include when-focused {
+    border-color: $focus-border-color;
+    box-shadow: 0 0 0 to-rem(6) $focus-shadow-color;
+    caret-color: $focus-caret-color;
+  }
+
+  @include when-active {
+    border-color: $active-border-color;
+    box-shadow: none;
+    caret-color: $active-caret-color;
+  }
+
+  @include when-disabled {
+    color: $disabled-color;
+    border-color: $disabled-border-color;
+    background-color: $disabled-background-color;
+
+    &[data-placeholder] {
+      color: $placeholder-color;
+    }
+  }
+}
+
+@mixin with-normal-colors {
+  @include with-colors($normal-colors...);
+}
+
+@mixin with-invalid-colors {
+  @include with-colors($invalid-colors...);
+}
+
+@mixin input-box-style {
+  width: 100%;
+  min-width: 8rem;
+
+  padding: calc(#{$padding-y} - #{map-get($border, width)}) calc(#{$padding-x} - #{map-get($border, width)});
+
+  resize: none;
+
+  text-overflow: ellipsis;
+
+  outline: 0;
+
+  appearance: none;
+
+  @include with-border($border...);
+  @include with-text($text-style...);
+
+  @include when-disabled {
+    cursor: not-allowed;
+  }
+
+  @include with-normal-colors;
+
+  @include when-invalid {
+    @include with-invalid-colors;
+  }
+}
+
+@mixin icon-input-box-style {
+  .rcx-input__wrapper > & {
+    padding-right: calc(2 * #{$icon-margin-x} + #{map-get($text-style, line-height)} - 2 * #{map-get($border, width)});
+
+    & + .rcx-icon {
+      position: absolute;
+      top: $icon-margin-y;
+      right: $icon-margin-x;
+
+      pointer-events: none;
+
+      color: $icon-color;
+
+      font-size: map-get($text-style, line-height);
+    }
+
+    @include when-right-to-left-orientation {
+      padding: calc(#{$padding-y} - #{map-get($border, width)}) calc(#{$padding-x} - #{map-get($border, width)});
+      padding-left: calc(2 * #{$icon-margin-x} + #{map-get($text-style, line-height)} - 2 * #{map-get($border, width)});
+
+      & + .rcx-icon {
+        right: unset;
+        left: $icon-margin-x;
+      }
+    }
+
+    &:not(:disabled):focus + .rcx-icon,
+    &:not(:disabled).focus + .rcx-icon {
+      color: $focus-icon-color;
+    }
+
+    &:disabled + .rcx-icon {
+      color: $disabled-icon-color;
+    }
+
+    &:invalid + .rcx-icon {
+      color: $error-icon-color;
+    }
+
+    @include when-invalid {
+      & + .rcx-icon {
+        color: $error-icon-color;
+      }
+    }
+
+    &:invalid:not(:disabled):focus + .rcx-icon,
+    &:invalid:not(:disabled).focus + .rcx-icon {
+      color: $error-icon-color;
+    }
+
+    @include when-invalid {
+      &:not(:disabled):focus + .rcx-icon,
+      &:not(:disabled).focus + .rcx-icon {
+        color: $error-icon-color;
+      }
+    }
+  }
+}
+
+.rcx-input {
+  &__wrapper {
+    position: relative;
+
+    display: flex;
+  }
+
+  @include input-box-style;
+  @include icon-input-box-style;
+
+  @at-root textarea#{&} {
+    @include scrollable;
+  }
+
+  @at-root select#{&} {
+    @include scrollable;
+
+    & > option {
+      color: $color;
+    }
+  }
+
+  @at-root option#{&}__placeholder {
+    select.rcx-input > & {
+      color: $placeholder-color;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '../helpers.scss';
+@import '../mixins.scss';
+@import '../styles/spaces.scss';
+
+$hint-spacing: theme('hint-spacing', $spaces-2);
+
+.rcx-field {
+  display: flex;
+
+  flex-flow: column nowrap;
+
+  & > .rcx-hint {
+    margin-top: $hint-spacing;
+  }
+}

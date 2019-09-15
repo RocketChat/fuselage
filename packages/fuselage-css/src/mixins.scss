@@ -1,0 +1,186 @@
+@import './styles/text-styles.scss';
+
+@mixin clickable {
+  cursor: pointer;
+
+  outline: 0;
+
+  @include when-disabled {
+    cursor: not-allowed;
+  }
+}
+
+@mixin scrollable {
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  white-space: nowrap;
+
+  border: 0;
+  clip-path: inset(50%);
+}
+
+@mixin when-active($source: '&', $target: '') {
+  #{$source}:active #{$target},
+  #{$source}.active #{$target} {
+    @content;
+  }
+}
+
+@mixin when-disabled($source: '&', $target: '') {
+  #{$source}.disabled #{$target},
+  *:disabled #{$source} #{$target},
+  #{$source}:disabled #{$target} {
+    @content;
+  }
+}
+
+@mixin when-focused($source: '&', $target: '') {
+  #{$source}:focus #{$target},
+  #{$source}.focus #{$target} {
+    @content;
+  }
+}
+
+@mixin when-hovered($source: '&', $target: '') {
+  #{$source}:hover #{$target},
+  #{$source}.hover #{$target} {
+    @content;
+  }
+}
+
+@mixin when-ie11 {
+  html.ie11 {
+    @content;
+  }
+}
+
+@mixin when-invalid {
+  &:invalid,
+  &.invalid,
+  &--invalid {
+    @content;
+  }
+}
+
+@mixin when-right-to-left-orientation {
+  .rtl &,
+  [dir=rtl] & {
+    @content;
+  }
+}
+
+@mixin with-border(
+  $width: $borders-default-width,
+  $radius: $borders-default-radius,
+) {
+  border-width: $width;
+  border-style: solid;
+  border-radius: $radius;
+}
+
+@mixin with-button-action-colors(
+  $color,
+  $background-color,
+  $border-color,
+  $hover-background-color,
+  $hover-border-color,
+  $active-background-color,
+  $active-border-color,
+  $focus-background-color,
+  $focus-border-color,
+  $focus-shadow-color,
+  $disabled-color,
+  $disabled-background-color,
+  $disabled-border-color,
+  $source: '&',
+  $target: ''
+) {
+  #{$source} #{$target} {
+    color: $color;
+    border-color: $border-color;
+    background-color: $background-color;
+  }
+
+  @include when-focused($source, $target) {
+    border-color: $focus-border-color;
+    background-color: $focus-background-color;
+
+    @if $focus-shadow-color {
+      box-shadow: 0 0 0 to-rem(6) $focus-shadow-color;
+    }
+  }
+
+  @include when-hovered($source, $target) {
+    border-color: $hover-border-color;
+    background-color: $hover-background-color;
+    box-shadow: none;
+  }
+
+  @include when-active($source, $target) {
+    border-color: $active-border-color;
+    background-color: $active-background-color;
+    box-shadow: none;
+  }
+
+  @include when-disabled($source, $target) {
+    color: $disabled-color;
+    border-color: $disabled-border-color;
+    background-color: $disabled-background-color;
+  }
+}
+
+@mixin with-text(
+  $font-family: $text-styles-p1-font-family,
+  $font-size: $text-styles-p1-font-size,
+  $font-weight: $text-styles-p1-font-weight,
+  $letter-spacing: $text-styles-p1-letter-spacing,
+  $line-height: $text-styles-p1-line-height,
+) {
+  text-decoration: none;
+  letter-spacing: $letter-spacing;
+
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  font-variant-numeric: tabular-nums;
+}
+
+@mixin with-truncated-text {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin with-selectable-text {
+  user-select: text;
+}

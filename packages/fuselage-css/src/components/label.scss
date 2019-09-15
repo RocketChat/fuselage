@@ -1,0 +1,87 @@
+@import '../helpers.scss';
+@import '../styles/spaces.scss';
+
+$spacing: theme('label-spacing', $spaces-3);
+
+$text-style: (
+  font-family: theme('label-font-family', $text-styles-p1-font-family),
+  font-size: theme('label-font-size', $text-styles-p1-font-size),
+  font-weight: theme('label-font-weight', $text-styles-p1-font-weight),
+  letter-spacing: theme('label-letter-spacing', $text-styles-p1-letter-spacing),
+  line-height: theme('label-line-height', $text-styles-p1-line-height),
+);
+
+$color: theme('label-color', $text-colors-default);
+
+$error-color: theme('label-error-color', $text-colors-danger);
+
+$required-mark-color: theme('label-required-mark-color', $text-colors-danger);
+
+.rcx-label {
+  display: flex;
+
+  &__wrapper {
+    display: flex;
+
+    flex: 0 0 auto;
+
+    flex-flow: row nowrap;
+
+    @include with-text($text-style...);
+  }
+
+  &__text {
+    flex: 1 1 0;
+
+    color: $color;
+
+    @include with-truncated-text;
+    @include with-selectable-text;
+
+    .rcx-label--required &::before {
+      content: '* ';
+
+      color: $required-mark-color;
+    }
+  }
+
+  &__error {
+    flex: 0 1 auto;
+
+    margin-left: $spacing;
+
+    color: $error-color;
+
+    @include with-truncated-text;
+    @include with-selectable-text;
+  }
+
+  &--position-top {
+    align-items: stretch;
+    flex-flow: column nowrap;
+
+    & > .rcx-label__wrapper {
+      margin: 0 0 $spacing 0;
+    }
+  }
+
+  &--position-start {
+    align-items: center;
+    flex-flow: row nowrap;
+
+    & > .rcx-label__wrapper {
+      margin: 0 $spacing 0 0;
+    }
+  }
+
+  &--position-end {
+    align-items: center;
+    flex-flow: row-reverse nowrap;
+
+    & > .rcx-label__wrapper {
+      margin: 0 0 0 $spacing;
+    }
+  }
+
+  @extend .rcx-label--position-top;
+}
