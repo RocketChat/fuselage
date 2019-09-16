@@ -7,7 +7,7 @@
   <a href="https://github.com/RocketChat/Rocket.Chat.Fuselage/graphs/commit-activity">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
   </a>
-  <a href="https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage">
+  <a href="https://rocketchat.github.io/Rocket.Chat.Fuselage">
     <img alt="Storybook" src="https://cdn.jsdelivr.net/gh/storybooks/brand@master/badge/badge-storybook.svg" target="_blank" />
   </a>
   <a href="https://circleci.com/gh/RocketChat/Rocket.Chat.Fuselage" target="_blank">
