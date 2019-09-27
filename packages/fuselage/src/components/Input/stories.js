@@ -124,7 +124,7 @@ storiesOf('Elements|Input', module)
       xAxis={{
         default: {},
         'with placeholder': { placeholder: 'Placeholder' },
-        'with value': { value: 'B' },
+        'with value': { placeholder: 'Placeholder', value: 'B' },
       }}
       yAxis={{
         default: {},

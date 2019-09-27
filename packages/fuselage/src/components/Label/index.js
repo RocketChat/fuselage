@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 
   display: flex;
 
-  flex: 0 0 auto;
+  flex: 1 0 auto;
 
   flex-flow: row nowrap;
 `;
