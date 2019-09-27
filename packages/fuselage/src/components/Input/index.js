@@ -239,10 +239,11 @@ const PlaceholderOption = styled.option`
 const SelectInput = React.forwardRef(function SelectInput({
   children,
   placeholder,
+  value,
   ...props
 }, ref) {
   return <Container>
-    <SelectElement hasPlaceholder={!!placeholder} ref={ref} {...props}>
+    <SelectElement hasPlaceholder={!!placeholder && !value} ref={ref} value={value} {...props}>
       <PlaceholderOption value=''>{placeholder}</PlaceholderOption>
       {children}
     </SelectElement>
