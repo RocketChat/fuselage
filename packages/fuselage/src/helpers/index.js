@@ -70,7 +70,7 @@ export const theme = (varName, ...args) => {
     return getThemeValue(varName, ...args);
   }
 
-  return css`var(--rcx-${ varName }, ${ getThemeValue(varName, ...args) })`;
+  return css(['var(--rcx-', ', ', ')'], varName, getThemeValue(varName, ...args));
 };
 
 // Helper to replace calc() calls in CSS transform property
@@ -88,4 +88,26 @@ export const calc = (expr, args) => (props) => {
   });
 
   return toPX(expr(...mappedArgs));
+};
+
+export const debounce = (fn, delay) => {
+  let timer;
+  let callback;
+
+  function f(...args) {
+    const context = this;
+    clearTimeout(timer);
+    callback = () => fn.apply(context, args);
+    timer = setTimeout(callback, delay);
+    return context;
+  }
+
+  f.flush = () => {
+    clearTimeout(timer);
+    callback();
+  };
+
+  f.cancel = () => clearTimeout(timer);
+
+  return f;
 };
