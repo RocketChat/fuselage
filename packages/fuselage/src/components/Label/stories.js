@@ -51,9 +51,6 @@ storiesOf('Elements|Label', module)
         end: { position: 'end' },
       }}
     />
-    <TextSection>
-      <h2>Label</h2>
-    </TextSection>
   </Document>);
 
 const props = createPropsFromKnobs({
