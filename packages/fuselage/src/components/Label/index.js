@@ -21,10 +21,7 @@ const Wrapper = styled.div`
   ${ withText(textStyle) }
 
   display: flex;
-
-  flex: 1 0 auto;
-
-  flex-flow: row nowrap;
+  align-items: center;
 `;
 
 const topPositioned = css`
@@ -32,25 +29,30 @@ const topPositioned = css`
   align-items: stretch;
 
   & > ${ Wrapper } {
+    flex: 1 0 auto;
     margin: 0 0 ${ spacing } 0;
   }
 `;
 
 const startPositioned = css`
   flex-flow: row nowrap;
-  align-items: center;
+  align-items: flex-start;
 
   & > ${ Wrapper } {
+    flex: 1 0 0;
     margin: 0 ${ spacing } 0 0;
+    align-self: stretch;
   }
 `;
 
 const endPositioned = css`
   flex-flow: row-reverse nowrap;
-  align-items: center;
+  align-items: flex-start;
 
   & > ${ Wrapper } {
+    flex: 1 0 0;
     margin: 0 0 0 ${ spacing };
+    align-self: stretch;
   }
 `;
 
@@ -67,7 +69,7 @@ const Container = styled.label`
 
 const withRequiredMark = css`
   &::before {
-    content: '* ';
+    content: '*\0a0';
 
     color: ${ requiredMarkColor };
   }
@@ -75,7 +77,6 @@ const withRequiredMark = css`
 
 const Text = styled.span`
   ${ normalized }
-  ${ withTruncatedText }
   ${ withSelectableText }
 
   flex: 1 1 0;
@@ -94,6 +95,8 @@ const Error = styled.span`
   margin-left: ${ spacing };
 
   color: ${ errorColor };
+
+  white-space: wrap;
 `;
 
 const LabelContext = createContext(false);
