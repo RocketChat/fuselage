@@ -3,6 +3,9 @@
     "eslint --fix",
     "git add"
   ],
+  "src/hooks/*.js": [
+    "yarn hooks-docs:lint"
+  ],
   "src/**/*.scss": [
     "stylelint --fix",
     "git add"
