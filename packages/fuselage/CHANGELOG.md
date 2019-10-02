@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.5](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.4...v0.2.0-alpha.5) (2019-10-02)
+
+
+### Bug Fixes
+
+* Allow word wrap in Label ([#61](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/61)) ([7c2f269](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7c2f269))
+
+
+### Features
+
+* New hooks ([#62](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/62)) ([2587ecf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2587ecf))
+
+
+
+
+
 # [0.2.0-alpha.4](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.3...v0.2.0-alpha.4) (2019-09-27)
 
 
