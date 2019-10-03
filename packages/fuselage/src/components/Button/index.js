@@ -36,7 +36,7 @@ const withSizeVariant = ({
   line-height: calc(2 * ${ textStyle.lineHeight } - 2 * ${ border.width });
 
   & > ${ Icon } {
-    font-size: ${ iconSizeRatio * textStyle.lineHeight };
+    font-size: calc(${ iconSizeRatio } * ${ textStyle.lineHeight });
   }
 
   ${ ({ square }) => square && css`

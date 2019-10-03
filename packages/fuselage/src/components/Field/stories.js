@@ -22,7 +22,7 @@ storiesOf('Elements|Field', module)
       <h1>Field</h1>
     </TextSection>
     <ShowCaseSection>
-      <Field helpText='Help text' style={{ width: '100%' }}>
+      <Field style={{ width: '100%' }}>
         <Label text='Label'>
           <PseudoInput />
         </Label>

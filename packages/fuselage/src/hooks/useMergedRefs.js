@@ -1,4 +1,6 @@
-export const useMergedRefs = (...refs) => (refValue) => {
+import { useCallback } from 'react';
+
+export const useMergedRefs = (...refs) => useCallback((refValue) => {
   refs.filter(Boolean).forEach((ref) => {
     if (typeof ref === 'function') {
       ref(refValue);
@@ -7,4 +9,4 @@ export const useMergedRefs = (...refs) => (refValue) => {
 
     ref.current = refValue;
   });
-};
+}, refs);
