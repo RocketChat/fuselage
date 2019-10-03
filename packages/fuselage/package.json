@@ -107,7 +107,8 @@
     }
   },
   "dependencies": {
-    "@rocket.chat/icons": "^0.2.0-alpha.0"
+    "@rocket.chat/icons": "^0.2.0-alpha.0",
+    "invariant": "^2.2.4"
   },
   "browserslist": {
     "production": [
