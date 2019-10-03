@@ -1,4 +1,4 @@
-import { Children, cloneElement, useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useState } from 'react';
 
 
 const flatMap = (arr, map = (x) => x) => {
@@ -44,11 +44,6 @@ export const useStyle = (styles, rootClassName, modifiers = {}, forwardedClassNa
   ]).filter(Boolean).join(' '),
   [modifiers, forwardedClassName]);
 };
-
-export const useChildrenWithClassName = (styles, rootClassName, childClassName, children) =>
-  useMemo(() =>
-    Children.map(children, (child) =>
-      cloneElement(child, { className: styles[`${ rootClassName }__${ childClassName }`] }), [children]));
 
 const useMediaQueryHook = (effect) => (query, defaultState = true) => {
   const [state, setState] = useState(defaultState);

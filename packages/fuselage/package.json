@@ -108,7 +108,8 @@
   },
   "dependencies": {
     "@rocket.chat/icons": "^0.2.0-alpha.0",
-    "invariant": "^2.2.4"
+    "invariant": "^2.2.4",
+    "react-is": "^16.10.1"
   },
   "browserslist": {
     "production": [
