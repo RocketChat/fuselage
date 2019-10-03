@@ -33,5 +33,6 @@ addDecorator(withTests({ results }));
 configure(() => {
   require('@rocket.chat/icons/dist/font/RocketChat.minimal.css');
   const requireStories = require.context('../src', true, /stories(\/index)?\.js$/);
-  requireStories.keys().forEach(requireStories);
+  const modules = requireStories.keys().map(requireStories).filter((module) => module.default);
+  return modules;
 }, module);

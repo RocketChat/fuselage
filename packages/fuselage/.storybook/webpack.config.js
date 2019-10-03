@@ -11,19 +11,11 @@ module.exports = async ({ config, mode }) => {
   config.module.rules.push({
     test: /\.scss$/,
     use: [
-      {
-        loader: 'style-loader/useable',
-        options: {
-          singleton: true,
-          hmr: mode === 'development',
-        },
-      },
+      'style-loader',
       {
         loader: 'css-loader',
         options: {
           importLoaders: 2,
-          modules: true,
-          localIdentName: '[local]',
         },
       },
       {
