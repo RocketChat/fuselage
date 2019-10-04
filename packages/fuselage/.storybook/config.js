@@ -1,13 +1,23 @@
-import { addDecorator, addParameters, configure } from '@storybook/react';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { withTests } from '@storybook/addon-jest';
+import { addDecorator, addParameters, configure } from '@storybook/react';
 import { create } from '@storybook/theming';
-
 import 'loki/configure-react';
+
 import manifest from '../package.json';
 import results from './jest-results.json';
 
-
 addParameters({
+  backgrounds: [
+    {
+      name: 'black',
+      value: 'black',
+    },
+  ],
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
   options: {
     theme: create({
       base: 'light',
@@ -20,12 +30,6 @@ addParameters({
     hierarchySeparator: /\//,
     hierarchyRootSeparator: /\|/,
   },
-  backgrounds: [
-    {
-      name: 'black',
-      value: 'black',
-    },
-  ],
 });
 
 addDecorator(withTests({ results }));
@@ -33,6 +37,5 @@ addDecorator(withTests({ results }));
 configure(() => {
   require('@rocket.chat/icons/dist/font/RocketChat.minimal.css');
   const requireStories = require.context('../src', true, /stories(\/index)?\.js$/);
-  const modules = requireStories.keys().map(requireStories).filter((module) => module.default);
-  return modules;
+  return requireStories.keys().map(requireStories).filter((module) => module.default);
 }, module);

@@ -1,5 +1,7 @@
 'use strict';
 
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
+
 module.exports = async ({ config, mode }) => {
   const jsRule = config.module.rules.find(({ test }) => test.test('index.js'));
   jsRule.include = [
@@ -31,6 +33,26 @@ module.exports = async ({ config, mode }) => {
       },
       'sass-loader',
     ],
+  });
+
+  config.module.rules.push({
+    test: /(stories|story)\.mdx$/,
+    use: [
+      'babel-loader',
+      {
+        loader: '@mdx-js/loader',
+        options: {
+          compilers: [createCompiler({})],
+        },
+      },
+    ],
+  });
+
+  config.module.rules.push({
+    test: /(stories|story)\.[tj]sx?$/,
+    loader: require.resolve('@storybook/source-loader'),
+    exclude: [/node_modules/],
+    enforce: 'pre',
   });
 
   return config;
