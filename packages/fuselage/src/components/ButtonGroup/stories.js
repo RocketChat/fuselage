@@ -1,98 +1,77 @@
-import centered from '@storybook/addon-centered/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import {
-  createPropsFromKnobs,
-  Document,
-  ShowCaseSection,
-  TextSection,
-} from '../../helpers/storybook';
-import { Button } from '../Button';
-import { ButtonGroup } from './index';
+import { Button, ButtonGroup } from '../..';
 
+export default {
+  title: 'Collections|ButtonGroup',
+  component: ButtonGroup,
+  parameters: {
+    jest: ['ButtonGroup/spec'],
+  },
+};
 
-storiesOf('Collections|ButtonGroup', module)
-  .addParameters({ jest: ['ButtonGroup/spec'] })
-  .lokiSkip('ButtonGroup', () => <Document>
-    <TextSection>
-      <h1>ButtonGroup</h1>
-      <p>
-      A container for grouping buttons that semantically share a common action context.
-      </p>
-    </TextSection>
-    <ShowCaseSection>
-      <ButtonGroup>
-        <Button primary>Yes</Button>
-        <Button danger>No</Button>
-        <Button>Maybe</Button>
-      </ButtonGroup>
-    </ShowCaseSection>
-  </Document>);
+export const _default = () =>
+  <ButtonGroup>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </ButtonGroup>;
 
-const props = createPropsFromKnobs({
-  hidden: false,
-  invisible: false,
-  stretch: false,
-  vertical: false,
-  wrap: false,
-  align: [null, {
-    start: 'start',
-    end: 'end',
-  }],
-});
+export const wrap = () =>
+  <ButtonGroup wrap>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+    <Button>Button 4</Button>
+    <Button>Button 5</Button>
+    <Button>Button 6</Button>
+    <Button>Button 7</Button>
+    <Button>Button 8</Button>
+    <Button>Button 9</Button>
+    <Button>Button 10</Button>
+    <Button>Button 11</Button>
+    <Button>Button 12</Button>
+    <Button>Button 13</Button>
+    <Button>Button 14</Button>
+    <Button>Button 15</Button>
+    <Button>Button 16</Button>
+    <Button>Button 17</Button>
+    <Button>Button 18</Button>
+    <Button>Button 19</Button>
+    <Button>Button 20</Button>
+  </ButtonGroup>;
 
-const Buttons = ({ count }) => new Array(count).fill(undefined).map((_, i) =>
-  <Button key={i}>Button {i + 1}</Button>
-);
+export const stretch = () =>
+  <ButtonGroup stretch>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </ButtonGroup>;
 
-storiesOf('Collections|ButtonGroup', module)
-  .addDecorator(withKnobs)
-  .addDecorator((storyFn) =>
-    <div
-      style={{
-        boxSizing: 'border-box',
-        width: '100vw',
-      }}
-    >
-      {storyFn()}
-    </div>
-  )
-  .addDecorator(centered)
-  .addParameters({ jest: ['ButtonGroup/spec'] })
-  .add('default', () =>
-    <ButtonGroup {...props()}>
-      <Buttons count={3} />
-    </ButtonGroup>
-  )
-  .add('wrap', () =>
-    <ButtonGroup {...props({ wrap: true })}>
-      <Buttons count={20} />
-    </ButtonGroup>
-  )
-  .add('stretch', () =>
-    <ButtonGroup {...props({ stretch: true })}>
-      <Buttons count={3} />
-    </ButtonGroup>
-  )
-  .add('vertical', () =>
-    <ButtonGroup {...props({ vertical: true })}>
-      <Buttons count={3} />
-    </ButtonGroup>
-  )
-  .add('vertical with stretch', () =>
-    <ButtonGroup {...props({ stretch: true, vertical: true })}>
-      <Buttons count={3} />
-    </ButtonGroup>
-  )
-  .add('hidden', () =>
-    <ButtonGroup {...props({ hidden: true })}>
-      <Buttons count={3} />
-    </ButtonGroup>
-  )
-  .add('invisible', () =>
-    <ButtonGroup {...props({ invisible: true })}>
-      <Buttons count={3} />
-    </ButtonGroup>
-  );
+export const vertical = () =>
+  <ButtonGroup vertical>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </ButtonGroup>;
+
+export const verticalWithStretch = () =>
+  <ButtonGroup vertical stretch>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </ButtonGroup>;
+
+export const alignedAtStart = () =>
+  <ButtonGroup align='start'>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </ButtonGroup>;
+
+export const alignedAtEnd = () =>
+  <ButtonGroup align='end'>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </ButtonGroup>;

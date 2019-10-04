@@ -1,0 +1,364 @@
+@import './transitions.scss';
+
+%ie11-reseted {
+  /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+  position: static;
+  z-index: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+
+  display: inline;
+  visibility: visible;
+  float: none;
+  clear: none;
+  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
+  clip: auto;
+
+  box-sizing: content-box;
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  max-height: none;
+  margin: 0;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+
+  table-layout: auto;
+  empty-cells: show;
+  caption-side: top;
+  border-spacing: 0;
+  list-style: none;
+  list-style-position: outside;
+  list-style-type: disc;
+  list-style-image: none;
+
+  content: normal;
+  quotes: '\201C' '\201D' '\2018' '\2019';
+  counter-reset: none;
+  counter-increment: none;
+  cursor: auto;
+  transition: none;
+  transition-delay: 0s;
+  transition-timing-function: ease;
+  transition-duration: 0s;
+  transition-property: none;
+  transform: none;
+  animation: none;
+  animation-name: none;
+  animation-duration: 0;
+  animation-play-state: running;
+  animation-timing-function: ease;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  text-align: inherit;
+  text-align-last: auto;
+  vertical-align: baseline;
+  white-space: normal;
+  text-decoration: none;
+  text-indent: 0;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  tab-size: 8;
+  hyphens: none;
+
+  opacity: 1;
+  color: inherit;
+  border: 0;
+  border-collapse: separate;
+  border-width: medium;
+  border-style: none;
+  border-color: inherit;
+  border-top: 0;
+  border-top-width: medium;
+  border-top-style: none;
+  border-top-color: inherit;
+  border-right: 0;
+  border-right-width: medium;
+  border-right-style: none;
+  border-right-color: inherit;
+  border-bottom: 0;
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: inherit;
+  border-left: 0;
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: inherit;
+  border-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-image: none;
+  outline: 0;
+  outline-width: medium;
+  outline-style: none;
+  outline-color: invert;
+  background: 0;
+  background-color: transparent;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0 0;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: auto auto;
+  box-shadow: none;
+  text-shadow: none;
+
+  font: normal;
+  font-family: inherit;
+  font-size: medium;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  line-height: normal;
+  animation-fill-mode: none;
+  backface-visibility: visible;
+  column-span: 1;
+  columns: auto;
+  column-count: auto;
+  column-fill: balance;
+  column-gap: normal;
+  column-rule: medium none currentColor;
+  column-rule-color: currentColor;
+  column-rule-style: none;
+  column-rule-width: none;
+  column-width: auto;
+  direction: ltr;
+  orphans: 0;
+  page-break-after: auto;
+  page-break-before: auto;
+  page-break-inside: auto;
+  perspective: none;
+  perspective-origin: 50% 50%;
+  text-decoration-color: inherit;
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  transform-style: flat;
+  unicode-bidi: normal;
+  widows: 0;
+  /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+}
+
+%reseted {
+  all: initial;
+  all: unset;
+}
+
+.rcx-normalized {
+  @at-root {
+    html#{&},
+    body#{&},
+    div#{&},
+    span#{&},
+    applet#{&},
+    object#{&},
+    iframe#{&},
+    h1#{&},
+    h2#{&},
+    h3#{&},
+    h4#{&},
+    h5#{&},
+    h6#{&},
+    p#{&},
+    blockquote#{&},
+    pre#{&},
+    a#{&},
+    abbr#{&},
+    acronym#{&},
+    address#{&},
+    big#{&},
+    cite#{&},
+    code#{&},
+    del#{&},
+    dfn#{&},
+    em#{&},
+    img#{&},
+    ins#{&},
+    kbd#{&},
+    q#{&},
+    s#{&},
+    samp#{&},
+    small#{&},
+    strike#{&},
+    strong#{&},
+    sub#{&},
+    sup#{&},
+    tt#{&},
+    var#{&},
+    b#{&},
+    u#{&},
+    i#{&},
+    center#{&},
+    dl#{&},
+    dt#{&},
+    dd#{&},
+    ol#{&},
+    ul#{&},
+    li#{&},
+    fieldset#{&},
+    form#{&},
+    label#{&},
+    legend#{&},
+    table#{&},
+    caption#{&},
+    tbody#{&},
+    tfoot#{&},
+    thead#{&},
+    tr#{&},
+    th#{&},
+    td#{&},
+    article#{&},
+    aside#{&},
+    canvas#{&},
+    details#{&},
+    embed#{&},
+    figure#{&},
+    figcaption#{&},
+    footer#{&},
+    header#{&},
+    hgroup#{&},
+    main#{&},
+    menu#{&},
+    nav#{&},
+    output#{&},
+    ruby#{&},
+    section#{&},
+    summary#{&},
+    time#{&},
+    mark#{&},
+    audio#{&},
+    video#{&} {
+      margin: 0;
+      padding: 0;
+
+      vertical-align: baseline;
+
+      border: 0;
+
+      font: inherit;
+      font-size: 100%;
+    }
+
+    article#{&},
+    aside#{&},
+    details#{&},
+    figcaption#{&},
+    figure#{&},
+    footer#{&},
+    header#{&},
+    hgroup#{&},
+    main#{&},
+    menu#{&},
+    nav#{&},
+    section#{&} {
+      display: block;
+    }
+
+    *[hidden]#{&} {
+      display: none;
+    }
+
+    body#{&} {
+      line-height: 1;
+    }
+
+    ol#{&},
+    ul#{&} {
+      list-style: none;
+    }
+
+    blockquote#{&},
+    q#{&} {
+      quotes: none;
+    }
+
+    blockquote#{&}::before,
+    blockquote#{&}::after,
+    q#{&}::before,
+    q#{&}::after {
+      content: '';
+      content: none;
+    }
+
+    table#{&} {
+      border-spacing: 0;
+
+      border-collapse: collapse;
+    }
+
+    html#{&} {
+      box-sizing: border-box;
+    }
+
+    *#{&},
+    *#{&}::before,
+    *#{&}::after {
+      box-sizing: inherit;
+
+      user-select: none;
+
+      transition: all $transitions-short-duration;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a#{&} {
+      text-decoration: none;
+
+      color: inherit;
+    }
+
+    button#{&} {
+      overflow: visible;
+
+      width: auto;
+      margin: 0;
+      padding: 0;
+
+      text-align: inherit;
+
+      color: inherit;
+      border: none;
+      outline: none;
+      background: transparent;
+
+      font: inherit;
+      line-height: inherit;
+      -webkit-appearance: none;
+    }
+
+    p#{&},
+    h1#{&},
+    h2#{&},
+    h3#{&},
+    h4#{&},
+    h5#{&},
+    h6#{&},
+    blockquote#{&},
+    pre#{&},
+    ul#{&},
+    ol#{&},
+    li#{&},
+    table#{&},
+    tr#{&},
+    th#{&},
+    td#{&} {
+      user-select: all;
+    }
+  }
+}

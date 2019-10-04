@@ -1,54 +1,70 @@
-import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { extendClassName } from '../../helpers';
-import { normalized } from '../../mixins';
-import { Button } from '../Button';
-import { spacing } from './theme';
+import { useChildrenWithClassName, useClassName } from '../..';
 
-
-export const ButtonGroup = styled.div.attrs(({
+/**
+ * A container for grouping buttons that semantically share a common action context.
+ */
+export const ButtonGroup = React.forwardRef(function ButtonGroup({
+  align,
+  as: Component = 'div',
   className,
+  children,
+  invisible,
+  stretch,
+  vertical,
+  wrap,
   ...props
-}) => ({
-  className: extendClassName('button-group', className, props),
-  role: 'group',
-}))`
-  ${ normalized }
+}, ref) {
+  const classNames = {
+    container: useClassName('rcx-button-group', {
+      align,
+      invisible,
+      stretch,
+      vertical,
+      stretchVertical: !!stretch && !!vertical,
+      wrap,
+    }, className),
+    item: useClassName('rcx-button-group__item'),
+  };
 
-  display: flex;
+  const childrenWithClassName = useChildrenWithClassName(classNames.item, children);
 
-  margin: calc(-1 * ${ spacing }) 0 0 calc(-1 * ${ spacing });
+  return <Component className={classNames.container} ref={ref} role='group' {...props}>
+    {childrenWithClassName}
+  </Component>;
+});
 
-  align-items: center;
-
-  flex-flow: row nowrap;
-  justify-content: center;
-
-  & > ${ Button } {
-    flex: 0 0 auto;
-
-    margin: ${ spacing } 0 0 ${ spacing };
-  }
-
-  ${ ({ wrap }) => wrap && css`flex-wrap: wrap;` }
-
-  ${ ({ stretch }) => stretch && css`
-    justify-content: stretch;
-
-    & > ${ Button } {
-      flex-grow: 1;
-    }
-  ` }
-
-  ${ ({ vertical }) => vertical && css`
-    flex-direction: column;
-
-    ${ ({ stretch }) => stretch && css`align-items: stretch;` }
-  ` }
-
-  ${ ({ align }) =>
-    (align === 'start' && css`justify-content: flex-start;`)
-    || (align === 'end' && css`justify-content: flex-end;`) }
-`;
+ButtonGroup.defaultProps = {
+  as: 'div',
+};
 
 ButtonGroup.displayName = 'ButtonGroup';
+
+ButtonGroup.propTypes = {
+  /**
+   * The alignment that should be applied to the items
+   */
+  align: PropTypes.oneOf(['start', 'end']),
+  /**
+   * The component which will behave as a `ButtonGroup`
+   */
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]).isRequired,
+  /**
+   * Is this component visible?
+   */
+  invisible: PropTypes.bool,
+  /**
+   * Will be the items stretched to fill space?
+   */
+  stretch: PropTypes.bool,
+  /**
+   * Is the items vertically placed?
+   */
+  vertical: PropTypes.bool,
+  /**
+   * Will wrap the items when they exceed the container space?
+   */
+  wrap: PropTypes.bool,
+};

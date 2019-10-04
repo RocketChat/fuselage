@@ -1,0 +1,52 @@
+@import '../../helpers.scss';
+@import '../../mixins.scss';
+@import '../../styles/spaces.scss';
+
+$spacing: theme('button-group-spacing', $spaces-5);
+
+.rcx-button-group {
+  @include reseted;
+
+  display: flex;
+
+  margin: calc(-1 * #{$spacing}) 0 0 calc(-1 * #{$spacing});
+
+  align-items: center;
+
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  & > .rcx-button-group__item {
+    flex: 0 0 auto;
+
+    margin: $spacing 0 0 $spacing;
+  }
+}
+
+.rcx-button-group--wrap {
+  flex-wrap: wrap;
+}
+
+.rcx-button-group--stretch {
+  justify-content: stretch;
+
+  & > .rcx-button-group__item {
+    flex-grow: 1;
+  }
+}
+
+.rcx-button-group--vertical {
+  flex-direction: column;
+}
+
+.rcx-button-group--stretch-vertical {
+  align-items: stretch;
+}
+
+.rcx-button-group--align-start {
+  justify-content: flex-start;
+}
+
+.rcx-button-group--align-end {
+  justify-content: flex-end;
+}
