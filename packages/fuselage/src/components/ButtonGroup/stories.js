@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, ButtonGroup } from '../..';
 
 export default {
-  title: 'Collections|ButtonGroup',
+  title: 'Buttons|ButtonGroup',
   component: ButtonGroup,
   parameters: {
     jest: ['ButtonGroup/spec'],

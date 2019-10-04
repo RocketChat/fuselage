@@ -22,20 +22,18 @@
     "build": "webpack --mode production",
     "eslint": "eslint src",
     "stylelint": "stylelint 'src/**/*.scss'",
-    "lint": "run-s eslint stylelint hooks-docs:lint",
-    "lint-staged": "run-s hooks-docs:readme && git add README.md && lint-staged",
+    "lint": "run-s eslint stylelint",
+    "lint-staged": "lint-staged",
     "test": "jest",
     "test:results": "jest --json --outputFile=.storybook/jest-results.json",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "docs:hooks": "documentation readme src/hooks/index.js --section='API Reference' --readme-file src/docs/Hooks.mdx",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "update-storybook": "run-s test:results build-storybook loki:update",
-    "hooks-docs": "documentation serve --watch src/hooks/index.js",
-    "hooks-docs:lint": "documentation lint src/hooks/index.js",
-    "hooks-docs:readme": "documentation readme src/hooks/index.js --section=Hooks"
+    "update-storybook": "run-s test:results docs:hooks build-storybook loki:update"
   },
   "peerDependencies": {
     "react": "^16.8.6",
@@ -91,7 +89,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/mocks/styleMock.js"
+      "\\.(css|scss)$": "<rootDir>/.jest/styleMock.js"
     }
   },
   "loki": {

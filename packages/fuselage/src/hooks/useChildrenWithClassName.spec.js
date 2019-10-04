@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { testHook } from '../helpers/jest';
+import { testHook } from '../../.jest/helpers';
 import { useChildrenWithClassName } from './useChildrenWithClassName';
 
 describe('useChildrenWithClassName hook', () => {

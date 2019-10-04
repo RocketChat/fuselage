@@ -1,34 +1,46 @@
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { extendClassName } from '../../helpers';
-import { normalized } from '../../mixins';
+import { useChildrenWithClassName, useClassName } from '../../hooks';
 import { Field } from '../Field';
-import { spacing } from './theme';
 
-
-export const FieldGroup = styled.fieldset.attrs(({
+/**
+ * A container for grouping fields that semantically share a common data context.
+ */
+export const FieldGroup = React.forwardRef(function FieldGroup({
+  as: Component = 'fieldset',
   className,
+  children,
+  invisible,
   ...props
-}) => ({
-  className: extendClassName('field-group', className, props),
-  role: 'group',
-}))`
-  ${ normalized }
+}, ref) {
+  const classNames = {
+    container: useClassName('rcx-field-group', {
+      invisible,
+    }, className),
+    item: useClassName('rcx-field-group__item'),
+  };
 
-  display: flex;
+  const childrenWithClassName = useChildrenWithClassName(classNames.item, children, (child) => child.type === Field);
 
-  margin-top: calc(-1 * ${ spacing });
+  return <Component className={classNames.container} ref={ref} role='group' {...props}>
+    {childrenWithClassName}
+  </Component>;
+});
 
-  align-items: center;
-
-  flex-flow: column nowrap;
-  justify-content: center;
-
-  & > ${ Field } {
-    flex: 0 0 auto;
-
-    margin-top: ${ spacing };
-  }
-`;
+FieldGroup.defaultProps = {
+  as: 'fieldset',
+};
 
 FieldGroup.displayName = 'FieldGroup';
+
+FieldGroup.propTypes = {
+  /**
+   * The component which will behave as a `FieldGroup`
+   */
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
+  /**
+   * Is this component visible?
+   */
+  invisible: PropTypes.bool,
+};

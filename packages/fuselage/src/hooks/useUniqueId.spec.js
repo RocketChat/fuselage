@@ -1,4 +1,4 @@
-import { testHook } from '../helpers/jest';
+import { testHook } from '../../.jest/helpers';
 import { useUniqueId } from './useUniqueId';
 
 describe('useUniqueId hook', () => {

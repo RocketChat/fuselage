@@ -1,0 +1,24 @@
+@import '../helpers.scss';
+@import '../mixins.scss';
+@import '../styles/spaces.scss';
+
+$spacing: theme('field-group-spacing', $spaces-6);
+
+.rcx-field-group {
+  @include reseted;
+
+  display: flex;
+
+  margin-top: calc(-1 * #{$spacing});
+
+  align-items: center;
+
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.rcx-field-group__item {
+  flex: 0 0 auto;
+
+  margin-top: $spacing;
+}

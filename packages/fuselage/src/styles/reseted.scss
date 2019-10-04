@@ -157,208 +157,29 @@
 %reseted {
   all: initial;
   all: unset;
-}
 
-.rcx-normalized {
-  @at-root {
-    html#{&},
-    body#{&},
-    div#{&},
-    span#{&},
-    applet#{&},
-    object#{&},
-    iframe#{&},
-    h1#{&},
-    h2#{&},
-    h3#{&},
-    h4#{&},
-    h5#{&},
-    h6#{&},
-    p#{&},
-    blockquote#{&},
-    pre#{&},
-    a#{&},
-    abbr#{&},
-    acronym#{&},
-    address#{&},
-    big#{&},
-    cite#{&},
-    code#{&},
-    del#{&},
-    dfn#{&},
-    em#{&},
-    img#{&},
-    ins#{&},
-    kbd#{&},
-    q#{&},
-    s#{&},
-    samp#{&},
-    small#{&},
-    strike#{&},
-    strong#{&},
-    sub#{&},
-    sup#{&},
-    tt#{&},
-    var#{&},
-    b#{&},
-    u#{&},
-    i#{&},
-    center#{&},
-    dl#{&},
-    dt#{&},
-    dd#{&},
-    ol#{&},
-    ul#{&},
-    li#{&},
-    fieldset#{&},
-    form#{&},
-    label#{&},
-    legend#{&},
-    table#{&},
-    caption#{&},
-    tbody#{&},
-    tfoot#{&},
-    thead#{&},
-    tr#{&},
-    th#{&},
-    td#{&},
-    article#{&},
-    aside#{&},
-    canvas#{&},
-    details#{&},
-    embed#{&},
-    figure#{&},
-    figcaption#{&},
-    footer#{&},
-    header#{&},
-    hgroup#{&},
-    main#{&},
-    menu#{&},
-    nav#{&},
-    output#{&},
-    ruby#{&},
-    section#{&},
-    summary#{&},
-    time#{&},
-    mark#{&},
-    audio#{&},
-    video#{&} {
-      margin: 0;
-      padding: 0;
+  &.hidden,
+  &[hidden],
+  &--hidden {
+    display: none;
+  }
 
-      vertical-align: baseline;
+  &.invisible,
+  &--invisible {
+    visibility: hidden;
 
-      border: 0;
+    opacity: 0;
+  }
 
-      font: inherit;
-      font-size: 100%;
-    }
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
 
-    article#{&},
-    aside#{&},
-    details#{&},
-    figcaption#{&},
-    figure#{&},
-    footer#{&},
-    header#{&},
-    hgroup#{&},
-    main#{&},
-    menu#{&},
-    nav#{&},
-    section#{&} {
-      display: block;
-    }
+    user-select: none;
 
-    *[hidden]#{&} {
-      display: none;
-    }
-
-    body#{&} {
-      line-height: 1;
-    }
-
-    ol#{&},
-    ul#{&} {
-      list-style: none;
-    }
-
-    blockquote#{&},
-    q#{&} {
-      quotes: none;
-    }
-
-    blockquote#{&}::before,
-    blockquote#{&}::after,
-    q#{&}::before,
-    q#{&}::after {
-      content: '';
-      content: none;
-    }
-
-    table#{&} {
-      border-spacing: 0;
-
-      border-collapse: collapse;
-    }
-
-    html#{&} {
-      box-sizing: border-box;
-    }
-
-    *#{&},
-    *#{&}::before,
-    *#{&}::after {
-      box-sizing: inherit;
-
-      user-select: none;
-
-      transition: all $transitions-short-duration;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    a#{&} {
-      text-decoration: none;
-
-      color: inherit;
-    }
-
-    button#{&} {
-      overflow: visible;
-
-      width: auto;
-      margin: 0;
-      padding: 0;
-
-      text-align: inherit;
-
-      color: inherit;
-      border: none;
-      outline: none;
-      background: transparent;
-
-      font: inherit;
-      line-height: inherit;
-      -webkit-appearance: none;
-    }
-
-    p#{&},
-    h1#{&},
-    h2#{&},
-    h3#{&},
-    h4#{&},
-    h5#{&},
-    h6#{&},
-    blockquote#{&},
-    pre#{&},
-    ul#{&},
-    ol#{&},
-    li#{&},
-    table#{&},
-    tr#{&},
-    th#{&},
-    td#{&} {
-      user-select: all;
-    }
+    transition: all $transitions-short-duration;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

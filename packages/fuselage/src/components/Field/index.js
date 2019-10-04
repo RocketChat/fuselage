@@ -1,21 +1,38 @@
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { rebuildClassName } from '../../helpers';
-import { normalized } from '../../mixins';
-import { Hint } from '../Hint';
-import { hintSpacing } from './theme';
+import { useChildrenWithClassName, useClassName, Hint } from '../..';
 
+export const Field = React.forwardRef(function Field({
+  as: Component = 'div',
+  children,
+  className,
+  invisible,
+  ...props
+}, ref) {
+  const classNames = {
+    container: useClassName('rcx-field', { invisible }, className),
+    hint: useClassName('rcx-field__hint'),
+  };
 
-export const Field = styled.div.attrs(rebuildClassName('field'))`
-  ${ normalized }
+  const patchedChildren = useChildrenWithClassName(classNames.hint, children, (child) => child.type === Hint);
 
-  display: flex;
+  return <Component children={patchedChildren} className={classNames.container} ref={ref} {...props} />;
+});
 
-  flex-flow: column nowrap;
-
-  ${ Hint } {
-    margin-top: ${ hintSpacing };
-  }
-`;
+Field.defaultProps = {
+  as: 'div',
+};
 
 Field.displayName = 'Field';
+
+Field.propTypes = {
+  /**
+   * The component which will behave as a `Field`
+   */
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
+  /**
+   * Is this component visible?
+   */
+  invisible: PropTypes.bool,
+};

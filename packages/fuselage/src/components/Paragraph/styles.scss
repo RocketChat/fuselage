@@ -1,0 +1,26 @@
+@import '../helpers.scss';
+@import '../mixins.scss';
+@import '../styles/spaces.scss';
+@import '../styles/text-colors.scss';
+@import '../styles/text-styles.scss';
+
+$spacing: theme('paragraph-spacing', $spaces-5);
+
+$color: theme('paragraph-color', $text-colors-default);
+
+$text-style: (
+  font-family: theme('paragraph-font-family', $text-styles-p1-font-family),
+  font-size: theme('paragraph-font-size', $text-styles-p1-font-size),
+  font-weight: theme('paragraph-font-weight', $text-styles-p1-font-weight),
+  letter-spacing: theme('paragraph-letter-spacing', $text-styles-p1-letter-spacing),
+  line-height: theme('paragraph-line-height', $text-styles-p1-line-height),
+);
+
+.rcx-paragraph {
+  margin-bottom: $spacing;
+
+  color: $color;
+
+  @include with-text($text-style...);
+  @include with-selectable-text;
+}

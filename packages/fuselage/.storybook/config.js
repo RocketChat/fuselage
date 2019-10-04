@@ -29,6 +29,11 @@ addParameters({
     panelPosition: 'right',
     hierarchySeparator: /\//,
     hierarchyRootSeparator: /\|/,
+    // storySort: ([, a], [, b]) => {
+    //   const roots = ['Fuselage', 'Buttons', 'Forms', 'Typography'];
+    //   const getRootIndex = ({ kind }) => roots.findIndex((root) => kind.startsWith(`${ root }|`));
+    //   return getRootIndex(a) - getRootIndex(b);
+    // },
   },
 });
 
@@ -36,6 +41,12 @@ addDecorator(withTests({ results }));
 
 configure(() => {
   require('@rocket.chat/icons/dist/font/RocketChat.minimal.css');
-  const requireStories = require.context('../src', true, /stories(\/index)?\.js$/);
-  return requireStories.keys().map(requireStories).filter((module) => module.default);
+
+  const documentationStories = require.context('../src/docs', true, /\.(md|js)x?$/);
+  const componentStories = require.context('../src/components', true, /stories(\/index)?\.(md|js)x?$/);
+
+  return [
+    ...documentationStories.keys().map(documentationStories),
+    ...componentStories.keys().map(componentStories)
+  ].filter((module) => module.default && module.default.title);
 }, module);

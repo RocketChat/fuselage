@@ -1,4 +1,3 @@
-@import './styles/reseted.scss';
 @import './styles/text-styles.scss';
 @import './styles/transitions.scss';
 
@@ -15,31 +14,6 @@
 @mixin reseted {
   @extend %ie11-reseted;
   @extend %reseted;
-
-  &.hidden,
-  &[hidden],
-  &--hidden {
-    display: none;
-  }
-
-  &.invisible,
-  &--invisible {
-    visibility: hidden;
-
-    opacity: 0;
-  }
-
-  &,
-  &::before,
-  &::after {
-    box-sizing: border-box;
-
-    user-select: none;
-
-    transition: all $transitions-short-duration;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 }
 
 @mixin scrollable {

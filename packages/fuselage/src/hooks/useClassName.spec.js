@@ -1,4 +1,4 @@
-import { testHook } from '../helpers/jest';
+import { testHook } from '../../.jest/helpers';
 import { useClassName } from './useClassName';
 
 describe('useClassName hook', () => {

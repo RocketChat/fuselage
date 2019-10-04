@@ -1,0 +1,14 @@
+@import '../mixins.scss';
+
+.rcx-icon {
+  @include reseted;
+
+  display: inline-block;
+
+  font-family: 'RocketChat';
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}

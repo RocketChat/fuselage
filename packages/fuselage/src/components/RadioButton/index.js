@@ -1,100 +1,33 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import styled, { css } from 'styled-components';
 
-import { extendClassName } from '../../helpers';
-import {
-  visuallyHidden,
-  normalized,
-  withBorder,
-  clickable,
-  withButtonActionColors,
-  whenDisabled,
-} from '../../mixins';
+import { useClassName } from '../../hooks';
 import { Label } from '../Label';
-import {
-  size,
-  border,
-  uncheckedColors,
-  checkedColors,
-  icon,
-} from './theme';
 
-
-const Container = styled(Label)`
-  ${ clickable }
-`;
-
-const Input = styled.input`
-  ${ visuallyHidden }
-`;
-
-const withUncheckedColors = withButtonActionColors(uncheckedColors, Input, '+ &');
-const withCheckedColors = withButtonActionColors(checkedColors, css`${ Input }:checked`, '+ &');
-
-const withCheckedIcon = css`
-  &::before {
-    content: '';
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    display: block;
-    width: calc(${ icon.size } * ${ size });
-    height: calc(${ icon.size } * ${ size });
-
-    transform: translate(-50%, -50%);
-
-    background-color: currentColor;
-
-    border-radius: 50%;
-  }
-`;
-
-const Fake = styled.i`
-  ${ normalized }
-
-  position: relative;
-
-  width: ${ size };
-  height: ${ size };
-
-  ${ withBorder(border) }
-
-  ${ withUncheckedColors }
-  ${ withCheckedColors }
-
-  ${ Input }:checked + & {
-    ${ withCheckedIcon }
-  }
-
-  ${ whenDisabled(css`cursor: not-allowed;`, Input, '+ &') }
-`;
-
-export const RadioButton = styled(React.forwardRef(function RadioButton({
+export const RadioButton = React.forwardRef(function RadioButton({
   className,
   hidden,
   invisible,
+  style,
   ...props
 }, ref) {
-  return <Container
-    className={extendClassName('radio-button', className, {
-      hidden,
-      invisible,
-      ...props,
-    })}
-    hidden={hidden}
-    invisible={invisible}
-  >
-    <Input
-      hidden={hidden}
-      invisible={invisible}
-      ref={ref}
-      type='radio'
-      {...props}
-    />
-    <Fake aria-hidden='true' />
-  </Container>;
-}))``;
+  const classNames = {
+    container: useClassName('rcx-radio-button', { invisible }, className),
+    input: useClassName('rcx-radio-button__input'),
+    fake: useClassName('rcx-radio-button__fake'),
+  };
+
+  return <Label className={classNames.container} hidden={hidden} invisible={invisible} style={style}>
+    <input className={classNames.input} ref={ref} type='radio' {...props} />
+    <i className={classNames.fake} aria-hidden='true' />
+  </Label>;
+});
 
 RadioButton.displayName = 'RadioButton';
+
+RadioButton.propTypes = {
+  /**
+   * Is this component visible?
+   */
+  invisible: PropTypes.bool,
+};

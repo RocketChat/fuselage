@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useChildrenWithClassName, useClassName } from '../..';
+import { useChildrenWithClassName, useClassName } from '../../hooks';
+import { Button } from '../Button';
 
 /**
  * A container for grouping buttons that semantically share a common action context.
@@ -26,10 +27,10 @@ export const ButtonGroup = React.forwardRef(function ButtonGroup({
       stretchVertical: !!stretch && !!vertical,
       wrap,
     }, className),
-    item: useClassName('rcx-button-group__item'),
+    item: useClassName('rcx-button-group__item', { stretch }),
   };
 
-  const childrenWithClassName = useChildrenWithClassName(classNames.item, children);
+  const childrenWithClassName = useChildrenWithClassName(classNames.item, children, (child) => child.type === Button);
 
   return <Component className={classNames.container} ref={ref} role='group' {...props}>
     {childrenWithClassName}
@@ -50,7 +51,7 @@ ButtonGroup.propTypes = {
   /**
    * The component which will behave as a `ButtonGroup`
    */
-  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]).isRequired,
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
   /**
    * Is this component visible?
    */

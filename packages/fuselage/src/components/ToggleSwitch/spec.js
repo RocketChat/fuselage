@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { ToggleSwitch } from './index';
-
+import { ToggleSwitch } from '../..';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

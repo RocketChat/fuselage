@@ -1,25 +1,41 @@
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { rebuildClassName } from '../../helpers';
-import { normalized, withText, withSelectableText } from '../../mixins';
-import {
-  spacing,
-  color,
-  textStyle,
-} from './theme';
+import { useClassName } from '../../hooks';
 
+export const Headline = React.forwardRef(function Headline({
+  as: _as,
+  className,
+  invisible,
+  level = 1,
+  ...props
+}, ref) {
+  const Component = _as || `h${ level }`;
 
-export const Headline = styled.h1.attrs(rebuildClassName('headline'))`
-  ${ normalized }
+  const classNames = {
+    container: useClassName('rcx-headline', { invisible }, className),
+  };
 
-  margin-bottom: ${ spacing };
+  return <Component className={classNames.container} ref={ref} {...props} />;
+});
 
-  color: ${ color };
-
-  cursor: default;
-
-  ${ withText(textStyle) }
-  ${ withSelectableText }
-`;
+Headline.defaultProps = {
+  level: 1,
+};
 
 Headline.displayName = 'Headline';
+
+Headline.propTypes = {
+  /**
+   * The component which will behave as a `Headline`
+   */
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
+  /**
+   * Is this component visible?
+   */
+  invisible: PropTypes.bool,
+  /**
+   * The heading level, from 1 to 6 (`h1` to `h6`)
+   */
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+};

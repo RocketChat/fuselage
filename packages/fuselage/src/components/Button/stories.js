@@ -1,127 +1,39 @@
-import * as icons from '@rocket.chat/icons/dist/font';
-import { action } from '@storybook/addon-actions';
-import centered from '@storybook/addon-centered/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import {
-  createPropsFromKnobs,
-  Document,
-  PropsVariationSection,
-  TextSection,
-} from '../../helpers/storybook';
-import { Icon } from '../Icon';
-import { Button } from './index';
+import { Button, Icon } from '../..';
 
+export default {
+  title: 'Buttons|Button',
+  component: Button,
+  parameters: {
+    jest: ['Button/spec'],
+  },
+};
 
-storiesOf('Elements|Button', module)
-  .addParameters({ jest: ['Button/spec'] })
-  .lokiSkip('Button', () => <Document>
-    <TextSection>
-      <h1>Button</h1>
-      <p>
-      A button indicates a possible user action. By default, it's rendered as a HTML5 <code>{'<button>'}</code> element.
-      </p>
-    </TextSection>
-    <TextSection>
-      <h2>Basic</h2>
-    </TextSection>
-    <PropsVariationSection
-      component={Button}
-      xAxis={{
-        text: { children: 'Button' },
-        'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },
-        'text + icon': { children: <><Icon iconName='circled-arrow-down' /> Button</> },
-        'text + icon + danger': { children: <><Icon iconName='circled-arrow-down' /> Button</>, danger: true },
-      }}
-      yAxis={{
-        default: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
-        disabled: { disabled: true },
-      }}
-    />
-    <TextSection>
-      <h2>Primary</h2>
-    </TextSection>
-    <PropsVariationSection
-      component={Button}
-      common={{ primary: true }}
-      xAxis={{
-        text: { children: 'Button' },
-        'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },
-        'text + icon': { children: <><Icon iconName='circled-arrow-down' /> Button</> },
-        'text + icon + danger': { children: <><Icon iconName='circled-arrow-down' /> Button</>, danger: true },
-      }}
-      yAxis={{
-        default: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
-        disabled: { disabled: true },
-      }}
-    />
-    <TextSection>
-      <h2>Ghost</h2>
-    </TextSection>
-    <PropsVariationSection
-      component={Button}
-      common={{ ghost: true }}
-      xAxis={{
-        text: { children: 'Button' },
-        'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },
-        'text + icon': { children: <><Icon iconName='circled-arrow-down' /> Button</> },
-        'text + icon + danger': { children: <><Icon iconName='circled-arrow-down' /> Button</>, danger: true },
-      }}
-      yAxis={{
-        default: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus' },
-        disabled: { disabled: true },
-      }}
-    />
-  </Document>);
+export const _default = () =>
+  <Button>Button</Button>;
 
-const props = createPropsFromKnobs({
-  danger: false,
-  ghost: false,
-  hidden: false,
-  invisible: false,
-  primary: false,
-  small: false,
-  square: false,
-  children: 'Button',
-  onClick: action('click'),
-});
+export const primary = () =>
+  <Button primary>Button</Button>;
 
-storiesOf('Elements|Button', module)
-  .addDecorator(withKnobs)
-  .addDecorator(centered)
-  .addParameters({ jest: ['Button/spec'] })
-  .add('basic', () => <Button {...props()} />)
-  .add('primary', () => <Button {...props({ primary: true })} />)
-  .add('ghost', () => <Button {...props({ ghost: true })} />)
-  .add('danger', () => <Button {...props({ danger: true })} />)
-  .add('small', () => <Button {...props({ small: true })} />)
-  .add('with icon', () => <Button
-    {...props({
-      children: <>
-        <Icon iconName={select('children/icon', icons, icons.edit)} /> {text('children/text', 'Edit')}
-      </>,
-    })}
-  />)
-  .add('as link', () => <Button
-    {...props()}
-    as='a'
-    href='https://rocket.chat'
-    external
-  />
-  )
-  .add('square', () => (
-    <Button {...props({ square: true, children: <Icon iconName={select('children/icon', icons, icons.plus)} /> })} />
-  ))
-  .add('hidden', () => <Button {...props({ hidden: true })} />)
-  .add('invisible', () => <Button {...props({ invisible: true })} />);
+export const ghost = () =>
+  <Button ghost>Button</Button>;
+
+export const danger = () =>
+  <Button danger>Button</Button>;
+
+export const small = () =>
+  <Button small>Button</Button>;
+
+export const withIcon = () =>
+  <Button>
+    <Icon iconName='edit' /> Edit
+  </Button>;
+
+export const asLink = () =>
+  <Button as='a' href='https://rocket.chat' external>Button</Button>;
+
+export const square = () =>
+  <Button square>
+    <Icon iconName='plus' />
+  </Button>;

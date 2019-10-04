@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Icon } from './index';
-
+import { Icon } from '../..';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

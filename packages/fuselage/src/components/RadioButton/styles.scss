@@ -1,0 +1,108 @@
+@import '../helpers.scss';
+@import '../mixins.scss';
+@import '../styles/borders.scss';
+@import '../styles/button-colors.scss';
+@import '../styles/text-styles.scss';
+
+$size: theme('radio-button-size', $text-styles-p1-line-height);
+
+$border: (
+  width: theme('radio-button-border-width', $borders-default-width),
+  radius: theme('radio-button-border-radius', 50%),
+);
+
+$icon-size: theme('radio-button-icon-size', 0.3);
+
+$unchecked-colors: (
+  background-color: theme('radio-button-background-color', $button-colors-empty-background-color),
+  border-color: theme('radio-button-border-color', $button-colors-empty-border-color),
+  color: theme('radio-button-color', $button-colors-empty-color),
+  hover-background-color: theme('radio-button-hover-background-color', $button-colors-empty-hover-background-color),
+  hover-border-color: theme('radio-button-hover-border-color', $button-colors-empty-hover-border-color),
+  active-background-color: theme('radio-button-active-background-color', $button-colors-empty-active-background-color),
+  active-border-color: theme('radio-button-active-border-color', $button-colors-empty-active-border-color),
+  focus-background-color: theme('radio-button-focus-background-color', $button-colors-empty-focus-background-color),
+  focus-border-color: theme('radio-button-focus-border-color', $button-colors-empty-focus-border-color),
+  focus-shadow-color: theme('radio-button-focus-shadow-color', $button-colors-empty-focus-shadow-color),
+  disabled-background-color: theme('radio-button-disabled-background-color', $button-colors-empty-disabled-background-color),
+  disabled-border-color: theme('radio-button-disabled-border-color', $button-colors-empty-disabled-border-color),
+  disabled-color: theme('radio-button-disabled-color', $button-colors-empty-disabled-color),
+);
+
+$checked-colors: (
+  background-color: theme('radio-button-checked-background-color', $button-colors-primary-background-color),
+  border-color: theme('radio-button-checked-border-color', $button-colors-primary-border-color),
+  color: theme('radio-button-checked-color', $button-colors-primary-color),
+  hover-background-color: theme('radio-button-checked-hover-background-color', $button-colors-primary-hover-background-color),
+  hover-border-color: theme('radio-button-checked-hover-border-color', $button-colors-primary-hover-border-color),
+  active-background-color: theme('radio-button-checked-active-background-color', $button-colors-primary-active-background-color),
+  active-border-color: theme('radio-button-checked-active-border-color', $button-colors-primary-active-border-color),
+  focus-background-color: theme('radio-button-checked-focus-background-color', $button-colors-primary-focus-background-color),
+  focus-border-color: theme('radio-button-checked-focus-border-color', $button-colors-primary-focus-border-color),
+  focus-shadow-color: theme('radio-button-checked-focus-shadow-color', $button-colors-primary-focus-shadow-color),
+  disabled-background-color: theme('radio-button-checked-disabled-background-color', $button-colors-primary-disabled-background-color),
+  disabled-border-color: theme('radio-button-checked-disabled-border-color', $button-colors-primary-disabled-border-color),
+  disabled-color: theme('radio-button-checked-disabled-color', $button-colors-primary-disabled-color),
+);
+
+@mixin with-unchecked-colors {
+  @include with-button-action-colors($unchecked-colors..., $source: '.rcx-radio-button__input', $target: '+ &');
+}
+
+@mixin with-checked-colors {
+  @include with-button-action-colors($checked-colors..., $source: '.rcx-radio-button__input:checked', $target: '+ &');
+}
+
+@mixin with-checked-icon {
+  &::before {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+
+    width: calc(#{$icon-size} * #{$size});
+    height: calc(#{$icon-size} * #{$size});
+
+    content: '';
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background-color: currentColor;
+  }
+}
+
+.rcx-radio-button {
+  @include reseted;
+  @include clickable;
+
+  display: inline-flex;
+}
+
+.rcx-radio-button__input {
+  @include visually-hidden;
+}
+
+.rcx-radio-button__fake {
+  @include reseted;
+
+  position: relative;
+
+  width: $size;
+  height: $size;
+
+  @include with-border($border...);
+  @include with-unchecked-colors;
+  @include with-checked-colors;
+
+  .rcx-radio-button__input:checked + & {
+    @include with-checked-icon;
+  }
+
+  @include when-disabled($source: '.rcx-radio-button__input', $target: '+ &') {
+    cursor: not-allowed;
+  }
+}

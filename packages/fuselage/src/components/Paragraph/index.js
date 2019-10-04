@@ -1,25 +1,34 @@
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { rebuildClassName } from '../../helpers';
-import { normalized, withText, withSelectableText } from '../../mixins';
-import {
-  spacing,
-  color,
-  textStyle,
-} from './theme';
+import { useClassName } from '../../hooks';
 
+export const Paragraph = React.forwardRef(function Paragraph({
+  as: Component = 'p',
+  className,
+  invisible,
+  ...props
+}, ref) {
+  const classNames = {
+    container: useClassName('rcx-paragraph', { invisible }, className),
+  };
 
-export const Paragraph = styled.p.attrs(rebuildClassName('paragraph'))`
-  ${ normalized }
+  return <Component className={classNames.container} ref={ref} {...props} />;
+});
 
-  margin-bottom: ${ spacing };
-
-  color: ${ color };
-
-  cursor: default;
-
-  ${ withText(textStyle) }
-  ${ withSelectableText }
-`;
+Paragraph.defaultProps = {
+  as: 'p',
+};
 
 Paragraph.displayName = 'Paragraph';
+
+Paragraph.propTypes = {
+  /**
+   * The component which will behave as a `Paragraph`
+   */
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
+  /**
+   * Is this component visible?
+   */
+  invisible: PropTypes.bool,
+};

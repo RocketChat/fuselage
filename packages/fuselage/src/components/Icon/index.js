@@ -1,35 +1,28 @@
 import * as characters from '@rocket.chat/icons/dist/font/characters';
 import * as names from '@rocket.chat/icons/dist/font/index';
-import styled from 'styled-components';
+import React from 'react';
 
-import { extendClassName } from '../../helpers';
-import { normalized } from '../../mixins';
+import { useClassName } from '../../hooks';
 
+const nameToCharacterMapping = Object.entries(names)
+  .reduce((map, [symbol, name]) => ({
+    ...map,
+    [name]: characters[symbol],
+  }), {});
 
-const nameToCharacterMapping = Object.entries(names).reduce((map, [symbol, name]) => ({
-  ...map,
-  [name]: characters[symbol],
-}), {});
-
-export const Icon = styled.i.attrs(({
+export const Icon = React.forwardRef(function Icon({
   className,
   iconName,
+  name,
   ...props
-}) => ({
-  'aria-hidden': 'true',
-  className: extendClassName('icon', className, props),
-  children: nameToCharacterMapping[iconName],
-}))`
-  ${ normalized }
+}, ref) {
+  const classNames = {
+    element: useClassName('rcx-icon', {}, className),
+  };
 
-  display: inline-block;
+  const children = nameToCharacterMapping[iconName || name];
 
-  font-family: 'RocketChat';
-  font-weight: 400;
-  font-style: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-rendering: auto;
-`;
+  return <i aria-hidden='true' children={children} className={classNames.element} ref={ref} {...props} />;
+});
 
 Icon.displayName = 'Icon';

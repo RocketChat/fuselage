@@ -15,12 +15,6 @@ $spacing: theme('button-group-spacing', $spaces-5);
 
   flex-flow: row nowrap;
   justify-content: center;
-
-  & > .rcx-button-group__item {
-    flex: 0 0 auto;
-
-    margin: $spacing 0 0 $spacing;
-  }
 }
 
 .rcx-button-group--wrap {
@@ -29,10 +23,6 @@ $spacing: theme('button-group-spacing', $spaces-5);
 
 .rcx-button-group--stretch {
   justify-content: stretch;
-
-  & > .rcx-button-group__item {
-    flex-grow: 1;
-  }
 }
 
 .rcx-button-group--vertical {
@@ -49,4 +39,14 @@ $spacing: theme('button-group-spacing', $spaces-5);
 
 .rcx-button-group--align-end {
   justify-content: flex-end;
+}
+
+.rcx-button-group__item {
+  flex: 0 0 auto;
+
+  margin: $spacing 0 0 $spacing;
+}
+
+.rcx-button-group__item--stretch {
+  flex-grow: 1;
 }

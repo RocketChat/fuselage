@@ -1,0 +1,28 @@
+@import '../../helpers.scss';
+@import '../../mixins.scss';
+@import '../../styles/spaces.scss';
+@import '../../styles/text-colors.scss';
+@import '../../styles/text-styles.scss';
+
+$spacing: theme('headline-spacing', $spaces-5);
+
+$color: theme('headline-color', $text-colors-default);
+
+$text-style: (
+  font-family: theme('headline-font-family', $text-styles-h1-font-family),
+  font-size: theme('headline-font-size', $text-styles-h1-font-size),
+  font-weight: theme('headline-font-weight', $text-styles-h1-font-weight),
+  letter-spacing: theme('headline-letter-spacing', $text-styles-h1-letter-spacing),
+  line-height: theme('headline-line-height', $text-styles-h1-line-height),
+);
+
+.rcx-headline {
+  @include reseted;
+
+  margin-bottom: $spacing;
+
+  color: $color;
+
+  @include with-text($text-style...);
+  @include with-selectable-text;
+}
