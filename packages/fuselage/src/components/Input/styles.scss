@@ -1,5 +1,5 @@
-@import '../helpers.scss';
-@import '../styles/borders.scss';
+@import '../../helpers.scss';
+@import '../../styles/borders.scss';
 
 $color: theme('input-color', map-get($colors, dark800));
 $icon-color: theme('input-icon-color', map-get($colors, dark800));

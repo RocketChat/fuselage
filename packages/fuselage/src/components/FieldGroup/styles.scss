@@ -1,6 +1,6 @@
-@import '../helpers.scss';
-@import '../mixins.scss';
-@import '../styles/spaces.scss';
+@import '../../helpers.scss';
+@import '../../mixins.scss';
+@import '../../styles/spaces.scss';
 
 $spacing: theme('field-group-spacing', $spaces-6);
 

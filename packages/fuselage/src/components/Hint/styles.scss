@@ -1,7 +1,7 @@
-@import '../helpers.scss';
-@import '../mixins.scss';
-@import '../styles/text-colors.scss';
-@import '../styles/text-styles.scss';
+@import '../../helpers.scss';
+@import '../../mixins.scss';
+@import '../../styles/text-colors.scss';
+@import '../../styles/text-styles.scss';
 
 $color: theme('hint-color', $text-colors-hint);
 

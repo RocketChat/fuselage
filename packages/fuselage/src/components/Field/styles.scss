@@ -1,6 +1,6 @@
-@import '../helpers.scss';
-@import '../mixins.scss';
-@import '../styles/spaces.scss';
+@import '../../helpers.scss';
+@import '../../mixins.scss';
+@import '../../styles/spaces.scss';
 
 $hint-spacing: theme('hint-spacing', $spaces-2);
 
