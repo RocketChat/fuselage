@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import colors from '../src/tokens/colors';
-import typography from '../src/tokens/typography';
+import colors from '@rocket.chat/fuselage-tokens/colors';
+import typography from '@rocket.chat/fuselage-tokens/typography';
 
 const ArbitraryBox = styled.div`
   background-image: repeating-linear-gradient(

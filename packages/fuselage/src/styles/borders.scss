@@ -1,5 +1,5 @@
+@import '~@rocket.chat/fuselage-tokens/borders.scss';
 @import '../helpers.scss';
-@import '../tokens/borders.scss';
 
 $borders-default-width: theme('borders-default-width', to-rem(get-map-value($borders, default, width)));
 $borders-default-radius: theme('borders-default-radius', to-rem(get-map-value($borders, default, radius)));

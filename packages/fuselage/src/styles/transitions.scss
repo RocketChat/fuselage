@@ -1,4 +1,4 @@
+@import '~@rocket.chat/fuselage-tokens/transitions.scss';
 @import '../helpers.scss';
-@import '../tokens/transitions.scss';
 
 $transitions-short-duration: theme('transitions-short-duration', map-get($transitions, short-duration));

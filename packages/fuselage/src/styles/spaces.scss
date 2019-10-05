@@ -1,5 +1,5 @@
+@import '~@rocket.chat/fuselage-tokens/spaces.scss';
 @import '../helpers.scss';
-@import '../tokens/spaces.scss';
 
 $spaces-0: theme('spaces-0', to-rem(get-map-value($spaces, 0)));
 $spaces-1: theme('spaces-1', to-rem(get-map-value($spaces, 1)));
