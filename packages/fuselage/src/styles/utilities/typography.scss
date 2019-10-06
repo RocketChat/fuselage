@@ -1,0 +1,175 @@
+@mixin font($font-family) {
+  font-family: $font-family;
+}
+
+@mixin text-size($font-size) {
+  font-size: $font-size;
+}
+
+@mixin antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin subpixel-antialiased {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+@mixin italic {
+  font-style: italic;
+}
+
+@mixin not-italic {
+  font-style: normal;
+}
+
+@mixin font-weight($font-weight) {
+  font-weight: $font-weight;
+}
+
+@mixin tracking($letter-spacing) {
+  letter-spacing: $letter-spacing;
+}
+
+@mixin leading($line-height) {
+  line-height: $line-height;
+}
+
+@mixin list-none {
+  list-style-type: none;
+}
+
+@mixin list-disc {
+  list-style-type: disc;
+}
+
+@mixin list-decimal {
+  list-style-type: decimal;
+}
+
+@mixin list-inside {
+  list-style-position: inside;
+}
+
+@mixin list-outside {
+  list-style-position: outside;
+}
+
+@mixin placeholder-color($color) {
+  &::placeholder {
+    color: $color;
+  }
+}
+
+@mixin text-left {
+  text-align: left;
+}
+
+@mixin text-center {
+  text-align: center;
+}
+
+@mixin text-right {
+  text-align: right;
+}
+
+@mixin text-justify {
+  text-align: justify;
+}
+
+@mixin text-color($color) {
+  color: $color;
+}
+
+@mixin underline {
+  text-decoration: underline;
+}
+
+@mixin line-through {
+  text-decoration: line-through;
+}
+
+@mixin no-underline {
+  text-decoration: none;
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+}
+
+@mixin lowercase {
+  text-transform: lowercase;
+}
+
+@mixin capitalize {
+  text-transform: capitalize;
+}
+
+@mixin normal-case {
+  text-transform: none;
+}
+
+@mixin align-baseline {
+  vertical-align: baseline;
+}
+
+@mixin align-top {
+  vertical-align: top;
+}
+
+@mixin align-middle {
+  vertical-align: middle;
+}
+
+@mixin align-bottom {
+  vertical-align: bottom;
+}
+
+@mixin align-text-top {
+  vertical-align: text-top;
+}
+
+@mixin align-text-bottom {
+  vertical-align: text-bottom;
+}
+
+@mixin whitespace-normal {
+  white-space: normal;
+}
+
+@mixin whitespace-no-wrap {
+  white-space: nowrap;
+}
+
+@mixin whitespace-pre {
+  white-space: pre;
+}
+
+@mixin whitespace-pre-line {
+  white-space: pre-line;
+}
+
+@mixin whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+
+@mixin break-normal {
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+@mixin break-words {
+  overflow-wrap: break-word;
+}
+
+@mixin break-all {
+  word-break: break-all;
+}
+
+@mixin truncate {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,147 @@
+@mixin flex-row {
+  flex-direction: row;
+}
+
+@mixin flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+@mixin flex-col {
+  flex-direction: column;
+}
+
+@mixin flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+@mixin flex-no-wrap {
+  flex-wrap: nowrap;
+}
+
+@mixin flex-wrap {
+  flex-wrap: wrap;
+}
+
+@mixin flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+@mixin items-stretch {
+  align-items: stretch;
+}
+
+@mixin items-start {
+  align-items: flex-start;
+}
+
+@mixin items-center {
+  align-items: center;
+}
+
+@mixin items-end {
+  align-items: flex-end;
+}
+
+@mixin items-baseline {
+  align-items: baseline;
+}
+
+@mixin content-start {
+  align-content: flex-start;
+}
+
+@mixin content-center {
+  align-content: center;
+}
+
+@mixin content-end {
+  align-content: flex-end;
+}
+
+@mixin content-between {
+  align-content: space-between;
+}
+
+@mixin content-around {
+  align-content: space-around;
+}
+
+@mixin self-auto {
+  align-self: auto;
+}
+
+@mixin self-start {
+  align-self: flex-start;
+}
+
+@mixin self-center {
+  align-self: center;
+}
+
+@mixin self-end {
+  align-self: flex-end;
+}
+
+@mixin self-stretch {
+  align-self: stretch;
+}
+
+@mixin justify-start {
+  justify-content: flex-start;
+}
+
+@mixin justify-center {
+  justify-content: center;
+}
+
+@mixin justify-end {
+  justify-content: flex-end;
+}
+
+@mixin justify-between {
+  justify-content: space-between;
+}
+
+@mixin justify-around {
+  justify-content: space-around;
+}
+
+@mixin flex-initial {
+  flex: 0 1 auto;
+}
+
+@mixin flex($multiplier: 1) {
+  flex: $multiplier $multiplier 0%;
+}
+
+@mixin flex-auto($multiplier: 1) {
+  flex: $multiplier $multiplier auto;
+}
+
+@mixin flex-none {
+  flex: none;
+}
+
+@mixin flex-grow($multiplier: 1) {
+  flex-grow: $multiplier;
+}
+
+@mixin flex-shrink($multiplier: 1) {
+  flex-shrink: $multiplier;
+}
+
+@mixin order-first {
+  order: -9999;
+}
+
+@mixin order-last {
+  order: 9999;
+}
+
+@mixin order-none {
+  order: 0;
+}
+
+@mixin order($order) {
+  order: $order;
+}

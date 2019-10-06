@@ -1,0 +1,31 @@
+@mixin w($width) {
+  width: $width;
+}
+
+@mixin min-w($width) {
+  min-width: $width;
+}
+
+@mixin max-w($width) {
+  max-width: $width;
+}
+
+@mixin h($height) {
+  height: $height;
+}
+
+@mixin min-h($height) {
+  min-height: $height;
+}
+
+@mixin max-h($height) {
+  max-height: $height;
+}
+
+@mixin border-box {
+  box-sizing: border-box;
+}
+
+@mixin content-box {
+  box-sizing: content-box;
+}

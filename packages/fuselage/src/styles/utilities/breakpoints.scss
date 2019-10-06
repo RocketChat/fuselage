@@ -1,0 +1,13 @@
+@mixin when-breakpoint($breakpoint) {
+  $min-width: to-em(map-get(map-get($breakpoints, $breakpoint), min-viewport-width));
+
+  @if $breakpoint == $smallest-breakpoint {
+    @content;
+  }
+
+  @else {
+    @media screen and (min-width: $min-width) {
+      @content;
+    }
+  }
+}

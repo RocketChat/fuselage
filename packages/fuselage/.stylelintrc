@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "stylelint-order"
+    "stylelint-order",
+    "stylelint-scss"
   ],
   "ignoreFiles": ["src/**/*.js"],
   "rules": {

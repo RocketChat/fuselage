@@ -1,0 +1,15 @@
+@mixin border-collapse {
+  border-collapse: collapse;
+}
+
+@mixin border-separate {
+  border-collapse: separate;
+}
+
+@mixin table-auto {
+  table-layout: auto;
+}
+
+@mixin table-fixed {
+  table-layout: fixed;
+}

@@ -1,0 +1,83 @@
+@mixin border-color($color) {
+  border-color: $color;
+}
+
+@mixin border-solid {
+  border-style: solid;
+}
+
+@mixin border-dashed {
+  border-style: dashed;
+}
+
+@mixin border-dotted {
+  border-style: dotted;
+}
+
+@mixin border-double {
+  border-style: double;
+}
+
+@mixin border-none {
+  border-style: none;
+}
+
+@mixin border($width) {
+  border-width: $width;
+}
+
+@mixin border-t($width) {
+  border-top-width: $width;
+}
+
+@mixin border-r($width) {
+  border-right-width: $width;
+}
+
+@mixin border-b($width) {
+  border-bottom-width: $width;
+}
+
+@mixin border-l($width) {
+  border-left-width: $width;
+}
+
+@mixin rounded($radius) {
+  border-radius: $radius;
+}
+
+@mixin rounded-t($radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin rounded-r($radius) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin rounded-b($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin rounded-l($radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin rounded-tl($radius) {
+  border-top-left-radius: $radius;
+}
+
+@mixin rounded-tr($radius) {
+  border-top-right-radius: $radius;
+}
+
+@mixin rounded-br($radius) {
+  border-bottom-right-radius: $radius;
+}
+
+@mixin rounded-bl($radius) {
+  border-bottom-left-radius: $radius;
+}

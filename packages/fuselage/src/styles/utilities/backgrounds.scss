@@ -1,0 +1,87 @@
+@mixin bg-fixed {
+  background-attachment: fixed;
+}
+
+@mixin bg-local {
+  background-attachment: local;
+}
+
+@mixin bg-scroll {
+  background-attachment: scroll;
+}
+
+@mixin bg($color) {
+  background-color: $color;
+}
+
+@mixin bg-bottom {
+  background-position: bottom;
+}
+
+@mixin bg-center {
+  background-position: center;
+}
+
+@mixin bg-left {
+  background-position: left;
+}
+
+@mixin bg-left-bottom {
+  background-position: left bottom;
+}
+
+@mixin bg-left-top {
+  background-position: left top;
+}
+
+@mixin bg-right {
+  background-position: right;
+}
+
+@mixin bg-right-bottom {
+  background-position: right bottom;
+}
+
+@mixin bg-right-top {
+  background-position: right top;
+}
+
+@mixin bg-top {
+  background-position: top;
+}
+
+@mixin bg-repeat {
+  background-repeat: repeat;
+}
+
+@mixin bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
+@mixin bg-repeat-x {
+  background-repeat: repeat-x;
+}
+
+@mixin bg-repeat-y {
+  background-repeat: repeat-y;
+}
+
+@mixin bg-repeat-round {
+  background-repeat: round;
+}
+
+@mixin bg-repeat-space {
+  background-repeat: space;
+}
+
+@mixin bg-auto {
+  background-size: auto;
+}
+
+@mixin bg-cover {
+  background-size: cover;
+}
+
+@mixin bg-contain {
+  background-size: contain;
+}

@@ -1,0 +1,245 @@
+@mixin container {
+  width: 100%;
+
+  @each $breakpoint in $responsive-breakpoints {
+    $max-width: to-rem(map-get-value($breakpoints, $breakpoint, min-viewport-width));
+
+    @include when-breakpoint($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+}
+
+@mixin block {
+  display: block;
+}
+
+@mixin inline-block {
+  display: inline-block;
+}
+
+@mixin inline {
+  display: inline;
+}
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin inline-flex {
+  display: inline-flex;
+}
+
+@mixin table {
+  display: table;
+}
+
+@mixin table-row {
+  display: table-row;
+}
+
+@mixin table-cell {
+  display: table-cell;
+}
+
+@mixin hidden {
+  display: none;
+}
+
+@mixin float-right {
+  float: right;
+}
+
+@mixin float-left {
+  float: left;
+}
+
+@mixin float-none {
+  float: none;
+}
+
+@mixin clearfix {
+  &::after {
+    display: table;
+    clear: both;
+
+    content: '';
+  }
+}
+
+@mixin object-contain {
+  object-fit: contain;
+}
+
+@mixin object-cover {
+  object-fit: cover;
+}
+
+@mixin object-fill {
+  object-fit: fill;
+}
+
+@mixin object-none {
+  object-fit: none;
+}
+
+@mixin object-scale-down {
+  object-fit: scale-down;
+}
+
+@mixin object-bottom {
+  object-position: bottom;
+}
+
+@mixin object-center {
+  object-position: center;
+}
+
+@mixin object-left {
+  object-position: left;
+}
+
+@mixin object-left-bottom {
+  object-position: left bottom;
+}
+
+@mixin object-left-top {
+  object-position: left top;
+}
+
+@mixin object-right {
+  object-position: right;
+}
+
+@mixin object-right-bottom {
+  object-position: right bottom;
+}
+
+@mixin object-right-top {
+  object-position: right top;
+}
+
+@mixin object-top {
+  object-position: top;
+}
+
+@mixin overflow-auto {
+  overflow: auto;
+}
+
+@mixin overflow-hidden {
+  overflow: hidden;
+}
+
+@mixin overflow-visible {
+  overflow: visible;
+}
+
+@mixin overflow-scroll {
+  overflow: scroll;
+}
+
+@mixin overflow-x-auto {
+  overflow-x: auto;
+}
+
+@mixin overflow-y-auto {
+  overflow-y: auto;
+}
+
+@mixin overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+@mixin overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+@mixin overflow-x-visible {
+  overflow-x: visible;
+}
+
+@mixin overflow-y-visible {
+  overflow-y: visible;
+}
+
+@mixin overflow-x-scroll {
+  overflow-x: scroll;
+}
+
+@mixin overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+@mixin scrolling-touch {
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin scrolling-auto {
+  -webkit-overflow-scrolling: auto;
+}
+
+@mixin static {
+  position: static;
+}
+
+@mixin fixed {
+  position: fixed;
+}
+
+@mixin absolute {
+  position: absolute;
+}
+
+@mixin relative {
+  position: relative;
+}
+
+@mixin sticky {
+  position: sticky;
+}
+
+@mixin inset($length) {
+  top: $length;
+  right: $length;
+  bottom: $length;
+  left: $length;
+}
+
+@mixin inset-y($length) {
+  top: $length;
+  bottom: $length;
+}
+
+@mixin inset-x($length) {
+  right: $length;
+  left: $length;
+}
+
+@mixin top($length) {
+  top: $length;
+}
+
+@mixin right($length) {
+  right: $length;
+}
+
+@mixin bottom($length) {
+  bottom: $length;
+}
+
+@mixin left($length) {
+  left: $length;
+}
+
+@mixin visible {
+  visibility: visible;
+}
+
+@mixin invisible {
+  visibility: hidden;
+}
+
+@mixin z-index($level) {
+  z-index: $level;
+}

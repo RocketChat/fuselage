@@ -1,0 +1,97 @@
+@mixin on-hover {
+  &.hover,
+  &:hover {
+    @content;
+  }
+}
+
+@mixin on-focus {
+  &.focus,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin on-active {
+  &.active,
+  &:active {
+    @content;
+  }
+}
+
+@mixin on-disabled {
+  &.disabled,
+  &:disabled {
+    @content;
+  }
+}
+
+@mixin on-visited {
+  &.visited,
+  &:visited {
+    @content;
+  }
+}
+
+@mixin on-first-child {
+  &.first-child,
+  &:first-child {
+    @content;
+  }
+}
+
+@mixin on-last-child {
+  &.last-child,
+  &:last-child {
+    @content;
+  }
+}
+
+@mixin on-odd-child {
+  &.old-child,
+  &:nth-child(odd) {
+    @content;
+  }
+}
+
+@mixin on-even-child {
+  &.even-child,
+  &:nth-child(even) {
+    @content;
+  }
+}
+
+@mixin on-focus-within {
+  &.focus-within,
+  &:focus-within {
+    @content;
+  }
+}
+
+@mixin on-invalid {
+  &.invalid,
+  &:invalid {
+    @content;
+  }
+}
+
+@mixin on-ie11 {
+  &.ie11,
+  .ie11 & {
+    @content;
+  }
+}
+
+@mixin on-rtl-orientation {
+  &.rtl,
+  .rtl &,
+  [dir=rtl] & {
+    @content;
+  }
+}
+
+@mixin on-prop($prop) {
+  &--#{$prop} {
+    @content;
+  }
+}
