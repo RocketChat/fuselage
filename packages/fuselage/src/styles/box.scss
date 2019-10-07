@@ -55,6 +55,7 @@
     @include select-none;
     @include transition-all($transitions-short-duration);
     @include antialiased;
+    font-variant-numeric: tabular-nums;
   }
 
   @include on-prop(invisible) {
