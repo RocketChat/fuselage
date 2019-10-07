@@ -4,8 +4,8 @@
 $size: theme('radio-button-size', $text-styles-p1-line-height);
 
 $border: (
-  width: theme('radio-button-border-width', $borders-default-width),
-  radius: theme('radio-button-border-radius', 50%),
+  width: theme('radio-button-border-width', $borders-width-1),
+  radius: theme('radio-button-border-radius', $borders-radius-full),
 );
 
 $icon-size: theme('radio-button-icon-size', 0.3);

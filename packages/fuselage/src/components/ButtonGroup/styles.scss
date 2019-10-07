@@ -1,51 +1,52 @@
-@import '../../helpers.scss';
-@import '../../mixins.scss';
-
-$spacing: theme('button-group-spacing', $spaces-5);
-
 .rcx-button-group {
-  @include reseted;
+  @extend %box;
 
   display: flex;
-
-  margin: calc(-1 * #{$spacing}) 0 0 calc(-1 * #{$spacing});
 
   align-items: center;
 
   flex-flow: row nowrap;
   justify-content: center;
-}
 
-.rcx-button-group--wrap {
-  flex-wrap: wrap;
-}
+  @include mx(calc(-1 * #{$spaces-3}));
+  @include my(calc(-1 * #{$spaces-5}));
 
-.rcx-button-group--stretch {
-  justify-content: stretch;
-}
+  & > .rcx-button {
+    @include mx($spaces-3);
+    @include my($spaces-5);
+  }
 
-.rcx-button-group--vertical {
-  flex-direction: column;
-}
+  &--wrap {
+    flex-wrap: wrap;
+  }
 
-.rcx-button-group--stretch-vertical {
-  align-items: stretch;
-}
+  &--stretch {
+    justify-content: stretch;
 
-.rcx-button-group--align-start {
-  justify-content: flex-start;
-}
+    & > .rcx-button {
+      flex-grow: 1;
+    }
+  }
 
-.rcx-button-group--align-end {
-  justify-content: flex-end;
-}
+  &--vertical {
+    flex-direction: column;
 
-.rcx-button-group__item {
-  flex: 0 0 auto;
+    @include my(calc(-1 * #{$spaces-3}));
 
-  margin: $spacing 0 0 $spacing;
-}
+    & > .rcx-button {
+      @include my($spaces-3);
+    }
+  }
 
-.rcx-button-group__item--stretch {
-  flex-grow: 1;
+  &--stretch-vertical {
+    align-items: stretch;
+  }
+
+  &--align-start {
+    justify-content: flex-start;
+  }
+
+  &--align-end {
+    justify-content: flex-end;
+  }
 }

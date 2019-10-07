@@ -1,5 +1,4 @@
 @import '~@rocket.chat/fuselage-tokens/colors.scss';
-@import '../helpers.scss';
 
 $button-colors-primary-background-color: theme('button-colors-primary-background-color', get-map-value($colors, blue500));
 $button-colors-primary-border-color: theme('button-colors-primary-border-color', get-map-value($colors, blue500));

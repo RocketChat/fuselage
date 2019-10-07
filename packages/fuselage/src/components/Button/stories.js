@@ -34,6 +34,6 @@ export const asLink = () =>
   <Button is='a' href='https://rocket.chat' external>Button</Button>;
 
 export const square = () =>
-  <Button square>
+  <Button square is='a'>
     <Icon iconName='plus' />
   </Button>;

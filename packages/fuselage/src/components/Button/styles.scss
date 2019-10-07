@@ -1,7 +1,6 @@
 @mixin rect-size-variant($height, $padding-x, $text-style, $icon-size-ratio) {
-  padding:
-    calc((#{$height} - #{map-get($text-style, line-height)}) / 2 - #{$borders-default-width})
-    calc(#{$padding-x} - #{$borders-default-width});
+  @include py(calc((#{$height} - #{map-get($text-style, line-height)}) / 2 - #{$borders-default-width}));
+  @include px(calc(#{$padding-x} - #{$borders-default-width}));
 
   @include with-text($text-style...);
 
@@ -13,7 +12,17 @@
 @mixin square-size-variant($size, $icon-size) {
   width: $size;
   height: $size;
-  padding: 0;
+  @include p(0);
+
+  &::before,
+  &::after {
+    display: inline-block;
+
+    height: 100%;
+
+    content: '';
+    vertical-align: middle;
+  }
 
   & > .rcx-icon {
     font-size: $icon-size;
@@ -25,20 +34,18 @@
 
   display: inline-block;
 
-  margin: 0;
-
   text-align: center;
   vertical-align: middle;
   text-decoration: none;
 
-  border-width: $borders-default-width;
-
-  border-radius: $borders-default-radius;
+  border-width: $borders-width-1;
+  border-style: solid;
+  border-radius: $borders-radius-1;
 
   appearance: none;
 
   @include rect-size-variant(
-    $height: $spaces-8,
+    $height: $sizes-2,
     $padding-x: $spaces-5,
     $icon-size-ratio: 8/7,
     $text-style: (
@@ -72,136 +79,136 @@
   & > .rcx-icon {
     vertical-align: middle;
   }
-}
 
-.rcx-button--small {
-  @include rect-size-variant(
-    $height: $spaces-7,
-    $padding-x: $spaces-4,
-    $icon-size-ratio: 1,
-    $text-style: (
-      font-family: $text-styles-c2-font-family,
-      font-size: $text-styles-c2-font-size,
-      font-weight: $text-styles-c2-font-weight,
-      letter-spacing: $text-styles-c2-letter-spacing,
-      line-height: $text-styles-c2-line-height,
-    ),
-  );
-}
+  &--small {
+    @include rect-size-variant(
+      $height: $sizes-3,
+      $padding-x: $spaces-4,
+      $icon-size-ratio: 1,
+      $text-style: (
+        font-family: $text-styles-c2-font-family,
+        font-size: $text-styles-c2-font-size,
+        font-weight: $text-styles-c2-font-weight,
+        letter-spacing: $text-styles-c2-letter-spacing,
+        line-height: $text-styles-c2-line-height,
+      ),
+    );
+  }
 
-.rcx-button--square {
-  @include square-size-variant(
-    $size: $spaces-8,
-    $icon-size: $text-styles-p2-line-height,
-  );
-}
+  &--square {
+    @include square-size-variant(
+      $size: $spaces-8,
+      $icon-size: $text-styles-p2-line-height,
+    );
+  }
 
-.rcx-button--small-square {
-  @include rect-size-variant(
-    $height: $spaces-7,
-    $padding-x: $spaces-5,
-    $icon-size-ratio: 1,
-    $text-style: (
-      font-family: $text-styles-c2-font-family,
-      font-size: $text-styles-c2-font-size,
-      font-weight: $text-styles-c2-font-weight,
-      letter-spacing: $text-styles-c2-letter-spacing,
-      line-height: $text-styles-c2-line-height,
-    ),
-  );
+  &--small-square {
+    @include rect-size-variant(
+      $height: $sizes-3,
+      $padding-x: $spaces-5,
+      $icon-size-ratio: 1,
+      $text-style: (
+        font-family: $text-styles-c2-font-family,
+        font-size: $text-styles-c2-font-size,
+        font-weight: $text-styles-c2-font-weight,
+        letter-spacing: $text-styles-c2-letter-spacing,
+        line-height: $text-styles-c2-line-height,
+      ),
+    );
 
-  @include square-size-variant(
-    $size: $spaces-7,
-    $icon-size: $text-styles-c2-line-height,
-  );
-}
+    @include square-size-variant(
+      $size: $spaces-7,
+      $icon-size: $text-styles-c2-line-height,
+    );
+  }
 
-.rcx-button--danger {
-  @include with-button-action-colors(
-    $background-color: $button-colors-secondary-background-color,
-    $border-color: $button-colors-secondary-border-color,
-    $color: map-get($colors, red500),
-    $hover-background-color: $button-colors-secondary-hover-background-color,
-    $hover-border-color: $button-colors-secondary-hover-border-color,
-    $active-background-color: $button-colors-secondary-active-background-color,
-    $active-border-color: $button-colors-secondary-active-border-color,
-    $focus-background-color: $button-colors-secondary-focus-background-color,
-    $focus-border-color: $button-colors-secondary-focus-border-color,
-    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-    $disabled-background-color: $button-colors-secondary-disabled-background-color,
-    $disabled-border-color: $button-colors-secondary-disabled-border-color,
-    $disabled-color: map-get($colors, red100),
-  );
-}
+  &--danger {
+    @include with-button-action-colors(
+      $background-color: $button-colors-secondary-background-color,
+      $border-color: $button-colors-secondary-border-color,
+      $color: map-get($colors, red500),
+      $hover-background-color: $button-colors-secondary-hover-background-color,
+      $hover-border-color: $button-colors-secondary-hover-border-color,
+      $active-background-color: $button-colors-secondary-active-background-color,
+      $active-border-color: $button-colors-secondary-active-border-color,
+      $focus-background-color: $button-colors-secondary-focus-background-color,
+      $focus-border-color: $button-colors-secondary-focus-border-color,
+      $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
+      $disabled-background-color: $button-colors-secondary-disabled-background-color,
+      $disabled-border-color: $button-colors-secondary-disabled-border-color,
+      $disabled-color: map-get($colors, red100),
+    );
+  }
 
-.rcx-button--primary {
-  @include with-button-action-colors(
-    $background-color: $button-colors-primary-background-color,
-    $border-color: $button-colors-primary-border-color,
-    $color: $button-colors-primary-color,
-    $hover-background-color: $button-colors-primary-hover-background-color,
-    $hover-border-color: $button-colors-primary-hover-border-color,
-    $active-background-color: $button-colors-primary-active-background-color,
-    $active-border-color: $button-colors-primary-active-border-color,
-    $focus-background-color: $button-colors-primary-focus-background-color,
-    $focus-border-color: $button-colors-primary-focus-border-color,
-    $focus-shadow-color: $button-colors-primary-focus-shadow-color,
-    $disabled-background-color: $button-colors-primary-disabled-background-color,
-    $disabled-border-color: $button-colors-primary-disabled-border-color,
-    $disabled-color: $button-colors-primary-disabled-color,
-  );
-}
+  &--primary {
+    @include with-button-action-colors(
+      $background-color: $button-colors-primary-background-color,
+      $border-color: $button-colors-primary-border-color,
+      $color: $button-colors-primary-color,
+      $hover-background-color: $button-colors-primary-hover-background-color,
+      $hover-border-color: $button-colors-primary-hover-border-color,
+      $active-background-color: $button-colors-primary-active-background-color,
+      $active-border-color: $button-colors-primary-active-border-color,
+      $focus-background-color: $button-colors-primary-focus-background-color,
+      $focus-border-color: $button-colors-primary-focus-border-color,
+      $focus-shadow-color: $button-colors-primary-focus-shadow-color,
+      $disabled-background-color: $button-colors-primary-disabled-background-color,
+      $disabled-border-color: $button-colors-primary-disabled-border-color,
+      $disabled-color: $button-colors-primary-disabled-color,
+    );
+  }
 
-.rcx-button--primary-danger {
-  @include with-button-action-colors(
-    $background-color: $button-colors-danger-background-color,
-    $border-color: $button-colors-danger-border-color,
-    $color: $button-colors-danger-color,
-    $hover-background-color: $button-colors-danger-hover-background-color,
-    $hover-border-color: $button-colors-danger-hover-border-color,
-    $active-background-color: $button-colors-danger-active-background-color,
-    $active-border-color: $button-colors-danger-active-border-color,
-    $focus-background-color: $button-colors-danger-focus-background-color,
-    $focus-border-color: $button-colors-danger-focus-border-color,
-    $focus-shadow-color: $button-colors-danger-focus-shadow-color,
-    $disabled-background-color: $button-colors-danger-disabled-background-color,
-    $disabled-border-color: $button-colors-danger-disabled-border-color,
-    $disabled-color: $button-colors-danger-disabled-color,
-  );
-}
+  &--primary-danger {
+    @include with-button-action-colors(
+      $background-color: $button-colors-danger-background-color,
+      $border-color: $button-colors-danger-border-color,
+      $color: $button-colors-danger-color,
+      $hover-background-color: $button-colors-danger-hover-background-color,
+      $hover-border-color: $button-colors-danger-hover-border-color,
+      $active-background-color: $button-colors-danger-active-background-color,
+      $active-border-color: $button-colors-danger-active-border-color,
+      $focus-background-color: $button-colors-danger-focus-background-color,
+      $focus-border-color: $button-colors-danger-focus-border-color,
+      $focus-shadow-color: $button-colors-danger-focus-shadow-color,
+      $disabled-background-color: $button-colors-danger-disabled-background-color,
+      $disabled-border-color: $button-colors-danger-disabled-border-color,
+      $disabled-color: $button-colors-danger-disabled-color,
+    );
+  }
 
-.rcx-button--ghost {
-  @include with-button-action-colors(
-    $background-color: transparent,
-    $border-color: transparent,
-    $color: $button-colors-secondary-color,
-    $hover-background-color: $button-colors-secondary-hover-background-color,
-    $hover-border-color: $button-colors-secondary-hover-border-color,
-    $active-background-color: $button-colors-secondary-active-background-color,
-    $active-border-color: $button-colors-secondary-active-border-color,
-    $focus-background-color: $button-colors-secondary-focus-background-color,
-    $focus-border-color: $button-colors-secondary-focus-border-color,
-    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-    $disabled-background-color: $button-colors-secondary-disabled-background-color,
-    $disabled-border-color: $button-colors-secondary-disabled-border-color,
-    $disabled-color: $button-colors-secondary-disabled-color,
-  );
-}
+  &--ghost {
+    @include with-button-action-colors(
+      $background-color: transparent,
+      $border-color: transparent,
+      $color: $button-colors-secondary-color,
+      $hover-background-color: $button-colors-secondary-hover-background-color,
+      $hover-border-color: $button-colors-secondary-hover-border-color,
+      $active-background-color: $button-colors-secondary-active-background-color,
+      $active-border-color: $button-colors-secondary-active-border-color,
+      $focus-background-color: $button-colors-secondary-focus-background-color,
+      $focus-border-color: $button-colors-secondary-focus-border-color,
+      $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
+      $disabled-background-color: $button-colors-secondary-disabled-background-color,
+      $disabled-border-color: $button-colors-secondary-disabled-border-color,
+      $disabled-color: $button-colors-secondary-disabled-color,
+    );
+  }
 
-.rcx-button--ghost-danger {
-  @include with-button-action-colors(
-    $background-color: transparent,
-    $border-color: transparent,
-    $color: map-get($colors, red500),
-    $hover-background-color: $button-colors-secondary-hover-background-color,
-    $hover-border-color: $button-colors-secondary-hover-border-color,
-    $active-background-color: $button-colors-secondary-active-background-color,
-    $active-border-color: $button-colors-secondary-active-border-color,
-    $focus-background-color: $button-colors-secondary-focus-background-color,
-    $focus-border-color: $button-colors-secondary-focus-border-color,
-    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-    $disabled-background-color: $button-colors-secondary-disabled-background-color,
-    $disabled-border-color: $button-colors-secondary-disabled-border-color,
-    $disabled-color: map-get($colors, red100),
-  );
+  &--ghost-danger {
+    @include with-button-action-colors(
+      $background-color: transparent,
+      $border-color: transparent,
+      $color: map-get($colors, red500),
+      $hover-background-color: $button-colors-secondary-hover-background-color,
+      $hover-border-color: $button-colors-secondary-hover-border-color,
+      $active-background-color: $button-colors-secondary-active-background-color,
+      $active-border-color: $button-colors-secondary-active-border-color,
+      $focus-background-color: $button-colors-secondary-focus-background-color,
+      $focus-border-color: $button-colors-secondary-focus-border-color,
+      $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
+      $disabled-background-color: $button-colors-secondary-disabled-background-color,
+      $disabled-border-color: $button-colors-secondary-disabled-border-color,
+      $disabled-color: map-get($colors, red100),
+    );
+  }
 }
