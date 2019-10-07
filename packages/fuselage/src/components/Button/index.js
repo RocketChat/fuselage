@@ -1,64 +1,58 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useClassName } from '../../hooks';
+import { Box } from '../Box';
 
 /**
  * A `Button` indicates an actionable user action.
  */
 export const Button = React.forwardRef(function Button({
-  as: Component = 'button',
-  className,
+  is = 'button',
   danger,
   external,
   ghost,
-  invisible,
   primary,
   rel,
   small,
   square,
   ...props
 }, ref) {
-  const classNames = {
-    container: useClassName('rcx-button', {
-      danger,
-      ghost,
-      invisible,
-      primary,
-      small,
-      square,
-    }, className),
-  };
-
-  const extraProps = (Component === 'a' && {
+  const extraProps = (is === 'a' && {
     rel: external && 'noopener noreferrer',
     target: external && '_blank',
   })
-  || (Component === 'button' && {
+  || (is === 'button' && {
     type: 'button',
   })
   || {};
 
-  return <Component className={classNames.container} ref={ref} {...extraProps} {...props} />;
+  return <Box
+    is={is}
+    ref={ref}
+    styles={['rcx-button', {
+      danger,
+      ghost,
+      ghostDanger: ghost && danger,
+      primary,
+      primaryDanger: primary && danger,
+      small,
+      square,
+      smallSquare: small && square,
+    }]}
+    {...extraProps}
+    {...props}
+  />;
 });
 
 Button.defaultProps = {
-  as: 'button',
+  is: 'button',
 };
 
 Button.displayName = 'Button';
 
 Button.propTypes = {
   /**
-   * The component which will behave as a `Button`
-   */
-  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
-  /**
    * Is this component a link to an external URL?
    */
   external: PropTypes.bool,
-  /**
-   * Is this component visible?
-   */
-  invisible: PropTypes.bool,
 };

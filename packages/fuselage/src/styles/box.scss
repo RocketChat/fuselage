@@ -13,7 +13,7 @@
   figure#{&},
   p#{&},
   pre#{&} {
-    @include m(0);
+    margin: 0;
   }
 
   h1#{&},
@@ -22,15 +22,16 @@
   h4#{&},
   h5#{&},
   h6#{&} {
-    @include text-size(inherit);
-    @include font-weight(inherit);
+    font-size: inherit;
+    font-weight: inherit;
   }
 
   ol#{&},
   ul#{&} {
-    @include m(0);
-    @include p(0);
-    @include list-none;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
   }
 
   img#{&},
@@ -41,25 +42,30 @@
   iframe#{&},
   embed#{&},
   object#{&} {
-    @include block;
-    @include align-middle;
+    display: block;
+
+    vertical-align: middle;
   }
 
   &,
   &::before,
   &::after {
-    @include border(0);
-    @include border-solid;
-    @include border-color(currentColor);
-    @include border-box;
-    @include select-none;
-    @include transition-all($transitions-short-duration);
-    @include antialiased;
+    box-sizing: border-box;
+
+    user-select: none;
+    transition: all $transitions-short-duration;
+
+    border-width: 0;
+    border-style: solid;
+    border-color: currentColor;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-variant-numeric: tabular-nums;
   }
 
-  @include on-prop(invisible) {
-    @include invisible;
-    @include opacity(0);
+  &--invisible {
+    visibility: hidden;
+
+    opacity: 0;
   }
 }

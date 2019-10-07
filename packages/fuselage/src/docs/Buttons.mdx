@@ -28,6 +28,26 @@ import { Button, ButtonGroup, CheckBox, Hint, Icon, RadioButton, ToggleSwitch } 
   }}
 />
 
+#### Small
+
+<PropsVariationSection
+  component={Button}
+  common={{ small: true }}
+  xAxis={{
+    text: { children: 'Button' },
+    'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },
+    'text + icon': { children: <><Icon iconName='circled-arrow-down' /> Button</> },
+    'text + icon + danger': { children: <><Icon iconName='circled-arrow-down' /> Button</>, danger: true },
+  }}
+  yAxis={{
+    default: {},
+    hover: { className: 'hover' },
+    active: { className: 'active' },
+    focus: { className: 'focus' },
+    disabled: { disabled: true },
+  }}
+/>
+
 ### Primary
 
 <PropsVariationSection
@@ -48,11 +68,51 @@ import { Button, ButtonGroup, CheckBox, Hint, Icon, RadioButton, ToggleSwitch } 
   }}
 />
 
+#### Small
+
+<PropsVariationSection
+  component={Button}
+  common={{ primary: true, small: true }}
+  xAxis={{
+    text: { children: 'Button' },
+    'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },
+    'text + icon': { children: <><Icon iconName='circled-arrow-down' /> Button</> },
+    'text + icon + danger': { children: <><Icon iconName='circled-arrow-down' /> Button</>, danger: true },
+  }}
+  yAxis={{
+    default: {},
+    hover: { className: 'hover' },
+    active: { className: 'active' },
+    focus: { className: 'focus' },
+    disabled: { disabled: true },
+  }}
+/>
+
 ### Ghost
 
 <PropsVariationSection
   component={Button}
   common={{ ghost: true }}
+  xAxis={{
+    text: { children: 'Button' },
+    'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },
+    'text + icon': { children: <><Icon iconName='circled-arrow-down' /> Button</> },
+    'text + icon + danger': { children: <><Icon iconName='circled-arrow-down' /> Button</>, danger: true },
+  }}
+  yAxis={{
+    default: {},
+    hover: { className: 'hover' },
+    active: { className: 'active' },
+    focus: { className: 'focus' },
+    disabled: { disabled: true },
+  }}
+/>
+
+#### Small
+
+<PropsVariationSection
+  component={Button}
+  common={{ ghost: true, small: true }}
   xAxis={{
     text: { children: 'Button' },
     'square + icon': { square: true, children: <Icon iconName='circled-arrow-down' /> },

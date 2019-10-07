@@ -1,233 +1,207 @@
-@import '../../helpers.scss';
-@import '../../mixins.scss';
-
-$medium-size-parameters: (
-  border: (
-    width: $borders-default-width,
-    radius: $borders-default-radius,
-  ),
-  padding-x: theme('button-padding-x', $spaces-5),
-  icon-size-ratio: theme('button-icon-size-ratio', 0.8),
-  text-style: (
-    font-family: theme('button-font-family', $text-styles-p2-font-family),
-    font-size: theme('button-font-size', $text-styles-p2-font-size),
-    font-weight: theme('button-font-weight', $text-styles-p2-font-weight),
-    letter-spacing: theme('button-letter-spacing', $text-styles-p2-letter-spacing),
-    line-height: theme('button-line-height', $text-styles-p2-line-height),
-  ),
-);
-
-$small-size-parameters: (
-  border: (
-    width: $borders-default-width,
-    radius: $borders-default-radius,
-  ),
-  padding-x: theme('button-small-padding-x', $spaces-4),
-  icon-size-ratio: theme('button-small-icon-size-ratio', 0.75),
-  text-style: (
-    font-family: theme('button-small-font-family', $text-styles-c2-font-family),
-    font-size: theme('button-small-font-size', $text-styles-c2-font-size),
-    font-weight: theme('button-small-font-weight', $text-styles-c2-font-weight),
-    letter-spacing: theme('button-small-letter-spacing', $text-styles-c2-letter-spacing),
-    line-height: theme('button-small-line-height', $text-styles-c2-line-height),
-  ),
-);
-
-$basic-colors: (
-  background-color: theme('button-background-color', $button-colors-secondary-background-color),
-  border-color: theme('button-border-color', $button-colors-secondary-border-color),
-  color: theme('button-color', $button-colors-secondary-color),
-  hover-background-color: theme('button-hover-background-color', $button-colors-secondary-hover-background-color),
-  hover-border-color: theme('button-hover-border-color', $button-colors-secondary-hover-border-color),
-  active-background-color: theme('button-active-background-color', $button-colors-secondary-active-background-color),
-  active-border-color: theme('button-active-border-color', $button-colors-secondary-active-border-color),
-  focus-background-color: theme('button-focus-background-color', $button-colors-secondary-focus-background-color),
-  focus-border-color: theme('button-focus-border-color', $button-colors-secondary-focus-border-color),
-  focus-shadow-color: theme('button-focus-shadow-color', $button-colors-secondary-focus-shadow-color),
-  disabled-background-color: theme('button-disabled-background-color', $button-colors-secondary-disabled-background-color),
-  disabled-border-color: theme('button-disabled-border-color', $button-colors-secondary-disabled-border-color),
-  disabled-color: theme('button-disabled-color', $button-colors-secondary-disabled-color),
-);
-
-$basic-danger-colors: (
-  background-color: theme('button-danger-background-color', $button-colors-secondary-background-color),
-  border-color: theme('button-danger-border-color', $button-colors-secondary-border-color),
-  color: theme('button-danger-color', map-get($colors, red500)),
-  hover-background-color: theme('button-danger-hover-background-color', $button-colors-secondary-hover-background-color),
-  hover-border-color: theme('button-danger-hover-border-color', $button-colors-secondary-hover-border-color),
-  active-background-color: theme('button-danger-active-background-color', $button-colors-secondary-active-background-color),
-  active-border-color: theme('button-danger-active-border-color', $button-colors-secondary-active-border-color),
-  focus-background-color: theme('button-danger-focus-background-color', $button-colors-secondary-focus-background-color),
-  focus-border-color: theme('button-danger-focus-border-color', $button-colors-secondary-focus-border-color),
-  focus-shadow-color: theme('button-danger-focus-shadow-color', $button-colors-secondary-focus-shadow-color),
-  disabled-background-color: theme('button-danger-disabled-background-color', $button-colors-secondary-disabled-background-color),
-  disabled-border-color: theme('button-danger-disabled-border-color', $button-colors-secondary-disabled-border-color),
-  disabled-color: theme('button-danger-disabled-color', map-get($colors, red100)),
-);
-
-$primary-colors: (
-  background-color: theme('button-primary-background-color', $button-colors-primary-background-color),
-  border-color: theme('button-primary-border-color', $button-colors-primary-border-color),
-  color: theme('button-primary-color', $button-colors-primary-color),
-  hover-background-color: theme('button-primary-hover-background-color', $button-colors-primary-hover-background-color),
-  hover-border-color: theme('button-primary-hover-border-color', $button-colors-primary-hover-border-color),
-  active-background-color: theme('button-primary-active-background-color', $button-colors-primary-active-background-color),
-  active-border-color: theme('button-primary-active-border-color', $button-colors-primary-active-border-color),
-  focus-background-color: theme('button-primary-focus-background-color', $button-colors-primary-focus-background-color),
-  focus-border-color: theme('button-primary-focus-border-color', $button-colors-primary-focus-border-color),
-  focus-shadow-color: theme('button-primary-focus-shadow-color', $button-colors-primary-focus-shadow-color),
-  disabled-background-color: theme('button-primary-disabled-background-color', $button-colors-primary-disabled-background-color),
-  disabled-border-color: theme('button-primary-disabled-border-color', $button-colors-primary-disabled-border-color),
-  disabled-color: theme('button-primary-disabled-color', $button-colors-primary-disabled-color),
-);
-
-$primary-danger-colors: (
-  background-color: theme('button-primary-danger-background-color', $button-colors-danger-background-color),
-  border-color: theme('button-primary-danger-border-color', $button-colors-danger-border-color),
-  color: theme('button-primary-danger-color', $button-colors-danger-color),
-  hover-background-color: theme('button-primary-danger-hover-background-color', $button-colors-danger-hover-background-color),
-  hover-border-color: theme('button-primary-danger-hover-border-color', $button-colors-danger-hover-border-color),
-  active-background-color: theme('button-primary-danger-active-background-color', $button-colors-danger-active-background-color),
-  active-border-color: theme('button-primary-danger-active-border-color', $button-colors-danger-active-border-color),
-  focus-background-color: theme('button-primary-danger-focus-background-color', $button-colors-danger-focus-background-color),
-  focus-border-color: theme('button-primary-danger-focus-border-color', $button-colors-danger-focus-border-color),
-  focus-shadow-color: theme('button-primary-danger-focus-shadow-color', $button-colors-danger-focus-shadow-color),
-  disabled-background-color: theme('button-primary-danger-disabled-background-color', $button-colors-danger-disabled-background-color),
-  disabled-border-color: theme('button-primary-danger-disabled-border-color', $button-colors-danger-disabled-border-color),
-  disabled-color: theme('button-primary-danger-disabled-color', $button-colors-danger-disabled-color),
-);
-
-$ghost-colors: (
-  background-color: theme('button-ghost-background-color', 'transparent'),
-  border-color: theme('button-ghost-border-color', 'transparent'),
-  color: theme('button-ghost-color', $button-colors-secondary-color),
-  hover-background-color: theme('button-ghost-hover-background-color', $button-colors-secondary-hover-background-color),
-  hover-border-color: theme('button-ghost-hover-border-color', $button-colors-secondary-hover-border-color),
-  active-background-color: theme('button-ghost-active-background-color', $button-colors-secondary-active-background-color),
-  active-border-color: theme('button-ghost-active-border-color', $button-colors-secondary-active-border-color),
-  focus-background-color: theme('button-ghost-focus-background-color', $button-colors-secondary-focus-background-color),
-  focus-border-color: theme('button-ghost-focus-border-color', $button-colors-secondary-focus-border-color),
-  focus-shadow-color: theme('button-ghost-focus-shadow-color', $button-colors-secondary-focus-shadow-color),
-  disabled-background-color: theme('button-ghost-disabled-background-color', $button-colors-secondary-disabled-background-color),
-  disabled-border-color: theme('button-ghost-disabled-border-color', $button-colors-secondary-disabled-border-color),
-  disabled-color: theme('button-ghost-disabled-color', $button-colors-secondary-disabled-color),
-);
-
-$ghost-danger-colors: (
-  background-color: theme('button-ghost-danger-background-color', 'transparent'),
-  border-color: theme('button-ghost-danger-border-color', 'transparent'),
-  color: theme('button-ghost-danger-color', map-get($colors, red500)),
-  hover-background-color: theme('button-ghost-danger-hover-background-color', $button-colors-secondary-hover-background-color),
-  hover-border-color: theme('button-ghost-danger-hover-border-color', $button-colors-secondary-hover-border-color),
-  active-background-color: theme('button-ghost-danger-active-background-color', $button-colors-secondary-active-background-color),
-  active-border-color: theme('button-ghost-danger-active-border-color', $button-colors-secondary-active-border-color),
-  focus-background-color: theme('button-ghost-danger-focus-background-color', $button-colors-secondary-focus-background-color),
-  focus-border-color: theme('button-ghost-danger-focus-border-color', $button-colors-secondary-focus-border-color),
-  focus-shadow-color: theme('button-ghost-danger-focus-shadow-color', $button-colors-secondary-focus-shadow-color),
-  disabled-background-color: theme('button-ghost-danger-disabled-background-color', $button-colors-secondary-disabled-background-color),
-  disabled-border-color: theme('button-ghost-danger-disabled-border-color', $button-colors-secondary-disabled-border-color),
-  disabled-color: theme('button-ghost-danger-disabled-color', map-get($colors, red100)),
-);
-
-@mixin with-size-variant(
-  $border,
-  $padding-x,
-  $text-style,
-  $icon-size-ratio,
-) {
-  @include with-border($border...);
-
-  padding: 0 calc(#{$padding-x} - #{map-get($border, width)});
+@mixin rect-size-variant($height, $padding-x, $text-style, $icon-size-ratio) {
+  padding:
+    calc((#{$height} - #{map-get($text-style, line-height)}) / 2 - #{$borders-default-width})
+    calc(#{$padding-x} - #{$borders-default-width});
 
   @include with-text($text-style...);
-  line-height: calc(2 * #{map-get($text-style, line-height)} - 2 * #{map-get($border, width)});
 
   & > .rcx-icon {
-    font-size: calc(#{$icon-size-ratio} * #{map-get($text-style, line-height)});
-  }
-
-  &--square {
-    width: calc(2 * #{map-get($text-style, line-height)});
-    padding: 0;
-
-    & > .rcx-icon {
-      font-size: map-get($text-style, line-height);
-    }
+    font-size: #{$icon-size-ratio}em;
   }
 }
 
-@mixin medium-sized {
-  @include with-size-variant($medium-size-parameters...);
-}
+@mixin square-size-variant($size, $icon-size) {
+  width: $size;
+  height: $size;
+  padding: 0;
 
-@mixin small-sized {
-  @include with-size-variant($small-size-parameters...);
-}
-
-@mixin basic-colored {
-  @include with-button-action-colors($basic-colors...);
-}
-
-@mixin basic-danger-colored {
-  @include with-button-action-colors($basic-danger-colors...);
-}
-
-@mixin primary-colored {
-  @include with-button-action-colors($primary-colors...);
-}
-
-@mixin primary-danger-colored {
-  @include with-button-action-colors($primary-danger-colors...);
-}
-
-@mixin ghost-colored {
-  @include with-button-action-colors($ghost-colors...);
-}
-
-@mixin ghost-danger-colored {
-  @include with-button-action-colors($ghost-danger-colors...);
+  & > .rcx-icon {
+    font-size: $icon-size;
+  }
 }
 
 .rcx-button {
-  @include reseted;
-  @include clickable;
+  @extend %box;
 
   display: inline-block;
 
-  @include with-truncated-text;
+  margin: 0;
+
   text-align: center;
   vertical-align: middle;
+  text-decoration: none;
+
+  border-width: $borders-default-width;
+
+  border-radius: $borders-default-radius;
 
   appearance: none;
+
+  @include rect-size-variant(
+    $height: $spaces-8,
+    $padding-x: $spaces-5,
+    $icon-size-ratio: 8/7,
+    $text-style: (
+      font-family: $text-styles-p2-font-family,
+      font-size: $text-styles-p2-font-size,
+      font-weight: $text-styles-p2-font-weight,
+      letter-spacing: $text-styles-p2-letter-spacing,
+      line-height: $text-styles-p2-line-height,
+    ),
+  );
+
+  @include with-button-action-colors(
+    $background-color: $button-colors-secondary-background-color,
+    $border-color: $button-colors-secondary-border-color,
+    $color: $button-colors-secondary-color,
+    $hover-background-color: $button-colors-secondary-hover-background-color,
+    $hover-border-color: $button-colors-secondary-hover-border-color,
+    $active-background-color: $button-colors-secondary-active-background-color,
+    $active-border-color: $button-colors-secondary-active-border-color,
+    $focus-background-color: $button-colors-secondary-focus-background-color,
+    $focus-border-color: $button-colors-secondary-focus-border-color,
+    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
+    $disabled-background-color: $button-colors-secondary-disabled-background-color,
+    $disabled-border-color: $button-colors-secondary-disabled-border-color,
+    $disabled-color: $button-colors-secondary-disabled-color,
+  );
+
+  @include clickable;
+  @include truncate;
 
   & > .rcx-icon {
     vertical-align: middle;
   }
-
-  @include medium-sized;
-  @include basic-colored;
-
-  &--primary.rcx-button--danger {
-    @include primary-danger-colored;
-  }
-
-  &--ghost.rcx-button--danger {
-    @include ghost-danger-colored;
-  }
 }
 
 .rcx-button--small {
-  @include small-sized;
+  @include rect-size-variant(
+    $height: $spaces-7,
+    $padding-x: $spaces-4,
+    $icon-size-ratio: 1,
+    $text-style: (
+      font-family: $text-styles-c2-font-family,
+      font-size: $text-styles-c2-font-size,
+      font-weight: $text-styles-c2-font-weight,
+      letter-spacing: $text-styles-c2-letter-spacing,
+      line-height: $text-styles-c2-line-height,
+    ),
+  );
+}
+
+.rcx-button--square {
+  @include square-size-variant(
+    $size: $spaces-8,
+    $icon-size: $text-styles-p2-line-height,
+  );
+}
+
+.rcx-button--small-square {
+  @include rect-size-variant(
+    $height: $spaces-7,
+    $padding-x: $spaces-5,
+    $icon-size-ratio: 1,
+    $text-style: (
+      font-family: $text-styles-c2-font-family,
+      font-size: $text-styles-c2-font-size,
+      font-weight: $text-styles-c2-font-weight,
+      letter-spacing: $text-styles-c2-letter-spacing,
+      line-height: $text-styles-c2-line-height,
+    ),
+  );
+
+  @include square-size-variant(
+    $size: $spaces-7,
+    $icon-size: $text-styles-c2-line-height,
+  );
 }
 
 .rcx-button--danger {
-  @include basic-danger-colored;
+  @include with-button-action-colors(
+    $background-color: $button-colors-secondary-background-color,
+    $border-color: $button-colors-secondary-border-color,
+    $color: map-get($colors, red500),
+    $hover-background-color: $button-colors-secondary-hover-background-color,
+    $hover-border-color: $button-colors-secondary-hover-border-color,
+    $active-background-color: $button-colors-secondary-active-background-color,
+    $active-border-color: $button-colors-secondary-active-border-color,
+    $focus-background-color: $button-colors-secondary-focus-background-color,
+    $focus-border-color: $button-colors-secondary-focus-border-color,
+    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
+    $disabled-background-color: $button-colors-secondary-disabled-background-color,
+    $disabled-border-color: $button-colors-secondary-disabled-border-color,
+    $disabled-color: map-get($colors, red100),
+  );
 }
 
 .rcx-button--primary {
-  @include primary-colored;
+  @include with-button-action-colors(
+    $background-color: $button-colors-primary-background-color,
+    $border-color: $button-colors-primary-border-color,
+    $color: $button-colors-primary-color,
+    $hover-background-color: $button-colors-primary-hover-background-color,
+    $hover-border-color: $button-colors-primary-hover-border-color,
+    $active-background-color: $button-colors-primary-active-background-color,
+    $active-border-color: $button-colors-primary-active-border-color,
+    $focus-background-color: $button-colors-primary-focus-background-color,
+    $focus-border-color: $button-colors-primary-focus-border-color,
+    $focus-shadow-color: $button-colors-primary-focus-shadow-color,
+    $disabled-background-color: $button-colors-primary-disabled-background-color,
+    $disabled-border-color: $button-colors-primary-disabled-border-color,
+    $disabled-color: $button-colors-primary-disabled-color,
+  );
+}
+
+.rcx-button--primary-danger {
+  @include with-button-action-colors(
+    $background-color: $button-colors-danger-background-color,
+    $border-color: $button-colors-danger-border-color,
+    $color: $button-colors-danger-color,
+    $hover-background-color: $button-colors-danger-hover-background-color,
+    $hover-border-color: $button-colors-danger-hover-border-color,
+    $active-background-color: $button-colors-danger-active-background-color,
+    $active-border-color: $button-colors-danger-active-border-color,
+    $focus-background-color: $button-colors-danger-focus-background-color,
+    $focus-border-color: $button-colors-danger-focus-border-color,
+    $focus-shadow-color: $button-colors-danger-focus-shadow-color,
+    $disabled-background-color: $button-colors-danger-disabled-background-color,
+    $disabled-border-color: $button-colors-danger-disabled-border-color,
+    $disabled-color: $button-colors-danger-disabled-color,
+  );
 }
 
 .rcx-button--ghost {
-  @include ghost-colored;
+  @include with-button-action-colors(
+    $background-color: transparent,
+    $border-color: transparent,
+    $color: $button-colors-secondary-color,
+    $hover-background-color: $button-colors-secondary-hover-background-color,
+    $hover-border-color: $button-colors-secondary-hover-border-color,
+    $active-background-color: $button-colors-secondary-active-background-color,
+    $active-border-color: $button-colors-secondary-active-border-color,
+    $focus-background-color: $button-colors-secondary-focus-background-color,
+    $focus-border-color: $button-colors-secondary-focus-border-color,
+    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
+    $disabled-background-color: $button-colors-secondary-disabled-background-color,
+    $disabled-border-color: $button-colors-secondary-disabled-border-color,
+    $disabled-color: $button-colors-secondary-disabled-color,
+  );
+}
+
+.rcx-button--ghost-danger {
+  @include with-button-action-colors(
+    $background-color: transparent,
+    $border-color: transparent,
+    $color: map-get($colors, red500),
+    $hover-background-color: $button-colors-secondary-hover-background-color,
+    $hover-border-color: $button-colors-secondary-hover-border-color,
+    $active-background-color: $button-colors-secondary-active-background-color,
+    $active-border-color: $button-colors-secondary-active-border-color,
+    $focus-background-color: $button-colors-secondary-focus-background-color,
+    $focus-border-color: $button-colors-secondary-focus-border-color,
+    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
+    $disabled-background-color: $button-colors-secondary-disabled-background-color,
+    $disabled-border-color: $button-colors-secondary-disabled-border-color,
+    $disabled-color: map-get($colors, red100),
+  );
 }

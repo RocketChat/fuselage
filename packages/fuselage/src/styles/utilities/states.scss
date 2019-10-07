@@ -89,9 +89,3 @@
     @content;
   }
 }
-
-@mixin on-prop($prop) {
-  &--#{$prop} {
-    @content;
-  }
-}
