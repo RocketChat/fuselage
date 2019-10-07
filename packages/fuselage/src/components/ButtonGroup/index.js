@@ -2,30 +2,28 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
+import { useClassName } from '../../hooks';
 
 /**
  * A container for grouping buttons that semantically share a common action context.
  */
 export const ButtonGroup = React.forwardRef(function ButtonGroup({
+  className,
   align,
   stretch,
   vertical,
   wrap,
   ...props
 }, ref) {
-  return <Box
-    is='div'
-    ref={ref}
-    role='group'
-    styles={['rcx-button-group', {
-      align,
-      stretch,
-      vertical,
-      stretchVertical: !!stretch && !!vertical,
-      wrap,
-    }]}
-    {...props}
-  />;
+  const compoundClassName = useClassName('rcx-button-group', {
+    align,
+    stretch,
+    vertical,
+    stretchVertical: !!stretch && !!vertical,
+    wrap,
+  }, className);
+
+  return <Box className={compoundClassName} is='div' ref={ref} role='group' {...props} />;
 });
 
 ButtonGroup.displayName = 'ButtonGroup';

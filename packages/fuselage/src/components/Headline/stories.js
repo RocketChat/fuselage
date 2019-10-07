@@ -12,3 +12,6 @@ export default {
 
 export const _default = () =>
   <Headline>Headline</Headline>;
+
+export const skeleton = () =>
+  <Headline.Skeleton />;

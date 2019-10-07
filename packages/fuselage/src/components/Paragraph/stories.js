@@ -12,3 +12,6 @@ export default {
 
 export const _default = () =>
   <Paragraph>Paragraph</Paragraph>;
+
+export const skeleton = () =>
+  <Paragraph.Skeleton />;

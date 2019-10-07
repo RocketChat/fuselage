@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { createContext, useContext } from 'react';
 
-import { useClassName } from '../../hooks';
+import { Box } from '../Box';
 
 const LabelContext = createContext(false);
 
 export const Label = React.forwardRef(function Label({
   children,
-  className,
   error,
   position = 'top',
   required,
@@ -16,23 +15,15 @@ export const Label = React.forwardRef(function Label({
 }, ref) {
   const isInsideLabel = useContext(LabelContext);
 
-  const classNames = {
-    container: useClassName('rcx-label', { required, position }),
-    wrapper: useClassName('rcx-label__wrapper'),
-    text: useClassName('rcx-label__text', { required }),
-    error: useClassName('rcx-label__error'),
-  };
-  const Container = isInsideLabel ? 'span' : 'label';
-
   return <LabelContext.Provider value={true}>
-    <Container className={classNames.container} ref={ref} {...props}>
-      {(text || error) && <span className={classNames.wrapper}>
-        {text && <span required={required} className={classNames.text}>{text}</span>}
-        {error && <span className={classNames.error}>{error}</span>}
-      </span>}
+    <Box is={isInsideLabel ? 'span' : 'label'} ref={ref} styles={['rcx-label', { required, position }]} {...props}>
+      {(text || error) && <Box is='span' styles={['rcx-label__wrapper', { position }]}>
+        {text && <Box is='span' required={required} styles={['rcx-label__text', { required }]}>{text}</Box>}
+        {error && <Box is='span' styles={['rcx-label__error']}>{error}</Box>}
+      </Box>}
 
       {children}
-    </Container>
+    </Box>
   </LabelContext.Provider>;
 });
 

@@ -12,3 +12,6 @@ export default {
 
 export const _default = () =>
   <Subtitle>Subtitle</Subtitle>;
+
+export const skeleton = () =>
+  <Subtitle.Skeleton />;

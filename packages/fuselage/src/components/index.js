@@ -12,4 +12,5 @@ export * from './Label';
 export * from './Paragraph';
 export * from './RadioButton';
 export * from './Subtitle';
+export * from './Text';
 export * from './ToggleSwitch';

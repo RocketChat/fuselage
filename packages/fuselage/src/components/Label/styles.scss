@@ -1,97 +1,85 @@
-@import '../../helpers.scss';
-
-$spacing: theme('label-spacing', $spaces-3);
-
-$text-style: (
-  font-family: theme('label-font-family', $text-styles-p1-font-family),
-  font-size: theme('label-font-size', $text-styles-p1-font-size),
-  font-weight: theme('label-font-weight', $text-styles-p1-font-weight),
-  letter-spacing: theme('label-letter-spacing', $text-styles-p1-letter-spacing),
-  line-height: theme('label-line-height', $text-styles-p1-line-height),
-);
-
-$color: theme('label-color', $text-colors-default);
-
-$error-color: theme('label-error-color', $text-colors-danger);
-
-$required-mark-color: theme('label-required-mark-color', $text-colors-danger);
-
 .rcx-label {
-  @include reseted;
+  @extend %box;
 
   display: flex;
 
   @extend .rcx-label--position-top;
-}
 
-.rcx-label__wrapper {
-  @include reseted;
-  @include with-text($text-style...);
+  &__wrapper {
+    @extend %box;
 
-  display: flex;
-  align-items: center;
-}
+    @include paragraph;
 
-.rcx-label__text {
-  @include reseted;
-  @include with-selectable-text;
+    display: flex;
+    align-items: center;
 
-  flex: 1 1 0;
+    @include m(0);
 
-  color: $color;
+    &--position-top {
+      flex: 1 0 auto;
 
-  &--required::before {
-    content: '*\0a0';
+      @include mb($spaces-3);
+    }
 
-    color: $required-mark-color;
+    &--position-start {
+      flex: 1 0 0;
+
+      align-self: stretch;
+
+      @include mr($spaces-3);
+    }
+
+    &--position-end {
+      flex: 1 0 0;
+
+      align-self: stretch;
+      @include ml($spaces-3);
+    }
   }
-}
 
-.rcx-label__error {
-  @include reseted;
-  @include with-truncated-text;
-  @include with-selectable-text;
+  &__text {
+    @extend %box;
 
-  flex: 0 1 auto;
+    flex: 1 1 0;
 
-  margin-left: $spacing;
+    user-select: text;
 
-  white-space: wrap;
+    color: $text-colors-default;
 
-  color: $error-color;
-}
+    @include ellipsis;
 
-.rcx-label--position-top {
-  align-items: stretch;
-  flex-flow: column nowrap;
+    &--required::before {
+      content: '*\0a0';
 
-  & > .rcx-label__wrapper {
-    flex: 1 0 auto;
-
-    margin: 0 0 $spacing 0;
+      color: $text-colors-danger;
+    }
   }
-}
 
-.rcx-label--position-start {
-  align-items: flex-start;
-  flex-flow: row nowrap;
+  &__error {
+    @extend %box;
 
-  & > .rcx-label__wrapper {
-    flex: 1 0 0;
+    flex: 0 1 auto;
 
-    margin: 0 $spacing 0 0;
-    align-self: stretch;
+    user-select: text;
+
+    color: $text-colors-danger;
+
+    @include ml($spaces-3);
+    @include ellipsis;
   }
-}
 
-.rcx-label--position-end {
-  align-items: flex-start;
-  flex-flow: row-reverse nowrap;
+  &--position-top {
+    align-items: stretch;
+    flex-flow: column nowrap;
+  }
 
-  & > .rcx-label__wrapper {
-    flex: 1 0 0;
+  &--position-start {
+    align-items: flex-start;
+    flex-flow: row nowrap;
+  }
 
-    margin: 0 0 0 $spacing;
-    align-self: stretch;
+  &--position-end {
+    align-items: flex-start;
+    flex-flow: row-reverse nowrap;
   }
 }

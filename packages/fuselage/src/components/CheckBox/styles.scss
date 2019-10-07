@@ -154,38 +154,39 @@ $indeterminate-colors: (
 }
 
 .rcx-check-box {
-  @include reseted;
+  @extend %box;
+
   @include clickable;
 
   display: inline-flex;
-}
 
-.rcx-check-box__input {
-  @include visually-hidden;
-}
-
-.rcx-check-box__fake {
-  @include reseted;
-
-  position: relative;
-
-  width: $size;
-  height: $size;
-
-  @include with-border($border...);
-  @include with-unchecked-colors;
-  @include with-checked-colors;
-  @include with-indeterminate-colors;
-
-  .rcx-check-box__input:checked + & {
-    @include with-checked-icon;
+  &__input {
+    @include visually-hidden;
   }
 
-  .rcx-check-box__input:indeterminate + & {
-    @include with-indeterminate-icon;
-  }
+  &__fake {
+    @include reseted;
 
-  @include when-disabled($source: '.rcx-check-box__input', $target: '+ &') {
-    cursor: not-allowed;
+    position: relative;
+
+    width: $size;
+    height: $size;
+
+    @include with-border($border...);
+    @include with-unchecked-colors;
+    @include with-checked-colors;
+    @include with-indeterminate-colors;
+
+    .rcx-check-box__input:checked + & {
+      @include with-checked-icon;
+    }
+
+    .rcx-check-box__input:indeterminate + & {
+      @include with-indeterminate-icon;
+    }
+
+    @include when-disabled($source: '.rcx-check-box__input', $target: '+ &') {
+      cursor: not-allowed;
+    }
   }
 }

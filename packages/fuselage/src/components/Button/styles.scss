@@ -1,8 +1,6 @@
-@mixin rect-size-variant($height, $padding-x, $text-style, $icon-size-ratio) {
-  @include py(calc((#{$height} - #{map-get($text-style, line-height)}) / 2 - #{$borders-default-width}));
-  @include px(calc(#{$padding-x} - #{$borders-default-width}));
-
-  @include with-text($text-style...);
+@mixin rect-size-variant($height, $padding-x, $line-height, $icon-size-ratio) {
+  @include py(calc((#{$height} - #{$line-height}) / 2 - #{$borders-width-1}));
+  @include px(calc(#{$padding-x} - #{$borders-width-1}));
 
   & > .rcx-icon {
     font-size: #{$icon-size-ratio}em;
@@ -30,8 +28,6 @@
 }
 
 .rcx-button {
-  @extend %box;
-
   display: inline-block;
 
   text-align: center;
@@ -44,17 +40,20 @@
 
   appearance: none;
 
+  @include clickable;
+  @include truncate;
+  @include paragraph;
+  @include paragraph-bold;
+
+  & > .rcx-icon {
+    vertical-align: middle;
+  }
+
   @include rect-size-variant(
     $height: $sizes-2,
     $padding-x: $spaces-5,
+    $line-height: $text-styles-p1-line-height,
     $icon-size-ratio: 8/7,
-    $text-style: (
-      font-family: $text-styles-p2-font-family,
-      font-size: $text-styles-p2-font-size,
-      font-weight: $text-styles-p2-font-weight,
-      letter-spacing: $text-styles-p2-letter-spacing,
-      line-height: $text-styles-p2-line-height,
-    ),
   );
 
   @include with-button-action-colors(
@@ -73,32 +72,22 @@
     $disabled-color: $button-colors-secondary-disabled-color,
   );
 
-  @include clickable;
-  @include truncate;
-
-  & > .rcx-icon {
-    vertical-align: middle;
-  }
-
   &--small {
+    @include caption;
+    @include caption-bold;
+
     @include rect-size-variant(
       $height: $sizes-3,
       $padding-x: $spaces-4,
+      $line-height: $text-styles-c1-line-height,
       $icon-size-ratio: 1,
-      $text-style: (
-        font-family: $text-styles-c2-font-family,
-        font-size: $text-styles-c2-font-size,
-        font-weight: $text-styles-c2-font-weight,
-        letter-spacing: $text-styles-c2-letter-spacing,
-        line-height: $text-styles-c2-line-height,
-      ),
     );
   }
 
   &--square {
     @include square-size-variant(
       $size: $spaces-8,
-      $icon-size: $text-styles-p2-line-height,
+      $icon-size: $text-styles-p1-line-height,
     );
   }
 
@@ -106,19 +95,13 @@
     @include rect-size-variant(
       $height: $sizes-3,
       $padding-x: $spaces-5,
+      $line-height: $text-styles-c1-line-height,
       $icon-size-ratio: 1,
-      $text-style: (
-        font-family: $text-styles-c2-font-family,
-        font-size: $text-styles-c2-font-size,
-        font-weight: $text-styles-c2-font-weight,
-        letter-spacing: $text-styles-c2-letter-spacing,
-        line-height: $text-styles-c2-line-height,
-      ),
     );
 
     @include square-size-variant(
       $size: $spaces-7,
-      $icon-size: $text-styles-c2-line-height,
+      $icon-size: $text-styles-c1-line-height,
     );
   }
 

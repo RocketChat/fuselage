@@ -2,11 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
+import { useClassName } from '../../hooks';
 
 /**
  * A `Button` indicates an actionable user action.
  */
 export const Button = React.forwardRef(function Button({
+  className,
   is = 'button',
   danger,
   external,
@@ -26,26 +28,23 @@ export const Button = React.forwardRef(function Button({
   })
   || {};
 
-  return <Box
-    is={is}
-    ref={ref}
-    styles={['rcx-button', {
-      danger,
-      ghost,
-      ghostDanger: ghost && danger,
-      primary,
-      primaryDanger: primary && danger,
-      small,
-      square,
-      smallSquare: small && square,
-    }]}
-    {...extraProps}
-    {...props}
-  />;
+  const compoundClassName = useClassName('rcx-button', {
+    danger,
+    ghost,
+    ghostDanger: ghost && danger,
+    primary,
+    primaryDanger: primary && danger,
+    small,
+    square,
+    smallSquare: small && square,
+  }, className);
+
+  return <Box className={compoundClassName} is={is} ref={ref} {...extraProps} {...props} />;
 });
 
 Button.defaultProps = {
-  is: 'button',
+  basic: true,
+  medium: true,
 };
 
 Button.displayName = 'Button';

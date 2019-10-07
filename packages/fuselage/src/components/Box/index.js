@@ -10,13 +10,11 @@ export const Box = React.forwardRef(function Box({
   className,
   invisible = false,
   is: Component = 'div',
-  styles = ['rcx-box', {}],
   ...props
 }, ref) {
-  const [componentClassName, modifiers = {}] = styles;
-  const enhancedClassName = useClassName(componentClassName, { ...modifiers, invisible }, className);
+  const compoundClassName = useClassName('rcx-box', { invisible }, className);
 
-  return <Component className={enhancedClassName} ref={ref} {...props} />;
+  return <Component className={compoundClassName} ref={ref} {...props} />;
 });
 
 Box.defaultProps = {
@@ -35,11 +33,4 @@ Box.propTypes = {
    * Is this component visible?
    */
   invisible: PropTypes.bool,
-  /**
-   * The styles object
-   */
-  styles: PropTypes.shape({
-    0: PropTypes.string,
-    1: PropTypes.object,
-  }),
 };
