@@ -42,11 +42,6 @@ export const Button = React.forwardRef(function Button({
   return <Box className={compoundClassName} is={is} ref={ref} {...extraProps} {...props} />;
 });
 
-Button.defaultProps = {
-  basic: true,
-  medium: true,
-};
-
 Button.displayName = 'Button';
 
 Button.propTypes = {

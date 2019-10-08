@@ -1,13 +1,3 @@
-@mixin clickable {
-  cursor: pointer;
-
-  outline: 0;
-
-  @include when-disabled {
-    cursor: not-allowed;
-  }
-}
-
 @mixin reseted {
   @extend %ie11-reseted;
   @extend %reseted;
@@ -31,23 +21,6 @@
   &:hover::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.15);
   }
-}
-
-@mixin visually-hidden {
-  position: absolute;
-
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-
-  white-space: nowrap;
-
-  border: 0;
-  clip-path: inset(50%);
 }
 
 @mixin when-active($source: '&', $target: '') {

@@ -1,16 +1,9 @@
-@import '../../helpers.scss';
-@import '../../mixins.scss';
-
-$hint-spacing: theme('hint-spacing', $spaces-2);
-
 .rcx-field {
-  @include reseted;
-
   display: flex;
 
   flex-flow: column nowrap;
-}
 
-.rcx-field__hint {
-  margin-top: $hint-spacing;
+  & > .rcx-hint {
+    @include mt($spaces-2);
+  }
 }

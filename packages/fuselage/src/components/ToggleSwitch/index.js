@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { useClassName } from '../../hooks';
+import { Box } from '../Box';
 import { Label } from '../Label';
 
 export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
@@ -12,22 +12,15 @@ export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
   ...props
 }, ref) {
   const classNames = {
-    container: useClassName('rcx-toggle-switch', { invisible }, className),
+    container: useClassName('rcx-toggle-switch', {}, className),
     input: useClassName('rcx-toggle-switch__input'),
     fake: useClassName('rcx-toggle-switch__fake'),
   };
 
   return <Label className={classNames.container} hidden={hidden} invisible={invisible} style={style}>
-    <input className={classNames.input} ref={ref} type='checkbox' {...props} />
-    <i className={classNames.fake} aria-hidden='true' />
+    <Box className={classNames.input} is='input' ref={ref} type='checkbox' {...props} />
+    <Box aria-hidden='true' className={classNames.fake} is='i' />
   </Label>;
 });
 
 ToggleSwitch.displayName = 'ToggleSwitch';
-
-ToggleSwitch.propTypes = {
-  /**
-   * Is this component visible?
-   */
-  invisible: PropTypes.bool,
-};

@@ -1,0 +1,68 @@
+@mixin selection-button($states: ()) {
+  display: inline-flex;
+
+  vertical-align: middle;
+
+  @include clickable;
+
+  & > &__input {
+    @include visually-hidden;
+  }
+
+  & > &__fake {
+    position: relative;
+
+    height: $sizes-5;
+
+    border-width: $borders-width-1;
+
+    @content;
+  }
+
+  @each $interaction-state in default, hover, focus, active, disabled {
+    @each $value-state in unchecked, checked, indeterminate {
+      @if map-has-key($states, $value-state) {
+        $value-state-class: if($value-state == unchecked, '', '.#{$value-state}');
+        $value-state-pseudo-class: if($value-state == unchecked, '', ':#{$value-state}');
+
+        & > &__input#{$value-state-class} + &__fake,
+        & > &__input#{$value-state-pseudo-class} + &__fake {
+          @extend #{map-get($states, $value-state)};
+        }
+      }
+
+      @if map-has-key($states, '#{$value-state}-#{$interaction-state}') {
+        $interaction-state-class: if($interaction-state == default, '', '.#{$interaction-state}');
+        $interaction-state-pseudo-class: if($interaction-state == default, '', ':#{$interaction-state}');
+        $value-state-class: if($value-state == unchecked, '', '.#{$value-state}');
+        $value-state-pseudo-class: if($value-state == unchecked, '', ':#{$value-state}');
+
+        &#{$interaction-state-class} > &__input#{$value-state-class} + &__fake,
+        &#{$interaction-state-class} > &__input#{$value-state-pseudo-class} + &__fake,
+        & > &__input#{$value-state-class}#{$interaction-state-pseudo-class} + &__fake,
+        & > &__input#{$value-state-pseudo-class}#{$interaction-state-pseudo-class} + &__fake {
+          @extend #{map-get($states, '#{$value-state}-#{$interaction-state}')};
+        }
+      }
+
+      @if map-has-key($states, '#{$value-state}-#{$interaction-state}') {
+        $interaction-state-class: if($interaction-state == default, '', '.#{$interaction-state}');
+        $interaction-state-pseudo-class: if($interaction-state == default, '', ':#{$interaction-state}');
+        $value-state-class: if($value-state == unchecked, '', '.#{$value-state}');
+        $value-state-pseudo-class: if($value-state == unchecked, '', ':#{$value-state}');
+
+        &#{$interaction-state-class} > &__input#{$value-state-class} + &__fake,
+        &#{$interaction-state-class} > &__input#{$value-state-pseudo-class} + &__fake,
+        & > &__input#{$value-state-class}#{$interaction-state-pseudo-class} + &__fake,
+        & > &__input#{$value-state-pseudo-class}#{$interaction-state-pseudo-class} + &__fake {
+          @extend #{map-get($states, '#{$value-state}-#{$interaction-state}')};
+        }
+      }
+    }
+  }
+
+  &.disabled > &__input + &__fake,
+  & > &__input:disabled + &__fake {
+    cursor: not-allowed;
+  }
+}

@@ -1,19 +1,13 @@
 .rcx-label {
-  @extend %box;
-
-  display: flex;
+  display: inline-flex;
 
   @extend .rcx-label--position-top;
 
   &__wrapper {
-    @extend %box;
-
-    @include paragraph;
-
     display: flex;
     align-items: center;
 
-    @include m(0);
+    @include paragraph;
 
     &--position-top {
       flex: 1 0 auto;
@@ -38,8 +32,6 @@
   }
 
   &__text {
-    @extend %box;
-
     flex: 1 1 0;
 
     user-select: text;
@@ -56,8 +48,6 @@
   }
 
   &__error {
-    @extend %box;
-
     flex: 0 1 auto;
 
     user-select: text;

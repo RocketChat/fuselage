@@ -1,192 +1,197 @@
-@import '../../helpers.scss';
-@import '../../mixins.scss';
-
-$size: theme('check-box-size', $text-styles-p1-line-height);
-
-$border: (
-  width: theme('check-box-border-width', $borders-default-width),
-  radius: theme('check-box-border-radius', $borders-default-radius),
-);
-
-$icon-smoothness: theme('check-box-icon-smoothness', to-rem(1));
-$icon-thickness: theme('check-box-icon-thickness', to-rem(2));
-$icon-size: theme('check-box-icon-size', 0.6);
-
-$unchecked-colors: (
-  background-color: theme('check-box-background-color', $button-colors-empty-background-color),
-  border-color: theme('check-box-border-color', $button-colors-empty-border-color),
-  color: theme('check-box-color', $button-colors-empty-color),
-  hover-background-color: theme('check-box-hover-background-color', $button-colors-empty-hover-background-color),
-  hover-border-color: theme('check-box-hover-border-color', $button-colors-empty-hover-border-color),
-  active-background-color: theme('check-box-active-background-color', $button-colors-empty-active-background-color),
-  active-border-color: theme('check-box-active-border-color', $button-colors-empty-active-border-color),
-  focus-background-color: theme('check-box-focus-background-color', $button-colors-empty-focus-background-color),
-  focus-border-color: theme('check-box-focus-border-color', $button-colors-empty-focus-border-color),
-  focus-shadow-color: theme('check-box-focus-shadow-color', $button-colors-empty-focus-shadow-color),
-  disabled-background-color: theme('check-box-disabled-background-color', $button-colors-empty-disabled-background-color),
-  disabled-border-color: theme('check-box-disabled-border-color', $button-colors-empty-disabled-border-color),
-  disabled-color: theme('check-box-disabled-color', $button-colors-empty-disabled-color),
-);
-
-$checked-colors: (
-  background-color: theme('check-box-checked-background-color', $button-colors-primary-background-color),
-  border-color: theme('check-box-checked-border-color', $button-colors-primary-border-color),
-  color: theme('check-box-checked-color', $button-colors-primary-color),
-  hover-background-color: theme('check-box-checked-hover-background-color', $button-colors-primary-hover-background-color),
-  hover-border-color: theme('check-box-checked-hover-border-color', $button-colors-primary-hover-border-color),
-  active-background-color: theme('check-box-checked-active-background-color', $button-colors-primary-active-background-color),
-  active-border-color: theme('check-box-checked-active-border-color', $button-colors-primary-active-border-color),
-  focus-background-color: theme('check-box-checked-focus-background-color', $button-colors-primary-focus-background-color),
-  focus-border-color: theme('check-box-checked-focus-border-color', $button-colors-primary-focus-border-color),
-  focus-shadow-color: theme('check-box-checked-focus-shadow-color', $button-colors-primary-focus-shadow-color),
-  disabled-background-color: theme('check-box-checked-disabled-background-color', $button-colors-primary-disabled-background-color),
-  disabled-border-color: theme('check-box-checked-disabled-border-color', $button-colors-primary-disabled-border-color),
-  disabled-color: theme('check-box-checked-disabled-color', $button-colors-primary-disabled-color),
-);
-
-$indeterminate-colors: (
-  background-color: theme('check-box-indeterminate-background-color', $button-colors-primary-background-color),
-  border-color: theme('check-box-indeterminate-border-color', $button-colors-primary-border-color),
-  color: theme('check-box-indeterminate-color', $button-colors-primary-color),
-  hover-background-color: theme('check-box-indeterminate-hover-background-color', $button-colors-primary-hover-background-color),
-  hover-border-color: theme('check-box-indeterminate-hover-border-color', $button-colors-primary-hover-border-color),
-  active-background-color: theme('check-box-indeterminate-active-background-color', $button-colors-primary-active-background-color),
-  active-border-color: theme('check-box-indeterminate-active-border-color', $button-colors-primary-active-border-color),
-  focus-background-color: theme('check-box-indeterminate-focus-background-color', $button-colors-primary-focus-background-color),
-  focus-border-color: theme('check-box-indeterminate-focus-border-color', $button-colors-primary-focus-border-color),
-  focus-shadow-color: theme('check-box-indeterminate-focus-shadow-color', $button-colors-primary-focus-shadow-color),
-  disabled-background-color: theme('check-box-indeterminate-disabled-background-color', $button-colors-primary-disabled-background-color),
-  disabled-border-color: theme('check-box-indeterminate-disabled-border-color', $button-colors-primary-disabled-border-color),
-  disabled-color: theme('check-box-indeterminate-disabled-color', $button-colors-primary-disabled-color),
-);
-
-@mixin with-unchecked-colors {
-  @include with-button-action-colors($unchecked-colors..., $source: '.rcx-check-box__input', $target: '+ &');
-}
-
-@mixin with-checked-colors {
-  @include with-button-action-colors($checked-colors..., $source: '.rcx-check-box__input:checked', $target: '+ &');
-}
-
-@mixin with-indeterminate-colors {
-  @include with-button-action-colors($indeterminate-colors..., $source: '.rcx-check-box__input:indeterminate', $target: '+ &');
-}
-
-@mixin with-icon {
-  &::before,
-  &::after {
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    display: block;
-    visibility: hidden;
-
-    content: '';
-    transform: translate(-50%, -50%);
-
-    opacity: 0;
-
-    background-color: currentColor;
-  }
-}
-
-@mixin with-checked-icon {
-  @include with-icon;
-
-  &::before,
-  &::after {
-    visibility: visible;
-
-    opacity: 1;
-    border-radius: $icon-smoothness;
+.rcx-check-box {
+  %unchecked-default-state {
+    color: $button-colors-empty-color;
+    border-color: $button-colors-empty-border-color;
+    background-color: $button-colors-empty-background-color;
   }
 
-  &::before {
-    width: calc(#{$icon-size} * #{$size});
-    height: $icon-thickness;
+  %unchecked-focus-state {
+    border-color: $button-colors-empty-focus-border-color;
+    background-color: $button-colors-empty-focus-background-color;
+    box-shadow: 0 0 0 to-rem(6) $button-colors-empty-focus-shadow-color;
+  }
 
-    @include when-ie11 {
+  %unchecked-hover-state {
+    border-color: $button-colors-empty-hover-border-color;
+    background-color: $button-colors-empty-hover-background-color;
+    box-shadow: none;
+  }
+
+  %unchecked-active-state {
+    border-color: $button-colors-empty-active-border-color;
+    background-color: $button-colors-empty-active-background-color;
+    box-shadow: none;
+  }
+
+  %unchecked-disabled-state {
+    color: $button-colors-empty-disabled-color;
+    border-color: $button-colors-empty-disabled-border-color;
+    background-color: $button-colors-empty-disabled-background-color;
+  }
+
+  $icon-smoothness: to-rem(1);
+  $icon-thickness: to-rem(2);
+  $icon-size: 0.6;
+
+  %with-icon {
+    &::before,
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      display: block;
+      visibility: hidden;
+
+      content: '';
+      transform: translate(-50%, -50%);
+
+      opacity: 0;
+
+      background-color: currentColor;
+    }
+  }
+
+  %checked-state {
+    @extend %with-icon;
+
+    &::before,
+    &::after {
+      visibility: visible;
+
+      opacity: 1;
+      border-radius: $icon-smoothness;
+    }
+
+    &::before {
+      width: calc(#{$icon-size} * #{$sizes-5});
+      height: $icon-thickness;
+
       transform:
         translate(-50%, -50%)
         translate(-4px, 2px)
         rotate(-45deg)
         translate(6px, 2px);
-    }
-    transform:
-      translate(-50%, -50%)
-      translate(calc(#{$icon-size} * #{$size} / -3), calc(#{$icon-size} * #{$size} / 6))
-      rotate(-45deg)
-      translate(calc(#{$icon-size} * #{$size} / 2), calc(#{$icon-size} * #{$size} / 6));
-  }
-
-  &::after {
-    width: $icon-thickness;
-    height: calc(0.5 * #{$icon-size} * #{$size});
-
-    @include when-ie11 {
       transform:
         translate(-50%, -50%)
-        translate(-4px, 2px)
+        translate(calc(#{$icon-size} * #{$sizes-5} / -3), calc(#{$icon-size} * #{$sizes-5} / 6))
+        rotate(-45deg)
+        translate(calc(#{$icon-size} * #{$sizes-5} / 2), calc(#{$icon-size} * #{$sizes-5} / 6));
+    }
+
+    &::after {
+      width: $icon-thickness;
+      height: calc(0.5 * #{$icon-size} * #{$sizes-5});
+
+      @include when-ie11 {
+        transform:
+          translate(-50%, -50%)
+          translate(-4px, 2px)
+          rotate(-45deg);
+      }
+      transform:
+        translate(-50%, -50%)
+        translate(calc(#{$icon-size} * #{$sizes-5} / -3), calc(#{$icon-size} * #{$sizes-5} / 6))
         rotate(-45deg);
     }
-    transform:
-      translate(-50%, -50%)
-      translate(calc(#{$icon-size} * #{$size} / -3), calc(#{$icon-size} * #{$size} / 6))
-      rotate(-45deg);
-  }
-}
-
-@mixin with-indeterminate-icon {
-  @include with-icon;
-
-  &::before {
-    visibility: visible;
-
-    width: calc(#{$icon-size} * #{$size});
-    height: $icon-thickness;
-
-    opacity: 1;
-
-    border-radius: $icon-smoothness;
-  }
-}
-
-.rcx-check-box {
-  @extend %box;
-
-  @include clickable;
-
-  display: inline-flex;
-
-  &__input {
-    @include visually-hidden;
   }
 
-  &__fake {
-    @include reseted;
+  %checked-default-state {
+    color: $button-colors-primary-color;
+    border-color: $button-colors-primary-border-color;
+    background-color: $button-colors-primary-background-color;
+  }
 
-    position: relative;
+  %checked-focus-state {
+    border-color: $button-colors-primary-focus-border-color;
+    background-color: $button-colors-primary-focus-background-color;
+    box-shadow: 0 0 0 to-rem(6) $button-colors-primary-focus-shadow-color;
+  }
 
-    width: $size;
-    height: $size;
+  %checked-hover-state {
+    border-color: $button-colors-primary-hover-border-color;
+    background-color: $button-colors-primary-hover-background-color;
+    box-shadow: none;
+  }
 
-    @include with-border($border...);
-    @include with-unchecked-colors;
-    @include with-checked-colors;
-    @include with-indeterminate-colors;
+  %checked-active-state {
+    border-color: $button-colors-primary-active-border-color;
+    background-color: $button-colors-primary-active-background-color;
+    box-shadow: none;
+  }
 
-    .rcx-check-box__input:checked + & {
-      @include with-checked-icon;
+  %checked-disabled-state {
+    color: $button-colors-primary-disabled-color;
+    border-color: $button-colors-primary-disabled-border-color;
+    background-color: $button-colors-primary-disabled-background-color;
+  }
+
+  %indeterminate-state {
+    @extend %with-icon;
+
+    &::before {
+      visibility: visible;
+
+      width: calc(#{$icon-size} * #{$sizes-5});
+      height: $icon-thickness;
+
+      opacity: 1;
+
+      border-radius: $icon-smoothness;
     }
+  }
 
-    .rcx-check-box__input:indeterminate + & {
-      @include with-indeterminate-icon;
-    }
+  %indeterminate-default-state {
+    color: $button-colors-primary-color;
+    border-color: $button-colors-primary-border-color;
+    background-color: $button-colors-primary-background-color;
+  }
 
-    @include when-disabled($source: '.rcx-check-box__input', $target: '+ &') {
-      cursor: not-allowed;
-    }
+  %indeterminate-focus-state {
+    border-color: $button-colors-primary-focus-border-color;
+    background-color: $button-colors-primary-focus-background-color;
+    box-shadow: 0 0 0 to-rem(6) $button-colors-primary-focus-shadow-color;
+  }
+
+  %indeterminate-hover-state {
+    border-color: $button-colors-primary-hover-border-color;
+    background-color: $button-colors-primary-hover-background-color;
+    box-shadow: none;
+  }
+
+  %indeterminate-active-state {
+    border-color: $button-colors-primary-active-border-color;
+    background-color: $button-colors-primary-active-background-color;
+    box-shadow: none;
+  }
+
+  %indeterminate-disabled-state {
+    color: $button-colors-primary-disabled-color;
+    border-color: $button-colors-primary-disabled-border-color;
+    background-color: $button-colors-primary-disabled-background-color;
+  }
+
+  @include selection-button((
+    unchecked-default: '%unchecked-default-state',
+    unchecked-focus: '%unchecked-focus-state',
+    unchecked-hover: '%unchecked-hover-state',
+    unchecked-active: '%unchecked-active-state',
+    unchecked-disabled: '%unchecked-disabled-state',
+    checked: '%checked-state',
+    checked-default: '%checked-default-state',
+    checked-focus: '%checked-focus-state',
+    checked-hover: '%checked-hover-state',
+    checked-active: '%checked-active-state',
+    checked-disabled: '%checked-disabled-state',
+    indeterminate: '%indeterminate-state',
+    indeterminate-default: '%indeterminate-default-state',
+    indeterminate-focus: '%indeterminate-focus-state',
+    indeterminate-hover: '%indeterminate-hover-state',
+    indeterminate-active: '%indeterminate-active-state',
+    indeterminate-disabled: '%indeterminate-disabled-state',
+  )) {
+    width: $sizes-5;
+
+    border-radius: $borders-radius-1;
   }
 }

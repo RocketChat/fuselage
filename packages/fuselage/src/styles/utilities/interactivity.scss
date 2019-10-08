@@ -1,51 +1,9 @@
-@mixin appearance-none {
-  appearance: none;
-}
+@mixin clickable {
+  cursor: pointer;
 
-@mixin cursor($cursor) {
-  cursor: $cursor;
-}
-
-@mixin outline-none {
   outline: 0;
-}
 
-@mixin pointer-events-none {
-  pointer-events: none;
-}
-
-@mixin pointer-events-auto {
-  pointer-events: auto;
-}
-
-@mixin resize-none {
-  resize: none;
-}
-
-@mixin resize {
-  resize: both;
-}
-
-@mixin resize-y {
-  resize: vertical;
-}
-
-@mixin resize-x {
-  resize: horizontal;
-}
-
-@mixin select-none {
-  user-select: none;
-}
-
-@mixin select-text {
-  user-select: text;
-}
-
-@mixin select-all {
-  user-select: all;
-}
-
-@mixin select-auto {
-  user-select: auto;
+  @include when-disabled {
+    cursor: not-allowed;
+  }
 }

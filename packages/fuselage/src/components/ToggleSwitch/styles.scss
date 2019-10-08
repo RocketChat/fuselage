@@ -1,113 +1,115 @@
-@import '../../helpers.scss';
-@import '../../mixins.scss';
-
-$size: theme('toggle-switch-size', $text-styles-p1-line-height);
-
-$border: (
-  width: theme('toggle-switch-border-width', $borders-default-width),
-  radius: theme('toggle-switch-border-radius', 9999px),
-);
-
-$off-colors: (
-  background-color: theme('toggle-switch-background-color', $button-colors-off-background-color),
-  border-color: theme('toggle-switch-border-color', $button-colors-off-border-color),
-  color: theme('toggle-switch-color', $button-colors-off-color),
-  hover-background-color: theme('toggle-switch-hover-background-color', $button-colors-off-hover-background-color),
-  hover-border-color: theme('toggle-switch-hover-border-color', $button-colors-off-hover-border-color),
-  active-background-color: theme('toggle-switch-active-background-color', $button-colors-off-active-background-color),
-  active-border-color: theme('toggle-switch-active-border-color', $button-colors-off-active-border-color),
-  focus-background-color: theme('toggle-switch-focus-background-color', $button-colors-off-focus-background-color),
-  focus-border-color: theme('toggle-switch-focus-border-color', $button-colors-off-focus-border-color),
-  focus-shadow-color: theme('toggle-switch-focus-shadow-color', $button-colors-off-focus-shadow-color),
-  disabled-background-color: theme('toggle-switch-disabled-background-color', $button-colors-off-disabled-background-color),
-  disabled-border-color: theme('toggle-switch-disabled-border-color', $button-colors-off-disabled-border-color),
-  disabled-color: theme('toggle-switch-disabled-color', $button-colors-off-disabled-color),
-);
-
-$on-colors: (
-  background-color: theme('toggle-switch-on-background-color', $button-colors-primary-background-color),
-  border-color: theme('toggle-switch-on-border-color', $button-colors-primary-border-color),
-  color: theme('toggle-switch-on-color', $button-colors-primary-color),
-  hover-background-color: theme('toggle-switch-on-hover-background-color', $button-colors-primary-hover-background-color),
-  hover-border-color: theme('toggle-switch-on-hover-border-color', $button-colors-primary-hover-border-color),
-  active-background-color: theme('toggle-switch-on-active-background-color', $button-colors-primary-active-background-color),
-  active-border-color: theme('toggle-switch-on-active-border-color', $button-colors-primary-active-border-color),
-  focus-background-color: theme('toggle-switch-on-focus-background-color', $button-colors-primary-focus-background-color),
-  focus-border-color: theme('toggle-switch-on-focus-border-color', $button-colors-primary-focus-border-color),
-  focus-shadow-color: theme('toggle-switch-on-focus-shadow-color', $button-colors-primary-focus-shadow-color),
-  disabled-background-color: theme('toggle-switch-on-disabled-background-color', $button-colors-primary-disabled-background-color),
-  disabled-border-color: theme('toggle-switch-on-disabled-border-color', $button-colors-primary-disabled-border-color),
-  disabled-color: theme('toggle-switch-on-disabled-color', $button-colors-primary-disabled-color),
-);
-
-@mixin with-off-colors {
-  @include with-button-action-colors($off-colors..., $source: '.rcx-toggle-switch__input', $target: '+ &');
-}
-
-@mixin with-on-colors {
-  @include with-button-action-colors($on-colors..., $source: '.rcx-toggle-switch__input:checked', $target: '+ &');
-}
-
-@mixin with-thumb {
-  &::before {
-    position: absolute;
-    left: 0%;
-
-    width: calc(#{$size} - 2 * #{map-get($border, width)});
-    height: calc(#{$size} - 2 * #{map-get($border, width)});
-
-    content: '';
-
-    border-radius: 50%;
-
-    background-color: currentColor;
-
-    @include when-right-to-left-orientation {
-      right: 0%;
-      left: unset;
-    }
-  }
-
-  .rcx-toggle-switch__input:checked + &::before {
-    left: 100%;
-
-    transform: translateX(-100%);
-
-    @include when-right-to-left-orientation {
-      right: 100%;
-
-      transform: translateX(100%);
-    }
-  }
-}
-
 .rcx-toggle-switch {
-  @include reseted;
-  @include clickable;
+  %unchecked-state {
+    &::before {
+      position: absolute;
+      left: 0%;
 
-  display: inline-flex;
+      width: calc(#{$sizes-5} - 2 * #{$borders-width-1});
+      height: calc(#{$sizes-5} - 2 * #{$borders-width-1});
 
-  vertical-align: middle;
-}
+      content: '';
 
-.rcx-toggle-switch__input {
-  @include visually-hidden;
-}
+      border-radius: 50%;
 
-.rcx-toggle-switch__fake {
-  @include reseted;
+      background-color: currentColor;
 
-  position: relative;
+      @include on-rtl-orientation {
+        right: 0%;
+        left: unset;
+      }
+    }
+  }
 
-  width: calc(2 * #{$size});
-  height: $size;
+  %unchecked-default-state {
+    color: $button-colors-off-color;
+    border-color: $button-colors-off-border-color;
+    background-color: $button-colors-off-background-color;
+  }
 
-  @include with-border($border...);
-  @include with-off-colors;
-  @include with-on-colors;
-  @include with-thumb;
+  %unchecked-focus-state {
+    border-color: $button-colors-off-focus-border-color;
+    background-color: $button-colors-off-focus-background-color;
+    box-shadow: 0 0 0 to-rem(6) $button-colors-off-focus-shadow-color;
+  }
 
-  @include when-disabled($source: '.rcx-toggle-switch__input', $target: '+ &') {
-    cursor: not-allowed;
+  %unchecked-hover-state {
+    border-color: $button-colors-off-hover-border-color;
+    background-color: $button-colors-off-hover-background-color;
+    box-shadow: none;
+  }
+
+  %unchecked-active-state {
+    border-color: $button-colors-off-active-border-color;
+    background-color: $button-colors-off-active-background-color;
+    box-shadow: none;
+  }
+
+  %unchecked-disabled-state {
+    color: $button-colors-off-disabled-color;
+    border-color: $button-colors-off-disabled-border-color;
+    background-color: $button-colors-off-disabled-background-color;
+  }
+
+  %checked-state {
+    &::before {
+      left: 100%;
+
+      transform: translateX(-100%);
+
+      @include on-rtl-orientation {
+        right: 100%;
+
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  %checked-default-state {
+    color: $button-colors-primary-color;
+    border-color: $button-colors-primary-border-color;
+    background-color: $button-colors-primary-background-color;
+  }
+
+  %checked-focus-state {
+    border-color: $button-colors-primary-focus-border-color;
+    background-color: $button-colors-primary-focus-background-color;
+    box-shadow: 0 0 0 to-rem(6) $button-colors-primary-focus-shadow-color;
+  }
+
+  %checked-hover-state {
+    border-color: $button-colors-primary-hover-border-color;
+    background-color: $button-colors-primary-hover-background-color;
+    box-shadow: none;
+  }
+
+  %checked-active-state {
+    border-color: $button-colors-primary-active-border-color;
+    background-color: $button-colors-primary-active-background-color;
+    box-shadow: none;
+  }
+
+  %checked-disabled-state {
+    color: $button-colors-primary-disabled-color;
+    border-color: $button-colors-primary-disabled-border-color;
+    background-color: $button-colors-primary-disabled-background-color;
+  }
+
+  @include selection-button((
+    unchecked: '%unchecked-state',
+    unchecked-default: '%unchecked-default-state',
+    unchecked-focus: '%unchecked-focus-state',
+    unchecked-hover: '%unchecked-hover-state',
+    unchecked-active: '%unchecked-active-state',
+    unchecked-disabled: '%unchecked-disabled-state',
+    checked: '%checked-state',
+    checked-default: '%checked-default-state',
+    checked-focus: '%checked-focus-state',
+    checked-hover: '%checked-hover-state',
+    checked-active: '%checked-active-state',
+    checked-disabled: '%checked-disabled-state',
+  )) {
+    width: calc(2 * #{$sizes-5});
+
+    border-radius: 9999px;
   }
 }

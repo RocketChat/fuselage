@@ -1,21 +1,3 @@
-@import '../../helpers.scss';
-@import '../../mixins.scss';
-
-$color: theme('hint-color', $text-colors-hint);
-
-$text-style: (
-  font-family: theme('hint-font-family', $text-styles-p1-font-family),
-  font-size: theme('hint-font-size', $text-styles-p1-font-size),
-  font-weight: theme('hint-font-weight', $text-styles-p1-font-weight),
-  letter-spacing: theme('hint-letter-spacing', $text-styles-p1-letter-spacing),
-  line-height: theme('hint-line-height', $text-styles-p1-line-height),
-);
-
 .rcx-hint {
-  flex: 0 0 auto;
-
-  color: $color;
-
-  @include with-text($text-style...);
-  @include with-selectable-text;
+  display: block;
 }

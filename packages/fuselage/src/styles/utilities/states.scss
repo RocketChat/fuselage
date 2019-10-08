@@ -48,7 +48,7 @@
 }
 
 @mixin on-odd-child {
-  &.old-child,
+  &.odd-child,
   &:nth-child(odd) {
     @content;
   }
@@ -86,6 +86,20 @@
   &.rtl,
   .rtl &,
   [dir=rtl] & {
+    @content;
+  }
+}
+
+@mixin on-checked {
+  &.checked,
+  &:checked {
+    @content;
+  }
+}
+
+@mixin on-indeterminate {
+  &.indeterminate,
+  &:indeterminate {
     @content;
   }
 }

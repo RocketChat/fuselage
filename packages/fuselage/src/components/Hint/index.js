@@ -1,34 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { useClassName } from '../../hooks';
+import { Text } from '../Text';
 
 export const Hint = React.forwardRef(function Hint({
-  as: Component = 'div',
   className,
-  invisible,
   ...props
 }, ref) {
-  const classNames = {
-    container: useClassName('rcx-hint', { invisible }, className),
-  };
+  const compoundClassName = useClassName('rcx-hint', {}, className);
 
-  return <Component className={classNames.container} ref={ref} {...props} />;
+  return <Text className={compoundClassName} hint is='div' paragraph ref={ref} {...props} />;
 });
 
-Hint.defaultProps = {
-  as: 'div',
-};
-
 Hint.displayName = 'Hint';
-
-Hint.propTypes = {
-  /**
-   * The component which will behave as a `Hint`
-   */
-  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
-  /**
-   * Is this component visible?
-   */
-  invisible: PropTypes.bool,
-};
