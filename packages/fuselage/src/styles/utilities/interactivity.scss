@@ -3,7 +3,7 @@
 
   outline: 0;
 
-  @include when-disabled {
+  @include on-disabled {
     cursor: not-allowed;
   }
 }

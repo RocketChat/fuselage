@@ -3,6 +3,7 @@ import * as names from '@rocket.chat/icons/dist/font/index';
 import React from 'react';
 
 import { useClassName } from '../../hooks';
+import { Box } from '../Box';
 
 const nameToCharacterMapping = Object.entries(names)
   .reduce((map, [symbol, name]) => ({
@@ -16,13 +17,11 @@ export const Icon = React.forwardRef(function Icon({
   name,
   ...props
 }, ref) {
-  const classNames = {
-    element: useClassName('rcx-icon', {}, className),
-  };
+  const compoundClassName = useClassName('rcx-icon', {}, className);
 
   const children = nameToCharacterMapping[iconName || name];
 
-  return <i aria-hidden='true' children={children} className={classNames.element} ref={ref} {...props} />;
+  return <Box aria-hidden='true' children={children} className={compoundClassName} is='i' ref={ref} {...props} />;
 });
 
 Icon.displayName = 'Icon';

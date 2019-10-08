@@ -31,17 +31,13 @@
         }
       }
 
-      @if map-has-key($states, '#{$value-state}-#{$interaction-state}') {
+      @if map-has-key($states, $interaction-state) {
         $interaction-state-class: if($interaction-state == default, '', '.#{$interaction-state}');
         $interaction-state-pseudo-class: if($interaction-state == default, '', ':#{$interaction-state}');
-        $value-state-class: if($value-state == unchecked, '', '.#{$value-state}');
-        $value-state-pseudo-class: if($value-state == unchecked, '', ':#{$value-state}');
 
-        &#{$interaction-state-class} > &__input#{$value-state-class} + &__fake,
-        &#{$interaction-state-class} > &__input#{$value-state-pseudo-class} + &__fake,
-        & > &__input#{$value-state-class}#{$interaction-state-pseudo-class} + &__fake,
-        & > &__input#{$value-state-pseudo-class}#{$interaction-state-pseudo-class} + &__fake {
-          @extend #{map-get($states, '#{$value-state}-#{$interaction-state}')};
+        &#{$interaction-state-class} > &__input + &__fake,
+        & > &__input#{$interaction-state-pseudo-class} + &__fake {
+          @extend #{map-get($states, $interaction-state)};
         }
       }
 

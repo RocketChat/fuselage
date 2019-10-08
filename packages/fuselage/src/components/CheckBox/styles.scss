@@ -83,12 +83,10 @@
       width: $icon-thickness;
       height: calc(0.5 * #{$icon-size} * #{$sizes-5});
 
-      @include when-ie11 {
-        transform:
-          translate(-50%, -50%)
-          translate(-4px, 2px)
-          rotate(-45deg);
-      }
+      transform:
+        translate(-50%, -50%)
+        translate(-4px, 2px)
+        rotate(-45deg);
       transform:
         translate(-50%, -50%)
         translate(calc(#{$icon-size} * #{$sizes-5} / -3), calc(#{$icon-size} * #{$sizes-5} / 6))

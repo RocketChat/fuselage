@@ -1,4 +1,3 @@
-export * from './useChildrenWithClassName';
 export * from './useClassName';
 export * from './useDebouncedUpdates';
 export * from './useDebouncedCallback';

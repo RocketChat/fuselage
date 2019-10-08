@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useClassName } from '../../hooks';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 
 const TextInput = React.forwardRef(function TextInput({
@@ -15,13 +16,13 @@ const TextInput = React.forwardRef(function TextInput({
   };
 
   if (!icon) {
-    return <input className={classNames.input} ref={ref} {...props} />;
+    return <Box is='input' className={classNames.input} ref={ref} {...props} />;
   }
 
-  return <span className={classNames.container}>
-    <input className={classNames.input} ref={ref} {...props} />
+  return <Box is='span' className={classNames.container}>
+    <Box is='input' className={classNames.input} ref={ref} {...props} />
     <Icon iconName={icon} />
-  </span>;
+  </Box>;
 });
 
 const TextAreaInput = React.forwardRef(function TextAreaInput({
@@ -39,10 +40,10 @@ const TextAreaInput = React.forwardRef(function TextAreaInput({
     return <textarea className={classNames.input} ref={ref} {...props} />;
   }
 
-  return <span className={classNames.container}>
+  return <Box is='span' className={classNames.container}>
     <textarea className={classNames.input} ref={ref} {...props} />
     <Icon iconName={icon} />
-  </span>;
+  </Box>;
 });
 
 const SelectInput = React.forwardRef(function SelectInput({
@@ -62,13 +63,13 @@ const SelectInput = React.forwardRef(function SelectInput({
     placeholder: useClassName('rcx-input__placeholder'),
   };
 
-  return <span className={classNames.container}>
+  return <Box is='span' className={classNames.container}>
     <select className={classNames.input} ref={ref} value={value} {...props}>
       <option className={classNames.placeholder} value=''>{placeholder}</option>
       {children}
     </select>
     <Icon iconName='arrow-down' />
-  </span>;
+  </Box>;
 });
 
 /**
