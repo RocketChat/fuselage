@@ -1,22 +1,15 @@
-import styled from 'styled-components';
+import React from 'react';
 
-import { rebuildClassName } from '../../helpers';
-import { normalized, withSelectableText, withText } from '../../mixins';
-import {
-  color,
-  textStyle,
-} from './theme';
+import { useClassName } from '../../hooks';
+import { Text } from '../Text';
 
+export const Hint = React.forwardRef(function Hint({
+  className,
+  ...props
+}, ref) {
+  const compoundClassName = useClassName('rcx-hint', {}, className);
 
-export const Hint = styled.div.attrs(rebuildClassName('hint'))`
-  ${ normalized }
-  ${ withSelectableText }
-
-  flex: 0 0 auto;
-
-  color: ${ color };
-
-  ${ withText(textStyle) }
-`;
+  return <Text className={compoundClassName} hintColor is='div' paragraph ref={ref} {...props} />;
+});
 
 Hint.displayName = 'Hint';

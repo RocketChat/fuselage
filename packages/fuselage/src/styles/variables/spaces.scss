@@ -1,0 +1,11 @@
+@import '~@rocket.chat/fuselage-tokens/spaces.scss';
+
+$spaces-0: theme('spaces-0', to-rem(get-map-value($spaces, 0)));
+$spaces-1: theme('spaces-1', to-rem(get-map-value($spaces, 1)));
+$spaces-2: theme('spaces-2', to-rem(get-map-value($spaces, 2)));
+$spaces-3: theme('spaces-3', to-rem(get-map-value($spaces, 3)));
+$spaces-4: theme('spaces-4', to-rem(get-map-value($spaces, 4)));
+$spaces-5: theme('spaces-5', to-rem(get-map-value($spaces, 5)));
+$spaces-6: theme('spaces-6', to-rem(get-map-value($spaces, 6)));
+$spaces-7: theme('spaces-7', to-rem(get-map-value($spaces, 7)));
+$spaces-8: theme('spaces-8', to-rem(get-map-value($spaces, 8)));

@@ -1,0 +1,11 @@
+@import '~@rocket.chat/fuselage-tokens/colors.scss';
+
+$text-colors-default: theme('text-colors-default', get-map-value($colors, dark800));
+$text-colors-info: theme('text-colors-info', get-map-value($colors, dark700));
+$text-colors-hint: theme('text-colors-hint', get-map-value($colors, dark600));
+$text-colors-disabled: theme('text-colors-disabled', get-map-value($colors, dark400));
+$text-colors-alternative: theme('text-colors-alternative', get-map-value($colors, 'white'));
+$text-colors-primary: theme('text-colors-primary', get-map-value($colors, blue500));
+$text-colors-success: theme('text-colors-success', get-map-value($colors, green500));
+$text-colors-danger: theme('text-colors-danger', get-map-value($colors, red500));
+$text-colors-warning: theme('text-colors-warning', get-map-value($colors, yellow700));

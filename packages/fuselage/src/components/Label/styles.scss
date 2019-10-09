@@ -1,0 +1,75 @@
+.rcx-label {
+  display: inline-flex;
+
+  @extend .rcx-label--position-top;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+
+    @include paragraph;
+
+    &--position-top {
+      flex: 1 0 auto;
+
+      @include mb($spaces-3);
+    }
+
+    &--position-start {
+      flex: 1 0 0;
+
+      align-self: stretch;
+
+      @include mr($spaces-3);
+    }
+
+    &--position-end {
+      flex: 1 0 0;
+
+      align-self: stretch;
+      @include ml($spaces-3);
+    }
+  }
+
+  &__text {
+    flex: 1 1 0;
+
+    user-select: text;
+
+    color: $text-colors-default;
+
+    @include ellipsis;
+
+    &--required::before {
+      content: '*\0a0';
+
+      color: $text-colors-danger;
+    }
+  }
+
+  &__error {
+    flex: 0 1 auto;
+
+    user-select: text;
+
+    color: $text-colors-danger;
+
+    @include ml($spaces-3);
+    @include ellipsis;
+  }
+
+  &--position-top {
+    align-items: stretch;
+    flex-flow: column nowrap;
+  }
+
+  &--position-start {
+    align-items: flex-start;
+    flex-flow: row nowrap;
+  }
+
+  &--position-end {
+    align-items: flex-start;
+    flex-flow: row-reverse nowrap;
+  }
+}

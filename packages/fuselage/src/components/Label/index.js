@@ -1,136 +1,51 @@
+import PropTypes from 'prop-types';
 import React, { createContext, useContext } from 'react';
-import styled, { css } from 'styled-components';
 
-import { extendClassName } from '../../helpers';
-import {
-  normalized,
-  withTruncatedText,
-  withText,
-  withSelectableText,
-} from '../../mixins';
-import {
-  spacing,
-  textStyle,
-  color,
-  errorColor,
-  requiredMarkColor,
-} from './theme';
-
-const Wrapper = styled.div`
-  ${ normalized }
-  ${ withText(textStyle) }
-
-  display: flex;
-  align-items: center;
-`;
-
-const topPositioned = css`
-  flex-flow: column nowrap;
-  align-items: stretch;
-
-  & > ${ Wrapper } {
-    flex: 1 0 auto;
-    margin: 0 0 ${ spacing } 0;
-  }
-`;
-
-const startPositioned = css`
-  flex-flow: row nowrap;
-  align-items: flex-start;
-
-  & > ${ Wrapper } {
-    flex: 1 0 0;
-    margin: 0 ${ spacing } 0 0;
-    align-self: stretch;
-  }
-`;
-
-const endPositioned = css`
-  flex-flow: row-reverse nowrap;
-  align-items: flex-start;
-
-  & > ${ Wrapper } {
-    flex: 1 0 0;
-    margin: 0 0 0 ${ spacing };
-    align-self: stretch;
-  }
-`;
-
-const Container = styled.label`
-  ${ normalized }
-
-  display: flex;
-
-  ${ ({ position }) =>
-    (position === 'top' && topPositioned)
-    || (position === 'start' && startPositioned)
-    || (position === 'end' && endPositioned) }
-`;
-
-const withRequiredMark = css`
-  &::before {
-    content: '*\0a0';
-
-    color: ${ requiredMarkColor };
-  }
-`;
-
-const Text = styled.span`
-  ${ normalized }
-  ${ withSelectableText }
-
-  flex: 1 1 0;
-
-  color: ${ color };
-
-  ${ ({ required }) => required && withRequiredMark }
-`;
-
-const Error = styled.span`
-  ${ normalized }
-  ${ withTruncatedText }
-  ${ withSelectableText }
-
-  flex: 0 1 auto;
-  margin-left: ${ spacing };
-
-  color: ${ errorColor };
-
-  white-space: wrap;
-`;
+import { Box } from '../Box';
+import { useClassName } from '../../hooks';
 
 const LabelContext = createContext(false);
 
-export const Label = styled(React.forwardRef(function Label({
-  children,
+export const Label = React.forwardRef(function Label({
   className,
+  children,
+
   error,
   position = 'top',
   required,
   text,
+
   ...props
 }, ref) {
   const isInsideLabel = useContext(LabelContext);
 
+  const classNames = {
+    container: useClassName('rcx-label', { required, position }, className),
+    wrapper: useClassName('rcx-label__wrapper', { position }),
+    text: useClassName('rcx-label__text', { required }),
+    error: useClassName('rcx-label__error'),
+  };
+
   return <LabelContext.Provider value={true}>
-    <Container
-      as={isInsideLabel ? 'span' : 'label'}
-      className={extendClassName('label', className, {
-        required,
-        ...props,
-      })}
-      position={position}
-      ref={ref}
-      {...props}
-    >
-      {(text || error) && <Wrapper>
-        {text && <Text required={required}>{text}</Text>}
-        {error && <Error>{error}</Error>}
-      </Wrapper>}
+    <Box className={classNames.container} is={isInsideLabel ? 'span' : 'label'} ref={ref} {...props}>
+      {(text || error) && <Box className={classNames.wrapper} is='span'>
+        {text && <Box className={classNames.text} is='span' required={required}>{text}</Box>}
+        {error && <Box className={classNames.error} is='span'>{error}</Box>}
+      </Box>}
 
       {children}
-    </Container>
+    </Box>
   </LabelContext.Provider>;
-}))``;
+});
+
+Label.defaultProps = {
+  position: 'top',
+};
 
 Label.displayName = 'Label';
+
+Label.propTypes = {
+  position: PropTypes.oneOf(['top', 'start', 'end']),
+  required: PropTypes.bool,
+  text: PropTypes.string,
+};

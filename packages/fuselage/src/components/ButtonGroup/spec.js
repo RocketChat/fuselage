@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { ButtonGroup } from './index';
-
+import { ButtonGroup } from '../..';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

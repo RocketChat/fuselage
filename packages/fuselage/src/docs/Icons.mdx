@@ -1,0 +1,34 @@
+import * as iconNames from '@rocket.chat/icons/dist/font';
+import { Meta, Preview } from '@storybook/addon-docs/blocks';
+
+import { PropsVariationSection } from '../../.storybook/helpers';
+import { Hint, Icon, Label, Paragraph } from '..';
+
+<Meta title='Misc|Icons' />
+
+# Icons
+
+export const styles = {
+  container: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    textAlign: 'center',
+  },
+  wrapper: {
+    margin: '2rem 0.5rem',
+    flex: '1 0 8rem',
+  },
+};
+
+<div style={styles.container}>
+  {Object.values(iconNames).map((name, key) =>
+    <div key={key} style={styles.wrapper}>
+      <Paragraph>
+        <Icon name={name} style={{ fontSize: `2.5rem` }} />
+      </Paragraph>
+      <Hint>{name}</Hint>
+    </div>
+  )}
+</div>

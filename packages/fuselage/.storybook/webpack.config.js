@@ -1,5 +1,7 @@
 'use strict';
 
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
+
 module.exports = async ({ config, mode }) => {
   const jsRule = config.module.rules.find(({ test }) => test.test('index.js'));
   jsRule.include = [
@@ -11,19 +13,11 @@ module.exports = async ({ config, mode }) => {
   config.module.rules.push({
     test: /\.scss$/,
     use: [
-      {
-        loader: 'style-loader/useable',
-        options: {
-          singleton: true,
-          hmr: mode === 'development',
-        },
-      },
+      'style-loader',
       {
         loader: 'css-loader',
         options: {
           importLoaders: 2,
-          modules: true,
-          localIdentName: '[local]',
         },
       },
       {
@@ -31,6 +25,7 @@ module.exports = async ({ config, mode }) => {
         options: {
           ident: 'postcss',
           plugins: () => [
+            require('postcss-custom-properties')(),
             require('autoprefixer')(),
             require('cssnano'),
           ],
@@ -38,6 +33,26 @@ module.exports = async ({ config, mode }) => {
       },
       'sass-loader',
     ],
+  });
+
+  config.module.rules.push({
+    test: /\.mdx$/,
+    use: [
+      'babel-loader',
+      {
+        loader: '@mdx-js/loader',
+        options: {
+          compilers: [createCompiler({})],
+        },
+      },
+    ],
+  });
+
+  config.module.rules.push({
+    test: /(stories|story)\.[tj]sx?$/,
+    loader: require.resolve('@storybook/source-loader'),
+    exclude: [/node_modules/],
+    enforce: 'pre',
   });
 
   return config;

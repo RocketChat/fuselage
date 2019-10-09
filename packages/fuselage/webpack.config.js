@@ -2,6 +2,7 @@
 
 const path = require('path');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env, argv) => ({
@@ -37,18 +38,11 @@ module.exports = (env, argv) => ({
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: 'style-loader/useable',
-            options: {
-              singleton: true,
-              hmr: argv.mode !== 'production',
-            },
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
-              modules: true,
             },
           },
           {
@@ -56,6 +50,7 @@ module.exports = (env, argv) => ({
             options: {
               ident: 'postcss',
               plugins: () => [
+                require('postcss-custom-properties')(),
                 require('autoprefixer')(),
                 require('cssnano'),
               ],
@@ -76,7 +71,6 @@ module.exports = (env, argv) => ({
       },
     },
     /@rocket\.chat\/icons\/dist\/font/,
-    'styled-components',
   ],
   plugins: [
     new BundleAnalyzerPlugin({
@@ -84,6 +78,9 @@ module.exports = (env, argv) => ({
       generateStatsFile: false,
       reportFilename: '../bundle-report.html',
       openAnalyzer: false,
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
     }),
   ],
 });

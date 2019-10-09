@@ -1,20 +1,17 @@
-import centered from '@storybook/addon-centered/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { createPropsFromKnobs } from '../../helpers/storybook';
-import { Paragraph } from './index';
+import { Paragraph } from '../..';
 
+export default {
+  title: 'Typography|Paragraph',
+  component: Paragraph,
+  parameters: {
+    jest: ['Paragraph/spec'],
+  },
+};
 
-const props = createPropsFromKnobs({
-  children: 'Paragraph',
-  hidden: false,
-  invisible: false,
-});
+export const _default = () =>
+  <Paragraph>Paragraph</Paragraph>;
 
-storiesOf('Elements|Paragraph', module)
-  .addDecorator(withKnobs)
-  .addDecorator(centered)
-  .addParameters({ jest: ['Paragraph/spec'] })
-  .add('default', () => <Paragraph {...props()} />);
+export const skeleton = () =>
+  <Paragraph.Skeleton />;

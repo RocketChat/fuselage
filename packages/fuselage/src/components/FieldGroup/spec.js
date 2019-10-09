@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { FieldGroup } from './index';
-
+import { FieldGroup } from '../..';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

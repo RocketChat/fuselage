@@ -1,21 +1,16 @@
-import styled from 'styled-components';
+import React from 'react';
 
-import { rebuildClassName } from '../../helpers';
-import { normalized } from '../../mixins';
-import { Hint } from '../Hint';
-import { hintSpacing } from './theme';
+import { useClassName } from '../..';
+import { Box } from '../Box';
 
+export const Field = React.forwardRef(function Field({
+  className,
+  invisible,
+  ...props
+}, ref) {
+  const compoundClassName = useClassName('rcx-field', {}, className);
 
-export const Field = styled.div.attrs(rebuildClassName('field'))`
-  ${ normalized }
-
-  display: flex;
-
-  flex-flow: column nowrap;
-
-  ${ Hint } {
-    margin-top: ${ hintSpacing };
-  }
-`;
+  return <Box className={compoundClassName} is='div' ref={ref} {...props} />;
+});
 
 Field.displayName = 'Field';

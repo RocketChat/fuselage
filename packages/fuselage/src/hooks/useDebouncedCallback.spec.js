@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { testHook } from '../helpers/jest';
+import { testHook } from '../../.jest/helpers';
 import { useDebouncedCallback } from './useDebouncedCallback';
 
 describe('useDebouncedCallback hook', () => {

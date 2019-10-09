@@ -1,100 +1,52 @@
-import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { extendClassName } from '../../helpers';
-import {
-  withText,
-  normalized,
-  clickable,
-  withTruncatedText,
-  withBorder,
-  withButtonActionColors,
-} from '../../mixins';
-import { Icon } from '../Icon';
-import {
-  mediumSizeParameters,
-  smallSizeParameters,
-  basicColors,
-  basicDangerColors,
-  primaryColors,
-  primaryDangerColors,
-  ghostColors,
-  ghostDangerColors,
-} from './theme';
+import { Box } from '../Box';
+import { useClassName } from '../../hooks';
 
-
-const withSizeVariant = ({
-  border,
-  paddingX,
-  textStyle,
-  iconSizeRatio,
-}) => css`
-  ${ withBorder(border) }
-  padding: 0 calc(${ paddingX } - ${ border.width });
-
-  ${ withText(textStyle) }
-
-  line-height: calc(2 * ${ textStyle.lineHeight } - 2 * ${ border.width });
-
-  & > ${ Icon } {
-    font-size: calc(${ iconSizeRatio } * ${ textStyle.lineHeight });
-  }
-
-  ${ ({ square }) => square && css`
-    width: calc(2 * ${ textStyle.lineHeight });
-    padding: 0;
-
-    & > ${ Icon } {
-      font-size: ${ textStyle.lineHeight };
-    }
-  ` }
-`;
-
-const mediumSized = withSizeVariant(mediumSizeParameters);
-const smallSized = withSizeVariant(smallSizeParameters);
-
-const basicColored = withButtonActionColors(basicColors);
-const basicDangerColored = withButtonActionColors(basicDangerColors);
-const primaryColored = withButtonActionColors(primaryColors);
-const primaryDangerColored = withButtonActionColors(primaryDangerColors);
-const ghostColored = withButtonActionColors(ghostColors);
-const ghostDangerColored = withButtonActionColors(ghostDangerColors);
-
-export const Button = styled.button.attrs(({
+/**
+ * A `Button` indicates an actionable user action.
+ */
+export const Button = React.forwardRef(function Button({
   className,
+  is = 'button',
+  danger,
   external,
+  ghost,
+  primary,
+  rel,
+  small,
+  square,
   ...props
-}) => ({
-  className: extendClassName('button', className, props),
-  type: props.type || ((!props.as || props.as === 'button') && 'button') || undefined,
-  rel: props.rel || (props.as === 'a' && external && 'noopener noreferrer') || undefined,
-  target: props.target || (props.as === 'a' && external && '_blank') || undefined,
-}))`
-  ${ normalized }
-  ${ clickable }
-  ${ withTruncatedText }
+}, ref) {
+  const extraProps = (is === 'a' && {
+    rel: external && 'noopener noreferrer',
+    target: external && '_blank',
+  })
+  || (is === 'button' && {
+    type: 'button',
+  })
+  || {};
 
-  display: inline-block;
+  const compoundClassName = useClassName('rcx-button', {
+    danger,
+    ghost,
+    ghostDanger: ghost && danger,
+    primary,
+    primaryDanger: primary && danger,
+    small,
+    square,
+    smallSquare: small && square,
+  }, className);
 
-  text-align: center;
-  vertical-align: middle;
-
-  appearance: none;
-
-  & > ${ Icon } {
-    vertical-align: middle;
-  }
-
-  ${ ({ small }) =>
-    (small && smallSized)
-    || mediumSized }
-
-  ${ ({ danger, ghost, primary }) =>
-    (ghost && danger && ghostDangerColored)
-    || (ghost && ghostColored)
-    || (primary && danger && primaryDangerColored)
-    || (primary && primaryColored)
-    || (danger && basicDangerColored)
-    || basicColored }
-`;
+  return <Box className={compoundClassName} is={is} ref={ref} {...extraProps} {...props} />;
+});
 
 Button.displayName = 'Button';
+
+Button.propTypes = {
+  /**
+   * Is this component a link to an external URL?
+   */
+  external: PropTypes.bool,
+};

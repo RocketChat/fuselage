@@ -1,25 +1,35 @@
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { rebuildClassName } from '../../helpers';
-import { normalized, withText, withSelectableText } from '../../mixins';
-import {
-  spacing,
-  color,
-  textStyle,
-} from './theme';
+import { useClassName } from '../../hooks';
+import { Text } from '../Text';
 
+export const Headline = React.forwardRef(function Headline({
+  is,
+  className,
+  level = 1,
+  ...props
+}, ref) {
+  const compoundClassName = useClassName('rcx-headline', {}, className);
 
-export const Headline = styled.h1.attrs(rebuildClassName('headline'))`
-  ${ normalized }
+  return <Text is={is || `h${ level }`} headline className={compoundClassName} ref={ref} {...props} />;
+});
 
-  margin-bottom: ${ spacing };
-
-  color: ${ color };
-
-  cursor: default;
-
-  ${ withText(textStyle) }
-  ${ withSelectableText }
-`;
+Headline.defaultProps = {
+  level: 1,
+};
 
 Headline.displayName = 'Headline';
+
+Headline.propTypes = {
+  /**
+   * The heading level, from 1 to 6 (`h1` to `h6`)
+   */
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+};
+
+Headline.Skeleton = function Skeleton({ animated, ...props }) {
+  return <Headline {...props}>
+    <Text.Skeleton animated={animated} />
+  </Headline>;
+};

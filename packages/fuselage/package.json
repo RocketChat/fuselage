@@ -30,13 +30,13 @@
     "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "docs:hooks": "documentation readme src/hooks/index.js --section='API Reference' --readme-file src/docs/Hooks.mdx",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "update-storybook": "run-s test:results build-storybook loki:update"
+    "update-storybook": "run-s test:results docs:hooks build-storybook loki:update"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
-    "styled-components": "^4.4.0"
+    "react": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -46,10 +46,9 @@
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-backgrounds": "^5.0.11",
     "@storybook/addon-centered": "^5.0.11",
+    "@storybook/addon-docs": "^5.2.1",
     "@storybook/addon-jest": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
-    "@storybook/addon-links": "^5.0.11",
-    "@storybook/addon-notes": "^5.0.11",
     "@storybook/addon-options": "^5.0.11",
     "@storybook/addon-viewport": "^5.0.11",
     "@storybook/addons": "^5.0.11",
@@ -58,10 +57,10 @@
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
-    "babel-plugin-styled-components": "^1.10.6",
     "cross-env": "^5.2.0",
     "css-vars-ponyfill": "^2.0.2",
     "cssnano": "^4.1.10",
+    "documentation": "^12.1.2",
     "eslint": "^6.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.14.3",
@@ -73,20 +72,23 @@
     "lerna": "^3.14.1",
     "lint-staged": "^9.0.1",
     "loki": "^0.16.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
+    "postcss-custom-properties": "^9.0.2",
     "postcss-loader": "^3.0.0",
     "react": "^16.8.6",
     "sass-loader": "^7.1.0",
-    "styled-components": "^4.4.0",
     "stylelint": "^10.0.1",
     "stylelint-order": "^3.0.0",
+    "stylelint-scss": "^3.11.1",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2"
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/mocks/styleMock.js"
+      "\\.(css|scss)$": "<rootDir>/.jest/styleMock.js"
     }
   },
   "loki": {
@@ -106,7 +108,9 @@
     }
   },
   "dependencies": {
-    "@rocket.chat/icons": "^0.2.0-alpha.0"
+    "@rocket.chat/fuselage-tokens": "^0.2.0-alpha.5",
+    "@rocket.chat/icons": "^0.2.0-alpha.0",
+    "invariant": "^2.2.4"
   },
   "browserslist": {
     "production": [

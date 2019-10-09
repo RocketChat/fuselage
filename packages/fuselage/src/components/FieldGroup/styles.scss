@@ -1,0 +1,18 @@
+.rcx-field-group {
+  display: flex;
+
+  align-items: center;
+
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  & > .rcx-field {
+    flex: 0 0 auto;
+
+    @include mb($spaces-6);
+
+    @include on-last-child {
+      @include mb(0);
+    }
+  }
+}

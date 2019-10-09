@@ -1,0 +1,10 @@
+.rcx-field {
+  display: flex;
+  align-items: stretch;
+
+  flex-flow: column nowrap;
+
+  & > .rcx-hint {
+    @include mt($spaces-2);
+  }
+}

@@ -1,0 +1,50 @@
+.rcx-button-group {
+  display: flex;
+
+  align-items: center;
+
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  @include mx(calc(-1 * #{$spaces-3}));
+  @include my(calc(-1 * #{$spaces-5}));
+
+  & > .rcx-button {
+    @include mx($spaces-3);
+    @include my($spaces-5);
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+
+  &--stretch {
+    justify-content: stretch;
+
+    & > .rcx-button {
+      flex-grow: 1;
+    }
+  }
+
+  &--vertical {
+    flex-direction: column;
+
+    @include my(calc(-1 * #{$spaces-3}));
+
+    & > .rcx-button {
+      @include my($spaces-3);
+    }
+  }
+
+  &--stretch-vertical {
+    align-items: stretch;
+  }
+
+  &--align-start {
+    justify-content: flex-start;
+  }
+
+  &--align-end {
+    justify-content: flex-end;
+  }
+}

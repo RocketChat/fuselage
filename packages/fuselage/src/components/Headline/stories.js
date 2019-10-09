@@ -1,20 +1,17 @@
-import centered from '@storybook/addon-centered/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { createPropsFromKnobs } from '../../helpers/storybook';
-import { Headline } from './index';
+import { Headline } from '../..';
 
+export default {
+  title: 'Typography|Headline',
+  component: Headline,
+  parameters: {
+    jest: ['Headline/spec'],
+  },
+};
 
-const props = createPropsFromKnobs({
-  children: 'Headline',
-  hidden: false,
-  invisible: false,
-});
+export const _default = () =>
+  <Headline>Headline</Headline>;
 
-storiesOf('Elements|Headline', module)
-  .addDecorator(withKnobs)
-  .addDecorator(centered)
-  .addParameters({ jest: ['Headline/spec'] })
-  .add('default', () => <Headline {...props()} />);
+export const skeleton = () =>
+  <Headline.Skeleton />;

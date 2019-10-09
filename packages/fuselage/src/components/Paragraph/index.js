@@ -1,25 +1,20 @@
-import styled from 'styled-components';
+import React from 'react';
 
-import { rebuildClassName } from '../../helpers';
-import { normalized, withText, withSelectableText } from '../../mixins';
-import {
-  spacing,
-  color,
-  textStyle,
-} from './theme';
+import { useClassName } from '../../hooks';
+import { Text } from '../Text';
 
+export const Paragraph = React.forwardRef(function Paragraph({ className, ...props }, ref) {
+  const compoundClassName = useClassName('rcx-paragraph', {}, className);
 
-export const Paragraph = styled.p.attrs(rebuildClassName('paragraph'))`
-  ${ normalized }
-
-  margin-bottom: ${ spacing };
-
-  color: ${ color };
-
-  cursor: default;
-
-  ${ withText(textStyle) }
-  ${ withSelectableText }
-`;
+  return <Text className={compoundClassName} is='p' paragraph ref={ref} {...props} />;
+});
 
 Paragraph.displayName = 'Paragraph';
+
+Paragraph.Skeleton = function Skeleton({ animated, ...props }) {
+  return <Paragraph {...props}>
+    <Text.Skeleton animated={animated} />
+    <Text.Skeleton animated={animated} />
+    <Text.Skeleton animated={animated} width='4/5' />
+  </Paragraph>;
+};

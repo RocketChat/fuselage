@@ -1,34 +1,19 @@
-import styled from 'styled-components';
+import React from 'react';
 
-import { extendClassName } from '../../helpers';
-import { normalized } from '../../mixins';
-import { Field } from '../Field';
-import { spacing } from './theme';
+import { useClassName } from '../../hooks';
+import { Box } from '../Box';
 
-
-export const FieldGroup = styled.fieldset.attrs(({
+/**
+ * A container for grouping fields that semantically share a common data context.
+ */
+export const FieldGroup = React.forwardRef(function FieldGroup({
   className,
+  invisible,
   ...props
-}) => ({
-  className: extendClassName('field-group', className, props),
-  role: 'group',
-}))`
-  ${ normalized }
+}, ref) {
+  const compoundClassName = useClassName('rcx-field-group', {}, className);
 
-  display: flex;
-
-  margin-top: calc(-1 * ${ spacing });
-
-  align-items: center;
-
-  flex-flow: column nowrap;
-  justify-content: center;
-
-  & > ${ Field } {
-    flex: 0 0 auto;
-
-    margin-top: ${ spacing };
-  }
-`;
+  return <Box className={compoundClassName} is='fieldset' ref={ref} role='group' {...props} />;
+});
 
 FieldGroup.displayName = 'FieldGroup';
