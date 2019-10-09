@@ -8,6 +8,7 @@ export * from './Headline';
 export * from './Hint';
 export * from './Icon';
 export * from './Input';
+export * from './InputBox';
 export * from './Label';
 export * from './Paragraph';
 export * from './RadioButton';

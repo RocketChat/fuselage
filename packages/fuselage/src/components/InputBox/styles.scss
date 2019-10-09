@@ -1,0 +1,233 @@
+.rcx-input-box {
+  @at-root %input {
+    position: relative;
+
+    display: inline-flex;
+
+    flex: 1 0 0;
+
+    width: 100%;
+    min-width: 10rem;
+    min-height: $sizes-1;
+
+    vertical-align: baseline;
+
+    word-break: break-all;
+
+    border-width: $borders-width-1;
+    border-radius: $borders-radius-1;
+
+    outline: 0;
+
+    @include py(calc(#{$spaces-4} - #{$borders-width-1}));
+    @include px(calc(#{$spaces-5} - #{$borders-width-1}));
+    @include paragraph;
+    @include ellipsis;
+  }
+
+  @mixin with-colors(
+    $color,
+    $border-color,
+    $background-color,
+    $placeholder-color,
+    $hover-border-color,
+    $focus-border-color,
+    $focus-shadow-color,
+    $focus-caret-color,
+    $active-border-color,
+    $active-caret-color,
+    $disabled-color,
+    $disabled-border-color,
+    $disabled-background-color,
+  ) {
+    color: $color;
+    border-color: $border-color;
+    background-color: $background-color;
+
+    & ~ .rcx-input-box__addon {
+      color: $color;
+      border-color: $border-color;
+      background-color: $background-color;
+    }
+
+    &::placeholder {
+      color: $placeholder-color;
+    }
+
+    &[data-placeholder] {
+      color: $placeholder-color;
+    }
+
+    @include on-hover {
+      border-color: $hover-border-color;
+
+      & ~ .rcx-input-box__addon {
+        border-color: $hover-border-color;
+      }
+    }
+
+    @include on-focus {
+      border-color: $focus-border-color;
+      box-shadow: 0 0 0 to-rem(6) $focus-shadow-color;
+      caret-color: $focus-caret-color;
+
+      & ~ .rcx-input-box__addon {
+        border-color: $focus-border-color;
+      }
+
+      & ~ .rcx-input-box__overlay {
+        box-shadow: 0 0 0 to-rem(6) $focus-shadow-color;
+      }
+    }
+
+    @include on-active {
+      border-color: $active-border-color;
+      box-shadow: none;
+      caret-color: $active-caret-color;
+
+      & ~ .rcx-input-box__addon {
+        border-color: $active-border-color;
+      }
+    }
+
+    @include on-disabled {
+      color: $disabled-color;
+      border-color: $disabled-border-color;
+      background-color: $disabled-background-color;
+
+      & ~ .rcx-input-box__addon {
+        color: $disabled-color;
+        border-color: $disabled-border-color;
+        background-color: $disabled-background-color;
+      }
+    }
+  }
+
+  @extend %input;
+
+  &[data-placeholder]::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: attr(data-placeholder);
+    @include truncate;
+    @include py(calc(#{$spaces-4} - #{$borders-width-1}));
+    @include px(calc(#{$spaces-5} - #{$borders-width-1}));
+  }
+
+  @include with-colors(
+    $background-color: $input-colors-background-color,
+    $border-color: $input-colors-border-color,
+    $color: $input-colors-color,
+    $placeholder-color: $input-colors-placeholder-color,
+    $hover-border-color: $input-colors-hover-border-color,
+    $focus-border-color: $input-colors-focus-border-color,
+    $focus-shadow-color: $input-colors-focus-shadow-color,
+    $focus-caret-color: $input-colors-focus-caret-color,
+    $active-border-color: $input-colors-active-border-color,
+    $active-caret-color: $input-colors-active-caret-color,
+    $disabled-background-color: $input-colors-disabled-background-color,
+    $disabled-border-color: $input-colors-disabled-border-color,
+    $disabled-color: $input-colors-disabled-color,
+  );
+
+  @include on-invalid {
+    @include with-colors(
+      $background-color: $input-colors-invalid-background-color,
+      $border-color: $input-colors-invalid-border-color,
+      $color: $input-colors-invalid-color,
+      $placeholder-color: $input-colors-invalid-placeholder-color,
+      $hover-border-color: $input-colors-invalid-hover-border-color,
+      $focus-border-color: $input-colors-invalid-focus-border-color,
+      $focus-shadow-color: $input-colors-invalid-focus-shadow-color,
+      $focus-caret-color: $input-colors-invalid-focus-caret-color,
+      $active-border-color: $input-colors-invalid-active-border-color,
+      $active-caret-color: $input-colors-invalid-active-caret-color,
+      $disabled-background-color: $input-colors-invalid-disabled-background-color,
+      $disabled-border-color: $input-colors-invalid-disabled-border-color,
+      $disabled-color: $input-colors-invalid-disabled-color,
+    );
+  }
+
+  @include on-disabled {
+    cursor: not-allowed;
+  }
+
+  &__skeleton {
+    @extend %input;
+
+    color: $input-colors-color;
+    border-color: $input-colors-border-color;
+
+    background-color: $input-colors-background-color;
+  }
+
+  &__addon {
+    display: inline-flex;
+
+    flex: 0 0 auto;
+
+    border-width: $borders-width-1 $borders-width-1 $borders-width-1 0;
+    border-radius: 0 $borders-radius-1 $borders-radius-1 0;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+
+    @include py(calc(#{$spaces-4} - #{$borders-width-1}));
+    @include pr(calc(#{$spaces-5} - #{$borders-width-1}));
+
+    @include on-rtl-orientation {
+      border-width: $borders-width-1 0 $borders-width-1 $borders-width-1;
+      border-radius: $borders-radius-1 0 0 $borders-radius-1;
+    }
+
+    & > .rcx-icon {
+      font-size: calc(#{$sizes-1} - 2 * #{$spaces-4});
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    pointer-events: none;
+
+    border-radius: $borders-radius-1;
+  }
+
+  &__wrapper {
+    position: relative;
+
+    display: inline-flex;
+
+    flex: 1 0 0;
+
+    width: 100%;
+    min-width: unset;
+    min-height: unset;
+
+    vertical-align: baseline;
+    flex-flow: row nowrap;
+
+    & > .rcx-input-box {
+
+      border-width: $borders-width-1 0 $borders-width-1 $borders-width-1;
+      border-radius: $borders-radius-1 0 0 $borders-radius-1;
+      box-shadow: none;
+
+      @include on-invalid {
+        box-shadow: none;
+      }
+
+      @include on-rtl-orientation {
+        border-width: $borders-width-1 $borders-width-1 $borders-width-1 0;
+        border-radius: 0 $borders-radius-1 $borders-radius-1 0;
+      }
+    }
+  }
+}

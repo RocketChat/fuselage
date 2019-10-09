@@ -28,7 +28,7 @@
     }
   }
 
-  @mixin with-button-action-colors(
+  @mixin with-colors(
     $color,
     $background-color,
     $border-color,
@@ -100,7 +100,7 @@
     $icon-size-ratio: 8/7,
   );
 
-  @include with-button-action-colors(
+  @include with-colors(
     $background-color: $button-colors-secondary-background-color,
     $border-color: $button-colors-secondary-border-color,
     $color: $button-colors-secondary-color,
@@ -150,7 +150,7 @@
   }
 
   &--danger {
-    @include with-button-action-colors(
+    @include with-colors(
       $background-color: $button-colors-secondary-background-color,
       $border-color: $button-colors-secondary-border-color,
       $color: map-get($colors, red500),
@@ -168,7 +168,7 @@
   }
 
   &--primary {
-    @include with-button-action-colors(
+    @include with-colors(
       $background-color: $button-colors-primary-background-color,
       $border-color: $button-colors-primary-border-color,
       $color: $button-colors-primary-color,
@@ -186,7 +186,7 @@
   }
 
   &--primary-danger {
-    @include with-button-action-colors(
+    @include with-colors(
       $background-color: $button-colors-danger-background-color,
       $border-color: $button-colors-danger-border-color,
       $color: $button-colors-danger-color,
@@ -204,7 +204,7 @@
   }
 
   &--ghost {
-    @include with-button-action-colors(
+    @include with-colors(
       $background-color: transparent,
       $border-color: transparent,
       $color: $button-colors-secondary-color,
@@ -222,7 +222,7 @@
   }
 
   &--ghost-danger {
-    @include with-button-action-colors(
+    @include with-colors(
       $background-color: transparent,
       $border-color: transparent,
       $color: map-get($colors, red500),
