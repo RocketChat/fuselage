@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { PseudoInput } from '../../../.storybook/helpers';
-import { Field, FieldGroup, Hint, Label } from '../..';
+import { Field, FieldGroup, Hint, InputBox, Label } from '../..';
 
 export default {
   title: 'Forms|FieldGroup',
@@ -15,18 +14,18 @@ export const _default = () =>
   <FieldGroup>
     <Field>
       <Label text='Field #1'>
-        <PseudoInput />
+        <InputBox.Skeleton />
       </Label>
     </Field>
     <Field>
       <Label text='Field #2'>
-        <PseudoInput />
+        <InputBox.Skeleton />
       </Label>
       <Hint>Help text</Hint>
     </Field>
     <Field>
       <Label text='Field #3'>
-        <PseudoInput />
+        <InputBox.Skeleton />
       </Label>
     </Field>
   </FieldGroup>;

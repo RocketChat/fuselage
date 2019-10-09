@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { PseudoInput } from '../../../.storybook/helpers';
-import { Field, Hint, Label } from '../..';
+import { Field, Hint, InputBox, Label } from '../..';
 
 export default {
   title: 'Forms|Field',
@@ -14,7 +13,7 @@ export default {
 export const _default = () =>
   <Field>
     <Label text='Label'>
-      <PseudoInput />
+      <InputBox.Skeleton />
     </Label>
     <Hint>Help text</Hint>
   </Field>;

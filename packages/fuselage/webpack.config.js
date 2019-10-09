@@ -71,7 +71,6 @@ module.exports = (env, argv) => ({
       },
     },
     /@rocket\.chat\/icons\/dist\/font/,
-    'styled-components',
   ],
   plugins: [
     new BundleAnalyzerPlugin({

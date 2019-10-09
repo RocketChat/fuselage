@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { PseudoInput } from '../../../.storybook/helpers';
-import { Label } from '../..';
+import { InputBox, Label } from '../..';
 
 export default {
   title: 'Forms|Label',
@@ -13,37 +12,37 @@ export default {
 
 export const _default = () =>
   <Label text='Label'>
-    <PseudoInput />
+    <InputBox.Skeleton />
   </Label>;
 
 export const required = () =>
   <Label text='Label' required>
-    <PseudoInput />
+    <InputBox.Skeleton />
   </Label>;
 
 export const withError = () =>
   <Label text='Label' error='Error'>
-    <PseudoInput />
+    <InputBox.Skeleton />
   </Label>;
 
 export const withChildren = () =>
   <Label text='Label'>
-    <PseudoInput />
+    <InputBox.Skeleton />
   </Label>;
 
 export const withChildrenAtTopPosition = () =>
   <Label text='Label' position='top'>
-    <PseudoInput />
+    <InputBox.Skeleton />
   </Label>;
 
 export const withChildrenAtStartPosition = () =>
   <Label text='Label' position='start'>
-    <PseudoInput />
+    <InputBox.Skeleton />
   </Label>;
 
 export const withChildrenAtEndPosition = () =>
   <Label text='Label' position='end'>
-    <PseudoInput />
+    <InputBox.Skeleton />
   </Label>;
 
 export const nested = () =>
