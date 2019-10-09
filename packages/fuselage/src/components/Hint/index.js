@@ -9,7 +9,7 @@ export const Hint = React.forwardRef(function Hint({
 }, ref) {
   const compoundClassName = useClassName('rcx-hint', {}, className);
 
-  return <Text className={compoundClassName} hint is='div' paragraph ref={ref} {...props} />;
+  return <Text className={compoundClassName} hintColor is='div' paragraph ref={ref} {...props} />;
 });
 
 Hint.displayName = 'Hint';

@@ -64,39 +64,39 @@
     @include micro;
   }
 
-  &--default {
+  &--default-color {
     color: $text-colors-default;
   }
 
-  &--info {
+  &--info-color {
     color: $text-colors-info;
   }
 
-  &--hint {
+  &--hint-color {
     color: $text-colors-hint;
   }
 
-  &--disabled {
+  &--disabled-color {
     color: $text-colors-disabled;
   }
 
-  &--alternative {
+  &--alternative-color {
     color: $text-colors-alternative;
   }
 
-  &--primary {
+  &--primary-color {
     color: $text-colors-primary;
   }
 
-  &--success {
+  &--success-color {
     color: $text-colors-success;
   }
 
-  &--danger {
+  &--danger-color {
     color: $text-colors-danger;
   }
 
-  &--warning {
+  &--warning-color {
     color: $text-colors-warning;
   }
 }

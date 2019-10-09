@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 
-import { useClassName } from '../../hooks';
+import { useClassName, useMergedRefs } from '../../hooks';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Label } from '../Label';
@@ -8,16 +8,26 @@ import { Label } from '../Label';
 export const InputBox = React.forwardRef(function InputBox({
   className,
   addon,
+  error,
   ...props
 }, ref) {
   const classNames = {
-    wrapper: useClassName('rcx-input-box__wrapper', {}, className),
-    input: useClassName('rcx-input-box'),
+    wrapper: useClassName('rcx-input-box__wrapper'),
+    input: useClassName('rcx-input-box', {}, className),
     addon: useClassName('rcx-input-box__addon'),
     overlay: useClassName('rcx-input-box__overlay'),
   };
 
-  const box = <Text className={classNames.input} is='span' paragraph ref={ref} tabIndex='0' {...props} />;
+  const innerRef = useRef();
+  const mergedRef = useMergedRefs(ref, innerRef);
+
+  useLayoutEffect(() => {
+    if (innerRef.current && innerRef.current.setCustomValidity) {
+      innerRef.current.setCustomValidity(error || '');
+    }
+  }, [error]);
+
+  const box = <Text className={classNames.input} is='span' paragraph ref={mergedRef} tabIndex='0' {...props} />;
 
   if (!addon) {
     return box;

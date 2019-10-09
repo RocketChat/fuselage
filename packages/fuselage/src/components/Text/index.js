@@ -13,15 +13,15 @@ export const Text = React.forwardRef(function Text({
   caption,
   micro,
 
-  default: _default,
-  info,
-  hint,
-  disabled,
-  alternative,
-  primary,
-  success,
-  danger,
-  warning,
+  defaultColor,
+  infoColor,
+  hintColor,
+  disabledColor,
+  alternativeColor,
+  primaryColor,
+  successColor,
+  dangerColor,
+  warningColor,
 
   ...props
 }, ref) {
@@ -31,15 +31,15 @@ export const Text = React.forwardRef(function Text({
     paragraph,
     caption,
     micro,
-    default: _default,
-    info,
-    hint,
-    disabled,
-    alternative,
-    primary,
-    success,
-    danger,
-    warning,
+    defaultColor,
+    infoColor,
+    hintColor,
+    disabledColor,
+    alternativeColor,
+    primaryColor,
+    successColor,
+    dangerColor,
+    warningColor,
   }, className);
 
   return <Box className={compoundClassName} is='span' ref={ref} {...props} />;
@@ -51,6 +51,15 @@ Text.defaultProps = {
   paragraph: false,
   caption: false,
   micro: false,
+  defaultColor: false,
+  infoColor: false,
+  hintColor: false,
+  disabledColor: false,
+  alternativeColor: false,
+  primaryColor: false,
+  successColor: false,
+  dangerColor: false,
+  warningColor: false,
 };
 
 Text.displayName = 'Text';
@@ -61,6 +70,15 @@ Text.propTypes = {
   paragraph: PropTypes.bool,
   caption: PropTypes.bool,
   micro: PropTypes.bool,
+  defaultColor: PropTypes.bool,
+  infoColor: PropTypes.bool,
+  hintColor: PropTypes.bool,
+  disabledColor: PropTypes.bool,
+  alternativeColor: PropTypes.bool,
+  primaryColor: PropTypes.bool,
+  successColor: PropTypes.bool,
+  dangerColor: PropTypes.bool,
+  warningColor: PropTypes.bool,
 };
 
 Text.Skeleton = function Skeleton({ animated, width = 1 }) {

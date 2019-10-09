@@ -6,8 +6,8 @@
 
     flex: 1 0 0;
 
-    width: 100%;
-    min-width: 10rem;
+    width: 0;
+    min-width: 8rem;
     min-height: $sizes-1;
 
     vertical-align: baseline;
@@ -34,6 +34,7 @@
     $focus-border-color,
     $focus-shadow-color,
     $focus-caret-color,
+    $focus-icon-color,
     $active-border-color,
     $active-caret-color,
     $disabled-color,
@@ -72,6 +73,7 @@
       caret-color: $focus-caret-color;
 
       & ~ .rcx-input-box__addon {
+        color: $focus-icon-color;
         border-color: $focus-border-color;
       }
 
@@ -105,6 +107,18 @@
 
   @extend %input;
 
+  @at-root textarea#{&} {
+    overflow: auto;
+
+    resize: none;
+    @include scrollable;
+  }
+
+  @at-root select#{&} {
+    appearance: none;
+    @include scrollable;
+  }
+
   &[data-placeholder]::before {
     position: absolute;
     top: 0;
@@ -127,6 +141,7 @@
     $focus-border-color: $input-colors-focus-border-color,
     $focus-shadow-color: $input-colors-focus-shadow-color,
     $focus-caret-color: $input-colors-focus-caret-color,
+    $focus-icon-color: $input-colors-focus-icon-color,
     $active-border-color: $input-colors-active-border-color,
     $active-caret-color: $input-colors-active-caret-color,
     $disabled-background-color: $input-colors-disabled-background-color,
@@ -144,6 +159,7 @@
       $focus-border-color: $input-colors-invalid-focus-border-color,
       $focus-shadow-color: $input-colors-invalid-focus-shadow-color,
       $focus-caret-color: $input-colors-invalid-focus-caret-color,
+      $focus-icon-color: $input-colors-invalid-focus-icon-color,
       $active-border-color: $input-colors-invalid-active-border-color,
       $active-caret-color: $input-colors-invalid-active-caret-color,
       $disabled-background-color: $input-colors-invalid-disabled-background-color,
@@ -207,14 +223,15 @@
 
     flex: 1 0 0;
 
-    width: 100%;
-    min-width: unset;
-    min-height: unset;
+    width: 0;
+    min-width: 8rem;
 
     vertical-align: baseline;
     flex-flow: row nowrap;
 
     & > .rcx-input-box {
+      min-width: unset;
+      min-height: unset;
 
       border-width: $borders-width-1 0 $borders-width-1 $borders-width-1;
       border-radius: $borders-radius-1 0 0 $borders-radius-1;
@@ -227,6 +244,19 @@
       @include on-rtl-orientation {
         border-width: $borders-width-1 $borders-width-1 $borders-width-1 0;
         border-radius: 0 $borders-radius-1 $borders-radius-1 0;
+      }
+    }
+
+    @at-root & > select.rcx-input-box {
+      @include pr(calc(#{$spaces-5} + #{$sizes-1} - 2 * #{$spaces-4}));
+
+      & ~ .rcx-input-box__addon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        pointer-events: none;
       }
     }
   }

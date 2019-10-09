@@ -29,28 +29,28 @@ export const micro = () =>
   <Text micro>Text</Text>;
 
 export const defaultColor = () =>
-  <Text default>Text</Text>;
+  <Text defaultColor>Text</Text>;
 
 export const infoColor = () =>
-  <Text info>Text</Text>;
+  <Text infoColor>Text</Text>;
 
 export const hintColor = () =>
-  <Text hint>Text</Text>;
+  <Text hintColor>Text</Text>;
 
 export const disabledColor = () =>
-  <Text disabled>Text</Text>;
+  <Text disabledColor>Text</Text>;
 
 export const alternativeColor = () =>
-  <Text alternative>Text</Text>;
+  <Text alternativeColor>Text</Text>;
 
 export const primaryColor = () =>
-  <Text primary>Text</Text>;
+  <Text primaryColor>Text</Text>;
 
 export const successColor = () =>
-  <Text success>Text</Text>;
+  <Text successColor>Text</Text>;
 
 export const dangerColor = () =>
-  <Text danger>Text</Text>;
+  <Text dangerColor>Text</Text>;
 
 export const warningColor = () =>
-  <Text warning>Text</Text>;
+  <Text warningColor>Text</Text>;

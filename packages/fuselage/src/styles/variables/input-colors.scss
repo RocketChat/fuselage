@@ -5,6 +5,7 @@ $input-colors-placeholder-color: theme('input-colors-placeholder-color', map-get
 $input-colors-hover-border-color: theme('input-colors-hover-border-color', map-get($colors, dark600));
 $input-colors-focus-border-color: theme('input-colors-focus-border-color', map-get($colors, blue500));
 $input-colors-focus-shadow-color: theme('input-colors-focus-shadow-color', map-get($colors, blue100));
+$input-colors-focus-icon-color: theme('input-colors-focus-icon-color', map-get($colors, blue500));
 $input-colors-focus-caret-color: theme('input-colors-focus-caret-color', map-get($colors, blue500));
 $input-colors-active-border-color: theme('input-colors-active-border-color', map-get($colors, dark600));
 $input-colors-active-caret-color: theme('input-colors-active-caret-color', map-get($colors, dark600));
@@ -20,6 +21,7 @@ $input-colors-invalid-hover-border-color: theme('input-colors-invalid-hover-bord
 $input-colors-invalid-focus-border-color: theme('input-colors-invalid-focus-border-color', map-get($colors, red500));
 $input-colors-invalid-focus-shadow-color: theme('input-colors-invalid-focus-shadow-color', map-get($colors, red100));
 $input-colors-invalid-focus-caret-color: theme('input-colors-invalid-focus-caret-color', map-get($colors, blue500));
+$input-colors-invalid-focus-icon-color: theme('input-colors-invalid-focus-icon-color', map-get($colors, red500));
 $input-colors-invalid-active-border-color: theme('input-colors-invalid-active-border-color', map-get($colors, dark600));
 $input-colors-invalid-active-caret-color: theme('input-colors-invalid-active-caret-color', map-get($colors, dark600));
 $input-colors-invalid-disabled-background-color: theme('input-colors-invalid-disabled-background-color', map-get($colors, dark200));
