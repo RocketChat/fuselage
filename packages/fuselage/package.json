@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.2.0-alpha.5",
+  "version": "0.2.0-alpha.6",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -108,7 +108,7 @@
     }
   },
   "dependencies": {
-    "@rocket.chat/fuselage-tokens": "^0.2.0-alpha.5",
+    "@rocket.chat/fuselage-tokens": "^0.2.0-alpha.6",
     "@rocket.chat/icons": "^0.2.0-alpha.0",
     "invariant": "^2.2.4"
   },
