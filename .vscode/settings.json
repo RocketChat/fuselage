@@ -5,6 +5,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/fuselage-hooks",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/icons",
       "changeProcessCWD": true
     }
