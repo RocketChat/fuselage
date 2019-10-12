@@ -1,5 +1,5 @@
 import { testHook } from '../.jest/helpers';
-import { useUniqueId } from './useUniqueId';
+import { useUniqueId } from '../src';
 
 describe('useUniqueId hook', () => {
   it('returns a string', () => {

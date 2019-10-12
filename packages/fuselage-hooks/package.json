@@ -28,7 +28,7 @@
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest src",
+    "test": "jest",
     "lint": "eslint src",
     "lint-staged": "lint-staged",
     "docs": "documentation readme src/index.js --section='API Reference' --readme-file README.md"

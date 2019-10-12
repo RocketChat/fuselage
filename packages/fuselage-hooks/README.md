@@ -39,10 +39,12 @@ yarn test
     -   [Parameters](#parameters-4)
 -   [useExclusiveBooleanProps](#useexclusivebooleanprops)
     -   [Parameters](#parameters-5)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-6)
--   [useToggle](#usetoggle)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-7)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-8)
 
 ### useClassName
 
@@ -117,6 +119,16 @@ to choose styling variants.
 
 
 -   Throws **[Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)** if two or more booleans props are set as true
+
+### useMediaQuery
+
+Hook to listen to a media query.
+
+#### Parameters
+
+-   `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** the CSS3 media query expression
+
+Returns **bool** `true` if the media query matches; `false` is it does not match or the query is not defined
 
 ### useMergedRefs
 

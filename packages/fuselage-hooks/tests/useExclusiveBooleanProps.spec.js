@@ -1,5 +1,5 @@
 import { testHook } from '../.jest/helpers';
-import { useExclusiveBooleanProps } from './useExclusiveBooleanProps';
+import { useExclusiveBooleanProps } from '../src';
 
 describe('useExclusiveBooleanProps hook', () => {
   it('allows an empty set of props', () => {

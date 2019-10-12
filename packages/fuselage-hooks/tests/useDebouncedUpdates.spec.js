@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useDebouncedUpdates, useDebouncedReducer, useDebouncedState } from './useDebouncedUpdates';
 import { testHook } from '../.jest/helpers';
+import { useDebouncedUpdates, useDebouncedReducer, useDebouncedState } from '../src';
 
 describe('useDebouncedUpdates hook', () => {
   let delay;
