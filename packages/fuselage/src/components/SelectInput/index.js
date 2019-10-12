@@ -1,9 +1,9 @@
 import React, { useRef, useState, useCallback } from 'react';
+import { useMergedRefs, useClassName } from '@rocket.chat/fuselage-hooks';
 
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import { Text } from '../Text';
-import { useMergedRefs, useClassName } from '../../hooks';
 
 const Placeholder = React.forwardRef(function Placeholder(props, ref) {
   const compoundClassName = useClassName('rcx-select-input__placeholder');

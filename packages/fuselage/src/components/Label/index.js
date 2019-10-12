@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { createContext, useContext } from 'react';
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 
 import { Box } from '../Box';
-import { useClassName } from '../../hooks';
 
 const LabelContext = createContext(false);
 

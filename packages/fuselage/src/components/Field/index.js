@@ -1,6 +1,6 @@
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 import React from 'react';
 
-import { useClassName } from '../..';
 import { Box } from '../Box';
 
 export const Field = React.forwardRef(function Field({

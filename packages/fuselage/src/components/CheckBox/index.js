@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useCallback } from 'react';
+import { useClassName, useMergedRefs } from '@rocket.chat/fuselage-hooks';
 
-import { useClassName, useMergedRefs } from '../../hooks';
 import { Box } from '../Box';
 import { Label } from '../Label';
 

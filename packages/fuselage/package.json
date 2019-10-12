@@ -30,12 +30,12 @@
     "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "docs:hooks": "documentation readme src/hooks/index.js --section='API Reference' --readme-file src/docs/Hooks.mdx",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "update-storybook": "run-s test:results docs:hooks build-storybook loki:update"
+    "update-storybook": "run-s test:results build-storybook loki:update"
   },
   "peerDependencies": {
+    "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.6",
     "react": "^16.8.6"
   },
   "devDependencies": {
@@ -43,6 +43,7 @@
     "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-env": "^7.4.5",
     "@rocket.chat/eslint-config": "^0.4.0",
+    "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.6",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-backgrounds": "^5.0.11",
     "@storybook/addon-centered": "^5.0.11",
@@ -60,13 +61,11 @@
     "cross-env": "^5.2.0",
     "css-vars-ponyfill": "^2.0.2",
     "cssnano": "^4.1.10",
-    "documentation": "^12.1.2",
     "eslint": "^6.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.14.3",
     "fs-extra": "^8.0.1",
     "gh-pages": "^2.0.1",
-    "husky": "^2.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "lerna": "^3.14.1",

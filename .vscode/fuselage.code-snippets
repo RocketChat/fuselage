@@ -1,23 +1,4 @@
 {
-  "New component index.js": {
-    "scope": "javascript",
-    "prefix": "fuselage-index",
-    "body": [
-      "import React from 'react';",
-      "",
-      "import { useStyle } from '../../hooks/styles';",
-      "import styles from './styles.scss';",
-      "",
-      "",
-      "export function $1({",
-      "  className,",
-      "  ...props",
-      "}) {",
-      "  const $3ClassName = useStyle(styles, '$2', {}, className);",
-      "  return <div className={$3ClassName} {...props} />;",
-      "}"
-    ],
-  },
   "New component spec.js": {
     "scope": "javascript",
     "prefix": "fuselage-spec",

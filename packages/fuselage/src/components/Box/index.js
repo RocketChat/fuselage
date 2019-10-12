@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
-import { useClassName } from '../../hooks';
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 
 /**
  * A primitive component with normalized styles.

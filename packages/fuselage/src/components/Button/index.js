@@ -1,8 +1,8 @@
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
-import { useClassName } from '../../hooks';
 
 /**
  * A `Button` indicates an actionable user action.
