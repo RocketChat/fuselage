@@ -1,4 +1,8 @@
-.rcx-box {
+import styled, { css } from 'styled-components';
+
+import { withTheme } from '../../hocs/withTheme';
+
+export const StyledBox = withTheme(styled.div`
   &,
   &::before,
   &::after {
@@ -9,7 +13,7 @@
     list-style-type: none;
 
     user-select: none;
-    transition: all $transitions-short-duration;
+    transition: all ${ ({ theme }) => theme.transitions.shortDuration };
 
     border-width: 0;
     border-style: solid;
@@ -19,9 +23,9 @@
     font-variant-numeric: tabular-nums;
   }
 
-  &--invisible {
+  ${ ({ invisible }) => invisible && css`
     visibility: hidden;
 
     opacity: 0;
-  }
-}
+  ` }
+`);

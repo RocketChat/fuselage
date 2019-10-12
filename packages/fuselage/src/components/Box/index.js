@@ -1,19 +1,19 @@
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 
-/**
- * A primitive component with normalized styles.
- */
+import { StyledBox } from './styles';
+
+/** A primitive component with normalized styles. */
 export const Box = React.forwardRef(function Box({
   className,
   invisible = false,
-  is: Component = 'div',
+  is = 'div',
   ...props
 }, ref) {
   const compoundClassName = useClassName('rcx-box', { invisible }, className);
 
-  return <Component className={compoundClassName} ref={ref} {...props} />;
+  return <StyledBox as={is} className={compoundClassName} invisible={invisible} ref={ref} {...props} />;
 });
 
 Box.defaultProps = {
@@ -24,12 +24,10 @@ Box.defaultProps = {
 Box.displayName = 'Box';
 
 Box.propTypes = {
-  /**
-   * The component which will render as a `Box`
-   */
+  /** The component which will render as a `Box` */
   is: PropTypes.elementType,
-  /**
-   * Is this component visible?
-   */
+  /** Is this component visible? */
   invisible: PropTypes.bool,
 };
+
+Box.Styled = StyledBox;

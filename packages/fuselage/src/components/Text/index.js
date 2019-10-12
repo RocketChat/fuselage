@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useClassName } from '@rocket.chat/fuselage-hooks';
 
-import { Box } from '../Box';
+import { StyledText, StyledTextSkeleton } from './styles';
+import variables from '../../styles/variables';
 
 export const Text = React.forwardRef(function Text({
   className,
+  is = 'span',
 
   headline,
   subtitle,
@@ -42,10 +44,34 @@ export const Text = React.forwardRef(function Text({
     warningColor,
   }, className);
 
-  return <Box className={compoundClassName} is='span' ref={ref} {...props} />;
+  return <StyledText
+    className={compoundClassName}
+    colorVariant={
+      (defaultColor && 'default')
+      || (infoColor && 'info')
+      || (hintColor && 'hint')
+      || (disabledColor && 'disabled')
+      || (alternativeColor && 'alternative')
+      || (primaryColor && 'primary')
+      || (successColor && 'success')
+      || (dangerColor && 'danger')
+      || (warningColor && 'warning')
+      || 'default'}
+    as={is}
+    ref={ref}
+    styleVariant={
+      (headline && 'headline')
+      || (subtitle && 'subtitle')
+      || (paragraph && 'paragraph')
+      || (caption && 'caption')
+      || (micro && 'micro')
+      || 'paragraph'}
+    {...props}
+  />;
 });
 
 Text.defaultProps = {
+  is: 'span',
   headline: false,
   subtitle: false,
   paragraph: false,
@@ -65,6 +91,7 @@ Text.defaultProps = {
 Text.displayName = 'Text';
 
 Text.propTypes = {
+  is: PropTypes.elementType,
   headline: PropTypes.bool,
   subtitle: PropTypes.bool,
   paragraph: PropTypes.bool,
@@ -81,7 +108,30 @@ Text.propTypes = {
   warningColor: PropTypes.bool,
 };
 
-Text.Skeleton = function Skeleton({ animated, width = 1 }) {
+Text.Styled = StyledText;
+
+function Skeleton({ animated, width = '1/1' }) {
   const compoundClassName = useClassName('rcx-text__skeleton', { animated, width });
-  return <Box className={compoundClassName} is='span' />;
+
+  return <StyledTextSkeleton
+    animated={animated}
+    className={compoundClassName}
+    width={width}
+  />;
+}
+
+Skeleton.defaultProps = {
+  animated: false,
+  width: '1/1',
 };
+
+Skeleton.displayName = 'Text.Skeleton';
+
+Skeleton.propTypes = {
+  animated: PropTypes.bool,
+  width: PropTypes.oneOf(Object.keys(variables.widths)),
+};
+
+Skeleton.Styled = StyledTextSkeleton;
+
+Text.Skeleton = Skeleton;
