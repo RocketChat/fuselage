@@ -53,11 +53,12 @@ export const InputBox = React.forwardRef(function InputBox({
       theme={theme}
       onChange={handleChange}
       {...props}
+      undecorated={false}
     />;
   }
 
   return <Wrapper className={classNames.wrapper} hidden={hidden} invisible={invisible} theme={theme}>
-    <Input className={classNames.input} ref={mergedRef} theme={theme} undecorated onChange={handleChange} {...props} />
+    <Input className={classNames.input} ref={mergedRef} theme={theme} onChange={handleChange} {...props} undecorated />
     <Addon children={addon} className={classNames.addon} theme={theme} />
   </Wrapper>;
 });

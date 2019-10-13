@@ -51,11 +51,13 @@ export const Addon = styled.span`
   flex: 0 0 auto;
   align-items: flex-start;
 
-  ${ ({ theme }) => py(`calc(${ theme.spaces[4] } - ${ theme.borders.width[1] })`) }
-  ${ ({ theme }) => pr(`calc(${ theme.spaces[5] } - ${ theme.borders.width[1] })`) }
+  ${ ({ theme }) => py(`calc(${ theme.spaces[3] } - ${ theme.borders.width[1] })`) }
+  ${ ({ theme }) => pr(`calc(${ theme.spaces[3] } - ${ theme.borders.width[1] })`) }
 
   & > ${ StyledIcon } {
     font-size: ${ ({ theme }) => `calc(${ theme.sizes[1] } - 2 * ${ theme.spaces[4] })` };
+    ${ ({ theme }) => py(theme.spaces[2]) }
+    ${ ({ theme }) => pr(theme.spaces[2]) }
   }
 `;
 
@@ -92,6 +94,8 @@ const withIconAddonColors = ({
 `;
 
 export const Input = styled(InputControl)`
+  flex: 1 0 auto;
+
   width: 0;
 
   ${ ({ theme }) => withIconAddonColors(theme.inputColors.normal) }

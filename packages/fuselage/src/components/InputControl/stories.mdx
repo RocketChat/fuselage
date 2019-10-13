@@ -1,10 +1,11 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { InputControl } from '../..';
+import { InputControl, Label } from '../..';
 
-<Meta title='Forms|InputControl' />
+<Meta title='Forms|InputControl' parameters={{ jest: ['InputControl/spec'] }} />
 
 # InputControl
 
@@ -14,9 +15,13 @@ The `type` prop defines which element will be rendered, e.g. `<InputControl type
 element. Besides `'textarea'` and `'select'`, every value else will render `input` element with the `type` attribute
 set.
 
+Usually you'll perfer to use `-Input` components
+(e.g. <LinkTo kind='Forms|TextInput' story='Default'>`TextInput`</LinkTo>) over this one because it works as a
+construction block for them.
+
 <Preview>
   <Story name='Default'>
-    <InputControl onChange={action('change')} />
+    <InputControl defaultValue='Value' onChange={action('change')} />
   </Story>
 </Preview>
 
@@ -24,19 +29,62 @@ set.
 
 ## Undecorated
 
-Sometimes an `InputControl` is used in composition with another components, therefore the `undecorated` prop declares
-if the borders should be removed.
+Sometimes an <LinkTo kind='Forms|InputControl' story='Default Story'>`InputControl`</LinkTo> is used in composition with another components,
+therefore the `undecorated` prop declares if the borders should be removed.
 
 <Preview>
   <Story name='Undecorated'>
-    <InputControl undecorated onChange={action('change')} />
+    <InputControl defaultValue='Value' undecorated onChange={action('change')} />
   </Story>
 </Preview>
 
+## Invalid
+
+In addition to the HTML5 validation attributes, an `error` prop can set a custom validity.
+
+<Preview>
+  <Story name='Invalid'>
+    <InputControl defaultValue='Value' error='Error' onChange={action('change')} />
+  </Story>
+</Preview>
+
+## Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <InputControl defaultValue='Value' disabled onChange={action('change')} />
+  </Story>
+</Preview>
+
+## With placeholder
+
+<Preview>
+  <Story name='With Placeholder'>
+    <InputControl placeholder='Placeholder' onChange={action('change')} />
+  </Story>
+</Preview>
+
+## Types
+
+<Preview>
+  <Story name='Types'>
+    <>
+      <Label text='text' style={{ margin: '0 1rem' }}>
+        <InputControl type='text' />
+      </Label>
+      <Label text='textarea' style={{ margin: '0 1rem' }}>
+        <InputControl type='textarea' rows={2} />
+      </Label>
+      <Label text='select' style={{ margin: '0 1rem' }}>
+        <InputControl type='select' />
+      </Label>
+    </>
+  </Story>
+</Preview>
 
 ## States
 
-### `type='input'`
+### Input
 
 <Story name='States Of Input Type'>
   <PropsVariationSection
@@ -62,7 +110,7 @@ if the borders should be removed.
   />
 </Story>
 
-### `type='textarea'`
+### TextArea
 
 <Story name='States Of TextArea Type'>
   <PropsVariationSection
@@ -88,7 +136,7 @@ if the borders should be removed.
   />
 </Story>
 
-### `type='select'`
+### Select
 
 <Story name='States Of Select Type'>
   <PropsVariationSection

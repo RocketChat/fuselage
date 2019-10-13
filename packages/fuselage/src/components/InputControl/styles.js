@@ -87,7 +87,7 @@ export const StyledInputControl = styled.input`
 
   display: inline-flex;
 
-  flex: 1 0 0;
+  flex: 0 0 auto;
 
   width: 8rem;
   min-width: 0;
@@ -106,6 +106,7 @@ export const StyledInputControl = styled.input`
   ${ ellipsis }
 
   ${ ({ htmlType }) => htmlType === 'textarea' && css`
+    vertical-align: middle;
     resize: none;
     overflow: auto;
     ${ scrollable }
@@ -120,7 +121,7 @@ export const StyledInputControl = styled.input`
     border-width: ${ theme.borders.width[1] };
     border-radius: ${ theme.borders.radius[1] };
     min-width: 8rem;
-    min-height: calc(${ theme.sizes[1] } - 2 * ${ theme.borders.width[1] });
+    min-height: ${ theme.sizes[1] };
 
     ${ ({ theme }) => withDecoratorColors(theme.inputColors.normal) }
 

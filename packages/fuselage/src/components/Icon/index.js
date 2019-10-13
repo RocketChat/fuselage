@@ -15,14 +15,13 @@ const nameToCharacterMapping = Object.entries(names)
 
 export const Icon = React.forwardRef(function Icon({
   className,
-  iconName,
   name,
   ...props
 }, ref) {
-  const compoundClassName = useClassName('rcx-icon', { [name || iconName]: true }, className);
+  const compoundClassName = useClassName('rcx-icon', { [name]: true }, className);
   const theme = useTheme();
 
-  const children = nameToCharacterMapping[name || iconName];
+  const children = nameToCharacterMapping[name];
 
   return <StyledIcon
     aria-hidden='true'

@@ -27,7 +27,7 @@ export const small = () =>
 
 export const withIcon = () =>
   <Button>
-    <Icon iconName='edit' /> Edit
+    <Icon name='edit' /> Edit
   </Button>;
 
 export const asLink = () =>
@@ -35,5 +35,5 @@ export const asLink = () =>
 
 export const square = () =>
   <Button square is='a'>
-    <Icon iconName='plus' />
+    <Icon name='plus' />
   </Button>;
