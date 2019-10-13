@@ -108,8 +108,6 @@ Text.propTypes = {
   warningColor: PropTypes.bool,
 };
 
-Text.Styled = StyledText;
-
 function Skeleton({ animated, width = '1/1' }) {
   const compoundClassName = useClassName('rcx-text__skeleton', { animated, width });
 
@@ -131,7 +129,5 @@ Skeleton.propTypes = {
   animated: PropTypes.bool,
   width: PropTypes.oneOf(Object.keys(variables.widths)),
 };
-
-Skeleton.Styled = StyledTextSkeleton;
 
 Text.Skeleton = Skeleton;

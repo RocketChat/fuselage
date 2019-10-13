@@ -57,14 +57,14 @@ export const micro = (theme) => css`
   line-height: ${ theme.textStyles.micro.lineHeight };
 `;
 
-export const truncate = () => css`
+export const truncate = css`
   overflow: hidden;
 
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
 
-export const ellipsis = () => css`
+export const ellipsis = css`
   overflow: hidden;
 
   text-overflow: ellipsis;

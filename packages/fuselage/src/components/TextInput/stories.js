@@ -12,7 +12,7 @@ export default {
 };
 
 export const _default = () =>
-  <TextInput />;
+  <TextInput onChange={action('change')} />;
 
 export const withPlaceholder = () =>
   <TextInput placeholder='Placeholder' onChange={action('change')} />;

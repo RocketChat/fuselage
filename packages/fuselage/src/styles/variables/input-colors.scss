@@ -20,7 +20,7 @@ $input-colors-invalid-placeholder-color: theme('input-colors-invalid-placeholder
 $input-colors-invalid-hover-border-color: theme('input-colors-invalid-hover-border-color', map-get($colors, red500));
 $input-colors-invalid-focus-border-color: theme('input-colors-invalid-focus-border-color', map-get($colors, red500));
 $input-colors-invalid-focus-shadow-color: theme('input-colors-invalid-focus-shadow-color', map-get($colors, red100));
-$input-colors-invalid-focus-caret-color: theme('input-colors-invalid-focus-caret-color', map-get($colors, blue500));
+$input-colors-invalid-focus-caret-color: theme('input-colors-invalid-focus-caret-color', map-get($colors, red500));
 $input-colors-invalid-focus-icon-color: theme('input-colors-invalid-focus-icon-color', map-get($colors, red500));
 $input-colors-invalid-active-border-color: theme('input-colors-invalid-active-border-color', map-get($colors, dark600));
 $input-colors-invalid-active-caret-color: theme('input-colors-invalid-active-caret-color', map-get($colors, dark600));

@@ -18,29 +18,6 @@ import {
 
 <Meta title='Forms|Overview' />
 
-# Input Boxes
-
-<PropsVariationSection
-  component={InputBox}
-  xAxis={{
-    default: {},
-    'with placeholder': { 'data-placeholder': 'Placeholder' },
-    'with value': { children: 'Value' },
-    'with icon': { addon: <Icon name='chat' />, children: 'Value' },
-  }}
-  yAxis={{
-    default: {},
-    hover: { className: 'hover' },
-    active: { className: 'active' },
-    focus: { className: 'focus' },
-    disabled: { className: 'disabled' },
-    invalid: { className: 'invalid' },
-    'invalid + hover': { className: 'invalid hover' },
-    'invalid + active': { className: 'invalid active' },
-    'invalid + focus': { className: 'invalid focus' },
-  }}
-/>
-
 ## TextInput
 
 <PropsVariationSection

@@ -12,7 +12,7 @@ export default {
 };
 
 export const _default = () =>
-  <SelectInput>
+  <SelectInput onChange={action('change')}>
     <SelectInput.Option value='a'>Item A</SelectInput.Option>
     <SelectInput.Option value='b'>Item B</SelectInput.Option>
     <SelectInput.Option value='c'>Item C</SelectInput.Option>
@@ -26,7 +26,7 @@ export const withPlaceholder = () =>
   </SelectInput>;
 
 export const withValue = () =>
-  <SelectInput value='b' onChange={action('change')}>
+  <SelectInput defaultValue='b' onChange={action('change')}>
     <SelectInput.Option value='a'>Item A</SelectInput.Option>
     <SelectInput.Option value='b'>Item B</SelectInput.Option>
     <SelectInput.Option value='c'>Item C</SelectInput.Option>
@@ -39,7 +39,7 @@ export const disabled = () =>
     <SelectInput.Option value='c'>Item C</SelectInput.Option>
   </SelectInput>;
 
-export const withError = () =>
+export const invalid = () =>
   <SelectInput error='Error' onChange={action('change')}>
     <SelectInput.Option value='a'>Item A</SelectInput.Option>
     <SelectInput.Option value='b'>Item B</SelectInput.Option>

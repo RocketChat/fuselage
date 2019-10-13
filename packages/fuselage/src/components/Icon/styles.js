@@ -1,4 +1,6 @@
-.rcx-icon {
+import styled from 'styled-components';
+
+export const StyledIcon = styled.i`
   display: inline-block;
 
   font-family: 'RocketChat';
@@ -7,4 +9,4 @@
   font-variant: normal;
   line-height: 1;
   text-rendering: auto;
-}
+`;

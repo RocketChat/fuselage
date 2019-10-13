@@ -14,19 +14,19 @@ export const _default = () =>
   <InputBox />;
 
 export const withPlaceholder = () =>
-  <InputBox data-placeholder='Placeholder' />;
+  <InputBox placeholder='Placeholder' />;
 
 export const withValue = () =>
-  <InputBox children='Value' />;
+  <InputBox defaultValue='Value' />;
 
 export const withAddon = () =>
   <InputBox addon={<Icon name='send' />} />;
 
 export const disabled = () =>
-  <InputBox className='disabled' />;
+  <InputBox disabled />;
 
 export const invalid = () =>
-  <InputBox className='invalid' />;
+  <InputBox error='Error' />;
 
 export const skeleton = () =>
   <InputBox.Skeleton />;

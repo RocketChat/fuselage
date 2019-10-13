@@ -29,5 +29,3 @@ Box.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
-
-Box.Styled = StyledBox;

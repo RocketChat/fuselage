@@ -1,0 +1,102 @@
+import { action } from '@storybook/addon-actions';
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { InputControl } from '../..';
+
+<Meta title='Forms|InputControl' />
+
+# InputControl
+
+This is a generic component for rendering `input`, `textarea`, and `select` elements.
+
+## Input
+
+<Preview>
+  <Story name='Of Input Type'>
+    <PropsVariationSection
+      component={InputControl}
+      common={{ onChange: action('change') }}
+      xAxis={{
+        default: {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'Value' },
+        undecorated: { undecorated: true, value: 'Value' },
+      }}
+      yAxis={{
+        default: {},
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus' },
+        disabled: { disabled: true },
+        invalid: { error: 'Error' },
+        'invalid + hover': { className: 'invalid hover' },
+        'invalid + active': { className: 'invalid active' },
+        'invalid + focus': { className: 'invalid focus' },
+      }}
+    />
+  </Story>
+</Preview>
+
+## TextArea
+
+<Preview>
+  <Story name='Of TextArea Type'>
+    <PropsVariationSection
+      component={InputControl}
+      common={{ type: 'textarea', onChange: action('change') }}
+      xAxis={{
+        default: {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'Value' },
+        undecorated: { undecorated: true, value: 'Value' },
+      }}
+      yAxis={{
+        default: {},
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus' },
+        disabled: { disabled: true },
+        invalid: { error: 'Error' },
+        'invalid + hover': { className: 'invalid hover' },
+        'invalid + active': { className: 'invalid active' },
+        'invalid + focus': { className: 'invalid focus' },
+      }}
+    />
+  </Story>
+</Preview>
+
+## Select
+
+<Preview>
+  <Story name='Of Select Type'>
+    <PropsVariationSection
+      component={InputControl}
+      common={{
+        children: <>
+          <option value='a'>Item A</option>
+          <option value='b'>Item B</option>
+          <option value='c'>Item C</option>
+        </>,
+        type: 'select',
+        onChange: action('change')
+      }}
+      xAxis={{
+        default: {},
+        'with value': { value: 'b' },
+        undecorated: { undecorated: true, value: 'c' },
+      }}
+      yAxis={{
+        default: {},
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus' },
+        disabled: { disabled: true },
+        invalid: { error: 'Error' },
+        'invalid + hover': { className: 'invalid hover' },
+        'invalid + active': { className: 'invalid active' },
+        'invalid + focus': { className: 'invalid focus' },
+      }}
+    />
+  </Story>
+</Preview>

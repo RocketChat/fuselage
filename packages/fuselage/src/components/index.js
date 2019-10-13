@@ -9,6 +9,7 @@ export * from './Headline';
 export * from './Hint';
 export * from './Icon';
 export * from './InputBox';
+export * from './InputControl';
 export * from './Label';
 export * from './Paragraph';
 export * from './PasswordInput';
