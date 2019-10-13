@@ -8,8 +8,8 @@ import { StyledInputControl } from './styles';
 export const InputControl = React.forwardRef(function InputControl({
   className,
   error,
-  type,
-  undecorated,
+  type = 'text',
+  undecorated = false,
   ...props
 }, ref) {
   const compoundClassName = useClassName('rcx-input-control', {}, className);
@@ -40,6 +40,7 @@ export const InputControl = React.forwardRef(function InputControl({
 });
 
 InputControl.defaultProps = {
+  type: 'text',
   undecorated: false,
 };
 
@@ -47,6 +48,32 @@ InputControl.displayName = 'InputControl';
 
 InputControl.propTypes = {
   error: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.oneOf([
+    'button',
+    'checkbox',
+    'color',
+    'date',
+    'datetime',
+    'datetime-local',
+    'email',
+    'file',
+    'hidden',
+    'image',
+    'month',
+    'number',
+    'password',
+    'radio',
+    'range',
+    'reset',
+    'search',
+    'submit',
+    'tel',
+    'text',
+    'time',
+    'url',
+    'week',
+    'textarea',
+    'select',
+  ]),
   undecorated: PropTypes.bool,
 };
