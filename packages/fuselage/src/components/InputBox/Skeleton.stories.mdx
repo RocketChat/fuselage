@@ -1,0 +1,27 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { Icon, InputBox, Button } from '../..';
+
+<Meta title='Forms|InputBox/InputBox.Skeleton' parameters={{ jest: ['InputBox/spec'] }} />
+
+## InputBox.Skeleton
+
+A skeleton is a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.
+
+<Preview>
+  <Story name='Default'>
+    <InputBox.Skeleton />
+  </Story>
+</Preview>
+
+<Props of={InputBox.Skeleton} />
+
+### Animated
+
+<Preview>
+  <Story name='Animated'>
+    <InputBox.Skeleton animated />
+  </Story>
+</Preview>

@@ -1,0 +1,44 @@
+import * as iconNames from '@rocket.chat/icons/dist/font';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Hint, Icon, Text } from '../..';
+
+<Meta title='Misc|Icon' decorators={[(fn) => <Text defaultColor style={{ fontSize: 40 }}>{fn()}</Text>]} />
+
+# Icon
+
+<Story name='Default'>
+  <>
+    {Object.values(iconNames).map((name, key) => <Icon key={key} name={name} /> )}
+  </>
+</Story>
+
+<Props of={Icon} />
+
+export const styles = {
+  container: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    textAlign: 'center',
+  },
+  wrapper: {
+    margin: '2rem 0.5rem',
+    flex: '1 0 8rem',
+  },
+};
+
+## Available icons
+
+<div style={styles.container}>
+  {Object.values(iconNames).map((name, key) =>
+    <div key={key} style={styles.wrapper}>
+      <Text>
+        <Icon name={name} style={{ fontSize: 40 }} />
+      </Text>
+      <Hint>{name}</Hint>
+    </div>
+  )}
+</div>

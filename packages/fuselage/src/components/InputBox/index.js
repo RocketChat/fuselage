@@ -1,50 +1,107 @@
-import React, { useRef, useLayoutEffect } from 'react';
 import { useClassName, useMergedRefs } from '@rocket.chat/fuselage-hooks';
+import PropTypes from 'prop-types';
+import React, { useCallback, useLayoutEffect, useRef } from 'react';
 
-import { Box } from '../Box';
-import { Text } from '../Text';
-import { Label } from '../Label';
+import { useTheme } from '../../hooks/useTheme';
+import { Wrapper, Input, Addon } from './styles';
+import { Skeleton } from './Skeleton';
 
 export const InputBox = React.forwardRef(function InputBox({
   className,
   addon,
-  error,
+  hidden,
+  invisible,
+  onChange,
   ...props
 }, ref) {
   const classNames = {
-    wrapper: useClassName('rcx-input-box__wrapper'),
+    wrapper: useClassName('rcx-input-box__wrapper', {}, props.disabled && 'disabled', className),
     input: useClassName('rcx-input-box', {}, className),
     addon: useClassName('rcx-input-box__addon'),
-    overlay: useClassName('rcx-input-box__overlay'),
   };
+  const theme = useTheme();
 
   const innerRef = useRef();
   const mergedRef = useMergedRefs(ref, innerRef);
 
   useLayoutEffect(() => {
-    if (innerRef.current && innerRef.current.setCustomValidity) {
-      innerRef.current.setCustomValidity(error || '');
+    if (addon) {
+      innerRef.current.parentElement.classList.toggle('invalid', !innerRef.current.checkValidity());
     }
-  }, [error]);
+  }, []);
 
-  const box = <Text className={classNames.input} is='span' paragraph ref={mergedRef} tabIndex='0' {...props} />;
+  const handleChange = useCallback((event, ...args) => {
+    if (addon) {
+      innerRef.current.parentElement.classList.toggle('invalid', !innerRef.current.checkValidity());
+    }
+
+    return onChange && onChange.call(event.currentTarget, event, ...args);
+  }, [addon, onChange]);
 
   if (!addon) {
-    return box;
+    return <Input
+      className={classNames.input}
+      hidden={hidden}
+      invisible={invisible}
+      ref={ref}
+      theme={theme}
+      onChange={handleChange}
+      {...props}
+      undecorated={false}
+    />;
   }
 
-  return <Box className={classNames.wrapper} is={Label}>
-    {box}
-    <Box children={addon} className={classNames.addon} is='span' />
-    <Box className={classNames.overlay} is='span' />
-  </Box>;
+  return <Wrapper className={classNames.wrapper} hidden={hidden} invisible={invisible} theme={theme}>
+    <Input
+      className={classNames.input}
+      ref={mergedRef}
+      theme={theme}
+      onChange={handleChange}
+      {...props}
+      undecorated
+    />
+    <Addon children={addon} className={classNames.addon} theme={theme} />
+  </Wrapper>;
 });
+
+InputBox.defaultProps = {
+  type: 'text',
+};
 
 InputBox.displayName = 'InputBox';
 
-InputBox.Skeleton = function Skeleton({ animated }) {
-  const compoundClassName = useClassName('rcx-input-box__skeleton');
-  return <Box className={compoundClassName} is='span'>
-    <Text.Skeleton animated={animated} />
-  </Box>;
+InputBox.propTypes = {
+  addon: PropTypes.element,
+  input: PropTypes.element,
+  error: PropTypes.string,
+  invisible: PropTypes.bool,
+  type: PropTypes.oneOf([
+    'button',
+    'checkbox',
+    'color',
+    'date',
+    'datetime',
+    'datetime-local',
+    'email',
+    'file',
+    'hidden',
+    'image',
+    'month',
+    'number',
+    'password',
+    'radio',
+    'range',
+    'reset',
+    'search',
+    'submit',
+    'tel',
+    'text',
+    'time',
+    'url',
+    'week',
+    'textarea',
+    'select',
+  ]).isRequired,
 };
+
+InputBox.Skeleton = Skeleton;

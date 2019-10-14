@@ -1,0 +1,99 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Button, Icon, TextAreaInput } from '../..';
+
+<Meta title='Forms|Inputs/TextAreaInput' parameters={{ jest: ['TextAreaInput/spec'] }} />
+
+# TextAreaInput
+
+An input for multi-line plain-text editing.
+
+<Preview>
+  <Story name='Default'>
+    <TextAreaInput />
+  </Story>
+</Preview>
+
+<Props of={TextAreaInput} />
+
+## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
+
+Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
+used.
+
+### With Addon
+
+<Preview>
+  <Story name='With Addon'>
+    <TextAreaInput addon={<Button small ghost>Button</Button>} />
+  </Story>
+</Preview>
+
+### With Icon Addon
+
+<Preview>
+  <Story name='With Icon Addon'>
+    <TextAreaInput addon={<Icon name='send' />} />
+  </Story>
+</Preview>
+
+### Invalid
+
+<Preview>
+  <Story name='Invalid'>
+    <TextAreaInput error='Error' />
+  </Story>
+</Preview>
+
+### Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <TextAreaInput disabled />
+  </Story>
+</Preview>
+
+### With placeholder
+
+<Preview>
+  <Story name='With Placeholder'>
+    <TextAreaInput placeholder='Placeholder' />
+  </Story>
+</Preview>
+
+### With value
+
+<Preview>
+  <Story name='With Value'>
+    <TextAreaInput defaultValue={'Roses are red\nViolets are blue'} />
+  </Story>
+</Preview>
+
+## States
+
+<Story name='States'>
+  <PropsVariationSection
+    component={TextAreaInput}
+    common={{ onChange: () => {} }}
+    xAxis={{
+      default: {},
+      'with placeholder': { placeholder: 'Placeholder' },
+      'with value': { value: 'Value' },
+      'with icon': { addon: <Icon name='edit' />, value: 'Value' },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+      errored: { error: 'Error' },
+      'errored + hover': { className: 'hover', error: 'Error' },
+      'errored + active': { className: 'active', error: 'Error' },
+      'errored + focus': { className: 'focus', error: 'Error' },
+    }}
+  />
+</Story>

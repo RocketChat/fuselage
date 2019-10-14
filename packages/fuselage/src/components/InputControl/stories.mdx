@@ -1,0 +1,170 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { InputControl, Label } from '../..';
+
+<Meta title='Forms|InputControl' parameters={{ jest: ['InputControl/spec'] }} />
+
+# InputControl
+
+This is a generic component for rendering `input`, `textarea`, and `select` elements.
+
+The `type` prop defines which element will be rendered, e.g. `<InputControl type='textarea' />` will render a `textarea`
+element. Besides `'textarea'` and `'select'`, every value else will render `input` element with the `type` attribute
+set.
+
+Usually you'll perfer to use `-Input` components
+(e.g. <LinkTo kind='Forms|TextInput' story='Default'>`TextInput`</LinkTo>) over this one because it works as a
+construction block for them.
+
+<Preview>
+  <Story name='Default'>
+    <InputControl defaultValue='Value' onChange={action('change')} />
+  </Story>
+</Preview>
+
+<Props of={InputControl} />
+
+## Undecorated
+
+Sometimes an <LinkTo kind='Forms|InputControl' story='Default Story'>`InputControl`</LinkTo> is used in composition with another components,
+therefore the `undecorated` prop declares if the borders should be removed.
+
+<Preview>
+  <Story name='Undecorated'>
+    <InputControl defaultValue='Value' undecorated onChange={action('change')} />
+  </Story>
+</Preview>
+
+## Invalid
+
+In addition to the HTML5 validation attributes, an `error` prop can set a custom validity.
+
+<Preview>
+  <Story name='Invalid'>
+    <InputControl defaultValue='Value' error='Error' onChange={action('change')} />
+  </Story>
+</Preview>
+
+## Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <InputControl defaultValue='Value' disabled onChange={action('change')} />
+  </Story>
+</Preview>
+
+## With placeholder
+
+<Preview>
+  <Story name='With Placeholder'>
+    <InputControl placeholder='Placeholder' onChange={action('change')} />
+  </Story>
+</Preview>
+
+## Types
+
+<Preview>
+  <Story name='Types'>
+    <>
+      <Label text='text' style={{ margin: '0 1rem' }}>
+        <InputControl type='text' />
+      </Label>
+      <Label text='textarea' style={{ margin: '0 1rem' }}>
+        <InputControl type='textarea' rows={2} />
+      </Label>
+      <Label text='select' style={{ margin: '0 1rem' }}>
+        <InputControl type='select' />
+      </Label>
+    </>
+  </Story>
+</Preview>
+
+## States
+
+### Input
+
+<Story name='States Of Input Type'>
+  <PropsVariationSection
+    component={InputControl}
+    common={{ onChange: action('change') }}
+    xAxis={{
+      default: {},
+      'with placeholder': { placeholder: 'Placeholder' },
+      'with value': { value: 'Value' },
+      undecorated: { undecorated: true, value: 'Value' },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+      invalid: { error: 'Error' },
+      'invalid + hover': { className: 'invalid hover' },
+      'invalid + active': { className: 'invalid active' },
+      'invalid + focus': { className: 'invalid focus' },
+    }}
+  />
+</Story>
+
+### TextArea
+
+<Story name='States Of TextArea Type'>
+  <PropsVariationSection
+    component={InputControl}
+    common={{ type: 'textarea', onChange: action('change') }}
+    xAxis={{
+      default: {},
+      'with placeholder': { placeholder: 'Placeholder' },
+      'with value': { value: 'Value' },
+      undecorated: { undecorated: true, value: 'Value' },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+      invalid: { error: 'Error' },
+      'invalid + hover': { className: 'invalid hover' },
+      'invalid + active': { className: 'invalid active' },
+      'invalid + focus': { className: 'invalid focus' },
+    }}
+  />
+</Story>
+
+### Select
+
+<Story name='States Of Select Type'>
+  <PropsVariationSection
+    component={InputControl}
+    common={{
+      children: <>
+        <option value='a'>Item A</option>
+        <option value='b'>Item B</option>
+        <option value='c'>Item C</option>
+      </>,
+      type: 'select',
+      onChange: action('change')
+    }}
+    xAxis={{
+      default: {},
+      'with value': { value: 'b' },
+      undecorated: { undecorated: true, value: 'c' },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+      invalid: { error: 'Error' },
+      'invalid + hover': { className: 'invalid hover' },
+      'invalid + active': { className: 'invalid active' },
+      'invalid + focus': { className: 'invalid focus' },
+    }}
+  />
+</Story>

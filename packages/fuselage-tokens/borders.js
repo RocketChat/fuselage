@@ -1,6 +1,10 @@
 export default {
-  default: {
-    width: 2,
-    radius: 2,
-  },
+  widths: [
+    0,
+    2,
+  ],
+  radii: [
+    0,
+    2,
+  ],
 };

@@ -38,6 +38,9 @@ module.exports = (env, argv) => ({
       {
         test: /\.scss$/,
         use: [
+          {
+            loader: 'style-loader',
+          },
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -72,6 +75,7 @@ module.exports = (env, argv) => ({
     },
     /@rocket\.chat\/icons\/dist\/font/,
     '@rocket.chat/fuselage-hooks',
+    'styled-components',
   ],
   plugins: [
     new BundleAnalyzerPlugin({

@@ -1,19 +1,22 @@
-import React from 'react';
 import { useClassName } from '@rocket.chat/fuselage-hooks';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { Box } from '../Box';
+import { useTheme } from '../../hooks/useTheme';
+import { StyledFieldGroup } from './styles';
 
-/**
- * A container for grouping fields that semantically share a common data context.
- */
 export const FieldGroup = React.forwardRef(function FieldGroup({
   className,
   invisible,
   ...props
 }, ref) {
   const compoundClassName = useClassName('rcx-field-group', {}, className);
-
-  return <Box className={compoundClassName} is='fieldset' ref={ref} role='group' {...props} />;
+  const theme = useTheme();
+  return <StyledFieldGroup className={compoundClassName} ref={ref} role='group' theme={theme} {...props} />;
 });
 
 FieldGroup.displayName = 'FieldGroup';
+
+FieldGroup.propTypes = {
+  invisible: PropTypes.bool,
+};
