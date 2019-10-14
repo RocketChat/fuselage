@@ -12,9 +12,9 @@
   & > &__fake {
     position: relative;
 
-    height: $sizes-5;
+    height: $sizes-x20;
 
-    border-width: $borders-width-1;
+    border-width: $borders-width-x2;
 
     @content;
   }

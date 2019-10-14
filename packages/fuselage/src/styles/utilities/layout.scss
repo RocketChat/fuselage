@@ -29,7 +29,7 @@
 
 @mixin scrollable {
   &::-webkit-scrollbar {
-    width: $sizes-8;
+    width: $sizes-x4;
     height: 0.5rem;
   }
 

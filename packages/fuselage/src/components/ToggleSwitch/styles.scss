@@ -4,8 +4,8 @@
       position: absolute;
       left: 0%;
 
-      width: calc(#{$sizes-5} - 2 * #{$borders-width-1});
-      height: calc(#{$sizes-5} - 2 * #{$borders-width-1});
+      width: calc(#{$sizes-x20} - 2 * #{$borders-width-x2});
+      height: calc(#{$sizes-x20} - 2 * #{$borders-width-x2});
 
       content: '';
 
@@ -108,8 +108,8 @@
     checked-active: '%checked-active-state',
     checked-disabled: '%checked-disabled-state',
   )) {
-    width: calc(2 * #{$sizes-5});
+    width: calc(2 * #{$sizes-x20});
 
-    border-radius: 9999px;
+    border-radius: $borders-radius-full;
   }
 }

@@ -7,7 +7,7 @@ import { Addon, Input } from '../InputBox/styles';
 import { InputBox } from '../InputBox';
 
 export const StyledSelectInput = styled(InputBox)`
-  ${ ({ theme }) => pr(`calc(${ theme.spaces[5] } + ${ theme.sizes[1] } - 2 * ${ theme.spaces[4] })`) }
+  ${ ({ theme }) => pr(`calc(${ theme.spaces.x16 } + ${ theme.sizes.x44 } - 2 * ${ theme.spaces.x12 })`) }
 
   & ~ ${ Addon } {
     position: absolute;

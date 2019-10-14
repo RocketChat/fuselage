@@ -31,8 +31,8 @@ export const container = css`
 
 export const scrollable = css`
   &::-webkit-scrollbar {
-    width: ${ ({ theme }) => theme.sizes[8] };
-    height: ${ ({ theme }) => theme.sizes[8] };
+    width: ${ ({ theme }) => theme.sizes.x4 };
+    height: ${ ({ theme }) => theme.sizes.x4 };
   }
 
   &::-webkit-scrollbar-track {

@@ -1,7 +1,7 @@
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height, $icon-size-ratio) {
-    @include py(calc((#{$height} - #{$line-height}) / 2 - #{$borders-width-1}));
-    @include px(calc(#{$padding-x} - #{$borders-width-1}));
+    @include py(calc((#{$height} - #{$line-height}) / 2 - #{$borders-width-x2}));
+    @include px(calc(#{$padding-x} - #{$borders-width-x2}));
 
     & > .rcx-icon {
       font-size: #{$icon-size-ratio}em;
@@ -78,9 +78,9 @@
   vertical-align: middle;
   text-decoration: none;
 
-  border-width: $borders-width-1;
+  border-width: $borders-width-x2;
   border-style: solid;
-  border-radius: $borders-radius-1;
+  border-radius: $borders-radius-x2;
 
   appearance: none;
 
@@ -94,8 +94,8 @@
   }
 
   @include with-rectangular-size(
-    $height: $sizes-2,
-    $padding-x: $spaces-5,
+    $height: $sizes-x40,
+    $padding-x: $spaces-x16,
     $line-height: $text-styles-p1-line-height,
     $icon-size-ratio: 8/7,
   );
@@ -121,8 +121,8 @@
     @include caption-bold;
 
     @include with-rectangular-size(
-      $height: $sizes-3,
-      $padding-x: $spaces-4,
+      $height: $sizes-x32,
+      $padding-x: $spaces-x12,
       $line-height: $text-styles-c1-line-height,
       $icon-size-ratio: 1,
     );
@@ -130,21 +130,21 @@
 
   &--square {
     @include with-squared-size(
-      $size: $spaces-8,
+      $size: $spaces-x40,
       $icon-size: $text-styles-p1-line-height,
     );
   }
 
   &--small-square {
     @include with-rectangular-size(
-      $height: $sizes-3,
-      $padding-x: $spaces-5,
+      $height: $sizes-x32,
+      $padding-x: $spaces-x16,
       $line-height: $text-styles-c1-line-height,
       $icon-size-ratio: 1,
     );
 
     @include with-squared-size(
-      $size: $spaces-7,
+      $size: $spaces-x32,
       $icon-size: $text-styles-c1-line-height,
     );
   }

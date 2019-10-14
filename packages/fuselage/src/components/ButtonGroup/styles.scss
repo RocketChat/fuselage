@@ -6,12 +6,12 @@
   flex-flow: row nowrap;
   justify-content: center;
 
-  @include mx(calc(-1 * #{$spaces-3}));
-  @include my(calc(-1 * #{$spaces-5}));
+  @include mx(calc(-1 * #{$spaces-x8}));
+  @include my(calc(-1 * #{$spaces-x16}));
 
   & > .rcx-button {
-    @include mx($spaces-3);
-    @include my($spaces-5);
+    @include mx($spaces-x8);
+    @include my($spaces-x16);
   }
 
   &--wrap {
@@ -29,10 +29,10 @@
   &--vertical {
     flex-direction: column;
 
-    @include my(calc(-1 * #{$spaces-3}));
+    @include my(calc(-1 * #{$spaces-x8}));
 
     & > .rcx-button {
-      @include my($spaces-3);
+      @include my($spaces-x8);
     }
   }
 
