@@ -112,9 +112,13 @@ export const StyledInputControl = styled.input`
     ${ scrollable }
   ` }
 
-  ${ ({ htmlType }) => htmlType === 'select' && css`
+  ${ ({ htmlType, multiple }) => htmlType === 'select' && css`
     appearance: none;
+    overflow: auto;
     ${ scrollable }
+    ${ multiple && css`
+      vertical-align: middle;
+    ` }
   ` }
 
   ${ ({ undecorated, theme }) => !undecorated && css`

@@ -15,7 +15,7 @@ export const InputBox = React.forwardRef(function InputBox({
   ...props
 }, ref) {
   const classNames = {
-    wrapper: useClassName('rcx-input-box__wrapper'),
+    wrapper: useClassName('rcx-input-box__wrapper', {}, props.disabled && 'disabled', className),
     input: useClassName('rcx-input-box', {}, className),
     addon: useClassName('rcx-input-box__addon'),
   };
@@ -72,6 +72,7 @@ InputBox.displayName = 'InputBox';
 
 InputBox.propTypes = {
   addon: PropTypes.element,
+  input: PropTypes.element,
   error: PropTypes.string,
   invisible: PropTypes.bool,
   type: PropTypes.oneOf([

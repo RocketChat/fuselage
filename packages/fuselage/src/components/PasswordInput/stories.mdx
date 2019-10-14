@@ -1,0 +1,99 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Button, Icon, PasswordInput } from '../..';
+
+<Meta title='Forms|Inputs/PasswordInput' parameters={{ jest: ['PasswordInput/spec'] }} />
+
+# PasswordInput
+
+An input for passwords.
+
+<Preview>
+  <Story name='Default'>
+    <PasswordInput />
+  </Story>
+</Preview>
+
+<Props of={PasswordInput} />
+
+## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
+
+Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
+used.
+
+### With Addon
+
+<Preview>
+  <Story name='With Addon'>
+    <PasswordInput addon={<Button small ghost>Button</Button>} />
+  </Story>
+</Preview>
+
+### With Icon Addon
+
+<Preview>
+  <Story name='With Icon Addon'>
+    <PasswordInput addon={<Icon name='send' />} />
+  </Story>
+</Preview>
+
+### Invalid
+
+<Preview>
+  <Story name='Invalid'>
+    <PasswordInput error='Error' />
+  </Story>
+</Preview>
+
+### Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <PasswordInput disabled />
+  </Story>
+</Preview>
+
+### With placeholder
+
+<Preview>
+  <Story name='With Placeholder'>
+    <PasswordInput placeholder='Placeholder' />
+  </Story>
+</Preview>
+
+### With value
+
+<Preview>
+  <Story name='With Value'>
+    <PasswordInput defaultValue='53cr3tp455w0rd' />
+  </Story>
+</Preview>
+
+## States
+
+<Story name='States'>
+  <PropsVariationSection
+    component={PasswordInput}
+    common={{ onChange: () => {} }}
+    xAxis={{
+      default: {},
+      'with placeholder': { placeholder: 'Placeholder' },
+      'with value': { value: 'Value' },
+      'with icon': { addon: <Icon name='key' />, value: 'Value' },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+      errored: { error: 'Error' },
+      'errored + hover': { className: 'hover', error: 'Error' },
+      'errored + active': { className: 'active', error: 'Error' },
+      'errored + focus': { className: 'focus', error: 'Error' },
+    }}
+  />
+</Story>
