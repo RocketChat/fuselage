@@ -1,0 +1,122 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { InputBox, Label } from '../..';
+
+<Meta title='Forms|Label' parameters={{ jest: ['Label/spec'] }} />
+
+# Label
+
+A caption for an input component.
+
+<Preview>
+  <Story name='Default'>
+    <Label text='Label'>
+      <InputBox.Skeleton />
+    </Label>
+  </Story>
+</Preview>
+
+<Props of={Label} />
+
+## Input component state
+
+The requirement of filling the input, the possible validation errors, and even the disabled state could be shown in
+the <LinkTo kind='Forms|Label' story='Default Story'>`Label`</LinkTo> too.
+
+### Required
+
+<Preview>
+  <Story name='Required'>
+    <Label text='Label' required>
+      <InputBox.Skeleton />
+    </Label>
+  </Story>
+</Preview>
+
+### Errored
+
+<Preview>
+  <Story name='Errored'>
+    <Label text='Label' error='Error'>
+      <InputBox.Skeleton />
+    </Label>
+  </Story>
+</Preview>
+
+### Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <Label text='Label' disabled>
+      <InputBox.Skeleton />
+    </Label>
+  </Story>
+</Preview>
+
+## Position
+
+The text flows around the children according to the `position` prop.
+
+<Story name='Positions'>
+  <PropsVariationSection
+    component={Label}
+    common={{ text: 'Label', children: <InputBox.Skeleton /> }}
+    xAxis={{
+      default: {},
+      required: { required: true },
+      errored: { error: 'Error' },
+    }}
+    yAxis={{
+      top: { position: 'top' },
+      start: { position: 'start' },
+      end: { position: 'end' },
+    }}
+  />
+</Story>
+
+### Top
+
+<Preview>
+  <Story name='At Top Position'>
+    <Label text='Label' position='top'>
+      <InputBox.Skeleton />
+    </Label>
+  </Story>
+</Preview>
+
+### Start
+
+<Preview>
+  <Story name='At Start Position'>
+    <Label text='Label' position='start'>
+      <InputBox.Skeleton />
+    </Label>
+  </Story>
+</Preview>
+
+### End
+
+<Preview>
+  <Story name='At End Position'>
+    <Label text='Label' position='end'>
+      <InputBox.Skeleton />
+    </Label>
+  </Story>
+</Preview>
+
+## Nesting
+
+Despite having the same purpose, the <LinkTo kind='Forms|Label' story='Default Story'>`Label`</LinkTo> component
+enhances the behavior of the HTML5 `<label>` tag by allowing nesting.
+
+<Preview>
+  <Story name='Nesting'>
+    <Label text='Outer label'>
+      <Label text='Inner Label'>
+        <InputBox.Skeleton />
+      </Label>
+    </Label>
+  </Story>
+</Preview>
