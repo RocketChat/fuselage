@@ -94,7 +94,7 @@
   }
 
   @include with-rectangular-size(
-    $height: $sizes-2,
+    $height: $sizes-x40,
     $padding-x: $spaces-x16,
     $line-height: $text-styles-p1-line-height,
     $icon-size-ratio: 8/7,
@@ -121,7 +121,7 @@
     @include caption-bold;
 
     @include with-rectangular-size(
-      $height: $sizes-3,
+      $height: $sizes-x32,
       $padding-x: $spaces-x12,
       $line-height: $text-styles-c1-line-height,
       $icon-size-ratio: 1,
@@ -137,7 +137,7 @@
 
   &--small-square {
     @include with-rectangular-size(
-      $height: $sizes-3,
+      $height: $sizes-x32,
       $padding-x: $spaces-x16,
       $line-height: $text-styles-c1-line-height,
       $icon-size-ratio: 1,

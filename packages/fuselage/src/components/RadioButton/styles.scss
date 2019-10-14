@@ -38,8 +38,8 @@
 
       display: block;
 
-      width: calc(0.3 * #{$sizes-5});
-      height: calc(0.3 * #{$sizes-5});
+      width: calc(0.3 * #{$sizes-x20});
+      height: calc(0.3 * #{$sizes-x20});
 
       content: '';
 
@@ -94,7 +94,7 @@
     checked-active: '%checked-active-state',
     checked-disabled: '%checked-disabled-state',
   )) {
-    width: $sizes-5;
+    width: $sizes-x20;
 
     border-radius: $borders-radius-full;
   }

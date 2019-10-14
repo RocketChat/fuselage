@@ -64,7 +64,7 @@
     }
 
     &::before {
-      width: calc(#{$icon-size} * #{$sizes-5});
+      width: calc(#{$icon-size} * #{$sizes-x20});
       height: $icon-thickness;
 
       transform:
@@ -74,14 +74,14 @@
         translate(6px, 2px);
       transform:
         translate(-50%, -50%)
-        translate(calc(#{$icon-size} * #{$sizes-5} / -3), calc(#{$icon-size} * #{$sizes-5} / 6))
+        translate(calc(#{$icon-size} * #{$sizes-x20} / -3), calc(#{$icon-size} * #{$sizes-x20} / 6))
         rotate(-45deg)
-        translate(calc(#{$icon-size} * #{$sizes-5} / 2), calc(#{$icon-size} * #{$sizes-5} / 6));
+        translate(calc(#{$icon-size} * #{$sizes-x20} / 2), calc(#{$icon-size} * #{$sizes-x20} / 6));
     }
 
     &::after {
       width: $icon-thickness;
-      height: calc(0.5 * #{$icon-size} * #{$sizes-5});
+      height: calc(0.5 * #{$icon-size} * #{$sizes-x20});
 
       transform:
         translate(-50%, -50%)
@@ -89,7 +89,7 @@
         rotate(-45deg);
       transform:
         translate(-50%, -50%)
-        translate(calc(#{$icon-size} * #{$sizes-5} / -3), calc(#{$icon-size} * #{$sizes-5} / 6))
+        translate(calc(#{$icon-size} * #{$sizes-x20} / -3), calc(#{$icon-size} * #{$sizes-x20} / 6))
         rotate(-45deg);
     }
   }
@@ -130,7 +130,7 @@
     &::before {
       visibility: visible;
 
-      width: calc(#{$icon-size} * #{$sizes-5});
+      width: calc(#{$icon-size} * #{$sizes-x20});
       height: $icon-thickness;
 
       opacity: 1;
@@ -188,7 +188,7 @@
     indeterminate-active: '%indeterminate-active-state',
     indeterminate-disabled: '%indeterminate-disabled-state',
   )) {
-    width: $sizes-5;
+    width: $sizes-x20;
 
     border-radius: $borders-radius-x2;
   }

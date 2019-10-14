@@ -125,7 +125,7 @@ export const StyledInputControl = styled.input`
     border-width: ${ theme.borders.width.x2 };
     border-radius: ${ theme.borders.radius.x2 };
     min-width: 8rem;
-    min-height: ${ theme.sizes[1] };
+    min-height: ${ theme.sizes.x44 };
 
     ${ ({ theme }) => withDecoratorColors(theme.inputColors.normal) }
 

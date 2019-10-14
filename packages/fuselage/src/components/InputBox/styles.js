@@ -55,7 +55,7 @@ export const Addon = styled.span`
   ${ ({ theme }) => pr(`calc(${ theme.spaces.x12 } - ${ theme.borders.width.x2 })`) }
 
   & > ${ StyledIcon } {
-    font-size: ${ ({ theme }) => `calc(${ theme.sizes[1] } - 2 * ${ theme.spaces.x12 })` };
+    font-size: ${ ({ theme }) => `calc(${ theme.sizes.x44 } - 2 * ${ theme.spaces.x12 })` };
     ${ ({ theme }) => py(theme.spaces.x4) }
     ${ ({ theme }) => pr(theme.spaces.x4) }
   }
@@ -130,7 +130,7 @@ export const StyledInputBoxSkeleton = styled.span`
 
   border-width: ${ ({ theme }) => theme.borders.width.x2 };
   border-radius: ${ ({ theme }) => theme.borders.radius.x2 };
-  min-height: ${ ({ theme }) => theme.sizes[1] };
+  min-height: ${ ({ theme }) => theme.sizes.x44 };
 
   color: ${ ({ theme }) => theme.inputColors.normal.color };
   background-color: ${ ({ theme }) => theme.inputColors.normal.backgroundColor };
