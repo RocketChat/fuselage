@@ -1,0 +1,17 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Hint } from '../..';
+
+<Meta title='Forms|Hint' parameters={{ jest: ['Hint/spec'] }} />
+
+# Hint
+
+A textual help for inputs.
+
+<Preview>
+  <Story name='Default'>
+    <Hint>Help text</Hint>
+  </Story>
+</Preview>
+
+<Props of={Hint} />

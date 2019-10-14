@@ -1,7 +1,5 @@
 import { css } from 'styled-components';
 
-import variables from './variables';
-
 export default css`
   box-sizing: border-box;
   margin: 0;
@@ -10,7 +8,7 @@ export default css`
   list-style-type: none;
 
   user-select: none;
-  transition: all ${ ({ theme = variables }) => theme.transitions.shortDuration };
+  transition: all ${ ({ theme }) => theme.transitions.shortDuration };
 
   border-width: 0;
   border-style: solid;
@@ -28,7 +26,7 @@ export default css`
     list-style-type: none;
 
     user-select: none;
-    transition: all ${ ({ theme = variables }) => theme.transitions.shortDuration };
+    transition: all ${ ({ theme }) => theme.transitions.shortDuration };
 
     border-width: 0;
     border-style: solid;

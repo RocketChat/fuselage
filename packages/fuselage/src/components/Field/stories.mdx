@@ -1,0 +1,24 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { Field, Hint, InputBox, Label } from '../..';
+
+<Meta title='Forms|Field' parameters={{ jest: ['Field/spec'] }} />
+
+# Field
+
+A <LinkTo kind='Forms|Field' story='Default Story'>`Field`</LinkTo> is a wrapper for a labeled input, representing a
+entry in a form.
+
+<Preview>
+  <Story name='Default'>
+    <Field>
+      <Label text='Label'>
+        <InputBox.Skeleton />
+      </Label>
+      <Hint>Help text</Hint>
+    </Field>
+  </Story>
+</Preview>
+
+<Props of={Field} />
