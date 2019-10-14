@@ -1,0 +1,29 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { Accordion, Paragraph } from '../..';
+
+<Meta title='Containers|Accordion' parameters={{ jest: ['Accordion/spec'] }} />
+
+# Accordion
+
+An <LinkTo kind='Containers|Accordion' story='Default Story'>`Accordion`</LinkTo> allows users to toggle the display of
+sections of content.
+
+<Preview>
+  <Story name='Default'>
+    <Accordion>
+      <Accordion.Item title='Item #1' defaultExpanded>
+        <Paragraph>Content #1</Paragraph>
+      </Accordion.Item>
+      <Accordion.Item title='Item #2'>
+        <Paragraph>Content #2</Paragraph>
+      </Accordion.Item>
+      <Accordion.Item title='Item #3'>
+        <Paragraph>Content #3</Paragraph>
+      </Accordion.Item>
+    </Accordion>
+  </Story>
+</Preview>
+
+<Props of={Accordion} />

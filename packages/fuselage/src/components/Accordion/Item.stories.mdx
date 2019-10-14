@@ -1,0 +1,60 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Accordion, Paragraph } from '../..';
+
+<Meta title='Containers|Accordion/Accordion.Item' parameters={{ jest: ['Accordion/spec'] }} />
+
+# Accordion.Item
+
+A collapsible panel.
+
+<Preview>
+  <Story name='Default'>
+    <Accordion>
+      <Accordion.Item title='Item'>
+        <Paragraph>Content</Paragraph>
+      </Accordion.Item>
+    </Accordion>
+  </Story>
+</Preview>
+
+<Props of={Accordion.Item} />
+
+## Expanded
+
+<Preview>
+  <Story name='Expanded'>
+    <Accordion>
+      <Accordion.Item title='Item' defaultExpanded>
+        <Paragraph>Content</Paragraph>
+      </Accordion.Item>
+    </Accordion>
+  </Story>
+</Preview>
+
+## With togglable state
+
+### Enabled
+
+<Preview>
+  <Story name='Enabled'>
+    <Accordion>
+      <Accordion.Item title='Item' onToggleEnabled={action('toggleEnabled')}>
+        <Paragraph>Content</Paragraph>
+      </Accordion.Item>
+    </Accordion>
+  </Story>
+</Preview>
+
+### Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <Accordion>
+      <Accordion.Item title='Item' disabled onToggleEnabled={action('toggleEnabled')}>
+        <Paragraph>Content</Paragraph>
+      </Accordion.Item>
+    </Accordion>
+  </Story>
+</Preview>
