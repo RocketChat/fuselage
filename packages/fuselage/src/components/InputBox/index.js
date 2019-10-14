@@ -1,9 +1,10 @@
 import { useClassName, useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import React, { useRef, useLayoutEffect, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import React, { useCallback, useLayoutEffect, useRef } from 'react';
 
 import { useTheme } from '../../hooks/useTheme';
-import { Text } from '../Text';
-import { Wrapper, Input, Addon, StyledInputBoxSkeleton } from './styles';
+import { Wrapper, Input, Addon } from './styles';
+import { Skeleton } from './Skeleton';
 
 export const InputBox = React.forwardRef(function InputBox({
   className,
@@ -18,7 +19,6 @@ export const InputBox = React.forwardRef(function InputBox({
     input: useClassName('rcx-input-box', {}, className),
     addon: useClassName('rcx-input-box__addon'),
   };
-
   const theme = useTheme();
 
   const innerRef = useRef();
@@ -30,18 +30,12 @@ export const InputBox = React.forwardRef(function InputBox({
     }
   }, []);
 
-  const handleChange = useMemo(() => {
-    if (!addon) {
-      return onChange;
+  const handleChange = useCallback((event, ...args) => {
+    if (addon) {
+      innerRef.current.parentElement.classList.toggle('invalid', !innerRef.current.checkValidity());
     }
 
-    return (event, ...args) => {
-      if (addon) {
-        innerRef.current.parentElement.classList.toggle('invalid', !innerRef.current.checkValidity());
-      }
-
-      return onChange && onChange.call(event.currentTarget, event, ...args);
-    };
+    return onChange && onChange.call(event.currentTarget, event, ...args);
   }, [addon, onChange]);
 
   if (!addon) {
@@ -58,21 +52,55 @@ export const InputBox = React.forwardRef(function InputBox({
   }
 
   return <Wrapper className={classNames.wrapper} hidden={hidden} invisible={invisible} theme={theme}>
-    <Input className={classNames.input} ref={mergedRef} theme={theme} onChange={handleChange} {...props} undecorated />
+    <Input
+      className={classNames.input}
+      ref={mergedRef}
+      theme={theme}
+      onChange={handleChange}
+      {...props}
+      undecorated
+    />
     <Addon children={addon} className={classNames.addon} theme={theme} />
   </Wrapper>;
 });
 
+InputBox.defaultProps = {
+  type: 'text',
+};
+
 InputBox.displayName = 'InputBox';
 
-function Skeleton({ animated }) {
-  const compoundClassName = useClassName('rcx-input-box__skeleton');
-  const theme = useTheme();
-  return <StyledInputBoxSkeleton className={compoundClassName} theme={theme}>
-    <Text.Skeleton animated={animated} />
-  </StyledInputBoxSkeleton>;
-}
-
-Skeleton.displayName = 'InputBox.Skeleton';
+InputBox.propTypes = {
+  addon: PropTypes.element,
+  error: PropTypes.string,
+  invisible: PropTypes.bool,
+  type: PropTypes.oneOf([
+    'button',
+    'checkbox',
+    'color',
+    'date',
+    'datetime',
+    'datetime-local',
+    'email',
+    'file',
+    'hidden',
+    'image',
+    'month',
+    'number',
+    'password',
+    'radio',
+    'range',
+    'reset',
+    'search',
+    'submit',
+    'tel',
+    'text',
+    'time',
+    'url',
+    'week',
+    'textarea',
+    'select',
+  ]).isRequired,
+};
 
 InputBox.Skeleton = Skeleton;

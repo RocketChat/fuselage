@@ -52,7 +52,7 @@ export const Addon = styled.span`
   align-items: flex-start;
 
   ${ ({ theme }) => py(`calc(${ theme.spaces[3] } - ${ theme.borders.width[1] })`) }
-  ${ ({ theme }) => pr(`calc(${ theme.spaces[3] } - ${ theme.borders.width[1] })`) }
+  ${ ({ theme }) => pr(`calc(${ theme.spaces[4] } - ${ theme.borders.width[1] })`) }
 
   & > ${ StyledIcon } {
     font-size: ${ ({ theme }) => `calc(${ theme.sizes[1] } - 2 * ${ theme.spaces[4] })` };

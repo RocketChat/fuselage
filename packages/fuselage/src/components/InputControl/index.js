@@ -48,6 +48,7 @@ InputControl.displayName = 'InputControl';
 
 InputControl.propTypes = {
   error: PropTypes.string,
+  invisible: PropTypes.bool,
   type: PropTypes.oneOf([
     'button',
     'checkbox',
@@ -74,6 +75,6 @@ InputControl.propTypes = {
     'week',
     'textarea',
     'select',
-  ]),
+  ]).isRequired,
   undecorated: PropTypes.bool,
 };
