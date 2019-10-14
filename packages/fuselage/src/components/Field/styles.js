@@ -11,6 +11,6 @@ export const StyledField = styled.div`
   flex-flow: column nowrap;
 
   & > ${ StyledHint } {
-    margin-top: ${ ({ theme }) => theme.spaces[2] };
+    margin-top: ${ ({ theme }) => theme.spaces.x4 };
   }
 `;

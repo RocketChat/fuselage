@@ -13,10 +13,10 @@ export const StyledFieldGroup = styled.fieldset`
 
   & > ${ StyledField } {
     flex: 0 0 auto;
-    margin-bottom: ${ ({ theme }) => theme.spaces[6] };
+    margin-bottom: ${ ({ theme }) => theme.spaces.x24 };
 
     &:last-child {
-      margin-bottom: ${ ({ theme }) => theme.spaces[0] };
+      margin-bottom: 0;
     }
   }
 `;

@@ -35,16 +35,16 @@ export const Wrapper = styled.span`
     (position === 'start' && css`
       flex: 1 0 0;
       align-self: stretch;
-      margin-right: ${ theme.spaces[3] };
+      margin-right: ${ theme.spaces.x8 };
     `)
     || (position === 'end' && css`
       flex: 1 0 0;
       align-self: stretch;
-      margin-left: ${ theme.spaces[3] };
+      margin-left: ${ theme.spaces.x8 };
     `)
     || css`
       flex: 1 0 auto;
-      margin-bottom: ${ theme.spaces[3] };
+      margin-bottom: ${ theme.spaces.x8 };
     ` }
 `;
 
@@ -71,6 +71,6 @@ export const Error = styled.span`
   flex: 0 1 auto;
   user-select: text;
   color: ${ ({ theme }) => theme.textColors.danger };
-  margin-left: ${ ({ theme }) => theme.spaces[3] };
+  margin-left: ${ ({ theme }) => theme.spaces.x8 };
   ${ ellipsis }
 `;

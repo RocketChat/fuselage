@@ -95,7 +95,7 @@
 
   @include with-rectangular-size(
     $height: $sizes-2,
-    $padding-x: $spaces-5,
+    $padding-x: $spaces-x16,
     $line-height: $text-styles-p1-line-height,
     $icon-size-ratio: 8/7,
   );
@@ -122,7 +122,7 @@
 
     @include with-rectangular-size(
       $height: $sizes-3,
-      $padding-x: $spaces-4,
+      $padding-x: $spaces-x12,
       $line-height: $text-styles-c1-line-height,
       $icon-size-ratio: 1,
     );
@@ -130,7 +130,7 @@
 
   &--square {
     @include with-squared-size(
-      $size: $spaces-8,
+      $size: $spaces-x40,
       $icon-size: $text-styles-p1-line-height,
     );
   }
@@ -138,13 +138,13 @@
   &--small-square {
     @include with-rectangular-size(
       $height: $sizes-3,
-      $padding-x: $spaces-5,
+      $padding-x: $spaces-x16,
       $line-height: $text-styles-c1-line-height,
       $icon-size-ratio: 1,
     );
 
     @include with-squared-size(
-      $size: $spaces-7,
+      $size: $spaces-x32,
       $icon-size: $text-styles-c1-line-height,
     );
   }

@@ -51,13 +51,13 @@ export const Addon = styled.span`
   flex: 0 0 auto;
   align-items: flex-start;
 
-  ${ ({ theme }) => py(`calc(${ theme.spaces[3] } - ${ theme.borders.width.x2 })`) }
-  ${ ({ theme }) => pr(`calc(${ theme.spaces[4] } - ${ theme.borders.width.x2 })`) }
+  ${ ({ theme }) => py(`calc(${ theme.spaces.x8 } - ${ theme.borders.width.x2 })`) }
+  ${ ({ theme }) => pr(`calc(${ theme.spaces.x12 } - ${ theme.borders.width.x2 })`) }
 
   & > ${ StyledIcon } {
-    font-size: ${ ({ theme }) => `calc(${ theme.sizes[1] } - 2 * ${ theme.spaces[4] })` };
-    ${ ({ theme }) => py(theme.spaces[2]) }
-    ${ ({ theme }) => pr(theme.spaces[2]) }
+    font-size: ${ ({ theme }) => `calc(${ theme.sizes[1] } - 2 * ${ theme.spaces.x12 })` };
+    ${ ({ theme }) => py(theme.spaces.x4) }
+    ${ ({ theme }) => pr(theme.spaces.x4) }
   }
 `;
 
@@ -123,8 +123,8 @@ export const StyledInputBoxSkeleton = styled.span`
 
   vertical-align: baseline;
 
-  ${ ({ theme }) => py(`calc(${ theme.spaces[4] } - ${ theme.borders.width.x2 })`) }
-  ${ ({ theme }) => px(`calc(${ theme.spaces[5] } - ${ theme.borders.width.x2 })`) }
+  ${ ({ theme }) => py(`calc(${ theme.spaces.x12 } - ${ theme.borders.width.x2 })`) }
+  ${ ({ theme }) => px(`calc(${ theme.spaces.x16 } - ${ theme.borders.width.x2 })`) }
   ${ ({ theme }) => paragraph(theme) }
   ${ ellipsis }
 
