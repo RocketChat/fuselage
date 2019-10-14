@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 
 import { Box } from '../Box';
-import { useClassName } from '../../hooks';
 
 /**
  * A container for grouping buttons that semantically share a common action context.

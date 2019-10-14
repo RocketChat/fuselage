@@ -1,0 +1,60 @@
+{
+  "name": "@rocket.chat/fuselage-hooks",
+  "version": "0.2.0-alpha.6",
+  "description": "React Hooks for Fuselage, Rocket.Chat's design system",
+  "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "fuselage",
+    "rocketchat"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "rollup -c -w",
+    "build": "rollup -c",
+    "test": "jest",
+    "lint": "eslint src",
+    "lint-staged": "lint-staged",
+    "docs": "documentation readme src/index.js --section='API Reference' --readme-file README.md"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@rocket.chat/eslint-config": "^0.4.0",
+    "babel-eslint": "^10.0.3",
+    "documentation": "^12.1.2",
+    "eslint": "^6.5.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.16.0",
+    "invariant": "^2.2.4",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "react": "^16.10.2",
+    "rollup": "^1.23.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0"
+  },
+  "peerDependencies": {
+    "invariant": "^2.2.4",
+    "react": "^16.10.2"
+  }
+}

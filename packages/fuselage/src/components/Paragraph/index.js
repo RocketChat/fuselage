@@ -1,6 +1,6 @@
 import React from 'react';
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 
-import { useClassName } from '../../hooks';
 import { Text } from '../Text';
 
 export const Paragraph = React.forwardRef(function Paragraph({ className, ...props }, ref) {

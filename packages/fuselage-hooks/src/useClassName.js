@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { fromCamelToKebabCase } from '../helpers';
+import { fromCamelToKebabCase } from './helpers';
 
 /**
  * Hook to generate a BEM-compatible `className` value for a component.

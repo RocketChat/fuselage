@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 
-import { useClassName } from '../../hooks';
 import { Text } from '../Text';
 
 export const Subtitle = React.forwardRef(function Subtitle({

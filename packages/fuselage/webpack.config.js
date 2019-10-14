@@ -71,6 +71,7 @@ module.exports = (env, argv) => ({
       },
     },
     /@rocket\.chat\/icons\/dist\/font/,
+    '@rocket.chat/fuselage-hooks',
   ],
   plugins: [
     new BundleAnalyzerPlugin({

@@ -1,6 +1,6 @@
 import React from 'react';
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 
-import { useClassName } from '../../hooks';
 import { Box } from '../Box';
 import { Label } from '../Label';
 

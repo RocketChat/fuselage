@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { debounce } from '../helpers';
+import { debounce } from './helpers';
 
 /**
  * Hook to memoize a debounced version of a callback.

@@ -1,5 +1,5 @@
-import { testHook } from '../../.jest/helpers';
-import { useClassName } from './useClassName';
+import { testHook } from '../.jest/helpers';
+import { useClassName } from '../src';
 
 describe('useClassName hook', () => {
   const componentClassName = 'component';

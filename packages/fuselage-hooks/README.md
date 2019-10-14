@@ -1,8 +1,25 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+# Welcome to @rocket.chat/fuselage-hooks 👋
 
-<Meta title='Misc|Hooks' />
+[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/RocketChat/Rocket.Chat.Fuselage#readme)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/RocketChat/Rocket.Chat.Fuselage/graphs/commit-activity)
+[![License: MIT](https://img.shields.io/github/license/RocketChat/@rocket.chat/fuselage-hooks)](https://github.com/RocketChat/Rocket.Chat.Fuselage/blob/master/LICENSE)
+[![Twitter: RocketChat](https://img.shields.io/twitter/follow/RocketChat.svg?style=social)](https://twitter.com/RocketChat)
 
-# Hooks
+> React Hooks for Fuselage, Rocket.Chat's design system
+
+### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
+
+## Install
+
+```sh
+yarn add @rocket.chat/fuselage-hooks
+```
+
+## Run tests
+
+```sh
+yarn test
+```
 
 ## API Reference
 
@@ -22,10 +39,12 @@ import { Meta } from '@storybook/addon-docs/blocks';
     -   [Parameters](#parameters-4)
 -   [useExclusiveBooleanProps](#useexclusivebooleanprops)
     -   [Parameters](#parameters-5)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-6)
--   [useToggle](#usetoggle)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-7)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-8)
 
 ### useClassName
 
@@ -101,6 +120,16 @@ to choose styling variants.
 
 -   Throws **[Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)** if two or more booleans props are set as true
 
+### useMediaQuery
+
+Hook to listen to a media query.
+
+#### Parameters
+
+-   `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** the CSS3 media query expression
+
+Returns **bool** `true` if the media query matches; `false` is it does not match or the query is not defined
+
 ### useMergedRefs
 
 Hook to merge refs and callbacks refs into a single callback ref. Useful when your component need a internal ref
@@ -121,3 +150,24 @@ Hook to create a toggleable boolean state.
 -   `initialValue` **(any | [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))** the initial value or the initial state generator function
 
 Returns **\[any, [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)]** a state boolean value and a state toggler function
+
+## Author
+
+👤 **Rocket.Chat**
+
+-   Twitter: [@RocketChat](https://twitter.com/RocketChat)
+-   Github: [@RocketChat](https://github.com/RocketChat)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+* * *
+
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
