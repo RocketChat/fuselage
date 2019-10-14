@@ -26,8 +26,8 @@ export const Wrapper = styled.span`
 
   flex-flow: row nowrap;
 
-  border-width: ${ ({ theme }) => theme.borders.width[1] };
-  border-radius: ${ ({ theme }) => theme.borders.radius[1] };
+  border-width: ${ ({ theme }) => theme.borders.width.x2 };
+  border-radius: ${ ({ theme }) => theme.borders.radius.x2 };
 
   ${ ({ theme }) => withDecoratorColors(theme.inputColors.normal) }
 
@@ -51,8 +51,8 @@ export const Addon = styled.span`
   flex: 0 0 auto;
   align-items: flex-start;
 
-  ${ ({ theme }) => py(`calc(${ theme.spaces[3] } - ${ theme.borders.width[1] })`) }
-  ${ ({ theme }) => pr(`calc(${ theme.spaces[4] } - ${ theme.borders.width[1] })`) }
+  ${ ({ theme }) => py(`calc(${ theme.spaces[3] } - ${ theme.borders.width.x2 })`) }
+  ${ ({ theme }) => pr(`calc(${ theme.spaces[4] } - ${ theme.borders.width.x2 })`) }
 
   & > ${ StyledIcon } {
     font-size: ${ ({ theme }) => `calc(${ theme.sizes[1] } - 2 * ${ theme.spaces[4] })` };
@@ -123,13 +123,13 @@ export const StyledInputBoxSkeleton = styled.span`
 
   vertical-align: baseline;
 
-  ${ ({ theme }) => py(`calc(${ theme.spaces[4] } - ${ theme.borders.width[1] })`) }
-  ${ ({ theme }) => px(`calc(${ theme.spaces[5] } - ${ theme.borders.width[1] })`) }
+  ${ ({ theme }) => py(`calc(${ theme.spaces[4] } - ${ theme.borders.width.x2 })`) }
+  ${ ({ theme }) => px(`calc(${ theme.spaces[5] } - ${ theme.borders.width.x2 })`) }
   ${ ({ theme }) => paragraph(theme) }
   ${ ellipsis }
 
-  border-width: ${ ({ theme }) => theme.borders.width[1] };
-  border-radius: ${ ({ theme }) => theme.borders.radius[1] };
+  border-width: ${ ({ theme }) => theme.borders.width.x2 };
+  border-radius: ${ ({ theme }) => theme.borders.radius.x2 };
   min-height: ${ ({ theme }) => theme.sizes[1] };
 
   color: ${ ({ theme }) => theme.inputColors.normal.color };

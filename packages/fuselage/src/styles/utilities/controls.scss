@@ -14,7 +14,7 @@
 
     height: $sizes-5;
 
-    border-width: $borders-width-1;
+    border-width: $borders-width-x2;
 
     @content;
   }

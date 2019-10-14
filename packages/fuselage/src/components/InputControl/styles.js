@@ -100,8 +100,8 @@ export const StyledInputControl = styled.input`
 
   outline: 0;
 
-  ${ ({ theme }) => py(`calc(${ theme.spaces[4] } - ${ theme.borders.width[1] })`) }
-  ${ ({ theme }) => px(`calc(${ theme.spaces[5] } - ${ theme.borders.width[1] })`) }
+  ${ ({ theme }) => py(`calc(${ theme.spaces[4] } - ${ theme.borders.width.x2 })`) }
+  ${ ({ theme }) => px(`calc(${ theme.spaces[5] } - ${ theme.borders.width.x2 })`) }
   ${ ({ theme }) => paragraph(theme) }
   ${ ellipsis }
 
@@ -122,8 +122,8 @@ export const StyledInputControl = styled.input`
   ` }
 
   ${ ({ undecorated, theme }) => !undecorated && css`
-    border-width: ${ theme.borders.width[1] };
-    border-radius: ${ theme.borders.radius[1] };
+    border-width: ${ theme.borders.width.x2 };
+    border-radius: ${ theme.borders.radius.x2 };
     min-width: 8rem;
     min-height: ${ theme.sizes[1] };
 

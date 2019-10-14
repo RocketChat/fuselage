@@ -45,7 +45,7 @@
 
       transform: translate(-50%, -50%);
 
-      border-radius: 9999px;
+      border-radius: $borders-radius-full;
 
       background-color: currentColor;
     }
@@ -96,6 +96,6 @@
   )) {
     width: $sizes-5;
 
-    border-radius: 9999px;
+    border-radius: $borders-radius-full;
   }
 }

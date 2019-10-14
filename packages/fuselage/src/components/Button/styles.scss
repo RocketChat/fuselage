@@ -1,7 +1,7 @@
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height, $icon-size-ratio) {
-    @include py(calc((#{$height} - #{$line-height}) / 2 - #{$borders-width-1}));
-    @include px(calc(#{$padding-x} - #{$borders-width-1}));
+    @include py(calc((#{$height} - #{$line-height}) / 2 - #{$borders-width-x2}));
+    @include px(calc(#{$padding-x} - #{$borders-width-x2}));
 
     & > .rcx-icon {
       font-size: #{$icon-size-ratio}em;
@@ -78,9 +78,9 @@
   vertical-align: middle;
   text-decoration: none;
 
-  border-width: $borders-width-1;
+  border-width: $borders-width-x2;
   border-style: solid;
-  border-radius: $borders-radius-1;
+  border-radius: $borders-radius-x2;
 
   appearance: none;
 
