@@ -1,0 +1,52 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { Callout } from '../..';
+
+<Meta title='Misc|Callout' parameters={{ jest: ['Callout/spec'] }} />
+
+# Callout
+
+The <LinkTo kind='Misc|Callout' story='Default Story'>`Callout`</LinkTo> is used to get the user's attention explaining
+something important in the content of the current page.
+
+<Preview>
+  <Story name='Default'>
+    <>
+      <Callout title='This is a generic message' />
+      <Callout title='This is a successful message' type='success' />
+      <Callout title='This is a warning message' type='warning' />
+      <Callout title='This is a danger message' type='danger' />
+    </>
+  </Story>
+</Preview>
+
+<Props of={Callout} />
+
+## With description
+
+<Preview>
+  <Story name='With Description'>
+    <>
+      <Callout
+        title='This is a generic message'
+        description='This is the description… Mussum Ipsum, cacilds vidis litro abertis A ordem do…'
+      />
+      <Callout
+        type='success'
+        title='This is a successful message'
+        description='This is the description… Mussum Ipsum, cacilds vidis litro abertis A ordem do…'
+      />
+      <Callout
+        type='warning'
+        title='This is a warning message'
+        description='This is the description… Mussum Ipsum, cacilds vidis litro abertis A ordem do…'
+      />
+      <Callout
+        type='danger'
+        title='This is a danger message'
+        description='This is the description… Mussum Ipsum, cacilds vidis litro abertis A ordem do…'
+      />
+    </>
+  </Story>
+</Preview>
