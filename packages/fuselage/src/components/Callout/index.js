@@ -4,11 +4,11 @@ import React from 'react';
 
 import { useTheme } from '../../hooks/useTheme';
 import { Icon } from '../Icon';
-import { StyledCallout, Wrapper, Title, Description } from './styles';
+import { StyledCallout, Wrapper, Title } from './styles';
 
 export const Callout = React.forwardRef(function Callout({
+  children,
   className,
-  description,
   title,
   type = 'info',
   ...props
@@ -29,8 +29,8 @@ export const Callout = React.forwardRef(function Callout({
   return <StyledCallout className={classNames.container} ref={ref} theme={theme} type={type} {...props}>
     <Icon name={iconName} />
     <Wrapper theme={theme}>
-      <Title theme={theme}>{title}</Title>
-      {description && <Description theme={theme}>{description}</Description>}
+      <Title hasChildren={!!children} theme={theme}>{title}</Title>
+      {children}
     </Wrapper>
   </StyledCallout>;
 });
@@ -42,7 +42,7 @@ Callout.defaultProps = {
 Callout.displayName = 'Callout';
 
 Callout.propTypes = {
-  description: PropTypes.string,
+  children: PropTypes.node,
   invisible: PropTypes.bool,
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['info', 'success', 'warning', 'danger']).isRequired,

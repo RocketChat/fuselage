@@ -34,29 +34,19 @@ export const StyledCallout = styled.div`
 
 export const Wrapper = styled.div`
   ${ box }
-
   flex: 1 1 0;
   display: flex;
   flex-flow: column nowrap;
   margin: 0 ${ ({ theme }) => theme.spaces.x8 };
+  color: ${ ({ theme }) => theme.textColors.default };
+  ${ ({ theme }) => caption(theme) }
 `;
 
 export const Title = styled.div`
   ${ box }
-
-  color: ${ ({ theme }) => theme.textColors.default };
-  ${ ({ theme }) => caption(theme) }
   ${ ({ theme }) => captionBold(theme) }
-  ${ truncate }
-`;
-
-export const Description = styled.div`
-  ${ box }
-
-  margin-top: ${ ({ theme }) => theme.spaces.x4 };
-
-  ${ ({ theme }) => caption(theme) }
-  ${ ({ theme }) => css`
-    color: ${ theme.textColors.default };
+  ${ ({ hasChildren, theme }) => hasChildren && css`
+    margin-bottom: ${ theme.spaces.x4 };
   ` }
+  ${ truncate }
 `;
