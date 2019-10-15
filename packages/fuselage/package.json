@@ -92,7 +92,10 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/.jest/styleMock.js"
-    }
+    },
+    "setupFiles": [
+      "<rootDir>/.jest/setup.js"
+    ]
   },
   "loki": {
     "configurations": {
