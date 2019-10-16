@@ -56,5 +56,8 @@
   "peerDependencies": {
     "invariant": "^2.2.4",
     "react": "^16.10.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
