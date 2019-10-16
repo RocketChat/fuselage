@@ -9,6 +9,7 @@ export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
   hidden,
   invisible,
   style,
+  onClick,
   ...props
 }, ref) {
   const classNames = {
@@ -17,7 +18,7 @@ export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
     fake: useClassName('rcx-toggle-switch__fake'),
   };
 
-  return <Label className={classNames.container} hidden={hidden} invisible={invisible} style={style}>
+  return <Label className={classNames.container} hidden={hidden} invisible={invisible} style={style} onClick={onClick}>
     <Box className={classNames.input} is='input' ref={ref} type='checkbox' {...props} />
     <Box aria-hidden='true' className={classNames.fake} is='i' />
   </Label>;
