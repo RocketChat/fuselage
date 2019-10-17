@@ -2,7 +2,6 @@
 
 const path = require('path');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env, argv) => ({
@@ -38,10 +37,7 @@ module.exports = (env, argv) => ({
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: 'style-loader/useable',
-          },
-          MiniCssExtractPlugin.loader,
+          'style-loader/useable',
           {
             loader: 'css-loader',
             options: {
@@ -69,7 +65,7 @@ module.exports = (env, argv) => ({
       react: {
         commonjs: 'react',
         commonjs2: 'react',
-        amd: 'React',
+        amd: 'react',
         root: 'React',
       },
     },
@@ -83,9 +79,6 @@ module.exports = (env, argv) => ({
       generateStatsFile: false,
       reportFilename: '../bundle-report.html',
       openAnalyzer: false,
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
     }),
   ],
 });

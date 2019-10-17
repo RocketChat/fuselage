@@ -1,6 +1,6 @@
 import { useClassName } from '@rocket.chat/fuselage-hooks';
-import * as characters from '@rocket.chat/icons/dist/font/characters';
-import * as names from '@rocket.chat/icons/dist/font/index';
+import * as characters from '@rocket.chat/icons/dist/font/characters.js';
+import * as names from '@rocket.chat/icons/dist/font/index.js';
 import PropTypes from 'prop-types';
 import React from 'react';
 
