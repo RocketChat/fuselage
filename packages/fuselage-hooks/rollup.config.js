@@ -10,9 +10,9 @@ export default {
   output: [
     {
       file: pkg.main,
-      format: 'es',
-      sourcemap: true
-    }
+      format: 'cjs',
+      sourcemap: true,
+    },
   ],
   plugins: [
     external(),
