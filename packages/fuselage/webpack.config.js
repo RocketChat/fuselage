@@ -69,7 +69,7 @@ module.exports = (env, argv) => ({
       react: {
         commonjs: 'react',
         commonjs2: 'react',
-        amd: 'React',
+        amd: 'react',
         root: 'React',
       },
     },
