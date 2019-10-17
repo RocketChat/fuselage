@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.9](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.8...v0.2.0-alpha.9) (2019-10-17)
+
+
+### Bug Fixes
+
+* Bundle errors ([#72](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/72)) ([77f5c12](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/77f5c12e1be3d0e191e0a2cb87a286630064ce46))
+* Explicit publish config ([#70](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/70)) ([21f9389](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/21f938991a58544c349e79b4e35284a4e51eb61b))
+
+
+### Features
+
+* Accordion component ([#68](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/68)) ([4409518](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/440951854c3760e0dfdf53b5ff1da4a511d55cf4))
+* Callout component ([#69](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/69)) ([2bdece1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2bdece17739397a2ffcb13cd74e70934fb0286be))
+
+
+
+
+
 # [0.2.0-alpha.8](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.7...v0.2.0-alpha.8) (2019-10-16)
 
 **Note:** Version bump only for package @rocket.chat/fuselage
