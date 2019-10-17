@@ -47,7 +47,7 @@ jobs:
 
   publish:
     docker:
-      - image: chinello/alpine-chrome:with-node
+      - image: circleci/node:10.15
     working_directory: ~/repo
     steps:
       - attach_workspace:
@@ -58,6 +58,20 @@ jobs:
       - run:
           name: Publish package
           command: yarn lerna publish from-package --yes
+
+  publish-next:
+    docker:
+      - image: circleci/node:10.15
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: yarn lerna publish from-package --dist-tag next --yes
 
   deploy-storybook:
     docker:
@@ -90,3 +104,9 @@ workflows:
                 only: master
               tags:
                 only: /^v.*/
+      - publish-next:
+          requires:
+            - loki
+          filters:
+              branches:
+                only: develop
