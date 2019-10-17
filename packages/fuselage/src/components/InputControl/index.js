@@ -30,7 +30,15 @@ export const InputControl = React.forwardRef(function InputControl({
     || (type === 'select' && 'select')
     || 'input'}
     className={compoundClassName}
+    cols={
+      (type === 'textarea' && 1)
+    || (type === 'select' && 0)
+    || 0}
     ref={mergedRef}
+    size={
+      (type === 'textarea' && undefined)
+    || (type === 'select' && 1)
+    || 1}
     theme={theme}
     type={type === 'textarea' || type === 'select' ? undefined : type}
     htmlType={type}

@@ -96,8 +96,6 @@ const withIconAddonColors = ({
 export const Input = styled(InputControl)`
   flex: 1 0 auto;
 
-  width: 0;
-
   ${ ({ theme }) => withIconAddonColors(theme.inputColors.normal) }
 
   &:invalid,
@@ -109,6 +107,11 @@ export const Input = styled(InputControl)`
   &:disabled + ${ Addon },
   &.disabled + ${ Addon } {
     pointer-events: none;
+  }
+
+  ${ Wrapper } > & {
+    min-width: 0;
+    width: 0;
   }
 `;
 

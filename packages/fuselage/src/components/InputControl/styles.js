@@ -89,8 +89,7 @@ export const StyledInputControl = styled.input`
 
   flex: 0 0 auto;
 
-  width: 8rem;
-  min-width: 0;
+  min-width: 8rem;
 
   background-color: transparent;
 
