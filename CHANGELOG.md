@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.10](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.9...v0.2.0-alpha.10) (2019-10-18)
+
+
+### Bug Fixes
+
+* InputControl width ([#75](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/75)) ([d0b4e58](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d0b4e584a6033988930a82e363e1467e86ae8dc6))
+
+
+
+
+
 # [0.2.0-alpha.9](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.8...v0.2.0-alpha.9) (2019-10-17)
 
 
