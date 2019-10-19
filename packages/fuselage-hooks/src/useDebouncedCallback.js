@@ -11,4 +11,4 @@ import { debounce } from './helpers';
  * @return {function} a memoized and debounced callback
  */
 export const useDebouncedCallback = (callback, delay, deps) =>
-  useMemo(() => debounce(callback, delay), Array.isArray(deps) ? [callback, delay, ...deps] : undefined);
+  useMemo(() => debounce(callback, delay), Array.isArray(deps) ? [delay, ...deps] : undefined);
