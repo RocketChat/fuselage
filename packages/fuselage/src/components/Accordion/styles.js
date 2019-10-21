@@ -56,15 +56,17 @@ export const Bar = styled.div`
     ` }
   }
 
-  &.hover,
-  &:hover {
-    background-color: ${ colors.dark100 };
-  }
-
   &.focus,
   &:focus {
     border-color: ${ colors.blue500 };
     box-shadow: 0 0 0 ${ toRem(6) } ${ colors.blue100 };
+  }
+
+  &.hover,
+  &:hover {
+    border-color: ${ colors.dark300 } transparent transparent;
+    background-color: ${ colors.dark100 };
+    box-shadow: none;
   }
 
   ${ ({ disabled, theme }) => disabled && css`

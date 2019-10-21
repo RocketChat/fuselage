@@ -33,6 +33,8 @@ export const Item = React.forwardRef(function Item({
       return;
     }
 
+    event.currentTarget.blur();
+
     if (onToggle) {
       return onToggle.call(event.currentTarget, event);
     }
