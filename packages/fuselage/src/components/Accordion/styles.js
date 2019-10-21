@@ -40,7 +40,7 @@ export const Bar = styled.div`
 
   text-align: left;
 
-  ${ ({ disabled }) => !disabled && css`
+  ${ ({ disabled, noncollapsible }) => !disabled && !noncollapsible && css`
     ${ clickable }
   ` }
 
@@ -56,18 +56,20 @@ export const Bar = styled.div`
     ` }
   }
 
-  &.focus,
-  &:focus {
-    border-color: ${ colors.blue500 };
-    box-shadow: 0 0 0 ${ toRem(6) } ${ colors.blue100 };
-  }
+  ${ ({ disabled, noncollapsible }) => !disabled && !noncollapsible && css`
+    &.focus,
+    &:focus {
+      border-color: ${ colors.blue500 };
+      box-shadow: 0 0 0 ${ toRem(6) } ${ colors.blue100 };
+    }
 
-  &.hover,
-  &:hover {
-    border-color: ${ colors.dark300 } transparent transparent;
-    background-color: ${ colors.dark100 };
-    box-shadow: none;
-  }
+    &.hover,
+    &:hover {
+      border-color: ${ colors.dark300 } transparent transparent;
+      background-color: ${ colors.dark100 };
+      box-shadow: none;
+    }
+  ` }
 
   ${ ({ disabled, theme }) => disabled && css`
     color: ${ theme.textColors.disabled };
