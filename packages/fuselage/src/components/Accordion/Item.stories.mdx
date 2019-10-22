@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
 
 import { Accordion, Paragraph } from '../..';
 
@@ -27,6 +28,34 @@ A collapsible panel.
   <Story name='Expanded'>
     <Accordion>
       <Accordion.Item title='Item' defaultExpanded>
+        <Paragraph>Content</Paragraph>
+      </Accordion.Item>
+    </Accordion>
+  </Story>
+</Preview>
+
+## Noncollapsible
+
+<Preview>
+  <Story name='Noncollapsible'>
+    <Accordion>
+      <Accordion.Item title='Item' noncollapsible>
+        <Paragraph>Content</Paragraph>
+      </Accordion.Item>
+    </Accordion>
+  </Story>
+</Preview>
+
+### Without title
+
+When the `title` prop is omitted, its implied that
+the <LinkTo kind='Containers|Accordion/Accordion.Item' story='Default Story'>`Accordion.Item`</LinkTo>
+is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>noncollapsible</LinkTo> too.
+
+<Preview>
+  <Story name='Without Title'>
+    <Accordion>
+      <Accordion.Item>
         <Paragraph>Content</Paragraph>
       </Accordion.Item>
     </Accordion>

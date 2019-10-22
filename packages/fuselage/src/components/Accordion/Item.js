@@ -15,6 +15,7 @@ export const Item = React.forwardRef(function Item({
   expanded,
   tabIndex = 0,
   title,
+  noncollapsible = !title,
   onToggle,
   onToggleEnabled,
   ...props
@@ -32,6 +33,8 @@ export const Item = React.forwardRef(function Item({
     if (disabled) {
       return;
     }
+
+    event.currentTarget.blur();
 
     if (onToggle) {
       return onToggle.call(event.currentTarget, event);
@@ -65,24 +68,27 @@ export const Item = React.forwardRef(function Item({
   };
 
   return <StyledAccordionItem theme={theme} {...props}>
-    <Bar
+    {title && <Bar
       aria-checked={expanded || internalExpanded ? 'true' : 'false'}
       className={classNames.bar}
       disabled={disabled}
       expanded={expanded || internalExpanded}
+      noncollapsible={noncollapsible}
       ref={ref}
       role='switch'
-      tabIndex={!disabled ? tabIndex : undefined}
+      tabIndex={!disabled && !noncollapsible ? tabIndex : undefined}
       theme={theme}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
+      onClick={noncollapsible ? undefined : handleClick}
+      onKeyDown={noncollapsible ? undefined : handleKeyDown}
     >
       <Title className={classNames.bar} theme={theme}>{title}</Title>
-      {(disabled || onToggleEnabled)
+      {!noncollapsible && <>
+        {(disabled || onToggleEnabled)
           && <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />}
-      <Icon name={'arrow-down'} />
-    </Bar>
-    <Panel className={classNames.panel} expanded={expanded || internalExpanded} theme={theme}>
+        <Icon name={'arrow-down'} />
+      </>}
+    </Bar>}
+    <Panel className={classNames.panel} expanded={noncollapsible || expanded || internalExpanded} theme={theme}>
       {children}
     </Panel>
   </StyledAccordionItem>;
@@ -100,7 +106,7 @@ Item.propTypes = {
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
   tabIndex: PropTypes.number,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   onToggle: PropTypes.func,
   onToggleEnabled: PropTypes.func,
 };
