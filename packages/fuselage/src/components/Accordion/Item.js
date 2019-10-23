@@ -48,7 +48,7 @@ export const Item = React.forwardRef(function Item({
       return;
     }
 
-    if (event.keyCode === 32) {
+    if ([13, 32].includes(event.keyCode)) {
       event.preventDefault();
 
       if (event.repeat) {
