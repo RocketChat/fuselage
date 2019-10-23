@@ -67,19 +67,23 @@ export const Item = React.forwardRef(function Item({
     event.stopPropagation();
   };
 
+  const collapsibleProps = {
+    'aria-checked': expanded || internalExpanded ? 'true' : 'false',
+    role: 'switch',
+    tabIndex: !disabled ? tabIndex : undefined,
+    onClick: handleClick,
+    onKeyDown: handleKeyDown,
+  };
+
   return <StyledAccordionItem theme={theme} {...props}>
     {title && <Bar
-      aria-checked={expanded || internalExpanded ? 'true' : 'false'}
       className={classNames.bar}
       disabled={disabled}
       expanded={expanded || internalExpanded}
       noncollapsible={noncollapsible}
       ref={ref}
-      role='switch'
-      tabIndex={!disabled && !noncollapsible ? tabIndex : undefined}
       theme={theme}
-      onClick={noncollapsible ? undefined : handleClick}
-      onKeyDown={noncollapsible ? undefined : handleKeyDown}
+      {...(!noncollapsible && collapsibleProps)}
     >
       <Title className={classNames.bar} theme={theme}>{title}</Title>
       {!noncollapsible && <>
