@@ -30,6 +30,10 @@ export const Bar = styled.div`
   display: flex;
   flex-flow: row nowrap;
 
+  ${ ({ theme }) => css`
+    min-height: calc(2 * ${ theme.spaces.x32 } + ${ theme.sizes.x24 });
+  ` }
+
   border-width: ${ ({ theme }) => theme.borders.width.x2 };
   border-color: ${ colors.dark300 } transparent transparent;
   ${ ({ theme }) => css`
@@ -45,7 +49,7 @@ export const Bar = styled.div`
   ` }
 
   & > .rcx-toggle-switch {
-    margin: 0 24px;
+    margin: 0 ${ ({ theme }) => theme.sizes.x24 };
   }
 
   & > ${ StyledIcon } {
