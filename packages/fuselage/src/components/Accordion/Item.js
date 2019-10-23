@@ -1,4 +1,4 @@
-import { useClassName, useToggle } from '@rocket.chat/fuselage-hooks';
+import { useClassName, useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -29,6 +29,9 @@ export const Item = React.forwardRef(function Item({
 
   const [internalExpanded, toggleExpanded] = useToggle(defaultExpanded);
 
+  const titleId = useUniqueId();
+  const panelId = useUniqueId();
+
   const handleClick = (event) => {
     if (disabled) {
       return;
@@ -37,7 +40,8 @@ export const Item = React.forwardRef(function Item({
     event.currentTarget.blur();
 
     if (onToggle) {
-      return onToggle.call(event.currentTarget, event);
+      onToggle.call(event.currentTarget, event);
+      return;
     }
 
     toggleExpanded();
@@ -56,7 +60,8 @@ export const Item = React.forwardRef(function Item({
       }
 
       if (onToggle) {
-        return onToggle.call(event.currentTarget, event);
+        onToggle.call(event.currentTarget, event);
+        return;
       }
 
       toggleExpanded();
@@ -68,11 +73,17 @@ export const Item = React.forwardRef(function Item({
   };
 
   const collapsibleProps = {
-    'aria-checked': expanded || internalExpanded ? 'true' : 'false',
-    role: 'switch',
+    'aria-controls': panelId,
+    'aria-expanded': expanded || internalExpanded ? 'true' : 'false',
     tabIndex: !disabled ? tabIndex : undefined,
     onClick: handleClick,
     onKeyDown: handleKeyDown,
+  };
+
+  const nonCollapsibleProps = {
+    'aria-disabled': 'true',
+    'aria-expanded': 'true',
+    'aria-labelledby': titleId,
   };
 
   return <StyledAccordionItem theme={theme} {...props}>
@@ -83,16 +94,22 @@ export const Item = React.forwardRef(function Item({
       noncollapsible={noncollapsible}
       ref={ref}
       theme={theme}
-      {...(!noncollapsible && collapsibleProps)}
+      {...(noncollapsible ? nonCollapsibleProps : collapsibleProps)}
     >
-      <Title className={classNames.bar} theme={theme}>{title}</Title>
+      <Title className={classNames.bar} id={titleId} theme={theme}>{title}</Title>
       {!noncollapsible && <>
         {(disabled || onToggleEnabled)
           && <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />}
         <Icon name={'arrow-down'} />
       </>}
     </Bar>}
-    <Panel className={classNames.panel} expanded={noncollapsible || expanded || internalExpanded} theme={theme}>
+    <Panel
+      className={classNames.panel}
+      expanded={noncollapsible || expanded || internalExpanded}
+      id={panelId}
+      role='region'
+      theme={theme}
+    >
       {children}
     </Panel>
   </StyledAccordionItem>;
