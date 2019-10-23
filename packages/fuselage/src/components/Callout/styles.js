@@ -34,6 +34,7 @@ export const StyledCallout = styled.div`
 
 export const Wrapper = styled.div`
   ${ box }
+  overflow: hidden;
   flex: 1 1 0;
   display: flex;
   flex-flow: column nowrap;
