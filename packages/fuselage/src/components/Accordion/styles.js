@@ -30,6 +30,10 @@ export const Bar = styled.div`
   display: flex;
   flex-flow: row nowrap;
 
+  ${ ({ theme }) => css`
+    min-height: calc(2 * ${ theme.spaces.x32 } + ${ theme.sizes.x24 });
+  ` }
+
   border-width: ${ ({ theme }) => theme.borders.width.x2 };
   border-color: ${ colors.dark300 } transparent transparent;
   ${ ({ theme }) => css`
@@ -45,7 +49,7 @@ export const Bar = styled.div`
   ` }
 
   & > .rcx-toggle-switch {
-    margin: 0 24px;
+    margin: 0 ${ ({ theme }) => theme.sizes.x24 };
   }
 
   & > ${ StyledIcon } {
@@ -57,17 +61,15 @@ export const Bar = styled.div`
   }
 
   ${ ({ disabled, noncollapsible }) => !disabled && !noncollapsible && css`
+    &.hover,
+    &:hover {
+      background-color: ${ colors.dark100 };
+    }
+
     &.focus,
     &:focus {
       border-color: ${ colors.blue500 };
       box-shadow: 0 0 0 ${ toRem(6) } ${ colors.blue100 };
-    }
-
-    &.hover,
-    &:hover {
-      border-color: ${ colors.dark300 } transparent transparent;
-      background-color: ${ colors.dark100 };
-      box-shadow: none;
     }
   ` }
 
@@ -99,10 +101,12 @@ export const Panel = styled.div`
   height: 0;
   ${ ({ theme }) => css`
     padding: 0 ${ theme.spaces.x8 };
+    visibility: hidden;
   ` }
 
   ${ ({ expanded, theme }) => expanded && css`
     height: auto;
     padding: ${ theme.spaces.x32 } ${ theme.spaces.x8 };
+    visibility: visible;
   ` }
 `;
