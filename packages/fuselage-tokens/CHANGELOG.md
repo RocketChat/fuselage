@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.12](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.11...v0.2.0-alpha.12) (2019-10-24)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-tokens
+
+
+
+
+
 # [0.2.0-alpha.11](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.10...v0.2.0-alpha.11) (2019-10-22)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-tokens

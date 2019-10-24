@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.12](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.11...v0.2.0-alpha.12) (2019-10-24)
+
+
+### Bug Fixes
+
+* Accordion.Item accessibility issues ([#78](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/78)) ([2a283c1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2a283c1cef4d6f9738c96b473236d0b52dca1f5e))
+
+
+
+
+
 # [0.2.0-alpha.11](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.10...v0.2.0-alpha.11) (2019-10-22)
 
 
