@@ -21,7 +21,8 @@ export const Item = React.forwardRef(function Item({
   ...props
 }, ref) {
   const classNames = {
-    bar: useClassName('rcx-accordion-item__bar', {}, className),
+    container: useClassName('rcx-accordion-item', {}, className),
+    bar: useClassName('rcx-accordion-item__bar'),
     title: useClassName('rcx-accordion-item__title'),
     toggleBtn: useClassName('rcx-accordion-item__toggle-button'),
   };
@@ -86,7 +87,7 @@ export const Item = React.forwardRef(function Item({
     'aria-labelledby': titleId,
   };
 
-  return <StyledAccordionItem theme={theme} {...props}>
+  return <StyledAccordionItem className={classNames.container} theme={theme} {...props}>
     {title && <Bar
       className={classNames.bar}
       disabled={disabled}
