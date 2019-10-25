@@ -1,4 +1,6 @@
 @mixin selection-button($states: ()) {
+  @include box;
+
   display: inline-flex;
 
   vertical-align: middle;
@@ -10,6 +12,8 @@
   }
 
   & > &__fake {
+    @include box;
+
     position: relative;
 
     height: $sizes-x20;
@@ -19,28 +23,20 @@
     @content;
   }
 
+  @each $value-state in unchecked, checked, indeterminate {
+    @if map-has-key($states, '#{$value-state}-all') {
+      $value-state-class: if($value-state == unchecked, '', '.#{$value-state}');
+      $value-state-pseudo-class: if($value-state == unchecked, '', ':#{$value-state}');
+
+      & > &__input#{$value-state-class} + &__fake,
+      & > &__input#{$value-state-pseudo-class} + &__fake {
+        @extend #{map-get($states, '#{$value-state}-all')};
+      }
+    }
+  }
+
   @each $interaction-state in default, hover, focus, active, disabled {
     @each $value-state in unchecked, checked, indeterminate {
-      @if map-has-key($states, $value-state) {
-        $value-state-class: if($value-state == unchecked, '', '.#{$value-state}');
-        $value-state-pseudo-class: if($value-state == unchecked, '', ':#{$value-state}');
-
-        & > &__input#{$value-state-class} + &__fake,
-        & > &__input#{$value-state-pseudo-class} + &__fake {
-          @extend #{map-get($states, $value-state)};
-        }
-      }
-
-      @if map-has-key($states, $interaction-state) {
-        $interaction-state-class: if($interaction-state == default, '', '.#{$interaction-state}');
-        $interaction-state-pseudo-class: if($interaction-state == default, '', ':#{$interaction-state}');
-
-        &#{$interaction-state-class} > &__input + &__fake,
-        & > &__input#{$interaction-state-pseudo-class} + &__fake {
-          @extend #{map-get($states, $interaction-state)};
-        }
-      }
-
       @if map-has-key($states, '#{$value-state}-#{$interaction-state}') {
         $interaction-state-class: if($interaction-state == default, '', '.#{$interaction-state}');
         $interaction-state-pseudo-class: if($interaction-state == default, '', ':#{$interaction-state}');

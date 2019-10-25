@@ -95,13 +95,13 @@
   }
 
   @include selection-button((
-    unchecked: '%unchecked-state',
+    unchecked-all: '%unchecked-state',
     unchecked-default: '%unchecked-default-state',
     unchecked-focus: '%unchecked-focus-state',
     unchecked-hover: '%unchecked-hover-state',
     unchecked-active: '%unchecked-active-state',
     unchecked-disabled: '%unchecked-disabled-state',
-    checked: '%checked-state',
+    checked-all: '%checked-state',
     checked-default: '%checked-default-state',
     checked-focus: '%checked-focus-state',
     checked-hover: '%checked-hover-state',
