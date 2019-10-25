@@ -1,12 +1,14 @@
+// @flow
+
 import { useState } from 'react';
 
 /**
  * Hook to create a toggleable boolean state.
  *
- * @param {*|function} initialValue - the initial value or the initial state generator function
- * @return {[*,function]} - a state boolean value and a state toggler function
+ * @param initialValue - the initial value or the initial state generator function
+ * @return a state boolean value and a state toggler function
  */
-export const useToggle = (initialValue) => {
+export const useToggle = (initialValue: any | () => any) => {
   const [value, setValue] = useState(() => (typeof initialValue === 'function' ? !!initialValue() : !!initialValue));
-  return [value, (forcedValue) => setValue(typeof forcedValue !== 'undefined' ? forcedValue : !value)];
+  return [value, (forcedValue: any | () => any) => setValue(typeof forcedValue !== 'undefined' ? forcedValue : !value)];
 };
