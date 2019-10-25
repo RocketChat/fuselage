@@ -1,11 +1,13 @@
-export const fromCamelToKebabCase = (camelCaseString) =>
+// @flow
+
+export const fromCamelToKebabCase = (camelCaseString: string) =>
   camelCaseString.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
 
-export const debounce = (fn, delay) => {
+export const debounce = (fn: (...Array<any>) => any, delay: number) => {
   let timer;
   let callback;
 
-  function f(...args) {
+  function f(...args: Array<any>) {
     const context = this;
     clearTimeout(timer);
     callback = () => fn.apply(context, args);

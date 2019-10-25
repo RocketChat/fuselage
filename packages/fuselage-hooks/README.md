@@ -54,7 +54,7 @@ Hook to generate a BEM-compatible `className` value for a component.
 
 -   `componentClassName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the style class which identifies the component
 -   `modifiers` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the modifiers applied to the style class (optional, default `{}`)
--   `classNames` **...[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the additional style classes appended to the `className`
+-   `classNames` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** the additional style classes appended to the `className`
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a BEM-compatible `className` in the format
  `(<block>|<block>__<element>) [...(<block>--<modifier>|<block>__<element>--<modifier>)] [...classNames]`
@@ -65,12 +65,12 @@ Hook to debounce the state updater function returned by hooks like `useState()` 
 
 #### Parameters
 
--   `pair` **\[any, [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)]** the state and updater pair which will be debounced
-    -   `pair.0` **any** the state value
-    -   `pair.1` **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** the state updater function
+-   `pair` **\[any, function (): any]** the state and updater pair which will be debounced
+    -   `pair.0`  the state value
+    -   `pair.1`  the state updater function
 -   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the updater
 
-Returns **\[any, [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)]** a state value and debounced updater pair
+Returns **any** a state value and debounced updater pair
 
 ### useDebouncedReducer
 
@@ -78,12 +78,12 @@ Hook to create a reduced state with a debounced `dispatch()` function.
 
 #### Parameters
 
--   `reducer` **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** the reducer function
+-   `reducer` **function (any, any): any** the reducer function
 -   `initializerArg` **any** the initial state value or the argument passed to the initial state generator function
--   `initializer` **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** the initial state generator function
+-   `initializer` **function (any): any** the initial state generator function
 -   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the updater
 
-Returns **\[any, [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)]** a state and debounced `dispatch()` function
+Returns **any** a state and debounced `dispatch()` function
 
 ### useDebouncedState
 
@@ -91,10 +91,10 @@ Hook to create a state with a debounced setter function.
 
 #### Parameters
 
--   `initialValue` **(any | [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))** the initial state value or the initial state generator function
+-   `initialValue` **(any | function (): any)** the initial state value or the initial state generator function
 -   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the updater
 
-Returns **\[any, [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)]** a state and debounced setter function
+Returns **any** a state and debounced setter function
 
 ### useDebouncedCallback
 
@@ -102,11 +102,11 @@ Hook to memoize a debounced version of a callback.
 
 #### Parameters
 
--   `callback` **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** the callback to debounce
+-   `callback` **function (): any** the callback to debounce
 -   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay
--   `deps` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any> | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** the hook dependencies
+-   `deps` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>?** the hook dependencies
 
-Returns **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** a memoized and debounced callback
+Returns **function (): any** a memoized and debounced callback
 
 ### useExclusiveBooleanProps
 
@@ -118,7 +118,7 @@ to choose styling variants.
 -   `props` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the mutually exclusive boolean props
 
 
--   Throws **[Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)** if two or more booleans props are set as true
+-   Throws **any** if two or more booleans props are set as true
 
 ### useMediaQuery
 
@@ -126,9 +126,9 @@ Hook to listen to a media query.
 
 #### Parameters
 
--   `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** the CSS3 media query expression
+-   `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the CSS3 media query expression
 
-Returns **bool** `true` if the media query matches; `false` is it does not match or the query is not defined
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the media query matches; `false` is it does not match or the query is not defined
 
 ### useMergedRefs
 
@@ -137,9 +137,9 @@ while receiving a forwared ref.
 
 #### Parameters
 
--   `refs` **...([Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))** the refs and callback refs that should be merged
+-   `refs` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Ref&lt;any>>** the refs and callback refs that should be merged
 
-Returns **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** a merged callback ref
+Returns **any** a merged callback ref
 
 ### useToggle
 
@@ -147,9 +147,9 @@ Hook to create a toggleable boolean state.
 
 #### Parameters
 
--   `initialValue` **(any | [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))** the initial value or the initial state generator function
+-   `initialValue` **(any | function (): any)** the initial value or the initial state generator function
 
-Returns **\[any, [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)]** a state boolean value and a state toggler function
+Returns **any** a state boolean value and a state toggler function
 
 ## Author
 
