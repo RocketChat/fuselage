@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from '@rocket.chat/fuselage-tokens/colors';
 
 import box from '../../styles/box';
@@ -87,7 +87,7 @@ const withColors = ({
   }
 `;
 
-const container = css`
+const container = styled.button`
   ${ box }
 
   display: inline-block;

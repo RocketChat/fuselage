@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -11,7 +12,7 @@ Indicates an actionable user action.
 
 <Preview>
   <Story name='Default'>
-    <Button>Button</Button>
+    <Button onClick={action('click')}>Button</Button>
   </Story>
 </Preview>
 
@@ -86,6 +87,7 @@ Indicates an actionable user action.
 <Story name='States'>
   <PropsVariationSection
     component={Button}
+    common={{ onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
@@ -107,7 +109,7 @@ Indicates an actionable user action.
 <Story name='States of Small Variant'>
   <PropsVariationSection
     component={Button}
-    common={{ small: true }}
+    common={{ small: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
@@ -129,7 +131,7 @@ Indicates an actionable user action.
 <Story name='States Of Primary Variant'>
   <PropsVariationSection
     component={Button}
-    common={{ primary: true }}
+    common={{ primary: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
@@ -151,7 +153,7 @@ Indicates an actionable user action.
 <Story name='States Of Primary Small Variant'>
   <PropsVariationSection
     component={Button}
-    common={{ primary: true, small: true }}
+    common={{ primary: true, small: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
@@ -173,7 +175,7 @@ Indicates an actionable user action.
 <Story name='States Of Ghost Variant'>
   <PropsVariationSection
     component={Button}
-    common={{ ghost: true }}
+    common={{ ghost: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },
@@ -195,7 +197,7 @@ Indicates an actionable user action.
 <Story name='States Of Ghost Small Variant'>
   <PropsVariationSection
     component={Button}
-    common={{ ghost: true, small: true }}
+    common={{ ghost: true, small: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' /> },

@@ -1,11 +1,11 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from '@rocket.chat/fuselage-tokens/colors';
 
 import box from '../../styles/box';
 import { caption, captionBold, truncate } from '../../styles/utilities/typography';
 import { Icon } from '../Icon';
 
-const container = css`
+const container = styled.section`
   ${ box }
 
   display: flex;
@@ -36,7 +36,7 @@ const container = css`
   }
 `;
 
-const wrapper = css`
+const wrapper = styled.div`
   ${ box }
 
   display: flex;
@@ -52,7 +52,7 @@ const wrapper = css`
   ${ ({ theme }) => caption(theme) }
 `;
 
-const title = css`
+const title = styled.h1`
   ${ box }
 
   ${ ({ theme }) => caption(theme) }

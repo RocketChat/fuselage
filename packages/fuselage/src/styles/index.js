@@ -7,11 +7,12 @@ const fromCamelToKebabCase = (camelCaseString) =>
 
 const mapAttrs = (componentClassName) => ({
   className,
+  invisible,
   modifiers = {},
 }) => ({
   className: [
     componentClassName,
-    ...Object.entries(modifiers)
+    ...Object.entries({ ...modifiers, invisible })
       .filter(([, value]) => !!value)
       .map(([key, value]) => (typeof value === 'boolean'
         ? `${ componentClassName }--${ fromCamelToKebabCase(key) }`
@@ -21,9 +22,23 @@ const mapAttrs = (componentClassName) => ({
 });
 
 export const createStyledComponent = (styles, componentClassName, component = 'div') => {
-  const StyledComponent = styledFn(component)
+  if (Array.isArray(styles[componentClassName])) {
+    const StyledComponent = styledFn(component)
+      .attrs(mapAttrs(componentClassName))
+      .withConfig({})([], styles[componentClassName] || []);
+
+    StyledComponent.defaultProps = {
+      theme: variables,
+    };
+
+    StyledComponent.displayName = componentClassName;
+
+    return StyledComponent;
+  }
+
+  const StyledComponent = styledFn(styles[componentClassName])
     .attrs(mapAttrs(componentClassName))
-    .withConfig({})([], styles[componentClassName] || []);
+    .attrs(() => ({ as: component }))([], []);
 
   StyledComponent.defaultProps = {
     theme: variables,

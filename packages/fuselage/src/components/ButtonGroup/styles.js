@@ -1,9 +1,9 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import box from '../../styles/box';
 import { Button } from '../Button';
 
-const container = css`
+const container = styled.div`
   ${ box }
 
   display: flex;
