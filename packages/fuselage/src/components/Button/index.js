@@ -1,18 +1,16 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Box } from '../Box';
+import { createStyledComponent } from '../../styles';
+import styles from './styles';
 
-/**
- * A `Button` indicates an actionable user action.
- */
+const Container = createStyledComponent(styles, 'rcx-button', 'button');
+
 export const Button = React.forwardRef(function Button({
-  className,
-  is = 'button',
   danger,
   external,
   ghost,
+  is = 'button',
   primary,
   rel,
   small,
@@ -28,25 +26,29 @@ export const Button = React.forwardRef(function Button({
   })
   || {};
 
-  const compoundClassName = useClassName('rcx-button', {
-    danger,
-    ghost,
-    ghostDanger: ghost && danger,
-    primary,
-    primaryDanger: primary && danger,
-    small,
-    square,
-    smallSquare: small && square,
-  }, className);
-
-  return <Box className={compoundClassName} is={is} ref={ref} {...extraProps} {...props} />;
+  return <Container
+    as={is}
+    modifiers={{
+      danger,
+      ghost,
+      ghostDanger: ghost && danger,
+      primary,
+      primaryDanger: primary && danger,
+      small,
+      square,
+      smallSquare: small && square,
+    }}
+    ref={ref}
+    {...extraProps}
+    {...props}
+  />;
 });
 
 Button.displayName = 'Button';
 
 Button.propTypes = {
-  /**
-   * Is this component a link to an external URL?
-   */
+  /** Is this component a link to an external URL? */
   external: PropTypes.bool,
 };
+
+Button.styled = Container;
