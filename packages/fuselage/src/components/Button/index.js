@@ -49,6 +49,8 @@ Button.displayName = 'Button';
 Button.propTypes = {
   /** Is this component a link to an external URL? */
   external: PropTypes.bool,
+  /** Is this component visible? */
+  invisible: PropTypes.bool,
 };
 
 Button.styled = Container;
