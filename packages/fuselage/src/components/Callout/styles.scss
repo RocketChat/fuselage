@@ -1,0 +1,61 @@
+@import '~@rocket.chat/fuselage-tokens/colors.scss';
+
+.rcx-callout {
+  @include box;
+
+  display: flex;
+
+  margin: 0 0 #{ $spaces-x24 };
+  padding: #{ $spaces-x16 };
+
+  border-radius: #{ $borders-radius-x2 };
+
+  &--type-info {
+    background-color: #{ map-get($colors, blue200) };
+  }
+
+  &--type-success {
+    background-color: #{ map-get($colors, green200) };
+  }
+
+  &--type-warning {
+    background-color: #{ map-get($colors, yellow200) };
+  }
+
+  &--type-danger {
+    background-color: #{ map-get($colors, red200) };
+  }
+
+  & > .rcx-icon {
+    font-size: #{ $sizes-x16 };
+  }
+}
+
+.rcx-callout__wrapper {
+  @include box;
+
+  display: flex;
+
+  overflow: hidden;
+  flex: 1 1 0;
+
+  margin: 0 #{ $spaces-x8 };
+
+  color: #{ $text-colors-default };
+  flex-flow: column nowrap;
+
+  @include caption;
+}
+
+.rcx-callout__title {
+  @include box;
+
+  @include caption;
+  @include caption-bold;
+
+  &--has-children {
+    margin-bottom: #{ $spaces-x4 };
+  }
+
+  @include truncate;
+}
