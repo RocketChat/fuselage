@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import box from '../../styles/box';
 import { py, px, pr } from '../../styles/utilities/spacing';
-import { StyledIcon } from '../Icon/styles';
+import { Icon } from '../Icon';
 import { InputControl } from '../InputControl';
 import { withDecoratorColors } from '../InputControl/styles';
 import { paragraph, ellipsis } from '../../styles/utilities/typography';
@@ -54,7 +54,7 @@ export const Addon = styled.span`
   ${ ({ theme }) => py(`calc(${ theme.spaces.x8 } - ${ theme.borders.width.x2 })`) }
   ${ ({ theme }) => pr(`calc(${ theme.spaces.x12 } - ${ theme.borders.width.x2 })`) }
 
-  & > ${ StyledIcon } {
+  & > ${ Icon.styled } {
     font-size: ${ ({ theme }) => `calc(${ theme.sizes.x44 } - 2 * ${ theme.spaces.x12 })` };
     ${ ({ theme }) => py(theme.spaces.x4) }
     ${ ({ theme }) => pr(theme.spaces.x4) }

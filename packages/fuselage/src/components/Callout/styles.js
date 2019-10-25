@@ -3,7 +3,7 @@ import colors from '@rocket.chat/fuselage-tokens/colors';
 
 import box from '../../styles/box';
 import { caption, captionBold, truncate } from '../../styles/utilities/typography';
-import { StyledIcon } from '../Icon/styles';
+import { Icon } from '../Icon';
 
 const container = css`
   ${ box }
@@ -31,7 +31,7 @@ const container = css`
     background-color: ${ colors.red200 };
   ` }
 
-  & > ${ StyledIcon } {
+  & > ${ Icon.styled } {
     font-size: ${ ({ theme }) => theme.sizes.x16 };
   }
 `;

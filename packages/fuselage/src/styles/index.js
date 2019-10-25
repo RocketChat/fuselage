@@ -21,7 +21,9 @@ const mapAttrs = (componentClassName) => ({
 });
 
 export const createStyledComponent = (styles, componentClassName, component = 'div') => {
-  const StyledComponent = styledFn(component).attrs(mapAttrs(componentClassName))([], styles[componentClassName] || []);
+  const StyledComponent = styledFn(component)
+    .attrs(mapAttrs(componentClassName))
+    .withConfig({})([], styles[componentClassName] || []);
 
   StyledComponent.defaultProps = {
     theme: variables,

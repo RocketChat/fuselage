@@ -4,8 +4,8 @@ import styled, { css } from 'styled-components';
 import box from '../../styles/box';
 import { clickable } from '../../styles/utilities/interactivity';
 import { truncate, subtitleBold, subtitle } from '../../styles/utilities/typography';
-import { StyledIcon } from '../Icon/styles';
 import { toRem } from '../../styles/helpers';
+import { Icon } from '../Icon';
 
 export const StyledAccordion = styled.div`
   ${ box }
@@ -52,7 +52,7 @@ export const Bar = styled.div`
     margin: 0 ${ ({ theme }) => theme.sizes.x24 };
   }
 
-  & > ${ StyledIcon } {
+  & > ${ Icon.styled } {
     font-size: ${ ({ theme }) => theme.sizes.x24 };
 
     ${ ({ expanded }) => expanded && css`
