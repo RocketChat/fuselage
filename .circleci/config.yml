@@ -31,6 +31,7 @@ jobs:
       - checkout
       - run: yarn
       - run: yarn lerna run build --stream
+      - run: yarn lerna run test:results --scope @rocket.chat/fuselage --stream
       - run: yarn lerna run build-storybook --scope @rocket.chat/fuselage --stream
       - run:
           command: |
@@ -80,6 +81,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - run: yarn lerna run test:results --scope @rocket.chat/fuselage --stream
       - run: .circleci/deploy-storybooks.js
 
 workflows:
