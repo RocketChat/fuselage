@@ -30,7 +30,7 @@ export const selectionButton = (Input, Fake) => (states, content) => css`
   }
 
   ${ ['unchecked', 'checked', 'indeterminate'].map((valueState) => {
-    if (!states[valueState].all) {
+    if (!states[valueState] || !states[valueState].all) {
       return;
     }
 
@@ -47,7 +47,7 @@ export const selectionButton = (Input, Fake) => (states, content) => css`
 
   ${ ['default', 'hover', 'focus', 'active', 'disabled'].map((interactionState) =>
     ['unchecked', 'checked', 'indeterminate'].map((valueState) => {
-      if (!states[valueState][interactionState]) {
+      if (!states[valueState] || !states[valueState][interactionState]) {
         return;
       }
 

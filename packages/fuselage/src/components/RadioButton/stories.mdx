@@ -2,33 +2,25 @@ import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { CheckBox } from '../..';
+import { RadioButton } from '../..';
 
-<Meta title='Buttons|CheckBox' parameters={{ jest: ['CheckBox/spec'] }} />
+<Meta title='Buttons|RadioButton' parameters={{ jest: ['RadioButton/spec'] }} />
 
-# CheckBox
+# RadioButton
 
 <Preview>
   <Story name='Default'>
-    <CheckBox onChange={action('change')} />
+    <RadioButton onChange={action('change')} />
   </Story>
 </Preview>
 
-<Props of={CheckBox} />
+<Props of={RadioButton} />
 
 ## Checked
 
 <Preview>
   <Story name='Checked'>
-    <CheckBox checked onChange={action('change')} />
-  </Story>
-</Preview>
-
-## Indeterminate
-
-<Preview>
-  <Story name='Indeterminate'>
-    <CheckBox indeterminate onChange={action('change')} />
+    <RadioButton checked onChange={action('change')} />
   </Story>
 </Preview>
 
@@ -36,7 +28,7 @@ import { CheckBox } from '../..';
 
 <Preview>
   <Story name='Disabled'>
-    <CheckBox disabled />
+    <RadioButton disabled />
   </Story>
 </Preview>
 
@@ -44,12 +36,11 @@ import { CheckBox } from '../..';
 
 <Story name='States'>
   <PropsVariationSection
-    component={CheckBox}
+    component={RadioButton}
     common={{ onChange: action('change') }}
     xAxis={{
       checked: { checked: true },
       unchecked: { checked: false },
-      indeterminate: { indeterminate: true },
     }}
     yAxis={{
       default: { },

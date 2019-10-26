@@ -1,8 +1,13 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 
-import { Box } from '../Box';
 import { Label } from '../Label';
+import { createStyledComponent } from '../../styles';
+import styles from './styles';
+
+const Container = createStyledComponent(styles, 'rcx-radio-button', Label);
+const Input = createStyledComponent(styles, 'rcx-radio-button__input', 'input');
+const Fake = createStyledComponent(styles, 'rcx-radio-button__fake', 'i');
 
 export const RadioButton = React.forwardRef(function RadioButton({
   className,
@@ -11,16 +16,15 @@ export const RadioButton = React.forwardRef(function RadioButton({
   style,
   ...props
 }, ref) {
-  const classNames = {
-    container: useClassName('rcx-radio-button', {}, className),
-    input: useClassName('rcx-radio-button__input'),
-    fake: useClassName('rcx-radio-button__fake'),
-  };
-
-  return <Label className={classNames.container} hidden={hidden} invisible={invisible} style={style}>
-    <Box className={classNames.input} is='input' ref={ref} type='radio' {...props} />
-    <Box aria-hidden='true' className={classNames.fake} is='i' />
-  </Label>;
+  return <Container className={className} hidden={hidden} invisible={invisible} style={style}>
+    <Input ref={ref} type='radio' {...props} />
+    <Fake aria-hidden='true' />
+  </Container>;
 });
 
 RadioButton.displayName = 'RadioButton';
+
+RadioButton.propTypes = {
+  /** Is this component visible? */
+  invisible: PropTypes.bool,
+};
