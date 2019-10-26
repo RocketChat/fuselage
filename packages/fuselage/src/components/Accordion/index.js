@@ -1,18 +1,14 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
+import { createStyledComponent } from '../../styles';
 import { Item } from './Item';
-import { StyledAccordion } from './styles';
+import styles from './styles';
 
-export const Accordion = React.forwardRef(function Accordion({
-  className,
-  ...props
-}, ref) {
-  const compoundClassName = useClassName('rcx-accordion', {}, className);
-  const theme = useTheme();
-  return <StyledAccordion className={compoundClassName} ref={ref} theme={theme} {...props} />;
+const Container = createStyledComponent(styles, 'rcx-accordion');
+
+export const Accordion = React.forwardRef(function Accordion(props, ref) {
+  return <Container ref={ref} {...props} />;
 });
 
 Accordion.displayName = 'Accordion';
@@ -22,3 +18,5 @@ Accordion.propTypes = {
 };
 
 Accordion.Item = Item;
+
+Accordion.styled = Container;

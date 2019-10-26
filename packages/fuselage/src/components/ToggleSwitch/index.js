@@ -29,3 +29,5 @@ ToggleSwitch.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
+
+ToggleSwitch.styled = Container;

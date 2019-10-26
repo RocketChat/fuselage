@@ -43,3 +43,5 @@ CheckBox.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
+
+CheckBox.styled = Container;

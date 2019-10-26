@@ -1,0 +1,104 @@
+@import '~@rocket.chat/fuselage-tokens/colors.scss';
+
+.rcx-accordion {
+  @include box;
+
+  display: flex;
+
+  border-bottom-width: $borders-width-x2;
+  border-bottom-color: map-get($colors, dark300);
+  flex-flow: column nowrap;
+}
+
+.rcx-accordion-item {
+  @include box;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.rcx-accordion-item__bar {
+  @include box;
+
+  display: flex;
+
+  min-height: calc(2 * #{ $spaces-x32 } + #{ $sizes-x24 });
+  padding:
+    calc(#{ $spaces-x32 } - #{ $borders-width-x2 })
+    calc(#{ $spaces-x8 } - #{ $borders-width-x2 });
+
+  text-align: left;
+  text-align: start;
+
+  color: #{ $text-colors-default };
+
+  border-width: #{ $borders-width-x2 };
+  border-color: #{ map-get($colors, dark300) } transparent transparent;
+  flex-flow: row nowrap;
+
+  &[tabindex] {
+    @include clickable;
+
+    &.hover,
+    &:hover {
+      background-color: #{ map-get($colors, dark100) };
+    }
+
+    &.focus,
+    &:focus {
+      border-color: #{ map-get($colors, blue500) };
+      box-shadow: 0 0 0 #{ to-rem(6) } #{ map-get($colors, blue100) };
+    }
+  }
+
+  & > .rcx-toggle-switch {
+    margin: 0 #{ $sizes-x24 };
+  }
+
+  & > .rcx-icon {
+    font-size: #{ $sizes-x24 };
+  }
+
+  &--expanded {
+    & > .rcx-icon {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+
+    color: #{ $text-colors-disabled };
+    background-color: #{ map-get($colors, dark100) };
+  }
+}
+
+.rcx-accordion-item__title {
+  @include box;
+
+  flex: 1 1 0;
+
+  @include subtitle;
+  @include subtitle-bold;
+  @include truncate;
+}
+
+.rcx-accordion-item__panel {
+  @include box;
+
+  visibility: hidden;
+
+  overflow: hidden;
+
+  height: 0;
+  padding: 0 #{ $spaces-x8 };
+
+  &--expanded {
+    visibility: visible;
+
+    height: auto;
+    padding:
+      #{ $spaces-x32 }
+      #{ $spaces-x8 };
+  }
+}

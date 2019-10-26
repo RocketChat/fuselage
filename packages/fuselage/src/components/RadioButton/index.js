@@ -28,3 +28,5 @@ RadioButton.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
+
+RadioButton.styled = Container;

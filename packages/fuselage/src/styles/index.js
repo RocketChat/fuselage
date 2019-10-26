@@ -38,7 +38,8 @@ export const createStyledComponent = (styles, componentClassName, component = 'd
 
   const StyledComponent = styledFn(styles[componentClassName])
     .attrs(mapAttrs(componentClassName))
-    .attrs(() => ({ as: component }))([], []);
+    .attrs(() => ({ as: component }))
+    .withConfig({})([], []);
 
   StyledComponent.defaultProps = {
     theme: variables,
