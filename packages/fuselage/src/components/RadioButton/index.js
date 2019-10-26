@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Label } from '../Label';
 import { createStyledComponent } from '../../styles';
+import { Label } from '../Label';
 import styles from './styles';
 
 const Container = createStyledComponent(styles, 'rcx-radio-button', Label);
