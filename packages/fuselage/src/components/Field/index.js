@@ -19,3 +19,5 @@ Field.displayName = 'Field';
 Field.propTypes = {
   invisible: PropTypes.bool,
 };
+
+Field.styled = StyledField;
