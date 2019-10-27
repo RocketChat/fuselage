@@ -1,0 +1,26 @@
+.rcx-tile {
+  @include box;
+  @include paragraph;
+
+  display: block;
+
+  padding: #{ $spaces-x40 };
+
+  color: #{ $text-colors-default };
+  border-radius: $borders-radius-x2;
+  background-color: #{ map-get($colors, white) };
+
+  &--elevation-0 {
+    box-shadow: none;
+  }
+
+  &--elevation-1 {
+    box-shadow: 0 0 12px 0 rgba(47, 52, 61, 0.1);
+  }
+
+  &--elevation-2 {
+    box-shadow:
+      0 0 2px 0 rgba(47, 52, 61, 0.08),
+      0 0 12px 0 rgba(47, 52, 61, 0.12);
+  }
+}
