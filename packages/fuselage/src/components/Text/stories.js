@@ -37,6 +37,9 @@ export const infoColor = () =>
 export const hintColor = () =>
   <Text hintColor>Text</Text>;
 
+export const disabledLabelColor = () =>
+  <Text disabledLabelColor>Text</Text>;
+
 export const disabledColor = () =>
   <Text disabledColor>Text</Text>;
 
