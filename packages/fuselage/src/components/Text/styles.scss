@@ -1,0 +1,106 @@
+.rcx-text {
+  @include box;
+
+  user-select: text;
+
+  color: #{ $text-colors-default };
+
+  @include paragraph;
+
+  &--style-headline {
+    @include headline;
+  }
+
+  &--style-subtitle {
+    @include subtitle;
+  }
+
+  &--style-paragraph {
+    @include paragraph;
+  }
+
+  &--style-caption {
+    @include caption;
+  }
+
+  &--style-micro {
+    @include micro;
+  }
+
+  &--color-default {
+    color: #{ $text-colors-default };
+  }
+
+  &--color-info {
+    color: #{ $text-colors-info };
+  }
+
+  &--color-hint {
+    color: #{ $text-colors-hint };
+  }
+
+  &--color-disabled {
+    color: #{ $text-colors-disabled };
+  }
+
+  &--color-alternative {
+    color: #{ $text-colors-alternative };
+  }
+
+  &--color-primary {
+    color: #{ $text-colors-primary };
+  }
+
+  &--color-success {
+    color: #{ $text-colors-success };
+  }
+
+  &--color-danger {
+    color: #{ $text-colors-danger };
+  }
+
+  &--color-warning {
+    color: #{ $text-colors-warning };
+  }
+}
+
+.rcx-skeleton__text {
+  @include box;
+
+  display: inline-block;
+
+  width: 100%;
+  height: 1em;
+
+  vertical-align: baseline;
+
+  opacity: 0.1;
+
+  background-color: currentColor;
+
+  font-size: inherit;
+
+  &--animated {
+    animation: rcx-skeleton__text-animation 1s linear 0s infinite running;
+  }
+
+  @each $name, $value in $widths {
+    &--width-#{$name} {
+      width: $value;
+    }
+  }
+}
+
+@keyframes rcx-skeleton__text-animation {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+}

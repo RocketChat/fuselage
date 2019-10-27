@@ -1,6 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 
-import { withTheme } from '../../hocs/withTheme';
 import box from '../../styles/box';
 import {
   headline,
@@ -10,33 +9,45 @@ import {
   micro,
 } from '../../styles/utilities/typography';
 
-export const StyledText = withTheme(styled.span`
+const withColor = (color) => css`
+  color: ${ color };
+`;
+
+const Container = styled.span`
   ${ box }
 
   user-select: text;
 
-  ${ ({ styleVariant, theme }) =>
-    (styleVariant === 'headline' && headline(theme))
-      || (styleVariant === 'subtitle' && subtitle(theme))
-      || (styleVariant === 'paragraph' && paragraph(theme))
-      || (styleVariant === 'caption' && caption(theme))
-      || (styleVariant === 'micro' && micro(theme))
-      || paragraph(theme) }
-  ${ ({ colorVariant, theme }) =>
-    (colorVariant === 'default' && css`color: ${ theme.textColors.default };`)
-      || (colorVariant === 'info' && css`color: ${ theme.textColors.info };`)
-      || (colorVariant === 'hint' && css`color: ${ theme.textColors.hint };`)
-      || (colorVariant === 'disabled' && css`color: ${ theme.textColors.disabled };`)
-      || (colorVariant === 'alternative' && css`color: ${ theme.textColors.alternative };`)
-      || (colorVariant === 'primary' && css`color: ${ theme.textColors.primary };`)
-      || (colorVariant === 'success' && css`color: ${ theme.textColors.success };`)
-      || (colorVariant === 'danger' && css`color: ${ theme.textColors.danger };`)
-      || (colorVariant === 'warning' && css`color: ${ theme.textColors.warning };`)
-      || css`color: ${ theme.textColors.default };` }
-`);
+  color: ${ ({ theme }) => theme.textColors.default };
 
-export const StyledTextSkeleton = withTheme(styled.span`
+  ${ ({ theme }) => paragraph(theme) }
+
+  ${ ({ modifiers, theme }) =>
+    (modifiers.style === 'headline' && headline(theme))
+  || (modifiers.style === 'subtitle' && subtitle(theme))
+  || (modifiers.style === 'paragraph' && paragraph(theme))
+  || (modifiers.style === 'caption' && caption(theme))
+  || (modifiers.style === 'micro' && micro(theme)) }
+
+  ${ ({ modifiers, theme }) =>
+    (modifiers.color === 'default' && withColor(theme.textColors.default))
+  || (modifiers.color === 'info' && withColor(theme.textColors.info))
+  || (modifiers.color === 'hint' && withColor(theme.textColors.hint))
+  || (modifiers.color === 'disabled' && withColor(theme.textColors.disabled))
+  || (modifiers.color === 'alternative' && withColor(theme.textColors.alternative))
+  || (modifiers.color === 'primary' && withColor(theme.textColors.primary))
+  || (modifiers.color === 'success' && withColor(theme.textColors.success))
+  || (modifiers.color === 'danger' && withColor(theme.textColors.danger))
+  || (modifiers.color === 'warning' && withColor(theme.textColors.warning)) }
+`;
+
+const withWidth = (width) => css`
+  width: ${ width };
+`;
+
+const SkeletonContainer = styled.span`
   ${ box }
+
   display: inline-block;
 
   width: 100%;
@@ -50,7 +61,7 @@ export const StyledTextSkeleton = withTheme(styled.span`
 
   font-size: inherit;
 
-  ${ ({ animated }) => animated && css`
+  ${ ({ modifiers }) => modifiers.animated && css`
     animation: ${ keyframes`
       0% {
         opacity: 0.1;
@@ -66,7 +77,10 @@ export const StyledTextSkeleton = withTheme(styled.span`
     ` } 1s linear 0s infinite running;
   ` };
 
-  ${ ({ width, theme }) => width !== undefined && css`
-    width: ${ theme.widths[width] }
-  ` };
-`);
+  ${ ({ modifiers, theme }) => modifiers.width !== undefined && withWidth(theme.widths[modifiers.width]) }
+`;
+
+export default {
+  'rcx-text': Container,
+  'rcx-skeleton__text': SkeletonContainer,
+};

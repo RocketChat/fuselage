@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 
-import { StyledText, StyledTextSkeleton } from './styles';
-import variables from '../../styles/variables';
+import { createStyledComponent } from '../../styles';
+import { Skeleton } from './Skeleton';
+import styles from './styles';
+
+const Container = createStyledComponent(styles, 'rcx-text', 'span');
 
 export const Text = React.forwardRef(function Text({
-  className,
-  is = 'span',
+  is,
 
   headline,
   subtitle,
@@ -27,45 +28,25 @@ export const Text = React.forwardRef(function Text({
 
   ...props
 }, ref) {
-  const compoundClassName = useClassName('rcx-text', {
-    headline,
-    subtitle,
-    paragraph,
-    caption,
-    micro,
-    defaultColor,
-    infoColor,
-    hintColor,
-    disabledColor,
-    alternativeColor,
-    primaryColor,
-    successColor,
-    dangerColor,
-    warningColor,
-  }, className);
-
-  return <StyledText
-    className={compoundClassName}
-    colorVariant={
-      (defaultColor && 'default')
-      || (infoColor && 'info')
-      || (hintColor && 'hint')
-      || (disabledColor && 'disabled')
-      || (alternativeColor && 'alternative')
-      || (primaryColor && 'primary')
-      || (successColor && 'success')
-      || (dangerColor && 'danger')
-      || (warningColor && 'warning')
-      || 'default'}
+  return <Container
     as={is}
+    modifiers={{
+      color: (defaultColor && 'default')
+        || (infoColor && 'info')
+        || (hintColor && 'hint')
+        || (disabledColor && 'disabled')
+        || (alternativeColor && 'alternative')
+        || (primaryColor && 'primary')
+        || (successColor && 'success')
+        || (dangerColor && 'danger')
+        || (warningColor && 'warning'),
+      style: (headline && 'headline')
+        || (subtitle && 'subtitle')
+        || (paragraph && 'paragraph')
+        || (caption && 'caption')
+        || (micro && 'micro'),
+    }}
     ref={ref}
-    styleVariant={
-      (headline && 'headline')
-      || (subtitle && 'subtitle')
-      || (paragraph && 'paragraph')
-      || (caption && 'caption')
-      || (micro && 'micro')
-      || 'paragraph'}
     {...props}
   />;
 });
@@ -91,6 +72,8 @@ Text.defaultProps = {
 Text.displayName = 'Text';
 
 Text.propTypes = {
+  /** Is this component visible? */
+  invisible: PropTypes.bool,
   is: PropTypes.elementType,
   headline: PropTypes.bool,
   subtitle: PropTypes.bool,
@@ -106,28 +89,6 @@ Text.propTypes = {
   successColor: PropTypes.bool,
   dangerColor: PropTypes.bool,
   warningColor: PropTypes.bool,
-};
-
-function Skeleton({ animated, width = '1/1' }) {
-  const compoundClassName = useClassName('rcx-text__skeleton', { animated, width });
-
-  return <StyledTextSkeleton
-    animated={animated}
-    className={compoundClassName}
-    width={width}
-  />;
-}
-
-Skeleton.defaultProps = {
-  animated: false,
-  width: '1/1',
-};
-
-Skeleton.displayName = 'Text.Skeleton';
-
-Skeleton.propTypes = {
-  animated: PropTypes.bool,
-  width: PropTypes.oneOf(Object.keys(variables.widths)),
 };
 
 Text.Skeleton = Skeleton;

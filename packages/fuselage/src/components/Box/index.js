@@ -24,8 +24,8 @@ Box.defaultProps = {
 Box.displayName = 'Box';
 
 Box.propTypes = {
-  /** The component which will render as a `Box` */
-  is: PropTypes.elementType,
   /** Is this component visible? */
   invisible: PropTypes.bool,
+  /** The component which will render as a `Box` */
+  is: PropTypes.elementType,
 };

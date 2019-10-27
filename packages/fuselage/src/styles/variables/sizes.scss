@@ -7,14 +7,3 @@ $sizes-x16: theme('sizes-x16', to-rem(16));
 $sizes-x8: theme('sizes-x8', to-rem(8));
 $sizes-x4: theme('sizes-x4', to-rem(4));
 $sizes-x2: theme('sizes-x2', to-rem(2));
-
-$widths: ();
-
-@for $i from 1 through 12 {
-  @for $j from 1 through 12 {
-    $widths: map-merge($widths, (#{$i}\/#{$j}: $i / $j * 100%));
-  }
-}
-
-$widths: map-merge($widths, (full: 100%));
-$widths: map-merge($widths, (screen: 100vw));
