@@ -1,20 +1,22 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 
+import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
+import { Skeleton } from './Skeleton';
+import styles from './styles';
 
-export const Paragraph = React.forwardRef(function Paragraph({ className, ...props }, ref) {
-  const compoundClassName = useClassName('rcx-paragraph', {}, className);
+const Container = createStyledComponent(styles, 'rcx-paragraph', Text);
 
-  return <Text className={compoundClassName} is='p' paragraph ref={ref} {...props} />;
+export const Paragraph = React.forwardRef(function Paragraph(props, ref) {
+  return <Container is='p' paragraph ref={ref} {...props} />;
 });
 
 Paragraph.displayName = 'Paragraph';
 
-Paragraph.Skeleton = function Skeleton({ animated, ...props }) {
-  return <Paragraph {...props}>
-    <Text.Skeleton animated={animated} />
-    <Text.Skeleton animated={animated} />
-    <Text.Skeleton animated={animated} width='4/5' />
-  </Paragraph>;
+Paragraph.propTypes = {
+  /** Is this component visible? */
+  invisible: PropTypes.bool,
 };
+
+Paragraph.Skeleton = Skeleton;

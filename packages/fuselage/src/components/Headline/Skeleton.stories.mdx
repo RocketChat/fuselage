@@ -1,0 +1,23 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Headline } from '../..';
+
+<Meta title='Typography|Headline/Skeleton' parameters={{ jest: ['Headline/spec'] }} />
+
+# Headline.Skeleton
+
+<Preview>
+  <Story name='Default'>
+    <Headline.Skeleton />
+  </Story>
+</Preview>
+
+<Props of={Headline.Skeleton} />
+
+## Animated
+
+<Preview>
+  <Story name='Animated'>
+    <Headline.Skeleton animated />
+  </Story>
+</Preview>

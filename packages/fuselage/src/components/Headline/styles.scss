@@ -1,4 +1,7 @@
 .rcx-headline {
+  @include box;
+
   display: block;
-  @include mb($spaces-x16);
+
+  margin-bottom: $spaces-x16;
 }

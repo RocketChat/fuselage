@@ -6,7 +6,6 @@ const fromCamelToKebabCase = (camelCaseString) =>
   camelCaseString.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
 
 const mapAttrs = (componentClassName) => ({
-  className,
   invisible,
   modifiers = {},
 }) => ({
@@ -17,7 +16,6 @@ const mapAttrs = (componentClassName) => ({
       .map(([key, value]) => (typeof value === 'boolean'
         ? `${ componentClassName }--${ fromCamelToKebabCase(key) }`
         : `${ componentClassName }--${ fromCamelToKebabCase(key) }-${ fromCamelToKebabCase(String(value)) }`)),
-    className,
   ].filter(Boolean).join(' '),
 });
 

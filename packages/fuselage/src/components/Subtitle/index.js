@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 
+import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
+import { Skeleton } from './Skeleton';
+import styles from './styles';
+
+const Container = createStyledComponent(styles, 'rcx-subtitle', Text);
 
 export const Subtitle = React.forwardRef(function Subtitle({
-  is,
-  className,
-  level = 2,
+  level,
   ...props
 }, ref) {
-  const compoundClassName = useClassName('rcx-subtitle', {}, className);
-
-  return <Text is={is || `h${ level }`} subtitle className={compoundClassName} ref={ref} {...props} />;
+  return <Container subtitle is={`h${ level }`} ref={ref} {...props} />;
 });
 
 Subtitle.defaultProps = {
@@ -22,14 +22,10 @@ Subtitle.defaultProps = {
 Subtitle.displayName = 'Subtitle';
 
 Subtitle.propTypes = {
-  /**
-   * The heading level, from 1 to 6 (`h1` to `h6`)
-   */
+  /** Is this component visible? */
+  invisible: PropTypes.bool,
+  /** The heading level, from 1 to 6 (`h1` to `h6`) */
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
 };
 
-Subtitle.Skeleton = function Skeleton({ animated, ...props }) {
-  return <Subtitle {...props}>
-    <Text.Skeleton animated={animated} />
-  </Subtitle>;
-};
+Subtitle.Skeleton = Skeleton;

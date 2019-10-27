@@ -1,0 +1,30 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Headline } from '../..';
+
+<Meta title='Typography|Headline' parameters={{ jest: ['Headline/spec'] }} />
+
+# Headline
+
+<Preview>
+  <Story name='Default'>
+    <Headline>Headline</Headline>
+  </Story>
+</Preview>
+
+<Props of={Headline} />
+
+## Level
+
+<Preview>
+  <Story name='Level'>
+    <>
+      <Headline level={1}>Headline 1</Headline>
+      <Headline level={2}>Headline 2</Headline>
+      <Headline level={3}>Headline 3</Headline>
+      <Headline level={4}>Headline 4</Headline>
+      <Headline level={5}>Headline 5</Headline>
+      <Headline level={6}>Headline 6</Headline>
+    </>
+  </Story>
+</Preview>
