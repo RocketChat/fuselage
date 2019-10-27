@@ -48,6 +48,8 @@
       border-radius: $borders-radius-full;
 
       background-color: currentColor;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
     }
   }
 

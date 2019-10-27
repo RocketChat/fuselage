@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 import box from '../../styles/utilities/box';
 import { toRem } from '../../styles/utilities/common';
-import { py, px } from '../../styles/utilities/spacing';
 import { paragraph, ellipsis } from '../../styles/utilities/typography';
 import { scrollable } from '../../styles/utilities/layout';
 
@@ -99,8 +98,12 @@ export const StyledInputControl = styled.input`
 
   outline: 0;
 
-  ${ ({ theme }) => py(`calc(${ theme.spaces.x12 } - ${ theme.borders.width.x2 })`) }
-  ${ ({ theme }) => px(`calc(${ theme.spaces.x16 } - ${ theme.borders.width.x2 })`) }
+  padding:
+    calc(${ ({ theme }) => theme.spaces.x12 } - ${ ({ theme }) => theme.borders.width.x2 })
+    calc(${ ({ theme }) => theme.spaces.x16 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-block: calc(${ ({ theme }) => theme.spaces.x12 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-inline: calc(${ ({ theme }) => theme.spaces.x16 } - ${ ({ theme }) => theme.borders.width.x2 });
+
   ${ ({ theme }) => paragraph(theme) }
   ${ ellipsis }
 

@@ -35,6 +35,8 @@
   border-width: #{ $borders-width-x2 };
   border-color: #{ map-get($colors, dark300) } transparent transparent;
   flex-flow: row nowrap;
+  padding-block: calc(#{ $spaces-x32 } - #{ $borders-width-x2 });
+  padding-inline: calc(#{ $spaces-x8 } - #{ $borders-width-x2 });
 
   &[tabindex] {
     @include clickable;
@@ -53,6 +55,8 @@
 
   & > .rcx-toggle-switch {
     margin: 0 #{ $sizes-x24 };
+    margin-block: 0;
+    margin-inline: #{ $sizes-x24 };
   }
 
   & > .rcx-icon {
@@ -92,6 +96,8 @@
 
   height: 0;
   padding: 0 #{ $spaces-x8 };
+  padding-block: 0;
+  padding-inline: #{ $spaces-x8 };
 
   &--expanded {
     visibility: visible;
@@ -100,5 +106,7 @@
     padding:
       #{ $spaces-x32 }
       #{ $spaces-x8 };
+    padding-block: #{ $spaces-x32 };
+    padding-inline: #{ $spaces-x8 };
   }
 }

@@ -43,7 +43,9 @@ const withIcon = css`
   &::after {
     position: absolute;
     top: 50%;
+    inset-block-start: 50%;
     left: 50%;
+    inset-inline-start: 50%;
 
     display: block;
     visibility: hidden;

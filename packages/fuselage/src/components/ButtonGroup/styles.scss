@@ -11,11 +11,15 @@
 
   flex-flow: row nowrap;
   justify-content: center;
+  margin-block: calc(-1 * #{ $spaces-x16 });
+  margin-inline: calc(-1 * #{ $spaces-x8 });
 
   & > .rcx-button {
     margin:
       #{ $spaces-x16 }
       #{ $spaces-x8 };
+    margin-block: #{ $spaces-x16 };
+    margin-inline: #{ $spaces-x8 };
   }
 
   &--wrap {

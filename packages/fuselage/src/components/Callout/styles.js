@@ -5,12 +5,16 @@ import box from '../../styles/utilities/box';
 import { caption, captionBold, truncate } from '../../styles/utilities/typography';
 import { Icon } from '../Icon';
 
-const container = styled.section`
+const Container = styled.section`
   ${ box }
 
   display: flex;
 
   margin: 0 0 ${ ({ theme }) => theme.spaces.x24 };
+  margin-block-start: 0;
+  margin-block-end: ${ ({ theme }) => theme.spaces.x24 };
+  margin-inline: 0;
+
   padding: ${ ({ theme }) => theme.spaces.x16 };
 
   border-radius: ${ ({ theme }) => theme.borders.radius.x2 };
@@ -36,7 +40,7 @@ const container = styled.section`
   }
 `;
 
-const wrapper = styled.div`
+const Wrapper = styled.div`
   ${ box }
 
   display: flex;
@@ -45,6 +49,8 @@ const wrapper = styled.div`
   flex: 1 1 0;
 
   margin: 0 ${ ({ theme }) => theme.spaces.x8 };
+  margin-block: 0;
+  margin-inline: ${ ({ theme }) => theme.spaces.x8 };
 
   color: ${ ({ theme }) => theme.textColors.default };
   flex-flow: column nowrap;
@@ -52,7 +58,7 @@ const wrapper = styled.div`
   ${ ({ theme }) => caption(theme) }
 `;
 
-const title = styled.h1`
+const Title = styled.h1`
   ${ box }
 
   ${ ({ theme }) => caption(theme) }
@@ -65,7 +71,7 @@ const title = styled.h1`
 `;
 
 export default {
-  'rcx-callout': container,
-  'rcx-callout__wrapper': wrapper,
-  'rcx-callout__title': title,
+  'rcx-callout': Container,
+  'rcx-callout__wrapper': Wrapper,
+  'rcx-callout__title': Title,
 };

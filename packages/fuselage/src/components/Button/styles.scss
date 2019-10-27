@@ -3,6 +3,8 @@
     padding:
       calc((#{ $height } - #{ $line-height }) / 2 - #{ $borders-width-x2 })
       calc(#{ $padding-x } - #{ $borders-width-x2 });
+    padding-block: calc((#{ $height } - #{ $line-height }) / 2 - #{ $borders-width-x2 });
+    padding-inline: calc(#{ $padding-x } - #{ $borders-width-x2 });
 
     & > .rcx-icon {
       font-size: #{ $icon-size-ratio }em;

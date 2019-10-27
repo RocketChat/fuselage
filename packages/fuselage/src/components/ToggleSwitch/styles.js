@@ -8,6 +8,7 @@ const uncheckedState = css`
   &::before {
     position: absolute;
     left: 0%;
+    inset-inline-start: 0%;
 
     width: calc(${ ({ theme }) => theme.sizes.x20 } - 2 * ${ ({ theme }) => theme.borders.width.x2 });
     height: calc(${ ({ theme }) => theme.sizes.x20 } - 2 * ${ ({ theme }) => theme.borders.width.x2 });
@@ -17,13 +18,6 @@ const uncheckedState = css`
     border-radius: 50%;
 
     background-color: currentColor;
-
-    &.rtl,
-    .rtl &,
-    [dir=rtl] & {
-      right: 0%;
-      left: unset;
-    }
   }
 `;
 
@@ -59,17 +53,8 @@ const uncheckedDisabledState = css`
 
 const checkedState = css`
   &::before {
-    left: 100%;
-
-    transform: translateX(-100%);
-
-    &.rtl,
-    .rtl &,
-    [dir=rtl] & {
-      right: 100%;
-
-      transform: translateX(100%);
-    }
+    left: calc(100% - ${ ({ theme }) => theme.sizes.x20 } + 2 * ${ ({ theme }) => theme.borders.width.x2 });
+    inset-inline-start: calc(100% - ${ ({ theme }) => theme.sizes.x20 } + 2 * ${ ({ theme }) => theme.borders.width.x2 });
   }
 `;
 

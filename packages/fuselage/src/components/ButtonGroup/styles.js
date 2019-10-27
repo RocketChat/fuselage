@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import box from '../../styles/utilities/box';
 import { Button } from '../Button';
 
-const container = styled.div`
+const Container = styled.div`
   ${ box }
 
   display: flex;
@@ -13,18 +13,18 @@ const container = styled.div`
   flex-flow: row nowrap;
   justify-content: center;
 
-  ${ ({ theme }) => css`
   margin:
-    calc(-1 * ${ theme.spaces.x16 })
-    calc(-1 * ${ theme.spaces.x8 });
-  ` }
+    calc(-1 * ${ ({ theme }) => theme.spaces.x16 })
+    calc(-1 * ${ ({ theme }) => theme.spaces.x8 });
+  margin-block: calc(-1 * ${ ({ theme }) => theme.spaces.x16 });
+  margin-inline: calc(-1 * ${ ({ theme }) => theme.spaces.x8 });
 
   & > ${ Button.styled } {
-    ${ ({ theme }) => css`
     margin:
-      ${ theme.spaces.x16 }
-      ${ theme.spaces.x8 };
-    ` }
+      ${ ({ theme }) => theme.spaces.x16 }
+      ${ ({ theme }) => theme.spaces.x8 };
+    margin-block: ${ ({ theme }) => theme.spaces.x16 };
+    margin-inline: ${ ({ theme }) => theme.spaces.x8 };
   }
 
   ${ ({ modifiers }) => modifiers.wrap && css`
@@ -69,5 +69,5 @@ const container = styled.div`
 `;
 
 export default {
-  'rcx-button-group': container,
+  'rcx-button-group': Container,
 };

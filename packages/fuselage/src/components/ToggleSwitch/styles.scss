@@ -12,11 +12,7 @@
       border-radius: 50%;
 
       background-color: currentColor;
-
-      @include on-rtl-orientation {
-        right: 0%;
-        left: unset;
-      }
+      inset-inline-start: 0%;
     }
   }
 
@@ -52,15 +48,8 @@
 
   %checked-state {
     &::before {
-      left: 100%;
-
-      transform: translateX(-100%);
-
-      @include on-rtl-orientation {
-        right: 100%;
-
-        transform: translateX(100%);
-      }
+      left: calc(100% - #{ $sizes-x20 } + 2 * #{ $borders-width-x2 });
+      inset-inline-start: calc(100% - #{ $sizes-x20 } + 2 * #{ $borders-width-x2 });
     }
   }
 

@@ -12,6 +12,8 @@ const withRectangularSize = ({ height, paddingX, lineHeight, iconSizeRatio }) =>
     padding:
       calc((${ height } - ${ lineHeight }) / 2 - ${ theme.borders.width.x2 })
       calc(${ paddingX } - ${ theme.borders.width.x2 });
+    padding-block: calc((${ height } - ${ lineHeight }) / 2 - ${ theme.borders.width.x2 });
+    padding-inline: calc(${ paddingX } - ${ theme.borders.width.x2 });
   ` }
 
   & > ${ Icon.styled } {

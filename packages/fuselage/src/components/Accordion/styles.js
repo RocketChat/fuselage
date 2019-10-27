@@ -34,6 +34,8 @@ const ItemBar = styled.div`
   padding:
     calc(${ ({ theme }) => theme.spaces.x32 } - ${ ({ theme }) => theme.borders.width.x2 })
     calc(${ ({ theme }) => theme.spaces.x8 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-block: calc(${ ({ theme }) => theme.spaces.x32 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-inline: calc(${ ({ theme }) => theme.spaces.x8 } - ${ ({ theme }) => theme.borders.width.x2 });
 
   text-align: left;
   text-align: start;
@@ -61,6 +63,8 @@ const ItemBar = styled.div`
 
   & > ${ ToggleSwitch.styled } {
     margin: 0 ${ ({ theme }) => theme.sizes.x24 };
+    margin-block: 0;
+    margin-inline: ${ ({ theme }) => theme.sizes.x24 };
   }
 
   & > ${ Icon.styled } {
@@ -100,6 +104,8 @@ const ItemPanel = styled.div`
 
   height: 0;
   padding: 0 ${ ({ theme }) => theme.spaces.x8 };
+  padding-block: 0;
+  padding-inline: ${ ({ theme }) => theme.spaces.x8 };
 
   ${ ({ modifiers, theme }) => modifiers.expanded && css`
     visibility: visible;
@@ -108,6 +114,8 @@ const ItemPanel = styled.div`
     padding:
       ${ theme.spaces.x32 }
       ${ theme.spaces.x8 };
+    padding-block: ${ theme.spaces.x32 };
+    padding-inline: ${ theme.spaces.x8 };
   ` }
 `;
 
