@@ -16,3 +16,5 @@ FieldGroup.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
+
+FieldGroup.styled = Container;

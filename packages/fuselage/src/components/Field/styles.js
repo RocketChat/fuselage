@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import box from '../../styles/utilities/box';
-import { StyledHint } from '../Hint/styles';
+import { Hint } from '../Hint';
 
 const Container = styled.div`
   ${ box }
@@ -10,7 +10,7 @@ const Container = styled.div`
   align-items: stretch;
   flex-flow: column nowrap;
 
-  & > ${ StyledHint } {
+  & > ${ Hint.styled } {
     margin-top: ${ ({ theme }) => theme.spaces.x4 };
     margin-block-start: ${ ({ theme }) => theme.spaces.x4 };
   }

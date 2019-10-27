@@ -1,15 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import box from '../../styles/utilities/box';
-import { paragraph } from '../../styles/utilities/typography';
+import { Text } from '../Text';
 
-export const StyledHint = styled.div`
-  ${ box }
+const Container = styled(Text)``;
 
-  user-select: text;
-
-  ${ ({ theme }) => paragraph(theme) }
-  ${ ({ theme }) => css`
-    color: ${ theme.textColors.hint };
-  ` }
-`;
+export default {
+  'rcx-hint': Container,
+};

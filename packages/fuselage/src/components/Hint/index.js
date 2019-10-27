@@ -1,22 +1,22 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
-import { StyledHint } from './styles';
+import { createStyledComponent } from '../../styles';
+import { Text } from '../Text';
+import styles from './styles';
 
-export const Hint = React.forwardRef(function Hint({
-  className,
-  ...props
-}, ref) {
-  const compoundClassName = useClassName('rcx-hint', {}, className);
-  const theme = useTheme();
-  return <StyledHint className={compoundClassName} ref={ref} theme={theme} {...props} />;
+const Container = createStyledComponent(styles, 'rcx-hint', Text);
+
+export const Hint = React.forwardRef(function Hint(props, ref) {
+  return <Container hintColor is='div' paragraph ref={ref} {...props} />;
 });
 
 Hint.displayName = 'Hint';
 
 Hint.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+  children: PropTypes.node.isRequired,
+  /** Is this component visible? */
   invisible: PropTypes.bool,
 };
+
+Hint.styled = Container;
