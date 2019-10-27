@@ -1,23 +1,20 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { StyledField } from './styles';
-import { useTheme } from '../../hooks/useTheme';
+import { createStyledComponent } from '../../styles';
+import styles from './styles';
 
-export const Field = React.forwardRef(function Field({
-  className,
-  ...props
-}, ref) {
-  const compoundClassName = useClassName('rcx-field', {}, className);
-  const theme = useTheme();
-  return <StyledField className={compoundClassName} ref={ref} theme={theme} {...props} />;
+const Container = createStyledComponent(styles, 'rcx-field');
+
+export const Field = React.forwardRef(function Field(props, ref) {
+  return <Container ref={ref} {...props} />;
 });
 
 Field.displayName = 'Field';
 
 Field.propTypes = {
+  /** Is this component visible? */
   invisible: PropTypes.bool,
 };
 
-Field.styled = StyledField;
+Field.styled = Container;

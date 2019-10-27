@@ -1,0 +1,12 @@
+.rcx-field {
+  @include box;
+
+  display: flex;
+  align-items: stretch;
+  flex-flow: column nowrap;
+
+  & > .rcx-field {
+    margin-top: #{ $spaces-x4 };
+    margin-block-start: #{ $spaces-x4 };
+  }
+}
