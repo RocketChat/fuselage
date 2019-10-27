@@ -6,6 +6,7 @@ export * from './Callout';
 export * from './CheckBox';
 export * from './EmailInput';
 export * from './Field';
+export * from './FieldError';
 export * from './FieldGroup';
 export * from './Headline';
 export * from './Hint';
