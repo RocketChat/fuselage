@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { createContext, useContext } from 'react';
 
 import { createStyledComponent } from '../../styles';
+import { useFieldId } from '../Field';
 import { Text } from '../Text';
 import styles from './styles';
 
@@ -25,8 +26,10 @@ export const Label = React.forwardRef(function Label({
   const isInsideLabel = useContext(LabelContext);
   const component = is || (isInsideLabel && 'span') || 'label';
 
+  const fieldId = useFieldId();
+
   return <LabelContext.Provider value={true}>
-    <Container as={component} modifiers={{ position }} ref={ref} {...props}>
+    <Container as={component} htmlFor={component === 'label' && fieldId} modifiers={{ position }} ref={ref} {...props}>
       {(text || error) && <Wrapper modifiers={{ position }}>
         {text && <TextContainer disabledLabelColor={disabled} modifiers={{ required }}>{text}</TextContainer>}
         {error && <ErrorContainer dangerColor>{error}</ErrorContainer>}

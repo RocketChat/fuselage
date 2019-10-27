@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { createStyledComponent } from '../../styles';
+import { useFieldId } from '../Field';
 import { Label } from '../Label';
 import styles from './styles';
 
@@ -17,8 +18,10 @@ export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
   onClick,
   ...props
 }, ref) {
+  const fieldId = useFieldId();
+
   return <Container className={className} hidden={hidden} invisible={invisible} style={style} onClick={onClick}>
-    <Input ref={ref} type='checkbox' {...props} />
+    <Input id={fieldId} ref={ref} type='checkbox' {...props} />
     <Fake aria-hidden='true' />
   </Container>;
 });
