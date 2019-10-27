@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
-import { toRem } from '../../styles/helpers';
+import box from '../../styles/utilities/box';
+import { toRem } from '../../styles/utilities/common';
 import { py, px } from '../../styles/utilities/spacing';
 import { paragraph, ellipsis } from '../../styles/utilities/typography';
 import { scrollable } from '../../styles/utilities/layout';

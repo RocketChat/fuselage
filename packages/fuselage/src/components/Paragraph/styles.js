@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import { Text } from '../Text';
 
 const Container = styled(Text)`

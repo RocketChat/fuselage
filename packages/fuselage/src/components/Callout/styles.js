@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import colors from '@rocket.chat/fuselage-tokens/colors';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import { caption, captionBold, truncate } from '../../styles/utilities/typography';
 import { Icon } from '../Icon';
 

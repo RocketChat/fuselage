@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { toRem } from '../../styles/helpers';
+import { toRem } from '../../styles/utilities/common';
 import { selectionButton } from '../../styles/utilities/controls';
 import { Label } from '../Label';
 

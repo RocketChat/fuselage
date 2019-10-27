@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components';
 import colors from '@rocket.chat/fuselage-tokens/colors';
+import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import { clickable } from '../../styles/utilities/interactivity';
 import { truncate, paragraph, paragraphBold, caption, captionBold } from '../../styles/utilities/typography';
 import { Icon } from '../Icon';
-import { toRem } from '../../styles/helpers';
+import { toRem } from '../../styles/utilities/common';
 
 const withRectangularSize = ({ height, paddingX, lineHeight, iconSizeRatio }) => css`
   ${ ({ theme }) => css`

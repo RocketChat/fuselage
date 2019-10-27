@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import { py, px, pr } from '../../styles/utilities/spacing';
 import { Icon } from '../Icon';
 import { InputControl } from '../InputControl';

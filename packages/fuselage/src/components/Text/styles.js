@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import {
   headline,
   subtitle,

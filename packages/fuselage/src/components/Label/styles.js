@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import { paragraph, ellipsis } from '../../styles/utilities/typography';
 
 export const StyledLabel = styled.label`

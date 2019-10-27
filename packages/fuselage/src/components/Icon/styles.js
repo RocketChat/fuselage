@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 
 const container = css`
   ${ box }

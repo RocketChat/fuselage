@@ -1,6 +1,6 @@
 import spaces from '@rocket.chat/fuselage-tokens/spaces';
 
-import { theme, toRem } from '../helpers';
+import { theme, toRem } from '../utilities/common';
 
 export default {
   x2: theme('spaces-x2', toRem(spaces[1])),

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import { pr } from '../../styles/utilities/spacing';
 import { paragraph, truncate } from '../../styles/utilities/typography';
 import { Addon, Input } from '../InputBox/styles';

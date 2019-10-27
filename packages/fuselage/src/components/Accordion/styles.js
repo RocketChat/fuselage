@@ -1,10 +1,10 @@
 import colors from '@rocket.chat/fuselage-tokens/colors';
 import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import { clickable } from '../../styles/utilities/interactivity';
 import { truncate, subtitleBold, subtitle } from '../../styles/utilities/typography';
-import { toRem } from '../../styles/helpers';
+import { toRem } from '../../styles/utilities/common';
 import { Icon } from '../Icon';
 import { ToggleSwitch } from '../ToggleSwitch';
 

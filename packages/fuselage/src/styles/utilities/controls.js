@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import box from '../box';
+import box from './box';
 import { clickable } from './interactivity';
 import { visuallyHidden } from './layout';
 

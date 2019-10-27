@@ -1,6 +1,6 @@
 import colors from '@rocket.chat/fuselage-tokens/colors';
 
-import { theme } from '../helpers';
+import { theme } from '../utilities/common';
 
 export default {
   default: theme('text-colors-default', colors.dark800),
