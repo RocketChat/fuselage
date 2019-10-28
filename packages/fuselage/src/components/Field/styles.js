@@ -13,6 +13,8 @@ const Container = styled.div`
 
   & > ${ Label.styled } {
     flex: 1 1 0;
+    margin-bottom: ${ ({ theme }) => theme.spaces.x8 };
+    margin-block-end: ${ ({ theme }) => theme.spaces.x8 };
   }
 `;
 
@@ -23,9 +25,11 @@ const RowContainer = styled.div`
   flex-flow: row nowrap;
   align-items: center;
 
+  margin-bottom: ${ ({ theme }) => theme.spaces.x8 };
+  margin-block-end: ${ ({ theme }) => theme.spaces.x8 };
+
   & > ${ Label.styled } {
     flex: 1 1 0;
-    align-self: center;
   }
 `;
 

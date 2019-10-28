@@ -25,38 +25,35 @@
   @include box;
 
   display: flex;
-
-  flex: 1 0 auto;
-
-  margin-bottom: #{ $spaces-x8 };
   align-items: center;
-  margin-block-end: #{ $spaces-x8 };
 
   &--position-top {
     flex: 1 0 auto;
 
-    margin-bottom: #{ $spaces-x8 };
-    margin-block-end: #{ $spaces-x8 };
+    .rcx-label__wrapper--has-children {
+      margin-bottom: #{ $spaces-x8 };
+      margin-block-end: #{ $spaces-x8 };
+    }
   }
 
   &--position-start {
     flex: 1 0 0;
-
-    margin-right: #{ $spaces-x8 };
-    margin-bottom: unset;
     align-self: stretch;
-    margin-block-end: unset;
-    margin-inline-end: #{ $spaces-x8 };
+
+    .rcx-label__wrapper--has-children {
+      margin-right: #{ $spaces-x8 };
+      margin-inline-end: #{ $spaces-x8 };
+    }
   }
 
   &--position-end {
     flex: 1 0 0;
-
-    margin-bottom: unset;
-    margin-left: #{ $spaces-x8 };
     align-self: stretch;
-    margin-block-end: unset;
-    margin-inline-start: #{ $spaces-x8 };
+
+    .rcx-label__wrapper--has-children {
+      margin-left: #{ $spaces-x8 };
+      margin-inline-start: #{ $spaces-x8 };
+    }
   }
 }
 
@@ -74,15 +71,4 @@
       color: #{ $text-colors-danger };
     }
   }
-}
-
-.rcx-label__error {
-  flex: 0 1 auto;
-
-  margin-left: #{ $spaces-x8 };
-
-  user-select: text;
-  margin-inline-start: #{ $spaces-x8 };
-
-  @include ellipsis;
 }

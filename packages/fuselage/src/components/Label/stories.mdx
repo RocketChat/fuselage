@@ -35,16 +35,6 @@ the <LinkTo kind='Forms|Label' story='Default Story'>`Label`</LinkTo> too.
   </Story>
 </Preview>
 
-### Errored
-
-<Preview>
-  <Story name='Errored'>
-    <Label text='Label' error='Error'>
-      <InputBox.Skeleton />
-    </Label>
-  </Story>
-</Preview>
-
 ### Disabled
 
 <Preview>
@@ -58,23 +48,6 @@ the <LinkTo kind='Forms|Label' story='Default Story'>`Label`</LinkTo> too.
 ## Position
 
 The text flows around the children according to the `position` prop.
-
-<Story name='Positions'>
-  <PropsVariationSection
-    component={Label}
-    common={{ text: 'Label', children: <InputBox.Skeleton /> }}
-    xAxis={{
-      default: {},
-      required: { required: true },
-      errored: { error: 'Error' },
-    }}
-    yAxis={{
-      top: { position: 'top' },
-      start: { position: 'start' },
-      end: { position: 'end' },
-    }}
-  />
-</Story>
 
 ### Top
 

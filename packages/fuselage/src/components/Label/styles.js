@@ -30,38 +30,35 @@ const Wrapper = styled.span`
   ${ box }
 
   display: flex;
-
-  flex: 1 0 auto;
-
-  margin-bottom: ${ ({ theme }) => theme.spaces.x8 };
-  margin-block-end: ${ ({ theme }) => theme.spaces.x8 };
   align-items: center;
 
   ${ ({ modifiers, theme }) => modifiers.position === 'top' && css`
     flex: 1 0 auto;
 
-    margin-bottom: ${ theme.spaces.x8 };
-    margin-block-end: ${ theme.spaces.x8 };
+    ${ modifiers.hasChildren && css`
+      margin-bottom: ${ theme.spaces.x8 };
+      margin-block-end: ${ theme.spaces.x8 };
+    ` }
   ` }
 
   ${ ({ modifiers, theme }) => modifiers.position === 'start' && css`
     flex: 1 0 0;
-
-    margin-bottom: unset;
-    margin-block-end: unset;
-    margin-right: ${ theme.spaces.x8 };
-    margin-inline-end: ${ theme.spaces.x8 };
     align-self: stretch;
+
+    ${ modifiers.hasChildren && css`
+      margin-right: ${ theme.spaces.x8 };
+      margin-inline-end: ${ theme.spaces.x8 };
+    ` }
   ` }
 
   ${ ({ modifiers, theme }) => modifiers.position === 'end' && css`
       flex: 1 0 0;
-
-      margin-bottom: unset;
-      margin-block-end: unset;
-      margin-left: ${ theme.spaces.x8 };
-      margin-inline-start: ${ theme.spaces.x8 };
       align-self: stretch;
+
+      ${ modifiers.hasChildren && css`
+        margin-left: ${ theme.spaces.x8 };
+        margin-inline-start: ${ theme.spaces.x8 };
+      ` }
   ` }
 `;
 
@@ -80,20 +77,8 @@ const TextContainer = styled.span`
   ` }
 `;
 
-const ErrorContainer = styled.span`
-  flex: 0 1 auto;
-
-  margin-left: ${ ({ theme }) => theme.spaces.x8 };
-  margin-inline-start: ${ ({ theme }) => theme.spaces.x8 };
-
-  user-select: text;
-
-  ${ ellipsis }
-`;
-
 export default {
   'rcx-label': Container,
   'rcx-label__wrapper': Wrapper,
   'rcx-label__text': TextContainer,
-  'rcx-label__error': ErrorContainer,
 };
