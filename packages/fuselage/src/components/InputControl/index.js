@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React, { useRef, useLayoutEffect } from 'react';
 
 import { useTheme } from '../../hooks/useTheme';
-import { useFieldId } from '../Field';
 import { StyledInputControl } from './styles';
 
 export const InputControl = React.forwardRef(function InputControl({
@@ -25,8 +24,6 @@ export const InputControl = React.forwardRef(function InputControl({
     }
   }, [error]);
 
-  const fieldId = useFieldId();
-
   return <StyledInputControl
     as={
       (type === 'textarea' && 'textarea')
@@ -37,7 +34,6 @@ export const InputControl = React.forwardRef(function InputControl({
       (type === 'textarea' && 1)
     || (type === 'select' && 0)
     || 0}
-    id={fieldId}
     ref={mergedRef}
     size={
       (type === 'textarea' && undefined)

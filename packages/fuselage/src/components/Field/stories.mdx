@@ -22,6 +22,20 @@ entry in a form.
 
 <Props of={Field} />
 
+## Handling the field ID
+
+<Preview>
+  <Story name='Handling The Field ID'>
+    <Field>
+      {(id) => <>
+        <Label htmlFor={id} text='Label' />
+        <InputBox id={id} />
+        <Field.Hint>Help text</Field.Hint>
+      </>}
+    </Field>
+  </Story>
+</Preview>
+
 ## Field.Row
 
 <Preview>

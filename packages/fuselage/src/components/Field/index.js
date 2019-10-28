@@ -27,6 +27,7 @@ export const Field = React.forwardRef(function Field({ children, fieldId, ...pro
 Field.displayName = 'Field';
 
 Field.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };

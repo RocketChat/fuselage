@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React, { useLayoutEffect, useRef, useCallback } from 'react';
 
 import { createStyledComponent } from '../../styles';
-import { useFieldId } from '../Field';
 import { Label } from '../Label';
 import styles from './styles';
 
@@ -32,10 +31,8 @@ export const CheckBox = React.forwardRef(function CheckBox({
     onChange && onChange.call(innerRef.current, event);
   }, [indeterminate, onChange]);
 
-  const fieldId = useFieldId();
-
   return <Container className={className} hidden={hidden} invisible={invisible} style={style}>
-    <Input id={fieldId} ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
+    <Input ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
     <Fake aria-hidden='true' />
   </Container>;
 });
