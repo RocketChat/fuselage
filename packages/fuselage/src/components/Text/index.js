@@ -9,6 +9,7 @@ const Container = createStyledComponent(styles, 'rcx-text', 'span');
 
 export const Text = React.forwardRef(function Text({
   is,
+  modifiers = {},
 
   headline,
   subtitle,
@@ -19,6 +20,7 @@ export const Text = React.forwardRef(function Text({
   defaultColor,
   infoColor,
   hintColor,
+  disabledLabelColor,
   disabledColor,
   alternativeColor,
   primaryColor,
@@ -31,9 +33,11 @@ export const Text = React.forwardRef(function Text({
   return <Container
     as={is}
     modifiers={{
+      ...modifiers,
       color: (defaultColor && 'default')
         || (infoColor && 'info')
         || (hintColor && 'hint')
+        || (disabledLabelColor && 'disabled-label')
         || (disabledColor && 'disabled')
         || (alternativeColor && 'alternative')
         || (primaryColor && 'primary')

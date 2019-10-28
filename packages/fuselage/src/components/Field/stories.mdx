@@ -1,7 +1,7 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
-import { Field, Hint, InputBox, Label } from '../..';
+import { Button, Field, Hint, Icon, InputBox, Label } from '../..';
 
 <Meta title='Forms|Field' parameters={{ jest: ['Field/spec'] }} />
 
@@ -13,12 +13,73 @@ entry in a form.
 <Preview>
   <Story name='Default'>
     <Field>
-      <Label text='Label'>
-        <InputBox.Skeleton />
-      </Label>
-      <Hint>Help text</Hint>
+      <Label text='Label' />
+      <InputBox.Skeleton />
+      <Field.Hint>Help text</Field.Hint>
     </Field>
   </Story>
 </Preview>
 
 <Props of={Field} />
+
+## Handling the field ID
+
+<Preview>
+  <Story name='Handling The Field ID'>
+    <Field>
+      {(id) => <>
+        <Label htmlFor={id} text='Label' />
+        <InputBox id={id} />
+        <Field.Hint>Help text</Field.Hint>
+      </>}
+    </Field>
+  </Story>
+</Preview>
+
+## Field.Row
+
+<Preview>
+  <Story name='Row'>
+    <Field>
+      <Field.Row>
+        <Label text='Label' />
+        <Button danger ghost small square>
+          <Icon name='cross' />
+        </Button>
+      </Field.Row>
+      <InputBox.Skeleton />
+    </Field>
+  </Story>
+</Preview>
+
+<Props of={Field.Row} />
+
+## Field.Error
+
+<Preview>
+  <Story name='Error'>
+    <Field>
+      <Field.Row>
+        <Label text='Label' />
+        <Field.Error>Error</Field.Error>
+      </Field.Row>
+      <InputBox.Skeleton />
+    </Field>
+  </Story>
+</Preview>
+
+<Props of={Field.Error} />
+
+## Field.Hint
+
+<Preview>
+  <Story name='Hint'>
+    <Field>
+      <Label text='Label' />
+      <InputBox.Skeleton />
+      <Field.Hint>Help text</Field.Hint>
+    </Field>
+  </Story>
+</Preview>
+
+<Props of={Field.Hint} />

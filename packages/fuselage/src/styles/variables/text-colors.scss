@@ -3,6 +3,7 @@
 $text-colors-default: theme('text-colors-default', get-map-value($colors, dark800));
 $text-colors-info: theme('text-colors-info', get-map-value($colors, dark700));
 $text-colors-hint: theme('text-colors-hint', get-map-value($colors, dark600));
+$text-colors-disabled-label: theme('text-colors-disabled-label', get-map-value($colors, dark500));
 $text-colors-disabled: theme('text-colors-disabled', get-map-value($colors, dark400));
 $text-colors-alternative: theme('text-colors-alternative', get-map-value($colors, 'white'));
 $text-colors-primary: theme('text-colors-primary', get-map-value($colors, blue500));

@@ -33,6 +33,7 @@ const Container = styled.span`
     (modifiers.color === 'default' && withColor(theme.textColors.default))
   || (modifiers.color === 'info' && withColor(theme.textColors.info))
   || (modifiers.color === 'hint' && withColor(theme.textColors.hint))
+  || (modifiers.color === 'disabled-label' && withColor(theme.textColors.disabledLabel))
   || (modifiers.color === 'disabled' && withColor(theme.textColors.disabled))
   || (modifiers.color === 'alternative' && withColor(theme.textColors.alternative))
   || (modifiers.color === 'primary' && withColor(theme.textColors.primary))

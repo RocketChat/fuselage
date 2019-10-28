@@ -8,7 +8,6 @@ export * from './EmailInput';
 export * from './Field';
 export * from './FieldGroup';
 export * from './Headline';
-export * from './Hint';
 export * from './Icon';
 export * from './InputBox';
 export * from './InputControl';

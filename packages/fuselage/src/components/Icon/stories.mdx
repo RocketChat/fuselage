@@ -35,10 +35,10 @@ export const styles = {
 <div style={styles.container}>
   {Object.values(iconNames).map((name, key) =>
     <div key={key} style={styles.wrapper}>
-      <Text>
+      <Text is='div'>
         <Icon name={name} style={{ fontSize: 40 }} />
       </Text>
-      <Hint>{name}</Hint>
+      <Text is='div' hintColor>{name}</Text>
     </div>
   )}
 </div>
