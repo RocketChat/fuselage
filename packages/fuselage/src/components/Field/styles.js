@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import box from '../../styles/utilities/box';
 import { ellipsis } from '../../styles/utilities/typography';
-import { Hint } from '../Hint';
 import { Label } from '../Label';
 
 const Container = styled.div`
@@ -15,11 +14,6 @@ const Container = styled.div`
   & > ${ Label.styled } {
     flex: 1 1 0;
   }
-
-  & > ${ Hint.styled } {
-    margin-top: ${ ({ theme }) => theme.spaces.x4 };
-    margin-block-start: ${ ({ theme }) => theme.spaces.x4 };
-  }
 `;
 
 const RowContainer = styled.div`
@@ -27,9 +21,11 @@ const RowContainer = styled.div`
 
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
 
   & > ${ Label.styled } {
     flex: 1 1 0;
+    align-self: center;
   }
 `;
 
@@ -44,8 +40,14 @@ const ErrorContainer = styled.span`
   ${ ellipsis }
 `;
 
+const HintContainer = styled(Text)`
+  margin-top: ${ ({ theme }) => theme.spaces.x4 };
+  margin-block-start: ${ ({ theme }) => theme.spaces.x4 };
+`;
+
 export default {
   'rcx-field': Container,
   'rcx-field__row': RowContainer,
   'rcx-field__error': ErrorContainer,
+  'rcx-field__hint': HintContainer,
 };

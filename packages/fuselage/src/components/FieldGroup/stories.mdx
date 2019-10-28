@@ -1,6 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Field, FieldGroup, Hint, InputBox, Label } from '../..';
+import { Field, FieldGroup, InputBox, Label } from '../..';
 
 <Meta title='Forms|FieldGroup' parameters={{ jest: ['FieldGroup/spec'] }} />
 
@@ -18,7 +18,7 @@ A container for grouping fields that semantically share a common data context.
       <Field>
         <Label text='Field #2' />
         <InputBox.Skeleton />
-        <Hint>Help text</Hint>
+        <Field.Hint>Help text</Field.Hint>
       </Field>
       <Field>
         <Label text='Field #3' />

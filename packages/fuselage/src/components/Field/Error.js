@@ -8,10 +8,10 @@ import styles from './styles';
 const Container = createStyledComponent(styles, 'rcx-field__error', Text);
 
 export const FieldError = React.forwardRef(function FieldError(props, ref) {
-  return <Container dangerColor is='span' ref={ref} {...props} />;
+  return <Container dangerColor is='span' paragraph ref={ref} {...props} />;
 });
 
-FieldError.displayName = 'FieldError';
+FieldError.displayName = 'Field.Error';
 
 FieldError.propTypes = {
   children: PropTypes.node.isRequired,

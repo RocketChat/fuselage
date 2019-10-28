@@ -5,8 +5,36 @@
   align-items: stretch;
   flex-flow: column nowrap;
 
-  & > .rcx-field {
-    margin-top: #{ $spaces-x4 };
-    margin-block-start: #{ $spaces-x4 };
+  & > .rcx-label {
+    flex: 1 1 0;
   }
+}
+
+.rcx-field__row {
+  @include box;
+
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+
+  & > .rcx-label {
+    flex: 1 1 0;
+    align-self: center;
+  }
+}
+
+.rcx-field__error {
+  flex: 0 1 auto;
+
+  margin-left: #{ $spaces-x8 };
+
+  user-select: text;
+  margin-inline-start: #{ $spaces-x8 };
+
+  @include ellipsis;
+}
+
+.rcx-field__hint {
+  margin-top: #{ $spaces-x4 };
+  margin-block-start: #{ $spaces-x4 };
 }

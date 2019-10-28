@@ -1,7 +1,7 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
-import { Field, Hint, InputBox, Label } from '../..';
+import { Button, Field, Hint, Icon, InputBox, Label } from '../..';
 
 <Meta title='Forms|Field' parameters={{ jest: ['Field/spec'] }} />
 
@@ -15,7 +15,7 @@ entry in a form.
     <Field>
       <Label text='Label' />
       <InputBox.Skeleton />
-      <Hint>Help text</Hint>
+      <Field.Hint>Help text</Field.Hint>
     </Field>
   </Story>
 </Preview>
@@ -36,6 +36,24 @@ entry in a form.
   </Story>
 </Preview>
 
+<Props of={Field.Row} />
+
+### With addon
+
+<Preview>
+  <Story name='Row With Addon'>
+    <Field>
+      <Field.Row>
+        <Label text='Label' />
+        <Button danger ghost small square>
+          <Icon name='cross' />
+        </Button>
+      </Field.Row>
+      <InputBox.Skeleton />
+    </Field>
+  </Story>
+</Preview>
+
 ## Field.Error
 
 <Preview>
@@ -49,3 +67,19 @@ entry in a form.
     </Field>
   </Story>
 </Preview>
+
+<Props of={Field.Error} />
+
+## Field.Hint
+
+<Preview>
+  <Story name='Hint'>
+    <Field>
+      <Label text='Label' />
+      <InputBox.Skeleton />
+      <Field.Hint>Help text</Field.Hint>
+    </Field>
+  </Story>
+</Preview>
+
+<Props of={Field.Hint} />

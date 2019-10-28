@@ -4,6 +4,7 @@ import React, { createContext, useContext } from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { FieldError } from './Error';
+import { FieldHint } from './Hint';
 import { FieldRow } from './Row';
 import styles from './styles';
 
@@ -33,5 +34,5 @@ Field.propTypes = {
 Field.styled = Container;
 
 Field.Row = FieldRow;
-
 Field.Error = FieldError;
+Field.Hint = FieldHint;
