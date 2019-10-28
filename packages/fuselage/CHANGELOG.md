@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.14](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.13...v0.2.0-alpha.14) (2019-10-28)
+
+
+### Features
+
+* Tile component ([#85](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/85)) ([a22d21f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a22d21fbf79feecb8cb2440cd8e32523a5109d8b))
+
+
+
+
+
 # [0.2.0-alpha.13](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.12...v0.2.0-alpha.13) (2019-10-25)
 
 **Note:** Version bump only for package @rocket.chat/fuselage
