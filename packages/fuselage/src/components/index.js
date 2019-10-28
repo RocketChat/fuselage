@@ -23,5 +23,6 @@ export * from './TelephoneInput';
 export * from './Text';
 export * from './TextAreaInput';
 export * from './TextInput';
+export * from './Tile';
 export * from './ToggleSwitch';
 export * from './UrlInput';

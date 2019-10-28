@@ -1,4 +1,4 @@
-import { theme, toRem } from '../helpers';
+import { theme, toRem } from '../utilities/common';
 
 export default {
   x44: theme('sizes-x44', toRem(44)),

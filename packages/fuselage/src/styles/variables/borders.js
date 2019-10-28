@@ -1,6 +1,6 @@
 import borders from '@rocket.chat/fuselage-tokens/borders';
 
-import { theme, toRem } from '../helpers';
+import { theme, toRem } from '../utilities/common';
 
 export default {
   width: {

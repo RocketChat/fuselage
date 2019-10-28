@@ -48,6 +48,8 @@
       border-radius: $borders-radius-full;
 
       background-color: currentColor;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
     }
   }
 
@@ -87,7 +89,7 @@
     unchecked-hover: '%unchecked-hover-state',
     unchecked-active: '%unchecked-active-state',
     unchecked-disabled: '%unchecked-disabled-state',
-    checked: '%checked-state',
+    checked-all: '%checked-state',
     checked-default: '%checked-default-state',
     checked-focus: '%checked-focus-state',
     checked-hover: '%checked-hover-state',

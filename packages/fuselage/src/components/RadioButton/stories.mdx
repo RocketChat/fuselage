@@ -1,0 +1,53 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { RadioButton } from '../..';
+
+<Meta title='Buttons|RadioButton' parameters={{ jest: ['RadioButton/spec'] }} />
+
+# RadioButton
+
+<Preview>
+  <Story name='Default'>
+    <RadioButton onChange={action('change')} />
+  </Story>
+</Preview>
+
+<Props of={RadioButton} />
+
+## Checked
+
+<Preview>
+  <Story name='Checked'>
+    <RadioButton checked onChange={action('change')} />
+  </Story>
+</Preview>
+
+## Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <RadioButton disabled />
+  </Story>
+</Preview>
+
+## States
+
+<Story name='States'>
+  <PropsVariationSection
+    component={RadioButton}
+    common={{ onChange: action('change') }}
+    xAxis={{
+      checked: { checked: true },
+      unchecked: { checked: false },
+    }}
+    yAxis={{
+      default: { },
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>

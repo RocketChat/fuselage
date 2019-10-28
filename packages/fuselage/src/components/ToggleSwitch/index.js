@@ -1,8 +1,13 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 
-import { Box } from '../Box';
+import { createStyledComponent } from '../../styles';
 import { Label } from '../Label';
+import styles from './styles';
+
+const Container = createStyledComponent(styles, 'rcx-toggle-switch', Label);
+const Input = createStyledComponent(styles, 'rcx-toggle-switch__input', 'input');
+const Fake = createStyledComponent(styles, 'rcx-toggle-switch__fake', 'i');
 
 export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
   className,
@@ -12,16 +17,17 @@ export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
   onClick,
   ...props
 }, ref) {
-  const classNames = {
-    container: useClassName('rcx-toggle-switch', {}, className),
-    input: useClassName('rcx-toggle-switch__input'),
-    fake: useClassName('rcx-toggle-switch__fake'),
-  };
-
-  return <Label className={classNames.container} hidden={hidden} invisible={invisible} style={style} onClick={onClick}>
-    <Box className={classNames.input} is='input' ref={ref} type='checkbox' {...props} />
-    <Box aria-hidden='true' className={classNames.fake} is='i' />
-  </Label>;
+  return <Container className={className} hidden={hidden} invisible={invisible} style={style} onClick={onClick}>
+    <Input ref={ref} type='checkbox' {...props} />
+    <Fake aria-hidden='true' />
+  </Container>;
 });
 
 ToggleSwitch.displayName = 'ToggleSwitch';
+
+ToggleSwitch.propTypes = {
+  /** Is this component visible? */
+  invisible: PropTypes.bool,
+};
+
+ToggleSwitch.styled = Container;

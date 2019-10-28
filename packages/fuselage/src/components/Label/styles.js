@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import { paragraph, ellipsis } from '../../styles/utilities/typography';
 
 export const StyledLabel = styled.label`
@@ -36,15 +36,18 @@ export const Wrapper = styled.span`
       flex: 1 0 0;
       align-self: stretch;
       margin-right: ${ theme.spaces.x8 };
+      margin-inline-end: ${ theme.spaces.x8 };
     `)
     || (position === 'end' && css`
       flex: 1 0 0;
       align-self: stretch;
       margin-left: ${ theme.spaces.x8 };
+      margin-inline-start: ${ theme.spaces.x8 };
     `)
     || css`
       flex: 1 0 auto;
       margin-bottom: ${ theme.spaces.x8 };
+      margin-block-end: ${ theme.spaces.x8 };
     ` }
 `;
 
@@ -72,5 +75,6 @@ export const Error = styled.span`
   user-select: text;
   color: ${ ({ theme }) => theme.textColors.danger };
   margin-left: ${ ({ theme }) => theme.spaces.x8 };
+  margin-inline-start: ${ ({ theme }) => theme.spaces.x8 };
   ${ ellipsis }
 `;

@@ -1,6 +1,6 @@
 import typography from '@rocket.chat/fuselage-tokens/typography';
 
-import { theme, toRem } from '../helpers';
+import { theme, toRem } from '../utilities/common';
 
 export default {
   h1: {

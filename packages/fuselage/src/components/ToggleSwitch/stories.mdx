@@ -1,0 +1,53 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { ToggleSwitch } from '../..';
+
+<Meta title='Buttons|ToggleSwitch' parameters={{ jest: ['ToggleSwitch/spec'] }} />
+
+# ToggleSwitch
+
+<Preview>
+  <Story name='Default'>
+    <ToggleSwitch onChange={action('change')} />
+  </Story>
+</Preview>
+
+<Props of={ToggleSwitch} />
+
+## Checked
+
+<Preview>
+  <Story name='Checked'>
+    <ToggleSwitch checked onChange={action('change')} />
+  </Story>
+</Preview>
+
+## Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <ToggleSwitch disabled />
+  </Story>
+</Preview>
+
+## States
+
+<Story name='States'>
+  <PropsVariationSection
+    component={ToggleSwitch}
+    common={{ onChange: action('change') }}
+    xAxis={{
+      checked: { checked: true },
+      unchecked: { checked: false },
+    }}
+    yAxis={{
+      default: { },
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>

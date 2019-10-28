@@ -1,0 +1,10 @@
+$widths: ();
+
+@for $i from 1 through 12 {
+  @for $j from 1 through 12 {
+    $widths: map-merge($widths, (#{$i}\/#{$j}: $i / $j * 100%));
+  }
+}
+
+$widths: map-merge($widths, (full: 100%));
+$widths: map-merge($widths, (screen: 100vw));

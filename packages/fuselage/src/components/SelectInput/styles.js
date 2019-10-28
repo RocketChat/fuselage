@@ -1,19 +1,32 @@
 import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
-import { pr } from '../../styles/utilities/spacing';
+import box from '../../styles/utilities/box';
 import { paragraph, truncate } from '../../styles/utilities/typography';
 import { Addon, Input } from '../InputBox/styles';
 import { InputBox } from '../InputBox';
 
 export const StyledSelectInput = styled(InputBox)`
-  ${ ({ theme }) => pr(`calc(${ theme.spaces.x16 } + ${ theme.sizes.x44 } - 2 * ${ theme.spaces.x12 })`) }
+  position: relative;
 
-  & ~ ${ Addon } {
+  & > ${ Input } {
+    padding-right: calc(${ ({ theme }) => theme.spaces.x16 } + ${ ({ theme }) => theme.sizes.x44 } - 2 * ${ ({ theme }) => theme.spaces.x12 });
+    padding-inline-end: calc(${ ({ theme }) => theme.spaces.x16 } + ${ ({ theme }) => theme.sizes.x44 } - 2 * ${ ({ theme }) => theme.spaces.x12 });
+  }
+
+  & > ${ Addon } {
     position: absolute;
     top: 0;
-    right: 0;
     bottom: 0;
+    inset-block: 0;
+    right: 0;
+    inset-inline-end: 0;
+
+    .rtl &,
+    &.rtl,
+    [dir=rtl] & {
+      right: unset;
+      left: 0;
+    }
 
     pointer-events: none;
   }

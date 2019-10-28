@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 
+import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
+import { Skeleton } from './Skeleton';
+import styles from './styles';
+
+const Container = createStyledComponent(styles, 'rcx-headline', Text);
 
 export const Headline = React.forwardRef(function Headline({
-  is,
-  className,
-  level = 1,
+  level,
   ...props
 }, ref) {
-  const compoundClassName = useClassName('rcx-headline', {}, className);
-
-  return <Text is={is || `h${ level }`} headline className={compoundClassName} ref={ref} {...props} />;
+  return <Container headline is={`h${ level }`} ref={ref} {...props} />;
 });
 
 Headline.defaultProps = {
@@ -22,14 +22,10 @@ Headline.defaultProps = {
 Headline.displayName = 'Headline';
 
 Headline.propTypes = {
-  /**
-   * The heading level, from 1 to 6 (`h1` to `h6`)
-   */
+  /** Is this component visible? */
+  invisible: PropTypes.bool,
+  /** The heading level, from 1 to 6 (`h1` to `h6`) */
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
 };
 
-Headline.Skeleton = function Skeleton({ animated, ...props }) {
-  return <Headline {...props}>
-    <Text.Skeleton animated={animated} />
-  </Headline>;
-};
+Headline.Skeleton = Skeleton;

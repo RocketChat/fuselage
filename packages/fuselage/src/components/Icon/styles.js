@@ -1,11 +1,13 @@
-import styled from 'styled-components';
+import { css } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 
-export const StyledIcon = styled.i`
+const container = css`
   ${ box }
 
   display: inline-block;
+
+  vertical-align: middle;
 
   font-family: 'RocketChat';
   font-weight: 400;
@@ -13,5 +15,8 @@ export const StyledIcon = styled.i`
   font-variant: normal;
   line-height: 1;
   text-rendering: auto;
-  vertical-align: middle;
 `;
+
+export default {
+  'rcx-icon': container,
+};

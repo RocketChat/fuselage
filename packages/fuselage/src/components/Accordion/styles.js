@@ -1,13 +1,14 @@
 import colors from '@rocket.chat/fuselage-tokens/colors';
 import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
+import box from '../../styles/utilities/box';
 import { clickable } from '../../styles/utilities/interactivity';
 import { truncate, subtitleBold, subtitle } from '../../styles/utilities/typography';
-import { StyledIcon } from '../Icon/styles';
-import { toRem } from '../../styles/helpers';
+import { toRem } from '../../styles/utilities/common';
+import { Icon } from '../Icon';
+import { ToggleSwitch } from '../ToggleSwitch';
 
-export const StyledAccordion = styled.div`
+const Container = styled.div`
   ${ box }
 
   display: flex;
@@ -17,50 +18,37 @@ export const StyledAccordion = styled.div`
   border-bottom-color: ${ colors.dark300 };
 `;
 
-export const StyledAccordionItem = styled.div`
+const ItemContainer = styled.div`
   ${ box }
 
   display: flex;
   flex-flow: column nowrap;
 `;
 
-export const Bar = styled.div`
+const ItemBar = styled.div`
   ${ box }
 
   display: flex;
-  flex-flow: row nowrap;
 
-  ${ ({ theme }) => css`
-    min-height: calc(2 * ${ theme.spaces.x32 } + ${ theme.sizes.x24 });
-  ` }
+  min-height: calc(2 * ${ ({ theme }) => theme.spaces.x32 } + ${ ({ theme }) => theme.sizes.x24 });
+  padding:
+    calc(${ ({ theme }) => theme.spaces.x32 } - ${ ({ theme }) => theme.borders.width.x2 })
+    calc(${ ({ theme }) => theme.spaces.x8 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-block: calc(${ ({ theme }) => theme.spaces.x32 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-inline: calc(${ ({ theme }) => theme.spaces.x8 } - ${ ({ theme }) => theme.borders.width.x2 });
+
+  text-align: left;
+  text-align: start;
+
+  color: ${ ({ theme }) => theme.textColors.default };
 
   border-width: ${ ({ theme }) => theme.borders.width.x2 };
   border-color: ${ colors.dark300 } transparent transparent;
-  ${ ({ theme }) => css`
-    padding:
-      calc(${ theme.spaces.x32 } - ${ theme.borders.width.x2 })
-      calc(${ theme.spaces.x8 } - ${ theme.borders.width.x2 });
-  ` }
+  flex-flow: row nowrap;
 
-  text-align: left;
-
-  ${ ({ disabled, noncollapsible }) => !disabled && !noncollapsible && css`
+  &[tabindex] {
     ${ clickable }
-  ` }
 
-  & > .rcx-toggle-switch {
-    margin: 0 ${ ({ theme }) => theme.sizes.x24 };
-  }
-
-  & > ${ StyledIcon } {
-    font-size: ${ ({ theme }) => theme.sizes.x24 };
-
-    ${ ({ expanded }) => expanded && css`
-      transform: rotate(-180deg);
-    ` }
-  }
-
-  ${ ({ disabled, noncollapsible }) => !disabled && !noncollapsible && css`
     &.hover,
     &:hover {
       background-color: ${ colors.dark100 };
@@ -71,42 +59,70 @@ export const Bar = styled.div`
       border-color: ${ colors.blue500 };
       box-shadow: 0 0 0 ${ toRem(6) } ${ colors.blue100 };
     }
+  }
+
+  & > ${ ToggleSwitch.styled } {
+    margin: 0 ${ ({ theme }) => theme.sizes.x24 };
+    margin-block: 0;
+    margin-inline: ${ ({ theme }) => theme.sizes.x24 };
+  }
+
+  & > ${ Icon.styled } {
+    font-size: ${ ({ theme }) => theme.sizes.x24 };
+  }
+
+  ${ ({ modifiers }) => modifiers.expanded && css`
+    & > ${ Icon.styled } {
+      transform: rotate(-180deg);
+    }
   ` }
 
-  ${ ({ disabled, theme }) => disabled && css`
+  ${ ({ modifiers, theme }) => modifiers.disabled && css`
+    cursor: not-allowed;
+
     color: ${ theme.textColors.disabled };
     background-color: ${ colors.dark100 };
   ` }
 `;
 
-export const Title = styled.h2`
+const ItemTitle = styled.h2`
   ${ box }
 
   flex: 1 1 0;
-
-  ${ ({ disabled, theme }) => disabled && css`
-    color: ${ theme.textColors.disabled };
-  ` }
 
   ${ ({ theme }) => subtitle(theme) }
   ${ ({ theme }) => subtitleBold(theme) }
   ${ truncate }
 `;
 
-export const Panel = styled.div`
+const ItemPanel = styled.div`
   ${ box }
+
+  visibility: hidden;
 
   overflow: hidden;
 
   height: 0;
-  ${ ({ theme }) => css`
-    padding: 0 ${ theme.spaces.x8 };
-    visibility: hidden;
-  ` }
+  padding: 0 ${ ({ theme }) => theme.spaces.x8 };
+  padding-block: 0;
+  padding-inline: ${ ({ theme }) => theme.spaces.x8 };
 
-  ${ ({ expanded, theme }) => expanded && css`
-    height: auto;
-    padding: ${ theme.spaces.x32 } ${ theme.spaces.x8 };
+  ${ ({ modifiers, theme }) => modifiers.expanded && css`
     visibility: visible;
+
+    height: auto;
+    padding:
+      ${ theme.spaces.x32 }
+      ${ theme.spaces.x8 };
+    padding-block: ${ theme.spaces.x32 };
+    padding-inline: ${ theme.spaces.x8 };
   ` }
 `;
+
+export default {
+  'rcx-accordion': Container,
+  'rcx-accordion-item': ItemContainer,
+  'rcx-accordion-item__bar': ItemBar,
+  'rcx-accordion-item__title': ItemTitle,
+  'rcx-accordion-item__panel': ItemPanel,
+};

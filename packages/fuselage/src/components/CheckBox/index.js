@@ -1,19 +1,22 @@
+import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
+import PropTypes from 'prop-types';
 import React, { useLayoutEffect, useRef, useCallback } from 'react';
-import { useClassName, useMergedRefs } from '@rocket.chat/fuselage-hooks';
 
-import { Box } from '../Box';
+import { createStyledComponent } from '../../styles';
 import { Label } from '../Label';
+import styles from './styles';
+
+const Container = createStyledComponent(styles, 'rcx-check-box', Label);
+const Input = createStyledComponent(styles, 'rcx-check-box__input', 'input');
+const Fake = createStyledComponent(styles, 'rcx-check-box__fake', 'i');
 
 export const CheckBox = React.forwardRef(function CheckBox({
   className,
-
   hidden,
+  indeterminate,
   invisible,
   style,
-
-  indeterminate,
   onChange,
-
   ...props
 }, ref) {
   const innerRef = useRef();
@@ -28,16 +31,17 @@ export const CheckBox = React.forwardRef(function CheckBox({
     onChange && onChange.call(innerRef.current, event);
   }, [indeterminate, onChange]);
 
-  const classNames = {
-    container: useClassName('rcx-check-box', {}, className),
-    input: useClassName('rcx-check-box__input'),
-    fake: useClassName('rcx-check-box__fake'),
-  };
-
-  return <Label className={classNames.container} hidden={hidden} invisible={invisible} style={style}>
-    <Box className={classNames.input} is='input' ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
-    <Box aria-hidden='true' className={classNames.fake} is='i' />
-  </Label>;
+  return <Container className={className} hidden={hidden} invisible={invisible} style={style}>
+    <Input ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
+    <Fake aria-hidden='true' />
+  </Container>;
 });
 
 CheckBox.displayName = 'CheckBox';
+
+CheckBox.propTypes = {
+  /** Is this component visible? */
+  invisible: PropTypes.bool,
+};
+
+CheckBox.styled = Container;

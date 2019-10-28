@@ -1,17 +1,25 @@
 .rcx-button-group {
+  @include box;
+
   display: flex;
+
+  margin:
+    calc(-1 * #{ $spaces-x16 })
+    calc(-1 * #{ $spaces-x8 });
 
   align-items: center;
 
   flex-flow: row nowrap;
   justify-content: center;
-
-  @include mx(calc(-1 * #{$spaces-x8}));
-  @include my(calc(-1 * #{$spaces-x16}));
+  margin-block: calc(-1 * #{ $spaces-x16 });
+  margin-inline: calc(-1 * #{ $spaces-x8 });
 
   & > .rcx-button {
-    @include mx($spaces-x8);
-    @include my($spaces-x16);
+    margin:
+      #{ $spaces-x16 }
+      #{ $spaces-x8 };
+    margin-block: #{ $spaces-x16 };
+    margin-inline: #{ $spaces-x8 };
   }
 
   &--wrap {
@@ -29,14 +37,16 @@
   &--vertical {
     flex-direction: column;
 
-    @include my(calc(-1 * #{$spaces-x8}));
+    margin-top: calc(-1 * #{ $spaces-x8 });
+    margin-bottom: calc(-1 * #{ $spaces-x8 });
 
     & > .rcx-button {
-      @include my($spaces-x8);
+      margin-top: #{ $spaces-x8 };
+      margin-bottom: #{ $spaces-x8 };
     }
   }
 
-  &--stretch-vertical {
+  &--vertical.rcx-button-group--stretch {
     align-items: stretch;
   }
 

@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import box from '../../styles/box';
-import { py, px, pr } from '../../styles/utilities/spacing';
-import { StyledIcon } from '../Icon/styles';
+import box from '../../styles/utilities/box';
+import { Icon } from '../Icon';
 import { InputControl } from '../InputControl';
 import { withDecoratorColors } from '../InputControl/styles';
 import { paragraph, ellipsis } from '../../styles/utilities/typography';
@@ -51,13 +50,19 @@ export const Addon = styled.span`
   flex: 0 0 auto;
   align-items: flex-start;
 
-  ${ ({ theme }) => py(`calc(${ theme.spaces.x8 } - ${ theme.borders.width.x2 })`) }
-  ${ ({ theme }) => pr(`calc(${ theme.spaces.x12 } - ${ theme.borders.width.x2 })`) }
+  padding-top: calc(${ ({ theme }) => theme.spaces.x8 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-bottom: calc(${ ({ theme }) => theme.spaces.x8 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-block: calc(${ ({ theme }) => theme.spaces.x8 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-right: calc(${ ({ theme }) => theme.spaces.x12 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-inline-end: calc(${ ({ theme }) => theme.spaces.x12 } - ${ ({ theme }) => theme.borders.width.x2 });
 
-  & > ${ StyledIcon } {
-    font-size: ${ ({ theme }) => `calc(${ theme.sizes.x44 } - 2 * ${ theme.spaces.x12 })` };
-    ${ ({ theme }) => py(theme.spaces.x4) }
-    ${ ({ theme }) => pr(theme.spaces.x4) }
+  & > ${ Icon.styled } {
+    font-size: calc(${ ({ theme }) => theme.sizes.x44 } - 2 * ${ ({ theme }) => theme.spaces.x12 });
+    padding-top: ${ ({ theme }) => theme.spaces.x4 };
+    padding-bottom: ${ ({ theme }) => theme.spaces.x4 };
+    padding-block: ${ ({ theme }) => theme.spaces.x4 };
+    padding-right: ${ ({ theme }) => theme.spaces.x4 };
+    padding-inline-end: ${ ({ theme }) => theme.spaces.x4 };
   }
 `;
 
@@ -126,8 +131,12 @@ export const StyledInputBoxSkeleton = styled.span`
 
   vertical-align: baseline;
 
-  ${ ({ theme }) => py(`calc(${ theme.spaces.x12 } - ${ theme.borders.width.x2 })`) }
-  ${ ({ theme }) => px(`calc(${ theme.spaces.x16 } - ${ theme.borders.width.x2 })`) }
+  padding:
+    calc(${ ({ theme }) => theme.spaces.x12 } - ${ ({ theme }) => theme.borders.width.x2 })
+    calc(${ ({ theme }) => theme.spaces.x16 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-block: calc(${ ({ theme }) => theme.spaces.x12 } - ${ ({ theme }) => theme.borders.width.x2 });
+  padding-inline: calc(${ ({ theme }) => theme.spaces.x16 } - ${ ({ theme }) => theme.borders.width.x2 });
+
   ${ ({ theme }) => paragraph(theme) }
   ${ ellipsis }
 
