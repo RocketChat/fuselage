@@ -17,6 +17,7 @@ export const withDecoratorColors = ({
 }) => css`
   background-color: ${ backgroundColor };
   border-color: ${ borderColor };
+  box-shadow: none;
 
   &:hover,
   &.hover {
