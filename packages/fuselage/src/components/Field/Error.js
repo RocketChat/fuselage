@@ -5,7 +5,7 @@ import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
 import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-field-error', Text);
+const Container = createStyledComponent(styles, 'rcx-field__error', Text);
 
 export const FieldError = React.forwardRef(function FieldError(props, ref) {
   return <Container dangerColor is='span' ref={ref} {...props} />;

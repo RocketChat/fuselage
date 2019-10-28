@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React, { createContext, useContext } from 'react';
 
 import { createStyledComponent } from '../../styles';
+import { FieldError } from './Error';
+import { FieldRow } from './Row';
 import styles from './styles';
 
 const FieldIdContext = createContext();
@@ -11,11 +13,13 @@ export const useFieldId = () => useContext(FieldIdContext);
 
 const Container = createStyledComponent(styles, 'rcx-field');
 
-export const Field = React.forwardRef(function Field({ fieldId, ...props }, ref) {
+export const Field = React.forwardRef(function Field({ children, fieldId, ...props }, ref) {
   const defaultFieldId = useUniqueId();
 
   return <FieldIdContext.Provider value={fieldId || defaultFieldId}>
-    <Container ref={ref} {...props} />
+    <Container ref={ref} {...props}>
+      {typeof children === 'function' ? children(fieldId || defaultFieldId) : children}
+    </Container>
   </FieldIdContext.Provider>;
 });
 
@@ -27,3 +31,7 @@ Field.propTypes = {
 };
 
 Field.styled = Container;
+
+Field.Row = FieldRow;
+
+Field.Error = FieldError;
