@@ -2,6 +2,8 @@
   @include box;
 
   display: flex;
+
+  width: 100%;
   align-items: stretch;
   flex-flow: column nowrap;
 

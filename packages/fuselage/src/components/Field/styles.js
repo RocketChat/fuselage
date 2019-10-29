@@ -8,6 +8,8 @@ const Container = styled.div`
   ${ box }
 
   display: flex;
+
+  width: 100%;
   align-items: stretch;
   flex-flow: column nowrap;
 
