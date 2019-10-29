@@ -7,7 +7,7 @@ const Container = styled.fieldset`
   ${ box }
 
   display: flex;
-  align-items: center;
+  align-items: stretch;
   flex-flow: column nowrap;
   justify-content: center;
 
