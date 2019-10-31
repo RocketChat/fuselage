@@ -1,20 +1,20 @@
-import { useClassName, useMergedRefs } from '@rocket.chat/fuselage-hooks';
+import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useRef, useLayoutEffect } from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
-import { StyledInputControl } from './styles';
+import { createStyledComponent } from '../../styles';
+import styles from './styles';
+
+const Container = createStyledComponent(styles, 'rcx-input-control', 'input');
 
 export const InputControl = React.forwardRef(function InputControl({
-  className,
   error,
+  htmlPlaceholder,
+  multiple,
   type = 'text',
   undecorated = false,
   ...props
 }, ref) {
-  const compoundClassName = useClassName('rcx-input-control', {}, className);
-  const theme = useTheme();
-
   const innerRef = useRef();
   const mergedRef = useMergedRefs(ref, innerRef);
 
@@ -24,25 +24,28 @@ export const InputControl = React.forwardRef(function InputControl({
     }
   }, [error]);
 
-  return <StyledInputControl
+  return <Container
     as={
       (type === 'textarea' && 'textarea')
     || (type === 'select' && 'select')
     || 'input'}
-    className={compoundClassName}
     cols={
       (type === 'textarea' && 1)
     || (type === 'select' && 0)
     || 0}
+    multiple={multiple}
     ref={mergedRef}
     size={
       (type === 'textarea' && undefined)
     || (type === 'select' && 1)
     || 1}
-    theme={theme}
     type={type === 'textarea' || type === 'select' ? undefined : type}
-    htmlType={type}
-    undecorated={undecorated}
+    modifiers={{
+      multiple,
+      placeholderVisible: htmlPlaceholder,
+      type,
+      undecorated,
+    }}
     {...props}
   />;
 });

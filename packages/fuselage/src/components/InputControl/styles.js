@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 
 import box from '../../styles/utilities/box';
 import { toRem } from '../../styles/utilities/common';
-import { paragraph, ellipsis } from '../../styles/utilities/typography';
 import { scrollable } from '../../styles/utilities/layout';
+import { paragraph, ellipsis } from '../../styles/utilities/typography';
 
 export const withDecoratorColors = ({
   backgroundColor,
@@ -27,9 +27,7 @@ export const withDecoratorColors = ({
   &:focus-within,
   &.focus {
     border-color: ${ focusBorderColor };
-    ${ ({ undecorated }) => !undecorated && css`
-      box-shadow: 0 0 0 ${ toRem(6) } ${ focusShadowColor };
-    ` }
+    box-shadow: 0 0 0 ${ toRem(6) } ${ focusShadowColor };
   }
 
   &:active,
@@ -44,6 +42,10 @@ export const withDecoratorColors = ({
     background-color: ${ disabledBackgroundColor };
     border-color: ${ disabledBorderColor };
   }
+
+  ${ ({ modifiers }) => modifiers.undecorated && css`
+    box-shadow: none;
+  ` }
 `;
 
 export const withColors = ({
@@ -52,14 +54,14 @@ export const withColors = ({
   focusCaretColor,
   activeCaretColor,
   disabledColor,
-}, htmlPlaceholder) => css`
+}) => css`
   color: ${ color };
 
   &::placeholder {
     color: ${ placeholderColor };
   }
 
-  ${ htmlPlaceholder && css`
+  ${ ({ modifiers }) => modifiers.placeholderVisible && css`
     color: ${ placeholderColor };
   ` }
 
@@ -80,7 +82,7 @@ export const withColors = ({
   }
 `;
 
-export const StyledInputControl = styled.input`
+export const Container = styled.input`
   ${ box }
 
   position: relative;
@@ -108,23 +110,23 @@ export const StyledInputControl = styled.input`
   ${ ({ theme }) => paragraph(theme) }
   ${ ellipsis }
 
-  ${ ({ htmlType }) => htmlType === 'textarea' && css`
+  ${ ({ modifiers }) => modifiers.type === 'textarea' && css`
     vertical-align: middle;
     resize: none;
     overflow: auto;
     ${ scrollable }
   ` }
 
-  ${ ({ htmlType, multiple }) => htmlType === 'select' && css`
+  ${ ({ modifiers }) => modifiers.type === 'select' && css`
     appearance: none;
     overflow: auto;
     ${ scrollable }
-    ${ multiple && css`
+    ${ modifiers.multiple && css`
       vertical-align: middle;
     ` }
   ` }
 
-  ${ ({ undecorated, theme }) => !undecorated && css`
+  ${ ({ modifiers, theme }) => !modifiers.undecorated && css`
     border-width: ${ theme.borders.width.x2 };
     border-radius: ${ theme.borders.radius.x2 };
     min-width: 8rem;
@@ -138,11 +140,11 @@ export const StyledInputControl = styled.input`
     }
   ` }
 
-  ${ ({ theme, htmlPlaceholder }) => withColors(theme.inputColors.normal, htmlPlaceholder) }
+  ${ ({ theme }) => withColors(theme.inputColors.normal) }
 
   &:invalid,
   &.invalid {
-    ${ ({ theme, htmlPlaceholder }) => withColors(theme.inputColors.invalid, htmlPlaceholder) }
+    ${ ({ theme }) => withColors(theme.inputColors.invalid) }
   }
 
   *:disabled &,
@@ -151,3 +153,7 @@ export const StyledInputControl = styled.input`
     cursor: not-allowed;
   }
 `;
+
+export default {
+  'rcx-input-control': Container,
+};
