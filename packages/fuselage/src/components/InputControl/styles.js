@@ -5,7 +5,7 @@ import { toRem } from '../../styles/utilities/common';
 import { scrollable } from '../../styles/utilities/layout';
 import { paragraph, ellipsis } from '../../styles/utilities/typography';
 
-export const withDecoratorColors = ({
+const withDecoratorColors = ({
   backgroundColor,
   borderColor,
   hoverBorderColor,
@@ -48,7 +48,7 @@ export const withDecoratorColors = ({
   ` }
 `;
 
-export const withColors = ({
+const withColors = ({
   color,
   placeholderColor,
   focusCaretColor,
@@ -82,7 +82,7 @@ export const withColors = ({
   }
 `;
 
-export const Container = styled.input`
+const Container = styled.input`
   ${ box }
 
   position: relative;

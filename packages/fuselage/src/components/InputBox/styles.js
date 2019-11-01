@@ -1,10 +1,49 @@
 import styled, { css } from 'styled-components';
 
 import box from '../../styles/utilities/box';
+import { toRem } from '../../styles/utilities/common';
+import { paragraph, ellipsis } from '../../styles/utilities/typography';
 import { Icon } from '../Icon';
 import { InputControl } from '../InputControl';
-import { withDecoratorColors } from '../InputControl/styles';
-import { paragraph, ellipsis } from '../../styles/utilities/typography';
+
+const withDecoratorColors = ({
+  backgroundColor,
+  borderColor,
+  hoverBorderColor,
+  focusBorderColor,
+  focusShadowColor,
+  activeBorderColor,
+  disabledBackgroundColor,
+  disabledBorderColor,
+}) => css`
+  background-color: ${ backgroundColor };
+  border-color: ${ borderColor };
+  box-shadow: none;
+
+  &:hover,
+  &.hover {
+    border-color: ${ hoverBorderColor };
+  }
+
+  &:focus-within,
+  &.focus {
+    border-color: ${ focusBorderColor };
+    box-shadow: 0 0 0 ${ toRem(6) } ${ focusShadowColor };
+  }
+
+  &:active,
+  &.active {
+    border-color: ${ activeBorderColor };
+    box-shadow: none;
+  }
+
+  *:disabled &,
+  &:disabled,
+  &.disabled {
+    background-color: ${ disabledBackgroundColor };
+    border-color: ${ disabledBorderColor };
+  }
+`;
 
 export const Wrapper = styled.span`
   ${ box }
@@ -120,7 +159,7 @@ export const Input = styled(InputControl)`
   }
 `;
 
-export const StyledInputBoxSkeleton = styled.span`
+const SkeletonContainer = styled.span`
   ${ box }
 
   display: inline-flex;
@@ -148,3 +187,10 @@ export const StyledInputBoxSkeleton = styled.span`
   background-color: ${ ({ theme }) => theme.inputColors.normal.backgroundColor };
   border-color: ${ ({ theme }) => theme.inputColors.normal.borderColor };
 `;
+
+export default {
+  'rcx-input-box__wrapper': Wrapper,
+  'rcx-input-box': Input,
+  'rcx-input-box__addon': Addon,
+  'rcx-skeleton__input': SkeletonContainer,
+};

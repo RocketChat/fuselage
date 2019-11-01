@@ -9,7 +9,7 @@ const Container = createStyledComponent(styles, 'rcx-input-control', 'input');
 
 export const InputControl = React.forwardRef(function InputControl({
   error,
-  htmlPlaceholder,
+  placeholderVisible,
   multiple,
   type = 'text',
   undecorated = false,
@@ -42,7 +42,7 @@ export const InputControl = React.forwardRef(function InputControl({
     type={type === 'textarea' || type === 'select' ? undefined : type}
     modifiers={{
       multiple,
-      placeholderVisible: htmlPlaceholder,
+      placeholderVisible,
       type,
       undecorated,
     }}
@@ -89,3 +89,5 @@ InputControl.propTypes = {
   ]).isRequired,
   undecorated: PropTypes.bool,
 };
+
+InputControl.styled = Container;

@@ -69,7 +69,7 @@ export const SelectInput = React.forwardRef(function SelectInput({
 
   return <StyledSelectInput
     className={compoundClassName}
-    htmlPlaceholder={isPlaceholderVisible ? placeholder : undefined}
+    placeholderVisible={isPlaceholderVisible ? placeholder : undefined}
     ref={ref}
     theme={theme}
     {...props}

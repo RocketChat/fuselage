@@ -1,10 +1,15 @@
-import { useClassName, useMergedRefs } from '@rocket.chat/fuselage-hooks';
+import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useCallback, useLayoutEffect, useRef } from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
-import { Wrapper, Input, Addon } from './styles';
+import { createStyledComponent } from '../../styles';
+import { InputControl } from '../InputControl';
 import { Skeleton } from './Skeleton';
+import styles from './styles';
+
+const Wrapper = createStyledComponent(styles, 'rcx-input-box__wrapper', 'span');
+const Input = createStyledComponent(styles, 'rcx-input-box', InputControl);
+const Addon = createStyledComponent(styles, 'rcx-input-box__addon', 'span');
 
 export const InputBox = React.forwardRef(function InputBox({
   className,
@@ -14,13 +19,6 @@ export const InputBox = React.forwardRef(function InputBox({
   onChange,
   ...props
 }, ref) {
-  const classNames = {
-    wrapper: useClassName('rcx-input-box__wrapper', {}, props.disabled && 'disabled', className),
-    input: useClassName('rcx-input-box', {}, className),
-    addon: useClassName('rcx-input-box__addon'),
-  };
-  const theme = useTheme();
-
   const innerRef = useRef();
   const mergedRef = useMergedRefs(ref, innerRef);
 
@@ -40,27 +38,29 @@ export const InputBox = React.forwardRef(function InputBox({
 
   if (!addon) {
     return <Input
-      className={classNames.input}
+      className={className}
       hidden={hidden}
       invisible={invisible}
       ref={ref}
-      theme={theme}
       onChange={handleChange}
       {...props}
       undecorated={false}
     />;
   }
 
-  return <Wrapper className={classNames.wrapper} hidden={hidden} invisible={invisible} theme={theme}>
+  return <Wrapper
+    className={[props.disabled && 'disabled', className].filter(Boolean).join(' ')}
+    hidden={hidden}
+    invisible={invisible}
+  >
     <Input
-      className={classNames.input}
+      className={className}
       ref={mergedRef}
-      theme={theme}
       onChange={handleChange}
       {...props}
       undecorated
     />
-    <Addon children={addon} className={classNames.addon} theme={theme} />
+    <Addon children={addon} />
   </Wrapper>;
 });
 
