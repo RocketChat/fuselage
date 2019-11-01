@@ -13,7 +13,7 @@ const uncheckedDefaultState = css`
 const uncheckedFocusState = css`
   border-color: ${ ({ theme }) => theme.buttonColors.empty.focusBorderColor };
   background-color: ${ ({ theme }) => theme.buttonColors.empty.focusBackgroundColor };
-  box-shadow: 0 0 0 to-rem(6) ${ ({ theme }) => theme.buttonColors.empty.focusShadowColor };
+  box-shadow: 0 0 0 ${ toRem(6) } ${ ({ theme }) => theme.buttonColors.empty.focusShadowColor };
 `;
 
 const uncheckedHoverState = css`
@@ -110,7 +110,7 @@ const checkedDefaultState = css`
 const checkedFocusState = css`
   border-color: ${ ({ theme }) => theme.buttonColors.primary.focusBorderColor };
   background-color: ${ ({ theme }) => theme.buttonColors.primary.focusBackgroundColor };
-  box-shadow: 0 0 0 to-rem(6) ${ ({ theme }) => theme.buttonColors.primary.focusShadowColor };
+  box-shadow: 0 0 0 ${ toRem(6) } ${ ({ theme }) => theme.buttonColors.primary.focusShadowColor };
 `;
 
 const checkedHoverState = css`
@@ -155,7 +155,7 @@ const indeterminateDefaultState = css`
 const indeterminateFocusState = css`
   border-color: ${ ({ theme }) => theme.buttonColors.primary.focusBorderColor };
   background-color: ${ ({ theme }) => theme.buttonColors.primary.focusBackgroundColor };
-  box-shadow: 0 0 0 to-rem(6) ${ ({ theme }) => theme.buttonColors.primary.focusShadowColor };
+  box-shadow: 0 0 0 ${ toRem(6) } ${ ({ theme }) => theme.buttonColors.primary.focusShadowColor };
 `;
 
 const indeterminateHoverState = css`

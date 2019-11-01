@@ -24,12 +24,12 @@ export const CheckBox = React.forwardRef(function CheckBox({
 
   useLayoutEffect(() => {
     innerRef.current.indeterminate = indeterminate;
-  }, [indeterminate]);
+  }, [innerRef, indeterminate]);
 
   const handleChange = useCallback((event) => {
     innerRef.current.indeterminate = indeterminate;
     onChange && onChange.call(innerRef.current, event);
-  }, [indeterminate, onChange]);
+  }, [innerRef, indeterminate, onChange]);
 
   return <Container className={className} hidden={hidden} invisible={invisible} style={style}>
     <Input ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
