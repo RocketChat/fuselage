@@ -40,12 +40,10 @@ export const InputControl = React.forwardRef(function InputControl({
     || (type === 'select' && 1)
     || 1}
     type={type === 'textarea' || type === 'select' ? undefined : type}
-    modifiers={{
-      multiple,
-      placeholderVisible,
-      type,
-      undecorated,
-    }}
+    mod-multiple={multiple}
+    mod-placeholder-visible={placeholderVisible}
+    mod-type={type}
+    mod-undecorated={undecorated}
     {...props}
   />;
 });

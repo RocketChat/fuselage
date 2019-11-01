@@ -116,7 +116,7 @@
   "dependencies": {
     "@rocket.chat/fuselage-tokens": "^0.2.0-alpha.14",
     "@rocket.chat/icons": "^0.2.0-alpha.14",
-    "invariant": "^2.2.4"
+    "nano-memoize": "^1.1.7"
   },
   "browserslist": {
     "production": [

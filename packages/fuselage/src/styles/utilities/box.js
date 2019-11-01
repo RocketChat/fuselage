@@ -36,7 +36,13 @@ export default css`
     font-variant-numeric: tabular-nums;
   }
 
-  ${ ({ modifiers }) => modifiers.invisible && css`
+  ${ (props) => props['mod-invisible'] && css`
+    visibility: hidden;
+
+    opacity: 0;
+  ` }
+
+  ${ ({ modifiers }) => modifiers && modifiers.invisible && css`
     visibility: hidden;
 
     opacity: 0;

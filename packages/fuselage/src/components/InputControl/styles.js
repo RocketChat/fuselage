@@ -43,7 +43,7 @@ const withDecoratorColors = ({
     border-color: ${ disabledBorderColor };
   }
 
-  ${ ({ modifiers }) => modifiers.undecorated && css`
+  ${ (props) => props['mod-undecorated'] && css`
     box-shadow: none;
   ` }
 `;
@@ -61,7 +61,7 @@ const withColors = ({
     color: ${ placeholderColor };
   }
 
-  ${ ({ modifiers }) => modifiers.placeholderVisible && css`
+  ${ (props) => props['mod-placeholder-visible'] && css`
     color: ${ placeholderColor };
   ` }
 
@@ -110,27 +110,27 @@ const Container = styled.input`
   ${ ({ theme }) => paragraph(theme) }
   ${ ellipsis }
 
-  ${ ({ modifiers }) => modifiers.type === 'textarea' && css`
+  ${ (props) => props['mod-type'] === 'textarea' && css`
     vertical-align: middle;
     resize: none;
     overflow: auto;
     ${ scrollable }
   ` }
 
-  ${ ({ modifiers }) => modifiers.type === 'select' && css`
+  ${ (props) => props['mod-type'] === 'select' && css`
     appearance: none;
     overflow: auto;
     ${ scrollable }
-    ${ modifiers.multiple && css`
+    ${ props['mod-multiple'] && css`
       vertical-align: middle;
     ` }
   ` }
 
-  ${ ({ modifiers, theme }) => !modifiers.undecorated && css`
-    border-width: ${ theme.borders.width.x2 };
-    border-radius: ${ theme.borders.radius.x2 };
+  ${ (props) => !props['mod-undecorated'] && css`
+    border-width: ${ ({ theme }) => theme.borders.width.x2 };
+    border-radius: ${ ({ theme }) => theme.borders.radius.x2 };
     min-width: 8rem;
-    min-height: ${ theme.sizes.x44 };
+    min-height: ${ ({ theme }) => theme.sizes.x44 };
 
     ${ ({ theme }) => withDecoratorColors(theme.inputColors.normal) }
 
