@@ -1,19 +1,17 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { StyledBox } from './styles';
+import { createStyledComponent } from '../../styles';
+import styles from './styles';
 
-/** A primitive component with normalized styles. */
+const Container = createStyledComponent(styles, 'rcx-box', 'div');
+
 export const Box = React.forwardRef(function Box({
-  className,
-  invisible = false,
-  is = 'div',
+  invisible,
+  is,
   ...props
 }, ref) {
-  const compoundClassName = useClassName('rcx-box', { invisible }, className);
-
-  return <StyledBox as={is} className={compoundClassName} invisible={invisible} ref={ref} {...props} />;
+  return <Container as={is} invisible={invisible} modifiers={{ invisible }} ref={ref} {...props} />;
 });
 
 Box.defaultProps = {
@@ -26,6 +24,5 @@ Box.displayName = 'Box';
 Box.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
-  /** The component which will render as a `Box` */
   is: PropTypes.elementType,
 };

@@ -1,4 +1,4 @@
-import styledFn from 'styled-components';
+import styled from 'styled-components';
 
 import variables from './variables';
 
@@ -21,7 +21,7 @@ const mapAttrs = (componentClassName) => ({
 
 export const createStyledComponent = (styles, componentClassName, component = 'div') => {
   if (Array.isArray(styles[componentClassName])) {
-    const StyledComponent = styledFn(component)
+    const StyledComponent = styled(component)
       .attrs(mapAttrs(componentClassName))
       .withConfig({})([], styles[componentClassName] || []);
 
@@ -34,7 +34,7 @@ export const createStyledComponent = (styles, componentClassName, component = 'd
     return StyledComponent;
   }
 
-  const StyledComponent = styledFn(styles[componentClassName])
+  const StyledComponent = styled(styles[componentClassName])
     .attrs(mapAttrs(componentClassName))
     .attrs(() => ({ as: component }))
     .withConfig({})([], []);
