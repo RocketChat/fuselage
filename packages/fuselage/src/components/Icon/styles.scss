@@ -11,4 +11,40 @@
   font-variant: normal;
   line-height: 1;
   text-rendering: auto;
+
+  &--x44 {
+    font-size: $sizes-x44;
+  }
+
+  &--x40 {
+    font-size: $sizes-x40;
+  }
+
+  &--x32 {
+    font-size: $sizes-x32;
+  }
+
+  &--x24 {
+    font-size: $sizes-x24;
+  }
+
+  &--x20 {
+    font-size: $sizes-x20;
+  }
+
+  &--x16 {
+    font-size: $sizes-x16;
+  }
+
+  &--x8 {
+    font-size: $sizes-x8;
+  }
+
+  &--x4 {
+    font-size: $sizes-x4;
+  }
+
+  &--x2 {
+    font-size: $sizes-x2;
+  }
 }

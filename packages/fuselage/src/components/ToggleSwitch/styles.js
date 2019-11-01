@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 import { toRem } from '../../styles/utilities/common';
 import { selectionButton } from '../../styles/utilities/controls';
-import { Label } from '../Label';
 
 const uncheckedState = css`
   &::before {
@@ -92,7 +91,7 @@ const Input = styled.input``;
 
 const Fake = styled.i``;
 
-const Container = styled(Label)`
+const Container = styled.span`
   ${ selectionButton(Input, Fake)({
     unchecked: {
       all: uncheckedState,

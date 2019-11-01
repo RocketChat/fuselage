@@ -4,10 +4,9 @@ import styled, { css } from 'styled-components';
 import box from '../../styles/utilities/box';
 import { clickable } from '../../styles/utilities/interactivity';
 import { truncate, paragraph, paragraphBold, caption, captionBold } from '../../styles/utilities/typography';
-import { Icon } from '../Icon';
 import { toRem } from '../../styles/utilities/common';
 
-const withRectangularSize = ({ height, paddingX, lineHeight, iconSizeRatio }) => css`
+const withRectangularSize = ({ height, paddingX, lineHeight }) => css`
   ${ ({ theme }) => css`
     padding:
       calc((${ height } - ${ lineHeight }) / 2 - ${ theme.borders.width.x2 })
@@ -15,13 +14,9 @@ const withRectangularSize = ({ height, paddingX, lineHeight, iconSizeRatio }) =>
     padding-block: calc((${ height } - ${ lineHeight }) / 2 - ${ theme.borders.width.x2 });
     padding-inline: calc(${ paddingX } - ${ theme.borders.width.x2 });
   ` }
-
-  & > ${ Icon.styled } {
-    font-size: ${ iconSizeRatio }em;
-  }
 `;
 
-const withSquaredSize = ({ size, iconSize }) => css`
+const withSquaredSize = ({ size }) => css`
   width: ${ size };
   height: ${ size };
   padding: 0;
@@ -34,10 +29,6 @@ const withSquaredSize = ({ size, iconSize }) => css`
 
     content: '';
     vertical-align: middle;
-  }
-
-  & > ${ Icon.styled } {
-    font-size: ${ iconSize };
   }
 `;
 
@@ -89,7 +80,7 @@ const withColors = ({
   }
 `;
 
-const container = styled.button`
+const Container = styled.button`
   ${ box }
 
   display: inline-block;
@@ -109,15 +100,10 @@ const container = styled.button`
   ${ ({ theme }) => paragraph(theme) }
   ${ ({ theme }) => paragraphBold(theme) }
 
-  & > ${ Icon.styled } {
-    vertical-align: middle;
-  }
-
   ${ ({ theme }) => withRectangularSize({
     height: theme.sizes.x40,
     paddingX: theme.spaces.x16,
     lineHeight: theme.textStyles.p1.lineHeight,
-    iconSizeRatio: 8 / 7,
   }) }
 
   ${ ({ theme }) => withColors({
@@ -144,18 +130,15 @@ const container = styled.button`
     height: theme.sizes.x32,
     paddingX: theme.spaces.x12,
     lineHeight: theme.textStyles.c1.lineHeight,
-    iconSizeRatio: 1,
   }) }
   ` }
 
   ${ ({ modifiers, theme }) => modifiers.square && withSquaredSize({
     size: theme.spaces.x40,
-    iconSize: theme.textStyles.p1.lineHeight,
   }) }
 
   ${ ({ modifiers, theme }) => modifiers.small && modifiers.square && withSquaredSize({
     size: theme.spaces.x32,
-    iconSize: theme.textStyles.c1.lineHeight,
   }) }
 
   ${ ({ modifiers, theme }) => modifiers.danger && withColors({
@@ -240,5 +223,5 @@ ${ ({ modifiers, theme }) => modifiers.ghost && withColors({
 `;
 
 export default {
-  'rcx-button': container,
+  'rcx-button': Container,
 };

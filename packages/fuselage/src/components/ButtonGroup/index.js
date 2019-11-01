@@ -1,19 +1,30 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { createStyledComponent } from '../../styles';
 import styles from './styles';
 
 const Container = createStyledComponent(styles, 'rcx-button-group');
+const ItemContainer = createStyledComponent(styles, 'rcx-button-group__item');
 
 export const ButtonGroup = React.forwardRef(function ButtonGroup({
   align,
+  children,
   stretch,
   vertical,
   wrap,
   ...props
 }, ref) {
+  const wrappedChildren = useMemo(() =>
+    React.Children.map(children, (child, index) => <ItemContainer
+      key={index}
+      children={child}
+      mod-stretch={stretch}
+      mod-vertical={vertical}
+    />), [children]);
+
   return <Container
+    children={wrappedChildren}
     modifiers={{
       align,
       stretch,
@@ -40,5 +51,3 @@ ButtonGroup.propTypes = {
   /** Will wrap the items when they exceed the container space? */
   wrap: PropTypes.bool,
 };
-
-ButtonGroup.styled = Container;

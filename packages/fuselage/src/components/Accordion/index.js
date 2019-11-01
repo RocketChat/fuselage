@@ -18,5 +18,3 @@ Accordion.propTypes = {
 };
 
 Accordion.Item = Item;
-
-Accordion.styled = Container;

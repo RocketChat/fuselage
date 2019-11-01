@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
 
 import box from '../../styles/utilities/box';
-import { ellipsis } from '../../styles/utilities/typography';
+import { ellipsis, paragraph } from '../../styles/utilities/typography';
 
 const Container = styled.label`
   ${ box }
+
+  cursor: inherit;
 
   display: inline-flex;
   align-items: stretch;
@@ -63,16 +65,26 @@ const Wrapper = styled.span`
 `;
 
 const TextContainer = styled.span`
+ ${ box }
+
   flex: 1 1 0;
 
   user-select: text;
 
+  color: ${ ({ theme }) => theme.textColors.default };
+
+  ${ ({ theme }) => paragraph(theme) }
+
   ${ ellipsis }
 
-  ${ ({ modifiers, theme }) => modifiers.required && css`
+  ${ (props) => props['mod-disabled'] && css`
+    color: ${ ({ theme }) => theme.textColors.disabledLabel };
+  ` }
+
+  ${ (props) => props['mod-required'] && css`
     &::before {
       content: '*\0a0';
-      color: ${ theme.textColors.danger };
+      color: ${ ({ theme }) => theme.textColors.danger };
     }
   ` }
 `;

@@ -32,8 +32,6 @@ Field.propTypes = {
   invisible: PropTypes.bool,
 };
 
-Field.styled = Container;
-
 Field.Row = FieldRow;
 Field.Error = FieldError;
 Field.Hint = FieldHint;

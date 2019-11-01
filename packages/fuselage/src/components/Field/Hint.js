@@ -5,10 +5,15 @@ import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
 import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-field__hint', Text);
+const Container = createStyledComponent(styles, 'rcx-field__hint', 'div');
 
-export const FieldHint = React.forwardRef(function FieldHint(props, ref) {
-  return <Container hintColor is='div' paragraph ref={ref} {...props} />;
+export const FieldHint = React.forwardRef(function FieldHint({
+  children,
+  ...props
+}, ref) {
+  return <Container ref={ref} {...props}>
+    <Text children={children} hintColor paragraph />
+  </Container>;
 });
 
 FieldHint.displayName = 'Field.Hint';
@@ -18,5 +23,3 @@ FieldHint.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
-
-FieldHint.styled = Container;

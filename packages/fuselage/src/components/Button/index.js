@@ -52,5 +52,3 @@ Button.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
-
-Button.styled = Container;

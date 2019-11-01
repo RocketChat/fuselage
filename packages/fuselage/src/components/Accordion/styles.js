@@ -5,8 +5,6 @@ import box from '../../styles/utilities/box';
 import { clickable } from '../../styles/utilities/interactivity';
 import { truncate, subtitleBold, subtitle } from '../../styles/utilities/typography';
 import { toRem } from '../../styles/utilities/common';
-import { Icon } from '../Icon';
-import { ToggleSwitch } from '../ToggleSwitch';
 
 const Container = styled.div`
   ${ box }
@@ -61,22 +59,6 @@ const ItemBar = styled.div`
     }
   }
 
-  & > ${ ToggleSwitch.styled } {
-    margin: 0 ${ ({ theme }) => theme.sizes.x24 };
-    margin-block: 0;
-    margin-inline: ${ ({ theme }) => theme.sizes.x24 };
-  }
-
-  & > ${ Icon.styled } {
-    font-size: ${ ({ theme }) => theme.sizes.x24 };
-  }
-
-  ${ ({ modifiers }) => modifiers.expanded && css`
-    & > ${ Icon.styled } {
-      transform: rotate(-180deg);
-    }
-  ` }
-
   ${ ({ modifiers, theme }) => modifiers.disabled && css`
     cursor: not-allowed;
 
@@ -93,6 +75,22 @@ const ItemTitle = styled.h2`
   ${ ({ theme }) => subtitle(theme) }
   ${ ({ theme }) => subtitleBold(theme) }
   ${ truncate }
+`;
+
+const ItemToggleSwitchContainer = styled.div`
+  ${ box }
+
+  margin: 0 ${ ({ theme }) => theme.sizes.x24 };
+  margin-block: 0;
+  margin-inline: ${ ({ theme }) => theme.sizes.x24 };
+`;
+
+const ItemIconContainer = styled.div`
+  ${ box }
+
+  ${ (props) => props['mod-flipped'] && css`
+    transform: rotate(-180deg);
+  ` }
 `;
 
 const ItemPanel = styled.div`
@@ -124,5 +122,7 @@ export default {
   'rcx-accordion-item': ItemContainer,
   'rcx-accordion-item__bar': ItemBar,
   'rcx-accordion-item__title': ItemTitle,
+  'rcx-accordion-item__toggle-switch': ItemToggleSwitchContainer,
+  'rcx-accordion-item__icon': ItemIconContainer,
   'rcx-accordion-item__panel': ItemPanel,
 };

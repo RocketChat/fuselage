@@ -10,6 +10,8 @@ import styles from './styles';
 const ItemContainer = createStyledComponent(styles, 'rcx-accordion-item', 'section');
 const ItemBar = createStyledComponent(styles, 'rcx-accordion-item__bar');
 const ItemTitle = createStyledComponent(styles, 'rcx-accordion-item__title', 'h1');
+const ItemToggleSwitchContainer = createStyledComponent(styles, 'rcx-accordion-item__toggle-switch');
+const ItemIconContainer = createStyledComponent(styles, 'rcx-accordion-item__icon');
 const ItemPanel = createStyledComponent(styles, 'rcx-accordion-item__panel');
 
 export const Item = React.forwardRef(function Item({
@@ -87,12 +89,16 @@ export const Item = React.forwardRef(function Item({
   const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
 
   return <ItemContainer className={className} {...props}>
-    {title && <ItemBar modifiers={{ disabled, expanded }} ref={ref} {...barProps}>
+    {title && <ItemBar modifiers={{ disabled }} ref={ref} {...barProps}>
       <ItemTitle id={titleId}>{title}</ItemTitle>
       {!noncollapsible && <>
         {(disabled || onToggleEnabled)
-          && <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />}
-        <Icon name={'arrow-down'} />
+          && <ItemToggleSwitchContainer>
+            <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />
+          </ItemToggleSwitchContainer>}
+        <ItemIconContainer mod-flipped={expanded}>
+          <Icon name={'arrow-down'} x24 />
+        </ItemIconContainer>
       </>}
     </ItemBar>}
     <ItemPanel id={panelId} modifiers={{ expanded: panelExpanded }} role='region'>
@@ -119,5 +125,3 @@ Item.propTypes = {
   onToggle: PropTypes.func,
   onToggleEnabled: PropTypes.func,
 };
-
-Item.styled = ItemContainer;

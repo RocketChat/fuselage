@@ -46,10 +46,14 @@ const withWidth = (width) => css`
   width: ${ width };
 `;
 
+const withHeight = (height) => css`
+  height: ${ height };
+`;
+
 const SkeletonContainer = styled.span`
   ${ box }
 
-  display: inline-block;
+  display: inline-flex;
 
   width: 100%;
   height: 1em;
@@ -61,6 +65,25 @@ const SkeletonContainer = styled.span`
   background-color: currentColor;
 
   font-size: inherit;
+
+  ${ ({ modifiers, theme }) =>
+    (modifiers.style === 'headline' && withHeight(theme.textStyles.h1.fontSize))
+  || (modifiers.style === 'subtitle' && withHeight(theme.textStyles.s1.fontSize))
+  || (modifiers.style === 'paragraph' && withHeight(theme.textStyles.p1.fontSize))
+  || (modifiers.style === 'caption' && withHeight(theme.textStyles.c1.fontSize))
+  || (modifiers.style === 'micro' && withHeight(theme.textStyles.micro.fontSize)) }
+
+  ${ ({ modifiers, theme }) =>
+    (modifiers.color === 'default' && withColor(theme.textColors.default))
+  || (modifiers.color === 'info' && withColor(theme.textColors.info))
+  || (modifiers.color === 'hint' && withColor(theme.textColors.hint))
+  || (modifiers.color === 'disabled-label' && withColor(theme.textColors.disabledLabel))
+  || (modifiers.color === 'disabled' && withColor(theme.textColors.disabled))
+  || (modifiers.color === 'alternative' && withColor(theme.textColors.alternative))
+  || (modifiers.color === 'primary' && withColor(theme.textColors.primary))
+  || (modifiers.color === 'success' && withColor(theme.textColors.success))
+  || (modifiers.color === 'danger' && withColor(theme.textColors.danger))
+  || (modifiers.color === 'warning' && withColor(theme.textColors.warning)) }
 
   ${ ({ modifiers }) => modifiers.animated && css`
     animation: ${ keyframes`

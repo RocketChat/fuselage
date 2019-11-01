@@ -13,11 +13,11 @@ export const selectionButton = (Input, Fake) => (states, content) => css`
 
   ${ clickable }
 
-  & > ${ Input } {
+  & ${ Input } {
     ${ visuallyHidden }
   }
 
-  & > ${ Fake } {
+  & ${ Fake } {
     ${ box }
 
     position: relative;
@@ -38,8 +38,8 @@ export const selectionButton = (Input, Fake) => (states, content) => css`
     const valueStatePseudoClass = valueState === 'unchecked' ? '' : `:${ valueState }`;
 
     return css`
-      & > ${ Input }${ valueStateClass } + ${ Fake },
-      & > ${ Input }${ valueStatePseudoClass } + ${ Fake } {
+      & ${ Input }${ valueStateClass } + ${ Fake },
+      & ${ Input }${ valueStatePseudoClass } + ${ Fake } {
         ${ states[valueState].all }
       }
     `;
@@ -57,18 +57,18 @@ export const selectionButton = (Input, Fake) => (states, content) => css`
       const valueStatePseudoClass = valueState === 'unchecked' ? '' : `:${ valueState }`;
 
       return css`
-        &${ interactionStateClass } > ${ Input }${ valueStateClass } + ${ Fake },
-        &${ interactionStateClass } > ${ Input }${ valueStatePseudoClass } + ${ Fake },
-        & > ${ Input }${ valueStateClass }${ interactionStatePseudoClass } + ${ Fake },
-        & > ${ Input }${ valueStatePseudoClass }${ interactionStatePseudoClass } + ${ Fake } {
+        &${ interactionStateClass } ${ Input }${ valueStateClass } + ${ Fake },
+        &${ interactionStateClass } ${ Input }${ valueStatePseudoClass } + ${ Fake },
+        & ${ Input }${ valueStateClass }${ interactionStatePseudoClass } + ${ Fake },
+        & ${ Input }${ valueStatePseudoClass }${ interactionStatePseudoClass } + ${ Fake } {
           ${ states[valueState][interactionState] }
         }
       `;
     })
   ) }
 
-  &.disabled > ${ Input } + ${ Fake },
-  & > ${ Input }:disabled + ${ Fake } {
+  &.disabled ${ Input } + ${ Fake },
+  & ${ Input }:disabled + ${ Fake } {
     cursor: not-allowed;
   }
 `;

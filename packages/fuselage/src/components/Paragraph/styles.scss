@@ -4,4 +4,8 @@
   display: block;
 
   margin-bottom: $spaces-x16;
+
+  @include paragraph;
+
+  color: $text-colors-default;
 }

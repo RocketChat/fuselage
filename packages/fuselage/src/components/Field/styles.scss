@@ -5,9 +5,7 @@
   align-items: stretch;
   flex-flow: column nowrap;
 
-  & > .rcx-label {
-    flex: 1 1 0;
-
+  & > :first-child {
     margin-bottom: #{ $spaces-x8 };
     margin-block-end: #{ $spaces-x8 };
   }
@@ -17,15 +15,9 @@
   @include box;
 
   display: flex;
-
-  margin-bottom: #{ $spaces-x8 };
   align-items: center;
   flex-flow: row nowrap;
-  margin-block-end: #{ $spaces-x8 };
-
-  & > .rcx-label {
-    flex: 1 1 0;
-  }
+  justify-content: space-between;
 }
 
 .rcx-field__error {

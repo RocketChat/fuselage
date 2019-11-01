@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 import { toRem } from '../../styles/utilities/common';
 import { selectionButton } from '../../styles/utilities/controls';
-import { Label } from '../Label';
 
 const uncheckedDefaultState = css`
   color: ${ ({ theme }) => theme.buttonColors.empty.color };
@@ -180,7 +179,7 @@ const Input = styled.input``;
 
 const Fake = styled.i``;
 
-const Container = styled(Label)`
+const Container = styled.span`
   ${ selectionButton(Input, Fake)({
     unchecked: {
       default: uncheckedDefaultState,

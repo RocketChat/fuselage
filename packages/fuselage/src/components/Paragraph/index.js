@@ -6,10 +6,15 @@ import { Text } from '../Text';
 import { Skeleton } from './Skeleton';
 import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-paragraph', Text);
+const Container = createStyledComponent(styles, 'rcx-paragraph', 'p');
 
-export const Paragraph = React.forwardRef(function Paragraph(props, ref) {
-  return <Container is='p' paragraph ref={ref} {...props} />;
+export const Paragraph = React.forwardRef(function Paragraph({
+  children,
+  ...props
+}, ref) {
+  return <Container ref={ref} {...props}>
+    <Text paragraph children={children} />
+  </Container>;
 });
 
 Paragraph.displayName = 'Paragraph';

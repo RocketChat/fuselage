@@ -6,7 +6,7 @@ import { createStyledComponent } from '../../styles';
 import { Label } from '../Label';
 import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-check-box', Label);
+const Container = createStyledComponent(styles, 'rcx-check-box', 'span');
 const Input = createStyledComponent(styles, 'rcx-check-box__input', 'input');
 const Fake = createStyledComponent(styles, 'rcx-check-box__fake', 'i');
 
@@ -32,8 +32,10 @@ export const CheckBox = React.forwardRef(function CheckBox({
   }, [innerRef, indeterminate, onChange]);
 
   return <Container className={className} hidden={hidden} invisible={invisible} style={style}>
-    <Input ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
-    <Fake aria-hidden='true' />
+    <Label>
+      <Input ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
+      <Fake aria-hidden='true' />
+    </Label>
   </Container>;
 });
 
@@ -43,5 +45,3 @@ CheckBox.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
-
-CheckBox.styled = Container;

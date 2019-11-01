@@ -3,7 +3,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Button, Icon, UrlInput } from '../..';
+import { Icon, UrlInput } from '../..';
 
 <Meta title='Forms|Inputs/UrlInput' parameters={{ jest: ['UrlInput/spec'] }} />
 
@@ -24,19 +24,11 @@ An input for URL addresses.
 Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
 used.
 
-### With Addon
-
-<Preview>
-  <Story name='With Addon'>
-    <UrlInput addon={<Button small ghost>Button</Button>} />
-  </Story>
-</Preview>
-
 ### With Icon Addon
 
 <Preview>
   <Story name='With Icon Addon'>
-    <UrlInput addon={<Icon name='send' />} />
+    <UrlInput addon={<Icon name='send' x20 />} />
   </Story>
 </Preview>
 
@@ -82,7 +74,7 @@ used.
       default: {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'https://rocket.chat' },
-      'with icon': { addon: <Icon name='discover' />, value: 'https://rocket.chat' },
+      'with icon': { addon: <Icon name='discover' x20 />, value: 'https://rocket.chat' },
     }}
     yAxis={{
       default: {},

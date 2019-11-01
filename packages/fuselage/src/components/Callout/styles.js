@@ -3,7 +3,6 @@ import colors from '@rocket.chat/fuselage-tokens/colors';
 
 import box from '../../styles/utilities/box';
 import { caption, captionBold, truncate } from '../../styles/utilities/typography';
-import { Icon } from '../Icon';
 
 const Container = styled.section`
   ${ box }
@@ -34,10 +33,6 @@ const Container = styled.section`
   ${ ({ modifiers }) => modifiers.type === 'danger' && css`
     background-color: ${ colors.red200 };
   ` }
-
-  & > ${ Icon.styled } {
-    font-size: ${ ({ theme }) => theme.sizes.x16 };
-  }
 `;
 
 const Wrapper = styled.div`

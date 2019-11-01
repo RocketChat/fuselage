@@ -1,15 +1,25 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Headline } from '.';
+import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
+import styles from './styles';
 
+const Container = createStyledComponent(styles, 'rcx-headline', 'h1');
 
-export function Skeleton({ animated, ...props }) {
-  return <Headline {...props}>
-    <Text.Skeleton animated={animated} />
-  </Headline>;
+export function Skeleton({
+  animated,
+  level,
+  ...props
+}) {
+  return <Container as={`h${ level }`} {...props}>
+    <Text.Skeleton animated={animated} defaultColor headline />
+  </Container>;
 }
+
+Skeleton.defaultProps = {
+  level: 1,
+};
 
 Skeleton.propTypes = {
   /** Is this component visible? */

@@ -2,6 +2,8 @@
   @include box;
 
   display: inline-flex;
+
+  cursor: inherit;
   align-items: stretch;
   flex-flow: column nowrap;
 
@@ -58,11 +60,21 @@
 }
 
 .rcx-label__text {
+  @include box;
+
   flex: 1 1 0;
 
   user-select: text;
 
+  color: #{ $text-colors-default };
+
+  @include paragraph;
+
   @include ellipsis;
+
+  &--disabled {
+    color: #{ $text-colors-disabled-label };
+  }
 
   &--required {
     &::before {

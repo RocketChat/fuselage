@@ -21,7 +21,7 @@ export const Callout = React.forwardRef(function Callout({
     || (type === 'danger' && 'ban');
 
   return <Container modifiers={{ type }} ref={ref} {...props}>
-    <Icon name={iconName} />
+    <Icon name={iconName} x16 />
     <Wrapper>
       <Title modifiers={{ hasChildren: !!children }}>{title}</Title>
       {children}
@@ -41,5 +41,3 @@ Callout.propTypes = {
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['info', 'success', 'warning', 'danger']).isRequired,
 };
-
-Callout.styled = Container;

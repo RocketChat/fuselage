@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
 import box from '../../styles/utilities/box';
-import { Text } from '../Text';
+import { headline } from '../../styles/utilities/typography';
 
-const Container = styled(Text)`
+const Container = styled.div`
   ${ box }
 
   display: block;
 
   margin-bottom: ${ ({ theme }) => theme.spaces.x16 };
+
+  ${ ({ theme }) => headline(theme) }
+
+  color: ${ ({ theme }) => theme.textColors.default };
 `;
 
 export default {

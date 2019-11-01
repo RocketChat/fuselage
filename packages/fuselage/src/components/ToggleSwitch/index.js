@@ -5,7 +5,7 @@ import { createStyledComponent } from '../../styles';
 import { Label } from '../Label';
 import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-toggle-switch', Label);
+const Container = createStyledComponent(styles, 'rcx-toggle-switch', 'span');
 const Input = createStyledComponent(styles, 'rcx-toggle-switch__input', 'input');
 const Fake = createStyledComponent(styles, 'rcx-toggle-switch__fake', 'i');
 
@@ -18,8 +18,10 @@ export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
   ...props
 }, ref) {
   return <Container className={className} hidden={hidden} invisible={invisible} style={style} onClick={onClick}>
-    <Input ref={ref} type='checkbox' {...props} />
-    <Fake aria-hidden='true' />
+    <Label>
+      <Input ref={ref} type='checkbox' {...props} />
+      <Fake aria-hidden='true' />
+    </Label>
   </Container>;
 });
 
@@ -29,5 +31,3 @@ ToggleSwitch.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
-
-ToggleSwitch.styled = Container;
