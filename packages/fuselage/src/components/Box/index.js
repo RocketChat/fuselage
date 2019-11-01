@@ -11,7 +11,7 @@ export const Box = React.forwardRef(function Box({
   is,
   ...props
 }, ref) {
-  return <Container as={is} invisible={invisible} modifiers={{ invisible }} ref={ref} {...props} />;
+  return <Container as={is} invisible={invisible} ref={ref} {...props} />;
 });
 
 Box.defaultProps = {
