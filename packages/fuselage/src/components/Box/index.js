@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { createStyledComponent } from '../../styles';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-box', 'div');
+const Container = createStyledComponent('rcx-box', 'div');
 
 export const Box = React.forwardRef(function Box({
   invisible,

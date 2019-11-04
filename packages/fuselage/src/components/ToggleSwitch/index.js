@@ -3,11 +3,10 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Label } from '../Label';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-toggle-switch', 'span');
-const Input = createStyledComponent(styles, 'rcx-toggle-switch__input', 'input');
-const Fake = createStyledComponent(styles, 'rcx-toggle-switch__fake', 'i');
+const Container = createStyledComponent('rcx-toggle-switch', 'span');
+const Input = createStyledComponent('rcx-toggle-switch__input', 'input');
+const Fake = createStyledComponent('rcx-toggle-switch__fake', 'i');
 
 export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
   className,

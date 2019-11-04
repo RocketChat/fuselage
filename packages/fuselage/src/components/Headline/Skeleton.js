@@ -3,9 +3,8 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-headline', 'h1');
+const Container = createStyledComponent('rcx-headline', 'h1');
 
 export function Skeleton({
   animated,

@@ -3,11 +3,10 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Icon } from '../Icon';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-callout', 'section');
-const Wrapper = createStyledComponent(styles, 'rcx-callout__wrapper');
-const Title = createStyledComponent(styles, 'rcx-callout__title', 'h1');
+const Container = createStyledComponent('rcx-callout', 'section');
+const Wrapper = createStyledComponent('rcx-callout__wrapper');
+const Title = createStyledComponent('rcx-callout__title', 'h1');
 
 export const Callout = React.forwardRef(function Callout({
   children,

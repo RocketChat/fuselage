@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { createStyledComponent } from '../../styles';
-import styles from './styles';
 
 const nameToCharacterMapping = Object.entries(names)
   .reduce((map, [symbol, name]) => ({
@@ -12,7 +11,7 @@ const nameToCharacterMapping = Object.entries(names)
     [name]: characters[symbol],
   }), {});
 
-const Container = createStyledComponent(styles, 'rcx-icon', 'i');
+const Container = createStyledComponent('rcx-icon', 'i');
 
 export const Icon = React.forwardRef(function Icon({
   name,

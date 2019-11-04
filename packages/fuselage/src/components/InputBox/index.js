@@ -7,11 +7,10 @@ import { createStyledComponent } from '../../styles';
 import { Option } from './Option';
 import { Placeholder } from './Placeholder';
 import { Skeleton } from './Skeleton';
-import styles from './styles';
 
-const Wrapper = createStyledComponent(styles, 'rcx-input-box__wrapper', 'span');
-const Input = createStyledComponent(styles, 'rcx-input-box', 'input');
-const Addon = createStyledComponent(styles, 'rcx-input-box__addon', 'span');
+const Wrapper = createStyledComponent('rcx-input-box__wrapper', 'span');
+const Input = createStyledComponent('rcx-input-box', 'input');
+const Addon = createStyledComponent('rcx-input-box__addon', 'span');
 
 export const InputBox = React.forwardRef(function InputBox({
   className,

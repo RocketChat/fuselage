@@ -4,9 +4,8 @@ import React from 'react';
 import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
 import { Skeleton } from './Skeleton';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-subtitle', 'h2');
+const Container = createStyledComponent('rcx-subtitle', 'h2');
 
 export const Subtitle = React.forwardRef(function Subtitle({
   children,

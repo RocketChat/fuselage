@@ -5,14 +5,13 @@ import React from 'react';
 import { createStyledComponent } from '../../styles';
 import { Icon } from '../Icon';
 import { ToggleSwitch } from '../ToggleSwitch';
-import styles from './styles';
 
-const ItemContainer = createStyledComponent(styles, 'rcx-accordion-item', 'section');
-const ItemBar = createStyledComponent(styles, 'rcx-accordion-item__bar');
-const ItemTitle = createStyledComponent(styles, 'rcx-accordion-item__title', 'h1');
-const ItemToggleSwitchContainer = createStyledComponent(styles, 'rcx-accordion-item__toggle-switch');
-const ItemIconContainer = createStyledComponent(styles, 'rcx-accordion-item__icon');
-const ItemPanel = createStyledComponent(styles, 'rcx-accordion-item__panel');
+const ItemContainer = createStyledComponent('rcx-accordion-item', 'section');
+const ItemBar = createStyledComponent('rcx-accordion-item__bar');
+const ItemTitle = createStyledComponent('rcx-accordion-item__title', 'h1');
+const ItemToggleSwitchContainer = createStyledComponent('rcx-accordion-item__toggle-switch');
+const ItemIconContainer = createStyledComponent('rcx-accordion-item__icon');
+const ItemPanel = createStyledComponent('rcx-accordion-item__panel');
 
 export const Item = React.forwardRef(function Item({
   children,

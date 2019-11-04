@@ -2,13 +2,12 @@ import PropTypes from 'prop-types';
 import React, { createContext, useContext } from 'react';
 
 import { createStyledComponent } from '../../styles';
-import styles from './styles';
 
 const LabelContext = createContext(false);
 
-const Container = createStyledComponent(styles, 'rcx-label', 'label');
-const Wrapper = createStyledComponent(styles, 'rcx-label__wrapper', 'span');
-const TextContainer = createStyledComponent(styles, 'rcx-label__text', 'span');
+const Container = createStyledComponent('rcx-label', 'label');
+const Wrapper = createStyledComponent('rcx-label__wrapper', 'span');
+const TextContainer = createStyledComponent('rcx-label__text', 'span');
 
 export const Label = React.forwardRef(function Label({
   children,

@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
-import styles from './styles';
 import { createStyledComponent } from '../../styles';
 
-const Container = createStyledComponent(styles, 'rcx-field-group', 'fieldset');
-const ItemContainer = createStyledComponent(styles, 'rcx-field-group__item');
+const Container = createStyledComponent('rcx-field-group', 'fieldset');
+const ItemContainer = createStyledComponent('rcx-field-group__item');
 
 export const FieldGroup = React.forwardRef(function FieldGroup({
   children,

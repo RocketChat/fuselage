@@ -4,9 +4,8 @@ import React from 'react';
 import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
 import { Skeleton } from './Skeleton';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-paragraph', 'p');
+const Container = createStyledComponent('rcx-paragraph', 'p');
 
 export const Paragraph = React.forwardRef(function Paragraph({
   children,

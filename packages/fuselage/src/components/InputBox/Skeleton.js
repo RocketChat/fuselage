@@ -3,9 +3,8 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
-import styles from './styles';
 
-const SkeletonContainer = createStyledComponent(styles, 'rcx-skeleton__input', 'span');
+const SkeletonContainer = createStyledComponent('rcx-skeleton__input', 'span');
 
 export function Skeleton({ animated }) {
   return <SkeletonContainer>

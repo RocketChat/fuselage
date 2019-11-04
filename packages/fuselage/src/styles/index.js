@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useMemo } from 'react';
 
 import css from '../index.scss';
 
-export const createStyledComponent = (styles, componentClassName, component = 'div') => {
+export const createStyledComponent = (componentClassName, component = 'div') => {
   const Component = React.forwardRef(function Component(props, ref) {
     useLayoutEffect(() => {
       css.use();

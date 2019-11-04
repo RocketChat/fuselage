@@ -3,9 +3,8 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Skeleton } from './Skeleton';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-text', 'span');
+const Container = createStyledComponent('rcx-text', 'span');
 
 export const Text = React.forwardRef(function Text({
   is,

@@ -3,9 +3,8 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-paragraph', 'p');
+const Container = createStyledComponent('rcx-paragraph', 'p');
 
 export function Skeleton({ animated, ...props }) {
   return <Container {...props}>

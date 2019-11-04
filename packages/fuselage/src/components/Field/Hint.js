@@ -3,9 +3,8 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-field__hint', 'div');
+const Container = createStyledComponent('rcx-field__hint', 'div');
 
 export const FieldHint = React.forwardRef(function FieldHint({
   children,

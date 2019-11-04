@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
 import { createStyledComponent } from '../../styles';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-button-group');
-const ItemContainer = createStyledComponent(styles, 'rcx-button-group__item');
+const Container = createStyledComponent('rcx-button-group');
+const ItemContainer = createStyledComponent('rcx-button-group__item');
 
 export const ButtonGroup = React.forwardRef(function ButtonGroup({
   align,

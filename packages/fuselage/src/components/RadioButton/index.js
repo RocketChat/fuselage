@@ -3,11 +3,10 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Label } from '../Label';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-radio-button', 'span');
-const Input = createStyledComponent(styles, 'rcx-radio-button__input', 'input');
-const Fake = createStyledComponent(styles, 'rcx-radio-button__fake', 'i');
+const Container = createStyledComponent('rcx-radio-button', 'span');
+const Input = createStyledComponent('rcx-radio-button__input', 'input');
+const Fake = createStyledComponent('rcx-radio-button__fake', 'i');
 
 export const RadioButton = React.forwardRef(function RadioButton({
   className,

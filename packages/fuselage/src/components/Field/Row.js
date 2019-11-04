@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { createStyledComponent } from '../../styles';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-field__row');
+const Container = createStyledComponent('rcx-field__row');
 
 export const FieldRow = React.forwardRef(function FieldRow(props, ref) {
   return <Container ref={ref} {...props} />;

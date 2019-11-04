@@ -3,9 +3,8 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-field__error', 'span');
+const Container = createStyledComponent('rcx-field__error', 'span');
 
 export const FieldError = React.forwardRef(function FieldError({
   children,
