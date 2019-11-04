@@ -30,7 +30,7 @@ export const Icon = React.forwardRef(function Icon({
   return <Container
     aria-hidden='true'
     children={nameToCharacterMapping[name]}
-    mod-={name}
+    mod-name={name}
     mod-x44={x44}
     mod-x40={x40}
     mod-x32={x32}

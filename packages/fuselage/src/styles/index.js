@@ -1,55 +1,9 @@
-// import nanoMemoize from 'nano-memoize';
 import React, { useLayoutEffect, useMemo } from 'react';
-// import styled from 'styled-components';
 
 import css from '../index.scss';
-// import variables from './variables';
-
-const mapModifiers = (componentClassName) => (props) => {
-  const classNames = [];
-
-  if (props.invisible) {
-    classNames.push(`${ componentClassName }--invisible`);
-  }
-
-  for (const propName of Object.keys(props)) {
-    if (!props[propName] || propName.slice(0, 4) !== 'mod-') {
-      continue;
-    }
-
-    const modifierName = propName.slice(4);
-
-    if (typeof props[propName] === 'boolean') {
-      classNames.push(`${ componentClassName }--${ modifierName }`);
-      continue;
-    }
-
-    classNames.push(`${ componentClassName }--${ modifierName }-${ props[propName] }`);
-  }
-  return {
-    className: classNames.join(' '),
-  };
-};
-
-// const mapTheme = nanoMemoize(() => ({ theme: variables }));
-
-// const mapAs = (component) => nanoMemoize(() => ({ forwardedAs: component }));
 
 export const createStyledComponent = (styles, componentClassName, component = 'div') => {
-  // const StyledComponent = styled(styles[componentClassName])
-  //   .attrs(mapModifiers(componentClassName))
-  //   .attrs(mapTheme)
-  //   .attrs(mapAs(component))
-  //   .withConfig({ componentId: componentClassName })([], []);
-
-  const Component = React.forwardRef(function Component({
-    as: _as,
-    className: _className,
-    forwardedAs,
-    forwardedRef,
-    invisible,
-    ...props
-  }, _ref) {
+  const Component = React.forwardRef(function Component(props, ref) {
     useLayoutEffect(() => {
       css.use();
 
@@ -58,22 +12,49 @@ export const createStyledComponent = (styles, componentClassName, component = 'd
       };
     }, []);
 
-    const className = [
-      componentClassName,
-      invisible && `${ componentClassName }--invisible`,
-      useMemo(() => mapModifiers(componentClassName)(props).className),
-      _className,
-    ].filter(Boolean).join(' ');
+    const {
+      as,
+      className,
+      forwardedAs,
+      forwardedRef,
+      invisible,
+      ...filteredProps
+    } = props;
 
-    const as = forwardedAs || _as || component;
+    const newComponent = useMemo(() => forwardedAs || as || component, [forwardedAs, as]);
 
-    const ref = forwardedRef || _ref;
+    const newProps = useMemo(() => {
+      const modifiersClasses = [].concat(
+        Object.keys(filteredProps)
+          .filter((name) => name.slice(0, 4) === 'mod-' && !!filteredProps[name])
+          .map((name) => (typeof filteredProps[name] === 'boolean'
+            ? `${ componentClassName }--${ name.slice(4) }`
+            : `${ componentClassName }--${ name.slice(4) }-${ filteredProps[name] }`))
+      );
 
-    const filteredProps = Object.entries(props)
-      .filter(([name]) => name.slice(0, 4) !== 'mod-')
-      .reduce((props, [name, value]) => ({ ...props, [name]: value }), {});
+      const newClassName = [
+        componentClassName,
+        invisible && `${ componentClassName }--invisible`,
+        modifiersClasses.join(' '),
+        className,
+      ].filter(Boolean).join(' ');
 
-    return React.createElement(as, { ...filteredProps, className, ref });
+      const newRef = forwardedRef || ref;
+
+      for (const key of Object.keys(filteredProps)) {
+        if (key.slice(0, 4) === 'mod-') {
+          delete filteredProps[key];
+        }
+      }
+
+      return {
+        ...filteredProps,
+        className: newClassName,
+        ref: newRef,
+      };
+    });
+
+    return React.createElement(newComponent, newProps);
   });
 
   Component.displayName = componentClassName;
