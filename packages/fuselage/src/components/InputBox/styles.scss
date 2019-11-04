@@ -20,7 +20,7 @@
   &:focus-within,
   &.focus {
     border-color: #{ $focus-border-color };
-    box-shadow: 0 0 0 #{ torem(6) } #{ $focus-shadow-color };
+    box-shadow: 0 0 0 #{ to-rem(6) } #{ $focus-shadow-color };
   }
 
   &:active,
@@ -131,13 +131,13 @@
   $active-caret-color,
   $disabled-color,
 ) {
-  color: #{ color };
+  color: #{ $color };
 
   &::placeholder {
     color: #{ $placeholder-color };
   }
 
-  &--placeholder-visible {
+  &.rcx-input-box--placeholder-visible {
     color: #{ $placeholder-color };
   }
 
@@ -165,7 +165,7 @@
   $disabled-color,
 ) {
   & + .rcx-input-box__addon {
-    color: #{ color };
+    color: #{ $color };
   }
 
   .rcx-input-box__wrapper.focus > & {

@@ -34,7 +34,7 @@ export const SelectInput = React.forwardRef(function SelectInput({
 
   return <InputBox
     className={compoundClassName}
-    placeholderVisible={isPlaceholderVisible ? placeholder : undefined}
+    placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
     ref={ref}
     {...props}
     addon={<Icon name='arrow-down' x20 />}

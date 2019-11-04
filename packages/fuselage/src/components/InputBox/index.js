@@ -30,7 +30,6 @@ export const InputBox = React.forwardRef(function InputBox({
   const mergedRef = useMergedRefs(ref, innerRef);
 
   useLayoutEffect(() => {
-    console.log(innerRef.current);
     if (innerRef.current && innerRef.current.setCustomValidity) {
       innerRef.current.setCustomValidity(error || '');
     }

@@ -1,7 +1,9 @@
-import nanoMemoize from 'nano-memoize';
-import styled from 'styled-components';
+// import nanoMemoize from 'nano-memoize';
+import React, { useLayoutEffect, useMemo } from 'react';
+// import styled from 'styled-components';
 
-import variables from './variables';
+import css from '../index.scss';
+// import variables from './variables';
 
 const mapModifiers = (componentClassName) => (props) => {
   const classNames = [];
@@ -29,18 +31,52 @@ const mapModifiers = (componentClassName) => (props) => {
   };
 };
 
-const mapTheme = nanoMemoize(() => ({ theme: variables }));
+// const mapTheme = nanoMemoize(() => ({ theme: variables }));
 
-const mapAs = (component) => nanoMemoize(() => ({ as: component }));
+// const mapAs = (component) => nanoMemoize(() => ({ forwardedAs: component }));
 
 export const createStyledComponent = (styles, componentClassName, component = 'div') => {
-  const StyledComponent = styled(styles[componentClassName])
-    .attrs(mapModifiers(componentClassName))
-    .attrs(mapTheme)
-    .attrs(mapAs(component))
-    .withConfig({ componentId: componentClassName })([], []);
+  // const StyledComponent = styled(styles[componentClassName])
+  //   .attrs(mapModifiers(componentClassName))
+  //   .attrs(mapTheme)
+  //   .attrs(mapAs(component))
+  //   .withConfig({ componentId: componentClassName })([], []);
 
-  StyledComponent.displayName = componentClassName;
+  const Component = React.forwardRef(function Component({
+    as: _as,
+    className: _className,
+    forwardedAs,
+    forwardedRef,
+    invisible,
+    ...props
+  }, _ref) {
+    useLayoutEffect(() => {
+      css.use();
 
-  return StyledComponent;
+      return () => {
+        css.unuse();
+      };
+    }, []);
+
+    const className = [
+      componentClassName,
+      invisible && `${ componentClassName }--invisible`,
+      useMemo(() => mapModifiers(componentClassName)(props).className),
+      _className,
+    ].filter(Boolean).join(' ');
+
+    const as = forwardedAs || _as || component;
+
+    const ref = forwardedRef || _ref;
+
+    const filteredProps = Object.entries(props)
+      .filter(([name]) => name.slice(0, 4) !== 'mod-')
+      .reduce((props, [name, value]) => ({ ...props, [name]: value }), {});
+
+    return React.createElement(as, { ...filteredProps, className, ref });
+  });
+
+  Component.displayName = componentClassName;
+
+  return Component;
 };

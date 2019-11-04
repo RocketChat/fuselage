@@ -21,13 +21,13 @@ const Container = styled.div`
   ` }
 
   ${ (props) => props['mod-elevation'] === 1 && css`
-    box-shadow: 0px 0px 12px 0px rgba(47, 52, 61, 0.1);
+    box-shadow: 0 0 12px 0 rgba(47, 52, 61, 0.1);
   ` }
 
   ${ (props) => props['mod-elevation'] === 2 && css`
     box-shadow:
-      0px 0px 2px 0px rgba(47, 52, 61, 0.08),
-      0px 0px 12px 0px rgba(47, 52, 61, 0.12);
+      0 0 2px 0 rgba(47, 52, 61, 0.08),
+      0 0 12px 0 rgba(47, 52, 61, 0.12);
   ` }
 `;
 

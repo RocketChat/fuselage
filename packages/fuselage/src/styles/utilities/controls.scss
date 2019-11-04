@@ -7,11 +7,11 @@
 
   @include clickable;
 
-  & > &__input {
+  & &__input {
     @include visually-hidden;
   }
 
-  & > &__fake {
+  & &__fake {
     @include box;
 
     position: relative;
@@ -28,8 +28,8 @@
       $value-state-class: if($value-state == unchecked, '', '.#{$value-state}');
       $value-state-pseudo-class: if($value-state == unchecked, '', ':#{$value-state}');
 
-      & > &__input#{$value-state-class} + &__fake,
-      & > &__input#{$value-state-pseudo-class} + &__fake {
+      & &__input#{$value-state-class} + &__fake,
+      & &__input#{$value-state-pseudo-class} + &__fake {
         @extend #{map-get($states, '#{$value-state}-all')};
       }
     }
@@ -43,18 +43,18 @@
         $value-state-class: if($value-state == unchecked, '', '.#{$value-state}');
         $value-state-pseudo-class: if($value-state == unchecked, '', ':#{$value-state}');
 
-        &#{$interaction-state-class} > &__input#{$value-state-class} + &__fake,
-        &#{$interaction-state-class} > &__input#{$value-state-pseudo-class} + &__fake,
-        & > &__input#{$value-state-class}#{$interaction-state-pseudo-class} + &__fake,
-        & > &__input#{$value-state-pseudo-class}#{$interaction-state-pseudo-class} + &__fake {
+        &#{$interaction-state-class} &__input#{$value-state-class} + &__fake,
+        &#{$interaction-state-class} &__input#{$value-state-pseudo-class} + &__fake,
+        & &__input#{$value-state-class}#{$interaction-state-pseudo-class} + &__fake,
+        & &__input#{$value-state-pseudo-class}#{$interaction-state-pseudo-class} + &__fake {
           @extend #{map-get($states, '#{$value-state}-#{$interaction-state}')};
         }
       }
     }
   }
 
-  &.disabled > &__input + &__fake,
-  & > &__input:disabled + &__fake {
+  &.disabled &__input + &__fake,
+  & &__input:disabled + &__fake {
     cursor: not-allowed;
   }
 }
