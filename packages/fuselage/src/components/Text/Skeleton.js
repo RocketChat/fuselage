@@ -30,25 +30,23 @@ export function Skeleton({
   width,
 }) {
   return <SkeletonContainer
-    modifiers={{
-      animated,
-      color: (defaultColor && 'default')
-        || (infoColor && 'info')
-        || (hintColor && 'hint')
-        || (disabledLabelColor && 'disabled-label')
-        || (disabledColor && 'disabled')
-        || (alternativeColor && 'alternative')
-        || (primaryColor && 'primary')
-        || (successColor && 'success')
-        || (dangerColor && 'danger')
-        || (warningColor && 'warning'),
-      style: (headline && 'headline')
-        || (subtitle && 'subtitle')
-        || (paragraph && 'paragraph')
-        || (caption && 'caption')
-        || (micro && 'micro'),
-      width,
-    }}
+    mod-animated={animated}
+    mod-color={(defaultColor && 'default')
+    || (infoColor && 'info')
+    || (hintColor && 'hint')
+    || (disabledLabelColor && 'disabled-label')
+    || (disabledColor && 'disabled')
+    || (alternativeColor && 'alternative')
+    || (primaryColor && 'primary')
+    || (successColor && 'success')
+    || (dangerColor && 'danger')
+    || (warningColor && 'warning')}
+    mod-style={(headline && 'headline')
+    || (subtitle && 'subtitle')
+    || (paragraph && 'paragraph')
+    || (caption && 'caption')
+    || (micro && 'micro')}
+    mod-width={width}
   />;
 }
 

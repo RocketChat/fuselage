@@ -25,12 +25,10 @@ export const ButtonGroup = React.forwardRef(function ButtonGroup({
 
   return <Container
     children={wrappedChildren}
-    modifiers={{
-      align,
-      stretch,
-      vertical,
-      wrap,
-    }}
+    mod-align={align}
+    mod-stretch={stretch}
+    mod-vertical={vertical}
+    mod-wrap={wrap}
     ref={ref}
     role='group'
     {...props}

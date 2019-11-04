@@ -20,10 +20,10 @@ export const Callout = React.forwardRef(function Callout({
     || (type === 'warning' && 'warning')
     || (type === 'danger' && 'ban');
 
-  return <Container modifiers={{ type }} ref={ref} {...props}>
+  return <Container mod-type={type} ref={ref} {...props}>
     <Icon name={iconName} x16 />
     <Wrapper>
-      <Title modifiers={{ hasChildren: !!children }}>{title}</Title>
+      <Title mod-has-children={!!children}>{title}</Title>
       {children}
     </Wrapper>
   </Container>;

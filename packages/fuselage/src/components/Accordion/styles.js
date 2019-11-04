@@ -59,10 +59,10 @@ const ItemBar = styled.div`
     }
   }
 
-  ${ ({ modifiers, theme }) => modifiers.disabled && css`
+  ${ (props) => props['mod-disabled'] && css`
     cursor: not-allowed;
 
-    color: ${ theme.textColors.disabled };
+    color: ${ ({ theme }) => theme.textColors.disabled };
     background-color: ${ colors.dark100 };
   ` }
 `;
@@ -105,15 +105,15 @@ const ItemPanel = styled.div`
   padding-block: 0;
   padding-inline: ${ ({ theme }) => theme.spaces.x8 };
 
-  ${ ({ modifiers, theme }) => modifiers.expanded && css`
+  ${ (props) => props['mod-expanded'] && css`
     visibility: visible;
 
     height: auto;
     padding:
-      ${ theme.spaces.x32 }
-      ${ theme.spaces.x8 };
-    padding-block: ${ theme.spaces.x32 };
-    padding-inline: ${ theme.spaces.x8 };
+      ${ ({ theme }) => theme.spaces.x32 }
+      ${ ({ theme }) => theme.spaces.x8 };
+    padding-block: ${ ({ theme }) => theme.spaces.x32 };
+    padding-inline: ${ ({ theme }) => theme.spaces.x8 };
   ` }
 `;
 

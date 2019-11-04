@@ -12,17 +12,17 @@ const Container = styled.label`
   align-items: stretch;
   flex-flow: column nowrap;
 
-  ${ ({ modifiers }) => modifiers.position === 'top' && css`
+  ${ (props) => props['mod-position'] === 'top' && css`
     align-items: stretch;
     flex-flow: column nowrap;
   ` }
 
-  ${ ({ modifiers }) => modifiers.position === 'start' && css`
+  ${ (props) => props['mod-position'] === 'start' && css`
     align-items: flex-start;
     flex-flow: row nowrap;
   ` }
 
-  ${ ({ modifiers }) => modifiers.position === 'end' && css`
+  ${ (props) => props['mod-position'] === 'end' && css`
     align-items: flex-start;
     flex-flow: row-reverse nowrap;
   ` }
@@ -34,32 +34,32 @@ const Wrapper = styled.span`
   display: flex;
   align-items: center;
 
-  ${ ({ modifiers, theme }) => modifiers.position === 'top' && css`
+  ${ (props) => props['mod-position'] === 'top' && css`
     flex: 1 0 auto;
 
-    ${ modifiers.hasChildren && css`
-      margin-bottom: ${ theme.spaces.x8 };
-      margin-block-end: ${ theme.spaces.x8 };
+    ${ props['mod-has-children'] && css`
+      margin-bottom: ${ ({ theme }) => theme.spaces.x8 };
+      margin-block-end: ${ ({ theme }) => theme.spaces.x8 };
     ` }
   ` }
 
-  ${ ({ modifiers, theme }) => modifiers.position === 'start' && css`
+  ${ (props) => props['mod-position'] === 'start' && css`
     flex: 1 0 0;
     align-self: stretch;
 
-    ${ modifiers.hasChildren && css`
-      margin-right: ${ theme.spaces.x8 };
-      margin-inline-end: ${ theme.spaces.x8 };
+    ${ props['mod-has-children'] && css`
+      margin-right: ${ ({ theme }) => theme.spaces.x8 };
+      margin-inline-end: ${ ({ theme }) => theme.spaces.x8 };
     ` }
   ` }
 
-  ${ ({ modifiers, theme }) => modifiers.position === 'end' && css`
+  ${ (props) => props['mod-position'] === 'end' && css`
       flex: 1 0 0;
       align-self: stretch;
 
-      ${ modifiers.hasChildren && css`
-        margin-left: ${ theme.spaces.x8 };
-        margin-inline-start: ${ theme.spaces.x8 };
+      ${ props['mod-has-children'] && css`
+        margin-left: ${ ({ theme }) => theme.spaces.x8 };
+        margin-inline-start: ${ ({ theme }) => theme.spaces.x8 };
       ` }
   ` }
 `;

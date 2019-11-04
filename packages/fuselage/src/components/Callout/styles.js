@@ -18,19 +18,19 @@ const Container = styled.section`
 
   border-radius: ${ ({ theme }) => theme.borders.radius.x2 };
 
-  ${ ({ modifiers }) => modifiers.type === 'info' && css`
+  ${ (props) => props['mod-type'] === 'info' && css`
     background-color: ${ colors.blue200 };
   ` }
 
-  ${ ({ modifiers }) => modifiers.type === 'success' && css`
+  ${ (props) => props['mod-type'] === 'success' && css`
     background-color: ${ colors.green200 };
   ` }
 
-  ${ ({ modifiers }) => modifiers.type === 'warning' && css`
+  ${ (props) => props['mod-type'] === 'warning' && css`
     background-color: ${ colors.yellow200 };
   ` }
 
-  ${ ({ modifiers }) => modifiers.type === 'danger' && css`
+  ${ (props) => props['mod-type'] === 'danger' && css`
     background-color: ${ colors.red200 };
   ` }
 `;
@@ -59,8 +59,8 @@ const Title = styled.h1`
   ${ ({ theme }) => caption(theme) }
   ${ ({ theme }) => captionBold(theme) }
 
-  ${ ({ modifiers, theme }) => modifiers.hasChildren && css`
-    margin-bottom: ${ theme.spaces.x4 };
+  ${ (props) => props['mod-has-children'] && css`
+    margin-bottom: ${ ({ theme }) => theme.spaces.x4 };
   ` }
   ${ truncate }
 `;

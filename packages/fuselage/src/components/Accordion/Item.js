@@ -89,7 +89,7 @@ export const Item = React.forwardRef(function Item({
   const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
 
   return <ItemContainer className={className} {...props}>
-    {title && <ItemBar modifiers={{ disabled }} ref={ref} {...barProps}>
+    {title && <ItemBar mod-disabled={disabled} ref={ref} {...barProps}>
       <ItemTitle id={titleId}>{title}</ItemTitle>
       {!noncollapsible && <>
         {(disabled || onToggleEnabled)
@@ -101,7 +101,7 @@ export const Item = React.forwardRef(function Item({
         </ItemIconContainer>
       </>}
     </ItemBar>}
-    <ItemPanel id={panelId} modifiers={{ expanded: panelExpanded }} role='region'>
+    <ItemPanel id={panelId} mod-expanded={panelExpanded} role='region'>
       {children}
     </ItemPanel>
   </ItemContainer>;

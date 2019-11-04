@@ -22,24 +22,24 @@ const Container = styled.span`
 
   ${ ({ theme }) => paragraph(theme) }
 
-  ${ ({ modifiers, theme }) =>
-    (modifiers.style === 'headline' && headline(theme))
-  || (modifiers.style === 'subtitle' && subtitle(theme))
-  || (modifiers.style === 'paragraph' && paragraph(theme))
-  || (modifiers.style === 'caption' && caption(theme))
-  || (modifiers.style === 'micro' && micro(theme)) }
+  ${ (props) =>
+    (props['mod-style'] === 'headline' && headline(props.theme))
+  || (props['mod-style'] === 'subtitle' && subtitle(props.theme))
+  || (props['mod-style'] === 'paragraph' && paragraph(props.theme))
+  || (props['mod-style'] === 'caption' && caption(props.theme))
+  || (props['mod-style'] === 'micro' && micro(props.theme)) }
 
-  ${ ({ modifiers, theme }) =>
-    (modifiers.color === 'default' && withColor(theme.textColors.default))
-  || (modifiers.color === 'info' && withColor(theme.textColors.info))
-  || (modifiers.color === 'hint' && withColor(theme.textColors.hint))
-  || (modifiers.color === 'disabled-label' && withColor(theme.textColors.disabledLabel))
-  || (modifiers.color === 'disabled' && withColor(theme.textColors.disabled))
-  || (modifiers.color === 'alternative' && withColor(theme.textColors.alternative))
-  || (modifiers.color === 'primary' && withColor(theme.textColors.primary))
-  || (modifiers.color === 'success' && withColor(theme.textColors.success))
-  || (modifiers.color === 'danger' && withColor(theme.textColors.danger))
-  || (modifiers.color === 'warning' && withColor(theme.textColors.warning)) }
+  ${ (props) =>
+    (props['mod-color'] === 'default' && withColor(props.theme.textColors.default))
+  || (props['mod-color'] === 'info' && withColor(props.theme.textColors.info))
+  || (props['mod-color'] === 'hint' && withColor(props.theme.textColors.hint))
+  || (props['mod-color'] === 'disabled-label' && withColor(props.theme.textColors.disabledLabel))
+  || (props['mod-color'] === 'disabled' && withColor(props.theme.textColors.disabled))
+  || (props['mod-color'] === 'alternative' && withColor(props.theme.textColors.alternative))
+  || (props['mod-color'] === 'primary' && withColor(props.theme.textColors.primary))
+  || (props['mod-color'] === 'success' && withColor(props.theme.textColors.success))
+  || (props['mod-color'] === 'danger' && withColor(props.theme.textColors.danger))
+  || (props['mod-color'] === 'warning' && withColor(props.theme.textColors.warning)) }
 `;
 
 const withWidth = (width) => css`
@@ -66,26 +66,26 @@ const SkeletonContainer = styled.span`
 
   font-size: inherit;
 
-  ${ ({ modifiers, theme }) =>
-    (modifiers.style === 'headline' && withHeight(theme.textStyles.h1.fontSize))
-  || (modifiers.style === 'subtitle' && withHeight(theme.textStyles.s1.fontSize))
-  || (modifiers.style === 'paragraph' && withHeight(theme.textStyles.p1.fontSize))
-  || (modifiers.style === 'caption' && withHeight(theme.textStyles.c1.fontSize))
-  || (modifiers.style === 'micro' && withHeight(theme.textStyles.micro.fontSize)) }
+  ${ (props) =>
+    (props['mod-style'] === 'headline' && withHeight(props.theme.textStyles.h1.fontSize))
+  || (props['mod-style'] === 'subtitle' && withHeight(props.theme.textStyles.s1.fontSize))
+  || (props['mod-style'] === 'paragraph' && withHeight(props.theme.textStyles.p1.fontSize))
+  || (props['mod-style'] === 'caption' && withHeight(props.theme.textStyles.c1.fontSize))
+  || (props['mod-style'] === 'micro' && withHeight(props.theme.textStyles.micro.fontSize)) }
 
-  ${ ({ modifiers, theme }) =>
-    (modifiers.color === 'default' && withColor(theme.textColors.default))
-  || (modifiers.color === 'info' && withColor(theme.textColors.info))
-  || (modifiers.color === 'hint' && withColor(theme.textColors.hint))
-  || (modifiers.color === 'disabled-label' && withColor(theme.textColors.disabledLabel))
-  || (modifiers.color === 'disabled' && withColor(theme.textColors.disabled))
-  || (modifiers.color === 'alternative' && withColor(theme.textColors.alternative))
-  || (modifiers.color === 'primary' && withColor(theme.textColors.primary))
-  || (modifiers.color === 'success' && withColor(theme.textColors.success))
-  || (modifiers.color === 'danger' && withColor(theme.textColors.danger))
-  || (modifiers.color === 'warning' && withColor(theme.textColors.warning)) }
+  ${ (props) =>
+    (props['mod-color'] === 'default' && withColor(props.theme.textColors.default))
+  || (props['mod-color'] === 'info' && withColor(props.theme.textColors.info))
+  || (props['mod-color'] === 'hint' && withColor(props.theme.textColors.hint))
+  || (props['mod-color'] === 'disabled-label' && withColor(props.theme.textColors.disabledLabel))
+  || (props['mod-color'] === 'disabled' && withColor(props.theme.textColors.disabled))
+  || (props['mod-color'] === 'alternative' && withColor(props.theme.textColors.alternative))
+  || (props['mod-color'] === 'primary' && withColor(props.theme.textColors.primary))
+  || (props['mod-color'] === 'success' && withColor(props.theme.textColors.success))
+  || (props['mod-color'] === 'danger' && withColor(props.theme.textColors.danger))
+  || (props['mod-color'] === 'warning' && withColor(props.theme.textColors.warning)) }
 
-  ${ ({ modifiers }) => modifiers.animated && css`
+  ${ (props) => props['mod-animated'] && css`
     animation: ${ keyframes`
       0% {
         opacity: 0.1;
@@ -101,7 +101,7 @@ const SkeletonContainer = styled.span`
     ` } 1s linear 0s infinite running;
   ` };
 
-  ${ ({ modifiers, theme }) => modifiers.width !== undefined && withWidth(theme.widths[modifiers.width]) }
+  ${ (props) => props['mod-width'] !== undefined && withWidth(props.theme.widths[props['mod-width']]) }
 `;
 
 export default {

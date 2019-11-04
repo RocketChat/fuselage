@@ -28,16 +28,14 @@ export const Button = React.forwardRef(function Button({
 
   return <Container
     as={is}
-    modifiers={{
-      danger,
-      ghost,
-      ghostDanger: ghost && danger,
-      primary,
-      primaryDanger: primary && danger,
-      small,
-      square,
-      smallSquare: small && square,
-    }}
+    mod-danger={danger}
+    mod-ghost={ghost}
+    mod-ghost-danger={ghost && danger}
+    mod-primary={primary}
+    mod-primary-danger={primary && danger}
+    mod-small={small}
+    mod-square={square}
+    mod-small-square={small && square}
     ref={ref}
     {...extraProps}
     {...props}

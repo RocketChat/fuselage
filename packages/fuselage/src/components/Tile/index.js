@@ -7,7 +7,7 @@ import styles from './styles';
 const Container = createStyledComponent(styles, 'rcx-tile');
 
 export const Tile = React.forwardRef(function Tile({ elevation, ...props }, ref) {
-  return <Container modifiers={{ elevation }} ref={ref} {...props} />;
+  return <Container mod-elevation={elevation} ref={ref} {...props} />;
 });
 
 Tile.displayName = 'Tile';

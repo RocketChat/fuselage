@@ -18,30 +18,30 @@ const Container = styled.div`
   margin-block: calc(-1 * ${ ({ theme }) => theme.spaces.x16 });
   margin-inline: calc(-1 * ${ ({ theme }) => theme.spaces.x8 });
 
-  ${ ({ modifiers }) => modifiers.wrap && css`
+  ${ (props) => props['mod-wrap'] && css`
     flex-wrap: wrap;
   ` }
 
-  ${ ({ modifiers }) => modifiers.stretch && css`
+  ${ (props) => props['mod-stretch'] && css`
     justify-content: stretch;
   ` }
 
-  ${ ({ modifiers }) => modifiers.vertical && css`
+  ${ (props) => props['mod-vertical'] && css`
     flex-direction: column;
 
     margin-top: calc(-1 * ${ ({ theme }) => theme.spaces.x8 });
     margin-bottom: calc(-1 * ${ ({ theme }) => theme.spaces.x8 });
   ` }
 
-  ${ ({ modifiers }) => modifiers.vertical && modifiers.stretch && css`
+  ${ (props) => props['mod-vertical'] && props['mod-stretch'] && css`
     align-items: stretch;
   ` }
 
-  ${ ({ modifiers }) => modifiers.align === 'start' && css`
+  ${ (props) => props['mod-align'] === 'start' && css`
     justify-content: flex-start;
   ` }
 
-  ${ ({ modifiers }) => modifiers.align === 'end' && css`
+  ${ (props) => props['mod-align'] === 'end' && css`
     justify-content: flex-end;
   ` }
 `;

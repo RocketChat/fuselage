@@ -122,102 +122,102 @@ const Container = styled.button`
     disabledColor: theme.buttonColors.secondary.disabledColor,
   }) }
 
-  ${ ({ modifiers, theme }) => modifiers.small && css`
-    ${ caption(theme) }
-    ${ captionBold(theme) }
+  ${ (props) => props['mod-small'] && css`
+    ${ caption(props.theme) }
+    ${ captionBold(props.theme) }
 
     ${ withRectangularSize({
-    height: theme.sizes.x32,
-    paddingX: theme.spaces.x12,
-    lineHeight: theme.textStyles.c1.lineHeight,
+    height: props.theme.sizes.x32,
+    paddingX: props.theme.spaces.x12,
+    lineHeight: props.theme.textStyles.c1.lineHeight,
   }) }
   ` }
 
-  ${ ({ modifiers, theme }) => modifiers.square && withSquaredSize({
-    size: theme.spaces.x40,
+  ${ (props) => props['mod-square'] && withSquaredSize({
+    size: props.theme.spaces.x40,
   }) }
 
-  ${ ({ modifiers, theme }) => modifiers.small && modifiers.square && withSquaredSize({
-    size: theme.spaces.x32,
+  ${ (props) => props['mod-small'] && props['mod-square'] && withSquaredSize({
+    size: props.theme.spaces.x32,
   }) }
 
-  ${ ({ modifiers, theme }) => modifiers.danger && withColors({
-    backgroundColor: theme.buttonColors.secondary.backgroundColor,
-    borderColor: theme.buttonColors.secondary.borderColor,
+  ${ (props) => props['mod-danger'] && withColors({
+    backgroundColor: props.theme.buttonColors.secondary.backgroundColor,
+    borderColor: props.theme.buttonColors.secondary.borderColor,
     color: colors.red500,
-    hoverBackgroundColor: theme.buttonColors.secondary.hoverBackgroundColor,
-    hoverBorderColor: theme.buttonColors.secondary.hoverBorderColor,
-    activeBackgroundColor: theme.buttonColors.secondary.activeBackgroundColor,
-    activeBorderColor: theme.buttonColors.secondary.activeBorderColor,
-    focusBackgroundColor: theme.buttonColors.secondary.focusBackgroundColor,
-    focusBorderColor: theme.buttonColors.secondary.focusBorderColor,
-    focusShadowColor: theme.buttonColors.secondary.focusShadowColor,
-    disabledBackgroundColor: theme.buttonColors.secondary.disabledBackgroundColor,
-    disabledBorderColor: theme.buttonColors.secondary.disabledBorderColor,
+    hoverBackgroundColor: props.theme.buttonColors.secondary.hoverBackgroundColor,
+    hoverBorderColor: props.theme.buttonColors.secondary.hoverBorderColor,
+    activeBackgroundColor: props.theme.buttonColors.secondary.activeBackgroundColor,
+    activeBorderColor: props.theme.buttonColors.secondary.activeBorderColor,
+    focusBackgroundColor: props.theme.buttonColors.secondary.focusBackgroundColor,
+    focusBorderColor: props.theme.buttonColors.secondary.focusBorderColor,
+    focusShadowColor: props.theme.buttonColors.secondary.focusShadowColor,
+    disabledBackgroundColor: props.theme.buttonColors.secondary.disabledBackgroundColor,
+    disabledBorderColor: props.theme.buttonColors.secondary.disabledBorderColor,
     disabledColor: colors.red100,
   }) }
 
-  ${ ({ modifiers, theme }) => modifiers.primary && withColors({
-    backgroundColor: theme.buttonColors.primary.backgroundColor,
-    borderColor: theme.buttonColors.primary.borderColor,
-    color: theme.buttonColors.primary.color,
-    hoverBackgroundColor: theme.buttonColors.primary.hoverBackgroundColor,
-    hoverBorderColor: theme.buttonColors.primary.hoverBorderColor,
-    activeBackgroundColor: theme.buttonColors.primary.activeBackgroundColor,
-    activeBorderColor: theme.buttonColors.primary.activeBorderColor,
-    focusBackgroundColor: theme.buttonColors.primary.focusBackgroundColor,
-    focusBorderColor: theme.buttonColors.primary.focusBorderColor,
-    focusShadowColor: theme.buttonColors.primary.focusShadowColor,
-    disabledBackgroundColor: theme.buttonColors.primary.disabledBackgroundColor,
-    disabledBorderColor: theme.buttonColors.primary.disabledBorderColor,
-    disabledColor: theme.buttonColors.primary.disabledColor,
+  ${ (props) => props['mod-primary'] && withColors({
+    backgroundColor: props.theme.buttonColors.primary.backgroundColor,
+    borderColor: props.theme.buttonColors.primary.borderColor,
+    color: props.theme.buttonColors.primary.color,
+    hoverBackgroundColor: props.theme.buttonColors.primary.hoverBackgroundColor,
+    hoverBorderColor: props.theme.buttonColors.primary.hoverBorderColor,
+    activeBackgroundColor: props.theme.buttonColors.primary.activeBackgroundColor,
+    activeBorderColor: props.theme.buttonColors.primary.activeBorderColor,
+    focusBackgroundColor: props.theme.buttonColors.primary.focusBackgroundColor,
+    focusBorderColor: props.theme.buttonColors.primary.focusBorderColor,
+    focusShadowColor: props.theme.buttonColors.primary.focusShadowColor,
+    disabledBackgroundColor: props.theme.buttonColors.primary.disabledBackgroundColor,
+    disabledBorderColor: props.theme.buttonColors.primary.disabledBorderColor,
+    disabledColor: props.theme.buttonColors.primary.disabledColor,
   }) }
 
-  ${ ({ modifiers, theme }) => modifiers.primary && modifiers.danger && withColors({
-    backgroundColor: theme.buttonColors.danger.backgroundColor,
-    borderColor: theme.buttonColors.danger.borderColor,
-    color: theme.buttonColors.danger.color,
-    hoverBackgroundColor: theme.buttonColors.danger.hoverBackgroundColor,
-    hoverBorderColor: theme.buttonColors.danger.hoverBorderColor,
-    activeBackgroundColor: theme.buttonColors.danger.activeBackgroundColor,
-    activeBorderColor: theme.buttonColors.danger.activeBorderColor,
-    focusBackgroundColor: theme.buttonColors.danger.focusBackgroundColor,
-    focusBorderColor: theme.buttonColors.danger.focusBorderColor,
-    focusShadowColor: theme.buttonColors.danger.focusShadowColor,
-    disabledBackgroundColor: theme.buttonColors.danger.disabledBackgroundColor,
-    disabledBorderColor: theme.buttonColors.danger.disabledBorderColor,
-    disabledColor: theme.buttonColors.danger.disabledColor,
+  ${ (props) => props['mod-primary'] && props['mod-danger'] && withColors({
+    backgroundColor: props.theme.buttonColors.danger.backgroundColor,
+    borderColor: props.theme.buttonColors.danger.borderColor,
+    color: props.theme.buttonColors.danger.color,
+    hoverBackgroundColor: props.theme.buttonColors.danger.hoverBackgroundColor,
+    hoverBorderColor: props.theme.buttonColors.danger.hoverBorderColor,
+    activeBackgroundColor: props.theme.buttonColors.danger.activeBackgroundColor,
+    activeBorderColor: props.theme.buttonColors.danger.activeBorderColor,
+    focusBackgroundColor: props.theme.buttonColors.danger.focusBackgroundColor,
+    focusBorderColor: props.theme.buttonColors.danger.focusBorderColor,
+    focusShadowColor: props.theme.buttonColors.danger.focusShadowColor,
+    disabledBackgroundColor: props.theme.buttonColors.danger.disabledBackgroundColor,
+    disabledBorderColor: props.theme.buttonColors.danger.disabledBorderColor,
+    disabledColor: props.theme.buttonColors.danger.disabledColor,
   }) }
 
-${ ({ modifiers, theme }) => modifiers.ghost && withColors({
+${ (props) => props['mod-ghost'] && withColors({
     backgroundColor: 'transparent',
     borderColor: 'transparent',
-    color: theme.buttonColors.secondary.color,
-    hoverBackgroundColor: theme.buttonColors.secondary.hoverBackgroundColor,
-    hoverBorderColor: theme.buttonColors.secondary.hoverBorderColor,
-    activeBackgroundColor: theme.buttonColors.secondary.activeBackgroundColor,
-    activeBorderColor: theme.buttonColors.secondary.activeBorderColor,
-    focusBackgroundColor: theme.buttonColors.secondary.focusBackgroundColor,
-    focusBorderColor: theme.buttonColors.secondary.focusBorderColor,
-    focusShadowColor: theme.buttonColors.secondary.focusShadowColor,
-    disabledBackgroundColor: theme.buttonColors.secondary.disabledBackgroundColor,
-    disabledBorderColor: theme.buttonColors.secondary.disabledBorderColor,
-    disabledColor: theme.buttonColors.secondary.disabledColor,
+    color: props.theme.buttonColors.secondary.color,
+    hoverBackgroundColor: props.theme.buttonColors.secondary.hoverBackgroundColor,
+    hoverBorderColor: props.theme.buttonColors.secondary.hoverBorderColor,
+    activeBackgroundColor: props.theme.buttonColors.secondary.activeBackgroundColor,
+    activeBorderColor: props.theme.buttonColors.secondary.activeBorderColor,
+    focusBackgroundColor: props.theme.buttonColors.secondary.focusBackgroundColor,
+    focusBorderColor: props.theme.buttonColors.secondary.focusBorderColor,
+    focusShadowColor: props.theme.buttonColors.secondary.focusShadowColor,
+    disabledBackgroundColor: props.theme.buttonColors.secondary.disabledBackgroundColor,
+    disabledBorderColor: props.theme.buttonColors.secondary.disabledBorderColor,
+    disabledColor: props.theme.buttonColors.secondary.disabledColor,
   }) }
 
-  ${ ({ modifiers, theme }) => modifiers.ghost && modifiers.danger && withColors({
+  ${ (props) => props['mod-ghost'] && props['mod-danger'] && withColors({
     backgroundColor: 'transparent',
     borderColor: 'transparent',
     color: colors.red500,
-    hoverBackgroundColor: theme.buttonColors.secondary.hoverBackgroundColor,
-    hoverBorderColor: theme.buttonColors.secondary.hoverBorderColor,
-    activeBackgroundColor: theme.buttonColors.secondary.activeBackgroundColor,
-    activeBorderColor: theme.buttonColors.secondary.activeBorderColor,
-    focusBackgroundColor: theme.buttonColors.secondary.focusBackgroundColor,
-    focusBorderColor: theme.buttonColors.secondary.focusBorderColor,
-    focusShadowColor: theme.buttonColors.secondary.focusShadowColor,
-    disabledBackgroundColor: theme.buttonColors.secondary.disabledBackgroundColor,
-    disabledBorderColor: theme.buttonColors.secondary.disabledBorderColor,
+    hoverBackgroundColor: props.theme.buttonColors.secondary.hoverBackgroundColor,
+    hoverBorderColor: props.theme.buttonColors.secondary.hoverBorderColor,
+    activeBackgroundColor: props.theme.buttonColors.secondary.activeBackgroundColor,
+    activeBorderColor: props.theme.buttonColors.secondary.activeBorderColor,
+    focusBackgroundColor: props.theme.buttonColors.secondary.focusBackgroundColor,
+    focusBorderColor: props.theme.buttonColors.secondary.focusBorderColor,
+    focusShadowColor: props.theme.buttonColors.secondary.focusShadowColor,
+    disabledBackgroundColor: props.theme.buttonColors.secondary.disabledBackgroundColor,
+    disabledBorderColor: props.theme.buttonColors.secondary.disabledBorderColor,
     disabledColor: colors.red100,
   }) }
 `;
