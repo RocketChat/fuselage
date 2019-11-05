@@ -5,16 +5,18 @@
   align-items: center;
   flex-flow: column nowrap;
   justify-content: center;
+}
 
-  & > .rcx-field {
-    flex: 0 0 auto;
+.rcx-field-group__item {
+  @include box;
 
-    margin-bottom: $spaces-x24;
-    margin-block-end: $spaces-x24;
+  flex: 0 0 auto;
 
-    &:last-child {
-      margin-bottom: 0;
-      margin-block-end: 0;
-    }
+  margin-bottom: $spaces-x24;
+  margin-block-end: $spaces-x24;
+
+  &:last-child {
+    margin-bottom: 0;
+    margin-block-end: 0;
   }
 }

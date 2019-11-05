@@ -3,7 +3,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Button, Icon, TextInput } from '../..';
+import { Icon, TextInput } from '../..';
 
 <Meta title='Forms|Inputs/TextInput' parameters={{ jest: ['TextInput/spec'] }} />
 
@@ -24,19 +24,11 @@ An input for any kind of single-line text.
 Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
 used.
 
-### With Addon
-
-<Preview>
-  <Story name='With Addon'>
-    <TextInput addon={<Button small ghost>Button</Button>} />
-  </Story>
-</Preview>
-
 ### With Icon Addon
 
 <Preview>
   <Story name='With Icon Addon'>
-    <TextInput addon={<Icon name='send' />} />
+    <TextInput addon={<Icon name='send' x20 />} />
   </Story>
 </Preview>
 
@@ -82,7 +74,7 @@ used.
       default: {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'Value' },
-      'with icon': { addon: <Icon name='keyboard' />, value: 'Value' },
+      'with icon': { addon: <Icon name='keyboard' x20 />, value: 'Value' },
     }}
     yAxis={{
       default: {},

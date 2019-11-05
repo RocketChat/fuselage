@@ -3,7 +3,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Button, Icon, EmailInput } from '../..';
+import { Icon, EmailInput } from '../..';
 
 <Meta title='Forms|Inputs/EmailInput' parameters={{ jest: ['EmailInput/spec'] }} />
 
@@ -24,19 +24,11 @@ An input for email addresses.
 Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
 used.
 
-### With Addon
-
-<Preview>
-  <Story name='With Addon'>
-    <EmailInput addon={<Button small ghost>Button</Button>} />
-  </Story>
-</Preview>
-
 ### With Icon Addon
 
 <Preview>
   <Story name='With Icon Addon'>
-    <EmailInput addon={<Icon name='send' />} />
+    <EmailInput addon={<Icon name='send' x20 />} />
   </Story>
 </Preview>
 
@@ -82,7 +74,7 @@ used.
       default: {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'support@rocket.chat' },
-      'with icon': { addon: <Icon name='at' />, value: 'support@rocket.chat' },
+      'with icon': { addon: <Icon name='at' x20 />, value: 'support@rocket.chat' },
     }}
     yAxis={{
       default: {},

@@ -3,13 +3,11 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Skeleton } from './Skeleton';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-text', 'span');
+const Container = createStyledComponent('rcx-text', 'span');
 
 export const Text = React.forwardRef(function Text({
   is,
-  modifiers = {},
 
   headline,
   subtitle,
@@ -32,24 +30,21 @@ export const Text = React.forwardRef(function Text({
 }, ref) {
   return <Container
     as={is}
-    modifiers={{
-      ...modifiers,
-      color: (defaultColor && 'default')
-        || (infoColor && 'info')
-        || (hintColor && 'hint')
-        || (disabledLabelColor && 'disabled-label')
-        || (disabledColor && 'disabled')
-        || (alternativeColor && 'alternative')
-        || (primaryColor && 'primary')
-        || (successColor && 'success')
-        || (dangerColor && 'danger')
-        || (warningColor && 'warning'),
-      style: (headline && 'headline')
-        || (subtitle && 'subtitle')
-        || (paragraph && 'paragraph')
-        || (caption && 'caption')
-        || (micro && 'micro'),
-    }}
+    mod-color={(defaultColor && 'default')
+    || (infoColor && 'info')
+    || (hintColor && 'hint')
+    || (disabledLabelColor && 'disabled-label')
+    || (disabledColor && 'disabled')
+    || (alternativeColor && 'alternative')
+    || (primaryColor && 'primary')
+    || (successColor && 'success')
+    || (dangerColor && 'danger')
+    || (warningColor && 'warning')}
+    mod-style={(headline && 'headline')
+    || (subtitle && 'subtitle')
+    || (paragraph && 'paragraph')
+    || (caption && 'caption')
+    || (micro && 'micro')}
     ref={ref}
     {...props}
   />;

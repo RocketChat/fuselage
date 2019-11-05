@@ -3,7 +3,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Button, Icon, SearchInput } from '../..';
+import { Icon, SearchInput } from '../..';
 
 <Meta title='Forms|Inputs/SearchInput' parameters={{ jest: ['SearchInput/spec'] }} />
 
@@ -24,19 +24,11 @@ An input for search queries.
 Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
 used.
 
-### With Addon
-
-<Preview>
-  <Story name='With Addon'>
-    <SearchInput addon={<Button small ghost>Button</Button>} />
-  </Story>
-</Preview>
-
 ### With Icon Addon
 
 <Preview>
   <Story name='With Icon Addon'>
-    <SearchInput addon={<Icon name='send' />} />
+    <SearchInput addon={<Icon name='send' x20 />} />
   </Story>
 </Preview>
 
@@ -82,7 +74,7 @@ used.
       default: {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'Value' },
-      'with icon': { addon: <Icon name='magnifier' />, value: 'Value' },
+      'with icon': { addon: <Icon name='magnifier' x20 />, value: 'Value' },
     }}
     yAxis={{
       default: {},

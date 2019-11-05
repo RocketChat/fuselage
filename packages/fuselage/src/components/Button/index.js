@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { createStyledComponent } from '../../styles';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-button', 'button');
+const Container = createStyledComponent('rcx-button', 'button');
 
 export const Button = React.forwardRef(function Button({
   danger,
@@ -28,16 +27,14 @@ export const Button = React.forwardRef(function Button({
 
   return <Container
     as={is}
-    modifiers={{
-      danger,
-      ghost,
-      ghostDanger: ghost && danger,
-      primary,
-      primaryDanger: primary && danger,
-      small,
-      square,
-      smallSquare: small && square,
-    }}
+    mod-danger={danger}
+    mod-ghost={ghost}
+    mod-ghost-danger={ghost && danger}
+    mod-primary={primary}
+    mod-primary-danger={primary && danger}
+    mod-small={small}
+    mod-square={square}
+    mod-small-square={small && square}
     ref={ref}
     {...extraProps}
     {...props}
@@ -52,5 +49,3 @@ Button.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
-
-Button.styled = Container;

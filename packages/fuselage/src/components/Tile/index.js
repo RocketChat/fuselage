@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { createStyledComponent } from '../../styles';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-tile');
+const Container = createStyledComponent('rcx-tile');
 
 export const Tile = React.forwardRef(function Tile({ elevation, ...props }, ref) {
-  return <Container modifiers={{ elevation }} ref={ref} {...props} />;
+  return <Container mod-elevation={elevation} ref={ref} {...props} />;
 });
 
 Tile.displayName = 'Tile';

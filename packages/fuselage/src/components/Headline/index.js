@@ -4,15 +4,17 @@ import React from 'react';
 import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
 import { Skeleton } from './Skeleton';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-headline', Text);
+const Container = createStyledComponent('rcx-headline', 'h1');
 
 export const Headline = React.forwardRef(function Headline({
+  children,
   level,
   ...props
 }, ref) {
-  return <Container headline is={`h${ level }`} ref={ref} {...props} />;
+  return <Container as={`h${ level }`} ref={ref} {...props}>
+    <Text children={children} headline />
+  </Container>;
 });
 
 Headline.defaultProps = {

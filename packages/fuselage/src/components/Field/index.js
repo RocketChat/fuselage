@@ -6,13 +6,12 @@ import { createStyledComponent } from '../../styles';
 import { FieldError } from './Error';
 import { FieldHint } from './Hint';
 import { FieldRow } from './Row';
-import styles from './styles';
 
 const FieldIdContext = createContext();
 
 export const useFieldId = () => useContext(FieldIdContext);
 
-const Container = createStyledComponent(styles, 'rcx-field');
+const Container = createStyledComponent('rcx-field');
 
 export const Field = React.forwardRef(function Field({ children, fieldId, ...props }, ref) {
   const defaultFieldId = useUniqueId();
@@ -31,8 +30,6 @@ Field.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
-
-Field.styled = Container;
 
 Field.Row = FieldRow;
 Field.Error = FieldError;

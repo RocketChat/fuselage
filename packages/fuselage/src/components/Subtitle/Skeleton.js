@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Subtitle } from '.';
+import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
 
+const Container = createStyledComponent('rcx-subtitle', 'h2');
 
 export function Skeleton({ animated, ...props }) {
-  return <Subtitle {...props}>
-    <Text.Skeleton animated={animated} />
-  </Subtitle>;
+  return <Container {...props}>
+    <Text.Skeleton animated={animated} defaultColor subtitle />
+  </Container>;
 }
 
 Skeleton.propTypes = {

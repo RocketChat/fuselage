@@ -1,17 +1,15 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
+import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
-import { StyledInputBoxSkeleton } from './styles';
+
+const SkeletonContainer = createStyledComponent('rcx-skeleton__input', 'span');
 
 export function Skeleton({ animated }) {
-  const compoundClassName = useClassName('rcx-input-box__skeleton');
-  const theme = useTheme();
-  return <StyledInputBoxSkeleton className={compoundClassName} theme={theme}>
+  return <SkeletonContainer>
     <Text.Skeleton animated={animated} />
-  </StyledInputBoxSkeleton>;
+  </SkeletonContainer>;
 }
 
 Skeleton.defaultProps = {

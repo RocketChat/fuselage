@@ -2,14 +2,13 @@ import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
-import { Icon, InputBox, Button } from '../..';
+import { Icon, InputBox } from '../..';
 
 <Meta title='Forms|InputBox' parameters={{ jest: ['InputBox/spec'] }} />
 
 # InputBox
 
-A decorated version of <LinkTo kind='Forms|InputControl' story='Default Story'>`InputControl`</LinkTo> with support for
-addons.
+A decorated input control with support for addons.
 
 Usually you'll perfer to use `-Input` (e.g. <LinkTo kind='Forms|TextInput' story='Default'>`TextInput`</LinkTo>)
 components over this one because it works as a construction block for them.
@@ -24,30 +23,13 @@ components over this one because it works as a construction block for them.
 
 ## With Addon
 
-Any other component can be attached to a <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> as a
-addon.
-
-<Preview>
-  <Story name='With Addon'>
-    <InputBox addon={<Button small ghost>Button</Button>} />
-  </Story>
-</Preview>
-
-If the addon component is a <LinkTo kind='Misc|Icon' story='Default'>`Icon`</LinkTo>, its size and color will be
-adjusted to match the states of the <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>.
-
 <Preview>
   <Story name='With Icon Addon'>
-    <InputBox addon={<Icon name='send' />} />
+    <InputBox addon={<Icon name='send' x20 />} />
   </Story>
 </Preview>
 
-## Props from <LinkTo kind='Forms|InputControl' story='Default Story'>`InputControl`</LinkTo>
-
-Aside from `undecorated`, any other prop
-from <LinkTo kind='Forms|InputControl' story='Default Story'>`InputControl`</LinkTo> can be used.
-
-### Invalid
+## Invalid
 
 <Preview>
   <Story name='Invalid'>
@@ -55,7 +37,7 @@ from <LinkTo kind='Forms|InputControl' story='Default Story'>`InputControl`</Lin
   </Story>
 </Preview>
 
-### Disabled
+## Disabled
 
 <Preview>
   <Story name='Disabled'>
@@ -63,7 +45,7 @@ from <LinkTo kind='Forms|InputControl' story='Default Story'>`InputControl`</Lin
   </Story>
 </Preview>
 
-### With placeholder
+## With placeholder
 
 <Preview>
   <Story name='With Placeholder'>

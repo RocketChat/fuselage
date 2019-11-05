@@ -3,12 +3,16 @@ import React from 'react';
 
 import { createStyledComponent } from '../../styles';
 import { Text } from '../Text';
-import styles from './styles';
 
-const Container = createStyledComponent(styles, 'rcx-field__error', Text);
+const Container = createStyledComponent('rcx-field__error', 'span');
 
-export const FieldError = React.forwardRef(function FieldError(props, ref) {
-  return <Container dangerColor is='span' paragraph ref={ref} {...props} />;
+export const FieldError = React.forwardRef(function FieldError({
+  children,
+  ...props
+}, ref) {
+  return <Container ref={ref} {...props}>
+    <Text children={children} dangerColor paragraph />
+  </Container>;
 });
 
 FieldError.displayName = 'Field.Error';
@@ -18,5 +22,3 @@ FieldError.propTypes = {
   /** Is this component visible? */
   invisible: PropTypes.bool,
 };
-
-FieldError.styled = Container;

@@ -1,49 +1,63 @@
-import styledFn from 'styled-components';
+import React, { useLayoutEffect, useMemo } from 'react';
 
-import variables from './variables';
+import css from '../index.scss';
 
-const fromCamelToKebabCase = (camelCaseString) =>
-  camelCaseString.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
+export const createStyledComponent = (componentClassName, component = 'div') => {
+  const Component = React.forwardRef(function Component(props, ref) {
+    useLayoutEffect(() => {
+      css.use();
 
-const mapAttrs = (componentClassName) => ({
-  invisible,
-  modifiers = {},
-}) => ({
-  className: [
-    componentClassName,
-    ...Object.entries({ ...modifiers, invisible })
-      .filter(([, value]) => !!value)
-      .map(([key, value]) => (typeof value === 'boolean'
-        ? `${ componentClassName }--${ fromCamelToKebabCase(key) }`
-        : `${ componentClassName }--${ fromCamelToKebabCase(key) }-${ fromCamelToKebabCase(String(value)) }`)),
-  ].filter(Boolean).join(' '),
-});
+      return () => {
+        css.unuse();
+      };
+    }, []);
 
-export const createStyledComponent = (styles, componentClassName, component = 'div') => {
-  if (Array.isArray(styles[componentClassName])) {
-    const StyledComponent = styledFn(component)
-      .attrs(mapAttrs(componentClassName))
-      .withConfig({})([], styles[componentClassName] || []);
+    const {
+      as,
+      className,
+      forwardedAs,
+      forwardedRef,
+      invisible,
+      ...filteredProps
+    } = props;
 
-    StyledComponent.defaultProps = {
-      theme: variables,
-    };
+    const newComponent = useMemo(() => forwardedAs || as || component, [forwardedAs, as]);
 
-    StyledComponent.displayName = componentClassName;
+    const newProps = useMemo(() => {
+      const modifiersClasses = [].concat(
+        Object.keys(filteredProps)
+          .filter((name) => name.slice(0, 4) === 'mod-' && !!filteredProps[name])
+          .map((name) => (typeof filteredProps[name] === 'boolean'
+            ? `${ componentClassName }--${ name.slice(4) }`
+            : `${ componentClassName }--${ name.slice(4) }-${ filteredProps[name] }`))
+      );
 
-    return StyledComponent;
-  }
+      const newClassName = [
+        componentClassName,
+        invisible && `${ componentClassName }--invisible`,
+        modifiersClasses.join(' '),
+        className,
+      ].filter(Boolean).join(' ');
 
-  const StyledComponent = styledFn(styles[componentClassName])
-    .attrs(mapAttrs(componentClassName))
-    .attrs(() => ({ as: component }))
-    .withConfig({})([], []);
+      const newRef = forwardedRef || ref;
 
-  StyledComponent.defaultProps = {
-    theme: variables,
-  };
+      for (const key of Object.keys(filteredProps)) {
+        if (key.slice(0, 4) === 'mod-') {
+          delete filteredProps[key];
+        }
+      }
 
-  StyledComponent.displayName = componentClassName;
+      return {
+        ...filteredProps,
+        className: newClassName,
+        ref: newRef,
+      };
+    });
 
-  return StyledComponent;
+    return React.createElement(newComponent, newProps);
+  });
+
+  Component.displayName = componentClassName;
+
+  return Component;
 };

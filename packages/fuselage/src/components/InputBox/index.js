@@ -1,28 +1,38 @@
-import { useClassName, useMergedRefs } from '@rocket.chat/fuselage-hooks';
+/* eslint-disable complexity */
+import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useCallback, useLayoutEffect, useRef } from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
-import { Wrapper, Input, Addon } from './styles';
+import { createStyledComponent } from '../../styles';
+import { Option } from './Option';
+import { Placeholder } from './Placeholder';
 import { Skeleton } from './Skeleton';
+
+const Wrapper = createStyledComponent('rcx-input-box__wrapper', 'span');
+const Input = createStyledComponent('rcx-input-box', 'input');
+const Addon = createStyledComponent('rcx-input-box__addon', 'span');
 
 export const InputBox = React.forwardRef(function InputBox({
   className,
   addon,
+  error,
+  floatingAddon,
   hidden,
   invisible,
+  multiple,
+  placeholderVisible,
+  type,
   onChange,
   ...props
 }, ref) {
-  const classNames = {
-    wrapper: useClassName('rcx-input-box__wrapper', {}, props.disabled && 'disabled', className),
-    input: useClassName('rcx-input-box', {}, className),
-    addon: useClassName('rcx-input-box__addon'),
-  };
-  const theme = useTheme();
-
   const innerRef = useRef();
   const mergedRef = useMergedRefs(ref, innerRef);
+
+  useLayoutEffect(() => {
+    if (innerRef.current && innerRef.current.setCustomValidity) {
+      innerRef.current.setCustomValidity(error || '');
+    }
+  }, [error]);
 
   useLayoutEffect(() => {
     if (addon) {
@@ -40,27 +50,63 @@ export const InputBox = React.forwardRef(function InputBox({
 
   if (!addon) {
     return <Input
-      className={classNames.input}
+      as={
+        (type === 'textarea' && 'textarea')
+      || (type === 'select' && 'select')
+      || 'input'}
+      className={className}
+      cols={
+        (type === 'textarea' && 1)
+      || (type === 'select' && 0)
+      || 0}
       hidden={hidden}
       invisible={invisible}
-      ref={ref}
-      theme={theme}
+      multiple={multiple}
+      ref={mergedRef}
+      size={
+        (type === 'textarea' && undefined)
+      || (type === 'select' && 1)
+      || 1}
+      type={type === 'textarea' || type === 'select' ? undefined : type}
       onChange={handleChange}
+      mod-multiple={multiple}
+      mod-placeholder-visible={placeholderVisible}
+      mod-type={type}
       {...props}
-      undecorated={false}
     />;
   }
 
-  return <Wrapper className={classNames.wrapper} hidden={hidden} invisible={invisible} theme={theme}>
+  return <Wrapper
+    className={[props.disabled && 'disabled', className].filter(Boolean).join(' ')}
+    hidden={hidden}
+    invisible={invisible}
+  >
     <Input
-      className={classNames.input}
+      as={
+        (type === 'textarea' && 'textarea')
+      || (type === 'select' && 'select')
+      || 'input'}
+      className={className}
+      cols={
+        (type === 'textarea' && 1)
+      || (type === 'select' && 0)
+      || 0}
+      multiple={multiple}
       ref={mergedRef}
-      theme={theme}
+      size={
+        (type === 'textarea' && undefined)
+      || (type === 'select' && 1)
+      || 1}
+      type={type === 'textarea' || type === 'select' ? undefined : type}
       onChange={handleChange}
+      mod-multiple={multiple}
+      mod-placeholder-visible={placeholderVisible}
+      mod-type={type}
+      mod-undecorated
+      mod-under-addon={floatingAddon}
       {...props}
-      undecorated
     />
-    <Addon children={addon} className={classNames.addon} theme={theme} />
+    <Addon children={addon} mod-over-input={floatingAddon} />
   </Wrapper>;
 });
 
@@ -74,6 +120,7 @@ InputBox.propTypes = {
   addon: PropTypes.element,
   input: PropTypes.element,
   error: PropTypes.string,
+  floatingAddon: PropTypes.bool,
   invisible: PropTypes.bool,
   type: PropTypes.oneOf([
     'button',
@@ -103,5 +150,9 @@ InputBox.propTypes = {
     'select',
   ]).isRequired,
 };
+
+InputBox.Placeholder = Placeholder;
+
+InputBox.Option = Option;
 
 InputBox.Skeleton = Skeleton;
