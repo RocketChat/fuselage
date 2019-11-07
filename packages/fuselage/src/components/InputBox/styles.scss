@@ -205,6 +205,8 @@
     calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
     calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
+  user-select: initial;
+
   vertical-align: baseline;
 
   word-break: break-all;
