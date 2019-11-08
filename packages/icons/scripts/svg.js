@@ -3,7 +3,7 @@ const util = require('util');
 
 const { parseString, Builder } = require('xml2js');
 
-const { createIconList/* , createIconListModule */ } = require('./helpers');
+const { createIconList/* , createIconListModule */, writeFile } = require('./helpers');
 const { getSvgIcons } = require('./icons');
 const manifest = require('../package.json');
 
@@ -103,18 +103,12 @@ ${ icons.map(({ name }) =>
   <div class="label">${ name }</div>
 </div>`).join('\n') }`;
 
-const build = async (srcPath, distPath) => {
+const buildSvgIcons = async (srcPath, distPath) => {
   const icons = getSvgIcons(srcPath);
 
-  const svgSprite = await createSvgSprite(icons);
-  const iconList = createIconList(icons);
-  // const iconListModule = createIconListModule(icons);
-  const htmlPreview = createHtmlPreview(icons, svgSprite);
-
-  fs.writeFileSync(`${ distPath }/RocketChat.svg`, svgSprite);
-  fs.writeFileSync(`${ distPath }/index.js`, iconList, { charset: 'utf8' });
-  // fs.writeFileSync(`${ distPath }/index.mjs`, iconListModule, { charset: 'utf8' });
-  fs.writeFileSync(`${ distPath }/index.html`, htmlPreview, { charset: 'utf8' });
+  const svgSprite = await writeFile(distPath, 'RocketChat.svg', () => createSvgSprite(icons));
+  await writeFile(distPath, 'index.js', () => createIconList(icons));
+  await writeFile(distPath, 'index.html', () => createHtmlPreview(icons, svgSprite));
 };
 
-module.exports.buildSvgIcons = build;
+module.exports.buildSvgIcons = buildSvgIcons;

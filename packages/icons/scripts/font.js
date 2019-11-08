@@ -7,7 +7,7 @@ const ttf2eot = require('ttf2eot');
 const ttf2woff = require('ttf2woff');
 const ttf2woff2 = require('ttf2woff2');
 
-const { toCamelCase, toIdentifier, createIconList, createIconListModule } = require('./helpers');
+const { toCamelCase, toIdentifier, createIconList, createIconListModule, writeFile } = require('./helpers');
 const { getFontIcons } = require('./icons');
 const manifest = require('../package.json');
 
@@ -227,34 +227,21 @@ ${ icons.filter(({ mirror }) => !mirror).map(({ name }) =>
   <div class="label">${ name }</div>
 </div>`).join('\n') }`;
 
-const build = async (srcPath, distPath) => {
+const buildFontIcons = async (srcPath, distPath) => {
   const icons = getFontIcons(srcPath);
 
-  const svgFont = await createSvgFont(icons);
-  const ttfFont = createTtfFont(svgFont);
-  const woffFont = createWoffFont(ttfFont);
-  const woff2Font = createWoff2Font(ttfFont);
-  const eotFont = createEotFont(ttfFont);
-  const css = createCss(icons);
-  const minimalCss = createMinimalCss();
-  const iconList = createIconList(icons);
-  const iconListModule = createIconListModule(icons);
-  const charactersList = createCharactersList(icons);
-  const charactersListModule = createCharactersListModule(icons);
-  const htmlPreview = createHtmlPreview(icons);
-
-  fs.writeFileSync(`${ distPath }/RocketChat.svg`, svgFont);
-  fs.writeFileSync(`${ distPath }/RocketChat.ttf`, ttfFont);
-  fs.writeFileSync(`${ distPath }/RocketChat.woff`, woffFont);
-  fs.writeFileSync(`${ distPath }/RocketChat.woff2`, woff2Font);
-  fs.writeFileSync(`${ distPath }/RocketChat.eot`, eotFont);
-  fs.writeFileSync(`${ distPath }/RocketChat.css`, css, { charset: 'utf8' });
-  fs.writeFileSync(`${ distPath }/RocketChat.minimal.css`, minimalCss, { charset: 'utf8' });
-  fs.writeFileSync(`${ distPath }/index.js`, iconList, { charset: 'utf8' });
-  fs.writeFileSync(`${ distPath }/index.mjs`, iconListModule, { charset: 'utf8' });
-  fs.writeFileSync(`${ distPath }/characters.js`, charactersList, { charset: 'utf8' });
-  fs.writeFileSync(`${ distPath }/characters.mjs`, charactersListModule, { charset: 'utf8' });
-  fs.writeFileSync(`${ distPath }/index.html`, htmlPreview, { charset: 'utf8' });
+  const svgFont = await writeFile(distPath, 'RocketChat.svg', () => createSvgFont(icons));
+  const ttfFont = await writeFile(distPath, 'RocketChat.ttf', () => createTtfFont(svgFont));
+  await writeFile(distPath, 'RocketChat.woff', () => createWoffFont(ttfFont));
+  await writeFile(distPath, 'RocketChat.woff2', () => createWoff2Font(ttfFont));
+  await writeFile(distPath, 'RocketChat.eot', () => createEotFont(ttfFont));
+  await writeFile(distPath, 'RocketChat.css', () => createCss(icons));
+  await writeFile(distPath, 'RocketChat.minimal.css', () => createMinimalCss());
+  await writeFile(distPath, 'index.js', () => createIconList(icons));
+  await writeFile(distPath, 'index.mjs', () => createIconListModule(icons));
+  await writeFile(distPath, 'characters.js', () => createCharactersList(icons));
+  await writeFile(distPath, 'characters.mjs', () => createCharactersListModule(icons));
+  await writeFile(distPath, 'index.html', () => createHtmlPreview(icons));
 };
 
-module.exports.buildFontIcons = build;
+module.exports.buildFontIcons = buildFontIcons;
