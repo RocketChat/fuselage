@@ -20,36 +20,35 @@ const endCharacters = [
 
 const mirroredCharacterPairs = startCharacters.map((start, i) => ({ start, end: endCharacters[i] }));
 
-const getDirectional = () => glob.sync(`${ __dirname }/src/directional/*.svg`)
+const getDirectional = (srcPath) => glob.sync(`${ srcPath }/directional/*.svg`)
   .map((match) => ({
     name: path.basename(match, '.svg'),
     path: match,
   }));
 
-const getNeutral = () => glob.sync(`${ __dirname }/src/neutral/*.svg`)
+const getNeutral = (srcPath) => glob.sync(`${ srcPath }/neutral/*.svg`)
   .map((match) => ({
     name: path.basename(match, '.svg'),
     path: match,
   }));
 
-const getOther = () => glob.sync(`${ __dirname }/src/other/*.svg`)
+const getOther = (srcPath) => glob.sync(`${ srcPath }/other/*.svg`)
   .map((match) => ({
     name: path.basename(match, '.svg'),
     path: match,
   }));
 
-const getFontIcons = () => [
-  ...getDirectional().map((icon, i) => ({ ...icon, unicode: [mirroredCharacterPairs[i].start] })),
-  ...getDirectional().map((icon, i) => ({ ...icon, unicode: [mirroredCharacterPairs[i].end], mirror: true })),
-  ...getNeutral().map((icon, i) => ({ ...icon, unicode: [String.fromCodePoint(0xe000 + i)] })),
+const getFontIcons = (srcPath) => [
+  ...getDirectional(srcPath).map((icon, i) => ({ ...icon, unicode: [mirroredCharacterPairs[i].start] })),
+  ...getDirectional(srcPath).map((icon, i) => ({ ...icon, unicode: [mirroredCharacterPairs[i].end], mirror: true })),
+  ...getNeutral(srcPath).map((icon, i) => ({ ...icon, unicode: [String.fromCodePoint(0xe000 + i)] })),
 ].sort(({ name: a }, { name: b }) => a.localeCompare(b));
 
-const getSvgIcons = () => [
-  ...getDirectional(),
-  ...getNeutral(),
-  ...getOther(),
+const getSvgIcons = (srcPath) => [
+  ...getDirectional(srcPath),
+  ...getNeutral(srcPath),
+  ...getOther(srcPath),
 ].sort(({ name: a }, { name: b }) => a.localeCompare(b));
-
 
 module.exports.getFontIcons = getFontIcons;
 module.exports.getSvgIcons = getSvgIcons;

@@ -1,12 +1,11 @@
 const fs = require('fs');
 const util = require('util');
 
-const rimraf = require('rimraf');
 const { parseString, Builder } = require('xml2js');
 
 const { createIconList/* , createIconListModule */ } = require('./helpers');
 const { getSvgIcons } = require('./icons');
-const manifest = require('./package.json');
+const manifest = require('../package.json');
 
 
 const createSvgSprite = async (icons) => {
@@ -104,21 +103,18 @@ ${ icons.map(({ name }) =>
   <div class="label">${ name }</div>
 </div>`).join('\n') }`;
 
-const build = async () => {
-  const icons = getSvgIcons();
+const build = async (srcPath, distPath) => {
+  const icons = getSvgIcons(srcPath);
 
   const svgSprite = await createSvgSprite(icons);
   const iconList = createIconList(icons);
   // const iconListModule = createIconListModule(icons);
   const htmlPreview = createHtmlPreview(icons, svgSprite);
 
-  const outputDirPath = `${ __dirname }/dist/svg`;
-  rimraf.sync(outputDirPath);
-  fs.mkdirSync(outputDirPath, { recursive: true });
-  fs.writeFileSync(`${ outputDirPath }/RocketChat.svg`, svgSprite);
-  fs.writeFileSync(`${ outputDirPath }/index.js`, iconList, { charset: 'utf8' });
-  // fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
-  fs.writeFileSync(`${ outputDirPath }/index.html`, htmlPreview, { charset: 'utf8' });
+  fs.writeFileSync(`${ distPath }/RocketChat.svg`, svgSprite);
+  fs.writeFileSync(`${ distPath }/index.js`, iconList, { charset: 'utf8' });
+  // fs.writeFileSync(`${ distPath }/index.mjs`, iconListModule, { charset: 'utf8' });
+  fs.writeFileSync(`${ distPath }/index.html`, htmlPreview, { charset: 'utf8' });
 };
 
-module.exports.build = build;
+module.exports.buildSvgIcons = build;

@@ -1,7 +1,6 @@
 const fs = require('fs');
 const { Readable } = require('stream');
 
-const rimraf = require('rimraf');
 const SVGIcons2SVGFontStream = require('svgicons2svgfont');
 const svg2ttf = require('svg2ttf');
 const ttf2eot = require('ttf2eot');
@@ -10,7 +9,7 @@ const ttf2woff2 = require('ttf2woff2');
 
 const { toCamelCase, toIdentifier, createIconList, createIconListModule } = require('./helpers');
 const { getFontIcons } = require('./icons');
-const manifest = require('./package.json');
+const manifest = require('../package.json');
 
 
 const createSvgFont = (icons) => new Promise((resolve, reject) => {
@@ -228,8 +227,8 @@ ${ icons.filter(({ mirror }) => !mirror).map(({ name }) =>
   <div class="label">${ name }</div>
 </div>`).join('\n') }`;
 
-const build = async () => {
-  const icons = getFontIcons();
+const build = async (srcPath, distPath) => {
+  const icons = getFontIcons(srcPath);
 
   const svgFont = await createSvgFont(icons);
   const ttfFont = createTtfFont(svgFont);
@@ -244,23 +243,18 @@ const build = async () => {
   const charactersListModule = createCharactersListModule(icons);
   const htmlPreview = createHtmlPreview(icons);
 
-  const outputDirPath = `${ __dirname }/dist/font`;
-  if (fs.existsSync(outputDirPath)) {
-    rimraf.sync(outputDirPath);
-  }
-  fs.mkdirSync(outputDirPath, { recursive: true });
-  fs.writeFileSync(`${ outputDirPath }/RocketChat.svg`, svgFont);
-  fs.writeFileSync(`${ outputDirPath }/RocketChat.ttf`, ttfFont);
-  fs.writeFileSync(`${ outputDirPath }/RocketChat.woff`, woffFont);
-  fs.writeFileSync(`${ outputDirPath }/RocketChat.woff2`, woff2Font);
-  fs.writeFileSync(`${ outputDirPath }/RocketChat.eot`, eotFont);
-  fs.writeFileSync(`${ outputDirPath }/RocketChat.css`, css, { charset: 'utf8' });
-  fs.writeFileSync(`${ outputDirPath }/RocketChat.minimal.css`, minimalCss, { charset: 'utf8' });
-  fs.writeFileSync(`${ outputDirPath }/index.js`, iconList, { charset: 'utf8' });
-  fs.writeFileSync(`${ outputDirPath }/index.mjs`, iconListModule, { charset: 'utf8' });
-  fs.writeFileSync(`${ outputDirPath }/characters.js`, charactersList, { charset: 'utf8' });
-  fs.writeFileSync(`${ outputDirPath }/characters.mjs`, charactersListModule, { charset: 'utf8' });
-  fs.writeFileSync(`${ outputDirPath }/index.html`, htmlPreview, { charset: 'utf8' });
+  fs.writeFileSync(`${ distPath }/RocketChat.svg`, svgFont);
+  fs.writeFileSync(`${ distPath }/RocketChat.ttf`, ttfFont);
+  fs.writeFileSync(`${ distPath }/RocketChat.woff`, woffFont);
+  fs.writeFileSync(`${ distPath }/RocketChat.woff2`, woff2Font);
+  fs.writeFileSync(`${ distPath }/RocketChat.eot`, eotFont);
+  fs.writeFileSync(`${ distPath }/RocketChat.css`, css, { charset: 'utf8' });
+  fs.writeFileSync(`${ distPath }/RocketChat.minimal.css`, minimalCss, { charset: 'utf8' });
+  fs.writeFileSync(`${ distPath }/index.js`, iconList, { charset: 'utf8' });
+  fs.writeFileSync(`${ distPath }/index.mjs`, iconListModule, { charset: 'utf8' });
+  fs.writeFileSync(`${ distPath }/characters.js`, charactersList, { charset: 'utf8' });
+  fs.writeFileSync(`${ distPath }/characters.mjs`, charactersListModule, { charset: 'utf8' });
+  fs.writeFileSync(`${ distPath }/index.html`, htmlPreview, { charset: 'utf8' });
 };
 
-module.exports.build = build;
+module.exports.buildFontIcons = build;
