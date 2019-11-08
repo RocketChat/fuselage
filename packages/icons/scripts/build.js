@@ -1,47 +1,88 @@
-const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
 
 const rimraf = require('rimraf');
 
 const pkg = require('../package.json');
-const { buildFontIcons } = require('./font');
-const { buildSvgIcons } = require('./svg');
+const { writeFile } = require('./files');
+const {
+  createSvgBuffer,
+  createTtfBuffer,
+  createWoffBuffer,
+  createWoff2Buffer,
+  createEotBuffer,
+} = require('./font');
+const { getIcons } = require('./icons');
+const { logStep } = require('./log');
+const { createSvgSprite } = require('./svg');
 
-const { log } = console;
-
-const createDistributionDirectories = async () => {
+const prepareDirectories = async () => {
   const rootPath = path.join(__dirname, '..');
   const distPath = path.join(rootPath, path.dirname(pkg.main));
-  const fontPath = path.join(distPath, 'font');
-  const svgPath = path.join(distPath, 'svg');
   const srcPath = path.join(rootPath, 'src');
 
+  const cleanStep = logStep('Clean dist directory');
   await promisify(rimraf)(distPath);
+  cleanStep.resolve();
 
-  await promisify(fs.mkdir)(fontPath, { recursive: true });
-  await promisify(fs.mkdir)(svgPath, { recursive: true });
+  return { srcPath, distPath };
+};
 
-  return {
-    fontPath,
-    svgPath,
-    srcPath,
-  };
+const buildFont = async (icons, distPath) => {
+  icons = icons.filter(({ startCharacter }) => !!startCharacter);
+
+  const svgBuffer = await writeFile(distPath, 'font/rocketchat.svg', () => createSvgBuffer(icons));
+  const ttfBuffer = await writeFile(distPath, 'font/rocketchat.ttf', () => createTtfBuffer(svgBuffer));
+  await Promise.all([
+    writeFile(distPath, 'font/rocketchat.woff', () => createWoffBuffer(ttfBuffer)),
+    writeFile(distPath, 'font/rocketchat.woff2', () => createWoff2Buffer(ttfBuffer)),
+    writeFile(distPath, 'font/rocketchat.eot', () => createEotBuffer(ttfBuffer)),
+  ]);
+};
+
+const buildSvgImages = async (icons, distPath) => {
+  await writeFile(distPath, 'icons.svg', () => createSvgSprite(icons));
+};
+
+const buildScripts = async (icons, distPath) => {
+  await Promise.all([
+    writeFile(distPath, path.basename(pkg.main), () => {
+      const iconNames = icons.map(({ name }) => name);
+      return `module.exports = ${ JSON.stringify(iconNames, null, 2) };\n`;
+    }),
+    writeFile(distPath, 'characters.js', () => {
+      const characters = icons.reduce((obj, { name, startCharacter }) => ({ ...obj, [name]: startCharacter }), {});
+      return `module.exports = ${ JSON.stringify(characters, null, 2) };\n`;
+    }),
+    writeFile(distPath, 'rocketchat.scss', () => [
+      '@font-face {',
+      '  font-family: "RocketChat";',
+      '  font-style: normal;',
+      '  font-weight: 400;',
+      '  font-display: auto;',
+      '',
+      '  src: url("./font/rocketchat.eot");',
+      '  src:',
+      '    url("./font/rocketchat.eot?#iefix") format("embedded-opentype"),',
+      '    url("./font/rocketchat.woff2") format("woff2"),',
+      '    url("./font/rocketchat.woff") format("woff"),',
+      '    url("./font/rocketchat.ttf") format("truetype"),',
+      '    url("./font/rocketchat.svg#RocketChat") format("svg");',
+      '}',
+    ].join('\n')),
+  ]);
 };
 
 const buildAll = async () => {
-  log('Creating distribution directories...');
-  const {
-    fontPath,
-    svgPath,
-    srcPath,
-  } = await createDistributionDirectories();
+  const { srcPath, distPath } = await prepareDirectories();
 
-  log('Building font...');
-  await buildFontIcons(srcPath, fontPath);
+  const icons = await getIcons(srcPath);
 
-  log('Building SVG sprite...');
-  await buildSvgIcons(srcPath, svgPath);
+  await Promise.all([
+    buildFont(icons, distPath),
+    buildSvgImages(icons, distPath),
+    buildScripts(icons, distPath),
+  ]);
 };
 
 buildAll();
