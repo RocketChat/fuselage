@@ -133,9 +133,10 @@
 ) {
   color: #{ $color };
 
-  &::placeholder {
-    color: #{ $placeholder-color };
-  }
+  // TODO: fix placeholder performance issue
+  // &::placeholder {
+  //   color: #{ $placeholder-color };
+  // }
 
   &.rcx-input-box--placeholder-visible {
     color: #{ $placeholder-color };
