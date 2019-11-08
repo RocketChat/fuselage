@@ -32,5 +32,5 @@ export const useClassName = (
       componentClassName,
       Object.entries(modifiers).reduce((deps, [name, value]) => [...deps, name, value], []),
       JSON.stringify(classNames),
-    ]
+    ],
   );
