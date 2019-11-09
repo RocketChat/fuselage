@@ -14,7 +14,7 @@ const {
 } = require('./font');
 const { getIcons } = require('./icons');
 const { logStep } = require('./log');
-const { createSvgSprite } = require('./svg');
+const { createSvgSprite, createSvgIcons } = require('./svg');
 
 const prepareDirectories = async () => {
   const rootPath = path.join(__dirname, '..');
@@ -41,7 +41,11 @@ const buildFont = async (icons, distPath) => {
 };
 
 const buildSvgImages = async (icons, distPath) => {
-  await writeFile(distPath, 'icons.svg', () => createSvgSprite(icons));
+  const svgIcons = await createSvgIcons(icons);
+  await Promise.all([
+    ...svgIcons.map(({ name, xml }) => writeFile(distPath, path.join('svg', `${ name }.svg`), () => xml)),
+    writeFile(distPath, 'icons.svg', () => createSvgSprite(svgIcons)),
+  ]);
 };
 
 const buildScripts = async (icons, distPath) => {
