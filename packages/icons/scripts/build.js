@@ -51,10 +51,6 @@ const buildSvgImages = async (icons, distPath) => {
 const buildScripts = async (icons, distPath) => {
   await Promise.all([
     writeFile(distPath, path.basename(pkg.main), () => {
-      const iconNames = icons.map(({ name }) => name);
-      return `module.exports = ${ JSON.stringify(iconNames, null, 2) };\n`;
-    }),
-    writeFile(distPath, 'characters.js', () => {
       const characters = icons.reduce((obj, { name, startCharacter }) => ({ ...obj, [name]: startCharacter }), {});
       return `module.exports = ${ JSON.stringify(characters, null, 2) };\n`;
     }),
