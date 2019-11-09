@@ -79,12 +79,11 @@ const getOtherIcons = async (srcPath) => {
 };
 
 const getIcons = async (srcPath) =>
-  (await Promise.all([
+  [].concat(...await Promise.all([
     getDirectionalIcons(srcPath),
     getNeutralIcons(srcPath),
     getOtherIcons(srcPath),
   ]))
-    .flatMap((descriptors) => descriptors)
     .sort(({ name: a }, { name: b }) => a.localeCompare(b));
 
 module.exports.getIcons = getIcons;
