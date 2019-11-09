@@ -14,15 +14,17 @@
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
+  "main": "dist/index.js",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "node ./build",
+    "build": "node ./scripts/build",
     "lint": "eslint ."
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
+    "chalk": "^2.4.2",
     "eslint": "^6.1.0",
     "eslint-plugin-import": "^2.18.2",
     "glob": "^7.1.4",
@@ -38,5 +40,9 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "devEngines": {
+    "node": "^10.0"
+  },
+  "dependencies": {}
 }
