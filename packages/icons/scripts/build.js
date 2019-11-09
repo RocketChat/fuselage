@@ -54,7 +54,7 @@ const buildScripts = async (icons, distPath) => {
       const characters = icons.reduce((obj, { name, startCharacter }) => ({ ...obj, [name]: startCharacter }), {});
       return `module.exports = ${ JSON.stringify(characters, null, 2) };\n`;
     }),
-    writeFile(distPath, 'rocketchat.scss', () => [
+    writeFile(distPath, 'rocketchat.css', () => [
       '@font-face {',
       '  font-family: "RocketChat";',
       '  font-style: normal;',

@@ -69,7 +69,7 @@ module.exports = (env, argv) => ({
         root: 'React',
       },
     },
-    /@rocket\.chat\/icons\/dist\/font/,
+    '@rocket.chat/icons',
     '@rocket.chat/fuselage-hooks',
   ],
   plugins: [

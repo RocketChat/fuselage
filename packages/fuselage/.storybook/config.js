@@ -87,7 +87,7 @@ addDecorator(withTests({ results }));
 
 configure(() => {
   require('normalize.css/normalize.css');
-  require('@rocket.chat/icons/dist/font/RocketChat.minimal.css');
+  require('@rocket.chat/icons/dist/rocketchat.css');
 
   const documentationStories = require.context('../src/docs', true, /\.(md|js)x?$/);
   const componentStories = require.context('../src/components', true, /stories(\/index)?\.(md|js)x?$/);
