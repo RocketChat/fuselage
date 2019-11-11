@@ -42,7 +42,7 @@ export const SelectInput = React.forwardRef(function SelectInput({
     type='select'
     onChange={handleChange}
   >
-    <InputBox.Placeholder value=''>{placeholder}</InputBox.Placeholder>
+    {placeholder && <InputBox.Placeholder value=''>{placeholder}</InputBox.Placeholder>}
     {children}
   </InputBox>;
 });
