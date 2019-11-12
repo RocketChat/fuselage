@@ -12,5 +12,5 @@ import invariant from 'invariant';
 export const useExclusiveBooleanProps = (props: Object) =>
   invariant(
     Object.values(props).filter(Boolean).length <= 1,
-    `Only one property of [${ Object.keys(props).join(', ') }] should be true`
+    `Only one property of [${ Object.keys(props).join(', ') }] should be true`,
   );

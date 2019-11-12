@@ -29,7 +29,7 @@ export const createStyledComponent = (componentClassName, component = 'div') => 
           .filter((name) => name.slice(0, 4) === 'mod-' && !!filteredProps[name])
           .map((name) => (typeof filteredProps[name] === 'boolean'
             ? `${ componentClassName }--${ name.slice(4) }`
-            : `${ componentClassName }--${ name.slice(4) }-${ filteredProps[name] }`))
+            : `${ componentClassName }--${ name.slice(4) }-${ filteredProps[name] }`)),
       );
 
       const newClassName = [

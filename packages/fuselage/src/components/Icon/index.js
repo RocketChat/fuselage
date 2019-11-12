@@ -1,15 +1,8 @@
-import * as characters from '@rocket.chat/icons/dist/font/characters.js';
-import * as names from '@rocket.chat/icons/dist/font/index.js';
+import nameToCharacterMapping from '@rocket.chat/icons';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { createStyledComponent } from '../../styles';
-
-const nameToCharacterMapping = Object.entries(names)
-  .reduce((map, [symbol, name]) => ({
-    ...map,
-    [name]: characters[symbol],
-  }), {});
 
 const Container = createStyledComponent('rcx-icon', 'i');
 
