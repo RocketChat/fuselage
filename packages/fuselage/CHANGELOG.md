@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.16](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.15...v0.2.0-alpha.16) (2019-11-12)
+
+
+### Bug Fixes
+
+* Miscellaneous issues ([#90](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/90)) ([8e6e89a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8e6e89a43bdacf3626bf85599aecb370d615420d))
+
+
+
+
+
+# [0.2.0-alpha.15](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.14...v0.2.0-alpha.15) (2019-11-05)
+
+
+### Bug Fixes
+
+* Performance issues in development environment ([#89](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/89)) ([a95931d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a95931d91832e242a178936fdb6593cb5d317837))
+
+
+
+
+
 # [0.2.0-alpha.14](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.13...v0.2.0-alpha.14) (2019-10-28)
 
 
