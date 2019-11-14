@@ -2,6 +2,8 @@
   @include box;
 
   display: flex;
+
+  min-width: 0;
   align-items: stretch;
   flex-flow: column nowrap;
   justify-content: center;
