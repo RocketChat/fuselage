@@ -24,3 +24,4 @@ export * from './TextInput';
 export * from './Tile';
 export * from './ToggleSwitch';
 export * from './UrlInput';
+export * from './Divider';

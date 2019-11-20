@@ -342,11 +342,6 @@
 
   @include paragraph;
   color: #{ $input-colors-color };
-
-  .rcx-input-box:invalid > &,
-  .rcx-input-box.invalid > & {
-    color: #{ $input-colors-invalid-color };
-  }
 }
 
 .rcx-skeleton__input {
