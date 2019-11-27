@@ -1,0 +1,53 @@
+{
+  "name": "@rocket.chat/ui-kit",
+  "version": "0.2.0-alpha.16",
+  "description": "Package ui kit ",
+  "author": "Guilherme Gazzo <guilhermegazzo@gmail.com>",
+  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  },
+  "dependencies": {
+    "@rocket.chat/fuselage": "^0.2.0-alpha.16"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.7.4",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-backgrounds": "^5.0.11",
+    "@storybook/addon-centered": "^5.0.11",
+    "@storybook/addon-docs": "^5.2.1",
+    "@storybook/addon-jest": "^5.0.11",
+    "@storybook/addon-knobs": "^5.0.11",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addon-options": "^5.0.11",
+    "@storybook/addon-viewport": "^5.0.11",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
+    "@storybook/theming": "^5.0.11",
+    "babel-loader": "^8.0.6"
+  }
+}
