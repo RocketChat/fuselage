@@ -1,0 +1,15 @@
+.rcx-scrollable {
+  @include scrollable;
+
+  overflow: auto;
+
+  &--horizontal {
+    overflow: initial;
+    overflow-x: auto;
+  }
+
+  &--vertical {
+    overflow: initial;
+    overflow-y: auto;
+  }
+}
