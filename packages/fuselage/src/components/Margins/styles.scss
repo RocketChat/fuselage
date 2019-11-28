@@ -1,0 +1,42 @@
+.rcx-margins {
+  $values: (
+    2: $spaces-x2,
+    4: $spaces-x4,
+    8: $spaces-x8,
+    12: $spaces-x12,
+    16: $spaces-x16,
+    24: $spaces-x24,
+    32: $spaces-x32,
+    40: $spaces-x40,
+  );
+
+  @each $value, $spacing in $values {
+    &--all-#{$value} {
+      margin: $spacing !important;
+    }
+
+    &--block-#{$value} {
+      margin-block: $spacing !important;
+    }
+
+    &--block-start-#{$value} {
+      margin-block-start: $spacing !important;
+    }
+
+    &--block-end-#{$value} {
+      margin-block-end: $spacing !important;
+    }
+
+    &--inline-#{$value} {
+      margin-inline: $spacing !important;
+    }
+
+    &--inline-start-#{$value} {
+      margin-inline-start: $spacing !important;
+    }
+
+    &--inline-end-#{$value} {
+      margin-inline-end: $spacing !important;
+    }
+  }
+}
