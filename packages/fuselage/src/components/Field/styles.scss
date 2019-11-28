@@ -26,9 +26,9 @@
   flex: 0 1 auto;
 
   margin-left: #{ $spaces-x8 };
+  margin-inline-start: #{ $spaces-x8 };
 
   user-select: text;
-  margin-inline-start: #{ $spaces-x8 };
 
   @include ellipsis;
 }
