@@ -23,7 +23,12 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "webpack --mode production",
+    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -49,7 +54,26 @@
     "@storybook/react": "^5.2.6",
     "@storybook/theming": "^5.0.11",
     "babel-loader": "^8.0.6",
+    "compression-webpack-plugin": "^3.0.0",
+    "loki": "^0.18.1",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "webpack-plugin-replace": "^1.2.0"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }

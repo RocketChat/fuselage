@@ -15,7 +15,9 @@ import {
   uiKitMessage,
   uiKitModal,
   BLOCK_CONTEXT,
-} from './lib.ts';
+  UiKitParserMessage,
+  UiKitParserModal,
+} from './index.ts';
 
 export const defaultContext = {
   action: (...args) => alert(JSON.stringify(args)),
@@ -142,7 +144,7 @@ function SectionLayoutBlock({ blockId, text, fields, accessory, parser }) {
   return (
     <Grid>
       <Grid.ItemAuto>
-        {text && parser.renderText(text)}
+        {text && <Text>{parser.renderText(text)}</Text>}
         {fields && <Fields fields={fields} parser={parser} />}
       </Grid.ItemAuto>
       {accessory && (
@@ -218,7 +220,7 @@ const Fields = ({ fields, parser }) => (
   </div>
 );
 
-class MessageParser {
+class MessageParser extends UiKitParserMessage {
   button(element, context) {
     const action = useBlockContext(element, context);
     return (
@@ -312,7 +314,14 @@ function InputLayoutBlock({ label, element, parser }) {
   );
 }
 
-class ModalParser extends MessageParser {
+class ModalParser extends UiKitParserModal {
+  constructor() {
+    super();
+    Object.getOwnPropertyNames(MessageParser.prototype).forEach((method) => {
+      ModalParser.prototype[method] = ModalParser.prototype[method] || MessageParser.prototype[method];
+    });
+  }
+
   input({ element, label }) {
     return (
       <InputLayoutBlock

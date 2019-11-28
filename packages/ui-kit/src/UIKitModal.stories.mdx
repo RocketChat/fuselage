@@ -1,0 +1,70 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { UiKitModal, kitContext, defaultContext } from './';
+
+<Meta title='UIKit|UiKitModal' parameters={{ jest: ['UiKitModal/spec'] }} />
+
+# UI Kit Modal
+
+<Preview>
+  <Story name='Input'>
+    <UiKitModal blocks={[{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Label",
+				"emoji": true
+			}
+		}]
+  }/>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Input Multiline'>
+    <UiKitModal blocks={[{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"multiline": true
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Label",
+				"emoji": true
+			}
+		}]
+  }/>
+  </Story>
+</Preview>
+
+
+
+<Preview>
+  <Story name='Input Datepicker'>
+    <UiKitModal blocks={[{
+			"type": "input",
+			"element": {
+				"type": "datepicker",
+				"initial_date": "1990-04-28",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Select a date",
+					"emoji": true
+				}
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Label",
+				"emoji": true
+			}
+		}]
+  }/>
+  </Story>
+</Preview>
+
+<Props of={UiKitModal}/>
