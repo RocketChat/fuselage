@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { createStyledComponent, createStylingComponent } from '../../styles';
 
-const Container = createStyledComponent('rcx-button-group');
-const ItemContainer = createStyledComponent('rcx-button-group__item');
+const Base = createStyledComponent('rcx-button-group');
+const BaseChildren = createStylingComponent(() => ({
+  className: 'rcx-button-group__item',
+}));
 
 export const ButtonGroup = React.forwardRef(function ButtonGroup({
   align,
@@ -14,16 +16,7 @@ export const ButtonGroup = React.forwardRef(function ButtonGroup({
   wrap,
   ...props
 }, ref) {
-  const wrappedChildren = useMemo(() =>
-    React.Children.map(children, (child, index) => <ItemContainer
-      key={index}
-      children={child}
-      mod-stretch={stretch}
-      mod-vertical={vertical}
-    />), [children]);
-
-  return <Container
-    children={wrappedChildren}
+  return <Base
     mod-align={align}
     mod-stretch={stretch}
     mod-vertical={vertical}
@@ -31,14 +24,22 @@ export const ButtonGroup = React.forwardRef(function ButtonGroup({
     ref={ref}
     role='group'
     {...props}
-  />;
+  >
+    <BaseChildren>
+      {children}
+    </BaseChildren>
+  </Base>;
 });
+
+ButtonGroup.defaultProps = {
+  align: 'start',
+};
 
 ButtonGroup.displayName = 'ButtonGroup';
 
 ButtonGroup.propTypes = {
   /** The alignment that should be applied to the items */
-  align: PropTypes.oneOf(['start', 'end']),
+  align: PropTypes.oneOf(['start', 'center', 'end']),
   /** Is this component visible? */
   invisible: PropTypes.bool,
   /** Will be the items stretched to fill space? */

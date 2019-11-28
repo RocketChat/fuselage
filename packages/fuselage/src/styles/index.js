@@ -67,8 +67,11 @@ export const createStyledComponent = (componentClassName, component = 'div') => 
       }
     }
 
-    const newStyle = stylingProps.filter(({ style }) => !!style)
-      .reduce((styleProp, style) => ({ ...styleProp, ...style }), style);
+    const newStyle = {
+      ...stylingProps.filter(({ style }) => !!style)
+        .reduce((styleProp, { style }) => ({ ...styleProp, ...style }), {}),
+      ...style,
+    };
 
     const newProps = {
       ...filteredProps,
