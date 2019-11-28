@@ -1,63 +1,91 @@
-import React, { useLayoutEffect, useMemo } from 'react';
+import React, { createContext, useContext, useLayoutEffect, useMemo } from 'react';
 
 import css from '../index.scss';
 
-export const createStyledComponent = (componentClassName, component = 'div') => {
-  const Component = React.forwardRef(function Component(props, ref) {
-    useLayoutEffect(() => {
-      css.use();
+const StylingContext = createContext([]);
 
-      return () => {
-        css.unuse();
-      };
-    }, []);
+export const createStylingComponent = (fn) => function StylingComponent(props) {
+  const ancestorStylingProps = useContext(StylingContext);
+
+  const stylingProps = [
+    ...ancestorStylingProps.filter(({ depth }) => depth === undefined),
+    ...ancestorStylingProps.filter(({ depth }) => depth > 0),
+    fn(props),
+  ];
+
+  return <StylingContext.Provider children={props.children} value={stylingProps} />;
+};
+
+const useStylesheet = () => {
+  useLayoutEffect(() => {
+    css.use();
+
+    return () => {
+      css.unuse();
+    };
+  }, [css]);
+};
+
+export const createStyledComponent = (componentClassName, component = 'div') => {
+  const StyledComponent = React.memo(React.forwardRef(function StyledComponent(props, ref) {
+    useStylesheet();
 
     const {
       as,
       className,
-      forwardedAs,
-      forwardedRef,
       invisible,
+      style,
       ...filteredProps
     } = props;
 
-    const newComponent = useMemo(() => forwardedAs || as || component, [forwardedAs, as]);
+    const newComponent = useMemo(() => as || component, [as]);
 
-    const newProps = useMemo(() => {
-      const modifiersClasses = [].concat(
-        Object.keys(filteredProps)
-          .filter((name) => name.slice(0, 4) === 'mod-' && !!filteredProps[name])
-          .map((name) => (typeof filteredProps[name] === 'boolean'
-            ? `${ componentClassName }--${ name.slice(4) }`
-            : `${ componentClassName }--${ name.slice(4) }-${ filteredProps[name] }`)),
-      );
+    const stylingProps = useContext(StylingContext);
 
-      const newClassName = [
-        componentClassName,
-        invisible && `${ componentClassName }--invisible`,
-        modifiersClasses.join(' '),
-        className,
-      ].filter(Boolean).join(' ');
+    const modifiersClasses = [].concat(
+      Object.keys(filteredProps)
+        .filter((name) => name.slice(0, 4) === 'mod-' && !!filteredProps[name])
+        .map((name) => (typeof filteredProps[name] === 'boolean'
+          ? `${ componentClassName }--${ name.slice(4) }`
+          : `${ componentClassName }--${ name.slice(4) }-${ filteredProps[name] }`)),
+    );
 
-      const newRef = forwardedRef || ref;
+    const inheritedClasses = stylingProps.filter(({ className }) => !!className)
+      .map(({ className }) => className);
 
-      for (const key of Object.keys(filteredProps)) {
-        if (key.slice(0, 4) === 'mod-') {
-          delete filteredProps[key];
-        }
+    const newClassName = [
+      componentClassName,
+      invisible && `${ componentClassName }--invisible`,
+      modifiersClasses.join(' '),
+      inheritedClasses.join(' '),
+      className,
+    ].filter(Boolean).join(' ');
+
+    for (const key of Object.keys(filteredProps)) {
+      if (key.slice(0, 4) === 'mod-') {
+        delete filteredProps[key];
       }
+    }
 
-      return {
-        ...filteredProps,
-        className: newClassName,
-        ref: newRef,
-      };
-    });
+    const newStyle = {
+      ...stylingProps.filter(({ style }) => !!style)
+        .reduce((styleProp, { style }) => ({ ...styleProp, ...style }), {}),
+      ...style,
+    };
 
-    return React.createElement(newComponent, newProps);
-  });
+    const newProps = {
+      ...filteredProps,
+      className: newClassName,
+      ref,
+      style: newStyle,
+    };
 
-  Component.displayName = componentClassName;
+    const newStyles = stylingProps.map(({ depth, ...props }) => ({ depth: depth > 0 ? depth - 1 : depth, ...props }));
 
-  return Component;
+    return <StylingContext.Provider children={React.createElement(newComponent, newProps)} value={newStyles} />;
+  }));
+
+  StyledComponent.displayName = componentClassName;
+
+  return StyledComponent;
 };

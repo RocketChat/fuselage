@@ -179,11 +179,23 @@
             "margin-right",
             "margin-bottom",
             "margin-left",
+            "margin-block",
+            "margin-inline",
+            "margin-block-start",
+            "margin-block-end",
+            "margin-inline-start",
+            "margin-inline-end",
             "padding",
             "padding-top",
             "padding-right",
             "padding-bottom",
-            "padding-left"
+            "padding-left",
+            "padding-block",
+            "padding-inline",
+            "padding-block-start",
+            "padding-block-end",
+            "padding-inline-start",
+            "padding-inline-end"
           ]
         },
         {
