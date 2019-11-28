@@ -15,7 +15,6 @@ import {
   uiKitMessage,
   uiKitModal,
   BLOCK_CONTEXT,
-  createRenderElement,
 } from './lib.ts';
 
 export const defaultContext = {
@@ -28,9 +27,7 @@ export const kitContext = React.createContext(defaultContext);
 
 // COMPONENTS
 
-const Grid = ({ children }) => (
-  <div style={{ display: 'flex' }}>{children}</div>
-);
+const Grid = ({ children }) => <div style={{ display: 'flex' }}>{children}</div>;
 
 Grid.Item = ({ children }) => <div style={{ flex: '0 0' }}>{children}</div>;
 Grid.ItemAuto = ({ children }) => <div style={{ flex: '1' }}>{children}</div>;
@@ -302,27 +299,6 @@ class MessageParser {
       <SelectInput onChange={action} placeholder={element.type} disabled />
     );
   }
-
-  renderAccessories = createRenderElement([
-    'image',
-    'button',
-    'static_select',
-    'conversations_select',
-    'channels_select',
-    'users_select',
-    'overflow',
-    'datepicker',
-  ]);
-
-  renderActions = createRenderElement([
-    'button',
-    'static_select',
-    'conversations_select',
-    'channels_select',
-    'users_select',
-    'overflow',
-    'datepicker',
-  ]);
 }
 
 function InputLayoutBlock({ label, element, parser }) {
@@ -357,15 +333,6 @@ class ModalParser extends MessageParser {
       />
     );
   }
-
-  renderInputs = createRenderElement([
-    'static_select',
-    'multi_static_select',
-    'plain_text_input',
-    'conversations_select',
-    'channels_select',
-    'users_select',
-  ]);
 }
 
 const messageParser = new MessageParser();

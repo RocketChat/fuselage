@@ -33,7 +33,7 @@ export interface UiKitText {
   text: string
 }
 
-export interface UiKitParserMessage {
+export abstract class UiKitParserMessage {
   renderText: (text: UiKitText) => Component;
   button: (element, context: BLOCK_CONTEXT) => Component;
   image: (element, context: BLOCK_CONTEXT) => Component;
@@ -43,10 +43,42 @@ export interface UiKitParserMessage {
   context: (element, context: BLOCK_CONTEXT) => Component;
   divider: (element, context: BLOCK_CONTEXT) => Component;
   actions: (element, context: BLOCK_CONTEXT) => Component;
+
+  renderAccessories = createRenderElement([
+    ELEMENT_TYPES.IMAGE,
+    ELEMENT_TYPES.BUTTON,
+    ELEMENT_TYPES.STATIC_SELECT,
+    ELEMENT_TYPES.MULTI_STATIC_SELECT,
+    ELEMENT_TYPES.CONVERSATION_SELECT,
+    ELEMENT_TYPES.CHANNEL_SELECT,
+    ELEMENT_TYPES.USER_SELECT,
+    ELEMENT_TYPES.USER_SELECT,
+    ELEMENT_TYPES.DATEPICKER,
+  ]);
+
+  renderActions = createRenderElement([
+    ELEMENT_TYPES.BUTTON,
+    ELEMENT_TYPES.STATIC_SELECT,
+    ELEMENT_TYPES.MULTI_STATIC_SELECT,
+    ELEMENT_TYPES.CONVERSATION_SELECT,
+    ELEMENT_TYPES.CHANNEL_SELECT,
+    ELEMENT_TYPES.USER_SELECT,
+    ELEMENT_TYPES.USER_SELECT,
+    ELEMENT_TYPES.DATEPICKER,
+  ]);
 }
 
-export interface UiKitParserModal extends UiKitParserMessage {
+export abstract class UiKitParserModal extends UiKitParserMessage {
   plainInput: (element, context: BLOCK_CONTEXT) => Component
+    renderInputs = createRenderElement([
+    ELEMENT_TYPES.STATIC_SELECT,
+    ELEMENT_TYPES.MULTI_STATIC_SELECT,
+    ELEMENT_TYPES.CONVERSATION_SELECT,
+    ELEMENT_TYPES.CHANNEL_SELECT,
+    ELEMENT_TYPES.USER_SELECT,
+    ELEMENT_TYPES.USER_SELECT,
+    ELEMENT_TYPES.DATEPICKER,
+  ]);
 }
 
 export const uiKitGeneric = (allowedItems?: Array<ELEMENT_TYPES>) => (parser : UiKitParser) => ({ blocks = [] }) =>
