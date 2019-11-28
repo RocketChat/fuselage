@@ -3,33 +3,56 @@
 
   display: flex;
 
-  margin:
-    calc(-1 * #{ $spaces-x16 })
-    calc(-1 * #{ $spaces-x8 });
-
   align-items: center;
 
   flex-flow: row nowrap;
-  justify-content: center;
-  margin-block: calc(-1 * #{ $spaces-x16 });
-  margin-inline: calc(-1 * #{ $spaces-x8 });
+  justify-content: flex-start;
+
+  & > .rcx-button-group__item {
+    margin-inline: #{ $spaces-x8 };
+
+    &:first-child {
+      margin-inline-start: 0;
+    }
+
+    &:last-child {
+      margin-inline-end: 0;
+    }
+  }
 
   &--wrap {
+    margin-block-end: calc(-1 * #{ $spaces-x16 });
     flex-wrap: wrap;
+
+    & > .rcx-button-group__item {
+      margin-block-end: #{ $spaces-x16 };
+      margin-inline-start: 0;
+      margin-inline-end: #{ $spaces-x16 };
+    }
   }
 
   &--stretch {
     justify-content: stretch;
+
+    & > .rcx-button-group__item {
+      flex-grow: 1;
+    }
   }
 
   &--vertical {
     flex-direction: column;
 
-    margin-top: calc(-1 * #{ $spaces-x8 });
-    margin-bottom: calc(-1 * #{ $spaces-x8 });
+    & > .rcx-button-group__item {
+      margin-inline: 0;
+      margin-block-end: #{ $spaces-x16 };
+
+      &:last-child {
+        margin-block-end: 0;
+      }
+    }
   }
 
-  &--vertical.rcx-button-group--stretch {
+  &--vertical#{&}--stretch {
     align-items: stretch;
   }
 
@@ -37,31 +60,11 @@
     justify-content: flex-start;
   }
 
+  &--align-center {
+    justify-content: center;
+  }
+
   &--align-end {
     justify-content: flex-end;
-  }
-}
-
-.rcx-button-group__item {
-  @include box;
-
-  display: flex;
-
-  margin:
-    #{ $spaces-x16 }
-    #{ $spaces-x8 };
-  align-items: stretch;
-  flex-flow: column nowrap;
-  justify-content: center;
-  margin-block: #{ $spaces-x16 };
-  margin-inline: #{ $spaces-x8 };
-
-  &--stretch {
-    flex-grow: 1;
-  }
-
-  &--vertical {
-    margin-top: #{ $spaces-x8 };
-    margin-bottom: #{ $spaces-x8 };
   }
 }

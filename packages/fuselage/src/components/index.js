@@ -11,6 +11,7 @@ export * from './Headline';
 export * from './Icon';
 export * from './InputBox';
 export * from './Label';
+export * from './Margins';
 export * from './Paragraph';
 export * from './PasswordInput';
 export * from './RadioButton';

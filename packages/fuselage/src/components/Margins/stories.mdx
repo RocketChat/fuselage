@@ -1,0 +1,32 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Button, ButtonGroup, Margins } from '../..';
+
+<Meta title='Misc|Margins' parameters={{ jest: ['Margins/spec'] }} />
+
+# Margins
+
+Add margins to the wrapped component.
+
+<Preview>
+  <Story name='Default'>
+    <ButtonGroup>
+      <Button>
+        Without margins
+      </Button>
+      <Margins all={32}>
+        <Button>
+          With margins
+        </Button>
+      </Margins>
+      <Button>
+        Without margins
+      </Button>
+      <Button>
+        Without margins
+      </Button>
+    </ButtonGroup>
+  </Story>
+</Preview>
+
+<Props of={Margins} />

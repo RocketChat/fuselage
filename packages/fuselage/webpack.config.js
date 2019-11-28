@@ -50,6 +50,7 @@ module.exports = (env, argv) => ({
               ident: 'postcss',
               plugins: () => [
                 require('postcss-custom-properties')(),
+                require('postcss-logical')({ preserve: true }),
                 require('autoprefixer')(),
                 require('cssnano'),
               ],
