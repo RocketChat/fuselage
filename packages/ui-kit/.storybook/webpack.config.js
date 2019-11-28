@@ -9,7 +9,7 @@ module.exports = async ({ config, mode }) => {
     /node_modules\/loki/,
   ];
   delete jsRule.exclude;
-
+  config.resolve.extensions.push(".ts");
   config.module.rules.push({
     test: /\.scss$/,
     use: [
@@ -55,5 +55,11 @@ module.exports = async ({ config, mode }) => {
     enforce: 'pre',
   });
 
+  config.module.rules.push({
+    test: /\.ts$/,
+    loader: 'ts-loader',
+    options:{ configFile: '../tsconfig.json'} ,
+    exclude: /node_modules/,
+  });
   return config;
 };

@@ -87,7 +87,7 @@ addDecorator(withTests({ results }));
 
 configure(() => {
   require('@rocket.chat/icons/dist/rocketchat.css');
-  const componentStories = require.context('../src', true, /stories(\/index)?\.(md|js)x?$/);
+  const componentStories = require.context('../src', true, /stories(\/index)?\.(md|js|ts)x?$/);
 
   return [
     ...componentStories.keys().map(componentStories)
