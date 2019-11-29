@@ -2,7 +2,7 @@ import centered from '@storybook/addon-centered/react';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { ScrollableArea } from '../ScrollableArea';
+import { Scrollable } from '../Scrollable';
 import { SideBar, SideBarHeader, SideBarMenu, SideBarMenuItem } from './index';
 
 
@@ -13,7 +13,7 @@ storiesOf('Views|SideBar', module)
     <SideBar>
       <SideBarHeader title='Header title' />
 
-      <ScrollableArea>
+      <Scrollable>
         <SideBarMenu>
           <SideBarMenuItem>Menu item #1</SideBarMenuItem>
           <SideBarMenuItem>Menu item #2</SideBarMenuItem>
@@ -35,6 +35,6 @@ storiesOf('Views|SideBar', module)
           <SideBarMenuItem>Menu item #5</SideBarMenuItem>
           <SideBarMenuItem>Menu item #6</SideBarMenuItem>
         </SideBarMenu>
-      </ScrollableArea>
+      </Scrollable>
     </SideBar>
   ));

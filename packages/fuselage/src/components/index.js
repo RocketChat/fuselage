@@ -15,6 +15,7 @@ export * from './Margins';
 export * from './Paragraph';
 export * from './PasswordInput';
 export * from './RadioButton';
+export * from './Scrollable';
 export * from './SearchInput';
 export * from './SelectInput';
 export * from './Subtitle';
