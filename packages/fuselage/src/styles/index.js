@@ -13,7 +13,7 @@ export const useStylingProvider = (props) => {
     props,
   ];
 
-  return (children) => <StylingContext.Provider children={children} value={stylingProps} />;
+  return ({ children }) => <StylingContext.Provider children={children} value={stylingProps} />;
 };
 
 export const createStylingComponent = (fn) => function StylingComponent(props) {
