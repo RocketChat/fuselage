@@ -38,15 +38,15 @@ const Section = ({ children }) => (
   <div style={{ padding: '1rem 0' }}>{children}</div>
 );
 
-const Thumb = ({ element }) => (
+const Thumb = ({ element, context }) => (
   <div
     style={{
       border: '1px solid',
       borderRadius: '4px',
       marginLeft: '4px',
       overflow: 'hidden',
-      width: '88px',
-      height: '88px',
+      width: context === BLOCK_CONTEXT.SECTION ? '88px' : '20px',
+      height: context === BLOCK_CONTEXT.SECTION ? '88px' : '20px',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: '50%',
       backgroundSize: 'cover',
@@ -118,11 +118,11 @@ const StaticSelect = ({
     size={size}
     multiple={multiple}
     onInput={onChange}
-    placeholde={parser.renderText(placeholder)}
+    placeholde={parser.text(placeholder)}
   >
     {options.map((option) => (
       <SelectInput.Option key={option.value} value={option.value}>
-        {parser.renderText(option.text)}
+        {parser.text(option.text)}
       </SelectInput.Option>
     ))}
   </SelectInput>
@@ -144,7 +144,7 @@ function SectionLayoutBlock({ blockId, text, fields, accessory, parser }) {
   return (
     <Grid>
       <Grid.ItemAuto>
-        {text && <Text>{parser.renderText(text)}</Text>}
+        {text && <Text>{parser.text(text)}</Text>}
         {fields && <Fields fields={fields} parser={parser} />}
       </Grid.ItemAuto>
       {accessory && (
@@ -214,7 +214,7 @@ const Fields = ({ fields, parser }) => (
     {fields.map((field, i) => (
       <div key={i} style={{ width: 'calc(50% - 16px)', padding: '0.5rem' }}>
         {' '}
-        {parser.renderText(field)}{' '}
+        {parser.text(field)}{' '}
       </div>
     ))}
   </div>
@@ -225,9 +225,10 @@ class MessageParser extends UiKitParserMessage {
     const action = useBlockContext(element, context);
     return (
       <Button
+        small
         data-group={element.groupId}
         key={element.actionId}
-        children={this.renderText(element.text)}
+        children={this.text(element.text)}
         style={{ margin: '0 0.5rem' }}
         onClick={action}
         value={element.value}
@@ -240,7 +241,7 @@ class MessageParser extends UiKitParserMessage {
     return <Divider />;
   }
 
-  renderText({ text } = { text: '' }) {
+  text({ text, type = 'plain_text' } = { text: '' }) {
     return text;
   }
 
@@ -261,8 +262,8 @@ class MessageParser extends UiKitParserMessage {
   }
 
   image(element, context) {
-    if (context === BLOCK_CONTEXT.SECTION) {
-      return <Thumb element={element} />;
+    if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.CONTEXT].includes(context)) {
+      return <Thumb context={context} element={element} />;
     }
     return (
       <Section>
@@ -271,10 +272,16 @@ class MessageParser extends UiKitParserMessage {
     );
   }
 
-  context({ elements }) {
-    return elements.map((element) => (
-      <Text caption>{this.renderText(element)}</Text>
-    ));
+  context({ elements }, context) {
+    return (
+      <Grid>
+        {elements.map(
+          (element) =>
+            this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
+            || element.type,
+        )}
+      </Grid>
+    );
   }
 
   multiStaticSelect(element, context) {
@@ -327,7 +334,7 @@ class ModalParser extends UiKitParserModal {
       <InputLayoutBlock
         parser={this}
         element={element}
-        label={this.renderText(label)}
+        label={this.text(label)}
       />
     );
   }
@@ -338,7 +345,7 @@ class ModalParser extends UiKitParserModal {
       <Component
         id={actionId}
         name={actionId}
-        placeholder={this.renderText(placeholder)}
+        placeholder={this.text(placeholder)}
       />
     );
   }

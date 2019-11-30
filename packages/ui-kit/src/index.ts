@@ -15,14 +15,18 @@ enum ELEMENT_TYPES {
   DIVIDER= 'divider',
   ACTIONS= 'actions',
   CONTEXT= 'context',
-  INPUT= 'input'
+  FIELDS= 'fields',
+  INPUT= 'input',
+  TEXT='text',
+  MARKDOWN='mrkdwn'
 };
 
 export enum BLOCK_CONTEXT {
   BLOCK,
   SECTION,
   ACTION,
-  FORM
+  FORM,
+  CONTEXT
 };
 
 export type Component = any;
@@ -34,12 +38,12 @@ export interface UiKitElement {
   type: ELEMENT_TYPES
 }
 
-export interface UiKitText {
-  text: string
+export interface UiKitText extends UiKitElement {
+  text: string;
 }
 
 export abstract class UiKitParserMessage {
-  renderText: (text: UiKitText) => Component;
+  text: (text: UiKitText, context) => Component;
   button: (element: UiKitElement, context: BLOCK_CONTEXT) => Component;
   image: (element: UiKitElement, context: BLOCK_CONTEXT) => Component;
   staticSelect: (element: UiKitElement, context: BLOCK_CONTEXT) => Component;
@@ -71,6 +75,12 @@ export abstract class UiKitParserMessage {
     ELEMENT_TYPES.USER_SELECT,
     ELEMENT_TYPES.DATEPICKER,
   ]);
+
+  renderContext = createRenderElement([
+    ELEMENT_TYPES.IMAGE,
+    ELEMENT_TYPES.TEXT,
+    ELEMENT_TYPES.MARKDOWN,
+  ])
 }
 
 export abstract class UiKitParserModal extends UiKitParserMessage {
@@ -95,6 +105,9 @@ export const uiKitGeneric = <T> (allowedItems?: Array<ELEMENT_TYPES>)  => (parse
 
 const renderElement = ({ type, ...element }: UiKitElement, context: BLOCK_CONTEXT, parser: UiKitParser) =>  {
   switch (type as ELEMENT_TYPES) {
+    case ELEMENT_TYPES.MARKDOWN:
+    case ELEMENT_TYPES.TEXT:
+      return parser.text({ type, ...element } as UiKitText, context);
     case ELEMENT_TYPES.BUTTON:
       return parser.button(element as UiKitElement, context);
     case ELEMENT_TYPES.IMAGE:
