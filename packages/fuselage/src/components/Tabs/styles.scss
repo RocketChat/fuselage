@@ -24,17 +24,19 @@
   padding-block: $spaces-x8;
   padding-inline: $spaces-x32;
 
-  cursor: pointer;
-
   color: map-get($colors, dark600);
-  border-block-end: #{ borders-width-x2 } solid transparent;
+  border-style: solid;
+  border-color: transparent;
 
+  background-color: transparent;
+  border-block-end-width: $borders-width-x4;
+
+  @include clickable;
   @include subtitle;
   @include subtitle-bold;
 
   &--active {
     color: map-get($colors, blue500);
     border-block-end-color: map-get($colors, blue500);
-    border-block-end-width: $borders-width-x4;
   }
 }
