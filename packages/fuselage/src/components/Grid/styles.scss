@@ -15,7 +15,7 @@ $breakpoint-names: map-keys($breakpoints);
       @content;
     }
 
-    .rcx-grid__row--#{$breakpoint-name} > & {
+    .rcx-grid--#{$breakpoint-name} > & {
       @content;
     }
   }
