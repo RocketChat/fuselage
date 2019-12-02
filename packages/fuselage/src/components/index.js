@@ -8,6 +8,7 @@ export * from './EmailInput';
 export * from './Field';
 export * from './FieldGroup';
 export * from './Flex';
+export * from './Grid';
 export * from './Headline';
 export * from './Icon';
 export * from './InputBox';

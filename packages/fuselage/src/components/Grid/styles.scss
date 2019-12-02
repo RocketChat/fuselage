@@ -1,0 +1,43 @@
+$breakpoint-names: map-keys($breakpoints);
+
+.rcx-grid {
+  @include box;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.rcx-grid__item {
+  @include box;
+  flex: 0 1 0;
+
+  @mixin when-item-is-on-breakpoint($breakpoint-name) {
+    @include when-breakpoint($breakpoint-name) {
+      @content;
+    }
+
+    .rcx-grid--#{$breakpoint-name} > & {
+      @content;
+    }
+  }
+
+  @each $breakpoint-name in $breakpoint-names {
+    @include when-item-is-on-breakpoint($breakpoint-name) {
+      margin-inline: to-rem(map-get(map-get($breakpoints, $breakpoint-name), gutter-width));
+
+      &:first-child {
+        margin-inline-start: 0;
+      }
+
+      &:last-child {
+        margin-inline-end: 0;
+      }
+
+      $total-columns: map-get(map-get($breakpoints, $breakpoint-name), columns);
+      @for $columns from 1 through $total-columns {
+        &--#{$breakpoint-name}-#{$columns} {
+          flex-basis: ($columns / $total-columns * 100%);
+        }
+      }
+    }
+  }
+}
