@@ -4,6 +4,18 @@ import css from '../index.scss';
 
 const StylingContext = createContext([]);
 
+export const useStylingProvider = (props) => {
+  const ancestorStylingProps = useContext(StylingContext);
+
+  const stylingProps = [
+    ...ancestorStylingProps.filter(({ depth }) => depth === undefined),
+    ...ancestorStylingProps.filter(({ depth }) => depth > 0),
+    props,
+  ];
+
+  return ({ children }) => <StylingContext.Provider children={children} value={stylingProps} />;
+};
+
 export const createStylingComponent = (fn) => function StylingComponent(props) {
   const ancestorStylingProps = useContext(StylingContext);
 
