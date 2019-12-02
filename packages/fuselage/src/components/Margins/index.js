@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
+import { useClassName } from '@rocket.chat/fuselage-hooks';
 
 import { createStylingComponent } from '../../styles';
-import spaces from '../../styles/variables/spaces';
 
 export const Margins = createStylingComponent(({
   all,
@@ -12,15 +12,15 @@ export const Margins = createStylingComponent(({
   inlineStart,
   inlineEnd,
 }) => ({
-  style: {
-    margin: all && spaces[`x${ all }`],
-    marginBlock: block && spaces[`x${ block }`],
-    marginBlockStart: blockStart && spaces[`x${ blockStart }`],
-    marginBlockEnd: blockEnd && spaces[`x${ blockEnd }`],
-    marginInline: inline && spaces[`x${ inline }`],
-    marginInlineStart: inlineStart && spaces[`x${ inlineStart }`],
-    marginInlineEnd: inlineEnd && spaces[`x${ inlineEnd }`],
-  },
+  className: useClassName('rcx-margins', {
+    all,
+    block,
+    blockStart,
+    blockEnd,
+    inline,
+    inlineStart,
+    inlineEnd,
+  }),
   depth: 1,
 }));
 
