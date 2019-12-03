@@ -7,17 +7,18 @@ import {
   FieldGroup,
   Field,
   Label,
+  Flex,
+  Grid,
   TextAreaInput,
   TextInput,
 } from '@rocket.chat/fuselage';
-
 import {
   uiKitMessage,
   uiKitModal,
   BLOCK_CONTEXT,
   UiKitParserMessage,
   UiKitParserModal,
-} from './index.ts';
+} from '@rocket.chat/ui-kit';
 
 export const defaultContext = {
   action: (...args) => alert(JSON.stringify(args)),
@@ -28,10 +29,6 @@ export const defaultContext = {
 export const kitContext = React.createContext(defaultContext);
 
 // COMPONENTS
-
-const Grid = ({ children }) => <div style={{ display: 'flex' }}>{children}</div>;
-
-Grid.Item = ({ children }) => <div style={{ flex: '0 0' }}>{children}</div>;
 Grid.ItemAuto = ({ children }) => <div style={{ flex: '1' }}>{children}</div>;
 
 const Section = ({ children }) => (
@@ -165,6 +162,14 @@ const getStyle = (style) => {
 };
 
 function ActionsLayoutBlock({ blockId, elements, parser }) {
+  const breakpoints = {
+    xs: 4,
+    sm: 4,
+    md: 4,
+    lg: 3,
+    xl: 3,
+  };
+
   const [showMoreVisible, setShowMoreVisible] = useState(
     () => elements.length > 5,
   );
@@ -172,7 +177,7 @@ function ActionsLayoutBlock({ blockId, elements, parser }) {
     ? elements.slice(0, 5)
     : elements
   ).map((element) =>
-    parser.renderActions({ blockId, ...element }, BLOCK_CONTEXT.ACTION, parser),
+    <Grid.Item {...breakpoints}>{parser.renderActions({ blockId, ...element }, BLOCK_CONTEXT.ACTION, parser)}</Grid.Item>,
   );
 
   const handleShowMoreClick = () => {
@@ -182,9 +187,7 @@ function ActionsLayoutBlock({ blockId, elements, parser }) {
   return (
     <Grid>
       {renderedElements}
-      {showMoreVisible && (
-        <Button onClick={handleShowMoreClick}>Show more...</Button>
-      )}
+      {showMoreVisible && (<Grid.Item {...breakpoints}><Button onClick={handleShowMoreClick}>Show more...</Button></Grid.Item>)}
     </Grid>
   );
 }
@@ -192,7 +195,7 @@ function ActionsLayoutBlock({ blockId, elements, parser }) {
 const Accessory = ({ blockId, element, parser }) => (
   <div
     className='body__accessory'
-    style={{ display: 'flex', margin: '0 0 4px 8px', position: 'relative' }}
+    style={{ display: 'flex', margin: '0 4px', position: 'relative' }}
   >
     {parser.renderAccessories(
       { blockId, ...element },
@@ -247,17 +250,17 @@ class MessageParser extends UiKitParserMessage {
 
   section(args) {
     return (
-      <Section>
+      <Flex.Container>
         <SectionLayoutBlock {...args} parser={this} />
-      </Section>
+      </Flex.Container>
     );
   }
 
   actions(args) {
     return (
-      <Section>
+      <Flex.Container>
         <ActionsLayoutBlock {...args} parser={this} />
-      </Section>
+      </Flex.Container>
     );
   }
 
@@ -266,21 +269,22 @@ class MessageParser extends UiKitParserMessage {
       return <Thumb context={context} element={element} />;
     }
     return (
-      <Section>
+      <Flex.Container>
         <Image element={element} />
-      </Section>
+      </Flex.Container>
     );
   }
 
-  context({ elements }, context) {
+  context({ elements }/* , context*/) {
     return (
-      <Grid>
+      <Flex.Container>
         {elements.map(
           (element) =>
-            this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
-            || element.type,
+            <Flex.Container>{
+              this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
+            || element.type}</Flex.Container>,
         )}
-      </Grid>
+      </Flex.Container>
     );
   }
 

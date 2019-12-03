@@ -2,18 +2,19 @@
 
 const path = require('path');
 
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ReplacePlugin = require('webpack-plugin-replace');
 
 const pkg = require('./package.json');
 
 module.exports = (env, argv) => ({
   entry: {
-    index: path.resolve(__dirname, 'src/index.ts'),
+    index: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'RocketChatUiKit',
+    library: 'RocketChatFuselageUiKit',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
@@ -83,12 +84,11 @@ module.exports = (env, argv) => ({
     '@rocket.chat/fuselage-hooks',
   ],
   plugins: [
-    new ReplacePlugin({
-      include: ['index.ts'],
-      values: {
-        '"VERSION"': JSON.stringify(pkg.version),
-
-      },
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      generateStatsFile: false,
+      reportFilename: '../bundle-report.html',
+      openAnalyzer: false,
     }),
   ],
 });
