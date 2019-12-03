@@ -1,0 +1,42 @@
+.rcx-tabs {
+  @include box;
+
+  margin-block-end: $spaces-x8;
+
+  border-bottom: #{ $borders-width-x1 } solid #{ map-get($colors, dark400) };
+}
+
+.rcx-tabs__wrapper {
+  display: flex;
+  flex: 1 1 0;
+
+  width: 100%;
+  margin-inline: calc(-1 * #{ $spaces-x8 });
+  margin-block-end: calc(-1 * #{ $borders-width-x1 });
+}
+
+.rcx-tabs__item {
+  @include box;
+
+  flex: 0 0 auto;
+
+  margin-inline: $spaces-x8;
+  padding-block: $spaces-x8;
+  padding-inline: $spaces-x32;
+
+  color: map-get($colors, dark600);
+  border-style: solid;
+  border-color: transparent;
+
+  background-color: transparent;
+  border-block-end-width: $borders-width-x4;
+
+  @include clickable;
+  @include subtitle;
+  @include subtitle-bold;
+
+  &--active {
+    color: map-get($colors, blue500);
+    border-block-end-color: map-get($colors, blue500);
+  }
+}
