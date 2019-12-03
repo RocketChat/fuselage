@@ -1,0 +1,25 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Tabs } from '../..';
+
+<Meta title='Misc|Tabs' parameters={{ jest: ['Tabs/spec'] }} />
+
+# Tabs
+
+<Preview>
+  <Story name='Default'>
+    <Tabs>
+      <Tabs.Item active>Tab text 1</Tabs.Item>
+      <Tabs.Item>Tab text 2</Tabs.Item>
+      <Tabs.Item>Tab text 3</Tabs.Item>
+    </Tabs>
+  </Story>
+</Preview>
+
+### Tabs
+
+<Props of={Tabs} />
+
+### Tabs.Item
+
+<Props of={Tabs.Item} />
