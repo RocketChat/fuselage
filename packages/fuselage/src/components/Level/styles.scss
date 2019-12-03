@@ -1,0 +1,21 @@
+.rcx-level {
+  @include box;
+
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.rcx-level__item {
+  @include box;
+
+  flex: 1 1 100%;
+
+  max-width: 100%;
+  padding-inline: $spaces-x8;
+
+  text-align: center;
+
+  @include when-breakpoint(md) {
+    flex-basis: auto;
+  }
+}
