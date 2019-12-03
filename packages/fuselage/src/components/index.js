@@ -21,6 +21,7 @@ export * from './Scrollable';
 export * from './SearchInput';
 export * from './SelectInput';
 export * from './Subtitle';
+export * from './Tabs';
 export * from './TelephoneInput';
 export * from './Text';
 export * from './TextAreaInput';

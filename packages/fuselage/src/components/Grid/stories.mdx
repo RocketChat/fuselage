@@ -33,6 +33,13 @@ import { Grid, Tile } from '../..';
 
 ## Breakpoints
 
+|                   | xsmall | small | medium | large  | xlarge |
+|-------------------|--------|-------|--------|--------|--------|
+| Alias             | xs     | sm    | md     | lg     | xl     |
+| Minimum width     | 320px  | 600px | 768px  | 1024px | 1440px |
+| Columns           | 4      | 8     | 8      | 12     | 12     |
+| Margins / Gutters | 16px   | 16px  | 24px   | 24px   | 24px   |
+
 ### Extra Small (xs)
 
 <Story name='xs breakpoint'>
@@ -41,8 +48,12 @@ import { Grid, Tile } from '../..';
       <React.Fragment key={columns}>
         <Grid>
           <Grid.Item xs={columns}>
-            <Tile children={columns} elevation={1} style={{ padding: 16 }}>xs={columns}</Tile>
+            <Tile elevation={1} style={{ padding: 16 }}>xs={columns}</Tile>
           </Grid.Item>
+          {(breakpoints.xs.columns - columns > 0) &&
+          <Grid.Item xs={breakpoints.xs.columns - columns}>
+            <Tile elevation={1} style={{ padding: 16 }}>xs={breakpoints.xs.columns - columns}</Tile>
+          </Grid.Item>}
         </Grid>
         <br />
       </React.Fragment>
@@ -58,8 +69,12 @@ import { Grid, Tile } from '../..';
       <React.Fragment key={columns}>
         <Grid>
           <Grid.Item sm={columns}>
-            <Tile children={columns} elevation={1} style={{ padding: 16 }}>sm={columns}</Tile>
+            <Tile elevation={1} style={{ padding: 16 }}>sm={columns}</Tile>
           </Grid.Item>
+          {(breakpoints.sm.columns - columns > 0) &&
+          <Grid.Item sm={breakpoints.sm.columns - columns}>
+            <Tile elevation={1} style={{ padding: 16 }}>sm={breakpoints.sm.columns - columns}</Tile>
+          </Grid.Item>}
         </Grid>
         <br />
       </React.Fragment>
@@ -75,8 +90,12 @@ import { Grid, Tile } from '../..';
       <React.Fragment key={columns}>
         <Grid>
           <Grid.Item md={columns}>
-            <Tile children={columns} elevation={1} style={{ padding: 16 }}>md={columns}</Tile>
+            <Tile elevation={1} style={{ padding: 16 }}>md={columns}</Tile>
           </Grid.Item>
+          {(breakpoints.md.columns - columns > 0) &&
+          <Grid.Item md={breakpoints.md.columns - columns}>
+            <Tile elevation={1} style={{ padding: 16 }}>md={breakpoints.md.columns - columns}</Tile>
+          </Grid.Item>}
         </Grid>
         <br />
       </React.Fragment>
@@ -92,8 +111,12 @@ import { Grid, Tile } from '../..';
       <React.Fragment key={columns}>
         <Grid>
           <Grid.Item lg={columns}>
-            <Tile children={columns} elevation={1} style={{ padding: 16 }}>lg={columns}</Tile>
+            <Tile elevation={1} style={{ padding: 16 }}>lg={columns}</Tile>
           </Grid.Item>
+          {(breakpoints.lg.columns - columns > 0) &&
+          <Grid.Item lg={breakpoints.lg.columns - columns}>
+            <Tile elevation={1} style={{ padding: 16 }}>lg={breakpoints.lg.columns - columns}</Tile>
+          </Grid.Item>}
         </Grid>
         <br />
       </React.Fragment>
@@ -111,6 +134,10 @@ import { Grid, Tile } from '../..';
           <Grid.Item xl={columns}>
             <Tile elevation={1} style={{ padding: 16 }}>xl={columns}</Tile>
           </Grid.Item>
+          {(breakpoints.xl.columns - columns > 0) &&
+          <Grid.Item xl={breakpoints.xl.columns - columns}>
+            <Tile elevation={1} style={{ padding: 16 }}>xl={breakpoints.xl.columns - columns}</Tile>
+          </Grid.Item>}
         </Grid>
         <br />
       </React.Fragment>
