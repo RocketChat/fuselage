@@ -5,7 +5,7 @@
 
   margin-bottom: $spaces-x16;
 
-  @include paragraph;
+  @include as-paragraph;
 
   color: $text-colors-default;
 }

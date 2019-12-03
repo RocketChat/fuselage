@@ -66,9 +66,9 @@
 
   flex: 1 1 0;
 
-  @include subtitle;
-  @include subtitle-bold;
-  @include truncate;
+  @include as-subtitle($bold: true);
+  @include with-text--ellipsis;
+  @include with-text--nowrap;
 }
 
 .rcx-accordion-item__toggle-switch {

@@ -5,7 +5,7 @@
 
   margin-bottom: $spaces-x16;
 
-  @include headline;
+  @include as-headline;
 
   color: $text-colors-default;
 }
