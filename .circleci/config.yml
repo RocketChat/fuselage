@@ -59,6 +59,20 @@ jobs:
       - run:
           name: Publish package
           command: yarn lerna publish from-package --yes
+  publish-alpha:
+    docker:
+      - image: circleci/node:10.15
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: yarn lerna publish --canary --preid $CIRCLE_PR_NUMBER --dist-tag $CIRCLE_PR_NUMBER --yes
+
 
   publish-next:
     docker:
@@ -112,3 +126,12 @@ workflows:
           filters:
               branches:
                 only: develop
+      - hold:
+          type: approval
+          requires:
+           - build
+          filters:
+              branches:
+                ignore:
+                  - master
+                  - develop
