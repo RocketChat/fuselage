@@ -21,7 +21,7 @@
     "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1",
+    "test": "echo \"Error: run tests from root\" && exit 0",
     "build": "webpack --mode production"
   },
   "bugs": {

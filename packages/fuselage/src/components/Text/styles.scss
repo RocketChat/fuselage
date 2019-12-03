@@ -84,6 +84,72 @@
 
   font-size: inherit;
 
+  @mixin use-style($font-size, $line-height) {
+    height: $font-size;
+    margin-block-start: calc((#{ $line-height } - #{ $font-size }) * 0.3);
+    margin-block-end: calc((#{ $line-height } - #{ $font-size }) * 0.7);
+  }
+
+  &--style-headline {
+    @include use-style($font-size: $text-styles-h1-font-size, $line-height: $text-styles-h1-line-height);
+  }
+
+  &--style-subtitle {
+    @include use-style($font-size: $text-styles-s1-font-size, $line-height: $text-styles-s1-line-height);
+  }
+
+  &--style-paragraph {
+    @include use-style($font-size: $text-styles-p1-font-size, $line-height: $text-styles-p1-line-height);
+  }
+
+  &--style-caption {
+    @include use-style($font-size: $text-styles-c1-font-size, $line-height: $text-styles-c1-line-height);
+  }
+
+  &--style-micro {
+    @include use-style($font-size: $text-styles-micro-font-size, $line-height: $text-styles-micro-line-height);
+  }
+
+  &--color-default {
+    background-color: #{ $text-colors-default };
+  }
+
+  &--color-info {
+    background-color: #{ $text-colors-info };
+  }
+
+  &--color-hint {
+    background-color: #{ $text-colors-hint };
+  }
+
+  &--color-disabled-label {
+    background-color: #{ $text-colors-disabled-label };
+  }
+
+  &--color-disabled {
+    background-color: #{ $text-colors-disabled };
+  }
+
+  &--color-alternative {
+    background-color: #{ $text-colors-alternative };
+  }
+
+  &--color-primary {
+    background-color: #{ $text-colors-primary };
+  }
+
+  &--color-success {
+    background-color: #{ $text-colors-success };
+  }
+
+  &--color-danger {
+    background-color: #{ $text-colors-danger };
+  }
+
+  &--color-warning {
+    background-color: #{ $text-colors-warning };
+  }
+
   &--animated {
     animation: rcx-skeleton__text-animation 1s linear 0s infinite running;
   }
