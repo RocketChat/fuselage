@@ -126,6 +126,9 @@ workflows:
           filters:
               branches:
                 only: develop
+      - publish-alpha:
+          requires:
+            - hold
       - hold:
           type: approval
           requires:
