@@ -33,7 +33,7 @@
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
-  "dependencies" : {
+  "dependencies": {
     "@rocket.chat/ui-kit": "^0.2.0-alpha.16"
   },
   "peerDependencies": {
@@ -44,25 +44,27 @@
     "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.7.4",
-    "@storybook/addon-actions": "^5.2.6",
-    "@storybook/addon-backgrounds": "^5.0.11",
-    "@storybook/addon-centered": "^5.0.11",
-    "@storybook/addon-docs": "^5.2.1",
-    "@storybook/addon-jest": "^5.0.11",
-    "@storybook/addon-knobs": "^5.0.11",
-    "@storybook/addon-links": "^5.2.6",
-    "@storybook/addon-options": "^5.0.11",
-    "@storybook/addon-viewport": "^5.0.11",
-    "@storybook/addons": "^5.2.6",
-    "@storybook/react": "^5.2.6",
-    "@storybook/theming": "^5.0.11",
+    "@rocket.chat/fuselage": "^0.2.0-alpha.16",
+    "@storybook/addon-actions": "5.2.4",
+    "@storybook/addon-backgrounds": "5.2.4",
+    "@storybook/addon-centered": "5.2.4",
+    "@storybook/addon-docs": "5.2.4",
+    "@storybook/addon-jest": "5.2.4",
+    "@storybook/addon-knobs": "5.2.4",
+    "@storybook/addon-links": "5.2.4",
+    "@storybook/addon-options": "5.2.4",
+    "@storybook/addon-viewport": "5.2.4",
+    "@storybook/addons": "5.2.4",
+    "@storybook/react": "5.2.4",
+    "@storybook/theming": "5.2.4",
     "babel-loader": "^8.0.6",
     "compression-webpack-plugin": "^3.0.0",
     "loki": "^0.18.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.2",
-    "webpack-plugin-replace": "^1.2.0",
-    "@rocket.chat/fuselage": "^0.2.0-alpha.16"
+    "webpack-plugin-replace": "^1.2.0"
   },
   "loki": {
     "configurations": {
