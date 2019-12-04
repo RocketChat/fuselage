@@ -71,7 +71,13 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
           name: Publish package
-          command: yarn lerna publish --canary --preid $CIRCLE_PR_NUMBER --dist-tag $CIRCLE_PR_NUMBER --yes
+          command: |
+            export CIRCLE_PR_NUMBER="${CIRCLE_PR_NUMBER:-${CIRCLE_PULL_REQUEST##*/}}"
+            if [[ -z $CIRCLE_PR_NUMBER ]]; then
+              exit 0
+            fi;
+            yarn lerna version --conventional-commits --yes
+            yarn lerna publish --canary --preid $CIRCLE_PR_NUMBER --dist-tag $CIRCLE_PR_NUMBER --yes
 
 
   publish-next:
