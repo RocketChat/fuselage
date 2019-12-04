@@ -4,6 +4,7 @@ export * from './Button';
 export * from './ButtonGroup';
 export * from './Callout';
 export * from './CheckBox';
+export * from './Chevron';
 export * from './EmailInput';
 export * from './Field';
 export * from './FieldGroup';

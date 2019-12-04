@@ -79,14 +79,6 @@
   margin-inline: #{ $sizes-x24 };
 }
 
-.rcx-accordion-item__icon {
-  @include box;
-
-  &--flipped {
-    transform: rotate(-180deg);
-  }
-}
-
 .rcx-accordion-item__panel {
   @include box;
 

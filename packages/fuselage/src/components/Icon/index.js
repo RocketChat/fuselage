@@ -8,6 +8,7 @@ const Container = createStyledComponent('rcx-icon', 'i');
 
 export const Icon = React.forwardRef(function Icon({
   name,
+  size,
   x44,
   x40,
   x32,
@@ -23,15 +24,15 @@ export const Icon = React.forwardRef(function Icon({
     aria-hidden='true'
     children={nameToCharacterMapping[name]}
     mod-name={name}
-    mod-x44={x44}
-    mod-x40={x40}
-    mod-x32={x32}
-    mod-x24={x24}
-    mod-x20={x20}
-    mod-x16={x16}
-    mod-x8={x8}
-    mod-x4={x4}
-    mod-x2={x2}
+    mod-x44={x44 || size === 44}
+    mod-x40={x40 || size === 40}
+    mod-x32={x32 || size === 32}
+    mod-x24={x24 || size === 24}
+    mod-x20={x20 || size === 20}
+    mod-x16={x16 || size === 16}
+    mod-x8={x8 || size === 8}
+    mod-x4={x4 || size === 4}
+    mod-x2={x2 || size === 2}
     ref={ref}
     {...props}
   />;
@@ -41,6 +42,7 @@ Icon.displayName = 'Icon';
 
 Icon.propTypes = {
   name: PropTypes.oneOf(Object.keys(nameToCharacterMapping)).isRequired,
+  size: PropTypes.number,
   x44: PropTypes.bool,
   x40: PropTypes.bool,
   x32: PropTypes.bool,
