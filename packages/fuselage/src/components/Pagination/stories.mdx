@@ -1,0 +1,20 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Pagination } from '../..';
+
+<Meta title='Tabular|Pagination' parameters={{ jest: ['Pagination/spec'] }} />
+
+# Pagination
+
+<Preview>
+  <Story name='Default'>
+    <Pagination
+      count={500}
+      onSetItemsPerPage={action('setItemsPerPage')}
+      onSetCurrent={action('setCurrent')}
+    />
+  </Story>
+</Preview>
+
+<Props of={Pagination} />

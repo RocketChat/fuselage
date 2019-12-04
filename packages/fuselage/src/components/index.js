@@ -16,6 +16,7 @@ export * from './InputBox';
 export * from './Label';
 export * from './Level';
 export * from './Margins';
+export * from './Pagination';
 export * from './Paragraph';
 export * from './PasswordInput';
 export * from './RadioButton';
