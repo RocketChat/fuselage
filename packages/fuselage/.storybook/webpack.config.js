@@ -26,6 +26,7 @@ module.exports = async ({ config, mode }) => {
           ident: 'postcss',
           plugins: () => [
             require('postcss-custom-properties')(),
+            require('postcss-logical')({ preserve: true }),
             require('autoprefixer')(),
             require('cssnano'),
           ],

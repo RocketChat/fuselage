@@ -100,10 +100,10 @@
   padding-top: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
   padding-right: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
   padding-bottom: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  align-items: flex-start;
-  flex-flow: row nowrap;
   padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
   padding-inline-end: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+  align-items: flex-start;
+  flex-flow: row nowrap;
 
   &--over-input {
     position: absolute;
@@ -205,6 +205,8 @@
   padding:
     calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
     calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
   user-select: initial;
 
@@ -215,8 +217,6 @@
   outline: 0;
 
   background-color: transparent;
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
   @include paragraph;
   @include ellipsis;
@@ -342,11 +342,6 @@
 
   @include paragraph;
   color: #{ $input-colors-color };
-
-  .rcx-input-box:invalid > &,
-  .rcx-input-box.invalid > & {
-    color: #{ $input-colors-invalid-color };
-  }
 }
 
 .rcx-skeleton__input {
@@ -362,6 +357,8 @@
   padding:
     calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
     calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
   vertical-align: baseline;
 
@@ -371,8 +368,6 @@
   border-color: #{ $input-colors-border-color };
   border-radius: #{ $borders-radius-x2 };
   background-color: #{ $input-colors-background-color };
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
   @include paragraph;
   @include ellipsis;

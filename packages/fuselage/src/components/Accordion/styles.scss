@@ -26,6 +26,8 @@
   padding:
     calc(#{ $spaces-x32 } - #{ $borders-width-x2 })
     calc(#{ $spaces-x8 } - #{ $borders-width-x2 });
+  padding-block: calc(#{ $spaces-x32 } - #{ $borders-width-x2 });
+  padding-inline: calc(#{ $spaces-x8 } - #{ $borders-width-x2 });
 
   text-align: left;
   text-align: start;
@@ -35,8 +37,6 @@
   border-width: #{ $borders-width-x2 };
   border-color: #{ map-get($colors, dark300) } transparent transparent;
   flex-flow: row nowrap;
-  padding-block: calc(#{ $spaces-x32 } - #{ $borders-width-x2 });
-  padding-inline: calc(#{ $spaces-x8 } - #{ $borders-width-x2 });
 
   &[tabindex] {
     @include clickable;
