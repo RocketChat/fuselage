@@ -66,9 +66,9 @@
 
   flex: 1 1 0;
 
-  @include subtitle;
-  @include subtitle-bold;
-  @include truncate;
+  @include as-subtitle($bold: true);
+  @include with-text--ellipsis;
+  @include with-text--nowrap;
 }
 
 .rcx-accordion-item__toggle-switch {
@@ -77,14 +77,6 @@
   margin: 0 #{ $sizes-x24 };
   margin-block: 0;
   margin-inline: #{ $sizes-x24 };
-}
-
-.rcx-accordion-item__icon {
-  @include box;
-
-  &--flipped {
-    transform: rotate(-180deg);
-  }
 }
 
 .rcx-accordion-item__panel {

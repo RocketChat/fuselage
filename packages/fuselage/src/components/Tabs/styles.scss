@@ -32,8 +32,7 @@
   border-block-end-width: $borders-width-x4;
 
   @include clickable;
-  @include subtitle;
-  @include subtitle-bold;
+  @include as-subtitle($bold: true);
 
   &--active {
     color: map-get($colors, blue500);

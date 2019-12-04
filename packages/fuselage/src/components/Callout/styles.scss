@@ -50,18 +50,18 @@
   color: #{ $text-colors-default };
   flex-flow: column nowrap;
 
-  @include caption;
+  @include as-caption;
 }
 
 .rcx-callout__title {
   @include box;
 
-  @include caption;
-  @include caption-bold;
+  @include as-caption($bold: true);
 
   &--has-children {
     margin-bottom: #{ $spaces-x4 };
   }
 
-  @include truncate;
+  @include with-text--ellipsis;
+  @include with-text--nowrap;
 }

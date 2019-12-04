@@ -82,9 +82,9 @@
   appearance: none;
 
   @include clickable;
-  @include truncate;
-  @include paragraph;
-  @include paragraph-bold;
+  @include with-text--ellipsis;
+  @include with-text--nowrap;
+  @include as-paragraph($bold: true);
 
   @include with-rectangular-size(
     $height: $sizes-x40,
@@ -109,8 +109,7 @@
   );
 
   &--small {
-    @include caption;
-    @include caption-bold;
+    @include as-caption($bold: true);
 
     @include with-rectangular-size(
       $height: $sizes-x32,
