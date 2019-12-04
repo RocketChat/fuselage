@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.17](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.16...v0.2.0-alpha.17) (2019-12-04)
+
+
+### Bug Fixes
+
+* Remove FieldGroup minimum width ([#93](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/93)) ([e116296](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e116296f1f7e7ae6d4a7b761bdc2cac529d28854))
+
+
+### Features
+
+* Add prototype of Tabs component ([#101](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/101)) ([38ad447](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/38ad447fbf4e9207025d8756a95fce174b56868c))
+* Cascading styles ([#97](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/97)) ([b21cd54](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b21cd54478b6fca4190c25c3ab99beb77cdec67d))
+* Flex components ([#99](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/99)) ([948d0ea](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/948d0ea801b59751fa06f2c2fb25c84d172b73c7))
+* Grid ([#100](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/100)) ([baca6bf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/baca6bf1c46742efc0171b1825918f4c907d036c))
+* Level component ([#102](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/102)) ([2abd0d9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2abd0d9547528de3dd9e2f8c539966faf9a9da2d))
+* Scrollable ([#98](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/98)) ([2eecec6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2eecec6c53c198fd16ff1fa089aa98974ecb2816))
+
+
+
+
+
 # [0.2.0-alpha.16](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.15...v0.2.0-alpha.16) (2019-11-12)
 
 

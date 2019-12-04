@@ -9,6 +9,7 @@ import {
   Label,
   Flex,
   Grid,
+  Margins,
   TextAreaInput,
   TextInput,
 } from '@rocket.chat/fuselage';
@@ -32,7 +33,7 @@ export const kitContext = React.createContext(defaultContext);
 Grid.ItemAuto = ({ children }) => <div style={{ flex: '1' }}>{children}</div>;
 
 const Section = ({ children }) => (
-  <div style={{ padding: '1rem 0' }}>{children}</div>
+  <Margins blockEnd={4}>{children}</Margins>
 );
 
 const Thumb = ({ element, context }) => (
@@ -125,29 +126,33 @@ const StaticSelect = ({
   </SelectInput>
 );
 
-const useBlockContext = ({ blockId, actionId }, context) => {
-  const { action, appId, state } = useContext(kitContext);
+const useBlockContext = ({ blockId, actionId, appId }, context) => {
+  const { action, appId: appIdFromContext, state } = useContext(kitContext);
   if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
     return ({ target: { value } }) => {
-      action({ blockId, appId, actionId, value });
+      action({ blockId, appId: appId || appIdFromContext, actionId, value });
     };
   }
+
   return ({ target: { value } }) => {
     state({ blockId, appId, actionId, value });
   };
 };
 
-function SectionLayoutBlock({ blockId, text, fields, accessory, parser }) {
+function SectionLayoutBlock({ blockId, appId, text, fields, accessory, parser }) {
   return (
-    <Grid>
-      <Grid.ItemAuto>
-        {text && <Text>{parser.text(text)}</Text>}
-        {fields && <Fields fields={fields} parser={parser} />}
-      </Grid.ItemAuto>
-      {accessory && (
-        <Accessory element={{ blockId, ...accessory }} parser={parser} />
-      )}
-    </Grid>
+    <Section>
+      <Grid>
+        <Grid.Item>
+          {text && <Text>{parser.text(text)}</Text>}
+          {fields && <Fields fields={fields} parser={parser} />}
+        </Grid.Item>
+
+        <Grid.Item>{accessory && (
+          <Accessory element={{ blockId, appId, ...accessory }} parser={parser} />
+        )}</Grid.Item>
+      </Grid>
+    </Section>
   );
 }
 
@@ -161,7 +166,7 @@ const getStyle = (style) => {
   }
 };
 
-function ActionsLayoutBlock({ blockId, elements, parser }) {
+function ActionsLayoutBlock({ blockId, appId, elements, parser }) {
   const breakpoints = {
     xs: 4,
     sm: 4,
@@ -177,7 +182,7 @@ function ActionsLayoutBlock({ blockId, elements, parser }) {
     ? elements.slice(0, 5)
     : elements
   ).map((element) =>
-    <Grid.Item {...breakpoints}>{parser.renderActions({ blockId, ...element }, BLOCK_CONTEXT.ACTION, parser)}</Grid.Item>,
+    <Grid.Item {...breakpoints}>{parser.renderActions({ blockId, appId, ...element }, BLOCK_CONTEXT.ACTION, parser)}</Grid.Item>,
   );
 
   const handleShowMoreClick = () => {
@@ -192,19 +197,12 @@ function ActionsLayoutBlock({ blockId, elements, parser }) {
   );
 }
 
-const Accessory = ({ blockId, element, parser }) => (
-  <div
-    className='body__accessory'
-    style={{ display: 'flex', margin: '0 4px', position: 'relative' }}
-  >
-    {parser.renderAccessories(
-      { blockId, ...element },
-      BLOCK_CONTEXT.SECTION,
-      parser,
-    )}
-  </div>
-);
-
+const Accessory = ({ blockId, appId, element, parser }) =>
+  parser.renderAccessories(
+    { blockId, appId, ...element },
+    BLOCK_CONTEXT.SECTION,
+    parser,
+  );
 const Fields = ({ fields, parser }) => (
   <div
     style={{
@@ -228,14 +226,14 @@ class MessageParser extends UiKitParserMessage {
     const action = useBlockContext(element, context);
     return (
       <Button
+        {...getStyle(element.style)}
         small
         data-group={element.groupId}
         key={element.actionId}
         children={this.text(element.text)}
-        style={{ margin: '0 0.5rem' }}
+        style={{ Section: '0 0.5rem' }}
         onClick={action}
         value={element.value}
-        {...getStyle(element.style)}
       />
     );
   }
@@ -316,12 +314,14 @@ class MessageParser extends UiKitParserMessage {
 
 function InputLayoutBlock({ label, element, parser }) {
   return (
-    <FieldGroup>
-      <Field>
-        {label && <Label text={label} />}
-        {parser.renderInputs(element, BLOCK_CONTEXT.FORM, parser)}
-      </Field>
-    </FieldGroup>
+    <Section>
+      <FieldGroup>
+        <Field>
+          {label && <Label text={label} />}
+          {parser.renderInputs(element, BLOCK_CONTEXT.FORM, parser)}
+        </Field>
+      </FieldGroup>
+    </Section>
   );
 }
 
@@ -333,22 +333,25 @@ class ModalParser extends UiKitParserModal {
     });
   }
 
-  input({ element, label }) {
+  input({ element, label, blockId, appId }) {
     return (
       <InputLayoutBlock
         parser={this}
-        element={element}
+        element={{ ...element, appId, blockId }}
         label={this.text(label)}
       />
     );
   }
 
-  plainInput({ multiline, actionId, placeholder }) {
+  plainInput(element, context) {
+    const { multiline, actionId, placeholder } = element;
     const Component = multiline ? TextAreaInput : TextInput;
+    const action = useBlockContext(element, context);
     return (
       <Component
         id={actionId}
         name={actionId}
+        onInput={action}
         placeholder={this.text(placeholder)}
       />
     );
