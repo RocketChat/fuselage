@@ -67,4 +67,54 @@ import { UiKitModal, kitContext, defaultContext } from './';
   </Story>
 </Preview>
 
+
+
+<Preview>
+  <Story name='Poll'>
+    <UiKitModal blocks={[{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Insert your question",
+				"emoji": true
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*Add some choices*"
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Question 1",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+            "optional": true,
+			"element": {
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Question 2"
+			}
+		}]}/>
+  </Story>
+</Preview>
+
 <Props of={UiKitModal}/>

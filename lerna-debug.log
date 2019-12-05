@@ -1,0 +1,318 @@
+0 silly argv {
+0 silly argv   _: [ 'version' ],
+0 silly argv   'conventional-commits': true,
+0 silly argv   conventionalCommits: true,
+0 silly argv   'create-release': 'github',
+0 silly argv   createRelease: 'github',
+0 silly argv   yes: true,
+0 silly argv   y: true,
+0 silly argv   lernaVersion: '3.19.0',
+0 silly argv   '$0': 'node_modules/.bin/lerna'
+0 silly argv }
+1 notice cli v3.19.0
+2 verbose rootPath /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage
+3 info current version 0.2.0-alpha.16
+4 silly isAnythingCommitted
+5 verbose isAnythingCommitted 1
+6 silly currentBranch
+7 verbose currentBranch master
+8 silly remoteBranchExists
+9 silly isBehindUpstream
+10 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 9
+11 silly hasTags
+12 verbose hasTags true
+13 silly git-describe.sync "v0.2.0-alpha.16-1-g5f78654" => {"lastTagName":"v0.2.0-alpha.16","lastVersion":"v0.2.0-alpha.16","refCount":"1","sha":"5f78654","isDirty":false}
+14 info Looking for changed packages since v0.2.0-alpha.16
+15 silly checking diff packages/fuselage-hooks
+16 silly no diff found in @rocket.chat/fuselage-hooks
+17 silly checking diff packages/fuselage-tokens
+18 silly no diff found in @rocket.chat/fuselage-tokens
+19 silly checking diff packages/fuselage
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_Center.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_End.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_Start.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Stretch.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Vertical.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Vertical_With_Stretch.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Wrap.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Lg_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Md_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Sm_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Xl_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Xs_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_States.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Align.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Align_Content.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Align_Items.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Basis.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Direction.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Grow.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Justify_Content.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Order.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Shrink.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Wrap.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Level_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Margins_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Tabs_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Headline_Skeleton_Animated.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Headline_Skeleton_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Paragraph_Skeleton_Animated.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Paragraph_Skeleton_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Subtitle_Skeleton_Animated.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Subtitle_Skeleton_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Aligned_At_Center.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Aligned_At_End.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Aligned_At_Start.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Stretch.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Vertical.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Vertical_With_Stretch.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Wrap.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Lg_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Md_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Sm_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Xl_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Xs_Breakpoint.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_States.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Align.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Align_Content.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Align_Items.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Basis.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Direction.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Grow.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Justify_Content.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Order.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Shrink.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Wrap.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Level_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Margins_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Tabs_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Headline_Skeleton_Animated.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Headline_Skeleton_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Paragraph_Skeleton_Animated.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Paragraph_Skeleton_Default_Story.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Subtitle_Skeleton_Animated.png
+20 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Subtitle_Skeleton_Default_Story.png
+20 silly found diff in packages/fuselage/.storybook/webpack.config.js
+20 silly found diff in packages/fuselage/.stylelintrc
+20 silly found diff in packages/fuselage/package.json
+20 silly found diff in packages/fuselage/src/components/Accordion/styles.scss
+20 silly found diff in packages/fuselage/src/components/ButtonGroup/index.js
+20 silly found diff in packages/fuselage/src/components/ButtonGroup/stories.mdx
+20 silly found diff in packages/fuselage/src/components/ButtonGroup/styles.scss
+20 silly found diff in packages/fuselage/src/components/Callout/styles.scss
+20 silly found diff in packages/fuselage/src/components/Field/styles.scss
+20 silly found diff in packages/fuselage/src/components/FieldGroup/styles.scss
+20 silly found diff in packages/fuselage/src/components/Flex/index.js
+20 silly found diff in packages/fuselage/src/components/Flex/spec.js
+20 silly found diff in packages/fuselage/src/components/Flex/stories.mdx
+20 silly found diff in packages/fuselage/src/components/Grid/index.js
+20 silly found diff in packages/fuselage/src/components/Grid/spec.js
+20 silly found diff in packages/fuselage/src/components/Grid/stories.mdx
+20 silly found diff in packages/fuselage/src/components/Grid/styles.scss
+20 silly found diff in packages/fuselage/src/components/InputBox/styles.scss
+20 silly found diff in packages/fuselage/src/components/Level/index.js
+20 silly found diff in packages/fuselage/src/components/Level/spec.js
+20 silly found diff in packages/fuselage/src/components/Level/stories.mdx
+20 silly found diff in packages/fuselage/src/components/Level/styles.scss
+20 silly found diff in packages/fuselage/src/components/Margins/index.js
+20 silly found diff in packages/fuselage/src/components/Margins/spec.js
+20 silly found diff in packages/fuselage/src/components/Margins/stories.mdx
+20 silly found diff in packages/fuselage/src/components/Margins/styles.scss
+20 silly found diff in packages/fuselage/src/components/Scrollable/index.js
+20 silly found diff in packages/fuselage/src/components/Scrollable/spec.js
+20 silly found diff in packages/fuselage/src/components/Scrollable/stories.mdx
+20 silly found diff in packages/fuselage/src/components/Scrollable/styles.scss
+20 silly found diff in packages/fuselage/src/components/Tabs/index.js
+20 silly found diff in packages/fuselage/src/components/Tabs/spec.js
+20 silly found diff in packages/fuselage/src/components/Tabs/stories.mdx
+20 silly found diff in packages/fuselage/src/components/Tabs/styles.scss
+20 silly found diff in packages/fuselage/src/components/Text/styles.scss
+20 silly found diff in packages/fuselage/src/components/_Grid/index.js.disabled
+20 silly found diff in packages/fuselage/src/components/_Grid/stories.js.disabled
+20 silly found diff in packages/fuselage/src/components/_Grid/styles.scss.disabled
+20 silly found diff in packages/fuselage/src/components/_ScrollableArea/index.js.disabled
+20 silly found diff in packages/fuselage/src/components/_ScrollableArea/spec.js.disabled
+20 silly found diff in packages/fuselage/src/components/_ScrollableArea/stories.js.disabled
+20 silly found diff in packages/fuselage/src/components/_ScrollableArea/styles.scss.disabled
+20 silly found diff in packages/fuselage/src/components/_SideBar/stories.js.disabled
+20 silly found diff in packages/fuselage/src/components/_Tab/index.js.disabled
+20 silly found diff in packages/fuselage/src/components/_Tab/stories.js.disabled
+20 silly found diff in packages/fuselage/src/components/_Tab/styles.scss.disabled
+20 silly found diff in packages/fuselage/src/components/_Tabs/index.js.disabled
+20 silly found diff in packages/fuselage/src/components/_Tabs/stories.js.disabled
+20 silly found diff in packages/fuselage/src/components/_Tabs/styles.scss.disabled
+20 silly found diff in packages/fuselage/src/components/index.js
+20 silly found diff in packages/fuselage/src/components/index.scss
+20 silly found diff in packages/fuselage/src/styles/index.js
+20 silly found diff in packages/fuselage/src/styles/variables/borders.scss
+20 silly found diff in packages/fuselage/webpack.config.js
+21 verbose filtered diff [
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_Center.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_End.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_Start.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Stretch.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Vertical.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Vertical_With_Stretch.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Wrap.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Lg_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Md_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Sm_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Xl_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Xs_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_States.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Align.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Align_Content.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Align_Items.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Basis.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Direction.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Grow.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Justify_Content.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Order.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Shrink.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Flex_Wrap.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Level_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Margins_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Tabs_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Typography_Headline_Skeleton_Animated.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Typography_Headline_Skeleton_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Typography_Paragraph_Skeleton_Animated.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Typography_Paragraph_Skeleton_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Typography_Subtitle_Skeleton_Animated.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Typography_Subtitle_Skeleton_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Aligned_At_Center.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Aligned_At_End.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Aligned_At_Start.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Stretch.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Vertical.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Vertical_With_Stretch.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Wrap.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Lg_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Md_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Sm_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Xl_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Xs_Breakpoint.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_States.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Align.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Align_Content.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Align_Items.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Basis.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Direction.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Grow.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Justify_Content.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Order.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Shrink.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Flex_Wrap.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Level_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Margins_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Tabs_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Typography_Headline_Skeleton_Animated.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Typography_Headline_Skeleton_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Typography_Paragraph_Skeleton_Animated.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Typography_Paragraph_Skeleton_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Typography_Subtitle_Skeleton_Animated.png',
+21 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Typography_Subtitle_Skeleton_Default_Story.png',
+21 verbose filtered diff   'packages/fuselage/.storybook/webpack.config.js',
+21 verbose filtered diff   'packages/fuselage/.stylelintrc',
+21 verbose filtered diff   'packages/fuselage/package.json',
+21 verbose filtered diff   'packages/fuselage/src/components/Accordion/styles.scss',
+21 verbose filtered diff   'packages/fuselage/src/components/ButtonGroup/index.js',
+21 verbose filtered diff   'packages/fuselage/src/components/ButtonGroup/stories.mdx',
+21 verbose filtered diff   'packages/fuselage/src/components/ButtonGroup/styles.scss',
+21 verbose filtered diff   'packages/fuselage/src/components/Callout/styles.scss',
+21 verbose filtered diff   'packages/fuselage/src/components/Field/styles.scss',
+21 verbose filtered diff   'packages/fuselage/src/components/FieldGroup/styles.scss',
+21 verbose filtered diff   'packages/fuselage/src/components/Flex/index.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Flex/spec.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Flex/stories.mdx',
+21 verbose filtered diff   'packages/fuselage/src/components/Grid/index.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Grid/spec.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Grid/stories.mdx',
+21 verbose filtered diff   'packages/fuselage/src/components/Grid/styles.scss',
+21 verbose filtered diff   'packages/fuselage/src/components/InputBox/styles.scss',
+21 verbose filtered diff   'packages/fuselage/src/components/Level/index.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Level/spec.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Level/stories.mdx',
+21 verbose filtered diff   'packages/fuselage/src/components/Level/styles.scss',
+21 verbose filtered diff   'packages/fuselage/src/components/Margins/index.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Margins/spec.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Margins/stories.mdx',
+21 verbose filtered diff   'packages/fuselage/src/components/Margins/styles.scss',
+21 verbose filtered diff   'packages/fuselage/src/components/Scrollable/index.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Scrollable/spec.js',
+21 verbose filtered diff   'packages/fuselage/src/components/Scrollable/stories.mdx',
+21 verbose filtered diff   'packages/fuselage/src/components/Scrollable/styles.scss',
+21 verbose filtered diff   ... 24 more items
+21 verbose filtered diff ]
+22 silly checking diff packages/icons
+23 silly no diff found in @rocket.chat/icons
+24 verbose updated @rocket.chat/fuselage
+25 verbose git-describe undefined => "v0.2.0-alpha.16-1-g5f78654"
+26 silly git-describe parsed => {"lastTagName":"v0.2.0-alpha.16","lastVersion":"v0.2.0-alpha.16","refCount":"1","sha":"5f78654","isDirty":false}
+27 silly fixed for @rocket.chat/fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage
+28 verbose getChangelogConfig using preset "conventional-changelog-angular"
+29 silly npa Result {
+29 silly npa   type: 'tag',
+29 silly npa   registry: true,
+29 silly npa   where: undefined,
+29 silly npa   raw: 'conventional-changelog-angular',
+29 silly npa   name: 'conventional-changelog-angular',
+29 silly npa   escapedName: 'conventional-changelog-angular',
+29 silly npa   scope: undefined,
+29 silly npa   rawSpec: '',
+29 silly npa   saveSpec: null,
+29 silly npa   fetchSpec: 'latest',
+29 silly npa   gitRange: undefined,
+29 silly npa   gitCommittish: undefined,
+29 silly npa   hosted: undefined
+29 silly npa }
+30 verbose getChangelogConfig Attempting to resolve preset "conventional-changelog-angular"
+31 info getChangelogConfig Successfully resolved preset "conventional-changelog-angular"
+32 verbose fixed increment 0.2.0-alpha.16 by prerelease
+33 info auto-confirmed
+34 info execute Creating releases...
+35 silly lifecycle No script for "preversion" in "Rocket.Chat.Fuselage", continuing
+36 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage", continuing
+37 silly lifecycle No script for "version" in "@rocket.chat/fuselage", continuing
+38 silly fixed for @rocket.chat/fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage
+39 silly fixed writing new entry: "# [0.2.0-alpha.17](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.16...v0.2.0-alpha.17) (2019-12-04)\n\n\n### Bug Fixes\n\n* Remove FieldGroup minimum width ([#93](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/93)) ([e116296](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e116296f1f7e7ae6d4a7b761bdc2cac529d28854))\n\n\n### Features\n\n* Add prototype of Tabs component ([#101](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/101)) ([38ad447](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/38ad447fbf4e9207025d8756a95fce174b56868c))\n* Cascading styles ([#97](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/97)) ([b21cd54](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b21cd54478b6fca4190c25c3ab99beb77cdec67d))\n* Flex components ([#99](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/99)) ([948d0ea](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/948d0ea801b59751fa06f2c2fb25c84d172b73c7))\n* Grid ([#100](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/100)) ([baca6bf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/baca6bf1c46742efc0171b1825918f4c907d036c))\n* Level component ([#102](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/102)) ([2abd0d9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2abd0d9547528de3dd9e2f8c539966faf9a9da2d))\n* Scrollable ([#98](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/98)) ([2eecec6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2eecec6c53c198fd16ff1fa089aa98974ecb2816))\n\n\n\n"
+40 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/CHANGELOG.md
+41 silly root for Rocket.Chat.Fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage
+42 silly root writing new entry: "# [0.2.0-alpha.17](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.16...v0.2.0-alpha.17) (2019-12-04)\n\n\n### Bug Fixes\n\n* Remove FieldGroup minimum width ([#93](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/93)) ([e116296](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e116296f1f7e7ae6d4a7b761bdc2cac529d28854))\n\n\n### Features\n\n* Add prototype of Tabs component ([#101](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/101)) ([38ad447](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/38ad447fbf4e9207025d8756a95fce174b56868c))\n* Cascading styles ([#97](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/97)) ([b21cd54](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b21cd54478b6fca4190c25c3ab99beb77cdec67d))\n* Flex components ([#99](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/99)) ([948d0ea](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/948d0ea801b59751fa06f2c2fb25c84d172b73c7))\n* Grid ([#100](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/100)) ([baca6bf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/baca6bf1c46742efc0171b1825918f4c907d036c))\n* Level component ([#102](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/102)) ([2abd0d9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2abd0d9547528de3dd9e2f8c539966faf9a9da2d))\n* Scrollable ([#98](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/98)) ([2eecec6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2eecec6c53c198fd16ff1fa089aa98974ecb2816))\n\n\n\n"
+43 verbose root wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/CHANGELOG.md
+44 silly lifecycle No script for "version" in "Rocket.Chat.Fuselage", continuing
+45 silly gitAdd [
+45 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/package.json',
+45 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/CHANGELOG.md',
+45 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/CHANGELOG.md',
+45 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/lerna.json'
+45 silly gitAdd ]
+46 silly gitCommit v0.2.0-alpha.17
+47 verbose git [ 'commit', '-m', 'v0.2.0-alpha.17' ]
+48 silly gitTag v0.2.0-alpha.17
+49 verbose git [ 'tag', 'v0.2.0-alpha.17', '-m', 'v0.2.0-alpha.17' ]
+50 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage", continuing
+51 silly lifecycle No script for "postversion" in "Rocket.Chat.Fuselage", continuing
+52 info git Pushing tags...
+53 silly gitPush origin master
+54 silly parseGitRepo
+55 verbose git [ 'config', '--get', 'remote.origin.url' ]
+56 silly createGitHubClient
+57 error Error: A GH_TOKEN environment variable is required.
+57 error     at createGitHubClient (/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/github-client/lib/github-client.js:17:11)
+57 error     at createClient (/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/version/lib/create-release.js:16:14)
+57 error     at createRelease (/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/version/lib/create-release.js:25:18)
+57 error     at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/version/index.js:272:9
+57 error     at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/p-waterfall/index.js:4:73
+57 error     at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/p-reduce/index.js:16:10
