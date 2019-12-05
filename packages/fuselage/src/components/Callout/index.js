@@ -7,6 +7,7 @@ import { Icon } from '../Icon';
 const Container = createStyledComponent('rcx-callout', 'section');
 const Wrapper = createStyledComponent('rcx-callout__wrapper');
 const Title = createStyledComponent('rcx-callout__title', 'h1');
+const ChildrenWrapper = createStyledComponent('rcx-callout__children', 'div');
 
 export const Callout = React.forwardRef(function Callout({
   children,
@@ -20,10 +21,12 @@ export const Callout = React.forwardRef(function Callout({
     || (type === 'danger' && 'ban');
 
   return <Container mod-type={type} ref={ref} {...props}>
-    <Icon name={iconName} x16 />
+    <Icon name={iconName} size={20} />
     <Wrapper>
-      <Title mod-has-children={!!children}>{title}</Title>
-      {children}
+      {title && <Title>{title}</Title>}
+      <ChildrenWrapper>
+        {children}
+      </ChildrenWrapper>
     </Wrapper>
   </Container>;
 });
@@ -37,6 +40,6 @@ Callout.displayName = 'Callout';
 Callout.propTypes = {
   children: PropTypes.node,
   invisible: PropTypes.bool,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node,
   type: PropTypes.oneOf(['info', 'success', 'warning', 'danger']).isRequired,
 };
