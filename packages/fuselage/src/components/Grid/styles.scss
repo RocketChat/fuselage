@@ -17,7 +17,7 @@ $breakpoint-names: map-keys($breakpoints);
 
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
-      margin-inline: calc(-1 * #{ to-rem(map-get(map-get($breakpoints, $breakpoint-name), gutter-width)) });
+      margin-inline: calc(#{ to-rem(map-get(map-get($breakpoints, $breakpoint-name), gutter-width)) } / -2);
     }
   }
 }
@@ -28,7 +28,7 @@ $breakpoint-names: map-keys($breakpoints);
 
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
-      padding-inline: to-rem(map-get(map-get($breakpoints, $breakpoint-name), gutter-width));
+      padding-inline: calc(#{ to-rem(map-get(map-get($breakpoints, $breakpoint-name), gutter-width)) } / 2);
 
       $total-columns: map-get(map-get($breakpoints, $breakpoint-name), columns);
       @for $columns from 1 through $total-columns {
