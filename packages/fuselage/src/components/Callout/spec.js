@@ -5,6 +5,6 @@ import { Callout } from '../..';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Callout title='' />, div);
+  ReactDOM.render(<Callout />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
