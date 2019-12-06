@@ -18,7 +18,7 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 			"accessory": {
 				"type": "image",
 				"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
-				"alt_text": "plants"
+				"altText": "plants"
 			}
 		}]
   }/>
@@ -56,12 +56,13 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 			},
 			"accessory": {
 				"type": "static_select",
-        "options": [{
+        "options": [
+          {
+            value: 1,
             "text": {
-            "type": "mrkdwn",
-            "text": "button"
-          },
-          value: 1
+              "type": "mrkdwn",
+              "text": "button"
+            }
         }],
 			}
 		}]
@@ -102,7 +103,7 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 				"emoji": true
 			},
 			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
-			"alt_text": "Example Image"
+			"altText": "Example Image"
 		}]
   }/>
   </Story>
@@ -111,11 +112,20 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 <Preview>
   <Story name='Context'>
     <UiKitMessage blocks={[{
+			"type": "image",
+			"title": {
+				"type": "plain_text",
+				"text": "Example Image",
+				"emoji": true
+			},
+			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
+			"altText": "Example Image"
+		},{
 			"type": "context",
 			"elements": [
 				{
 					"type": "mrkdwn",
-					"text": "context context contex"
+					"text": "contex"
 				}
 			]
 		},]
@@ -150,6 +160,44 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 				}
 			]
 		}]}/>
+  </Story>
+</Preview>
+
+
+<Preview>
+  <Story name='Fields'>
+    <UiKitMessage blocks={[
+		{
+			"type": "section",
+			"fields": [
+				{
+					"type": "plain_text",
+					"text": "*this is plain_text text*",
+					"emoji": true
+				},
+				{
+					"type": "plain_text",
+					"text": "*this is plain_text text*",
+					"emoji": true
+				},
+				{
+					"type": "plain_text",
+					"text": "*this is plain_text text*",
+					"emoji": true
+				},
+				{
+					"type": "plain_text",
+					"text": "*this is plain_text text*",
+					"emoji": true
+				},
+				{
+					"type": "plain_text",
+					"text": "*this is plain_text text*",
+					"emoji": true
+				}
+			]
+		}
+	]}/>
   </Story>
 </Preview>
 

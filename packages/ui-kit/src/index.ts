@@ -1,6 +1,6 @@
 export const version = "DEVELOPMENT";
 
-enum ELEMENT_TYPES {
+export enum ELEMENT_TYPES {
   IMAGE= 'image',
   BUTTON= 'button',
   STATIC_SELECT= 'static_select',
@@ -46,6 +46,7 @@ export abstract class UiKitParserMessage {
   text: (text: UiKitText, context) => Component;
   button: (element: UiKitElement, context: BLOCK_CONTEXT) => Component;
   image: (element: UiKitElement, context: BLOCK_CONTEXT) => Component;
+  datePicker: (element: UiKitElement, context: BLOCK_CONTEXT) => Component;
   staticSelect: (element: UiKitElement, context: BLOCK_CONTEXT) => Component;
   multiStaticSelect: (element: UiKitElement, context: BLOCK_CONTEXT) => Component;
   selectInput: (element: UiKitElement, context: BLOCK_CONTEXT) => Component;
@@ -117,6 +118,7 @@ const renderElement = ({ type, ...element }: UiKitElement, context: BLOCK_CONTEX
     case ELEMENT_TYPES.MULTI_STATIC_SELECT:
       return parser.multiStaticSelect(element as UiKitElement, context);
     case ELEMENT_TYPES.DATEPICKER:
+      return parser.datePicker(element as UiKitElement, context);
     case ELEMENT_TYPES.PLAIN_TEXT_INPUT:
       return parser.plainInput(element as UiKitElement, context);
     case ELEMENT_TYPES.CONVERSATION_SELECT:

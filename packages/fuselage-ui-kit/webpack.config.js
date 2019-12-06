@@ -21,6 +21,10 @@ module.exports = (env, argv) => ({
   devtool: argv.mode === 'production' ? 'source-map' : 'eval-source-map',
   module: {
     rules: [
+      // {
+      //   test: /\.svg$/,
+      //   loader: 'svg-url-loader',
+      // },
       {
         test: /\.ts$/,
         loader: 'ts-loader',
@@ -34,10 +38,13 @@ module.exports = (env, argv) => ({
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-react', {
-                useBuiltIns: true,
-                development: argv.mode !== 'production',
-              }],
+              [
+                '@babel/preset-react',
+                {
+                  useBuiltIns: true,
+                  development: argv.mode !== 'production',
+                },
+              ],
             ],
             plugins: ['@babel/plugin-transform-runtime'],
           },

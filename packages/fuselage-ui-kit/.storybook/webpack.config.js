@@ -10,6 +10,12 @@ module.exports = async ({ config, mode }) => {
   ];
   delete jsRule.exclude;
   config.resolve.extensions.push(".ts");
+
+  // config.module.rules.push({
+  //   test: /\.svg$/,
+  //   loader: "svg-url-loader"
+  // });
+
   config.module.rules.push({
     test: /\.scss$/,
     use: [

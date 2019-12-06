@@ -1,17 +1,14 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import {
   Divider,
-  Text,
   Button,
   SelectInput,
-  FieldGroup,
-  Field,
-  Label,
   Flex,
   Grid,
-  Margins,
   TextAreaInput,
   TextInput,
+  InputBox,
+  Icon,
 } from '@rocket.chat/fuselage';
 import {
   uiKitMessage,
@@ -21,6 +18,12 @@ import {
   UiKitParserModal,
 } from '@rocket.chat/ui-kit';
 
+import { Section as SectionLayoutBlock } from './Section';
+import { Actions as ActionsLayoutBlock } from './Actions';
+import { Input as InputLayoutBlock } from './Input';
+import { MessageImage, ModalImage } from './Image';
+import { StaticSelect } from './StaticSelect';
+
 export const defaultContext = {
   action: (...args) => alert(JSON.stringify(args)),
   state: console.log,
@@ -28,103 +31,6 @@ export const defaultContext = {
 };
 
 export const kitContext = React.createContext(defaultContext);
-
-// COMPONENTS
-Grid.ItemAuto = ({ children }) => <div style={{ flex: '1' }}>{children}</div>;
-
-const Section = ({ children }) => (
-  <Margins blockEnd={4}>{children}</Margins>
-);
-
-const Thumb = ({ element, context }) => (
-  <div
-    style={{
-      border: '1px solid',
-      borderRadius: '4px',
-      marginLeft: '4px',
-      overflow: 'hidden',
-      width: context === BLOCK_CONTEXT.SECTION ? '88px' : '20px',
-      height: context === BLOCK_CONTEXT.SECTION ? '88px' : '20px',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: '50%',
-      backgroundSize: 'cover',
-      backgroundImage: `url(${ element.imageUrl })`,
-    }}
-  />
-);
-const Image = ({ element }) => {
-  const maxSize = 360;
-  const [{ loading, width, height }, setState] = useState({
-    loading: true,
-    width: maxSize,
-  });
-  useEffect(() => {
-    const img = document.createElement('img');
-    img.addEventListener('load', (e) => {
-      const { naturalWidth, naturalHeight } = e.target;
-
-      if (naturalWidth > naturalHeight) {
-        const width = Math.min(naturalWidth, maxSize);
-        const aspect = width / naturalWidth;
-        return setState({
-          loading: false,
-          width,
-          height: naturalHeight * aspect,
-        });
-      }
-      const height = Math.min(naturalHeight, maxSize);
-      const aspect = height / naturalHeight;
-      return setState({
-        loading: false,
-        width: naturalWidth * aspect,
-        height,
-      });
-    });
-    img.src = element.imageUrl;
-  }, []);
-
-  if (loading) {
-    return 'loading';
-  }
-
-  return (
-    <div
-      style={{
-        borderRadius: '4px',
-        marginLeft: '4px',
-        overflow: 'hidden',
-        width: `${ width }px`,
-        height: `${ height }px`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50%',
-        backgroundSize: 'cover',
-        backgroundImage: `url(${ element.imageUrl })`,
-      }}
-    />
-  );
-};
-
-const StaticSelect = ({
-  options,
-  size,
-  multiple,
-  onChange,
-  parser,
-  placeholder,
-}) => (
-  <SelectInput
-    size={size}
-    multiple={multiple}
-    onInput={onChange}
-    placeholde={parser.text(placeholder)}
-  >
-    {options.map((option) => (
-      <SelectInput.Option key={option.value} value={option.value}>
-        {parser.text(option.text)}
-      </SelectInput.Option>
-    ))}
-  </SelectInput>
-);
 
 const useBlockContext = ({ blockId, actionId, appId }, context) => {
   const { action, appId: appIdFromContext, state } = useContext(kitContext);
@@ -139,23 +45,6 @@ const useBlockContext = ({ blockId, actionId, appId }, context) => {
   };
 };
 
-function SectionLayoutBlock({ blockId, appId, text, fields, accessory, parser }) {
-  return (
-    <Section>
-      <Grid>
-        <Grid.Item>
-          {text && <Text>{parser.text(text)}</Text>}
-          {fields && <Fields fields={fields} parser={parser} />}
-        </Grid.Item>
-
-        <Grid.Item>{accessory && (
-          <Accessory element={{ blockId, appId, ...accessory }} parser={parser} />
-        )}</Grid.Item>
-      </Grid>
-    </Section>
-  );
-}
-
 const getStyle = (style) => {
   switch (style) {
   case 'primary':
@@ -165,61 +54,6 @@ const getStyle = (style) => {
     };
   }
 };
-
-function ActionsLayoutBlock({ blockId, appId, elements, parser }) {
-  const breakpoints = {
-    xs: 4,
-    sm: 4,
-    md: 4,
-    lg: 3,
-    xl: 3,
-  };
-
-  const [showMoreVisible, setShowMoreVisible] = useState(
-    () => elements.length > 5,
-  );
-  const renderedElements = (showMoreVisible
-    ? elements.slice(0, 5)
-    : elements
-  ).map((element) =>
-    <Grid.Item {...breakpoints}>{parser.renderActions({ blockId, appId, ...element }, BLOCK_CONTEXT.ACTION, parser)}</Grid.Item>,
-  );
-
-  const handleShowMoreClick = () => {
-    setShowMoreVisible(false);
-  };
-
-  return (
-    <Grid>
-      {renderedElements}
-      {showMoreVisible && (<Grid.Item {...breakpoints}><Button onClick={handleShowMoreClick}>Show more...</Button></Grid.Item>)}
-    </Grid>
-  );
-}
-
-const Accessory = ({ blockId, appId, element, parser }) =>
-  parser.renderAccessories(
-    { blockId, appId, ...element },
-    BLOCK_CONTEXT.SECTION,
-    parser,
-  );
-const Fields = ({ fields, parser }) => (
-  <div
-    style={{
-      display: 'flex',
-      flex: 1,
-      flexWrap: 'wrap',
-      wordBreak: 'break-word',
-    }}
-  >
-    {fields.map((field, i) => (
-      <div key={i} style={{ width: 'calc(50% - 16px)', padding: '0.5rem' }}>
-        {' '}
-        {parser.text(field)}{' '}
-      </div>
-    ))}
-  </div>
-);
 
 class MessageParser extends UiKitParserMessage {
   button(element, context) {
@@ -242,47 +76,51 @@ class MessageParser extends UiKitParserMessage {
     return <Divider />;
   }
 
-  text({ text, type = 'plain_text' } = { text: '' }) {
+  text({ text/* , type = 'plain_text'*/ } = { text: '' }) {
     return text;
   }
 
   section(args) {
     return (
-      <Flex.Container>
-        <SectionLayoutBlock {...args} parser={this} />
-      </Flex.Container>
+      <SectionLayoutBlock {...args} parser={this} />
     );
   }
 
   actions(args) {
     return (
-      <Flex.Container>
-        <ActionsLayoutBlock {...args} parser={this} />
-      </Flex.Container>
+      <ActionsLayoutBlock {...args} parser={this} />
+    );
+  }
+
+  datePicker(element, context) {
+    const action = useBlockContext(element, context);
+    const { actionId, placeholder } = element;
+    return (
+      <InputBox
+        id={actionId}
+        name={actionId}
+        rows={6}
+        onInput={action}
+        placeholder={this.text(placeholder)}
+        type='date'
+      />
     );
   }
 
   image(element, context) {
-    if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.CONTEXT].includes(context)) {
-      return <Thumb context={context} element={element} />;
-    }
-    return (
-      <Flex.Container>
-        <Image element={element} />
-      </Flex.Container>
-    );
+    return <MessageImage element={element} context={context}/>;
   }
 
   context({ elements }/* , context*/) {
     return (
-      <Flex.Container>
+      <Grid>
         {elements.map(
           (element) =>
-            <Flex.Container>{
+            <Flex.Item>{
               this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
-            || element.type}</Flex.Container>,
+            || element.type}</Flex.Item>,
         )}
-      </Flex.Container>
+      </Grid>
     );
   }
 
@@ -312,19 +150,6 @@ class MessageParser extends UiKitParserMessage {
   }
 }
 
-function InputLayoutBlock({ label, element, parser }) {
-  return (
-    <Section>
-      <FieldGroup>
-        <Field>
-          {label && <Label text={label} />}
-          {parser.renderInputs(element, BLOCK_CONTEXT.FORM, parser)}
-        </Field>
-      </FieldGroup>
-    </Section>
-  );
-}
-
 class ModalParser extends UiKitParserModal {
   constructor() {
     super();
@@ -334,6 +159,7 @@ class ModalParser extends UiKitParserModal {
   }
 
   input({ element, label, blockId, appId }) {
+    console.log(element);
     return (
       <InputLayoutBlock
         parser={this}
@@ -343,14 +169,19 @@ class ModalParser extends UiKitParserModal {
     );
   }
 
+  image(element, context) {
+    return <ModalImage element={element} context={context}/>;
+  }
+
   plainInput(element, context) {
+    const action = useBlockContext(element, context);
     const { multiline, actionId, placeholder } = element;
     const Component = multiline ? TextAreaInput : TextInput;
-    const action = useBlockContext(element, context);
     return (
       <Component
         id={actionId}
         name={actionId}
+        rows={6}
         onInput={action}
         placeholder={this.text(placeholder)}
       />

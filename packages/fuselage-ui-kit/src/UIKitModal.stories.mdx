@@ -67,7 +67,21 @@ import { UiKitModal, kitContext, defaultContext } from './';
   </Story>
 </Preview>
 
-
+<Preview>
+  <Story name='Image'>
+    <UiKitModal blocks={[{
+			"type": "image",
+			"title": {
+				"type": "plain_text",
+				"text": "Example Image",
+				"emoji": true
+			},
+			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
+			"altText": "Example Image"
+		}]
+  }/>
+  </Story>
+</Preview>
 
 <Preview>
   <Story name='Poll'>
