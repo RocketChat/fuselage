@@ -30,7 +30,7 @@
 
   user-select: text;
 
-  @include ellipsis;
+  @include with-text--ellipsis;
 }
 
 .rcx-field__hint {

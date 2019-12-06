@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { createStyledComponent } from '../../styles';
-import { Icon } from '../Icon';
+import { Chevron } from '../Chevron';
 import { ToggleSwitch } from '../ToggleSwitch';
 
 const ItemContainer = createStyledComponent('rcx-accordion-item', 'section');
 const ItemBar = createStyledComponent('rcx-accordion-item__bar');
 const ItemTitle = createStyledComponent('rcx-accordion-item__title', 'h1');
 const ItemToggleSwitchContainer = createStyledComponent('rcx-accordion-item__toggle-switch');
-const ItemIconContainer = createStyledComponent('rcx-accordion-item__icon');
 const ItemPanel = createStyledComponent('rcx-accordion-item__panel');
 
 export const Item = React.forwardRef(function Item({
@@ -95,9 +94,7 @@ export const Item = React.forwardRef(function Item({
           && <ItemToggleSwitchContainer>
             <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />
           </ItemToggleSwitchContainer>}
-        <ItemIconContainer mod-flipped={expanded}>
-          <Icon name={'arrow-down'} x24 />
-        </ItemIconContainer>
+        <Chevron size={24} up={expanded} />
       </>}
     </ItemBar>}
     <ItemPanel id={panelId} mod-expanded={panelExpanded} role='region'>

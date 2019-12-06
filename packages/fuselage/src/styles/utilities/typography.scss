@@ -1,4 +1,4 @@
-@mixin headline {
+@mixin as-headline {
   letter-spacing: $text-styles-h1-letter-spacing;
 
   font-family: $text-styles-h1-font-family;
@@ -7,50 +7,49 @@
   line-height: $text-styles-h1-line-height;
 }
 
-@mixin headline-bold {
-  font-weight: $text-styles-h2-font-weight;
-}
-
-@mixin subtitle {
+@mixin as-subtitle($bold: false) {
   letter-spacing: $text-styles-s1-letter-spacing;
 
   font-family: $text-styles-s1-font-family;
   font-size: $text-styles-s1-font-size;
-  font-weight: $text-styles-s1-font-weight;
+  @if $bold {
+    font-weight: $text-styles-s2-font-weight;
+  }
+  @else {
+    font-weight: $text-styles-s1-font-weight;
+  }
   line-height: $text-styles-s1-line-height;
 }
 
-@mixin subtitle-bold {
-  font-weight: $text-styles-s2-font-weight;
-}
-
-@mixin paragraph {
+@mixin as-paragraph($bold: false) {
   letter-spacing: $text-styles-p1-letter-spacing;
 
   font-family: $text-styles-p1-font-family;
   font-size: $text-styles-p1-font-size;
-  font-weight: $text-styles-p1-font-weight;
+  @if $bold {
+    font-weight: $text-styles-p2-font-weight;
+  }
+  @else {
+    font-weight: $text-styles-p1-font-weight;
+  }
   line-height: $text-styles-p1-line-height;
 }
 
-@mixin paragraph-bold {
-  font-weight: $text-styles-p2-font-weight;
-}
-
-@mixin caption {
+@mixin as-caption($bold: false) {
   letter-spacing: $text-styles-c1-letter-spacing;
 
   font-family: $text-styles-c1-font-family;
   font-size: $text-styles-c1-font-size;
-  font-weight: $text-styles-c1-font-weight;
+  @if $bold {
+    font-weight: $text-styles-c2-font-weight;
+  }
+  @else {
+    font-weight: $text-styles-c1-font-weight;
+  }
   line-height: $text-styles-c1-line-height;
 }
 
-@mixin caption-bold {
-  font-weight: $text-styles-c2-font-weight;
-}
-
-@mixin micro {
+@mixin as-micro-text {
   letter-spacing: $text-styles-micro-letter-spacing;
 
   font-family: $text-styles-micro-font-family;
@@ -59,15 +58,12 @@
   line-height: $text-styles-micro-line-height;
 }
 
-@mixin truncate {
+@mixin with-text--ellipsis {
   overflow: hidden;
 
-  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-@mixin ellipsis {
-  overflow: hidden;
-
-  text-overflow: ellipsis;
+@mixin with-text--nowrap {
+  white-space: nowrap;
 }

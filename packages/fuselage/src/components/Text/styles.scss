@@ -5,26 +5,26 @@
 
   color: #{ $text-colors-default };
 
-  @include paragraph;
+  @include as-paragraph;
 
   &--style-headline {
-    @include headline;
+    @include as-headline;
   }
 
   &--style-subtitle {
-    @include subtitle;
+    @include as-subtitle;
   }
 
   &--style-paragraph {
-    @include paragraph;
+    @include as-paragraph;
   }
 
   &--style-caption {
-    @include caption;
+    @include as-caption;
   }
 
   &--style-micro {
-    @include micro;
+    @include as-micro-text;
   }
 
   &--color-default {

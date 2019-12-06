@@ -1,6 +1,6 @@
 .rcx-tile {
   @include box;
-  @include paragraph;
+  @include as-paragraph;
 
   display: block;
 

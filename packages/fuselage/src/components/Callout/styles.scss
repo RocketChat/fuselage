@@ -5,12 +5,9 @@
 
   display: flex;
 
-  margin: 0 0 #{ $spaces-x24 };
-  margin-inline: 0;
-  margin-block-start: 0;
-  margin-block-end: #{ $spaces-x24 };
-
-  padding: #{ $spaces-x16 };
+  padding-block: #{ $spaces-x16 };
+  padding-inline-start: #{ $spaces-x16 };
+  padding-inline-end: #{ $spaces-x32 };
 
   border-radius: #{ $borders-radius-x2 };
 
@@ -29,10 +26,6 @@
   &--type-danger {
     background-color: #{ map-get($colors, red200) };
   }
-
-  & > .rcx-icon {
-    font-size: #{ $sizes-x16 };
-  }
 }
 
 .rcx-callout__wrapper {
@@ -43,25 +36,27 @@
   overflow: hidden;
   flex: 1 1 0;
 
-  margin: 0 #{ $spaces-x8 };
-  margin-block: 0;
-  margin-inline: #{ $spaces-x8 };
+  margin-inline-start: #{ $spaces-x8 };
 
   color: #{ $text-colors-default };
   flex-flow: column nowrap;
 
-  @include caption;
+  @include as-caption;
 }
 
 .rcx-callout__title {
   @include box;
 
-  @include caption;
-  @include caption-bold;
+  padding-block: #{ $spaces-x2 };
 
-  &--has-children {
-    margin-bottom: #{ $spaces-x4 };
-  }
+  @include as-caption($bold: true);
+  @include with-text--ellipsis;
+  @include with-text--nowrap;
+}
 
-  @include truncate;
+.rcx-callout__children {
+  @include box;
+  display: block;
+
+  padding-block: #{ $spaces-x2 };
 }
