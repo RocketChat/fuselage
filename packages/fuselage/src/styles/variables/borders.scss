@@ -1,6 +1,6 @@
 $borders-width-x1: theme('borders-width-x1', to-rem(1));
-$borders-width-x2: theme('borders-width-x2', to-rem(map-get(map-get($borders, widths), 1)));
-$borders-width-x4: theme('borders-width-x1', to-rem(4));
+$borders-width-x2: theme('borders-width-x2', to-rem(2));
+$borders-width-x4: theme('borders-width-x4', to-rem(4));
 
-$borders-radius-x2: theme('borders-radius-x2', to-rem(map-get(map-get($borders, radii), 1)));
+$borders-radius-x2: theme('borders-radius-x2', to-rem(2));
 $borders-radius-full: 9999px;
