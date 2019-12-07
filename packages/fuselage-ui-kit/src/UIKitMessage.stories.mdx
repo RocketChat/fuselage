@@ -112,6 +112,8 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 <Preview>
   <Story name='Context'>
     <UiKitMessage blocks={[{
+			"type": "context",
+			"elements": [{
 			"type": "image",
 			"title": {
 				"type": "plain_text",
@@ -120,12 +122,10 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 			},
 			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
 			"altText": "Example Image"
-		},{
-			"type": "context",
-			"elements": [
+		},
 				{
 					"type": "mrkdwn",
-					"text": "contex"
+					"text": "context"
 				}
 			]
 		},]

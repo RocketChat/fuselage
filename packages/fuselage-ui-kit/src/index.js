@@ -4,17 +4,19 @@ import {
   Button,
   SelectInput,
   Flex,
-  Grid,
+  Margins,
   TextAreaInput,
   TextInput,
   InputBox,
-  Icon,
+  Box,
+  Text,
 } from '@rocket.chat/fuselage';
 import {
   uiKitMessage,
   uiKitModal,
   BLOCK_CONTEXT,
   UiKitParserMessage,
+  ELEMENT_TYPES,
   UiKitParserModal,
 } from '@rocket.chat/ui-kit';
 
@@ -65,7 +67,6 @@ class MessageParser extends UiKitParserMessage {
         data-group={element.groupId}
         key={element.actionId}
         children={this.text(element.text)}
-        style={{ Section: '0 0.5rem' }}
         onClick={action}
         value={element.value}
       />
@@ -113,14 +114,18 @@ class MessageParser extends UiKitParserMessage {
 
   context({ elements }/* , context*/) {
     return (
-      <Grid>
-        {elements.map(
-          (element) =>
-            <Flex.Item>{
-              this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
-            || element.type}</Flex.Item>,
-        )}
-      </Grid>
+      <Flex.Container alignItems='center'>
+        <Box is='div'>
+          {elements.map(
+            (element) => <Margins all={4}>
+              <Flex.Item>{
+                [ELEMENT_TYPES.PLAIN_TEXT_INPUT, ELEMENT_TYPES.MARKDOWN].includes(element.type) ? <Text>{this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}</Text> : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
+
+            || element.type}</Flex.Item>
+            </Margins>,
+          )}
+        </Box>
+      </Flex.Container>
     );
   }
 
@@ -159,7 +164,6 @@ class ModalParser extends UiKitParserModal {
   }
 
   input({ element, label, blockId, appId }) {
-    console.log(element);
     return (
       <InputLayoutBlock
         parser={this}

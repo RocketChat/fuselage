@@ -16,9 +16,9 @@ import { Block } from './Block';
 const ThumbContext = (args) => <Thumb size={20} {...args} />;
 
 const Thumb = ({ element, size = 88 }) => (
-  <div
+  <Box is='div'
     style={{
-      border: '1px solid',
+      boxShadow: '0 0 0px 1px #cccccc61',
       borderRadius: '4px',
       marginLeft: '4px',
       overflow: 'hidden',
@@ -72,6 +72,7 @@ export const Media = ({ element }) => {
       aria-label={element.altText}
       style={{
         overflow: 'hidden',
+        boxShadow: '0 0 0px 1px #cccccc61',
         width: `${ width }px`,
         height: `${ height }px`,
         backgroundRepeat: 'no-repeat',
