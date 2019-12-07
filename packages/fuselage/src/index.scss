@@ -1,3 +1,5 @@
 @import '~@rocket.chat/fuselage-tokens/all.scss';
-@import './styles/index.scss';
+@import './styles/helpers.scss';
+@import './styles/utilities/index.scss';
+@import './styles/variables/index.scss';
 @import './components/index.scss';

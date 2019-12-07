@@ -1,11 +1,3 @@
-@function to-px($length) {
-  @if type-of($length) == number {
-    @return #{$length}px;
-  }
-
-  @return $length;
-}
-
 @function to-em($length) {
   @if type-of($length) == number {
     @return #{$length / 16}em;
@@ -20,16 +12,6 @@
   }
 
   @return $length;
-}
-
-@function get-map-value($map, $keys...) {
-  $value: $map;
-
-  @each $key in $keys {
-    $value: map-get($value, $key);
-  }
-
-  @return $value;
 }
 
 @function theme($var-name, $value) {
