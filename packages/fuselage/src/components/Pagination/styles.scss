@@ -93,7 +93,8 @@
   color: $text-colors-primary;
   background: transparent;
 
-  @include on-disabled {
+  &.disabled,
+  &:disabled {
     @include as-caption($bold: true);
     cursor: default;
 
@@ -111,7 +112,8 @@
   color: $text-colors-primary;
   background: transparent;
 
-  @include on-disabled {
+  &.disabled,
+  &:disabled {
     color: $text-colors-disabled;
   }
 }

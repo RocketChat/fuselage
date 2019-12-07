@@ -42,25 +42,29 @@
     border-color: $border-color;
     background-color: $background-color;
 
-    @include on-focus {
+    &.focus,
+    &:focus {
       border-color: $focus-border-color;
       background-color: $focus-background-color;
       box-shadow: 0 0 0 to-rem(6) $focus-shadow-color;
     }
 
-    @include on-hover {
+    &.hover,
+    &:hover {
       border-color: $hover-border-color;
       background-color: $hover-background-color;
       box-shadow: none;
     }
 
-    @include on-active {
+    &.active,
+    &:active {
       border-color: $active-border-color;
       background-color: $active-background-color;
       box-shadow: none;
     }
 
-    @include on-disabled {
+    &.disabled,
+    &:disabled {
       color: $disabled-color;
       border-color: $disabled-border-color;
       background-color: $disabled-background-color;

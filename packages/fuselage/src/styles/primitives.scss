@@ -98,7 +98,8 @@
 
 %with-scrollbars {
   &::-webkit-scrollbar {
-    size: $sizes-x4;
+    block-size: $sizes-x4;
+    inline-size: $sizes-x4;
   }
 
   &::-webkit-scrollbar-track {
