@@ -25,6 +25,7 @@ import { Actions as ActionsLayoutBlock } from './Actions';
 import { Input as InputLayoutBlock } from './Input';
 import { MessageImage, ModalImage } from './Image';
 import { StaticSelect } from './StaticSelect';
+import { Block } from './Block';
 
 export const defaultContext = {
   action: (...args) => alert(JSON.stringify(args)),
@@ -115,16 +116,27 @@ class MessageParser extends UiKitParserMessage {
   context({ elements }/* , context*/) {
     return (
       <Flex.Container alignItems='center'>
-        <Box is='div'>
-          {elements.map(
-            (element) => <Margins all={4}>
-              <Flex.Item>{
-                [ELEMENT_TYPES.PLAIN_TEXT_INPUT, ELEMENT_TYPES.MARKDOWN].includes(element.type) ? <Text>{this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}</Text> : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
-
-            || element.type}</Flex.Item>
-            </Margins>,
-          )}
-        </Box>
+        <Block>
+          <Box is='div'>
+            {elements.map((element) => (
+              <Margins all={4}>
+                <Flex.Item>
+                  {[
+                    ELEMENT_TYPES.PLAIN_TEXT_INPUT,
+                    ELEMENT_TYPES.MARKDOWN,
+                  ].includes(element.type) ? (
+                      <Text>
+                        {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
+                      </Text>
+                    )
+                    : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
+                    || element.type
+                  }
+                </Flex.Item>
+              </Margins>
+            ))}
+          </Box>
+        </Block>
       </Flex.Container>
     );
   }
