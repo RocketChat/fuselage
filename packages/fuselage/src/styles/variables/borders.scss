@@ -1,5 +1,3 @@
-@import '~@rocket.chat/fuselage-tokens/borders.scss';
-
 $borders-width-x1: theme('borders-width-x1', to-rem(1));
 $borders-width-x2: theme('borders-width-x2', to-rem(get-map-value($borders, widths, 1)));
 $borders-width-x4: theme('borders-width-x1', to-rem(4));

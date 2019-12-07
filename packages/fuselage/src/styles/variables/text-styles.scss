@@ -1,5 +1,3 @@
-@import '~@rocket.chat/fuselage-tokens/typography.scss';
-
 $text-styles-h1-font-family: theme('text-styles-h1-font-family', get-map-value($typography, h1, font-family));
 $text-styles-h1-font-size: theme('text-styles-h1-font-size', to-rem(get-map-value($typography, h1, font-size)));
 $text-styles-h1-font-weight: theme('text-styles-h1-font-weight', get-map-value($typography, h1, font-weight));

@@ -1,5 +1,3 @@
-@import '~@rocket.chat/fuselage-tokens/colors.scss';
-
 $text-colors-default: theme('text-colors-default', get-map-value($colors, dark800));
 $text-colors-info: theme('text-colors-info', get-map-value($colors, dark700));
 $text-colors-hint: theme('text-colors-hint', get-map-value($colors, dark600));
