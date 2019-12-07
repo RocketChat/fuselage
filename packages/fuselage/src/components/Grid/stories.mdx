@@ -1,6 +1,5 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import breakpoints from '../../styles/variables/breakpoints';
 import { Grid, Tile } from '../..';
 
 <Meta title='Containers|Grid' parameters={{ jest: ['Grid/spec'] }} />
@@ -44,14 +43,14 @@ import { Grid, Tile } from '../..';
 
 <Story name='xs breakpoint'>
   <Grid>
-    {Array.from({ length: breakpoints.xs.columns }).map((_, i) => i + 1).map((columns) =>
+    {Array.from({ length: 4 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item xs={columns}>
           <Tile elevation={1} style={{ padding: 16 }}>xs={columns}</Tile>
         </Grid.Item>
-        {(breakpoints.xs.columns - columns > 0) &&
-        <Grid.Item xs={breakpoints.xs.columns - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>xs={breakpoints.xs.columns - columns}</Tile>
+        {(4 - columns > 0) &&
+        <Grid.Item xs={4 - columns}>
+          <Tile elevation={1} style={{ padding: 16 }}>xs={4 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
@@ -62,14 +61,14 @@ import { Grid, Tile } from '../..';
 
 <Story name='sm breakpoint'>
   <Grid>
-    {Array.from({ length: breakpoints.sm.columns }).map((_, i) => i + 1).map((columns) =>
+    {Array.from({ length: 8 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item sm={columns}>
           <Tile elevation={1} style={{ padding: 16 }}>sm={columns}</Tile>
         </Grid.Item>
-        {(breakpoints.sm.columns - columns > 0) &&
-        <Grid.Item sm={breakpoints.sm.columns - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>sm={breakpoints.sm.columns - columns}</Tile>
+        {(8 - columns > 0) &&
+        <Grid.Item sm={8 - columns}>
+          <Tile elevation={1} style={{ padding: 16 }}>sm={8 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
@@ -80,14 +79,14 @@ import { Grid, Tile } from '../..';
 
 <Story name='md breakpoint'>
   <Grid>
-    {Array.from({ length: breakpoints.md.columns }).map((_, i) => i + 1).map((columns) =>
+    {Array.from({ length: 8 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item md={columns}>
           <Tile elevation={1} style={{ padding: 16 }}>md={columns}</Tile>
         </Grid.Item>
-        {(breakpoints.md.columns - columns > 0) &&
-        <Grid.Item md={breakpoints.md.columns - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>md={breakpoints.md.columns - columns}</Tile>
+        {(8 - columns > 0) &&
+        <Grid.Item md={8 - columns}>
+          <Tile elevation={1} style={{ padding: 16 }}>md={8 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
@@ -98,14 +97,14 @@ import { Grid, Tile } from '../..';
 
 <Story name='lg breakpoint'>
   <Grid>
-    {Array.from({ length: breakpoints.lg.columns }).map((_, i) => i + 1).map((columns) =>
+    {Array.from({ length: 12 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item lg={columns}>
           <Tile elevation={1} style={{ padding: 16 }}>lg={columns}</Tile>
         </Grid.Item>
-        {(breakpoints.lg.columns - columns > 0) &&
-        <Grid.Item lg={breakpoints.lg.columns - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>lg={breakpoints.lg.columns - columns}</Tile>
+        {(12 - columns > 0) &&
+        <Grid.Item lg={12 - columns}>
+          <Tile elevation={1} style={{ padding: 16 }}>lg={12 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
@@ -116,14 +115,14 @@ import { Grid, Tile } from '../..';
 
 <Story name='xl breakpoint'>
   <Grid>
-    {Array.from({ length: breakpoints.xl.columns }).map((_, i) => i + 1).map((columns) =>
+    {Array.from({ length: 12 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item xl={columns}>
           <Tile elevation={1} style={{ padding: 16 }}>xl={columns}</Tile>
         </Grid.Item>
-        {(breakpoints.xl.columns - columns > 0) &&
-        <Grid.Item xl={breakpoints.xl.columns - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>xl={breakpoints.xl.columns - columns}</Tile>
+        {(12 - columns > 0) &&
+        <Grid.Item xl={12 - columns}>
+          <Tile elevation={1} style={{ padding: 16 }}>xl={12 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
