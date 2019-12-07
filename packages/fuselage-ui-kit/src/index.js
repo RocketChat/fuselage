@@ -205,8 +205,8 @@ class ModalParser extends UiKitParserModal {
   }
 }
 
-const messageParser = new MessageParser();
-const modalParser = new ModalParser();
+export const messageParser = new MessageParser();
+export const modalParser = new ModalParser();
 
 export const UiKitMessage = uiKitMessage(messageParser);
 export const UiKitModal = uiKitModal(modalParser);
