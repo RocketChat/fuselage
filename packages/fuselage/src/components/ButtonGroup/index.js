@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent, createStylingComponent } from '../../styles';
+import { useProps } from '../../hooks';
+import { createStyledComponent } from '../../styles';
 
 const Base = createStyledComponent('rcx-button-group');
-const BaseChildren = createStylingComponent(() => ({
-  className: 'rcx-button-group__item',
-}));
+function BaseChildren({ children }) {
+  const [, PropsProvider] = useProps(({ className }) => ({
+    className: [className, 'rcx-button-group__item'].filter(Boolean).join(' '),
+  }));
+
+  return <PropsProvider children={children} />;
+}
 
 export const ButtonGroup = React.forwardRef(function ButtonGroup({
   align,

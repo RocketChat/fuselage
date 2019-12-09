@@ -1,46 +1,11 @@
-import React, { createContext, useContext, useLayoutEffect, useMemo } from 'react';
+import React, { forwardRef, memo, useMemo } from 'react';
 
-import css from '../index.scss';
-
-const StylingContext = createContext([]);
-
-export const useStylingProvider = (props) => {
-  const ancestorStylingProps = useContext(StylingContext);
-
-  const stylingProps = [
-    ...ancestorStylingProps.filter(({ depth }) => depth === undefined),
-    ...ancestorStylingProps.filter(({ depth }) => depth > 0),
-    props,
-  ];
-
-  return ({ children }) => <StylingContext.Provider children={children} value={stylingProps} />;
-};
-
-export const createStylingComponent = (fn) => function StylingComponent(props) {
-  const ancestorStylingProps = useContext(StylingContext);
-
-  const stylingProps = [
-    ...ancestorStylingProps.filter(({ depth }) => depth === undefined),
-    ...ancestorStylingProps.filter(({ depth }) => depth > 0),
-    fn(props),
-  ];
-
-  return <StylingContext.Provider children={props.children} value={stylingProps} />;
-};
-
-const useStylesheet = () => {
-  useLayoutEffect(() => {
-    css.use();
-
-    return () => {
-      css.unuse();
-    };
-  }, [css]);
-};
+import { useStyleSheet, useProps } from '../hooks';
 
 export const createStyledComponent = (componentClassName, component = 'div') => {
-  const StyledComponent = React.memo(React.forwardRef(function StyledComponent(props, ref) {
-    useStylesheet();
+  const StyledComponent = memo(forwardRef(function StyledComponent(props, ref) {
+    useStyleSheet();
+    const [stylingProps, PropsProvider] = useProps();
 
     const {
       as,
@@ -52,8 +17,6 @@ export const createStyledComponent = (componentClassName, component = 'div') => 
 
     const newComponent = useMemo(() => as || component, [as]);
 
-    const stylingProps = useContext(StylingContext);
-
     const modifiersClasses = [].concat(
       Object.keys(filteredProps)
         .filter((name) => name.slice(0, 4) === 'mod-' && !!filteredProps[name])
@@ -62,14 +25,11 @@ export const createStyledComponent = (componentClassName, component = 'div') => 
           : `${ componentClassName }--${ name.slice(4) }-${ filteredProps[name] }`)),
     );
 
-    const inheritedClasses = stylingProps.filter(({ className }) => !!className)
-      .map(({ className }) => className);
-
     const newClassName = [
       componentClassName,
       invisible && `${ componentClassName }--invisible`,
       modifiersClasses.join(' '),
-      inheritedClasses.join(' '),
+      stylingProps.className,
       className,
     ].filter(Boolean).join(' ');
 
@@ -80,8 +40,7 @@ export const createStyledComponent = (componentClassName, component = 'div') => 
     }
 
     const newStyle = {
-      ...stylingProps.filter(({ style }) => !!style)
-        .reduce((styleProp, { style }) => ({ ...styleProp, ...style }), {}),
+      ...stylingProps.style,
       ...style,
     };
 
@@ -92,9 +51,7 @@ export const createStyledComponent = (componentClassName, component = 'div') => 
       style: newStyle,
     };
 
-    const newStyles = stylingProps.map(({ depth, ...props }) => ({ depth: depth > 0 ? depth - 1 : depth, ...props }));
-
-    return <StylingContext.Provider children={React.createElement(newComponent, newProps)} value={newStyles} />;
+    return <PropsProvider children={React.createElement(newComponent, newProps)} />;
   }));
 
   StyledComponent.displayName = componentClassName;

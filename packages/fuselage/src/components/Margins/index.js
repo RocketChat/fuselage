@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types';
 import { useClassName } from '@rocket.chat/fuselage-hooks';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { createStylingComponent } from '../../styles';
+import { useProps } from '../../hooks';
 
-export const Margins = createStylingComponent(({
+export function Margins({
+  children,
   all,
   block,
   blockStart,
@@ -11,18 +13,22 @@ export const Margins = createStylingComponent(({
   inline,
   inlineStart,
   inlineEnd,
-}) => ({
-  className: useClassName('rcx-margins', {
-    all,
-    block,
-    blockStart,
-    blockEnd,
-    inline,
-    inlineStart,
-    inlineEnd,
-  }),
-  depth: 1,
-}));
+}) {
+  const [, PropsProvider] = useProps(({ className, ...props }) => ({
+    className: useClassName('rcx-margins', {
+      all,
+      block,
+      blockStart,
+      blockEnd,
+      inline,
+      inlineStart,
+      inlineEnd,
+    }, className),
+    ...props,
+  }));
+
+  return <PropsProvider children={children} />;
+}
 
 Margins.displayName = 'Margins';
 

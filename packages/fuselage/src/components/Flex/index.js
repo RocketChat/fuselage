@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useStylingProvider } from '../../styles';
+import { useProps } from '../../hooks';
 
 export function FlexContainer({ children, direction, wrap, justifyContent, alignItems, alignContent }) {
-  const Provider = useStylingProvider({
+  const [, PropsProvider] = useProps(({ style, ...props }) => ({
     style: {
+      ...style,
       display: 'flex',
       flexDirection: direction,
       flexWrap: wrap,
@@ -13,10 +14,10 @@ export function FlexContainer({ children, direction, wrap, justifyContent, align
       alignItems,
       alignContent,
     },
-    depth: 1,
-  });
+    ...props,
+  }));
 
-  return <Provider children={children} />;
+  return <PropsProvider children={children} />;
 }
 
 FlexContainer.displayName = 'Flex.Container';
@@ -51,18 +52,19 @@ FlexContainer.propTypes = {
 };
 
 export function FlexItem({ children, order, grow, shrink, basis, align }) {
-  const Provider = useStylingProvider({
+  const [, PropsProvider] = useProps(({ style, ...props }) => ({
     style: {
+      ...style,
       order,
       flexGrow: grow,
       flexShrink: shrink,
       flexBasis: basis,
       alignSelf: align,
     },
-    depth: 1,
-  });
+    ...props,
+  }));
 
-  return <Provider children={children} />;
+  return <PropsProvider children={children} />;
 }
 
 FlexItem.displayName = 'Flex.Item';

@@ -1,12 +1,17 @@
 import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
+import React from 'react';
 
-import { createStylingComponent } from '../../styles';
+import { useProps } from '../../hooks';
 
-export const Scrollable = createStylingComponent(({ horizontal, vertical }) => ({
-  className: useClassName('rcx-scrollable', { horizontal, vertical }),
-  depth: 1,
-}));
+export function Scrollable({ children, horizontal, vertical }) {
+  const [, PropsProvider] = useProps(({ className, ...props }) => ({
+    className: useClassName('rcx-scrollable', { horizontal, vertical }, className),
+    ...props,
+  }));
+
+  return <PropsProvider children={children} />;
+}
 
 Scrollable.displayName = 'Scrollable';
 
