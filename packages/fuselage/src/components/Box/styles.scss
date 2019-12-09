@@ -1,0 +1,12 @@
+.rcx-box {
+  @extend %primitive;
+
+  &::before,
+  &::after {
+    @extend %primitive;
+  }
+
+  &--invisible {
+    @extend %invisible;
+  }
+}
