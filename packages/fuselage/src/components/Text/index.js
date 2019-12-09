@@ -39,12 +39,14 @@ export const Text = React.forwardRef(function Text({
     || (primaryColor && 'primary')
     || (successColor && 'success')
     || (dangerColor && 'danger')
-    || (warningColor && 'warning')}
+    || (warningColor && 'warning')
+    || 'default'}
     mod-style={(headline && 'headline')
     || (subtitle && 'subtitle')
     || (paragraph && 'paragraph')
     || (caption && 'caption')
-    || (micro && 'micro')}
+    || (micro && 'micro')
+    || 'paragraph'}
     ref={ref}
     {...props}
   />;

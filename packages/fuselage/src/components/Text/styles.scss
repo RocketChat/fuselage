@@ -3,10 +3,6 @@
 
   user-select: text;
 
-  color: #{ $text-colors-default };
-
-  @include as-paragraph;
-
   &--style-headline {
     @include as-headline;
   }
