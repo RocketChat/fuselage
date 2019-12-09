@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import { Box } from '../Box';
 import { Text } from '../Text';
@@ -7,14 +7,14 @@ import { Skeleton } from './Skeleton';
 
 const Container = Box.extend('rcx-paragraph', 'p');
 
-export const Paragraph = forwardRef(function Paragraph({
+export function Paragraph({
   children,
   ...props
-}, ref) {
-  return <Container ref={ref} {...props}>
+}) {
+  return <Container {...props}>
     <Text paragraph children={children} />
   </Container>;
-});
+}
 
 Paragraph.displayName = 'Paragraph';
 

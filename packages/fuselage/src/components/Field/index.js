@@ -1,6 +1,6 @@
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { createContext, forwardRef, useContext } from 'react';
+import React, { createContext, useContext } from 'react';
 
 import { Box } from '../Box';
 import { FieldError } from './Error';
@@ -13,15 +13,15 @@ export const useFieldId = () => useContext(FieldIdContext);
 
 const Container = Box.extend('rcx-field');
 
-export const Field = forwardRef(function Field({ children, fieldId, ...props }, ref) {
+export function Field({ children, fieldId, ...props }) {
   const defaultFieldId = useUniqueId();
 
   return <FieldIdContext.Provider value={fieldId || defaultFieldId}>
-    <Container ref={ref} {...props}>
+    <Container {...props}>
       {typeof children === 'function' ? children(fieldId || defaultFieldId) : children}
     </Container>
   </FieldIdContext.Provider>;
-});
+}
 
 Field.displayName = 'Field';
 

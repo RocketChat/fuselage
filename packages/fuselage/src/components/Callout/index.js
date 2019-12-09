@@ -9,18 +9,18 @@ const Wrapper = Box.extend('rcx-callout__wrapper');
 const Title = Box.extend('rcx-callout__title', 'h1');
 const ChildrenWrapper = Box.extend('rcx-callout__children');
 
-export const Callout = React.forwardRef(function Callout({
+export function Callout({
   children,
   title,
   type = 'info',
   ...props
-}, ref) {
+}) {
   const iconName = (type === 'info' && 'info-circled')
     || (type === 'success' && 'checkmark-circled')
     || (type === 'warning' && 'warning')
     || (type === 'danger' && 'ban');
 
-  return <Container mod-type={type} ref={ref} {...props}>
+  return <Container mod-type={type} {...props}>
     <Icon name={iconName} size={20} />
     <Wrapper>
       {title && <Title>{title}</Title>}
@@ -29,7 +29,7 @@ export const Callout = React.forwardRef(function Callout({
       </ChildrenWrapper>
     </Wrapper>
   </Container>;
-});
+}
 
 Callout.defaultProps = {
   type: 'info',

@@ -1,6 +1,6 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import { Box } from '../Box';
 import { Chevron } from '../Chevron';
@@ -12,7 +12,7 @@ const ItemTitle = Box.extend('rcx-accordion-item__title', 'h1');
 const ItemToggleSwitchContainer = Box.extend('rcx-accordion-item__toggle-switch');
 const ItemPanel = Box.extend('rcx-accordion-item__panel');
 
-export const Item = forwardRef(function Item({
+export function Item({
   children,
   className,
   defaultExpanded,
@@ -24,7 +24,7 @@ export const Item = forwardRef(function Item({
   onToggle,
   onToggleEnabled,
   ...props
-}, ref) {
+}) {
   const [stateExpanded, toggleStateExpanded] = useToggle(defaultExpanded);
   const expanded = propExpanded || stateExpanded;
   const toggleExpanded = () => {
@@ -87,7 +87,7 @@ export const Item = forwardRef(function Item({
   const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
 
   return <ItemContainer className={className} {...props}>
-    {title && <ItemBar mod-disabled={disabled} ref={ref} {...barProps}>
+    {title && <ItemBar mod-disabled={disabled} {...barProps}>
       <ItemTitle id={titleId}>{title}</ItemTitle>
       {!noncollapsible && <>
         {(disabled || onToggleEnabled)
@@ -101,7 +101,7 @@ export const Item = forwardRef(function Item({
       {children}
     </ItemPanel>
   </ItemContainer>;
-});
+}
 
 Item.defaultProps = {
   tabIndex: 0,

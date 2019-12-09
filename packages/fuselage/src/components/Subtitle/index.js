@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import { Box } from '../Box';
 import { Text } from '../Text';
@@ -7,15 +7,15 @@ import { Skeleton } from './Skeleton';
 
 const Container = Box.extend('rcx-subtitle', 'h2');
 
-export const Subtitle = forwardRef(function Subtitle({
+export function Subtitle({
   children,
   level,
   ...props
-}, ref) {
-  return <Container is={`h${ level }`} ref={ref} {...props}>
+}) {
+  return <Container is={`h${ level }`} {...props}>
     <Text children={children} subtitle />
   </Container>;
-});
+}
 
 Subtitle.defaultProps = {
   level: 2,

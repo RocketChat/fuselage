@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { createContext, forwardRef, useContext } from 'react';
+import React, { createContext, useContext } from 'react';
 
 import { Box } from '../Box';
 
@@ -9,7 +9,7 @@ const Container = Box.extend('rcx-label', 'label');
 const Wrapper = Box.extend('rcx-label__wrapper', 'span');
 const TextContainer = Box.extend('rcx-label__text', 'span');
 
-export const Label = forwardRef(function Label({
+export function Label({
   children,
   disabled,
   is,
@@ -17,12 +17,12 @@ export const Label = forwardRef(function Label({
   required,
   text,
   ...props
-}, ref) {
+}) {
   const isInsideLabel = useContext(LabelContext);
   const component = is || (isInsideLabel && 'span') || 'label';
 
   return <LabelContext.Provider value={true}>
-    <Container is={component} mod-position={position} ref={ref} {...props}>
+    <Container is={component} mod-position={position} {...props}>
       {text && <Wrapper mod-has-children={!!children} mod-position={position}>
         <TextContainer mod-disabled={disabled} mod-required={required}>{text}</TextContainer>
       </Wrapper>}
@@ -30,7 +30,7 @@ export const Label = forwardRef(function Label({
       {children}
     </Container>
   </LabelContext.Provider>;
-});
+}
 
 Label.defaultProps = {
   position: 'start',

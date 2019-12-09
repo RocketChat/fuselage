@@ -1,12 +1,12 @@
 import nameToCharacterMapping from '@rocket.chat/icons';
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import { Box } from '../Box';
 
 const Container = Box.extend('rcx-icon', 'i');
 
-export const Icon = forwardRef(function Icon({
+export function Icon({
   name,
   size,
   x44,
@@ -19,7 +19,7 @@ export const Icon = forwardRef(function Icon({
   x4,
   x2,
   ...props
-}, ref) {
+}) {
   return <Container
     aria-hidden='true'
     children={nameToCharacterMapping[name]}
@@ -33,10 +33,9 @@ export const Icon = forwardRef(function Icon({
     mod-x8={x8 || size === 8}
     mod-x4={x4 || size === 4}
     mod-x2={x2 || size === 2}
-    ref={ref}
     {...props}
   />;
-});
+}
 
 Icon.displayName = 'Icon';
 

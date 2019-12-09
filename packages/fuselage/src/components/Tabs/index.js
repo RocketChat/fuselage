@@ -6,14 +6,14 @@ const Container = Box.extend('rcx-tabs');
 const ItemsWrapper = Box.extend('rcx-tabs__wrapper');
 const ItemContainer = Box.extend('rcx-tabs__item', 'button');
 
-export const Tabs = forwardRef(function Tabs({
+export function Tabs({
   children,
   ...props
-}, ref) {
-  return <Container ref={ref} {...props}>
+}) {
+  return <Container {...props}>
     <ItemsWrapper children={children} role='tablist' />
   </Container>;
-});
+}
 
 Tabs.displayName = 'Tabs';
 

@@ -1,11 +1,11 @@
 import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useState, useCallback } from 'react';
+import React, { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 
-export const SelectInput = React.forwardRef(function SelectInput({
+export const SelectInput = forwardRef(function SelectInput({
   children,
   className,
   multiple,

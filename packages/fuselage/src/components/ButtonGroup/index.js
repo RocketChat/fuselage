@@ -14,20 +14,19 @@ function ButtonGroupChild({ children }) {
   return <PropsProvider children={children} />;
 }
 
-export const ButtonGroup = React.forwardRef(function ButtonGroup({
+export function ButtonGroup({
   align,
   children,
   stretch,
   vertical,
   wrap,
   ...props
-}, ref) {
+}) {
   return <Base
     mod-align={align}
     mod-stretch={stretch}
     mod-vertical={vertical}
     mod-wrap={wrap}
-    ref={ref}
     role='group'
     {...props}
   >
@@ -35,7 +34,7 @@ export const ButtonGroup = React.forwardRef(function ButtonGroup({
       {children}
     </ButtonGroupChild>
   </Base>;
-});
+}
 
 ButtonGroup.defaultProps = {
   align: 'start',

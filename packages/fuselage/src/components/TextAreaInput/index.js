@@ -1,10 +1,10 @@
 import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 
-export const TextAreaInput = React.forwardRef(function TextAreaInput({
+export const TextAreaInput = forwardRef(function TextAreaInput({
   className,
   ...props
 }, ref) {
