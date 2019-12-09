@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 
-const Container = createStyledComponent('rcx-callout', 'section');
-const Wrapper = createStyledComponent('rcx-callout__wrapper');
-const Title = createStyledComponent('rcx-callout__title', 'h1');
-const ChildrenWrapper = createStyledComponent('rcx-callout__children', 'div');
+const Container = Box.extend('rcx-callout', 'section');
+const Wrapper = Box.extend('rcx-callout__wrapper');
+const Title = Box.extend('rcx-callout__title', 'h1');
+const ChildrenWrapper = Box.extend('rcx-callout__children');
 
 export const Callout = React.forwardRef(function Callout({
   children,

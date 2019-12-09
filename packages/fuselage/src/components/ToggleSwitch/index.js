@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent } from '../../styles';
 import { Label } from '../Label';
+import { Box } from '../Box';
 
-const Container = createStyledComponent('rcx-toggle-switch', 'span');
-const Input = createStyledComponent('rcx-toggle-switch__input', 'input');
-const Fake = createStyledComponent('rcx-toggle-switch__fake', 'i');
+const Container = Box.extend('rcx-toggle-switch', 'span');
+const Input = Box.extend('rcx-toggle-switch__input', 'input');
+const Fake = Box.extend('rcx-toggle-switch__fake', 'i');
 
 export const ToggleSwitch = React.forwardRef(function ToggleSwitch({
   className,

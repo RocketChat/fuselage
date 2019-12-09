@@ -1,12 +1,12 @@
 import nameToCharacterMapping from '@rocket.chat/icons';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const Container = createStyledComponent('rcx-icon', 'i');
+const Container = Box.extend('rcx-icon', 'i');
 
-export const Icon = React.forwardRef(function Icon({
+export const Icon = forwardRef(function Icon({
   name,
   size,
   x44,

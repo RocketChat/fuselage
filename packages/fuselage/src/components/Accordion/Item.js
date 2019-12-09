@@ -1,18 +1,18 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Chevron } from '../Chevron';
 import { ToggleSwitch } from '../ToggleSwitch';
 
-const ItemContainer = createStyledComponent('rcx-accordion-item', 'section');
-const ItemBar = createStyledComponent('rcx-accordion-item__bar');
-const ItemTitle = createStyledComponent('rcx-accordion-item__title', 'h1');
-const ItemToggleSwitchContainer = createStyledComponent('rcx-accordion-item__toggle-switch');
-const ItemPanel = createStyledComponent('rcx-accordion-item__panel');
+const ItemContainer = Box.extend('rcx-accordion-item', 'section');
+const ItemBar = Box.extend('rcx-accordion-item__bar');
+const ItemTitle = Box.extend('rcx-accordion-item__title', 'h1');
+const ItemToggleSwitchContainer = Box.extend('rcx-accordion-item__toggle-switch');
+const ItemPanel = Box.extend('rcx-accordion-item__panel');
 
-export const Item = React.forwardRef(function Item({
+export const Item = forwardRef(function Item({
   children,
   className,
   defaultExpanded,

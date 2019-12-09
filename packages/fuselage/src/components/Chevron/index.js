@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 
-const Container = createStyledComponent('rcx-chevron', 'span');
+const Container = Box.extend('rcx-chevron', 'span');
 
-export const Chevron = React.forwardRef(function Chevron({
+export const Chevron = forwardRef(function Chevron({
   up,
   right,
   down,

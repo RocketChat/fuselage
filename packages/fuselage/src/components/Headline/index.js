@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Text } from '../Text';
 import { Skeleton } from './Skeleton';
 
-const Container = createStyledComponent('rcx-headline', 'h1');
+const Container = Box.extend('rcx-headline', 'h1');
 
-export const Headline = React.forwardRef(function Headline({
+export const Headline = forwardRef(function Headline({
   children,
   level,
   ...props

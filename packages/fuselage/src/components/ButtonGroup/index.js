@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { useProps } from '../../hooks';
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const Base = createStyledComponent('rcx-button-group');
-function BaseChildren({ children }) {
+const Base = Box.extend('rcx-button-group');
+
+function ButtonGroupChild({ children }) {
   const [, PropsProvider] = useProps(({ className }) => ({
     className: [className, 'rcx-button-group__item'].filter(Boolean).join(' '),
   }));
@@ -30,9 +31,9 @@ export const ButtonGroup = React.forwardRef(function ButtonGroup({
     role='group'
     {...props}
   >
-    <BaseChildren>
+    <ButtonGroupChild>
       {children}
-    </BaseChildren>
+    </ButtonGroupChild>
   </Base>;
 });
 

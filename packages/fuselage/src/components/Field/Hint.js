@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Text } from '../Text';
 
-const Container = createStyledComponent('rcx-field__hint', 'div');
+const Container = Box.extend('rcx-field__hint');
 
-export const FieldHint = React.forwardRef(function FieldHint({
+export const FieldHint = forwardRef(function FieldHint({
   children,
   ...props
 }, ref) {

@@ -1,25 +1,25 @@
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Chevron } from '../Chevron';
 
-const Container = createStyledComponent('rcx-pagination', 'nav');
-const Left = createStyledComponent('rcx-pagination__left', 'div');
-const Right = createStyledComponent('rcx-pagination__right', 'div');
-const Label = createStyledComponent('rcx-pagination__label', 'span');
-const List = createStyledComponent('rcx-pagination__list', 'ol');
-const ListItem = createStyledComponent('rcx-pagination__list-item', 'li');
-const Link = createStyledComponent('rcx-pagination__link', 'button');
-const BackLink = createStyledComponent('rcx-pagination__back', 'button');
-const ForwardLink = createStyledComponent('rcx-pagination__forward', 'button');
+const Container = Box.extend('rcx-pagination', 'nav');
+const Left = Box.extend('rcx-pagination__left');
+const Right = Box.extend('rcx-pagination__right');
+const Label = Box.extend('rcx-pagination__label', 'span');
+const List = Box.extend('rcx-pagination__list', 'ol');
+const ListItem = Box.extend('rcx-pagination__list-item', 'li');
+const Link = Box.extend('rcx-pagination__link', 'button');
+const BackLink = Box.extend('rcx-pagination__back', 'button');
+const ForwardLink = Box.extend('rcx-pagination__forward', 'button');
 
 const defaultItemsPerPageLabel = () => 'Items per page:';
 
 const defaultShowingResultsLabel = ({ count, current, itemsPerPage }) =>
   `Showing results ${ current + 1 } - ${ Math.min(current + itemsPerPage, count) } of ${ count }`;
 
-export const Pagination = React.forwardRef(function Pagination({
+export function Pagination({
   count,
   current = 0,
   itemsPerPage = 25,
@@ -28,7 +28,7 @@ export const Pagination = React.forwardRef(function Pagination({
   onSetItemsPerPage,
   onSetCurrent,
   ...props
-}, ref) {
+}) {
   const itemsPerPageOptions = [25, 50, 100].filter((i) => i <= count);
   const hasItemsPerPageSelection = itemsPerPageOptions.length > 1;
   const currentPage = Math.floor(current / itemsPerPage);
@@ -63,7 +63,7 @@ export const Pagination = React.forwardRef(function Pagination({
     onSetCurrent && onSetCurrent(page * itemsPerPage);
   };
 
-  return <Container ref={ref} {...props}>
+  return <Container {...props}>
     {hasItemsPerPageSelection && (
       <Left>
         <Label>{itemsPerPageLabel(renderingContext)}</Label>
@@ -101,7 +101,7 @@ export const Pagination = React.forwardRef(function Pagination({
       </List>
     </Right>
   </Container>;
-});
+}
 
 Pagination.defaultProps = {
   current: 0,

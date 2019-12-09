@@ -72,3 +72,13 @@ Box.propTypes = {
   invisible: PropTypes.bool,
   style: PropTypes.object,
 };
+
+Box.extend = (componentClassName, is) => {
+  const BoxExtension = forwardRef(function StyledComponent(props, ref) {
+    return <Box is={is} componentClassName={componentClassName} ref={ref} {...props} />;
+  });
+
+  BoxExtension.displayName = componentClassName;
+
+  return BoxExtension;
+};

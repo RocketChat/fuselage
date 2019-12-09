@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const StyledGrid = createStyledComponent('rcx-grid', 'div');
-const StyledGridItem = createStyledComponent('rcx-grid__item', 'div');
+const StyledGrid = Box.extend('rcx-grid');
+const StyledGridItem = Box.extend('rcx-grid__item');
 
-export const Grid = React.forwardRef(function Grid({ xs, sm, md, lg, xl, ...props }, ref) {
+export const Grid = forwardRef(function Grid({ xs, sm, md, lg, xl, ...props }, ref) {
   return <StyledGrid
     mod-xs={xs}
     mod-sm={sm}

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Text } from '../Text';
 
-const Container = createStyledComponent('rcx-paragraph', 'p');
+const Container = Box.extend('rcx-paragraph', 'p');
 
 export function Skeleton({ animated, ...props }) {
   return <Container {...props}>

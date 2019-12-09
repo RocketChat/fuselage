@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const Container = createStyledComponent('rcx-button', 'button');
+const Container = Box.extend('rcx-button', 'button');
 
-export const Button = React.forwardRef(function Button({
+export const Button = forwardRef(function Button({
   danger,
   external,
   ghost,

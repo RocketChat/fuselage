@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import React, { createContext, useContext } from 'react';
+import React, { createContext, forwardRef, useContext } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
 const LabelContext = createContext(false);
 
-const Container = createStyledComponent('rcx-label', 'label');
-const Wrapper = createStyledComponent('rcx-label__wrapper', 'span');
-const TextContainer = createStyledComponent('rcx-label__text', 'span');
+const Container = Box.extend('rcx-label', 'label');
+const Wrapper = Box.extend('rcx-label__wrapper', 'span');
+const TextContainer = Box.extend('rcx-label__text', 'span');
 
-export const Label = React.forwardRef(function Label({
+export const Label = forwardRef(function Label({
   children,
   disabled,
   is,

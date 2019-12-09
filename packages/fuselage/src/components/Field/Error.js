@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Text } from '../Text';
 
-const Container = createStyledComponent('rcx-field__error', 'span');
+const Container = Box.extend('rcx-field__error', 'span');
 
-export const FieldError = React.forwardRef(function FieldError({
+export const FieldError = forwardRef(function FieldError({
   children,
   ...props
 }, ref) {

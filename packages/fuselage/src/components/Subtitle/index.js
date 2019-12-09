@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Text } from '../Text';
 import { Skeleton } from './Skeleton';
 
-const Container = createStyledComponent('rcx-subtitle', 'h2');
+const Container = Box.extend('rcx-subtitle', 'h2');
 
-export const Subtitle = React.forwardRef(function Subtitle({
+export const Subtitle = forwardRef(function Subtitle({
   children,
   level,
   ...props

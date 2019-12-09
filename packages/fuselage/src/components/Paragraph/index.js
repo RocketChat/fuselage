@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Text } from '../Text';
 import { Skeleton } from './Skeleton';
 
-const Container = createStyledComponent('rcx-paragraph', 'p');
+const Container = Box.extend('rcx-paragraph', 'p');
 
-export const Paragraph = React.forwardRef(function Paragraph({
+export const Paragraph = forwardRef(function Paragraph({
   children,
   ...props
 }, ref) {

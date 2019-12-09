@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const SkeletonContainer = createStyledComponent('rcx-skeleton__text', 'span');
+const SkeletonContainer = Box.extend('rcx-skeleton__text', 'span');
 
 export function Skeleton({
   animated,

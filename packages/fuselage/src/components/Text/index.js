@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Skeleton } from './Skeleton';
 
-const Container = createStyledComponent('rcx-text', 'span');
+const Container = Box.extend('rcx-text', 'span');
 
-export const Text = React.forwardRef(function Text({
+export const Text = forwardRef(function Text({
   is,
 
   headline,

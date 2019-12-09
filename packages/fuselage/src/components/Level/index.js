@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const Container = createStyledComponent('rcx-level', 'nav');
-const ItemContainer = createStyledComponent('rcx-level__item', 'div');
+const Container = Box.extend('rcx-level', 'nav');
+const ItemContainer = Box.extend('rcx-level__item');
 
-export const Level = React.forwardRef(function Level(props, ref) {
+export const Level = forwardRef(function Level(props, ref) {
   return <Container ref={ref} {...props} />;
 });
 
 Level.displayName = 'Level';
 
-export const LevelItem = React.forwardRef(function LevelItem(props, ref) {
+export const LevelItem = forwardRef(function LevelItem(props, ref) {
   return <ItemContainer ref={ref} {...props} />;
 });
 
