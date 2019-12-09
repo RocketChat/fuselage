@@ -11,7 +11,7 @@ export function Skeleton({
   level,
   ...props
 }) {
-  return <Container as={`h${ level }`} {...props}>
+  return <Container is={`h${ level }`} {...props}>
     <Text.Skeleton animated={animated} defaultColor headline />
   </Container>;
 }

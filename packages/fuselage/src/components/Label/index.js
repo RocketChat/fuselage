@@ -22,7 +22,7 @@ export const Label = React.forwardRef(function Label({
   const component = is || (isInsideLabel && 'span') || 'label';
 
   return <LabelContext.Provider value={true}>
-    <Container as={component} mod-position={position} ref={ref} {...props}>
+    <Container is={component} mod-position={position} ref={ref} {...props}>
       {text && <Wrapper mod-has-children={!!children} mod-position={position}>
         <TextContainer mod-disabled={disabled} mod-required={required}>{text}</TextContainer>
       </Wrapper>}

@@ -29,7 +29,7 @@ export const Text = React.forwardRef(function Text({
   ...props
 }, ref) {
   return <Container
-    as={is}
+    is={is}
     mod-color={(defaultColor && 'default')
     || (infoColor && 'info')
     || (hintColor && 'hint')

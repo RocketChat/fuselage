@@ -12,7 +12,7 @@ export const Headline = React.forwardRef(function Headline({
   level,
   ...props
 }, ref) {
-  return <Container as={`h${ level }`} ref={ref} {...props}>
+  return <Container is={`h${ level }`} ref={ref} {...props}>
     <Text children={children} headline />
   </Container>;
 });

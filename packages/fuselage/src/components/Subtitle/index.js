@@ -12,7 +12,7 @@ export const Subtitle = React.forwardRef(function Subtitle({
   level,
   ...props
 }, ref) {
-  return <Container as={`h${ level }`} ref={ref} {...props}>
+  return <Container is={`h${ level }`} ref={ref} {...props}>
     <Text children={children} subtitle />
   </Container>;
 });

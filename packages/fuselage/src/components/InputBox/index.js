@@ -50,7 +50,7 @@ export const InputBox = React.forwardRef(function InputBox({
 
   if (!addon) {
     return <Input
-      as={
+      is={
         (type === 'textarea' && 'textarea')
       || (type === 'select' && 'select')
       || 'input'}
@@ -82,7 +82,7 @@ export const InputBox = React.forwardRef(function InputBox({
     invisible={invisible}
   >
     <Input
-      as={
+      is={
         (type === 'textarea' && 'textarea')
       || (type === 'select' && 'select')
       || 'input'}

@@ -5,7 +5,6 @@ import { useStyleSheet, useProps } from '../../hooks';
 
 export const Box = memo(forwardRef(
   function Box({
-    as,
     is = 'div',
     componentClassName,
     className,
@@ -16,7 +15,7 @@ export const Box = memo(forwardRef(
     useStyleSheet();
     const [contextualProps, PropsProvider] = useProps();
 
-    const newComponent = as || is;
+    const newComponent = is;
 
     const [modifiersClasses, otherProps] = Object.entries(props)
       .reduce(([modifiersClasses, otherProps], [name, value]) => {
@@ -67,7 +66,6 @@ Box.defaultProps = {
 Box.displayName = 'Box';
 
 Box.propTypes = {
-  as: PropTypes.elementType,
   is: PropTypes.elementType,
   componentClassName: PropTypes.string,
   className: PropTypes.string,

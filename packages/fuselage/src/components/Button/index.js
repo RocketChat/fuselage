@@ -26,7 +26,7 @@ export const Button = React.forwardRef(function Button({
   || {};
 
   return <Container
-    as={is}
+    is={is}
     mod-danger={danger}
     mod-ghost={ghost}
     mod-ghost-danger={ghost && danger}
