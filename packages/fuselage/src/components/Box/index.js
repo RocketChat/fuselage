@@ -1,17 +1,63 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { createElement, memo, forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { useStyleSheet, useProps } from '../../hooks';
 
-const Container = createStyledComponent('rcx-box', 'div');
+export const Box = memo(forwardRef(
+  function Box({
+    as,
+    is = 'div',
+    componentClassName,
+    className,
+    invisible,
+    style,
+    ...props
+  }, ref) {
+    useStyleSheet();
+    const [contextualProps, PropsProvider] = useProps();
 
-export const Box = React.forwardRef(function Box({
-  invisible,
-  is,
-  ...props
-}, ref) {
-  return <Container as={is} invisible={invisible} ref={ref} {...props} />;
-});
+    const newComponent = as || is;
+
+    const [modifiersClasses, otherProps] = Object.entries(props)
+      .reduce(([modifiersClasses, otherProps], [name, value]) => {
+        if (name.slice(0, 4) === 'mod-') {
+          if (!value) {
+            return [modifiersClasses, otherProps];
+          }
+
+          return [
+            [
+              ...modifiersClasses,
+              componentClassName && typeof value === 'boolean'
+                ? `${ componentClassName }--${ name.slice(4) }`
+                : `${ componentClassName }--${ name.slice(4) }-${ value }`,
+            ],
+            otherProps,
+          ];
+        }
+
+        return [modifiersClasses, { ...otherProps, [name]: value }];
+      }, [[], {}]);
+
+    const newProps = {
+      className: [
+        componentClassName,
+        componentClassName && invisible && `${ componentClassName }--invisible`,
+        ...modifiersClasses,
+        contextualProps.className,
+        className,
+      ].filter(Boolean).join(' '),
+      ref,
+      style: {
+        ...contextualProps.style,
+        ...style,
+      },
+      ...otherProps,
+    };
+
+    return <PropsProvider children={createElement(newComponent, newProps)} />;
+  },
+));
 
 Box.defaultProps = {
   is: 'div',
@@ -21,7 +67,10 @@ Box.defaultProps = {
 Box.displayName = 'Box';
 
 Box.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
+  as: PropTypes.elementType,
   is: PropTypes.elementType,
+  componentClassName: PropTypes.string,
+  className: PropTypes.string,
+  invisible: PropTypes.bool,
+  style: PropTypes.object,
 };
