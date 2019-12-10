@@ -9,10 +9,10 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Default'>
     <Flex.Container>
-      <Tile elevation={1}>
+      <Tile>
         {Array.from({ length: 3 }).map((_, i) =>
           <Flex.Item key={i}>
-            <Tile elevation={1}>#{i + 1}</Tile>
+            <Tile>#{i + 1}</Tile>
           </Flex.Item>
         )}
       </Tile>
@@ -34,10 +34,10 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Direction'>
     <Flex.Container direction='row-reverse'>
-      <Tile elevation={1}>
+      <Tile>
         {Array.from({ length: 3 }).map((_, i) =>
           <Flex.Item key={i}>
-            <Tile elevation={1}>#{i + 1}</Tile>
+            <Tile>#{i + 1}</Tile>
           </Flex.Item>
         )}
       </Tile>
@@ -50,10 +50,10 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Wrap'>
     <Flex.Container wrap='wrap'>
-      <Tile elevation={1}>
+      <Tile>
         {Array.from({ length: 12 }).map((_, i) =>
           <Flex.Item key={i}>
-            <Tile elevation={1}>#{i + 1}</Tile>
+            <Tile>#{i + 1}</Tile>
           </Flex.Item>
         )}
       </Tile>
@@ -66,10 +66,10 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Justify Content'>
     <Flex.Container justifyContent='space-around'>
-      <Tile elevation={1}>
+      <Tile>
         {Array.from({ length: 3 }).map((_, i) =>
           <Flex.Item key={i}>
-            <Tile elevation={1}>#{i + 1}</Tile>
+            <Tile>#{i + 1}</Tile>
           </Flex.Item>
         )}
       </Tile>
@@ -82,10 +82,10 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Align Items'>
     <Flex.Container alignItems='flex-end'>
-      <Tile elevation={1}>
+      <Tile>
         {Array.from({ length: 3 }).map((_, i) =>
           <Flex.Item key={i}>
-            <Tile elevation={1} style={{ height: i * 100 }}>#{i + 1}</Tile>
+            <Tile style={{ height: i * 100 }}>#{i + 1}</Tile>
           </Flex.Item>
         )}
       </Tile>
@@ -98,10 +98,10 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Align Content'>
     <Flex.Container wrap='wrap' alignContent='flex-end'>
-      <Tile elevation={1} style={{ minHeight: 400 }}>
+      <Tile style={{ minHeight: 400 }}>
         {Array.from({ length: 12 }).map((_, i) =>
           <Flex.Item key={i}>
-            <Tile elevation={1}>#{i + 1}</Tile>
+            <Tile>#{i + 1}</Tile>
           </Flex.Item>
         )}
       </Tile>
@@ -114,15 +114,15 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Order'>
     <Flex.Container>
-      <Tile elevation={1}>
+      <Tile>
         <Flex.Item>
-          <Tile elevation={1}>#1</Tile>
+          <Tile>#1</Tile>
         </Flex.Item>
         <Flex.Item order={1}>
-          <Tile elevation={1}>#2</Tile>
+          <Tile>#2</Tile>
         </Flex.Item>
         <Flex.Item>
-          <Tile elevation={1}>#3</Tile>
+          <Tile>#3</Tile>
         </Flex.Item>
       </Tile>
     </Flex.Container>
@@ -134,15 +134,15 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Grow'>
     <Flex.Container>
-      <Tile elevation={1}>
+      <Tile>
         <Flex.Item>
-          <Tile elevation={1}>#1</Tile>
+          <Tile>#1</Tile>
         </Flex.Item>
         <Flex.Item grow={1}>
-          <Tile elevation={1}>#2</Tile>
+          <Tile>#2</Tile>
         </Flex.Item>
         <Flex.Item>
-          <Tile elevation={1}>#3</Tile>
+          <Tile>#3</Tile>
         </Flex.Item>
       </Tile>
     </Flex.Container>
@@ -154,15 +154,15 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Shrink'>
     <Flex.Container>
-      <Tile elevation={1}>
+      <Tile>
         <Flex.Item>
-          <Tile elevation={1}>#1</Tile>
+          <Tile>#1</Tile>
         </Flex.Item>
         <Flex.Item shrink={1}>
-          <Tile elevation={1} style={{ width: '100%' }}>#2</Tile>
+          <Tile style={{ width: '100%' }}>#2</Tile>
         </Flex.Item>
         <Flex.Item>
-          <Tile elevation={1}>#3</Tile>
+          <Tile>#3</Tile>
         </Flex.Item>
       </Tile>
     </Flex.Container>
@@ -174,15 +174,15 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Basis'>
     <Flex.Container>
-      <Tile elevation={1}>
+      <Tile>
         <Flex.Item>
-          <Tile elevation={1}>#1</Tile>
+          <Tile>#1</Tile>
         </Flex.Item>
         <Flex.Item basis='400px'>
-          <Tile elevation={1}>#2</Tile>
+          <Tile>#2</Tile>
         </Flex.Item>
         <Flex.Item>
-          <Tile elevation={1}>#3</Tile>
+          <Tile>#3</Tile>
         </Flex.Item>
       </Tile>
     </Flex.Container>
@@ -194,15 +194,15 @@ import { Box, Flex, Tile } from '../..';
 <Preview>
   <Story name='Align'>
     <Flex.Container alignItems='center'>
-      <Tile elevation={1} style={{ minHeight: 400 }}>
+      <Tile style={{ minHeight: 400 }}>
         <Flex.Item>
-          <Tile elevation={1}>#1</Tile>
+          <Tile>#1</Tile>
         </Flex.Item>
         <Flex.Item align='flex-end'>
-          <Tile elevation={1}>#2</Tile>
+          <Tile>#2</Tile>
         </Flex.Item>
         <Flex.Item>
-          <Tile elevation={1}>#3</Tile>
+          <Tile>#3</Tile>
         </Flex.Item>
       </Tile>
     </Flex.Container>

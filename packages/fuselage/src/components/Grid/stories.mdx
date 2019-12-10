@@ -10,13 +10,13 @@ import { Grid, Tile } from '../..';
   <Story name='Default'>
     <Grid>
       <Grid.Item>
-        <Tile elevation={1} />
+        <Tile />
       </Grid.Item>
       <Grid.Item>
-        <Tile elevation={1} />
+        <Tile />
       </Grid.Item>
       <Grid.Item>
-        <Tile elevation={1} />
+        <Tile />
       </Grid.Item>
     </Grid>
   </Story>
@@ -46,11 +46,11 @@ import { Grid, Tile } from '../..';
     {Array.from({ length: 4 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item xs={columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>xs={columns}</Tile>
+          <Tile>xs={columns}</Tile>
         </Grid.Item>
         {(4 - columns > 0) &&
         <Grid.Item xs={4 - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>xs={4 - columns}</Tile>
+          <Tile>xs={4 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
@@ -64,11 +64,11 @@ import { Grid, Tile } from '../..';
     {Array.from({ length: 8 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item sm={columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>sm={columns}</Tile>
+          <Tile>sm={columns}</Tile>
         </Grid.Item>
         {(8 - columns > 0) &&
         <Grid.Item sm={8 - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>sm={8 - columns}</Tile>
+          <Tile>sm={8 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
@@ -82,11 +82,11 @@ import { Grid, Tile } from '../..';
     {Array.from({ length: 8 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item md={columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>md={columns}</Tile>
+          <Tile>md={columns}</Tile>
         </Grid.Item>
         {(8 - columns > 0) &&
         <Grid.Item md={8 - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>md={8 - columns}</Tile>
+          <Tile>md={8 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
@@ -100,11 +100,11 @@ import { Grid, Tile } from '../..';
     {Array.from({ length: 12 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item lg={columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>lg={columns}</Tile>
+          <Tile>lg={columns}</Tile>
         </Grid.Item>
         {(12 - columns > 0) &&
         <Grid.Item lg={12 - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>lg={12 - columns}</Tile>
+          <Tile>lg={12 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
@@ -118,11 +118,11 @@ import { Grid, Tile } from '../..';
     {Array.from({ length: 12 }).map((_, i) => i + 1).map((columns) =>
       <React.Fragment key={columns}>
         <Grid.Item xl={columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>xl={columns}</Tile>
+          <Tile>xl={columns}</Tile>
         </Grid.Item>
         {(12 - columns > 0) &&
         <Grid.Item xl={12 - columns}>
-          <Tile elevation={1} style={{ padding: 16 }}>xl={12 - columns}</Tile>
+          <Tile>xl={12 - columns}</Tile>
         </Grid.Item>}
       </React.Fragment>
     )}
