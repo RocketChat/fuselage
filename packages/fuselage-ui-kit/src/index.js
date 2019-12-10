@@ -125,7 +125,7 @@ class MessageParser extends UiKitParserMessage {
                     ELEMENT_TYPES.PLAIN_TEXT_INPUT,
                     ELEMENT_TYPES.MARKDOWN,
                   ].includes(element.type) ? (
-                      <Text>
+                      <Text caption>
                         {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
                       </Text>
                     )
