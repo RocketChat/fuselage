@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Flex } from '../..';
+import { Flex } from '../../..';
 
 describe('Flex.Container', () => {
   it('renders without crashing', () => {

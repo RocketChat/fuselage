@@ -2,7 +2,7 @@ import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useProps } from '../../hooks';
+import { useProps } from '../../../hooks';
 
 export function Margins({
   children,

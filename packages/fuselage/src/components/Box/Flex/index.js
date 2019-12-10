@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useProps } from '../../hooks';
+import { useProps } from '../../../hooks';
 
 export function FlexContainer({ children, direction, wrap, justifyContent, alignItems, alignContent }) {
   const [, PropsProvider] = useProps(({ style, ...props }) => ({
