@@ -1,33 +1,58 @@
 @mixin as-headline {
-  @extend %headline-like;
+  letter-spacing: $text-styles-h1-letter-spacing;
+
+  font-family: $text-styles-h1-font-family;
+  font-size: $text-styles-h1-font-size;
+  font-weight: $text-styles-h1-font-weight;
+  line-height: $text-styles-h1-line-height;
 }
 
 @mixin as-subtitle($bold: false) {
-  @extend %subtitle-like;
+  letter-spacing: $text-styles-s1-letter-spacing;
+
+  font-family: $text-styles-s1-font-family;
+  font-size: $text-styles-s1-font-size;
+  font-weight: $text-styles-s1-font-weight;
+  line-height: $text-styles-s1-line-height;
 
   @if $bold {
-    @extend %subtitle-like--bold;
+    font-weight: $text-styles-p2-font-weight;
   }
 }
 
 @mixin as-paragraph($bold: false) {
-  @extend %paragraph-like;
+  letter-spacing: $text-styles-p1-letter-spacing;
+
+  font-family: $text-styles-p1-font-family;
+  font-size: $text-styles-p1-font-size;
+  font-weight: $text-styles-p1-font-weight;
+  line-height: $text-styles-p1-line-height;
 
   @if $bold {
-    @extend %paragraph-like--bold;
+    font-weight: $text-styles-p2-font-weight;
   }
 }
 
 @mixin as-caption($bold: false) {
-  @extend %caption-like;
+  letter-spacing: $text-styles-c1-letter-spacing;
+
+  font-family: $text-styles-c1-font-family;
+  font-size: $text-styles-c1-font-size;
+  font-weight: $text-styles-c1-font-weight;
+  line-height: $text-styles-c1-line-height;
 
   @if $bold {
-    @extend %caption-like--bold;
+    font-weight: $text-styles-c2-font-weight;
   }
 }
 
 @mixin as-micro-text {
-  @extend %micro-like;
+  letter-spacing: $text-styles-micro-letter-spacing;
+
+  font-family: $text-styles-micro-font-family;
+  font-size: $text-styles-micro-font-size;
+  font-weight: $text-styles-micro-font-weight;
+  line-height: $text-styles-micro-line-height;
 }
 
 @mixin with-text--ellipsis {

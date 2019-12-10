@@ -37,7 +37,7 @@ export const SelectInput = forwardRef(function SelectInput({
     placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
     ref={ref}
     {...props}
-    addon={<Icon name='arrow-down' x20 />}
+    addon={<Icon name='arrow-down' size='20' />}
     floatingAddon
     type='select'
     onChange={handleChange}

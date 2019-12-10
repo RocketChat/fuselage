@@ -10,7 +10,7 @@ import { Hint, Icon, Text } from '../..';
 
 <Story name='Default'>
   <Text is='div' paragraph defaultColor>
-    {Object.keys(namesToCharactersMapping).map((name) => <Icon key={name} name={name} x40 /> )}
+    {Object.keys(namesToCharactersMapping).map((name) => <Icon key={name} name={name} size='40' /> )}
   </Text>
 </Story>
 
@@ -36,7 +36,7 @@ export const styles = {
   {Object.keys(namesToCharactersMapping).map((name) =>
     <div key={name} style={styles.wrapper}>
       <Text is='div'>
-        <Icon name={name} x40 />
+        <Icon name={name} size='40' />
       </Text>
       <Text is='div' hintColor>{name}</Text>
     </div>

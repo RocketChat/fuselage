@@ -1,6 +1,5 @@
 .rcx-box {
-  @extend %primitive;
-
+  &,
   &::before,
   &::after {
     @extend %primitive;
@@ -12,3 +11,4 @@
 }
 
 @import './Margins/styles.scss';
+@import './Scrollable/styles.scss';

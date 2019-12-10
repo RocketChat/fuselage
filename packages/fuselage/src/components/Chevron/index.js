@@ -33,5 +33,5 @@ Chevron.propTypes = {
   right: PropTypes.bool,
   down: PropTypes.bool,
   left: PropTypes.bool,
-  size: PropTypes.number,
+  size: PropTypes.oneOf(['1', '2', '4', '8', '12', '16', '20', '24', '28', '32', '36', '40', '44']),
 };

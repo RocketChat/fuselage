@@ -21,7 +21,7 @@ export function Callout({
     || (type === 'danger' && 'ban');
 
   return <Container mod-type={type} {...props}>
-    <Icon name={iconName} size={20} />
+    <Icon name={iconName} size='20' />
     <Wrapper>
       {title && <Title>{title}</Title>}
       <ChildrenWrapper>
