@@ -1,6 +1,7 @@
-$borders-width-x1: theme('borders-width-x1', to-rem(1));
-$borders-width-x2: theme('borders-width-x2', to-rem(2));
-$borders-width-x4: theme('borders-width-x4', to-rem(4));
+$borders-width-none: 0;
+$borders-width-x1: theme('borders-width-x1', to-rem($lengths-x1));
+$borders-width-x2: theme('borders-width-x2', to-rem($lengths-x2));
+$borders-width-x4: theme('borders-width-x4', to-rem($lengths-x4));
 
-$borders-radius-x2: theme('borders-radius-x2', to-rem(2));
+$borders-radius-x2: theme('borders-radius-x2', to-rem($lengths-x2));
 $borders-radius-full: 9999px;
