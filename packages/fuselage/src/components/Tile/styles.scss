@@ -8,7 +8,7 @@
 
   color: #{ $text-colors-default };
   border-radius: $borders-radius-x2;
-  background-color: #{ map-get($colors, 'white') };
+  background-color: #{ $colors-white };
 
   &--elevation-0 {
     box-shadow: none;

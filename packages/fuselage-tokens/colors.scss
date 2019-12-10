@@ -1,75 +1,78 @@
-$colors: (
-  dark100: #f7f8fa,
-  dark200: #f2f3f5,
-  dark300: #eeeff1,
-  dark400: #e4e7ea,
-  dark500: #cbced1,
-  dark600: #9ea2a8,
-  dark700: #6c727a,
-  dark800: #2f343d,
-  dark900: #1f2329,
+// Neutral
+$colors-n100: #f7f8fa;
+$colors-n200: #f2f3f5;
+$colors-n300: #eeeff1;
+$colors-n400: #e4e7ea;
+$colors-n500: #cbced1;
+$colors-n600: #9ea2a8;
+$colors-n700: #6c727a;
+$colors-n800: #2f343d;
+$colors-n900: #1f2329;
 
-  blue100: #e8f2ff,
-  blue200: #d1ebfe,
-  blue300: #76b7fc,
-  blue400: #549df9,
-  blue500: #1d74f5,
-  blue600: #095ad2,
-  blue700: #10529e,
-  blue800: #01336b,
-  blue900: #012247,
+// Blues
+$colors-b100: #e8f2ff;
+$colors-b200: #d1ebfe;
+$colors-b300: #76b7fc;
+$colors-b400: #549df9;
+$colors-b500: #1d74f5;
+$colors-b600: #095ad2;
+$colors-b700: #10529e;
+$colors-b800: #01336b;
+$colors-b900: #012247;
 
-  green100: #e5fbf4,
-  green200: #c0f6e4,
-  green300: #96f0d2,
-  green400: #6ce9c0,
-  green500: #2de0a5,
-  green600: #1ecb92,
-  green700: #19ac7c,
-  green800: #158d65,
-  green900: #106d4f,
+// Greens
+$colors-g100: #e5fbf4;
+$colors-g200: #c0f6e4;
+$colors-g300: #96f0d2;
+$colors-g400: #6ce9c0;
+$colors-g500: #2de0a5;
+$colors-g600: #1ecb92;
+$colors-g700: #19ac7c;
+$colors-g800: #158d65;
+$colors-g900: #106d4f;
 
-  red100: #fddade,
-  red200: #fbb5be,
-  red300: #f98f9d,
-  red400: #f76a7d,
-  red500: #f5455c,
-  red600: #db0c27,
-  red700: #b30a20,
-  red800: #8b0719,
-  red900: #630512,
+// Reds
+$colors-r100: #fddade;
+$colors-r200: #fbb5be;
+$colors-r300: #f98f9d;
+$colors-r400: #f76a7d;
+$colors-r500: #f5455c;
+$colors-r600: #db0c27;
+$colors-r700: #b30a20;
+$colors-r800: #8b0719;
+$colors-r900: #630512;
 
-  yellow100: #fff6d6,
-  yellow200: #ffecad,
-  yellow300: #ffe383,
-  yellow400: #ffd95a,
-  yellow500: #ffd031,
-  yellow600: #f3be08,
-  yellow700: #dfac00,
-  yellow800: #b68d00,
-  yellow900: #8e6d00,
+// Yellows
+$colors-y100: #fff6d6;
+$colors-y200: #ffecad;
+$colors-y300: #ffe383;
+$colors-y400: #ffd95a;
+$colors-y500: #ffd031;
+$colors-y600: #f3be08;
+$colors-y700: #dfac00;
+$colors-y800: #b68d00;
+$colors-y900: #8e6d00;
 
-  purple100: #f9effc,
-  purple200: #edd0f7,
-  purple300: #dca0ef,
-  purple400: #ca71e7,
-  purple500: #9f22c7,
-  purple600: #7f1b9f,
-  purple700: #5f1477,
-  purple800: #4a105d,
-  purple900: #350b42,
+// Purples
+$colors-p100: #f9effc;
+$colors-p200: #edd0f7;
+$colors-p300: #dca0ef;
+$colors-p400: #ca71e7;
+$colors-p500: #9f22c7;
+$colors-p600: #7f1b9f;
+$colors-p700: #5f1477;
+$colors-p800: #4a105d;
+$colors-p900: #350b42;
 
-  orange100: #fde8d7,
-  orange200: #fad1b0,
-  orange300: #f7b27b,
-  orange400: #f59b53,
-  orange500: #f38c39,
-  orange600: #e26d0e,
-  orange700: #bd5a0b,
-  orange800: #974809,
-  orange900: #713607,
+// Oranges
+$colors-o100: #fde8d7;
+$colors-o200: #fad1b0;
+$colors-o300: #f7b27b;
+$colors-o400: #f59b53;
+$colors-o500: #f38c39;
+$colors-o600: #e26d0e;
+$colors-o700: #bd5a0b;
+$colors-o800: #974809;
+$colors-o900: #713607;
 
-  'black': #000000,
-
-  'white': #ffffff,
-);
+$colors-white: #ffffff;

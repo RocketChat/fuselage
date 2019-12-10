@@ -138,7 +138,7 @@
     @include with-colors(
       $background-color: $button-colors-secondary-background-color,
       $border-color: $button-colors-secondary-border-color,
-      $color: map-get($colors, red500),
+      $color: $colors-r500,
       $hover-background-color: $button-colors-secondary-hover-background-color,
       $hover-border-color: $button-colors-secondary-hover-border-color,
       $active-background-color: $button-colors-secondary-active-background-color,
@@ -148,7 +148,7 @@
       $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
       $disabled-background-color: $button-colors-secondary-disabled-background-color,
       $disabled-border-color: $button-colors-secondary-disabled-border-color,
-      $disabled-color: map-get($colors, red100),
+      $disabled-color: $colors-r100,
     );
   }
 
@@ -210,7 +210,7 @@
     @include with-colors(
       $background-color: transparent,
       $border-color: transparent,
-      $color: map-get($colors, red500),
+      $color: $colors-r500,
       $hover-background-color: $button-colors-secondary-hover-background-color,
       $hover-border-color: $button-colors-secondary-hover-border-color,
       $active-background-color: $button-colors-secondary-active-background-color,
@@ -220,7 +220,7 @@
       $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
       $disabled-background-color: $button-colors-secondary-disabled-background-color,
       $disabled-border-color: $button-colors-secondary-disabled-border-color,
-      $disabled-color: map-get($colors, red100),
+      $disabled-color: $colors-r100,
     );
   }
 }

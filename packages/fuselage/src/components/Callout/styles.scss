@@ -10,19 +10,19 @@
   border-radius: #{ $borders-radius-x2 };
 
   &--type-info {
-    background-color: #{ map-get($colors, blue200) };
+    background-color: #{ $colors-b200 };
   }
 
   &--type-success {
-    background-color: #{ map-get($colors, green200) };
+    background-color: #{ $colors-g200 };
   }
 
   &--type-warning {
-    background-color: #{ map-get($colors, yellow200) };
+    background-color: #{ $colors-y200 };
   }
 
   &--type-danger {
-    background-color: #{ map-get($colors, red200) };
+    background-color: #{ $colors-r200 };
   }
 }
 

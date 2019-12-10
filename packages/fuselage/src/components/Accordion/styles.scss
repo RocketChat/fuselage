@@ -4,7 +4,7 @@
   display: flex;
 
   border-bottom-width: $borders-width-x2;
-  border-bottom-color: map-get($colors, dark300);
+  border-bottom-color: $colors-n300;
   flex-flow: column nowrap;
 }
 
@@ -33,7 +33,7 @@
   color: #{ $text-colors-default };
 
   border-width: #{ $borders-width-x2 };
-  border-color: #{ map-get($colors, dark300) } transparent transparent;
+  border-color: #{ $colors-n300 } transparent transparent;
   flex-flow: row nowrap;
 
   &[tabindex] {
@@ -41,13 +41,13 @@
 
     &.hover,
     &:hover {
-      background-color: #{ map-get($colors, dark100) };
+      background-color: #{ $colors-n100 };
     }
 
     &.focus,
     &:focus {
-      border-color: #{ map-get($colors, blue500) };
-      box-shadow: 0 0 0 #{ to-rem(6) } #{ map-get($colors, blue100) };
+      border-color: #{ $colors-b500 };
+      box-shadow: 0 0 0 #{ to-rem(6) } #{ $colors-b100 };
     }
   }
 
@@ -55,7 +55,7 @@
     cursor: not-allowed;
 
     color: #{ $text-colors-disabled };
-    background-color: #{ map-get($colors, dark100) };
+    background-color: #{ $colors-n100 };
   }
 }
 
