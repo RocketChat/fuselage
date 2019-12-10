@@ -1,6 +1,4 @@
 .rcx-accordion {
-  @include box;
-
   display: flex;
 
   border-bottom-width: $borders-width-x2;
@@ -9,15 +7,11 @@
 }
 
 .rcx-accordion-item {
-  @include box;
-
   display: flex;
   flex-flow: column nowrap;
 }
 
 .rcx-accordion-item__bar {
-  @include box;
-
   display: flex;
 
   min-height: calc(2 * #{ $spaces-x32 } + #{ $sizes-x24 });
@@ -60,8 +54,6 @@
 }
 
 .rcx-accordion-item__title {
-  @include box;
-
   flex: 1 1 0;
 
   @include as-subtitle($bold: true);
@@ -70,16 +62,16 @@
 }
 
 .rcx-accordion-item__toggle-switch {
-  @include box;
+  display: flex;
+  flex: 0 0 auto;
 
   margin: 0 #{ $sizes-x24 };
   margin-block: 0;
   margin-inline: #{ $sizes-x24 };
+  align-items: center;
 }
 
 .rcx-accordion-item__panel {
-  @include box;
-
   visibility: hidden;
 
   overflow: hidden;

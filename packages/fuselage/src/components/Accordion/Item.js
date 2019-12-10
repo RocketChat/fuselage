@@ -94,7 +94,7 @@ export function Item({
           && <ItemToggleSwitchContainer>
             <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />
           </ItemToggleSwitchContainer>}
-        <Chevron size={24} up={expanded} />
+        <Chevron size='24' up={expanded} />
       </>}
     </ItemBar>}
     <ItemPanel id={panelId} mod-expanded={panelExpanded} role='region'>
@@ -103,10 +103,6 @@ export function Item({
   </ItemContainer>;
 }
 
-Item.defaultProps = {
-  tabIndex: 0,
-};
-
 Item.displayName = 'Accordion.Item';
 
 Item.propTypes = {
@@ -114,7 +110,6 @@ Item.propTypes = {
   defaultExpanded: PropTypes.bool,
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
-  /** Is this component visible? */
   invisible: PropTypes.bool,
   tabIndex: PropTypes.number,
   title: PropTypes.string,
