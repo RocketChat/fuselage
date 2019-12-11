@@ -2,17 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
-import { Text } from '../Text';
-
-const Container = Box.extend('rcx-field__hint');
 
 export function FieldHint({
   children,
   ...props
 }) {
-  return <Container {...props}>
-    <Text children={children} hintColor paragraph />
-  </Container>;
+  return <Box componentClassName='rcx-field__hint' {...props}>
+    <Box children={children} is='span' textColor='hint' textStyle='paragraph' />
+  </Box>;
 }
 
 FieldHint.displayName = 'Field.Hint';

@@ -4,10 +4,8 @@ import React, { forwardRef } from 'react';
 import { Box } from '../Box';
 import { Skeleton } from './Skeleton';
 
-const Container = Box.extend('rcx-text', 'span');
-
 export const Text = forwardRef(function Text({
-  is,
+  is = 'span',
 
   headline,
   subtitle,
@@ -28,9 +26,10 @@ export const Text = forwardRef(function Text({
 
   ...props
 }, ref) {
-  return <Container
+  return <Box
+    componentClassName='rcx-text'
     is={is}
-    mod-color={(defaultColor && 'default')
+    textColor={(defaultColor && 'default')
     || (infoColor && 'info')
     || (hintColor && 'hint')
     || (disabledLabelColor && 'disabled-label')
@@ -41,7 +40,7 @@ export const Text = forwardRef(function Text({
     || (dangerColor && 'danger')
     || (warningColor && 'warning')
     || 'default'}
-    mod-style={(headline && 'headline')
+    textStyle={(headline && 'headline')
     || (subtitle && 'subtitle')
     || (paragraph && 'paragraph')
     || (caption && 'caption')
@@ -73,7 +72,6 @@ Text.defaultProps = {
 Text.displayName = 'Text';
 
 Text.propTypes = {
-  is: PropTypes.elementType,
   headline: PropTypes.bool,
   subtitle: PropTypes.bool,
   paragraph: PropTypes.bool,

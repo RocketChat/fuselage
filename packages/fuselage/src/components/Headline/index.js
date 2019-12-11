@@ -2,19 +2,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
-import { Text } from '../Text';
 import { Skeleton } from './Skeleton';
-
-const Container = Box.extend('rcx-headline', 'h1');
 
 export function Headline({
   children,
   level,
   ...props
 }) {
-  return <Container is={`h${ level }`} {...props}>
-    <Text children={children} headline />
-  </Container>;
+  return <Box componentClassName='rcx-headline' is={`h${ level }`} {...props}>
+    <Box children={children} is='span' textStyle='headline' />
+  </Box>;
 }
 
 Headline.defaultProps = {

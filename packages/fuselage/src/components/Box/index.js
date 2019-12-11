@@ -3,44 +3,81 @@ import React, { createElement, forwardRef, memo } from 'react';
 
 import { useStyleSheet, useProps } from '../../hooks';
 
+const getClassNamesFromModifiers = (element, modifiers) => {
+  const modifierClassNames = [];
+
+  for (const [name, value] of Object.entries(modifiers)) {
+    if (!value) {
+      continue;
+    }
+
+    if (typeof value === 'boolean') {
+      modifierClassNames.push(`${ element }--${ name }`);
+      continue;
+    }
+
+    if (typeof value === 'object') {
+      Object.entries(value).filter(([, value]) => !!value).forEach(([breakpointName, value]) => {
+        modifierClassNames.push(`${ element }--${ breakpointName }:${ name }-${ value }`);
+      });
+      continue;
+    }
+
+    modifierClassNames.push(`${ element }--${ name }-${ value }`);
+  }
+
+  return modifierClassNames;
+};
+
+const filterModifierClassNames = (componentClassName, props) => {
+  if (!componentClassName) {
+    return [[], props];
+  }
+
+  const nameRegex = /^mod-(.*)$/;
+
+  const [modifierProps, otherProps] = Object.entries(props)
+    .reduce(([modifierProps, otherProps], [name, value]) => {
+      const matches = nameRegex.exec(name);
+
+      if (!matches) {
+        return [modifierProps, { ...otherProps, [name]: value }];
+      }
+
+      if (!value) {
+        return [modifierProps, otherProps];
+      }
+
+      return [{ ...modifierProps, [matches[1]]: value }, otherProps];
+    }, [{}, {}]);
+
+  const modifierClassNames = getClassNamesFromModifiers(componentClassName, modifierProps);
+
+  return [modifierClassNames, otherProps];
+};
+
 export const Box = memo(forwardRef(function Box({
-  is = 'div',
-  componentClassName,
   className,
+  componentClassName,
   invisible,
+  is = 'div',
   style,
+  textColor,
+  textStyle,
   ...props
 }, ref) {
   useStyleSheet();
   const [contextualProps, PropsProvider] = useProps();
+  const [modifiersClasses, otherProps] = filterModifierClassNames(componentClassName, props);
 
-  const newComponent = is;
-
-  const [modifiersClasses, otherProps] = Object.entries(props)
-    .reduce(([modifiersClasses, otherProps], [name, value]) => {
-      if (name.slice(0, 4) === 'mod-') {
-        if (!value) {
-          return [modifiersClasses, otherProps];
-        }
-
-        return [
-          [
-            ...modifiersClasses,
-            componentClassName && typeof value === 'boolean'
-              ? `${ componentClassName }--${ name.slice(4) }`
-              : `${ componentClassName }--${ name.slice(4) }-${ value }`,
-          ],
-          otherProps,
-        ];
-      }
-
-      return [modifiersClasses, { ...otherProps, [name]: value }];
-    }, [[], {}]);
-
-  const newProps = {
+  const children = createElement(is, {
     className: [
       'rcx-box',
-      invisible && 'rcx-box--invisible',
+      ...getClassNamesFromModifiers('rcx-box', {
+        invisible,
+        'text-color': textColor,
+        'text-style': textStyle,
+      }),
       componentClassName,
       ...modifiersClasses,
       contextualProps.className,
@@ -52,24 +89,29 @@ export const Box = memo(forwardRef(function Box({
       ...style,
     },
     ...otherProps,
-  };
+  });
 
-  return <PropsProvider children={createElement(newComponent, newProps)} />;
+  return <PropsProvider children={children} />;
 }));
 
 Box.defaultProps = {
-  is: 'div',
   invisible: false,
+  is: 'div',
 };
 
 Box.displayName = 'Box';
 
 Box.propTypes = {
-  is: PropTypes.elementType.isRequired,
-  componentClassName: PropTypes.string,
   className: PropTypes.string,
+  componentClassName: PropTypes.string,
   invisible: PropTypes.bool,
+  is: PropTypes.elementType.isRequired,
   style: PropTypes.object,
+  textColor: PropTypes.oneOf([
+    'default', 'info', 'hint', 'disabled-label', 'disabled', 'alternative',
+    'primary', 'success', 'danger', 'warning',
+  ]),
+  textStyle: PropTypes.oneOf(['headline', 'subtitle', 'paragraph', 'caption', 'micro']),
 };
 
 Box.extend = (componentClassName, is) => {
