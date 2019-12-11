@@ -1,0 +1,14 @@
+
+.rcx-avatar {
+  & > .rcx-avatar__element {
+    border-radius: $borders-width-x2;
+  }
+}
+
+@each $size, $value in $sizes {
+  .rcx-avatar--#{$size},
+  .rcx-avatar--#{$size} > .rcx-avatar__element {
+    width: $value;
+    height: $value;
+  }
+}

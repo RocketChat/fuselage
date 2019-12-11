@@ -1,0 +1,15 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Avatar, Margins } from '../..';
+
+<Meta title='Misc|Avatar' parameters={{ jest: ['Avatar/spec'] }} />
+
+# Avatar
+
+<Preview>
+  <Story name='Default'>
+     {['x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x44'].map(size => <Margins all={16}><Avatar title="avatar" size={size} url={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACuklEQVRYR9WXe2viQBTFb2i1PvDZKqiIilqqUip+/48gIopSfIsvlFJqpYjPLOcu40aNmmRbl51/NJOZe37nzk0mI+Xzednr9dLd3R1dsy0WC3p/fyep1WrJ+JNIJMjlcl2FYTqdUqPRIBiXBoOBbLfbueMaEEIcWl9fX78BgsEgKW/8VCYONYbD4R8A5P4nIdRiHwH8FMQpY6oA3w1xLqsnAb4L4tKSngX4W4hL4oh/EcAohBZxzQB6IbSK6wLQCqFHXDfAJQi94oYATkEYETcMcAiBa6P7iKan4NT2KFzjvtFN7P8FUK751ZdAreCuVoTnhIxA6KoBLQJaxiiLWjOAnsB6xqoCyLJMq9WKzGYzw4qAsViMnE4n3d7eXvxwfXt7o263u/d4HsZVfRENBgMaj8dkMplou92Sz+ej0WjEogggftPpNN3c3ByBfH5+UrPZ5HuYv9lsGAJAMAJT6I9Go2zmKAOlUml3s1qt0nw+Zwh8tmezWRYsFov08PBAEENACNTrdQaEMPrC4TAbgSH0o728vLCBWq1G6/WaYEJ1CZbLJb9aIe73+ykUCrETZAWf0a+vr/T09MR9EA4EApylVCpFNpuNxVqtFjt2OBxsQLyq8flfLpfZACBVAcT6SZLEAZLJJAft9Xo0mUzI7XZTPB7nPriZzWZ8wECNiIZlQD9iwLmoI1zDiFjCPQCkCo4wEWlFBjAgl8vt+rF2EBMN47EUcBSJRDjlHo+HM4FMwi0yg5j9fp+nKfeNPQBBeX9/z3XQbrc55UgVUvj8/Lx7MhAIQZEBiCNrmUyGOp0Ou358fGTXyAQMFAoFjokaUO6cOwBxNAP9x8cHkyIQXEEIAsoGUYyzWq0sVqlUuNgAC3DUB+ZjHGIC9LDtjmaHh1MEQvpFQV186FUGYL7FYmEItbZ3OP3Xx/NfVlnlP5e1kOEAAAAASUVORK5CYII='}/></Margins>)}
+  </Story>
+</Preview>
+
+<Props of={Avatar} />
