@@ -1,9 +1,7 @@
 .rcx-tabs {
-  @include box;
-
   margin-block-end: $spaces-x8;
 
-  border-bottom: #{ $borders-width-x1 } solid #{ map-get($colors, dark400) };
+  border-bottom: #{ $borders-width-x1 } solid #{ $colors-n400 };
 }
 
 .rcx-tabs__wrapper {
@@ -16,15 +14,13 @@
 }
 
 .rcx-tabs__item {
-  @include box;
-
   flex: 0 0 auto;
 
   margin-inline: $spaces-x8;
   padding-block: $spaces-x8;
   padding-inline: $spaces-x32;
 
-  color: map-get($colors, dark600);
+  color: $colors-n600;
   border-style: solid;
   border-color: transparent;
 
@@ -35,7 +31,7 @@
   @include as-subtitle($bold: true);
 
   &--active {
-    color: map-get($colors, blue500);
-    border-block-end-color: map-get($colors, blue500);
+    color: $colors-b500;
+    border-block-end-color: $colors-b500;
   }
 }

@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Skeleton } from './Skeleton';
 
-const Container = createStyledComponent('rcx-text', 'span');
-
-export const Text = React.forwardRef(function Text({
-  is,
+export const Text = forwardRef(function Text({
+  is = 'span',
 
   headline,
   subtitle,
@@ -28,9 +26,10 @@ export const Text = React.forwardRef(function Text({
 
   ...props
 }, ref) {
-  return <Container
-    as={is}
-    mod-color={(defaultColor && 'default')
+  return <Box
+    componentClassName='rcx-text'
+    is={is}
+    textColor={(defaultColor && 'default')
     || (infoColor && 'info')
     || (hintColor && 'hint')
     || (disabledLabelColor && 'disabled-label')
@@ -39,12 +38,14 @@ export const Text = React.forwardRef(function Text({
     || (primaryColor && 'primary')
     || (successColor && 'success')
     || (dangerColor && 'danger')
-    || (warningColor && 'warning')}
-    mod-style={(headline && 'headline')
+    || (warningColor && 'warning')
+    || 'default'}
+    textStyle={(headline && 'headline')
     || (subtitle && 'subtitle')
     || (paragraph && 'paragraph')
     || (caption && 'caption')
-    || (micro && 'micro')}
+    || (micro && 'micro')
+    || 'paragraph'}
     ref={ref}
     {...props}
   />;
@@ -71,9 +72,6 @@ Text.defaultProps = {
 Text.displayName = 'Text';
 
 Text.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
-  is: PropTypes.elementType,
   headline: PropTypes.bool,
   subtitle: PropTypes.bool,
   paragraph: PropTypes.bool,

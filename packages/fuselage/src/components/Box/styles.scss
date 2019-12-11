@@ -1,3 +1,90 @@
 .rcx-box {
-  @include box;
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+
+    user-select: none;
+    transition: all $transitions-short-duration;
+
+    border-width: $borders-width-none;
+    border-style: solid;
+    border-color: currentColor;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &--invisible {
+    visibility: hidden;
+
+    opacity: 0;
+  }
+
+  &--text-style-headline {
+    @include as-headline;
+  }
+
+  &--text-style-subtitle {
+    @include as-subtitle;
+  }
+
+  &--text-style-paragraph {
+    @include as-paragraph;
+  }
+
+  &--text-style-caption {
+    @include as-caption;
+  }
+
+  &--text-style-micro {
+    @include as-micro-text;
+  }
+
+  &--text-color-default {
+    color: #{ $text-colors-default };
+  }
+
+  &--text-color-info {
+    color: #{ $text-colors-info };
+  }
+
+  &--text-color-hint {
+    color: #{ $text-colors-hint };
+  }
+
+  &--text-color-disabled-label {
+    color: #{ $text-colors-disabled-label };
+  }
+
+  &--text-color-disabled {
+    color: #{ $text-colors-disabled };
+  }
+
+  &--text-color-alternative {
+    color: #{ $text-colors-alternative };
+  }
+
+  &--text-color-primary {
+    color: #{ $text-colors-primary };
+  }
+
+  &--text-color-success {
+    color: #{ $text-colors-success };
+  }
+
+  &--text-color-danger {
+    color: #{ $text-colors-danger };
+  }
+
+  &--text-color-warning {
+    color: #{ $text-colors-warning };
+  }
 }
+
+@import './Margins/styles.scss';
+@import './Scrollable/styles.scss';

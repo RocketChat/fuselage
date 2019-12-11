@@ -1,11 +1,11 @@
 import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useState, useCallback } from 'react';
+import React, { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 
-export const SelectInput = React.forwardRef(function SelectInput({
+export const SelectInput = forwardRef(function SelectInput({
   children,
   className,
   multiple,
@@ -37,7 +37,7 @@ export const SelectInput = React.forwardRef(function SelectInput({
     placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
     ref={ref}
     {...props}
-    addon={<Icon name='arrow-down' x20 />}
+    addon={<Icon name='arrow-down' size='20' />}
     floatingAddon
     type='select'
     onChange={handleChange}
@@ -52,7 +52,6 @@ SelectInput.displayName = 'SelectInput';
 SelectInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
   multiple: PropTypes.bool,
 };
 

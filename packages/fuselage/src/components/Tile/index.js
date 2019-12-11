@@ -1,17 +1,29 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const Container = createStyledComponent('rcx-tile');
+export function Tile({
+  elevation,
+  padding,
+  ...props
+}) {
+  return <Box
+    componentClassName='rcx-tile'
+    mod-elevation={elevation}
+    mod-padding={padding}
+    {...props}
+  />;
+}
 
-export const Tile = React.forwardRef(function Tile({ elevation, ...props }, ref) {
-  return <Container mod-elevation={elevation} ref={ref} {...props} />;
-});
+Tile.defaultProps = {
+  elevation: '1',
+  padding: '16',
+};
 
 Tile.displayName = 'Tile';
 
 Tile.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
+  elevation: PropTypes.oneOf(['0', '1', '2']).isRequired,
+  padding: PropTypes.oneOf(['none', '1', '2', '4', '8', '12', '16', '20', '24', '28', '32', '36', '40', '44']).isRequired,
 };

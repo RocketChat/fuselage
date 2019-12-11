@@ -1,27 +1,128 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { createElement, forwardRef, memo } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { useStyleSheet, useProps } from '../../hooks';
 
-const Container = createStyledComponent('rcx-box', 'div');
+const getClassNamesFromModifiers = (element, modifiers) => {
+  const modifierClassNames = [];
 
-export const Box = React.forwardRef(function Box({
+  for (const [name, value] of Object.entries(modifiers)) {
+    if (!value) {
+      continue;
+    }
+
+    if (typeof value === 'boolean') {
+      modifierClassNames.push(`${ element }--${ name }`);
+      continue;
+    }
+
+    if (typeof value === 'object') {
+      Object.entries(value).filter(([, value]) => !!value).forEach(([breakpointName, value]) => {
+        modifierClassNames.push(`${ element }--${ breakpointName }:${ name }-${ value }`);
+      });
+      continue;
+    }
+
+    modifierClassNames.push(`${ element }--${ name }-${ value }`);
+  }
+
+  return modifierClassNames;
+};
+
+const filterModifierClassNames = (componentClassName, props) => {
+  if (!componentClassName) {
+    return [[], props];
+  }
+
+  const nameRegex = /^mod-(.*)$/;
+
+  const [modifierProps, otherProps] = Object.entries(props)
+    .reduce(([modifierProps, otherProps], [name, value]) => {
+      const matches = nameRegex.exec(name);
+
+      if (!matches) {
+        return [modifierProps, { ...otherProps, [name]: value }];
+      }
+
+      if (!value) {
+        return [modifierProps, otherProps];
+      }
+
+      return [{ ...modifierProps, [matches[1]]: value }, otherProps];
+    }, [{}, {}]);
+
+  const modifierClassNames = getClassNamesFromModifiers(componentClassName, modifierProps);
+
+  return [modifierClassNames, otherProps];
+};
+
+export const Box = memo(forwardRef(function Box({
+  className,
+  componentClassName,
   invisible,
-  is,
+  is = 'div',
+  style,
+  textColor,
+  textStyle,
   ...props
 }, ref) {
-  return <Container as={is} invisible={invisible} ref={ref} {...props} />;
-});
+  useStyleSheet();
+  const [contextualProps, PropsProvider] = useProps();
+  const [modifiersClasses, otherProps] = filterModifierClassNames(componentClassName, props);
+
+  const children = createElement(is, {
+    className: [
+      'rcx-box',
+      ...getClassNamesFromModifiers('rcx-box', {
+        invisible,
+        'text-color': textColor,
+        'text-style': textStyle,
+      }),
+      componentClassName,
+      ...modifiersClasses,
+      contextualProps.className,
+      className,
+    ].filter(Boolean).join(' '),
+    ref,
+    style: {
+      ...contextualProps.style,
+      ...style,
+    },
+    ...otherProps,
+  });
+
+  return <PropsProvider children={children} />;
+}));
 
 Box.defaultProps = {
-  is: 'div',
   invisible: false,
+  is: 'div',
 };
 
 Box.displayName = 'Box';
 
 Box.propTypes = {
-  /** Is this component visible? */
+  className: PropTypes.string,
+  componentClassName: PropTypes.string,
   invisible: PropTypes.bool,
-  is: PropTypes.elementType,
+  is: PropTypes.elementType.isRequired,
+  style: PropTypes.object,
+  textColor: PropTypes.oneOf([
+    'default', 'info', 'hint', 'disabled-label', 'disabled', 'alternative',
+    'primary', 'success', 'danger', 'warning',
+  ]),
+  textStyle: PropTypes.oneOf(['headline', 'subtitle', 'paragraph', 'caption', 'micro']),
 };
+
+Box.extend = (componentClassName, is) => {
+  const BoxExtension = forwardRef((props, ref) =>
+    <Box is={is} componentClassName={componentClassName} ref={ref} {...props} />);
+
+  BoxExtension.displayName = componentClassName;
+
+  return BoxExtension;
+};
+
+export * from './Flex';
+export * from './Margins';
+export * from './Scrollable';

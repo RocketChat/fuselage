@@ -1,15 +1,15 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useLayoutEffect, useRef, useCallback } from 'react';
+import React, { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Label } from '../Label';
 
-const Container = createStyledComponent('rcx-check-box', 'span');
-const Input = createStyledComponent('rcx-check-box__input', 'input');
-const Fake = createStyledComponent('rcx-check-box__fake', 'i');
+const Container = Box.extend('rcx-check-box', 'span');
+const Input = Box.extend('rcx-check-box__input', 'input');
+const Fake = Box.extend('rcx-check-box__fake', 'i');
 
-export const CheckBox = React.forwardRef(function CheckBox({
+export const CheckBox = forwardRef(function CheckBox({
   className,
   hidden,
   indeterminate,
@@ -41,6 +41,5 @@ export const CheckBox = React.forwardRef(function CheckBox({
 CheckBox.displayName = 'CheckBox';
 
 CheckBox.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
+  indeterminate: PropTypes.bool,
 };

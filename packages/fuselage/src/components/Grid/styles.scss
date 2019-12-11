@@ -11,7 +11,6 @@ $breakpoint-names: map-keys($breakpoints);
 }
 
 .rcx-grid {
-  @include box;
   display: flex;
   flex-flow: row wrap;
 
@@ -24,7 +23,6 @@ $breakpoint-names: map-keys($breakpoints);
 }
 
 .rcx-grid__item {
-  @include box;
   flex: 1 1 0;
 
   @each $breakpoint-name in $breakpoint-names {

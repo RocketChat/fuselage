@@ -1,22 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const StyledGrid = createStyledComponent('rcx-grid', 'div');
-const StyledGridItem = createStyledComponent('rcx-grid__item', 'div');
+const StyledGrid = Box.extend('rcx-grid');
+const StyledGridItem = Box.extend('rcx-grid__item');
 
-export const Grid = React.forwardRef(function Grid({ xs, sm, md, lg, xl, ...props }, ref) {
+export function Grid({ xs, sm, md, lg, xl, ...props }) {
   return <StyledGrid
     mod-xs={xs}
     mod-sm={sm}
     mod-md={md}
     mod-lg={lg}
     mod-xl={xl}
-    ref={ref}
     {...props}
   />;
-});
+}
 
 Grid.displayName = 'Grid.Row';
 
@@ -28,17 +27,16 @@ Grid.propTypes = {
   xl: PropTypes.bool,
 };
 
-export const GridItem = React.forwardRef(function GridItem({ xs, sm, md, lg, xl, ...props }, ref) {
+export function GridItem({ xs, sm, md, lg, xl, ...props }) {
   return <StyledGridItem
     mod-xs={xs}
     mod-sm={sm}
     mod-md={md}
     mod-lg={lg}
     mod-xl={xl}
-    ref={ref}
     {...props}
   />;
-});
+}
 
 GridItem.displayName = 'Grid.Item';
 

@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const OptionContainer = createStyledComponent('rcx-input-box__option', 'option');
+const OptionContainer = Box.extend('rcx-input-box__option', 'option');
 
-export const Option = React.forwardRef(function Option(props, ref) {
+export const Option = forwardRef(function Option(props, ref) {
   return <OptionContainer ref={ref} {...props} />;
 });
 
@@ -13,5 +13,4 @@ Option.displayName = 'InputBox.Option';
 
 Option.propTypes = {
   children: PropTypes.node,
-  invisible: PropTypes.bool,
 };

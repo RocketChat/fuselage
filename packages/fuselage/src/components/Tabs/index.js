@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const Container = createStyledComponent('rcx-tabs', 'div');
-const ItemsWrapper = createStyledComponent('rcx-tabs__wrapper', 'div');
-const ItemContainer = createStyledComponent('rcx-tabs__item', 'button');
+const Container = Box.extend('rcx-tabs');
+const ItemsWrapper = Box.extend('rcx-tabs__wrapper');
+const ItemContainer = Box.extend('rcx-tabs__item', 'button');
 
-export const Tabs = React.forwardRef(function Tabs({
+export function Tabs({
   children,
   ...props
-}, ref) {
-  return <Container ref={ref} {...props}>
+}) {
+  return <Container {...props}>
     <ItemsWrapper children={children} role='tablist' />
   </Container>;
-});
+}
 
 Tabs.displayName = 'Tabs';
 
-export const TabsItem = React.forwardRef(function TabsItem({
+export const TabsItem = forwardRef(function TabsItem({
   active,
   ...props
 }, ref) {

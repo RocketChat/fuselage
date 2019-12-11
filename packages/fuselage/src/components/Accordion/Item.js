@@ -2,17 +2,17 @@ import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Chevron } from '../Chevron';
 import { ToggleSwitch } from '../ToggleSwitch';
 
-const ItemContainer = createStyledComponent('rcx-accordion-item', 'section');
-const ItemBar = createStyledComponent('rcx-accordion-item__bar');
-const ItemTitle = createStyledComponent('rcx-accordion-item__title', 'h1');
-const ItemToggleSwitchContainer = createStyledComponent('rcx-accordion-item__toggle-switch');
-const ItemPanel = createStyledComponent('rcx-accordion-item__panel');
+const ItemContainer = Box.extend('rcx-accordion-item', 'section');
+const ItemBar = Box.extend('rcx-accordion-item__bar');
+const ItemTitle = Box.extend('rcx-accordion-item__title', 'h1');
+const ItemToggleSwitchContainer = Box.extend('rcx-accordion-item__toggle-switch');
+const ItemPanel = Box.extend('rcx-accordion-item__panel');
 
-export const Item = React.forwardRef(function Item({
+export function Item({
   children,
   className,
   defaultExpanded,
@@ -24,7 +24,7 @@ export const Item = React.forwardRef(function Item({
   onToggle,
   onToggleEnabled,
   ...props
-}, ref) {
+}) {
   const [stateExpanded, toggleStateExpanded] = useToggle(defaultExpanded);
   const expanded = propExpanded || stateExpanded;
   const toggleExpanded = () => {
@@ -87,25 +87,21 @@ export const Item = React.forwardRef(function Item({
   const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
 
   return <ItemContainer className={className} {...props}>
-    {title && <ItemBar mod-disabled={disabled} ref={ref} {...barProps}>
+    {title && <ItemBar mod-disabled={disabled} {...barProps}>
       <ItemTitle id={titleId}>{title}</ItemTitle>
       {!noncollapsible && <>
         {(disabled || onToggleEnabled)
           && <ItemToggleSwitchContainer>
             <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />
           </ItemToggleSwitchContainer>}
-        <Chevron size={24} up={expanded} />
+        <Chevron size='24' up={expanded} />
       </>}
     </ItemBar>}
     <ItemPanel id={panelId} mod-expanded={panelExpanded} role='region'>
       {children}
     </ItemPanel>
   </ItemContainer>;
-});
-
-Item.defaultProps = {
-  tabIndex: 0,
-};
+}
 
 Item.displayName = 'Accordion.Item';
 
@@ -114,8 +110,6 @@ Item.propTypes = {
   defaultExpanded: PropTypes.bool,
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
   tabIndex: PropTypes.number,
   title: PropTypes.string,
   onToggle: PropTypes.func,

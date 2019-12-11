@@ -1,14 +1,11 @@
 .rcx-tile {
-  @include box;
   @include as-paragraph;
 
   display: block;
 
-  padding: #{ $spaces-x40 };
-
   color: #{ $text-colors-default };
   border-radius: $borders-radius-x2;
-  background-color: #{ map-get($colors, 'white') };
+  background-color: #{ $colors-white };
 
   &--elevation-0 {
     box-shadow: none;
@@ -22,5 +19,61 @@
     box-shadow:
       0 0 2px 0 rgba(47, 52, 61, 0.08),
       0 0 12px 0 rgba(47, 52, 61, 0.12);
+  }
+
+  &--padding-none {
+    padding: 0;
+  }
+
+  &--padding-1 {
+    padding: $spaces-x1;
+  }
+
+  &--padding-2 {
+    padding: $spaces-x2;
+  }
+
+  &--padding-4 {
+    padding: $spaces-x4;
+  }
+
+  &--padding-8 {
+    padding: $spaces-x8;
+  }
+
+  &--padding-12 {
+    padding: $spaces-x12;
+  }
+
+  &--padding-16 {
+    padding: $spaces-x16;
+  }
+
+  &--padding-20 {
+    padding: $spaces-x20;
+  }
+
+  &--padding-24 {
+    padding: $spaces-x24;
+  }
+
+  &--padding-28 {
+    padding: $spaces-x28;
+  }
+
+  &--padding-32 {
+    padding: $spaces-x32;
+  }
+
+  &--padding-36 {
+    padding: $spaces-x36;
+  }
+
+  &--padding-40 {
+    padding: $spaces-x40;
+  }
+
+  &--padding-44 {
+    padding: $spaces-x44;
   }
 }

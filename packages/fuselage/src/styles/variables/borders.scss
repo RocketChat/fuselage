@@ -1,8 +1,7 @@
-@import '~@rocket.chat/fuselage-tokens/borders.scss';
+$borders-width-none: 0;
+$borders-width-x1: theme('borders-width-x1', to-rem($lengths-x1));
+$borders-width-x2: theme('borders-width-x2', to-rem($lengths-x2));
+$borders-width-x4: theme('borders-width-x4', to-rem($lengths-x4));
 
-$borders-width-x1: theme('borders-width-x1', to-rem(1));
-$borders-width-x2: theme('borders-width-x2', to-rem(get-map-value($borders, widths, 1)));
-$borders-width-x4: theme('borders-width-x1', to-rem(4));
-
-$borders-radius-x2: theme('borders-radius-x2', to-rem(get-map-value($borders, radii, 1)));
+$borders-radius-x2: theme('borders-radius-x2', to-rem($lengths-x2));
 $borders-radius-full: 9999px;
