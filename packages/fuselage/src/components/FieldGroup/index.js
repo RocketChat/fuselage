@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
 import { Box } from '../Box';
@@ -18,8 +17,3 @@ export function FieldGroup({
 }
 
 FieldGroup.displayName = 'FieldGroup';
-
-FieldGroup.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
-};

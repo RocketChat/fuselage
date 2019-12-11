@@ -17,5 +17,4 @@ SearchInput.displayName = 'SearchInput';
 SearchInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
 };

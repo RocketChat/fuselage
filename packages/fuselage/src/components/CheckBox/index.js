@@ -41,6 +41,5 @@ export const CheckBox = forwardRef(function CheckBox({
 CheckBox.displayName = 'CheckBox';
 
 CheckBox.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
+  indeterminate: PropTypes.bool,
 };

@@ -17,5 +17,4 @@ EmailInput.displayName = 'EmailInput';
 EmailInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
 };

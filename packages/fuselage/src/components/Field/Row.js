@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
@@ -10,8 +9,3 @@ export function FieldRow(props) {
 }
 
 FieldRow.displayName = 'Field.Row';
-
-FieldRow.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
-};

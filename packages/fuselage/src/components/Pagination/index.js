@@ -116,5 +116,4 @@ Pagination.propTypes = {
   count: PropTypes.number.isRequired,
   current: PropTypes.number,
   itemsPerPage: PropTypes.oneOf([25, 50, 100]),
-  invisible: PropTypes.bool,
 };

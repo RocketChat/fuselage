@@ -13,5 +13,4 @@ Option.displayName = 'InputBox.Option';
 
 Option.propTypes = {
   children: PropTypes.node,
-  invisible: PropTypes.bool,
 };

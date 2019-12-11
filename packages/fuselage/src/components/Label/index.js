@@ -40,8 +40,6 @@ Label.displayName = 'Label';
 
 Label.propTypes = {
   disabled: PropTypes.bool,
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
   is: PropTypes.elementType,
   position: PropTypes.oneOf(['top', 'start', 'end']),
   required: PropTypes.bool,

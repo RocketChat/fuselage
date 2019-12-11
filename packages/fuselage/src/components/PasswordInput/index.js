@@ -17,5 +17,4 @@ PasswordInput.displayName = 'PasswordInput';
 PasswordInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
 };

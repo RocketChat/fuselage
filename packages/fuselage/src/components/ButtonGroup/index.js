@@ -45,8 +45,6 @@ ButtonGroup.displayName = 'ButtonGroup';
 ButtonGroup.propTypes = {
   /** The alignment that should be applied to the items */
   align: PropTypes.oneOf(['start', 'center', 'end']),
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
   /** Will be the items stretched to fill space? */
   stretch: PropTypes.bool,
   /** Is the items vertically placed? */

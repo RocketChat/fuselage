@@ -17,5 +17,4 @@ UrlInput.displayName = 'UrlInput';
 UrlInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
 };

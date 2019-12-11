@@ -13,5 +13,4 @@ Placeholder.displayName = 'InputBox.Placeholder';
 
 Placeholder.propTypes = {
   children: PropTypes.node,
-  invisible: PropTypes.bool,
 };

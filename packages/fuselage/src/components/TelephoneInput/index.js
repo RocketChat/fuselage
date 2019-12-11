@@ -17,5 +17,4 @@ TelephoneInput.displayName = 'TelephoneInput';
 TelephoneInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
 };

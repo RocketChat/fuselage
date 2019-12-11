@@ -17,6 +17,5 @@ TextAreaInput.displayName = 'TextAreaInput';
 TextAreaInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
   rows: PropTypes.number,
 };

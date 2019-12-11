@@ -121,7 +121,6 @@ InputBox.propTypes = {
   input: PropTypes.element,
   error: PropTypes.string,
   floatingAddon: PropTypes.bool,
-  invisible: PropTypes.bool,
   type: PropTypes.oneOf([
     'button',
     'checkbox',

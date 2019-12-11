@@ -19,6 +19,4 @@ FieldError.displayName = 'Field.Error';
 
 FieldError.propTypes = {
   children: PropTypes.node.isRequired,
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
 };

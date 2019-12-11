@@ -39,7 +39,6 @@ Callout.displayName = 'Callout';
 
 Callout.propTypes = {
   children: PropTypes.node,
-  invisible: PropTypes.bool,
   title: PropTypes.node,
   type: PropTypes.oneOf(['info', 'success', 'warning', 'danger']).isRequired,
 };

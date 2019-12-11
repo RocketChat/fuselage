@@ -19,6 +19,4 @@ FieldHint.displayName = 'Field.Hint';
 
 FieldHint.propTypes = {
   children: PropTypes.node.isRequired,
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
 };

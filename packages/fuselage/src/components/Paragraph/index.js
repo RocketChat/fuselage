@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
@@ -17,10 +16,5 @@ export function Paragraph({
 }
 
 Paragraph.displayName = 'Paragraph';
-
-Paragraph.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
-};
 
 Paragraph.Skeleton = Skeleton;

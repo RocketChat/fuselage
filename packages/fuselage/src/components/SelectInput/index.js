@@ -52,7 +52,6 @@ SelectInput.displayName = 'SelectInput';
 SelectInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
   multiple: PropTypes.bool,
 };
 

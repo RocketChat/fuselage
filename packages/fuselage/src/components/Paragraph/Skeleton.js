@@ -15,6 +15,5 @@ export function Skeleton({ animated, ...props }) {
 }
 
 Skeleton.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
+  animated: PropTypes.bool,
 };

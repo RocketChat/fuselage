@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
@@ -24,8 +23,3 @@ export const RadioButton = forwardRef(function RadioButton({
 });
 
 RadioButton.displayName = 'RadioButton';
-
-RadioButton.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
-};

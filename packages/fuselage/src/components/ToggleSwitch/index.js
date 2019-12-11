@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { Label } from '../Label';
@@ -25,8 +24,3 @@ export const ToggleSwitch = forwardRef(function ToggleSwitch({
 });
 
 ToggleSwitch.displayName = 'ToggleSwitch';
-
-ToggleSwitch.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
-};

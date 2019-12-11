@@ -110,7 +110,6 @@ Item.propTypes = {
   defaultExpanded: PropTypes.bool,
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
-  invisible: PropTypes.bool,
   tabIndex: PropTypes.number,
   title: PropTypes.string,
   onToggle: PropTypes.func,
