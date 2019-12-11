@@ -21,6 +21,7 @@ export * from './RadioButton';
 export * from './SearchInput';
 export * from './SelectInput';
 export * from './Subtitle';
+export * from './Table';
 export * from './Tabs';
 export * from './TelephoneInput';
 export * from './Text';

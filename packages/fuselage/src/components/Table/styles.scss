@@ -1,0 +1,26 @@
+.rcx-table {
+  width: 100%;
+
+  @each $breakpoint-name, $prefix in (xs: '', sm: 'sm\\:', md: 'md\\:', lg: 'lg\\:', xl: 'xl\\:') {
+    @include when-breakpoint($breakpoint-name) {
+      &--#{$prefix}fixed {
+        table-layout: fixed;
+      }
+    }
+  }
+
+  &__cell {
+    text-align: unset;
+    vertical-align: middle;
+
+    @each $breakpoint-name, $prefix in (xs: '', sm: 'sm\\:', md: 'md\\:', lg: 'lg\\:', xl: 'xl\\:') {
+      @include when-breakpoint($breakpoint-name) {
+        @each $align in (start, end, center, justify) {
+          &--#{$prefix}align-#{$align} {
+            text-align: $align;
+          }
+        }
+      }
+    }
+  }
+}
