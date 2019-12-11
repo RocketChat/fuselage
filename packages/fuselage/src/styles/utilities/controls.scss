@@ -1,6 +1,4 @@
 @mixin selection-button($states: ()) {
-  @include box;
-
   display: inline-flex;
 
   vertical-align: middle;
@@ -12,8 +10,6 @@
   }
 
   & &__fake {
-    @include box;
-
     position: relative;
 
     height: $sizes-x20;

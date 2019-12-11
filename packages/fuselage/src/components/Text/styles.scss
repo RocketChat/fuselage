@@ -1,6 +1,4 @@
 .rcx-text {
-  @include box;
-
   user-select: text;
 
   &--style-headline {
@@ -65,8 +63,6 @@
 }
 
 .rcx-skeleton__text {
-  @include box;
-
   display: inline-block;
 
   width: 100%;

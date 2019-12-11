@@ -1,6 +1,4 @@
 .rcx-field-group {
-  @include box;
-
   display: flex;
 
   min-width: 0;
@@ -10,8 +8,6 @@
 }
 
 .rcx-field-group__item {
-  @include box;
-
   flex: 0 0 auto;
 
   margin-bottom: $spaces-x24;

@@ -1,6 +1,4 @@
 .rcx-label {
-  @include box;
-
   display: inline-flex;
 
   cursor: inherit;
@@ -24,8 +22,6 @@
 }
 
 .rcx-label__wrapper {
-  @include box;
-
   display: flex;
   align-items: center;
 
@@ -60,8 +56,6 @@
 }
 
 .rcx-label__text {
-  @include box;
-
   flex: 1 1 0;
 
   user-select: text;

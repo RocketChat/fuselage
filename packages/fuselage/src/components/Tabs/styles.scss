@@ -1,6 +1,4 @@
 .rcx-tabs {
-  @include box;
-
   margin-block-end: $spaces-x8;
 
   border-bottom: #{ $borders-width-x1 } solid #{ $colors-n400 };
@@ -16,8 +14,6 @@
 }
 
 .rcx-tabs__item {
-  @include box;
-
   flex: 0 0 auto;
 
   margin-inline: $spaces-x8;

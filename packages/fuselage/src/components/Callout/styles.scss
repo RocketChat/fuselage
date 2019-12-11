@@ -1,6 +1,4 @@
 .rcx-callout {
-  @include box;
-
   display: flex;
 
   padding-block: #{ $spaces-x16 };
@@ -27,8 +25,6 @@
 }
 
 .rcx-callout__wrapper {
-  @include box;
-
   display: flex;
 
   overflow: hidden;
@@ -43,8 +39,6 @@
 }
 
 .rcx-callout__title {
-  @include box;
-
   padding-block: #{ $spaces-x2 };
 
   @include as-caption($bold: true);
@@ -53,7 +47,6 @@
 }
 
 .rcx-callout__children {
-  @include box;
   display: block;
 
   padding-block: #{ $spaces-x2 };
