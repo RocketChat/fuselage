@@ -1,8 +1,4 @@
-@import '~@rocket.chat/fuselage-tokens/colors.scss';
-
 .rcx-callout {
-  @include box;
-
   display: flex;
 
   padding-block: #{ $spaces-x16 };
@@ -12,25 +8,23 @@
   border-radius: #{ $borders-radius-x2 };
 
   &--type-info {
-    background-color: #{ map-get($colors, blue200) };
+    background-color: #{ $colors-b200 };
   }
 
   &--type-success {
-    background-color: #{ map-get($colors, green200) };
+    background-color: #{ $colors-g200 };
   }
 
   &--type-warning {
-    background-color: #{ map-get($colors, yellow200) };
+    background-color: #{ $colors-y200 };
   }
 
   &--type-danger {
-    background-color: #{ map-get($colors, red200) };
+    background-color: #{ $colors-r200 };
   }
 }
 
 .rcx-callout__wrapper {
-  @include box;
-
   display: flex;
 
   overflow: hidden;
@@ -45,8 +39,6 @@
 }
 
 .rcx-callout__title {
-  @include box;
-
   padding-block: #{ $spaces-x2 };
 
   @include as-caption($bold: true);
@@ -55,7 +47,6 @@
 }
 
 .rcx-callout__children {
-  @include box;
   display: block;
 
   padding-block: #{ $spaces-x2 };

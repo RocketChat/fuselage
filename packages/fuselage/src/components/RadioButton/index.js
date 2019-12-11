@@ -1,14 +1,13 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Label } from '../Label';
 
-const Container = createStyledComponent('rcx-radio-button', 'span');
-const Input = createStyledComponent('rcx-radio-button__input', 'input');
-const Fake = createStyledComponent('rcx-radio-button__fake', 'i');
+const Container = Box.extend('rcx-radio-button', 'span');
+const Input = Box.extend('rcx-radio-button__input', 'input');
+const Fake = Box.extend('rcx-radio-button__fake', 'i');
 
-export const RadioButton = React.forwardRef(function RadioButton({
+export const RadioButton = forwardRef(function RadioButton({
   className,
   hidden,
   invisible,
@@ -24,8 +23,3 @@ export const RadioButton = React.forwardRef(function RadioButton({
 });
 
 RadioButton.displayName = 'RadioButton';
-
-RadioButton.propTypes = {
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
-};

@@ -1,50 +1,68 @@
 .rcx-icon {
-  @include box;
-
   display: inline-block;
 
   vertical-align: middle;
 
+  letter-spacing: 0;
+
   font-family: 'RocketChat';
+  font-size: inherit;
   font-weight: 400;
+
   font-style: normal;
   font-variant: normal;
   line-height: 1;
   text-rendering: auto;
 
-  &--x44 {
-    font-size: $sizes-x44;
+  &--size-1 {
+    font-size: $spaces-x1;
   }
 
-  &--x40 {
-    font-size: $sizes-x40;
+  &--size-2 {
+    font-size: $spaces-x2;
   }
 
-  &--x32 {
-    font-size: $sizes-x32;
+  &--size-4 {
+    font-size: $spaces-x4;
   }
 
-  &--x24 {
-    font-size: $sizes-x24;
+  &--size-8 {
+    font-size: $spaces-x8;
   }
 
-  &--x20 {
-    font-size: $sizes-x20;
+  &--size-12 {
+    font-size: $spaces-x12;
   }
 
-  &--x16 {
-    font-size: $sizes-x16;
+  &--size-16 {
+    font-size: $spaces-x16;
   }
 
-  &--x8 {
-    font-size: $sizes-x8;
+  &--size-20 {
+    font-size: $spaces-x20;
   }
 
-  &--x4 {
-    font-size: $sizes-x4;
+  &--size-24 {
+    font-size: $spaces-x24;
   }
 
-  &--x2 {
-    font-size: $sizes-x2;
+  &--size-28 {
+    font-size: $spaces-x28;
+  }
+
+  &--size-32 {
+    font-size: $spaces-x32;
+  }
+
+  &--size-36 {
+    font-size: $spaces-x36;
+  }
+
+  &--size-40 {
+    font-size: $spaces-x40;
+  }
+
+  &--size-44 {
+    font-size: $spaces-x44;
   }
 }

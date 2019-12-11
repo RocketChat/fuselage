@@ -1,24 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent } from '../../styles';
-import { Text } from '../Text';
+import { Box } from '../Box';
 
-const Container = createStyledComponent('rcx-field__hint', 'div');
-
-export const FieldHint = React.forwardRef(function FieldHint({
+export function FieldHint({
   children,
   ...props
-}, ref) {
-  return <Container ref={ref} {...props}>
-    <Text children={children} hintColor paragraph />
-  </Container>;
-});
+}) {
+  return <Box componentClassName='rcx-field__hint' {...props}>
+    <Box children={children} is='span' textColor='hint' textStyle='paragraph' />
+  </Box>;
+}
 
 FieldHint.displayName = 'Field.Hint';
 
 FieldHint.propTypes = {
   children: PropTypes.node.isRequired,
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
 };

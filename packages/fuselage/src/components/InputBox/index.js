@@ -1,18 +1,18 @@
 /* eslint-disable complexity */
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useCallback, useLayoutEffect, useRef } from 'react';
+import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 import { Option } from './Option';
 import { Placeholder } from './Placeholder';
 import { Skeleton } from './Skeleton';
 
-const Wrapper = createStyledComponent('rcx-input-box__wrapper', 'span');
-const Input = createStyledComponent('rcx-input-box', 'input');
-const Addon = createStyledComponent('rcx-input-box__addon', 'span');
+const Wrapper = Box.extend('rcx-input-box__wrapper', 'span');
+const Input = Box.extend('rcx-input-box', 'input');
+const Addon = Box.extend('rcx-input-box__addon', 'span');
 
-export const InputBox = React.forwardRef(function InputBox({
+export const InputBox = forwardRef(function InputBox({
   className,
   addon,
   error,
@@ -50,7 +50,7 @@ export const InputBox = React.forwardRef(function InputBox({
 
   if (!addon) {
     return <Input
-      as={
+      is={
         (type === 'textarea' && 'textarea')
       || (type === 'select' && 'select')
       || 'input'}
@@ -82,7 +82,7 @@ export const InputBox = React.forwardRef(function InputBox({
     invisible={invisible}
   >
     <Input
-      as={
+      is={
         (type === 'textarea' && 'textarea')
       || (type === 'select' && 'select')
       || 'input'}
@@ -121,7 +121,6 @@ InputBox.propTypes = {
   input: PropTypes.element,
   error: PropTypes.string,
   floatingAddon: PropTypes.bool,
-  invisible: PropTypes.bool,
   type: PropTypes.oneOf([
     'button',
     'checkbox',

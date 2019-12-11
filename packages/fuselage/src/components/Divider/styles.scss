@@ -1,10 +1,8 @@
 @import '~@rocket.chat/fuselage-tokens/colors.scss';
 
 .rcx-divider {
-  @include box;
-
   margin-block-start: #{ $spaces-x16 };
   margin-block-end: #{ $spaces-x16 };
 
-  border: #{ $borders-width-x1 } solid #{ map-get($colors, dark300) };
+  border: #{ $borders-width-x1 } solid #{ $colors-n300 };
 }

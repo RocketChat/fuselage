@@ -1,13 +1,9 @@
 .rcx-level {
-  @include box;
-
   display: flex;
   flex-flow: row wrap;
 }
 
 .rcx-level__item {
-  @include box;
-
   flex: 1 1 100%;
 
   max-width: 100%;

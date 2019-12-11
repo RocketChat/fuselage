@@ -1,6 +1,4 @@
 .rcx-field {
-  @include box;
-
   display: flex;
 
   width: 100%;
@@ -14,8 +12,6 @@
 }
 
 .rcx-field__row {
-  @include box;
-
   display: flex;
   align-items: center;
   flex-flow: row nowrap;

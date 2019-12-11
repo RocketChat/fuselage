@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const PlaceholderContainer = createStyledComponent('rcx-input-box__placeholder', 'option');
+const PlaceholderContainer = Box.extend('rcx-input-box__placeholder', 'option');
 
-export const Placeholder = React.forwardRef(function Placeholder(props, ref) {
+export const Placeholder = forwardRef(function Placeholder(props, ref) {
   return <PlaceholderContainer ref={ref} {...props} />;
 });
 
@@ -13,5 +13,4 @@ Placeholder.displayName = 'InputBox.Placeholder';
 
 Placeholder.propTypes = {
   children: PropTypes.node,
-  invisible: PropTypes.bool,
 };

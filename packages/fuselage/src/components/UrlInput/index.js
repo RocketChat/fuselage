@@ -1,10 +1,10 @@
 import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 
-export const UrlInput = React.forwardRef(function UrlInput({
+export const UrlInput = forwardRef(function UrlInput({
   className,
   ...props
 }, ref) {
@@ -17,5 +17,4 @@ UrlInput.displayName = 'UrlInput';
 UrlInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
 };

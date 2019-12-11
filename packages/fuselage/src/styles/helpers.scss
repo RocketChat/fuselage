@@ -1,0 +1,19 @@
+@function to-em($length) {
+  @if type-of($length) == number {
+    @return #{$length / 16}em;
+  }
+
+  @return $length;
+}
+
+@function to-rem($length) {
+  @if type-of($length) == number {
+    @return #{$length / 16}rem;
+  }
+
+  @return $length;
+}
+
+@function theme($var-name, $value) {
+  @return var(--rcx-#{$var-name}, #{$value});
+}

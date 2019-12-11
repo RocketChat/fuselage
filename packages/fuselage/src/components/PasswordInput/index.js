@@ -1,10 +1,10 @@
 import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 
-export const PasswordInput = React.forwardRef(function PasswordInput({
+export const PasswordInput = forwardRef(function PasswordInput({
   className,
   ...props
 }, ref) {
@@ -17,5 +17,4 @@ PasswordInput.displayName = 'PasswordInput';
 PasswordInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
 };

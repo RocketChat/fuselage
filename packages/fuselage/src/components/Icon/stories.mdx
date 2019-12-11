@@ -2,16 +2,16 @@ import namesToCharactersMapping from '@rocket.chat/icons';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Hint, Icon, Text } from '../..';
+import { Box, Hint, Icon } from '../..';
 
 <Meta title='Misc|Icon' />
 
 # Icon
 
 <Story name='Default'>
-  <Text is='div' paragraph defaultColor>
-    {Object.keys(namesToCharactersMapping).map((name) => <Icon key={name} name={name} x40 /> )}
-  </Text>
+  <Box textColor='default' textStyle='paragraph'>
+    {Object.keys(namesToCharactersMapping).map((name) => <Icon key={name} name={name} size='40' /> )}
+  </Box>
 </Story>
 
 <Props of={Icon} />
@@ -35,10 +35,10 @@ export const styles = {
 <div style={styles.container}>
   {Object.keys(namesToCharactersMapping).map((name) =>
     <div key={name} style={styles.wrapper}>
-      <Text is='div'>
-        <Icon name={name} x40 />
-      </Text>
-      <Text is='div' hintColor>{name}</Text>
+      <Box>
+        <Icon name={name} size='40' />
+      </Box>
+      <Box textColor='hint'>{name}</Box>
     </div>
   )}
 </div>

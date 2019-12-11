@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createStyledComponent } from '../../styles';
 import { Item } from './Item';
+import { Box } from '../Box';
 
-const Container = createStyledComponent('rcx-accordion');
+const Container = Box.extend('rcx-accordion');
 
-export const Accordion = React.forwardRef(function Accordion(props, ref) {
-  return <Container ref={ref} {...props} />;
-});
+export function Accordion(props) {
+  return <Container {...props} />;
+}
 
 Accordion.displayName = 'Accordion';
 

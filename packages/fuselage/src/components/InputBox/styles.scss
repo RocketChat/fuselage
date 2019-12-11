@@ -38,8 +38,6 @@
 }
 
 .rcx-input-box__wrapper {
-  @include box;
-
   position: relative;
 
   display: inline-flex;
@@ -92,8 +90,6 @@
 }
 
 .rcx-input-box__addon {
-  @include box;
-
   display: flex;
   flex: 0 0 auto;
 
@@ -192,8 +188,6 @@
 }
 
 .rcx-input-box {
-  @include box;
-
   position: relative;
 
   display: inline-flex;
@@ -329,7 +323,6 @@
 }
 
 .rcx-input-box__placeholder {
-  @include box;
   @include with-text--ellipsis;
   @include with-text--nowrap;
 
@@ -338,7 +331,6 @@
 }
 
 .rcx-input-box__option {
-  @include box;
   @include with-text--ellipsis;
   @include with-text--nowrap;
 
@@ -347,8 +339,6 @@
 }
 
 .rcx-skeleton__input {
-  @include box;
-
   display: inline-flex;
 
   flex: 1 0 0;

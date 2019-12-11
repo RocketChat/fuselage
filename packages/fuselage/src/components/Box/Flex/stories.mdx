@@ -1,0 +1,209 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Box, Flex, Tile } from '../../..';
+
+<Meta title='Box|Flex' parameters={{ jest: ['Flex/spec'] }} />
+
+# Flex
+
+<Preview>
+  <Story name='Default'>
+    <Flex.Container>
+      <Tile>
+        {Array.from({ length: 3 }).map((_, i) =>
+          <Flex.Item key={i}>
+            <Tile>#{i + 1}</Tile>
+          </Flex.Item>
+        )}
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+## Flex.Container
+
+<Props of={Flex.Container} />
+
+### Direction
+
+<Preview>
+  <Story name='Direction'>
+    <Flex.Container direction='row-reverse'>
+      <Tile>
+        {Array.from({ length: 3 }).map((_, i) =>
+          <Flex.Item key={i}>
+            <Tile>#{i + 1}</Tile>
+          </Flex.Item>
+        )}
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+### Wrap
+
+<Preview>
+  <Story name='Wrap'>
+    <Flex.Container wrap='wrap'>
+      <Tile>
+        {Array.from({ length: 12 }).map((_, i) =>
+          <Flex.Item key={i}>
+            <Tile>#{i + 1}</Tile>
+          </Flex.Item>
+        )}
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+### Justify content
+
+<Preview>
+  <Story name='Justify Content'>
+    <Flex.Container justifyContent='space-around'>
+      <Tile>
+        {Array.from({ length: 3 }).map((_, i) =>
+          <Flex.Item key={i}>
+            <Tile>#{i + 1}</Tile>
+          </Flex.Item>
+        )}
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+### Align items
+
+<Preview>
+  <Story name='Align Items'>
+    <Flex.Container alignItems='flex-end'>
+      <Tile>
+        {Array.from({ length: 3 }).map((_, i) =>
+          <Flex.Item key={i}>
+            <Tile style={{ height: i * 100 }}>#{i + 1}</Tile>
+          </Flex.Item>
+        )}
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+### Align content
+
+<Preview>
+  <Story name='Align Content'>
+    <Flex.Container wrap='wrap' alignContent='flex-end'>
+      <Tile style={{ minHeight: 400 }}>
+        {Array.from({ length: 12 }).map((_, i) =>
+          <Flex.Item key={i}>
+            <Tile>#{i + 1}</Tile>
+          </Flex.Item>
+        )}
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+## Flex.Item
+
+<Props of={Flex.Item} />
+
+### Order
+
+<Preview>
+  <Story name='Order'>
+    <Flex.Container>
+      <Tile>
+        <Flex.Item>
+          <Tile>#1</Tile>
+        </Flex.Item>
+        <Flex.Item order={1}>
+          <Tile>#2</Tile>
+        </Flex.Item>
+        <Flex.Item>
+          <Tile>#3</Tile>
+        </Flex.Item>
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+### Grow
+
+<Preview>
+  <Story name='Grow'>
+    <Flex.Container>
+      <Tile>
+        <Flex.Item>
+          <Tile>#1</Tile>
+        </Flex.Item>
+        <Flex.Item grow={1}>
+          <Tile>#2</Tile>
+        </Flex.Item>
+        <Flex.Item>
+          <Tile>#3</Tile>
+        </Flex.Item>
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+### Shrink
+
+<Preview>
+  <Story name='Shrink'>
+    <Flex.Container>
+      <Tile>
+        <Flex.Item>
+          <Tile>#1</Tile>
+        </Flex.Item>
+        <Flex.Item shrink={1}>
+          <Tile style={{ width: '100%' }}>#2</Tile>
+        </Flex.Item>
+        <Flex.Item>
+          <Tile>#3</Tile>
+        </Flex.Item>
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+### Basis
+
+<Preview>
+  <Story name='Basis'>
+    <Flex.Container>
+      <Tile>
+        <Flex.Item>
+          <Tile>#1</Tile>
+        </Flex.Item>
+        <Flex.Item basis='400px'>
+          <Tile>#2</Tile>
+        </Flex.Item>
+        <Flex.Item>
+          <Tile>#3</Tile>
+        </Flex.Item>
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+### Align
+
+<Preview>
+  <Story name='Align'>
+    <Flex.Container alignItems='center'>
+      <Tile style={{ minHeight: 400 }}>
+        <Flex.Item>
+          <Tile>#1</Tile>
+        </Flex.Item>
+        <Flex.Item align='flex-end'>
+          <Tile>#2</Tile>
+        </Flex.Item>
+        <Flex.Item>
+          <Tile>#3</Tile>
+        </Flex.Item>
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>

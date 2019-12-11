@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { createStyledComponent } from '../../styles';
+import { Box } from '../Box';
 
-const Container = createStyledComponent('rcx-button', 'button');
+const Container = Box.extend('rcx-button', 'button');
 
-export const Button = React.forwardRef(function Button({
+export const Button = forwardRef(function Button({
   danger,
   external,
   ghost,
@@ -26,7 +26,7 @@ export const Button = React.forwardRef(function Button({
   || {};
 
   return <Container
-    as={is}
+    is={is}
     mod-danger={danger}
     mod-ghost={ghost}
     mod-ghost-danger={ghost && danger}
@@ -44,8 +44,5 @@ export const Button = React.forwardRef(function Button({
 Button.displayName = 'Button';
 
 Button.propTypes = {
-  /** Is this component a link to an external URL? */
   external: PropTypes.bool,
-  /** Is this component visible? */
-  invisible: PropTypes.bool,
 };

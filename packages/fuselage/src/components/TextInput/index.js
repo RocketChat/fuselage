@@ -1,10 +1,10 @@
 import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 
-export const TextInput = React.forwardRef(function TextInput({
+export const TextInput = forwardRef(function TextInput({
   className,
   ...props
 }, ref) {
@@ -17,5 +17,4 @@ TextInput.displayName = 'TextInput';
 TextInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
-  invisible: PropTypes.bool,
 };
