@@ -67,8 +67,12 @@ export const Box = memo(forwardRef(function Box({
   ...props
 }, ref) {
   useStyleSheet();
-  const [contextualProps, PropsProvider] = useProps();
-  const [modifiersClasses, otherProps] = filterModifierClassNames(componentClassName, props);
+  const [{
+    className: contextualClassName,
+    style: contextualStyle,
+    ...contextualProps
+  }, PropsProvider] = useProps();
+  const [modifiersClasses, otherProps] = filterModifierClassNames(componentClassName, { ...contextualProps, ...props });
 
   const children = createElement(is, {
     className: [
@@ -80,12 +84,12 @@ export const Box = memo(forwardRef(function Box({
       }),
       componentClassName,
       ...modifiersClasses,
-      contextualProps.className,
+      contextualClassName,
       className,
     ].filter(Boolean).join(' '),
     ref,
     style: {
-      ...contextualProps.style,
+      ...contextualStyle,
       ...style,
     },
     ...otherProps,
