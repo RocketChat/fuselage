@@ -15,26 +15,6 @@
   clip-path: inset(50%);
 }
 
-%tile-0 {
-  border-radius: $borders-radius-x2;
-  background-color: #{ $colors-white };
-  box-shadow: none;
-}
-
-%tile-1 {
-  border-radius: $borders-radius-x2;
-  background-color: #{ $colors-white };
-  box-shadow: 0 0 to-rem(12) 0 rgba(47, 52, 61, 0.1);
-}
-
-%tile-2 {
-  border-radius: $borders-radius-x2;
-  background-color: #{ $colors-white };
-  box-shadow:
-    0 0 to-rem(2) 0 rgba(47, 52, 61, 0.08),
-    0 0 to-rem(12) 0 rgba(47, 52, 61, 0.12);
-}
-
 %with-scrollbars {
   &::-webkit-scrollbar {
     block-size: $sizes-x4;
@@ -57,3 +37,7 @@
 %with-non-wrapped-text {
   white-space: nowrap;
 }
+
+@import './box.scss';
+@import './button.scss';
+@import './tile.scss';

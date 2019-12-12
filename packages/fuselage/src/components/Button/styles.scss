@@ -64,8 +64,7 @@
   );
 }
 
-.rcx-button,
-%rcx-button {
+.rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
     padding:
       calc((#{ $height } - #{ $line-height }) / 2 - #{ $borders-width-x2 })
@@ -97,12 +96,6 @@
   white-space: nowrap;
   text-decoration: none;
 
-  border-width: $borders-width-x2;
-  border-style: solid;
-  border-radius: $borders-radius-x2;
-
-  appearance: none;
-
   @include clickable;
   @include with-ellipsing-text;
   @include as-paragraph($bold: true);
@@ -113,7 +106,7 @@
     $line-height: $text-styles-p1-line-height,
   );
 
-  @extend %button-secondary-color;
+  @extend %button--secondary;
 
   &--small {
     @include as-caption($bold: true);
@@ -138,92 +131,35 @@
   }
 
   &--danger {
-    @include button-with-colors(
-      $background-color: $button-colors-secondary-background-color,
-      $border-color: $button-colors-secondary-border-color,
-      $color: $colors-r500,
-      $hover-background-color: $button-colors-secondary-hover-background-color,
-      $hover-border-color: $button-colors-secondary-hover-border-color,
-      $active-background-color: $button-colors-secondary-active-background-color,
-      $active-border-color: $button-colors-secondary-active-border-color,
-      $focus-background-color: $button-colors-secondary-focus-background-color,
-      $focus-border-color: $button-colors-secondary-focus-border-color,
-      $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-      $disabled-background-color: $button-colors-secondary-disabled-background-color,
-      $disabled-border-color: $button-colors-secondary-disabled-border-color,
-      $disabled-color: $colors-r100,
-    );
+    color: $colors-r500;
+
+    &.disabled,
+    &:disabled {
+      color: $colors-r100;
+    }
   }
 
   &--primary {
-    @include button-with-colors(
-      $background-color: $button-colors-primary-background-color,
-      $border-color: $button-colors-primary-border-color,
-      $color: $button-colors-primary-color,
-      $hover-background-color: $button-colors-primary-hover-background-color,
-      $hover-border-color: $button-colors-primary-hover-border-color,
-      $active-background-color: $button-colors-primary-active-background-color,
-      $active-border-color: $button-colors-primary-active-border-color,
-      $focus-background-color: $button-colors-primary-focus-background-color,
-      $focus-border-color: $button-colors-primary-focus-border-color,
-      $focus-shadow-color: $button-colors-primary-focus-shadow-color,
-      $disabled-background-color: $button-colors-primary-disabled-background-color,
-      $disabled-border-color: $button-colors-primary-disabled-border-color,
-      $disabled-color: $button-colors-primary-disabled-color,
-    );
+    @extend %button--primary;
   }
 
   &--primary-danger {
-    @include button-with-colors(
-      $background-color: $button-colors-danger-background-color,
-      $border-color: $button-colors-danger-border-color,
-      $color: $button-colors-danger-color,
-      $hover-background-color: $button-colors-danger-hover-background-color,
-      $hover-border-color: $button-colors-danger-hover-border-color,
-      $active-background-color: $button-colors-danger-active-background-color,
-      $active-border-color: $button-colors-danger-active-border-color,
-      $focus-background-color: $button-colors-danger-focus-background-color,
-      $focus-border-color: $button-colors-danger-focus-border-color,
-      $focus-shadow-color: $button-colors-danger-focus-shadow-color,
-      $disabled-background-color: $button-colors-danger-disabled-background-color,
-      $disabled-border-color: $button-colors-danger-disabled-border-color,
-      $disabled-color: $button-colors-danger-disabled-color,
-    );
+    @extend %button--danger;
   }
 
   &--ghost {
-    @include button-with-colors(
-      $background-color: transparent,
-      $border-color: transparent,
-      $color: $button-colors-secondary-color,
-      $hover-background-color: $button-colors-secondary-hover-background-color,
-      $hover-border-color: $button-colors-secondary-hover-border-color,
-      $active-background-color: $button-colors-secondary-active-background-color,
-      $active-border-color: $button-colors-secondary-active-border-color,
-      $focus-background-color: $button-colors-secondary-focus-background-color,
-      $focus-border-color: $button-colors-secondary-focus-border-color,
-      $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-      $disabled-background-color: $button-colors-secondary-disabled-background-color,
-      $disabled-border-color: $button-colors-secondary-disabled-border-color,
-      $disabled-color: $button-colors-secondary-disabled-color,
-    );
+    border-color: transparent;
+    background-color: transparent;
   }
 
   &--ghost-danger {
-    @include button-with-colors(
-      $background-color: transparent,
-      $border-color: transparent,
-      $color: $colors-r500,
-      $hover-background-color: $button-colors-secondary-hover-background-color,
-      $hover-border-color: $button-colors-secondary-hover-border-color,
-      $active-background-color: $button-colors-secondary-active-background-color,
-      $active-border-color: $button-colors-secondary-active-border-color,
-      $focus-background-color: $button-colors-secondary-focus-background-color,
-      $focus-border-color: $button-colors-secondary-focus-border-color,
-      $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-      $disabled-background-color: $button-colors-secondary-disabled-background-color,
-      $disabled-border-color: $button-colors-secondary-disabled-border-color,
-      $disabled-color: $colors-r100,
-    );
+    color: $colors-r500;
+    border-color: transparent;
+    background-color: transparent;
+
+    &.disabled,
+    &:disabled {
+      color: $colors-r100;
+    }
   }
 }
