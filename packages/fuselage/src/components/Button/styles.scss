@@ -4,8 +4,8 @@ $border-color,
 $hover-background-color,
 $hover-border-color,
 $active-background-color,
-  $active-border-color,
-  $focus-background-color,
+$active-border-color,
+$focus-background-color,
   $focus-border-color,
   $focus-shadow-color,
   $disabled-color,
@@ -52,8 +52,8 @@ $active-background-color,
   $hover-background-color: $button-colors-secondary-hover-background-color,
   $hover-border-color: $button-colors-secondary-hover-border-color,
   $active-background-color: $button-colors-secondary-active-background-color,
-    $active-border-color: $button-colors-secondary-active-border-color,
-    $focus-background-color: $button-colors-secondary-focus-background-color,
+  $active-border-color: $button-colors-secondary-active-border-color,
+  $focus-background-color: $button-colors-secondary-focus-background-color,
     $focus-border-color: $button-colors-secondary-focus-border-color,
     $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
     $disabled-background-color: $button-colors-secondary-disabled-background-color,
@@ -92,6 +92,7 @@ $active-background-color,
 
   text-align: center;
   vertical-align: middle;
+  white-space: nowrap;
   text-decoration: none;
 
   border-width: $borders-width-x2;
@@ -101,8 +102,7 @@ $active-background-color,
   appearance: none;
 
   @include clickable;
-  @include with-text--ellipsis;
-  @include with-text--nowrap;
+  @include with-ellipsing-text;
   @include as-paragraph($bold: true);
 
   @include with-rectangular-size(
