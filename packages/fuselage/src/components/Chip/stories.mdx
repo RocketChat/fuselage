@@ -1,0 +1,20 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { Chip, Margins } from '../..';
+const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
+
+<Meta title='Misc|Chip' parameters={{ jest: ['Chip/spec'] }} />
+
+# Chip
+
+<Preview>
+  <Story name='Default'>
+    <Chip.Wrapper>
+      <Chip onClick={action('click')} thumbUrl={thumb}>Chip</Chip>
+      <Chip thumbUrl={thumb}>Chip Chip Chip Chip Chip</Chip>
+      <Chip onClick={action('click')} >Chip Chip Chip Chip Chip Chip Chip Chip Chip Chip</Chip>
+      <Chip>Chip Chip Chip Chip Chip Chip Chip Chip Chip Chip</Chip>
+    </Chip.Wrapper>
+  </Story>
+</Preview>

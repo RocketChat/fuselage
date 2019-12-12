@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Box, Flex } from '../Box';
 
-export const context = createContext({
+const context = createContext({
   baseUrl: '',
 });
 
@@ -23,12 +23,14 @@ export const Avatar = ({ title, url, size = 'x32', ...props }) => {
 
 Avatar.displayName = 'Avatar';
 
+Avatar.context = context;
+
 Avatar.propTypes = {
   className: PropTypes.string,
   url: PropTypes.string,
   title: PropTypes.string,
   componentClassName: PropTypes.string,
-  is: PropTypes.elementType.isRequired,
+  is: PropTypes.elementType,
   style: PropTypes.object,
   size: PropTypes.oneOf(['x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x44']),
 };

@@ -31,3 +31,4 @@ export * from './ToggleSwitch';
 export * from './UrlInput';
 export * from './Divider';
 export * from './Avatar';
+export * from './Chip';

@@ -1,4 +1,69 @@
-.rcx-button {
+@mixin button-with-colors($color,
+$background-color,
+$border-color,
+$hover-background-color,
+$hover-border-color,
+$active-background-color,
+  $active-border-color,
+  $focus-background-color,
+  $focus-border-color,
+  $focus-shadow-color,
+  $disabled-color,
+  $disabled-background-color,
+  $disabled-border-color,
+) {
+  color: $color;
+  border-color: $border-color;
+  background-color: $background-color;
+
+  &.focus,
+  &:focus {
+    border-color: $focus-border-color;
+    background-color: $focus-background-color;
+    box-shadow: 0 0 0 to-rem(6) $focus-shadow-color;
+  }
+
+  &.hover,
+  &:hover {
+    border-color: $hover-border-color;
+    background-color: $hover-background-color;
+    box-shadow: none;
+  }
+
+  &.active,
+  &:active {
+    border-color: $active-border-color;
+    background-color: $active-background-color;
+    box-shadow: none;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $disabled-color;
+    border-color: $disabled-border-color;
+    background-color: $disabled-background-color;
+  }
+}
+
+%button-secondary-color { // TODO: primitive atomic component
+  @include button-with-colors($background-color: $button-colors-secondary-background-color,
+  $border-color: $button-colors-secondary-border-color,
+  $color: $button-colors-secondary-color,
+  $hover-background-color: $button-colors-secondary-hover-background-color,
+  $hover-border-color: $button-colors-secondary-hover-border-color,
+  $active-background-color: $button-colors-secondary-active-background-color,
+    $active-border-color: $button-colors-secondary-active-border-color,
+    $focus-background-color: $button-colors-secondary-focus-background-color,
+    $focus-border-color: $button-colors-secondary-focus-border-color,
+    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
+    $disabled-background-color: $button-colors-secondary-disabled-background-color,
+    $disabled-border-color: $button-colors-secondary-disabled-border-color,
+    $disabled-color: $button-colors-secondary-disabled-color,
+  );
+}
+
+.rcx-button,
+%rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
     padding:
       calc((#{ $height } - #{ $line-height }) / 2 - #{ $borders-width-x2 })
@@ -20,54 +85,6 @@
 
       content: '';
       vertical-align: middle;
-    }
-  }
-
-  @mixin with-colors(
-    $color,
-    $background-color,
-    $border-color,
-    $hover-background-color,
-    $hover-border-color,
-    $active-background-color,
-    $active-border-color,
-    $focus-background-color,
-    $focus-border-color,
-    $focus-shadow-color,
-    $disabled-color,
-    $disabled-background-color,
-    $disabled-border-color,
-  ) {
-    color: $color;
-    border-color: $border-color;
-    background-color: $background-color;
-
-    &.focus,
-    &:focus {
-      border-color: $focus-border-color;
-      background-color: $focus-background-color;
-      box-shadow: 0 0 0 to-rem(6) $focus-shadow-color;
-    }
-
-    &.hover,
-    &:hover {
-      border-color: $hover-border-color;
-      background-color: $hover-background-color;
-      box-shadow: none;
-    }
-
-    &.active,
-    &:active {
-      border-color: $active-border-color;
-      background-color: $active-background-color;
-      box-shadow: none;
-    }
-
-    &.disabled,
-    &:disabled {
-      color: $disabled-color;
-      border-color: $disabled-border-color;
-      background-color: $disabled-background-color;
     }
   }
 
@@ -94,21 +111,7 @@
     $line-height: $text-styles-p1-line-height,
   );
 
-  @include with-colors(
-    $background-color: $button-colors-secondary-background-color,
-    $border-color: $button-colors-secondary-border-color,
-    $color: $button-colors-secondary-color,
-    $hover-background-color: $button-colors-secondary-hover-background-color,
-    $hover-border-color: $button-colors-secondary-hover-border-color,
-    $active-background-color: $button-colors-secondary-active-background-color,
-    $active-border-color: $button-colors-secondary-active-border-color,
-    $focus-background-color: $button-colors-secondary-focus-background-color,
-    $focus-border-color: $button-colors-secondary-focus-border-color,
-    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-    $disabled-background-color: $button-colors-secondary-disabled-background-color,
-    $disabled-border-color: $button-colors-secondary-disabled-border-color,
-    $disabled-color: $button-colors-secondary-disabled-color,
-  );
+  @extend %button-secondary-color;
 
   &--small {
     @include as-caption($bold: true);
@@ -133,7 +136,7 @@
   }
 
   &--danger {
-    @include with-colors(
+    @include button-with-colors(
       $background-color: $button-colors-secondary-background-color,
       $border-color: $button-colors-secondary-border-color,
       $color: $colors-r500,
@@ -151,7 +154,7 @@
   }
 
   &--primary {
-    @include with-colors(
+    @include button-with-colors(
       $background-color: $button-colors-primary-background-color,
       $border-color: $button-colors-primary-border-color,
       $color: $button-colors-primary-color,
@@ -169,7 +172,7 @@
   }
 
   &--primary-danger {
-    @include with-colors(
+    @include button-with-colors(
       $background-color: $button-colors-danger-background-color,
       $border-color: $button-colors-danger-border-color,
       $color: $button-colors-danger-color,
@@ -187,7 +190,7 @@
   }
 
   &--ghost {
-    @include with-colors(
+    @include button-with-colors(
       $background-color: transparent,
       $border-color: transparent,
       $color: $button-colors-secondary-color,
@@ -205,7 +208,7 @@
   }
 
   &--ghost-danger {
-    @include with-colors(
+    @include button-with-colors(
       $background-color: transparent,
       $border-color: transparent,
       $color: $colors-r500,
