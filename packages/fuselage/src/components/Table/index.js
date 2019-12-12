@@ -7,12 +7,14 @@ export function Table({
   fixed = false,
   ...props
 }) {
-  return <Box
-    is='table'
-    componentClassName='rcx-table'
-    mod-fixed={fixed}
-    {...props}
-  />;
+  return <Box componentClassName='rcx-table__wrapper'>
+    <Box
+      is='table'
+      componentClassName='rcx-table'
+      mod-fixed={fixed}
+      {...props}
+    />
+  </Box>;
 }
 
 const TableHeadContext = createContext(false);
@@ -46,6 +48,7 @@ export function TableCell({
     textStyle='paragraph'
     textColor='default'
     mod-align={align}
+    mod-header={isInsideHead}
     {...props}
   />;
 }
