@@ -1,8 +1,8 @@
 import React from 'react';
 import {
+  Box,
   Flex,
   Grid,
-  Text,
 } from '@rocket.chat/fuselage';
 import {
   BLOCK_CONTEXT,
@@ -38,7 +38,7 @@ const Fields = ({ fields, parser }) => (
 export const Section = ({ blockId, appId, text, fields, accessory, parser }) => <Block>
   <Grid>
     <Grid.Item>
-      {text && <Text>{parser.text(text)}</Text>}
+      {text && <Box is='span' textStyle='paragraph' textColor='default'>{parser.text(text)}</Box>}
       {fields && <Fields fields={fields} parser={parser} />}
     </Grid.Item>
     { accessory && < Flex.Item grow={0}>
