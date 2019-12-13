@@ -1,100 +1,5 @@
 .rcx-radio-button {
-  %unchecked-default-state {
-    color: $button-colors-empty-color;
-    border-color: $button-colors-empty-border-color;
-    background-color: $button-colors-empty-background-color;
-  }
-
-  %unchecked-focus-state {
-    border-color: $button-colors-empty-focus-border-color;
-    background-color: $button-colors-empty-focus-background-color;
-    box-shadow: 0 0 0 to-rem(6) $button-colors-empty-focus-shadow-color;
-  }
-
-  %unchecked-hover-state {
-    border-color: $button-colors-empty-hover-border-color;
-    background-color: $button-colors-empty-hover-background-color;
-    box-shadow: none;
-  }
-
-  %unchecked-active-state {
-    border-color: $button-colors-empty-active-border-color;
-    background-color: $button-colors-empty-active-background-color;
-    box-shadow: none;
-  }
-
-  %unchecked-disabled-state {
-    color: $button-colors-empty-disabled-color;
-    border-color: $button-colors-empty-disabled-border-color;
-    background-color: $button-colors-empty-disabled-background-color;
-  }
-
-  %checked-state {
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-
-      display: block;
-
-      width: calc(0.3 * #{$sizes-x20});
-      height: calc(0.3 * #{$sizes-x20});
-
-      content: '';
-
-      transform: translate(-50%, -50%);
-
-      border-radius: $borders-radius-full;
-
-      background-color: currentColor;
-      inset-block-start: 50%;
-      inset-inline-start: 50%;
-    }
-  }
-
-  %checked-default-state {
-    color: $button-colors-primary-color;
-    border-color: $button-colors-primary-border-color;
-    background-color: $button-colors-primary-background-color;
-  }
-
-  %checked-focus-state {
-    border-color: $button-colors-primary-focus-border-color;
-    background-color: $button-colors-primary-focus-background-color;
-    box-shadow: 0 0 0 to-rem(6) $button-colors-primary-focus-shadow-color;
-  }
-
-  %checked-hover-state {
-    border-color: $button-colors-primary-hover-border-color;
-    background-color: $button-colors-primary-hover-background-color;
-    box-shadow: none;
-  }
-
-  %checked-active-state {
-    border-color: $button-colors-primary-active-border-color;
-    background-color: $button-colors-primary-active-background-color;
-    box-shadow: none;
-  }
-
-  %checked-disabled-state {
-    color: $button-colors-primary-disabled-color;
-    border-color: $button-colors-primary-disabled-border-color;
-    background-color: $button-colors-primary-disabled-background-color;
-  }
-
-  @include selection-button((
-    unchecked-default: '%unchecked-default-state',
-    unchecked-focus: '%unchecked-focus-state',
-    unchecked-hover: '%unchecked-hover-state',
-    unchecked-active: '%unchecked-active-state',
-    unchecked-disabled: '%unchecked-disabled-state',
-    checked-all: '%checked-state',
-    checked-default: '%checked-default-state',
-    checked-focus: '%checked-focus-state',
-    checked-hover: '%checked-hover-state',
-    checked-active: '%checked-active-state',
-    checked-disabled: '%checked-disabled-state',
-  ));
+  @include is-selection-button($checked: 'primary', $unchecked: 'empty');
 
   &__input {
     @extend %selection-button__input;
@@ -104,5 +9,24 @@
     @extend %selection-button__fake;
     border-radius: $borders-radius-full;
     inline-size: $sizes-x20;
+  }
+
+  &__input:checked + &__fake::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+
+    width: calc(0.3 * #{$sizes-x20});
+    height: calc(0.3 * #{$sizes-x20});
+
+    content: '';
+
+    transform: translate(-50%, -50%);
+
+    border-radius: $borders-radius-full;
+
+    background-color: currentColor;
   }
 }
