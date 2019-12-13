@@ -1,0 +1,42 @@
+@mixin on-hover {
+  &:hover,
+  &.hover,
+  &.is-hovered {
+    @content;
+  }
+}
+
+@mixin on-active {
+  &:active,
+  &.active,
+  &.is-active {
+    @content;
+  }
+}
+
+@mixin on-focus {
+  &:focus,
+  &:focus-within,
+  &.focus,
+  &.is-focused {
+    @content;
+  }
+}
+
+@mixin on-disabled {
+  *:disabled &,
+  &:disabled,
+  &.disabled,
+  &.is-disabled {
+    @content;
+  }
+}
+
+@mixin on-invalid {
+  *:invalid &,
+  &:invalid,
+  &.invalid,
+  &.is-invalid {
+    @content;
+  }
+}

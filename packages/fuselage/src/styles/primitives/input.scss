@@ -15,30 +15,21 @@
   background-color: #{ $background-color };
   box-shadow: none;
 
-  &:hover,
-  &.hover,
-  &.is-hovered {
-    border-color: #{ $hover-border-color };
+  @include on-hover {
+    border-color: $hover-border-color;
   }
 
-  &:focus-within,
-  &.focus,
-  &.is-focused {
-    border-color: #{ $focus-border-color };
-    box-shadow: 0 0 0 #{ to-rem(6) } #{ $focus-shadow-color };
+  @include on-focus {
+    border-color: $focus-border-color;
+    box-shadow: 0 0 0 #{to-rem(6)} $focus-shadow-color;
   }
 
-  &:active,
-  &.is-active,
-  &.active {
+  @include on-active {
     border-color: #{ $active-border-color };
     box-shadow: none;
   }
 
-  *:disabled &,
-  &:disabled,
-  &.disabled,
-  &.is-disabled {
+  @include on-disabled {
     border-color: #{ $disabled-border-color };
     background-color: #{ $disabled-background-color };
   }

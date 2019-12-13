@@ -22,34 +22,25 @@
 
   appearance: none;
 
-  &.focus,
-  &.is-focused,
-  &:focus {
+  @include on-focus {
     border-color: $focus-border-color;
     background-color: $focus-background-color;
-    box-shadow: 0 0 0 to-rem(6) $focus-shadow-color;
+    box-shadow: 0 0 0 #{to-rem(6)} $focus-shadow-color;
   }
 
-  &.hover,
-  &.is-hovered,
-  &:hover {
+  @include on-hover {
     border-color: $hover-border-color;
     background-color: $hover-background-color;
     box-shadow: none;
   }
 
-  &.active,
-  &.is-active,
-  &:active {
+  @include on-active {
     border-color: $active-border-color;
     background-color: $active-background-color;
     box-shadow: none;
   }
 
-  *:disabled &,
-  &.disabled,
-  &.is-disabled,
-  &:disabled {
+  @include on-disabled {
     color: $disabled-color;
     border-color: $disabled-border-color;
     background-color: $disabled-background-color;
