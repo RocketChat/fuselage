@@ -1,58 +1,51 @@
-@mixin as-headline {
-  letter-spacing: $text-styles-h1-letter-spacing;
+@mixin use-text-style($style) {
+  $style: map-get($text-styles, $style);
 
-  font-family: $text-styles-h1-font-family;
-  font-size: $text-styles-h1-font-size;
-  font-weight: $text-styles-h1-font-weight;
-  line-height: $text-styles-h1-line-height;
+  letter-spacing: map-get($style, letter-spacing);
+
+  font-family: map-get($style, font-family);
+  font-size: map-get($style, font-size);
+  font-weight: map-get($style, font-weight);
+  line-height: map-get($style, line-height);
+}
+
+@mixin use-text-color($color-name) {
+  color: map-get($text-colors, $color-name);
+}
+
+@mixin as-headline {
+  @include use-text-style(h1);
 }
 
 @mixin as-subtitle($bold: false) {
-  letter-spacing: $text-styles-s1-letter-spacing;
-
-  font-family: $text-styles-s1-font-family;
-  font-size: $text-styles-s1-font-size;
-  font-weight: $text-styles-s1-font-weight;
-  line-height: $text-styles-s1-line-height;
-
   @if $bold {
-    font-weight: $text-styles-p2-font-weight;
+    @include use-text-style(s2);
+  }
+  @else {
+    @include use-text-style(s1);
   }
 }
 
 @mixin as-paragraph($bold: false) {
-  letter-spacing: $text-styles-p1-letter-spacing;
-
-  font-family: $text-styles-p1-font-family;
-  font-size: $text-styles-p1-font-size;
-  font-weight: $text-styles-p1-font-weight;
-  line-height: $text-styles-p1-line-height;
-
   @if $bold {
-    font-weight: $text-styles-p2-font-weight;
+    @include use-text-style(p2);
+  }
+  @else {
+    @include use-text-style(p1);
   }
 }
 
 @mixin as-caption($bold: false) {
-  letter-spacing: $text-styles-c1-letter-spacing;
-
-  font-family: $text-styles-c1-font-family;
-  font-size: $text-styles-c1-font-size;
-  font-weight: $text-styles-c1-font-weight;
-  line-height: $text-styles-c1-line-height;
-
   @if $bold {
-    font-weight: $text-styles-c2-font-weight;
+    @include use-text-style(c2);
+  }
+  @else {
+    @include use-text-style(c1);
   }
 }
 
 @mixin as-micro-text {
-  letter-spacing: $text-styles-micro-letter-spacing;
-
-  font-family: $text-styles-micro-font-family;
-  font-size: $text-styles-micro-font-size;
-  font-weight: $text-styles-micro-font-weight;
-  line-height: $text-styles-micro-line-height;
+  @include use-text-style(micro);
 }
 
 @mixin with-ellipsing-text {
