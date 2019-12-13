@@ -1,0 +1,11 @@
+%selection-button__input {
+  @extend %visually-hidden;
+}
+
+%selection-button__fake {
+  position: relative;
+
+  border-width: $borders-width-x2;
+
+  block-size: $sizes-x20;
+}

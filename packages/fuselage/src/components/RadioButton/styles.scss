@@ -31,7 +31,6 @@
 
   %checked-state {
     &::before {
-
       position: absolute;
       top: 50%;
       left: 50%;
@@ -95,9 +94,15 @@
     checked-hover: '%checked-hover-state',
     checked-active: '%checked-active-state',
     checked-disabled: '%checked-disabled-state',
-  )) {
-    width: $sizes-x20;
+  ));
 
+  &__input {
+    @extend %selection-button__input;
+  }
+
+  &__fake {
+    @extend %selection-button__fake;
     border-radius: $borders-radius-full;
+    inline-size: $sizes-x20;
   }
 }

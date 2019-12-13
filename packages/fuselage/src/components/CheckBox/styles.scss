@@ -187,9 +187,15 @@
     indeterminate-hover: '%indeterminate-hover-state',
     indeterminate-active: '%indeterminate-active-state',
     indeterminate-disabled: '%indeterminate-disabled-state',
-  )) {
-    width: $sizes-x20;
+  ));
 
+  &__input {
+    @extend %selection-button__input;
+  }
+
+  &__fake {
+    @extend %selection-button__fake;
     border-radius: $borders-radius-x2;
+    inline-size: $sizes-x20;
   }
 }

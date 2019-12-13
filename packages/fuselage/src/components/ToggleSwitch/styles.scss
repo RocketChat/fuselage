@@ -2,7 +2,7 @@
   %unchecked-state {
     &::before {
       position: absolute;
-      left: 0%;
+      left: 0;
 
       width: calc(#{$sizes-x20} - 2 * #{$borders-width-x2});
       height: calc(#{$sizes-x20} - 2 * #{$borders-width-x2});
@@ -12,7 +12,6 @@
       border-radius: 50%;
 
       background-color: currentColor;
-      inset-inline-start: 0%;
     }
   }
 
@@ -96,9 +95,15 @@
     checked-hover: '%checked-hover-state',
     checked-active: '%checked-active-state',
     checked-disabled: '%checked-disabled-state',
-  )) {
-    width: calc(2 * #{$sizes-x20});
+  ));
 
+  &__input {
+    @extend %selection-button__input;
+  }
+
+  &__fake {
+    @extend %selection-button__fake;
     border-radius: $borders-radius-full;
+    inline-size: calc(2 * #{$sizes-x20});
   }
 }

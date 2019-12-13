@@ -5,20 +5,6 @@
 
   @include clickable;
 
-  & &__input {
-    @include visually-hidden;
-  }
-
-  & &__fake {
-    position: relative;
-
-    height: $sizes-x20;
-
-    border-width: $borders-width-x2;
-
-    @content;
-  }
-
   @each $value-state in unchecked, checked, indeterminate {
     @if map-has-key($states, '#{$value-state}-all') {
       $value-state-class: if($value-state == unchecked, '', '.#{$value-state}');
