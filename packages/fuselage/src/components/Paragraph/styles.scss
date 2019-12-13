@@ -1,9 +1,7 @@
 .rcx-paragraph {
   display: block;
 
-  margin-bottom: $spaces-x16;
-
-  @include as-paragraph;
-
-  color: $text-colors-default;
+  margin-block-end: $spaces-x16;
+  @include use-text-style(p1);
+  @include use-text-color(default);
 }

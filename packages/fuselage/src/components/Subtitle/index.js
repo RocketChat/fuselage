@@ -3,28 +3,22 @@ import React from 'react';
 
 import { Box } from '../Box';
 import { Text } from '../Text';
-import { Skeleton } from './Skeleton';
 
-const Container = Box.extend('rcx-subtitle', 'h2');
-
-export function Subtitle({
-  children,
-  level,
-  ...props
-}) {
-  return <Container is={`h${ level }`} {...props}>
-    <Text children={children} subtitle />
-  </Container>;
+export function SubtitleSkeleton({ animated, ...props }) {
+  return <Box componentClassName='rcx-subtitle' {...props}>
+    <Text.Skeleton animated={animated} defaultColor subtitle />
+  </Box>;
 }
 
-Subtitle.defaultProps = {
-  level: 2,
-};
-
-Subtitle.displayName = 'Subtitle';
+export function Subtitle({
+  level = 2,
+  ...props
+}) {
+  return <Box is={`h${ level }`} componentClassName='rcx-subtitle' {...props} />;
+}
 
 Subtitle.propTypes = {
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
 };
 
-Subtitle.Skeleton = Skeleton;
+Subtitle.Skeleton = SubtitleSkeleton;

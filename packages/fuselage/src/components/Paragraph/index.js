@@ -1,20 +1,23 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
 import { Text } from '../Text';
-import { Skeleton } from './Skeleton';
 
-const Container = Box.extend('rcx-paragraph', 'p');
-
-export function Paragraph({
-  children,
-  ...props
-}) {
-  return <Container {...props}>
-    <Text paragraph children={children} />
-  </Container>;
+export function ParagraphSkeleton({ animated = false, ...props }) {
+  return <Box is='p' componentClassName='rcx-paragraph' {...props}>
+    <Text.Skeleton animated={animated} defaultColor paragraph />
+    <Text.Skeleton animated={animated} defaultColor paragraph />
+    <Text.Skeleton animated={animated} defaultColor paragraph width='4/5' />
+  </Box>;
 }
 
-Paragraph.displayName = 'Paragraph';
+ParagraphSkeleton.propTypes = {
+  animated: PropTypes.bool,
+};
 
-Paragraph.Skeleton = Skeleton;
+export function Paragraph(props) {
+  return <Box is='p' componentClassName='rcx-paragraph' {...props} />;
+}
+
+Paragraph.Skeleton = ParagraphSkeleton;

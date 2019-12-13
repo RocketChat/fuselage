@@ -2,26 +2,26 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
-import { Skeleton } from './Skeleton';
+import { Text } from '../Text';
 
-export function Headline({
-  children,
-  level,
+export function HeadlineSkeleton({
+  animated = false,
   ...props
 }) {
-  return <Box componentClassName='rcx-headline' is={`h${ level }`} {...props}>
-    <Box children={children} is='span' textStyle='headline' />
+  return <Box componentClassName='rcx-headline' {...props}>
+    <Text.Skeleton animated={animated} defaultColor headline />
   </Box>;
 }
 
-Headline.defaultProps = {
-  level: 1,
-};
-
-Headline.displayName = 'Headline';
+export function Headline({
+  level = 1,
+  ...props
+}) {
+  return <Box componentClassName='rcx-headline' is={`h${ level }`} {...props} />;
+}
 
 Headline.propTypes = {
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
 };
 
-Headline.Skeleton = Skeleton;
+Headline.Skeleton = HeadlineSkeleton;
