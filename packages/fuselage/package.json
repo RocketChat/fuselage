@@ -24,15 +24,14 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "lint": "run-s eslint stylelint",
     "lint-staged": "lint-staged",
-    "test": "jest --max-workers=1",
-    "test:results": "jest --max-workers=1 --json --outputFile=.storybook/jest-results.json",
+    "test": "[ -f .storybook/jest-results.json ] && jest --max-workers=1 || jest --max-workers=1 --json --outputFile=.storybook/jest-results.json",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "update-storybook": "run-s test:results build-storybook loki:update"
+    "storybook": "[ -f .storybook/jest-results.json ] && start-storybook -p 6006 || ( jest --max-workers=1 --json --outputFile=.storybook/jest-results.json && start-storybook -p 6006 )",
+    "build-storybook": "[ -f .storybook/jest-results.json ] && build-storybook || (jest --max-workers=1 --json --outputFile=.storybook/jest-results.json && build-storybook )",
+    "update-storybook": "run-s test build-storybook loki:update"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.16",
