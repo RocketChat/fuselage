@@ -7,6 +7,12 @@
     opacity: 0;
   }
 
+  @each $text-style in map-keys($text-styles) {
+    &--text-style-#{$text-style} {
+      @include use-text-style($text-style);
+    }
+  }
+
   &--text-style-headline {
     @include use-text-style(h1);
   }
@@ -23,48 +29,21 @@
     @include use-text-style(c1);
   }
 
-  &--text-style-micro {
-    @include use-text-style(micro);
+  @each $text-color in map-keys($text-colors) {
+    &--text-color-#{$text-color} {
+      @include use-text-color($text-color);
+    }
   }
 
-  &--text-color-default {
+  &--inline {
     @include use-text-color(default);
+    @extend %rich-text--inline;
   }
 
-  &--text-color-info {
-    @include use-text-color(info);
-  }
-
-  &--text-color-hint {
-    @include use-text-color(hint);
-  }
-
-  &--text-color-disabled-label {
-    @include use-text-color(disabled-label);
-  }
-
-  &--text-color-disabled {
-    @include use-text-color(disabled);
-  }
-
-  &--text-color-alternative {
-    @include use-text-color(alternative);
-  }
-
-  &--text-color-primary {
-    @include use-text-color(primary);
-  }
-
-  &--text-color-success {
-    @include use-text-color(success);
-  }
-
-  &--text-color-danger {
-    @include use-text-color(danger);
-  }
-
-  &--text-color-warning {
-    @include use-text-color(warning);
+  &--block {
+    @include use-text-color(default);
+    @extend %rich-text--inline;
+    @extend %rich-text--block;
   }
 }
 

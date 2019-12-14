@@ -1,5 +1,5 @@
-import { Meta, Props } from '@storybook/addon-docs/blocks';
-import { Box } from '../..';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Box, Button } from '../..';
 
 <Meta title='Box|Box' parameters={{ jest: ['Box/spec'] }} />
 
@@ -8,3 +8,84 @@ import { Box } from '../..';
 A primitive component with normalized styles.
 
 <Props of={Box} />
+
+### `is` prop
+
+The `is` prop allows `Box` to render any component capable of handling common DOM attributes, specially `className` and
+`style`.
+
+<Preview>
+  <Story name='is prop'>
+    <Box is={Button}>A Box rendering a Button</Box>
+  </Story>
+</Preview>
+
+### Text styles
+
+<Preview>
+  <Story name='Text styles'>
+    <>
+      <Box textStyle='headline'>Headline</Box>
+      <Box textStyle='subtitle'>Subtitle</Box>
+      <Box textStyle='paragraph'>Paragraph</Box>
+      <Box textStyle='caption'>Caption</Box>
+      <Box textStyle='h1'>H1</Box>
+      <Box textStyle='s1'>S1</Box>
+      <Box textStyle='s2'>S2</Box>
+      <Box textStyle='p1'>P1</Box>
+      <Box textStyle='p2'>P2</Box>
+      <Box textStyle='c1'>C1</Box>
+      <Box textStyle='c2'>C2</Box>
+      <Box textStyle='micro'>Micro</Box>
+      <Box textStyle='mono'>Mono</Box>
+    </>
+  </Story>
+</Preview>
+
+### Text colors
+
+<Preview>
+  <Story name='Text colors'>
+    <>
+      <Box textStyle='p1' textColor='default'>Default</Box>
+      <Box textStyle='p1' textColor='info'>Info</Box>
+      <Box textStyle='p1' textColor='hint'>Hint</Box>
+      <Box textStyle='p1' textColor='disabled-label'>Disabled label</Box>
+      <Box textStyle='p1' textColor='disabled'>Disabled</Box>
+      <Box textStyle='p1' textColor='alternative'>Alternative</Box>
+      <Box textStyle='p1' textColor='primary'>Primary</Box>
+      <Box textStyle='p1' textColor='success'>Success</Box>
+      <Box textStyle='p1' textColor='danger'>Danger</Box>
+      <Box textStyle='p1' textColor='warning'>Warning</Box>
+    </>
+  </Story>
+</Preview>
+
+### Rich text
+
+#### Inline
+
+<Preview>
+  <Story name='Rich text - Inline'>
+    <>
+      <Box textStyle='p1' richText='inline'>
+        default<br />
+        <strong>strong emphasis</strong><br />
+        <em>emphasis</em><br />
+        <b>bring attention</b><br />
+        <i>technical terms, foreign language phrases, or fictional character thoughts</i><br />
+        <a href='https://rocket.chat'>link to Rocket.Chat website</a><br />
+        <q>The problem with quotes found on the internet is that they are often not true. <cite>Abraham Lincoln</cite></q><br />
+        <code>inline code</code><br />
+        <time dateTime='20220101 10:00'>January 1th 2022, 10 a.m.</time><br />
+        <dfn>Definition</dfn>: description.<br />
+        <abbr title='Source Development Kit'>SDK</abbr><br />
+        <del>deleted</del> <ins>inserted</ins><br />
+        <sup>superscript</sup> <sub>subscript</sub><br />
+        <kbd>Ctrl + Alt + Del</kbd><br />
+        <var>x² + y² = r²</var><br />
+        <small>small text</small>
+      </Box>
+    </>
+  </Story>
+</Preview>
