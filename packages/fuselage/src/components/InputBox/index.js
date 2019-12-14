@@ -6,7 +6,7 @@ import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 import { Box, Flex } from '../Box';
 import { Option } from './Option';
 import { Placeholder } from './Placeholder';
-import { Skeleton } from './Skeleton';
+import { Skeleton } from '../Skeleton';
 
 const Wrapper = (props) => <Flex.Container display='inline-flex' alignItems={'center'}><Box className={'rcx-input-box__wrapper'} is={'span'} {...props}/></Flex.Container>;
 const Input = Box.extend('rcx-input-box', 'input');
@@ -160,4 +160,10 @@ InputBox.Placeholder = Placeholder;
 
 InputBox.Option = Option;
 
-InputBox.Skeleton = Skeleton;
+export function InputBoxSkeleton(props) {
+  return <Box componentClassName='rcx-skeleton__input' {...props}>
+    <Skeleton width='100%' />
+  </Box>;
+}
+
+InputBox.Skeleton = InputBoxSkeleton;

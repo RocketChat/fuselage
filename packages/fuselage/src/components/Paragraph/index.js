@@ -1,23 +1,18 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
-import { Text } from '../Text';
-
-export function ParagraphSkeleton({ animated = false, ...props }) {
-  return <Box is='p' componentClassName='rcx-paragraph' {...props}>
-    <Text.Skeleton animated={animated} defaultColor paragraph />
-    <Text.Skeleton animated={animated} defaultColor paragraph />
-    <Text.Skeleton animated={animated} defaultColor paragraph width='4/5' />
-  </Box>;
-}
-
-ParagraphSkeleton.propTypes = {
-  animated: PropTypes.bool,
-};
+import { Skeleton } from '../Skeleton';
 
 export function Paragraph(props) {
   return <Box is='p' componentClassName='rcx-paragraph' {...props} />;
+}
+
+export function ParagraphSkeleton(props) {
+  return <Box componentClassName='rcx-paragraph' {...props}>
+    <Skeleton />
+    <Skeleton />
+    <Skeleton width='80%' />
+  </Box>;
 }
 
 Paragraph.Skeleton = ParagraphSkeleton;

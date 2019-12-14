@@ -2,13 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
-import { Text } from '../Text';
-
-export function SubtitleSkeleton({ animated, ...props }) {
-  return <Box componentClassName='rcx-subtitle' {...props}>
-    <Text.Skeleton animated={animated} defaultColor subtitle />
-  </Box>;
-}
+import { Skeleton } from '../Skeleton';
 
 export function Subtitle({
   level = 2,
@@ -20,5 +14,11 @@ export function Subtitle({
 Subtitle.propTypes = {
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
 };
+
+export function SubtitleSkeleton(props) {
+  return <Box componentClassName='rcx-subtitle' {...props}>
+    <Skeleton />
+  </Box>;
+}
 
 Subtitle.Skeleton = SubtitleSkeleton;

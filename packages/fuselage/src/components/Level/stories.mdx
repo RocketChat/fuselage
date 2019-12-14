@@ -1,6 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Headline, Level, Subtitle, Text } from '../..';
+import { Headline, Level, Subtitle } from '../..';
 
 <Meta title='Misc|Level' parameters={{ jest: ['Level/spec'] }} />
 
@@ -12,20 +12,20 @@ A multi-purpose horizontal level, which can contain almost any other element.
   <Story name='Default'>
     <Level>
       <Level.Item>
-        <Text.Skeleton headline defaultColor />
-        <Text.Skeleton subtitle hintColor />
+        <Headline.Skeleton />
+        <Subtitle.Skeleton />
       </Level.Item>
       <Level.Item>
-        <Text.Skeleton headline defaultColor />
-        <Text.Skeleton subtitle hintColor />
+        <Headline.Skeleton />
+        <Subtitle.Skeleton />
       </Level.Item>
       <Level.Item>
-        <Text.Skeleton headline defaultColor />
-        <Text.Skeleton subtitle hintColor />
+        <Headline.Skeleton />
+        <Subtitle.Skeleton />
       </Level.Item>
       <Level.Item>
-        <Text.Skeleton headline defaultColor />
-        <Text.Skeleton subtitle hintColor />
+        <Headline.Skeleton />
+        <Subtitle.Skeleton />
       </Level.Item>
     </Level>
   </Story>
