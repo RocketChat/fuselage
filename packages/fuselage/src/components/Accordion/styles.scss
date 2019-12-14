@@ -56,8 +56,8 @@
 .rcx-accordion-item__title {
   flex: 1 1 0;
 
-  @include as-subtitle($bold: true);
-  @include with-ellipsing-text;
+  @include use-text-style(s2);
+  @include use-text-ellipsis;
   white-space: nowrap;
 }
 

@@ -1,6 +1,6 @@
 .rcx-chip {
   @include clickable;
-  @include with-ellipsing-text;
+  @include use-text-ellipsis;
 
   @extend %button--secondary;
   border-width: 0;
@@ -17,7 +17,7 @@
   }
 
   &__text {
-    @include with-ellipsing-text;
+    @include use-text-ellipsis;
     white-space: nowrap;
   }
 }

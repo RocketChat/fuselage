@@ -28,7 +28,7 @@
   border-block-end-width: $borders-width-x4;
 
   @include clickable;
-  @include as-subtitle($bold: true);
+  @include use-text-style(s2);
 
   &--active {
     color: $colors-b500;

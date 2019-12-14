@@ -97,8 +97,8 @@
   text-decoration: none;
 
   @include clickable;
-  @include with-ellipsing-text;
-  @include as-paragraph($bold: true);
+  @include use-text-style(p2);
+  @include use-text-ellipsis;
 
   @include with-rectangular-size(
     $height: $sizes-x40,
@@ -109,7 +109,7 @@
   @extend %button--secondary;
 
   &--small {
-    @include as-caption($bold: true);
+    @include use-text-style(c2);
 
     @include with-rectangular-size(
       $height: $sizes-x32,
