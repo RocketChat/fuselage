@@ -1,6 +1,6 @@
+import { testHook } from '@rocket.chat/jest-utils/helpers';
 import { useState } from 'react';
 
-import { testHook } from '../.jest/helpers';
 import { useDebouncedCallback } from '../src';
 
 describe('useDebouncedCallback hook', () => {
@@ -39,7 +39,7 @@ describe('useDebouncedCallback hook', () => {
       },
       (returnedValue) => {
         callbackB = returnedValue;
-      }
+      },
     );
 
     expect(callbackA).toBe(callbackB);
@@ -62,7 +62,7 @@ describe('useDebouncedCallback hook', () => {
       },
       (returnedValue) => {
         callbackB = returnedValue;
-      }
+      },
     );
 
     expect(callbackA).not.toBe(callbackB);
@@ -85,7 +85,7 @@ describe('useDebouncedCallback hook', () => {
       },
       (returnedValue) => {
         callbackB = returnedValue;
-      }
+      },
     );
 
     expect(callbackA).not.toBe(callbackB);

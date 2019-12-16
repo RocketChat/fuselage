@@ -1,4 +1,5 @@
-import { testHook } from '../.jest/helpers';
+import { testHook } from '@rocket.chat/jest-utils/helpers';
+
 import { useToggle } from '../src';
 
 describe('useToggle hook', () => {

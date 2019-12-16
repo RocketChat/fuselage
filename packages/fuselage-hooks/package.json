@@ -39,6 +39,7 @@
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-flow": "^7.0.0",
     "@rocket.chat/eslint-config": "^0.4.0",
+    "@rocket.chat/jest-utils": "^0.2.0-alpha.17",
     "babel-eslint": "^10.0.3",
     "documentation": "^12.1.2",
     "eslint": "^6.5.1",

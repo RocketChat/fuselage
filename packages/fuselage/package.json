@@ -45,6 +45,7 @@
     "@babel/preset-react": "^7.7.4",
     "@rocket.chat/eslint-config": "^0.4.0",
     "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.16",
+    "@rocket.chat/jest-utils": "^0.2.0-alpha.17",
     "@storybook/addon-actions": "5.2.8",
     "@storybook/addon-backgrounds": "5.2.8",
     "@storybook/addon-centered": "5.2.8",
@@ -93,10 +94,10 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/.jest/styleMock.js"
+      "\\.(css|scss)$": "@rocket.chat/jest-utils/styleMock.js"
     },
     "setupFiles": [
-      "<rootDir>/.jest/setup.js"
+      "@rocket.chat/jest-utils/setup.js"
     ]
   },
   "loki": {

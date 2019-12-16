@@ -1,4 +1,5 @@
-import { testHook } from '../.jest/helpers';
+import { testHook } from '@rocket.chat/jest-utils/helpers';
+
 import { useMediaQuery } from '../src';
 
 describe('useMediaQuery hook', () => {
@@ -60,7 +61,7 @@ describe('useMediaQuery hook', () => {
       },
       (matches) => {
         expect(matches).toBe(true);
-      }
+      },
     );
   });
 });

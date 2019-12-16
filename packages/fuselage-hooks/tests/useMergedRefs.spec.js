@@ -1,6 +1,6 @@
+import { testHook } from '@rocket.chat/jest-utils/helpers';
 import React from 'react';
 
-import { testHook } from '../.jest/helpers';
 import { useMergedRefs } from '../src';
 
 describe('useMergedRefs hook', () => {

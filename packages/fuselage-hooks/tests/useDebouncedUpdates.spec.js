@@ -1,6 +1,6 @@
+import { testHook } from '@rocket.chat/jest-utils/helpers';
 import { useState } from 'react';
 
-import { testHook } from '../.jest/helpers';
 import { useDebouncedUpdates, useDebouncedReducer, useDebouncedState } from '../src';
 
 describe('useDebouncedUpdates hook', () => {
@@ -26,7 +26,7 @@ describe('useDebouncedUpdates hook', () => {
       },
       ([value]) => {
         valueC = value;
-      }
+      },
     );
 
     expect(debouncedSetValue).toBeInstanceOf(Function);
@@ -57,7 +57,7 @@ describe('useDebouncedUpdates hook', () => {
         },
         ([state]) => {
           stateB = state;
-        }
+        },
       );
 
       expect(reducer).toHaveBeenCalledWith(initialState, undefined);
@@ -84,7 +84,7 @@ describe('useDebouncedUpdates hook', () => {
         },
         ([state]) => {
           valueB = state;
-        }
+        },
       );
       expect(valueA).toBe(initialValue);
       expect(valueB).toBe(newValue);
