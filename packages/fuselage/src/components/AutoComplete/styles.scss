@@ -11,14 +11,14 @@
 
     text-align: start;
     vertical-align: middle;
+    white-space: nowrap;
     text-decoration: none;
 
     appearance: none;
 
     @include clickable;
-    @include with-text--ellipsis;
-    @include with-text--nowrap;
-    @include as-paragraph($bold: true);
+    @include use-text-ellipsis;
+    @include use-text-style(p2);
   }
 
   &__addon {

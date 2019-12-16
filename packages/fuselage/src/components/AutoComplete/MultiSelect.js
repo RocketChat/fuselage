@@ -1,7 +1,8 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
 
+import { Box } from '../Box';
 import { Icon } from '../Icon';
-import { InputBox, Text } from '../..';
+import { InputBox } from '../InputBox';
 import { AnimatedWrapper } from './Animated';
 import { Options } from './Options';
 import { useCursor, Container, Focus, Addon } from './Select';
@@ -45,7 +46,7 @@ export const MultiSelect = ({
 
   return (
     <Container>
-      <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ minWidth: '150px' }} mod-undecorated={'true'} children={option || <Text infoColor>{placeholder}</Text>}/>
+      <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ minWidth: '150px' }} mod-undecorated={'true'} children={option || <Box is='span' textColor='info'>{placeholder}</Box>}/>
       {children}
       <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
       <AnimatedWrapper visible={visible}><_Options role='listbox' options={mapOptions(options)} onSelect={internalChanged} cursor={cursor} /></AnimatedWrapper>

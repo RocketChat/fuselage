@@ -1,15 +1,15 @@
 
 import React from 'react';
 
-import { Margins, Tile, Text } from '../..';
-import { Box, Scrollable } from '../Box';
+import { Box, Scrollable, Margins } from '../Box';
+import { Tile } from '../Tile';
 
 const merge = (...args) => args.filter((e) => e).join(' ');
 
 const Li = Box.extend('rcx-option', 'li');
 export const Option = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} mod-focus={focus} id={id} mod-selected={selected} aria-selected={selected || null} {...options}>{label}</Li>);
 
-export const Empty = React.memo(() => <Text hintColor>Empty</Text>);
+export const Empty = React.memo(() => <Box is='span' textColor='hint'>Empty</Box>);
 
 export const Options = ({ renderEmpty: EmptyComponent = Empty, className, options, cursor, renderItem: OptionComponent = Option, onSelect, ...props }) => (
   <Box className={merge('rcx-options', className)} is='div' {...props}>

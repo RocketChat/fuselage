@@ -1,9 +1,8 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
 
 import { Icon } from '../Icon';
-import { Margins, Text } from '../..';
 import { AnimatedWrapper, VISIBILITY, ACTIONS, useVisible } from './Animated';
-import { Box } from '../Box';
+import { Box, Margins } from '../Box';
 import { Options } from './Options';
 
 export const Container = ({ children, ...props }) => <Box {...props} is='label' className='rcx-select'>{children.map((c, i) => <Margins key={i} all={4}>{c}</Margins>)}</Box>;
@@ -105,7 +104,7 @@ export const Select = ({
 
   return (
     <Container>
-      <Focus ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ minWidth: '150px' }} mod-undecorated={'true'} children={option || <Text infoColor>{placeholder}</Text>}/>
+      <Focus ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ minWidth: '150px' }} mod-undecorated={'true'} children={option || <Box is='span' textColor='info'>{placeholder}</Box>}/>
       {children}
       <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
       <AnimatedWrapper visible={visible}><_Options role='listbox' options={mapOptions(options)} onSelect={internalChanged} cursor={cursor} /></AnimatedWrapper>
