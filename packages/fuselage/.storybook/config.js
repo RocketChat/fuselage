@@ -30,11 +30,9 @@ addParameters({
     panelPosition: 'right',
     hierarchySeparator: /\//,
     hierarchyRootSeparator: /\|/,
-    // storySort: ([, a], [, b]) => {
-    //   const roots = ['Fuselage', 'Buttons', 'Forms', 'Typography'];
-    //   const getRootIndex = ({ kind }) => roots.findIndex((root) => kind.startsWith(`${ root }|`));
-    //   return getRootIndex(a) - getRootIndex(b);
-    // },
+    storySort: ([, a], [, b]) => {
+      return a.kind.localeCompare(b.kind);
+    },
   },
   viewport: {
     viewports: {
