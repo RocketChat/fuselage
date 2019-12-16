@@ -153,4 +153,17 @@
 
 %rich-text--block {
   font: inherit;
+
+  pre {
+    font: inherit;
+    @include use-text-style(mono);
+
+    code {
+      display: block;
+
+      padding: $sizes-x16;
+
+      font: inherit;
+    }
+  }
 }
