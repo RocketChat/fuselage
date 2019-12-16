@@ -1,8 +1,5 @@
-@import '~@rocket.chat/fuselage-tokens/colors.scss';
-
 .rcx-divider {
-  margin-block-start: #{ $spaces-x16 };
-  margin-block-end: #{ $spaces-x16 };
+  margin-block: #{ $spaces-x8 };
 
   border: #{ $borders-width-x1 } solid #{ $colors-n300 };
 }

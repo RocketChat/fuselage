@@ -4,76 +4,22 @@
   display: block;
 
   color: #{ $text-colors-default };
-  border-radius: $borders-radius-x2;
-  background-color: #{ $colors-white };
 
   &--elevation-0 {
-    box-shadow: none;
+    @extend %tile-0;
   }
 
   &--elevation-1 {
-    box-shadow: 0 0 12px 0 rgba(47, 52, 61, 0.1);
+    @extend %tile-1;
   }
 
   &--elevation-2 {
-    box-shadow:
-      0 0 2px 0 rgba(47, 52, 61, 0.08),
-      0 0 12px 0 rgba(47, 52, 61, 0.12);
+    @extend %tile-2;
   }
 
-  &--padding-none {
-    padding: 0;
-  }
-
-  &--padding-1 {
-    padding: $spaces-x1;
-  }
-
-  &--padding-2 {
-    padding: $spaces-x2;
-  }
-
-  &--padding-4 {
-    padding: $spaces-x4;
-  }
-
-  &--padding-8 {
-    padding: $spaces-x8;
-  }
-
-  &--padding-12 {
-    padding: $spaces-x12;
-  }
-
-  &--padding-16 {
-    padding: $spaces-x16;
-  }
-
-  &--padding-20 {
-    padding: $spaces-x20;
-  }
-
-  &--padding-24 {
-    padding: $spaces-x24;
-  }
-
-  &--padding-28 {
-    padding: $spaces-x28;
-  }
-
-  &--padding-32 {
-    padding: $spaces-x32;
-  }
-
-  &--padding-36 {
-    padding: $spaces-x36;
-  }
-
-  &--padding-40 {
-    padding: $spaces-x40;
-  }
-
-  &--padding-44 {
-    padding: $spaces-x44;
+  @each $name, $value in $spaces {
+    &--padding-#{$name} {
+      padding: $value;
+    }
   }
 }

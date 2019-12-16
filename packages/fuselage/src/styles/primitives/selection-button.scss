@@ -1,0 +1,158 @@
+%selection-button__input {
+  @extend %visually-hidden;
+}
+
+%selection-button__fake {
+  position: relative;
+
+  border-width: $borders-width-x2;
+
+  block-size: $sizes-x20;
+}
+
+%selection-button__fake--empty {
+  color: $button-colors-empty-color;
+  border-color: $button-colors-empty-border-color;
+  background-color: $button-colors-empty-background-color;
+}
+
+%selection-button__fake--empty--hovered {
+  border-color: $button-colors-empty-hover-border-color;
+  background-color: $button-colors-empty-hover-background-color;
+  box-shadow: none;
+}
+
+%selection-button__fake--empty--active {
+  border-color: $button-colors-empty-active-border-color;
+  background-color: $button-colors-empty-active-background-color;
+  box-shadow: none;
+}
+
+%selection-button__fake--empty--focused {
+  border-color: $button-colors-empty-focus-border-color;
+  background-color: $button-colors-empty-focus-background-color;
+  box-shadow: 0 0 0 to-rem(6) $button-colors-empty-focus-shadow-color;
+}
+
+%selection-button__fake--empty--disabled {
+  color: $button-colors-empty-disabled-color;
+  border-color: $button-colors-empty-disabled-border-color;
+  background-color: $button-colors-empty-disabled-background-color;
+}
+
+%selection-button__fake--off {
+  color: $button-colors-off-color;
+  border-color: $button-colors-off-border-color;
+  background-color: $button-colors-off-background-color;
+}
+
+%selection-button__fake--off--hovered {
+  border-color: $button-colors-off-hover-border-color;
+  background-color: $button-colors-off-hover-background-color;
+  box-shadow: none;
+}
+
+%selection-button__fake--off--active {
+  border-color: $button-colors-off-active-border-color;
+  background-color: $button-colors-off-active-background-color;
+  box-shadow: none;
+}
+
+%selection-button__fake--off--focused {
+  border-color: $button-colors-off-focus-border-color;
+  background-color: $button-colors-off-focus-background-color;
+  box-shadow: 0 0 0 to-rem(6) $button-colors-off-focus-shadow-color;
+}
+
+%selection-button__fake--off--disabled {
+  color: $button-colors-off-disabled-color;
+  border-color: $button-colors-off-disabled-border-color;
+  background-color: $button-colors-off-disabled-background-color;
+}
+
+%selection-button__fake--primary {
+  color: $button-colors-primary-color;
+  border-color: $button-colors-primary-border-color;
+  background-color: $button-colors-primary-background-color;
+}
+
+%selection-button__fake--primary--hovered {
+  border-color: $button-colors-primary-hover-border-color;
+  background-color: $button-colors-primary-hover-background-color;
+  box-shadow: none;
+}
+
+%selection-button__fake--primary--active {
+  border-color: $button-colors-primary-active-border-color;
+  background-color: $button-colors-primary-active-background-color;
+  box-shadow: none;
+}
+
+%selection-button__fake--primary--focused {
+  border-color: $button-colors-primary-focus-border-color;
+  background-color: $button-colors-primary-focus-background-color;
+  box-shadow: 0 0 0 to-rem(6) $button-colors-primary-focus-shadow-color;
+}
+
+%selection-button__fake--primary--disabled {
+  color: $button-colors-primary-disabled-color;
+  border-color: $button-colors-primary-disabled-border-color;
+  background-color: $button-colors-primary-disabled-background-color;
+}
+
+@mixin is-selection-button($unchecked: 'empty', $indeterminate: null, $checked: 'primary') {
+  display: inline-flex;
+
+  vertical-align: middle;
+
+  @include clickable;
+
+  $styles: (
+    unchecked: $unchecked,
+    indeterminate: $indeterminate,
+    checked: $checked
+  );
+
+  $state-pseudo-classes: (
+    default: null,
+    hovered: ':hover',
+    focused: ':focus',
+    active: ':active',
+    disabled: ':disabled'
+  );
+
+  $state-helper-classes: (
+    default: null,
+    hovered: '.is-hovered',
+    focused: '.is-focused',
+    active: '.is-active',
+    disabled: '.is-disabled'
+  );
+
+  @each $value in unchecked, indeterminate, checked {
+    $style: map-get($styles, $value);
+
+    @if $style != null {
+      $value-pseudo-class: if($value == unchecked, '', ':#{$value}');
+      $input: #{&}__input#{$value-pseudo-class};
+
+      @at-root &__input#{$value-pseudo-class} + &__fake {
+        @extend %selection-button__fake--#{$style} !optional;
+      }
+
+      @each $state in default, hovered, focused, active, disabled {
+        $state-pseudo-class: map-get($state-pseudo-classes, $state);
+        $state-helper-class: map-get($state-helper-classes, $state);
+
+        @at-root &__input#{$value-pseudo-class}#{$state-pseudo-class} + &__fake,
+        &#{$state-helper-class} &__input#{$value-pseudo-class} + &__fake {
+          @extend %selection-button__fake--#{$style}--#{$state} !optional;
+
+          @if $state == disabled {
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+}

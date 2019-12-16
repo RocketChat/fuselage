@@ -42,8 +42,8 @@
   padding-block: #{ $spaces-x2 };
 
   @include as-caption($bold: true);
-  @include with-text--ellipsis;
-  @include with-text--nowrap;
+  @include with-ellipsing-text;
+  white-space: nowrap;
 }
 
 .rcx-callout__children {

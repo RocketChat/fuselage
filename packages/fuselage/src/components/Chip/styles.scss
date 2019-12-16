@@ -1,12 +1,19 @@
 .rcx-chip {
   @include clickable;
-  @extend %with-ellipsing-text;
-  border-radius: $borders-width-x2;
+  @include with-ellipsing-text;
 
-  @extend %button-secondary-color;
+  @extend %button--secondary;
+  border-width: 0;
+
+  &.disabled,
+  &:disabled {
+    color: $button-colors-secondary-color;
+    border-color: $button-colors-secondary-border-color;
+    background-color: $button-colors-secondary-background-color;
+  }
 
   &__text {
-    @include with-text--ellipsis;
-    @include with-text--nowrap;
+    @include with-ellipsing-text;
+    white-space: nowrap;
   }
 }

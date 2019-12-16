@@ -55,10 +55,8 @@
   line-height: $text-styles-micro-line-height;
 }
 
-@mixin with-text--ellipsis {
-  @extend %with-ellipsing-text;
-}
+@mixin with-ellipsing-text {
+  overflow: hidden;
 
-@mixin with-text--nowrap {
-  @extend %with-non-wrapped-text;
+  text-overflow: ellipsis;
 }
