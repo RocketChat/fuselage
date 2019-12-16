@@ -12,6 +12,7 @@ const Container = Box.extend('rcx-chip', 'button');
 
 const ThumbDefault = ({ url }) => <Avatar size='x20' url={url}/>;
 const RemoveDefault = () => <Icon name='cross' size='16' />;
+
 export const Chip = ({ children, thumbUrl, Thumb = ThumbDefault, onClick, Remove = RemoveDefault, ...props }) => (
   <Flex.Container>
     <Container disabled={!onClick} onClick={onClick} {...props}>
