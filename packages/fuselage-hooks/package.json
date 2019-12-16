@@ -63,5 +63,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@nivo/pie": "^0.60.0"
   }
 }

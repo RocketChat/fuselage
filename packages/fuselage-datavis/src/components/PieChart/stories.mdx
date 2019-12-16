@@ -1,0 +1,32 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { PieChart } from '../..';
+
+<Meta title='PieChart' parameters={{ jest: ['PieChart/spec'] }} />
+
+# PieChart
+
+<Preview>
+  <Story name='Example'>
+    <div style={{ height: 250 }}>
+      <PieChart
+        data={[
+          {
+            id: 'Private chats',
+            label: 'Private chats',
+            value: 524,
+          },
+          {
+            id: 'Private channels',
+            label: 'Private channels',
+            value: 209,
+          },
+          {
+            id: 'Public channels',
+            label: 'Public channels',
+            value: 230,
+          },
+        ]}
+      />
+    </div>
+  </Story>
+</Preview>
