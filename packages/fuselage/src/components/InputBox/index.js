@@ -3,12 +3,12 @@ import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
-import { Box } from '../Box';
+import { Box, Flex } from '../Box';
 import { Option } from './Option';
 import { Placeholder } from './Placeholder';
 import { Skeleton } from './Skeleton';
 
-const Wrapper = Box.extend('rcx-input-box__wrapper', 'span');
+const Wrapper = (props) => <Flex.Container display='inline-flex' alignItems={'center'}><Box className={'rcx-input-box__wrapper'} is={'span'} {...props}/></Flex.Container>;
 const Input = Box.extend('rcx-input-box', 'input');
 const Addon = Box.extend('rcx-input-box__addon', 'span');
 
@@ -149,6 +149,12 @@ InputBox.propTypes = {
     'select',
   ]).isRequired,
 };
+
+InputBox.Input = Input;
+
+InputBox.Wrapper = Wrapper;
+
+InputBox.Addon = Addon;
 
 InputBox.Placeholder = Placeholder;
 

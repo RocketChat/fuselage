@@ -1,0 +1,113 @@
+.rcx-select {
+  @extend %rcx-input-box;
+
+  position: relative;
+
+  padding: $spaces-x4;
+  align-items: center; // TODO move to .rcx-input-box
+
+  &__focus {
+    display: inline-block;
+
+    text-align: start;
+    vertical-align: middle;
+    text-decoration: none;
+
+    appearance: none;
+
+    @include clickable;
+    @include with-text--ellipsis;
+    @include with-text--nowrap;
+    @include as-paragraph($bold: true);
+  }
+
+  &__addon {
+    @extend .rcx-input-box__addon;
+    @include clickable;
+    padding: initial;
+  }
+}
+
+.rcx-autocomplete {
+  @extend .rcx-select;
+}
+
+%slideInUp {
+  animation-name: slideInUp;
+}
+
+%slideInDown {
+  animation-name: slideInDown;
+}
+
+.rcx-animated {
+  display: none;
+
+  animation-duration: $transitions-short-duration;
+
+  &--visible {
+    @extend %slideInUp;
+    display: initial;
+  }
+
+  &--hiding {
+    display: initial;
+    @extend %slideInDown;
+  }
+}
+
+.rcx-options {
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  right: 0;
+  left: 0;
+}
+
+.rcx-option {
+  @include clickable;
+  padding: $sizes-x8;
+
+  transition: background $transitions-short-duration;
+
+  &--selected {
+    background: $colors-n400;
+  }
+
+  &:hover,
+  &--focus {
+    background: $colors-n100;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    visibility: visible;
+
+    transform: translate3d(0, 2rem, 0);
+
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    visibility: visible;
+
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, -2rem, 0);
+
+    opacity: 0;
+  }
+}

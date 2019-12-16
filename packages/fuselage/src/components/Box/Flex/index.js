@@ -3,11 +3,11 @@ import React from 'react';
 
 import { useProps } from '../../../hooks';
 
-export function FlexContainer({ children, direction, wrap, justifyContent, alignItems, alignContent }) {
+export function FlexContainer({ display = 'flex', children, direction, wrap, justifyContent, alignItems, alignContent }) {
   const [, PropsProvider] = useProps(({ style, ...props }) => ({
     style: {
       ...style,
-      display: 'flex',
+      display,
       flexDirection: direction,
       flexWrap: wrap,
       justifyContent,

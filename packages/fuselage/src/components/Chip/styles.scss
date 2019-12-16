@@ -5,6 +5,10 @@
 
   @extend %button-secondary-color;
 
+  &__wrapper {
+    margin: calc(-1 * #{$spaces-x8});
+  }
+
   &__text {
     @include with-text--ellipsis;
     @include with-text--nowrap;

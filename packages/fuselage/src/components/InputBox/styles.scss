@@ -37,7 +37,8 @@
   }
 }
 
-.rcx-input-box__wrapper {
+.rcx-input-box__wrapper,
+%rcx-input-box {
   position: relative;
 
   display: inline-flex;
@@ -90,6 +91,8 @@
 }
 
 .rcx-input-box__addon {
+  @include clickable;
+
   display: flex;
   flex: 0 0 auto;
 
