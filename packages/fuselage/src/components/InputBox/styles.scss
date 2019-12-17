@@ -8,6 +8,12 @@
 
   min-width: 8rem;
 
+  padding:
+    calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
+    calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+
   vertical-align: baseline;
 
   word-break: break-all;
@@ -15,6 +21,8 @@
   outline: 0;
 
   flex-flow: row nowrap;
+
+  @extend %input;
 
   @extend %input;
 
@@ -139,12 +147,6 @@
 
   min-width: 8rem;
 
-  padding:
-    calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
-    calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-
   user-select: initial;
 
   vertical-align: baseline;
@@ -181,6 +183,12 @@
     min-height: #{ $sizes-x44 };
 
     @extend %input;
+
+    padding:
+      calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
+      calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+    padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+    padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
     &:invalid,
     &.invalid {

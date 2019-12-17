@@ -3,7 +3,6 @@
 
   position: relative;
 
-  padding: $spaces-x4;
   align-items: center; // TODO move to .rcx-input-box
 
   &__focus {
@@ -11,13 +10,13 @@
 
     text-align: start;
     vertical-align: middle;
+    white-space: nowrap;
     text-decoration: none;
 
     appearance: none;
 
     @include clickable;
-    @include with-text--ellipsis;
-    @include with-text--nowrap;
+    @include with-ellipsing-text;
     @include as-paragraph($bold: true);
   }
 
@@ -25,6 +24,14 @@
     @extend .rcx-input-box__addon;
     @include clickable;
     padding: initial;
+  }
+
+  &__wrapper {
+    opacity: 1;
+
+    &--hidden {
+      opacity: 0;
+    }
   }
 }
 
@@ -70,13 +77,9 @@
 
   transition: background $transitions-short-duration;
 
-  &--selected {
-    background: $colors-n400;
-  }
-
   &:hover,
   &--focus {
-    background: $colors-n100;
+    background: $colors-n400;
   }
 }
 
