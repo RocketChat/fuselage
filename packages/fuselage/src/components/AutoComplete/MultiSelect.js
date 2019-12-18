@@ -46,12 +46,14 @@ export const MultiSelect = ({
   };
   const applyFilter = ([, option]) => !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
   const filteredOptions = options.filter(applyFilter).map(mapOptions);
-  const [cursor, handleKeyDown, handleKeyUp, [visible, hide, show]] = useCursor(index, options, internalChanged);
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(index, filteredOptions, internalChanged);
+
+  useEffect(reset, [filter]);
 
   const ref = useRef();
 
   return (
-    <Container onMouseDown={prevent} {...props}>
+    <Container {...props}>
       <Flex.Container>
         <MarginsWrapper all={8}>
           <Chip.Wrapper role='listbox'>
@@ -61,7 +63,7 @@ export const MultiSelect = ({
         </MarginsWrapper>
       </Flex.Container>
       <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
-      <AnimatedWrapper visible={visible}><_Options multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></AnimatedWrapper>
+      <AnimatedWrapper visible={visible}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></AnimatedWrapper>
     </Container>);
 };
 

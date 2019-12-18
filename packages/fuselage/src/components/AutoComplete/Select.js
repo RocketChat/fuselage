@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useRef, useCallback } from 'react';
+import React, { useState, useLayoutEffect, useRef, useCallback, useEffect } from 'react';
 
 import { Icon } from '../Icon';
 import { Margins, MarginsWrapper, Text, InputBox, Flex } from '../..';
@@ -10,14 +10,15 @@ export const Container = ({ ...props }) => <Box {...props} is='label' className=
 
 export const Addon = Box.extend('rcx-select__addon', 'div');
 
-const Wrapper = ({ children, ...props }) => <Box children={React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)} is={'div'} {...props} className={'rcx-select__wrapper'}/>;
+const InnerWrapper = Box.extend('rcx-select__wrapper', 'div');
+const Wrapper = ({ children, ...props }) => <InnerWrapper children={React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)} {...props} />;
 
 export const Focus = React.forwardRef((props, ref) => <Box ref={ref} className='rcx-select__focus' is='button' {...props}/>);
 
 export const useCursor = (initial, options, onChange) => {
   const [cursor, setCursor] = useState(initial);
   const [visibility, hide, show] = useVisible();
-
+  const reset = () => setCursor(0);
   const handleKeyUp = (e) => {
     const { keyCode } = e;
     if (VISIBILITY.HIDEN === visibility && keyCode === ACTIONS.TAB) {
@@ -34,7 +35,7 @@ export const useCursor = (initial, options, onChange) => {
     switch (keyCode) {
     case ACTIONS.HOME:
       e.preventDefault();
-      return setCursor(0);
+      return reset();
     case ACTIONS.END:
       e.preventDefault();
       return setCursor(lastIndex);
@@ -56,7 +57,7 @@ export const useCursor = (initial, options, onChange) => {
       return onChange(options[cursor]);
     case ACTIONS.ESC:
       e.preventDefault();
-      setCursor(0);
+      reset();
       return hide();
     default:
       const index = options.findIndex(([, label]) => label[0] === key);
@@ -64,7 +65,7 @@ export const useCursor = (initial, options, onChange) => {
     }
   };
 
-  return [cursor, handleKeyDown, handleKeyUp, [visibility, hide, show]];
+  return [cursor, handleKeyDown, handleKeyUp, reset, [visibility, hide, show]];
 };
 
 export const Select = ({
@@ -89,17 +90,6 @@ export const Select = ({
     setInternalValue(value[0]);
   };
 
-  const [cursor, handleKeyDown, handleKeyUp, [visible, hide, show]] = useCursor(index, options, internalChanged);
-
-  const ref = useRef();
-
-  useLayoutEffect(() => {
-    hide();
-    ref.current.focus();
-    onChange(internalValue);
-  }, [internalValue]);
-
-
   const mapOptions = ([value, label]) => {
     if (currentValue === value) {
       return [value, label, true];
@@ -109,14 +99,25 @@ export const Select = ({
 
   const applyFilter = ([, option]) => !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
   const filteredOptions = options.filter(applyFilter).map(mapOptions);
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(index, options, internalChanged);
+
+  const ref = useRef();
+
+  useLayoutEffect(() => {
+    hide();
+    ref.current.focus();
+    onChange(internalValue);
+  }, [internalValue]);
+
+  useEffect(reset, [filter]);
 
   return (
     <Container>
       <Flex.Container>
         <MarginsWrapper inline={4}>
-          <Wrapper mod-visible={true}>
+          <Wrapper>
             {(filter === undefined || !visible) && <Text infoColor>{option || placeholder}</Text>}
-            <Wrapper mod-hiden={!visible}>
+            <Wrapper mod-hidden={!visible}>
               <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
             </Wrapper>
             <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
