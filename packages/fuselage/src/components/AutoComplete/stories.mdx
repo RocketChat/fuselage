@@ -21,9 +21,10 @@ An input for selection of options.
 
 <Preview>
   <Story name='Default'>
-    <AutoComplete placeholder="Add users...">
-      <Chip onClick={console.log} thumbUrl={thumb}>John</Chip>
-    </AutoComplete>
+    <AutoComplete placeholder="Add users..." onChange={action('change')} setFilter={action('setFilter')} options={[
+      {label: 'guilherme gazzo', value: 'uid' },
+      {label: 'didera', value: 'uid2' }
+    ]}/>
   </Story>
 </Preview>
 
