@@ -24,8 +24,6 @@
 
   @extend %input;
 
-  @extend %input;
-
   &:invalid,
   &.invalid {
     @extend %input--invalid;

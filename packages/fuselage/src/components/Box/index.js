@@ -126,3 +126,4 @@ Box.extend = (componentClassName, is) => {
 export * from './Flex';
 export * from './Margins';
 export * from './Scrollable';
+export * from './Animated';

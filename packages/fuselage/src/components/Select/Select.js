@@ -1,12 +1,13 @@
 import React, { useState, useLayoutEffect, useRef, useCallback, useEffect } from 'react';
 
 import { Icon } from '../Icon';
-import { Margins, MarginsWrapper, Text, InputBox, Flex } from '../..';
-import { AnimatedWrapper, VISIBILITY, ACTIONS, useVisible } from './Animated';
+import { AnimatedWrapper, VISIBILITY, ACTIONS, useVisible } from '../Box/Animated';
 import { Box } from '../Box';
-import { Options } from './Options';
+import { Options } from '../Options';
 
-export const Container = ({ ...props }) => <Box {...props} is='label' className='rcx-select'/>;
+import { Margins, MarginsWrapper, Text, InputBox, Flex } from '..';
+
+const Container = ({ ...props }) => <Box {...props} is='div' className='rcx-select'/>;
 
 export const Addon = Box.extend('rcx-select__addon', 'div');
 
@@ -113,7 +114,7 @@ export const Select = ({
   useEffect(reset, [filter]);
 
   return (
-    <Container>
+    <Container onClick={() => ref.current.focus() & show()}>
       <Flex.Item>
         <Flex.Container>
           <MarginsWrapper inline={4}>

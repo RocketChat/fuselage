@@ -1,8 +1,9 @@
 
 import React from 'react';
 
-import { Margins, Tile, Text, CheckBox, Avatar, Flex } from '../..';
 import { Box, Scrollable } from '../Box';
+
+import { Margins, Tile, Text, CheckBox, Avatar, Flex } from '..';
 
 const merge = (...args) => args.filter((e) => e).join(' ');
 
@@ -15,7 +16,7 @@ export const Empty = React.memo(() => <Text hintColor>Empty</Text>);
 export const Option = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} mod-focus={focus} id={id} mod-selected={selected} aria-selected={selected} {...options}>{label}</Li>);
 export const CheckOption = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} mod-focus={focus} id={id} aria-selected={selected} {...options}><Margins inline={4}><CheckBox checked={selected} /></Margins><Margins inline={4}><Text>{label}</Text></Margins></Li>);
 
-export const OptionAvatar = React.memo(({ id, children: label, focus, selected, ...options }) => <Flex.Container><Li key={id} mod-focus={focus} id={id} mod-selected={selected} aria-selected={selected} {...options}><Margins inline={4}><Avatar size={'x20'} url={id} tile={label}/></Margins><Margins inline={4}><Text>{label}</Text></Margins></Li></Flex.Container>);
+export const OptionAvatar = React.memo(({ id, value, children: label, focus, selected, ...options }) => <Flex.Container><Li key={id} mod-focus={focus} id={id} mod-selected={selected} aria-selected={selected} {...options}><Margins inline={4}><Avatar size={'x20'} url={value} tile={label}/></Margins><Margins inline={4}><Text>{label}</Text></Margins></Li></Flex.Container>);
 
 export const Options = ({ multiple, renderEmpty: EmptyComponent = Empty, className, options, cursor, renderItem: OptionComponent = Option, onSelect, ...props }) => (
   <Box className={merge('rcx-options', className)} is='div' {...props}>

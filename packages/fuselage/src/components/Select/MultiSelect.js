@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 import { Icon } from '../Icon';
-import { InputBox, Text, Chip, Box, MarginsWrapper, Margins, Flex } from '../..';
-import { AnimatedWrapper } from './Animated';
-import { Options, CheckOption } from './Options';
 import { useCursor, Focus, Addon } from './Select';
 
-export const Container = ({ children, ...props }) => <Box {...props} is='label' className='rcx-select'>{console.log(props, children)}{React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)}</Box>;
+import { InputBox, Text, Chip, Box, MarginsWrapper, Margins, Flex, AnimatedWrapper, Options, CheckOption } from '..';
+
+const Container = ({ children, ...props }) => <Box {...props} is='div' className='rcx-select'>{console.log(props, children)}{React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)}</Box>;
 
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);
 
@@ -61,12 +60,12 @@ export const MultiSelect = ({
   const ref = useRef();
 
   return (
-    <Container {...props}>
+    <Container onClick={() => ref.current.focus() & show()}{...props}>
       <Flex.Container>
         <MarginsWrapper all={8}>
           <Chip.Wrapper role='listbox'>
             <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1 }} mod-undecorated children={option || <Text infoColor>{placeholder}</Text>}/>
-            {currentValue.map((value) => <SelectedOptions key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
+            {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
           </Chip.Wrapper>
         </MarginsWrapper>
       </Flex.Container>

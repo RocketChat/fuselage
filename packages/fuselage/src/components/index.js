@@ -33,3 +33,5 @@ export * from './Divider';
 export * from './Avatar';
 export * from './Chip';
 export * from './AutoComplete';
+export * from './Options';
+export * from './Select';

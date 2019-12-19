@@ -1,0 +1,20 @@
+.rcx-options {
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  right: 0;
+  left: 0;
+}
+
+.rcx-option {
+  list-style: none;
+  @include clickable;
+  padding: $sizes-x8;
+
+  transition: background $transitions-short-duration;
+
+  &:hover,
+  &--focus {
+    background: $colors-n400;
+  }
+}
