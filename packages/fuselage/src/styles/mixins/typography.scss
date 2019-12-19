@@ -13,42 +13,7 @@
   color: map-get($text-colors, $color-name);
 }
 
-@mixin as-headline {
-  @include use-text-style(h1);
-}
-
-@mixin as-subtitle($bold: false) {
-  @if $bold {
-    @include use-text-style(s2);
-  }
-  @else {
-    @include use-text-style(s1);
-  }
-}
-
-@mixin as-paragraph($bold: false) {
-  @if $bold {
-    @include use-text-style(p2);
-  }
-  @else {
-    @include use-text-style(p1);
-  }
-}
-
-@mixin as-caption($bold: false) {
-  @if $bold {
-    @include use-text-style(c2);
-  }
-  @else {
-    @include use-text-style(c1);
-  }
-}
-
-@mixin as-micro-text {
-  @include use-text-style(micro);
-}
-
-@mixin with-ellipsing-text {
+@mixin use-text-ellipsis {
   overflow: hidden;
 
   text-overflow: ellipsis;

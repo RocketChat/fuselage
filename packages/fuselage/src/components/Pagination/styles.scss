@@ -52,7 +52,7 @@
 }
 
 .rcx-pagination__label {
-  @include as-caption;
+  @include use-text-style(c1);
 
   color: $text-colors-hint;
 }
@@ -66,7 +66,7 @@
 }
 
 .rcx-pagination__list-item {
-  @include as-caption;
+  @include use-text-style(c1);
   display: flex;
 
   margin-inline: $spaces-x2;
@@ -77,7 +77,7 @@
 }
 
 .rcx-pagination__link {
-  @include as-caption;
+  @include use-text-style(c1);
   @include clickable;
   display: inline-flex;
 
@@ -86,7 +86,7 @@
 
   &.disabled,
   &:disabled {
-    @include as-caption($bold: true);
+    @include use-text-style(c2);
     cursor: default;
 
     color: $text-colors-default;
@@ -95,7 +95,7 @@
 
 .rcx-pagination__back,
 .rcx-pagination__forward {
-  @include as-caption;
+  @include use-text-style(c1);
   @include clickable;
   display: inline-flex;
 

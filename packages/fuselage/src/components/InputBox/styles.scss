@@ -157,8 +157,8 @@
 
   background-color: transparent;
 
-  @include as-paragraph;
-  @include with-ellipsing-text;
+  @include use-text-style(p1);
+  @include use-text-ellipsis;
 
   &--type-textarea {
     overflow: auto;
@@ -253,18 +253,18 @@
 }
 
 .rcx-input-box__placeholder {
-  @include with-ellipsing-text;
+  @include use-text-ellipsis;
   white-space: nowrap;
 
-  @include as-paragraph;
+  @include use-text-style(p1);
   color: #{ $input-colors-placeholder-color };
 }
 
 .rcx-input-box__option {
-  @include with-ellipsing-text;
+  @include use-text-ellipsis;
   white-space: nowrap;
 
-  @include as-paragraph;
+  @include use-text-style(p1);
   color: #{ $input-colors-color };
 }
 
@@ -291,6 +291,6 @@
   border-radius: #{ $borders-radius-x2 };
   background-color: #{ $input-colors-background-color };
 
-  @include as-paragraph;
-  @include with-ellipsing-text;
+  @include use-text-style(p1);
+  @include use-text-ellipsis;
 }

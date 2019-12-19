@@ -1,5 +1,5 @@
 .rcx-tile {
-  @include as-paragraph;
+  @include use-text-style(p1);
 
   display: block;
 

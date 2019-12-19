@@ -26,7 +26,7 @@
 
   user-select: text;
 
-  @include with-ellipsing-text;
+  @include use-text-ellipsis;
 }
 
 .rcx-field__hint {

@@ -8,63 +8,63 @@
   }
 
   &--text-style-headline {
-    @include as-headline;
+    @include use-text-style(h1);
   }
 
   &--text-style-subtitle {
-    @include as-subtitle;
+    @include use-text-style(s1);
   }
 
   &--text-style-paragraph {
-    @include as-paragraph;
+    @include use-text-style(p1);
   }
 
   &--text-style-caption {
-    @include as-caption;
+    @include use-text-style(c1);
   }
 
   &--text-style-micro {
-    @include as-micro-text;
+    @include use-text-style(micro);
   }
 
   &--text-color-default {
-    color: #{ $text-colors-default };
+    @include use-text-color(default);
   }
 
   &--text-color-info {
-    color: #{ $text-colors-info };
+    @include use-text-color(info);
   }
 
   &--text-color-hint {
-    color: #{ $text-colors-hint };
+    @include use-text-color(hint);
   }
 
   &--text-color-disabled-label {
-    color: #{ $text-colors-disabled-label };
+    @include use-text-color(disabled-label);
   }
 
   &--text-color-disabled {
-    color: #{ $text-colors-disabled };
+    @include use-text-color(disabled);
   }
 
   &--text-color-alternative {
-    color: #{ $text-colors-alternative };
+    @include use-text-color(alternative);
   }
 
   &--text-color-primary {
-    color: #{ $text-colors-primary };
+    @include use-text-color(primary);
   }
 
   &--text-color-success {
-    color: #{ $text-colors-success };
+    @include use-text-color(success);
   }
 
   &--text-color-danger {
-    color: #{ $text-colors-danger };
+    @include use-text-color(danger);
   }
 
   &--text-color-warning {
-    color: #{ $text-colors-warning };
+    @include use-text-color(warning);
   }
 }
 

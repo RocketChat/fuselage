@@ -62,9 +62,8 @@
 
   color: #{ $text-colors-default };
 
-  @include as-paragraph;
-
-  @include with-ellipsing-text;
+  @include use-text-style(p1);
+  @include use-text-ellipsis;
 
   &--disabled {
     color: #{ $text-colors-disabled-label };
