@@ -46,6 +46,12 @@ $text-styles-micro-font-weight: theme('text-styles-micro-font-weight', map-get(m
 $text-styles-micro-letter-spacing: theme('text-styles-micro-letter-spacing', to-rem(map-get(map-get($typography, micro), letter-spacing)));
 $text-styles-micro-line-height: theme('text-styles-micro-line-height', to-rem(map-get(map-get($typography, micro), line-height)));
 
+$text-styles-mono-font-family: theme('text-styles-mono-font-family', monospace);
+$text-styles-mono-font-size: theme('text-styles-mono-font-size', inherit);
+$text-styles-mono-font-weight: theme('text-styles-mono-font-weight', 400);
+$text-styles-mono-letter-spacing: theme('text-styles-mono-letter-spacing', to-rem(0));
+$text-styles-mono-line-height: theme('text-styles-mono-line-height', inherit);
+
 $text-styles: (
   h1: (
     font-family: $text-styles-h1-font-family,
@@ -102,5 +108,12 @@ $text-styles: (
     font-weight: $text-styles-micro-font-weight,
     letter-spacing: $text-styles-micro-letter-spacing,
     line-height: $text-styles-micro-line-height,
+  ),
+  mono: (
+    font-family: $text-styles-mono-font-family,
+    font-size: $text-styles-mono-font-size,
+    font-weight: $text-styles-mono-font-weight,
+    letter-spacing: $text-styles-mono-letter-spacing,
+    line-height: $text-styles-mono-line-height,
   ),
 );

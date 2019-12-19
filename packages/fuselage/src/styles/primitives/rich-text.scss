@@ -25,9 +25,8 @@
 
     background-color: $colors-n300;
 
-    font-family: monospace;
-    font-weight: 400;
     -webkit-font-smoothing: auto;
+    @include use-text-style(mono);
     @include use-text-color(default);
   }
 }
