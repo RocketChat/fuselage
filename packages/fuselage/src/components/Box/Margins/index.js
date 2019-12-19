@@ -41,3 +41,40 @@ Margins.propTypes = {
   inlineStart: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
   inlineEnd: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
 };
+export function MarginsWrapper({
+  children,
+  all,
+  block,
+  blockStart,
+  blockEnd,
+  inline,
+  inlineStart,
+  inlineEnd,
+}) {
+  const [, PropsProvider] = useProps(({ className, ...props }) => ({
+    className: useClassName('rcx-margins__wrapper', {
+      all,
+      block,
+      blockStart,
+      blockEnd,
+      inline,
+      inlineStart,
+      inlineEnd,
+    }, className),
+    ...props,
+  }));
+
+  return <PropsProvider children={children} />;
+}
+
+MarginsWrapper.displayName = 'MarginsWrapper';
+
+MarginsWrapper.propTypes = {
+  all: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
+  block: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
+  blockStart: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
+  blockEnd: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
+  inline: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
+  inlineStart: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
+  inlineEnd: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
+};

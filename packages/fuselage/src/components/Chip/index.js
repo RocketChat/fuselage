@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Box } from '../Box';
-import { Avatar, Icon, Flex, Margins } from '../..';
+import { Avatar } from '../Avatar';
+import { Box, Flex, Margins, MarginsWrapper } from '../Box';
+import { Icon } from '../Icon';
 
 const Wrapper = Box.extend('rcx-chip__wrapper', 'div');
 const Container = Box.extend('rcx-chip', 'button');
@@ -9,18 +10,18 @@ const Container = Box.extend('rcx-chip', 'button');
 const ThumbDefault = ({ url }) => <Avatar size='x20' url={url}/>;
 const RemoveDefault = () => <Icon name='cross' size='16' />;
 
-export const Chip = ({ children, thumbUrl, Thumb = ThumbDefault, onClick, Remove = RemoveDefault, ...props }) => (
+export const Chip = ({ children, thumbUrl, Thumb = ThumbDefault, onClick, onMouseDown, Remove = RemoveDefault, ...props }) => (
   <Flex.Container>
-    <Container disabled={!onClick} onClick={onClick} {...props}>
+    <Container disabled={!(onClick || onMouseDown)} onClick={onClick || onMouseDown} {...props}>
       {Thumb && thumbUrl && <Margins all={4}>
         <Thumb url={thumbUrl}/>
       </Margins>}
       {children && <Flex.Item shrink={1}>
         <Margins all={4}>
-          <Box is='span' textStyle='paragraph' textColor='default' componentClassName='rcx-chip__text'>{children}</Box>
+          <Box is='span' textStyle='p1' textColor='default' className='rcx-chip__text'>{children}</Box>
         </Margins>
       </Flex.Item>}
-      {Remove && onClick && <Margins all={4}>
+      {Remove && (onClick || onMouseDown) && <Margins all={4}>
         <Box>
           <Remove/>
         </Box>
@@ -31,15 +32,14 @@ export const Chip = ({ children, thumbUrl, Thumb = ThumbDefault, onClick, Remove
 
 Chip.displayName = 'Chip';
 
-Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
+Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) => <MarginsWrapper all={4}>
   <Flex.Container alignItems={alignItems} wrap={wrap}>
     <Wrapper {...props}>
-      {children.map((children, i) =>
-        <Flex.Item key={i} shrink={1}>
-          <Margins all={4}>
-            {children}
-          </Margins>
-        </Flex.Item>,
-      )}
+      {children.map((children, i) => <Flex.Item key={i} shrink={1}>
+        <Margins all={4}>
+          {children}
+        </Margins>
+      </Flex.Item>)}
     </Wrapper>
-  </Flex.Container>;
+  </Flex.Container>
+</MarginsWrapper>;

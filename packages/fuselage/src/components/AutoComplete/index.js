@@ -1,3 +1,3 @@
-export * from './Select';
-export * from './AutoComplete';
-export * from './MultiSelect';
+export { Select, SelectFiltered } from './Select';
+export { AutoComplete } from './AutoComplete';
+export { MultiSelect, MultiSelectFiltered } from './MultiSelect';

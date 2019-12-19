@@ -3,7 +3,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Icon, AutoComplete, Chip, Select, MultiSelectFiltered } from '../..';
+import { Icon, AutoComplete, Chip, Select, MultiSelect, MultiSelectFiltered, SelectFiltered} from '../..';
 const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 const options = [
   [1, 'a teste 1'],
@@ -21,9 +21,10 @@ An input for selection of options.
 
 <Preview>
   <Story name='Default'>
-    <AutoComplete placeholder="Add users...">
-      <Chip onClick={console.log} thumbUrl={thumb}>John</Chip>
-    </AutoComplete>
+    <AutoComplete placeholder="Add users..." onChange={action('change')} setFilter={action('setFilter')} options={[
+      {label: 'guilherme gazzo', value: 'uid' },
+      {label: 'didera', value: 'uid2' }
+    ]}/>
   </Story>
 </Preview>
 
@@ -33,7 +34,7 @@ An input for selection of options.
 
 <Preview>
   <Story name='Select'>
-    <Select placeholder="placeholder here..." options={options}/>
+    <Select placeholder="Placeholder here..." options={options}/>
   </Story>
 </Preview>
 
@@ -45,7 +46,7 @@ An input for selection of options.
 
 <Preview>
   <Story name='Select with filter'>
-    <Select placeholder="placeholder here..." options={options}/>
+    <SelectFiltered placeholder="Placeholder here..." options={options}/>
   </Story>
 </Preview>
 
@@ -57,7 +58,7 @@ An input for selection of options.
 
 <Preview>
   <Story name='MultiSelect'>
-    <Select placeholder="placeholder here..." options={options}/>
+    <MultiSelect placeholder="Placeholder here..." options={options}/>
   </Story>
 </Preview>
 
@@ -68,7 +69,7 @@ An input for selection of options.
 
 <Preview>
   <Story name='MultiSelectFiltered'>
-    <MultiSelectFiltered placeholder="placeholder here..." options={options}/>
+    <MultiSelectFiltered placeholder="Placeholder here..." onChange={action('change')} options={options}/>
   </Story>
 </Preview>
 

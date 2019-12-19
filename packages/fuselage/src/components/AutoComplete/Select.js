@@ -1,20 +1,24 @@
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef, useCallback, useEffect } from 'react';
 
+import { Box, Flex, Margins, MarginsWrapper } from '../Box';
 import { Icon } from '../Icon';
+import { InputBox } from '../InputBox';
 import { AnimatedWrapper, VISIBILITY, ACTIONS, useVisible } from './Animated';
-import { Box, Margins } from '../Box';
 import { Options } from './Options';
 
-export const Container = ({ children, ...props }) => <Box {...props} is='label' className='rcx-select'>{children.map((c, i) => <Margins key={i} all={4}>{c}</Margins>)}</Box>;
+const Container = ({ ...props }) => <Box {...props} is='label' className='rcx-select'/>;
 
 export const Addon = Box.extend('rcx-select__addon', 'div');
+
+const InnerWrapper = Box.extend('rcx-select__wrapper', 'div');
+const Wrapper = ({ children, ...props }) => <InnerWrapper children={React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)} {...props} />;
 
 export const Focus = React.forwardRef((props, ref) => <Box ref={ref} className='rcx-select__focus' is='button' {...props}/>);
 
 export const useCursor = (initial, options, onChange) => {
   const [cursor, setCursor] = useState(initial);
   const [visibility, hide, show] = useVisible();
-
+  const reset = () => setCursor(0);
   const handleKeyUp = (e) => {
     const { keyCode } = e;
     if (VISIBILITY.HIDEN === visibility && keyCode === ACTIONS.TAB) {
@@ -31,7 +35,7 @@ export const useCursor = (initial, options, onChange) => {
     switch (keyCode) {
     case ACTIONS.HOME:
       e.preventDefault();
-      return setCursor(0);
+      return reset();
     case ACTIONS.END:
       e.preventDefault();
       return setCursor(lastIndex);
@@ -53,7 +57,7 @@ export const useCursor = (initial, options, onChange) => {
       return onChange(options[cursor]);
     case ACTIONS.ESC:
       e.preventDefault();
-      setCursor(0);
+      reset();
       return hide();
     default:
       const index = options.findIndex(([, label]) => label[0] === key);
@@ -61,15 +65,17 @@ export const useCursor = (initial, options, onChange) => {
     }
   };
 
-  return [cursor, handleKeyDown, handleKeyUp, [visibility, hide, show]];
+  return [cursor, handleKeyDown, handleKeyUp, reset, [visibility, hide, show]];
 };
 
 export const Select = ({
   value,
+  filter,
   options = [],
-  children,
+  anchor: Anchor = Focus,
   onChange = () => {},
-  getValue = ([value]) => value,
+  getValue = ([value] = []) => value,
+  getLabel = ([, label] = []) => label,
   placeholder,
   renderOptions: _Options = Options,
 }) => {
@@ -82,35 +88,54 @@ export const Select = ({
 
 
   const internalChanged = (value) => {
-    onChange(value);
     setInternalValue(value[0]);
   };
 
-  const [cursor, handleKeyDown, handleKeyUp, [visible, hide, show]] = useCursor(index, options, internalChanged);
+  const mapOptions = ([value, label]) => {
+    if (currentValue === value) {
+      return [value, label, true];
+    }
+    return [value, label];
+  };
+
+  const applyFilter = ([, option]) => !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
+  const filteredOptions = options.filter(applyFilter).map(mapOptions);
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(index, options, internalChanged);
 
   const ref = useRef();
 
   useLayoutEffect(() => {
     hide();
     ref.current.focus();
+    onChange(internalValue);
   }, [internalValue]);
 
-  const mapOptions = (options) => options.map(([value, label]) => {
-    if (value === currentValue) {
-      return [value, label, true];
-    }
-    return [value, label];
-  });
+  useEffect(reset, [filter]);
 
   return (
     <Container>
-      <Focus ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ minWidth: '150px' }} mod-undecorated={'true'} children={option || <Box is='span' textColor='info'>{placeholder}</Box>}/>
-      {children}
-      <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
-      <AnimatedWrapper visible={visible}><_Options role='listbox' options={mapOptions(options)} onSelect={internalChanged} cursor={cursor} /></AnimatedWrapper>
+      <Flex.Item>
+        <Flex.Container>
+          <MarginsWrapper inline={4}>
+            <Wrapper>
+              {(filter === undefined || !visible) && <Box is='span' componentClassName='rcx-select__placeholder' textStyle='p1' textColor='info'>{getLabel(option) || placeholder}</Box>}
+              <Wrapper mod-hidden={!visible}>
+                <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
+              </Wrapper>
+              <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
+            </Wrapper>
+          </MarginsWrapper>
+        </Flex.Container>
+      </Flex.Item>
+      <AnimatedWrapper visible={visible}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></AnimatedWrapper>
     </Container>);
 };
 
-export const SelectFiltered = () => {
+export const SelectFiltered = ({
+  ...props
+}) => {
+  const [filter, setFilter] = useState('');
+  const anchor = useCallback(React.forwardRef(({ children, placeholder, filter, ...props }, ref) => <InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} />), []);
 
+  return <Select {...props} anchor={anchor} filter={filter} />;
 };

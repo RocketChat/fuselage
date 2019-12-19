@@ -3,10 +3,10 @@
 
   position: relative;
 
-  padding: $spaces-x4;
   align-items: center; // TODO move to .rcx-input-box
 
-  &__focus {
+  &__focus,
+  &__placeholder {
     display: inline-block;
 
     text-align: start;
@@ -25,6 +25,15 @@
     @extend .rcx-input-box__addon;
     @include clickable;
     padding: initial;
+  }
+
+  &__wrapper {
+    opacity: 1;
+    flex-grow: 1;
+
+    &--hidden {
+      opacity: 0;
+    }
   }
 }
 
@@ -70,13 +79,9 @@
 
   transition: background $transitions-short-duration;
 
-  &--selected {
-    background: $colors-n400;
-  }
-
   &:hover,
   &--focus {
-    background: $colors-n100;
+    background: $colors-n400;
   }
 }
 

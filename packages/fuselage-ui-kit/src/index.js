@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Divider,
   Button,
@@ -19,12 +19,13 @@ import {
   ELEMENT_TYPES,
   UiKitParserModal,
 } from '@rocket.chat/ui-kit';
+import { load } from 'svg2ttf/lib/svg';
 
 import { Section as SectionLayoutBlock } from './Section';
 import { Actions as ActionsLayoutBlock } from './Actions';
 import { Input as InputLayoutBlock } from './Input';
 import { MessageImage, ModalImage } from './Image';
-import { StaticSelect } from './StaticSelect';
+import { StaticSelect, MultiStaticSelect } from './StaticSelect';
 import { Block } from './Block';
 
 export const defaultContext = {
@@ -36,16 +37,21 @@ export const defaultContext = {
 export const kitContext = React.createContext(defaultContext);
 
 const useBlockContext = ({ blockId, actionId, appId }, context) => {
+  const [loading, setLoading] = useState(false);
   const { action, appId: appIdFromContext, state } = useContext(kitContext);
   if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
-    return ({ target: { value } }) => {
-      action({ blockId, appId: appId || appIdFromContext, actionId, value });
-    };
+    return [{ loading, setLoading }, async ({ target: { value } }) => {
+      setLoading(true);
+      await action({ blockId, appId: appId || appIdFromContext, actionId, value });
+      setLoading(false);
+    }];
   }
 
-  return ({ target: { value } }) => {
-    state({ blockId, appId, actionId, value });
-  };
+  return [{ loading, setLoading }, async ({ target: { value } }) => {
+    setLoading(true);
+    await state({ blockId, appId, actionId, value });
+    setLoading(false);
+  }];
 };
 
 const getStyle = (style) => {
@@ -60,9 +66,10 @@ const getStyle = (style) => {
 
 class MessageParser extends UiKitParserMessage {
   button(element, context) {
-    const action = useBlockContext(element, context);
+    const [{ loading }, action] = useBlockContext(element, context);
     return (
       <Button
+        mod-mod-loading={loading}
         {...getStyle(element.style)}
         small
         data-group={element.groupId}
@@ -95,10 +102,11 @@ class MessageParser extends UiKitParserMessage {
   }
 
   datePicker(element, context) {
-    const action = useBlockContext(element, context);
+    const [{ loading }, action] = useBlockContext(element, context);
     const { actionId, placeholder } = element;
     return (
       <InputBox
+        mod-mod-loading={loading}
         id={actionId}
         name={actionId}
         rows={6}
@@ -142,12 +150,11 @@ class MessageParser extends UiKitParserMessage {
   }
 
   multiStaticSelect(element, context) {
-    const action = useBlockContext(element, context);
+    const [{ loading }, action] = useBlockContext(element, context);
     return (
-      <StaticSelect
-        size={3}
-        multiple
+      <MultiStaticSelect
         {...element}
+        mod-loading={loading}
         onChange={action}
         parser={this}
       />
@@ -155,14 +162,14 @@ class MessageParser extends UiKitParserMessage {
   }
 
   staticSelect(element, context) {
-    const action = useBlockContext(element, context);
-    return <StaticSelect {...element} onChange={action} parser={this} />;
+    const [{ loading }, action] = useBlockContext(element, context);
+    return <StaticSelect {...element} mod-loading={loading} onChange={action} parser={this} />;
   }
 
   selectInput(element, context) {
-    const action = useBlockContext(element, context);
+    const [{ loading }, action] = useBlockContext(element, context);
     return (
-      <SelectInput onChange={action} placeholder={element.type} disabled />
+      <SelectInput onChange={action} mod-loading={loading} placeholder={element.type} disabled />
     );
   }
 }
@@ -190,11 +197,12 @@ class ModalParser extends UiKitParserModal {
   }
 
   plainInput(element, context) {
-    const action = useBlockContext(element, context);
+    const [{ loading }, action] = useBlockContext(element, context);
     const { multiline, actionId, placeholder } = element;
     const Component = multiline ? TextAreaInput : TextInput;
     return (
       <Component
+        mod-loading={loading}
         id={actionId}
         name={actionId}
         rows={6}

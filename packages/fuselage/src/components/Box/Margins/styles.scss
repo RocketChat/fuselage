@@ -39,4 +39,16 @@
       margin-inline-end: $spacing !important;
     }
   }
+
+  &__wrapper {
+    @each $value, $spacing in $values {
+      &--all-#{$value} {
+        margin: calc(#{$spacing} * -1) !important;
+      }
+
+      &--inline-#{$value} {
+        margin-inline: calc(#{$spacing} * -1) !important;
+      }
+    }
+  }
 }
