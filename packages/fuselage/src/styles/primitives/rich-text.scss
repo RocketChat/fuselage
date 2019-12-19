@@ -1,0 +1,33 @@
+%rich-text--inline {
+  strong {
+    font: inherit;
+    font-weight: bolder;
+  }
+
+  em {
+    font: inherit;
+    font-style: italic;
+  }
+
+  b {
+    font: inherit;
+    font-weight: bolder;
+  }
+
+  i {
+    font: inherit;
+    font-style: italic;
+  }
+
+  code {
+    padding-block: $sizes-x4;
+    padding-inline: $sizes-x8;
+
+    background-color: $colors-n300;
+
+    font-family: monospace;
+    font-weight: 400;
+    -webkit-font-smoothing: auto;
+    @include use-text-color(default);
+  }
+}
