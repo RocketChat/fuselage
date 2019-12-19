@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
+import { AnimatedWrapper, Box, Flex, Margins, MarginsWrapper } from '../Box';
+import { Chip } from '../Chip';
 import { Icon } from '../Icon';
+import { InputBox } from '../InputBox';
+import { Options, CheckOption } from '../Options';
 import { useCursor, Focus, Addon } from './Select';
-
-import { InputBox, Text, Chip, Box, MarginsWrapper, Margins, Flex, AnimatedWrapper, Options, CheckOption } from '..';
 
 const Container = ({ children, ...props }) => <Box {...props} is='div' className='rcx-select'>{console.log(props, children)}{React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)}</Box>;
 
@@ -64,7 +66,7 @@ export const MultiSelect = ({
       <Flex.Container>
         <MarginsWrapper all={8}>
           <Chip.Wrapper role='listbox'>
-            <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1 }} mod-undecorated children={option || <Text infoColor>{placeholder}</Text>}/>
+            <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1 }} mod-undecorated children={option || <Box is='span' textStyle='p1' textColor='info'>{placeholder}</Box>}/>
             {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
           </Chip.Wrapper>
         </MarginsWrapper>

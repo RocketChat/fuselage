@@ -1,11 +1,9 @@
 import React, { useState, useLayoutEffect, useRef, useCallback, useEffect } from 'react';
 
+import { AnimatedWrapper, Box, Flex, Margins, MarginsWrapper, VISIBILITY, ACTIONS, useVisible } from '../Box';
 import { Icon } from '../Icon';
-import { AnimatedWrapper, VISIBILITY, ACTIONS, useVisible } from '../Box/Animated';
-import { Box } from '../Box';
+import { InputBox } from '../InputBox';
 import { Options } from '../Options';
-
-import { Margins, MarginsWrapper, Text, InputBox, Flex } from '..';
 
 const Container = ({ ...props }) => <Box {...props} is='div' className='rcx-select'/>;
 
@@ -119,7 +117,7 @@ export const Select = ({
         <Flex.Container>
           <MarginsWrapper inline={4}>
             <Wrapper>
-              {(filter === undefined || !visible) && <Text className={'rcx-select__placeholder'} infoColor>{getLabel(option) || placeholder}</Text>}
+              {(filter === undefined || !visible) && <Box is='span' textStyle='p1' textColor='info' className='rcx-select__placeholder'>{getLabel(option) || placeholder}</Box>}
               <Wrapper mod-hidden={!visible}>
                 <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
               </Wrapper>

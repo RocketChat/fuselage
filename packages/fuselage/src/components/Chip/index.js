@@ -3,7 +3,6 @@ import React from 'react';
 import { Avatar } from '../Avatar';
 import { Box, Flex, Margins, MarginsWrapper } from '../Box';
 import { Icon } from '../Icon';
-import { Text } from '../Text';
 
 const Wrapper = Box.extend('rcx-chip__wrapper', 'div');
 const Container = Box.extend('rcx-chip', 'button');
@@ -27,7 +26,7 @@ export const Chip = ({
       </Margins>}
       {children && <Flex.Item shrink={1}>
         <Margins all={4}>
-          <Text className='rcx-chip__text'>{children}</Text>
+          <Box is='span' textStyle='p1' textColor='default' className='rcx-chip__text'>{children}</Box>
         </Margins>
       </Flex.Item>}
       {Remove && (onClick || onMouseDown) && <Margins all={4}>
