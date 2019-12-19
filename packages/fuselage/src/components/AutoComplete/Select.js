@@ -74,7 +74,8 @@ export const Select = ({
   options = [],
   anchor: Anchor = Focus,
   onChange = () => {},
-  getValue = ([value]) => value,
+  getValue = ([value] = []) => value,
+  getLabel = ([, label] = []) => label,
   placeholder,
   renderOptions: _Options = Options,
 }) => {
@@ -113,17 +114,19 @@ export const Select = ({
 
   return (
     <Container>
-      <Flex.Container>
-        <MarginsWrapper inline={4}>
-          <Wrapper>
-            {(filter === undefined || !visible) && <Text infoColor>{option || placeholder}</Text>}
-            <Wrapper mod-hidden={!visible}>
-              <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
+      <Flex.Item>
+        <Flex.Container>
+          <MarginsWrapper inline={4}>
+            <Wrapper>
+              {(filter === undefined || !visible) && <Text className={'rcx-select__placeholder'} infoColor>{getLabel(option) || placeholder}</Text>}
+              <Wrapper mod-hidden={!visible}>
+                <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
+              </Wrapper>
+              <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
             </Wrapper>
-            <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
-          </Wrapper>
-        </MarginsWrapper>
-      </Flex.Container>
+          </MarginsWrapper>
+        </Flex.Container>
+      </Flex.Item>
       <AnimatedWrapper visible={visible}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></AnimatedWrapper>
     </Container>);
 };

@@ -151,6 +151,8 @@
 
   vertical-align: baseline;
 
+  white-space: nowrap;
+
   word-break: break-all;
 
   outline: 0;
@@ -182,13 +184,13 @@
     min-width: 8rem;
     min-height: #{ $sizes-x44 };
 
-    @extend %input;
-
     padding:
       calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
       calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
     padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
     padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+
+    @extend %input;
 
     &:invalid,
     &.invalid {

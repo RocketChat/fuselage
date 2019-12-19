@@ -25,6 +25,8 @@ export const MultiSelect = ({
 }) => {
   const [internalValue, setInternalValue] = useState(value || []);
 
+  const debounceRef = useRef();
+
   const currentValue = value !== undefined ? value : internalValue;
   const option = options.find((option) => getValue(option) === currentValue);
   const index = options.indexOf(option);
@@ -36,7 +38,13 @@ export const MultiSelect = ({
     setInternalValue([...currentValue, value]);
   };
 
-  useEffect(() => onChange(currentValue), [currentValue.join()]);
+  useEffect(() => {
+    if (!debounceRef.current) {
+      debounceRef.current = true;
+      return;
+    }
+    onChange(currentValue);
+  }, [currentValue.join()]);
 
   const mapOptions = ([value, label]) => {
     if (currentValue.includes(value)) {
@@ -57,7 +65,7 @@ export const MultiSelect = ({
       <Flex.Container>
         <MarginsWrapper all={8}>
           <Chip.Wrapper role='listbox'>
-            <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1, minWidth: '150px' }} mod-undecorated children={option || <Text infoColor>{placeholder}</Text>}/>
+            <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1 }} mod-undecorated children={option || <Text infoColor>{placeholder}</Text>}/>
             {currentValue.map((value) => <SelectedOptions key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
           </Chip.Wrapper>
         </MarginsWrapper>

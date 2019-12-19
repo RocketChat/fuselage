@@ -5,7 +5,8 @@
 
   align-items: center; // TODO move to .rcx-input-box
 
-  &__focus {
+  &__focus,
+  &__placeholder {
     display: inline-block;
 
     text-align: start;
@@ -28,6 +29,7 @@
 
   &__wrapper {
     opacity: 1;
+    flex-grow: 1;
 
     &--hidden {
       opacity: 0;
