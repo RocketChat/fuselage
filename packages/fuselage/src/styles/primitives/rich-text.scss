@@ -32,15 +32,18 @@
       color: $colors-b500;
     }
 
-    &:visited {
+    &:visited,
+    &.is-visited {
       color: $colors-p500;
     }
 
-    &:active {
+    &:active,
+    &.is-active {
       color: $colors-r500;
     }
 
-    &:hover {
+    &:hover,
+    &.is-hovered {
       text-decoration: underline;
     }
   }
