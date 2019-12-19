@@ -1,0 +1,39 @@
+.rcx-skeleton {
+  display: block;
+
+  height: 1.2em;
+
+  animation: rcx-skeleton__text-animation 1s linear 0s infinite running;
+
+  opacity: 0.1;
+  background-color: $text-colors-default;
+
+  &--text {
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    transform: scale(1, 0.6);
+    transform-origin: 0 60%;
+
+    border-radius: $borders-radius-x2;
+
+    &:empty::before {
+      content: '\00a0';
+    }
+  }
+}
+
+@keyframes rcx-skeleton__animation {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+}

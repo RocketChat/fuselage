@@ -19,6 +19,7 @@ export * from './Paragraph';
 export * from './PasswordInput';
 export * from './RadioButton';
 export * from './SearchInput';
+export * from './Skeleton';
 export * from './SelectInput';
 export * from './Subtitle';
 export * from './Tabs';
