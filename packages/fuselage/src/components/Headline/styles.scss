@@ -1,9 +1,9 @@
 .rcx-headline {
   display: block;
 
-  margin-bottom: $spaces-x16;
+  margin-block-end: $spaces-x16;
 
-  @include as-headline;
-
-  color: $text-colors-default;
+  @include use-text-style(h1);
+  @include use-text-color(default);
+  @extend %rich-text--inline;
 }

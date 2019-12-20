@@ -1,20 +1,18 @@
 import React from 'react';
 
 import { Box } from '../Box';
-import { Text } from '../Text';
-import { Skeleton } from './Skeleton';
+import { Skeleton } from '../Skeleton';
 
-const Container = Box.extend('rcx-paragraph', 'p');
-
-export function Paragraph({
-  children,
-  ...props
-}) {
-  return <Container {...props}>
-    <Text paragraph children={children} />
-  </Container>;
+export function Paragraph(props) {
+  return <Box is='p' componentClassName='rcx-paragraph' {...props} />;
 }
 
-Paragraph.displayName = 'Paragraph';
+export function ParagraphSkeleton(props) {
+  return <Box componentClassName='rcx-paragraph' {...props}>
+    <Skeleton />
+    <Skeleton />
+    <Skeleton width='80%' />
+  </Box>;
+}
 
-Paragraph.Skeleton = Skeleton;
+Paragraph.Skeleton = ParagraphSkeleton;

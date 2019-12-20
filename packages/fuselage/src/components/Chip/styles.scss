@@ -1,0 +1,23 @@
+.rcx-chip {
+  @include clickable;
+  @include use-text-ellipsis;
+
+  @extend %button--secondary;
+  border-width: 0;
+
+  &.disabled,
+  &:disabled {
+    color: $button-colors-secondary-color;
+    border-color: $button-colors-secondary-border-color;
+    background-color: $button-colors-secondary-background-color;
+  }
+
+  &__wrapper {
+    margin: calc(-1 * #{$spaces-x8});
+  }
+
+  &__text {
+    @include use-text-ellipsis;
+    white-space: nowrap;
+  }
+}

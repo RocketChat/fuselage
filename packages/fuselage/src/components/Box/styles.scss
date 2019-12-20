@@ -1,23 +1,5 @@
 .rcx-box {
-  &,
-  &::before,
-  &::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-
-    list-style-type: none;
-
-    user-select: none;
-    transition: all $transitions-short-duration;
-
-    border-width: $borders-width-none;
-    border-style: solid;
-    border-color: currentColor;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-variant-numeric: tabular-nums;
-  }
+  @extend %box;
 
   &--invisible {
     visibility: hidden;
@@ -25,66 +7,46 @@
     opacity: 0;
   }
 
+  @each $text-style in map-keys($text-styles) {
+    &--text-style-#{$text-style} {
+      @include use-text-style($text-style);
+    }
+  }
+
   &--text-style-headline {
-    @include as-headline;
+    @include use-text-style(h1);
   }
 
   &--text-style-subtitle {
-    @include as-subtitle;
+    @include use-text-style(s1);
   }
 
   &--text-style-paragraph {
-    @include as-paragraph;
+    @include use-text-style(p1);
   }
 
   &--text-style-caption {
-    @include as-caption;
+    @include use-text-style(c1);
   }
 
-  &--text-style-micro {
-    @include as-micro-text;
+  @each $text-color in map-keys($text-colors) {
+    &--text-color-#{$text-color} {
+      @include use-text-color($text-color);
+    }
   }
 
-  &--text-color-default {
-    color: #{ $text-colors-default };
+  &--inline {
+    @include use-text-color(default);
+    @extend %rich-text--inline;
   }
 
-  &--text-color-info {
-    color: #{ $text-colors-info };
-  }
-
-  &--text-color-hint {
-    color: #{ $text-colors-hint };
-  }
-
-  &--text-color-disabled-label {
-    color: #{ $text-colors-disabled-label };
-  }
-
-  &--text-color-disabled {
-    color: #{ $text-colors-disabled };
-  }
-
-  &--text-color-alternative {
-    color: #{ $text-colors-alternative };
-  }
-
-  &--text-color-primary {
-    color: #{ $text-colors-primary };
-  }
-
-  &--text-color-success {
-    color: #{ $text-colors-success };
-  }
-
-  &--text-color-danger {
-    color: #{ $text-colors-danger };
-  }
-
-  &--text-color-warning {
-    color: #{ $text-colors-warning };
+  &--block {
+    @include use-text-color(default);
+    @extend %rich-text--inline;
+    @extend %rich-text--block;
   }
 }
 
 @import './Margins/styles.scss';
 @import './Scrollable/styles.scss';
+@import './Animated/styles.scss';

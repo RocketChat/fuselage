@@ -1,43 +1,5 @@
-@mixin with-decorator-colors(
-  $background-color,
-  $border-color,
-  $hover-border-color,
-  $focus-border-color,
-  $focus-shadow-color,
-  $active-border-color,
-  $disabled-background-color,
-  $disabled-border-color,
-) {
-  border-color: #{ $border-color };
-  background-color: #{ $background-color };
-  box-shadow: none;
-
-  &:hover,
-  &.hover {
-    border-color: #{ $hover-border-color };
-  }
-
-  &:focus-within,
-  &.focus {
-    border-color: #{ $focus-border-color };
-    box-shadow: 0 0 0 #{ to-rem(6) } #{ $focus-shadow-color };
-  }
-
-  &:active,
-  &.active {
-    border-color: #{ $active-border-color };
-    box-shadow: none;
-  }
-
-  *:disabled &,
-  &:disabled,
-  &.disabled {
-    border-color: #{ $disabled-border-color };
-    background-color: #{ $disabled-background-color };
-  }
-}
-
-.rcx-input-box__wrapper {
+.rcx-input-box__wrapper,
+%rcx-input-box {
   position: relative;
 
   display: inline-flex;
@@ -46,40 +8,25 @@
 
   min-width: 8rem;
 
+  padding:
+    calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
+    calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+
   vertical-align: baseline;
 
   word-break: break-all;
-
-  border-width: #{ $borders-width-x2 };
-  border-radius: #{ $borders-radius-x2 };
 
   outline: 0;
 
   flex-flow: row nowrap;
 
-  @include with-decorator-colors(
-    $background-color: $input-colors-background-color,
-    $border-color: $input-colors-border-color,
-    $hover-border-color: $input-colors-hover-border-color,
-    $focus-border-color: $input-colors-focus-border-color,
-    $focus-shadow-color: $input-colors-focus-shadow-color,
-    $active-border-color: $input-colors-active-border-color,
-    $disabled-background-color: $input-colors-disabled-background-color,
-    $disabled-border-color: $input-colors-disabled-border-color,
-  );
+  @extend %input;
 
   &:invalid,
   &.invalid {
-    @include with-decorator-colors(
-      $background-color: $input-colors-invalid-background-color,
-      $border-color: $input-colors-invalid-border-color,
-      $hover-border-color: $input-colors-invalid-hover-border-color,
-      $focus-border-color: $input-colors-invalid-focus-border-color,
-      $focus-shadow-color: $input-colors-invalid-focus-shadow-color,
-      $active-border-color: $input-colors-invalid-active-border-color,
-      $disabled-background-color: $input-colors-invalid-disabled-background-color,
-      $disabled-border-color: $input-colors-invalid-disabled-border-color,
-    );
+    @extend %input--invalid;
   }
 
   *:disabled &,
@@ -90,6 +37,8 @@
 }
 
 .rcx-input-box__addon {
+  @include clickable;
+
   display: flex;
   flex: 0 0 auto;
 
@@ -196,15 +145,11 @@
 
   min-width: 8rem;
 
-  padding:
-    calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
-    calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-
   user-select: initial;
 
   vertical-align: baseline;
+
+  white-space: nowrap;
 
   word-break: break-all;
 
@@ -212,8 +157,8 @@
 
   background-color: transparent;
 
-  @include as-paragraph;
-  @include with-text--ellipsis;
+  @include use-text-style(p1);
+  @include use-text-ellipsis;
 
   &--type-textarea {
     overflow: auto;
@@ -237,32 +182,17 @@
     min-width: 8rem;
     min-height: #{ $sizes-x44 };
 
-    border-width: #{ $borders-width-x2 };
-    border-radius: #{ $borders-radius-x2 };
+    padding:
+      calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
+      calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+    padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+    padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
-    @include with-decorator-colors(
-      $background-color: $input-colors-background-color,
-      $border-color: $input-colors-border-color,
-      $hover-border-color: $input-colors-hover-border-color,
-      $focus-border-color: $input-colors-focus-border-color,
-      $focus-shadow-color: $input-colors-focus-shadow-color,
-      $active-border-color: $input-colors-active-border-color,
-      $disabled-background-color: $input-colors-disabled-background-color,
-      $disabled-border-color: $input-colors-disabled-border-color,
-    );
+    @extend %input;
 
     &:invalid,
     &.invalid {
-      @include with-decorator-colors(
-        $background-color: $input-colors-invalid-background-color,
-        $border-color: $input-colors-invalid-border-color,
-        $hover-border-color: $input-colors-invalid-hover-border-color,
-        $focus-border-color: $input-colors-invalid-focus-border-color,
-        $focus-shadow-color: $input-colors-invalid-focus-shadow-color,
-        $active-border-color: $input-colors-invalid-active-border-color,
-        $disabled-background-color: $input-colors-invalid-disabled-background-color,
-        $disabled-border-color: $input-colors-invalid-disabled-border-color,
-      );
+      @extend %input--invalid;
     }
   }
 
@@ -323,18 +253,18 @@
 }
 
 .rcx-input-box__placeholder {
-  @include with-text--ellipsis;
-  @include with-text--nowrap;
+  @include use-text-ellipsis;
+  white-space: nowrap;
 
-  @include as-paragraph;
+  @include use-text-style(p1);
   color: #{ $input-colors-placeholder-color };
 }
 
 .rcx-input-box__option {
-  @include with-text--ellipsis;
-  @include with-text--nowrap;
+  @include use-text-ellipsis;
+  white-space: nowrap;
 
-  @include as-paragraph;
+  @include use-text-style(p1);
   color: #{ $input-colors-color };
 }
 
@@ -361,6 +291,6 @@
   border-radius: #{ $borders-radius-x2 };
   background-color: #{ $input-colors-background-color };
 
-  @include as-paragraph;
-  @include with-text--ellipsis;
+  @include use-text-style(p1);
+  @include use-text-ellipsis;
 }

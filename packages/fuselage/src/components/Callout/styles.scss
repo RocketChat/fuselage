@@ -35,15 +35,15 @@
   color: #{ $text-colors-default };
   flex-flow: column nowrap;
 
-  @include as-caption;
+  @include use-text-style(c1);
 }
 
 .rcx-callout__title {
   padding-block: #{ $spaces-x2 };
 
-  @include as-caption($bold: true);
-  @include with-text--ellipsis;
-  @include with-text--nowrap;
+  @include use-text-style(c2);
+  @include use-text-ellipsis;
+  white-space: nowrap;
 }
 
 .rcx-callout__children {

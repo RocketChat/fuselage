@@ -28,7 +28,6 @@ module.exports = async ({ config, mode }) => {
             require('postcss-custom-properties')(),
             require('postcss-logical')({ preserve: true }),
             require('autoprefixer')(),
-            require('cssnano'),
           ],
         },
       },

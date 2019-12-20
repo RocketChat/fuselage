@@ -1,0 +1,31 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Icon, AutoComplete, Chip, Select, MultiSelect, MultiSelectFiltered, SelectFiltered} from '../..';
+const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
+const options = [
+  [1, 'a teste 1'],
+  [2, 'b teste 2'],
+  [3, 'c teste 3'],
+  [4, 'd teste 4'],
+];
+
+
+<Meta title='Forms|Inputs/AutoComplete' parameters={{ jest: ['AutoComplete/spec'] }} />
+
+# AutoComplete
+
+An input for selection of options.
+
+<Preview>
+  <Story name='Default'>
+    <AutoComplete placeholder="Add users..." onChange={action('change')} setFilter={action('setFilter')} options={[
+      {label: 'guilherme gazzo', value: 'uid' },
+      {label: 'didera', value: 'uid2' }
+    ]}/>
+  </Story>
+</Preview>
+
+<Props of={AutoComplete} />

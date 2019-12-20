@@ -14,7 +14,7 @@ import { Subtitle } from '../..';
 
 <Props of={Subtitle} />
 
-## Level
+### Level
 
 <Preview>
   <Story name='Level'>
@@ -28,3 +28,23 @@ import { Subtitle } from '../..';
     </>
   </Story>
 </Preview>
+
+### Rich text
+
+<Preview>
+  <Story name='Rich text'>
+    <Subtitle>
+      <strong>Lorem ipsum</strong> dolor <em>sit amet</em>, te tota adhuc cum, an <code>nemore indoctum facilisis has</code>.
+    </Subtitle>
+  </Story>
+</Preview>
+
+## Subtitle.Skeleton
+
+<Preview>
+  <Story name='Skeleton'>
+    <Subtitle.Skeleton />
+  </Story>
+</Preview>
+
+<Props of={Subtitle.Skeleton} />

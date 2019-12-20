@@ -8,8 +8,32 @@ import { Paragraph } from '../..';
 
 <Preview>
   <Story name='Default'>
-    <Paragraph>Paragraph</Paragraph>
+    <Paragraph>
+      Lorem ipsum dolor sit amet, te tota adhuc cum, an nemore indoctum facilisis has. Sea ex verterem appellantur.
+      Vix ut ridens omittam vituperatoribus. Eam ad dicunt virtute. Dicant liberavisse mediocritatem at per, malorum
+      suscipit usu ei.
+    </Paragraph>
   </Story>
 </Preview>
 
 <Props of={Paragraph} />
+
+### Rich text
+
+<Preview>
+  <Story name='Rich text'>
+    <Paragraph>
+      <strong>Lorem ipsum</strong> dolor <em>sit amet</em>, te tota adhuc cum, an <code>nemore indoctum facilisis has</code>.
+    </Paragraph>
+  </Story>
+</Preview>
+
+## Paragraph.Skeleton
+
+<Preview>
+  <Story name='Skeleton'>
+    <Paragraph.Skeleton />
+  </Story>
+</Preview>
+
+<Props of={Paragraph.Skeleton} />

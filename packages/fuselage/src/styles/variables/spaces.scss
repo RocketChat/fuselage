@@ -1,3 +1,4 @@
+$spaces-none: 0;
 $spaces-x1: theme('spaces-x1', to-rem($lengths-x1));
 $spaces-x2: theme('spaces-x2', to-rem($lengths-x2));
 $spaces-x4: theme('spaces-x4', to-rem($lengths-x4));
@@ -11,3 +12,20 @@ $spaces-x32: theme('spaces-x32', to-rem($lengths-x32));
 $spaces-x36: theme('spaces-x36', to-rem($lengths-x36));
 $spaces-x40: theme('spaces-x40', to-rem($lengths-x40));
 $spaces-x44: theme('spaces-x44', to-rem($lengths-x44));
+
+$spaces: (
+  none: $spaces-none,
+  1: $spaces-x1,
+  2: $spaces-x2,
+  4: $spaces-x4,
+  8: $spaces-x8,
+  12: $spaces-x12,
+  16: $spaces-x16,
+  20: $spaces-x20,
+  24: $spaces-x24,
+  28: $spaces-x28,
+  32: $spaces-x32,
+  36: $spaces-x36,
+  40: $spaces-x40,
+  44: $spaces-x44,
+);

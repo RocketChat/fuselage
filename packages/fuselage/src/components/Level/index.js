@@ -9,12 +9,8 @@ export function Level(props) {
   return <Container {...props} />;
 }
 
-Level.displayName = 'Level';
-
 export function LevelItem(props) {
   return <ItemContainer {...props} />;
 }
-
-LevelItem.displayName = 'Level.Item';
 
 Level.Item = LevelItem;

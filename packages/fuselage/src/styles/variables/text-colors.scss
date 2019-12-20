@@ -8,3 +8,16 @@ $text-colors-primary: theme('text-colors-primary', $colors-b500);
 $text-colors-success: theme('text-colors-success', $colors-g500);
 $text-colors-danger: theme('text-colors-danger', $colors-r500);
 $text-colors-warning: theme('text-colors-warning', $colors-y700);
+
+$text-colors: (
+  default: $text-colors-default,
+  info: $text-colors-info,
+  hint: $text-colors-hint,
+  disabled-label: $text-colors-disabled-label,
+  disabled: $text-colors-disabled,
+  alternative: $text-colors-alternative,
+  primary: $text-colors-primary,
+  success: $text-colors-success,
+  danger: $text-colors-danger,
+  warning: $text-colors-warning,
+);

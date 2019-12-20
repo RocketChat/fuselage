@@ -1,0 +1,134 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { UiKitModal, kitContext, defaultContext } from './';
+
+<Meta title='UIKit|UiKitModal' parameters={{ jest: ['UiKitModal/spec'] }} />
+
+# UI Kit Modal
+
+<Preview>
+  <Story name='Input'>
+    <UiKitModal blocks={[{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Label",
+				"emoji": true
+			}
+		}]
+  }/>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Input Multiline'>
+    <UiKitModal blocks={[{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"multiline": true
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Label",
+				"emoji": true
+			}
+		}]
+  }/>
+  </Story>
+</Preview>
+
+
+
+<Preview>
+  <Story name='Input Datepicker'>
+    <UiKitModal blocks={[{
+			"type": "input",
+			"element": {
+				"type": "datepicker",
+				"initial_date": "1990-04-28",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Select a date",
+					"emoji": true
+				}
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Label",
+				"emoji": true
+			}
+		}]
+  }/>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Image'>
+    <UiKitModal blocks={[{
+			"type": "image",
+			"title": {
+				"type": "plain_text",
+				"text": "Example Image",
+				"emoji": true
+			},
+			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
+			"altText": "Example Image"
+		}]
+  }/>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Poll'>
+    <UiKitModal blocks={[{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Insert your question",
+				"emoji": true
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*Add some choices*"
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Question 1",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+            "optional": true,
+			"element": {
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Question 2"
+			}
+		}]}/>
+  </Story>
+</Preview>
+
+<Props of={UiKitModal}/>

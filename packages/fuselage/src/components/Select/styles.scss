@@ -1,0 +1,38 @@
+.rcx-select {
+  @extend %rcx-input-box;
+
+  position: relative;
+
+  align-items: center; // TODO move to .rcx-input-box
+
+  &__focus,
+  &__placeholder {
+    display: inline-block;
+
+    text-align: start;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none;
+
+    appearance: none;
+
+    @include clickable;
+    @include use-text-ellipsis;
+    @include use-text-style(p2);
+  }
+
+  &__addon {
+    @extend .rcx-input-box__addon;
+    @include clickable;
+    padding: initial;
+  }
+
+  &__wrapper {
+    opacity: 1;
+    flex-grow: 1;
+
+    &--hidden {
+      opacity: 0;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.2.0-alpha.17",
+  "version": "0.2.0-ui-kit.73+f8467b8",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -24,24 +24,25 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "lint": "run-s eslint stylelint",
     "lint-staged": "lint-staged",
-    "test": "jest --max-workers=1",
+    "test": "[ -f .storybook/jest-results.json ] && jest --max-workers=1 || jest --max-workers=1 --json --outputFile=.storybook/jest-results.json",
     "test:results": "jest --max-workers=1 --json --outputFile=.storybook/jest-results.json",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "[ -f .storybook/jest-results.json ] && start-storybook -p 6006 || ( jest --max-workers=1 --json --outputFile=.storybook/jest-results.json && start-storybook -p 6006 )",
     "build-storybook": "build-storybook",
     "update-storybook": "run-s test:results build-storybook loki:update"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.16",
-    "react": "^16.8.6"
+    "react": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
     "@rocket.chat/eslint-config": "^0.4.0",
     "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.16",
     "@storybook/addon-actions": "5.2.8",
@@ -59,7 +60,7 @@
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
-    "cross-env": "^5.2.0",
+    "caniuse-lite": "^1.0.30001015",
     "css-vars-ponyfill": "^2.0.2",
     "cssnano": "^4.1.10",
     "eslint": "^6.1.0",
@@ -79,7 +80,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-logical": "^4.0.2",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
+    "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
@@ -132,5 +133,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "f8467b8ffb6f90d91b46fbcdd5dca169235916a4"
 }

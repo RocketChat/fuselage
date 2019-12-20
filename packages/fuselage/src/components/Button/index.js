@@ -27,11 +27,11 @@ export const Button = forwardRef(function Button({
 
   return <Container
     is={is}
-    mod-danger={danger}
-    mod-ghost={ghost}
-    mod-ghost-danger={ghost && danger}
-    mod-primary={primary}
-    mod-primary-danger={primary && danger}
+    mod-danger={!primary && danger && !ghost}
+    mod-ghost={!primary && !danger && ghost}
+    mod-ghost-danger={!primary && danger && ghost}
+    mod-primary={primary && !danger && !ghost}
+    mod-primary-danger={primary && danger && !ghost}
     mod-small={small}
     mod-square={square}
     mod-small-square={small && square}

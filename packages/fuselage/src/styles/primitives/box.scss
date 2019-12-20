@@ -1,0 +1,20 @@
+%box {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    transition: all $transitions-short-duration;
+
+    border-width: $borders-width-none;
+    border-style: solid;
+    border-color: currentColor;
+
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: tabular-nums;
+  }
+}

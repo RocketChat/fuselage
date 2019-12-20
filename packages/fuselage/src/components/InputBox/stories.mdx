@@ -21,7 +21,7 @@ components over this one because it works as a construction block for them.
 
 <Props of={InputBox} />
 
-## With Addon
+### With Addon
 
 <Preview>
   <Story name='With Icon Addon'>
@@ -29,7 +29,7 @@ components over this one because it works as a construction block for them.
   </Story>
 </Preview>
 
-## Invalid
+### Invalid
 
 <Preview>
   <Story name='Invalid'>
@@ -37,7 +37,7 @@ components over this one because it works as a construction block for them.
   </Story>
 </Preview>
 
-## Disabled
+### Disabled
 
 <Preview>
   <Story name='Disabled'>
@@ -45,10 +45,22 @@ components over this one because it works as a construction block for them.
   </Story>
 </Preview>
 
-## With placeholder
+### With placeholder
 
 <Preview>
   <Story name='With Placeholder'>
     <InputBox placeholder='Placeholder' onChange={action('change')} />
   </Story>
 </Preview>
+
+## InputBox.Skeleton
+
+A skeleton is a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.
+
+<Preview>
+  <Story name='Skeleton'>
+    <InputBox.Skeleton />
+  </Story>
+</Preview>
+
+<Props of={InputBox.Skeleton} />
