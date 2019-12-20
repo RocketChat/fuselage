@@ -7,11 +7,12 @@
 }
 
 .rcx-option {
-  list-style: none;
-  @include clickable;
   padding: $sizes-x8;
 
+  list-style: none;
+
   transition: background $transitions-short-duration;
+  @include clickable;
 
   &:hover,
   &--focus {

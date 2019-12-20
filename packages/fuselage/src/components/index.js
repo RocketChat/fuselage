@@ -22,6 +22,7 @@ export * from './SearchInput';
 export * from './Skeleton';
 export * from './SelectInput';
 export * from './Subtitle';
+export * from './Table';
 export * from './Tabs';
 export * from './TelephoneInput';
 export * from './TextAreaInput';

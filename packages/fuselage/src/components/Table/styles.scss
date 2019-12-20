@@ -1,0 +1,78 @@
+.rcx-table {
+  display: table;
+
+  width: 100%;
+
+  border-spacing: to-rem(0) $spaces-x2;
+
+  border-collapse: separate;
+
+  @each $breakpoint-name, $prefix in (xs: '', sm: 'sm\\:', md: 'md\\:', lg: 'lg\\:', xl: 'xl\\:') {
+    @include when-breakpoint($breakpoint-name) {
+      &--#{$prefix}fixed {
+        table-layout: fixed;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+
+    padding-inline: $spaces-x12;
+  }
+
+  &__head {
+    display: table-header-group;
+
+    &::after {
+      position: absolute;
+      right: 0;
+      left: 0;
+
+      display: flex;
+
+      content: '';
+      border-block-end: $borders-width-x2 solid $colors-n500;
+    }
+  }
+
+  &__body {
+    display: table-row-group;
+  }
+
+  &__foot {
+    display: table-footer-group;
+  }
+
+  &__row {
+    display: table-row;
+  }
+
+  &__cell {
+    display: table-cell;
+
+    padding: $spaces-x12;
+
+    user-select: text;
+    text-align: unset;
+    vertical-align: middle;
+
+    color: $text-colors-info;
+    @include use-text-style(p1);
+
+    &--header {
+      @include use-text-style(c2);
+      color: $text-colors-hint;
+    }
+
+    @each $breakpoint-name, $prefix in (xs: '', sm: 'sm\\:', md: 'md\\:', lg: 'lg\\:', xl: 'xl\\:') {
+      @include when-breakpoint($breakpoint-name) {
+        @each $align in (start, end, center, justify) {
+          &--#{$prefix}align-#{$align} {
+            text-align: $align;
+          }
+        }
+      }
+    }
+  }
+}
