@@ -135,6 +135,9 @@ workflows:
       - publish-alpha:
           requires:
             - hold
+          filters:
+              branches:
+                only: /feature*/
       - hold:
           type: approval
           requires:
