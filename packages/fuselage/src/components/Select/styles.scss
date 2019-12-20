@@ -17,8 +17,8 @@
     appearance: none;
 
     @include clickable;
-    @include with-ellipsing-text;
-    @include as-paragraph($bold: true);
+    @include use-text-ellipsis;
+    @include use-text-style(p2);
   }
 
   &__addon {

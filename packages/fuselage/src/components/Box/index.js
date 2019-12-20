@@ -61,6 +61,7 @@ export const Box = memo(forwardRef(function Box({
   componentClassName,
   invisible,
   is = 'div',
+  richText,
   style,
   textColor,
   textStyle,
@@ -75,6 +76,8 @@ export const Box = memo(forwardRef(function Box({
       'rcx-box',
       ...getClassNamesFromModifiers('rcx-box', {
         invisible,
+        inline: richText === 'inline',
+        block: richText === 'block',
         'text-color': textColor,
         'text-style': textStyle,
       }),
@@ -106,12 +109,16 @@ Box.propTypes = {
   componentClassName: PropTypes.string,
   invisible: PropTypes.bool,
   is: PropTypes.elementType.isRequired,
+  richText: PropTypes.oneOf(['inline', 'block']),
   style: PropTypes.object,
   textColor: PropTypes.oneOf([
     'default', 'info', 'hint', 'disabled-label', 'disabled', 'alternative',
     'primary', 'success', 'danger', 'warning',
   ]),
-  textStyle: PropTypes.oneOf(['headline', 'subtitle', 'paragraph', 'caption', 'micro']),
+  textStyle: PropTypes.oneOf([
+    'h1', 's1', 's2', 'p1', 'p2', 'c1', 'c2', 'micro', 'mono',
+    'headline', 'subtitle', 'paragraph', 'caption',
+  ]),
 };
 
 Box.extend = (componentClassName, is) => {
