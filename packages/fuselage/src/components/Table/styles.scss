@@ -7,12 +7,8 @@
 
   border-collapse: separate;
 
-  @each $breakpoint-name, $prefix in (xs: '', sm: 'sm\\:', md: 'md\\:', lg: 'lg\\:', xl: 'xl\\:') {
-    @include when-breakpoint($breakpoint-name) {
-      &--#{$prefix}fixed {
-        table-layout: fixed;
-      }
-    }
+  &--fixed {
+    table-layout: fixed;
   }
 
   &__wrapper {
@@ -65,13 +61,9 @@
       color: $text-colors-hint;
     }
 
-    @each $breakpoint-name, $prefix in (xs: '', sm: 'sm\\:', md: 'md\\:', lg: 'lg\\:', xl: 'xl\\:') {
-      @include when-breakpoint($breakpoint-name) {
-        @each $align in (start, end, center, justify) {
-          &--#{$prefix}align-#{$align} {
-            text-align: $align;
-          }
-        }
+    @each $align in (start, end, center, justify) {
+      &--align-#{$align} {
+        text-align: $align;
       }
     }
   }

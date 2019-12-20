@@ -16,26 +16,15 @@ const getClassNamesFromModifiers = (element, modifiers) => {
       continue;
     }
 
-    if (typeof value === 'object') {
-      Object.entries(value).filter(([, value]) => !!value).forEach(([breakpointName, value]) => {
-        modifierClassNames.push(`${ element }--${ breakpointName }:${ name }-${ value }`);
-      });
-      continue;
-    }
-
     modifierClassNames.push(`${ element }--${ name }-${ value }`);
   }
 
   return modifierClassNames;
 };
 
-const filterModifierClassNames = (componentClassName, props) => {
-  if (!componentClassName) {
-    return [[], props];
-  }
+const nameRegex = /^mod-(.*)$/;
 
-  const nameRegex = /^mod-(.*)$/;
-
+const filterModifierProps = (props) => {
   const [modifierProps, otherProps] = Object.entries(props)
     .reduce(([modifierProps, otherProps], [name, value]) => {
       const matches = nameRegex.exec(name);
@@ -51,9 +40,7 @@ const filterModifierClassNames = (componentClassName, props) => {
       return [{ ...modifierProps, [matches[1]]: value }, otherProps];
     }, [{}, {}]);
 
-  const modifierClassNames = getClassNamesFromModifiers(componentClassName, modifierProps);
-
-  return [modifierClassNames, otherProps];
+  return [modifierProps, otherProps];
 };
 
 export const Box = memo(forwardRef(function Box({
@@ -73,7 +60,7 @@ export const Box = memo(forwardRef(function Box({
     style: contextualStyle,
     ...contextualProps
   }, PropsProvider] = useProps();
-  const [modifiersClasses, otherProps] = filterModifierClassNames(componentClassName, { ...contextualProps, ...props });
+  const [modifiersProps, otherProps] = filterModifierProps({ ...contextualProps, ...props });
 
   const children = createElement(is, {
     className: [
@@ -86,7 +73,7 @@ export const Box = memo(forwardRef(function Box({
         'text-style': textStyle,
       }),
       componentClassName,
-      ...modifiersClasses,
+      ...getClassNamesFromModifiers(componentClassName, modifiersProps),
       contextualClassName,
       className,
     ].filter(Boolean).join(' '),
