@@ -3,10 +3,6 @@ import React, { forwardRef } from 'react';
 import { Label } from '../Label';
 import { Box } from '../Box';
 
-const Container = Box.extend('rcx-toggle-switch', 'span');
-const Input = Box.extend('rcx-toggle-switch__input', 'input');
-const Fake = Box.extend('rcx-toggle-switch__fake', 'i');
-
 export const ToggleSwitch = forwardRef(function ToggleSwitch({
   className,
   hidden,
@@ -15,12 +11,10 @@ export const ToggleSwitch = forwardRef(function ToggleSwitch({
   onClick,
   ...props
 }, ref) {
-  return <Container className={className} hidden={hidden} invisible={invisible} style={style} onClick={onClick}>
-    <Label>
-      <Input ref={ref} type='checkbox' {...props} />
-      <Fake aria-hidden='true' />
-    </Label>
-  </Container>;
+  return <Box is={Label} componentClassName='rcx-toggle-switch' className={className} hidden={hidden} invisible={invisible} style={style} onClick={onClick}>
+    <Box is='input' componentClassName='rcx-toggle-switch__input' ref={ref} type='checkbox' {...props} />
+    <Box is='i' componentClassName='rcx-toggle-switch__fake' aria-hidden='true' />
+  </Box>;
 });
 
 ToggleSwitch.displayName = 'ToggleSwitch';

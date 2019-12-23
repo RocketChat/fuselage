@@ -2,34 +2,50 @@
   display: flex;
 
   width: 100%;
+  margin-block: calc(-1 * #{ $spaces-x2 });
   align-items: stretch;
   flex-flow: column nowrap;
 
-  & > :first-child {
-    margin-bottom: #{ $spaces-x8 };
-    margin-block-end: #{ $spaces-x8 };
+  &__label {
+    @include use-text-style(p2);
+    @include use-text-color(default);
+    flex: 1 1 0;
+
+    margin-block: $spaces-x2;
+    align-self: flex-start;
   }
-}
 
-.rcx-field__row {
-  display: flex;
-  align-items: center;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
+  &__description {
+    @include use-text-style(p1);
+    @include use-text-color(hint);
+    @extend %rich-text--inline;
+    margin-block: $spaces-x2;
+  }
 
-.rcx-field__error {
-  flex: 0 1 auto;
+  &__row {
+    display: flex;
 
-  margin-left: #{ $spaces-x8 };
-  margin-inline-start: #{ $spaces-x8 };
+    margin-block: $spaces-x4 $spaces-x2;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 
-  user-select: text;
+    & .rcx-field__label {
+      padding-inline-start: $spaces-x8;
+    }
+  }
 
-  @include use-text-ellipsis;
-}
+  &__hint {
+    @include use-text-style(p1);
+    @include use-text-color(hint);
+    @extend %rich-text--inline;
+    margin-block: $spaces-x2;
+  }
 
-.rcx-field__hint {
-  margin-top: #{ $spaces-x4 };
-  margin-block-start: #{ $spaces-x4 };
+  &__error {
+    @include use-text-style(p1);
+    @include use-text-color(danger);
+    @extend %rich-text--inline;
+    margin-block: $spaces-x2;
+  }
 }
