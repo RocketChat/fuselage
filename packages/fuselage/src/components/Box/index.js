@@ -125,3 +125,4 @@ export * from './Flex';
 export * from './Margins';
 export * from './Scrollable';
 export * from './Animated';
+export * from './Position';

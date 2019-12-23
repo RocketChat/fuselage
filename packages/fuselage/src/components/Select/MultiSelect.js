@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
-import { AnimatedWrapper, Box, Flex, Margins, MarginsWrapper } from '../Box';
+import { AnimatedWrapper, Box, Flex, Margins, MarginsWrapper, Position } from '../Box';
 import { Chip } from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import { Options, CheckOption } from '../Options';
 import { useCursor, Focus, Addon } from './Select';
 
-const Container = ({ children, ...props }) => <Box {...props} is='div' className='rcx-select'>{console.log(props, children)}{React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)}</Box>;
+const Container = Box.extend('rcx-select', 'div');
 
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);
 
@@ -60,19 +60,23 @@ export const MultiSelect = ({
   useEffect(reset, [filter]);
 
   const ref = useRef();
-
+  const containerRef = useRef();
   return (
-    <Container onClick={() => ref.current.focus() & show()}{...props}>
-      <Flex.Container>
-        <MarginsWrapper all={8}>
-          <Chip.Wrapper role='listbox'>
-            <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1 }} mod-undecorated children={option || <Box is='span' textStyle='p1' textColor='info'>{placeholder}</Box>}/>
-            {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
-          </Chip.Wrapper>
-        </MarginsWrapper>
-      </Flex.Container>
-      <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
-      <AnimatedWrapper visible={visible}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></AnimatedWrapper>
+    <Container ref={containerRef} onClick={() => ref.current.focus() & show()}{...props}>
+      <Margins inline={4}>
+        <Flex.Container>
+          <MarginsWrapper all={8}>
+            <Chip.Wrapper role='listbox'>
+              <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1 }} mod-undecorated children={option || <Box is='span' textStyle='p1' textColor='info'>{placeholder}</Box>}/>
+              {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
+            </Chip.Wrapper>
+          </MarginsWrapper>
+        </Flex.Container>
+      </Margins>
+      <Margins inline={4}>
+        <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
+      </Margins>
+      <AnimatedWrapper visible={visible}><Position anchor={containerRef}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedWrapper>
     </Container>);
 };
 
@@ -82,6 +86,6 @@ export const MultiSelectFiltered = ({
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(({ children, filter, ...props }) => <InputBox.Input placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/>, []);
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/>, []));
   return <MultiSelect filter={filter} options={options} {...props} anchor={anchor}/>;
 };

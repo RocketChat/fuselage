@@ -1,11 +1,11 @@
 import React, { useState, useLayoutEffect, useRef, useCallback, useEffect } from 'react';
 
-import { AnimatedWrapper, Box, Flex, Margins, MarginsWrapper, VISIBILITY, ACTIONS, useVisible } from '../Box';
+import { AnimatedWrapper, Box, Flex, Margins, MarginsWrapper, VISIBILITY, ACTIONS, useVisible, Position } from '../Box';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import { Options } from '../Options';
 
-const Container = ({ ...props }) => <Box {...props} is='div' className='rcx-select'/>;
+const Container = Box.extend('rcx-select', 'div');
 
 export const Addon = Box.extend('rcx-select__addon', 'div');
 
@@ -103,6 +103,8 @@ export const Select = ({
 
   const ref = useRef();
 
+  const containerRef = useRef();
+
   useLayoutEffect(() => {
     hide();
     ref.current.focus();
@@ -112,7 +114,7 @@ export const Select = ({
   useEffect(reset, [filter]);
 
   return (
-    <Container onClick={() => ref.current.focus() & show()}>
+    <Container ref={containerRef} onClick={() => ref.current.focus() & show()}>
       <Flex.Item>
         <Flex.Container>
           <MarginsWrapper inline={4}>
@@ -126,7 +128,7 @@ export const Select = ({
           </MarginsWrapper>
         </Flex.Container>
       </Flex.Item>
-      <AnimatedWrapper visible={visible}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></AnimatedWrapper>
+      <AnimatedWrapper visible={visible}><Position anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedWrapper>
     </Container>);
 };
 
