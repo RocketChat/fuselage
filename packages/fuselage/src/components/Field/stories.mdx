@@ -24,18 +24,19 @@ A `Field` is a wrapper representing an entry in a form.
 
 <Props of={Field} />
 
+## Field.Label
+
+<Props of={Field.Label} />
+
 ### Label positioning for selection buttons
 
 <Preview>
   <Story name='With CheckBox'>
     <Field>
-      <Field.Description>Description</Field.Description>
       <Field.Row>
         <CheckBox id='check-box' />
         <Field.Label htmlFor='check-box'>Label</Field.Label>
       </Field.Row>
-      <Field.Hint>Hint</Field.Hint>
-      <Field.Error>Error</Field.Error>
     </Field>
   </Story>
 </Preview>
@@ -43,13 +44,26 @@ A `Field` is a wrapper representing an entry in a form.
 <Preview>
   <Story name='With ToggleSwitch'>
     <Field>
-      <Field.Description>Description</Field.Description>
       <Field.Row>
         <ToggleSwitch id='toggle-switch' />
         <Field.Label htmlFor='toggle-switch'>Label</Field.Label>
       </Field.Row>
-      <Field.Hint>Hint</Field.Hint>
-      <Field.Error>Error</Field.Error>
     </Field>
   </Story>
 </Preview>
+
+## Field.Description
+
+<Props of={Field.Description} />
+
+## Field.Row
+
+<Props of={Field.Row} />
+
+## Field.Hint
+
+<Props of={Field.Hint} />
+
+## Field.Error
+
+<Props of={Field.Error} />

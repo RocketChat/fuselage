@@ -5,10 +5,6 @@ import React, { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 import { Box } from '../Box';
 import { Label } from '../Label';
 
-const Container = Box.extend('rcx-check-box', 'span');
-const Input = Box.extend('rcx-check-box__input', 'input');
-const Fake = Box.extend('rcx-check-box__fake', 'i');
-
 export const CheckBox = forwardRef(function CheckBox({
   className,
   hidden,
@@ -30,12 +26,10 @@ export const CheckBox = forwardRef(function CheckBox({
     onChange && onChange.call(innerRef.current, event);
   }, [innerRef, indeterminate, onChange]);
 
-  return <Container className={className} hidden={hidden} invisible={invisible} style={style}>
-    <Label>
-      <Input ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
-      <Fake aria-hidden='true' />
-    </Label>
-  </Container>;
+  return <Box is={Label} componentClassName='rcx-check-box' className={className} hidden={hidden} invisible={invisible} style={style}>
+    <Box is='input' componentClassName='rcx-check-box__input' ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
+    <Box is='i' componentClassName='rcx-check-box__fake' aria-hidden='true' />
+  </Box>;
 });
 
 CheckBox.displayName = 'CheckBox';

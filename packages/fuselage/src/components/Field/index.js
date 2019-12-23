@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { Box } from '../Box';
+import { Label } from '../Label';
 
 export function FieldLabel(props) {
-  return <Box is='label' componentClassName='rcx-field__label' {...props}/>;
+  return <Box is={Label} componentClassName='rcx-field__label' {...props}/>;
 }
 
 export function FieldDescription(props) {
