@@ -1,79 +1,17 @@
 .rcx-label {
-  display: inline-flex;
-
-  cursor: inherit;
-  align-items: stretch;
-  flex-flow: column nowrap;
-
-  &--position-top {
-    align-items: stretch;
-    flex-flow: column nowrap;
-  }
-
-  &--position-start {
-    align-items: flex-start;
-    flex-flow: row nowrap;
-  }
-
-  &--position-end {
-    align-items: flex-start;
-    flex-flow: row-reverse nowrap;
-  }
-}
-
-.rcx-label__wrapper {
-  display: flex;
-  align-items: center;
-
-  &--position-top {
-    flex: 1 0 auto;
-
-    &.rcx-label__wrapper--has-children {
-      margin-bottom: #{ $spaces-x8 };
-      margin-block-end: #{ $spaces-x8 };
-    }
-  }
-
-  &--position-start {
-    flex: 1 0 0;
-    align-self: stretch;
-
-    &.rcx-label__wrapper--has-children {
-      margin-right: #{ $spaces-x8 };
-      margin-inline-end: #{ $spaces-x8 };
-    }
-  }
-
-  &--position-end {
-    flex: 1 0 0;
-    align-self: stretch;
-
-    &.rcx-label__wrapper--has-children {
-      margin-left: #{ $spaces-x8 };
-      margin-inline-start: #{ $spaces-x8 };
-    }
-  }
-}
-
-.rcx-label__text {
-  flex: 1 1 0;
-
-  user-select: text;
-
-  color: #{ $text-colors-default };
-
-  @include use-text-style(p1);
-  @include use-text-ellipsis;
+  @include use-text-style(p2);
+  @include use-text-color(default);
 
   &--disabled {
-    color: #{ $text-colors-disabled-label };
+    @include use-text-color(hint);
+    pointer-events: none;
   }
 
   &--required {
     &::before {
       content: '*\0a0';
 
-      color: #{ $text-colors-danger };
+      @include use-text-color(danger);
     }
   }
 }
