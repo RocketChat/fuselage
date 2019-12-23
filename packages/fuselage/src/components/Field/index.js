@@ -1,34 +1,44 @@
-import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { createContext, useContext } from 'react';
+import React from 'react';
 
 import { Box } from '../Box';
-import { FieldError } from './Error';
-import { FieldHint } from './Hint';
-import { FieldRow } from './Row';
 
-const FieldIdContext = createContext();
-
-export const useFieldId = () => useContext(FieldIdContext);
-
-const Container = Box.extend('rcx-field');
-
-export function Field({ children, fieldId, ...props }) {
-  const defaultFieldId = useUniqueId();
-
-  return <FieldIdContext.Provider value={fieldId || defaultFieldId}>
-    <Container {...props}>
-      {typeof children === 'function' ? children(fieldId || defaultFieldId) : children}
-    </Container>
-  </FieldIdContext.Provider>;
+export function FieldLabel(props) {
+  return <Box is='label' componentClassName='rcx-field__label' {...props}/>;
 }
 
-Field.displayName = 'Field';
+export function FieldDescription(props) {
+  return <Box is='span' componentClassName='rcx-field__description' {...props}/>;
+}
+
+export function FieldRow(props) {
+  return <Box is='span' componentClassName='rcx-field__row' {...props} />;
+}
+
+export function FieldHint(props) {
+  return <Box is='span' componentClassName='rcx-field__hint' {...props} />;
+}
+
+export function FieldError(props) {
+  return <Box is='span' componentClassName='rcx-field__error' {...props} />;
+}
+
+export function Field({
+  children,
+  fieldId,
+  ...props
+}) {
+  return <Box componentClassName='rcx-field' {...props}>
+    {children}
+  </Box>;
+}
 
 Field.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 };
 
+Field.Label = FieldLabel;
+Field.Description = FieldDescription;
 Field.Row = FieldRow;
 Field.Error = FieldError;
 Field.Hint = FieldHint;
