@@ -1,6 +1,8 @@
 .rcx-scrollable {
   @include scrollable;
 
+  position: relative;
+
   overflow: auto;
 
   &--horizontal {
@@ -11,5 +13,9 @@
   &--vertical {
     overflow: initial;
     overflow-y: auto;
+  }
+
+  &--smooth {
+    scroll-behavior: smooth;
   }
 }

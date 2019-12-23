@@ -4,9 +4,9 @@ import React from 'react';
 
 import { useProps } from '../../../hooks';
 
-export function Scrollable({ children, horizontal, vertical }) {
+export function Scrollable({ children, horizontal, vertical, smooth }) {
   const [, PropsProvider] = useProps(({ className, ...props }) => ({
-    className: useClassName('rcx-scrollable', { horizontal, vertical }, className),
+    className: useClassName('rcx-scrollable', { horizontal, vertical, smooth }, className),
     ...props,
   }));
 
@@ -18,4 +18,5 @@ Scrollable.displayName = 'Scrollable';
 Scrollable.propTypes = {
   horizontal: PropTypes.bool,
   vertical: PropTypes.bool,
+  smooth: PropTypes.bool,
 };

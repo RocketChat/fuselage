@@ -36,7 +36,6 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
   const ref = useRef();
   useEffect(() => {
     const [vertical, horizontal] = placement.split(' ');
-
     setPosition({
       ...width === 'stretch' && anchor.current && {
         width: anchor.current.offsetWidth,
