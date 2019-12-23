@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Box } from '../Box';
@@ -23,19 +22,9 @@ export function FieldError(props) {
   return <Box is='span' componentClassName='rcx-field__error' {...props} />;
 }
 
-export function Field({
-  children,
-  fieldId,
-  ...props
-}) {
-  return <Box componentClassName='rcx-field' {...props}>
-    {children}
-  </Box>;
+export function Field(props) {
+  return <Box componentClassName='rcx-field' {...props} />;
 }
-
-Field.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-};
 
 Field.Label = FieldLabel;
 Field.Description = FieldDescription;

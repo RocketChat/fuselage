@@ -1,6 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Button, Field, Hint, Icon, InputBox, Label } from '../..';
+import { Button, CheckBox, Field, InputBox, ToggleSwitch } from '../..';
 
 <Meta title='Forms|Field' parameters={{ jest: ['Field/spec'] }} />
 
@@ -23,3 +23,33 @@ A `Field` is a wrapper representing an entry in a form.
 </Preview>
 
 <Props of={Field} />
+
+### Label positioning for selection buttons
+
+<Preview>
+  <Story name='With CheckBox'>
+    <Field>
+      <Field.Description>Description</Field.Description>
+      <Field.Row>
+        <CheckBox id='check-box' />
+        <Field.Label htmlFor='check-box'>Label</Field.Label>
+      </Field.Row>
+      <Field.Hint>Hint</Field.Hint>
+      <Field.Error>Error</Field.Error>
+    </Field>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='With ToggleSwitch'>
+    <Field>
+      <Field.Description>Description</Field.Description>
+      <Field.Row>
+        <ToggleSwitch id='toggle-switch' />
+        <Field.Label htmlFor='toggle-switch'>Label</Field.Label>
+      </Field.Row>
+      <Field.Hint>Hint</Field.Hint>
+      <Field.Error>Error</Field.Error>
+    </Field>
+  </Story>
+</Preview>

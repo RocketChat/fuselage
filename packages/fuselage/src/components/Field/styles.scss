@@ -9,7 +9,10 @@
   &__label {
     @include use-text-style(p2);
     @include use-text-color(default);
+    flex: 1 1 0;
+
     margin-block: $spaces-x2;
+    align-self: flex-start;
   }
 
   &__description {
@@ -26,6 +29,10 @@
     align-items: center;
     flex-flow: row nowrap;
     justify-content: space-between;
+
+    & .rcx-field__label {
+      padding-inline-start: $spaces-x8;
+    }
   }
 
   &__hint {
