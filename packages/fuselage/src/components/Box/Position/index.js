@@ -61,6 +61,6 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
 
   return React.cloneElement(children, {
     style: { ...position, ...children.props.style, ...style },
-    className: ['rcx-position', className, children.props.className].filter((e) => e).join(' '),
+    className: ['rcx-position', className, children.props.className].filter(Boolean).join(' '),
   });
 };
