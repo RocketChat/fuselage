@@ -44,6 +44,10 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
       ...getHorizontal(anchor, ref, horizontal),
     });
 
+    if (typeof ResizeObserver === 'undefined') {
+      return;
+    }
+
     const resizeObserver = new ResizeObserver(() => {
       setPosition({
         ...width === 'stretch' && anchor.current && {
