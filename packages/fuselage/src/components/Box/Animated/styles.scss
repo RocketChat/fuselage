@@ -7,8 +7,6 @@
 }
 
 .rcx-animated {
-  display: none;
-
   animation-duration: $transitions-short-duration;
 
   &--visible {
@@ -20,13 +18,17 @@
     display: initial;
     @extend %slideInDown;
   }
+
+  &:not(&--visible):not(&--hiding) {
+    display: none !important;
+  }
 }
 
 @keyframes slideInUp {
   from {
     visibility: visible;
 
-    transform: translate3d(0, 2rem, 0);
+    transform: translate3d(0, $spaces-x16, 0);
 
     opacity: 0;
   }
@@ -48,7 +50,7 @@
   }
 
   to {
-    transform: translate3d(0, -2rem, 0);
+    transform: translate3d(0, $spaces-x16, 0);
 
     opacity: 0;
   }

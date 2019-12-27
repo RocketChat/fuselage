@@ -20,7 +20,7 @@ const options = [
       const ref = useRef();
       return (<>
         <Button ref={ref}>Anchor test</Button>
-        <Position anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Position placement='bottom center' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
       </>);
     })()}
   </Story>

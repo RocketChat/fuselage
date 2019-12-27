@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect, useRef, useCallback, useEffect } from 'react';
 
-import { AnimatedWrapper, Box, Flex, Margins, MarginsWrapper, VISIBILITY, ACTIONS, useVisible, Position } from '../Box';
+import { PositionAnimated, Box, Flex, Margins, MarginsWrapper, VISIBILITY, ACTIONS, useVisible } from '../Box';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import { Options } from '../Options';
@@ -10,6 +10,7 @@ const Container = Box.extend('rcx-select', 'div');
 export const Addon = Box.extend('rcx-select__addon', 'div');
 
 const InnerWrapper = Box.extend('rcx-select__wrapper', 'div');
+
 const Wrapper = ({ children, ...props }) => <InnerWrapper children={React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)} {...props} />;
 
 export const Focus = React.forwardRef((props, ref) => <Box ref={ref} className='rcx-select__focus' is='button' {...props}/>);
@@ -128,7 +129,7 @@ export const Select = ({
           </MarginsWrapper>
         </Flex.Container>
       </Flex.Item>
-      <AnimatedWrapper visible={visible}><Position anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedWrapper>
+      <PositionAnimated visible={visible} anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>
     </Container>);
 };
 

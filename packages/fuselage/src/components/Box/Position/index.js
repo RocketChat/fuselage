@@ -4,6 +4,8 @@ import React, {
   useEffect,
 } from 'react';
 
+import { AnimatedWrapper } from '../Animated';
+
 const top = (top) => ({ top });
 const left = (left) => ({ left });
 
@@ -31,36 +33,61 @@ const getHorizontal = (anchor, element, placement = 'right') => {
   }
 };
 
+function debounce(func, wait, immediate) {
+  let timeout;
+  return function(...args) {
+    const context = this;
+    const later = function() {
+      timeout = null;
+      if (!immediate) { func.apply(context, args); }
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) { func.apply(context, args); }
+  };
+}
+
 export const Position = ({ anchor, width = 'stretch', style, className, children, placement = 'bottom center' }) => {
   const [position, setPosition] = useState();
   const ref = useRef();
+
+  const { offsetWidth } = anchor.current || {};
   useEffect(() => {
     const [vertical, horizontal] = placement.split(' ');
-    setPosition({
-      ...width === 'stretch' && anchor.current && {
-        width: anchor.current.offsetWidth,
-      },
-      ...getVertical(anchor, ref, vertical),
-      ...getHorizontal(anchor, ref, horizontal),
-    });
 
-    const resizeObserver = new ResizeObserver(() => {
+
+    const handlePosition = debounce(() => {
       setPosition({
         ...width === 'stretch' && anchor.current && {
-          width: anchor.current.offsetWidth,
+          width: offsetWidth,
         },
         ...getVertical(anchor, ref, vertical),
         ...getHorizontal(anchor, ref, horizontal),
       });
-    });
+    }, 100);
 
+    const resizeObserver = new ResizeObserver(handlePosition);
+
+    document.addEventListener('scroll', handlePosition);
+    document.addEventListener('resize', handlePosition);
     const { current } = anchor;
+
     resizeObserver.observe(current);
-    return () => resizeObserver.unobserve(current);
-  }, []);
+
+    return () => {
+      document.removeEventListener('scroll', handlePosition);
+      document.removeEventListener('resize', handlePosition);
+      resizeObserver.unobserve(current);
+    };
+  }, [placement, offsetWidth]);
 
   return React.cloneElement(children, {
     style: { ...position, ...children.props.style, ...style },
     className: ['rcx-position', className, children.props.className].filter((e) => e).join(' '),
   });
 };
+
+export const PositionAnimated = ({ visible, children, ...props }) => (
+  <AnimatedWrapper visible={visible}><Position {...props}>{children}</Position></AnimatedWrapper>
+);
