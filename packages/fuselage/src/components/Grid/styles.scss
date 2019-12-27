@@ -14,6 +14,10 @@ $breakpoint-names: map-keys($breakpoints);
   display: flex;
   flex-flow: row wrap;
 
+  &__wrapper {
+    overflow: hidden;
+  }
+
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
       margin-block: calc(#{ to-rem(map-get(map-get($breakpoints, $breakpoint-name), gutter-width)) } / -2);

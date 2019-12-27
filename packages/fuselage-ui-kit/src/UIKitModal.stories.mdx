@@ -1,31 +1,39 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
-
+import {
+  Modal,
+} from '@rocket.chat/fuselage';
 import { UiKitModal, kitContext, defaultContext } from './';
+import { Demo } from './Demo';
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 
-<Meta title='UIKit|UiKitModal' parameters={{ jest: ['UiKitModal/spec'] }} />
+
+<Meta title='UIKit|UiKitModal' parameters={{ jest: ['UiKitModal/spec'] }} decorators={[withKnobs]} />
 
 # UI Kit Modal
 
 <Preview>
   <Story name='Input'>
-    <UiKitModal blocks={[{
-			"type": "input",
-			"element": {
-				"type": "plain_text_input"
-			},
-			"label": {
-				"type": "plain_text",
-				"text": "Label",
-				"emoji": true
-			}
-		}]
-  }/>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+      <UiKitModal blocks={[{
+        "type": "input",
+        "element": {
+          "type": "plain_text_input"
+        },
+        "label": {
+          "type": "plain_text",
+          "text": "Label",
+          "emoji": true
+        }
+      }]
+    }/>
+    </Demo>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Input Multiline'>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
     <UiKitModal blocks={[{
 			"type": "input",
 			"element": {
@@ -39,6 +47,7 @@ import { UiKitModal, kitContext, defaultContext } from './';
 			}
 		}]
   }/>
+  </Demo>
   </Story>
 </Preview>
 
@@ -46,6 +55,7 @@ import { UiKitModal, kitContext, defaultContext } from './';
 
 <Preview>
   <Story name='Input Datepicker'>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
     <UiKitModal blocks={[{
 			"type": "input",
 			"element": {
@@ -64,11 +74,13 @@ import { UiKitModal, kitContext, defaultContext } from './';
 			}
 		}]
   }/>
+  </Demo>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Image'>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
     <UiKitModal blocks={[{
 			"type": "image",
 			"title": {
@@ -80,11 +92,13 @@ import { UiKitModal, kitContext, defaultContext } from './';
 			"altText": "Example Image"
 		}]
   }/>
+  </Demo>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Poll'>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
     <UiKitModal blocks={[{
 			"type": "input",
 			"element": {
@@ -128,6 +142,7 @@ import { UiKitModal, kitContext, defaultContext } from './';
 				"text": "Question 2"
 			}
 		}]}/>
+    </Demo>
   </Story>
 </Preview>
 

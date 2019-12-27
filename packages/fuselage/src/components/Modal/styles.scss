@@ -1,0 +1,18 @@
+.rcx-modal {
+  width: 100%;
+  max-height: 100vh;
+
+  &__inner {
+    min-width: 0;
+  }
+
+  &__title {
+    @include use-text-ellipsis;
+    white-space: nowrap;
+  }
+
+  @include when-breakpoint(sm) {
+    max-width: 640px;
+    padding: $spaces-x16;
+  }
+}
