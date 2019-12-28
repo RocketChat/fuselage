@@ -29,7 +29,7 @@ import { Block } from './Block';
 import { Overflow } from './Overflow';
 
 export const defaultContext = {
-  action: (...args) => alert(JSON.stringify(args)),
+  action: (...args) => console.log(JSON.stringify(args)),
   state: console.log,
   appId: '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz',
 };

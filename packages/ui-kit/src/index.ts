@@ -140,8 +140,8 @@ export const createRenderElement = (allowedItems?: Array<ELEMENT_TYPES>) => (ele
 };
 
 export const uiKitMessage = uiKitGeneric<UiKitParserMessage>([
-  ELEMENT_TYPES.SECTION,
   ELEMENT_TYPES.DIVIDER,
+  ELEMENT_TYPES.SECTION,
   ELEMENT_TYPES.IMAGE,
   ELEMENT_TYPES.ACTIONS,
   ELEMENT_TYPES.CONTEXT
