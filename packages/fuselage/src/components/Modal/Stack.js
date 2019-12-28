@@ -52,9 +52,11 @@ export const ModalProvider = ({ children }) => {
   );
 };
 
+export const useModalContext = () => useContext(Context);
+
 const Backdrop = React.memo(() => <Box is='div' className='rcx-modal__backdrop'/>);
 const Container = () => {
-  const { stack } = useContext(Context);
+  const { stack } = useModalContext();
   return (
     <ModalPortal>
       {stack.size > 0 && <Backdrop/>}

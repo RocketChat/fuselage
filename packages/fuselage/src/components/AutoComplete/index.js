@@ -4,7 +4,7 @@ import { Icon } from '../Icon';
 import { Margins, Chip, InputBox, Options, OptionAvatar } from '../..';
 import { AnimatedWrapper } from '../Box/Animated';
 import { Box } from '../Box';
-import { useCursor } from '../Select';
+import { useCursor } from '../Options';
 
 const Item = ({ children }) => <Margins inline={4}><Box is='div'>{children}</Box></Margins>;
 const Container = ({ children, ...props }) => <Box {...props} is='div' className='rcx-autocomplete'>{children.map((c, i) => <Item key={i}>{c}</Item>)}</Box>;

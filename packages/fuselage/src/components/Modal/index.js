@@ -23,7 +23,7 @@ export const Header = React.memo(({ children, ...props }) => (
     <Box is='header' className='rcx-modal__header' {...props}>
       <Flex.Container alignItems='center'>
         <MarginsWrapper all={8}>
-          <HeaderInner>{React.Children.map(children, (c) => <Margins all={8}>{c}</Margins>)}</HeaderInner>
+          <HeaderInner>{React.Children.map(children, (c, i) => <Margins key={i} all={8}>{c}</Margins>)}</HeaderInner>
         </MarginsWrapper>
       </Flex.Container>
     </Box>
@@ -43,9 +43,9 @@ export const Modal = ({ children, ...props }) => (
     </Box>
   </Flex.Container>
 );
-Modal.Title = React.memo(({ children }) => (
+Modal.Title = React.memo(({ children, ...props }) => (
   <Flex.Item grow={1} shrink={1}>
-    <Box textStyle='headline' className='rcx-modal__title'>{children}</Box>
+    <Box textStyle='headline' {...props} className='rcx-modal__title'>{children}</Box>
   </Flex.Item>
 ));
 Modal.Header = Header;

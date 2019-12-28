@@ -4,21 +4,19 @@ import React from 'react';
 
 import { Box } from '../Box';
 
-export function Icon({
+export const Icon = React.forwardRef(({
   name,
   size,
   ...props
-}) {
-  return <Box
-    componentClassName='rcx-icon'
-    is='i'
-    aria-hidden='true'
-    children={nameToCharacterMapping[name]}
-    mod-name={name}
-    mod-size={size}
-    {...props}
-  />;
-}
+}, ref) => <Box ref={ref}
+  componentClassName='rcx-icon'
+  is='i'
+  aria-hidden='true'
+  children={nameToCharacterMapping[name]}
+  mod-name={name}
+  mod-size={size}
+  {...props}
+/>);
 
 Icon.displayName = 'Icon';
 

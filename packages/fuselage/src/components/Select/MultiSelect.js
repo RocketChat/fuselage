@@ -4,8 +4,8 @@ import { AnimatedWrapper, Box, Flex, Margins, MarginsWrapper, Position } from '.
 import { Chip } from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
-import { Options, CheckOption } from '../Options';
-import { useCursor, Focus, Addon } from './Select';
+import { Options, CheckOption, useCursor } from '../Options';
+import { Focus, Addon } from './Select';
 
 const Container = Box.extend('rcx-select', 'div');
 

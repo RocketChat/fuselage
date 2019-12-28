@@ -9,12 +9,14 @@ import {
 
 import { Block } from './Block';
 
-export const Input = ({ label, element, parser }) => (
+export const Input = ({ label, element, parser, index }) => (
   <Block>
     <FieldGroup>
       <Field>
-        {label && <Field.Label >{label}</Field.Label >}
-        {parser.renderInputs(element, BLOCK_CONTEXT.FORM, parser)}
+        {label && <Field.Label >{label}</Field.Label>}
+        {
+          parser.renderInputs(element, BLOCK_CONTEXT.FORM, parser, index)
+        }
       </Field>
     </FieldGroup>
   </Block>

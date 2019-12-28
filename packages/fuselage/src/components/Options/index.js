@@ -1,7 +1,8 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 
+
+import { Box, Flex, Margins, VISIBILITY, ACTIONS, useVisible, Scrollable } from '../Box';
 import { Avatar } from '../Avatar';
-import { Box, Flex, Margins, Scrollable } from '../Box';
 import { CheckBox } from '../CheckBox';
 import { Tile } from '../Tile';
 
@@ -26,7 +27,7 @@ export const OptionAvatar = React.memo(({ id, value, children: label, focus, sel
   </Flex.Container>
 ));
 
-export const Options = ({
+export const Options = React.forwardRef(({
   maxHeight = '144px',
   multiple,
   renderEmpty: EmptyComponent = Empty,
@@ -36,8 +37,7 @@ export const Options = ({
   renderItem: OptionComponent = Option,
   onSelect,
   ...props
-}) => {
-  const ref = useRef();
+}, ref) => {
   useLayoutEffect(() => {
     const { current } = ref;
     const li = current.querySelector('.rcx-option--focus');
@@ -49,10 +49,10 @@ export const Options = ({
     }
   }, [cursor]);
   return <Box className={merge('rcx-options', className)} is='div' {...props}>
-    <Tile padding='8' elevation='2'>
+    <Tile padding='8' elevation='2' ref={ref}>
       <Scrollable vertical smooth>
         <Margins blockStart={4}>
-          <Tile elevation='0' padding='none' ref={ref} style={{ maxHeight }} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
+          <Tile elevation='0' padding='none' style={{ maxHeight }} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
             {!options.length && <EmptyComponent/>}
             {options.map(([value, label, selected], i) => <OptionComponent role='option' onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}>{label}</OptionComponent>)}
           </Tile>
@@ -60,4 +60,58 @@ export const Options = ({
       </Scrollable>
     </Tile>
   </Box>;
+});
+
+export const useCursor = (initial, options, onChange) => {
+  const [cursor, setCursor] = useState(initial);
+  const visibilityHandler = useVisible();
+  const [visibility, hide, show] = visibilityHandler;
+  const reset = () => setCursor(0);
+  const handleKeyUp = (e) => {
+    const { keyCode } = e;
+    if (VISIBILITY.HIDEN === visibility && keyCode === ACTIONS.TAB) {
+      return show();
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    const lastIndex = options.length - 1;
+    const { keyCode, key } = e;
+    if (VISIBILITY.HIDEN === visibility && keyCode !== ACTIONS.ESC) {
+      return show();
+    }
+    switch (keyCode) {
+    case ACTIONS.HOME:
+      e.preventDefault();
+      return reset();
+    case ACTIONS.END:
+      e.preventDefault();
+      return setCursor(lastIndex);
+    case ACTIONS.KEY_UP:
+      e.preventDefault();
+      if (cursor < 1) {
+        return setCursor(lastIndex);
+      }
+      return setCursor(cursor - 1);
+    case ACTIONS.KEY_DOWN:
+      e.preventDefault();
+      if (cursor === lastIndex) {
+        return setCursor(0);
+      }
+      return setCursor(cursor + 1);
+
+    case ACTIONS.ENTER:
+      e.preventDefault();
+      return onChange(options[cursor], visibilityHandler);
+    case ACTIONS.ESC:
+      e.preventDefault();
+      reset();
+      return hide();
+    default:
+      const index = options.findIndex(([, label]) => label[0] === key);
+      setCursor(index);
+    }
+  };
+
+  return [cursor, handleKeyDown, handleKeyUp, reset, visibilityHandler];
 };

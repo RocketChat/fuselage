@@ -16,7 +16,7 @@ export const VISIBILITY = {
   HIDING: 2,
 };
 
-export const AnimatedWrapper = ({ visible, children: Item }) => {
+export const AnimatedWrapper = ({ visible, children: Item, renderHiden = false }) => {
   const [visibility, setVisibility] = useState(VISIBILITY.HIDEN);
   useEffect(() => {
     if (visible === visibility) {
@@ -34,7 +34,7 @@ export const AnimatedWrapper = ({ visible, children: Item }) => {
     }
   }, [visibility, visible]);
 
-  return React.cloneElement(Item, {
+  return (visibility !== VISIBILITY.HIDEN || renderHiden) && React.cloneElement(Item, {
     className: ['rcx-animated', visibility === VISIBILITY.HIDING && 'rcx-animated--hiding', visibility === VISIBILITY.VISIBLE && 'rcx-animated--visible', Item.props.className].filter((e) => e).join(' '),
   });
 };

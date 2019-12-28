@@ -5,11 +5,11 @@ import {
   SelectInput,
   Flex,
   Margins,
+  MarginsWrapper,
   TextAreaInput,
   TextInput,
   InputBox,
   Box,
-  Text,
 } from '@rocket.chat/fuselage';
 import {
   uiKitMessage,
@@ -19,7 +19,6 @@ import {
   ELEMENT_TYPES,
   UiKitParserModal,
 } from '@rocket.chat/ui-kit';
-import { load } from 'svg2ttf/lib/svg';
 
 import { Section as SectionLayoutBlock } from './Section';
 import { Actions as ActionsLayoutBlock } from './Actions';
@@ -27,6 +26,7 @@ import { Input as InputLayoutBlock } from './Input';
 import { MessageImage, ModalImage } from './Image';
 import { StaticSelect, MultiStaticSelect } from './StaticSelect';
 import { Block } from './Block';
+import { Overflow } from './Overflow';
 
 export const defaultContext = {
   action: (...args) => alert(JSON.stringify(args)),
@@ -65,6 +65,11 @@ const getStyle = (style) => {
 };
 
 class MessageParser extends UiKitParserMessage {
+  overflow(element, context) {
+    const [{ loading }, action] = useBlockContext(element, context);
+    return <Overflow loading={loading} {...element} onChange={action} parser={this}/>;
+  }
+
   button(element, context) {
     const [{ loading }, action] = useBlockContext(element, context);
     return (
@@ -89,9 +94,9 @@ class MessageParser extends UiKitParserMessage {
     return text;
   }
 
-  section(args) {
+  section(args, context, index) {
     return (
-      <SectionLayoutBlock {...args} parser={this} />
+      <SectionLayoutBlock key={index} {...args} parser={this} />
     );
   }
 
@@ -101,11 +106,12 @@ class MessageParser extends UiKitParserMessage {
     );
   }
 
-  datePicker(element, context) {
+  datePicker(element, context, index) {
     const [{ loading }, action] = useBlockContext(element, context);
     const { actionId, placeholder } = element;
     return (
       <InputBox
+        key={index}
         mod-mod-loading={loading}
         id={actionId}
         name={actionId}
@@ -117,33 +123,35 @@ class MessageParser extends UiKitParserMessage {
     );
   }
 
-  image(element, context) {
-    return <MessageImage element={element} context={context}/>;
+  image(element, context, index) {
+    return <MessageImage key={index} element={element} context={context}/>;
   }
 
-  context({ elements }/* , context*/) {
+  context({ elements }, context, index) {
     return (
-      <Flex.Container alignItems='center'>
+      <Flex.Container alignItems='center' key={index}>
         <Block>
-          <Box is='div'>
-            {elements.map((element) => (
-              <Margins all={4}>
-                <Flex.Item>
-                  {[
-                    ELEMENT_TYPES.PLAIN_TEXT_INPUT,
-                    ELEMENT_TYPES.MARKDOWN,
-                  ].includes(element.type) ? (
-                      <Box is='span' textStyle='caption'>
-                        {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
-                      </Box>
-                    )
-                    : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
+          <MarginsWrapper all={4}>
+            <Box is='div'>
+              {elements.map((element, i) => (
+                <Margins all={4} key={i}>
+                  <Flex.Item>
+                    {[
+                      ELEMENT_TYPES.PLAIN_TEXT_INPUT,
+                      ELEMENT_TYPES.MARKDOWN,
+                    ].includes(element.type) ? (
+                        <Box is='span' textStyle='caption'>
+                          {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
+                        </Box>
+                      )
+                      : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
                     || element.type
-                  }
-                </Flex.Item>
-              </Margins>
-            ))}
-          </Box>
+                    }
+                  </Flex.Item>
+                </Margins>
+              ))}
+            </Box>
+          </MarginsWrapper>
         </Block>
       </Flex.Container>
     );
@@ -182,9 +190,11 @@ class ModalParser extends UiKitParserModal {
     });
   }
 
-  input({ element, label, blockId, appId }) {
+  input({ element, label, blockId, appId }, context, index) {
     return (
       <InputLayoutBlock
+        key={index}
+        index={index}
         parser={this}
         element={{ ...element, appId, blockId }}
         label={this.text(label)}
@@ -192,16 +202,17 @@ class ModalParser extends UiKitParserModal {
     );
   }
 
-  image(element, context) {
-    return <ModalImage element={element} context={context}/>;
+  image(element, context, index) {
+    return <ModalImage key={index} element={element} context={context}/>;
   }
 
-  plainInput(element, context) {
+  plainInput(element, context, index) {
     const [{ loading }, action] = useBlockContext(element, context);
     const { multiline, actionId, placeholder } = element;
     const Component = multiline ? TextAreaInput : TextInput;
     return (
       <Component
+        key={index}
         mod-loading={loading}
         id={actionId}
         name={actionId}
