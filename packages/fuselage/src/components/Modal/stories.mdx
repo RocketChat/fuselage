@@ -1,7 +1,7 @@
 import {useRef} from 'react';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { Modal } from '.';
-import { ModalWrapper } from './Stack';
+import { ModalProvider } from './Stack';
 import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 import { ButtonGroup, Button, AnimatedWrapper } from '../..'
 const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
@@ -26,11 +26,5 @@ const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAA
         </Modal.Footer>
       </Modal>
     </AnimatedWrapper>
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name='Stack'>
-    <ModalWrapper/>
   </Story>
 </Preview>

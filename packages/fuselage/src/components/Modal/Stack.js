@@ -1,14 +1,29 @@
 import ReactDOM from 'react-dom';
-import React, { useState } from 'react';
+import React, { useState, createContext, useContext } from 'react';
 
-import { Modal } from '.';
+import { AnimatedWrapper, Box, VISIBILITY } from '../Box';
 
-export const useStack = () => {
-  const [stack, setStack] = useState(new Map([
-    [1, <Modal>teste</Modal>],
-    [2, <Modal>teste 2</Modal>]]));
+
+const Context = createContext();
+
+const createModalRoot = () => {
+  const node = document.createElement('div');
+  document.querySelector('body').appendChild(node);
+  return node;
+};
+
+export const ModalPortal = ({ children, el = createModalRoot() }) => ReactDOM.createPortal(
+  children,
+  el,
+);
+
+export const ModalProvider = ({ children }) => {
+  const [stack, setStack] = useState(new Map());
 
   const open = ({ id, ...data }) => {
+    setStack(new Map([id, data]));
+  };
+  const update = ({ id, ...data }) => {
     setStack(new Map([id, data]));
   };
 
@@ -17,30 +32,33 @@ export const useStack = () => {
   };
 
   const pop = () => {
-
+    if (!stack.size) {
+      return;
+    }
+    const key = Array.from(stack.keys()).pop();
+    stack.delete(key);
+    setStack(new Map(stack));
   };
 
   const close = () => {
-
+    setStack(new Map());
   };
 
-  return [stack, { open, push, pop, close }];
+  return (
+    <Context.Provider value={{ stack, open, push, pop, close, update }}>
+      {children}
+      <Container/>
+    </Context.Provider>
+  );
 };
 
-const appRoot = document.querySelector('body #root');
-
-export const ModalPortal = ({ children }) => ReactDOM.createPortal(
-  children,
-  appRoot,
-);
-
-export const ModalWrapper = () => {
-  const [stack] = useStack();
+const Backdrop = React.memo(() => <Box is='div' className='rcx-modal__backdrop'/>);
+const Container = () => {
+  const { stack } = useContext(Context);
   return (
     <ModalPortal>
-      <>
-        {Array.from(stack.entries()).map(([, element]) => element)}
-      </>
+      {stack.size > 0 && <Backdrop/>}
+      {Array.from(stack.entries()).map(([key, element], i, arr) => <AnimatedWrapper key={key} visible={ arr.length === i + 1 ? VISIBILITY.VISIBLE : VISIBILITY.HIDEN } children={element}/>)}
     </ModalPortal>
   );
 };
