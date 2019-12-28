@@ -21,7 +21,7 @@ An input for selection of options.
 <Preview>
   <Story name='Default'>
     <Box style={{ position: 'relative', maxWidth: 250 }} >
-      <Options options={options}  cursor={1} />
+      <Options ref={React.createRef()} options={options}  cursor={1} />
     </Box>
   </Story>
 </Preview>
@@ -31,7 +31,7 @@ An input for selection of options.
 <Preview>
   <Story name='CheckOption'>
     <Box style={{ position: 'relative', maxWidth: 250 }} >
-      <Options renderItem={CheckOption} options={options} value={[1]} cursor={0}/>
+      <Options ref={React.createRef()} renderItem={CheckOption} options={options} value={[1]} cursor={0}/>
     </Box>
   </Story>
 </Preview>
@@ -39,7 +39,7 @@ An input for selection of options.
 <Preview>
   <Story name='OptionAvatar'>
     <Box style={{ position: 'relative', maxWidth: 250 }} >
-      <Options renderItem={(props) => <OptionAvatar {...props} value={thumb}/>}  options={options} />
+      <Options ref={React.createRef()} renderItem={(props) => <OptionAvatar {...props} value={thumb}/>}  options={options} />
     </Box>
   </Story>
 </Preview>
