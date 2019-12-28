@@ -56,10 +56,10 @@ export abstract class UiKitParserMessage {
   overflow: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
 
   renderAccessories = createRenderElement([
-    ELEMENT_TYPES.IMAGE,
     ELEMENT_TYPES.BUTTON,
-    ELEMENT_TYPES.STATIC_SELECT,
+    ELEMENT_TYPES.IMAGE,
     ELEMENT_TYPES.MULTI_STATIC_SELECT,
+    ELEMENT_TYPES.STATIC_SELECT,
     ELEMENT_TYPES.CONVERSATION_SELECT,
     ELEMENT_TYPES.CHANNEL_SELECT,
     ELEMENT_TYPES.USER_SELECT,
