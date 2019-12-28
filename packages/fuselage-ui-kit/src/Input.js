@@ -13,7 +13,7 @@ export const Input = ({ label, element, parser, index }) => (
   <Block>
     <FieldGroup>
       <Field>
-        {label && <Field.Label >{label}</Field.Label>}
+        {label && <Field.Label>{label}</Field.Label>}
         {
           parser.renderInputs(element, BLOCK_CONTEXT.FORM, parser, index)
         }

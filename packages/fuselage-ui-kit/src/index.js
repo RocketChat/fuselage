@@ -131,27 +131,29 @@ class MessageParser extends UiKitParserMessage {
     return (
       <Flex.Container alignItems='center' key={index}>
         <Block>
-          <MarginsWrapper all={4}>
-            <Box is='div'>
-              {elements.map((element, i) => (
-                <Margins all={4} key={i}>
-                  <Flex.Item>
-                    {[
-                      ELEMENT_TYPES.PLAIN_TEXT_INPUT,
-                      ELEMENT_TYPES.MARKDOWN,
-                    ].includes(element.type) ? (
-                        <Box is='span' textStyle='caption'>
-                          {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
-                        </Box>
-                      )
-                      : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
+          <Box is='div'>
+            <MarginsWrapper all={4}>
+              <Box is='div'>
+                {elements.map((element, i) => (
+                  <Margins all={4} key={i}>
+                    <Flex.Item>
+                      {[
+                        ELEMENT_TYPES.PLAIN_TEXT_INPUT,
+                        ELEMENT_TYPES.MARKDOWN,
+                      ].includes(element.type) ? (
+                          <Box is='span' textStyle='caption'>
+                            {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
+                          </Box>
+                        )
+                        : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
                     || element.type
-                    }
-                  </Flex.Item>
-                </Margins>
-              ))}
-            </Box>
-          </MarginsWrapper>
+                      }
+                    </Flex.Item>
+                  </Margins>
+                ))}
+              </Box>
+            </MarginsWrapper>
+          </Box>
         </Block>
       </Flex.Container>
     );
