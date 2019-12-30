@@ -17,7 +17,7 @@ export enum ELEMENT_TYPES {
   CONTEXT= 'context',
   FIELDS= 'fields',
   INPUT= 'input',
-  TEXT='text',
+  TEXT='plain_text',
   MARKDOWN='mrkdwn'
 };
 
@@ -138,6 +138,11 @@ export const createRenderElement = (allowedItems?: Array<ELEMENT_TYPES>) => (ele
   }
   return renderElement(element, context, parser, index);
 };
+
+export const uiKitText = uiKitGeneric<UiKitParserMessage>([
+  ELEMENT_TYPES.TEXT,
+  ELEMENT_TYPES.MARKDOWN,
+]);
 
 export const uiKitMessage = uiKitGeneric<UiKitParserMessage>([
   ELEMENT_TYPES.DIVIDER,

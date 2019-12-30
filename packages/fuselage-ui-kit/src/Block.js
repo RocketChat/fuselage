@@ -4,5 +4,5 @@ import {
 } from '@rocket.chat/fuselage';
 
 export const Block = ({ children }) => (
-  <Margins blockEnd={8}>{children}</Margins>
+  <Margins blockEnd={16}>{children}</Margins>
 );

@@ -87,7 +87,7 @@ class MessageParser extends UiKitParserMessage {
   }
 
   divider() {
-    return <Divider />;
+    return <Block><Divider /></Block>;
   }
 
   text({ text/* , type = 'plain_text'*/ } = { text: '' }) {
