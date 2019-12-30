@@ -16,7 +16,7 @@ const Footer = Box.extend('rcx-modal__footer', 'footer');
 const Thumb = React.memo((props) => <Avatar size='x32' {...props} />);
 
 
-const Close = React.memo((props) => <Flex.Item shrink={0}><Button small ghost><Icon name='cross' size='24' {...props}/></Button></Flex.Item>);
+const Close = React.memo((props) => <Flex.Item shrink={0}><Button small ghost {...props}><Icon name='cross' size='24'/></Button></Flex.Item>);
 
 export const Header = React.memo(({ children, ...props }) => (
   <Margins all={32}>
@@ -30,19 +30,19 @@ export const Header = React.memo(({ children, ...props }) => (
   </Margins>
 ));
 
-export const Modal = ({ children, ...props }) => (
+export const Modal = React.forwardRef(({ children, ...props }, ref) => (
   <Flex.Container>
     <Box componentClassName='rcx-modal' { ...props } is='dialog'>
       <Flex.Container direction='column'>
         <Flex.Item grow={1}>
-          <Tile elevation='2' className='rcx-modal__inner' padding='none' is='div'>
+          <Tile ref={ref} elevation='2' className='rcx-modal__inner' padding='none' is='div'>
             {children}
           </Tile>
         </Flex.Item>
       </Flex.Container>
     </Box>
   </Flex.Container>
-);
+));
 Modal.Title = React.memo(({ children, ...props }) => (
   <Flex.Item grow={1} shrink={1}>
     <Box textStyle='headline' {...props} className='rcx-modal__title'>{children}</Box>

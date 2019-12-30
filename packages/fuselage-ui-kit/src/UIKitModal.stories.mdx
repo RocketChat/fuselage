@@ -15,7 +15,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 <Preview>
   <Story name='Input'>
     <Demo visible={boolean('visible', true) ? 1 : 0}>
-      <UiKitModal blocks={[{
+      {UiKitModal([{
         "type": "input",
         "element": {
           "type": "plain_text_input"
@@ -25,8 +25,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
           "text": "Label",
           "emoji": true
         }
-      }]
-    }/>
+      }])}
     </Demo>
   </Story>
 </Preview>
@@ -34,7 +33,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 <Preview>
   <Story name='Input Multiline'>
     <Demo visible={boolean('visible', true) ? 1 : 0}>
-    <UiKitModal blocks={[{
+    {UiKitModal([{
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
@@ -45,8 +44,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 				"text": "Label",
 				"emoji": true
 			}
-		}]
-  }/>
+		}])}
   </Demo>
   </Story>
 </Preview>
@@ -56,7 +54,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 <Preview>
   <Story name='Input Datepicker'>
     <Demo visible={boolean('visible', true) ? 1 : 0}>
-    <UiKitModal blocks={[{
+    {UiKitModal([{
 			"type": "input",
 			"element": {
 				"type": "datepicker",
@@ -72,8 +70,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 				"text": "Label",
 				"emoji": true
 			}
-		}]
-  }/>
+		}])}
   </Demo>
   </Story>
 </Preview>
@@ -81,7 +78,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 <Preview>
   <Story name='Image'>
     <Demo visible={boolean('visible', true) ? 1 : 0}>
-    <UiKitModal blocks={[{
+    {UiKitModal([{
 			"type": "image",
 			"title": {
 				"type": "plain_text",
@@ -90,8 +87,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 			},
 			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
 			"altText": "Example Image"
-		}]
-  }/>
+		}])}
   </Demo>
   </Story>
 </Preview>
@@ -99,7 +95,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 <Preview>
   <Story name='Poll'>
     <Demo visible={boolean('visible', true) ? 1 : 0}>
-    <UiKitModal blocks={[{
+    {UiKitModal([{
 			"type": "input",
 			"element": {
 				"type": "plain_text_input"
@@ -141,7 +137,7 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 				"type": "plain_text",
 				"text": "Question 2"
 			}
-		}]}/>
+		}])}
     </Demo>
   </Story>
 </Preview>

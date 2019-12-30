@@ -9,7 +9,8 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 
 <Preview>
   <Story name='Section + image'>
-    <UiKitMessage blocks={[{
+    {
+      UiKitMessage([{
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
@@ -20,7 +21,8 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 				"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
 				"altText": "plants"
 			}
-		}]
+		  }])
+    }
   }/>
   </Story>
 </Preview>
@@ -28,27 +30,28 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 
 <Preview>
   <Story name='Section + button'>
-    <UiKitMessage blocks={[{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "Section + button"
-			},
-			"accessory": {
-				"type": "button",
-				"text": {
+    {
+      UiKitMessage([{
+        "type": "section",
+        "text": {
           "type": "mrkdwn",
-          "text": "button"
+          "text": "Section + button"
         },
-			}
-		}]
-  }/>
+        "accessory": {
+          "type": "button",
+          "text": {
+            "type": "mrkdwn",
+            "text": "button"
+          },
+        }
+      }]
+    )}
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Section + overflow'>
-    <UiKitMessage blocks={[
+    {UiKitMessage([
 		{
 			"type": "section",
 			"text": {
@@ -93,45 +96,45 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 				]
 			}
 		}
-	]
-  }/>
+	])}
   </Story>
 </Preview>
 
 
 <Preview>
   <Story name='Section + Select'>
-    <UiKitMessage blocks={[{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "Section + select"
-			},
-			"accessory": {
-				"type": "static_select",
-        "options": [
-          {
-            value: 1,
-            "text": {
-              "type": "mrkdwn",
-              "text": "button"
-            }
-        },{
-            value: 2,
-            "text": {
-              "type": "mrkdwn",
-              "text": "second button"
-            }
-        }],
-			}
-		}]
-  }/>
+    {
+      UiKitMessage([{
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "Section + select"
+        },
+        "accessory": {
+          "type": "static_select",
+          "options": [
+            {
+              value: 1,
+              "text": {
+                "type": "mrkdwn",
+                "text": "button"
+              }
+          },{
+              value: 2,
+              "text": {
+                "type": "mrkdwn",
+                "text": "second button"
+              }
+          }],
+        }
+      }]
+    )}
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Section + Multi Select'>
-    <UiKitMessage blocks={[{
+    {UiKitMessage([{
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
@@ -165,14 +168,13 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
           value: 4
         }],
 			}
-		}]
-  }/>
+		}])}
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Image'>
-    <UiKitMessage blocks={[{
+    {UiKitMessage([{
 			"type": "image",
 			"title": {
 				"type": "plain_text",
@@ -181,14 +183,13 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 			},
 			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
 			"altText": "Example Image"
-		}]
-  }/>
+		}])}
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Context'>
-    <UiKitMessage blocks={[{
+    {UiKitMessage([{
 			"type": "context",
 			"elements": [{
 			"type": "image",
@@ -205,14 +206,13 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 					"text": "context"
 				}
 			]
-		},]
-  }/>
+		}])}
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Action - Buttons'>
-    <UiKitMessage blocks={[{
+    {UiKitMessage([{
 			"type": "actions",
 			"elements": [
 				{
@@ -236,14 +236,14 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 					"value": "click_me_123"
 				}
 			]
-		}]}/>
+		}])}
   </Story>
 </Preview>
 
 
 <Preview>
   <Story name='Fields'>
-    <UiKitMessage blocks={[
+    { UiKitMessage([
 		{
 			"type": "section",
 			"fields": [
@@ -274,14 +274,14 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 				}
 			]
 		}
-	]}/>
+	])}
   </Story>
 </Preview>
 
 
 <Preview>
   <Story name='Action - Select'>
-    <UiKitMessage blocks={[{
+    {UiKitMessage([{
 			"type": "actions",
 			"elements": [
 				{
@@ -351,7 +351,7 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 					]
 				}
 			]
-		}]}/>
+		}])}
   </Story>
 </Preview>
 

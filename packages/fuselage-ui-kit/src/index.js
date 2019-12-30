@@ -18,6 +18,10 @@ import {
   UiKitParserMessage,
   ELEMENT_TYPES,
   UiKitParserModal,
+  UiKitParserButtons,
+  uiKitText,
+  uiKitButtons,
+  UiKitParserText,
 } from '@rocket.chat/ui-kit';
 
 import { Section as SectionLayoutBlock } from './Section';
@@ -64,7 +68,53 @@ const getStyle = (style) => {
   }
 };
 
+
+function mrkdwn({ text/* , type = 'plain_text'*/ } = { text: '' }) {
+  return text;
+}
+
+function plainText({ text /* , type = 'plain_text'*/ } = { text: '' }) {
+  return text;
+}
+
+function text({ text /* , type = 'plain_text'*/ } = { text: '' }) {
+  return text;
+}
+
+class TextParser extends UiKitParserText {
+  mrkdwn(...args) { return mrkdwn(...args); }
+
+  plainText(...args) { return plainText(...args); }
+
+  text(...args) { return text(...args); }
+}
+
+class ButtonsParser extends UiKitParserButtons {
+  button(element, context) {
+    const [{ loading }, action] = useBlockContext(element, context);
+    return (
+      <Button
+        mod-mod-loading={loading}
+        {...getStyle(element.style)}
+        small={context === BLOCK_CONTEXT.SECTION}
+        data-group={element.groupId}
+        key={element.actionId}
+        children={this.plainText(element.text)}
+        onClick={action}
+        value={element.value}
+      />
+    );
+  }
+}
+
+
 class MessageParser extends UiKitParserMessage {
+  mrkdwn(...args) { return mrkdwn(...args); }
+
+  plainText(...args) { return plainText(...args); }
+
+  text(...args) { return text(...args); }
+
   overflow(element, context) {
     const [{ loading }, action] = useBlockContext(element, context);
     return <Overflow loading={loading} {...element} onChange={action} parser={this}/>;
@@ -79,7 +129,7 @@ class MessageParser extends UiKitParserMessage {
         small
         data-group={element.groupId}
         key={element.actionId}
-        children={this.text(element.text)}
+        children={this.plainText(element.text)}
         onClick={action}
         value={element.value}
       />
@@ -88,10 +138,6 @@ class MessageParser extends UiKitParserMessage {
 
   divider() {
     return <Block><Divider /></Block>;
-  }
-
-  text({ text/* , type = 'plain_text'*/ } = { text: '' }) {
-    return text;
   }
 
   section(args, context, index) {
@@ -117,7 +163,7 @@ class MessageParser extends UiKitParserMessage {
         name={actionId}
         rows={6}
         onInput={action}
-        placeholder={this.text(placeholder)}
+        placeholder={this.plainText(placeholder)}
         type='date'
       />
     );
@@ -129,9 +175,9 @@ class MessageParser extends UiKitParserMessage {
 
   context({ elements }, context, index) {
     return (
-      <Flex.Container alignItems='center' key={index}>
-        <Block>
-          <Box is='div'>
+      <Block>
+        <Box is='div' className='TESTE'>
+          <Flex.Container alignItems='center' key={index}>
             <MarginsWrapper all={4}>
               <Box is='div'>
                 {elements.map((element, i) => (
@@ -153,9 +199,9 @@ class MessageParser extends UiKitParserMessage {
                 ))}
               </Box>
             </MarginsWrapper>
-          </Box>
-        </Block>
-      </Flex.Container>
+          </Flex.Container>
+        </Box>
+      </Block>
     );
   }
 
@@ -199,7 +245,7 @@ class ModalParser extends UiKitParserModal {
         index={index}
         parser={this}
         element={{ ...element, appId, blockId }}
-        label={this.text(label)}
+        label={this.plainText(label)}
       />
     );
   }
@@ -220,14 +266,18 @@ class ModalParser extends UiKitParserModal {
         name={actionId}
         rows={6}
         onInput={action}
-        placeholder={this.text(placeholder)}
+        placeholder={this.plainText(placeholder)}
       />
     );
   }
 }
 
+export const textParser = new TextParser();
 export const messageParser = new MessageParser();
 export const modalParser = new ModalParser();
+export const buttonsParser = new ButtonsParser();
 
+export const UiKitButtons = uiKitButtons();
+export const UiKitText = uiKitText(textParser);
 export const UiKitMessage = uiKitMessage(messageParser);
 export const UiKitModal = uiKitModal(modalParser);

@@ -17,7 +17,8 @@ export enum ELEMENT_TYPES {
   CONTEXT= 'context',
   FIELDS= 'fields',
   INPUT= 'input',
-  TEXT='plain_text',
+  PLAIN_TEXT='plain_text',
+  TEXT='text',
   MARKDOWN='mrkdwn'
 };
 
@@ -42,8 +43,17 @@ export interface UiKitText extends UiKitElement {
   text: string;
 }
 
-export abstract class UiKitParserMessage {
+export abstract class UiKitParserButtons {
+  button: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
+}
+
+export abstract class UiKitParserText {
   text: (text: UiKitText, context: BLOCK_CONTEXT, index: Number) => Component;
+  plaintText: (text: UiKitText, context: BLOCK_CONTEXT, index: Number) => Component;
+  mrkdwn: (text: UiKitText, context: BLOCK_CONTEXT, index: Number) => Component;
+}
+
+export abstract class UiKitParserMessage extends UiKitParserText {
   button: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
   image: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
   datePicker: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
@@ -100,7 +110,7 @@ export abstract class UiKitParserModal extends UiKitParserMessage {
   ]);
 }
 
-export const uiKitGeneric = <T> (allowedItems?: Array<ELEMENT_TYPES>)  => (parser : T) => ({ blocks = [] }) =>
+export const uiKitGeneric = <T> (allowedItems?: Array<ELEMENT_TYPES>)  => (parser : T) => (blocks) =>
   blocks
     .filter(({ type }) => !allowedItems || allowedItems.includes(type))
     .map(({ type, ...block }: UiKitElement, i) => parser[type] ? parser[type](block, BLOCK_CONTEXT.BLOCK, i) : type );
@@ -139,8 +149,13 @@ export const createRenderElement = (allowedItems?: Array<ELEMENT_TYPES>) => (ele
   return renderElement(element, context, parser, index);
 };
 
-export const uiKitText = uiKitGeneric<UiKitParserMessage>([
+export const uiKitButtons = uiKitGeneric<UiKitParserButtons>([
+  ELEMENT_TYPES.BUTTON,
+]);
+
+export const uiKitText = uiKitGeneric<UiKitParserText>([
   ELEMENT_TYPES.TEXT,
+  ELEMENT_TYPES.PLAIN_TEXT,
   ELEMENT_TYPES.MARKDOWN,
 ]);
 
