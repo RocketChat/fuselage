@@ -12,6 +12,7 @@ import { Avatar } from '../Avatar';
 
 const HeaderInner = Box.extend('rcx-modal__header-inner', 'div');
 const Container = Box.extend('rcx-modal__container', 'div');
+const WrapperContainer = Box.extend('rcx-modal__container-wrapper', 'div');
 const Footer = Box.extend('rcx-modal__footer', 'footer');
 const Thumb = React.memo((props) => <Avatar size='x32' {...props} />);
 
@@ -56,9 +57,9 @@ Modal.Footer = React.memo(({ children }) => (
 ));
 Modal.Container = ({ children }) => (
   <Scrollable vertical>
-    <Margins inline={32}>
-      <Container> {children}</Container>
-    </Margins>
+    <Container>
+      <Margins inline={32}><WrapperContainer>{children}</WrapperContainer></Margins>
+    </Container>
   </Scrollable>
 );
 Modal.Close = Close;
