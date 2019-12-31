@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.18](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.17...v0.2.0-alpha.18) (2019-12-31)
+
+
+### Bug Fixes
+
+* Grid gutter ([#104](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/104)) ([8e7b5e4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8e7b5e41a0a6ac0be208e5c21b686cad5249ad19))
+* Update Callout margins; allow Callout without title ([#106](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/106)) ([984a76f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/984a76fda49bda82c363e9d945000a60f41f1046))
+
+
+### Features
+
+* Pagination component ([#103](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/103)) ([56fe9cf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/56fe9cf0bf2e77ead4bff74a76e0b7b7fb9368f6))
+* UI Kit ([#95](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/95)) ([6d4162b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6d4162bb8c121b1e89f8c818e7106bce49f09c27)), closes [#94](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/94) [#109](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/109) [#108](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/108) [#111](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/111)
+
+
+
+
+
 # [0.2.0-alpha.17](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.16...v0.2.0-alpha.17) (2019-12-04)
 
 
