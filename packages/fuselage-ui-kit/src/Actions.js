@@ -28,7 +28,7 @@ export const Actions = ({ blockId, appId, elements, parser }) => {
   const renderedElements = (showMoreVisible
     ? elements.slice(0, 5)
     : elements
-  ).map((element, i) => <Margins all={8}><Flex.Item key={i} basis={getStyle(element)}>{parser.renderActions({ blockId, appId, ...element }, BLOCK_CONTEXT.ACTION, parser)}</Flex.Item></Margins>);
+  ).map((element, i) => <Margins key={i} all={8}><Flex.Item basis={getStyle(element)}>{parser.renderActions({ blockId, appId, ...element }, BLOCK_CONTEXT.ACTION, parser)}</Flex.Item></Margins>);
 
   const handleShowMoreClick = () => {
     setShowMoreVisible(false);
