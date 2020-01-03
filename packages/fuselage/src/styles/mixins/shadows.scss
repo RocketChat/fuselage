@@ -1,0 +1,7 @@
+@mixin use-no-shadow {
+  box-shadow: none;
+}
+
+@mixin use-focus-shadow($outer-color) {
+  box-shadow: 0 0 0 #{ to-rem(6) } #{ $outer-color };
+}

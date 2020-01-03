@@ -41,7 +41,7 @@
     &.focus,
     &:focus {
       border-color: #{ $colors-b500 };
-      box-shadow: 0 0 0 #{ to-rem(6) } #{ $colors-b100 };
+      @include use-focus-shadow($outer-color: $colors-b100);
     }
   }
 
