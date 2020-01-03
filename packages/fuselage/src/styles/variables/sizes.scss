@@ -11,7 +11,6 @@ $sizes-x32: theme('sizes-x32', to-rem(32));
 $sizes-x36: theme('sizes-x36', to-rem(36));
 $sizes-x40: theme('sizes-x40', to-rem(40));
 $sizes-x44: theme('sizes-x44', to-rem(44));
-$sizes-x80: theme('sizes-x40', to-rem(80));
 
 $sizes: (
   x1: $sizes-x1,
@@ -27,5 +26,4 @@ $sizes: (
   x36: $sizes-x36,
   x40: $sizes-x40,
   x44: $sizes-x44,
-  x80: $sizes-x80,
 );
