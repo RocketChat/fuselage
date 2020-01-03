@@ -1,14 +1,21 @@
-
 .rcx-avatar {
-  & > .rcx-avatar__element {
-    border-radius: $borders-width-x2;
+  @mixin use-size-modifier {
+    @each $size, $value in $sizes {
+      &--size-#{$size} {
+        width: $value;
+        height: $value;
+      }
+    }
   }
-}
 
-@each $size, $value in $sizes {
-  .rcx-avatar--#{$size},
-  .rcx-avatar--#{$size} > .rcx-avatar__element {
-    width: $value;
-    height: $value;
+  display: inline-flex;
+
+  &__element {
+    flex: 1 1 auto;
+
+    border-radius: #{ $borders-width-x2 };
+    @include use-size-modifier;
   }
+
+  @include use-size-modifier;
 }
