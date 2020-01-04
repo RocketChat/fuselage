@@ -187,7 +187,7 @@ class MessageParser extends UiKitParserMessage {
                         ELEMENT_TYPES.PLAIN_TEXT_INPUT,
                         ELEMENT_TYPES.MARKDOWN,
                       ].includes(element.type) ? (
-                          <Box is='span' textStyle='caption'>
+                          <Box is='span' textStyle='c1' textColor='info'>
                             {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
                           </Box>
                         )

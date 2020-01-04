@@ -16,12 +16,30 @@ export const Overflow = ({ options, parser, onChange = console.log }) => {
     hide();
   });
   const ref = useRef();
-  return <>
-    <Button ref={ref} small onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} >
-      <Icon name='menu'/>
-    </Button>
-    <PositionAnimated width='auto' visible={visible ? 1 : 0} anchor={ref} placement='bottom right'>
-      <Options onSelect={handleSelection} options={convertOptions(options, parser.text)} cursor={cursor}/>
-    </PositionAnimated>
-  </>;
+  return (
+    <>
+      <Button
+        ref={ref}
+        small
+        ghost onClick={show}
+        onBlur={hide}
+        onKeyUp={handleKeyUp}
+        onKeyDown={handleKeyDown}
+      >
+        <Icon name='menu' size={20} />
+      </Button>
+      <PositionAnimated
+        width='auto'
+        visible={visible ? 1 : 0}
+        anchor={ref}
+        placement='bottom right'
+      >
+        <Options
+          onSelect={handleSelection}
+          options={convertOptions(options, parser.text)}
+          cursor={cursor}
+        />
+      </PositionAnimated>
+    </>
+  );
 };

@@ -9,11 +9,9 @@ const Container = Box.extend('rcx-select', 'div');
 
 export const Addon = Box.extend('rcx-select__addon', 'div');
 
-const InnerWrapper = Box.extend('rcx-select__wrapper', 'div');
+const Wrapper = Box.extend('rcx-select__wrapper', 'div'); // ({ children, ...props }) => <InnerWrapper children={React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)} {...props} />;
 
-const Wrapper = ({ children, ...props }) => <InnerWrapper children={React.Children.map(children, (c, i) => <Margins key={i} inline={4}>{c}</Margins>)} {...props} />;
-
-export const Focus = React.forwardRef((props, ref) => <Box ref={ref} className='rcx-select__focus' is='button' {...props}/>);
+export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' textColor='hint' componentClassName='rcx-select__focus' is='button' {...props}/>);
 
 export const Select = ({
   value,
@@ -34,8 +32,9 @@ export const Select = ({
   const index = options.indexOf(option);
 
 
-  const internalChanged = (value) => {
-    setInternalValue(value[0]);
+  const internalChanged = ([value]) => {
+    setInternalValue(value);
+    onChange(value);
   };
 
   const mapOptions = ([value, label]) => {
@@ -56,22 +55,22 @@ export const Select = ({
   useLayoutEffect(() => {
     hide();
     ref.current.focus();
-    onChange(internalValue);
   }, [internalValue]);
 
   useEffect(reset, [filter]);
 
+  const visibleText = (filter === undefined || !visible) && (getLabel(option) || placeholder);
   return (
     <Container ref={containerRef} onClick={() => ref.current.focus() & show()}>
       <Flex.Item>
         <Flex.Container>
           <MarginsWrapper inline={4}>
             <Wrapper>
-              {(filter === undefined || !visible) && <Box is='span' textStyle='p1' textColor='info' className='rcx-select__placeholder'>{getLabel(option) || placeholder}</Box>}
-              <Wrapper mod-hidden={!visible}>
-                <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
-              </Wrapper>
-              <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
+              { visibleText && <Flex.Item grow={1}>
+                <Margins inline={4}><Box is='span' textStyle='p2' textColor='hint' className='rcx-select__placeholder'>{visibleText}</Box></Margins>
+              </Flex.Item>}
+              <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
+              <Margins inline={4}><Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/></Margins>
             </Wrapper>
           </MarginsWrapper>
         </Flex.Container>
@@ -81,10 +80,11 @@ export const Select = ({
 };
 
 export const SelectFiltered = ({
+  options,
+  placeholder,
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(React.forwardRef(({ children, placeholder, filter, ...props }, ref) => <InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} />), []);
-
-  return <Select {...props} anchor={anchor} filter={filter} />;
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline={4}><Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
+  return <Select filter={filter} options={options} {...props} anchor={anchor}/>;
 };

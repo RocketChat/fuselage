@@ -2,7 +2,9 @@ import React, {
   useRef,
   useState,
   useEffect,
+  useMemo,
 } from 'react';
+import ReactDOM from 'react-dom';
 
 import { AnimatedWrapper } from '../Animated';
 
@@ -10,33 +12,32 @@ const top = (top) => ({ top });
 const left = (left) => ({ left });
 const right = (right) => ({ right });
 
-const getVertical = (anchor, element, placement = 'bottom') => {
-  if (!anchor.current || !element.current) {
-    return;
-  }
+function offset(el) {
+  return el.getBoundingClientRect();
+}
+
+const getVertical = (anchorPosition, elementPosition, placement = 'bottom') => {
   switch (placement) {
   case 'top':
-    return top(anchor.current.offsetTop - element.current.offsetHeight);
+    return anchorPosition.top - elementPosition.height < 0 ? top(0) : top(anchorPosition.top - elementPosition.height);
   case 'center':
-    return top((anchor.current.offsetTop - element.current.offsetHeight) / 2);
+    return top(anchorPosition.top + anchorPosition.height / 2 - elementPosition.height / 2);
   case 'bottom':
   default:
-    return top(anchor.current.offsetTop + anchor.current.offsetHeight);
+    return anchorPosition.bottom + elementPosition.height > window.innerHeight ? top(window.innerHeight - elementPosition.height) : top(anchorPosition.bottom);
   }
 };
 
-const getHorizontal = (anchor, element, placement = 'right') => {
-  if (!anchor.current || !element.current) {
-    return;
-  }
+const getHorizontal = (anchorPosition, elementPosition, placement = 'right') => {
   switch (placement) {
   case 'right':
-    return anchor.current.offsetLeft + anchor.current.offsetWidth + element.current.offsetWidth > window.innerWidth ? right(0) : left(anchor.current.offsetLeft + anchor.current.offsetWidth);
+    return anchorPosition.right + elementPosition.width > window.innerWidth ? right(0) : left(anchorPosition.right);
   case 'left':
-    return left(anchor.current.offsetLeft - element.current.offsetWidth > 0 ? anchor.current.offsetLeft - element.current.offsetWidth : 0);
+    return anchorPosition.left - elementPosition.width > 0 ? left(anchorPosition.left - elementPosition.width) : left(0);
   case 'center':
+    return left(anchorPosition.left - elementPosition.width > 0 ? anchorPosition.left + anchorPosition.width / 2 - elementPosition.width / 2 : 0);
   default:
-    return left(anchor.current.offsetTop);
+    return left(anchorPosition.left);
   }
 };
 
@@ -69,14 +70,16 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
     }
 
     const handlePosition = debounce(() => {
+      const anchorPosition = offset(anchor.current);
+      const elementPosition = offset(ref.current.parentElement);
       setPosition({
         ...width === 'stretch' && anchor.current && {
           width: offsetWidth,
         },
-        ...getVertical(anchor, ref, vertical),
-        ...getHorizontal(anchor, ref, horizontal),
+        ...getVertical(anchorPosition, elementPosition, vertical),
+        ...getHorizontal(anchorPosition, elementPosition, horizontal),
       });
-    }, 10);
+    }, 100);
 
     const resizeObserver = new ResizeObserver(handlePosition);
 
@@ -94,12 +97,21 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
     };
   }, [placement, offsetWidth]);
 
+  const portalContainer = useMemo(() => {
+    const element = document.createElement('div');
+    document.body.appendChild(element);
+    return element;
+  }, []);
 
-  return React.cloneElement(children, {
-    ref,
-    style: { ...position, ...children.props.style, ...style },
-    className: ['rcx-position', className, children.props.className].filter(Boolean).join(' '),
-  });
+  useEffect(() => () => document.body.removeChild(portalContainer), []);
+  return ReactDOM.createPortal(
+    React.cloneElement(children, {
+      ref,
+      style: { ...position, ...children.props.style, ...style },
+      className: ['rcx-position', className, children.props.className].filter(Boolean).join(' '),
+    }),
+    portalContainer,
+  );
 };
 
 export const PositionAnimated = ({ width, placement, visible, children, ...props }) => (

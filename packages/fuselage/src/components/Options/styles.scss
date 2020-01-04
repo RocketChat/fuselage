@@ -1,11 +1,15 @@
 
 .rcx-option {
+  @include clickable;
+  @include use-text-style(p2);
+  @include use-text-ellipsis;
+
   padding: $sizes-x8;
 
   list-style: none;
 
   transition: background $transitions-short-duration;
-  @include clickable;
+  white-space: nowrap;
 
   &:hover,
   &--focus {

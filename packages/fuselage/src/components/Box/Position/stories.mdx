@@ -19,8 +19,16 @@ const options = [
     {(() => {
       const ref = useRef();
       return (<>
-        <Button ref={ref}>Anchor test</Button>
-        <Position placement='bottom center' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Button style={{margin:'100px', width: '100%', maxWidth:'500px'}}ref={ref}>Anchor test</Button>
+        <Position width='auto' placement='bottom right' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Position width='auto' placement='bottom left' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Position width='auto' placement='bottom center' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Position width='auto' placement='top right' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Position width='auto' placement='top left' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Position width='auto' placement='top center' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Position width='auto' placement='center right' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Position width='auto' placement='center left' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
+        <Position width='auto' placement='center center' anchor={ref}><Options options={options} value={[1]} cursor={0}/></Position>
       </>);
     })()}
   </Story>

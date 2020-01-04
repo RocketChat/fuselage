@@ -8,6 +8,107 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 # UI Kit Message
 
 <Preview>
+  <Story name='Section Standard'>
+    {
+      UiKitMessage([{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "I am an item"
+			}
+		  }])
+    }
+  }/>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Section Fields'>
+    { UiKitMessage([
+		{
+			"type": "section",
+			"fields": [
+				{
+					"type": "plain_text",
+					"text": "field 1",
+					"emoji": true
+				},
+				{
+					"type": "plain_text",
+					"text": "field 2",
+					"emoji": true
+				},
+				{
+					"type": "plain_text",
+					"text": "field 3",
+					"emoji": true
+				},
+				{
+					"type": "plain_text",
+					"text": "field 4",
+					"emoji": true
+				},
+				{
+					"type": "plain_text",
+					"text": "field 5",
+					"emoji": true
+				}
+			]
+		}
+	])}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Divider'>
+    {
+      UiKitMessage([{
+			"type": "divider"
+		}])
+    }
+  }/>
+  </Story>
+</Preview>
+
+
+<Preview>
+  <Story name='Context Standard'>
+    {UiKitMessage([{
+			"type": "context",
+			"elements": [
+				{
+					"type": "mrkdwn",
+					"text": "I am an item"
+				}
+			]
+		}])}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Context Standard + icon'>
+    {UiKitMessage([{
+			"type": "context",
+			"elements": [{
+			"type": "image",
+			"title": {
+				"type": "plain_text",
+				"text": "Example Image",
+				"emoji": true
+			},
+			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
+			"altText": "Example Image"
+		},
+				{
+					"type": "mrkdwn",
+					"text": "I am an item"
+				}
+			]
+		}])}
+  </Story>
+</Preview>
+
+<Preview>
   <Story name='Section + image'>
     {
       UiKitMessage([{
@@ -183,29 +284,6 @@ import { UiKitModal, UiKitMessage, kitContext, defaultContext } from './';
 			},
 			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
 			"altText": "Example Image"
-		}])}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name='Context'>
-    {UiKitMessage([{
-			"type": "context",
-			"elements": [{
-			"type": "image",
-			"title": {
-				"type": "plain_text",
-				"text": "Example Image",
-				"emoji": true
-			},
-			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
-			"altText": "Example Image"
-		},
-				{
-					"type": "mrkdwn",
-					"text": "context"
-				}
-			]
 		}])}
   </Story>
 </Preview>
