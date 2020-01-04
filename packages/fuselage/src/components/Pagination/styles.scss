@@ -7,11 +7,11 @@
   align-items: center;
   flex-flow: column-reverse nowrap;
 
-  @include when-breakpoint(sm) {
+  @include on-breakpoint(sm) {
     flex-direction: column;
   }
 
-  @include when-breakpoint(md) {
+  @include on-breakpoint(md) {
     flex-direction: row;
   }
 }
@@ -28,11 +28,11 @@
   margin-inline-start: 0;
   justify-content: center;
 
-  @include when-breakpoint(sm) {
+  @include on-breakpoint(sm) {
     margin-inline-start: auto;
   }
 
-  @include when-breakpoint(md) {
+  @include on-breakpoint(md) {
     margin-inline-start: 0;
     margin-inline-end: auto;
   }
@@ -44,7 +44,7 @@
   align-items: center;
   flex-flow: column nowrap;
 
-  @include when-breakpoint(sm) {
+  @include on-breakpoint(sm) {
     margin-inline-start: auto;
     align-items: center;
     flex-flow: row nowrap;

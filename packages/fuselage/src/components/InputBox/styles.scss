@@ -180,7 +180,7 @@
 
   &:not(.rcx-input-box--undecorated) {
     min-width: 8rem;
-    min-height: #{ $sizes-x44 };
+    min-height: #{ $sizes-x40 };
 
     padding:
       calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
@@ -242,8 +242,8 @@
   }
 
   &--under-addon {
-    padding-right: calc(#{ $spaces-x16 } + #{ $sizes-x44 } - 2 * #{ $spaces-x12 });
-    padding-inline-end: calc(#{ $spaces-x16 } + #{ $sizes-x44 } - 2 * #{ $spaces-x12 });
+    padding-right: calc(#{ $spaces-x16 } + #{ $sizes-x40 } - 2 * #{ $spaces-x12 });
+    padding-inline-end: calc(#{ $spaces-x16 } + #{ $sizes-x40 } - 2 * #{ $spaces-x12 });
   }
 
   .rcx-input-box__wrapper > & {
@@ -274,7 +274,7 @@
   flex: 1 0 0;
 
   min-width: 8rem;
-  min-height: #{ $sizes-x44 };
+  min-height: #{ $sizes-x40 };
 
   padding:
     calc(#{ $spaces-x12 } - #{ $borders-width-x2 })

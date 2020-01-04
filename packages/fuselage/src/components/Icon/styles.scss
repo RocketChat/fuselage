@@ -1,6 +1,8 @@
 .rcx-icon {
   display: inline-block;
 
+  user-select: none;
+
   vertical-align: middle;
 
   letter-spacing: 0;
@@ -14,55 +16,10 @@
   line-height: 1;
   text-rendering: auto;
 
-  &--size-1 {
-    font-size: $spaces-x1;
-  }
-
-  &--size-2 {
-    font-size: $spaces-x2;
-  }
-
-  &--size-4 {
-    font-size: $spaces-x4;
-  }
-
-  &--size-8 {
-    font-size: $spaces-x8;
-  }
-
-  &--size-12 {
-    font-size: $spaces-x12;
-  }
-
-  &--size-16 {
-    font-size: $spaces-x16;
-  }
-
-  &--size-20 {
-    font-size: $spaces-x20;
-  }
-
-  &--size-24 {
-    font-size: $spaces-x24;
-  }
-
-  &--size-28 {
-    font-size: $spaces-x28;
-  }
-
-  &--size-32 {
-    font-size: $spaces-x32;
-  }
-
-  &--size-36 {
-    font-size: $spaces-x36;
-  }
-
-  &--size-40 {
-    font-size: $spaces-x40;
-  }
-
-  &--size-44 {
-    font-size: $spaces-x44;
+  @each $name, $value in $sizes {
+    &--size-#{$name},
+    &--size-#{str-slice($name, 2)} {
+      font-size: $value;
+    }
   }
 }
