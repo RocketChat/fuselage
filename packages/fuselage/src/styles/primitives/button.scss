@@ -25,19 +25,19 @@
   @include on-focus {
     border-color: $focus-border-color;
     background-color: $focus-background-color;
-    box-shadow: 0 0 0 #{to-rem(6)} $focus-shadow-color;
+    @include use-focus-shadow($focus-shadow-color);
   }
 
   @include on-hover {
     border-color: $hover-border-color;
     background-color: $hover-background-color;
-    box-shadow: none;
+    @include use-no-shadow;
   }
 
   @include on-active {
     border-color: $active-border-color;
     background-color: $active-background-color;
-    box-shadow: none;
+    @include use-no-shadow;
   }
 
   @include on-disabled {

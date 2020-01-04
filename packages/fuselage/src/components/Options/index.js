@@ -49,7 +49,7 @@ export const Options = React.forwardRef(({
     }
   }, [cursor]);
   return <Box className={merge('rcx-options', className)} is='div' {...props}>
-    <Tile padding='8' elevation='2' ref={ref}>
+    <Tile padding='x8' elevation='2' ref={ref}>
       <Scrollable vertical smooth>
         <Margins blockStart={4}>
           <Tile elevation='0' padding='none' style={{ maxHeight }} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>

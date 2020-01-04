@@ -1,30 +1,47 @@
+$breakpoints-xs-min-viewport-width: null;
+$breakpoints-xs-columns: 4;
+$breakpoints-xs-gutter-width: to-rem(16);
+
+$breakpoints-sm-min-viewport-width: to-em(600);
+$breakpoints-sm-columns: 8;
+$breakpoints-sm-gutter-width: to-rem(16);
+
+$breakpoints-md-min-viewport-width: to-em(768);
+$breakpoints-md-columns: 8;
+$breakpoints-md-gutter-width: to-rem(24);
+
+$breakpoints-lg-min-viewport-width: to-em(1024);
+$breakpoints-lg-columns: 12;
+$breakpoints-lg-gutter-width: to-rem(24);
+
+$breakpoints-xl-min-viewport-width: to-em(1440);
+$breakpoints-xl-columns: 12;
+$breakpoints-xl-gutter-width: to-rem(24);
+
 $breakpoints: (
   xs: (
-    min-viewport-width: 320,
-    columns: 4,
-    gutter-width: 16,
+    min-viewport-width: $breakpoints-xs-min-viewport-width,
+    columns: $breakpoints-xs-columns,
+    gutter-width: $breakpoints-xs-gutter-width,
   ),
   sm: (
-    min-viewport-width: 600,
-    columns: 8,
-    gutter-width: 16,
+    min-viewport-width: $breakpoints-sm-min-viewport-width,
+    columns: $breakpoints-sm-columns,
+    gutter-width: $breakpoints-sm-gutter-width,
   ),
   md: (
-    min-viewport-width: 768,
-    columns: 8,
-    gutter-width: 24,
+    min-viewport-width: $breakpoints-md-min-viewport-width,
+    columns: $breakpoints-md-columns,
+    gutter-width: $breakpoints-md-gutter-width,
   ),
   lg: (
-    min-viewport-width: 1024,
-    columns: 12,
-    gutter-width: 24,
+    min-viewport-width: $breakpoints-lg-min-viewport-width,
+    columns: $breakpoints-lg-columns,
+    gutter-width: $breakpoints-lg-gutter-width,
   ),
   xl: (
-    min-viewport-width: 1440,
-    columns: 12,
-    gutter-width: 24,
+    min-viewport-width: $breakpoints-xl-min-viewport-width,
+    columns: $breakpoints-xl-columns,
+    gutter-width: $breakpoints-xl-gutter-width,
   ),
 );
-
-$smallest-breakpoint: nth(map-keys($breakpoints), 1);
-$responsive-breakpoints: map-keys(map-remove($breakpoints, $smallest-breakpoint));

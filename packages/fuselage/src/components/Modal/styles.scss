@@ -26,7 +26,7 @@
     background-color: color.change($colors-n500, $alpha: 0.5);
   }
 
-  @include when-breakpoint(sm) {
+  @include on-breakpoint(sm) {
     max-width: 640px;
     padding: $spaces-x16;
   }

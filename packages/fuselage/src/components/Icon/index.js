@@ -9,8 +9,8 @@ export const Icon = React.forwardRef(({
   size,
   ...props
 }, ref) => <Box ref={ref}
-  componentClassName='rcx-icon'
   is='i'
+  componentClassName='rcx-icon'
   aria-hidden='true'
   children={nameToCharacterMapping[name]}
   mod-name={name}
@@ -18,9 +18,7 @@ export const Icon = React.forwardRef(({
   {...props}
 />);
 
-Icon.displayName = 'Icon';
-
 Icon.propTypes = {
   name: PropTypes.oneOf(Object.keys(nameToCharacterMapping)).isRequired,
-  size: PropTypes.oneOf(['1', '2', '4', '8', '12', '16', '20', '24', '28', '32', '36', '40', '44']),
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

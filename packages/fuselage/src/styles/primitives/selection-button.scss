@@ -19,19 +19,19 @@
 %selection-button__fake--empty--hovered {
   border-color: $button-colors-empty-hover-border-color;
   background-color: $button-colors-empty-hover-background-color;
-  box-shadow: none;
+  @include use-no-shadow;
 }
 
 %selection-button__fake--empty--active {
   border-color: $button-colors-empty-active-border-color;
   background-color: $button-colors-empty-active-background-color;
-  box-shadow: none;
+  @include use-no-shadow;
 }
 
 %selection-button__fake--empty--focused {
   border-color: $button-colors-empty-focus-border-color;
   background-color: $button-colors-empty-focus-background-color;
-  box-shadow: 0 0 0 to-rem(6) $button-colors-empty-focus-shadow-color;
+  @include use-focus-shadow($button-colors-empty-focus-shadow-color);
 }
 
 %selection-button__fake--empty--disabled {
@@ -49,19 +49,19 @@
 %selection-button__fake--off--hovered {
   border-color: $button-colors-off-hover-border-color;
   background-color: $button-colors-off-hover-background-color;
-  box-shadow: none;
+  @include use-no-shadow;
 }
 
 %selection-button__fake--off--active {
   border-color: $button-colors-off-active-border-color;
   background-color: $button-colors-off-active-background-color;
-  box-shadow: none;
+  @include use-no-shadow;
 }
 
 %selection-button__fake--off--focused {
   border-color: $button-colors-off-focus-border-color;
   background-color: $button-colors-off-focus-background-color;
-  box-shadow: 0 0 0 to-rem(6) $button-colors-off-focus-shadow-color;
+  @include use-focus-shadow($button-colors-off-focus-shadow-color);
 }
 
 %selection-button__fake--off--disabled {
@@ -79,19 +79,19 @@
 %selection-button__fake--primary--hovered {
   border-color: $button-colors-primary-hover-border-color;
   background-color: $button-colors-primary-hover-background-color;
-  box-shadow: none;
+  @include use-no-shadow;
 }
 
 %selection-button__fake--primary--active {
   border-color: $button-colors-primary-active-border-color;
   background-color: $button-colors-primary-active-background-color;
-  box-shadow: none;
+  @include use-no-shadow;
 }
 
 %selection-button__fake--primary--focused {
   border-color: $button-colors-primary-focus-border-color;
   background-color: $button-colors-primary-focus-background-color;
-  box-shadow: 0 0 0 to-rem(6) $button-colors-primary-focus-shadow-color;
+  @include use-focus-shadow($button-colors-primary-focus-shadow-color);
 }
 
 %selection-button__fake--primary--disabled {

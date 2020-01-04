@@ -1,7 +1,22 @@
 $borders-width-none: 0;
-$borders-width-x1: theme('borders-width-x1', to-rem($lengths-x1));
-$borders-width-x2: theme('borders-width-x2', to-rem($lengths-x2));
-$borders-width-x4: theme('borders-width-x4', to-rem($lengths-x4));
+$borders-width-x1: theme('borders-width-x1', to-rem(1));
+$borders-width-x2: theme('borders-width-x2', to-rem(2));
+$borders-width-x4: theme('borders-width-x4', to-rem(4));
 
-$borders-radius-x2: theme('borders-radius-x2', to-rem($lengths-x2));
+$borders-radius-none: 0;
+$borders-radius-x2: theme('borders-radius-x2', to-rem(2));
 $borders-radius-full: 9999px;
+
+$borders: (
+  width: (
+    none: $borders-width-none,
+    x1: $borders-width-x1,
+    x2: $borders-width-x2,
+    x4: $borders-width-x4,
+  ),
+  radius: (
+    none: $borders-radius-none,
+    x2: $borders-radius-x2,
+    full: $borders-radius-full,
+  ),
+);

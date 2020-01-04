@@ -19,12 +19,12 @@ export const Tile = React.forwardRef(function Tile({
 
 Tile.defaultProps = {
   elevation: '1',
-  padding: '16',
+  padding: 'x16',
 };
 
 Tile.displayName = 'Tile';
 
 Tile.propTypes = {
   elevation: PropTypes.oneOf(['0', '1', '2']).isRequired,
-  padding: PropTypes.oneOf(['none', '1', '2', '4', '8', '12', '16', '20', '24', '28', '32', '36', '40', '44']).isRequired,
+  padding: PropTypes.oneOf(['none', 'x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x44']).isRequired,
 };

@@ -1,7 +1,7 @@
 %tile-0 {
   border-radius: $borders-radius-x2;
   background-color: #{ $colors-white };
-  box-shadow: none;
+  @include use-no-shadow;
 }
 
 %tile-1 {
