@@ -49,10 +49,10 @@ export const Options = React.forwardRef(({
     }
   }, [cursor]);
   return <Box className={merge('rcx-options', className)} is='div' {...props}>
-    <Tile padding='x8' elevation='2' ref={ref}>
+    <Tile padding='x8' elevation='2'>
       <Scrollable vertical smooth>
         <Margins blockStart={4}>
-          <Tile elevation='0' padding='none' style={{ maxHeight }} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
+          <Tile ref={ref} elevation='0' padding='none' style={{ maxHeight }} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
             {!options.length && <EmptyComponent/>}
             {options.map(([value, label, selected], i) => <OptionComponent role='option' onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}>{label}</OptionComponent>)}
           </Tile>
