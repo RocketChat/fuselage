@@ -143,12 +143,13 @@
     @extend %button--primary;
   }
 
-  &--nude-primary {
-    @extend %button--nude--primary;
-  }
+  &--danger-nude {
+    @extend %button--nude;
 
-  &--nude-danger {
-    @extend %button--nude--danger;
+    &:active,
+    &.active {
+      color: $colors-r700;
+    }
   }
 
   &--primary-danger {

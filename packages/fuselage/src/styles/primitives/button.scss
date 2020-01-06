@@ -12,6 +12,7 @@
   $disabled-color,
   $disabled-background-color,
   $disabled-border-color,
+  $active-color: $color,
 ) {
   color: $color;
   border-width: $borders-width-x2;
@@ -35,6 +36,7 @@
   }
 
   @include on-active {
+    color: $active-color;
     border-color: $active-border-color;
     background-color: $active-background-color;
     box-shadow: none;
@@ -101,5 +103,43 @@
     $disabled-background-color: $button-colors-danger-disabled-background-color,
     $disabled-border-color: $button-colors-danger-disabled-border-color,
     $disabled-color: $button-colors-danger-disabled-color,
+  );
+}
+
+%button--nude--danger {
+  @include as-button(
+    $background-color: $button-colors-nude-background-color,
+    $border-color: $button-colors-nude-border-color,
+    $color: $button-colors-nude-danger-color,
+    $hover-background-color: $button-colors-nude-hover-background-color,
+    $hover-border-color: $button-colors-nude-hover-border-color,
+    $active-background-color: $button-colors-nude-active-background-color,
+    $active-border-color: $button-colors-nude-active-border-color,
+    $active-color: $button-colors-nude-danger-active-color,
+    $focus-background-color: $button-colors-nude-focus-background-color,
+    $focus-border-color: $button-colors-nude-danger-focus-border-color,
+    $focus-shadow-color: $button-colors-nude-danger-focus-shadow-color,
+    $disabled-background-color: $button-colors-nude-disabled-background-color,
+    $disabled-border-color: $button-colors-nude-disabled-border-color,
+    $disabled-color: $button-colors-nude-danger-disabled-color,
+  );
+}
+
+%button--nude--primary {
+  @include as-button(
+    $background-color: $button-colors-nude-background-color,
+    $border-color: $button-colors-nude-border-color,
+    $color: $button-colors-nude-primary-color,
+    $hover-background-color: $button-colors-nude-hover-background-color,
+    $hover-border-color: $button-colors-nude-hover-border-color,
+    $active-background-color: $button-colors-nude-active-background-color,
+    $active-border-color: $button-colors-nude-active-border-color,
+    $active-color: $button-colors-nude-primary-active-color,
+    $focus-background-color: $button-colors-nude-focus-background-color,
+    $focus-border-color: $button-colors-nude-primary-focus-border-color,
+    $focus-shadow-color: $button-colors-nude-primary-focus-shadow-color,
+    $disabled-background-color: $button-colors-nude-disabled-background-color,
+    $disabled-border-color: $button-colors-nude-disabled-border-color,
+    $disabled-color: $button-colors-nude-primary-disabled-color,
   );
 }

@@ -67,3 +67,25 @@ $button-colors-off-focus-shadow-color: theme('button-colors-off-focus-shadow-col
 $button-colors-off-disabled-background-color: theme('button-colors-off-disabled-background-color', $colors-n400);
 $button-colors-off-disabled-border-color: theme('button-colors-off-disabled-border-color', $colors-n400);
 $button-colors-off-disabled-color: theme('button-colors-off-disabled-color', $colors-n200);
+
+$button-colors-nude-background-color: theme('button-colors-nude-background-color', transparent);
+$button-colors-nude-border-color: theme('button-colors-nude-border-color', transparent);
+$button-colors-nude-hover-background-color: theme('button-colors-nude-hover-background-color', transparent);
+$button-colors-nude-hover-border-color: theme('button-colors-nude-hover-border-color', transparent);
+$button-colors-nude-active-background-color: theme('button-colors-nude-active-background-color', transparent);
+$button-colors-nude-active-border-color: theme('button-colors-nude-active-border-color', transparent);
+$button-colors-nude-focus-background-color: theme('button-colors-nude-focus-background-color', transparent);
+$button-colors-nude-disabled-background-color: theme('button-colors-nude-disabled-background-color', transparent);
+$button-colors-nude-disabled-border-color: theme('button-colors-nude-disabled-border-color', transparent);
+
+$button-colors-nude-danger-color: theme('button-colors-nude-danger-color', $colors-r500);
+$button-colors-nude-danger-active-color: theme('button-colors-nude-danger-active-color', $colors-r700);
+$button-colors-nude-danger-focus-border-color: theme('button-colors-nude-danger-focus-border-color', $colors-r500);
+$button-colors-nude-danger-focus-shadow-color: theme('button-colors-nude-danger-focus-shadow-color', $colors-r100);
+$button-colors-nude-danger-disabled-color: theme('button-colors-nude-danger-disabled-color', $colors-r200);
+
+$button-colors-nude-primary-color: theme('button-colors-nude-primary-color', $colors-b500);
+$button-colors-nude-primary-active-color: theme('button-colors-nude-primary-active-color', $colors-b700);
+$button-colors-nude-primary-focus-border-color: theme('button-colors-nude-primary-focus-border-color', $colors-b500);
+$button-colors-nude-primary-focus-shadow-color: theme('button-colors-nude-primary-focus-shadow-color', $colors-b100);
+$button-colors-nude-primary-disabled-color: theme('button-colors-nude-primary-disabled-color', $colors-b200);

@@ -1,0 +1,266 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+// import { Button, Icon } from '../..';
+import { Button2, ButtonPrimary, ButtonPrimaryDanger, ButtonGhost, ButtonGhostDanger, ButtonDanger, ButtonNudeDanger, ButtonNudePrimary } from '.';
+import { Icon } from '../..';
+
+<Meta title='Buttons2|Button2' parameters={{ jest: ['Button2/spec'] }} />
+
+# Button2
+
+Indicates an actionable user action.
+
+<Preview>
+  <Story name='Default'>
+    <Button2 onClick={action('click')}>Button</Button2>
+  </Story>
+</Preview>
+
+<Props of={Button2} />
+
+## Variants
+
+### Primary
+
+<Preview>
+  <Story name='Primary'>
+    <ButtonPrimary>Button</ButtonPrimary>
+  </Story>
+</Preview>
+
+### Danger
+
+<Preview>
+  <Story name='Primary Danger'>
+    <ButtonPrimaryDanger>Button</ButtonPrimaryDanger>
+  </Story>
+</Preview>
+
+### Small
+
+<Preview>
+  <Story name='Small'>
+    <Button2 small>Button</Button2>
+  </Story>
+</Preview>
+
+### Square
+
+<Preview>
+  <Story name='Square'>
+    <Button2 square>
+      <Icon name='plus' size='20' />
+    </Button2>
+  </Story>
+</Preview>
+
+## With icon
+
+<Preview>
+  <Story name='With Icon'>
+    <Button2>
+      <Icon name='edit' size='16' /> Edit
+    </Button2>
+  </Story>
+</Preview>
+
+## As link
+
+<Preview>
+  <Story name='As Link'>
+    <Button2 is='a' href='https://rocket.chat' external>Button</Button2>
+  </Story>
+</Preview>
+
+## States
+
+### Basic
+
+<Story name='States'>
+  <PropsVariationSection
+    component={Button2}
+    common={{ onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+#### Small
+
+<Story name='States of Small Variant'>
+  <PropsVariationSection
+    component={Button2}
+    common={{ small: true, onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='16' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='12' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+### Danger
+
+<Story name='States of Danger'>
+  <PropsVariationSection
+    component={ButtonDanger}
+    common={{ onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+### Primary
+
+<Story name='States Of Primary Variant'>
+  <PropsVariationSection
+    component={ButtonPrimary}
+    common={{ onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+### Primary Danger
+
+<Story name='States Of Primary Danger Variant'>
+  <PropsVariationSection
+    component={ButtonPrimaryDanger}
+    common={{ onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+### Ghost
+
+<Story name='States Of Ghost Variant'>
+  <PropsVariationSection
+    component={ButtonGhost}
+    common={{ onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+### Ghost Danger
+
+<Story name='States Of Ghost Danger Variant'>
+  <PropsVariationSection
+    component={ButtonGhostDanger}
+    common={{ onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+### Nude Primary
+
+<Story name='States Of Nude Primary Variant'>
+  <PropsVariationSection
+    component={ButtonNudePrimary}
+    common={{ onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+### Nude Danger
+
+<Story name='States Of Nude Danger Variant'>
+  <PropsVariationSection
+    component={ButtonNudeDanger}
+    common={{ onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
