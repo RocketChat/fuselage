@@ -36,4 +36,3 @@ export * from './Chip';
 export * from './AutoComplete';
 export * from './Options';
 export * from './Select';
-export * from './Tooltip';
