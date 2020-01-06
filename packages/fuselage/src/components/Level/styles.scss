@@ -11,7 +11,7 @@
 
   text-align: center;
 
-  @include when-breakpoint(md) {
+  @include on-breakpoint(md) {
     flex-basis: auto;
   }
 }

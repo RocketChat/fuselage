@@ -1,12 +1,37 @@
-@mixin when-breakpoint($breakpoint) {
-  $min-width: to-em(map-get(map-get($breakpoints, $breakpoint), min-viewport-width));
-
-  @if $breakpoint == $smallest-breakpoint {
-    @content;
+@mixin on-breakpoint-only($breakpoint-name) {
+  $min-viewport-width: map-get(map-get($breakpoints, $breakpoint-name), min-viewport-width);
+  $breakpoints-names: map-keys($breakpoints);
+  $next-breakpoint-name: null;
+  @if index($breakpoints-names, $breakpoint-name) + 1 < length($breakpoints-names) {
+    $next-breakpoint-name: nth($breakpoints-names, index($breakpoints-names, $breakpoint-name) + 1);
   }
 
+  @if not $min-viewport-width {
+    @content;
+  }
+  @else if not $next-breakpoint-name {
+    @media screen and (min-width: #{ $min-viewport-width }) {
+      @content;
+    }
+  }
   @else {
-    @media screen and (min-width: $min-width) {
+    $next-min-viewport-width: map-get(map-get($breakpoints, $next-breakpoint-name), min-viewport-width);
+    $max-viewport-width: ($next-min-viewport-width/1em - 1) * 1em;
+    @debug $max-viewport-width;
+    @media screen and (min-width: #{ $min-viewport-width }) and (max-width: $max-viewport-width) {
+      @content;
+    }
+  }
+}
+
+@mixin on-breakpoint($breakpoint-name) {
+  $min-viewport-width: map-get(map-get($breakpoints, $breakpoint-name), min-viewport-width);
+
+  @if not $min-viewport-width {
+    @content;
+  }
+  @else {
+    @media screen and (min-width: #{ $min-viewport-width }) {
       @content;
     }
   }

@@ -1,7 +1,7 @@
 .rcx-tabs {
   margin-block-end: $spaces-x8;
 
-  border-bottom: #{ $borders-width-x1 } solid #{ $colors-n400 };
+  border-block-end: #{ $borders-width-x1 } solid #{ $colors-n400 };
 }
 
 .rcx-tabs__wrapper {
@@ -16,8 +16,7 @@
 .rcx-tabs__item {
   flex: 0 0 auto;
 
-  margin-inline: $spaces-x8;
-  padding-block: $spaces-x8;
+  padding-block: calc(#{ $spaces-x8 } + #{ $spaces-x1 });
   padding-inline: $spaces-x32;
 
   color: $colors-n600;

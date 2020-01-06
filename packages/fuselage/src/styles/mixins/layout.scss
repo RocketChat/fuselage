@@ -2,18 +2,6 @@
   @extend %visually-hidden;
 }
 
-@mixin container {
-  width: 100%;
-
-  @each $breakpoint in $responsive-breakpoints {
-    $max-width: to-rem(map-get-value($breakpoints, $breakpoint, min-viewport-width));
-
-    @include when-breakpoint($breakpoint) {
-      max-width: $max-width;
-    }
-  }
-}
-
 @mixin scrollable {
   @extend %with-scrollbars;
 }

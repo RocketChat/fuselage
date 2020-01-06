@@ -1,6 +1,6 @@
 @function to-em($length) {
   @if type-of($length) == number {
-    @return #{$length / 16}em;
+    @return $length / 16 * 1em;
   }
 
   @return $length;
@@ -8,7 +8,7 @@
 
 @function to-rem($length) {
   @if type-of($length) == number {
-    @return #{$length / 16}rem;
+    @return $length / 16 * 1rem;
   }
 
   @return $length;
