@@ -21,21 +21,21 @@
   &:focus {
     border-color: $focus-border-color;
     background-color: $focus-background-color;
-    box-shadow: 0 0 0 to-rem(6) $focus-shadow-color;
+    @include use-focus-shadow($focus-shadow-color);
   }
 
   &.hover,
   &:hover {
     border-color: $hover-border-color;
     background-color: $hover-background-color;
-    box-shadow: none;
+    @include use-no-shadow;
   }
 
   &.active,
   &:active {
     border-color: $active-border-color;
     background-color: $active-background-color;
-    box-shadow: none;
+    @include use-no-shadow;
   }
 
   &.disabled,
@@ -97,13 +97,14 @@
   text-decoration: none;
 
   @include clickable;
-  @include use-text-style(p2);
   @include use-text-ellipsis;
+
+  @include use-text-style(p2);
 
   @include with-rectangular-size(
     $height: $sizes-x40,
-    $padding-x: $spaces-x16,
-    $line-height: $text-styles-p1-line-height,
+    $padding-x: calc( #{$spaces-x12} ),
+    $line-height: $text-styles-p2-line-height,
   );
 
   @extend %button--secondary;
@@ -112,9 +113,19 @@
     @include use-text-style(c2);
 
     @include with-rectangular-size(
-      $height: $sizes-x32,
+      $height: $sizes-x28,
+      $padding-x: #{$spaces-x8},
+      $line-height: $text-styles-c2-line-height,
+    );
+  }
+
+  &--medium {
+    @include use-text-style(c2);
+
+    @include with-rectangular-size(
+      $height: $sizes-x36,
       $padding-x: $spaces-x12,
-      $line-height: $text-styles-c1-line-height,
+      $line-height: $text-styles-p2-line-height,
     );
   }
 
@@ -125,6 +136,12 @@
   }
 
   &--small-square {
+    @include with-squared-size(
+      $size: $spaces-x28,
+    );
+  }
+
+  &--medium-square {
     @include with-squared-size(
       $size: $spaces-x32,
     );
@@ -143,13 +160,12 @@
     @extend %button--primary;
   }
 
-  &--danger-nude {
-    @extend %button--nude;
+  &--nude-primary {
+    @extend %button--nude--primary;
+  }
 
-    &:active,
-    &.active {
-      color: $colors-r700;
-    }
+  &--nude-danger {
+    @extend %button--nude--danger;
   }
 
   &--primary-danger {
