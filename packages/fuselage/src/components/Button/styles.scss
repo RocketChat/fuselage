@@ -97,12 +97,13 @@
   text-decoration: none;
 
   @include clickable;
-  @include use-text-style(c2);
   @include use-text-ellipsis;
 
+  @include use-text-style(p2);
+
   @include with-rectangular-size(
-    $height: $sizes-x36,
-    $padding-x: $spaces-x12,
+    $height: $sizes-x40,
+    $padding-x: calc( #{$spaces-x12} ),
     $line-height: $text-styles-p2-line-height,
   );
 
@@ -118,19 +119,19 @@
     );
   }
 
-  &--large {
-    @include use-text-style(p2);
+  &--medium {
+    @include use-text-style(c2);
 
     @include with-rectangular-size(
-      $height: $sizes-x40,
-      $padding-x: calc( #{$spaces-x12} ),
+      $height: $sizes-x36,
+      $padding-x: $spaces-x12,
       $line-height: $text-styles-p2-line-height,
     );
   }
 
   &--square {
     @include with-squared-size(
-      $size: $spaces-x32,
+      $size: $spaces-x40,
     );
   }
 
@@ -140,9 +141,9 @@
     );
   }
 
-  &--large-square {
+  &--medium-square {
     @include with-squared-size(
-      $size: $spaces-x40,
+      $size: $spaces-x32,
     );
   }
 
