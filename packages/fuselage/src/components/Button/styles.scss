@@ -97,13 +97,13 @@
   text-decoration: none;
 
   @include clickable;
-  @include use-text-style(p2);
+  @include use-text-style(c2);
   @include use-text-ellipsis;
 
   @include with-rectangular-size(
-    $height: $sizes-x40,
-    $padding-x: $spaces-x16,
-    $line-height: $text-styles-p1-line-height,
+    $height: $sizes-x36,
+    $padding-x: $spaces-x12,
+    $line-height: $text-styles-p2-line-height,
   );
 
   @extend %button--secondary;
@@ -112,21 +112,37 @@
     @include use-text-style(c2);
 
     @include with-rectangular-size(
-      $height: $sizes-x32,
-      $padding-x: $spaces-x12,
-      $line-height: $text-styles-c1-line-height,
+      $height: $sizes-x28,
+      $padding-x: #{$spaces-x8},
+      $line-height: $text-styles-c2-line-height,
+    );
+  }
+
+  &--large {
+    @include use-text-style(p2);
+
+    @include with-rectangular-size(
+      $height: $sizes-x40,
+      $padding-x: calc( #{$spaces-x12} ),
+      $line-height: $text-styles-p2-line-height,
     );
   }
 
   &--square {
     @include with-squared-size(
-      $size: $spaces-x40,
+      $size: $spaces-x32,
     );
   }
 
   &--small-square {
     @include with-squared-size(
-      $size: $spaces-x32,
+      $size: $spaces-x28,
+    );
+  }
+
+  &--large-square {
+    @include with-squared-size(
+      $size: $spaces-x40,
     );
   }
 

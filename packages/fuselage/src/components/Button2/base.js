@@ -10,6 +10,7 @@ export const Button2 = forwardRef(function Button2({
   is = 'button',
   rel,
   small,
+  large,
   square,
   ...props
 }, ref) {
@@ -26,7 +27,10 @@ export const Button2 = forwardRef(function Button2({
     is={is}
     ref={ref}
     mod-small={small}
+    mod-large={large}
     mod-square={square}
+    mod-small-square={small && square}
+    mod-large-square={large && square}
     {...extraProps}
     {...props}
   />;

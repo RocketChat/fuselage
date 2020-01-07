@@ -46,6 +46,14 @@ Indicates an actionable user action.
   </Story>
 </Preview>
 
+### Large
+
+<Preview>
+  <Story name='Large'>
+    <Button2 large>Button</Button2>
+  </Story>
+</Preview>
+
 ### Square
 
 <Preview>
@@ -97,23 +105,21 @@ Indicates an actionable user action.
   />
 </Story>
 
-#### Small
+#### Size Comparison
 
-<Story name='States of Small Variant'>
+<Story name='All Sizes'>
   <PropsVariationSection
     component={Button2}
-    common={{ small: true, onClick: action('click') }}
+    common={{ onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='16' /> },
       'text + icon': { children: <><Icon name='circled-arrow-down' size='12' /> Button</> },
     }}
     yAxis={{
+      small: { small: true },
       default: {},
-      hover: { className: 'hover' },
-      active: { className: 'active' },
-      focus: { className: 'focus' },
-      disabled: { disabled: true },
+      large: { large: true },
     }}
   />
 </Story>
@@ -168,8 +174,8 @@ Indicates an actionable user action.
     common={{ onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
-      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
-      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x8' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='x8' /> Button</> },
     }}
     yAxis={{
       default: {},
