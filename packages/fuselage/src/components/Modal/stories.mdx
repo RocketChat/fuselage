@@ -16,8 +16,14 @@ const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAA
   <Story name='Default'>
     <AnimatedWrapper visible={boolean('Visible', true) ? 1 : 0}>
       <Modal>
-        <Modal.Header><Modal.Thumb url={thumb}/> <Modal.Title>Modal Header</Modal.Title><Modal.Close/></Modal.Header>
-        <Modal.Container>Modal Body</Modal.Container>
+        <Modal.Header>
+          <Modal.Thumb url={thumb}/>
+          <Modal.Title>Modal Header</Modal.Title>
+          <Modal.Close/>
+        </Modal.Header>
+        <Modal.Content>
+          Modal Body
+        </Modal.Content>
         <Modal.Footer>
           <ButtonGroup align='end'>
             <Button>Cancel</Button>
