@@ -1,11 +1,11 @@
 @use 'sass:color';
 
 .rcx-modal {
-  width: 100%;
-  max-height: 100vh;
-  margin: auto;
+  position: static;
 
-  background: none;
+  width: $sizes-full;
+  max-height: $sizes-sh;
+  margin: auto;
 
   &__inner {
     min-width: 0;
@@ -27,7 +27,7 @@
   }
 
   @include on-breakpoint(sm) {
-    max-width: 640px;
+    max-width: $sizes-x640;
     padding: $spaces-x16;
   }
 }
