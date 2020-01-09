@@ -3,8 +3,9 @@ import React, { useState, createContext, useContext } from 'react';
 
 import { AnimatedWrapper, Box, VISIBILITY } from '../Box';
 
+export const ModalContext = createContext();
 
-const Context = createContext();
+export const useModalStack = () => useContext(ModalContext);
 
 const createModalRoot = () => {
   const node = document.createElement('div');
@@ -12,17 +13,35 @@ const createModalRoot = () => {
   return node;
 };
 
-export const ModalPortal = ({ children, el = createModalRoot() }) => ReactDOM.createPortal(
-  children,
-  el,
-);
+export const ModalPortal = ({ children, rootElement = createModalRoot() }) =>
+  ReactDOM.createPortal(children, rootElement);
 
-export const ModalProvider = ({ children }) => {
+export const ModalBackdrop = () => <Box componentClassName='rcx-modal__backdrop' />;
+
+export function ModalContainer() {
+  const { stack } = useModalStack();
+
+  return (
+    <ModalPortal>
+      {stack.size > 0 && <ModalBackdrop />}
+      {Array.from(stack.entries(), ([key, element], i, array) =>
+        <AnimatedWrapper
+          key={key}
+          children={element}
+          visible={array.length === i + 1 ? VISIBILITY.VISIBLE : VISIBILITY.HIDEN}
+        />,
+      )}
+    </ModalPortal>
+  );
+}
+
+export function ModalStack({ children }) {
   const [stack, setStack] = useState(new Map());
 
   const open = ({ id, ...data }) => {
     setStack(new Map([id, data]));
   };
+
   const update = ({ id, ...data }) => {
     setStack(new Map([id, data]));
   };
@@ -35,6 +54,7 @@ export const ModalProvider = ({ children }) => {
     if (!stack.size) {
       return;
     }
+
     const key = Array.from(stack.keys()).pop();
     stack.delete(key);
     setStack(new Map(stack));
@@ -45,22 +65,9 @@ export const ModalProvider = ({ children }) => {
   };
 
   return (
-    <Context.Provider value={{ stack, open, push, pop, close, update }}>
+    <ModalContext.Provider value={{ stack, open, push, pop, close, update }}>
       {children}
-      <Container/>
-    </Context.Provider>
+      <ModalContainer />
+    </ModalContext.Provider>
   );
-};
-
-export const useModalContext = () => useContext(Context);
-
-const Backdrop = React.memo(() => <Box is='div' className='rcx-modal__backdrop'/>);
-const Container = () => {
-  const { stack } = useModalContext();
-  return (
-    <ModalPortal>
-      {stack.size > 0 && <Backdrop/>}
-      {Array.from(stack.entries()).map(([key, element], i, arr) => <AnimatedWrapper key={key} visible={ arr.length === i + 1 ? VISIBILITY.VISIBLE : VISIBILITY.HIDEN } children={element}/>)}
-    </ModalPortal>
-  );
-};
+}

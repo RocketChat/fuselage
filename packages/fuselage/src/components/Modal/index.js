@@ -5,6 +5,7 @@ import { Box, Flex, Margins, MarginsWrapper, Scrollable } from '../Box';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { Tile } from '../Tile';
+import { ModalBackdrop, ModalContainer, ModalPortal, ModalStack } from './Stack';
 
 export const Modal = ({ children, ...props }) =>
   <Flex.Container>
@@ -67,9 +68,20 @@ export const ModalFooter = ({ children }) =>
     </Box>
   </Margins>;
 
+export {
+  ModalBackdrop,
+  ModalContainer,
+  ModalPortal,
+  ModalStack,
+};
+
 Modal.Header = ModalHeader;
 Modal.Thumb = ModalThumb;
 Modal.Title = ModalTitle;
 Modal.Close = ModalClose;
 Modal.Content = ModalContent;
 Modal.Footer = ModalFooter;
+Modal.Backdrop = ModalBackdrop;
+Modal.Container = ModalContainer;
+Modal.Portal = ModalPortal;
+Modal.Stack = ModalStack;
