@@ -1,0 +1,57 @@
+.rcx-box {
+  &--flex {
+    display: flex !important;
+
+    &-inline {
+      display: inline-flex !important;
+    }
+
+    &-row {
+      flex-direction: row !important;
+    }
+
+    &-row-reverse {
+      flex-direction: row-reverse !important;
+    }
+
+    &-col {
+      flex-direction: column !important;
+    }
+
+    &-col-reverse {
+      flex-direction: column-reverse !important;
+    }
+
+    &-wrap {
+      flex-wrap: wrap !important;
+    }
+
+    &-no-wrap {
+      flex-wrap: nowrap !important;
+    }
+
+    &-wrap-reverse {
+      flex-wrap: wrap-reverse !important;
+    }
+
+    &-items-stretch {
+      align-items: stretch !important;
+    }
+
+    &-items-start {
+      align-items: flex-start !important;
+    }
+
+    &-items-center {
+      align-items: center !important;
+    }
+
+    &-items-end {
+      align-items: flex-end !important;
+    }
+
+    &-items-baseline {
+      align-items: baseline !important;
+    }
+  }
+}

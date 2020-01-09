@@ -4,14 +4,18 @@ import React from 'react';
 import { useProps } from '../../../hooks';
 
 export function FlexContainer({ inline = false, children, direction, wrap, justifyContent, alignItems, alignContent }) {
-  const [, PropsProvider] = useProps(({ style, ...props }) => ({
+  const [, PropsProvider] = useProps(({ className, style, ...props }) => ({
+    className: [
+      className,
+      'rcx-box--flex',
+      inline && 'rcx-box--flex-inline',
+      direction && `rcx-box--flex-${ direction }`,
+      wrap && `rcx-box--flex-${ wrap }`,
+      alignItems && `rcx-box--flex-items-${ alignItems }`,
+    ].filter(Boolean).join(' '),
     style: {
       ...style,
-      display: inline ? 'inline-flex' : 'flex',
-      flexDirection: direction,
-      flexWrap: wrap,
       justifyContent,
-      alignItems,
       alignContent,
     },
     ...props,
@@ -23,30 +27,17 @@ export function FlexContainer({ inline = false, children, direction, wrap, justi
 FlexContainer.propTypes = {
   inline: PropTypes.bool,
   direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
-  wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
+  wrap: PropTypes.oneOf(['no-wrap', 'wrap', 'wrap-reverse']),
   justifyContent: PropTypes.oneOf([
     'flex-start', 'flex-end', 'center',
     'space-between', 'space-around', 'space-evenly',
     'start', 'end', 'left', 'right',
-    'flex-start safe', 'flex-end safe', 'center safe',
-    'space-between safe', 'space-around safe', 'space-evenly safe',
-    'start safe', 'end safe', 'left safe', 'right safe',
   ]),
-  alignItems: PropTypes.oneOf([
-    'stretch', 'flex-start', 'flex-end', 'center',
-    'baseline', 'first baseline', 'last baseline',
-    'start', 'end', 'self-start', 'self-end',
-    'stretch safe', 'flex-start safe', 'flex-end safe', 'center safe',
-    'baseline safe', 'first baseline safe', 'last baseline safe',
-    'start safe', 'end safe', 'self-start safe', 'self-end safe',
-  ]),
+  alignItems: PropTypes.oneOf(['stretch', 'start', 'center', 'end', 'baseline']),
   alignContent: PropTypes.oneOf([
     'flex-start', 'flex-end', 'center',
     'space-between', 'space-around', 'space-evenly', 'stretch',
     'start', 'end', 'baseline', 'first baseline', 'last baseline',
-    'flex-start safe', 'flex-end safe', 'center safe',
-    'space-between safe', 'space-around safe', 'space-evenly safe', 'stretch safe',
-    'start safe', 'end safe', 'baseline safe', 'first baseline safe', 'last baseline safe',
   ]),
 };
 

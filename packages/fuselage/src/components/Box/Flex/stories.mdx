@@ -10,7 +10,7 @@ import { Box, Flex, Tile } from '../../..';
   <Story name='Default'>
     <Flex.Container>
       <Tile>
-        {Array.from({ length: 3 }).map((_, i) =>
+        {Array.from({ length: 3 }, (_, i) =>
           <Flex.Item key={i}>
             <Tile>#{i + 1}</Tile>
           </Flex.Item>
@@ -30,7 +30,7 @@ import { Box, Flex, Tile } from '../../..';
   <Story name='Direction'>
     <Flex.Container direction='row-reverse'>
       <Tile>
-        {Array.from({ length: 3 }).map((_, i) =>
+        {Array.from({ length: 3 }, (_, i) =>
           <Flex.Item key={i}>
             <Tile>#{i + 1}</Tile>
           </Flex.Item>
@@ -46,7 +46,7 @@ import { Box, Flex, Tile } from '../../..';
   <Story name='Wrap'>
     <Flex.Container wrap='wrap'>
       <Tile>
-        {Array.from({ length: 12 }).map((_, i) =>
+        {Array.from({ length: 24 }, (_, i) =>
           <Flex.Item key={i}>
             <Tile>#{i + 1}</Tile>
           </Flex.Item>
@@ -62,7 +62,7 @@ import { Box, Flex, Tile } from '../../..';
   <Story name='Justify Content'>
     <Flex.Container justifyContent='space-around'>
       <Tile>
-        {Array.from({ length: 3 }).map((_, i) =>
+        {Array.from({ length: 3 }, (_, i) =>
           <Flex.Item key={i}>
             <Tile>#{i + 1}</Tile>
           </Flex.Item>
@@ -76,9 +76,9 @@ import { Box, Flex, Tile } from '../../..';
 
 <Preview>
   <Story name='Align Items'>
-    <Flex.Container alignItems='flex-end'>
+    <Flex.Container alignItems='end'>
       <Tile>
-        {Array.from({ length: 3 }).map((_, i) =>
+        {Array.from({ length: 3 }, (_, i) =>
           <Flex.Item key={i}>
             <Tile style={{ height: i * 100 }}>#{i + 1}</Tile>
           </Flex.Item>
@@ -94,7 +94,7 @@ import { Box, Flex, Tile } from '../../..';
   <Story name='Align Content'>
     <Flex.Container wrap='wrap' alignContent='flex-end'>
       <Tile style={{ minHeight: 400 }}>
-        {Array.from({ length: 12 }).map((_, i) =>
+        {Array.from({ length: 12 }, (_, i) =>
           <Flex.Item key={i}>
             <Tile>#{i + 1}</Tile>
           </Flex.Item>
