@@ -20,12 +20,12 @@ export const Modal = ({ children, ...props }) =>
   </Flex.Container>;
 
 export const ModalHeader = ({ children, ...props }) =>
-  <Margins all='32'>
-    <Box is='header' className='rcx-modal__header' {...props}>
+  <Margins all={32}>
+    <Box is='header' {...props}>
       <Flex.Container alignItems='center' wrap='nowrap'>
-        <MarginsWrapper all='8'>
-          <Box componentClassName='rcx-modal__header-inner'>
-            <Margins all='8'>
+        <MarginsWrapper all={8}>
+          <Box>
+            <Margins all={8}>
               {children}
             </Margins>
           </Box>
@@ -37,8 +37,8 @@ export const ModalHeader = ({ children, ...props }) =>
 export const ModalThumb = (props) => <Avatar size='x32' {...props} />;
 
 export const ModalTitle = ({ children, ...props }) =>
-  <Flex.Item grow='1' shrink='1'>
-    <Box componentClassName='rcx-modal__title' textColor='default' textStyle='headline' {...props}>
+  <Flex.Item grow={1} shrink={1}>
+    <Box componentClassName='rcx-modal__title' textColor='default' textStyle='h1' {...props}>
       {children}
     </Box>
   </Flex.Item>;
@@ -52,7 +52,7 @@ export const ModalClose = (props) => <Flex.Item shrink={0}>
 export const ModalContent = ({ children }) =>
   <Scrollable vertical>
     <Box componentClassName='rcx-modal__content'>
-      <Margins inline='32'>
+      <Margins inline={32}>
         <Box componentClassName='rcx-modal__content-wrapper'>
           {children}
         </Box>
@@ -61,7 +61,7 @@ export const ModalContent = ({ children }) =>
   </Scrollable>;
 
 export const ModalFooter = ({ children }) =>
-  <Margins all='32'>
+  <Margins all={32}>
     <Box componentClassName='rcx-modal__footer'>
       {children}
     </Box>

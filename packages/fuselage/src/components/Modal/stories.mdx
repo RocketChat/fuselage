@@ -1,36 +1,54 @@
-import {useRef} from 'react';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
-import { Modal } from '.';
-import { ModalProvider } from './Stack';
-import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
-import { ButtonGroup, Button, AnimatedWrapper } from '../..'
-const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 
-<Meta title='Modal' parameters={{ jest: ['Modal/spec'] }} decorators={[withKnobs]}/>
+import { ButtonGroup, Button, Modal } from '../..';
 
-# Box
+<Meta title='Containers|Modal' parameters={{ jest: ['Modal/spec'] }} />
 
-### Text styles
+# Modal
 
 <Preview>
   <Story name='Default'>
-    <AnimatedWrapper visible={boolean('Visible', true) ? 1 : 0}>
-      <Modal>
-        <Modal.Header>
-          <Modal.Thumb url={thumb}/>
-          <Modal.Title>Modal Header</Modal.Title>
-          <Modal.Close/>
-        </Modal.Header>
-        <Modal.Content>
-          Modal Body
-        </Modal.Content>
-        <Modal.Footer>
-          <ButtonGroup align='end'>
-            <Button>Cancel</Button>
-            <Button primary>Submit</Button>
-          </ButtonGroup>
-        </Modal.Footer>
-      </Modal>
-    </AnimatedWrapper>
+    <Modal>
+      <Modal.Header>
+        <Modal.Thumb url={'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='} />
+        <Modal.Title>Modal Header</Modal.Title>
+        <Modal.Close/>
+      </Modal.Header>
+      <Modal.Content>
+        Modal Body
+      </Modal.Content>
+      <Modal.Footer>
+        <ButtonGroup align='end'>
+          <Button>Cancel</Button>
+          <Button primary>Submit</Button>
+        </ButtonGroup>
+      </Modal.Footer>
+    </Modal>
   </Story>
 </Preview>
+
+<Props of={Modal} />
+
+## Modal.Header
+
+<Props of={Modal.Header} />
+
+## Modal.Thumb
+
+<Props of={Modal.Thumb} />
+
+## Modal.Title
+
+<Props of={Modal.Title} />
+
+## Modal.Close
+
+<Props of={Modal.Close} />
+
+## Modal.Content
+
+<Props of={Modal.Content} />
+
+## Modal.Footer
+
+<Props of={Modal.Footer} />

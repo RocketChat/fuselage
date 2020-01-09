@@ -1,11 +1,11 @@
 @use 'sass:color';
 
 .rcx-modal {
+  position: static;
+
   width: $sizes-full;
   max-height: $sizes-sh;
   margin: auto;
-
-  background: none;
 
   &__inner {
     min-width: 0;
