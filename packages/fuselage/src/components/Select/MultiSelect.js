@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
-import { AnimatedWrapper, Box, Flex, Margins, MarginsWrapper, Position } from '../Box';
+import { AnimatedVisibility, Box, Flex, Margins, MarginsWrapper, Position } from '../Box';
 import { Chip } from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
@@ -78,7 +78,7 @@ export const MultiSelect = ({
           <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
         </Margins>
       </Flex.Item>
-      <AnimatedWrapper visible={visible}><Position anchor={containerRef}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedWrapper>
+      <AnimatedVisibility visibility={visible}><Position anchor={containerRef}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedVisibility>
     </Container>);
 };
 

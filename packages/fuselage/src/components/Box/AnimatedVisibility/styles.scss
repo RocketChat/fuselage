@@ -1,32 +1,22 @@
-%slideInUp {
-  animation-name: slideInUp;
-}
-
-%slideInDown {
-  animation-name: slideInDown;
-}
-
-.rcx-animated {
+.rcx-box {
   animation-duration: $transitions-short-duration;
 
-  &--visible {
-    @extend %slideInUp;
+  &--unhiding {
     display: initial;
+
+    animation-name: rcx-box--unhiding-animation;
   }
 
   &--hiding {
     display: initial;
-    @extend %slideInDown;
-  }
 
-  &:not(&--visible):not(&--hiding) {
-    display: none !important;
+    animation-name: rcx-box--hiding-animation;
   }
 }
 
-@keyframes slideInUp {
+@keyframes rcx-box--unhiding-animation {
   from {
-    visibility: visible;
+    visibility: hidden;
 
     transform: translate3d(0, $spaces-x16, 0);
 
@@ -34,13 +24,15 @@
   }
 
   to {
+    visibility: visible;
+
     transform: translate3d(0, 0, 0);
 
     opacity: 1;
   }
 }
 
-@keyframes slideInDown {
+@keyframes rcx-box--hiding-animation {
   from {
     visibility: visible;
 
@@ -50,6 +42,8 @@
   }
 
   to {
+    visibility: hidden;
+
     transform: translate3d(0, $spaces-x16, 0);
 
     opacity: 0;

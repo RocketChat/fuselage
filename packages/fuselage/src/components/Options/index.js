@@ -1,10 +1,20 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useState } from 'react';
 
 
-import { Box, Flex, Margins, VISIBILITY, ACTIONS, useVisible, Scrollable } from '../Box';
+import { AnimatedVisibility, Box, Flex, Margins, Scrollable } from '../Box';
 import { Avatar } from '../Avatar';
 import { CheckBox } from '../CheckBox';
 import { Tile } from '../Tile';
+
+export const ACTIONS = {
+  ESC: 27,
+  KEY_UP: 38,
+  KEY_DOWN: 40,
+  HOME: 36,
+  END: 35,
+  TAB: 9,
+  ENTER: 13,
+};
 
 const merge = (...args) => args.filter((e) => e).join(' ');
 
@@ -62,6 +72,14 @@ export const Options = React.forwardRef(({
   </Box>;
 });
 
+const useVisible = (initialVisibility = AnimatedVisibility.HIDDEN) => {
+  const [visible, setVisible] = useState(initialVisibility);
+  const hide = useCallback(() => setVisible(AnimatedVisibility.HIDDEN), []);
+  const show = useCallback(() => setVisible(AnimatedVisibility.VISIBLE), []);
+
+  return [visible, hide, show];
+};
+
 export const useCursor = (initial, options, onChange) => {
   const [cursor, setCursor] = useState(initial);
   const visibilityHandler = useVisible();
@@ -69,7 +87,7 @@ export const useCursor = (initial, options, onChange) => {
   const reset = () => setCursor(0);
   const handleKeyUp = (e) => {
     const { keyCode } = e;
-    if (VISIBILITY.HIDEN === visibility && keyCode === ACTIONS.TAB) {
+    if (AnimatedVisibility.HIDDEN === visibility && keyCode === ACTIONS.TAB) {
       return show();
     }
   };
@@ -77,7 +95,7 @@ export const useCursor = (initial, options, onChange) => {
   const handleKeyDown = (e) => {
     const lastIndex = options.length - 1;
     const { keyCode, key } = e;
-    if (VISIBILITY.HIDEN === visibility && keyCode !== ACTIONS.ESC) {
+    if (AnimatedVisibility.HIDDEN === visibility && keyCode !== ACTIONS.ESC) {
       return show();
     }
     switch (keyCode) {

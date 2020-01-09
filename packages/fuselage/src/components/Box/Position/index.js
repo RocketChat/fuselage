@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import ReactDOM from 'react-dom';
 
-import { AnimatedWrapper } from '../Animated';
+import { AnimatedVisibility } from '../AnimatedVisibility';
 
 const top = (top) => ({ top });
 const left = (left) => ({ left });
@@ -115,5 +115,5 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
 };
 
 export const PositionAnimated = ({ width, placement, visible, children, ...props }) => (
-  <AnimatedWrapper visible={visible}><Position placement={placement} width={width} {...props}>{children}</Position></AnimatedWrapper>
+  <AnimatedVisibility visible={visible}><Position placement={placement} width={width} {...props}>{children}</Position></AnimatedVisibility>
 );

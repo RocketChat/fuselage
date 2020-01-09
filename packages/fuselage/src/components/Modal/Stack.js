@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import React, { useState, createContext, useContext } from 'react';
 
-import { AnimatedWrapper, Box, VISIBILITY } from '../Box';
+import { AnimatedVisibility, Box } from '../Box';
 
 export const ModalContext = createContext();
 
@@ -25,10 +25,10 @@ export function ModalContainer() {
     <ModalPortal>
       {stack.size > 0 && <ModalBackdrop />}
       {Array.from(stack.entries(), ([key, element], i, array) =>
-        <AnimatedWrapper
+        <AnimatedVisibility
           key={key}
           children={element}
-          visible={array.length === i + 1 ? VISIBILITY.VISIBLE : VISIBILITY.HIDEN}
+          visibility={array.length === i + 1 ? AnimatedVisibility.VISIBLE : AnimatedVisibility.HIDDEN}
         />,
       )}
     </ModalPortal>
