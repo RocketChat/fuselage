@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Button,
   Margins,
-  MarginsWrapper,
   Flex,
   Box,
 } from '@rocket.chat/fuselage';
@@ -36,14 +35,14 @@ export const Actions = ({ blockId, appId, elements, parser }) => {
 
   return (
     <Block>
-      <MarginsWrapper all={8}>
+      <Margins all='neg-x8'>
         <Flex.Container wrap='wrap'>
           <Box>
             {renderedElements}
             {showMoreVisible && (<Flex.Item><Button onClick={handleShowMoreClick}>Show more...</Button></Flex.Item>)}
           </Box>
         </Flex.Container>
-      </MarginsWrapper>
+      </Margins>
     </Block>
   );
 };

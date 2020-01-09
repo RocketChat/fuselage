@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import { useProps } from '../../../hooks';
 
-export function AnimatedVisibility({ visibility: propVisibility, children }) {
+export function AnimatedVisibility({ children, visibility: propVisibility }) {
   const [visibility, setVisibility] = useState(AnimatedVisibility.HIDDEN);
 
   useEffect(() => {
@@ -37,10 +38,9 @@ export function AnimatedVisibility({ visibility: propVisibility, children }) {
       className,
       visibility === AnimatedVisibility.HIDING && 'rcx-box--hiding',
       visibility === AnimatedVisibility.UNHIDING && 'rcx-box--unhiding',
-      console.log(visibility),
     ].filter(Boolean).join(' '),
     ...props,
-  }), [visibility]);
+  }), [visibility, propVisibility]);
 
   if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
@@ -49,7 +49,17 @@ export function AnimatedVisibility({ visibility: propVisibility, children }) {
   return <PropsProvider children={children} />;
 }
 
-AnimatedVisibility.HIDDEN = 0;
-AnimatedVisibility.VISIBLE = 1;
-AnimatedVisibility.HIDING = 2;
-AnimatedVisibility.UNHIDING = 3;
+AnimatedVisibility.HIDDEN = 'hidden';
+AnimatedVisibility.VISIBLE = 'visible';
+AnimatedVisibility.HIDING = 'hiding';
+AnimatedVisibility.UNHIDING = 'unhiding';
+
+AnimatedVisibility.propTypes = {
+  children: PropTypes.node,
+  visibility: PropTypes.oneOf([
+    AnimatedVisibility.HIDDEN,
+    AnimatedVisibility.VISIBLE,
+    AnimatedVisibility.HIDING,
+    AnimatedVisibility.UNHIDING,
+  ]),
+};

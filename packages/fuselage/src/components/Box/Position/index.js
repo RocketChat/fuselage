@@ -115,5 +115,5 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
 };
 
 export const PositionAnimated = ({ width, placement, visible, children, ...props }) => (
-  <AnimatedVisibility visible={visible}><Position placement={placement} width={width} {...props}>{children}</Position></AnimatedVisibility>
+  <AnimatedVisibility visibility={visible}><Position placement={placement} width={width} {...props}>{children}</Position></AnimatedVisibility>
 );

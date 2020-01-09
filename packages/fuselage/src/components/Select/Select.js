@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect, useRef, useCallback, useEffect } from 'react';
 
-import { PositionAnimated, Box, Flex, Margins, MarginsWrapper } from '../Box';
+import { PositionAnimated, Box, Flex, Margins, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import { Options, useCursor } from '../Options';
@@ -59,20 +59,20 @@ export const Select = ({
 
   useEffect(reset, [filter]);
 
-  const visibleText = (filter === undefined || !visible) && (getLabel(option) || placeholder);
+  const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (getLabel(option) || placeholder);
   return (
     <Container ref={containerRef} onClick={() => ref.current.focus() & show()}>
       <Flex.Item>
         <Flex.Container>
-          <MarginsWrapper inline={4}>
+          <Margins inline='neg-x4'>
             <Wrapper>
               { visibleText && <Flex.Item grow={1}>
                 <Margins inline={4}><Box is='span' textStyle='p2' textColor='hint' className='rcx-select__placeholder'>{visibleText}</Box></Margins>
               </Flex.Item>}
               <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
-              <Margins inline={4}><Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/></Margins>
+              <Margins inline={4}><Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='20' />}/></Margins>
             </Wrapper>
-          </MarginsWrapper>
+          </Margins>
         </Flex.Container>
       </Flex.Item>
       <PositionAnimated visible={visible} anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>

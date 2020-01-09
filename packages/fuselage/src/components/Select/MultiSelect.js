@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
-import { AnimatedVisibility, Box, Flex, Margins, MarginsWrapper, Position } from '../Box';
+import { AnimatedVisibility, Box, Flex, Margins, Position } from '../Box';
 import { Chip } from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
@@ -62,20 +62,19 @@ export const MultiSelect = ({
         <Margins inline={4}>
           <Flex.Container>
             <Box is='div'>
-              <MarginsWrapper all={8}>
+              <Margins all='neg-x8'>
                 <Chip.Wrapper role='listbox'>
                   <Anchor ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1 }} mod-undecorated children={option || placeholder}/>
                   {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
                 </Chip.Wrapper>
-
-              </MarginsWrapper>
+              </Margins>
             </Box>
           </Flex.Container>
         </Margins>
       </Flex.Item>
       <Flex.Item grow={0} shrink={0}>
         <Margins inline={4}>
-          <Addon children={<Icon name={ visible ? 'cross' : 'arrow-down'} size='20' />}/>
+          <Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='20' />}/>
         </Margins>
       </Flex.Item>
       <AnimatedVisibility visibility={visible}><Position anchor={containerRef}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedVisibility>

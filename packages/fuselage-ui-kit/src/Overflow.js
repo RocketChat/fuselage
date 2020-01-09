@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import {
+  AnimatedVisibility,
   Button,
   PositionAnimated,
   Options,
@@ -30,7 +31,7 @@ export const Overflow = ({ options, parser, onChange = console.log }) => {
       </Button>
       <PositionAnimated
         width='auto'
-        visible={visible ? 1 : 0}
+        visible={visible ? AnimatedVisibility.VISIBLE : AnimatedVisibility.HIDDEN}
         anchor={ref}
         placement='bottom right'
       >

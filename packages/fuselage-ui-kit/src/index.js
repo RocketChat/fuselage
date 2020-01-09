@@ -5,7 +5,6 @@ import {
   SelectInput,
   Flex,
   Margins,
-  MarginsWrapper,
   TextAreaInput,
   TextInput,
   InputBox,
@@ -178,7 +177,7 @@ class MessageParser extends UiKitParserMessage {
       <Block>
         <Box is='div' className='TESTE'>
           <Flex.Container alignItems='center' key={index}>
-            <MarginsWrapper all={4}>
+            <Margins all='neg-x4'>
               <Box is='div'>
                 {elements.map((element, i) => (
                   <Margins all={4} key={i}>
@@ -198,7 +197,7 @@ class MessageParser extends UiKitParserMessage {
                   </Margins>
                 ))}
               </Box>
-            </MarginsWrapper>
+            </Margins>
           </Flex.Container>
         </Box>
       </Block>

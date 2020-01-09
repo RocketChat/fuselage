@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Avatar } from '../Avatar';
-import { Box, Flex, Margins, MarginsWrapper, Scrollable } from '../Box';
+import { Box, Flex, Margins, Scrollable } from '../Box';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { Tile } from '../Tile';
@@ -24,13 +24,13 @@ export const ModalHeader = ({ children, ...props }) =>
   <Margins all={32}>
     <Box is='header' {...props}>
       <Flex.Container alignItems='center' wrap='nowrap'>
-        <MarginsWrapper all={8}>
+        <Margins all='neg-x8'>
           <Box>
             <Margins all={8}>
               {children}
             </Margins>
           </Box>
-        </MarginsWrapper>
+        </Margins>
       </Flex.Container>
     </Box>
   </Margins>;
