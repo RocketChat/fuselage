@@ -8,7 +8,7 @@ import { Option } from './Option';
 import { Placeholder } from './Placeholder';
 import { Skeleton } from '../Skeleton';
 
-const Wrapper = (props) => <Flex.Container display='inline-flex' alignItems='center'>
+const Wrapper = (props) => <Flex.Container inline alignItems='center'>
   <Box componentClassName='rcx-input-box__wrapper' is='span' {...props}/>
 </Flex.Container>;
 const Input = Box.extend('rcx-input-box', 'input');

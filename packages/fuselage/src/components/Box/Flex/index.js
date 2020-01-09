@@ -3,11 +3,11 @@ import React from 'react';
 
 import { useProps } from '../../../hooks';
 
-export function FlexContainer({ display = 'flex', children, direction, wrap, justifyContent, alignItems, alignContent }) {
+export function FlexContainer({ inline = false, children, direction, wrap, justifyContent, alignItems, alignContent }) {
   const [, PropsProvider] = useProps(({ style, ...props }) => ({
     style: {
       ...style,
-      display,
+      display: inline ? 'inline-flex' : 'flex',
       flexDirection: direction,
       flexWrap: wrap,
       justifyContent,
@@ -15,14 +15,13 @@ export function FlexContainer({ display = 'flex', children, direction, wrap, jus
       alignContent,
     },
     ...props,
-  }));
+  }), [inline, direction, wrap, justifyContent, alignItems, alignContent]);
 
   return <PropsProvider children={children} />;
 }
 
-FlexContainer.displayName = 'Flex.Container';
-
 FlexContainer.propTypes = {
+  inline: PropTypes.bool,
   direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
   wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
   justifyContent: PropTypes.oneOf([
@@ -62,12 +61,10 @@ export function FlexItem({ children, order, grow, shrink, basis, align }) {
       alignSelf: align,
     },
     ...props,
-  }));
+  }), [order, grow, shrink, basis, align]);
 
   return <PropsProvider children={children} />;
 }
-
-FlexItem.displayName = 'Flex.Item';
 
 FlexItem.propTypes = {
   order: PropTypes.number,
