@@ -5,7 +5,7 @@ import { Margins, Chip, InputBox, Options, OptionAvatar } from '../..';
 import { Box, PositionAnimated } from '../Box';
 import { useCursor } from '../Options';
 
-const Item = ({ children }) => <Margins inline={'x4'}><Box is='div'>{children}</Box></Margins>;
+const Item = ({ children }) => <Margins inline='x4'><Box is='div'>{children}</Box></Margins>;
 const Container = React.forwardRef(({ children, ...props }, ref) => <Box {...props} is='div' className='rcx-autocomplete' ref={ref}>{children.map((c, i) => <Item key={i}>{c}</Item>)}</Box>);
 const Addon = Box.extend('rcx-autocomplete__addon', 'div');
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);

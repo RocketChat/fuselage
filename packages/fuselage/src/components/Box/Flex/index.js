@@ -3,19 +3,20 @@ import React from 'react';
 
 import { useProps } from '../../../hooks';
 
-export function FlexContainer({ inline = false, children, direction, wrap, justifyContent, alignItems, alignContent }) {
-  const [, PropsProvider] = useProps(({ style, ...props }) => ({
-    style: {
-      ...style,
-      display: inline ? 'inline-flex' : 'flex',
-      flexDirection: direction,
-      flexWrap: wrap,
-      justifyContent,
-      alignItems,
-      alignContent,
-    },
+export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
+  const [, PropsProvider] = useProps(({ className, ...props }) => ({
+    className: [
+      className,
+      'rcx-box--flex',
+      inline && 'rcx-box--flex-inline',
+      direction && `rcx-box--flex-${ direction }`,
+      wrap && `rcx-box--flex-${ wrap }`,
+      alignItems && `rcx-box--flex-items-${ alignItems }`,
+      alignContent && `rcx-box--flex-content-${ alignContent }`,
+      justifyContent && `rcx-box--flex-justify-${ justifyContent }`,
+    ].filter(Boolean).join(' '),
     ...props,
-  }), [inline, direction, wrap, justifyContent, alignItems, alignContent]);
+  }), [inline, direction, wrap, alignItems, alignContent, justifyContent]);
 
   return <PropsProvider children={children} />;
 }
@@ -23,42 +24,24 @@ export function FlexContainer({ inline = false, children, direction, wrap, justi
 FlexContainer.propTypes = {
   inline: PropTypes.bool,
   direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
-  wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
-  justifyContent: PropTypes.oneOf([
-    'flex-start', 'flex-end', 'center',
-    'space-between', 'space-around', 'space-evenly',
-    'start', 'end', 'left', 'right',
-    'flex-start safe', 'flex-end safe', 'center safe',
-    'space-between safe', 'space-around safe', 'space-evenly safe',
-    'start safe', 'end safe', 'left safe', 'right safe',
-  ]),
-  alignItems: PropTypes.oneOf([
-    'stretch', 'flex-start', 'flex-end', 'center',
-    'baseline', 'first baseline', 'last baseline',
-    'start', 'end', 'self-start', 'self-end',
-    'stretch safe', 'flex-start safe', 'flex-end safe', 'center safe',
-    'baseline safe', 'first baseline safe', 'last baseline safe',
-    'start safe', 'end safe', 'self-start safe', 'self-end safe',
-  ]),
-  alignContent: PropTypes.oneOf([
-    'flex-start', 'flex-end', 'center',
-    'space-between', 'space-around', 'space-evenly', 'stretch',
-    'start', 'end', 'baseline', 'first baseline', 'last baseline',
-    'flex-start safe', 'flex-end safe', 'center safe',
-    'space-between safe', 'space-around safe', 'space-evenly safe', 'stretch safe',
-    'start safe', 'end safe', 'baseline safe', 'first baseline safe', 'last baseline safe',
-  ]),
+  wrap: PropTypes.oneOf(['no-wrap', 'wrap', 'wrap-reverse']),
+  alignItems: PropTypes.oneOf(['stretch', 'start', 'center', 'end', 'baseline']),
+  alignContent: PropTypes.oneOf(['start', 'center', 'end', 'space-between', 'space-around']),
+  justifyContent: PropTypes.oneOf(['start', 'center', 'end', 'space-between', 'space-around']),
 };
 
 export function FlexItem({ children, order, grow, shrink, basis, align }) {
-  const [, PropsProvider] = useProps(({ style, ...props }) => ({
+  const [, PropsProvider] = useProps(({ className, style, ...props }) => ({
+    className: [
+      className,
+      align && `rcx-box--flex-self-${ align }`,
+    ].filter(Boolean).join(' '),
     style: {
       ...style,
       order,
       flexGrow: grow,
       flexShrink: shrink,
       flexBasis: basis,
-      alignSelf: align,
     },
     ...props,
   }), [order, grow, shrink, basis, align]);
@@ -71,7 +54,7 @@ FlexItem.propTypes = {
   grow: PropTypes.number,
   shrink: PropTypes.number,
   basis: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.oneOf(['auto'])]),
-  align: PropTypes.oneOf(['auto', 'flex-start', 'flex-end', 'center', 'baseline', 'stretch']),
+  align: PropTypes.oneOf(['auto', 'start', 'end', 'center', 'stretch']),
 };
 
 export const Flex = {

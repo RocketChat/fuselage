@@ -21,12 +21,12 @@ export const Modal = ({ children, ...props }) =>
   </Flex.Container>;
 
 export const ModalHeader = ({ children, ...props }) =>
-  <Margins all={32}>
+  <Margins all='x32'>
     <Box is='header' {...props}>
-      <Flex.Container alignItems='center' wrap='nowrap'>
+      <Flex.Container alignItems='center' wrap='no-wrap'>
         <Margins all='neg-x8'>
           <Box>
-            <Margins all={8}>
+            <Margins all='x8'>
               {children}
             </Margins>
           </Box>
