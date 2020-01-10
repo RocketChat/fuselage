@@ -1,4 +1,3 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -6,14 +5,18 @@ import { useProps } from '../../../hooks';
 
 export function Scrollable({ children, horizontal, vertical, smooth }) {
   const [, PropsProvider] = useProps(({ className, ...props }) => ({
-    className: useClassName('rcx-scrollable', { horizontal, vertical, smooth }, className),
+    className: [
+      className,
+      'rcx-box--scrollable',
+      horizontal && 'rcx-box--scrollable-horizontal',
+      vertical && 'rcx-box--scrollable-vertical',
+      smooth && 'rcx-box--scrollable-smooth',
+    ].filter(Boolean).join(' '),
     ...props,
-  }));
+  }), [horizontal, vertical, smooth]);
 
   return <PropsProvider children={children} />;
 }
-
-Scrollable.displayName = 'Scrollable';
 
 Scrollable.propTypes = {
   horizontal: PropTypes.bool,

@@ -1,21 +1,21 @@
-.rcx-scrollable {
+.rcx-box--scrollable {
   @include scrollable;
 
   position: relative;
 
-  overflow: auto;
+  overflow: auto !important;
 
-  &--horizontal {
-    overflow: initial;
-    overflow-x: auto;
+  &-horizontal {
+    overflow: initial !important;
+    overflow-x: auto !important;
   }
 
-  &--vertical {
-    overflow: initial;
-    overflow-y: auto;
+  &-vertical {
+    overflow: initial !important;
+    overflow-y: auto !important;
   }
 
-  &--smooth {
-    scroll-behavior: smooth;
+  &-smooth {
+    scroll-behavior: smooth !important;
   }
 }
