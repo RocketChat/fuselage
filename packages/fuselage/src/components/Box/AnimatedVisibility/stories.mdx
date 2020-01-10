@@ -9,7 +9,7 @@ import { AnimatedVisibility, Box, Field, Margins, ToggleSwitch, Tile } from '../
   <Story name='Default'>
     {React.createElement(function () {
       const [visible, setVisible] = React.useState(false);
-      return <Margins block={16}>
+      return <Margins block='x16'>
         <Field>
           <Field.Row>
             <ToggleSwitch checked={visible} onChange={({ currentTarget: { checked } }) => setVisible(checked)} />
