@@ -59,7 +59,7 @@ export const MultiSelect = ({
   return (
     <Container ref={containerRef} onClick={() => ref.current.focus() & show()}{...props}>
       <Flex.Item grow={1}>
-        <Margins inline={'x4'}>
+        <Margins inline='x4'>
           <Flex.Container>
             <Box is='div'>
               <Margins all='neg-x8'>
@@ -73,7 +73,7 @@ export const MultiSelect = ({
         </Margins>
       </Flex.Item>
       <Flex.Item grow={0} shrink={0}>
-        <Margins inline={'x4'}>
+        <Margins inline='x4'>
           <Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='20' />}/>
         </Margins>
       </Flex.Item>

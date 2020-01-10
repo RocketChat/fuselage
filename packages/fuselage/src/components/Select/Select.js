@@ -9,7 +9,7 @@ const Container = Box.extend('rcx-select', 'div');
 
 export const Addon = Box.extend('rcx-select__addon', 'div');
 
-const Wrapper = Box.extend('rcx-select__wrapper', 'div'); // ({ children, ...props }) => <InnerWrapper children={React.Children.map(children, (c, i) => <Margins key={i} inline={'x4'}>{c}</Margins>)} {...props} />;
+const Wrapper = Box.extend('rcx-select__wrapper', 'div'); // ({ children, ...props }) => <InnerWrapper children={React.Children.map(children, (c, i) => <Margins key={i} inline='x4'>{c}</Margins>)} {...props} />;
 
 export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' textColor='hint' componentClassName='rcx-select__focus' is='button' {...props}/>);
 
@@ -67,10 +67,10 @@ export const Select = ({
           <Margins inline='neg-x4'>
             <Wrapper>
               { visibleText && <Flex.Item grow={1}>
-                <Margins inline={'x4'}><Box is='span' textStyle='p2' textColor='hint' className='rcx-select__placeholder'>{visibleText}</Box></Margins>
+                <Margins inline='x4'><Box is='span' textStyle='p2' textColor='hint' className='rcx-select__placeholder'>{visibleText}</Box></Margins>
               </Flex.Item>}
               <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
-              <Margins inline={'x4'}><Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='20' />}/></Margins>
+              <Margins inline='x4'><Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='20' />}/></Margins>
             </Wrapper>
           </Margins>
         </Flex.Container>
@@ -85,6 +85,6 @@ export const SelectFiltered = ({
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline={'x4'}><Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
   return <Select filter={filter} options={options} {...props} anchor={anchor}/>;
 };
