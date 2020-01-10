@@ -26,13 +26,13 @@ export const Empty = React.memo(() => <Box is='span' textStyle='p1' textColor='h
 
 export const Option = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} mod-focus={focus} id={id} mod-selected={selected} aria-selected={selected} {...options}>{label}</Li>);
 
-export const CheckOption = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} mod-focus={focus} id={id} aria-selected={selected} {...options}><Margins inline={4}><CheckBox checked={selected} /></Margins><Margins inline={4}><Box is='span' textStyle='p1' textColor='default'>{label}</Box></Margins></Li>);
+export const CheckOption = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} mod-focus={focus} id={id} aria-selected={selected} {...options}><Margins inline={'x4'}><CheckBox checked={selected} /></Margins><Margins inline={'x4'}><Box is='span' textStyle='p1' textColor='default'>{label}</Box></Margins></Li>);
 
 export const OptionAvatar = React.memo(({ id, value, children: label, focus, selected, ...options }) => (
   <Flex.Container>
     <Li key={id} mod-focus={focus} id={id} mod-selected={selected} aria-selected={selected} {...options}>
-      <Margins inline={4}><Avatar size='x20' url={value} tile={label}/></Margins>
-      <Margins inline={4}><Box is='span' textStyle='p1' textColor='default'>{label}</Box></Margins>
+      <Margins inline={'x4'}><Avatar size='x20' url={value} tile={label}/></Margins>
+      <Margins inline={'x4'}><Box is='span' textStyle='p1' textColor='default'>{label}</Box></Margins>
     </Li>
   </Flex.Container>
 ));
@@ -61,7 +61,7 @@ export const Options = React.forwardRef(({
   return <Box className={merge('rcx-options', className)} is='div' {...props}>
     <Tile padding='x8' elevation='2'>
       <Scrollable vertical smooth>
-        <Margins blockStart={4}>
+        <Margins blockStart={'x4'}>
           <Tile ref={ref} elevation='0' padding='none' style={{ maxHeight }} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
             {!options.length && <EmptyComponent/>}
             {options.map(([value, label, selected], i) => <OptionComponent role='option' onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}>{label}</OptionComponent>)}
