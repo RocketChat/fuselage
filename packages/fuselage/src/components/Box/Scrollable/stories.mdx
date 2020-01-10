@@ -1,6 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Button, ButtonGroup, Scrollable } from '../../..';
+import { Box, Button, ButtonGroup, Flex, Margins, Scrollable, Tile } from '../../..';
 
 <Meta title='Box|Modifiers/Scrollable' parameters={{ jest: ['Scrollable/spec'] }} />
 
@@ -8,4 +8,50 @@ import { Button, ButtonGroup, Scrollable } from '../../..';
 
 Add scroll capability to the wrapped component.
 
+<Preview>
+  <Story name='Default'>
+    <Scrollable>
+      <Tile padding='none' style={{ maxWidth: '100%', height: '100px' }}>
+        <Box style={{ width: '200%', height: '1000%' }} />
+      </Tile>
+    </Scrollable>
+  </Story>
+</Preview>
+
 <Props of={Scrollable} />
+
+### Horizontal scrolling
+
+<Preview>
+  <Story name='Horizontal scrolling'>
+    <Scrollable horizontal>
+      <Tile padding='none' style={{ maxWidth: '100%' }}>
+        <Box style={{ width: '200%', height: '100px' }} />
+      </Tile>
+    </Scrollable>
+  </Story>
+</Preview>
+
+### Vertical scrolling
+
+<Preview>
+  <Story name='Vertical scrolling'>
+    <Scrollable vertical>
+      <Tile padding='none' style={{ height: '100px' }}>
+        <Box style={{ height: '1000%' }} />
+      </Tile>
+    </Scrollable>
+  </Story>
+</Preview>
+
+### Smooth scrolling
+
+<Preview>
+  <Story name='Smooth scrolling'>
+    <Scrollable smooth>
+      <Tile padding='none' style={{ height: '100px' }}>
+        <Box style={{ height: '1000%' }} />
+      </Tile>
+    </Scrollable>
+  </Story>
+</Preview>

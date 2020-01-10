@@ -3,18 +3,19 @@ import React from 'react';
 
 import { Box } from '../Box';
 
-export function Tile({
+export const Tile = React.forwardRef(function Tile({
   elevation,
   padding,
   ...props
-}) {
+}, ref) {
   return <Box
+    ref={ref}
     componentClassName='rcx-tile'
     mod-elevation={elevation}
     mod-padding={padding}
     {...props}
   />;
-}
+});
 
 Tile.defaultProps = {
   elevation: '1',

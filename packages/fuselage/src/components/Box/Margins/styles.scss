@@ -1,54 +1,39 @@
-.rcx-margins {
-  $values: (
-    2: $spaces-x2,
-    4: $spaces-x4,
-    8: $spaces-x8,
-    12: $spaces-x12,
-    16: $spaces-x16,
-    24: $spaces-x24,
-    32: $spaces-x32,
-    40: $spaces-x40,
-  );
+.rcx-box {
+  $margins: map-remove($spaces, none);
 
-  @each $value, $spacing in $values {
-    &--all-#{$value} {
-      margin: $spacing !important;
-    }
-
-    &--block-#{$value} {
-      margin-block: $spacing !important;
-    }
-
-    &--block-start-#{$value} {
-      margin-block-start: $spacing !important;
-    }
-
-    &--block-end-#{$value} {
-      margin-block-end: $spacing !important;
-    }
-
-    &--inline-#{$value} {
-      margin-inline: $spacing !important;
-    }
-
-    &--inline-start-#{$value} {
-      margin-inline-start: $spacing !important;
-    }
-
-    &--inline-end-#{$value} {
-      margin-inline-end: $spacing !important;
-    }
+  @each $name, $value in $spaces {
+    $margins: map-merge($margins, (neg-#{$name}: calc(-1 * #{$value})));
   }
 
-  &__wrapper {
-    @each $value, $spacing in $values {
-      &--all-#{$value} {
-        margin: calc(#{$spacing} * -1) !important;
-      }
+  $margins: map-merge($margins, (auto: auto, none: 0));
 
-      &--inline-#{$value} {
-        margin-inline: calc(#{$spacing} * -1) !important;
-      }
+  @each $name, $value in $margins {
+    &--m-#{$name} {
+      margin: #{$value} !important;
+    }
+
+    &--mb-#{$name} {
+      margin-block: #{$value} !important;
+    }
+
+    &--mbs-#{$name} {
+      margin-block-start: #{$value} !important;
+    }
+
+    &--mbe-#{$name} {
+      margin-block-end: #{$value} !important;
+    }
+
+    &--mi-#{$name} {
+      margin-inline: #{$value} !important;
+    }
+
+    &--mis-#{$name} {
+      margin-inline-start: #{$value} !important;
+    }
+
+    &--mie-#{$name} {
+      margin-inline-end: #{$value} !important;
     }
   }
 }

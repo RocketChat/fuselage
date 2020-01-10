@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
+import { useEffect, useState } from 'react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon, AutoComplete, Chip, Select, MultiSelect, MultiSelectFiltered, SelectFiltered} from '../..';
@@ -20,11 +21,19 @@ const options = [
 An input for selection of options.
 
 <Preview>
-  <Story name='Default'>
-    <AutoComplete placeholder="Add users..." onChange={action('change')} setFilter={action('setFilter')} options={[
-      {label: 'guilherme gazzo', value: 'uid' },
-      {label: 'didera', value: 'uid2' }
-    ]}/>
+  <Story name='Example'>
+    {React.createElement(() => {
+      const [options, setOptions] = useState([]);
+      const [filter, setFilter] = useState('');
+      const [value, setValue] = useState([]);
+      useEffect(() => {
+        (async () => {
+          const result = await Promise.resolve([]);
+          setOptions(result);
+        })();
+      }, [filter]);
+      return <AutoComplete { ...{ value, filter, setFilter, options, onChange: setValue } }/>;
+    })}
   </Story>
 </Preview>
 

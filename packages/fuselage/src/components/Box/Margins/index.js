@@ -1,8 +1,21 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { useProps } from '../../../hooks';
+
+const mapSpacing = (spacing) => {
+  if (typeof spacing === 'number') {
+    if (spacing < 0) {
+      console.warn(`Margins: Prefer ='neg-x${ -spacing }' over ={${ spacing }}`);
+      return `neg-x${ -spacing }`;
+    }
+
+    console.warn(`Margins: Prefer ='x${ spacing }' over ={${ spacing }}`);
+    return `x${ spacing }`;
+  }
+
+  return spacing;
+};
 
 export function Margins({
   children,
@@ -15,66 +28,182 @@ export function Margins({
   inlineEnd,
 }) {
   const [, PropsProvider] = useProps(({ className, ...props }) => ({
-    className: useClassName('rcx-margins', {
-      all,
-      block,
-      blockStart,
-      blockEnd,
-      inline,
-      inlineStart,
-      inlineEnd,
-    }, className),
+    className: [
+      className,
+      all && `rcx-box--m-${ mapSpacing(all) }`,
+      block && `rcx-box--mb-${ mapSpacing(block) }`,
+      blockStart && `rcx-box--mbs-${ mapSpacing(blockStart) }`,
+      blockEnd && `rcx-box--mbe-${ mapSpacing(blockEnd) }`,
+      inline && `rcx-box--mi-${ mapSpacing(inline) }`,
+      inlineStart && `rcx-box--mis-${ mapSpacing(inlineStart) }`,
+      inlineEnd && `rcx-box--mie-${ mapSpacing(inlineEnd) }`,
+    ].filter(Boolean).join(' '),
     ...props,
-  }));
+  }), [all, block, blockStart, blockEnd, inline, inlineStart, inlineEnd]);
 
   return <PropsProvider children={children} />;
 }
-
-Margins.displayName = 'Margins';
 
 Margins.propTypes = {
-  all: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  block: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  blockStart: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  blockEnd: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  inline: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  inlineStart: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  inlineEnd: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-};
-export function MarginsWrapper({
-  children,
-  all,
-  block,
-  blockStart,
-  blockEnd,
-  inline,
-  inlineStart,
-  inlineEnd,
-}) {
-  const [, PropsProvider] = useProps(({ className, ...props }) => ({
-    className: useClassName('rcx-margins__wrapper', {
-      all,
-      block,
-      blockStart,
-      blockEnd,
-      inline,
-      inlineStart,
-      inlineEnd,
-    }, className),
-    ...props,
-  }));
-
-  return <PropsProvider children={children} />;
-}
-
-MarginsWrapper.displayName = 'MarginsWrapper';
-
-MarginsWrapper.propTypes = {
-  all: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  block: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  blockStart: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  blockEnd: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  inline: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  inlineStart: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
-  inlineEnd: PropTypes.oneOf([2, 4, 8, 12, 16, 24, 32, 40]),
+  all: PropTypes.oneOf([
+    2, 4, 8, 12, 16, 24, 32, 40,
+    'none',
+    'x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+    'x40', 'x80', 'x120', 'x160', 'x200',
+    'x240', 'x280', 'x320', 'x360', 'x400',
+    'x440', 'x480', 'x520', 'x560', 'x600',
+    'x640', 'x680', 'x720', 'x760', 'x800',
+    'x840', 'x880', 'x920', 'x960', 'x1000',
+    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    'neg-x1', 'neg-x2', 'neg-x4', 'neg-x8', 'neg-x12', 'neg-x16', 'neg-x20', 'neg-x24', 'neg-x28', 'neg-x32', 'neg-x36',
+    'neg-x40', 'neg-x80', 'neg-x120', 'neg-x160', 'neg-x200',
+    'neg-x240', 'neg-x280', 'neg-x320', 'neg-x360', 'neg-x400',
+    'neg-x440', 'neg-x480', 'neg-x520', 'neg-x560', 'neg-x600',
+    'neg-x640', 'neg-x680', 'neg-x720', 'neg-x760', 'neg-x800',
+    'neg-x840', 'neg-x880', 'neg-x920', 'neg-x960', 'neg-x1000',
+    'neg-x1040', 'neg-x1080', 'neg-x120', 'neg-x1160', 'neg-x1200',
+    'neg-x1240', 'neg-x1280', 'neg-x1320', 'neg-x1360', 'neg-x1400',
+    'neg-x1440', 'neg-x1480', 'neg-x1520', 'neg-x1560', 'neg-x1600',
+    'auto',
+  ]),
+  block: PropTypes.oneOf([
+    2, 4, 8, 12, 16, 24, 32, 40,
+    'none',
+    'x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+    'x40', 'x80', 'x120', 'x160', 'x200',
+    'x240', 'x280', 'x320', 'x360', 'x400',
+    'x440', 'x480', 'x520', 'x560', 'x600',
+    'x640', 'x680', 'x720', 'x760', 'x800',
+    'x840', 'x880', 'x920', 'x960', 'x1000',
+    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    'neg-x1', 'neg-x2', 'neg-x4', 'neg-x8', 'neg-x12', 'neg-x16', 'neg-x20', 'neg-x24', 'neg-x28', 'neg-x32', 'neg-x36',
+    'neg-x40', 'neg-x80', 'neg-x120', 'neg-x160', 'neg-x200',
+    'neg-x240', 'neg-x280', 'neg-x320', 'neg-x360', 'neg-x400',
+    'neg-x440', 'neg-x480', 'neg-x520', 'neg-x560', 'neg-x600',
+    'neg-x640', 'neg-x680', 'neg-x720', 'neg-x760', 'neg-x800',
+    'neg-x840', 'neg-x880', 'neg-x920', 'neg-x960', 'neg-x1000',
+    'neg-x1040', 'neg-x1080', 'neg-x120', 'neg-x1160', 'neg-x1200',
+    'neg-x1240', 'neg-x1280', 'neg-x1320', 'neg-x1360', 'neg-x1400',
+    'neg-x1440', 'neg-x1480', 'neg-x1520', 'neg-x1560', 'neg-x1600',
+    'auto',
+  ]),
+  blockStart: PropTypes.oneOf([
+    2, 4, 8, 12, 16, 24, 32, 40,
+    'none',
+    'x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+    'x40', 'x80', 'x120', 'x160', 'x200',
+    'x240', 'x280', 'x320', 'x360', 'x400',
+    'x440', 'x480', 'x520', 'x560', 'x600',
+    'x640', 'x680', 'x720', 'x760', 'x800',
+    'x840', 'x880', 'x920', 'x960', 'x1000',
+    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    'neg-x1', 'neg-x2', 'neg-x4', 'neg-x8', 'neg-x12', 'neg-x16', 'neg-x20', 'neg-x24', 'neg-x28', 'neg-x32', 'neg-x36',
+    'neg-x40', 'neg-x80', 'neg-x120', 'neg-x160', 'neg-x200',
+    'neg-x240', 'neg-x280', 'neg-x320', 'neg-x360', 'neg-x400',
+    'neg-x440', 'neg-x480', 'neg-x520', 'neg-x560', 'neg-x600',
+    'neg-x640', 'neg-x680', 'neg-x720', 'neg-x760', 'neg-x800',
+    'neg-x840', 'neg-x880', 'neg-x920', 'neg-x960', 'neg-x1000',
+    'neg-x1040', 'neg-x1080', 'neg-x120', 'neg-x1160', 'neg-x1200',
+    'neg-x1240', 'neg-x1280', 'neg-x1320', 'neg-x1360', 'neg-x1400',
+    'neg-x1440', 'neg-x1480', 'neg-x1520', 'neg-x1560', 'neg-x1600',
+    'auto',
+  ]),
+  blockEnd: PropTypes.oneOf([
+    2, 4, 8, 12, 16, 24, 32, 40,
+    'none',
+    'x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+    'x40', 'x80', 'x120', 'x160', 'x200',
+    'x240', 'x280', 'x320', 'x360', 'x400',
+    'x440', 'x480', 'x520', 'x560', 'x600',
+    'x640', 'x680', 'x720', 'x760', 'x800',
+    'x840', 'x880', 'x920', 'x960', 'x1000',
+    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    'neg-x1', 'neg-x2', 'neg-x4', 'neg-x8', 'neg-x12', 'neg-x16', 'neg-x20', 'neg-x24', 'neg-x28', 'neg-x32', 'neg-x36',
+    'neg-x40', 'neg-x80', 'neg-x120', 'neg-x160', 'neg-x200',
+    'neg-x240', 'neg-x280', 'neg-x320', 'neg-x360', 'neg-x400',
+    'neg-x440', 'neg-x480', 'neg-x520', 'neg-x560', 'neg-x600',
+    'neg-x640', 'neg-x680', 'neg-x720', 'neg-x760', 'neg-x800',
+    'neg-x840', 'neg-x880', 'neg-x920', 'neg-x960', 'neg-x1000',
+    'neg-x1040', 'neg-x1080', 'neg-x120', 'neg-x1160', 'neg-x1200',
+    'neg-x1240', 'neg-x1280', 'neg-x1320', 'neg-x1360', 'neg-x1400',
+    'neg-x1440', 'neg-x1480', 'neg-x1520', 'neg-x1560', 'neg-x1600',
+    'auto',
+  ]),
+  inline: PropTypes.oneOf([
+    2, 4, 8, 12, 16, 24, 32, 40,
+    'none',
+    'x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+    'x40', 'x80', 'x120', 'x160', 'x200',
+    'x240', 'x280', 'x320', 'x360', 'x400',
+    'x440', 'x480', 'x520', 'x560', 'x600',
+    'x640', 'x680', 'x720', 'x760', 'x800',
+    'x840', 'x880', 'x920', 'x960', 'x1000',
+    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    'neg-x1', 'neg-x2', 'neg-x4', 'neg-x8', 'neg-x12', 'neg-x16', 'neg-x20', 'neg-x24', 'neg-x28', 'neg-x32', 'neg-x36',
+    'neg-x40', 'neg-x80', 'neg-x120', 'neg-x160', 'neg-x200',
+    'neg-x240', 'neg-x280', 'neg-x320', 'neg-x360', 'neg-x400',
+    'neg-x440', 'neg-x480', 'neg-x520', 'neg-x560', 'neg-x600',
+    'neg-x640', 'neg-x680', 'neg-x720', 'neg-x760', 'neg-x800',
+    'neg-x840', 'neg-x880', 'neg-x920', 'neg-x960', 'neg-x1000',
+    'neg-x1040', 'neg-x1080', 'neg-x120', 'neg-x1160', 'neg-x1200',
+    'neg-x1240', 'neg-x1280', 'neg-x1320', 'neg-x1360', 'neg-x1400',
+    'neg-x1440', 'neg-x1480', 'neg-x1520', 'neg-x1560', 'neg-x1600',
+    'auto',
+  ]),
+  inlineStart: PropTypes.oneOf([
+    2, 4, 8, 12, 16, 24, 32, 40,
+    'none',
+    'x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+    'x40', 'x80', 'x120', 'x160', 'x200',
+    'x240', 'x280', 'x320', 'x360', 'x400',
+    'x440', 'x480', 'x520', 'x560', 'x600',
+    'x640', 'x680', 'x720', 'x760', 'x800',
+    'x840', 'x880', 'x920', 'x960', 'x1000',
+    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    'neg-x1', 'neg-x2', 'neg-x4', 'neg-x8', 'neg-x12', 'neg-x16', 'neg-x20', 'neg-x24', 'neg-x28', 'neg-x32', 'neg-x36',
+    'neg-x40', 'neg-x80', 'neg-x120', 'neg-x160', 'neg-x200',
+    'neg-x240', 'neg-x280', 'neg-x320', 'neg-x360', 'neg-x400',
+    'neg-x440', 'neg-x480', 'neg-x520', 'neg-x560', 'neg-x600',
+    'neg-x640', 'neg-x680', 'neg-x720', 'neg-x760', 'neg-x800',
+    'neg-x840', 'neg-x880', 'neg-x920', 'neg-x960', 'neg-x1000',
+    'neg-x1040', 'neg-x1080', 'neg-x120', 'neg-x1160', 'neg-x1200',
+    'neg-x1240', 'neg-x1280', 'neg-x1320', 'neg-x1360', 'neg-x1400',
+    'neg-x1440', 'neg-x1480', 'neg-x1520', 'neg-x1560', 'neg-x1600',
+    'auto',
+  ]),
+  inlineEnd: PropTypes.oneOf([
+    2, 4, 8, 12, 16, 24, 32, 40,
+    'none',
+    'x1', 'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+    'x40', 'x80', 'x120', 'x160', 'x200',
+    'x240', 'x280', 'x320', 'x360', 'x400',
+    'x440', 'x480', 'x520', 'x560', 'x600',
+    'x640', 'x680', 'x720', 'x760', 'x800',
+    'x840', 'x880', 'x920', 'x960', 'x1000',
+    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    'neg-x1', 'neg-x2', 'neg-x4', 'neg-x8', 'neg-x12', 'neg-x16', 'neg-x20', 'neg-x24', 'neg-x28', 'neg-x32', 'neg-x36',
+    'neg-x40', 'neg-x80', 'neg-x120', 'neg-x160', 'neg-x200',
+    'neg-x240', 'neg-x280', 'neg-x320', 'neg-x360', 'neg-x400',
+    'neg-x440', 'neg-x480', 'neg-x520', 'neg-x560', 'neg-x600',
+    'neg-x640', 'neg-x680', 'neg-x720', 'neg-x760', 'neg-x800',
+    'neg-x840', 'neg-x880', 'neg-x920', 'neg-x960', 'neg-x1000',
+    'neg-x1040', 'neg-x1080', 'neg-x120', 'neg-x1160', 'neg-x1200',
+    'neg-x1240', 'neg-x1280', 'neg-x1320', 'neg-x1360', 'neg-x1400',
+    'neg-x1440', 'neg-x1480', 'neg-x1520', 'neg-x1560', 'neg-x1600',
+    'auto',
+  ]),
 };

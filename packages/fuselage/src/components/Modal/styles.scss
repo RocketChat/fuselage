@@ -1,0 +1,33 @@
+@use 'sass:color';
+
+.rcx-modal {
+  position: static;
+
+  width: $sizes-full;
+  max-height: $sizes-sh;
+  margin: auto;
+
+  &__inner {
+    min-width: 0;
+  }
+
+  &__title {
+    @include use-text-ellipsis;
+    white-space: nowrap;
+  }
+
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: color.change($colors-n500, $alpha: 0.5);
+  }
+
+  @include on-breakpoint(sm) {
+    max-width: $sizes-x640;
+    padding: $spaces-x16;
+  }
+}
