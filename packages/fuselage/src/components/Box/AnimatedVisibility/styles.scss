@@ -1,5 +1,7 @@
 .rcx-box {
-  animation-duration: $transitions-short-duration;
+  &--animated {
+    animation-duration: $transitions-short-duration;
+  }
 
   &--unhiding {
     display: initial;

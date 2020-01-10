@@ -5,7 +5,6 @@ import { useProps } from '../../../hooks';
 
 export function AnimatedVisibility({ children, visibility: propVisibility }) {
   const [visibility, setVisibility] = useState(AnimatedVisibility.HIDDEN);
-
   useEffect(() => {
     if (propVisibility === visibility) {
       return;
@@ -35,9 +34,12 @@ export function AnimatedVisibility({ children, visibility: propVisibility }) {
 
   const [, PropsProvider] = useProps(({ className, ...props }) => ({
     className: [
+      'rcx-box--animated',
       className,
       visibility === AnimatedVisibility.HIDING && 'rcx-box--hiding',
       visibility === AnimatedVisibility.UNHIDING && 'rcx-box--unhiding',
+      visibility === AnimatedVisibility.HIDDEN && 'rcx-box--hidden',
+      visibility === AnimatedVisibility.VISIBLE && 'rcx-box--visible',
     ].filter(Boolean).join(' '),
     ...props,
   }), [visibility, propVisibility]);

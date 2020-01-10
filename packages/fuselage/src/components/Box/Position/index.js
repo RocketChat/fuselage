@@ -3,6 +3,7 @@ import React, {
   useState,
   useEffect,
   useMemo,
+  useLayoutEffect,
 } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -41,20 +42,17 @@ const getHorizontal = (anchorPosition, elementPosition, placement = 'right') => 
   }
 };
 
-function debounce(func, wait, immediate) {
-  let timeout;
+const throttle = (func, limit) => {
+  let inThrottle;
   return function(...args) {
     const context = this;
-    const later = function() {
-      timeout = null;
-      if (!immediate) { func.apply(context, args); }
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) { func.apply(context, args); }
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => { inThrottle = false; }, limit);
+    }
   };
-}
+};
 
 export const Position = ({ anchor, width = 'stretch', style, className, children, placement = 'bottom center' }) => {
   const [position, setPosition] = useState();
@@ -62,14 +60,16 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
 
   const { offsetWidth } = anchor.current || {};
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (!ref.current || !anchor.current) {
+      return;
+    }
     const [vertical, horizontal] = placement.split(' ');
 
     if (typeof ResizeObserver === 'undefined') {
       return;
     }
-
-    const handlePosition = debounce(() => {
+    const handlePosition = throttle(() => {
       const anchorPosition = offset(anchor.current);
       const elementPosition = offset(ref.current.parentElement);
       setPosition({
@@ -77,10 +77,16 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
           width: offsetWidth,
         },
         ...getVertical(anchorPosition, elementPosition, vertical),
-        ...getHorizontal(anchorPosition, elementPosition, horizontal),
+        ...getHorizontal(anchorPosition, {
+          ...elementPosition,
+          ...width === 'stretch' && anchor.current && {
+            width: offsetWidth,
+          } },
+        horizontal),
       });
-    }, 100);
+    }, 30);
 
+    handlePosition();
     const resizeObserver = new ResizeObserver(handlePosition);
 
     window.addEventListener('scroll', handlePosition);
@@ -89,13 +95,12 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
 
     resizeObserver.observe(current);
 
-    handlePosition();
     return () => {
       window.removeEventListener('scroll', handlePosition);
       window.removeEventListener('resize', handlePosition);
       resizeObserver.unobserve(current);
     };
-  }, [placement, offsetWidth]);
+  }, [anchor.current, anchor.current, placement, offsetWidth]);
 
   const portalContainer = useMemo(() => {
     const element = document.createElement('div');
