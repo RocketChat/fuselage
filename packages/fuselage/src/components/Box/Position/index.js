@@ -35,7 +35,7 @@ const getHorizontal = (anchorPosition, elementPosition, placement = 'right') => 
   case 'left':
     return anchorPosition.left - elementPosition.width > 0 ? left(anchorPosition.left - elementPosition.width) : left(0);
   case 'center':
-    return left(anchorPosition.left - elementPosition.width > 0 ? anchorPosition.left + anchorPosition.width / 2 - elementPosition.width / 2 : 0);
+    return left(anchorPosition.left + anchorPosition.width / 2 - elementPosition.width / 2 >= 0 ? anchorPosition.left + anchorPosition.width / 2 - elementPosition.width / 2 : 0);
   default:
     return left(anchorPosition.left);
   }
