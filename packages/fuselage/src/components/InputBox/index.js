@@ -18,7 +18,6 @@ export const InputBox = forwardRef(function InputBox({
   className,
   addon,
   error,
-  floatingAddon,
   hidden,
   invisible,
   multiple,
@@ -105,10 +104,9 @@ export const InputBox = forwardRef(function InputBox({
       mod-placeholder-visible={placeholderVisible}
       mod-type={type}
       mod-undecorated
-      mod-under-addon={floatingAddon}
       {...props}
     />
-    <Addon children={addon} mod-over-input={floatingAddon} />
+    <Addon children={addon} />
   </Wrapper>;
 });
 
@@ -122,7 +120,6 @@ InputBox.propTypes = {
   addon: PropTypes.element,
   input: PropTypes.element,
   error: PropTypes.string,
-  floatingAddon: PropTypes.bool,
   type: PropTypes.oneOf([
     'button',
     'checkbox',
