@@ -3,14 +3,13 @@ import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
-import { Box, Flex } from '../Box';
+import { Box } from '../Box';
+import { Label } from '../Label';
 import { Option } from './Option';
 import { Placeholder } from './Placeholder';
 import { Skeleton } from '../Skeleton';
 
-const Wrapper = (props) => <Flex.Container inline alignItems='center'>
-  <Box componentClassName='rcx-input-box__wrapper' is='span' {...props}/>
-</Flex.Container>;
+const Wrapper = (props) => <Box componentClassName='rcx-input-box__wrapper' is={Label} {...props}/>;
 const Input = Box.extend('rcx-input-box', 'input');
 const Addon = Box.extend('rcx-input-box__addon', 'span');
 
@@ -18,7 +17,6 @@ export const InputBox = forwardRef(function InputBox({
   className,
   addon,
   error,
-  floatingAddon,
   hidden,
   invisible,
   multiple,
@@ -105,10 +103,9 @@ export const InputBox = forwardRef(function InputBox({
       mod-placeholder-visible={placeholderVisible}
       mod-type={type}
       mod-undecorated
-      mod-under-addon={floatingAddon}
       {...props}
     />
-    <Addon children={addon} mod-over-input={floatingAddon} />
+    <Addon children={addon} />
   </Wrapper>;
 });
 
@@ -122,7 +119,6 @@ InputBox.propTypes = {
   addon: PropTypes.element,
   input: PropTypes.element,
   error: PropTypes.string,
-  floatingAddon: PropTypes.bool,
   type: PropTypes.oneOf([
     'button',
     'checkbox',
