@@ -3,15 +3,13 @@ import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
-import { Box, Flex } from '../Box';
+import { Box } from '../Box';
+import { Label } from '../Label';
 import { Option } from './Option';
 import { Placeholder } from './Placeholder';
 import { Skeleton } from '../Skeleton';
-import { Label } from '../Label';
 
-const Wrapper = (props) => <Flex.Container inline alignItems='center'>
-  <Box componentClassName='rcx-input-box__wrapper' is={Label} {...props}/>
-</Flex.Container>;
+const Wrapper = (props) => <Box componentClassName='rcx-input-box__wrapper' is={Label} {...props}/>;
 const Input = Box.extend('rcx-input-box', 'input');
 const Addon = Box.extend('rcx-input-box__addon', 'span');
 
