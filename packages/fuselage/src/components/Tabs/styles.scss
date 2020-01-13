@@ -14,9 +14,12 @@
 }
 
 .rcx-tabs__item {
+  display: flex;
   flex: 0 0 auto;
 
-  padding-block: calc(#{ $spaces-x8 } + #{ $spaces-x1 });
+  min-height: $spaces-x36;
+
+  padding-block: $spaces-x4;
   padding-inline: $spaces-x32;
 
   color: $colors-n600;
@@ -24,6 +27,7 @@
   border-color: transparent;
 
   background-color: transparent;
+  align-items: center;
   border-block-end-width: $borders-width-x4;
 
   @include clickable;
