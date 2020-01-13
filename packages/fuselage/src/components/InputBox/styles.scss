@@ -20,6 +20,8 @@
 
   outline: 0;
 
+  align-items: center;
+
   flex-flow: row nowrap;
 
   @extend %input;
@@ -42,31 +44,8 @@
   display: flex;
   flex: 0 0 auto;
 
-  padding-top: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-right: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-  padding-bottom: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-inline-end: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
   align-items: flex-start;
   flex-flow: row nowrap;
-
-  &--over-input {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-
-    pointer-events: none;
-    inset-block: 0;
-    inset-inline-end: 0;
-
-    .rtl &,
-    &.rtl,
-    [dir=rtl] & {
-      right: unset;
-      left: 0;
-    }
-  }
 }
 
 @mixin with-colors(
@@ -239,11 +218,6 @@
   &:disabled + .rcx-input-box__addon,
   &.disabled + .rcx-input-box__addon {
     pointer-events: none;
-  }
-
-  &--under-addon {
-    padding-right: calc(#{ $spaces-x16 } + #{ $sizes-x40 } - 2 * #{ $spaces-x12 });
-    padding-inline-end: calc(#{ $spaces-x16 } + #{ $sizes-x40 } - 2 * #{ $spaces-x12 });
   }
 
   .rcx-input-box__wrapper > & {
