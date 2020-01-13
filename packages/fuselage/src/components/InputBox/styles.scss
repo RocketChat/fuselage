@@ -8,10 +8,7 @@
 
   min-width: 8rem;
 
-  padding:
-    calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
-    calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+  padding-block: #{ $spaces-x8 };
   padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
   vertical-align: baseline;
@@ -161,10 +158,7 @@
     min-width: 8rem;
     min-height: #{ $sizes-x40 };
 
-    padding:
-      calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
-      calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-    padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+    padding-block: #{ $spaces-x8 };
     padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
     @extend %input;
@@ -250,9 +244,6 @@
   min-width: 8rem;
   min-height: #{ $sizes-x40 };
 
-  padding:
-    calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
-    calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
   padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
   padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 

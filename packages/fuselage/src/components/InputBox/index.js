@@ -7,9 +7,10 @@ import { Box, Flex } from '../Box';
 import { Option } from './Option';
 import { Placeholder } from './Placeholder';
 import { Skeleton } from '../Skeleton';
+import { Label } from '../Label';
 
 const Wrapper = (props) => <Flex.Container inline alignItems='center'>
-  <Box componentClassName='rcx-input-box__wrapper' is='span' {...props}/>
+  <Box componentClassName='rcx-input-box__wrapper' is={Label} {...props}/>
 </Flex.Container>;
 const Input = Box.extend('rcx-input-box', 'input');
 const Addon = Box.extend('rcx-input-box__addon', 'span');
