@@ -7,18 +7,18 @@ import { Icon } from '../Icon';
 import { Tile } from '../Tile';
 import { ModalBackdrop, ModalContainer, ModalPortal, ModalStack } from './Stack';
 
-export const Modal = ({ children, ...props }) =>
+export const Modal = React.forwardRef(({ children, ...props }, ref) =>
   <Flex.Container>
     <Box is='dialog' componentClassName='rcx-modal' { ...props }>
       <Flex.Container direction='column'>
         <Flex.Item grow={1}>
-          <Tile elevation='2' className='rcx-modal__inner' padding='none'>
+          <Tile ref={ref} elevation='2' className='rcx-modal__inner' padding='none'>
             {children}
           </Tile>
         </Flex.Item>
       </Flex.Container>
     </Box>
-  </Flex.Container>;
+  </Flex.Container>);
 
 export const ModalHeader = ({ children, ...props }) =>
   <Margins all='x32'>
