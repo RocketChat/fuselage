@@ -64,7 +64,7 @@ export const ModalContent = ({ children, ...props }) =>
   </Scrollable>;
 
 export const ModalFooter = ({ children }) =>
-  <Margins all={'x32'}>
+  <Margins all='x32'>
     <Box componentClassName='rcx-modal__footer'>
       {children}
     </Box>
