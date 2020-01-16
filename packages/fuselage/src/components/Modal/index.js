@@ -55,7 +55,7 @@ export const ModalClose = (props) => <Flex.Item shrink={0}>
 export const ModalContent = ({ children, ...props }) =>
   <Scrollable vertical>
     <Box componentClassName='rcx-modal__content'>
-      <Margins inline={'x32'}>
+      <Margins inline='x32'>
         <Box componentClassName='rcx-modal__content-wrapper' {...props}>
           {children}
         </Box>
