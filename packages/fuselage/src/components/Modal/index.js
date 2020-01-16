@@ -7,6 +7,8 @@ import { Icon } from '../Icon';
 import { Tile } from '../Tile';
 import { ModalBackdrop, ModalContainer, ModalPortal, ModalStack } from './Stack';
 
+// https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html
+
 export const Modal = React.forwardRef(({ children, ...props }, ref) =>
   <Flex.Container>
     <Box is='dialog' componentClassName='rcx-modal' { ...props }>
@@ -50,11 +52,11 @@ export const ModalClose = (props) => <Flex.Item shrink={0}>
   </Button>
 </Flex.Item>;
 
-export const ModalContent = ({ children }) =>
+export const ModalContent = ({ children, ...props }) =>
   <Scrollable vertical>
     <Box componentClassName='rcx-modal__content'>
-      <Margins inline={32}>
-        <Box componentClassName='rcx-modal__content-wrapper'>
+      <Margins inline={'x32'}>
+        <Box componentClassName='rcx-modal__content-wrapper' {...props}>
           {children}
         </Box>
       </Margins>
@@ -62,7 +64,7 @@ export const ModalContent = ({ children }) =>
   </Scrollable>;
 
 export const ModalFooter = ({ children }) =>
-  <Margins all={32}>
+  <Margins all={'x32'}>
     <Box componentClassName='rcx-modal__footer'>
       {children}
     </Box>

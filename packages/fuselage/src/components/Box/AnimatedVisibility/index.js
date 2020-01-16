@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import { useProps } from '../../../hooks';
 
-export function AnimatedVisibility({ children, visibility: propVisibility }) {
-  const [visibility, setVisibility] = useState(AnimatedVisibility.HIDDEN);
+export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN, onVisible = () => {} }) {
+  const [visibility, setVisibility] = useState(propVisibility);
+
+  const ref = useRef();
+  useEffect(() => {
+    AnimatedVisibility.VISIBLE === visibility && onVisible(ref);
+  }, [visibility]);
   useEffect(() => {
     if (propVisibility === visibility) {
       return;
@@ -48,7 +53,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility }) {
     return null;
   }
 
-  return <PropsProvider children={children} />;
+  return <PropsProvider ref={ref} children={children} />;
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';
