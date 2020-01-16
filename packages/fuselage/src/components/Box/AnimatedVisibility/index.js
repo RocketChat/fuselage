@@ -48,7 +48,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     ].filter(Boolean).join(' '),
     ...props,
     ref,
-  }), [visibility, propVisibility]);
+  }), [visibility, propVisibility, ref]);
 
   if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
