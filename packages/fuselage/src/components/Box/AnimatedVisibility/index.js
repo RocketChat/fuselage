@@ -47,13 +47,14 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
       visibility === AnimatedVisibility.VISIBLE && 'rcx-box--visible',
     ].filter(Boolean).join(' '),
     ...props,
+    ref,
   }), [visibility, propVisibility]);
 
   if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
   }
 
-  return <PropsProvider ref={ref} children={children} />;
+  return <PropsProvider children={children} />;
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';

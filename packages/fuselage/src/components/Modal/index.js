@@ -7,8 +7,6 @@ import { Icon } from '../Icon';
 import { Tile } from '../Tile';
 import { ModalBackdrop, ModalContainer, ModalPortal, ModalStack } from './Stack';
 
-// https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html
-
 export const Modal = React.forwardRef(({ children, ...props }, ref) =>
   <Flex.Container>
     <Box is='dialog' componentClassName='rcx-modal' { ...props }>
