@@ -8,7 +8,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
 
   const ref = useRef();
   useEffect(() => {
-    AnimatedVisibility.VISIBLE === visibility && onVisible(ref);
+    AnimatedVisibility.VISIBLE === visibility && onVisible && onVisible(ref);
   }, [visibility]);
   useEffect(() => {
     if (propVisibility === visibility) {
