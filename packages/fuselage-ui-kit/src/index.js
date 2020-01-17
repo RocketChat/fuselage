@@ -89,10 +89,11 @@ class TextParser extends UiKitParserText {
 }
 
 class ButtonsParser extends UiKitParserButtons {
-  button(element, context) {
+  button(element, context, key) {
     const [{ loading }, action] = useBlockContext(element, context);
     return (
       <Button
+        key={key}
         mod-mod-loading={loading}
         {...getStyle(element.style)}
         small={context === BLOCK_CONTEXT.SECTION}
@@ -119,10 +120,11 @@ class MessageParser extends UiKitParserMessage {
     return <Overflow loading={loading} {...element} onChange={action} parser={this}/>;
   }
 
-  button(element, context) {
+  button(element, context, key) {
     const [{ loading }, action] = useBlockContext(element, context);
     return (
       <Button
+        key={key}
         mod-mod-loading={loading}
         {...getStyle(element.style)}
         small
@@ -135,8 +137,8 @@ class MessageParser extends UiKitParserMessage {
     );
   }
 
-  divider() {
-    return <Block><Divider /></Block>;
+  divider(_, __, key) {
+    return <Margins block={'x24'} key={key}> <Divider /> </Margins>;
   }
 
   section(args, context, index) {
@@ -145,18 +147,18 @@ class MessageParser extends UiKitParserMessage {
     );
   }
 
-  actions(args) {
+  actions(args, _, key) {
     return (
-      <ActionsLayoutBlock {...args} parser={this} />
+      <ActionsLayoutBlock {...args} key={key} parser={this} />
     );
   }
 
-  datePicker(element, context, index) {
+  datePicker(element, context, key) {
     const [{ loading }, action] = useBlockContext(element, context);
     const { actionId, placeholder } = element;
     return (
       <InputBox
-        key={index}
+        key={key}
         mod-mod-loading={loading}
         id={actionId}
         name={actionId}
@@ -168,19 +170,19 @@ class MessageParser extends UiKitParserMessage {
     );
   }
 
-  image(element, context, index) {
-    return <MessageImage key={index} element={element} context={context}/>;
+  image(element, context, key) {
+    return <MessageImage key={key} element={element} context={context}/>;
   }
 
-  context({ elements }, context, index) {
+  context({ elements }, context, key) {
     return (
-      <Block>
-        <Box is='div' className='TESTE'>
-          <Flex.Container alignItems='center' key={index}>
+      <Block key={key}>
+        <Box is='div'>
+          <Flex.Container alignItems='center'>
             <Margins all='neg-x4'>
               <Box is='div'>
                 {elements.map((element, i) => (
-                  <Margins all={4} key={i}>
+                  <Margins all='x4' key={i}>
                     <Flex.Item>
                       {[
                         ELEMENT_TYPES.PLAIN_TEXT_INPUT,
@@ -204,11 +206,12 @@ class MessageParser extends UiKitParserMessage {
     );
   }
 
-  multiStaticSelect(element, context) {
+  multiStaticSelect(element, context, key) {
     const [{ loading }, action] = useBlockContext(element, context);
     return (
       <MultiStaticSelect
         {...element}
+        key={key}
         mod-loading={loading}
         onChange={action}
         parser={this}
@@ -216,15 +219,15 @@ class MessageParser extends UiKitParserMessage {
     );
   }
 
-  staticSelect(element, context) {
+  staticSelect(element, context, key) {
     const [{ loading }, action] = useBlockContext(element, context);
-    return <StaticSelect {...element} mod-loading={loading} onChange={action} parser={this} />;
+    return <StaticSelect key={key} {...element} mod-loading={loading} onChange={action} parser={this} />;
   }
 
-  selectInput(element, context) {
+  selectInput(element, context, key) {
     const [{ loading }, action] = useBlockContext(element, context);
     return (
-      <SelectInput onChange={action} mod-loading={loading} placeholder={element.type} disabled />
+      <SelectInput key={key} onChange={action} mod-loading={loading} placeholder={element.type} disabled />
     );
   }
 }
