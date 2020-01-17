@@ -18,16 +18,12 @@
 
 @keyframes rcx-box--unhiding-animation {
   from {
-    visibility: hidden;
-
     transform: translate3d(0, $spaces-x16, 0);
 
     opacity: 0;
   }
 
   to {
-    visibility: visible;
-
     transform: translate3d(0, 0, 0);
 
     opacity: 1;
@@ -36,16 +32,12 @@
 
 @keyframes rcx-box--hiding-animation {
   from {
-    visibility: visible;
-
     transform: translate3d(0, 0, 0);
 
     opacity: 1;
   }
 
   to {
-    visibility: hidden;
-
     transform: translate3d(0, $spaces-x16, 0);
 
     opacity: 0;
