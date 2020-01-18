@@ -39,7 +39,8 @@ export const defaultContext = {
 
 export const kitContext = React.createContext(defaultContext);
 
-const useBlockContext = ({ blockId, actionId, appId }, context) => {
+const useBlockContext = ({ blockId, actionId, appId, initialValue }, context) => {
+  const [value, setValue] = useState(initialValue);
   const [loading, setLoading] = useState(false);
   const { action, appId: appIdFromContext, state } = useContext(kitContext);
   if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
@@ -50,7 +51,8 @@ const useBlockContext = ({ blockId, actionId, appId }, context) => {
     }];
   }
 
-  return [{ loading, setLoading }, async ({ target: { value } }) => {
+  return [{ loading, setLoading, value }, async ({ target: { value } }) => {
+    setValue(value);
     setLoading(true);
     await state({ blockId, appId, actionId, value });
     setLoading(false);
@@ -154,11 +156,12 @@ class MessageParser extends UiKitParserMessage {
   }
 
   datePicker(element, context, key) {
-    const [{ loading }, action] = useBlockContext(element, context);
+    const [{ loading, value }, action] = useBlockContext(element, context);
     const { actionId, placeholder } = element;
     return (
       <InputBox
         key={key}
+        value={value}
         mod-mod-loading={loading}
         id={actionId}
         name={actionId}
@@ -207,11 +210,12 @@ class MessageParser extends UiKitParserMessage {
   }
 
   multiStaticSelect(element, context, key) {
-    const [{ loading }, action] = useBlockContext(element, context);
+    const [{ loading, value }, action] = useBlockContext(element, context);
     return (
       <MultiStaticSelect
         {...element}
         key={key}
+        value={value}
         mod-loading={loading}
         onChange={action}
         parser={this}
@@ -220,14 +224,14 @@ class MessageParser extends UiKitParserMessage {
   }
 
   staticSelect(element, context, key) {
-    const [{ loading }, action] = useBlockContext(element, context);
-    return <StaticSelect key={key} {...element} mod-loading={loading} onChange={action} parser={this} />;
+    const [{ loading, value }, action] = useBlockContext(element, context);
+    return <StaticSelect value={value} key={key} {...element} mod-loading={loading} onChange={action} parser={this} />;
   }
 
   selectInput(element, context, key) {
-    const [{ loading }, action] = useBlockContext(element, context);
+    const [{ loading, value }, action] = useBlockContext(element, context);
     return (
-      <SelectInput key={key} onChange={action} mod-loading={loading} placeholder={element.type} disabled />
+      <SelectInput key={key} value={value} onChange={action} mod-loading={loading} placeholder={element.type} disabled />
     );
   }
 }
@@ -257,7 +261,7 @@ class ModalParser extends UiKitParserModal {
   }
 
   plainInput(element, context, index) {
-    const [{ loading }, action] = useBlockContext(element, context);
+    const [{ loading, value }, action] = useBlockContext(element, context);
     const { multiline, actionId, placeholder } = element;
     const Component = multiline ? TextAreaInput : TextInput;
     return (
@@ -267,6 +271,7 @@ class ModalParser extends UiKitParserModal {
         id={actionId}
         name={actionId}
         rows={6}
+        value={value}
         onInput={action}
         placeholder={this.plainText(placeholder)}
       />
