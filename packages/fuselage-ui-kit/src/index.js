@@ -188,7 +188,7 @@ class MessageParser extends UiKitParserMessage {
                   <Margins all='x4' key={i}>
                     <Flex.Item>
                       {[
-                        ELEMENT_TYPES.PLAIN_TEXT_INPUT,
+                        ELEMENT_TYPES.PLAIN_TEXT,
                         ELEMENT_TYPES.MARKDOWN,
                       ].includes(element.type) ? (
                           <Box is='span' textStyle='c1' textColor='info'>
