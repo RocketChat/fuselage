@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.2.0-alpha.18",
+  "version": "0.2.0-alpha.19",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -32,7 +32,7 @@
     "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "[ -f .storybook/jest-results.json ] && start-storybook -p 6006 || ( jest --max-workers=1 --json --outputFile=.storybook/jest-results.json && start-storybook -p 6006 )",
     "build-storybook": "build-storybook",
-    "update-storybook": "run-s test:results build-storybook loki:update"
+    "update-storybook": "cross-env NODE_ENV=loki run-s test:results build-storybook loki:update"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.16",
@@ -44,7 +44,7 @@
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.18",
+    "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.19",
     "@storybook/addon-actions": "5.2.8",
     "@storybook/addon-backgrounds": "5.2.8",
     "@storybook/addon-centered": "5.2.8",
@@ -116,8 +116,8 @@
     }
   },
   "dependencies": {
-    "@rocket.chat/fuselage-tokens": "^0.2.0-alpha.18",
-    "@rocket.chat/icons": "^0.2.0-alpha.18"
+    "@rocket.chat/fuselage-tokens": "^0.2.0-alpha.19",
+    "@rocket.chat/icons": "^0.2.0-alpha.19"
   },
   "browserslist": {
     "production": [

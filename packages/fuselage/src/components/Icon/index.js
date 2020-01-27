@@ -4,21 +4,19 @@ import React from 'react';
 
 import { Box } from '../Box';
 
-export function Icon({
+export const Icon = React.forwardRef(({
   name,
   size,
   ...props
-}) {
-  return <Box
-    is='i'
-    componentClassName='rcx-icon'
-    aria-hidden='true'
-    children={nameToCharacterMapping[name]}
-    mod-name={name}
-    mod-size={size}
-    {...props}
-  />;
-}
+}, ref) => <Box ref={ref}
+  is='i'
+  componentClassName='rcx-icon'
+  aria-hidden='true'
+  children={nameToCharacterMapping[name]}
+  mod-name={name}
+  mod-size={size}
+  {...props}
+/>);
 
 Icon.propTypes = {
   name: PropTypes.oneOf(Object.keys(nameToCharacterMapping)).isRequired,

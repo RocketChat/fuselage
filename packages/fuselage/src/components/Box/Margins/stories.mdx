@@ -1,6 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Button, ButtonGroup, Margins } from '../../..';
+import { Box, Button, ButtonGroup, Flex, Margins, Tile } from '../../..';
 
 <Meta title='Box|Modifiers/Margins' parameters={{ jest: ['Margins/spec'] }} />
 
@@ -14,7 +14,7 @@ Add margins to the wrapped component.
       <Button>
         Without margins
       </Button>
-      <Margins all={32}>
+      <Margins all='x32'>
         <Button>
           With margins
         </Button>
@@ -30,3 +30,498 @@ Add margins to the wrapped component.
 </Preview>
 
 <Props of={Margins} />
+
+### `all`
+
+<Preview>
+  <Story name='all prop' decorators={[
+    (fn) => <Flex.Container alignItems='center'>
+      <Box>
+        <Margins all='x8'>
+          {fn()}
+        </Margins>
+      </Box>
+    </Flex.Container>
+  ]}>
+    <>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins all='x4'>
+            <Tile>x4</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins all='x8'>
+            <Tile>x8</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins all='x16'>
+            <Tile>x16</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins all='x24'>
+            <Tile>x24</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins all='x32'>
+            <Tile>x32</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins all='x40'>
+            <Tile>x40</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+    </>
+  </Story>
+</Preview>
+
+### `block`
+
+<Preview>
+  <Story name='block prop' decorators={[
+    (fn) => <Flex.Container alignItems='center'>
+      <Box>
+        <Margins all='x8'>
+          {fn()}
+        </Margins>
+      </Box>
+    </Flex.Container>
+  ]}>
+    <>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins block='x4'>
+            <Tile>x4</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins block='x8'>
+            <Tile>x8</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins block='x16'>
+            <Tile>x16</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins block='x24'>
+            <Tile>x24</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins block='x32'>
+            <Tile>x32</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins block='x40'>
+            <Tile>x40</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+    </>
+  </Story>
+</Preview>
+
+### `blockStart`
+
+<Preview>
+  <Story name='blockStart prop' decorators={[
+    (fn) => <Flex.Container alignItems='center'>
+      <Box>
+        <Margins all='x8'>
+          {fn()}
+        </Margins>
+      </Box>
+    </Flex.Container>
+  ]}>
+    <>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockStart='x4'>
+            <Tile>x4</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockStart='x8'>
+            <Tile>x8</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockStart='x16'>
+            <Tile>x16</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockStart='x24'>
+            <Tile>x24</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockStart='x32'>
+            <Tile>x32</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockStart='x40'>
+            <Tile>x40</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+    </>
+  </Story>
+</Preview>
+
+### `blockEnd`
+
+<Preview>
+  <Story name='blockEnd prop' decorators={[
+    (fn) => <Flex.Container alignItems='center'>
+      <Box>
+        <Margins all='x8'>
+          {fn()}
+        </Margins>
+      </Box>
+    </Flex.Container>
+  ]}>
+    <>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockEnd='x4'>
+            <Tile>x4</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockEnd='x8'>
+            <Tile>x8</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockEnd='x16'>
+            <Tile>x16</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockEnd='x24'>
+            <Tile>x24</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockEnd='x32'>
+            <Tile>x32</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins blockEnd='x40'>
+            <Tile>x40</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+    </>
+  </Story>
+</Preview>
+
+
+
+### `inline`
+
+<Preview>
+  <Story name='inline prop' decorators={[
+    (fn) => <Flex.Container alignItems='center'>
+      <Box>
+        <Margins all='x8'>
+          {fn()}
+        </Margins>
+      </Box>
+    </Flex.Container>
+  ]}>
+    <>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inline='x4'>
+            <Tile>x4</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inline='x8'>
+            <Tile>x8</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inline='x16'>
+            <Tile>x16</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inline='x24'>
+            <Tile>x24</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inline='x32'>
+            <Tile>x32</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inline='x40'>
+            <Tile>x40</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+    </>
+  </Story>
+</Preview>
+
+### `inlineStart`
+
+<Preview>
+  <Story name='inlineStart prop' decorators={[
+    (fn) => <Flex.Container alignItems='center'>
+      <Box>
+        <Margins all='x8'>
+          {fn()}
+        </Margins>
+      </Box>
+    </Flex.Container>
+  ]}>
+    <>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineStart='x4'>
+            <Tile>x4</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineStart='x8'>
+            <Tile>x8</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineStart='x16'>
+            <Tile>x16</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineStart='x24'>
+            <Tile>x24</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineStart='x32'>
+            <Tile>x32</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineStart='x40'>
+            <Tile>x40</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+    </>
+  </Story>
+</Preview>
+
+### `inlineEnd`
+
+<Preview>
+  <Story name='inlineEnd prop' decorators={[
+    (fn) => <Flex.Container alignItems='center'>
+      <Box>
+        <Margins all='x8'>
+          {fn()}
+        </Margins>
+      </Box>
+    </Flex.Container>
+  ]}>
+    <>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineEnd='x4'>
+            <Tile>x4</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineEnd='x8'>
+            <Tile>x8</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineEnd='x16'>
+            <Tile>x16</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineEnd='x24'>
+            <Tile>x24</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineEnd='x32'>
+            <Tile>x32</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+      <Flex.Container>
+        <Tile padding='none'>
+          <Margins inlineEnd='x40'>
+            <Tile>x40</Tile>
+          </Margins>
+        </Tile>
+      </Flex.Container>
+    </>
+  </Story>
+</Preview>
+
+### Negative values
+
+<Preview>
+  <Story name='negative values' decorators={[
+    (fn) => <Flex.Container direction='column' alignItems='center'>
+      <Box>
+        <Margins all='x20'>
+          {fn()}
+        </Margins>
+      </Box>
+    </Flex.Container>
+  ]}>
+    <>
+      <Tile>
+        <Flex.Container>
+          <Margins inline='neg-x40'>
+            <Tile padding='none'>
+              <Margins inline='x40'>
+                <Tile padding='x40' />
+                <Tile padding='x40' />
+                <Tile padding='x40' />
+                <Tile padding='x40' />
+              </Margins>
+            </Tile>
+          </Margins>
+        </Flex.Container>
+      </Tile>
+      <Tile>
+        <Flex.Container>
+          <Margins block='neg-x40'>
+            <Tile padding='none'>
+              <Margins block='x40'>
+                <Tile padding='x40' />
+                <Tile padding='x40' />
+                <Tile padding='x40' />
+                <Tile padding='x40' />
+              </Margins>
+            </Tile>
+          </Margins>
+        </Flex.Container>
+      </Tile>
+    </>
+  </Story>
+</Preview>
+
+### `auto`
+
+<Preview>
+  <Story name='auto'>
+    <Flex.Container>
+      <Tile>
+        <Tile padding='x40' />
+        <Margins inline='auto'>
+          <Tile padding='x40' />
+        </Margins>
+        <Tile padding='x40' />
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>
+
+### `none`
+
+<Preview>
+  <Story name='none'>
+    <Flex.Container>
+      <Tile>
+        <Margins inline='x16'>
+          <Tile padding='x40' />
+          <Margins inline='none'>
+            <Tile padding='x40' />
+            <Tile padding='x40' />
+          </Margins>
+          <Tile padding='x40' />
+        </Margins>
+      </Tile>
+    </Flex.Container>
+  </Story>
+</Preview>

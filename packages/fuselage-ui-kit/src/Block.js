@@ -3,6 +3,6 @@ import {
   Margins,
 } from '@rocket.chat/fuselage';
 
-export const Block = ({ children }) => (
-  <Margins blockEnd={4}>{children}</Margins>
+export const Block = ({ children, blockEnd = 'x16' }) => (
+  <Margins blockEnd={blockEnd}>{children}</Margins>
 );

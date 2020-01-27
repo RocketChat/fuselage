@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)
+
+
+### Bug Fixes
+
+* InputBox sizing ([#124](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/124)) ([eb82e74](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/eb82e74784bf67655e07be4443672ed2e5a38728))
+* Position of inputs on selection buttons ([#123](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/123)) ([e446c89](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e446c89d3a0c80e01266c373242d1197ba2950dc))
+
+
+### Features
+
+* Position, Modal, Options components ([#116](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/116)) ([af1916a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/af1916a22c677939adda04fe417dafe406292762)), closes [#117](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/117)
+
+
+
+
+
 # [0.2.0-alpha.18](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.17...v0.2.0-alpha.18) (2019-12-31)
 
 

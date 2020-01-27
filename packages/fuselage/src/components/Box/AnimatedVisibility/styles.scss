@@ -1,0 +1,45 @@
+.rcx-box {
+  &--animated {
+    animation-duration: $transitions-short-duration;
+  }
+
+  &--unhiding {
+    display: initial;
+
+    animation-name: rcx-box--unhiding-animation;
+  }
+
+  &--hiding {
+    display: initial;
+
+    animation-name: rcx-box--hiding-animation;
+  }
+}
+
+@keyframes rcx-box--unhiding-animation {
+  from {
+    transform: translate3d(0, $spaces-x16, 0);
+
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+}
+
+@keyframes rcx-box--hiding-animation {
+  from {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, $spaces-x16, 0);
+
+    opacity: 0;
+  }
+}

@@ -121,7 +121,8 @@ Box.extend = (componentClassName, is) => {
   return BoxExtension;
 };
 
+export * from './AnimatedVisibility';
 export * from './Flex';
 export * from './Margins';
+export * from './Position';
 export * from './Scrollable';
-export * from './Animated';
