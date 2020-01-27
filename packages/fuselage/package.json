@@ -13,13 +13,16 @@
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
-  "main": "dist/fuselage.js",
+  "main": "index.js",
   "files": [
+    "index.js",
     "dist"
   ],
   "scripts": {
     "start": "webpack --watch --mode development",
-    "build": "webpack --mode production",
+    "build:prod": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "build": "run-p build:prod build:dev",
     "eslint": "eslint src",
     "stylelint": "stylelint 'src/**/*.scss'",
     "lint": "run-s eslint stylelint",
