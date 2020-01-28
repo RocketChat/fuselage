@@ -1,32 +1,39 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
-
+import {
+  Modal,
+} from '@rocket.chat/fuselage';
 import { UiKitModal, kitContext, defaultContext } from './';
+import { Demo } from './Demo';
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 
-<Meta title='UIKit|UiKitModal' parameters={{ jest: ['UiKitModal/spec'] }} />
+
+<Meta title='UIKit|UiKitModal' parameters={{ jest: ['UiKitModal/spec'] }} decorators={[withKnobs]} />
 
 # UI Kit Modal
 
 <Preview>
   <Story name='Input'>
-    <UiKitModal blocks={[{
-			"type": "input",
-			"element": {
-				"type": "plain_text_input"
-			},
-			"label": {
-				"type": "plain_text",
-				"text": "Label",
-				"emoji": true
-			}
-		}]
-  }/>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+      {UiKitModal([{
+        "type": "input",
+        "element": {
+          "type": "plain_text_input"
+        },
+        "label": {
+          "type": "plain_text",
+          "text": "Label",
+          "emoji": true
+        }
+      }])}
+    </Demo>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Input Multiline'>
-    <UiKitModal blocks={[{
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+    {UiKitModal([{
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
@@ -37,8 +44,8 @@ import { UiKitModal, kitContext, defaultContext } from './';
 				"text": "Label",
 				"emoji": true
 			}
-		}]
-  }/>
+		}])}
+  </Demo>
   </Story>
 </Preview>
 
@@ -46,7 +53,8 @@ import { UiKitModal, kitContext, defaultContext } from './';
 
 <Preview>
   <Story name='Input Datepicker'>
-    <UiKitModal blocks={[{
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+    {UiKitModal([{
 			"type": "input",
 			"element": {
 				"type": "datepicker",
@@ -62,14 +70,15 @@ import { UiKitModal, kitContext, defaultContext } from './';
 				"text": "Label",
 				"emoji": true
 			}
-		}]
-  }/>
+		}])}
+  </Demo>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Image'>
-    <UiKitModal blocks={[{
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+    {UiKitModal([{
 			"type": "image",
 			"title": {
 				"type": "plain_text",
@@ -78,14 +87,15 @@ import { UiKitModal, kitContext, defaultContext } from './';
 			},
 			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
 			"altText": "Example Image"
-		}]
-  }/>
+		}])}
+  </Demo>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Poll'>
-    <UiKitModal blocks={[{
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+    {UiKitModal([{
 			"type": "input",
 			"element": {
 				"type": "plain_text_input"
@@ -127,7 +137,8 @@ import { UiKitModal, kitContext, defaultContext } from './';
 				"type": "plain_text",
 				"text": "Question 2"
 			}
-		}]}/>
+		}])}
+    </Demo>
   </Story>
 </Preview>
 

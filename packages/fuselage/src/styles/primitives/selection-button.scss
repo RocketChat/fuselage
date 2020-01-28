@@ -101,6 +101,9 @@
 }
 
 @mixin is-selection-button($unchecked: 'empty', $indeterminate: null, $checked: 'primary') {
+
+  position: relative;
+
   display: inline-flex;
 
   vertical-align: middle;

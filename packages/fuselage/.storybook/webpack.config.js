@@ -2,6 +2,8 @@
 
 const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 
+const { EnvironmentPlugin } = require('webpack');
+
 module.exports = async ({ config, mode }) => {
   const jsRule = config.module.rules.find(({ test }) => test.test('index.js'));
   jsRule.include = [
@@ -54,6 +56,8 @@ module.exports = async ({ config, mode }) => {
     exclude: [/node_modules/],
     enforce: 'pre',
   });
+
+  config.plugins.push(new EnvironmentPlugin(['NODE_ENV']));
 
   return config;
 };

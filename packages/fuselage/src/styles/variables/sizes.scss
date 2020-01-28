@@ -48,6 +48,9 @@ $sizes-x1480: theme('sizes-x1480', to-rem(1480));
 $sizes-x1520: theme('sizes-x1520', to-rem(1520));
 $sizes-x1560: theme('sizes-x1560', to-rem(1560));
 $sizes-x1600: theme('sizes-x1600', to-rem(1600));
+$sizes-full: 100%;
+$sizes-sw: 100vw;
+$sizes-sh: 100vh;
 
 $sizes: (
   x2: $sizes-x2,
@@ -100,4 +103,7 @@ $sizes: (
   x1520: $sizes-x1520,
   x1560: $sizes-x1560,
   x1600: $sizes-x1600,
+  full: $sizes-full,
+  sw: $sizes-sw,
+  sh: $sizes-sh,
 );

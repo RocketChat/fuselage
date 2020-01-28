@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Button,
-  Grid,
+  Margins,
   Flex,
   Box,
 } from '@rocket.chat/fuselage';
@@ -16,7 +16,7 @@ const getStyle = ({ type }) => {
   case 'button':// ELEMENT_TYPES.BUTTON :
     return 'auto';
   default:
-    return '50%';
+    return '45%';
   }
 };
 
@@ -27,7 +27,7 @@ export const Actions = ({ blockId, appId, elements, parser }) => {
   const renderedElements = (showMoreVisible
     ? elements.slice(0, 5)
     : elements
-  ).map((element) => <Flex.Item basis={getStyle(element)}>{parser.renderActions({ blockId, appId, ...element }, BLOCK_CONTEXT.ACTION, parser)}</Flex.Item>);
+  ).map((element, i) => <Margins key={i} all='x8'><Flex.Item basis={getStyle(element)}>{parser.renderActions({ blockId, appId, ...element }, BLOCK_CONTEXT.ACTION, parser)}</Flex.Item></Margins>);
 
   const handleShowMoreClick = () => {
     setShowMoreVisible(false);
@@ -35,12 +35,14 @@ export const Actions = ({ blockId, appId, elements, parser }) => {
 
   return (
     <Block>
-      <Flex.Container wrap='wrap'>
-        <Box>
-          {renderedElements}
-          {showMoreVisible && (<Flex.Item><Button onClick={handleShowMoreClick}>Show more...</Button></Flex.Item>)}
-        </Box>
-      </Flex.Container>
+      <Margins all='neg-x8'>
+        <Flex.Container wrap='wrap'>
+          <Box>
+            {renderedElements}
+            {showMoreVisible && (<Flex.Item><Button onClick={handleShowMoreClick}>Show more...</Button></Flex.Item>)}
+          </Box>
+        </Flex.Container>
+      </Margins>
     </Block>
   );
 };

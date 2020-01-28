@@ -12,10 +12,6 @@
     background-color: $button-colors-secondary-background-color;
   }
 
-  &__wrapper {
-    margin: calc(-1 * #{$spaces-x8});
-  }
-
   &__text {
     @include use-text-ellipsis;
     white-space: nowrap;

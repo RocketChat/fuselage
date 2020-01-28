@@ -95,4 +95,4 @@ const genericImage = (element, context) => {
 
 export const ModalImage = ({ element, context }) => genericImage(element, context) || <Block><Flex.Container justifyContent='center'><Box><Media element={element}/></Box></Flex.Container></Block>;
 
-export const MessageImage = ({ element, context }) => genericImage(element, context) || <Block><Flex.Container justifyContent='flex-start'><Box><Media element={element}/></Box></Flex.Container></Block>;
+export const MessageImage = ({ element, context }) => genericImage(element, context) || <Block><Flex.Container justifyContent='start'><Box><Media element={element}/></Box></Flex.Container></Block>;
