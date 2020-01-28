@@ -8,18 +8,19 @@ import { Tabs } from '../..';
 
 <Preview>
   <Story name='Default'>
-    <Tabs>
-      <Tabs.Item active>Tab text 1</Tabs.Item>
-      <Tabs.Item>Tab text 2</Tabs.Item>
-      <Tabs.Item>Tab text 3</Tabs.Item>
-    </Tabs>
+    <>
+    <style>
+      {`body{
+        padding: 0;
+      }`}
+    </style>
+      <Tabs>
+        <Tabs.Item selected>Tab text 1</Tabs.Item>
+        <Tabs.Item>Tab text 2</Tabs.Item>
+        <Tabs.Item>Tab text 3</Tabs.Item>
+        <Tabs.Item>Tab text 4</Tabs.Item>
+        <Tabs.Item>Tab text 5</Tabs.Item>
+      </Tabs>
+    </>
   </Story>
 </Preview>
-
-### Tabs
-
-<Props of={Tabs} />
-
-### Tabs.Item
-
-<Props of={Tabs.Item} />
