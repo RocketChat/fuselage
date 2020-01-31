@@ -35,23 +35,26 @@ export const defaultContext = {
   action: (...args) => console.log(JSON.stringify(args)),
   state: console.log,
   appId: '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz',
+  errors: {}
 };
 
 export const kitContext = React.createContext(defaultContext);
 
-const useBlockContext = ({ blockId, actionId, appId, initialValue }, context) => {
+export const useBlockContext = ({ blockId, actionId, appId, initialValue }, context) => {
   const [value, setValue] = useState(initialValue);
   const [loading, setLoading] = useState(false);
-  const { action, appId: appIdFromContext, state } = useContext(kitContext);
+  const { action, appId: appIdFromContext, state, errors } = useContext(kitContext);
+  const error = errors && actionId && errors[actionId];
+
   if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
-    return [{ loading, setLoading }, async ({ target: { value } }) => {
+    return [{ loading, setLoading, error }, async ({ target: { value } }) => {
       setLoading(true);
       await action({ blockId, appId: appId || appIdFromContext, actionId, value });
       setLoading(false);
     }];
   }
 
-  return [{ loading, setLoading, value }, async ({ target: { value } }) => {
+  return [{ loading, setLoading, value, error }, async ({ target: { value } }) => {
     setValue(value);
     setLoading(true);
     await state({ blockId, appId, actionId, value });
@@ -156,11 +159,12 @@ class MessageParser extends UiKitParserMessage {
   }
 
   datePicker(element, context, key) {
-    const [{ loading, value }, action] = useBlockContext(element, context);
+    const [{ loading, value, error }, action] = useBlockContext(element, context);
     const { actionId, placeholder } = element;
     return (
       <InputBox
         key={key}
+        error={error}
         value={value}
         mod-mod-loading={loading}
         id={actionId}
@@ -244,12 +248,16 @@ class ModalParser extends UiKitParserModal {
     });
   }
 
-  input({ element, label, blockId, appId }, context, index) {
+  input({ element, label, blockId, appId, ...args }, context, index) {
+    const [{ loading, value, error }, action] = useBlockContext({ ...element, appId, blockId }, context);
+
     return (
       <InputLayoutBlock
+        error={error}
         key={index}
         index={index}
         parser={this}
+        context={context}
         element={{ ...element, appId, blockId }}
         label={this.plainText(label)}
       />
@@ -261,7 +269,7 @@ class ModalParser extends UiKitParserModal {
   }
 
   plainInput(element, context, index) {
-    const [{ loading, value }, action] = useBlockContext(element, context);
+    const [{ loading, value, error }, action] = useBlockContext(element, context);
     const { multiline, actionId, placeholder } = element;
     const Component = multiline ? TextAreaInput : TextInput;
     return (
@@ -271,6 +279,7 @@ class ModalParser extends UiKitParserModal {
         id={actionId}
         name={actionId}
         rows={6}
+        error={error}
         value={value}
         onInput={action}
         placeholder={this.plainText(placeholder)}
@@ -288,3 +297,5 @@ export const UiKitButtons = uiKitButtons();
 export const UiKitText = uiKitText(textParser);
 export const UiKitMessage = uiKitMessage(messageParser);
 export const UiKitModal = uiKitModal(modalParser);
+
+export const UiKitComponent = ({render, blocks}) => render(blocks);
