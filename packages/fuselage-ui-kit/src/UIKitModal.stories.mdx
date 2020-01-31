@@ -3,7 +3,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import {
   Modal,
 } from '@rocket.chat/fuselage';
-import { UiKitModal, kitContext, defaultContext } from './';
+import { UiKitModal, kitContext, defaultContext, UiKitComponent } from './';
 import { Demo } from './Demo';
 import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 
@@ -15,17 +15,20 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 <Preview>
   <Story name='Input'>
     <Demo visible={boolean('visible', true) ? 1 : 0}>
-      {UiKitModal([{
-        "type": "input",
-        "element": {
-          "type": "plain_text_input"
-        },
-        "label": {
-          "type": "plain_text",
-          "text": "Label",
-          "emoji": true
-        }
-      }])}
+      <kitContext.Provider value={{...defaultContext, errors: {'input-test': text('error', 'asdas') } }}>
+       <UiKitComponent render={UiKitModal} blocks={[{
+          "type": "input",
+          "element": {
+            "type": "plain_text_input",
+            "actionId": "input-test",
+          },
+          "label": {
+            "type": "plain_text",
+            "text": "Label",
+            "emoji": true
+          }
+        }]}/>
+      </kitContext.Provider>
     </Demo>
   </Story>
 </Preview>
@@ -33,18 +36,21 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 <Preview>
   <Story name='Input Multiline'>
     <Demo visible={boolean('visible', true) ? 1 : 0}>
-    {UiKitModal([{
+    <kitContext.Provider value={{...defaultContext, errors: {'input-test': text('error', 'asdas') } }}>
+      <UiKitComponent render={UiKitModal} blocks= {[{
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"multiline": true
+				"multiline": true,
+        "actionId": "input-test"
 			},
 			"label": {
 				"type": "plain_text",
 				"text": "Label",
 				"emoji": true
 			}
-		}])}
+		}]}/>
+    </kitContext.Provider>
   </Demo>
   </Story>
 </Preview>
@@ -54,23 +60,27 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 <Preview>
   <Story name='Input Datepicker'>
     <Demo visible={boolean('visible', true) ? 1 : 0}>
-    {UiKitModal([{
-			"type": "input",
-			"element": {
-				"type": "datepicker",
-				"initial_date": "1990-04-28",
-				"placeholder": {
-					"type": "plain_text",
-					"text": "Select a date",
-					"emoji": true
-				}
-			},
-			"label": {
-				"type": "plain_text",
-				"text": "Label",
-				"emoji": true
-			}
-		}])}
+      <kitContext.Provider value={{...defaultContext, errors: {'input-test': text('error', 'asdas') } }}>
+      <UiKitComponent render={UiKitModal} blocks= {[{
+        "type": "input",
+        "element": {
+          "type": "datepicker",
+          "initial_date": "1990-04-28",
+          "actionId": "input-test",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "Select a date",
+            "emoji": true
+          }
+        },
+        "label": {
+          "type": "plain_text",
+          "text": "Label",
+          "emoji": true
+        }
+		  }
+    ]}/>
+    </kitContext.Provider>
   </Demo>
   </Story>
 </Preview>
