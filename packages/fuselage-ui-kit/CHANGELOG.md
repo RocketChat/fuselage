@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.20](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.19...v0.2.0-alpha.20) (2020-02-01)
+
+
+### Bug Fixes
+
+* ui-kit margins warnings and unique ids ([#130](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/130)) ([cdaa358](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cdaa3580516aa652d7a318c6d076065954a3e289))
+
+
+### Features
+
+* ui-kit initial value ([#131](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/131)) ([3c6cab4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3c6cab4bd7d6ba459841f6f847ef42229b097294))
+* UiKit error states ([#133](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/133)) ([d6b3842](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d6b38429597963e1e437189c64a7e2be5e8715c0))
+
+
+
+
+
 # [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)
 
 

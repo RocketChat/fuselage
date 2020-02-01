@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.20](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.19...v0.2.0-alpha.20) (2020-02-01)
+
+
+### Bug Fixes
+
+* Modal background ([#126](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/126)) ([10b7202](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/10b72027cbb72d595d9aab8ffd37471eb7b8dac1))
+* Modal's margins and AnimatedVisibility initial state ([#128](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/128)) ([4357f82](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4357f82250cad21a72b9a3332c0a31f4874e302a))
+* Remove visibilty on transition ([#129](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/129)) ([90c5301](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/90c5301a0067d00c73a249ca2c9d45206cb7ac05))
+* ui-kit margins warnings and unique ids ([#130](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/130)) ([cdaa358](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cdaa3580516aa652d7a318c6d076065954a3e289))
+
+
+### Features
+
+* ui-kit initial value ([#131](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/131)) ([3c6cab4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3c6cab4bd7d6ba459841f6f847ef42229b097294))
+* UiKit error states ([#133](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/133)) ([d6b3842](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d6b38429597963e1e437189c64a7e2be5e8715c0))
+
+
+
+
+
 # [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)
 
 
