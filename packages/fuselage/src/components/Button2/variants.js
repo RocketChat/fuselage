@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { Button2 } from '.';
