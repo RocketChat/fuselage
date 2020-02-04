@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Label,
   Field,
   FieldGroup,
 } from '@rocket.chat/fuselage';
@@ -10,12 +9,14 @@ import {
 
 import { Block } from './Block';
 
-export const Input = ({ label, element, parser }) => (
+export const Input = ({ label, element, parser, index, error, hint }) => (
   <Block>
     <FieldGroup>
       <Field>
-        {label && <Label text={label} />}
-        {parser.renderInputs(element, BLOCK_CONTEXT.FORM, parser)}
+        {label && <Field.Label>{label}</Field.Label>}
+        {parser.renderInputs(element, BLOCK_CONTEXT.FORM, parser, index)}
+        {error && <Field.Error>{error}</Field.Error>}
+        {hint && <Field.Hint>{hint}</Field.Hint>}
       </Field>
     </FieldGroup>
   </Block>

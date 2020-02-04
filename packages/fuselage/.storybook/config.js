@@ -87,6 +87,17 @@ configure(() => {
   require('normalize.css/normalize.css');
   require('@rocket.chat/icons/dist/rocketchat.css');
 
+  if (process.env.NODE_ENV === 'loki') {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      body, body * {
+        animation: none !important;
+        transition: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   const documentationStories = require.context('../src/docs', true, /\.(md|js)x?$/);
   const componentStories = require.context('../src/components', true, /stories(\/index)?\.(md|js)x?$/);
 

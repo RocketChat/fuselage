@@ -1,44 +1,57 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import {
+  Modal,
+} from '@rocket.chat/fuselage';
+import { UiKitModal, kitContext, defaultContext, UiKitComponent } from './';
+import { Demo } from './Demo';
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 
-import { UiKitModal, kitContext, defaultContext } from './';
 
-<Meta title='UIKit|UiKitModal' parameters={{ jest: ['UiKitModal/spec'] }} />
+<Meta title='UIKit|UiKitModal' parameters={{ jest: ['UiKitModal/spec'] }} decorators={[withKnobs]} />
 
 # UI Kit Modal
 
 <Preview>
   <Story name='Input'>
-    <UiKitModal blocks={[{
-			"type": "input",
-			"element": {
-				"type": "plain_text_input"
-			},
-			"label": {
-				"type": "plain_text",
-				"text": "Label",
-				"emoji": true
-			}
-		}]
-  }/>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+      <kitContext.Provider value={{...defaultContext, errors: {'input-test': text('error', 'asdas') } }}>
+       <UiKitComponent render={UiKitModal} blocks={[{
+          "type": "input",
+          "element": {
+            "type": "plain_text_input",
+            "actionId": "input-test",
+          },
+          "label": {
+            "type": "plain_text",
+            "text": "Label",
+            "emoji": true
+          }
+        }]}/>
+      </kitContext.Provider>
+    </Demo>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Input Multiline'>
-    <UiKitModal blocks={[{
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+    <kitContext.Provider value={{...defaultContext, errors: {'input-test': text('error', 'asdas') } }}>
+      <UiKitComponent render={UiKitModal} blocks= {[{
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"multiline": true
+				"multiline": true,
+        "actionId": "input-test"
 			},
 			"label": {
 				"type": "plain_text",
 				"text": "Label",
 				"emoji": true
 			}
-		}]
-  }/>
+		}]}/>
+    </kitContext.Provider>
+  </Demo>
   </Story>
 </Preview>
 
@@ -46,30 +59,36 @@ import { UiKitModal, kitContext, defaultContext } from './';
 
 <Preview>
   <Story name='Input Datepicker'>
-    <UiKitModal blocks={[{
-			"type": "input",
-			"element": {
-				"type": "datepicker",
-				"initial_date": "1990-04-28",
-				"placeholder": {
-					"type": "plain_text",
-					"text": "Select a date",
-					"emoji": true
-				}
-			},
-			"label": {
-				"type": "plain_text",
-				"text": "Label",
-				"emoji": true
-			}
-		}]
-  }/>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+      <kitContext.Provider value={{...defaultContext, errors: {'input-test': text('error', 'asdas') } }}>
+      <UiKitComponent render={UiKitModal} blocks= {[{
+        "type": "input",
+        "element": {
+          "type": "datepicker",
+          "initial_date": "1990-04-28",
+          "actionId": "input-test",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "Select a date",
+            "emoji": true
+          }
+        },
+        "label": {
+          "type": "plain_text",
+          "text": "Label",
+          "emoji": true
+        }
+		  }
+    ]}/>
+    </kitContext.Provider>
+  </Demo>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Image'>
-    <UiKitModal blocks={[{
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+    {UiKitModal([{
 			"type": "image",
 			"title": {
 				"type": "plain_text",
@@ -78,14 +97,15 @@ import { UiKitModal, kitContext, defaultContext } from './';
 			},
 			"imageUrl": "https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png",
 			"altText": "Example Image"
-		}]
-  }/>
+		}])}
+  </Demo>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Poll'>
-    <UiKitModal blocks={[{
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+    {UiKitModal([{
 			"type": "input",
 			"element": {
 				"type": "plain_text_input"
@@ -127,7 +147,8 @@ import { UiKitModal, kitContext, defaultContext } from './';
 				"type": "plain_text",
 				"text": "Question 2"
 			}
-		}]}/>
+		}])}
+    </Demo>
   </Story>
 </Preview>
 
