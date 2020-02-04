@@ -70,6 +70,63 @@
   );
 }
 
+%button--danger {
+  @include as-button(
+    $background-color: $button-colors-danger-background-color,
+    $border-color: $button-colors-danger-border-color,
+    $color: $button-colors-danger-color,
+    $hover-background-color: $button-colors-danger-hover-background-color,
+    $hover-border-color: $button-colors-danger-hover-border-color,
+    $active-background-color: $button-colors-danger-active-background-color,
+    $active-border-color: $button-colors-danger-active-border-color,
+    $active-color: $button-colors-danger-active-color,
+    $focus-background-color: $button-colors-danger-focus-background-color,
+    $focus-border-color: $button-colors-danger-focus-border-color,
+    $focus-shadow-color: $button-colors-danger-focus-shadow-color,
+    $disabled-background-color: $button-colors-danger-disabled-background-color,
+    $disabled-border-color: $button-colors-danger-disabled-border-color,
+    $disabled-color: $button-colors-danger-disabled-color,
+  );
+}
+
+%button--ghost {
+  @include as-button(
+    $background-color: $button-colors-ghost-background-color,
+    $border-color: $button-colors-ghost-border-color,
+    $color: $button-colors-ghost-color,
+    $hover-background-color: $button-colors-ghost-hover-background-color,
+    $hover-border-color: $button-colors-ghost-hover-border-color,
+    $active-background-color: $button-colors-ghost-active-background-color,
+    $active-border-color: $button-colors-ghost-active-border-color,
+    $active-color: $button-colors-ghost-active-color,
+    $focus-background-color: $button-colors-ghost-focus-background-color,
+    $focus-border-color: $button-colors-ghost-focus-border-color,
+    $focus-shadow-color: $button-colors-ghost-focus-shadow-color,
+    $disabled-background-color: $button-colors-ghost-disabled-background-color,
+    $disabled-border-color: $button-colors-ghost-disabled-border-color,
+    $disabled-color: $button-colors-ghost-disabled-color,
+  );
+}
+
+%button--ghost--danger {
+  @include as-button(
+    $background-color: $button-colors-ghost-danger-background-color,
+    $border-color: $button-colors-ghost-danger-border-color,
+    $color: $button-colors-ghost-danger-color,
+    $hover-background-color: $button-colors-ghost-danger-hover-background-color,
+    $hover-border-color: $button-colors-ghost-danger-hover-border-color,
+    $active-background-color: $button-colors-ghost-danger-active-background-color,
+    $active-border-color: $button-colors-ghost-danger-active-border-color,
+    $active-color: $button-colors-ghost-danger-active-color,
+    $focus-background-color: $button-colors-ghost-danger-focus-background-color,
+    $focus-border-color: $button-colors-ghost-danger-focus-border-color,
+    $focus-shadow-color: $button-colors-ghost-danger-focus-shadow-color,
+    $disabled-background-color: $button-colors-ghost-danger-disabled-background-color,
+    $disabled-border-color: $button-colors-ghost-danger-disabled-border-color,
+    $disabled-color: $button-colors-ghost-danger-disabled-color,
+  );
+}
+
 %button--primary {
   @include as-button(
     $background-color: $button-colors-primary-background-color,
@@ -88,21 +145,21 @@
   );
 }
 
-%button--danger {
+%button--primary--danger {
   @include as-button(
-    $background-color: $button-colors-danger-background-color,
-    $border-color: $button-colors-danger-border-color,
-    $color: $button-colors-danger-color,
-    $hover-background-color: $button-colors-danger-hover-background-color,
-    $hover-border-color: $button-colors-danger-hover-border-color,
-    $active-background-color: $button-colors-danger-active-background-color,
-    $active-border-color: $button-colors-danger-active-border-color,
-    $focus-background-color: $button-colors-danger-focus-background-color,
-    $focus-border-color: $button-colors-danger-focus-border-color,
-    $focus-shadow-color: $button-colors-danger-focus-shadow-color,
-    $disabled-background-color: $button-colors-danger-disabled-background-color,
-    $disabled-border-color: $button-colors-danger-disabled-border-color,
-    $disabled-color: $button-colors-danger-disabled-color,
+    $background-color: $button-colors-primary-danger-background-color,
+    $border-color: $button-colors-primary-danger-border-color,
+    $color: $button-colors-primary-danger-color,
+    $hover-background-color: $button-colors-primary-danger-hover-background-color,
+    $hover-border-color: $button-colors-primary-danger-hover-border-color,
+    $active-background-color: $button-colors-primary-danger-active-background-color,
+    $active-border-color: $button-colors-primary-danger-active-border-color,
+    $focus-background-color: $button-colors-primary-danger-focus-background-color,
+    $focus-border-color: $button-colors-primary-danger-focus-border-color,
+    $focus-shadow-color: $button-colors-primary-danger-focus-shadow-color,
+    $disabled-background-color: $button-colors-primary-danger-disabled-background-color,
+    $disabled-border-color: $button-colors-primary-danger-disabled-border-color,
+    $disabled-color: $button-colors-primary-danger-disabled-color,
   );
 }
 
