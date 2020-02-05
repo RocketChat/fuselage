@@ -35,7 +35,7 @@ export const defaultContext = {
   action: (...args) => console.log(JSON.stringify(args)),
   state: console.log,
   appId: '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz',
-  errors: {}
+  errors: {},
 };
 
 export const kitContext = React.createContext(defaultContext);
