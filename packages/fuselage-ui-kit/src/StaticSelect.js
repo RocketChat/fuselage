@@ -4,25 +4,38 @@ import {
   MultiSelect,
 } from '@rocket.chat/fuselage';
 
+import { useBlockContext } from './hooks';
+
 export const StaticSelect = ({
   options,
   onChange,
   parser,
   placeholder = { text: 'select a option' },
-}) => (
+  context,
+  ...element
+}) => {
+  const [{ loading, value }, action] = useBlockContext(element, context);
   <Select
+    value={value}
+    mod-loading={loading}
     options={options.map((option) => [option.value, parser.text(option.text)])}
-    onChange={(value) => onChange({ target: { value } })}
-    placeholder={parser.text(placeholder)} />);
+    onChange={(value) => action({ target: { value } })}
+    placeholder={parser.text(placeholder)} />;
+};
 
 
 export const MultiStaticSelect = ({
+  context,
   options,
-  onChange,
   parser,
   placeholder = { text: 'select a option' },
-}) => (
-  <MultiSelect
+  ...element
+}) => {
+  const [{ loading, value }, action] = useBlockContext(element, context);
+  return <MultiSelect
+    value={value}
+    mod-loading={loading}
     options={options.map((option) => [option.value, parser.text(option.text)])}
-    onChange={(value) => onChange({ target: { value } })}
-    placeholder={parser.text(placeholder)} />);
+    onChange={(value) => action({ target: { value } })}
+    placeholder={parser.text(placeholder)} />;
+};

@@ -8,9 +8,14 @@ import {
   useCursor,
 } from '@rocket.chat/fuselage';
 
+import { useBlockContext } from './hooks';
+
 const convertOptions = (options, parser) => options.map(({ text, value }) => [value, parser(text)]);
-export const Overflow = ({ options, parser, onChange = console.log }) => {
-  const handleSelection = ([value]) => onChange({ target: { value } });
+
+export const Overflow = ({ context, options, parser, element }) => {
+  const [{ loading }, action] = useBlockContext(element, context);
+
+  const handleSelection = ([value]) => action({ target: { value } });
   const convertedOptions = convertOptions(options, parser.text);
   const [cursor, handleKeyDown, handleKeyUp, , [visible, hide, show]] = useCursor(-1, convertedOptions, (args, [, hide]) => {
     handleSelection(args);
@@ -26,6 +31,7 @@ export const Overflow = ({ options, parser, onChange = console.log }) => {
         onBlur={hide}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
+        mod-loading={loading}
       >
         <Icon name='menu' size={20} />
       </Button>
