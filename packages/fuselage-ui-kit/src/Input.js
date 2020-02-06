@@ -26,7 +26,7 @@ export const Input = ({ label, element, parser, index, hint, context }) => {
       </FieldGroup>
     </Block>
   );
-}
+};
 
 export const PlainInput = ({ element, context, index, parser }) => {
   const [{ loading, value, error }, action] = useBlockContext(element, context);

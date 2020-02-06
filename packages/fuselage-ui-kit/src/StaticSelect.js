@@ -15,7 +15,7 @@ export const StaticSelect = ({
   ...element
 }) => {
   const [{ loading, value }, action] = useBlockContext(element, context);
-  <Select
+  return <Select
     value={value}
     mod-loading={loading}
     options={options.map((option) => [option.value, parser.text(option.text)])}
