@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.23](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.22...v0.2.0-alpha.23) (2020-02-07)
+
+
+### Bug Fixes
+
+* Section with Overflow visibility ([#138](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/138)) ([d0da3cd](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d0da3cd7db31880c812519b7799f04555776167f))
+
+
+
+
+
 # [0.2.0-alpha.22](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.21...v0.2.0-alpha.22) (2020-02-07)
 
 
