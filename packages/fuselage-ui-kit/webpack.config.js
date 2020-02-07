@@ -3,9 +3,6 @@
 const path = require('path');
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const ReplacePlugin = require('webpack-plugin-replace');
-
-const pkg = require('./package.json');
 
 module.exports = (env, argv) => ({
   entry: {
@@ -18,7 +15,7 @@ module.exports = (env, argv) => ({
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
-  devtool: argv.mode === 'production' ? 'source-map' : 'eval-source-map',
+  devtool: argv.mode === 'production' ? false : 'source-map',
   module: {
     rules: [
       // {
