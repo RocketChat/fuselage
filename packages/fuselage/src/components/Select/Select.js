@@ -77,7 +77,7 @@ export const Select = ({
           </Margins>
         </Flex.Container>
       </Flex.Item>
-      <PositionAnimated visible={true} anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>
+      <PositionAnimated visible={visible} anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>
     </Container>);
 };
 
@@ -87,6 +87,6 @@ export const SelectFiltered = ({
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
   return <Select filter={filter} options={options} {...props} anchor={anchor}/>;
 };
