@@ -59,7 +59,9 @@ export const Select = ({
 
   useEffect(reset, [filter]);
 
-  const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (getLabel(option) || placeholder);
+  const valueLabel = getLabel(option);
+
+  const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel ? <Box textStyle='p1' textColor='default'>{valueLabel}</Box> : placeholder);
   return (
     <Container ref={containerRef} onClick={() => ref.current.focus() & show()}>
       <Flex.Item>
@@ -75,7 +77,7 @@ export const Select = ({
           </Margins>
         </Flex.Container>
       </Flex.Item>
-      <PositionAnimated visible={visible} anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>
+      <PositionAnimated visible={true} anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>
     </Container>);
 };
 
