@@ -12,7 +12,7 @@ import { useBlockContext } from './hooks';
 
 const convertOptions = (options, parser) => options.map(({ text, value }) => [value, parser(text)]);
 
-export const Overflow = ({ context, options, parser, element }) => {
+export const Overflow = ({ context, options, parser, ...element }) => {
   const [{ loading }, action] = useBlockContext(element, context);
 
   const handleSelection = ([value]) => action({ target: { value } });
