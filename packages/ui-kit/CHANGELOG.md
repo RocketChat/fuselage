@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.22](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.21...v0.2.0-alpha.22) (2020-02-07)
+
+
+### Bug Fixes
+
+* uikit using react components ([#135](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/135)) ([52fcedb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/52fcedb0efbc33ad4240c83fd92a325fcc9f0f4c))
+
+
+
+
+
 # [0.2.0-alpha.21](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.20...v0.2.0-alpha.21) (2020-02-05)
 
 **Note:** Version bump only for package @rocket.chat/ui-kit
