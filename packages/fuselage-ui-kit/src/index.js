@@ -1,12 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import {
   Divider,
-  Button,
-  SelectInput,
   Flex,
   Margins,
-  TextAreaInput,
-  TextInput,
   InputBox,
   Box,
 } from '@rocket.chat/fuselage';
@@ -25,53 +21,15 @@ import {
 
 import { Section as SectionLayoutBlock } from './Section';
 import { Actions as ActionsLayoutBlock } from './Actions';
-import { Input as InputLayoutBlock } from './Input';
+import { Input as InputLayoutBlock, PlainInput } from './Input';
 import { MessageImage, ModalImage } from './Image';
 import { StaticSelect, MultiStaticSelect } from './StaticSelect';
 import { Block } from './Block';
 import { Overflow } from './Overflow';
+import { UIKitButton } from './Button';
+import { useBlockContext } from './hooks';
 
-export const defaultContext = {
-  action: (...args) => console.log(JSON.stringify(args)),
-  state: console.log,
-  appId: '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz',
-  errors: {}
-};
-
-export const kitContext = React.createContext(defaultContext);
-
-export const useBlockContext = ({ blockId, actionId, appId, initialValue }, context) => {
-  const [value, setValue] = useState(initialValue);
-  const [loading, setLoading] = useState(false);
-  const { action, appId: appIdFromContext, state, errors } = useContext(kitContext);
-  const error = errors && actionId && errors[actionId];
-
-  if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
-    return [{ loading, setLoading, error }, async ({ target: { value } }) => {
-      setLoading(true);
-      await action({ blockId, appId: appId || appIdFromContext, actionId, value });
-      setLoading(false);
-    }];
-  }
-
-  return [{ loading, setLoading, value, error }, async ({ target: { value } }) => {
-    setValue(value);
-    setLoading(true);
-    await state({ blockId, appId, actionId, value });
-    setLoading(false);
-  }];
-};
-
-const getStyle = (style) => {
-  switch (style) {
-  case 'primary':
-  case 'danger':
-    return {
-      [style]: true,
-    };
-  }
-};
-
+export * from './hooks';
 
 function mrkdwn({ text/* , type = 'plain_text'*/ } = { text: '' }) {
   return text;
@@ -95,20 +53,7 @@ class TextParser extends UiKitParserText {
 
 class ButtonsParser extends UiKitParserButtons {
   button(element, context, key) {
-    const [{ loading }, action] = useBlockContext(element, context);
-    return (
-      <Button
-        key={key}
-        mod-mod-loading={loading}
-        {...getStyle(element.style)}
-        small={context === BLOCK_CONTEXT.SECTION}
-        data-group={element.groupId}
-        key={element.actionId}
-        children={this.plainText(element.text)}
-        onClick={action}
-        value={element.value}
-      />
-    );
+    return <UIKitButton element={element} context={context} key={key} parser={this}/>;
   }
 }
 
@@ -121,25 +66,11 @@ class MessageParser extends UiKitParserMessage {
   text(...args) { return text(...args); }
 
   overflow(element, context) {
-    const [{ loading }, action] = useBlockContext(element, context);
-    return <Overflow loading={loading} {...element} onChange={action} parser={this}/>;
+    return <Overflow context={context} {...element} parser={this}/>;
   }
 
   button(element, context, key) {
-    const [{ loading }, action] = useBlockContext(element, context);
-    return (
-      <Button
-        key={key}
-        mod-mod-loading={loading}
-        {...getStyle(element.style)}
-        small
-        data-group={element.groupId}
-        key={element.actionId}
-        children={this.plainText(element.text)}
-        onClick={action}
-        value={element.value}
-      />
-    );
+    return <UIKitButton element={element} context={context} key={key} parser={this}/>;
   }
 
   divider(_, __, key) {
@@ -214,30 +145,26 @@ class MessageParser extends UiKitParserMessage {
   }
 
   multiStaticSelect(element, context, key) {
-    const [{ loading, value }, action] = useBlockContext(element, context);
     return (
       <MultiStaticSelect
         {...element}
         key={key}
-        value={value}
-        mod-loading={loading}
-        onChange={action}
         parser={this}
+        context={context}
       />
     );
   }
 
   staticSelect(element, context, key) {
-    const [{ loading, value }, action] = useBlockContext(element, context);
-    return <StaticSelect value={value} key={key} {...element} mod-loading={loading} onChange={action} parser={this} />;
+    return <StaticSelect key={key} {...element} parser={this} />;
   }
 
-  selectInput(element, context, key) {
-    const [{ loading, value }, action] = useBlockContext(element, context);
-    return (
-      <SelectInput key={key} value={value} onChange={action} mod-loading={loading} placeholder={element.type} disabled />
-    );
-  }
+  // selectInput(element, context, key) {
+  //   const [{ loading, value }, action] = useBlockContext(element, context);
+  //   return (
+  //     <SelectInput key={key} value={value} onChange={action} mod-loading={loading} placeholder={element.type} disabled />
+  //   );
+  // }
 }
 
 class ModalParser extends UiKitParserModal {
@@ -248,12 +175,9 @@ class ModalParser extends UiKitParserModal {
     });
   }
 
-  input({ element, label, blockId, appId, ...args }, context, index) {
-    const [{ loading, value, error }, action] = useBlockContext({ ...element, appId, blockId }, context);
-
+  input({ element, label, blockId, appId }, context, index) {
     return (
       <InputLayoutBlock
-        error={error}
         key={index}
         index={index}
         parser={this}
@@ -269,22 +193,7 @@ class ModalParser extends UiKitParserModal {
   }
 
   plainInput(element, context, index) {
-    const [{ loading, value, error }, action] = useBlockContext(element, context);
-    const { multiline, actionId, placeholder } = element;
-    const Component = multiline ? TextAreaInput : TextInput;
-    return (
-      <Component
-        key={index}
-        mod-loading={loading}
-        id={actionId}
-        name={actionId}
-        rows={6}
-        error={error}
-        value={value}
-        onInput={action}
-        placeholder={this.plainText(placeholder)}
-      />
-    );
+    return <PlainInput parser={this} element={element} context={context} index={index}/>;
   }
 }
 
@@ -298,4 +207,4 @@ export const UiKitText = uiKitText(textParser);
 export const UiKitMessage = uiKitMessage(messageParser);
 export const UiKitModal = uiKitModal(modalParser);
 
-export const UiKitComponent = ({render, blocks}) => render(blocks);
+export const UiKitComponent = ({ render, blocks }) => render(blocks);

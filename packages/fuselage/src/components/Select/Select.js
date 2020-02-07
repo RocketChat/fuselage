@@ -11,7 +11,7 @@ export const Addon = Box.extend('rcx-select__addon', 'div');
 
 const Wrapper = Box.extend('rcx-select__wrapper', 'div'); // ({ children, ...props }) => <InnerWrapper children={React.Children.map(children, (c, i) => <Margins key={i} inline='x4'>{c}</Margins>)} {...props} />;
 
-export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' textColor='hint' componentClassName='rcx-select__focus' is='button' {...props}/>);
+export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' textColor='hint' componentClassName='rcx-select__focus' is='button' type='button' {...props}/>);
 
 export const Select = ({
   value,

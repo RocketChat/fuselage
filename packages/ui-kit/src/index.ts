@@ -59,7 +59,7 @@ export abstract class UiKitParserMessage extends UiKitParserText {
   datePicker: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
   staticSelect: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
   multiStaticSelect: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
-  selectInput: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
+  // selectInput: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
   context: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
   divider: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
   actions: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
@@ -135,10 +135,10 @@ const renderElement = ({ type, ...element }: UiKitElement, context: BLOCK_CONTEX
       return parser.datePicker(element as UiKitElement, context, index);
     case ELEMENT_TYPES.PLAIN_TEXT_INPUT:
       return parser.plainInput(element as UiKitElement, context, index);
-    case ELEMENT_TYPES.CONVERSATION_SELECT:
-    case ELEMENT_TYPES.CHANNEL_SELECT:
-    case ELEMENT_TYPES.USER_SELECT:
-      return parser.selectInput({ type, ...element }, context, index);
+    // case ELEMENT_TYPES.CONVERSATION_SELECT:
+    // case ELEMENT_TYPES.CHANNEL_SELECT:
+    // case ELEMENT_TYPES.USER_SELECT:
+    //   return parser.selectInput({ type, ...element }, context, index);
   }
 };
 
