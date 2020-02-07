@@ -84,9 +84,7 @@ class MessageParser extends UiKitParserMessage {
   }
 
   actions(args, _, key) {
-    return (
-      <ActionsLayoutBlock {...args} key={key} parser={this} />
-    );
+    return <ActionsLayoutBlock {...args} key={key} parser={this} />;
   }
 
   datePicker(element, context, key) {

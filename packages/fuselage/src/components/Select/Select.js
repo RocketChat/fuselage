@@ -59,7 +59,9 @@ export const Select = ({
 
   useEffect(reset, [filter]);
 
-  const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (getLabel(option) || placeholder);
+  const valueLabel = getLabel(option);
+
+  const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel ? <Box textStyle='p1' textColor='default'>{valueLabel}</Box> : placeholder);
   return (
     <Container ref={containerRef} onClick={() => ref.current.focus() & show()}>
       <Flex.Item>
@@ -85,6 +87,6 @@ export const SelectFiltered = ({
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
   return <Select filter={filter} options={options} {...props} anchor={anchor}/>;
 };
