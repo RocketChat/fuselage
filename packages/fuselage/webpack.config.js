@@ -70,6 +70,7 @@ module.exports = (env, { mode = 'production' }) => ({
         root: 'React',
       },
     },
+    'react-dom',
     '@rocket.chat/icons',
     '@rocket.chat/fuselage-hooks',
   ],
