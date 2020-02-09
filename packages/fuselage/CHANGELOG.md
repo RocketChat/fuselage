@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.23](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.22...v0.2.0-alpha.23) (2020-02-07)
+
+**Note:** Version bump only for package @rocket.chat/fuselage
+
+
+
+
+
+# [0.2.0-alpha.22](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.21...v0.2.0-alpha.22) (2020-02-07)
+
+
+### Bug Fixes
+
+* Select/MultiSelect focus submitting form ([#134](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/134)) ([630e622](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/630e622d8535fcaa06a8a736c6e0d273b450b739))
+* UIKit stopPropagation ([#137](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/137)) ([86939ea](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/86939eaae182d6554879468745780d83bc977b9e))
+
+
+
+
+
+# [0.2.0-alpha.21](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.20...v0.2.0-alpha.21) (2020-02-05)
+
+**Note:** Version bump only for package @rocket.chat/fuselage
+
+
+
+
+
 # [0.2.0-alpha.20](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.19...v0.2.0-alpha.20) (2020-02-01)
 
 

@@ -9,10 +9,14 @@
   &__placeholder {
     display: inline-block;
 
+    user-select: none;
+
     text-align: start;
     vertical-align: middle;
     white-space: nowrap;
     text-decoration: none;
+
+    background: inherit;
 
     appearance: none;
 
@@ -27,11 +31,31 @@
   }
 
   &__wrapper {
+    user-select: none;
+
     opacity: 1;
     flex-grow: 1;
 
     &--hidden {
       opacity: 0;
     }
+  }
+
+  &:invalid,
+  &.invalid {
+    @include with-colors(
+      $color: $input-colors-invalid-color,
+      $placeholder-color: $input-colors-invalid-placeholder-color,
+      $focus-caret-color: $input-colors-invalid-focus-caret-color,
+      $active-caret-color: $input-colors-invalid-active-caret-color,
+      $disabled-color: $input-colors-invalid-disabled-color,
+    );
+
+    @include with-icon-addon-colors(
+      $color: $input-colors-invalid-color,
+      $focus-caret-color: $input-colors-invalid-focus-caret-color,
+      $focus-icon-color: $input-colors-invalid-focus-icon-color,
+      $disabled-color: $input-colors-invalid-disabled-color,
+    );
   }
 }

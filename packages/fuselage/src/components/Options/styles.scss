@@ -15,4 +15,8 @@
   &--focus {
     background: $colors-n400;
   }
+
+  &--selected {
+    color: $text-colors-primary;
+  }
 }

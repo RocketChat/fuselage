@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-ui-kit",
-  "version": "0.2.0-alpha.20",
+  "version": "0.2.0-alpha.23",
   "description": "Package ui kit ",
   "author": "Guilherme Gazzo <guilhermegazzo@gmail.com>",
   "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
@@ -35,7 +35,7 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "dependencies": {
-    "@rocket.chat/ui-kit": "^0.2.0-alpha.20"
+    "@rocket.chat/ui-kit": "^0.2.0-alpha.23"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "^0.2.0-alpha.16"
@@ -45,7 +45,7 @@
     "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.7.4",
-    "@rocket.chat/fuselage": "^0.2.0-alpha.20",
+    "@rocket.chat/fuselage": "^0.2.0-alpha.23",
     "@storybook/addon-actions": "5.2.4",
     "@storybook/addon-backgrounds": "5.2.4",
     "@storybook/addon-centered": "5.2.4",

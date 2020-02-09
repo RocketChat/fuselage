@@ -21,6 +21,10 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
           "element": {
             "type": "plain_text_input",
             "actionId": "input-test",
+            "placeholder": {
+              "text": "plain_text_input",
+              text: text('placeholder', 'asdas')
+            }
           },
           "label": {
             "type": "plain_text",
@@ -103,6 +107,59 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 </Preview>
 
 <Preview>
+  <Story name='confirm button'>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+    {UiKitModal([
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": "Approve"
+					},
+					"confirm": {
+						"title": {
+							"type": "plain_text",
+							"text": "Are you sure?"
+						},
+						"text": {
+							"type": "mrkdwn",
+							"text": "Wouldn't you prefer a good game of _chess_?"
+						},
+						"confirm": {
+							"type": "plain_text",
+							"text": "Do it"
+						},
+						"deny": {
+							"type": "plain_text",
+							"text": "Stop, I've changed my mind!"
+						}
+					},
+					"style": "primary",
+					"value": "click_me_123"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": "Deny"
+					},
+					"style": "danger",
+					"value": "click_me_123"
+				}
+			]
+		}
+	])}
+  </Demo>
+  </Story>
+</Preview>
+
+
+<Preview>
   <Story name='Poll'>
     <Demo visible={boolean('visible', true) ? 1 : 0}>
     {UiKitModal([{
@@ -149,6 +206,18 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 			}
 		}])}
     </Demo>
+  </Story>
+</Preview>
+
+
+
+
+
+<Preview>
+  <Story name='live button'>
+    <Demo visible={boolean('visible', true) ? 1 : 0}>
+    {UiKitModal(JSON.parse(text('json', '[]')))}
+  </Demo>
   </Story>
 </Preview>
 
