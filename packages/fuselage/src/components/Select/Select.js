@@ -16,6 +16,8 @@ export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='
 export const Select = ({
   value,
   filter,
+  error,
+  disabled,
   options = [],
   anchor: Anchor = Focus,
   onChange = () => {},
@@ -63,7 +65,14 @@ export const Select = ({
 
   const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel ? <Box textStyle='p1' textColor='default'>{valueLabel}</Box> : placeholder);
   return (
-    <Container ref={containerRef} onClick={() => ref.current.focus() & show()}>
+    <Container disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={
+      [
+
+        error && 'invalid',
+        disabled && 'disabled',
+
+      ].filter(Boolean).join(' ')
+    }>
       <Flex.Item>
         <Flex.Container>
           <Margins inline='neg-x4'>
@@ -71,7 +80,7 @@ export const Select = ({
               { visibleText && <Flex.Item grow={1}>
                 <Margins inline='x4'><Box is='span' textStyle='p2' textColor='hint' className='rcx-select__placeholder'>{visibleText}</Box></Margins>
               </Flex.Item>}
-              <Anchor mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
+              <Anchor disabled={disabled} mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
               <Margins inline='x4'><Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='20' />}/></Margins>
             </Wrapper>
           </Margins>
