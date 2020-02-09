@@ -11,7 +11,7 @@ const Container = Box.extend('rcx-select', 'div');
 
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);
 
-const prevent = (e) => e.preventDefault() & e.stopPropagation();
+const prevent = (e) => e.preventDefault() & e.stopPropagation() & e.stopImmediatePropagation();
 export const MultiSelect = ({
   value,
   filter,
@@ -61,10 +61,8 @@ export const MultiSelect = ({
   return (
     <Container className={
       [
-
         error && 'invalid',
         disabled && 'disabled',
-
       ].filter(Boolean).join(' ')
     } ref={containerRef} onClick={() => ref.current.focus() & show()} disabled={disabled} {...props}>
       <Flex.Item grow={1}>
