@@ -20,7 +20,7 @@ export const Chip = ({
   ...props
 }) => (
   <Flex.Container>
-    <Container disabled={!(onClick || onMouseDown)} onClick={onClick || onMouseDown} {...props}>
+    <Container type='button' disabled={!(onClick || onMouseDown)} onClick={onClick || onMouseDown} {...props}>
       {Thumb && thumbUrl && <Margins all='x4'>
         <Thumb url={thumbUrl} />
       </Margins>}

@@ -15,7 +15,6 @@ export const kitContext = React.createContext(defaultContext);
 export const useBlockContext = ({ blockId, actionId, appId, initialValue }, context) => {
   const { action, appId: appIdFromContext, viewId, state, errors, values = {} } = useContext(kitContext);
   const { value = initialValue } = values[actionId] || {};
-
   // const [value, setValue] = useState(initialValue);
   const [loading, setLoading] = useState(false);
 
