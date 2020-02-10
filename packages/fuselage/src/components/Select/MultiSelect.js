@@ -11,6 +11,7 @@ const Container = Box.extend('rcx-select', 'div');
 
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);
 
+
 const prevent = (e) => e.preventDefault() & e.stopPropagation() & e.nativeEvent.stopImmediatePropagation();
 export const MultiSelect = ({
   value,
