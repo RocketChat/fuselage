@@ -38,6 +38,8 @@
 
     &--hidden {
       .rcx-select__focus {
+        transition: none;
+
         opacity: 0;
       }
     }
