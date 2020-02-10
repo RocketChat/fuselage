@@ -82,6 +82,7 @@ module.exports = (env, argv) => ({
         root: 'React',
       },
     },
+    'react-dom',
     '@rocket.chat/icons',
     '@rocket.chat/fuselage',
     '@rocket.chat/ui-kit',

@@ -11,17 +11,17 @@
 0 silly argv }
 1 notice cli v3.19.0
 2 verbose rootPath /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage
-3 info current version 0.2.0-alpha.18
+3 info current version 0.2.0-alpha.24
 4 silly isAnythingCommitted
 5 verbose isAnythingCommitted 1
 6 silly currentBranch
 7 verbose currentBranch master
 8 silly remoteBranchExists
 9 silly isBehindUpstream
-10 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 7
+10 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 2
 11 silly hasTags
 12 verbose hasTags true
-13 silly git-describe.sync "v0.2.0-alpha.2-76-geb82e74" => {"lastTagName":"v0.2.0-alpha.2","lastVersion":"v0.2.0-alpha.2","refCount":"76","sha":"eb82e74","isDirty":false}
+13 silly git-describe.sync "v0.2.0-alpha.2-98-gb7d85c1" => {"lastTagName":"v0.2.0-alpha.2","lastVersion":"v0.2.0-alpha.2","refCount":"98","sha":"b7d85c1","isDirty":false}
 14 info Looking for changed packages since v0.2.0-alpha.2
 15 silly checking diff packages/fuselage-hooks
 16 silly found diff in packages/fuselage-hooks/.eslintignore
@@ -118,14 +118,17 @@
 22 silly found diff in packages/fuselage-ui-kit/package.json
 22 silly found diff in packages/fuselage-ui-kit/src/Actions.js
 22 silly found diff in packages/fuselage-ui-kit/src/Block.js
+22 silly found diff in packages/fuselage-ui-kit/src/Button.js
 22 silly found diff in packages/fuselage-ui-kit/src/Demo.js
 22 silly found diff in packages/fuselage-ui-kit/src/Image.js
 22 silly found diff in packages/fuselage-ui-kit/src/Input.js
+22 silly found diff in packages/fuselage-ui-kit/src/MultiSelect.js
 22 silly found diff in packages/fuselage-ui-kit/src/Overflow.js
 22 silly found diff in packages/fuselage-ui-kit/src/Section.js
 22 silly found diff in packages/fuselage-ui-kit/src/StaticSelect.js
 22 silly found diff in packages/fuselage-ui-kit/src/UIKitMessage.stories.mdx
 22 silly found diff in packages/fuselage-ui-kit/src/UIKitModal.stories.mdx
+22 silly found diff in packages/fuselage-ui-kit/src/hooks.js
 22 silly found diff in packages/fuselage-ui-kit/src/index.js
 22 silly found diff in packages/fuselage-ui-kit/tsconfig.json
 22 silly found diff in packages/fuselage-ui-kit/webpack.config.js
@@ -146,14 +149,17 @@
 23 verbose filtered diff   'packages/fuselage-ui-kit/package.json',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/Actions.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/Block.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/Button.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/Demo.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/Image.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/Input.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/MultiSelect.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/Overflow.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/Section.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/StaticSelect.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/UIKitMessage.stories.mdx',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/UIKitModal.stories.mdx',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/hooks.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/src/index.js',
 23 verbose filtered diff   'packages/fuselage-ui-kit/tsconfig.json',
 23 verbose filtered diff   'packages/fuselage-ui-kit/webpack.config.js'
@@ -494,9 +500,17 @@
 25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_With_Placeholder.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_With_Value.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Error.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Error.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Filtered.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Filtered_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Filtered_Error.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Select_With_Filter.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Select_With_Filter_And_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Select_With_Filter_And_Error.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_Default_Story.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_Disabled.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_Invalid.png
@@ -891,9 +905,17 @@
 25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_With_Placeholder.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_With_Value.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Error.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Error.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Filtered.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Filtered_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Filtered_Error.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Select_With_Filter.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Select_With_Filter_And_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Select_With_Filter_And_Error.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_Default_Story.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_Disabled.png
 25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_Invalid.png
@@ -969,6 +991,7 @@
 25 silly found diff in packages/fuselage/CHANGELOG.md
 25 silly found diff in packages/fuselage/README.md
 25 silly found diff in packages/fuselage/babel.config.js
+25 silly found diff in packages/fuselage/index.js
 25 silly found diff in packages/fuselage/package.json
 25 silly found diff in packages/fuselage/src/components/Accordion/Item.js
 25 silly found diff in packages/fuselage/src/components/Accordion/Item.stories.mdx
@@ -1344,7 +1367,7 @@
 26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ToggleSwitch_States.png',
 26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_default.png',
 26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_hidden.png',
-26 verbose filtered diff   ... 984 more items
+26 verbose filtered diff   ... 1001 more items
 26 verbose filtered diff ]
 27 silly checking diff packages/icons
 28 silly found diff in packages/icons/CHANGELOG.md
@@ -1402,8 +1425,8 @@
 36 verbose updated @rocket.chat/fuselage
 37 verbose updated @rocket.chat/icons
 38 verbose updated @rocket.chat/ui-kit
-39 verbose git-describe undefined => "v0.2.0-alpha.2-76-geb82e74"
-40 silly git-describe parsed => {"lastTagName":"v0.2.0-alpha.2","lastVersion":"v0.2.0-alpha.2","refCount":"76","sha":"eb82e74","isDirty":false}
+39 verbose git-describe undefined => "v0.2.0-alpha.2-98-gb7d85c1"
+40 silly git-describe parsed => {"lastTagName":"v0.2.0-alpha.2","lastVersion":"v0.2.0-alpha.2","refCount":"98","sha":"b7d85c1","isDirty":false}
 41 silly fixed for @rocket.chat/fuselage-hooks at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks
 42 verbose getChangelogConfig using preset "conventional-changelog-angular"
 43 silly npa Result {
@@ -1423,17 +1446,17 @@
 43 silly npa }
 44 verbose getChangelogConfig Attempting to resolve preset "conventional-changelog-angular"
 45 info getChangelogConfig Successfully resolved preset "conventional-changelog-angular"
-46 verbose fixed increment 0.2.0-alpha.18 by prerelease
+46 verbose fixed increment 0.2.0-alpha.24 by prerelease
 47 silly fixed for @rocket.chat/fuselage-tokens at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens
-48 verbose fixed increment 0.2.0-alpha.18 by prerelease
+48 verbose fixed increment 0.2.0-alpha.24 by prerelease
 49 silly fixed for @rocket.chat/fuselage-ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit
-50 verbose fixed increment 0.2.0-alpha.18 by prerelease
+50 verbose fixed increment 0.2.0-alpha.24 by prerelease
 51 silly fixed for @rocket.chat/fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage
-52 verbose fixed increment 0.2.0-alpha.18 by prerelease
+52 verbose fixed increment 0.2.0-alpha.24 by prerelease
 53 silly fixed for @rocket.chat/icons at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons
-54 verbose fixed increment 0.2.0-alpha.18 by prerelease
+54 verbose fixed increment 0.2.0-alpha.24 by prerelease
 55 silly fixed for @rocket.chat/ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit
-56 verbose fixed increment 0.2.0-alpha.18 by prerelease
+56 verbose fixed increment 0.2.0-alpha.24 by prerelease
 57 info auto-confirmed
 58 info execute Creating releases...
 59 silly lifecycle No script for "preversion" in "Rocket.Chat.Fuselage", continuing
@@ -1441,46 +1464,46 @@
 61 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage-tokens", continuing
 62 silly lifecycle No script for "preversion" in "@rocket.chat/icons", continuing
 63 silly lifecycle No script for "preversion" in "@rocket.chat/ui-kit", continuing
-64 silly lifecycle No script for "version" in "@rocket.chat/fuselage-hooks", continuing
-65 silly fixed for @rocket.chat/fuselage-hooks at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks
-66 silly lifecycle No script for "version" in "@rocket.chat/fuselage-tokens", continuing
-67 silly fixed for @rocket.chat/fuselage-tokens at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens
-68 silly lifecycle No script for "version" in "@rocket.chat/icons", continuing
-69 silly fixed for @rocket.chat/icons at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons
+64 silly lifecycle No script for "version" in "@rocket.chat/icons", continuing
+65 silly fixed for @rocket.chat/icons at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons
+66 silly lifecycle No script for "version" in "@rocket.chat/fuselage-hooks", continuing
+67 silly fixed for @rocket.chat/fuselage-hooks at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks
+68 silly lifecycle No script for "version" in "@rocket.chat/fuselage-tokens", continuing
+69 silly fixed for @rocket.chat/fuselage-tokens at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens
 70 silly lifecycle No script for "version" in "@rocket.chat/ui-kit", continuing
 71 silly fixed for @rocket.chat/ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit
-72 silly fixed writing new entry: "# [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-hooks\n\n\n\n"
-73 silly fixed writing new entry: "# [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-tokens\n\n\n\n"
-74 silly fixed writing new entry: "# [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)\n\n**Note:** Version bump only for package @rocket.chat/icons\n\n\n\n"
+72 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/icons\n\n\n\n"
+73 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-hooks\n\n\n\n"
+74 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/CHANGELOG.md
 75 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks/CHANGELOG.md
-76 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/CHANGELOG.md
-77 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/CHANGELOG.md
-78 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage", continuing
-79 silly fixed writing new entry: "# [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)\n\n\n### Features\n\n* Position, Modal, Options components ([#116](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/116)) ([af1916a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/af1916a22c677939adda04fe417dafe406292762)), closes [#117](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/117)\n\n\n\n"
-80 silly lifecycle No script for "version" in "@rocket.chat/fuselage", continuing
-81 silly fixed for @rocket.chat/fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage
-82 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/CHANGELOG.md
-83 silly fixed writing new entry: "# [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)\n\n\n### Bug Fixes\n\n* InputBox sizing ([#124](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/124)) ([eb82e74](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/eb82e74784bf67655e07be4443672ed2e5a38728))\n* Position of inputs on selection buttons ([#123](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/123)) ([e446c89](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e446c89d3a0c80e01266c373242d1197ba2950dc))\n\n\n### Features\n\n* Position, Modal, Options components ([#116](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/116)) ([af1916a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/af1916a22c677939adda04fe417dafe406292762)), closes [#117](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/117)\n\n\n\n"
+76 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-tokens\n\n\n\n"
+77 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/ui-kit\n\n\n\n"
+78 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/CHANGELOG.md
+79 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage", continuing
+80 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/CHANGELOG.md
+81 silly lifecycle No script for "version" in "@rocket.chat/fuselage", continuing
+82 silly fixed for @rocket.chat/fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage
+83 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/fuselage\n\n\n\n"
 84 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/CHANGELOG.md
 85 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage-ui-kit", continuing
 86 silly lifecycle No script for "version" in "@rocket.chat/fuselage-ui-kit", continuing
 87 silly fixed for @rocket.chat/fuselage-ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit
-88 silly fixed writing new entry: "# [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)\n\n\n### Features\n\n* Position, Modal, Options components ([#116](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/116)) ([af1916a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/af1916a22c677939adda04fe417dafe406292762)), closes [#117](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/117)\n\n\n\n"
+88 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit\n\n\n\n"
 89 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/CHANGELOG.md
 90 silly root for Rocket.Chat.Fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage
-91 silly root writing new entry: "# [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)\n\n\n### Bug Fixes\n\n* InputBox sizing ([#124](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/124)) ([eb82e74](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/eb82e74784bf67655e07be4443672ed2e5a38728))\n* Position of inputs on selection buttons ([#123](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/123)) ([e446c89](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e446c89d3a0c80e01266c373242d1197ba2950dc))\n\n\n### Features\n\n* Position, Modal, Options components ([#116](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/116)) ([af1916a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/af1916a22c677939adda04fe417dafe406292762)), closes [#117](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/117)\n\n\n\n"
+91 silly root writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package Rocket.Chat.Fuselage\n\n\n\n"
 92 verbose root wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/CHANGELOG.md
 93 silly lifecycle No script for "version" in "Rocket.Chat.Fuselage", continuing
 94 silly gitAdd [
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/package.json',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks/package.json',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/package.json',
-94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/package.json',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/package.json',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/CHANGELOG.md',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks/CHANGELOG.md',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/CHANGELOG.md',
-94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/CHANGELOG.md',
-94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/package.json',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/CHANGELOG.md',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/package.json',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/CHANGELOG.md',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/package.json',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/package-lock.json',
@@ -1488,10 +1511,10 @@
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/CHANGELOG.md',
 94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/lerna.json'
 94 silly gitAdd ]
-95 silly gitCommit v0.2.0-alpha.19
-96 verbose git [ 'commit', '-m', 'v0.2.0-alpha.19' ]
-97 silly gitTag v0.2.0-alpha.19
-98 verbose git [ 'tag', 'v0.2.0-alpha.19', '-m', 'v0.2.0-alpha.19' ]
+95 silly gitCommit v0.2.0-alpha.25
+96 verbose git [ 'commit', '-m', 'v0.2.0-alpha.25' ]
+97 silly gitTag v0.2.0-alpha.25
+98 verbose git [ 'tag', 'v0.2.0-alpha.25', '-m', 'v0.2.0-alpha.25' ]
 99 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-hooks", continuing
 100 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-tokens", continuing
 101 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-ui-kit", continuing

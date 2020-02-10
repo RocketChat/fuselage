@@ -42,6 +42,7 @@ export const PlainInput = ({ element, context, index, parser }) => {
       error={error}
       value={value}
       onInput={action}
+      onChange={() => {}}
       placeholder={parser.plainText(placeholder)}
     />
   );
