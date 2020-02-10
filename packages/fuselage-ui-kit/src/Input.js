@@ -12,7 +12,7 @@ import {
 import { Block } from './Block';
 import { useBlockContext } from './hooks';
 
-export const Input = ({ label, element, parser, index, hint, context }) => {
+export const Input = React.memo(({ label, element, parser, index, hint, context }) => {
   const [{ error }] = useBlockContext(element, context);
   return (
     <Block>
@@ -26,9 +26,9 @@ export const Input = ({ label, element, parser, index, hint, context }) => {
       </FieldGroup>
     </Block>
   );
-};
+});
 
-export const PlainInput = ({ element, context, index, parser }) => {
+export const PlainInput = React.memo(({ element, context, index, parser }) => {
   const [{ loading, value, error }, action] = useBlockContext(element, context);
   const { multiline, actionId, placeholder } = element;
   const Component = multiline ? TextAreaInput : TextInput;
@@ -41,9 +41,9 @@ export const PlainInput = ({ element, context, index, parser }) => {
       rows={6}
       error={error}
       value={value}
-      onInput={action}
-      onChange={() => {}}
+      // onInput={action}
+      onChange={action}
       placeholder={parser.plainText(placeholder)}
     />
   );
-};
+});
