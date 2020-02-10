@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Select,
-  MultiSelect,
+  SelectFiltered,
+  MultiSelectFiltered,
 } from '@rocket.chat/fuselage';
 
 import { useBlockContext } from './hooks';
@@ -15,7 +15,7 @@ export const StaticSelect = ({
   ...element
 }) => {
   const [{ loading, value }, action] = useBlockContext(element, context);
-  return <Select
+  return <SelectFiltered
     value={value}
     mod-loading={loading}
     options={options.map((option) => [option.value, parser.text(option.text)])}
@@ -32,7 +32,7 @@ export const MultiStaticSelect = ({
   ...element
 }) => {
   const [{ loading, value }, action] = useBlockContext(element, context);
-  return <MultiSelect
+  return <MultiSelectFiltered
     value={value}
     mod-loading={loading}
     options={options.map((option) => [option.value, parser.text(option.text)])}

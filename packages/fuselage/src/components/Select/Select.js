@@ -33,6 +33,7 @@ export const Select = ({
   const option = options.find((option) => getValue(option) === currentValue);
   const index = options.indexOf(option);
 
+  const isFirstRun = useRef(true);
 
   const internalChanged = ([value]) => {
     setInternalValue(value);
@@ -55,6 +56,10 @@ export const Select = ({
   const containerRef = useRef();
 
   useLayoutEffect(() => {
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
+    }
     hide();
     ref.current.focus();
   }, [internalValue]);
