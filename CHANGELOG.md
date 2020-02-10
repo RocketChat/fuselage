@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.26](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.25...v0.2.0-alpha.26) (2020-02-10)
+
+
+### Bug Fixes
+
+* Input state ([#142](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/142)) ([6cdec77](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6cdec777bf6c792c50075769ca0b68304ef6dde4))
+* Select autofocus ([#141](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/141)) ([25849ee](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/25849eed55e4edbf26f54ae4a72c71c1d528e850))
+
+
+
+
+
 # [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)
 
 **Note:** Version bump only for package Rocket.Chat.Fuselage
