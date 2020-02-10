@@ -127,6 +127,25 @@
   );
 }
 
+%button--ghost--primary {
+  @include as-button(
+    $background-color: $button-colors-ghost-primary-background-color,
+    $border-color: $button-colors-ghost-primary-border-color,
+    $color: $button-colors-ghost-primary-color,
+    $hover-background-color: $button-colors-ghost-primary-hover-background-color,
+    $hover-border-color: $button-colors-ghost-primary-hover-border-color,
+    $active-background-color: $button-colors-ghost-primary-active-background-color,
+    $active-border-color: $button-colors-ghost-primary-active-border-color,
+    $active-color: $button-colors-ghost-primary-active-color,
+    $focus-background-color: $button-colors-ghost-primary-focus-background-color,
+    $focus-border-color: $button-colors-ghost-primary-focus-border-color,
+    $focus-shadow-color: $button-colors-ghost-primary-focus-shadow-color,
+    $disabled-background-color: $button-colors-ghost-primary-disabled-background-color,
+    $disabled-border-color: $button-colors-ghost-primary-disabled-border-color,
+    $disabled-color: $button-colors-ghost-primary-disabled-color,
+  );
+}
+
 %button--primary {
   @include as-button(
     $background-color: $button-colors-primary-background-color,

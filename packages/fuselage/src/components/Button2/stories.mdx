@@ -3,7 +3,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 // import { Button, Icon } from '../..';
-import { Button2, ButtonPrimary, ButtonPrimaryDanger, ButtonGhost, ButtonGhostDanger, ButtonDanger, ButtonNudeDanger, ButtonNudePrimary } from '.';
+import { Button2, ButtonPrimary, ButtonPrimaryDanger, ButtonGhost, ButtonGhostDanger, ButtonGhostPrimary, ButtonDanger, ButtonNudeDanger, ButtonNudePrimary } from '.';
 import { Icon } from '../..';
 
 <Meta title='Buttons2|Button2' parameters={{ jest: ['Button2/spec'] }} />
@@ -213,6 +213,27 @@ Indicates an actionable user action.
 <Story name='States Of Ghost Danger Variant'>
   <PropsVariationSection
     component={ButtonGhostDanger}
+    common={{ onClick: action('click') }}
+    xAxis={{
+      text: { children: 'Button' },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+### Ghost Primary
+
+<Story name='States Of Ghost Primary Variant'>
+  <PropsVariationSection
+    component={ButtonGhostPrimary}
     common={{ onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },

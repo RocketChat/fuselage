@@ -22,6 +22,10 @@ export const ButtonGhostDanger = forwardRef(function ButtonGhostDanger({ ...prop
   return <Button2 ref={ref} {...props} mod-ghost-danger/>;
 });
 
+export const ButtonGhostPrimary = forwardRef(function ButtonGhostDanger({ ...props }, ref) {
+  return <Button2 ref={ref} {...props} mod-ghost-primary/>;
+});
+
 export const ButtonNudeDanger = forwardRef(function ButtonNudeDanger({ ...props }, ref) {
   return <Button2 ref={ref} {...props} mod-nude-danger/>;
 });

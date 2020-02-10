@@ -108,4 +108,8 @@
   &--ghost-danger {
     @extend %button--ghost--danger;
   }
+
+  &--ghost-primary {
+    @extend %button--ghost--primary;
+  }
 }
