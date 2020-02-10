@@ -14,8 +14,9 @@ export const StaticSelect = ({
   context,
   ...element
 }) => {
-  const [{ loading, value }, action] = useBlockContext(element, context);
+  const [{ loading, value, error }, action] = useBlockContext(element, context);
   return <SelectFiltered
+    error={error}
     value={value}
     mod-loading={loading}
     options={options.map((option) => [option.value, parser.text(option.text)])}
@@ -31,10 +32,11 @@ export const MultiStaticSelect = ({
   placeholder = { text: 'select a option' },
   ...element
 }) => {
-  const [{ loading, value }, action] = useBlockContext(element, context);
+  const [{ loading, value, error }, action] = useBlockContext(element, context);
   return <MultiSelectFiltered
     value={value}
     mod-loading={loading}
+    error={error}
     options={options.map((option) => [option.value, parser.text(option.text)])}
     onChange={(value) => action({ target: { value } })}
     placeholder={parser.text(placeholder)} />;
