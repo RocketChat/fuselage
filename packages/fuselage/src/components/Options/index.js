@@ -96,7 +96,7 @@ export const useCursor = (initial, options, onChange) => {
     const lastIndex = options.length - 1;
     const { keyCode, key } = e;
     if (AnimatedVisibility.HIDDEN === visibility && keyCode !== ACTIONS.ESC && keyCode !== ACTIONS.TAB) {
-      return show();
+      show();
     }
     switch (keyCode) {
     case ACTIONS.HOME:
@@ -138,8 +138,10 @@ export const useCursor = (initial, options, onChange) => {
       }
       break;
     default:
-      const index = options.findIndex(([, label]) => label[0] === key);
-      setCursor(index);
+      if (key.match(/^[\d\w]$/i)) {
+        const index = options.findIndex(([, label]) => label[0].toLowerCase() === key);
+        ~index && setCursor(index);
+      }
     }
   };
 

@@ -72,7 +72,7 @@ export const MultiSelect = ({
               <Margins all='neg-x8'>
                 <Chip.Wrapper role='listbox'>
                   <Anchor disabled={disabled} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1 }} mod-undecorated children={option || placeholder}/>
-                  {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
+                  {currentValue.map((value) => <SelectedOptions tabIndex={-1} role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
                 </Chip.Wrapper>
               </Margins>
             </Box>
