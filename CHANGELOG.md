@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.28](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.27...v0.2.0-alpha.28) (2020-02-10)
+
+
+### Bug Fixes
+
+* placeholder transition ([#144](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/144)) ([4ce91d1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4ce91d179ece15d9014b93eb878b644e79850f56))
+
+
+
+
+
 # [0.2.0-alpha.27](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.26...v0.2.0-alpha.27) (2020-02-10)
 
 
