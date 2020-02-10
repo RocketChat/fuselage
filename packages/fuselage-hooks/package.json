@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-hooks",
-  "version": "0.2.0-alpha.28",
+  "version": "0.2.0-alpha.29",
   "description": "React Hooks for Fuselage, Rocket.Chat's design system",
   "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
   "author": {
