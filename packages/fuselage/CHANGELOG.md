@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.30](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.29...v0.2.0-alpha.30) (2020-02-12)
+
+
+### Bug Fixes
+
+* Safari not triggering buttons anchors ([#146](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/146)) ([2cb5aaa](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2cb5aaaf4c71e277a0a8ea556a8b9efbb3e58620))
+
+
+
+
+
 # [0.2.0-alpha.29](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.28...v0.2.0-alpha.29) (2020-02-10)
 
 **Note:** Version bump only for package @rocket.chat/fuselage
