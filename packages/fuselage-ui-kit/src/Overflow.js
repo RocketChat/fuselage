@@ -22,18 +22,21 @@ export const Overflow = ({ context, options, parser, ...element }) => {
     hide();
   });
 
+  const ref = useRef();
+  const onClick = useCallback(() => ref.current.focus() & show(), []);
+
   const handleSelection = useCallback((...args) => {
     fireChange(...args);
     reset();
     hide();
   }, []);
-  const ref = useRef();
   return (
     <>
       <Button
         ref={ref}
         small
-        ghost onClick={show}
+        ghost
+        onClick={onClick}
         onBlur={hide}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
