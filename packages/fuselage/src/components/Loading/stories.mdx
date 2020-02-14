@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Loading } from '../..';
+import { Loading, Button, Box } from '../..';
 
 <Meta title='Misc|Loading' parameters={{ jest: ['Loading/spec'] }} />
 
@@ -12,7 +12,7 @@ Indicates content that has not loaded yet.
 
 <Preview>
   <Story name='Default'>
-    <Loading />
+    <Loading/>
   </Story>
 </Preview>
 
@@ -24,4 +24,48 @@ Indicates content that has not loaded yet.
   </Story>
 </Preview>
 
-<Props of={Loading} />
+### Inside Button
+
+<Preview>
+  <Story name='Inside Button'>
+    <Button style={{minHeight:'40px'}}>
+      <Loading size='x12'/>
+    </Button>
+  </Story>
+</Preview>
+
+### Inside Button, inherit color
+
+<Preview>
+  <Story name='Inside Button, inherit color'>
+    <Box>
+      <Button primary danger style={{minHeight:'40px', marginInlineEnd: '5px'}}>
+        <Loading size='x12' inheritColor/>
+      </Button>
+      <Button primary style={{minHeight:'40px'}}>
+        <Loading size='x12' inheritColor/>
+      </Button>
+    </Box>
+  </Story>
+</Preview>
+
+
+### Variations
+
+<Story name='States'>
+  <PropsVariationSection
+    component={Loading}
+    common={{ onClick: action('click') }}
+    yAxis={{
+      'default': {},
+      '3 circles + x40': { circleCount: 3, size:'x40'},
+      '5 circles + x32': { circleCount: 5, size:'x32'},
+      '7 circles + x24': { circleCount: 7, size:'x24'},
+    }}
+    xAxis={{
+      default: {},
+      disabled: {disabled: true}
+    }}
+  />
+</Story>
+

@@ -4,8 +4,6 @@
   margin-block: calc(-1 * #{ $spaces-x1 });
 
   &__circle {
-    width: $spaces-x16;
-    height: $spaces-x16;
     margin-inline: $spaces-x1;
 
     animation: bounce 1.4s infinite ease-in-out both;
@@ -14,16 +12,19 @@
 
     background-color: $colors-b500;
 
-    &:nth-child(1) {
-      animation-delay: -0.32s;
-    }
-
-    &:nth-child(2) {
-      animation-delay: -0.16s;
-    }
-
     &--disabled {
       background-color: $colors-n500;
+    }
+
+    &--inherit-color {
+      background-color: currentColor;
+    }
+
+    @each $name, $value in $sizes {
+      &--size-#{$name} {
+        width: $value;
+        height: $value;
+      }
     }
   }
 }
