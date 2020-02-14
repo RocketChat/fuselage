@@ -1,0 +1,27 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Loading } from '../..';
+
+<Meta title='Misc|Loading' parameters={{ jest: ['Loading/spec'] }} />
+
+# Loading
+
+Indicates content that has not loaded yet.
+
+<Preview>
+  <Story name='Default'>
+    <Loading />
+  </Story>
+</Preview>
+
+### Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <Loading disabled/>
+  </Story>
+</Preview>
+
+<Props of={Loading} />

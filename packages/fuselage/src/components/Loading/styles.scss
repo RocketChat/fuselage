@@ -1,0 +1,41 @@
+.rcx-loading {
+  display: flex;
+
+  margin-block: calc(-1 * #{ $spaces-x1 });
+
+  &__circle {
+    width: $spaces-x16;
+    height: $spaces-x16;
+    margin-inline: $spaces-x1;
+
+    animation: bounce 1.4s infinite ease-in-out both;
+
+    border-radius: 50%;
+
+    background-color: $colors-b500;
+
+    &:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+
+    &--disabled {
+      background-color: $colors-n500;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
