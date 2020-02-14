@@ -95,8 +95,8 @@ export const useCursor = (initial, options, onChange) => {
   const handleKeyDown = (e) => {
     const lastIndex = options.length - 1;
     const { keyCode, key } = e;
-    if (AnimatedVisibility.HIDDEN === visibility && keyCode !== ACTIONS.ESC) {
-      return show();
+    if (AnimatedVisibility.HIDDEN === visibility && keyCode !== ACTIONS.ESC && keyCode !== ACTIONS.TAB) {
+      show();
     }
     switch (keyCode) {
     case ACTIONS.HOME:
@@ -120,14 +120,28 @@ export const useCursor = (initial, options, onChange) => {
 
     case ACTIONS.ENTER:
       e.preventDefault();
+      if (visibility === AnimatedVisibility.VISIBLE) {
+        e.persist();
+        e.nativeEvent.stopImmediatePropagation(); // TODO
+        e.stopPropagation();
+      }
       return onChange(options[cursor], visibilityHandler);
     case ACTIONS.ESC:
       e.preventDefault();
       reset();
-      return hide();
+      hide();
+      if (visibility === AnimatedVisibility.VISIBLE) {
+        e.persist();
+        e.nativeEvent.stopImmediatePropagation(); // TODO
+        e.stopPropagation();
+        return false;
+      }
+      break;
     default:
-      const index = options.findIndex(([, label]) => label[0] === key);
-      setCursor(index);
+      if (key.match(/^[\d\w]$/i)) {
+        const index = options.findIndex(([, label]) => label[0].toLowerCase() === key);
+        ~index && setCursor(index);
+      }
     }
   };
 

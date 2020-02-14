@@ -15,7 +15,7 @@ module.exports = (env, { mode = 'production' }) => ({
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
-  devtool: mode === 'production' ? false : 'eval-source-map',
+  devtool: mode === 'production' ? false : 'source-map',
   module: {
     rules: [
       {
@@ -70,6 +70,7 @@ module.exports = (env, { mode = 'production' }) => ({
         root: 'React',
       },
     },
+    'react-dom',
     '@rocket.chat/icons',
     '@rocket.chat/fuselage-hooks',
   ],

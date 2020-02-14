@@ -17,7 +17,7 @@ module.exports = (env, argv) => ({
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
-  devtool: argv.mode === 'production' ? 'source-map' : 'eval-source-map',
+  devtool: argv.mode === 'production' ? false : 'source-map',
   module: {
     rules: [
       {
