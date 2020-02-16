@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-export const Loading = forwardRef(function TabsItem({ disabled, size = 'x16', circleCount = 3, inheritColor, ...props }, ref) {
+export const Loading = forwardRef(function Loading({ disabled, size = 'x16', circleCount = 3, inheritColor, ...props }, ref) {
   return <Box
     componentClassName='rcx-loading'
     is='div'
