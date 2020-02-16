@@ -35,6 +35,6 @@ Loading.propTypes = {
     'x1000', 'x1040', 'x1080', 'x1120', 'x1160', 'x1200',
     'x1240', 'x1280', 'x1320', 'x1360', 'x1400', 'x1440',
     'x1480', 'x1520', 'x1560', 'x1600']),
-  circleCount: PropTypes.integer,
+  circleCount: PropTypes.number,
   inheritColor: PropTypes.bool,
 };
