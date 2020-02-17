@@ -24,12 +24,12 @@ export const useBlockContext = ({ blockId, actionId, appId, initialValue }, cont
     setLoading(true);
     await action({ blockId, appId: appId || appIdFromContext, actionId, value, viewId });
     setLoading(false);
-  }, []);
+  }, [actionId, blockId]);
 
   const stateFunction = useCallback(async ({ target: { value } }) => {
     setValue(value);
     await state({ blockId, appId, actionId, value });
-  }, []);
+  }, [actionId, blockId]);
 
   if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
     return [{ loading, setLoading, error }, actionFunction];
