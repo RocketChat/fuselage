@@ -4,18 +4,18 @@ const path = require('path');
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-module.exports = (env, argv) => ({
+module.exports = (env, { mode = 'production' }) => ({
   entry: {
     fuselage: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
-    filename: '[name].js',
+    filename: `[name].${ mode }.js`,
     path: path.resolve(__dirname, 'dist'),
     library: 'RocketChatFuselage',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
-  devtool: argv.mode === 'production' ? 'source-map' : 'eval-source-map',
+  devtool: mode === 'production' ? false : 'source-map',
   module: {
     rules: [
       {
@@ -27,7 +27,7 @@ module.exports = (env, argv) => ({
             presets: [
               ['@babel/preset-react', {
                 useBuiltIns: true,
-                development: argv.mode !== 'production',
+                development: mode !== 'production',
               }],
             ],
             plugins: ['@babel/plugin-transform-runtime'],
@@ -52,8 +52,8 @@ module.exports = (env, argv) => ({
                 require('postcss-custom-properties')(),
                 require('postcss-logical')({ preserve: true }),
                 require('autoprefixer')(),
-                require('cssnano'),
-              ],
+                mode === 'production' && require('cssnano'),
+              ].filter(Boolean),
             },
           },
           'sass-loader',
@@ -70,6 +70,7 @@ module.exports = (env, argv) => ({
         root: 'React',
       },
     },
+    'react-dom',
     '@rocket.chat/icons',
     '@rocket.chat/fuselage-hooks',
   ],

@@ -1,0 +1,1536 @@
+0 silly argv {
+0 silly argv   _: [ 'version' ],
+0 silly argv   'conventional-commits': true,
+0 silly argv   conventionalCommits: true,
+0 silly argv   'create-release': 'github',
+0 silly argv   createRelease: 'github',
+0 silly argv   yes: true,
+0 silly argv   y: true,
+0 silly argv   lernaVersion: '3.19.0',
+0 silly argv   '$0': 'node_modules/.bin/lerna'
+0 silly argv }
+1 notice cli v3.19.0
+2 verbose rootPath /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage
+3 info current version 0.2.0-alpha.24
+4 silly isAnythingCommitted
+5 verbose isAnythingCommitted 1
+6 silly currentBranch
+7 verbose currentBranch master
+8 silly remoteBranchExists
+9 silly isBehindUpstream
+10 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 2
+11 silly hasTags
+12 verbose hasTags true
+13 silly git-describe.sync "v0.2.0-alpha.2-98-gb7d85c1" => {"lastTagName":"v0.2.0-alpha.2","lastVersion":"v0.2.0-alpha.2","refCount":"98","sha":"b7d85c1","isDirty":false}
+14 info Looking for changed packages since v0.2.0-alpha.2
+15 silly checking diff packages/fuselage-hooks
+16 silly found diff in packages/fuselage-hooks/.eslintignore
+16 silly found diff in packages/fuselage-hooks/.eslintrc.js
+16 silly found diff in packages/fuselage-hooks/.flowconfig
+16 silly found diff in packages/fuselage-hooks/.gitignore
+16 silly found diff in packages/fuselage-hooks/.jest/helpers.js
+16 silly found diff in packages/fuselage-hooks/.lintstagedrc.json
+16 silly found diff in packages/fuselage-hooks/CHANGELOG.md
+16 silly found diff in packages/fuselage-hooks/README.md
+16 silly found diff in packages/fuselage-hooks/babel.config.js
+16 silly found diff in packages/fuselage-hooks/flow-typed/npm/invariant_v2.x.x.js
+16 silly found diff in packages/fuselage-hooks/package.json
+16 silly found diff in packages/fuselage-hooks/rollup.config.js
+16 silly found diff in packages/fuselage-hooks/src/helpers.js
+16 silly found diff in packages/fuselage-hooks/src/index.js
+16 silly found diff in packages/fuselage-hooks/src/useClassName.js
+16 silly found diff in packages/fuselage-hooks/src/useDebouncedCallback.js
+16 silly found diff in packages/fuselage-hooks/src/useDebouncedUpdates.js
+16 silly found diff in packages/fuselage-hooks/src/useExclusiveBooleanProps.js
+16 silly found diff in packages/fuselage-hooks/src/useMediaQuery.js
+16 silly found diff in packages/fuselage-hooks/src/useMergedRefs.js
+16 silly found diff in packages/fuselage-hooks/src/useToggle.js
+16 silly found diff in packages/fuselage-hooks/src/useUniqueId.js
+16 silly found diff in packages/fuselage-hooks/tests/useClassName.spec.js
+16 silly found diff in packages/fuselage-hooks/tests/useDebouncedCallback.spec.js
+16 silly found diff in packages/fuselage-hooks/tests/useDebouncedUpdates.spec.js
+16 silly found diff in packages/fuselage-hooks/tests/useExclusiveBooleanProps.spec.js
+16 silly found diff in packages/fuselage-hooks/tests/useMediaQuery.spec.js
+16 silly found diff in packages/fuselage-hooks/tests/useMergedRefs.spec.js
+16 silly found diff in packages/fuselage-hooks/tests/useToggle.spec.js
+16 silly found diff in packages/fuselage-hooks/tests/useUniqueId.spec.js
+17 verbose filtered diff [
+17 verbose filtered diff   'packages/fuselage-hooks/.eslintignore',
+17 verbose filtered diff   'packages/fuselage-hooks/.eslintrc.js',
+17 verbose filtered diff   'packages/fuselage-hooks/.flowconfig',
+17 verbose filtered diff   'packages/fuselage-hooks/.gitignore',
+17 verbose filtered diff   'packages/fuselage-hooks/.jest/helpers.js',
+17 verbose filtered diff   'packages/fuselage-hooks/.lintstagedrc.json',
+17 verbose filtered diff   'packages/fuselage-hooks/CHANGELOG.md',
+17 verbose filtered diff   'packages/fuselage-hooks/README.md',
+17 verbose filtered diff   'packages/fuselage-hooks/babel.config.js',
+17 verbose filtered diff   'packages/fuselage-hooks/flow-typed/npm/invariant_v2.x.x.js',
+17 verbose filtered diff   'packages/fuselage-hooks/package.json',
+17 verbose filtered diff   'packages/fuselage-hooks/rollup.config.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/helpers.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/index.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/useClassName.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/useDebouncedCallback.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/useDebouncedUpdates.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/useExclusiveBooleanProps.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/useMediaQuery.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/useMergedRefs.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/useToggle.js',
+17 verbose filtered diff   'packages/fuselage-hooks/src/useUniqueId.js',
+17 verbose filtered diff   'packages/fuselage-hooks/tests/useClassName.spec.js',
+17 verbose filtered diff   'packages/fuselage-hooks/tests/useDebouncedCallback.spec.js',
+17 verbose filtered diff   'packages/fuselage-hooks/tests/useDebouncedUpdates.spec.js',
+17 verbose filtered diff   'packages/fuselage-hooks/tests/useExclusiveBooleanProps.spec.js',
+17 verbose filtered diff   'packages/fuselage-hooks/tests/useMediaQuery.spec.js',
+17 verbose filtered diff   'packages/fuselage-hooks/tests/useMergedRefs.spec.js',
+17 verbose filtered diff   'packages/fuselage-hooks/tests/useToggle.spec.js',
+17 verbose filtered diff   'packages/fuselage-hooks/tests/useUniqueId.spec.js'
+17 verbose filtered diff ]
+18 silly checking diff packages/fuselage-tokens
+19 silly found diff in packages/fuselage-tokens/CHANGELOG.md
+19 silly found diff in packages/fuselage-tokens/README.md
+19 silly found diff in packages/fuselage-tokens/all.scss
+19 silly found diff in packages/fuselage-tokens/colors.scss
+19 silly found diff in packages/fuselage-tokens/package.json
+19 silly found diff in packages/fuselage-tokens/typography.scss
+20 verbose filtered diff [
+20 verbose filtered diff   'packages/fuselage-tokens/CHANGELOG.md',
+20 verbose filtered diff   'packages/fuselage-tokens/README.md',
+20 verbose filtered diff   'packages/fuselage-tokens/all.scss',
+20 verbose filtered diff   'packages/fuselage-tokens/colors.scss',
+20 verbose filtered diff   'packages/fuselage-tokens/package.json',
+20 verbose filtered diff   'packages/fuselage-tokens/typography.scss'
+20 verbose filtered diff ]
+21 silly checking diff packages/fuselage-ui-kit
+22 silly found diff in packages/fuselage-ui-kit/.eslintrc.js
+22 silly found diff in packages/fuselage-ui-kit/.gitignore
+22 silly found diff in packages/fuselage-ui-kit/.storybook/.babelrc
+22 silly found diff in packages/fuselage-ui-kit/.storybook/addons.js
+22 silly found diff in packages/fuselage-ui-kit/.storybook/config.js
+22 silly found diff in packages/fuselage-ui-kit/.storybook/jest-results.json
+22 silly found diff in packages/fuselage-ui-kit/.storybook/preview-head.html
+22 silly found diff in packages/fuselage-ui-kit/.storybook/webpack.config.js
+22 silly found diff in packages/fuselage-ui-kit/CHANGELOG.md
+22 silly found diff in packages/fuselage-ui-kit/README.md
+22 silly found diff in packages/fuselage-ui-kit/__tests__/ui-kit.test.js
+22 silly found diff in packages/fuselage-ui-kit/babel.config.js
+22 silly found diff in packages/fuselage-ui-kit/package-lock.json
+22 silly found diff in packages/fuselage-ui-kit/package.json
+22 silly found diff in packages/fuselage-ui-kit/src/Actions.js
+22 silly found diff in packages/fuselage-ui-kit/src/Block.js
+22 silly found diff in packages/fuselage-ui-kit/src/Button.js
+22 silly found diff in packages/fuselage-ui-kit/src/Demo.js
+22 silly found diff in packages/fuselage-ui-kit/src/Image.js
+22 silly found diff in packages/fuselage-ui-kit/src/Input.js
+22 silly found diff in packages/fuselage-ui-kit/src/MultiSelect.js
+22 silly found diff in packages/fuselage-ui-kit/src/Overflow.js
+22 silly found diff in packages/fuselage-ui-kit/src/Section.js
+22 silly found diff in packages/fuselage-ui-kit/src/StaticSelect.js
+22 silly found diff in packages/fuselage-ui-kit/src/UIKitMessage.stories.mdx
+22 silly found diff in packages/fuselage-ui-kit/src/UIKitModal.stories.mdx
+22 silly found diff in packages/fuselage-ui-kit/src/hooks.js
+22 silly found diff in packages/fuselage-ui-kit/src/index.js
+22 silly found diff in packages/fuselage-ui-kit/tsconfig.json
+22 silly found diff in packages/fuselage-ui-kit/webpack.config.js
+23 verbose filtered diff [
+23 verbose filtered diff   'packages/fuselage-ui-kit/.eslintrc.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/.gitignore',
+23 verbose filtered diff   'packages/fuselage-ui-kit/.storybook/.babelrc',
+23 verbose filtered diff   'packages/fuselage-ui-kit/.storybook/addons.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/.storybook/config.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/.storybook/jest-results.json',
+23 verbose filtered diff   'packages/fuselage-ui-kit/.storybook/preview-head.html',
+23 verbose filtered diff   'packages/fuselage-ui-kit/.storybook/webpack.config.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/CHANGELOG.md',
+23 verbose filtered diff   'packages/fuselage-ui-kit/README.md',
+23 verbose filtered diff   'packages/fuselage-ui-kit/__tests__/ui-kit.test.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/babel.config.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/package-lock.json',
+23 verbose filtered diff   'packages/fuselage-ui-kit/package.json',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/Actions.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/Block.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/Button.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/Demo.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/Image.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/Input.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/MultiSelect.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/Overflow.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/Section.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/StaticSelect.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/UIKitMessage.stories.mdx',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/UIKitModal.stories.mdx',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/hooks.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/src/index.js',
+23 verbose filtered diff   'packages/fuselage-ui-kit/tsconfig.json',
+23 verbose filtered diff   'packages/fuselage-ui-kit/webpack.config.js'
+23 verbose filtered diff ]
+24 silly checking diff packages/fuselage
+25 silly found diff in packages/fuselage/.gitignore
+25 silly found diff in packages/fuselage/.jest/helpers.js
+25 silly found diff in packages/fuselage/.jest/matchMediaMock.js
+25 silly found diff in packages/fuselage/.jest/setup.js
+25 silly found diff in packages/fuselage/.jest/styleMock.js
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Component_Class_Name_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Invisible_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Is_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_AnimatedVisibility_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Align.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Align_Content.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Align_Items.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Basis.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Direction.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Grow.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Justify_Content.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Order.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Shrink.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Wrap.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_All_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Auto.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Block_End_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Block_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Block_Start_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Inline_End_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Inline_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Inline_Start_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Negative_Values.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_None.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Scrollable_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Scrollable_Horizontal_Scrolling.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Scrollable_Smooth_Scrolling.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Scrollable_Vertical_Scrolling.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Plain_Text_Text_Colors.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Plain_Text_Text_Styles.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_A.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Abbr.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_B.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Blockquote_And_Cite.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Code.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Del_And_Ins.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Dfn.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Dl.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Em.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Hx.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_I.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Kbd.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Ol.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_P.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Pre.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Pre_With_Code.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Q_And_Cite.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Small.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Strong.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Sup_And_Sub.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Table_Complex.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Table_Simple.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Time.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Ul.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Var_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_Center.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_End.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_Start.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Stretch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Vertical.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Vertical_With_Stretch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Wrap.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_As_Link.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Danger.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Ghost.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Primary.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Small.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Square.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Ghost_Small_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Ghost_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Primary_Small_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Primary_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Small_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_With_Icon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_Checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_Indeterminate.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_RadioButton_Checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_RadioButton_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_RadioButton_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_RadioButton_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ToggleSwitch_Checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ToggleSwitch_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ToggleSwitch_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ToggleSwitch_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_stretch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_vertical.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_vertical_with_stretch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_wrap.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_InputGroup_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_InputGroup_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Collections_InputGroup_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Accordion_Accordion_Item_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Accordion_Accordion_Item_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Accordion_Accordion_Item_Enabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Accordion_Accordion_Item_Expanded.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Accordion_Accordion_Item_Noncollapsible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Accordion_Accordion_Item_Without_Title.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Accordion_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Lg_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Md_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Sm_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Xl_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Grid_Xs_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Modal_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Tile_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Tile_Elevation_0.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Tile_Elevation_1.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Containers_Tile_Elevation_2.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Pagination_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Table_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Table_Fixed.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Button_as_link.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Button_basic.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Button_danger.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Button_ghost.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Button_primary.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Button_small.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Button_square.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Button_with_icon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_CheckBox_checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_CheckBox_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_CheckBox_disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_CheckBox_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_CheckBox_indeterminate.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_CheckBox_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_CheckBox_uncontrolled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_CheckBox_with_label.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_addReaction.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_arrowDown.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_at.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_back.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_ban.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_bell.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_bellOff.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_bold.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_book.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_calendar.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_card.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_chat.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_check.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_checkmarkCircled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_circle.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_circleCross.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_circledArrowDown.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_clip.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_clipboard.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_clock.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_cloudPlus.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_code.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_cog.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_computer.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_copy.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_cross.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_cube.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_customize.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_discover.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_discussion.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_download.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_edit.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_editRounded.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_emoji.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_eraser.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_eye.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_eyeOff.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_facebook.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_fileDocument.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_fileGeneric.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_fileGoogleDrive.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_fileKeynote.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_filePdf.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_fileSheets.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_filesAudio.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_filesVideo.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_filesZip.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_flag.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_folder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_github.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_gitlab.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_google.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_handPointer.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_hashtag.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_help.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_hubot.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_import.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_infoCircled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_italic.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_jump.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_key.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_keyboard.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_language.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_linkedin.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_list.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_listAlt.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_livechat.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_loading.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_lock.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_magnifier.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_mail.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_mapPin.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_menu.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_message.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_mic.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_mobile.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_modalWarning.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_multiline.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_mute.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_pause.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_permalink.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_pin.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_play.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_playSolid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_plus.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_podcast.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_post.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_queue.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_quote.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_reload.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_reply.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_replyDirectly.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_report.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_send.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_sendActive.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_share.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_shield.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_shieldAlt.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_shieldCheck.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_signOut.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_sort.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_sortAmountDown.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_star.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_starFilled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_strike.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_team.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_thList.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_thread.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_trash.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_twitter.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_upload.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_user.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_userPlus.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_userRounded.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_video.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_videoOff.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_volume.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_volumeDisable.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_volumeMute.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Icon_warning.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_of_select_type.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_of_textarea_type.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_required.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_uncontrolled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_with_error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_with_icon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_with_label.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_with_label_and_error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_with_placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_Input_with_value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_RadioButton_checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_RadioButton_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_RadioButton_disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_RadioButton_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_RadioButton_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_RadioButton_uncontrolled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_RadioButton_with_label.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_ToggleSwitch_checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_ToggleSwitch_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_ToggleSwitch_disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_ToggleSwitch_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_ToggleSwitch_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_ToggleSwitch_uncontrolled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Elements_ToggleSwitch_with_label.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_FieldGroup_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Field_Example.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Field_With_Check_Box.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Field_With_Toggle_Switch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_InputBox_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_InputBox_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_InputBox_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_InputBox_Skeleton.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_InputBox_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_InputBox_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_AutoComplete_Example.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_EmailInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_EmailInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_EmailInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_EmailInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_EmailInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_EmailInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_EmailInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_PasswordInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_PasswordInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_PasswordInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_PasswordInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_PasswordInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_PasswordInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_PasswordInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SearchInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SearchInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SearchInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SearchInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SearchInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SearchInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SearchInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_Multiple.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_Multiple_With_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_With_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_SelectInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Filtered.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Filtered_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Multi_Select_Filtered_Error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Select_With_Filter.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Select_With_Filter_And_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_Select_Select_With_Filter_And_Error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TelephoneInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextAreaInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextAreaInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextAreaInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextAreaInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextAreaInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextAreaInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextAreaInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_TextInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_UrlInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_UrlInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_UrlInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_UrlInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_UrlInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_UrlInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Inputs_UrlInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Label_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Label_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Forms_Label_Required.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Avatar_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Callout_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Callout_With_Description.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Callout_With_Description_Only.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Chevron_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Chevron_Down.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Chevron_Left.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Chevron_Right.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Chevron_Size.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Chevron_Up.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Chip_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Divider_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Icon_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Level_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Options_Check_Option.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Options_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Options_Option_Avatar.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Skeleton_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Skeleton_Rect.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Tabs_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Styles_Theming_tests_Color_Palette.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Styles_Theming_tests_Theme_overrides.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Headline_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Headline_Level.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Headline_Rich_Text.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Headline_Skeleton.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Paragraph_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Paragraph_Rich_Text.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Paragraph_Skeleton.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Subtitle_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Subtitle_Level.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Subtitle_Rich_Text.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Typography_Subtitle_Skeleton.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Component_Class_Name_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Invisible_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Is_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_AnimatedVisibility_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Align.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Align_Content.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Align_Items.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Basis.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Direction.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Grow.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Justify_Content.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Order.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Shrink.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Flex_Wrap.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_All_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_Auto.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_Block_End_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_Block_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_Block_Start_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_Inline_End_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_Inline_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_Inline_Start_Prop.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_Negative_Values.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Margins_None.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Scrollable_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Scrollable_Horizontal_Scrolling.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Scrollable_Smooth_Scrolling.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Modifiers_Scrollable_Vertical_Scrolling.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Plain_Text_Text_Colors.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Plain_Text_Text_Styles.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_A.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Abbr.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_B.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Blockquote_And_Cite.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Code.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Del_And_Ins.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Dfn.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Dl.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Em.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Hx.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_I.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Kbd.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Ol.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_P.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Pre.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Pre_With_Code.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Q_And_Cite.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Small.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Strong.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Sup_And_Sub.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Table_Complex.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Table_Simple.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Time.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Ul.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Box_Rich_Text_Var_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Aligned_At_Center.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Aligned_At_End.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Aligned_At_Start.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Stretch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Vertical.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Vertical_With_Stretch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ButtonGroup_Wrap.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_As_Link.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_Danger.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_Ghost.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_Primary.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_Small.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_Square.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_States_Of_Ghost_Small_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_States_Of_Ghost_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_States_Of_Primary_Small_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_States_Of_Primary_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_States_Of_Small_Variant.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_Button_With_Icon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_CheckBox_Checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_CheckBox_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_CheckBox_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_CheckBox_Indeterminate.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_CheckBox_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_RadioButton_Checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_RadioButton_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_RadioButton_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_RadioButton_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ToggleSwitch_Checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ToggleSwitch_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ToggleSwitch_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Buttons_ToggleSwitch_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_ButtonGroup_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_ButtonGroup_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_ButtonGroup_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_ButtonGroup_stretch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_ButtonGroup_vertical.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_ButtonGroup_vertical_with_stretch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_ButtonGroup_wrap.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_InputGroup_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_InputGroup_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Collections_InputGroup_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Accordion_Accordion_Item_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Accordion_Accordion_Item_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Accordion_Accordion_Item_Enabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Accordion_Accordion_Item_Expanded.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Accordion_Accordion_Item_Noncollapsible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Accordion_Accordion_Item_Without_Title.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Accordion_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Lg_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Md_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Sm_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Xl_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Grid_Xs_Breakpoint.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Modal_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Tile_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Tile_Elevation_0.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Tile_Elevation_1.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Containers_Tile_Elevation_2.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Pagination_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Table_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Table_Fixed.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Button_as_link.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Button_basic.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Button_danger.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Button_ghost.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Button_primary.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Button_small.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Button_square.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Button_with_icon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_CheckBox_checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_CheckBox_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_CheckBox_disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_CheckBox_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_CheckBox_indeterminate.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_CheckBox_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_CheckBox_uncontrolled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_CheckBox_with_label.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_addReaction.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_arrowDown.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_at.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_back.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_ban.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_bell.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_bellOff.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_bold.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_book.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_calendar.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_card.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_chat.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_check.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_checkmarkCircled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_circle.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_circleCross.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_circledArrowDown.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_clip.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_clipboard.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_clock.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_cloudPlus.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_code.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_cog.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_computer.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_copy.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_cross.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_cube.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_customize.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_discover.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_discussion.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_download.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_edit.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_editRounded.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_emoji.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_eraser.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_eye.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_eyeOff.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_facebook.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_fileDocument.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_fileGeneric.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_fileGoogleDrive.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_fileKeynote.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_filePdf.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_fileSheets.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_filesAudio.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_filesVideo.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_filesZip.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_flag.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_folder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_github.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_gitlab.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_google.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_handPointer.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_hashtag.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_help.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_hubot.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_import.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_infoCircled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_italic.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_jump.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_key.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_keyboard.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_language.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_linkedin.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_list.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_listAlt.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_livechat.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_loading.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_lock.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_magnifier.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_mail.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_mapPin.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_menu.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_message.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_mic.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_mobile.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_modalWarning.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_multiline.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_mute.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_pause.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_permalink.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_pin.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_play.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_playSolid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_plus.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_podcast.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_post.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_queue.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_quote.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_reload.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_reply.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_replyDirectly.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_report.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_send.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_sendActive.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_share.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_shield.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_shieldAlt.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_shieldCheck.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_signOut.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_sort.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_sortAmountDown.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_star.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_starFilled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_strike.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_team.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_thList.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_thread.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_trash.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_twitter.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_upload.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_user.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_userPlus.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_userRounded.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_video.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_videoOff.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_volume.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_volumeDisable.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_volumeMute.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Icon_warning.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_of_select_type.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_of_textarea_type.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_required.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_uncontrolled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_with_error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_with_icon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_with_label.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_with_label_and_error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_with_placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_Input_with_value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_RadioButton_checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_RadioButton_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_RadioButton_disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_RadioButton_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_RadioButton_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_RadioButton_uncontrolled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_RadioButton_with_label.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_ToggleSwitch_checked.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_ToggleSwitch_default.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_ToggleSwitch_disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_ToggleSwitch_hidden.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_ToggleSwitch_invisible.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_ToggleSwitch_uncontrolled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Elements_ToggleSwitch_with_label.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_FieldGroup_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Field_Example.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Field_With_Check_Box.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Field_With_Toggle_Switch.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_InputBox_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_InputBox_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_InputBox_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_InputBox_Skeleton.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_InputBox_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_InputBox_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_AutoComplete_Example.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_EmailInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_EmailInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_EmailInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_EmailInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_EmailInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_EmailInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_EmailInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_PasswordInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_PasswordInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_PasswordInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_PasswordInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_PasswordInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_PasswordInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_PasswordInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SearchInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SearchInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SearchInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SearchInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SearchInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SearchInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SearchInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_Multiple.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_Multiple_With_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_With_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_SelectInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Filtered.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Filtered_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Multi_Select_Filtered_Error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Select_With_Filter.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Select_With_Filter_And_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_Select_Select_With_Filter_And_Error.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TelephoneInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextAreaInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextAreaInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextAreaInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextAreaInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextAreaInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextAreaInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextAreaInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_TextInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_UrlInput_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_UrlInput_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_UrlInput_Invalid.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_UrlInput_States.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_UrlInput_With_Icon_Addon.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_UrlInput_With_Placeholder.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Inputs_UrlInput_With_Value.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Label_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Label_Disabled.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Forms_Label_Required.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Avatar_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Callout_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Callout_With_Description.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Callout_With_Description_Only.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Chevron_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Chevron_Down.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Chevron_Left.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Chevron_Right.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Chevron_Size.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Chevron_Up.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Chip_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Divider_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Icon_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Level_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Options_Check_Option.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Options_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Options_Option_Avatar.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Skeleton_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Skeleton_Rect.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Tabs_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Styles_Theming_tests_Color_Palette.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Styles_Theming_tests_Theme_overrides.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Headline_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Headline_Level.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Headline_Rich_Text.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Headline_Skeleton.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Paragraph_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Paragraph_Rich_Text.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Paragraph_Skeleton.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Subtitle_Default_Story.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Subtitle_Level.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Subtitle_Rich_Text.png
+25 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Typography_Subtitle_Skeleton.png
+25 silly found diff in packages/fuselage/.storybook/.babelrc
+25 silly found diff in packages/fuselage/.storybook/addons.js
+25 silly found diff in packages/fuselage/.storybook/config.js
+25 silly found diff in packages/fuselage/.storybook/helpers.js
+25 silly found diff in packages/fuselage/.storybook/jest-results.json
+25 silly found diff in packages/fuselage/.storybook/preview-head.html
+25 silly found diff in packages/fuselage/.storybook/webpack.config.js
+25 silly found diff in packages/fuselage/.stylelintrc
+25 silly found diff in packages/fuselage/CHANGELOG.md
+25 silly found diff in packages/fuselage/README.md
+25 silly found diff in packages/fuselage/babel.config.js
+25 silly found diff in packages/fuselage/index.js
+25 silly found diff in packages/fuselage/package.json
+25 silly found diff in packages/fuselage/src/components/Accordion/Item.js
+25 silly found diff in packages/fuselage/src/components/Accordion/Item.stories.mdx
+25 silly found diff in packages/fuselage/src/components/Accordion/index.js
+25 silly found diff in packages/fuselage/src/components/Accordion/spec.js
+25 silly found diff in packages/fuselage/src/components/Accordion/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Accordion/styles.scss
+25 silly found diff in packages/fuselage/src/components/AutoComplete/index.js
+25 silly found diff in packages/fuselage/src/components/AutoComplete/spec.js
+25 silly found diff in packages/fuselage/src/components/AutoComplete/stories.mdx
+25 silly found diff in packages/fuselage/src/components/AutoComplete/styles.scss
+25 silly found diff in packages/fuselage/src/components/Avatar/index.js
+25 silly found diff in packages/fuselage/src/components/Avatar/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Avatar/styles.scss
+25 silly found diff in packages/fuselage/src/components/Box/AnimatedVisibility/index.js
+25 silly found diff in packages/fuselage/src/components/Box/AnimatedVisibility/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Box/AnimatedVisibility/styles.scss
+25 silly found diff in packages/fuselage/src/components/Box/Flex/index.js
+25 silly found diff in packages/fuselage/src/components/Box/Flex/spec.js
+25 silly found diff in packages/fuselage/src/components/Box/Flex/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Box/Flex/styles.scss
+25 silly found diff in packages/fuselage/src/components/Box/Margins/index.js
+25 silly found diff in packages/fuselage/src/components/Box/Margins/spec.js
+25 silly found diff in packages/fuselage/src/components/Box/Margins/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Box/Margins/styles.scss
+25 silly found diff in packages/fuselage/src/components/Box/PlainText.stories.mdx
+25 silly found diff in packages/fuselage/src/components/Box/Position/index.js
+25 silly found diff in packages/fuselage/src/components/Box/Position/styles.scss
+25 silly found diff in packages/fuselage/src/components/Box/RichText.stories.mdx
+25 silly found diff in packages/fuselage/src/components/Box/Scrollable/index.js
+25 silly found diff in packages/fuselage/src/components/Box/Scrollable/spec.js
+25 silly found diff in packages/fuselage/src/components/Box/Scrollable/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Box/Scrollable/styles.scss
+25 silly found diff in packages/fuselage/src/components/Box/index.js
+25 silly found diff in packages/fuselage/src/components/Box/spec.js
+25 silly found diff in packages/fuselage/src/components/Box/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Box/styles.scss
+25 silly found diff in packages/fuselage/src/components/Button/index.js
+25 silly found diff in packages/fuselage/src/components/Button/spec.js
+25 silly found diff in packages/fuselage/src/components/Button/stories.js
+25 silly found diff in packages/fuselage/src/components/Button/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Button/styles.scss
+25 silly found diff in packages/fuselage/src/components/ButtonGroup/index.js
+25 silly found diff in packages/fuselage/src/components/ButtonGroup/spec.js
+25 silly found diff in packages/fuselage/src/components/ButtonGroup/stories.js
+25 silly found diff in packages/fuselage/src/components/ButtonGroup/stories.mdx
+25 silly found diff in packages/fuselage/src/components/ButtonGroup/styles.scss
+25 silly found diff in packages/fuselage/src/components/Callout/index.js
+25 silly found diff in packages/fuselage/src/components/Callout/spec.js
+25 silly found diff in packages/fuselage/src/components/Callout/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Callout/styles.scss
+25 silly found diff in packages/fuselage/src/components/CheckBox/index.js
+25 silly found diff in packages/fuselage/src/components/CheckBox/spec.js
+25 silly found diff in packages/fuselage/src/components/CheckBox/stories.js
+25 silly found diff in packages/fuselage/src/components/CheckBox/stories.mdx
+25 silly found diff in packages/fuselage/src/components/CheckBox/styles.scss
+25 silly found diff in packages/fuselage/src/components/Chevron/index.js
+25 silly found diff in packages/fuselage/src/components/Chevron/spec.js
+25 silly found diff in packages/fuselage/src/components/Chevron/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Chevron/styles.scss
+25 silly found diff in packages/fuselage/src/components/Chip/index.js
+25 silly found diff in packages/fuselage/src/components/Chip/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Chip/styles.scss
+25 silly found diff in packages/fuselage/src/components/Divider/index.js
+25 silly found diff in packages/fuselage/src/components/Divider/spec.js
+25 silly found diff in packages/fuselage/src/components/Divider/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Divider/styles.scss
+25 silly found diff in packages/fuselage/src/components/Drawer/spec.js
+25 silly found diff in packages/fuselage/src/components/EmailInput/index.js
+25 silly found diff in packages/fuselage/src/components/EmailInput/spec.js
+25 silly found diff in packages/fuselage/src/components/EmailInput/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Field/index.js
+25 silly found diff in packages/fuselage/src/components/Field/spec.js
+25 silly found diff in packages/fuselage/src/components/Field/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Field/styles.scss
+25 silly found diff in packages/fuselage/src/components/FieldGroup/index.js
+25 silly found diff in packages/fuselage/src/components/FieldGroup/spec.js
+25 silly found diff in packages/fuselage/src/components/FieldGroup/stories.mdx
+25 silly found diff in packages/fuselage/src/components/FieldGroup/styles.scss
+25 silly found diff in packages/fuselage/src/components/Grid/index.js
+25 silly found diff in packages/fuselage/src/components/Grid/spec.js
+25 silly found diff in packages/fuselage/src/components/Grid/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/Grid/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Grid/styles.scss
+25 silly found diff in packages/fuselage/src/components/Headline/index.js
+25 silly found diff in packages/fuselage/src/components/Headline/spec.js
+25 silly found diff in packages/fuselage/src/components/Headline/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Headline/styles.scss
+25 silly found diff in packages/fuselage/src/components/Icon/index.js
+25 silly found diff in packages/fuselage/src/components/Icon/spec.js
+25 silly found diff in packages/fuselage/src/components/Icon/stories.js
+25 silly found diff in packages/fuselage/src/components/Icon/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Icon/styles.scss
+25 silly found diff in packages/fuselage/src/components/Input/index.js
+25 silly found diff in packages/fuselage/src/components/Input/spec.js
+25 silly found diff in packages/fuselage/src/components/Input/stories.js
+25 silly found diff in packages/fuselage/src/components/Input/styles.scss
+25 silly found diff in packages/fuselage/src/components/InputBox/Option.js
+25 silly found diff in packages/fuselage/src/components/InputBox/Placeholder.js
+25 silly found diff in packages/fuselage/src/components/InputBox/index.js
+25 silly found diff in packages/fuselage/src/components/InputBox/spec.js
+25 silly found diff in packages/fuselage/src/components/InputBox/stories.mdx
+25 silly found diff in packages/fuselage/src/components/InputBox/styles.scss
+25 silly found diff in packages/fuselage/src/components/InputGroup/index.js
+25 silly found diff in packages/fuselage/src/components/InputGroup/spec.js
+25 silly found diff in packages/fuselage/src/components/InputGroup/stories.js
+25 silly found diff in packages/fuselage/src/components/InputGroup/styles.scss
+25 silly found diff in packages/fuselage/src/components/Label/index.js
+25 silly found diff in packages/fuselage/src/components/Label/spec.js
+25 silly found diff in packages/fuselage/src/components/Label/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Label/styles.scss
+25 silly found diff in packages/fuselage/src/components/Level/index.js
+25 silly found diff in packages/fuselage/src/components/Level/spec.js
+25 silly found diff in packages/fuselage/src/components/Level/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Level/styles.scss
+25 silly found diff in packages/fuselage/src/components/Modal/Stack.js
+25 silly found diff in packages/fuselage/src/components/Modal/index.js
+25 silly found diff in packages/fuselage/src/components/Modal/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Modal/styles.scss
+25 silly found diff in packages/fuselage/src/components/Options/index.js
+25 silly found diff in packages/fuselage/src/components/Options/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Options/styles.scss
+25 silly found diff in packages/fuselage/src/components/Pagination/index.js
+25 silly found diff in packages/fuselage/src/components/Pagination/spec.js
+25 silly found diff in packages/fuselage/src/components/Pagination/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Pagination/styles.scss
+25 silly found diff in packages/fuselage/src/components/Paragraph/index.js
+25 silly found diff in packages/fuselage/src/components/Paragraph/spec.js
+25 silly found diff in packages/fuselage/src/components/Paragraph/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Paragraph/styles.scss
+25 silly found diff in packages/fuselage/src/components/PasswordInput/index.js
+25 silly found diff in packages/fuselage/src/components/PasswordInput/spec.js
+25 silly found diff in packages/fuselage/src/components/PasswordInput/stories.mdx
+25 silly found diff in packages/fuselage/src/components/RadioButton/index.js
+25 silly found diff in packages/fuselage/src/components/RadioButton/spec.js
+25 silly found diff in packages/fuselage/src/components/RadioButton/stories.js
+25 silly found diff in packages/fuselage/src/components/RadioButton/stories.mdx
+25 silly found diff in packages/fuselage/src/components/RadioButton/styles.scss
+25 silly found diff in packages/fuselage/src/components/ScrollableArea/index.js
+25 silly found diff in packages/fuselage/src/components/ScrollableArea/spec.js
+25 silly found diff in packages/fuselage/src/components/ScrollableArea/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/ScrollableArea/styles.scss
+25 silly found diff in packages/fuselage/src/components/SearchInput/index.js
+25 silly found diff in packages/fuselage/src/components/SearchInput/spec.js
+25 silly found diff in packages/fuselage/src/components/SearchInput/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Select/MultiSelect.js
+25 silly found diff in packages/fuselage/src/components/Select/Select.js
+25 silly found diff in packages/fuselage/src/components/Select/index.js
+25 silly found diff in packages/fuselage/src/components/Select/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Select/styles.scss
+25 silly found diff in packages/fuselage/src/components/SelectInput/index.js
+25 silly found diff in packages/fuselage/src/components/SelectInput/spec.js
+25 silly found diff in packages/fuselage/src/components/SelectInput/stories.mdx
+25 silly found diff in packages/fuselage/src/components/SideBar/Header/index.js
+25 silly found diff in packages/fuselage/src/components/SideBar/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/Skeleton/index.js
+25 silly found diff in packages/fuselage/src/components/Skeleton/spec.js
+25 silly found diff in packages/fuselage/src/components/Skeleton/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Skeleton/styles.scss
+25 silly found diff in packages/fuselage/src/components/Subtitle/index.js
+25 silly found diff in packages/fuselage/src/components/Subtitle/spec.js
+25 silly found diff in packages/fuselage/src/components/Subtitle/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Subtitle/styles.scss
+25 silly found diff in packages/fuselage/src/components/Tab/index.js
+25 silly found diff in packages/fuselage/src/components/Tab/spec.js
+25 silly found diff in packages/fuselage/src/components/Tab/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/Tab/styles.scss
+25 silly found diff in packages/fuselage/src/components/Table/index.js
+25 silly found diff in packages/fuselage/src/components/Table/spec.js
+25 silly found diff in packages/fuselage/src/components/Table/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Table/styles.scss
+25 silly found diff in packages/fuselage/src/components/Tabs/index.js
+25 silly found diff in packages/fuselage/src/components/Tabs/spec.js
+25 silly found diff in packages/fuselage/src/components/Tabs/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/Tabs/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Tabs/styles.scss
+25 silly found diff in packages/fuselage/src/components/TelephoneInput/index.js
+25 silly found diff in packages/fuselage/src/components/TelephoneInput/spec.js
+25 silly found diff in packages/fuselage/src/components/TelephoneInput/stories.mdx
+25 silly found diff in packages/fuselage/src/components/TextAreaInput/index.js
+25 silly found diff in packages/fuselage/src/components/TextAreaInput/spec.js
+25 silly found diff in packages/fuselage/src/components/TextAreaInput/stories.mdx
+25 silly found diff in packages/fuselage/src/components/TextInput/index.js
+25 silly found diff in packages/fuselage/src/components/TextInput/spec.js
+25 silly found diff in packages/fuselage/src/components/TextInput/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Tile/index.js
+25 silly found diff in packages/fuselage/src/components/Tile/spec.js
+25 silly found diff in packages/fuselage/src/components/Tile/stories.mdx
+25 silly found diff in packages/fuselage/src/components/Tile/styles.scss
+25 silly found diff in packages/fuselage/src/components/ToggleSwitch/index.js
+25 silly found diff in packages/fuselage/src/components/ToggleSwitch/spec.js
+25 silly found diff in packages/fuselage/src/components/ToggleSwitch/stories.js
+25 silly found diff in packages/fuselage/src/components/ToggleSwitch/stories.mdx
+25 silly found diff in packages/fuselage/src/components/ToggleSwitch/styles.scss
+25 silly found diff in packages/fuselage/src/components/UrlInput/index.js
+25 silly found diff in packages/fuselage/src/components/UrlInput/spec.js
+25 silly found diff in packages/fuselage/src/components/UrlInput/stories.mdx
+25 silly found diff in packages/fuselage/src/components/_Drawer/README.md.disabled
+25 silly found diff in packages/fuselage/src/components/_Drawer/index.js.disabled
+25 silly found diff in packages/fuselage/src/components/_Drawer/spec.js.disabled
+25 silly found diff in packages/fuselage/src/components/_Drawer/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/_Drawer/styles.scss.disabled
+25 silly found diff in packages/fuselage/src/components/_Page/Header/index.js.disabled
+25 silly found diff in packages/fuselage/src/components/_Page/Header/spec.js.disabled
+25 silly found diff in packages/fuselage/src/components/_Page/Header/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/_Page/Header/styles.scss.disabled
+25 silly found diff in packages/fuselage/src/components/_Page/index.js.disabled
+25 silly found diff in packages/fuselage/src/components/_Page/spec.js.disabled
+25 silly found diff in packages/fuselage/src/components/_Page/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/_Page/styles.scss.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/Header/index.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/Header/spec.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/Header/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/Header/styles.scss.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/Menu/index.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/Menu/spec.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/Menu/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/Menu/styles.scss.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/MenuItem/index.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/MenuItem/spec.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/MenuItem/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/MenuItem/styles.scss.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/index.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/spec.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/stories.js.disabled
+25 silly found diff in packages/fuselage/src/components/_SideBar/styles.scss.disabled
+25 silly found diff in packages/fuselage/src/components/index.js
+25 silly found diff in packages/fuselage/src/components/index.scss
+25 silly found diff in packages/fuselage/src/docs/.gitignore
+25 silly found diff in packages/fuselage/src/helpers/mixins.scss
+25 silly found diff in packages/fuselage/src/helpers/storybook.js
+25 silly found diff in packages/fuselage/src/helpers/theme-var.scss
+25 silly found diff in packages/fuselage/src/hooks/index.js
+25 silly found diff in packages/fuselage/src/hooks/styles.js
+25 silly found diff in packages/fuselage/src/hooks/useMergedRefs.js
+25 silly found diff in packages/fuselage/src/hooks/useProps.js
+25 silly found diff in packages/fuselage/src/hooks/useStyleSheet.js
+25 silly found diff in packages/fuselage/src/hooks/useUniqueId.js
+25 silly found diff in packages/fuselage/src/index.js
+25 silly found diff in packages/fuselage/src/index.scss
+25 silly found diff in packages/fuselage/src/styles/color-palette.scss
+25 silly found diff in packages/fuselage/src/styles/colorPalette.stories.js
+25 silly found diff in packages/fuselage/src/styles/dimensions.scss
+25 silly found diff in packages/fuselage/src/styles/dimensions.stories.js
+25 silly found diff in packages/fuselage/src/styles/exports.scss
+25 silly found diff in packages/fuselage/src/styles/functions.scss
+25 silly found diff in packages/fuselage/src/styles/mixins/all.scss
+25 silly found diff in packages/fuselage/src/styles/mixins/breakpoints.scss
+25 silly found diff in packages/fuselage/src/styles/mixins/interactivity.scss
+25 silly found diff in packages/fuselage/src/styles/mixins/layout.scss
+25 silly found diff in packages/fuselage/src/styles/mixins/shadows.scss
+25 silly found diff in packages/fuselage/src/styles/mixins/states.scss
+25 silly found diff in packages/fuselage/src/styles/mixins/typography.scss
+25 silly found diff in packages/fuselage/src/styles/primitives/all.scss
+25 silly found diff in packages/fuselage/src/styles/primitives/box.scss
+25 silly found diff in packages/fuselage/src/styles/primitives/button.scss
+25 silly found diff in packages/fuselage/src/styles/primitives/input.scss
+25 silly found diff in packages/fuselage/src/styles/primitives/rich-text.scss
+25 silly found diff in packages/fuselage/src/styles/primitives/selection-button.scss
+25 silly found diff in packages/fuselage/src/styles/primitives/tile.scss
+25 silly found diff in packages/fuselage/src/styles/stories.js
+25 silly found diff in packages/fuselage/src/styles/typography.scss
+25 silly found diff in packages/fuselage/src/styles/typography.stories.js
+25 silly found diff in packages/fuselage/src/styles/variables/all.scss
+25 silly found diff in packages/fuselage/src/styles/variables/borders.scss
+25 silly found diff in packages/fuselage/src/styles/variables/breakpoints.scss
+25 silly found diff in packages/fuselage/src/styles/variables/button-colors.scss
+25 silly found diff in packages/fuselage/src/styles/variables/input-colors.scss
+25 silly found diff in packages/fuselage/src/styles/variables/sizes.scss
+25 silly found diff in packages/fuselage/src/styles/variables/spaces.scss
+25 silly found diff in packages/fuselage/src/styles/variables/text-colors.scss
+25 silly found diff in packages/fuselage/src/styles/variables/text-styles.scss
+25 silly found diff in packages/fuselage/src/styles/variables/transitions.scss
+25 silly found diff in packages/fuselage/webpack.config.js
+26 verbose filtered diff [
+26 verbose filtered diff   'packages/fuselage/.gitignore',
+26 verbose filtered diff   'packages/fuselage/.jest/helpers.js',
+26 verbose filtered diff   'packages/fuselage/.jest/matchMediaMock.js',
+26 verbose filtered diff   'packages/fuselage/.jest/setup.js',
+26 verbose filtered diff   'packages/fuselage/.jest/styleMock.js',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Component_Class_Name_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Invisible_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Is_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_AnimatedVisibility_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Align.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Align_Content.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Align_Items.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Basis.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Direction.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Grow.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Justify_Content.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Order.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Shrink.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Flex_Wrap.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_All_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Auto.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Block_End_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Block_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Block_Start_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Inline_End_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Inline_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Inline_Start_Prop.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_Negative_Values.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Margins_None.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Scrollable_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Scrollable_Horizontal_Scrolling.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Scrollable_Smooth_Scrolling.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Modifiers_Scrollable_Vertical_Scrolling.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Plain_Text_Text_Colors.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Plain_Text_Text_Styles.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_A.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Abbr.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_B.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Blockquote_And_Cite.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Code.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Del_And_Ins.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Dfn.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Dl.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Em.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Hx.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_I.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Kbd.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Ol.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_P.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Pre.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Pre_With_Code.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Q_And_Cite.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Small.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Strong.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Sup_And_Sub.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Table_Complex.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Table_Simple.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Time.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Ul.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Box_Rich_Text_Var_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_Center.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_End.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Aligned_At_Start.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Stretch.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Vertical.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Vertical_With_Stretch.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ButtonGroup_Wrap.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_As_Link.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Danger.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Ghost.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Primary.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Small.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_Square.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Ghost_Small_Variant.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Ghost_Variant.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Primary_Small_Variant.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Primary_Variant.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_States_Of_Small_Variant.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_Button_With_Icon.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_Checked.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_Disabled.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_Indeterminate.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_CheckBox_States.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_RadioButton_Checked.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_RadioButton_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_RadioButton_Disabled.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_RadioButton_States.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ToggleSwitch_Checked.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ToggleSwitch_Default_Story.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ToggleSwitch_Disabled.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Buttons_ToggleSwitch_States.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_default.png',
+26 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Collections_ButtonGroup_hidden.png',
+26 verbose filtered diff   ... 1001 more items
+26 verbose filtered diff ]
+27 silly checking diff packages/icons
+28 silly found diff in packages/icons/CHANGELOG.md
+28 silly found diff in packages/icons/build.js
+28 silly found diff in packages/icons/font.js
+28 silly found diff in packages/icons/helpers.js
+28 silly found diff in packages/icons/icons.js
+28 silly found diff in packages/icons/package.json
+28 silly found diff in packages/icons/scripts/build.js
+28 silly found diff in packages/icons/scripts/files.js
+28 silly found diff in packages/icons/scripts/font.js
+28 silly found diff in packages/icons/scripts/icons.js
+28 silly found diff in packages/icons/scripts/log.js
+28 silly found diff in packages/icons/scripts/svg.js
+28 silly found diff in packages/icons/src/directional/undo.svg
+28 silly found diff in packages/icons/svg.js
+29 verbose filtered diff [
+29 verbose filtered diff   'packages/icons/CHANGELOG.md',
+29 verbose filtered diff   'packages/icons/build.js',
+29 verbose filtered diff   'packages/icons/font.js',
+29 verbose filtered diff   'packages/icons/helpers.js',
+29 verbose filtered diff   'packages/icons/icons.js',
+29 verbose filtered diff   'packages/icons/package.json',
+29 verbose filtered diff   'packages/icons/scripts/build.js',
+29 verbose filtered diff   'packages/icons/scripts/files.js',
+29 verbose filtered diff   'packages/icons/scripts/font.js',
+29 verbose filtered diff   'packages/icons/scripts/icons.js',
+29 verbose filtered diff   'packages/icons/scripts/log.js',
+29 verbose filtered diff   'packages/icons/scripts/svg.js',
+29 verbose filtered diff   'packages/icons/src/directional/undo.svg',
+29 verbose filtered diff   'packages/icons/svg.js'
+29 verbose filtered diff ]
+30 silly checking diff packages/ui-kit
+31 silly found diff in packages/ui-kit/.gitignore
+31 silly found diff in packages/ui-kit/CHANGELOG.md
+31 silly found diff in packages/ui-kit/README.md
+31 silly found diff in packages/ui-kit/__tests__/ui-kit.test.js
+31 silly found diff in packages/ui-kit/package.json
+31 silly found diff in packages/ui-kit/src/index.ts
+31 silly found diff in packages/ui-kit/tsconfig.json
+31 silly found diff in packages/ui-kit/webpack.config.js
+32 verbose filtered diff [
+32 verbose filtered diff   'packages/ui-kit/.gitignore',
+32 verbose filtered diff   'packages/ui-kit/CHANGELOG.md',
+32 verbose filtered diff   'packages/ui-kit/README.md',
+32 verbose filtered diff   'packages/ui-kit/__tests__/ui-kit.test.js',
+32 verbose filtered diff   'packages/ui-kit/package.json',
+32 verbose filtered diff   'packages/ui-kit/src/index.ts',
+32 verbose filtered diff   'packages/ui-kit/tsconfig.json',
+32 verbose filtered diff   'packages/ui-kit/webpack.config.js'
+32 verbose filtered diff ]
+33 verbose updated @rocket.chat/fuselage-hooks
+34 verbose updated @rocket.chat/fuselage-tokens
+35 verbose updated @rocket.chat/fuselage-ui-kit
+36 verbose updated @rocket.chat/fuselage
+37 verbose updated @rocket.chat/icons
+38 verbose updated @rocket.chat/ui-kit
+39 verbose git-describe undefined => "v0.2.0-alpha.2-98-gb7d85c1"
+40 silly git-describe parsed => {"lastTagName":"v0.2.0-alpha.2","lastVersion":"v0.2.0-alpha.2","refCount":"98","sha":"b7d85c1","isDirty":false}
+41 silly fixed for @rocket.chat/fuselage-hooks at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks
+42 verbose getChangelogConfig using preset "conventional-changelog-angular"
+43 silly npa Result {
+43 silly npa   type: 'tag',
+43 silly npa   registry: true,
+43 silly npa   where: undefined,
+43 silly npa   raw: 'conventional-changelog-angular',
+43 silly npa   name: 'conventional-changelog-angular',
+43 silly npa   escapedName: 'conventional-changelog-angular',
+43 silly npa   scope: undefined,
+43 silly npa   rawSpec: '',
+43 silly npa   saveSpec: null,
+43 silly npa   fetchSpec: 'latest',
+43 silly npa   gitRange: undefined,
+43 silly npa   gitCommittish: undefined,
+43 silly npa   hosted: undefined
+43 silly npa }
+44 verbose getChangelogConfig Attempting to resolve preset "conventional-changelog-angular"
+45 info getChangelogConfig Successfully resolved preset "conventional-changelog-angular"
+46 verbose fixed increment 0.2.0-alpha.24 by prerelease
+47 silly fixed for @rocket.chat/fuselage-tokens at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens
+48 verbose fixed increment 0.2.0-alpha.24 by prerelease
+49 silly fixed for @rocket.chat/fuselage-ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit
+50 verbose fixed increment 0.2.0-alpha.24 by prerelease
+51 silly fixed for @rocket.chat/fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage
+52 verbose fixed increment 0.2.0-alpha.24 by prerelease
+53 silly fixed for @rocket.chat/icons at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons
+54 verbose fixed increment 0.2.0-alpha.24 by prerelease
+55 silly fixed for @rocket.chat/ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit
+56 verbose fixed increment 0.2.0-alpha.24 by prerelease
+57 info auto-confirmed
+58 info execute Creating releases...
+59 silly lifecycle No script for "preversion" in "Rocket.Chat.Fuselage", continuing
+60 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage-hooks", continuing
+61 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage-tokens", continuing
+62 silly lifecycle No script for "preversion" in "@rocket.chat/icons", continuing
+63 silly lifecycle No script for "preversion" in "@rocket.chat/ui-kit", continuing
+64 silly lifecycle No script for "version" in "@rocket.chat/icons", continuing
+65 silly fixed for @rocket.chat/icons at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons
+66 silly lifecycle No script for "version" in "@rocket.chat/fuselage-hooks", continuing
+67 silly fixed for @rocket.chat/fuselage-hooks at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks
+68 silly lifecycle No script for "version" in "@rocket.chat/fuselage-tokens", continuing
+69 silly fixed for @rocket.chat/fuselage-tokens at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens
+70 silly lifecycle No script for "version" in "@rocket.chat/ui-kit", continuing
+71 silly fixed for @rocket.chat/ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit
+72 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/icons\n\n\n\n"
+73 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-hooks\n\n\n\n"
+74 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/CHANGELOG.md
+75 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks/CHANGELOG.md
+76 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-tokens\n\n\n\n"
+77 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/ui-kit\n\n\n\n"
+78 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/CHANGELOG.md
+79 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage", continuing
+80 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/CHANGELOG.md
+81 silly lifecycle No script for "version" in "@rocket.chat/fuselage", continuing
+82 silly fixed for @rocket.chat/fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage
+83 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/fuselage\n\n\n\n"
+84 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/CHANGELOG.md
+85 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage-ui-kit", continuing
+86 silly lifecycle No script for "version" in "@rocket.chat/fuselage-ui-kit", continuing
+87 silly fixed for @rocket.chat/fuselage-ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit
+88 silly fixed writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit\n\n\n\n"
+89 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/CHANGELOG.md
+90 silly root for Rocket.Chat.Fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage
+91 silly root writing new entry: "# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)\n\n**Note:** Version bump only for package Rocket.Chat.Fuselage\n\n\n\n"
+92 verbose root wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/CHANGELOG.md
+93 silly lifecycle No script for "version" in "Rocket.Chat.Fuselage", continuing
+94 silly gitAdd [
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/package.json',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks/package.json',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/package.json',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/package.json',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/CHANGELOG.md',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks/CHANGELOG.md',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/CHANGELOG.md',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/CHANGELOG.md',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/package.json',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/CHANGELOG.md',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/package.json',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/package-lock.json',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/CHANGELOG.md',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/CHANGELOG.md',
+94 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/lerna.json'
+94 silly gitAdd ]
+95 silly gitCommit v0.2.0-alpha.25
+96 verbose git [ 'commit', '-m', 'v0.2.0-alpha.25' ]
+97 silly gitTag v0.2.0-alpha.25
+98 verbose git [ 'tag', 'v0.2.0-alpha.25', '-m', 'v0.2.0-alpha.25' ]
+99 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-hooks", continuing
+100 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-tokens", continuing
+101 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-ui-kit", continuing
+102 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage", continuing
+103 silly lifecycle No script for "postversion" in "@rocket.chat/icons", continuing
+104 silly lifecycle No script for "postversion" in "@rocket.chat/ui-kit", continuing
+105 silly lifecycle No script for "postversion" in "Rocket.Chat.Fuselage", continuing
+106 info git Pushing tags...
+107 silly gitPush origin master
+108 silly parseGitRepo
+109 verbose git [ 'config', '--get', 'remote.origin.url' ]
+110 silly createGitHubClient
+111 error Error: A GH_TOKEN environment variable is required.
+111 error     at createGitHubClient (/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/github-client/lib/github-client.js:17:11)
+111 error     at createClient (/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/version/lib/create-release.js:16:14)
+111 error     at createRelease (/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/version/lib/create-release.js:25:18)
+111 error     at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/version/index.js:272:9
+111 error     at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/p-waterfall/index.js:4:73
+111 error     at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/p-reduce/index.js:16:10

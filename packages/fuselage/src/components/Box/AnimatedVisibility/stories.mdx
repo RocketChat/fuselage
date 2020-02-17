@@ -1,0 +1,27 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { AnimatedVisibility, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
+
+<Meta title='Box|Modifiers/AnimatedVisibility' parameters={{ jest: ['Box/spec'] }} />
+
+# AnimatedVisibility
+
+<Preview>
+  <Story name='Default'>
+    {React.createElement(function () {
+      const [visible, setVisible] = React.useState(false);
+      return <Margins block='x16'>
+        <Field>
+          <Field.Row>
+            <ToggleSwitch checked={visible} onChange={({ currentTarget: { checked } }) => setVisible(checked)} />
+            <Field.Label>Visible?</Field.Label>
+          </Field.Row>
+        </Field>
+        <AnimatedVisibility visibility={visible ? AnimatedVisibility.VISIBLE : AnimatedVisibility.HIDDEN}>
+          <Tile padding='x40'>Visible</Tile>
+        </AnimatedVisibility>
+      </Margins>
+    })}
+  </Story>
+</Preview>
+
+<Props of={AnimatedVisibility} />

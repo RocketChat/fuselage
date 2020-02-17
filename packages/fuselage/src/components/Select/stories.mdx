@@ -10,6 +10,12 @@ const options = [
   [2, 'b teste 2', true],
   [3, 'c teste 3'],
   [4, 'd teste 4'],
+  [5, 'd teste 5'],
+  [6, 'd teste 6'],
+  [7, 'd teste 7'],
+  [8, 'd teste 8'],
+  [9, 'd teste 9'],
+  [10, 'd teste 10']
 ];
 
 <Meta title='Forms|Inputs/Select' parameters={{ jest: ['AutoComplete/spec'] }} />
@@ -24,6 +30,20 @@ An input for selection of options.
   </Story>
 </Preview>
 
+
+<Preview>
+  <Story name='Error'>
+    <Select error placeholder="Placeholder here..." options={options}/>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Disabled'>
+    <Select disabled placeholder="Placeholder here..." options={options}/>
+  </Story>
+</Preview>
+
+
 <Props of={Select} />
 
 # Select with filter
@@ -33,6 +53,19 @@ An input for selection of options.
 <Preview>
   <Story name='Select with filter'>
     <SelectFiltered placeholder="Placeholder here..." options={options}/>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Select with filter and error'>
+    <SelectFiltered error placeholder="Placeholder here..." options={options}/>
+  </Story>
+</Preview>
+
+
+<Preview>
+  <Story name='Select with filter and disabled'>
+    <SelectFiltered disabled error placeholder="Placeholder here..." options={options}/>
   </Story>
 </Preview>
 
@@ -48,6 +81,21 @@ An input for selection of options.
   </Story>
 </Preview>
 
+
+<Preview>
+  <Story name='MultiSelect Error'>
+    <MultiSelect error placeholder="Placeholder here..." options={options}/>
+  </Story>
+</Preview>
+
+
+<Preview>
+  <Story name='MultiSelect Disabled'>
+    <MultiSelect disabled placeholder="Placeholder here..." options={options}/>
+  </Story>
+</Preview>
+
+
 <Props of={MultiSelect} />
 
 # MultiSelectFiltered
@@ -59,5 +107,21 @@ An input for selection of options.
     <MultiSelectFiltered placeholder="Placeholder here..." onChange={action('change')} options={options}/>
   </Story>
 </Preview>
+
+
+<Preview>
+  <Story name='MultiSelectFiltered error'>
+    <MultiSelectFiltered error placeholder="Placeholder here..." onChange={action('change')} options={options}/>
+  </Story>
+</Preview>
+
+
+
+<Preview>
+  <Story name='MultiSelectFiltered disabled'>
+    <MultiSelectFiltered disabled placeholder="Placeholder here..." onChange={action('change')} options={options}/>
+  </Story>
+</Preview>
+
 
 <Props of={MultiSelectFiltered} />

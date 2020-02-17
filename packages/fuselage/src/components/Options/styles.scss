@@ -1,21 +1,22 @@
-.rcx-options {
-  position: absolute;
-  z-index: 9999;
-  top: 100%;
-  right: 0;
-  left: 0;
-}
 
 .rcx-option {
+  @include clickable;
+  @include use-text-style(p2);
+  @include use-text-ellipsis;
+
   padding: $sizes-x8;
 
   list-style: none;
 
   transition: background $transitions-short-duration;
-  @include clickable;
+  white-space: nowrap;
 
   &:hover,
   &--focus {
     background: $colors-n400;
+  }
+
+  &--selected {
+    color: $text-colors-primary;
   }
 }

@@ -1,15 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import {
   Divider,
-  Button,
-  SelectInput,
   Flex,
   Margins,
-  TextAreaInput,
-  TextInput,
   InputBox,
   Box,
-  Text,
 } from '@rocket.chat/fuselage';
 import {
   uiKitMessage,
@@ -18,160 +13,156 @@ import {
   UiKitParserMessage,
   ELEMENT_TYPES,
   UiKitParserModal,
+  UiKitParserButtons,
+  uiKitText,
+  uiKitButtons,
+  UiKitParserText,
 } from '@rocket.chat/ui-kit';
-import { load } from 'svg2ttf/lib/svg';
 
 import { Section as SectionLayoutBlock } from './Section';
 import { Actions as ActionsLayoutBlock } from './Actions';
-import { Input as InputLayoutBlock } from './Input';
+import { Input as InputLayoutBlock, PlainInput } from './Input';
 import { MessageImage, ModalImage } from './Image';
 import { StaticSelect, MultiStaticSelect } from './StaticSelect';
 import { Block } from './Block';
+import { Overflow } from './Overflow';
+import { UIKitButton } from './Button';
+import { useBlockContext } from './hooks';
 
-export const defaultContext = {
-  action: (...args) => alert(JSON.stringify(args)),
-  state: console.log,
-  appId: '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz',
-};
+export * from './hooks';
 
-export const kitContext = React.createContext(defaultContext);
+function mrkdwn({ text/* , type = 'plain_text'*/ } = { text: '' }) {
+  return text;
+}
 
-const useBlockContext = ({ blockId, actionId, appId }, context) => {
-  const [loading, setLoading] = useState(false);
-  const { action, appId: appIdFromContext, state } = useContext(kitContext);
-  if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
-    return [{ loading, setLoading }, async ({ target: { value } }) => {
-      setLoading(true);
-      await action({ blockId, appId: appId || appIdFromContext, actionId, value });
-      setLoading(false);
-    }];
+function plainText({ text /* , type = 'plain_text'*/ } = { text: '' }) {
+  return text;
+}
+
+function text({ text /* , type = 'plain_text'*/ } = { text: '' }) {
+  return text;
+}
+
+class TextParser extends UiKitParserText {
+  mrkdwn(...args) { return mrkdwn(...args); }
+
+  plainText(...args) { return plainText(...args); }
+
+  text(...args) { return text(...args); }
+}
+
+class ButtonsParser extends UiKitParserButtons {
+  button(element, context, key) {
+    return <UIKitButton element={element} context={context} key={key} parser={this}/>;
   }
+}
 
-  return [{ loading, setLoading }, async ({ target: { value } }) => {
-    setLoading(true);
-    await state({ blockId, appId, actionId, value });
-    setLoading(false);
-  }];
-};
-
-const getStyle = (style) => {
-  switch (style) {
-  case 'primary':
-  case 'danger':
-    return {
-      [style]: true,
-    };
-  }
-};
 
 class MessageParser extends UiKitParserMessage {
-  button(element, context) {
-    const [{ loading }, action] = useBlockContext(element, context);
+  mrkdwn(...args) { return mrkdwn(...args); }
+
+  plainText(...args) { return plainText(...args); }
+
+  text(...args) { return text(...args); }
+
+  overflow(element, context) {
+    return <Overflow context={context} {...element} parser={this}/>;
+  }
+
+  button(element, context, key) {
+    return <UIKitButton element={element} context={context} key={key} parser={this}/>;
+  }
+
+  divider(_, __, key) {
+    return <Margins block={'x24'} key={key}> <Divider /> </Margins>;
+  }
+
+  section(args, context, index) {
     return (
-      <Button
-        mod-mod-loading={loading}
-        {...getStyle(element.style)}
-        small
-        data-group={element.groupId}
-        key={element.actionId}
-        children={this.text(element.text)}
-        onClick={action}
-        value={element.value}
-      />
+      <SectionLayoutBlock key={index} {...args} parser={this} />
     );
   }
 
-  divider() {
-    return <Divider />;
+  actions(args, _, key) {
+    return <ActionsLayoutBlock {...args} key={key} parser={this} />;
   }
 
-  text({ text/* , type = 'plain_text'*/ } = { text: '' }) {
-    return text;
-  }
-
-  section(args) {
-    return (
-      <SectionLayoutBlock {...args} parser={this} />
-    );
-  }
-
-  actions(args) {
-    return (
-      <ActionsLayoutBlock {...args} parser={this} />
-    );
-  }
-
-  datePicker(element, context) {
-    const [{ loading }, action] = useBlockContext(element, context);
+  datePicker(element, context, key) {
+    const [{ loading, value, error }, action] = useBlockContext(element, context);
     const { actionId, placeholder } = element;
     return (
       <InputBox
+        key={key}
+        error={error}
+        value={value}
         mod-mod-loading={loading}
         id={actionId}
         name={actionId}
         rows={6}
         onInput={action}
-        placeholder={this.text(placeholder)}
+        placeholder={this.plainText(placeholder)}
         type='date'
       />
     );
   }
 
-  image(element, context) {
-    return <MessageImage element={element} context={context}/>;
+  image(element, context, key) {
+    return <MessageImage key={key} element={element} context={context}/>;
   }
 
-  context({ elements }/* , context*/) {
+  context({ elements }, context, key) {
     return (
-      <Flex.Container alignItems='center'>
-        <Block>
-          <Box is='div'>
-            {elements.map((element) => (
-              <Margins all={4}>
-                <Flex.Item>
-                  {[
-                    ELEMENT_TYPES.PLAIN_TEXT_INPUT,
-                    ELEMENT_TYPES.MARKDOWN,
-                  ].includes(element.type) ? (
-                      <Box is='span' textStyle='caption'>
-                        {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
-                      </Box>
-                    )
-                    : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
+      <Block key={key}>
+        <Box is='div'>
+          <Flex.Container alignItems='center'>
+            <Margins all='neg-x4'>
+              <Box is='div'>
+                {elements.map((element, i) => (
+                  <Margins all='x4' key={i}>
+                    <Flex.Item>
+                      {[
+                        ELEMENT_TYPES.PLAIN_TEXT,
+                        ELEMENT_TYPES.MARKDOWN,
+                      ].includes(element.type) ? (
+                          <Box is='span' textStyle='c1' textColor='info'>
+                            {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
+                          </Box>
+                        )
+                        : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
                     || element.type
-                  }
-                </Flex.Item>
-              </Margins>
-            ))}
-          </Box>
-        </Block>
-      </Flex.Container>
+                      }
+                    </Flex.Item>
+                  </Margins>
+                ))}
+              </Box>
+            </Margins>
+          </Flex.Container>
+        </Box>
+      </Block>
     );
   }
 
-  multiStaticSelect(element, context) {
-    const [{ loading }, action] = useBlockContext(element, context);
+  multiStaticSelect(element, context, key) {
     return (
       <MultiStaticSelect
         {...element}
-        mod-loading={loading}
-        onChange={action}
+        key={key}
         parser={this}
+        context={context}
       />
     );
   }
 
-  staticSelect(element, context) {
-    const [{ loading }, action] = useBlockContext(element, context);
-    return <StaticSelect {...element} mod-loading={loading} onChange={action} parser={this} />;
+  staticSelect(element, context, key) {
+    return <StaticSelect key={key} {...element} parser={this} />;
   }
 
-  selectInput(element, context) {
-    const [{ loading }, action] = useBlockContext(element, context);
-    return (
-      <SelectInput onChange={action} mod-loading={loading} placeholder={element.type} disabled />
-    );
-  }
+  // selectInput(element, context, key) {
+  //   const [{ loading, value }, action] = useBlockContext(element, context);
+  //   return (
+  //     <SelectInput key={key} value={value} onChange={action} mod-loading={loading} placeholder={element.type} disabled />
+  //   );
+  // }
 }
 
 class ModalParser extends UiKitParserModal {
@@ -182,39 +173,36 @@ class ModalParser extends UiKitParserModal {
     });
   }
 
-  input({ element, label, blockId, appId }) {
+  input({ element, label, blockId, appId }, context, index) {
     return (
       <InputLayoutBlock
+        key={index}
+        index={index}
         parser={this}
+        context={context}
         element={{ ...element, appId, blockId }}
-        label={this.text(label)}
+        label={this.plainText(label)}
       />
     );
   }
 
-  image(element, context) {
-    return <ModalImage element={element} context={context}/>;
+  image(element, context, index) {
+    return <ModalImage key={index} element={element} context={context}/>;
   }
 
-  plainInput(element, context) {
-    const [{ loading }, action] = useBlockContext(element, context);
-    const { multiline, actionId, placeholder } = element;
-    const Component = multiline ? TextAreaInput : TextInput;
-    return (
-      <Component
-        mod-loading={loading}
-        id={actionId}
-        name={actionId}
-        rows={6}
-        onInput={action}
-        placeholder={this.text(placeholder)}
-      />
-    );
+  plainInput(element, context, index) {
+    return <PlainInput parser={this} element={element} context={context} index={index}/>;
   }
 }
 
+export const textParser = new TextParser();
 export const messageParser = new MessageParser();
 export const modalParser = new ModalParser();
+export const buttonsParser = new ButtonsParser();
 
+export const UiKitButtons = uiKitButtons();
+export const UiKitText = uiKitText(textParser);
 export const UiKitMessage = uiKitMessage(messageParser);
 export const UiKitModal = uiKitModal(modalParser);
+
+export const UiKitComponent = ({ render, blocks }) => render(blocks);

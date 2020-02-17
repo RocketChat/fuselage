@@ -1,36 +1,101 @@
+// TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
 .rcx-tabs {
+  display: flex;
+
+  width: 100%;
+
   margin-block-end: $spaces-x8;
 
-  border-block-end: #{ $borders-width-x1 } solid #{ $colors-n400 };
+  border-block-end: #{ $borders-width-x2 } solid #{ $tabs-delimiter-color };
+}
+
+.rcx-tabs__scroll-box {
+
+  position: relative;
+  bottom: calc(-1 * #{ $spaces-x8 });
+
+  overflow: auto;
+
+  width: 100%;
+
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .rcx-tabs__wrapper {
   display: flex;
-  flex: 1 1 0;
 
-  width: 100%;
-  margin-inline: calc(-1 * #{ $spaces-x8 });
-  margin-block-end: calc(-1 * #{ $borders-width-x1 });
+  margin-block: calc(#{ $spaces-x4 } + #{ $spaces-x2 });
+
+  flex-wrap: nowrap;
 }
 
 .rcx-tabs__item {
+
+  position: relative;
+
   flex: 0 0 auto;
 
-  padding-block: calc(#{ $spaces-x8 } + #{ $spaces-x1 });
-  padding-inline: $spaces-x32;
+  min-height: $spaces-x40;
 
-  color: $colors-n600;
+  padding-block: calc(#{ $spaces-x2 } + #{ $spaces-x4 });
+  padding-inline: $spaces-x16;
+
+  color: $tabs-color;
+  border-width: $spaces-x2;
+
   border-style: solid;
   border-color: transparent;
-
   background-color: transparent;
-  border-block-end-width: $borders-width-x4;
+  align-items: center;
 
   @include clickable;
   @include use-text-style(s2);
 
-  &--active {
-    color: $colors-b500;
-    border-block-end-color: $colors-b500;
+  &--selected {
+
+    padding-block: $spaces-x4;
+    padding-inline: calc(#{ $spaces-x16 } + #{ $spaces-x2 });
+
+    color: $tabs-selected-color;
+    border-block-end-color: $tabs-selected-border-color;
+    border-block-end-width: $borders-width-x4;
+    border-inline-width: 0;
+  }
+
+  &.hover,
+  &:hover {
+    color: $tabs-hover-color;
+  }
+
+  &.active,
+  &:active {
+    color: $tabs-active-color;
+  }
+
+  &--disabled {
+    color: $tabs-disabled-color;
+  }
+
+  &.focus,
+  &:focus {
+
+    padding-inline: $spaces-x16;
+
+    border-color: $tabs-focus-border-color;
+    border-radius: $spaces-x2;
+    border-block-start-width: $spaces-x2;
+    border-inline-width: $spaces-x2;
+
+    @include use-focus-shadow($tabs-focus-shadow-color);
+  }
+}
+
+@include on-breakpoint('md') {
+  .rcx-tabs__wrapper {
+    margin-inline: $spaces-x24;
   }
 }

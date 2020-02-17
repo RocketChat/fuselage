@@ -8,10 +8,7 @@
 
   min-width: 8rem;
 
-  padding:
-    calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
-    calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+  padding-block: #{ $spaces-x8 };
   padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
   vertical-align: baseline;
@@ -19,6 +16,8 @@
   word-break: break-all;
 
   outline: 0;
+
+  align-items: flex-start;
 
   flex-flow: row nowrap;
 
@@ -33,6 +32,7 @@
   &:disabled,
   &.disabled {
     cursor: not-allowed;
+    pointer-events: none;
   }
 }
 
@@ -42,31 +42,8 @@
   display: flex;
   flex: 0 0 auto;
 
-  padding-top: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-right: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-  padding-bottom: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-inline-end: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
   align-items: flex-start;
   flex-flow: row nowrap;
-
-  &--over-input {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-
-    pointer-events: none;
-    inset-block: 0;
-    inset-inline-end: 0;
-
-    .rtl &,
-    &.rtl,
-    [dir=rtl] & {
-      right: unset;
-      left: 0;
-    }
-  }
 }
 
 @mixin with-colors(
@@ -182,10 +159,7 @@
     min-width: 8rem;
     min-height: #{ $sizes-x40 };
 
-    padding:
-      calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
-      calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
-    padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
+    padding-block: #{ $spaces-x8 };
     padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 
     @extend %input;
@@ -241,11 +215,6 @@
     pointer-events: none;
   }
 
-  &--under-addon {
-    padding-right: calc(#{ $spaces-x16 } + #{ $sizes-x40 } - 2 * #{ $spaces-x12 });
-    padding-inline-end: calc(#{ $spaces-x16 } + #{ $sizes-x40 } - 2 * #{ $spaces-x12 });
-  }
-
   .rcx-input-box__wrapper > & {
     width: 0;
     min-width: 0;
@@ -276,9 +245,6 @@
   min-width: 8rem;
   min-height: #{ $sizes-x40 };
 
-  padding:
-    calc(#{ $spaces-x12 } - #{ $borders-width-x2 })
-    calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
   padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
   padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
 

@@ -3,6 +3,128 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-alpha.30](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.29...v0.2.0-alpha.30) (2020-02-12)
+
+
+### Bug Fixes
+
+* Safari not triggering buttons anchors ([#146](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/146)) ([2cb5aaa](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2cb5aaaf4c71e277a0a8ea556a8b9efbb3e58620))
+
+
+
+
+
+# [0.2.0-alpha.29](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.28...v0.2.0-alpha.29) (2020-02-10)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.28](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.27...v0.2.0-alpha.28) (2020-02-10)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.27](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.26...v0.2.0-alpha.27) (2020-02-10)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.26](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.25...v0.2.0-alpha.26) (2020-02-10)
+
+
+### Bug Fixes
+
+* Select autofocus ([#141](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/141)) ([25849ee](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/25849eed55e4edbf26f54ae4a72c71c1d528e850))
+
+
+
+
+
+# [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.24](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.23...v0.2.0-alpha.24) (2020-02-09)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.23](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.22...v0.2.0-alpha.23) (2020-02-07)
+
+
+### Bug Fixes
+
+* Section with Overflow visibility ([#138](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/138)) ([d0da3cd](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d0da3cd7db31880c812519b7799f04555776167f))
+
+
+
+
+
+# [0.2.0-alpha.22](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.21...v0.2.0-alpha.22) (2020-02-07)
+
+
+### Bug Fixes
+
+* Select/MultiSelect focus submitting form ([#134](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/134)) ([630e622](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/630e622d8535fcaa06a8a736c6e0d273b450b739))
+* UIKit stopPropagation ([#137](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/137)) ([86939ea](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/86939eaae182d6554879468745780d83bc977b9e))
+* uikit using react components ([#135](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/135)) ([52fcedb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/52fcedb0efbc33ad4240c83fd92a325fcc9f0f4c))
+
+
+
+
+
+# [0.2.0-alpha.21](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.20...v0.2.0-alpha.21) (2020-02-05)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.20](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.19...v0.2.0-alpha.20) (2020-02-01)
+
+
+### Bug Fixes
+
+* ui-kit margins warnings and unique ids ([#130](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/130)) ([cdaa358](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cdaa3580516aa652d7a318c6d076065954a3e289))
+
+
+### Features
+
+* ui-kit initial value ([#131](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/131)) ([3c6cab4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3c6cab4bd7d6ba459841f6f847ef42229b097294))
+* UiKit error states ([#133](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/133)) ([d6b3842](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d6b38429597963e1e437189c64a7e2be5e8715c0))
+
+
+
+
+
+# [0.2.0-alpha.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.18...v0.2.0-alpha.19) (2020-01-13)
+
+
+### Features
+
+* Position, Modal, Options components ([#116](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/116)) ([af1916a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/af1916a22c677939adda04fe417dafe406292762)), closes [#117](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/117)
+
+
+
+
+
 # [0.2.0-alpha.18](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.17...v0.2.0-alpha.18) (2019-12-31)
 
 
