@@ -4,6 +4,7 @@ import { Box } from '../Box';
 
 const Container = Box.extend('rcx-tabs');
 const ItemsWrapper = Box.extend('rcx-tabs__wrapper');
+const ScrollBox = Box.extend('rcx-tabs__scroll-box');
 const ItemContainer = Box.extend('rcx-tabs__item', 'button');
 
 export function Tabs({
@@ -11,19 +12,21 @@ export function Tabs({
   ...props
 }) {
   return <Container {...props}>
-    <ItemsWrapper children={children} role='tablist' />
+    <ScrollBox>
+      <ItemsWrapper children={children} role='tablist'/>
+    </ScrollBox>
   </Container>;
 }
 
 Tabs.displayName = 'Tabs';
 
 export const TabsItem = forwardRef(function TabsItem({
-  active,
+  selected,
   ...props
 }, ref) {
   return <ItemContainer
-    aria-selected={active ? 'true' : 'false'}
-    mod-active={active}
+    aria-selected={selected ? 'true' : 'false'}
+    mod-selected={selected}
     ref={ref}
     role='tab'
     {...props}
