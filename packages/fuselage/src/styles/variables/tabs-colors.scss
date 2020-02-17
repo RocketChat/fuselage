@@ -1,0 +1,11 @@
+$tabs-background-color: theme('tabs-background-color', transparent);
+$tabs-border-color: theme('tabs-border-color', transparent);
+$tabs-color: theme('tabs-color', $colors-n600);
+$tabs-delimiter-color: theme('tabs-color', $colors-n400);
+$tabs-selected-color: theme('tabs-selected-color', $colors-b500);
+$tabs-selected-border-color: theme('tabs-selected-border-color', $colors-b500);
+$tabs-hover-color: theme('tabs-hover-border-color', $colors-n700);
+$tabs-active-color: theme('tabs-active-color', $colors-n800);
+$tabs-focus-border-color: theme('tabs-focus-border-color', $colors-b500);
+$tabs-focus-shadow-color: theme('tabs-focus-shadow-color', $colors-b200);
+$tabs-disabled-color: theme('tabs-disabled-color', $colors-n500);
