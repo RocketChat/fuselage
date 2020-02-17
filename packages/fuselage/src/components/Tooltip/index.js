@@ -4,20 +4,21 @@ import React from 'react';
 import { Box } from '../Box';
 
 export function Tooltip({
-  position,
+  arrowPosition,
   ...props
 }) {
+  const direction = arrowPosition ? arrowPosition.split('-') : false;
+  const position = () => {
+    if (!direction || direction[0] === 'left' || direction[0] === 'right') {
+      return false;
+    }
+    return direction[1] ? direction[1] : 'center';
+  };
   return <Box
     is='div'
     componentClassName='rcx-tooltip'
-    mod-arrowless={ !position }
-    mod-dir-right={ position === 'right' }
-    mod-dir-left={ position === 'left' }
-    mod-dir-up={ ['up', 'up-left', 'up-right'].includes(position) }
-    mod-dir-down={ ['down', 'down-left', 'down-right'].includes(position) }
-    mod-pos-left={ ['up-left', 'down-left'].includes(position) }
-    mod-pos-right={ ['up-right', 'down-right'].includes(position) }
-    mod-pos-center={ !['up-right', 'up-left', 'down-right', 'down-left', 'right', 'left'].includes(position) }
+    mod-dir={ direction ? direction[0] : false }
+    mod-pos={ position() }
     {...props} />;
 }
 

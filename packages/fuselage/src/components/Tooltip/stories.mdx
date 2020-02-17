@@ -17,9 +17,9 @@ Describes component/button details.
     <PropsVariationSection
       component={Tooltip}
       xAxis={{
-        'arrow to left': { position: 'up-left', children: "Description" },
-        'arrow to middle': { position: 'up', children: "Description" },
-        'arrow to right': { position: 'up-right', children: "Description" },
+        'arrow to left': { arrowPosition: 'up-left', children: "Description" },
+        'arrow to middle': { arrowPosition: 'up', children: "Description" },
+        'arrow to right': { arrowPosition: 'up-right', children: "Description" },
       }}
       yAxis={{
         default: {},
@@ -35,9 +35,9 @@ Describes component/button details.
     <PropsVariationSection
       component={Tooltip}
       xAxis={{
-        'arrow to left': { position: 'down-left', children: "Description" },
-        'arrow to middle': { position: 'down', children: "Description" },
-        'arrow to right': { position: 'down-right', children: "Description" },
+        'arrow to left': { arrowPosition: 'down-left', children: "Description" },
+        'arrow to middle': { arrowPosition: 'down', children: "Description" },
+        'arrow to right': { arrowPosition: 'down-right', children: "Description" },
       }}
       yAxis={{
         default: {},
@@ -50,7 +50,7 @@ Describes component/button details.
 
 <Preview>
   <Story name='Tooltip arrow left'>
-    <Tooltip position="left">Description</Tooltip>
+    <Tooltip arrowPosition="left">Description</Tooltip>
   </Story>
 </Preview>
 
@@ -58,6 +58,14 @@ Describes component/button details.
 
 <Preview>
   <Story name='Tooltip arrow right'>
-    <Tooltip position="right">Description</Tooltip>
+    <Tooltip arrowPosition="right">Description</Tooltip>
+  </Story>
+</Preview>
+
+### No Arrow
+
+<Preview>
+  <Story name='No Arrow'>
+    <Tooltip>Description</Tooltip>
   </Story>
 </Preview>

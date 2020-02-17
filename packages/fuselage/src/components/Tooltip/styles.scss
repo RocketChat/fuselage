@@ -1,4 +1,4 @@
-@mixin triangle ($direction) {
+@mixin triangle-direction ($direction) {
   &::after {
     position: absolute;
 
@@ -59,39 +59,46 @@
 
   @include use-text-style(p2);
 
-  &--pos-left {
-    &::after {
-      left: $tooltip-arrow-margin;
-    }
-  }
-
-  &--pos-right {
-    &::after {
-      right: $tooltip-arrow-margin;
-    }
-  }
-
-  &--pos-center {
-    &::after {
-      left: 50%;
-
-      margin-inline-start: calc(-1 * #{ $spaces-x4 });
-    }
-  }
-
   &--dir-up {
-    @include triangle('up');
+    @include triangle-direction('up');
   }
 
   &--dir-down {
-    @include triangle('down');
+    @include triangle-direction('down');
   }
 
   &--dir-left {
-    @include triangle('left');
+    @include triangle-direction('left');
   }
 
   &--dir-right {
-    @include triangle('right');
+    @include triangle-direction('right');
+  }
+
+  &--pos {
+    &-center {
+      &::after {
+        left: 50%;
+
+        margin-inline-start: calc(-1 * #{ $spaces-x4 });
+      }
+    }
+
+    &-left {
+      &::after {
+        left: $tooltip-arrow-margin;
+
+        margin: 0;
+      }
+    }
+
+    &-right {
+      &::after {
+        right: $tooltip-arrow-margin;
+        left: initial;
+
+        margin: 0;
+      }
+    }
   }
 }
