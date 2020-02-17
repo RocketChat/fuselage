@@ -3,9 +3,9 @@ import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-export const Loading = forwardRef(function Loading({ disabled, size = 'x16', circleCount = 3, inheritColor, ...props }, ref) {
+export const Throbber = forwardRef(function Throbber({ disabled, size = 'x16', circleCount = 3, inheritColor, ...props }, ref) {
   return <Box
-    componentClassName='rcx-loading'
+    componentClassName='rcx-throbber'
     is='div'
     ref={ref}
     {...props}
@@ -13,7 +13,7 @@ export const Loading = forwardRef(function Loading({ disabled, size = 'x16', cir
     {Array.from(
       { length: circleCount || 3 },
       (_, iteration) => <Box
-        componentClassName='rcx-loading__circle'
+        componentClassName='rcx-throbber__circle'
         is='span'
         mod-disabled={!!disabled}
         mod-size={size}
@@ -25,7 +25,7 @@ export const Loading = forwardRef(function Loading({ disabled, size = 'x16', cir
   </Box>;
 });
 
-Loading.propTypes = {
+Throbber.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['x2', 'x4', 'x8', 'x12', 'x16',
     'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x80', 'x120',
