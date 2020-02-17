@@ -3,30 +3,24 @@ import React from 'react';
 
 import { Box } from '../Box';
 
-const Container = Box.extend('rcx-tooltip', 'div');
-
 export function Tooltip({
-  left,
-  right,
-  center,
-  pointUp,
-  pointDown,
-  pointLeft,
-  pointRight,
+  position,
   ...props
 }) {
-  return <Container
-    mod-dir-right={ !!pointRight }
-    mod-dir-left={ !!pointLeft }
-    mod-dir-up={ !!pointUp }
-    mod-dir-down={ !!pointDown }
-    mod-pos-left={ !!left }
-    mod-pos-right={ !!right }
-    mod-pos-center={ !left && !right && !pointLeft && !pointRight }
+  return <Box
+    is='div'
+    componentClassName='rcx-tooltip'
+    mod-arrowless={ !position }
+    mod-dir-right={ position === 'right' }
+    mod-dir-left={ position === 'left' }
+    mod-dir-up={ ['up', 'up-left', 'up-right'].includes(position) }
+    mod-dir-down={ ['down', 'down-left', 'down-right'].includes(position) }
+    mod-pos-left={ ['up-left', 'down-left'].includes(position) }
+    mod-pos-right={ ['up-right', 'down-right'].includes(position) }
+    mod-pos-center={ !['up-right', 'up-left', 'down-right', 'down-left', 'right', 'left'].includes(position) }
     {...props} />;
 }
 
 Tooltip.propTypes = {
-  left: PropTypes.bool,
-  right: PropTypes.bool,
+  position: PropTypes.oneOf(['up', 'up-left', 'up-right', 'down', 'down-left', 'down-right', 'left', 'right']),
 };
