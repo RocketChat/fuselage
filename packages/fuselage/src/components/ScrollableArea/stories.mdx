@@ -1,0 +1,21 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { ScrollableArea, Tile } from '../..';
+
+<Meta title='Containers|ScrollableArea' parameters={{ jest: ['ScrollableArea/spec'] }} />
+
+# ScrollableArea
+
+Wraper of Scrollable. Displays shadows when content is hidden (bi-directional).
+
+<Preview>
+  <Story name='Default'>
+    <ScrollableArea>
+      <Tile padding='none' elevation={0} style={{ maxWidth: '100%', height: '100px' }}>
+        <Box style={{ width: '200%', height: '1000%' }} /> 
+      </Tile>
+    </ScrollableArea>
+  </Story>
+</Preview>
+
+<Props of={ScrollableArea} />
