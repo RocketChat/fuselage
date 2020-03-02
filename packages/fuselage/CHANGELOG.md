@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.3.0...v0.3.1) (2020-03-02)
+
+
+### Bug Fixes
+
+* Changed accordion item title proptype ([#151](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/151)) ([b80647c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b80647c9c3502fb2eed51204d4878b3acecf6f0c))
+* Display name and prop types of Throbber component ([#148](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/148)) ([cd0122b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cd0122be08fa3d4ddf550f02a12153ede3678e14))
+
+
+
+
+
 # [0.3.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0...v0.3.0) (2020-02-17)
 
 
