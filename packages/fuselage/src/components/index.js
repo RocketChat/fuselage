@@ -38,4 +38,4 @@ export * from './Options';
 export * from './Select';
 export * from './Tooltip';
 export * from './Modal';
-export * from './Loading';
+export * from './Throbber';
