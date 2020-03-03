@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useProps } from '../../../hooks';
+import { PropsProvider } from '../PropsContext';
 
 export function Scrollable({ children, horizontal, vertical, smooth }) {
-  const [, PropsProvider] = useProps(({ className, ...props }) => ({
+  return <PropsProvider children={children} fn={({ className, ...props }) => ({
     className: [
       className,
       'rcx-box--scrollable',
@@ -13,9 +13,7 @@ export function Scrollable({ children, horizontal, vertical, smooth }) {
       smooth && 'rcx-box--scrollable-smooth',
     ].filter(Boolean).join(' '),
     ...props,
-  }), [horizontal, vertical, smooth]);
-
-  return <PropsProvider children={children} />;
+  })} memoized />;
 }
 
 Scrollable.propTypes = {

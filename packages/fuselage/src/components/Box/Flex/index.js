@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useProps } from '../../../hooks';
+import { PropsProvider } from '../PropsContext';
 
 export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
-  const [, PropsProvider] = useProps(({ className, ...props }) => ({
+  return <PropsProvider children={children} fn={({ className, ...props }) => ({
     className: [
       className,
       'rcx-box--flex',
@@ -16,9 +16,7 @@ export function FlexContainer({ inline = false, children, direction, wrap, align
       justifyContent && `rcx-box--flex-justify-${ justifyContent }`,
     ].filter(Boolean).join(' '),
     ...props,
-  }), [inline, direction, wrap, alignItems, alignContent, justifyContent]);
-
-  return <PropsProvider children={children} />;
+  })} memoized />;
 }
 
 FlexContainer.propTypes = {
@@ -31,7 +29,7 @@ FlexContainer.propTypes = {
 };
 
 export function FlexItem({ children, order, grow, shrink, basis, align }) {
-  const [, PropsProvider] = useProps(({ className, style, ...props }) => ({
+  return <PropsProvider children={children} fn={({ className, style, ...props }) => ({
     className: [
       className,
       align && `rcx-box--flex-self-${ align }`,
@@ -44,9 +42,7 @@ export function FlexItem({ children, order, grow, shrink, basis, align }) {
       flexBasis: basis,
     },
     ...props,
-  }), [order, grow, shrink, basis, align]);
-
-  return <PropsProvider children={children} />;
+  })} memoized />;
 }
 
 FlexItem.propTypes = {
