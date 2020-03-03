@@ -2,17 +2,17 @@ import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Loading, Button, Box } from '../..';
+import { Throbber, Button, Box } from '../..';
 
-<Meta title='Misc|Loading' parameters={{ jest: ['Loading/spec'] }} />
+<Meta title='Misc|Throbber' parameters={{ jest: ['Throbber/spec'] }} />
 
-# Loading
+# Throbber
 
 Indicates content that has not loaded yet.
 
 <Preview>
   <Story name='Default'>
-    <Loading/>
+    <Throbber/>
   </Story>
 </Preview>
 
@@ -20,7 +20,7 @@ Indicates content that has not loaded yet.
 
 <Preview>
   <Story name='Disabled'>
-    <Loading disabled/>
+    <Throbber disabled/>
   </Story>
 </Preview>
 
@@ -29,7 +29,7 @@ Indicates content that has not loaded yet.
 <Preview>
   <Story name='Inside Button'>
     <Button style={{minHeight:'40px'}}>
-      <Loading size='x12'/>
+      <Throbber size='x12'/>
     </Button>
   </Story>
 </Preview>
@@ -40,10 +40,10 @@ Indicates content that has not loaded yet.
   <Story name='Inside Button, inherit color'>
     <Box>
       <Button primary danger style={{minHeight:'40px', marginInlineEnd: '5px'}}>
-        <Loading size='x12' inheritColor/>
+        <Throbber size='x12' inheritColor/>
       </Button>
       <Button primary style={{minHeight:'40px'}}>
-        <Loading size='x12' inheritColor/>
+        <Throbber size='x12' inheritColor/>
       </Button>
     </Box>
   </Story>
@@ -54,7 +54,7 @@ Indicates content that has not loaded yet.
 
 <Story name='States'>
   <PropsVariationSection
-    component={Loading}
+    component={Throbber}
     common={{ onClick: action('click') }}
     yAxis={{
       'default': {},
