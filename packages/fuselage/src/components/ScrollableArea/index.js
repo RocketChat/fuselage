@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useRef, useCallback, useState } from 'react';
+import React, { useRef, useCallback, useState, useEffect } from 'react';
 
 import { Box, Scrollable } from '../Box';
 
@@ -21,8 +21,11 @@ export const ScrollableArea = function scrollableArea({ children, style, ...prop
     }, 200);
   }, []);
 
+  useEffect(() => () => clearTimeout(scrollTimeout));
+  useEffect(() => setScrollPos({ top: !!ref.current.scrollTop, bottom: !!(ref.current.scrollTop + ref.current.offsetHeight - ref.current.scrollHeight) }), []);
+
   return <Box componentClassName='rcx-scrollable-area' is='div' mod-shadow-top={scrollPos.top} mod-shadow-bottom={scrollPos.bottom}>
-    <Scrollable >
+    <Scrollable>
       <Box className='rcx-scrollable-area--box' {...props} children={children} onScroll={handleScroll} ref={ref} />
     </Scrollable>
   </Box>;
