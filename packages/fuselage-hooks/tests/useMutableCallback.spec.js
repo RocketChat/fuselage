@@ -1,35 +1,18 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 
-import { testHook } from '../.jest/helpers';
+import { runHooks } from '../.jest/helpers';
 import { useMutableCallback } from '../src';
 
 describe('useMutableCallback hook', () => {
   it('returns a stable callback', () => {
-    const fn = () => {};
-    let stableCallbackA;
-    let stableCallbackB;
-    testHook(
-      () => useMutableCallback(fn),
-      (returnedValue) => {
-        stableCallbackA = returnedValue;
-      },
-      (returnedValue) => {
-        stableCallbackB = returnedValue;
-      },
-    );
-
+    const fn = jest.fn();
+    const [stableCallbackA, stableCallbackB] = runHooks(() => useMutableCallback(fn), [true]);
     expect(stableCallbackA).toBe(stableCallbackB);
   });
 
   it('returns a callback that invokes the mutable one', () => {
     const fn = jest.fn();
-    let stableCallback;
-    testHook(
-      () => useMutableCallback(fn),
-      (returnedValue) => {
-        stableCallback = returnedValue;
-      },
-    );
+    const [stableCallback] = runHooks(() => useMutableCallback(fn));
     stableCallback();
     expect(fn).toHaveBeenCalledTimes(1);
   });
@@ -37,19 +20,14 @@ describe('useMutableCallback hook', () => {
   it('handles mutations in callback', () => {
     const firstCallback = jest.fn();
     const secondCallback = jest.fn();
-    testHook(
-      () => {
-        const [mutableCallback, setMutableCallback] = useState(() => firstCallback);
-        const stableCallback = useMutableCallback(mutableCallback);
-        return [stableCallback, setMutableCallback];
-      },
-      ([, setMutableCallback]) => {
-        setMutableCallback(() => secondCallback);
-      },
-      ([stableCallback]) => {
-        stableCallback();
-      },
-    );
+
+    runHooks(() => {
+      const ref = useRef(firstCallback);
+      const stableCallback = useMutableCallback(ref.current);
+      ref.current = secondCallback;
+      return stableCallback;
+    }, [true, (stableCallback) => stableCallback()]);
+
     expect(firstCallback).toHaveBeenCalledTimes(0);
     expect(secondCallback).toHaveBeenCalledTimes(1);
   });

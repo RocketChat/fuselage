@@ -1,6 +1,4 @@
-import { useState } from 'react';
-
-import { testHook } from '../.jest/helpers';
+import { runHooks } from '../.jest/helpers';
 import { useDebouncedCallback } from '../src';
 
 describe('useDebouncedCallback hook', () => {
@@ -13,7 +11,7 @@ describe('useDebouncedCallback hook', () => {
   });
 
   it('returns a debounced callback', () => {
-    const debouncedCallback = testHook(() => useDebouncedCallback(fn, delay));
+    const [debouncedCallback] = runHooks(() => useDebouncedCallback(fn, delay));
     expect(debouncedCallback).toBeInstanceOf(Function);
     expect(debouncedCallback.flush).toBeInstanceOf(Function);
     expect(debouncedCallback.cancel).toBeInstanceOf(Function);
@@ -24,69 +22,30 @@ describe('useDebouncedCallback hook', () => {
   });
 
   it('returns the same callback if deps don\'t change', () => {
-    let callbackA;
-    let callbackB;
-    let setDummy;
-
-    testHook(
-      () => {
-        [, setDummy] = useState(0);
-        return useDebouncedCallback(fn, delay, []);
-      },
-      (returnedValue) => {
-        callbackA = returnedValue;
-        setDummy((dep) => dep + 1);
-      },
-      (returnedValue) => {
-        callbackB = returnedValue;
-      },
-    );
-
+    const [callbackA, callbackB] = runHooks(() => useDebouncedCallback(fn, delay, []), [true]);
     expect(callbackA).toBe(callbackB);
   });
 
   it('returns another callback if deps change', () => {
-    let callbackA;
-    let callbackB;
-    let dep;
-    let setDep;
+    let dep = Symbol();
 
-    testHook(
+    const [callbackA, , callbackB] = runHooks(() => useDebouncedCallback(fn, delay, [dep]), [
       () => {
-        [dep, setDep] = useState(0);
-        return useDebouncedCallback(fn, delay, [dep]);
+        dep = Symbol();
       },
-      (returnedValue) => {
-        callbackA = returnedValue;
-        setDep((dep) => dep + 1);
-      },
-      (returnedValue) => {
-        callbackB = returnedValue;
-      },
-    );
+    ]);
 
     expect(callbackA).not.toBe(callbackB);
   });
 
   it('returns another callback if delay change', () => {
-    let callbackA;
-    let callbackB;
-    let delay;
-    let setDelay;
+    let delay = 0;
 
-    testHook(
+    const [callbackA, callbackB] = runHooks(() => useDebouncedCallback(fn, delay, []), [
       () => {
-        [delay, setDelay] = useState(0);
-        return useDebouncedCallback(fn, delay, []);
+        delay = 1;
       },
-      (returnedValue) => {
-        callbackA = returnedValue;
-        setDelay((delay) => delay + 1);
-      },
-      (returnedValue) => {
-        callbackB = returnedValue;
-      },
-    );
+    ]);
 
     expect(callbackA).not.toBe(callbackB);
   });

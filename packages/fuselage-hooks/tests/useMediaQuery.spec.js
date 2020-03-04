@@ -1,4 +1,4 @@
-import { testHook } from '../.jest/helpers';
+import { runHooks } from '../.jest/helpers';
 import { useMediaQuery } from '../src';
 
 describe('useMediaQuery hook', () => {
@@ -23,44 +23,40 @@ describe('useMediaQuery hook', () => {
   });
 
   it('does not register a undefined media query', () => {
-    testHook(() => useMediaQuery());
+    runHooks(() => useMediaQuery());
     expect(window.matchMedia).not.toHaveBeenCalled();
   });
 
   it('does register a defined media query', () => {
-    testHook(() => useMediaQuery('(max-width: 1024)'));
+    runHooks(() => useMediaQuery('(max-width: 1024)'));
     expect(window.matchMedia).toHaveBeenCalledWith('(max-width: 1024)');
   });
 
   it('returns false if no query is given', () => {
-    const value = testHook(() => useMediaQuery());
+    const [value] = runHooks(() => useMediaQuery());
     expect(value).toBe(false);
   });
 
   it('returns false if the media query does not match', () => {
-    const value = testHook(() => useMediaQuery('(max-width: 1024)'));
+    const [value] = runHooks(() => useMediaQuery('(max-width: 1024)'));
     expect(value).toBe(false);
   });
 
   it('returns true if the media query does match', () => {
     mql.matches = true;
-    const value = testHook(() => useMediaQuery('(max-width: 1024)'));
+    const [value] = runHooks(() => useMediaQuery('(max-width: 1024)'));
     expect(value).toBe(true);
   });
 
   it('mutates its value to true if the media query matches', () => {
-    testHook(
-      () => useMediaQuery('(max-width: 1024)'),
-      (matches) => {
-        expect(matches).toBe(false);
-      },
+    const [matchesA, matchesB] = runHooks(() => useMediaQuery('(max-width: 1024)'), [
       () => {
         mql.matches = true;
         mql.onchange();
       },
-      (matches) => {
-        expect(matches).toBe(true);
-      },
-    );
+    ]);
+
+    expect(matchesA).toBe(false);
+    expect(matchesB).toBe(true);
   });
 });
