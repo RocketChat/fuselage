@@ -6,12 +6,12 @@
   overflow: auto !important;
 
   &-horizontal {
-    overflow: visible !important;
+    overflow: hidden !important;
     overflow-x: auto !important;
   }
 
   &-vertical {
-    overflow: visible !important;
+    overflow: hidden !important;
     overflow-y: auto !important;
   }
 
