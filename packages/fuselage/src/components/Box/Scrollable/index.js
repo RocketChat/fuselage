@@ -1,23 +1,23 @@
 import PropTypes from 'prop-types';
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 
 import { useProps } from '../../../hooks';
 
-export function Scrollable({ children, horizontal, vertical, smooth, scrollCb }) {
-  let scrollTimeout;
+export function Scrollable({ children, horizontal, vertical, smooth, onScrollContent }) {
+  const scrollTimeoutRef = useRef();
 
   const handleScroll = useCallback(function(event) {
     const { target } = event;
-    if (!scrollTimeout) {
-      scrollCb({ top: !!target.scrollTop, bottom: !!(target.scrollTop + target.clientHeight - target.scrollHeight), left: !!target.scrollLeft, right: !!(target.scrollLeft + target.clientWidth - target.scrollWidth) });
-    } else {
-      clearTimeout(scrollTimeout);
+    const returnTouchingEdges = () => ({ top: !target.scrollTop, bottom: !(target.scrollTop + target.clientHeight - target.scrollHeight), left: !target.scrollLeft, right: !(target.scrollLeft + target.clientWidth - target.scrollWidth) });
+    if (!scrollTimeoutRef.current) {
+      onScrollContent(returnTouchingEdges());
     }
-    scrollTimeout = setTimeout(() => {
-      scrollTimeout = false;
-      scrollCb({ top: !!target.scrollTop, bottom: !!(target.scrollTop + target.clientHeight - target.scrollHeight), left: !!target.scrollLeft, right: !!(target.scrollLeft + target.clientWidth - target.scrollWidth) });
+    clearTimeout(scrollTimeoutRef.current);
+    scrollTimeoutRef.current = setTimeout(() => {
+      scrollTimeoutRef.current = false;
+      onScrollContent(returnTouchingEdges());
     }, 200);
-  }, [scrollCb]);
+  }, [onScrollContent]);
 
   const [, PropsProvider] = useProps(({ className, ...props }) => ({
     className: [
@@ -27,7 +27,7 @@ export function Scrollable({ children, horizontal, vertical, smooth, scrollCb })
       vertical && 'rcx-box--scrollable-vertical',
       smooth && 'rcx-box--scrollable-smooth',
     ].filter(Boolean).join(' '),
-    onScroll: typeof scrollCb !== 'undefined' ? handleScroll : null,
+    onScroll: typeof onScrollContent !== 'undefined' ? handleScroll : null,
     ...props,
   }), [horizontal, vertical, smooth]);
 
@@ -38,5 +38,5 @@ Scrollable.propTypes = {
   horizontal: PropTypes.bool,
   vertical: PropTypes.bool,
   smooth: PropTypes.bool,
-  scrollCb: PropTypes.func,
+  onScrollContent: PropTypes.func,
 };
