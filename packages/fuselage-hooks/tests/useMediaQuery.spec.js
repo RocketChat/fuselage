@@ -60,7 +60,7 @@ describe('useMediaQuery hook', () => {
       },
       (matches) => {
         expect(matches).toBe(true);
-      }
+      },
     );
   });
 });

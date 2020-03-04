@@ -26,7 +26,7 @@ describe('useDebouncedUpdates hook', () => {
       },
       ([value]) => {
         valueC = value;
-      }
+      },
     );
 
     expect(debouncedSetValue).toBeInstanceOf(Function);
@@ -57,7 +57,7 @@ describe('useDebouncedUpdates hook', () => {
         },
         ([state]) => {
           stateB = state;
-        }
+        },
       );
 
       expect(reducer).toHaveBeenCalledWith(initialState, undefined);
@@ -84,7 +84,7 @@ describe('useDebouncedUpdates hook', () => {
         },
         ([state]) => {
           valueB = state;
-        }
+        },
       );
       expect(valueA).toBe(initialValue);
       expect(valueB).toBe(newValue);
