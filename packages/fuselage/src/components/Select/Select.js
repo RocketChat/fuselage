@@ -68,7 +68,7 @@ export const Select = ({
 
   const valueLabel = getLabel(option);
 
-  const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel ? <Box textStyle='p1' textColor='default'>{valueLabel}</Box> : placeholder);
+  const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel || placeholder);
   return (
     <Container disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={
       [
@@ -83,7 +83,9 @@ export const Select = ({
           <Margins inline='neg-x4'>
             <Wrapper mod-hidden={!!visibleText}>
               { visibleText && <Flex.Item grow={1}>
-                <Margins inline='x4'><Box is='span' textStyle='p2' textColor='hint' className='rcx-select__placeholder'>{visibleText}</Box></Margins>
+                <Margins inline='x4'>
+                  <Box is='span' {...(!!valueLabel && { textStyle: 'p1', textColor: 'default' }) || { textStyle: 'p2', textColor: 'hint' }}>{visibleText}</Box>
+                </Margins>
               </Flex.Item>}
               <Anchor disabled={disabled} mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
               <Margins inline='x4'><Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='20' />}/></Margins>
