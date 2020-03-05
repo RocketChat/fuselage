@@ -27,7 +27,7 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
       vertical && 'rcx-box--scrollable-vertical',
       smooth && 'rcx-box--scrollable-smooth',
     ].filter(Boolean).join(' '),
-    onScroll: typeof onScrollContent !== 'undefined' ? handleScroll : null,
+    onScroll: typeof onScrollContent !== 'undefined' ? handleScroll : undefined,
     ...props,
   }), [horizontal, vertical, smooth]);
 
