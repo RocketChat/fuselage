@@ -9,7 +9,7 @@ const Container = Box.extend('rcx-select', 'div');
 
 export const Addon = Box.extend('rcx-select__addon', 'div');
 
-const Wrapper = Box.extend('rcx-select__wrapper', 'div'); // ({ children, ...props }) => <InnerWrapper children={React.Children.map(children, (c, i) => <Margins key={i} inline='x4'>{c}</Margins>)} {...props} />;
+const Wrapper = Box.extend('rcx-select__wrapper', 'div');
 
 export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' textColor='hint' componentClassName='rcx-select__focus' is='button' type='button' {...props}/>);
 
@@ -24,6 +24,7 @@ export const Select = ({
   getValue = ([value] = []) => value,
   getLabel = ([, label] = []) => label,
   placeholder,
+  hidePlaceholder,
   renderOptions: _Options = Options,
 }) => {
   const [internalValue, setInternalValue] = useState(value);
@@ -82,7 +83,7 @@ export const Select = ({
         <Flex.Container>
           <Margins inline='neg-x4'>
             <Wrapper mod-hidden={!!visibleText}>
-              { visibleText && <Flex.Item grow={1}>
+              { (!hidePlaceholder || !!valueLabel) && <Flex.Item grow={1}>
                 <Margins inline='x4'>
                   <Box is='span' {...(!!valueLabel && { textStyle: 'p1', textColor: 'default' }) || { textStyle: 'p2', textColor: 'hint' }}>{visibleText}</Box>
                 </Margins>
@@ -104,5 +105,5 @@ export const SelectFiltered = ({
 }) => {
   const [filter, setFilter] = useState('');
   const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input className='rcx-select__focus' ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
-  return <Select filter={filter} options={options} {...props} anchor={anchor}/>;
+  return <Select hidePlaceholder filter={filter} options={options} {...props} anchor={anchor}/>;
 };
