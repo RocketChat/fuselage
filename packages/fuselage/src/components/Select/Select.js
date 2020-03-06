@@ -23,8 +23,7 @@ export const Select = ({
   onChange = () => {},
   getValue = ([value] = []) => value,
   getLabel = ([, label] = []) => label,
-  placeholder,
-  hidePlaceholder,
+  placeholder = '',
   renderOptions: _Options = Options,
 }) => {
   const [internalValue, setInternalValue] = useState(value);
@@ -83,9 +82,9 @@ export const Select = ({
         <Flex.Container>
           <Margins inline='neg-x4'>
             <Wrapper mod-hidden={!!visibleText}>
-              { (!hidePlaceholder || !!valueLabel) && <Flex.Item grow={1}>
+              { (typeof placeholder === 'string' || !!valueLabel) && <Flex.Item grow={1}>
                 <Margins inline='x4'>
-                  <Box is='span' {...(!!valueLabel && { textStyle: 'p1', textColor: 'default' }) || { textStyle: 'p2', textColor: 'hint' }}>{visibleText}</Box>
+                  <Box is='span' textStyle='p2' {...(valueLabel ? { textColor: 'default' } : { textColor: 'hint' })}>{visibleText}</Box>
                 </Margins>
               </Flex.Item>}
               <Anchor disabled={disabled} mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
@@ -105,5 +104,5 @@ export const SelectFiltered = ({
 }) => {
   const [filter, setFilter] = useState('');
   const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input className='rcx-select__focus' ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
-  return <Select hidePlaceholder filter={filter} options={options} {...props} anchor={anchor}/>;
+  return <Select placeholder={null} filter={filter} options={options} {...props} anchor={anchor}/>;
 };
