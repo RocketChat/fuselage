@@ -84,7 +84,7 @@ export const Select = ({
             <Wrapper mod-hidden={!!visibleText}>
               { (typeof placeholder === 'string' || !!valueLabel) && <Flex.Item grow={1}>
                 <Margins inline='x4'>
-                  <Box is='span' textStyle='p2' {...(valueLabel ? { textColor: 'default' } : { textColor: 'hint' })}>{visibleText}</Box>
+                  <Box is='span' textStyle='p2' textColor={ valueLabel ? 'default' : 'hint' }>{visibleText}</Box>
                 </Margins>
               </Flex.Item>}
               <Anchor disabled={disabled} mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
