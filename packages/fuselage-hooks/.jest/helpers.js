@@ -1,12 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useReducer, Component, createElement } from 'react';
+import ReactDOM, { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-export const testHook = (callback, ...acts) => {
+export const runHooks = (fn, mutations = []) => {
   let returnedValue;
+  let forceUpdate;
+
+  function FunctionalComponent() {
+    [, forceUpdate] = useReducer((state) => !state, false);
+    returnedValue = fn();
+    return null;
+  }
+
   let errorThrown;
 
-  class ErrorBoundary extends React.Component {
+  class ComponentWithErrorBoundary extends Component {
     state = { errored: false }
 
     static getDerivedStateFromError = () => ({ errored: true })
@@ -15,29 +23,35 @@ export const testHook = (callback, ...acts) => {
       errorThrown = error;
     }
 
-    render = () => (this.state.errored ? null : <>{this.props.children}</>)
-  }
-
-  function TestComponent() {
-    returnedValue = callback();
-    return null;
+    render = () => (this.state.errored ? null : createElement(FunctionalComponent))
   }
 
   const spy = jest.spyOn(console, 'error');
   spy.mockImplementation(() => {});
 
   const div = document.createElement('div');
-  ReactDOM.render(<ErrorBoundary>
-    <TestComponent />
-  </ErrorBoundary>, div);
+  render(createElement(ComponentWithErrorBoundary), div);
 
-  acts.forEach((fn) => act(fn.bind(null, returnedValue)));
+  const values = [returnedValue];
 
-  ReactDOM.unmountComponentAtNode(div);
+  for (const mutation of mutations) {
+    act(() => {
+      forceUpdate();
+
+      if (mutation === true) {
+        return;
+      }
+
+      mutation(returnedValue);
+    });
+    values.push(returnedValue);
+  }
+
+  unmountComponentAtNode(div);
 
   if (errorThrown) {
     throw errorThrown;
   }
 
-  return returnedValue;
+  return values;
 };
