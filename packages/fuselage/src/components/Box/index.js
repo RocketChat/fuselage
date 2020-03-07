@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { createElement, forwardRef, memo } from 'react';
+import React, { createElement, forwardRef, memo, useLayoutEffect } from 'react';
 
-import { useStyleSheet, useProps } from '../../hooks';
+import { use, unuse } from '../../index.scss';
+import { useProps, PropsProvider } from './PropsContext';
 
 const getClassNamesFromModifiers = (element, modifiers) => {
   const modifierClassNames = [];
@@ -54,12 +55,17 @@ export const Box = memo(forwardRef(function Box({
   textStyle,
   ...props
 }, ref) {
-  useStyleSheet();
-  const [{
+  useLayoutEffect(() => {
+    use();
+    return unuse;
+  }, [use, unuse]);
+
+  const {
     className: contextualClassName,
     style: contextualStyle,
     ...contextualProps
-  }, PropsProvider] = useProps();
+  } = useProps();
+
   const [modifiersProps, otherProps] = filterModifierProps({ ...contextualProps, ...props });
 
   const children = createElement(is, {
@@ -120,6 +126,8 @@ Box.extend = (componentClassName, is) => {
 
   return BoxExtension;
 };
+
+export * from './PropsContext';
 
 export * from './AnimatedVisibility';
 export * from './Flex';

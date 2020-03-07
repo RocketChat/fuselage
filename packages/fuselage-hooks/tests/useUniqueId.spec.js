@@ -1,32 +1,22 @@
-import { testHook } from '../.jest/helpers';
+import { runHooks } from '../.jest/helpers';
 import { useUniqueId } from '../src';
 
 describe('useUniqueId hook', () => {
   it('returns a string', () => {
-    const uniqueId = testHook(() => useUniqueId());
+    const [uniqueId] = runHooks(() => useUniqueId());
 
     expect(uniqueId).toStrictEqual(expect.any(String));
   });
 
   it('returns a unique ID', () => {
-    const uniqueA = testHook(() => useUniqueId());
-    const uniqueB = testHook(() => useUniqueId());
+    const uniqueA = runHooks(() => useUniqueId());
+    const uniqueB = runHooks(() => useUniqueId());
 
     expect(uniqueA).not.toBe(uniqueB);
   });
 
   it('returns the same ID on each render cycle', () => {
-    let uniqueA;
-    let uniqueB;
-    testHook(
-      () => useUniqueId(),
-      (uniqueId) => {
-        uniqueA = uniqueId;
-      },
-      (uniqueId) => {
-        uniqueB = uniqueId;
-      },
-    );
+    const [uniqueA, uniqueB] = runHooks(() => useUniqueId(), [true]);
 
     expect(uniqueA).toBe(uniqueB);
   });

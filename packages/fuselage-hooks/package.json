@@ -29,7 +29,7 @@
     "start": "rollup -c -w",
     "build": "rollup -c",
     "test": "jest",
-    "lint": "eslint src",
+    "lint": "eslint src tests",
     "lint-staged": "lint-staged",
     "docs": "documentation readme src/index.js --section='API Reference' --readme-file README.md"
   },

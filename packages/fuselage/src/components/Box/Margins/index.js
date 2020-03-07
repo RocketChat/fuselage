@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useProps } from '../../../hooks';
+import { PropsProvider } from '../PropsContext';
 
 const mapSpacing = (spacing) => {
   if (typeof spacing === 'number') {
@@ -27,7 +27,7 @@ export function Margins({
   inlineStart,
   inlineEnd,
 }) {
-  const [, PropsProvider] = useProps(({ className, ...props }) => ({
+  return <PropsProvider children={children} fn={({ className, ...props }) => ({
     className: [
       className,
       all && `rcx-box--m-${ mapSpacing(all) }`,
@@ -39,9 +39,7 @@ export function Margins({
       inlineEnd && `rcx-box--mie-${ mapSpacing(inlineEnd) }`,
     ].filter(Boolean).join(' '),
     ...props,
-  }), [all, block, blockStart, blockEnd, inline, inlineStart, inlineEnd]);
-
-  return <PropsProvider children={children} />;
+  })} memoized />;
 }
 
 Margins.propTypes = {

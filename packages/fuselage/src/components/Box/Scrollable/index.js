@@ -1,25 +1,30 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useRef } from 'react';
 
-import { useProps } from '../../../hooks';
+import { PropsProvider } from '../PropsContext';
 
 export function Scrollable({ children, horizontal, vertical, smooth, onScrollContent }) {
   const scrollTimeoutRef = useRef();
 
   const handleScroll = useCallback(function(event) {
     const { target } = event;
-    const returnTouchingEdges = () => ({ top: !target.scrollTop, bottom: !(target.scrollTop + target.clientHeight - target.scrollHeight), left: !target.scrollLeft, right: !(target.scrollLeft + target.clientWidth - target.scrollWidth) });
+    const getTouchingEdges = () => ({
+      top: !target.scrollTop,
+      bottom: !(target.scrollTop + target.clientHeight - target.scrollHeight),
+      left: !target.scrollLeft,
+      right: !(target.scrollLeft + target.clientWidth - target.scrollWidth),
+    });
     if (!scrollTimeoutRef.current) {
-      onScrollContent(returnTouchingEdges());
+      onScrollContent(getTouchingEdges());
     }
     clearTimeout(scrollTimeoutRef.current);
     scrollTimeoutRef.current = setTimeout(() => {
       scrollTimeoutRef.current = false;
-      onScrollContent(returnTouchingEdges());
+      onScrollContent(getTouchingEdges());
     }, 200);
   }, [onScrollContent]);
 
-  const [, PropsProvider] = useProps(({ className, ...props }) => ({
+  return <PropsProvider children={children} fn={({ className, ...props }) => ({
     className: [
       className,
       'rcx-box--scrollable',
@@ -29,9 +34,7 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
     ].filter(Boolean).join(' '),
     onScroll: typeof onScrollContent !== 'undefined' ? handleScroll : undefined,
     ...props,
-  }), [horizontal, vertical, smooth]);
-
-  return <PropsProvider children={children} />;
+  })} memoized />;
 }
 
 Scrollable.propTypes = {
