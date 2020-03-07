@@ -5,12 +5,25 @@ import { useLayoutEffect, useMemo } from 'react';
 const stylis = new Stylis();
 
 export const css = (strings, ...values) => () => {
-  const rule = String.raw(strings, ...values);
-  const className = hash(rule);
-  return [className, stylis(`.rcx-box.${ className }`, rule)];
+  const replacements = values.map((value) => {
+    if (value === 0) {
+      return '0';
+    }
+
+    if (!value) {
+      return '';
+    }
+
+    if (typeof value === 'function') {
+      return String(value());
+    }
+
+    return String(value);
+  });
+  return String.raw(strings, ...replacements);
 };
 
-const styleTagId = `rcx-styles-${ Math.random().toString(36).slice(2) }`;
+const styleTagId = 'rcx-styles';
 let styleTag;
 let sheet;
 
@@ -28,12 +41,14 @@ const ensureStyleSheet = () => {
   sheet = Array.from(document.styleSheets).find(({ ownerNode }) => ownerNode === styleTag);
 };
 
-const ruleAttachers = {};
+const ruleAttachers = new Map();
 
 const getRuleAttacher = (className, rule) => {
-  if (ruleAttachers[className]) {
-    return ruleAttachers[className];
+  if (ruleAttachers.has(className)) {
+    return ruleAttachers.get(className);
   }
+
+  ensureStyleSheet();
 
   let count = 0;
 
@@ -50,28 +65,32 @@ const getRuleAttacher = (className, rule) => {
 
   let detachRule;
 
-  ruleAttachers[className] = () => {
-    ++count;
-    if (count === 1) {
+  ruleAttachers.set(className, () => {
+    if (count === 0) {
       detachRule = attachRule();
     }
+    ++count;
 
     return () => {
       --count;
       if (count === 0) {
         detachRule();
-        delete ruleAttachers[className];
+        ruleAttachers.delete(className);
       }
     };
-  };
+  });
 
-  return ruleAttachers[className];
+  return ruleAttachers.get(className);
 };
 
 export const useCss = (cssFn, deps) => {
-  ensureStyleSheet();
-
-  const [className, rule] = useMemo(cssFn, deps);
+  const [className, rule] = useMemo(() => {
+    const css = Array.isArray(cssFn)
+      ? cssFn.map((fn) => fn && fn()).filter(Boolean).join('')
+      : cssFn();
+    const cssHash = hash(css);
+    return [`_${ cssHash }`, stylis(`.rcx-box._${ cssHash }`, css)];
+  }, deps);
   useLayoutEffect(getRuleAttacher(className, rule), [className, rule]);
 
   return className;
