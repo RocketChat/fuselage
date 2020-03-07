@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState, useRef } from 'react';
 
-import { useProps } from '../../../hooks';
+import { PropsProvider } from '../PropsContext';
 
 export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN, onVisible = () => {} }) {
   const [visibility, setVisibility] = useState(propVisibility);
@@ -37,7 +37,11 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     }
   }, [visibility, propVisibility]);
 
-  const [, PropsProvider] = useProps(({ className, ...props }) => ({
+  if (visibility === AnimatedVisibility.HIDDEN) {
+    return null;
+  }
+
+  return <PropsProvider children={children} fn={({ className, ...props }) => ({
     className: [
       'rcx-box--animated',
       className,
@@ -48,13 +52,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     ].filter(Boolean).join(' '),
     ...props,
     ref,
-  }), [visibility, propVisibility, ref]);
-
-  if (visibility === AnimatedVisibility.HIDDEN) {
-    return null;
-  }
-
-  return <PropsProvider children={children} />;
+  })} memoized />;
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';
