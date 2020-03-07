@@ -43,8 +43,10 @@ yarn test
     -   [Parameters](#parameters-6)
 -   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-7)
--   [useToggle](#usetoggle)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-8)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-9)
 
 ### useClassName
 
@@ -140,6 +142,16 @@ while receiving a forwared ref.
 -   `refs` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Ref&lt;any>>** the refs and callback refs that should be merged
 
 Returns **any** a merged callback ref
+
+### useMutableCallback
+
+Hook to create a stable callback from a mutable one.
+
+#### Parameters
+
+-   `fn` **function (): any** the mutable callback
+
+Returns **any** a stable callback
 
 ### useToggle
 
