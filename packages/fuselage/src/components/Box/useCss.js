@@ -68,6 +68,12 @@ const ensureStyleSheet = () => {
 
 const ruleAttachers = new Map();
 
+const attachRule = (className, rule) => {
+  const textNode = document.createTextNode(rule);
+  styleTag.appendChild(textNode);
+  return () => textNode.remove();
+};
+
 const getRuleAttacher = (className, rule) => {
   if (!className || !rule) {
     return () => {};
@@ -80,23 +86,11 @@ const getRuleAttacher = (className, rule) => {
   ensureStyleSheet();
 
   let count = 0;
-
-  const attachRule = () => {
-    if (process.env.NODE_ENV === 'production') {
-      const index = sheet.insertRule(rule);
-      return () => sheet.deleteRule(index);
-    }
-
-    const textNode = document.createTextNode(rule);
-    styleTag.appendChild(textNode);
-    return () => textNode.remove();
-  };
-
   let detachRule;
 
   ruleAttachers.set(className, () => {
     if (count === 0) {
-      detachRule = attachRule();
+      detachRule = attachRule(className, rule);
     }
     ++count;
 
