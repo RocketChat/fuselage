@@ -1,32 +1,26 @@
+import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { PropsProvider } from '../PropsContext';
 import { useCss, css, keyframes } from '../useCss';
 
-export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN, onVisible = () => {} }) {
+export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
   const [visibility, setVisibility] = useState(propVisibility);
 
-  const ref = useRef();
-
   useEffect(() => {
-    AnimatedVisibility.VISIBLE === visibility && onVisible && onVisible(ref);
-  }, [visibility]);
+    setVisibility((visibility) => {
+      if (propVisibility === AnimatedVisibility.VISIBLE && visibility !== propVisibility) {
+        return AnimatedVisibility.UNHIDING;
+      }
 
-  useEffect(() => {
-    if (propVisibility === visibility) {
-      return;
-    }
+      if (propVisibility === AnimatedVisibility.HIDDEN && visibility !== propVisibility) {
+        return AnimatedVisibility.HIDING;
+      }
 
-    if (propVisibility === AnimatedVisibility.VISIBLE) {
-      setVisibility(AnimatedVisibility.UNHIDING);
-      return;
-    }
-
-    if (propVisibility === AnimatedVisibility.HIDDEN) {
-      setVisibility(AnimatedVisibility.HIDING);
-    }
-  }, [visibility, propVisibility]);
+      return visibility;
+    });
+  }, [propVisibility]);
 
   const animatedVisibilityClassName = useCss([
     css`
@@ -61,6 +55,18 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     `,
   ], [visibility]);
 
+  const handleAnimationEnd = useMutableCallback(() => setVisibility((visibility) => {
+    if (visibility === AnimatedVisibility.HIDING) {
+      return AnimatedVisibility.HIDDEN;
+    }
+
+    if (visibility === AnimatedVisibility.UNHIDING) {
+      return AnimatedVisibility.VISIBLE;
+    }
+
+    return visibility;
+  }));
+
   if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
   }
@@ -68,19 +74,8 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
   return <PropsProvider children={children} fn={({ className, ...props }) => ({
     className: [className, animatedVisibilityClassName].filter(Boolean).join(' '),
     ...props,
-    ref,
-    onAnimationEnd: () => setVisibility((visibility) => {
-      if (visibility === AnimatedVisibility.HIDING) {
-        return AnimatedVisibility.HIDDEN;
-      }
-
-      if (visibility === AnimatedVisibility.UNHIDING) {
-        return AnimatedVisibility.VISIBLE;
-      }
-
-      return visibility;
-    }),
-  })} />;
+    onAnimationEnd: handleAnimationEnd,
+  })} memoized />;
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';
