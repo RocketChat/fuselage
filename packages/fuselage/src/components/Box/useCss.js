@@ -32,10 +32,9 @@ export const keyframes = (slices, ...values) => (rules = []) => {
 };
 
 let styleTag;
-let sheet;
 
-const ensureStyleSheet = () => {
-  if (styleTag && sheet) {
+const ensureStyleTag = () => {
+  if (styleTag) {
     return;
   }
 
@@ -47,24 +46,10 @@ const ensureStyleSheet = () => {
     styleTag.appendChild(document.createTextNode(''));
     document.head.appendChild(styleTag);
   }
-
-  sheet = styleTag.sheet || Array.from(document.styleSheets).find(({ ownerNode }) => ownerNode === styleTag);
 };
 
-const attachRulesInProduction = (rules) => {
-  ensureStyleSheet();
-
-  const index = sheet.insertRule(`@media all{${ rules }}`);
-  const insertedRule = sheet.rules[index];
-
-  return () => {
-    const index = Array.prototype.findIndex.call(sheet.rules, (currentRule) => currentRule === insertedRule);
-    sheet.deleteRule(index);
-  };
-};
-
-const attachRulesInDevelopment = (rules) => {
-  ensureStyleSheet();
+const attachRulesIntoTag = (rules) => {
+  ensureStyleTag();
 
   const textNode = document.createTextNode(rules);
   styleTag.appendChild(textNode);
@@ -72,40 +57,61 @@ const attachRulesInDevelopment = (rules) => {
   return () => textNode.remove();
 };
 
-const attachRules = (process.env.NODE_ENV === 'production' && attachRulesInProduction)
-  || attachRulesInDevelopment;
+let sheet;
 
-const ruleAttachers = new Map();
+const attachRulesIntoSheet = (rules) => {
+  ensureStyleTag();
+
+  if (!sheet) {
+    sheet = styleTag.sheet || Array.from(document.styleSheets).find(({ ownerNode }) => ownerNode === styleTag);
+  }
+
+  const index = sheet.insertRule(`@media all{${ rules }}`, sheet.cssRules.length);
+  const insertedRule = sheet.cssRules[index];
+
+  return () => {
+    const index = Array.prototype.findIndex.call(sheet.cssRules, (currentRule) => currentRule === insertedRule);
+    sheet.deleteRule(index);
+  };
+};
+
+const canInsertIntoSheet = process.env.NODE_ENV === 'production' && !!CSSStyleSheet.prototype.insertRule;
+
+const attachRules = canInsertIntoSheet ? attachRulesIntoSheet : attachRulesIntoTag;
+
 const emptyEffect = () => {};
 
-const getRuleAttacher = (className, rule) => {
-  if (!className) {
-    return emptyEffect;
-  }
-
-  if (ruleAttachers.has(className)) {
-    return ruleAttachers.get(className);
-  }
-
+const createRulesAttachmentEffect = (rules) => {
   let count = 0;
-  let detachRule;
+  let detachRules;
 
-  ruleAttachers.set(className, () => {
+  return () => {
     if (count === 0) {
-      detachRule = attachRules(rule);
+      detachRules = attachRules(rules);
     }
     ++count;
 
     return () => {
       --count;
       if (count === 0) {
-        detachRule();
-        ruleAttachers.delete(className);
+        detachRules();
       }
     };
-  });
+  };
+};
 
-  return ruleAttachers.get(className);
+const rulesAttachmentEffects = {};
+
+const getRulesAttachmentEffect = (rules) => {
+  if (!rules) {
+    return emptyEffect;
+  }
+
+  if (!rulesAttachmentEffects[rules]) {
+    rulesAttachmentEffects[rules] = createRulesAttachmentEffect(rules);
+  }
+
+  return rulesAttachmentEffects[rules];
 };
 
 const stylis = new Stylis();
@@ -115,19 +121,17 @@ export const useCss = (css, deps) => {
     const cssFns = (Array.isArray(css) ? css : [css]).filter(Boolean);
     const rules = [];
     rules.push(...cssFns.map((cssFn) => cssFn(rules)));
-    const content = rules.filter(Boolean).join('');
+    const content = rules.filter(Boolean).join('') || undefined;
 
     if (!content) {
       return [];
     }
 
-    const className = `rcx-@${ hash(content) }`;
-    const encodedClassName = `rcx-\\@${ hash(content) }`;
-    const transpiledContent = stylis(`.rcx-box.${ encodedClassName }`, content);
-    return [className, transpiledContent];
+    const contentHash = hash(content);
+    return [`rcx-@${ contentHash }`, stylis(`.rcx-box.rcx-\\@${ contentHash }`, content)];
   }, deps);
 
-  useLayoutEffect(getRuleAttacher(className, rules), [className, rules]);
+  useLayoutEffect(getRulesAttachmentEffect(rules), [rules]);
 
   return className;
 };
