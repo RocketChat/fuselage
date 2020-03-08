@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { PropsProvider } from '../PropsContext';
-import { useCss, css } from '../../../css';
+import { useCss, css } from '../useCss';
 
 export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
   const containerClassName = useCss([
@@ -42,7 +42,7 @@ export function FlexContainer({ inline = false, children, direction, wrap, align
   ], [inline, direction, wrap, alignItems, alignContent, justifyContent]);
 
   return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [className, containerClassName].join(' '),
+    className: [className, containerClassName].filter(Boolean).join(' '),
     ...props,
   })} memoized />;
 }
@@ -72,11 +72,7 @@ export function FlexItem({ children, order, grow, shrink, basis, align }) {
   ], [order, grow, shrink, basis, align]);
 
   return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [
-      className,
-      itemClassName,
-      align && `rcx-box--flex-self-${ align }`,
-    ].filter(Boolean).join(' '),
+    className: [className, itemClassName].filter(Boolean).join(' '),
     ...props,
   })} memoized />;
 }

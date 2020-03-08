@@ -1,21 +1,114 @@
+import margins from '@rocket.chat/fuselage-tokens/margins';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { useCss, css } from '../useCss';
 import { PropsProvider } from '../PropsContext';
 
-const mapSpacing = (spacing) => {
-  if (typeof spacing === 'number') {
-    if (spacing < 0) {
-      console.warn(`Margins: Prefer ='neg-x${ -spacing }' over ={${ spacing }}`);
-      return `neg-x${ -spacing }`;
+const getValue = (identifier) => {
+  if (typeof identifier === 'number') {
+    if (identifier < 0) {
+      console.warn(`Margins: Prefer ='neg-x${ -identifier }' over ={${ identifier }}`);
+      return `neg-x${ -identifier }`;
     }
 
-    console.warn(`Margins: Prefer ='x${ spacing }' over ={${ spacing }}`);
-    return `x${ spacing }`;
+    console.warn(`Margins: Prefer ='x${ identifier }' over ={${ identifier }}`);
+    return margins[`x${ identifier }`];
   }
 
-  return spacing;
+  return margins[identifier];
 };
+
+const isMarginBlockSupported = window.CSS && window.CSS.supports('margin-block: auto');
+const isMarginBlockStartSupported = window.CSS && window.CSS.supports('margin-block-start: auto');
+const isMarginBlockEndSupported = window.CSS && window.CSS.supports('margin-block-end: auto');
+const isMarginInlineSupported = window.CSS && window.CSS.supports('margin-inline: auto');
+const isMarginInlineStartSupported = window.CSS && window.CSS.supports('margin-inline-start: auto');
+const isMarginInlineEndSupported = window.CSS && window.CSS.supports('margin-inline-end: auto');
+
+const marginBlock = (() => {
+  if (isMarginBlockSupported) {
+    return (value) => css`margin-block: ${ value } !important;`;
+  }
+
+  if (isMarginBlockStartSupported && isMarginBlockEndSupported) {
+    return (value) => css`
+      margin-block-start: ${ value } !important;
+      margin-block-end: ${ value } !important;
+    `;
+  }
+
+  return (value) => css`
+    margin-top: ${ value } !important;
+    margin-bottom: ${ value } !important;
+  `;
+})();
+
+const marginBlockStart = (() => {
+  if (isMarginBlockStartSupported) {
+    return (value) => css`margin-block-start: ${ value } !important;`;
+  }
+
+  return (value) => css`margin-top: ${ value } !important;`;
+})();
+
+const marginBlockEnd = (() => {
+  if (isMarginBlockEndSupported) {
+    return (value) => css`margin-block-end: ${ value } !important;`;
+  }
+
+  return (value) => css`margin-bottom: ${ value } !important;`;
+})();
+
+const marginInline = (() => {
+  if (isMarginInlineSupported) {
+    return (value) => css`margin-inline: ${ value } !important;`;
+  }
+
+  if (isMarginInlineStartSupported && isMarginInlineEndSupported) {
+    return (value) => css`
+      margin-inline-start: ${ value } !important;
+      margin-inline-end: ${ value } !important;
+    `;
+  }
+
+  return (value) => css`
+    margin-left: ${ value } !important;
+    margin-right: ${ value } !important;
+  `;
+})();
+
+const marginInlineStart = (() => {
+  if (isMarginInlineStartSupported) {
+    return (value) => css`margin-inline-start: ${ value } !important;`;
+  }
+
+  return (value) => css`
+    [dir=ltr] & {
+      margin-left: ${ value } !important;
+    }
+
+    [dir=rtl] & {
+      margin-right: ${ value } !important;
+    }
+  `;
+})();
+
+const marginInlineEnd = (() => {
+  if (isMarginInlineEndSupported) {
+    return (value) => css`margin-inline-end: ${ value } !important;`;
+  }
+
+  return (value) => css`
+    [dir=ltr] & {
+      margin-right: ${ value } !important;
+    }
+
+    [dir=rtl] & {
+      margin-left: ${ value } !important;
+    }
+  `;
+})();
 
 export function Margins({
   children,
@@ -27,17 +120,26 @@ export function Margins({
   inlineStart,
   inlineEnd,
 }) {
+  const marginsClassName = useCss([
+    all && css`margin: ${ getValue(all) } !important;`,
+    block && marginBlock(getValue(block)),
+    blockStart && marginBlockStart(getValue(blockStart)),
+    blockEnd && marginBlockEnd(getValue(blockEnd)),
+    inline && marginInline(getValue(inline)),
+    inlineStart && marginInlineStart(getValue(inlineStart)),
+    inlineEnd && marginInlineEnd(getValue(inlineEnd)),
+  ], [
+    all,
+    block,
+    blockStart,
+    blockEnd,
+    inline,
+    inlineStart,
+    inlineEnd,
+  ]);
+
   return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [
-      className,
-      all && `rcx-box--m-${ mapSpacing(all) }`,
-      block && `rcx-box--mb-${ mapSpacing(block) }`,
-      blockStart && `rcx-box--mbs-${ mapSpacing(blockStart) }`,
-      blockEnd && `rcx-box--mbe-${ mapSpacing(blockEnd) }`,
-      inline && `rcx-box--mi-${ mapSpacing(inline) }`,
-      inlineStart && `rcx-box--mis-${ mapSpacing(inlineStart) }`,
-      inlineEnd && `rcx-box--mie-${ mapSpacing(inlineEnd) }`,
-    ].filter(Boolean).join(' '),
+    className: [className, marginsClassName].join(' '),
     ...props,
   })} memoized />;
 }
