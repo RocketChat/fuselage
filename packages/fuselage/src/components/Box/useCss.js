@@ -32,24 +32,30 @@ export const keyframes = (slices, ...values) => (rules = []) => {
 };
 
 let styleTag;
-
-const ensureStyleTag = () => {
-  if (styleTag) {
-    return;
-  }
-
-  const styleTagId = 'rcx-styles';
-
-  styleTag = document.getElementById(styleTagId) || document.createElement('style');
-  if (!styleTag.parentElement) {
+const getStyleTag = () => {
+  if (!styleTag) {
+    const styleTagId = 'rcx-styles';
+    styleTag = document.getElementById(styleTagId) || document.createElement('style');
     styleTag.id = styleTagId;
     styleTag.appendChild(document.createTextNode(''));
     document.head.appendChild(styleTag);
   }
+
+  return styleTag;
+};
+
+let styleSheet;
+const getStyleSheet = () => {
+  if (!styleSheet) {
+    const styleTag = getStyleTag();
+    styleSheet = styleTag.sheet || Array.from(document.styleSheets).find(({ ownerNode }) => ownerNode === styleTag);
+  }
+
+  return styleSheet;
 };
 
 const attachRulesIntoTag = (rules) => {
-  ensureStyleTag();
+  const styleTag = getStyleTag();
 
   const textNode = document.createTextNode(rules);
   styleTag.appendChild(textNode);
@@ -57,27 +63,28 @@ const attachRulesIntoTag = (rules) => {
   return () => textNode.remove();
 };
 
-let sheet;
-
 const attachRulesIntoSheet = (rules) => {
-  ensureStyleTag();
+  const styleSheet = getStyleSheet();
 
-  if (!sheet) {
-    sheet = styleTag.sheet || Array.from(document.styleSheets).find(({ ownerNode }) => ownerNode === styleTag);
-  }
-
-  const index = sheet.insertRule(`@media all{${ rules }}`, sheet.cssRules.length);
-  const insertedRule = sheet.cssRules[index];
+  const index = styleSheet.insertRule(`@media all{${ rules }}`, styleSheet.cssRules.length);
+  const insertedRule = styleSheet.cssRules[index];
+  const findPredicate = (cssRule) => cssRule === insertedRule;
 
   return () => {
-    const index = Array.prototype.findIndex.call(sheet.cssRules, (currentRule) => currentRule === insertedRule);
-    sheet.deleteRule(index);
+    const index = Array.prototype.findIndex.call(styleSheet.cssRules, findPredicate);
+    styleSheet.deleteRule(index);
   };
 };
 
-const canInsertIntoSheet = process.env.NODE_ENV === 'production' && !!CSSStyleSheet.prototype.insertRule;
+let attachRules = (...args) => {
+  if (process.env.NODE_ENV === 'production' && !!CSSStyleSheet.prototype.insertRule) {
+    attachRules = attachRulesIntoSheet;
+    return attachRules(...args);
+  }
 
-const attachRules = canInsertIntoSheet ? attachRulesIntoSheet : attachRulesIntoTag;
+  attachRules = attachRulesIntoTag;
+  return attachRules(...args);
+};
 
 const emptyEffect = () => {};
 
@@ -114,7 +121,14 @@ const getRulesAttachmentEffect = (rules) => {
   return rulesAttachmentEffects[rules];
 };
 
-const stylis = new Stylis();
+let stylisInstance;
+const transpile = (contentHash, content) => {
+  if (!stylisInstance) {
+    stylisInstance = new Stylis();
+  }
+
+  return stylisInstance(`.rcx-box.rcx-\\@${ contentHash }`, content);
+};
 
 export const useCss = (css, deps) => {
   const [className, rules] = useMemo(() => {
@@ -128,7 +142,7 @@ export const useCss = (css, deps) => {
     }
 
     const contentHash = hash(content);
-    return [`rcx-@${ contentHash }`, stylis(`.rcx-box.rcx-\\@${ contentHash }`, content)];
+    return [`rcx-@${ contentHash }`, transpile(contentHash, content)];
   }, deps);
 
   useLayoutEffect(getRulesAttachmentEffect(rules), [rules]);
