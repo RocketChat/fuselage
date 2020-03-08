@@ -4,7 +4,7 @@ import { useLayoutEffect, useMemo } from 'react';
 
 const stylis = new Stylis();
 
-export const css = (strings, ...values) => () => {
+export const css = (strings, ...values) => (postStrings = []) => {
   const replacements = values.map((value) => {
     if (value === 0) {
       return '0';
@@ -15,12 +15,37 @@ export const css = (strings, ...values) => () => {
     }
 
     if (typeof value === 'function') {
-      return String(value());
+      return String(value(postStrings));
     }
 
     return String(value);
   });
+
   return String.raw(strings, ...replacements);
+};
+
+export const keyframes = (strings, ...values) => (postStrings = []) => {
+  const replacements = values.map((value) => {
+    if (value === 0) {
+      return '0';
+    }
+
+    if (!value) {
+      return '';
+    }
+
+    if (typeof value === 'function') {
+      return String(value(postStrings));
+    }
+
+    return String(value);
+  });
+
+  const content = String.raw(strings, ...replacements);
+  const animationName = `rcx-animation-${ hash(content) }`;
+  postStrings.push(`@keyframes ${ animationName } {${ content }}`);
+
+  return animationName;
 };
 
 const styleTagId = 'rcx-styles';
@@ -85,9 +110,13 @@ const getRuleAttacher = (className, rule) => {
 
 export const useCss = (cssFn, deps) => {
   const [className, rule] = useMemo(() => {
-    const css = Array.isArray(cssFn)
-      ? cssFn.map((fn) => fn && fn()).filter(Boolean).join('')
-      : cssFn();
+    const postStrings = [];
+    const css = [
+      ...Array.isArray(cssFn)
+        ? cssFn.map((fn) => fn && fn(postStrings)).filter(Boolean)
+        : [cssFn(postStrings)],
+      ...postStrings,
+    ].join('');
     const cssHash = hash(css);
     return [`rcx${ cssHash }`, stylis(`.rcx-box.rcx${ cssHash }`, css)];
   }, deps);
