@@ -69,6 +69,10 @@ const ensureStyleSheet = () => {
 const ruleAttachers = new Map();
 
 const getRuleAttacher = (className, rule) => {
+  if (!className || !rule) {
+    return () => {};
+  }
+
   if (ruleAttachers.has(className)) {
     return ruleAttachers.get(className);
   }
@@ -117,9 +121,15 @@ export const useCss = (cssFn, deps) => {
         : [cssFn(postStrings)],
       ...postStrings,
     ].join('');
+
+    if (!css) {
+      return [];
+    }
+
     const cssHash = hash(css);
     return [`rcx${ cssHash }`, stylis(`.rcx-box.rcx${ cssHash }`, css)];
   }, deps);
+
   useLayoutEffect(getRuleAttacher(className, rule), [className, rule]);
 
   return className;
