@@ -89,7 +89,7 @@ export const useCss = (cssFn, deps) => {
       ? cssFn.map((fn) => fn && fn()).filter(Boolean).join('')
       : cssFn();
     const cssHash = hash(css);
-    return [`_${ cssHash }`, stylis(`.rcx-box._${ cssHash }`, css)];
+    return [`rcx${ cssHash }`, stylis(`.rcx-box.rcx${ cssHash }`, css)];
   }, deps);
   useLayoutEffect(getRuleAttacher(className, rule), [className, rule]);
 

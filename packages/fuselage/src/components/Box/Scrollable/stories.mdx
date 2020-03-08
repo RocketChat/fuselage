@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
 import { Box, Button, ButtonGroup, Flex, Margins, Scrollable, Tile } from '../../..';
@@ -49,6 +50,18 @@ Add scroll capability to the wrapped component.
 <Preview>
   <Story name='Smooth scrolling'>
     <Scrollable smooth>
+      <Tile padding='none' style={{ height: '100px' }}>
+        <Box style={{ height: '1000%' }} />
+      </Tile>
+    </Scrollable>
+  </Story>
+</Preview>
+
+### On scroll content event
+
+<Preview>
+  <Story name='On Scroll Content'>
+    <Scrollable onScrollContent={action('scrollContent')}>
       <Tile padding='none' style={{ height: '100px' }}>
         <Box style={{ height: '1000%' }} />
       </Tile>
