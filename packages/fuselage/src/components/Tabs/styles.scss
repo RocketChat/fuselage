@@ -81,8 +81,7 @@
   }
 
   &.focus,
-  &:focus {
-
+  &:focus:not(.js-focus-visible) {
     padding-inline: $spaces-x16;
 
     border-color: $tabs-focus-border-color;
