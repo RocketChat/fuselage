@@ -1,9 +1,33 @@
+import { css } from '@rocket.chat/css-in-js';
 import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
+import { useCss } from '../Box/useCss';
 
-export const Throbber = forwardRef(function Throbber({ disabled, size = 'x16', circleCount = 3, inheritColor, ...props }, ref) {
+function Circle({ disabled, size, circleCount, iteration, inheritColor }) {
+  const circleClassName = useCss(css`
+    animation-duration: ${ circleCount * 0.466 }s;
+    animation-delay: ${ iteration * 0.16 }s;
+  `, [circleCount, iteration]);
+
+  return <Box
+    componentClassName='rcx-throbber__circle'
+    is='span'
+    className={circleClassName}
+    mod-disabled={disabled}
+    mod-size={size}
+    mod-inherit-color={inheritColor}
+  />;
+}
+
+export const Throbber = forwardRef(function Throbber({
+  disabled,
+  size = 'x16',
+  circleCount = 3,
+  inheritColor,
+  ...props
+}, ref) {
   return <Box
     componentClassName='rcx-throbber'
     is='div'
@@ -12,14 +36,12 @@ export const Throbber = forwardRef(function Throbber({ disabled, size = 'x16', c
   >
     {Array.from(
       { length: circleCount || 3 },
-      (_, iteration) => <Box
-        componentClassName='rcx-throbber__circle'
-        is='span'
-        mod-disabled={!!disabled}
-        mod-size={size}
-        style={{ animationDuration: `${ circleCount * 0.466 }s`, animationDelay: `${ iteration * 0.16 }s` }}
-        mod-inherit-color={!!inheritColor && !disabled}
+      (_, iteration) => <Circle
         key={iteration}
+        iteration={iteration}
+        disabled={!!disabled}
+        size={size}
+        inheritColor={!!inheritColor}
       />,
     )}
   </Box>;
