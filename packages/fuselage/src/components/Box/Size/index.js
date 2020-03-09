@@ -5,6 +5,8 @@ import React from 'react';
 import { PropsProvider } from '../PropsContext';
 import { useCss, css } from '../useCss';
 
+const mapSize = (size) => (Number.isFinite(size) && `${ size }px`) || sizes[size] || size;
+
 export function Size({
   children,
   length,
@@ -18,24 +20,24 @@ export function Size({
   maxHeight,
 }) {
   const sizeClassName = useCss([
-    sizes[length] && css`
-      width: ${ sizes[length] };
-      height: ${ sizes[length] };
+    length && css`
+      width: ${ mapSize(length) };
+      height: ${ mapSize(length) };
     `,
-    sizes[minLength] && css`
-      min-width: ${ sizes[minLength] };
-      min-height: ${ sizes[minLength] };
+    minLength && css`
+      min-width: ${ mapSize(minLength) };
+      min-height: ${ mapSize(minLength) };
     `,
-    sizes[maxLength] && css`
-      max-width: ${ sizes[maxLength] };
-      max-height: ${ sizes[maxLength] };
+    maxLength && css`
+      max-width: ${ mapSize(maxLength) };
+      max-height: ${ mapSize(maxLength) };
     `,
-    sizes[width] && css`width: ${ sizes[width] };`,
-    sizes[minWidth] && css`min-width: ${ sizes[minWidth] };`,
-    sizes[maxWidth] && css`max-width: ${ sizes[maxWidth] };`,
-    sizes[height] && css`height: ${ sizes[height] };`,
-    sizes[minHeight] && css`min-height: ${ sizes[minHeight] };`,
-    sizes[maxHeight] && css`max-height: ${ sizes[maxHeight] };`,
+    width && css`width: ${ mapSize(width) };`,
+    minWidth && css`min-width: ${ mapSize(minWidth) };`,
+    maxWidth && css`max-width: ${ mapSize(maxWidth) };`,
+    height && css`height: ${ mapSize(height) };`,
+    minHeight && css`min-height: ${ mapSize(minHeight) };`,
+    maxHeight && css`max-height: ${ mapSize(maxHeight) };`,
   ], [
     length,
     minLength,
@@ -55,112 +57,148 @@ export function Size({
 }
 
 Size.propTypes = {
-  length: PropTypes.oneOf([
-    'none', 'full', 'sw', 'sh',
-    'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-    'x40', 'x80', 'x120', 'x160', 'x200',
-    'x240', 'x280', 'x320', 'x360', 'x400',
-    'x440', 'x480', 'x520', 'x560', 'x600',
-    'x640', 'x680', 'x720', 'x760', 'x800',
-    'x840', 'x880', 'x920', 'x960', 'x1000',
-    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+  length: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      'none', 'full', 'sw', 'sh',
+      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+      'x40', 'x80', 'x120', 'x160', 'x200',
+      'x240', 'x280', 'x320', 'x360', 'x400',
+      'x440', 'x480', 'x520', 'x560', 'x600',
+      'x640', 'x680', 'x720', 'x760', 'x800',
+      'x840', 'x880', 'x920', 'x960', 'x1000',
+      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    ]),
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  minLength: PropTypes.oneOf([
-    'none', 'full', 'sw', 'sh',
-    'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-    'x40', 'x80', 'x120', 'x160', 'x200',
-    'x240', 'x280', 'x320', 'x360', 'x400',
-    'x440', 'x480', 'x520', 'x560', 'x600',
-    'x640', 'x680', 'x720', 'x760', 'x800',
-    'x840', 'x880', 'x920', 'x960', 'x1000',
-    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+  minLength: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      'none', 'full', 'sw', 'sh',
+      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+      'x40', 'x80', 'x120', 'x160', 'x200',
+      'x240', 'x280', 'x320', 'x360', 'x400',
+      'x440', 'x480', 'x520', 'x560', 'x600',
+      'x640', 'x680', 'x720', 'x760', 'x800',
+      'x840', 'x880', 'x920', 'x960', 'x1000',
+      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    ]),
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  maxLength: PropTypes.oneOf([
-    'none', 'full', 'sw', 'sh',
-    'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-    'x40', 'x80', 'x120', 'x160', 'x200',
-    'x240', 'x280', 'x320', 'x360', 'x400',
-    'x440', 'x480', 'x520', 'x560', 'x600',
-    'x640', 'x680', 'x720', 'x760', 'x800',
-    'x840', 'x880', 'x920', 'x960', 'x1000',
-    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+  maxLength: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      'none', 'full', 'sw', 'sh',
+      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+      'x40', 'x80', 'x120', 'x160', 'x200',
+      'x240', 'x280', 'x320', 'x360', 'x400',
+      'x440', 'x480', 'x520', 'x560', 'x600',
+      'x640', 'x680', 'x720', 'x760', 'x800',
+      'x840', 'x880', 'x920', 'x960', 'x1000',
+      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    ]),
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  width: PropTypes.oneOf([
-    'none', 'full', 'sw', 'sh',
-    'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-    'x40', 'x80', 'x120', 'x160', 'x200',
-    'x240', 'x280', 'x320', 'x360', 'x400',
-    'x440', 'x480', 'x520', 'x560', 'x600',
-    'x640', 'x680', 'x720', 'x760', 'x800',
-    'x840', 'x880', 'x920', 'x960', 'x1000',
-    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+  width: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      'none', 'full', 'sw', 'sh',
+      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+      'x40', 'x80', 'x120', 'x160', 'x200',
+      'x240', 'x280', 'x320', 'x360', 'x400',
+      'x440', 'x480', 'x520', 'x560', 'x600',
+      'x640', 'x680', 'x720', 'x760', 'x800',
+      'x840', 'x880', 'x920', 'x960', 'x1000',
+      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    ]),
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  minWidth: PropTypes.oneOf([
-    'none', 'full', 'sw', 'sh',
-    'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-    'x40', 'x80', 'x120', 'x160', 'x200',
-    'x240', 'x280', 'x320', 'x360', 'x400',
-    'x440', 'x480', 'x520', 'x560', 'x600',
-    'x640', 'x680', 'x720', 'x760', 'x800',
-    'x840', 'x880', 'x920', 'x960', 'x1000',
-    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+  minWidth: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      'none', 'full', 'sw', 'sh',
+      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+      'x40', 'x80', 'x120', 'x160', 'x200',
+      'x240', 'x280', 'x320', 'x360', 'x400',
+      'x440', 'x480', 'x520', 'x560', 'x600',
+      'x640', 'x680', 'x720', 'x760', 'x800',
+      'x840', 'x880', 'x920', 'x960', 'x1000',
+      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    ]),
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  maxWidth: PropTypes.oneOf([
-    'none', 'full', 'sw', 'sh',
-    'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-    'x40', 'x80', 'x120', 'x160', 'x200',
-    'x240', 'x280', 'x320', 'x360', 'x400',
-    'x440', 'x480', 'x520', 'x560', 'x600',
-    'x640', 'x680', 'x720', 'x760', 'x800',
-    'x840', 'x880', 'x920', 'x960', 'x1000',
-    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+  maxWidth: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      'none', 'full', 'sw', 'sh',
+      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+      'x40', 'x80', 'x120', 'x160', 'x200',
+      'x240', 'x280', 'x320', 'x360', 'x400',
+      'x440', 'x480', 'x520', 'x560', 'x600',
+      'x640', 'x680', 'x720', 'x760', 'x800',
+      'x840', 'x880', 'x920', 'x960', 'x1000',
+      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    ]),
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  height: PropTypes.oneOf([
-    'none', 'full', 'sw', 'sh',
-    'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-    'x40', 'x80', 'x120', 'x160', 'x200',
-    'x240', 'x280', 'x320', 'x360', 'x400',
-    'x440', 'x480', 'x520', 'x560', 'x600',
-    'x640', 'x680', 'x720', 'x760', 'x800',
-    'x840', 'x880', 'x920', 'x960', 'x1000',
-    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+  height: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      'none', 'full', 'sw', 'sh',
+      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+      'x40', 'x80', 'x120', 'x160', 'x200',
+      'x240', 'x280', 'x320', 'x360', 'x400',
+      'x440', 'x480', 'x520', 'x560', 'x600',
+      'x640', 'x680', 'x720', 'x760', 'x800',
+      'x840', 'x880', 'x920', 'x960', 'x1000',
+      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    ]),
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  minHeight: PropTypes.oneOf([
-    'none', 'full', 'sw', 'sh',
-    'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-    'x40', 'x80', 'x120', 'x160', 'x200',
-    'x240', 'x280', 'x320', 'x360', 'x400',
-    'x440', 'x480', 'x520', 'x560', 'x600',
-    'x640', 'x680', 'x720', 'x760', 'x800',
-    'x840', 'x880', 'x920', 'x960', 'x1000',
-    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+  minHeight: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      'none', 'full', 'sw', 'sh',
+      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+      'x40', 'x80', 'x120', 'x160', 'x200',
+      'x240', 'x280', 'x320', 'x360', 'x400',
+      'x440', 'x480', 'x520', 'x560', 'x600',
+      'x640', 'x680', 'x720', 'x760', 'x800',
+      'x840', 'x880', 'x920', 'x960', 'x1000',
+      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    ]),
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  maxHeight: PropTypes.oneOf([
-    'none', 'full', 'sw', 'sh',
-    'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-    'x40', 'x80', 'x120', 'x160', 'x200',
-    'x240', 'x280', 'x320', 'x360', 'x400',
-    'x440', 'x480', 'x520', 'x560', 'x600',
-    'x640', 'x680', 'x720', 'x760', 'x800',
-    'x840', 'x880', 'x920', 'x960', 'x1000',
-    'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-    'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-    'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+  maxHeight: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      'none', 'full', 'sw', 'sh',
+      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
+      'x40', 'x80', 'x120', 'x160', 'x200',
+      'x240', 'x280', 'x320', 'x360', 'x400',
+      'x440', 'x480', 'x520', 'x560', 'x600',
+      'x640', 'x680', 'x720', 'x760', 'x800',
+      'x840', 'x880', 'x920', 'x960', 'x1000',
+      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
+      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
+      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
+    ]),
+    PropTypes.string,
+    PropTypes.number,
   ]),
 };

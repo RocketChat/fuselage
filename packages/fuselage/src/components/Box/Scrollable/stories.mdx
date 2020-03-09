@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Box, Button, ButtonGroup, Flex, Margins, Scrollable, Tile } from '../../..';
+import { Box, Scrollable, Size, Tile } from '../../..';
 
 <Meta title='Box|Modifiers/Scrollable' parameters={{ jest: ['Scrollable/spec'] }} />
 
@@ -12,9 +12,13 @@ Add scroll capability to the wrapped component.
 <Preview>
   <Story name='Default'>
     <Scrollable>
-      <Tile padding='none' style={{ maxWidth: '100%', height: '100px' }}>
-        <Box style={{ width: '200%', height: '1000%' }} />
-      </Tile>
+      <Size maxWidth='full' height={100}>
+        <Tile padding='none'>
+          <Size width='200%' height='1000%'>
+            <Box />
+          </Size>
+        </Tile>
+      </Size>
     </Scrollable>
   </Story>
 </Preview>
@@ -26,9 +30,13 @@ Add scroll capability to the wrapped component.
 <Preview>
   <Story name='Horizontal scrolling'>
     <Scrollable horizontal>
-      <Tile padding='none' style={{ maxWidth: '100%' }}>
-        <Box style={{ width: '200%', height: '100px' }} />
-      </Tile>
+      <Size maxWidth='full'>
+        <Tile padding='none'>
+          <Size width='200%' height={100}>
+            <Box />
+          </Size>
+        </Tile>
+      </Size>
     </Scrollable>
   </Story>
 </Preview>
@@ -38,9 +46,13 @@ Add scroll capability to the wrapped component.
 <Preview>
   <Story name='Vertical scrolling'>
     <Scrollable vertical>
-      <Tile padding='none' style={{ height: '100px' }}>
-        <Box style={{ height: '1000%' }} />
-      </Tile>
+      <Size height={100}>
+        <Tile padding='none'>
+          <Size height='1000%'>
+            <Box />
+          </Size>
+        </Tile>
+      </Size>
     </Scrollable>
   </Story>
 </Preview>
@@ -50,9 +62,13 @@ Add scroll capability to the wrapped component.
 <Preview>
   <Story name='Smooth scrolling'>
     <Scrollable smooth>
-      <Tile padding='none' style={{ height: '100px' }}>
-        <Box style={{ height: '1000%' }} />
-      </Tile>
+      <Size height={100}>
+        <Tile padding='none'>
+          <Size height='1000%'>
+            <Box />
+          </Size>
+        </Tile>
+      </Size>
     </Scrollable>
   </Story>
 </Preview>
@@ -62,9 +78,13 @@ Add scroll capability to the wrapped component.
 <Preview>
   <Story name='On Scroll Content'>
     <Scrollable onScrollContent={action('scrollContent')}>
-      <Tile padding='none' style={{ height: '100px' }}>
-        <Box style={{ height: '1000%' }} />
-      </Tile>
+      <Size height={100}>
+        <Tile padding='none'>
+          <Size height='1000%'>
+            <Box />
+          </Size>
+        </Tile>
+      </Size>
     </Scrollable>
   </Story>
 </Preview>
