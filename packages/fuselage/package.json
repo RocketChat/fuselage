@@ -122,6 +122,7 @@
   "dependencies": {
     "@emotion/hash": "^0.8.0",
     "@emotion/stylis": "^0.8.5",
+    "@rocket.chat/css-in-js": "^0.3.0",
     "@rocket.chat/fuselage-tokens": "^0.3.0",
     "@rocket.chat/icons": "^0.3.0"
   },

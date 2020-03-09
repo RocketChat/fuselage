@@ -1,9 +1,10 @@
+import { css } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 
 import { PropsProvider } from '../PropsContext';
-import { useCss, css } from '../useCss';
+import { useCss } from '../useCss';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,

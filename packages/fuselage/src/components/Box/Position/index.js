@@ -1,3 +1,4 @@
+import { css } from '@rocket.chat/css-in-js';
 import React, {
   useRef,
   useState,
@@ -8,7 +9,7 @@ import React, {
 import ReactDOM from 'react-dom';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
-import { useCss, css } from '../useCss';
+import { useCss } from '../useCss';
 
 const top = (top) => ({ top });
 const left = (left) => ({ left });

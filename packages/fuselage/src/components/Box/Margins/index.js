@@ -1,8 +1,9 @@
+import { css } from '@rocket.chat/css-in-js';
 import margins from '@rocket.chat/fuselage-tokens/margins';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useCss, css } from '../useCss';
+import { useCss } from '../useCss';
 import { PropsProvider } from '../PropsContext';
 
 const getValue = (identifier) => {

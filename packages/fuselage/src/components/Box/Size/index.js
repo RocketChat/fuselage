@@ -1,9 +1,10 @@
+import { css } from '@rocket.chat/css-in-js';
 import sizes from '@rocket.chat/fuselage-tokens/sizes';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { PropsProvider } from '../PropsContext';
-import { useCss, css } from '../useCss';
+import { useCss } from '../useCss';
 
 const mapSize = (size) => (Number.isFinite(size) && `${ size }px`) || sizes[size] || size;
 

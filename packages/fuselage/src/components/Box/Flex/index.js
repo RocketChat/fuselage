@@ -1,8 +1,9 @@
+import { css } from '@rocket.chat/css-in-js';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { PropsProvider } from '../PropsContext';
-import { useCss, css } from '../useCss';
+import { useCss } from '../useCss';
 
 export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
   const containerClassName = useCss([

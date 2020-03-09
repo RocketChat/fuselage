@@ -1,9 +1,10 @@
+import { css, keyframes } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import { PropsProvider } from '../PropsContext';
-import { useCss, css, keyframes } from '../useCss';
+import { useCss } from '../useCss';
 
 export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
   const [visibility, setVisibility] = useState(propVisibility);
