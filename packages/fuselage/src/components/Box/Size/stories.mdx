@@ -1,0 +1,187 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Box, Button, ButtonGroup, Flex, Margins, Size, Tile } from '../../..';
+
+<Meta
+  title='Box|Modifiers/Size'
+  parameters={{ jest: ['Size/spec'] }}
+  decorators={[
+    (fn) => <Flex.Container direction='row' wrap='no-wrap' alignItems='center'>
+      <Box>
+        {fn()}
+      </Box>
+    </Flex.Container>
+  ]}
+/>
+
+# Size
+
+Set the dimensions of the wrapped component.
+
+<Preview>
+  <Story name='Default'>
+    <Size length='x80'>
+      <Tile />
+    </Size>
+  </Story>
+</Preview>
+
+<Props of={Size} />
+
+### `length`
+
+<Preview>
+  <Story name='length prop'>
+    <Margins all='x8'>
+      <Size length='x40'>
+        <Tile padding='none' />
+      </Size>
+      <Size length='x80'>
+        <Tile padding='none' />
+      </Size>
+      <Size length='x120'>
+        <Tile padding='none' />
+      </Size>
+    </Margins>
+  </Story>
+</Preview>
+
+### `minLength`
+
+<Preview>
+  <Story name='minLength prop'>
+    <Size length='none' minLength='x80'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
+
+### `maxLength`
+
+<Preview>
+  <Story name='maxLength prop'>
+    <Size length='x1600' maxLength='x80'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
+
+### `width`
+
+<Preview>
+  <Story name='width prop'>
+    <Margins all='x8'>
+      <Size height='x40'>
+        <Size width='x40'>
+          <Tile padding='none' />
+        </Size>
+        <Size width='x80'>
+          <Tile padding='none' />
+        </Size>
+        <Size width='x120'>
+          <Tile padding='none' />
+        </Size>
+      </Size>
+    </Margins>
+  </Story>
+</Preview>
+
+### `minWidth`
+
+<Preview>
+  <Story name='minWidth prop'>
+    <Size width='none' minWidth='x80' height='x40'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
+
+### `maxWidth`
+
+<Preview>
+  <Story name='maxWidth prop'>
+    <Size width='x1600' maxWidth='x80' height='x40'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
+
+### `height`
+
+<Preview>
+  <Story name='height prop'>
+    <Margins all='x8'>
+      <Size width='x40'>
+        <Size height='x40'>
+          <Tile padding='none' />
+        </Size>
+        <Size height='x80'>
+          <Tile padding='none' />
+        </Size>
+        <Size height='x120'>
+          <Tile padding='none' />
+        </Size>
+      </Size>
+    </Margins>
+  </Story>
+</Preview>
+
+### `minHeight`
+
+<Preview>
+  <Story name='minHeight prop'>
+    <Size width='x40' height='none' minHeight='x80'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
+
+### `maxHeight`
+
+<Preview>
+  <Story name='maxHeight prop'>
+    <Size width='x40' height='x1600' maxHeight='x80'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
+
+### `none`
+
+<Preview>
+  <Story name='none'>
+    <Size width='none' height='x40'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
+
+### `full`
+
+<Preview>
+  <Story name='full'>
+    <Size width='full' height='x40'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
+
+### `sw`
+
+<Preview>
+  <Story name='sw'>
+    <Size width='sw' height='x40'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
+
+### `sh`
+
+<Preview>
+  <Story name='sh'>
+    <Size width='x40' height='sh'>
+      <Tile padding='none' />
+    </Size>
+  </Story>
+</Preview>
