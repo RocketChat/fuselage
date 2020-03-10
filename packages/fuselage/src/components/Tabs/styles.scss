@@ -61,7 +61,7 @@
     padding-inline: calc(#{ $spaces-x16 } + #{ $spaces-x2 });
 
     color: $tabs-selected-color;
-    border-block-end-color: $tabs-selected-border-color;
+    border-block-end-color: $tabs-selected-border-color !important;
     border-block-end-width: $borders-width-x4;
     border-inline-width: 0;
   }
@@ -82,16 +82,28 @@
 
   &.focus,
   &:focus {
-    &.focus-visible {
-      padding-inline: $spaces-x16;
+    padding-inline: $spaces-x16;
 
-      border-color: $tabs-focus-border-color;
-      border-radius: $spaces-x2;
-      border-block-start-width: $spaces-x2;
-      border-inline-width: $spaces-x2;
+    border-color: $tabs-focus-border-color;
+    border-radius: $spaces-x2;
+    border-block-start-width: $spaces-x2;
+    border-inline-width: $spaces-x2;
 
-      @include use-focus-shadow($tabs-focus-shadow-color);
-    }
+    @include use-focus-shadow($tabs-focus-shadow-color);
+  }
+}
+
+.js-focus-visible .rcx-tabs__item {
+  &--selected:focus:not(.focus-visible) {
+    padding-inline: calc(#{ $spaces-x16 } + #{ $spaces-x2 });
+    border-inline-width: 0;
+  }
+
+  &:focus:not(.focus-visible) {
+    border-color: transparent;
+    border-radius: 0;
+
+    @include use-no-shadow();
   }
 }
 
