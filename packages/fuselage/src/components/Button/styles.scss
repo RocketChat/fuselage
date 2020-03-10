@@ -1,53 +1,5 @@
-@mixin button-with-colors(
-  $color,
-  $background-color,
-  $border-color,
-  $hover-background-color,
-  $hover-border-color,
-  $active-background-color,
-  $active-border-color,
-  $focus-background-color,
-  $focus-border-color,
-  $focus-shadow-color,
-  $disabled-color,
-  $disabled-background-color,
-  $disabled-border-color,
-) {
-  color: $color;
-  border-color: $border-color;
-  background-color: $background-color;
-
-  &.focus,
-  &:focus {
-    border-color: $focus-border-color;
-    background-color: $focus-background-color;
-    @include use-focus-shadow($focus-shadow-color);
-  }
-
-  &.hover,
-  &:hover {
-    border-color: $hover-border-color;
-    background-color: $hover-background-color;
-    @include use-no-shadow;
-  }
-
-  &.active,
-  &:active {
-    border-color: $active-border-color;
-    background-color: $active-background-color;
-    @include use-no-shadow;
-  }
-
-  &.disabled,
-  &:disabled {
-    color: $disabled-color;
-    border-color: $disabled-border-color;
-    background-color: $disabled-background-color;
-  }
-}
-
 %button-secondary-color { // TODO: primitive atomic component
-  @include button-with-colors(
+  @include as-button (
     $background-color: $button-colors-secondary-background-color,
     $border-color: $button-colors-secondary-border-color,
     $color: $button-colors-secondary-color,
