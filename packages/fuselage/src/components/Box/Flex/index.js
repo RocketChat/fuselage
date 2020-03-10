@@ -1,20 +1,49 @@
+import { css } from '@rocket.chat/css-in-js';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { PropsProvider } from '../PropsContext';
+import { useCss } from '../useCss';
 
 export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
+  const containerClassName = useCss([
+    css`display: ${ inline ? 'inline-flex' : 'flex' };`,
+    {
+      row: css`flex-direction: row !important;`,
+      'row-reverse': css`flex-direction: row-reverse !important;`,
+      column: css`flex-direction: column !important;`,
+      'column-reverse': css`flex-direction: column-reverse !important;`,
+    }[direction],
+    {
+      'no-wrap': css`flex-wrap: nowrap !important;`,
+      wrap: css`flex-wrap: wrap !important;`,
+      'wrap-reverse': css`flex-wrap: wrap-reverse !important;`,
+    }[wrap],
+    {
+      stretch: css`align-items: stretch !important;`,
+      start: css`align-items: flex-start !important;`,
+      center: css`align-items: center !important;`,
+      end: css`align-items: flex-end !important;`,
+      baseline: css`align-items: baseline !important;`,
+    }[alignItems],
+    {
+      start: css`align-content: flex-start !important;`,
+      center: css`align-content: center !important;`,
+      end: css`align-content: flex-end !important;`,
+      'space-between': css`align-content: space-between !important;`,
+      'space-around': css`align-content: space-around !important;`,
+    }[alignContent],
+    {
+      start: css`justify-content: flex-start !important;`,
+      center: css`justify-content: center !important;`,
+      end: css`justify-content: flex-end !important;`,
+      'space-between': css`justify-content: space-between !important;`,
+      'space-around': css`justify-content: space-around !important;`,
+    }[justifyContent],
+  ], [inline, direction, wrap, alignItems, alignContent, justifyContent]);
+
   return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [
-      className,
-      'rcx-box--flex',
-      inline && 'rcx-box--flex-inline',
-      direction && `rcx-box--flex-${ direction }`,
-      wrap && `rcx-box--flex-${ wrap }`,
-      alignItems && `rcx-box--flex-items-${ alignItems }`,
-      alignContent && `rcx-box--flex-content-${ alignContent }`,
-      justifyContent && `rcx-box--flex-justify-${ justifyContent }`,
-    ].filter(Boolean).join(' '),
+    className: [className, containerClassName].filter(Boolean).join(' '),
     ...props,
   })} memoized />;
 }
@@ -29,18 +58,22 @@ FlexContainer.propTypes = {
 };
 
 export function FlexItem({ children, order, grow, shrink, basis, align }) {
-  return <PropsProvider children={children} fn={({ className, style, ...props }) => ({
-    className: [
-      className,
-      align && `rcx-box--flex-self-${ align }`,
-    ].filter(Boolean).join(' '),
-    style: {
-      ...style,
-      order,
-      flexGrow: grow,
-      flexShrink: shrink,
-      flexBasis: basis,
-    },
+  const itemClassName = useCss([
+    Number.isInteger(order) && css`order: ${ order } !important;`,
+    Number.isInteger(grow) && css`flex-grow: ${ grow } !important;`,
+    Number.isInteger(shrink) && css`flex-shrink: ${ shrink } !important;`,
+    basis && css`flex-basis: ${ basis } !important;`,
+    {
+      auto: css`align-self: auto !important;`,
+      start: css`align-self: flex-start !important;`,
+      center: css`align-self: center !important;`,
+      end: css`align-self: flex-end !important;`,
+      stretch: css`align-self: stretch !important;`,
+    }[align],
+  ], [order, grow, shrink, basis, align]);
+
+  return <PropsProvider children={children} fn={({ className, ...props }) => ({
+    className: [className, itemClassName].filter(Boolean).join(' '),
     ...props,
   })} memoized />;
 }
