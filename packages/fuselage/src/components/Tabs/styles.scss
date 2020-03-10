@@ -81,15 +81,17 @@
   }
 
   &.focus,
-  &:focus:not(.js-focus-visible) {
-    padding-inline: $spaces-x16;
+  &:focus {
+    &.focus-visible {
+      padding-inline: $spaces-x16;
 
-    border-color: $tabs-focus-border-color;
-    border-radius: $spaces-x2;
-    border-block-start-width: $spaces-x2;
-    border-inline-width: $spaces-x2;
+      border-color: $tabs-focus-border-color;
+      border-radius: $spaces-x2;
+      border-block-start-width: $spaces-x2;
+      border-inline-width: $spaces-x2;
 
-    @include use-focus-shadow($tabs-focus-shadow-color);
+      @include use-focus-shadow($tabs-focus-shadow-color);
+    }
   }
 }
 
