@@ -38,7 +38,7 @@
     "update-storybook": "cross-env NODE_ENV=loki run-s test:results build-storybook loki:update"
   },
   "peerDependencies": {
-    "@rocket.chat/fuselage-hooks": "^0.2.0-alpha.16",
+    "@rocket.chat/fuselage-hooks": "^0.3.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -120,6 +120,9 @@
     }
   },
   "dependencies": {
+    "@emotion/hash": "^0.8.0",
+    "@emotion/stylis": "^0.8.5",
+    "@rocket.chat/css-in-js": "^0.3.0",
     "@rocket.chat/fuselage-tokens": "^0.3.0",
     "@rocket.chat/icons": "^0.3.0"
   },
