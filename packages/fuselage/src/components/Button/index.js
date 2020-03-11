@@ -1,19 +1,16 @@
 import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
-import { Box } from '../Box';
-
-const Container = Box.extend('rcx-button', 'button');
+import { ButtonVariant } from '..';
 
 export const Button = forwardRef(function Button({
   danger,
   external,
+  nude,
   ghost,
   is = 'button',
   primary,
   rel,
-  small,
-  square,
   ...props
 }, ref) {
   const extraProps = (is === 'a' && {
@@ -25,16 +22,20 @@ export const Button = forwardRef(function Button({
   })
   || {};
 
-  return <Container
+  const mapVariant = () => (primary && danger && 'primary-danger')
+      || (primary && ghost && 'ghost-primary')
+      || (primary && nude && 'nude-primary')
+      || (primary && 'primary')
+      || (ghost && danger && 'ghost-danger')
+      || (ghost && 'ghost')
+      || (nude && danger && 'nude-danger')
+      || (nude && danger && 'ghost')
+      || (danger && 'danger')
+      || 'secondary';
+
+  return <ButtonVariant
     is={is}
-    mod-danger={!primary && danger && !ghost}
-    mod-ghost={!primary && !danger && ghost}
-    mod-ghost-danger={!primary && danger && ghost}
-    mod-primary={primary && !danger && !ghost}
-    mod-primary-danger={primary && danger && !ghost}
-    mod-small={small}
-    mod-square={square}
-    mod-small-square={small && square}
+    variant={mapVariant()}
     ref={ref}
     {...extraProps}
     {...props}

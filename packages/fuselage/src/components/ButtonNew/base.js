@@ -3,15 +3,10 @@ import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-const Container = Box.extend('rcx-button', 'button');
-
-export const Button2 = forwardRef(function Button2({
+export const ButtonBase = forwardRef(function ButtonBase({
   external,
   is = 'button',
   rel,
-  small,
-  medium,
-  square,
   ...props
 }, ref) {
   const extraProps = (is === 'a' && {
@@ -23,21 +18,17 @@ export const Button2 = forwardRef(function Button2({
   })
   || {};
 
-  return <Container
+  return <Box
+    componentClassName='rcx-button'
     is={is}
     ref={ref}
-    mod-small={small}
-    mod-medium={medium}
-    mod-square={square}
-    mod-small-square={small && square}
-    mod-medium-square={medium && square}
     {...extraProps}
     {...props}
   />;
 });
 
-Button2.displayName = 'Button2';
+ButtonBase.displayName = 'ButtonBase';
 
-Button2.propTypes = {
+ButtonBase.propTypes = {
   external: PropTypes.bool,
 };

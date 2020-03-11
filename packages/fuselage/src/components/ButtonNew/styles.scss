@@ -30,21 +30,28 @@
   white-space: nowrap;
   text-decoration: none;
 
+  %button-text-style {
+    @include use-text-ellipsis;
+
+    @include use-text-style(c2);
+  }
+
   @include clickable;
-  @include use-text-ellipsis;
 
-  @include use-text-style(p2);
+  &--large {
+    @include use-text-ellipsis;
 
-  @include with-rectangular-size(
-    $height: $sizes-x40,
-    $padding-x: calc( #{$spaces-x12} ),
-    $line-height: $text-styles-p2-line-height,
-  );
+    @include use-text-style(p2);
 
-  @extend %button--secondary;
+    @include with-rectangular-size(
+      $height: $sizes-x40,
+      $padding-x: calc( #{$spaces-x12} ),
+      $line-height: $text-styles-p2-line-height,
+    );
+  }
 
   &--small {
-    @include use-text-style(c2);
+    @extend %button-text-style;
 
     @include with-rectangular-size(
       $height: $sizes-x28,
@@ -54,7 +61,7 @@
   }
 
   &--medium {
-    @include use-text-style(c2);
+    @extend %button-text-style;
 
     @include with-rectangular-size(
       $height: $sizes-x36,
@@ -81,35 +88,41 @@
     );
   }
 
-  &--danger {
-    @extend %button--danger;
-  }
+  &--variant {
+    &-secondary {
+      @extend %button--secondary;
+    }
 
-  &--primary {
-    @extend %button--primary;
-  }
+    &-danger {
+      @extend %button--danger;
+    }
 
-  &--nude-primary {
-    @extend %button--nude--primary;
-  }
+    &-primary {
+      @extend %button--primary;
+    }
 
-  &--nude-danger {
-    @extend %button--nude--danger;
-  }
+    &-nude-primary {
+      @extend %button--nude--primary;
+    }
 
-  &--primary-danger {
-    @extend %button--primary--danger;
-  }
+    &-nude-danger {
+      @extend %button--nude--danger;
+    }
 
-  &--ghost {
-    @extend %button--ghost;
-  }
+    &-primary-danger {
+      @extend %button--primary--danger;
+    }
 
-  &--ghost-danger {
-    @extend %button--ghost--danger;
-  }
+    &-ghost {
+      @extend %button--ghost;
+    }
 
-  &--ghost-primary {
-    @extend %button--ghost--primary;
+    &-ghost-danger {
+      @extend %button--ghost--danger;
+    }
+
+    &-ghost-primary {
+      @extend %button--ghost--primary;
+    }
   }
 }

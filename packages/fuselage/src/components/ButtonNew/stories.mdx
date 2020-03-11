@@ -3,10 +3,10 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 // import { Button, Icon } from '../..';
-import { Button2, ButtonPrimary, ButtonPrimaryDanger, ButtonGhost, ButtonGhostDanger, ButtonGhostPrimary, ButtonDanger, ButtonNudeDanger, ButtonNudePrimary } from '.';
+import { ButtonVariant } from '.';
 import { Icon } from '../..';
 
-<Meta title='Buttons2|Button2' parameters={{ jest: ['Button2/spec'] }} />
+<Meta title='NewButtons|Variations' parameters={{ jest: ['Button2/spec'] }} />
 
 # Button2
 
@@ -14,11 +14,11 @@ Indicates an actionable user action.
 
 <Preview>
   <Story name='Default'>
-    <Button2 onClick={action('click')}>Button</Button2>
+    <ButtonVariant onClick={action('click')}>Button</ButtonVariant>
   </Story>
 </Preview>
 
-<Props of={Button2} />
+<Props of={ButtonVariant} />
 
 ## Variants
 
@@ -26,7 +26,7 @@ Indicates an actionable user action.
 
 <Preview>
   <Story name='Primary'>
-    <ButtonPrimary>Button</ButtonPrimary>
+    <ButtonVariant variant="primary">Button</ButtonVariant>
   </Story>
 </Preview>
 
@@ -34,7 +34,7 @@ Indicates an actionable user action.
 
 <Preview>
   <Story name='Primary Danger'>
-    <ButtonPrimaryDanger>Button</ButtonPrimaryDanger>
+    <ButtonVariant variant="primary-danger">Button</ButtonVariant>
   </Story>
 </Preview>
 
@@ -42,7 +42,7 @@ Indicates an actionable user action.
 
 <Preview>
   <Story name='Small'>
-    <Button2 small>Button</Button2>
+    <ButtonVariant small>Button</ButtonVariant>
   </Story>
 </Preview>
 
@@ -50,7 +50,7 @@ Indicates an actionable user action.
 
 <Preview>
   <Story name='Medium'>
-    <Button2 medium>Button</Button2>
+    <ButtonVariant medium>Button</ButtonVariant>
   </Story>
 </Preview>
 
@@ -58,9 +58,9 @@ Indicates an actionable user action.
 
 <Preview>
   <Story name='Square'>
-    <Button2 square>
+    <ButtonVariant square>
       <Icon name='plus' size='20' />
-    </Button2>
+    </ButtonVariant>
   </Story>
 </Preview>
 
@@ -68,9 +68,9 @@ Indicates an actionable user action.
 
 <Preview>
   <Story name='With Icon'>
-    <Button2>
+    <ButtonVariant>
       <Icon name='edit' size='16' /> Edit
-    </Button2>
+    </ButtonVariant>
   </Story>
 </Preview>
 
@@ -78,7 +78,7 @@ Indicates an actionable user action.
 
 <Preview>
   <Story name='As Link'>
-    <Button2 is='a' href='https://rocket.chat' external>Button</Button2>
+    <ButtonVariant is='a' href='https://rocket.chat' external>Button</ButtonVariant>
   </Story>
 </Preview>
 
@@ -88,7 +88,7 @@ Indicates an actionable user action.
 
 <Story name='States'>
   <PropsVariationSection
-    component={Button2}
+    component={ButtonVariant}
     common={{ onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
@@ -109,7 +109,7 @@ Indicates an actionable user action.
 
 <Story name='All Sizes'>
   <PropsVariationSection
-    component={Button2}
+    component={ButtonVariant}
     common={{ onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
@@ -128,8 +128,8 @@ Indicates an actionable user action.
 
 <Story name='States of Danger'>
   <PropsVariationSection
-    component={ButtonDanger}
-    common={{ onClick: action('click') }}
+    component={ButtonVariant}
+    common={{ onClick: action('click'), variant: 'danger' }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
@@ -149,8 +149,8 @@ Indicates an actionable user action.
 
 <Story name='States Of Primary Variant'>
   <PropsVariationSection
-    component={ButtonPrimary}
-    common={{ onClick: action('click') }}
+    component={ButtonVariant}
+    common={{ onClick: action('click'), variant: 'primary'}}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
@@ -170,8 +170,8 @@ Indicates an actionable user action.
 
 <Story name='States Of Primary Danger Variant'>
   <PropsVariationSection
-    component={ButtonPrimaryDanger}
-    common={{ onClick: action('click') }}
+    component={ButtonVariant}
+    common={{ onClick: action('click'), variant: 'primary-danger' }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x20' /> },
@@ -191,8 +191,8 @@ Indicates an actionable user action.
 
 <Story name='States Of Ghost Variant'>
   <PropsVariationSection
-    component={ButtonGhost}
-    common={{ onClick: action('click') }}
+    component={ButtonVariant}
+    common={{ onClick: action('click'), variant: 'ghost' }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
@@ -212,8 +212,8 @@ Indicates an actionable user action.
 
 <Story name='States Of Ghost Danger Variant'>
   <PropsVariationSection
-    component={ButtonGhostDanger}
-    common={{ onClick: action('click') }}
+    component={ButtonVariant}
+    common={{ onClick: action('click'), variant: 'ghost-danger' }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
@@ -233,8 +233,8 @@ Indicates an actionable user action.
 
 <Story name='States Of Ghost Primary Variant'>
   <PropsVariationSection
-    component={ButtonGhostPrimary}
-    common={{ onClick: action('click') }}
+    component={ButtonVariant}
+    common={{ onClick: action('click'), variant: 'ghost-primary' }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
@@ -254,8 +254,8 @@ Indicates an actionable user action.
 
 <Story name='States Of Nude Primary Variant'>
   <PropsVariationSection
-    component={ButtonNudePrimary}
-    common={{ onClick: action('click') }}
+    component={ButtonVariant}
+    common={{ onClick: action('click'), variant: 'nude-primary' }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
@@ -275,8 +275,8 @@ Indicates an actionable user action.
 
 <Story name='States Of Nude Danger Variant'>
   <PropsVariationSection
-    component={ButtonNudeDanger}
-    common={{ onClick: action('click') }}
+    component={ButtonVariant}
+    common={{ onClick: action('click'), variant: 'nude-danger' }}
     xAxis={{
       text: { children: 'Button' },
       'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
