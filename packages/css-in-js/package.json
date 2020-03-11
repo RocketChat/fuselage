@@ -1,0 +1,60 @@
+{
+  "name": "@rocket.chat/css-in-js",
+  "version": "0.4.0",
+  "description": "Toolset to transpile and use CSS on runtime",
+  "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  },
+  "keywords": [
+    "rocketchat",
+    "css-in-js"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "rollup -c -w",
+    "build": "rollup -c",
+    "test": "jest",
+    "lint": "eslint src",
+    "lint-staged": "lint-staged",
+    "docs": "documentation readme src/index.js --section='API Reference' --readme-file README.md"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-flow": "^7.0.0",
+    "@rocket.chat/eslint-config": "^0.4.0",
+    "babel-eslint": "^10.0.3",
+    "documentation": "^12.1.2",
+    "eslint": "^6.5.1",
+    "eslint-plugin-import": "^2.19.1",
+    "flow-bin": "^0.110.1",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "rollup": "^1.27.9",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@emotion/hash": "^0.8.0",
+    "@emotion/stylis": "^0.8.5"
+  }
+}

@@ -1,60 +1,82 @@
+import { css, keyframes } from '@rocket.chat/css-in-js';
+import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { useProps } from '../../../hooks';
+import { PropsProvider } from '../PropsContext';
+import { useCss } from '../useCss';
 
-export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN, onVisible = () => {} }) {
+export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
   const [visibility, setVisibility] = useState(propVisibility);
 
-  const ref = useRef();
   useEffect(() => {
-    AnimatedVisibility.VISIBLE === visibility && onVisible && onVisible(ref);
-  }, [visibility]);
-  useEffect(() => {
-    if (propVisibility === visibility) {
-      return;
-    }
+    setVisibility((visibility) => {
+      if (propVisibility === AnimatedVisibility.VISIBLE && visibility !== propVisibility) {
+        return AnimatedVisibility.UNHIDING;
+      }
 
+      if (propVisibility === AnimatedVisibility.HIDDEN && visibility !== propVisibility) {
+        return AnimatedVisibility.HIDING;
+      }
+
+      return visibility;
+    });
+  }, [propVisibility]);
+
+  const animatedVisibilityClassName = useCss([
+    css`
+      animation-duration: 230ms;
+      animation-duration: var(--rcx-theme-transition-duration, 230ms);;
+    `,
+    visibility === AnimatedVisibility.HIDING && css`
+      animation-name: ${ keyframes`
+        from {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+
+        to {
+          transform: translate3d(0, 1rem, 0);
+          opacity: 0;
+        }
+      ` };
+    `,
+    visibility === AnimatedVisibility.UNHIDING && css`
+      animation-name: ${ keyframes`
+        from {
+          transform: translate3d(0, 1rem, 0);
+          opacity: 0;
+        }
+
+        to {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+      ` };
+    `,
+  ], [visibility]);
+
+  const handleAnimationEnd = useMutableCallback(() => setVisibility((visibility) => {
     if (visibility === AnimatedVisibility.HIDING) {
-      // TODO: replace with transitionend event
-      const timer = setTimeout(() => setVisibility(AnimatedVisibility.HIDDEN), 100);
-      return () => clearTimeout(timer);
+      return AnimatedVisibility.HIDDEN;
     }
 
     if (visibility === AnimatedVisibility.UNHIDING) {
-      // TODO: replace with transitionend event
-      const timer = setTimeout(() => setVisibility(AnimatedVisibility.VISIBLE), 100);
-      return () => clearTimeout(timer);
+      return AnimatedVisibility.VISIBLE;
     }
 
-    if (propVisibility === AnimatedVisibility.VISIBLE) {
-      setVisibility(AnimatedVisibility.UNHIDING);
-      return;
-    }
-
-    if (propVisibility === AnimatedVisibility.HIDDEN) {
-      setVisibility(AnimatedVisibility.HIDING);
-    }
-  }, [visibility, propVisibility]);
-
-  const [, PropsProvider] = useProps(({ className, ...props }) => ({
-    className: [
-      'rcx-box--animated',
-      className,
-      visibility === AnimatedVisibility.HIDING && 'rcx-box--hiding',
-      visibility === AnimatedVisibility.UNHIDING && 'rcx-box--unhiding',
-      visibility === AnimatedVisibility.HIDDEN && 'rcx-box--hidden',
-      visibility === AnimatedVisibility.VISIBLE && 'rcx-box--visible',
-    ].filter(Boolean).join(' '),
-    ...props,
-    ref,
-  }), [visibility, propVisibility, ref]);
+    return visibility;
+  }));
 
   if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
   }
 
-  return <PropsProvider children={children} />;
+  return <PropsProvider children={children} fn={({ className, ...props }) => ({
+    className: [className, animatedVisibilityClassName].filter(Boolean).join(' '),
+    ...props,
+    onAnimationEnd: handleAnimationEnd,
+  })} memoized />;
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';

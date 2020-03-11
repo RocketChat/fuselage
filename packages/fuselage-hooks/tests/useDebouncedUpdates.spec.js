@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { testHook } from '../.jest/helpers';
+import { runHooks } from '../.jest/helpers';
 import { useDebouncedUpdates, useDebouncedReducer, useDebouncedState } from '../src';
 
 describe('useDebouncedUpdates hook', () => {
@@ -11,23 +11,10 @@ describe('useDebouncedUpdates hook', () => {
   });
 
   it('returns a debounced state updater', () => {
-    let valueA;
-    let valueB;
-    let valueC;
-    const [, debouncedSetValue] = testHook(
-      () => useDebouncedUpdates(useState(0), delay),
-      ([value, debouncedSetValue]) => {
-        valueA = value;
-        debouncedSetValue((value) => value + 1);
-      },
-      ([value]) => {
-        valueB = value;
-        jest.runAllTimers();
-      },
-      ([value]) => {
-        valueC = value;
-      }
-    );
+    const [[valueA, debouncedSetValue], [valueB], [valueC]] = runHooks(() => useDebouncedUpdates(useState(0), delay), [
+      ([, setValue]) => setValue((value) => value + 1),
+      () => jest.runAllTimers(),
+    ]);
 
     expect(debouncedSetValue).toBeInstanceOf(Function);
     expect(debouncedSetValue.flush).toBeInstanceOf(Function);
@@ -39,55 +26,46 @@ describe('useDebouncedUpdates hook', () => {
 
   describe('useDebouncedReducer hook', () => {
     it('is a debounced state updater', () => {
-      const initialState = {};
-      const newState = {};
+      const initialState = Symbol();
+      const newState = Symbol();
       const reducer = jest.fn(() => newState);
       const initializerArg = initialState;
       const initializer = jest.fn((state) => state);
-      let stateA;
-      let stateB;
-      testHook(
-        () => useDebouncedReducer(reducer, initializerArg, initializer, delay),
-        ([, dispatch]) => {
-          dispatch();
-        },
-        ([state]) => {
-          stateA = state;
-          jest.runAllTimers();
-        },
-        ([state]) => {
-          stateB = state;
-        }
-      );
+
+      const [
+        [stateA], [stateB], [stateC],
+      ] = runHooks(() => useDebouncedReducer(reducer, initializerArg, initializer, delay), [
+        ([, dispatch]) => dispatch(),
+        () => jest.runAllTimers(),
+      ]);
 
       expect(reducer).toHaveBeenCalledWith(initialState, undefined);
       expect(initializer).toHaveBeenCalledWith(initializerArg);
       expect(stateA).toBe(initialState);
-      expect(stateB).toBe(newState);
+      expect(stateB).toBe(initialState);
+      expect(stateC).toBe(newState);
     });
   });
 
   describe('useDebouncedState hook', () => {
     it('is a debounced state updater', () => {
-      const initialValue = {};
-      const newValue = {};
-      let valueA;
-      let valueB;
-      testHook(
-        () => useDebouncedState(initialValue, delay),
+      const initialValue = Symbol();
+      const newValue = Symbol();
+
+      const [
+        [valueA], [valueB], [valueC],
+      ] = runHooks(() => useDebouncedState(initialValue, delay), [
         ([, setValue]) => {
           setValue(newValue);
         },
-        ([state]) => {
-          valueA = state;
+        () => {
           jest.runAllTimers();
         },
-        ([state]) => {
-          valueB = state;
-        }
-      );
+      ]);
+
       expect(valueA).toBe(initialValue);
-      expect(valueB).toBe(newValue);
+      expect(valueB).toBe(initialValue);
+      expect(valueC).toBe(newValue);
     });
   });
 });

@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-hooks",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "React Hooks for Fuselage, Rocket.Chat's design system",
   "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
   "author": {
@@ -29,7 +29,7 @@
     "start": "rollup -c -w",
     "build": "rollup -c",
     "test": "jest",
-    "lint": "eslint src",
+    "lint": "eslint src tests",
     "lint-staged": "lint-staged",
     "docs": "documentation readme src/index.js --section='API Reference' --readme-file README.md"
   },
