@@ -1,3 +1,9 @@
+%button-text-style {
+  @include use-text-ellipsis;
+
+  @include use-text-style(c2);
+}
+
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
     padding:
@@ -30,12 +36,6 @@
   white-space: nowrap;
   text-decoration: none;
 
-  %button-text-style {
-    @include use-text-ellipsis;
-
-    @include use-text-style(c2);
-  }
-
   @include clickable;
 
   &--large {
@@ -66,7 +66,7 @@
     @include with-rectangular-size(
       $height: $sizes-x36,
       $padding-x: $spaces-x12,
-      $line-height: $text-styles-p2-line-height,
+      $line-height: $text-styles-c2-line-height,
     );
   }
 
