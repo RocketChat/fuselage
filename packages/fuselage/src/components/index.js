@@ -38,3 +38,4 @@ export * from './AutoComplete';
 export * from './Options';
 export * from './Select';
 export * from './Modal';
+export * from './Throbber';

@@ -1,0 +1,42 @@
+.rcx-throbber {
+  display: flex;
+
+  margin-block: calc(-1 * #{ $spaces-x1 });
+
+  &__circle {
+    margin-inline: $spaces-x1;
+
+    animation: bounce 1.4s infinite ease-in-out both;
+
+    border-radius: 50%;
+
+    background-color: $colors-b500;
+
+    &--disabled {
+      background-color: $colors-n500;
+    }
+
+    &--inherit-color {
+      background-color: currentColor;
+    }
+
+    @each $name, $value in $sizes {
+      &--size-#{$name} {
+        width: $value;
+        height: $value;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}

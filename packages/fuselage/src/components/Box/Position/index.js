@@ -1,3 +1,4 @@
+import { css } from '@rocket.chat/css-in-js';
 import React, {
   useRef,
   useState,
@@ -8,6 +9,7 @@ import React, {
 import ReactDOM from 'react-dom';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
+import { useCss } from '../useCss';
 
 const top = (top) => ({ top });
 const left = (left) => ({ left });
@@ -58,20 +60,19 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
   const [position, setPosition] = useState();
   const ref = useRef();
 
-  const { offsetWidth } = anchor.current || {};
+  const resizer = useRef();
 
+  const { offsetWidth } = anchor.current || {};
   useLayoutEffect(() => {
     if (!ref.current || !anchor.current) {
       return;
     }
     const [vertical, horizontal] = placement.split(' ');
 
-    if (typeof ResizeObserver === 'undefined') {
-      return;
-    }
     const handlePosition = throttle(() => {
       const anchorPosition = offset(anchor.current);
       const elementPosition = offset(ref.current.parentElement);
+
       setPosition({
         ...width === 'stretch' && anchor.current && {
           width: offsetWidth,
@@ -87,20 +88,23 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
     }, 30);
 
     handlePosition();
-    const resizeObserver = new ResizeObserver(handlePosition);
+
+    const { current } = anchor;
+    if (typeof ResizeObserver !== 'undefined') {
+      resizer.current = new ResizeObserver(handlePosition);
+      resizer.current.observe(current);
+    }
 
     window.addEventListener('scroll', handlePosition);
     window.addEventListener('resize', handlePosition);
-    const { current } = anchor;
 
-    resizeObserver.observe(current);
 
     return () => {
       window.removeEventListener('scroll', handlePosition);
       window.removeEventListener('resize', handlePosition);
-      resizeObserver.unobserve(current);
+      resizer.current && resizer.current.unobserve(current);
     };
-  }, [anchor.current, anchor.current, placement, offsetWidth]);
+  }, [anchor.current, placement, offsetWidth]);
 
   const portalContainer = useMemo(() => {
     const element = document.createElement('div');
@@ -109,11 +113,18 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
   }, []);
 
   useEffect(() => () => document.body.removeChild(portalContainer), []);
+
+  const positionClassName = useCss(css`
+    position: fixed;
+    z-index: 9999;
+    transition: none;
+  `, []);
+
   return ReactDOM.createPortal(
     React.cloneElement(children, {
       ref,
       style: { ...position, ...children.props.style, ...style },
-      className: ['rcx-position', className, children.props.className].filter(Boolean).join(' '),
+      className: [className, positionClassName, children.props.className].filter(Boolean).join(' '),
     }),
     portalContainer,
   );

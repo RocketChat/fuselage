@@ -3,6 +3,79 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.3.0...v0.4.0) (2020-03-10)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.3.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0...v0.3.0) (2020-02-17)
+
+
+### Bug Fixes
+
+* actionId on action hooks ([#149](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/149)) ([c305eb2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c305eb2171463589ed24460d05d648daf984d267))
+
+
+
+
+
+# [0.2.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.30...v0.2.0) (2020-02-13)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.30](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.29...v0.2.0-alpha.30) (2020-02-12)
+
+
+### Bug Fixes
+
+* Safari not triggering buttons anchors ([#146](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/146)) ([2cb5aaa](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2cb5aaaf4c71e277a0a8ea556a8b9efbb3e58620))
+
+
+
+
+
+# [0.2.0-alpha.29](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.28...v0.2.0-alpha.29) (2020-02-10)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.28](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.27...v0.2.0-alpha.28) (2020-02-10)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.27](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.26...v0.2.0-alpha.27) (2020-02-10)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.2.0-alpha.26](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.25...v0.2.0-alpha.26) (2020-02-10)
+
+
+### Bug Fixes
+
+* Select autofocus ([#141](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/141)) ([25849ee](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/25849eed55e4edbf26f54ae4a72c71c1d528e850))
+
+
+
+
+
 # [0.2.0-alpha.25](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0-alpha.24...v0.2.0-alpha.25) (2020-02-10)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-ui-kit

@@ -37,7 +37,11 @@
     flex-grow: 1;
 
     &--hidden {
-      opacity: 0;
+      .rcx-select__focus {
+        transition: none;
+
+        opacity: 0;
+      }
     }
   }
 

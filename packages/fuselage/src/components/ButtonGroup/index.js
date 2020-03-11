@@ -1,18 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useProps } from '../../hooks';
-import { Box } from '../Box';
+import { Box, PropsProvider } from '../Box';
 
 const Base = Box.extend('rcx-button-group');
-
-function ButtonGroupChild({ children }) {
-  const [, PropsProvider] = useProps(({ className }) => ({
-    className: [className, 'rcx-button-group__item'].filter(Boolean).join(' '),
-  }));
-
-  return <PropsProvider children={children} />;
-}
 
 export function ButtonGroup({
   align,
@@ -30,9 +21,9 @@ export function ButtonGroup({
     role='group'
     {...props}
   >
-    <ButtonGroupChild>
-      {children}
-    </ButtonGroupChild>
+    <PropsProvider children={children} fn={({ className }) => ({
+      className: [className, 'rcx-button-group__item'].filter(Boolean).join(' '),
+    })} />
   </Base>;
 }
 

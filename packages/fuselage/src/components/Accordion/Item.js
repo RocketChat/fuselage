@@ -111,7 +111,7 @@ Item.propTypes = {
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
   tabIndex: PropTypes.number,
-  title: PropTypes.string,
+  title: PropTypes.node,
   onToggle: PropTypes.func,
   onToggleEnabled: PropTypes.func,
 };

@@ -81,7 +81,7 @@ export const Select = ({
       <Flex.Item>
         <Flex.Container>
           <Margins inline='neg-x4'>
-            <Wrapper>
+            <Wrapper mod-hidden={!!visibleText}>
               { visibleText && <Flex.Item grow={1}>
                 <Margins inline='x4'><Box is='span' textStyle='p2' textColor='hint' className='rcx-select__placeholder'>{visibleText}</Box></Margins>
               </Flex.Item>}
@@ -101,6 +101,6 @@ export const SelectFiltered = ({
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input className='rcx-select__focus' ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
   return <Select filter={filter} options={options} {...props} anchor={anchor}/>;
 };
