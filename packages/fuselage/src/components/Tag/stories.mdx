@@ -1,0 +1,41 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Tag } from '../..';
+
+<Meta title='Tags & Badges|Tags' parameters={{ jest: ['Button/spec'] }} />
+
+# Tag
+
+Used for mentions.
+
+<Preview>
+  <Story name='Default'>
+    <Tag>john.doe</Tag>
+  </Story>
+</Preview>
+
+<Props of={Tag} />
+
+### Primary
+
+<Preview>
+  <Story name='Primary'>
+    <Tag variant='primary'>john.doe</Tag>
+  </Story>
+</Preview>
+
+### Danger
+
+<Preview>
+  <Story name='Danger'>
+    <Tag variant='danger'>john.doe</Tag>
+  </Story>
+</Preview>
+
+### Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <Tag disabled>john.doe</Tag>
+  </Story>
+</Preview>

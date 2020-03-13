@@ -38,3 +38,5 @@ export * from './Options';
 export * from './Select';
 export * from './Modal';
 export * from './Throbber';
+export * from './Tag';
+export * from './Badge';

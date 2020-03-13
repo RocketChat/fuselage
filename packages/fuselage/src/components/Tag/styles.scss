@@ -1,0 +1,48 @@
+.rcx-tag {
+  display: inline-block;
+
+  padding-block: $spaces-x2;
+
+  padding-inline: $spaces-x4;
+
+  text-decoration: none;
+
+  word-break: keep-all;
+
+  border-radius: $spaces-x4;
+
+  @include use-text-style(micro);
+
+  &--default {
+
+    color: $colors-b500;
+    background-color: $colors-b100;
+  }
+
+  &--primary {
+
+    color: $colors-white;
+    background-color: $colors-b500;
+  }
+
+  &--danger {
+
+    color: $colors-white;
+    background-color: $colors-r500;
+  }
+
+  &--disabled {
+
+    color: $colors-n600;
+    background-color: $colors-n400;
+  }
+
+  &--round {
+
+    overflow: hidden;
+
+    text-align: center;
+
+    border-radius: $spaces-x20;
+  }
+}
