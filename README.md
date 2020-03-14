@@ -23,7 +23,7 @@
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check the [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
 
-## Show your supports
+## Show your support
 
 Give a ⭐️ if this project helped you!
 
