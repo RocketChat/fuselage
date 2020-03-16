@@ -20,6 +20,7 @@
     "css-in-js"
   ],
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "files": [
     "dist"
   ],

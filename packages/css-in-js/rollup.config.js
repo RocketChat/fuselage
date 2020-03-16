@@ -13,6 +13,11 @@ export default {
       format: 'cjs',
       sourcemap: true,
     },
+    {
+      file: pkg.module,
+      format: 'esm',
+      sourcemap: true,
+    },
   ],
   plugins: [
     external(),
