@@ -49,7 +49,7 @@ export const Select = ({
 
   const applyFilter = ([, option]) => !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
   const filteredOptions = options.filter(applyFilter).map(mapOptions);
-  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(index, options, internalChanged);
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(index, filteredOptions, internalChanged);
 
   const ref = useRef();
 
