@@ -82,7 +82,7 @@ export const Select = ({
         <Flex.Container>
           <Margins inline='neg-x4'>
             <Wrapper mod-hidden={!!visibleText}>
-              { (typeof placeholder === 'string' || !!valueLabel) && <Flex.Item grow={1}>
+              { !!visibleText && (typeof placeholder === 'string' || !!valueLabel) && <Flex.Item grow={1}>
                 <Margins inline='x4'>
                   <Box is='span' textStyle='p2' textColor={ valueLabel ? 'default' : 'hint' }>{visibleText}</Box>
                 </Margins>
