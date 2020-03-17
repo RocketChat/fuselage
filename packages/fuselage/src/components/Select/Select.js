@@ -28,7 +28,6 @@ export const Select = ({
 }) => {
   const [internalValue, setInternalValue] = useState(value);
 
-
   const currentValue = value !== undefined ? value : internalValue;
   const option = options.find((option) => getValue(option) === currentValue);
   const index = options.indexOf(option);
@@ -68,7 +67,7 @@ export const Select = ({
 
   const valueLabel = getLabel(option);
 
-  const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel || placeholder);
+  const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel || (placeholder || typeof placeholder === 'string'));
   return (
     <Container disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={
       [
@@ -82,7 +81,7 @@ export const Select = ({
         <Flex.Container>
           <Margins inline='neg-x4'>
             <Wrapper mod-hidden={!!visibleText}>
-              { !!visibleText && (typeof placeholder === 'string' || !!valueLabel) && <Flex.Item grow={1}>
+              { visibleText && <Flex.Item grow={1}>
                 <Margins inline='x4'>
                   <Box is='span' textStyle='p2' textColor={ valueLabel ? 'default' : 'hint' }>{visibleText}</Box>
                 </Margins>
