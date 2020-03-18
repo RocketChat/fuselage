@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.4.0...v0.4.1) (2020-03-16)
+
+
+### Bug Fixes
+
+* Build [@rocket](https://github.com/rocket).chat/css-in-js as ES module ([#166](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/166)) ([910c85c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/910c85c9ca7a65b8dc53e9d137cdc7b3f17e3410))
+* filteredOptions for options ([#169](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/169)) ([8cb685f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8cb685ff477a6eeb00d7db1efda09c02eb1794f8))
+* Select arrow position for empty selects ([#157](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/157)) ([4ef17e0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4ef17e0599aa4afc6219215321609fb837fb1f4b))
+
+
+
+
+
+# [0.4.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.3.0...v0.4.0) (2020-03-10)
+
+
+### Bug Fixes
+
+* Changed accordion item title proptype ([#151](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/151)) ([b80647c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b80647c9c3502fb2eed51204d4878b3acecf6f0c))
+* Display name and prop types of Throbber component ([#148](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/148)) ([cd0122b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cd0122be08fa3d4ddf550f02a12153ede3678e14))
+
+
+### Features
+
+* Added callback prop for scroll position ([#155](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/155)) ([bb61e34](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bb61e3465daafcc5295b80254e81a12e8df34847))
+* useMutableCallback ([#156](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/156)) ([c43294f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c43294fead6b9b2e9acd9b6764ee702a4da6c3d5))
+
+
+### Performance Improvements
+
+* Avoid re-renders due to PropsContext ([#154](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/154)) ([da88341](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/da88341ffc26f3e828afe90e22c8d69a21bc2b1c))
+
+
+
+
+
 # [0.3.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.2.0...v0.3.0) (2020-02-17)
 
 

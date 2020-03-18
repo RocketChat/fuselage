@@ -1,0 +1,104 @@
+@mixin triangle-direction ($direction) {
+  &::after {
+    position: absolute;
+
+    box-sizing: border-box;
+
+    content: ' ';
+
+    border-width: calc(#{ $borders-width-x4 } + #{ $borders-width-x1 });
+    border-color: transparent transparent $tooltip-background-color $tooltip-background-color;
+    border-radius: 0 0 0 calc(#{ $borders-radius-x2 } + #{ $borders-radius-x2} / 2);
+
+    @if $direction == 'up' {
+      top: calc(-1 * (#{$spaces-x4} ));
+
+      transform: rotate(135deg);
+    }
+    @if $direction == 'down' {
+      bottom: calc(-1 * (#{$spaces-x4} ));
+
+      transform: rotate(-45deg);
+    }
+    @if $direction == 'left' {
+      top: $tooltip-arrow-position-center;
+      left: calc(-1 * (#{$spaces-x4} ));
+
+      margin-block-start: calc(-1 * #{ $spaces-x4 });
+
+      transform: rotate(45deg);
+    }
+    @if $direction == 'right' {
+      top: $tooltip-arrow-position-center;
+      right: calc(-1 * (#{$spaces-x4} ));
+
+      margin-block-start: calc(-1 * #{ $spaces-x4 });
+
+      transform: rotate(-135deg);
+    }
+  }
+}
+
+.rcx-tooltip {
+  position: relative;
+
+  display: inline-block;
+
+  max-width: $spaces-x240;
+
+  padding-block: $spaces-x8;
+  padding-inline: $spaces-x12;
+
+  word-break: break-all;
+
+  color: $tooltip-text-color;
+
+  border-radius: $borders-radius-x4;
+
+  background-color: $tooltip-background-color;
+
+  @include use-text-style(p2);
+
+  &--dir-up {
+    @include triangle-direction('up');
+  }
+
+  &--dir-down {
+    @include triangle-direction('down');
+  }
+
+  &--dir-left {
+    @include triangle-direction('left');
+  }
+
+  &--dir-right {
+    @include triangle-direction('right');
+  }
+
+  &--pos {
+    &-center {
+      &::after {
+        left: 50%;
+
+        margin-inline-start: calc(-1 * #{ $spaces-x4 });
+      }
+    }
+
+    &-left {
+      &::after {
+        left: $tooltip-arrow-margin;
+
+        margin: 0;
+      }
+    }
+
+    &-right {
+      &::after {
+        right: $tooltip-arrow-margin;
+        left: initial;
+
+        margin: 0;
+      }
+    }
+  }
+}
