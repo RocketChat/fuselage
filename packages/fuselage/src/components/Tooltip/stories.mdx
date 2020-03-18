@@ -1,71 +1,49 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
-import { PropsVariationSection } from '../../../.storybook/helpers';
 
-import { Tooltip } from '../..';
+import { Box, Margins, Tooltip } from '../..';
 
 <Meta title='Tooltip|Tooltips' parameters={{ jest: ['Tooltip/spec'] }} />
 
 # Tooltip
 
-Describes component/button details.
-
-### Pointing Up
+A message which appears when a cursor is positioned over an icon, image, hyperlink, or other element in a graphical user
+interface.
 
 <Preview>
-  <Story name='Pointing Up'>
-    <PropsVariationSection
-      component={Tooltip}
-      xAxis={{
-        'arrow to left': { arrowPosition: 'up-left', children: "Description" },
-        'arrow to middle': { arrowPosition: 'up', children: "Description" },
-        'arrow to right': { arrowPosition: 'up-right', children: "Description" },
-      }}
-      yAxis={{
-        default: {},
-      }}
-    />
+  <Story name='Default'>
+    <Tooltip>A example tooltip</Tooltip>
   </Story>
 </Preview>
 
-### Pointing Down
+<Props of={Tooltip} />
+
+## Arrow positioning
 
 <Preview>
-  <Story name='Pointing Down'>
-    <PropsVariationSection
-      component={Tooltip}
-      xAxis={{
-        'arrow to left': { arrowPosition: 'down-left', children: "Description" },
-        'arrow to middle': { arrowPosition: 'down', children: "Description" },
-        'arrow to right': { arrowPosition: 'down-right', children: "Description" },
-      }}
-      yAxis={{
-        default: {},
-      }}
-    />
-  </Story>
-</Preview>
-
-### Pointing left
-
-<Preview>
-  <Story name='Tooltip arrow left'>
-    <Tooltip arrowPosition="left">Description</Tooltip>
-  </Story>
-</Preview>
-
-### Pointing right
-
-<Preview>
-  <Story name='Tooltip arrow right'>
-    <Tooltip arrowPosition="right">Description</Tooltip>
-  </Story>
-</Preview>
-
-### No Arrow
-
-<Preview>
-  <Story name='No Arrow'>
-    <Tooltip>Description</Tooltip>
+  <Story name='Arrow positioning'>
+    <Margins inline='neg-x8'>
+      <Box>
+        <Margins all='x8'>
+          <Tooltip children='Tooltip' arrowPosition='up-left' />
+          <Tooltip children='Tooltip' arrowPosition='up' />
+          <Tooltip children='Tooltip' arrowPosition='up-right' />
+        </Margins>
+      </Box>
+      <Box>
+        <Margins all='x8'>
+          <Tooltip children='Tooltip' arrowPosition='left' />
+          <Tooltip children='Tooltip' arrowPosition={null} />
+          <Tooltip children='Tooltip' arrowPosition='right' />
+        </Margins>
+      </Box>
+      <Box>
+        <Margins all='x8'>
+          <Tooltip children='Tooltip' arrowPosition='down-left' />
+          <Tooltip children='Tooltip' arrowPosition='down' />
+          <Tooltip children='Tooltip' arrowPosition='down-right' />
+        </Margins>
+      </Box>
+    </Margins>
   </Story>
 </Preview>

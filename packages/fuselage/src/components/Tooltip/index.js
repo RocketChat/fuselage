@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { Box } from '../Box';
 
@@ -7,19 +7,23 @@ export function Tooltip({
   arrowPosition,
   ...props
 }) {
-  const direction = arrowPosition ? arrowPosition.split('-') : false;
-  const position = () => {
-    if (!direction || direction[0] === 'left' || direction[0] === 'right') {
-      return false;
+  const [direction, position] = useMemo(() => {
+    const [dir, pos] = arrowPosition ? arrowPosition.split('-') : [false, false];
+
+    if (!dir || dir === 'left' || dir === 'right') {
+      return [String(dir), false];
     }
-    return direction[1] ? direction[1] : 'center';
-  };
+
+    return [String(dir), pos ? String(pos) : 'center'];
+  }, [arrowPosition]);
+
   return <Box
     is='div'
     componentClassName='rcx-tooltip'
-    mod-dir={ direction ? direction[0] : false }
-    mod-pos={ position() }
-    {...props} />;
+    mod-dir={direction}
+    mod-pos={position}
+    {...props}
+  />;
 }
 
 Tooltip.propTypes = {
