@@ -1,0 +1,5 @@
+$tooltip-arrow-margin: $spaces-x8;
+$tooltip-arrow-position-center: 50%;
+
+$tooltip-background-color: theme('tooltip-background-color', $colors-n900);
+$tooltip-text-color: theme('tooltip-text-color', $colors-white);
