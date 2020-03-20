@@ -29,7 +29,7 @@
     "eslint-plugin-import": "^2.19.1",
     "glob": "^7.1.4",
     "is-valid-identifier": "^2.0.2",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.2",
     "svg2ttf": "^4.3.0",
     "svgicons2svgfont": "^9.0.4",
     "ttf2eot": "^2.0.0",
