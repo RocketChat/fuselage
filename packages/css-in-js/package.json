@@ -45,11 +45,11 @@
     "flow-bin": "^0.110.1",
     "jest": "^24.9.0",
     "lint-staged": "^9.4.2",
-    "rollup": "^1.27.9",
-    "rollup-plugin-babel": "^4.3.3",
+    "rollup": "^2.1.0",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0"
+    "rollup-plugin-peer-deps-external": "^2.2.2"
   },
   "publishConfig": {
     "access": "public"
