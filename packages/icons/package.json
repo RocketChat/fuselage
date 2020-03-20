@@ -35,7 +35,7 @@
     "ttf2eot": "^2.0.0",
     "ttf2woff": "^2.0.1",
     "ttf2woff2": "^3.0.0",
-    "unicode": "^11.0.1",
+    "unicode": "^12.1.0",
     "xml2js": "^0.4.19"
   },
   "publishConfig": {

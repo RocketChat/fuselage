@@ -92,9 +92,9 @@
     "stylelint": "^10.0.1",
     "stylelint-order": "^3.0.0",
     "stylelint-scss": "^3.11.1",
-    "webpack": "^4.41.2",
-    "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.3.2"
+    "webpack": "^4.42.0",
+    "webpack-bundle-analyzer": "^3.6.1",
+    "webpack-cli": "^3.3.11"
   },
   "jest": {
     "moduleNameMapper": {
