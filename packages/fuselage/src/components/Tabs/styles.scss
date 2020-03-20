@@ -10,7 +10,6 @@
 }
 
 .rcx-tabs__scroll-box {
-
   position: relative;
   bottom: calc(-1 * #{ $spaces-x8 });
 
@@ -34,7 +33,6 @@
 }
 
 .rcx-tabs__item {
-
   position: relative;
 
   flex: 0 0 auto;
@@ -56,7 +54,6 @@
   @include use-text-style(s2);
 
   &--selected {
-
     padding-block: $spaces-x4;
     padding-inline: calc(#{ $spaces-x16 } + #{ $spaces-x2 });
 
