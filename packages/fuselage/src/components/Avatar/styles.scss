@@ -18,4 +18,9 @@
   }
 
   @include use-size-modifier;
+
+  &--size-x48 {
+    width: calc(#{$spaces-x40} + #{$spaces-x8});
+    height: calc(#{$spaces-x40} + #{$spaces-x8});
+  }
 }

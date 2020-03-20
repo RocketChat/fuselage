@@ -23,6 +23,22 @@
   }
 }
 
+@mixin on-focus-visible {
+  &:focus-visible {
+    @content;
+  }
+
+  @at-root .js-focus-visible &:focus.focus-visible, .js-focus-visible &.focus.focus-visible {
+    @content;
+  }
+
+  @at-root html:not(.js-focus-visible) & {
+    @include on-focus {
+      @content;
+    }
+  }
+}
+
 @mixin on-disabled {
   *:disabled &,
   &:disabled,

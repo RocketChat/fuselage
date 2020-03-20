@@ -1,21 +1,17 @@
 import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
 import { Box } from '../Box';
-
-const Container = Box.extend('rcx-tabs');
-const ItemsWrapper = Box.extend('rcx-tabs__wrapper');
-const ScrollBox = Box.extend('rcx-tabs__scroll-box');
-const ItemContainer = Box.extend('rcx-tabs__item', 'button');
 
 export function Tabs({
   children,
   ...props
 }) {
-  return <Container {...props}>
-    <ScrollBox>
-      <ItemsWrapper children={children} role='tablist'/>
-    </ScrollBox>
-  </Container>;
+  return <Box is='div' componentClassName='rcx-tabs' {...props}>
+    <Box is='div' componentClassName='rcx-tabs__scroll-box'>
+      <Box is='div' componentClassName='rcx-tabs__wrapper' children={children} role='tablist'/>
+    </Box>
+  </Box>;
 }
 
 Tabs.displayName = 'Tabs';
@@ -24,7 +20,9 @@ export const TabsItem = forwardRef(function TabsItem({
   selected,
   ...props
 }, ref) {
-  return <ItemContainer
+  return <Box
+    is='button'
+    componentClassName='rcx-tabs__item'
     aria-selected={selected ? 'true' : 'false'}
     mod-selected={selected}
     ref={ref}
@@ -32,5 +30,9 @@ export const TabsItem = forwardRef(function TabsItem({
     {...props}
   />;
 });
+
+TabsItem.propTypes = {
+  selected: PropTypes.bool,
+};
 
 Tabs.Item = TabsItem;

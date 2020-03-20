@@ -1,0 +1,41 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import { Badge } from '../..';
+
+<Meta title='Tags & Badges|Badges' parameters={{ jest: ['Button/spec'] }} />
+
+# Badge
+
+Used for mentions.
+
+<Preview>
+  <Story name='Default'>
+    <Badge>99</Badge>
+  </Story>
+</Preview>
+
+<Props of={Badge} />
+
+### Primary
+
+<Preview>
+  <Story name='Primary'>
+    <Badge variant='primary'>99</Badge>
+  </Story>
+</Preview>
+
+### Danger
+
+<Preview>
+  <Story name='Danger'>
+    <Badge variant='danger'>99</Badge>
+  </Story>
+</Preview>
+
+### Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <Badge disabled>99</Badge>
+  </Story>
+</Preview>

@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.4.1...v0.5.0) (2020-03-20)
+
+
+### Bug Fixes
+
+* Empty space before SelectFiltered placeholder ([#171](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/171)) ([26ab2b5](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/26ab2b5788482b5be3604a52a0dfe48e56cb9166))
+
+
+### Features
+
+* Focus visible ([#165](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/165)) ([0801f28](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0801f280b159f9b2d500fc3de57eb422a8b13e5e))
+* Tags and Badges ([#167](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/167)) ([b739cde](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b739cdec895800fc478b86cd8ed0261453d3e490))
+* Tooltip component ([#121](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/121)) ([374c279](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/374c2797c4b7d7fb6fe894780b98a88a971e7db7))
+
+
+
+
+
+## [0.4.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.4.0...v0.4.1) (2020-03-16)
+
+
+### Bug Fixes
+
+* Build [@rocket](https://github.com/rocket).chat/css-in-js as ES module ([#166](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/166)) ([910c85c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/910c85c9ca7a65b8dc53e9d137cdc7b3f17e3410))
+* filteredOptions for options ([#169](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/169)) ([8cb685f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8cb685ff477a6eeb00d7db1efda09c02eb1794f8))
+* Select arrow position for empty selects ([#157](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/157)) ([4ef17e0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4ef17e0599aa4afc6219215321609fb837fb1f4b))
+
+
+
+
+
 # [0.4.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.3.0...v0.4.0) (2020-03-10)
 
 

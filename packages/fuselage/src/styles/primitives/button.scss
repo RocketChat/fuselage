@@ -23,7 +23,7 @@
 
   appearance: none;
 
-  @include on-focus {
+  @include on-focus-visible {
     border-color: $focus-border-color;
     background-color: $focus-background-color;
     @include use-focus-shadow($focus-shadow-color);
