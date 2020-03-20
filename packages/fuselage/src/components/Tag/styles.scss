@@ -11,8 +11,6 @@
 
   border-radius: $spaces-x4;
 
-  @include use-text-style(micro);
-
   &--secondary {
     color: $colors-b500;
     background-color: $colors-b100;
