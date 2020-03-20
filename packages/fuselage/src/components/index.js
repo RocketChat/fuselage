@@ -39,3 +39,5 @@ export * from './Select';
 export * from './Tooltip';
 export * from './Modal';
 export * from './Throbber';
+export * from './Tag';
+export * from './Badge';
