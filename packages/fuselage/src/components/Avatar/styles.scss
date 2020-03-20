@@ -18,7 +18,7 @@ $avatar-stack-background-color: theme('avatar-background-color', $colors-white);
 
     flex: 1 1 auto;
 
-    border-radius: #{ $borders-width-x4 };
+    border-radius: #{ $borders-width-x2 };
     @include use-size-modifier;
 
     &--rounded {
