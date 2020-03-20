@@ -65,7 +65,7 @@
     "loki": "^0.18.1",
     "react": "^16.12.0",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2",
+    "typescript": "^3.8.3",
     "webpack-plugin-replace": "^1.2.0"
   },
   "loki": {
