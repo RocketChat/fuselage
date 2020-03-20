@@ -80,9 +80,7 @@
     color: $tabs-disabled-color;
   }
 
-  &.focus,
-  &:focus {
-
+  @include on-focus-visible {
     padding-inline: $spaces-x16;
 
     border-color: $tabs-focus-border-color;

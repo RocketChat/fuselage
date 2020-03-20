@@ -86,6 +86,7 @@ addDecorator(withTests({ results }));
 configure(() => {
   require('normalize.css/normalize.css');
   require('@rocket.chat/icons/dist/rocketchat.css');
+  require('@rocket.chat/fuselage-polyfills');
 
   if (process.env.NODE_ENV === 'loki') {
     const style = document.createElement('style');
