@@ -81,9 +81,9 @@ export const Select = ({
         <Flex.Container>
           <Margins inline='neg-x4'>
             <Wrapper mod-hidden={!!visibleText}>
-              { visibleText && <Flex.Item grow={1}>
+              { visibleText && <Flex.Item grow={1} shrink={1}>
                 <Margins inline='x4'>
-                  <Box is='span' textStyle='p2' textColor={ valueLabel ? 'default' : 'hint' }>{visibleText}</Box>
+                  <Box is='span' componentClassName='rcx-select__item' textStyle='p2' textColor={ valueLabel ? 'default' : 'hint' }>{visibleText}</Box>
                 </Margins>
               </Flex.Item>}
               <Anchor disabled={disabled} mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />

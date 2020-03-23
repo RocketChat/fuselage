@@ -5,6 +5,12 @@
 
   align-items: center; // TODO move to .rcx-input-box
 
+  &__item {
+    white-space: nowrap;
+
+    @include use-text-ellipsis;
+  }
+
   &__focus,
   &__placeholder {
     display: inline-block;
@@ -31,10 +37,14 @@
   }
 
   &__wrapper {
+
+    min-width: 0;
+
     user-select: none;
 
     opacity: 1;
     flex-grow: 1;
+    flex-shrink: 1;
 
     &--hidden {
       .rcx-select__focus {

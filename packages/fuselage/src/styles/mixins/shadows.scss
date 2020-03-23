@@ -3,5 +3,5 @@
 }
 
 @mixin use-focus-shadow($outer-color) {
-  box-shadow: 0 0 0 #{ to-rem(6) } #{ $outer-color };
+  box-shadow: 0 0 0 #{ to-rem($spaces-x4) } #{ $outer-color };
 }
