@@ -9,6 +9,7 @@ $sizes-x28: theme('sizes-x28', to-rem(28));
 $sizes-x32: theme('sizes-x32', to-rem(32));
 $sizes-x36: theme('sizes-x36', to-rem(36));
 $sizes-x40: theme('sizes-x40', to-rem(40));
+$sizes-x48: theme('sizes-x48', to-rem(48));
 $sizes-x80: theme('sizes-x80', to-rem(80));
 $sizes-x120: theme('sizes-x120', to-rem(120));
 $sizes-x160: theme('sizes-x160', to-rem(160));
@@ -64,6 +65,7 @@ $sizes: (
   x32: $sizes-x32,
   x36: $sizes-x36,
   x40: $sizes-x40,
+  x48: $sizes-x48,
   x80: $sizes-x80,
   x120: $sizes-x120,
   x160: $sizes-x160,

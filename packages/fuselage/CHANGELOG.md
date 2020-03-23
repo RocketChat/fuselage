@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.5.0...v0.6.0) (2020-03-20)
+
+
+### Bug Fixes
+
+* Improve tag/badge style ([#173](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/173)) ([50a074b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/50a074bc53bfdfa86e643b1d408d73ac7f32af0a))
+
+
+### Features
+
+* add stack avatar ([#174](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/174)) ([406554b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/406554b7a31d96b60133126c649a6857c0471c08))
+
+
+
+
+
 # [0.5.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.4.1...v0.5.0) (2020-03-20)
 
 
