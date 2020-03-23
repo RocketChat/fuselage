@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Field,
-  FieldGroup,
   TextAreaInput,
   TextInput,
 } from '@rocket.chat/fuselage';
@@ -16,14 +15,14 @@ export const Input = React.memo(({ label, element, parser, index, hint, context 
   const [{ error }] = useBlockContext(element, context);
   return (
     <Block>
-      <FieldGroup>
-        <Field>
-          {label && <Field.Label>{label}</Field.Label>}
+      <Field>
+        {label && <Field.Label>{label}</Field.Label>}
+        <Field.Row>
           {parser.renderInputs(element, BLOCK_CONTEXT.FORM, parser, index)}
-          {error && <Field.Error>{error}</Field.Error>}
-          {hint && <Field.Hint>{hint}</Field.Hint>}
-        </Field>
-      </FieldGroup>
+        </Field.Row>
+        {error && <Field.Error>{error}</Field.Error>}
+        {hint && <Field.Hint>{hint}</Field.Hint>}
+      </Field>
     </Block>
   );
 });
