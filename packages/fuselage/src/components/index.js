@@ -1,6 +1,7 @@
 export * from './Accordion';
 export * from './Box';
 export * from './Button';
+export * from './ButtonNew';
 export * from './ButtonGroup';
 export * from './Callout';
 export * from './CheckBox';

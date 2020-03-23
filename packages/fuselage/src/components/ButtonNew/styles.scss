@@ -1,0 +1,128 @@
+%button-text-style {
+  @include use-text-ellipsis;
+
+  @include use-text-style(c2);
+}
+
+.rcx-button {
+  @mixin with-rectangular-size($height, $padding-x, $line-height) {
+    padding:
+      calc((#{ $height } - #{ $line-height }) / 2 - #{ $borders-width-x2 })
+      calc(#{ $padding-x } - #{ $borders-width-x2 });
+    padding-block: calc((#{ $height } - #{ $line-height }) / 2 - #{ $borders-width-x2 });
+    padding-inline: calc(#{ $padding-x } - #{ $borders-width-x2 });
+  }
+
+  @mixin with-squared-size($size) {
+    width: $size;
+    height: $size;
+    padding: 0;
+
+    &::before,
+    &::after {
+      display: inline-block;
+
+      height: 100%;
+
+      content: '';
+      vertical-align: middle;
+    }
+  }
+
+  display: inline-block;
+
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+
+  @include clickable;
+
+  &--large {
+    @include use-text-ellipsis;
+
+    @include use-text-style(p2);
+
+    @include with-rectangular-size(
+      $height: $sizes-x40,
+      $padding-x: calc( #{$spaces-x12} ),
+      $line-height: $text-styles-p2-line-height,
+    );
+  }
+
+  &--small {
+    @extend %button-text-style;
+
+    @include with-rectangular-size(
+      $height: $sizes-x28,
+      $padding-x: #{$spaces-x8},
+      $line-height: $text-styles-c2-line-height,
+    );
+  }
+
+  &--medium {
+    @extend %button-text-style;
+
+    @include with-rectangular-size(
+      $height: $sizes-x36,
+      $padding-x: $spaces-x12,
+      $line-height: $text-styles-c2-line-height,
+    );
+  }
+
+  &--square {
+    @include with-squared-size(
+      $size: $spaces-x40,
+    );
+  }
+
+  &--small-square {
+    @include with-squared-size(
+      $size: $spaces-x28,
+    );
+  }
+
+  &--medium-square {
+    @include with-squared-size(
+      $size: $spaces-x32,
+    );
+  }
+
+  &--variant {
+    &-secondary {
+      @extend %button--secondary;
+    }
+
+    &-danger {
+      @extend %button--danger;
+    }
+
+    &-primary {
+      @extend %button--primary;
+    }
+
+    &-nude-primary {
+      @extend %button--nude--primary;
+    }
+
+    &-nude-danger {
+      @extend %button--nude--danger;
+    }
+
+    &-primary-danger {
+      @extend %button--primary--danger;
+    }
+
+    &-ghost {
+      @extend %button--ghost;
+    }
+
+    &-ghost-danger {
+      @extend %button--ghost--danger;
+    }
+
+    &-ghost-primary {
+      @extend %button--ghost--primary;
+    }
+  }
+}
