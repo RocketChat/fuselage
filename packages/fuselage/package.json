@@ -66,7 +66,6 @@
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "caniuse-lite": "^1.0.30001015",
-    "css-vars-ponyfill": "^2.0.2",
     "cssnano": "^4.1.10",
     "eslint": "^6.1.0",
     "eslint-plugin-import": "^2.19.1",
