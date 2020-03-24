@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.0...v0.6.1) (2020-03-24)
+
+
+### Bug Fixes
+
+* outline input and Select text wrapping ([#177](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/177)) ([4168cf2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4168cf265cac67dbabd7defb9545a03485c26ac2))
+* Select placeholder and story ([#179](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/179)) ([e05e926](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e05e926c82e92f5abcf0a64fb1f7d52ac834e33a))
+
+
+### Reverts
+
+* Revert "chore: Refactor button, add missing variants. (#120)" (#178) ([e3d7d7d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e3d7d7d14212c852d5a587accc65e9402504f6fb)), closes [#120](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/120) [#178](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/178)
+
+
+
+
+
 # [0.6.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.5.0...v0.6.0) (2020-03-20)
 
 
