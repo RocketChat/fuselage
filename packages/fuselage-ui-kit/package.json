@@ -1,46 +1,39 @@
 {
   "name": "@rocket.chat/fuselage-ui-kit",
   "version": "0.6.1",
-  "description": "Package ui kit ",
-  "author": "Guilherme Gazzo <guilhermegazzo@gmail.com>",
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
   "license": "MIT",
-  "main": "dist/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
+  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
   },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 0",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-dev": "webpack --mode development",
-    "build": "webpack --mode development",
-    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:73 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "loki:update-ci": "loki update --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static"
+    "build": "webpack --mode development"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  "peerDependencies": {
+    "@rocket.chat/fuselage": "^0.6.1",
+    "@rocket.chat/fuselage-hooks": "^0.6.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "dependencies": {
     "@rocket.chat/ui-kit": "^0.6.1"
-  },
-  "peerDependencies": {
-    "@rocket.chat/fuselage": "^0.2.0-alpha.23",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -48,41 +41,25 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.7.4",
     "@rocket.chat/fuselage": "^0.6.1",
-    "@storybook/addon-actions": "5.2.4",
-    "@storybook/addon-backgrounds": "5.2.4",
-    "@storybook/addon-centered": "5.2.4",
-    "@storybook/addon-docs": "5.2.4",
-    "@storybook/addon-jest": "5.2.4",
-    "@storybook/addon-knobs": "5.2.4",
-    "@storybook/addon-links": "5.2.4",
-    "@storybook/addon-options": "5.2.4",
-    "@storybook/addon-viewport": "5.2.4",
-    "@storybook/addons": "5.2.4",
-    "@storybook/react": "5.2.4",
-    "@storybook/theming": "5.2.4",
+    "@rocket.chat/fuselage-hooks": "^0.6.1",
+    "@storybook/addon-actions": "~5.2.8",
+    "@storybook/addon-backgrounds": "~5.2.8",
+    "@storybook/addon-centered": "~5.2.8",
+    "@storybook/addon-docs": "~5.2.8",
+    "@storybook/addon-knobs": "~5.2.8",
+    "@storybook/addon-links": "~5.2.8",
+    "@storybook/addon-options": "~5.2.8",
+    "@storybook/addon-viewport": "~5.2.8",
+    "@storybook/addons": "~5.2.8",
+    "@storybook/react": "~5.2.8",
+    "@storybook/source-loader": "~5.2.8",
+    "@storybook/theming": "~5.2.8",
     "babel-loader": "^8.0.6",
-    "compression-webpack-plugin": "^3.0.0",
-    "loki": "^0.18.1",
     "react": "^16.12.0",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.8.3",
-    "webpack-plugin-replace": "^1.2.0"
+    "react-dom": "^16.12.0"
   },
-  "loki": {
-    "configurations": {
-      "chrome.laptop": {
-        "target": "chrome.docker",
-        "width": 1366,
-        "height": 768,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "chrome.iphone7": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
-      }
-    }
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "f8467b8ffb6f90d91b46fbcdd5dca169235916a4"
 }

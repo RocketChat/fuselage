@@ -51,7 +51,7 @@ module.exports = async ({ config, mode }) => {
   });
 
   config.module.rules.push({
-    test: /(stories|story)\.[tj]sx?$/,
+    test: /(stories|story)\.js$/,
     loader: require.resolve('@storybook/source-loader'),
     exclude: [/node_modules/],
     enforce: 'pre',

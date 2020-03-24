@@ -1,23 +1,18 @@
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
-import { withTests } from '@storybook/addon-jest';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { addDecorator, addParameters, configure } from '@storybook/react';
 import { create } from '@storybook/theming';
-import 'loki/configure-react';
-
+import 'normalize.css/normalize.css';
+import '@rocket.chat/icons/dist/rocketchat.css';
+import '@rocket.chat/fuselage-polyfills';
 import manifest from '../package.json';
-import results from './jest-results.json';
 
 addParameters({
-  backgrounds: [
-    {
-      name: 'black',
-      value: 'black',
-    },
-  ],
   docs: {
     container: DocsContainer,
     page: DocsPage,
+  },
+  grid: {
+    cellSize: 4,
   },
   options: {
     theme: create({
@@ -25,16 +20,12 @@ addParameters({
       brandTitle: manifest.name,
       brandImage: 'https://rocket.chat/images/default/logo--dark.svg',
       brandUrl: manifest.homepage,
-      gridCellSize: 8,
+      colorPrimary: '#cbced1',
+      colorSecondary: '#1d74f5',
     }),
-    panelPosition: 'right',
-    hierarchySeparator: /\//,
-    hierarchyRootSeparator: /\|/,
-    // storySort: ([, a], [, b]) => {
-    //   const roots = ['Fuselage', 'Buttons', 'Forms', 'Typography'];
-    //   const getRootIndex = ({ kind }) => roots.findIndex((root) => kind.startsWith(`${ root }|`));
-    //   return getRootIndex(a) - getRootIndex(b);
-    // },
+    storySort: ([, a], [, b]) => {
+      return a.kind.localeCompare(b.kind);
+    },
   },
   viewport: {
     viewports: {
@@ -78,18 +69,8 @@ addParameters({
         },
         type: 'desktop',
       },
-      ...INITIAL_VIEWPORTS,
     },
   },
 });
 
-addDecorator(withTests({ results }));
-
-configure(() => {
-  require('@rocket.chat/icons/dist/rocketchat.css');
-  const componentStories = require.context('../src', true, /stories(\/index)?\.(md|js|ts)x?$/);
-
-  return [
-    ...componentStories.keys().map(componentStories)
-  ].filter((module) => module.default && module.default.title);
-}, module);
+configure(require.context('../src', true, /stories(\/index)?\.(mdx|js)$/), module);

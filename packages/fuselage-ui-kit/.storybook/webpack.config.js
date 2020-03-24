@@ -2,20 +2,9 @@
 
 const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 
+const { EnvironmentPlugin } = require('webpack');
+
 module.exports = async ({ config, mode }) => {
-  const jsRule = config.module.rules.find(({ test }) => test.test('index.js'));
-  jsRule.include = [
-    ...jsRule.include,
-    /node_modules\/loki/,
-  ];
-  delete jsRule.exclude;
-  config.resolve.extensions.push(".ts");
-
-  // config.module.rules.push({
-  //   test: /\.svg$/,
-  //   loader: "svg-url-loader"
-  // });
-
   config.module.rules.push({
     test: /\.scss$/,
     use: [
@@ -55,17 +44,13 @@ module.exports = async ({ config, mode }) => {
   });
 
   config.module.rules.push({
-    test: /(stories|story)\.[tj]sx?$/,
+    test: /(stories|story)\.js$/,
     loader: require.resolve('@storybook/source-loader'),
     exclude: [/node_modules/],
     enforce: 'pre',
   });
 
-  config.module.rules.push({
-    test: /\.ts$/,
-    loader: 'ts-loader',
-    options:{ configFile: '../tsconfig.json'} ,
-    exclude: /node_modules/,
-  });
+  config.plugins.push(new EnvironmentPlugin(['NODE_ENV']));
+
   return config;
 };

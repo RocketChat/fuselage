@@ -19,7 +19,7 @@ module.exports = (env, { mode = 'production' }) => ({
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
