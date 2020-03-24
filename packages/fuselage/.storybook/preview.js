@@ -1,12 +1,10 @@
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { addDecorator, addParameters } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
-import { addDecorator, addParameters, configure } from '@storybook/react';
-import { create } from '@storybook/theming';
 import 'loki/configure-react';
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
-import manifest from '../package.json';
 import results from './jest-results.json';
 
 addParameters({
@@ -16,19 +14,6 @@ addParameters({
   },
   grid: {
     cellSize: 4,
-  },
-  options: {
-    theme: create({
-      base: 'light',
-      brandTitle: manifest.name,
-      brandImage: 'https://rocket.chat/images/default/logo--dark.svg',
-      brandUrl: manifest.homepage,
-      colorPrimary: '#cbced1',
-      colorSecondary: '#1d74f5',
-    }),
-    storySort: ([, a], [, b]) => {
-      return a.kind.localeCompare(b.kind);
-    },
   },
   viewport: {
     viewports: {
@@ -77,5 +62,3 @@ addParameters({
 });
 
 addDecorator(withTests({ results }));
-
-configure(require.context('../src', true, /stories(\/index)?\.(mdx|js)$/), module);
