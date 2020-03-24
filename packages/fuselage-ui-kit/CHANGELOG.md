@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.0...v0.6.1) (2020-03-24)
+
+
+### Bug Fixes
+
+* Spacing and markup in Ui Kit inputs ([#176](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/176)) ([e6df266](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e6df266c1297e75c9de21149e98d23c919f76f79))
+
+
+
+
+
 # [0.6.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.5.0...v0.6.0) (2020-03-20)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
