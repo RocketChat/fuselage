@@ -34,30 +34,6 @@ module.exports = (env, { mode = 'production' }) => ({
           },
         },
       },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader/useable',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: () => [
-                require('postcss-custom-properties')(),
-                require('autoprefixer')(),
-                require('cssnano'),
-              ],
-            },
-          },
-          'sass-loader',
-        ],
-      },
     ],
   },
   externals: [

@@ -37,7 +37,12 @@ module.exports = (env, { mode = 'production' }) => ({
       {
         test: /\.scss$/,
         use: [
-          'style-loader/useable',
+          {
+            loader: 'style-loader',
+            options: {
+              injectType: 'lazySingletonStyleTag',
+            },
+          },
           {
             loader: 'css-loader',
             options: {

@@ -6,31 +6,6 @@ const { EnvironmentPlugin } = require('webpack');
 
 module.exports = async ({ config, mode }) => {
   config.module.rules.push({
-    test: /\.scss$/,
-    use: [
-      'style-loader/useable',
-      {
-        loader: 'css-loader',
-        options: {
-          importLoaders: 2,
-        },
-      },
-      {
-        loader: 'postcss-loader',
-        options: {
-          ident: 'postcss',
-          plugins: () => [
-            require('postcss-custom-properties')(),
-            require('autoprefixer')(),
-            require('cssnano'),
-          ],
-        },
-      },
-      'sass-loader',
-    ],
-  });
-
-  config.module.rules.push({
     test: /\.mdx$/,
     use: [
       'babel-loader',
