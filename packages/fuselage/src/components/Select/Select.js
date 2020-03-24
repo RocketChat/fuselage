@@ -5,8 +5,6 @@ import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import { Options, useCursor } from '../Options';
 
-const Container = Box.extend('rcx-select', 'div');
-
 export const Addon = Box.extend('rcx-select__addon', 'div');
 
 const Wrapper = Box.extend('rcx-select__wrapper', 'div');
@@ -25,6 +23,7 @@ export const Select = ({
   getLabel = ([, label] = []) => label,
   placeholder = '',
   renderOptions: _Options = Options,
+  ...props
 }) => {
   const [internalValue, setInternalValue] = useState(value);
 
@@ -69,14 +68,16 @@ export const Select = ({
 
   const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel || (placeholder || typeof placeholder === 'string'));
   return (
-    <Container disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={
+    <Box componentClassName='rcx-select' disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={
       [
 
         error && 'invalid',
         disabled && 'disabled',
 
       ].filter(Boolean).join(' ')
-    }>
+    }
+    { ...props }
+    >
       <Flex.Item>
         <Flex.Container>
           <Margins inline='neg-x4'>
@@ -93,7 +94,7 @@ export const Select = ({
         </Flex.Container>
       </Flex.Item>
       <PositionAnimated visible={visible} anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>
-    </Container>);
+    </Box>);
 };
 
 export const SelectFiltered = ({
@@ -102,6 +103,6 @@ export const SelectFiltered = ({
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1}><InputBox.Input className='rcx-select__focus' ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1} shrink={1}><InputBox.Input className='rcx-select__focus' ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
   return <Select placeholder={null} filter={filter} options={options} {...props} anchor={anchor}/>;
 };
