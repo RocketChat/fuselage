@@ -21,18 +21,7 @@ module.exports = (env, { mode = 'production' }) => ({
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ['@babel/preset-react', {
-                useBuiltIns: true,
-                development: mode !== 'production',
-              }],
-            ],
-            plugins: ['@babel/plugin-transform-runtime'],
-          },
-        },
+        use: 'babel-loader',
       },
     ],
   },
