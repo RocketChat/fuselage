@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "eslint": "^6.1.0",
     "eslint-plugin-import": "^2.19.1",
     "glob": "^7.1.4",
