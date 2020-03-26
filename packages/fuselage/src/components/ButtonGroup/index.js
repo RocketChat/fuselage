@@ -3,8 +3,6 @@ import React from 'react';
 
 import { Box, PropsProvider } from '../Box';
 
-const Base = Box.extend('rcx-button-group');
-
 export function ButtonGroup({
   align,
   children,
@@ -13,7 +11,8 @@ export function ButtonGroup({
   wrap,
   ...props
 }) {
-  return <Base
+  return <Box
+    componentClassName='rcx-button-group'
     mod-align={align}
     mod-stretch={stretch}
     mod-vertical={vertical}
@@ -24,7 +23,7 @@ export function ButtonGroup({
     <PropsProvider children={children} fn={({ className }) => ({
       className: [className, 'rcx-button-group__item'].filter(Boolean).join(' '),
     })} />
-  </Base>;
+  </Box>;
 }
 
 ButtonGroup.defaultProps = {

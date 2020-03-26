@@ -3,13 +3,10 @@ import React from 'react';
 
 import { Box } from '../Box';
 
-const GridWrapper = Box.extend('rcx-grid__wrapper');
-const StyledGrid = Box.extend('rcx-grid');
-const StyledGridItem = Box.extend('rcx-grid__item');
-
 export function Grid({ xs, sm, md, lg, xl, ...props }) {
-  return <GridWrapper>
-    <StyledGrid
+  return <Box componentClassName='rcx-grid__wrapper'>
+    <Box
+      componentClassName='rcx-grid'
       mod-xs={xs}
       mod-sm={sm}
       mod-md={md}
@@ -17,7 +14,7 @@ export function Grid({ xs, sm, md, lg, xl, ...props }) {
       mod-xl={xl}
       {...props}
     />
-  </GridWrapper>;
+  </Box>;
 }
 
 Grid.displayName = 'Grid.Row';
@@ -31,7 +28,8 @@ Grid.propTypes = {
 };
 
 export function GridItem({ xs, sm, md, lg, xl, ...props }) {
-  return <StyledGridItem
+  return <Box
+    componentClassName='rcx-grid__item'
     mod-xs={xs}
     mod-sm={sm}
     mod-md={md}

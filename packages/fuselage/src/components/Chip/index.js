@@ -4,9 +4,6 @@ import { Avatar } from '../Avatar';
 import { Box, Flex, Margins } from '../Box';
 import { Icon } from '../Icon';
 
-const Wrapper = Box.extend('rcx-chip__wrapper', 'div');
-const Container = Box.extend('rcx-chip', 'button');
-
 const ThumbDefault = ({ url }) => <Avatar size='x20' url={url}/>;
 const RemoveDefault = () => <Icon name='cross' size='16' />;
 
@@ -20,7 +17,7 @@ export const Chip = ({
   ...props
 }) => (
   <Flex.Container>
-    <Container type='button' disabled={!(onClick || onMouseDown)} onClick={onClick || onMouseDown} {...props}>
+    <Box componentClassName='rcx-chip' is='button' type='button' disabled={!(onClick || onMouseDown)} onClick={onClick || onMouseDown} {...props}>
       {Thumb && thumbUrl && <Margins all='x4'>
         <Thumb url={thumbUrl} />
       </Margins>}
@@ -34,7 +31,7 @@ export const Chip = ({
           <Remove/>
         </Box>
       </Margins>}
-    </Container>
+    </Box>
   </Flex.Container>
 );
 
@@ -43,7 +40,7 @@ Chip.displayName = 'Chip';
 Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
   <Margins all='neg-x4'>
     <Flex.Container alignItems={alignItems} wrap={wrap}>
-      <Wrapper {...props}>
+      <Box componentClassName='rcx-chip__wrapper' is='div' {...props}>
         {children.map((children, i) =>
           <Flex.Item key={i} shrink={1}>
             <Margins all='x4'>
@@ -51,6 +48,6 @@ Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...prop
             </Margins>
           </Flex.Item>,
         )}
-      </Wrapper>
+      </Box>
     </Flex.Container>
   </Margins>;

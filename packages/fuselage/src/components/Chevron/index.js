@@ -4,8 +4,6 @@ import React, { useMemo } from 'react';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 
-const Container = Box.extend('rcx-chevron', 'span');
-
 export function Chevron({
   up,
   right,
@@ -16,7 +14,9 @@ export function Chevron({
 }) {
   const children = useMemo(() => <Icon name='arrow-down' size={size} />, [size]);
 
-  return <Container
+  return <Box
+    componentClassName='rcx-chevron'
+    is='span'
     children={children}
     mod-up={up}
     mod-right={right}

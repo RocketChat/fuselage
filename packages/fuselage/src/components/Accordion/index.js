@@ -4,10 +4,8 @@ import React from 'react';
 import { Item } from './Item';
 import { Box } from '../Box';
 
-const Container = Box.extend('rcx-accordion');
-
 export function Accordion(props) {
-  return <Container {...props} />;
+  return <Box componentClassName='rcx-accordion' {...props} />;
 }
 
 Accordion.displayName = 'Accordion';
