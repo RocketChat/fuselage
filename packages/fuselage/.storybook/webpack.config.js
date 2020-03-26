@@ -15,7 +15,12 @@ module.exports = async ({ config, mode }) => {
   config.module.rules.push({
     test: /\.scss$/,
     use: [
-      'style-loader/useable',
+      {
+        loader: 'style-loader',
+        options: {
+          injectType: 'lazySingletonStyleTag',
+        },
+      },
       {
         loader: 'css-loader',
         options: {
@@ -51,7 +56,7 @@ module.exports = async ({ config, mode }) => {
   });
 
   config.module.rules.push({
-    test: /(stories|story)\.[tj]sx?$/,
+    test: /(stories|story)\.js$/,
     loader: require.resolve('@storybook/source-loader'),
     exclude: [/node_modules/],
     enforce: 'pre',

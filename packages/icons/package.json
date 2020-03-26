@@ -24,18 +24,18 @@
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "eslint": "^6.1.0",
     "eslint-plugin-import": "^2.19.1",
     "glob": "^7.1.4",
     "is-valid-identifier": "^2.0.2",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.2",
     "svg2ttf": "^4.3.0",
     "svgicons2svgfont": "^9.0.4",
     "ttf2eot": "^2.0.0",
     "ttf2woff": "^2.0.1",
     "ttf2woff2": "^3.0.0",
-    "unicode": "^11.0.1",
+    "unicode": "^12.1.0",
     "xml2js": "^0.4.19"
   },
   "publishConfig": {

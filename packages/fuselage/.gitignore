@@ -2,4 +2,3 @@
 /storybook-static/
 /bundle-report.html
 /.storybook/jest-results.json
-/.out
