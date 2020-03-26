@@ -1,0 +1,27 @@
+$breakpoints: (
+  xs: (
+    min-viewport-width: null,
+    columns: 4,
+    gutter-width: 16,
+  ),
+  sm: (
+    min-viewport-width: 600,
+    columns: 8,
+    gutter-width: 16,
+  ),
+  md: (
+    min-viewport-width: 768,
+    columns: 8,
+    gutter-width: 24,
+  ),
+  lg: (
+    min-viewport-width: 1024,
+    columns: 12,
+    gutter-width: 24,
+  ),
+  xl: (
+    min-viewport-width: 1440,
+    columns: 12,
+    gutter-width: 24,
+  ),
+);
