@@ -1,12 +1,9 @@
 import { css } from '@rocket.chat/css-in-js';
-import sizes from '@rocket.chat/fuselage-tokens/sizes';
-import PropTypes from 'prop-types';
 import React from 'react';
 
+import { sizePropType, getSizeValue } from '../../../propTypes/sizes';
 import { PropsProvider } from '../PropsContext';
 import { useCss } from '../useCss';
-
-const mapSize = (size) => (Number.isFinite(size) && `${ size }px`) || sizes[size] || size;
 
 export function Size({
   children,
@@ -22,23 +19,23 @@ export function Size({
 }) {
   const sizeClassName = useCss([
     length && css`
-      width: ${ mapSize(length) };
-      height: ${ mapSize(length) };
+      width: ${ getSizeValue(length) };
+      height: ${ getSizeValue(length) };
     `,
     minLength && css`
-      min-width: ${ mapSize(minLength) };
-      min-height: ${ mapSize(minLength) };
+      min-width: ${ getSizeValue(minLength) };
+      min-height: ${ getSizeValue(minLength) };
     `,
     maxLength && css`
-      max-width: ${ mapSize(maxLength) };
-      max-height: ${ mapSize(maxLength) };
+      max-width: ${ getSizeValue(maxLength) };
+      max-height: ${ getSizeValue(maxLength) };
     `,
-    width && css`width: ${ mapSize(width) };`,
-    minWidth && css`min-width: ${ mapSize(minWidth) };`,
-    maxWidth && css`max-width: ${ mapSize(maxWidth) };`,
-    height && css`height: ${ mapSize(height) };`,
-    minHeight && css`min-height: ${ mapSize(minHeight) };`,
-    maxHeight && css`max-height: ${ mapSize(maxHeight) };`,
+    width && css`width: ${ getSizeValue(width) };`,
+    minWidth && css`min-width: ${ getSizeValue(minWidth) };`,
+    maxWidth && css`max-width: ${ getSizeValue(maxWidth) };`,
+    height && css`height: ${ getSizeValue(height) };`,
+    minHeight && css`min-height: ${ getSizeValue(minHeight) };`,
+    maxHeight && css`max-height: ${ getSizeValue(maxHeight) };`,
   ], [
     length,
     minLength,
@@ -58,148 +55,13 @@ export function Size({
 }
 
 Size.propTypes = {
-  length: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'none', 'full', 'sw', 'sh',
-      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-      'x40', 'x80', 'x120', 'x160', 'x200',
-      'x240', 'x280', 'x320', 'x360', 'x400',
-      'x440', 'x480', 'x520', 'x560', 'x600',
-      'x640', 'x680', 'x720', 'x760', 'x800',
-      'x840', 'x880', 'x920', 'x960', 'x1000',
-      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
-    ]),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  minLength: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'none', 'full', 'sw', 'sh',
-      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-      'x40', 'x80', 'x120', 'x160', 'x200',
-      'x240', 'x280', 'x320', 'x360', 'x400',
-      'x440', 'x480', 'x520', 'x560', 'x600',
-      'x640', 'x680', 'x720', 'x760', 'x800',
-      'x840', 'x880', 'x920', 'x960', 'x1000',
-      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
-    ]),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  maxLength: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'none', 'full', 'sw', 'sh',
-      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-      'x40', 'x80', 'x120', 'x160', 'x200',
-      'x240', 'x280', 'x320', 'x360', 'x400',
-      'x440', 'x480', 'x520', 'x560', 'x600',
-      'x640', 'x680', 'x720', 'x760', 'x800',
-      'x840', 'x880', 'x920', 'x960', 'x1000',
-      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
-    ]),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  width: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'none', 'full', 'sw', 'sh',
-      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-      'x40', 'x80', 'x120', 'x160', 'x200',
-      'x240', 'x280', 'x320', 'x360', 'x400',
-      'x440', 'x480', 'x520', 'x560', 'x600',
-      'x640', 'x680', 'x720', 'x760', 'x800',
-      'x840', 'x880', 'x920', 'x960', 'x1000',
-      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
-    ]),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  minWidth: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'none', 'full', 'sw', 'sh',
-      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-      'x40', 'x80', 'x120', 'x160', 'x200',
-      'x240', 'x280', 'x320', 'x360', 'x400',
-      'x440', 'x480', 'x520', 'x560', 'x600',
-      'x640', 'x680', 'x720', 'x760', 'x800',
-      'x840', 'x880', 'x920', 'x960', 'x1000',
-      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
-    ]),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  maxWidth: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'none', 'full', 'sw', 'sh',
-      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-      'x40', 'x80', 'x120', 'x160', 'x200',
-      'x240', 'x280', 'x320', 'x360', 'x400',
-      'x440', 'x480', 'x520', 'x560', 'x600',
-      'x640', 'x680', 'x720', 'x760', 'x800',
-      'x840', 'x880', 'x920', 'x960', 'x1000',
-      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
-    ]),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  height: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'none', 'full', 'sw', 'sh',
-      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-      'x40', 'x80', 'x120', 'x160', 'x200',
-      'x240', 'x280', 'x320', 'x360', 'x400',
-      'x440', 'x480', 'x520', 'x560', 'x600',
-      'x640', 'x680', 'x720', 'x760', 'x800',
-      'x840', 'x880', 'x920', 'x960', 'x1000',
-      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
-    ]),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  minHeight: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'none', 'full', 'sw', 'sh',
-      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-      'x40', 'x80', 'x120', 'x160', 'x200',
-      'x240', 'x280', 'x320', 'x360', 'x400',
-      'x440', 'x480', 'x520', 'x560', 'x600',
-      'x640', 'x680', 'x720', 'x760', 'x800',
-      'x840', 'x880', 'x920', 'x960', 'x1000',
-      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
-    ]),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  maxHeight: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'none', 'full', 'sw', 'sh',
-      'x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36',
-      'x40', 'x80', 'x120', 'x160', 'x200',
-      'x240', 'x280', 'x320', 'x360', 'x400',
-      'x440', 'x480', 'x520', 'x560', 'x600',
-      'x640', 'x680', 'x720', 'x760', 'x800',
-      'x840', 'x880', 'x920', 'x960', 'x1000',
-      'x1040', 'x1080', 'x120', 'x1160', 'x1200',
-      'x1240', 'x1280', 'x1320', 'x1360', 'x1400',
-      'x1440', 'x1480', 'x1520', 'x1560', 'x1600',
-    ]),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  length: sizePropType,
+  minLength: sizePropType,
+  maxLength: sizePropType,
+  width: sizePropType,
+  minWidth: sizePropType,
+  maxWidth: sizePropType,
+  height: sizePropType,
+  minHeight: sizePropType,
+  maxHeight: sizePropType,
 };
