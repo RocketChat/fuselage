@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   extends: ['@rocket.chat/eslint-config'],
-  plugins: ['react'],
+  plugins: ['react', 'react-hooks'],
   parser: 'babel-eslint',
   rules: {
     indent: ['error', 2],
@@ -15,6 +15,8 @@ module.exports = {
     'react/jsx-uses-vars': 'error',
     'react/jsx-no-undef': 'error',
     'react/jsx-fragments': ['error', 'syntax'],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
   settings: {
     react: {
