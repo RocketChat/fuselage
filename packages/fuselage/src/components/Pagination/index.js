@@ -110,8 +110,6 @@ Pagination.defaultProps = {
   showingResultsLabel: defaultShowingResultsLabel,
 };
 
-Pagination.displayName = 'Pagination';
-
 Pagination.propTypes = {
   count: PropTypes.number.isRequired,
   current: PropTypes.number,

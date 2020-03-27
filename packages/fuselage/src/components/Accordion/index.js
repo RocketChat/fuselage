@@ -8,8 +8,6 @@ export function Accordion(props) {
   return <Box componentClassName='rcx-accordion' {...props} />;
 }
 
-Accordion.displayName = 'Accordion';
-
 Accordion.propTypes = {
   children: PropTypes.node.isRequired,
 };

@@ -12,8 +12,6 @@ export const UrlInput = forwardRef(function UrlInput({
   return <InputBox className={compoundClassName} ref={ref} {...props} type='url' />;
 });
 
-UrlInput.displayName = 'UrlInput';
-
 UrlInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,

@@ -28,8 +28,6 @@ Tile.defaultProps = {
   padding: 'x16',
 };
 
-Tile.displayName = 'Tile';
-
 Tile.propTypes = {
   elevation: PropTypes.oneOf(['0', '1', '2']).isRequired,
   padding: paddingPropType.isRequired,

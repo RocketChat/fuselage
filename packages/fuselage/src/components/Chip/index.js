@@ -35,8 +35,6 @@ export const Chip = ({
   </Flex.Container>
 );
 
-Chip.displayName = 'Chip';
-
 Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
   <Margins all='neg-x4'>
     <Flex.Container alignItems={alignItems} wrap={wrap}>

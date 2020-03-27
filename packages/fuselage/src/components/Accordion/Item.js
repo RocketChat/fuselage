@@ -97,8 +97,6 @@ export function Item({
   </Box>;
 }
 
-Item.displayName = 'Accordion.Item';
-
 Item.propTypes = {
   children: PropTypes.node,
   defaultExpanded: PropTypes.bool,

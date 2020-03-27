@@ -17,8 +17,6 @@ export function Grid({ xs, sm, md, lg, xl, ...props }) {
   </Box>;
 }
 
-Grid.displayName = 'Grid.Row';
-
 Grid.propTypes = {
   xs: PropTypes.bool,
   sm: PropTypes.bool,
@@ -38,8 +36,6 @@ export function GridItem({ xs, sm, md, lg, xl, ...props }) {
     {...props}
   />;
 }
-
-GridItem.displayName = 'Grid.Item';
 
 GridItem.propTypes = {
   xs: PropTypes.oneOf([1, 2, 3, 4]),

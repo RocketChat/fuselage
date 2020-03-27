@@ -16,5 +16,3 @@ export const ToggleSwitch = forwardRef(function ToggleSwitch({
     <Box is='i' componentClassName='rcx-toggle-switch__fake' aria-hidden='true' />
   </Box>;
 });
-
-ToggleSwitch.displayName = 'ToggleSwitch';

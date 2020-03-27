@@ -30,8 +30,6 @@ ButtonGroup.defaultProps = {
   align: 'start',
 };
 
-ButtonGroup.displayName = 'ButtonGroup';
-
 ButtonGroup.propTypes = {
   /** The alignment that should be applied to the items */
   align: PropTypes.oneOf(['start', 'center', 'end']),

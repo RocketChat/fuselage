@@ -30,8 +30,6 @@ Callout.defaultProps = {
   type: 'info',
 };
 
-Callout.displayName = 'Callout';
-
 Callout.propTypes = {
   children: PropTypes.node,
   title: PropTypes.node,

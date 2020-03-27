@@ -40,8 +40,6 @@ export const Button = forwardRef(function Button({
   />;
 });
 
-Button.displayName = 'Button';
-
 Button.propTypes = {
   external: PropTypes.bool,
 };

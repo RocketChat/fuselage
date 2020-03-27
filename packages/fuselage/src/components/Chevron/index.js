@@ -27,8 +27,6 @@ export function Chevron({
   />;
 }
 
-Chevron.displayName = 'Chevron';
-
 Chevron.propTypes = {
   up: PropTypes.bool,
   right: PropTypes.bool,

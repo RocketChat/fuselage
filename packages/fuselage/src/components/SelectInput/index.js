@@ -46,8 +46,6 @@ export const SelectInput = forwardRef(function SelectInput({
   </InputBox>;
 });
 
-SelectInput.displayName = 'SelectInput';
-
 SelectInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,

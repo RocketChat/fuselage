@@ -12,5 +12,3 @@ export function FieldGroup({
 
   return <Box componentClassName='rcx-field-group' is='fieldset' children={wrappedChildren} role='group' {...props} />;
 }
-
-FieldGroup.displayName = 'FieldGroup';
