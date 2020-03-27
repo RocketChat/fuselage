@@ -13,7 +13,7 @@ export const Icon = React.forwardRef(function Icon({
   size,
   ...props
 }, ref) {
-  const iconSizeClassName = useCss(css`font-size: ${ getSizeValue(size) };`, [size]);
+  const iconSizeClassName = useCss(size ? css`font-size: ${ getSizeValue(size) };` : css``, [size]);
 
   return <Box ref={ref}
     is='i'
