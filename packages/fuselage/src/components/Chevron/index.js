@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';
+import { sizePropType } from '../../propTypes/sizes';
 
 export function Chevron({
   up,
@@ -33,5 +34,5 @@ Chevron.propTypes = {
   right: PropTypes.bool,
   down: PropTypes.bool,
   left: PropTypes.bool,
-  size: PropTypes.oneOf(['1', '2', '4', '8', '12', '16', '20', '24', '28', '32', '36', '40', '44']),
+  size: sizePropType,
 };

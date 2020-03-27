@@ -5,7 +5,7 @@ import { Box, Flex, Margins } from '../Box';
 import { Icon } from '../Icon';
 
 const ThumbDefault = ({ url }) => <Avatar size='x20' url={url}/>;
-const RemoveDefault = () => <Icon name='cross' size='16' />;
+const RemoveDefault = () => <Icon name='cross' size='x16' />;
 
 export const Chip = ({
   children,

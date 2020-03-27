@@ -88,7 +88,7 @@ export function Item({
           && <Box componentClassName='rcx-accordion-item__toggle-switch'>
             <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />
           </Box>}
-        <Chevron size='24' up={expanded} />
+        <Chevron size='x24' up={expanded} />
       </>}
     </Box>}
     <Box componentClassName='rcx-accordion-item__panel' id={panelId} mod-expanded={panelExpanded} role='region'>

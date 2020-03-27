@@ -16,7 +16,7 @@ export function Callout({
     || (type === 'danger' && 'ban');
 
   return <Box componentClassName='rcx-callout' is='section' mod-type={type} {...props}>
-    <Icon name={iconName} size='20' />
+    <Icon name={iconName} size='x20' />
     <Box componentClassName='rcx-callout__wrapper'>
       {title && <Box componentClassName='rcx-callout__title' is='h1'>{title}</Box>}
       <Box componentClassName='rcx-callout__children'>
