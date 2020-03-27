@@ -1,15 +1,6 @@
 $avatar-stack-background-color: theme('avatar-background-color', $colors-white);
 
 .rcx-avatar {
-  @mixin use-size-modifier {
-    @each $size, $value in $sizes {
-      &--size-#{$size} {
-        width: $value;
-        height: $value;
-      }
-    }
-  }
-
   display: inline-flex;
 
   &__element {
@@ -18,7 +9,6 @@ $avatar-stack-background-color: theme('avatar-background-color', $colors-white);
     flex: 1 1 auto;
 
     border-radius: #{ $borders-width-x2 };
-    @include use-size-modifier;
 
     &--rounded {
       border-radius: 100%;

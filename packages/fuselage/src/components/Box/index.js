@@ -99,8 +99,6 @@ Box.defaultProps = {
   is: 'div',
 };
 
-Box.displayName = 'Box';
-
 Box.propTypes = {
   className: PropTypes.string,
   componentClassName: PropTypes.string,

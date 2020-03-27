@@ -2,8 +2,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
 import { Avatar, Margins } from '../..';
 
-
-<Meta title='Misc/Avatar' parameters={{ jest: ['Avatar/spec'] }} />
+<Meta title='Data Display/Avatar' parameters={{ jest: ['Avatar/spec'] }} />
 
 # Avatar
 
@@ -12,6 +11,7 @@ import { Avatar, Margins } from '../..';
     <Margins all='x16'>
       {['x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x48'].map((size, i) =>
         <Avatar
+          key={i}
           url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
               4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
               IyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAA
@@ -30,11 +30,14 @@ import { Avatar, Margins } from '../..';
   </Story>
 </Preview>
 
+<Props of={Avatar} />
+
 <Preview>
   <Story name='Rounded'>
     <Margins all='x16'>
       {['x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x48'].map((size, i) =>
         <Avatar
+          key={i}
           url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
               4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
               IyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAA
@@ -56,9 +59,9 @@ import { Avatar, Margins } from '../..';
 
 <Preview>
   <Story name='Stack'>
+    <Margins all='x16'>
       {['x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x48'].map((size, i) =>
-        <Margins all='x16'>
-        <Avatar.Stack>
+        <Avatar.Stack key={i}>
           <Avatar
             url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
               4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
@@ -102,16 +105,16 @@ import { Avatar, Margins } from '../..';
             size={size}
           />
         </Avatar.Stack>
-        </Margins>
       )}
+    </Margins>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Stack Rounded'>
+    <Margins all='x16'>
       {['x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x48'].map((size, i) =>
-        <Margins all='x16'>
-        <Avatar.Stack>
+        <Avatar.Stack key={i}>
           <Avatar
             url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
               4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
@@ -158,9 +161,7 @@ import { Avatar, Margins } from '../..';
             rounded
           />
         </Avatar.Stack>
-        </Margins>
       )}
+    </Margins>
   </Story>
 </Preview>
-
-<Props of={Avatar} />
