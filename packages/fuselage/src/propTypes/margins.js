@@ -8,6 +8,8 @@ const specialValues = {
   auto,
   x1,
   x2,
+  'neg-x1': `-${ x1 }`,
+  'neg-x2': `-${ x2 }`,
 };
 
 export const getMarginValue = (propValue) => {
