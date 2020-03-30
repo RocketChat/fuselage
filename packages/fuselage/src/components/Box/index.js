@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { createElement, forwardRef, memo, useLayoutEffect } from 'react';
+import React, { createElement, forwardRef, memo } from 'react';
 
-import { use, unuse } from '../../index.scss';
-import { useProps, PropsProvider } from './PropsContext';
+import { useProps, PropsContext, noProps } from './PropsContext';
+import { useStyleSheet } from './useStyleSheet';
 
 const getClassNamesFromModifiers = (element, modifiers) => {
   const modifierClassNames = [];
@@ -44,54 +44,65 @@ const filterModifierProps = (props) => {
   return [modifierProps, otherProps];
 };
 
-export const Box = memo(forwardRef(function Box({
-  className,
-  componentClassName,
-  invisible,
-  is = 'div',
-  richText,
-  style,
-  textColor,
-  textStyle,
-  ...props
-}, ref) {
-  useLayoutEffect(() => {
-    use();
-    return unuse;
-  }, [use, unuse]);
+export const Box = memo(forwardRef(function Box(props, ref) {
+  useStyleSheet();
 
-  const {
-    className: contextualClassName,
-    style: contextualStyle,
-    ...contextualProps
-  } = useProps();
+  const contextProps = useProps();
 
-  const [modifiersProps, otherProps] = filterModifierProps({ ...contextualProps, ...props });
-
-  const children = createElement(is, {
-    className: [
-      'rcx-box',
-      ...getClassNamesFromModifiers('rcx-box', {
-        invisible,
-        inline: richText === 'inline',
-        block: richText === 'block',
-        'text-color': textColor,
-        'text-style': textStyle,
-      }),
-      componentClassName,
-      ...getClassNamesFromModifiers(componentClassName, modifiersProps),
-      contextualClassName,
-      className,
-    ].filter(Boolean).join(' '),
-    ref,
-    style: {
-      ...contextualStyle,
-      ...style,
+  const transforms = [
+    ({ className, invisible, richText, textColor, textStyle, ...props }) => ({
+      className: [
+        'rcx-box',
+        ...getClassNamesFromModifiers('rcx-box', {
+          invisible,
+          inline: richText === 'inline',
+          block: richText === 'block',
+          'text-color': textColor,
+          'text-style': textStyle,
+        }),
+        ...className,
+      ],
+      ...props,
+    }),
+    ({ className, componentClassName, ...props }) => {
+      const [modifiers, remainingProps] = filterModifierProps(props);
+      return {
+        className: [
+          componentClassName,
+          ...getClassNamesFromModifiers(componentClassName, modifiers),
+          ...className,
+        ],
+        ...remainingProps,
+      };
     },
-    ...otherProps,
+  ];
+
+  const mergedProps = transforms.reduce((props, transform) => transform(props), {
+    ref,
+    ...contextProps,
+    ...props,
+    className: [
+      ...Array.isArray(contextProps.className) ? contextProps.className : [contextProps.className],
+      ...Array.isArray(props.className) ? props.className : [props.className],
+    ],
+    style: {
+      ...contextProps.style,
+      ...props.style,
+    },
   });
 
-  return <PropsProvider children={children} />;
+  const children = createElement(mergedProps.is || 'div', {
+    ...mergedProps,
+    is: undefined,
+    className: Array.from(new Set(mergedProps.className)).filter(Boolean).join(' '),
+    style: mergedProps.style,
+  });
+
+  if (contextProps === noProps) {
+    return children;
+  }
+
+  return <PropsContext.Provider children={children} value={noProps} />;
 }));
 
 Box.defaultProps = {
@@ -126,7 +137,6 @@ Box.extend = (componentClassName, is) => {
 };
 
 export * from './PropsContext';
-
 export * from './AnimatedVisibility';
 export * from './Flex';
 export * from './Margins';

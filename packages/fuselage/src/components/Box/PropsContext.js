@@ -6,20 +6,18 @@ export const PropsContext = createContext(noProps);
 
 export const useProps = () => useContext(PropsContext);
 
-const MemoizedPropsProvider = memo(function MemoizedProps({ children, ...props }) {
+function DirectPropsProvider({ children, ...props }) {
   return <PropsContext.Provider children={children} value={props} />;
-});
+}
+
+const MemoizedPropsProvider = memo(DirectPropsProvider);
 
 export function PropsProvider({ children, fn, memoized = false }) {
-  if (!fn) {
-    return <PropsContext.Provider children={children} value={noProps} />;
-  }
-
   const props = fn(useContext(PropsContext));
 
   if (memoized) {
     return <MemoizedPropsProvider children={children} {...props} />;
   }
 
-  return <PropsContext.Provider children={children} value={props} />;
+  return <DirectPropsProvider children={children} {...props} />;
 }
