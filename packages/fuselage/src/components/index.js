@@ -41,3 +41,4 @@ export * from './Modal';
 export * from './Throbber';
 export * from './Tag';
 export * from './Badge';
+export * from './SideBar';

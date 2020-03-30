@@ -1,0 +1,64 @@
+.rcx-sidebar {
+    &__item {
+        background-color: $colors-n800;
+
+        border-radius: $spaces-x2;
+
+        padding-inline: $spaces-x8;
+        padding-block: $spaces-x4;
+        
+        color: $colors-n600;
+
+        @include clickable;
+
+        &--unread {
+            color: $colors-white;
+        }
+
+        &__text {
+            flex: 1 1 0;
+            overflow: hidden;
+        }
+
+        &__title,
+        &__description {
+            white-space: nowrap;
+            word-wrap: break-word;
+            word-break: break-all;
+            @include use-text-ellipsis;
+        }
+
+        @include on-active {
+            background-color: $colors-n500;
+        }
+
+        @include on-hover {
+            background-color: $colors-n900;
+        }
+
+    }
+}
+
+.rcx-status {
+    width: $spaces-x8;
+    height: $spaces-x8;
+    border-radius: 50%;
+
+    &--is {
+        &-online {
+            background-color: $colors-g500;
+        }
+
+        &-away {
+            background-color: $colors-y500;
+        }
+
+        &-busy {
+            background-color: $colors-r500;
+        }
+
+        &-offline {
+            background-color: $colors-n500;
+        }
+    }
+}
