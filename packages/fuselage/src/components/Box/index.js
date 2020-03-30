@@ -1,95 +1,15 @@
 import PropTypes from 'prop-types';
-import React, { createElement, forwardRef, memo } from 'react';
+import React, { createElement, forwardRef, memo, useContext } from 'react';
 
-import { useProps, PropsContext, noProps } from './PropsContext';
+import { PropsContext } from './PropsContext';
 import { useStyleSheet } from './useStyleSheet';
-
-const getClassNamesFromModifiers = (element, modifiers) => {
-  const modifierClassNames = [];
-
-  for (const [name, value] of Object.entries(modifiers)) {
-    if (!value) {
-      continue;
-    }
-
-    if (typeof value === 'boolean') {
-      modifierClassNames.push(`${ element }--${ name }`);
-      continue;
-    }
-
-    modifierClassNames.push(`${ element }--${ name }-${ value }`);
-  }
-
-  return modifierClassNames;
-};
-
-const nameRegex = /^mod-(.*)$/;
-
-const filterModifierProps = (props) => {
-  const [modifierProps, otherProps] = Object.entries(props)
-    .reduce(([modifierProps, otherProps], [name, value]) => {
-      const matches = nameRegex.exec(name);
-
-      if (!matches) {
-        return [modifierProps, { ...otherProps, [name]: value }];
-      }
-
-      if (!value) {
-        return [modifierProps, otherProps];
-      }
-
-      return [{ ...modifierProps, [matches[1]]: value }, otherProps];
-    }, [{}, {}]);
-
-  return [modifierProps, otherProps];
-};
+import { useMergedProps } from './useMergedProps';
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
 
-  const contextProps = useProps();
-
-  const transforms = [
-    ({ className, invisible, richText, textColor, textStyle, ...props }) => ({
-      className: [
-        'rcx-box',
-        ...getClassNamesFromModifiers('rcx-box', {
-          invisible,
-          inline: richText === 'inline',
-          block: richText === 'block',
-          'text-color': textColor,
-          'text-style': textStyle,
-        }),
-        ...className,
-      ],
-      ...props,
-    }),
-    ({ className, componentClassName, ...props }) => {
-      const [modifiers, remainingProps] = filterModifierProps(props);
-      return {
-        className: [
-          componentClassName,
-          ...getClassNamesFromModifiers(componentClassName, modifiers),
-          ...className,
-        ],
-        ...remainingProps,
-      };
-    },
-  ];
-
-  const mergedProps = transforms.reduce((props, transform) => transform(props), {
-    ref,
-    ...contextProps,
-    ...props,
-    className: [
-      ...Array.isArray(contextProps.className) ? contextProps.className : [contextProps.className],
-      ...Array.isArray(props.className) ? props.className : [props.className],
-    ],
-    style: {
-      ...contextProps.style,
-      ...props.style,
-    },
-  });
+  const contextProps = useContext(PropsContext);
+  const mergedProps = useMergedProps(props, contextProps, ref);
 
   const children = createElement(mergedProps.is || 'div', {
     ...mergedProps,
@@ -98,11 +18,11 @@ export const Box = memo(forwardRef(function Box(props, ref) {
     style: mergedProps.style,
   });
 
-  if (contextProps === noProps) {
-    return children;
+  if (contextProps) {
+    return <PropsContext.Provider children={children} />;
   }
 
-  return <PropsContext.Provider children={children} value={noProps} />;
+  return children;
 }));
 
 Box.defaultProps = {
