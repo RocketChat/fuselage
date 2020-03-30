@@ -1,3 +1,5 @@
+import { useSpaceProps } from './useSpaceProps';
+
 const useBoxClassNames = ({ className, invisible, richText, textColor, textStyle, ...props }) => ({
   className: [
     'rcx-box',
@@ -57,5 +59,6 @@ export const useMergedProps = (props, contextProps, ref) => {
   return [
     useBoxClassNames,
     useModifierClassNames,
+    useSpaceProps,
   ].reduceRight((props, transform) => transform(props), initialProps);
 };

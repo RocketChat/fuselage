@@ -4,6 +4,8 @@ import React, { createElement, forwardRef, memo, useContext } from 'react';
 import { PropsContext } from './PropsContext';
 import { useStyleSheet } from './useStyleSheet';
 import { useMergedProps } from './useMergedProps';
+import { marginPropType } from '../../propTypes/margins';
+import { paddingPropType } from '../../propTypes/paddings';
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
@@ -45,6 +47,22 @@ Box.propTypes = {
     'h1', 's1', 's2', 'p1', 'p2', 'c1', 'c2', 'micro', 'mono',
     'headline', 'subtitle', 'paragraph', 'caption',
   ]),
+
+  // Spaces
+  m: marginPropType,
+  mi: marginPropType,
+  mis: marginPropType,
+  mie: marginPropType,
+  mb: marginPropType,
+  mbs: marginPropType,
+  mbe: marginPropType,
+  p: paddingPropType,
+  pi: paddingPropType,
+  pis: paddingPropType,
+  pie: paddingPropType,
+  pb: paddingPropType,
+  pbs: paddingPropType,
+  pbe: paddingPropType,
 };
 
 Box.extend = (componentClassName, is) => {
