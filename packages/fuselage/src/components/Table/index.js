@@ -33,12 +33,14 @@ export function TableFoot(props) {
   return <Box is='tfoot' componentClassName='rcx-table__foot' {...props} />;
 }
 
-export function TableRow(props) {
-  return <Box is='tr' componentClassName='rcx-table__row' {...props} />;
+export function TableRow({ action, ...props }) {
+  return <Box is='tr' componentClassName='rcx-table__row' mod-action={action} {...props} />;
 }
 
 export function TableCell({
   align,
+  action,
+  clickable,
   ...props
 }) {
   const isInsideHead = useContext(TableHeadContext);
@@ -49,6 +51,7 @@ export function TableCell({
     textColor='default'
     mod-align={align}
     mod-header={isInsideHead}
+    mod-clickable={clickable}
     {...props}
   />;
 }
