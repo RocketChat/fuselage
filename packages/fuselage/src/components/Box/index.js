@@ -6,6 +6,7 @@ import { useStyleSheet } from './useStyleSheet';
 import { useMergedProps } from './useMergedProps';
 import { marginPropType } from '../../propTypes/margins';
 import { paddingPropType } from '../../propTypes/paddings';
+import { sizePropType } from '../../propTypes/sizes';
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
@@ -63,6 +64,21 @@ Box.propTypes = {
   pb: paddingPropType,
   pbs: paddingPropType,
   pbe: paddingPropType,
+
+  // Layout
+  w: sizePropType,
+  width: sizePropType,
+  minWidth: sizePropType,
+  maxWidth: sizePropType,
+  h: sizePropType,
+  height: sizePropType,
+  minHeight: sizePropType,
+  maxHeight: sizePropType,
+  display: PropTypes.string,
+  verticalAlign: PropTypes.string,
+  overflow: PropTypes.string,
+  overflowX: PropTypes.string,
+  overflowY: PropTypes.string,
 };
 
 Box.extend = (componentClassName, is) => {

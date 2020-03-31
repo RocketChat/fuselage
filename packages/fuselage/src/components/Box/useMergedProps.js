@@ -1,4 +1,5 @@
 import { useSpaceProps } from './useSpaceProps';
+import { useLayoutProps } from './useLayoutProps';
 
 const useBoxClassNames = ({ className, invisible, richText, textColor, textStyle, ...props }) => ({
   className: [
@@ -60,5 +61,6 @@ export const useMergedProps = (props, contextProps, ref) => {
     useBoxClassNames,
     useModifierClassNames,
     useSpaceProps,
+    useLayoutProps,
   ].reduceRight((props, transform) => transform(props), initialProps);
 };

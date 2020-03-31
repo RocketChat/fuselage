@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useContext, createContext } from 'react';
 
 import { sizePropType } from '../../propTypes/sizes';
-import { Box, Size } from '../Box';
+import { Box } from '../Box';
 
 const AvatarContext = createContext({
   baseUrl: '',
@@ -23,14 +23,14 @@ export function Avatar({
     aria-label={title}
     {...props}
   >
-    <Size length={size}>
-      <Box
-        is='img'
-        componentClassName='rcx-avatar__element'
-        src={`${ baseUrl }${ url }`}
-        mod-rounded={rounded}
-      />
-    </Size>
+    <Box
+      is='img'
+      componentClassName='rcx-avatar__element'
+      src={`${ baseUrl }${ url }`}
+      mod-rounded={rounded}
+      width={size}
+      height={size}
+    />
   </Box>;
 }
 
