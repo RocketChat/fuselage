@@ -18,6 +18,7 @@ export function Tag({
     mod-secondary={variant === 'secondary'}
     mod-primary={variant === 'primary'}
     mod-danger={variant === 'danger'}
+    mod-ghost={variant === 'ghost'}
     mod-disabled={!!disabled}
     mod-round={!!round}
     mod-clickable={!!onClick}
