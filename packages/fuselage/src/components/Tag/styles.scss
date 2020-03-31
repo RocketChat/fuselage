@@ -1,6 +1,8 @@
 .rcx-tag {
   display: inline-block;
 
+  width: fit-content;
+
   padding-block: $spaces-x2;
 
   padding-inline: $spaces-x4;
@@ -10,8 +12,6 @@
   word-break: keep-all;
 
   border-radius: $spaces-x4;
-
-  width: fit-content;
 
   &--secondary {
     color: $tag-colors-secondary-color;
