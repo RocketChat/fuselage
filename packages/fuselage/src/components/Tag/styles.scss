@@ -11,24 +11,31 @@
 
   border-radius: $spaces-x4;
 
+  width: fit-content;
+
   &--secondary {
-    color: $colors-b500;
-    background-color: $colors-b100;
+    color: $tag-colors-secondary-color;
+    background-color: $tag-colors-secondary-background-color;
   }
 
   &--primary {
-    color: $colors-white;
-    background-color: $colors-b500;
+    color: $tag-colors-primary-color;
+    background-color: $tag-colors-primary-background-color;
   }
 
   &--danger {
-    color: $colors-white;
-    background-color: $colors-r500;
+    color: $tag-colors-danger-color;
+    background-color: $tag-colors-danger-background-color;
+  }
+
+  &--ghost {
+    color: $tag-colors-ghost-color;
+    background-color: $tag-colors-ghost-background-color;
   }
 
   &--disabled {
-    color: $colors-n600;
-    background-color: $colors-n400;
+    color: $tag-colors-disabled-color;
+    background-color: $tag-colors-disabled-background-color;
   }
 
   &--round {
