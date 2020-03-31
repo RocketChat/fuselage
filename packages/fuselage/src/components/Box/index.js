@@ -79,6 +79,20 @@ Box.propTypes = {
   overflow: PropTypes.string,
   overflowX: PropTypes.string,
   overflowY: PropTypes.string,
+
+  // FlexBox
+  alignItems: PropTypes.string,
+  alignContent: PropTypes.string,
+  justifyItems: PropTypes.string,
+  justifyContent: PropTypes.string,
+  flexWrap: PropTypes.string,
+  flexDirection: PropTypes.string,
+  flexGrow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  flexShrink: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  flexBasis: PropTypes.string,
+  justifySelf: PropTypes.string,
+  alignSelf: PropTypes.string,
+  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Box.extend = (componentClassName, is) => {
