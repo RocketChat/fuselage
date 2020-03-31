@@ -89,7 +89,8 @@ export const referenceRules = (rules: string) => {
     return () => {};
   }
 
-  const reference = { count: 0, ...references[rules] };
+  const reference = references[rules] || { count: 0 };
+  references[rules] = reference;
 
   if (reference.count === 0) {
     reference.detachRules = attachRules(rules);
