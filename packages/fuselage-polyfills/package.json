@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-polyfills",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "A bundle of useful poly/ponyfills used by fuselage",
   "author": {
     "name": "Rocket.Chat",
@@ -16,6 +16,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@juggle/resize-observer": "^3.1.2",
     "focus-visible": "^5.0.2"
   }
 }

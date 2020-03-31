@@ -13,8 +13,6 @@
 
   &__wrapper {
     position: relative;
-
-    padding-inline: $spaces-x12;
   }
 
   &__head {
@@ -28,7 +26,7 @@
       display: flex;
 
       content: '';
-      border-block-end: $borders-width-x2 solid $colors-n500;
+      border-block-end: $borders-width-x2 solid $colors-n300;
     }
   }
 
@@ -42,12 +40,18 @@
 
   &__row {
     display: table-row;
+
+    &--action:hover,
+    &--action:focus {
+      @include clickable();
+      background-color: $colors-n200;
+    }
   }
 
   &__cell {
     display: table-cell;
 
-    padding: $spaces-x12;
+    padding: $spaces-x8;
 
     user-select: text;
     text-align: unset;
@@ -59,6 +63,10 @@
     &--header {
       @include use-text-style(c2);
       color: $text-colors-hint;
+    }
+
+    &--clickable {
+      @include clickable();
     }
 
     @each $align in (start, end, center, justify) {
