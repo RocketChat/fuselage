@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.1...v0.6.2) (2020-03-31)
+
+
+### Bug Fixes
+
+* Table padding, hover status  ([#185](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/185)) ([70138bc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/70138bcc258a3112dc3264562cddb90d05b95859))
+
+
+
+
+
 ## [0.6.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.0...v0.6.1) (2020-03-24)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-polyfills
