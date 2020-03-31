@@ -42,3 +42,4 @@ export * from './Throbber';
 export * from './Tag';
 export * from './Badge';
 export * from './SideBar';
+export * from './UserStatus';
