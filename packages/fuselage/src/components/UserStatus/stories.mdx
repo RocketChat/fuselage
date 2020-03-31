@@ -1,14 +1,14 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
-import { Status } from '.';
+import { UserStatus } from '.';
 
 <Meta title='Misc|Status' parameters={{ jest: [''] }} />
 
 # Status
 <Story name='States'>
   <PropsVariationSection
-    component={Status}
+    component={UserStatus}
     xAxis={{
       online: { status: 'online' },
       busy: { status: 'busy' },

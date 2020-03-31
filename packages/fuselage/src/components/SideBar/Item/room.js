@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Flex, Avatar, Icon, Box, Margins, Badge, Status } from '../..';
+import { Flex, Avatar, Icon, Box, Margins, Badge, UserStatus } from '../..';
 
 
 const viewModeToAvatarSizeMap = {
@@ -9,7 +10,7 @@ const viewModeToAvatarSizeMap = {
   extended: 'x36',
 };
 
-export function SidebarItemRoom({ viewMode, avatar, status, type, lastMessage, title, unreadCount, ...props }) {
+export function SidebarItemRoom({ viewMode = 'medium', avatar, status, roomType, lastMessage, title, unreadCount, ...props }) {
   const extendedView = viewMode === 'extended';
 
   return <Flex.Container direction='row' {...props}>
@@ -28,16 +29,14 @@ export function SidebarItemRoom({ viewMode, avatar, status, type, lastMessage, t
             <Box is='div'>
 
               <Flex.Container direction='row' alignItems='center'>
-                <Box >
-
-                  <Margins inline='x2'>
-                    <Flex.Container alignItems='center'>
-                      {type === 'd' && <Status status={status} />}
-                      {type !== 'd' && <Icon size={16} name={type === 'p' ? 'lock' : 'hashtag'} />}
-                    </Flex.Container>
-                  </Margins>
+                <Box>
 
                   <Margins inline='x4'>
+                    <Flex.Container alignItems='center'>
+                      {roomType === 'd' && <UserStatus status={status} />}
+                      {roomType !== 'd' && <Icon size={16} name={roomType === 'p' ? 'lock' : 'hashtag'} />}
+                    </Flex.Container>
+
                     {viewMode !== 'condensed' && <Box textStyle='p1' componentClassName='rcx-sidebar__item__title'>{title}</Box>}
                     {viewMode === 'condensed' && <Box textStyle='c1' componentClassName='rcx-sidebar__item__title'>{title}</Box>}
                   </Margins>
@@ -66,3 +65,12 @@ export function SidebarItemRoom({ viewMode, avatar, status, type, lastMessage, t
     </Box>
   </Flex.Container>;
 }
+
+SidebarItemRoom.propTypes = {
+  viewMode: PropTypes.oneOf(['condensed', 'expanded', 'medium']),
+  avatar: PropTypes.shape({ url: PropTypes.string, title: PropTypes.string }),
+  roomType: PropTypes.oneOf(['d', 'c', 'p']),
+  lastMessage: PropTypes.shape({ username: PropTypes.string, text: PropTypes.string, time: PropTypes.string }),
+  unreadCount: PropTypes.shape({ count: PropTypes.number, hasMention: PropTypes.bool }),
+  title: PropTypes.string,
+};
