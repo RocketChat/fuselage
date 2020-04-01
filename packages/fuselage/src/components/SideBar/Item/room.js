@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Flex, Avatar, Icon, Box, Margins, Badge, UserStatus } from '../..';
+import { Avatar, Icon, Box, Margins, Badge, UserStatus } from '../..';
 
 
 const viewModeToAvatarSizeMap = {
