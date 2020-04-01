@@ -27,8 +27,6 @@
 .rcx-tabs__wrapper {
   display: flex;
 
-  margin-block: calc(#{ $spaces-x4 } + #{ $spaces-x2 });
-
   flex-wrap: nowrap;
 }
 
@@ -81,9 +79,9 @@
     padding-inline: $spaces-x16;
 
     border-color: $tabs-focus-border-color;
-    border-radius: $spaces-x2;
-    border-block-start-width: $spaces-x2;
-    border-inline-width: $spaces-x2;
+    border-radius: $borders-radius-x2;
+    border-block-start-width: $borders-width-x2;
+    border-inline-width: $borders-width-x2;
 
     @include use-focus-shadow($tabs-focus-shadow-color);
   }

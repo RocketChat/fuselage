@@ -9,7 +9,7 @@ export function Tabs({
 }) {
   return <Box is='div' componentClassName='rcx-tabs' {...props}>
     <Box is='div' componentClassName='rcx-tabs__scroll-box'>
-      <Box is='div' componentClassName='rcx-tabs__wrapper' children={children} role='tablist'/>
+      <Box is='div' p='x4' componentClassName='rcx-tabs__wrapper' children={children} role='tablist'/>
     </Box>
   </Box>;
 }
