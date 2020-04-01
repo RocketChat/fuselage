@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)
+
+**Note:** Version bump only for package @rocket.chat/fuselage
+
+
+
+
+
 # [0.7.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.2...v0.7.0) (2020-04-01)
 
 

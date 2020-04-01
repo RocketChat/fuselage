@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)
+
+
+### Bug Fixes
+
+* Fix ui kit babel config ([#191](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/191)) ([47295d8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/47295d87740bc0ceb5e2bbb1901c2340cab860b6))
+
+
+
+
+
 # [0.7.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.2...v0.7.0) (2020-04-01)
 
 
