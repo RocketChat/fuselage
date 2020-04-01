@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.2...v0.7.0) (2020-04-01)
+
+**Note:** Version bump only for package @rocket.chat/icons
+
+
+
+
+
 ## [0.6.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.1...v0.6.2) (2020-03-31)
 
 **Note:** Version bump only for package @rocket.chat/icons
