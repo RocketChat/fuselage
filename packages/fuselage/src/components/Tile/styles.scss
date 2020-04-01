@@ -16,10 +16,4 @@
   &--elevation-2 {
     @extend %tile-2;
   }
-
-  @each $name, $value in $spaces {
-    &--padding-#{$name} {
-      padding: $value;
-    }
-  }
 }

@@ -5,7 +5,7 @@ import LinkTo from '@storybook/addon-links/react';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon, EmailInput } from '../..';
 
-<Meta title='Forms|Inputs/EmailInput' parameters={{ jest: ['EmailInput/spec'] }} />
+<Meta title='Forms/Inputs/EmailInput' parameters={{ jest: ['EmailInput/spec'] }} />
 
 # EmailInput
 
@@ -28,7 +28,7 @@ used.
 
 <Preview>
   <Story name='With Icon Addon'>
-    <EmailInput addon={<Icon name='send' size='20' />} />
+    <EmailInput addon={<Icon name='send' size='x20' />} />
   </Story>
 </Preview>
 
@@ -74,7 +74,7 @@ used.
       default: {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'support@rocket.chat' },
-      'with icon': { addon: <Icon name='at' size='20' />, value: 'support@rocket.chat' },
+      'with icon': { addon: <Icon name='at' size='x20' />, value: 'support@rocket.chat' },
     }}
     yAxis={{
       default: {},

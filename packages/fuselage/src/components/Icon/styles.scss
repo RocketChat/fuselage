@@ -15,11 +15,4 @@
   font-variant: normal;
   line-height: 1;
   text-rendering: auto;
-
-  @each $name, $value in $sizes {
-    &--size-#{$name},
-    &--size-#{str-slice($name, 2)} {
-      font-size: $value;
-    }
-  }
 }

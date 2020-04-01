@@ -4,7 +4,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Button, Icon } from '../..';
 
-<Meta title='Buttons|Button' parameters={{ jest: ['Button/spec'] }} />
+<Meta title='Buttons/Button' parameters={{ jest: ['Button/spec'] }} />
 
 # Button
 
@@ -57,7 +57,7 @@ Indicates an actionable user action.
 <Preview>
   <Story name='Square'>
     <Button square>
-      <Icon name='plus' size='20' />
+      <Icon name='plus' size='x20' />
     </Button>
   </Story>
 </Preview>
@@ -67,7 +67,7 @@ Indicates an actionable user action.
 <Preview>
   <Story name='With Icon'>
     <Button>
-      <Icon name='edit' size='16' /> Edit
+      <Icon name='edit' size='x16' /> Edit
     </Button>
   </Story>
 </Preview>
@@ -90,9 +90,9 @@ Indicates an actionable user action.
     common={{ onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
-      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
-      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
-      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='16' /> Button</>, danger: true },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='x16' /> Button</> },
+      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='x16' /> Button</>, danger: true },
     }}
     yAxis={{
       default: {},
@@ -112,9 +112,9 @@ Indicates an actionable user action.
     common={{ small: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
-      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='16' /> },
-      'text + icon': { children: <><Icon name='circled-arrow-down' size='12' /> Button</> },
-      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='12' /> Button</>, danger: true },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x16' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='x12' /> Button</> },
+      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='x12' /> Button</>, danger: true },
     }}
     yAxis={{
       default: {},
@@ -134,9 +134,9 @@ Indicates an actionable user action.
     common={{ primary: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
-      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
-      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
-      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='16' /> Button</>, danger: true },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='x16' /> Button</> },
+      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='x16' /> Button</>, danger: true },
     }}
     yAxis={{
       default: {},
@@ -156,9 +156,9 @@ Indicates an actionable user action.
     common={{ primary: true, small: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
-      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='16' /> },
-      'text + icon': { children: <><Icon name='circled-arrow-down' size='12' /> Button</> },
-      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='12' /> Button</>, danger: true },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x16' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='x12' /> Button</> },
+      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='x12' /> Button</>, danger: true },
     }}
     yAxis={{
       default: {},
@@ -178,9 +178,9 @@ Indicates an actionable user action.
     common={{ ghost: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
-      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='20' /> },
-      'text + icon': { children: <><Icon name='circled-arrow-down' size='16' /> Button</> },
-      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='16' /> Button</>, danger: true },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x20' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='x16' /> Button</> },
+      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='x16' /> Button</>, danger: true },
     }}
     yAxis={{
       default: {},
@@ -200,9 +200,9 @@ Indicates an actionable user action.
     common={{ ghost: true, small: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
-      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='16' /> },
-      'text + icon': { children: <><Icon name='circled-arrow-down' size='12' /> Button</> },
-      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='12' /> Button</>, danger: true },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x16' /> },
+      'text + icon': { children: <><Icon name='circled-arrow-down' size='x12' /> Button</> },
+      'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='x12' /> Button</>, danger: true },
     }}
     yAxis={{
       default: {},

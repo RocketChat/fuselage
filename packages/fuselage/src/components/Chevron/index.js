@@ -3,8 +3,7 @@ import React, { useMemo } from 'react';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';
-
-const Container = Box.extend('rcx-chevron', 'span');
+import { sizePropType } from '../../propTypes/sizes';
 
 export function Chevron({
   up,
@@ -16,7 +15,9 @@ export function Chevron({
 }) {
   const children = useMemo(() => <Icon name='arrow-down' size={size} />, [size]);
 
-  return <Container
+  return <Box
+    componentClassName='rcx-chevron'
+    is='span'
     children={children}
     mod-up={up}
     mod-right={right}
@@ -26,12 +27,10 @@ export function Chevron({
   />;
 }
 
-Chevron.displayName = 'Chevron';
-
 Chevron.propTypes = {
   up: PropTypes.bool,
   right: PropTypes.bool,
   down: PropTypes.bool,
   left: PropTypes.bool,
-  size: PropTypes.oneOf(['1', '2', '4', '8', '12', '16', '20', '24', '28', '32', '36', '40', '44']),
+  size: sizePropType,
 };

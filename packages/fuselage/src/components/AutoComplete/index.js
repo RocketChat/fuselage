@@ -47,7 +47,7 @@ export const AutoComplete = function AutoComplete({
         <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} style={{ order: 1 }} mod-undecorated value={value}/>
         {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged(value) && false} children={getLabel(options.find((option) => getValue(option) === value))}/>)}
       </Chip.Wrapper>
-      <Addon children={<Icon name='magnifier' size='20' />}/>
+      <Addon children={<Icon name='magnifier' size='x20' />}/>
       <PositionAnimated visible={visible} anchor={containerRef}>
         <Options role='option' renderEmpty={renderEmpty} renderItem={OptionAvatar} setCursor={setCursor} cursor={cursor} value={value} options={options.map(({ label, value }) => [value, label])} />
       </PositionAnimated>

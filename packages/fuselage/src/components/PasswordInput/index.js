@@ -12,8 +12,6 @@ export const PasswordInput = forwardRef(function PasswordInput({
   return <InputBox className={compoundClassName} ref={ref} {...props} type='password' />;
 });
 
-PasswordInput.displayName = 'PasswordInput';
-
 PasswordInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,

@@ -14,8 +14,6 @@ export function Tabs({
   </Box>;
 }
 
-Tabs.displayName = 'Tabs';
-
 export const TabsItem = forwardRef(function TabsItem({
   selected,
   ...props

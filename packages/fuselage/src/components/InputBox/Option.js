@@ -9,8 +9,6 @@ export const Option = forwardRef(function Option(props, ref) {
   return <OptionContainer ref={ref} {...props} />;
 });
 
-Option.displayName = 'InputBox.Option';
-
 Option.propTypes = {
   children: PropTypes.node,
 };

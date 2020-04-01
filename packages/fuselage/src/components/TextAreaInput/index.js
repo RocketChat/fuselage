@@ -12,8 +12,6 @@ export const TextAreaInput = forwardRef(function TextAreaInput({
   return <InputBox className={compoundClassName} ref={ref} {...props} type='textarea' />;
 });
 
-TextAreaInput.displayName = 'TextAreaInput';
-
 TextAreaInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,
