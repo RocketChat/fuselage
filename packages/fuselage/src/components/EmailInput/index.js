@@ -12,8 +12,6 @@ export const EmailInput = forwardRef(function EmailInput({
   return <InputBox className={compoundClassName} ref={ref} {...props} type='email' />;
 });
 
-EmailInput.displayName = 'EmailInput';
-
 EmailInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,

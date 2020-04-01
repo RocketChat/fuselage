@@ -12,8 +12,6 @@ export const TelephoneInput = forwardRef(function TelephoneInput({
   return <InputBox className={compoundClassName} ref={ref} {...props} type='tel' />;
 });
 
-TelephoneInput.displayName = 'TelephoneInput';
-
 TelephoneInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,

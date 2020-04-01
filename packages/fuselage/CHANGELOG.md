@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)
+
+**Note:** Version bump only for package @rocket.chat/fuselage
+
+
+
+
+
+# [0.7.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.2...v0.7.0) (2020-04-01)
+
+
+### Bug Fixes
+
+* Padding props ([#187](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/187)) ([ef1d4e3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ef1d4e3e65ffdc131f3c3ba52a196d42b2dd400f))
+
+
+### Features
+
+* Custom prop types and more props to Box ([#181](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/181)) ([119e815](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/119e815ac9a0b85c1649c53bab62390b25aae4b3))
+
+
+
+
+
 ## [0.6.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.6.1...v0.6.2) (2020-03-31)
 
 

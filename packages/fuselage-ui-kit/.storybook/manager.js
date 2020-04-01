@@ -3,10 +3,6 @@ import { create } from '@storybook/theming/create';
 import manifest from '../package.json';
 
 addons.setConfig({
-  showRoots: true,
-  storySort: ([, a], [, b]) => {
-    return a.kind.localeCompare(b.kind);
-  },
   theme: create({
     base: 'light',
     brandTitle: manifest.name,

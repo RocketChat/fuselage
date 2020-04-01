@@ -32,8 +32,6 @@ export const CheckBox = forwardRef(function CheckBox({
   </Box>;
 });
 
-CheckBox.displayName = 'CheckBox';
-
 CheckBox.propTypes = {
   indeterminate: PropTypes.bool,
 };

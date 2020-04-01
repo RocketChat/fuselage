@@ -5,7 +5,7 @@ import LinkTo from '@storybook/addon-links/react';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon, SelectInput } from '../..';
 
-<Meta title='Forms|Inputs/SelectInput' parameters={{ jest: ['SelectInput/spec'] }} />
+<Meta title='Forms/Inputs/SelectInput' parameters={{ jest: ['SelectInput/spec'] }} />
 
 # SelectInput
 
@@ -49,7 +49,7 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
 
 <Preview>
   <Story name='With Addon'>
-    <SelectInput addon={<Icon name='discover' size='20' />}>
+    <SelectInput addon={<Icon name='discover' size='x20' />}>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
       <SelectInput.Option value='b'>Item B</SelectInput.Option>
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
@@ -59,7 +59,7 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
 
 <Preview>
   <Story name='Multiple With Addon'>
-    <SelectInput multiple size={3} addon={<Icon name='discover' size='20' />}>
+    <SelectInput multiple size={3} addon={<Icon name='discover' size='x20' />}>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
       <SelectInput.Option value='b'>Item B</SelectInput.Option>
       <SelectInput.Option value='c'>Item C</SelectInput.Option>

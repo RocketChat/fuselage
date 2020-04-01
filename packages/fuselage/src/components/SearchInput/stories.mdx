@@ -5,7 +5,7 @@ import LinkTo from '@storybook/addon-links/react';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon, SearchInput } from '../..';
 
-<Meta title='Forms|Inputs/SearchInput' parameters={{ jest: ['SearchInput/spec'] }} />
+<Meta title='Forms/Inputs/SearchInput' parameters={{ jest: ['SearchInput/spec'] }} />
 
 # SearchInput
 
@@ -28,7 +28,7 @@ used.
 
 <Preview>
   <Story name='With Icon Addon'>
-    <SearchInput addon={<Icon name='send' size='20' />} />
+    <SearchInput addon={<Icon name='send' size='x20' />} />
   </Story>
 </Preview>
 
@@ -74,7 +74,7 @@ used.
       default: {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'Value' },
-      'with icon': { addon: <Icon name='magnifier' size='20' />, value: 'Value' },
+      'with icon': { addon: <Icon name='magnifier' size='x20' />, value: 'Value' },
     }}
     yAxis={{
       default: {},

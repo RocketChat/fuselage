@@ -3,6 +3,7 @@ import { addParameters } from '@storybook/react';
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
+import breakpoints from '@rocket.chat/fuselage-tokens/breakpoints';
 
 addParameters({
   docs: {
@@ -12,48 +13,23 @@ addParameters({
   grid: {
     cellSize: 4,
   },
-  viewport: {
-    viewports: {
-      xs: {
-        name: 'xs',
-        styles: {
-          width: '320px',
-          height: '90%',
-        },
-        type: 'desktop',
-      },
-      sm: {
-        name: 'sm',
-        styles: {
-          width: '600px',
-          height: '90%',
-        },
-        type: 'desktop',
-      },
-      md: {
-        name: 'md',
-        styles: {
-          width: '768px',
-          height: '90%',
-        },
-        type: 'desktop',
-      },
-      lg: {
-        name: 'lg',
-        styles: {
-          width: '1024px',
-          height: '90%',
-        },
-        type: 'desktop',
-      },
-      xl: {
-        name: 'xl',
-        styles: {
-          width: '1440px',
-          height: '90%',
-        },
-        type: 'desktop',
-      },
+  options: {
+    showRoots: true,
+    storySort: ([, a], [, b]) => {
+      return a.kind.localeCompare(b.kind);
     },
+  },
+  viewport: {
+    viewports: Object.entries(breakpoints).reduce((obj, [name, { minViewportWidth }]) => ({
+      ...obj,
+      [name]: {
+        name,
+        styles: {
+          width: `${ minViewportWidth }px`,
+          height: '90%',
+        },
+        type: 'desktop'
+      },
+    }), {}),
   },
 });

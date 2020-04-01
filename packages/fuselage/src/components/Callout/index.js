@@ -4,11 +4,6 @@ import React from 'react';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 
-const Container = Box.extend('rcx-callout', 'section');
-const Wrapper = Box.extend('rcx-callout__wrapper');
-const Title = Box.extend('rcx-callout__title', 'h1');
-const ChildrenWrapper = Box.extend('rcx-callout__children');
-
 export function Callout({
   children,
   title,
@@ -20,22 +15,20 @@ export function Callout({
     || (type === 'warning' && 'warning')
     || (type === 'danger' && 'ban');
 
-  return <Container mod-type={type} {...props}>
-    <Icon name={iconName} size='20' />
-    <Wrapper>
-      {title && <Title>{title}</Title>}
-      <ChildrenWrapper>
+  return <Box componentClassName='rcx-callout' is='section' mod-type={type} {...props}>
+    <Icon name={iconName} size='x20' />
+    <Box componentClassName='rcx-callout__wrapper'>
+      {title && <Box componentClassName='rcx-callout__title' is='h1'>{title}</Box>}
+      <Box componentClassName='rcx-callout__children'>
         {children}
-      </ChildrenWrapper>
-    </Wrapper>
-  </Container>;
+      </Box>
+    </Box>
+  </Box>;
 }
 
 Callout.defaultProps = {
   type: 'info',
 };
-
-Callout.displayName = 'Callout';
 
 Callout.propTypes = {
   children: PropTypes.node,

@@ -83,7 +83,7 @@ export function Pagination({
       <List>
         <ListItem>
           <BackLink disabled={currentPage === 0} onClick={handleSetPageLinkClick(currentPage - 1)}>
-            <Chevron left size='16' />
+            <Chevron left size='x16' />
           </BackLink>
         </ListItem>
         {displayedPages.map((page, i) => (
@@ -95,7 +95,7 @@ export function Pagination({
         ))}
         <ListItem>
           <ForwardLink disabled={currentPage === pages - 1} onClick={handleSetPageLinkClick(currentPage + 1)}>
-            <Chevron right size='16' />
+            <Chevron right size='x16' />
           </ForwardLink>
         </ListItem>
       </List>
@@ -109,8 +109,6 @@ Pagination.defaultProps = {
   itemsPerPageLabel: defaultItemsPerPageLabel,
   showingResultsLabel: defaultShowingResultsLabel,
 };
-
-Pagination.displayName = 'Pagination';
 
 Pagination.propTypes = {
   count: PropTypes.number.isRequired,

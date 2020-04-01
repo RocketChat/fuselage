@@ -6,12 +6,6 @@ import { Box } from '../Box';
 import { Chevron } from '../Chevron';
 import { ToggleSwitch } from '../ToggleSwitch';
 
-const ItemContainer = Box.extend('rcx-accordion-item', 'section');
-const ItemBar = Box.extend('rcx-accordion-item__bar');
-const ItemTitle = Box.extend('rcx-accordion-item__title', 'h1');
-const ItemToggleSwitchContainer = Box.extend('rcx-accordion-item__toggle-switch');
-const ItemPanel = Box.extend('rcx-accordion-item__panel');
-
 export function Item({
   children,
   className,
@@ -86,24 +80,22 @@ export function Item({
 
   const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
 
-  return <ItemContainer className={className} {...props}>
-    {title && <ItemBar mod-disabled={disabled} {...barProps}>
-      <ItemTitle id={titleId}>{title}</ItemTitle>
+  return <Box componentClassName='rcx-accordion-item' is='section' className={className} {...props}>
+    {title && <Box componentClassName='rcx-accordion-item__bar' mod-disabled={disabled} {...barProps}>
+      <Box componentClassName='rcx-accordion-item__title' is='h1' id={titleId}>{title}</Box>
       {!noncollapsible && <>
         {(disabled || onToggleEnabled)
-          && <ItemToggleSwitchContainer>
+          && <Box componentClassName='rcx-accordion-item__toggle-switch'>
             <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />
-          </ItemToggleSwitchContainer>}
-        <Chevron size='24' up={expanded} />
+          </Box>}
+        <Chevron size='x24' up={expanded} />
       </>}
-    </ItemBar>}
-    <ItemPanel id={panelId} mod-expanded={panelExpanded} role='region'>
+    </Box>}
+    <Box componentClassName='rcx-accordion-item__panel' id={panelId} mod-expanded={panelExpanded} role='region'>
       {children}
-    </ItemPanel>
-  </ItemContainer>;
+    </Box>
+  </Box>;
 }
-
-Item.displayName = 'Accordion.Item';
 
 Item.propTypes = {
   children: PropTypes.node,

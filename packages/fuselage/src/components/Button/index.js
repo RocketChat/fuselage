@@ -3,8 +3,6 @@ import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-const Container = Box.extend('rcx-button', 'button');
-
 export const Button = forwardRef(function Button({
   danger,
   external,
@@ -25,7 +23,8 @@ export const Button = forwardRef(function Button({
   })
   || {};
 
-  return <Container
+  return <Box
+    componentClassName='rcx-button'
     is={is}
     mod-danger={!primary && danger && !ghost}
     mod-ghost={!primary && !danger && ghost}
@@ -40,8 +39,6 @@ export const Button = forwardRef(function Button({
     {...props}
   />;
 });
-
-Button.displayName = 'Button';
 
 Button.propTypes = {
   external: PropTypes.bool,

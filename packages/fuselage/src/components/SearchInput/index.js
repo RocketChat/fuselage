@@ -12,8 +12,6 @@ export const SearchInput = forwardRef(function SearchInput({
   return <InputBox className={compoundClassName} ref={ref} {...props} type='search' />;
 });
 
-SearchInput.displayName = 'SearchInput';
-
 SearchInput.propTypes = {
   addon: PropTypes.element,
   error: PropTypes.string,

@@ -5,7 +5,6 @@ module.exports = {
     '@storybook/addon-docs/register',
     '@storybook/addon-jest/register',
     '@storybook/addon-knobs/register',
-    '@storybook/addon-options/register',
     '@storybook/addon-viewport/register',
   ],
   stories: [

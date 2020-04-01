@@ -1,8 +1,8 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Box, Flex, Size, Tile } from '../../..';
+import { Box, Flex, Tile } from '../../..';
 
-<Meta title='Box|Modifiers/Flex' parameters={{ jest: ['Flex/spec'] }} />
+<Meta title='Box/Modifiers/Flex' parameters={{ jest: ['Flex/spec'] }} />
 
 # Flex
 
@@ -158,9 +158,7 @@ import { Box, Flex, Size, Tile } from '../../..';
           <Tile>#1</Tile>
         </Flex.Item>
         <Flex.Item shrink={1}>
-          <Size width='full'>
-            <Tile>#2</Tile>
-          </Size>
+          <Tile w='full'>#2</Tile>
         </Flex.Item>
         <Flex.Item>
           <Tile>#3</Tile>

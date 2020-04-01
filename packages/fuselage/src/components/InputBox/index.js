@@ -113,8 +113,6 @@ InputBox.defaultProps = {
   type: 'text',
 };
 
-InputBox.displayName = 'InputBox';
-
 InputBox.propTypes = {
   addon: PropTypes.element,
   input: PropTypes.element,

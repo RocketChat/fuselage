@@ -37,7 +37,7 @@ export const SelectInput = forwardRef(function SelectInput({
     placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
     ref={ref}
     {...props}
-    addon={<Icon name='arrow-down' size='20' />}
+    addon={<Icon name='arrow-down' size='x20' />}
     type='select'
     onChange={handleChange}
   >
@@ -45,8 +45,6 @@ export const SelectInput = forwardRef(function SelectInput({
     {children}
   </InputBox>;
 });
-
-SelectInput.displayName = 'SelectInput';
 
 SelectInput.propTypes = {
   addon: PropTypes.element,

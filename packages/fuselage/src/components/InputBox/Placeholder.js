@@ -9,8 +9,6 @@ export const Placeholder = forwardRef(function Placeholder(props, ref) {
   return <PlaceholderContainer ref={ref} {...props} />;
 });
 
-Placeholder.displayName = 'InputBox.Placeholder';
-
 Placeholder.propTypes = {
   children: PropTypes.node,
 };

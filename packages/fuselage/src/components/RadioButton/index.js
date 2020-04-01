@@ -15,5 +15,3 @@ export const RadioButton = forwardRef(function RadioButton({
     <Box is='i' componentClassName='rcx-radio-button__fake' aria-hidden='true' />
   </Box>;
 });
-
-RadioButton.displayName = 'RadioButton';

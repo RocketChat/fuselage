@@ -1,22 +1,30 @@
 // TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
 .rcx-tabs {
+  position: relative;
+
   display: flex;
 
-  width: 100%;
+  &::after {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-  margin-block-end: $spaces-x8;
+    height: $borders-width-x2;
 
-  border-block-end: #{ $borders-width-x2 } solid #{ $tabs-delimiter-color };
+    content: '';
+
+    background-color: $tabs-delimiter-color;
+  }
 }
 
 .rcx-tabs__scroll-box {
   position: relative;
-  bottom: calc(-1 * #{ $spaces-x8 });
 
   overflow: auto;
 
-  width: 100%;
-
+  margin-block: calc(-1 * #{ $spaces-x4 });
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
@@ -26,8 +34,6 @@
 
 .rcx-tabs__wrapper {
   display: flex;
-
-  margin-block: calc(#{ $spaces-x4 } + #{ $spaces-x2 });
 
   flex-wrap: nowrap;
 }
@@ -81,9 +87,9 @@
     padding-inline: $spaces-x16;
 
     border-color: $tabs-focus-border-color;
-    border-radius: $spaces-x2;
-    border-block-start-width: $spaces-x2;
-    border-inline-width: $spaces-x2;
+    border-radius: $borders-radius-x2;
+    border-block-start-width: $borders-width-x2;
+    border-inline-width: $borders-width-x2;
 
     @include use-focus-shadow($tabs-focus-shadow-color);
   }

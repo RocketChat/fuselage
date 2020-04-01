@@ -5,7 +5,7 @@ import LinkTo from '@storybook/addon-links/react';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon, TextInput } from '../..';
 
-<Meta title='Forms|Inputs/TextInput' parameters={{ jest: ['TextInput/spec'] }} />
+<Meta title='Forms/Inputs/TextInput' parameters={{ jest: ['TextInput/spec'] }} />
 
 # TextInput
 
@@ -28,7 +28,7 @@ used.
 
 <Preview>
   <Story name='With Icon Addon'>
-    <TextInput addon={<Icon name='send' size='20' />} />
+    <TextInput addon={<Icon name='send' size='x20' />} />
   </Story>
 </Preview>
 
@@ -74,7 +74,7 @@ used.
       default: {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'Value' },
-      'with icon': { addon: <Icon name='keyboard' size='20' />, value: 'Value' },
+      'with icon': { addon: <Icon name='keyboard' size='x20' />, value: 'Value' },
     }}
     yAxis={{
       default: {},

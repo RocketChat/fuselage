@@ -1,105 +1,37 @@
 import PropTypes from 'prop-types';
-import React, { createElement, forwardRef, memo, useLayoutEffect } from 'react';
+import React, { createElement, forwardRef, memo, useContext } from 'react';
 
-import { use, unuse } from '../../index.scss';
-import { useProps, PropsProvider } from './PropsContext';
+import { PropsContext } from './PropsContext';
+import { useStyleSheet } from './useStyleSheet';
+import { useMergedProps } from './useMergedProps';
+import { marginPropType } from '../../propTypes/margins';
+import { paddingPropType } from '../../propTypes/paddings';
+import { sizePropType } from '../../propTypes/sizes';
 
-const getClassNamesFromModifiers = (element, modifiers) => {
-  const modifierClassNames = [];
+export const Box = memo(forwardRef(function Box(props, ref) {
+  useStyleSheet();
 
-  for (const [name, value] of Object.entries(modifiers)) {
-    if (!value) {
-      continue;
-    }
+  const contextProps = useContext(PropsContext);
+  const mergedProps = useMergedProps(props, contextProps, ref);
 
-    if (typeof value === 'boolean') {
-      modifierClassNames.push(`${ element }--${ name }`);
-      continue;
-    }
-
-    modifierClassNames.push(`${ element }--${ name }-${ value }`);
-  }
-
-  return modifierClassNames;
-};
-
-const nameRegex = /^mod-(.*)$/;
-
-const filterModifierProps = (props) => {
-  const [modifierProps, otherProps] = Object.entries(props)
-    .reduce(([modifierProps, otherProps], [name, value]) => {
-      const matches = nameRegex.exec(name);
-
-      if (!matches) {
-        return [modifierProps, { ...otherProps, [name]: value }];
-      }
-
-      if (!value) {
-        return [modifierProps, otherProps];
-      }
-
-      return [{ ...modifierProps, [matches[1]]: value }, otherProps];
-    }, [{}, {}]);
-
-  return [modifierProps, otherProps];
-};
-
-export const Box = memo(forwardRef(function Box({
-  className,
-  componentClassName,
-  invisible,
-  is = 'div',
-  richText,
-  style,
-  textColor,
-  textStyle,
-  ...props
-}, ref) {
-  useLayoutEffect(() => {
-    use();
-    return unuse;
-  }, [use, unuse]);
-
-  const {
-    className: contextualClassName,
-    style: contextualStyle,
-    ...contextualProps
-  } = useProps();
-
-  const [modifiersProps, otherProps] = filterModifierProps({ ...contextualProps, ...props });
-
-  const children = createElement(is, {
-    className: [
-      'rcx-box',
-      ...getClassNamesFromModifiers('rcx-box', {
-        invisible,
-        inline: richText === 'inline',
-        block: richText === 'block',
-        'text-color': textColor,
-        'text-style': textStyle,
-      }),
-      componentClassName,
-      ...getClassNamesFromModifiers(componentClassName, modifiersProps),
-      contextualClassName,
-      className,
-    ].filter(Boolean).join(' '),
-    ref,
-    style: {
-      ...contextualStyle,
-      ...style,
-    },
-    ...otherProps,
+  const children = createElement(mergedProps.is || 'div', {
+    ...mergedProps,
+    is: undefined,
+    className: Array.from(new Set(mergedProps.className)).filter(Boolean).join(' '),
+    style: mergedProps.style,
   });
 
-  return <PropsProvider children={children} />;
+  if (contextProps) {
+    return <PropsContext.Provider children={children} />;
+  }
+
+  return children;
 }));
 
 Box.defaultProps = {
   invisible: false,
   is: 'div',
 };
-
-Box.displayName = 'Box';
 
 Box.propTypes = {
   className: PropTypes.string,
@@ -116,6 +48,51 @@ Box.propTypes = {
     'h1', 's1', 's2', 'p1', 'p2', 'c1', 'c2', 'micro', 'mono',
     'headline', 'subtitle', 'paragraph', 'caption',
   ]),
+
+  // Spaces
+  m: marginPropType,
+  mi: marginPropType,
+  mis: marginPropType,
+  mie: marginPropType,
+  mb: marginPropType,
+  mbs: marginPropType,
+  mbe: marginPropType,
+  p: paddingPropType,
+  pi: paddingPropType,
+  pis: paddingPropType,
+  pie: paddingPropType,
+  pb: paddingPropType,
+  pbs: paddingPropType,
+  pbe: paddingPropType,
+
+  // Layout
+  w: sizePropType,
+  width: sizePropType,
+  minWidth: sizePropType,
+  maxWidth: sizePropType,
+  h: sizePropType,
+  height: sizePropType,
+  minHeight: sizePropType,
+  maxHeight: sizePropType,
+  display: PropTypes.string,
+  verticalAlign: PropTypes.string,
+  overflow: PropTypes.string,
+  overflowX: PropTypes.string,
+  overflowY: PropTypes.string,
+
+  // FlexBox
+  alignItems: PropTypes.string,
+  alignContent: PropTypes.string,
+  justifyItems: PropTypes.string,
+  justifyContent: PropTypes.string,
+  flexWrap: PropTypes.string,
+  flexDirection: PropTypes.string,
+  flexGrow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  flexShrink: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  flexBasis: PropTypes.string,
+  justifySelf: PropTypes.string,
+  alignSelf: PropTypes.string,
+  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Box.extend = (componentClassName, is) => {
@@ -128,7 +105,6 @@ Box.extend = (componentClassName, is) => {
 };
 
 export * from './PropsContext';
-
 export * from './AnimatedVisibility';
 export * from './Flex';
 export * from './Margins';
