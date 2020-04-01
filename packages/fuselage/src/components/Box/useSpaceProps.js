@@ -4,7 +4,7 @@ import { getMarginValue } from '../../propTypes/margins';
 import { getPaddingValue } from '../../propTypes/paddings';
 import { useCss } from './useCss';
 
-const marginBlock = (() => {
+const getMarginBlock = (() => {
   if (window.CSS && window.CSS.supports('margin-block: auto')) {
     return (value) => css`margin-block: ${ value } !important;`;
   }
@@ -22,7 +22,7 @@ const marginBlock = (() => {
   `;
 })();
 
-const marginBlockStart = (() => {
+const getMarginBlockStart = (() => {
   if (window.CSS && window.CSS.supports('margin-block-start: auto')) {
     return (value) => css`margin-block-start: ${ value } !important;`;
   }
@@ -30,7 +30,7 @@ const marginBlockStart = (() => {
   return (value) => css`margin-top: ${ value } !important;`;
 })();
 
-const marginBlockEnd = (() => {
+const getMarginBlockEnd = (() => {
   if (window.CSS && window.CSS.supports('margin-block-end: auto')) {
     return (value) => css`margin-block-end: ${ value } !important;`;
   }
@@ -38,7 +38,7 @@ const marginBlockEnd = (() => {
   return (value) => css`margin-bottom: ${ value } !important;`;
 })();
 
-const marginInline = (() => {
+const getMarginInline = (() => {
   if (window.CSS && window.CSS.supports('margin-inline: auto')) {
     return (value) => css`margin-inline: ${ value } !important;`;
   }
@@ -56,7 +56,7 @@ const marginInline = (() => {
   `;
 })();
 
-const marginInlineStart = (() => {
+const getMarginInlineStart = (() => {
   if (window.CSS && window.CSS.supports('margin-inline-start: auto')) {
     return (value) => css`margin-inline-start: ${ value } !important;`;
   }
@@ -72,7 +72,7 @@ const marginInlineStart = (() => {
   `;
 })();
 
-const marginInlineEnd = (() => {
+const getMarginInlineEnd = (() => {
   if (window.CSS && window.CSS.supports('margin-inline-end: auto')) {
     return (value) => css`margin-inline-end: ${ value } !important;`;
   }
@@ -88,7 +88,7 @@ const marginInlineEnd = (() => {
   `;
 })();
 
-const paddingBlock = (() => {
+const getPaddingBlock = (() => {
   if (window.CSS && window.CSS.supports('padding-block: auto')) {
     return (value) => css`padding-block: ${ value } !important;`;
   }
@@ -106,7 +106,7 @@ const paddingBlock = (() => {
   `;
 })();
 
-const paddingBlockStart = (() => {
+const getPaddingBlockStart = (() => {
   if (window.CSS && window.CSS.supports('padding-block-start: auto')) {
     return (value) => css`padding-block-start: ${ value } !important;`;
   }
@@ -114,7 +114,7 @@ const paddingBlockStart = (() => {
   return (value) => css`padding-top: ${ value } !important;`;
 })();
 
-const paddingBlockEnd = (() => {
+const getPaddingBlockEnd = (() => {
   if (window.CSS && window.CSS.supports('padding-block-end: auto')) {
     return (value) => css`padding-block-end: ${ value } !important;`;
   }
@@ -122,7 +122,7 @@ const paddingBlockEnd = (() => {
   return (value) => css`padding-bottom: ${ value } !important;`;
 })();
 
-const paddingInline = (() => {
+const getPaddingInline = (() => {
   if (window.CSS && window.CSS.supports('padding-inline: auto')) {
     return (value) => css`padding-inline: ${ value } !important;`;
   }
@@ -140,7 +140,7 @@ const paddingInline = (() => {
   `;
 })();
 
-const paddingInlineStart = (() => {
+const getPaddingInlineStart = (() => {
   if (window.CSS && window.CSS.supports('padding-inline-start: auto')) {
     return (value) => css`padding-inline-start: ${ value } !important;`;
   }
@@ -156,7 +156,7 @@ const paddingInlineStart = (() => {
   `;
 })();
 
-const paddingInlineEnd = (() => {
+const getPaddingInlineEnd = (() => {
   if (window.CSS && window.CSS.supports('padding-inline-end: auto')) {
     return (value) => css`padding-inline-end: ${ value } !important;`;
   }
@@ -175,39 +175,65 @@ const paddingInlineEnd = (() => {
 export const useSpaceProps = ({
   className,
   m,
+  margin = m,
   mi,
+  marginInline = mi,
   mis,
+  marginInlineStart = mis,
   mie,
+  marginInlineEnd = mie,
   mb,
+  marginBlock = mb,
   mbs,
+  marginBlockStart = mbs,
   mbe,
+  marginBlockEnd = mbe,
   p,
+  padding = p,
   pi,
+  paddingInline = pi,
   pis,
+  paddingInlineStart = pis,
   pie,
+  paddingInlineEnd = pie,
   pb,
+  paddingBlock = pb,
   pbs,
+  paddingBlockStart = pbs,
   pbe,
+  paddingBlockEnd = pbe,
   ...props
 }) => {
   const spacesClassName = useCss([
-    m !== undefined && css`margin: ${ getMarginValue(m) } !important;`,
-    mb !== undefined && marginBlock(getMarginValue(mb)),
-    mbs !== undefined && marginBlockStart(getMarginValue(mbs)),
-    mbe !== undefined && marginBlockEnd(getMarginValue(mbe)),
-    mi !== undefined && marginInline(getMarginValue(mi)),
-    mis !== undefined && marginInlineStart(getMarginValue(mis)),
-    mie !== undefined && marginInlineEnd(getMarginValue(mie)),
-    p !== undefined && css`padding: ${ getPaddingValue(p) } !important;`,
-    pb !== undefined && paddingBlock(getPaddingValue(pb)),
-    pbs !== undefined && paddingBlockStart(getPaddingValue(pbs)),
-    pbe !== undefined && paddingBlockEnd(getPaddingValue(pbe)),
-    pi !== undefined && paddingInline(getPaddingValue(pi)),
-    pis !== undefined && paddingInlineStart(getPaddingValue(pis)),
-    pie !== undefined && paddingInlineEnd(getPaddingValue(pie)),
+    margin !== undefined && css`margin: ${ getMarginValue(margin) } !important;`,
+    marginBlock !== undefined && getMarginBlock(getMarginValue(marginBlock)),
+    marginBlockStart !== undefined && getMarginBlockStart(getMarginValue(marginBlockStart)),
+    marginBlockEnd !== undefined && getMarginBlockEnd(getMarginValue(marginBlockEnd)),
+    marginInline !== undefined && getMarginInline(getMarginValue(marginInline)),
+    marginInlineStart !== undefined && getMarginInlineStart(getMarginValue(marginInlineStart)),
+    marginInlineEnd !== undefined && getMarginInlineEnd(getMarginValue(marginInlineEnd)),
+    padding !== undefined && css`padding: ${ getPaddingValue(padding) } !important;`,
+    paddingBlock !== undefined && getPaddingBlock(getPaddingValue(paddingBlock)),
+    paddingBlockStart !== undefined && getPaddingBlockStart(getPaddingValue(paddingBlockStart)),
+    paddingBlockEnd !== undefined && getPaddingBlockEnd(getPaddingValue(paddingBlockEnd)),
+    paddingInline !== undefined && getPaddingInline(getPaddingValue(paddingInline)),
+    paddingInlineStart !== undefined && getPaddingInlineStart(getPaddingValue(paddingInlineStart)),
+    paddingInlineEnd !== undefined && getPaddingInlineEnd(getPaddingValue(paddingInlineEnd)),
   ], [
-    m, mb, mbs, mbe, mi, mis, mie,
-    p, pi, pis, pie, pb, pbs, pbe,
+    margin,
+    marginBlock,
+    marginBlockStart,
+    marginBlockEnd,
+    marginInline,
+    marginInlineStart,
+    marginInlineEnd,
+    padding,
+    paddingInline,
+    paddingInlineStart,
+    paddingInlineEnd,
+    paddingBlock,
+    paddingBlockStart,
+    paddingBlockEnd,
   ]);
 
   return {
