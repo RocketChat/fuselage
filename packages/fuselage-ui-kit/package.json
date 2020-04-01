@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.7.4",
     "@rocket.chat/fuselage": "^0.7.0",
