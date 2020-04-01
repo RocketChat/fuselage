@@ -7,13 +7,11 @@ import { Box } from '../Box';
 export const Tile = forwardRef(function Tile({
   className,
   elevation,
-  padding,
   ...props
 }, ref) {
   return <Box
     ref={ref}
     componentClassName='rcx-tile'
-    p={padding}
     mod-elevation={elevation}
     {...props}
   />;
