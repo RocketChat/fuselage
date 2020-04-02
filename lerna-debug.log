@@ -1,0 +1,469 @@
+0 silly argv {
+0 silly argv   _: [ 'version' ],
+0 silly argv   'conventional-commits': true,
+0 silly argv   conventionalCommits: true,
+0 silly argv   'create-release': 'github',
+0 silly argv   createRelease: 'github',
+0 silly argv   yes: true,
+0 silly argv   y: true,
+0 silly argv   lernaVersion: '3.20.2',
+0 silly argv   '$0': 'node_modules/.bin/lerna'
+0 silly argv }
+1 notice cli v3.20.2
+2 verbose rootPath /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage
+3 info current version 0.7.0
+4 silly isAnythingCommitted
+5 verbose isAnythingCommitted 1
+6 silly currentBranch
+7 verbose currentBranch master
+8 silly remoteBranchExists
+9 silly isBehindUpstream
+10 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 2
+11 silly hasTags
+12 verbose hasTags true
+13 silly git-describe.sync "v0.6.2-8-g47295d8" => {"lastTagName":"v0.6.2","lastVersion":"v0.6.2","refCount":"8","sha":"47295d8","isDirty":false}
+14 info Looking for changed packages since v0.6.2
+15 silly checking diff packages/css-in-js
+16 silly found diff in packages/css-in-js/CHANGELOG.md
+16 silly found diff in packages/css-in-js/flow-typed/npm/@emotion/hash_vx.x.x.js
+16 silly found diff in packages/css-in-js/package.json
+16 silly found diff in packages/css-in-js/src/sheet.js
+17 verbose filtered diff [
+17 verbose filtered diff   'packages/css-in-js/CHANGELOG.md',
+17 verbose filtered diff   'packages/css-in-js/flow-typed/npm/@emotion/hash_vx.x.x.js',
+17 verbose filtered diff   'packages/css-in-js/package.json',
+17 verbose filtered diff   'packages/css-in-js/src/sheet.js'
+17 verbose filtered diff ]
+18 silly checking diff packages/fuselage-hooks
+19 silly found diff in packages/fuselage-hooks/CHANGELOG.md
+19 silly found diff in packages/fuselage-hooks/package.json
+20 verbose filtered diff [
+20 verbose filtered diff   'packages/fuselage-hooks/CHANGELOG.md',
+20 verbose filtered diff   'packages/fuselage-hooks/package.json'
+20 verbose filtered diff ]
+21 silly checking diff packages/fuselage-polyfills
+22 silly found diff in packages/fuselage-polyfills/CHANGELOG.md
+22 silly found diff in packages/fuselage-polyfills/package.json
+23 verbose filtered diff [
+23 verbose filtered diff   'packages/fuselage-polyfills/CHANGELOG.md',
+23 verbose filtered diff   'packages/fuselage-polyfills/package.json'
+23 verbose filtered diff ]
+24 silly checking diff packages/fuselage-tokens
+25 silly found diff in packages/fuselage-tokens/CHANGELOG.md
+25 silly found diff in packages/fuselage-tokens/all.js
+25 silly found diff in packages/fuselage-tokens/all.scss
+25 silly found diff in packages/fuselage-tokens/breakpoints.js
+25 silly found diff in packages/fuselage-tokens/breakpoints.scss
+25 silly found diff in packages/fuselage-tokens/colors.js
+25 silly found diff in packages/fuselage-tokens/colors.scss
+25 silly found diff in packages/fuselage-tokens/margins.js
+25 silly found diff in packages/fuselage-tokens/package.json
+25 silly found diff in packages/fuselage-tokens/sizes.js
+25 silly found diff in packages/fuselage-tokens/typography.js
+26 verbose filtered diff [
+26 verbose filtered diff   'packages/fuselage-tokens/CHANGELOG.md',
+26 verbose filtered diff   'packages/fuselage-tokens/all.js',
+26 verbose filtered diff   'packages/fuselage-tokens/all.scss',
+26 verbose filtered diff   'packages/fuselage-tokens/breakpoints.js',
+26 verbose filtered diff   'packages/fuselage-tokens/breakpoints.scss',
+26 verbose filtered diff   'packages/fuselage-tokens/colors.js',
+26 verbose filtered diff   'packages/fuselage-tokens/colors.scss',
+26 verbose filtered diff   'packages/fuselage-tokens/margins.js',
+26 verbose filtered diff   'packages/fuselage-tokens/package.json',
+26 verbose filtered diff   'packages/fuselage-tokens/sizes.js',
+26 verbose filtered diff   'packages/fuselage-tokens/typography.js'
+26 verbose filtered diff ]
+27 silly checking diff packages/fuselage-ui-kit
+28 silly found diff in packages/fuselage-ui-kit/.storybook/manager.js
+28 silly found diff in packages/fuselage-ui-kit/.storybook/preview.js
+28 silly found diff in packages/fuselage-ui-kit/CHANGELOG.md
+28 silly found diff in packages/fuselage-ui-kit/babel.config.js
+28 silly found diff in packages/fuselage-ui-kit/package.json
+28 silly found diff in packages/fuselage-ui-kit/src/UIKitMessage.stories.mdx
+28 silly found diff in packages/fuselage-ui-kit/src/UIKitModal.stories.mdx
+29 verbose filtered diff [
+29 verbose filtered diff   'packages/fuselage-ui-kit/.storybook/manager.js',
+29 verbose filtered diff   'packages/fuselage-ui-kit/.storybook/preview.js',
+29 verbose filtered diff   'packages/fuselage-ui-kit/CHANGELOG.md',
+29 verbose filtered diff   'packages/fuselage-ui-kit/babel.config.js',
+29 verbose filtered diff   'packages/fuselage-ui-kit/package.json',
+29 verbose filtered diff   'packages/fuselage-ui-kit/src/UIKitMessage.stories.mdx',
+29 verbose filtered diff   'packages/fuselage-ui-kit/src/UIKitModal.stories.mdx'
+29 verbose filtered diff ]
+30 silly checking diff packages/fuselage
+31 silly found diff in packages/fuselage/.eslintrc.js
+31 silly found diff in packages/fuselage/.gitignore
+31 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Avatar_Default.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Avatar_Rounded.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Avatar_Stack.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Avatar_Stack_Rounded.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Misc_Tabs_Default.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_iphone7_Tags_Badges_Tags_Ghost.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Avatar_Default.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Avatar_Rounded.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Avatar_Stack.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Avatar_Stack_Rounded.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Misc_Tabs_Default.png
+31 silly found diff in packages/fuselage/.loki/reference/chrome_laptop_Tags_Badges_Tags_Ghost.png
+31 silly found diff in packages/fuselage/.storybook/jest-results.json
+31 silly found diff in packages/fuselage/.storybook/main.js
+31 silly found diff in packages/fuselage/.storybook/manager.js
+31 silly found diff in packages/fuselage/.storybook/preview.js
+31 silly found diff in packages/fuselage/CHANGELOG.md
+31 silly found diff in packages/fuselage/package.json
+31 silly found diff in packages/fuselage/src/components/Accordion/Item.js
+31 silly found diff in packages/fuselage/src/components/Accordion/Item.stories.mdx
+31 silly found diff in packages/fuselage/src/components/Accordion/index.js
+31 silly found diff in packages/fuselage/src/components/Accordion/stories.mdx
+31 silly found diff in packages/fuselage/src/components/AutoComplete/index.js
+31 silly found diff in packages/fuselage/src/components/AutoComplete/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Avatar/index.js
+31 silly found diff in packages/fuselage/src/components/Avatar/spec.js
+31 silly found diff in packages/fuselage/src/components/Avatar/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Avatar/styles.scss
+31 silly found diff in packages/fuselage/src/components/Badge/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Box/AnimatedVisibility/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Box/Flex/index.js
+31 silly found diff in packages/fuselage/src/components/Box/Flex/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Box/Margins/index.js
+31 silly found diff in packages/fuselage/src/components/Box/Margins/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Box/PlainText.stories.mdx
+31 silly found diff in packages/fuselage/src/components/Box/PropsContext.js
+31 silly found diff in packages/fuselage/src/components/Box/RichText.stories.mdx
+31 silly found diff in packages/fuselage/src/components/Box/Scrollable/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Box/Size/index.js
+31 silly found diff in packages/fuselage/src/components/Box/Size/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Box/index.js
+31 silly found diff in packages/fuselage/src/components/Box/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Box/useCss.js
+31 silly found diff in packages/fuselage/src/components/Box/useFlexBoxProps.js
+31 silly found diff in packages/fuselage/src/components/Box/useLayoutProps.js
+31 silly found diff in packages/fuselage/src/components/Box/useMergedProps.js
+31 silly found diff in packages/fuselage/src/components/Box/useSpaceProps.js
+31 silly found diff in packages/fuselage/src/components/Box/useStyleSheet.js
+31 silly found diff in packages/fuselage/src/components/Button/index.js
+31 silly found diff in packages/fuselage/src/components/Button/stories.mdx
+31 silly found diff in packages/fuselage/src/components/ButtonGroup/index.js
+31 silly found diff in packages/fuselage/src/components/ButtonGroup/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Callout/index.js
+31 silly found diff in packages/fuselage/src/components/Callout/stories.mdx
+31 silly found diff in packages/fuselage/src/components/CheckBox/index.js
+31 silly found diff in packages/fuselage/src/components/CheckBox/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Chevron/index.js
+31 silly found diff in packages/fuselage/src/components/Chevron/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Chip/index.js
+31 silly found diff in packages/fuselage/src/components/Chip/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Divider/stories.mdx
+31 silly found diff in packages/fuselage/src/components/EmailInput/index.js
+31 silly found diff in packages/fuselage/src/components/EmailInput/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Field/stories.mdx
+31 silly found diff in packages/fuselage/src/components/FieldGroup/index.js
+31 silly found diff in packages/fuselage/src/components/FieldGroup/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Grid/index.js
+31 silly found diff in packages/fuselage/src/components/Grid/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Grid/styles.scss
+31 silly found diff in packages/fuselage/src/components/Headline/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Icon/index.js
+31 silly found diff in packages/fuselage/src/components/Icon/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Icon/styles.scss
+31 silly found diff in packages/fuselage/src/components/InputBox/Option.js
+31 silly found diff in packages/fuselage/src/components/InputBox/Placeholder.js
+31 silly found diff in packages/fuselage/src/components/InputBox/index.js
+31 silly found diff in packages/fuselage/src/components/InputBox/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Label/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Level/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Modal/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Options/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Pagination/index.js
+31 silly found diff in packages/fuselage/src/components/Pagination/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Paragraph/stories.mdx
+31 silly found diff in packages/fuselage/src/components/PasswordInput/index.js
+31 silly found diff in packages/fuselage/src/components/PasswordInput/stories.mdx
+31 silly found diff in packages/fuselage/src/components/RadioButton/index.js
+31 silly found diff in packages/fuselage/src/components/RadioButton/stories.mdx
+31 silly found diff in packages/fuselage/src/components/SearchInput/index.js
+31 silly found diff in packages/fuselage/src/components/SearchInput/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Select/MultiSelect.js
+31 silly found diff in packages/fuselage/src/components/Select/Select.js
+31 silly found diff in packages/fuselage/src/components/Select/stories.mdx
+31 silly found diff in packages/fuselage/src/components/SelectInput/index.js
+31 silly found diff in packages/fuselage/src/components/SelectInput/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Skeleton/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Subtitle/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Table/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Tabs/index.js
+31 silly found diff in packages/fuselage/src/components/Tabs/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Tabs/styles.scss
+31 silly found diff in packages/fuselage/src/components/Tag/index.js
+31 silly found diff in packages/fuselage/src/components/Tag/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Tag/styles.scss
+31 silly found diff in packages/fuselage/src/components/TelephoneInput/index.js
+31 silly found diff in packages/fuselage/src/components/TelephoneInput/stories.mdx
+31 silly found diff in packages/fuselage/src/components/TextAreaInput/index.js
+31 silly found diff in packages/fuselage/src/components/TextAreaInput/stories.mdx
+31 silly found diff in packages/fuselage/src/components/TextInput/index.js
+31 silly found diff in packages/fuselage/src/components/TextInput/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Throbber/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Tile/index.js
+31 silly found diff in packages/fuselage/src/components/Tile/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Tile/styles.scss
+31 silly found diff in packages/fuselage/src/components/ToggleSwitch/index.js
+31 silly found diff in packages/fuselage/src/components/ToggleSwitch/stories.mdx
+31 silly found diff in packages/fuselage/src/components/Tooltip/stories.mdx
+31 silly found diff in packages/fuselage/src/components/UrlInput/index.js
+31 silly found diff in packages/fuselage/src/components/UrlInput/stories.mdx
+31 silly found diff in packages/fuselage/src/propTypes/margins.js
+31 silly found diff in packages/fuselage/src/propTypes/paddings.js
+31 silly found diff in packages/fuselage/src/propTypes/sizes.js
+31 silly found diff in packages/fuselage/src/styles/mixins/breakpoints.scss
+31 silly found diff in packages/fuselage/src/styles/variables/all.scss
+31 silly found diff in packages/fuselage/src/styles/variables/breakpoints.scss
+31 silly found diff in packages/fuselage/src/styles/variables/colors.scss
+31 silly found diff in packages/fuselage/src/styles/variables/tag-colors.scss
+32 verbose filtered diff [
+32 verbose filtered diff   'packages/fuselage/.eslintrc.js',
+32 verbose filtered diff   'packages/fuselage/.gitignore',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Avatar_Default.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Avatar_Rounded.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Avatar_Stack.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Data_Display_Avatar_Stack_Rounded.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Misc_Tabs_Default.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_iphone7_Tags_Badges_Tags_Ghost.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Avatar_Default.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Avatar_Rounded.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Avatar_Stack.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Data_Display_Avatar_Stack_Rounded.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Misc_Tabs_Default.png',
+32 verbose filtered diff   'packages/fuselage/.loki/reference/chrome_laptop_Tags_Badges_Tags_Ghost.png',
+32 verbose filtered diff   'packages/fuselage/.storybook/jest-results.json',
+32 verbose filtered diff   'packages/fuselage/.storybook/main.js',
+32 verbose filtered diff   'packages/fuselage/.storybook/manager.js',
+32 verbose filtered diff   'packages/fuselage/.storybook/preview.js',
+32 verbose filtered diff   'packages/fuselage/CHANGELOG.md',
+32 verbose filtered diff   'packages/fuselage/package.json',
+32 verbose filtered diff   'packages/fuselage/src/components/Accordion/Item.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Accordion/Item.stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Accordion/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Accordion/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/AutoComplete/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/AutoComplete/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Avatar/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Avatar/spec.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Avatar/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Avatar/styles.scss',
+32 verbose filtered diff   'packages/fuselage/src/components/Badge/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/AnimatedVisibility/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/Flex/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/Flex/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/Margins/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/Margins/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/PlainText.stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/PropsContext.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/RichText.stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/Scrollable/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/Size/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/Size/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/useCss.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/useFlexBoxProps.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/useLayoutProps.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/useMergedProps.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/useSpaceProps.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Box/useStyleSheet.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Button/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Button/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/ButtonGroup/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/ButtonGroup/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Callout/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Callout/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/CheckBox/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/CheckBox/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Chevron/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Chevron/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Chip/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Chip/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Divider/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/EmailInput/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/EmailInput/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Field/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/FieldGroup/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/FieldGroup/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Grid/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Grid/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Grid/styles.scss',
+32 verbose filtered diff   'packages/fuselage/src/components/Headline/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Icon/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Icon/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Icon/styles.scss',
+32 verbose filtered diff   'packages/fuselage/src/components/InputBox/Option.js',
+32 verbose filtered diff   'packages/fuselage/src/components/InputBox/Placeholder.js',
+32 verbose filtered diff   'packages/fuselage/src/components/InputBox/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/InputBox/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Label/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Level/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Modal/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Options/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Pagination/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Pagination/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Paragraph/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/PasswordInput/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/PasswordInput/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/RadioButton/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/RadioButton/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/SearchInput/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/SearchInput/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Select/MultiSelect.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Select/Select.js',
+32 verbose filtered diff   'packages/fuselage/src/components/Select/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/SelectInput/index.js',
+32 verbose filtered diff   'packages/fuselage/src/components/SelectInput/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Skeleton/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Subtitle/stories.mdx',
+32 verbose filtered diff   'packages/fuselage/src/components/Table/stories.mdx',
+32 verbose filtered diff   ... 29 more items
+32 verbose filtered diff ]
+33 silly checking diff packages/icons
+34 silly found diff in packages/icons/CHANGELOG.md
+34 silly found diff in packages/icons/package.json
+35 verbose filtered diff [ 'packages/icons/CHANGELOG.md', 'packages/icons/package.json' ]
+36 silly checking diff packages/ui-kit
+37 silly found diff in packages/ui-kit/CHANGELOG.md
+37 silly found diff in packages/ui-kit/package.json
+38 verbose filtered diff [ 'packages/ui-kit/CHANGELOG.md', 'packages/ui-kit/package.json' ]
+39 verbose updated @rocket.chat/css-in-js
+40 verbose updated @rocket.chat/fuselage-hooks
+41 verbose updated @rocket.chat/fuselage-polyfills
+42 verbose updated @rocket.chat/fuselage-tokens
+43 verbose updated @rocket.chat/fuselage-ui-kit
+44 verbose updated @rocket.chat/fuselage
+45 verbose updated @rocket.chat/icons
+46 verbose updated @rocket.chat/ui-kit
+47 verbose git-describe undefined => "v0.6.2-8-g47295d8"
+48 silly git-describe parsed => {"lastTagName":"v0.6.2","lastVersion":"v0.6.2","refCount":"8","sha":"47295d8","isDirty":false}
+49 silly fixed for @rocket.chat/css-in-js at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/css-in-js
+50 verbose getChangelogConfig using preset "conventional-changelog-angular"
+51 silly npa Result {
+51 silly npa   type: 'tag',
+51 silly npa   registry: true,
+51 silly npa   where: undefined,
+51 silly npa   raw: 'conventional-changelog-angular',
+51 silly npa   name: 'conventional-changelog-angular',
+51 silly npa   escapedName: 'conventional-changelog-angular',
+51 silly npa   scope: undefined,
+51 silly npa   rawSpec: '',
+51 silly npa   saveSpec: null,
+51 silly npa   fetchSpec: 'latest',
+51 silly npa   gitRange: undefined,
+51 silly npa   gitCommittish: undefined,
+51 silly npa   hosted: undefined
+51 silly npa }
+52 verbose getChangelogConfig Attempting to resolve preset "conventional-changelog-angular"
+53 info getChangelogConfig Successfully resolved preset "conventional-changelog-angular"
+54 verbose fixed increment 0.7.0 by patch
+55 silly fixed for @rocket.chat/fuselage-hooks at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks
+56 verbose fixed increment 0.7.0 by patch
+57 silly fixed for @rocket.chat/fuselage-polyfills at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-polyfills
+58 verbose fixed increment 0.7.0 by patch
+59 silly fixed for @rocket.chat/fuselage-tokens at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens
+60 verbose fixed increment 0.7.0 by patch
+61 silly fixed for @rocket.chat/fuselage-ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit
+62 verbose fixed increment 0.7.0 by patch
+63 silly fixed for @rocket.chat/fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage
+64 verbose fixed increment 0.7.0 by patch
+65 silly fixed for @rocket.chat/icons at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons
+66 verbose fixed increment 0.7.0 by patch
+67 silly fixed for @rocket.chat/ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit
+68 verbose fixed increment 0.7.0 by patch
+69 info auto-confirmed
+70 info execute Creating releases...
+71 silly lifecycle No script for "preversion" in "Rocket.Chat.Fuselage", continuing
+72 silly lifecycle No script for "preversion" in "@rocket.chat/css-in-js", continuing
+73 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage-hooks", continuing
+74 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage-polyfills", continuing
+75 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage-tokens", continuing
+76 silly lifecycle No script for "preversion" in "@rocket.chat/icons", continuing
+77 silly lifecycle No script for "preversion" in "@rocket.chat/ui-kit", continuing
+78 silly lifecycle No script for "version" in "@rocket.chat/css-in-js", continuing
+79 silly fixed for @rocket.chat/css-in-js at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/css-in-js
+80 silly lifecycle No script for "version" in "@rocket.chat/icons", continuing
+81 silly fixed for @rocket.chat/icons at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons
+82 silly lifecycle No script for "version" in "@rocket.chat/fuselage-tokens", continuing
+83 silly fixed for @rocket.chat/fuselage-tokens at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens
+84 silly lifecycle No script for "version" in "@rocket.chat/fuselage-polyfills", continuing
+85 silly fixed for @rocket.chat/fuselage-polyfills at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-polyfills
+86 silly lifecycle No script for "version" in "@rocket.chat/fuselage-hooks", continuing
+87 silly fixed for @rocket.chat/fuselage-hooks at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks
+88 silly lifecycle No script for "version" in "@rocket.chat/ui-kit", continuing
+89 silly fixed for @rocket.chat/ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit
+90 silly fixed writing new entry: "## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)\n\n**Note:** Version bump only for package @rocket.chat/icons\n\n\n\n"
+91 silly fixed writing new entry: "## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)\n\n**Note:** Version bump only for package @rocket.chat/css-in-js\n\n\n\n"
+92 silly fixed writing new entry: "## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-tokens\n\n\n\n"
+93 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/CHANGELOG.md
+94 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/css-in-js/CHANGELOG.md
+95 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/CHANGELOG.md
+96 silly fixed writing new entry: "## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-polyfills\n\n\n\n"
+97 silly fixed writing new entry: "## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)\n\n**Note:** Version bump only for package @rocket.chat/fuselage-hooks\n\n\n\n"
+98 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks/CHANGELOG.md
+99 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-polyfills/CHANGELOG.md
+100 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage", continuing
+101 silly fixed writing new entry: "## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)\n\n**Note:** Version bump only for package @rocket.chat/ui-kit\n\n\n\n"
+102 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/CHANGELOG.md
+103 silly lifecycle No script for "version" in "@rocket.chat/fuselage", continuing
+104 silly fixed for @rocket.chat/fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage
+105 silly fixed writing new entry: "## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)\n\n**Note:** Version bump only for package @rocket.chat/fuselage\n\n\n\n"
+106 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/CHANGELOG.md
+107 silly lifecycle No script for "preversion" in "@rocket.chat/fuselage-ui-kit", continuing
+108 silly lifecycle No script for "version" in "@rocket.chat/fuselage-ui-kit", continuing
+109 silly fixed for @rocket.chat/fuselage-ui-kit at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit
+110 silly fixed writing new entry: "## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)\n\n\n### Bug Fixes\n\n* Fix ui kit babel config ([#191](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/191)) ([47295d8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/47295d87740bc0ceb5e2bbb1901c2340cab860b6))\n\n\n\n"
+111 verbose fixed wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/CHANGELOG.md
+112 silly root for Rocket.Chat.Fuselage at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage
+113 silly root writing new entry: "## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)\n\n\n### Bug Fixes\n\n* Fix ui kit babel config ([#191](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/191)) ([47295d8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/47295d87740bc0ceb5e2bbb1901c2340cab860b6))\n\n\n\n"
+114 verbose root wrote /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/CHANGELOG.md
+115 silly lifecycle No script for "version" in "Rocket.Chat.Fuselage", continuing
+116 silly gitAdd [
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/css-in-js/package.json',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/package.json',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/package.json',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-polyfills/package.json',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks/package.json',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/package.json',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/icons/CHANGELOG.md',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/css-in-js/CHANGELOG.md',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-tokens/CHANGELOG.md',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-hooks/CHANGELOG.md',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-polyfills/CHANGELOG.md',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/ui-kit/CHANGELOG.md',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/package.json',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage/CHANGELOG.md',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/package.json',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/packages/fuselage-ui-kit/CHANGELOG.md',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/CHANGELOG.md',
+116 silly gitAdd   '/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/lerna.json'
+116 silly gitAdd ]
+117 silly gitCommit v0.7.1
+118 verbose git [ 'commit', '-m', 'v0.7.1' ]
+119 silly gitTag v0.7.1
+120 verbose git [ 'tag', 'v0.7.1', '-m', 'v0.7.1' ]
+121 silly lifecycle No script for "postversion" in "@rocket.chat/css-in-js", continuing
+122 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-hooks", continuing
+123 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-polyfills", continuing
+124 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-tokens", continuing
+125 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage-ui-kit", continuing
+126 silly lifecycle No script for "postversion" in "@rocket.chat/fuselage", continuing
+127 silly lifecycle No script for "postversion" in "@rocket.chat/icons", continuing
+128 silly lifecycle No script for "postversion" in "@rocket.chat/ui-kit", continuing
+129 silly lifecycle No script for "postversion" in "Rocket.Chat.Fuselage", continuing
+130 info git Pushing tags...
+131 silly gitPush origin master
+132 silly parseGitRepo
+133 verbose git [ 'config', '--get', 'remote.origin.url' ]
+134 silly createGitHubClient
+135 error Error: A GH_TOKEN environment variable is required.
+135 error     at createGitHubClient (/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/github-client/lib/github-client.js:17:11)
+135 error     at createClient (/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/version/lib/create-release.js:16:14)
+135 error     at createRelease (/Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/version/lib/create-release.js:25:18)
+135 error     at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/@lerna/version/index.js:272:9
+135 error     at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/p-waterfall/index.js:4:73
+135 error     at /Users/guilhermegazzo/dev/Rocket.Chat.Fuselage/node_modules/p-reduce/index.js:16:10

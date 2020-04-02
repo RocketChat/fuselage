@@ -1,23 +1,24 @@
 .rcx-status {
-    width: $spaces-x8;
-    height: $spaces-x8;
-    border-radius: 50%;
+  width: $spaces-x8;
+  height: $spaces-x8;
 
-    &--is {
-        &-online {
-            background-color: $colors-g500;
-        }
+  border-radius: 50%;
 
-        &-away {
-            background-color: $colors-y500;
-        }
-
-        &-busy {
-            background-color: $colors-r500;
-        }
-
-        &-offline {
-            background-color: $colors-n500;
-        }
+  &--is {
+    &-online {
+      background-color: $colors-g500;
     }
+
+    &-away {
+      background-color: $colors-y500;
+    }
+
+    &-busy {
+      background-color: $colors-r500;
+    }
+
+    &-offline {
+      background-color: $colors-n500;
+    }
+  }
 }

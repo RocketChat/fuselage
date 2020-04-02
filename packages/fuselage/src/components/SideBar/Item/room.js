@@ -10,42 +10,90 @@ const viewModeToAvatarSizeMap = {
   extended: 'x36',
 };
 
-export function SidebarItemRoom({ viewMode = 'medium', avatar, status, roomType, lastMessage, title, unreadCount, ...props }) {
+
+export function SidebarRoomItem(props) {
+  switch (props.viewMode) {
+  case 'medium':
+    return <Medium { ...props } />;
+  case 'condensed':
+    return <Condensed { ...props }/>;
+  case 'extended':
+  default:
+    return <Extended { ...props }/>;
+  }
+}
+
+export function SidebarRoomItemGeneric({ viewMode = 'medium', avatar, status, roomType, lastMessage, title, unreadCount, children, clicable, ...props }) {
   const extendedView = viewMode === 'extended';
 
-  return <Box is='div' display='flex' flexDirection='row' componentClassName='rcx-sidebar__item' mod-unread={!!unreadCount} {...props}>
+  return <Box display='flex' flexDirection='row' componentClassName='rcx-sidebar-item' p='x4' mod-unread={!!unreadCount} mod-clickable={clicable} {...props}>
 
-    <Avatar mi='x4' alignSelf='center' size={viewModeToAvatarSizeMap[viewMode]} {...avatar}/>
+    { avatar && <Avatar mi='x4' alignSelf='center' size={viewModeToAvatarSizeMap[viewMode]} {...avatar}/> }
 
-    <Box is='div' display='flex' flexDirection={extendedView ? 'column' : 'row'} justifyContent='space-between' componentClassName='rcx-sidebar__item__text'>
-
-      <Box is='div' display='flex' flexDirection='row' alignItems='center' justifyContent='space-between'>
-        <Box display='flex' flexDirection='row' alignItems='center'>
-          <Margins inline='x4'>
-            {roomType === 'd' && <UserStatus status={status} />}
-            {roomType !== 'd' && <Icon size={16} name={roomType === 'p' ? 'lock' : 'hashtag'} />}
-
-            {viewMode !== 'condensed' && <Box textStyle='p1' componentClassName='rcx-sidebar__item__title'>{title}</Box>}
-            {viewMode === 'condensed' && <Box textStyle='c1' componentClassName='rcx-sidebar__item__title'>{title}</Box>}
-          </Margins>
-        </Box>
-
-        {extendedView && <Box is='div' mi='x4' textStyle='micro' textColor='hint'>{lastMessage.time}</Box>}
-      </Box>
-
-      {(unreadCount || extendedView) && <Box is='div' display='flex' flexDirection='row' justifyContent='space-between'>
-        <Margins inline='x4'>
-          {extendedView && <Box textStyle='p1' componentClassName='rcx-sidebar__item__description'>{`${ lastMessage.username }: ${ lastMessage.text }`}</Box>}
-          {unreadCount && <Badge alignSelf='center' variant={unreadCount.hasMention ? 'primary' : 'ghost'}>{unreadCount.count}</Badge>}
-        </Margins>
-      </Box>}
-
+    <Box display='flex' flexDirection={extendedView ? 'column' : 'row'} justifyContent='space-between' componentClassName={'rcx-sidebar-item__container'}>
+      {children}
     </Box>
 
   </Box>;
 }
 
-SidebarItemRoom.propTypes = {
+function RoomSymbol({ roomType, status }) {
+  if (roomType === 'd') {
+    return <UserStatus flexShrink={0} status={status} />;
+  }
+  return <Icon flexShrink={0} size={16} name={roomType === 'p' ? 'lock' : 'hashtag'} />;
+}
+
+
+export function Condensed(props) {
+  const { status, roomType, title, unreadCount } = props;
+  return <SidebarRoomItemGeneric { ...props }>
+    <Box display='flex' flexDirection='row' alignItems='center' justifyContent='space-between' componentClassName='rcx-sidebar-item__text' flexGrow={1}>
+      <Margins inline='x4'>
+        <RoomSymbol status={status} roomType={roomType}/>
+        <Box data-qa='sidebar-username' textStyle='c1' componentClassName='rcx-sidebar-item__title'>{title}</Box>
+        {unreadCount && <Badge flexShrink={0} alignSelf='center' variant={unreadCount.hasMention ? 'primary' : 'ghost'}>{unreadCount.count}</Badge>}
+      </Margins>
+    </Box>
+  </SidebarRoomItemGeneric>;
+}
+
+export function Medium(props) {
+  const { status, roomType, title, unreadCount } = props;
+  return <SidebarRoomItemGeneric { ...props }>
+    <Box display='flex' flexDirection='row' alignItems='center' justifyContent='space-between' componentClassName='rcx-sidebar-item__text' flexGrow={1}>
+      <Margins inline='x4'>
+        <RoomSymbol status={status} roomType={roomType}/>
+        <Box data-qa='sidebar-username' textStyle='c1' componentClassName='rcx-sidebar-item__title'>{title}</Box>
+        {unreadCount && <Badge flexShrink={0} alignSelf='center' variant={unreadCount.hasMention ? 'primary' : 'ghost'}>{unreadCount.count}</Badge>}
+      </Margins>
+    </Box>
+  </SidebarRoomItemGeneric>;
+}
+
+export function Extended(props) {
+  const { status, roomType, lastMessage, title, unreadCount } = props;
+  return <SidebarRoomItemGeneric { ...props }>
+    <Box display='flex' flexDirection='row' alignItems='center' justifyContent='space-between' componentClassName='rcx-sidebar-item__text' flexGrow={1}>
+      <Box display='flex' flexDirection='row' alignItems='center' flexGrow={1} flexShrink={1} componentClassName='rcx-sidebar-item__text'>
+        <Margins inline='x4'>
+          <RoomSymbol status={status} roomType={roomType}/>
+          <Box data-qa='sidebar-username' textStyle='c1' componentClassName='rcx-sidebar-item__title'>{title}</Box>
+        </Margins>
+      </Box>
+      <Box mi='x4' textStyle='micro' textColor='hint'>{lastMessage.time}</Box>
+    </Box>
+
+    <Box display='flex' flexDirection='row' justifyContent='space-between' componentClassName='rcx-sidebar-item__text' flexShrink={1} flexGrow={1}>
+      <Margins inline='x4'>
+        <Box flexShrink={1} textStyle='p1' componentClassName='rcx-sidebar-item__description'>{`${ lastMessage.username }: ${ lastMessage.text }`}</Box>
+        {unreadCount && <Badge flexShrink={0} alignSelf='center' variant={unreadCount.hasMention ? 'primary' : 'ghost'}>{unreadCount.count}</Badge>}
+      </Margins>
+    </Box>
+  </SidebarRoomItemGeneric>;
+}
+
+SidebarRoomItem.propTypes = {
   viewMode: PropTypes.oneOf(['condensed', 'expanded', 'medium']),
   avatar: PropTypes.shape({ url: PropTypes.string, title: PropTypes.string }),
   roomType: PropTypes.oneOf(['d', 'c', 'p']),
