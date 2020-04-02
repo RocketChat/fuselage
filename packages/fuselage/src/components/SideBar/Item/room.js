@@ -23,16 +23,20 @@ export function SidebarRoomItem(props) {
   }
 }
 
-export function SidebarRoomItemGeneric({ viewMode = 'medium', avatar, status, roomType, lastMessage, title, unreadCount, children, clicable, ...props }) {
-  const extendedView = viewMode === 'extended';
+export function SidebarRoomItemGeneric({ viewMode = 'medium', avatar, status, roomType, lastMessage, title, unreadCount, children, clickable, menuAction, ...props }) {
+  const isViewMode = (check) => viewMode === check;
 
-  return <Box display='flex' flexDirection='row' componentClassName='rcx-sidebar-item' p='x4' mod-unread={!!unreadCount} mod-clickable={clicable} {...props}>
+  return <Box display='flex' flexDirection='row' componentClassName='rcx-sidebar-item' p='x4' mod-unread={!!unreadCount} mod-clickable={clickable} {...props}>
 
     { avatar && <Avatar mi='x4' alignSelf='center' size={viewModeToAvatarSizeMap[viewMode]} {...avatar}/> }
 
-    <Box display='flex' flexDirection={extendedView ? 'column' : 'row'} justifyContent='space-between' componentClassName={'rcx-sidebar-item__container'}>
+    <Box display='flex' flexDirection={isViewMode('extended') ? 'column' : 'row'} justifyContent='space-between' componentClassName={'rcx-sidebar-item__container'} pb={isViewMode('medium') ? 6 : 0}>
       {children}
     </Box>
+
+    {menuAction && <Box width='x4' display='flex' alignSelf='stretch' pi='x4' componentClassName='rcx-sidebar-item__menu' onClick={menuAction || undefined}>
+      <Icon mis='neg-x8' name='menu' alignSelf='center'/>
+    </Box>}
 
   </Box>;
 }
@@ -59,16 +63,7 @@ export function Condensed(props) {
 }
 
 export function Medium(props) {
-  const { status, roomType, title, unreadCount } = props;
-  return <SidebarRoomItemGeneric { ...props }>
-    <Box display='flex' flexDirection='row' alignItems='center' justifyContent='space-between' componentClassName='rcx-sidebar-item__text' flexGrow={1}>
-      <Margins inline='x4'>
-        <RoomSymbol status={status} roomType={roomType}/>
-        <Box data-qa='sidebar-username' textStyle='c1' componentClassName='rcx-sidebar-item__title'>{title}</Box>
-        {unreadCount && <Badge flexShrink={0} alignSelf='center' variant={unreadCount.hasMention ? 'primary' : 'ghost'}>{unreadCount.count}</Badge>}
-      </Margins>
-    </Box>
-  </SidebarRoomItemGeneric>;
+  return <Condensed {...props} />;
 }
 
 export function Extended(props) {
@@ -78,7 +73,7 @@ export function Extended(props) {
       <Box display='flex' flexDirection='row' alignItems='center' flexGrow={1} flexShrink={1} componentClassName='rcx-sidebar-item__text'>
         <Margins inline='x4'>
           <RoomSymbol status={status} roomType={roomType}/>
-          <Box data-qa='sidebar-username' textStyle='c1' componentClassName='rcx-sidebar-item__title'>{title}</Box>
+          <Box data-qa='sidebar-username' textStyle='p1' componentClassName='rcx-sidebar-item__title'>{title}</Box>
         </Margins>
       </Box>
       <Box mi='x4' textStyle='micro' textColor='hint'>{lastMessage.time}</Box>
@@ -86,7 +81,7 @@ export function Extended(props) {
 
     <Box display='flex' flexDirection='row' justifyContent='space-between' componentClassName='rcx-sidebar-item__text' flexShrink={1} flexGrow={1}>
       <Margins inline='x4'>
-        <Box flexShrink={1} textStyle='p1' componentClassName='rcx-sidebar-item__description'>{`${ lastMessage.username }: ${ lastMessage.text }`}</Box>
+        <Box flexShrink={1} textStyle='c1' componentClassName='rcx-sidebar-item__description'>{`${ lastMessage.username }: ${ lastMessage.text }`}</Box>
         {unreadCount && <Badge flexShrink={0} alignSelf='center' variant={unreadCount.hasMention ? 'primary' : 'ghost'}>{unreadCount.count}</Badge>}
       </Margins>
     </Box>
@@ -100,4 +95,6 @@ SidebarRoomItem.propTypes = {
   lastMessage: PropTypes.shape({ username: PropTypes.string, text: PropTypes.string, time: PropTypes.string }),
   unreadCount: PropTypes.shape({ count: PropTypes.number, hasMention: PropTypes.bool }),
   title: PropTypes.string,
+  clickable: PropTypes.bool,
+  menuAction: PropTypes.func,
 };

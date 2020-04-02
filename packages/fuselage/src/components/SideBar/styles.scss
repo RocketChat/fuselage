@@ -1,14 +1,22 @@
 .rcx-sidebar-item {
+  &__menu {
+    @include clickable;
+
+    opacity: 0;
+  }
+
   &__container {
     overflow: hidden;
   }
 
-  color: $colors-n600;
+  color: $sidebar-colors-room-item-color;
 
-  background-color: $colors-n800;
+  background-color: $sidebar-colors-room-item-background-color;
+
+  border-radius: $spaces-x2;
 
   &--unread {
-    color: $colors-white;
+    color: $sidebar-colors-room-item-unread-color;
   }
 
   &__text {
@@ -21,17 +29,24 @@
     @include use-text-ellipsis;
   }
 
-  &--clicable {
+  &--clickable {
+    @include clickable;
     @include on-active {
-      background-color: $colors-n500;
+      background-color: $sidebar-colors-room-item-active-background-color;
     }
 
     @include on-focus {
-      background-color: $colors-n900;
+      background-color: $sidebar-colors-room-item-focus-background-color;
     }
 
     @include on-hover {
-      background-color: $colors-n900;
+      background-color: $sidebar-colors-room-item-hover-background-color;
+    }
+  }
+
+  @include on-hover {
+    .rcx-sidebar-item__menu {
+      opacity: 1;
     }
   }
 }

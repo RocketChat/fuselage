@@ -1,0 +1,9 @@
+$sidebar-colors-room-item-color: theme('sidebar-colors-room-item-color', $colors-n600);
+$sidebar-colors-room-item-unread-color: theme('sidebar-colors-room-item-unread-color', $colors-white);
+$sidebar-colors-room-item-background-color: theme('sidebar-colors-room-item-background-color', transparent);
+$sidebar-colors-room-item-active-background-color: theme('sidebar-colors-room-item-active-background-color', adjust-color($colors-n500, $alpha: -0.8));
+$sidebar-colors-room-item-focus-background-color: theme('sidebar-colors-room-item-focus-background-color', $colors-n900);
+$sidebar-colors-room-item-hover-background-color: theme('sidebar-colors-room-item-hover-background-color', $colors-n900);
+
+
+
