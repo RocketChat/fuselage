@@ -11,9 +11,9 @@
 
   color: $sidebar-colors-room-item-color;
 
-  background-color: $sidebar-colors-room-item-background-color;
-
   border-radius: $spaces-x2;
+
+  background-color: $sidebar-colors-room-item-background-color;
 
   &--unread {
     color: $sidebar-colors-room-item-unread-color;
