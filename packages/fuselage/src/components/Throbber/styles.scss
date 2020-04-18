@@ -2,6 +2,7 @@
   display: flex;
 
   margin-block: calc(-1 * #{ $spaces-x1 });
+  justify-content: center;
 
   &__circle {
     margin-inline: $spaces-x1;

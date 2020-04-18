@@ -30,7 +30,6 @@ export const Throbber = forwardRef(function Throbber({
 }, ref) {
   return <Box
     componentClassName='rcx-throbber'
-    is='div'
     ref={ref}
     {...props}
   >
