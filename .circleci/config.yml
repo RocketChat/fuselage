@@ -26,13 +26,12 @@ jobs:
       - image: chinello/alpine-chrome:with-node
     working_directory: ~/repo
     environment:
-      NODE_ENV: loki
       CHROME_PATH: /usr/bin/chromium-browser
     steps:
       - checkout
       - run: yarn
       - run: yarn lerna run build --stream
-      - run: yarn lerna run build-storybook --scope @rocket.chat/fuselage --stream
+      - run: yarn lerna run build-storybook:loki --scope @rocket.chat/fuselage --stream
       - run:
           command: |
             cat package.json | sed s/\.docker/.app/ > package.json-new
