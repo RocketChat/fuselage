@@ -19,9 +19,9 @@ export function Callout({
     <Icon name={iconName} size='x20' />
     <Box componentClassName='rcx-callout__wrapper'>
       {title && <Box componentClassName='rcx-callout__title' is='h1'>{title}</Box>}
-      <Box componentClassName='rcx-callout__children'>
+      {children && <Box componentClassName='rcx-callout__children'>
         {children}
-      </Box>
+      </Box>}
     </Box>
   </Box>;
 }
