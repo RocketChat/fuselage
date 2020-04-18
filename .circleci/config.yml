@@ -26,6 +26,7 @@ jobs:
       - image: chinello/alpine-chrome:with-node
     working_directory: ~/repo
     environment:
+      NODE_ENV: loki
       CHROME_PATH: /usr/bin/chromium-browser
     steps:
       - checkout
