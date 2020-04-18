@@ -8,19 +8,35 @@ const { promisify } = require('util');
 
 const buildStorybook = async (packageName) => {
   const run = (...args) => new Promise((resolve, reject) => {
-    const childProcess = spawn(...args);
-    childProcess.on('close', (code) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(code);
-      }
-    });
+    try {
+      const childProcess = spawn(...args);
+      childProcess.on('close', (code) => {
+        if (code === 0) {
+          resolve();
+        } else {
+          reject(code);
+        }
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+
+  await run('node_modules/.bin/jest', [
+    '--max-workers',
+    '1',
+    '--json',
+    '--outputFile',
+    path.join(__dirname, '../packages', packageName, '.storybook/jest-results.json')], {
+    stdio: 'inherit',
+    cwd: path.join(__dirname, '../packages', packageName),
+    env: { ...process.env, NODE_ENV: 'production' }
   });
 
   await run('node_modules/.bin/build-storybook', ['-o', path.join(__dirname, '../static')], {
     stdio: 'inherit',
     cwd: path.join(__dirname, '../packages', packageName),
+    env: { ...process.env, NODE_ENV: 'production' }
   });
 };
 

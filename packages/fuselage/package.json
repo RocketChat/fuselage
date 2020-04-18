@@ -29,13 +29,12 @@
     "lint": "run-s eslint stylelint",
     "lint-staged": "lint-staged",
     "test": "jest --max-workers=1",
-    "test:dump-results": "jest --max-workers=1 --json --outputFile=.storybook/jest-results.json",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "update-storybook": "cross-env NODE_ENV=loki run-s test:dump-results build-storybook loki:update"
+    "update-storybook": "cross-env NODE_ENV=loki run-s build-storybook loki:update"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "^0.3.0",

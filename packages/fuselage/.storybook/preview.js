@@ -1,12 +1,10 @@
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { addDecorator, addParameters } from '@storybook/react';
-import { withTests } from '@storybook/addon-jest';
 import 'loki/configure-react';
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 import breakpoints from '@rocket.chat/fuselage-tokens/breakpoints';
-import results from './jest-results.json';
 
 addParameters({
   docs: {
@@ -37,4 +35,8 @@ addParameters({
   },
 });
 
-addDecorator(withTests({ results }));
+if (process.env.NODE_ENV === 'production') {
+  const { withTests } = require('@storybook/addon-jest');
+  const results = require('./jest-results.json');
+  addDecorator(withTests({ results }));
+}
