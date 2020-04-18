@@ -157,14 +157,91 @@
 %rich-text--block {
   font: inherit;
 
+  h1 {
+    @include use-text-style(h1);
+  }
+
+  h2 {
+    @include use-text-style(s2);
+  }
+
+  h3 {
+    @include use-text-style(p2);
+  }
+
+  h4 {
+    @include use-text-style(c2);
+  }
+
+  h5 {
+    @include use-text-style(micro);
+  }
+
+  h6 {
+    @include use-text-style(micro);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: block;
+
+    margin: $spaces-x16 $spaces-none;
+  }
+
+  p {
+    @include use-text-style(p1);
+
+    display: block;
+
+    margin: $spaces-x16 $spaces-none;
+
+    color: inherit;
+  }
+
+  ul,
+  ol {
+    display: block;
+
+    margin: $spaces-x16 $spaces-none;
+    padding-inline-start: $spaces-x40;
+  }
+
+  ul {
+    @include use-text-style(p1);
+    list-style-type: disc;
+  }
+
+  ol {
+    @include use-text-style(p1);
+    list-style-type: decimal;
+  }
+
+  li {
+    display: list-item;
+
+    text-align: inherit;
+
+    color: inherit;
+
+    font: inherit;
+  }
+
   pre {
+    margin: $spaces-x16 $spaces-none;
+
     font: inherit;
     @include use-text-style(mono);
 
     code {
       display: block;
 
-      padding: $sizes-x16;
+      padding: $spaces-x16;
+
+      color: inherit;
 
       font: inherit;
     }
