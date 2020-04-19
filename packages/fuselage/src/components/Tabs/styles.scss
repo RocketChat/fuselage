@@ -41,6 +41,8 @@
 .rcx-tabs__item {
   position: relative;
 
+  align-items: center;
+
   flex: 0 0 auto;
 
   min-height: $spaces-x40;
@@ -54,7 +56,6 @@
   border-style: solid;
   border-color: transparent;
   background-color: transparent;
-  align-items: center;
 
   @include clickable;
   @include use-text-style(s2);

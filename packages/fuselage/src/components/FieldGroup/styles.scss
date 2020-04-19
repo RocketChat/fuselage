@@ -1,10 +1,10 @@
 .rcx-field-group {
   display: flex;
-
-  min-width: 0;
-  align-items: stretch;
   flex-flow: column nowrap;
   justify-content: center;
+  align-items: stretch;
+
+  min-width: 0;
 }
 
 .rcx-field-group__item {

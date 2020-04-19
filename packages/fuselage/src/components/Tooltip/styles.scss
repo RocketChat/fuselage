@@ -1,4 +1,4 @@
-@mixin triangle-direction ($direction) {
+@mixin triangle-direction($direction) {
   &::after {
     position: absolute;
 

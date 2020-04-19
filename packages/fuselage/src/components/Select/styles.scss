@@ -37,23 +37,25 @@
   }
 
   &__wrapper {
+    flex-grow: 1;
+    flex-shrink: 1;
+
     min-width: 0;
 
     user-select: none;
     white-space: nowrap;
 
     opacity: 1;
-    flex-grow: 1;
-    flex-shrink: 1;
 
     &--hidden {
       & > .rcx-select__focus {
+        flex-shrink: 1;
+
         width: 0;
 
         transition: none;
 
         opacity: 0;
-        flex-shrink: 1;
       }
     }
   }

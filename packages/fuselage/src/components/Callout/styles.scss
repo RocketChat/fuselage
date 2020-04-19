@@ -28,12 +28,12 @@
   display: flex;
 
   overflow: hidden;
+  flex-flow: column nowrap;
   flex: 1 1 0;
 
   margin-inline-start: #{ $spaces-x8 };
 
   color: #{ $text-colors-default };
-  flex-flow: column nowrap;
 
   @include use-text-style(c1);
 }

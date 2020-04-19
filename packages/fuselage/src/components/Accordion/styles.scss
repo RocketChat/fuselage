@@ -1,9 +1,9 @@
 .rcx-accordion {
   display: flex;
+  flex-flow: column nowrap;
 
   border-bottom-width: $borders-width-x2;
   border-bottom-color: $colors-n300;
-  flex-flow: column nowrap;
 }
 
 .rcx-accordion-item {
@@ -13,6 +13,7 @@
 
 .rcx-accordion-item__bar {
   display: flex;
+  flex-flow: row nowrap;
 
   min-height: calc(2 * #{ $spaces-x32 } + #{ $sizes-x24 });
   padding:
@@ -28,7 +29,6 @@
 
   border-width: #{ $borders-width-x2 };
   border-color: #{ $colors-n300 } transparent transparent;
-  flex-flow: row nowrap;
 
   &[tabindex] {
     @include clickable;
@@ -63,12 +63,12 @@
 
 .rcx-accordion-item__toggle-switch {
   display: flex;
+  align-items: center;
   flex: 0 0 auto;
 
   margin: 0 #{ $sizes-x24 };
   margin-block: 0;
   margin-inline: #{ $sizes-x24 };
-  align-items: center;
 }
 
 .rcx-accordion-item__panel {

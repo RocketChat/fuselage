@@ -18,9 +18,9 @@ $avatar-stack-background-color: theme('avatar-background-color', $colors-white);
   &-stack {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
 
     color: #{ $avatar-stack-background-color };
-    justify-content: center;
 
     & > .rcx-avatar {
       margin: auto calc(#{ $borders-width-x2 } * -1);
