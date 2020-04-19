@@ -1,9 +1,10 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 .rcx-accordion {
   display: flex;
   flex-flow: column nowrap;
-  border-block-end-color: $colors-n300;
+  border-block-end-color: colors.neutral(300);
 
   border-block-end-width: lengths.border-width(2);
 }
@@ -27,20 +28,20 @@
   color: #{ $text-colors-default };
 
   border-width: lengths.border-width(2);
-  border-color: #{ $colors-n300 } transparent transparent;
+  border-color: colors.neutral(300) transparent transparent;
 
   &[tabindex] {
     @include clickable;
 
     &.hover,
     &:hover {
-      background-color: #{ $colors-n100 };
+      background-color: colors.neutral(100);
     }
 
     &.focus,
     &:focus {
-      border-color: #{ $colors-b500 };
-      @include use-focus-shadow($outer-color: $colors-b100);
+      border-color: colors.primary(500);
+      @include use-focus-shadow($outer-color: colors.primary(100));
     }
   }
 
@@ -48,7 +49,7 @@
     cursor: not-allowed;
 
     color: #{ $text-colors-disabled };
-    background-color: #{ $colors-n100 };
+    background-color: colors.neutral(100);
   }
 }
 

@@ -1,3 +1,4 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 %button-secondary-color { // TODO: primitive atomic component
@@ -85,11 +86,11 @@
   }
 
   &--danger {
-    color: $colors-r500;
+    color: colors.danger(500);
 
     &.disabled,
     &:disabled {
-      color: $colors-r100;
+      color: colors.danger(100);
     }
   }
 
@@ -107,13 +108,13 @@
   }
 
   &--ghost-danger {
-    color: $colors-r500;
+    color: colors.danger(500);
     border-color: transparent;
     background-color: transparent;
 
     &.disabled,
     &:disabled {
-      color: $colors-r100;
+      color: colors.danger(100);
     }
   }
 }

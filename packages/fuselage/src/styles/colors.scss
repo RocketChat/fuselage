@@ -1,0 +1,80 @@
+@use 'sass:color';
+@use '~@rocket.chat/fuselage-tokens/colors.scss' as token-colors;
+
+@function _check-grade($grade) {
+  @if $grade % 100 != 0 or $grade / 100 <= 0 or $grade / 100 > 9 {
+    @error 'invalid color grade';
+  }
+
+  @return $grade;
+}
+
+@function _get-color($prefix, $grade, $alpha) {
+  @if $grade % 100 != 0 or $grade / 100 <= 0 or $grade / 100 > 9 {
+    @error 'invalid color grade';
+  }
+
+  $base-color: map-get(token-colors.$colors, #{ $prefix }#{ $grade });
+
+  @if $alpha != null {
+    @return color.change($base-color, $alpha: $alpha);
+  }
+
+  @return $base-color;
+}
+
+@function _get-varname($prefix, $grade, $alpha) {
+  @if $grade % 100 != 0 or $grade / 100 <= 0 or $grade / 100 > 9 {
+    @error 'invalid color grade';
+  }
+
+  @if $alpha != null {
+    @return --rcx-color-#{ $prefix }-#{ $grade }-#{ $alpha * 100 };
+  }
+
+  @return --rcx-color-#{ $prefix }-#{ $grade };
+}
+
+@function neutral($grade, $alpha: null) {
+  @return var(_get-varname(neutral, $grade, $alpha), _get-color(n, $grade, $alpha));
+}
+
+@function primary($grade, $alpha: null) {
+  @return var(_get-varname(primary, $grade, $alpha), _get-color(b, $grade, $alpha));
+}
+
+@function link($grade, $alpha: null) {
+  @return var(_get-varname(link, $grade, $alpha), _get-color(b, $grade, $alpha));
+}
+
+@function visited-link($grade, $alpha: null) {
+  @return var(_get-varname(visited-link, $grade, $alpha), _get-color(p, $grade, $alpha));
+}
+
+@function active-link($grade, $alpha: null) {
+  @return var(_get-varname(active-link, $grade, $alpha), _get-color(r, $grade, $alpha));
+}
+
+@function info($grade, $alpha: null) {
+  @return var(_get-varname(info, $grade, $alpha), _get-color(b, $grade, $alpha));
+}
+
+@function success($grade, $alpha: null) {
+  @return var(_get-varname(success, $grade, $alpha), _get-color(g, $grade, $alpha));
+}
+
+@function warning($grade, $alpha: null) {
+  @return var(_get-varname(warning, $grade, $alpha), _get-color(y, $grade, $alpha));
+}
+
+@function danger($grade, $alpha: null) {
+  @return var(_get-varname(danger, $grade, $alpha), _get-color(r, $grade, $alpha));
+}
+
+@function paper($alpha: null) {
+  @if $alpha != null {
+    @return var(--rcx-color-paper-#{ $alpha * 100 }, rgba(255, 255, 255, $alpha));
+  }
+
+  @return var(--rcx-color-paper, white);
+}

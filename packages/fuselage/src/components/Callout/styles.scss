@@ -1,3 +1,4 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 .rcx-callout {
@@ -10,19 +11,19 @@
   border-radius: lengths.border-radius(2);
 
   &--type-info {
-    background-color: #{ $colors-b200 };
+    background-color: colors.info(200);
   }
 
   &--type-success {
-    background-color: #{ $colors-g200 };
+    background-color: colors.success(200);
   }
 
   &--type-warning {
-    background-color: #{ $colors-y200 };
+    background-color: colors.warning(200);
   }
 
   &--type-danger {
-    background-color: #{ $colors-r200 };
+    background-color: colors.danger(200);
   }
 }
 

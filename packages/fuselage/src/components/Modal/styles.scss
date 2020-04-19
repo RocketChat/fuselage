@@ -1,5 +1,5 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use 'sass:color';
 
 .rcx-modal {
   position: static;
@@ -23,7 +23,7 @@
     position: fixed;
     inset: lengths.inset(0);
 
-    background-color: color.change($colors-n500, $alpha: 0.5);
+    background-color: colors.neutral(500, $alpha: 0.5);
   }
 
   @include on-breakpoint(sm) {

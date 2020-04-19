@@ -1,3 +1,4 @@
+@use '../colors.scss';
 @use '../lengths.scss';
 
 %rich-text--inline {
@@ -31,17 +32,17 @@
     &:link {
       text-decoration: none;
 
-      color: $colors-b500;
+      color: colors.link(500);
     }
 
     &:visited,
     &.is-visited {
-      color: $colors-p500;
+      color: colors.visited-link(500);
     }
 
     &:active,
     &.is-active {
-      color: $colors-r500;
+      color: colors.active-link(500);
     }
 
     &:hover,
@@ -73,7 +74,7 @@
       lengths.padding(8);
 
     border-radius: lengths.border-radius(2);
-    background-color: $colors-n300;
+    background-color: colors.neutral(300);
 
     font: inherit;
 

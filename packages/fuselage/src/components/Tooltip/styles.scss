@@ -1,7 +1,8 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
-$tooltip-background-color: theme('tooltip-background-color', $colors-n900);
-$tooltip-text-color: theme('tooltip-text-color', $colors-white);
+$tooltip-background-color: theme('tooltip-background-color', colors.neutral(900));
+$tooltip-text-color: theme('tooltip-text-color', colors.paper());
 
 @mixin triangle-direction($direction) {
   &::after {

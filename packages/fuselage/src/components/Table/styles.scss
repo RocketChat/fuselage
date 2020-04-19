@@ -1,3 +1,4 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 .rcx-table {
@@ -29,7 +30,7 @@
       display: flex;
 
       content: '';
-      border-block-end: lengths.border-width(2) solid $colors-n300;
+      border-block-end: lengths.border-width(2) solid colors.neutral(300);
     }
   }
 
@@ -47,7 +48,7 @@
     &--action:hover,
     &--action:focus {
       @include clickable();
-      background-color: $colors-n200;
+      background-color: colors.neutral(200);
     }
   }
 

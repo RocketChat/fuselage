@@ -1,6 +1,7 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
-$avatar-stack-background-color: theme('avatar-background-color', $colors-white);
+$avatar-stack-background-color: theme('avatar-background-color', colors.paper());
 
 .rcx-avatar {
   display: inline-flex;

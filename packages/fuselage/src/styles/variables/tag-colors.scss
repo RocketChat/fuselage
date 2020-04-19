@@ -1,14 +1,16 @@
-$tag-colors-secondary-color: theme('tag-colors-secondary-color', $colors-b500);
-$tag-colors-secondary-background-color: theme('tag-colors-secondary-background-color', $colors-b100);
+@use '../colors.scss';
 
-$tag-colors-primary-color: theme('tag-colors-primary-color', $colors-white);
-$tag-colors-primary-background-color: theme('tag-colors-primary-background-color', $colors-b500);
+$tag-colors-secondary-color: theme('tag-colors-secondary-color', colors.primary(500));
+$tag-colors-secondary-background-color: theme('tag-colors-secondary-background-color', colors.primary(100));
 
-$tag-colors-danger-color: theme('tag-colors-danger-color', $colors-white);
-$tag-colors-danger-background-color: theme('tag-colors-danger-background-color', $colors-r500);
+$tag-colors-primary-color: theme('tag-colors-primary-color', colors.paper());
+$tag-colors-primary-background-color: theme('tag-colors-primary-background-color', colors.primary(500));
 
-$tag-colors-ghost-color: theme('tag-colors-ghost-color', $colors-white);
-$tag-colors-ghost-background-color: theme('tag-colors-ghost-background-color', $colors-n700);
+$tag-colors-danger-color: theme('tag-colors-danger-color', colors.paper());
+$tag-colors-danger-background-color: theme('tag-colors-danger-background-color', colors.danger(500));
 
-$tag-colors-disabled-color: theme('tag-colors-disabled-color', $colors-n600);
-$tag-colors-disabled-background-color: theme('tag-colors-disabled-background-color', $colors-n400);
+$tag-colors-ghost-color: theme('tag-colors-ghost-color', colors.paper());
+$tag-colors-ghost-background-color: theme('tag-colors-ghost-background-color', colors.neutral(700));
+
+$tag-colors-disabled-color: theme('tag-colors-disabled-color', colors.neutral(600));
+$tag-colors-disabled-background-color: theme('tag-colors-disabled-background-color', colors.neutral(400));
