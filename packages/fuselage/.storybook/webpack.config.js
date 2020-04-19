@@ -8,7 +8,8 @@ module.exports = async ({ config, mode }) => {
   const jsRule = config.module.rules.find(({ test }) => test.test('index.js'));
   jsRule.include = [
     ...jsRule.include,
-    /node_modules\/loki/,
+    /node_modules\/@loki/,
+    /node_modules\/acorn-jsx/,
   ];
   delete jsRule.exclude;
 
