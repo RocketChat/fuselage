@@ -1,0 +1,74 @@
+@function margin($value) {
+  @if $value == 'none' {
+    @return 0;
+  }
+  @else if $value == 'auto' {
+    @return auto;
+  }
+  @else if math.abs($value) == 1 or math.abs($value) == 2 or $value % 4 == 0 {
+    @return to-rem($value);
+  }
+  @else {
+    @error 'value must be \'none\', \'auto\', or a unitless multiple of 4';
+  }
+}
+
+@function padding($value) {
+  @if $value == 'none' {
+    @return 0;
+  }
+  @else if $value == 1 or $value == 2 or ($value > 0 and $value % 4 == 0) {
+    @return to-rem($value);
+  }
+  @else {
+    @error 'value must be \'none\', or a unitless multiple of 4';
+  }
+}
+
+@function size($value) {
+  @if $value == 'none' {
+    @return 0;
+  }
+  @else if $value == 'full' {
+    @return 100%;
+  }
+  @else if $value == 'sw' {
+    @return 100vw;
+  }
+  @else if $value == 'sh' {
+    @return 100vh;
+  }
+  @else if math.abs($value) == 1 or math.abs($value) == 2 or ($value > 0 and $value % 4 == 0) {
+    @return to-rem($value);
+  }
+  @else {
+    @error 'value must be \'none\', \'full\', \'sw\', \'sh\', or a unitless multiple of 4';
+  }
+}
+
+@function border-width($value) {
+  @if $value == 'none' {
+    @return 0;
+  }
+  @else if $value == 1 or $value == 2 or $value == 4 {
+    @return to-rem($value);
+  }
+  @else {
+    @error 'value must be \'none\', 1, 2, or 4';
+  }
+}
+
+@function border-radius($value) {
+  @if $value == 'none' {
+    @return 0;
+  }
+  @else if $value == 'full' {
+    @return 9999px;
+  }
+  @else if $value == 2 or $value == 4 {
+    @return to-rem($value);
+  }
+  @else {
+    @error 'value must be \'none\', \'full\', 2, or 4';
+  }
+}

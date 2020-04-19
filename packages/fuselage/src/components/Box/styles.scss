@@ -1,5 +1,9 @@
 .rcx-box {
-  @extend %box;
+  &,
+  &::before,
+  &::after {
+    @extend %box;
+  }
 
   &--invisible {
     visibility: hidden;

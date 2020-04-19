@@ -1,22 +1,20 @@
+@use '../values.scss';
+
 %box {
-  &,
-  &::before,
-  &::after {
-    flex: 0 1 auto;
+  flex: 0 1 auto;
 
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: values.margin(none);
+  padding: values.padding(none);
 
-    transition: all $transitions-short-duration;
+  transition: all 230ms;
 
-    border-width: $borders-width-none;
-    border-style: solid;
-    border-color: currentColor;
+  border-width: values.border-width(none);
+  border-style: solid;
+  border-color: currentColor;
 
-    outline: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-variant-numeric: tabular-nums;
-  }
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: tabular-nums;
 }
