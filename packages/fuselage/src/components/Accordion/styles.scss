@@ -3,9 +3,9 @@
 .rcx-accordion {
   display: flex;
   flex-flow: column nowrap;
+  border-block-end-color: $colors-n300;
 
-  border-bottom-width: values.border-width(2);
-  border-bottom-color: $colors-n300;
+  border-block-end-width: values.border-width(2);
 }
 
 .rcx-accordion-item {

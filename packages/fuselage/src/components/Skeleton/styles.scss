@@ -1,3 +1,5 @@
+@use '../../styles/values.scss';
+
 .rcx-skeleton {
   display: block;
 
@@ -10,13 +12,12 @@
 
   &--text {
     height: auto;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-block: values.margin(none);
 
     transform: scale(1, 0.6);
     transform-origin: 0 60%;
 
-    border-radius: $borders-radius-x2;
+    border-radius: values.border-radius(2);
 
     &:empty::before {
       content: '\00a0';
