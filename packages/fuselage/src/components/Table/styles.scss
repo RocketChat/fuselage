@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-table {
   display: table;
@@ -6,8 +6,8 @@
   width: 100%;
 
   border-spacing:
-    values.padding(none)
-    values.padding(2);
+    lengths.padding(none)
+    lengths.padding(2);
 
   border-collapse: separate;
 
@@ -24,12 +24,12 @@
 
     &::after {
       position: absolute;
-      inset-inline: values.inset(none);
+      inset-inline: lengths.inset(none);
 
       display: flex;
 
       content: '';
-      border-block-end: values.border-width(2) solid $colors-n300;
+      border-block-end: lengths.border-width(2) solid $colors-n300;
     }
   }
 
@@ -54,7 +54,7 @@
   &__cell {
     display: table-cell;
 
-    padding: values.padding(8);
+    padding: lengths.padding(8);
 
     user-select: text;
     text-align: unset;

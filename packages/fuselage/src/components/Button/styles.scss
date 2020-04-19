@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 %button-secondary-color { // TODO: primitive atomic component
   @include as-button (
@@ -21,10 +21,10 @@
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
     padding:
-      calc((#{ $height } - #{ $line-height }) / 2 - #{ values.border-width(2) })
-      calc(#{ $padding-x } - #{ values.border-width(2) });
-    padding-block: calc((#{ $height } - #{ $line-height }) / 2 - #{ values.border-width(2) });
-    padding-inline: calc(#{ $padding-x } - #{ values.border-width(2) });
+      calc((#{ $height } - #{ $line-height }) / 2 - #{ lengths.border-width(2) })
+      calc(#{ $padding-x } - #{ lengths.border-width(2) });
+    padding-block: calc((#{ $height } - #{ $line-height }) / 2 - #{ lengths.border-width(2) });
+    padding-inline: calc(#{ $padding-x } - #{ lengths.border-width(2) });
   }
 
   @mixin with-squared-size($size) {
@@ -55,8 +55,8 @@
   @include use-text-ellipsis;
 
   @include with-rectangular-size(
-    $height: values.size(40),
-    $padding-x: values.padding(16),
+    $height: lengths.size(40),
+    $padding-x: lengths.padding(16),
     $line-height: $text-styles-p1-line-height,
   );
 
@@ -66,21 +66,21 @@
     @include use-text-style(c2);
 
     @include with-rectangular-size(
-      $height: values.size(32),
-      $padding-x: values.padding(12),
+      $height: lengths.size(32),
+      $padding-x: lengths.padding(12),
       $line-height: $text-styles-c1-line-height,
     );
   }
 
   &--square {
     @include with-squared-size(
-      $size: values.size(40),
+      $size: lengths.size(40),
     );
   }
 
   &--small-square {
     @include with-squared-size(
-      $size: values.size(32),
+      $size: lengths.size(32),
     );
   }
 

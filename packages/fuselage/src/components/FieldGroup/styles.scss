@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-field-group {
   display: flex;
@@ -6,15 +6,15 @@
   justify-content: center;
   align-items: stretch;
 
-  min-width: values.size(none);
+  min-width: lengths.size(none);
 }
 
 .rcx-field-group__item {
   flex: 0 0 auto;
 
-  margin-block-end: values.margin(24);
+  margin-block-end: lengths.margin(24);
 
   &:last-child {
-    margin-block-end: values.margin(none);
+    margin-block-end: lengths.margin(none);
   }
 }

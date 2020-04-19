@@ -1,11 +1,11 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-accordion {
   display: flex;
   flex-flow: column nowrap;
   border-block-end-color: $colors-n300;
 
-  border-block-end-width: values.border-width(2);
+  border-block-end-width: lengths.border-width(2);
 }
 
 .rcx-accordion-item {
@@ -17,16 +17,16 @@
   display: flex;
   flex-flow: row nowrap;
 
-  min-height: values.size(2 * 32 + 24);
+  min-height: lengths.size(2 * 32 + 24);
   padding:
-    (values.padding(32) - values.border-width(2))
-    (values.padding(8) - values.border-width(2));
+    (lengths.padding(32) - lengths.border-width(2))
+    (lengths.padding(8) - lengths.border-width(2));
 
   text-align: start;
 
   color: #{ $text-colors-default };
 
-  border-width: values.border-width(2);
+  border-width: lengths.border-width(2);
   border-color: #{ $colors-n300 } transparent transparent;
 
   &[tabindex] {
@@ -53,7 +53,7 @@
 }
 
 .rcx-accordion-item__title {
-  flex: 1 1 values.size(none);
+  flex: 1 1 lengths.size(none);
 
   @include use-text-style(s2);
   @include use-text-ellipsis;
@@ -66,8 +66,8 @@
   flex: 0 0 auto;
 
   margin:
-    values.margin(none)
-    values.margin(24);
+    lengths.margin(none)
+    lengths.margin(24);
 }
 
 .rcx-accordion-item__panel {
@@ -75,17 +75,17 @@
 
   overflow: hidden;
 
-  height: values.size(none);
+  height: lengths.size(none);
   padding:
-    values.padding(none)
-    values.padding(8);
+    lengths.padding(none)
+    lengths.padding(8);
 
   &--expanded {
     visibility: visible;
 
     height: auto;
     padding:
-      values.padding(32)
-      values.padding(8);
+      lengths.padding(32)
+      lengths.padding(8);
   }
 }

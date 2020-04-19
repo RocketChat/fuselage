@@ -1,15 +1,15 @@
-@use '../values.scss';
+@use '../lengths.scss';
 
 %box {
   flex: 0 1 auto;
 
   box-sizing: border-box;
-  margin: values.margin(none);
-  padding: values.padding(none);
+  margin: lengths.margin(none);
+  padding: lengths.padding(none);
 
   transition: all 230ms;
 
-  border-width: values.border-width(none);
+  border-width: lengths.border-width(none);
   border-style: solid;
   border-color: currentColor;
 

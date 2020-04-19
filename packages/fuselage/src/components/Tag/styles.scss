@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-tag {
   display: inline-block;
@@ -6,14 +6,14 @@
   width: fit-content;
 
   padding:
-    values.padding(2)
-    values.padding(4);
+    lengths.padding(2)
+    lengths.padding(4);
 
   text-decoration: none;
 
   word-break: keep-all;
 
-  border-radius: values.border-radius(4);
+  border-radius: lengths.border-radius(4);
 
   &--secondary {
     color: $tag-colors-secondary-color;
@@ -45,7 +45,7 @@
 
     text-align: center;
 
-    border-radius: values.border-radius(full);
+    border-radius: lengths.border-radius(full);
   }
 
   &--clickable {

@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-level {
   display: flex;
@@ -6,10 +6,10 @@
 }
 
 .rcx-level__item {
-  flex: 1 1 values.size(full);
+  flex: 1 1 lengths.size(full);
 
-  max-width: values.size(full);
-  padding-inline: values.padding(8);
+  max-width: lengths.size(full);
+  padding-inline: lengths.padding(8);
 
   text-align: center;
 

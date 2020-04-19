@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 // TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
 .rcx-tabs {
@@ -9,10 +9,10 @@
   &::after {
     position: absolute;
     z-index: -1;
-    inset-block-end: values.inset(none);
-    inset-inline: values.inset(none);
+    inset-block-end: lengths.inset(none);
+    inset-inline: lengths.inset(none);
 
-    height: values.border-width(2);
+    height: lengths.border-width(2);
 
     content: '';
 
@@ -25,7 +25,7 @@
 
   overflow: auto;
 
-  margin-block: values.margin(-4);
+  margin-block: lengths.margin(-4);
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
@@ -46,14 +46,14 @@
 
   flex: 0 0 auto;
 
-  min-height: values.size(40);
+  min-height: lengths.size(40);
 
   padding:
-    (values.padding(4) + values.border-width(2))
-    values.padding(16);
+    (lengths.padding(4) + lengths.border-width(2))
+    lengths.padding(16);
 
   color: $tabs-color;
-  border-width: values.border-width(2);
+  border-width: lengths.border-width(2);
 
   border-style: solid;
   border-color: transparent;
@@ -64,13 +64,13 @@
 
   &--selected {
     padding:
-      values.padding(4)
-      (values.padding(16) + values.border-width(2));
+      lengths.padding(4)
+      (lengths.padding(16) + lengths.border-width(2));
 
     color: $tabs-selected-color;
     border-block-end-color: $tabs-selected-border-color;
-    border-block-end-width: values.border-width(4);
-    border-inline-width: values.border-width(none);
+    border-block-end-width: lengths.border-width(4);
+    border-inline-width: lengths.border-width(none);
   }
 
   &.hover,
@@ -88,12 +88,12 @@
   }
 
   @include on-focus-visible {
-    padding-inline: values.padding(16);
+    padding-inline: lengths.padding(16);
 
     border-color: $tabs-focus-border-color;
-    border-radius: values.border-radius(2);
-    border-block-start-width: values.border-width(2);
-    border-inline-width: values.border-width(2);
+    border-radius: lengths.border-radius(2);
+    border-block-start-width: lengths.border-width(2);
+    border-inline-width: lengths.border-width(2);
 
     @include use-focus-shadow($tabs-focus-shadow-color);
   }
@@ -101,6 +101,6 @@
 
 @include on-breakpoint('md') {
   .rcx-tabs__wrapper {
-    margin-inline: values.margin(24);
+    margin-inline: lengths.margin(24);
   }
 }

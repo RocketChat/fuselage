@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-field {
   display: flex;
@@ -6,7 +6,7 @@
   align-items: stretch;
 
   width: 100%;
-  margin-block: values.margin(-2);
+  margin-block: lengths.margin(-2);
 
   &__label {
     @include use-text-style(p2);
@@ -14,14 +14,14 @@
     flex: 1 1 0;
     align-self: flex-start;
 
-    margin-block: values.margin(2);
+    margin-block: lengths.margin(2);
   }
 
   &__description {
     @include use-text-style(p1);
     @include use-text-color(hint);
     @extend %rich-text--inline;
-    margin-block: values.margin(2);
+    margin-block: lengths.margin(2);
   }
 
   &__row {
@@ -30,11 +30,11 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-block-start: values.margin(4);
-    margin-block-end: values.margin(2);
+    margin-block-start: lengths.margin(4);
+    margin-block-end: lengths.margin(2);
 
     & .rcx-field__label {
-      padding-inline-start: values.padding(8);
+      padding-inline-start: lengths.padding(8);
     }
   }
 
@@ -42,13 +42,13 @@
     @include use-text-style(p1);
     @include use-text-color(hint);
     @extend %rich-text--inline;
-    margin-block: values.margin(2);
+    margin-block: lengths.margin(2);
   }
 
   &__error {
     @include use-text-style(p1);
     @include use-text-color(danger);
     @extend %rich-text--inline;
-    margin-block: values.margin(2);
+    margin-block: lengths.margin(2);
   }
 }

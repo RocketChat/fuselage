@@ -1,13 +1,13 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-callout {
   display: flex;
 
-  padding-block: values.padding(16);
-  padding-inline-start: values.padding(16);
-  padding-inline-end: values.padding(32);
+  padding-block: lengths.padding(16);
+  padding-inline-start: lengths.padding(16);
+  padding-inline-end: lengths.padding(32);
 
-  border-radius: values.border-radius(2);
+  border-radius: lengths.border-radius(2);
 
   &--type-info {
     background-color: #{ $colors-b200 };
@@ -33,7 +33,7 @@
   flex-flow: column nowrap;
   flex: 1 1 0;
 
-  margin-inline-start: values.margin(8);
+  margin-inline-start: lengths.margin(8);
 
   color: #{ $text-colors-default };
 
@@ -41,7 +41,7 @@
 }
 
 .rcx-callout__title {
-  padding-block: values.padding(2);
+  padding-block: lengths.padding(2);
 
   @include use-text-style(c2);
   @include use-text-ellipsis;
@@ -51,5 +51,5 @@
 .rcx-callout__children {
   display: block;
 
-  padding-block: values.padding(2);
+  padding-block: lengths.padding(2);
 }

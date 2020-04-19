@@ -1,17 +1,17 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 @use 'sass:color';
 
 .rcx-modal {
   position: static;
 
-  width: values.size(full);
-  max-height: values.size(full);
+  width: lengths.size(full);
+  max-height: lengths.size(full);
   margin: auto;
 
   background: none;
 
   &__inner {
-    min-width: values.size(none);
+    min-width: lengths.size(none);
   }
 
   &__title {
@@ -21,13 +21,13 @@
 
   &__backdrop {
     position: fixed;
-    inset: values.inset(0);
+    inset: lengths.inset(0);
 
     background-color: color.change($colors-n500, $alpha: 0.5);
   }
 
   @include on-breakpoint(sm) {
-    max-width: values.size(640);
-    padding: values.padding(16);
+    max-width: lengths.size(640);
+    padding: lengths.padding(16);
   }
 }

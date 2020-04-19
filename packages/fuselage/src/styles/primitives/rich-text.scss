@@ -1,4 +1,4 @@
-@use '../values.scss';
+@use '../lengths.scss';
 
 %rich-text--inline {
   color: inherit;
@@ -69,10 +69,10 @@
 
   code {
     padding:
-      values.padding(4)
-      values.padding(8);
+      lengths.padding(4)
+      lengths.padding(8);
 
-    border-radius: values.border-radius(2);
+    border-radius: lengths.border-radius(2);
     background-color: $colors-n300;
 
     font: inherit;
@@ -98,7 +98,7 @@
     &[title] {
       text-decoration: underline dashed;
 
-      border-block-end-width: values.border-width(none);
+      border-block-end-width: lengths.border-width(none);
     }
   }
 
@@ -135,13 +135,13 @@
 
   kbd {
     padding:
-      values.padding(4)
-      values.padding(8);
+      lengths.padding(4)
+      lengths.padding(8);
 
-    border-width: values.border-width(1);
+    border-width: lengths.border-width(1);
     border-style: solid;
     border-color: currentColor;
-    border-radius: values.border-radius(2);
+    border-radius: lengths.border-radius(2);
 
     -webkit-font-smoothing: auto;
     @include use-text-style(mono);
@@ -243,7 +243,7 @@
     code {
       display: block;
 
-      padding: values.padding(16);
+      padding: lengths.padding(16);
 
       color: inherit;
 

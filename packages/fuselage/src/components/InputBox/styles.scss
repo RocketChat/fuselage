@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-input-box__wrapper,
 %rcx-input-box {
@@ -14,8 +14,8 @@
 
   min-width: 8rem;
 
-  padding-block: values.padding(8);
-  padding-inline: values.padding(16) - values.border-width(2);
+  padding-block: lengths.padding(8);
+  padding-inline: lengths.padding(16) - lengths.border-width(2);
 
   vertical-align: baseline;
 
@@ -122,7 +122,7 @@
 
   flex: 1 0 auto;
 
-  min-width: values.size(128);
+  min-width: lengths.size(128);
 
   user-select: initial;
 
@@ -158,12 +158,12 @@
   }
 
   &:not(.rcx-input-box--undecorated) {
-    min-width: values.size(128);
-    min-height: values.size(40);
+    min-width: lengths.size(128);
+    min-height: lengths.size(40);
 
     padding:
-      values.padding(8)
-      (values.padding(16) - values.border-width(2));
+      lengths.padding(8)
+      (lengths.padding(16) - lengths.border-width(2));
 
     @extend %input;
 
@@ -219,8 +219,8 @@
   }
 
   .rcx-input-box__wrapper > & {
-    width: values.size(none);
-    min-width: values.size(none);
+    width: lengths.size(none);
+    min-width: lengths.size(none);
   }
 }
 
@@ -243,22 +243,22 @@
 .rcx-skeleton__input {
   display: inline-flex;
 
-  flex: 1 0 values.size(none);
+  flex: 1 0 lengths.size(none);
 
-  min-width: values.size(128);
-  min-height: values.size(40);
+  min-width: lengths.size(128);
+  min-height: lengths.size(40);
 
   padding:
-    (values.padding(12) - values.border-width(2))
-    (values.padding(16) - values.border-width(2));
+    (lengths.padding(12) - lengths.border-width(2))
+    (lengths.padding(16) - lengths.border-width(2));
 
   vertical-align: baseline;
 
   color: #{ $input-colors-color };
 
-  border-width: values.border-width(2);
+  border-width: lengths.border-width(2);
   border-color: #{ $input-colors-border-color };
-  border-radius: values.border-radius(2);
+  border-radius: lengths.border-radius(2);
   background-color: #{ $input-colors-background-color };
 
   @include use-text-style(p1);

@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-button-group {
   display: flex;
@@ -9,26 +9,26 @@
   align-items: center;
 
   & > .rcx-button-group__item {
-    margin-inline: values.margin(8);
+    margin-inline: lengths.margin(8);
 
     &:first-child {
-      margin-inline-start: values.margin(none);
+      margin-inline-start: lengths.margin(none);
     }
 
     &:last-child {
-      margin-inline-end: values.margin(none);
+      margin-inline-end: lengths.margin(none);
     }
   }
 
   &--wrap {
     flex-wrap: wrap;
 
-    margin-block-end: values.margin(-16);
+    margin-block-end: lengths.margin(-16);
 
     & > .rcx-button-group__item {
-      margin-block-end: values.margin(16);
-      margin-inline-start: values.margin(none);
-      margin-inline-end: values.margin(16);
+      margin-block-end: lengths.margin(16);
+      margin-inline-start: lengths.margin(none);
+      margin-inline-end: lengths.margin(16);
     }
   }
 
@@ -44,11 +44,11 @@
     flex-direction: column;
 
     & > .rcx-button-group__item {
-      margin-block-end: values.margin(16);
-      margin-inline: values.margin(none);
+      margin-block-end: lengths.margin(16);
+      margin-inline: lengths.margin(none);
 
       &:last-child {
-        margin-block-end: values.margin(none);
+        margin-block-end: lengths.margin(none);
       }
     }
   }

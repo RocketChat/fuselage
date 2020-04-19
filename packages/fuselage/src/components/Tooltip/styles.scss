@@ -1,4 +1,4 @@
-@use '../../styles/values.scss';
+@use '../../styles/lengths.scss';
 
 $tooltip-background-color: theme('tooltip-background-color', $colors-n900);
 $tooltip-text-color: theme('tooltip-text-color', $colors-white);
@@ -11,37 +11,37 @@ $tooltip-text-color: theme('tooltip-text-color', $colors-white);
 
     content: ' ';
 
-    border-width: values.border-width(4) + values.border-width(1);
+    border-width: lengths.border-width(4) + lengths.border-width(1);
     border-color: transparent transparent $tooltip-background-color $tooltip-background-color;
     border-radius:
-      values.border-radius(none)
-      values.border-radius(none)
-      values.border-radius(none)
-      (values.border-radius(2) + to-rem(1));
+      lengths.border-radius(none)
+      lengths.border-radius(none)
+      lengths.border-radius(none)
+      (lengths.border-radius(2) + to-rem(1));
 
     @if $direction == 'up' {
-      inset-block-start: values.inset(-4);
+      inset-block-start: lengths.inset(-4);
 
       transform: rotate(135deg);
     }
     @if $direction == 'down' {
-      inset-block-end: values.inset(-4);
+      inset-block-end: lengths.inset(-4);
 
       transform: rotate(-45deg);
     }
     @if $direction == 'left' {
       inset-block-start: 50%;
-      inset-inline-start: values.inset(-4);
+      inset-inline-start: lengths.inset(-4);
 
-      margin-block-start: values.margin(-4);
+      margin-block-start: lengths.margin(-4);
 
       transform: rotate(45deg);
     }
     @if $direction == 'right' {
       inset-block-start: 50%;
-      inset-inline-end: values.inset(-4);
+      inset-inline-end: lengths.inset(-4);
 
-      margin-block-start: values.margin(-4);
+      margin-block-start: lengths.margin(-4);
 
       transform: rotate(-135deg);
     }
@@ -53,17 +53,17 @@ $tooltip-text-color: theme('tooltip-text-color', $colors-white);
 
   display: inline-block;
 
-  max-width: values.size(240);
+  max-width: lengths.size(240);
 
   padding:
-    values.padding(8)
-    values.padding(12);
+    lengths.padding(8)
+    lengths.padding(12);
 
   word-break: break-all;
 
   color: $tooltip-text-color;
 
-  border-radius: values.border-radius(4);
+  border-radius: lengths.border-radius(4);
 
   background-color: $tooltip-background-color;
 
@@ -88,24 +88,24 @@ $tooltip-text-color: theme('tooltip-text-color', $colors-white);
   &--pos {
     &-center {
       &::after {
-        inset-inline-start: values.inset(50%);
+        inset-inline-start: lengths.inset(50%);
 
-        margin-inline-start: values.margin(-4);
+        margin-inline-start: lengths.margin(-4);
       }
     }
 
     &-left {
       &::after {
-        inset-inline-start: values.inset(8);
+        inset-inline-start: lengths.inset(8);
 
-        margin: values.margin(none);
+        margin: lengths.margin(none);
       }
     }
 
     &-right {
       &::after {
         inset-inline-start: initial;
-        inset-inline-end: values.inset(8);
+        inset-inline-end: lengths.inset(8);
 
         margin: 0;
       }
