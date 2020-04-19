@@ -45,6 +45,7 @@ module.exports = (env, { mode = 'production' }) => ({
               plugins: () => [
                 require('postcss-custom-properties')(),
                 require('postcss-logical')({ preserve: true }),
+                require('postcss-dir-pseudo-class')({ preserve: true }),
                 require('autoprefixer')(),
                 mode === 'production' && require('cssnano'),
               ].filter(Boolean),

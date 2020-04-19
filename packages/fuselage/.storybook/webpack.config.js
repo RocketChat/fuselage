@@ -34,6 +34,7 @@ module.exports = async ({ config, mode }) => {
           plugins: () => [
             require('postcss-custom-properties')(),
             require('postcss-logical')({ preserve: true }),
+            require('postcss-dir-pseudo-class')({ preserve: true }),
             require('autoprefixer')(),
           ],
         },
