@@ -1,8 +1,10 @@
+@use '../../styles/values.scss';
+
 .rcx-accordion {
   display: flex;
   flex-flow: column nowrap;
 
-  border-bottom-width: $borders-width-x2;
+  border-bottom-width: values.border-width(2);
   border-bottom-color: $colors-n300;
 }
 
@@ -15,19 +17,16 @@
   display: flex;
   flex-flow: row nowrap;
 
-  min-height: calc(2 * #{ $spaces-x32 } + #{ $sizes-x24 });
+  min-height: values.size(2 * 32 + 24);
   padding:
-    calc(#{ $spaces-x32 } - #{ $borders-width-x2 })
-    calc(#{ $spaces-x8 } - #{ $borders-width-x2 });
-  padding-block: calc(#{ $spaces-x32 } - #{ $borders-width-x2 });
-  padding-inline: calc(#{ $spaces-x8 } - #{ $borders-width-x2 });
+    (values.padding(32) - values.border-width(2))
+    (values.padding(8) - values.border-width(2));
 
-  text-align: left;
   text-align: start;
 
   color: #{ $text-colors-default };
 
-  border-width: #{ $borders-width-x2 };
+  border-width: values.border-width(2);
   border-color: #{ $colors-n300 } transparent transparent;
 
   &[tabindex] {
@@ -54,7 +53,7 @@
 }
 
 .rcx-accordion-item__title {
-  flex: 1 1 0;
+  flex: 1 1 values.size(none);
 
   @include use-text-style(s2);
   @include use-text-ellipsis;
@@ -64,11 +63,11 @@
 .rcx-accordion-item__toggle-switch {
   display: flex;
   align-items: center;
-  flex: 0 0 auto;
+  flex: 0 0 values.size(auto);
 
-  margin: 0 #{ $sizes-x24 };
-  margin-block: 0;
-  margin-inline: #{ $sizes-x24 };
+  margin:
+    values.margin(none)
+    values.margin(24);
 }
 
 .rcx-accordion-item__panel {
@@ -76,19 +75,17 @@
 
   overflow: hidden;
 
-  height: 0;
-  padding: 0 #{ $spaces-x8 };
-  padding-block: 0;
-  padding-inline: #{ $spaces-x8 };
+  height: values.size(none);
+  padding:
+    values.padding(none)
+    values.padding(8);
 
   &--expanded {
     visibility: visible;
 
-    height: auto;
+    height: values.size(auto);
     padding:
-      #{ $spaces-x32 }
-      #{ $spaces-x8 };
-    padding-block: #{ $spaces-x32 };
-    padding-inline: #{ $spaces-x8 };
+      values.padding(32)
+      values.padding(8);
   }
 }

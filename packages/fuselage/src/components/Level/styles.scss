@@ -1,17 +1,19 @@
+@use '../../styles/values.scss';
+
 .rcx-level {
   display: flex;
   flex-flow: row wrap;
 }
 
 .rcx-level__item {
-  flex: 1 1 100%;
+  flex: 1 1 values.size(full);
 
-  max-width: 100%;
-  padding-inline: $spaces-x8;
+  max-width: values.size(full);
+  padding-inline: values.padding(8);
 
   text-align: center;
 
   @include on-breakpoint(md) {
-    flex-basis: auto;
+    flex-basis: values.size(auto);
   }
 }

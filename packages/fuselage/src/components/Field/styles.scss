@@ -1,10 +1,12 @@
+@use '../../styles/values.scss';
+
 .rcx-field {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
 
   width: 100%;
-  margin-block: calc(-1 * #{ $spaces-x2 });
+  margin-block: values.margin(-2);
 
   &__label {
     @include use-text-style(p2);
@@ -12,14 +14,14 @@
     flex: 1 1 0;
     align-self: flex-start;
 
-    margin-block: $spaces-x2;
+    margin-block: values.margin(2);
   }
 
   &__description {
     @include use-text-style(p1);
     @include use-text-color(hint);
     @extend %rich-text--inline;
-    margin-block: $spaces-x2;
+    margin-block: values.margin(2);
   }
 
   &__row {
@@ -28,10 +30,11 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-block: $spaces-x4 $spaces-x2;
+    margin-block-start: values.margin(4);
+    margin-block-end: values.margin(2);
 
     & .rcx-field__label {
-      padding-inline-start: $spaces-x8;
+      padding-inline-start: values.padding(8);
     }
   }
 
@@ -39,13 +42,13 @@
     @include use-text-style(p1);
     @include use-text-color(hint);
     @extend %rich-text--inline;
-    margin-block: $spaces-x2;
+    margin-block: values.margin(2);
   }
 
   &__error {
     @include use-text-style(p1);
     @include use-text-color(danger);
     @extend %rich-text--inline;
-    margin-block: $spaces-x2;
+    margin-block: values.margin(2);
   }
 }

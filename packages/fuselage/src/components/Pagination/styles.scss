@@ -1,10 +1,13 @@
+@use '../../styles/values.scss';
+
 .rcx-pagination {
   display: flex;
   flex-flow: column-reverse nowrap;
   align-items: center;
 
-  padding-block: $spaces-x12;
-  padding-inline: $spaces-x24;
+  padding:
+    values.padding(12)
+    values.padding(24);
 
   @include on-breakpoint(sm) {
     flex-direction: column;
@@ -20,21 +23,21 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  flex: 0 1 auto;
+  flex: 0 1 values.size(auto);
 }
 
 .rcx-pagination__left {
   justify-content: center;
 
-  margin-inline-start: 0;
+  margin-inline-start: values.margin(none);
 
   @include on-breakpoint(sm) {
-    margin-inline-start: auto;
+    margin-inline-start: values.margin(auto);
   }
 
   @include on-breakpoint(md) {
-    margin-inline-start: 0;
-    margin-inline-end: auto;
+    margin-inline-start: values.margin(none);
+    margin-inline-end: values.margin(auto);
   }
 }
 
@@ -43,13 +46,13 @@
 
   align-items: center;
 
-  margin-inline-start: 0;
+  margin-inline-start: values.margin(none);
 
   @include on-breakpoint(sm) {
     flex-flow: row nowrap;
     align-items: center;
 
-    margin-inline-start: auto;
+    margin-inline-start: values.margin(auto);
   }
 }
 
@@ -64,16 +67,15 @@
   flex-flow: row nowrap;
   align-items: center;
 
-  margin-inline: $spaces-x4;
+  margin-inline: values.margin(4);
 }
 
 .rcx-pagination__list-item {
   @include use-text-style(c1);
   display: flex;
 
-  margin-inline: $spaces-x2;
-  padding-block: $spaces-x4;
-  padding-inline: $spaces-x4;
+  margin-inline: values.margin(2);
+  padding: values.padding(4);
 
   color: $text-colors-hint;
 }

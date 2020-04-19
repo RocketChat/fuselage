@@ -1,9 +1,13 @@
+@use '../../styles/values.scss';
+
 .rcx-table {
   display: table;
 
   width: 100%;
 
-  border-spacing: to-rem(0) $spaces-x2;
+  border-spacing:
+    values.padding(none)
+    values.padding(2);
 
   border-collapse: separate;
 
@@ -51,7 +55,7 @@
   &__cell {
     display: table-cell;
 
-    padding: $spaces-x8;
+    padding: values.padding(8);
 
     user-select: text;
     text-align: unset;

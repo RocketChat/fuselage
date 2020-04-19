@@ -1,15 +1,17 @@
+@use '../../styles/values.scss';
+
 .rcx-throbber {
   display: flex;
-
-  margin-block: calc(-1 * #{ $spaces-x1 });
   justify-content: center;
 
+  margin-block: values.margin(-1);
+
   &__circle {
-    margin-inline: $spaces-x1;
+    margin-inline: values.margin(1);
 
     animation: bounce 1.4s infinite ease-in-out both;
 
-    border-radius: 50%;
+    border-radius: values.border-radius(full);
 
     background-color: $colors-b500;
 

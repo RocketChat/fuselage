@@ -1,3 +1,5 @@
+@use '../../styles/values.scss';
+
 .rcx-input-box__wrapper,
 %rcx-input-box {
   position: relative;
@@ -12,8 +14,8 @@
 
   min-width: 8rem;
 
-  padding-block: #{ $spaces-x8 };
-  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+  padding-block: values.padding(8);
+  padding-inline: values.padding(16) - values.border-width(2);
 
   vertical-align: baseline;
 
@@ -43,7 +45,7 @@
   flex-flow: row nowrap;
 
   align-items: flex-start;
-  flex: 0 0 auto;
+  flex: 0 0 values.size(auto);
 }
 
 @mixin with-colors(
@@ -118,9 +120,9 @@
 
   display: inline-flex;
 
-  flex: 1 0 auto;
+  flex: 1 0 values.size(auto);
 
-  min-width: 8rem;
+  min-width: values.size(128);
 
   user-select: initial;
 
@@ -156,11 +158,12 @@
   }
 
   &:not(.rcx-input-box--undecorated) {
-    min-width: 8rem;
-    min-height: #{ $sizes-x40 };
+    min-width: values.size(128);
+    min-height: values.size(40);
 
-    padding-block: #{ $spaces-x8 };
-    padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+    padding:
+      values.padding(8)
+      (values.padding(16) - values.border-width(2));
 
     @extend %input;
 
@@ -216,8 +219,8 @@
   }
 
   .rcx-input-box__wrapper > & {
-    width: 0;
-    min-width: 0;
+    width: values.size(none);
+    min-width: values.size(none);
   }
 }
 
@@ -240,21 +243,22 @@
 .rcx-skeleton__input {
   display: inline-flex;
 
-  flex: 1 0 0;
+  flex: 1 0 values.size(none);
 
-  min-width: 8rem;
-  min-height: #{ $sizes-x40 };
+  min-width: values.size(128);
+  min-height: values.size(40);
 
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+  padding:
+    (values.padding(12) - values.border-width(2))
+    (values.padding(16) - values.border-width(2));
 
   vertical-align: baseline;
 
   color: #{ $input-colors-color };
 
-  border-width: #{ $borders-width-x2 };
+  border-width: values.border-width(2);
   border-color: #{ $input-colors-border-color };
-  border-radius: #{ $borders-radius-x2 };
+  border-radius: values.border-radius(2);
   background-color: #{ $input-colors-background-color };
 
   @include use-text-style(p1);

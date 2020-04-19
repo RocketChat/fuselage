@@ -1,3 +1,5 @@
+@use '../../styles/values.scss';
+
 .rcx-button-group {
   display: flex;
 
@@ -7,26 +9,26 @@
   align-items: center;
 
   & > .rcx-button-group__item {
-    margin-inline: #{ $spaces-x8 };
+    margin-inline: values.margin(8);
 
     &:first-child {
-      margin-inline-start: 0;
+      margin-inline-start: values.margin(none);
     }
 
     &:last-child {
-      margin-inline-end: 0;
+      margin-inline-end: values.margin(none);
     }
   }
 
   &--wrap {
     flex-wrap: wrap;
 
-    margin-block-end: calc(-1 * #{ $spaces-x16 });
+    margin-block-end: values.margin(-16);
 
     & > .rcx-button-group__item {
-      margin-block-end: #{ $spaces-x16 };
-      margin-inline-start: 0;
-      margin-inline-end: #{ $spaces-x16 };
+      margin-block-end: values.margin(16);
+      margin-inline-start: values.margin(none);
+      margin-inline-end: values.margin(16);
     }
   }
 
@@ -42,11 +44,11 @@
     flex-direction: column;
 
     & > .rcx-button-group__item {
-      margin-block-end: #{ $spaces-x16 };
-      margin-inline: 0;
+      margin-block-end: values.margin(16);
+      margin-inline: values.margin(none);
 
       &:last-child {
-        margin-block-end: 0;
+        margin-block-end: values.margin(none);
       }
     }
   }

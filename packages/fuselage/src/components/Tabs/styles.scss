@@ -1,3 +1,5 @@
+@use '../../styles/values.scss';
+
 // TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
 .rcx-tabs {
   position: relative;
@@ -11,7 +13,7 @@
     bottom: 0;
     left: 0;
 
-    height: $borders-width-x2;
+    height: values.border-width(2);
 
     content: '';
 
@@ -24,7 +26,7 @@
 
   overflow: auto;
 
-  margin-block: calc(-1 * #{ $spaces-x4 });
+  margin-block: values.margin(-4);
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
@@ -45,13 +47,14 @@
 
   flex: 0 0 auto;
 
-  min-height: $spaces-x40;
+  min-height: values.size(40);
 
-  padding-block: calc(#{ $spaces-x2 } + #{ $spaces-x4 });
-  padding-inline: $spaces-x16;
+  padding:
+    (values.padding(4) + values.border-width(2))
+    values.padding(16);
 
   color: $tabs-color;
-  border-width: $spaces-x2;
+  border-width: values.border-width(2);
 
   border-style: solid;
   border-color: transparent;
@@ -61,13 +64,14 @@
   @include use-text-style(s2);
 
   &--selected {
-    padding-block: $spaces-x4;
-    padding-inline: calc(#{ $spaces-x16 } + #{ $spaces-x2 });
+    padding:
+      values.padding(4)
+      (values.padding(16) + values.border-width(2));
 
     color: $tabs-selected-color;
     border-block-end-color: $tabs-selected-border-color;
     border-block-end-width: $borders-width-x4;
-    border-inline-width: 0;
+    border-inline-width: values.border-width(none);
   }
 
   &.hover,
@@ -85,12 +89,12 @@
   }
 
   @include on-focus-visible {
-    padding-inline: $spaces-x16;
+    padding-inline: values.padding(16);
 
     border-color: $tabs-focus-border-color;
-    border-radius: $borders-radius-x2;
-    border-block-start-width: $borders-width-x2;
-    border-inline-width: $borders-width-x2;
+    border-radius: values.border-radius(2);
+    border-block-start-width: values.border-width(2);
+    border-inline-width: values.border-width(2);
 
     @include use-focus-shadow($tabs-focus-shadow-color);
   }
@@ -98,6 +102,6 @@
 
 @include on-breakpoint('md') {
   .rcx-tabs__wrapper {
-    margin-inline: $spaces-x24;
+    margin-inline: values.margin(24);
   }
 }

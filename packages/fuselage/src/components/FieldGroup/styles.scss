@@ -1,20 +1,20 @@
+@use '../../styles/values.scss';
+
 .rcx-field-group {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: stretch;
 
-  min-width: 0;
+  min-width: values.size(none);
 }
 
 .rcx-field-group__item {
-  flex: 0 0 auto;
+  flex: 0 0 values.size(auto);
 
-  margin-bottom: $spaces-x24;
-  margin-block-end: $spaces-x24;
+  margin-block-end: values.margin(24);
 
   &:last-child {
-    margin-bottom: 0;
-    margin-block-end: 0;
+    margin-block-end: values.margin(none);
   }
 }

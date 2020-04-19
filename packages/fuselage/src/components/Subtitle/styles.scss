@@ -1,7 +1,9 @@
+@use '../../styles/values.scss';
+
 .rcx-subtitle {
   display: block;
 
-  margin-bottom: $spaces-x16;
+  margin-block-end: values.margin(16);
   @include use-text-style(s1);
   @include use-text-color(default);
   @extend %rich-text--inline;

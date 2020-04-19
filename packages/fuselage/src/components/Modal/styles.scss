@@ -1,16 +1,17 @@
+@use '../../styles/values.scss';
 @use 'sass:color';
 
 .rcx-modal {
   position: static;
 
-  width: $sizes-full;
-  max-height: 100%;
-  margin: auto;
+  width: values.size(full);
+  max-height: values.size(full);
+  margin: values.margin(auto);
 
   background: none;
 
   &__inner {
-    min-width: 0;
+    min-width: values.size(none);
   }
 
   &__title {
@@ -29,7 +30,7 @@
   }
 
   @include on-breakpoint(sm) {
-    max-width: $sizes-x640;
-    padding: $spaces-x16;
+    max-width: values.size(640);
+    padding: values.padding(16);
   }
 }

@@ -1,3 +1,5 @@
+@use '../../styles/values.scss';
+
 @mixin triangle-direction($direction) {
   &::after {
     position: absolute;
@@ -6,33 +8,37 @@
 
     content: ' ';
 
-    border-width: calc(#{ $borders-width-x4 } + #{ $borders-width-x1 });
+    border-width: values.border-width(4) + values.border-width(1);
     border-color: transparent transparent $tooltip-background-color $tooltip-background-color;
-    border-radius: 0 0 0 calc(#{ $borders-radius-x2 } + #{ $borders-radius-x2} / 2);
+    border-radius:
+      values.border-radius(none)
+      values.border-radius(none)
+      values.border-radius(none)
+      (values.border-radius(2) + to-rem(1));
 
     @if $direction == 'up' {
-      top: calc(-1 * (#{$spaces-x4} ));
+      top: to-rem(-4);
 
       transform: rotate(135deg);
     }
     @if $direction == 'down' {
-      bottom: calc(-1 * (#{$spaces-x4} ));
+      bottom: to-rem(-4);
 
       transform: rotate(-45deg);
     }
     @if $direction == 'left' {
-      top: $tooltip-arrow-position-center;
-      left: calc(-1 * (#{$spaces-x4} ));
+      top: 50%;
+      left: to-rem(-4);
 
-      margin-block-start: calc(-1 * #{ $spaces-x4 });
+      margin-block-start: values.margin(-4);
 
       transform: rotate(45deg);
     }
     @if $direction == 'right' {
-      top: $tooltip-arrow-position-center;
-      right: calc(-1 * (#{$spaces-x4} ));
+      top: 50%;
+      right: to-rem(-4);
 
-      margin-block-start: calc(-1 * #{ $spaces-x4 });
+      margin-block-start: values.margin(-4);
 
       transform: rotate(-135deg);
     }
@@ -44,16 +50,17 @@
 
   display: inline-block;
 
-  max-width: $spaces-x240;
+  max-width: values.size(240);
 
-  padding-block: $spaces-x8;
-  padding-inline: $spaces-x12;
+  padding:
+    values.padding(8)
+    values.padding(12);
 
   word-break: break-all;
 
   color: $tooltip-text-color;
 
-  border-radius: $borders-radius-x4;
+  border-radius: values.border-radius(4);
 
   background-color: $tooltip-background-color;
 
@@ -80,13 +87,13 @@
       &::after {
         left: 50%;
 
-        margin-inline-start: calc(-1 * #{ $spaces-x4 });
+        margin-inline-start: values.margin(-4);
       }
     }
 
     &-left {
       &::after {
-        left: $tooltip-arrow-margin;
+        left: to-rem(8);
 
         margin: 0;
       }
@@ -94,7 +101,7 @@
 
     &-right {
       &::after {
-        right: $tooltip-arrow-margin;
+        right: to-rem(8);
         left: initial;
 
         margin: 0;
