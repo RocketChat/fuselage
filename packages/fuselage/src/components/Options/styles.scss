@@ -1,10 +1,11 @@
+@use '../../styles/values.scss';
 
 .rcx-option {
   @include clickable;
   @include use-text-style(p2);
   @include use-text-ellipsis;
 
-  padding: $sizes-x8;
+  padding: values.padding(8);
 
   list-style: none;
 

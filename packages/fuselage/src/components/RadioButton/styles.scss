@@ -27,7 +27,7 @@
 
     transform: translate(-50%, -50%);
 
-    border-radius: $borders-radius-full;
+    border-radius: values.border-radius(full);
 
     background-color: currentColor;
   }

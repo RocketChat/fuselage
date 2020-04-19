@@ -1,3 +1,5 @@
+@use '../values.scss';
+
 %visually-hidden {
   position: absolute;
 
@@ -17,8 +19,8 @@
 
 %with-scrollbars {
   &::-webkit-scrollbar {
-    block-size: $sizes-x4;
-    inline-size: $sizes-x4;
+    width: values.size(4);
+    height: values.size(4);
   }
 
   &::-webkit-scrollbar-track {

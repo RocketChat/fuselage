@@ -1,3 +1,5 @@
+@use '../../styles/values.scss';
+
 $avatar-stack-background-color: theme('avatar-background-color', $colors-white);
 
 .rcx-avatar {
@@ -8,7 +10,7 @@ $avatar-stack-background-color: theme('avatar-background-color', $colors-white);
 
     flex: 1 1 auto;
 
-    border-radius: #{ $borders-width-x2 };
+    border-radius: values.border-width(2);
 
     &--rounded {
       border-radius: 100%;
@@ -23,10 +25,12 @@ $avatar-stack-background-color: theme('avatar-background-color', $colors-white);
     color: #{ $avatar-stack-background-color };
 
     & > .rcx-avatar {
-      margin: auto calc(#{ $borders-width-x2 } * -1);
+      margin:
+        auto
+        values.margin(-2);
 
       & > .rcx-avatar__element {
-        border: #{ $borders-width-x2 } solid currentColor;
+        border: values.border-width(2) solid currentColor;
       }
     }
   }

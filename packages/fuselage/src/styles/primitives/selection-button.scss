@@ -1,3 +1,5 @@
+@use '../values.scss';
+
 %selection-button__input {
   @extend %visually-hidden;
 }
@@ -5,9 +7,9 @@
 %selection-button__fake {
   position: relative;
 
-  border-width: $borders-width-x2;
+  height: values.size(20);
 
-  block-size: $sizes-x20;
+  border-width: values.border-width(2);
 }
 
 %selection-button__fake--empty {

@@ -1,17 +1,19 @@
+@use '../values.scss';
+
 %tile-0 {
-  border-radius: $borders-radius-x2;
+  border-radius: values.border-radius(2);
   background-color: #{ $colors-white };
   @include use-no-shadow;
 }
 
 %tile-1 {
-  border-radius: $borders-radius-x2;
+  border-radius: values.border-radius(2);
   background-color: #{ $colors-white };
   box-shadow: 0 0 to-rem(12) 0 rgba(47, 52, 61, 0.1);
 }
 
 %tile-2 {
-  border-radius: $borders-radius-x2;
+  border-radius: values.border-radius(2);
   background-color: #{ $colors-white };
   box-shadow:
     0 0 to-rem(2) 0 rgba(47, 52, 61, 0.08),

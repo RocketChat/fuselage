@@ -22,13 +22,6 @@
     &--inherit-color {
       background-color: currentColor;
     }
-
-    @each $name, $value in $sizes {
-      &--size-#{$name} {
-        width: $value;
-        height: $value;
-      }
-    }
   }
 }
 

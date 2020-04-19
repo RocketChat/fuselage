@@ -1,3 +1,5 @@
+@use '../values.scss';
+
 %rich-text--inline {
   color: inherit;
 
@@ -66,10 +68,11 @@
   }
 
   code {
-    padding-block: $sizes-x4;
-    padding-inline: $sizes-x8;
+    padding:
+      values.padding(4)
+      values.padding(8);
 
-    border-radius: $borders-radius-x2;
+    border-radius: values.border-radius(2);
     background-color: $colors-n300;
 
     font: inherit;
@@ -95,7 +98,7 @@
     &[title] {
       text-decoration: underline dashed;
 
-      border-block-end: none;
+      border-block-end-width: values.border-width(none);
     }
   }
 
@@ -131,13 +134,14 @@
   }
 
   kbd {
-    padding-block: $sizes-x4;
-    padding-inline: $sizes-x8;
+    padding:
+      values.padding(4)
+      values.padding(8);
 
-    border-width: $borders-width-x1;
+    border-width: values.border-width(1);
     border-style: solid;
     border-color: currentColor;
-    border-radius: $borders-radius-x2;
+    border-radius: values.border-radius(2);
 
     -webkit-font-smoothing: auto;
     @include use-text-style(mono);
@@ -239,7 +243,7 @@
     code {
       display: block;
 
-      padding: $spaces-x16;
+      padding: values.padding(16);
 
       color: inherit;
 
