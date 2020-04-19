@@ -23,7 +23,7 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  flex: 0 1 values.size(auto);
+  flex: 0 1 auto;
 }
 
 .rcx-pagination__left {
@@ -32,12 +32,12 @@
   margin-inline-start: values.margin(none);
 
   @include on-breakpoint(sm) {
-    margin-inline-start: values.margin(auto);
+    margin-inline-start: auto;
   }
 
   @include on-breakpoint(md) {
     margin-inline-start: values.margin(none);
-    margin-inline-end: values.margin(auto);
+    margin-inline-end: auto;
   }
 }
 
@@ -52,7 +52,7 @@
     flex-flow: row nowrap;
     align-items: center;
 
-    margin-inline-start: values.margin(auto);
+    margin-inline-start: auto;
   }
 }
 

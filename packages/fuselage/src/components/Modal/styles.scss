@@ -6,7 +6,7 @@
 
   width: values.size(full);
   max-height: values.size(full);
-  margin: values.margin(auto);
+  margin: auto;
 
   background: none;
 
@@ -21,10 +21,7 @@
 
   &__backdrop {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: values.inset(0);
 
     background-color: color.change($colors-n500, $alpha: 0.5);
   }

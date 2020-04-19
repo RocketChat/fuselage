@@ -1,3 +1,5 @@
+@use '../../styles/values.scss';
+
 .rcx-radio-button {
   @include is-selection-button($checked: 'primary', $unchecked: 'empty');
 
@@ -7,19 +9,19 @@
 
   &__fake {
     @extend %selection-button__fake;
-    border-radius: $borders-radius-full;
-    inline-size: $sizes-x20;
+    border-radius: values.border-radius(full);
+    inline-size: values.size(20);
   }
 
   &__input:checked + &__fake::before {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    inset-block-start: values.inset(50%);
+    inset-inline-start: values.inset(50%);
 
     display: block;
 
-    width: calc(0.3 * #{$sizes-x20});
-    height: calc(0.3 * #{$sizes-x20});
+    width: 0.3 * values.size(20);
+    height: 0.3 * values.size(20);
 
     content: '';
 

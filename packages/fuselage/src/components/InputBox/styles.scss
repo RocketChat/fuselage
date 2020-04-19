@@ -45,7 +45,7 @@
   flex-flow: row nowrap;
 
   align-items: flex-start;
-  flex: 0 0 values.size(auto);
+  flex: 0 0 auto;
 }
 
 @mixin with-colors(
@@ -120,7 +120,7 @@
 
   display: inline-flex;
 
-  flex: 1 0 values.size(auto);
+  flex: 1 0 auto;
 
   min-width: values.size(128);
 

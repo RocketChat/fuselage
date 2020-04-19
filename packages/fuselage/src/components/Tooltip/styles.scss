@@ -1,5 +1,8 @@
 @use '../../styles/values.scss';
 
+$tooltip-background-color: theme('tooltip-background-color', $colors-n900);
+$tooltip-text-color: theme('tooltip-text-color', $colors-white);
+
 @mixin triangle-direction($direction) {
   &::after {
     position: absolute;
@@ -17,26 +20,26 @@
       (values.border-radius(2) + to-rem(1));
 
     @if $direction == 'up' {
-      top: to-rem(-4);
+      inset-block-start: values.inset(-4);
 
       transform: rotate(135deg);
     }
     @if $direction == 'down' {
-      bottom: to-rem(-4);
+      inset-block-end: values.inset(-4);
 
       transform: rotate(-45deg);
     }
     @if $direction == 'left' {
-      top: 50%;
-      left: to-rem(-4);
+      inset-block-start: 50%;
+      inset-inline-start: values.inset(-4);
 
       margin-block-start: values.margin(-4);
 
       transform: rotate(45deg);
     }
     @if $direction == 'right' {
-      top: 50%;
-      right: to-rem(-4);
+      inset-block-start: 50%;
+      inset-inline-end: values.inset(-4);
 
       margin-block-start: values.margin(-4);
 
@@ -85,7 +88,7 @@
   &--pos {
     &-center {
       &::after {
-        left: 50%;
+        inset-inline-start: values.inset(50%);
 
         margin-inline-start: values.margin(-4);
       }
@@ -93,16 +96,16 @@
 
     &-left {
       &::after {
-        left: to-rem(8);
+        inset-inline-start: values.inset(8);
 
-        margin: 0;
+        margin: values.margin(none);
       }
     }
 
     &-right {
       &::after {
-        right: to-rem(8);
-        left: initial;
+        inset-inline-start: initial;
+        inset-inline-end: values.inset(8);
 
         margin: 0;
       }

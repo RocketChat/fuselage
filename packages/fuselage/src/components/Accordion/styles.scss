@@ -63,7 +63,7 @@
 .rcx-accordion-item__toggle-switch {
   display: flex;
   align-items: center;
-  flex: 0 0 values.size(auto);
+  flex: 0 0 auto;
 
   margin:
     values.margin(none)
@@ -83,7 +83,7 @@
   &--expanded {
     visibility: visible;
 
-    height: values.size(auto);
+    height: auto;
     padding:
       values.padding(32)
       values.padding(8);

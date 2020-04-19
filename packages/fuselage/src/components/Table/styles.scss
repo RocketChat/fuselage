@@ -24,13 +24,12 @@
 
     &::after {
       position: absolute;
-      right: 0;
-      left: 0;
+      inset-inline: values.inset(none);
 
       display: flex;
 
       content: '';
-      border-block-end: $borders-width-x2 solid $colors-n300;
+      border-block-end: values.border-width(2) solid $colors-n300;
     }
   }
 

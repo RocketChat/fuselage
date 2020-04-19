@@ -141,10 +141,17 @@
           "properties": [
             "position",
             "z-index",
+            "inset",
+            "inset-block",
             "top",
-            "right",
+            "inset-block-start",
             "bottom",
-            "left"
+            "inset-block-end",
+            "inset-inline",
+            "left",
+            "inset-inline-start",
+            "right",
+            "inset-inline-end"
           ]
         },
         {
