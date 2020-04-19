@@ -31,7 +31,7 @@ jobs:
       - checkout
       - run: yarn
       - run: yarn lerna run build --stream
-      - run: yarn lerna run build-storybook --scope @rocket.chat/fuselage --stream
+      - run: yarn lerna run build-storybook:loki --scope @rocket.chat/fuselage --stream
       - run:
           command: |
             cat package.json | sed s/\.docker/.app/ > package.json-new
