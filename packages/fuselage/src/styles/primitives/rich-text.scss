@@ -32,17 +32,17 @@
     &:link {
       text-decoration: none;
 
-      color: colors.link(500);
+      color: colors.foreground(link);
     }
 
     &:visited,
     &.is-visited {
-      color: colors.visited-link(500);
+      color: colors.foreground(visited-link);
     }
 
     &:active,
     &.is-active {
-      color: colors.active-link(500);
+      color: colors.foreground(active-link);
     }
 
     &:hover,

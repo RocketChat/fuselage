@@ -1,6 +1,6 @@
 @use '../colors.scss';
 
-$input-colors-background-color: theme('input-colors-background-color', colors.paper());
+$input-colors-background-color: theme('input-colors-background-color', colors.surface());
 $input-colors-border-color: theme('input-colors-border-color', colors.neutral(500));
 $input-colors-color: theme('input-colors-color', colors.neutral(800));
 $input-colors-placeholder-color: theme('input-colors-placeholder-color', colors.neutral(600));
@@ -15,7 +15,7 @@ $input-colors-disabled-background-color: theme('input-colors-disabled-background
 $input-colors-disabled-border-color: theme('input-colors-disabled-border-color', colors.neutral(500));
 $input-colors-disabled-color: theme('input-colors-disabled-color', colors.neutral(800));
 
-$input-colors-invalid-background-color: theme('input-colors-invalid-background-color', colors.paper());
+$input-colors-invalid-background-color: theme('input-colors-invalid-background-color', colors.surface());
 $input-colors-invalid-border-color: theme('input-colors-invalid-border-color', colors.danger(500));
 $input-colors-invalid-color: theme('input-colors-invalid-color', colors.danger(500));
 $input-colors-invalid-placeholder-color: theme('input-colors-invalid-placeholder-color', colors.neutral(600));

@@ -43,18 +43,6 @@
   @return var(_get-varname(primary, $grade, $alpha), _get-color(b, $grade, $alpha));
 }
 
-@function link($grade, $alpha: null) {
-  @return var(_get-varname(link, $grade, $alpha), _get-color(b, $grade, $alpha));
-}
-
-@function visited-link($grade, $alpha: null) {
-  @return var(_get-varname(visited-link, $grade, $alpha), _get-color(p, $grade, $alpha));
-}
-
-@function active-link($grade, $alpha: null) {
-  @return var(_get-varname(active-link, $grade, $alpha), _get-color(r, $grade, $alpha));
-}
-
 @function info($grade, $alpha: null) {
   @return var(_get-varname(info, $grade, $alpha), _get-color(b, $grade, $alpha));
 }
@@ -71,10 +59,47 @@
   @return var(_get-varname(danger, $grade, $alpha), _get-color(r, $grade, $alpha));
 }
 
-@function paper($alpha: null) {
-  @if $alpha != null {
-    @return var(--rcx-color-paper-#{ $alpha * 100 }, rgba(255, 255, 255, $alpha));
+@function surface() {
+  @return var(--rcx-color-surface, white);
+}
+
+@function foreground($type) {
+  @if $type == 'default' {
+    @return var(--rcx-color-foreground-default, map-get(token-colors.$colors, n800));
+  }
+  @else if $type == 'info' {
+    @return var(--rcx-color-foreground-info, map-get(token-colors.$colors, n700));
+  }
+  @else if $type == 'hint' {
+    @return var(--rcx-color-foreground-hint, map-get(token-colors.$colors, n600));
+  }
+  @else if $type == 'disabled' {
+    @return var(--rcx-color-foreground-disabled, map-get(token-colors.$colors, n400));
+  }
+  @else if $type == 'alternative' {
+    @return var(--rcx-color-foreground-alternative, white);
+  }
+  @else if $type == 'primary' {
+    @return var(--rcx-color-foreground-primary, map-get(token-colors.$colors, b500));
+  }
+  @else if $type == 'success' {
+    @return var(--rcx-color-foreground-success, map-get(token-colors.$colors, g500));
+  }
+  @else if $type == 'danger' {
+    @return var(--rcx-color-foreground-danger, map-get(token-colors.$colors, r500));
+  }
+  @else if $type == 'warning' {
+    @return var(--rcx-color-foreground-warning, map-get(token-colors.$colors, y700));
+  }
+  @else if $type == 'link' {
+    @return var(--rcx-color-foreground-link, map-get(token-colors.$colors, b500));
+  }
+  @else if $type == 'visited-link' {
+    @return var(--rcx-color-foreground-visited-link, map-get(token-colors.$colors, p500));
+  }
+  @else if $type == 'active-link' {
+    @return var(--rcx-color-foreground-active-link, map-get(token-colors.$colors, r500));
   }
 
-  @return var(--rcx-color-paper, white);
+  @error 'invalid foreground type';
 }
