@@ -1,22 +1,24 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-option {
   @include clickable;
-  @include use-text-style(p2);
-  @include use-text-ellipsis;
+  @include typography.use-font-scale(p2);
+  @include typography.use-text-ellipsis;
 
-  padding: $sizes-x8;
+  padding: lengths.padding(8);
 
   list-style: none;
 
-  transition: background $transitions-short-duration;
   white-space: nowrap;
 
   &:hover,
   &--focus {
-    background: $colors-n400;
+    background: colors.neutral(400);
   }
 
   &--selected {
-    color: $text-colors-primary;
+    color: colors.foreground(primary);
   }
 }

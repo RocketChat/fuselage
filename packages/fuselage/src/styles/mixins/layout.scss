@@ -1,7 +1,0 @@
-@mixin visually-hidden {
-  @extend %visually-hidden;
-}
-
-@mixin scrollable {
-  @extend %with-scrollbars;
-}

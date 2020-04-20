@@ -1,3 +1,6 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+
 .rcx-skeleton {
   display: block;
 
@@ -6,17 +9,16 @@
   animation: rcx-skeleton__animation 1s linear 0s infinite running;
 
   opacity: 0.1;
-  background-color: $text-colors-default;
+  background-color: colors.foreground(default);
 
   &--text {
     height: auto;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-block: lengths.margin(none);
 
     transform: scale(1, 0.6);
     transform-origin: 0 60%;
 
-    border-radius: $borders-radius-x2;
+    border-radius: lengths.border-radius(2);
 
     &:empty::before {
       content: '\00a0';

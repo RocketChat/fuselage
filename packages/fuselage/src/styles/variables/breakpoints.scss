@@ -1,19 +1,21 @@
-$breakpoints-xs-min-viewport-width: map-get(map-get($breakpoints, xs), min-viewport-width);
-$breakpoints-xs-columns: map-get(map-get($breakpoints, xs), columns);
-$breakpoints-xs-gutter-width: map-get(map-get($breakpoints, xs), gutter-width);
+@use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
 
-$breakpoints-sm-min-viewport-width: map-get(map-get($breakpoints, sm), min-viewport-width);
-$breakpoints-sm-columns: map-get(map-get($breakpoints, sm), columns);
-$breakpoints-sm-gutter-width: map-get(map-get($breakpoints, sm), gutter-width);
+$breakpoints-xs-min-viewport-width: map-get(map-get(breakpoints.$breakpoints, xs), min-viewport-width);
+$breakpoints-xs-columns: map-get(map-get(breakpoints.$breakpoints, xs), columns);
+$breakpoints-xs-gutter-width: map-get(map-get(breakpoints.$breakpoints, xs), gutter-width);
 
-$breakpoints-md-min-viewport-width: map-get(map-get($breakpoints, md), min-viewport-width);
-$breakpoints-md-columns: map-get(map-get($breakpoints, md), columns);
-$breakpoints-md-gutter-width: map-get(map-get($breakpoints, md), gutter-width);
+$breakpoints-sm-min-viewport-width: map-get(map-get(breakpoints.$breakpoints, sm), min-viewport-width);
+$breakpoints-sm-columns: map-get(map-get(breakpoints.$breakpoints, sm), columns);
+$breakpoints-sm-gutter-width: map-get(map-get(breakpoints.$breakpoints, sm), gutter-width);
 
-$breakpoints-lg-min-viewport-width: map-get(map-get($breakpoints, lg), min-viewport-width);
-$breakpoints-lg-columns: map-get(map-get($breakpoints, lg), columns);
-$breakpoints-lg-gutter-width: map-get(map-get($breakpoints, lg), gutter-width);
+$breakpoints-md-min-viewport-width: map-get(map-get(breakpoints.$breakpoints, md), min-viewport-width);
+$breakpoints-md-columns: map-get(map-get(breakpoints.$breakpoints, md), columns);
+$breakpoints-md-gutter-width: map-get(map-get(breakpoints.$breakpoints, md), gutter-width);
 
-$breakpoints-xl-min-viewport-width: map-get(map-get($breakpoints, xl), min-viewport-width);
-$breakpoints-xl-columns: map-get(map-get($breakpoints, xl), columns);
-$breakpoints-xl-gutter-width: map-get(map-get($breakpoints, xl), gutter-width);
+$breakpoints-lg-min-viewport-width: map-get(map-get(breakpoints.$breakpoints, lg), min-viewport-width);
+$breakpoints-lg-columns: map-get(map-get(breakpoints.$breakpoints, lg), columns);
+$breakpoints-lg-gutter-width: map-get(map-get(breakpoints.$breakpoints, lg), gutter-width);
+
+$breakpoints-xl-min-viewport-width: map-get(map-get(breakpoints.$breakpoints, xl), min-viewport-width);
+$breakpoints-xl-columns: map-get(map-get(breakpoints.$breakpoints, xl), columns);
+$breakpoints-xl-gutter-width: map-get(map-get(breakpoints.$breakpoints, xl), gutter-width);

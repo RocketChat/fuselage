@@ -1,35 +1,34 @@
-@use 'sass:color';
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-modal {
   position: static;
 
-  width: $sizes-full;
-  max-height: 100%;
+  width: lengths.size(full);
+  max-height: lengths.size(full);
   margin: auto;
 
   background: none;
 
   &__inner {
-    min-width: 0;
+    min-width: lengths.size(none);
   }
 
   &__title {
-    @include use-text-ellipsis;
+    @include typography.use-text-ellipsis;
     white-space: nowrap;
   }
 
   &__backdrop {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: lengths.inset(0);
 
-    background-color: color.change($colors-n500, $alpha: 0.5);
+    background-color: colors.neutral(500, $alpha: 0.5);
   }
 
   @include on-breakpoint(sm) {
-    max-width: $sizes-x640;
-    padding: $spaces-x16;
+    max-width: lengths.size(640);
+    padding: lengths.padding(16);
   }
 }

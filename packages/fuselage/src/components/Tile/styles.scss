@@ -1,19 +1,24 @@
+@use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
+
 .rcx-tile {
-  @include use-text-style(p1);
+  @extend %tile;
+
+  @include typography.use-font-scale(p1);
 
   display: block;
 
-  color: #{ $text-colors-default };
+  color: colors.foreground(default);
 
   &--elevation-0 {
-    @extend %tile-0;
+    @extend %--elevation-0;
   }
 
   &--elevation-1 {
-    @extend %tile-1;
+    @extend %--elevation-1;
   }
 
   &--elevation-2 {
-    @extend %tile-2;
+    @extend %--elevation-2;
   }
 }

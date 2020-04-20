@@ -1,25 +1,28 @@
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
 .rcx-input-box__wrapper,
 %rcx-input-box {
   position: relative;
 
   display: inline-flex;
 
+  flex-flow: row nowrap;
+
+  align-items: flex-start;
+
   flex: 1 0 0;
 
   min-width: 8rem;
 
-  padding-block: #{ $spaces-x8 };
-  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+  padding-block: lengths.padding(8);
+  padding-inline: lengths.padding(16) - lengths.border-width(2);
 
   vertical-align: baseline;
 
   word-break: break-all;
 
   outline: 0;
-
-  align-items: flex-start;
-
-  flex-flow: row nowrap;
 
   @extend %input;
 
@@ -40,10 +43,10 @@
   @include clickable;
 
   display: flex;
-  flex: 0 0 auto;
+  flex-flow: row nowrap;
 
   align-items: flex-start;
-  flex-flow: row nowrap;
+  flex: 0 0 auto;
 }
 
 @mixin with-colors(
@@ -120,7 +123,7 @@
 
   flex: 1 0 auto;
 
-  min-width: 8rem;
+  min-width: lengths.size(128);
 
   user-select: initial;
 
@@ -134,21 +137,23 @@
 
   background-color: transparent;
 
-  @include use-text-style(p1);
-  @include use-text-ellipsis;
+  @include typography.use-font-scale(p1);
+  @include typography.use-text-ellipsis;
 
   &--type-textarea {
+    @extend %--with-scrollbars;
+
     overflow: auto;
 
     resize: none;
     vertical-align: middle;
-    @include scrollable;
   }
 
   &--type-select {
+    @extend %--with-scrollbars;
+
     overflow: auto;
     appearance: none;
-    @include scrollable;
 
     &.rcx-input-box--multiple {
       vertical-align: middle;
@@ -156,11 +161,12 @@
   }
 
   &:not(.rcx-input-box--undecorated) {
-    min-width: 8rem;
-    min-height: #{ $sizes-x40 };
+    min-width: lengths.size(128);
+    min-height: lengths.size(40);
 
-    padding-block: #{ $spaces-x8 };
-    padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+    padding:
+      lengths.padding(8)
+      (lengths.padding(16) - lengths.border-width(2));
 
     @extend %input;
 
@@ -216,47 +222,48 @@
   }
 
   .rcx-input-box__wrapper > & {
-    width: 0;
-    min-width: 0;
+    width: lengths.size(none);
+    min-width: lengths.size(none);
   }
 }
 
 .rcx-input-box__placeholder {
-  @include use-text-ellipsis;
+  @include typography.use-text-ellipsis;
   white-space: nowrap;
 
-  @include use-text-style(p1);
+  @include typography.use-font-scale(p1);
   color: #{ $input-colors-placeholder-color };
 }
 
 .rcx-input-box__option {
-  @include use-text-ellipsis;
+  @include typography.use-text-ellipsis;
   white-space: nowrap;
 
-  @include use-text-style(p1);
+  @include typography.use-font-scale(p1);
   color: #{ $input-colors-color };
 }
 
 .rcx-skeleton__input {
   display: inline-flex;
 
-  flex: 1 0 0;
+  flex: 1 0 lengths.size(none);
 
-  min-width: 8rem;
-  min-height: #{ $sizes-x40 };
+  min-width: lengths.size(128);
+  min-height: lengths.size(40);
 
-  padding-block: calc(#{ $spaces-x12 } - #{ $borders-width-x2 });
-  padding-inline: calc(#{ $spaces-x16 } - #{ $borders-width-x2 });
+  padding:
+    (lengths.padding(12) - lengths.border-width(2))
+    (lengths.padding(16) - lengths.border-width(2));
 
   vertical-align: baseline;
 
   color: #{ $input-colors-color };
 
-  border-width: #{ $borders-width-x2 };
+  border-width: lengths.border-width(2);
   border-color: #{ $input-colors-border-color };
-  border-radius: #{ $borders-radius-x2 };
+  border-radius: lengths.border-radius(2);
   background-color: #{ $input-colors-background-color };
 
-  @include use-text-style(p1);
-  @include use-text-ellipsis;
+  @include typography.use-font-scale(p1);
+  @include typography.use-text-ellipsis;
 }

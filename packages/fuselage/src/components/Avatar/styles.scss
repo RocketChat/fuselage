@@ -1,4 +1,7 @@
-$avatar-stack-background-color: theme('avatar-background-color', $colors-white);
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+
+$avatar-stack-background-color: theme('avatar-background-color', colors.surface());
 
 .rcx-avatar {
   display: inline-flex;
@@ -8,7 +11,7 @@ $avatar-stack-background-color: theme('avatar-background-color', $colors-white);
 
     flex: 1 1 auto;
 
-    border-radius: #{ $borders-width-x2 };
+    border-radius: lengths.border-width(2);
 
     &--rounded {
       border-radius: 100%;
@@ -18,15 +21,17 @@ $avatar-stack-background-color: theme('avatar-background-color', $colors-white);
   &-stack {
     display: flex;
     flex-direction: row-reverse;
-
-    color: #{ $avatar-stack-background-color };
     justify-content: center;
 
+    color: #{ $avatar-stack-background-color };
+
     & > .rcx-avatar {
-      margin: auto calc(#{ $borders-width-x2 } * -1);
+      margin:
+        auto
+        lengths.margin(-2);
 
       & > .rcx-avatar__element {
-        border: #{ $borders-width-x2 } solid currentColor;
+        border: lengths.border-width(2) solid currentColor;
       }
     }
   }

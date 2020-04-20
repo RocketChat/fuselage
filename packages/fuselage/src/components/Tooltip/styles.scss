@@ -1,4 +1,11 @@
-@mixin triangle-direction ($direction) {
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+$tooltip-background-color: theme('tooltip-background-color', colors.neutral(900));
+$tooltip-text-color: theme('tooltip-text-color', colors.surface());
+
+@mixin triangle-direction($direction) {
   &::after {
     position: absolute;
 
@@ -6,33 +13,37 @@
 
     content: ' ';
 
-    border-width: calc(#{ $borders-width-x4 } + #{ $borders-width-x1 });
+    border-width: lengths.border-width(4) + lengths.border-width(1);
     border-color: transparent transparent $tooltip-background-color $tooltip-background-color;
-    border-radius: 0 0 0 calc(#{ $borders-radius-x2 } + #{ $borders-radius-x2} / 2);
+    border-radius:
+      lengths.border-radius(none)
+      lengths.border-radius(none)
+      lengths.border-radius(none)
+      (lengths.border-radius(2) + to-rem(1));
 
     @if $direction == 'up' {
-      top: calc(-1 * (#{$spaces-x4} ));
+      inset-block-start: lengths.inset(-4);
 
       transform: rotate(135deg);
     }
     @if $direction == 'down' {
-      bottom: calc(-1 * (#{$spaces-x4} ));
+      inset-block-end: lengths.inset(-4);
 
       transform: rotate(-45deg);
     }
     @if $direction == 'left' {
-      top: $tooltip-arrow-position-center;
-      left: calc(-1 * (#{$spaces-x4} ));
+      inset-block-start: 50%;
+      inset-inline-start: lengths.inset(-4);
 
-      margin-block-start: calc(-1 * #{ $spaces-x4 });
+      margin-block-start: lengths.margin(-4);
 
       transform: rotate(45deg);
     }
     @if $direction == 'right' {
-      top: $tooltip-arrow-position-center;
-      right: calc(-1 * (#{$spaces-x4} ));
+      inset-block-start: 50%;
+      inset-inline-end: lengths.inset(-4);
 
-      margin-block-start: calc(-1 * #{ $spaces-x4 });
+      margin-block-start: lengths.margin(-4);
 
       transform: rotate(-135deg);
     }
@@ -44,20 +55,21 @@
 
   display: inline-block;
 
-  max-width: $spaces-x240;
+  max-width: lengths.size(240);
 
-  padding-block: $spaces-x8;
-  padding-inline: $spaces-x12;
+  padding:
+    lengths.padding(8)
+    lengths.padding(12);
 
   word-break: break-all;
 
   color: $tooltip-text-color;
 
-  border-radius: $borders-radius-x4;
+  border-radius: lengths.border-radius(4);
 
   background-color: $tooltip-background-color;
 
-  @include use-text-style(p2);
+  @include typography.use-font-scale(p2);
 
   &--dir-up {
     @include triangle-direction('up');
@@ -78,24 +90,24 @@
   &--pos {
     &-center {
       &::after {
-        left: 50%;
+        inset-inline-start: lengths.inset(50%);
 
-        margin-inline-start: calc(-1 * #{ $spaces-x4 });
+        margin-inline-start: lengths.margin(-4);
       }
     }
 
     &-left {
       &::after {
-        left: $tooltip-arrow-margin;
+        inset-inline-start: lengths.inset(8);
 
-        margin: 0;
+        margin: lengths.margin(none);
       }
     }
 
     &-right {
       &::after {
-        right: $tooltip-arrow-margin;
-        left: initial;
+        inset-inline-start: initial;
+        inset-inline-end: lengths.inset(8);
 
         margin: 0;
       }
