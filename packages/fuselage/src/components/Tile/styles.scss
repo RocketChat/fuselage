@@ -1,3 +1,5 @@
+@use '../../styles/colors.scss';
+
 .rcx-tile {
   @extend %tile;
 
@@ -5,7 +7,7 @@
 
   display: block;
 
-  color: #{ $text-colors-default };
+  color: colors.foreground(default);
 
   &--elevation-0 {
     @extend %--elevation-0;

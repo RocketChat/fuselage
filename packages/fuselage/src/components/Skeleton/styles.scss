@@ -1,3 +1,4 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 .rcx-skeleton {
@@ -8,7 +9,7 @@
   animation: rcx-skeleton__animation 1s linear 0s infinite running;
 
   opacity: 0.1;
-  background-color: $text-colors-default;
+  background-color: colors.foreground(default);
 
   &--text {
     height: auto;

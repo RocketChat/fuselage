@@ -83,14 +83,16 @@
   }
 
   time {
+    color: colors.foreground(info);
+
     font: inherit;
-    @include use-text-color(info);
   }
 
   dfn {
+    color: colors.foreground(info);
+
     font: inherit;
     font-style: italic;
-    @include use-text-color(info);
   }
 
   abbr {

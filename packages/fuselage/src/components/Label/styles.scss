@@ -1,17 +1,20 @@
+@use '../../styles/colors.scss';
+
 .rcx-label {
   @include use-text-style(p2);
-  @include use-text-color(default);
+  color: colors.foreground(default);
 
   &--disabled {
-    @include use-text-color(hint);
     pointer-events: none;
+
+    color: colors.foreground(hint);
   }
 
   &--required {
     &::before {
       content: '*\0a0';
 
-      @include use-text-color(danger);
+      color: colors.foreground(danger);
     }
   }
 }

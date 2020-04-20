@@ -1,3 +1,4 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 .rcx-box {
@@ -35,19 +36,19 @@
     @include use-text-style(c1);
   }
 
-  @each $text-color in map-keys($text-colors) {
+  @each $text-color in colors.$foreground-types {
     &--text-color-#{$text-color} {
-      @include use-text-color($text-color);
+      color: colors.foreground($text-color);
     }
   }
 
   &--inline {
-    @include use-text-color(default);
+    color: colors.foreground(default);
     @extend %--with-inline-elements;
   }
 
   &--block {
-    @include use-text-color(default);
+    color: colors.foreground(default);
     @extend %--with-inline-elements;
     @extend %--with-block-elements;
   }

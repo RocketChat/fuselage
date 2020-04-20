@@ -61,12 +61,12 @@
     text-align: unset;
     vertical-align: middle;
 
-    color: $text-colors-info;
+    color: colors.foreground(info);
     @include use-text-style(p1);
 
     &--header {
       @include use-text-style(c2);
-      color: $text-colors-hint;
+      color: colors.foreground(hint);
     }
 
     &--clickable {

@@ -63,43 +63,27 @@
   @return var(--rcx-color-surface, white);
 }
 
+$-foreground-colors: (
+  default: map-get(token-colors.$colors, n800),
+  info: map-get(token-colors.$colors, n700),
+  hint: map-get(token-colors.$colors, n600),
+  disabled: map-get(token-colors.$colors, n400),
+  alternative: white,
+  primary: map-get(token-colors.$colors, b500),
+  success: map-get(token-colors.$colors, g500),
+  danger: map-get(token-colors.$colors, r500),
+  warning: map-get(token-colors.$colors, y700),
+  link: map-get(token-colors.$colors, b500),
+  visited-link: map-get(token-colors.$colors, p500),
+  active-link: map-get(token-colors.$colors, r500),
+);
+
 @function foreground($type) {
-  @if $type == 'default' {
-    @return var(--rcx-color-foreground-default, map-get(token-colors.$colors, n800));
-  }
-  @else if $type == 'info' {
-    @return var(--rcx-color-foreground-info, map-get(token-colors.$colors, n700));
-  }
-  @else if $type == 'hint' {
-    @return var(--rcx-color-foreground-hint, map-get(token-colors.$colors, n600));
-  }
-  @else if $type == 'disabled' {
-    @return var(--rcx-color-foreground-disabled, map-get(token-colors.$colors, n400));
-  }
-  @else if $type == 'alternative' {
-    @return var(--rcx-color-foreground-alternative, white);
-  }
-  @else if $type == 'primary' {
-    @return var(--rcx-color-foreground-primary, map-get(token-colors.$colors, b500));
-  }
-  @else if $type == 'success' {
-    @return var(--rcx-color-foreground-success, map-get(token-colors.$colors, g500));
-  }
-  @else if $type == 'danger' {
-    @return var(--rcx-color-foreground-danger, map-get(token-colors.$colors, r500));
-  }
-  @else if $type == 'warning' {
-    @return var(--rcx-color-foreground-warning, map-get(token-colors.$colors, y700));
-  }
-  @else if $type == 'link' {
-    @return var(--rcx-color-foreground-link, map-get(token-colors.$colors, b500));
-  }
-  @else if $type == 'visited-link' {
-    @return var(--rcx-color-foreground-visited-link, map-get(token-colors.$colors, p500));
-  }
-  @else if $type == 'active-link' {
-    @return var(--rcx-color-foreground-active-link, map-get(token-colors.$colors, r500));
+  @if not map-has-key($-foreground-colors, $type) {
+    @error 'invalid foreground type';
   }
 
-  @error 'invalid foreground type';
+  @return var(--rcx-color-foreground-#{ $type }, map-get($-foreground-colors, $type));
 }
+
+$foreground-types: map-keys($-foreground-colors);

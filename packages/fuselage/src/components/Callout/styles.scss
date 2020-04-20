@@ -36,7 +36,7 @@
 
   margin-inline-start: lengths.margin(8);
 
-  color: #{ $text-colors-default };
+  color: colors.foreground(default);
 
   @include use-text-style(c1);
 }

@@ -1,3 +1,4 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 .rcx-field {
@@ -10,18 +11,20 @@
 
   &__label {
     @include use-text-style(p2);
-    @include use-text-color(default);
     flex: 1 1 0;
     align-self: flex-start;
 
     margin-block: lengths.margin(2);
+
+    color: colors.foreground(default);
   }
 
   &__description {
     @include use-text-style(p1);
-    @include use-text-color(hint);
-    @extend %--with-inline-elements;
     margin-block: lengths.margin(2);
+
+    color: colors.foreground(hint);
+    @extend %--with-inline-elements;
   }
 
   &__row {
@@ -40,15 +43,17 @@
 
   &__hint {
     @include use-text-style(p1);
-    @include use-text-color(hint);
-    @extend %--with-inline-elements;
     margin-block: lengths.margin(2);
+
+    color: colors.foreground(hint);
+    @extend %--with-inline-elements;
   }
 
   &__error {
     @include use-text-style(p1);
-    @include use-text-color(danger);
-    @extend %--with-inline-elements;
     margin-block: lengths.margin(2);
+
+    color: colors.foreground(danger);
+    @extend %--with-inline-elements;
   }
 }

@@ -1,3 +1,4 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 .rcx-pagination {
@@ -59,7 +60,7 @@
 .rcx-pagination__label {
   @include use-text-style(c1);
 
-  color: $text-colors-hint;
+  color: colors.foreground(hint);
 }
 
 .rcx-pagination__list {
@@ -77,7 +78,7 @@
   margin-inline: lengths.margin(2);
   padding: lengths.padding(4);
 
-  color: $text-colors-hint;
+  color: colors.foreground(hint);
 }
 
 .rcx-pagination__link {
@@ -85,7 +86,7 @@
   @include clickable;
   display: inline-flex;
 
-  color: $text-colors-primary;
+  color: colors.foreground(link);
   background: transparent;
 
   &.disabled,
@@ -93,7 +94,7 @@
     @include use-text-style(c2);
     cursor: default;
 
-    color: $text-colors-default;
+    color: colors.foreground(default);
   }
 }
 
@@ -103,11 +104,11 @@
   @include clickable;
   display: inline-flex;
 
-  color: $text-colors-primary;
+  color: colors.foreground(link);
   background: transparent;
 
   &.disabled,
   &:disabled {
-    color: $text-colors-disabled;
+    color: colors.foreground(disabled);
   }
 }

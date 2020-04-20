@@ -25,7 +25,7 @@
 
   text-align: start;
 
-  color: #{ $text-colors-default };
+  color: colors.foreground(default);
 
   border-width: lengths.border-width(2);
   border-color: colors.neutral(300) transparent transparent;
@@ -48,7 +48,7 @@
   &--disabled {
     cursor: not-allowed;
 
-    color: #{ $text-colors-disabled };
+    color: colors.foreground(disabled);
     background-color: colors.neutral(100);
   }
 }

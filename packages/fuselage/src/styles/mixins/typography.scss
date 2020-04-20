@@ -9,10 +9,6 @@
   line-height: map-get($style, line-height);
 }
 
-@mixin use-text-color($color-name) {
-  color: map-get($text-colors, $color-name);
-}
-
 @mixin use-text-ellipsis {
   overflow: hidden;
 
