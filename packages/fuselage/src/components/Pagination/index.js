@@ -72,7 +72,7 @@ export function Pagination({
         <List>
           {itemsPerPageOptions.map((itemsPerPageOption) =>
             <ListItem key={itemsPerPageOption}>
-              <Link tabindex={ itemsPerPage === itemsPerPageOption ? -1 : 0 } disabled={itemsPerPage === itemsPerPageOption} onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}>
+              <Link tabIndex={ itemsPerPage === itemsPerPageOption ? -1 : 0 } disabled={itemsPerPage === itemsPerPageOption} onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}>
                 {itemsPerPageOption}
               </Link>
             </ListItem>,

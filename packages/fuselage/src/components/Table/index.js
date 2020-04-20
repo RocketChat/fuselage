@@ -48,13 +48,12 @@ export function TableFoot(props) {
   return <Box is='tfoot' componentClassName='rcx-table__foot' {...props} />;
 }
 
-export function TableRow({ hasAction, selected, ...props }) {
-  return <Box is='tr' componentClassName='rcx-table__row' mod-selected={selected} mod-action={hasAction} {...props} />;
+export function TableRow({ action, selected, ...props }) {
+  return <Box is='tr' componentClassName='rcx-table__row' mod-selected={selected} mod-action={action} {...props} />;
 }
 
 export function TableCell({
   align,
-  action,
   clickable,
   ...props
 }) {
