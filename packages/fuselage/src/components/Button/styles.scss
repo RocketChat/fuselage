@@ -59,7 +59,7 @@
   @include with-rectangular-size(
     $height: lengths.size(40),
     $padding-x: lengths.padding(16),
-    $line-height: $text-styles-p1-line-height,
+    $line-height: typography.line-height(p1),
   );
 
   @extend %button--secondary;
@@ -70,7 +70,7 @@
     @include with-rectangular-size(
       $height: lengths.size(32),
       $padding-x: lengths.padding(12),
-      $line-height: $text-styles-c1-line-height,
+      $line-height: typography.line-height(c1),
     );
   }
 

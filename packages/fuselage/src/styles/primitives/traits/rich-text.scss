@@ -202,27 +202,27 @@
   font: inherit;
 
   h1 {
-    @include use-text-style(h1);
+    @include typography.use-font-scale(h1);
   }
 
   h2 {
-    @include use-text-style(s2);
+    @include typography.use-font-scale(s2);
   }
 
   h3 {
-    @include use-text-style(p2);
+    @include typography.use-font-scale(p2);
   }
 
   h4 {
-    @include use-text-style(c2);
+    @include typography.use-font-scale(c2);
   }
 
   h5 {
-    @include use-text-style(micro);
+    @include typography.use-font-scale(micro);
   }
 
   h6 {
-    @include use-text-style(micro);
+    @include typography.use-font-scale(micro);
   }
 
   h1,
@@ -239,7 +239,7 @@
   }
 
   p {
-    @include use-text-style(p1);
+    @include typography.use-font-scale(p1);
 
     display: block;
 
@@ -261,12 +261,12 @@
   }
 
   ul {
-    @include use-text-style(p1);
+    @include typography.use-font-scale(p1);
     list-style-type: disc;
   }
 
   ol {
-    @include use-text-style(p1);
+    @include typography.use-font-scale(p1);
     list-style-type: decimal;
   }
 
@@ -281,7 +281,9 @@
   }
 
   pre {
-    margin: $spaces-x16 $spaces-none;
+    margin:
+      lengths.margin(16)
+      lengths.margin(none);
 
     letter-spacing: inherit;
 

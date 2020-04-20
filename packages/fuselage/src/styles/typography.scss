@@ -29,7 +29,7 @@ $font-scales: map-keys($-font-scales);
 
 @mixin use-font-scale($name) {
   @if not map-has-key($-font-scales, $name) {
-    @error 'invalid font family name';
+    @error 'invalid font scale name';
   }
 
   $-font-scale: map-get($-font-scales, $name);
@@ -38,6 +38,38 @@ $font-scales: map-keys($-font-scales);
   font-size: functions.to-rem(map-get($-font-scale, font-size));
   font-weight: map-get($-font-scale, font-weight);
   line-height: functions.to-rem(map-get($-font-scale, line-height));
+}
+
+@function letter-spacing($name) {
+  @if not map-has-key($-font-scales, $name) {
+    @error 'invalid font scale name';
+  }
+
+  @return functions.to-rem(map-get(map-get($-font-scales, $name), letter-spacing));
+}
+
+@function font-size($name) {
+  @if not map-has-key($-font-scales, $name) {
+    @error 'invalid font scale name';
+  }
+
+  @return functions.to-rem(map-get(map-get($-font-scales, $name), font-size));
+}
+
+@function font-weight($name) {
+  @if not map-has-key($-font-scales, $name) {
+    @error 'invalid font scale name';
+  }
+
+  @return map-get(map-get($-font-scales, $name), font-weight);
+}
+
+@function line-height($name) {
+  @if not map-has-key($-font-scales, $name) {
+    @error 'invalid font scale name';
+  }
+
+  @return functions.to-rem(map-get(map-get($-font-scales, $name), line-height));
 }
 
 @mixin use-text-ellipsis {
