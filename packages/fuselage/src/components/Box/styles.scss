@@ -1,3 +1,5 @@
+@use '../../styles/lengths.scss';
+
 .rcx-box {
   &,
   &::before,
@@ -41,12 +43,12 @@
 
   &--inline {
     @include use-text-color(default);
-    @extend %rich-text--inline;
+    @extend %--with-inline-elements;
   }
 
   &--block {
     @include use-text-color(default);
-    @extend %rich-text--inline;
-    @extend %rich-text--block;
+    @extend %--with-inline-elements;
+    @extend %--with-block-elements;
   }
 }

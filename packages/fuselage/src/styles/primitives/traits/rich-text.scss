@@ -1,7 +1,7 @@
-@use '../colors.scss';
-@use '../lengths.scss';
+@use '../../colors.scss';
+@use '../../lengths.scss';
 
-%rich-text--inline {
+%--with-inline-elements {
   color: inherit;
 
   font: inherit;
@@ -159,7 +159,7 @@
   }
 }
 
-%rich-text--block {
+%--with-block-elements {
   font: inherit;
 
   h1 {

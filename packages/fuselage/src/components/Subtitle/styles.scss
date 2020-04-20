@@ -6,5 +6,5 @@
   margin-block-end: lengths.margin(16);
   @include use-text-style(s1);
   @include use-text-color(default);
-  @extend %rich-text--inline;
+  @extend %--with-inline-elements;
 }

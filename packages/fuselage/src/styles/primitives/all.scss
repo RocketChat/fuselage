@@ -1,48 +1,7 @@
-@use '../lengths.scss';
+@use './box.scss';
+@use './tile.scss';
+@import './traits/all.scss';
 
-%visually-hidden {
-  position: absolute;
-
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-
-  white-space: nowrap;
-
-  border: 0;
-  clip-path: inset(50%);
-}
-
-%with-scrollbars {
-  &::-webkit-scrollbar {
-    width: lengths.size(4);
-    height: lengths.size(4);
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  &:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.15);
-  }
-}
-
-%with-non-wrapped-text {
-  white-space: nowrap;
-}
-
-@import './box.scss';
 @import './input.scss';
 @import './button.scss';
-@import './tile.scss';
 @import './selection-button.scss';
-@import './rich-text.scss';

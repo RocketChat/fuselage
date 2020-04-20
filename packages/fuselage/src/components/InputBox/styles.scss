@@ -140,17 +140,19 @@
   @include use-text-ellipsis;
 
   &--type-textarea {
+    @extend %--with-scrollbars;
+
     overflow: auto;
 
     resize: none;
     vertical-align: middle;
-    @include scrollable;
   }
 
   &--type-select {
+    @extend %--with-scrollbars;
+
     overflow: auto;
     appearance: none;
-    @include scrollable;
 
     &.rcx-input-box--multiple {
       vertical-align: middle;

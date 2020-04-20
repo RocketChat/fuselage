@@ -20,7 +20,7 @@
   &__description {
     @include use-text-style(p1);
     @include use-text-color(hint);
-    @extend %rich-text--inline;
+    @extend %--with-inline-elements;
     margin-block: lengths.margin(2);
   }
 
@@ -41,14 +41,14 @@
   &__hint {
     @include use-text-style(p1);
     @include use-text-color(hint);
-    @extend %rich-text--inline;
+    @extend %--with-inline-elements;
     margin-block: lengths.margin(2);
   }
 
   &__error {
     @include use-text-style(p1);
     @include use-text-color(danger);
-    @extend %rich-text--inline;
+    @extend %--with-inline-elements;
     margin-block: lengths.margin(2);
   }
 }

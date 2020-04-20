@@ -1,7 +1,7 @@
 @use '../lengths.scss';
 
 %selection-button__input {
-  @extend %visually-hidden;
+  @extend %--visually-hidden;
 }
 
 %selection-button__fake {

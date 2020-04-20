@@ -1,22 +1,7 @@
 @use '../colors.scss';
 @use '../lengths.scss';
 
-%tile-0 {
+%tile {
   border-radius: lengths.border-radius(2);
   background-color: colors.surface();
-  @include use-no-shadow;
-}
-
-%tile-1 {
-  border-radius: lengths.border-radius(2);
-  background-color: colors.surface();
-  box-shadow: 0 0 to-rem(12) 0 rgba(47, 52, 61, 0.1);
-}
-
-%tile-2 {
-  border-radius: lengths.border-radius(2);
-  background-color: colors.surface();
-  box-shadow:
-    0 0 to-rem(2) 0 rgba(47, 52, 61, 0.08),
-    0 0 to-rem(12) 0 rgba(47, 52, 61, 0.12);
 }
