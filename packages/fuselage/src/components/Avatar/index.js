@@ -43,8 +43,8 @@ Avatar.propTypes = {
   url: PropTypes.string.isRequired,
 };
 
-const AvatarStack = ({ children }) =>
-  <Box componentClassName='rcx-avatar-stack'>
+const AvatarStack = ({ children, ...props }) =>
+  <Box componentClassName='rcx-avatar-stack' { ...props }>
     {React.Children.toArray(children).reverse()}
   </Box>;
 

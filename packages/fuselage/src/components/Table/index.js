@@ -1,9 +1,20 @@
 import PropTypes from 'prop-types';
 import React, { createContext, useContext } from 'react';
 
-import { Box } from '../Box';
+import { Box, Margins } from '../Box';
+import { Button } from '../Button';
+
+
+export function Selection({ children, text, ...props }) {
+  return <Box textColor='alternative' componentClassName='rcx-table__selection' display='flex' alignItems='center' justifyContent='space-between' {...props} pi='x24'>
+    <Box textStyle='p2' mb='x16'>{text}</Box>
+    <Box mi='neg-x8' textStyle='p2'>{children}<Margins inline='x4'><Button small primary>oiasdase</Button><Button small primary>oie</Button></Margins></Box>
+  </Box>;
+}
 
 export function Table({
+  striped,
+  sticky,
   fixed = false,
   ...props
 }) {
@@ -12,10 +23,14 @@ export function Table({
       is='table'
       componentClassName='rcx-table'
       mod-fixed={fixed}
+      mod-sticky={sticky}
+      mod-striped={striped}
       {...props}
     />
   </Box>;
 }
+
+Table.Selection = Selection;
 
 const TableHeadContext = createContext(false);
 
@@ -33,8 +48,8 @@ export function TableFoot(props) {
   return <Box is='tfoot' componentClassName='rcx-table__foot' {...props} />;
 }
 
-export function TableRow({ action, ...props }) {
-  return <Box is='tr' componentClassName='rcx-table__row' mod-action={action} {...props} />;
+export function TableRow({ hasAction, selected, ...props }) {
+  return <Box is='tr' componentClassName='rcx-table__row' mod-selected={selected} mod-action={hasAction} {...props} />;
 }
 
 export function TableCell({

@@ -1,6 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Table } from '../..';
+import { Table, CheckBox, Selection, Box } from '../..';
 
 <Meta title='Data Display/Table' parameters={{ jest: ['Table/spec'] }}/>
 
@@ -8,6 +8,7 @@ import { Table } from '../..';
 
 <Preview>
   <Story name='Default'>
+    <>
     <Table>
       <Table.Head>
         <Table.Row>
@@ -19,7 +20,133 @@ import { Table } from '../..';
         </Table.Row>
       </Table.Head>
       <Table.Body>
+        <Table.Row hasAction>
+          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell align='end'>159</Table.Cell>
+          <Table.Cell align='end'>6</Table.Cell>
+          <Table.Cell align='end'>24</Table.Cell>
+          <Table.Cell align='end'>4</Table.Cell>
+        </Table.Row>
         <Table.Row>
+          <Table.Cell is='th' scope='row'>Ice cream sandwich</Table.Cell>
+          <Table.Cell align='end'>237</Table.Cell>
+          <Table.Cell align='end'>9</Table.Cell>
+          <Table.Cell align='end'>37</Table.Cell>
+          <Table.Cell align='end'>4.3</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+    </>
+  </Story>
+</Preview>
+
+## Table
+
+<Props of={Table} />
+
+# Table
+
+<Preview>
+  <Story name='Selected'>
+    <>
+    <Table.Selection text='5 Items selected'/>
+    <Table>
+      <Table.Head>
+        <Table.Row>
+          <Table.Cell><CheckBox checked={false}/></Table.Cell>
+          <Table.Cell>Dessert (100g serving)</Table.Cell>
+          <Table.Cell align='end'>Calories</Table.Cell>
+          <Table.Cell align='end'>Fat&nbsp;(g)</Table.Cell>
+          <Table.Cell align='end'>Carbs&nbsp;(g)</Table.Cell>
+          <Table.Cell align='end'>Protein&nbsp;(g)</Table.Cell>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row selected>
+          <Table.Cell><CheckBox checked/></Table.Cell>
+          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell align='end'>159</Table.Cell>
+          <Table.Cell align='end'>6</Table.Cell>
+          <Table.Cell align='end'>24</Table.Cell>
+          <Table.Cell align='end'>4</Table.Cell>
+        </Table.Row>
+        <Table.Row selected>
+          <Table.Cell><CheckBox checked/></Table.Cell>
+          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell align='end'>159</Table.Cell>
+          <Table.Cell align='end'>6</Table.Cell>
+          <Table.Cell align='end'>24</Table.Cell>
+          <Table.Cell align='end'>4</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell><CheckBox checked={false}/></Table.Cell>
+          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell align='end'>159</Table.Cell>
+          <Table.Cell align='end'>6</Table.Cell>
+          <Table.Cell align='end'>24</Table.Cell>
+          <Table.Cell align='end'>4</Table.Cell>
+        </Table.Row>
+        <Table.Row selected>
+          <Table.Cell><CheckBox checked/></Table.Cell>
+          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell align='end'>159</Table.Cell>
+          <Table.Cell align='end'>6</Table.Cell>
+          <Table.Cell align='end'>24</Table.Cell>
+          <Table.Cell align='end'>4</Table.Cell>
+        </Table.Row>
+        <Table.Row selected>
+          <Table.Cell><CheckBox checked/></Table.Cell>
+          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell align='end'>159</Table.Cell>
+          <Table.Cell align='end'>6</Table.Cell>
+          <Table.Cell align='end'>24</Table.Cell>
+          <Table.Cell align='end'>4</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+    </>
+  </Story>
+</Preview>
+
+
+
+### Striped
+
+<Preview>
+  <Story name='Striped'>
+    <Table fixed striped sticky>
+      <Table.Head>
+        <Table.Row>
+          <Table.Cell>Dessert (100g serving)</Table.Cell>
+          <Table.Cell align='end'>Calories</Table.Cell>
+          <Table.Cell align='end'>Fat&nbsp;(g)</Table.Cell>
+          <Table.Cell align='end'>Carbs&nbsp;(g)</Table.Cell>
+          <Table.Cell align='end'>Protein&nbsp;(g)</Table.Cell>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell align='end'>159</Table.Cell>
+          <Table.Cell align='end'>6</Table.Cell>
+          <Table.Cell align='end'>24</Table.Cell>
+          <Table.Cell align='end'>4</Table.Cell>
+        </Table.Row>
+         <Table.Row>
+          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell align='end'>159</Table.Cell>
+          <Table.Cell align='end'>6</Table.Cell>
+          <Table.Cell align='end'>24</Table.Cell>
+          <Table.Cell align='end'>4</Table.Cell>
+        </Table.Row>
+         <Table.Row>
+          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell align='end'>159</Table.Cell>
+          <Table.Cell align='end'>6</Table.Cell>
+          <Table.Cell align='end'>24</Table.Cell>
+          <Table.Cell align='end'>4</Table.Cell>
+        </Table.Row>
+         <Table.Row>
           <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
           <Table.Cell align='end'>159</Table.Cell>
           <Table.Cell align='end'>6</Table.Cell>
@@ -38,9 +165,6 @@ import { Table } from '../..';
   </Story>
 </Preview>
 
-## Table
-
-<Props of={Table} />
 
 ### Fixed
 

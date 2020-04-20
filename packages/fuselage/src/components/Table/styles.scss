@@ -7,8 +7,15 @@
 
   border-collapse: separate;
 
+  background-color: #{ $colors-white };
+
   &--fixed {
     table-layout: fixed;
+  }
+
+  &__selection {
+    border-radius: $borders-radius-x2;
+    background-color: $colors-b500;
   }
 
   &__wrapper {
@@ -38,8 +45,36 @@
     display: table-footer-group;
   }
 
+  &--striped {
+    .rcx-table__row:nth-child(even) {
+      background-color: $colors-n100;
+    }
+  }
+
+  &--sticky {
+    .rcx-table__cell--header {
+      position: sticky;
+      top: 0;
+
+      background-color: #{ $colors-white };
+    }
+  }
+
   &__row {
     display: table-row;
+
+    background-color: #{ $colors-white };
+
+    &--selected {
+      background-color: $colors-b100;
+
+      .rcx-table__row--action {
+        &:hover,
+        &:focus {
+          background-color: $colors-b100;
+        }
+      }
+    }
 
     &--action:hover,
     &--action:focus {
@@ -58,6 +93,7 @@
     vertical-align: middle;
 
     color: $text-colors-info;
+
     @include use-text-style(p1);
 
     &--header {
