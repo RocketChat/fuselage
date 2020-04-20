@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-modal {
   position: static;
@@ -15,7 +16,7 @@
   }
 
   &__title {
-    @include use-text-ellipsis;
+    @include typography.use-text-ellipsis;
     white-space: nowrap;
   }
 

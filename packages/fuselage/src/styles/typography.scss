@@ -1,0 +1,47 @@
+@use '~@rocket.chat/fuselage-tokens/typography.scss';
+@use './functions.scss';
+
+$-font-families: (
+  sans: typography.$font-sans,
+  mono: typography.$font-mono,
+);
+
+@function font-family($name) {
+  @if not map-has-key($-font-families, $name) {
+    @error 'invalid font family name';
+  }
+
+  @return var(--rcx-font-family-#{ $name }, map-get($-font-families, $name));
+}
+
+$-font-scales: (
+  h1: map-get(typography.$typography, h1),
+  s1: map-get(typography.$typography, s1),
+  s2: map-get(typography.$typography, s2),
+  p1: map-get(typography.$typography, p1),
+  p2: map-get(typography.$typography, p2),
+  c1: map-get(typography.$typography, c1),
+  c2: map-get(typography.$typography, c2),
+  micro: map-get(typography.$typography, micro),
+);
+
+$font-scales: map-keys($-font-scales);
+
+@mixin use-font-scale($name) {
+  @if not map-has-key($-font-scales, $name) {
+    @error 'invalid font family name';
+  }
+
+  $-font-scale: map-get($-font-scales, $name);
+  letter-spacing: functions.to-rem(map-get($-font-scale, letter-spacing));
+
+  font-size: functions.to-rem(map-get($-font-scale, font-size));
+  font-weight: map-get($-font-scale, font-weight);
+  line-height: functions.to-rem(map-get($-font-scale, line-height));
+}
+
+@mixin use-text-ellipsis {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}

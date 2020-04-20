@@ -1,4 +1,5 @@
 @use '../lengths.scss';
+@use '../typography.scss';
 
 %box {
   flex: 0 1 auto;
@@ -15,6 +16,7 @@
 
   outline: none;
 
+  font-family: typography.font-family(sans);
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

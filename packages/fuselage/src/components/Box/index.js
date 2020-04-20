@@ -45,8 +45,7 @@ Box.propTypes = {
     'primary', 'success', 'danger', 'warning',
   ]),
   textStyle: PropTypes.oneOf([
-    'h1', 's1', 's2', 'p1', 'p2', 'c1', 'c2', 'micro', 'mono',
-    'headline', 'subtitle', 'paragraph', 'caption',
+    'h1', 's1', 's2', 'p1', 'p2', 'c1', 'c2', 'micro',
   ]),
 
   // Spaces

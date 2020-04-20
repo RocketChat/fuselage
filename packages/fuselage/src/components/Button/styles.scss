@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 %button-secondary-color { // TODO: primitive atomic component
   @include as-button (
@@ -52,8 +53,8 @@
   text-decoration: none;
 
   @include clickable;
-  @include use-text-style(p2);
-  @include use-text-ellipsis;
+  @include typography.use-font-scale(p2);
+  @include typography.use-text-ellipsis;
 
   @include with-rectangular-size(
     $height: lengths.size(40),
@@ -64,7 +65,7 @@
   @extend %button--secondary;
 
   &--small {
-    @include use-text-style(c2);
+    @include typography.use-font-scale(c2);
 
     @include with-rectangular-size(
       $height: lengths.size(32),

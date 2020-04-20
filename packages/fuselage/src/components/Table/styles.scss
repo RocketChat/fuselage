@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-table {
   display: table;
@@ -62,10 +63,10 @@
     vertical-align: middle;
 
     color: colors.foreground(info);
-    @include use-text-style(p1);
+    @include typography.use-font-scale(p1);
 
     &--header {
-      @include use-text-style(c2);
+      @include typography.use-font-scale(c2);
       color: colors.foreground(hint);
     }
 

@@ -1,32 +1,39 @@
 @use '../../colors.scss';
 @use '../../lengths.scss';
+@use '../../typography.scss';
 
 %--with-inline-elements {
-  color: inherit;
-
-  font: inherit;
-
   strong {
+    letter-spacing: inherit;
+
     font: inherit;
     font-weight: bolder;
   }
 
   em {
+    letter-spacing: inherit;
+
     font: inherit;
     font-style: italic;
   }
 
   b {
+    letter-spacing: inherit;
+
     font: inherit;
     font-weight: bolder;
   }
 
   i {
+    letter-spacing: inherit;
+
     font: inherit;
     font-style: italic;
   }
 
   a {
+    letter-spacing: inherit;
+
     font: inherit;
 
     &:link {
@@ -52,6 +59,8 @@
   }
 
   q {
+    letter-spacing: inherit;
+
     font: inherit;
 
     &::before {
@@ -63,6 +72,8 @@
     }
 
     cite {
+      letter-spacing: inherit;
+
       font: inherit;
       font-style: italic;
     }
@@ -73,22 +84,28 @@
       lengths.padding(4)
       lengths.padding(8);
 
+    letter-spacing: inherit;
+
     border-radius: lengths.border-radius(2);
     background-color: colors.neutral(300);
 
     font: inherit;
+    font-family: typography.font-family(mono);
 
     -webkit-font-smoothing: auto;
-    @include use-text-style(mono);
   }
 
   time {
+    letter-spacing: inherit;
+
     color: colors.foreground(info);
 
     font: inherit;
   }
 
   dfn {
+    letter-spacing: inherit;
+
     color: colors.foreground(info);
 
     font: inherit;
@@ -96,6 +113,8 @@
   }
 
   abbr {
+    letter-spacing: inherit;
+
     font: inherit;
 
     &[title] {
@@ -107,12 +126,14 @@
 
   del {
     text-decoration: line-through solid;
+    letter-spacing: inherit;
 
     font: inherit;
   }
 
   ins {
     text-decoration: underline solid;
+    letter-spacing: inherit;
 
     font: inherit;
   }
@@ -122,6 +143,7 @@
     position: relative;
 
     vertical-align: baseline;
+    letter-spacing: inherit;
 
     font: inherit;
     font-size: 75%;
@@ -130,10 +152,18 @@
 
   sup {
     inset-block-start: -0.5em;
+
+    letter-spacing: inherit;
+
+    font: inherit;
   }
 
   sub {
     inset-block-end: -0.25em;
+
+    letter-spacing: inherit;
+
+    font: inherit;
   }
 
   kbd {
@@ -141,21 +171,28 @@
       lengths.padding(4)
       lengths.padding(8);
 
+    letter-spacing: inherit;
+
     border-width: lengths.border-width(1);
     border-style: solid;
     border-color: currentColor;
     border-radius: lengths.border-radius(2);
 
+    font: inherit;
+    font-family: typography.font-family(mono);
     -webkit-font-smoothing: auto;
-    @include use-text-style(mono);
   }
 
   var {
+    letter-spacing: inherit;
+
     font: inherit;
     font-style: italic;
   }
 
   small {
+    letter-spacing: inherit;
+
     font: inherit;
     font-size: 80%;
   }
@@ -196,7 +233,9 @@
   h6 {
     display: block;
 
-    margin: $spaces-x16 $spaces-none;
+    margin:
+      lengths.margin(16)
+      lengths.margin(none);
   }
 
   p {
@@ -204,7 +243,9 @@
 
     display: block;
 
-    margin: $spaces-x16 $spaces-none;
+    margin:
+      lengths.margin(16)
+      lengths.margin(none);
 
     color: inherit;
   }
@@ -213,8 +254,10 @@
   ol {
     display: block;
 
-    margin: $spaces-x16 $spaces-none;
-    padding-inline-start: $spaces-x40;
+    margin:
+      lengths.margin(16)
+      lengths.margin(none);
+    padding-inline-start: lengths.padding(40);
   }
 
   ul {
@@ -240,13 +283,17 @@
   pre {
     margin: $spaces-x16 $spaces-none;
 
+    letter-spacing: inherit;
+
     font: inherit;
-    @include use-text-style(mono);
+    font-family: typography.font-family(mono);
 
     code {
       display: block;
 
       padding: lengths.padding(16);
+
+      letter-spacing: inherit;
 
       color: inherit;
 

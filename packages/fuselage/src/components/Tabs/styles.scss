@@ -1,5 +1,6 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);
@@ -73,7 +74,7 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
   background-color: transparent;
 
   @include clickable;
-  @include use-text-style(s2);
+  @include typography.use-font-scale(s2);
 
   &--selected {
     padding:

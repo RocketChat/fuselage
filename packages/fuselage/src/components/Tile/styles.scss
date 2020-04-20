@@ -1,9 +1,10 @@
 @use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
 
 .rcx-tile {
   @extend %tile;
 
-  @include use-text-style(p1);
+  @include typography.use-font-scale(p1);
 
   display: block;
 

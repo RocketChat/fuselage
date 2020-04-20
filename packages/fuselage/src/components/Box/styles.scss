@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-box {
   &,
@@ -14,30 +15,30 @@
     opacity: 0;
   }
 
-  @each $text-style in map-keys($text-styles) {
-    &--text-style-#{$text-style} {
-      @include use-text-style($text-style);
+  @each $text-style in typography.$font-scales {
+    &--text-style-#{ $text-style } {
+      @include typography.use-font-scale($text-style);
     }
   }
 
   &--text-style-headline {
-    @include use-text-style(h1);
+    @include typography.use-font-scale(h1);
   }
 
   &--text-style-subtitle {
-    @include use-text-style(s1);
+    @include typography.use-font-scale(s1);
   }
 
   &--text-style-paragraph {
-    @include use-text-style(p1);
+    @include typography.use-font-scale(p1);
   }
 
   &--text-style-caption {
-    @include use-text-style(c1);
+    @include typography.use-font-scale(c1);
   }
 
   @each $text-color in colors.$foreground-types {
-    &--text-color-#{$text-color} {
+    &--text-color-#{ $text-color } {
       color: colors.foreground($text-color);
     }
   }

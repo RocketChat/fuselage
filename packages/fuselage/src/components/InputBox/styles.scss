@@ -1,4 +1,5 @@
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-input-box__wrapper,
 %rcx-input-box {
@@ -136,8 +137,8 @@
 
   background-color: transparent;
 
-  @include use-text-style(p1);
-  @include use-text-ellipsis;
+  @include typography.use-font-scale(p1);
+  @include typography.use-text-ellipsis;
 
   &--type-textarea {
     @extend %--with-scrollbars;
@@ -227,18 +228,18 @@
 }
 
 .rcx-input-box__placeholder {
-  @include use-text-ellipsis;
+  @include typography.use-text-ellipsis;
   white-space: nowrap;
 
-  @include use-text-style(p1);
+  @include typography.use-font-scale(p1);
   color: #{ $input-colors-placeholder-color };
 }
 
 .rcx-input-box__option {
-  @include use-text-ellipsis;
+  @include typography.use-text-ellipsis;
   white-space: nowrap;
 
-  @include use-text-style(p1);
+  @include typography.use-font-scale(p1);
   color: #{ $input-colors-color };
 }
 
@@ -263,6 +264,6 @@
   border-radius: lengths.border-radius(2);
   background-color: #{ $input-colors-background-color };
 
-  @include use-text-style(p1);
-  @include use-text-ellipsis;
+  @include typography.use-font-scale(p1);
+  @include typography.use-text-ellipsis;
 }

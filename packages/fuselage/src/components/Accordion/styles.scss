@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-accordion {
   display: flex;
@@ -56,9 +57,10 @@
 .rcx-accordion-item__title {
   flex: 1 1 lengths.size(none);
 
-  @include use-text-style(s2);
-  @include use-text-ellipsis;
+  @include typography.use-text-ellipsis;
   white-space: nowrap;
+
+  @include typography.use-font-scale(s2);
 }
 
 .rcx-accordion-item__toggle-switch {

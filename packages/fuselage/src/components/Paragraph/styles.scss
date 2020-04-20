@@ -1,11 +1,12 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-paragraph {
   display: block;
 
   margin-block-end: lengths.margin(16);
-  @include use-text-style(p1);
+  @include typography.use-font-scale(p1);
   color: colors.foreground(default);
 
   @extend %--with-inline-elements;

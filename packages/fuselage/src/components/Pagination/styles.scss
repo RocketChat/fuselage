@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-pagination {
   display: flex;
@@ -58,7 +59,7 @@
 }
 
 .rcx-pagination__label {
-  @include use-text-style(c1);
+  @include typography.use-font-scale(c1);
 
   color: colors.foreground(hint);
 }
@@ -72,7 +73,7 @@
 }
 
 .rcx-pagination__list-item {
-  @include use-text-style(c1);
+  @include typography.use-font-scale(c1);
   display: flex;
 
   margin-inline: lengths.margin(2);
@@ -82,7 +83,7 @@
 }
 
 .rcx-pagination__link {
-  @include use-text-style(c1);
+  @include typography.use-font-scale(c1);
   @include clickable;
   display: inline-flex;
 
@@ -91,7 +92,7 @@
 
   &.disabled,
   &:disabled {
-    @include use-text-style(c2);
+    @include typography.use-font-scale(c2);
     cursor: default;
 
     color: colors.foreground(default);
@@ -100,7 +101,7 @@
 
 .rcx-pagination__back,
 .rcx-pagination__forward {
-  @include use-text-style(c1);
+  @include typography.use-font-scale(c1);
   @include clickable;
   display: inline-flex;
 

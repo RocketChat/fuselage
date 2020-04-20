@@ -1,10 +1,11 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-option {
   @include clickable;
-  @include use-text-style(p2);
-  @include use-text-ellipsis;
+  @include typography.use-font-scale(p2);
+  @include typography.use-text-ellipsis;
 
   padding: lengths.padding(8);
 

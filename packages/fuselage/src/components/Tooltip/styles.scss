@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 $tooltip-background-color: theme('tooltip-background-color', colors.neutral(900));
 $tooltip-text-color: theme('tooltip-text-color', colors.surface());
@@ -68,7 +69,7 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
 
   background-color: $tooltip-background-color;
 
-  @include use-text-style(p2);
+  @include typography.use-font-scale(p2);
 
   &--dir-up {
     @include triangle-direction('up');

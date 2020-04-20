@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 .rcx-field {
   display: flex;
@@ -10,7 +11,7 @@
   margin-block: lengths.margin(-2);
 
   &__label {
-    @include use-text-style(p2);
+    @include typography.use-font-scale(p2);
     flex: 1 1 0;
     align-self: flex-start;
 
@@ -20,7 +21,7 @@
   }
 
   &__description {
-    @include use-text-style(p1);
+    @include typography.use-font-scale(p1);
     margin-block: lengths.margin(2);
 
     color: colors.foreground(hint);
@@ -42,7 +43,7 @@
   }
 
   &__hint {
-    @include use-text-style(p1);
+    @include typography.use-font-scale(p1);
     margin-block: lengths.margin(2);
 
     color: colors.foreground(hint);
@@ -50,7 +51,7 @@
   }
 
   &__error {
-    @include use-text-style(p1);
+    @include typography.use-font-scale(p1);
     margin-block: lengths.margin(2);
 
     color: colors.foreground(danger);
