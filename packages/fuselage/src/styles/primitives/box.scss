@@ -1,20 +1,23 @@
+@use '../lengths.scss';
+@use '../typography.scss';
+
 %box {
-  &,
-  &::before,
-  &::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  flex: 0 1 auto;
 
-    transition: all $transitions-short-duration;
+  box-sizing: border-box;
+  margin: lengths.margin(none);
+  padding: lengths.padding(none);
 
-    border-width: $borders-width-none;
-    border-style: solid;
-    border-color: currentColor;
+  transition: all 230ms;
 
-    outline: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-variant-numeric: tabular-nums;
-  }
+  border-width: lengths.border-width(none);
+  border-style: solid;
+  border-color: currentColor;
+
+  outline: none;
+
+  font-family: typography.font-family(sans);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

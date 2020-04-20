@@ -29,8 +29,7 @@ export function Tag({
 
 Tag.propTypes = {
   textStyle: PropTypes.oneOf([
-    'h1', 's1', 's2', 'p1', 'p2', 'c1', 'c2', 'micro', 'mono',
-    'headline', 'subtitle', 'paragraph', 'caption',
+    'h1', 's1', 's2', 'p1', 'p2', 'c1', 'c2', 'micro',
   ]),
   variant: PropTypes.oneOf(['secondary', 'primary', 'danger']),
   round: PropTypes.bool,

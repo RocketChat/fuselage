@@ -1,26 +1,30 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
 .rcx-callout {
   display: flex;
 
-  padding-block: #{ $spaces-x16 };
-  padding-inline-start: #{ $spaces-x16 };
-  padding-inline-end: #{ $spaces-x32 };
+  padding-block: lengths.padding(16);
+  padding-inline-start: lengths.padding(16);
+  padding-inline-end: lengths.padding(32);
 
-  border-radius: #{ $borders-radius-x2 };
+  border-radius: lengths.border-radius(2);
 
   &--type-info {
-    background-color: #{ $colors-b200 };
+    background-color: colors.info(200);
   }
 
   &--type-success {
-    background-color: #{ $colors-g200 };
+    background-color: colors.success(200);
   }
 
   &--type-warning {
-    background-color: #{ $colors-y200 };
+    background-color: colors.warning(200);
   }
 
   &--type-danger {
-    background-color: #{ $colors-r200 };
+    background-color: colors.danger(200);
   }
 }
 
@@ -28,26 +32,26 @@
   display: flex;
 
   overflow: hidden;
+  flex-flow: column nowrap;
   flex: 1 1 0;
 
-  margin-inline-start: #{ $spaces-x8 };
+  margin-inline-start: lengths.margin(8);
 
-  color: #{ $text-colors-default };
-  flex-flow: column nowrap;
+  color: colors.foreground(default);
 
-  @include use-text-style(c1);
+  @include typography.use-font-scale(c1);
 }
 
 .rcx-callout__title {
-  padding-block: #{ $spaces-x2 };
+  padding-block: lengths.padding(2);
 
-  @include use-text-style(c2);
-  @include use-text-ellipsis;
+  @include typography.use-font-scale(c2);
+  @include typography.use-text-ellipsis;
   white-space: nowrap;
 }
 
 .rcx-callout__children {
   display: block;
 
-  padding-block: #{ $spaces-x2 };
+  padding-block: lengths.padding(2);
 }

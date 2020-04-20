@@ -1,11 +1,16 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
 .rcx-pagination {
   display: flex;
-
-  padding-block: $spaces-x16;
-  padding-inline: $spaces-x24;
+  flex-flow: column-reverse nowrap;
 
   align-items: center;
-  flex-flow: column-reverse nowrap;
+
+  padding:
+    lengths.padding(12)
+    lengths.padding(24);
 
   @include on-breakpoint(sm) {
     flex-direction: column;
@@ -21,8 +26,8 @@
     &::before {
       position: absolute;
       top: 0;
-      right: 0;
       left: 0;
+      right: 0;
 
       height: 2px;
 
@@ -37,69 +42,71 @@
 .rcx-pagination__left,
 .rcx-pagination__right {
   display: flex;
-  flex: 0 1 auto;
-  align-items: center;
   flex-flow: row nowrap;
+  align-items: center;
+  flex: 0 1 auto;
 }
 
 .rcx-pagination__left {
-  margin-inline-start: 0;
   justify-content: center;
+
+  margin-inline-start: lengths.margin(none);
 
   @include on-breakpoint(sm) {
     margin-inline-start: auto;
   }
 
   @include on-breakpoint(md) {
-    margin-inline-start: 0;
+    margin-inline-start: lengths.margin(none);
     margin-inline-end: auto;
   }
 }
 
 .rcx-pagination__right {
-  margin-inline-start: 0;
-
-  align-items: center;
   flex-flow: column nowrap;
 
+  align-items: center;
+
+  margin-inline-start: lengths.margin(none);
+
   @include on-breakpoint(sm) {
-    margin-inline-start: auto;
-    align-items: center;
     flex-flow: row nowrap;
+    align-items: center;
+
+    margin-inline-start: auto;
   }
 }
 
 .rcx-pagination__label {
-  @include use-text-style(c1);
+  @include typography.use-font-scale(c1);
 
-  color: $text-colors-hint;
+  color: colors.foreground(hint);
 }
 
 .rcx-pagination__list {
   display: flex;
-
-  margin-inline: $spaces-x4;
-  align-items: center;
   flex-flow: row nowrap;
+  align-items: center;
+
+  margin-inline: lengths.margin(4);
 }
 
 .rcx-pagination__list-item {
-  @include use-text-style(c1);
+  @include typography.use-font-scale(c1);
   display: flex;
 
-  margin-inline: $spaces-x2;
-  padding-block: $spaces-x4;
-  padding-inline: $spaces-x4;
+  margin-inline: lengths.margin(2);
+  padding: lengths.padding(4);
 
-  color: $text-colors-hint;
+  color: colors.foreground(hint);
 }
 
 .rcx-pagination__link {
-  @include use-text-style(c1);
+  @include typography.use-font-scale(c1);
   @include clickable;
   display: inline-flex;
 
-  color: $text-colors-primary;
+  color: colors.foreground(link);
   background: transparent;
 
   &:hover:not(.disabled):not(:disabled),
@@ -109,24 +116,24 @@
 
   &.disabled,
   &:disabled {
-    @include use-text-style(c2);
+    @include typography.use-font-scale(c2);
     cursor: default;
 
-    color: $text-colors-default;
+    color: colors.foreground(default);
   }
 }
 
 .rcx-pagination__back,
 .rcx-pagination__forward {
-  @include use-text-style(c1);
+  @include typography.use-font-scale(c1);
   @include clickable;
   display: inline-flex;
 
-  color: $text-colors-primary;
+  color: colors.foreground(link);
   background: transparent;
 
   &.disabled,
   &:disabled {
-    color: $text-colors-disabled;
+    color: colors.foreground(disabled);
   }
 }

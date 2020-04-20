@@ -62,7 +62,7 @@ export function TableCell({
   return <Box
     is={isInsideHead ? 'th' : 'td'}
     componentClassName='rcx-table__cell'
-    textStyle='paragraph'
+    textStyle='p1'
     textColor='default'
     mod-align={align}
     mod-header={isInsideHead}

@@ -1,6 +1,8 @@
+@use '../../styles/typography.scss';
+
 .rcx-chip {
   @include clickable;
-  @include use-text-ellipsis;
+  @include typography.use-text-ellipsis;
 
   @extend %button--secondary;
   border-width: 0;
@@ -13,7 +15,7 @@
   }
 
   &__text {
-    @include use-text-ellipsis;
+    @include typography.use-text-ellipsis;
     white-space: nowrap;
   }
 }

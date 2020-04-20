@@ -1,17 +1,21 @@
+@use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
+
 .rcx-label {
-  @include use-text-style(p2);
-  @include use-text-color(default);
+  @include typography.use-font-scale(p2);
+  color: colors.foreground(default);
 
   &--disabled {
-    @include use-text-color(hint);
     pointer-events: none;
+
+    color: colors.foreground(hint);
   }
 
   &--required {
     &::before {
       content: '*\0a0';
 
-      @include use-text-color(danger);
+      color: colors.foreground(danger);
     }
   }
 }

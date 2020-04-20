@@ -1,31 +1,34 @@
+@use '../../styles/lengths.scss';
+
 .rcx-button-group {
   display: flex;
-
-  align-items: center;
 
   flex-flow: row nowrap;
   justify-content: flex-start;
 
+  align-items: center;
+
   & > .rcx-button-group__item {
-    margin-inline: #{ $spaces-x8 };
+    margin-inline: lengths.margin(8);
 
     &:first-child {
-      margin-inline-start: 0;
+      margin-inline-start: lengths.margin(none);
     }
 
     &:last-child {
-      margin-inline-end: 0;
+      margin-inline-end: lengths.margin(none);
     }
   }
 
   &--wrap {
-    margin-block-end: calc(-1 * #{ $spaces-x16 });
     flex-wrap: wrap;
 
+    margin-block-end: lengths.margin(-16);
+
     & > .rcx-button-group__item {
-      margin-block-end: #{ $spaces-x16 };
-      margin-inline-start: 0;
-      margin-inline-end: #{ $spaces-x16 };
+      margin-block-end: lengths.margin(16);
+      margin-inline-start: lengths.margin(none);
+      margin-inline-end: lengths.margin(16);
     }
   }
 
@@ -41,11 +44,11 @@
     flex-direction: column;
 
     & > .rcx-button-group__item {
-      margin-inline: 0;
-      margin-block-end: #{ $spaces-x16 };
+      margin-block-end: lengths.margin(16);
+      margin-inline: lengths.margin(none);
 
       &:last-child {
-        margin-block-end: 0;
+        margin-block-end: lengths.margin(none);
       }
     }
   }

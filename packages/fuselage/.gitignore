@@ -1,3 +1,4 @@
+/.storybook/jest-results.json
 /dist/
 /storybook-static/
 /bundle-report.html

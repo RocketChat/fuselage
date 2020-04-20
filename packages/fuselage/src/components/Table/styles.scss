@@ -1,9 +1,15 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
 .rcx-table {
   display: table;
 
   width: 100%;
 
-  border-spacing: to-rem(0) $spaces-x2;
+  border-spacing:
+    lengths.padding(none)
+    lengths.padding(2);
 
   border-collapse: separate;
 
@@ -27,13 +33,12 @@
 
     &::after {
       position: absolute;
-      right: 0;
-      left: 0;
+      inset-inline: lengths.inset(none);
 
       display: flex;
 
       content: '';
-      border-block-end: $borders-width-x2 solid $colors-n300;
+      border-block-end: lengths.border-width(2) solid colors.neutral(300);
     }
   }
 
@@ -79,26 +84,25 @@
     &--action:hover,
     &--action:focus {
       @include clickable();
-      background-color: $colors-n200;
+      background-color: colors.neutral(200);
     }
   }
 
   &__cell {
     display: table-cell;
 
-    padding: $spaces-x8;
+    padding: lengths.padding(8);
 
     user-select: text;
     text-align: unset;
     vertical-align: middle;
 
-    color: $text-colors-info;
-
-    @include use-text-style(p1);
+    color: colors.foreground(info);
+    @include typography.use-font-scale(p1);
 
     &--header {
-      @include use-text-style(c2);
-      color: $text-colors-hint;
+      @include typography.use-font-scale(c2);
+      color: colors.foreground(hint);
     }
 
     &--clickable {
