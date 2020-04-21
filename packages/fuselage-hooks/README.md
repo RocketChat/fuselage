@@ -39,16 +39,18 @@ yarn test
     -   [Parameters](#parameters-4)
 -   [useDebouncedValue](#usedebouncedvalue)
     -   [Parameters](#parameters-5)
--   [useMediaQuery](#usemediaquery)
+-   [useLazyRef](#uselazyref)
     -   [Parameters](#parameters-6)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-7)
--   [useMutableCallback](#usemutablecallback)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-8)
--   [useSafely](#usesafely)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-9)
--   [useToggle](#usetoggle)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-10)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-11)
 
 ### useClassName
 
@@ -122,6 +124,16 @@ Hook to keep a debounced reference of a value.
 -   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay
 
 Returns **any** a debounced value
+
+### useLazyRef
+
+Hook equivalent to useRef, but with a lazy initialization for computed value.
+
+#### Parameters
+
+-   `initializer` **function (): T** the function the computes the ref value
+
+Returns **any** the ref
 
 ### useMediaQuery
 
