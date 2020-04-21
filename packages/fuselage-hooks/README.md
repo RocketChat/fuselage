@@ -37,14 +37,18 @@ yarn test
     -   [Parameters](#parameters-3)
 -   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-4)
--   [useMediaQuery](#usemediaquery)
+-   [useDebouncedValue](#usedebouncedvalue)
     -   [Parameters](#parameters-5)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-6)
--   [useMutableCallback](#usemutablecallback)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-7)
--   [useToggle](#usetoggle)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-8)
+-   [useSafely](#usesafely)
+    -   [Parameters](#parameters-9)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-10)
 
 ### useClassName
 
@@ -108,6 +112,17 @@ Hook to memoize a debounced version of a callback.
 
 Returns **function (): any** a memoized and debounced callback
 
+### useDebouncedValue
+
+Hook to keep a debounced reference of a value.
+
+#### Parameters
+
+-   `value` **any** the value to be debounced
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay
+
+Returns **any** a debounced value
+
 ### useMediaQuery
 
 Hook to listen to a media query.
@@ -138,6 +153,19 @@ Hook to create a stable callback from a mutable one.
 -   `fn` **function (): any** the mutable callback
 
 Returns **any** a stable callback
+
+### useSafely
+
+Hook that wraps pairs of state and updater to provide a new updater which
+can be safe and asynchronically called even after the component unmounted.
+
+#### Parameters
+
+-   `pair` **\[any, function (): any]** the state and updater pair which will be patched
+    -   `pair.0`  the state value
+    -   `pair.1`  the state updater function
+
+Returns **any** a state value and safe updater pair
 
 ### useToggle
 

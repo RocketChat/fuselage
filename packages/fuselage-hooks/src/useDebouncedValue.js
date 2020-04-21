@@ -20,7 +20,7 @@ export const useDebouncedValue = (value: any, delay: number) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [value]);
+  }, [value, delay]);
 
   return debouncedValue;
 };
