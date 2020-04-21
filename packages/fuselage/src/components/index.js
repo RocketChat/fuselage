@@ -13,7 +13,6 @@ export * from './Headline';
 export * from './Icon';
 export * from './InputBox';
 export * from './Label';
-export * from './Level';
 export * from './Pagination';
 export * from './Paragraph';
 export * from './PasswordInput';
