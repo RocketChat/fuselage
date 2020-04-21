@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { isRunningOnBrowser } from './helpers';
+
 /**
  * Hook to listen to a media query.
  *
@@ -10,7 +12,7 @@ import { useEffect, useState } from 'react';
  */
 export const useMediaQuery = (query: string): bool => {
   const [matches, setMatches] = useState(() => {
-    if (!query || typeof window === 'undefined' || !window.matchMedia) {
+    if (!query || !isRunningOnBrowser) {
       return false;
     }
 
@@ -19,7 +21,7 @@ export const useMediaQuery = (query: string): bool => {
   });
 
   useEffect(() => {
-    if (!query || typeof window === 'undefined' || !window.matchMedia) {
+    if (!query || !isRunningOnBrowser) {
       return;
     }
 
