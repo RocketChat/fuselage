@@ -5,7 +5,7 @@
 import { runHooksOnServer } from '../.jest/helpers';
 import { useMediaQuery } from '../src';
 
-describe('useMediaQuery hook', () => {
+describe('useMediaQuery hook on server', () => {
   it('returns false for undefined media query', () => {
     const value = runHooksOnServer(() => useMediaQuery());
     expect(value).toBe(false);
