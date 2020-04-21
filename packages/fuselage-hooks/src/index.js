@@ -1,5 +1,6 @@
 // @flow
 
+export * from './useAutoFocus';
 export * from './useClassName';
 export * from './useDebouncedUpdates';
 export * from './useDebouncedCallback';

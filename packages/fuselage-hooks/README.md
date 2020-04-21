@@ -27,30 +27,43 @@ yarn test
 
 #### Table of Contents
 
--   [useClassName](#useclassname)
+-   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
--   [useDebouncedUpdates](#usedebouncedupdates)
+-   [useClassName](#useclassname)
     -   [Parameters](#parameters-1)
--   [useDebouncedReducer](#usedebouncedreducer)
+-   [useDebouncedUpdates](#usedebouncedupdates)
     -   [Parameters](#parameters-2)
--   [useDebouncedState](#usedebouncedstate)
+-   [useDebouncedReducer](#usedebouncedreducer)
     -   [Parameters](#parameters-3)
--   [useDebouncedCallback](#usedebouncedcallback)
+-   [useDebouncedState](#usedebouncedstate)
     -   [Parameters](#parameters-4)
--   [useDebouncedValue](#usedebouncedvalue)
+-   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-5)
--   [useLazyRef](#uselazyref)
+-   [useDebouncedValue](#usedebouncedvalue)
     -   [Parameters](#parameters-6)
--   [useMediaQuery](#usemediaquery)
+-   [useLazyRef](#uselazyref)
     -   [Parameters](#parameters-7)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-8)
--   [useMutableCallback](#usemutablecallback)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-9)
--   [useSafely](#usesafely)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-10)
--   [useToggle](#usetoggle)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-11)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-12)
+
+### useAutoFocus
+
+Hook to automatically request focus for an DOM element.
+
+#### Parameters
+
+-   `isFocused` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, the focus will be requested (optional, default `true`)
+-   `options` **FocusOptions** options of the focus request
+
+Returns **any** the ref which holds the element
 
 ### useClassName
 
