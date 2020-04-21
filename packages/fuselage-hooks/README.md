@@ -37,16 +37,14 @@ yarn test
     -   [Parameters](#parameters-3)
 -   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-4)
--   [useExclusiveBooleanProps](#useexclusivebooleanprops)
-    -   [Parameters](#parameters-5)
 -   [useMediaQuery](#usemediaquery)
-    -   [Parameters](#parameters-6)
+    -   [Parameters](#parameters-5)
 -   [useMergedRefs](#usemergedrefs)
-    -   [Parameters](#parameters-7)
+    -   [Parameters](#parameters-6)
 -   [useMutableCallback](#usemutablecallback)
-    -   [Parameters](#parameters-8)
+    -   [Parameters](#parameters-7)
 -   [useToggle](#usetoggle)
-    -   [Parameters](#parameters-9)
+    -   [Parameters](#parameters-8)
 
 ### useClassName
 
@@ -109,18 +107,6 @@ Hook to memoize a debounced version of a callback.
 -   `deps` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>?** the hook dependencies
 
 Returns **function (): any** a memoized and debounced callback
-
-### useExclusiveBooleanProps
-
-Hook for asserting mutually exclusive boolean props. Useful for components that use boolean props
-to choose styling variants.
-
-#### Parameters
-
--   `props` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the mutually exclusive boolean props
-
-
--   Throws **any** if two or more booleans props are set as true
 
 ### useMediaQuery
 
