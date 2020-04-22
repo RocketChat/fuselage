@@ -27,39 +27,24 @@ yarn test
 
 #### Table of Contents
 
--   [useClassName](#useclassname)
-    -   [Parameters](#parameters)
 -   [useDebouncedUpdates](#usedebouncedupdates)
-    -   [Parameters](#parameters-1)
+    -   [Parameters](#parameters)
 -   [useDebouncedReducer](#usedebouncedreducer)
-    -   [Parameters](#parameters-2)
+    -   [Parameters](#parameters-1)
 -   [useDebouncedState](#usedebouncedstate)
-    -   [Parameters](#parameters-3)
+    -   [Parameters](#parameters-2)
 -   [useDebouncedCallback](#usedebouncedcallback)
-    -   [Parameters](#parameters-4)
+    -   [Parameters](#parameters-3)
 -   [useExclusiveBooleanProps](#useexclusivebooleanprops)
-    -   [Parameters](#parameters-5)
+    -   [Parameters](#parameters-4)
 -   [useMediaQuery](#usemediaquery)
-    -   [Parameters](#parameters-6)
+    -   [Parameters](#parameters-5)
 -   [useMergedRefs](#usemergedrefs)
-    -   [Parameters](#parameters-7)
+    -   [Parameters](#parameters-6)
 -   [useMutableCallback](#usemutablecallback)
-    -   [Parameters](#parameters-8)
+    -   [Parameters](#parameters-7)
 -   [useToggle](#usetoggle)
-    -   [Parameters](#parameters-9)
-
-### useClassName
-
-Hook to generate a BEM-compatible `className` value for a component.
-
-#### Parameters
-
--   `componentClassName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the style class which identifies the component
--   `modifiers` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the modifiers applied to the style class (optional, default `{}`)
--   `classNames` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** the additional style classes appended to the `className`
-
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a BEM-compatible `className` in the format
- `(<block>|<block>__<element>) [...(<block>--<modifier>|<block>__<element>--<modifier>)] [...classNames]`
+    -   [Parameters](#parameters-8)
 
 ### useDebouncedUpdates
 

@@ -1,6 +1,5 @@
 // @flow
 
-export * from './useClassName';
 export * from './useDebouncedUpdates';
 export * from './useDebouncedCallback';
 export * from './useExclusiveBooleanProps';
