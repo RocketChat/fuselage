@@ -27,24 +27,41 @@ yarn test
 
 #### Table of Contents
 
--   [useDebouncedUpdates](#usedebouncedupdates)
+-   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
--   [useDebouncedReducer](#usedebouncedreducer)
+-   [useDebouncedUpdates](#usedebouncedupdates)
     -   [Parameters](#parameters-1)
--   [useDebouncedState](#usedebouncedstate)
+-   [useDebouncedReducer](#usedebouncedreducer)
     -   [Parameters](#parameters-2)
--   [useDebouncedCallback](#usedebouncedcallback)
+-   [useDebouncedState](#usedebouncedstate)
     -   [Parameters](#parameters-3)
--   [useExclusiveBooleanProps](#useexclusivebooleanprops)
+-   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-4)
--   [useMediaQuery](#usemediaquery)
+-   [useDebouncedValue](#usedebouncedvalue)
     -   [Parameters](#parameters-5)
--   [useMergedRefs](#usemergedrefs)
+-   [useLazyRef](#uselazyref)
     -   [Parameters](#parameters-6)
--   [useMutableCallback](#usemutablecallback)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-7)
--   [useToggle](#usetoggle)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-8)
+-   [useMutableCallback](#usemutablecallback)
+    -   [Parameters](#parameters-9)
+-   [useSafely](#usesafely)
+    -   [Parameters](#parameters-10)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-11)
+
+### useAutoFocus
+
+Hook to automatically request focus for an DOM element.
+
+#### Parameters
+
+-   `isFocused` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, the focus will be requested (optional, default `true`)
+-   `options` **FocusOptions** options of the focus request
+
+Returns **any** the ref which holds the element
 
 ### useDebouncedUpdates
 
@@ -95,17 +112,26 @@ Hook to memoize a debounced version of a callback.
 
 Returns **function (): any** a memoized and debounced callback
 
-### useExclusiveBooleanProps
+### useDebouncedValue
 
-Hook for asserting mutually exclusive boolean props. Useful for components that use boolean props
-to choose styling variants.
+Hook to keep a debounced reference of a value.
 
 #### Parameters
 
--   `props` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the mutually exclusive boolean props
+-   `value` **any** the value to be debounced
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay
 
+Returns **any** a debounced value
 
--   Throws **any** if two or more booleans props are set as true
+### useLazyRef
+
+Hook equivalent to useRef, but with a lazy initialization for computed value.
+
+#### Parameters
+
+-   `initializer` **function (): T** the function the computes the ref value
+
+Returns **any** the ref
 
 ### useMediaQuery
 
@@ -137,6 +163,19 @@ Hook to create a stable callback from a mutable one.
 -   `fn` **function (): any** the mutable callback
 
 Returns **any** a stable callback
+
+### useSafely
+
+Hook that wraps pairs of state and updater to provide a new updater which
+can be safe and asynchronically called even after the component unmounted.
+
+#### Parameters
+
+-   `pair` **\[any, function (): any]** the state and updater pair which will be patched
+    -   `pair.0`  the state value
+    -   `pair.1`  the state updater function
+
+Returns **any** a state value and safe updater pair
 
 ### useToggle
 

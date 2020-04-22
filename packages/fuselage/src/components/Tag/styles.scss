@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 $tag-colors-secondary-color: theme('tag-colors-secondary-color', colors.foreground(primary));
 $tag-colors-secondary-background-color: theme('tag-colors-secondary-background-color', colors.primary(100));
@@ -30,6 +31,8 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
   word-break: keep-all;
 
   border-radius: lengths.border-radius(4);
+
+  @include typography.use-font-scale(micro);
 
   &--secondary {
     color: $tag-colors-secondary-color;
