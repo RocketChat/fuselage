@@ -1,6 +1,8 @@
 // @flow
 
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { isRunningOnBrowser } from './helpers';
 
 /**
  * Hook to listen to a media query.
@@ -10,7 +12,7 @@ import { useLayoutEffect, useState } from 'react';
  */
 export const useMediaQuery = (query: string): bool => {
   const [matches, setMatches] = useState(() => {
-    if (!query) {
+    if (!query || !isRunningOnBrowser) {
       return false;
     }
 
@@ -18,28 +20,22 @@ export const useMediaQuery = (query: string): bool => {
     return !!matches;
   });
 
-  useLayoutEffect(() => {
-    if (!query) {
+  useEffect(() => {
+    if (!query || !isRunningOnBrowser) {
       return;
     }
 
-    let mounted = true;
-    const mql = window.matchMedia(query);
+    const mediaQueryListener = window.matchMedia(query);
+    setMatches(mediaQueryListener.matches);
 
     const handleChange = () => {
-      if (!mounted) {
-        return;
-      }
-
-      setMatches(!!mql.matches);
+      setMatches(!!mediaQueryListener.matches);
     };
 
-    mql.addListener(handleChange);
-    setMatches(mql.matches);
+    mediaQueryListener.addListener(handleChange);
 
     return () => {
-      mounted = false;
-      mql.removeListener(handleChange);
+      mediaQueryListener.removeListener(handleChange);
     };
   }, [query]);
 

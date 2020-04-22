@@ -24,3 +24,5 @@ export const debounce = (fn: (...Array<any>) => any, delay: number) => {
 
   return f;
 };
+
+export const isRunningOnBrowser = typeof window !== 'undefined' && window.document;
