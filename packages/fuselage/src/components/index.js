@@ -22,7 +22,6 @@ export * from './Modal';
 export * from './NumberInput';
 export * from './Options';
 export * from './Pagination';
-export * from './Paragraph';
 export * from './PasswordInput';
 export * from './RadioButton';
 export * from './SearchInput';
