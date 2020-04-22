@@ -29,30 +29,28 @@ yarn test
 
 -   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
--   [useClassName](#useclassname)
-    -   [Parameters](#parameters-1)
 -   [useDebouncedUpdates](#usedebouncedupdates)
-    -   [Parameters](#parameters-2)
+    -   [Parameters](#parameters-1)
 -   [useDebouncedReducer](#usedebouncedreducer)
-    -   [Parameters](#parameters-3)
+    -   [Parameters](#parameters-2)
 -   [useDebouncedState](#usedebouncedstate)
-    -   [Parameters](#parameters-4)
+    -   [Parameters](#parameters-3)
 -   [useDebouncedCallback](#usedebouncedcallback)
-    -   [Parameters](#parameters-5)
+    -   [Parameters](#parameters-4)
 -   [useDebouncedValue](#usedebouncedvalue)
-    -   [Parameters](#parameters-6)
+    -   [Parameters](#parameters-5)
 -   [useLazyRef](#uselazyref)
-    -   [Parameters](#parameters-7)
+    -   [Parameters](#parameters-6)
 -   [useMediaQuery](#usemediaquery)
-    -   [Parameters](#parameters-8)
+    -   [Parameters](#parameters-7)
 -   [useMergedRefs](#usemergedrefs)
-    -   [Parameters](#parameters-9)
+    -   [Parameters](#parameters-8)
 -   [useMutableCallback](#usemutablecallback)
-    -   [Parameters](#parameters-10)
+    -   [Parameters](#parameters-9)
 -   [useSafely](#usesafely)
-    -   [Parameters](#parameters-11)
+    -   [Parameters](#parameters-10)
 -   [useToggle](#usetoggle)
-    -   [Parameters](#parameters-12)
+    -   [Parameters](#parameters-11)
 
 ### useAutoFocus
 
@@ -64,19 +62,6 @@ Hook to automatically request focus for an DOM element.
 -   `options` **FocusOptions** options of the focus request
 
 Returns **any** the ref which holds the element
-
-### useClassName
-
-Hook to generate a BEM-compatible `className` value for a component.
-
-#### Parameters
-
--   `componentClassName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the style class which identifies the component
--   `modifiers` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the modifiers applied to the style class (optional, default `{}`)
--   `classNames` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** the additional style classes appended to the `className`
-
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a BEM-compatible `className` in the format
- `(<block>|<block>__<element>) [...(<block>--<modifier>|<block>__<element>--<modifier>)] [...classNames]`
 
 ### useDebouncedUpdates
 

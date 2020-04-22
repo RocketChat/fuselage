@@ -123,4 +123,3 @@ export * from './Flex';
 export * from './Margins';
 export * from './Position';
 export * from './Scrollable';
-export * from './Size';
