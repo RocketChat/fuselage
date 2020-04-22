@@ -11,6 +11,7 @@ export const CheckBox = forwardRef(function CheckBox({
   indeterminate,
   invisible,
   style,
+  title,
   onChange,
   ...props
 }, ref) {
@@ -26,7 +27,15 @@ export const CheckBox = forwardRef(function CheckBox({
     onChange && onChange.call(innerRef.current, event);
   }, [innerRef, indeterminate, onChange]);
 
-  return <Box is={Label} componentClassName='rcx-check-box' className={className} hidden={hidden} invisible={invisible} style={style}>
+  return <Box
+    is={Label}
+    componentClassName='rcx-check-box'
+    className={className}
+    hidden={hidden}
+    invisible={invisible}
+    style={style}
+    title={title}
+  >
     <Box is='input' componentClassName='rcx-check-box__input' ref={mergedRef} type='checkbox' onChange={handleChange} {...props} />
     <Box is='i' componentClassName='rcx-check-box__fake' aria-hidden='true' />
   </Box>;
