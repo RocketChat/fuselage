@@ -19,6 +19,7 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
 
 .rcx-tag {
   display: inline-block;
+  overflow: hidden;
 
   width: fit-content;
 
@@ -26,7 +27,10 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
     lengths.padding(2)
     lengths.padding(4);
 
+  white-space: nowrap;
+
   text-decoration: none;
+  text-overflow: ellipsis;
 
   word-break: keep-all;
 

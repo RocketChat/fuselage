@@ -13,8 +13,15 @@
 
   border-collapse: separate;
 
+  background-color: colors.surface();
+
   &--fixed {
     table-layout: fixed;
+  }
+
+  &__selection {
+    border-radius: lengths.border-radius(2);
+    background-color: colors.primary(500);
   }
 
   &__wrapper {
@@ -43,8 +50,37 @@
     display: table-footer-group;
   }
 
+  &--striped {
+    .rcx-table__row:nth-child(even) {
+      background-color: colors.neutral(100);
+    }
+  }
+
+  &--sticky {
+    .rcx-table__cell--header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+
+      background-color: colors.surface();
+    }
+  }
+
   &__row {
     display: table-row;
+
+    background-color: colors.surface();
+
+    &--selected {
+      background-color: colors.primary(100);
+
+      &.rcx-table__row--action {
+        &:hover,
+        &:focus {
+          background-color: colors.primary(300);
+        }
+      }
+    }
 
     &--action:hover,
     &--action:focus {

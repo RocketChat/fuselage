@@ -5,6 +5,7 @@
 .rcx-pagination {
   display: flex;
   flex-flow: column-reverse nowrap;
+
   align-items: center;
 
   padding:
@@ -17,6 +18,24 @@
 
   @include on-breakpoint(md) {
     flex-direction: row;
+  }
+
+  &--divider {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 2px;
+
+      content: '';
+
+      border-radius: lengths.border-radius(2);
+      background-color: colors.neutral(300);
+    }
   }
 }
 
@@ -89,6 +108,11 @@
 
   color: colors.foreground(link);
   background: transparent;
+
+  &:hover:not(.disabled):not(:disabled),
+  &:focus:not(.disabled):not(:disabled) {
+    text-decoration: underline;
+  }
 
   &.disabled,
   &:disabled {

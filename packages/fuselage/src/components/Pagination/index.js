@@ -19,6 +19,7 @@ const defaultItemsPerPageLabel = () => 'Items per page:';
 const defaultShowingResultsLabel = ({ count, current, itemsPerPage }) =>
   `Showing results ${ current + 1 } - ${ Math.min(current + itemsPerPage, count) } of ${ count }`;
 
+
 export function Pagination({
   count,
   current = 0,
@@ -27,6 +28,7 @@ export function Pagination({
   showingResultsLabel = defaultShowingResultsLabel,
   onSetItemsPerPage,
   onSetCurrent,
+  divider,
   ...props
 }) {
   const itemsPerPageOptions = [25, 50, 100].filter((i) => i <= count);
@@ -63,14 +65,14 @@ export function Pagination({
     onSetCurrent && onSetCurrent(page * itemsPerPage);
   };
 
-  return <Container {...props}>
+  return <Container mod-divider={divider} {...props}>
     {hasItemsPerPageSelection && (
       <Left>
         <Label>{itemsPerPageLabel(renderingContext)}</Label>
         <List>
           {itemsPerPageOptions.map((itemsPerPageOption) =>
             <ListItem key={itemsPerPageOption}>
-              <Link disabled={itemsPerPage === itemsPerPageOption} onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}>
+              <Link tabIndex={ itemsPerPage === itemsPerPageOption ? -1 : 0 } disabled={itemsPerPage === itemsPerPageOption} onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}>
                 {itemsPerPageOption}
               </Link>
             </ListItem>,

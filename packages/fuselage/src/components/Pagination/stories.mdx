@@ -17,4 +17,17 @@ import { Pagination } from '../..';
   </Story>
 </Preview>
 
+
+<Preview>
+  <Story name='Divider'>
+    <Pagination
+      divider
+      count={500}
+      current={50}
+      onSetItemsPerPage={action('setItemsPerPage')}
+      onSetCurrent={action('setCurrent')}
+    />
+  </Story>
+</Preview>
+
 <Props of={Pagination} />
