@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.1...v0.8.0) (2020-04-22)
+
+
+### Features
+
+* New hooks and server-side compatibility ([#203](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/203)) ([ca620a0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ca620a0436dbbb89290e60ed1658985ece54f110))
+
+
+
+
+
 ## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-hooks
