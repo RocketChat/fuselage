@@ -1,51 +1,60 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
 .rcx-field {
   display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
 
   width: 100%;
-  margin-block: calc(-1 * #{ $spaces-x2 });
-  align-items: stretch;
-  flex-flow: column nowrap;
+  margin-block: lengths.margin(-2);
 
   &__label {
-    @include use-text-style(p2);
-    @include use-text-color(default);
+    @include typography.use-font-scale(p2);
     flex: 1 1 0;
-
-    margin-block: $spaces-x2;
     align-self: flex-start;
+
+    margin-block: lengths.margin(2);
+
+    color: colors.foreground(default);
   }
 
   &__description {
-    @include use-text-style(p1);
-    @include use-text-color(hint);
-    @extend %rich-text--inline;
-    margin-block: $spaces-x2;
+    @include typography.use-font-scale(p1);
+    margin-block: lengths.margin(2);
+
+    color: colors.foreground(hint);
+    @extend %--with-inline-elements;
   }
 
   &__row {
     display: flex;
-
-    margin-block: $spaces-x4 $spaces-x2;
-    align-items: center;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
+
+    margin-block-start: lengths.margin(4);
+    margin-block-end: lengths.margin(2);
 
     & .rcx-field__label {
-      padding-inline-start: $spaces-x8;
+      padding-inline-start: lengths.padding(8);
     }
   }
 
   &__hint {
-    @include use-text-style(p1);
-    @include use-text-color(hint);
-    @extend %rich-text--inline;
-    margin-block: $spaces-x2;
+    @include typography.use-font-scale(p1);
+    margin-block: lengths.margin(2);
+
+    color: colors.foreground(hint);
+    @extend %--with-inline-elements;
   }
 
   &__error {
-    @include use-text-style(p1);
-    @include use-text-color(danger);
-    @extend %rich-text--inline;
-    margin-block: $spaces-x2;
+    @include typography.use-font-scale(p1);
+    margin-block: lengths.margin(2);
+
+    color: colors.foreground(danger);
+    @extend %--with-inline-elements;
   }
 }

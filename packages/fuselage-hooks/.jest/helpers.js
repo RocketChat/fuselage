@@ -1,5 +1,6 @@
 import React, { useReducer, Component, createElement } from 'react';
 import ReactDOM, { render, unmountComponentAtNode } from 'react-dom';
+import { renderToString } from 'react-dom/server';
 import { act } from 'react-dom/test-utils';
 
 export const runHooks = (fn, mutations = []) => {
@@ -54,4 +55,17 @@ export const runHooks = (fn, mutations = []) => {
   }
 
   return values;
+};
+
+export const runHooksOnServer = (fn) => {
+  let returnedValue;
+
+  function FunctionalComponent() {
+    returnedValue = fn();
+    return null;
+  }
+
+  renderToString(<FunctionalComponent />);
+
+  return returnedValue;
 };

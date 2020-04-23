@@ -1,0 +1,89 @@
+@use 'sass:color';
+@use '~@rocket.chat/fuselage-tokens/colors.scss' as token-colors;
+
+@function _check-grade($grade) {
+  @if $grade % 100 != 0 or $grade / 100 <= 0 or $grade / 100 > 9 {
+    @error 'invalid color grade';
+  }
+
+  @return $grade;
+}
+
+@function _get-color($prefix, $grade, $alpha) {
+  @if $grade % 100 != 0 or $grade / 100 <= 0 or $grade / 100 > 9 {
+    @error 'invalid color grade';
+  }
+
+  $base-color: map-get(token-colors.$colors, #{ $prefix }#{ $grade });
+
+  @if $alpha != null {
+    @return color.change($base-color, $alpha: $alpha);
+  }
+
+  @return $base-color;
+}
+
+@function _get-varname($prefix, $grade, $alpha) {
+  @if $grade % 100 != 0 or $grade / 100 <= 0 or $grade / 100 > 9 {
+    @error 'invalid color grade';
+  }
+
+  @if $alpha != null {
+    @return --rcx-color-#{ $prefix }-#{ $grade }-#{ $alpha * 100 };
+  }
+
+  @return --rcx-color-#{ $prefix }-#{ $grade };
+}
+
+@function neutral($grade, $alpha: null) {
+  @return var(_get-varname(neutral, $grade, $alpha), _get-color(n, $grade, $alpha));
+}
+
+@function primary($grade, $alpha: null) {
+  @return var(_get-varname(primary, $grade, $alpha), _get-color(b, $grade, $alpha));
+}
+
+@function info($grade, $alpha: null) {
+  @return var(_get-varname(info, $grade, $alpha), _get-color(b, $grade, $alpha));
+}
+
+@function success($grade, $alpha: null) {
+  @return var(_get-varname(success, $grade, $alpha), _get-color(g, $grade, $alpha));
+}
+
+@function warning($grade, $alpha: null) {
+  @return var(_get-varname(warning, $grade, $alpha), _get-color(y, $grade, $alpha));
+}
+
+@function danger($grade, $alpha: null) {
+  @return var(_get-varname(danger, $grade, $alpha), _get-color(r, $grade, $alpha));
+}
+
+@function surface() {
+  @return var(--rcx-color-surface, white);
+}
+
+$-foreground-colors: (
+  default: map-get(token-colors.$colors, n800),
+  info: map-get(token-colors.$colors, n700),
+  hint: map-get(token-colors.$colors, n600),
+  disabled: map-get(token-colors.$colors, n400),
+  alternative: white,
+  primary: map-get(token-colors.$colors, b500),
+  success: map-get(token-colors.$colors, g500),
+  danger: map-get(token-colors.$colors, r500),
+  warning: map-get(token-colors.$colors, y700),
+  link: map-get(token-colors.$colors, b500),
+  visited-link: map-get(token-colors.$colors, p500),
+  active-link: map-get(token-colors.$colors, r500),
+);
+
+@function foreground($type) {
+  @if not map-has-key($-foreground-colors, $type) {
+    @error 'invalid foreground type';
+  }
+
+  @return var(--rcx-color-foreground-#{ $type }, map-get($-foreground-colors, $type));
+}
+
+$foreground-types: map-keys($-foreground-colors);

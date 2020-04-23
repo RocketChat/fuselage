@@ -1,5 +1,8 @@
-.rcx-divider {
-  margin-block: #{ $spaces-x8 };
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
 
-  border: #{ $borders-width-x1 } solid #{ $colors-n300 };
+.rcx-divider {
+  margin-block: lengths.margin(8);
+
+  border: lengths.border-width(1) solid colors.neutral(300);
 }

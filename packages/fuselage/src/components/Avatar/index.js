@@ -22,6 +22,8 @@ export function Avatar({
     componentClassName='rcx-avatar'
     aria-label={title}
     {...props}
+    width={size}
+    height={size}
   >
     <Box
       is='img'

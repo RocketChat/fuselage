@@ -1,5 +1,7 @@
+@use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
+
 @mixin on-breakpoint($breakpoint-name) {
-  $min-viewport-width: map-get(map-get($breakpoints, $breakpoint-name), min-viewport-width);
+  $min-viewport-width: map-get(map-get(breakpoints.$breakpoints, $breakpoint-name), min-viewport-width);
 
   @if not $min-viewport-width {
     @content;

@@ -1,0 +1,305 @@
+@use '../../colors.scss';
+@use '../../lengths.scss';
+@use '../../typography.scss';
+
+%--with-inline-elements {
+  strong {
+    letter-spacing: inherit;
+
+    font: inherit;
+    font-weight: bolder;
+  }
+
+  em {
+    letter-spacing: inherit;
+
+    font: inherit;
+    font-style: italic;
+  }
+
+  b {
+    letter-spacing: inherit;
+
+    font: inherit;
+    font-weight: bolder;
+  }
+
+  i {
+    letter-spacing: inherit;
+
+    font: inherit;
+    font-style: italic;
+  }
+
+  a {
+    letter-spacing: inherit;
+
+    font: inherit;
+
+    &:link {
+      text-decoration: none;
+
+      color: colors.foreground(link);
+    }
+
+    &:visited,
+    &.is-visited {
+      color: colors.foreground(visited-link);
+    }
+
+    &:active,
+    &.is-active {
+      color: colors.foreground(active-link);
+    }
+
+    &:hover,
+    &.is-hovered {
+      text-decoration: underline;
+    }
+  }
+
+  q {
+    letter-spacing: inherit;
+
+    font: inherit;
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+
+    cite {
+      letter-spacing: inherit;
+
+      font: inherit;
+      font-style: italic;
+    }
+  }
+
+  code {
+    padding:
+      lengths.padding(4)
+      lengths.padding(8);
+
+    letter-spacing: inherit;
+
+    border-radius: lengths.border-radius(2);
+    background-color: colors.neutral(300);
+
+    font: inherit;
+    font-family: typography.font-family(mono);
+
+    -webkit-font-smoothing: auto;
+  }
+
+  time {
+    letter-spacing: inherit;
+
+    color: colors.foreground(info);
+
+    font: inherit;
+  }
+
+  dfn {
+    letter-spacing: inherit;
+
+    color: colors.foreground(info);
+
+    font: inherit;
+    font-style: italic;
+  }
+
+  abbr {
+    letter-spacing: inherit;
+
+    font: inherit;
+
+    &[title] {
+      text-decoration: underline dashed;
+
+      border-block-end-width: lengths.border-width(none);
+    }
+  }
+
+  del {
+    text-decoration: line-through solid;
+    letter-spacing: inherit;
+
+    font: inherit;
+  }
+
+  ins {
+    text-decoration: underline solid;
+    letter-spacing: inherit;
+
+    font: inherit;
+  }
+
+  sup,
+  sub {
+    position: relative;
+
+    vertical-align: baseline;
+    letter-spacing: inherit;
+
+    font: inherit;
+    font-size: 75%;
+    line-height: 0;
+  }
+
+  sup {
+    inset-block-start: -0.5em;
+
+    letter-spacing: inherit;
+
+    font: inherit;
+  }
+
+  sub {
+    inset-block-end: -0.25em;
+
+    letter-spacing: inherit;
+
+    font: inherit;
+  }
+
+  kbd {
+    padding:
+      lengths.padding(4)
+      lengths.padding(8);
+
+    letter-spacing: inherit;
+
+    border-width: lengths.border-width(1);
+    border-style: solid;
+    border-color: currentColor;
+    border-radius: lengths.border-radius(2);
+
+    font: inherit;
+    font-family: typography.font-family(mono);
+    -webkit-font-smoothing: auto;
+  }
+
+  var {
+    letter-spacing: inherit;
+
+    font: inherit;
+    font-style: italic;
+  }
+
+  small {
+    letter-spacing: inherit;
+
+    font: inherit;
+    font-size: 80%;
+  }
+}
+
+%--with-block-elements {
+  font: inherit;
+
+  h1 {
+    @include typography.use-font-scale(h1);
+  }
+
+  h2 {
+    @include typography.use-font-scale(s2);
+  }
+
+  h3 {
+    @include typography.use-font-scale(p2);
+  }
+
+  h4 {
+    @include typography.use-font-scale(c2);
+  }
+
+  h5 {
+    @include typography.use-font-scale(micro);
+  }
+
+  h6 {
+    @include typography.use-font-scale(micro);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: block;
+
+    margin:
+      lengths.margin(16)
+      lengths.margin(none);
+  }
+
+  p {
+    @include typography.use-font-scale(p1);
+
+    display: block;
+
+    margin:
+      lengths.margin(16)
+      lengths.margin(none);
+
+    color: inherit;
+  }
+
+  ul,
+  ol {
+    display: block;
+
+    margin:
+      lengths.margin(16)
+      lengths.margin(none);
+    padding-inline-start: lengths.padding(40);
+  }
+
+  ul {
+    @include typography.use-font-scale(p1);
+    list-style-type: disc;
+  }
+
+  ol {
+    @include typography.use-font-scale(p1);
+    list-style-type: decimal;
+  }
+
+  li {
+    display: list-item;
+
+    text-align: inherit;
+
+    color: inherit;
+
+    font: inherit;
+  }
+
+  pre {
+    margin:
+      lengths.margin(16)
+      lengths.margin(none);
+
+    letter-spacing: inherit;
+
+    font: inherit;
+    font-family: typography.font-family(mono);
+
+    code {
+      display: block;
+
+      padding: lengths.padding(16);
+
+      letter-spacing: inherit;
+
+      color: inherit;
+
+      font: inherit;
+    }
+  }
+}

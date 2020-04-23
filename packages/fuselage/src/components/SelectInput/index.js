@@ -1,5 +1,3 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
-import PropTypes from 'prop-types';
 import React, { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
@@ -7,14 +5,11 @@ import { InputBox } from '../InputBox';
 
 export const SelectInput = forwardRef(function SelectInput({
   children,
-  className,
   multiple,
   placeholder,
   onChange,
   ...props
 }, ref) {
-  const compoundClassName = useClassName('rcx-select-input', {}, className);
-
   const [isPlaceholderVisible, setPlaceholderVisible] = useState(!props.value && !props.defaultValue);
   const handleChange = useCallback((event, ...args) => {
     setPlaceholderVisible(!event.currentTarget.value);
@@ -24,7 +19,6 @@ export const SelectInput = forwardRef(function SelectInput({
   if (multiple) {
     return <InputBox
       children={children}
-      className={compoundClassName}
       {...props}
       multiple
       type='select'
@@ -33,7 +27,6 @@ export const SelectInput = forwardRef(function SelectInput({
   }
 
   return <InputBox
-    className={compoundClassName}
     placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
     ref={ref}
     {...props}
@@ -45,11 +38,5 @@ export const SelectInput = forwardRef(function SelectInput({
     {children}
   </InputBox>;
 });
-
-SelectInput.propTypes = {
-  addon: PropTypes.element,
-  error: PropTypes.string,
-  multiple: PropTypes.bool,
-};
 
 SelectInput.Option = InputBox.Option;

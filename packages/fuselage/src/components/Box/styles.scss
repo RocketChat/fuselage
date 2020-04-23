@@ -1,5 +1,13 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
 .rcx-box {
-  @extend %box;
+  &,
+  &::before,
+  &::after {
+    @extend %box;
+  }
 
   &--invisible {
     visibility: hidden;
@@ -7,42 +15,42 @@
     opacity: 0;
   }
 
-  @each $text-style in map-keys($text-styles) {
-    &--text-style-#{$text-style} {
-      @include use-text-style($text-style);
+  @each $text-style in typography.$font-scales {
+    &--text-style-#{ $text-style } {
+      @include typography.use-font-scale($text-style);
     }
   }
 
   &--text-style-headline {
-    @include use-text-style(h1);
+    @include typography.use-font-scale(h1);
   }
 
   &--text-style-subtitle {
-    @include use-text-style(s1);
+    @include typography.use-font-scale(s1);
   }
 
   &--text-style-paragraph {
-    @include use-text-style(p1);
+    @include typography.use-font-scale(p1);
   }
 
   &--text-style-caption {
-    @include use-text-style(c1);
+    @include typography.use-font-scale(c1);
   }
 
-  @each $text-color in map-keys($text-colors) {
-    &--text-color-#{$text-color} {
-      @include use-text-color($text-color);
+  @each $text-color in colors.$foreground-types {
+    &--text-color-#{ $text-color } {
+      color: colors.foreground($text-color);
     }
   }
 
   &--inline {
-    @include use-text-color(default);
-    @extend %rich-text--inline;
+    color: colors.foreground(default);
+    @extend %--with-inline-elements;
   }
 
   &--block {
-    @include use-text-color(default);
-    @extend %rich-text--inline;
-    @extend %rich-text--block;
+    color: colors.foreground(default);
+    @extend %--with-inline-elements;
+    @extend %--with-block-elements;
   }
 }
