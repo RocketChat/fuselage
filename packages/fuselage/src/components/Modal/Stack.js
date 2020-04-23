@@ -16,7 +16,7 @@ const createModalRoot = () => {
 export const ModalPortal = ({ children, rootElement = createModalRoot() }) =>
   ReactDOM.createPortal(children, rootElement);
 
-export const ModalBackdrop = () => <Box componentClassName='rcx-modal__backdrop' />;
+export const ModalBackdrop = (props) => <Box componentClassName='rcx-modal__backdrop' { ...props }/>;
 
 export function ModalContainer() {
   const { stack } = useModalStack();

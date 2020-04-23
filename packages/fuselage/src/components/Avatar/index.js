@@ -12,7 +12,7 @@ export function Avatar({
   title,
   rounded = false,
   url,
-  size = 'x32',
+  size = 'x36',
   ...props
 }) {
   const { baseUrl } = useContext(AvatarContext);
@@ -25,6 +25,7 @@ export function Avatar({
   >
     <Box
       is='img'
+      {...props}
       componentClassName='rcx-avatar__element'
       src={`${ baseUrl }${ url }`}
       mod-rounded={rounded}
