@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { TextInput } from '../..';
+import { TextInput } from '.';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

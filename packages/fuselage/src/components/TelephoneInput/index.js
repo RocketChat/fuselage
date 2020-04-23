@@ -1,18 +1,7 @@
-import { useClassName } from '@rocket.chat/fuselage-hooks';
-import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 
-export const TelephoneInput = forwardRef(function TelephoneInput({
-  className,
-  ...props
-}, ref) {
-  const compoundClassName = useClassName('rcx-tel-input', {}, className);
-  return <InputBox className={compoundClassName} ref={ref} {...props} type='tel' />;
+export const TelephoneInput = forwardRef(function TelephoneInput(props, ref) {
+  return <InputBox type='tel' ref={ref} {...props} />;
 });
-
-TelephoneInput.propTypes = {
-  addon: PropTypes.element,
-  error: PropTypes.string,
-};

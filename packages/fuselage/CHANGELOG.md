@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.1...v0.8.0) (2020-04-22)
+
+
+### Bug Fixes
+
+* Add missing Box prop types ([#204](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/204)) ([5ab9f6a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5ab9f6a001738ae6eedd9f593ff52ac58f23a4df))
+* Badge and Tag rendering a span ([#208](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/208)) ([d8a5ed2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d8a5ed2a1afaa9e58bea307dab7d42b1593bab2b))
+* Center Throbber circles ([#198](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/198)) ([be0aa60](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/be0aa603e209c96029d2232ad7d2b79c13ba628d))
+* Selection button props split between container and input elements ([#207](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/207)) ([19cc1df](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/19cc1dfc9d58a539f6bb6b98e67c933378e07bfd))
+* Update Callout to allow empty children ([#200](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/200)) ([58bdc4e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/58bdc4ecdab445709b62e16917b922eeebb74d98))
+
+
+### Features
+
+* Refactor static styles ([#201](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/201)) ([e1bdc65](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e1bdc655a0dfe0f88261d3fab84c2e42c2ad581e))
+
+
+
+
+
 ## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)
 
 **Note:** Version bump only for package @rocket.chat/fuselage

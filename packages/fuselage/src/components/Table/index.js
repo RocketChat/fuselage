@@ -4,13 +4,22 @@ import React, { createContext, useContext } from 'react';
 import { Box, Margins } from '../Box';
 import { Button } from '../Button';
 
+const style = {
+  overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+};
 
 export function Selection({ children, text, ...props }) {
   return <Box textColor='alternative' componentClassName='rcx-table__selection' display='flex' alignItems='center' justifyContent='space-between' {...props} pi='x24'>
-    <Box textStyle='p2' mb='x16'>{text}</Box>
-    <Box mi='neg-x8' textStyle='p2'>{children}<Margins inline='x4'><Button small primary>oiasdase</Button><Button small primary>oie</Button></Margins></Box>
+    <Box textStyle='p2' mb='x16' flexShrink={1} style={style}>{text}</Box>
+    { children && <Box mi='neg-x8' textStyle='p2' flexShrink={0} ><Margins inline='x4'>{children}</Margins></Box> }
   </Box>;
 }
+
+export function SelectionButton(props) {
+  return <Button small primary flexShrink={0} { ...props } />;
+}
+
+Selection.Button = SelectionButton;
 
 export function Table({
   striped,

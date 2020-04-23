@@ -50,19 +50,33 @@ Box.propTypes = {
 
   // Spaces
   m: marginPropType,
-  mi: marginPropType,
-  mis: marginPropType,
-  mie: marginPropType,
+  margin: marginPropType,
   mb: marginPropType,
+  marginBlock: marginPropType,
   mbs: marginPropType,
+  marginBlockStart: marginPropType,
   mbe: marginPropType,
+  marginBlockEnd: marginPropType,
+  mi: marginPropType,
+  marginInline: marginPropType,
+  mis: marginPropType,
+  marginInlineStart: marginPropType,
+  mie: marginPropType,
+  marginInlineEnd: marginPropType,
   p: paddingPropType,
-  pi: paddingPropType,
-  pis: paddingPropType,
-  pie: paddingPropType,
+  padding: paddingPropType,
   pb: paddingPropType,
+  paddingBlock: paddingPropType,
   pbs: paddingPropType,
+  paddingBlockStart: paddingPropType,
   pbe: paddingPropType,
+  paddingBlockEnd: paddingPropType,
+  pi: paddingPropType,
+  paddingInline: paddingPropType,
+  pis: paddingPropType,
+  paddingInlineStart: paddingPropType,
+  pie: paddingPropType,
+  paddingInlineEnd: paddingPropType,
 
   // Layout
   w: sizePropType,
@@ -109,4 +123,3 @@ export * from './Flex';
 export * from './Margins';
 export * from './Position';
 export * from './Scrollable';
-export * from './Size';

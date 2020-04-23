@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Tag } from '../..';
+import { Tag } from '../Tag';
 
 export function Badge(props) {
-  return <Tag round {...props} />;
+  return <Tag {...props} round />;
 }
 
 Badge.propTypes = {
-  variant: PropTypes.oneOf(['secondary', 'primary', 'danger']),
   disabled: PropTypes.bool,
+  variant: PropTypes.oneOf(['secondary', 'primary', 'danger']),
 };
