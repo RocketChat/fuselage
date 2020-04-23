@@ -1,7 +1,7 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
-import { Accordion, Paragraph } from '../..';
+import { Accordion, Box } from '../..';
 
 <Meta title='Containers/Accordion' parameters={{ jest: ['Accordion/spec'] }} />
 
@@ -14,13 +14,13 @@ sections of content.
   <Story name='Default'>
     <Accordion>
       <Accordion.Item title='Item #1' defaultExpanded>
-        <Paragraph>Content #1</Paragraph>
+        <Box textStyle='p1' textColor='default' marginBlockEnd='x16'>Content #1</Box>
       </Accordion.Item>
       <Accordion.Item title='Item #2'>
-        <Paragraph>Content #2</Paragraph>
+        <Box textStyle='p1' textColor='default' marginBlockEnd='x16'>Content #2</Box>
       </Accordion.Item>
       <Accordion.Item title='Item #3'>
-        <Paragraph>Content #3</Paragraph>
+        <Box textStyle='p1' textColor='default' marginBlockEnd='x16'>Content #3</Box>
       </Accordion.Item>
     </Accordion>
   </Story>

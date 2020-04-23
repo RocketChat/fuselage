@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.1...v0.8.0) (2020-04-22)
+
+
+### Features
+
+* Refactor static styles ([#201](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/201)) ([e1bdc65](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e1bdc655a0dfe0f88261d3fab84c2e42c2ad581e))
+
+
+
+
+
 ## [0.7.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.0...v0.7.1) (2020-04-01)
 
 

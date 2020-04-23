@@ -27,7 +27,7 @@ yarn test
 
 #### Table of Contents
 
--   [useClassName](#useclassname)
+-   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
 -   [useDebouncedUpdates](#usedebouncedupdates)
     -   [Parameters](#parameters-1)
@@ -37,29 +37,31 @@ yarn test
     -   [Parameters](#parameters-3)
 -   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-4)
--   [useExclusiveBooleanProps](#useexclusivebooleanprops)
+-   [useDebouncedValue](#usedebouncedvalue)
     -   [Parameters](#parameters-5)
--   [useMediaQuery](#usemediaquery)
+-   [useLazyRef](#uselazyref)
     -   [Parameters](#parameters-6)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-7)
--   [useMutableCallback](#usemutablecallback)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-8)
--   [useToggle](#usetoggle)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-9)
+-   [useSafely](#usesafely)
+    -   [Parameters](#parameters-10)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-11)
 
-### useClassName
+### useAutoFocus
 
-Hook to generate a BEM-compatible `className` value for a component.
+Hook to automatically request focus for an DOM element.
 
 #### Parameters
 
--   `componentClassName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the style class which identifies the component
--   `modifiers` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the modifiers applied to the style class (optional, default `{}`)
--   `classNames` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** the additional style classes appended to the `className`
+-   `isFocused` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, the focus will be requested (optional, default `true`)
+-   `options` **FocusOptions** options of the focus request
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a BEM-compatible `className` in the format
- `(<block>|<block>__<element>) [...(<block>--<modifier>|<block>__<element>--<modifier>)] [...classNames]`
+Returns **any** the ref which holds the element
 
 ### useDebouncedUpdates
 
@@ -110,17 +112,26 @@ Hook to memoize a debounced version of a callback.
 
 Returns **function (): any** a memoized and debounced callback
 
-### useExclusiveBooleanProps
+### useDebouncedValue
 
-Hook for asserting mutually exclusive boolean props. Useful for components that use boolean props
-to choose styling variants.
+Hook to keep a debounced reference of a value.
 
 #### Parameters
 
--   `props` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the mutually exclusive boolean props
+-   `value` **any** the value to be debounced
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay
 
+Returns **any** a debounced value
 
--   Throws **any** if two or more booleans props are set as true
+### useLazyRef
+
+Hook equivalent to useRef, but with a lazy initialization for computed value.
+
+#### Parameters
+
+-   `initializer` **function (): T** the function the computes the ref value
+
+Returns **any** the ref
 
 ### useMediaQuery
 
@@ -152,6 +163,19 @@ Hook to create a stable callback from a mutable one.
 -   `fn` **function (): any** the mutable callback
 
 Returns **any** a stable callback
+
+### useSafely
+
+Hook that wraps pairs of state and updater to provide a new updater which
+can be safe and asynchronically called even after the component unmounted.
+
+#### Parameters
+
+-   `pair` **\[any, function (): any]** the state and updater pair which will be patched
+    -   `pair.0`  the state value
+    -   `pair.1`  the state updater function
+
+Returns **any** a state value and safe updater pair
 
 ### useToggle
 

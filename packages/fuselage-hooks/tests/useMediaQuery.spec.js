@@ -49,14 +49,18 @@ describe('useMediaQuery hook', () => {
   });
 
   it('mutates its value to true if the media query matches', () => {
-    const [matchesA, matchesB] = runHooks(() => useMediaQuery('(max-width: 1024)'), [
+    const [matchesA, matchesB, matchesC] = runHooks(() => useMediaQuery('(max-width: 1024)'), [
       () => {
         mql.matches = true;
+      },
+      () => {
+        mql.matches = false;
         mql.onchange();
       },
     ]);
 
     expect(matchesA).toBe(false);
     expect(matchesB).toBe(true);
+    expect(matchesC).toBe(false);
   });
 });
