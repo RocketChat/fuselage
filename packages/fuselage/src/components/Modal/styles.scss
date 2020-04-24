@@ -30,7 +30,7 @@
     left: 0;
     right: 0;
 
-    background-color: colors.neutral(500, $alpha: 0.5);
+    background-color: colors.neutral(800, $alpha: 0.5);
   }
 
   @include on-breakpoint(sm) {
