@@ -5,11 +5,11 @@ import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import { Options, useCursor } from '../Options';
 
-export const Addon = forwardRef((props, ref) => <Box componentClassName='rcx-select__addon' is='div' ref={ref} {...props} />);
+export const Addon = forwardRef((props, ref) => <Box is='div' rcx-select__addon ref={ref} {...props} />);
 
-const Wrapper = forwardRef((props, ref) => <Box componentClassName='rcx-select__wrapper' is='div' ref={ref} {...props} />);
+const Wrapper = forwardRef((props, ref) => <Box is='div' rcx-select__wrapper ref={ref} {...props} />);
 
-export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' textColor='hint' componentClassName='rcx-select__focus' is='button' type='button' {...props}/>);
+export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' textColor='hint' rcx-select__focus is='button' type='button' {...props}/>);
 
 export const Select = ({
   value,
@@ -68,7 +68,7 @@ export const Select = ({
 
   const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel || (placeholder || typeof placeholder === 'string'));
   return (
-    <Box componentClassName='rcx-select' disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={
+    <Box rcx-select disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={
       [
 
         error && 'invalid',
@@ -81,13 +81,13 @@ export const Select = ({
       <Flex.Item>
         <Flex.Container>
           <Margins inline='neg-x4'>
-            <Wrapper mod-hidden={!!visibleText}>
+            <Wrapper rcx-select__wrapper--hidden={!!visibleText}>
               { visibleText && <Flex.Item grow={1} shrink={1}>
                 <Margins inline='x4'>
-                  <Box is='span' componentClassName='rcx-select__item' textStyle='p2' textColor={ valueLabel ? 'default' : 'hint' }>{visibleText}</Box>
+                  <Box is='span' rcx-select__item textStyle='p2' textColor={valueLabel ? 'default' : 'hint'}>{visibleText}</Box>
                 </Margins>
               </Flex.Item>}
-              <Anchor disabled={disabled} mod-undecorated={true} filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
+              <Anchor disabled={disabled} rcx-input-box--undecorated filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
               <Margins inline='x4'><Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='x20' />}/></Margins>
             </Wrapper>
           </Margins>
@@ -103,6 +103,6 @@ export const SelectFiltered = ({
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1} shrink={1}><InputBox.Input className='rcx-select__focus' ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item></Margins>), []);
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1} shrink={1}><InputBox.Input className='rcx-select__focus' ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} rcx-input-box--undecorated /></Flex.Item></Margins>), []);
   return <Select placeholder={null} filter={filter} options={options} {...props} anchor={anchor}/>;
 };

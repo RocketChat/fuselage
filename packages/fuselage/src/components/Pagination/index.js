@@ -55,16 +55,16 @@ export function Pagination({
     onSetCurrent && onSetCurrent(page * itemsPerPage);
   };
 
-  return <Box is='nav' componentClassName='rcx-pagination' mod-divider={divider} {...props}>
+  return <Box is='nav' rcx-pagination rcx-pagination--divider={divider} {...props}>
     {hasItemsPerPageSelection && (
-      <Box componentClassName='rcx-pagination__left'>
-        <Box is='span' componentClassName='rcx-pagination__label'>{itemsPerPageLabel(renderingContext)}</Box>
-        <Box is='ol' componentClassName='rcx-pagination__list'>
+      <Box rcx-pagination__left>
+        <Box is='span' rcx-pagination__label>{itemsPerPageLabel(renderingContext)}</Box>
+        <Box is='ol' rcx-pagination__list>
           {itemsPerPageOptions.map((itemsPerPageOption) =>
-            <Box key={itemsPerPageOption} is='li' componentClassName='rcx-pagination__list-item'>
+            <Box key={itemsPerPageOption} is='li' rcx-pagination__list-item>
               <Box
                 is='button'
-                componentClassName='rcx-pagination__link'
+                rcx-pagination__link
                 tabIndex={ itemsPerPage === itemsPerPageOption ? -1 : 0 }
                 disabled={itemsPerPage === itemsPerPageOption}
                 onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}
@@ -76,21 +76,21 @@ export function Pagination({
         </Box>
       </Box>
     )}
-    <Box componentClassName='rcx-pagination__right'>
-      <Box is='span' componentClassName='rcx-pagination__label'>{showingResultsLabel(renderingContext)}</Box>
-      <Box is='ol' componentClassName='rcx-pagination__list'>
-        <Box is='li' componentClassName='rcx-pagination__list-item'>
-          <Box is='button' componentClassName='rcx-pagination__back' disabled={currentPage === 0} onClick={handleSetPageLinkClick(currentPage - 1)}>
+    <Box rcx-pagination__right>
+      <Box is='span' rcx-pagination__label>{showingResultsLabel(renderingContext)}</Box>
+      <Box is='ol' rcx-pagination__list>
+        <Box is='li' rcx-pagination__list-item>
+          <Box is='button' rcx-pagination__back disabled={currentPage === 0} onClick={handleSetPageLinkClick(currentPage - 1)}>
             <Chevron left size='x16' />
           </Box>
         </Box>
         {displayedPages.map((page, i) => (
-          <Box key={i} is='li' componentClassName='rcx-pagination__list-item'>
+          <Box key={i} is='li' rcx-pagination__list-item>
             {page === '⋯'
               ? '⋯'
               : <Box
                 is='button'
-                componentClassName='rcx-pagination__link'
+                rcx-pagination__link
                 disabled={currentPage === page}
                 onClick={handleSetPageLinkClick(page)}
               >
@@ -98,8 +98,8 @@ export function Pagination({
               </Box>}
           </Box>
         ))}
-        <Box is='li' componentClassName='rcx-pagination__list-item'>
-          <Box is='button' componentClassName='rcx-pagination__forward' disabled={currentPage === pages - 1} onClick={handleSetPageLinkClick(currentPage + 1)}>
+        <Box is='li' rcx-pagination__list-item>
+          <Box is='button' rcx-pagination__forward disabled={currentPage === pages - 1} onClick={handleSetPageLinkClick(currentPage + 1)}>
             <Chevron right size='x16' />
           </Box>
         </Box>

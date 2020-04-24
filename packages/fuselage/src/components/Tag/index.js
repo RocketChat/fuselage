@@ -11,15 +11,15 @@ export function Tag({
   ...props
 }) {
   return <Box
-    componentClassName='rcx-tag'
     is='span'
-    mod-secondary={variant === 'secondary'}
-    mod-primary={variant === 'primary'}
-    mod-danger={variant === 'danger'}
-    mod-ghost={variant === 'ghost'}
-    mod-disabled={!!disabled}
-    mod-round={!!round}
-    mod-clickable={!!onClick}
+    rcx-tag
+    rcx-tag--secondary={variant === 'secondary'}
+    rcx-tag--primary={variant === 'primary'}
+    rcx-tag--danger={variant === 'danger'}
+    rcx-tag--ghost={variant === 'ghost'}
+    rcx-tag--disabled={!!disabled}
+    rcx-tag--round={!!round}
+    rcx-tag--clickable={!!onClick}
     onClick={onClick}
     {...props}
   />;

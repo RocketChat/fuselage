@@ -7,9 +7,9 @@ export function Tabs({
   children,
   ...props
 }) {
-  return <Box is='div' componentClassName='rcx-tabs' {...props}>
-    <Box is='div' componentClassName='rcx-tabs__scroll-box'>
-      <Box is='div' p='x4' componentClassName='rcx-tabs__wrapper' children={children} role='tablist'/>
+  return <Box is='div' rcx-tabs {...props}>
+    <Box is='div' rcx-tabs__scroll-box>
+      <Box is='div' p='x4' rcx-tabs__wrapper children={children} role='tablist'/>
     </Box>
   </Box>;
 }
@@ -20,9 +20,9 @@ export const TabsItem = forwardRef(function TabsItem({
 }, ref) {
   return <Box
     is='button'
-    componentClassName='rcx-tabs__item'
+    rcx-tabs__item
+    rcx-tabs__item--selected={selected}
     aria-selected={selected ? 'true' : 'false'}
-    mod-selected={selected}
     ref={ref}
     role='tab'
     {...props}

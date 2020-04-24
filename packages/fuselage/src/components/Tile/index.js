@@ -11,8 +11,8 @@ export const Tile = forwardRef(function Tile({
 }, ref) {
   return <Box
     ref={ref}
-    componentClassName='rcx-tile'
-    mod-elevation={elevation}
+    rcx-tile
+    rcx-tile--elevation={elevation}
     {...props}
   />;
 });

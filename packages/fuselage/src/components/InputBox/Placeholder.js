@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import { Box } from '../Box';
 
 export const Placeholder = forwardRef(function Placeholder(props, ref) {
-  return <Box is='option' componentClassName='rcx-input-box__placeholder' ref={ref} {...props} />;
+  return <Box is='option' rcx-input-box__placeholder ref={ref} {...props} />;
 });
 
 Placeholder.propTypes = {

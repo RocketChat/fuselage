@@ -11,13 +11,13 @@ const Item = (props) => <Box is='div' marginInline='x4' {...props} />;
 const Container = React.forwardRef(({ children, ...props }, ref) => <Box
   {...props}
   is='div'
-  className='rcx-autocomplete'
+  rcx-autocomplete
   ref={ref}
 >
   {children.map((c, i) => <Item key={i}>{c}</Item>)}
 </Box>);
 
-const Addon = (props) => <Box is='div' componentClassName='rcx-autocomplete__addon' {...props} />;
+const Addon = (props) => <Box is='div' rcx-autocomplete__addon {...props} />;
 
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);
 
@@ -60,7 +60,7 @@ export function AutoComplete({
   return (
     <Container ref={containerRef} onClick={() => ref.current.focus()}>
       <Chip.Wrapper role='listbox'>
-        <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} style={{ order: 1 }} mod-undecorated value={value}/>
+        <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} style={{ order: 1 }} rcx-input-box--undecorated value={value}/>
         {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged(value) && false} children={getLabel(options.find((option) => getValue(option) === value))}/>)}
       </Chip.Wrapper>
       <Addon children={<Icon name='magnifier' size='x20' />}/>

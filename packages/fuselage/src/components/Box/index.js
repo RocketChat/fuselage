@@ -34,7 +34,7 @@ Box.defaultProps = {
 };
 
 Box.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   componentClassName: PropTypes.string,
   invisible: PropTypes.bool,
   is: PropTypes.elementType.isRequired,

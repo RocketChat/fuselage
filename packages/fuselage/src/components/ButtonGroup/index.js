@@ -12,11 +12,11 @@ export function ButtonGroup({
   ...props
 }) {
   return <Box
-    componentClassName='rcx-button-group'
-    mod-align={align}
-    mod-stretch={stretch}
-    mod-vertical={vertical}
-    mod-wrap={wrap}
+    rcx-button-group
+    rcx-button-group--align={align}
+    rcx-button-group--stretch={stretch}
+    rcx-button-group--vertical={vertical}
+    rcx-button-group--wrap={wrap}
     role='group'
     {...props}
   >

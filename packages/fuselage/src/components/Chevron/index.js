@@ -16,13 +16,13 @@ export function Chevron({
   const children = useMemo(() => <Icon name='arrow-down' size={size} />, [size]);
 
   return <Box
-    componentClassName='rcx-chevron'
     is='span'
     children={children}
-    mod-up={up}
-    mod-right={right}
-    mod-down={down}
-    mod-left={left}
+    rcx-chevron
+    rcx-chevron--up={up}
+    rcx-chevron--right={right}
+    rcx-chevron--down={down}
+    rcx-chevron--left={left}
     {...props}
   />;
 }

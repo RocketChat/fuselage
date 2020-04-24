@@ -19,7 +19,7 @@ export function Avatar({
 
   return <Box
     is='figure'
-    componentClassName='rcx-avatar'
+    rcx-avatar
     aria-label={title}
     {...props}
     width={size}
@@ -28,9 +28,9 @@ export function Avatar({
     <Box
       is='img'
       {...props}
-      componentClassName='rcx-avatar__element'
+      rcx-avatar__element
+      rcx-avatar__element--rounded={rounded}
       src={`${ baseUrl }${ url }`}
-      mod-rounded={rounded}
       width={size}
       height={size}
     />
@@ -47,7 +47,7 @@ Avatar.propTypes = {
 };
 
 const AvatarStack = ({ children, ...props }) =>
-  <Box componentClassName='rcx-avatar-stack' { ...props }>
+  <Box rcx-avatar-stack {...props}>
     {React.Children.toArray(children).reverse()}
   </Box>;
 

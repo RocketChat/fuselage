@@ -19,9 +19,9 @@ export function Tooltip({
 
   return <Box
     is='div'
-    componentClassName='rcx-tooltip'
-    mod-dir={direction}
-    mod-pos={position}
+    rcx-tooltip
+    rcx-tooltip--dir={direction}
+    rcx-tooltip--pos={position}
     {...props}
   />;
 }

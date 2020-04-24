@@ -1,13 +1,13 @@
 import { css } from '@rocket.chat/css-in-js';
 import nameToCharacterMapping from '@rocket.chat/icons';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { sizePropType, getSizeValue } from '../../propTypes/sizes';
 import { Box } from '../Box';
 import { useCss } from '../Box/useCss';
 
-export const Icon = React.forwardRef(function Icon({
+export const Icon = forwardRef(function Icon({
   className,
   name,
   size,
@@ -17,11 +17,11 @@ export const Icon = React.forwardRef(function Icon({
 
   return <Box ref={ref}
     is='i'
-    componentClassName='rcx-icon'
     aria-hidden='true'
     children={nameToCharacterMapping[name]}
-    className={[iconSizeClassName, className].filter(Boolean).join(' ')}
-    mod-name={name}
+    className={[iconSizeClassName, className]}
+    rcx-icon
+    rcx-icon--name={name}
     {...props}
   />;
 });

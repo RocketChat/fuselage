@@ -24,16 +24,16 @@ export const Button = forwardRef(function Button({
   || {};
 
   return <Box
-    componentClassName='rcx-button'
     is={is}
-    mod-danger={!primary && danger && !ghost}
-    mod-ghost={!primary && !danger && ghost}
-    mod-ghost-danger={!primary && danger && ghost}
-    mod-primary={primary && !danger && !ghost}
-    mod-primary-danger={primary && danger && !ghost}
-    mod-small={small}
-    mod-square={square}
-    mod-small-square={small && square}
+    rcx-button
+    rcx-button--danger={!primary && danger && !ghost}
+    rcx-button--ghost={!primary && !danger && ghost}
+    rcx-button--ghost-danger={!primary && danger && ghost}
+    rcx-button--primary={primary && !danger && !ghost}
+    rcx-button--primary-danger={primary && danger && !ghost}
+    rcx-button--small={small}
+    rcx-button--square={square}
+    rcx-button--small-square={small && square}
     ref={ref}
     {...extraProps}
     {...props}

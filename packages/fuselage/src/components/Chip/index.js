@@ -17,7 +17,7 @@ export const Chip = ({
   ...props
 }) => (
   <Flex.Container>
-    <Box componentClassName='rcx-chip' is='button' type='button' disabled={!(onClick || onMouseDown)} onClick={onClick || onMouseDown} {...props}>
+    <Box rcx-chip is='button' type='button' disabled={!(onClick || onMouseDown)} onClick={onClick || onMouseDown} {...props}>
       {Thumb && thumbUrl && <Margins all='x4'>
         <Thumb url={thumbUrl} />
       </Margins>}
@@ -38,7 +38,7 @@ export const Chip = ({
 Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
   <Margins all='neg-x4'>
     <Flex.Container alignItems={alignItems} wrap={wrap}>
-      <Box componentClassName='rcx-chip__wrapper' is='div' {...props}>
+      <Box rcx-chip__wrapper is='div' {...props}>
         {children.map((children, i) =>
           <Flex.Item key={i} shrink={1}>
             <Margins all='x4'>
