@@ -25,7 +25,7 @@ export const Menu = ({ options, ...props }) => {
   const ref = useRef();
   const onClick = useCallback(() => ref.current.focus() & show());
 
-  const handleSelection = useCallback((...args) => {
+  const handleSelection = useCallback((args) => {
     menuAction(args, options);
     reset();
     hide();
