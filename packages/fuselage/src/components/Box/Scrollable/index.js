@@ -76,7 +76,7 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
   });
 
   return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [className, scrollableClassName].filter(Boolean).join(' '),
+    className: [className, scrollableClassName],
     onScroll: onScrollContent ? handleScroll : undefined,
     ...props,
   })} memoized />;

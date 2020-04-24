@@ -73,7 +73,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
   }
 
   return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [className, animatedVisibilityClassName].filter(Boolean).join(' '),
+    className: [className, animatedVisibilityClassName],
     ...props,
     onAnimationEnd: handleAnimationEnd,
   })} memoized />;

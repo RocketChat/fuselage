@@ -21,7 +21,7 @@ export function ButtonGroup({
     {...props}
   >
     <PropsProvider children={children} fn={({ className }) => ({
-      className: [className, 'rcx-button-group__item'].filter(Boolean).join(' '),
+      className: [className, 'rcx-button-group__item'],
     })} />
   </Box>;
 }

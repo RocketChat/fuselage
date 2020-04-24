@@ -79,7 +79,7 @@ export const InputBox = forwardRef(function InputBox({
   }
 
   return <Wrapper
-    className={[props.disabled && 'disabled', className].filter(Boolean).join(' ')}
+    className={[props.disabled && 'disabled', className]}
     hidden={hidden}
     invisible={invisible}
   >

@@ -124,7 +124,7 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
     React.cloneElement(children, {
       ref,
       style: { ...position, ...children.props.style, ...style },
-      className: [className, positionClassName, children.props.className].filter(Boolean).join(' '),
+      className: [className, positionClassName, children.props.className],
     }),
     portalContainer,
   );

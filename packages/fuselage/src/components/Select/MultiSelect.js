@@ -65,12 +65,10 @@ export const MultiSelect = ({
     <Box
       is='div'
       rcx-select
-      className={
-        [
-          error && 'invalid',
-          disabled && 'disabled',
-        ].filter(Boolean).join(' ')
-      }
+      className={[
+        error && 'invalid',
+        disabled && 'disabled',
+      ]}
       ref={containerRef}
       onClick={() => ref.current.focus() & show()}
       disabled={disabled}

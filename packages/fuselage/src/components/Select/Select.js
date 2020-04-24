@@ -68,15 +68,11 @@ export const Select = ({
 
   const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel || (placeholder || typeof placeholder === 'string'));
   return (
-    <Box rcx-select disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={
-      [
-
-        error && 'invalid',
-        disabled && 'disabled',
-
-      ].filter(Boolean).join(' ')
-    }
-    { ...props }
+    <Box rcx-select disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={[
+      error && 'invalid',
+      disabled && 'disabled',
+    ]}
+    {...props}
     >
       <Flex.Item>
         <Flex.Container>
