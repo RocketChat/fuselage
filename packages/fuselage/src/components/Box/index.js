@@ -3,7 +3,7 @@ import React, { createElement, forwardRef, memo, useContext } from 'react';
 
 import { PropsContext } from './PropsContext';
 import { useStyleSheet } from './useStyleSheet';
-import { useMergedProps } from './useMergedProps';
+import { mergeProps } from '../../props/mergeProps';
 import { marginPropType } from '../../propTypes/margins';
 import { paddingPropType } from '../../propTypes/paddings';
 import { sizePropType } from '../../propTypes/sizes';
@@ -12,14 +12,9 @@ export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
 
   const contextProps = useContext(PropsContext);
-  const mergedProps = useMergedProps(props, contextProps, ref);
+  const { is, ...mergedProps } = mergeProps(props, contextProps, ref);
 
-  const children = createElement(mergedProps.is || 'div', {
-    ...mergedProps,
-    is: undefined,
-    className: Array.from(new Set(mergedProps.className)).filter(Boolean).join(' '),
-    style: mergedProps.style,
-  });
+  const children = createElement(is || 'div', mergedProps);
 
   if (contextProps) {
     return <PropsContext.Provider children={children} />;

@@ -1,8 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
 
-import { useCss } from './useCss';
-
-export const useFlexBoxProps = ({
+export const mapFlexBoxProps = ({
   className,
   alignItems,
   alignContent,
@@ -17,8 +15,9 @@ export const useFlexBoxProps = ({
   alignSelf,
   order,
   ...props
-}) => {
-  const flexBoxClassName = useCss([
+}) => ({
+  className: [
+    ...className,
     alignItems !== undefined && css`align-items: ${ alignItems } !important;`,
     alignContent !== undefined && css`align-content: ${ alignContent } !important;`,
     justifyItems !== undefined && css`justify-items: ${ justifyItems } !important;`,
@@ -31,26 +30,6 @@ export const useFlexBoxProps = ({
     justifySelf !== undefined && css`justify-self: ${ justifySelf } !important;`,
     alignSelf !== undefined && css`align-self: ${ alignSelf } !important;`,
     order !== undefined && css`order: ${ order } !important;`,
-  ], [
-    alignItems,
-    alignContent,
-    justifyItems,
-    justifyContent,
-    flexWrap,
-    flexDirection,
-    flexGrow,
-    flexShrink,
-    flexBasis,
-    justifySelf,
-    alignSelf,
-    order,
-  ]);
-
-  return {
-    className: [
-      ...className,
-      flexBoxClassName,
-    ],
-    ...props,
-  };
-};
+  ],
+  ...props,
+});
