@@ -1,13 +1,13 @@
-import React, { useState, useLayoutEffect, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useLayoutEffect, useRef, useCallback, useEffect, forwardRef } from 'react';
 
 import { PositionAnimated, Box, Flex, Margins, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import { Options, useCursor } from '../Options';
 
-export const Addon = Box.extend('rcx-select__addon', 'div');
+export const Addon = forwardRef((props, ref) => <Box componentClassName='rcx-select__addon' is='div' ref={ref} {...props} />);
 
-const Wrapper = Box.extend('rcx-select__wrapper', 'div');
+const Wrapper = forwardRef((props, ref) => <Box componentClassName='rcx-select__wrapper' is='div' ref={ref} {...props} />);
 
 export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' textColor='hint' componentClassName='rcx-select__focus' is='button' type='button' {...props}/>);
 

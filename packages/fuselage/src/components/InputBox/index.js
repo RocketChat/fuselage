@@ -10,8 +10,10 @@ import { Placeholder } from './Placeholder';
 import { Skeleton } from '../Skeleton';
 
 const Wrapper = (props) => <Box componentClassName='rcx-input-box__wrapper' is={Label} {...props}/>;
-const Input = Box.extend('rcx-input-box', 'input');
-const Addon = Box.extend('rcx-input-box__addon', 'span');
+
+const Input = forwardRef((props, ref) => <Box is='input' componentClassName='rcx-input-box' ref={ref} {...props} />);
+
+const Addon = forwardRef((props, ref) => <Box is='span' componentClassName='rcx-input-box__addon' ref={ref} {...props} />);
 
 export const InputBox = forwardRef(function InputBox({
   className,

@@ -3,10 +3,8 @@ import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-const OptionContainer = Box.extend('rcx-input-box__option', 'option');
-
 export const Option = forwardRef(function Option(props, ref) {
-  return <OptionContainer ref={ref} {...props} />;
+  return <Box is='option' componentClassName='rcx-input-box__option' ref={ref} {...props} />;
 });
 
 Option.propTypes = {

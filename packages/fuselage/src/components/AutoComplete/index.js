@@ -1,17 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { Icon } from '../Icon';
-import { Margins, Chip, InputBox, Options, OptionAvatar } from '../..';
 import { Box, PositionAnimated } from '../Box';
-import { useCursor } from '../Options';
+import { Chip } from '../Chip';
+import { Icon } from '../Icon';
+import { useCursor, Options, OptionAvatar } from '../Options';
+import { InputBox } from '../InputBox';
 
-const Item = ({ children }) => <Margins inline='x4'><Box is='div'>{children}</Box></Margins>;
-const Container = React.forwardRef(({ children, ...props }, ref) => <Box {...props} is='div' className='rcx-autocomplete' ref={ref}>{children.map((c, i) => <Item key={i}>{c}</Item>)}</Box>);
-const Addon = Box.extend('rcx-autocomplete__addon', 'div');
+const Item = (props) => <Box is='div' marginInline='x4' {...props} />;
+
+const Container = React.forwardRef(({ children, ...props }, ref) => <Box
+  {...props}
+  is='div'
+  className='rcx-autocomplete'
+  ref={ref}
+>
+  {children.map((c, i) => <Item key={i}>{c}</Item>)}
+</Box>);
+
+const Addon = (props) => <Box is='div' componentClassName='rcx-autocomplete__addon' {...props} />;
+
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);
-// const Focus = React.forwardRef((props, ref) => <Box ref={ref} className='rcx-select__focus' is='button' {...props}/>);
-const prevent = (e) => e.preventDefault() & e.stopPropagation();
-export const AutoComplete = function AutoComplete({
+
+const prevent = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+};
+
+export function AutoComplete({
   value,
   filter,
   setFilter = () => {},
@@ -34,8 +49,9 @@ export const AutoComplete = function AutoComplete({
     setInternalValue([...currentValue, value]);
   };
 
-  useEffect(() => onChange(currentValue), [currentValue.join()]);
-
+  useEffect(() => {
+    onChange(currentValue);
+  }, [currentValue, onChange]);
 
   const [cursor, handleKeyDown, setCursor, reset, [visible, hide, show]] = useCursor(value, options, onChange);
 
@@ -53,19 +69,4 @@ export const AutoComplete = function AutoComplete({
       </PositionAnimated>
     </Container>
   );
-};
-
-// export const AutoCompleteExample = () => {
-//   const [options, setOptions] = useState([]);
-//   const [filter, setFilter] = useState('');
-//   const [value, setValue] = useState([]);
-
-//   useEffect(() => {
-//     (async () => {
-//       const result = await Promise.resolve([]);
-//       setOptions(result);
-//     })();
-//   }, [filter]);
-
-//   return <AutoComplete { ...{ value, filter, setFilter, options, onChange: setValue } }/>;
-// };
+}

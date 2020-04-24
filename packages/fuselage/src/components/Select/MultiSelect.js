@@ -7,12 +7,14 @@ import { InputBox } from '../InputBox';
 import { Options, CheckOption, useCursor } from '../Options';
 import { Focus, Addon } from './Select';
 
-const Container = Box.extend('rcx-select', 'div');
-
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);
 
+const prevent = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  e.nativeEvent.stopImmediatePropagation();
+};
 
-const prevent = (e) => e.preventDefault() & e.stopPropagation() & e.nativeEvent.stopImmediatePropagation();
 export const MultiSelect = ({
   value,
   filter,
@@ -60,12 +62,20 @@ export const MultiSelect = ({
   const ref = useRef();
   const containerRef = useRef();
   return (
-    <Container className={
-      [
-        error && 'invalid',
-        disabled && 'disabled',
-      ].filter(Boolean).join(' ')
-    } ref={containerRef} onClick={() => ref.current.focus() & show()} disabled={disabled} {...props}>
+    <Box
+      is='div'
+      componentClassName='rcx-select'
+      className={
+        [
+          error && 'invalid',
+          disabled && 'disabled',
+        ].filter(Boolean).join(' ')
+      }
+      ref={containerRef}
+      onClick={() => ref.current.focus() & show()}
+      disabled={disabled}
+      {...props}
+    >
       <Flex.Item grow={1}>
         <Margins inline='x4'>
           <Flex.Container>
@@ -86,7 +96,7 @@ export const MultiSelect = ({
         </Margins>
       </Flex.Item>
       <AnimatedVisibility visibility={visible}><Position anchor={containerRef}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedVisibility>
-    </Container>);
+    </Box>);
 };
 
 export const MultiSelectFiltered = ({

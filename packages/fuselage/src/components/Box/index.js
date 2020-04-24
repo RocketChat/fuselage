@@ -108,15 +108,6 @@ Box.propTypes = {
   order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-Box.extend = (componentClassName, is) => {
-  const BoxExtension = forwardRef((props, ref) =>
-    <Box is={is} componentClassName={componentClassName} ref={ref} {...props} />);
-
-  BoxExtension.displayName = componentClassName;
-
-  return BoxExtension;
-};
-
 export * from './PropsContext';
 export * from './AnimatedVisibility';
 export * from './Flex';

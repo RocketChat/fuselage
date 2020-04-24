@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useState, forwardRef } from 'react';
 
 
 import { AnimatedVisibility, Box, Flex, Margins, Scrollable } from '../Box';
@@ -18,9 +18,14 @@ export const ACTIONS = {
 
 const merge = (...args) => args.filter((e) => e).join(' ');
 
-const prevent = (e) => e.preventDefault() & e.stopPropagation();
+const prevent = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+};
 
-const Li = Box.extend('rcx-option', 'li');
+const Li = forwardRef(function Li(props, ref) {
+  return <Box is='li' componentClassName='rcx-option' ref={ref} {...props} />;
+});
 
 export const Empty = React.memo(() => <Box is='span' textStyle='p1' textColor='hint'>Empty</Box>);
 

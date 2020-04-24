@@ -4,16 +4,6 @@ import React, { useMemo } from 'react';
 import { Box } from '../Box';
 import { Chevron } from '../Chevron';
 
-const Container = Box.extend('rcx-pagination', 'nav');
-const Left = Box.extend('rcx-pagination__left');
-const Right = Box.extend('rcx-pagination__right');
-const Label = Box.extend('rcx-pagination__label', 'span');
-const List = Box.extend('rcx-pagination__list', 'ol');
-const ListItem = Box.extend('rcx-pagination__list-item', 'li');
-const Link = Box.extend('rcx-pagination__link', 'button');
-const BackLink = Box.extend('rcx-pagination__back', 'button');
-const ForwardLink = Box.extend('rcx-pagination__forward', 'button');
-
 const defaultItemsPerPageLabel = () => 'Items per page:';
 
 const defaultShowingResultsLabel = ({ count, current, itemsPerPage }) =>
@@ -65,44 +55,57 @@ export function Pagination({
     onSetCurrent && onSetCurrent(page * itemsPerPage);
   };
 
-  return <Container mod-divider={divider} {...props}>
+  return <Box is='nav' componentClassName='rcx-pagination' mod-divider={divider} {...props}>
     {hasItemsPerPageSelection && (
-      <Left>
-        <Label>{itemsPerPageLabel(renderingContext)}</Label>
-        <List>
+      <Box componentClassName='rcx-pagination__left'>
+        <Box is='span' componentClassName='rcx-pagination__label'>{itemsPerPageLabel(renderingContext)}</Box>
+        <Box is='ol' componentClassName='rcx-pagination__list'>
           {itemsPerPageOptions.map((itemsPerPageOption) =>
-            <ListItem key={itemsPerPageOption}>
-              <Link tabIndex={ itemsPerPage === itemsPerPageOption ? -1 : 0 } disabled={itemsPerPage === itemsPerPageOption} onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}>
+            <Box key={itemsPerPageOption} is='li' componentClassName='rcx-pagination__list-item'>
+              <Box
+                is='button'
+                componentClassName='rcx-pagination__link'
+                tabIndex={ itemsPerPage === itemsPerPageOption ? -1 : 0 }
+                disabled={itemsPerPage === itemsPerPageOption}
+                onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}
+              >
                 {itemsPerPageOption}
-              </Link>
-            </ListItem>,
+              </Box>
+            </Box>,
           )}
-        </List>
-      </Left>
+        </Box>
+      </Box>
     )}
-    <Right>
-      <Label>{showingResultsLabel(renderingContext)}</Label>
-      <List>
-        <ListItem>
-          <BackLink disabled={currentPage === 0} onClick={handleSetPageLinkClick(currentPage - 1)}>
+    <Box componentClassName='rcx-pagination__right'>
+      <Box is='span' componentClassName='rcx-pagination__label'>{showingResultsLabel(renderingContext)}</Box>
+      <Box is='ol' componentClassName='rcx-pagination__list'>
+        <Box is='li' componentClassName='rcx-pagination__list-item'>
+          <Box is='button' componentClassName='rcx-pagination__back' disabled={currentPage === 0} onClick={handleSetPageLinkClick(currentPage - 1)}>
             <Chevron left size='x16' />
-          </BackLink>
-        </ListItem>
+          </Box>
+        </Box>
         {displayedPages.map((page, i) => (
-          <ListItem key={i}>
+          <Box key={i} is='li' componentClassName='rcx-pagination__list-item'>
             {page === '⋯'
               ? '⋯'
-              : <Link disabled={currentPage === page} onClick={handleSetPageLinkClick(page)}>{page + 1}</Link>}
-          </ListItem>
+              : <Box
+                is='button'
+                componentClassName='rcx-pagination__link'
+                disabled={currentPage === page}
+                onClick={handleSetPageLinkClick(page)}
+              >
+                {page + 1}
+              </Box>}
+          </Box>
         ))}
-        <ListItem>
-          <ForwardLink disabled={currentPage === pages - 1} onClick={handleSetPageLinkClick(currentPage + 1)}>
+        <Box is='li' componentClassName='rcx-pagination__list-item'>
+          <Box is='button' componentClassName='rcx-pagination__forward' disabled={currentPage === pages - 1} onClick={handleSetPageLinkClick(currentPage + 1)}>
             <Chevron right size='x16' />
-          </ForwardLink>
-        </ListItem>
-      </List>
-    </Right>
-  </Container>;
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  </Box>;
 }
 
 Pagination.defaultProps = {
