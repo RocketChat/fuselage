@@ -1,0 +1,32 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+// import LinkTo from '@storybook/addon-links/react';
+// import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Box, Icon, Menu } from '../'
+const options = {
+    'makeAdmin': {
+        label: <Box display='flex' alignItems='center'><Icon mie='x4' name='key' size='x16'/>Make Admin</Box>,
+        action: () => console.log('[...] is now admin'),
+    },
+    'delete': {
+        label: <Box display='flex' alignItems='center' textColor='danger'><Icon mie='x4' name='trash' size='x16'/>Delete</Box>,
+        action: () => console.log('[...] no longer exists'),
+    }
+}
+
+<Meta title='Misc/Menu' parameters={{ jest: ['Menu/spec'] }} />
+
+# Menu
+
+Kebab Menu
+
+<Preview>
+  <Story name='Default'>
+    <Box style={{ position: 'relative', maxWidth: 250 }} >
+      <Menu options={options} />
+    </Box>
+  </Story>
+</Preview>
+
+<Props of={Menu} />
+
