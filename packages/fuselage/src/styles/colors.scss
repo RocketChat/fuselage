@@ -3,7 +3,7 @@
 @use 'sass:map';
 @use '~@rocket.chat/fuselage-tokens/colors.scss' as token-colors;
 
-$_map-type-to-prefix: (
+$-map-type-to-prefix: (
   neutral: 'n',
   primary: 'b',
   info: 'b',
@@ -21,7 +21,7 @@ $_map-type-to-prefix: (
     @error 'invalid color alpha';
   }
 
-  $prefix: map.get($_map-type-to-prefix, $type);
+  $prefix: map.get($-map-type-to-prefix, $type);
   @if not $prefix {
     @error 'invalid color type';
   }
@@ -76,7 +76,7 @@ $_map-type-to-prefix: (
   @return var(--rcx-color-surface, white);
 }
 
-$_foreground-colors: (
+$-foreground-colors: (
   default: map.get(token-colors.$colors, n800),
   info: map.get(token-colors.$colors, n700),
   hint: map.get(token-colors.$colors, n600),
@@ -92,11 +92,11 @@ $_foreground-colors: (
 );
 
 @function _get-foreground-color($type) {
-  @if not map.has-key($_foreground-colors, $type) {
+  @if not map.has-key($-foreground-colors, $type) {
     @error 'invalid foreground type';
   }
 
-  $color: map.get($_foreground-colors, $type);
+  $color: map.get($-foreground-colors, $type);
 
   @return (--rcx-color-foreground-#{ type }, $color);
 }
