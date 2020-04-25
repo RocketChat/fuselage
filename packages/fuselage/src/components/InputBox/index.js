@@ -65,7 +65,7 @@ export const InputBox = forwardRef(function InputBox({
       invisible={invisible}
       multiple={multiple}
       ref={mergedRef}
-      size={
+      htmlSize={
         (type === 'textarea' && undefined)
       || (type === 'select' && 1)
       || 1}
@@ -95,7 +95,7 @@ export const InputBox = forwardRef(function InputBox({
       || 0}
       multiple={multiple}
       ref={mergedRef}
-      size={
+      htmlSize={
         (type === 'textarea' && undefined)
       || (type === 'select' && 1)
       || 1}
