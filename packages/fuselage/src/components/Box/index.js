@@ -3,11 +3,11 @@ import React, { createElement, forwardRef, memo, useContext } from 'react';
 
 import { PropsContext } from './PropsContext';
 import { useStyleSheet } from './useStyleSheet';
-import { mergeProps } from '../../props/mergeProps';
-import { marginPropType } from '../../propTypes/margins';
-import { paddingPropType } from '../../propTypes/paddings';
-import { sizePropType } from '../../propTypes/sizes';
-import { colorPropType } from '../../propTypes/colors';
+import { mergeProps } from './mergeProps';
+import { marginPropType, paddingPropType } from '../../styles/props/spaces';
+import { colorPropType } from '../../styles/props/colors';
+import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
+import { sizePropType } from '../../styles/props/layout';
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
@@ -43,73 +43,70 @@ Box.propTypes = {
   is: PropTypes.elementType.isRequired,
   richText: PropTypes.oneOf(['inline', 'block']),
   style: PropTypes.object,
-  textColor: PropTypes.oneOf([
-    'default',
-    'info',
-    'hint',
-    'disabled',
-    'alternative',
-    'primary',
-    'success',
-    'danger',
-    'warning',
-  ]),
-  textStyle: PropTypes.oneOf([
-    'h1',
-    's1',
-    's2',
-    'p1',
-    'p2',
-    'c1',
-    'c2',
-    'micro',
-  ]),
+  textColor: colorPropType,
+  textStyle: fontScalePropType,
 
   // Spaces
-  m: marginPropType,
-  margin: marginPropType,
-  mb: marginPropType,
-  marginBlock: marginPropType,
-  mbs: marginPropType,
-  marginBlockStart: marginPropType,
-  mbe: marginPropType,
-  marginBlockEnd: marginPropType,
-  mi: marginPropType,
-  marginInline: marginPropType,
-  mis: marginPropType,
-  marginInlineStart: marginPropType,
-  mie: marginPropType,
-  marginInlineEnd: marginPropType,
-  p: paddingPropType,
-  padding: paddingPropType,
-  pb: paddingPropType,
-  paddingBlock: paddingPropType,
-  pbs: paddingPropType,
-  paddingBlockStart: paddingPropType,
-  pbe: paddingPropType,
-  paddingBlockEnd: paddingPropType,
-  pi: paddingPropType,
-  paddingInline: paddingPropType,
-  pis: paddingPropType,
-  paddingInlineStart: paddingPropType,
-  pie: paddingPropType,
-  paddingInlineEnd: paddingPropType,
+  m: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  margin: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  mb: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginBlock: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  mbs: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginBlockStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  mbe: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginBlockEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  mi: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginInline: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  mis: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginInlineStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  mie: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginInlineEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  p: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  padding: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  pb: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingBlock: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  pbs: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingBlockStart: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  pbe: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingBlockEnd: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  pi: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingInline: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  pis: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingInlineStart: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  pie: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingInlineEnd: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
 
   // Color
 
-  color: colorPropType,
-  backgroundColor: colorPropType,
+  color: PropTypes.oneOfType([colorPropType, PropTypes.string]),
+  backgroundColor: PropTypes.oneOfType([colorPropType, PropTypes.string]),
   opacity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
+  // Typography
+  fontFamily: PropTypes.oneOfType([fontFamilyPropType, PropTypes.string]),
+  fontSize: PropTypes.oneOfType([fontScalePropType, sizePropType, PropTypes.string, PropTypes.number]),
+  fontWeight: PropTypes.oneOfType([fontScalePropType, PropTypes.string]),
+  lineHeight: PropTypes.oneOfType([fontScalePropType, sizePropType, PropTypes.string, PropTypes.number]),
+  letterSpacing: PropTypes.oneOfType([fontScalePropType, PropTypes.string, PropTypes.number]),
+  fontScale: fontScalePropType,
+  fontStyle: PropTypes.string,
+  textAlign: PropTypes.string,
+  textTransform: PropTypes.string,
+  textDecorationLine: PropTypes.string,
+
   // Layout
-  w: sizePropType,
-  width: sizePropType,
-  minWidth: sizePropType,
-  maxWidth: sizePropType,
-  h: sizePropType,
-  height: sizePropType,
-  minHeight: sizePropType,
-  maxHeight: sizePropType,
+  w: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  width: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  minWidth: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  maxWidth: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  h: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  minHeight: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  maxHeight: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  size: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  minSize: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  maxSize: PropTypes.oneOfType([sizePropType, PropTypes.string, PropTypes.number]),
+  htmlSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   display: PropTypes.string,
   verticalAlign: PropTypes.string,
   overflow: PropTypes.string,

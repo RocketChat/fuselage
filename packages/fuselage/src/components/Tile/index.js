@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
-import { paddingPropType } from '../../propTypes/paddings';
 import { Box } from '../Box';
 
 export const Tile = forwardRef(function Tile({
@@ -24,5 +23,4 @@ Tile.defaultProps = {
 
 Tile.propTypes = {
   elevation: PropTypes.oneOf(['0', '1', '2']).isRequired,
-  padding: paddingPropType.isRequired,
 };

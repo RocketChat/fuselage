@@ -47,7 +47,7 @@
     "@rocket.chat/fuselage-tokens": "^0.8.0",
     "@rocket.chat/icons": "^0.8.0",
     "invariant": "^2.2.4",
-    "warning": "^4.0.3"
+    "mem": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

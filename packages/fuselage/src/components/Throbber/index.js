@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
-import { sizePropType } from '../../propTypes/sizes';
+import { sizePropType } from '../../styles/props/layout';
 
-function Circle({ disabled, size, circleCount, iteration, inheritColor }) {
+function Circle({ disabled, circleCount, iteration, inheritColor, ...props }) {
   return <Box
     is='span'
     className={css`
@@ -15,8 +15,7 @@ function Circle({ disabled, size, circleCount, iteration, inheritColor }) {
     rcx-throbber__circle
     rcx-throbber__circle--disabled={disabled}
     rcx-throbber__circle--inherit-color={inheritColor}
-    width={size}
-    height={size}
+    {...props}
   />;
 }
 

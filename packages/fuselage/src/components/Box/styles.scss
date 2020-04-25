@@ -15,28 +15,6 @@
     opacity: 0;
   }
 
-  @each $text-style in typography.$font-scales {
-    &--text-style-#{ $text-style } {
-      @include typography.use-font-scale($text-style);
-    }
-  }
-
-  &--text-style-headline {
-    @include typography.use-font-scale(h1);
-  }
-
-  &--text-style-subtitle {
-    @include typography.use-font-scale(s1);
-  }
-
-  &--text-style-paragraph {
-    @include typography.use-font-scale(p1);
-  }
-
-  &--text-style-caption {
-    @include typography.use-font-scale(c1);
-  }
-
   &--inline {
     color: colors.foreground(default);
     @extend %--with-inline-elements;

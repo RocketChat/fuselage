@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useContext, createContext } from 'react';
 
-import { sizePropType } from '../../propTypes/sizes';
 import { Box } from '../Box';
+import { sizePropType } from '../../styles/props/layout';
 
 const AvatarContext = createContext({
   baseUrl: '',

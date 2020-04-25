@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';
-import { sizePropType } from '../../propTypes/sizes';
+import { sizePropType } from '../../styles/props/layout';
 
 export function Chevron({
   up,

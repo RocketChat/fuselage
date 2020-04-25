@@ -49,21 +49,3 @@ is rendered as
 ```html
   <div class="rcx-box rcx-component rcx-component--bool-modifier rcx-component--string-modifier-value"></div>
 ```
-
-### [DEPRECATED] `componentClassName` prop and modifier props
-
-Following the [BEM convention](http://getbem.com/), `Box` elements can have a `componentClassName` comprising the block
-and element parts while the modifiers are appended via props prefixed with `mod-`. The generated class name will be
-appended to the `className` prop value and `rcx-box` class names coming from components named `Box` modifiers.
-
-For instance,
-
-```jsx
-  <Box componentClassName='my-component' mod-bool-modifier mod-string-modifier='value' />
-```
-
-is rendered as
-
-```html
-  <div class="rcx-box my-component my-component--bool-modifier my-component--string-modifier-value"></div>
-```
