@@ -10,7 +10,14 @@ const getFontFamilyValue = (propValue) => {
     return;
   }
 
-  return tokenTypography.fontFamilies[propValue].map(JSON.stringify).join(', ');
+  const fontFamily = tokenTypography.fontFamilies[propValue]
+    .map((fontFace) => (fontFace.includes(' ') ? `'${ fontFace }'` : fontFace)).join(', ');
+
+  if (cssSupports('(--foo: bar)')) {
+    return `var(--rcx-font-family-${ propValue }, ${ fontFamily })`;
+  }
+
+  return fontFamily;
 };
 
 const getFontScaleValue = (propValue) => {
