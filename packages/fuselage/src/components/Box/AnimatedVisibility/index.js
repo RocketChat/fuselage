@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import { PropsProvider } from '../PropsContext';
-import { useCss } from '../useCss';
 
 export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
   const [visibility, setVisibility] = useState(propVisibility);
@@ -23,7 +22,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     });
   }, [propVisibility]);
 
-  const animatedVisibilityClassName = useCss([
+  const animatedVisibilityStyles = [
     css`
       animation-duration: 230ms;
       animation-duration: var(--rcx-theme-transition-duration, 230ms);;
@@ -54,7 +53,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
         }
       ` };
     `,
-  ], [visibility]);
+  ];
 
   const handleAnimationEnd = useMutableCallback(() => setVisibility((visibility) => {
     if (visibility === AnimatedVisibility.HIDING) {
@@ -73,7 +72,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
   }
 
   return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [className, animatedVisibilityClassName],
+    className: [className, ...animatedVisibilityStyles],
     ...props,
     onAnimationEnd: handleAnimationEnd,
   })} memoized />;

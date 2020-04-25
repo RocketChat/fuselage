@@ -9,7 +9,6 @@ import React, {
 import ReactDOM from 'react-dom';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
-import { useCss } from '../useCss';
 
 const top = (top) => ({ top });
 const left = (left) => ({ left });
@@ -114,17 +113,19 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
 
   useEffect(() => () => document.body.removeChild(portalContainer), []);
 
-  const positionClassName = useCss(css`
-    position: fixed;
-    z-index: 9999;
-    transition: none;
-  `, []);
-
   return ReactDOM.createPortal(
     React.cloneElement(children, {
       ref,
       style: { ...position, ...children.props.style, ...style },
-      className: [className, positionClassName, children.props.className],
+      className: [
+        className,
+        css`
+          position: fixed;
+          z-index: 9999;
+          transition: none;
+        `,
+        children.props.className,
+      ],
     }),
     portalContainer,
   );

@@ -3,18 +3,15 @@ import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
-import { useCss } from '../Box/useCss';
 import { sizePropType } from '../../propTypes/sizes';
 
 function Circle({ disabled, size, circleCount, iteration, inheritColor }) {
-  const circleClassName = useCss(css`
-    animation-duration: ${ circleCount * 0.466 }s;
-    animation-delay: ${ iteration * 0.16 }s;
-  `, [circleCount, iteration]);
-
   return <Box
     is='span'
-    className={circleClassName}
+    className={css`
+      animation-duration: ${ circleCount * 0.466 }s;
+      animation-delay: ${ iteration * 0.16 }s;
+    `}
     rcx-throbber__circle
     rcx-throbber__circle--disabled={disabled}
     rcx-throbber__circle--inherit-color={inheritColor}

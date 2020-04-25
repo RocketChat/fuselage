@@ -29,18 +29,39 @@ Box.defaultProps = {
 };
 
 Box.propTypes = {
-  className: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.arrayOf(PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.func,
+    ])),
+  ]),
   componentClassName: PropTypes.string,
   invisible: PropTypes.bool,
   is: PropTypes.elementType.isRequired,
   richText: PropTypes.oneOf(['inline', 'block']),
   style: PropTypes.object,
   textColor: PropTypes.oneOf([
-    'default', 'info', 'hint', 'disabled', 'alternative',
-    'primary', 'success', 'danger', 'warning',
+    'default',
+    'info',
+    'hint',
+    'disabled',
+    'alternative',
+    'primary',
+    'success',
+    'danger',
+    'warning',
   ]),
   textStyle: PropTypes.oneOf([
-    'h1', 's1', 's2', 'p1', 'p2', 'c1', 'c2', 'micro',
+    'h1',
+    's1',
+    's2',
+    'p1',
+    'p2',
+    'c1',
+    'c2',
+    'micro',
   ]),
 
   // Spaces

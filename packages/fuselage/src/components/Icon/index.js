@@ -5,7 +5,6 @@ import React, { forwardRef } from 'react';
 
 import { sizePropType, getSizeValue } from '../../propTypes/sizes';
 import { Box } from '../Box';
-import { useCss } from '../Box/useCss';
 
 export const Icon = forwardRef(function Icon({
   className,
@@ -13,13 +12,14 @@ export const Icon = forwardRef(function Icon({
   size,
   ...props
 }, ref) {
-  const iconSizeClassName = useCss(size ? css`font-size: ${ getSizeValue(size) };` : css``, [size]);
-
   return <Box ref={ref}
     is='i'
     aria-hidden='true'
     children={nameToCharacterMapping[name]}
-    className={[iconSizeClassName, className]}
+    className={[
+      className,
+      size && css`font-size: ${ getSizeValue(size) };`,
+    ]}
     rcx-icon
     rcx-icon--name={name}
     {...props}
