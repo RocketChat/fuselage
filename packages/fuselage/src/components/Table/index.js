@@ -79,7 +79,6 @@ export function TableCell({
     rcx-table__cell--align={align}
     rcx-table__cell--header={isInsideHead}
     rcx-table__cell--clickable={clickable}
-    textStyle='p1'
     {...props}
   />;
 }

@@ -14,7 +14,7 @@ A collapsible panel.
   <Story name='Default'>
     <Accordion>
       <Accordion.Item title='Item'>
-        <Box textStyle='p1' color='default' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -28,7 +28,7 @@ A collapsible panel.
   <Story name='Expanded'>
     <Accordion>
       <Accordion.Item title='Item' defaultExpanded>
-        <Box textStyle='p1' color='default' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -40,7 +40,7 @@ A collapsible panel.
   <Story name='Noncollapsible'>
     <Accordion>
       <Accordion.Item title='Item' noncollapsible>
-        <Box textStyle='p1' color='default' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -56,7 +56,7 @@ is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>non
   <Story name='Without Title'>
     <Accordion>
       <Accordion.Item>
-        <Box textStyle='p1' color='default' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -70,7 +70,7 @@ is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>non
   <Story name='Enabled'>
     <Accordion>
       <Accordion.Item title='Item' onToggleEnabled={action('toggleEnabled')}>
-        <Box textStyle='p1' color='default' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -82,7 +82,7 @@ is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>non
   <Story name='Disabled'>
     <Accordion>
       <Accordion.Item title='Item' disabled onToggleEnabled={action('toggleEnabled')}>
-        <Box textStyle='p1' color='default' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
       </Accordion.Item>
     </Accordion>
   </Story>

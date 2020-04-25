@@ -64,7 +64,9 @@ const marginInlineStartProperty = (value) => {
   }
 
   return css`
-    margin-left: ${ value } !important;
+    *:not([dir=rtl]) & {
+      margin-left: ${ value } !important;
+    }
 
     [dir=rtl] & {
       margin-right: ${ value } !important;
@@ -78,7 +80,9 @@ const marginInlineEndProperty = (value) => {
   }
 
   return css`
-    margin-right: ${ value } !important;
+    *:not([dir=rtl]) & {
+      margin-right: ${ value } !important;
+    }
 
     [dir=rtl] & {
       margin-left: ${ value } !important;
@@ -146,7 +150,9 @@ const paddingInlineStartProperty = (value) => {
   }
 
   return css`
-    padding-left: ${ value } !important;
+    *:not([dir=rtl]) & {
+      padding-left: ${ value } !important;
+    }
 
     [dir=rtl] & {
       padding-right: ${ value } !important;
@@ -160,7 +166,9 @@ const paddingInlineEndProperty = (value) => {
   }
 
   return css`
-    padding-right: ${ value } !important;
+    *:not([dir=rtl]) & {
+      padding-right: ${ value } !important;
+    }
 
     [dir=rtl] & {
       padding-left: ${ value } !important;

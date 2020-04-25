@@ -23,6 +23,8 @@ const backgroundColorProperty = (value) => {
   return css`background-color: ${ color } !important;`;
 };
 
+const opacityProperty = (value) => css`opacity: ${ value } !important;`;
+
 export const mapColorProps = ({
   className,
   color,
@@ -35,7 +37,7 @@ export const mapColorProps = ({
     ...className,
     color !== undefined && colorProperty(color),
     backgroundColor !== undefined && backgroundColorProperty(backgroundColor),
-    opacity !== undefined && css`opacity: ${ opacity } !important;`,
+    opacity !== undefined && opacityProperty(opacity),
   ],
   ...props,
 });
