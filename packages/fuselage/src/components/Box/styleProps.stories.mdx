@@ -1,0 +1,190 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Box, Tile } from '../..';
+
+export const marginsDecorator = (fn) =>
+  <div style={{ display: 'inline-block', border: '1px dashed lightgray' }}>{fn()}</div>;
+
+export const paddingsDecorator = (fn) =>
+  <div style={{ display: 'inline-block', backgroundColor: 'lightgray' }}>{fn()}</div>;
+
+<Meta title='Box/Style props' parameters={{ jest: ['Box/spec'] }} />
+
+# Box
+
+## Style props
+
+Some props are designed to change styles by creating CSS rules at runtime.
+
+### Space
+
+#### Margins
+
+<Preview>
+  <Story name='m prop' decorators={[marginsDecorator]}>
+    <Box m='x16'>m</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='margin prop' decorators={[marginsDecorator]}>
+    <Box margin='x16'>margin</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='mb prop' decorators={[marginsDecorator]}>
+    <Box mb='x16'>mb</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='marginBlock prop' decorators={[marginsDecorator]}>
+    <Box marginBlock='x16'>marginBlock</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='mbs prop' decorators={[marginsDecorator]}>
+    <Box mbs='x16'>mbs</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='marginBlockStart prop' decorators={[marginsDecorator]}>
+    <Box marginBlockStart='x16'>marginBlockStart</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='mbe prop' decorators={[marginsDecorator]}>
+    <Box mbe='x16'>mbe</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='marginBlockEnd prop' decorators={[marginsDecorator]}>
+    <Box marginBlockEnd='x16'>marginBlockEnd</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='mi prop' decorators={[marginsDecorator]}>
+    <Box mi='x16'>mi</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='marginInline prop' decorators={[marginsDecorator]}>
+    <Box marginInline='x16'>marginInline</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='mis prop' decorators={[marginsDecorator]}>
+    <Box mis='x16'>mis</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='marginInlineStart prop' decorators={[marginsDecorator]}>
+    <Box marginInlineStart='x16'>marginInlineStart</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='mie prop' decorators={[marginsDecorator]}>
+    <Box mie='x16'>mie</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='marginInlineEnd prop' decorators={[marginsDecorator]}>
+    <Box marginInlineEnd='x16'>marginInlineEnd</Box>
+  </Story>
+</Preview>
+
+#### Paddings
+
+<Preview>
+  <Story name='p prop' decorators={[paddingsDecorator]}>
+    <Box p='x16'>p</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='padding prop' decorators={[paddingsDecorator]}>
+    <Box padding='x16'>padding</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='pb prop' decorators={[paddingsDecorator]}>
+    <Box pb='x16'>pb</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='paddingBlock prop' decorators={[paddingsDecorator]}>
+    <Box paddingBlock='x16'>paddingBlock</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='pbs prop' decorators={[paddingsDecorator]}>
+    <Box pbs='x16'>pbs</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='paddingBlockStart prop' decorators={[paddingsDecorator]}>
+    <Box paddingBlockStart='x16'>paddingBlockStart</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='pbe prop' decorators={[paddingsDecorator]}>
+    <Box pbe='x16'>pbe</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='paddingBlockEnd prop' decorators={[paddingsDecorator]}>
+    <Box paddingBlockEnd='x16'>paddingBlockEnd</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='pi prop' decorators={[paddingsDecorator]}>
+    <Box pi='x16'>pi</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='paddingInline prop' decorators={[paddingsDecorator]}>
+    <Box paddingInline='x16'>paddingInline</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='pis prop' decorators={[paddingsDecorator]}>
+    <Box pis='x16'>pis</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='paddingInlineStart prop' decorators={[paddingsDecorator]}>
+    <Box paddingInlineStart='x16'>paddingInlineStart</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='pie prop' decorators={[paddingsDecorator]}>
+    <Box pie='x16'>pie</Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='paddingInlineEnd prop' decorators={[paddingsDecorator]}>
+    <Box paddingInlineEnd='x16'>paddingInlineEnd</Box>
+  </Story>
+</Preview>

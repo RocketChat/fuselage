@@ -2,183 +2,171 @@ import { css } from '@rocket.chat/css-in-js';
 
 import { getMarginValue } from '../propTypes/margins';
 import { getPaddingValue } from '../propTypes/paddings';
+import { cssSupports } from './cssSupports';
 
-const cssSupports = (value) => {
-  if (!cssSupports.cache || !cssSupports.cache[value]) {
-    cssSupports.cache = cssSupports.cache || [];
-    cssSupports.cache[value] = typeof window !== 'undefined' && window.CSS && window.CSS.supports(value);
-  }
+const marginProperty = (value) => css`margin: ${ getMarginValue(value) } !important;`;
 
-  return cssSupports.cache[value];
-};
-
-const getMarginBlock = (() => {
+const marginBlockProperty = (value) => {
   if (cssSupports('margin-block: auto')) {
-    return (value) => css`margin-block: ${ value } !important;`;
+    return css`margin-block: ${ value } !important;`;
   }
 
   if (cssSupports('margin-block-start: auto') && cssSupports('margin-block-end: auto')) {
-    return (value) => css`
+    return css`
       margin-block-start: ${ value } !important;
       margin-block-end: ${ value } !important;
     `;
   }
 
-  return (value) => css`
+  return css`
     margin-top: ${ value } !important;
     margin-bottom: ${ value } !important;
   `;
-})();
+};
 
-const getMarginBlockStart = (() => {
+const marginBlockStartProperty = (value) => {
   if (cssSupports('margin-block-start: auto')) {
-    return (value) => css`margin-block-start: ${ value } !important;`;
+    return css`margin-block-start: ${ value } !important;`;
   }
 
-  return (value) => css`margin-top: ${ value } !important;`;
-})();
+  return css`margin-top: ${ value } !important;`;
+};
 
-const getMarginBlockEnd = (() => {
+const marginBlockEndProperty = (value) => {
   if (cssSupports('margin-block-end: auto')) {
-    return (value) => css`margin-block-end: ${ value } !important;`;
+    return css`margin-block-end: ${ value } !important;`;
   }
 
-  return (value) => css`margin-bottom: ${ value } !important;`;
-})();
+  return css`margin-bottom: ${ value } !important;`;
+};
 
-const getMarginInline = (() => {
+const marginInlineProperty = (value) => {
   if (cssSupports('margin-inline: auto')) {
-    return (value) => css`margin-inline: ${ value } !important;`;
+    return css`margin-inline: ${ value } !important;`;
   }
 
-  if (cssSupports('margin-inline-start: auto') && window.CSS.supports('margin-inline-end: auto')) {
-    return (value) => css`
+  if (cssSupports('margin-inline-start: auto') && cssSupports('margin-inline-end: auto')) {
+    return css`
       margin-inline-start: ${ value } !important;
       margin-inline-end: ${ value } !important;
     `;
   }
 
-  return (value) => css`
+  return css`
     margin-left: ${ value } !important;
     margin-right: ${ value } !important;
   `;
-})();
+};
 
-const getMarginInlineStart = (() => {
+const marginInlineStartProperty = (value) => {
   if (cssSupports('margin-inline-start: auto')) {
-    return (value) => css`margin-inline-start: ${ value } !important;`;
+    return css`margin-inline-start: ${ value } !important;`;
   }
 
-  return (value) => css`
-    [dir=ltr] & {
-      margin-left: ${ value } !important;
-    }
+  return css`
+    margin-left: ${ value } !important;
 
     [dir=rtl] & {
       margin-right: ${ value } !important;
     }
   `;
-})();
+};
 
-const getMarginInlineEnd = (() => {
+const marginInlineEndProperty = (value) => {
   if (cssSupports('margin-inline-end: auto')) {
-    return (value) => css`margin-inline-end: ${ value } !important;`;
+    return css`margin-inline-end: ${ value } !important;`;
   }
 
-  return (value) => css`
-    [dir=ltr] & {
-      margin-right: ${ value } !important;
-    }
+  return css`
+    margin-right: ${ value } !important;
 
     [dir=rtl] & {
       margin-left: ${ value } !important;
     }
   `;
-})();
+};
 
-const getPaddingBlock = (() => {
+const paddingProperty = (value) => css`padding: ${ getPaddingValue(value) } !important;`;
+
+const paddingBlockProperty = (value) => {
   if (cssSupports('padding-block: auto')) {
-    return (value) => css`padding-block: ${ value } !important;`;
+    return css`padding-block: ${ value } !important;`;
   }
 
-  if (cssSupports('padding-block-start: auto') && window.CSS.supports('padding-block-end: auto')) {
-    return (value) => css`
+  if (cssSupports('padding-block-start: auto') && cssSupports('padding-block-end: auto')) {
+    return css`
       padding-block-start: ${ value } !important;
       padding-block-end: ${ value } !important;
     `;
   }
 
-  return (value) => css`
+  return css`
     padding-top: ${ value } !important;
     padding-bottom: ${ value } !important;
   `;
-})();
+};
 
-const getPaddingBlockStart = (() => {
+const paddingBlockStartProperty = (value) => {
   if (cssSupports('padding-block-start: auto')) {
-    return (value) => css`padding-block-start: ${ value } !important;`;
+    return css`padding-block-start: ${ value } !important;`;
   }
 
-  return (value) => css`padding-top: ${ value } !important;`;
-})();
+  return css`padding-top: ${ value } !important;`;
+};
 
-const getPaddingBlockEnd = (() => {
+const paddingBlockEndProperty = (value) => {
   if (cssSupports('padding-block-end: auto')) {
-    return (value) => css`padding-block-end: ${ value } !important;`;
+    return css`padding-block-end: ${ value } !important;`;
   }
 
-  return (value) => css`padding-bottom: ${ value } !important;`;
-})();
+  return css`padding-bottom: ${ value } !important;`;
+};
 
-const getPaddingInline = (() => {
+const paddingInlineProperty = (value) => {
   if (cssSupports('padding-inline: auto')) {
-    return (value) => css`padding-inline: ${ value } !important;`;
+    return css`padding-inline: ${ value } !important;`;
   }
 
-  if (cssSupports('padding-inline-start: auto') && window.CSS.supports('padding-inline-end: auto')) {
-    return (value) => css`
+  if (cssSupports('padding-inline-start: auto') && cssSupports('padding-inline-end: auto')) {
+    return css`
       padding-inline-start: ${ value } !important;
       padding-inline-end: ${ value } !important;
     `;
   }
 
-  return (value) => css`
+  return css`
     padding-left: ${ value } !important;
     padding-right: ${ value } !important;
   `;
-})();
+};
 
-const getPaddingInlineStart = (() => {
+const paddingInlineStartProperty = (value) => {
   if (cssSupports('padding-inline-start: auto')) {
-    return (value) => css`padding-inline-start: ${ value } !important;`;
+    return css`padding-inline-start: ${ value } !important;`;
   }
 
-  return (value) => css`
-    [dir=ltr] & {
-      padding-left: ${ value } !important;
-    }
+  return css`
+    padding-left: ${ value } !important;
 
     [dir=rtl] & {
       padding-right: ${ value } !important;
     }
   `;
-})();
+};
 
-const getPaddingInlineEnd = (() => {
+const paddingInlineEndProperty = (value) => {
   if (cssSupports('padding-inline-end: auto')) {
-    return (value) => css`padding-inline-end: ${ value } !important;`;
+    return css`padding-inline-end: ${ value } !important;`;
   }
 
-  return (value) => css`
-    [dir=ltr] & {
-      padding-right: ${ value } !important;
-    }
+  return css`
+    padding-right: ${ value } !important;
 
     [dir=rtl] & {
       padding-left: ${ value } !important;
     }
   `;
-})();
+};
 
 export const mapSpaceProps = ({
   className,
@@ -214,20 +202,20 @@ export const mapSpaceProps = ({
 }) => ({
   className: [
     ...className,
-    margin !== undefined && css`margin: ${ getMarginValue(margin) } !important;`,
-    marginBlock !== undefined && getMarginBlock(getMarginValue(marginBlock)),
-    marginBlockStart !== undefined && getMarginBlockStart(getMarginValue(marginBlockStart)),
-    marginBlockEnd !== undefined && getMarginBlockEnd(getMarginValue(marginBlockEnd)),
-    marginInline !== undefined && getMarginInline(getMarginValue(marginInline)),
-    marginInlineStart !== undefined && getMarginInlineStart(getMarginValue(marginInlineStart)),
-    marginInlineEnd !== undefined && getMarginInlineEnd(getMarginValue(marginInlineEnd)),
-    padding !== undefined && css`padding: ${ getPaddingValue(padding) } !important;`,
-    paddingBlock !== undefined && getPaddingBlock(getPaddingValue(paddingBlock)),
-    paddingBlockStart !== undefined && getPaddingBlockStart(getPaddingValue(paddingBlockStart)),
-    paddingBlockEnd !== undefined && getPaddingBlockEnd(getPaddingValue(paddingBlockEnd)),
-    paddingInline !== undefined && getPaddingInline(getPaddingValue(paddingInline)),
-    paddingInlineStart !== undefined && getPaddingInlineStart(getPaddingValue(paddingInlineStart)),
-    paddingInlineEnd !== undefined && getPaddingInlineEnd(getPaddingValue(paddingInlineEnd)),
+    margin !== undefined && marginProperty(margin),
+    marginBlock !== undefined && marginBlockProperty(getMarginValue(marginBlock)),
+    marginBlockStart !== undefined && marginBlockStartProperty(getMarginValue(marginBlockStart)),
+    marginBlockEnd !== undefined && marginBlockEndProperty(getMarginValue(marginBlockEnd)),
+    marginInline !== undefined && marginInlineProperty(getMarginValue(marginInline)),
+    marginInlineStart !== undefined && marginInlineStartProperty(getMarginValue(marginInlineStart)),
+    marginInlineEnd !== undefined && marginInlineEndProperty(getMarginValue(marginInlineEnd)),
+    padding !== undefined && paddingProperty(padding),
+    paddingBlock !== undefined && paddingBlockProperty(getPaddingValue(paddingBlock)),
+    paddingBlockStart !== undefined && paddingBlockStartProperty(getPaddingValue(paddingBlockStart)),
+    paddingBlockEnd !== undefined && paddingBlockEndProperty(getPaddingValue(paddingBlockEnd)),
+    paddingInline !== undefined && paddingInlineProperty(getPaddingValue(paddingInline)),
+    paddingInlineStart !== undefined && paddingInlineStartProperty(getPaddingValue(paddingInlineStart)),
+    paddingInlineEnd !== undefined && paddingInlineEndProperty(getPaddingValue(paddingInlineEnd)),
   ],
   ...props,
 });
