@@ -7,6 +7,7 @@ import { mergeProps } from '../../props/mergeProps';
 import { marginPropType } from '../../propTypes/margins';
 import { paddingPropType } from '../../propTypes/paddings';
 import { sizePropType } from '../../propTypes/sizes';
+import { colorPropType } from '../../propTypes/colors';
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
@@ -93,6 +94,12 @@ Box.propTypes = {
   paddingInlineStart: paddingPropType,
   pie: paddingPropType,
   paddingInlineEnd: paddingPropType,
+
+  // Color
+
+  color: colorPropType,
+  backgroundColor: colorPropType,
+  opacity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   // Layout
   w: sizePropType,

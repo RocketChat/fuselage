@@ -9,7 +9,7 @@ export const Addon = forwardRef((props, ref) => <Box is='div' rcx-select__addon 
 
 const Wrapper = forwardRef((props, ref) => <Box is='div' rcx-select__wrapper ref={ref} {...props} />);
 
-export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' textColor='hint' rcx-select__focus is='button' type='button' {...props}/>);
+export const Focus = React.forwardRef((props, ref) => <Box ref={ref} textStyle='p2' color='hint' rcx-select__focus is='button' type='button' {...props}/>);
 
 export const Select = ({
   value,
@@ -80,7 +80,7 @@ export const Select = ({
             <Wrapper rcx-select__wrapper--hidden={!!visibleText}>
               { visibleText && <Flex.Item grow={1} shrink={1}>
                 <Margins inline='x4'>
-                  <Box is='span' rcx-select__item textStyle='p2' textColor={valueLabel ? 'default' : 'hint'}>{visibleText}</Box>
+                  <Box is='span' rcx-select__item textStyle='p2' color={valueLabel ? 'default' : 'hint'}>{visibleText}</Box>
                 </Margins>
               </Flex.Item>}
               <Anchor disabled={disabled} rcx-input-box--undecorated filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />

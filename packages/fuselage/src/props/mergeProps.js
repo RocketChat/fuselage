@@ -31,7 +31,7 @@ export const mergeProps = (props, contextProps, ref) => {
     mapFlexBoxProps,
     mapColorProps,
     mapTypographyProps,
-  ].reduceRight((props, transform) => transform(props), initialProps);
+  ].reduce((props, transform) => transform(props), initialProps);
 
   const rules = [];
 

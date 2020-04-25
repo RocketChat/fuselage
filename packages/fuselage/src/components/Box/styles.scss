@@ -37,12 +37,6 @@
     @include typography.use-font-scale(c1);
   }
 
-  @each $text-color in colors.$foreground-types {
-    &--text-color-#{ $text-color } {
-      color: colors.foreground($text-color);
-    }
-  }
-
   &--inline {
     color: colors.foreground(default);
     @extend %--with-inline-elements;

@@ -38,7 +38,7 @@ const Fields = ({ fields, parser }) => (
 export const Section = ({ blockId, appId, text, fields, accessory, parser }) => <Block>
   <Grid>
     <Grid.Item>
-      {text && <Box is='span' textStyle='p1' textColor='default'>{parser.text(text)}</Box>}
+      {text && <Box is='span' textStyle='p1' color='default'>{parser.text(text)}</Box>}
       {fields && <Fields fields={fields} parser={parser} />}
     </Grid.Item>
     { accessory && < Flex.Item grow={0}>
