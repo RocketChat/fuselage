@@ -453,3 +453,72 @@ Some props are designed to change styles by creating CSS rules at runtime.
     </Box>
   </Story>
 </Preview>
+
+### Borders
+
+#### Borders
+
+<Preview>
+  <Story
+    name='Borders'
+    decorators={[
+      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
+        {React.Children.map(fn().props.children, (child) =>
+          React.cloneElement(child, { bg:'primary-200', size: 'x32', m: 'x16' }))}
+      </Box>
+    ]}
+  >
+    <>
+      <Box border='2px solid currentColor' />
+      <Box borderBlock='2px solid currentColor' />
+      <Box borderBlockStart='2px solid currentColor' />
+      <Box borderBlockEnd='2px solid currentColor' />
+      <Box borderInline='2px solid currentColor' />
+      <Box borderInlineStart='2px solid currentColor' />
+      <Box borderInlineEnd='2px solid currentColor' />
+      <Box borderWidth='x2' />
+      <Box borderBlockWidth='x2' />
+      <Box borderBlockStartWidth='x2' />
+      <Box borderBlockEndWidth='x2' />
+      <Box borderInlineWidth='x2' />
+      <Box borderInlineStartWidth='x2' />
+      <Box borderInlineEndWidth='x2' />
+      <Box borderWidth='x1' borderStyle='dashed' />
+      <Box borderWidth='x1' borderBlockStyle='dashed' />
+      <Box borderWidth='x1' borderBlockStartStyle='dashed' />
+      <Box borderWidth='x1' borderBlockEndStyle='dashed' />
+      <Box borderWidth='x1' borderInlineStyle='dashed' />
+      <Box borderWidth='x1' borderInlineStartStyle='dashed' />
+      <Box borderWidth='x1' borderInlineEndStyle='dashed' />
+      <Box borderWidth='x4' borderColor='primary-500' />
+      <Box borderWidth='x4' borderBlockColor='primary-500' />
+      <Box borderWidth='x4' borderBlockStartColor='primary-500' />
+      <Box borderWidth='x4' borderBlockEndColor='primary-500' />
+      <Box borderWidth='x4' borderInlineColor='primary-500' />
+      <Box borderWidth='x4' borderInlineStartColor='primary-500' />
+      <Box borderWidth='x4' borderInlineEndColor='primary-500' />
+    </>
+  </Story>
+</Preview>
+
+#### Border radii
+
+<Preview>
+  <Story
+    name='Border radii'
+    decorators={[
+      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
+        {React.Children.map(fn().props.children, (child) =>
+          React.cloneElement(child, { bg:'primary-200', size: 'x32', m: 'x16' }))}
+      </Box>
+    ]}
+  >
+    <>
+      <Box borderRadius='full' />
+      <Box borderStartStartRadius='full' />
+      <Box borderStartEndRadius='full' />
+      <Box borderEndStartRadius='full' />
+      <Box borderEndEndRadius='full' />
+    </>
+  </Story>
+</Preview>

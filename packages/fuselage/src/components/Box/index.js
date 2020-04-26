@@ -126,6 +126,89 @@ Box.propTypes = {
   justifySelf: PropTypes.string,
   alignSelf: PropTypes.string,
   order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+  // Borders
+  border: PropTypes.string,
+  borderBlock: PropTypes.string,
+  borderBlockStart: PropTypes.string,
+  borderBlockEnd: PropTypes.string,
+  borderInline: PropTypes.string,
+  borderInlineStart: PropTypes.string,
+  borderInlineEnd: PropTypes.string,
+  borderWidth: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x1', 'x2', 'x4']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderBlockWidth: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x1', 'x2', 'x4']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderBlockStartWidth: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x1', 'x2', 'x4']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderBlockEndWidth: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x1', 'x2', 'x4']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderInlineWidth: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x1', 'x2', 'x4']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderInlineStartWidth: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x1', 'x2', 'x4']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderInlineEndWidth: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x1', 'x2', 'x4']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderStyle: PropTypes.string,
+  borderBlockStyle: PropTypes.string,
+  borderBlockStartStyle: PropTypes.string,
+  borderBlockEndStyle: PropTypes.string,
+  borderInlineStyle: PropTypes.string,
+  borderInlineStartStyle: PropTypes.string,
+  borderInlineEndStyle: PropTypes.string,
+  borderColor: PropTypes.oneOfType([colorPropType, PropTypes.string]),
+  borderBlockColor: PropTypes.oneOfType([colorPropType, PropTypes.string]),
+  borderBlockStartColor: PropTypes.oneOfType([colorPropType, PropTypes.string]),
+  borderBlockEndColor: PropTypes.oneOfType([colorPropType, PropTypes.string]),
+  borderInlineColor: PropTypes.oneOfType([colorPropType, PropTypes.string]),
+  borderInlineStartColor: PropTypes.oneOfType([colorPropType, PropTypes.string]),
+  borderInlineEndColor: PropTypes.oneOfType([colorPropType, PropTypes.string]),
+  borderRadius: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x2', 'x4', 'full']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderStartStartRadius: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x2', 'x4', 'full']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderStartEndRadius: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x2', 'x4', 'full']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderEndStartRadius: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x2', 'x4', 'full']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  borderEndEndRadius: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', 'x2', 'x4', 'full']),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 export * from './PropsContext';
