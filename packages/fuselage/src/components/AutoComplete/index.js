@@ -60,7 +60,7 @@ export function AutoComplete({
   return (
     <Container ref={containerRef} onClick={() => ref.current.focus()}>
       <Chip.Wrapper role='listbox'>
-        <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} style={{ order: 1 }} rcx-input-box--undecorated value={value}/>
+        <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} order={1} rcx-input-box--undecorated value={value}/>
         {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged(value) && false} children={getLabel(options.find((option) => getValue(option) === value))}/>)}
       </Chip.Wrapper>
       <Addon children={<Icon name='magnifier' size='x20' />}/>

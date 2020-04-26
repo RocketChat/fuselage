@@ -1,6 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Chevron } from '../..';
+import { Box, Chevron } from '../..';
 
 <Meta title='Misc/Chevron' parameters={{ jest: ['Chevron/spec'] }} />
 
@@ -49,8 +49,13 @@ import { Chevron } from '../..';
 ## Size
 
 <Preview>
-  <Story name='Size'>
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+  <Story
+    name='Size'
+    decorators={[
+      (fn) => <Box display='flex' alignItems='center'>{fn()}</Box>
+    ]}
+  >
+    <>
       <Chevron size='x2' />
       <Chevron size='x4' />
       <Chevron size='x8' />
@@ -59,6 +64,6 @@ import { Chevron } from '../..';
       <Chevron size='x24' />
       <Chevron size='x32' />
       <Chevron size='x40' />
-    </div>
+    </>
   </Story>
 </Preview>
