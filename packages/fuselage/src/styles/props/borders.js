@@ -1,11 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
 import mem from 'mem';
 
-import { createLogicalProperties } from './createLogicalProperties';
+import { createLogicalProperties, cssSupports } from '../helpers';
 import { getColorValue } from './colors';
-import { cssSupports } from './cssSupports';
 
-const [
+export const [
   borderBlockProperty,
   borderBlockStartProperty,
   borderBlockEndProperty,
@@ -25,7 +24,7 @@ const [
   inlineEndFallbackPropertyName: 'border-right',
 });
 
-const [
+export const [
   borderBlockWidthProperty,
   borderBlockStartWidthProperty,
   borderBlockEndWidthProperty,
@@ -45,7 +44,7 @@ const [
   inlineEndFallbackPropertyName: 'border-right-width',
 });
 
-const [
+export const [
   borderBlockStyleProperty,
   borderBlockStartStyleProperty,
   borderBlockEndStyleProperty,
@@ -65,7 +64,7 @@ const [
   inlineEndFallbackPropertyName: 'border-right-style',
 });
 
-const [
+export const [
   borderBlockColorProperty,
   borderBlockStartColorProperty,
   borderBlockEndColorProperty,
@@ -113,7 +112,7 @@ export const getBorderWidthValue = mem((propValue) => {
   }
 });
 
-const getBorderRadiusValue = mem((propValue) => {
+export const getBorderRadiusValue = mem((propValue) => {
   if (propValue === undefined || propValue === null) {
     return;
   }

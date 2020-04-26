@@ -1,7 +1,6 @@
 import { createSelector, transpile, referenceRules } from '@rocket.chat/css-in-js';
 
 import { mapClassNames } from './mapClassNames';
-import { mapBoxProps } from './mapBoxProps';
 import { mapSpaceProps } from '../../styles/props/spaces';
 import { mapLayoutProps } from '../../styles/props/layout';
 import { mapFlexBoxProps } from '../../styles/props/flexBox';
@@ -9,6 +8,7 @@ import { mapColorProps } from '../../styles/props/colors';
 import { mapTypographyProps } from '../../styles/props/typography';
 import { mapBorderProps } from '../../styles/props/borders';
 import { mapPositionProps } from '../../styles/props/position';
+import { mapSpecialProps } from '../../styles/props/special';
 
 export const mergeProps = (props, contextProps, ref) => {
   const initialProps = {
@@ -16,6 +16,7 @@ export const mergeProps = (props, contextProps, ref) => {
     ...contextProps,
     ...props,
     className: [
+      'rcx-box',
       ...Array.isArray(contextProps?.className) ? contextProps?.className : [contextProps?.className],
       ...Array.isArray(props.className) ? props.className : [props.className],
     ],
@@ -26,7 +27,7 @@ export const mergeProps = (props, contextProps, ref) => {
   };
 
   const mergedProps = [
-    mapBoxProps,
+    mapSpecialProps,
     mapClassNames,
     mapSpaceProps,
     mapLayoutProps,

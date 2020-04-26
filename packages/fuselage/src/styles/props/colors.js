@@ -3,8 +3,8 @@ import tokenColors from '@rocket.chat/fuselage-tokens/colors';
 import mem from 'mem';
 import invariant from 'invariant';
 
-import { cssSupports } from './cssSupports';
-import { createPropType } from './createPropType';
+import { cssSupports, createPropType } from '../helpers';
+
 
 const mapTypeToPrefix = {
   neutral: 'n',

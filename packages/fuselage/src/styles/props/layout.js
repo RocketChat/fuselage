@@ -1,7 +1,7 @@
 import { css } from '@rocket.chat/css-in-js';
 import mem from 'mem';
 
-import { createPropType } from './createPropType';
+import { createPropType } from '../helpers';
 
 export const getSizeValue = mem((propValue) => {
   if (propValue === undefined || propValue === null) {

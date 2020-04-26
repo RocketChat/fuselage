@@ -25,12 +25,8 @@ export const Box = memo(forwardRef(function Box(props, ref) {
   return children;
 }));
 
-Box.defaultProps = {
-  invisible: false,
-  is: 'div',
-};
-
 Box.propTypes = {
+  is: PropTypes.elementType,
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
@@ -39,13 +35,8 @@ Box.propTypes = {
       PropTypes.func,
     ])),
   ]),
-  componentClassName: PropTypes.string,
-  invisible: PropTypes.bool,
-  is: PropTypes.elementType.isRequired,
-  richText: PropTypes.oneOf(['inline', 'block']),
   style: PropTypes.object,
-  textColor: colorPropType,
-  textStyle: fontScalePropType,
+  componentClassName: PropTypes.string,
 
   // Spaces
   m: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
@@ -221,6 +212,14 @@ Box.propTypes = {
   insetInline: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
   insetInlineStart: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
   insetInlineEnd: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
+
+  // Special
+  invisible: PropTypes.bool,
+  withRichContent: PropTypes.bool,
+  withTruncatedText: PropTypes.bool,
+  richText: PropTypes.oneOf(['inline', 'block']),
+  textColor: colorPropType,
+  textStyle: fontScalePropType,
 };
 
 export * from './PropsContext';

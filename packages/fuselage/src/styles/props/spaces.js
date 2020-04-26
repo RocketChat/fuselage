@@ -1,8 +1,8 @@
 import { css } from '@rocket.chat/css-in-js';
 import mem from 'mem';
 
-import { createPropType } from './createPropType';
-import { createLogicalProperties } from './createLogicalProperties';
+import { createPropType, createLogicalProperties } from '../helpers';
+
 
 export const getMarginValue = mem((propValue) => {
   if (propValue === undefined || propValue === null) {
@@ -84,7 +84,7 @@ export const getPaddingValue = mem((propValue) => {
 
 export const paddingPropType = createPropType(getPaddingValue);
 
-const [
+export const [
   paddingBlockProperty,
   paddingBlockStartProperty,
   paddingBlockEndProperty,

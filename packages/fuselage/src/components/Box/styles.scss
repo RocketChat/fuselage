@@ -1,28 +1,7 @@
-@use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
-
 .rcx-box {
   &,
   &::before,
   &::after {
     @extend %box;
-  }
-
-  &--invisible {
-    visibility: hidden;
-
-    opacity: 0;
-  }
-
-  &--inline {
-    color: colors.foreground(default);
-    @extend %--with-inline-elements;
-  }
-
-  &--block {
-    color: colors.foreground(default);
-    @extend %--with-inline-elements;
-    @extend %--with-block-elements;
   }
 }

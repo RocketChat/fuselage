@@ -1,9 +1,8 @@
 import { css } from '@rocket.chat/css-in-js';
 import mem from 'mem';
 
-import { cssSupports } from './cssSupports';
-import { createLogicalProperties } from './createLogicalProperties';
-import { createPropType } from './createPropType';
+import { cssSupports, createLogicalProperties, createPropType } from '../helpers';
+
 
 export const getInsetValue = mem((propValue) => {
   if (propValue === undefined || propValue === null) {
@@ -35,7 +34,7 @@ export const getInsetValue = mem((propValue) => {
 
 export const insetPropType = createPropType(getInsetValue);
 
-const insetProperty = (inset) => {
+export const insetProperty = (inset) => {
   if (cssSupports('inset: inherit')) {
     return css`inset: ${ inset } !important;`;
   }
@@ -67,7 +66,7 @@ const insetProperty = (inset) => {
   `;
 };
 
-const [
+export const [
   insetBlockProperty,
   insetBlockStartProperty,
   insetBlockEndProperty,

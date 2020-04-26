@@ -1,37 +1,15 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { Box, Button } from '../..';
 
-<Meta title='Box' parameters={{ jest: ['Box/spec'] }} />
+<Meta title='Box/Intro' parameters={{ jest: ['Box/spec'] }} />
 
 # Box
 
-A primitive component with normalized styles.
-
-<Props of={Box} />
-
-### `is` prop
-
-The `is` prop allows `Box` to render any component capable of handling common DOM attributes, specially `className` and
-`style`.
-
-<Preview>
-  <Story name='is prop'>
-    <Box is={Button}>A Box rendering a Button</Box>
-  </Story>
-</Preview>
+A primitive component with normalized styles and a lot of props for prototyping.
 
 ### `invisible` prop
 
 The `Box` can be hidden using the boolean prop `invisible`.
-
-<Preview>
-  <Story name='invisible prop'>
-    <>
-      <Box>Visible</Box>
-      <Box invisible>Invisible</Box>
-    </>
-  </Story>
-</Preview>
 
 ### `rcx-` prefixed props
 

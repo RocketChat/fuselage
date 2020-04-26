@@ -2,10 +2,10 @@ import { css } from '@rocket.chat/css-in-js';
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography';
 import PropTypes from 'prop-types';
 
-import { cssSupports } from './cssSupports';
+import { cssSupports } from '../helpers';
 import { getSizeValue } from './layout';
 
-const getFontFamilyValue = (propValue) => {
+export const getFontFamilyValue = (propValue) => {
   if (!tokenTypography.fontFamilies[propValue]) {
     return;
   }
@@ -20,7 +20,7 @@ const getFontFamilyValue = (propValue) => {
   return fontFamily;
 };
 
-const getFontScaleValue = (propValue) => {
+export const getFontScaleValue = (propValue) => {
   if (!tokenTypography.fontScales[propValue]) {
     return;
   }
@@ -55,7 +55,7 @@ const lineHeightProperty = (value) =>
 const letterSpacingProperty = (value) =>
   css`letter-spacing: ${ getFontScaleValue(value)?.letterSpacing || value } !important;`;
 
-const fontScaleProperty = (value) => {
+export const fontScaleProperty = (value) => {
   const {
     fontSize,
     fontWeight,
