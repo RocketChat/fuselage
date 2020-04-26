@@ -8,6 +8,7 @@ import { marginPropType, paddingPropType } from '../../styles/props/spaces';
 import { colorPropType } from '../../styles/props/colors';
 import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
 import { sizePropType } from '../../styles/props/layout';
+import { insetPropType } from '../../styles/props/position';
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
@@ -209,6 +210,17 @@ Box.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+
+  // Inset
+  position: PropTypes.string,
+  zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  inset: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
+  insetBlock: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
+  insetBlockStart: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
+  insetBlockEnd: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
+  insetInline: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
+  insetInlineStart: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
+  insetInlineEnd: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
 };
 
 export * from './PropsContext';

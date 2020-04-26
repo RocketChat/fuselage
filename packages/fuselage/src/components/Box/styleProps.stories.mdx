@@ -522,3 +522,78 @@ Some props are designed to change styles by creating CSS rules at runtime.
     </>
   </Story>
 </Preview>
+
+### Position
+
+#### Position
+
+<Preview>
+  <Story
+    name='Position'
+    decorators={[
+      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
+        {React.Children.map(fn().props.children, (child) =>
+          React.cloneElement(child, { bg:'primary-200', size: 'x32', m: 'x16' }))}
+      </Box>
+    ]}
+  >
+    <>
+      <Box position='static' />
+      <Box position='relative' />
+      <Box position='absolute' />
+      <Box position='fixed' />
+    </>
+  </Story>
+</Preview>
+
+
+#### Z-index
+
+<Preview>
+  <Story
+    name='Z-index'
+    decorators={[
+      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
+        {React.Children.map(fn().props.children, (child) =>
+          React.cloneElement(child, { bg: 'primary-200', borderWidth: 'x4', size: 'x32', m: 'neg-x2' }))}
+      </Box>
+    ]}
+  >
+    <>
+      <Box zIndex='2' borderColor='success-300' />
+      <Box zIndex='1' borderColor='info-300' />
+      <Box zIndex='2' borderColor='warning-300' />
+      <Box zIndex='1' borderColor='danger-300' />
+    </>
+  </Story>
+</Preview>
+
+#### Inset
+
+<Preview>
+  <Story
+    name='Inset'
+    decorators={[
+      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
+        {React.Children.map(fn().props.children, (child) => <Box position='relative' bg='neutral-200' m='x16' size='x64'>
+          {React.cloneElement(child, { bg:'primary-200', position: 'absolute', minSize: 'x16' })}
+        </Box>)}
+      </Box>
+    ]}
+  >
+    <>
+      <Box inset='none' />
+      <Box inset='x1' />
+      <Box inset='x2' />
+      <Box inset='x4' />
+      <Box inset='x8' />
+      <Box inset='x16' />
+      <Box insetBlock='x16' />
+      <Box insetBlockStart='x16' />
+      <Box insetBlockEnd='x16' />
+      <Box insetInline='x16' />
+      <Box insetInlineStart='x16' />
+      <Box insetInlineEnd='x16' />
+    </>
+  </Story>
+</Preview>

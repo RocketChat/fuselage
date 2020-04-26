@@ -8,6 +8,7 @@ import { mapFlexBoxProps } from '../../styles/props/flexBox';
 import { mapColorProps } from '../../styles/props/colors';
 import { mapTypographyProps } from '../../styles/props/typography';
 import { mapBorderProps } from '../../styles/props/borders';
+import { mapPositionProps } from '../../styles/props/position';
 
 export const mergeProps = (props, contextProps, ref) => {
   const initialProps = {
@@ -33,6 +34,7 @@ export const mergeProps = (props, contextProps, ref) => {
     mapTypographyProps,
     mapFlexBoxProps,
     mapBorderProps,
+    mapPositionProps,
   ].reduce((props, transform) => transform(props), initialProps);
 
   const rules = [];
