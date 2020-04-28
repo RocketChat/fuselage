@@ -9,7 +9,7 @@ import { Box, Hint, Icon } from '../..';
 # Icon
 
 <Story name='Default'>
-  <Box textColor='default' textStyle='p1'>
+  <Box color='default' textStyle='p1'>
     {Object.keys(namesToCharactersMapping).map((name) => <Icon key={name} name={name} size='x40' /> )}
   </Box>
 </Story>
@@ -38,7 +38,7 @@ export const styles = {
       <Box>
         <Icon name={name} size='x40' />
       </Box>
-      <Box textColor='hint'>{name}</Box>
+      <Box color='hint'>{name}</Box>
     </div>
   )}
 </div>

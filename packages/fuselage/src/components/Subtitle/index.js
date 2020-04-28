@@ -8,7 +8,7 @@ export function Subtitle({
   level = 2,
   ...props
 }) {
-  return <Box is={`h${ level }`} componentClassName='rcx-subtitle' {...props} />;
+  return <Box is={`h${ level }`} rcx-subtitle {...props} />;
 }
 
 Subtitle.propTypes = {
@@ -16,7 +16,7 @@ Subtitle.propTypes = {
 };
 
 export function SubtitleSkeleton(props) {
-  return <Box componentClassName='rcx-subtitle' {...props}>
+  return <Box rcx-subtitle {...props}>
     <Skeleton />
   </Box>;
 }

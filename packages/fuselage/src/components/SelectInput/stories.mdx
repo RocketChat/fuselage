@@ -30,7 +30,7 @@ multiple selection of options.
 
 <Preview>
   <Story name='Multiple'>
-    <SelectInput multiple size={3} value={['b', 'c']}>
+    <SelectInput multiple htmlSize={3} value={['b', 'c']}>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
       <SelectInput.Option value='b'>Item B</SelectInput.Option>
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
@@ -59,7 +59,7 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
 
 <Preview>
   <Story name='Multiple With Addon'>
-    <SelectInput multiple size={3} addon={<Icon name='discover' size='x20' />}>
+    <SelectInput multiple htmlSize={3} addon={<Icon name='discover' size='x20' />}>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
       <SelectInput.Option value='b'>Item B</SelectInput.Option>
       <SelectInput.Option value='c'>Item C</SelectInput.Option>

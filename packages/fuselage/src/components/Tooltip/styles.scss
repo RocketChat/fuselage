@@ -90,7 +90,7 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
   &--pos {
     &-center {
       &::after {
-        inset-inline-start: lengths.inset(50%);
+        inset-inline-start: 50%;
 
         margin-inline-start: lengths.margin(-4);
       }

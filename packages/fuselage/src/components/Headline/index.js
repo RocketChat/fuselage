@@ -8,7 +8,7 @@ export function Headline({
   level = 1,
   ...props
 }) {
-  return <Box is={`h${ level }`} componentClassName='rcx-headline' {...props} />;
+  return <Box is={`h${ level }`} rcx-headline {...props} />;
 }
 
 Headline.propTypes = {
@@ -16,7 +16,7 @@ Headline.propTypes = {
 };
 
 export function HeadlineSkeleton(props) {
-  return <Box componentClassName='rcx-headline' {...props}>
+  return <Box rcx-headline {...props}>
     <Skeleton />
   </Box>;
 }

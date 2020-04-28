@@ -22,10 +22,10 @@ export const ToggleSwitch = forwardRef(function ToggleSwitch({
   onInvalid,
   ...props
 }, ref) {
-  return <Box is={Label} componentClassName='rcx-toggle-switch' {...props}>
+  return <Box is={Label} rcx-toggle-switch {...props}>
     <Box
       is='input'
-      componentClassName='rcx-toggle-switch__input'
+      rcx-toggle-switch__input
       autoComplete={autoComplete}
       checked={checked}
       defaultChecked={defaultChecked}
@@ -43,7 +43,7 @@ export const ToggleSwitch = forwardRef(function ToggleSwitch({
       onInput={onInput}
       onInvalid={onInvalid}
     />
-    <Box is='i' componentClassName='rcx-toggle-switch__fake' aria-hidden='true' />
+    <Box is='i' rcx-toggle-switch__fake aria-hidden='true' />
   </Box>;
 });
 

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 
 import { PropsProvider } from '../PropsContext';
-import { useCss } from '../useCss';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,
@@ -29,35 +28,6 @@ const pollTouchingEdges = (element, touchingEdgesRef, onScrollContent) => {
 };
 
 export function Scrollable({ children, horizontal, vertical, smooth, onScrollContent }) {
-  const scrollableClassName = useCss([
-    css`
-      position: relative;
-
-      &::-webkit-scrollbar {
-        width: ${ 4 / 16 }rem;
-        height: ${ 4 / 16 }rem;
-      }
-
-      &::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.05);
-        background-color: var(--rcx-theme-scrollbar-thumb-color, rgba(0, 0, 0, 0.05));
-      }
-
-      &:hover::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.15);
-        background-color: var(--rcx-theme-scrollbar-thumb-hover-color, rgba(0, 0, 0, 0.15));
-      }
-    `,
-    (horizontal && css`overflow-x: auto !important;`)
-      || (vertical && css`overflow-y: auto !important;`)
-      || css`overflow: auto !important;`,
-    smooth && css`scroll-behavior: smooth !important;`,
-  ], [horizontal, vertical, smooth]);
-
   const scrollTimeoutRef = useRef();
   const touchingEdgesRef = useRef({});
 
@@ -76,7 +46,35 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
   });
 
   return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [className, scrollableClassName].filter(Boolean).join(' '),
+    className: [
+      className,
+      css`
+        position: relative;
+
+        &::-webkit-scrollbar {
+          width: ${ 4 / 16 }rem;
+          height: ${ 4 / 16 }rem;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: rgba(0, 0, 0, 0.05);
+          background-color: var(--rcx-theme-scrollbar-thumb-color, rgba(0, 0, 0, 0.05));
+        }
+
+        &:hover::-webkit-scrollbar-thumb {
+          background-color: rgba(0, 0, 0, 0.15);
+          background-color: var(--rcx-theme-scrollbar-thumb-hover-color, rgba(0, 0, 0, 0.15));
+        }
+      `,
+      (horizontal && css`overflow-x: auto !important;`)
+        || (vertical && css`overflow-y: auto !important;`)
+        || css`overflow: auto !important;`,
+      smooth && css`scroll-behavior: smooth !important;`,
+    ],
     onScroll: onScrollContent ? handleScroll : undefined,
     ...props,
   })} memoized />;
