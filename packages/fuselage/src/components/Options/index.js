@@ -44,7 +44,6 @@ export const Options = React.forwardRef(({
   maxHeight = '144px',
   multiple,
   renderEmpty: EmptyComponent = Empty,
-  className,
   options,
   cursor,
   renderItem: OptionComponent = Option,
@@ -61,7 +60,7 @@ export const Options = React.forwardRef(({
       current.scrollTop = li.offsetTop;
     }
   }, [cursor]);
-  return <Box rcx-options className={className} is='div' {...props}>
+  return <Box rcx-options is='div' {...props}>
     <Tile padding='x8' elevation='2'>
       <Scrollable vertical smooth>
         <Margins blockStart='x4'>
