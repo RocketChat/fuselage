@@ -135,13 +135,16 @@ workflows:
             - hold
           filters:
               branches:
-                only: /feature*/
+                only:
+                  - /feat\/.*/
+                  - /fix\/.*/
       - hold:
           type: approval
           requires:
            - build
           filters:
               branches:
-                ignore:
-                  - master
-                  - develop
+              branches:
+                only:
+                  - /feat\/.*/
+                  - /fix\/.*/
