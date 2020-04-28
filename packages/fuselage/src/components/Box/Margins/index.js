@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { PropsProvider } from '../PropsContext';
-import { marginPropType } from '../../../propTypes/margins';
+import { marginPropType } from '../../../styles/props/spaces';
 
 export function Margins({
   children,
@@ -26,11 +27,11 @@ export function Margins({
 }
 
 Margins.propTypes = {
-  all: marginPropType,
-  block: marginPropType,
-  blockStart: marginPropType,
-  blockEnd: marginPropType,
-  inline: marginPropType,
-  inlineStart: marginPropType,
-  inlineEnd: marginPropType,
+  all: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  block: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  blockStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  blockEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  inline: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  inlineStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  inlineEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
 };

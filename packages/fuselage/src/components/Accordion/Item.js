@@ -80,18 +80,18 @@ export function Item({
 
   const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
 
-  return <Box componentClassName='rcx-accordion-item' is='section' className={className} {...props}>
-    {title && <Box componentClassName='rcx-accordion-item__bar' mod-disabled={disabled} {...barProps}>
-      <Box componentClassName='rcx-accordion-item__title' is='h1' id={titleId}>{title}</Box>
+  return <Box is='section' rcx-accordion-item className={className} {...props}>
+    {title && <Box rcx-accordion-item__bar rcx-accordion-item__bar--disabled={disabled} {...barProps}>
+      <Box is='h1' rcx-accordion-item__title id={titleId}>{title}</Box>
       {!noncollapsible && <>
         {(disabled || onToggleEnabled)
-          && <Box componentClassName='rcx-accordion-item__toggle-switch'>
+          && <Box rcx-accordion-item__toggle-switch>
             <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />
           </Box>}
         <Chevron size='x24' up={expanded} />
       </>}
     </Box>}
-    <Box componentClassName='rcx-accordion-item__panel' id={panelId} mod-expanded={panelExpanded} role='region'>
+    <Box rcx-accordion-item__panel rcx-accordion-item__panel--expanded={panelExpanded} id={panelId} role='region'>
       {children}
     </Box>
   </Box>;

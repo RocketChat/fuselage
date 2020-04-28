@@ -3,23 +3,19 @@ import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
-import { useCss } from '../Box/useCss';
-import { getSizeValue, sizePropType } from '../../propTypes/sizes';
+import { sizePropType } from '../../styles/props/layout';
 
-function Circle({ disabled, size, circleCount, iteration, inheritColor }) {
-  const circleClassName = useCss(css`
-    animation-duration: ${ circleCount * 0.466 }s;
-    animation-delay: ${ iteration * 0.16 }s;
-    width: ${ getSizeValue(size) };
-    height: ${ getSizeValue(size) };
-  `, [circleCount, iteration]);
-
+function Circle({ disabled, circleCount, iteration, inheritColor, ...props }) {
   return <Box
-    componentClassName='rcx-throbber__circle'
     is='span'
-    className={circleClassName}
-    mod-disabled={disabled}
-    mod-inherit-color={inheritColor}
+    className={css`
+      animation-duration: ${ circleCount * 0.466 }s;
+      animation-delay: ${ iteration * 0.16 }s;
+    `}
+    rcx-throbber__circle
+    rcx-throbber__circle--disabled={disabled}
+    rcx-throbber__circle--inherit-color={inheritColor}
+    {...props}
   />;
 }
 
@@ -31,7 +27,7 @@ export const Throbber = forwardRef(function Throbber({
   ...props
 }, ref) {
   return <Box
-    componentClassName='rcx-throbber'
+    rcx-throbber
     ref={ref}
     {...props}
   >

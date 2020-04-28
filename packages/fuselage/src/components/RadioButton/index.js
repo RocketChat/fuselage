@@ -22,10 +22,10 @@ export const RadioButton = forwardRef(function RadioButton({
   onInvalid,
   ...props
 }, ref) {
-  return <Box is={Label} componentClassName='rcx-radio-button' {...props}>
+  return <Box is={Label} rcx-radio-button {...props}>
     <Box
       is='input'
-      componentClassName='rcx-radio-button__input'
+      rcx-radio-button__input
       autoComplete={autoComplete}
       checked={checked}
       defaultChecked={defaultChecked}
@@ -43,7 +43,7 @@ export const RadioButton = forwardRef(function RadioButton({
       onInput={onInput}
       onInvalid={onInvalid}
     />
-    <Box is='i' componentClassName='rcx-radio-button__fake' aria-hidden='true' />
+    <Box is='i' rcx-radio-button__fake aria-hidden='true' />
   </Box>;
 });
 

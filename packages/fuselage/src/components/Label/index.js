@@ -15,7 +15,7 @@ export function Label({
   const component = is || (isInsideLabel && 'span') || 'label';
 
   return <LabelContext.Provider value={true}>
-    <Box is={component} componentClassName='rcx-label' mod-disabled={disabled} mod-required={required} {...props} />
+    <Box is={component} rcx-label rcx-label--disabled={disabled} rcx-label--required={required} {...props} />
   </LabelContext.Provider>;
 }
 

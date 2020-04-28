@@ -15,8 +15,8 @@
 
   &__input:checked + &__fake::before {
     position: absolute;
-    inset-block-start: lengths.inset(50%);
-    inset-inline-start: lengths.inset(50%);
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
 
     display: block;
 
