@@ -14,7 +14,7 @@ const top = (top) => ({ top });
 const left = (left) => ({ left });
 const right = (right) => ({ right });
 
-function offset(el) {
+function getOffset(el) {
   return el.getBoundingClientRect();
 }
 
@@ -55,7 +55,7 @@ const throttle = (func, limit) => {
   };
 };
 
-export const Position = ({ anchor, width = 'stretch', style, className, children, placement = 'bottom center' }) => {
+export const Position = ({ anchor, width = 'stretch', style, className, children, placement = 'bottom center'/* , offset*/ }) => {
   const [position, setPosition] = useState();
   const ref = useRef();
 
@@ -69,8 +69,8 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
     const [vertical, horizontal] = placement.split(' ');
 
     const handlePosition = throttle(() => {
-      const anchorPosition = offset(anchor.current);
-      const elementPosition = offset(ref.current.parentElement);
+      const anchorPosition = getOffset(anchor.current);
+      const elementPosition = getOffset(ref.current.parentElement);
 
       setPosition({
         ...width === 'stretch' && anchor.current && {
@@ -103,7 +103,7 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
       window.removeEventListener('resize', handlePosition);
       resizer.current && resizer.current.unobserve(current);
     };
-  }, [anchor.current, placement, offsetWidth]);
+  }, [anchor, placement, offsetWidth, width]);
 
   const portalContainer = useMemo(() => {
     const element = document.createElement('div');
@@ -111,7 +111,7 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
     return element;
   }, []);
 
-  useEffect(() => () => document.body.removeChild(portalContainer), []);
+  useEffect(() => () => document.body.removeChild(portalContainer), [portalContainer]);
 
   return ReactDOM.createPortal(
     React.cloneElement(children, {
@@ -131,6 +131,6 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
   );
 };
 
-export const PositionAnimated = ({ width, placement, visible, children, ...props }) => (
-  <AnimatedVisibility visibility={visible}><Position placement={placement} width={width} {...props}>{children}</Position></AnimatedVisibility>
+export const PositionAnimated = ({ width, offset, placement, visible, children, ...props }) => (
+  <AnimatedVisibility visibility={visible}><Position offset={offset} placement={placement} width={width} {...props}>{children}</Position></AnimatedVisibility>
 );

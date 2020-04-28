@@ -14,7 +14,11 @@ const menuAction = ([selected], options) => {
 
 const mapOptions = (options) => Object.entries(options).map(([value, { label }]) => [value, label]);
 
-export const Menu = ({ options, ...props }) => {
+export const Menu = ({
+  options,
+  optionWidth = '240px',
+  placement = 'bottom right',
+  ...props }) => {
   const mappedOptions = mapOptions(options);
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(-1, mappedOptions, (args, [, hide]) => {
     menuAction(args, options);
@@ -23,13 +27,13 @@ export const Menu = ({ options, ...props }) => {
   });
 
   const ref = useRef();
-  const onClick = useCallback(() => ref.current.focus() & show());
+  const onClick = useCallback(() => ref.current.focus() & show(), [show]);
 
   const handleSelection = useCallback((args) => {
     menuAction(args, options);
     reset();
     hide();
-  });
+  }, [hide, reset, options]);
 
   return (
     <>
@@ -49,9 +53,10 @@ export const Menu = ({ options, ...props }) => {
         width='auto'
         visible={visible}
         anchor={ref}
-        placement='bottom right'
+        placement={placement}
       >
         <Options
+          width={optionWidth}
           onSelect={handleSelection}
           options={mappedOptions}
           cursor={cursor}
