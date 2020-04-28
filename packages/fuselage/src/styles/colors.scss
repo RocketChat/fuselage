@@ -1,62 +1,75 @@
 @use 'sass:color';
+@use 'sass:list';
+@use 'sass:map';
 @use '~@rocket.chat/fuselage-tokens/colors.scss' as token-colors;
 
-@function _check-grade($grade) {
-  @if $grade % 100 != 0 or $grade / 100 <= 0 or $grade / 100 > 9 {
+$-map-type-to-prefix: (
+  neutral: 'n',
+  primary: 'b',
+  info: 'b',
+  success: 'g',
+  warning: 'y',
+  danger: 'r',
+);
+
+@function _get-palette-color($type, $grade, $alpha) {
+  @if not ($grade % 100 == 0 and $grade / 100 >= 1 and $grade / 100 <= 9) {
     @error 'invalid color grade';
   }
 
-  @return $grade;
-}
-
-@function _get-color($prefix, $grade, $alpha) {
-  @if $grade % 100 != 0 or $grade / 100 <= 0 or $grade / 100 > 9 {
-    @error 'invalid color grade';
+  @if not ($alpha == null or ($alpha >= 0 and $alpha <= 1)) {
+    @error 'invalid color alpha';
   }
 
-  $base-color: map-get(token-colors.$colors, #{ $prefix }#{ $grade });
-
-  @if $alpha != null {
-    @return color.change($base-color, $alpha: $alpha);
+  $prefix: map.get($-map-type-to-prefix, $type);
+  @if not $prefix {
+    @error 'invalid color type';
   }
 
-  @return $base-color;
-}
+  $base-color: map.get(token-colors.$colors, #{ $prefix }#{ $grade });
 
-@function _get-varname($prefix, $grade, $alpha) {
-  @if $grade % 100 != 0 or $grade / 100 <= 0 or $grade / 100 > 9 {
-    @error 'invalid color grade';
+  @if not $base-color {
+    @error 'invalid color reference';
   }
 
-  @if $alpha != null {
-    @return --rcx-color-#{ $prefix }-#{ $grade }-#{ $alpha * 100 };
+  @if ($alpha != null) {
+    @return (
+      --rcx-color-#{ $type }-#{ $grade }-#{ $alpha * 100 },
+      color.change($base-color, $alpha: $alpha),
+    );
   }
 
-  @return --rcx-color-#{ $prefix }-#{ $grade };
+  @return (--rcx-color-#{ type }-#{ grade }, $base-color);
 }
 
 @function neutral($grade, $alpha: null) {
-  @return var(_get-varname(neutral, $grade, $alpha), _get-color(n, $grade, $alpha));
+  $pair: _get-palette-color(neutral, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
 @function primary($grade, $alpha: null) {
-  @return var(_get-varname(primary, $grade, $alpha), _get-color(b, $grade, $alpha));
+  $pair: _get-palette-color(primary, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
 @function info($grade, $alpha: null) {
-  @return var(_get-varname(info, $grade, $alpha), _get-color(b, $grade, $alpha));
+  $pair: _get-palette-color(info, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
 @function success($grade, $alpha: null) {
-  @return var(_get-varname(success, $grade, $alpha), _get-color(g, $grade, $alpha));
+  $pair: _get-palette-color(success, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
 @function warning($grade, $alpha: null) {
-  @return var(_get-varname(warning, $grade, $alpha), _get-color(y, $grade, $alpha));
+  $pair: _get-palette-color(warning, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
 @function danger($grade, $alpha: null) {
-  @return var(_get-varname(danger, $grade, $alpha), _get-color(r, $grade, $alpha));
+  $pair: _get-palette-color(danger, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
 @function surface() {
@@ -64,26 +77,33 @@
 }
 
 $-foreground-colors: (
-  default: map-get(token-colors.$colors, n800),
-  info: map-get(token-colors.$colors, n700),
-  hint: map-get(token-colors.$colors, n600),
-  disabled: map-get(token-colors.$colors, n400),
+  default: map.get(token-colors.$colors, n800),
+  info: map.get(token-colors.$colors, n700),
+  hint: map.get(token-colors.$colors, n600),
+  disabled: map.get(token-colors.$colors, n400),
   alternative: white,
-  primary: map-get(token-colors.$colors, b500),
-  success: map-get(token-colors.$colors, g500),
-  danger: map-get(token-colors.$colors, r500),
-  warning: map-get(token-colors.$colors, y700),
-  link: map-get(token-colors.$colors, b500),
-  visited-link: map-get(token-colors.$colors, p500),
-  active-link: map-get(token-colors.$colors, r500),
+  primary: map.get(token-colors.$colors, b500),
+  success: map.get(token-colors.$colors, g500),
+  danger: map.get(token-colors.$colors, r500),
+  warning: map.get(token-colors.$colors, y700),
+  link: map.get(token-colors.$colors, b500),
+  visited-link: map.get(token-colors.$colors, p500),
+  active-link: map.get(token-colors.$colors, r500),
 );
 
-@function foreground($type) {
-  @if not map-has-key($-foreground-colors, $type) {
+@function _get-foreground-color($type) {
+  @if not map.has-key($-foreground-colors, $type) {
     @error 'invalid foreground type';
   }
 
-  @return var(--rcx-color-foreground-#{ $type }, map-get($-foreground-colors, $type));
+  $color: map.get($-foreground-colors, $type);
+
+  @return (--rcx-color-foreground-#{ type }, $color);
+}
+
+@function foreground($type) {
+  $pair: _get-foreground-color($type);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
 $foreground-types: map-keys($-foreground-colors);

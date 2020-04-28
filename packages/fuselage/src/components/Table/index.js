@@ -9,7 +9,7 @@ const style = {
 };
 
 export function Selection({ children, text, ...props }) {
-  return <Box textColor='alternative' componentClassName='rcx-table__selection' display='flex' alignItems='center' justifyContent='space-between' {...props} pi='x24'>
+  return <Box color='alternative' rcx-table__selection display='flex' alignItems='center' justifyContent='space-between' {...props} pi='x24'>
     <Box textStyle='p2' mb='x16' flexShrink={1} style={style}>{text}</Box>
     { children && <Box mi='neg-x8' textStyle='p2' flexShrink={0} ><Margins inline='x4'>{children}</Margins></Box> }
   </Box>;
@@ -27,13 +27,13 @@ export function Table({
   fixed = false,
   ...props
 }) {
-  return <Box componentClassName='rcx-table__wrapper'>
+  return <Box rcx-table__wrapper>
     <Box
       is='table'
-      componentClassName='rcx-table'
-      mod-fixed={fixed}
-      mod-sticky={sticky}
-      mod-striped={striped}
+      rcx-table
+      rcx-table--fixed={fixed}
+      rcx-table--sticky={sticky}
+      rcx-table--striped={striped}
       {...props}
     />
   </Box>;
@@ -45,20 +45,26 @@ const TableHeadContext = createContext(false);
 
 export function TableHead(props) {
   return <TableHeadContext.Provider value={true}>
-    <Box is='thead' componentClassName='rcx-table__head' {...props}></Box>
+    <Box is='thead' rcx-table__head {...props}></Box>
   </TableHeadContext.Provider>;
 }
 
 export function TableBody(props) {
-  return <Box is='tbody' componentClassName='rcx-table__body' {...props} />;
+  return <Box is='tbody' rcx-table__body {...props} />;
 }
 
 export function TableFoot(props) {
-  return <Box is='tfoot' componentClassName='rcx-table__foot' {...props} />;
+  return <Box is='tfoot' rcx-table__foot {...props} />;
 }
 
 export function TableRow({ action, selected, ...props }) {
-  return <Box is='tr' componentClassName='rcx-table__row' mod-selected={selected} mod-action={action} {...props} />;
+  return <Box
+    is='tr'
+    rcx-table__row
+    rcx-table__row--selected={selected}
+    rcx-table__row--action={action}
+    {...props}
+  />;
 }
 
 export function TableCell({
@@ -69,12 +75,10 @@ export function TableCell({
   const isInsideHead = useContext(TableHeadContext);
   return <Box
     is={isInsideHead ? 'th' : 'td'}
-    componentClassName='rcx-table__cell'
-    textStyle='p1'
-    textColor='default'
-    mod-align={align}
-    mod-header={isInsideHead}
-    mod-clickable={clickable}
+    rcx-table__cell
+    rcx-table__cell--align={align}
+    rcx-table__cell--header={isInsideHead}
+    rcx-table__cell--clickable={clickable}
     {...props}
   />;
 }

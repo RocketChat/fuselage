@@ -5,7 +5,7 @@ import { Item } from './Item';
 import { Box } from '../Box';
 
 export function Accordion(props) {
-  return <Box componentClassName='rcx-accordion' {...props} />;
+  return <Box rcx-accordion {...props} />;
 }
 
 Accordion.propTypes = {

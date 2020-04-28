@@ -7,12 +7,14 @@ import { InputBox } from '../InputBox';
 import { Options, CheckOption, useCursor } from '../Options';
 import { Focus, Addon } from './Select';
 
-const Container = Box.extend('rcx-select', 'div');
-
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);
 
+const prevent = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  e.nativeEvent.stopImmediatePropagation();
+};
 
-const prevent = (e) => e.preventDefault() & e.stopPropagation() & e.nativeEvent.stopImmediatePropagation();
 export const MultiSelect = ({
   value,
   filter,
@@ -60,19 +62,25 @@ export const MultiSelect = ({
   const ref = useRef();
   const containerRef = useRef();
   return (
-    <Container className={
-      [
+    <Box
+      is='div'
+      rcx-select
+      className={[
         error && 'invalid',
         disabled && 'disabled',
-      ].filter(Boolean).join(' ')
-    } ref={containerRef} onClick={() => ref.current.focus() & show()} disabled={disabled} {...props}>
+      ]}
+      ref={containerRef}
+      onClick={() => ref.current.focus() & show()}
+      disabled={disabled}
+      {...props}
+    >
       <Flex.Item grow={1}>
         <Margins inline='x4'>
           <Flex.Container>
             <Box is='div'>
               <Margins all='neg-x8'>
                 <Chip.Wrapper role='listbox'>
-                  <Anchor disabled={disabled} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} style={{ order: 1 }} mod-undecorated children={!value ? option || placeholder : null}/>
+                  <Anchor disabled={disabled} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} order={1} rcx-input-box--undecorated children={!value ? option || placeholder : null}/>
                   {currentValue.map((value) => <SelectedOptions tabIndex={-1} role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
                 </Chip.Wrapper>
               </Margins>
@@ -86,7 +94,7 @@ export const MultiSelect = ({
         </Margins>
       </Flex.Item>
       <AnimatedVisibility visibility={visible}><Position anchor={containerRef}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedVisibility>
-    </Container>);
+    </Box>);
 };
 
 export const MultiSelectFiltered = ({
@@ -95,6 +103,6 @@ export const MultiSelectFiltered = ({
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} mod-undecorated={true}/></Flex.Item>), []);
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Flex.Item grow={1}><InputBox.Input ref={ref} placeholder={placeholder} value={filter} onInput={(e) => setFilter(e.currentTarget.value)} {...props} rcx-input-box--undecorated /></Flex.Item>), []);
   return <MultiSelect filter={filter} options={options} {...props} anchor={anchor}/>;
 };

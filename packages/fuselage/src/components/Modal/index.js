@@ -9,7 +9,7 @@ import { ModalBackdrop, ModalContainer, ModalPortal, ModalStack } from './Stack'
 
 export const Modal = React.forwardRef(({ children, ...props }, ref) =>
   <Flex.Container>
-    <Box is='dialog' componentClassName='rcx-modal' { ...props }>
+    <Box is='dialog' rcx-modal { ...props }>
       <Flex.Container direction='column'>
         <Flex.Item grow={1}>
           <Tile ref={ref} elevation='2' className='rcx-modal__inner' padding='none'>
@@ -39,7 +39,7 @@ export const ModalThumb = (props) => <Avatar size='x32' {...props} />;
 
 export const ModalTitle = ({ children, ...props }) =>
   <Flex.Item grow={1} shrink={1}>
-    <Box componentClassName='rcx-modal__title' textColor='default' textStyle='h1' {...props}>
+    <Box rcx-modal__title color='default' textStyle='h1' {...props}>
       {children}
     </Box>
   </Flex.Item>;
@@ -52,9 +52,9 @@ export const ModalClose = (props) => <Flex.Item shrink={0}>
 
 export const ModalContent = ({ children, onScrollContent, ...props }) =>
   <Scrollable vertical onScrollContent={onScrollContent}>
-    <Box componentClassName='rcx-modal__content'>
+    <Box rcx-modal__content>
       <Margins inline='x32'>
-        <Box componentClassName='rcx-modal__content-wrapper' {...props}>
+        <Box rcx-modal__content-wrapper {...props}>
           {children}
         </Box>
       </Margins>
@@ -63,7 +63,7 @@ export const ModalContent = ({ children, onScrollContent, ...props }) =>
 
 export const ModalFooter = ({ children }) =>
   <Margins all='x32'>
-    <Box componentClassName='rcx-modal__footer'>
+    <Box rcx-modal__footer>
       {children}
     </Box>
   </Margins>;

@@ -1,56 +1,7 @@
-@use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
-
 .rcx-box {
   &,
   &::before,
   &::after {
     @extend %box;
-  }
-
-  &--invisible {
-    visibility: hidden;
-
-    opacity: 0;
-  }
-
-  @each $text-style in typography.$font-scales {
-    &--text-style-#{ $text-style } {
-      @include typography.use-font-scale($text-style);
-    }
-  }
-
-  &--text-style-headline {
-    @include typography.use-font-scale(h1);
-  }
-
-  &--text-style-subtitle {
-    @include typography.use-font-scale(s1);
-  }
-
-  &--text-style-paragraph {
-    @include typography.use-font-scale(p1);
-  }
-
-  &--text-style-caption {
-    @include typography.use-font-scale(c1);
-  }
-
-  @each $text-color in colors.$foreground-types {
-    &--text-color-#{ $text-color } {
-      color: colors.foreground($text-color);
-    }
-  }
-
-  &--inline {
-    color: colors.foreground(default);
-    @extend %--with-inline-elements;
-  }
-
-  &--block {
-    color: colors.foreground(default);
-    @extend %--with-inline-elements;
-    @extend %--with-block-elements;
   }
 }

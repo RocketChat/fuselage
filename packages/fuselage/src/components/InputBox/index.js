@@ -9,9 +9,11 @@ import { Option } from './Option';
 import { Placeholder } from './Placeholder';
 import { Skeleton } from '../Skeleton';
 
-const Wrapper = (props) => <Box componentClassName='rcx-input-box__wrapper' is={Label} {...props}/>;
-const Input = Box.extend('rcx-input-box', 'input');
-const Addon = Box.extend('rcx-input-box__addon', 'span');
+const Wrapper = (props) => <Box is={Label} rcx-input-box__wrapper {...props}/>;
+
+const Input = forwardRef((props, ref) => <Box is='input' rcx-input-box ref={ref} {...props} />);
+
+const Addon = forwardRef((props, ref) => <Box is='span' rcx-input-box__addon ref={ref} {...props} />);
 
 export const InputBox = forwardRef(function InputBox({
   className,
@@ -63,21 +65,21 @@ export const InputBox = forwardRef(function InputBox({
       invisible={invisible}
       multiple={multiple}
       ref={mergedRef}
-      size={
+      htmlSize={
         (type === 'textarea' && undefined)
       || (type === 'select' && 1)
       || 1}
       type={type === 'textarea' || type === 'select' ? undefined : type}
       onChange={handleChange}
-      mod-multiple={multiple}
-      mod-placeholder-visible={placeholderVisible}
-      mod-type={type}
+      rcx-input-box--multiple={multiple}
+      rcx-input-box--placeholder-visible={placeholderVisible}
+      rcx-input-box--type={type}
       {...props}
     />;
   }
 
   return <Wrapper
-    className={[props.disabled && 'disabled', className].filter(Boolean).join(' ')}
+    className={[props.disabled && 'disabled', className]}
     hidden={hidden}
     invisible={invisible}
   >
@@ -93,16 +95,16 @@ export const InputBox = forwardRef(function InputBox({
       || 0}
       multiple={multiple}
       ref={mergedRef}
-      size={
+      htmlSize={
         (type === 'textarea' && undefined)
       || (type === 'select' && 1)
       || 1}
       type={type === 'textarea' || type === 'select' ? undefined : type}
       onChange={handleChange}
-      mod-multiple={multiple}
-      mod-placeholder-visible={placeholderVisible}
-      mod-type={type}
-      mod-undecorated
+      rcx-input-box--multiple={multiple}
+      rcx-input-box--placeholder-visible={placeholderVisible}
+      rcx-input-box--type={type}
+      rcx-input-box--undecorated
       {...props}
     />
     <Addon children={addon} />
@@ -157,7 +159,7 @@ InputBox.Placeholder = Placeholder;
 InputBox.Option = Option;
 
 export function InputBoxSkeleton(props) {
-  return <Box componentClassName='rcx-skeleton__input' {...props}>
+  return <Box rcx-skeleton__input {...props}>
     <Skeleton width='100%' />
   </Box>;
 }

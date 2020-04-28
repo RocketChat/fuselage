@@ -4,14 +4,14 @@ import React from 'react';
 import { Box } from '../Box';
 
 export function Grid({ xs, sm, md, lg, xl, ...props }) {
-  return <Box componentClassName='rcx-grid__wrapper'>
+  return <Box rcx-grid__wrapper>
     <Box
-      componentClassName='rcx-grid'
-      mod-xs={xs}
-      mod-sm={sm}
-      mod-md={md}
-      mod-lg={lg}
-      mod-xl={xl}
+      rcx-grid
+      rcx-grid--xs={xs}
+      rcx-grid--sm={sm}
+      rcx-grid--md={md}
+      rcx-grid--lg={lg}
+      rcx-grid--xl={xl}
       {...props}
     />
   </Box>;
@@ -27,12 +27,12 @@ Grid.propTypes = {
 
 export function GridItem({ xs, sm, md, lg, xl, ...props }) {
   return <Box
-    componentClassName='rcx-grid__item'
-    mod-xs={xs}
-    mod-sm={sm}
-    mod-md={md}
-    mod-lg={lg}
-    mod-xl={xl}
+    rcx-grid__item
+    rcx-grid__item--xs={xs}
+    rcx-grid__item--sm={sm}
+    rcx-grid__item--md={md}
+    rcx-grid__item--lg={lg}
+    rcx-grid__item--xl={xl}
     {...props}
   />;
 }

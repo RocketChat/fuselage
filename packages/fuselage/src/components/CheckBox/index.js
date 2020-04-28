@@ -36,10 +36,10 @@ export const CheckBox = forwardRef(function CheckBox({
     onChange && onChange.call(innerRef.current, event);
   }, [innerRef, indeterminate, onChange]);
 
-  return <Box is={Label} componentClassName='rcx-check-box' {...props}>
+  return <Box is={Label} rcx-check-box {...props}>
     <Box
       is='input'
-      componentClassName='rcx-check-box__input'
+      rcx-check-box__input
       autoComplete={autoComplete}
       checked={checked}
       defaultChecked={defaultChecked}
@@ -57,7 +57,7 @@ export const CheckBox = forwardRef(function CheckBox({
       onInput={onInput}
       onInvalid={onInvalid}
     />
-    <Box is='i' componentClassName='rcx-check-box__fake' aria-hidden='true' />
+    <Box is='i' rcx-check-box__fake aria-hidden='true' />
   </Box>;
 });
 

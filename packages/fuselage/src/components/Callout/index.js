@@ -15,11 +15,11 @@ export function Callout({
     || (type === 'warning' && 'warning')
     || (type === 'danger' && 'ban');
 
-  return <Box componentClassName='rcx-callout' is='section' mod-type={type} {...props}>
+  return <Box is='section' rcx-callout rcx-callout--type={type} {...props}>
     <Icon name={iconName} size='x20' />
-    <Box componentClassName='rcx-callout__wrapper'>
-      {title && <Box componentClassName='rcx-callout__title' is='h1'>{title}</Box>}
-      {children && <Box componentClassName='rcx-callout__children'>
+    <Box rcx-callout__wrapper>
+      {title && <Box is='h1' rcx-callout__title>{title}</Box>}
+      {children && <Box rcx-callout__children>
         {children}
       </Box>}
     </Box>
