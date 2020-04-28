@@ -16,8 +16,6 @@ export const ACTIONS = {
   ENTER: 13,
 };
 
-const merge = (...args) => args.filter((e) => e).join(' ');
-
 const prevent = (e) => {
   e.preventDefault();
   e.stopPropagation();
@@ -63,7 +61,7 @@ export const Options = React.forwardRef(({
       current.scrollTop = li.offsetTop;
     }
   }, [cursor]);
-  return <Box className={merge('rcx-options', className)} is='div' {...props}>
+  return <Box rcx-options className={className} is='div' {...props}>
     <Tile padding='x8' elevation='2'>
       <Scrollable vertical smooth>
         <Margins blockStart='x4'>
