@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState, forwardRef } from 'react';
+import React, { useCallback, useLayoutEffect, useState, forwardRef, useMemo } from 'react';
 
 
 import { AnimatedVisibility, Box, Flex, Margins, Scrollable } from '../Box';
@@ -42,6 +42,7 @@ export const OptionAvatar = React.memo(({ id, value, children: label, focus, sel
 
 export const Options = React.forwardRef(({
   maxHeight = '144px',
+  width = '240px',
   multiple,
   renderEmpty: EmptyComponent = Empty,
   options,
@@ -59,14 +60,16 @@ export const Options = React.forwardRef(({
     if (li.offsetTop + li.clientHeight > current.scrollTop + current.clientHeight || li.offsetTop - li.clientHeight < current.scrollTop) {
       current.scrollTop = li.offsetTop;
     }
-  }, [cursor]);
+  }, [cursor, ref]);
+
+  const optionsMemoized = useMemo(() => options.map(([value, label, selected], i) => <OptionComponent role='option' onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}>{label}</OptionComponent>), [options, multiple, cursor, onSelect]);
   return <Box rcx-options is='div' {...props}>
     <Tile padding='x8' elevation='2'>
       <Scrollable vertical smooth>
         <Margins blockStart='x4'>
-          <Tile ref={ref} elevation='0' padding='none' maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
+          <Tile ref={ref} elevation='0' padding='none' width={width} maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
             {!options.length && <EmptyComponent/>}
-            {options.map(([value, label, selected], i) => <OptionComponent role='option' onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}>{label}</OptionComponent>)}
+            {optionsMemoized}
           </Tile>
         </Margins>
       </Scrollable>
