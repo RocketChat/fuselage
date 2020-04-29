@@ -16,7 +16,7 @@ const mapOptions = (options) => Object.entries(options).map(([value, { label }])
 
 export const Menu = ({
   options,
-  optionWidth = '240px',
+  optionWidth,
   placement = 'bottom right',
   ...props }) => {
   const mappedOptions = mapOptions(options);
@@ -27,7 +27,10 @@ export const Menu = ({
   });
 
   const ref = useRef();
-  const onClick = useCallback(() => ref.current.focus() & show(), [show]);
+  const onClick = useCallback(() => {
+    ref.current.focus() & show();
+    ref.current.classList.add('focus-visible');
+  }, [show]);
 
   const handleSelection = useCallback((args) => {
     menuAction(args, options);

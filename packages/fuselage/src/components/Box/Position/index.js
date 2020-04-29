@@ -15,7 +15,8 @@ const left = (left) => ({ left });
 const right = (right) => ({ right });
 
 function getOffset(el) {
-  return el.getBoundingClientRect();
+  const { top, right, bottom, left, width, height, x, y } = el.getBoundingClientRect();
+  return { top, right, bottom, left, width, height, x, y };
 }
 
 const getVertical = (anchorPosition, elementPosition, placement = 'bottom') => {
@@ -33,9 +34,9 @@ const getVertical = (anchorPosition, elementPosition, placement = 'bottom') => {
 const getHorizontal = (anchorPosition, elementPosition, placement = 'right') => {
   switch (placement) {
   case 'right':
-    return anchorPosition.right + elementPosition.width > window.innerWidth ? right(0) : left(anchorPosition.right);
+    return anchorPosition.left + elementPosition.width > window.innerWidth ? right(0) : left(anchorPosition.left);
   case 'left':
-    return anchorPosition.left - elementPosition.width > 0 ? left(anchorPosition.left - elementPosition.width) : left(0);
+    return anchorPosition.right - elementPosition.width > 0 ? left(anchorPosition.right - elementPosition.width) : left(0);
   case 'center':
     return left(anchorPosition.left + anchorPosition.width / 2 - elementPosition.width / 2 >= 0 ? anchorPosition.left + anchorPosition.width / 2 - elementPosition.width / 2 : 0);
   default:
@@ -58,7 +59,6 @@ const throttle = (func, limit) => {
 export const Position = ({ anchor, width = 'stretch', style, className, children, placement = 'bottom center'/* , offset*/ }) => {
   const [position, setPosition] = useState();
   const ref = useRef();
-
   const resizer = useRef();
 
   const { offsetWidth } = anchor.current || {};
