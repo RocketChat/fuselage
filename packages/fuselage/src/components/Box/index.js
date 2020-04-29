@@ -30,10 +30,7 @@ Box.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
-    PropTypes.arrayOf(PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.func,
-    ])),
+    PropTypes.array,
   ]),
   style: PropTypes.object,
   componentClassName: PropTypes.string,
