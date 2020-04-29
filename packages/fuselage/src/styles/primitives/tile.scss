@@ -1,7 +1,0 @@
-@use '../colors.scss';
-@use '../lengths.scss';
-
-%tile {
-  border-radius: lengths.border-radius(2);
-  background-color: colors.surface();
-}
