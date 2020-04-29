@@ -42,7 +42,6 @@ export const OptionAvatar = React.memo(({ id, value, children: label, focus, sel
 
 export const Options = React.forwardRef(({
   maxHeight = '144px',
-  width = '240px',
   multiple,
   renderEmpty: EmptyComponent = Empty,
   options,
@@ -67,7 +66,7 @@ export const Options = React.forwardRef(({
     <Tile padding='x8' elevation='2'>
       <Scrollable vertical smooth>
         <Margins blockStart='x4'>
-          <Tile ref={ref} elevation='0' padding='none' width={width} maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
+          <Tile ref={ref} elevation='0' padding='none' maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
             {!options.length && <EmptyComponent/>}
             {optionsMemoized}
           </Tile>
