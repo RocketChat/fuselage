@@ -1,24 +1,27 @@
 @use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-tile {
-  @extend %tile;
-
-  @include typography.use-font-scale(p1);
-
   display: block;
 
   color: colors.foreground(default);
+  border-radius: lengths.border-radius(2);
+  background-color: colors.surface();
+
+  @include typography.use-font-scale(p1);
 
   &--elevation-0 {
-    @extend %--elevation-0;
+    box-shadow: none;
   }
 
   &--elevation-1 {
-    @extend %--elevation-1;
+    box-shadow: 0 0 12px 0 colors.neutral(800, 0.1);
   }
 
   &--elevation-2 {
-    @extend %--elevation-2;
+    box-shadow:
+      0 0 2px 0 colors.neutral(800, 0.08),
+      0 0 12px 0 colors.neutral(800, 0.12);
   }
 }
