@@ -214,8 +214,27 @@ const withTruncatedTextStyles = css`
   white-space: nowrap;
 `;
 
+const elevationStyles = (elevation) => {
+  if (elevation === '0') {
+    return css`box-shadow: none;`;
+  }
+
+  if (elevation === '1') {
+    return css`box-shadow: 0px 0px 12px 0px ${ getColorValue('neutral-800-10') };`;
+  }
+
+  if (elevation === '2') {
+    return css`
+      box-shadow:
+        0px 0px 2px 0px ${ getColorValue('neutral-800-8') },
+        0px 0px 12px 0px ${ getColorValue('neutral-800-12') };
+    `;
+  }
+};
+
 export const mapSpecialProps = ({
   className,
+  elevation,
   invisible,
   withRichContent,
   withTruncatedText,
@@ -240,6 +259,7 @@ export const mapSpecialProps = ({
   return {
     className: [
       ...className,
+      elevation && elevationStyles(elevation),
       invisible && invisibleStyles,
       withRichContent && withRichContentStyles,
       withTruncatedText && withTruncatedTextStyles,

@@ -214,6 +214,7 @@ Box.propTypes = {
   insetInlineEnd: PropTypes.oneOfType([insetPropType, PropTypes.string, PropTypes.number]),
 
   // Special
+  elevation: PropTypes.oneOf(['0', '1', '2']),
   invisible: PropTypes.bool,
   withRichContent: PropTypes.bool,
   withTruncatedText: PropTypes.bool,

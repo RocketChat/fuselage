@@ -613,6 +613,26 @@ The `is` prop allows `Box` to render any component capable of handling common DO
 
 ### Special
 
+#### Elevation
+
+<Preview>
+  <Story
+    name='Elevation'
+    decorators={[
+      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
+        {React.Children.map(fn().props.children, (child) =>
+          React.cloneElement(child, { bg: 'primary-100', m: 'x16', size: 'x64' }))}
+      </Box>
+    ]}
+  >
+    <>
+      <Box elevation='0' />
+      <Box elevation='1' />
+      <Box elevation='2' />
+    </>
+  </Story>
+</Preview>
+
 #### Invisible
 
 <Preview>
