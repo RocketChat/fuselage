@@ -39,7 +39,7 @@ $-map-type-to-prefix: (
     );
   }
 
-  @return (--rcx-color-#{ type }-#{ grade }, $base-color);
+  @return (--rcx-color-#{ $type }-#{ $grade }, $base-color);
 }
 
 @function neutral($grade, $alpha: null) {
@@ -98,7 +98,7 @@ $-foreground-colors: (
 
   $color: map.get($-foreground-colors, $type);
 
-  @return (--rcx-color-foreground-#{ type }, $color);
+  @return (--rcx-color-foreground-#{ $type }, $color);
 }
 
 @function foreground($type) {
