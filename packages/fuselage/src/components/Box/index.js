@@ -3,18 +3,34 @@ import React, { createElement, forwardRef, memo, useContext } from 'react';
 
 import { PropsContext } from './PropsContext';
 import { useStyleSheet } from './useStyleSheet';
-import { mergeProps } from './mergeProps';
-import { marginPropType, paddingPropType } from '../../styles/props/spaces';
-import { colorPropType } from '../../styles/props/colors';
-import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
-import { sizePropType } from '../../styles/props/layout';
-import { insetPropType } from '../../styles/props/position';
+import { mergeProps } from '../../helpers/mergeProps';
+import { marginPropType, paddingPropType, mapSpaceProps } from '../../styles/props/spaces';
+import { colorPropType, mapColorProps } from '../../styles/props/colors';
+import { fontFamilyPropType, fontScalePropType, mapTypographyProps } from '../../styles/props/typography';
+import { sizePropType, mapLayoutProps } from '../../styles/props/layout';
+import { insetPropType, mapPositionProps } from '../../styles/props/position';
+import { mapSpecialProps } from '../../styles/props/special';
+import { mapFlexBoxProps } from '../../styles/props/flexBox';
+import { mapBorderProps } from '../../styles/props/borders';
+import { mapClassNames } from './mapClassNames';
+
+const transforms = [
+  mapSpecialProps,
+  mapClassNames,
+  mapSpaceProps,
+  mapLayoutProps,
+  mapColorProps,
+  mapTypographyProps,
+  mapFlexBoxProps,
+  mapBorderProps,
+  mapPositionProps,
+];
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
 
   const contextProps = useContext(PropsContext);
-  const { is, ...mergedProps } = mergeProps(props, contextProps, ref);
+  const { is, ...mergedProps } = mergeProps(contextProps, { 'rcx-box': true, ...props, ref }, transforms);
 
   const children = createElement(is || 'div', mergedProps);
 
