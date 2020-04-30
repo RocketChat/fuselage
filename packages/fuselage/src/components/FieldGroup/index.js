@@ -1,14 +1,16 @@
 import React, { useMemo } from 'react';
+import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box } from '../Box';
+import { appendClassName } from '../../helpers/appendClassName';
 
 export function FieldGroup({
   children,
   ...props
 }) {
-  const wrappedChildren = useMemo(() =>
-    React.Children.map(children, (child, index) =>
-      <Box key={index} rcx-field-group__item children={child} />), [children]);
-
-  return <Box is='fieldset' rcx-field-group children={wrappedChildren} role='group' {...props} />;
+  return <Box is='fieldset' rcx-field-group role='group' {...props}>
+    {useMemo(() =>
+      flattenChildren(children).map((child) => appendClassName(child, 'rcx-field-group__item')),
+    [children])}
+  </Box>;
 }

@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import flattenChildren from 'react-keyed-flatten-children';
 
-import { Box, PropsProvider } from '../Box';
+import { Box } from '../Box';
+import { appendClassName } from '../../helpers/appendClassName';
 
 export function ButtonGroup({
   align,
@@ -20,9 +22,7 @@ export function ButtonGroup({
     role='group'
     {...props}
   >
-    <PropsProvider children={children} fn={({ className }) => ({
-      className: [className, 'rcx-button-group__item'],
-    })} />
+    {flattenChildren(children).map((child) => appendClassName(child, 'rcx-button-group__item'))}
   </Box>;
 }
 
