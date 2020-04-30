@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { cloneElement, useMemo } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box } from '../Box';
-import { appendClassName } from '../../helpers/appendClassName';
+import { mergeProps } from '../../helpers/mergeProps';
 
 export function ButtonGroup({
   align,
@@ -22,7 +22,9 @@ export function ButtonGroup({
     role='group'
     {...props}
   >
-    {flattenChildren(children).map((child) => appendClassName(child, 'rcx-button-group__item'))}
+    {useMemo(() => flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
+      className: 'rcx-button-group__item',
+    }))), [children])}
   </Box>;
 }
 
