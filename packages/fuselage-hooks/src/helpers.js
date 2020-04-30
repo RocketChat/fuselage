@@ -1,6 +1,10 @@
 // @flow
 
-export const debounce = (fn: (...Array<any>) => any, delay: number) => {
+export const debounce = (fn: (...Array<any>) => any, delay: ?number) => {
+  if (delay === undefined || delay === null) {
+    return fn;
+  }
+
   let timer;
   let callback;
 

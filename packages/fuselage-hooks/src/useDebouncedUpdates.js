@@ -15,7 +15,7 @@ import { useDebouncedCallback } from './useDebouncedCallback';
  */
 export const useDebouncedUpdates = (
   [value, update]: [any, () => any],
-  delay: number,
+  delay: ?number,
 ) => [value, useDebouncedCallback(update, delay, [])];
 
 /**
@@ -31,7 +31,7 @@ export const useDebouncedReducer = (
   reducer: (any, any) => any,
   initializerArg: any,
   initializer: (any) => any,
-  delay: number,
+  delay: ?number,
 ) =>
   useDebouncedUpdates(useReducer(reducer, initializerArg, initializer), delay);
 
@@ -44,5 +44,5 @@ export const useDebouncedReducer = (
  */
 export const useDebouncedState = (
   initialValue: any | () => any,
-  delay: number,
+  delay: ?number,
 ) => useDebouncedUpdates(useState(initialValue), delay);
