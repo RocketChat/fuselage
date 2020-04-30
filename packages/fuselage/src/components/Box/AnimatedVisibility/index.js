@@ -1,11 +1,12 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, cloneElement } from 'react';
+import flattenChildren from 'react-keyed-flatten-children';
 
-import { PropsProvider } from '../PropsContext';
+import { mergeProps } from '../../../helpers/mergeProps';
 
-export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
+export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN, ...props }) {
   const [visibility, setVisibility] = useState(propVisibility);
 
   useEffect(() => {
@@ -71,11 +72,11 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     return null;
   }
 
-  return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [className, ...animatedVisibilityStyles],
-    ...props,
+  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
+    className: animatedVisibilityStyles,
     onAnimationEnd: handleAnimationEnd,
-  })} memoized />;
+    ...props,
+  })));
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';

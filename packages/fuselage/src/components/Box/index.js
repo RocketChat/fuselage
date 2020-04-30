@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-import React, { createElement, forwardRef, memo, useContext } from 'react';
+import { createElement, forwardRef, memo } from 'react';
 
-import { PropsContext } from './PropsContext';
 import { useStyleSheet } from './useStyleSheet';
 import { mergeProps } from '../../helpers/mergeProps';
 import { marginPropType, paddingPropType, mapSpaceProps } from '../../styles/props/spaces';
@@ -29,14 +28,9 @@ const transforms = [
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
 
-  const contextProps = useContext(PropsContext);
-  const { is, ...mergedProps } = mergeProps(contextProps, { 'rcx-box': true, ...props, ref }, transforms);
+  const { is, ...mergedProps } = mergeProps(props, { 'rcx-box': true, ref }, transforms);
 
   const children = createElement(is || 'div', mergedProps);
-
-  if (contextProps) {
-    return <PropsContext.Provider children={children} />;
-  }
 
   return children;
 }));
@@ -236,7 +230,6 @@ Box.propTypes = {
   textStyle: fontScalePropType,
 };
 
-export * from './PropsContext';
 export * from './AnimatedVisibility';
 export * from './Flex';
 export * from './Margins';

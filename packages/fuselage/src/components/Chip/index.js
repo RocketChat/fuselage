@@ -4,8 +4,8 @@ import { Avatar } from '../Avatar';
 import { Box, Flex, Margins } from '../Box';
 import { Icon } from '../Icon';
 
-const ThumbDefault = ({ url }) => <Avatar size='x20' url={url}/>;
-const RemoveDefault = () => <Icon name='cross' size='x16' />;
+const ThumbDefault = (props) => <Avatar size='x20' {...props} />;
+const RemoveDefault = (props) => <Icon name='cross' size='x16' {...props} />;
 
 export const Chip = ({
   children,
@@ -35,8 +35,8 @@ export const Chip = ({
   </Flex.Container>
 );
 
-Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
-  <Margins all='neg-x4'>
+Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', m = 'neg-x4', ...props }) =>
+  <Margins all={m}>
     <Flex.Container alignItems={alignItems} wrap={wrap}>
       <Box rcx-chip__wrapper is='div' {...props}>
         {children.map((children, i) =>

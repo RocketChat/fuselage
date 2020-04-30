@@ -27,6 +27,7 @@ export const MultiSelect = ({
   getValue = ([value]) => value,
   placeholder,
   renderOptions: _Options = Options,
+  className,
   ...props
 }) => {
   const [internalValue, setInternalValue] = useState(value || []);
@@ -66,6 +67,7 @@ export const MultiSelect = ({
       is='div'
       rcx-select
       className={[
+        ...Array.isArray(className) ? className : [className],
         error && 'invalid',
         disabled && 'disabled',
       ]}

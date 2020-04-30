@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { cloneElement } from 'react';
+import flattenChildren from 'react-keyed-flatten-children';
 
-import { PropsProvider } from '../PropsContext';
 import { marginPropType } from '../../../styles/props/spaces';
+import { mergeProps } from '../../../helpers/mergeProps';
 
 export function Margins({
   children,
@@ -13,8 +14,9 @@ export function Margins({
   inline,
   inlineStart,
   inlineEnd,
+  ...props
 }) {
-  return <PropsProvider children={children} fn={(props) => ({
+  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
     ...all !== undefined && { m: all },
     ...block !== undefined && { mb: block },
     ...blockStart !== undefined && { mbs: blockStart },
@@ -23,7 +25,7 @@ export function Margins({
     ...inlineStart !== undefined && { mis: inlineStart },
     ...inlineEnd !== undefined && { mie: inlineEnd },
     ...props,
-  })} memoized />;
+  })));
 }
 
 Margins.propTypes = {

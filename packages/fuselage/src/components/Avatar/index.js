@@ -10,6 +10,7 @@ const AvatarContext = createContext({
 });
 
 export function Avatar({
+  className,
   title,
   rounded = false,
   url,
@@ -22,13 +23,13 @@ export function Avatar({
     is='figure'
     rcx-avatar
     aria-label={title}
+    className={className}
     {...props}
     width={size}
     height={size}
   >
     <Box
       is='img'
-      {...props}
       rcx-avatar__element
       rcx-avatar__element--rounded={rounded}
       src={`${ baseUrl }${ url }`}

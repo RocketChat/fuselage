@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { cloneElement } from 'react';
+import flattenChildren from 'react-keyed-flatten-children';
 
-import { PropsProvider } from '../PropsContext';
+import { mergeProps } from '../../../helpers/mergeProps';
 
-export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
-  return <PropsProvider children={children} fn={(props) => ({
+export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent, ...props }) {
+  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
     display: inline ? 'inline-flex' : 'flex',
     flexDirection: direction,
     flexWrap: (wrap === 'no-wrap' && 'nowrap') || wrap,
@@ -18,7 +19,7 @@ export function FlexContainer({ inline = false, children, direction, wrap, align
       || (justifyContent === 'end' && 'flex-end')
       || justifyContent,
     ...props,
-  })} memoized />;
+  })));
 }
 
 FlexContainer.propTypes = {
@@ -30,8 +31,8 @@ FlexContainer.propTypes = {
   justifyContent: PropTypes.oneOf(['start', 'center', 'end', 'space-between', 'space-around']),
 };
 
-export function FlexItem({ children, order, grow, shrink, basis, align }) {
-  return <PropsProvider children={children} fn={(props) => ({
+export function FlexItem({ children, order, grow, shrink, basis, align, ...props }) {
+  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
     order,
     flexGrow: grow,
     flexShrink: shrink,
@@ -40,7 +41,7 @@ export function FlexItem({ children, order, grow, shrink, basis, align }) {
       || (align === 'end' && 'flex-end')
       || align,
     ...props,
-  })} memoized />;
+  })));
 }
 
 FlexItem.propTypes = {

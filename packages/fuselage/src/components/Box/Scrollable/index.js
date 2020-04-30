@@ -1,9 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import { useRef, cloneElement } from 'react';
+import flattenChildren from 'react-keyed-flatten-children';
 
-import { PropsProvider } from '../PropsContext';
+import { mergeProps } from '../../../helpers/mergeProps';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,
@@ -27,7 +28,7 @@ const pollTouchingEdges = (element, touchingEdgesRef, onScrollContent) => {
   }
 };
 
-export function Scrollable({ children, horizontal, vertical, smooth, onScrollContent }) {
+export function Scrollable({ children, horizontal, vertical, smooth, onScrollContent, ...props }) {
   const scrollTimeoutRef = useRef();
   const touchingEdgesRef = useRef({});
 
@@ -45,9 +46,8 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
     }, 200);
   });
 
-  return <PropsProvider children={children} fn={({ className, ...props }) => ({
+  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
     className: [
-      className,
       css`
         position: relative;
 
@@ -77,7 +77,7 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
     ],
     onScroll: onScrollContent ? handleScroll : undefined,
     ...props,
-  })} memoized />;
+  })));
 }
 
 Scrollable.propTypes = {
