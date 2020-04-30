@@ -6,9 +6,9 @@ import { runHooksOnServer } from '../.jest/helpers';
 import { useResizeObserver } from '../src';
 
 describe('useResizeObserver hook on server', () => {
-  it('immediately returns undefined size', () => {
-    const { width, height } = runHooksOnServer(() => useResizeObserver());
-    expect(width).toBe(undefined);
-    expect(height).toBe(undefined);
+  it('immediately returns undefined sizes', () => {
+    const { borderBoxSize, contentBoxSize } = runHooksOnServer(() => useResizeObserver());
+    expect(borderBoxSize).toBe(undefined);
+    expect(contentBoxSize).toBe(undefined);
   });
 });

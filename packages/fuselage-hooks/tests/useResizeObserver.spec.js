@@ -5,12 +5,30 @@ describe('useResizeObserver hook', () => {
   let ro;
 
   beforeEach(() => {
+    const contentBoxSize = {};
+    const borderBoxSize = {};
+
+    const trigger = () => {
+      ro.width = Math.round(1000 * Math.random());
+      ro.height = Math.round(1000 * Math.random());
+      ro.cb([{
+        borderBoxSize,
+        contentBoxSize,
+        contentRect: {
+          width: ro.width,
+          height: ro.height,
+        },
+      }]);
+    };
+
     ro = {
       width: Math.round(1000 * Math.random()),
       height: Math.round(1000 * Math.random()),
       cb: () => {},
       observe: jest.fn(() => {
         ro.cb([{
+          borderBoxSize,
+          contentBoxSize,
           contentRect: {
             width: ro.width,
             height: ro.height,
@@ -19,15 +37,8 @@ describe('useResizeObserver hook', () => {
       }),
       unobserve: jest.fn(),
       resize: () => {
-        ro.width = Math.round(1000 * Math.random());
-        ro.height = Math.round(1000 * Math.random());
-        ro.cb([{
-          contentRect: {
-            width: ro.width,
-            height: ro.height,
-          },
-        }]);
-        return [ro.width, ro.height];
+        trigger();
+        return { contentBoxSize, borderBoxSize };
       },
     };
 
@@ -40,41 +51,64 @@ describe('useResizeObserver hook', () => {
 
   it('immediately returns undefined size', () => {
     ro.resize();
-    const [{ width, height }] = runHooks(() => useResizeObserver());
-    expect(width).toBe(undefined);
-    expect(height).toBe(undefined);
+    const [{ contentBoxSize, borderBoxSize }] = runHooks(() => useResizeObserver());
+    expect(contentBoxSize).toBe(undefined);
+    expect(borderBoxSize).toBe(undefined);
   });
 
   it('gets the observed element size', () => {
-    const [expectedWidth, expectedHeight] = ro.resize();
-    const [, { width, height }] = runHooks(() => useResizeObserver(), [
+    const {
+      contentBoxSize: expectedContentBoxSize,
+      borderBoxSize: expectedBorderBoxSize,
+    } = ro.resize();
+
+    const [, { contentBoxSize, borderBoxSize }] = runHooks(() => useResizeObserver(), [
       ({ ref }) => {
         ref.current = document.createElement('div');
       },
     ]);
-    expect(width).toBe(expectedWidth);
-    expect(height).toBe(expectedHeight);
+    expect(contentBoxSize.blockSize).toBe(expectedContentBoxSize.blockSize);
+    expect(contentBoxSize.inlineSize).toBe(expectedContentBoxSize.inlineSize);
+    expect(borderBoxSize.blockSize).toBe(expectedBorderBoxSize.blockSize);
+    expect(borderBoxSize.inlineSize).toBe(expectedBorderBoxSize.inlineSize);
   });
 
   it('gets the observed element size after resize', () => {
-    const [expectedWidthA, expectedHeightA] = ro.resize();
-    let expectedWidthB;
-    let expectedHeightB;
-    const [,
-      { width: widthA, height: heightA },
-      { width: widthB, height: heightB },
+    const {
+      contentBoxSize: expectedContentBoxSizeA,
+      borderBoxSize: expectedBorderBoxSizeA,
+    } = ro.resize();
+    let expectedContentBoxSizeB;
+    let expectedBorderBoxSizeB;
+    const [
+      ,
+      {
+        contentBoxSize: contentBoxSizeA,
+        borderBoxSize: borderBoxSizeA,
+      },
+      {
+        contentBoxSize: contentBoxSizeB,
+        borderBoxSize: borderBoxSizeB,
+      },
     ] = runHooks(() => useResizeObserver(), [
       ({ ref }) => {
         ref.current = document.createElement('div');
       },
       () => {
-        [expectedWidthB, expectedHeightB] = ro.resize();
+        ({
+          contentBoxSize: expectedContentBoxSizeB,
+          borderBoxSize: expectedBorderBoxSizeB,
+        } = ro.resize());
       },
     ]);
 
-    expect(widthA).toBe(expectedWidthA);
-    expect(heightA).toBe(expectedHeightA);
-    expect(widthB).toBe(expectedWidthB);
-    expect(heightB).toBe(expectedHeightB);
+    expect(contentBoxSizeA.blockSize).toBe(expectedContentBoxSizeA.blockSize);
+    expect(contentBoxSizeA.inlineSize).toBe(expectedContentBoxSizeA.inlineSize);
+    expect(borderBoxSizeA.blockSize).toBe(expectedBorderBoxSizeA.blockSize);
+    expect(borderBoxSizeA.inlineSize).toBe(expectedBorderBoxSizeA.inlineSize);
+    expect(contentBoxSizeB.blockSize).toBe(expectedContentBoxSizeB.blockSize);
+    expect(contentBoxSizeB.inlineSize).toBe(expectedContentBoxSizeB.inlineSize);
+    expect(borderBoxSizeB.blockSize).toBe(expectedBorderBoxSizeB.blockSize);
+    expect(borderBoxSizeB.inlineSize).toBe(expectedBorderBoxSizeB.inlineSize);
   });
 });

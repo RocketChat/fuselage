@@ -8,17 +8,57 @@ type UseResizeObserverOptions = {
   debounceDelay: ?number,
 };
 
+type UseResizeObserverReturn = {
+  ref: { current: ?Element },
+  contentBoxSize: {
+    inlineSize: number,
+    blockSize: number,
+  },
+  borderBoxSize: {
+    inlineSize: number,
+    blockSize: number,
+  },
+};
+
+/**
+ * Hook to track dimension changes in a DOM element using the ResizeObserver API.
+ *
+ * @param options
+ * @param options.debounceDelay the number of milliseconds to delay updates
+ * @return a triple containing the ref and the size information
+ */
 export const useResizeObserver = ({
   debounceDelay,
-} : UseResizeObserverOptions = {}) => {
+}: UseResizeObserverOptions = {}): UseResizeObserverReturn => {
   const ref = useRef<?Element>();
-  const [{ width, height }, setSize] = useDebouncedState({}, debounceDelay);
+  const [{ contentBoxSize, borderBoxSize }, setSizes] = useDebouncedState({}, debounceDelay);
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
-      const width = Math.round(entry.contentRect.width);
-      const height = Math.round(entry.contentRect.height);
-      setSize({ width, height });
+      const { contentBoxSize, borderBoxSize }: any = entry;
+
+      if (contentBoxSize && borderBoxSize) {
+        setSizes({
+          contentBoxSize,
+          borderBoxSize,
+        });
+        return;
+      }
+
+      const { target, contentRect } = entry;
+      const { width: contentBoxInlineSize, height: contentBoxBlockSize } = contentRect;
+      const { width: borderBoxInlineSize, height: borderBoxBlockSize } = target.getBoundingClientRect();
+
+      setSizes({
+        contentBoxSize: {
+          inlineSize: contentBoxInlineSize,
+          blockSize: contentBoxBlockSize,
+        },
+        borderBoxSize: {
+          inlineSize: borderBoxInlineSize,
+          blockSize: borderBoxBlockSize,
+        },
+      });
     });
 
     if (ref.current) {
@@ -26,11 +66,9 @@ export const useResizeObserver = ({
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.disconnect();
     };
   }, []);
 
-  return { ref, width, height };
+  return { ref, contentBoxSize, borderBoxSize };
 };
