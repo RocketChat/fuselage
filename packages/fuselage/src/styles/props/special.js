@@ -180,7 +180,7 @@ const withRichContentStyles = css`
 
   ul,
   ol {
-    ${ paddingInlineStartProperty('x40') };
+    ${ paddingInlineStartProperty(getPaddingValue('x40')) };
   }
 
   ul {
