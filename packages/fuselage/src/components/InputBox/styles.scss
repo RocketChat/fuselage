@@ -11,8 +11,6 @@
 
   align-items: flex-start;
 
-  flex: 1 0 0;
-
   min-width: 8rem;
 
   padding-block: lengths.padding(8);
@@ -121,7 +119,7 @@
 
   display: inline-flex;
 
-  flex: 1 0 auto;
+  flex-grow: 1;
 
   min-width: lengths.size(128);
 
