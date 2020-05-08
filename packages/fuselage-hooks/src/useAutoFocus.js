@@ -13,7 +13,7 @@ type FocusOptions = {
  * @param options options of the focus request
  * @return the ref which holds the element
  */
-export const useAutoFocus = (isFocused: boolean = true, options: FocusOptions) => {
+export const useAutoFocus = (isFocused: boolean = true, options: FocusOptions): { current: ?HTMLElement } => {
   const elementRef = useRef<?HTMLElement>();
 
   useEffect(() => {

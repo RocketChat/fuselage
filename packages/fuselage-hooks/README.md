@@ -47,10 +47,12 @@ yarn test
     -   [Parameters](#parameters-8)
 -   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-9)
--   [useSafely](#usesafely)
+-   [useResizeObserver](#useresizeobserver)
     -   [Parameters](#parameters-10)
--   [useToggle](#usetoggle)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-11)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-12)
 
 ### useAutoFocus
 
@@ -61,7 +63,7 @@ Hook to automatically request focus for an DOM element.
 -   `isFocused` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, the focus will be requested (optional, default `true`)
 -   `options` **FocusOptions** options of the focus request
 
-Returns **any** the ref which holds the element
+Returns **{current: [HTMLElement](https://developer.mozilla.org/docs/Web/HTML/Element)?}** the ref which holds the element
 
 ### useDebouncedUpdates
 
@@ -72,7 +74,7 @@ Hook to debounce the state updater function returned by hooks like `useState()` 
 -   `pair` **\[any, function (): any]** the state and updater pair which will be debounced
     -   `pair.0`  the state value
     -   `pair.1`  the state updater function
--   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the updater
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** the number of milliseconds to delay the updater
 
 Returns **any** a state value and debounced updater pair
 
@@ -85,7 +87,7 @@ Hook to create a reduced state with a debounced `dispatch()` function.
 -   `reducer` **function (any, any): any** the reducer function
 -   `initializerArg` **any** the initial state value or the argument passed to the initial state generator function
 -   `initializer` **function (any): any** the initial state generator function
--   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the updater
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** the number of milliseconds to delay the updater
 
 Returns **any** a state and debounced `dispatch()` function
 
@@ -96,7 +98,7 @@ Hook to create a state with a debounced setter function.
 #### Parameters
 
 -   `initialValue` **(any | function (): any)** the initial state value or the initial state generator function
--   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the updater
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** the number of milliseconds to delay the updater
 
 Returns **any** a state and debounced setter function
 
@@ -107,7 +109,7 @@ Hook to memoize a debounced version of a callback.
 #### Parameters
 
 -   `callback` **function (): any** the callback to debounce
--   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** the number of milliseconds to delay
 -   `deps` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>?** the hook dependencies
 
 Returns **function (): any** a memoized and debounced callback
@@ -163,6 +165,17 @@ Hook to create a stable callback from a mutable one.
 -   `fn` **function (): any** the mutable callback
 
 Returns **any** a stable callback
+
+### useResizeObserver
+
+Hook to track dimension changes in a DOM element using the ResizeObserver API.
+
+#### Parameters
+
+-   `options` **UseResizeObserverOptions**  (optional, default `{}`)
+    -   `options.debounceDelay`  the number of milliseconds to delay updates
+
+Returns **UseResizeObserverReturn** a triple containing the ref and the size information
 
 ### useSafely
 
