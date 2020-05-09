@@ -1,8 +1,8 @@
 import { css } from '@rocket.chat/css-in-js';
 import tokenColors from '@rocket.chat/fuselage-tokens/colors';
-import mem from 'mem';
 import invariant from 'invariant';
 
+import { memoize } from '../../memoize';
 import { cssSupports, createPropType } from '../helpers';
 
 
@@ -65,7 +65,7 @@ const getForegroundColor = (type) => {
 
 const paletteColorRegex = /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
-export const getColorValue = mem((propValue) => {
+export const getColorValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null || typeof propValue !== 'string') {
     return;
   }

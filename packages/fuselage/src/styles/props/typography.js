@@ -2,10 +2,11 @@ import { css } from '@rocket.chat/css-in-js';
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography';
 import PropTypes from 'prop-types';
 
+import { memoize } from '../../memoize';
 import { cssSupports } from '../helpers';
 import { getSizeValue } from './layout';
 
-export const getFontFamilyValue = (propValue) => {
+export const getFontFamilyValue = memoize((propValue) => {
   if (!tokenTypography.fontFamilies[propValue]) {
     return;
   }
@@ -18,9 +19,9 @@ export const getFontFamilyValue = (propValue) => {
   }
 
   return fontFamily;
-};
+});
 
-export const getFontScaleValue = (propValue) => {
+export const getFontScaleValue = memoize((propValue) => {
   if (!tokenTypography.fontScales[propValue]) {
     return;
   }
@@ -38,7 +39,7 @@ export const getFontScaleValue = (propValue) => {
     lineHeight: `${ lineHeight / 16 }rem`,
     letterSpacing: `${ letterSpacing / 16 }rem`,
   };
-};
+});
 
 const fontFamilyProperty = (value) =>
   css`font-family: ${ getFontFamilyValue(value) || value } !important;`;
