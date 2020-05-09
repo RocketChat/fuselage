@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import { cloneElement } from 'react';
-import flattenChildren from 'react-keyed-flatten-children';
+import React from 'react';
 
-import { marginPropType } from '../../../styles/props/spaces';
-import { mergeProps } from '../../../helpers/mergeProps';
+import { marginPropType, mapSpaceProps } from '../../../styles/props/spaces';
+import { patchChildren } from '../../../helpers/patchChildren';
 
 export function Margins({
   children,
@@ -16,16 +15,18 @@ export function Margins({
   inlineEnd,
   ...props
 }) {
-  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
-    ...all !== undefined && { m: all },
-    ...block !== undefined && { mb: block },
-    ...blockStart !== undefined && { mbs: blockStart },
-    ...blockEnd !== undefined && { mbe: blockEnd },
-    ...inline !== undefined && { mi: inline },
-    ...inlineStart !== undefined && { mis: inlineStart },
-    ...inlineEnd !== undefined && { mie: inlineEnd },
-    ...props,
-  })));
+  return <>
+    {patchChildren(children, {
+      ...props,
+      ...all !== undefined && { m: all },
+      ...block !== undefined && { mb: block },
+      ...blockStart !== undefined && { mbs: blockStart },
+      ...blockEnd !== undefined && { mbe: blockEnd },
+      ...inline !== undefined && { mi: inline },
+      ...inlineStart !== undefined && { mis: inlineStart },
+      ...inlineEnd !== undefined && { mie: inlineEnd },
+    }, [mapSpaceProps])}
+  </>;
 }
 
 Margins.propTypes = {

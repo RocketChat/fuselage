@@ -5,6 +5,7 @@ import { useRef, cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { mergeProps } from '../../../helpers/mergeProps';
+import { patchChildren } from '../../../helpers/patchChildren';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,
@@ -46,8 +47,10 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
     }, 200);
   });
 
-  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
+  return patchChildren(children, {
+    ...props,
     className: [
+      props.className,
       css`
         position: relative;
 
@@ -76,8 +79,7 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
       smooth && css`scroll-behavior: smooth !important;`,
     ],
     onScroll: onScrollContent ? handleScroll : undefined,
-    ...props,
-  })));
+  });
 }
 
 Scrollable.propTypes = {

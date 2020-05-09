@@ -1,25 +1,27 @@
 import PropTypes from 'prop-types';
-import { cloneElement } from 'react';
-import flattenChildren from 'react-keyed-flatten-children';
+import React from 'react';
 
-import { mergeProps } from '../../../helpers/mergeProps';
+import { patchChildren } from '../../../helpers/patchChildren';
+import { mapFlexBoxProps } from '../../../styles/props/flexBox';
 
 export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent, ...props }) {
-  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
-    display: inline ? 'inline-flex' : 'flex',
-    flexDirection: direction,
-    flexWrap: (wrap === 'no-wrap' && 'nowrap') || wrap,
-    alignItems: (alignItems === 'start' && 'flex-start')
+  return <>
+    {patchChildren(children, {
+      ...props,
+      display: inline ? 'inline-flex' : 'flex',
+      flexDirection: direction,
+      flexWrap: (wrap === 'no-wrap' && 'nowrap') || wrap,
+      alignItems: (alignItems === 'start' && 'flex-start')
       || (alignItems === 'end' && 'flex-end')
       || alignItems,
-    alignContent: (alignContent === 'start' && 'flex-start')
+      alignContent: (alignContent === 'start' && 'flex-start')
       || (alignContent === 'end' && 'flex-end')
       || alignContent,
-    justifyContent: (justifyContent === 'start' && 'flex-start')
+      justifyContent: (justifyContent === 'start' && 'flex-start')
       || (justifyContent === 'end' && 'flex-end')
       || justifyContent,
-    ...props,
-  })));
+    }, [mapFlexBoxProps])}
+  </>;
 }
 
 FlexContainer.propTypes = {
@@ -32,16 +34,18 @@ FlexContainer.propTypes = {
 };
 
 export function FlexItem({ children, order, grow, shrink, basis, align, ...props }) {
-  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
-    order,
-    flexGrow: grow,
-    flexShrink: shrink,
-    flexBasis: basis,
-    alignSelf: (align === 'start' && 'flex-start')
+  return <>
+    {patchChildren(children, {
+      ...props,
+      order,
+      flexGrow: grow,
+      flexShrink: shrink,
+      flexBasis: basis,
+      alignSelf: (align === 'start' && 'flex-start')
       || (align === 'end' && 'flex-end')
       || align,
-    ...props,
-  })));
+    }, [mapFlexBoxProps])}
+  </>;
 }
 
 FlexItem.propTypes = {

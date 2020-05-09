@@ -1,10 +1,9 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import { useEffect, useState, cloneElement } from 'react';
-import flattenChildren from 'react-keyed-flatten-children';
+import { useEffect, useState } from 'react';
 
-import { mergeProps } from '../../../helpers/mergeProps';
+import { patchChildren } from '../../../helpers/patchChildren';
 
 export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN, ...props }) {
   const [visibility, setVisibility] = useState(propVisibility);
@@ -24,10 +23,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
   }, [propVisibility]);
 
   const animatedVisibilityStyles = [
-    css`
-      animation-duration: 230ms;
-      animation-duration: var(--rcx-theme-transition-duration, 230ms);;
-    `,
+    css`animation-duration: 230ms;`,
     visibility === AnimatedVisibility.HIDING && css`
       animation-name: ${ keyframes`
         from {
@@ -56,27 +52,30 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     `,
   ];
 
-  const handleAnimationEnd = useMutableCallback(() => setVisibility((visibility) => {
-    if (visibility === AnimatedVisibility.HIDING) {
-      return AnimatedVisibility.HIDDEN;
-    }
+  const handleAnimationEnd = useMutableCallback((event) => {
+    setVisibility((visibility) => {
+      if (visibility === AnimatedVisibility.HIDING) {
+        return AnimatedVisibility.HIDDEN;
+      }
 
-    if (visibility === AnimatedVisibility.UNHIDING) {
-      return AnimatedVisibility.VISIBLE;
-    }
+      if (visibility === AnimatedVisibility.UNHIDING) {
+        return AnimatedVisibility.VISIBLE;
+      }
 
-    return visibility;
-  }));
+      return visibility;
+    });
+    props.onAnimationEnd && (0, props.onAnimationEnd)(event);
+  });
 
   if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
   }
 
-  return flattenChildren(children).map((child) => cloneElement(child, mergeProps(child.props, {
-    className: animatedVisibilityStyles,
-    onAnimationEnd: handleAnimationEnd,
+  return patchChildren(children, {
     ...props,
-  })));
+    className: [props.className, ...animatedVisibilityStyles],
+    onAnimationEnd: handleAnimationEnd,
+  });
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';
