@@ -2,7 +2,7 @@ import { css } from '@rocket.chat/css-in-js';
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography';
 import PropTypes from 'prop-types';
 
-import { memoize } from '../../memoize';
+import { memoize } from '../../helpers/memoize';
 import { cssSupports } from '../helpers';
 import { getSizeValue } from './layout';
 

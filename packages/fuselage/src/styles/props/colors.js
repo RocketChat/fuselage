@@ -2,7 +2,7 @@ import { css } from '@rocket.chat/css-in-js';
 import tokenColors from '@rocket.chat/fuselage-tokens/colors';
 import invariant from 'invariant';
 
-import { memoize } from '../../memoize';
+import { memoize } from '../../helpers/memoize';
 import { cssSupports, createPropType } from '../helpers';
 
 

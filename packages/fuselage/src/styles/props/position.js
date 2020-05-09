@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
 
-import { memoize } from '../../memoize';
+import { memoize } from '../../helpers/memoize';
 import { cssSupports, createLogicalProperties, createPropType } from '../helpers';
 
 
