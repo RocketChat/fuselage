@@ -23,7 +23,7 @@ export const Chip = ({
       </Margins>}
       {children && <Flex.Item shrink={1}>
         <Margins all='x4'>
-          <Box is='span' textStyle='p1' color='default' className='rcx-chip__text'>{children}</Box>
+          <Box is='span' fontScale='p1' color='default' rcx-chip__text>{children}</Box>
         </Margins>
       </Flex.Item>}
       {Remove && (onClick || onMouseDown) && <Margins all='x4'>

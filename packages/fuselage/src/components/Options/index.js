@@ -25,17 +25,17 @@ const Li = forwardRef(function Li(props, ref) {
   return <Box is='li' rcx-option ref={ref} {...props} />;
 });
 
-export const Empty = React.memo(() => <Box is='span' textStyle='p1' color='hint'>Empty</Box>);
+export const Empty = React.memo(() => <Box is='span' fontScale='p1' color='hint'>Empty</Box>);
 
 export const Option = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>{label}</Li>);
 
-export const CheckOption = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} aria-selected={selected} {...options}><Margins inline='x4'><CheckBox checked={selected} /></Margins><Margins inline='x4'><Box is='span' textStyle='p1' color='default'>{label}</Box></Margins></Li>);
+export const CheckOption = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} aria-selected={selected} {...options}><Margins inline='x4'><CheckBox checked={selected} /></Margins><Margins inline='x4'><Box is='span' fontScale='p1' color='default'>{label}</Box></Margins></Li>);
 
 export const OptionAvatar = React.memo(({ id, value, children: label, focus, selected, ...options }) => (
   <Flex.Container>
     <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>
       <Margins inline='x4'><Avatar size='x20' url={value} tile={label}/></Margins>
-      <Margins inline='x4'><Box is='span' textStyle='p1' color='default'>{label}</Box></Margins>
+      <Margins inline='x4'><Box is='span' fontScale='p1' color='default'>{label}</Box></Margins>
     </Li>
   </Flex.Container>
 ));

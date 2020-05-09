@@ -39,7 +39,7 @@ export const ModalThumb = (props) => <Avatar size='x32' {...props} />;
 
 export const ModalTitle = ({ children, ...props }) =>
   <Flex.Item grow={1} shrink={1}>
-    <Box rcx-modal__title color='default' textStyle='h1' {...props}>
+    <Box rcx-modal__title color='default' fontScale='h1' {...props}>
       {children}
     </Box>
   </Flex.Item>;
