@@ -36,16 +36,12 @@ export const Chip = ({
 );
 
 Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', m = 'neg-x4', ...props }) =>
-  <Margins all={m}>
-    <Flex.Container alignItems={alignItems} wrap={wrap}>
-      <Box rcx-chip__wrapper is='div' {...props}>
-        {children.map((children, i) =>
-          <Flex.Item key={i} shrink={1}>
-            <Margins all='x4'>
-              {children}
-            </Margins>
-          </Flex.Item>,
-        )}
-      </Box>
-    </Flex.Container>
-  </Margins>;
+  <Box rcx-chip__wrapper is='div' display='flex' alignItems={alignItems} flexWrap={wrap} m={m} {...props}>
+    {children.map((children, i) =>
+      <Flex.Item key={i} shrink={1}>
+        <Margins all='x4'>
+          {children}
+        </Margins>
+      </Flex.Item>,
+    )}
+  </Box>;

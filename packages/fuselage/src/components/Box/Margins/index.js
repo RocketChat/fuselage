@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { marginPropType, mapSpaceProps } from '../../../styles/props/spaces';
+import { marginPropType } from '../../../styles/props/spaces';
 import { patchChildren } from '../../../helpers/patchChildren';
 
 export function Margins({
@@ -25,7 +25,7 @@ export function Margins({
       ...inline !== undefined && { mi: inline },
       ...inlineStart !== undefined && { mis: inlineStart },
       ...inlineEnd !== undefined && { mie: inlineEnd },
-    }, [mapSpaceProps])}
+    })}
   </>;
 }
 

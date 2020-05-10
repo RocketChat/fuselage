@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { patchChildren } from '../../../helpers/patchChildren';
-import { mapFlexBoxProps } from '../../../styles/props/flexBox';
 
 export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent, ...props }) {
   return <>
@@ -20,7 +19,7 @@ export function FlexContainer({ inline = false, children, direction, wrap, align
       justifyContent: (justifyContent === 'start' && 'flex-start')
       || (justifyContent === 'end' && 'flex-end')
       || justifyContent,
-    }, [mapFlexBoxProps])}
+    })}
   </>;
 }
 
@@ -44,7 +43,7 @@ export function FlexItem({ children, order, grow, shrink, basis, align, ...props
       alignSelf: (align === 'start' && 'flex-start')
       || (align === 'end' && 'flex-end')
       || align,
-    }, [mapFlexBoxProps])}
+    })}
   </>;
 }
 
