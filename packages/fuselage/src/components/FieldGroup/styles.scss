@@ -10,11 +10,13 @@
 }
 
 .rcx-field-group__item {
-  flex: 0 0 auto;
+  .rcx-field-group > & {
+    flex: 0 0 auto;
 
-  margin-block-end: lengths.margin(24);
+    width: lengths.size(full);
+  }
 
-  &:last-child {
-    margin-block-end: lengths.margin(none);
+  & + & {
+    margin-block-start: lengths.margin(24);
   }
 }

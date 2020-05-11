@@ -8,53 +8,19 @@
 
   align-items: center;
 
-  & > .rcx-button-group__item {
-    margin-inline: lengths.margin(8);
-
-    &:first-child {
-      margin-inline-start: lengths.margin(none);
-    }
-
-    &:last-child {
-      margin-inline-end: lengths.margin(none);
-    }
-  }
-
   &--wrap {
     flex-wrap: wrap;
 
     margin-block-end: lengths.margin(-16);
-
-    & > .rcx-button-group__item {
-      margin-block-end: lengths.margin(16);
-      margin-inline-start: lengths.margin(none);
-      margin-inline-end: lengths.margin(16);
-    }
   }
 
   &--stretch {
     justify-content: stretch;
-
-    & > .rcx-button-group__item {
-      flex-grow: 1;
-    }
+    align-items: stretch;
   }
 
   &--vertical {
     flex-direction: column;
-
-    & > .rcx-button-group__item {
-      margin-block-end: lengths.margin(16);
-      margin-inline: lengths.margin(none);
-
-      &:last-child {
-        margin-block-end: lengths.margin(none);
-      }
-    }
-  }
-
-  &--vertical#{&}--stretch {
-    align-items: stretch;
   }
 
   &--align-start {
@@ -67,5 +33,42 @@
 
   &--align-end {
     justify-content: flex-end;
+  }
+}
+
+.rcx-button-group__item {
+  .rcx-button-group > & {
+    margin-inline: lengths.margin(8);
+
+    &:first-child {
+      margin-inline-start: lengths.margin(none);
+    }
+
+    &:last-child {
+      margin-inline-end: lengths.margin(none);
+    }
+  }
+
+  .rcx-button-group--wrap > & {
+    margin-block-end: lengths.margin(16);
+    margin-inline-start: lengths.margin(none);
+    margin-inline-end: lengths.margin(16);
+  }
+
+  .rcx-button-group--stretch > & {
+    flex-grow: 1;
+  }
+
+  .rcx-button-group--vertical > & {
+    margin-block: lengths.margin(8);
+    margin-inline: lengths.margin(none);
+
+    &:first-child {
+      margin-block-start: lengths.margin(none);
+    }
+
+    &:last-child {
+      margin-block-end: lengths.margin(none);
+    }
   }
 }
