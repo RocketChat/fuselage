@@ -38,14 +38,24 @@ export const mergeProps = (props, contextProps, ref) => {
     mapPositionProps,
   ].reduce((props, transform) => transform(props), initialProps);
 
-  const rules = [];
-
   mergedProps.className = Array.from(
     new Set(
       mergedProps.className.map((className) => {
         if (typeof className === 'function') {
+          const rules = [];
           rules.push(className(rules));
-          return undefined;
+
+          const content = rules.filter(Boolean).join('') || undefined;
+
+          if (!content) {
+            return undefined;
+          }
+
+          const [generatedClassName, encodedClassName] = createSelector(content);
+          const parsedRules = transpile(`.${ encodedClassName }`, content);
+          referenceRules(parsedRules);
+
+          return className.className || generatedClassName;
         }
 
         if (typeof className === 'string') {
@@ -55,21 +65,7 @@ export const mergeProps = (props, contextProps, ref) => {
         return undefined;
       }).filter(Boolean),
     ),
-  );
-
-  mergedProps.className = mergedProps.className.join(' ');
-
-  const content = rules.filter(Boolean).join('') || undefined;
-
-  if (!content) {
-    return mergedProps;
-  }
-
-  const [className, encodedClassName] = createSelector(content);
-  const parsedRules = transpile(`.rcx-box.${ encodedClassName }`, content);
-  referenceRules(parsedRules);
-
-  mergedProps.className += ` ${ className }`;
+  ).join(' ');
 
   return mergedProps;
 };
