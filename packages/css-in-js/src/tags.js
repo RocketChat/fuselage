@@ -6,6 +6,13 @@ declare class TemplateStringsArray extends $ReadOnlyArray<string> {
   +raw: string;
 }
 
+export type cssFn = (rules: string[]) => string;
+
+export type classNameFn = {
+  (rules: string[]): string,
+  className: string,
+};
+
 const createReplacementsMapping = (rules = []) => (value) => {
   if (value === 0) {
     return '0';
@@ -27,10 +34,19 @@ const createReplacementsMapping = (rules = []) => (value) => {
  *
  * @return a callback to render the CSS content
  */
-export const css = (slices: TemplateStringsArray, ...values: string[]) => (rules: string[] = []) => {
+export const css = (slices: TemplateStringsArray, ...values: string[]): cssFn => (rules: string[] = []) => {
   const replacements = values.map(createReplacementsMapping(rules));
   return String.raw(slices, ...replacements);
 };
+
+/**
+ * Template string tag to declare CSS content within a className.
+ *
+ * @return a callback to render the CSS content
+ */
+export const className = (className: string) =>
+  (slices: TemplateStringsArray, ...values: string[]): classNameFn =>
+    Object.assign((css(slices, ...values): classNameFn), { className });
 
 /**
  * Template string tag to declare CSS `@keyframe` at-rules.

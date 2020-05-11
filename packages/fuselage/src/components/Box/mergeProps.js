@@ -1,4 +1,4 @@
-import { createSelector, transpile, referenceRules } from '@rocket.chat/css-in-js';
+import { toClassName } from '@rocket.chat/css-in-js';
 
 import { mapClassNames } from './mapClassNames';
 import { mapSpaceProps } from '../../styles/props/spaces';
@@ -40,30 +40,7 @@ export const mergeProps = (props, contextProps, ref) => {
 
   mergedProps.className = Array.from(
     new Set(
-      mergedProps.className.map((className) => {
-        if (typeof className === 'function') {
-          const rules = [];
-          rules.push(className(rules));
-
-          const content = rules.filter(Boolean).join('') || undefined;
-
-          if (!content) {
-            return undefined;
-          }
-
-          const [generatedClassName, encodedClassName] = createSelector(content);
-          const parsedRules = transpile(`.${ encodedClassName }`, content);
-          referenceRules(parsedRules);
-
-          return className.className || generatedClassName;
-        }
-
-        if (typeof className === 'string') {
-          return className;
-        }
-
-        return undefined;
-      }).filter(Boolean),
+      mergedProps.className.map(toClassName).filter(Boolean),
     ),
   ).join(' ');
 
