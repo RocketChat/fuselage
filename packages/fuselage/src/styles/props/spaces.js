@@ -1,8 +1,8 @@
 import { css } from '@rocket.chat/css-in-js';
 
+import { createLogicalProperties } from '../../helpers/createLogicalProperties';
+import { createPropType } from '../../helpers/createPropType';
 import { memoize } from '../../helpers/memoize';
-import { createPropType, createLogicalProperties } from '../helpers';
-
 
 export const getMarginValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null) {
