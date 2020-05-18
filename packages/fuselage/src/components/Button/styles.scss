@@ -68,8 +68,8 @@
     @include typography.use-font-scale(c2);
 
     @include with-rectangular-size(
-      $height: lengths.size(32),
-      $padding-x: lengths.padding(12),
+      $height: lengths.size(28),
+      $padding-x: lengths.padding(8),
       $line-height: typography.line-height(c1),
     );
   }
@@ -82,7 +82,7 @@
 
   &--small-square {
     @include with-squared-size(
-      $size: lengths.size(32),
+      $size: lengths.size(28),
     );
   }
 

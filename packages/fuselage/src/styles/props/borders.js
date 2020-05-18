@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
-import mem from 'mem';
 
+import { memoize } from '../../helpers/memoize';
 import { createLogicalProperties, cssSupports } from '../helpers';
 import { getColorValue } from './colors';
 
@@ -84,7 +84,7 @@ export const [
   inlineEndFallbackPropertyName: 'border-right-color',
 });
 
-export const getBorderWidthValue = mem((propValue) => {
+export const getBorderWidthValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null) {
     return;
   }
@@ -112,7 +112,7 @@ export const getBorderWidthValue = mem((propValue) => {
   }
 });
 
-export const getBorderRadiusValue = mem((propValue) => {
+export const getBorderRadiusValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null) {
     return;
   }

@@ -1,10 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
-import mem from 'mem';
 
+import { memoize } from '../../helpers/memoize';
 import { cssSupports, createLogicalProperties, createPropType } from '../helpers';
 
 
-export const getInsetValue = mem((propValue) => {
+export const getInsetValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null) {
     return;
   }

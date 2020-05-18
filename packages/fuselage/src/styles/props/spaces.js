@@ -1,10 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
-import mem from 'mem';
 
+import { memoize } from '../../helpers/memoize';
 import { createPropType, createLogicalProperties } from '../helpers';
 
 
-export const getMarginValue = mem((propValue) => {
+export const getMarginValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null) {
     return;
   }
@@ -54,7 +54,7 @@ const [
   inlineEndFallbackPropertyName: 'margin-right',
 });
 
-export const getPaddingValue = mem((propValue) => {
+export const getPaddingValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null) {
     return;
   }

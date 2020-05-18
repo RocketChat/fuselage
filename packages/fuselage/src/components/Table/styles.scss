@@ -11,7 +11,7 @@
     lengths.padding(none)
     lengths.padding(2);
 
-  border-collapse: separate;
+  border-collapse: collapse;
 
   background-color: colors.surface();
 
@@ -30,16 +30,6 @@
 
   &__head {
     display: table-header-group;
-
-    &::after {
-      position: absolute;
-      inset-inline: lengths.inset(none);
-
-      display: flex;
-
-      content: '';
-      border-block-end: lengths.border-width(2) solid colors.neutral(300);
-    }
   }
 
   &__body {
@@ -102,8 +92,23 @@
     @include typography.use-font-scale(p1);
 
     &--header {
+      position: relative;
+
       @include typography.use-font-scale(c2);
       color: colors.foreground(hint);
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        inset-inline: lengths.inset(none);
+        left: 0;
+        right: 0;
+
+        display: flex;
+
+        content: '';
+        border-block-end: lengths.border-width(2) solid colors.neutral(300);
+      }
     }
 
     &--clickable {
