@@ -10,8 +10,8 @@ const style = {
 
 export function Selection({ children, text, ...props }) {
   return <Box color='alternative' rcx-table__selection display='flex' alignItems='center' justifyContent='space-between' {...props} pi='x24'>
-    <Box textStyle='p2' mb='x16' flexShrink={1} style={style}>{text}</Box>
-    { children && <Box mi='neg-x8' textStyle='p2' flexShrink={0} ><Margins inline='x4'>{children}</Margins></Box> }
+    <Box fontScale='p2' mb='x16' flexShrink={1} style={style}>{text}</Box>
+    { children && <Box mi='neg-x8' fontScale='p2' flexShrink={0} ><Margins inline='x4'>{children}</Margins></Box> }
   </Box>;
 }
 
