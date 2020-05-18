@@ -17,6 +17,7 @@
   "main": "index.js",
   "dependencies": {
     "@juggle/resize-observer": "^3.1.2",
+    "clipboard-polyfill": "^2.8.6",
     "focus-visible": "^5.0.2"
   }
 }
