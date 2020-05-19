@@ -1,6 +1,8 @@
 import { css } from '@rocket.chat/css-in-js';
 
-import { cssSupports } from './cssSupports';
+import { memoize } from './memoize';
+
+export const cssSupports = memoize((value) => typeof window !== 'undefined' && window.CSS && window.CSS.supports(value));
 
 export const createLogicalProperties = ({
   blockPropertyName,
