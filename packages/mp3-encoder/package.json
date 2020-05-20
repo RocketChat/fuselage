@@ -55,5 +55,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lamejs": "^1.2.0"
+  }
 }

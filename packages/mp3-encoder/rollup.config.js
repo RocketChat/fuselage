@@ -21,7 +21,7 @@ export default {
   ],
   plugins: [
     external(),
-    typescript({ lib: ['es5', 'es6', 'dom'], target: 'es5' }),
+    typescript({ lib: ['es2015', 'webworker'] }),
     resolve(),
     commonjs(),
   ],
