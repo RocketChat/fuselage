@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/github/license/RocketChat/@rocket.chat/css-in-js)](https://github.com/RocketChat/Rocket.Chat.Fuselage/blob/master/LICENSE)
 [![Twitter: RocketChat](https://img.shields.io/twitter/follow/RocketChat.svg?style=social)](https://twitter.com/RocketChat)
 
-> React Hooks for Fuselage, Rocket.Chat's design system
+> Toolset to transpile and use CSS on runtime
 
 ### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
 
@@ -46,8 +46,8 @@ Template string tag to declare CSS content chunks.
 
 #### Parameters
 
--   `slices` **TemplateStringsArray** 
--   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+-   `slices` **TemplateStringsArray**
+-   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
 
 Returns **any** a callback to render the CSS content
 
@@ -57,8 +57,8 @@ Template string tag to declare CSS `@keyframe` at-rules.
 
 #### Parameters
 
--   `slices` **TemplateStringsArray** 
--   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+-   `slices` **TemplateStringsArray**
+-   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
 
 Returns **any** a callback to render the CSS at-rule content
 
@@ -68,7 +68,7 @@ Imediately attaches CSS rules into the style sheet.
 
 #### Parameters
 
--   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 Returns **any** a callback to detach the rules
 
@@ -83,7 +83,7 @@ style sheet.
 
 #### Parameters
 
--   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 Returns **any** a callback to unreference the rules
 
@@ -93,10 +93,10 @@ Transpiles CSS Modules content to CSS rules.
 
 #### Parameters
 
--   `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+-   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ### createSelector
 
@@ -104,7 +104,7 @@ Creates a pair of selector and escaped selector for a CSS Modules content.
 
 #### Parameters
 
--   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 Returns **\[[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** a pair of selectors in the format `rcx-@<content hash>`; the second element is escaped
 for use in CSS content
