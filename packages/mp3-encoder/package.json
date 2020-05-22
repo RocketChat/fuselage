@@ -33,12 +33,20 @@
     "lint-staged": "lint-staged",
     "docs": "documentation readme src/index.js --section='API Reference' --readme-file README.md"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "lamejs": "^1.2.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "^7.7.6",
+    "@babel/preset-typescript": "^7.9.0",
     "@rocket.chat/eslint-config": "^0.4.0",
     "@rollup/plugin-typescript": "^4.1.1",
+    "@types/jest": "^25.2.3",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "babel-eslint": "^10.0.3",
@@ -51,11 +59,5 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.2"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "lamejs": "^1.2.0"
   }
 }
