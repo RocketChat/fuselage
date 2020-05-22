@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.8.0...v0.9.0) (2020-05-21)
+
+
+### Features
+
+* useResizeObserver ([#223](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/223)) ([405c6a4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/405c6a4be8f05e7e565bc8b3c27d668ee538abff))
+
+
+
+
+
 # [0.8.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.1...v0.8.0) (2020-04-22)
 
 
