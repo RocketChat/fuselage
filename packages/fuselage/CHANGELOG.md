@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.8.0...v0.9.0) (2020-05-21)
+
+
+### Bug Fixes
+
+* Added z-index backdrop and options to avatar and backdrop ([#210](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/210)) ([96f0d17](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/96f0d172f4ea1e84bc765a74b5db53d8f447ce7a))
+* Avatar sizes ([#202](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/202)) ([7ff3fd9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7ff3fd91ce7f075e41c473b18077f63011ee2a30))
+* Change the small button size ([#234](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/234)) ([6dc44de](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6dc44def0de746bb4412f97cb72a676715e19742))
+* className prop type in Box ([#220](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/220)) ([f9e1a1f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f9e1a1f413035b9af9bdebd8b4d3f3944440affa))
+* CSS custom property name interpolation ([#216](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/216)) ([66453b6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/66453b60c9ec46b80782456fdd695e82d87d7dec))
+* Deprecation warnings ([#227](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/227)) ([46322a8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/46322a8e2781b4293adc7fdf4fcffae20f0d170f))
+* Position component ([#217](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/217)) ([81940ec](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/81940ecd6713eec2ffd41ac1aa592e345e694815))
+* Table header divisor ([#233](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/233)) ([373534c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/373534c1bdf9653bea9959029a7fc1e662d41693))
+
+
+### Features
+
+* elevation prop ([#219](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/219)) ([fb28ee3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/fb28ee3466b4f3f837bbe5cf25a18e0ad80ce4c4))
+* Kebab Menu w/ popover ([#211](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/211)) ([0e4a50d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0e4a50d2570dcf2a5fde09a70a5960832172aa77))
+* New Box props ([#213](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/213)) ([b593875](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b593875f3561e334412f9d7e2fbe81007ed8098e))
+
+
+### Performance Improvements
+
+* Replace `mem` with a simpler memoization decorator ([#229](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/229)) ([2de0703](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2de07032b5175153f881408726fc9413804094b6))
+
+
+### Reverts
+
+* Revert "Fix flex content (#225)" (#226) ([fc246f2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/fc246f2c684d52af82f09aeffe5d0b46e0b9910e)), closes [#225](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/225) [#226](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/226)
+
+
+
+
+
 # [0.8.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.7.1...v0.8.0) (2020-04-22)
 
 
