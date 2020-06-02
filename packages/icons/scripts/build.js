@@ -4,7 +4,7 @@ const { promisify } = require('util');
 const rimraf = require('rimraf');
 
 const pkg = require('../package.json');
-const { writeFile } = require('./files');
+const { encodeEscapedJson, writeFile } = require('./files');
 const {
   createSvgBuffer,
   createTtfBuffer,
@@ -57,7 +57,7 @@ const buildScripts = async (icons, distPath) => {
       const characters = icons
         .filter(({ name }) => !!glyphsMapping[name])
         .reduce((obj, { name }) => ({ ...obj, [name]: glyphsMapping[name].start }), {});
-      return `module.exports = ${ JSON.stringify(characters, null, 2) };\n`;
+      return `module.exports = ${ encodeEscapedJson(characters) };\n`;
     }),
     writeFile(distPath, 'rocketchat.css', () => [
       '@font-face {',

@@ -19,7 +19,10 @@ const getIconDescriptors = async (srcPath) => {
         path: _path,
       };
     })
-    .sort(({ name: a }, { name: b }) => a.localeCompare(b));
+    .sort((a, b) =>
+      path.dirname(a.path).localeCompare(path.dirname(b.path))
+      || a.name.localeCompare(b.name),
+    );
 
   step.resolve();
 
