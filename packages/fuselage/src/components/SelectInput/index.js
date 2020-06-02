@@ -30,7 +30,7 @@ export const SelectInput = forwardRef(function SelectInput({
     placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
     ref={ref}
     {...props}
-    addon={<Icon name='arrow-down' size='x20' />}
+    addon={<Icon name='chevron-down' size='x20' />}
     type='select'
     onChange={handleChange}
   >

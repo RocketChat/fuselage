@@ -490,5 +490,8 @@
   },
   "warning": {
     "start": "\ue083"
+  },
+  "chevron-expand": {
+    "start": "\ue084"
   }
 }
