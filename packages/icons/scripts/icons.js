@@ -21,69 +21,35 @@ const endCharacters = [
   ...Object.values(finalPunctuationCharacters).filter(({ mirrored }) => mirrored === 'Y').map(({ symbol }) => symbol),
 ];
 
-const getDirectionalIcons = async (srcPath) => {
-  const step = logStep('Read directional icons');
+const getIcons = async (srcPath) => {
+  const step = logStep('Read icons');
 
-  const paths = await glob(path.join(srcPath, 'directional/*.svg'));
-
-  step.resolve();
-
-  const descriptors = paths
-    .map((match, i) => ({
-      name: path.basename(match, '.svg'),
-      path: match,
-      startCharacter: startCharacters[i],
-      endCharacter: endCharacters[i],
-    }));
-
-  step.resolve();
-
-  return descriptors;
-};
-
-const getNeutralIcons = async (srcPath) => {
-  const step = logStep('Read neutral icons');
-
-  const paths = await glob(path.join(srcPath, 'neutral/*.svg'));
+  const paths = await glob(path.join(srcPath, '**/*.svg'));
 
   step.resolve();
 
   const descriptors = paths
-    .map((match, i) => ({
-      name: path.basename(match, '.svg'),
-      path: match,
-      startCharacter: String.fromCodePoint(0xe000 + i),
-    }));
-
-  step.resolve();
-
-  return descriptors;
-};
-
-const getOtherIcons = async (srcPath) => {
-  const step = logStep('Read other icons');
-
-  const paths = await glob(path.join(srcPath, 'other/*.svg'));
-
-  step.resolve();
-
-  const descriptors = paths
-    .map((match) => ({
-      name: path.basename(match, '.svg'),
-      path: match,
-    }));
-
-  step.resolve();
-
-  return descriptors;
-};
-
-const getIcons = async (srcPath) =>
-  [].concat(...await Promise.all([
-    getDirectionalIcons(srcPath),
-    getNeutralIcons(srcPath),
-    getOtherIcons(srcPath),
-  ]))
+    .map((_path, i) => {
+      const [, name,, type] = /^(.*?)(\.([a-z]+))?$/.exec(path.basename(_path, '.svg'));
+      return {
+        name,
+        type,
+        path: _path,
+        ...(type === 'dir' && {
+          startCharacter: startCharacters[i],
+          endCharacter: endCharacters[i],
+        })
+        || (type === 'other' && {})
+        || {
+          startCharacter: String.fromCodePoint(0xe000 + i),
+        },
+      };
+    })
     .sort(({ name: a }, { name: b }) => a.localeCompare(b));
+
+  step.resolve();
+
+  return descriptors;
+};
 
 module.exports.getIcons = getIcons;
