@@ -12,7 +12,7 @@ const {
   createWoff2Buffer,
   createEotBuffer,
 } = require('./font');
-const { getIcons } = require('./icons');
+const { getIconDescriptors } = require('./icons');
 const { logStep } = require('./log');
 const { createSvgSprite, createSvgIcons } = require('./svg');
 
@@ -29,7 +29,7 @@ const prepareDirectories = async () => {
 };
 
 const buildFont = async (icons, distPath) => {
-  icons = icons.filter(({ startCharacter }) => !!startCharacter);
+  icons = icons.filter(({ type }) => type !== 'other');
 
   const svgBuffer = await writeFile(distPath, 'font/rocketchat.svg', () => createSvgBuffer(icons));
   const ttfBuffer = await writeFile(distPath, 'font/rocketchat.ttf', () => createTtfBuffer(svgBuffer));
@@ -76,7 +76,7 @@ const buildScripts = async (icons, distPath) => {
 const buildAll = async () => {
   const { srcPath, distPath } = await prepareDirectories();
 
-  const icons = await getIcons(srcPath);
+  const icons = await getIconDescriptors(srcPath);
 
   await Promise.all([
     buildFont(icons, distPath),
@@ -85,4 +85,6 @@ const buildAll = async () => {
   ]);
 };
 
-buildAll();
+if (require.main === module) {
+  buildAll();
+}

@@ -3,10 +3,47 @@ const svg2ttf = require('svg2ttf');
 const ttf2eot = require('ttf2eot');
 const ttf2woff = require('ttf2woff');
 const ttf2woff2 = require('ttf2woff2');
+const {
+  Ps: punctuationStartCharacters,
+  Pe: punctuationEndCharacters,
+  Pi: initialPunctuationCharacters,
+  Pf: finalPunctuationCharacters,
+} = require('unicode/category');
 
 const pkg = require('../package.json');
 const { readFile, createReadableFromString } = require('./files');
 const { mirrorSvg } = require('./svg');
+
+const startCharacters = [
+  ...Object.values(punctuationStartCharacters).filter(({ mirrored }) => mirrored === 'Y').map(({ symbol }) => symbol),
+  ...Object.values(initialPunctuationCharacters).filter(({ mirrored }) => mirrored === 'Y').map(({ symbol }) => symbol),
+];
+
+const endCharacters = [
+  ...Object.values(punctuationEndCharacters).filter(({ mirrored }) => mirrored === 'Y').map(({ symbol }) => symbol),
+  ...Object.values(finalPunctuationCharacters).filter(({ mirrored }) => mirrored === 'Y').map(({ symbol }) => symbol),
+];
+
+let directionalCounter = 0;
+let neutralCounter = 0;
+
+const nextCharactersFor = (name, type) => {
+  if (type === 'dir') {
+    const i = directionalCounter++;
+    console.log(name, i);
+    return {
+      startCharacter: startCharacters[i],
+      endCharacter: endCharacters[i],
+    };
+  }
+
+  if (!type) {
+    const i = neutralCounter++;
+    return {
+      startCharacter: 0xe000 + i,
+    };
+  }
+};
 
 const createSvgBuffer = async (icons) => {
   const fontStream = new SVGIcons2SVGFontStream({
@@ -17,8 +54,9 @@ const createSvgBuffer = async (icons) => {
   });
 
   await Promise.all(
-    icons.map(async ({ name, path, startCharacter, endCharacter }) => {
+    icons.map(async ({ name, type, path }) => {
       const content = await readFile(path);
+      const { startCharacter, endCharacter } = nextCharactersFor(name, type);
 
       const stream = createReadableFromString(content);
       stream.metadata = {
