@@ -12,9 +12,20 @@ const writeFile = async (distPath, filePath, getData) => {
   await fs.promises.mkdir(path.dirname(destPath), { recursive: true });
 
   const data = await getData();
-  await fs.promises.writeFile(destPath, data, {
-    encoding: typeof data === 'string' ? 'utf8' : undefined,
-  });
+
+  if (Object(data) === data && Object.getPrototypeOf(data) === Object.prototype) {
+    await fs.promises.writeFile(
+      destPath,
+      JSON.stringify(data, null, 2).replace(/[\u007f-\uffff]/g,
+        (c) => `\\u${ `0000${ c.charCodeAt(0).toString(16) }`.slice(-4) }`,
+      ),
+      { encoding: 'utf8' },
+    );
+  } else if (typeof data === 'string') {
+    await fs.promises.writeFile(destPath, data, { encoding: 'utf8' });
+  } else {
+    await fs.promises.writeFile(destPath, data);
+  }
 
   step.resolve();
 

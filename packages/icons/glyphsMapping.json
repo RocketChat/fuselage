@@ -1,0 +1,494 @@
+{
+  "add-reaction": {
+    "start": "\ue000"
+  },
+  "at": {
+    "start": "\ue001"
+  },
+  "back": {
+    "start": "(",
+    "end": ")"
+  },
+  "arrow-down": {
+    "start": "\ue002"
+  },
+  "attachment": {
+    "start": "\ue003"
+  },
+  "ban": {
+    "start": "\ue004"
+  },
+  "bell": {
+    "start": "\ue005"
+  },
+  "bell-off": {
+    "start": "\ue006"
+  },
+  "backspace": {
+    "start": "[",
+    "end": "]"
+  },
+  "book": {
+    "start": "\ue007"
+  },
+  "bold": {
+    "start": "\ue008"
+  },
+  "business": {
+    "start": "\ue009"
+  },
+  "calendar": {
+    "start": "\ue00a"
+  },
+  "card": {
+    "start": "\ue00b"
+  },
+  "change": {
+    "start": "\ue00c"
+  },
+  "chat": {
+    "start": "\ue00d"
+  },
+  "check": {
+    "start": "\ue00e"
+  },
+  "checkmark-circled": {
+    "start": "\ue00f"
+  },
+  "chevron-down": {
+    "start": "\ue010"
+  },
+  "chevron-left": {
+    "start": "{",
+    "end": "}"
+  },
+  "chevron-right": {
+    "start": "\u0f3a",
+    "end": "\u0f3b"
+  },
+  "chevron-up": {
+    "start": "\ue011"
+  },
+  "circle": {
+    "start": "\ue012"
+  },
+  "circle-check": {
+    "start": "\ue013"
+  },
+  "circle-cross": {
+    "start": "\ue014"
+  },
+  "circled-arrow-down": {
+    "start": "\ue015"
+  },
+  "clip": {
+    "start": "\ue016"
+  },
+  "clipboard": {
+    "start": "\ue017"
+  },
+  "clock": {
+    "start": "\ue018"
+  },
+  "cloud-plus": {
+    "start": "\ue019"
+  },
+  "code": {
+    "start": "\ue01a"
+  },
+  "cog": {
+    "start": "\ue01b"
+  },
+  "computer": {
+    "start": "\ue01c"
+  },
+  "copy": {
+    "start": "\ue01d"
+  },
+  "cross": {
+    "start": "\ue01e"
+  },
+  "cube": {
+    "start": "\ue01f"
+  },
+  "customize": {
+    "start": "\ue020"
+  },
+  "dialpad": {
+    "start": "\ue021"
+  },
+  "directory": {
+    "start": "\ue022"
+  },
+  "discover": {
+    "start": "\ue023"
+  },
+  "discussion": {
+    "start": "\ue024"
+  },
+  "download": {
+    "start": "\ue025"
+  },
+  "edit": {
+    "start": "\ue026"
+  },
+  "edit-rounded": {
+    "start": "\ue027"
+  },
+  "emoji": {
+    "start": "\ue028"
+  },
+  "eraser": {
+    "start": "\ue029"
+  },
+  "exit": {
+    "start": "\u0f3c",
+    "end": "\u0f3d"
+  },
+  "eye": {
+    "start": "\ue02a"
+  },
+  "eye-off": {
+    "start": "\ue02b"
+  },
+  "facebook": {
+    "start": "\ue02c"
+  },
+  "file-document": {
+    "start": "\ue02d"
+  },
+  "file-generic": {
+    "start": "\ue02e"
+  },
+  "file-google-drive": {
+    "start": "\ue02f"
+  },
+  "file-keynote": {
+    "start": "\ue030"
+  },
+  "file-pdf": {
+    "start": "\ue031"
+  },
+  "file-sheets": {
+    "start": "\ue032"
+  },
+  "files-audio": {
+    "start": "\ue033"
+  },
+  "files-video": {
+    "start": "\ue034"
+  },
+  "files-zip": {
+    "start": "\ue035"
+  },
+  "filter": {
+    "start": "\ue036"
+  },
+  "fingerprint": {
+    "start": "\ue037"
+  },
+  "flag": {
+    "start": "\ue038"
+  },
+  "folder": {
+    "start": "\ue039"
+  },
+  "game": {
+    "start": "\ue03a"
+  },
+  "github": {
+    "start": "\ue03b"
+  },
+  "gitlab": {
+    "start": "\ue03c"
+  },
+  "google": {
+    "start": "\ue03d"
+  },
+  "group-by-type": {
+    "start": "\ue03e"
+  },
+  "hand-pointer": {
+    "start": "\ue03f"
+  },
+  "hash": {
+    "start": "\ue040"
+  },
+  "hashtag": {
+    "start": "\ue041"
+  },
+  "help": {
+    "start": "\ue042"
+  },
+  "home": {
+    "start": "\ue043"
+  },
+  "import": {
+    "start": "\ue044"
+  },
+  "hubot": {
+    "start": "\ue045"
+  },
+  "info": {
+    "start": "\ue046"
+  },
+  "info-circled": {
+    "start": "\ue047"
+  },
+  "intermediate": {
+    "start": "\ue048"
+  },
+  "italic": {
+    "start": "\ue049"
+  },
+  "jump": {
+    "start": "\u169b",
+    "end": "\u169c"
+  },
+  "key": {
+    "start": "\ue04a"
+  },
+  "keyboard": {
+    "start": "\ue04b"
+  },
+  "language": {
+    "start": "\ue04c"
+  },
+  "link": {
+    "start": "\ue04d"
+  },
+  "linkedin": {
+    "start": "\ue04e"
+  },
+  "list": {
+    "start": "\ue04f"
+  },
+  "list-alt": {
+    "start": "\ue050"
+  },
+  "livechat": {
+    "start": "\ue051"
+  },
+  "loading": {
+    "start": "\ue052"
+  },
+  "lock": {
+    "start": "\ue053"
+  },
+  "mail": {
+    "start": "\ue054"
+  },
+  "magnifier": {
+    "start": "\ue055"
+  },
+  "map-pin": {
+    "start": "\ue056"
+  },
+  "menu": {
+    "start": "\ue057"
+  },
+  "mic": {
+    "start": "\ue058"
+  },
+  "message": {
+    "start": "\ue059"
+  },
+  "mic-off": {
+    "start": "\ue05a"
+  },
+  "modal-warning": {
+    "start": "\ue05b"
+  },
+  "mobile": {
+    "start": "\ue05c"
+  },
+  "multiline": {
+    "start": "\u2045",
+    "end": "\u2046"
+  },
+  "moon": {
+    "start": "\ue05d"
+  },
+  "mute": {
+    "start": "\ue05e"
+  },
+  "new-chat": {
+    "start": "\ue05f"
+  },
+  "new-window": {
+    "start": "\u207d",
+    "end": "\u207e"
+  },
+  "omnichannel": {
+    "start": "\ue060"
+  },
+  "pause": {
+    "start": "\ue061"
+  },
+  "phone": {
+    "start": "\ue062"
+  },
+  "permalink": {
+    "start": "\ue063"
+  },
+  "play": {
+    "start": "\u208d",
+    "end": "\u208e"
+  },
+  "pin": {
+    "start": "\ue064"
+  },
+  "play-solid": {
+    "start": "\ue065"
+  },
+  "plus": {
+    "start": "\ue066"
+  },
+  "podcast": {
+    "start": "\ue067"
+  },
+  "post": {
+    "start": "\ue068"
+  },
+  "quote": {
+    "start": "\ue069"
+  },
+  "queue": {
+    "start": "\ue06a"
+  },
+  "rec": {
+    "start": "\ue06b"
+  },
+  "refresh": {
+    "start": "\ue06c"
+  },
+  "reload": {
+    "start": "\ue06d"
+  },
+  "reply": {
+    "start": "\u2308",
+    "end": "\u2309"
+  },
+  "reply-directly": {
+    "start": "\u230a",
+    "end": "\u230b"
+  },
+  "report": {
+    "start": "\ue06e"
+  },
+  "send": {
+    "start": "\u2329",
+    "end": "\u232a"
+  },
+  "share": {
+    "start": "\ue06f"
+  },
+  "shield": {
+    "start": "\ue070"
+  },
+  "send-active": {
+    "start": "\u2768",
+    "end": "\u2769"
+  },
+  "shield-alt": {
+    "start": "\ue071"
+  },
+  "shield-check": {
+    "start": "\ue072"
+  },
+  "sign-out": {
+    "start": "\u276a",
+    "end": "\u276b"
+  },
+  "snippet": {
+    "start": "\ue073"
+  },
+  "sort": {
+    "start": "\ue074"
+  },
+  "sort-amount-down": {
+    "start": "\ue075"
+  },
+  "star": {
+    "start": "\ue076"
+  },
+  "star-filled": {
+    "start": "\ue077"
+  },
+  "strike": {
+    "start": "\ue078"
+  },
+  "sun": {
+    "start": "\ue079"
+  },
+  "team": {
+    "start": "\ue07a"
+  },
+  "th-list": {
+    "start": "\u276c",
+    "end": "\u276d"
+  },
+  "thread": {
+    "start": "\ue07b"
+  },
+  "threads": {
+    "start": "\ue07c"
+  },
+  "transfer": {
+    "start": "\u276e",
+    "end": "\u276f"
+  },
+  "trash": {
+    "start": "\ue07d"
+  },
+  "twitter": {
+    "start": "\ue07e"
+  },
+  "undo": {
+    "start": "\u2770",
+    "end": "\u2771"
+  },
+  "upload": {
+    "start": "\ue07f"
+  },
+  "user": {
+    "start": "\ue080"
+  },
+  "user-plus": {
+    "start": "\ue081"
+  },
+  "video": {
+    "start": "\u2772",
+    "end": "\u2773"
+  },
+  "user-rounded": {
+    "start": "\ue082"
+  },
+  "video-off": {
+    "start": "\u2774",
+    "end": "\u2775"
+  },
+  "volume-disable": {
+    "start": "\u27c5",
+    "end": "\u27c6"
+  },
+  "volume": {
+    "start": "\u27e6",
+    "end": "\u27e7"
+  },
+  "volume-disabled": {
+    "start": "\u27e8",
+    "end": "\u27e9"
+  },
+  "volume-mute": {
+    "start": "\u27ea",
+    "end": "\u27eb"
+  },
+  "volume-off": {
+    "start": "\u27ec",
+    "end": "\u27ed"
+  },
+  "warning": {
+    "start": "\ue083"
+  }
+}

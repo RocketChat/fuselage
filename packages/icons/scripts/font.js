@@ -11,6 +11,7 @@ const {
 } = require('unicode/category');
 
 const pkg = require('../package.json');
+const glyphsMapping = require('../glyphsMapping.json');
 const { readFile, createReadableFromString } = require('./files');
 const { mirrorSvg } = require('./svg');
 
@@ -28,21 +29,31 @@ let directionalCounter = 0;
 let neutralCounter = 0;
 
 const nextCharactersFor = (name, type) => {
+  if (glyphsMapping[name]) {
+    return glyphsMapping[name];
+  }
+
   if (type === 'dir') {
     const i = directionalCounter++;
-    console.log(name, i);
-    return {
-      startCharacter: startCharacters[i],
-      endCharacter: endCharacters[i],
+
+    if (startCharacters.length <= i) {
+      throw Error('more directional icons than possible');
+    }
+
+    glyphsMapping[name] = {
+      start: startCharacters[i],
+      end: endCharacters[i],
     };
   }
 
   if (!type) {
     const i = neutralCounter++;
-    return {
-      startCharacter: 0xe000 + i,
+    glyphsMapping[name] = {
+      start: String.fromCodePoint(0xe000 + i),
     };
   }
+
+  return glyphsMapping[name];
 };
 
 const createSvgBuffer = async (icons) => {
@@ -56,7 +67,7 @@ const createSvgBuffer = async (icons) => {
   await Promise.all(
     icons.map(async ({ name, type, path }) => {
       const content = await readFile(path);
-      const { startCharacter, endCharacter } = nextCharactersFor(name, type);
+      const { start: startCharacter, end: endCharacter } = nextCharactersFor(name, type);
 
       const stream = createReadableFromString(content);
       stream.metadata = {
@@ -108,3 +119,4 @@ module.exports.createTtfBuffer = createTtfBuffer;
 module.exports.createWoffBuffer = createWoffBuffer;
 module.exports.createWoff2Buffer = createWoff2Buffer;
 module.exports.createEotBuffer = createEotBuffer;
+module.exports.glyphsMapping = glyphsMapping;
