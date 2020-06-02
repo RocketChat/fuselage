@@ -14,7 +14,7 @@ const mirrorSvg = async (content) => {
 };
 
 const createSvgIcons = (icons) => Promise.all(
-  icons.map(async ({ name, path }) => {
+  icons.map(async ({ name, type, path }) => {
     const content = await readFile(path);
     const {
       svg: {
@@ -28,13 +28,14 @@ const createSvgIcons = (icons) => Promise.all(
         $: {
           xmlns: 'http://www.w3.org/2000/svg',
           viewBox,
+          class: type === 'dir' ? 'rcx-svg--directional' : undefined,
           fill: 'currentColor',
         },
         ...elements,
       },
     });
 
-    return { name, viewBox, elements, xml };
+    return { name, type, viewBox, elements, xml };
   }),
 );
 
@@ -42,6 +43,7 @@ const createSvgSprite = async (svgIcons) => [
   '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">',
   ...svgIcons.map(({
     name,
+    type,
     viewBox,
     elements,
   }) => xmlBuilder.buildObject({
@@ -49,6 +51,7 @@ const createSvgSprite = async (svgIcons) => [
       $: {
         id: `icon-${ name }`,
         viewBox,
+        class: type === 'dir' ? 'rcx-svg--directional' : undefined,
         fill: 'currentColor',
       },
       ...elements,
