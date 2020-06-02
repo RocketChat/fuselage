@@ -11,8 +11,8 @@ const {
   createWoffBuffer,
   createWoff2Buffer,
   createEotBuffer,
-  glyphsMapping,
 } = require('./font');
+const { glyphsMapping } = require('./glyphs');
 const { getIconDescriptors } = require('./icons');
 const { logStep } = require('./log');
 const { createSvgSprite, createSvgIcons } = require('./svg');
