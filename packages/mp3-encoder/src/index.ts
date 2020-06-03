@@ -2,12 +2,18 @@ import { Mp3Encoder } from 'lamejs';
 
 declare const self: any;
 
+type Config = {
+  numChannels?: number;
+  sampleRate?: number;
+  bitRate?: number;
+};
+
 let encoder: Mp3Encoder;
 const maxSamples = 1152;
 let samplesMono: Int16Array;
 let dataBuffer: Int8Array[];
 
-function convertBuffer(arrayBuffer): Int16Array {
+function convertBuffer(arrayBuffer: Float32Array): Int16Array {
   const input = new Float32Array(arrayBuffer);
   const output = new Int16Array(arrayBuffer.length);
 
@@ -19,13 +25,13 @@ function convertBuffer(arrayBuffer): Int16Array {
   return output;
 }
 
-function init(config): void {
+function init(config: Config): void {
   config = config || {};
   encoder = new Mp3Encoder(config.numChannels || 1, config.sampleRate || 44100, config.bitRate || 32);
   dataBuffer = [];
 }
 
-function encode(arrayBuffer): void {
+function encode(arrayBuffer: Float32Array): void {
   samplesMono = convertBuffer(arrayBuffer);
   let remaining = samplesMono.length;
   for (let i = 0; remaining >= 0; i += maxSamples) {
