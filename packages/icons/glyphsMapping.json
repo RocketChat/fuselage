@@ -558,7 +558,7 @@
   "canned-response": {
     "start": "\ue094"
   },
-  "collapse": {
+  "arrow-collapse": {
     "start": "\ue095"
   },
   "desktop": {
@@ -567,10 +567,10 @@
   "doc": {
     "start": "\ue097"
   },
-  "expand": {
+  "arrow-expand": {
     "start": "\ue098"
   },
-  "fall-arrow": {
+  "arrow-fall": {
     "start": "\ue099"
   },
   "h-bar": {
@@ -594,7 +594,7 @@
   "pin-map": {
     "start": "\ue0a0"
   },
-  "rise-arrow": {
+  "arrow-rise": {
     "start": "\ue0a1"
   },
   "send-filled": {
@@ -620,5 +620,13 @@
   },
   "google-drive": {
     "start": "\ue0a9"
+  },
+  "arrow-back": {
+    "start": "\u2989",
+    "end": "\u298a"
+  },
+  "arrow-jump": {
+    "start": "\u298b",
+    "end": "\u298c"
   }
 }
