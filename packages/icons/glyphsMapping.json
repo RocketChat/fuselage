@@ -628,5 +628,23 @@
   "arrow-jump": {
     "start": "\u298b",
     "end": "\u298c"
+  },
+  "emoji-plus": {
+    "start": "\ue0aa"
+  },
+  "musical-note": {
+    "start": "\ue0ab"
+  },
+  "baloon-ellipsis": {
+    "start": "\ue0ac"
+  },
+  "baloons": {
+    "start": "\ue0ad"
+  },
+  "baloon-exclamation": {
+    "start": "\ue0ae"
+  },
+  "baloon-text": {
+    "start": "\ue0af"
   }
 }
