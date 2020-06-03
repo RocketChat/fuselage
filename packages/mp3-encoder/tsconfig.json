@@ -5,7 +5,6 @@
     "strict": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "rootDir": ".",
-    "sourceRoot": "./src"
+    "rootDir": "./src"
   }
 }
