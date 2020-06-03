@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
 
-import { memoize } from '../helpers/memoize';
+import { memoize } from './memoize';
 
 export const cssSupports = memoize((value) => typeof window !== 'undefined' && window.CSS && window.CSS.supports(value));
 
@@ -108,28 +108,4 @@ export const createLogicalProperties = ({
     inlineStartProperty,
     inlineEndProperty,
   ];
-};
-
-export const createPropType = (getValue) => {
-  const propType = (props, propName, componentName) => {
-    const propValue = props[propName];
-
-    if (propValue === undefined || getValue(propValue) !== undefined) {
-      return;
-    }
-
-    return new Error(`Invalid value for prop \`${ propName }\` supplied to \`${ componentName }\`: \`${ propValue }\``);
-  };
-
-  propType.isRequired = (props, propName, componentName) => {
-    const propValue = props[propName];
-
-    if (propValue !== undefined && getValue(propValue) !== undefined) {
-      return;
-    }
-
-    return new Error(`Invalid value for prop \`${ propName }\` supplied to \`${ componentName }\`: \`${ propValue }\``);
-  };
-
-  return propType;
 };

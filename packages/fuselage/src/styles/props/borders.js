@@ -1,7 +1,8 @@
 import { css } from '@rocket.chat/css-in-js';
 
+import { createLogicalProperties } from '../../helpers/createLogicalProperties';
+import { cssSupports } from '../../helpers/cssSupports';
 import { memoize } from '../../helpers/memoize';
-import { createLogicalProperties, cssSupports } from '../helpers';
 import { getColorValue } from './colors';
 
 export const [
