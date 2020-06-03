@@ -32,7 +32,7 @@
     "test": "jest",
     "lint": "eslint src --ext .js,.ts",
     "lint-staged": "lint-staged",
-    "docs": "documentation readme src/index.js --section='API Reference' --readme-file README.md"
+    "docs": "documentation readme src/index.ts --shallow --section='API Reference' --readme-file README.md"
   },
   "publishConfig": {
     "access": "public"
