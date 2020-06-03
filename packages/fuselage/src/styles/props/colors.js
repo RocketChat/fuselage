@@ -2,9 +2,9 @@ import { css } from '@rocket.chat/css-in-js';
 import tokenColors from '@rocket.chat/fuselage-tokens/colors';
 import invariant from 'invariant';
 
+import { createPropType } from '../../helpers/createPropType';
+import { cssSupports } from '../../helpers/cssSupports';
 import { memoize } from '../../helpers/memoize';
-import { cssSupports, createPropType } from '../helpers';
-
 
 const mapTypeToPrefix = {
   neutral: 'n',
