@@ -1,7 +1,7 @@
 import { css } from '@rocket.chat/css-in-js';
 
+import { createPropType } from '../../helpers/createPropType';
 import { memoize } from '../../helpers/memoize';
-import { createPropType } from '../helpers';
 
 export const getSizeValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null) {

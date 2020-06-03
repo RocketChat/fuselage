@@ -27,40 +27,33 @@ yarn test
 
 #### Table of Contents
 
--   [css](#css)
-    -   [Parameters](#parameters)
--   [keyframes](#keyframes)
-    -   [Parameters](#parameters-1)
--   [attachRules](#attachrules)
-    -   [Parameters](#parameters-2)
--   [referenceRules](#referencerules)
-    -   [Parameters](#parameters-3)
--   [transpile](#transpile)
-    -   [Parameters](#parameters-4)
 -   [createSelector](#createselector)
+    -   [Parameters](#parameters)
+-   [attachRules](#attachrules)
+    -   [Parameters](#parameters-1)
+-   [referenceRules](#referencerules)
+    -   [Parameters](#parameters-2)
+-   [css](#css)
+    -   [Parameters](#parameters-3)
+-   [className](#classname)
+    -   [Parameters](#parameters-4)
+-   [keyframes](#keyframes)
     -   [Parameters](#parameters-5)
+-   [toClassName](#toclassname)
+    -   [Parameters](#parameters-6)
+-   [transpile](#transpile)
+    -   [Parameters](#parameters-7)
 
-### css
+### createSelector
 
-Template string tag to declare CSS content chunks.
-
-#### Parameters
-
--   `slices` **TemplateStringsArray**
--   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
-
-Returns **any** a callback to render the CSS content
-
-### keyframes
-
-Template string tag to declare CSS `@keyframe` at-rules.
+Creates a pair of selector and escaped selector for a CSS Modules content.
 
 #### Parameters
 
--   `slices` **TemplateStringsArray**
--   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
+-   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **any** a callback to render the CSS at-rule content
+Returns **\[[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** a pair of selectors in the format `rcx-@<content hash>`; the second element is escaped
+for use in CSS content
 
 ### attachRules
 
@@ -68,7 +61,7 @@ Imediately attaches CSS rules into the style sheet.
 
 #### Parameters
 
--   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+-   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **any** a callback to detach the rules
 
@@ -83,9 +76,51 @@ style sheet.
 
 #### Parameters
 
--   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+-   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **any** a callback to unreference the rules
+
+### css
+
+Template string tag to declare CSS content chunks.
+
+#### Parameters
+
+-   `slices` **TemplateStringsArray** 
+-   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+
+Returns **cssFn** a callback to render the CSS content
+
+### className
+
+Template string tag to declare CSS content within a className.
+
+#### Parameters
+
+-   `className` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+Returns **any** a callback to render the CSS content
+
+### keyframes
+
+Template string tag to declare CSS `@keyframe` at-rules.
+
+#### Parameters
+
+-   `slices` **TemplateStringsArray** 
+-   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+
+Returns **any** a callback to render the CSS at-rule content
+
+### toClassName
+
+Process a value as a className.
+
+#### Parameters
+
+-   `value` **(cssFn | classNameFn | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** a string containing a className or undefined
 
 ### transpile
 
@@ -93,21 +128,10 @@ Transpiles CSS Modules content to CSS rules.
 
 #### Parameters
 
--   `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
--   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+-   `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-
-### createSelector
-
-Creates a pair of selector and escaped selector for a CSS Modules content.
-
-#### Parameters
-
--   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-
-Returns **\[[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** a pair of selectors in the format `rcx-@<content hash>`; the second element is escaped
-for use in CSS content
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ## Author
 
