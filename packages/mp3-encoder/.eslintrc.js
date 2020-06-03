@@ -23,6 +23,8 @@ module.exports = {
       'newlines-between': 'always',
       groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
     }],
+    'no-useless-constructor': 'off',
+    'no-empty-function': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/indent': ['error', 2, {
       SwitchCase: 1,
