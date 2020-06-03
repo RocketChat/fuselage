@@ -1,27 +1,32 @@
 const path = require('path');
 const { promisify } = require('util');
 
-const glob = promisify(require('glob'));
+const glob = require('glob');
 
 const { logStep } = require('./log');
+const { fixBrokenSymlink } = require('./files');
 
 const getIconDescriptors = async (srcPath) => {
   const step = logStep('Read icons');
 
-  const paths = await glob(path.join(srcPath, '**/*.svg'));
+  const paths = await promisify(glob)(path.join(srcPath, '**/*.svg'));
 
-  const descriptors = paths
-    .map((_path) => {
-      const [, name,, type] = /^(.*?)(\.([a-z]+))?$/.exec(path.basename(_path, '.svg'));
-      return {
-        name,
-        type,
-        path: _path,
-      };
-    })
+  const descriptors = (await Promise.all(
+    paths
+      .map(async (_path) => {
+        const [, name,, type] = /^(.*?)(\.([a-z]+))?$/.exec(path.basename(_path, '.svg'));
+        _path = await fixBrokenSymlink(_path, srcPath);
+
+        return {
+          name,
+          type,
+          path: _path,
+        };
+      }),
+  ))
     .sort((a, b) =>
       path.dirname(a.path).localeCompare(path.dirname(b.path))
-      || a.name.localeCompare(b.name),
+    || a.name.localeCompare(b.name),
     );
 
   step.resolve();

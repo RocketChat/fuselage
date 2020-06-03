@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const { Readable } = require('stream');
+const { promisify } = require('util');
+
+const glob = require('glob');
 
 const { logStep } = require('./log');
 
@@ -29,6 +32,28 @@ const writeFile = async (distPath, filePath, getData) => {
   return data;
 };
 
+const fixBrokenSymlink = async (_path, rootPath) => {
+  const fs = require('fs');
+  const stat = await fs.promises.lstat(_path);
+  if (!stat.isSymbolicLink()) {
+    return _path;
+  }
+
+  const target = await fs.promises.readlink(_path);
+  const targetBasename = path.basename(target);
+  const newTargetPath = (await promisify(glob)(path.join(rootPath, '**', targetBasename)))[0];
+
+  if (!newTargetPath) {
+    throw Error(`Broken symlink: ${ _path } -> ${ target }`);
+  }
+
+  const relativeTargetPath = path.relative(path.dirname(_path), newTargetPath);
+  await fs.promises.unlink(_path);
+  await fs.promises.symlink(relativeTargetPath, _path);
+
+  return _path;
+};
+
 const readFile = (path) => fs.promises.readFile(path, { encoding: 'utf8' });
 
 const createReadableFromString = (content) => {
@@ -39,6 +64,7 @@ const createReadableFromString = (content) => {
 };
 
 module.exports.encodeEscapedJson = encodeEscapedJson;
+module.exports.fixBrokenSymlink = fixBrokenSymlink;
 module.exports.writeFile = writeFile;
 module.exports.readFile = readFile;
 module.exports.createReadableFromString = createReadableFromString;
