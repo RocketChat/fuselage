@@ -43,9 +43,6 @@
   "card": {
     "start": "\ue00b"
   },
-  "change": {
-    "start": "\ue00c"
-  },
   "chat": {
     "start": "\ue00d"
   },
@@ -646,5 +643,44 @@
   },
   "baloon-text": {
     "start": "\ue0af"
+  },
+  "arrow-down-box": {
+    "start": "\ue0b0"
+  },
+  "arrow-return": {
+    "start": "\u298d",
+    "end": "\u298e"
+  },
+  "arrow-loop": {
+    "start": "\ue0b1"
+  },
+  "pencil": {
+    "start": "\u298f",
+    "end": "\u2990"
+  },
+  "pencil-box": {
+    "start": "\u2991",
+    "end": "\u2992"
+  },
+  "new-channel": {
+    "start": "\u2993",
+    "end": "\u2994"
+  },
+  "arrow-up-box": {
+    "start": "\ue0b2"
+  },
+  "file": {
+    "start": "\u2995",
+    "end": "\u2996"
+  },
+  "user-arrow-right": {
+    "start": "\u2997",
+    "end": "\u2998"
+  },
+  "cloud-arrow-up": {
+    "start": "\ue0b3"
+  },
+  "stack": {
+    "start": "\ue0b4"
   }
 }
