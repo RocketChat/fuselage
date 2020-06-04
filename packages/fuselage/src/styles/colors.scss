@@ -10,6 +10,12 @@ $-map-type-to-prefix: (
   success: 'g',
   warning: 'y',
   danger: 'r',
+  red: 'r',
+  orange: 'o',
+  yellow: 'y',
+  green: 'g',
+  blue: 'b',
+  purple: 'p',
 );
 
 @function _get-palette-color($type, $grade, $alpha) {
@@ -42,34 +48,57 @@ $-map-type-to-prefix: (
   @return (--rcx-color-#{ $type }-#{ $grade }, $base-color);
 }
 
-@function neutral($grade, $alpha: null) {
-  $pair: _get-palette-color(neutral, $grade, $alpha);
+@function _refer-palette-color($type, $grade, $alpha: null) {
+  $pair: _get-palette-color($type, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
+@function neutral($grade, $alpha: null) {
+  @return _refer-palette-color(neutral, $grade, $alpha);
 }
 
 @function primary($grade, $alpha: null) {
-  $pair: _get-palette-color(primary, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
+  @return _refer-palette-color(primary, $grade, $alpha);
 }
 
 @function info($grade, $alpha: null) {
-  $pair: _get-palette-color(info, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
+  @return _refer-palette-color(info, $grade, $alpha);
 }
 
 @function success($grade, $alpha: null) {
-  $pair: _get-palette-color(success, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
+  @return _refer-palette-color(success, $grade, $alpha);
 }
 
 @function warning($grade, $alpha: null) {
-  $pair: _get-palette-color(warning, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
+  @return _refer-palette-color(warning, $grade, $alpha);
 }
 
 @function danger($grade, $alpha: null) {
-  $pair: _get-palette-color(danger, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
+  @return _refer-palette-color(danger, $grade, $alpha);
+}
+
+@function red($grade, $alpha: null) {
+  @return _refer-palette-color('red', $grade, $alpha);
+}
+
+@function orange($grade, $alpha: null) {
+  @return _refer-palette-color('orange', $grade, $alpha);
+}
+
+@function yellow($grade, $alpha: null) {
+  @return _refer-palette-color('yellow', $grade, $alpha);
+}
+
+@function green($grade, $alpha: null) {
+  @return _refer-palette-color('green', $grade, $alpha);
+}
+
+@function blue($grade, $alpha: null) {
+  @return _refer-palette-color('blue', $grade, $alpha);
+}
+
+@function purple($grade, $alpha: null) {
+  @return _refer-palette-color('purple', $grade, $alpha);
 }
 
 @function surface() {

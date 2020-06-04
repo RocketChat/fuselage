@@ -13,6 +13,12 @@ const mapTypeToPrefix = {
   success: 'g',
   warning: 'y',
   danger: 'r',
+  red: 'r',
+  orange: 'o',
+  yellow: 'y',
+  green: 'g',
+  blue: 'b',
+  purple: 'p',
 };
 
 const getPaletteColor = (type, grade, alpha) => {
@@ -63,7 +69,7 @@ const getForegroundColor = (type) => {
   return [`--rcx-color-foreground-${ type }`, color];
 };
 
-const paletteColorRegex = /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
+const paletteColorRegex = /^([a-z]+)-(\d+)(-(\d+))?$/;
 
 export const getColorValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null || typeof propValue !== 'string') {
