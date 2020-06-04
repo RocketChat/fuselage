@@ -4,8 +4,10 @@ const ttf2eot = require('ttf2eot');
 const ttf2woff = require('ttf2woff');
 const ttf2woff2 = require('ttf2woff2');
 
+
 const pkg = require('../package.json');
 const { readFile, createReadableFromString } = require('./files');
+const { nextCharactersFor } = require('./glyphs');
 const { mirrorSvg } = require('./svg');
 
 const createSvgBuffer = async (icons) => {
@@ -17,8 +19,9 @@ const createSvgBuffer = async (icons) => {
   });
 
   await Promise.all(
-    icons.map(async ({ name, path, startCharacter, endCharacter }) => {
+    icons.map(async ({ name, type, path }) => {
       const content = await readFile(path);
+      const { start: startCharacter, end: endCharacter } = nextCharactersFor(name, type);
 
       const stream = createReadableFromString(content);
       stream.metadata = {

@@ -24,13 +24,13 @@ const logStep = (...args) => {
 
   promise = promise
     .then(() => {
-      process.stdout.write(chalk.gray('⌛', ...args));
+      process.stdout.write(chalk`\u231b ${ args.join(' ') }`);
     })
     .then(check.promise)
     .then(() => {
-      console.log(chalk`\r{green ✔️} {gray ${ args.join(' ') }}`);
+      process.stdout.write(chalk`\r{green \u2705} {gray ${ args.join(' ') }}\n`);
     }, () => {
-      console.log(chalk`\r{red ❌} {gray ${ args.join(' ') }}`);
+      process.stdout.write(chalk`\r{red \u274c} {gray ${ args.join(' ') }}\n`);
     });
 
   return check;
