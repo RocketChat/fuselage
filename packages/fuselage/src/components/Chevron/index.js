@@ -13,7 +13,7 @@ export function Chevron({
   size,
   ...props
 }) {
-  const children = useMemo(() => <Icon name='arrow-down' size={size} />, [size]);
+  const children = useMemo(() => <Icon name='chevron-down' size={size} />, [size]);
 
   return <Box
     is='span'

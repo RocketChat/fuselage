@@ -4,7 +4,7 @@ const { promisify } = require('util');
 const rimraf = require('rimraf');
 
 const pkg = require('../package.json');
-const { writeFile } = require('./files');
+const { encodeEscapedJson, writeFile } = require('./files');
 const {
   createSvgBuffer,
   createTtfBuffer,
@@ -12,7 +12,8 @@ const {
   createWoff2Buffer,
   createEotBuffer,
 } = require('./font');
-const { getIcons } = require('./icons');
+const { glyphsMapping } = require('./glyphs');
+const { getIconDescriptors } = require('./icons');
 const { logStep } = require('./log');
 const { createSvgSprite, createSvgIcons } = require('./svg');
 
@@ -29,7 +30,7 @@ const prepareDirectories = async () => {
 };
 
 const buildFont = async (icons, distPath) => {
-  icons = icons.filter(({ startCharacter }) => !!startCharacter);
+  icons = icons.filter(({ type }) => type !== 'other');
 
   const svgBuffer = await writeFile(distPath, 'font/rocketchat.svg', () => createSvgBuffer(icons));
   const ttfBuffer = await writeFile(distPath, 'font/rocketchat.ttf', () => createTtfBuffer(svgBuffer));
@@ -38,6 +39,8 @@ const buildFont = async (icons, distPath) => {
     writeFile(distPath, 'font/rocketchat.woff2', () => createWoff2Buffer(ttfBuffer)),
     writeFile(distPath, 'font/rocketchat.eot', () => createEotBuffer(ttfBuffer)),
   ]);
+
+  await writeFile(__dirname, '../glyphsMapping.json', () => glyphsMapping);
 };
 
 const buildSvgImages = async (icons, distPath) => {
@@ -51,8 +54,10 @@ const buildSvgImages = async (icons, distPath) => {
 const buildScripts = async (icons, distPath) => {
   await Promise.all([
     writeFile(distPath, path.basename(pkg.main), () => {
-      const characters = icons.reduce((obj, { name, startCharacter }) => ({ ...obj, [name]: startCharacter }), {});
-      return `module.exports = ${ JSON.stringify(characters, null, 2) };\n`;
+      const characters = icons
+        .filter(({ name }) => !!glyphsMapping[name])
+        .reduce((obj, { name }) => ({ ...obj, [name]: glyphsMapping[name].start }), {});
+      return `module.exports = ${ encodeEscapedJson(characters) };\n`;
     }),
     writeFile(distPath, 'rocketchat.css', () => [
       '@font-face {',
@@ -74,9 +79,15 @@ const buildScripts = async (icons, distPath) => {
 };
 
 const buildAll = async () => {
+  process.on('unhandledRejection', (err) => {
+    console.error('unhandledRejection:', err.message);
+    console.error(err.stack);
+    process.exit(1);
+  });
+
   const { srcPath, distPath } = await prepareDirectories();
 
-  const icons = await getIcons(srcPath);
+  const icons = await getIconDescriptors(srcPath);
 
   await Promise.all([
     buildFont(icons, distPath),
@@ -85,4 +96,6 @@ const buildAll = async () => {
   ]);
 };
 
-buildAll();
+if (require.main === module) {
+  buildAll();
+}

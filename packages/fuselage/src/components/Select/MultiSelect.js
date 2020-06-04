@@ -90,7 +90,7 @@ export const MultiSelect = ({
       </Flex.Item>
       <Flex.Item grow={0} shrink={0}>
         <Margins inline='x4'>
-          <Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='x20' />}/>
+          <Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'chevron-down'} size='x20' />}/>
         </Margins>
       </Flex.Item>
       <AnimatedVisibility visibility={visible}><Position anchor={containerRef}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedVisibility>

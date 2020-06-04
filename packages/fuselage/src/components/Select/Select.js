@@ -84,7 +84,7 @@ export const Select = ({
                 </Margins>
               </Flex.Item>}
               <Anchor disabled={disabled} rcx-input-box--undecorated filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
-              <Margins inline='x4'><Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'arrow-down'} size='x20' />}/></Margins>
+              <Margins inline='x4'><Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'chevron-down'} size='x20' />}/></Margins>
             </Wrapper>
           </Margins>
         </Flex.Container>
