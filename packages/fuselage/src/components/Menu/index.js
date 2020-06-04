@@ -50,7 +50,7 @@ export const Menu = ({
         onKeyDown={handleKeyDown}
         {...props}
       >
-        <Icon name='menu' size={20} />
+        <Icon name='kebab' size={20} />
       </Button>
       <PositionAnimated
         width='auto'
