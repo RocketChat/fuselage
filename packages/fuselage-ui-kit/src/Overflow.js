@@ -42,7 +42,7 @@ export const Overflow = ({ context, options, parser, ...element }) => {
         onKeyDown={handleKeyDown}
         mod-loading={loading}
       >
-        <Icon name='menu' size={20} />
+        <Icon name='kebab' size={20} />
       </Button>
       <PositionAnimated
         width='auto'

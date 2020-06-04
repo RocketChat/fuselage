@@ -38,15 +38,16 @@
     "update-storybook": "cross-env NODE_ENV=loki run-s build-storybook loki:update"
   },
   "peerDependencies": {
-    "@rocket.chat/fuselage-hooks": "^0.3.0",
+    "@rocket.chat/fuselage-hooks": "^0.9.0",
+    "@rocket.chat/icons": "^0.9.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "dependencies": {
     "@rocket.chat/css-in-js": "^0.9.0",
     "@rocket.chat/fuselage-tokens": "^0.9.0",
-    "@rocket.chat/icons": "^0.9.0",
-    "invariant": "^2.2.4"
+    "invariant": "^2.2.4",
+    "react-keyed-flatten-children": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

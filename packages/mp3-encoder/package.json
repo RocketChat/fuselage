@@ -1,0 +1,64 @@
+{
+  "name": "@rocket.chat/mp3-encoder",
+  "version": "0.8.0",
+  "description": "A LAME encoder to be used in web workers",
+  "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  },
+  "keywords": [
+    "rocketchat",
+    "mp3",
+    "encoder"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "rollup -c -w",
+    "build": "rollup -c",
+    "test": "jest",
+    "lint": "eslint src --ext .js,.ts",
+    "lint-staged": "lint-staged",
+    "docs": "documentation readme src/index.ts --shallow --section='API Reference' --readme-file README.md"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "lamejs": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "@rocket.chat/eslint-config": "^0.4.0",
+    "@rollup/plugin-typescript": "^4.1.1",
+    "@types/jest": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "babel-eslint": "^10.0.3",
+    "documentation": "^12.1.2",
+    "eslint": "^6.5.1",
+    "eslint-plugin-import": "^2.19.1",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "rollup": "^2.1.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2"
+  }
+}
