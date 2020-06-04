@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Box, PropsProvider } from '../Box';
+import { Box } from '../Box';
+import { patchChildren } from '../../helpers/patchChildren';
 
 export function ButtonGroup({
   align,
@@ -20,9 +21,7 @@ export function ButtonGroup({
     role='group'
     {...props}
   >
-    <PropsProvider children={children} fn={({ className }) => ({
-      className: [className, 'rcx-button-group__item'],
-    })} />
+    {patchChildren(children, { className: 'rcx-button-group__item' })}
   </Box>;
 }
 

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useContext, createContext } from 'react';
+import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box } from '../Box';
 import { sizePropType } from '../../styles/props/layout';
@@ -48,7 +49,7 @@ Avatar.propTypes = {
 
 const AvatarStack = ({ children, ...props }) =>
   <Box rcx-avatar-stack {...props}>
-    {React.Children.toArray(children).reverse()}
+    {flattenChildren(children).reverse()}
   </Box>;
 
 Avatar.Stack = AvatarStack;
