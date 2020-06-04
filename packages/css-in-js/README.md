@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/github/license/RocketChat/@rocket.chat/css-in-js)](https://github.com/RocketChat/Rocket.Chat.Fuselage/blob/master/LICENSE)
 [![Twitter: RocketChat](https://img.shields.io/twitter/follow/RocketChat.svg?style=social)](https://twitter.com/RocketChat)
 
-> React Hooks for Fuselage, Rocket.Chat's design system
+> Toolset to transpile and use CSS on runtime
 
 ### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
 
