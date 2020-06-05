@@ -38,7 +38,7 @@
     "access": "public"
   },
   "dependencies": {
-    "lamejs": "^1.2.0"
+    "lamejs": "https://github.com/zhuker/lamejs"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
