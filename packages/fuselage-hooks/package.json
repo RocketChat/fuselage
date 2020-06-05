@@ -39,6 +39,9 @@
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-flow": "^7.0.0",
     "@rocket.chat/eslint-config": "^0.4.0",
+    "@rollup/plugin-babel": "^5.0.3",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.1",
     "babel-eslint": "^10.0.3",
     "documentation": "^12.1.2",
     "eslint": "^6.5.1",
@@ -51,9 +54,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "rollup": "^2.1.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.2"
   },
   "peerDependencies": {
