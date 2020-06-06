@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, MutableRefObject } from 'react';
 
 import { runHooks } from '../.jest/helpers';
 import { useAutoFocus } from '../src';
@@ -13,7 +13,7 @@ describe('useAutoFocus hook', () => {
   it('invokes focus', () => {
     const focus = jest.fn();
     runHooks(() => useAutoFocus(), [
-      (ref) => {
+      (ref: MutableRefObject<object>) => {
         ref.current = { focus };
       },
     ]);
@@ -24,7 +24,7 @@ describe('useAutoFocus hook', () => {
   it('does not invoke focus if isFocused is false', () => {
     const focus = jest.fn();
     runHooks(() => useAutoFocus(false), [
-      (ref) => {
+      (ref: MutableRefObject<object>) => {
         ref.current = { focus };
       },
     ]);
@@ -34,7 +34,7 @@ describe('useAutoFocus hook', () => {
 
   it('invokes focus if isFocused is toggled', () => {
     const focus = jest.fn();
-    runHooks(() => {
+    runHooks<[MutableRefObject<object>, (x: boolean) => void]>(() => {
       const [isFocused, setFocused] = useState(false);
       return [useAutoFocus(isFocused), setFocused];
     }, [

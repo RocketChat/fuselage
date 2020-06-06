@@ -1,8 +1,10 @@
-// @flow
-
-import { useReducer, useState } from 'react';
+import { useReducer, useState, Dispatch, DispatchWithoutAction } from 'react';
 
 import { useDebouncedCallback } from './useDebouncedCallback';
+import { DebouncedFunction, DebounceableFunction } from './helpers';
+
+type DebounceableDispatch<A> = (Dispatch<A> | DispatchWithoutAction) & DebounceableFunction;
+type DebouncedDispatch<A> = (Dispatch<A> | DispatchWithoutAction) & DebouncedFunction;
 
 /**
  * Hook to debounce the state updater function returned by hooks like `useState()` and `useReducer()`.
@@ -13,10 +15,10 @@ import { useDebouncedCallback } from './useDebouncedCallback';
  * @param delay - the number of milliseconds to delay the updater
  * @return a state value and debounced updater pair
  */
-export const useDebouncedUpdates = (
-  [value, update]: [any, () => any],
-  delay: ?number,
-) => [value, useDebouncedCallback(update, delay, [])];
+export const useDebouncedUpdates = <S, A>(
+  [value, update]: [S, DebounceableDispatch<A>],
+  delay: number,
+): [S, DebouncedDispatch<A>] => [value, useDebouncedCallback(update, delay, [])];
 
 /**
  * Hook to create a reduced state with a debounced `dispatch()` function.
@@ -27,13 +29,13 @@ export const useDebouncedUpdates = (
  * @param delay - the number of milliseconds to delay the updater
  * @return a state and debounced `dispatch()` function
  */
-export const useDebouncedReducer = (
-  reducer: (any, any) => any,
-  initializerArg: any,
-  initializer: (any) => any,
-  delay: ?number,
-) =>
-  useDebouncedUpdates(useReducer(reducer, initializerArg, initializer), delay);
+export const useDebouncedReducer = <S, A>(
+  reducer: (state: S, action: A) => S,
+  initialArg: S | undefined,
+  init: (initialArg: S) => S,
+  delay: number,
+): [S, DebouncedDispatch<A>] =>
+  useDebouncedUpdates(useReducer(reducer, initialArg, init), delay);
 
 /**
  * Hook to create a state with a debounced setter function.
@@ -42,7 +44,7 @@ export const useDebouncedReducer = (
  * @param delay - the number of milliseconds to delay the updater
  * @return a state and debounced setter function
  */
-export const useDebouncedState = (
-  initialValue: any | () => any,
-  delay: ?number,
-) => useDebouncedUpdates(useState(initialValue), delay);
+export const useDebouncedState = <S>(
+  initialValue: S | (() => S),
+  delay: number,
+): [S, DebouncedDispatch<S | ((prevState: S) => S)>] => useDebouncedUpdates(useState(initialValue), delay);

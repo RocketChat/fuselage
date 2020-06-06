@@ -1,31 +1,26 @@
+import { MutableRefObject } from 'react';
+
 import { runHooks } from '../.jest/helpers';
 import { useResizeObserver } from '../src';
 
 describe('useResizeObserver hook', () => {
   let ro;
+  const contentRect = {
+    width: 0,
+    height: 0,
+  };
+  const contentBoxSize = {};
+  const borderBoxSize = {};
 
-  beforeEach(() => {
-    const contentBoxSize = {};
-    const borderBoxSize = {};
+  beforeAll(() => {
+    window.ResizeObserver = class {
+      constructor(callback: ResizeObserverCallback) {
+        ro.cb = callback;
+      }
 
-    const trigger = () => {
-      ro.width = Math.round(1000 * Math.random());
-      ro.height = Math.round(1000 * Math.random());
-      ro.cb([{
-        borderBoxSize,
-        contentBoxSize,
-        contentRect: {
-          width: ro.width,
-          height: ro.height,
-        },
-      }]);
-    };
+      disconnect: () => void;
 
-    ro = {
-      width: Math.round(1000 * Math.random()),
-      height: Math.round(1000 * Math.random()),
-      cb: () => {},
-      observe: jest.fn(() => {
+      observe = jest.fn(() => {
         ro.cb([{
           borderBoxSize,
           contentBoxSize,
@@ -34,18 +29,35 @@ describe('useResizeObserver hook', () => {
             height: ro.height,
           },
         }]);
-      }),
-      unobserve: jest.fn(),
+        jest.runAllTimers();
+      })
+
+      unobserve = jest.fn(() => undefined)
+    };
+  });
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+
+    contentRect.width = Math.round(1000 * Math.random());
+
+    ro = {
+      width: Math.round(1000 * Math.random()),
+      height: Math.round(1000 * Math.random()),
+      cb: () => undefined,
       resize: () => {
-        trigger();
+        ro.width = Math.round(1000 * Math.random());
+        ro.height = Math.round(1000 * Math.random());
+        ro.cb([{
+          borderBoxSize,
+          contentBoxSize,
+          contentRect: {
+            width: ro.width,
+            height: ro.height,
+          },
+        }]);
         return { contentBoxSize, borderBoxSize };
       },
-    };
-
-    window.ResizeObserver = function(cb) {
-      ro.cb = cb;
-      this.observe = ro.observe;
-      this.unobserve = ro.unobserve;
     };
   });
 
@@ -62,8 +74,8 @@ describe('useResizeObserver hook', () => {
       borderBoxSize: expectedBorderBoxSize,
     } = ro.resize();
 
-    const [, { contentBoxSize, borderBoxSize }] = runHooks(() => useResizeObserver(), [
-      ({ ref }) => {
+    const [, { contentBoxSize, borderBoxSize }] = runHooks<ReturnType<typeof useResizeObserver>>(() => useResizeObserver(), [
+      ({ ref }: { ref: MutableRefObject<Element> }) => {
         ref.current = document.createElement('div');
       },
     ]);
@@ -90,8 +102,8 @@ describe('useResizeObserver hook', () => {
         contentBoxSize: contentBoxSizeB,
         borderBoxSize: borderBoxSizeB,
       },
-    ] = runHooks(() => useResizeObserver(), [
-      ({ ref }) => {
+    ] = runHooks<ReturnType<typeof useResizeObserver>>(() => useResizeObserver(), [
+      ({ ref }: { ref: MutableRefObject<Element> }) => {
         ref.current = document.createElement('div');
       },
       () => {

@@ -1,6 +1,4 @@
-// @flow
-
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, Dispatch, DispatchWithoutAction } from 'react';
 
 import { useMutableCallback } from './useMutableCallback';
 
@@ -13,7 +11,7 @@ import { useMutableCallback } from './useMutableCallback';
  * @param pair.1 - the state updater function
  * @return a state value and safe updater pair
  */
-export const useSafely = ([state, updater]: [any, () => any]) => {
+export const useSafely = <S, A>([state, updater]: [S, Dispatch<A> | DispatchWithoutAction]): [S, Dispatch<A> | DispatchWithoutAction] => {
   const mountedRef = useRef(true);
 
   useEffect(() => {
@@ -24,12 +22,12 @@ export const useSafely = ([state, updater]: [any, () => any]) => {
     };
   });
 
-  const safeUpdater = useMutableCallback((...args) => {
+  const safeUpdater = useMutableCallback((action?: A) => {
     if (!mountedRef.current) {
       return;
     }
 
-    updater(...args);
+    updater(action);
   });
 
   return [state, safeUpdater];

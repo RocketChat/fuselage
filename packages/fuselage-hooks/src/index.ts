@@ -1,5 +1,3 @@
-// @flow
-
 export * from './useAutoFocus';
 export * from './useDebouncedUpdates';
 export * from './useDebouncedCallback';

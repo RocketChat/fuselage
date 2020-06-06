@@ -4,7 +4,7 @@ import { runHooks } from '../.jest/helpers';
 import { useDebouncedUpdates, useDebouncedReducer, useDebouncedState } from '../src';
 
 describe('useDebouncedUpdates hook', () => {
-  let delay;
+  let delay: number;
   beforeEach(() => {
     jest.useFakeTimers();
     delay = Math.round(100 * Math.random());

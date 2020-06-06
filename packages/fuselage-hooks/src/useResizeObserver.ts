@@ -1,23 +1,25 @@
-// @flow
-
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, RefObject } from 'react';
 
 import { useDebouncedState } from './useDebouncedUpdates';
 
 type UseResizeObserverOptions = {
-  debounceDelay: ?number,
+  debounceDelay?: number;
+};
+
+type BoxSize = {
+  inlineSize: number;
+  blockSize: number;
+};
+
+type BoxSizePair = {
+  contentBoxSize?: BoxSize;
+  borderBoxSize?: BoxSize;
 };
 
 type UseResizeObserverReturn = {
-  ref: { current: ?Element },
-  contentBoxSize: {
-    inlineSize: number,
-    blockSize: number,
-  },
-  borderBoxSize: {
-    inlineSize: number,
-    blockSize: number,
-  },
+  ref: RefObject<Element>;
+  contentBoxSize?: BoxSize;
+  borderBoxSize?: BoxSize;
 };
 
 /**
@@ -27,11 +29,9 @@ type UseResizeObserverReturn = {
  * @param options.debounceDelay the number of milliseconds to delay updates
  * @return a triple containing the ref and the size information
  */
-export const useResizeObserver = ({
-  debounceDelay,
-}: UseResizeObserverOptions = {}): UseResizeObserverReturn => {
-  const ref = useRef<?Element>();
-  const [{ contentBoxSize, borderBoxSize }, setSizes] = useDebouncedState({}, debounceDelay);
+export const useResizeObserver = ({ debounceDelay }: UseResizeObserverOptions = {}): UseResizeObserverReturn => {
+  const ref = useRef<Element>();
+  const [{ contentBoxSize, borderBoxSize }, setSizes] = useDebouncedState<BoxSizePair>({}, debounceDelay);
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {

@@ -1,7 +1,8 @@
-// @flow
-
-import { useCallback } from 'react';
+import { useCallback, RefCallback, MutableRefObject } from 'react';
 import type { Ref } from 'react';
+
+const isRefCallback = <T>(x: unknown): x is RefCallback<T> => typeof x === 'function';
+const isMutableRefObject = <T>(x: unknown): x is MutableRefObject<T> => typeof x === 'object';
 
 /**
  * Hook to merge refs and callbacks refs into a single callback ref. Useful when your component need a internal ref
@@ -10,14 +11,14 @@ import type { Ref } from 'react';
  * @param refs - the refs and callback refs that should be merged
  * @return a merged callback ref
  */
-export const useMergedRefs = (...refs: Array<Ref<any>>) => useCallback((refValue: any) => {
+export const useMergedRefs = <T>(...refs: Ref<T>[]): RefCallback<T> => useCallback((refValue: T) => {
   refs.filter(Boolean).forEach((ref) => {
-    if (typeof ref === 'function') {
+    if (isRefCallback<T>(ref)) {
       ref(refValue);
       return;
     }
 
-    if (typeof ref === 'object') {
+    if (isMutableRefObject<T>(ref)) {
       ref.current = refValue;
     }
   });

@@ -1,5 +1,3 @@
-// @flow
-
 import { useCallback, useRef } from 'react';
 
 /**
@@ -8,9 +6,9 @@ import { useCallback, useRef } from 'react';
  * @param fn the mutable callback
  * @return a stable callback
  */
-export const useMutableCallback = (fn: (...args : any[]) => any) => {
+export const useMutableCallback = <T>(fn: (...args: unknown[]) => T): (...args: unknown[]) => T => {
   const fnRef = useRef(fn);
   fnRef.current = fn;
 
-  return useCallback((...args: any[]) => fnRef.current && (0, fnRef.current)(...args), []);
+  return useCallback((...args: unknown[]): T => fnRef.current.call(undefined, ...args), []);
 };

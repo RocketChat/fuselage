@@ -1,5 +1,3 @@
-// @flow
-
 import { useEffect, useState } from 'react';
 
 /**
@@ -9,7 +7,7 @@ import { useEffect, useState } from 'react';
  * @param delay the number of milliseconds to delay
  * @return a debounced value
  */
-export const useDebouncedValue = (value: any, delay: number) => {
+export const useDebouncedValue = <V>(value: V, delay: number): V => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {

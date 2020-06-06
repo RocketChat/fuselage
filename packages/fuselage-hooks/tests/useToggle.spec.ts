@@ -13,7 +13,7 @@ describe('useToggle hook', () => {
   });
 
   it('has false value when an initial value is falsy', () => {
-    const [[value]] = runHooks(() => useToggle(0));
+    const [[value]] = runHooks(() => useToggle(0 as unknown as boolean));
     expect(value).toBe(false);
   });
 
@@ -28,7 +28,7 @@ describe('useToggle hook', () => {
   });
 
   it('has true value when an initial value is truthy', () => {
-    const [[value]] = runHooks(() => useToggle(1));
+    const [[value]] = runHooks(() => useToggle(1 as unknown as boolean));
     expect(value).toBe(true);
   });
 
@@ -39,14 +39,14 @@ describe('useToggle hook', () => {
 
   it('toggles false to true when toggleValue is called', () => {
     const [, [value]] = runHooks(() => useToggle(false), [
-      ([, toggleValue]) => toggleValue(),
+      ([, toggleValue]: [any, () => void]) => toggleValue(),
     ]);
     expect(value).toBe(true);
   });
 
   it('toggles false to true when toggleValue is called twice in the same render cycle', () => {
     const [, [value]] = runHooks(() => useToggle(false), [
-      ([, toggleValue]) => {
+      ([, toggleValue]: [any, () => void]) => {
         toggleValue();
         toggleValue();
       },
@@ -56,8 +56,8 @@ describe('useToggle hook', () => {
 
   it('toggles false to false when toggleValue is called at two render cycles', () => {
     const [,, [value]] = runHooks(() => useToggle(false), [
-      ([, toggleValue]) => toggleValue(),
-      ([, toggleValue]) => toggleValue(),
+      ([, toggleValue]: [any, () => void]) => toggleValue(),
+      ([, toggleValue]: [any, () => void]) => toggleValue(),
     ]);
     expect(value).toBe(false);
   });

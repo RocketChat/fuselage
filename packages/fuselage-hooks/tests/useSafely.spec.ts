@@ -7,7 +7,7 @@ describe('useSafely hook', () => {
   it('returns a new updater that invokes the previous one', () => {
     const state = Symbol();
     const updater = jest.fn();
-    runHooks(() => useSafely([state, updater]), [
+    runHooks(() => useSafely<symbol, void>([state, updater]), [
       ([, updater]) => updater(),
     ]);
 
@@ -17,7 +17,7 @@ describe('useSafely hook', () => {
   it('returns a new updater that can be called after unmount', () => {
     const state = Symbol();
     const updater = jest.fn();
-    const [[, safeUpdater]] = runHooks(() => useSafely([state, updater]));
+    const [[, safeUpdater]] = runHooks(() => useSafely<symbol, void>([state, updater]));
     safeUpdater();
 
     expect(updater).toHaveBeenCalledTimes(0);
@@ -26,7 +26,7 @@ describe('useSafely hook', () => {
   it('returns a new updater that mutates the state', () => {
     const initialState = Symbol();
     const newState = Symbol();
-    const [[valueA], [valueB]] = runHooks(() => useSafely(useState(initialState)), [
+    const [[valueA], [valueB]] = runHooks(() => useSafely(useState<symbol>(initialState)), [
       ([, setState]) => setState(newState),
     ]);
 

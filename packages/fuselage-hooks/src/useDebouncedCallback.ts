@@ -1,8 +1,6 @@
-// @flow
+import { useMemo, DependencyList } from 'react';
 
-import { useMemo } from 'react';
-
-import { debounce } from './helpers';
+import { debounce, DebounceableFunction, DebouncedFunction } from './helpers';
 
 /**
  * Hook to memoize a debounced version of a callback.
@@ -13,8 +11,8 @@ import { debounce } from './helpers';
  * @return a memoized and debounced callback
  */
 export const useDebouncedCallback = (
-  callback: (...Array<any>) => any,
-  delay: ?number,
-  deps: ?Array<any>,
-): ((...Array<any>) => any) =>
+  callback: DebounceableFunction,
+  delay: number,
+  deps?: DependencyList,
+): DebouncedFunction =>
   useMemo(() => debounce(callback, delay), Array.isArray(deps) ? [delay, ...deps] : undefined);

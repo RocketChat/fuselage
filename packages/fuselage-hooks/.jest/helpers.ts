@@ -1,11 +1,13 @@
-import React, { useReducer, Component, createElement } from 'react';
-import ReactDOM, { render, unmountComponentAtNode } from 'react-dom';
+import { useReducer, Component, createElement } from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
 import { renderToString } from 'react-dom/server';
 import { act } from 'react-dom/test-utils';
 
-export const runHooks = (fn, mutations = []) => {
-  let returnedValue;
-  let forceUpdate;
+type Mutation<R> = ((returnedValue: R) => void) | boolean;
+
+export const runHooks = <R>(fn: () => R, mutations: Mutation<R>[] = []): R[] => {
+  let returnedValue: R;
+  let forceUpdate: () => void;
 
   function FunctionalComponent() {
     [, forceUpdate] = useReducer((state) => !state, false);
@@ -13,14 +15,14 @@ export const runHooks = (fn, mutations = []) => {
     return null;
   }
 
-  let errorThrown;
+  let errorThrown: Error;
 
-  class ComponentWithErrorBoundary extends Component {
+  class ComponentWithErrorBoundary extends Component<{}, { errored: boolean }> {
     state = { errored: false }
 
     static getDerivedStateFromError = () => ({ errored: true })
 
-    componentDidCatch = (error) => {
+    componentDidCatch = (error: Error) => {
       errorThrown = error;
     }
 
@@ -37,6 +39,10 @@ export const runHooks = (fn, mutations = []) => {
 
   for (const mutation of mutations) {
     act(() => {
+      if (mutation === false) {
+        return;
+      }
+
       forceUpdate();
 
       if (mutation === true) {
@@ -57,15 +63,15 @@ export const runHooks = (fn, mutations = []) => {
   return values;
 };
 
-export const runHooksOnServer = (fn) => {
-  let returnedValue;
+export const runHooksOnServer = <R>(fn: () => R): R => {
+  let returnedValue: R;
 
   function FunctionalComponent() {
     returnedValue = fn();
     return null;
   }
 
-  renderToString(<FunctionalComponent />);
+  renderToString(createElement(FunctionalComponent));
 
   return returnedValue;
 };

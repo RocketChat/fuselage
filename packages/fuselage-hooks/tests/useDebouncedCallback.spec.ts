@@ -2,8 +2,8 @@ import { runHooks } from '../.jest/helpers';
 import { useDebouncedCallback } from '../src';
 
 describe('useDebouncedCallback hook', () => {
-  let fn;
-  let delay;
+  let fn: jest.Mock<any, any>;
+  let delay: number;
   beforeEach(() => {
     jest.useFakeTimers();
     fn = jest.fn();

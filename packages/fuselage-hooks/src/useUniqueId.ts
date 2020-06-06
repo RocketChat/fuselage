@@ -1,5 +1,3 @@
-// @flow
-
 import { useMemo } from 'react';
 
 export const useUniqueId = (): string =>

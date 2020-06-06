@@ -1,5 +1,3 @@
-// @flow
-
 import { useEffect, useState } from 'react';
 
 import { isRunningOnBrowser } from './helpers';
@@ -10,7 +8,7 @@ import { isRunningOnBrowser } from './helpers';
  * @param [query] - the CSS3 media query expression
  * @return `true` if the media query matches; `false` is it does not match or the query is not defined
  */
-export const useMediaQuery = (query: string): bool => {
+export const useMediaQuery = (query?: string): boolean => {
   const [matches, setMatches] = useState(() => {
     if (!query || !isRunningOnBrowser) {
       return false;
@@ -28,13 +26,13 @@ export const useMediaQuery = (query: string): bool => {
     const mediaQueryListener = window.matchMedia(query);
     setMatches(mediaQueryListener.matches);
 
-    const handleChange = () => {
+    const handleChange = (): void => {
       setMatches(!!mediaQueryListener.matches);
     };
 
     mediaQueryListener.addListener(handleChange);
 
-    return () => {
+    return (): void => {
       mediaQueryListener.removeListener(handleChange);
     };
   }, [query]);

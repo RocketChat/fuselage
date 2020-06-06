@@ -17,7 +17,7 @@ describe('useToggle hook on server', () => {
   });
 
   it('has false value when an initial value is falsy', () => {
-    const [value] = runHooksOnServer(() => useToggle(0));
+    const [value] = runHooksOnServer(() => useToggle(0 as unknown as boolean));
     expect(value).toBe(false);
   });
 
@@ -32,7 +32,7 @@ describe('useToggle hook on server', () => {
   });
 
   it('has true value when an initial value is truthy', () => {
-    const [value] = runHooksOnServer(() => useToggle(1));
+    const [value] = runHooksOnServer(() => useToggle(1 as unknown as boolean));
     expect(value).toBe(true);
   });
 
