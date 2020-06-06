@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "rootDir": "./src",
-    "module": "ESNext",
+    "module": "CommonJS",
     "target": "ES2015",
     "lib": ["dom", "ES2015"],
     "sourceMap": true,
@@ -11,8 +11,8 @@
     "declarationDir": "./dist",
     "outDir": "./dist",
     "moduleResolution": "node",
-    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
+    // "noEmit": true,
     // "noImplicitReturns": true,
     // "noImplicitThis": true,
     // "noImplicitAny": true,
