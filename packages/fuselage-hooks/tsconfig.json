@@ -11,6 +11,7 @@
     "declarationDir": "./dist",
     "outDir": "./dist",
     "moduleResolution": "node",
+    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     // "noImplicitReturns": true,
     // "noImplicitThis": true,
@@ -22,5 +23,5 @@
     "esModuleInterop": true,
   },
   "include": ["src"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules", "src/__tests__", "src/jestHelpers.ts"]
 }
