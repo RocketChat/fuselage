@@ -7,34 +7,28 @@ import typescript from '@rollup/plugin-typescript';
 
 import pkg from './package.json';
 
-export default [
-  {
-    input: 'src/index.ts',
-    output: {
+export default {
+  input: 'src/index.ts',
+  output: [
+    {
       dir: path.dirname(pkg.main),
       entryFileNames: path.basename(pkg.main),
       format: 'cjs',
+      exports: 'named',
       sourcemap: true,
     },
-    plugins: [
-      external(),
-      typescript({ declaration: true, declarationDir: 'dist/' }),
-      resolve(),
-      commonjs(),
-    ],
-  },
-  {
-    input: 'src/index.ts',
-    output: {
-      file: pkg.module,
+    {
+      dir: path.dirname(pkg.module),
+      entryFileNames: path.basename(pkg.module),
       format: 'esm',
+      exports: 'named',
       sourcemap: true,
     },
-    plugins: [
-      external(),
-      typescript(),
-      resolve(),
-      commonjs(),
-    ],
-  },
-];
+  ],
+  plugins: [
+    external(),
+    typescript(),
+    resolve(),
+    commonjs(),
+  ],
+};

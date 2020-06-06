@@ -4,8 +4,9 @@
 
 import React from 'react';
 
-import { runHooksOnServer } from '../.jest/helpers';
-import { useMergedRefs } from '../src';
+import { runHooksOnServer } from '../jestHelpers';
+
+import { useMergedRefs } from '..';
 
 describe('useMergedRefs hook on server', () => {
   it('returns a callback ref', () => {

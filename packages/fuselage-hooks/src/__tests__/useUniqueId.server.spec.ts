@@ -2,8 +2,9 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from '../.jest/helpers';
-import { useUniqueId } from '../src';
+import { runHooksOnServer } from '../jestHelpers';
+
+import { useUniqueId } from '..';
 
 describe('useUniqueId hook on server', () => {
   it('returns a string', () => {

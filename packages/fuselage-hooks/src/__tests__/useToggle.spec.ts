@@ -1,5 +1,6 @@
-import { runHooks } from '../.jest/helpers';
-import { useToggle } from '../src';
+import { runHooks } from '../jestHelpers';
+
+import { useToggle } from '..';
 
 describe('useToggle hook', () => {
   it('has false value when an initial value is undefined', () => {

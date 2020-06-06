@@ -2,8 +2,9 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from '../.jest/helpers';
-import { useDebouncedValue } from '../src';
+import { runHooksOnServer } from '../jestHelpers';
+
+import { useDebouncedValue } from '..';
 
 describe('useDebouncedValue hook', () => {
   let delay;

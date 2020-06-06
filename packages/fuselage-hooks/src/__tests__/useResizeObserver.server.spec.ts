@@ -2,8 +2,9 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from '../.jest/helpers';
-import { useResizeObserver } from '../src';
+import { runHooksOnServer } from '../jestHelpers';
+
+import { useResizeObserver } from '..';
 
 describe('useResizeObserver hook on server', () => {
   it('immediately returns undefined sizes', () => {

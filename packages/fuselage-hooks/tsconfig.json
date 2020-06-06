@@ -1,11 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es2015", "dom"],
-    "strict": false,
-    "esModuleInterop": true,
+    "rootDir": "./src",
+    "module": "ESNext",
+    "target": "ES2015",
+    "lib": ["dom", "ES2015"],
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "rootDir": "./"
+    // "noImplicitReturns": true,
+    // "noImplicitThis": true,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
   },
-  "exclude": ["./dist", "./node_modules"]
+  "include": ["src"],
+  "exclude": ["dist", "node_modules"]
 }

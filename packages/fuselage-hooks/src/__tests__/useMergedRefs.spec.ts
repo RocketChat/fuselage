@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { runHooks } from '../.jest/helpers';
-import { useMergedRefs } from '../src';
+import { runHooks } from '../jestHelpers';
+
+import { useMergedRefs } from '..';
 
 describe('useMergedRefs hook', () => {
   it('returns a callback ref', () => {

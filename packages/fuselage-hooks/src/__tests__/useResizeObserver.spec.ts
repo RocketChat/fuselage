@@ -1,7 +1,8 @@
 import { MutableRefObject } from 'react';
 
-import { runHooks } from '../.jest/helpers';
-import { useResizeObserver } from '../src';
+import { runHooks } from '../jestHelpers';
+
+import { useResizeObserver } from '..';
 
 describe('useResizeObserver hook', () => {
   let ro;

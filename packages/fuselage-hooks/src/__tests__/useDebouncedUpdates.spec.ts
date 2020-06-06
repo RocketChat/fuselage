@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import { runHooks } from '../.jest/helpers';
-import { useDebouncedUpdates, useDebouncedReducer, useDebouncedState } from '../src';
+import { runHooks } from '../jestHelpers';
+
+import { useDebouncedUpdates, useDebouncedReducer, useDebouncedState } from '..';
 
 describe('useDebouncedUpdates hook', () => {
   let delay: number;

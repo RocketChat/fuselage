@@ -1,3 +1,5 @@
+/* eslint-disable no-loop-func */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { useReducer, Component, createElement } from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { renderToString } from 'react-dom/server';
@@ -6,7 +8,7 @@ import { act } from 'react-dom/test-utils';
 type Mutation<R> = ((returnedValue: R) => void) | boolean;
 
 export const runHooks = <R>(fn: () => R, mutations: Mutation<R>[] = []): R[] => {
-  let returnedValue: R;
+  let returnedValue: R = undefined;
   let forceUpdate: () => void;
 
   function FunctionalComponent() {
@@ -17,7 +19,7 @@ export const runHooks = <R>(fn: () => R, mutations: Mutation<R>[] = []): R[] => 
 
   let errorThrown: Error;
 
-  class ComponentWithErrorBoundary extends Component<{}, { errored: boolean }> {
+  class ComponentWithErrorBoundary extends Component<Record<string, unknown>, { errored: boolean }> {
     state = { errored: false }
 
     static getDerivedStateFromError = () => ({ errored: true })
@@ -30,7 +32,7 @@ export const runHooks = <R>(fn: () => R, mutations: Mutation<R>[] = []): R[] => 
   }
 
   const spy = jest.spyOn(console, 'error');
-  spy.mockImplementation(() => {});
+  spy.mockImplementation(() => undefined);
 
   const div = document.createElement('div');
   render(createElement(ComponentWithErrorBoundary), div);

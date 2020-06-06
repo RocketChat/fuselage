@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import { runHooks } from '../.jest/helpers';
-import { useSafely } from '../src';
+import { runHooks } from '../jestHelpers';
+
+import { useSafely } from '..';
 
 describe('useSafely hook', () => {
   it('returns a new updater that invokes the previous one', () => {

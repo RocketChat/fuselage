@@ -23,6 +23,7 @@
   ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
+  "jsnext:main": "dist/index.es.js",
   "files": [
     "dist"
   ],

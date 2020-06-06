@@ -1,5 +1,6 @@
-import { runHooks } from '../.jest/helpers';
-import { useMediaQuery } from '../src';
+import { runHooks } from '../jestHelpers';
+
+import { useMediaQuery } from '..';
 
 describe('useMediaQuery hook', () => {
   let mql;

@@ -1,5 +1,6 @@
-import { runHooks } from '../.jest/helpers';
-import { useLazyRef } from '../src';
+import { runHooks } from '../jestHelpers';
+
+import { useLazyRef } from '..';
 
 describe('useLazyRef hook', () => {
   it('returns the computed value immediately', () => {
