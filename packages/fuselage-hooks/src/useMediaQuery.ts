@@ -23,17 +23,17 @@ export const useMediaQuery = (query?: string): boolean => {
       return;
     }
 
-    const mediaQueryListener = window.matchMedia(query);
-    setMatches(mediaQueryListener.matches);
+    const mediaQueryList = window.matchMedia(query);
+    setMatches(mediaQueryList.matches);
 
     const handleChange = (): void => {
-      setMatches(!!mediaQueryListener.matches);
+      setMatches(!!mediaQueryList.matches);
     };
 
-    mediaQueryListener.addListener(handleChange);
+    mediaQueryList.addEventListener('change', handleChange);
 
     return (): void => {
-      mediaQueryListener.removeListener(handleChange);
+      mediaQueryList.removeEventListener('change', handleChange);
     };
   }, [query]);
 

@@ -2,26 +2,55 @@ import { runHooks } from '../jestHelpers';
 
 import { useMediaQuery } from '..';
 
-describe('useMediaQuery hook', () => {
-  let mql;
+const setupMediaQueryMock = (): { triggerMediaQueryChange: (matches: boolean) => void } => {
+  let matches: boolean;
+  let onChangeCallback: (ev: MediaQueryListEvent) => any;
 
   beforeEach(() => {
-    mql = {
-      matches: false,
-      onchange: null,
-      addListener: jest.fn((fn) => {
-        mql.onchange = fn;
-      }),
-      removeListener: jest.fn(() => {
-        mql.onchange = null;
-      }),
-    };
+    matches = false;
+    onChangeCallback = () => undefined;
 
-    window.matchMedia = jest.fn((query) => {
-      mql.media = query;
-      return mql;
-    });
+    window.matchMedia = jest.fn((media): MediaQueryList => ({
+      get matches() {
+        return matches;
+      },
+      get media(): string {
+        return media;
+      },
+      addEventListener: jest.fn((type, fn) => {
+        if (type === 'change' && typeof fn === 'function') {
+          onChangeCallback = fn;
+        }
+      }),
+      removeEventListener: jest.fn(() => {
+        onChangeCallback = () => undefined;
+      }),
+      get onchange(): (this: MediaQueryList, ev: MediaQueryListEvent) => any {
+        return onChangeCallback;
+      },
+      set onchange(cb: (this: MediaQueryList, ev: MediaQueryListEvent) => any) {
+        onChangeCallback = cb;
+      },
+      addListener(fn) {
+        this.addEventListener('change', fn);
+      },
+      removeListener(fn) {
+        this.removeEventListener('change', fn);
+      },
+      dispatchEvent: (): boolean => false,
+    }));
   });
+
+  const triggerMediaQueryChange = (_matches: boolean): void => {
+    matches = _matches;
+    onChangeCallback(new Event('change') as MediaQueryListEvent);
+  };
+
+  return { triggerMediaQueryChange };
+};
+
+describe('useMediaQuery hook', () => {
+  const { triggerMediaQueryChange } = setupMediaQueryMock();
 
   it('does not register a undefined media query', () => {
     runHooks(() => useMediaQuery());
@@ -44,7 +73,7 @@ describe('useMediaQuery hook', () => {
   });
 
   it('returns true if the media query does match', () => {
-    mql.matches = true;
+    triggerMediaQueryChange(true);
     const [value] = runHooks(() => useMediaQuery('(max-width: 1024)'));
     expect(value).toBe(true);
   });
@@ -52,11 +81,10 @@ describe('useMediaQuery hook', () => {
   it('mutates its value to true if the media query matches', () => {
     const [matchesA, matchesB, matchesC] = runHooks(() => useMediaQuery('(max-width: 1024)'), [
       () => {
-        mql.matches = true;
+        triggerMediaQueryChange(true);
       },
       () => {
-        mql.matches = false;
-        mql.onchange();
+        triggerMediaQueryChange(false);
       },
     ]);
 
