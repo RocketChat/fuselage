@@ -15,6 +15,7 @@ export default [
       entryFileNames: path.basename(pkg.main),
       format: 'cjs',
       sourcemap: true,
+      strict: false,
     },
     plugins: [
       external(),

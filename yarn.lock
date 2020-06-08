@@ -11385,10 +11385,9 @@ known-css-properties@^0.18.0:
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.18.0.tgz#d6e00b56ee1d5b0d171fd86df1583cfb012c521f"
   integrity sha512-69AgJ1rQa7VvUsd2kpvVq+VeObDuo3zrj0CzM5Slmf6yduQFAI2kXPDQJR2IE/u6MSAUOJrwSzjg5vlz8qcMiw==
 
-lamejs@^1.2.0:
+"lamejs@https://github.com/zhuker/lamejs":
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/lamejs/-/lamejs-1.2.0.tgz#0259f83db4666141a7b671b8caa6369d95177d08"
-  integrity sha1-Aln4PbRmYUGntnG4yqY2nZUXfQg=
+  resolved "https://github.com/zhuker/lamejs#564612b5b57336238a5920ba4c301b49f7cb2bab"
   dependencies:
     use-strict "1.0.1"
 
