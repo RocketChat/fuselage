@@ -2,7 +2,7 @@
 @use '../typography.scss';
 
 %box {
-  flex: 0 1 auto;
+  flex: 0 0 auto;
 
   box-sizing: border-box;
   margin: lengths.margin(none);
