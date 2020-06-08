@@ -1,8 +1,7 @@
 import { useRef } from 'react';
 
-import { runHooks } from '../jestHelpers';
-
-import { useMutableCallback } from '..';
+import { runHooks } from './jestHelpers';
+import { useMutableCallback } from '.';
 
 describe('useMutableCallback hook', () => {
   it('returns a stable callback', () => {

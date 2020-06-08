@@ -2,9 +2,8 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from '../jestHelpers';
-
-import { useMediaQuery } from '..';
+import { runHooksOnServer } from './jestHelpers';
+import { useMediaQuery } from '.';
 
 describe('useMediaQuery hook on server', () => {
   it('returns false for undefined media query', () => {

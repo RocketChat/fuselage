@@ -1,6 +1,5 @@
-import { runHooks } from '../jestHelpers';
-
-import { useMediaQuery } from '..';
+import { runHooks } from './jestHelpers';
+import { useMediaQuery } from '.';
 
 const setupMediaQueryMock = (): { triggerMediaQueryChange: (matches: boolean) => void } => {
   let matches: boolean;

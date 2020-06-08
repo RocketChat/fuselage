@@ -2,9 +2,8 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from '../jestHelpers';
-
-import { useSafely } from '..';
+import { runHooksOnServer } from './jestHelpers';
+import { useSafely } from '.';
 
 describe('useSafely hook on server', () => {
   it('returns the initial state', () => {

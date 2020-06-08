@@ -2,9 +2,8 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from '../jestHelpers';
-
-import { useToggle } from '..';
+import { runHooksOnServer } from './jestHelpers';
+import { useToggle } from '.';
 
 describe('useToggle hook on server', () => {
   it('has false value when an initial value is undefined', () => {

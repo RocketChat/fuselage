@@ -1,6 +1,5 @@
-import { runHooks } from '../jestHelpers';
-
-import { useDebouncedCallback } from '..';
+import { runHooks } from './jestHelpers';
+import { useDebouncedCallback } from '.';
 
 describe('useDebouncedCallback hook', () => {
   let fn: jest.Mock<any, any>;

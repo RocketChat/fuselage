@@ -2,12 +2,11 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from '../jestHelpers';
-
-import { useDebouncedValue } from '..';
+import { runHooksOnServer } from './jestHelpers';
+import { useDebouncedValue } from '.';
 
 describe('useDebouncedValue hook', () => {
-  let delay;
+  let delay: number;
   beforeEach(() => {
     jest.useFakeTimers();
     delay = Math.round(100 * Math.random());
