@@ -36,7 +36,7 @@ const createReplacementsMapping = (rules = []) => (value) => {
  */
 export const css = (slices: TemplateStringsArray, ...values: string[]): cssFn => (rules: string[] = []) => {
   const replacements = values.map(createReplacementsMapping(rules));
-  return String.raw(slices, ...replacements);
+  return Array.from({ length: slices.length + replacements.length }, (_, i) => (i - (i % 2)) / 2).map((j, i) => (i % 2 === 0 ? slices[j] : replacements[j])).join('');
 };
 
 /**
