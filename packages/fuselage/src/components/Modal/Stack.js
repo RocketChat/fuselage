@@ -24,11 +24,11 @@ export function ModalContainer() {
   return (
     <ModalPortal>
       {stack.size > 0 && <ModalBackdrop />}
-      {Array.from(stack.entries(), ([key, element], i, array) =>
+      {Array.from(stack.entries()).map(([key, element], i, array) =>
         <AnimatedVisibility
           key={key}
           children={element}
-          visibility={array.length === i + 1 ? AnimatedVisibility.VISIBLE : AnimatedVisibility.HIDDEN}
+          visibility={i === array.length - 1 ? AnimatedVisibility.VISIBLE : AnimatedVisibility.HIDDEN}
         />,
       )}
     </ModalPortal>
