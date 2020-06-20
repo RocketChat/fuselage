@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.9.0...v0.10.0) (2020-06-20)
+
+
+### Bug Fixes
+
+* css`` tagged template strings ([#241](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/241)) ([3b655a4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3b655a4))
+
+
+### Features
+
+* MP3 encoder ([#235](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/235)) ([a85eb1a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a85eb1a))
+
+
+### Performance Improvements
+
+* Generated classNames from props ([#230](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/230)) ([8df14cb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8df14cb))
+
+
+
+
+
 # [0.9.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.8.0...v0.9.0) (2020-05-21)
 
 **Note:** Version bump only for package @rocket.chat/css-in-js
