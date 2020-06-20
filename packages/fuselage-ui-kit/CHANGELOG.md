@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.9.0...v0.10.0) (2020-06-20)
+
+
+### Bug Fixes
+
+* Missing legacy icons ([#238](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/238)) ([1d74390](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1d74390))
+
+
+
+
+
 # [0.9.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.8.0...v0.9.0) (2020-05-21)
 
 
