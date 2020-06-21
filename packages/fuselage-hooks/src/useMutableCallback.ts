@@ -6,9 +6,14 @@ import { useCallback, useRef } from 'react';
  * @param fn the mutable callback
  * @return a stable callback
  */
-export const useMutableCallback = <T>(fn: (...args: unknown[]) => T): (...args: unknown[]) => T => {
+export const useMutableCallback = <P extends any[], T>(
+  fn: (...args: P) => T,
+): (...args: P) => T => {
   const fnRef = useRef(fn);
   fnRef.current = fn;
 
-  return useCallback((...args: unknown[]): T => fnRef.current.call(undefined, ...args), []);
+  return useCallback(
+    (...args: P): T => fnRef.current.call(undefined, ...args),
+    [],
+  );
 };

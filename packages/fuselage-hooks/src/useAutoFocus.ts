@@ -1,6 +1,6 @@
 import { useEffect, useRef, RefObject } from 'react';
 
-type FocusOptions = {
+type Options = {
   preventScroll?: boolean;
 } | undefined;
 
@@ -11,7 +11,10 @@ type FocusOptions = {
  * @param options options of the focus request
  * @return the ref which holds the element
  */
-export const useAutoFocus = (isFocused = true, options: FocusOptions = undefined): RefObject<HTMLElement> => {
+export const useAutoFocus = (
+  isFocused = true,
+  options: Options = undefined,
+): RefObject<HTMLElement> => {
   const elementRef = useRef<HTMLElement>();
 
   useEffect(() => {
