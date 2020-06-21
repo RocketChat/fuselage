@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/css-in-js",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Toolset to transpile and use CSS on runtime",
   "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
   "author": {

@@ -5,7 +5,7 @@ import { Box, Flex, Margins, Scrollable } from '../Box';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { Tile } from '../Tile';
-import { ModalBackdrop, ModalContainer, ModalPortal, ModalStack } from './Stack';
+import { ModalBackdrop, ModalContainer, ModalPortal, ModalStack, useModalStack } from './Stack';
 
 export const Modal = React.forwardRef(({ children, ...props }, ref) =>
   <Flex.Container>
@@ -73,6 +73,7 @@ export {
   ModalContainer,
   ModalPortal,
   ModalStack,
+  useModalStack,
 };
 
 Modal.Header = ModalHeader;
