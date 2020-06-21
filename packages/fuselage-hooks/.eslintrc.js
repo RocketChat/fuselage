@@ -14,8 +14,9 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react-hooks'],
   rules: {
+    'func-call-spacing': 'off',
     'indent': 'off',
     'import/order': ['error', {
       'newlines-between': 'always',
@@ -23,8 +24,9 @@ module.exports = {
     }],
     'no-useless-constructor': 'off',
     'no-empty-function': 'off',
-    'func-call-spacing': 'off',
     'no-spaced-func': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/func-call-spacing': ['error'],
     '@typescript-eslint/indent': ['error', 2],
