@@ -21,14 +21,17 @@
     "fuselage",
     "rocketchat"
   ],
+  "source": "src/index.ts",
   "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "tsc --watch",
-    "build": "tsc",
+    "start": "microbundle watch",
+    "build": "microbundle",
     "test": "jest",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
@@ -47,6 +50,7 @@
     "invariant": "^2.2.4",
     "jest": "^26.0.1",
     "lint-staged": "^10.0.8",
+    "microbundle": "^0.12.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "ts-jest": "^26.1.0",
