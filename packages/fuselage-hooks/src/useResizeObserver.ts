@@ -68,7 +68,7 @@ export const useResizeObserver = ({ debounceDelay }: Options = {}): {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [setSizes]);
 
   return { ref, contentBoxSize, borderBoxSize };
 };

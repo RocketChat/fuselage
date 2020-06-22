@@ -1,85 +1,9 @@
-import { MutableRefObject, FunctionComponent, createElement, StrictMode } from 'react';
+import { FunctionComponent, createElement, StrictMode, RefObject, CSSProperties, useState } from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import { runHooks } from './jestHelpers';
+import ResizeObserverMock, { createBoxSizes } from './__mocks__/ResizeObserver';
 import { useResizeObserver } from '.';
-
-class ResizeObserverMock implements ResizeObserver {
-  static callback: ResizeObserverCallback = () => undefined
-
-  static contentRect: DOMRectReadOnly = {
-    bottom: undefined,
-    left: undefined,
-    right: undefined,
-    top: undefined,
-    x: undefined,
-    y: undefined,
-    width: undefined,
-    height: undefined,
-    toJSON() {
-      return ResizeObserverMock.contentRect;
-    },
-  }
-
-  static borderBoxSize: ResizeObserverSize = {
-    inlineSize: undefined,
-    blockSize: undefined,
-  }
-
-  static contentBoxSize: ResizeObserverSize = {
-    inlineSize: undefined,
-    blockSize: undefined,
-  }
-
-  static resize = (): {
-    contentRect: DOMRectReadOnly,
-    borderBoxSize: ResizeObserverSize,
-    contentBoxSize: ResizeObserverSize
-  } => {
-    ResizeObserverMock.callback([{
-      target: null,
-      contentRect: {
-        bottom: undefined,
-        left: undefined,
-        right: undefined,
-        top: undefined,
-        x: undefined,
-        y: undefined,
-        width: Math.round(1000 * Math.random()),
-        height: Math.round(1000 * Math.random()),
-        toJSON() { return {}; },
-      },
-      borderBoxSize: ResizeObserverMock.borderBoxSize,
-      contentBoxSize: ResizeObserverMock.contentBoxSize,
-    }], null);
-    return {
-      contentRect: ResizeObserverMock.contentRect,
-      borderBoxSize: ResizeObserverMock.borderBoxSize,
-      contentBoxSize: ResizeObserverMock.contentBoxSize,
-    };
-  }
-
-  constructor(callback: ResizeObserverCallback) {
-    ResizeObserverMock.callback = callback;
-  }
-
-  disconnect = jest.fn((): void => {
-    ResizeObserverMock.callback = () => undefined;
-  })
-
-  observe = jest.fn((target: Element) => {
-    ResizeObserverMock.callback([{
-      target,
-      contentRect: ResizeObserverMock.contentRect,
-      borderBoxSize: ResizeObserverMock.borderBoxSize,
-      contentBoxSize: ResizeObserverMock.contentBoxSize,
-    }], this);
-    jest.runAllTimers();
-  })
-
-  unobserve = jest.fn(() => undefined)
-}
 
 describe('useResizeObserver hook', () => {
   beforeAll(() => {
@@ -87,30 +11,37 @@ describe('useResizeObserver hook', () => {
     window.ResizeObserver = ResizeObserverMock;
   });
 
-  beforeEach(() => {
-    ResizeObserverMock.contentRect = {
-      ...ResizeObserverMock.contentRect,
-      width: Math.round(1000 * Math.random()),
-    };
+  const createRandomStyle = (): CSSProperties => ({
+    boxSizing: Math.random() < 0.5 ? 'border-box' : 'content-box',
+    inlineSize: Math.round(Math.random() * 1000),
+    blockSize: Math.round(Math.random() * 1000),
+    borderInlineStartWidth: Math.round(Math.random() * 10),
+    borderInlineEndWidth: Math.round(Math.random() * 10),
+    borderBlockStartWidth: Math.round(Math.random() * 10),
+    borderBlockEndWidth: Math.round(Math.random() * 10),
+    paddingInlineStart: Math.round(Math.random() * 50),
+    paddingInlineEnd: Math.round(Math.random() * 50),
+    paddingBlockStart: Math.round(Math.random() * 50),
+    paddingBlockEnd: Math.round(Math.random() * 50),
   });
 
-  it('immediately returns undefined sizes', () => {
+  it('immediately returns undefined sizes', async () => {
+    let ref: RefObject<Element>;
     let borderBoxSize: ResizeObserverSize;
     let contentBoxSize: ResizeObserverSize;
     const TestComponent: FunctionComponent = () => {
-      ({ borderBoxSize, contentBoxSize } = useResizeObserver());
-      return null;
+      ({ ref, borderBoxSize, contentBoxSize } = useResizeObserver());
+      return createElement('div', { ref });
     };
 
-    ResizeObserverMock.resize();
-
-    act(() => {
+    await act(async () => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
         document.createElement('div'),
       );
     });
 
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
     expect(borderBoxSize).toStrictEqual({
       inlineSize: undefined,
       blockSize: undefined,
@@ -121,53 +52,144 @@ describe('useResizeObserver hook', () => {
     });
   });
 
-  it('gets the observed element size', () => {
-    const {
-      contentBoxSize: expectedContentBoxSize,
-      borderBoxSize: expectedBorderBoxSize,
-    } = ResizeObserverMock.resize();
+  it('gets the observed element size', async () => {
+    const initialStyle = createRandomStyle();
 
-    const [, { contentBoxSize, borderBoxSize }] = runHooks<ReturnType<typeof useResizeObserver>>(() => useResizeObserver(), [
-      ({ ref }: { ref: MutableRefObject<Element> }) => {
-        ref.current = document.createElement('div');
-      },
-    ]);
-    expect(contentBoxSize).toStrictEqual(expectedContentBoxSize);
+    let borderBoxSize: ResizeObserverSize;
+    let contentBoxSize: ResizeObserverSize;
+
+    const TestComponent: FunctionComponent = () => {
+      let ref: RefObject<Element>;
+      ({ ref, borderBoxSize, contentBoxSize } = useResizeObserver());
+      return createElement('div', { ref, style: initialStyle });
+    };
+
+    const {
+      borderBoxSize: expectedBorderBoxSize,
+      contentBoxSize: expectedContentBoxSize,
+    } = createBoxSizes(initialStyle);
+
+    await act(async () => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    // wait the callback trigger from ResizeObserver
+    await act(async () => {
+      jest.advanceTimersByTime(0);
+    });
+
     expect(borderBoxSize).toStrictEqual(expectedBorderBoxSize);
+    expect(contentBoxSize).toStrictEqual(expectedContentBoxSize);
   });
 
-  it('gets the observed element size after resize', () => {
-    const {
-      contentBoxSize: expectedContentBoxSizeA,
-      borderBoxSize: expectedBorderBoxSizeA,
-    } = ResizeObserverMock.resize();
-    let expectedContentBoxSizeB;
-    let expectedBorderBoxSizeB;
-    const [
-      ,
-      {
-        contentBoxSize: contentBoxSizeA,
-        borderBoxSize: borderBoxSizeA,
-      },
-      {
-        contentBoxSize: contentBoxSizeB,
-        borderBoxSize: borderBoxSizeB,
-      },
-    ] = runHooks<ReturnType<typeof useResizeObserver>>(() => useResizeObserver(), [
-      ({ ref }: { ref: MutableRefObject<Element> }) => {
-        ref.current = document.createElement('div');
-      },
-      () => {
-        ({
-          contentBoxSize: expectedContentBoxSizeB,
-          borderBoxSize: expectedBorderBoxSizeB,
-        } = ResizeObserverMock.resize());
-      },
-    ]);
+  it('gets the observed element size after resize', async () => {
+    const initialStyle = createRandomStyle();
 
-    expect(contentBoxSizeA).toStrictEqual(expectedContentBoxSizeA);
+    const {
+      borderBoxSize: expectedBorderBoxSizeA,
+      contentBoxSize: expectedContentBoxSizeA,
+    } = createBoxSizes(initialStyle);
+
+    const newStyle = createRandomStyle();
+
+    const {
+      borderBoxSize: expectedBorderBoxSizeB,
+      contentBoxSize: expectedContentBoxSizeB,
+    } = createBoxSizes(newStyle);
+
+    let borderBoxSize: ResizeObserverSize;
+    let contentBoxSize: ResizeObserverSize;
+    let setStyle: (style: CSSProperties) => void;
+
+    const TestComponent: FunctionComponent = () => {
+      let ref: RefObject<Element>;
+      ({ ref, borderBoxSize, contentBoxSize } = useResizeObserver());
+      let style: CSSProperties;
+      [style, setStyle] = useState(initialStyle);
+      return createElement('div', { ref, style });
+    };
+
+    await act(async () => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    // wait the callback trigger from ResizeObserver
+    await act(async () => {
+      jest.advanceTimersByTime(0);
+    });
+
+    const borderBoxSizeA = borderBoxSize;
+    const contentBoxSizeA = contentBoxSize;
+
+    await act(async () => {
+      setStyle(newStyle);
+    });
+
+    // wait the callback trigger from ResizeObserver
+    await act(async () => {
+      jest.advanceTimersByTime(0);
+    });
+
+    const borderBoxSizeB = borderBoxSize;
+    const contentBoxSizeB = contentBoxSize;
+
     expect(borderBoxSizeA).toStrictEqual(expectedBorderBoxSizeA);
-    expect(contentBoxSizeB).toStrictEqual(expectedContentBoxSizeB);
+    expect(contentBoxSizeA).toStrictEqual(expectedContentBoxSizeA);
     expect(borderBoxSizeB).toStrictEqual(expectedBorderBoxSizeB);
+    expect(contentBoxSizeB).toStrictEqual(expectedContentBoxSizeB);
+  });
+
+  it('debounces the observed element size', async () => {
+    const initialStyle = createRandomStyle();
+    const debounceDelay = 150;
+    let borderBoxSize: ResizeObserverSize;
+    let contentBoxSize: ResizeObserverSize;
+
+    const TestComponent: FunctionComponent = () => {
+      let ref: RefObject<Element>;
+      ({ ref, borderBoxSize, contentBoxSize } = useResizeObserver({ debounceDelay }));
+      return createElement('div', { ref, style: initialStyle });
+    };
+
+    const {
+      borderBoxSize: expectedBorderBoxSize,
+      contentBoxSize: expectedContentBoxSize,
+    } = createBoxSizes(initialStyle);
+
+    await act(async () => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    const delayBeforeUpdate = Math.round(debounceDelay * 0.75);
+
+    // don't wait long enough to receive a update
+    await act(async () => {
+      jest.advanceTimersByTime(delayBeforeUpdate);
+    });
+
+    const borderBoxSizeA = borderBoxSize;
+    const contentBoxSizeA = contentBoxSize;
+
+    // wait the callback trigger from ResizeObserver
+    await act(async () => {
+      jest.advanceTimersByTime(debounceDelay - delayBeforeUpdate);
+    });
+
+    const borderBoxSizeB = borderBoxSize;
+    const contentBoxSizeB = contentBoxSize;
+
+    expect(borderBoxSizeA).toStrictEqual({ inlineSize: undefined, blockSize: undefined });
+    expect(contentBoxSizeA).toStrictEqual({ inlineSize: undefined, blockSize: undefined });
+    expect(borderBoxSizeB).toStrictEqual(expectedBorderBoxSize);
+    expect(contentBoxSizeB).toStrictEqual(expectedContentBoxSize);
   });
 });
