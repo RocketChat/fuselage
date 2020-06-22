@@ -5,7 +5,7 @@ import manifest from '../package.json';
 
 addons.setConfig({
   theme: create({
-    base: 'light',
+    base: 'dark',
     brandTitle: manifest.name,
     brandImage: 'https://rocket.chat/images/default/logo--dark.svg',
     brandUrl: manifest.homepage,

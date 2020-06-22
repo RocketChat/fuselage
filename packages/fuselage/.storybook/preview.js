@@ -1,5 +1,6 @@
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { addDecorator, addParameters } from '@storybook/react';
+import { themes } from '@storybook/theming';
 import 'loki/configure-react';
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
@@ -19,6 +20,7 @@ addParameters({
     storySort: ([, a], [, b]) => {
       return a.kind.localeCompare(b.kind);
     },
+    theme: themes.dark,
   },
   viewport: {
     viewports: Object.entries(breakpoints).reduce((obj, [name, { minViewportWidth }]) => ({
