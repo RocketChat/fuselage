@@ -2,20 +2,42 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from './jestHelpers';
+import { createElement, FunctionComponent, StrictMode } from 'react';
+import { renderToString } from 'react-dom/server';
+
 import { useUniqueId } from '.';
 
 describe('useUniqueId hook on server', () => {
   it('returns a string', () => {
-    const uniqueId = runHooksOnServer(() => useUniqueId());
+    let uniqueId: string;
+    const TestComponent: FunctionComponent = () => {
+      uniqueId = useUniqueId();
+      return null;
+    };
 
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
     expect(uniqueId).toStrictEqual(expect.any(String));
   });
 
   it('returns a unique ID', () => {
-    const uniqueA = runHooksOnServer(() => useUniqueId());
-    const uniqueB = runHooksOnServer(() => useUniqueId());
+    let uniqueId: string;
+    const TestComponent: FunctionComponent = () => {
+      uniqueId = useUniqueId();
+      return null;
+    };
 
-    expect(uniqueA).not.toBe(uniqueB);
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+    const uniqueIdA = uniqueId;
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+    const uniqueIdB = uniqueId;
+
+    expect(uniqueIdA).not.toBe(uniqueIdB);
   });
 });

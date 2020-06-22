@@ -1,6 +1,4 @@
-import { useDebugValue } from 'react';
-
-import { useLazyRef } from './useLazyRef';
+import { useDebugValue, useRef, useMemo } from 'react';
 
 /**
  * Hook to keep a unique ID string.
@@ -8,7 +6,16 @@ import { useLazyRef } from './useLazyRef';
  * @return the unique ID string
  */
 export const useUniqueId = (): string => {
-  const { current } = useLazyRef(() => Math.random().toString(36).slice(2));
-  useDebugValue(current);
-  return current;
+  const ref = useRef<string>();
+
+  const uniqueId = useMemo<string>(() => {
+    if (!ref.current) {
+      ref.current = Math.random().toString(36).slice(2);
+    }
+    return ref.current;
+  }, []);
+
+  useDebugValue(uniqueId);
+
+  return uniqueId;
 };
