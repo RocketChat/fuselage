@@ -1,4 +1,6 @@
-import { MutableRefObject } from 'react';
+import { MutableRefObject, FunctionComponent, createElement, StrictMode } from 'react';
+import { render } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 import { runHooks } from './jestHelpers';
 import { useResizeObserver } from '.';
@@ -82,7 +84,6 @@ class ResizeObserverMock implements ResizeObserver {
 describe('useResizeObserver hook', () => {
   beforeAll(() => {
     jest.useFakeTimers();
-
     window.ResizeObserver = ResizeObserverMock;
   });
 
@@ -93,11 +94,31 @@ describe('useResizeObserver hook', () => {
     };
   });
 
-  it('immediately returns undefined size', () => {
+  it('immediately returns undefined sizes', () => {
+    let borderBoxSize: ResizeObserverSize;
+    let contentBoxSize: ResizeObserverSize;
+    const TestComponent: FunctionComponent = () => {
+      ({ borderBoxSize, contentBoxSize } = useResizeObserver());
+      return null;
+    };
+
     ResizeObserverMock.resize();
-    const [{ contentBoxSize, borderBoxSize }] = runHooks(() => useResizeObserver());
-    expect(contentBoxSize).toBe(undefined);
-    expect(borderBoxSize).toBe(undefined);
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    expect(borderBoxSize).toStrictEqual({
+      inlineSize: undefined,
+      blockSize: undefined,
+    });
+    expect(contentBoxSize).toStrictEqual({
+      inlineSize: undefined,
+      blockSize: undefined,
+    });
   });
 
   it('gets the observed element size', () => {

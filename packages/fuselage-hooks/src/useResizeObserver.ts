@@ -6,16 +6,6 @@ type Options = {
   debounceDelay?: number;
 };
 
-type BoxSize = {
-  inlineSize: number;
-  blockSize: number;
-};
-
-type BoxSizePair = {
-  contentBoxSize?: BoxSize;
-  borderBoxSize?: BoxSize;
-};
-
 /**
  * Hook to track dimension changes in a DOM element using the ResizeObserver API.
  *
@@ -25,11 +15,23 @@ type BoxSizePair = {
  */
 export const useResizeObserver = ({ debounceDelay }: Options = {}): {
   ref: RefObject<Element>;
-  contentBoxSize?: BoxSize;
-  borderBoxSize?: BoxSize;
+  contentBoxSize: ResizeObserverSize;
+  borderBoxSize: ResizeObserverSize;
 } => {
   const ref = useRef<Element>();
-  const [{ contentBoxSize, borderBoxSize }, setSizes] = useDebouncedState<BoxSizePair>({}, debounceDelay);
+  const [{ borderBoxSize, contentBoxSize }, setSizes] = useDebouncedState<{
+    borderBoxSize: ResizeObserverSize;
+    contentBoxSize: ResizeObserverSize;
+  }>({
+    borderBoxSize: {
+      inlineSize: undefined,
+      blockSize: undefined,
+    },
+    contentBoxSize: {
+      inlineSize: undefined,
+      blockSize: undefined,
+    },
+  }, debounceDelay);
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {

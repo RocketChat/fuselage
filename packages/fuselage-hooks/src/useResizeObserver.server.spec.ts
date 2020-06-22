@@ -20,7 +20,13 @@ describe('useResizeObserver hook on server', () => {
       createElement(StrictMode, {}, createElement(TestComponent)),
     );
 
-    expect(borderBoxSize).toBe(undefined);
-    expect(contentBoxSize).toBe(undefined);
+    expect(borderBoxSize).toStrictEqual({
+      inlineSize: undefined,
+      blockSize: undefined,
+    });
+    expect(contentBoxSize).toStrictEqual({
+      inlineSize: undefined,
+      blockSize: undefined,
+    });
   });
 });
