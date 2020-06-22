@@ -3,32 +3,27 @@ import { useEffect, useRef, Dispatch, DispatchWithoutAction } from 'react';
 import { useMutableCallback } from './useMutableCallback';
 
 /**
- * Hook that wraps pairs of state and updater to provide a new updater which
- * can be safe and asynchronically called even after the component unmounted.
+ * Hook that wraps pairs of state and dispatcher to provide a new dispatcher
+ * which can be safe and asynchronically called even after the component unmounted.
  *
- * @param pair - the state and updater pair which will be patched
+ * @param pair - the state and dispatcher pair which will be patched
  * @param pair.0 - the state value
- * @param pair.1 - the state updater function
- * @return a state value and safe updater pair
+ * @param pair.1 - the state dispatcher function
+ * @return a state value and safe dispatcher pair
  */
-export const useSafely = <S, A>([state, updater]: [S, Dispatch<A> | DispatchWithoutAction]): [S, Dispatch<A> | DispatchWithoutAction] => {
-  const mountedRef = useRef(true);
+export const useSafely = <S, A, D extends DispatchWithoutAction | Dispatch<A>>(
+  [state, dispatcher]: [S, Dispatch<A> | DispatchWithoutAction],
+): [S, D] => {
+  const dispatcherRef = useRef(dispatcher);
 
-  useEffect(() => {
-    mountedRef.current = true;
+  useEffect(() => () => {
+    dispatcherRef.current = () => undefined;
+  }, []);
 
-    return () => {
-      mountedRef.current = false;
-    };
-  });
+  const safeDispatcher = useMutableCallback((action?: A) => {
+    const dispatcher = dispatcherRef.current;
+    dispatcher(action);
+  }) as D;
 
-  const safeUpdater = useMutableCallback((action?: A) => {
-    if (!mountedRef.current) {
-      return;
-    }
-
-    updater(action);
-  });
-
-  return [state, safeUpdater];
+  return [state, safeDispatcher];
 };

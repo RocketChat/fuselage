@@ -1,34 +1,85 @@
-import { useState } from 'react';
+import { useState, FunctionComponent, createElement, StrictMode } from 'react';
+import { act } from 'react-dom/test-utils';
+import { render, unmountComponentAtNode } from 'react-dom';
 
-import { runHooks } from './jestHelpers';
 import { useSafely } from '.';
 
 describe('useSafely hook', () => {
-  it('returns a new updater that invokes the previous one', () => {
+  it('returns a new dispatcher that invokes the previous one', () => {
     const state = Symbol();
-    const updater = jest.fn();
-    runHooks(() => useSafely<symbol, void>([state, updater]), [
-      ([, updater]) => updater(),
-    ]);
+    const dispatcher = jest.fn();
+    let newDispatcher: () => void;
 
-    expect(updater).toHaveBeenCalledTimes(1);
+    const TestComponent: FunctionComponent = () => {
+      [, newDispatcher] = useSafely([state, dispatcher]);
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    act(() => {
+      newDispatcher();
+    });
+
+    expect(dispatcher).toHaveBeenCalledTimes(1);
   });
 
-  it('returns a new updater that can be called after unmount', () => {
+  it('returns a new dispatcher that can be called after unmount', () => {
     const state = Symbol();
-    const updater = jest.fn();
-    const [[, safeUpdater]] = runHooks(() => useSafely<symbol, void>([state, updater]));
-    safeUpdater();
+    const dispatcher = jest.fn();
+    let newDispatcher: () => void;
 
-    expect(updater).toHaveBeenCalledTimes(0);
+    const TestComponent: FunctionComponent = () => {
+      [, newDispatcher] = useSafely([state, dispatcher]);
+      return null;
+    };
+
+    const root = document.createElement('div');
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        root,
+      );
+    });
+
+    act(() => {
+      unmountComponentAtNode(root);
+    });
+
+    newDispatcher();
+
+    expect(dispatcher).toHaveBeenCalledTimes(0);
   });
 
-  it('returns a new updater that mutates the state', () => {
+  it('returns a new dispatcher that mutates the state', () => {
     const initialState = Symbol();
     const newState = Symbol();
-    const [[valueA], [valueB]] = runHooks(() => useSafely(useState<symbol>(initialState)), [
-      ([, setState]) => setState(newState),
-    ]);
+    let value: symbol;
+    let newDispatcher: (state: symbol) => void;
+
+    const TestComponent: FunctionComponent = () => {
+      [value, newDispatcher] = useSafely(useState<symbol>(initialState));
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+    const valueA = value;
+
+    act(() => {
+      newDispatcher(newState);
+    });
+    const valueB = value;
 
     expect(valueA).toBe(initialState);
     expect(valueB).toBe(newState);
