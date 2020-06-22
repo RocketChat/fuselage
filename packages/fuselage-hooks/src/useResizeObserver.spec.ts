@@ -3,66 +3,98 @@ import { MutableRefObject } from 'react';
 import { runHooks } from './jestHelpers';
 import { useResizeObserver } from '.';
 
-describe('useResizeObserver hook', () => {
-  let ro;
-  const contentRect = {
-    width: 0,
-    height: 0,
-  };
-  const contentBoxSize = {};
-  const borderBoxSize = {};
+class ResizeObserverMock implements ResizeObserver {
+  static callback: ResizeObserverCallback = () => undefined
 
-  beforeAll(() => {
-    window.ResizeObserver = class {
-      constructor(callback: ResizeObserverCallback) {
-        ro.cb = callback;
-      }
+  static contentRect: DOMRectReadOnly = {
+    bottom: undefined,
+    left: undefined,
+    right: undefined,
+    top: undefined,
+    x: undefined,
+    y: undefined,
+    width: undefined,
+    height: undefined,
+    toJSON() {
+      return ResizeObserverMock.contentRect;
+    },
+  }
 
-      disconnect: () => void;
+  static borderBoxSize: ResizeObserverSize = {
+    inlineSize: undefined,
+    blockSize: undefined,
+  }
 
-      observe = jest.fn(() => {
-        ro.cb([{
-          borderBoxSize,
-          contentBoxSize,
-          contentRect: {
-            width: ro.width,
-            height: ro.height,
-          },
-        }]);
-        jest.runAllTimers();
-      })
+  static contentBoxSize: ResizeObserverSize = {
+    inlineSize: undefined,
+    blockSize: undefined,
+  }
 
-      unobserve = jest.fn(() => undefined)
+  static resize = (): {
+    contentRect: DOMRectReadOnly,
+    borderBoxSize: ResizeObserverSize,
+    contentBoxSize: ResizeObserverSize
+  } => {
+    ResizeObserverMock.callback([{
+      target: null,
+      contentRect: {
+        bottom: undefined,
+        left: undefined,
+        right: undefined,
+        top: undefined,
+        x: undefined,
+        y: undefined,
+        width: Math.round(1000 * Math.random()),
+        height: Math.round(1000 * Math.random()),
+        toJSON() { return {}; },
+      },
+      borderBoxSize: ResizeObserverMock.borderBoxSize,
+      contentBoxSize: ResizeObserverMock.contentBoxSize,
+    }], null);
+    return {
+      contentRect: ResizeObserverMock.contentRect,
+      borderBoxSize: ResizeObserverMock.borderBoxSize,
+      contentBoxSize: ResizeObserverMock.contentBoxSize,
     };
+  }
+
+  constructor(callback: ResizeObserverCallback) {
+    ResizeObserverMock.callback = callback;
+  }
+
+  disconnect = jest.fn((): void => {
+    ResizeObserverMock.callback = () => undefined;
+  })
+
+  observe = jest.fn((target: Element) => {
+    ResizeObserverMock.callback([{
+      target,
+      contentRect: ResizeObserverMock.contentRect,
+      borderBoxSize: ResizeObserverMock.borderBoxSize,
+      contentBoxSize: ResizeObserverMock.contentBoxSize,
+    }], this);
+    jest.runAllTimers();
+  })
+
+  unobserve = jest.fn(() => undefined)
+}
+
+describe('useResizeObserver hook', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+
+    window.ResizeObserver = ResizeObserverMock;
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
-
-    contentRect.width = Math.round(1000 * Math.random());
-
-    ro = {
+    ResizeObserverMock.contentRect = {
+      ...ResizeObserverMock.contentRect,
       width: Math.round(1000 * Math.random()),
-      height: Math.round(1000 * Math.random()),
-      cb: () => undefined,
-      resize: () => {
-        ro.width = Math.round(1000 * Math.random());
-        ro.height = Math.round(1000 * Math.random());
-        ro.cb([{
-          borderBoxSize,
-          contentBoxSize,
-          contentRect: {
-            width: ro.width,
-            height: ro.height,
-          },
-        }]);
-        return { contentBoxSize, borderBoxSize };
-      },
     };
   });
 
   it('immediately returns undefined size', () => {
-    ro.resize();
+    ResizeObserverMock.resize();
     const [{ contentBoxSize, borderBoxSize }] = runHooks(() => useResizeObserver());
     expect(contentBoxSize).toBe(undefined);
     expect(borderBoxSize).toBe(undefined);
@@ -72,24 +104,22 @@ describe('useResizeObserver hook', () => {
     const {
       contentBoxSize: expectedContentBoxSize,
       borderBoxSize: expectedBorderBoxSize,
-    } = ro.resize();
+    } = ResizeObserverMock.resize();
 
     const [, { contentBoxSize, borderBoxSize }] = runHooks<ReturnType<typeof useResizeObserver>>(() => useResizeObserver(), [
       ({ ref }: { ref: MutableRefObject<Element> }) => {
         ref.current = document.createElement('div');
       },
     ]);
-    expect(contentBoxSize.blockSize).toBe(expectedContentBoxSize.blockSize);
-    expect(contentBoxSize.inlineSize).toBe(expectedContentBoxSize.inlineSize);
-    expect(borderBoxSize.blockSize).toBe(expectedBorderBoxSize.blockSize);
-    expect(borderBoxSize.inlineSize).toBe(expectedBorderBoxSize.inlineSize);
+    expect(contentBoxSize).toStrictEqual(expectedContentBoxSize);
+    expect(borderBoxSize).toStrictEqual(expectedBorderBoxSize);
   });
 
   it('gets the observed element size after resize', () => {
     const {
       contentBoxSize: expectedContentBoxSizeA,
       borderBoxSize: expectedBorderBoxSizeA,
-    } = ro.resize();
+    } = ResizeObserverMock.resize();
     let expectedContentBoxSizeB;
     let expectedBorderBoxSizeB;
     const [
@@ -110,17 +140,13 @@ describe('useResizeObserver hook', () => {
         ({
           contentBoxSize: expectedContentBoxSizeB,
           borderBoxSize: expectedBorderBoxSizeB,
-        } = ro.resize());
+        } = ResizeObserverMock.resize());
       },
     ]);
 
-    expect(contentBoxSizeA.blockSize).toBe(expectedContentBoxSizeA.blockSize);
-    expect(contentBoxSizeA.inlineSize).toBe(expectedContentBoxSizeA.inlineSize);
-    expect(borderBoxSizeA.blockSize).toBe(expectedBorderBoxSizeA.blockSize);
-    expect(borderBoxSizeA.inlineSize).toBe(expectedBorderBoxSizeA.inlineSize);
-    expect(contentBoxSizeB.blockSize).toBe(expectedContentBoxSizeB.blockSize);
-    expect(contentBoxSizeB.inlineSize).toBe(expectedContentBoxSizeB.inlineSize);
-    expect(borderBoxSizeB.blockSize).toBe(expectedBorderBoxSizeB.blockSize);
-    expect(borderBoxSizeB.inlineSize).toBe(expectedBorderBoxSizeB.inlineSize);
+    expect(contentBoxSizeA).toStrictEqual(expectedContentBoxSizeA);
+    expect(borderBoxSizeA).toStrictEqual(expectedBorderBoxSizeA);
+    expect(contentBoxSizeB).toStrictEqual(expectedContentBoxSizeB);
+    expect(borderBoxSizeB).toStrictEqual(expectedBorderBoxSizeB);
   });
 });
