@@ -2,42 +2,107 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from './jestHelpers';
+import { renderToString } from 'react-dom/server';
+import { createElement, StrictMode, FunctionComponent } from 'react';
+
 import { useToggle } from '.';
 
 describe('useToggle hook on server', () => {
   it('has false value when an initial value is undefined', () => {
-    const [value] = runHooksOnServer(() => useToggle());
+    let value: boolean;
+    const TestComponent: FunctionComponent = () => {
+      [value] = useToggle();
+      return null;
+    };
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+
     expect(value).toBe(false);
   });
 
   it('has false value when an initial value is false', () => {
-    const [value] = runHooksOnServer(() => useToggle(false));
+    let value: boolean;
+    const TestComponent: FunctionComponent = () => {
+      [value] = useToggle(false);
+      return null;
+    };
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+
     expect(value).toBe(false);
   });
 
   it('has false value when an initial value is falsy', () => {
-    const [value] = runHooksOnServer(() => useToggle(0 as unknown as boolean));
+    let value: boolean;
+    const TestComponent: FunctionComponent = () => {
+      [value] = useToggle(0 as unknown as boolean);
+      return null;
+    };
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+
     expect(value).toBe(false);
   });
 
   it('has false value when an initial value is a function returning false', () => {
-    const [value] = runHooksOnServer(() => useToggle(() => false));
+    let value: boolean;
+    const TestComponent: FunctionComponent = () => {
+      [value] = useToggle(() => false);
+      return null;
+    };
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+
     expect(value).toBe(false);
   });
 
   it('has true value when an initial value is true', () => {
-    const [value] = runHooksOnServer(() => useToggle(true));
+    let value: boolean;
+    const TestComponent: FunctionComponent = () => {
+      [value] = useToggle(true);
+      return null;
+    };
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+
     expect(value).toBe(true);
   });
 
   it('has true value when an initial value is truthy', () => {
-    const [value] = runHooksOnServer(() => useToggle(1 as unknown as boolean));
+    let value: boolean;
+    const TestComponent: FunctionComponent = () => {
+      [value] = useToggle(1 as unknown as boolean);
+      return null;
+    };
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+
     expect(value).toBe(true);
   });
 
   it('has true value when an initial value is a function returning true', () => {
-    const [value] = runHooksOnServer(() => useToggle(() => true));
+    let value: boolean;
+    const TestComponent: FunctionComponent = () => {
+      [value] = useToggle(() => true);
+      return null;
+    };
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+
     expect(value).toBe(true);
   });
 });
