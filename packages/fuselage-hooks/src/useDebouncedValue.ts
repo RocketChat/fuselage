@@ -8,11 +8,11 @@ import { useEffect, useState } from 'react';
  * @return a debounced value
  */
 export const useDebouncedValue = <V>(value: V, delay: number): V => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
+  const [debouncedValue, setDebouncedValue] = useState(() => value);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebouncedValue(value);
+      setDebouncedValue(() => value);
     }, delay);
 
     return () => {

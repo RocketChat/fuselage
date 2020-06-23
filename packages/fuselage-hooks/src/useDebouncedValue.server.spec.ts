@@ -2,7 +2,9 @@
  * @jest-environment node
  */
 
-import { runHooksOnServer } from './jestHelpers';
+import { FunctionComponent, createElement, StrictMode } from 'react';
+import { renderToString } from 'react-dom/server';
+
 import { useDebouncedValue } from '.';
 
 describe('useDebouncedValue hook', () => {
@@ -13,8 +15,19 @@ describe('useDebouncedValue hook', () => {
   });
 
   it('returns the initial value', () => {
-    const mutableValue = Symbol();
-    const value = runHooksOnServer(() => useDebouncedValue(mutableValue, delay));
-    expect(value).toBe(mutableValue);
+    const initialValue = Symbol();
+
+    let value: symbol;
+
+    const TestComponent: FunctionComponent = () => {
+      value = useDebouncedValue(initialValue, delay);
+      return null;
+    };
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+
+    expect(value).toBe(initialValue);
   });
 });

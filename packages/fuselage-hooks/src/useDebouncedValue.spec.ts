@@ -1,35 +1,70 @@
-import { useState } from 'react';
+import { createElement, useReducer, FunctionComponent, StrictMode } from 'react';
+import { render } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
-import { runHooks } from './jestHelpers';
 import { useDebouncedValue } from '.';
 
 describe('useDebouncedValue hook', () => {
-  let delay: number;
-  beforeEach(() => {
+  beforeAll(() => {
     jest.useFakeTimers();
+  });
+
+  let delay: number;
+
+  beforeEach(() => {
     delay = Math.round(100 * Math.random());
   });
 
-  it('returns the initial value immediately', () => {
-    const mutableValue = Symbol();
-    const [value] = runHooks(() => useDebouncedValue(mutableValue, delay));
-    expect(value).toBe(mutableValue);
+  it('returns the initial value', () => {
+    const initialValue = Symbol();
+
+    let value: symbol;
+
+    const TestComponent: FunctionComponent = () => {
+      value = useDebouncedValue(initialValue, delay);
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    expect(value).toBe(initialValue);
   });
 
   it('returns the newest value after timeout', () => {
-    const [[valueA], [valueB], [valueC]] = runHooks(
-      () => {
-        const [mutableValue, setMutableValue] = useState(0);
-        return [useDebouncedValue(mutableValue, delay), setMutableValue];
-      },
-      [
-        ([, setMutableValue]) => setMutableValue((mutableValue) => mutableValue + 1),
-        () => jest.runAllTimers(),
-      ],
-    );
+    let value: number;
+    let incrementValue: () => void;
 
-    expect(valueA).toBe(0);
-    expect(valueB).toBe(0);
-    expect(valueC).toBe(1);
+    const TestComponent: FunctionComponent = () => {
+      let mutableValue: number;
+      [mutableValue, incrementValue] = useReducer((state) => state + 1, 0);
+      value = useDebouncedValue(mutableValue, delay);
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    expect(value).toBe(0);
+
+    act(() => {
+      incrementValue();
+    });
+
+    expect(value).toBe(0);
+
+    act(() => {
+      jest.advanceTimersByTime(delay);
+    });
+
+    expect(value).toBe(1);
   });
 });
