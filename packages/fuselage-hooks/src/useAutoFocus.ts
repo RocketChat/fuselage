@@ -1,4 +1,4 @@
-import { useEffect, useRef, RefObject } from 'react';
+import { useEffect, useRef, Ref } from 'react';
 
 type Options = {
   preventScroll?: boolean;
@@ -13,15 +13,21 @@ type Options = {
  */
 export const useAutoFocus = (
   isFocused = true,
-  options: Options = undefined,
-): RefObject<HTMLElement> => {
-  const elementRef = useRef<HTMLElement>();
+  options?: Options,
+): Ref<{ focus: (options?: Options) => void }> => {
+  const elementRef = useRef<{ focus: (options?: Options) => void }>();
+
+  const {
+    preventScroll,
+  } = options ?? {};
 
   useEffect(() => {
     if (isFocused && elementRef.current) {
-      elementRef.current.focus(options);
+      elementRef.current.focus({
+        preventScroll,
+      });
     }
-  }, [elementRef, isFocused]);
+  }, [elementRef, isFocused, preventScroll]);
 
   return elementRef;
 };
