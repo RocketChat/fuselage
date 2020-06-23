@@ -17,10 +17,7 @@ export const useMediaQuery = (query?: string): boolean => {
     return mediaQueryListRef.current;
   }, [query]);
 
-  const [matches, setMatches] = useState(() => {
-    const mediaQueryList = getMediaQueryList();
-    return mediaQueryList ? mediaQueryList.matches : false;
-  });
+  const [matches, setMatches] = useState(() => getMediaQueryList()?.matches ?? false);
 
   useEffect(() => {
     const mediaQueryList = getMediaQueryList();

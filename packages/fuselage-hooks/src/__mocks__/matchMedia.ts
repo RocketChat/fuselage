@@ -16,9 +16,7 @@ class MediaQueryListMock implements MediaQueryList {
     this._media = media;
     this._onchange = null;
     this.changeEventListeners = new Set([
-      (ev: MediaQueryListEvent) => {
-        this._onchange && this._onchange.call(this, ev);
-      },
+      (ev: MediaQueryListEvent) => this._onchange?.call(this, ev),
     ]);
   }
 
