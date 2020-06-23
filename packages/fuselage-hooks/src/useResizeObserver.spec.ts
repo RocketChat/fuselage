@@ -147,7 +147,8 @@ describe('useResizeObserver hook', () => {
 
   it('debounces the observed element size', async () => {
     const initialStyle = createRandomStyle();
-    const debounceDelay = 150;
+    const debounceDelay = 100 + Math.round(100 * Math.random());
+    const delayBeforeUpdate = Math.round(debounceDelay * 0.75);
     let borderBoxSize: ResizeObserverSize;
     let contentBoxSize: ResizeObserverSize;
 
@@ -168,8 +169,6 @@ describe('useResizeObserver hook', () => {
         document.createElement('div'),
       );
     });
-
-    const delayBeforeUpdate = Math.round(debounceDelay * 0.75);
 
     // don't wait long enough to receive a update
     await act(async () => {

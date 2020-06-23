@@ -1,6 +1,6 @@
 import { useRef, useEffect, RefObject } from 'react';
 
-import { useDebouncedState } from './useDebouncedUpdates';
+import { useDebouncedState } from './useDebouncedState';
 
 type Options = {
   debounceDelay?: number;

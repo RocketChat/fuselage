@@ -1,24 +1,27 @@
-import { createElement, useState, FunctionComponent, StrictMode } from 'react';
+import { FunctionComponent, DispatchWithoutAction, createElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import { useDebouncedUpdates } from '.';
+import { useDebouncedReducer } from '.';
 
-describe('useDebouncedUpdates hook', () => {
+describe('useDebouncedReducer hook', () => {
   beforeAll(() => {
     jest.useFakeTimers();
   });
 
-  it('returns a debounced state dispatcher', () => {
+  it('is a debounced state updater', () => {
+    const delay = Math.round(100 * Math.random());
     const initialState = Symbol('initial');
     const newState = Symbol('new');
-    const delay = Math.round(100 * Math.random());
+    const reducer = jest.fn(() => newState);
+    const initialArg = initialState;
+    const init = jest.fn((state) => state);
 
     let state: symbol;
-    let dispatch: ReturnType<typeof useDebouncedUpdates>[1];
+    let dispatch: DispatchWithoutAction;
 
     const TestComponent: FunctionComponent = () => {
-      [state, dispatch] = useDebouncedUpdates(useState(initialState), delay);
+      [state, dispatch] = useDebouncedReducer(reducer, initialArg, init, delay);
       return null;
     };
 
@@ -29,14 +32,10 @@ describe('useDebouncedUpdates hook', () => {
       );
     });
 
-    expect(dispatch).toBeInstanceOf(Function);
-    expect(dispatch.flush).toBeInstanceOf(Function);
-    expect(dispatch.cancel).toBeInstanceOf(Function);
-
     expect(state).toBe(initialState);
 
     act(() => {
-      dispatch(newState);
+      dispatch();
     });
 
     expect(state).toBe(initialState);
@@ -44,6 +43,9 @@ describe('useDebouncedUpdates hook', () => {
     act(() => {
       jest.advanceTimersByTime(delay);
     });
+
+    expect(reducer).toHaveBeenCalledWith(initialState, undefined);
+    expect(init).toHaveBeenCalledWith(initialArg);
 
     expect(state).toBe(newState);
   });

@@ -1,52 +1,146 @@
-import { runHooks } from './jestHelpers';
+import { FunctionComponent, createElement, StrictMode, useReducer, useState, Dispatch, SetStateAction } from 'react';
+import { render } from 'react-dom';
+import { act } from 'react-dom/test-utils';
+
 import { useDebouncedCallback } from '.';
 
 describe('useDebouncedCallback hook', () => {
-  let fn: jest.Mock<any, any>;
-  let delay: number;
-  beforeEach(() => {
+  beforeAll(() => {
     jest.useFakeTimers();
-    fn = jest.fn();
-    delay = Math.round(100 * Math.random());
   });
 
   it('returns a debounced callback', () => {
-    const [debouncedCallback] = runHooks(() => useDebouncedCallback(fn, delay));
+    const fn = jest.fn();
+    const delay = 100 + Math.round(100 * Math.random());
+    const delayBeforeUpdate = Math.round(delay * 0.75);
+
+    let debouncedCallback: (() => void) & {
+      flush: () => void;
+      cancel: () => void;
+    };
+
+    const TestComponent: FunctionComponent = () => {
+      debouncedCallback = useDebouncedCallback(fn, delay);
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
     expect(debouncedCallback).toBeInstanceOf(Function);
     expect(debouncedCallback.flush).toBeInstanceOf(Function);
     expect(debouncedCallback.cancel).toBeInstanceOf(Function);
 
     debouncedCallback();
-    expect(setTimeout).toHaveBeenCalledTimes(1);
-    expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), delay);
+
+    jest.advanceTimersByTime(delayBeforeUpdate);
+
+    expect(fn).toHaveBeenCalledTimes(0);
+
+    jest.advanceTimersByTime(delay - delayBeforeUpdate);
+
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   it('returns the same callback if deps don\'t change', () => {
-    const [callbackA, callbackB] = runHooks(() => useDebouncedCallback(fn, delay, []), [true]);
-    expect(callbackA).toBe(callbackB);
+    const delay = 100 + Math.round(100 * Math.random());
+
+    let debouncedCallback: (() => void) & {
+      flush: () => void;
+      cancel: () => void;
+    };
+    let forceUpdate: () => void;
+
+    const TestComponent: FunctionComponent = () => {
+      debouncedCallback = useDebouncedCallback(() => undefined, delay, []);
+      [, forceUpdate] = useReducer((state) => !state, false);
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    const initialCallback = debouncedCallback;
+
+    act(() => {
+      forceUpdate();
+    });
+
+    expect(debouncedCallback).toBe(initialCallback);
   });
 
   it('returns another callback if deps change', () => {
-    let dep = Symbol();
+    const delay = 100 + Math.round(100 * Math.random());
+    const initialDep = Symbol('initial');
+    const newDep = Symbol('new');
 
-    const [callbackA, , callbackB] = runHooks(() => useDebouncedCallback(fn, delay, [dep]), [
-      () => {
-        dep = Symbol();
-      },
-    ]);
+    let setDep: Dispatch<SetStateAction<symbol>>;
+    let debouncedCallback: (() => void) & {
+      flush: () => void;
+      cancel: () => void;
+    };
 
-    expect(callbackA).not.toBe(callbackB);
+    const TestComponent: FunctionComponent = () => {
+      let dep: symbol;
+      [dep, setDep] = useState<symbol>(initialDep);
+      debouncedCallback = useDebouncedCallback(() => undefined, delay, [dep]);
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    const initialCallback = debouncedCallback;
+
+    act(() => {
+      setDep(newDep);
+    });
+
+    expect(debouncedCallback).not.toBe(initialCallback);
   });
 
   it('returns another callback if delay change', () => {
-    let delay = 0;
+    const initialDelay = 100 + Math.round(100 * Math.random());
+    const newDelay = initialDelay + Math.round(100 * Math.random());
 
-    const [callbackA, callbackB] = runHooks(() => useDebouncedCallback(fn, delay, []), [
-      () => {
-        delay = 1;
-      },
-    ]);
+    let setDelay: Dispatch<SetStateAction<number>>;
+    let debouncedCallback: (() => void) & {
+      flush: () => void;
+      cancel: () => void;
+    };
 
-    expect(callbackA).not.toBe(callbackB);
+    const TestComponent: FunctionComponent = () => {
+      let delay: number;
+      [delay, setDelay] = useState(initialDelay);
+      debouncedCallback = useDebouncedCallback(() => undefined, delay, []);
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    const initialCallback = debouncedCallback;
+
+    act(() => {
+      setDelay(newDelay);
+    });
+
+    expect(initialCallback).not.toBe(debouncedCallback);
   });
 });
