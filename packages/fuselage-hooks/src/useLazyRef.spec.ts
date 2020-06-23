@@ -1,17 +1,44 @@
-import { runHooks } from './jestHelpers';
+import { FunctionComponent, createElement, StrictMode, MutableRefObject } from 'react';
+import { act } from 'react-dom/test-utils';
+import { render } from 'react-dom';
+
 import { useLazyRef } from '.';
 
 describe('useLazyRef hook', () => {
   it('returns the computed value immediately', () => {
-    const computedValue = Symbol();
-    const [value] = runHooks(() => useLazyRef(() => computedValue));
+    const computedValue = Symbol('computed');
 
-    expect(value.current).toBe(computedValue);
+    let ref: MutableRefObject<symbol>;
+
+    const TestComponent: FunctionComponent = () => {
+      ref = useLazyRef(() => computedValue);
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    expect(ref.current).toBe(computedValue);
   });
 
   it('runs the initializer once', () => {
     const initializer = jest.fn();
-    runHooks(() => useLazyRef(initializer), [true]);
+
+    const TestComponent: FunctionComponent = () => {
+      useLazyRef(initializer);
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
 
     expect(initializer).toHaveBeenCalledTimes(1);
   });
