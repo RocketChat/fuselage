@@ -1,91 +1,133 @@
-import { runHooks } from './jestHelpers';
+import { FunctionComponent, createElement, StrictMode } from 'react';
+import { render } from 'react-dom';
+import { act } from 'react-dom/test-utils';
+
+import resizeToMock from './__mocks__/resizeTo';
+import matchMediaMock from './__mocks__/matchMedia';
 import { useMediaQuery } from '.';
 
-const setupMediaQueryMock = (): { triggerMediaQueryChange: (matches: boolean) => void } => {
-  let matches: boolean;
-  let onChangeCallback: (ev: MediaQueryListEvent) => any;
-
-  beforeEach(() => {
-    matches = false;
-    onChangeCallback = () => undefined;
-
-    window.matchMedia = jest.fn((media): MediaQueryList => ({
-      get matches() {
-        return matches;
-      },
-      get media(): string {
-        return media;
-      },
-      addEventListener: jest.fn((type, fn) => {
-        if (type === 'change' && typeof fn === 'function') {
-          onChangeCallback = fn;
-        }
-      }),
-      removeEventListener: jest.fn(() => {
-        onChangeCallback = () => undefined;
-      }),
-      get onchange(): (this: MediaQueryList, ev: MediaQueryListEvent) => any {
-        return onChangeCallback;
-      },
-      set onchange(cb: (this: MediaQueryList, ev: MediaQueryListEvent) => any) {
-        onChangeCallback = cb;
-      },
-      addListener(fn) {
-        this.addEventListener('change', fn);
-      },
-      removeListener(fn) {
-        this.removeEventListener('change', fn);
-      },
-      dispatchEvent: (): boolean => false,
-    }));
+describe('useMediaQuery hook', () => {
+  beforeAll(() => {
+    window.resizeTo = resizeToMock;
+    window.matchMedia = jest.fn(matchMediaMock);
   });
 
-  const triggerMediaQueryChange = (_matches: boolean): void => {
-    matches = _matches;
-    onChangeCallback(new Event('change') as MediaQueryListEvent);
-  };
-
-  return { triggerMediaQueryChange };
-};
-
-describe('useMediaQuery hook', () => {
-  const { triggerMediaQueryChange } = setupMediaQueryMock();
+  beforeEach(() => {
+    window.resizeTo(1024, 768);
+  });
 
   it('does not register a undefined media query', () => {
-    runHooks(() => useMediaQuery());
+    const TestComponent: FunctionComponent = () => {
+      useMediaQuery();
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
     expect(window.matchMedia).not.toHaveBeenCalled();
   });
 
   it('does register a defined media query', () => {
-    runHooks(() => useMediaQuery('(max-width: 1024)'));
-    expect(window.matchMedia).toHaveBeenCalledWith('(max-width: 1024)');
+    const TestComponent: FunctionComponent = () => {
+      useMediaQuery('(max-width: 1024px)');
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    expect(window.matchMedia).toHaveBeenCalledWith('(max-width: 1024px)');
   });
 
   it('returns false if no query is given', () => {
-    const [value] = runHooks(() => useMediaQuery());
-    expect(value).toBe(false);
+    let matches: boolean;
+    const TestComponent: FunctionComponent = () => {
+      matches = useMediaQuery();
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    expect(matches).toBe(false);
   });
 
   it('returns false if the media query does not match', () => {
-    const [value] = runHooks(() => useMediaQuery('(max-width: 1024)'));
-    expect(value).toBe(false);
+    let matches: boolean;
+    const TestComponent: FunctionComponent = () => {
+      matches = useMediaQuery('(max-width: 1024px)');
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    expect(matches).toBe(false);
   });
 
   it('returns true if the media query does match', () => {
-    triggerMediaQueryChange(true);
-    const [value] = runHooks(() => useMediaQuery('(max-width: 1024)'));
-    expect(value).toBe(true);
+    window.resizeTo(968, 768);
+
+    let matches: boolean;
+    const TestComponent: FunctionComponent = () => {
+      matches = useMediaQuery('(max-width: 968px)');
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    expect(matches).toBe(true);
   });
 
   it('mutates its value to true if the media query matches', () => {
-    const [matchesA, matchesB, matchesC] = runHooks(() => useMediaQuery('(max-width: 1024)'), [
-      () => {
-        triggerMediaQueryChange(true);
-      },
-      () => {
-        triggerMediaQueryChange(false);
-      },
-    ]);
+    let matches: boolean;
+    const TestComponent: FunctionComponent = () => {
+      matches = useMediaQuery('(max-width: 1024px)');
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div'),
+      );
+    });
+
+    const matchesA = matches;
+
+    act(() => {
+      window.resizeTo(968, 768);
+    });
+
+    const matchesB = matches;
+
+    act(() => {
+      window.resizeTo(1024, 768);
+    });
+
+    const matchesC = matches;
 
     expect(matchesA).toBe(false);
     expect(matchesB).toBe(true);

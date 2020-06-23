@@ -1,33 +1,35 @@
-import { useEffect, useState } from 'react';
-
-import { isRunningOnBrowser } from './helpers';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 /**
  * Hook to listen to a media query.
  *
- * @param [query] - the CSS3 media query expression
+ * @param query - the CSS3 media query expression
  * @return `true` if the media query matches; `false` is it does not match or the query is not defined
  */
 export const useMediaQuery = (query?: string): boolean => {
-  const [matches, setMatches] = useState(() => {
-    if (!query || !isRunningOnBrowser) {
-      return false;
+  const mediaQueryListRef = useRef<MediaQueryList>();
+
+  const getMediaQueryList = useCallback((): MediaQueryList | undefined => {
+    if (!mediaQueryListRef.current && typeof window !== 'undefined' && query) {
+      mediaQueryListRef.current = window.matchMedia(query);
     }
 
-    const { matches } = window.matchMedia(query);
-    return !!matches;
-  });
+    return mediaQueryListRef.current;
+  }, [query]);
+
+  const [matches, setMatches] = useState(() => getMediaQueryList()?.matches ?? false);
 
   useEffect(() => {
-    if (!query || !isRunningOnBrowser) {
+    const mediaQueryList = getMediaQueryList();
+
+    if (!mediaQueryList) {
       return;
     }
 
-    const mediaQueryList = window.matchMedia(query);
     setMatches(mediaQueryList.matches);
 
     const handleChange = (): void => {
-      setMatches(!!mediaQueryList.matches);
+      setMatches(mediaQueryList.matches);
     };
 
     mediaQueryList.addEventListener('change', handleChange);
@@ -35,7 +37,7 @@ export const useMediaQuery = (query?: string): boolean => {
     return (): void => {
       mediaQueryList.removeEventListener('change', handleChange);
     };
-  }, [query]);
+  }, [getMediaQueryList]);
 
   return matches;
 };
