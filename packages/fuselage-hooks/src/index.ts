@@ -2,6 +2,7 @@ export * from './useAutoFocus';
 export * from './useDebouncedUpdates';
 export * from './useDebouncedCallback';
 export * from './useDebouncedValue';
+export * from './useIsomorphicLayoutEffect';
 export * from './useLazyRef';
 export * from './useMediaQuery';
 export * from './useMergedRefs';
