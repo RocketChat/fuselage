@@ -19,7 +19,7 @@ export const useAutoFocus = (
 
   const {
     preventScroll,
-  } = options ?? {};
+  } = options || {};
 
   useEffect(() => {
     if (isFocused && elementRef.current) {
