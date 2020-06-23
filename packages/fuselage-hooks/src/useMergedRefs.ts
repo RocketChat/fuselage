@@ -1,10 +1,14 @@
-import { useCallback, useRef, Ref, RefCallback, MutableRefObject } from 'react';
+import { useCallback, useLayoutEffect, useRef, Ref, RefCallback, MutableRefObject } from 'react';
 
 const isRefCallback = <T>(x: unknown): x is RefCallback<T> => typeof x === 'function';
 const isMutableRefObject = <T>(x: unknown): x is MutableRefObject<T> => typeof x === 'object';
 
 const useBrowserMergedRefs = <T>(...refs: Ref<T>[]): RefCallback<T> => {
   const refsRef = useRef(refs);
+
+  useLayoutEffect(() => {
+    refsRef.current = refs;
+  });
 
   return useCallback((refValue: T) => {
     const refs = refsRef.current;
