@@ -1,6 +1,6 @@
 {
   "src/**/*.js": [
-    "eslint --fix",
+    "eslint --ext js,ts,tsx --fix",
     "git add"
   ]
 }

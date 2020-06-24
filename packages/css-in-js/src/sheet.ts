@@ -1,10 +1,8 @@
-// @flow
-
 const styleTagId = 'rcx-styles';
-let styleTag;
+let styleTag: HTMLStyleElement;
 const getStyleTag = (): HTMLStyleElement => {
   if (!styleTag) {
-    styleTag = document.getElementById(styleTagId) || document.createElement('style');
+    styleTag = (document.getElementById(styleTagId) || document.createElement('style')) as HTMLStyleElement;
     styleTag.id = styleTagId;
     styleTag.appendChild(document.createTextNode(''));
     if (document.head) {
@@ -12,32 +10,20 @@ const getStyleTag = (): HTMLStyleElement => {
     }
   }
 
-  /* ::
-    if (!(styleTag instanceof HTMLStyleElement)) {
-      throw new Error();
-    }
-  */
-
   return styleTag;
 };
 
-let styleSheet;
+let styleSheet: CSSStyleSheet;
 const getStyleSheet = (): CSSStyleSheet => {
   if (!styleSheet) {
     const styleTag = getStyleTag();
     styleSheet = styleTag.sheet || Array.from(document.styleSheets).find(({ ownerNode }) => ownerNode === styleTag);
   }
 
-  /* ::
-    if (!(styleSheet instanceof CSSStyleSheet)) {
-      throw new Error();
-    }
-  */
-
   return styleSheet;
 };
 
-const attachRulesIntoTag = (rules) => {
+const attachRulesIntoTag = (rules: string): (() => void) => {
   const styleTag = getStyleTag();
 
   const textNode = document.createTextNode(rules);
@@ -46,12 +32,12 @@ const attachRulesIntoTag = (rules) => {
   return () => textNode.remove();
 };
 
-const attachRulesIntoSheet = (rules) => {
+const attachRulesIntoSheet = (rules: string): (() => void) => {
   const styleSheet = getStyleSheet();
 
   const index = styleSheet.insertRule(`@media all{${ rules }}`, styleSheet.cssRules.length);
   const insertedRule = styleSheet.cssRules[index];
-  const findPredicate = (cssRule) => cssRule === insertedRule;
+  const findPredicate = (cssRule: CSSRule): boolean => cssRule === insertedRule;
 
   return () => {
     const index = Array.prototype.findIndex.call(styleSheet.cssRules, findPredicate);
@@ -64,7 +50,7 @@ const attachRulesIntoSheet = (rules) => {
  *
  * @return a callback to detach the rules
  */
-export const attachRules = (rules: string) => {
+export const attachRules = (rules: string): (() => void) => {
   if (process.env.NODE_ENV === 'production' && !!CSSStyleSheet.prototype.insertRule) {
     return attachRulesIntoSheet(rules);
   }
@@ -84,9 +70,9 @@ const references = {};
  *
  * @return a callback to unreference the rules
  */
-export const referenceRules = (rules: string) => {
+export const referenceRules = (rules: string): (() => void) => {
   if (!rules) {
-    return () => {};
+    return () => undefined;
   }
 
   const reference = references[rules] || { count: 0 };
@@ -100,7 +86,7 @@ export const referenceRules = (rules: string) => {
   return () => {
     --reference.count;
     if (reference.count === 0) {
-      (0, reference.detachRules)();
+      reference.detachRules();
     }
   };
 };

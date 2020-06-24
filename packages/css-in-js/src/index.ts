@@ -1,5 +1,3 @@
-// @flow
-
 export * from './selectors';
 export * from './sheet';
 export * from './tags';
