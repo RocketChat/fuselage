@@ -33,7 +33,7 @@
     "test": "jest",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
-    "docs": "documentation readme src/**/*.ts --parse-extension=ts --section='API Reference' --readme-file README.md"
+    "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --section='API Reference' --readme-file README.md"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
