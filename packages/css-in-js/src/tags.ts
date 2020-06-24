@@ -1,19 +1,13 @@
-// @flow
-
 import { createSelector } from './selectors';
-
-declare class TemplateStringsArray extends $ReadOnlyArray<string> {
-  +raw: string;
-}
 
 export type cssFn = (rules: string[]) => string;
 
 export type classNameFn = {
-  (rules: string[]): string,
-  className: string,
+  (rules: string[]): string;
+  className: string;
 };
 
-const createReplacementsMapping = (rules = []) => (value) => {
+const createReplacementsMapping = (rules = []) => (value: unknown) => {
   if (value === 0) {
     return '0';
   }
@@ -46,17 +40,18 @@ export const css = (slices: TemplateStringsArray, ...values: string[]): cssFn =>
  */
 export const className = (className: string) =>
   (slices: TemplateStringsArray, ...values: string[]): classNameFn =>
-    Object.assign((css(slices, ...values): classNameFn), { className });
+    Object.assign(css(slices, ...values), { className });
 
 /**
  * Template string tag to declare CSS `@keyframe` at-rules.
  *
  * @return a callback to render the CSS at-rule content
  */
-export const keyframes = (slices: TemplateStringsArray, ...values: string[]) => (rules: string[] = []) => {
-  const replacements = values.map(createReplacementsMapping(rules));
-  const content = String.raw(slices, ...replacements);
-  const [, encodedAnimationName] = createSelector(content);
-  rules.push(`@keyframes ${ encodedAnimationName }{${ content }}`);
-  return encodedAnimationName;
-};
+export const keyframes = (slices: TemplateStringsArray, ...values: string[]): ((rules: string[]) => string) =>
+  (rules: string[] = []) => {
+    const replacements = values.map(createReplacementsMapping(rules));
+    const content = String.raw(slices, ...replacements);
+    const [, encodedAnimationName] = createSelector(content);
+    rules.push(`@keyframes ${ encodedAnimationName }{${ content }}`);
+    return encodedAnimationName;
+  };
