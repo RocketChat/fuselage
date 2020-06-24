@@ -1,5 +1,3 @@
-// @flow
-
 import { createSelector } from './selectors';
 import { referenceRules } from './sheet';
 import { transpile } from './transpile';
@@ -10,7 +8,7 @@ import type { cssFn, classNameFn } from './tags';
  *
  * @return a string containing a className or undefined
  */
-export const toClassName = (value: cssFn | classNameFn | string): ?string => {
+export const toClassName = (value: cssFn | classNameFn | string): string => {
   if (typeof value === 'function') {
     const rules = [];
     rules.push(value(rules));
@@ -21,7 +19,7 @@ export const toClassName = (value: cssFn | classNameFn | string): ?string => {
       return undefined;
     }
 
-    const className = (value: classNameFn).className || createSelector(content)[0];
+    const className = (value as classNameFn).className || createSelector(content)[0];
     const encodedClassName = className.replace(/@|#|:/g, (char) => `\\${ char }`);
 
     const parsedRules = transpile(`.${ encodedClassName }`, content);

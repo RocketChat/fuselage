@@ -19,37 +19,34 @@
     "rocketchat",
     "css-in-js"
   ],
+  "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "rollup -c -w",
-    "build": "rollup -c",
+    "start": "microbundle watch",
+    "build": "microbundle",
     "test": "jest",
-    "lint": "eslint src",
+    "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
-    "docs": "documentation readme src/index.js --section='API Reference' --readme-file README.md"
+    "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --section='API Reference' --readme-file README.md"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-transform-runtime": "^7.7.6",
-    "@babel/preset-env": "^7.7.6",
-    "@babel/preset-flow": "^7.0.0",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "babel-eslint": "^10.0.3",
-    "documentation": "^12.1.2",
+    "@types/jest": "^26.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "documentation": "^13.0.1",
     "eslint": "^6.5.1",
     "eslint-plugin-import": "^2.19.1",
-    "flow-bin": "^0.121.0",
-    "jest": "^25.1.0",
+    "jest": "^26.1.0",
     "lint-staged": "^10.0.8",
-    "rollup": "^2.1.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.2"
+    "microbundle": "^0.12.2",
+    "ts-jest": "^26.1.1"
   },
   "publishConfig": {
     "access": "public"

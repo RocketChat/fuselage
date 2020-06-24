@@ -1,5 +1,3 @@
-// @flow
-
 import hash from '@emotion/hash';
 
 /**
