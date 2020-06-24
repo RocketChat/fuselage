@@ -11,6 +11,7 @@
     @extend %selection-button__fake;
     border-radius: lengths.border-radius(full);
     inline-size: lengths.size(20);
+    direction: ltr;
   }
 
   &__input:checked + &__fake::before {

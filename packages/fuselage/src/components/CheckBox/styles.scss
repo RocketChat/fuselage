@@ -15,6 +15,7 @@
     @extend %selection-button__fake;
     border-radius: lengths.border-radius(2);
     inline-size: lengths.size(20);
+    direction: ltr;
 
     &::before,
     &::after {
