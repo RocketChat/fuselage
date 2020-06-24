@@ -63,7 +63,7 @@ Imediately attaches CSS rules into the style sheet.
 
 -   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **any** a callback to detach the rules
+Returns **function (): void** a callback to detach the rules
 
 ### referenceRules
 
@@ -78,7 +78,7 @@ style sheet.
 
 -   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **any** a callback to unreference the rules
+Returns **function (): void** a callback to unreference the rules
 
 ### css
 
@@ -110,7 +110,7 @@ Template string tag to declare CSS `@keyframe` at-rules.
 -   `slices` **TemplateStringsArray** 
 -   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
 
-Returns **any** a callback to render the CSS at-rule content
+Returns **function (rules: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a callback to render the CSS at-rule content
 
 ### toClassName
 
@@ -120,7 +120,7 @@ Process a value as a className.
 
 -   `value` **(cssFn | classNameFn | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** a string containing a className or undefined
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a string containing a className or undefined
 
 ### transpile
 

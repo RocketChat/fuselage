@@ -1,8 +1,6 @@
-// @flow
-
 import Stylis from '@emotion/stylis';
 
-let stylisInstance;
+let stylisInstance: Stylis;
 
 /**
  * Transpiles CSS Modules content to CSS rules.
