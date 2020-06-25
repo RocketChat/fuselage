@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-const FakeStorage = new class Storage implements Storage {
+const FakeStorage = new class implements Storage {
   private dict = {};
 
   /**
