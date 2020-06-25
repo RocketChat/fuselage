@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React, { StrictMode, useEffect, useState, useRef } from 'react';
 
-import { Box, Margins, UnmemoizedBox } from '../..';
+import { Box, Margins } from '../..';
 
 const MountTest = ({ children }) => {
   const [length, setLength] = useState(10);
@@ -52,27 +52,11 @@ storiesOf('Box/Performance', module)
       <Box/>
     </Margins>}
   </MountTest>)
+  .lokiSkip('With One Margins', () => <Margins>
+    <MountTest>
+      {(i) => <Box key={i}/>}
+    </MountTest>
+  </Margins>)
   .lokiSkip('With margin Prop', () => <MountTest>
     {(i) => <Box key={i} margin='none' />}
-  </MountTest>);
-
-storiesOf('Box/Performance/Unmemoized', module)
-  .addParameters({
-    jest: ['Box/spec'],
-    docs: { disable: true },
-  })
-  .addDecorator((fn) => <StrictMode>{fn()}</StrictMode>)
-  .lokiSkip('Without Props', () => <MountTest>
-    {(i) => <UnmemoizedBox key={i} />}
-  </MountTest>)
-  .lokiSkip('With is Prop', () => <MountTest>
-    {(i) => <UnmemoizedBox key={i} is='button' />}
-  </MountTest>)
-  .lokiSkip('With Margins', () => <MountTest>
-    {(i) => <Margins key={i}>
-      <UnmemoizedBox/>
-    </Margins>}
-  </MountTest>)
-  .lokiSkip('With margin Prop', () => <MountTest>
-    {(i) => <UnmemoizedBox key={i} margin='none' />}
   </MountTest>);
