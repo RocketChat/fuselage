@@ -3,10 +3,10 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "playground"
   ],
   "devDependencies": {
-    "cross-env": "^7.0.2",
     "fs-extra": "^9.0.0",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.3",
