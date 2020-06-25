@@ -1,8 +1,13 @@
 import { transpile } from './transpile';
 
 describe('transpile', () => {
-  it('returns CSS transpiled rules', () => {
-    const rules = transpile('h1', 'color: red;');
-    expect(rules).toBe('h1{color:red;}');
+  it('transpiles simple properties', () => {
+    const rules = transpile('div', 'color: red;');
+    expect(rules).toBe('div{color:red;}');
+  });
+
+  it('transpiles with vendor prefixing', () => {
+    const rules = transpile('div', 'display: flex;');
+    expect(rules).toBe('div{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}');
   });
 });
