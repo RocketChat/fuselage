@@ -3,11 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@rocket.chat/css-in-js": "^0.10.0",
+    "@rocket.chat/fuselage": "^0.10.0",
+    "@rocket.chat/fuselage-hooks": "^0.10.0",
+    "@rocket.chat/fuselage-polyfills": "^0.10.0",
+    "@rocket.chat/icons": "^0.10.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-live": "^2.2.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
