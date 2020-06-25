@@ -26,7 +26,7 @@ const transforms = [
   mapClassNames,
 ];
 
-export const Box = memo(forwardRef(function Box(props, ref) {
+export const UnmemoizedBox = forwardRef(function Box(props, ref) {
   useStyleSheet();
 
   const contextProps = useContext(PropsContext);
@@ -39,7 +39,9 @@ export const Box = memo(forwardRef(function Box(props, ref) {
   }
 
   return children;
-}));
+});
+
+export const Box = memo(UnmemoizedBox);
 
 Box.propTypes = {
   is: PropTypes.elementType,
