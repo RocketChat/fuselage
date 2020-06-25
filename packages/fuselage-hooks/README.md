@@ -51,8 +51,12 @@ yarn test
     -   [Parameters](#parameters-10)
 -   [useSafely](#usesafely)
     -   [Parameters](#parameters-11)
--   [useToggle](#usetoggle)
+-   [useLocalStorage](#uselocalstorage)
     -   [Parameters](#parameters-12)
+-   [useSessionStorage](#usesessionstorage)
+    -   [Parameters](#parameters-13)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-14)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -191,6 +195,28 @@ which can be safe and asynchronically called even after the component unmounted.
     -   `pair.1`  the state dispatcher function
 
 Returns **\[S, D]** a state value and safe dispatcher pair
+
+### useLocalStorage
+
+Hook to deal with localStorage
+
+#### Parameters
+
+-   `key`  
+-   `initialValue`  
+
+Returns **any** a state and a setter function
+
+### useSessionStorage
+
+Hook to deal with sessionStorage
+
+#### Parameters
+
+-   `key`  
+-   `initialValue`  
+
+Returns **any** a state and a setter function
 
 ### useToggle
 
