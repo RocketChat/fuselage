@@ -1,12 +1,15 @@
 import Stylis from '@emotion/stylis';
 
-import { LogicalPropertiesOptions, createLogicalPropertiesPlugin } from './plugins/logicalProperties';
+import { LogicalPropertiesOptions, createLogicalPropertiesPlugins } from './plugins/logicalProperties';
 
 type TranspileOptions = LogicalPropertiesOptions;
 
 const createStylis = (options: Partial<TranspileOptions>): Stylis => {
   const stylisInstance = new Stylis();
-  stylisInstance.use(createLogicalPropertiesPlugin(options));
+  [
+    ...createLogicalPropertiesPlugins(options),
+  ].reduce((use, plugin) => use(plugin), stylisInstance.use);
+
   return stylisInstance;
 };
 
