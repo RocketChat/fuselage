@@ -1,6 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
 
-import { createLogicalProperties } from '../../helpers/createLogicalProperties';
 import { createPropType } from '../../helpers/createPropType';
 import { memoize } from '../../helpers/memoize';
 
@@ -34,26 +33,6 @@ export const getMarginValue = memoize((propValue) => {
 
 export const marginPropType = createPropType(getMarginValue);
 
-const [
-  marginBlockProperty,
-  marginBlockStartProperty,
-  marginBlockEndProperty,
-  marginInlineProperty,
-  marginInlineStartProperty,
-  marginInlineEndProperty,
-] = createLogicalProperties({
-  blockPropertyName: 'margin-block',
-  blockStartPropertyName: 'margin-block-start',
-  blockStartFallbackPropertyName: 'margin-top',
-  blockEndPropertyName: 'margin-block-end',
-  blockEndFallbackPropertyName: 'margin-bottom',
-  inlinePropertyName: 'margin-inline',
-  inlineStartPropertyName: 'margin-inline-start',
-  inlineStartFallbackPropertyName: 'margin-left',
-  inlineEndPropertyName: 'margin-inline-end',
-  inlineEndFallbackPropertyName: 'margin-right',
-});
-
 export const getPaddingValue = memoize((propValue) => {
   if (propValue === undefined || propValue === null) {
     return;
@@ -83,26 +62,6 @@ export const getPaddingValue = memoize((propValue) => {
 });
 
 export const paddingPropType = createPropType(getPaddingValue);
-
-export const [
-  paddingBlockProperty,
-  paddingBlockStartProperty,
-  paddingBlockEndProperty,
-  paddingInlineProperty,
-  paddingInlineStartProperty,
-  paddingInlineEndProperty,
-] = createLogicalProperties({
-  blockPropertyName: 'padding-block',
-  blockStartPropertyName: 'padding-block-start',
-  blockStartFallbackPropertyName: 'padding-top',
-  blockEndPropertyName: 'padding-block-end',
-  blockEndFallbackPropertyName: 'padding-bottom',
-  inlinePropertyName: 'padding-inline',
-  inlineStartPropertyName: 'padding-inline-start',
-  inlineStartFallbackPropertyName: 'padding-left',
-  inlineEndPropertyName: 'padding-inline-end',
-  inlineEndFallbackPropertyName: 'padding-right',
-});
 
 export const mapSpaceProps = ({
   className,
@@ -141,31 +100,31 @@ export const mapSpaceProps = ({
     margin !== undefined
       && css`margin: ${ getMarginValue(margin) || margin } !important;`,
     marginBlock !== undefined
-      && marginBlockProperty(getMarginValue(marginBlock) || marginBlock),
+      && css`margin-block: ${ getMarginValue(marginBlock) || marginBlock } !important;`,
     marginBlockStart !== undefined
-      && marginBlockStartProperty(getMarginValue(marginBlockStart) || marginBlockStart),
+      && css`margin-block-start: ${ getMarginValue(marginBlockStart) || marginBlockStart } !important;`,
     marginBlockEnd !== undefined
-      && marginBlockEndProperty(getMarginValue(marginBlockEnd) || marginBlockEnd),
+      && css`margin-block-end: ${ getMarginValue(marginBlockEnd) || marginBlockEnd } !important;`,
     marginInline !== undefined
-      && marginInlineProperty(getMarginValue(marginInline) || marginInline),
+      && css`margin-inline: ${ getMarginValue(marginInline) || marginInline } !important;`,
     marginInlineStart !== undefined
-      && marginInlineStartProperty(getMarginValue(marginInlineStart) || marginInlineStart),
+      && css`margin-inline-start: ${ getMarginValue(marginInlineStart) || marginInlineStart } !important;`,
     marginInlineEnd !== undefined
-      && marginInlineEndProperty(getMarginValue(marginInlineEnd) || marginInlineEnd),
+      && css`margin-inline-end: ${ getMarginValue(marginInlineEnd) || marginInlineEnd } !important;`,
     padding !== undefined
       && css`padding: ${ getPaddingValue(padding) || padding } !important;`,
     paddingBlock !== undefined
-      && paddingBlockProperty(getPaddingValue(paddingBlock) || paddingBlock),
+      && css`padding-block: ${ getPaddingValue(paddingBlock) || paddingBlock } !important;`,
     paddingBlockStart !== undefined
-      && paddingBlockStartProperty(getPaddingValue(paddingBlockStart) || paddingBlockStart),
+      && css`padding-block-start: ${ getPaddingValue(paddingBlockStart) || paddingBlockStart } !important;`,
     paddingBlockEnd !== undefined
-      && paddingBlockEndProperty(getPaddingValue(paddingBlockEnd) || paddingBlockEnd),
+      && css`padding-block-end: ${ getPaddingValue(paddingBlockEnd) || paddingBlockEnd } !important;`,
     paddingInline !== undefined
-      && paddingInlineProperty(getPaddingValue(paddingInline) || paddingInline),
+      && css`padding-inline: ${ getPaddingValue(paddingInline) || paddingInline } !important;`,
     paddingInlineStart !== undefined
-      && paddingInlineStartProperty(getPaddingValue(paddingInlineStart) || paddingInlineStart),
+      && css`padding-inline-start: ${ getPaddingValue(paddingInlineStart) || paddingInlineStart } !important;`,
     paddingInlineEnd !== undefined
-      && paddingInlineEndProperty(getPaddingValue(paddingInlineEnd) || paddingInlineEnd),
+      && css`padding-inline-end: ${ getPaddingValue(paddingInlineEnd) || paddingInlineEnd } !important;`,
   ],
   ...props,
 });

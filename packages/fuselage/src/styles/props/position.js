@@ -1,8 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
 
-import { createLogicalProperties } from '../../helpers/createLogicalProperties';
 import { createPropType } from '../../helpers/createPropType';
-import { cssSupports } from '../../helpers/cssSupports';
 import { memoize } from '../../helpers/memoize';
 
 export const getInsetValue = memoize((propValue) => {
@@ -35,58 +33,6 @@ export const getInsetValue = memoize((propValue) => {
 
 export const insetPropType = createPropType(getInsetValue);
 
-export const insetProperty = (inset) => {
-  if (cssSupports('inset: inherit')) {
-    return css`inset: ${ inset } !important;`;
-  }
-
-  if (cssSupports('inset-block: inherit') && cssSupports('inset-inline: inherit')) {
-    return css`
-      inset-block: ${ inset } !important;
-      inset-inline: ${ inset } !important;
-    `;
-  }
-
-  if (cssSupports('inset-block-start: inherit')
-    && cssSupports('inset-block-end: inherit')
-    && cssSupports('inset-inline-start: inherit')
-    && cssSupports('inset-inline-end: inherit')) {
-    return css`
-      inset-block-start: ${ inset } !important;
-      inset-block-end: ${ inset } !important;
-      inset-inline-start: ${ inset } !important;
-      inset-inline-end: ${ inset } !important;
-    `;
-  }
-
-  return css`
-    top: ${ inset } !important;
-    bottom: ${ inset } !important;
-    left: ${ inset } !important;
-    right: ${ inset } !important;
-  `;
-};
-
-export const [
-  insetBlockProperty,
-  insetBlockStartProperty,
-  insetBlockEndProperty,
-  insetInlineProperty,
-  insetInlineStartProperty,
-  insetInlineEndProperty,
-] = createLogicalProperties({
-  blockPropertyName: 'inset-block',
-  blockStartPropertyName: 'inset-block-start',
-  blockStartFallbackPropertyName: 'top',
-  blockEndPropertyName: 'inset-block-end',
-  blockEndFallbackPropertyName: 'bottom',
-  inlinePropertyName: 'inset-inline',
-  inlineStartPropertyName: 'inset-inline-start',
-  inlineStartFallbackPropertyName: 'left',
-  inlineEndPropertyName: 'inset-inline-end',
-  inlineEndFallbackPropertyName: 'right',
-});
-
 export const mapPositionProps = ({
   className,
   position,
@@ -104,13 +50,13 @@ export const mapPositionProps = ({
     ...className,
     position !== undefined && css`position: ${ position } !important;`,
     zIndex !== undefined && css`z-index: ${ zIndex } !important;`,
-    inset !== undefined && insetProperty(getInsetValue(inset) || inset),
-    insetBlock !== undefined && insetBlockProperty(getInsetValue(insetBlock) || insetBlock),
-    insetBlockStart !== undefined && insetBlockStartProperty(getInsetValue(insetBlockStart) || insetBlockStart),
-    insetBlockEnd !== undefined && insetBlockEndProperty(getInsetValue(insetBlockEnd) || insetBlockEnd),
-    insetInline !== undefined && insetInlineProperty(getInsetValue(insetInline) || insetInline),
-    insetInlineStart !== undefined && insetInlineStartProperty(getInsetValue(insetInlineStart) || insetInlineStart),
-    insetInlineEnd !== undefined && insetInlineEndProperty(getInsetValue(insetInlineEnd) || insetInlineEnd),
+    inset !== undefined && css`inset: ${ getInsetValue(inset) || inset } !important;`,
+    insetBlock !== undefined && css`inset-block: ${ getInsetValue(insetBlock) || insetBlock } !important;`,
+    insetBlockStart !== undefined && css`inset-block-start: ${ getInsetValue(insetBlockStart) || insetBlockStart } !important;`,
+    insetBlockEnd !== undefined && css`inset-block-end: ${ getInsetValue(insetBlockEnd) || insetBlockEnd } !important;`,
+    insetInline !== undefined && css`inset-inline: ${ getInsetValue(insetInline) || insetInline } !important;`,
+    insetInlineStart !== undefined && css`inset-inline-start: ${ getInsetValue(insetInlineStart) || insetInlineStart } !important;`,
+    insetInlineEnd !== undefined && css`inset-inline-end: ${ getInsetValue(insetInlineEnd) || insetInlineEnd } !important;`,
   ],
   ...props,
 });

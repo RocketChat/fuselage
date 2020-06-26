@@ -1,10 +1,9 @@
 import { css } from '@rocket.chat/css-in-js';
 
 import { getColorValue } from './colors';
-import { getPaddingValue, getMarginValue, paddingInlineStartProperty } from './spaces';
+import { getPaddingValue, getMarginValue } from './spaces';
 import { getBorderRadiusValue, getBorderWidthValue } from './borders';
-import { getFontFamilyValue, fontScaleProperty } from './typography';
-import { insetBlockStartProperty } from './position';
+import { getFontFamilyValue, getFontScaleValue } from './typography';
 
 const invisibleStyles = css`
   visibility: hidden;
@@ -106,11 +105,11 @@ const withRichContentStyles = css`
   }
 
   sup {
-    ${ insetBlockStartProperty('-0.5em') };
+    inset-block-start: -0.5em;
   }
 
   sub {
-    ${ insetBlockStartProperty('-0.25em') };
+    inset-block-start: -0.25em;
   }
 
   kbd {
@@ -150,46 +149,72 @@ const withRichContentStyles = css`
   }
 
   h1 {
-    ${ fontScaleProperty('h1') }
+    font-size: ${ getFontScaleValue('h1')?.fontSize };
+    font-weight: ${ getFontScaleValue('h1')?.fontWeight };
+    line-height: ${ getFontScaleValue('h1')?.lineHeight };
+    letter-spacing: ${ getFontScaleValue('h1')?.letterSpacing };
   }
 
   h2 {
-    ${ fontScaleProperty('s2') }
-    @include typography.use-font-scale(s2);
+    font-size: ${ getFontScaleValue('s2')?.fontSize };
+    font-weight: ${ getFontScaleValue('s2')?.fontWeight };
+    line-height: ${ getFontScaleValue('s2')?.lineHeight };
+    letter-spacing: ${ getFontScaleValue('s2')?.letterSpacing };
   }
 
   h3 {
-    ${ fontScaleProperty('p2') }
+    font-size: ${ getFontScaleValue('p2')?.fontSize };
+    font-weight: ${ getFontScaleValue('p2')?.fontWeight };
+    line-height: ${ getFontScaleValue('p2')?.lineHeight };
+    letter-spacing: ${ getFontScaleValue('p2')?.letterSpacing };
   }
 
   h4 {
-    ${ fontScaleProperty('c2') }
+    font-size: ${ getFontScaleValue('c2')?.fontSize };
+    font-weight: ${ getFontScaleValue('c2')?.fontWeight };
+    line-height: ${ getFontScaleValue('c2')?.lineHeight };
+    letter-spacing: ${ getFontScaleValue('c2')?.letterSpacing };
   }
 
   h5 {
-    ${ fontScaleProperty('micro') }
+    font-size: ${ getFontScaleValue('micro')?.fontSize };
+    font-weight: ${ getFontScaleValue('micro')?.fontWeight };
+    line-height: ${ getFontScaleValue('micro')?.lineHeight };
+    letter-spacing: ${ getFontScaleValue('micro')?.letterSpacing };
   }
 
   h6 {
-    ${ fontScaleProperty('micro') }
+    font-size: ${ getFontScaleValue('micro')?.fontSize };
+    font-weight: ${ getFontScaleValue('micro')?.fontWeight };
+    line-height: ${ getFontScaleValue('micro')?.lineHeight };
+    letter-spacing: ${ getFontScaleValue('micro')?.letterSpacing };
   }
 
   p {
-    ${ fontScaleProperty('p1') }
+    font-size: ${ getFontScaleValue('p1')?.fontSize };
+    font-weight: ${ getFontScaleValue('p1')?.fontWeight };
+    line-height: ${ getFontScaleValue('p1')?.lineHeight };
+    letter-spacing: ${ getFontScaleValue('p1')?.letterSpacing };
   }
 
   ul,
   ol {
-    ${ paddingInlineStartProperty(getPaddingValue('x40')) };
+    padding-inline-start: ${ getPaddingValue('x40') };
   }
 
   ul {
-    ${ fontScaleProperty('p1') }
+    font-size: ${ getFontScaleValue('p1')?.fontSize };
+    font-weight: ${ getFontScaleValue('p1')?.fontWeight };
+    line-height: ${ getFontScaleValue('p1')?.lineHeight };
+    letter-spacing: ${ getFontScaleValue('p1')?.letterSpacing };
     list-style-type: disc;
   }
 
   ol {
-    ${ fontScaleProperty('p1') }
+    font-size: ${ getFontScaleValue('p1')?.fontSize };
+    font-weight: ${ getFontScaleValue('p1')?.fontWeight };
+    line-height: ${ getFontScaleValue('p1')?.lineHeight };
+    letter-spacing: ${ getFontScaleValue('p1')?.letterSpacing };
     list-style-type: decimal;
   }
 

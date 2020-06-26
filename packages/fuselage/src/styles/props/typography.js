@@ -40,71 +40,6 @@ export const getFontScaleValue = (propValue) => {
   };
 };
 
-const fontFamilyProperty = (value) =>
-  css`font-family: ${ getFontFamilyValue(value) || value } !important;`;
-
-const fontSizeProperty = (value) =>
-  css`font-size: ${ getFontScaleValue(value)?.fontSize || getSizeValue(value) || value } !important;`;
-
-const fontWeightProperty = (value) =>
-  css`font-weight: ${ getFontScaleValue(value)?.fontWeight || value } !important;`;
-
-const lineHeightProperty = (value) =>
-  css `line-height: ${ getFontScaleValue(value)?.lineHeight || getSizeValue(value) || value } !important;`;
-
-const letterSpacingProperty = (value) =>
-  css`letter-spacing: ${ getFontScaleValue(value)?.letterSpacing || value } !important;`;
-
-export const fontScaleProperty = (value) => {
-  const {
-    fontSize,
-    fontWeight,
-    lineHeight,
-    letterSpacing,
-  } = getFontScaleValue(value);
-
-  return css`
-    font-size: ${ fontSize } !important;
-    font-weight: ${ fontWeight } !important;
-    line-height: ${ lineHeight } !important;
-    letter-spacing: ${ letterSpacing } !important;
-  `;
-};
-
-const fontStyleProperty = (value) => css`font-style: ${ value } !important;`;
-
-const textAlignProperty = (value) => {
-  if (value === 'start' && !cssSupports('text-align: start')) {
-    return css`
-      :not([dir=rtl]) & {
-        text-align: left;
-      }
-
-      [dir=rtl] & {
-        text-align: right;
-      }
-    `;
-  }
-
-  if (value === 'end' && !cssSupports('text-align: end')) {
-    return css`
-      *:not([dir=rtl]) & {
-        text-align: right;
-      }
-
-      [dir=rtl] & {
-        text-align: left;
-      }
-    `;
-  }
-
-  return css`text-align: ${ value } !important;`;
-};
-
-const textTransformProperty = (value) => css`text-transform: ${ value } !important;`;
-
-const textDecorationLineProperty = (value) => css`text-decoration-line: ${ value } !important;`;
-
 export const mapTypographyProps = ({
   className,
   fontFamily,
@@ -121,16 +56,31 @@ export const mapTypographyProps = ({
 }) => ({
   className: [
     ...className,
-    fontFamily !== undefined && fontFamilyProperty(fontFamily),
-    fontSize !== undefined && fontSizeProperty(fontSize),
-    fontWeight !== undefined && fontWeightProperty(fontWeight),
-    lineHeight !== undefined && lineHeightProperty(lineHeight),
-    letterSpacing !== undefined && letterSpacingProperty(letterSpacing),
-    fontScale !== undefined && fontScaleProperty(fontScale),
-    fontStyle !== undefined && fontStyleProperty(fontStyle),
-    textAlign !== undefined && textAlignProperty(textAlign),
-    textTransform !== undefined && textTransformProperty(textTransform),
-    textDecorationLine !== undefined && textDecorationLineProperty(textDecorationLine),
+    fontFamily !== undefined
+      && css`font-family: ${ getFontFamilyValue(fontFamily) || fontFamily } !important;`,
+    fontSize !== undefined
+      && css`font-size: ${ getFontScaleValue(fontSize)?.fontSize || getSizeValue(fontSize) || fontSize } !important;`,
+    fontWeight !== undefined
+      && css`font-weight: ${ getFontScaleValue(fontWeight)?.fontWeight || fontWeight } !important;`,
+    lineHeight !== undefined
+      && css `line-height: ${ getFontScaleValue(lineHeight)?.lineHeight || getSizeValue(lineHeight) || lineHeight } !important;`,
+    letterSpacing !== undefined
+      && css`letter-spacing: ${ getFontScaleValue(letterSpacing)?.letterSpacing || letterSpacing } !important;`,
+    fontScale !== undefined
+      && css`
+        font-size: ${ getFontScaleValue(fontScale)?.fontSize } !important;
+        font-weight: ${ getFontScaleValue(fontScale)?.fontWeight } !important;
+        line-height: ${ getFontScaleValue(fontScale)?.lineHeight } !important;
+        letter-spacing: ${ getFontScaleValue(fontScale)?.letterSpacing } !important;
+      `,
+    fontStyle !== undefined
+      && css`font-style: ${ fontStyle } !important;`,
+    textAlign !== undefined
+      && css`text-align: ${ textAlign } !important;`,
+    textTransform !== undefined
+      && css`text-transform: ${ textTransform } !important;`,
+    textDecorationLine !== undefined
+      && css`text-decoration-line: ${ textDecorationLine } !important;`,
   ],
   ...props,
 });
