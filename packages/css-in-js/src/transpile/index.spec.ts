@@ -1,4 +1,4 @@
-import { transpile } from '.';
+import { transpile } from '..';
 
 describe('transpile', () => {
   it('transpiles simple properties', () => {
