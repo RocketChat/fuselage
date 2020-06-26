@@ -46,15 +46,10 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
       base: 'size',
     },
   ].forEach((property) => {
-    const all = createPropertyName(property.prefix, property.base);
     const inline = createPropertyName(property.prefix, 'inline', property.base);
     const block = createPropertyName(property.prefix, 'block', property.base);
     const fallbackInline = createPropertyName(property.prefix, 'width');
     const fallbackBlock = createPropertyName(property.prefix, 'height');
-
-    if (!isSupported(all)) {
-      transforms.set(all, replacementTransform([fallbackInline, fallbackBlock]));
-    }
 
     if (!isSupported(inline)) {
       transforms.set(inline, replacementTransform([fallbackInline]));

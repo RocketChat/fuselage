@@ -1,20 +1,6 @@
 import { transpile } from '..';
 
 describe('logical properties plugins', () => {
-  describe('size', () => {
-    it('supports size', () => {
-      expect(transpile('div', 'size: inherit;', {
-        supportedProperties: ['size'],
-      }))
-        .toBe('div{size:inherit;}');
-    });
-
-    it('fallbacks', () => {
-      expect(transpile('div', 'size: inherit;'))
-        .toBe('div{width:inherit;height:inherit;}');
-    });
-  });
-
   describe('inline-size', () => {
     it('supports inline-size', () => {
       expect(transpile('div', 'inline-size: inherit;', {
@@ -44,20 +30,6 @@ describe('logical properties plugins', () => {
     });
   });
 
-  describe('min-size', () => {
-    it('supports min-size', () => {
-      expect(transpile('div', 'min-size: inherit;', {
-        supportedProperties: ['min-size'],
-      }))
-        .toBe('div{min-size:inherit;}');
-    });
-
-    it('fallbacks', () => {
-      expect(transpile('div', 'min-size: inherit;'))
-        .toBe('div{min-width:inherit;min-height:inherit;}');
-    });
-  });
-
   describe('min-inline-size', () => {
     it('supports min-inline-size', () => {
       expect(transpile('div', 'min-inline-size: inherit;', {
@@ -84,20 +56,6 @@ describe('logical properties plugins', () => {
     it('fallbacks', () => {
       expect(transpile('div', 'min-block-size: inherit;'))
         .toBe('div{min-height:inherit;}');
-    });
-  });
-
-  describe('max-size', () => {
-    it('supports max-size', () => {
-      expect(transpile('div', 'max-size: inherit;', {
-        supportedProperties: ['max-size'],
-      }))
-        .toBe('div{max-size:inherit;}');
-    });
-
-    it('fallbacks', () => {
-      expect(transpile('div', 'max-size: inherit;'))
-        .toBe('div{max-width:inherit;max-height:inherit;}');
     });
   });
 
