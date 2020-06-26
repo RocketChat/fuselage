@@ -27,6 +27,7 @@ yarn test
 
 #### Table of Contents
 
+-   [cssSupports](#csssupports)
 -   [createSelector](#createselector)
     -   [Parameters](#parameters)
 -   [attachRules](#attachrules)
@@ -43,6 +44,12 @@ yarn test
     -   [Parameters](#parameters-6)
 -   [transpile](#transpile)
     -   [Parameters](#parameters-7)
+
+### cssSupports
+
+Memoized and SSR-compatible facade of CSS.supports API
+
+Type: function (value: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### createSelector
 
@@ -130,6 +137,7 @@ Transpiles CSS Modules content to CSS rules.
 
 -   `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `options` **TranspileOptions?** 
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
