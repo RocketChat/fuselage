@@ -1,17 +1,17 @@
 import { transpile } from '..';
 
-describe('logical properties plugin', () => {
+describe('logical properties plugins', () => {
   describe('margin-inline', () => {
     it('supports margin-inline', () => {
       expect(transpile('div', 'margin-inline: inherit;', {
-        marginInline: true,
+        supportedProperties: ['margin-inline'],
       }))
         .toBe('div{margin-inline:inherit;}');
     });
 
     it('supports margin-inline-start and margin-inline-end', () => {
       expect(transpile('div', 'margin-inline: inherit;', {
-        marginInlineStartEnd: true,
+        supportedProperties: ['margin-inline-start', 'margin-inline-end'],
       }))
         .toBe('div{margin-inline-start:inherit;margin-inline-end:inherit;}');
     });
@@ -23,9 +23,9 @@ describe('logical properties plugin', () => {
   });
 
   describe('margin-inline-start', () => {
-    it('supports margin-inline-start and margin-inline-end', () => {
+    it('supports margin-inline-start', () => {
       expect(transpile('div', 'margin-inline-start: inherit;', {
-        marginInlineStartEnd: true,
+        supportedProperties: ['margin-inline-start'],
       }))
         .toBe('div{margin-inline-start:inherit;}');
     });
@@ -37,9 +37,9 @@ describe('logical properties plugin', () => {
   });
 
   describe('margin-inline-end', () => {
-    it('supports margin-inline-start and margin-inline-end', () => {
+    it('supports margin-inline-end', () => {
       expect(transpile('div', 'margin-inline-end: inherit;', {
-        marginInlineStartEnd: true,
+        supportedProperties: ['margin-inline-end'],
       }))
         .toBe('div{margin-inline-end:inherit;}');
     });
@@ -53,14 +53,14 @@ describe('logical properties plugin', () => {
   describe('margin-block', () => {
     it('supports margin-block', () => {
       expect(transpile('div', 'margin-block: inherit;', {
-        marginBlock: true,
+        supportedProperties: ['margin-block'],
       }))
         .toBe('div{margin-block:inherit;}');
     });
 
     it('supports margin-block-start and margin-block-end', () => {
       expect(transpile('div', 'margin-block: inherit;', {
-        marginBlockStartEnd: true,
+        supportedProperties: ['margin-block-start', 'margin-block-end'],
       }))
         .toBe('div{margin-block-start:inherit;margin-block-end:inherit;}');
     });
@@ -74,7 +74,7 @@ describe('logical properties plugin', () => {
   describe('margin-block-start', () => {
     it('supports margin-block-start and margin-block-end', () => {
       expect(transpile('div', 'margin-block-start: inherit;', {
-        marginBlockStartEnd: true,
+        supportedProperties: ['margin-block-start'],
       }))
         .toBe('div{margin-block-start:inherit;}');
     });
@@ -88,7 +88,7 @@ describe('logical properties plugin', () => {
   describe('margin-block-end', () => {
     it('supports margin-block-start and margin-block-end', () => {
       expect(transpile('div', 'margin-block-end: inherit;', {
-        marginBlockStartEnd: true,
+        supportedProperties: ['margin-block-end'],
       }))
         .toBe('div{margin-block-end:inherit;}');
     });
