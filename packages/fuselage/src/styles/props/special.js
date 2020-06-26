@@ -2,7 +2,7 @@ import { css } from '@rocket.chat/css-in-js';
 
 import { getColorValue } from './colors';
 import { getPaddingValue, getMarginValue, paddingInlineStartProperty } from './spaces';
-import { getBorderRadiusValue, borderBlockEndWidthProperty, getBorderWidthValue } from './borders';
+import { getBorderRadiusValue, getBorderWidthValue } from './borders';
 import { getFontFamilyValue, fontScaleProperty } from './typography';
 import { insetBlockStartProperty } from './position';
 
@@ -85,7 +85,7 @@ const withRichContentStyles = css`
   abbr {
     &[title] {
       text-decoration: underline dashed;
-      ${ borderBlockEndWidthProperty('none') };
+      border-block-end-width: ${ getBorderWidthValue('none') };
     }
   }
 
