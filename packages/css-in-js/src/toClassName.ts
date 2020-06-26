@@ -8,9 +8,9 @@ import type { cssFn, classNameFn } from './tags';
  *
  * @return a string containing a className or undefined
  */
-export const toClassName = (value: cssFn | classNameFn | string): string => {
+export const toClassName = (value: cssFn | classNameFn | string): string | undefined => {
   if (typeof value === 'function') {
-    const rules = [];
+    const rules: string[] = [];
     rules.push(value(rules));
 
     const content = rules.filter(Boolean).join('') || undefined;

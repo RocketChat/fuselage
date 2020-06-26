@@ -17,7 +17,13 @@ let styleSheet: CSSStyleSheet;
 const getStyleSheet = (): CSSStyleSheet => {
   if (!styleSheet) {
     const styleTag = getStyleTag();
-    styleSheet = styleTag.sheet || Array.from(document.styleSheets).find(({ ownerNode }) => ownerNode === styleTag);
+    const _styleSheet = styleTag.sheet || Array.from(document.styleSheets).find(({ ownerNode }) => ownerNode === styleTag);
+
+    if (!_styleSheet) {
+      throw Error('could not get style sheet');
+    }
+
+    styleSheet = _styleSheet;
   }
 
   return styleSheet;

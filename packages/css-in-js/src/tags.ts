@@ -7,7 +7,7 @@ export type classNameFn = {
   className: string;
 };
 
-const createReplacementsMapping = (rules = []) => (value: unknown) => {
+const createReplacementsMapping = (rules: string[] = []) => (value: unknown) => {
   if (value === 0) {
     return '0';
   }

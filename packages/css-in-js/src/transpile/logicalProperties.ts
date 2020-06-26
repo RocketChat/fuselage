@@ -6,7 +6,7 @@ export type LogicalPropertiesOptions = {
   supportedProperties?: string[];
 };
 
-const createPropertyName = (...parts: string[]): string => parts.filter(Boolean).join('-');
+const createPropertyName = (...parts: (string | undefined)[]): string => parts.filter(Boolean).join('-');
 
 export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions): Plugin => {
   const supportedProperties = new Set(options.supportedProperties);
@@ -16,7 +16,7 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
 
   const transforms = new Map<string, (value: string, selectors: string[]) => (string | void)>();
 
-  let buffer: string;
+  let buffer = '';
 
   const replacementTransform = (replacement: string[]) =>
     (value: string) =>
@@ -222,16 +222,11 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
 
   return (context: Context, content: string, selectors: string[]) => {
     switch (context) {
-      case -1: {
-        buffer = '';
-        break;
-      }
-
       case -2: {
         try {
           return `${ content }${ buffer }`;
         } finally {
-          buffer = undefined;
+          buffer = '';
         }
       }
 

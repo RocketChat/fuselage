@@ -30,6 +30,7 @@ module.exports = {
     '@typescript-eslint/func-call-spacing': ['error'],
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': ['warn', {
       allowExpressions: true,
