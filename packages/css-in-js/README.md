@@ -34,16 +34,18 @@ yarn test
     -   [Parameters](#parameters-1)
 -   [referenceRules](#referencerules)
     -   [Parameters](#parameters-2)
+-   [EvaluationContext](#evaluationcontext)
+-   [currentContext](#currentcontext)
+-   [holdContext](#holdcontext)
+-   [Evaluable](#evaluable)
 -   [css](#css)
     -   [Parameters](#parameters-3)
--   [className](#classname)
-    -   [Parameters](#parameters-4)
 -   [keyframes](#keyframes)
-    -   [Parameters](#parameters-5)
+    -   [Parameters](#parameters-4)
 -   [toClassName](#toclassname)
-    -   [Parameters](#parameters-6)
+    -   [Parameters](#parameters-5)
 -   [transpile](#transpile)
-    -   [Parameters](#parameters-7)
+    -   [Parameters](#parameters-6)
 
 ### cssSupports
 
@@ -87,6 +89,32 @@ style sheet.
 
 Returns **function (): void** a callback to unreference the rules
 
+### EvaluationContext
+
+A shared state created by the upmost Evaluable in the call stack
+
+Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>
+
+### currentContext
+
+It can be stored at this module scope because all Evaluable calls are
+synchronous, therefore the first call must create and destroy this context.
+
+Type: ([EvaluationContext](#evaluationcontext) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))
+
+### holdContext
+
+Holds to the evaluation context inside a Evaluable.
+
+Returns **\[[EvaluationContext](#evaluationcontext), function (): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** a pair of the evaluation context and a function to free it,
+         returning the additional evaluation stored at the context.
+
+### Evaluable
+
+A function that lazily evaluates a special string interpolation.
+
+Type: function (...args: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
+
 ### css
 
 Template string tag to declare CSS content chunks.
@@ -94,19 +122,9 @@ Template string tag to declare CSS content chunks.
 #### Parameters
 
 -   `slices` **TemplateStringsArray** 
--   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+-   `values` **...any** 
 
 Returns **cssFn** a callback to render the CSS content
-
-### className
-
-Template string tag to declare CSS content within a className.
-
-#### Parameters
-
--   `className` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-
-Returns **any** a callback to render the CSS content
 
 ### keyframes
 
@@ -115,9 +133,9 @@ Template string tag to declare CSS `@keyframe` at-rules.
 #### Parameters
 
 -   `slices` **TemplateStringsArray** 
--   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+-   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>** 
 
-Returns **function (rules: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a callback to render the CSS at-rule content
+Returns **keyframesFn** a callback to render the CSS at-rule content
 
 ### toClassName
 
@@ -125,9 +143,9 @@ Process a value as a className.
 
 #### Parameters
 
--   `value` **(cssFn | classNameFn | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+-   `value` **(cssFn | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a string containing a className or undefined
+Returns **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** a string containing a className or undefined
 
 ### transpile
 
