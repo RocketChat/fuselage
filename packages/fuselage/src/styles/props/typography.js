@@ -1,8 +1,7 @@
-import { css } from '@rocket.chat/css-in-js';
+import { css, cssSupports } from '@rocket.chat/css-in-js';
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography';
 import PropTypes from 'prop-types';
 
-import { cssSupports } from '../../helpers/cssSupports';
 import { getSizeValue } from './layout';
 
 export const getFontFamilyValue = (propValue) => {
