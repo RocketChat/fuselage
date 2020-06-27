@@ -1,4 +1,4 @@
-import { createAnimationName, escapeName } from './selectors';
+import { createAnimationName, escapeName } from './names';
 
 /**
  * A shared state created by the upmost Evaluable in the call stack

@@ -1,4 +1,4 @@
-import { createSelector } from './selectors';
+import { createClassName } from './names';
 import { referenceRules } from './sheet';
 import { transpile } from './transpile';
 import { cssFn } from './tags';
@@ -16,7 +16,7 @@ export const toClassName = (value: cssFn | string): string | undefined => {
       return undefined;
     }
 
-    const className = value.className || createSelector(content)[0];
+    const className = createClassName(value.className, content);
     const encodedClassName = className.replace(/@|#|:/g, (char) => `\\${ char }`);
 
     const parsedRules = transpile(`.${ encodedClassName }`, content);

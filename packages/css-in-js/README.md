@@ -28,41 +28,28 @@ yarn test
 #### Table of Contents
 
 -   [cssSupports](#csssupports)
--   [createSelector](#createselector)
-    -   [Parameters](#parameters)
 -   [attachRules](#attachrules)
-    -   [Parameters](#parameters-1)
+    -   [Parameters](#parameters)
 -   [referenceRules](#referencerules)
-    -   [Parameters](#parameters-2)
+    -   [Parameters](#parameters-1)
 -   [EvaluationContext](#evaluationcontext)
 -   [currentContext](#currentcontext)
 -   [holdContext](#holdcontext)
 -   [Evaluable](#evaluable)
 -   [css](#css)
-    -   [Parameters](#parameters-3)
+    -   [Parameters](#parameters-2)
 -   [keyframes](#keyframes)
-    -   [Parameters](#parameters-4)
+    -   [Parameters](#parameters-3)
 -   [toClassName](#toclassname)
-    -   [Parameters](#parameters-5)
+    -   [Parameters](#parameters-4)
 -   [transpile](#transpile)
-    -   [Parameters](#parameters-6)
+    -   [Parameters](#parameters-5)
 
 ### cssSupports
 
 Memoized and SSR-compatible facade of CSS.supports API
 
 Type: function (value: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-
-### createSelector
-
-Creates a pair of selector and escaped selector for a CSS Modules content.
-
-#### Parameters
-
--   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-
-Returns **\[[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** a pair of selectors in the format `rcx-@<content hash>`; the second element is escaped
-for use in CSS content
 
 ### attachRules
 
