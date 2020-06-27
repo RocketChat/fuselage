@@ -27,23 +27,34 @@ yarn test
 
 #### Table of Contents
 
+-   [createClassNameMapping](#createclassnamemapping)
+    -   [Parameters](#parameters)
 -   [cssSupports](#csssupports)
 -   [attachRules](#attachrules)
-    -   [Parameters](#parameters)
--   [referenceRules](#referencerules)
     -   [Parameters](#parameters-1)
+-   [referenceRules](#referencerules)
+    -   [Parameters](#parameters-2)
 -   [EvaluationContext](#evaluationcontext)
 -   [currentContext](#currentcontext)
 -   [holdContext](#holdcontext)
 -   [Evaluable](#evaluable)
 -   [css](#css)
-    -   [Parameters](#parameters-2)
--   [keyframes](#keyframes)
     -   [Parameters](#parameters-3)
--   [toClassName](#toclassname)
+-   [keyframes](#keyframes)
     -   [Parameters](#parameters-4)
 -   [transpile](#transpile)
     -   [Parameters](#parameters-5)
+
+### createClassNameMapping
+
+Creates a mapping for class names as `css` tagged template functions and
+strings.
+
+#### Parameters
+
+-   `args` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>** the arguments passed to the `css` tagged template functions
+
+Returns **any** a mapping function that returns a class name string or `undefined`
 
 ### cssSupports
 
@@ -123,16 +134,6 @@ Template string tag to declare CSS `@keyframe` at-rules.
 -   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>** 
 
 Returns **keyframesFn** a callback to render the CSS at-rule content
-
-### toClassName
-
-Process a value as a className.
-
-#### Parameters
-
--   `value` **(cssFn | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
-
-Returns **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** a string containing a className or undefined
 
 ### transpile
 

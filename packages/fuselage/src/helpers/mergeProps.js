@@ -1,4 +1,4 @@
-import { toClassName } from '@rocket.chat/css-in-js';
+import { createClassNameMapping } from '@rocket.chat/css-in-js';
 
 export const mergeProps = (targetProps, sourceProps, transforms = []) => {
   const initialProps = {
@@ -18,7 +18,7 @@ export const mergeProps = (targetProps, sourceProps, transforms = []) => {
 
   mergedProps.className = Array.from(
     new Set(
-      mergedProps.className.map(toClassName).filter(Boolean),
+      mergedProps.className.map(createClassNameMapping(sourceProps)).filter(Boolean),
     ),
   ).join(' ');
 

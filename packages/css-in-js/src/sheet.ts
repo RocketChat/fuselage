@@ -77,7 +77,7 @@ const references = {};
  * @return a callback to unreference the rules
  */
 export const referenceRules = (rules: string): (() => void) => {
-  if (!rules) {
+  if (!rules || typeof window === 'undefined') {
     return () => undefined;
   }
 
