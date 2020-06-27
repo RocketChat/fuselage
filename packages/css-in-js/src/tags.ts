@@ -1,4 +1,5 @@
 import { createAnimationName, escapeName } from './names';
+import { memoize } from './memoize';
 
 /**
  * A shared state created by the upmost Evaluable in the call stack
@@ -34,9 +35,13 @@ export const holdContext = (): [EvaluationContext, (() => string)] => {
 /**
  * A function that lazily evaluates a special string interpolation.
  */
-type Evaluable = (...args: unknown[]) => string;
+type Evaluable = (...args: readonly unknown[]) => string;
 
 const isEvaluable = (x: unknown): x is Evaluable => typeof x === 'function';
+
+const staticEvaluable = memoize(
+  <T extends Evaluable>(content: string): T => Object.freeze(() => content) as T,
+);
 
 export type cssFn = Evaluable & {
   className?: string;
@@ -46,7 +51,7 @@ export type keyframesFn = Evaluable & {
   animationName?: string;
 };
 
-const evaluateValue = (value: unknown, args: unknown[]): string => {
+const evaluateValue = (value: unknown, args: readonly unknown[]): string => {
   if (isEvaluable(value) || typeof value === 'function') {
     return evaluateValue(value(...args), args);
   }
@@ -58,6 +63,16 @@ const evaluateValue = (value: unknown, args: unknown[]): string => {
   return String(value);
 };
 
+const reduceEvaluable = (
+  [first, ...rest]: readonly string[],
+  values: readonly unknown[],
+  args: readonly unknown[],
+): string =>
+  values.reduce<string>(
+    (string, value, i) => string + evaluateValue(value, args) + rest[i],
+    first,
+  ).trim();
+
 /**
  * Template string tag to declare CSS content chunks.
  *
@@ -65,27 +80,19 @@ const evaluateValue = (value: unknown, args: unknown[]): string => {
  */
 export const css = (slices: TemplateStringsArray, ...values: readonly unknown[]): cssFn => {
   if (!slices || slices.length === 0 || slices.some((slice) => typeof slice !== 'string')) {
-    return () => '';
+    return staticEvaluable('');
   }
 
-  const [first, ...rest] = slices;
-
   if (!values.some((value) => typeof value === 'function')) {
-    const content = values.reduce<string>(
-      (string, value, i) => string + evaluateValue(value, []) + rest[i],
-      first,
-    ).trim();
+    const content = reduceEvaluable(slices, values, []);
 
-    return () => content;
+    return staticEvaluable(content);
   }
 
   return (...args: unknown[]): string => {
     const [, freeContext] = holdContext();
 
-    const content = values.reduce<string>(
-      (string, value, i) => string + evaluateValue(value, args) + rest[i],
-      first,
-    ).trim();
+    const content = reduceEvaluable(slices, values, args);
 
     return content + freeContext();
   };
@@ -98,18 +105,13 @@ export const css = (slices: TemplateStringsArray, ...values: readonly unknown[])
  */
 export const keyframes = (slices: TemplateStringsArray, ...values: unknown[]): keyframesFn => {
   if (!slices || slices.length === 0 || slices.some((slice) => typeof slice !== 'string')) {
-    return () => 'none';
+    return staticEvaluable('none');
   }
-
-  const [first, ...rest] = slices;
 
   const fn: keyframesFn = (...args: unknown[]): string => {
     const [context, freeContext] = holdContext();
 
-    const content = values.reduce<string>(
-      (string, value, i) => string + evaluateValue(value, args) + rest[i],
-      first,
-    ).trim();
+    const content = reduceEvaluable(slices, values, args);
 
     const animationName = createAnimationName(fn.animationName, content);
     const escapedAnimationName = escapeName(animationName);
