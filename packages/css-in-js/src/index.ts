@@ -1,4 +1,5 @@
+export { createAnimationName, createClassName, escapeName } from './names';
 export { css, keyframes } from './tags';
-export { createClassNameMapping } from './createClassNameMapping';
-export { transpile } from './transpile';
 export { cssSupports } from './cssSupports';
+export { referenceRules, attachRules } from './sheet';
+export { transpile } from './transpile';

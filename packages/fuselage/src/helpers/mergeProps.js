@@ -1,4 +1,30 @@
-import { createClassNameMapping } from '@rocket.chat/css-in-js';
+import { createClassName, escapeName, transpile, referenceRules } from '@rocket.chat/css-in-js';
+
+const createClassNameMapping = (...args) =>
+  (value) => {
+    if (typeof value === 'function') {
+      const content = value(...args);
+
+      if (!content) {
+        return;
+      }
+
+      const className = createClassName(value.className, content);
+      const escapedClassName = escapeName(className);
+
+      const transpiledContent = transpile(`.${ escapedClassName }`, content);
+
+      referenceRules(transpiledContent);
+
+      return className;
+    }
+
+    if (typeof value === 'string') {
+      return value.trim();
+    }
+
+    return undefined;
+  };
 
 export const mergeProps = (targetProps, sourceProps, transforms = []) => {
   const initialProps = {

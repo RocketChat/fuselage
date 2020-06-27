@@ -27,34 +27,21 @@ yarn test
 
 #### Table of Contents
 
--   [createClassNameMapping](#createclassnamemapping)
-    -   [Parameters](#parameters)
 -   [cssSupports](#csssupports)
 -   [attachRules](#attachrules)
-    -   [Parameters](#parameters-1)
+    -   [Parameters](#parameters)
 -   [referenceRules](#referencerules)
-    -   [Parameters](#parameters-2)
+    -   [Parameters](#parameters-1)
 -   [EvaluationContext](#evaluationcontext)
 -   [currentContext](#currentcontext)
 -   [holdContext](#holdcontext)
 -   [Evaluable](#evaluable)
 -   [css](#css)
-    -   [Parameters](#parameters-3)
+    -   [Parameters](#parameters-2)
 -   [keyframes](#keyframes)
-    -   [Parameters](#parameters-4)
+    -   [Parameters](#parameters-3)
 -   [transpile](#transpile)
-    -   [Parameters](#parameters-5)
-
-### createClassNameMapping
-
-Creates a mapping for class names as `css` tagged template functions and
-strings.
-
-#### Parameters
-
--   `args` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>** the arguments passed to the `css` tagged template functions
-
-Returns **any** a mapping function that returns a class name string or `undefined`
+    -   [Parameters](#parameters-4)
 
 ### cssSupports
 
@@ -111,7 +98,7 @@ Returns **\[[EvaluationContext](#evaluationcontext), function (): [string](https
 
 A function that lazily evaluates a special string interpolation.
 
-Type: function (...args: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
+Type: function (...args: any): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 ### css
 
