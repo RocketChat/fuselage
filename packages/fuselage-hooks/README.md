@@ -29,13 +29,13 @@ yarn test
 
 -   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
--   [useDebouncedUpdates](#usedebouncedupdates)
+-   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-1)
 -   [useDebouncedReducer](#usedebouncedreducer)
     -   [Parameters](#parameters-2)
 -   [useDebouncedState](#usedebouncedstate)
     -   [Parameters](#parameters-3)
--   [useDebouncedCallback](#usedebouncedcallback)
+-   [useDebouncedUpdates](#usedebouncedupdates)
     -   [Parameters](#parameters-4)
 -   [useDebouncedValue](#usedebouncedvalue)
     -   [Parameters](#parameters-5)
@@ -53,6 +53,7 @@ yarn test
     -   [Parameters](#parameters-11)
 -   [useToggle](#usetoggle)
     -   [Parameters](#parameters-12)
+-   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
 
@@ -60,47 +61,10 @@ Hook to automatically request focus for an DOM element.
 
 #### Parameters
 
--   `isFocused` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, the focus will be requested (optional, default `true`)
--   `options` **FocusOptions** options of the focus request
+-   `isFocused`  if true, the focus will be requested (optional, default `true`)
+-   `options` **Options?** options of the focus request
 
-Returns **{current: [HTMLElement](https://developer.mozilla.org/docs/Web/HTML/Element)?}** the ref which holds the element
-
-### useDebouncedUpdates
-
-Hook to debounce the state updater function returned by hooks like `useState()` and `useReducer()`.
-
-#### Parameters
-
--   `pair` **\[any, function (): any]** the state and updater pair which will be debounced
-    -   `pair.0`  the state value
-    -   `pair.1`  the state updater function
--   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** the number of milliseconds to delay the updater
-
-Returns **any** a state value and debounced updater pair
-
-### useDebouncedReducer
-
-Hook to create a reduced state with a debounced `dispatch()` function.
-
-#### Parameters
-
--   `reducer` **function (any, any): any** the reducer function
--   `initializerArg` **any** the initial state value or the argument passed to the initial state generator function
--   `initializer` **function (any): any** the initial state generator function
--   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** the number of milliseconds to delay the updater
-
-Returns **any** a state and debounced `dispatch()` function
-
-### useDebouncedState
-
-Hook to create a state with a debounced setter function.
-
-#### Parameters
-
--   `initialValue` **(any | function (): any)** the initial state value or the initial state generator function
--   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** the number of milliseconds to delay the updater
-
-Returns **any** a state and debounced setter function
+Returns **Ref&lt;{focus: function (options: Options): void}>** the ref which holds the element
 
 ### useDebouncedCallback
 
@@ -108,11 +72,49 @@ Hook to memoize a debounced version of a callback.
 
 #### Parameters
 
--   `callback` **function (): any** the callback to debounce
--   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** the number of milliseconds to delay
--   `deps` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>?** the hook dependencies
+-   `callback` **function (...args: P): any** the callback to debounce
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay
+-   `deps` **DependencyList?** the hook dependencies
 
-Returns **function (): any** a memoized and debounced callback
+Returns **any** a memoized and debounced callback
+
+### useDebouncedReducer
+
+Hook to create a reduced state with a debounced `dispatch()` function.
+
+#### Parameters
+
+-   `reducer` **R** the reducer function
+-   `initialArg` **I** the initial state value or the argument passed to the
+           initial state generator function
+-   `init` **function (arg: I): ReducerState&lt;R>** the initial state generator function
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the updater
+
+Returns **\[ReducerState&lt;R>, any]** a state and debounced `dispatch()` function
+
+### useDebouncedState
+
+Hook to create a state with a debounced setter function.
+
+#### Parameters
+
+-   `initialValue` **(S | function (): S)** the initial state value or the initial state generator function
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the updater
+
+Returns **\[S, any]** a state and debounced setter function
+
+### useDebouncedUpdates
+
+Hook to debounce the state dispatcher function returned by hooks like `useState()` and `useReducer()`.
+
+#### Parameters
+
+-   `pair` **\[S, DispatchWithoutAction]** the state and dispatcher pair which will be debounced
+    -   `pair.0`  the state value
+    -   `pair.1`  the state dispatcher function
+-   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the dispatcher
+
+Returns **\[S, any]** a state value and debounced dispatcher pair
 
 ### useDebouncedValue
 
@@ -120,10 +122,10 @@ Hook to keep a debounced reference of a value.
 
 #### Parameters
 
--   `value` **any** the value to be debounced
+-   `value` **V** the value to be debounced
 -   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay
 
-Returns **any** a debounced value
+Returns **V** a debounced value
 
 ### useLazyRef
 
@@ -131,7 +133,7 @@ Hook equivalent to useRef, but with a lazy initialization for computed value.
 
 #### Parameters
 
--   `initializer` **function (): T** the function the computes the ref value
+-   `init`  the function the computes the ref value
 
 Returns **any** the ref
 
@@ -141,7 +143,7 @@ Hook to listen to a media query.
 
 #### Parameters
 
--   `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the CSS3 media query expression
+-   `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** the CSS3 media query expression
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the media query matches; `false` is it does not match or the query is not defined
 
@@ -152,9 +154,9 @@ while receiving a forwared ref.
 
 #### Parameters
 
--   `refs` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Ref&lt;any>>** the refs and callback refs that should be merged
+-   `refs` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Ref&lt;T>>** the refs and callback refs that should be merged
 
-Returns **any** a merged callback ref
+Returns **RefCallback&lt;T>** a merged callback ref
 
 ### useMutableCallback
 
@@ -162,9 +164,9 @@ Hook to create a stable callback from a mutable one.
 
 #### Parameters
 
--   `fn` **function (): any** the mutable callback
+-   `fn` **function (...args: P): T** the mutable callback
 
-Returns **any** a stable callback
+Returns **function (...args: P): T** a stable callback
 
 ### useResizeObserver
 
@@ -172,23 +174,23 @@ Hook to track dimension changes in a DOM element using the ResizeObserver API.
 
 #### Parameters
 
--   `options` **UseResizeObserverOptions**  (optional, default `{}`)
+-   `options` **Options**  (optional, default `{}`)
     -   `options.debounceDelay`  the number of milliseconds to delay updates
 
-Returns **UseResizeObserverReturn** a triple containing the ref and the size information
+Returns **{ref: RefObject&lt;[Element](https://developer.mozilla.org/docs/Web/API/Element)>, contentBoxSize: ResizeObserverSize, borderBoxSize: ResizeObserverSize}** a triple containing the ref and the size information
 
 ### useSafely
 
-Hook that wraps pairs of state and updater to provide a new updater which
-can be safe and asynchronically called even after the component unmounted.
+Hook that wraps pairs of state and dispatcher to provide a new dispatcher
+which can be safe and asynchronically called even after the component unmounted.
 
 #### Parameters
 
--   `pair` **\[any, function (): any]** the state and updater pair which will be patched
+-   `pair` **\[S, (Dispatch&lt;A> | DispatchWithoutAction)]** the state and dispatcher pair which will be patched
     -   `pair.0`  the state value
-    -   `pair.1`  the state updater function
+    -   `pair.1`  the state dispatcher function
 
-Returns **any** a state value and safe updater pair
+Returns **\[S, D]** a state value and safe dispatcher pair
 
 ### useToggle
 
@@ -196,9 +198,15 @@ Hook to create a toggleable boolean state.
 
 #### Parameters
 
--   `initialValue` **(any | function (): any)** the initial value or the initial state generator function
+-   `initialValue` **([boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | function (): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean))?** the initial value or the initial state generator function
 
-Returns **any** a state boolean value and a state toggler function
+Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), D]** a state boolean value and a state toggler function
+
+### useUniqueId
+
+Hook to keep a unique ID string.
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the unique ID string
 
 ## Author
 
