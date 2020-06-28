@@ -29,19 +29,16 @@ yarn test
 
 -   [cssSupports](#csssupports)
 -   [attachRules](#attachrules)
-    -   [Parameters](#parameters)
--   [referenceRules](#referencerules)
-    -   [Parameters](#parameters-1)
 -   [EvaluationContext](#evaluationcontext)
 -   [currentContext](#currentcontext)
 -   [holdContext](#holdcontext)
 -   [Evaluable](#evaluable)
 -   [css](#css)
-    -   [Parameters](#parameters-2)
+    -   [Parameters](#parameters)
 -   [keyframes](#keyframes)
-    -   [Parameters](#parameters-3)
+    -   [Parameters](#parameters-1)
 -   [transpile](#transpile)
-    -   [Parameters](#parameters-4)
+    -   [Parameters](#parameters-2)
 
 ### cssSupports
 
@@ -53,26 +50,9 @@ Type: function (value: [string](https://developer.mozilla.org/docs/Web/JavaScrip
 
 Imediately attaches CSS rules into the style sheet.
 
-#### Parameters
+Type: RuleAttacher
 
--   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-
-Returns **function (): void** a callback to detach the rules
-
-### referenceRules
-
-References CSS rules into the style sheet.
-
-Each time this function is called with the same rules a internal reference counter for it
-is incremented; when the unreference callback returned by this function is called, the reference
-counter is decremented. If the counter reaches zero references, the rules are detached from
-style sheet.
-
-#### Parameters
-
--   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-
-Returns **function (): void** a callback to unreference the rules
+Returns **any** a callback to detach the rules
 
 ### EvaluationContext
 

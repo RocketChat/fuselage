@@ -1,16 +1,16 @@
-const styleTagId = 'rcx-styles';
-let styleTag: HTMLStyleElement;
+const elementId = 'rcx-styles';
+let element: HTMLStyleElement;
 const getStyleTag = (): HTMLStyleElement => {
-  if (!styleTag) {
-    styleTag = (document.getElementById(styleTagId) || document.createElement('style')) as HTMLStyleElement;
-    styleTag.id = styleTagId;
-    styleTag.appendChild(document.createTextNode(''));
+  if (!element) {
+    element = (document.getElementById(elementId) || document.createElement('style')) as HTMLStyleElement;
+    element.id = elementId;
+    element.appendChild(document.createTextNode(''));
     if (document.head) {
-      document.head.appendChild(styleTag);
+      document.head.appendChild(element);
     }
   }
 
-  return styleTag;
+  return element;
 };
 
 let styleSheet: CSSStyleSheet;
@@ -29,24 +29,29 @@ const getStyleSheet = (): CSSStyleSheet => {
   return styleSheet;
 };
 
-const attachRulesIntoTag = (rules: string): (() => void) => {
-  const styleTag = getStyleTag();
+type RuleAttacher = (rules: string) => () => void;
+
+const discardRules: RuleAttacher = () => () => undefined;
+
+const attachRulesIntoElement: RuleAttacher = (rules) => {
+  const element = getStyleTag();
 
   const textNode = document.createTextNode(rules);
-  styleTag.appendChild(textNode);
+  element.appendChild(textNode);
 
   return () => textNode.remove();
 };
 
-const attachRulesIntoSheet = (rules: string): (() => void) => {
+const attachRulesIntoStyleSheet: RuleAttacher = (rules) => {
   const styleSheet = getStyleSheet();
-
   const index = styleSheet.insertRule(`@media all{${ rules }}`, styleSheet.cssRules.length);
   const insertedRule = styleSheet.cssRules[index];
-  const findPredicate = (cssRule: CSSRule): boolean => cssRule === insertedRule;
 
   return () => {
-    const index = Array.prototype.findIndex.call(styleSheet.cssRules, findPredicate);
+    const index = Array.prototype.findIndex.call(
+      styleSheet.cssRules,
+      (cssRule: CSSRule): boolean => cssRule === insertedRule,
+    );
     styleSheet.deleteRule(index);
   };
 };
@@ -54,45 +59,14 @@ const attachRulesIntoSheet = (rules: string): (() => void) => {
 /**
  * Imediately attaches CSS rules into the style sheet.
  *
- * @return a callback to detach the rules
+ * @returns a callback to detach the rules
  */
-export const attachRules = (rules: string): (() => void) => {
-  if (process.env.NODE_ENV === 'production' && !!CSSStyleSheet.prototype.insertRule) {
-    return attachRulesIntoSheet(rules);
-  }
-
-  return attachRulesIntoTag(rules);
-};
-
-const references = {};
-
-/**
- * References CSS rules into the style sheet.
- *
- * Each time this function is called with the same rules a internal reference counter for it
- * is incremented; when the unreference callback returned by this function is called, the reference
- * counter is decremented. If the counter reaches zero references, the rules are detached from
- * style sheet.
- *
- * @return a callback to unreference the rules
- */
-export const referenceRules = (rules: string): (() => void) => {
-  if (!rules || typeof window === 'undefined') {
-    return () => undefined;
-  }
-
-  const reference = references[rules] || { count: 0 };
-  references[rules] = reference;
-
-  if (reference.count === 0) {
-    reference.detachRules = attachRules(rules);
-  }
-  ++reference.count;
-
-  return () => {
-    --reference.count;
-    if (reference.count === 0) {
-      reference.detachRules();
-    }
-  };
-};
+export const attachRules: RuleAttacher = (
+  (typeof window === 'undefined' && discardRules)
+  || (
+    process.env.NODE_ENV === 'production'
+    && !!CSSStyleSheet.prototype.insertRule
+    && attachRulesIntoStyleSheet
+  )
+  || attachRulesIntoElement
+);

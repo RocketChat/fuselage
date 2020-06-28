@@ -1,4 +1,25 @@
-import { createClassName, escapeName, transpile, referenceRules } from '@rocket.chat/css-in-js';
+import { attachRules, createClassName, escapeName, transpile } from '@rocket.chat/css-in-js';
+
+const references = {};
+
+const referenceRules = (rules) => {
+  if (!references[rules]) {
+    references[rules] = {
+      count: 0,
+      detach: attachRules(rules),
+    };
+  }
+
+  ++references[rules].count;
+
+  return () => {
+    --references[rules].count;
+    if (references[rules].count === 0) {
+      references[rules].detachRules();
+      delete references[rules];
+    }
+  };
+};
 
 const createClassNameMapping = (...args) =>
   (value) => {
