@@ -1,48 +1,26 @@
-export const mapClassNames = ({ className, componentClassName, ...props }) => {
+import { partitionObject } from '../../helpers/partitionObject';
+
+export const mapClassNames = (props) => {
+  const [rcxProps, rest] = partitionObject(props, (key) => key.slice(0, 4) === 'rcx-');
+
   const modifierClassNames = [];
 
-  if (componentClassName) {
-    console.warn('The `componentClassName` property is deprecated; prefer `rcx-*` properties');
-  }
-
-  for (const [name, value] of Object.entries(props)) {
-    if (name.slice(0, 4) === 'mod-') {
-      console.warn('`mod-*` properties are deprecated; prefer `rcx-*` properties');
-
-      delete props[name];
-
-      if (value === true) {
-        modifierClassNames.push(`${ componentClassName }--${ name.slice(4) }`);
-        continue;
-      }
-
-      if (value) {
-        modifierClassNames.push(`${ componentClassName }--${ name.slice(4) }-${ value }`);
-      }
-
+  for (const [name, value] of Object.entries(rcxProps)) {
+    if (value === true) {
+      modifierClassNames.push(name);
       continue;
     }
 
-    if (name.slice(0, 4) === 'rcx-') {
-      delete props[name];
-
-      if (value === true) {
-        modifierClassNames.push(name);
-        continue;
-      }
-
-      if (value) {
-        modifierClassNames.push(`${ name }-${ value }`);
-      }
+    if (value) {
+      modifierClassNames.push(`${ name }-${ value }`);
     }
   }
 
   return {
+    ...rest,
     className: [
-      componentClassName,
       ...modifierClassNames,
-      ...className,
+      ...rest.className,
     ],
-    ...props,
   };
 };

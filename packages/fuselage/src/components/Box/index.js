@@ -1,4 +1,4 @@
-import React, { createElement, forwardRef, memo } from 'react';
+import React, { createElement, forwardRef, memo, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { mergeClassNames } from '../../helpers/mergeClassNames';
@@ -11,24 +11,29 @@ import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typogr
 import { mapClassNames } from './mapClassNames';
 import { mapSpecialProps } from './mapSpecialProps';
 import { mapStylingProps } from './mapStylingProps';
-import { PropsContext, usePropsTransform } from './PropsContext';
+import { ClassNamesContext, StylingPropsContext, EventPropsContext } from './PropsContext';
+
+// console.clear();
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
-  const mapContextProps = usePropsTransform();
+  const extraStylingProps = useContext(StylingPropsContext);
+  const extraEventProps = useContext(EventPropsContext);
+  const extraClassNames = useContext(ClassNamesContext);
 
   // console.time('mergeProps');
   const { is, ...mergedProps } = [
-    mapContextProps,
     mapStylingProps,
     mapSpecialProps,
     mapClassNames,
   ]
-    .filter(Boolean)
     .reduce((props, transform) => transform(props), {
+      ...extraStylingProps,
+      ...extraEventProps,
       ...props,
       className: [
         'rcx-box',
+        ...extraClassNames || [],
         ...Array.isArray(props.className) ? props.className : [props.className],
       ],
       ref,
@@ -41,11 +46,27 @@ export const Box = memo(forwardRef(function Box(props, ref) {
 
   const children = createElement(is || 'div', mergedProps);
 
-  if (mapContextProps) {
-    return <PropsContext.Provider children={children} />;
-  }
+  const withoutExtraStylingProps = extraStylingProps
+    ? (children) => <StylingPropsContext.Provider children={children} />
+    : (children) => children;
 
-  return children;
+  const withoutExtraEventProps = extraEventProps
+    ? (children) => <EventPropsContext.Provider children={children} />
+    : (children) => children;
+
+  const withoutExtraClassNames = extraClassNames
+    ? (children) => <ClassNamesContext.Provider children={children} />
+    : (children) => children;
+
+  const wrappedChildren = withoutExtraStylingProps(
+    withoutExtraEventProps(
+      withoutExtraClassNames(
+        children,
+      ),
+    ),
+  );
+
+  return wrappedChildren;
 }));
 
 Box.propTypes = {
@@ -55,7 +76,6 @@ Box.propTypes = {
     PropTypes.func,
     PropTypes.array,
   ]),
-  componentClassName: PropTypes.string,
 
   // Spaces
   m: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),

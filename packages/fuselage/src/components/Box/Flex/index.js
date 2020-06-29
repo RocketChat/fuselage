@@ -1,24 +1,31 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
 
-import { PropsProvider } from '../PropsContext';
+import { StylingPropsProvider } from '../PropsContext';
 
 export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
-  return <PropsProvider children={children} fn={(props) => ({
-    display: inline ? 'inline-flex' : 'flex',
-    flexDirection: direction,
-    flexWrap: (wrap === 'no-wrap' && 'nowrap') || wrap,
-    alignItems: (alignItems === 'start' && 'flex-start')
+  const stylingProps = useMemo(() => ({
+    ...inline !== undefined && { display: inline ? 'inline-flex' : 'flex' },
+    ...direction !== undefined && { flexDirection: direction },
+    ...wrap !== undefined && { flexWrap: (wrap === 'no-wrap' && 'nowrap') || wrap },
+    ...alignItems !== undefined && {
+      alignItems: (alignItems === 'start' && 'flex-start')
       || (alignItems === 'end' && 'flex-end')
       || alignItems,
-    alignContent: (alignContent === 'start' && 'flex-start')
+    },
+    ...alignContent !== undefined && {
+      alignContent: (alignContent === 'start' && 'flex-start')
       || (alignContent === 'end' && 'flex-end')
       || alignContent,
-    justifyContent: (justifyContent === 'start' && 'flex-start')
+    },
+    ...justifyContent !== undefined && {
+      justifyContent: (justifyContent === 'start' && 'flex-start')
       || (justifyContent === 'end' && 'flex-end')
       || justifyContent,
-    ...props,
-  })} />;
+    },
+  }), [alignContent, alignItems, direction, inline, justifyContent, wrap]);
+
+  return <StylingPropsProvider children={children} value={stylingProps} />;
 }
 
 FlexContainer.propTypes = {
@@ -31,16 +38,19 @@ FlexContainer.propTypes = {
 };
 
 export function FlexItem({ children, order, grow, shrink, basis, align }) {
-  return <PropsProvider children={children} fn={(props) => ({
-    order,
-    flexGrow: grow,
-    flexShrink: shrink,
-    flexBasis: basis,
-    alignSelf: (align === 'start' && 'flex-start')
+  const stylingProps = useMemo(() => ({
+    ...order !== undefined && { order },
+    ...grow !== undefined && { flexGrow: grow },
+    ...shrink !== undefined && { flexShrink: shrink },
+    ...basis !== undefined && { flexBasis: basis },
+    ...align !== undefined && {
+      alignSelf: (align === 'start' && 'flex-start')
       || (align === 'end' && 'flex-end')
       || align,
-    ...props,
-  })} />;
+    },
+  }), [align, basis, grow, order, shrink]);
+
+  return <StylingPropsProvider children={children} value={stylingProps} />;
 }
 
 FlexItem.propTypes = {

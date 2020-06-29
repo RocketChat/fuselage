@@ -16,7 +16,7 @@ const MountTest = ({ children }) => {
 
     const elapsedTime = Date.now() - startTimeRef.current;
 
-    log(`Length: ${ length }; Elapsed time: ${ elapsedTime } ms`);
+    log(`${ length } components rendered in ${ elapsedTime } ms (${ (elapsedTime / length).toFixed(6) } ms/component)`);
 
     if (elapsedTime > 400) {
       log('Stopped.');

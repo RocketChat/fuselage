@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import React, { useContext, useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
-import { PropsContext } from '../PropsContext';
+import { StylingPropsProvider } from '../PropsContext';
 import { marginPropType } from '../../../styles/props/spaces';
 
 export function Margins({
@@ -14,9 +14,7 @@ export function Margins({
   inlineStart,
   inlineEnd,
 }) {
-  const parentFn = useContext(PropsContext);
-
-  const newProps = useMemo(() => ({
+  const stylingProps = useMemo(() => ({
     ...all !== undefined && { margin: all },
     ...block !== undefined && { marginBlock: block },
     ...blockStart !== undefined && { marginBlockStart: blockStart },
@@ -26,14 +24,7 @@ export function Margins({
     ...inlineEnd !== undefined && { marginInlineEnd: inlineEnd },
   }), [all, block, blockEnd, blockStart, inline, inlineEnd, inlineStart]);
 
-  const fn = useCallback((props) => ({
-    ...props,
-    ...newProps,
-  }), [newProps]);
-
-  const newFn = useMemo(() => (parentFn ? (props) => parentFn(fn(props)) : fn), [parentFn, fn]);
-
-  return <PropsContext.Provider children={children} value={newFn} />;
+  return <StylingPropsProvider children={children} value={stylingProps} />;
 }
 
 Margins.propTypes = {

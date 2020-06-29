@@ -1,9 +1,9 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 
-import { PropsProvider } from '../PropsContext';
+import { ClassNamesProvider, EventPropsProvider } from '../PropsContext';
 
 export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
   const [visibility, setVisibility] = useState(propVisibility);
@@ -22,7 +22,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     });
   }, [propVisibility]);
 
-  const animatedVisibilityStyles = [
+  const animatedVisibilityStyles = useMemo(() => [
     css`
       animation-duration: 230ms;
       animation-duration: var(--rcx-theme-transition-duration, 230ms);;
@@ -53,7 +53,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
         }
       ` };
     `,
-  ];
+  ], [visibility]);
 
   const handleAnimationEnd = useMutableCallback(() => setVisibility((visibility) => {
     if (visibility === AnimatedVisibility.HIDING) {
@@ -67,15 +67,19 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     return visibility;
   }));
 
+  const events = useMemo(() => ({
+    onAnimationEnd: handleAnimationEnd,
+  }), [handleAnimationEnd]);
+
   if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
   }
 
-  return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [className, ...animatedVisibilityStyles],
-    ...props,
-    onAnimationEnd: handleAnimationEnd,
-  })} />;
+  return <EventPropsProvider value={events}>
+    <ClassNamesProvider value={animatedVisibilityStyles}>
+      {children}
+    </ClassNamesProvider>
+  </EventPropsProvider>;
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';

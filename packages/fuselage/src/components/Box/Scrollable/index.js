@@ -1,9 +1,9 @@
 import { css } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 
-import { PropsProvider } from '../PropsContext';
+import { ClassNamesProvider, EventPropsProvider } from '../PropsContext';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,
@@ -45,39 +45,44 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
     }, 200);
   });
 
-  return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [
-      className,
-      css`
-        position: relative;
+  const events = useMemo(() => ({
+    ...onScrollContent !== undefined && { onScroll: handleScroll },
+  }), [onScrollContent, handleScroll]);
 
-        &::-webkit-scrollbar {
-          width: ${ 4 / 16 }rem;
-          height: ${ 4 / 16 }rem;
-        }
+  const classNames = useMemo(() => [
+    css`
+      position: relative;
 
-        &::-webkit-scrollbar-track {
-          background-color: transparent;
-        }
+      &::-webkit-scrollbar {
+        width: ${ 4 / 16 }rem;
+        height: ${ 4 / 16 }rem;
+      }
 
-        &::-webkit-scrollbar-thumb {
-          background-color: rgba(0, 0, 0, 0.05);
-          background-color: var(--rcx-theme-scrollbar-thumb-color, rgba(0, 0, 0, 0.05));
-        }
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
 
-        &:hover::-webkit-scrollbar-thumb {
-          background-color: rgba(0, 0, 0, 0.15);
-          background-color: var(--rcx-theme-scrollbar-thumb-hover-color, rgba(0, 0, 0, 0.15));
-        }
-      `,
-      (horizontal && css`overflow-x: auto !important;`)
-        || (vertical && css`overflow-y: auto !important;`)
-        || css`overflow: auto !important;`,
-      smooth && css`scroll-behavior: smooth !important;`,
-    ],
-    onScroll: onScrollContent ? handleScroll : undefined,
-    ...props,
-  })} />;
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.05);
+        background-color: var(--rcx-theme-scrollbar-thumb-color, rgba(0, 0, 0, 0.05));
+      }
+
+      &:hover::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.15);
+        background-color: var(--rcx-theme-scrollbar-thumb-hover-color, rgba(0, 0, 0, 0.15));
+      }
+    `,
+    (horizontal && css`overflow-x: auto !important;`)
+      || (vertical && css`overflow-y: auto !important;`)
+      || css`overflow: auto !important;`,
+    smooth && css`scroll-behavior: smooth !important;`,
+  ], [horizontal, smooth, vertical]);
+
+  return <EventPropsProvider value={events}>
+    <ClassNamesProvider value={classNames}>
+      {children}
+    </ClassNamesProvider>
+  </EventPropsProvider>;
 }
 
 Scrollable.propTypes = {
