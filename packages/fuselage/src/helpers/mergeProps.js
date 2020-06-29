@@ -65,7 +65,7 @@ export const mergeProps = (targetProps, sourceProps, transforms = []) => {
 
   mergedProps.className = Array.from(
     new Set(
-      mergedProps.className.map(createClassNameMapping(sourceProps)).filter(Boolean),
+      mergedProps.className.map(createClassNameMapping(mergedProps)).filter(Boolean),
     ),
   ).join(' ');
 

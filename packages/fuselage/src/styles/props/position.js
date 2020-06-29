@@ -1,5 +1,3 @@
-import { css } from '@rocket.chat/css-in-js';
-
 import { createPropType } from '../../helpers/createPropType';
 import { memoize } from '../../helpers/memoize';
 
@@ -32,31 +30,3 @@ export const getInsetValue = memoize((propValue) => {
 });
 
 export const insetPropType = createPropType(getInsetValue);
-
-export const mapPositionProps = ({
-  className,
-  position,
-  zIndex,
-  inset,
-  insetBlock,
-  insetBlockStart,
-  insetBlockEnd,
-  insetInline,
-  insetInlineStart,
-  insetInlineEnd,
-  ...props
-}) => ({
-  className: [
-    ...className,
-    position !== undefined && css`position: ${ position } !important;`,
-    zIndex !== undefined && css`z-index: ${ zIndex } !important;`,
-    inset !== undefined && css`inset: ${ getInsetValue(inset) || inset } !important;`,
-    insetBlock !== undefined && css`inset-block: ${ getInsetValue(insetBlock) || insetBlock } !important;`,
-    insetBlockStart !== undefined && css`inset-block-start: ${ getInsetValue(insetBlockStart) || insetBlockStart } !important;`,
-    insetBlockEnd !== undefined && css`inset-block-end: ${ getInsetValue(insetBlockEnd) || insetBlockEnd } !important;`,
-    insetInline !== undefined && css`inset-inline: ${ getInsetValue(insetInline) || insetInline } !important;`,
-    insetInlineStart !== undefined && css`inset-inline-start: ${ getInsetValue(insetInlineStart) || insetInlineStart } !important;`,
-    insetInlineEnd !== undefined && css`inset-inline-end: ${ getInsetValue(insetInlineEnd) || insetInlineEnd } !important;`,
-  ],
-  ...props,
-});

@@ -3,25 +3,18 @@ import PropTypes from 'prop-types';
 
 import { mergeProps } from '../../helpers/mergeProps';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import { mapBorderProps } from '../../styles/props/borders';
-import { colorPropType, mapColorProps } from '../../styles/props/colors';
-import { mapFlexBoxProps } from '../../styles/props/flexBox';
-import { mapLayoutProps, sizePropType } from '../../styles/props/layout';
-import { insetPropType, mapPositionProps } from '../../styles/props/position';
-import { mapSpaceProps, marginPropType, paddingPropType } from '../../styles/props/spaces';
+import { mapStylingProps } from '../../styles/props/stylingProps';
+import { colorPropType } from '../../styles/props/colors';
+import { sizePropType } from '../../styles/props/layout';
+import { insetPropType } from '../../styles/props/position';
+import { marginPropType, paddingPropType } from '../../styles/props/spaces';
 import { mapSpecialProps } from '../../styles/props/special';
-import { fontFamilyPropType, fontScalePropType, mapTypographyProps } from '../../styles/props/typography';
+import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
 import { mapClassNames } from './mapClassNames';
 import { PropsContext } from './PropsContext';
 
 const transforms = [
-  mapBorderProps,
-  mapColorProps,
-  mapFlexBoxProps,
-  mapLayoutProps,
-  mapPositionProps,
-  mapSpaceProps,
-  mapTypographyProps,
+  mapStylingProps,
   mapSpecialProps,
   mapClassNames,
 ];
@@ -231,9 +224,6 @@ Box.propTypes = {
   invisible: PropTypes.bool,
   withRichContent: PropTypes.bool,
   withTruncatedText: PropTypes.bool,
-  richText: PropTypes.oneOf(['inline', 'block']),
-  textColor: colorPropType,
-  textStyle: fontScalePropType,
 };
 
 export * from './PropsContext';

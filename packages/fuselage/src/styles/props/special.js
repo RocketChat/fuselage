@@ -4,6 +4,7 @@ import { getColorValue } from './colors';
 import { getPaddingValue, getMarginValue } from './spaces';
 import { getBorderRadiusValue, getBorderWidthValue } from './borders';
 import { getFontFamilyValue, getFontScaleValue } from './typography';
+import { getSizeValue } from './layout';
 
 const invisibleStyles = css`
   visibility: hidden;
@@ -263,37 +264,42 @@ export const mapSpecialProps = ({
   invisible,
   withRichContent,
   withTruncatedText,
-  richText,
-  textColor,
-  textStyle,
+  size,
+  minSize,
+  maxSize,
+  htmlSize,
+  fontScale,
   ...props
-}) => {
-  if (richText) {
-    console.warn('`richText` is deprecated; prefer `withRichContent`');
-    withRichContent = true;
-  }
-
-  if (textColor) {
-    console.warn(`\`textColor\` is deprecated; prefer \`color='${ textColor }'`);
-  }
-
-  if (textStyle) {
-    console.warn(`\`textStyle\` is deprecated; prefer \`fontFamily='sans' fontScale='${ textStyle }'`);
-  }
-
-  return {
-    className: [
-      ...className,
-      elevation && elevationStyles(elevation),
-      invisible && invisibleStyles,
-      withRichContent && withRichContentStyles,
-      withTruncatedText && withTruncatedTextStyles,
-    ],
-    ...textColor && { color: textColor },
-    ...textStyle && {
-      fontFamily: 'sans',
-      fontScale: textStyle,
-    },
-    ...props,
-  };
-};
+}) => ({
+  className: [
+    ...className,
+    elevation && elevationStyles(elevation),
+    invisible && invisibleStyles,
+    withRichContent && withRichContentStyles,
+    withTruncatedText && withTruncatedTextStyles,
+    size !== undefined
+      && css`
+        width: ${ getSizeValue(size) || size } !important;
+        height: ${ getSizeValue(size) || size } !important;
+      `,
+    minSize !== undefined
+      && css`
+        min-width: ${ getSizeValue(minSize) || minSize } !important;
+        min-height: ${ getSizeValue(minSize) || minSize } !important;
+      `,
+    maxSize !== undefined
+      && css`
+        max-width: ${ getSizeValue(maxSize) || maxSize } !important;
+        max-height: ${ getSizeValue(maxSize) || maxSize } !important;
+      `,
+    fontScale !== undefined
+      && css`
+        font-size: ${ getFontScaleValue(fontScale)?.fontSize } !important;
+        font-weight: ${ getFontScaleValue(fontScale)?.fontWeight } !important;
+        line-height: ${ getFontScaleValue(fontScale)?.lineHeight } !important;
+        letter-spacing: ${ getFontScaleValue(fontScale)?.letterSpacing } !important;
+      `,
+  ],
+  size: htmlSize,
+  ...props,
+});

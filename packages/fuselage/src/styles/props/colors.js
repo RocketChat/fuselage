@@ -1,4 +1,4 @@
-import { css, cssSupports } from '@rocket.chat/css-in-js';
+import { cssSupports } from '@rocket.chat/css-in-js';
 import tokenColors from '@rocket.chat/fuselage-tokens/colors';
 import invariant from 'invariant';
 
@@ -104,23 +104,3 @@ export const getColorValue = memoize((propValue) => {
 });
 
 export const colorPropType = createPropType(getColorValue);
-
-export const mapColorProps = ({
-  className,
-  color,
-  bg,
-  backgroundColor = bg,
-  opacity,
-  ...props
-}) => ({
-  className: [
-    ...className,
-    color !== undefined
-      && css`color: ${ getColorValue(color) || color } !important;`,
-    backgroundColor !== undefined
-      && css`background-color: ${ getColorValue(backgroundColor) || backgroundColor } !important;`,
-    opacity !== undefined
-      && css`opacity: ${ opacity } !important;`,
-  ],
-  ...props,
-});
