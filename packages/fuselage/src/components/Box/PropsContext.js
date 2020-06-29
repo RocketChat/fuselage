@@ -1,21 +1,12 @@
-import React, { createContext, useContext, memo } from 'react';
+import React, { createContext, useContext, useMemo } from 'react';
 
 export const PropsContext = createContext();
 
-export const useProps = () => useContext(PropsContext);
+export const usePropsTransform = () => useContext(PropsContext);
 
-function DirectPropsProvider({ children, ...props }) {
-  return <PropsContext.Provider children={children} value={props} />;
-}
+export function PropsProvider({ children, fn }) {
+  const parentFn = useContext(PropsContext);
+  const newFn = useMemo(() => (parentFn ? (props) => parentFn(fn(props)) : fn), [fn, parentFn]);
 
-const MemoizedPropsProvider = memo(DirectPropsProvider);
-
-export function PropsProvider({ children, fn, memoized = false }) {
-  const props = fn(useContext(PropsContext) || {});
-
-  if (memoized) {
-    return <MemoizedPropsProvider children={children} {...props} />;
-  }
-
-  return <DirectPropsProvider children={children} {...props} />;
+  return <PropsContext.Provider children={children} value={newFn} />;
 }

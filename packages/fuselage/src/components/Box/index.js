@@ -1,33 +1,47 @@
-import React, { createElement, forwardRef, memo, useContext } from 'react';
+import React, { createElement, forwardRef, memo } from 'react';
 import PropTypes from 'prop-types';
 
-import { mergeProps } from '../../helpers/mergeProps';
+import { mergeClassNames } from '../../helpers/mergeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import { mapStylingProps } from '../../styles/props/stylingProps';
 import { colorPropType } from '../../styles/props/colors';
 import { sizePropType } from '../../styles/props/layout';
 import { insetPropType } from '../../styles/props/position';
 import { marginPropType, paddingPropType } from '../../styles/props/spaces';
-import { mapSpecialProps } from '../../styles/props/special';
 import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
 import { mapClassNames } from './mapClassNames';
-import { PropsContext } from './PropsContext';
-
-const transforms = [
-  mapStylingProps,
-  mapSpecialProps,
-  mapClassNames,
-];
+import { mapSpecialProps } from './mapSpecialProps';
+import { mapStylingProps } from './mapStylingProps';
+import { PropsContext, usePropsTransform } from './PropsContext';
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
+  const mapContextProps = usePropsTransform();
 
-  const contextProps = useContext(PropsContext);
-  const { is, ...mergedProps } = mergeProps(contextProps, { ...props, 'rcx-box': true, ref }, transforms);
+  // console.time('mergeProps');
+  const { is, ...mergedProps } = [
+    mapContextProps,
+    mapStylingProps,
+    mapSpecialProps,
+    mapClassNames,
+  ]
+    .filter(Boolean)
+    .reduce((props, transform) => transform(props), {
+      ...props,
+      className: [
+        'rcx-box',
+        ...Array.isArray(props.className) ? props.className : [props.className],
+      ],
+      ref,
+    });
+  // console.timeEnd('mergeProps');
+
+  // console.time('mergeClassNames');
+  mergedProps.className = mergeClassNames(mergedProps.className);
+  // console.timeEnd('mergeClassNames');
 
   const children = createElement(is || 'div', mergedProps);
 
-  if (contextProps) {
+  if (mapContextProps) {
     return <PropsContext.Provider children={children} />;
   }
 
@@ -41,7 +55,6 @@ Box.propTypes = {
     PropTypes.func,
     PropTypes.array,
   ]),
-  style: PropTypes.object,
   componentClassName: PropTypes.string,
 
   // Spaces

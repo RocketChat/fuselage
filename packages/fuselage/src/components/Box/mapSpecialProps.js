@@ -1,10 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
 
-import { getColorValue } from './colors';
-import { getPaddingValue, getMarginValue } from './spaces';
-import { getBorderRadiusValue, getBorderWidthValue } from './borders';
-import { getFontFamilyValue, getFontScaleValue } from './typography';
-import { getSizeValue } from './layout';
+import { getColorValue } from '../../styles/props/colors';
+import { getPaddingValue, getMarginValue } from '../../styles/props/spaces';
+import { getBorderRadiusValue, getBorderWidthValue } from '../../styles/props/borders';
+import { getFontFamilyValue, getFontScaleValue } from '../../styles/props/typography';
+import { getSizeValue } from '../../styles/props/layout';
 
 const invisibleStyles = css`
   visibility: hidden;

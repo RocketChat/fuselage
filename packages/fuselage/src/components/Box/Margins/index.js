@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext, useCallback, useMemo } from 'react';
 
-import { PropsProvider } from '../PropsContext';
+import { PropsContext } from '../PropsContext';
 import { marginPropType } from '../../../styles/props/spaces';
 
 export function Margins({
@@ -14,16 +14,26 @@ export function Margins({
   inlineStart,
   inlineEnd,
 }) {
-  return <PropsProvider children={children} fn={(props) => ({
-    ...all !== undefined && { m: all },
-    ...block !== undefined && { mb: block },
-    ...blockStart !== undefined && { mbs: blockStart },
-    ...blockEnd !== undefined && { mbe: blockEnd },
-    ...inline !== undefined && { mi: inline },
-    ...inlineStart !== undefined && { mis: inlineStart },
-    ...inlineEnd !== undefined && { mie: inlineEnd },
+  const parentFn = useContext(PropsContext);
+
+  const newProps = useMemo(() => ({
+    ...all !== undefined && { margin: all },
+    ...block !== undefined && { marginBlock: block },
+    ...blockStart !== undefined && { marginBlockStart: blockStart },
+    ...blockEnd !== undefined && { marginBlockEnd: blockEnd },
+    ...inline !== undefined && { marginInline: inline },
+    ...inlineStart !== undefined && { marginInlineStart: inlineStart },
+    ...inlineEnd !== undefined && { marginInlineEnd: inlineEnd },
+  }), [all, block, blockEnd, blockStart, inline, inlineEnd, inlineStart]);
+
+  const fn = useCallback((props) => ({
     ...props,
-  })} memoized />;
+    ...newProps,
+  }), [newProps]);
+
+  const newFn = useMemo(() => (parentFn ? (props) => parentFn(fn(props)) : fn), [parentFn, fn]);
+
+  return <PropsContext.Provider children={children} value={newFn} />;
 }
 
 Margins.propTypes = {

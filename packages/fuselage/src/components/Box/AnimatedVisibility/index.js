@@ -75,7 +75,7 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     className: [className, ...animatedVisibilityStyles],
     ...props,
     onAnimationEnd: handleAnimationEnd,
-  })} memoized />;
+  })} />;
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';

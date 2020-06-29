@@ -2,12 +2,12 @@ import { css } from '@rocket.chat/css-in-js';
 
 import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
 import { pickProps } from '../../helpers/pickProps';
-import { getBorderWidthValue, getBorderRadiusValue } from './borders';
-import { getColorValue } from './colors';
-import { getSizeValue } from './layout';
-import { getInsetValue } from './position';
-import { getMarginValue, getPaddingValue } from './spaces';
-import { getFontFamilyValue, getFontScaleValue } from './typography';
+import { getBorderWidthValue, getBorderRadiusValue } from '../../styles/props/borders';
+import { getColorValue } from '../../styles/props/colors';
+import { getSizeValue } from '../../styles/props/layout';
+import { getInsetValue } from '../../styles/props/position';
+import { getMarginValue, getPaddingValue } from '../../styles/props/spaces';
+import { getFontFamilyValue, getFontScaleValue } from '../../styles/props/typography';
 
 const mapValue = (value) => value;
 
@@ -149,23 +149,23 @@ export const mapStylingPropsAliases = ({
   pbe,
   ...props
 }) => ({
-  backgroundColor: bg,
-  width: w,
-  height: h,
-  margin: m,
-  marginBlock: mb,
-  marginBlockStart: mbs,
-  marginBlockEnd: mbe,
-  marginInline: mi,
-  marginInlineStart: mis,
-  marginInlineEnd: mie,
-  padding: p,
-  paddingBlock: pb,
-  paddingBlockStart: pbs,
-  paddingBlockEnd: pbe,
-  paddingInline: pi,
-  paddingInlineStart: pis,
-  paddingInlineEnd: pie,
+  ...bg !== undefined && { backgroundColor: bg },
+  ...w !== undefined && { width: w },
+  ...h !== undefined && { height: h },
+  ...m !== undefined && { margin: m },
+  ...mb !== undefined && { marginBlock: mb },
+  ...mbs !== undefined && { marginBlockStart: mbs },
+  ...mbe !== undefined && { marginBlockEnd: mbe },
+  ...mi !== undefined && { marginInline: mi },
+  ...mis !== undefined && { marginInlineStart: mis },
+  ...mie !== undefined && { marginInlineEnd: mie },
+  ...p !== undefined && { padding: p },
+  ...pb !== undefined && { paddingBlock: pb },
+  ...pbs !== undefined && { paddingBlockStart: pbs },
+  ...pbe !== undefined && { paddingBlockEnd: pbe },
+  ...pi !== undefined && { paddingInline: pi },
+  ...pis !== undefined && { paddingInlineStart: pis },
+  ...pie !== undefined && { paddingInlineEnd: pie },
   ...props,
 });
 

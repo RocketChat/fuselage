@@ -77,7 +77,7 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
     ],
     onScroll: onScrollContent ? handleScroll : undefined,
     ...props,
-  })} memoized />;
+  })} />;
 }
 
 Scrollable.propTypes = {

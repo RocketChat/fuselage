@@ -18,7 +18,7 @@ export function FlexContainer({ inline = false, children, direction, wrap, align
       || (justifyContent === 'end' && 'flex-end')
       || justifyContent,
     ...props,
-  })} memoized />;
+  })} />;
 }
 
 FlexContainer.propTypes = {
@@ -40,7 +40,7 @@ export function FlexItem({ children, order, grow, shrink, basis, align }) {
       || (align === 'end' && 'flex-end')
       || align,
     ...props,
-  })} memoized />;
+  })} />;
 }
 
 FlexItem.propTypes = {
