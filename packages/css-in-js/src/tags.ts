@@ -60,6 +60,10 @@ const evaluateValue = (value: unknown, args: readonly unknown[]): string => {
     return '';
   }
 
+  if (Array.isArray(value)) {
+    return value.map((innerValue) => evaluateValue(innerValue, args)).join('');
+  }
+
   return String(value);
 };
 

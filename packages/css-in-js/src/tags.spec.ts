@@ -20,6 +20,10 @@ describe('tags', () => {
       expect(css`color: ${ 'red' };`()).toBe('color: red;');
     });
 
+    it('interpolates array', () => {
+      expect(css`border: ${ ['1', 'px'] };`()).toBe('border: 1px;');
+    });
+
     it('evaluates as a string ignoring undefined, null and false as interpolated values', () => {
       expect(css`color: ${ false } ${ undefined } ${ null };`()).toBe('color:   ;');
     });
