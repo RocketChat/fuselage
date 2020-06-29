@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Box } from '../Box';
+import { mergeClassNames } from '../../helpers/mergeClassNames';
 import { patchChildren } from '../../helpers/patchChildren';
+import { Box } from '../Box';
 
 export function ButtonGroup({
   align,
@@ -21,7 +22,12 @@ export function ButtonGroup({
     role='group'
     {...props}
   >
-    {patchChildren(children, { className: 'rcx-button-group__item' })}
+    {patchChildren(children, (childProps) => ({
+      className: mergeClassNames([
+        ...Array.isArray(childProps.className) ? childProps.className : [childProps.className],
+        'rcx-button-group__item',
+      ]),
+    }))}
   </Box>;
 }
 
