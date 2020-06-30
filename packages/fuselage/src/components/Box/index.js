@@ -8,12 +8,10 @@ import { sizePropType } from '../../styles/props/layout';
 import { insetPropType } from '../../styles/props/position';
 import { marginPropType, paddingPropType } from '../../styles/props/spaces';
 import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
-import { mapClassNames } from './mapClassNames';
-import { mapSpecialProps } from './mapSpecialProps';
-import { mapStylingProps } from './mapStylingProps';
-import { ClassNamesContext, StylingPropsContext, EventPropsContext } from './PropsContext';
-
-// console.clear();
+import { stylingPropsAliases, stylingPropsStyles } from './stylingProps';
+import { ClassNamesContext } from './ClassNamesContext';
+import { EventPropsContext } from './EventPropsContext';
+import { StylingPropsContext } from './StylingPropsContext';
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
@@ -21,30 +19,66 @@ export const Box = memo(forwardRef(function Box(props, ref) {
   const extraEventProps = useContext(EventPropsContext);
   const extraClassNames = useContext(ClassNamesContext);
 
-  // console.time('mergeProps');
-  const { is, ...mergedProps } = [
-    mapStylingProps,
-    mapSpecialProps,
-    mapClassNames,
-  ]
-    .reduce((props, transform) => transform(props), {
-      ...extraStylingProps,
-      ...extraEventProps,
-      ...props,
-      className: [
-        'rcx-box',
-        ...extraClassNames || [],
-        ...Array.isArray(props.className) ? props.className : [props.className],
-      ],
-      ref,
-    });
-  // console.timeEnd('mergeProps');
+  const stylingProps = new Map(extraStylingProps ? Object.entries(extraStylingProps) : undefined);
 
-  // console.time('mergeClassNames');
-  mergedProps.className = mergeClassNames(mergedProps.className);
-  // console.timeEnd('mergeClassNames');
+  const classNames = ['rcx-box'].concat(extraClassNames);
 
-  const children = createElement(is || 'div', mergedProps);
+  let is = 'div';
+
+  const elementProps = Object.assign({}, extraEventProps);
+  if (ref) {
+    elementProps.ref = ref;
+  }
+
+  for (const key of Object.keys(props)) {
+    const value = props[key];
+
+    if (key === 'is') {
+      is = value;
+      continue;
+    }
+
+    if (key === 'htmlSize') {
+      elementProps.size = value;
+      continue;
+    }
+
+    if (key === 'className') {
+      classNames.push(...[].concat(value));
+      continue;
+    }
+
+    if (stylingPropsAliases[key]) {
+      const effectiveKey = stylingPropsAliases[key];
+      stylingProps.set(effectiveKey, value);
+      continue;
+    }
+
+    if (stylingPropsStyles[key]) {
+      stylingProps.set(key, value);
+      continue;
+    }
+
+    if (key.slice(0, 4) === 'rcx-') {
+      if (value) {
+        classNames.push(value === true ? key : `${ key }-${ value }`);
+      }
+
+      continue;
+    }
+
+    elementProps[key] = value;
+  }
+
+  stylingProps.forEach((value, key) => {
+    if (value !== false) {
+      classNames.push(stylingPropsStyles[key](value));
+    }
+  });
+
+  elementProps.className = mergeClassNames(classNames, props);
+
+  const element = createElement(is, elementProps);
 
   const withoutExtraStylingProps = extraStylingProps
     ? (children) => <StylingPropsContext.Provider children={children} />
@@ -58,15 +92,13 @@ export const Box = memo(forwardRef(function Box(props, ref) {
     ? (children) => <ClassNamesContext.Provider children={children} />
     : (children) => children;
 
-  const wrappedChildren = withoutExtraStylingProps(
+  return withoutExtraStylingProps(
     withoutExtraEventProps(
       withoutExtraClassNames(
-        children,
+        element,
       ),
     ),
   );
-
-  return wrappedChildren;
 }));
 
 Box.propTypes = {
@@ -259,7 +291,7 @@ Box.propTypes = {
   withTruncatedText: PropTypes.bool,
 };
 
-export * from './PropsContext';
+export * from './ClassNamesContext';
 export * from './AnimatedVisibility';
 export * from './Flex';
 export * from './Margins';

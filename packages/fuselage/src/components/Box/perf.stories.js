@@ -5,21 +5,15 @@ import { Box, Margins } from '../..';
 
 const MountTest = ({ children }) => {
   const [length, setLength] = useState(10);
-  const [log, setLog] = useState([]);
   const startTimeRef = useRef(Date.now());
 
   useEffect(() => {
-    const log = (line) => setLog((lines) => [
-      line,
-      ...lines,
-    ].slice(0, 15));
-
     const elapsedTime = Date.now() - startTimeRef.current;
 
-    log(`${ length } components rendered in ${ elapsedTime } ms (${ (elapsedTime / length).toFixed(6) } ms/component)`);
+    console.log(`${ length } components rendered in ${ elapsedTime } ms (${ (elapsedTime / length).toFixed(6) } ms/component)`);
 
     if (elapsedTime > 400) {
-      log('Stopped.');
+      console.log('Stopped.');
       return;
     }
 
@@ -31,9 +25,6 @@ const MountTest = ({ children }) => {
 
   return <>
     {Array.from({ length }, (_, i) => children(i))}
-    <pre>
-      {log.map((line, i) => <p key={i}>{line}</p>)}
-    </pre>
   </>;
 };
 
