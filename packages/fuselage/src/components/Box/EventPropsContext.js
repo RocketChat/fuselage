@@ -4,18 +4,18 @@ export const EventPropsContext = createContext();
 
 export function EventPropsProvider({ children, value }) {
   const parentValue = useContext(EventPropsProvider);
+
   const mergedValue = useMemo(() => {
     if (!value) {
       return parentValue;
     }
 
-    return {
-      ...value,
-      ...parentValue,
-    };
+    if (!parentValue) {
+      return value;
+    }
+
+    return Object.assign({}, value, parentValue);
   }, [parentValue, value]);
 
   return <EventPropsContext.Provider children={children} value={mergedValue} />;
 }
-
-export const ClassNamesContext = createContext();

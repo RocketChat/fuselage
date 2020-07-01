@@ -21,7 +21,7 @@ const referenceRules = (rules) => {
   };
 };
 
-const createClassNameMapping = (...args) =>
+export const createClassNameMapping = (...args) =>
   (value) => {
     if (typeof value === 'function') {
       const content = value(...args);

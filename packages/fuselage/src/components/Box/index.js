@@ -1,7 +1,7 @@
 import React, { createElement, forwardRef, memo, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { mergeClassNames } from '../../helpers/mergeClassNames';
+import { createClassNameMapping } from '../../helpers/mergeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { colorPropType } from '../../styles/props/colors';
 import { sizePropType } from '../../styles/props/layout';
@@ -13,89 +13,161 @@ import { ClassNamesContext } from './ClassNamesContext';
 import { EventPropsContext } from './EventPropsContext';
 import { StylingPropsContext } from './StylingPropsContext';
 
-export const Box = memo(forwardRef(function Box(props, ref) {
-  useStyleSheet();
-  const extraStylingProps = useContext(StylingPropsContext);
-  const extraEventProps = useContext(EventPropsContext);
-  const extraClassNames = useContext(ClassNamesContext);
+const prependClassName = (currentClassName, newClassName) =>
+  (currentClassName ? `${ newClassName } ${ currentClassName }` : newClassName);
 
-  const stylingProps = new Map(extraStylingProps ? Object.entries(extraStylingProps) : undefined);
+const appendClassName = (currentClassName, newClassName) =>
+  (currentClassName ? `${ currentClassName } ${ newClassName }` : newClassName);
 
-  const classNames = ['rcx-box'].concat(extraClassNames);
+const collectBoxProps = (props, entries) => (children) => {
+  let component = 'div';
 
-  let is = 'div';
-
-  const elementProps = Object.assign({}, extraEventProps);
-  if (ref) {
-    elementProps.ref = ref;
-  }
-
-  for (const key of Object.keys(props)) {
-    const value = props[key];
-
+  entries = entries.reduce((entries, [key, value]) => {
     if (key === 'is') {
-      is = value;
-      continue;
-    }
-
-    if (key === 'htmlSize') {
-      elementProps.size = value;
-      continue;
-    }
-
-    if (key === 'className') {
-      classNames.push(...[].concat(value));
-      continue;
-    }
-
-    if (stylingPropsAliases[key]) {
-      const effectiveKey = stylingPropsAliases[key];
-      stylingProps.set(effectiveKey, value);
-      continue;
-    }
-
-    if (stylingPropsStyles[key]) {
-      stylingProps.set(key, value);
-      continue;
+      component = value;
+      return entries;
     }
 
     if (key.slice(0, 4) === 'rcx-') {
       if (value) {
-        classNames.push(value === true ? key : `${ key }-${ value }`);
+        const className = value === true ? key : `${ key }-${ value }`;
+        props.className = prependClassName(props.className, className);
       }
 
-      continue;
+      return entries;
     }
 
-    elementProps[key] = value;
+    entries.push([key, value]);
+
+    return entries;
+  }, []);
+
+  props.className = prependClassName(props.className, 'rcx-box');
+
+  return children(component, props, entries);
+};
+
+const collectStylingProps = (is, elementProps, entries, extraStylingProps, createClassName) => (children) => {
+  const stylingProps = {};
+
+  if (extraStylingProps) {
+    Object.assign(stylingProps, extraStylingProps);
+    children = ((renderElement) => (component, props, entries) => <StylingPropsContext.Provider children={renderElement(component, props, entries)} />)(children);
   }
 
-  stylingProps.forEach((value, key) => {
-    if (value !== false) {
-      classNames.push(stylingPropsStyles[key](value));
+  entries = entries.reduce((entries, [key, value]) => {
+    if (key === 'htmlSize') {
+      entries.push(['size', value]);
+      return entries;
     }
-  });
 
-  elementProps.className = mergeClassNames(classNames, props);
+    if (stylingPropsAliases[key]) {
+      const effectiveKey = stylingPropsAliases[key];
+      stylingProps[effectiveKey] = value;
+      return entries;
+    }
 
-  const element = createElement(is, elementProps);
+    if (stylingPropsStyles[key]) {
+      stylingProps[key] = value;
+      return entries;
+    }
 
-  const withoutExtraStylingProps = extraStylingProps
-    ? (children) => <StylingPropsContext.Provider children={children} />
-    : (children) => children;
+    entries.push([key, value]);
 
-  const withoutExtraEventProps = extraEventProps
-    ? (children) => <EventPropsContext.Provider children={children} />
-    : (children) => children;
+    return entries;
+  }, []);
 
-  const withoutExtraClassNames = extraClassNames
-    ? (children) => <ClassNamesContext.Provider children={children} />
-    : (children) => children;
+  for (const [key, value] of Object.entries(stylingProps)) {
+    if (value !== false) {
+      const className = createClassName(stylingPropsStyles[key](value));
+      elementProps.className = appendClassName(elementProps.className, className);
+    }
+  }
 
-  return withoutExtraStylingProps(
-    withoutExtraEventProps(
-      withoutExtraClassNames(
-        element,
+  return children(is, elementProps, entries);
+};
+
+const collectClassNames = (is, elementProps, entries, extraClassNames, createClassName) => (children) => {
+  if (extraClassNames) {
+    elementProps.className = extraClassNames.reduce((className, value) => {
+      if (typeof value === 'function') {
+        value = createClassName(value);
+      }
+
+      if (typeof value === 'string') {
+        return appendClassName(className, value);
+      }
+
+      return className;
+    }, elementProps.className);
+
+    children = ((renderElement) => (component, props, entries) => <ClassNamesContext.Provider children={renderElement(component, props, entries)} />)(children);
+  }
+
+  // class names className prop
+  entries = entries.reduce((entries, [key, value]) => {
+    if (key === 'className') {
+      if (value) {
+        elementProps.className = [].concat(value).reduce((className, value) => {
+          if (typeof value === 'function') {
+            value = createClassName(value);
+          }
+
+          if (typeof value === 'string') {
+            return appendClassName(className, value);
+          }
+
+          return className;
+        }, elementProps.className);
+      }
+
+      return entries;
+    }
+
+    entries.push([key, value]);
+
+    return entries;
+  }, []);
+
+  return children(is, elementProps, entries);
+};
+
+const collectExtraEventProps = (is, elementProps, entries, extraEventProps) => (children) => {
+  if (extraEventProps) {
+    Object.assign(elementProps, extraEventProps);
+    children = ((renderElement) => (component, props, entries) => <EventPropsContext.Provider children={renderElement(component, props, entries)} />)(children);
+  }
+
+  return children(is, elementProps, entries);
+};
+
+const collectRemainingProps = (props, entries) =>
+  (children) =>
+    children(
+      entries.reduce((props, [key, value]) => {
+        props[key] = value;
+        return props;
+      }, props),
+    );
+
+export const Box = memo(forwardRef(function Box(props, ref) {
+  useStyleSheet();
+  const extraEventProps = useContext(EventPropsContext);
+  const extraClassNames = useContext(ClassNamesContext);
+  const extraStylingProps = useContext(StylingPropsContext);
+  const createClassName = createClassNameMapping(props);
+
+  const _props = ref ? { ref } : {};
+  const entries = Object.entries(props);
+
+  return collectBoxProps(_props, entries)(
+    (component, props, entries) => collectStylingProps(component, props, entries, extraStylingProps, createClassName)(
+      (_, props, entries) => collectClassNames(component, props, entries, extraClassNames, createClassName)(
+        (_, props, entries) => collectExtraEventProps(component, props, entries, extraEventProps)(
+          (_, props, entries) => collectRemainingProps(props, entries)(
+            (props) => createElement(component, props),
+          ),
+        ),
       ),
     ),
   );
