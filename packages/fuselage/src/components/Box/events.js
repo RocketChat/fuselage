@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useMemo } from 'react';
 
+import { injectProps } from './transferProps';
+
 export const EventPropsContext = createContext();
 
 export function EventPropsProvider({ children, value }) {
@@ -20,13 +22,23 @@ export function EventPropsProvider({ children, value }) {
   return <EventPropsContext.Provider children={children} value={mergedValue} />;
 }
 
-export const EventPropsConsumer = ({ children, sourceProps, props }) => {
+export const EventPropsConsumer = ({
+  children,
+  props,
+  sourceProps = Object.assign({}, props),
+  targetProps = {},
+}) => {
   const extraEventProps = useContext(EventPropsContext);
 
   if (extraEventProps) {
-    Object.assign(props, extraEventProps);
-    return <EventPropsContext.Provider children={children(props, sourceProps)} />;
+    injectProps(targetProps, extraEventProps);
   }
 
-  return children(props, sourceProps);
+  const element = children(sourceProps, targetProps);
+
+  if (extraEventProps) {
+    return <EventPropsContext.Provider children={element} />;
+  }
+
+  return element;
 };

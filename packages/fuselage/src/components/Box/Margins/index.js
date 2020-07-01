@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
-import { StylingPropsProvider } from '../StylingPropsContext';
+import { StylingPropsProvider } from '../stylingProps';
 import { marginPropType } from '../../../styles/props/spaces';
 
 export function Margins({

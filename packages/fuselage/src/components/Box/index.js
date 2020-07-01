@@ -8,57 +8,68 @@ import { sizePropType } from '../../styles/props/layout';
 import { insetPropType } from '../../styles/props/position';
 import { marginPropType, paddingPropType } from '../../styles/props/spaces';
 import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
-import { ClassNamesConsumer as collectClassNames, useClassNameMapping } from './ClassNamesContext';
-import { EventPropsConsumer as collectEventProps } from './EventPropsContext';
-import { StylingPropsConsumer as collectStylingProps } from './StylingPropsContext';
+import { ClassNamesConsumer as collectClassNames } from './classNames';
+import { EventPropsConsumer as collectEventProps } from './events';
+import { StylingPropsConsumer as collectStylingProps } from './stylingProps';
+import { consumeProps, injectProps } from './transferProps';
 
 const collectBoxProps = ({
-  is: component = 'div',
-  ...sourceProps
-}, props) =>
-  (children) => {
-    const remainingProps = {};
+  children,
+  sourceProps,
+  targetProps,
+}) => {
+  let component = 'div';
 
-    for (const [key, value] of Object.entries(sourceProps)) {
-      if (key.slice(0, 4) !== 'rcx-') {
-        remainingProps[key] = value;
-        continue;
-      }
-
-      if (!value) {
-        continue;
-      }
-
-      const className = value === true ? key : `${ key }-${ value }`;
-      props.className = prependClassName(props.className, className);
+  consumeProps(sourceProps, targetProps, (key, value, set) => {
+    if (key === 'is') {
+      component = value ?? 'is';
+      return true;
     }
 
-    props.className = prependClassName(props.className, 'rcx-box');
+    if (key.slice(0, 4) === 'rcx-') {
+      if (!value) {
+        return true;
+      }
 
-    return children(component, props, remainingProps);
-  };
+      const newClassName = value === true ? key : `${ key }-${ value }`;
+      set('className', (className) => prependClassName(className, newClassName));
+      return true;
+    }
+  }, (set) => {
+    set('className', (className) => prependClassName(className, 'rcx-box'));
+  });
+
+  return children(component, sourceProps, targetProps);
+};
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
-  const mapClassName = useClassNameMapping(props);
 
-  return collectBoxProps(props, ref ? { ref } : {})(
-    (component, props, remainingProps) => collectStylingProps({
-      sourceProps: remainingProps,
+  const sourceProps = Object.assign({}, props);
+  const targetProps = ref ? { ref } : {};
+
+  return collectBoxProps({
+    sourceProps,
+    targetProps,
+    children: (component, sourceProps, targetProps) => collectStylingProps({
       props,
-      createClassName: mapClassName,
-      children: (props, remainingProps) => collectClassNames({
-        sourceProps: remainingProps,
+      sourceProps,
+      targetProps,
+      children: (sourceProps, targetProps) => collectClassNames({
         props,
-        createClassName: mapClassName,
-        children: (props, remainingProps) => collectEventProps({
-          sourceProps: remainingProps,
-          props,
-          children: (props, remainingProps) => createElement(component, Object.assign(props, remainingProps)),
+        sourceProps,
+        targetProps,
+        children: (sourceProps, targetProps) => collectEventProps({
+          sourceProps,
+          targetProps,
+          children: (sourceProps, targetProps) => {
+            injectProps(targetProps, sourceProps);
+            return createElement(component, targetProps);
+          },
         }),
       }),
     }),
-  );
+  });
 }));
 
 Box.propTypes = {
@@ -252,7 +263,6 @@ Box.propTypes = {
   withTruncatedText: PropTypes.bool,
 };
 
-export * from './ClassNamesContext';
 export * from './AnimatedVisibility';
 export * from './Flex';
 export * from './Margins';

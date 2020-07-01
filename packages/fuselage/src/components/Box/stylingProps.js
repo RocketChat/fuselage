@@ -1,13 +1,17 @@
 import { css } from '@rocket.chat/css-in-js';
+import React, { createContext, useContext, useMemo } from 'react';
 
+import { appendClassName } from '../../helpers/appendClassName';
 import { getBorderWidthValue, getBorderRadiusValue } from '../../styles/props/borders';
 import { getColorValue } from '../../styles/props/colors';
 import { getSizeValue } from '../../styles/props/layout';
 import { getInsetValue } from '../../styles/props/position';
 import { getMarginValue, getPaddingValue } from '../../styles/props/spaces';
 import { getFontFamilyValue, getFontScaleValue } from '../../styles/props/typography';
+import { consumeProps } from './transferProps';
+import { useClassNameMapping } from './classNames';
 
-export const stylingPropsStyles = {
+const stylingPropsStyles = {
   // borders
   border: (value) => css`border: ${ value } !important;`,
   borderBlock: (value) => css`border-block: ${ value } !important;`,
@@ -394,7 +398,7 @@ export const stylingPropsStyles = {
   `,
 };
 
-export const stylingPropsAliases = {
+const stylingPropsAliases = {
   bg: 'backgroundColor',
   w: 'width',
   h: 'height',
@@ -412,4 +416,78 @@ export const stylingPropsAliases = {
   pi: 'paddingInline',
   pis: 'paddingInlineStart',
   pie: 'paddingInlineEnd',
+};
+
+export const StylingPropsContext = createContext();
+
+export function StylingPropsProvider({ children, value }) {
+  const parentValue = useContext(StylingPropsContext);
+
+  const mergedValue = useMemo(() => {
+    if (!value) {
+      return parentValue;
+    }
+
+    if (!parentValue) {
+      return value;
+    }
+
+    return Object.assign({}, value, parentValue);
+  }, [parentValue, value]);
+
+  return <StylingPropsContext.Provider children={children} value={mergedValue} />;
+}
+
+export const StylingPropsConsumer = ({
+  children,
+  props,
+  sourceProps = Object.assign({}, props),
+  targetProps = {},
+}) => {
+  const mapClassName = useClassNameMapping(props);
+
+  const extraStylingProps = useContext(StylingPropsContext);
+  const stylingProps = Object.assign({}, extraStylingProps);
+
+  consumeProps(sourceProps, targetProps, (key, value, set) => {
+    if (key === 'htmlSize') {
+      if (value !== undefined) {
+        set('size', () => value);
+      }
+
+      return true;
+    }
+
+    if (stylingPropsAliases[key]) {
+      if (value !== undefined) {
+        const effectiveKey = stylingPropsAliases[key];
+        stylingProps[effectiveKey] = value;
+      }
+
+      return true;
+    }
+
+    if (stylingPropsStyles[key]) {
+      if (value !== undefined) {
+        stylingProps[key] = value;
+      }
+
+      return true;
+    }
+  }, (set) => {
+    for (const [key, value] of Object.entries(stylingProps)) {
+      if (value !== undefined) {
+        const newClassName = mapClassName(stylingPropsStyles[key](value));
+        set('className', (className) => appendClassName(className, newClassName));
+      }
+    }
+  });
+
+  const element = children(sourceProps, targetProps);
+
+  if (extraStylingProps) {
+    return <StylingPropsContext.Provider children={element} />;
+  }
+
+  return element;
 };

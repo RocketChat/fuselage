@@ -2,6 +2,7 @@ import { createClassName, escapeName, transpile, attachRules } from '@rocket.cha
 import React, { createContext, useContext, useMemo, useRef, useLayoutEffect, useCallback, useEffect } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
+import { consumeProp } from './transferProps';
 
 const cssRulesDetachers = {};
 
@@ -88,48 +89,41 @@ export function ClassNamesProvider({ children, value }) {
   return <ClassNamesContext.Provider children={children} value={mergedValue} />;
 }
 
+const reduceClassNames = (className, mapClassName, values) =>
+  [].concat(values).reduce((className, value) => {
+    if (typeof value === 'function') {
+      value = mapClassName(value);
+    }
+
+    if (typeof value === 'string') {
+      return appendClassName(className, value);
+    }
+
+    return className;
+  }, className);
+
 export const ClassNamesConsumer = ({
   children,
-  sourceProps: {
-    className,
-    ...remainingProps
-  },
   props,
-  createClassName,
+  sourceProps,
+  targetProps,
 }) => {
+  const mapClassName = useClassNameMapping(props);
   const extraClassNames = useContext(ClassNamesContext);
 
-  if (extraClassNames) {
-    props.className = extraClassNames.reduce((className, value) => {
-      if (typeof value === 'function') {
-        value = createClassName(value);
-      }
+  consumeProp(sourceProps, targetProps, 'className', (sourceClassName, set) => {
+    if (extraClassNames) {
+      set((className) => reduceClassNames(className, mapClassName, extraClassNames));
+    }
 
-      if (typeof value === 'string') {
-        return appendClassName(className, value);
-      }
+    set((className) => reduceClassNames(className, mapClassName, sourceClassName));
+  });
 
-      return className;
-    }, props.className);
-  }
-
-  if (className) {
-    props.className = [].concat(className).reduce((className, value) => {
-      if (typeof value === 'function') {
-        value = createClassName(value);
-      }
-
-      if (typeof value === 'string') {
-        return appendClassName(className, value);
-      }
-
-      return className;
-    }, props.className);
-  }
+  const element = children(sourceProps, targetProps);
 
   if (extraClassNames) {
-    return <ClassNamesContext.Provider children={children(props, remainingProps)} />;
+    return <ClassNamesContext.Provider children={element} />;
   }
 
-  return children(props, remainingProps);
+  return element;
 };

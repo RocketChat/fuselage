@@ -3,8 +3,8 @@ import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useRef, useMemo } from 'react';
 
-import { ClassNamesProvider } from '../ClassNamesContext';
-import { EventPropsProvider } from '../EventPropsContext';
+import { ClassNamesProvider } from '../classNames';
+import { EventPropsProvider } from '../events';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,
