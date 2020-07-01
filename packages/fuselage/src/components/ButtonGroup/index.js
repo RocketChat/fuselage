@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { mergeClassNames } from '../../helpers/mergeClassNames';
+import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { Box } from '../Box';
 
@@ -23,10 +23,7 @@ export function ButtonGroup({
     {...props}
   >
     {patchChildren(children, (childProps) => ({
-      className: mergeClassNames([
-        ...Array.isArray(childProps.className) ? childProps.className : [childProps.className],
-        'rcx-button-group__item',
-      ]),
+      className: appendClassName(childProps.className, 'rcx-button-group__item'),
     }))}
   </Box>;
 }

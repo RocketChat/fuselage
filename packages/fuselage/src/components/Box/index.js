@@ -1,7 +1,6 @@
 import { createElement, forwardRef, memo } from 'react';
 import PropTypes from 'prop-types';
 
-import { createClassNameMapping } from '../../helpers/mergeClassNames';
 import { prependClassName } from '../../helpers/prependClassName';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { colorPropType } from '../../styles/props/colors';
@@ -9,7 +8,7 @@ import { sizePropType } from '../../styles/props/layout';
 import { insetPropType } from '../../styles/props/position';
 import { marginPropType, paddingPropType } from '../../styles/props/spaces';
 import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
-import { ClassNamesConsumer as collectClassNames } from './ClassNamesContext';
+import { ClassNamesConsumer as collectClassNames, useClassNameMapping } from './ClassNamesContext';
 import { EventPropsConsumer as collectEventProps } from './EventPropsContext';
 import { StylingPropsConsumer as collectStylingProps } from './StylingPropsContext';
 
@@ -41,17 +40,17 @@ const collectBoxProps = ({
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
-  const createClassName = createClassNameMapping(props);
+  const mapClassName = useClassNameMapping(props);
 
   return collectBoxProps(props, ref ? { ref } : {})(
     (component, props, remainingProps) => collectStylingProps({
       sourceProps: remainingProps,
       props,
-      createClassName,
+      createClassName: mapClassName,
       children: (props, remainingProps) => collectClassNames({
         sourceProps: remainingProps,
         props,
-        createClassName,
+        createClassName: mapClassName,
         children: (props, remainingProps) => collectEventProps({
           sourceProps: remainingProps,
           props,
