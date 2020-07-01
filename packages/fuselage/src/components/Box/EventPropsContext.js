@@ -19,3 +19,14 @@ export function EventPropsProvider({ children, value }) {
 
   return <EventPropsContext.Provider children={children} value={mergedValue} />;
 }
+
+export const EventPropsConsumer = ({ children, sourceProps, props }) => {
+  const extraEventProps = useContext(EventPropsContext);
+
+  if (extraEventProps) {
+    Object.assign(props, extraEventProps);
+    return <EventPropsContext.Provider children={children(props, sourceProps)} />;
+  }
+
+  return children(props, sourceProps);
+};
