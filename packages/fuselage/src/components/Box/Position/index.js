@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import ReactDOM from 'react-dom';
 
-import { AnimatedVisibility } from '../AnimatedVisibility';
+import AnimatedVisibility from '../AnimatedVisibility';
 
 const top = (top) => ({ top });
 const left = (left) => ({ left });
@@ -56,7 +56,7 @@ const throttle = (func, limit) => {
   };
 };
 
-export const Position = ({ anchor, width = 'stretch', style, className, children, placement = 'bottom center'/* , offset*/ }) => {
+const Position = ({ anchor, width = 'stretch', style, className, children, placement = 'bottom center'/* , offset*/ }) => {
   const [position, setPosition] = useState();
   const ref = useRef();
   const resizer = useRef();
@@ -134,3 +134,5 @@ export const Position = ({ anchor, width = 'stretch', style, className, children
 export const PositionAnimated = ({ width, offset, placement, visible, children, ...props }) => (
   <AnimatedVisibility visibility={visible}><Position offset={offset} placement={placement} width={width} {...props}>{children}</Position></AnimatedVisibility>
 );
+
+export default Position;

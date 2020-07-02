@@ -13,70 +13,21 @@ import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typogr
 import { stylingPropsStyles, stylingPropsAliases } from './stylingProps';
 import { useBoxTransform, BoxTransforms } from './transforms';
 
-export const Box = memo(forwardRef(function Box(props, ref) {
+export const Box = memo(forwardRef(function Box({
+  is = 'div',
+  children,
+  ...props
+}, ref) {
   useStyleSheet();
   const transformFn = useBoxTransform();
   const mapClassName = useClassNameMapping(props);
 
-  let mutableProps = Object.assign(ref ? { ref } : {}, props);
-
-  if (transformFn) {
-    mutableProps = transformFn(mutableProps);
+  if (ref) {
+    props.ref = ref;
   }
 
-  let component = 'div';
-
-  Object.entries(mutableProps).forEach(([key, value]) => {
-    if (key === 'is') {
-      component = value ?? 'is';
-      delete mutableProps[key];
-      return;
-    }
-
-    if (key.slice(0, 4) === 'rcx-') {
-      if (!value) {
-        delete mutableProps[key];
-        return;
-      }
-
-      const newClassName = value === true ? key : `${ key }-${ value }`;
-      mutableProps.className = prependClassName(mutableProps.className, newClassName);
-      delete mutableProps[key];
-      return;
-    }
-
-    if (key === 'htmlSize') {
-      if (value !== undefined) {
-        mutableProps.size = value;
-      }
-
-      delete mutableProps[key];
-      return;
-    }
-
-    if (stylingPropsAliases[key]) {
-      if (value !== undefined) {
-        const effectiveKey = stylingPropsAliases[key];
-        const newClassName = mapClassName(stylingPropsStyles[effectiveKey](value));
-        mutableProps.className = appendClassName(mutableProps.className, newClassName);
-      }
-
-      delete mutableProps[key];
-      return;
-    }
-
-    if (stylingPropsStyles[key]) {
-      if (value !== undefined) {
-        const newClassName = mapClassName(stylingPropsStyles[key](value));
-        mutableProps.className = appendClassName(mutableProps.className, newClassName);
-      }
-
-      delete mutableProps[key];
-    }
-  });
-
-  if (mutableProps.className) {
-    mutableProps.className = [].concat(mutableProps.className).reduce((className, value) => {
+  if (props.className) {
+    props.className = [].concat(props.className).reduce((className, value) => {
       if (typeof value === 'function') {
         value = mapClassName(value);
       }
@@ -89,9 +40,56 @@ export const Box = memo(forwardRef(function Box(props, ref) {
     }, '');
   }
 
-  mutableProps.className = prependClassName(mutableProps.className, 'rcx-box');
+  props.className = prependClassName(props.className, 'rcx-box');
 
-  const element = createElement(component, mutableProps);
+  if (transformFn) {
+    props = transformFn(props);
+  }
+
+  Object.entries(props).forEach(([key, value]) => {
+    if (key.slice(0, 4) === 'rcx-') {
+      if (!value) {
+        delete props[key];
+        return;
+      }
+
+      const newClassName = value === true ? key : `${ key }-${ value }`;
+      props.className = prependClassName(props.className, newClassName);
+      delete props[key];
+      return;
+    }
+
+    if (key === 'htmlSize') {
+      if (value !== undefined) {
+        props.size = value;
+      }
+
+      delete props[key];
+      return;
+    }
+
+    if (stylingPropsAliases[key]) {
+      if (value !== undefined) {
+        const effectiveKey = stylingPropsAliases[key];
+        const newClassName = mapClassName(stylingPropsStyles[effectiveKey](value));
+        props.className = appendClassName(props.className, newClassName);
+      }
+
+      delete props[key];
+      return;
+    }
+
+    if (stylingPropsStyles[key]) {
+      if (value !== undefined) {
+        const newClassName = mapClassName(stylingPropsStyles[key](value));
+        props.className = appendClassName(props.className, newClassName);
+      }
+
+      delete props[key];
+    }
+  });
+
+  const element = createElement(is, props, children);
 
   if (transformFn) {
     return <BoxTransforms.Provider children={element} />;
@@ -99,6 +97,8 @@ export const Box = memo(forwardRef(function Box(props, ref) {
 
   return element;
 }));
+
+Box.displayName = 'Box';
 
 Box.propTypes = {
   // box specific prop types
@@ -291,8 +291,8 @@ Box.propTypes = {
   withTruncatedText: PropTypes.bool,
 };
 
-export * from './AnimatedVisibility';
-export * from './Flex';
-export * from './Margins';
-export * from './Position';
+export { default as AnimatedVisibility } from './AnimatedVisibility';
+export { default as Flex } from './Flex';
+export { default as Margins } from './Margins';
+export { default as Position, PositionAnimated } from './Position';
 export { default as Scrollable } from './Scrollable';

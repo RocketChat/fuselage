@@ -4,7 +4,7 @@ import React, { useCallback } from 'react';
 import { marginPropType } from '../../../styles/props/spaces';
 import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
-export function Margins({
+function Margins({
   children,
   all,
   block,
@@ -61,3 +61,5 @@ Margins.propTypes = {
   inlineStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
   inlineEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
 };
+
+export default Margins;

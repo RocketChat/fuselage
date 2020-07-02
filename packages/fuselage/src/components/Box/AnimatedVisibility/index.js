@@ -7,7 +7,7 @@ import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 import { useStyle } from '../../../hooks/useStyle';
 import { appendClassName } from '../../../helpers/appendClassName';
 
-export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
+function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
   const [visibility, setVisibility] = useState(propVisibility);
 
   useEffect(() => {
@@ -99,3 +99,5 @@ AnimatedVisibility.propTypes = {
     AnimatedVisibility.UNHIDING,
   ]),
 };
+
+export default AnimatedVisibility;

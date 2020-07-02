@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 
 import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
-export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
+function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
   const transformFn = useCallback((props) => {
     if (inline !== undefined && props.display === undefined) {
       props.display = inline ? 'inline-flex' : 'flex';
@@ -53,7 +53,7 @@ FlexContainer.propTypes = {
   justifyContent: PropTypes.oneOf(['start', 'center', 'end', 'space-between', 'space-around']),
 };
 
-export function FlexItem({ children, order, grow, shrink, basis, align }) {
+function FlexItem({ children, order, grow, shrink, basis, align }) {
   const transformFn = useCallback((props) => {
     if (order !== undefined && props.order === undefined) {
       props.order = order;
@@ -94,7 +94,7 @@ FlexItem.propTypes = {
   align: PropTypes.oneOf(['auto', 'start', 'end', 'center', 'stretch']),
 };
 
-export const Flex = {
+export default {
   Container: FlexContainer,
   Item: FlexItem,
 };
