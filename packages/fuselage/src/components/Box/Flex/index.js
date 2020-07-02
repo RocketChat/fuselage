@@ -1,31 +1,47 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React, { useCallback } from 'react';
 
-import { StylingPropsProvider } from '../contexts/stylingProps';
+import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
 export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
-  const stylingProps = useMemo(() => ({
-    ...inline !== undefined && { display: inline ? 'inline-flex' : 'flex' },
-    ...direction !== undefined && { flexDirection: direction },
-    ...wrap !== undefined && { flexWrap: (wrap === 'no-wrap' && 'nowrap') || wrap },
-    ...alignItems !== undefined && {
-      alignItems: (alignItems === 'start' && 'flex-start')
-      || (alignItems === 'end' && 'flex-end')
-      || alignItems,
-    },
-    ...alignContent !== undefined && {
-      alignContent: (alignContent === 'start' && 'flex-start')
-      || (alignContent === 'end' && 'flex-end')
-      || alignContent,
-    },
-    ...justifyContent !== undefined && {
-      justifyContent: (justifyContent === 'start' && 'flex-start')
-      || (justifyContent === 'end' && 'flex-end')
-      || justifyContent,
-    },
-  }), [alignContent, alignItems, direction, inline, justifyContent, wrap]);
+  const transformFn = useCallback((props) => {
+    if (inline !== undefined && props.display === undefined) {
+      props.display = inline ? 'inline-flex' : 'flex';
+    }
 
-  return <StylingPropsProvider children={children} value={stylingProps} />;
+    if (direction !== undefined && props.flexDirection === undefined) {
+      props.flexDirection = direction;
+    }
+
+    if (wrap !== undefined && props.flexWrap === undefined) {
+      props.flexWrap = wrap === 'no-wrap' ? 'nowrap' : wrap;
+    }
+
+    if (alignItems !== undefined && props.alignItems === undefined) {
+      props.alignItems = (alignItems === 'start' && 'flex-start')
+        || (alignItems === 'end' && 'flex-end')
+        || alignItems;
+    }
+
+    if (alignContent !== undefined && props.alignContent === undefined) {
+      props.alignContent = (alignContent === 'start' && 'flex-start')
+        || (alignContent === 'end' && 'flex-end')
+        || alignContent;
+    }
+
+    if (justifyContent !== undefined && props.justifyContent === undefined) {
+      props.justifyContent = (justifyContent === 'start' && 'flex-start')
+        || (justifyContent === 'end' && 'flex-end')
+        || justifyContent;
+    }
+
+    return props;
+  }, [alignContent, alignItems, direction, inline, justifyContent, wrap]);
+
+  return <BoxTransforms.Provider
+    children={children}
+    value={useComposedBoxTransform(transformFn)}
+  />;
 }
 
 FlexContainer.propTypes = {
@@ -38,19 +54,36 @@ FlexContainer.propTypes = {
 };
 
 export function FlexItem({ children, order, grow, shrink, basis, align }) {
-  const stylingProps = useMemo(() => ({
-    ...order !== undefined && { order },
-    ...grow !== undefined && { flexGrow: grow },
-    ...shrink !== undefined && { flexShrink: shrink },
-    ...basis !== undefined && { flexBasis: basis },
-    ...align !== undefined && {
-      alignSelf: (align === 'start' && 'flex-start')
-      || (align === 'end' && 'flex-end')
-      || align,
-    },
-  }), [align, basis, grow, order, shrink]);
+  const transformFn = useCallback((props) => {
+    if (order !== undefined && props.order === undefined) {
+      props.order = order;
+    }
 
-  return <StylingPropsProvider children={children} value={stylingProps} />;
+    if (grow !== undefined && props.flexGrow === undefined) {
+      props.flexGrow = grow;
+    }
+
+    if (shrink !== undefined && props.flexShrink === undefined) {
+      props.flexShrink = shrink;
+    }
+
+    if (basis !== undefined && props.flexBasis === undefined) {
+      props.flexBasis = basis;
+    }
+
+    if (align !== undefined && props.alignSelf === undefined) {
+      props.alignSelf = (align === 'start' && 'flex-start')
+        || (align === 'end' && 'flex-end')
+        || align;
+    }
+
+    return props;
+  }, [align, basis, grow, order, shrink]);
+
+  return <BoxTransforms.Provider
+    children={children}
+    value={useComposedBoxTransform(transformFn)}
+  />;
 }
 
 FlexItem.propTypes = {

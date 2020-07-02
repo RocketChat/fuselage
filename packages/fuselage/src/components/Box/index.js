@@ -1,44 +1,103 @@
-import { forwardRef, memo } from 'react';
+import React, { forwardRef, memo, createElement } from 'react';
 import PropTypes from 'prop-types';
 
+import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
+import { useClassNameMapping } from '../../hooks/useClassNameMapping';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { colorPropType } from '../../styles/props/colors';
 import { sizePropType } from '../../styles/props/layout';
 import { insetPropType } from '../../styles/props/position';
 import { marginPropType, paddingPropType } from '../../styles/props/spaces';
 import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
-import { consumeProps } from './contexts/transferProps';
-import { consumeBoxContexts } from './contexts';
+import { stylingPropsStyles, stylingPropsAliases } from './stylingProps';
+import { useBoxTransform, BoxTransforms } from './transforms';
 
 export const Box = memo(forwardRef(function Box(props, ref) {
   useStyleSheet();
+  const transformFn = useBoxTransform();
+  const mapClassName = useClassNameMapping(props);
 
-  const sourceProps = Object.assign({}, props);
-  const targetProps = ref ? { ref } : {};
+  let mutableProps = Object.assign(ref ? { ref } : {}, props);
+
+  if (transformFn) {
+    mutableProps = transformFn(mutableProps);
+  }
 
   let component = 'div';
 
-  consumeProps(sourceProps, targetProps, (key, value, set) => {
+  Object.entries(mutableProps).forEach(([key, value]) => {
     if (key === 'is') {
       component = value ?? 'is';
-      return true;
+      delete mutableProps[key];
+      return;
     }
 
     if (key.slice(0, 4) === 'rcx-') {
       if (!value) {
-        return true;
+        delete mutableProps[key];
+        return;
       }
 
       const newClassName = value === true ? key : `${ key }-${ value }`;
-      set('className', (className) => prependClassName(className, newClassName));
-      return true;
+      mutableProps.className = prependClassName(mutableProps.className, newClassName);
+      delete mutableProps[key];
+      return;
     }
-  }, (set) => {
-    set('className', (className) => prependClassName(className, 'rcx-box'));
+
+    if (key === 'htmlSize') {
+      if (value !== undefined) {
+        mutableProps.size = value;
+      }
+
+      delete mutableProps[key];
+      return;
+    }
+
+    if (stylingPropsAliases[key]) {
+      if (value !== undefined) {
+        const effectiveKey = stylingPropsAliases[key];
+        const newClassName = mapClassName(stylingPropsStyles[effectiveKey](value));
+        mutableProps.className = appendClassName(mutableProps.className, newClassName);
+      }
+
+      delete mutableProps[key];
+      return;
+    }
+
+    if (stylingPropsStyles[key]) {
+      if (value !== undefined) {
+        const newClassName = mapClassName(stylingPropsStyles[key](value));
+        mutableProps.className = appendClassName(mutableProps.className, newClassName);
+      }
+
+      delete mutableProps[key];
+    }
   });
 
-  return consumeBoxContexts(component, props, sourceProps, targetProps);
+  if (mutableProps.className) {
+    mutableProps.className = [].concat(mutableProps.className).reduce((className, value) => {
+      if (typeof value === 'function') {
+        value = mapClassName(value);
+      }
+
+      if (typeof value === 'string') {
+        return appendClassName(className, value);
+      }
+
+      return className;
+    }, '');
+  }
+
+  mutableProps.className = prependClassName(mutableProps.className, 'rcx-box');
+
+  const element = createElement(component, mutableProps);
+
+  if (transformFn) {
+    return <BoxTransforms.Provider children={element} />;
+  }
+
+  return element;
 }));
 
 Box.propTypes = {
@@ -52,37 +111,37 @@ Box.propTypes = {
 
   // Spaces
   m: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  margin: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  mb: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  marginBlock: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  mbs: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  marginBlockStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  mbe: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  marginBlockEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
   mi: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  marginInline: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
   mis: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  marginInlineStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
   mie: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  marginInlineEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  mb: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  mbs: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  mbe: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
   p: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
-  padding: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
-  pb: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
-  paddingBlock: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
-  pbs: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
-  paddingBlockStart: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
-  pbe: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
-  paddingBlockEnd: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
   pi: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
-  paddingInline: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
   pis: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
-  paddingInlineStart: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
   pie: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  pb: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  pbs: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  pbe: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  margin: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginInline: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginInlineStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginInlineEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginBlock: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginBlockStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  marginBlockEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  padding: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingInline: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingInlineStart: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
   paddingInlineEnd: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingBlock: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingBlockStart: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
+  paddingBlockEnd: PropTypes.oneOfType([paddingPropType, PropTypes.string, PropTypes.number]),
 
   // Color
-
   color: PropTypes.oneOfType([colorPropType, PropTypes.string]),
+  bg: PropTypes.oneOfType([colorPropType, PropTypes.string]),
   backgroundColor: PropTypes.oneOfType([colorPropType, PropTypes.string]),
   opacity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
@@ -237,4 +296,3 @@ export * from './Flex';
 export * from './Margins';
 export * from './Position';
 export { default as Scrollable } from './Scrollable';
-export { withBoxContexts } from './contexts';

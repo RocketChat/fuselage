@@ -1,11 +1,11 @@
 import { css } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useCallback } from 'react';
 
-import { ClassNamesProvider } from '../contexts/classNames';
-import { EventPropsProvider } from '../contexts/events';
 import { useStyle } from '../../../hooks/useStyle';
+import { appendClassName } from '../../../helpers/appendClassName';
+import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,
@@ -47,10 +47,6 @@ function Scrollable({ children, horizontal, vertical, smooth, onScrollContent })
     }, 200);
   });
 
-  const events = useMemo(() => ({
-    ...onScrollContent !== undefined && { onScroll: handleScroll },
-  }), [onScrollContent, handleScroll]);
-
   const className = useStyle(css`
     position: relative;
 
@@ -79,11 +75,20 @@ function Scrollable({ children, horizontal, vertical, smooth, onScrollContent })
     ${ smooth && css`scroll-behavior: smooth !important;` }
   `);
 
-  return <EventPropsProvider value={events}>
-    <ClassNamesProvider value={useMemo(() => [className], [className])}>
-      {children}
-    </ClassNamesProvider>
-  </EventPropsProvider>;
+  const transformFn = useCallback((props) => {
+    props.className = appendClassName(props.className, className);
+
+    if (onScrollContent !== undefined && props.onScroll === undefined) {
+      props.onScroll = handleScroll;
+    }
+
+    return props;
+  }, [className, handleScroll, onScrollContent]);
+
+  return <BoxTransforms.Provider
+    children={children}
+    value={useComposedBoxTransform(transformFn)}
+  />;
 }
 
 Scrollable.propTypes = {

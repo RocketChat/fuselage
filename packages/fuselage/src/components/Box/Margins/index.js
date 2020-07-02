@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React, { useCallback } from 'react';
 
-import { StylingPropsProvider } from '../contexts/stylingProps';
 import { marginPropType } from '../../../styles/props/spaces';
+import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
 export function Margins({
   children,
@@ -14,17 +14,42 @@ export function Margins({
   inlineStart,
   inlineEnd,
 }) {
-  const stylingProps = useMemo(() => ({
-    ...all !== undefined && { margin: all },
-    ...block !== undefined && { marginBlock: block },
-    ...blockStart !== undefined && { marginBlockStart: blockStart },
-    ...blockEnd !== undefined && { marginBlockEnd: blockEnd },
-    ...inline !== undefined && { marginInline: inline },
-    ...inlineStart !== undefined && { marginInlineStart: inlineStart },
-    ...inlineEnd !== undefined && { marginInlineEnd: inlineEnd },
-  }), [all, block, blockEnd, blockStart, inline, inlineEnd, inlineStart]);
+  const transformFn = useCallback((props) => {
+    if (all !== undefined && props.margin === undefined) {
+      props.margin = all;
+    }
 
-  return <StylingPropsProvider children={children} value={stylingProps} />;
+    if (block !== undefined && props.marginBlock === undefined) {
+      props.marginBlock = block;
+    }
+
+    if (blockStart !== undefined && props.marginBlockStart === undefined) {
+      props.marginBlockStart = blockStart;
+    }
+
+    if (blockEnd !== undefined && props.marginBlockEnd === undefined) {
+      props.marginBlockEnd = blockEnd;
+    }
+
+    if (inline !== undefined && props.marginInline === undefined) {
+      props.marginInline = inline;
+    }
+
+    if (inlineStart !== undefined && props.marginInlineStart === undefined) {
+      props.marginInlineStart = inlineStart;
+    }
+
+    if (inlineEnd !== undefined && props.marginInlineEnd === undefined) {
+      props.marginInlineEnd = inlineEnd;
+    }
+
+    return props;
+  }, [all, block, blockEnd, blockStart, inline, inlineEnd, inlineStart]);
+
+  return <BoxTransforms.Provider
+    children={children}
+    value={useComposedBoxTransform(transformFn)}
+  />;
 }
 
 Margins.propTypes = {
