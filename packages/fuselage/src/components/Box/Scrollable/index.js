@@ -5,6 +5,7 @@ import React, { useRef, useMemo } from 'react';
 
 import { ClassNamesProvider } from '../contexts/classNames';
 import { EventPropsProvider } from '../contexts/events';
+import { useStyle } from '../../../hooks/useStyle';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,
@@ -28,7 +29,7 @@ const pollTouchingEdges = (element, touchingEdgesRef, onScrollContent) => {
   }
 };
 
-export function Scrollable({ children, horizontal, vertical, smooth, onScrollContent }) {
+function Scrollable({ children, horizontal, vertical, smooth, onScrollContent }) {
   const scrollTimeoutRef = useRef();
   const touchingEdgesRef = useRef({});
 
@@ -50,37 +51,36 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
     ...onScrollContent !== undefined && { onScroll: handleScroll },
   }), [onScrollContent, handleScroll]);
 
-  const classNames = useMemo(() => [
-    css`
-      position: relative;
+  const className = useStyle(css`
+    position: relative;
 
-      &::-webkit-scrollbar {
-        width: ${ 4 / 16 }rem;
-        height: ${ 4 / 16 }rem;
-      }
+    &::-webkit-scrollbar {
+      width: ${ 4 / 16 }rem;
+      height: ${ 4 / 16 }rem;
+    }
 
-      &::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
 
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.05);
-        background-color: var(--rcx-theme-scrollbar-thumb-color, rgba(0, 0, 0, 0.05));
-      }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.05);
+      background-color: var(--rcx-theme-scrollbar-thumb-color, rgba(0, 0, 0, 0.05));
+    }
 
-      &:hover::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.15);
-        background-color: var(--rcx-theme-scrollbar-thumb-hover-color, rgba(0, 0, 0, 0.15));
-      }
-    `,
-    (horizontal && css`overflow-x: auto !important;`)
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.15);
+      background-color: var(--rcx-theme-scrollbar-thumb-hover-color, rgba(0, 0, 0, 0.15));
+    }
+
+    ${ (horizontal && css`overflow-x: auto !important;`)
       || (vertical && css`overflow-y: auto !important;`)
-      || css`overflow: auto !important;`,
-    smooth && css`scroll-behavior: smooth !important;`,
-  ], [horizontal, smooth, vertical]);
+      || css`overflow: auto !important;` }
+    ${ smooth && css`scroll-behavior: smooth !important;` }
+  `);
 
   return <EventPropsProvider value={events}>
-    <ClassNamesProvider value={classNames}>
+    <ClassNamesProvider value={useMemo(() => [className], [className])}>
       {children}
     </ClassNamesProvider>
   </EventPropsProvider>;
@@ -92,3 +92,5 @@ Scrollable.propTypes = {
   smooth: PropTypes.bool,
   onScrollContent: PropTypes.func,
 };
+
+export default Scrollable;

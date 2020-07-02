@@ -9,7 +9,7 @@ import { getInsetValue } from '../../../styles/props/position';
 import { getMarginValue, getPaddingValue } from '../../../styles/props/spaces';
 import { getFontFamilyValue, getFontScaleValue } from '../../../styles/props/typography';
 import { consumeProps } from './transferProps';
-import { useClassNameMapping } from './classNames';
+import { useClassNameMapping } from '../../../hooks/useClassNameMapping';
 
 const stylingPropsStyles = {
   // borders

@@ -236,5 +236,5 @@ export * from './AnimatedVisibility';
 export * from './Flex';
 export * from './Margins';
 export * from './Position';
-export * from './Scrollable';
+export { default as Scrollable } from './Scrollable';
 export { withBoxContexts } from './contexts';
