@@ -3,8 +3,8 @@ import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState, useMemo } from 'react';
 
-import { ClassNamesProvider } from '../classNames';
-import { EventPropsProvider } from '../events';
+import { ClassNamesProvider } from '../contexts/classNames';
+import { EventPropsProvider } from '../contexts/events';
 
 export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
   const [visibility, setVisibility] = useState(propVisibility);

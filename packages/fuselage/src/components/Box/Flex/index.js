@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
-import { StylingPropsProvider } from '../stylingProps';
+import { StylingPropsProvider } from '../contexts/stylingProps';
 
 export function FlexContainer({ inline = false, children, direction, wrap, alignItems, alignContent, justifyContent }) {
   const stylingProps = useMemo(() => ({

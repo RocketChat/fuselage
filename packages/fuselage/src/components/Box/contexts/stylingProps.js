@@ -1,13 +1,13 @@
 import { css } from '@rocket.chat/css-in-js';
 import React, { createContext, useContext, useMemo } from 'react';
 
-import { appendClassName } from '../../helpers/appendClassName';
-import { getBorderWidthValue, getBorderRadiusValue } from '../../styles/props/borders';
-import { getColorValue } from '../../styles/props/colors';
-import { getSizeValue } from '../../styles/props/layout';
-import { getInsetValue } from '../../styles/props/position';
-import { getMarginValue, getPaddingValue } from '../../styles/props/spaces';
-import { getFontFamilyValue, getFontScaleValue } from '../../styles/props/typography';
+import { appendClassName } from '../../../helpers/appendClassName';
+import { getBorderWidthValue, getBorderRadiusValue } from '../../../styles/props/borders';
+import { getColorValue } from '../../../styles/props/colors';
+import { getSizeValue } from '../../../styles/props/layout';
+import { getInsetValue } from '../../../styles/props/position';
+import { getMarginValue, getPaddingValue } from '../../../styles/props/spaces';
+import { getFontFamilyValue, getFontScaleValue } from '../../../styles/props/typography';
 import { consumeProps } from './transferProps';
 import { useClassNameMapping } from './classNames';
 

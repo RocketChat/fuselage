@@ -1,4 +1,4 @@
-import { createElement, forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 import PropTypes from 'prop-types';
 
 import { prependClassName } from '../../helpers/prependClassName';
@@ -8,16 +8,15 @@ import { sizePropType } from '../../styles/props/layout';
 import { insetPropType } from '../../styles/props/position';
 import { marginPropType, paddingPropType } from '../../styles/props/spaces';
 import { fontFamilyPropType, fontScalePropType } from '../../styles/props/typography';
-import { ClassNamesConsumer as collectClassNames } from './classNames';
-import { EventPropsConsumer as collectEventProps } from './events';
-import { StylingPropsConsumer as collectStylingProps } from './stylingProps';
-import { consumeProps, injectProps } from './transferProps';
+import { consumeProps } from './contexts/transferProps';
+import { consumeBoxContexts } from './contexts';
 
-const collectBoxProps = ({
-  children,
-  sourceProps,
-  targetProps,
-}) => {
+export const Box = memo(forwardRef(function Box(props, ref) {
+  useStyleSheet();
+
+  const sourceProps = Object.assign({}, props);
+  const targetProps = ref ? { ref } : {};
+
   let component = 'div';
 
   consumeProps(sourceProps, targetProps, (key, value, set) => {
@@ -39,37 +38,7 @@ const collectBoxProps = ({
     set('className', (className) => prependClassName(className, 'rcx-box'));
   });
 
-  return children(component, sourceProps, targetProps);
-};
-
-export const Box = memo(forwardRef(function Box(props, ref) {
-  useStyleSheet();
-
-  const sourceProps = Object.assign({}, props);
-  const targetProps = ref ? { ref } : {};
-
-  return collectBoxProps({
-    sourceProps,
-    targetProps,
-    children: (component, sourceProps, targetProps) => collectStylingProps({
-      props,
-      sourceProps,
-      targetProps,
-      children: (sourceProps, targetProps) => collectClassNames({
-        props,
-        sourceProps,
-        targetProps,
-        children: (sourceProps, targetProps) => collectEventProps({
-          sourceProps,
-          targetProps,
-          children: (sourceProps, targetProps) => {
-            injectProps(targetProps, sourceProps);
-            return createElement(component, targetProps);
-          },
-        }),
-      }),
-    }),
-  });
+  return consumeBoxContexts(component, props, sourceProps, targetProps);
 }));
 
 Box.propTypes = {
@@ -268,3 +237,4 @@ export * from './Flex';
 export * from './Margins';
 export * from './Position';
 export * from './Scrollable';
+export { withBoxContexts } from './contexts';

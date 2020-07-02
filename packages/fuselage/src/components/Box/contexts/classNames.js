@@ -1,7 +1,7 @@
 import { createClassName, escapeName, transpile, attachRules } from '@rocket.chat/css-in-js';
 import React, { createContext, useContext, useMemo, useRef, useLayoutEffect, useCallback, useEffect } from 'react';
 
-import { appendClassName } from '../../helpers/appendClassName';
+import { appendClassName } from '../../../helpers/appendClassName';
 import { consumeProp } from './transferProps';
 
 const cssRulesDetachers = {};
