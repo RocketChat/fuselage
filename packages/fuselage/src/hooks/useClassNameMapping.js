@@ -50,7 +50,7 @@ export const useClassNameMapping = (...args) => {
         return;
       }
 
-      const className = createClassName(value.className, content);
+      const className = createClassName(content);
       const escapedClassName = escapeName(className);
       const transpiledContent = transpile(`.${ escapedClassName }`, content);
       unrefsRef.current.push(referenceCSSRules(className, transpiledContent));

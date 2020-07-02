@@ -43,13 +43,8 @@ const staticEvaluable = memoize(
   <T extends Evaluable>(content: string): T => Object.freeze(() => content) as T,
 );
 
-export type cssFn = Evaluable & {
-  className?: string;
-};
-
-export type keyframesFn = Evaluable & {
-  animationName?: string;
-};
+export type cssFn = Evaluable;
+export type keyframesFn = Evaluable;
 
 const evaluateValue = (value: unknown, args: readonly unknown[]): string => {
   if (isEvaluable(value) || typeof value === 'function') {
@@ -117,7 +112,7 @@ export const keyframes = (slices: TemplateStringsArray, ...values: unknown[]): k
 
     const content = reduceEvaluable(slices, values, args);
 
-    const animationName = createAnimationName(fn.animationName, content);
+    const animationName = createAnimationName(content);
     const escapedAnimationName = escapeName(animationName);
 
     context.push(`@keyframes ${ escapedAnimationName }{${ content }}`);
