@@ -98,37 +98,6 @@ Box.defaultProps = {
   is: 'div',
 };
 
-export const withBoxFeatures = (component) => {
-  const EnhancedComponent = memo(forwardRef(({ children, ...props }, ref) => {
-    useStyleSheet();
-
-    if (ref) {
-      props.ref = ref;
-    }
-
-    const transformFn = useBoxTransform();
-    if (transformFn) {
-      props = transformFn(props);
-    }
-
-    props = useStylingProps(props);
-
-    const element = createElement(component, props, children);
-
-    if (transformFn) {
-      return <BoxTransforms.Provider children={element} />;
-    }
-
-    return element;
-  }));
-
-  if (process.env.NODE_ENV !== 'production') {
-    EnhancedComponent.displayName = `WithBoxFeatures(${ component.displayName || component.name || 'Component' })`;
-  }
-
-  return EnhancedComponent;
-};
-
 export { default as AnimatedVisibility } from './AnimatedVisibility';
 export { default as Flex } from './Flex';
 export { default as Margins } from './Margins';
