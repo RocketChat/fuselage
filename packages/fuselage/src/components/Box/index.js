@@ -15,17 +15,16 @@ export const useArrayLikeClassNameProp = (props) => {
   const cssFns = classNames.filter((value) => typeof value === 'function');
   const stylesClassName = useStyle(css`${ cssFns }`, props);
 
-  if (stylesClassName) {
-    props.className = appendClassName(props.className, stylesClassName);
+  const strings = classNames.filter((value) => typeof value === 'string');
+
+  if (!classNames.length) {
+    return props;
   }
 
-  const strings = classNames.filter((value) => typeof value === 'string');
-  if (strings.length) {
-    props.className = strings.reduce(
-      (className, string) => appendClassName(className, string),
-      props.className,
-    );
-  }
+  props.className = strings.reduce(
+    (className, string) => appendClassName(className, string),
+    stylesClassName || '',
+  );
 
   return props;
 };
