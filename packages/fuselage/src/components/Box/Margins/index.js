@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 
-import { marginPropType } from '../../../styles/props/spaces';
 import { BoxTransforms, useComposedBoxTransform } from '../transforms';
+import { createPropType } from '../../../helpers/createPropType';
+import { margin } from '../../../styleTokens';
 
 function Margins({
   children,
@@ -53,13 +53,13 @@ function Margins({
 }
 
 Margins.propTypes = {
-  all: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  block: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  blockStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  blockEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  inline: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  inlineStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  inlineEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  all: createPropType(margin),
+  block: createPropType(margin),
+  blockStart: createPropType(margin),
+  blockEnd: createPropType(margin),
+  inline: createPropType(margin),
+  inlineStart: createPropType(margin),
+  inlineEnd: createPropType(margin),
 };
 
 export default Margins;
