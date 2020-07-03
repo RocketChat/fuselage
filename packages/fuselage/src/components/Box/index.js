@@ -1,28 +1,30 @@
 import React, { forwardRef, memo, createElement } from 'react';
 import PropTypes from 'prop-types';
+import { css } from '@rocket.chat/css-in-js';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
-import { useClassNameMapping } from '../../hooks/useClassNameMapping';
+import { useStyle } from '../../hooks/useStyle';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import { propTypes as stylingPropsPropTypes, useStylingProps } from './stylingProps';
+import { /* propTypes as stylingPropsPropTypes,  */useStylingProps } from './stylingProps';
 import { useBoxTransform, BoxTransforms } from './transforms';
 
 export const useArrayLikeClassNameProp = (props) => {
-  const mapClassName = useClassNameMapping(props);
+  const classNames = [].concat(props.className);
 
-  if (props.className) {
-    props.className = [].concat(props.className).reduce((className, value) => {
-      if (typeof value === 'function') {
-        value = mapClassName(value);
-      }
+  const cssFns = classNames.filter((value) => typeof value === 'function');
+  const stylesClassName = useStyle(css`${ cssFns }`, props);
 
-      if (typeof value === 'string') {
-        return appendClassName(className, value);
-      }
+  if (stylesClassName) {
+    props.className = appendClassName(props.className, stylesClassName);
+  }
 
-      return className;
-    }, '');
+  const strings = classNames.filter((value) => typeof value === 'string');
+  if (strings.length) {
+    props.className = strings.reduce(
+      (className, string) => appendClassName(className, string),
+      props.className,
+    );
   }
 
   return props;
@@ -88,7 +90,7 @@ if (process.env.NODE_ENV !== 'production') {
       PropTypes.array,
     ]),
 
-    ...stylingPropsPropTypes,
+    // ...stylingPropsPropTypes,
   };
 }
 

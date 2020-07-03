@@ -4,7 +4,7 @@ import {
   transpile,
   attachRules,
 } from '@rocket.chat/css-in-js';
-import { useDebugValue, useEffect, useMemo } from 'react';
+import { useDebugValue, useLayoutEffect, useMemo } from 'react';
 
 export const useStyle = (cssFn, arg) => {
   const content = useMemo(() => (cssFn ? cssFn(arg) : undefined), [arg, cssFn]);
@@ -19,24 +19,19 @@ export const useStyle = (cssFn, arg) => {
 
   useDebugValue(className);
 
-  const transpiledContent = useMemo(() => {
+  useLayoutEffect(() => {
     if (!content || !className) {
       return;
     }
 
     const escapedClassName = escapeName(className);
     const transpiledContent = transpile(`.${ escapedClassName }`, content);
+    const detach = attachRules(transpiledContent);
 
-    return transpiledContent;
+    return () => {
+      setTimeout(detach, 1000);
+    };
   }, [className, content]);
-
-  useEffect(() => {
-    if (!transpiledContent) {
-      return;
-    }
-
-    return attachRules(transpiledContent);
-  }, [transpiledContent]);
 
   return className;
 };

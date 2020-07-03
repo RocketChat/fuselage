@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { appendClassName } from '../../../helpers/appendClassName';
 import { createPropType } from '../../../helpers/createPropType';
 import { fromCamelToKebab } from '../../../helpers/fromCamelToKebab';
-import { useClassNameMapping } from '../../../hooks/useClassNameMapping';
+import { useStyle } from '../../../hooks/useStyle';
 import {
   borderWidth,
   borderRadius,
@@ -315,16 +315,13 @@ export const propTypes = Object.entries(propDefs).reduce((obj, [propName, propDe
 });
 
 export const useStylingProps = (originalProps) => {
-  const mapClassName = useClassNameMapping(originalProps);
-
   const { htmlSize, ...props } = originalProps;
 
   const stylingProps = new Map();
 
   for (const entry of Object.entries(props)) {
-    let [propName] = entry;
-    const [, propValue] = entry;
-    let propDef = propDefs[propName];
+    const [propName, propValue] = entry;
+    const propDef = propDefs[propName];
 
     if (!propDef) {
       continue;
@@ -336,20 +333,23 @@ export const useStylingProps = (originalProps) => {
       continue;
     }
 
-    if (propDef.aliasOf) {
-      if (stylingProps.has(propDef.aliasOf)) {
+    let effectivePropName = propName;
+    let effectivePropDef = propDef;
+
+    if (effectivePropDef.aliasOf) {
+      if (stylingProps.has(effectivePropDef.aliasOf)) {
         continue;
       }
 
-      propName = propDef.aliasOf;
-      propDef = propDefs[propName];
+      effectivePropName = effectivePropDef.aliasOf;
+      effectivePropDef = propDefs[effectivePropName];
     }
 
-    let { toStyle } = propDef;
+    let { toStyle } = effectivePropDef;
 
-    if (propDef.toCSSValue) {
-      const cssProperty = fromCamelToKebab(propName);
-      const { toCSSValue } = propDef;
+    if (effectivePropDef.toCSSValue) {
+      const cssProperty = fromCamelToKebab(effectivePropName);
+      const { toCSSValue } = effectivePropDef;
       toStyle = (value) => {
         const cssValue = toCSSValue(value);
         if (cssValue === undefined) {
@@ -360,17 +360,20 @@ export const useStylingProps = (originalProps) => {
       };
     }
 
-    const style = toStyle(propValue || (props ? props[propName] : undefined));
+    const style = toStyle(propValue);
 
     if (style === undefined) {
       continue;
     }
 
-    stylingProps.set(propName, style);
+    stylingProps.set(effectivePropName, style);
   }
 
-  if (stylingProps.size) {
-    const newClassName = mapClassName(css`${ Array.from(stylingProps.values()) }`);
+  const styles = stylingProps.size ? Array.from(stylingProps.values()) : undefined;
+
+  const newClassName = useStyle(css`${ styles }`);
+
+  if (newClassName) {
     props.className = appendClassName(props.className, newClassName);
   }
 
