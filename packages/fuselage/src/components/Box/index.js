@@ -8,18 +8,8 @@ import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { propTypes as stylingPropsPropTypes, useStylingProps } from './stylingProps';
 import { useBoxTransform, BoxTransforms } from './transforms';
 
-export const Box = memo(forwardRef(function Box({
-  is = 'div',
-  children,
-  ...props
-}, ref) {
-  useStyleSheet();
-  const transformFn = useBoxTransform();
+export const useArrayLikeClassNameProp = (props) => {
   const mapClassName = useClassNameMapping(props);
-
-  if (ref) {
-    props.ref = ref;
-  }
 
   if (props.className) {
     props.className = [].concat(props.className).reduce((className, value) => {
@@ -35,12 +25,10 @@ export const Box = memo(forwardRef(function Box({
     }, '');
   }
 
-  props.className = prependClassName(props.className, 'rcx-box');
+  return props;
+};
 
-  if (transformFn) {
-    props = transformFn(props);
-  }
-
+export const useBoxOnlyProps = (props) => {
   Object.entries(props).forEach(([key, value]) => {
     if (key.slice(0, 4) === 'rcx-') {
       if (!value) {
@@ -54,6 +42,30 @@ export const Box = memo(forwardRef(function Box({
     }
   });
 
+  props.className = prependClassName(props.className, 'rcx-box');
+
+  return props;
+};
+
+export const Box = memo(forwardRef(function Box({
+  is = 'div',
+  children,
+  ...props
+}, ref) {
+  useStyleSheet();
+
+  if (ref) {
+    props.ref = ref;
+  }
+
+  props = useArrayLikeClassNameProp(props);
+
+  const transformFn = useBoxTransform();
+  if (transformFn) {
+    props = transformFn(props);
+  }
+
+  props = useBoxOnlyProps(props);
   props = useStylingProps(props);
 
   const element = createElement(is, props, children);
@@ -82,6 +94,37 @@ if (process.env.NODE_ENV !== 'production') {
 
 Box.defaultProps = {
   is: 'div',
+};
+
+export const withBoxFeatures = (component) => {
+  const EnhancedComponent = memo(forwardRef(({ children, ...props }, ref) => {
+    useStyleSheet();
+
+    if (ref) {
+      props.ref = ref;
+    }
+
+    const transformFn = useBoxTransform();
+    if (transformFn) {
+      props = transformFn(props);
+    }
+
+    props = useStylingProps(props);
+
+    const element = createElement(component, props, children);
+
+    if (transformFn) {
+      return <BoxTransforms.Provider children={element} />;
+    }
+
+    return element;
+  }));
+
+  if (process.env.NODE_ENV !== 'production') {
+    EnhancedComponent.displayName = `WithBoxFeatures(${ component.displayName || component.name || 'Component' })`;
+  }
+
+  return EnhancedComponent;
 };
 
 export { default as AnimatedVisibility } from './AnimatedVisibility';
