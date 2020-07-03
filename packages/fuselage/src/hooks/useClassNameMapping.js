@@ -1,27 +1,6 @@
 import { createClassName, escapeName, transpile, attachRules } from '@rocket.chat/css-in-js';
 import { useRef, useLayoutEffect, useCallback, useEffect } from 'react';
 
-const cssRulesDetachers = {};
-
-const referenceCSSRules = (className, content) => {
-  if (!cssRulesDetachers[className]) {
-    cssRulesDetachers[className] = {
-      count: 0,
-      detach: attachRules(content),
-    };
-  }
-
-  ++cssRulesDetachers[className].count;
-
-  return () => {
-    --cssRulesDetachers[className].count;
-    if (cssRulesDetachers[className].count === 0) {
-      cssRulesDetachers[className].detach();
-      delete cssRulesDetachers[className];
-    }
-  };
-};
-
 export const useClassNameMapping = (...args) => {
   const argsRef = useRef(args);
 
@@ -33,12 +12,7 @@ export const useClassNameMapping = (...args) => {
 
   useEffect(() => () => {
     unrefsRef.current.forEach((unref) => {
-      if (typeof window.queueMicrotask !== 'function') {
-        Promise.resolve().then(unref);
-        return;
-      }
-
-      queueMicrotask(unref);
+      unref();
     });
   }, []);
 
@@ -53,7 +27,7 @@ export const useClassNameMapping = (...args) => {
       const className = createClassName(content);
       const escapedClassName = escapeName(className);
       const transpiledContent = transpile(`.${ escapedClassName }`, content);
-      unrefsRef.current.push(referenceCSSRules(className, transpiledContent));
+      unrefsRef.current.push(attachRules(transpiledContent));
 
       return className;
     }

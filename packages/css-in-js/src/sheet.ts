@@ -1,3 +1,5 @@
+import hash from '@emotion/hash';
+
 const elementId = 'rcx-styles';
 let element: HTMLStyleElement;
 const getStyleTag = (): HTMLStyleElement => {
@@ -56,6 +58,52 @@ const attachRulesIntoStyleSheet: RuleAttacher = (rules) => {
   };
 };
 
+const wrapReferenceCounting = (attacher: RuleAttacher): RuleAttacher => {
+  const refs = {};
+
+  const queueMicrotask = (fn: () => void): void => {
+    if (typeof window === 'undefined' || typeof window.queueMicrotask !== 'function') {
+      Promise.resolve().then(fn);
+      return;
+    }
+
+    window.queueMicrotask(fn);
+  };
+
+  const enhancedAttacher: RuleAttacher = (content: string) => {
+    const id = hash(content);
+
+    if (!refs[id]) {
+      const detach = attacher(content);
+      let count = 0;
+
+      const ref = (): void => {
+        ++count;
+      };
+
+      const unref = (): void => {
+        queueMicrotask(() => {
+          --count;
+          if (count === 0) {
+            detach();
+            delete refs[id];
+          }
+        });
+      };
+
+      refs[id] = {
+        ref,
+        unref,
+      };
+    }
+
+    refs[id].ref();
+    return refs[id].unref;
+  };
+
+  return enhancedAttacher;
+};
+
 /**
  * Imediately attaches CSS rules into the style sheet.
  *
@@ -66,7 +114,7 @@ export const attachRules: RuleAttacher = (
   || (
     process.env.NODE_ENV === 'production'
     && !!CSSStyleSheet.prototype.insertRule
-    && attachRulesIntoStyleSheet
+    && wrapReferenceCounting(attachRulesIntoStyleSheet)
   )
-  || attachRulesIntoElement
+  || wrapReferenceCounting(attachRulesIntoElement)
 );
