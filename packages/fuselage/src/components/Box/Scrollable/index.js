@@ -1,9 +1,11 @@
 import { css } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 
-import { PropsProvider } from '../PropsContext';
+import { useStyle } from '../../../hooks/useStyle';
+import { appendClassName } from '../../../helpers/appendClassName';
+import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,
@@ -27,7 +29,7 @@ const pollTouchingEdges = (element, touchingEdgesRef, onScrollContent) => {
   }
 };
 
-export function Scrollable({ children, horizontal, vertical, smooth, onScrollContent }) {
+function Scrollable({ children, horizontal, vertical, smooth, onScrollContent }) {
   const scrollTimeoutRef = useRef();
   const touchingEdgesRef = useRef({});
 
@@ -45,39 +47,48 @@ export function Scrollable({ children, horizontal, vertical, smooth, onScrollCon
     }, 200);
   });
 
-  return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [
-      className,
-      css`
-        position: relative;
+  const className = useStyle(css`
+    position: relative;
 
-        &::-webkit-scrollbar {
-          width: ${ 4 / 16 }rem;
-          height: ${ 4 / 16 }rem;
-        }
+    &::-webkit-scrollbar {
+      width: ${ 4 / 16 }rem;
+      height: ${ 4 / 16 }rem;
+    }
 
-        &::-webkit-scrollbar-track {
-          background-color: transparent;
-        }
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
 
-        &::-webkit-scrollbar-thumb {
-          background-color: rgba(0, 0, 0, 0.05);
-          background-color: var(--rcx-theme-scrollbar-thumb-color, rgba(0, 0, 0, 0.05));
-        }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.05);
+      background-color: var(--rcx-theme-scrollbar-thumb-color, rgba(0, 0, 0, 0.05));
+    }
 
-        &:hover::-webkit-scrollbar-thumb {
-          background-color: rgba(0, 0, 0, 0.15);
-          background-color: var(--rcx-theme-scrollbar-thumb-hover-color, rgba(0, 0, 0, 0.15));
-        }
-      `,
-      (horizontal && css`overflow-x: auto !important;`)
-        || (vertical && css`overflow-y: auto !important;`)
-        || css`overflow: auto !important;`,
-      smooth && css`scroll-behavior: smooth !important;`,
-    ],
-    onScroll: onScrollContent ? handleScroll : undefined,
-    ...props,
-  })} memoized />;
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.15);
+      background-color: var(--rcx-theme-scrollbar-thumb-hover-color, rgba(0, 0, 0, 0.15));
+    }
+
+    ${ (horizontal && css`overflow-x: auto !important;`)
+      || (vertical && css`overflow-y: auto !important;`)
+      || css`overflow: auto !important;` }
+    ${ smooth && css`scroll-behavior: smooth !important;` }
+  `);
+
+  const transformFn = useCallback((props) => {
+    props.className = appendClassName(props.className, className);
+
+    if (onScrollContent !== undefined && props.onScroll === undefined) {
+      props.onScroll = handleScroll;
+    }
+
+    return props;
+  }, [className, handleScroll, onScrollContent]);
+
+  return <BoxTransforms.Provider
+    children={children}
+    value={useComposedBoxTransform(transformFn)}
+  />;
 }
 
 Scrollable.propTypes = {
@@ -86,3 +97,5 @@ Scrollable.propTypes = {
   smooth: PropTypes.bool,
   onScrollContent: PropTypes.func,
 };
+
+export default Scrollable;

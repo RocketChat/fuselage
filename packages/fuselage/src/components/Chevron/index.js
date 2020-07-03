@@ -3,7 +3,8 @@ import React, { useMemo } from 'react';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';
-import { sizePropType } from '../../styles/props/layout';
+import { createPropType } from '../../helpers/createPropType';
+import { size } from '../../styleTokens';
 
 export function Chevron({
   up,
@@ -32,5 +33,5 @@ Chevron.propTypes = {
   right: PropTypes.bool,
   down: PropTypes.bool,
   left: PropTypes.bool,
-  size: sizePropType,
+  size: createPropType(size),
 };
