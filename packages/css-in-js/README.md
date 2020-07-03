@@ -27,58 +27,58 @@ yarn test
 
 #### Table of Contents
 
--   [createSelector](#createselector)
-    -   [Parameters](#parameters)
+-   [cssSupports](#csssupports)
 -   [attachRules](#attachrules)
-    -   [Parameters](#parameters-1)
--   [referenceRules](#referencerules)
-    -   [Parameters](#parameters-2)
+-   [EvaluationContext](#evaluationcontext)
+-   [currentContext](#currentcontext)
+-   [holdContext](#holdcontext)
+-   [Evaluable](#evaluable)
 -   [css](#css)
-    -   [Parameters](#parameters-3)
--   [className](#classname)
-    -   [Parameters](#parameters-4)
+    -   [Parameters](#parameters)
 -   [keyframes](#keyframes)
-    -   [Parameters](#parameters-5)
--   [toClassName](#toclassname)
-    -   [Parameters](#parameters-6)
+    -   [Parameters](#parameters-1)
 -   [transpile](#transpile)
-    -   [Parameters](#parameters-7)
+    -   [Parameters](#parameters-2)
 
-### createSelector
+### cssSupports
 
-Creates a pair of selector and escaped selector for a CSS Modules content.
+Memoized and SSR-compatible facade of CSS.supports API
 
-#### Parameters
-
--   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-
-Returns **\[[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** a pair of selectors in the format `rcx-@<content hash>`; the second element is escaped
-for use in CSS content
+Type: function (value: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### attachRules
 
 Imediately attaches CSS rules into the style sheet.
 
-#### Parameters
+Type: RuleAttacher
 
--   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **any** a callback to detach the rules
 
-Returns **function (): void** a callback to detach the rules
+### EvaluationContext
 
-### referenceRules
+A shared state created by the upmost Evaluable in the call stack
 
-References CSS rules into the style sheet.
+Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>
 
-Each time this function is called with the same rules a internal reference counter for it
-is incremented; when the unreference callback returned by this function is called, the reference
-counter is decremented. If the counter reaches zero references, the rules are detached from
-style sheet.
+### currentContext
 
-#### Parameters
+It can be stored at this module scope because all Evaluable calls are
+synchronous, therefore the first call must create and destroy this context.
 
--   `rules` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Type: ([EvaluationContext](#evaluationcontext) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))
 
-Returns **function (): void** a callback to unreference the rules
+### holdContext
+
+Holds to the evaluation context inside a Evaluable.
+
+Returns **\[[EvaluationContext](#evaluationcontext), function (): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** a pair of the evaluation context and a function to free it,
+         returning the additional evaluation stored at the context.
+
+### Evaluable
+
+A function that lazily evaluates a special string interpolation.
+
+Type: function (...args: any): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 ### css
 
@@ -87,19 +87,9 @@ Template string tag to declare CSS content chunks.
 #### Parameters
 
 -   `slices` **TemplateStringsArray** 
--   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+-   `values` **...any** 
 
 Returns **cssFn** a callback to render the CSS content
-
-### className
-
-Template string tag to declare CSS content within a className.
-
-#### Parameters
-
--   `className` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-
-Returns **any** a callback to render the CSS content
 
 ### keyframes
 
@@ -108,19 +98,9 @@ Template string tag to declare CSS `@keyframe` at-rules.
 #### Parameters
 
 -   `slices` **TemplateStringsArray** 
--   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+-   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>** 
 
-Returns **function (rules: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a callback to render the CSS at-rule content
-
-### toClassName
-
-Process a value as a className.
-
-#### Parameters
-
--   `value` **(cssFn | classNameFn | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
-
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a string containing a className or undefined
+Returns **keyframesFn** a callback to render the CSS at-rule content
 
 ### transpile
 
@@ -130,6 +110,7 @@ Transpiles CSS Modules content to CSS rules.
 
 -   `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `options` **TranspileOptions?** 
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 

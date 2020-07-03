@@ -1,11 +1,13 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
-import { PropsProvider } from '../PropsContext';
+import { BoxTransforms, useComposedBoxTransform } from '../transforms';
+import { useStyle } from '../../../hooks/useStyle';
+import { appendClassName } from '../../../helpers/appendClassName';
 
-export function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
+function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
   const [visibility, setVisibility] = useState(propVisibility);
 
   useEffect(() => {
@@ -22,12 +24,10 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     });
   }, [propVisibility]);
 
-  const animatedVisibilityStyles = [
-    css`
-      animation-duration: 230ms;
-      animation-duration: var(--rcx-theme-transition-duration, 230ms);;
-    `,
-    visibility === AnimatedVisibility.HIDING && css`
+  const className = useStyle(css`
+    animation-duration: 230ms;
+
+    ${ visibility === AnimatedVisibility.HIDING && css`
       animation-name: ${ keyframes`
         from {
           transform: translate3d(0, 0, 0);
@@ -39,8 +39,9 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
           opacity: 0;
         }
       ` };
-    `,
-    visibility === AnimatedVisibility.UNHIDING && css`
+    ` }
+
+    ${ visibility === AnimatedVisibility.UNHIDING && css`
       animation-name: ${ keyframes`
         from {
           transform: translate3d(0, 1rem, 0);
@@ -52,8 +53,8 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
           opacity: 1;
         }
       ` };
-    `,
-  ];
+    ` }
+  `);
 
   const handleAnimationEnd = useMutableCallback(() => setVisibility((visibility) => {
     if (visibility === AnimatedVisibility.HIDING) {
@@ -67,15 +68,21 @@ export function AnimatedVisibility({ children, visibility: propVisibility = Anim
     return visibility;
   }));
 
+  const transformFn = useCallback((props) => {
+    if (props.onAnimationEnd === undefined) {
+      props.onAnimationEnd = handleAnimationEnd;
+    }
+    props.className = appendClassName(props.className, className);
+    return props;
+  }, [className, handleAnimationEnd]);
+
+  const composedFn = useComposedBoxTransform(transformFn);
+
   if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
   }
 
-  return <PropsProvider children={children} fn={({ className, ...props }) => ({
-    className: [className, ...animatedVisibilityStyles],
-    ...props,
-    onAnimationEnd: handleAnimationEnd,
-  })} memoized />;
+  return <BoxTransforms.Provider children={children} value={composedFn} />;
 }
 
 AnimatedVisibility.HIDDEN = 'hidden';
@@ -92,3 +99,5 @@ AnimatedVisibility.propTypes = {
     AnimatedVisibility.UNHIDING,
   ]),
 };
+
+export default AnimatedVisibility;

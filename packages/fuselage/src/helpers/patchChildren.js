@@ -1,14 +1,13 @@
-import flattenChildren from 'react-keyed-flatten-children';
 import { cloneElement } from 'react';
 
-import { mergeProps } from './mergeProps';
+import { flattenChildren } from './flattenChildren';
 import { shallowEqual } from './shallowEqual';
 
-export const patchChildren = (children, props, transforms) => {
+export const patchChildren = (children, patch) => {
   let dirty = false;
 
   const newChildren = flattenChildren(children).map((child) => {
-    const mergedProps = mergeProps(child.props, props, transforms);
+    const mergedProps = patch(child.props);
 
     if (shallowEqual(child.props, mergedProps)) {
       return child;

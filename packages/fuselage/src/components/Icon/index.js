@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
-import { sizePropType } from '../../styles/props/layout';
+import { createPropType } from '../../helpers/createPropType';
+import { size } from '../../styleTokens';
 
 export const Icon = forwardRef(function Icon({
   name,
@@ -24,5 +25,5 @@ export const Icon = forwardRef(function Icon({
 
 Icon.propTypes = {
   name: PropTypes.oneOf(Object.keys(nameToCharacterMapping)).isRequired,
-  size: sizePropType,
+  size: createPropType(size),
 };

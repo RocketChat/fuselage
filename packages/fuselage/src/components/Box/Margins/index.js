@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback } from 'react';
 
-import { PropsProvider } from '../PropsContext';
-import { marginPropType } from '../../../styles/props/spaces';
+import { BoxTransforms, useComposedBoxTransform } from '../transforms';
+import { createPropType } from '../../../helpers/createPropType';
+import { margin } from '../../../styleTokens';
 
-export function Margins({
+function Margins({
   children,
   all,
   block,
@@ -14,24 +14,52 @@ export function Margins({
   inlineStart,
   inlineEnd,
 }) {
-  return <PropsProvider children={children} fn={(props) => ({
-    ...all !== undefined && { m: all },
-    ...block !== undefined && { mb: block },
-    ...blockStart !== undefined && { mbs: blockStart },
-    ...blockEnd !== undefined && { mbe: blockEnd },
-    ...inline !== undefined && { mi: inline },
-    ...inlineStart !== undefined && { mis: inlineStart },
-    ...inlineEnd !== undefined && { mie: inlineEnd },
-    ...props,
-  })} memoized />;
+  const transformFn = useCallback((props) => {
+    if (all !== undefined && props.margin === undefined) {
+      props.margin = all;
+    }
+
+    if (block !== undefined && props.marginBlock === undefined) {
+      props.marginBlock = block;
+    }
+
+    if (blockStart !== undefined && props.marginBlockStart === undefined) {
+      props.marginBlockStart = blockStart;
+    }
+
+    if (blockEnd !== undefined && props.marginBlockEnd === undefined) {
+      props.marginBlockEnd = blockEnd;
+    }
+
+    if (inline !== undefined && props.marginInline === undefined) {
+      props.marginInline = inline;
+    }
+
+    if (inlineStart !== undefined && props.marginInlineStart === undefined) {
+      props.marginInlineStart = inlineStart;
+    }
+
+    if (inlineEnd !== undefined && props.marginInlineEnd === undefined) {
+      props.marginInlineEnd = inlineEnd;
+    }
+
+    return props;
+  }, [all, block, blockEnd, blockStart, inline, inlineEnd, inlineStart]);
+
+  return <BoxTransforms.Provider
+    children={children}
+    value={useComposedBoxTransform(transformFn)}
+  />;
 }
 
 Margins.propTypes = {
-  all: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  block: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  blockStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  blockEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  inline: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  inlineStart: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
-  inlineEnd: PropTypes.oneOfType([marginPropType, PropTypes.string, PropTypes.number]),
+  all: createPropType(margin),
+  block: createPropType(margin),
+  blockStart: createPropType(margin),
+  blockEnd: createPropType(margin),
+  inline: createPropType(margin),
+  inlineStart: createPropType(margin),
+  inlineEnd: createPropType(margin),
 };
+
+export default Margins;
