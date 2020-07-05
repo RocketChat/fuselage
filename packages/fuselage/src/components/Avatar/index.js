@@ -3,7 +3,8 @@ import React, { useContext, createContext } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box } from '../Box';
-import { sizePropType } from '../../styles/props/layout';
+import { createPropType } from '../../helpers/createPropType';
+import { size } from '../../styleTokens';
 
 const AvatarContext = createContext({
   baseUrl: '',
@@ -42,7 +43,7 @@ Avatar.Context = AvatarContext;
 
 Avatar.propTypes = {
   rounded: PropTypes.bool,
-  size: sizePropType,
+  size: createPropType(size),
   title: PropTypes.string,
   url: PropTypes.string.isRequired,
 };

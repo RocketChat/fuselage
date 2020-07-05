@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
-import { sizePropType } from '../../styles/props/layout';
+import { createPropType } from '../../helpers/createPropType';
+import { size } from '../../styleTokens';
 
 function Circle({ disabled, circleCount, iteration, inheritColor, ...props }) {
   return <Box
@@ -46,7 +47,7 @@ export const Throbber = forwardRef(function Throbber({
 
 Throbber.propTypes = {
   disabled: PropTypes.bool,
-  size: sizePropType,
+  size: createPropType(size),
   circleCount: PropTypes.number,
   inheritColor: PropTypes.bool,
 };
