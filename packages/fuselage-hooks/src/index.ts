@@ -11,5 +11,6 @@ export * from './useMergedRefs';
 export * from './useMutableCallback';
 export * from './useResizeObserver';
 export * from './useSafely';
+export * from './useStableArray';
 export * from './useToggle';
 export * from './useUniqueId';

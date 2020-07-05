@@ -51,8 +51,11 @@ yarn test
     -   [Parameters](#parameters-10)
 -   [useSafely](#usesafely)
     -   [Parameters](#parameters-11)
--   [useToggle](#usetoggle)
+-   [Comparator](#comparator)
+-   [useStableArray](#usestablearray)
     -   [Parameters](#parameters-12)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-13)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -191,6 +194,23 @@ which can be safe and asynchronically called even after the component unmounted.
     -   `pair.1`  the state dispatcher function
 
 Returns **\[S, D]** a state value and safe dispatcher pair
+
+### Comparator
+
+Type: function (a: T, b: T): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+### useStableArray
+
+Hook to create an array with stable identity if its elements are equal.
+
+#### Parameters
+
+-   `array` **T** the array
+-   `compare` **[Comparator](#comparator)** the equality function that checks if two array elements are
+           equal (optional, default `Object.is`)
+
+Returns **T** the passed array if the elements are NOT equals; the previously
+         stored array otherwise
 
 ### useToggle
 
