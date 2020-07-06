@@ -6,6 +6,7 @@ export * from './useDebouncedUpdates';
 export * from './useDebouncedValue';
 export * from './useIsomorphicLayoutEffect';
 export * from './useLazyRef';
+export * from './useMediaQueries';
 export * from './useMediaQuery';
 export * from './useMergedRefs';
 export * from './useMutableCallback';

@@ -65,5 +65,9 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@types/use-subscription": "^1.0.0",
+    "use-subscription": "^1.4.1"
   }
 }
