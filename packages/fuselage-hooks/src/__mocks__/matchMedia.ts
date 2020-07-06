@@ -20,11 +20,13 @@ class MediaQueryListMock implements MediaQueryList {
   }
 
   get matches(): boolean {
-    if (/^\(max-width: (\d+)(px|em)\)$/.test(this._media)) {
-      const [, width, unit] = /^\(max-width: (\d+)(px|em)\)$/.exec(this._media);
+    const regex = /^\((min-width|max-width): (\d+)(px|em)\)$/;
+    if (regex.test(this._media)) {
+      const [, condition, width, unit] = regex.exec(this._media);
       const widthPx = (unit === 'em' && parseInt(width, 10) * 16)
         || (unit === 'px' && parseInt(width, 10));
-      return window.innerWidth <= widthPx;
+      return (condition === 'min-width' && window.innerWidth >= widthPx)
+        || (condition === 'max-width' && window.innerWidth <= widthPx);
     }
 
     return false;
