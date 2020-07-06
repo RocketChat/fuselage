@@ -3,8 +3,6 @@ import { act } from 'react-dom/test-utils';
 export const mediaQueryLists = new Set<MediaQueryList>();
 
 class MediaQueryListMock implements MediaQueryList {
-  _matches: boolean
-
   _media: string
 
   _onchange: (ev: MediaQueryListEvent) => void | null
@@ -12,7 +10,6 @@ class MediaQueryListMock implements MediaQueryList {
   changeEventListeners: Set<EventListener>
 
   constructor(media: string) {
-    this._matches = window.innerWidth <= 968;
     this._media = media;
     this._onchange = null;
     this.changeEventListeners = new Set([
@@ -23,7 +20,14 @@ class MediaQueryListMock implements MediaQueryList {
   }
 
   get matches(): boolean {
-    return this._matches;
+    if (/^\(max-width: (\d+)(px|em)\)$/.test(this._media)) {
+      const [, width, unit] = /^\(max-width: (\d+)(px|em)\)$/.exec(this._media);
+      const widthPx = (unit === 'em' && parseInt(width, 10) * 16)
+        || (unit === 'px' && parseInt(width, 10));
+      return window.innerWidth <= widthPx;
+    }
+
+    return false;
   }
 
   get media(): string {
@@ -66,7 +70,6 @@ class MediaQueryListMock implements MediaQueryList {
 
   dispatchEvent(ev: MediaQueryListEvent): boolean {
     act(() => {
-      this._matches = ev.matches;
       this._media = ev.media;
       this.changeEventListeners.forEach((changeEventListener) => {
         changeEventListener(ev);
