@@ -1,4 +1,5 @@
 export * from './useAutoFocus';
+export * from './useBreakpoints';
 export * from './useDebouncedCallback';
 export * from './useDebouncedReducer';
 export * from './useDebouncedState';
