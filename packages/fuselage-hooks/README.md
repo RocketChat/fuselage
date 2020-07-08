@@ -29,6 +29,7 @@ yarn test
 
 -   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
+-   [useBreakpoints](#usebreakpoints)
 -   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-1)
 -   [useDebouncedReducer](#usedebouncedreducer)
@@ -41,18 +42,23 @@ yarn test
     -   [Parameters](#parameters-5)
 -   [useLazyRef](#uselazyref)
     -   [Parameters](#parameters-6)
--   [useMediaQuery](#usemediaquery)
+-   [useMediaQueries](#usemediaqueries)
     -   [Parameters](#parameters-7)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-8)
--   [useMutableCallback](#usemutablecallback)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-9)
--   [useResizeObserver](#useresizeobserver)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-10)
--   [useSafely](#usesafely)
+-   [useResizeObserver](#useresizeobserver)
     -   [Parameters](#parameters-11)
--   [useToggle](#usetoggle)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-12)
+-   [Comparator](#comparator)
+-   [useStableArray](#usestablearray)
+    -   [Parameters](#parameters-13)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-14)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -65,6 +71,12 @@ Hook to automatically request focus for an DOM element.
 -   `options` **Options?** options of the focus request
 
 Returns **Ref&lt;{focus: function (options: Options): void}>** the ref which holds the element
+
+### useBreakpoints
+
+Hook to catch which responsive design' breakpoints are active.
+
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** an array of the active breakpoint names.
 
 ### useDebouncedCallback
 
@@ -137,6 +149,16 @@ Hook equivalent to useRef, but with a lazy initialization for computed value.
 
 Returns **any** the ref
 
+### useMediaQueries
+
+Hook to listen to a set of media queries.
+
+#### Parameters
+
+-   `queries` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** the CSS3 expressions of media queries
+
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** a set of booleans expressing if the media queries match or not
+
 ### useMediaQuery
 
 Hook to listen to a media query.
@@ -191,6 +213,23 @@ which can be safe and asynchronically called even after the component unmounted.
     -   `pair.1`  the state dispatcher function
 
 Returns **\[S, D]** a state value and safe dispatcher pair
+
+### Comparator
+
+Type: function (a: T, b: T): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+### useStableArray
+
+Hook to create an array with stable identity if its elements are equal.
+
+#### Parameters
+
+-   `array` **T** the array
+-   `compare` **[Comparator](#comparator)** the equality function that checks if two array elements are
+           equal (optional, default `Object.is`)
+
+Returns **T** the passed array if the elements are NOT equals; the previously
+         stored array otherwise
 
 ### useToggle
 

@@ -5,12 +5,12 @@
 import { FunctionComponent, createElement, StrictMode } from 'react';
 import { renderToString } from 'react-dom/server';
 
-import { useMediaQuery } from '.';
+import { useMediaQueries } from '.';
 
-it('returns false for undefined media query', () => {
-  let matches: boolean;
+it('returns empty array for undefined media query', () => {
+  let matches: boolean[];
   const TestComponent: FunctionComponent = () => {
-    matches = useMediaQuery();
+    matches = useMediaQueries();
     return null;
   };
 
@@ -18,13 +18,13 @@ it('returns false for undefined media query', () => {
     createElement(StrictMode, {}, createElement(TestComponent)),
   );
 
-  expect(matches).toBe(false);
+  expect(matches).toStrictEqual([]);
 });
 
 it('returns false for defined media query', () => {
-  let matches: boolean;
+  let matches: boolean[];
   const TestComponent: FunctionComponent = () => {
-    matches = useMediaQuery('(max-width: 1024)');
+    matches = useMediaQueries('(max-width: 1024)');
     return null;
   };
 
@@ -32,5 +32,5 @@ it('returns false for defined media query', () => {
     createElement(StrictMode, {}, createElement(TestComponent)),
   );
 
-  expect(matches).toBe(false);
+  expect(matches).toStrictEqual([false]);
 });

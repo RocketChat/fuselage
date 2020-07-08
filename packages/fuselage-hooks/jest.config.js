@@ -4,4 +4,12 @@ module.exports = {
   testMatch: [
     '**/src/**/*.spec.[jt]s?(x)',
   ],
+  globals: {
+    'ts-jest': {
+      tsConfig: {
+        noUnusedLocals: false,
+        noUnusedParameters: false,
+      },
+    },
+  },
 };
