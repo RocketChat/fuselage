@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
-import { Chip } from '../Chip';
+import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';

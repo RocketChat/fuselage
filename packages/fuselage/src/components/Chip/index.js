@@ -8,7 +8,7 @@ import Margins from '../Margins';
 const defaultRenderThumb = ({ url }) => <Avatar size='x20' url={url} />;
 const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
-export const Chip = ({
+const Chip = ({
   children,
   thumbUrl,
   onClick,
@@ -35,7 +35,7 @@ export const Chip = ({
   </Box>;
 };
 
-Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
+const ChipWrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
   <Margins all='neg-x4'>
     <Flex.Container alignItems={alignItems} wrap={wrap}>
       <Box rcx-chip__wrapper is='div' {...props}>
@@ -49,3 +49,7 @@ Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...prop
       </Box>
     </Flex.Container>
   </Margins>;
+
+export default Object.assign(Chip, {
+  Wrapper: ChipWrapper,
+});
