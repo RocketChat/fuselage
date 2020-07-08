@@ -417,3 +417,16 @@ Add margins to the wrapped component.
     </Tile>
   </Story>
 </Preview>
+
+### With non-`Box` children
+
+<Preview>
+  <Story name='With non-`Box` children'>
+    <div style={{ border: '1px solid red' }}>
+      <Margins block='x16' inline='x32'>
+        <div style={{ border: '1px solid green' }} />
+        <div style={{ border: '1px solid blue' }} />
+      </Margins>
+    </div>
+  </Story>
+</Preview>
