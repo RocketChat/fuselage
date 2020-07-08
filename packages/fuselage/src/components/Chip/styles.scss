@@ -1,11 +1,18 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-chip {
   @include clickable;
-  @include typography.use-text-ellipsis;
+  @include typography.use-font-scale('p1');
 
   @extend %button--secondary;
+
+  display: flex;
+  align-items: center;
+  min-height: lengths.size(28);
   border-width: 0;
+  overflow: hidden;
 
   &.disabled,
   &:disabled {
@@ -15,6 +22,10 @@
   }
 
   &__text {
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+
     @include typography.use-text-ellipsis;
     white-space: nowrap;
   }

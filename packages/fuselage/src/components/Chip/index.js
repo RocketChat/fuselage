@@ -5,36 +5,35 @@ import { Box, Flex } from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
-const ThumbDefault = ({ url }) => <Avatar size='x20' url={url}/>;
-const RemoveDefault = () => <Icon name='cross' size='x16' />;
+const defaultRenderThumb = ({ url }) => <Avatar size='x20' url={url} />;
+const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
 export const Chip = ({
   children,
   thumbUrl,
-  Thumb = ThumbDefault,
   onClick,
   onMouseDown,
-  Remove = RemoveDefault,
+  renderThumb = defaultRenderThumb,
+  renderDismissSymbol = defaultRenderDismissSymbol,
   ...props
-}) => (
-  <Flex.Container>
-    <Box rcx-chip is='button' type='button' disabled={!(onClick || onMouseDown)} onClick={onClick || onMouseDown} {...props}>
-      {Thumb && thumbUrl && <Margins all='x4'>
-        <Thumb url={thumbUrl} />
-      </Margins>}
-      {children && <Flex.Item shrink={1}>
-        <Margins all='x4'>
-          <Box is='span' fontScale='p1' color='default' rcx-chip__text>{children}</Box>
-        </Margins>
-      </Flex.Item>}
-      {Remove && (onClick || onMouseDown) && <Margins all='x4'>
-        <Box>
-          <Remove/>
-        </Box>
-      </Margins>}
-    </Box>
-  </Flex.Container>
-);
+}) => {
+  const onDismiss = onClick || onMouseDown;
+
+  return <Box
+    rcx-chip
+    is='button'
+    type='button'
+    disabled={!onDismiss}
+    onClick={onDismiss}
+    {...props}
+  >
+    <Margins all='x4'>
+      {thumbUrl && renderThumb && renderThumb({ url: thumbUrl })}
+      {children && <span className='rcx-chip__text'>{children}</span>}
+      {onDismiss && renderDismissSymbol && renderDismissSymbol()}
+    </Margins>
+  </Box>;
+};
 
 Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
   <Margins all='neg-x4'>
