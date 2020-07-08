@@ -67,11 +67,11 @@ function Margins(props) {
 
   const patchedChildren = patchChildren(children, (childProps) => ({
     className: appendClassName(
+      childProps.className,
       appendClassName(
-        childProps.className,
+        className,
         marginsClassName,
       ),
-      className,
     ),
   }));
 
