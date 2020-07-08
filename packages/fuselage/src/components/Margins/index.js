@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 
-import { BoxTransforms, useComposedBoxTransform } from '../transforms';
-import { createPropType } from '../../../helpers/createPropType';
-import { margin } from '../../../styleTokens';
+import { BoxTransforms, useComposedBoxTransform } from '../Box/transforms';
+import { createPropType } from '../../helpers/createPropType';
+import { margin } from '../../styleTokens';
 
 function Margins({
   children,

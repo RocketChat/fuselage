@@ -1,8 +1,9 @@
 import React, { useState, useLayoutEffect, useRef, useCallback, useEffect, forwardRef } from 'react';
 
-import { PositionAnimated, Box, Flex, Margins, AnimatedVisibility } from '../Box';
+import { PositionAnimated, Box, Flex, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
+import Margins from '../Margins';
 import { Options, useCursor } from '../Options';
 
 export const Addon = forwardRef((props, ref) => <Box is='div' rcx-select__addon ref={ref} {...props} />);

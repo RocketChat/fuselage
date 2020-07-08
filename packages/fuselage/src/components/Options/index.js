@@ -1,9 +1,10 @@
 import React, { useCallback, useLayoutEffect, useState, forwardRef, useMemo } from 'react';
 
 
-import { AnimatedVisibility, Box, Flex, Margins, Scrollable } from '../Box';
 import { Avatar } from '../Avatar';
+import { AnimatedVisibility, Box, Flex, Scrollable } from '../Box';
 import { CheckBox } from '../CheckBox';
+import Margins from '../Margins';
 import { Tile } from '../Tile';
 
 export const ACTIONS = {
