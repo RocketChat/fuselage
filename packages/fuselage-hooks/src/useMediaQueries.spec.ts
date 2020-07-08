@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 
 import resizeToMock from './__mocks__/resizeTo';
 import matchMediaMock from './__mocks__/matchMedia';
-import { useMediaQuery } from '.';
+import { useMediaQueries } from '.';
 
 beforeAll(() => {
   window.resizeTo = resizeToMock;
@@ -15,9 +15,10 @@ beforeEach(() => {
   window.resizeTo(1024, 768);
 });
 
-it('does not register a undefined media query', () => {
+it('returns empty array if no query is given', () => {
+  let matches: boolean[];
   const TestComponent: FunctionComponent = () => {
-    useMediaQuery();
+    matches = useMediaQueries();
     return null;
   };
 
@@ -28,12 +29,13 @@ it('does not register a undefined media query', () => {
     );
   });
 
-  expect(window.matchMedia).not.toHaveBeenCalled();
+  expect(matches).toStrictEqual([]);
 });
 
-it('does register a defined media query', () => {
+it('returns false values if the media queries don\'t match', () => {
+  let matches: boolean[];
   const TestComponent: FunctionComponent = () => {
-    useMediaQuery('(max-width: 1024px)');
+    matches = useMediaQueries('(max-width: 1024px)', '(max-width: 968px)');
     return null;
   };
 
@@ -44,49 +46,15 @@ it('does register a defined media query', () => {
     );
   });
 
-  expect(window.matchMedia).toHaveBeenCalledWith('(max-width: 1024px)');
-});
-
-it('returns false if no query is given', () => {
-  let matches: boolean;
-  const TestComponent: FunctionComponent = () => {
-    matches = useMediaQuery();
-    return null;
-  };
-
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
-    );
-  });
-
-  expect(matches).toBe(false);
-});
-
-it('returns false if the media query does not match', () => {
-  let matches: boolean;
-  const TestComponent: FunctionComponent = () => {
-    matches = useMediaQuery('(max-width: 968px)');
-    return null;
-  };
-
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
-    );
-  });
-
-  expect(matches).toBe(false);
+  expect(matches).toStrictEqual([true, false]);
 });
 
 it('returns true if the media query does match', () => {
   window.resizeTo(968, 768);
 
-  let matches: boolean;
+  let matches: boolean[];
   const TestComponent: FunctionComponent = () => {
-    matches = useMediaQuery('(max-width: 968px)');
+    matches = useMediaQueries('(max-width: 1024px)', '(max-width: 968px)');
     return null;
   };
 
@@ -97,13 +65,13 @@ it('returns true if the media query does match', () => {
     );
   });
 
-  expect(matches).toBe(true);
+  expect(matches).toStrictEqual([true, true]);
 });
 
 it('mutates its value to true if the media query matches', () => {
-  let matches: boolean;
+  let matches: boolean[];
   const TestComponent: FunctionComponent = () => {
-    matches = useMediaQuery('(max-width: 968px)');
+    matches = useMediaQueries('(max-width: 1024px)', '(max-width: 968px)');
     return null;
   };
 
@@ -128,7 +96,7 @@ it('mutates its value to true if the media query matches', () => {
 
   const matchesC = matches;
 
-  expect(matchesA).toBe(false);
-  expect(matchesB).toBe(true);
-  expect(matchesC).toBe(false);
+  expect(matchesA).toStrictEqual([true, false]);
+  expect(matchesB).toStrictEqual([true, true]);
+  expect(matchesC).toStrictEqual([true, false]);
 });
