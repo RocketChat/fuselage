@@ -21,6 +21,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules", "src/*.spec.ts"]
