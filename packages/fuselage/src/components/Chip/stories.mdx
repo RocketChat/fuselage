@@ -1,22 +1,49 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
+import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
+import { Box, Chip, Margins } from '../..';
 
-import { Chip, Margins } from '../..';
-const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
-
-<Meta title='Misc/Chip' parameters={{ jest: ['Chip/spec'] }} />
+<Meta title='Data Display/Chip' parameters={{ jest: ['Chip/spec'] }} />
 
 # Chip
 
 <Preview>
-  <Story name='Default'>
-    <Chip.Wrapper>
-      <Chip onClick={action('click')} thumbUrl={thumb}>Chip</Chip>
-      <Chip thumbUrl={thumb}>Chip Chip Chip Chip Chip</Chip>
-      <Chip onClick={action('click')} >Chip Chip Chip Chip Chip Chip Chip Chip Chip Chip</Chip>
-      <Chip>Chip Chip Chip Chip Chip Chip Chip Chip Chip Chip</Chip>
-    </Chip.Wrapper>
+  <Story name='Example'>
+    <Chip thumbUrl={exampleAvatar} onClick={action('click')}>Marie Rowe</Chip>
   </Story>
 </Preview>
 
 <Props of={Chip} />
+
+### Default
+
+<Preview>
+  <Story name='Default'>
+    <Chip>Chip</Chip>
+  </Story>
+</Preview>
+
+### Dismissible
+
+<Preview>
+  <Story name='Dismissible'>
+    <Chip onClick={action('click')}>Chip</Chip>
+  </Story>
+</Preview>
+
+### With thumb
+
+<Preview>
+  <Story name='With thumb' decorators={[
+    (storyFn) => <Box display='flex' margins='-x4'>
+      <Margins all='x4'>
+        {storyFn()}
+      </Margins>
+    </Box>,
+  ]}>
+    <>
+      <Chip thumbUrl={blankAvatar}>Chip</Chip>
+      <Chip thumbUrl={blankAvatar} onClick={action('click')}>Chip</Chip>
+    </>
+  </Story>
+</Preview>
