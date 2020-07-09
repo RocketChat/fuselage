@@ -3,16 +3,20 @@
 @use '../../styles/typography.scss';
 
 .rcx-chip {
-  @include clickable;
-  @include typography.use-font-scale('p1');
-
+  @extend %box--animated;
+  @extend %box--full;
   @extend %button--secondary;
 
   display: flex;
-  align-items: center;
-  min-height: lengths.size(28);
-  border-width: 0;
   overflow: hidden;
+  align-items: center;
+
+  min-height: lengths.size(28);
+
+  border-width: 0;
+
+  @include clickable;
+  @include typography.use-font-scale('p1');
 
   &.disabled,
   &:disabled {
@@ -22,11 +26,13 @@
   }
 
   &__text {
-    color: inherit;
-    font: inherit;
+    white-space: nowrap;
     letter-spacing: inherit;
 
+    color: inherit;
+
+    font: inherit;
+
     @include typography.use-text-ellipsis;
-    white-space: nowrap;
   }
 }

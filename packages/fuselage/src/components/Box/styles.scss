@@ -2,11 +2,13 @@
   @extend %box;
 
   &--full {
+    @extend %box--animated;
     @extend %box--full;
 
     &::before,
     &::after {
       @extend %box;
+      @extend %box--animated;
       @extend %box--full;
     }
   }

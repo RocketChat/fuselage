@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
+import { prependClassName } from '../../helpers/prependClassName';
 import { Avatar } from '../Avatar';
-import { Box } from '../Box';
+import { withBoxStyling } from '../Box/withBoxStyling';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
@@ -10,29 +12,39 @@ const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
 const Chip = ({
   children,
+  className,
   thumbUrl,
   onClick,
   onMouseDown,
   renderThumb = defaultRenderThumb,
   renderDismissSymbol = defaultRenderDismissSymbol,
-  ...props
+  ...rest
 }) => {
   const onDismiss = onClick || onMouseDown;
 
-  return <Box
-    rcx-chip
-    is='button'
+  return <button
     type='button'
+    className={prependClassName(className, 'rcx-box rcx-chip')}
     disabled={!onDismiss}
     onClick={onDismiss}
-    {...props}
+    {...rest}
   >
     <Margins all='x4'>
       {thumbUrl && renderThumb && renderThumb({ url: thumbUrl })}
-      {children && <span className='rcx-chip__text'>{children}</span>}
+      {children && <span className='rcx-box rcx-chip__text'>{children}</span>}
       {onDismiss && renderDismissSymbol && renderDismissSymbol()}
     </Margins>
-  </Box>;
+  </button>;
 };
 
-export default Chip;
+if (process.env.NODE_ENV !== 'production') {
+  Chip.displayName = 'Chip';
+
+  Chip.propTypes = {
+    thumbUrl: PropTypes.string,
+    renderThumb: PropTypes.func,
+    renderDismissSymbol: PropTypes.func,
+  };
+}
+
+export default withBoxStyling(Chip);
