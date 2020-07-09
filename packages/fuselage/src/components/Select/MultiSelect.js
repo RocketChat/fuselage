@@ -79,12 +79,12 @@ export const MultiSelect = ({
         <Margins inline='x4'>
           <Flex.Container>
             <Box is='div'>
-              <Margins all='neg-x8'>
-                <Chip.Wrapper role='listbox'>
+              <Box is='div' display='flex' alignItems='center' flexWrap='wrap' margin='-x8' role='listbox'>
+                <Margins all='x4'>
                   <Anchor disabled={disabled} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} order={1} rcx-input-box--undecorated children={!value ? option || placeholder : null}/>
                   {currentValue.map((value) => <SelectedOptions tabIndex={-1} role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged([value]) && false} children={getLabel(options.find(([val]) => val === value))}/>)}
-                </Chip.Wrapper>
-              </Margins>
+                </Margins>
+              </Box>
             </Box>
           </Flex.Container>
         </Margins>

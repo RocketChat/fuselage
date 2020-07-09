@@ -5,6 +5,7 @@ import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { useCursor, Options } from '../Options';
 import { InputBox } from '../InputBox';
+import Margins from '../Margins';
 
 const Item = (props) => <Box is='div' marginInline='x4' {...props} />;
 
@@ -59,10 +60,12 @@ export function AutoComplete({
 
   return (
     <Container ref={containerRef} onClick={() => ref.current.focus()}>
-      <Chip.Wrapper role='listbox'>
-        <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} order={1} rcx-input-box--undecorated value={value}/>
-        {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged(value) && false} children={getLabel(options.find((option) => getValue(option) === value))}/>)}
-      </Chip.Wrapper>
+      <Box is='div' display='flex' alignItems='center' flexWrap='wrap' margin='-x4' role='listbox'>
+        <Margins all='x4'>
+          <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} order={1} rcx-input-box--undecorated value={value}/>
+          {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged(value) && false} children={getLabel(options.find((option) => getValue(option) === value))}/>)}
+        </Margins>
+      </Box>
       <Addon children={<Icon name='magnifier' size='x20' />}/>
       <PositionAnimated visible={visible} anchor={containerRef}>
         <Options role='option' renderEmpty={renderEmpty} cursor={cursor} value={value} options={options.map(({ label, value }) => [value, label])} />

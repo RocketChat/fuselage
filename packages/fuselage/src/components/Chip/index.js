@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Avatar } from '../Avatar';
-import { Box, Flex } from '../Box';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
@@ -35,21 +35,4 @@ const Chip = ({
   </Box>;
 };
 
-const ChipWrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
-  <Margins all='neg-x4'>
-    <Flex.Container alignItems={alignItems} wrap={wrap}>
-      <Box rcx-chip__wrapper is='div' {...props}>
-        {children.map((children, i) =>
-          <Flex.Item key={i} shrink={1}>
-            <Margins all='x4'>
-              {children}
-            </Margins>
-          </Flex.Item>,
-        )}
-      </Box>
-    </Flex.Container>
-  </Margins>;
-
-export default Object.assign(Chip, {
-  Wrapper: ChipWrapper,
-});
+export default Chip;
