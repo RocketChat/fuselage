@@ -5,18 +5,36 @@
 import { createElement, FunctionComponent, StrictMode } from 'react';
 import { renderToString } from 'react-dom/server';
 
-import { useLocalStorage } from './useStorage';
+import { useLocalStorage, useSessionStorage } from './useStorage';
 
-it('returns a default value', () => {
-  let value: string;
-  const TestLocalStorageComponent: FunctionComponent = () => {
-    [value] = useLocalStorage('value-key', 'value-default');
-    return null;
-  };
+describe('useLocalStorage hook', () => {
+  it('returns a default value', () => {
+    let value: string;
+    const TestComponent: FunctionComponent = () => {
+      [value] = useLocalStorage('value-key', 'value-default');
+      return null;
+    };
 
-  renderToString(
-    createElement(StrictMode, {}, createElement(TestLocalStorageComponent)),
-  );
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
 
-  expect(value).toStrictEqual('value-default');
+    expect(value).toStrictEqual('value-default');
+  });
+});
+
+describe('useSessionStorage hook', () => {
+  it('returns a default value', () => {
+    let value: string;
+    const TestComponent: FunctionComponent = () => {
+      [value] = useSessionStorage('value-key', 'value-default');
+      return null;
+    };
+
+    renderToString(
+      createElement(StrictMode, {}, createElement(TestComponent)),
+    );
+
+    expect(value).toStrictEqual('value-default');
+  });
 });
