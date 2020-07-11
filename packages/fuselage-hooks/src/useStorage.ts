@@ -86,19 +86,23 @@ const makeStorage = (storageFactory: Storage | (() => Storage), name: string): <
     }, [key]);
 
     useEffect(() => {
-      function handleEvent(e: StorageEvent): void {
-        if (e.key !== getKey(key)) {
+      const handleEvent = (event: StorageEvent): void => {
+        if (event.key !== getKey(key)) {
           return;
         }
-        setStoredValue(JSON.parse(e.newValue));
-      }
-      typeof window !== 'undefined' && window.addEventListener('storage', handleEvent);
-      return () => typeof window !== 'undefined' && window.removeEventListener('storage', handleEvent);
+        setStoredValue(JSON.parse(event.newValue));
+      };
+
+      window.addEventListener('storage', handleEvent);
+      return () => {
+        window.removeEventListener('storage', handleEvent);
+      };
     }, [key]);
 
     return [storedValue, setValue];
   };
 };
+
 /**
  * Hook to deal with localStorage
  * @param key
