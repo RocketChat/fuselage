@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.10.0...v0.11.0) (2020-07-11)
+
+
+### Bug Fixes
+
+* Box className prop ([#254](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/254)) ([5adc7b8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5adc7b8a907eca67bef5e26309c92561f6d8020a))
+
+
+
+
+
 # [0.10.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.9.0...v0.10.0) (2020-06-20)
 
 
