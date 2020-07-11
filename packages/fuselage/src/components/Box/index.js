@@ -39,7 +39,7 @@ export const useBoxOnlyProps = (props) => {
     }
   });
 
-  props.className = prependClassName(props.className, 'rcx-box');
+  props.className = prependClassName(props.className, 'rcx-box rcx-box--full');
 
   return props;
 };

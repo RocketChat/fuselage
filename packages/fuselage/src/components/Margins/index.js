@@ -54,7 +54,7 @@ function Margins(props) {
   }, [all, block, blockEnd, blockStart, inline, inlineEnd, inlineStart]);
 
   const marginsClassName = useStyle(css`
-    &:not(.rcx-box) {
+    &:not(.rcx-box--full) {
       ${ props.all && css`margin: ${ margin(props.all) };` }
       ${ props.inline && css`margin-inline: ${ margin(props.inline) };` }
       ${ props.inlineStart && css`margin-inline-start: ${ margin(props.inlineStart) };` }
