@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, Dispatch, SetStateAction } from 'react';
 
 const FakeStorage = new class implements Storage {
   private dict = {};
@@ -50,7 +50,7 @@ const FakeStorage = new class implements Storage {
   [name: string]: any;
 }();
 
-const makeStorage = (storageFactory: Storage | (() => Storage), name: string): <T>(key: string, initialValue: T) => [T, any] => {
+const makeStorage = (storageFactory: Storage | (() => Storage), name: string): <T>(key: string, initialValue: T) => [T, Dispatch<SetStateAction<T>>] => {
   let storage: Storage = FakeStorage;
   try {
     storage = storageFactory instanceof Function ? storageFactory() : storageFactory || storage;
@@ -58,7 +58,8 @@ const makeStorage = (storageFactory: Storage | (() => Storage), name: string): <
     // console.log('useLocalStorage Using Fake Storage ->', error);
   }
   const getKey = (key: string): string => `fuselage-${ name }-${ key }`;
-  return function useGenericStorage<T>(key: string, initialValue: T): [T, any] {
+
+  return function useGenericStorage<T>(key: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] {
     const [storedValue, setStoredValue] = useState<T>(() => {
       try {
         const item = storage.getItem(getKey(key));
@@ -73,7 +74,7 @@ const makeStorage = (storageFactory: Storage | (() => Storage), name: string): <
 
     currentValue.current = storedValue;
 
-    const setValue = useCallback((value: T): void => {
+    const setValue: Dispatch<SetStateAction<T>> = useCallback((value: T): void => {
       try {
         const valueToStore = value instanceof Function ? value(currentValue.current) : value;
 
