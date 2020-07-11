@@ -57,8 +57,12 @@ yarn test
 -   [Comparator](#comparator)
 -   [useStableArray](#usestablearray)
     -   [Parameters](#parameters-13)
--   [useToggle](#usetoggle)
+-   [useLocalStorage](#uselocalstorage)
     -   [Parameters](#parameters-14)
+-   [useSessionStorage](#usesessionstorage)
+    -   [Parameters](#parameters-15)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-16)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -230,6 +234,65 @@ Hook to create an array with stable identity if its elements are equal.
 
 Returns **T** the passed array if the elements are NOT equals; the previously
          stored array otherwise
+
+### useLocalStorage
+
+Hook to deal with localStorage
+
+#### Parameters
+
+-   `key`  
+-   `initialValue`  
+
+Returns **any** a state and a setter function
+
+### useSessionStorage
+
+Hook to deal with sessionStorage
+
+#### Parameters
+
+-   `key`  
+-   `initialValue`  
+
+Returns **any** a state and a setter function
+
+### useToggle
+
+Hook to create a toggleable boolean state.
+
+#### Parameters
+
+-   `initialValue` **([boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | function (): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean))?** the initial value or the initial state generator function
+
+Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), D]** a state boolean value and a state toggler function
+
+### useUniqueId
+
+Hook to keep a unique ID string.
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the unique ID string
+
+# Returns **any** a state and a setter function
+
+### Comparator
+
+Type: function (a: T, b: T): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+### useStableArray
+
+Hook to create an array with stable identity if its elements are equal.
+
+#### Parameters
+
+-   `array` **T** the array
+-   `compare` **[Comparator](#comparator)** the equality function that checks if two array elements are
+           equal (optional, default `Object.is`)
+
+Returns **T** the passed array if the elements are NOT equals; the previously
+         stored array otherwise
+
+> > > > > > > 09f95edd7f296de45bc62caa16a1f43848fe3027
 
 ### useToggle
 

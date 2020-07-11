@@ -14,5 +14,6 @@ export * from './useMutableCallback';
 export * from './useResizeObserver';
 export * from './useSafely';
 export * from './useStableArray';
+export * from './useStorage';
 export * from './useToggle';
 export * from './useUniqueId';
