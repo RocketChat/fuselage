@@ -1,24 +1,37 @@
-# Welcome to @rocket.chat/fuselage-hooks 👋
+<p align="center">
+  <a href="https://rocket.chat" title="Rocket.Chat">
+    <img src="https://user-images.githubusercontent.com/2263066/87240777-f5b4f300-c3f2-11ea-8a01-cc58fdf9a99a.png" alt="Rocket.Chat" />
+  </a>
+</p>
 
-[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/RocketChat/Rocket.Chat.Fuselage#readme)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/RocketChat/Rocket.Chat.Fuselage/graphs/commit-activity)
-[![License: MIT](https://img.shields.io/github/license/RocketChat/@rocket.chat/fuselage-hooks)](https://github.com/RocketChat/Rocket.Chat.Fuselage/blob/master/LICENSE)
-[![Twitter: RocketChat](https://img.shields.io/twitter/follow/RocketChat.svg?style=social)](https://twitter.com/RocketChat)
+# @rocket.chat/fuselage-hooks
 
-> React Hooks for Fuselage, Rocket.Chat's design system
+> React hooks for Fuselage, Rocket.Chat's design system and UI toolkit.
 
-### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
+![React version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage-hooks/peer/react?style=flat-square)
+![License: MIT](https://img.shields.io/github/license/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
+
+![Issues](https://img.shields.io/github/issues/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20fuselage-hooks?style=flat-square)
+![Pull requests](https://img.shields.io/github/issues-pr/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20fuselage-hooks?style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
+
+![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-hooks/latest?style=flat-square)
+![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-hooks/next?style=flat-square)
+![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-hooks&style=flat-square)
+![optional deps](https://img.shields.io/david/optional/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-hooks&style=flat-square)
+![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-hooks&style=flat-square)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-hooks?style=flat-square)
+![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-hooks?style=flat-square)
+![npm collaborators](https://img.shields.io/npm/collaborators/@rocket.chat/fuselage-hooks?style=flat-square)
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/2263066/87240832-6fe57780-c3f3-11ea-9985-4358c79af772.png" alt="Example" />
+</p>
 
 ## Install
 
 ```sh
 yarn add @rocket.chat/fuselage-hooks
-```
-
-## Run tests
-
-```sh
-yarn test
 ```
 
 ## API Reference
@@ -272,61 +285,3 @@ Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Referenc
 Hook to keep a unique ID string.
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the unique ID string
-
-# Returns **any** a state and a setter function
-
-### Comparator
-
-Type: function (a: T, b: T): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-
-### useStableArray
-
-Hook to create an array with stable identity if its elements are equal.
-
-#### Parameters
-
--   `array` **T** the array
--   `compare` **[Comparator](#comparator)** the equality function that checks if two array elements are
-           equal (optional, default `Object.is`)
-
-Returns **T** the passed array if the elements are NOT equals; the previously
-         stored array otherwise
-
-> > > > > > > 09f95edd7f296de45bc62caa16a1f43848fe3027
-
-### useToggle
-
-Hook to create a toggleable boolean state.
-
-#### Parameters
-
--   `initialValue` **([boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | function (): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean))?** the initial value or the initial state generator function
-
-Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), D]** a state boolean value and a state toggler function
-
-### useUniqueId
-
-Hook to keep a unique ID string.
-
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the unique ID string
-
-## Author
-
-👤 **Rocket.Chat**
-
--   Twitter: [@RocketChat](https://twitter.com/RocketChat)
--   Github: [@RocketChat](https://github.com/RocketChat)
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!
-
-Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-* * *
-
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
