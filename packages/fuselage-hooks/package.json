@@ -35,9 +35,15 @@
     "test": "jest --max-workers=1",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
-    "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md"
+    "docs:api-extractor": "api-extractor run --local --verbose",
+    "docs:api-documenter": "api-documenter markdown -i temp -o docs",
+    "docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
+    "docs:clean": "rimraf temp",
+    "docs": "run-s build docs:api-extractor docs:api-documenter docs:readme docs:clean"
   },
   "devDependencies": {
+    "@microsoft/api-documenter": "^7.8.21",
+    "@microsoft/api-extractor": "^7.9.2",
     "@rocket.chat/eslint-config": "^0.4.0",
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-json": "^4.1.0",
@@ -58,6 +64,7 @@
     "lint-staged": "^10.0.8",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.21.0",
     "rollup-plugin-terser": "^6.1.0",
     "ts-jest": "^26.1.0",
