@@ -42,6 +42,7 @@
     "@types/jest": "^25.2.3",
     "@types/react-dom": "^16.9.8",
     "@types/resize-observer-browser": "^0.1.3",
+    "@types/use-subscription": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^3.1.0",
     "@typescript-eslint/parser": "^3.1.0",
     "documentation": "^13.0.1",
@@ -49,7 +50,6 @@
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^4.0.4",
-    "invariant": "^2.2.4",
     "jest": "^26.0.1",
     "lint-staged": "^10.0.8",
     "microbundle": "^0.12.2",
@@ -59,7 +59,6 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "invariant": "^2.2.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -68,7 +67,6 @@
   },
   "dependencies": {
     "@rocket.chat/fuselage-tokens": "^0.11.0",
-    "@types/use-subscription": "^1.0.0",
     "use-subscription": "^1.4.1"
   }
 }
