@@ -85,9 +85,9 @@ Hook to automatically request focus for an DOM element.
 #### Parameters
 
 -   `isFocused`  if true, the focus will be requested (optional, default `true`)
--   `options` **Options?** options of the focus request
+-   `options` **FocusOptions?** options of the focus request
 
-Returns **Ref&lt;{focus: function (options: Options): void}>** the ref which holds the element
+Returns **Ref&lt;{focus: function (options: FocusOptions): void}>** the ref which holds the element
 
 ### useBreakpoints
 
