@@ -6,8 +6,6 @@
 
 Hook to keep a unique ID string.
 
- the unique ID string
-
 <b>Signature:</b>
 
 ```typescript

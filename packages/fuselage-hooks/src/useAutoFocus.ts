@@ -3,9 +3,10 @@ import { useEffect, useRef, Ref } from 'react';
 /**
  * Hook to automatically request focus for an DOM element.
  *
- * @param isFocused if true, the focus will be requested
- * @param options options of the focus request
+ * @param isFocused - if true, the focus will be requested
+ * @param options - options of the focus request
  * @returns the ref which holds the element
+ * @public
  */
 export const useAutoFocus = (
   isFocused = true,

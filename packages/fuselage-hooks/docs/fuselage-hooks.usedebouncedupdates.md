@@ -20,9 +20,11 @@ export declare function useDebouncedUpdates<S>([state, dispatch]: [S, DispatchWi
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  \[state, dispatch\] | \[S, DispatchWithoutAction\] |  |
-|  delay | number | the number of milliseconds to delay the dispatcher  a state value and debounced dispatcher pair |
+|  delay | number | the number of milliseconds to delay the dispatcher |
 
 <b>Returns:</b>
 
 \[S, DispatchWithoutAction &amp; { flush: () =&gt; void; cancel: () =&gt; void; }\]
+
+a state value and debounced dispatcher pair
 

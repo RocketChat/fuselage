@@ -23,7 +23,7 @@
 |  [useBreakpoints](./fuselage-hooks.usebreakpoints.md) | Hook to catch which responsive design' breakpoints are active. |
 |  [useDebouncedCallback](./fuselage-hooks.usedebouncedcallback.md) | Hook to memoize a debounced version of a callback. |
 |  [useDebouncedValue](./fuselage-hooks.usedebouncedvalue.md) | Hook to keep a debounced reference of a value. |
-|  [useIsomorphicLayoutEffect](./fuselage-hooks.useisomorphiclayouteffect.md) |  |
+|  [useIsomorphicLayoutEffect](./fuselage-hooks.useisomorphiclayouteffect.md) | Replacement for the <code>useEffect</code> hook that is safely ignored on SSR. |
 |  [useLazyRef](./fuselage-hooks.uselazyref.md) | Hook equivalent to useRef, but with a lazy initialization for computed value. |
 |  [useLocalStorage](./fuselage-hooks.uselocalstorage.md) | Hook to deal with localStorage |
 |  [useMediaQueries](./fuselage-hooks.usemediaqueries.md) | Hook to listen to a set of media queries. |
@@ -35,5 +35,5 @@
 |  [useSessionStorage](./fuselage-hooks.usesessionstorage.md) | Hook to deal with sessionStorage |
 |  [useStableArray](./fuselage-hooks.usestablearray.md) | Hook to create an array with stable identity if its elements are equal. |
 |  [useToggle](./fuselage-hooks.usetoggle.md) | Hook to create a toggleable boolean state. |
-|  [useUniqueId](./fuselage-hooks.useuniqueid.md) | Hook to keep a unique ID string. the unique ID string |
+|  [useUniqueId](./fuselage-hooks.useuniqueid.md) | Hook to keep a unique ID string. |
 

@@ -9,5 +9,5 @@ Hook to create an array with stable identity if its elements are equal.
 <b>Signature:</b>
 
 ```typescript
-useStableArray: <T extends unknown[]>(array: T, compare?: Comparator) => T
+useStableArray: <T extends unknown[]>(array: T, compare?: <T_1>(a: T_1, b: T_1) => boolean) => T
 ```

@@ -20,9 +20,11 @@ export declare function useDebouncedState<S>(initialValue: S | (() => S), delay:
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  initialValue | S \| (() =&gt; S) | the initial state value or the initial state generator function |
-|  delay | number | the number of milliseconds to delay the updater  a state and debounced setter function |
+|  delay | number | the number of milliseconds to delay the updater |
 
 <b>Returns:</b>
 
 \[S, Dispatch&lt;SetStateAction&lt;S&gt;&gt; &amp; { flush: () =&gt; void; cancel: () =&gt; void; }\]
+
+a state and debounced setter function
 

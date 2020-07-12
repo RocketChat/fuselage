@@ -4,6 +4,8 @@
 
 ## useIsomorphicLayoutEffect variable
 
+Replacement for the `useEffect` hook that is safely ignored on SSR.
+
 <b>Signature:</b>
 
 ```typescript

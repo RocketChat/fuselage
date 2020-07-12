@@ -7,9 +7,8 @@ import { useMutableCallback } from './useMutableCallback';
  * which can be safe and asynchronically called even after the component unmounted.
  *
  * @param pair - the state and dispatcher pair which will be patched
- * @param pair.0 - the state value
- * @param pair.1 - the state dispatcher function
- * @return a state value and safe dispatcher pair
+ * @returns a state value and safe dispatcher pair
+ * @public
  */
 export const useSafely = <S, A, D extends DispatchWithoutAction | Dispatch<A>>(
   [state, dispatcher]: [S, Dispatch<A> | DispatchWithoutAction],
