@@ -4,7 +4,7 @@ import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import { Box, PositionAnimated } from '../Box';
 import { Chip } from '../Chip';
 import { Icon } from '../Icon';
-import { useCursor, Options, OptionAvatar } from '../Options';
+import { useCursor, Options } from '../Options';
 import { InputBox } from '../InputBox';
 
 const Item = (props) => <Box is='div' marginInline='x4' {...props} />;
@@ -54,7 +54,7 @@ export function AutoComplete({
     onChange(currentValue);
   }, [currentValue, onChange]);
 
-  const [cursor, handleKeyDown, setCursor, reset, [visible, hide, show]] = useCursor(value, options, onChange);
+  const [cursor, handleKeyDown, , reset, [visible, hide, show]] = useCursor(value, options, onChange);
 
   useEffect(reset, [filter]);
 
@@ -66,7 +66,7 @@ export function AutoComplete({
       </Chip.Wrapper>
       <Addon children={<Icon name='magnifier' size='x20' />}/>
       <PositionAnimated visible={visible} anchor={containerRef}>
-        <Options role='option' width={borderBoxSize.inlineSize} renderEmpty={renderEmpty} renderItem={OptionAvatar} setCursor={setCursor} cursor={cursor} value={value} options={options.map(({ label, value }) => [value, label])} />
+        <Options role='option' width={borderBoxSize.inlineSize} renderEmpty={renderEmpty} cursor={cursor} value={value} options={options.map(({ label, value }) => [value, label])} />
       </PositionAnimated>
     </Container>
   );

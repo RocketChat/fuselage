@@ -7,7 +7,7 @@
   @include typography.use-font-scale(p2);
   @include typography.use-text-ellipsis;
 
-  padding: lengths.padding(8);
+  padding: lengths.padding(4) lengths.padding(16);
 
   list-style: none;
 
