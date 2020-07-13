@@ -3,13 +3,13 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Box } from '../'
-import { Options, CheckOption, OptionAvatar } from './';
+import { Options, CheckOption, Option } from './';
 const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 const options = [
   [1, 'a teste 1'],
   [2, 'b teste 2'],
   [3, 'c teste 3', true],
-  [4, 'd teste 4'],
+  [4, 'd testeadsasdasdasdasdjhasjfhasdkjfhaskdfjhkasjdfhkasjdhfkasjdhfkasjdhfkasjdhfkasdjhfkasdjhfaksjdfhkasjdh 4'],
 ];
 
 <Meta title='Misc/Options' parameters={{ jest: ['Options/spec'] }} />
@@ -22,6 +22,15 @@ An input for selection of options.
   <Story name='Default'>
     <Box position='relative' maxWidth={250}>
       <Options ref={React.createRef()} options={options}  cursor={1} />
+    </Box>
+  </Story>
+</Preview>
+
+
+<Preview>
+  <Story name='Option'>
+    <Box position='relative' maxWidth={250}>
+      <Options ref={React.createRef()} options={options} renderItem={Option}  cursor={1} />
     </Box>
   </Story>
 </Preview>
@@ -39,7 +48,7 @@ An input for selection of options.
 <Preview>
   <Story name='OptionAvatar'>
     <Box position='relative' maxWidth={250}>
-      <Options ref={React.createRef()} renderItem={(props) => <OptionAvatar {...props} value={thumb}/>}  options={options} />
+      <Options ref={React.createRef()} renderItem={(props) => <Option {...props} avatar={thumb}/>}  options={options} />
     </Box>
   </Story>
 </Preview>
