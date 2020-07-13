@@ -1,8 +1,10 @@
 import React, { useCallback, useLayoutEffect, useState, forwardRef, useMemo } from 'react';
 
 
+import { AnimatedVisibility, Box, Margins, Scrollable } from '../Box';
+import { Icon } from '../Icon';
 import { Avatar } from '../Avatar';
-import { AnimatedVisibility, Box, Flex, Scrollable } from '../Box';
+import { AnimatedVisibility, Box, Scrollable } from '../Box';
 import { CheckBox } from '../CheckBox';
 import Margins from '../Margins';
 import { Tile } from '../Tile';
@@ -22,24 +24,15 @@ const prevent = (e) => {
   e.stopPropagation();
 };
 
-const Li = forwardRef(function Li(props, ref) {
-  return <Box is='li' rcx-option ref={ref} {...props} />;
+const Li = forwardRef(function Li({ children, ...props }, ref) {
+  return <Box rcx-option withTruncatedText display='flex' alignItems='center' is='li' ref={ref} {...props}><Margins inline='x4'>{children}</Margins></Box>;
 });
 
-export const Empty = React.memo(() => <Box is='span' fontScale='p1' color='hint'>Empty</Box>);
+export const Option = React.memo(({ id, avatar, children, label = children, focus, selected, icon, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>{avatar && <Avatar size='x28' url={avatar} tile={label}/>}{icon && <Icon size='x16' name={icon}/>} <Box is='span' withTruncatedText flexGrow={1} fontScale='p1' color='default'>{label}</Box>{label !== children && children}</Li>);
 
-export const Option = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>{label}</Li>);
+export const Empty = React.memo(() => <Option is='span' fontScale='p1' color='hint'>Empty</Option>);
 
-export const CheckOption = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} aria-selected={selected} {...options}><Margins inline='x4'><CheckBox checked={selected} /></Margins><Margins inline='x4'><Box is='span' fontScale='p1' color='default'>{label}</Box></Margins></Li>);
-
-export const OptionAvatar = React.memo(({ id, value, children: label, focus, selected, ...options }) => (
-  <Flex.Container>
-    <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>
-      <Margins inline='x4'><Avatar size='x20' url={value} tile={label}/></Margins>
-      <Margins inline='x4'><Box is='span' fontScale='p1' color='default'>{label}</Box></Margins>
-    </Li>
-  </Flex.Container>
-));
+export const CheckOption = React.memo(({ selected, children: label, ...options }) => <Option label={label} selected={selected} {...options}><CheckBox checked={selected} /></Option>);
 
 export const Options = React.forwardRef(({
   maxHeight = '144px',
@@ -64,14 +57,12 @@ export const Options = React.forwardRef(({
 
   const optionsMemoized = useMemo(() => options.map(([value, label, selected], i) => <OptionComponent role='option' onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}>{label}</OptionComponent>), [options, multiple, cursor, onSelect]);
   return <Box rcx-options is='div' {...props}>
-    <Tile padding='x8' elevation='2'>
+    <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
       <Scrollable vertical smooth>
-        <Margins blockStart='x4'>
-          <Tile ref={ref} elevation='0' padding='none' maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
-            {!options.length && <EmptyComponent/>}
-            {optionsMemoized}
-          </Tile>
-        </Margins>
+        <Tile ref={ref} elevation='0' padding='none' maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
+          {!options.length && <EmptyComponent/>}
+          {optionsMemoized}
+        </Tile>
       </Scrollable>
     </Tile>
   </Box>;
