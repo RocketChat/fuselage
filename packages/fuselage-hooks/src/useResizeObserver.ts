@@ -1,4 +1,5 @@
 import { useRef, useEffect, RefObject } from 'react';
+import '@rocket.chat/fuselage-polyfills';
 
 import { useDebouncedState } from './useDebouncedState';
 

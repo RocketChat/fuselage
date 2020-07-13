@@ -22,10 +22,10 @@ const prevent = (e) => {
 };
 
 const Li = forwardRef(function Li(props, ref) {
-  return <Box is='li' rcx-option ref={ref} {...props} />;
+  return <Box is='li' display='flex' rcx-option ref={ref} {...props} withTruncatedText />;
 });
 
-export const Empty = React.memo(() => <Box is='span' fontScale='p1' color='hint'>Empty</Box>);
+export const Empty = React.memo(() => <Box withTruncatedText is='span' fontScale='p1' color='hint'>Empty</Box>);
 
 export const Option = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>{label}</Li>);
 
@@ -63,7 +63,7 @@ export const Options = React.forwardRef(({
 
   const optionsMemoized = useMemo(() => options.map(([value, label, selected], i) => <OptionComponent role='option' onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}>{label}</OptionComponent>), [options, multiple, cursor, onSelect]);
   return <Box rcx-options is='div' {...props}>
-    <Tile padding='x8' elevation='2'>
+    <Tile elevation='2'>
       <Scrollable vertical smooth>
         <Margins blockStart='x4'>
           <Tile ref={ref} elevation='0' padding='none' maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
