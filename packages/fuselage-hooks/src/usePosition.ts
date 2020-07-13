@@ -183,11 +183,11 @@ export const getVariantBoundaries = ({ referenceBox, target } : { referenceBox: 
 });
 
 /**
- * Hook to deal with sessionStorage
+ * Hook to deal and position an element using an anchor
  * @param reference - the anchor
  * @param targetEl - the element to be positioned
  * @param options - options to position
- * @returns a state and a setter function
+ * @returns The style containing top and left position
  * @public
  */
 
