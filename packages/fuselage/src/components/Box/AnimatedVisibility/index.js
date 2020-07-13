@@ -56,7 +56,7 @@ function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVis
     ` }
   `);
 
-  const handleAnimationEnd = useMutableCallback(() => setVisibility((visibility) => {
+  const handleAnimationEnd = useMutableCallback(() => setVisibility(() => {
     if (visibility === AnimatedVisibility.HIDING) {
       return AnimatedVisibility.HIDDEN;
     }
@@ -77,7 +77,6 @@ function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVis
   }, [className, handleAnimationEnd]);
 
   const composedFn = useComposedBoxTransform(transformFn);
-
   if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
   }
