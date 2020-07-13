@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.10.0...v0.11.0) (2020-07-11)
+
+
+### Features
+
+* Hooks useLocalStorage and useSessionStorage ([#248](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/248)) ([7c9a920](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7c9a92046f5d7bd01ea9f421470333785ba97ee2))
+* useStableArray, useBreakpoints, useMediaQueries ([#253](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/253)) ([09f95ed](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/09f95edd7f296de45bc62caa16a1f43848fe3027))
+
+
+
+
+
 # [0.10.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.9.0...v0.10.0) (2020-06-20)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-hooks

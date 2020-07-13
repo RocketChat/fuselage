@@ -1,4 +1,9 @@
 <h1 align="center">Welcome to Fuselage 👋</h1>
+
+![CircleCI](https://img.shields.io/circleci/build/github/RocketChat/Rocket.Chat.Fuselage/master?style=flat-square)
+![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
+![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
+
 <p>
   <a href="https://lerna.js.org/">
     <img alt="Lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" target="_blank" />

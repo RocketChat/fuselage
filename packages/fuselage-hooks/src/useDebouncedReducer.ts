@@ -48,7 +48,8 @@ export function useDebouncedReducer<S, A, R extends Reducer<S, A>>(
  *        initial state generator function
  * @param init - the initial state generator function
  * @param delay - the number of milliseconds to delay the updater
- * @return a state and debounced `dispatch()` function
+ * @returns a state and debounced `dispatch()` function
+ * @public
  */
 export function useDebouncedReducer<S, A, R extends Reducer<S, A>, I>(
   reducer: R,

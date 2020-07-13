@@ -11,6 +11,7 @@ const isMutableRefObject = <T>(x: unknown): x is MutableRefObject<T> => typeof x
  *
  * @param refs - the refs and callback refs that should be merged
  * @return a merged callback ref
+ * @public
  */
 export const useMergedRefs = <T>(...refs: Ref<T>[]): RefCallback<T> => {
   const refsRef = useRef(refs);

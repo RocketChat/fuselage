@@ -1,7 +1,7 @@
 {
   "name": "@rocket.chat/fuselage-hooks",
-  "version": "0.10.0",
-  "description": "React Hooks for Fuselage, Rocket.Chat's design system",
+  "version": "0.11.0",
+  "description": "React hooks for Fuselage, Rocket.Chat's design system and UI toolkit",
   "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
   "author": {
     "name": "Rocket.Chat",
@@ -30,18 +30,29 @@
     "dist"
   ],
   "scripts": {
-    "start": "microbundle watch",
-    "build": "microbundle",
+    "start": "rollup -c -w",
+    "build": "rollup -c",
     "test": "jest --max-workers=1",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
-    "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md"
+    "docs:api-extractor": "api-extractor run --local --verbose",
+    "docs:api-documenter": "api-documenter markdown -i temp -o docs",
+    "docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
+    "docs:clean": "rimraf temp",
+    "docs": "run-s build docs:api-extractor docs:api-documenter docs:readme docs:clean"
   },
   "devDependencies": {
+    "@microsoft/api-documenter": "^7.8.21",
+    "@microsoft/api-extractor": "^7.9.2",
     "@rocket.chat/eslint-config": "^0.4.0",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "@rollup/plugin-typescript": "^5.0.1",
     "@types/jest": "^25.2.3",
     "@types/react-dom": "^16.9.8",
     "@types/resize-observer-browser": "^0.1.3",
+    "@types/use-subscription": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^3.1.0",
     "@typescript-eslint/parser": "^3.1.0",
     "documentation": "^13.0.1",
@@ -49,26 +60,24 @@
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^4.0.4",
-    "invariant": "^2.2.4",
     "jest": "^26.0.1",
     "lint-staged": "^10.0.8",
-    "microbundle": "^0.12.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.21.0",
+    "rollup-plugin-terser": "^6.1.0",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "invariant": "^2.2.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^16.12.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rocket.chat/fuselage-tokens": "^0.10.0",
-    "@types/use-subscription": "^1.0.0",
+    "@rocket.chat/fuselage-tokens": "^0.11.0",
     "use-subscription": "^1.4.1"
   }
 }

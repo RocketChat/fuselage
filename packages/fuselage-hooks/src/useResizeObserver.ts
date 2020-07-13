@@ -2,7 +2,10 @@ import { useRef, useEffect, RefObject } from 'react';
 
 import { useDebouncedState } from './useDebouncedState';
 
-type Options = {
+/**
+ * @ignore
+ */
+type UseResizeObserverOptions = {
   debounceDelay?: number;
 };
 
@@ -10,10 +13,10 @@ type Options = {
  * Hook to track dimension changes in a DOM element using the ResizeObserver API.
  *
  * @param options
- * @param options.debounceDelay the number of milliseconds to delay updates
- * @return a triple containing the ref and the size information
+ * @returns a triple containing the ref and the size information
+ * @public
  */
-export const useResizeObserver = ({ debounceDelay }: Options = {}): {
+export const useResizeObserver = ({ debounceDelay }: UseResizeObserverOptions = {}): {
   ref: RefObject<Element>;
   contentBoxSize: ResizeObserverSize;
   borderBoxSize: ResizeObserverSize;

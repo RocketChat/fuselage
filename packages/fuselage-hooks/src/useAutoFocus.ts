@@ -1,21 +1,18 @@
 import { useEffect, useRef, Ref } from 'react';
 
-type Options = {
-  preventScroll?: boolean;
-} | undefined;
-
 /**
  * Hook to automatically request focus for an DOM element.
  *
- * @param isFocused if true, the focus will be requested
- * @param options options of the focus request
- * @return the ref which holds the element
+ * @param isFocused - if true, the focus will be requested
+ * @param options - options of the focus request
+ * @returns the ref which holds the element
+ * @public
  */
 export const useAutoFocus = (
   isFocused = true,
-  options?: Options,
-): Ref<{ focus: (options?: Options) => void }> => {
-  const elementRef = useRef<{ focus: (options?: Options) => void }>();
+  options?: FocusOptions,
+): Ref<{ focus: (options?: FocusOptions) => void }> => {
+  const elementRef = useRef<{ focus: (options?: FocusOptions) => void }>();
 
   const {
     preventScroll,
