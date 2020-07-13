@@ -1,10 +1,9 @@
 import React, { useCallback, useLayoutEffect, useState, forwardRef, useMemo } from 'react';
 
 
-import { AnimatedVisibility, Box, Margins, Scrollable } from '../Box';
+import { AnimatedVisibility, Box, Scrollable } from '../Box';
 import { Icon } from '../Icon';
 import { Avatar } from '../Avatar';
-import { AnimatedVisibility, Box, Scrollable } from '../Box';
 import { CheckBox } from '../CheckBox';
 import Margins from '../Margins';
 import { Tile } from '../Tile';
