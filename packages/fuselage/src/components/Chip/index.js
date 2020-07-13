@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { Avatar } from '../Avatar';
-import { Box, Flex, Margins } from '../Box';
+import { Box, Flex } from '../Box';
 import { Icon } from '../Icon';
+import Margins from '../Margins';
 
 const ThumbDefault = ({ url }) => <Avatar size='x20' url={url}/>;
 const RemoveDefault = () => <Icon name='cross' size='x16' />;

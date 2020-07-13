@@ -39,7 +39,7 @@ export const useBoxOnlyProps = (props) => {
     }
   });
 
-  props.className = prependClassName(props.className, 'rcx-box');
+  props.className = prependClassName(props.className, 'rcx-box rcx-box--full');
 
   return props;
 };
@@ -95,6 +95,5 @@ Box.defaultProps = {
 
 export { default as AnimatedVisibility } from './AnimatedVisibility';
 export { default as Flex } from './Flex';
-export { default as Margins } from './Margins';
 export { default as Position, PositionAnimated } from './Position';
 export { default as Scrollable } from './Scrollable';

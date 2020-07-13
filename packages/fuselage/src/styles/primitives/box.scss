@@ -5,18 +5,31 @@
   flex: 0 1 auto;
 
   box-sizing: border-box;
-  margin: lengths.margin(none);
-  padding: lengths.padding(none);
+
+  outline: none;
+
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%box--full {
+  margin: lengths.margin('none');
+  padding: lengths.padding('none');
 
   transition: all 230ms;
 
-  border-width: lengths.border-width(none);
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+
+  border-width: lengths.border-width('none');
   border-style: solid;
   border-color: currentColor;
 
   outline: none;
 
-  font-family: typography.font-family(sans);
+  font-family: typography.font-family('sans');
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
