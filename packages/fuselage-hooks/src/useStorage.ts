@@ -51,16 +51,18 @@ const makeStorage = (
 
 /**
  * Hook to deal with localStorage
- * @param key
- * @param initialValue
- * @return a state and a setter function
+ * @param key - the key associated to the value in the storage
+ * @param initialValue - the value returned when the key is not found at the storage
+ * @returns a state and a setter function
+ * @public
  */
 export const useLocalStorage = makeStorage(() => window.localStorage, 'localStorage');
 
 /**
  * Hook to deal with sessionStorage
- * @param key
- * @param initialValue
- * @return a state and a setter function
+ * @param key - the key associated to the value in the storage
+ * @param initialValue - the value returned when the key is not found at the storage
+ * @returns a state and a setter function
+ * @public
  */
 export const useSessionStorage = makeStorage(() => window.sessionStorage, 'sessionStorage');

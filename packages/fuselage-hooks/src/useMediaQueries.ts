@@ -8,6 +8,7 @@ import { useStableArray } from './useStableArray';
  *
  * @param queries - the CSS3 expressions of media queries
  * @returns a set of booleans expressing if the media queries match or not
+ * @public
  */
 export const useMediaQueries = (...queries: string[]): boolean[] => {
   const stableQueries = useStableArray(queries);

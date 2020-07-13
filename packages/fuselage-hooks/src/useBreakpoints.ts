@@ -10,7 +10,8 @@ const mediaQueries = breakpointsDefinitions
 /**
  * Hook to catch which responsive design' breakpoints are active.
  *
- * @returns an array of the active breakpoint names.
+ * @returns an array of the active breakpoint names
+ * @public
  */
 export const useBreakpoints = (): string[] => {
   const matches = useMediaQueries(...mediaQueries);

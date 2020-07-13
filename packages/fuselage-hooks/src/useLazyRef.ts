@@ -20,8 +20,9 @@ const useServerLazyRef = <T>(init: () => T): MutableRefObject<T> =>
 /**
  * Hook equivalent to useRef, but with a lazy initialization for computed value.
  *
- * @param init the function the computes the ref value
- * @return the ref
+ * @param init - the function the computes the ref value
+ * @returns the ref
+ * @public
  */
 export const useLazyRef = typeof window !== 'undefined' && window.document
   ? useBrowserLazyRef

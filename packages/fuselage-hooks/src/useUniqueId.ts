@@ -3,7 +3,8 @@ import { useDebugValue, useRef, useMemo } from 'react';
 /**
  * Hook to keep a unique ID string.
  *
- * @return the unique ID string
+ * @returns the unique ID string
+ * @public
  */
 export const useUniqueId = (): string => {
   const ref = useRef<string>();

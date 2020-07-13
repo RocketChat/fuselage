@@ -11,7 +11,8 @@ import { useDebouncedUpdates } from './useDebouncedUpdates';
  *
  * @param initialValue - the initial state value or the initial state generator function
  * @param delay - the number of milliseconds to delay the updater
- * @return a state and debounced setter function
+ * @returns a state and debounced setter function
+ * @public
  */
 
 export function useDebouncedState<S>(
