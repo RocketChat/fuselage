@@ -8,7 +8,7 @@ export * from './ButtonGroup';
 export * from './Callout';
 export * from './CheckBox';
 export * from './Chevron';
-export * from './Chip';
+export { default as Chip } from './Chip';
 export * from './Divider';
 export * from './EmailInput';
 export * from './Field';

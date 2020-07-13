@@ -13,15 +13,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-%box--full {
-  margin: lengths.margin('none');
-  padding: lengths.padding('none');
-
+%box--animated {
   transition: all 230ms;
 
   @media (prefers-reduced-motion) {
     transition: none;
   }
+}
+
+%box--full {
+  margin: lengths.margin('none');
+  padding: lengths.padding('none');
 
   border-width: lengths.border-width('none');
   border-style: solid;
