@@ -1,52 +1,50 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
+import { prependClassName } from '../../helpers/prependClassName';
 import { Avatar } from '../Avatar';
-import { Box, Flex } from '../Box';
+import { withBoxStyling } from '../Box/withBoxStyling';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
-const ThumbDefault = ({ url }) => <Avatar size='x20' url={url}/>;
-const RemoveDefault = () => <Icon name='cross' size='x16' />;
+const defaultRenderThumb = ({ url }) => <Avatar size='x20' url={url} />;
+const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
-export const Chip = ({
+const Chip = ({
   children,
+  className,
   thumbUrl,
-  Thumb = ThumbDefault,
   onClick,
   onMouseDown,
-  Remove = RemoveDefault,
-  ...props
-}) => (
-  <Flex.Container>
-    <Box rcx-chip is='button' type='button' disabled={!(onClick || onMouseDown)} onClick={onClick || onMouseDown} {...props}>
-      {Thumb && thumbUrl && <Margins all='x4'>
-        <Thumb url={thumbUrl} />
-      </Margins>}
-      {children && <Flex.Item shrink={1}>
-        <Margins all='x4'>
-          <Box is='span' fontScale='p1' color='default' rcx-chip__text>{children}</Box>
-        </Margins>
-      </Flex.Item>}
-      {Remove && (onClick || onMouseDown) && <Margins all='x4'>
-        <Box>
-          <Remove/>
-        </Box>
-      </Margins>}
-    </Box>
-  </Flex.Container>
-);
+  renderThumb = defaultRenderThumb,
+  renderDismissSymbol = defaultRenderDismissSymbol,
+  ...rest
+}) => {
+  const onDismiss = onClick || onMouseDown;
 
-Chip.Wrapper = ({ children, width, alignItems = 'center', wrap = 'wrap', ...props }) =>
-  <Margins all='neg-x4'>
-    <Flex.Container alignItems={alignItems} wrap={wrap}>
-      <Box rcx-chip__wrapper is='div' {...props}>
-        {children.map((children, i) =>
-          <Flex.Item key={i} shrink={1}>
-            <Margins all='x4'>
-              {children}
-            </Margins>
-          </Flex.Item>,
-        )}
-      </Box>
-    </Flex.Container>
-  </Margins>;
+  return <button
+    type='button'
+    className={prependClassName(className, 'rcx-box rcx-chip')}
+    disabled={!onDismiss}
+    onClick={onDismiss}
+    {...rest}
+  >
+    <Margins all='x4'>
+      {thumbUrl && renderThumb && renderThumb({ url: thumbUrl })}
+      {children && <span className='rcx-box rcx-chip__text'>{children}</span>}
+      {onDismiss && renderDismissSymbol && renderDismissSymbol()}
+    </Margins>
+  </button>;
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  Chip.displayName = 'Chip';
+
+  Chip.propTypes = {
+    thumbUrl: PropTypes.string,
+    renderThumb: PropTypes.func,
+    renderDismissSymbol: PropTypes.func,
+  };
+}
+
+export default withBoxStyling(Chip);
