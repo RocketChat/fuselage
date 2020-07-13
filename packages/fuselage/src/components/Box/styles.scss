@@ -1,7 +1,13 @@
 .rcx-box {
-  &,
-  &::before,
-  &::after {
-    @extend %box;
+  @extend %box;
+
+  &--full {
+    @extend %box--full;
+
+    &::before,
+    &::after {
+      @extend %box;
+      @extend %box--full;
+    }
   }
 }
