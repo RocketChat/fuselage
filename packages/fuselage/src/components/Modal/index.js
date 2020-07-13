@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { Avatar } from '../Avatar';
-import { Box, Flex, Margins, Scrollable } from '../Box';
+import { Box, Flex, Scrollable } from '../Box';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
+import Margins from '../Margins';
 import { Tile } from '../Tile';
 import { ModalBackdrop, ModalContainer, ModalPortal, ModalStack, useModalStack } from './Stack';
 

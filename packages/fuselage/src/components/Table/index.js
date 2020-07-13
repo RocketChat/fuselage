@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { createContext, useContext } from 'react';
 
-import { Box, Margins } from '../Box';
+import { Box } from '../Box';
 import { Button } from '../Button';
+import Margins from '../Margins';
 
 const style = {
   overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',

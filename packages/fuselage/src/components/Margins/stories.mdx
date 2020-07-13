@@ -1,15 +1,15 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { Box, Button, ButtonGroup, Flex, Margins, Tile } from '../../..';
+import { Box, Button, ButtonGroup, Flex, Margins, Tile } from '../..';
 
-<Meta title='Box/Modifiers/Margins' parameters={{ jest: ['Margins/spec'] }} />
+<Meta title='Layout/Margins' parameters={{ jest: ['Margins/spec'] }} />
 
 # Margins
 
 Add margins to the wrapped component.
 
 <Preview>
-  <Story name='Default'>
+  <Story name='Example'>
     <ButtonGroup>
       <Button>
         Without margins
@@ -31,10 +31,10 @@ Add margins to the wrapped component.
 
 <Props of={Margins} />
 
-### `all`
+### `all` prop
 
 <Preview>
-  <Story name='all prop' decorators={[
+  <Story name='`all` prop' decorators={[
     (fn) => <Box display='flex' alignItems='center'>
       <Margins all='x8'>
         {fn()}
@@ -76,10 +76,10 @@ Add margins to the wrapped component.
   </Story>
 </Preview>
 
-### `block`
+### `block` prop
 
 <Preview>
-  <Story name='block prop' decorators={[
+  <Story name='`block` prop' decorators={[
     (fn) => <Box display='flex' alignItems='center'>
       <Margins all='x8'>
         {fn()}
@@ -121,10 +121,10 @@ Add margins to the wrapped component.
   </Story>
 </Preview>
 
-### `blockStart`
+### `blockStart` prop
 
 <Preview>
-  <Story name='blockStart prop' decorators={[
+  <Story name='`blockStart` prop' decorators={[
     (fn) => <Box display='flex' alignItems='center'>
       <Margins all='x8'>
         {fn()}
@@ -166,10 +166,10 @@ Add margins to the wrapped component.
   </Story>
 </Preview>
 
-### `blockEnd`
+### `blockEnd` prop
 
 <Preview>
-  <Story name='blockEnd prop' decorators={[
+  <Story name='`blockEnd` prop' decorators={[
     (fn) => <Box display='flex' alignItems='center'>
       <Margins all='x8'>
         {fn()}
@@ -211,10 +211,10 @@ Add margins to the wrapped component.
   </Story>
 </Preview>
 
-### `inline`
+### `inline` prop
 
 <Preview>
-  <Story name='inline prop' decorators={[
+  <Story name='`inline` prop' decorators={[
     (fn) => <Box display='flex' alignItems='center'>
       <Margins all='x8'>
         {fn()}
@@ -256,10 +256,10 @@ Add margins to the wrapped component.
   </Story>
 </Preview>
 
-### `inlineStart`
+### `inlineStart` prop
 
 <Preview>
-  <Story name='inlineStart prop' decorators={[
+  <Story name='`inlineStart` prop' decorators={[
     (fn) => <Box display='flex' alignItems='center'>
       <Margins all='x8'>
         {fn()}
@@ -301,10 +301,10 @@ Add margins to the wrapped component.
   </Story>
 </Preview>
 
-### `inlineEnd`
+### `inlineEnd` prop
 
 <Preview>
-  <Story name='inlineEnd prop' decorators={[
+  <Story name='`inlineEnd` prop' decorators={[
     (fn) => <Box display='flex' alignItems='center'>
       <Margins all='x8'>
         {fn()}
@@ -346,10 +346,10 @@ Add margins to the wrapped component.
   </Story>
 </Preview>
 
-### Negative values
+### With negative values
 
 <Preview>
-  <Story name='negative values' decorators={[
+  <Story name='With negative values' decorators={[
     (fn) => <Box display='flex' flexDirection='column' alignItems='center'>
       <Margins all='x20'>
         {fn()}
@@ -358,7 +358,7 @@ Add margins to the wrapped component.
   ]}>
     <>
       <Tile>
-        <Margins inline='neg-x40'>
+        <Margins inline='-x40'>
           <Tile display='flex' padding='none'>
             <Margins inline='x40'>
               <Tile padding='x40' />
@@ -370,7 +370,7 @@ Add margins to the wrapped component.
         </Margins>
       </Tile>
       <Tile>
-        <Margins block='neg-x40'>
+        <Margins block='-x40'>
           <Tile display='flex' padding='none'>
             <Margins block='x40'>
               <Tile padding='x40' />
@@ -385,10 +385,10 @@ Add margins to the wrapped component.
   </Story>
 </Preview>
 
-### `auto`
+### With `auto` value
 
 <Preview>
-  <Story name='auto'>
+  <Story name='With `auto` value'>
     <Tile display='flex'>
       <Tile padding='x40' />
       <Margins inline='auto'>
@@ -399,10 +399,10 @@ Add margins to the wrapped component.
   </Story>
 </Preview>
 
-### `none`
+### With `none` value
 
 <Preview>
-  <Story name='none'>
+  <Story name='With `none` value'>
     <Tile display='flex'>
       <Margins inline='x16'>
         <Tile padding='x40' />
@@ -415,5 +415,18 @@ Add margins to the wrapped component.
         <Tile padding='x40' />
       </Margins>
     </Tile>
+  </Story>
+</Preview>
+
+### With non-`Box` children
+
+<Preview>
+  <Story name='With non-`Box` children'>
+    <div style={{ border: '1px solid red' }}>
+      <Margins block='x16' inline='x32'>
+        <div style={{ border: '1px solid green' }} />
+        <div style={{ border: '1px solid blue' }} />
+      </Margins>
+    </div>
   </Story>
 </Preview>
