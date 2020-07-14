@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.12.0...v0.13.0) (2020-07-14)
+
+
+### Features
+
+* usePosition ([#259](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/259)) ([b395d8c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b395d8c2e619d2ba26c5cfbee77275d0fbf9526a))
+
+
+
+
+
 # [0.12.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.11.0...v0.12.0) (2020-07-14)
 
 
