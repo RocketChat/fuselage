@@ -10,8 +10,10 @@ import AnimatedVisibility from '../AnimatedVisibility';
 
 const Position = ({ anchor, children, placement, margin, className, ...props }) => {
   const target = useRef();
-  const style = usePosition(anchor.current, target.current, useMemo(() => ({ placement, margin }), [placement, margin]));
+  const positionStyle = usePosition(anchor.current, target.current, useMemo(() => ({ placement, margin }), [placement, margin]));
 
+
+  const style = useMemo(() => ({ position: 'fixed', ...positionStyle }), [positionStyle]);
   const portalContainer = useMemo(() => {
     const element = document.createElement('div');
     document.body.appendChild(element);
@@ -19,10 +21,6 @@ const Position = ({ anchor, children, placement, margin, className, ...props }) 
   }, []);
 
   useEffect(() => () => document.body.removeChild(portalContainer), [portalContainer]);
-
-  if (!style) {
-    return null;
-  }
 
   return ReactDOM.createPortal(
     React.cloneElement(children, {

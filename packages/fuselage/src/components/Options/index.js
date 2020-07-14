@@ -24,7 +24,7 @@ const prevent = (e) => {
 };
 
 const Li = forwardRef(function Li({ children, ...props }, ref) {
-  return <Box rcx-option withTruncatedText display='flex' alignItems='center' is='li' ref={ref} {...props}><Margins inline='x4'>{children}</Margins></Box>;
+  return <Box rcx-option withTruncatedText is='li' ref={ref} {...props}><Box withTruncatedText display='flex' alignItems='center' mi='neg-x4'><Margins inline='x4'>{children}</Margins></Box></Box>;
 });
 
 export const Option = React.memo(({ id, avatar, children, label = children, focus, selected, icon, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>{avatar && <Avatar size='x28' url={avatar} tile={label}/>}{icon && <Icon size='x16' name={icon}/>} <Box is='span' withTruncatedText flexGrow={1} fontScale='p1' color='default'>{label}</Box>{label !== children && children}</Li>);
@@ -54,7 +54,7 @@ export const Options = React.forwardRef(({
     }
   }, [cursor, ref]);
 
-  const optionsMemoized = useMemo(() => options.map(([value, label, selected], i) => <OptionComponent role='option' onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}>{label}</OptionComponent>), [options, multiple, cursor, onSelect]);
+  const optionsMemoized = useMemo(() => options.map(([value, label, selected], i) => <OptionComponent role='option' label={label} onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}/>), [options, multiple, cursor, onSelect]);
   return <Box rcx-options is='div' {...props}>
     <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
       <Scrollable vertical smooth>

@@ -2,7 +2,7 @@ import { useMemo, useEffect } from 'react';
 
 import { useDebouncedState } from './useDebouncedState';
 
-export type PostionOptions = {
+export type PositionOptions = {
   margin?: number;
   container?: Element;
   placement?: Placements;
@@ -33,10 +33,12 @@ type VariantBoundaries = {
 }
 
 type PositionStyle = {
-  top: string,
-  left: string,
-  position: 'fixed',
-  zIndex: '9999',
+  top?: string,
+  left?: string,
+  position?: 'fixed',
+  zIndex?: '9999',
+  transition?: 'none !important',
+  opacity?: 0 | 1,
 }
 
 export type Positions = 'top' | 'left' | 'bottom' | 'right';
@@ -77,14 +79,11 @@ function getScrollParents(element: Element): Array<Element | Window> {
   return parents;
 }
 
-const useBoundingClientRect = (element: Element, watch = false) : DOMRect => {
+const useBoundingClientRect = (element: Element, watch = false) : DOMRect | null => {
   const [value, setValue] = useDebouncedState(() => {
     if (element) {
       return element.getBoundingClientRect();
     }
-    return {
-      x: 0, y: 0, width: 0, height: 0,
-    } as DOMRect;
   }, 30);
 
   useEffect(() => {
@@ -117,7 +116,11 @@ const useBoundingClientRect = (element: Element, watch = false) : DOMRect => {
 };
 
 
-export const getPositionStyle = ({ placement = 'bottom-start', container, targetBoundaries, variantStore, target } : { placement: Placements, target: DOMRect, container: DOMRect, targetBoundaries: Boundaries, variantStore: VariantBoundaries }) : PositionStyle | null => {
+export const getPositionStyle = ({ placement = 'bottom-start', container, targetBoundaries, variantStore, target } : { placement: Placements, target: DOMRect, container: DOMRect, targetBoundaries: Boundaries, variantStore?: VariantBoundaries }) : PositionStyle | null => {
+  if (!targetBoundaries) {
+    return;
+  }
+
   const { top, left, bottom, right } = container;
 
   const [placementKey, variantKey = 'middle'] = placement.split('-');
@@ -126,11 +129,15 @@ export const getPositionStyle = ({ placement = 'bottom-start', container, target
   const variantsAttempts = fallbackOrderVariant[variantKey];
 
   for (const placementAttempt of placementAttempts) {
+    const directionVertical = ['t', 'b'].includes(placementAttempt);
+
+    const [positionKey, variantKey] = directionVertical ? ['top', 'left'] : ['left', 'top'];
+
     const point = targetBoundaries[placementAttempt];
 
-    const [positionBox, variantBox] = [target.height, target.width];
-    const [positionMaximum, variantMaximum] = [bottom, right];
-    const [positionMinimum, variantMinimum] = [top, left];
+    const [positionBox, variantBox] = directionVertical ? [target.height, target.width] : [target.width, target.height];
+    const [positionMaximum, variantMaximum] = directionVertical ? [bottom, right] : [right, bottom];
+    const [positionMinimum, variantMinimum] = directionVertical ? [top, left] : [left, top];
 
     // if the point extrapolate the container boundaries
     if (point < positionMinimum || point + positionBox > positionMaximum) {
@@ -139,48 +146,55 @@ export const getPositionStyle = ({ placement = 'bottom-start', container, target
 
     for (const v of variantsAttempts) {
       // The position-value, the related size value of the popper and the limit
-      const variantPoint = variantStore[`v${ v }`];
+      const variantPoint = variantStore[`${ directionVertical ? 'v' : 'h' }${ v }`];
 
       if (variantPoint < variantMinimum || (variantPoint + variantBox) > variantMaximum) {
         continue;
       }
-
-      return {
-        top: `${ point }px`,
-        left: `${ variantPoint }px`,
+      const style = {
+        [positionKey]: `${ point }px`,
+        [variantKey]: `${ variantPoint }px`,
         position: 'fixed',
         zIndex: '9999',
-      };
+        opacity: 1,
+      } as PositionStyle;
+
+      return style;
     }
   }
 
-  const point = targetBoundaries[placementAttempts[0]];
-  const variantPoint = variantStore[`${ placementAttempts[0] }${ variantsAttempts[0] }`];
+  const placementAttempt = targetBoundaries[placementAttempts[0]];
+
+  const directionVertical = ['t', 'b'].includes(placementAttempt);
+
+  const point = targetBoundaries[placementAttempt];
+  const variantPoint = variantStore[`${ directionVertical ? 'v' : 'h' }${ variantsAttempts[0] }`];
 
   return {
     top: `${ point }px`,
     left: `${ variantPoint }px`,
     position: 'fixed',
     zIndex: '9999',
+    opacity: 1,
   };
 };
 
-export const getTargetBoundaries = ({ referenceBox, target, margin = 0 } : { referenceBox: DOMRect, target: DOMRect, margin?: number }) : Boundaries => ({
+export const getTargetBoundaries = ({ referenceBox, target, margin = 0 } : { referenceBox?: DOMRect, target?: DOMRect, margin?: number }) : Boundaries | null => referenceBox && target && {
   t: referenceBox.top - target.height - margin,
   b: referenceBox.bottom + margin,
   r: referenceBox.right + margin,
   l: referenceBox.left - target.width - margin,
-});
+};
 
 
-export const getVariantBoundaries = ({ referenceBox, target } : { referenceBox: DOMRect, target: DOMRect }) : VariantBoundaries => ({
+export const getVariantBoundaries = ({ referenceBox, target } : { referenceBox?: DOMRect, target?: DOMRect }) : VariantBoundaries | null => referenceBox && target && {
   vm: (-target.width / 2) + (referenceBox.left + referenceBox.width / 2),
   vs: referenceBox.left,
   ve: referenceBox.left + referenceBox.width - target.width,
   hs: referenceBox.bottom - referenceBox.height,
   he: referenceBox.bottom - target.height,
   hm: referenceBox.bottom - referenceBox.height / 2 - target.height / 2,
-});
+};
 
 /**
  * Hook to deal and position an element using an anchor
@@ -191,9 +205,8 @@ export const getVariantBoundaries = ({ referenceBox, target } : { referenceBox: 
  * @public
  */
 
-export const usePosition = (reference: Element, targetEl: Element, options: PostionOptions) : PositionStyle | null => {
+export const usePosition = (reference: Element, targetEl: Element, options: PositionOptions) : PositionStyle | null => {
   const { margin = 8, placement = 'bottom-start', container: containerElement = document.body, watch = true } = options;
-
   const target = useBoundingClientRect(targetEl, watch);
   const referenceBox = useBoundingClientRect(reference, watch);
   const container = useBoundingClientRect(containerElement, watch);
@@ -203,5 +216,5 @@ export const usePosition = (reference: Element, targetEl: Element, options: Post
 
   const style = useMemo(() => getPositionStyle({ placement, container, targetBoundaries, variantStore, target }), [placement, container, targetBoundaries, variantStore, target]);
 
-  return style;
+  return referenceBox && target && container && style;
 };
