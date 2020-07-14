@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.11.0...v0.12.0) (2020-07-14)
+
+
+### Bug Fixes
+
+* fuselage-hooks bundling ([#258](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/258)) ([8539ccf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8539ccf878e6923eb42735298e05dc16435d90ce))
+
+
+
+
+
 # [0.11.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.10.0...v0.11.0) (2020-07-11)
 
 
