@@ -2,6 +2,9 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
+$tag-colors-default-color: theme('tag-colors-default-color', colors.foreground(info));
+$tag-colors-default-background-color: theme('tag-colors-secondary-default-color', colors.neutral(400));
+
 $tag-colors-secondary-color: theme('tag-colors-secondary-color', colors.foreground(primary));
 $tag-colors-secondary-background-color: theme('tag-colors-secondary-background-color', colors.primary(100));
 
@@ -23,20 +26,14 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
 
   width: fit-content;
 
-  padding:
-    lengths.padding(2)
-    lengths.padding(4);
+  padding-inline: lengths.padding(4);
 
-  white-space: nowrap;
-
-  text-decoration: none;
-  text-overflow: ellipsis;
-
-  word-break: keep-all;
+  color: $tag-colors-default-color;
 
   border-radius: lengths.border-radius(4);
+  background-color: $tag-colors-default-background-color;
 
-  @include typography.use-font-scale(micro);
+  @include typography.use-font-scale(c2);
 
   &--secondary {
     color: $tag-colors-secondary-color;

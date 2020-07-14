@@ -62,9 +62,10 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
 
   min-height: lengths.size(40);
 
-  padding:
-    (lengths.padding(4) + lengths.border-width(2))
-    lengths.padding(16);
+  margin-inline-end: lengths.padding(24);
+  padding-block-end: lengths.padding(8);
+
+  padding-inline: lengths.padding(4);
 
   color: $tabs-color;
   border-width: lengths.border-width(2);
@@ -77,10 +78,6 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
   @include typography.use-font-scale(s2);
 
   &--selected {
-    padding:
-      lengths.padding(4)
-      (lengths.padding(16) + lengths.border-width(2));
-
     color: $tabs-selected-color;
     border-block-end-color: $tabs-selected-border-color;
     border-block-end-width: lengths.border-width(4);
@@ -102,8 +99,6 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
   }
 
   @include on-focus-visible {
-    padding-inline: lengths.padding(16);
-
     border-color: $tabs-focus-border-color;
     border-radius: lengths.border-radius(2);
     border-block-start-width: lengths.border-width(2);

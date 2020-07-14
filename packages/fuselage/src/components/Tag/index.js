@@ -6,12 +6,13 @@ import { Box } from '../..';
 export function Tag({
   disabled,
   round,
-  variant = 'secondary',
+  variant,
   onClick,
   ...props
 }) {
   return <Box
     is='span'
+    withTruncatedText
     rcx-tag
     rcx-tag--secondary={variant === 'secondary'}
     rcx-tag--primary={variant === 'primary'}
@@ -28,5 +29,5 @@ export function Tag({
 Tag.propTypes = {
   disabled: PropTypes.bool,
   round: PropTypes.bool,
-  variant: PropTypes.oneOf(['secondary', 'primary', 'danger']),
+  variant: PropTypes.oneOf([undefined, 'secondary', 'primary', 'danger']),
 };
