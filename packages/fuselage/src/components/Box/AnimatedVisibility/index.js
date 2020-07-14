@@ -1,5 +1,4 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
-import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
 
@@ -56,7 +55,7 @@ function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVis
     ` }
   `);
 
-  const handleAnimationEnd = useMutableCallback(() => setVisibility((visibility) => {
+  const handleAnimationEnd = useCallback(() => setVisibility((visibility) => {
     if (visibility === AnimatedVisibility.HIDING) {
       return AnimatedVisibility.HIDDEN;
     }
@@ -66,7 +65,7 @@ function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVis
     }
 
     return visibility;
-  }));
+  }), []);
 
   const transformFn = useCallback((props) => {
     if (props.onAnimationEnd === undefined) {
