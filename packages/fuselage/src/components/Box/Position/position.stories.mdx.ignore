@@ -116,4 +116,112 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
   </Story>
 </Preview>
 
+<Preview>
+  <Story name='right-start'>
+    {
+      () => {
+        const ref = useRef();
+        return <>
+          <Box display='flex' justifyContent='center' alignItems='center' height='400px' bg='neutral-800'>
+            <Box ref={ref} border='1px solid red' color='neutral-100'> anchor </Box>
+          </Box>
+          <Position anchor={ref} placement='right-start'>
+            <Tile width='150px'>hello</Tile>
+          </Position>
+        </>;
+      }
+    }
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='right-middle'>
+    {
+      () => {
+        const ref = useRef();
+        return <>
+          <Box display='flex' justifyContent='center' alignItems='center' height='400px' bg='neutral-800'>
+            <Box ref={ref} border='1px solid red' color='neutral-100'> anchor </Box>
+          </Box>
+          <Position anchor={ref} placement='right-middle'>
+            <Tile width='150px'>hello</Tile>
+          </Position>
+        </>;
+      }
+    }
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='right-end'>
+    {
+      () => {
+        const ref = useRef();
+        return <>
+          <Box display='flex' justifyContent='center' alignItems='center' height='400px' bg='neutral-800'>
+            <Box ref={ref} border='1px solid red' color='neutral-100'> anchor </Box>
+          </Box>
+          <Position anchor={ref} placement='right-end'>
+            <Tile width='150px'>hello</Tile>
+          </Position>
+        </>;
+      }
+    }
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='left-start'>
+    {
+      () => {
+        const ref = useRef();
+        return <>
+          <Box display='flex' justifyContent='center' alignItems='center' height='400px' bg='neutral-800'>
+            <Box ref={ref} border='1px solid red' color='neutral-100'> anchor </Box>
+          </Box>
+          <Position anchor={ref} placement='left-start'>
+            <Tile width='150px'>hello</Tile>
+          </Position>
+        </>;
+      }
+    }
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='left-middle'>
+    {
+      () => {
+        const ref = useRef();
+        return <>
+          <Box display='flex' justifyContent='center' alignItems='center' height='400px' bg='neutral-800'>
+            <Box ref={ref} border='1px solid red' color='neutral-100'> anchor </Box>
+          </Box>
+          <Position anchor={ref} placement='left-middle'>
+            <Tile width='150px'>hello</Tile>
+          </Position>
+        </>;
+      }
+    }
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='left-end'>
+    {
+      () => {
+        const ref = useRef();
+        return <>
+          <Box display='flex' justifyContent='center' alignItems='center' height='400px' bg='neutral-800'>
+            <Box ref={ref} border='1px solid red' color='neutral-100'> anchor </Box>
+          </Box>
+          <Position anchor={ref} placement='left-end'>
+            <Tile width='150px'>hello</Tile>
+          </Position>
+        </>;
+      }
+    }
+  </Story>
+</Preview>
+
 <Props of={Position} />
