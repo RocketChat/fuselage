@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react';
+import { useEffect, RefObject, useCallback, useRef } from 'react';
 
 import { useDebouncedState } from './useDebouncedState';
 
@@ -79,41 +79,26 @@ function getScrollParents(element: Element): Array<Element | Window> {
   return parents;
 }
 
-const useBoundingClientRect = (element: Element, watch = false) : DOMRect | null => {
-  const [value, setValue] = useDebouncedState(() => {
-    if (element) {
-      return element.getBoundingClientRect();
-    }
-  }, 30);
+const useBoundingClientRect = (element: RefObject<Element>, watch = false, callback) : void => useEffect(() => {
+  if (!element.current) {
+    return;
+  }
 
-  useEffect(() => {
-    if (!element) {
-      return;
-    }
+  if (!watch) {
+    return;
+  }
 
-    setValue(element.getBoundingClientRect());
+  const parents = getScrollParents(element.current);
+  const passive = { passive: true };
 
-    if (!watch) {
-      return;
-    }
+  window.addEventListener('resize', callback);
+  parents.forEach((el) => el.addEventListener('scroll', callback, passive));
 
-    const update = () : void => {
-      setValue(element.getBoundingClientRect());
-    };
-
-    const parents = getScrollParents(element);
-    const passive = { passive: true };
-
-    window.addEventListener('resize', update);
-    parents.forEach((element) => element.addEventListener('scroll', update, passive));
-
-    return () => {
-      window.removeEventListener('resize', update);
-      parents.forEach((element) => element.removeEventListener('scroll', update));
-    };
-  }, [element, watch, setValue]);
-  return value;
-};
+  return () => {
+    window.removeEventListener('resize', callback);
+    parents.forEach((el) => el.removeEventListener('scroll', callback));
+  };
+}, [watch, callback]);
 
 
 export const getPositionStyle = ({ placement = 'bottom-start', container, targetBoundaries, variantStore, target } : { placement: Placements, target: DOMRect, container: DOMRect, targetBoundaries: Boundaries, variantStore?: VariantBoundaries }) : PositionStyle | null => {
@@ -205,16 +190,21 @@ export const getVariantBoundaries = ({ referenceBox, target } : { referenceBox?:
  * @public
  */
 
-export const usePosition = (reference: Element, targetEl: Element, options: PositionOptions) : PositionStyle | null => {
+export const usePosition = (reference: RefObject<Element>, target: RefObject<Element>, options: PositionOptions) : PositionStyle | null => {
   const { margin = 8, placement = 'bottom-start', container: containerElement = document.body, watch = true } = options;
-  const target = useBoundingClientRect(targetEl, watch);
-  const referenceBox = useBoundingClientRect(reference, watch);
-  const container = useBoundingClientRect(containerElement, watch);
+  const container = useRef(containerElement);
 
-  const targetBoundaries = useMemo(() => getTargetBoundaries({ referenceBox, target, margin }), [referenceBox, target, margin]);
-  const variantStore = useMemo(() => getVariantBoundaries({ referenceBox, target }), [referenceBox, target]);
+  const [style, setStyle] = useDebouncedState(null, 10);
+  const callback = useCallback(() => {
+    const boundaries = target.current.getBoundingClientRect();
+    const targetBoundaries = getTargetBoundaries({ referenceBox: reference.current.getBoundingClientRect(), target: boundaries, margin });
+    const variantStore = getVariantBoundaries({ referenceBox: reference.current.getBoundingClientRect(), target: boundaries });
+    setStyle(getPositionStyle({ placement, container: container.current.getBoundingClientRect(), targetBoundaries, variantStore, target: boundaries }));
+  }, [setStyle]);
 
-  const style = useMemo(() => getPositionStyle({ placement, container, targetBoundaries, variantStore, target }), [placement, container, targetBoundaries, variantStore, target]);
+  useBoundingClientRect(target, watch, callback);
+  useBoundingClientRect(reference, watch, callback);
+  useBoundingClientRect(container, watch, callback);
 
-  return referenceBox && target && container && style;
+  return style;
 };

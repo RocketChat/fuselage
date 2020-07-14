@@ -10,7 +10,7 @@ import AnimatedVisibility from '../AnimatedVisibility';
 
 const Position = ({ anchor, children, placement, margin, className, ...props }) => {
   const target = useRef();
-  const positionStyle = usePosition(anchor.current, target.current, useMemo(() => ({ placement, margin }), [placement, margin]));
+  const positionStyle = usePosition(anchor, target, useMemo(() => ({ placement, margin }), [placement, margin]));
 
 
   const style = useMemo(() => ({ position: 'fixed', ...positionStyle }), [positionStyle]);
