@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
 
 import { Box, PositionAnimated } from '../Box';
 import Chip from '../Chip';
@@ -41,7 +42,7 @@ export function AutoComplete({
   const [internalValue, setInternalValue] = useState(value || []);
 
   const currentValue = value !== undefined ? value : internalValue;
-  const containerRef = useRef();
+  const { ref: containerRef, borderBoxSize } = useResizeObserver();
   const ref = useRef();
   const internalChanged = ([value]) => {
     if (currentValue.includes(value)) {
@@ -68,7 +69,7 @@ export function AutoComplete({
       </Box>
       <Addon children={<Icon name='magnifier' size='x20' />}/>
       <PositionAnimated visible={visible} anchor={containerRef}>
-        <Options role='option' renderEmpty={renderEmpty} cursor={cursor} value={value} options={options.map(({ label, value }) => [value, label])} />
+        <Options role='option' width={borderBoxSize.inlineSize} renderEmpty={renderEmpty} cursor={cursor} value={value} options={options.map(({ label, value }) => [value, label])} />
       </PositionAnimated>
     </Container>
   );

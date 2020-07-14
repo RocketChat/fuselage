@@ -1,3 +1,4 @@
+import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, { useState, useLayoutEffect, useRef, useCallback, useEffect, forwardRef } from 'react';
 
 import { PositionAnimated, Box, Flex, AnimatedVisibility } from '../Box';
@@ -52,7 +53,7 @@ export const Select = ({
 
   const ref = useRef();
 
-  const containerRef = useRef();
+  const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   useLayoutEffect(() => {
     if (isFirstRun.current) {
@@ -61,7 +62,7 @@ export const Select = ({
     }
     hide();
     ref.current.focus();
-  }, [internalValue]);
+  }, [internalValue, hide]);
 
   useEffect(reset, [filter]);
 
@@ -90,7 +91,7 @@ export const Select = ({
           </Margins>
         </Flex.Container>
       </Flex.Item>
-      <PositionAnimated visible={visible} anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>
+      <PositionAnimated visible={visible} anchor={containerRef}><_Options width={borderBoxSize.inlineSize} role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>
     </Box>);
 };
 
