@@ -56,7 +56,7 @@ function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVis
     ` }
   `);
 
-  const handleAnimationEnd = useMutableCallback(() => setVisibility(() => {
+  const handleAnimationEnd = useMutableCallback(() => setVisibility((visibility) => {
     if (visibility === AnimatedVisibility.HIDING) {
       return AnimatedVisibility.HIDDEN;
     }
