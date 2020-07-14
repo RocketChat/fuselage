@@ -84,6 +84,8 @@ const useBoundingClientRect = (element: RefObject<Element>, watch = false, callb
     return;
   }
 
+  callback();
+
   if (!watch) {
     return;
   }
