@@ -104,11 +104,11 @@ const useBoundingClientRect = (element: Element, watch = false) : DOMRect | null
     const parents = getScrollParents(element);
     const passive = { passive: true };
 
-    document.body.addEventListener('resize', update);
+    window.addEventListener('resize', update);
     parents.forEach((element) => element.addEventListener('scroll', update, passive));
 
     return () => {
-      document.body.removeEventListener('resize', update);
+      window.removeEventListener('resize', update);
       parents.forEach((element) => element.removeEventListener('scroll', update));
     };
   }, [element, watch, setValue]);
