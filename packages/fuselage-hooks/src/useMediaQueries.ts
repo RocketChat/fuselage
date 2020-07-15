@@ -33,12 +33,22 @@ export const useMediaQueries = (...queries: string[]): boolean[] => {
       },
       subscribe: (cb: () => void) => {
         mediaQueryLists.forEach((mediaQueryList) => {
-          mediaQueryList.addEventListener('change', cb);
+          if (typeof mediaQueryList.addEventListener === 'function') {
+            mediaQueryList.addEventListener('change', cb);
+            return;
+          }
+
+          mediaQueryList.addListener(cb);
         });
 
         return () => {
           mediaQueryLists.forEach((mediaQueryList) => {
-            mediaQueryList.removeEventListener('change', cb);
+            if (typeof mediaQueryList.removeEventListener === 'function') {
+              mediaQueryList.removeEventListener('change', cb);
+              return;
+            }
+
+            mediaQueryList.removeListener(cb);
           });
         };
       },
