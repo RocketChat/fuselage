@@ -29,7 +29,7 @@ const Li = forwardRef(function Li({ children, ...props }, ref) {
   return <Box rcx-option withTruncatedText is='li' ref={ref} {...props}><Box withTruncatedText display='flex' alignItems='center' mi='neg-x4'><Margins inline='x4'>{children}</Margins></Box></Box>;
 });
 
-export const Option = React.memo(({ id, avatar, children, label = children, focus, selected, icon, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected rcx-option--selected={selected} aria-selected={selected} {...options}>{avatar && <Avatar size='x28' url={avatar} tile={label}/>}{icon && <Icon size='x16' name={icon}/>} <Box is='span' withTruncatedText flexGrow={1} fontScale='p1' color='default'>{label}</Box>{label !== children && children}</Li>);
+export const Option = React.memo(({ id, avatar, children, label = children, focus, selected, icon, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>{avatar && <Avatar size='x28' url={avatar} tile={label}/>}{icon && <Icon size='x16' name={icon}/>} <Box is='span' withTruncatedText flexGrow={1} fontScale='p1' color='default'>{label}</Box>{label !== children && children}</Li>);
 
 export const Empty = React.memo(() => <Option is='span' fontScale='p1' color='hint'>Empty</Option>);
 
