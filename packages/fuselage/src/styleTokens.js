@@ -5,7 +5,7 @@ import invariant from 'invariant';
 
 import { memoize } from './helpers/memoize';
 
-const measure = (computeSpecialValue, hasNegatives = false) =>
+const measure = (computeSpecialValue) =>
   memoize((value) => {
     if (typeof value === 'number') {
       return `${ value }px`;
@@ -15,18 +15,11 @@ const measure = (computeSpecialValue, hasNegatives = false) =>
       return undefined;
     }
 
-    const xRegExp = /^x(1|2|4|8|\d*([2468]0|[02468][48]|[13579][26]))$/;
+    const xRegExp = /^(neg-|-)?x(\d+)$/;
     if (xRegExp.test(value)) {
-      const [, measureInPixels] = xRegExp.exec(value);
-      return `${ parseInt(measureInPixels, 10) / 16 }rem`;
-    }
-
-    if (hasNegatives) {
-      const xRegExp = /^(neg)?-x(1|2|4|8|\d*([2468]0|[02468][48]|[13579][26]))$/;
-      if (xRegExp.test(value)) {
-        const [, , measureInPixels] = xRegExp.exec(value);
-        return `-${ parseInt(measureInPixels, 10) / 16 }rem`;
-      }
+      const [, negativeMark, measureInPixelsAsString] = xRegExp.exec(value);
+      const measureInPixels = (negativeMark ? -1 : 1) * parseInt(measureInPixelsAsString, 10);
+      return `${ measureInPixels / 16 }rem`;
     }
 
     if (computeSpecialValue) {
@@ -174,13 +167,13 @@ export const inset = measure((value) => {
   if (value === 'none') {
     return '0px';
   }
-}, true);
+});
 
 export const margin = measure((value) => {
   if (value === 'none') {
     return '0px';
   }
-}, true);
+});
 
 export const padding = measure((value) => {
   if (value === 'none') {
