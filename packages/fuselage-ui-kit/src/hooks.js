@@ -1,4 +1,5 @@
-import React, { useContext, useState, useCallback } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
+import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import {
   BLOCK_CONTEXT,
 } from '@rocket.chat/ui-kit';
@@ -6,7 +7,7 @@ import {
 export const defaultContext = {
   action: (...args) => console.log(JSON.stringify(args)),
   state: console.log,
-  appId: '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz',
+  appId: 'core',
   errors: {},
 };
 
@@ -20,22 +21,25 @@ export const useBlockContext = ({ blockId, actionId, appId, initialValue }, cont
 
   const error = errors && actionId && errors[actionId];
 
-  const actionFunction = useCallback(async ({ target: { value } }) => {
+  const actionFunction = useMutableCallback(async ({ target: { value } }) => {
     setLoading(true);
+    setValue(value);
     await action({ blockId, appId: appId || appIdFromContext, actionId, value, viewId });
     setLoading(false);
-  }, [actionId, blockId]);
+  });
 
-  const stateFunction = useCallback(async ({ target: { value } }) => {
+  const stateFunction = useMutableCallback(async ({ target: { value } }) => {
     setValue(value);
     await state({ blockId, appId, actionId, value });
-  }, [actionId, blockId]);
+  });
+
+  const result = useMemo(() => ({ loading, setLoading, error, value }), [loading, setLoading, error, value]);
 
   if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
-    return [{ loading, setLoading, error }, actionFunction];
+    return [result, actionFunction];
   }
 
-  return [{ loading, setLoading, value, error }, stateFunction];
+  return [result, stateFunction];
 };
 
 export const getStyle = (style) => {

@@ -35,14 +35,10 @@ export const Actions = ({ blockId, appId, elements, parser }) => {
 
   return (
     <Block>
-      <Margins all='neg-x8'>
-        <Flex.Container wrap='wrap'>
-          <Box>
-            {renderedElements}
-            {showMoreVisible && (<Flex.Item><Button onClick={handleShowMoreClick}>Show more...</Button></Flex.Item>)}
-          </Box>
-        </Flex.Container>
-      </Margins>
+      <Box display='flex' flexWrap='wrap' m='neg-x8'>
+        {renderedElements}
+        {showMoreVisible && (<Button onClick={handleShowMoreClick}>Show more...</Button>)}
+      </Box>
     </Block>
   );
 };

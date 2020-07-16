@@ -4,6 +4,17 @@ module.exports = {
   extends: ['@rocket.chat/eslint-config'],
   plugins: ['react'],
   parser: 'babel-eslint',
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: [
+          '.js',
+          '.ts',
+          '.tsx'
+        ],
+      },
+    },
+  },
   parserOptions:{
     "ecmaVersion": 11,
     "sourceType": "module",
@@ -27,6 +38,9 @@ module.exports = {
     },
   },
   'env': {
+
+
     'jest': true,
   },
 };
+
