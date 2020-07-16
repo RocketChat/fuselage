@@ -41,23 +41,28 @@ export const Select = ({
   const [internalValue, setInternalValue] = useState(value);
 
   const currentValue = value !== undefined ? value : internalValue;
-  const option = options.find((option) => getValue(option) === currentValue);
-  const index = options.indexOf(option);
 
   const internalChangedByKeyboard = useMutableCallback(([value]) => {
     setInternalValue(value);
     onChange(value);
   });
 
-  const mapOptions = ([value, label]) => {
-    if (currentValue === value) {
-      return [value, label, true];
-    }
-    return [value, label];
-  };
+  const option = options.find((option) => getValue(option) === currentValue);
 
-  const applyFilter = ([, option]) => !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
-  const filteredOptions = options.filter(applyFilter).map(mapOptions);
+  const index = options.indexOf(option);
+
+  const filteredOptions = useMemo(() => {
+    const mapOptions = ([value, label]) => {
+      if (currentValue === value) {
+        return [value, label, true];
+      }
+      return [value, label];
+    };
+
+    const applyFilter = ([, option]) => !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
+    return options.filter(applyFilter).map(mapOptions);
+  }, [options, currentValue, filter]);
+
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(index, filteredOptions, internalChangedByKeyboard);
 
 

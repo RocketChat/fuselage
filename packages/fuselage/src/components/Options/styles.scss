@@ -24,7 +24,7 @@
 }
 
 .rcx-options:hover {
-  .rcx-option--focus:not(:hover) {
+  .rcx-option--focus:not(.rcx-option--selected):not(:hover) {
     background: initial;
   }
 }
