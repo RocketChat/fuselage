@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.0...v0.13.1) (2020-07-17)
+
+
+### Bug Fixes
+
+* Loosen x-measures parsing ([#266](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/266)) ([b1c6ef4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b1c6ef42aa909f4063647f3051ee4b23497f6d57))
+* Select mutations and ui-kit alerts ([#263](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/263)) ([661398d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/661398dfdeaf827dadc46d24a7382d69f43f9742))
+* useMediaQueries support on Safari and IE11  ([#262](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/262)) ([f7be49a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f7be49a66e120a5a4f43205f2c2d149e90dae021))
+
+
+
+
+
 # [0.13.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.12.0...v0.13.0) (2020-07-14)
 
 
