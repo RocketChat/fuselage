@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Divider,
-  Flex,
   Margins,
   InputBox,
   Box,
@@ -26,10 +25,14 @@ import { MessageImage, ModalImage } from './Image';
 import { StaticSelect, MultiStaticSelect } from './StaticSelect';
 import { Block } from './Block';
 import { Overflow } from './Overflow';
-import { UIKitButton } from './Button';
+import { UIKitButton } from './UIKitButton';
 import { useBlockContext } from './hooks';
 
 export * from './hooks';
+
+export const version = 'DEVELOPMENT';
+
+console.log(`fuselage-ui-kit version: ${ version }`);
 
 function mrkdwn({ text/* , type = 'plain_text'*/ } = { text: '' }) {
   return text;
@@ -74,7 +77,7 @@ class MessageParser extends UiKitParserMessage {
   }
 
   divider(_, __, key) {
-    return <Margins block={'x24'} key={key}> <Divider /> </Margins>;
+    return <Divider mb='x24' key={key}/>;
   }
 
   section(args, context, index) {
@@ -95,7 +98,7 @@ class MessageParser extends UiKitParserMessage {
         key={key}
         error={error}
         value={value}
-        mod-mod-loading={loading}
+        disabled={loading}
         id={actionId}
         name={actionId}
         rows={6}
@@ -113,30 +116,22 @@ class MessageParser extends UiKitParserMessage {
   context({ elements }, context, key) {
     return (
       <Block key={key}>
-        <Box is='div'>
-          <Flex.Container alignItems='center'>
-            <Margins all='neg-x4'>
-              <Box is='div'>
-                {elements.map((element, i) => (
-                  <Margins all='x4' key={i}>
-                    <Flex.Item>
-                      {[
-                        ELEMENT_TYPES.PLAIN_TEXT,
-                        ELEMENT_TYPES.MARKDOWN,
-                      ].includes(element.type) ? (
-                          <Box is='span' fontScale='c1' color='info'>
-                            {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
-                          </Box>
-                        )
-                        : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
-                    || element.type
-                      }
-                    </Flex.Item>
-                  </Margins>
-                ))}
-              </Box>
+        <Box display='flex' alignItems='center' m='neg-x4'>
+          {elements.map((element, i) => (
+            <Margins all='x4' key={i}>
+              {[
+                ELEMENT_TYPES.PLAIN_TEXT,
+                ELEMENT_TYPES.MARKDOWN,
+              ].includes(element.type) ? (
+                  <Box is='span' fontScale='c1' color='info'>
+                    {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
+                  </Box>
+                )
+                : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
+              || element.type
+              }
             </Margins>
-          </Flex.Container>
+          ))}
         </Box>
       </Block>
     );
@@ -154,7 +149,7 @@ class MessageParser extends UiKitParserMessage {
   }
 
   staticSelect(element, context, key) {
-    return <StaticSelect key={key} {...element} parser={this} />;
+    return <StaticSelect key={key} context={context} {...element} parser={this} />;
   }
 
   // selectInput(element, context, key) {

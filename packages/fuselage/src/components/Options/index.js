@@ -1,4 +1,5 @@
-import React, { useCallback, useLayoutEffect, useState, forwardRef, useMemo } from 'react';
+import React, { useLayoutEffect, useState, forwardRef, useMemo } from 'react';
+import { useMutableCallback, useDebouncedState } from '@rocket.chat/fuselage-hooks';
 
 
 import { AnimatedVisibility, Box, Scrollable } from '../Box';
@@ -7,6 +8,7 @@ import { Avatar } from '../Avatar';
 import { CheckBox } from '../CheckBox';
 import Margins from '../Margins';
 import { Tile } from '../Tile';
+
 
 export const ACTIONS = {
   ESC: 27,
@@ -53,9 +55,8 @@ export const Options = React.forwardRef(({
       current.scrollTop = li.offsetTop;
     }
   }, [cursor, ref]);
-
   const optionsMemoized = useMemo(() => options.map(([value, label, selected], i) => <OptionComponent role='option' label={label} onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}/>), [options, multiple, cursor, onSelect]);
-  return <Box rcx-options is='div' {...props}>
+  return <Box rcx-options {...props}>
     <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
       <Scrollable vertical smooth>
         <Tile ref={ref} elevation='0' padding='none' maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
@@ -68,9 +69,9 @@ export const Options = React.forwardRef(({
 });
 
 const useVisible = (initialVisibility = AnimatedVisibility.HIDDEN) => {
-  const [visible, setVisible] = useState(initialVisibility);
-  const hide = useCallback(() => setVisible(AnimatedVisibility.HIDDEN), []);
-  const show = useCallback(() => setVisible(AnimatedVisibility.VISIBLE), []);
+  const [visible, setVisible] = useDebouncedState(initialVisibility, 10);
+  const hide = useMutableCallback(() => setVisible(AnimatedVisibility.HIDDEN));
+  const show = useMutableCallback(() => setVisible(AnimatedVisibility.VISIBLE));
 
   return [visible, hide, show];
 };
@@ -79,15 +80,15 @@ export const useCursor = (initial, options, onChange) => {
   const [cursor, setCursor] = useState(initial);
   const visibilityHandler = useVisible();
   const [visibility, hide, show] = visibilityHandler;
-  const reset = () => setCursor(0);
-  const handleKeyUp = (e) => {
+  const reset = useMutableCallback(() => setCursor(0));
+  const handleKeyUp = useMutableCallback((e) => {
     const { keyCode } = e;
     if (AnimatedVisibility.HIDDEN === visibility && keyCode === ACTIONS.TAB) {
       return show();
     }
-  };
+  });
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useMutableCallback((e) => {
     const lastIndex = options.length - 1;
     const { keyCode, key } = e;
     if (AnimatedVisibility.HIDDEN === visibility && keyCode !== ACTIONS.ESC && keyCode !== ACTIONS.TAB) {
@@ -120,7 +121,9 @@ export const useCursor = (initial, options, onChange) => {
         e.nativeEvent.stopImmediatePropagation(); // TODO
         e.stopPropagation();
       }
-      return onChange(options[cursor], visibilityHandler);
+      hide();
+      onChange(options[cursor], visibilityHandler);
+      return;
     case ACTIONS.ESC:
       e.preventDefault();
       reset();
@@ -138,7 +141,7 @@ export const useCursor = (initial, options, onChange) => {
         ~index && setCursor(index);
       }
     }
-  };
+  });
 
   return [cursor, handleKeyDown, handleKeyUp, reset, visibilityHandler];
 };

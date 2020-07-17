@@ -4,7 +4,6 @@ import React, {
 } from 'react';
 import {
   Box,
-  Flex,
 } from '@rocket.chat/fuselage';
 import {
   BLOCK_CONTEXT,
@@ -93,6 +92,6 @@ const genericImage = (element, context) => {
   }
 };
 
-export const ModalImage = ({ element, context }) => genericImage(element, context) || <Block><Flex.Container justifyContent='center'><Box><Media element={element}/></Box></Flex.Container></Block>;
+export const ModalImage = ({ element, context }) => genericImage(element, context) || <Block><Box display='flex' justifyContent='center'><Media element={element}/></Box></Block>;
 
-export const MessageImage = ({ element, context }) => genericImage(element, context) || <Block><Flex.Container justifyContent='start'><Box><Media element={element}/></Box></Flex.Container></Block>;
+export const MessageImage = ({ element, context }) => genericImage(element, context) || <Block><Box display='flex' justifyContent='start'><Media element={element}/></Box></Block>;

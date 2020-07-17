@@ -22,6 +22,15 @@ module.exports = {
     'react/jsx-fragments': ['error', 'syntax'],
   },
   settings: {
+    'import/resolver': {
+      node: {
+        extensions: [
+          '.js',
+          '.ts',
+          '.tsx'
+        ],
+      },
+    },
     react: {
       version: 'detect',
     },
@@ -30,3 +39,4 @@ module.exports = {
     'jest': true,
   },
 };
+
