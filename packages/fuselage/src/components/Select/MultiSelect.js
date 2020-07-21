@@ -1,3 +1,4 @@
+import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
@@ -61,7 +62,7 @@ export const MultiSelect = ({
   useEffect(reset, [filter]);
 
   const ref = useRef();
-  const containerRef = useRef();
+  const { ref: containerRef, borderBoxSize } = useResizeObserver();
   return (
     <Box
       is='div'
@@ -94,7 +95,7 @@ export const MultiSelect = ({
           <Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'chevron-down'} size='x20' />}/>
         </Margins>
       </Flex.Item>
-      <AnimatedVisibility visibility={visible}><Position anchor={containerRef}><_Options onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedVisibility>
+      <AnimatedVisibility visibility={visible}><Position anchor={containerRef}><_Options width={borderBoxSize.inlineSize} onMouseDown={prevent} multiple filter={filter} renderItem={CheckOption} role='listbox' options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></Position></AnimatedVisibility>
     </Box>);
 };
 

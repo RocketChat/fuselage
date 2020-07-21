@@ -19,6 +19,12 @@
   }
 
   &--selected {
-    color: colors.foreground(primary);
+    background: colors.neutral(500);
+  }
+}
+
+.rcx-options:hover {
+  .rcx-option--focus:not(.rcx-option--selected):not(:hover) {
+    background: initial;
   }
 }

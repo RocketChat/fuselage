@@ -17,7 +17,8 @@ const mapOptions = (options) => Object.entries(options).map(([value, { label }])
 export const Menu = ({
   options,
   optionWidth,
-  placement = 'bottom right',
+  placement = 'bottom-start',
+  renderItem,
   ...props }) => {
   const mappedOptions = mapOptions(options);
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(-1, mappedOptions, (args, [, hide]) => {
@@ -59,6 +60,7 @@ export const Menu = ({
         placement={placement}
       >
         <Options
+          renderItem={renderItem}
           width={optionWidth}
           onSelect={handleSelection}
           options={mappedOptions}

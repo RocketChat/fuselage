@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.12.0...v0.13.0) (2020-07-14)
+
+**Note:** Version bump only for package @rocket.chat/css-in-js
+
+
+
+
+
+# [0.12.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.11.0...v0.12.0) (2020-07-14)
+
+**Note:** Version bump only for package @rocket.chat/css-in-js
+
+
+
+
+
 # [0.11.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.10.0...v0.11.0) (2020-07-11)
 
 **Note:** Version bump only for package @rocket.chat/css-in-js

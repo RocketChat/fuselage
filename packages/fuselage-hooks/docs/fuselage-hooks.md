@@ -19,6 +19,9 @@
 
 |  Variable | Description |
 |  --- | --- |
+|  [getPositionStyle](./fuselage-hooks.getpositionstyle.md) |  |
+|  [getTargetBoundaries](./fuselage-hooks.gettargetboundaries.md) |  |
+|  [getVariantBoundaries](./fuselage-hooks.getvariantboundaries.md) |  |
 |  [useAutoFocus](./fuselage-hooks.useautofocus.md) | Hook to automatically request focus for an DOM element. |
 |  [useBreakpoints](./fuselage-hooks.usebreakpoints.md) | Hook to catch which responsive design' breakpoints are active. |
 |  [useDebouncedCallback](./fuselage-hooks.usedebouncedcallback.md) | Hook to memoize a debounced version of a callback. |
@@ -30,10 +33,20 @@
 |  [useMediaQuery](./fuselage-hooks.usemediaquery.md) | Hook to listen to a media query. |
 |  [useMergedRefs](./fuselage-hooks.usemergedrefs.md) | Hook to merge refs and callbacks refs into a single callback ref. Useful when your component need a internal ref while receiving a forwared ref. |
 |  [useMutableCallback](./fuselage-hooks.usemutablecallback.md) | Hook to create a stable callback from a mutable one. |
+|  [usePosition](./fuselage-hooks.useposition.md) | Hook to deal with sessionStorage |
 |  [useResizeObserver](./fuselage-hooks.useresizeobserver.md) | Hook to track dimension changes in a DOM element using the ResizeObserver API. |
 |  [useSafely](./fuselage-hooks.usesafely.md) | Hook that wraps pairs of state and dispatcher to provide a new dispatcher which can be safe and asynchronically called even after the component unmounted. |
 |  [useSessionStorage](./fuselage-hooks.usesessionstorage.md) | Hook to deal with sessionStorage |
 |  [useStableArray](./fuselage-hooks.usestablearray.md) | Hook to create an array with stable identity if its elements are equal. |
 |  [useToggle](./fuselage-hooks.usetoggle.md) | Hook to create a toggleable boolean state. |
 |  [useUniqueId](./fuselage-hooks.useuniqueid.md) | Hook to keep a unique ID string. |
+
+## Type Aliases
+
+|  Type Alias | Description |
+|  --- | --- |
+|  [Placements](./fuselage-hooks.placements.md) |  |
+|  [PositionFlipOrder](./fuselage-hooks.positionfliporder.md) |  |
+|  [Positions](./fuselage-hooks.positions.md) |  |
+|  [PostionOptions](./fuselage-hooks.postionoptions.md) |  |
 

@@ -64,18 +64,20 @@ yarn add @rocket.chat/fuselage-hooks
     -   [Parameters](#parameters-9)
 -   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-10)
--   [useResizeObserver](#useresizeobserver)
+-   [usePosition](#useposition)
     -   [Parameters](#parameters-11)
--   [useSafely](#usesafely)
+-   [useResizeObserver](#useresizeobserver)
     -   [Parameters](#parameters-12)
--   [useStableArray](#usestablearray)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-13)
--   [useLocalStorage](#uselocalstorage)
+-   [useStableArray](#usestablearray)
     -   [Parameters](#parameters-14)
--   [useSessionStorage](#usesessionstorage)
+-   [useLocalStorage](#uselocalstorage)
     -   [Parameters](#parameters-15)
--   [useToggle](#usetoggle)
+-   [useSessionStorage](#usesessionstorage)
     -   [Parameters](#parameters-16)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-17)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -210,6 +212,18 @@ Hook to create a stable callback from a mutable one.
 -   `fn` **function (...args: P): T** the mutable callback
 
 Returns **function (...args: P): T** a stable callback
+
+### usePosition
+
+Hook to deal with sessionStorage
+
+#### Parameters
+
+-   `reference` **[Element](https://developer.mozilla.org/docs/Web/API/Element)** the anchor
+-   `targetEl` **[Element](https://developer.mozilla.org/docs/Web/API/Element)** the element to be positioned
+-   `options` **PostionOptions** options to position
+
+Returns **(PositionStyle | null)** a state and a setter function
 
 ### useResizeObserver
 

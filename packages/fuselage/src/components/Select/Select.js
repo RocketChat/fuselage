@@ -1,9 +1,9 @@
-import React, { useState, useLayoutEffect, useRef, useCallback, useEffect, forwardRef } from 'react';
+import { useMutableCallback, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import React, { useState, useRef, useCallback, useEffect, forwardRef, useMemo } from 'react';
 
-import { PositionAnimated, Box, Flex, AnimatedVisibility } from '../Box';
+import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
-import Margins from '../Margins';
 import { Options, useCursor } from '../Options';
 
 export const Addon = forwardRef((props, ref) => <Box is='div' rcx-select__addon ref={ref} {...props} />);
@@ -11,6 +11,18 @@ export const Addon = forwardRef((props, ref) => <Box is='div' rcx-select__addon 
 const Wrapper = forwardRef((props, ref) => <Box is='div' rcx-select__wrapper ref={ref} {...props} />);
 
 export const Focus = React.forwardRef((props, ref) => <Box ref={ref} fontScale='p2' color='hint' rcx-select__focus is='button' type='button' {...props}/>);
+
+const useDidUpdate = (func, deps = []) => {
+  const didMount = useRef(false);
+  const fn = useMutableCallback(func);
+
+  useEffect(() => {
+    if (didMount.current) {
+      fn();
+    }
+    didMount.current = true;
+  }, deps);
+};
 
 export const Select = ({
   value,
@@ -29,68 +41,62 @@ export const Select = ({
   const [internalValue, setInternalValue] = useState(value);
 
   const currentValue = value !== undefined ? value : internalValue;
-  const option = options.find((option) => getValue(option) === currentValue);
-  const index = options.indexOf(option);
 
-  const isFirstRun = useRef(true);
-
-  const internalChanged = ([value]) => {
+  const internalChangedByKeyboard = useMutableCallback(([value]) => {
     setInternalValue(value);
     onChange(value);
-  };
+  });
 
-  const mapOptions = ([value, label]) => {
-    if (currentValue === value) {
-      return [value, label, true];
-    }
-    return [value, label];
-  };
+  const option = options.find((option) => getValue(option) === currentValue);
 
-  const applyFilter = ([, option]) => !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
-  const filteredOptions = options.filter(applyFilter).map(mapOptions);
-  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(index, filteredOptions, internalChanged);
+  const index = options.indexOf(option);
+
+  const filteredOptions = useMemo(() => {
+    const mapOptions = ([value, label]) => {
+      if (currentValue === value) {
+        return [value, label, true];
+      }
+      return [value, label];
+    };
+
+    const applyFilter = ([, option]) => !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
+    return options.filter(applyFilter).map(mapOptions);
+  }, [options, currentValue, filter]);
+
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(index, filteredOptions, internalChangedByKeyboard);
+
+
+  const internalChangedByClick = useMutableCallback(([value]) => {
+    setInternalValue(value);
+    onChange(value);
+    hide();
+  });
+
 
   const ref = useRef();
 
-  const containerRef = useRef();
+  const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  useLayoutEffect(() => {
-    if (isFirstRun.current) {
-      isFirstRun.current = false;
-      return;
-    }
-    hide();
-    ref.current.focus();
-  }, [internalValue]);
-
-  useEffect(reset, [filter]);
+  useDidUpdate(reset, [filter, internalValue]);
 
   const valueLabel = getLabel(option);
 
   const visibleText = (filter === undefined || visible === AnimatedVisibility.HIDDEN) && (valueLabel || (placeholder || typeof placeholder === 'string'));
   return (
-    <Box rcx-select disabled={disabled} ref={containerRef} onClick={() => ref.current.focus() & show()} className={[
+    <Box rcx-select disabled={disabled} ref={containerRef} onClick={useMutableCallback(() => ref.current.focus() & show())} className={useMemo(() => [
       error && 'invalid',
       disabled && 'disabled',
-    ]}
+    ], [error, disabled])}
     {...props}
     >
-      <Flex.Item>
-        <Flex.Container>
-          <Margins inline='neg-x4'>
-            <Wrapper rcx-select__wrapper--hidden={!!visibleText}>
-              { visibleText && <Flex.Item grow={1} shrink={1}>
-                <Margins inline='x4'>
-                  <Box is='span' rcx-select__item fontScale='p2' color={valueLabel ? 'default' : 'hint'}>{visibleText}</Box>
-                </Margins>
-              </Flex.Item>}
-              <Anchor disabled={disabled} rcx-input-box--undecorated filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
-              <Margins inline='x4'><Addon children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'chevron-down'} size='x20' />}/></Margins>
-            </Wrapper>
-          </Margins>
-        </Flex.Container>
-      </Flex.Item>
-      <PositionAnimated visible={visible} anchor={containerRef}><_Options role='listbox' filter={filter} options={filteredOptions} onSelect={internalChanged} cursor={cursor} /></PositionAnimated>
+      <Wrapper display='flex' mi='neg-x4' rcx-select__wrapper--hidden={!!visibleText}>
+        { visibleText
+          && <Box flexGrow={1} is='span' mi='x4' rcx-select__item fontScale='p2' color={valueLabel ? 'default' : 'hint'}>{visibleText}</Box>
+        }
+        <Anchor disabled={disabled} rcx-input-box--undecorated filter={filter} ref={ref} aria-haspopup='listbox' onClick={show} onBlur={hide} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} />
+        <Addon mi='x4' children={<Icon name={ visible === AnimatedVisibility.VISIBLE ? 'cross' : 'chevron-down'} size='x20' />}/>
+      </Wrapper>
+      <PositionAnimated visible={visible} anchor={containerRef}><_Options width={borderBoxSize.inlineSize} role='listbox' filter={filter} options={filteredOptions} onSelect={internalChangedByClick} cursor={cursor} /></PositionAnimated>
     </Box>);
 };
 
@@ -100,6 +106,6 @@ export const SelectFiltered = ({
   ...props
 }) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <Margins inline='x4'><Flex.Item grow={1} shrink={1}><InputBox.Input className='rcx-select__focus' ref={ref} placeholder={placeholder} value={filter} onChange={() => {}} onInput={(e) => setFilter(e.currentTarget.value)} {...props} rcx-input-box--undecorated /></Flex.Item></Margins>), []);
+  const anchor = useCallback(React.forwardRef(({ children, filter, ...props }, ref) => <InputBox.Input mi='x4' flexGrow={1} className='rcx-select__focus' ref={ref} placeholder={placeholder} value={filter} onChange={useMutableCallback((e) => setFilter(e.currentTarget.value))} {...props} rcx-input-box--undecorated />), []);
   return <Select placeholder={null} filter={filter} options={options} {...props} anchor={anchor}/>;
 };
