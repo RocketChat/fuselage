@@ -8,7 +8,7 @@
 
 ```typescript
 getVariantBoundaries: ({ referenceBox, target }: {
-    referenceBox: DOMRect;
-    target: DOMRect;
-}) => VariantBoundaries
+    referenceBox?: DOMRect;
+    target?: DOMRect;
+}) => VariantBoundaries | null
 ```
