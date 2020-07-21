@@ -21,17 +21,17 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
       lengths.border-radius(none)
       (lengths.border-radius(2) + to-rem(1));
 
-    @if $direction == 'up' {
+    @if $direction == 'bottom' {
       inset-block-start: lengths.inset(-4);
 
       transform: rotate(135deg);
     }
-    @if $direction == 'down' {
+    @if $direction == 'top' {
       inset-block-end: lengths.inset(-4);
 
       transform: rotate(-45deg);
     }
-    @if $direction == 'left' {
+    @if $direction == 'right' {
       inset-block-start: 50%;
       inset-inline-start: lengths.inset(-4);
 
@@ -39,7 +39,7 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
 
       transform: rotate(45deg);
     }
-    @if $direction == 'right' {
+    @if $direction == 'left' {
       inset-block-start: 50%;
       inset-inline-end: lengths.inset(-4);
 
@@ -71,12 +71,12 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
 
   @include typography.use-font-scale(p2);
 
-  &--dir-up {
-    @include triangle-direction('up');
+  &--dir-top {
+    @include triangle-direction('top');
   }
 
-  &--dir-down {
-    @include triangle-direction('down');
+  &--dir-bottom {
+    @include triangle-direction('bottom');
   }
 
   &--dir-left {
@@ -88,7 +88,7 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
   }
 
   &--pos {
-    &-center {
+    &-middle {
       &::after {
         inset-inline-start: 50%;
 
@@ -96,7 +96,7 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
       }
     }
 
-    &-left {
+    &-start {
       &::after {
         inset-inline-start: lengths.inset(8);
 
@@ -104,7 +104,7 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
       }
     }
 
-    &-right {
+    &-end {
       &::after {
         inset-inline-start: initial;
         inset-inline-end: lengths.inset(8);

@@ -12,6 +12,6 @@ getPositionStyle: ({ placement, container, targetBoundaries, variantStore, targe
     target: DOMRect;
     container: DOMRect;
     targetBoundaries: Boundaries;
-    variantStore: VariantBoundaries;
-}) => PositionStyle | null
+    variantStore?: VariantBoundaries;
+}) => PositionResult
 ```
