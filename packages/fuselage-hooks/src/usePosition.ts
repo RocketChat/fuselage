@@ -39,6 +39,7 @@ type PositionStyle = {
   zIndex?: '9999',
   transition?: 'none !important',
   opacity?: 0 | 1,
+  placement: string,
 }
 
 export type Positions = 'top' | 'left' | 'bottom' | 'right';
@@ -144,6 +145,7 @@ export const getPositionStyle = ({ placement = 'bottom-start', container, target
         position: 'fixed',
         zIndex: '9999',
         opacity: 1,
+        placement: placementAttempt + v,
       } as PositionStyle;
 
       return style;
@@ -163,6 +165,7 @@ export const getPositionStyle = ({ placement = 'bottom-start', container, target
     position: 'fixed',
     zIndex: '9999',
     opacity: 1,
+    placement: placementAttempt + variantsAttempts[0],
   };
 };
 
