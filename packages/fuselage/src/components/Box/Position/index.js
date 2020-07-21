@@ -10,8 +10,7 @@ import AnimatedVisibility from '../AnimatedVisibility';
 
 const Position = ({ anchor, children, placement, margin, className, ...props }) => {
   const target = useRef();
-  const positionStyle = usePosition(anchor, target, useMemo(() => ({ placement, margin }), [placement, margin]));
-
+  const { style: positionStyle, placement: positionPlacement } = usePosition(anchor, target, useMemo(() => ({ placement, margin }), [placement, margin])) || {};
 
   const style = useMemo(() => ({ position: 'fixed', ...positionStyle }), [positionStyle]);
   const portalContainer = useMemo(() => {
@@ -27,6 +26,7 @@ const Position = ({ anchor, children, placement, margin, className, ...props }) 
       ref: target,
       style,
       ...props,
+      placement: positionPlacement,
     }),
     portalContainer,
   );
