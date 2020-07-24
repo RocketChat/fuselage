@@ -25,7 +25,7 @@ const makeStorage = (
     const setValue: Dispatch<SetStateAction<T>> = useCallback((value: T extends unknown ? SetStateAction<T> : never): void => {
       setStoredValue((prevValue: T) => {
         const valueToStore: T = typeof value === 'function' ? value(prevValue) : value;
-        storage.setItem(key, JSON.stringify(valueToStore));
+        storage.setItem(getKey(key), JSON.stringify(valueToStore));
         return valueToStore;
       });
     }, [key]);
