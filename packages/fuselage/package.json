@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -55,7 +55,7 @@
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@rocket.chat/fuselage-hooks": "^0.13.1",
+    "@rocket.chat/fuselage-hooks": "^0.13.2",
     "@rocket.chat/fuselage-polyfills": "^0.13.1",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-backgrounds": "^5.3.19",
