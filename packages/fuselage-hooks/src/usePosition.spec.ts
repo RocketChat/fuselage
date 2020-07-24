@@ -48,14 +48,14 @@ describe('usePosition hook', () => {
     it('returns a style for placement bottom-start', () => {
       const targetBoundaries = getTargetBoundaries({ referenceBox, target });
       const variantStore = getVariantBoundaries({ referenceBox, target });
-      const style = getPositionStyle({ placement: 'bottom-start', container, targetBoundaries, variantStore, target });
-      expect(style.left).toEqual('0px');
-      expect(style.top).toEqual('300px');
+      const result = getPositionStyle({ placement: 'bottom-start', container, targetBoundaries, variantStore, target });
+      expect(result.style.left).toEqual('0px');
+      expect(result.style.top).toEqual('300px');
     });
     it('returns a style for placement bottom-start if the element height does not fit', () => {
       const targetBoundaries = getTargetBoundaries({ referenceBox, target });
       const variantStore = getVariantBoundaries({ referenceBox, target });
-      const style = getPositionStyle({ placement: 'bottom-start',
+      const result = getPositionStyle({ placement: 'bottom-start',
         container: {
           ...container,
           bottom: 300,
@@ -64,8 +64,8 @@ describe('usePosition hook', () => {
         targetBoundaries,
         variantStore,
         target });
-      expect(style.left).toEqual('0px');
-      expect(style.top).toEqual('150px');
+      expect(result.style.left).toEqual('0px');
+      expect(result.style.top).toEqual('150px');
     });
 
     it('returns a style for placement bottom-middle', () => {
@@ -73,15 +73,15 @@ describe('usePosition hook', () => {
 
       const variantStore = getVariantBoundaries({ referenceBox, target });
 
-      const style = getPositionStyle({ placement: 'bottom-middle', container, targetBoundaries, variantStore, target });
+      const result = getPositionStyle({ placement: 'bottom-middle', container, targetBoundaries, variantStore, target });
 
-      expect(style.left).toEqual('25px');
-      expect(style.top).toEqual('300px');
+      expect(result.style.left).toEqual('25px');
+      expect(result.style.top).toEqual('300px');
     });
     it('returns a style for placement bottom-middle if the element height does not fit', () => {
       const targetBoundaries = getTargetBoundaries({ referenceBox, target });
       const variantStore = getVariantBoundaries({ referenceBox, target });
-      const style = getPositionStyle({ placement: 'bottom-middle',
+      const result = getPositionStyle({ placement: 'bottom-middle',
         container: {
           ...container,
           bottom: 300,
@@ -90,8 +90,8 @@ describe('usePosition hook', () => {
         targetBoundaries,
         variantStore,
         target });
-      expect(style.left).toEqual('25px');
-      expect(style.top).toEqual('150px');
+      expect(result.style.left).toEqual('25px');
+      expect(result.style.top).toEqual('150px');
     });
 
     it('returns a style for placement bottom-end', () => {
@@ -99,15 +99,15 @@ describe('usePosition hook', () => {
 
       const variantStore = getVariantBoundaries({ referenceBox, target });
 
-      const style = getPositionStyle({ placement: 'bottom-end', container, targetBoundaries, variantStore, target });
+      const result = getPositionStyle({ placement: 'bottom-end', container, targetBoundaries, variantStore, target });
 
-      expect(style.left).toEqual('50px');
-      expect(style.top).toEqual('300px');
+      expect(result.style.left).toEqual('50px');
+      expect(result.style.top).toEqual('300px');
     });
     it('returns a style for placement bottom-end if the element height does not fit', () => {
       const targetBoundaries = getTargetBoundaries({ referenceBox, target });
       const variantStore = getVariantBoundaries({ referenceBox, target });
-      const style = getPositionStyle({ placement: 'bottom-end',
+      const result = getPositionStyle({ placement: 'bottom-end',
         container: {
           ...container,
           bottom: 300,
@@ -116,61 +116,61 @@ describe('usePosition hook', () => {
         targetBoundaries,
         variantStore,
         target });
-      expect(style.left).toEqual('50px');
-      expect(style.top).toEqual('150px');
+      expect(result.style.left).toEqual('50px');
+      expect(result.style.top).toEqual('150px');
     });
 
 
     it('returns a style for placement top-start', () => {
       const targetBoundaries = getTargetBoundaries({ referenceBox, target });
       const variantStore = getVariantBoundaries({ referenceBox, target });
-      const style = getPositionStyle({ placement: 'top-start', container, targetBoundaries, variantStore, target });
-      expect(style.left).toEqual('0px');
-      expect(style.top).toEqual('150px');
+      const result = getPositionStyle({ placement: 'top-start', container, targetBoundaries, variantStore, target });
+      expect(result.style.left).toEqual('0px');
+      expect(result.style.top).toEqual('150px');
     });
     it('returns a style for placement top-start if the element height does not fit', () => {
       const box = { ...referenceBox, top: 10, y: 10, bottom: 110 };
       const targetBoundaries = getTargetBoundaries({ referenceBox: box, target });
       const variantStore = getVariantBoundaries({ referenceBox: box, target });
-      const style = getPositionStyle({ placement: 'top-start', container, targetBoundaries, variantStore, target });
-      expect(style.left).toEqual('0px');
-      expect(style.top).toEqual('110px');
+      const result = getPositionStyle({ placement: 'top-start', container, targetBoundaries, variantStore, target });
+      expect(result.style.left).toEqual('0px');
+      expect(result.style.top).toEqual('110px');
     });
     it('returns a style for placement top-middle', () => {
       const targetBoundaries = getTargetBoundaries({ referenceBox, target });
 
       const variantStore = getVariantBoundaries({ referenceBox, target });
 
-      const style = getPositionStyle({ placement: 'top-middle', container, targetBoundaries, variantStore, target });
+      const result = getPositionStyle({ placement: 'top-middle', container, targetBoundaries, variantStore, target });
 
-      expect(style.left).toEqual('25px');
-      expect(style.top).toEqual('150px');
+      expect(result.style.left).toEqual('25px');
+      expect(result.style.top).toEqual('150px');
     });
     it('returns a style for placement top-middle if the element height does not fit', () => {
       const box = { ...referenceBox, top: 10, y: 10, bottom: 110 };
       const targetBoundaries = getTargetBoundaries({ referenceBox: box, target });
       const variantStore = getVariantBoundaries({ referenceBox: box, target });
-      const style = getPositionStyle({ placement: 'top-middle', container, targetBoundaries, variantStore, target });
-      expect(style.left).toEqual('25px');
-      expect(style.top).toEqual('110px');
+      const result = getPositionStyle({ placement: 'top-middle', container, targetBoundaries, variantStore, target });
+      expect(result.style.left).toEqual('25px');
+      expect(result.style.top).toEqual('110px');
     });
     it('returns a style for placement top-end', () => {
       const targetBoundaries = getTargetBoundaries({ referenceBox, target });
 
       const variantStore = getVariantBoundaries({ referenceBox, target });
 
-      const style = getPositionStyle({ placement: 'top-end', container, targetBoundaries, variantStore, target });
+      const result = getPositionStyle({ placement: 'top-end', container, targetBoundaries, variantStore, target });
 
-      expect(style.left).toEqual('50px');
-      expect(style.top).toEqual('150px');
+      expect(result.style.left).toEqual('50px');
+      expect(result.style.top).toEqual('150px');
     });
     it('returns a style for placement top-end if the element height does not fit', () => {
       const box = { ...referenceBox, top: 10, y: 10, bottom: 110 };
       const targetBoundaries = getTargetBoundaries({ referenceBox: box, target });
       const variantStore = getVariantBoundaries({ referenceBox: box, target });
-      const style = getPositionStyle({ placement: 'top-end', container, targetBoundaries, variantStore, target });
-      expect(style.left).toEqual('50px');
-      expect(style.top).toEqual('110px');
+      const result = getPositionStyle({ placement: 'top-end', container, targetBoundaries, variantStore, target });
+      expect(result.style.left).toEqual('50px');
+      expect(result.style.top).toEqual('110px');
     });
   });
 });

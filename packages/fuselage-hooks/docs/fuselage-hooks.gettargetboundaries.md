@@ -8,8 +8,8 @@
 
 ```typescript
 getTargetBoundaries: ({ referenceBox, target, margin }: {
-    referenceBox: DOMRect;
-    target: DOMRect;
+    referenceBox?: DOMRect;
+    target?: DOMRect;
     margin?: number;
-}) => Boundaries
+}) => Boundaries | null
 ```

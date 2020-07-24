@@ -4,10 +4,10 @@
 
 ## usePosition variable
 
-Hook to deal with sessionStorage
+Hook to deal and position an element using an anchor
 
 <b>Signature:</b>
 
 ```typescript
-usePosition: (reference: Element, targetEl: Element, options: PostionOptions) => PositionStyle | null
+usePosition: (reference: RefObject<Element>, target: RefObject<Element>, options: PositionOptions) => PositionResult
 ```

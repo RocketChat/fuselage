@@ -215,15 +215,16 @@ Returns **function (...args: P): T** a stable callback
 
 ### usePosition
 
-Hook to deal with sessionStorage
+Hook to deal and position an element using an anchor
 
 #### Parameters
 
--   `reference` **[Element](https://developer.mozilla.org/docs/Web/API/Element)** the anchor
--   `targetEl` **[Element](https://developer.mozilla.org/docs/Web/API/Element)** the element to be positioned
--   `options` **PostionOptions** options to position
+-   `reference` **RefObject&lt;[Element](https://developer.mozilla.org/docs/Web/API/Element)>** the anchor
+-   `target` **RefObject&lt;[Element](https://developer.mozilla.org/docs/Web/API/Element)>** 
+-   `options` **[PositionOptions](https://developer.mozilla.org/docs/Web/API/PositionOptions)** options to position
+-   `targetEl`  the element to be positioned
 
-Returns **(PositionStyle | null)** a state and a setter function
+Returns **PositionResult** The style containing top and left position
 
 ### useResizeObserver
 
