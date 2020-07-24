@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-ui-kit",
-  "version": "0.13.0",
+  "version": "0.13.2",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -35,17 +35,17 @@
     "react-dom": "^16.12.0"
   },
   "dependencies": {
-    "@rocket.chat/ui-kit": "^0.13.0"
+    "@rocket.chat/ui-kit": "^0.13.1"
   },
   "devDependencies": {
-    "@rocket.chat/apps-engine": "1.16.0-alpha.3466",
     "@babel/core": "^7.7.4",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.7.4",
-    "@rocket.chat/fuselage": "^0.13.0",
-    "@rocket.chat/fuselage-hooks": "^0.13.0",
-    "@rocket.chat/icons": "^0.13.0",
+    "@rocket.chat/apps-engine": "1.16.0-alpha.3466",
+    "@rocket.chat/fuselage": "^0.13.2",
+    "@rocket.chat/fuselage-hooks": "^0.13.2",
+    "@rocket.chat/icons": "^0.13.1",
     "@storybook/addon-actions": "^5.3.17",
     "@storybook/addon-backgrounds": "^5.3.17",
     "@storybook/addon-centered": "^5.3.17",
@@ -59,9 +59,9 @@
     "@storybook/source-loader": "^5.3.17",
     "@storybook/theming": "^5.3.17",
     "babel-loader": "^8.0.6",
+    "compression-webpack-plugin": "^3.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "compression-webpack-plugin": "^3.0.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
     "webpack-plugin-replace": "^1.2.0"

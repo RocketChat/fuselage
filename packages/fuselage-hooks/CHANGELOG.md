@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.1...v0.13.2) (2020-07-24)
+
+
+### Bug Fixes
+
+* useStorage setItem ([#269](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/269)) ([11a28a3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/11a28a3b77b4e7486205e58a2014c93a8a1af53a))
+
+
+
+
+
+## [0.13.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.0...v0.13.1) (2020-07-17)
+
+
+### Bug Fixes
+
+* useMediaQueries support on Safari and IE11  ([#262](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/262)) ([f7be49a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f7be49a66e120a5a4f43205f2c2d149e90dae021))
+
+
+
+
+
 # [0.13.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.12.0...v0.13.0) (2020-07-14)
 
 
