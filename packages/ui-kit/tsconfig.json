@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
+    "target": "ES5",
     "sourceMap": true,
-    "lib":[
-      "es2018"
-    ]
+    "declaration": true,
+    "declarationDir": "./dist",
+    "lib":["ES2018"]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }

@@ -1,17 +1,14 @@
 {
   "name": "@rocket.chat/ui-kit",
   "version": "0.13.1",
-  "description": "Package Fuselage ui kit ",
+  "description": "Interactive UI elements for Rocket.Chat Apps",
   "author": "Guilherme Gazzo <guilhermegazzo@gmail.com>",
   "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
   "license": "MIT",
   "main": "dist/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "types": "dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
