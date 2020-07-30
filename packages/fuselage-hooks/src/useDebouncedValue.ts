@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 /**
  * Hook to keep a debounced reference of a value.
  *
- * @param value the value to be debounced
- * @param delay the number of milliseconds to delay
- * @return a debounced value
+ * @param value - the value to be debounced
+ * @param delay - the number of milliseconds to delay
+ * @returns a debounced value
+ * @public
  */
 export const useDebouncedValue = <V>(value: V, delay: number): V => {
   const [debouncedValue, setDebouncedValue] = useState(() => value);

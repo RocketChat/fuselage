@@ -1,10 +1,14 @@
-import React, { useCallback, useLayoutEffect, useState, forwardRef, useMemo } from 'react';
+import React, { useLayoutEffect, useState, forwardRef, useMemo } from 'react';
+import { useMutableCallback, useDebouncedState } from '@rocket.chat/fuselage-hooks';
 
 
-import { AnimatedVisibility, Box, Flex, Margins, Scrollable } from '../Box';
+import { AnimatedVisibility, Box, Scrollable } from '../Box';
+import { Icon } from '../Icon';
 import { Avatar } from '../Avatar';
 import { CheckBox } from '../CheckBox';
+import Margins from '../Margins';
 import { Tile } from '../Tile';
+
 
 export const ACTIONS = {
   ESC: 27,
@@ -21,24 +25,15 @@ const prevent = (e) => {
   e.stopPropagation();
 };
 
-const Li = forwardRef(function Li(props, ref) {
-  return <Box is='li' rcx-option ref={ref} {...props} />;
+const Li = forwardRef(function Li({ children, ...props }, ref) {
+  return <Box rcx-option withTruncatedText is='li' ref={ref} {...props}><Box withTruncatedText display='flex' alignItems='center' mi='neg-x4'><Margins inline='x4'>{children}</Margins></Box></Box>;
 });
 
-export const Empty = React.memo(() => <Box is='span' fontScale='p1' color='hint'>Empty</Box>);
+export const Option = React.memo(({ id, avatar, children, label = children, focus, selected, icon, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>{avatar && <Avatar size='x28' url={avatar} tile={label}/>}{icon && <Icon size='x16' name={icon}/>} <Box is='span' withTruncatedText flexGrow={1} fontScale='p1' color='default'>{label}</Box>{label !== children && children}</Li>);
 
-export const Option = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>{label}</Li>);
+export const Empty = React.memo(() => <Option is='span' fontScale='p1' color='hint'>Empty</Option>);
 
-export const CheckOption = React.memo(({ id, children: label, focus, selected, ...options }) => <Li key={id} rcx-option--focus={focus} id={id} aria-selected={selected} {...options}><Margins inline='x4'><CheckBox checked={selected} /></Margins><Margins inline='x4'><Box is='span' fontScale='p1' color='default'>{label}</Box></Margins></Li>);
-
-export const OptionAvatar = React.memo(({ id, value, children: label, focus, selected, ...options }) => (
-  <Flex.Container>
-    <Li key={id} rcx-option--focus={focus} id={id} rcx-option--selected={selected} aria-selected={selected} {...options}>
-      <Margins inline='x4'><Avatar size='x20' url={value} tile={label}/></Margins>
-      <Margins inline='x4'><Box is='span' fontScale='p1' color='default'>{label}</Box></Margins>
-    </Li>
-  </Flex.Container>
-));
+export const CheckOption = React.memo(({ selected, children: label, ...options }) => <Option label={label} selected={selected} {...options}><CheckBox checked={selected} /></Option>);
 
 export const Options = React.forwardRef(({
   maxHeight = '144px',
@@ -60,26 +55,23 @@ export const Options = React.forwardRef(({
       current.scrollTop = li.offsetTop;
     }
   }, [cursor, ref]);
-
-  const optionsMemoized = useMemo(() => options.map(([value, label, selected], i) => <OptionComponent role='option' onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}>{label}</OptionComponent>), [options, multiple, cursor, onSelect]);
-  return <Box rcx-options is='div' {...props}>
-    <Tile padding='x8' elevation='2'>
+  const optionsMemoized = useMemo(() => options.map(([value, label, selected], i) => <OptionComponent role='option' label={label} onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false} key={value} value={value} selected={selected || (multiple !== true && null)} focus={cursor === i || null}/>), [options, multiple, cursor, onSelect]);
+  return <Box rcx-options {...props}>
+    <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
       <Scrollable vertical smooth>
-        <Margins blockStart='x4'>
-          <Tile ref={ref} elevation='0' padding='none' maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
-            {!options.length && <EmptyComponent/>}
-            {optionsMemoized}
-          </Tile>
-        </Margins>
+        <Tile ref={ref} elevation='0' padding='none' maxHeight={maxHeight} onMouseDown={prevent} onClick={prevent} is='ol' aria-multiselectable={multiple} role='listbox' aria-multiselectable='true' aria-activedescendant={options && options[cursor] && options[cursor][0]}>
+          {!options.length && <EmptyComponent/>}
+          {optionsMemoized}
+        </Tile>
       </Scrollable>
     </Tile>
   </Box>;
 });
 
 const useVisible = (initialVisibility = AnimatedVisibility.HIDDEN) => {
-  const [visible, setVisible] = useState(initialVisibility);
-  const hide = useCallback(() => setVisible(AnimatedVisibility.HIDDEN), []);
-  const show = useCallback(() => setVisible(AnimatedVisibility.VISIBLE), []);
+  const [visible, setVisible] = useDebouncedState(initialVisibility, 10);
+  const hide = useMutableCallback(() => setVisible(AnimatedVisibility.HIDDEN));
+  const show = useMutableCallback(() => setVisible(AnimatedVisibility.VISIBLE));
 
   return [visible, hide, show];
 };
@@ -88,15 +80,15 @@ export const useCursor = (initial, options, onChange) => {
   const [cursor, setCursor] = useState(initial);
   const visibilityHandler = useVisible();
   const [visibility, hide, show] = visibilityHandler;
-  const reset = () => setCursor(0);
-  const handleKeyUp = (e) => {
+  const reset = useMutableCallback(() => setCursor(0));
+  const handleKeyUp = useMutableCallback((e) => {
     const { keyCode } = e;
     if (AnimatedVisibility.HIDDEN === visibility && keyCode === ACTIONS.TAB) {
       return show();
     }
-  };
+  });
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useMutableCallback((e) => {
     const lastIndex = options.length - 1;
     const { keyCode, key } = e;
     if (AnimatedVisibility.HIDDEN === visibility && keyCode !== ACTIONS.ESC && keyCode !== ACTIONS.TAB) {
@@ -129,7 +121,9 @@ export const useCursor = (initial, options, onChange) => {
         e.nativeEvent.stopImmediatePropagation(); // TODO
         e.stopPropagation();
       }
-      return onChange(options[cursor], visibilityHandler);
+      hide();
+      onChange(options[cursor], visibilityHandler);
+      return;
     case ACTIONS.ESC:
       e.preventDefault();
       reset();
@@ -147,7 +141,7 @@ export const useCursor = (initial, options, onChange) => {
         ~index && setCursor(index);
       }
     }
-  };
+  });
 
   return [cursor, handleKeyDown, handleKeyUp, reset, visibilityHandler];
 };

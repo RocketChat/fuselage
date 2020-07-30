@@ -3,10 +3,11 @@ import { useMemo, DependencyList, useCallback, useRef, useEffect } from 'react';
 /**
  * Hook to memoize a debounced version of a callback.
  *
- * @param callback the callback to debounce
- * @param delay the number of milliseconds to delay
- * @param deps the hook dependencies
- * @return a memoized and debounced callback
+ * @param callback - the callback to debounce
+ * @param delay - the number of milliseconds to delay
+ * @param deps - the hook dependencies
+ * @returns a memoized and debounced callback
+ * @public
  */
 export const useDebouncedCallback = <P extends unknown[]>(
   callback: (...args: P) => unknown,

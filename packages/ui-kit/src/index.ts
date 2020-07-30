@@ -1,5 +1,7 @@
 export const version = "DEVELOPMENT";
 
+console.log(`ui-kit version: ${version}`);
+
 export enum ELEMENT_TYPES {
   IMAGE= 'image',
   BUTTON= 'button',

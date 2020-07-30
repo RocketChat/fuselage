@@ -3,6 +3,9 @@
 const path = require('path');
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ReplacePlugin = require('webpack-plugin-replace');
+
+const pkg = require('./package.json');
 
 module.exports = (env, { mode = 'production' }) => ({
   entry: {
@@ -22,6 +25,11 @@ module.exports = (env, { mode = 'production' }) => ({
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
       },
     ],
   },
@@ -47,5 +55,11 @@ module.exports = (env, { mode = 'production' }) => ({
       reportFilename: '../bundle-report.html',
       openAnalyzer: false,
     }),
-  ],
+    new ReplacePlugin({
+      include: ['index.js'],
+      values: {
+        '"DEVELOPMENT"': JSON.stringify(pkg.version),
+      },
+    }),
+  ].filter(Boolean),
 });

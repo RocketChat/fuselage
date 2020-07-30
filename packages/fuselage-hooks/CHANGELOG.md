@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.1...v0.13.2) (2020-07-24)
+
+
+### Bug Fixes
+
+* useStorage setItem ([#269](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/269)) ([11a28a3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/11a28a3b77b4e7486205e58a2014c93a8a1af53a))
+
+
+
+
+
+## [0.13.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.0...v0.13.1) (2020-07-17)
+
+
+### Bug Fixes
+
+* useMediaQueries support on Safari and IE11  ([#262](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/262)) ([f7be49a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f7be49a66e120a5a4f43205f2c2d149e90dae021))
+
+
+
+
+
+# [0.13.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.12.0...v0.13.0) (2020-07-14)
+
+
+### Features
+
+* usePosition ([#259](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/259)) ([b395d8c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b395d8c2e619d2ba26c5cfbee77275d0fbf9526a))
+
+
+
+
+
+# [0.12.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.11.0...v0.12.0) (2020-07-14)
+
+
+### Bug Fixes
+
+* fuselage-hooks bundling ([#258](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/258)) ([8539ccf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8539ccf878e6923eb42735298e05dc16435d90ce))
+
+
+
+
+
+# [0.11.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.10.0...v0.11.0) (2020-07-11)
+
+
+### Features
+
+* Hooks useLocalStorage and useSessionStorage ([#248](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/248)) ([7c9a920](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7c9a92046f5d7bd01ea9f421470333785ba97ee2))
+* useStableArray, useBreakpoints, useMediaQueries ([#253](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/253)) ([09f95ed](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/09f95edd7f296de45bc62caa16a1f43848fe3027))
+
+
+
+
+
 # [0.10.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.9.0...v0.10.0) (2020-06-20)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-hooks

@@ -1,6 +1,6 @@
-import React, { forwardRef, memo, createElement } from 'react';
-import PropTypes from 'prop-types';
 import { css } from '@rocket.chat/css-in-js';
+import React, { createElement, forwardRef, memo } from 'react';
+import PropTypes from 'prop-types';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
@@ -16,10 +16,6 @@ export const useArrayLikeClassNameProp = (props) => {
   const stylesClassName = useStyle(css`${ cssFns }`, props);
 
   const strings = classNames.filter((value) => typeof value === 'string');
-
-  if (!classNames.length) {
-    return props;
-  }
 
   props.className = strings.reduce(
     (className, string) => appendClassName(className, string),
@@ -43,7 +39,7 @@ export const useBoxOnlyProps = (props) => {
     }
   });
 
-  props.className = prependClassName(props.className, 'rcx-box');
+  props.className = prependClassName(props.className, 'rcx-box rcx-box--full');
 
   return props;
 };
@@ -99,6 +95,5 @@ Box.defaultProps = {
 
 export { default as AnimatedVisibility } from './AnimatedVisibility';
 export { default as Flex } from './Flex';
-export { default as Margins } from './Margins';
 export { default as Position, PositionAnimated } from './Position';
 export { default as Scrollable } from './Scrollable';

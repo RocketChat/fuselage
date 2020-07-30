@@ -1,24 +1,37 @@
-# Welcome to @rocket.chat/fuselage-hooks 👋
+<p align="center">
+  <a href="https://rocket.chat" title="Rocket.Chat">
+    <img src="https://user-images.githubusercontent.com/2263066/87240777-f5b4f300-c3f2-11ea-8a01-cc58fdf9a99a.png" alt="Rocket.Chat" />
+  </a>
+</p>
 
-[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/RocketChat/Rocket.Chat.Fuselage#readme)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/RocketChat/Rocket.Chat.Fuselage/graphs/commit-activity)
-[![License: MIT](https://img.shields.io/github/license/RocketChat/@rocket.chat/fuselage-hooks)](https://github.com/RocketChat/Rocket.Chat.Fuselage/blob/master/LICENSE)
-[![Twitter: RocketChat](https://img.shields.io/twitter/follow/RocketChat.svg?style=social)](https://twitter.com/RocketChat)
+# @rocket.chat/fuselage-hooks
 
-> React Hooks for Fuselage, Rocket.Chat's design system
+> React hooks for Fuselage, Rocket.Chat's design system and UI toolkit.
 
-### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
+![React version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage-hooks/peer/react?style=flat-square)
+![License: MIT](https://img.shields.io/github/license/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
+
+![Issues](https://img.shields.io/github/issues/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20fuselage-hooks?style=flat-square)
+![Pull requests](https://img.shields.io/github/issues-pr/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20fuselage-hooks?style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
+
+![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-hooks/latest?style=flat-square)
+![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-hooks/next?style=flat-square)
+![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-hooks&style=flat-square)
+![optional deps](https://img.shields.io/david/optional/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-hooks&style=flat-square)
+![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-hooks&style=flat-square)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-hooks?style=flat-square)
+![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-hooks?style=flat-square)
+![npm collaborators](https://img.shields.io/npm/collaborators/@rocket.chat/fuselage-hooks?style=flat-square)
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/2263066/87240832-6fe57780-c3f3-11ea-9985-4358c79af772.png" alt="Example" />
+</p>
 
 ## Install
 
 ```sh
 yarn add @rocket.chat/fuselage-hooks
-```
-
-## Run tests
-
-```sh
-yarn test
 ```
 
 ## API Reference
@@ -29,6 +42,7 @@ yarn test
 
 -   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
+-   [useBreakpoints](#usebreakpoints)
 -   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-1)
 -   [useDebouncedReducer](#usedebouncedreducer)
@@ -39,20 +53,31 @@ yarn test
     -   [Parameters](#parameters-4)
 -   [useDebouncedValue](#usedebouncedvalue)
     -   [Parameters](#parameters-5)
+-   [useIsomorphicLayoutEffect](#useisomorphiclayouteffect)
 -   [useLazyRef](#uselazyref)
     -   [Parameters](#parameters-6)
--   [useMediaQuery](#usemediaquery)
+-   [useMediaQueries](#usemediaqueries)
     -   [Parameters](#parameters-7)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-8)
--   [useMutableCallback](#usemutablecallback)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-9)
--   [useResizeObserver](#useresizeobserver)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-10)
--   [useSafely](#usesafely)
+-   [usePosition](#useposition)
     -   [Parameters](#parameters-11)
--   [useToggle](#usetoggle)
+-   [useResizeObserver](#useresizeobserver)
     -   [Parameters](#parameters-12)
+-   [useSafely](#usesafely)
+    -   [Parameters](#parameters-13)
+-   [useStableArray](#usestablearray)
+    -   [Parameters](#parameters-14)
+-   [useLocalStorage](#uselocalstorage)
+    -   [Parameters](#parameters-15)
+-   [useSessionStorage](#usesessionstorage)
+    -   [Parameters](#parameters-16)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-17)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -62,9 +87,15 @@ Hook to automatically request focus for an DOM element.
 #### Parameters
 
 -   `isFocused`  if true, the focus will be requested (optional, default `true`)
--   `options` **Options?** options of the focus request
+-   `options` **FocusOptions?** options of the focus request
 
-Returns **Ref&lt;{focus: function (options: Options): void}>** the ref which holds the element
+Returns **Ref&lt;{focus: function (options: FocusOptions): void}>** the ref which holds the element
+
+### useBreakpoints
+
+Hook to catch which responsive design' breakpoints are active.
+
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** an array of the active breakpoint names
 
 ### useDebouncedCallback
 
@@ -110,8 +141,8 @@ Hook to debounce the state dispatcher function returned by hooks like `useState(
 #### Parameters
 
 -   `pair` **\[S, DispatchWithoutAction]** the state and dispatcher pair which will be debounced
-    -   `pair.0`  the state value
-    -   `pair.1`  the state dispatcher function
+    -   `pair.0`  
+    -   `pair.1`  
 -   `delay` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of milliseconds to delay the dispatcher
 
 Returns **\[S, any]** a state value and debounced dispatcher pair
@@ -127,6 +158,10 @@ Hook to keep a debounced reference of a value.
 
 Returns **V** a debounced value
 
+### useIsomorphicLayoutEffect
+
+Replacement for the `useEffect` hook that is safely ignored on SSR.
+
 ### useLazyRef
 
 Hook equivalent to useRef, but with a lazy initialization for computed value.
@@ -136,6 +171,16 @@ Hook equivalent to useRef, but with a lazy initialization for computed value.
 -   `init`  the function the computes the ref value
 
 Returns **any** the ref
+
+### useMediaQueries
+
+Hook to listen to a set of media queries.
+
+#### Parameters
+
+-   `queries` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** the CSS3 expressions of media queries
+
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** a set of booleans expressing if the media queries match or not
 
 ### useMediaQuery
 
@@ -168,14 +213,27 @@ Hook to create a stable callback from a mutable one.
 
 Returns **function (...args: P): T** a stable callback
 
+### usePosition
+
+Hook to deal and position an element using an anchor
+
+#### Parameters
+
+-   `reference` **RefObject&lt;[Element](https://developer.mozilla.org/docs/Web/API/Element)>** the anchor
+-   `target` **RefObject&lt;[Element](https://developer.mozilla.org/docs/Web/API/Element)>** 
+-   `options` **[PositionOptions](https://developer.mozilla.org/docs/Web/API/PositionOptions)** options to position
+-   `targetEl`  the element to be positioned
+
+Returns **PositionResult** The style containing top and left position
+
 ### useResizeObserver
 
 Hook to track dimension changes in a DOM element using the ResizeObserver API.
 
 #### Parameters
 
--   `options` **Options**  (optional, default `{}`)
-    -   `options.debounceDelay`  the number of milliseconds to delay updates
+-   `options` **UseResizeObserverOptions**  (optional, default `{}`)
+    -   `options.debounceDelay`  
 
 Returns **{ref: RefObject&lt;[Element](https://developer.mozilla.org/docs/Web/API/Element)>, contentBoxSize: ResizeObserverSize, borderBoxSize: ResizeObserverSize}** a triple containing the ref and the size information
 
@@ -187,10 +245,45 @@ which can be safe and asynchronically called even after the component unmounted.
 #### Parameters
 
 -   `pair` **\[S, (Dispatch&lt;A> | DispatchWithoutAction)]** the state and dispatcher pair which will be patched
-    -   `pair.0`  the state value
-    -   `pair.1`  the state dispatcher function
+    -   `pair.0`  
+    -   `pair.1`  
 
 Returns **\[S, D]** a state value and safe dispatcher pair
+
+### useStableArray
+
+Hook to create an array with stable identity if its elements are equal.
+
+#### Parameters
+
+-   `array` **T** the array
+-   `compare` **function (a: T, b: T): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** the equality function that checks if two array elements are
+           equal (optional, default `Object.is`)
+
+Returns **T** the passed array if the elements are NOT equals; the previously
+         stored array otherwise
+
+### useLocalStorage
+
+Hook to deal with localStorage
+
+#### Parameters
+
+-   `key`  the key associated to the value in the storage
+-   `initialValue`  the value returned when the key is not found at the storage
+
+Returns **any** a state and a setter function
+
+### useSessionStorage
+
+Hook to deal with sessionStorage
+
+#### Parameters
+
+-   `key`  the key associated to the value in the storage
+-   `initialValue`  the value returned when the key is not found at the storage
+
+Returns **any** a state and a setter function
 
 ### useToggle
 
@@ -207,24 +300,3 @@ Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Referenc
 Hook to keep a unique ID string.
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the unique ID string
-
-## Author
-
-👤 **Rocket.Chat**
-
--   Twitter: [@RocketChat](https://twitter.com/RocketChat)
--   Github: [@RocketChat](https://github.com/RocketChat)
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!
-
-Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-* * *
-
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

@@ -3,6 +3,75 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.1...v0.13.2) (2020-07-24)
+
+
+### Bug Fixes
+
+* useStorage setItem ([#269](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/269)) ([11a28a3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/11a28a3b77b4e7486205e58a2014c93a8a1af53a))
+
+
+
+
+
+## [0.13.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.0...v0.13.1) (2020-07-17)
+
+
+### Bug Fixes
+
+* Loosen x-measures parsing ([#266](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/266)) ([b1c6ef4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b1c6ef42aa909f4063647f3051ee4b23497f6d57))
+* Select mutations and ui-kit alerts ([#263](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/263)) ([661398d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/661398dfdeaf827dadc46d24a7382d69f43f9742))
+* useMediaQueries support on Safari and IE11  ([#262](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/262)) ([f7be49a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f7be49a66e120a5a4f43205f2c2d149e90dae021))
+
+
+
+
+
+# [0.13.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.12.0...v0.13.0) (2020-07-14)
+
+
+### Features
+
+* usePosition ([#259](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/259)) ([b395d8c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b395d8c2e619d2ba26c5cfbee77275d0fbf9526a))
+
+
+
+
+
+# [0.12.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.11.0...v0.12.0) (2020-07-14)
+
+
+### Bug Fixes
+
+* fuselage-hooks bundling ([#258](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/258)) ([8539ccf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8539ccf878e6923eb42735298e05dc16435d90ce))
+* Options Styles ([#260](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/260)) ([410387e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/410387eb6a049e68f6f6f7391a7e0919c0bdf2ec))
+
+
+### Features
+
+* Margins not only for Box ([#256](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/256)) ([94e71a8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/94e71a80eb37d5145c1d1b2f532d23a782fee07b))
+
+
+
+
+
+# [0.11.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.10.0...v0.11.0) (2020-07-11)
+
+
+### Bug Fixes
+
+* Box className prop ([#254](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/254)) ([5adc7b8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5adc7b8a907eca67bef5e26309c92561f6d8020a))
+
+
+### Features
+
+* Hooks useLocalStorage and useSessionStorage ([#248](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/248)) ([7c9a920](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7c9a92046f5d7bd01ea9f421470333785ba97ee2))
+* useStableArray, useBreakpoints, useMediaQueries ([#253](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/253)) ([09f95ed](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/09f95edd7f296de45bc62caa16a1f43848fe3027))
+
+
+
+
+
 # [0.10.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.9.0...v0.10.0) (2020-06-20)
 
 

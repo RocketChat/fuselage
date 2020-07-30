@@ -1,0 +1,32 @@
+[
+  {
+    "name": "xs",
+    "minViewportWidth": null,
+    "columns": 4,
+    "gutterWidth": 16
+  },
+  {
+    "name": "sm",
+    "minViewportWidth": 600,
+    "columns": 8,
+    "gutterWidth": 16
+  },
+  {
+    "name": "md",
+    "minViewportWidth": 768,
+    "columns": 8,
+    "gutterWidth": 24
+  },
+  {
+    "name": "lg",
+    "minViewportWidth": 1024,
+    "columns": 12,
+    "gutterWidth": 24
+  },
+  {
+    "name": "xl",
+    "minViewportWidth": 1440,
+    "columns": 12,
+    "gutterWidth": 24
+  }
+]

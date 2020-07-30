@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.1...v0.13.2) (2020-07-24)
+
+**Note:** Version bump only for package @rocket.chat/fuselage
+
+
+
+
+
+## [0.13.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.0...v0.13.1) (2020-07-17)
+
+
+### Bug Fixes
+
+* Loosen x-measures parsing ([#266](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/266)) ([b1c6ef4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b1c6ef42aa909f4063647f3051ee4b23497f6d57))
+* Select mutations and ui-kit alerts ([#263](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/263)) ([661398d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/661398dfdeaf827dadc46d24a7382d69f43f9742))
+
+
+
+
+
+# [0.13.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.12.0...v0.13.0) (2020-07-14)
+
+
+### Features
+
+* usePosition ([#259](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/259)) ([b395d8c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b395d8c2e619d2ba26c5cfbee77275d0fbf9526a))
+
+
+
+
+
+# [0.12.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.11.0...v0.12.0) (2020-07-14)
+
+
+### Bug Fixes
+
+* Options Styles ([#260](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/260)) ([410387e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/410387eb6a049e68f6f6f7391a7e0919c0bdf2ec))
+
+
+### Features
+
+* Margins not only for Box ([#256](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/256)) ([94e71a8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/94e71a80eb37d5145c1d1b2f532d23a782fee07b))
+
+
+
+
+
+# [0.11.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.10.0...v0.11.0) (2020-07-11)
+
+
+### Bug Fixes
+
+* Box className prop ([#254](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/254)) ([5adc7b8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5adc7b8a907eca67bef5e26309c92561f6d8020a))
+
+
+
+
+
 # [0.10.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.9.0...v0.10.0) (2020-06-20)
 
 

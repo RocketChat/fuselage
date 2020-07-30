@@ -40,7 +40,7 @@ export const Overflow = ({ context, options, parser, ...element }) => {
         onBlur={hide}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
-        mod-loading={loading}
+        disabled={loading}
       >
         <Icon name='kebab' size={20} />
       </Button>
@@ -48,7 +48,7 @@ export const Overflow = ({ context, options, parser, ...element }) => {
         width='auto'
         visible={visible}
         anchor={ref}
-        placement='bottom right'
+        placement='bottom-start'
       >
         <Options
           onSelect={handleSelection}

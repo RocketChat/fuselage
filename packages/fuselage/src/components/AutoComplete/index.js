@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
 
 import { Box, PositionAnimated } from '../Box';
-import { Chip } from '../Chip';
+import Chip from '../Chip';
 import { Icon } from '../Icon';
-import { useCursor, Options, OptionAvatar } from '../Options';
+import { useCursor, Options } from '../Options';
 import { InputBox } from '../InputBox';
+import Margins from '../Margins';
 
 const Item = (props) => <Box is='div' marginInline='x4' {...props} />;
 
@@ -40,7 +42,7 @@ export function AutoComplete({
   const [internalValue, setInternalValue] = useState(value || []);
 
   const currentValue = value !== undefined ? value : internalValue;
-  const containerRef = useRef();
+  const { ref: containerRef, borderBoxSize } = useResizeObserver();
   const ref = useRef();
   const internalChanged = ([value]) => {
     if (currentValue.includes(value)) {
@@ -53,19 +55,21 @@ export function AutoComplete({
     onChange(currentValue);
   }, [currentValue, onChange]);
 
-  const [cursor, handleKeyDown, setCursor, reset, [visible, hide, show]] = useCursor(value, options, onChange);
+  const [cursor, handleKeyDown, , reset, [visible, hide, show]] = useCursor(value, options, onChange);
 
   useEffect(reset, [filter]);
 
   return (
     <Container ref={containerRef} onClick={() => ref.current.focus()}>
-      <Chip.Wrapper role='listbox'>
-        <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} order={1} rcx-input-box--undecorated value={value}/>
-        {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged(value) && false} children={getLabel(options.find((option) => getValue(option) === value))}/>)}
-      </Chip.Wrapper>
+      <Box is='div' display='flex' alignItems='center' flexWrap='wrap' margin='-x4' role='listbox'>
+        <Margins all='x4'>
+          <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} order={1} rcx-input-box--undecorated value={value}/>
+          {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged(value) && false} children={getLabel(options.find((option) => getValue(option) === value))}/>)}
+        </Margins>
+      </Box>
       <Addon children={<Icon name='magnifier' size='x20' />}/>
       <PositionAnimated visible={visible} anchor={containerRef}>
-        <Options role='option' renderEmpty={renderEmpty} renderItem={OptionAvatar} setCursor={setCursor} cursor={cursor} value={value} options={options.map(({ label, value }) => [value, label])} />
+        <Options role='option' width={borderBoxSize.inlineSize} renderEmpty={renderEmpty} cursor={cursor} value={value} options={options.map(({ label, value }) => [value, label])} />
       </PositionAnimated>
     </Container>
   );

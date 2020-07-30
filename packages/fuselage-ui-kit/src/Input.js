@@ -34,7 +34,7 @@ export const PlainInput = React.memo(({ element, context, index, parser }) => {
   return (
     <Component
       key={index}
-      mod-loading={loading}
+      disabled={loading}
       id={actionId}
       name={actionId}
       rows={6}
