@@ -1,8 +1,8 @@
-export const version = 'DEVELOPMENT';
+import { version } from '../package.json';
 
 console.log(`ui-kit version: ${ version }`);
 
-export enum ELEMENT_TYPES {
+export enum PrimitiveElementType {
   IMAGE = 'image',
   BUTTON = 'button',
   STATIC_SELECT = 'static_select',
@@ -24,7 +24,22 @@ export enum ELEMENT_TYPES {
   MARKDOWN = 'mrkdwn'
 }
 
-export enum BLOCK_CONTEXT {
+export enum ChatType {
+  ANY = '*',
+  ROCKETCHAT = 'rocketchat',
+  LIVECHAT = 'livechat',
+}
+
+export type ElementTypeOverChatType = string;
+
+const isElementTypeOverChatType = (x: string): x is ElementTypeOverChatType => {
+  const [elementType, chatType] = x.split('/');
+  return elementType in PrimitiveElementType && chatType in ChatType;
+};
+
+type ElementType = PrimitiveElementType | ElementTypeOverChatType;
+
+export enum BlockContext {
   BLOCK,
   SECTION,
   ACTION,
@@ -36,9 +51,8 @@ export type Component = any;
 
 type UiKitParser = UiKitParserModal;
 
-
 export interface UiKitElement {
-  type: ELEMENT_TYPES
+  type: PrimitiveElementType
 }
 
 export interface UiKitText extends UiKitElement {
@@ -46,44 +60,44 @@ export interface UiKitText extends UiKitElement {
 }
 
 export abstract class UiKitParserButtons {
-  button: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  button: (element: UiKitElement, context: BlockContext, index: number) => Component;
 }
 
 export abstract class UiKitParserText {
-  text: (text: UiKitText, context: BLOCK_CONTEXT, index: number) => Component;
+  text: (text: UiKitText, context: BlockContext, index: number) => Component;
 
-  plaintText: (text: UiKitText, context: BLOCK_CONTEXT, index: number) => Component;
+  plaintText: (text: UiKitText, context: BlockContext, index: number) => Component;
 
-  mrkdwn: (text: UiKitText, context: BLOCK_CONTEXT, index: number) => Component;
+  mrkdwn: (text: UiKitText, context: BlockContext, index: number) => Component;
 }
 
-const renderElement = ({ type, ...element }: UiKitElement, context: BLOCK_CONTEXT, parser: UiKitParser, index: number) => {
-  switch (type as ELEMENT_TYPES) {
-    case ELEMENT_TYPES.OVERFLOW:
+const renderElement = ({ type, ...element }: UiKitElement, context: BlockContext, parser: UiKitParser, index: number) => {
+  switch (type as PrimitiveElementType) {
+    case PrimitiveElementType.OVERFLOW:
       return parser.overflow({ type, ...element } as UiKitText, context, index);
-    case ELEMENT_TYPES.MARKDOWN:
-    case ELEMENT_TYPES.TEXT:
+    case PrimitiveElementType.MARKDOWN:
+    case PrimitiveElementType.TEXT:
       return parser.text({ type, ...element } as UiKitText, context, index);
-    case ELEMENT_TYPES.BUTTON:
+    case PrimitiveElementType.BUTTON:
       return parser.button(element as UiKitElement, context, index);
-    case ELEMENT_TYPES.IMAGE:
+    case PrimitiveElementType.IMAGE:
       return parser.image(element as UiKitElement, context, index);
-    case ELEMENT_TYPES.STATIC_SELECT:
+    case PrimitiveElementType.STATIC_SELECT:
       return parser.staticSelect(element as UiKitElement, context, index);
-    case ELEMENT_TYPES.MULTI_STATIC_SELECT:
+    case PrimitiveElementType.MULTI_STATIC_SELECT:
       return parser.multiStaticSelect(element as UiKitElement, context, index);
-    case ELEMENT_TYPES.DATEPICKER:
+    case PrimitiveElementType.DATEPICKER:
       return parser.datePicker(element as UiKitElement, context, index);
-    case ELEMENT_TYPES.PLAIN_TEXT_INPUT:
+    case PrimitiveElementType.PLAIN_TEXT_INPUT:
       return parser.plainInput(element as UiKitElement, context, index);
-    // case ELEMENT_TYPES.CONVERSATION_SELECT:
-    // case ELEMENT_TYPES.CHANNEL_SELECT:
-    // case ELEMENT_TYPES.USER_SELECT:
+    // case ElementType.CONVERSATION_SELECT:
+    // case ElementType.CHANNEL_SELECT:
+    // case ElementType.USER_SELECT:
     //   return parser.selectInput({ type, ...element }, context, index);
   }
 };
 
-export const createRenderElement = (allowedItems?: Array<ELEMENT_TYPES>) => (element: UiKitElement, context: BLOCK_CONTEXT, parser, index) => {
+export const createRenderElement = (allowedItems?: Array<PrimitiveElementType>) => (element: UiKitElement, context: BlockContext, parser, index) => {
   if (allowedItems && !allowedItems.includes(element.type)) {
     return null;
   }
@@ -91,100 +105,106 @@ export const createRenderElement = (allowedItems?: Array<ELEMENT_TYPES>) => (ele
 };
 
 export abstract class UiKitParserMessage extends UiKitParserText {
-  button: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  button: (element: UiKitElement, context: BlockContext, index: number) => Component;
 
-  image: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  image: (element: UiKitElement, context: BlockContext, index: number) => Component;
 
-  datePicker: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  datePicker: (element: UiKitElement, context: BlockContext, index: number) => Component;
 
-  staticSelect: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  staticSelect: (element: UiKitElement, context: BlockContext, index: number) => Component;
 
-  multiStaticSelect: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  multiStaticSelect: (element: UiKitElement, context: BlockContext, index: number) => Component;
 
   // selectInput: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
-  context: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  context: (element: UiKitElement, context: BlockContext, index: number) => Component;
 
-  divider: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  divider: (element: UiKitElement, context: BlockContext, index: number) => Component;
 
-  actions: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  actions: (element: UiKitElement, context: BlockContext, index: number) => Component;
 
-  overflow: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
+  overflow: (element: UiKitElement, context: BlockContext, index: number) => Component;
 
   renderAccessories = createRenderElement([
-    ELEMENT_TYPES.BUTTON,
-    ELEMENT_TYPES.IMAGE,
-    ELEMENT_TYPES.MULTI_STATIC_SELECT,
-    ELEMENT_TYPES.STATIC_SELECT,
-    ELEMENT_TYPES.CONVERSATION_SELECT,
-    ELEMENT_TYPES.USER_SELECT,
-    ELEMENT_TYPES.CHANNEL_SELECT,
-    ELEMENT_TYPES.USER_SELECT,
-    ELEMENT_TYPES.DATEPICKER,
-    ELEMENT_TYPES.OVERFLOW,
+    PrimitiveElementType.BUTTON,
+    PrimitiveElementType.IMAGE,
+    PrimitiveElementType.MULTI_STATIC_SELECT,
+    PrimitiveElementType.STATIC_SELECT,
+    PrimitiveElementType.CONVERSATION_SELECT,
+    PrimitiveElementType.USER_SELECT,
+    PrimitiveElementType.CHANNEL_SELECT,
+    PrimitiveElementType.USER_SELECT,
+    PrimitiveElementType.DATEPICKER,
+    PrimitiveElementType.OVERFLOW,
   ]);
 
   renderActions = createRenderElement([
-    ELEMENT_TYPES.BUTTON,
-    ELEMENT_TYPES.STATIC_SELECT,
-    ELEMENT_TYPES.MULTI_STATIC_SELECT,
-    ELEMENT_TYPES.CONVERSATION_SELECT,
-    ELEMENT_TYPES.CHANNEL_SELECT,
-    ELEMENT_TYPES.USER_SELECT,
-    ELEMENT_TYPES.USER_SELECT,
-    ELEMENT_TYPES.DATEPICKER,
+    PrimitiveElementType.BUTTON,
+    PrimitiveElementType.STATIC_SELECT,
+    PrimitiveElementType.MULTI_STATIC_SELECT,
+    PrimitiveElementType.CONVERSATION_SELECT,
+    PrimitiveElementType.CHANNEL_SELECT,
+    PrimitiveElementType.USER_SELECT,
+    PrimitiveElementType.USER_SELECT,
+    PrimitiveElementType.DATEPICKER,
   ]);
 
   renderContext = createRenderElement([
-    ELEMENT_TYPES.IMAGE,
-    ELEMENT_TYPES.TEXT,
-    ELEMENT_TYPES.MARKDOWN,
+    PrimitiveElementType.IMAGE,
+    PrimitiveElementType.TEXT,
+    PrimitiveElementType.MARKDOWN,
   ])
 }
 
 export abstract class UiKitParserModal extends UiKitParserMessage {
-  plainInput: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component
+  plainInput: (element: UiKitElement, context: BlockContext, index: number) => Component
 
   renderInputs = createRenderElement([
-    ELEMENT_TYPES.STATIC_SELECT,
-    ELEMENT_TYPES.PLAIN_TEXT_INPUT,
-    ELEMENT_TYPES.MULTI_STATIC_SELECT,
-    ELEMENT_TYPES.CONVERSATION_SELECT,
-    ELEMENT_TYPES.CHANNEL_SELECT,
-    ELEMENT_TYPES.USER_SELECT,
-    ELEMENT_TYPES.USER_SELECT,
-    ELEMENT_TYPES.DATEPICKER,
+    PrimitiveElementType.STATIC_SELECT,
+    PrimitiveElementType.PLAIN_TEXT_INPUT,
+    PrimitiveElementType.MULTI_STATIC_SELECT,
+    PrimitiveElementType.CONVERSATION_SELECT,
+    PrimitiveElementType.CHANNEL_SELECT,
+    PrimitiveElementType.USER_SELECT,
+    PrimitiveElementType.USER_SELECT,
+    PrimitiveElementType.DATEPICKER,
   ]);
 }
 
-export const uiKitGeneric = <T> (allowedItems?: Array<ELEMENT_TYPES>) => (parser : T) => (blocks) =>
+export const uiKitGeneric = <T> (allowedItems?: Array<PrimitiveElementType>) => (parser : T) => (blocks) =>
   blocks
     .filter(({ type }) => !allowedItems || allowedItems.includes(type))
-    .map(({ type, ...block }: UiKitElement, i) => (parser[type] ? parser[type](block, BLOCK_CONTEXT.BLOCK, i) : type));
+    .map(({ type, ...block }: UiKitElement, i) => (parser[type] ? parser[type](block, BlockContext.BLOCK, i) : type));
 
 
 export const uiKitButtons = uiKitGeneric<UiKitParserButtons>([
-  ELEMENT_TYPES.BUTTON,
+  PrimitiveElementType.BUTTON,
 ]);
 
 export const uiKitText = uiKitGeneric<UiKitParserText>([
-  ELEMENT_TYPES.TEXT,
-  ELEMENT_TYPES.PLAIN_TEXT,
-  ELEMENT_TYPES.MARKDOWN,
+  PrimitiveElementType.TEXT,
+  PrimitiveElementType.PLAIN_TEXT,
+  PrimitiveElementType.MARKDOWN,
 ]);
 
 export const uiKitMessage = uiKitGeneric<UiKitParserMessage>([
-  ELEMENT_TYPES.DIVIDER,
-  ELEMENT_TYPES.SECTION,
-  ELEMENT_TYPES.IMAGE,
-  ELEMENT_TYPES.ACTIONS,
-  ELEMENT_TYPES.CONTEXT,
+  PrimitiveElementType.DIVIDER,
+  PrimitiveElementType.SECTION,
+  PrimitiveElementType.IMAGE,
+  PrimitiveElementType.ACTIONS,
+  PrimitiveElementType.CONTEXT,
 ]);
 
 export const uiKitModal = uiKitGeneric<UiKitParserModal>([
-  ELEMENT_TYPES.SECTION,
-  ELEMENT_TYPES.DIVIDER,
-  ELEMENT_TYPES.IMAGE,
-  ELEMENT_TYPES.ACTIONS,
-  ELEMENT_TYPES.CONTEXT,
-  ELEMENT_TYPES.INPUT,
+  PrimitiveElementType.SECTION,
+  PrimitiveElementType.DIVIDER,
+  PrimitiveElementType.IMAGE,
+  PrimitiveElementType.ACTIONS,
+  PrimitiveElementType.CONTEXT,
+  PrimitiveElementType.INPUT,
 ]);
+
+export {
+  version,
+  PrimitiveElementType as ELEMENT_TYPES,
+  BlockContext as BLOCK_CONTEXT,
+};

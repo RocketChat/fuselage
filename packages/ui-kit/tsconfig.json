@@ -5,6 +5,8 @@
     "sourceMap": true,
     "declaration": true,
     "declarationDir": "./dist",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "lib":["ES2018"]
   },
   "exclude": [
