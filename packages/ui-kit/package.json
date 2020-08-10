@@ -1,17 +1,14 @@
 {
   "name": "@rocket.chat/ui-kit",
   "version": "0.13.1",
-  "description": "Package Fuselage ui kit ",
+  "description": "Interactive UI elements for Rocket.Chat Apps",
   "author": "Guilherme Gazzo <guilhermegazzo@gmail.com>",
   "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
   "license": "MIT",
   "main": "dist/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "types": "dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -22,7 +19,14 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 0",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint --ext js,ts src",
+    "lint-staged": "lint-staged",
+    "docs:api-extractor": "api-extractor run --local --verbose",
+    "docs:api-documenter": "api-documenter markdown -i temp -o docs",
+    "docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
+    "docs:clean": "rimraf temp",
+    "docs": "run-s build docs:api-extractor docs:api-documenter docs:readme docs:clean"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -31,10 +35,20 @@
     "@babel/core": "^7.7.4",
     "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-env": "^7.4.5",
+    "@microsoft/api-documenter": "^7.8.21",
+    "@microsoft/api-extractor": "^7.9.2",
+    "@rocket.chat/eslint-config": "^0.4.0",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
     "babel-loader": "^8.0.6",
     "compression-webpack-plugin": "^3.0.0",
+    "documentation": "^13.0.2",
+    "eslint": "^7.5.0",
+    "eslint-plugin-import": "^2.22.0",
+    "lint-staged": "^10.2.11",
+    "rimraf": "^3.0.2",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.8.3",
+    "typescript": "^3.9.7",
     "webpack-plugin-replace": "^1.2.0"
   }
 }

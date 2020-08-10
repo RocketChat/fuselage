@@ -28,7 +28,7 @@ module.exports = (env, argv) => ({
     ],
   },
   plugins: [
-      new ReplacePlugin({
+    new ReplacePlugin({
       include: ['index.ts'],
       values: {
         '"DEVELOPMENT"': JSON.stringify(pkg.version),

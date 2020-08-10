@@ -11,6 +11,10 @@
     {
       "directory": "packages/icons",
       "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/ui-kit",
+      "changeProcessCWD": true
     }
   ],
   "eslint.enable": true
