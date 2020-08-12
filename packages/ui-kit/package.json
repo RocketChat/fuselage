@@ -18,10 +18,10 @@
     "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 0",
     "build": "webpack --mode production",
     "lint": "eslint --ext js,ts src",
     "lint-staged": "lint-staged",
+    "test": "jest --max-workers=1",
     "docs:api-extractor": "api-extractor run --local --verbose",
     "docs:api-documenter": "api-documenter markdown -i temp -o docs",
     "docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
@@ -46,8 +46,10 @@
     "documentation": "^13.0.2",
     "eslint": "^7.5.0",
     "eslint-plugin-import": "^2.22.0",
+    "jest": "^26.3.0",
     "lint-staged": "^10.2.11",
     "rimraf": "^3.0.2",
+    "ts-jest": "^26.2.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.9.7",
     "webpack-plugin-replace": "^1.2.0"

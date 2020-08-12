@@ -22,7 +22,7 @@ export interface IInteractiveElement extends IBlockElement {
 export interface IInputElement extends IBlockElement {
   actionId: string;
   placeholder: ITextObject;
-  initialValue?: string | Array<string>;
+  initialValue?: string | string[];
 }
 
 export enum ButtonStyle {
@@ -47,7 +47,7 @@ export interface IImageElement extends IBlockElement {
 
 export interface IOverflowMenuElement extends IInteractiveElement {
   type: BlockElementType.OVERFLOW_MENU;
-  options: Array<IOptionObject>;
+  options: IOptionObject[];
   // confirm?: IConfirmationDialogObject;
 }
 
@@ -63,13 +63,13 @@ export interface ISelectElement extends IInputElement {
 export interface IStaticSelectElement extends ISelectElement {
   type: BlockElementType.STATIC_SELECT;
   placeholder: ITextObject;
-  options: Array<IOptionObject>;
+  options: IOptionObject[];
   initialValue?: string;
 }
 
 export interface IMultiStaticSelectElement extends ISelectElement {
   type: BlockElementType.MULTI_STATIC_SELECT;
   placeholder: ITextObject;
-  options: Array<IOptionObject>;
-  initialValue?: Array<string>;
+  options: IOptionObject[];
+  initialValue?: string[];
 }

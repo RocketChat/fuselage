@@ -83,7 +83,7 @@ const renderElement = ({ type, ...element }: UiKitElement, context: BLOCK_CONTEX
   }
 };
 
-export const createRenderElement = (allowedItems?: Array<ELEMENT_TYPES>) =>
+export const createRenderElement = (allowedItems?: ELEMENT_TYPES[]) =>
   (element: UiKitElement, context: BLOCK_CONTEXT, parser, index) => {
     if (allowedItems && !allowedItems.includes(element.type)) {
       return null;
@@ -157,10 +157,12 @@ export abstract class UiKitParserModal extends UiKitParserMessage {
   ]);
 }
 
-export const uiKitGeneric = <T> (allowedItems?: Array<ELEMENT_TYPES>) => (parser : T) => (blocks) =>
-  blocks
-    .filter(({ type }) => !allowedItems || allowedItems.includes(type))
-    .map(({ type, ...block }: UiKitElement, i) => (parser[type] ? parser[type](block, BLOCK_CONTEXT.BLOCK, i) : type));
+export const uiKitGeneric = <T> (allowedItems?: ELEMENT_TYPES[]) =>
+  (parser : T) =>
+    (blocks) =>
+      blocks
+        .filter(({ type }) => (!allowedItems || allowedItems.includes(type)) && parser[type])
+        .map(({ type, ...block }: UiKitElement, i: number) => parser[type](block, BLOCK_CONTEXT.BLOCK, i));
 
 
 export const uiKitButtons = uiKitGeneric<UiKitParserButtons>([

@@ -35,12 +35,12 @@ export interface IDividerBlock extends IBlock {
 
 export interface IActionsBlock extends IBlock {
   type: BlockType.ACTIONS;
-  elements: Array<IBlockElement>;
+  elements: IBlockElement[];
 }
 
 export interface IContextBlock extends IBlock {
   type: BlockType.CONTEXT;
-  elements: Array<ITextObject | IImageElement>;
+  elements: (ITextObject | IImageElement)[];
 }
 
 export interface IInputBlock extends IBlock {
