@@ -1,76 +1,68 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import React, { useEffect, useRef, useMemo } from 'react';
+import { useMutableCallback, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 
-import { Box, PositionAnimated } from '../Box';
+import { Box, PositionAnimated, AnimatedVisibility } from '../Box';
 import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { useCursor, Options } from '../Options';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
 
-const Item = (props) => <Box is='div' marginInline='x4' {...props} />;
-
-const Container = React.forwardRef(({ children, ...props }, ref) => <Box
-  {...props}
-  is='div'
-  rcx-autocomplete
-  ref={ref}
->
-  {children.map((c, i) => <Item key={i}>{c}</Item>)}
-</Box>);
-
-const Addon = (props) => <Box is='div' rcx-autocomplete__addon {...props} />;
+const Addon = (props) => <Box rcx-autocomplete__addon {...props} />;
 
 const SelectedOptions = React.memo((props) => <Chip {...props}/>);
-
-const prevent = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-};
 
 export function AutoComplete({
   value,
   filter,
   setFilter = () => {},
   options = [],
+  renderItem,
+  renderSelected: RenderSelected = SelectedOptions,
   onChange = () => {},
   getLabel = ({ label } = {}) => label,
   getValue = ({ value }) => value,
   renderEmpty,
   placeholder,
+  error,
+  disabled,
 }) {
-  const [internalValue, setInternalValue] = useState(value || []);
-
-  const currentValue = value !== undefined ? value : internalValue;
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
+
   const ref = useRef();
-  const internalChanged = ([value]) => {
-    if (currentValue.includes(value)) {
-      return setInternalValue(currentValue.filter((item) => item !== value));
-    }
-    setInternalValue([...currentValue, value]);
-  };
 
-  useEffect(() => {
-    onChange(currentValue);
-  }, [currentValue, onChange]);
+  const selectByKeyboard = useMutableCallback(([value]) => {
+    setFilter('');
+    onChange(value);
+  });
 
-  const [cursor, handleKeyDown, , reset, [visible, hide, show]] = useCursor(value, options, onChange);
+  const memoizedOptions = useMemo(() => options.map(({ label, value }) => [value, label]), [options]);
+
+  const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] = useCursor(value, memoizedOptions, selectByKeyboard);
+
+  const onSelect = useMutableCallback(([value]) => {
+    onChange(value);
+    setFilter('');
+    hide();
+  });
 
   useEffect(reset, [filter]);
 
   return (
-    <Container ref={containerRef} onClick={() => ref.current.focus()}>
-      <Box is='div' display='flex' alignItems='center' flexWrap='wrap' margin='-x4' role='listbox'>
+    <Box rcx-autocomplete ref={containerRef} onClick={useMutableCallback(() => ref.current.focus())} flexGrow={1} className={useMemo(() => [
+      error && 'invalid',
+      disabled && 'disabled',
+    ], [error, disabled])}>
+      <Box display='flex' flexGrow={1} alignItems='center' flexWrap='wrap' margin='neg-x4' role='listbox'>
         <Margins all='x4'>
-          <InputBox.Input ref={ref} onInput={(e) => setFilter(e.currentTarget.value)} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} order={1} rcx-input-box--undecorated value={value}/>
-          {currentValue.map((value) => <SelectedOptions role='option' key={value} onMouseDown={(e) => prevent(e) & internalChanged(value) && false} children={getLabel(options.find((option) => getValue(option) === value))}/>)}
+          <InputBox.Input ref={ref} onChange={useMutableCallback((e) => setFilter(e.currentTarget.value))} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} order={1} rcx-input-box--undecorated value={filter}/>
+          {value && optionsAreVisible === AnimatedVisibility.HIDDEN && <RenderSelected role='option' value={value} label={getLabel(options.find((option) => getValue(option) === value))} children={getLabel(options.find((option) => getValue(option) === value))}/>}
         </Margins>
       </Box>
-      <Addon children={<Icon name='magnifier' size='x20' />}/>
-      <PositionAnimated visible={visible} anchor={containerRef}>
-        <Options role='option' width={borderBoxSize.inlineSize} renderEmpty={renderEmpty} cursor={cursor} value={value} options={options.map(({ label, value }) => [value, label])} />
+      <Addon children={<Icon name={ optionsAreVisible === AnimatedVisibility.VISIBLE ? 'cross' : 'chevron-down'} size='x20' />}/>
+      <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>
+        <Options role='option' width={borderBoxSize.inlineSize} onSelect={onSelect} renderItem={renderItem} renderEmpty={renderEmpty} cursor={cursor} value={value} options={memoizedOptions} />
       </PositionAnimated>
-    </Container>
+    </Box>
   );
 }

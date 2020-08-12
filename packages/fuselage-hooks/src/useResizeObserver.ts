@@ -42,8 +42,8 @@ export const useResizeObserver = ({ debounceDelay }: UseResizeObserverOptions = 
 
       if (contentBoxSize && borderBoxSize) {
         setSizes({
-          contentBoxSize,
-          borderBoxSize,
+          contentBoxSize: Array.isArray(contentBoxSize) ? contentBoxSize[0] : contentBoxSize,
+          borderBoxSize: Array.isArray(borderBoxSize) ? borderBoxSize[0] : borderBoxSize,
         });
         return;
       }
