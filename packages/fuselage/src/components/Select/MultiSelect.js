@@ -1,4 +1,4 @@
-import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import { useMutableCallback, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
@@ -72,7 +72,7 @@ export const MultiSelect = ({
         disabled && 'disabled',
       ]}
       ref={containerRef}
-      onClick={() => ref.current.focus() & show()}
+      onClick={useMutableCallback(() => ref.current.focus() & show())}
       disabled={disabled}
       {...props}
     >
