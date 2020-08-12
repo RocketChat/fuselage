@@ -38,6 +38,7 @@
     "@microsoft/api-documenter": "^7.8.21",
     "@microsoft/api-extractor": "^7.9.2",
     "@rocket.chat/eslint-config": "^0.4.0",
+    "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
     "babel-loader": "^8.0.6",
@@ -50,5 +51,8 @@
     "ts-loader": "^6.2.1",
     "typescript": "^3.9.7",
     "webpack-plugin-replace": "^1.2.0"
+  },
+  "dependencies": {
+    "uuid": "^8.3.0"
   }
 }

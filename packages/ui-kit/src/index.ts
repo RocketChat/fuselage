@@ -83,12 +83,13 @@ const renderElement = ({ type, ...element }: UiKitElement, context: BLOCK_CONTEX
   }
 };
 
-export const createRenderElement = (allowedItems?: Array<ELEMENT_TYPES>) => (element: UiKitElement, context: BLOCK_CONTEXT, parser, index) => {
-  if (allowedItems && !allowedItems.includes(element.type)) {
-    return null;
-  }
-  return renderElement(element, context, parser, index);
-};
+export const createRenderElement = (allowedItems?: Array<ELEMENT_TYPES>) =>
+  (element: UiKitElement, context: BLOCK_CONTEXT, parser, index) => {
+    if (allowedItems && !allowedItems.includes(element.type)) {
+      return null;
+    }
+    return renderElement(element, context, parser, index);
+  };
 
 export abstract class UiKitParserMessage extends UiKitParserText {
   button: (element: UiKitElement, context: BLOCK_CONTEXT, index: number) => Component;
