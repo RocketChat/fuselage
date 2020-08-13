@@ -17,6 +17,9 @@ module.exports = (env, argv) => ({
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
   devtool: argv.mode === 'production' ? false : 'source-map',
   module: {
     rules: [
