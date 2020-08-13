@@ -1,9 +1,9 @@
-import { uiKitMessage, UiKitParserMessage } from '.';
+import { uiKitModal, UiKitParserModal } from '.';
 
-class TestParser extends UiKitParserMessage {}
+class TestParser extends UiKitParserModal {}
 
 const parser = new TestParser();
-const parse = uiKitMessage(parser);
+const parse = uiKitModal(parser);
 
 describe('section', () => {
   it('plain_text', () => {
