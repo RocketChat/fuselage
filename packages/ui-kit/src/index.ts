@@ -19,7 +19,7 @@ enum ElementType {
   FIELDS = 'fields',
   PLAIN_TEXT = 'plain_text',
   TEXT = 'text',
-  MARKDOWN = 'mrkdwn'
+  MARKDOWN = 'mrkdwn',
 }
 
 enum BlockContext {
@@ -27,7 +27,7 @@ enum BlockContext {
   SECTION,
   ACTION,
   FORM,
-  CONTEXT
+  CONTEXT,
 }
 
 interface IElement {
@@ -47,11 +47,8 @@ interface IParserText<T> extends IParser {
   mrkdwn: (text: ITextObject, context: BlockContext, index: number) => T;
 }
 
-interface IParserButtons<T> extends IParser {
+interface IParserMessage<T> extends IParser, IParserText<T> {
   button: (element: IElement, context: BlockContext, index: number) => T;
-}
-
-interface IParserMessage<T> extends IParser, IParserButtons<T>, IParserText<T> {
   image: (element: IElement, context: BlockContext, index: number) => T;
   datePicker: (element: IElement, context: BlockContext, index: number) => T;
   staticSelect: (element: IElement, context: BlockContext, index: number) => T;
@@ -189,8 +186,14 @@ const uiKitGeneric = <P extends IParser>(allowedItems?: ElementType[]) =>
   (parser : P) =>
     (blocks: any[]): any =>
       blocks
-        .filter(({ type }) => (!allowedItems || allowedItems.includes(type)) && parser[type])
+        .filter(({ type }) => !allowedItems || allowedItems.includes(type))
         .map(({ type, ...block }: IElement, i: number) => parser[type](block, BlockContext.BLOCK, i));
+
+const uiKitText = uiKitGeneric<IParserText<unknown>>([
+  ElementType.TEXT,
+  ElementType.PLAIN_TEXT,
+  ElementType.MARKDOWN,
+]);
 
 const uiKitMessage = uiKitGeneric<IParserMessage<unknown>>([
   ElementType.DIVIDER,
@@ -216,8 +219,7 @@ export {
   UiKitParserMessage,
   UiKitParserModal,
   uiKitGeneric,
+  uiKitText,
   uiKitMessage,
   uiKitModal,
 };
-
-export * from './blocks';
