@@ -8,7 +8,7 @@
 
 |  Class | Description |
 |  --- | --- |
-|  [UiKitParserButtons](./ui-kit.uikitparserbuttons.md) |  |
+|  [BlockBuilder](./ui-kit.blockbuilder.md) |  |
 |  [UiKitParserMessage](./ui-kit.uikitparsermessage.md) |  |
 |  [UiKitParserModal](./ui-kit.uikitparsermodal.md) |  |
 |  [UiKitParserText](./ui-kit.uikitparsertext.md) |  |
@@ -18,30 +18,48 @@
 |  Enumeration | Description |
 |  --- | --- |
 |  [BLOCK\_CONTEXT](./ui-kit.block_context.md) |  |
+|  [BlockElementType](./ui-kit.blockelementtype.md) |  |
+|  [BlockType](./ui-kit.blocktype.md) |  |
+|  [ButtonStyle](./ui-kit.buttonstyle.md) |  |
 |  [ELEMENT\_TYPES](./ui-kit.element_types.md) |  |
+|  [TextObjectType](./ui-kit.textobjecttype.md) |  |
 
 ## Interfaces
 
 |  Interface | Description |
 |  --- | --- |
-|  [UiKitElement](./ui-kit.uikitelement.md) |  |
-|  [UiKitText](./ui-kit.uikittext.md) |  |
+|  [IActionsBlock](./ui-kit.iactionsblock.md) |  |
+|  [IBlock](./ui-kit.iblock.md) |  |
+|  [IBlockElement](./ui-kit.iblockelement.md) |  |
+|  [IButtonElement](./ui-kit.ibuttonelement.md) |  |
+|  [IContextBlock](./ui-kit.icontextblock.md) |  |
+|  [IDividerBlock](./ui-kit.idividerblock.md) |  |
+|  [IImageBlock](./ui-kit.iimageblock.md) |  |
+|  [IImageElement](./ui-kit.iimageelement.md) |  |
+|  [IInputBlock](./ui-kit.iinputblock.md) |  |
+|  [IInputElement](./ui-kit.iinputelement.md) |  |
+|  [IInteractiveElement](./ui-kit.iinteractiveelement.md) |  |
+|  [IMultiStaticSelectElement](./ui-kit.imultistaticselectelement.md) |  |
+|  [IOptionObject](./ui-kit.ioptionobject.md) |  |
+|  [IOverflowMenuElement](./ui-kit.ioverflowmenuelement.md) |  |
+|  [IPlainTextInputElement](./ui-kit.iplaintextinputelement.md) |  |
+|  [ISectionBlock](./ui-kit.isectionblock.md) |  |
+|  [ISelectElement](./ui-kit.iselectelement.md) |  |
+|  [IStaticSelectElement](./ui-kit.istaticselectelement.md) |  |
+|  [ITextObject](./ui-kit.itextobject.md) |  |
 
 ## Variables
 
 |  Variable | Description |
 |  --- | --- |
-|  [createRenderElement](./ui-kit.createrenderelement.md) |  |
-|  [uiKitButtons](./ui-kit.uikitbuttons.md) |  |
 |  [uiKitGeneric](./ui-kit.uikitgeneric.md) |  |
 |  [uiKitMessage](./ui-kit.uikitmessage.md) |  |
 |  [uiKitModal](./ui-kit.uikitmodal.md) |  |
-|  [uiKitText](./ui-kit.uikittext.md) |  |
 |  [version](./ui-kit.version.md) |  |
 
 ## Type Aliases
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [Component](./ui-kit.component.md) |  |
+|  [AccessoryElements](./ui-kit.accessoryelements.md) |  |
 

@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-overflow: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
+overflow: (element: IElement, context: BlockContext, index: number) => unknown;
 ```

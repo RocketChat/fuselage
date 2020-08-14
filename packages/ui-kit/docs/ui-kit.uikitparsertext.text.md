@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-text: (text: UiKitText, context: BLOCK_CONTEXT, index: Number) => Component;
+text: (text: ITextObject, context: BlockContext, index: number) => unknown;
 ```

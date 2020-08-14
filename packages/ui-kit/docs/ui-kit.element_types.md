@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare enum ELEMENT_TYPES 
+declare enum ElementType 
 ```
 
 ## Enumeration Members

@@ -7,14 +7,15 @@
 <b>Signature:</b>
 
 ```typescript
-export declare abstract class UiKitParserText 
+declare abstract class UiKitParserText implements IParserText<unknown> 
 ```
+<b>Implements:</b> IParserText&lt;unknown&gt;
 
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [mrkdwn](./ui-kit.uikitparsertext.mrkdwn.md) |  | (text: [UiKitText](./ui-kit.uikittext.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [plaintText](./ui-kit.uikitparsertext.plainttext.md) |  | (text: [UiKitText](./ui-kit.uikittext.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [text](./ui-kit.uikitparsertext.text.md) |  | (text: [UiKitText](./ui-kit.uikittext.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
+|  [mrkdwn](./ui-kit.uikitparsertext.mrkdwn.md) |  | (text: ITextObject, context: BlockContext, index: number) =&gt; unknown |  |
+|  [plainText](./ui-kit.uikitparsertext.plaintext.md) |  | (text: ITextObject, context: BlockContext, index: number) =&gt; unknown |  |
+|  [text](./ui-kit.uikitparsertext.text.md) |  | (text: ITextObject, context: BlockContext, index: number) =&gt; unknown |  |
 

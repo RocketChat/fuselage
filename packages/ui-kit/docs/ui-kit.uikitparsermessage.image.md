@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-image: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
+image: (element: IElement, context: BlockContext, index: number) => unknown;
 ```

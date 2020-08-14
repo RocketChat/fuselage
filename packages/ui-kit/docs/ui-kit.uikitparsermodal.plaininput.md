@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-plainInput: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
+plainInput: (element: IElement, context: BlockContext, index: number) => unknown;
 ```

@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-renderInputs: (element: UiKitElement, context: BLOCK_CONTEXT, parser: any, index: any) => any;
+renderInputs: (element: IElement, context: BlockContext, parser: IParserModal<unknown>, index: number) => unknown;
 ```

@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare enum BLOCK_CONTEXT 
+declare enum BlockContext 
 ```
 
 ## Enumeration Members

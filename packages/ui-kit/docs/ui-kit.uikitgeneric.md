@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-uiKitGeneric: <T>(allowedItems?: ELEMENT_TYPES[]) => (parser: T) => (blocks: any) => any
+uiKitGeneric: <P extends IParser>(allowedItems?: ElementType[]) => (parser: P) => (blocks: any[]) => any
 ```
