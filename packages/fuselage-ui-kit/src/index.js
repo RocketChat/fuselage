@@ -12,9 +12,6 @@ import {
   UiKitParserMessage,
   ELEMENT_TYPES,
   UiKitParserModal,
-  UiKitParserButtons,
-  uiKitText,
-  uiKitButtons,
   UiKitParserText,
 } from '@rocket.chat/ui-kit';
 
@@ -53,13 +50,6 @@ class TextParser extends UiKitParserText {
 
   text(...args) { return text(...args); }
 }
-
-class ButtonsParser extends UiKitParserButtons {
-  button(element, context, key) {
-    return <UIKitButton element={element} context={context} key={key} parser={this}/>;
-  }
-}
-
 
 class MessageParser extends UiKitParserMessage {
   mrkdwn(...args) { return mrkdwn(...args); }
@@ -193,10 +183,7 @@ class ModalParser extends UiKitParserModal {
 export const textParser = new TextParser();
 export const messageParser = new MessageParser();
 export const modalParser = new ModalParser();
-export const buttonsParser = new ButtonsParser();
 
-export const UiKitButtons = uiKitButtons();
-export const UiKitText = uiKitText(textParser);
 export const UiKitMessage = uiKitMessage(messageParser);
 export const UiKitModal = uiKitModal(modalParser);
 

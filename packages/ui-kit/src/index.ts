@@ -41,14 +41,14 @@ interface ITextObject extends IElement {
 type IParser = {
 };
 
-interface IParserButtons<T> extends IParser {
-  button: (element: IElement, context: BlockContext, index: number) => T;
-}
-
 interface IParserText<T> extends IParser {
   text: (text: ITextObject, context: BlockContext, index: number) => T;
   plainText: (text: ITextObject, context: BlockContext, index: number) => T;
   mrkdwn: (text: ITextObject, context: BlockContext, index: number) => T;
+}
+
+interface IParserButtons<T> extends IParser {
+  button: (element: IElement, context: BlockContext, index: number) => T;
 }
 
 interface IParserMessage<T> extends IParser, IParserButtons<T>, IParserText<T> {
@@ -105,10 +105,6 @@ const createRenderElement = <T, P extends IParserModal<T>>(allowedItems?: Elemen
 
     return renderElement<T, P>(element, context, parser, index);
   };
-
-abstract class UiKitParserButtons implements IParserButtons<unknown> {
-  button: (element: IElement, context: BlockContext, index: number) => unknown;
-}
 
 abstract class UiKitParserText implements IParserText<unknown> {
   text: (text: ITextObject, context: BlockContext, index: number) => unknown;
@@ -196,16 +192,6 @@ const uiKitGeneric = <P extends IParser>(allowedItems?: ElementType[]) =>
         .filter(({ type }) => (!allowedItems || allowedItems.includes(type)) && parser[type])
         .map(({ type, ...block }: IElement, i: number) => parser[type](block, BlockContext.BLOCK, i));
 
-const uiKitButtons = uiKitGeneric<IParserButtons<unknown>>([
-  ElementType.BUTTON,
-]);
-
-const uiKitText = uiKitGeneric<IParserText<unknown>>([
-  ElementType.TEXT,
-  ElementType.PLAIN_TEXT,
-  ElementType.MARKDOWN,
-]);
-
 const uiKitMessage = uiKitGeneric<IParserMessage<unknown>>([
   ElementType.DIVIDER,
   ElementType.SECTION,
@@ -226,14 +212,10 @@ const uiKitModal = uiKitGeneric<IParserModal<unknown>>([
 export {
   ElementType as ELEMENT_TYPES,
   BlockContext as BLOCK_CONTEXT,
-  UiKitParserButtons,
   UiKitParserText,
-  createRenderElement,
   UiKitParserMessage,
   UiKitParserModal,
   uiKitGeneric,
-  uiKitButtons,
-  uiKitText,
   uiKitMessage,
   uiKitModal,
 };
