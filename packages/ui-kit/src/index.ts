@@ -38,33 +38,33 @@ interface ITextObject extends IElement {
   text: string;
 }
 
-type IParser = {
-};
+type ElementParser<T, E extends IElement> = (element: E, context: BlockContext, index: number) => T;
+type RecursiveElementParser<T, P, E extends IElement> = (element: E, context: BlockContext, parser: P, index: number) => T;
 
-interface IParserText<T> extends IParser {
-  text: (text: ITextObject, context: BlockContext, index: number) => T;
-  plainText: (text: ITextObject, context: BlockContext, index: number) => T;
-  mrkdwn: (text: ITextObject, context: BlockContext, index: number) => T;
+interface IParser<T> {
+  text: ElementParser<T, ITextObject>;
+  plainText: ElementParser<T, ITextObject>;
+  mrkdwn: ElementParser<T, ITextObject>;
 }
 
-interface IParserMessage<T> extends IParser, IParserText<T> {
-  button: (element: IElement, context: BlockContext, index: number) => T;
-  image: (element: IElement, context: BlockContext, index: number) => T;
-  datePicker: (element: IElement, context: BlockContext, index: number) => T;
-  staticSelect: (element: IElement, context: BlockContext, index: number) => T;
-  multiStaticSelect: (element: IElement, context: BlockContext, index: number) => T;
-  context: (element: IElement, context: BlockContext, index: number) => T;
-  divider: (element: IElement, context: BlockContext, index: number) => T;
-  actions: (element: IElement, context: BlockContext, index: number) => T;
-  overflow: (element: IElement, context: BlockContext, index: number) => T;
-  renderAccessories: (element: IElement, context: BlockContext, parser: IParserMessage<T>, index: number) => T;
-  renderActions: (element: IElement, context: BlockContext, parser: IParserMessage<T>, index: number) => T;
-  renderContext: (element: IElement, context: BlockContext, parser: IParserMessage<T>, index: number) => T;
+interface IParserMessage<T> extends IParser<T> {
+  button: ElementParser<T, IElement>;
+  image: ElementParser<T, IElement>;
+  datePicker: ElementParser<T, IElement>;
+  staticSelect: ElementParser<T, IElement>;
+  multiStaticSelect: ElementParser<T, IElement>;
+  context: ElementParser<T, IElement>;
+  divider: ElementParser<T, IElement>;
+  actions: ElementParser<T, IElement>;
+  overflow: ElementParser<T, IElement>;
+  renderAccessories: RecursiveElementParser<T, IParserMessage<T>, IElement>;
+  renderActions: RecursiveElementParser<T, IParserMessage<T>, IElement>;
+  renderContext: RecursiveElementParser<T, IParserMessage<T>, IElement>;
 }
 
-interface IParserModal<T> extends IParser, IParserMessage<T> {
-  plainInput: (element: IElement, context: BlockContext, index: number) => T
-  renderInputs: (element: IElement, context: BlockContext, parser: IParserModal<T>, index: number) => T;
+interface IParserModal<T> extends IParserMessage<T> {
+  plainInput: ElementParser<T, IElement>;
+  renderInputs: RecursiveElementParser<T, IParserModal<T>, IElement>;
 }
 
 const renderElement = <T, P extends IParserModal<T>>(
@@ -103,7 +103,7 @@ const createRenderElement = <T, P extends IParserModal<T>>(allowedItems?: Elemen
     return renderElement<T, P>(element, context, parser, index);
   };
 
-abstract class UiKitParserText implements IParserText<unknown> {
+abstract class UiKitParserText implements IParser<unknown> {
   text: (text: ITextObject, context: BlockContext, index: number) => unknown;
 
   plainText: (text: ITextObject, context: BlockContext, index: number) => unknown;
@@ -182,14 +182,19 @@ abstract class UiKitParserModal extends UiKitParserMessage implements IParserMod
   ]);
 }
 
-const uiKitGeneric = <P extends IParser>(allowedItems?: ElementType[]) =>
+const uiKitGeneric = <P extends IParser<unknown>>(allowedItems?: ElementType[]) =>
   (parser : P) =>
-    (blocks: any[]): any =>
-      blocks
-        .filter(({ type }) => !allowedItems || allowedItems.includes(type))
-        .map(({ type, ...block }: IElement, i: number) => parser[type](block, BlockContext.BLOCK, i));
+    (payload: unknown): any => {
+      if (!Array.isArray(payload)) {
+        return [];
+      }
 
-const uiKitText = uiKitGeneric<IParserText<unknown>>([
+      return payload
+        .filter((element) => (!allowedItems || allowedItems.includes(element.type)) && parser[element.type])
+        .map((element: IElement, i: number) => parser[element.type](element, BlockContext.BLOCK, i));
+    };
+
+const uiKitText = uiKitGeneric<IParser<unknown>>([
   ElementType.TEXT,
   ElementType.PLAIN_TEXT,
   ElementType.MARKDOWN,
@@ -218,7 +223,6 @@ export {
   UiKitParserText,
   UiKitParserMessage,
   UiKitParserModal,
-  uiKitGeneric,
   uiKitText,
   uiKitMessage,
   uiKitModal,

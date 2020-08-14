@@ -7,9 +7,9 @@
 <b>Signature:</b>
 
 ```typescript
-declare abstract class UiKitParserText implements IParserText<unknown> 
+declare abstract class UiKitParserText implements IParser<unknown> 
 ```
-<b>Implements:</b> IParserText&lt;unknown&gt;
+<b>Implements:</b> IParser&lt;unknown&gt;
 
 ## Properties
 

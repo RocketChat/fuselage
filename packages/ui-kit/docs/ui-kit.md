@@ -23,7 +23,6 @@
 
 |  Variable | Description |
 |  --- | --- |
-|  [uiKitGeneric](./ui-kit.uikitgeneric.md) |  |
 |  [uiKitMessage](./ui-kit.uikitmessage.md) |  |
 |  [uiKitModal](./ui-kit.uikitmodal.md) |  |
 |  [uiKitText](./ui-kit.uikittext.md) |  |

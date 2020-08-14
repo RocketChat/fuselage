@@ -22,6 +22,7 @@ module.exports = {
       'newlines-between': 'always',
       groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
     }],
+    'no-extra-parens': 'off',
     'no-useless-constructor': 'off',
     'no-empty-function': 'off',
     'no-spaced-func': 'off',
