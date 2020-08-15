@@ -1,9 +1,27 @@
 import { uiKitText, UiKitParserText, BLOCK_CONTEXT } from '.';
 
 class TestParser extends UiKitParserText {
-  plainText = (...args: unknown[]): any => args
+  plainText = (element: any, context: any, index: any): any =>
+    ({
+      component: 'text',
+      props: {
+        key: index,
+        children: element.text,
+        emoji: element.emoji,
+        block: context === BLOCK_CONTEXT.BLOCK,
+      },
+    })
 
-  mrkdwn = (...args: unknown[]): any => args
+  mrkdwn = (element: any, context: any, index: any): any =>
+    ({
+      component: 'markdown',
+      props: {
+        key: index,
+        children: element.text,
+        verbatim: Boolean(element.verbatim),
+        block: context === BLOCK_CONTEXT.BLOCK,
+      },
+    })
 }
 
 const parser = new TestParser();
@@ -18,15 +36,15 @@ it('renders plain_text', () => {
     },
   ];
   expect(parse(payload)).toStrictEqual([
-    [
-      {
-        type: 'plain_text',
-        text: 'This is a plain text section block.',
+    {
+      component: 'text',
+      props: {
+        key: 0,
+        children: 'This is a plain text section block.',
         emoji: true,
+        block: true,
       },
-      BLOCK_CONTEXT.BLOCK,
-      0,
-    ],
+    },
   ]);
 });
 
@@ -38,14 +56,15 @@ it('renders mrkdwn', () => {
     },
   ];
   expect(parse(payload)).toStrictEqual([
-    [
-      {
-        type: 'mrkdwn',
-        text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+    {
+      component: 'markdown',
+      props: {
+        key: 0,
+        children: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+        verbatim: false,
+        block: true,
       },
-      BLOCK_CONTEXT.BLOCK,
-      0,
-    ],
+    },
   ]);
 });
 
@@ -62,22 +81,23 @@ it('renders all elements', () => {
     },
   ];
   expect(parse(payload)).toStrictEqual([
-    [
-      {
-        type: 'plain_text',
-        text: 'This is a plain text section block.',
+    {
+      component: 'text',
+      props: {
+        key: 0,
+        children: 'This is a plain text section block.',
         emoji: true,
+        block: true,
       },
-      BLOCK_CONTEXT.BLOCK,
-      0,
-    ],
-    [
-      {
-        type: 'mrkdwn',
-        text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+    },
+    {
+      component: 'markdown',
+      props: {
+        key: 1,
+        children: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+        verbatim: false,
+        block: true,
       },
-      BLOCK_CONTEXT.BLOCK,
-      1,
-    ],
+    },
   ]);
 });

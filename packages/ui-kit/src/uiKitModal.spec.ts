@@ -1,9 +1,32 @@
-import { uiKitModal, UiKitParserModal } from '.';
+import { uiKitModal, UiKitParserModal, BLOCK_CONTEXT } from '.';
 
-class TestParser extends UiKitParserModal {}
+class TestParser extends UiKitParserModal {
+  divider = (...args: unknown[]): unknown => args
+
+  section = (...args: unknown[]): unknown => args
+}
 
 const parser = new TestParser();
 const parse = uiKitModal(parser);
+
+describe('divider', () => {
+  it('renders divider block', () => {
+    const payload = [
+      {
+        type: 'divider',
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      [
+        {
+          type: 'divider',
+        },
+        BLOCK_CONTEXT.BLOCK,
+        0,
+      ],
+    ]);
+  });
+});
 
 describe('section', () => {
   it('plain_text', () => {
@@ -17,7 +40,20 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      [
+        {
+          type: 'section',
+          text: {
+            type: 'plain_text',
+            text: 'This is a plain text section block.',
+            emoji: true,
+          },
+        },
+        BLOCK_CONTEXT.BLOCK,
+        0,
+      ],
+    ]);
   });
 
   it('mrkdwn', () => {
@@ -30,7 +66,19 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+          },
+        },
+        BLOCK_CONTEXT.BLOCK,
+        0,
+      ],
+    ]);
   });
 
   it('text fields', () => {
@@ -66,75 +114,42 @@ describe('section', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
-  });
-
-  it('users select', () => {
-    const payload = [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: 'Test block with users select',
-        },
-        accessory: {
-          type: 'users_select',
-          placeholder: {
-            type: 'plain_text',
-            text: 'Select a user',
-            emoji: true,
-          },
-        },
-      },
-    ];
-    expect(parse(payload)).toStrictEqual([null]);
-  });
-
-  it('multi conversations select', () => {
-    const payload = [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: 'Pick an item from the dropdown list',
-        },
-        accessory: {
-          type: 'static_select',
-          placeholder: {
-            type: 'plain_text',
-            text: 'Select an item',
-            emoji: true,
-          },
-          options: [
+    expect(parse(payload)).toStrictEqual([
+      [
+        {
+          type: 'section',
+          fields: [
             {
-              text: {
-                type: 'plain_text',
-                text: '*this is plain_text text*',
-                emoji: true,
-              },
-              value: 'value-0',
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
             },
             {
-              text: {
-                type: 'plain_text',
-                text: '*this is plain_text text*',
-                emoji: true,
-              },
-              value: 'value-1',
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
             },
             {
-              text: {
-                type: 'plain_text',
-                text: '*this is plain_text text*',
-                emoji: true,
-              },
-              value: 'value-2',
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
             },
           ],
         },
-      },
-    ];
-    expect(parse(payload)).toStrictEqual([null]);
+        BLOCK_CONTEXT.BLOCK,
+        0,
+      ],
+    ]);
   });
 
   it('button', () => {
@@ -156,7 +171,28 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'This is a section block with a button.',
+          },
+          accessory: {
+            type: 'button',
+            text: {
+              type: 'plain_text',
+              text: 'Click Me',
+              emoji: true,
+            },
+            value: 'click_me_123',
+          },
+        },
+        BLOCK_CONTEXT.BLOCK,
+        0,
+      ],
+    ]);
   });
 
   it('image', () => {
@@ -174,7 +210,24 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'This is a section block with an accessory image.',
+          },
+          accessory: {
+            type: 'image',
+            image_url: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+            alt_text: 'cute cat',
+          },
+        },
+        BLOCK_CONTEXT.BLOCK,
+        0,
+      ],
+    ]);
   });
 
   it('overflow', () => {
@@ -232,7 +285,64 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'This is a section block with an overflow menu.',
+          },
+          accessory: {
+            type: 'overflow',
+            options: [
+              {
+                text: {
+                  type: 'plain_text',
+                  text: '*this is plain_text text*',
+                  emoji: true,
+                },
+                value: 'value-0',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: '*this is plain_text text*',
+                  emoji: true,
+                },
+                value: 'value-1',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: '*this is plain_text text*',
+                  emoji: true,
+                },
+                value: 'value-2',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: '*this is plain_text text*',
+                  emoji: true,
+                },
+                value: 'value-3',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: '*this is plain_text text*',
+                  emoji: true,
+                },
+                value: 'value-4',
+              },
+            ],
+          },
+        },
+        BLOCK_CONTEXT.BLOCK,
+        0,
+      ],
+    ]);
   });
 
   it('datepicker', () => {
@@ -254,7 +364,28 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'Pick a date for the deadline.',
+          },
+          accessory: {
+            type: 'datepicker',
+            initial_date: '1990-04-28',
+            placeholder: {
+              type: 'plain_text',
+              text: 'Select a date',
+              emoji: true,
+            },
+          },
+        },
+        BLOCK_CONTEXT.BLOCK,
+        0,
+      ],
+    ]);
   });
 });
 
@@ -434,17 +565,6 @@ describe('actions', () => {
             },
           },
         ],
-      },
-    ];
-    expect(parse(payload)).toStrictEqual([null]);
-  });
-});
-
-describe('divider', () => {
-  it('plain', () => {
-    const payload = [
-      {
-        type: 'divider',
       },
     ];
     expect(parse(payload)).toStrictEqual([null]);

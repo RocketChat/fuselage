@@ -41,10 +41,10 @@ export const Section = ({ blockId, appId, text, fields, accessory, parser }) => 
       {text && <Box is='span' fontScale='p1' color='default'>{parser.text(text)}</Box>}
       {fields && <Fields fields={fields} parser={parser} />}
     </Grid.Item>
-    { accessory && < Flex.Item grow={0}>
+    {accessory && <Flex.Item grow={0}>
       <Grid.Item>
         <Accessory element={{ blockId, appId, ...accessory }} parser={parser} />
       </Grid.Item>
-    </Flex.Item> }
+    </Flex.Item>}
   </Grid>
 </Block>;

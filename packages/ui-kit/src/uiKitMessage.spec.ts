@@ -1,12 +1,159 @@
-import { uiKitMessage, UiKitParserMessage } from '.';
+import { uiKitMessage, UiKitParserMessage, BLOCK_CONTEXT } from '.';
 
-class TestParser extends UiKitParserMessage {}
+class TestParser extends UiKitParserMessage {
+  plainText = (element: any, context: any, index: any): any =>
+    ({
+      component: 'text',
+      props: {
+        key: index,
+        children: element.text,
+        emoji: element.emoji,
+        block: context === BLOCK_CONTEXT.BLOCK,
+      },
+    })
+
+  mrkdwn = (element: any, context: any, index: any): any =>
+    ({
+      component: 'markdown',
+      props: {
+        key: index,
+        children: element.text,
+        verbatim: Boolean(element.verbatim),
+        block: context === BLOCK_CONTEXT.BLOCK,
+      },
+    })
+
+  divider = (element: any, context: any, index: any): any =>
+    ({
+      component: 'divider',
+      props: {
+        key: index,
+        block: context === BLOCK_CONTEXT.BLOCK,
+      },
+    })
+
+  section = (element: any, context: any, index: any): any => {
+    let key = 0;
+    return ({
+      component: 'section',
+      props: {
+        key: index,
+        children: [
+          ...element.text ? [this.text(element.text, BLOCK_CONTEXT.SECTION, key++)] : [],
+          ...element.fields?.map((field: any) => this.text(field, BLOCK_CONTEXT.SECTION, key++)) ?? [],
+          ...element.accessory ? [this.renderAccessories(element.accessory, BLOCK_CONTEXT.SECTION, this as any, key++)] : [],
+        ],
+        block: context === BLOCK_CONTEXT.BLOCK,
+      },
+    });
+  }
+
+  button = (element: any, context: any, index: any): any =>
+    ({
+      component: 'button',
+      props: {
+        key: index,
+        children: element.text ? [this.text(element.text, BLOCK_CONTEXT.SECTION, 0)] : [],
+        ...element.url && { href: element.url },
+        ...element.value && { value: element.value },
+        variant: element.style ?? 'normal',
+        block: context === BLOCK_CONTEXT.BLOCK,
+      },
+    })
+
+  image = (element: any, context: any, index: any): any => {
+    if (context === BLOCK_CONTEXT.BLOCK) {
+      let key = 0;
+      return ({
+        component: 'image-container',
+        props: {
+          key: index,
+          children: [
+            {
+              component: 'image',
+              props: {
+                key: key++,
+                src: element.imageUrl,
+                alt: element.altText,
+                block: false,
+              },
+            },
+            ...element.title ? [
+              this.plainText(element.title, -1, key++),
+            ] : [],
+          ],
+          block: true,
+        },
+      });
+    }
+
+    return ({
+      component: 'image',
+      props: {
+        key: index,
+        src: element.imageUrl,
+        alt: element.altText,
+        block: false,
+      },
+    });
+  }
+
+  overflow = (element: any, context: any, index: any): any =>
+    ({
+      component: 'menu',
+      props: {
+        key: index,
+        children: element.options.map((option, key) => ({
+          component: 'menu-item',
+          props: {
+            key,
+            children: [
+              this.text(option.text, -1, 0),
+              ...option.description ? [this.plainText(option.description, -1, 1)] : [],
+            ],
+            value: option.value,
+            ...option.url && { url: option.url },
+          },
+        })),
+      },
+    })
+
+  datePicker = (element: any, context: any, index: any): any =>
+    ({
+      component: 'input',
+      props: {
+        key: index,
+        type: 'date',
+        ...element.placeholder && { placeholder: this.text(element.placeholder, -1, 0) },
+        ...element.initialDate && { defaultValue: element.initialDate },
+      },
+    })
+}
 
 const parser = new TestParser();
 const parse = uiKitMessage(parser);
 
+describe('divider', () => {
+  it('renders', () => {
+    const payload = [
+      {
+        type: 'divider',
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'divider',
+        props: {
+          key: 0,
+          block: true,
+        },
+      },
+    ]);
+  });
+});
+
 describe('section', () => {
-  it('plain_text', () => {
+  it('renders text as plain_text', () => {
     const payload = [
       {
         type: 'section',
@@ -17,10 +164,29 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'section',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'This is a plain text section block.',
+                emoji: true,
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 
-  it('mrkdwn', () => {
+  it('render text as mrkdwn', () => {
     const payload = [
       {
         type: 'section',
@@ -30,10 +196,29 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'section',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'markdown',
+              props: {
+                key: 0,
+                children: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+                verbatim: false,
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 
-  it('text fields', () => {
+  it('renders text fields', () => {
     const payload = [
       {
         type: 'section',
@@ -66,78 +251,65 @@ describe('section', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
-  });
-
-  it('users select', () => {
-    const payload = [
+    expect(parse(payload)).toStrictEqual([
       {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: 'Test block with users select',
-        },
-        accessory: {
-          type: 'users_select',
-          placeholder: {
-            type: 'plain_text',
-            text: 'Select a user',
-            emoji: true,
-          },
-        },
-      },
-    ];
-    expect(parse(payload)).toStrictEqual([null]);
-  });
-
-  it('multi conversations select', () => {
-    const payload = [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: 'Pick an item from the dropdown list',
-        },
-        accessory: {
-          type: 'static_select',
-          placeholder: {
-            type: 'plain_text',
-            text: 'Select an item',
-            emoji: true,
-          },
-          options: [
+        component: 'section',
+        props: {
+          key: 0,
+          block: true,
+          children: [
             {
-              text: {
-                type: 'plain_text',
-                text: '*this is plain_text text*',
+              component: 'text',
+              props: {
+                key: 0,
+                children: '*this is plain_text text*',
                 emoji: true,
+                block: false,
               },
-              value: 'value-0',
             },
             {
-              text: {
-                type: 'plain_text',
-                text: '*this is plain_text text*',
+              component: 'text',
+              props: {
+                key: 1,
+                children: '*this is plain_text text*',
                 emoji: true,
+                block: false,
               },
-              value: 'value-1',
             },
             {
-              text: {
-                type: 'plain_text',
-                text: '*this is plain_text text*',
+              component: 'text',
+              props: {
+                key: 2,
+                children: '*this is plain_text text*',
                 emoji: true,
+                block: false,
               },
-              value: 'value-2',
+            },
+            {
+              component: 'text',
+              props: {
+                key: 3,
+                children: '*this is plain_text text*',
+                emoji: true,
+                block: false,
+              },
+            },
+            {
+              component: 'text',
+              props: {
+                key: 4,
+                children: '*this is plain_text text*',
+                emoji: true,
+                block: false,
+              },
             },
           ],
         },
       },
-    ];
-    expect(parse(payload)).toStrictEqual([null]);
+    ]);
   });
 
-  it('button', () => {
+  it('renders accessory as button', () => {
     const payload = [
       {
         type: 'section',
@@ -156,10 +328,49 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'section',
+        props: {
+          key: 0,
+          block: true,
+          children: [
+            {
+              component: 'markdown',
+              props: {
+                key: 0,
+                children: 'This is a section block with a button.',
+                verbatim: false,
+                block: false,
+              },
+            },
+            {
+              component: 'button',
+              props: {
+                key: 1,
+                children: [
+                  {
+                    component: 'text',
+                    props: {
+                      key: 0,
+                      children: 'Click Me',
+                      emoji: true,
+                      block: false,
+                    },
+                  },
+                ],
+                value: 'click_me_123',
+                variant: 'normal',
+                block: false,
+              },
+            },
+          ],
+        },
+      },
+    ]);
   });
 
-  it('image', () => {
+  it('renders accessory as image', () => {
     const payload = [
       {
         type: 'section',
@@ -169,15 +380,43 @@ describe('section', () => {
         },
         accessory: {
           type: 'image',
-          image_url: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
-          alt_text: 'cute cat',
+          imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+          altText: 'cute cat',
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'section',
+        props: {
+          key: 0,
+          block: true,
+          children: [
+            {
+              component: 'markdown',
+              props: {
+                key: 0,
+                children: 'This is a section block with an accessory image.',
+                verbatim: false,
+                block: false,
+              },
+            },
+            {
+              component: 'image',
+              props: {
+                key: 1,
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                alt: 'cute cat',
+                block: false,
+              },
+            },
+          ],
+        },
+      },
+    ]);
   });
 
-  it('overflow', () => {
+  it('renders accessory as overflow menu', () => {
     const payload = [
       {
         type: 'section',
@@ -232,10 +471,127 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'section',
+        props: {
+          key: 0,
+          block: true,
+          children: [
+            {
+              component: 'markdown',
+              props: {
+                key: 0,
+                children: 'This is a section block with an overflow menu.',
+                verbatim: false,
+                block: false,
+              },
+            },
+            {
+              component: 'menu',
+              props: {
+                key: 1,
+                children: [
+                  {
+                    component: 'menu-item',
+                    props: {
+                      key: 0,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '*this is plain_text text*',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                      value: 'value-0',
+                    },
+                  },
+                  {
+                    component: 'menu-item',
+                    props: {
+                      key: 1,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '*this is plain_text text*',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                      value: 'value-1',
+                    },
+                  },
+                  {
+                    component: 'menu-item',
+                    props: {
+                      key: 2,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '*this is plain_text text*',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                      value: 'value-2',
+                    },
+                  },
+                  {
+                    component: 'menu-item',
+                    props: {
+                      key: 3,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '*this is plain_text text*',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                      value: 'value-3',
+                    },
+                  },
+                  {
+                    component: 'menu-item',
+                    props: {
+                      key: 4,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '*this is plain_text text*',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                      value: 'value-4',
+                    },
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
+    ]);
   });
 
-  it('datepicker', () => {
+  it('renders accessory as datepicker', () => {
     const payload = [
       {
         type: 'section',
@@ -254,7 +610,118 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'section',
+        props: {
+          key: 0,
+          block: true,
+          children: [
+            {
+              component: 'markdown',
+              props: {
+                key: 0,
+                children: 'Pick a date for the deadline.',
+                verbatim: false,
+                block: false,
+              },
+            },
+            {
+              component: 'input',
+              props: {
+                key: 1,
+                type: 'date',
+                placeholder: {
+                  component: 'text',
+                  props: {
+                    key: 0,
+                    children: 'Select a date',
+                    emoji: true,
+                    block: false,
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    ]);
+  });
+});
+
+describe('image', () => {
+  it('title', () => {
+    const payload = [
+      {
+        type: 'image',
+        title: {
+          type: 'plain_text',
+          text: 'I Need a Marg',
+          emoji: true,
+        },
+        imageUrl: 'https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg',
+        altText: 'marg',
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'image-container',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'image',
+              props: {
+                key: 0,
+                src: 'https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg',
+                alt: 'marg',
+                block: false,
+              },
+            },
+            {
+              component: 'text',
+              props: {
+                key: 1,
+                children: 'I Need a Marg',
+                emoji: true,
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('no title', () => {
+    const payload = [
+      {
+        type: 'image',
+        imageUrl: 'https://i1.wp.com/thetempest.co/wp-content/uploads/2017/08/The-wise-words-of-Michael-Scott-Imgur-2.jpg?w=1024&ssl=1',
+        altText: 'inspiration',
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'image-container',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'image',
+              props: {
+                key: 0,
+                src: 'https://i1.wp.com/thetempest.co/wp-content/uploads/2017/08/The-wise-words-of-Michael-Scott-Imgur-2.jpg?w=1024&ssl=1',
+                alt: 'inspiration',
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 });
 
@@ -434,46 +901,6 @@ describe('actions', () => {
             },
           },
         ],
-      },
-    ];
-    expect(parse(payload)).toStrictEqual([null]);
-  });
-});
-
-describe('divider', () => {
-  it('plain', () => {
-    const payload = [
-      {
-        type: 'divider',
-      },
-    ];
-    expect(parse(payload)).toStrictEqual([null]);
-  });
-});
-
-describe('image', () => {
-  it('title', () => {
-    const payload = [
-      {
-        type: 'image',
-        title: {
-          type: 'plain_text',
-          text: 'I Need a Marg',
-          emoji: true,
-        },
-        image_url: 'https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg',
-        alt_text: 'marg',
-      },
-    ];
-    expect(parse(payload)).toStrictEqual([null]);
-  });
-
-  it('no title', () => {
-    const payload = [
-      {
-        type: 'image',
-        image_url: 'https://i1.wp.com/thetempest.co/wp-content/uploads/2017/08/The-wise-words-of-Michael-Scott-Imgur-2.jpg?w=1024&ssl=1',
-        alt_text: 'inspiration',
       },
     ];
     expect(parse(payload)).toStrictEqual([null]);
