@@ -48,6 +48,24 @@ class TestParser extends UiKitParserMessage {
     });
   }
 
+  actions = (element: any, context: any, index: any): any => ({
+    component: 'actions',
+    props: {
+      key: index,
+      children: element.elements.map((element: any, key: number) => this.renderActions(element, BLOCK_CONTEXT.ACTION, this as any, key)),
+      block: context === BLOCK_CONTEXT.BLOCK,
+    },
+  })
+
+  context = (element: any, context: any, index: any): any => ({
+    component: 'context',
+    props: {
+      key: index,
+      children: element.elements.map((element: any, key: number) => this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this as any, key)),
+      block: context === BLOCK_CONTEXT.BLOCK,
+    },
+  })
+
   button = (element: any, context: any, index: any): any =>
     ({
       component: 'button',
@@ -126,6 +144,51 @@ class TestParser extends UiKitParserMessage {
         type: 'date',
         ...element.placeholder && { placeholder: this.text(element.placeholder, -1, 0) },
         ...element.initialDate && { defaultValue: element.initialDate },
+      },
+    })
+
+  staticSelect = (element: any, context: any, index: any): any =>
+    ({
+      component: 'select',
+      props: {
+        key: index,
+        ...element.placeholder && { placeholder: this.text(element.placeholder, -1, 0) },
+        children: element.options.map((option: any, key: any) => ({
+          component: 'option',
+          props: {
+            key,
+            children: this.text(option.text, -1, 0),
+            value: option.value,
+            ...option.description && { description: this.text(option.description, -1, 0) },
+          },
+        })),
+        ...element.initialOption && {
+          defaultValue: element.options.find((option: any) => option.value === element.initialOption.value)?.value,
+        },
+      },
+    })
+
+  multiStaticSelect = (element: any, context: any, index: any): any =>
+    ({
+      component: 'select',
+      props: {
+        key: index,
+        ...element.placeholder && { placeholder: this.text(element.placeholder, -1, 0) },
+        multiple: true,
+        children: element.options.map((option: any, key: any) => ({
+          component: 'option',
+          props: {
+            key,
+            children: this.text(option.text, -1, 0),
+            value: option.value,
+            ...option.description && { description: this.text(option.description, -1, 0) },
+          },
+        })),
+        ...element.initialOptions && {
+          defaultValue: element.options
+            .filter((option: any) => element.initialOptions.some((initialOption: any) => option.value === initialOption.value))
+            .map((option: any) => option.value),
+        },
       },
     })
 }
@@ -650,7 +713,7 @@ describe('section', () => {
 });
 
 describe('image', () => {
-  it('title', () => {
+  it('renders with title', () => {
     const payload = [
       {
         type: 'image',
@@ -694,7 +757,7 @@ describe('image', () => {
     ]);
   });
 
-  it('no title', () => {
+  it('renders with no title', () => {
     const payload = [
       {
         type: 'image',
@@ -726,7 +789,7 @@ describe('image', () => {
 });
 
 describe('actions', () => {
-  it('all selects', () => {
+  it('renders all selects', () => {
     const payload = [
       {
         type: 'actions',
@@ -792,10 +855,88 @@ describe('actions', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'actions',
+        props: {
+          key: 0,
+          children: [
+            undefined,
+            undefined,
+            undefined,
+            {
+              component: 'select',
+              props: {
+                key: 3,
+                children: [
+                  {
+                    component: 'option',
+                    props: {
+                      key: 0,
+                      children: {
+                        component: 'text',
+                        props: {
+                          key: 0,
+                          children: '*this is plain_text text*',
+                          emoji: true,
+                          block: false,
+                        },
+                      },
+                      value: 'value-0',
+                    },
+                  },
+                  {
+                    component: 'option',
+                    props: {
+                      key: 1,
+                      children: {
+                        component: 'text',
+                        props: {
+                          key: 0,
+                          children: '*this is plain_text text*',
+                          emoji: true,
+                          block: false,
+                        },
+                      },
+                      value: 'value-1',
+                    },
+                  },
+                  {
+                    component: 'option',
+                    props: {
+                      key: 2,
+                      children: {
+                        component: 'text',
+                        props: {
+                          key: 0,
+                          children: '*this is plain_text text*',
+                          emoji: true,
+                          block: false,
+                        },
+                      },
+                      value: 'value-2',
+                    },
+                  },
+                ],
+                placeholder: {
+                  component: 'text',
+                  props: {
+                    key: 0,
+                    children: 'Select an item',
+                    emoji: true,
+                    block: false,
+                  },
+                },
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 
-  it('filtered conversations select', () => {
+  it('renders filtered conversations select', () => {
     const payload = [
       {
         type: 'actions',
@@ -816,10 +957,21 @@ describe('actions', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'actions',
+        props: {
+          key: 0,
+          children: [
+            undefined,
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 
-  it('selects with initial options', () => {
+  it('renders selects with initial options', () => {
     const payload = [
       {
         type: 'actions',
@@ -831,7 +983,7 @@ describe('actions', () => {
               text: 'Select a conversation',
               emoji: true,
             },
-            initial_conversation: 'D123',
+            initialConversation: 'D123',
           },
           {
             type: 'users_select',
@@ -840,7 +992,7 @@ describe('actions', () => {
               text: 'Select a user',
               emoji: true,
             },
-            initial_user: 'U123',
+            initialUser: 'U123',
           },
           {
             type: 'channels_select',
@@ -849,15 +1001,28 @@ describe('actions', () => {
               text: 'Select a channel',
               emoji: true,
             },
-            initial_channel: 'C123',
+            initialChannel: 'C123',
           },
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'actions',
+        props: {
+          key: 0,
+          children: [
+            undefined,
+            undefined,
+            undefined,
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 
-  it('button', () => {
+  it('renders button', () => {
     const payload = [
       {
         type: 'actions',
@@ -874,17 +1039,47 @@ describe('actions', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'actions',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'button',
+              props: {
+                key: 0,
+                children: [
+                  {
+                    component: 'text',
+                    props: {
+                      key: 0,
+                      children: 'Click Me',
+                      emoji: true,
+                      block: false,
+                    },
+                  },
+                ],
+                value: 'click_me_123',
+                variant: 'normal',
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 
-  it('datepicker', () => {
+  it('renders datepicker', () => {
     const payload = [
       {
         type: 'actions',
         elements: [
           {
             type: 'datepicker',
-            initial_date: '1990-04-28',
+            initialDate: '1990-04-28',
             placeholder: {
               type: 'plain_text',
               text: 'Select a date',
@@ -893,7 +1088,7 @@ describe('actions', () => {
           },
           {
             type: 'datepicker',
-            initial_date: '1990-04-28',
+            initialDate: '1990-04-28',
             placeholder: {
               type: 'plain_text',
               text: 'Select a date',
@@ -903,12 +1098,56 @@ describe('actions', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'actions',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'input',
+              props: {
+                key: 0,
+                type: 'date',
+                defaultValue: '1990-04-28',
+                placeholder: {
+                  component: 'text',
+                  props: {
+                    key: 0,
+                    children: 'Select a date',
+                    emoji: true,
+                    block: false,
+                  },
+                },
+              },
+            },
+            {
+              component: 'input',
+              props: {
+                key: 1,
+                type: 'date',
+                defaultValue: '1990-04-28',
+                placeholder: {
+                  component: 'text',
+                  props: {
+                    key: 0,
+                    children: 'Select a date',
+                    emoji: true,
+                    block: false,
+                  },
+                },
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 });
 
 describe('context', () => {
-  it('plain text', () => {
+  it('renders plain text', () => {
     const payload = [
       {
         type: 'context',
@@ -921,18 +1160,37 @@ describe('context', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'context',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'Author: K A Applegate',
+                emoji: true,
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 
-  it('mrkdwn', () => {
+  it('renders mrkdwn', () => {
     const payload = [
       {
         type: 'context',
         elements: [
           {
             type: 'image',
-            image_url: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
-            alt_text: 'cute cat',
+            imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+            altText: 'cute cat',
           },
           {
             type: 'mrkdwn',
@@ -941,10 +1199,38 @@ describe('context', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'context',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'image',
+              props: {
+                key: 0,
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                alt: 'cute cat',
+                block: false,
+              },
+            },
+            {
+              component: 'markdown',
+              props: {
+                key: 1,
+                children: '*Cat* has approved this message.',
+                verbatim: false,
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 
-  it('text and images', () => {
+  it('renders text and images', () => {
     const payload = [
       {
         type: 'context',
@@ -955,18 +1241,18 @@ describe('context', () => {
           },
           {
             type: 'image',
-            image_url: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
-            alt_text: 'cute cat',
+            imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+            altText: 'cute cat',
           },
           {
             type: 'image',
-            image_url: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
-            alt_text: 'cute cat',
+            imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+            altText: 'cute cat',
           },
           {
             type: 'image',
-            image_url: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
-            alt_text: 'cute cat',
+            imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+            altText: 'cute cat',
           },
           {
             type: 'plain_text',
@@ -976,6 +1262,61 @@ describe('context', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([null]);
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'context',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'markdown',
+              props: {
+                key: 0,
+                children: '*This* is :smile: markdown',
+                verbatim: false,
+                block: false,
+              },
+            },
+            {
+              component: 'image',
+              props: {
+                key: 1,
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                alt: 'cute cat',
+                block: false,
+              },
+            },
+            {
+              component: 'image',
+              props: {
+                key: 2,
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                alt: 'cute cat',
+                block: false,
+              },
+            },
+            {
+              component: 'image',
+              props: {
+                key: 3,
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                alt: 'cute cat',
+                block: false,
+              },
+            },
+            {
+              component: 'text',
+              props: {
+                key: 4,
+                children: 'Author: K A Applegate',
+                emoji: true,
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
   });
 });

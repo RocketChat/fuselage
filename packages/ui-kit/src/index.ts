@@ -202,6 +202,7 @@ const renderElement = <T, P extends IParserModal<T>>(
   switch (type) {
     case ElementType.OVERFLOW:
       return parser.overflow({ type, ...element } as ITextObject, context, index);
+    case ElementType.PLAIN_TEXT:
     case ElementType.MARKDOWN:
     case ElementType.TEXT:
       return parser.text({ type, ...element } as ITextObject, context, index);
@@ -295,6 +296,7 @@ abstract class UiKitParserMessage extends UiKitParserText implements IParserMess
   renderContext = createRenderElement([
     ElementType.IMAGE,
     ElementType.TEXT,
+    ElementType.PLAIN_TEXT,
     ElementType.MARKDOWN,
   ])
 }
@@ -339,20 +341,20 @@ const uiKitGeneric = <T>(allowedItems?: ElementType[]) =>
             case ElementType.MARKDOWN:
               return parser.mrkdwn(element as IMarkdown, BlockContext.BLOCK, i);
 
-              // case ElementType.DIVIDER:
-              //   return (parser as IParserMessage<T>).divider(element as IDividerBlock, BlockContext.BLOCK, i);
+            case ElementType.DIVIDER:
+              return (parser as IParserMessage<T>).divider(element as IDividerBlock, BlockContext.BLOCK, i);
 
-              // case ElementType.SECTION:
-              //   return (parser as IParserMessage<T>).section(element as ISectionBlock, BlockContext.BLOCK, i);
+            case ElementType.SECTION:
+              return (parser as IParserMessage<T>).section(element as ISectionBlock, BlockContext.BLOCK, i);
 
-              // case ElementType.IMAGE:
-              //   return (parser as IParserMessage<T>).image(element as IImageBlock, BlockContext.BLOCK, i);
+            case ElementType.IMAGE:
+              return (parser as IParserMessage<T>).image(element as IImageBlock, BlockContext.BLOCK, i);
 
-              // case ElementType.ACTIONS:
-              //   return (parser as IParserMessage<T>).actions(element as IActionsBlock, BlockContext.BLOCK, i);
+            case ElementType.ACTIONS:
+              return (parser as IParserMessage<T>).actions(element as IActionsBlock, BlockContext.BLOCK, i);
 
-              // case ElementType.CONTEXT:
-              //   return (parser as IParserMessage<T>).context(element as IContextBlock, BlockContext.BLOCK, i);
+            case ElementType.CONTEXT:
+              return (parser as IParserMessage<T>).context(element as IContextBlock, BlockContext.BLOCK, i);
 
             default:
               if (parser[element.type]) {
