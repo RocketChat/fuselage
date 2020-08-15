@@ -17,7 +17,7 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('mrkdwn', () => {
@@ -30,7 +30,7 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('text fields', () => {
@@ -66,7 +66,7 @@ describe('section', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('users select', () => {
@@ -87,7 +87,7 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('multi conversations select', () => {
@@ -134,7 +134,7 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('button', () => {
@@ -156,7 +156,7 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('image', () => {
@@ -174,7 +174,7 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('overflow', () => {
@@ -232,7 +232,7 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('datepicker', () => {
@@ -254,7 +254,7 @@ describe('section', () => {
         },
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 });
 
@@ -325,7 +325,7 @@ describe('actions', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('filtered conversations select', () => {
@@ -349,7 +349,7 @@ describe('actions', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('selects with initial options', () => {
@@ -387,7 +387,7 @@ describe('actions', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('button', () => {
@@ -407,7 +407,7 @@ describe('actions', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('datepicker', () => {
@@ -436,7 +436,7 @@ describe('actions', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 });
 
@@ -447,7 +447,7 @@ describe('divider', () => {
         type: 'divider',
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 });
 
@@ -465,7 +465,7 @@ describe('image', () => {
         alt_text: 'marg',
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('no title', () => {
@@ -476,7 +476,7 @@ describe('image', () => {
         alt_text: 'inspiration',
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 });
 
@@ -494,7 +494,7 @@ describe('context', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('mrkdwn', () => {
@@ -514,7 +514,7 @@ describe('context', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 
   it('text and images', () => {
@@ -549,22 +549,6 @@ describe('context', () => {
         ],
       },
     ];
-    expect(parse(payload)).toStrictEqual([]);
-  });
-});
-
-describe('header', () => {
-  it('example', () => {
-    const payload = [
-      {
-        type: 'header',
-        text: {
-          type: 'plain_text',
-          text: 'This is a header block',
-          emoji: true,
-        },
-      },
-    ];
-    expect(parse(payload)).toStrictEqual([]);
+    expect(parse(payload)).toStrictEqual([null]);
   });
 });

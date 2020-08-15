@@ -30,6 +30,8 @@ enum BlockContext {
   CONTEXT,
 }
 
+type ActionId = string;
+
 interface IElement {
   type: ElementType
 }
@@ -38,33 +40,70 @@ interface ITextObject extends IElement {
   text: string;
 }
 
-type ElementParser<T, E extends IElement> = (element: E, context: BlockContext, index: number) => T;
-type RecursiveElementParser<T, P, E extends IElement> = (element: E, context: BlockContext, parser: P, index: number) => T;
+interface IPlainText extends ITextObject {
+  type: ElementType.PLAIN_TEXT;
+  emoji?: boolean;
+}
+
+interface IMarkdown extends ITextObject {
+  type: ElementType.MARKDOWN;
+  verbatim?: boolean;
+}
+
+interface IButtonElement extends IElement {
+  type: ElementType.BUTTON;
+  text: IPlainText;
+  action_id: ActionId;
+  url?: string;
+  value?: string;
+  style?: 'primary' | 'danger';
+  confirm?: never;
+}
+
+interface IImageElement extends IElement {
+  type: ElementType.IMAGE;
+  image_url: string;
+  alt_text: string;
+  title?: IPlainText;
+}
+
+type ElementRenderer<T, E extends IElement> = (
+  element: E,
+  context: BlockContext,
+  index: number,
+) => T;
+
+type RecursiveElementRenderer<T, P extends IParser<T>, E extends IElement> = (
+  element: E,
+  context: BlockContext,
+  parser: P,
+  index: number,
+) => T;
 
 interface IParser<T> {
-  text: ElementParser<T, ITextObject>;
-  plainText: ElementParser<T, ITextObject>;
-  mrkdwn: ElementParser<T, ITextObject>;
+  text: ElementRenderer<T, ITextObject>;
+  plainText: ElementRenderer<T, IPlainText>;
+  mrkdwn: ElementRenderer<T, IMarkdown>;
 }
 
 interface IParserMessage<T> extends IParser<T> {
-  button: ElementParser<T, IElement>;
-  image: ElementParser<T, IElement>;
-  datePicker: ElementParser<T, IElement>;
-  staticSelect: ElementParser<T, IElement>;
-  multiStaticSelect: ElementParser<T, IElement>;
-  context: ElementParser<T, IElement>;
-  divider: ElementParser<T, IElement>;
-  actions: ElementParser<T, IElement>;
-  overflow: ElementParser<T, IElement>;
-  renderAccessories: RecursiveElementParser<T, IParserMessage<T>, IElement>;
-  renderActions: RecursiveElementParser<T, IParserMessage<T>, IElement>;
-  renderContext: RecursiveElementParser<T, IParserMessage<T>, IElement>;
+  button: ElementRenderer<T, IButtonElement>;
+  image: ElementRenderer<T, IImageElement>;
+  datePicker: ElementRenderer<T, IElement>;
+  staticSelect: ElementRenderer<T, IElement>;
+  multiStaticSelect: ElementRenderer<T, IElement>;
+  context: ElementRenderer<T, IElement>;
+  divider: ElementRenderer<T, IElement>;
+  actions: ElementRenderer<T, IElement>;
+  overflow: ElementRenderer<T, IElement>;
+  renderAccessories: RecursiveElementRenderer<T, IParserMessage<T>, IElement>;
+  renderActions: RecursiveElementRenderer<T, IParserMessage<T>, IElement>;
+  renderContext: RecursiveElementRenderer<T, IParserMessage<T>, IElement>;
 }
 
 interface IParserModal<T> extends IParserMessage<T> {
-  plainInput: ElementParser<T, IElement>;
-  renderInputs: RecursiveElementParser<T, IParserModal<T>, IElement>;
+  plainInput: ElementRenderer<T, IElement>;
+  renderInputs: RecursiveElementRenderer<T, IParserModal<T>, IElement>;
 }
 
 const renderElement = <T, P extends IParserModal<T>>(
@@ -80,9 +119,9 @@ const renderElement = <T, P extends IParserModal<T>>(
     case ElementType.TEXT:
       return parser.text({ type, ...element } as ITextObject, context, index);
     case ElementType.BUTTON:
-      return parser.button(element as IElement, context, index);
+      return parser.button(element as IButtonElement, context, index);
     case ElementType.IMAGE:
-      return parser.image(element as IElement, context, index);
+      return parser.image(element as IImageElement, context, index);
     case ElementType.STATIC_SELECT:
       return parser.staticSelect(element as IElement, context, index);
     case ElementType.MULTI_STATIC_SELECT:
@@ -104,11 +143,11 @@ const createRenderElement = <T, P extends IParserModal<T>>(allowedItems?: Elemen
   };
 
 abstract class UiKitParserText implements IParser<unknown> {
-  text: (text: ITextObject, context: BlockContext, index: number) => unknown;
+  text: ElementRenderer<unknown, ITextObject>;
 
-  plainText: (text: ITextObject, context: BlockContext, index: number) => unknown;
+  plainText: ElementRenderer<unknown, IPlainText>;
 
-  mrkdwn: (text: ITextObject, context: BlockContext, index: number) => unknown;
+  mrkdwn: ElementRenderer<unknown, IMarkdown>;
 }
 
 abstract class UiKitParserMessage implements IParserMessage<unknown> {
@@ -182,7 +221,13 @@ abstract class UiKitParserModal extends UiKitParserMessage implements IParserMod
   ]);
 }
 
-const uiKitGeneric = <P extends IParser<unknown>>(allowedItems?: ElementType[]) =>
+const isElement = (x: IElement): x is IElement =>
+  x !== null
+  && typeof x === 'object'
+  && 'type' in x
+  && Object.values(ElementType).includes(x.type);
+
+const uiKitGeneric = <T, P extends IParser<T>>(allowedItems?: ElementType[]) =>
   (parser : P) =>
     (payload: unknown): any => {
       if (!Array.isArray(payload)) {
@@ -190,17 +235,33 @@ const uiKitGeneric = <P extends IParser<unknown>>(allowedItems?: ElementType[]) 
       }
 
       return payload
-        .filter((element) => (!allowedItems || allowedItems.includes(element.type)) && parser[element.type])
-        .map((element: IElement, i: number) => parser[element.type](element, BlockContext.BLOCK, i));
+        .filter<IElement>(isElement)
+        .filter((element) => !allowedItems || allowedItems.includes(element.type))
+        .map((element: IElement, i: number) => {
+          switch (element.type) {
+            case ElementType.PLAIN_TEXT:
+              return parser.plainText(element as IPlainText, BlockContext.BLOCK, i);
+
+            case ElementType.TEXT:
+            case ElementType.MARKDOWN:
+              return parser.mrkdwn(element as IMarkdown, BlockContext.BLOCK, i);
+
+            default:
+              if (parser[element.type]) {
+                return parser[element.type](element, BlockContext.BLOCK, i);
+              }
+              return null;
+          }
+        });
     };
 
-const uiKitText = uiKitGeneric<IParser<unknown>>([
+const uiKitText = uiKitGeneric<unknown, IParser<unknown>>([
   ElementType.TEXT,
   ElementType.PLAIN_TEXT,
   ElementType.MARKDOWN,
 ]);
 
-const uiKitMessage = uiKitGeneric<IParserMessage<unknown>>([
+const uiKitMessage = uiKitGeneric<unknown, IParserMessage<unknown>>([
   ElementType.DIVIDER,
   ElementType.SECTION,
   ElementType.IMAGE,
@@ -208,7 +269,7 @@ const uiKitMessage = uiKitGeneric<IParserMessage<unknown>>([
   ElementType.CONTEXT,
 ]);
 
-const uiKitModal = uiKitGeneric<IParserModal<unknown>>([
+const uiKitModal = uiKitGeneric<unknown, IParserModal<unknown>>([
   ElementType.SECTION,
   ElementType.DIVIDER,
   ElementType.IMAGE,

@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-mrkdwn: (text: ITextObject, context: BlockContext, index: number) => unknown;
+mrkdwn: ElementRenderer<unknown, IMarkdown>;
 ```

@@ -16,6 +16,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
+    'dot-notation': 'off',
     'func-call-spacing': 'off',
     indent: 'off',
     'import/order': ['error', {

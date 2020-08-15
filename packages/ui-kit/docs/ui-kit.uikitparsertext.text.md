@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-text: (text: ITextObject, context: BlockContext, index: number) => unknown;
+text: ElementRenderer<unknown, ITextObject>;
 ```
