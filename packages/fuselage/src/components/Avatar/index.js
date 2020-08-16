@@ -26,6 +26,7 @@ export function Avatar({
     {...props}
     width={size}
     height={size}
+    verticalAlign='middle'
   >
     <Box
       is='img'

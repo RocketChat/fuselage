@@ -3,8 +3,7 @@ import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Box } from '../'
-import { Options, CheckOption, Option } from './';
-const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
+import { Options, CheckOption, Option, Avatar } from './';
 const options = [
   [1, 'a teste 1'],
   [2, 'b teste 2'],
@@ -41,14 +40,6 @@ An input for selection of options.
   <Story name='CheckOption'>
     <Box position='relative' maxWidth={250}>
       <Options ref={React.createRef()} renderItem={CheckOption} options={options} value={[1]} cursor={0}/>
-    </Box>
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name='OptionAvatar'>
-    <Box position='relative' maxWidth={250}>
-      <Options ref={React.createRef()} renderItem={(props) => <Option {...props} avatar={thumb}/>}  options={options} />
     </Box>
   </Story>
 </Preview>
