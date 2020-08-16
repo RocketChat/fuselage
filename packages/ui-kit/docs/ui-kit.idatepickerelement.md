@@ -7,15 +7,15 @@
 <b>Signature:</b>
 
 ```typescript
-export interface IDatePickerElement extends IInteractiveElement 
+export interface IDatePickerElement extends IActionableElement 
 ```
-<b>Extends:</b> [IInteractiveElement](./ui-kit.iinteractiveelement.md)
+<b>Extends:</b> [IActionableElement](./ui-kit.iactionableelement.md)
 
 ## Properties
 
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [initialDate](./ui-kit.idatepickerelement.initialdate.md) | string |  |
-|  [placeholder](./ui-kit.idatepickerelement.placeholder.md) | [ITextObject](./ui-kit.itextobject.md) |  |
+|  [placeholder](./ui-kit.idatepickerelement.placeholder.md) | [TextObject](./ui-kit.textobject.md) |  |
 |  [type](./ui-kit.idatepickerelement.type.md) | [ElementType.DATEPICKER](./ui-kit.elementtype.datepicker.md) |  |
 

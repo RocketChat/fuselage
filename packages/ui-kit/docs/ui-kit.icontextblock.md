@@ -15,6 +15,6 @@ export interface IContextBlock extends IBlock
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [elements](./ui-kit.icontextblock.elements.md) | ([ITextObject](./ui-kit.itextobject.md) \| [IImageElement](./ui-kit.iimageelement.md)<!-- -->)\[\] |  |
+|  [elements](./ui-kit.icontextblock.elements.md) | [ContextElement](./ui-kit.contextelement.md)<!-- -->\[\] |  |
 |  [type](./ui-kit.icontextblock.type.md) | [ElementType.CONTEXT](./ui-kit.elementtype.context.md) |  |
 

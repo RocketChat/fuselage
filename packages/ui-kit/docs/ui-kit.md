@@ -23,6 +23,7 @@
 
 |  Interface | Description |
 |  --- | --- |
+|  [IActionableElement](./ui-kit.iactionableelement.md) |  |
 |  [IActionsBlock](./ui-kit.iactionsblock.md) |  |
 |  [IBlock](./ui-kit.iblock.md) |  |
 |  [IButtonElement](./ui-kit.ibuttonelement.md) |  |
@@ -33,8 +34,6 @@
 |  [IImageBlock](./ui-kit.iimageblock.md) |  |
 |  [IImageElement](./ui-kit.iimageelement.md) |  |
 |  [IInputBlock](./ui-kit.iinputblock.md) |  |
-|  [IInputElement](./ui-kit.iinputelement.md) |  |
-|  [IInteractiveElement](./ui-kit.iinteractiveelement.md) |  |
 |  [IMarkdown](./ui-kit.imarkdown.md) |  |
 |  [IMultiStaticSelectElement](./ui-kit.imultistaticselectelement.md) |  |
 |  [IOverflowElement](./ui-kit.ioverflowelement.md) |  |
@@ -42,7 +41,6 @@
 |  [IPlainTextInput](./ui-kit.iplaintextinput.md) |  |
 |  [ISectionBlock](./ui-kit.isectionblock.md) |  |
 |  [IStaticSelectElement](./ui-kit.istaticselectelement.md) |  |
-|  [ITextObject](./ui-kit.itextobject.md) |  |
 
 ## Variables
 
@@ -57,9 +55,14 @@
 
 |  Type Alias | Description |
 |  --- | --- |
+|  [ActionElement](./ui-kit.actionelement.md) |  |
 |  [ActionId](./ui-kit.actionid.md) |  |
 |  [BlockId](./ui-kit.blockid.md) |  |
 |  [ConfirmationDialog](./ui-kit.confirmationdialog.md) |  |
+|  [ContextElement](./ui-kit.contextelement.md) |  |
+|  [InputElement](./ui-kit.inputelement.md) |  |
 |  [Option](./ui-kit.option.md) |  |
 |  [OptionGroup](./ui-kit.optiongroup.md) |  |
+|  [SectionAccessoryElement](./ui-kit.sectionaccessoryelement.md) |  |
+|  [TextObject](./ui-kit.textobject.md) |  |
 

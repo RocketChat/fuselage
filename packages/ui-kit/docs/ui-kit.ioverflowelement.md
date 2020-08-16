@@ -7,9 +7,9 @@
 <b>Signature:</b>
 
 ```typescript
-export interface IOverflowElement extends IInteractiveElement 
+export interface IOverflowElement extends IActionableElement 
 ```
-<b>Extends:</b> [IInteractiveElement](./ui-kit.iinteractiveelement.md)
+<b>Extends:</b> [IActionableElement](./ui-kit.iactionableelement.md)
 
 ## Properties
 

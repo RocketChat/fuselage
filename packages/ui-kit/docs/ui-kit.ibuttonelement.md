@@ -7,9 +7,9 @@
 <b>Signature:</b>
 
 ```typescript
-export interface IButtonElement extends IInteractiveElement 
+export interface IButtonElement extends IActionableElement 
 ```
-<b>Extends:</b> [IInteractiveElement](./ui-kit.iinteractiveelement.md)
+<b>Extends:</b> [IActionableElement](./ui-kit.iactionableelement.md)
 
 ## Properties
 

@@ -7,14 +7,15 @@
 <b>Signature:</b>
 
 ```typescript
-export interface IMarkdown extends ITextObject 
+export interface IMarkdown extends IElement 
 ```
-<b>Extends:</b> [ITextObject](./ui-kit.itextobject.md)
+<b>Extends:</b> [IElement](./ui-kit.ielement.md)
 
 ## Properties
 
 |  Property | Type | Description |
 |  --- | --- | --- |
+|  [text](./ui-kit.imarkdown.text.md) | string |  |
 |  [type](./ui-kit.imarkdown.type.md) | [ElementType.MARKDOWN](./ui-kit.elementtype.markdown.md) |  |
 |  [verbatim](./ui-kit.imarkdown.verbatim.md) | boolean |  |
 

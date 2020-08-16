@@ -7,9 +7,9 @@
 <b>Signature:</b>
 
 ```typescript
-export interface IStaticSelectElement extends IInteractiveElement 
+export interface IStaticSelectElement extends IActionableElement 
 ```
-<b>Extends:</b> [IInteractiveElement](./ui-kit.iinteractiveelement.md)
+<b>Extends:</b> [IActionableElement](./ui-kit.iactionableelement.md)
 
 ## Properties
 
@@ -18,6 +18,6 @@ export interface IStaticSelectElement extends IInteractiveElement
 |  [initialOption](./ui-kit.istaticselectelement.initialoption.md) | [Option](./ui-kit.option.md) |  |
 |  [optionGroups](./ui-kit.istaticselectelement.optiongroups.md) | [OptionGroup](./ui-kit.optiongroup.md)<!-- -->\[\] |  |
 |  [options](./ui-kit.istaticselectelement.options.md) | [Option](./ui-kit.option.md)<!-- -->\[\] |  |
-|  [placeholder](./ui-kit.istaticselectelement.placeholder.md) | [ITextObject](./ui-kit.itextobject.md) |  |
+|  [placeholder](./ui-kit.istaticselectelement.placeholder.md) | [TextObject](./ui-kit.textobject.md) |  |
 |  [type](./ui-kit.istaticselectelement.type.md) | [ElementType.STATIC\_SELECT](./ui-kit.elementtype.static_select.md) |  |
 

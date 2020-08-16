@@ -7,9 +7,9 @@
 <b>Signature:</b>
 
 ```typescript
-export interface IMultiStaticSelectElement extends IInteractiveElement 
+export interface IMultiStaticSelectElement extends IActionableElement 
 ```
-<b>Extends:</b> [IInteractiveElement](./ui-kit.iinteractiveelement.md)
+<b>Extends:</b> [IActionableElement](./ui-kit.iactionableelement.md)
 
 ## Properties
 
@@ -19,6 +19,6 @@ export interface IMultiStaticSelectElement extends IInteractiveElement
 |  [maxSelectItems](./ui-kit.imultistaticselectelement.maxselectitems.md) | number |  |
 |  [optionGroups](./ui-kit.imultistaticselectelement.optiongroups.md) | [OptionGroup](./ui-kit.optiongroup.md)<!-- -->\[\] |  |
 |  [options](./ui-kit.imultistaticselectelement.options.md) | [Option](./ui-kit.option.md)<!-- -->\[\] |  |
-|  [placeholder](./ui-kit.imultistaticselectelement.placeholder.md) | [ITextObject](./ui-kit.itextobject.md) |  |
+|  [placeholder](./ui-kit.imultistaticselectelement.placeholder.md) | [TextObject](./ui-kit.textobject.md) |  |
 |  [type](./ui-kit.imultistaticselectelement.type.md) | [ElementType.MULTI\_STATIC\_SELECT](./ui-kit.elementtype.multi_static_select.md) |  |
 

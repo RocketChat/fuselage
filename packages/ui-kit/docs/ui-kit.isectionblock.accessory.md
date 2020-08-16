@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-accessory?: (IImageElement | IButtonElement | IDatePickerElement | IStaticSelectElement | IMultiStaticSelectElement | IOverflowElement);
+accessory?: SectionAccessoryElement;
 ```

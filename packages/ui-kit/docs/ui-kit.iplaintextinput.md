@@ -7,9 +7,9 @@
 <b>Signature:</b>
 
 ```typescript
-export interface IPlainTextInput extends IInputElement 
+export interface IPlainTextInput extends IActionableElement 
 ```
-<b>Extends:</b> [IInputElement](./ui-kit.iinputelement.md)
+<b>Extends:</b> [IActionableElement](./ui-kit.iactionableelement.md)
 
 ## Properties
 

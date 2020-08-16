@@ -8,7 +8,7 @@
 
 ```typescript
 export declare type Option = {
-    text: ITextObject;
+    text: TextObject;
     value: string;
     description?: IPlainText;
     url?: string;

@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-elements: IInteractiveElement[];
+elements: ActionElement[];
 ```

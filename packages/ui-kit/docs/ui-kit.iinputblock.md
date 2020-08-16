@@ -15,7 +15,7 @@ export interface IInputBlock extends IBlock
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [element](./ui-kit.iinputblock.element.md) | [IInputElement](./ui-kit.iinputelement.md) |  |
+|  [element](./ui-kit.iinputblock.element.md) | [InputElement](./ui-kit.inputelement.md) |  |
 |  [hint](./ui-kit.iinputblock.hint.md) | [IPlainText](./ui-kit.iplaintext.md) |  |
 |  [label](./ui-kit.iinputblock.label.md) | [IPlainText](./ui-kit.iplaintext.md) |  |
 |  [optional](./ui-kit.iinputblock.optional.md) | boolean |  |

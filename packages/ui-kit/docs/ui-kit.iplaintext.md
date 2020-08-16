@@ -7,14 +7,15 @@
 <b>Signature:</b>
 
 ```typescript
-export interface IPlainText extends ITextObject 
+export interface IPlainText extends IElement 
 ```
-<b>Extends:</b> [ITextObject](./ui-kit.itextobject.md)
+<b>Extends:</b> [IElement](./ui-kit.ielement.md)
 
 ## Properties
 
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [emoji](./ui-kit.iplaintext.emoji.md) | boolean |  |
+|  [text](./ui-kit.iplaintext.text.md) | string |  |
 |  [type](./ui-kit.iplaintext.type.md) | [ElementType.PLAIN\_TEXT](./ui-kit.elementtype.plain_text.md) |  |
 

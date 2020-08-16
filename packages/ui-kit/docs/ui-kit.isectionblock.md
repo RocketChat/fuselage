@@ -15,8 +15,8 @@ export interface ISectionBlock extends IBlock
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [accessory](./ui-kit.isectionblock.accessory.md) | ([IImageElement](./ui-kit.iimageelement.md) \| [IButtonElement](./ui-kit.ibuttonelement.md) \| [IDatePickerElement](./ui-kit.idatepickerelement.md) \| [IStaticSelectElement](./ui-kit.istaticselectelement.md) \| [IMultiStaticSelectElement](./ui-kit.imultistaticselectelement.md) \| [IOverflowElement](./ui-kit.ioverflowelement.md)<!-- -->) |  |
-|  [fields](./ui-kit.isectionblock.fields.md) | [ITextObject](./ui-kit.itextobject.md)<!-- -->\[\] |  |
-|  [text](./ui-kit.isectionblock.text.md) | [ITextObject](./ui-kit.itextobject.md) |  |
+|  [accessory](./ui-kit.isectionblock.accessory.md) | [SectionAccessoryElement](./ui-kit.sectionaccessoryelement.md) |  |
+|  [fields](./ui-kit.isectionblock.fields.md) | [TextObject](./ui-kit.textobject.md)<!-- -->\[\] |  |
+|  [text](./ui-kit.isectionblock.text.md) | [TextObject](./ui-kit.textobject.md) |  |
 |  [type](./ui-kit.isectionblock.type.md) | [ElementType.SECTION](./ui-kit.elementtype.section.md) |  |
 

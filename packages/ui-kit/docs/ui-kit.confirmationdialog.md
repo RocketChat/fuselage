@@ -9,7 +9,7 @@
 ```typescript
 export declare type ConfirmationDialog = {
     title: IPlainText;
-    text: ITextObject;
+    text: TextObject;
     confirm: IPlainText;
     deny: IPlainText;
     style: 'primary' | 'danger';

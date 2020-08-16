@@ -21,7 +21,6 @@ export declare enum ElementType
 |  CONVERSATION\_SELECT | <code>&quot;conversations_select&quot;</code> |  |
 |  DATEPICKER | <code>&quot;datepicker&quot;</code> |  |
 |  DIVIDER | <code>&quot;divider&quot;</code> |  |
-|  FIELDS | <code>&quot;fields&quot;</code> |  |
 |  IMAGE | <code>&quot;image&quot;</code> |  |
 |  INPUT | <code>&quot;input&quot;</code> |  |
 |  MARKDOWN | <code>&quot;mrkdwn&quot;</code> |  |

@@ -15,6 +15,6 @@ export interface IActionsBlock extends IBlock
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [elements](./ui-kit.iactionsblock.elements.md) | [IInteractiveElement](./ui-kit.iinteractiveelement.md)<!-- -->\[\] |  |
+|  [elements](./ui-kit.iactionsblock.elements.md) | [ActionElement](./ui-kit.actionelement.md)<!-- -->\[\] |  |
 |  [type](./ui-kit.iactionsblock.type.md) | [ElementType.ACTIONS](./ui-kit.elementtype.actions.md) |  |
 

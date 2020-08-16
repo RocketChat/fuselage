@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-placeholder?: ITextObject;
+placeholder?: TextObject;
 ```

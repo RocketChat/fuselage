@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-elements: (ITextObject | IImageElement)[];
+elements: ContextElement[];
 ```

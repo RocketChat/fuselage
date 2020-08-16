@@ -2,9 +2,15 @@ import {
   ElementType,
   BlockContext,
   IElement,
-  ITextObject,
+  TextObject,
   IPlainText,
   IMarkdown,
+  IDividerBlock,
+  ISectionBlock,
+  IImageBlock,
+  IActionsBlock,
+  IContextBlock,
+  IInputBlock,
   IButtonElement,
   IImageElement,
   IDatePickerElement,
@@ -12,12 +18,10 @@ import {
   IMultiStaticSelectElement,
   IOverflowElement,
   IPlainTextInput,
-  IDividerBlock,
-  ISectionBlock,
-  IImageBlock,
-  IActionsBlock,
-  IContextBlock,
-  IInputBlock,
+  SectionAccessoryElement,
+  ActionElement,
+  ContextElement,
+  InputElement,
 } from './blocks';
 
 export const version = 'DEVELOPMENT';
@@ -36,58 +40,67 @@ type RecursiveElementRenderer<T, P extends IParser<T>, E extends IElement> = (
 ) => T;
 
 interface IParser<T> {
-  text: ElementRenderer<T, ITextObject>;
+  text: ElementRenderer<T, TextObject>;
   plainText: ElementRenderer<T, IPlainText>;
   mrkdwn: ElementRenderer<T, IMarkdown>;
 }
 
 interface IParserMessage<T> extends IParser<T> {
-  // blocks
   divider: ElementRenderer<T, IDividerBlock>;
   section: ElementRenderer<T, ISectionBlock>;
-  image: ElementRenderer<T, IImageElement>;
-  actions: ElementRenderer<T, IElement>;
-  context: ElementRenderer<T, IElement>;
-  // elements
+  image: ElementRenderer<T, IImageBlock | IImageElement>;
+  actions: ElementRenderer<T, IActionsBlock>;
+  context: ElementRenderer<T, IContextBlock>;
   button: ElementRenderer<T, IButtonElement>;
-  datePicker: ElementRenderer<T, IElement>;
-  staticSelect: ElementRenderer<T, IElement>;
-  multiStaticSelect: ElementRenderer<T, IElement>;
-  overflow: ElementRenderer<T, IElement>;
-  renderAccessories: RecursiveElementRenderer<T, IParserMessage<T>, IElement>;
-  renderActions: RecursiveElementRenderer<T, IParserMessage<T>, IElement>;
-  renderContext: RecursiveElementRenderer<T, IParserMessage<T>, IElement>;
+  datePicker: ElementRenderer<T, IDatePickerElement>;
+  staticSelect: ElementRenderer<T, IStaticSelectElement>;
+  multiStaticSelect: ElementRenderer<T, IMultiStaticSelectElement>;
+  overflow: ElementRenderer<T, IOverflowElement>;
+  renderAccessories: RecursiveElementRenderer<T, IParserMessage<T>, SectionAccessoryElement>;
+  renderActions: RecursiveElementRenderer<T, IParserMessage<T>, ActionElement>;
+  renderContext: RecursiveElementRenderer<T, IParserMessage<T>, ContextElement>;
 }
 
 interface IParserModal<T> extends IParserMessage<T> {
   input: ElementRenderer<unknown, IInputBlock>;
   plainInput: ElementRenderer<T, IPlainTextInput>;
-  renderInputs: RecursiveElementRenderer<T, IParserModal<T>, IElement>;
+  renderInputs: RecursiveElementRenderer<T, IParserModal<T>, InputElement>;
 }
 
 const renderElement = <T, P extends IParserModal<T>>(
-  { type, ...element }: IElement,
+  element: IElement,
   context: BlockContext,
   parser: P,
   index: number,
 ): T => {
-  switch (type) {
+  switch (element.type) {
     case ElementType.OVERFLOW:
-      return parser.overflow({ type, ...element } as ITextObject, context, index);
+      return parser.overflow(element as IOverflowElement, context, index);
+
     case ElementType.PLAIN_TEXT:
+      return parser.plainText(element as IPlainText, context, index);
+
     case ElementType.MARKDOWN:
+      return parser.mrkdwn(element as IMarkdown, context, index);
+
     case ElementType.TEXT:
-      return parser.text({ type, ...element } as ITextObject, context, index);
+      return parser.text(element as TextObject, context, index);
+
     case ElementType.BUTTON:
       return parser.button(element as IButtonElement, context, index);
+
     case ElementType.IMAGE:
-      return parser.image(element as IImageElement, context, index);
+      return parser.image(element as IImageBlock | IImageElement, context, index);
+
     case ElementType.STATIC_SELECT:
-      return parser.staticSelect(element as IElement, context, index);
+      return parser.staticSelect(element as IStaticSelectElement, context, index);
+
     case ElementType.MULTI_STATIC_SELECT:
-      return parser.multiStaticSelect(element as IElement, context, index);
+      return parser.multiStaticSelect(element as IMultiStaticSelectElement, context, index);
+
     case ElementType.DATEPICKER:
-      return parser.datePicker(element as IElement, context, index);
+      return parser.datePicker(element as IDatePickerElement, context, index);
+
     case ElementType.PLAIN_TEXT_INPUT:
       return parser.plainInput(element as IPlainTextInput, context, index);
   }
@@ -107,7 +120,7 @@ abstract class UiKitParserText implements IParser<unknown> {
 
   mrkdwn: ElementRenderer<unknown, IMarkdown>;
 
-  text = (text: ITextObject, context: BlockContext, index: number): unknown => {
+  text = (text: TextObject, context: BlockContext, index: number): unknown => {
     if (text.type === ElementType.PLAIN_TEXT) {
       return this.plainText(text as IPlainText, context, index);
     }
