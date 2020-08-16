@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-image: (element: IElement, context: BlockContext, index: number) => unknown;
+image: ElementRenderer<unknown, IImageBlock>;
 ```

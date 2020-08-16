@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-overflow: (element: IElement, context: BlockContext, index: number) => unknown;
+overflow: (element: IOverflowElement, context: BlockContext, index: number) => unknown;
 ```

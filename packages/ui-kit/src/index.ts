@@ -46,13 +46,26 @@ type OptionGroup = {
   options: Option[];
 };
 
+type ConfirmationDialog = {
+  title: IPlainText;
+  text: ITextObject;
+  confirm: IPlainText;
+  deny: IPlainText;
+  style: 'primary' | 'danger';
+};
+
 interface IElement {
-  type: ElementType
+  type: ElementType;
 }
 
 interface IInteractiveElement extends IElement {
   actionId: ActionId;
-  confirm?: never; // TODO
+  confirm?: ConfirmationDialog;
+}
+
+interface IInputElement extends IElement {
+  actionId: ActionId;
+  confirm?: ConfirmationDialog;
 }
 
 interface IBlock extends IElement {
@@ -106,14 +119,22 @@ interface IMultiStaticSelectElement extends IInteractiveElement {
   placeholder: ITextObject;
   options: Option[];
   optionGroups?: OptionGroup[];
-  initialOption?: never;
-  confirm?: never;
+  initialOption?: Option;
   maxSelectItems?: number;
 }
 
 interface IOverflowElement extends IInteractiveElement {
   type: ElementType.OVERFLOW;
   options: Option[];
+}
+
+interface IPlainTextInput extends IInputElement {
+  type: ElementType.PLAIN_TEXT_INPUT;
+  placeholder?: IPlainText;
+  initialValue?: string;
+  multiline?: boolean;
+  minLength?: number;
+  maxLength?: number;
 }
 
 interface IDividerBlock extends IBlock {
@@ -149,6 +170,14 @@ interface IActionsBlock extends IBlock {
 interface IContextBlock extends IBlock {
   type: ElementType.CONTEXT;
   elements: (ITextObject | IImageElement)[];
+}
+
+interface IInputBlock extends IBlock {
+  type: ElementType.INPUT;
+  label: IPlainText;
+  element: IInputElement;
+  hint?: IPlainText;
+  optional?: boolean;
 }
 
 type ElementRenderer<T, E extends IElement> = (
@@ -189,7 +218,8 @@ interface IParserMessage<T> extends IParser<T> {
 }
 
 interface IParserModal<T> extends IParserMessage<T> {
-  plainInput: ElementRenderer<T, IElement>;
+  input: ElementRenderer<unknown, IInputBlock>;
+  plainInput: ElementRenderer<T, IPlainTextInput>;
   renderInputs: RecursiveElementRenderer<T, IParserModal<T>, IElement>;
 }
 
@@ -217,7 +247,7 @@ const renderElement = <T, P extends IParserModal<T>>(
     case ElementType.DATEPICKER:
       return parser.datePicker(element as IElement, context, index);
     case ElementType.PLAIN_TEXT_INPUT:
-      return parser.plainInput(element as IElement, context, index);
+      return parser.plainInput(element as IPlainTextInput, context, index);
   }
 };
 
@@ -249,25 +279,25 @@ abstract class UiKitParserText implements IParser<unknown> {
 }
 
 abstract class UiKitParserMessage extends UiKitParserText implements IParserMessage<unknown> {
-  divider: ElementRenderer<unknown, IElement>;
+  divider: ElementRenderer<unknown, IDividerBlock>;
 
-  section: ElementRenderer<unknown, IElement>;
+  section: ElementRenderer<unknown, ISectionBlock>;
 
-  image: ElementRenderer<unknown, IImageElement>;
+  image: ElementRenderer<unknown, IImageBlock>;
 
-  actions: ElementRenderer<unknown, IElement>;
+  actions: ElementRenderer<unknown, IActionsBlock>;
 
-  context: ElementRenderer<unknown, IElement>;
+  context: ElementRenderer<unknown, IContextBlock>;
 
-  button: (element: IElement, context: BlockContext, index: number) => unknown;
+  button: (element: IButtonElement, context: BlockContext, index: number) => unknown;
 
-  datePicker: (element: IElement, context: BlockContext, index: number) => unknown;
+  datePicker: (element: IDatePickerElement, context: BlockContext, index: number) => unknown;
 
-  staticSelect: (element: IElement, context: BlockContext, index: number) => unknown;
+  staticSelect: (element: IStaticSelectElement, context: BlockContext, index: number) => unknown;
 
-  multiStaticSelect: (element: IElement, context: BlockContext, index: number) => unknown;
+  multiStaticSelect: (element: IMultiStaticSelectElement, context: BlockContext, index: number) => unknown;
 
-  overflow: (element: IElement, context: BlockContext, index: number) => unknown;
+  overflow: (element: IOverflowElement, context: BlockContext, index: number) => unknown;
 
   renderAccessories = createRenderElement([
     ElementType.BUTTON,
@@ -302,7 +332,9 @@ abstract class UiKitParserMessage extends UiKitParserText implements IParserMess
 }
 
 abstract class UiKitParserModal extends UiKitParserMessage implements IParserModal<unknown> {
-  plainInput: (element: IElement, context: BlockContext, index: number) => unknown
+  input: ElementRenderer<unknown, IInputBlock>;
+
+  plainInput: ElementRenderer<unknown, IElement>;
 
   renderInputs = createRenderElement([
     ElementType.STATIC_SELECT,
@@ -355,6 +387,9 @@ const uiKitGeneric = <T>(allowedItems?: ElementType[]) =>
 
             case ElementType.CONTEXT:
               return (parser as IParserMessage<T>).context(element as IContextBlock, BlockContext.BLOCK, i);
+
+            case ElementType.INPUT:
+              return (parser as IParserModal<T>).input(element as IInputBlock, BlockContext.BLOCK, i);
 
             default:
               if (parser[element.type]) {

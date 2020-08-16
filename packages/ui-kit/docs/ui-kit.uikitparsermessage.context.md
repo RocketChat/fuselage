@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-context: (element: IElement, context: BlockContext, index: number) => unknown;
+context: ElementRenderer<unknown, IContextBlock>;
 ```

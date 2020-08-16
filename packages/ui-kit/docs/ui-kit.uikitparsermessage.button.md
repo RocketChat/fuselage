@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-button: (element: IElement, context: BlockContext, index: number) => unknown;
+button: (element: IButtonElement, context: BlockContext, index: number) => unknown;
 ```

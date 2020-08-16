@@ -7,27 +7,27 @@
 <b>Signature:</b>
 
 ```typescript
-declare abstract class UiKitParserMessage implements IParserMessage<unknown> 
+declare abstract class UiKitParserMessage extends UiKitParserText implements IParserMessage<unknown> 
 ```
+<b>Extends:</b> UiKitParserText
+
 <b>Implements:</b> IParserMessage&lt;unknown&gt;
 
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [actions](./ui-kit.uikitparsermessage.actions.md) |  | (element: IElement, context: BlockContext, index: number) =&gt; unknown |  |
-|  [button](./ui-kit.uikitparsermessage.button.md) |  | (element: IElement, context: BlockContext, index: number) =&gt; unknown |  |
-|  [context](./ui-kit.uikitparsermessage.context.md) |  | (element: IElement, context: BlockContext, index: number) =&gt; unknown |  |
-|  [datePicker](./ui-kit.uikitparsermessage.datepicker.md) |  | (element: IElement, context: BlockContext, index: number) =&gt; unknown |  |
-|  [divider](./ui-kit.uikitparsermessage.divider.md) |  | (element: IElement, context: BlockContext, index: number) =&gt; unknown |  |
-|  [image](./ui-kit.uikitparsermessage.image.md) |  | (element: IElement, context: BlockContext, index: number) =&gt; unknown |  |
-|  [mrkdwn](./ui-kit.uikitparsermessage.mrkdwn.md) |  | (text: ITextObject, context: BlockContext, index: number) =&gt; unknown |  |
-|  [multiStaticSelect](./ui-kit.uikitparsermessage.multistaticselect.md) |  | (element: IElement, context: BlockContext, index: number) =&gt; unknown |  |
-|  [overflow](./ui-kit.uikitparsermessage.overflow.md) |  | (element: IElement, context: BlockContext, index: number) =&gt; unknown |  |
-|  [plainText](./ui-kit.uikitparsermessage.plaintext.md) |  | (text: ITextObject, context: BlockContext, index: number) =&gt; unknown |  |
+|  [actions](./ui-kit.uikitparsermessage.actions.md) |  | ElementRenderer&lt;unknown, IActionsBlock&gt; |  |
+|  [button](./ui-kit.uikitparsermessage.button.md) |  | (element: IButtonElement, context: BlockContext, index: number) =&gt; unknown |  |
+|  [context](./ui-kit.uikitparsermessage.context.md) |  | ElementRenderer&lt;unknown, IContextBlock&gt; |  |
+|  [datePicker](./ui-kit.uikitparsermessage.datepicker.md) |  | (element: IDatePickerElement, context: BlockContext, index: number) =&gt; unknown |  |
+|  [divider](./ui-kit.uikitparsermessage.divider.md) |  | ElementRenderer&lt;unknown, IDividerBlock&gt; |  |
+|  [image](./ui-kit.uikitparsermessage.image.md) |  | ElementRenderer&lt;unknown, IImageBlock&gt; |  |
+|  [multiStaticSelect](./ui-kit.uikitparsermessage.multistaticselect.md) |  | (element: IMultiStaticSelectElement, context: BlockContext, index: number) =&gt; unknown |  |
+|  [overflow](./ui-kit.uikitparsermessage.overflow.md) |  | (element: IOverflowElement, context: BlockContext, index: number) =&gt; unknown |  |
 |  [renderAccessories](./ui-kit.uikitparsermessage.renderaccessories.md) |  | (element: IElement, context: BlockContext, parser: IParserModal&lt;unknown&gt;, index: number) =&gt; unknown |  |
 |  [renderActions](./ui-kit.uikitparsermessage.renderactions.md) |  | (element: IElement, context: BlockContext, parser: IParserModal&lt;unknown&gt;, index: number) =&gt; unknown |  |
 |  [renderContext](./ui-kit.uikitparsermessage.rendercontext.md) |  | (element: IElement, context: BlockContext, parser: IParserModal&lt;unknown&gt;, index: number) =&gt; unknown |  |
-|  [staticSelect](./ui-kit.uikitparsermessage.staticselect.md) |  | (element: IElement, context: BlockContext, index: number) =&gt; unknown |  |
-|  [text](./ui-kit.uikitparsermessage.text.md) |  | (text: ITextObject, context: BlockContext, index: number) =&gt; unknown |  |
+|  [section](./ui-kit.uikitparsermessage.section.md) |  | ElementRenderer&lt;unknown, ISectionBlock&gt; |  |
+|  [staticSelect](./ui-kit.uikitparsermessage.staticselect.md) |  | (element: IStaticSelectElement, context: BlockContext, index: number) =&gt; unknown |  |
 

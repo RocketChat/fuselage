@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-staticSelect: (element: IElement, context: BlockContext, index: number) => unknown;
+staticSelect: (element: IStaticSelectElement, context: BlockContext, index: number) => unknown;
 ```
