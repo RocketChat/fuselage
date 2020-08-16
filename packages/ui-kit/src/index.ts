@@ -83,9 +83,6 @@ const renderElement = <T, P extends IParserModal<T>>(
     case ElementType.MARKDOWN:
       return parser.mrkdwn(element as IMarkdown, context, index);
 
-    case ElementType.TEXT:
-      return parser.text(element as TextObject, context, index);
-
     case ElementType.BUTTON:
       return parser.button(element as IButtonElement, context, index);
 
@@ -180,7 +177,6 @@ abstract class UiKitParserMessage extends UiKitParserText implements IParserMess
 
   renderContext = createRenderElement([
     ElementType.IMAGE,
-    ElementType.TEXT,
     ElementType.PLAIN_TEXT,
     ElementType.MARKDOWN,
   ])
@@ -222,10 +218,15 @@ const uiKitGeneric = <T>(allowedItems?: ElementType[]) =>
         .map((element: IElement, i: number) => {
           switch (element.type) {
             case ElementType.PLAIN_TEXT:
+              if (typeof parser.text === 'function') {
+                return parser.text(element as TextObject, BlockContext.BLOCK, i);
+              }
               return parser.plainText(element as IPlainText, BlockContext.BLOCK, i);
 
-            case ElementType.TEXT:
             case ElementType.MARKDOWN:
+              if (typeof parser.text === 'function') {
+                return parser.text(element as TextObject, BlockContext.BLOCK, i);
+              }
               return parser.mrkdwn(element as IMarkdown, BlockContext.BLOCK, i);
 
             case ElementType.DIVIDER:
@@ -256,7 +257,6 @@ const uiKitGeneric = <T>(allowedItems?: ElementType[]) =>
     };
 
 const uiKitText = uiKitGeneric<unknown>([
-  ElementType.TEXT,
   ElementType.PLAIN_TEXT,
   ElementType.MARKDOWN,
 ]);

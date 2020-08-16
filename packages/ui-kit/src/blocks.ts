@@ -1,5 +1,4 @@
 export enum ElementType {
-  TEXT = 'text',
   PLAIN_TEXT = 'plain_text',
   MARKDOWN = 'mrkdwn',
   DIVIDER = 'divider',
