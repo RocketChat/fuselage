@@ -32,29 +32,25 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.5.0",
-    "@babel/preset-env": "^7.4.5",
-    "@microsoft/api-documenter": "^7.8.21",
-    "@microsoft/api-extractor": "^7.9.2",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@microsoft/api-documenter": "^7.8.25",
+    "@microsoft/api-extractor": "^7.9.4",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@types/uuid": "^8.3.0",
-    "@typescript-eslint/eslint-plugin": "^3.7.1",
-    "@typescript-eslint/parser": "^3.7.1",
-    "babel-loader": "^8.0.6",
-    "compression-webpack-plugin": "^3.0.0",
+    "@types/jest": "^26.0.10",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "babel-loader": "^8.1.0",
     "documentation": "^13.0.2",
-    "eslint": "^7.5.0",
+    "eslint": "^7.7.0",
     "eslint-plugin-import": "^2.22.0",
-    "jest": "^26.3.0",
+    "jest": "^26.4.0",
     "lint-staged": "^10.2.11",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.2.0",
-    "ts-loader": "^6.2.1",
+    "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "webpack-plugin-replace": "^1.2.0"
-  },
-  "dependencies": {
-    "uuid": "^8.3.0"
   }
 }
