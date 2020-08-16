@@ -1,12 +1,13 @@
 {
   "name": "@rocket.chat/fuselage-ui-kit",
   "version": "0.13.2",
+  "description": "UiKit elements for Rocket.Chat Apps built under Fuselage design system",
+  "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
   "license": "MIT",
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
@@ -19,8 +20,13 @@
     "index.js",
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 0",
+    "lint": "eslint --ext js,mdx src",
+    "lint-staged": "lint-staged",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build:prod": "webpack --mode production",
@@ -31,43 +37,34 @@
     "@rocket.chat/fuselage": "^0.13.2",
     "@rocket.chat/fuselage-hooks": "^0.13.2",
     "@rocket.chat/icons": "^0.13.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
-  "dependencies": {
-    "@rocket.chat/ui-kit": "^0.13.1"
+    "@rocket.chat/ui-kit": "^0.13.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.7.4",
-    "@rocket.chat/apps-engine": "1.16.0-alpha.3466",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@rocket.chat/apps-engine": "^1.16.0",
     "@rocket.chat/fuselage": "^0.13.2",
     "@rocket.chat/fuselage-hooks": "^0.13.2",
     "@rocket.chat/icons": "^0.13.1",
-    "@storybook/addon-actions": "^5.3.17",
-    "@storybook/addon-backgrounds": "^5.3.17",
-    "@storybook/addon-centered": "^5.3.17",
-    "@storybook/addon-docs": "^5.3.17",
-    "@storybook/addon-knobs": "^5.3.17",
-    "@storybook/addon-links": "^5.3.17",
-    "@storybook/addon-options": "^5.3.17",
-    "@storybook/addon-viewport": "^5.3.17",
-    "@storybook/addons": "^5.3.17",
-    "@storybook/react": "^5.3.17",
-    "@storybook/source-loader": "^5.3.17",
-    "@storybook/theming": "^5.3.17",
+    "@rocket.chat/ui-kit": "^0.13.1",
+    "@storybook/addon-actions": "^6.0.10",
+    "@storybook/addon-backgrounds": "^6.0.10",
+    "@storybook/addon-docs": "^6.0.10",
+    "@storybook/addon-knobs": "^6.0.10",
+    "@storybook/addon-viewport": "^6.0.10",
+    "@storybook/addons": "^6.0.10",
+    "@storybook/react": "^6.0.10",
+    "@storybook/source-loader": "^6.0.10",
+    "@storybook/theming": "^6.0.10",
     "babel-loader": "^8.0.6",
-    "compression-webpack-plugin": "^3.0.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.8.3",
-    "webpack-plugin-replace": "^1.2.0"
-  },
-  "publishConfig": {
-    "access": "public"
+    "eslint": "^7.7.0",
+    "eslint-plugin-mdx": "^1.8.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "gitHead": "f8467b8ffb6f90d91b46fbcdd5dca169235916a4"
 }

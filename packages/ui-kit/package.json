@@ -2,9 +2,19 @@
   "name": "@rocket.chat/ui-kit",
   "version": "0.13.1",
   "description": "Interactive UI elements for Rocket.Chat Apps",
-  "author": "Guilherme Gazzo <guilhermegazzo@gmail.com>",
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -12,10 +22,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
   },
   "scripts": {
     "build": "webpack --mode production",
@@ -27,9 +33,6 @@
     "docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
     "docs:clean": "rimraf temp",
     "docs": "run-s build docs:api-extractor docs:api-documenter docs:readme docs:clean"
-  },
-  "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",

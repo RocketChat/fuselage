@@ -27,7 +27,7 @@ import { useBlockContext } from './hooks';
 
 export * from './hooks';
 
-export const version = 'DEVELOPMENT';
+export const version = process.env.VERSION;
 
 console.log(`fuselage-ui-kit version: ${ version }`);
 
@@ -81,6 +81,7 @@ class MessageParser extends UiKitParserMessage {
   }
 
   datePicker(element, context, key) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [{ loading, value, error }, action] = useBlockContext(element, context);
     const { actionId, placeholder } = element;
     return (
