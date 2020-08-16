@@ -1,184 +1,26 @@
+import {
+  ElementType,
+  BlockContext,
+  IElement,
+  ITextObject,
+  IPlainText,
+  IMarkdown,
+  IButtonElement,
+  IImageElement,
+  IDatePickerElement,
+  IStaticSelectElement,
+  IMultiStaticSelectElement,
+  IOverflowElement,
+  IPlainTextInput,
+  IDividerBlock,
+  ISectionBlock,
+  IImageBlock,
+  IActionsBlock,
+  IContextBlock,
+  IInputBlock,
+} from './blocks';
+
 export const version = 'DEVELOPMENT';
-
-enum ElementType {
-  BUTTON = 'button',
-  IMAGE = 'image',
-  OVERFLOW = 'overflow',
-  PLAIN_TEXT_INPUT = 'plain_text_input',
-  STATIC_SELECT = 'static_select',
-  MULTI_STATIC_SELECT = 'multi_static_select',
-  SECTION = 'section',
-  DIVIDER = 'divider',
-  ACTIONS = 'actions',
-  CONTEXT = 'context',
-  INPUT = 'input',
-  CONVERSATION_SELECT = 'conversations_select',
-  CHANNEL_SELECT = 'channels_select',
-  USER_SELECT = 'users_select',
-  DATEPICKER = 'datepicker',
-  FIELDS = 'fields',
-  PLAIN_TEXT = 'plain_text',
-  TEXT = 'text',
-  MARKDOWN = 'mrkdwn',
-}
-
-enum BlockContext {
-  BLOCK,
-  SECTION,
-  ACTION,
-  FORM,
-  CONTEXT,
-}
-
-type ActionId = string;
-
-type BlockId = string;
-
-type Option = {
-  text: ITextObject;
-  value: string;
-  description?: IPlainText;
-  url?: string;
-};
-
-type OptionGroup = {
-  label: IPlainText;
-  options: Option[];
-};
-
-type ConfirmationDialog = {
-  title: IPlainText;
-  text: ITextObject;
-  confirm: IPlainText;
-  deny: IPlainText;
-  style: 'primary' | 'danger';
-};
-
-interface IElement {
-  type: ElementType;
-}
-
-interface IInteractiveElement extends IElement {
-  actionId: ActionId;
-  confirm?: ConfirmationDialog;
-}
-
-interface IInputElement extends IElement {
-  actionId: ActionId;
-  confirm?: ConfirmationDialog;
-}
-
-interface IBlock extends IElement {
-  blockId?: BlockId;
-}
-
-interface ITextObject extends IElement {
-  text: string;
-}
-
-interface IPlainText extends ITextObject {
-  type: ElementType.PLAIN_TEXT;
-  emoji?: boolean;
-}
-
-interface IMarkdown extends ITextObject {
-  type: ElementType.MARKDOWN;
-  verbatim?: boolean;
-}
-
-interface IButtonElement extends IInteractiveElement {
-  type: ElementType.BUTTON;
-  text: IPlainText;
-  url?: string;
-  value?: string;
-  style?: 'primary' | 'danger';
-}
-
-interface IImageElement extends IElement {
-  type: ElementType.IMAGE;
-  imageUrl: string;
-  altText: string;
-}
-
-interface IDatePickerElement extends IInteractiveElement {
-  type: ElementType.DATEPICKER;
-  placeholder?: ITextObject;
-  initialDate?: string;
-}
-
-interface IStaticSelectElement extends IInteractiveElement {
-  type: ElementType.STATIC_SELECT;
-  placeholder: ITextObject;
-  options: Option[];
-  optionGroups?: OptionGroup[];
-  initialOption?: Option;
-}
-
-interface IMultiStaticSelectElement extends IInteractiveElement {
-  type: ElementType.MULTI_STATIC_SELECT;
-  placeholder: ITextObject;
-  options: Option[];
-  optionGroups?: OptionGroup[];
-  initialOption?: Option;
-  maxSelectItems?: number;
-}
-
-interface IOverflowElement extends IInteractiveElement {
-  type: ElementType.OVERFLOW;
-  options: Option[];
-}
-
-interface IPlainTextInput extends IInputElement {
-  type: ElementType.PLAIN_TEXT_INPUT;
-  placeholder?: IPlainText;
-  initialValue?: string;
-  multiline?: boolean;
-  minLength?: number;
-  maxLength?: number;
-}
-
-interface IDividerBlock extends IBlock {
-  type: ElementType.DIVIDER;
-}
-
-interface ISectionBlock extends IBlock {
-  type: ElementType.SECTION;
-  text?: ITextObject;
-  fields?: ITextObject[];
-  accessory?: (
-    IImageElement
-    | IButtonElement
-    | IDatePickerElement
-    | IStaticSelectElement
-    | IMultiStaticSelectElement
-    | IOverflowElement
-  );
-}
-
-interface IImageBlock extends IBlock {
-  type: ElementType.IMAGE;
-  imageUrl: string;
-  altText: string;
-  title?: IPlainText;
-}
-
-interface IActionsBlock extends IBlock {
-  type: ElementType.ACTIONS;
-  elements: IInteractiveElement[];
-}
-
-interface IContextBlock extends IBlock {
-  type: ElementType.CONTEXT;
-  elements: (ITextObject | IImageElement)[];
-}
-
-interface IInputBlock extends IBlock {
-  type: ElementType.INPUT;
-  label: IPlainText;
-  element: IInputElement;
-  hint?: IPlainText;
-  optional?: boolean;
-}
 
 type ElementRenderer<T, E extends IElement> = (
   element: E,
@@ -433,3 +275,5 @@ export {
   uiKitMessage,
   uiKitModal,
 };
+
+export * from './blocks';

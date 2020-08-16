@@ -15,7 +15,7 @@ declare abstract class UiKitParserText implements IParser<unknown>
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [mrkdwn](./ui-kit.uikitparsertext.mrkdwn.md) |  | ElementRenderer&lt;unknown, IMarkdown&gt; |  |
-|  [plainText](./ui-kit.uikitparsertext.plaintext.md) |  | ElementRenderer&lt;unknown, IPlainText&gt; |  |
-|  [text](./ui-kit.uikitparsertext.text.md) |  | (text: ITextObject, context: BlockContext, index: number) =&gt; unknown |  |
+|  [mrkdwn](./ui-kit.uikitparsertext.mrkdwn.md) |  | ElementRenderer&lt;unknown, [IMarkdown](./ui-kit.imarkdown.md)<!-- -->&gt; |  |
+|  [plainText](./ui-kit.uikitparsertext.plaintext.md) |  | ElementRenderer&lt;unknown, [IPlainText](./ui-kit.iplaintext.md)<!-- -->&gt; |  |
+|  [text](./ui-kit.uikitparsertext.text.md) |  | (text: [ITextObject](./ui-kit.itextobject.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
 

@@ -16,8 +16,33 @@
 
 |  Enumeration | Description |
 |  --- | --- |
-|  [BLOCK\_CONTEXT](./ui-kit.block_context.md) |  |
-|  [ELEMENT\_TYPES](./ui-kit.element_types.md) |  |
+|  [BlockContext](./ui-kit.blockcontext.md) |  |
+|  [ElementType](./ui-kit.elementtype.md) |  |
+
+## Interfaces
+
+|  Interface | Description |
+|  --- | --- |
+|  [IActionsBlock](./ui-kit.iactionsblock.md) |  |
+|  [IBlock](./ui-kit.iblock.md) |  |
+|  [IButtonElement](./ui-kit.ibuttonelement.md) |  |
+|  [IContextBlock](./ui-kit.icontextblock.md) |  |
+|  [IDatePickerElement](./ui-kit.idatepickerelement.md) |  |
+|  [IDividerBlock](./ui-kit.idividerblock.md) |  |
+|  [IElement](./ui-kit.ielement.md) |  |
+|  [IImageBlock](./ui-kit.iimageblock.md) |  |
+|  [IImageElement](./ui-kit.iimageelement.md) |  |
+|  [IInputBlock](./ui-kit.iinputblock.md) |  |
+|  [IInputElement](./ui-kit.iinputelement.md) |  |
+|  [IInteractiveElement](./ui-kit.iinteractiveelement.md) |  |
+|  [IMarkdown](./ui-kit.imarkdown.md) |  |
+|  [IMultiStaticSelectElement](./ui-kit.imultistaticselectelement.md) |  |
+|  [IOverflowElement](./ui-kit.ioverflowelement.md) |  |
+|  [IPlainText](./ui-kit.iplaintext.md) |  |
+|  [IPlainTextInput](./ui-kit.iplaintextinput.md) |  |
+|  [ISectionBlock](./ui-kit.isectionblock.md) |  |
+|  [IStaticSelectElement](./ui-kit.istaticselectelement.md) |  |
+|  [ITextObject](./ui-kit.itextobject.md) |  |
 
 ## Variables
 
@@ -27,4 +52,14 @@
 |  [uiKitModal](./ui-kit.uikitmodal.md) |  |
 |  [uiKitText](./ui-kit.uikittext.md) |  |
 |  [version](./ui-kit.version.md) |  |
+
+## Type Aliases
+
+|  Type Alias | Description |
+|  --- | --- |
+|  [ActionId](./ui-kit.actionid.md) |  |
+|  [BlockId](./ui-kit.blockid.md) |  |
+|  [ConfirmationDialog](./ui-kit.confirmationdialog.md) |  |
+|  [Option](./ui-kit.option.md) |  |
+|  [OptionGroup](./ui-kit.optiongroup.md) |  |
 
