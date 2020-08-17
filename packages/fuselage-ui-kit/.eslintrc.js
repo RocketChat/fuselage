@@ -1,9 +1,7 @@
 module.exports = {
-  extends: [
-    '@rocket.chat/eslint-config',
-    'plugin:mdx/recommended',
-  ],
+  extends: ['@rocket.chat/eslint-config'],
   plugins: ['react', 'react-hooks'],
+  parser: 'babel-eslint',
   rules: {
     indent: ['error', 2],
     'import/order': ['error', {
