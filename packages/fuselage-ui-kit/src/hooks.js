@@ -24,6 +24,7 @@ export const useBlockContext = ({ blockId, actionId, appId, initialValue }, cont
   const actionFunction = useMutableCallback(async ({ target: { value } }) => {
     setLoading(true);
     setValue(value);
+    state && await state({ blockId, appId, actionId, value });
     await action({ blockId, appId: appId || appIdFromContext, actionId, value, viewId });
     setLoading(false);
   });
