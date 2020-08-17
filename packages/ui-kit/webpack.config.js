@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-const ReplacePlugin = require('webpack-plugin-replace');
+const webpack = require('webpack');
 
 const pkg = require('./package.json');
 
@@ -18,7 +18,7 @@ module.exports = (env, argv) => ({
     umdNamedDefine: true,
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: ['.ts', '.tsx', '.js'],
   },
   devtool: argv.mode === 'production' ? false : 'source-map',
   module: {
@@ -31,11 +31,8 @@ module.exports = (env, argv) => ({
     ],
   },
   plugins: [
-    new ReplacePlugin({
-      include: ['index.ts'],
-      values: {
-        '"DEVELOPMENT"': JSON.stringify(pkg.version),
-      },
+    new webpack.DefinePlugin({
+      'process.env.VERSION': JSON.stringify(pkg.version),
     }),
   ],
 });

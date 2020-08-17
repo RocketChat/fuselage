@@ -54,6 +54,12 @@ export interface IElement {
   type: ElementType;
 }
 
+export const isElement = (x: IElement): x is IElement =>
+  x !== null
+  && typeof x === 'object'
+  && 'type' in x
+  && Object.values(ElementType).includes(x.type);
+
 export interface IActionableElement extends IElement {
   actionId: ActionId;
   confirm?: ConfirmationDialog;

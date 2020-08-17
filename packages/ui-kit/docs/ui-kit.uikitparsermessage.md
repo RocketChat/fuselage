@@ -25,9 +25,9 @@ declare abstract class UiKitParserMessage extends UiKitParserText implements IPa
 |  [image](./ui-kit.uikitparsermessage.image.md) |  | ElementRenderer&lt;unknown, [IImageBlock](./ui-kit.iimageblock.md)<!-- -->&gt; |  |
 |  [multiStaticSelect](./ui-kit.uikitparsermessage.multistaticselect.md) |  | (element: [IMultiStaticSelectElement](./ui-kit.imultistaticselectelement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
 |  [overflow](./ui-kit.uikitparsermessage.overflow.md) |  | (element: [IOverflowElement](./ui-kit.ioverflowelement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
-|  [renderAccessories](./ui-kit.uikitparsermessage.renderaccessories.md) |  | (element: [IElement](./ui-kit.ielement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, parser: IParserModal&lt;unknown&gt;, index: number) =&gt; unknown |  |
-|  [renderActions](./ui-kit.uikitparsermessage.renderactions.md) |  | (element: [IElement](./ui-kit.ielement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, parser: IParserModal&lt;unknown&gt;, index: number) =&gt; unknown |  |
-|  [renderContext](./ui-kit.uikitparsermessage.rendercontext.md) |  | (element: [IElement](./ui-kit.ielement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, parser: IParserModal&lt;unknown&gt;, index: number) =&gt; unknown |  |
+|  [renderAccessories](./ui-kit.uikitparsermessage.renderaccessories.md) |  | ElementSetRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
+|  [renderActions](./ui-kit.uikitparsermessage.renderactions.md) |  | ElementSetRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
+|  [renderContext](./ui-kit.uikitparsermessage.rendercontext.md) |  | ElementSetRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
 |  [section](./ui-kit.uikitparsermessage.section.md) |  | ElementRenderer&lt;unknown, [ISectionBlock](./ui-kit.isectionblock.md)<!-- -->&gt; |  |
 |  [staticSelect](./ui-kit.uikitparsermessage.staticselect.md) |  | (element: [IStaticSelectElement](./ui-kit.istaticselectelement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
 

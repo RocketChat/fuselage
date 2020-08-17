@@ -41,7 +41,7 @@ class TestParser extends UiKitParserMessage {
         children: [
           ...element.text ? [this.text(element.text, BLOCK_CONTEXT.SECTION, key++)] : [],
           ...element.fields?.map((field: any) => this.text(field, BLOCK_CONTEXT.SECTION, key++)) ?? [],
-          ...element.accessory ? [this.renderAccessories(element.accessory, BLOCK_CONTEXT.SECTION, this as any, key++)] : [],
+          ...element.accessory ? [this.renderAccessories(element.accessory, BLOCK_CONTEXT.SECTION, undefined, key++)] : [],
         ],
         block: context === BLOCK_CONTEXT.BLOCK,
       },
@@ -52,7 +52,7 @@ class TestParser extends UiKitParserMessage {
     component: 'actions',
     props: {
       key: index,
-      children: element.elements.map((element: any, key: number) => this.renderActions(element, BLOCK_CONTEXT.ACTION, this as any, key)),
+      children: element.elements.map((element: any, key: number) => this.renderActions(element, BLOCK_CONTEXT.ACTION, undefined, key)),
       block: context === BLOCK_CONTEXT.BLOCK,
     },
   })
@@ -61,7 +61,7 @@ class TestParser extends UiKitParserMessage {
     component: 'context',
     props: {
       key: index,
-      children: element.elements.map((element: any, key: number) => this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this as any, key)),
+      children: element.elements.map((element: any, key: number) => this.renderContext(element, BLOCK_CONTEXT.CONTEXT, undefined, key)),
       block: context === BLOCK_CONTEXT.BLOCK,
     },
   })
@@ -861,9 +861,9 @@ describe('actions', () => {
         props: {
           key: 0,
           children: [
-            undefined,
-            undefined,
-            undefined,
+            null,
+            null,
+            null,
             {
               component: 'select',
               props: {
@@ -963,7 +963,7 @@ describe('actions', () => {
         props: {
           key: 0,
           children: [
-            undefined,
+            null,
           ],
           block: true,
         },
@@ -1012,9 +1012,9 @@ describe('actions', () => {
         props: {
           key: 0,
           children: [
-            undefined,
-            undefined,
-            undefined,
+            null,
+            null,
+            null,
           ],
           block: true,
         },

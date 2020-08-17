@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-uiKitModal: (parser: IParser<unknown>) => (payload: unknown) => any
+uiKitModal: (parser: IParser<unknown>) => (blocks: unknown) => any
 ```

@@ -53,7 +53,6 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^26.2.0",
     "ts-loader": "^8.0.2",
-    "typescript": "^3.9.7",
-    "webpack-plugin-replace": "^1.2.0"
+    "typescript": "^3.9.7"
   }
 }

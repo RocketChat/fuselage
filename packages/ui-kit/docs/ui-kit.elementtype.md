@@ -30,6 +30,5 @@ export declare enum ElementType
 |  PLAIN\_TEXT\_INPUT | <code>&quot;plain_text_input&quot;</code> |  |
 |  SECTION | <code>&quot;section&quot;</code> |  |
 |  STATIC\_SELECT | <code>&quot;static_select&quot;</code> |  |
-|  TEXT | <code>&quot;text&quot;</code> |  |
 |  USER\_SELECT | <code>&quot;users_select&quot;</code> |  |
 

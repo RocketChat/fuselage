@@ -2,6 +2,7 @@ import {
   ElementType,
   BlockContext,
   IElement,
+  isElement,
   TextObject,
   IPlainText,
   IMarkdown,
@@ -22,9 +23,12 @@ import {
   ActionElement,
   ContextElement,
   InputElement,
+  IBlock,
 } from './blocks';
 
-export const version = 'DEVELOPMENT';
+export const version = process.env.VERSION;
+
+type BlockRenderer<T, B extends IBlock> = (block: B, context: BlockContext.BLOCK, index: number) => T ;
 
 type ElementRenderer<T, E extends IElement> = (
   element: E,
@@ -32,10 +36,10 @@ type ElementRenderer<T, E extends IElement> = (
   index: number,
 ) => T;
 
-type RecursiveElementRenderer<T, P extends IParser<T>, E extends IElement> = (
+type ElementSetRenderer<T, E extends IElement> = (
   element: E,
   context: BlockContext,
-  parser: P,
+  _: undefined,
   index: number,
 ) => T;
 
@@ -46,71 +50,142 @@ interface IParser<T> {
 }
 
 interface IParserMessage<T> extends IParser<T> {
-  divider: ElementRenderer<T, IDividerBlock>;
-  section: ElementRenderer<T, ISectionBlock>;
-  image: ElementRenderer<T, IImageBlock | IImageElement>;
-  actions: ElementRenderer<T, IActionsBlock>;
-  context: ElementRenderer<T, IContextBlock>;
+  divider: BlockRenderer<T, IDividerBlock>;
+  section: BlockRenderer<T, ISectionBlock>;
+  image: BlockRenderer<T, IImageBlock> | ElementRenderer<T, IImageElement>;
+  actions: BlockRenderer<T, IActionsBlock>;
+  context: BlockRenderer<T, IContextBlock>;
+
   button: ElementRenderer<T, IButtonElement>;
   datePicker: ElementRenderer<T, IDatePickerElement>;
   staticSelect: ElementRenderer<T, IStaticSelectElement>;
   multiStaticSelect: ElementRenderer<T, IMultiStaticSelectElement>;
   overflow: ElementRenderer<T, IOverflowElement>;
-  renderAccessories: RecursiveElementRenderer<T, IParserMessage<T>, SectionAccessoryElement>;
-  renderActions: RecursiveElementRenderer<T, IParserMessage<T>, ActionElement>;
-  renderContext: RecursiveElementRenderer<T, IParserMessage<T>, ContextElement>;
+
+  renderAccessories: ElementSetRenderer<T, SectionAccessoryElement>;
+  renderActions: ElementSetRenderer<T, ActionElement>;
+  renderContext: ElementSetRenderer<T, ContextElement>;
 }
 
 interface IParserModal<T> extends IParserMessage<T> {
-  input: ElementRenderer<unknown, IInputBlock>;
+  input: BlockRenderer<T, IInputBlock>;
+
   plainInput: ElementRenderer<T, IPlainTextInput>;
-  renderInputs: RecursiveElementRenderer<T, IParserModal<T>, InputElement>;
+
+  renderInputs: ElementSetRenderer<T, InputElement>;
 }
 
-const renderElement = <T, P extends IParserModal<T>>(
+const renderElement = <T>(
   element: IElement,
   context: BlockContext,
-  parser: P,
+  parser: IParser<T>,
   index: number,
 ): T => {
   switch (element.type) {
-    case ElementType.OVERFLOW:
-      return parser.overflow(element as IOverflowElement, context, index);
-
     case ElementType.PLAIN_TEXT:
+      if (typeof parser.text === 'function') {
+        return parser.text(element as TextObject, context, index);
+      }
+
       return parser.plainText(element as IPlainText, context, index);
 
     case ElementType.MARKDOWN:
+      if (typeof parser.text === 'function') {
+        return parser.text(element as TextObject, context, index);
+      }
+
       return parser.mrkdwn(element as IMarkdown, context, index);
 
-    case ElementType.BUTTON:
-      return parser.button(element as IButtonElement, context, index);
+    case ElementType.DIVIDER:
+      if (context !== BlockContext.BLOCK) {
+        return null;
+      }
+
+      return (parser as IParserMessage<T>).divider(element as IDividerBlock, BlockContext.BLOCK, index);
+
+    case ElementType.SECTION:
+      if (context !== BlockContext.BLOCK) {
+        return null;
+      }
+
+      return (parser as IParserMessage<T>).section(element as ISectionBlock, BlockContext.BLOCK, index);
 
     case ElementType.IMAGE:
-      return parser.image(element as IImageBlock | IImageElement, context, index);
+      if (context !== BlockContext.BLOCK) {
+        return ((parser as IParserMessage<T>).image as ElementRenderer<T, IImageElement>)(element as IImageElement, context, index);
+      }
+
+      return (parser as IParserMessage<T>).image(element as IImageBlock, context, index);
+
+    case ElementType.ACTIONS:
+      if (context !== BlockContext.BLOCK) {
+        return null;
+      }
+
+      return (parser as IParserMessage<T>).actions(element as IActionsBlock, BlockContext.BLOCK, index);
+
+    case ElementType.CONTEXT:
+      if (context !== BlockContext.BLOCK) {
+        return null;
+      }
+
+      return (parser as IParserMessage<T>).context(element as IContextBlock, BlockContext.BLOCK, index);
+
+    case ElementType.INPUT:
+      if (context !== BlockContext.BLOCK) {
+        return null;
+      }
+
+      return (parser as IParserModal<T>).input(element as IInputBlock, BlockContext.BLOCK, index);
+
+    case ElementType.OVERFLOW:
+      return (parser as IParserMessage<T>).overflow(element as IOverflowElement, context, index);
+
+    case ElementType.BUTTON:
+      return (parser as IParserMessage<T>).button(element as IButtonElement, context, index);
 
     case ElementType.STATIC_SELECT:
-      return parser.staticSelect(element as IStaticSelectElement, context, index);
+      return (parser as IParserMessage<T>).staticSelect(element as IStaticSelectElement, context, index);
 
     case ElementType.MULTI_STATIC_SELECT:
-      return parser.multiStaticSelect(element as IMultiStaticSelectElement, context, index);
+      return (parser as IParserMessage<T>).multiStaticSelect(element as IMultiStaticSelectElement, context, index);
 
     case ElementType.DATEPICKER:
-      return parser.datePicker(element as IDatePickerElement, context, index);
+      return (parser as IParserMessage<T>).datePicker(element as IDatePickerElement, context, index);
 
     case ElementType.PLAIN_TEXT_INPUT:
-      return parser.plainInput(element as IPlainTextInput, context, index);
+      return (parser as IParserModal<T>).plainInput(element as IPlainTextInput, context, index);
   }
+
+  if (parser[element.type]) {
+    return parser[element.type](element, context, index);
+  }
+
+  return null;
 };
 
-const createRenderElement = <T, P extends IParserModal<T>>(allowedItems?: ElementType[]) =>
-  (element: IElement, context: BlockContext, parser: P, index: number): T => {
+const createElementRenderer = <T>(parser: IParser<T>, allowedItems?: ElementType[]): ElementSetRenderer<T, IElement> =>
+  (element: IElement, context: BlockContext, _: undefined, index: number): T => {
     if (allowedItems && !allowedItems.includes(element.type)) {
       return null;
     }
 
-    return renderElement<T, P>(element, context, parser, index);
+    return renderElement<T>(element, context, parser, index);
   };
+
+const createSurfaceRenderer = <T>(allowedBlockTypes?: ElementType[]) =>
+  (parser: IParser<T>) =>
+    (blocks: unknown): any => {
+      if (!Array.isArray(blocks)) {
+        return [];
+      }
+
+      return blocks
+        .filter<IElement>(isElement)
+        .filter((element) => !allowedBlockTypes || allowedBlockTypes.includes(element.type))
+        .map((element: IElement, index: number) =>
+          renderElement(element, BlockContext.BLOCK, parser, index));
+    };
 
 abstract class UiKitParserText implements IParser<unknown> {
   plainText: ElementRenderer<unknown, IPlainText>;
@@ -151,7 +226,7 @@ abstract class UiKitParserMessage extends UiKitParserText implements IParserMess
 
   overflow: (element: IOverflowElement, context: BlockContext, index: number) => unknown;
 
-  renderAccessories = createRenderElement([
+  renderAccessories = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.IMAGE,
     ElementType.MULTI_STATIC_SELECT,
@@ -164,7 +239,7 @@ abstract class UiKitParserMessage extends UiKitParserText implements IParserMess
     ElementType.OVERFLOW,
   ]);
 
-  renderActions = createRenderElement([
+  renderActions = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.STATIC_SELECT,
     ElementType.MULTI_STATIC_SELECT,
@@ -175,7 +250,7 @@ abstract class UiKitParserMessage extends UiKitParserText implements IParserMess
     ElementType.DATEPICKER,
   ]);
 
-  renderContext = createRenderElement([
+  renderContext = createElementRenderer(this, [
     ElementType.IMAGE,
     ElementType.PLAIN_TEXT,
     ElementType.MARKDOWN,
@@ -187,7 +262,7 @@ abstract class UiKitParserModal extends UiKitParserMessage implements IParserMod
 
   plainInput: ElementRenderer<unknown, IElement>;
 
-  renderInputs = createRenderElement([
+  renderInputs = createElementRenderer(this, [
     ElementType.STATIC_SELECT,
     ElementType.PLAIN_TEXT_INPUT,
     ElementType.MULTI_STATIC_SELECT,
@@ -199,69 +274,12 @@ abstract class UiKitParserModal extends UiKitParserMessage implements IParserMod
   ]);
 }
 
-const isElement = (x: IElement): x is IElement =>
-  x !== null
-  && typeof x === 'object'
-  && 'type' in x
-  && Object.values(ElementType).includes(x.type);
-
-const uiKitGeneric = <T>(allowedItems?: ElementType[]) =>
-  (parser: IParser<T>) =>
-    (payload: unknown): any => {
-      if (!Array.isArray(payload)) {
-        return [];
-      }
-
-      return payload
-        .filter<IElement>(isElement)
-        .filter((element) => !allowedItems || allowedItems.includes(element.type))
-        .map((element: IElement, i: number) => {
-          switch (element.type) {
-            case ElementType.PLAIN_TEXT:
-              if (typeof parser.text === 'function') {
-                return parser.text(element as TextObject, BlockContext.BLOCK, i);
-              }
-              return parser.plainText(element as IPlainText, BlockContext.BLOCK, i);
-
-            case ElementType.MARKDOWN:
-              if (typeof parser.text === 'function') {
-                return parser.text(element as TextObject, BlockContext.BLOCK, i);
-              }
-              return parser.mrkdwn(element as IMarkdown, BlockContext.BLOCK, i);
-
-            case ElementType.DIVIDER:
-              return (parser as IParserMessage<T>).divider(element as IDividerBlock, BlockContext.BLOCK, i);
-
-            case ElementType.SECTION:
-              return (parser as IParserMessage<T>).section(element as ISectionBlock, BlockContext.BLOCK, i);
-
-            case ElementType.IMAGE:
-              return (parser as IParserMessage<T>).image(element as IImageBlock, BlockContext.BLOCK, i);
-
-            case ElementType.ACTIONS:
-              return (parser as IParserMessage<T>).actions(element as IActionsBlock, BlockContext.BLOCK, i);
-
-            case ElementType.CONTEXT:
-              return (parser as IParserMessage<T>).context(element as IContextBlock, BlockContext.BLOCK, i);
-
-            case ElementType.INPUT:
-              return (parser as IParserModal<T>).input(element as IInputBlock, BlockContext.BLOCK, i);
-
-            default:
-              if (parser[element.type]) {
-                return parser[element.type](element, BlockContext.BLOCK, i);
-              }
-              return null;
-          }
-        });
-    };
-
-const uiKitText = uiKitGeneric<unknown>([
+const uiKitText = createSurfaceRenderer<unknown>([
   ElementType.PLAIN_TEXT,
   ElementType.MARKDOWN,
 ]);
 
-const uiKitMessage = uiKitGeneric<unknown>([
+const uiKitMessage = createSurfaceRenderer<unknown>([
   ElementType.DIVIDER,
   ElementType.SECTION,
   ElementType.IMAGE,
@@ -269,9 +287,9 @@ const uiKitMessage = uiKitGeneric<unknown>([
   ElementType.CONTEXT,
 ]);
 
-const uiKitModal = uiKitGeneric<unknown>([
-  ElementType.SECTION,
+const uiKitModal = createSurfaceRenderer<unknown>([
   ElementType.DIVIDER,
+  ElementType.SECTION,
   ElementType.IMAGE,
   ElementType.ACTIONS,
   ElementType.CONTEXT,

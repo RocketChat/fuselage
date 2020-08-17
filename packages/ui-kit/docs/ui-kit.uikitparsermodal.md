@@ -19,5 +19,5 @@ declare abstract class UiKitParserModal extends UiKitParserMessage implements IP
 |  --- | --- | --- | --- |
 |  [input](./ui-kit.uikitparsermodal.input.md) |  | ElementRenderer&lt;unknown, [IInputBlock](./ui-kit.iinputblock.md)<!-- -->&gt; |  |
 |  [plainInput](./ui-kit.uikitparsermodal.plaininput.md) |  | ElementRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
-|  [renderInputs](./ui-kit.uikitparsermodal.renderinputs.md) |  | (element: [IElement](./ui-kit.ielement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, parser: IParserModal&lt;unknown&gt;, index: number) =&gt; unknown |  |
+|  [renderInputs](./ui-kit.uikitparsermodal.renderinputs.md) |  | ElementSetRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
 

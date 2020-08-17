@@ -46,6 +46,7 @@
 
 |  Variable | Description |
 |  --- | --- |
+|  [isElement](./ui-kit.iselement.md) |  |
 |  [uiKitMessage](./ui-kit.uikitmessage.md) |  |
 |  [uiKitModal](./ui-kit.uikitmodal.md) |  |
 |  [uiKitText](./ui-kit.uikittext.md) |  |
