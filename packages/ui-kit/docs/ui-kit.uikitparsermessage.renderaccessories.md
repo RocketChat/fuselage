@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-renderAccessories: (element: UiKitElement, context: BLOCK_CONTEXT, parser: any, index: any) => any;
+renderAccessories: ElementSetRenderer<unknown, IElement>;
 ```

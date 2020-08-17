@@ -2,8 +2,8 @@
 
 const path = require('path');
 
+const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const ReplacePlugin = require('webpack-plugin-replace');
 
 const pkg = require('./package.json');
 
@@ -26,40 +26,22 @@ module.exports = (env, { mode = 'production' }) => ({
         exclude: /node_modules/,
         use: 'babel-loader',
       },
-      {
-        test: /\.ts$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-      },
     ],
   },
   externals: [
-    {
-      react: {
-        commonjs: 'react',
-        commonjs2: 'react',
-        amd: 'react',
-        root: 'React',
-      },
-    },
+    'react',
     'react-dom',
-    '@rocket.chat/icons',
-    '@rocket.chat/fuselage',
-    '@rocket.chat/fuselage-hooks',
-    '@rocket.chat/ui-kit',
+    /^@rocket.chat\//,
   ],
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.VERSION': JSON.stringify(pkg.version),
+    }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       generateStatsFile: false,
-      reportFilename: '../bundle-report.html',
+      reportFilename: path.join(__dirname, 'bundle-report.html'),
       openAnalyzer: false,
     }),
-    new ReplacePlugin({
-      include: ['index.js'],
-      values: {
-        '"DEVELOPMENT"': JSON.stringify(pkg.version),
-      },
-    }),
-  ].filter(Boolean),
+  ],
 });

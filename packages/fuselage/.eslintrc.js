@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   extends: ['@rocket.chat/eslint-config'],
   plugins: ['react', 'react-hooks'],
@@ -8,7 +6,7 @@ module.exports = {
     indent: ['error', 2],
     'import/order': ['error', {
       'newlines-between': 'always',
-      groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']]
+      groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
     }],
     'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-uses-react': 'error',
@@ -23,7 +21,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  'env': {
-    'jest': true,
+  env: {
+    jest: true,
   },
 };

@@ -4,7 +4,6 @@ module.exports = {
     '@storybook/addon-backgrounds/register',
     '@storybook/addon-docs/register',
     '@storybook/addon-knobs/register',
-    '@storybook/addon-options/register',
     '@storybook/addon-viewport/register',
   ],
   stories: [

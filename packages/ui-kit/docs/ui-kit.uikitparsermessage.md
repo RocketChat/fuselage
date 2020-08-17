@@ -7,24 +7,27 @@
 <b>Signature:</b>
 
 ```typescript
-export declare abstract class UiKitParserMessage extends UiKitParserText 
+declare abstract class UiKitParserMessage extends UiKitParserText implements IParserMessage<unknown> 
 ```
-<b>Extends:</b> [UiKitParserText](./ui-kit.uikitparsertext.md)
+<b>Extends:</b> UiKitParserText
+
+<b>Implements:</b> IParserMessage&lt;unknown&gt;
 
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [actions](./ui-kit.uikitparsermessage.actions.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [button](./ui-kit.uikitparsermessage.button.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [context](./ui-kit.uikitparsermessage.context.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [datePicker](./ui-kit.uikitparsermessage.datepicker.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [divider](./ui-kit.uikitparsermessage.divider.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [image](./ui-kit.uikitparsermessage.image.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [multiStaticSelect](./ui-kit.uikitparsermessage.multistaticselect.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [overflow](./ui-kit.uikitparsermessage.overflow.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [renderAccessories](./ui-kit.uikitparsermessage.renderaccessories.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, parser: any, index: any) =&gt; any |  |
-|  [renderActions](./ui-kit.uikitparsermessage.renderactions.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, parser: any, index: any) =&gt; any |  |
-|  [renderContext](./ui-kit.uikitparsermessage.rendercontext.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, parser: any, index: any) =&gt; any |  |
-|  [staticSelect](./ui-kit.uikitparsermessage.staticselect.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
+|  [actions](./ui-kit.uikitparsermessage.actions.md) |  | ElementRenderer&lt;unknown, [IActionsBlock](./ui-kit.iactionsblock.md)<!-- -->&gt; |  |
+|  [button](./ui-kit.uikitparsermessage.button.md) |  | (element: [IButtonElement](./ui-kit.ibuttonelement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
+|  [context](./ui-kit.uikitparsermessage.context.md) |  | ElementRenderer&lt;unknown, [IContextBlock](./ui-kit.icontextblock.md)<!-- -->&gt; |  |
+|  [datePicker](./ui-kit.uikitparsermessage.datepicker.md) |  | (element: [IDatePickerElement](./ui-kit.idatepickerelement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
+|  [divider](./ui-kit.uikitparsermessage.divider.md) |  | ElementRenderer&lt;unknown, [IDividerBlock](./ui-kit.idividerblock.md)<!-- -->&gt; |  |
+|  [image](./ui-kit.uikitparsermessage.image.md) |  | ElementRenderer&lt;unknown, [IImageBlock](./ui-kit.iimageblock.md)<!-- -->&gt; |  |
+|  [multiStaticSelect](./ui-kit.uikitparsermessage.multistaticselect.md) |  | (element: [IMultiStaticSelectElement](./ui-kit.imultistaticselectelement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
+|  [overflow](./ui-kit.uikitparsermessage.overflow.md) |  | (element: [IOverflowElement](./ui-kit.ioverflowelement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
+|  [renderAccessories](./ui-kit.uikitparsermessage.renderaccessories.md) |  | ElementSetRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
+|  [renderActions](./ui-kit.uikitparsermessage.renderactions.md) |  | ElementSetRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
+|  [renderContext](./ui-kit.uikitparsermessage.rendercontext.md) |  | ElementSetRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
+|  [section](./ui-kit.uikitparsermessage.section.md) |  | ElementRenderer&lt;unknown, [ISectionBlock](./ui-kit.isectionblock.md)<!-- -->&gt; |  |
+|  [staticSelect](./ui-kit.uikitparsermessage.staticselect.md) |  | (element: [IStaticSelectElement](./ui-kit.istaticselectelement.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
 

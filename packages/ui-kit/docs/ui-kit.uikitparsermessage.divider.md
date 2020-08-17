@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-divider: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
+divider: ElementRenderer<unknown, IDividerBlock>;
 ```

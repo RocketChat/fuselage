@@ -8,7 +8,6 @@
 
 |  Class | Description |
 |  --- | --- |
-|  [UiKitParserButtons](./ui-kit.uikitparserbuttons.md) |  |
 |  [UiKitParserMessage](./ui-kit.uikitparsermessage.md) |  |
 |  [UiKitParserModal](./ui-kit.uikitparsermodal.md) |  |
 |  [UiKitParserText](./ui-kit.uikitparsertext.md) |  |
@@ -17,23 +16,38 @@
 
 |  Enumeration | Description |
 |  --- | --- |
-|  [BLOCK\_CONTEXT](./ui-kit.block_context.md) |  |
-|  [ELEMENT\_TYPES](./ui-kit.element_types.md) |  |
+|  [BlockContext](./ui-kit.blockcontext.md) |  |
+|  [ElementType](./ui-kit.elementtype.md) |  |
 
 ## Interfaces
 
 |  Interface | Description |
 |  --- | --- |
-|  [UiKitElement](./ui-kit.uikitelement.md) |  |
-|  [UiKitText](./ui-kit.uikittext.md) |  |
+|  [IActionableElement](./ui-kit.iactionableelement.md) |  |
+|  [IActionsBlock](./ui-kit.iactionsblock.md) |  |
+|  [IBlock](./ui-kit.iblock.md) |  |
+|  [IButtonElement](./ui-kit.ibuttonelement.md) |  |
+|  [IConditionalBlock](./ui-kit.iconditionalblock.md) |  |
+|  [IContextBlock](./ui-kit.icontextblock.md) |  |
+|  [IDatePickerElement](./ui-kit.idatepickerelement.md) |  |
+|  [IDividerBlock](./ui-kit.idividerblock.md) |  |
+|  [IElement](./ui-kit.ielement.md) |  |
+|  [IImageBlock](./ui-kit.iimageblock.md) |  |
+|  [IImageElement](./ui-kit.iimageelement.md) |  |
+|  [IInputBlock](./ui-kit.iinputblock.md) |  |
+|  [IMarkdown](./ui-kit.imarkdown.md) |  |
+|  [IMultiStaticSelectElement](./ui-kit.imultistaticselectelement.md) |  |
+|  [IOverflowElement](./ui-kit.ioverflowelement.md) |  |
+|  [IPlainText](./ui-kit.iplaintext.md) |  |
+|  [IPlainTextInput](./ui-kit.iplaintextinput.md) |  |
+|  [ISectionBlock](./ui-kit.isectionblock.md) |  |
+|  [IStaticSelectElement](./ui-kit.istaticselectelement.md) |  |
 
 ## Variables
 
 |  Variable | Description |
 |  --- | --- |
-|  [createRenderElement](./ui-kit.createrenderelement.md) |  |
-|  [uiKitButtons](./ui-kit.uikitbuttons.md) |  |
-|  [uiKitGeneric](./ui-kit.uikitgeneric.md) |  |
+|  [isElement](./ui-kit.iselement.md) |  |
 |  [uiKitMessage](./ui-kit.uikitmessage.md) |  |
 |  [uiKitModal](./ui-kit.uikitmodal.md) |  |
 |  [uiKitText](./ui-kit.uikittext.md) |  |
@@ -43,5 +57,16 @@
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [Component](./ui-kit.component.md) |  |
+|  [ActionElement](./ui-kit.actionelement.md) |  |
+|  [ActionId](./ui-kit.actionid.md) |  |
+|  [BlockId](./ui-kit.blockid.md) |  |
+|  [ConditionalBlockFilters](./ui-kit.conditionalblockfilters.md) |  |
+|  [Conditions](./ui-kit.conditions.md) |  |
+|  [ConfirmationDialog](./ui-kit.confirmationdialog.md) |  |
+|  [ContextElement](./ui-kit.contextelement.md) |  |
+|  [InputElement](./ui-kit.inputelement.md) |  |
+|  [Option](./ui-kit.option.md) |  |
+|  [OptionGroup](./ui-kit.optiongroup.md) |  |
+|  [SectionAccessoryElement](./ui-kit.sectionaccessoryelement.md) |  |
+|  [TextObject](./ui-kit.textobject.md) |  |
 

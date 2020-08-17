@@ -26,7 +26,7 @@
 ## Install
 
 ```sh
-yarn add @rocket.chat/fuselage-hooks
+yarn add @rocket.chat/ui-kit
 ```
 
 ## API Reference

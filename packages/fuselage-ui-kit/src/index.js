@@ -12,9 +12,6 @@ import {
   UiKitParserMessage,
   ELEMENT_TYPES,
   UiKitParserModal,
-  UiKitParserButtons,
-  uiKitText,
-  uiKitButtons,
   UiKitParserText,
 } from '@rocket.chat/ui-kit';
 
@@ -30,7 +27,7 @@ import { useBlockContext } from './hooks';
 
 export * from './hooks';
 
-export const version = 'DEVELOPMENT';
+export const version = process.env.VERSION;
 
 console.log(`fuselage-ui-kit version: ${ version }`);
 
@@ -53,13 +50,6 @@ class TextParser extends UiKitParserText {
 
   text(...args) { return text(...args); }
 }
-
-class ButtonsParser extends UiKitParserButtons {
-  button(element, context, key) {
-    return <UIKitButton element={element} context={context} key={key} parser={this}/>;
-  }
-}
-
 
 class MessageParser extends UiKitParserMessage {
   mrkdwn(...args) { return mrkdwn(...args); }
@@ -91,6 +81,7 @@ class MessageParser extends UiKitParserMessage {
   }
 
   datePicker(element, context, key) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [{ loading, value, error }, action] = useBlockContext(element, context);
     const { actionId, placeholder } = element;
     return (
@@ -193,10 +184,7 @@ class ModalParser extends UiKitParserModal {
 export const textParser = new TextParser();
 export const messageParser = new MessageParser();
 export const modalParser = new ModalParser();
-export const buttonsParser = new ButtonsParser();
 
-export const UiKitButtons = uiKitButtons();
-export const UiKitText = uiKitText(textParser);
 export const UiKitMessage = uiKitMessage(messageParser);
 export const UiKitModal = uiKitModal(modalParser);
 

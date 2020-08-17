@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-datePicker: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
+datePicker: (element: IDatePickerElement, context: BlockContext, index: number) => unknown;
 ```

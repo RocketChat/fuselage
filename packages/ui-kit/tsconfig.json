@@ -1,14 +1,26 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "rootDir": "./src",
+    "module": "ESNext",
     "target": "ES5",
+    "lib":["ES2018"],
     "sourceMap": true,
     "declaration": true,
     "declarationDir": "./dist",
-    "lib":["ES2018"]
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    // "noEmit": true,
+    // "noImplicitReturns": true,
+    // "noImplicitThis": true,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["src"],
+  "exclude": ["dist", "node_modules", "src/*.spec.ts"]
 }

@@ -7,14 +7,15 @@
 <b>Signature:</b>
 
 ```typescript
-export declare abstract class UiKitParserText 
+declare abstract class UiKitParserText implements IParser<unknown> 
 ```
+<b>Implements:</b> IParser&lt;unknown&gt;
 
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [mrkdwn](./ui-kit.uikitparsertext.mrkdwn.md) |  | (text: [UiKitText](./ui-kit.uikittext.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [plaintText](./ui-kit.uikitparsertext.plainttext.md) |  | (text: [UiKitText](./ui-kit.uikittext.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [text](./ui-kit.uikitparsertext.text.md) |  | (text: [UiKitText](./ui-kit.uikittext.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
+|  [mrkdwn](./ui-kit.uikitparsertext.mrkdwn.md) |  | ElementRenderer&lt;unknown, [IMarkdown](./ui-kit.imarkdown.md)<!-- -->&gt; |  |
+|  [plainText](./ui-kit.uikitparsertext.plaintext.md) |  | ElementRenderer&lt;unknown, [IPlainText](./ui-kit.iplaintext.md)<!-- -->&gt; |  |
+|  [text](./ui-kit.uikitparsertext.text.md) |  | (text: [TextObject](./ui-kit.textobject.md)<!-- -->, context: [BlockContext](./ui-kit.blockcontext.md)<!-- -->, index: number) =&gt; unknown |  |
 

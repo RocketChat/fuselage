@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-multiStaticSelect: (element: UiKitElement, context: BLOCK_CONTEXT, index: Number) => Component;
+multiStaticSelect: (element: IMultiStaticSelectElement, context: BlockContext, index: number) => unknown;
 ```

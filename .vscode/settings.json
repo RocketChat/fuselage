@@ -9,6 +9,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/fuselage-ui-kit",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/icons",
       "changeProcessCWD": true
     },
@@ -17,5 +21,11 @@
       "changeProcessCWD": true
     }
   ],
-  "eslint.enable": true
+  "eslint.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+  }
 }
