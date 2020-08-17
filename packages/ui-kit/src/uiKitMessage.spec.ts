@@ -1320,3 +1320,49 @@ describe('context', () => {
     ]);
   });
 });
+
+it('evaluates conditional block', () => {
+  const blocks = [
+    {
+      type: 'conditional',
+      when: {
+        engine: ['rocket.chat'],
+      },
+      render: [
+        {
+          type: 'section',
+          text: {
+            type: 'plain_text',
+            text: 'This is a plain text section block.',
+            emoji: true,
+          },
+        },
+      ],
+    },
+  ];
+
+  expect(parse(blocks)).toStrictEqual([]);
+
+  expect(parse(blocks, {
+    engine: 'rocket.chat',
+  })).toStrictEqual([
+    {
+      component: 'section',
+      props: {
+        key: 0,
+        children: [
+          {
+            component: 'text',
+            props: {
+              key: 0,
+              children: 'This is a plain text section block.',
+              emoji: true,
+              block: false,
+            },
+          },
+        ],
+        block: true,
+      },
+    },
+  ]);
+});

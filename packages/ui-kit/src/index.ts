@@ -24,6 +24,9 @@ import {
   ContextElement,
   InputElement,
   IBlock,
+  ConditionalBlockFilters,
+  IConditionalBlock,
+  Conditions,
 } from './blocks';
 
 export const version = process.env.VERSION;
@@ -173,15 +176,42 @@ const createElementRenderer = <T>(parser: IParser<T>, allowedItems?: ElementType
     return renderElement<T>(element, context, parser, index);
   };
 
+const conditionsMatch = (conditions: Conditions = undefined, filters: ConditionalBlockFilters): boolean => {
+  if (!conditions) {
+    return false;
+  }
+
+  if (Array.isArray(filters.engine) && !filters.engine.includes(conditions.engine)) {
+    return false;
+  }
+
+  return true;
+};
+
 const createSurfaceRenderer = <T>(allowedBlockTypes?: ElementType[]) =>
   (parser: IParser<T>) =>
-    (blocks: unknown): any => {
+    (blocks: unknown, conditions?: Conditions): any => {
       if (!Array.isArray(blocks)) {
         return [];
       }
 
-      return blocks
-        .filter<IElement>(isElement)
+      return Array.prototype.concat(
+        ...blocks
+          .filter<IElement>(isElement)
+          .map(
+            (element) => {
+              if (element.type === ElementType.CONDITIONAL) {
+                const conditionalBlock = element as IConditionalBlock;
+                if (conditionsMatch(conditions, conditionalBlock.when)) {
+                  return conditionalBlock.render;
+                }
+
+                return [];
+              }
+
+              return [element];
+            },
+          ))
         .filter((element) => !allowedBlockTypes || allowedBlockTypes.includes(element.type))
         .map((element: IElement, index: number) =>
           renderElement(element, BlockContext.BLOCK, parser, index));

@@ -4,6 +4,7 @@ export enum ElementType {
   DIVIDER = 'divider',
   SECTION = 'section',
   INPUT = 'input',
+  CONDITIONAL = 'conditional',
   IMAGE = 'image',
   ACTIONS = 'actions',
   CONTEXT = 'context',
@@ -146,6 +147,20 @@ export interface IInputBlock extends IBlock {
   element: InputElement;
   hint?: IPlainText;
   optional?: boolean;
+}
+
+export type Conditions = {
+  engine?: 'rocket.chat' | 'livechat'
+};
+
+export type ConditionalBlockFilters = {
+  engine?: Array<Conditions['engine']>;
+}
+
+export interface IConditionalBlock extends IBlock {
+  type: ElementType.CONDITIONAL;
+  when?: ConditionalBlockFilters;
+  render: IBlock[];
 }
 
 export interface IButtonElement extends IActionableElement {

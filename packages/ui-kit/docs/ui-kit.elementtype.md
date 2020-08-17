@@ -17,6 +17,7 @@ export declare enum ElementType
 |  ACTIONS | <code>&quot;actions&quot;</code> |  |
 |  BUTTON | <code>&quot;button&quot;</code> |  |
 |  CHANNEL\_SELECT | <code>&quot;channels_select&quot;</code> |  |
+|  CONDITIONAL | <code>&quot;conditional&quot;</code> |  |
 |  CONTEXT | <code>&quot;context&quot;</code> |  |
 |  CONVERSATION\_SELECT | <code>&quot;conversations_select&quot;</code> |  |
 |  DATEPICKER | <code>&quot;datepicker&quot;</code> |  |

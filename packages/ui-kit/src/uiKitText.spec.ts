@@ -101,3 +101,50 @@ it('renders all elements', () => {
     },
   ]);
 });
+
+it('evaluates conditional block', () => {
+  const blocks = [
+    {
+      type: 'conditional',
+      when: {
+        engine: ['rocket.chat'],
+      },
+      render: [
+        {
+          type: 'plain_text',
+          text: 'This is a plain text section block.',
+          emoji: true,
+        },
+        {
+          type: 'mrkdwn',
+          text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+        },
+      ],
+    },
+  ];
+
+  expect(parse(blocks)).toStrictEqual([]);
+
+  expect(parse(blocks, {
+    engine: 'rocket.chat',
+  })).toStrictEqual([
+    {
+      component: 'text',
+      props: {
+        key: 0,
+        children: 'This is a plain text section block.',
+        emoji: true,
+        block: true,
+      },
+    },
+    {
+      component: 'markdown',
+      props: {
+        key: 1,
+        children: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+        verbatim: false,
+        block: true,
+      },
+    },
+  ]);
+});
