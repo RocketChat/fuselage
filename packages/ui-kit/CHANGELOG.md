@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.2...v0.14.0) (2020-08-18)
+
+
+### Features
+
+* UiKit types ([#274](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/274)) ([e2ea79b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e2ea79b02a0fd6492c3fad06ba57cbb88d89da2b))
+
+
+
+
+
 ## [0.13.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.0...v0.13.1) (2020-07-17)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-ui-kit",
-  "version": "0.13.2",
+  "version": "0.14.0",
   "description": "UiKit elements for Rocket.Chat Apps built under Fuselage design system",
   "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
   "author": {
@@ -47,10 +47,10 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@rocket.chat/apps-engine": "^1.16.0",
-    "@rocket.chat/fuselage": "^0.13.2",
-    "@rocket.chat/fuselage-hooks": "^0.13.2",
-    "@rocket.chat/icons": "^0.13.1",
-    "@rocket.chat/ui-kit": "^0.13.1",
+    "@rocket.chat/fuselage": "^0.14.0",
+    "@rocket.chat/fuselage-hooks": "^0.14.0",
+    "@rocket.chat/icons": "^0.14.0",
+    "@rocket.chat/ui-kit": "^0.14.0",
     "@storybook/addon-actions": "^6.0.10",
     "@storybook/addon-backgrounds": "^6.0.10",
     "@storybook/addon-docs": "^6.0.10",
