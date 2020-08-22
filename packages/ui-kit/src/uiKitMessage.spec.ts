@@ -196,6 +196,10 @@ class TestParser extends UiKitParserMessage {
 const parser = new TestParser();
 const parse = uiKitMessage(parser);
 
+const conditionalParse = uiKitMessage(parser, {
+  engine: 'rocket.chat',
+});
+
 describe('divider', () => {
   it('renders', () => {
     const payload = [
@@ -1343,9 +1347,7 @@ it('evaluates conditional block', () => {
 
   expect(parse(blocks)).toStrictEqual([]);
 
-  expect(parse(blocks, {
-    engine: 'rocket.chat',
-  })).toStrictEqual([
+  expect(conditionalParse(blocks)).toStrictEqual([
     {
       component: 'section',
       props: {
