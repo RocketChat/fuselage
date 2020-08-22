@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.14.0...v0.14.1) (2020-08-22)
+
+
+### Bug Fixes
+
+* UiKit - conditional block ([38d57ea](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/38d57ea9005aafc3820316beacfda43f620fa93f))
+
+
+
+
+
 # [0.14.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.2...v0.14.0) (2020-08-18)
 
 
