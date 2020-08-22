@@ -180,7 +180,6 @@ const conditionsMatch = (conditions: Conditions = undefined, filters: Conditiona
   if (!conditions) {
     return false;
   }
-
   if (Array.isArray(filters.engine) && !filters.engine.includes(conditions.engine)) {
     return false;
   }
@@ -188,9 +187,9 @@ const conditionsMatch = (conditions: Conditions = undefined, filters: Conditiona
   return true;
 };
 
-const createSurfaceRenderer = <T>(allowedBlockTypes?: ElementType[]) =>
+const createSurfaceRenderer = <T>(allowedBlockTypes?: ElementType[], conditions?: Conditions) =>
   (parser: IParser<T>) =>
-    (blocks: unknown, conditions?: Conditions): any => {
+    (blocks: unknown): any => {
       if (!Array.isArray(blocks)) {
         return [];
       }
@@ -338,3 +337,5 @@ export {
 };
 
 export * from './blocks';
+
+console.log(`ui-kit version: ${ process.env.VERSION }`);
