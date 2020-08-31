@@ -1,11 +1,10 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
-import LinkTo from '@storybook/addon-links/react';
 
-import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Icon, AutoComplete, Chip, Select, MultiSelect, MultiSelectFiltered, SelectFiltered } from '../..';
-const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
-const options = [
+import { Select, MultiSelect, MultiSelectFiltered, SelectFiltered } from '../..';
+
+export const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
+export const options = [
   [1, 'a teste 1'],
   [2, 'b teste 2', true],
   [3, 'c teste 3'],
@@ -15,11 +14,11 @@ const options = [
   [7, 'd teste 7'],
   [8, 'd teste 8'],
   [9, 'd teste 9'],
-  [10, 'd teste 10']
+  [10, 'd teste 10'],
 ];
-const optionsEllipses = [[11, 'Very very very very very very very very very large text'], ...options];
+export const optionsEllipses = [[11, 'Very very very very very very very very very large text'], ...options];
 
-<Meta title='Forms/Inputs/Select' parameters={{ jest: ['AutoComplete/spec'] }} />
+<Meta title='Forms/Inputs/Select' parameters={{ jest: ['Select/spec'] }} />
 
 # Select
 
@@ -27,19 +26,19 @@ An input for selection of options.
 
 <Preview>
   <Story name='Default'>
-    <Select width='250px' placeholder="Placeholder here..." options={options}/>
+    <Select width='250px' placeholder='Placeholder here...' options={options}/>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Error'>
-    <Select width='250px' error placeholder="Placeholder here..." options={options}/>
+    <Select width='250px' error placeholder='Placeholder here...' options={options}/>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Disabled'>
-    <Select width='250px' disabled placeholder="Placeholder here..." options={options}/>
+    <Select width='250px' disabled placeholder='Placeholder here...' options={options}/>
   </Story>
 </Preview>
 
@@ -59,27 +58,27 @@ An input for selection of options.
 
 <Preview>
   <Story name='Select with filter'>
-    <SelectFiltered width='250px' placeholder="Placeholder here..." options={options}/>
+    <SelectFiltered width='250px' placeholder='Placeholder here...' options={options}/>
   </Story>
 </Preview>
 
 
 <Preview>
   <Story name='Select with filter and ellipses'>
-    <SelectFiltered width='250px' value={11} placeholder="Placeholder here..." options={optionsEllipses}/>
+    <SelectFiltered width='250px' value={11} placeholder='Placeholder here...' options={optionsEllipses}/>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Select with filter and error'>
-    <SelectFiltered width='250px' error placeholder="Placeholder here..." options={options}/>
+    <SelectFiltered width='250px' error placeholder='Placeholder here...' options={options}/>
   </Story>
 </Preview>
 
 
 <Preview>
   <Story name='Select with filter and disabled'>
-    <SelectFiltered width='250px' disabled error placeholder="Placeholder here..." options={options}/>
+    <SelectFiltered width='250px' disabled error placeholder='Placeholder here...' options={options}/>
   </Story>
 </Preview>
 
@@ -91,21 +90,21 @@ An input for selection of options.
 
 <Preview>
   <Story name='MultiSelect'>
-    <MultiSelect placeholder="Placeholder here..." options={options}/>
+    <MultiSelect placeholder='Placeholder here...' options={options}/>
   </Story>
 </Preview>
 
 
 <Preview>
   <Story name='MultiSelect Error'>
-    <MultiSelect error placeholder="Placeholder here..." options={options}/>
+    <MultiSelect error placeholder='Placeholder here...' options={options}/>
   </Story>
 </Preview>
 
 
 <Preview>
   <Story name='MultiSelect Disabled'>
-    <MultiSelect disabled placeholder="Placeholder here..." options={options}/>
+    <MultiSelect disabled placeholder='Placeholder here...' options={options}/>
   </Story>
 </Preview>
 
@@ -118,22 +117,21 @@ An input for selection of options.
 
 <Preview>
   <Story name='MultiSelectFiltered'>
-    <MultiSelectFiltered placeholder="Placeholder here..." onChange={action('change')} options={options}/>
+    <MultiSelectFiltered placeholder='Placeholder here...' onChange={action('change')} options={options}/>
   </Story>
 </Preview>
 
 
 <Preview>
   <Story name='MultiSelectFiltered error'>
-    <MultiSelectFiltered error placeholder="Placeholder here..." onChange={action('change')} options={options}/>
+    <MultiSelectFiltered error placeholder='Placeholder here...' onChange={action('change')} options={options}/>
   </Story>
 </Preview>
 
 
-
 <Preview>
   <Story name='MultiSelectFiltered disabled'>
-    <MultiSelectFiltered disabled placeholder="Placeholder here..." onChange={action('change')} options={options}/>
+    <MultiSelectFiltered disabled placeholder='Placeholder here...' onChange={action('change')} options={options}/>
   </Story>
 </Preview>
 

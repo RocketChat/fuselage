@@ -43,4 +43,14 @@ module.exports = {
   env: {
     jest: true,
   },
+  overrides: [
+    {
+      files: ['*.mdx'],
+      extends: ['plugin:mdx/overrides'],
+      rules: {
+        semi: 'off',
+        'new-cap': 'off',
+      },
+    },
+  ],
 };

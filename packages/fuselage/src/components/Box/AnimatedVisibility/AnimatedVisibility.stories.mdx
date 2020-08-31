@@ -1,5 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
-import { AnimatedVisibility, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
+
+import { AnimatedVisibility, Field, Margins, ToggleSwitch, Tile } from '../..';
 
 <Meta title='Box/Modifiers/AnimatedVisibility' parameters={{ jest: ['Box/spec'] }} />
 
@@ -7,7 +8,7 @@ import { AnimatedVisibility, Box, Field, Margins, ToggleSwitch, Tile } from '../
 
 <Preview>
   <Story name='Default'>
-    {React.createElement(function () {
+    {React.createElement(function() {
       const [visible, setVisible] = React.useState(false);
       return <Margins block='x16'>
         <Field>

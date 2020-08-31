@@ -1,8 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 
-import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Throbber, Button, Box } from '../..';
+import { PropsVariationSection } from '../../../.storybook/helpers';
 
 <Meta title='Misc/Throbber' parameters={{ jest: ['Throbber/spec'] }} />
 
@@ -15,6 +15,8 @@ Indicates content that has not loaded yet.
     <Throbber/>
   </Story>
 </Preview>
+
+<Props of={Throbber} />
 
 ### Disabled
 
@@ -57,15 +59,14 @@ Indicates content that has not loaded yet.
     component={Throbber}
     common={{ onClick: action('click') }}
     yAxis={{
-      'default': {},
-      '3 circles + x40': { circleCount: 3, size:'x40'},
-      '5 circles + x32': { circleCount: 5, size:'x32'},
-      '7 circles + x24': { circleCount: 7, size:'x24'},
+      default: {},
+      '3 circles + x40': { circleCount: 3, size: 'x40' },
+      '5 circles + x32': { circleCount: 5, size: 'x32' },
+      '7 circles + x24': { circleCount: 7, size: 'x24' },
     }}
     xAxis={{
       default: {},
-      disabled: {disabled: true}
+      disabled: { disabled: true },
     }}
   />
 </Story>
-

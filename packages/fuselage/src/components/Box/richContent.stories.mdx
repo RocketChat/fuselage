@@ -1,11 +1,12 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+
 import { Box } from '../..';
 
 <Meta
   title='Box/Rich content'
   parameters={{ jest: ['Box/spec'] }}
   decorators={[
-    (fn) => <Box fontFamily='sans' fontScale='p1' withRichContent>{fn()}</Box>
+    (fn) => <Box fontFamily='sans' fontScale='p1' withRichContent>{fn()}</Box>,
   ]}
 />
 
