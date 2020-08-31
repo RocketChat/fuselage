@@ -20,10 +20,11 @@
     "dist"
   ],
   "scripts": {
+    "clean": "rimraf dist",
     "start": "webpack --watch --mode development",
     "build:prod": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build": "run-p build:prod build:dev",
+    "build": "run-s clean build:prod build:dev",
     "eslint": "eslint src",
     "stylelint": "stylelint 'src/**/*.scss'",
     "lint": "run-s eslint stylelint",
