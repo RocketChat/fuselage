@@ -5,9 +5,9 @@ import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
 import { Box } from '../Box';
 import { Label } from '../Label';
+import { Skeleton } from '../Skeleton';
 import { Option } from './Option';
 import { Placeholder } from './Placeholder';
-import { Skeleton } from '../Skeleton';
 
 const Wrapper = (props) => <Box is={Label} rcx-input-box__wrapper {...props}/>;
 

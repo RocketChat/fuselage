@@ -1,10 +1,9 @@
 'use strict';
 
 const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
-
 const { EnvironmentPlugin } = require('webpack');
 
-module.exports = async ({ config, mode }) => {
+module.exports = async ({ config }) => {
   const jsRule = config.module.rules.find(({ test }) => test.test('index.js'));
   jsRule.include = [
     ...jsRule.include,

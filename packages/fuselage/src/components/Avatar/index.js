@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React, { useContext, createContext } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
-import { Box } from '../Box';
 import { createPropType } from '../../helpers/createPropType';
 import { size } from '../../styleTokens';
+import { Box } from '../Box';
 
 const AvatarContext = createContext({
   baseUrl: '',

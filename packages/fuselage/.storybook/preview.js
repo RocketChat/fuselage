@@ -1,10 +1,10 @@
+import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { addDecorator, addParameters } from '@storybook/react';
 import 'loki/configure-react';
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
-import breakpoints from '@rocket.chat/fuselage-tokens/breakpoints';
 
 addParameters({
   docs: {
@@ -16,12 +16,11 @@ addParameters({
   },
   options: {
     showRoots: true,
-    storySort: ([, a], [, b]) => {
-      return a.kind.localeCompare(b.kind);
-    },
+    storySort: ([, a], [, b]) =>
+      a.kind.localeCompare(b.kind),
   },
   viewport: {
-    viewports: Object.entries(breakpoints).reduce((obj, [name, { minViewportWidth }]) => ({
+    viewports: Object.entries(breakpointTokens).reduce((obj, [name, { minViewportWidth }]) => ({
       ...obj,
       [name]: {
         name,
@@ -29,7 +28,7 @@ addParameters({
           width: `${ minViewportWidth }px`,
           height: '90%',
         },
-        type: 'desktop'
+        type: 'desktop',
       },
     }), {}),
   },
@@ -37,6 +36,7 @@ addParameters({
 
 if (process.env.NODE_ENV === 'production') {
   const { withTests } = require('@storybook/addon-jest');
+  // eslint-disable-next-line import/no-unresolved
   const results = require('./jest-results.json');
   addDecorator(withTests({ results }));
 }

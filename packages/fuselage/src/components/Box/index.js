@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
-import React, { createElement, forwardRef, memo } from 'react';
 import PropTypes from 'prop-types';
+import React, { createElement, forwardRef, memo } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';

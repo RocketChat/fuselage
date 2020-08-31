@@ -3,8 +3,8 @@ import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useRef, useCallback } from 'react';
 
-import { useStyle } from '../../../hooks/useStyle';
 import { appendClassName } from '../../../helpers/appendClassName';
+import { useStyle } from '../../../hooks/useStyle';
 import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
 const getTouchingEdges = (element) => ({
