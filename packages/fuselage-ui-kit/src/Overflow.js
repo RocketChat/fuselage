@@ -1,4 +1,3 @@
-import React, { useRef, useCallback } from 'react';
 import {
   Button,
   PositionAnimated,
@@ -6,6 +5,7 @@ import {
   Icon,
   useCursor,
 } from '@rocket.chat/fuselage';
+import React, { useRef, useCallback } from 'react';
 
 import { useBlockContext } from './hooks';
 

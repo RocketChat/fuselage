@@ -1,13 +1,13 @@
-import React, {
-  useState,
-  useEffect,
-} from 'react';
 import {
   Box,
 } from '@rocket.chat/fuselage';
 import {
   BLOCK_CONTEXT,
 } from '@rocket.chat/ui-kit';
+import React, {
+  useState,
+  useEffect,
+} from 'react';
 
 import { Block } from './Block';
 
@@ -85,10 +85,10 @@ export const Media = ({ element }) => {
 
 const genericImage = (element, context) => {
   switch (context) {
-  case BLOCK_CONTEXT.SECTION:
-    return <Thumb element={element} />;
-  case BLOCK_CONTEXT.CONTEXT:
-    return <ThumbContext element={element}/>;
+    case BLOCK_CONTEXT.SECTION:
+      return <Thumb element={element} />;
+    case BLOCK_CONTEXT.CONTEXT:
+      return <ThumbContext element={element}/>;
   }
 };
 

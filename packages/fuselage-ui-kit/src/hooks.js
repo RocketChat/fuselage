@@ -1,8 +1,8 @@
-import React, { useContext, useMemo, useState } from 'react';
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import {
   BLOCK_CONTEXT,
 } from '@rocket.chat/ui-kit';
+import React, { useContext, useMemo, useState } from 'react';
 
 export const defaultContext = {
   action: (...args) => console.log(JSON.stringify(args)),
@@ -45,10 +45,10 @@ export const useBlockContext = ({ blockId, actionId, appId, initialValue }, cont
 
 export const getStyle = (style) => {
   switch (style) {
-  case 'primary':
-  case 'danger':
-    return {
-      [style]: true,
-    };
+    case 'primary':
+    case 'danger':
+      return {
+        [style]: true,
+      };
   }
 };
