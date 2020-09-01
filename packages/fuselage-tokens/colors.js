@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   // Neutral
   n100: '#f7f8fa',
   n200: '#f2f3f5',

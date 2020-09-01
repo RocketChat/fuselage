@@ -1,7 +1,7 @@
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
-@use '~@rocket.chat/fuselage-tokens/colors.scss' as token-colors;
+@use '~@rocket.chat/fuselage-tokens/colors.scss';
 
 $-map-type-to-prefix: (
   neutral: 'n',
@@ -26,7 +26,7 @@ $-map-type-to-prefix: (
     @error 'invalid color type';
   }
 
-  $base-color: map.get(token-colors.$colors, #{ $prefix }#{ $grade });
+  $base-color: map.get(colors.$colors, #{ $prefix }#{ $grade });
 
   @if not $base-color {
     @error 'invalid color reference';
@@ -77,18 +77,18 @@ $-map-type-to-prefix: (
 }
 
 $-foreground-colors: (
-  default: map.get(token-colors.$colors, n800),
-  info: map.get(token-colors.$colors, n700),
-  hint: map.get(token-colors.$colors, n600),
-  disabled: map.get(token-colors.$colors, n400),
+  default: map.get(colors.$colors, n800),
+  info: map.get(colors.$colors, n700),
+  hint: map.get(colors.$colors, n600),
+  disabled: map.get(colors.$colors, n400),
   alternative: white,
-  primary: map.get(token-colors.$colors, b500),
-  success: map.get(token-colors.$colors, g500),
-  danger: map.get(token-colors.$colors, r500),
-  warning: map.get(token-colors.$colors, y700),
-  link: map.get(token-colors.$colors, b500),
-  visited-link: map.get(token-colors.$colors, p500),
-  active-link: map.get(token-colors.$colors, r500),
+  primary: map.get(colors.$colors, b500),
+  success: map.get(colors.$colors, g500),
+  danger: map.get(colors.$colors, r500),
+  warning: map.get(colors.$colors, y700),
+  link: map.get(colors.$colors, b500),
+  visited-link: map.get(colors.$colors, p500),
+  active-link: map.get(colors.$colors, r500),
 );
 
 @function _get-foreground-color($type) {

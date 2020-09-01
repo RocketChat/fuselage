@@ -1,6 +1,6 @@
 import { cssSupports } from '@rocket.chat/css-in-js';
-import tokenColors from '@rocket.chat/fuselage-tokens/colors';
-import tokenTypography from '@rocket.chat/fuselage-tokens/typography';
+import colorTokens from '@rocket.chat/fuselage-tokens/colors.json';
+import typographyTokens from '@rocket.chat/fuselage-tokens/typography';
 import invariant from 'invariant';
 
 import { memoize } from './helpers/memoize';
@@ -61,7 +61,7 @@ const getPaletteColor = (type, grade, alpha) => {
   const prefix = mapTypeToPrefix[type];
   invariant(!!prefix, 'invalid color type');
 
-  const baseColor = tokenColors[`${ prefix }${ grade }`];
+  const baseColor = colorTokens[`${ prefix }${ grade }`];
 
   invariant(!!baseColor, 'invalid color reference');
 
@@ -81,18 +81,18 @@ const getPaletteColor = (type, grade, alpha) => {
 };
 
 const foregroundColors = {
-  default: tokenColors.n800,
-  info: tokenColors.n700,
-  hint: tokenColors.n600,
-  disabled: tokenColors.n400,
+  default: colorTokens.n800,
+  info: colorTokens.n700,
+  hint: colorTokens.n600,
+  disabled: colorTokens.n400,
   alternative: 'white',
-  primary: tokenColors.b500,
-  success: tokenColors.g500,
-  danger: tokenColors.r500,
-  warning: tokenColors.y700,
-  link: tokenColors.b500,
-  'visited-link': tokenColors.p500,
-  'active-link': tokenColors.r500,
+  primary: colorTokens.b500,
+  success: colorTokens.g500,
+  danger: colorTokens.r500,
+  warning: colorTokens.y700,
+  link: colorTokens.b500,
+  'visited-link': colorTokens.p500,
+  'active-link': colorTokens.r500,
 };
 
 const getForegroundColor = (type) => {
@@ -186,11 +186,11 @@ export const fontFamily = memoize((value) => {
     return;
   }
 
-  if (!tokenTypography.fontFamilies[value]) {
+  if (!typographyTokens.fontFamilies[value]) {
     return value;
   }
 
-  const fontFamily = tokenTypography.fontFamilies[value]
+  const fontFamily = typographyTokens.fontFamilies[value]
     .map((fontFace) => (fontFace.includes(' ') ? `'${ fontFace }'` : fontFace)).join(', ');
 
   if (cssSupports('(--foo: bar)')) {
@@ -201,7 +201,7 @@ export const fontFamily = memoize((value) => {
 });
 
 export const fontScale = (value) => {
-  if (!tokenTypography.fontScales[value]) {
+  if (!typographyTokens.fontScales[value]) {
     return;
   }
 
@@ -210,7 +210,7 @@ export const fontScale = (value) => {
     fontWeight,
     lineHeight,
     letterSpacing,
-  } = tokenTypography.fontScales[value];
+  } = typographyTokens.fontScales[value];
 
   return {
     fontSize: `${ fontSize / 16 }rem`,
@@ -219,4 +219,4 @@ export const fontScale = (value) => {
     letterSpacing: `${ letterSpacing / 16 }rem`,
   };
 };
-fontScale.values = Object.keys(tokenTypography.fontScales);
+fontScale.values = Object.keys(typographyTokens.fontScales);
