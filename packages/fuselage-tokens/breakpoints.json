@@ -1,32 +1,27 @@
-[
-  {
-    "name": "xs",
+{
+  "xs": {
     "minViewportWidth": null,
     "columns": 4,
     "gutterWidth": 16
   },
-  {
-    "name": "sm",
+  "sm": {
     "minViewportWidth": 600,
     "columns": 8,
     "gutterWidth": 16
   },
-  {
-    "name": "md",
+  "md": {
     "minViewportWidth": 768,
     "columns": 8,
     "gutterWidth": 24
   },
-  {
-    "name": "lg",
+  "lg": {
     "minViewportWidth": 1024,
     "columns": 12,
     "gutterWidth": 24
   },
-  {
-    "name": "xl",
+  "xl": {
     "minViewportWidth": 1440,
     "columns": 12,
     "gutterWidth": 24
   }
-]
+}

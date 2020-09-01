@@ -1,4 +1,4 @@
-import breakpointsDefinitions from '@rocket.chat/fuselage-tokens/breakpoints.json';
+import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { FunctionComponent, createElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
@@ -6,6 +6,10 @@ import { act } from 'react-dom/test-utils';
 import resizeToMock from './__mocks__/resizeTo';
 import matchMediaMock from './__mocks__/matchMedia';
 import { useBreakpoints } from '.';
+
+const sortedBreakpoints = Object.entries(breakpointTokens)
+  .map(([name, params]) => ({ name, ...params }))
+  .sort((a, b) => (a.minViewportWidth ?? 0) - (b.minViewportWidth ?? 0));
 
 beforeAll(() => {
   window.resizeTo = resizeToMock;
@@ -30,12 +34,12 @@ it('returns at least the smallest breakpoint name', () => {
     );
   });
 
-  expect(breakpoints[0]).toBe(breakpointsDefinitions[0].name);
+  expect(breakpoints[0]).toBe('xs');
 });
 
 it('returns matching breakpoint names', () => {
-  const initialBreakpoints = breakpointsDefinitions.slice(0, -1);
-  const finalBreakpoints = breakpointsDefinitions.slice(0, -2);
+  const initialBreakpoints = sortedBreakpoints.slice(0, -1);
+  const finalBreakpoints = sortedBreakpoints.slice(0, -2);
 
   let breakpoints: string[];
   const TestComponent: FunctionComponent = () => {

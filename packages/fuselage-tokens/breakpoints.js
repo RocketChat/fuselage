@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   xs: {
     minViewportWidth: null,
     columns: 4,

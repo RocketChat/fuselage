@@ -56,7 +56,7 @@ const buildColors = async () => {
 };
 
 const build = async () => {
-  // await buildBreakpoints();
+  await buildBreakpoints();
   await buildColors();
 };
 

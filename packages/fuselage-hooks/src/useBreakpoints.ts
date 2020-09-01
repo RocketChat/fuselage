@@ -1,9 +1,13 @@
-import breakpointsDefinitions from '@rocket.chat/fuselage-tokens/breakpoints.json';
+import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { useMemo } from 'react';
 
 import { useMediaQueries } from './useMediaQueries';
 
-const mediaQueries = breakpointsDefinitions
+const sortedBreakpoints = Object.entries(breakpointTokens)
+  .map(([name, params]) => ({ name, ...params }))
+  .sort((a, b) => (a.minViewportWidth ?? 0) - (b.minViewportWidth ?? 0));
+
+const mediaQueries = sortedBreakpoints
   .slice(1)
   .map((breakpoint) => `(min-width: ${ breakpoint.minViewportWidth }px)`);
 
@@ -18,9 +22,9 @@ export const useBreakpoints = (): string[] => {
 
   return useMemo(() => matches.reduce<string[]>((names, matches, i) => {
     if (matches) {
-      return [...names, breakpointsDefinitions[i + 1].name];
+      return [...names, sortedBreakpoints[i + 1].name];
     }
 
     return names;
-  }, [breakpointsDefinitions[0].name]), [matches]);
+  }, [sortedBreakpoints[0].name]), [matches]);
 };
