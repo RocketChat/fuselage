@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { Accordion, Box } from '../..';
@@ -10,7 +10,7 @@ import { Accordion, Box } from '../..';
 
 A collapsible panel.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Accordion>
       <Accordion.Item title='Item'>
@@ -18,13 +18,13 @@ A collapsible panel.
       </Accordion.Item>
     </Accordion>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Accordion.Item} />
+<ArgsTable of={Accordion.Item} />
 
 ## Expanded
 
-<Preview>
+<Canvas>
   <Story name='Expanded'>
     <Accordion>
       <Accordion.Item title='Item' defaultExpanded>
@@ -32,11 +32,11 @@ A collapsible panel.
       </Accordion.Item>
     </Accordion>
   </Story>
-</Preview>
+</Canvas>
 
 ## Noncollapsible
 
-<Preview>
+<Canvas>
   <Story name='Noncollapsible'>
     <Accordion>
       <Accordion.Item title='Item' noncollapsible>
@@ -44,7 +44,7 @@ A collapsible panel.
       </Accordion.Item>
     </Accordion>
   </Story>
-</Preview>
+</Canvas>
 
 ### Without title
 
@@ -52,7 +52,7 @@ When the `title` prop is omitted, its implied that
 the <LinkTo kind='Containers|Accordion/Accordion.Item' story='Default Story'>`Accordion.Item`</LinkTo>
 is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>noncollapsible</LinkTo> too.
 
-<Preview>
+<Canvas>
   <Story name='Without Title'>
     <Accordion>
       <Accordion.Item>
@@ -60,13 +60,13 @@ is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>non
       </Accordion.Item>
     </Accordion>
   </Story>
-</Preview>
+</Canvas>
 
 ## With togglable state
 
 ### Enabled
 
-<Preview>
+<Canvas>
   <Story name='Enabled'>
     <Accordion>
       <Accordion.Item title='Item' onToggleEnabled={action('toggleEnabled')}>
@@ -74,11 +74,11 @@ is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>non
       </Accordion.Item>
     </Accordion>
   </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <Accordion>
       <Accordion.Item title='Item' disabled onToggleEnabled={action('toggleEnabled')}>
@@ -86,4 +86,4 @@ is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>non
       </Accordion.Item>
     </Accordion>
   </Story>
-</Preview>
+</Canvas>

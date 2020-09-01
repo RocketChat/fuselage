@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { Icon, NumberInput } from '../..';
@@ -10,13 +10,13 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 
 An input for numbers.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <NumberInput />
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={NumberInput} />
+<ArgsTable of={NumberInput} />
 
 ## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
 
@@ -25,43 +25,43 @@ used.
 
 ### With Icon Addon
 
-<Preview>
+<Canvas>
   <Story name='With Icon Addon'>
     <NumberInput addon={<Icon name='send' size='x20' />} />
   </Story>
-</Preview>
+</Canvas>
 
 ### Invalid
 
-<Preview>
+<Canvas>
   <Story name='Invalid'>
     <NumberInput error='Error' />
   </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <NumberInput disabled />
   </Story>
-</Preview>
+</Canvas>
 
 ### With placeholder
 
-<Preview>
+<Canvas>
   <Story name='With Placeholder'>
     <NumberInput placeholder='Placeholder' />
   </Story>
-</Preview>
+</Canvas>
 
 ### With value
 
-<Preview>
+<Canvas>
   <Story name='With Value'>
     <NumberInput defaultValue={1024} />
   </Story>
-</Preview>
+</Canvas>
 
 ## States
 

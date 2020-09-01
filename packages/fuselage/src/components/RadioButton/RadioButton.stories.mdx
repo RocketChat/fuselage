@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { RadioButton } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -8,29 +8,29 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 
 # RadioButton
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <RadioButton onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={RadioButton} />
+<ArgsTable of={RadioButton} />
 
 ## Checked
 
-<Preview>
+<Canvas>
   <Story name='Checked'>
     <RadioButton checked onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
 ## Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <RadioButton disabled />
   </Story>
-</Preview>
+</Canvas>
 
 ## States
 

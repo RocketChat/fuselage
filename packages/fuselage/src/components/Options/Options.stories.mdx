@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Options, CheckOption, Option } from '.';
 import { Box } from '..'
@@ -16,29 +16,29 @@ export const options = [
 
 An input for selection of options.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Box position='relative' maxWidth={250}>
       <Options ref={React.createRef()} options={options} cursor={1} />
     </Box>
   </Story>
-</Preview>
+</Canvas>
 
 
-<Preview>
+<Canvas>
   <Story name='Option'>
     <Box position='relative' maxWidth={250}>
       <Options ref={React.createRef()} options={options} renderItem={Option} cursor={1} />
     </Box>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Options} />
+<ArgsTable of={Options} />
 
-<Preview>
+<Canvas>
   <Story name='CheckOption'>
     <Box position='relative' maxWidth={250}>
       <Options ref={React.createRef()} renderItem={CheckOption} options={options} value={[1]} cursor={0}/>
     </Box>
   </Story>
-</Preview>
+</Canvas>

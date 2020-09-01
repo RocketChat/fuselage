@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { CheckBox, Field, InputBox, ToggleSwitch } from '../..';
 
@@ -8,7 +8,7 @@ import { CheckBox, Field, InputBox, ToggleSwitch } from '../..';
 
 A `Field` is a wrapper representing an entry in a form.
 
-<Preview>
+<Canvas>
   <Story name='Example'>
     <Field>
       <Field.Label>Label</Field.Label>
@@ -20,17 +20,17 @@ A `Field` is a wrapper representing an entry in a form.
       <Field.Error>Error</Field.Error>
     </Field>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Field} />
+<ArgsTable of={Field} />
 
 ## Field.Label
 
-<Props of={Field.Label} />
+<ArgsTable of={Field.Label} />
 
 ### Label positioning for selection buttons
 
-<Preview>
+<Canvas>
   <Story name='With CheckBox'>
     <Field>
       <Field.Row>
@@ -39,9 +39,9 @@ A `Field` is a wrapper representing an entry in a form.
       </Field.Row>
     </Field>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='With ToggleSwitch'>
     <Field>
       <Field.Row>
@@ -50,20 +50,20 @@ A `Field` is a wrapper representing an entry in a form.
       </Field.Row>
     </Field>
   </Story>
-</Preview>
+</Canvas>
 
 ## Field.Description
 
-<Props of={Field.Description} />
+<ArgsTable of={Field.Description} />
 
 ## Field.Row
 
-<Props of={Field.Row} />
+<ArgsTable of={Field.Row} />
 
 ## Field.Hint
 
-<Props of={Field.Hint} />
+<ArgsTable of={Field.Hint} />
 
 ## Field.Error
 
-<Props of={Field.Error} />
+<ArgsTable of={Field.Error} />

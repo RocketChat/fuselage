@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { Icon, UrlInput } from '../..';
@@ -10,13 +10,13 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 
 An input for URL addresses.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <UrlInput />
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={UrlInput} />
+<ArgsTable of={UrlInput} />
 
 ## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
 
@@ -25,43 +25,43 @@ used.
 
 ### With Icon Addon
 
-<Preview>
+<Canvas>
   <Story name='With Icon Addon'>
     <UrlInput addon={<Icon name='send' size='x20' />} />
   </Story>
-</Preview>
+</Canvas>
 
 ### Invalid
 
-<Preview>
+<Canvas>
   <Story name='Invalid'>
     <UrlInput error='Error' />
   </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <UrlInput disabled />
   </Story>
-</Preview>
+</Canvas>
 
 ### With placeholder
 
-<Preview>
+<Canvas>
   <Story name='With Placeholder'>
     <UrlInput placeholder='Placeholder' />
   </Story>
-</Preview>
+</Canvas>
 
 ### With value
 
-<Preview>
+<Canvas>
   <Story name='With Value'>
     <UrlInput defaultValue='https://rocket.chat' />
   </Story>
-</Preview>
+</Canvas>
 
 ## States
 

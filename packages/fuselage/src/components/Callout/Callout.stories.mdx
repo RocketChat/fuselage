@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { Callout } from '../..';
@@ -10,7 +10,7 @@ import { Callout } from '../..';
 The <LinkTo kind='Misc|Callout' story='Default Story'>`Callout`</LinkTo> is used to get the user's attention explaining
 something important in the content of the current page.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <>
       <Callout title='This is a generic message' />
@@ -19,13 +19,13 @@ something important in the content of the current page.
       <Callout title='This is a danger message' type='danger' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Callout} />
+<ArgsTable of={Callout} />
 
 ## With description
 
-<Preview>
+<Canvas>
   <Story name='With Description'>
     <>
       <Callout title='This is a generic message'>
@@ -42,11 +42,11 @@ something important in the content of the current page.
       </Callout>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ## With description only
 
-<Preview>
+<Canvas>
   <Story name='With Description Only'>
     <>
       <Callout>
@@ -63,4 +63,4 @@ something important in the content of the current page.
       </Callout>
     </>
   </Story>
-</Preview>
+</Canvas>

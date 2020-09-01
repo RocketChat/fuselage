@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Select, MultiSelect, MultiSelectFiltered, SelectFiltered } from '../..';
 
@@ -24,116 +24,116 @@ export const optionsEllipses = [[11, 'Very very very very very very very very ve
 
 An input for selection of options.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Select width='250px' placeholder='Placeholder here...' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='Error'>
     <Select width='250px' error placeholder='Placeholder here...' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <Select width='250px' disabled placeholder='Placeholder here...' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
 #### No Placeholder
 
-<Preview>
+<Canvas>
   <Story name='No Placeholder'>
     <Select width='250px' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Select} />
+<ArgsTable of={Select} />
 
 # Select with filter
 
 An input for selection of options.
 
-<Preview>
+<Canvas>
   <Story name='Select with filter'>
     <SelectFiltered width='250px' placeholder='Placeholder here...' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
 
-<Preview>
+<Canvas>
   <Story name='Select with filter and ellipses'>
     <SelectFiltered width='250px' value={11} placeholder='Placeholder here...' options={optionsEllipses}/>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='Select with filter and error'>
     <SelectFiltered width='250px' error placeholder='Placeholder here...' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
 
-<Preview>
+<Canvas>
   <Story name='Select with filter and disabled'>
     <SelectFiltered width='250px' disabled error placeholder='Placeholder here...' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={SelectFiltered} />
+<ArgsTable of={SelectFiltered} />
 
 # MultiSelect
 
 An input for selection of options.
 
-<Preview>
+<Canvas>
   <Story name='MultiSelect'>
     <MultiSelect placeholder='Placeholder here...' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
 
-<Preview>
+<Canvas>
   <Story name='MultiSelect Error'>
     <MultiSelect error placeholder='Placeholder here...' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
 
-<Preview>
+<Canvas>
   <Story name='MultiSelect Disabled'>
     <MultiSelect disabled placeholder='Placeholder here...' options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
 
-<Props of={MultiSelect} />
+<ArgsTable of={MultiSelect} />
 
 # MultiSelectFiltered
 
 An input for selection of options.
 
-<Preview>
+<Canvas>
   <Story name='MultiSelectFiltered'>
     <MultiSelectFiltered placeholder='Placeholder here...' onChange={action('change')} options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
 
-<Preview>
+<Canvas>
   <Story name='MultiSelectFiltered error'>
     <MultiSelectFiltered error placeholder='Placeholder here...' onChange={action('change')} options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
 
-<Preview>
+<Canvas>
   <Story name='MultiSelectFiltered disabled'>
     <MultiSelectFiltered disabled placeholder='Placeholder here...' onChange={action('change')} options={options}/>
   </Story>
-</Preview>
+</Canvas>
 
 
-<Props of={MultiSelectFiltered} />
+<ArgsTable of={MultiSelectFiltered} />

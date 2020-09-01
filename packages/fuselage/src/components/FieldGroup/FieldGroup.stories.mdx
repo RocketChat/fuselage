@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Field, FieldGroup, InputBox } from '../..';
 
@@ -8,7 +8,7 @@ import { Field, FieldGroup, InputBox } from '../..';
 
 A container for grouping fields that semantically share a common data context.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <FieldGroup>
       <Field>
@@ -32,6 +32,6 @@ A container for grouping fields that semantically share a common data context.
       </Field>
     </FieldGroup>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={FieldGroup} />
+<ArgsTable of={FieldGroup} />

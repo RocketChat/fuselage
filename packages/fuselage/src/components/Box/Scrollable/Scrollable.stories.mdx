@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Box, Scrollable, Tile } from '../../..';
 
@@ -9,7 +9,7 @@ import { Box, Scrollable, Tile } from '../../..';
 
 Add scroll capability to the wrapped component.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Scrollable>
       <Tile padding='none' maxWidth='full' h={100}>
@@ -17,13 +17,13 @@ Add scroll capability to the wrapped component.
       </Tile>
     </Scrollable>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Scrollable} />
+<ArgsTable of={Scrollable} />
 
 ### Horizontal scrolling
 
-<Preview>
+<Canvas>
   <Story name='Horizontal scrolling'>
     <Scrollable horizontal>
       <Tile padding='none' maxWidth='full'>
@@ -31,11 +31,11 @@ Add scroll capability to the wrapped component.
       </Tile>
     </Scrollable>
   </Story>
-</Preview>
+</Canvas>
 
 ### Vertical scrolling
 
-<Preview>
+<Canvas>
   <Story name='Vertical scrolling'>
     <Scrollable vertical>
       <Tile padding='none' height={100}>
@@ -43,11 +43,11 @@ Add scroll capability to the wrapped component.
       </Tile>
     </Scrollable>
   </Story>
-</Preview>
+</Canvas>
 
 ### Smooth scrolling
 
-<Preview>
+<Canvas>
   <Story name='Smooth scrolling'>
     <Scrollable smooth>
       <Tile padding='none' height={100}>
@@ -55,11 +55,11 @@ Add scroll capability to the wrapped component.
       </Tile>
     </Scrollable>
   </Story>
-</Preview>
+</Canvas>
 
 ### On scroll content event
 
-<Preview>
+<Canvas>
   <Story name='On Scroll Content'>
     <Scrollable onScrollContent={action('scrollContent')}>
       <Tile padding='none' height={100}>
@@ -67,4 +67,4 @@ Add scroll capability to the wrapped component.
       </Tile>
     </Scrollable>
   </Story>
-</Preview>
+</Canvas>

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Button, Icon } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -10,75 +10,75 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 
 Indicates an actionable user action.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Button onClick={action('click')}>Button</Button>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Button} />
+<ArgsTable of={Button} />
 
 ## Variants
 
 ### Primary
 
-<Preview>
+<Canvas>
   <Story name='Primary'>
     <Button primary>Button</Button>
   </Story>
-</Preview>
+</Canvas>
 
 ### Ghost
 
-<Preview>
+<Canvas>
   <Story name='Ghost'>
     <Button ghost>Button</Button>
   </Story>
-</Preview>
+</Canvas>
 
 ### Danger
 
-<Preview>
+<Canvas>
   <Story name='Danger'>
     <Button danger>Button</Button>
   </Story>
-</Preview>
+</Canvas>
 
 ### Small
 
-<Preview>
+<Canvas>
   <Story name='Small'>
     <Button small>Button</Button>
   </Story>
-</Preview>
+</Canvas>
 
 ### Square
 
-<Preview>
+<Canvas>
   <Story name='Square'>
     <Button square>
       <Icon name='plus' size='x20' />
     </Button>
   </Story>
-</Preview>
+</Canvas>
 
 ## With icon
 
-<Preview>
+<Canvas>
   <Story name='With Icon'>
     <Button>
       <Icon name='edit' size='x16' /> Edit
     </Button>
   </Story>
-</Preview>
+</Canvas>
 
 ## As link
 
-<Preview>
+<Canvas>
   <Story name='As Link'>
     <Button is='a' href='https://rocket.chat' external>Button</Button>
   </Story>
-</Preview>
+</Canvas>
 
 ## States
 

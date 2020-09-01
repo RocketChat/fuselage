@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { AnimatedVisibility, Field, Margins, ToggleSwitch, Tile } from '../..';
 
@@ -6,7 +6,7 @@ import { AnimatedVisibility, Field, Margins, ToggleSwitch, Tile } from '../..';
 
 # AnimatedVisibility
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     {React.createElement(function() {
       const [visible, setVisible] = React.useState(false);
@@ -23,6 +23,6 @@ import { AnimatedVisibility, Field, Margins, ToggleSwitch, Tile } from '../..';
       </Margins>
     })}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={AnimatedVisibility} />
+<ArgsTable of={AnimatedVisibility} />

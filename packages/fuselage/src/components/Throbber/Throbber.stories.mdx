@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Throbber, Button, Box } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -10,35 +10,35 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 
 Indicates content that has not loaded yet.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Throbber/>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Throbber} />
+<ArgsTable of={Throbber} />
 
 ### Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <Throbber disabled/>
   </Story>
-</Preview>
+</Canvas>
 
 ### Inside Button
 
-<Preview>
+<Canvas>
   <Story name='Inside Button'>
     <Button minHeight='x40'>
       <Throbber size='x12'/>
     </Button>
   </Story>
-</Preview>
+</Canvas>
 
 ### Inside Button, inherit color
 
-<Preview>
+<Canvas>
   <Story name='Inside Button, inherit color'>
     <Box>
       <Button primary danger minHeight='x40' marginInlineEnd='5px'>
@@ -49,7 +49,7 @@ Indicates content that has not loaded yet.
       </Button>
     </Box>
   </Story>
-</Preview>
+</Canvas>
 
 
 ### Variations

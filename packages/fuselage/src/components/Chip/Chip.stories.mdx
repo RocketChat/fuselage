@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Box, Chip, Margins } from '../..';
 import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
@@ -8,33 +8,33 @@ import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
 
 # Chip
 
-<Preview>
+<Canvas>
   <Story name='Example'>
     <Chip thumbUrl={exampleAvatar} onClick={action('click')}>Marie Rowe</Chip>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Chip} />
+<ArgsTable of={Chip} />
 
 ### Default
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Chip>Chip</Chip>
   </Story>
-</Preview>
+</Canvas>
 
 ### Dismissible
 
-<Preview>
+<Canvas>
   <Story name='Dismissible'>
     <Chip onClick={action('click')}>Chip</Chip>
   </Story>
-</Preview>
+</Canvas>
 
 ### With thumb
 
-<Preview>
+<Canvas>
   <Story name='With thumb' decorators={[
     (storyFn) => <Box display='flex' margin='-x4'>
       <Margins all='x4'>
@@ -47,4 +47,4 @@ import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
       <Chip thumbUrl={blankAvatar} onClick={action('click')}>Chip</Chip>
     </>
   </Story>
-</Preview>
+</Canvas>

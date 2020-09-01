@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Skeleton } from '../..';
 
@@ -6,18 +6,18 @@ import { Skeleton } from '../..';
 
 # Skeleton
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Skeleton />
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Skeleton} />
+<ArgsTable of={Skeleton} />
 
 ### Rect variant
 
-<Preview>
+<Canvas>
   <Story name='Rect'>
     <Skeleton variant='rect' width='50%' height={100} />
   </Story>
-</Preview>
+</Canvas>

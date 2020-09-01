@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Box, Margins, Tooltip } from '../..';
 
@@ -9,17 +9,17 @@ import { Box, Margins, Tooltip } from '../..';
 A message which appears when a cursor is positioned over an icon, image, hyperlink, or other element in a graphical user
 interface.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Tooltip>A example tooltip</Tooltip>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Tooltip} />
+<ArgsTable of={Tooltip} />
 
 ## Arrow positioning
 
-<Preview>
+<Canvas>
   <Story name='Arrow positioning'>
     <Margins inline='neg-x8'>
       <Box>
@@ -45,4 +45,4 @@ interface.
       </Box>
     </Margins>
   </Story>
-</Preview>
+</Canvas>

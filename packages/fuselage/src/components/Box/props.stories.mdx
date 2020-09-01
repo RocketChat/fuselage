@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box, Button } from '../..';
@@ -11,24 +11,24 @@ import { Box, Button } from '../..';
 
 Most of the props are designed to change styles by creating CSS rules at runtime.
 
-<Props of={Box} />
+<ArgsTable of={Box} />
 
 ### `is` prop
 
 The `is` prop allows `Box` to render any component capable of handling common DOM attributes, specially `className` and
 `style`.
 
-<Preview>
+<Canvas>
   <Story name='is prop'>
     <Box is={Button}>A Box rendering a Button</Box>
   </Story>
-</Preview>
+</Canvas>
 
 ### Space
 
 #### Margins
 
-<Preview>
+<Canvas>
   <Story
     name='Margins'
     decorators={[
@@ -56,11 +56,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box marginInlineEnd='x16' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Paddings
 
-<Preview>
+<Canvas>
   <Story
     name='Paddings'
     decorators={[
@@ -88,13 +88,13 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box paddingInlineEnd='x16' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ### Color
 
 #### Colors
 
-<Preview>
+<Canvas>
   <Story
     name='Colors'
     decorators={[
@@ -133,11 +133,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box color='rebeccapurple' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Background colors
 
-<Preview>
+<Canvas>
   <Story
     name='Background colors'
     decorators={[
@@ -175,35 +175,35 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box bg='rebeccapurple' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Opacity
 
-<Preview>
+<Canvas>
   <Story
     name='Opacity'
     decorators={[(fn) => React.cloneElement(fn(), { size: 'x32', bg: 'neutral-500' })]}
   >
     <Box opacity={0.5} />
   </Story>
-</Preview>
+</Canvas>
 
 ### Typography
 
 #### Font families
 
-<Preview>
+<Canvas>
   <Story name='Font families'>
     <>
       <Box fontFamily='sans'>The quick brown fox jumps over the lazy dog</Box>
       <Box fontFamily='mono'>The quick brown fox jumps over the lazy dog</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Font sizes
 
-<Preview>
+<Canvas>
   <Story name='Font sizes'>
     <>
       <Box fontSize='x12'>x12</Box>
@@ -221,11 +221,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box fontSize='micro'>micro</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Font weights
 
-<Preview>
+<Canvas>
   <Story name='Font weights'>
     <>
       <Box fontWeight='100'>100</Box>
@@ -247,11 +247,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box fontWeight='micro'>micro</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Line heights
 
-<Preview>
+<Canvas>
   <Story name='Line heights'>
     <>
       <Box lineHeight='1'>1</Box>
@@ -268,11 +268,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box lineHeight='micro'>micro</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Letter spacing
 
-<Preview>
+<Canvas>
   <Story name='Letter spacing'>
     <>
       <Box letterSpacing='4px'>4px</Box>
@@ -287,11 +287,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box letterSpacing='micro'>micro</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Font scales
 
-<Preview>
+<Canvas>
   <Story name='Font scales'>
     <>
       <Box fontScale='h1'>h1</Box>
@@ -304,22 +304,22 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box fontScale='micro'>micro</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Font styles
 
-<Preview>
+<Canvas>
   <Story name='Font styles'>
     <>
       <Box fontStyle='normal'>normal</Box>
       <Box fontStyle='italic'>italic</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Text alignment
 
-<Preview>
+<Canvas>
   <Story name='Text alignment'>
     <>
       <Box textAlign='start'>start</Box>
@@ -328,11 +328,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box textAlign='justify'>justify</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Text transform
 
-<Preview>
+<Canvas>
   <Story name='Text transform'>
     <>
       <Box textTransform='none'>none</Box>
@@ -341,11 +341,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box textTransform='capitalize'>capitalize</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Text decoration
 
-<Preview>
+<Canvas>
   <Story name='Text decoration'>
     <>
       <Box textDecorationLine='none'>none</Box>
@@ -354,13 +354,13 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box textDecorationLine='line-through'>line-through</Box>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ### Layout
 
 #### Widths
 
-<Preview>
+<Canvas>
   <Story
     name='Widths'
     decorators={[
@@ -377,11 +377,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box w='sw' maxWidth='x64' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Heights
 
-<Preview>
+<Canvas>
   <Story
     name='Heights'
     decorators={[
@@ -398,11 +398,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box h='sw' maxHeight='x64' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Sizes
 
-<Preview>
+<Canvas>
   <Story
     name='Sizes'
     decorators={[
@@ -418,11 +418,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box size={9999} maxSize='x64' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Display
 
-<Preview>
+<Canvas>
   <Story
     name='Display'
     decorators={[
@@ -442,11 +442,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box verticalAlign='40px' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Vertical alignment
 
-<Preview>
+<Canvas>
   <Story
     name='Vertical alignment'
     decorators={[
@@ -466,13 +466,13 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box verticalAlign='40px' />
     </Box>
   </Story>
-</Preview>
+</Canvas>
 
 ### Borders
 
 #### Borders
 
-<Preview>
+<Canvas>
   <Story
     name='Borders'
     decorators={[
@@ -513,11 +513,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box borderWidth='x4' borderInlineEndColor='primary-500' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Border radii
 
-<Preview>
+<Canvas>
   <Story
     name='Border radii'
     decorators={[
@@ -535,13 +535,13 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box borderEndEndRadius='full' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ### Position
 
 #### Position
 
-<Preview>
+<Canvas>
   <Story
     name='Position'
     decorators={[
@@ -558,12 +558,12 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box position='fixed' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 
 #### Z-index
 
-<Preview>
+<Canvas>
   <Story
     name='Z-index'
     decorators={[
@@ -580,11 +580,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box zIndex='1' borderColor='danger-300' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Inset
 
-<Preview>
+<Canvas>
   <Story
     name='Inset'
     decorators={[
@@ -611,13 +611,13 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box insetInlineEnd='x16' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ### Special
 
 #### Elevation
 
-<Preview>
+<Canvas>
   <Story
     name='Elevation'
     decorators={[
@@ -633,11 +633,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box elevation='2' />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 #### Invisible
 
-<Preview>
+<Canvas>
   <Story
     name='Invisible'
     decorators={[
@@ -650,11 +650,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   >
     <Box invisible />
   </Story>
-</Preview>
+</Canvas>
 
 #### With rich content
 
-<Preview>
+<Canvas>
   <Story name='With rich content'>
     <Box withRichContent>
       <p><strong>This text is strong</strong></p>
@@ -662,14 +662,14 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <p>This is<sub> subscript</sub> and <sup>superscript</sup></p>
     </Box>
   </Story>
-</Preview>
+</Canvas>
 
 #### With truncated text
 
-<Preview>
+<Canvas>
   <Story name='With truncated text'>
     <Box withTruncatedText w='x80'>
       This text is truncated.
     </Box>
   </Story>
-</Preview>
+</Canvas>

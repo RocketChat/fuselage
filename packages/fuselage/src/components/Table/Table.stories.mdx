@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Table, CheckBox } from '../..';
 
@@ -6,7 +6,7 @@ import { Table, CheckBox } from '../..';
 
 # Table
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <>
       <Table>
@@ -38,15 +38,15 @@ import { Table, CheckBox } from '../..';
       </Table>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ## Table
 
-<Props of={Table} />
+<ArgsTable of={Table} />
 
 # Table
 
-<Preview>
+<Canvas>
   <Story name='Selected'>
     <>
       <Table.Selection text='5 Items selected'>
@@ -108,12 +108,12 @@ import { Table, CheckBox } from '../..';
       </Table>
     </>
   </Story>
-</Preview>
+</Canvas>
 
 
 ### Striped
 
-<Preview>
+<Canvas>
   <Story name='Striped'>
     <Table fixed striped sticky>
       <Table.Head>
@@ -164,12 +164,12 @@ import { Table, CheckBox } from '../..';
       </Table.Body>
     </Table>
   </Story>
-</Preview>
+</Canvas>
 
 
 ### Fixed
 
-<Preview>
+<Canvas>
   <Story name='Fixed'>
     <Table fixed>
       <Table.Head>
@@ -199,24 +199,24 @@ import { Table, CheckBox } from '../..';
       </Table.Body>
     </Table>
   </Story>
-</Preview>
+</Canvas>
 
 ## Table.Head
 
-<Props of={Table.Head} />
+<ArgsTable of={Table.Head} />
 
 ## Table.Body
 
-<Props of={Table.Body} />
+<ArgsTable of={Table.Body} />
 
 ## Table.Foot
 
-<Props of={Table.Foot} />
+<ArgsTable of={Table.Foot} />
 
 ## Table.Row
 
-<Props of={Table.Row} />
+<ArgsTable of={Table.Row} />
 
 ## Table.Cell
 
-<Props of={Table.Cell} />
+<ArgsTable of={Table.Cell} />

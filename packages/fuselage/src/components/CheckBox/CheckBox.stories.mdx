@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { CheckBox } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -8,37 +8,37 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 
 # CheckBox
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <CheckBox onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={CheckBox} />
+<ArgsTable of={CheckBox} />
 
 ## Checked
 
-<Preview>
+<Canvas>
   <Story name='Checked'>
     <CheckBox checked onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
 ## Indeterminate
 
-<Preview>
+<Canvas>
   <Story name='Indeterminate'>
     <CheckBox indeterminate onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
 ## Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <CheckBox disabled />
   </Story>
-</Preview>
+</Canvas>
 
 ## States
 

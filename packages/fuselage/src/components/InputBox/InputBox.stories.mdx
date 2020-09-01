@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { Icon, InputBox } from '../..';
@@ -13,54 +13,54 @@ A decorated input control with support for addons.
 Usually you'll perfer to use `-Input` (e.g. <LinkTo kind='Forms|TextInput' story='Default'>`TextInput`</LinkTo>)
 components over this one because it works as a construction block for them.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <InputBox defaultValue='Value' onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={InputBox} />
+<ArgsTable of={InputBox} />
 
 ### With Addon
 
-<Preview>
+<Canvas>
   <Story name='With Icon Addon'>
     <InputBox addon={<Icon name='send' size='x20' />} />
   </Story>
-</Preview>
+</Canvas>
 
 ### Invalid
 
-<Preview>
+<Canvas>
   <Story name='Invalid'>
     <InputBox defaultValue='Value' error='Error' onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <InputBox defaultValue='Value' disabled onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
 ### With placeholder
 
-<Preview>
+<Canvas>
   <Story name='With Placeholder'>
     <InputBox placeholder='Placeholder' onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
 ## InputBox.Skeleton
 
 A skeleton is a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.
 
-<Preview>
+<Canvas>
   <Story name='Skeleton'>
     <InputBox.Skeleton />
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={InputBox.Skeleton} />
+<ArgsTable of={InputBox.Skeleton} />

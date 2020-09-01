@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { ButtonGroup, Button, Modal } from '../..';
 
@@ -6,7 +6,7 @@ import { ButtonGroup, Button, Modal } from '../..';
 
 # Modal
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Modal>
       <Modal.Header>
@@ -25,30 +25,30 @@ import { ButtonGroup, Button, Modal } from '../..';
       </Modal.Footer>
     </Modal>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Modal} />
+<ArgsTable of={Modal} />
 
 ## Modal.Header
 
-<Props of={Modal.Header} />
+<ArgsTable of={Modal.Header} />
 
 ## Modal.Thumb
 
-<Props of={Modal.Thumb} />
+<ArgsTable of={Modal.Thumb} />
 
 ## Modal.Title
 
-<Props of={Modal.Title} />
+<ArgsTable of={Modal.Title} />
 
 ## Modal.Close
 
-<Props of={Modal.Close} />
+<ArgsTable of={Modal.Close} />
 
 ## Modal.Content
 
-<Props of={Modal.Content} />
+<ArgsTable of={Modal.Content} />
 
 ## Modal.Footer
 
-<Props of={Modal.Footer} />
+<ArgsTable of={Modal.Footer} />

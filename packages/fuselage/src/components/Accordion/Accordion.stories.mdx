@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { Accordion, Box } from '../..';
@@ -10,7 +10,7 @@ import { Accordion, Box } from '../..';
 An <LinkTo kind='Containers|Accordion' story='Default Story'>`Accordion`</LinkTo> allows users to toggle the display of
 sections of content.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Accordion>
       <Accordion.Item title='Item #1' defaultExpanded>
@@ -24,6 +24,6 @@ sections of content.
       </Accordion.Item>
     </Accordion>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Accordion} />
+<ArgsTable of={Accordion} />

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { ToggleSwitch } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -8,29 +8,29 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 
 # ToggleSwitch
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <ToggleSwitch onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={ToggleSwitch} />
+<ArgsTable of={ToggleSwitch} />
 
 ## Checked
 
-<Preview>
+<Canvas>
   <Story name='Checked'>
     <ToggleSwitch checked onChange={action('change')} />
   </Story>
-</Preview>
+</Canvas>
 
 ## Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <ToggleSwitch disabled />
   </Story>
-</Preview>
+</Canvas>
 
 ## States
 

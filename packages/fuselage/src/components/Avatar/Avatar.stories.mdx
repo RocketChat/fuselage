@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Avatar, Margins } from '../..';
 
@@ -6,7 +6,7 @@ import { Avatar, Margins } from '../..';
 
 # Avatar
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Margins all='x16'>
       {['x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x48'].map((size, i) =>
@@ -28,11 +28,11 @@ import { Avatar, Margins } from '../..';
       )}
     </Margins>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Avatar} />
+<ArgsTable of={Avatar} />
 
-<Preview>
+<Canvas>
   <Story name='Rounded'>
     <Margins all='x16'>
       {['x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x48'].map((size, i) =>
@@ -55,9 +55,9 @@ import { Avatar, Margins } from '../..';
       )}
     </Margins>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='Stack'>
     <Margins all='x16'>
       {['x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x48'].map((size, i) =>
@@ -108,9 +108,9 @@ import { Avatar, Margins } from '../..';
       )}
     </Margins>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='Stack Rounded'>
     <Margins all='x16'>
       {['x2', 'x4', 'x8', 'x12', 'x16', 'x20', 'x24', 'x28', 'x32', 'x36', 'x40', 'x48'].map((size, i) =>
@@ -164,4 +164,4 @@ import { Avatar, Margins } from '../..';
       )}
     </Margins>
   </Story>
-</Preview>
+</Canvas>

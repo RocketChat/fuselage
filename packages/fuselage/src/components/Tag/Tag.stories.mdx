@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Tag } from '../..';
 
@@ -8,50 +8,50 @@ import { Tag } from '../..';
 
 Used for mentions.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Tag>john.doe</Tag>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Tag} />
+<ArgsTable of={Tag} />
 
 ### With Pointer Cursor
 
-<Preview>
+<Canvas>
   <Story name='Pointer'>
     <Tag onClick={() => {}}>john.doe</Tag>
   </Story>
-</Preview>
+</Canvas>
 
 ### Primary
 
-<Preview>
+<Canvas>
   <Story name='Primary'>
     <Tag variant='primary'>john.doe</Tag>
   </Story>
-</Preview>
+</Canvas>
 
 ### Danger
 
-<Preview>
+<Canvas>
   <Story name='Danger'>
     <Tag variant='danger'>john.doe</Tag>
   </Story>
-</Preview>
+</Canvas>
 
 ### Ghost
 
-<Preview>
+<Canvas>
   <Story name='Ghost'>
     <Tag variant='ghost'>john.doe</Tag>
   </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <Tag disabled>john.doe</Tag>
   </Story>
-</Preview>
+</Canvas>

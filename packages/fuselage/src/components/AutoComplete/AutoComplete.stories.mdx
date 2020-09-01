@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import { useEffect, useState } from 'react';
 
 import { AutoComplete } from '../..';
@@ -18,7 +18,7 @@ const options = [
 
 An input for selection of options.
 
-<Preview>
+<Canvas>
   <Story name='Example'>
     {React.createElement(() => {
       const [options, setOptions] = useState([]);
@@ -33,6 +33,6 @@ An input for selection of options.
       return <AutoComplete { ...{ value, filter, setFilter, options, onChange: setValue } }/>;
     })}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={AutoComplete} />
+<ArgsTable of={AutoComplete} />

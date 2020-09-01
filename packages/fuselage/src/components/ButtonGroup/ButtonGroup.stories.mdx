@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Button, ButtonGroup } from '../..';
 
@@ -8,7 +8,7 @@ import { Button, ButtonGroup } from '../..';
 
 A container for grouping buttons that semantically share a common action context.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <ButtonGroup>
       <Button>Button 1</Button>
@@ -16,13 +16,13 @@ A container for grouping buttons that semantically share a common action context
       <Button>Button 3</Button>
     </ButtonGroup>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={ButtonGroup} />
+<ArgsTable of={ButtonGroup} />
 
 ## Wrap
 
-<Preview>
+<Canvas>
   <Story name='Wrap'>
     <ButtonGroup wrap>
       <Button>Button 1</Button>
@@ -47,11 +47,11 @@ A container for grouping buttons that semantically share a common action context
       <Button>Button 20</Button>
     </ButtonGroup>
   </Story>
-</Preview>
+</Canvas>
 
 ## Strech
 
-<Preview>
+<Canvas>
   <Story name='Stretch'>
     <ButtonGroup stretch>
       <Button>Button 1</Button>
@@ -59,11 +59,11 @@ A container for grouping buttons that semantically share a common action context
       <Button>Button 3</Button>
     </ButtonGroup>
   </Story>
-</Preview>
+</Canvas>
 
 ## Vertical
 
-<Preview>
+<Canvas>
   <Story name='Vertical'>
     <ButtonGroup vertical>
       <Button>Button 1</Button>
@@ -71,11 +71,11 @@ A container for grouping buttons that semantically share a common action context
       <Button>Button 3</Button>
     </ButtonGroup>
   </Story>
-</Preview>
+</Canvas>
 
 ### With stretch
 
-<Preview>
+<Canvas>
   <Story name='Vertical With Stretch'>
     <ButtonGroup vertical stretch>
       <Button>Button 1</Button>
@@ -83,13 +83,13 @@ A container for grouping buttons that semantically share a common action context
       <Button>Button 3</Button>
     </ButtonGroup>
   </Story>
-</Preview>
+</Canvas>
 
 ## Alignment
 
 ### At start
 
-<Preview>
+<Canvas>
   <Story name='Aligned At Start'>
     <ButtonGroup align='start'>
       <Button>Button 1</Button>
@@ -97,11 +97,11 @@ A container for grouping buttons that semantically share a common action context
       <Button>Button 3</Button>
     </ButtonGroup>
   </Story>
-</Preview>
+</Canvas>
 
 ### At center
 
-<Preview>
+<Canvas>
   <Story name='Aligned At Center'>
     <ButtonGroup align='center'>
       <Button>Button 1</Button>
@@ -109,11 +109,11 @@ A container for grouping buttons that semantically share a common action context
       <Button>Button 3</Button>
     </ButtonGroup>
   </Story>
-</Preview>
+</Canvas>
 
 ### At end
 
-<Preview>
+<Canvas>
   <Story name='Aligned At End'>
     <ButtonGroup align='end'>
       <Button>Button 1</Button>
@@ -121,4 +121,4 @@ A container for grouping buttons that semantically share a common action context
       <Button>Button 3</Button>
     </ButtonGroup>
   </Story>
-</Preview>
+</Canvas>

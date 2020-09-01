@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Grid, Tile } from '../..';
 
@@ -6,7 +6,7 @@ import { Grid, Tile } from '../..';
 
 # Grid
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Grid>
       <Grid.Item>
@@ -20,15 +20,15 @@ import { Grid, Tile } from '../..';
       </Grid.Item>
     </Grid>
   </Story>
-</Preview>
+</Canvas>
 
 ### Grid
 
-<Props of={Grid} />
+<ArgsTable of={Grid} />
 
 ### Grid.Item
 
-<Props of={Grid.Item} />
+<ArgsTable of={Grid.Item} />
 
 ## Breakpoints
 

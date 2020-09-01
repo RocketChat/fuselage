@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { Icon, SelectInput } from '../..';
@@ -10,7 +10,7 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 
 An input for selection of options.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <SelectInput>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
@@ -18,16 +18,16 @@ An input for selection of options.
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
     </SelectInput>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={SelectInput} />
+<ArgsTable of={SelectInput} />
 
 ## Multiple
 
 While the default variant only allows one option and its rendered as a dropdown, the `multiple` prop flag enables
 multiple selection of options.
 
-<Preview>
+<Canvas>
   <Story name='Multiple'>
     <SelectInput multiple htmlSize={3} value={['b', 'c']}>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
@@ -35,7 +35,7 @@ multiple selection of options.
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
     </SelectInput>
   </Story>
-</Preview>
+</Canvas>
 
 ## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
 
@@ -46,7 +46,7 @@ used.
 
 There is a subtle difference in the way the `addon` prop is handled: it is ignored when `multiple` prop is `false`.
 
-<Preview>
+<Canvas>
   <Story name='With Addon'>
     <SelectInput addon={<Icon name='discover' size='x20' />}>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
@@ -54,9 +54,9 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
     </SelectInput>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='Multiple With Addon'>
     <SelectInput multiple htmlSize={3} addon={<Icon name='discover' size='x20' />}>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
@@ -64,11 +64,11 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
     </SelectInput>
   </Story>
-</Preview>
+</Canvas>
 
 ### Invalid
 
-<Preview>
+<Canvas>
   <Story name='Invalid'>
     <SelectInput error='Error'>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
@@ -76,11 +76,11 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
     </SelectInput>
   </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <SelectInput disabled>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
@@ -88,11 +88,11 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
     </SelectInput>
   </Story>
-</Preview>
+</Canvas>
 
 ### With placeholder
 
-<Preview>
+<Canvas>
   <Story name='With Placeholder'>
     <SelectInput placeholder='Placeholder'>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
@@ -100,11 +100,11 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
     </SelectInput>
   </Story>
-</Preview>
+</Canvas>
 
 ### With value
 
-<Preview>
+<Canvas>
   <Story name='With Value'>
     <SelectInput defaultValue='b'>
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
@@ -112,7 +112,7 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
     </SelectInput>
   </Story>
-</Preview>
+</Canvas>
 
 ## States
 

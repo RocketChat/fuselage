@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Badge } from '../..';
 
@@ -8,34 +8,34 @@ import { Badge } from '../..';
 
 Shows a count.
 
-<Preview>
+<Canvas>
   <Story name='Default'>
     <Badge>99</Badge>
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Badge} />
+<ArgsTable of={Badge} />
 
 ### Primary
 
-<Preview>
+<Canvas>
   <Story name='Primary'>
     <Badge variant='primary'>99</Badge>
   </Story>
-</Preview>
+</Canvas>
 
 ### Danger
 
-<Preview>
+<Canvas>
   <Story name='Danger'>
     <Badge variant='danger'>99</Badge>
   </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview>
+<Canvas>
   <Story name='Disabled'>
     <Badge disabled>99</Badge>
   </Story>
-</Preview>
+</Canvas>
