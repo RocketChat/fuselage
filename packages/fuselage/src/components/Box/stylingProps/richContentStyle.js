@@ -1,11 +1,7 @@
 import { css } from '@rocket.chat/css-in-js';
 
 import {
-  borderWidth,
-  borderRadius,
   color,
-  margin,
-  padding,
   fontFamily,
   fontScale,
 } from '../../../styleTokens';
@@ -63,10 +59,8 @@ export default css`
   }
 
   code {
-    padding:
-      ${ padding('x4') }
-      ${ padding('x8') };
-    border-radius: ${ borderRadius('x2') };
+    padding: 4px 8px;
+    border-radius: 2px;
     background-color: ${ color('neutral-300') };
     font-family: ${ fontFamily('mono') };
     -webkit-font-smoothing: auto;
@@ -84,7 +78,7 @@ export default css`
   abbr {
     &[title] {
       text-decoration: underline dashed;
-      border-block-end-width: ${ borderWidth('none') };
+      border-block-end-width: 0px;
     }
   }
 
@@ -113,13 +107,11 @@ export default css`
   }
 
   kbd {
-    padding:
-      ${ padding('x4') }
-      ${ padding('x8') };
-    border-width: ${ borderWidth('x1') };
+    padding: 4px 8px;
+    border-width: 1px;
     border-style: solid;
     border-color: currentColor;
-    border-radius: ${ borderRadius('x2') };
+    border-radius: 2px;
     font-family: ${ fontFamily('mono') };
     -webkit-font-smoothing: auto;
   }
@@ -143,9 +135,7 @@ export default css`
   ol,
   pre {
     display: block;
-    margin:
-      ${ margin('x16') }
-      ${ margin('none') };
+    margin: 16px 0px;
   }
 
   h1 {
@@ -199,7 +189,7 @@ export default css`
 
   ul,
   ol {
-    padding-inline-start: ${ padding('x40') };
+    padding-inline-start: 40px;
   }
 
   ul {
@@ -228,7 +218,7 @@ export default css`
 
     code {
       display: block;
-      padding: ${ padding('x16') };
+      padding: 16px;
     }
   }
 `;
