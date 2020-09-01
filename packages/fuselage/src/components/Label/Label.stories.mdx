@@ -1,0 +1,38 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+
+import { Label } from '../..';
+
+<Meta title='Forms/Label' parameters={{ jest: ['Label/spec'] }} />
+
+# Label
+
+A caption for an input component.
+
+<Canvas>
+  <Story name='Default'>
+    <Label>Label</Label>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Label} />
+
+## Input component state
+
+The requirement of filling the input, the possible validation errors, and even the disabled state could be shown in
+the `Label` too.
+
+### Required
+
+<Canvas>
+  <Story name='Required'>
+    <Label required>Label</Label>
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name='Disabled'>
+    <Label disabled>Label</Label>
+  </Story>
+</Canvas>

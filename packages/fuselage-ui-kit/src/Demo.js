@@ -1,10 +1,10 @@
-import React from 'react';
 import {
   Modal,
   ButtonGroup,
   Button,
   AnimatedVisibility,
 } from '@rocket.chat/fuselage';
+import React from 'react';
 
 const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 export const Demo = ({ children, visible }) => <AnimatedVisibility visibility={visible ? AnimatedVisibility.VISIBLE : AnimatedVisibility.HIDDEN}><Modal open={visible}>

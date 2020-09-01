@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
-import { Label } from '../Label';
 import { Box } from '../Box';
+import { Label } from '../Label';
 
 export const ToggleSwitch = forwardRef(function ToggleSwitch({
   autoComplete,

@@ -1,0 +1,90 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { Icon, NumberInput } from '../..';
+import { PropsVariationSection } from '../../../.storybook/helpers';
+
+<Meta title='Forms/Inputs/NumberInput' parameters={{ jest: ['NumberInput/spec'] }} />
+
+# NumberInput
+
+An input for numbers.
+
+<Canvas>
+  <Story name='Default'>
+    <NumberInput />
+  </Story>
+</Canvas>
+
+<ArgsTable of={NumberInput} />
+
+## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
+
+Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
+used.
+
+### With Icon Addon
+
+<Canvas>
+  <Story name='With Icon Addon'>
+    <NumberInput addon={<Icon name='send' size='x20' />} />
+  </Story>
+</Canvas>
+
+### Invalid
+
+<Canvas>
+  <Story name='Invalid'>
+    <NumberInput error='Error' />
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name='Disabled'>
+    <NumberInput disabled />
+  </Story>
+</Canvas>
+
+### With placeholder
+
+<Canvas>
+  <Story name='With Placeholder'>
+    <NumberInput placeholder='Placeholder' />
+  </Story>
+</Canvas>
+
+### With value
+
+<Canvas>
+  <Story name='With Value'>
+    <NumberInput defaultValue={1024} />
+  </Story>
+</Canvas>
+
+## States
+
+<Story name='States'>
+  <PropsVariationSection
+    component={NumberInput}
+    common={{ onChange: () => {} }}
+    xAxis={{
+      default: {},
+      'with placeholder': { placeholder: 'Placeholder' },
+      'with value': { value: 1024 },
+      'with icon': { addon: <Icon name='discover' size='x20' />, value: 1024 },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+      errored: { error: 'Error' },
+      'errored + hover': { className: 'hover', error: 'Error' },
+      'errored + active': { className: 'active', error: 'Error' },
+      'errored + focus': { className: 'focus', error: 'Error' },
+    }}
+  />
+</Story>

@@ -1,5 +1,5 @@
-import ReactDOM from 'react-dom';
 import React, { useState, createContext, useContext } from 'react';
+import ReactDOM from 'react-dom';
 
 import { AnimatedVisibility, Box } from '../Box';
 

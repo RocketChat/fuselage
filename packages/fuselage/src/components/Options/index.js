@@ -1,10 +1,10 @@
-import React, { useLayoutEffect, useState, forwardRef, useMemo } from 'react';
 import { useMutableCallback, useDebouncedState } from '@rocket.chat/fuselage-hooks';
+import React, { useLayoutEffect, useState, forwardRef, useMemo } from 'react';
 
 
 import { AnimatedVisibility, Box, Scrollable } from '../Box';
-import { Icon } from '../Icon';
 import { CheckBox } from '../CheckBox';
+import { Icon } from '../Icon';
 import Margins from '../Margins';
 import { Tile } from '../Tile';
 
@@ -94,51 +94,51 @@ export const useCursor = (initial, options, onChange) => {
       show();
     }
     switch (keyCode) {
-    case ACTIONS.HOME:
-      e.preventDefault();
-      return reset();
-    case ACTIONS.END:
-      e.preventDefault();
-      return setCursor(lastIndex);
-    case ACTIONS.KEY_UP:
-      e.preventDefault();
-      if (cursor < 1) {
+      case ACTIONS.HOME:
+        e.preventDefault();
+        return reset();
+      case ACTIONS.END:
+        e.preventDefault();
         return setCursor(lastIndex);
-      }
-      return setCursor(cursor - 1);
-    case ACTIONS.KEY_DOWN:
-      e.preventDefault();
-      if (cursor === lastIndex) {
-        return setCursor(0);
-      }
-      return setCursor(cursor + 1);
+      case ACTIONS.KEY_UP:
+        e.preventDefault();
+        if (cursor < 1) {
+          return setCursor(lastIndex);
+        }
+        return setCursor(cursor - 1);
+      case ACTIONS.KEY_DOWN:
+        e.preventDefault();
+        if (cursor === lastIndex) {
+          return setCursor(0);
+        }
+        return setCursor(cursor + 1);
 
-    case ACTIONS.ENTER:
-      e.preventDefault();
-      if (visibility === AnimatedVisibility.VISIBLE) {
-        e.persist();
-        e.nativeEvent.stopImmediatePropagation(); // TODO
-        e.stopPropagation();
-      }
-      hide();
-      onChange(options[cursor], visibilityHandler);
-      return;
-    case ACTIONS.ESC:
-      e.preventDefault();
-      reset();
-      hide();
-      if (visibility === AnimatedVisibility.VISIBLE) {
-        e.persist();
-        e.nativeEvent.stopImmediatePropagation(); // TODO
-        e.stopPropagation();
-        return false;
-      }
-      break;
-    default:
-      if (key.match(/^[\d\w]$/i)) {
-        const index = options.findIndex(([, label]) => label[0].toLowerCase() === key);
-        ~index && setCursor(index);
-      }
+      case ACTIONS.ENTER:
+        e.preventDefault();
+        if (visibility === AnimatedVisibility.VISIBLE) {
+          e.persist();
+          e.nativeEvent.stopImmediatePropagation(); // TODO
+          e.stopPropagation();
+        }
+        hide();
+        onChange(options[cursor], visibilityHandler);
+        return;
+      case ACTIONS.ESC:
+        e.preventDefault();
+        reset();
+        hide();
+        if (visibility === AnimatedVisibility.VISIBLE) {
+          e.persist();
+          e.nativeEvent.stopImmediatePropagation(); // TODO
+          e.stopPropagation();
+          return false;
+        }
+        break;
+      default:
+        if (key.match(/^[\d\w]$/i)) {
+          const index = options.findIndex(([, label]) => label[0].toLowerCase() === key);
+          ~index && setCursor(index);
+        }
     }
   });
 

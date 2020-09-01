@@ -1,0 +1,54 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+
+import { ButtonGroup, Button, Modal } from '../..';
+
+<Meta title='Containers/Modal' parameters={{ jest: ['Modal/spec'] }} />
+
+# Modal
+
+<Canvas>
+  <Story name='Default'>
+    <Modal>
+      <Modal.Header>
+        <Modal.Thumb url='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' />
+        <Modal.Title>Modal Header</Modal.Title>
+        <Modal.Close/>
+      </Modal.Header>
+      <Modal.Content>
+        Modal Body
+      </Modal.Content>
+      <Modal.Footer>
+        <ButtonGroup align='end'>
+          <Button>Cancel</Button>
+          <Button primary>Submit</Button>
+        </ButtonGroup>
+      </Modal.Footer>
+    </Modal>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Modal} />
+
+## Modal.Header
+
+<ArgsTable of={Modal.Header} />
+
+## Modal.Thumb
+
+<ArgsTable of={Modal.Thumb} />
+
+## Modal.Title
+
+<ArgsTable of={Modal.Title} />
+
+## Modal.Close
+
+<ArgsTable of={Modal.Close} />
+
+## Modal.Content
+
+<ArgsTable of={Modal.Content} />
+
+## Modal.Footer
+
+<ArgsTable of={Modal.Footer} />

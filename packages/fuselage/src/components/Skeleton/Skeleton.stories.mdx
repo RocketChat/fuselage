@@ -1,0 +1,23 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+
+import { Skeleton } from '../..';
+
+<Meta title='Misc/Skeleton' parameters={{ jest: ['Skeleton/spec'] }} />
+
+# Skeleton
+
+<Canvas>
+  <Story name='Default'>
+    <Skeleton />
+  </Story>
+</Canvas>
+
+<ArgsTable of={Skeleton} />
+
+### Rect variant
+
+<Canvas>
+  <Story name='Rect'>
+    <Skeleton variant='rect' width='50%' height={100} />
+  </Story>
+</Canvas>

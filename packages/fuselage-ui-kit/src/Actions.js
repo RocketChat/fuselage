@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   Button,
   Margins,
@@ -8,15 +7,16 @@ import {
 import {
   BLOCK_CONTEXT,
 } from '@rocket.chat/ui-kit';
+import React, { useState } from 'react';
 
 import { Block } from './Block';
 
 const getStyle = ({ type }) => {
   switch (type) {
-  case 'button':// ELEMENT_TYPES.BUTTON :
-    return 'auto';
-  default:
-    return '45%';
+    case 'button':// ELEMENT_TYPES.BUTTON :
+      return 'auto';
+    default:
+      return '45%';
   }
 };
 

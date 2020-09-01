@@ -1,0 +1,44 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+
+import { Options, CheckOption, Option } from '.';
+import { Box } from '..'
+
+export const options = [
+  [1, 'a teste 1'],
+  [2, 'b teste 2'],
+  [3, 'c teste 3', true],
+  [4, 'd testeadsasdasdasdasdjhasjfhasdkjfhaskdfjhkasjdfhkasjdhfkasjdhfkasjdhfkasjdhfkasdjhfkasdjhfaksjdfhkasjdh 4'],
+];
+
+<Meta title='Misc/Options' parameters={{ jest: ['Options/spec'] }} />
+
+# Options
+
+An input for selection of options.
+
+<Canvas>
+  <Story name='Default'>
+    <Box position='relative' maxWidth={250}>
+      <Options ref={React.createRef()} options={options} cursor={1} />
+    </Box>
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story name='Option'>
+    <Box position='relative' maxWidth={250}>
+      <Options ref={React.createRef()} options={options} renderItem={Option} cursor={1} />
+    </Box>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Options} />
+
+<Canvas>
+  <Story name='CheckOption'>
+    <Box position='relative' maxWidth={250}>
+      <Options ref={React.createRef()} renderItem={CheckOption} options={options} value={[1]} cursor={0}/>
+    </Box>
+  </Story>
+</Canvas>

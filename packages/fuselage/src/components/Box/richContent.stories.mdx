@@ -1,11 +1,12 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+
 import { Box } from '../..';
 
 <Meta
   title='Box/Rich content'
   parameters={{ jest: ['Box/spec'] }}
   decorators={[
-    (fn) => <Box fontFamily='sans' fontScale='p1' withRichContent>{fn()}</Box>
+    (fn) => <Box fontFamily='sans' fontScale='p1' withRichContent>{fn()}</Box>,
   ]}
 />
 
@@ -17,31 +18,31 @@ Here is how rich content will be rendered, in details.
 
 ### Inline
 
-<Preview>
+<Canvas>
   <Story name='strong'>
     <strong>strong importance</strong>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='em'>
     <em>emphasis</em>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='b'>
     <b>bring attention</b>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='i'>
     <i>technical terms, foreign language phrases, or fictional character thoughts</i>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='a'>
     <>
       <a href='#'>Normal</a><br />
@@ -50,71 +51,71 @@ Here is how rich content will be rendered, in details.
       <a href='#' className='is-hovered'>Hovered</a><br />
     </>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='q and cite'>
     <q>The problem with quotes found on the internet is that they are often not true. <cite>Abraham Lincoln</cite></q>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='code'>
     <code>inline code</code>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='time'>
     <time dateTime='20220101 10:00'>January 1th 2022, 10 a.m.</time>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='dfn'>
     <dfn>Definition:</dfn> description.
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='abbr'>
     <abbr title='Source Development Kit'>SDK</abbr>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='del and ins'>
     <del>deleted</del> <ins>inserted</ins>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='sup and sub'>
     <sup>superscript</sup> <sub>subscript</sub>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='kbd'>
     <kbd>Ctrl + Alt + Del</kbd>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='var'>
     <var>x² + y² = r²</var>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='small'>
     <small>small text</small>
   </Story>
-</Preview>
+</Canvas>
 
 #### Block
 
-<Preview>
+<Canvas>
   <Story name='hx'>
     <>
       <h1>Heading 1</h1>
@@ -125,15 +126,15 @@ Here is how rich content will be rendered, in details.
       <h6>Heading 6</h6>
     </>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='p'>
     <p>Paragraph</p>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='ul'>
     <ul>
       <li>unordered list item 1</li>
@@ -141,9 +142,9 @@ Here is how rich content will be rendered, in details.
       <li>unordered list item 3</li>
     </ul>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='ol'>
     <ol>
       <li>ordered list item 1</li>
@@ -151,9 +152,9 @@ Here is how rich content will be rendered, in details.
       <li>ordered list item 3</li>
     </ol>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='dl'>
     <dl>
       <dt>description list term 1</dt>
@@ -164,9 +165,9 @@ Here is how rich content will be rendered, in details.
       <dd>description list description 3</dd>
     </dl>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='table (simple)'>
     <table>
       <thead>
@@ -195,9 +196,9 @@ Here is how rich content will be rendered, in details.
       </tbody>
     </table>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='table (complex)'>
     <table>
       <caption>Caption</caption>
@@ -234,9 +235,9 @@ Here is how rich content will be rendered, in details.
       </tbody>
     </table>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='blockquote and cite'>
     <blockquote>
       <p>
@@ -246,9 +247,9 @@ Here is how rich content will be rendered, in details.
       <footer>— Aldous Huxley, <cite>Brave New World</cite></footer>
     </blockquote>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='pre'>
     <pre>
       # A UNINTENDED LOL-ZONE: SORRY FOR THIS{'\n'}
@@ -262,9 +263,9 @@ Here is how rich content will be rendered, in details.
       # BLACK MAGIC FULL FEATURED ENABLED
     </pre>
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='pre with code'>
     <pre>
       <code>
@@ -280,4 +281,4 @@ Here is how rich content will be rendered, in details.
       </code>
     </pre>
   </Story>
-</Preview>
+</Canvas>

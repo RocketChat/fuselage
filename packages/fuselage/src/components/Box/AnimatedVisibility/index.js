@@ -2,9 +2,9 @@ import { css, keyframes } from '@rocket.chat/css-in-js';
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { BoxTransforms, useComposedBoxTransform } from '../transforms';
-import { useStyle } from '../../../hooks/useStyle';
 import { appendClassName } from '../../../helpers/appendClassName';
+import { useStyle } from '../../../hooks/useStyle';
+import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
 function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
   const [visibility, setVisibility] = useState(propVisibility);

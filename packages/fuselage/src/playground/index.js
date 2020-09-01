@@ -1,3 +1,6 @@
+import * as cssInJs from '@rocket.chat/css-in-js';
+import * as hooks from '@rocket.chat/fuselage-hooks';
+import dracula from 'prism-react-renderer/themes/dracula';
 import React from 'react';
 import {
   LiveProvider,
@@ -5,9 +8,6 @@ import {
   LiveError,
   LivePreview,
 } from 'react-live';
-import dracula from 'prism-react-renderer/themes/dracula';
-import * as cssInJs from '@rocket.chat/css-in-js';
-import * as hooks from '@rocket.chat/fuselage-hooks';
 
 import * as components from '..';
 

@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useMemo } from 'react';
 import { useMutableCallback, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import React, { useEffect, useRef, useMemo } from 'react';
 
 import { Box, PositionAnimated, AnimatedVisibility } from '../Box';
 import Chip from '../Chip';
 import { Icon } from '../Icon';
-import { useCursor, Options } from '../Options';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
+import { useCursor, Options } from '../Options';
 
 const Addon = (props) => <Box rcx-autocomplete__addon {...props} />;
 

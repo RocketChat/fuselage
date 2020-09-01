@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Divider,
   Margins,
@@ -14,14 +13,15 @@ import {
   UiKitParserModal,
   UiKitParserText,
 } from '@rocket.chat/ui-kit';
+import React from 'react';
 
-import { Section as SectionLayoutBlock } from './Section';
 import { Actions as ActionsLayoutBlock } from './Actions';
-import { Input as InputLayoutBlock, PlainInput } from './Input';
-import { MessageImage, ModalImage } from './Image';
-import { StaticSelect, MultiStaticSelect } from './StaticSelect';
 import { Block } from './Block';
+import { MessageImage, ModalImage } from './Image';
+import { Input as InputLayoutBlock, PlainInput } from './Input';
 import { Overflow } from './Overflow';
+import { Section as SectionLayoutBlock } from './Section';
+import { StaticSelect, MultiStaticSelect } from './StaticSelect';
 import { UIKitButton } from './UIKitButton';
 import { useBlockContext } from './hooks';
 

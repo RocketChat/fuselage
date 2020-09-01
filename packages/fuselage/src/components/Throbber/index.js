@@ -2,9 +2,9 @@ import { css } from '@rocket.chat/css-in-js';
 import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
-import { Box } from '../Box';
 import { createPropType } from '../../helpers/createPropType';
 import { size } from '../../styleTokens';
+import { Box } from '../Box';
 
 function Circle({ disabled, circleCount, iteration, inheritColor, ...props }) {
   return <Box

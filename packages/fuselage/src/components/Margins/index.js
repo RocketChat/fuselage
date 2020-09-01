@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
 import { css } from '@rocket.chat/css-in-js';
+import React, { useCallback } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { createPropType } from '../../helpers/createPropType';

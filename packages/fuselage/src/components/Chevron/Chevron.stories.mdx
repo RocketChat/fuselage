@@ -1,0 +1,69 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+
+import { Box, Chevron } from '../..';
+
+<Meta title='Misc/Chevron' parameters={{ jest: ['Chevron/spec'] }} />
+
+# Chevron
+
+<Canvas>
+  <Story name='Default'>
+    <Chevron size={40} />
+  </Story>
+</Canvas>
+
+<ArgsTable of={Chevron} />
+
+## Up
+
+<Canvas>
+  <Story name='Up'>
+    <Chevron up />
+  </Story>
+</Canvas>
+
+## Right
+
+<Canvas>
+  <Story name='Right'>
+    <Chevron right />
+  </Story>
+</Canvas>
+
+## Down
+
+<Canvas>
+  <Story name='Down'>
+    <Chevron down />
+  </Story>
+</Canvas>
+
+## Left
+
+<Canvas>
+  <Story name='Left'>
+    <Chevron left />
+  </Story>
+</Canvas>
+
+## Size
+
+<Canvas>
+  <Story
+    name='Size'
+    decorators={[
+      (fn) => <Box display='flex' alignItems='center'>{fn()}</Box>,
+    ]}
+  >
+    <>
+      <Chevron size='x2' />
+      <Chevron size='x4' />
+      <Chevron size='x8' />
+      <Chevron size='x16' />
+      <Chevron size='x20' />
+      <Chevron size='x24' />
+      <Chevron size='x32' />
+      <Chevron size='x40' />
+    </>
+  </Story>
+</Canvas>

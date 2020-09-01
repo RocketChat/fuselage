@@ -1,8 +1,8 @@
-import React from 'react';
 import {
   Button,
   Throbber,
 } from '@rocket.chat/fuselage';
+import React from 'react';
 
 import { useBlockContext, getStyle } from './hooks';
 

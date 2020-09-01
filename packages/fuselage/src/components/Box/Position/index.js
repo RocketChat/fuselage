@@ -1,9 +1,9 @@
+import { usePosition } from '@rocket.chat/fuselage-hooks';
 import React, {
   useRef,
   useMemo,
   useEffect,
 } from 'react';
-import { usePosition } from '@rocket.chat/fuselage-hooks';
 import ReactDOM from 'react-dom';
 
 import AnimatedVisibility from '../AnimatedVisibility';

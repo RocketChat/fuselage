@@ -1,8 +1,8 @@
-import React from 'react';
 import {
   SelectFiltered,
   MultiSelectFiltered,
 } from '@rocket.chat/fuselage';
+import React from 'react';
 
 import { useBlockContext } from './hooks';
 

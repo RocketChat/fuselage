@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
-import { Box } from '../Box';
-import { Icon } from '../Icon';
 import { createPropType } from '../../helpers/createPropType';
 import { size } from '../../styleTokens';
+import { Box } from '../Box';
+import { Icon } from '../Icon';
 
 export function Chevron({
   up,

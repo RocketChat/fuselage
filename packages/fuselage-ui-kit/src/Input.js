@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Field,
   TextAreaInput,
@@ -7,6 +6,7 @@ import {
 import {
   BLOCK_CONTEXT,
 } from '@rocket.chat/ui-kit';
+import React from 'react';
 
 import { Block } from './Block';
 import { useBlockContext } from './hooks';

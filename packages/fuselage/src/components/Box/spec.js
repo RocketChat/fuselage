@@ -1,5 +1,5 @@
-import React from 'react';
 import { css } from '@rocket.chat/css-in-js';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Box } from '../..';
