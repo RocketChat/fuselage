@@ -22,13 +22,13 @@
 
   &__backdrop {
     position: fixed;
-
-    z-index: 100;
-    inset: lengths.inset(none);
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+    inset: lengths.inset(none);
+
+    z-index: 100;
 
     background-color: colors.neutral(800, $alpha: 0.5);
   }

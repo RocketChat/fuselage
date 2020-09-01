@@ -5,9 +5,9 @@
 .rcx-accordion {
   display: flex;
   flex-flow: column nowrap;
-  border-block-end-color: colors.neutral(300);
 
   border-block-end-width: lengths.border-width(2);
+  border-block-end-color: colors.neutral(300);
 }
 
 .rcx-accordion-item {
