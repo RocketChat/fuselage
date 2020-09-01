@@ -106,4 +106,4 @@ $-foreground-colors: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-$foreground-types: map-keys($-foreground-colors);
+$foreground-types: map.keys($-foreground-colors);
