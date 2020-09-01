@@ -25,13 +25,26 @@ const toScss = (value, indent = '') => {
     return JSON.stringify(value);
   }
 
+  if (Array.isArray(value)) {
+    const mapLine = (value) => (
+      indent +
+      '  ' +
+      toScss(value, indent + '  ') +
+      ',\n'
+    );
+    return '(\n' + value.map(mapLine).join('') + indent + ')';
+  }
+
   if (typeof value === 'object') {
-    return [
-      '(',
-      ...Object.entries(value).map(([key, value]) => `${indent}  ${JSON.stringify(fromCamelToKebab(key))}: ${toScss(value, indent + '  ')},`),
-      `${indent})`,
-    ]
-      .join('\n');
+    const mapLine = ([key, value]) => (
+      indent +
+      '  ' +
+      JSON.stringify(fromCamelToKebab(key)) +
+      ': ' +
+      toScss(value, indent + '  ') +
+      ',\n'
+    );
+    return '(\n' + Object.entries(value).map(mapLine).join('') + indent + ')';
   }
 };
 
@@ -44,21 +57,35 @@ const toScssModule = (value) => {
 const buildBreakpoints = async () => {
   const breakpoints = require('../breakpoints');
 
-  await fs.writeFile(path.join(__dirname, '../breakpoints.json'), JSON.stringify(breakpoints, null, 2) + '\n', { encoding: 'utf8' });
-  await fs.writeFile(path.join(__dirname, '../breakpoints.scss'), toScssModule({ breakpoints }) + '\n', { encoding: 'utf8' });
+  await Promise.all([
+    fs.writeFile(path.join(__dirname, '../breakpoints.json'), JSON.stringify(breakpoints, null, 2) + '\n', { encoding: 'utf8' }),
+    fs.writeFile(path.join(__dirname, '../breakpoints.scss'), toScssModule({ breakpoints }) + '\n', { encoding: 'utf8' }),
+  ]);
 };
 
 const buildColors = async () => {
   const colors = require('../colors');
 
-  await fs.writeFile(path.join(__dirname, '../colors.json'), JSON.stringify(colors, null, 2) + '\n', { encoding: 'utf8' });
-  await fs.writeFile(path.join(__dirname, '../colors.scss'), toScssModule({ colors }) + '\n', { encoding: 'utf8' });
+  await Promise.all([
+    fs.writeFile(path.join(__dirname, '../colors.json'), JSON.stringify(colors, null, 2) + '\n', { encoding: 'utf8' }),
+    fs.writeFile(path.join(__dirname, '../colors.scss'), toScssModule({ colors }) + '\n', { encoding: 'utf8' }),
+  ]);
 };
 
-const build = async () => {
-  await buildBreakpoints();
-  await buildColors();
+const buildTypography = async () => {
+  const typography = require('../typography');
+
+  await Promise.all([
+    fs.writeFile(path.join(__dirname, '../typography.json'), JSON.stringify(typography, null, 2) + '\n', { encoding: 'utf8' }),
+    fs.writeFile(path.join(__dirname, '../typography.scss'), toScssModule(typography) + '\n', { encoding: 'utf8' }),
+  ]);
 };
+
+const build = () => Promise.all([
+  buildBreakpoints(),
+  buildColors(),
+  buildTypography(),
+]);
 
 if (require.main === module) {
   build();

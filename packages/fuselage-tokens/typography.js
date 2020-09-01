@@ -1,34 +1,30 @@
-const fontSans = [
-  'Inter',
-  '-apple-system',
-  'BlinkMacSystemFont',
-  'Segoe UI',
-  'Roboto',
-  'Oxygen',
-  'Ubuntu',
-  'Cantarell',
-  'Helvetica Neue',
-  'Apple Color Emoji',
-  'Segoe UI Emoji',
-  'Segoe UI Symbol',
-  'Meiryo UI',
-  'Arial',
-  'sans-serif'
-];
-
-const fontMono = [
-  'Menlo',
-  'Monaco',
-  'Consolas',
-  'Liberation Mono',
-  'Courier New',
-  'monospace'
-];
-
-export default {
+module.exports = {
   fontFamilies: {
-    sans: fontSans,
-    mono: fontMono,
+    sans: [
+      'Inter',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      'Segoe UI',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      'Helvetica Neue',
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol',
+      'Meiryo UI',
+      'Arial',
+      'sans-serif'
+    ],
+    mono: [
+      'Menlo',
+      'Monaco',
+      'Consolas',
+      'Liberation Mono',
+      'Courier New',
+      'monospace'
+    ],
   },
   fontScales: {
     h1: {
