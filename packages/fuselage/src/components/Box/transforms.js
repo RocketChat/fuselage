@@ -1,6 +1,6 @@
 import { createContext, useContext, useMemo } from 'react';
 
-export const BoxTransforms = createContext();
+export const BoxTransforms = createContext(undefined);
 
 export const useBoxTransform = () =>
   useContext(BoxTransforms);

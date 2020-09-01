@@ -1,48 +1,11 @@
-import { css } from '@rocket.chat/css-in-js';
 import PropTypes from 'prop-types';
 import React, { createElement, forwardRef, memo } from 'react';
 
-import { appendClassName } from '../../helpers/appendClassName';
-import { prependClassName } from '../../helpers/prependClassName';
-import { useStyle } from '../../hooks/useStyle';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { useStylingProps } from './stylingProps';
 import { useBoxTransform, BoxTransforms } from './transforms';
-
-export const useArrayLikeClassNameProp = (props) => {
-  const classNames = [].concat(props.className);
-
-  const cssFns = classNames.filter((value) => typeof value === 'function');
-  const stylesClassName = useStyle(css`${ cssFns }`, props);
-
-  const strings = classNames.filter((value) => typeof value === 'string');
-
-  props.className = strings.reduce(
-    (className, string) => appendClassName(className, string),
-    stylesClassName || '',
-  );
-
-  return props;
-};
-
-export const useBoxOnlyProps = (props) => {
-  Object.entries(props).forEach(([key, value]) => {
-    if (key.slice(0, 4) === 'rcx-') {
-      if (!value) {
-        delete props[key];
-        return;
-      }
-
-      const newClassName = value === true ? key : `${ key }-${ value }`;
-      props.className = prependClassName(props.className, newClassName);
-      delete props[key];
-    }
-  });
-
-  props.className = prependClassName(props.className, 'rcx-box rcx-box--full');
-
-  return props;
-};
+import { useArrayLikeClassNameProp } from './useArrayLikeClassNameProp';
+import { useBoxOnlyProps } from './useBoxOnlyProps';
 
 export const Box = memo(forwardRef(function Box({
   is = 'div',
