@@ -22,7 +22,11 @@ const toScss = (value, indent = '') => {
       return value;
     }
 
-    return JSON.stringify(value);
+    if (value.includes(' ')) {
+      return JSON.stringify(value);
+    }
+
+    return value;
   }
 
   if (Array.isArray(value)) {
