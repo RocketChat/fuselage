@@ -1,5 +1,4 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-pagination {
@@ -9,8 +8,8 @@
   align-items: center;
 
   padding:
-    lengths.padding(12)
-    lengths.padding(24);
+    12px
+    24px;
 
   @include on-breakpoint(sm) {
     flex-direction: column;
@@ -33,7 +32,7 @@
 
       content: '';
 
-      border-radius: lengths.border-radius(2);
+      border-radius: 2px;
       background-color: colors.neutral(300);
     }
   }
@@ -50,14 +49,14 @@
 .rcx-pagination__left {
   justify-content: center;
 
-  margin-inline-start: lengths.margin(none);
+  margin-inline-start: 0;
 
   @include on-breakpoint(sm) {
     margin-inline-start: auto;
   }
 
   @include on-breakpoint(md) {
-    margin-inline-start: lengths.margin(none);
+    margin-inline-start: 0;
     margin-inline-end: auto;
   }
 }
@@ -67,7 +66,7 @@
 
   align-items: center;
 
-  margin-inline-start: lengths.margin(none);
+  margin-inline-start: 0;
 
   @include on-breakpoint(sm) {
     flex-flow: row nowrap;
@@ -88,15 +87,15 @@
   flex-flow: row nowrap;
   align-items: center;
 
-  margin-inline: lengths.margin(4);
+  margin-inline: 4px;
 }
 
 .rcx-pagination__list-item {
   @include typography.use-font-scale(c1);
   display: flex;
 
-  margin-inline: lengths.margin(2);
-  padding: lengths.padding(4);
+  margin-inline: 2px;
+  padding: 4px;
 
   color: colors.foreground(hint);
 }

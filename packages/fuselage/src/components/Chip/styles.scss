@@ -1,5 +1,4 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-chip {
@@ -11,7 +10,7 @@
   overflow: hidden;
   align-items: center;
 
-  min-height: lengths.size(28);
+  min-height: 28px;
 
   border-width: 0;
 

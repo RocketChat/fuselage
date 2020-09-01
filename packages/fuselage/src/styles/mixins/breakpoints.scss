@@ -7,7 +7,7 @@
     @content;
   }
   @else {
-    @media screen and (min-width: #{ to-em($min-viewport-width) }) {
+    @media screen and (min-width: #{ $min-viewport-width * 1px }) {
       @content;
     }
   }

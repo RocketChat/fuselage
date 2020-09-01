@@ -1,5 +1,4 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-table {
@@ -8,8 +7,8 @@
   width: 100%;
 
   border-spacing:
-    lengths.padding(none)
-    lengths.padding(2);
+    0px
+    2px;
 
   border-collapse: collapse;
 
@@ -20,7 +19,7 @@
   }
 
   &__selection {
-    border-radius: lengths.border-radius(2);
+    border-radius: 2px;
     background-color: colors.primary(500);
   }
 
@@ -82,7 +81,7 @@
   &__cell {
     display: table-cell;
 
-    padding: lengths.padding(8);
+    padding: 8px;
 
     user-select: text;
     text-align: unset;
@@ -102,13 +101,13 @@
         right: 0;
         bottom: 0;
         left: 0;
-        inset-inline: lengths.inset(none);
+        inset-inline: 0;
 
         display: flex;
 
         content: '';
 
-        border-block-end: lengths.border-width(2) solid colors.neutral(300);
+        border-block-end: 2px solid colors.neutral(300);
       }
     }
 

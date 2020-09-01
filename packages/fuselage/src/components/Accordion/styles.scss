@@ -1,12 +1,11 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-accordion {
   display: flex;
   flex-flow: column nowrap;
 
-  border-block-end-width: lengths.border-width(2);
+  border-block-end-width: 2px;
   border-block-end-color: colors.neutral(300);
 }
 
@@ -19,16 +18,16 @@
   display: flex;
   flex-flow: row nowrap;
 
-  min-height: lengths.size(2 * 32 + 24);
+  min-height: 2 * 32px + 24px;
   padding:
-    (lengths.padding(32) - lengths.border-width(2))
-    (lengths.padding(8) - lengths.border-width(2));
+    32px - 2px
+    8px - 2px;
 
   text-align: start;
 
   color: colors.foreground(default);
 
-  border-width: lengths.border-width(2);
+  border-width: 2px;
   border-color: colors.neutral(300) transparent transparent;
 
   &[tabindex] {
@@ -55,7 +54,7 @@
 }
 
 .rcx-accordion-item__title {
-  flex: 1 1 lengths.size(none);
+  flex: 1 1 0;
 
   @include typography.use-text-ellipsis;
   white-space: nowrap;
@@ -69,8 +68,8 @@
   flex: 0 0 auto;
 
   margin:
-    lengths.margin(none)
-    lengths.margin(24);
+    0px
+    24px;
 }
 
 .rcx-accordion-item__panel {
@@ -78,17 +77,17 @@
 
   overflow: hidden;
 
-  height: lengths.size(none);
+  height: 0;
   padding:
-    lengths.padding(none)
-    lengths.padding(8);
+    0px
+    8px;
 
   &--expanded {
     visibility: visible;
 
     height: auto;
     padding:
-      lengths.padding(32)
-      lengths.padding(8);
+      32px
+      8px;
   }
 }

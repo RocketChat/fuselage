@@ -1,5 +1,4 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 
 $avatar-stack-background-color: theme('avatar-background-color', colors.surface());
 
@@ -9,7 +8,7 @@ $avatar-stack-background-color: theme('avatar-background-color', colors.surface(
   &__element {
     position: relative;
 
-    border-radius: lengths.border-width(2);
+    border-radius: 2px;
 
     &--rounded {
       border-radius: 100%;
@@ -26,10 +25,10 @@ $avatar-stack-background-color: theme('avatar-background-color', colors.surface(
     & > .rcx-avatar {
       margin:
         auto
-        lengths.margin(-2);
+        -2px;
 
       & > .rcx-avatar__element {
-        border: lengths.border-width(2) solid currentColor;
+        border: 2px solid currentColor;
       }
     }
   }

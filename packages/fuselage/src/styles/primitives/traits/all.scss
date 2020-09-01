@@ -1,5 +1,4 @@
 @use '../../colors.scss';
-@use '../../lengths.scss';
 @use './rich-text.scss';
 
 %--visually-hidden {
@@ -21,8 +20,8 @@
 
 %--with-scrollbars {
   &::-webkit-scrollbar {
-    width: lengths.size(4);
-    height: lengths.size(4);
+    width: 4px;
+    height: 4px;
   }
 
   &::-webkit-scrollbar-track {

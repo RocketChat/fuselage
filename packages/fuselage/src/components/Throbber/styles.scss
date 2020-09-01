@@ -1,18 +1,17 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 
 .rcx-throbber {
   display: flex;
   justify-content: center;
 
-  margin-block: lengths.margin(-1);
+  margin-block: -1px;
 
   &__circle {
-    margin-inline: lengths.margin(1);
+    margin-inline: 1px;
 
     animation: bounce 1.4s infinite ease-in-out both;
 
-    border-radius: lengths.border-radius(full);
+    border-radius: 9999px;
 
     background-color: colors.primary(500);
 

@@ -1,5 +1,3 @@
-@use '../../styles/lengths.scss';
-
 .rcx-check-box {
   @include is-selection-button($checked: 'primary', $unchecked: 'empty', $indeterminate: 'primary');
 
@@ -7,15 +5,15 @@
     @extend %selection-button__input;
   }
 
-  $icon-smoothness: to-rem(1);
-  $icon-thickness: to-rem(2);
+  $icon-smoothness: 1px;
+  $icon-thickness: 2px;
   $icon-size: 0.6;
 
   &__fake {
     @extend %selection-button__fake;
-    inline-size: lengths.size(20);
+    inline-size: 20px;
 
-    border-radius: lengths.border-radius(2);
+    border-radius: 2px;
 
     &::before,
     &::after {
@@ -38,7 +36,7 @@
   &__input:indeterminate + &__fake::before {
     visibility: visible;
 
-    width: $icon-size * lengths.size(20);
+    width: $icon-size * 20px;
     height: $icon-thickness;
 
     opacity: 1;
@@ -56,23 +54,23 @@
     }
 
     &::before {
-      width: $icon-size * lengths.size(20);
+      width: $icon-size * 20px;
       height: $icon-thickness;
 
       transform:
         translate(-50%, -50%)
-        translate($icon-size * lengths.size(20) / -3, $icon-size * lengths.size(20) / 6)
+        translate($icon-size * 20px / -3, $icon-size * 20px / 6)
         rotate(-45deg)
-        translate($icon-size * lengths.size(20) / 2, $icon-size * lengths.size(20) / 6);
+        translate($icon-size * 20px / 2, $icon-size * 20px / 6);
     }
 
     &::after {
       width: $icon-thickness;
-      height: 0.5 * $icon-size * lengths.size(20);
+      height: 0.5 * $icon-size * 20px;
 
       transform:
         translate(-50%, -50%)
-        translate($icon-size * lengths.size(20) / -3, $icon-size * lengths.size(20) / 6)
+        translate($icon-size * 20px / -3, $icon-size * 20px / 6)
         rotate(-45deg);
     }
   }

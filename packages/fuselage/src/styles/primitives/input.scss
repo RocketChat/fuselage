@@ -1,5 +1,3 @@
-@use '../lengths.scss';
-
 @mixin as-input(
   $background-color,
   $border-color,
@@ -10,10 +8,10 @@
   $disabled-background-color,
   $disabled-border-color,
 ) {
-  border-width: lengths.border-width(2);
+  border-width: 2px;
 
   border-color: #{ $border-color };
-  border-radius: lengths.border-radius(2);
+  border-radius: 2px;
   background-color: #{ $background-color };
   @include use-no-shadow;
 

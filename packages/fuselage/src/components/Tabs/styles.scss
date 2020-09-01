@@ -1,4 +1,3 @@
-@use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
 
@@ -22,11 +21,11 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
 
   &::after {
     position: absolute;
-    inset-block-end: lengths.inset(none);
-    inset-inline: lengths.inset(none);
+    inset-block-end: 0;
+    inset-inline: 0;
     z-index: -1;
 
-    height: lengths.border-width(2);
+    height: 2px;
 
     content: '';
 
@@ -39,7 +38,7 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
 
   overflow: auto;
 
-  margin-block: lengths.margin(-4);
+  margin-block: -4px;
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
@@ -60,14 +59,14 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
 
   flex: 0 0 auto;
 
-  min-height: lengths.size(40);
+  min-height: 40px;
 
   padding:
-    (lengths.padding(4) + lengths.border-width(2))
-    lengths.padding(16);
+    (4px + 2px)
+    16px;
 
   color: $tabs-color;
-  border-width: lengths.border-width(2);
+  border-width: 2px;
 
   border-style: solid;
   border-color: transparent;
@@ -78,12 +77,12 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
 
   &--selected {
     padding:
-      lengths.padding(4)
-      (lengths.padding(16) + lengths.border-width(2));
+      4px
+      (16px + 2px);
 
     color: $tabs-selected-color;
-    border-block-end-width: lengths.border-width(4);
-    border-inline-width: lengths.border-width(none);
+    border-block-end-width: 4px;
+    border-inline-width: 0;
     border-block-end-color: $tabs-selected-border-color;
   }
 
@@ -102,12 +101,12 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
   }
 
   @include on-focus-visible {
-    padding-inline: lengths.padding(16);
+    padding-inline: 16px;
 
     border-color: $tabs-focus-border-color;
-    border-block-start-width: lengths.border-width(2);
-    border-inline-width: lengths.border-width(2);
-    border-radius: lengths.border-radius(2);
+    border-block-start-width: 2px;
+    border-inline-width: 2px;
+    border-radius: 2px;
 
     @include use-focus-shadow($tabs-focus-shadow-color);
   }
@@ -115,6 +114,6 @@ $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
 
 @include on-breakpoint('md') {
   .rcx-tabs__wrapper {
-    margin-inline: lengths.margin(24);
+    margin-inline: 24px;
   }
 }

@@ -1,5 +1,4 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 $tag-colors-secondary-color: theme('tag-colors-secondary-color', colors.foreground(primary));
@@ -24,8 +23,8 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
   width: fit-content;
 
   padding:
-    lengths.padding(2)
-    lengths.padding(4);
+    2px
+    4px;
 
   white-space: nowrap;
 
@@ -34,7 +33,7 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
 
   word-break: keep-all;
 
-  border-radius: lengths.border-radius(4);
+  border-radius: 4px;
 
   @include typography.use-font-scale(micro);
 
@@ -68,7 +67,7 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
 
     text-align: center;
 
-    border-radius: lengths.border-radius(full);
+    border-radius: 9999px;
   }
 
   &--clickable {

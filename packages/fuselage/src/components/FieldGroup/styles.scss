@@ -1,22 +1,20 @@
-@use '../../styles/lengths.scss';
-
 .rcx-field-group {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: stretch;
 
-  min-width: lengths.size(none);
+  min-width: 0;
 }
 
 .rcx-field-group__item {
   .rcx-field-group > & {
     flex: 0 0 auto;
 
-    width: lengths.size(full);
+    width: 100%;
   }
 
   & + & {
-    margin-block-start: lengths.margin(24);
+    margin-block-start: 24px;
   }
 }

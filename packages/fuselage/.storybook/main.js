@@ -36,6 +36,7 @@ module.exports = {
               require('postcss-custom-properties')(),
               require('postcss-logical')({ preserve: true }),
               require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
+              require('postcss-pxtorem')(),
               require('autoprefixer')(),
             ],
           },

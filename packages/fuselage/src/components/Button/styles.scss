@@ -1,5 +1,4 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 %button-secondary-color { // TODO: primitive atomic component
@@ -23,10 +22,10 @@
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
     padding:
-      calc((#{ $height } - #{ $line-height }) / 2 - #{ lengths.border-width(2) })
-      calc(#{ $padding-x } - #{ lengths.border-width(2) });
-    padding-block: calc((#{ $height } - #{ $line-height }) / 2 - #{ lengths.border-width(2) });
-    padding-inline: calc(#{ $padding-x } - #{ lengths.border-width(2) });
+      calc((#{ $height } - #{ $line-height }) / 2 - 2px)
+      calc(#{ $padding-x } - 2px);
+    padding-block: calc((#{ $height } - #{ $line-height }) / 2 - 2px);
+    padding-inline: calc(#{ $padding-x } - 2px);
   }
 
   @mixin with-squared-size($size) {
@@ -57,8 +56,8 @@
   @include typography.use-text-ellipsis;
 
   @include with-rectangular-size(
-    $height: lengths.size(40),
-    $padding-x: lengths.padding(16),
+    $height: 40px,
+    $padding-x: 16px,
     $line-height: typography.line-height(p1),
   );
 
@@ -68,21 +67,21 @@
     @include typography.use-font-scale(c2);
 
     @include with-rectangular-size(
-      $height: lengths.size(28),
-      $padding-x: lengths.padding(8),
+      $height: 28px,
+      $padding-x: 8px,
       $line-height: typography.line-height(c1),
     );
   }
 
   &--square {
     @include with-squared-size(
-      $size: lengths.size(40),
+      $size: 40px,
     );
   }
 
   &--small-square {
     @include with-squared-size(
-      $size: lengths.size(28),
+      $size: 28px,
     );
   }
 

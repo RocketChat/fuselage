@@ -1,5 +1,3 @@
-@use '../../styles/lengths.scss';
-
 .rcx-toggle-switch {
   @include is-selection-button($checked: 'primary', $unchecked: 'off');
 
@@ -9,26 +7,26 @@
 
   &__fake {
     @extend %selection-button__fake;
-    width: lengths.size(2 * 20);
+    width: 2 * 20px;
 
-    border-radius: lengths.border-radius(full);
+    border-radius: 9999px;
   }
 
   &__input + &__fake::before {
     position: absolute;
-    inset-inline-start: lengths.inset(none);
+    inset-inline-start: 0;
 
-    width: lengths.size(20) - 2 * lengths.border-width(2);
-    height: lengths.size(20) - 2 * lengths.border-width(2);
+    width: 20px - 2 * 2px;
+    height: 20px - 2 * 2px;
 
     content: '';
 
-    border-radius: lengths.border-radius(full);
+    border-radius: 9999px;
 
     background-color: currentColor;
   }
 
   &__input:checked + &__fake::before {
-    inset-inline-start: calc(100% - #{lengths.inset(20) - 2 * lengths.border-width(2)});
+    inset-inline-start: calc(100% - #{20px - 2 * 2px});
   }
 }

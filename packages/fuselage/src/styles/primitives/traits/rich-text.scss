@@ -1,5 +1,4 @@
 @use '../../colors.scss';
-@use '../../lengths.scss';
 @use '../../typography.scss';
 
 %--with-inline-elements {
@@ -81,12 +80,12 @@
 
   code {
     padding:
-      lengths.padding(4)
-      lengths.padding(8);
+      4px
+      8px;
 
     letter-spacing: inherit;
 
-    border-radius: lengths.border-radius(2);
+    border-radius: 2px;
     background-color: colors.neutral(300);
 
     font: inherit;
@@ -120,7 +119,7 @@
     &[title] {
       text-decoration: underline dashed;
 
-      border-block-end-width: lengths.border-width(none);
+      border-block-end-width: 0;
     }
   }
 
@@ -168,15 +167,15 @@
 
   kbd {
     padding:
-      lengths.padding(4)
-      lengths.padding(8);
+      4px
+      8px;
 
     letter-spacing: inherit;
 
-    border-width: lengths.border-width(1);
+    border-width: 1px;
     border-style: solid;
     border-color: currentColor;
-    border-radius: lengths.border-radius(2);
+    border-radius: 2px;
 
     font: inherit;
     font-family: typography.font-family(mono);
@@ -234,8 +233,8 @@
     display: block;
 
     margin:
-      lengths.margin(16)
-      lengths.margin(none);
+      16px
+      0;
   }
 
   p {
@@ -244,8 +243,8 @@
     display: block;
 
     margin:
-      lengths.margin(16)
-      lengths.margin(none);
+      16px
+      0;
 
     color: inherit;
   }
@@ -255,9 +254,9 @@
     display: block;
 
     margin:
-      lengths.margin(16)
-      lengths.margin(none);
-    padding-inline-start: lengths.padding(40);
+      16px
+      0;
+    padding-inline-start: 40px;
   }
 
   ul {
@@ -282,8 +281,8 @@
 
   pre {
     margin:
-      lengths.margin(16)
-      lengths.margin(none);
+      16px
+      0;
 
     letter-spacing: inherit;
 
@@ -293,7 +292,7 @@
     code {
       display: block;
 
-      padding: lengths.padding(16);
+      padding: 16px;
 
       letter-spacing: inherit;
 

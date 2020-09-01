@@ -1,12 +1,11 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-tile {
   display: block;
 
   color: colors.foreground(default);
-  border-radius: lengths.border-radius(2);
+  border-radius: 2px;
   background-color: colors.surface();
 
   @include typography.use-font-scale(p1);

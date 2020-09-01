@@ -1,5 +1,3 @@
-@use '../lengths.scss';
-
 @mixin as-button(
   $color,
   $background-color,
@@ -16,10 +14,10 @@
   $disabled-border-color,
 ) {
   color: $color;
-  border-width: lengths.border-width(2);
+  border-width: 2px;
   border-style: solid;
   border-color: $border-color;
-  border-radius: lengths.border-radius(2);
+  border-radius: 2px;
   background-color: $background-color;
 
   appearance: none;

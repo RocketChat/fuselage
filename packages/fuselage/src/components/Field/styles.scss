@@ -1,5 +1,4 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-field {
@@ -8,21 +7,21 @@
   align-items: stretch;
 
   width: 100%;
-  margin-block: lengths.margin(-2);
+  margin-block: -2px;
 
   &__label {
     @include typography.use-font-scale(p2);
     flex: 1 1 0;
     align-self: flex-start;
 
-    margin-block: lengths.margin(2);
+    margin-block: 2px;
 
     color: colors.foreground(default);
   }
 
   &__description {
     @include typography.use-font-scale(p1);
-    margin-block: lengths.margin(2);
+    margin-block: 2px;
 
     color: colors.foreground(hint);
     @extend %--with-inline-elements;
@@ -34,17 +33,17 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-block-start: lengths.margin(4);
-    margin-block-end: lengths.margin(2);
+    margin-block-start: 4px;
+    margin-block-end: 2px;
 
     & .rcx-field__label {
-      padding-inline-start: lengths.padding(8);
+      padding-inline-start: 8px;
     }
   }
 
   &__hint {
     @include typography.use-font-scale(p1);
-    margin-block: lengths.margin(2);
+    margin-block: 2px;
 
     color: colors.foreground(hint);
     @extend %--with-inline-elements;
@@ -52,7 +51,7 @@
 
   &__error {
     @include typography.use-font-scale(p1);
-    margin-block: lengths.margin(2);
+    margin-block: 2px;
 
     color: colors.foreground(danger);
     @extend %--with-inline-elements;

@@ -1,18 +1,17 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-modal {
   position: static;
 
-  width: lengths.size(full);
-  max-height: lengths.size(full);
+  width: 100%;
+  max-height: 100%;
   margin: auto;
 
   background: none;
 
   &__inner {
-    min-width: lengths.size(none);
+    min-width: 0;
   }
 
   &__title {
@@ -26,7 +25,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    inset: lengths.inset(none);
+    inset: 0;
 
     z-index: 100;
 
@@ -34,7 +33,7 @@
   }
 
   @include on-breakpoint(sm) {
-    max-width: lengths.size(640);
-    padding: lengths.padding(16);
+    max-width: 640px;
+    padding: 16px;
   }
 }
