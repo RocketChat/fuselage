@@ -72,7 +72,7 @@ const buildColors = async () => {
 
   await Promise.all([
     fs.writeFile(path.join(__dirname, '../colors.json'), JSON.stringify(colors, null, 2) + '\n', { encoding: 'utf8' }),
-    fs.writeFile(path.join(__dirname, '../colors.scss'), toScssModule({ colors }) + '\n', { encoding: 'utf8' }),
+    fs.writeFile(path.join(__dirname, '../colors.scss'), toScssModule(colors) + '\n', { encoding: 'utf8' }),
   ]);
 };
 

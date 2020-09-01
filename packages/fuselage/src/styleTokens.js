@@ -61,7 +61,7 @@ const getPaletteColor = (type, grade, alpha) => {
   const prefix = mapTypeToPrefix[type];
   invariant(!!prefix, 'invalid color type');
 
-  const baseColor = colorTokens[`${ prefix }${ grade }`];
+  const baseColor = colorTokens.light[`${ prefix }${ grade }`];
 
   invariant(!!baseColor, 'invalid color reference');
 
@@ -81,18 +81,18 @@ const getPaletteColor = (type, grade, alpha) => {
 };
 
 const foregroundColors = {
-  default: colorTokens.n800,
-  info: colorTokens.n700,
-  hint: colorTokens.n600,
-  disabled: colorTokens.n400,
+  default: colorTokens.light.n800,
+  info: colorTokens.light.n700,
+  hint: colorTokens.light.n600,
+  disabled: colorTokens.light.n400,
   alternative: 'white',
-  primary: colorTokens.b500,
-  success: colorTokens.g500,
-  danger: colorTokens.r500,
-  warning: colorTokens.y700,
-  link: colorTokens.b500,
-  'visited-link': colorTokens.p500,
-  'active-link': colorTokens.r500,
+  primary: colorTokens.light.b500,
+  success: colorTokens.light.g500,
+  danger: colorTokens.light.r500,
+  warning: colorTokens.light.y700,
+  link: colorTokens.light.b500,
+  'visited-link': colorTokens.light.p500,
+  'active-link': colorTokens.light.r500,
 };
 
 const getForegroundColor = (type) => {

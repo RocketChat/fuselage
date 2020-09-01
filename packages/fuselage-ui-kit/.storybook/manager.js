@@ -11,7 +11,7 @@ addons.setConfig({
     brandTitle: manifest.name,
     brandImage: logo,
     brandUrl: manifest.homepage,
-    colorPrimary: colorTokens.n500,
-    colorSecondary: colorTokens.b500,
+    colorPrimary: colorTokens.light.n500,
+    colorSecondary: colorTokens.light.b500,
   }),
 });
