@@ -1,17 +1,17 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
 
-$tabs-background-color: theme('tabs-background-color', transparent);
-$tabs-border-color: theme('tabs-border-color', transparent);
-$tabs-color: theme('tabs-color', colors.neutral(600));
-$tabs-delimiter-color: theme('tabs-color', colors.neutral(400));
-$tabs-selected-color: theme('tabs-selected-color', colors.primary(500));
-$tabs-selected-border-color: theme('tabs-selected-border-color', colors.primary(500));
-$tabs-hover-color: theme('tabs-hover-border-color', colors.neutral(700));
-$tabs-active-color: theme('tabs-active-color', colors.neutral(800));
-$tabs-focus-border-color: theme('tabs-focus-border-color', colors.primary(500));
-$tabs-focus-shadow-color: theme('tabs-focus-shadow-color', colors.primary(100));
-$tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
+$tabs-background-color: transparent;
+$tabs-border-color: transparent;
+$tabs-color: colors.neutral(600);
+$tabs-delimiter-color: colors.neutral(400);
+$tabs-selected-color: colors.primary(500);
+$tabs-selected-border-color: colors.primary(500);
+$tabs-hover-color: colors.neutral(700);
+$tabs-active-color: colors.neutral(800);
+$tabs-focus-border-color: colors.primary(500);
+$tabs-focus-shadow-color: colors.primary(100);
+$tabs-disabled-color: colors.neutral(500);
 
 // TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
 .rcx-tabs {

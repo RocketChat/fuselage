@@ -5,7 +5,7 @@
 
   box-sizing: border-box;
 
-  outline: none;
+  outline: 0;
 
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
@@ -28,7 +28,7 @@
   border-style: solid;
   border-color: currentColor;
 
-  outline: none;
+  outline: 0;
 
   font-family: typography.font-family('sans');
   font-variant-numeric: tabular-nums;

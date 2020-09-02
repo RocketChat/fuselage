@@ -1,6 +1,0 @@
-@use 'sass:meta';
-@use 'sass:math';
-
-@function theme($var-name, $value) {
-  @return var(--rcx-#{$var-name}, #{$value});
-}

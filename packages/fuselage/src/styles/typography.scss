@@ -1,6 +1,5 @@
 @use 'sass:map';
 @use '~@rocket.chat/fuselage-tokens/typography.scss';
-@use './functions.scss';
 
 @function font-family($name) {
   @if not map.has-key(typography.$font-families, $name) {
