@@ -27,10 +27,10 @@
   text-align: start;
 
   color: colors.color('default');
-  background-color: colors.color('surface');
 
   border-width: 2px;
   border-color: colors.color('neutral-300') transparent transparent;
+  background-color: colors.color('surface');
 
   &[tabindex] {
     @include interactivity.clickable;

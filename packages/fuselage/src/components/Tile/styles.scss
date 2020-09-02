@@ -4,9 +4,9 @@
 .rcx-tile {
   display: block;
 
-  border-radius: 2px;
-
   color: colors.color('default');
+
+  border-radius: 2px;
   background-color: colors.color('surface');
 
   @include typography.use-font-scale(p1);

@@ -7,7 +7,7 @@
   $color: map.get(colors.$light, $type);
 
   @if not $color {
-    @error 'there is no color of type #{ $type }'
+    @error 'there is no color of type #{ $type }';
   }
 
   @return var(--rcx-color-#{ $type });
