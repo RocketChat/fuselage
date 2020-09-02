@@ -23,7 +23,7 @@ const toScss = (value, indent = '') => {
     }
 
     if (value.includes(' ')) {
-      return JSON.stringify(value);
+      return JSON.stringify(value).replace(/"/g, '\'');
     }
 
     return value;
@@ -43,7 +43,7 @@ const toScss = (value, indent = '') => {
     const mapLine = ([key, value]) => (
       indent +
       '  ' +
-      JSON.stringify(fromCamelToKebab(key)) +
+      JSON.stringify(fromCamelToKebab(key)).replace(/"/g, '\'') +
       ': ' +
       toScss(value, indent + '  ') +
       ',\n'

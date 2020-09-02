@@ -1,77 +1,77 @@
 $font-families: (
-  "sans": (
+  'sans': (
     Inter,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     Oxygen,
     Ubuntu,
     Cantarell,
-    "Helvetica Neue",
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Meiryo UI",
+    'Helvetica Neue',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Meiryo UI',
     Arial,
     sans-serif,
   ),
-  "mono": (
+  'mono': (
     Menlo,
     Monaco,
     Consolas,
-    "Liberation Mono",
-    "Courier New",
+    'Liberation Mono',
+    'Courier New',
     monospace,
   ),
 );
 $font-scales: (
-  "h1": (
-    "font-size": 22,
-    "font-weight": 400,
-    "letter-spacing": 0,
-    "line-height": 32,
+  'h1': (
+    'font-size': 22,
+    'font-weight': 400,
+    'letter-spacing': 0,
+    'line-height': 32,
   ),
-  "s1": (
-    "font-size": 16,
-    "font-weight": 400,
-    "letter-spacing": 0,
-    "line-height": 22,
+  's1': (
+    'font-size': 16,
+    'font-weight': 400,
+    'letter-spacing': 0,
+    'line-height': 22,
   ),
-  "s2": (
-    "font-size": 16,
-    "font-weight": 500,
-    "letter-spacing": 0,
-    "line-height": 22,
+  's2': (
+    'font-size': 16,
+    'font-weight': 500,
+    'letter-spacing': 0,
+    'line-height': 22,
   ),
-  "p1": (
-    "font-size": 14,
-    "font-weight": 400,
-    "letter-spacing": 0,
-    "line-height": 20,
+  'p1': (
+    'font-size': 14,
+    'font-weight': 400,
+    'letter-spacing': 0,
+    'line-height': 20,
   ),
-  "p2": (
-    "font-size": 14,
-    "font-weight": 500,
-    "letter-spacing": 0,
-    "line-height": 20,
+  'p2': (
+    'font-size': 14,
+    'font-weight': 500,
+    'letter-spacing': 0,
+    'line-height': 20,
   ),
-  "c1": (
-    "font-size": 12,
-    "font-weight": 400,
-    "letter-spacing": 0,
-    "line-height": 16,
+  'c1': (
+    'font-size': 12,
+    'font-weight': 400,
+    'letter-spacing': 0,
+    'line-height': 16,
   ),
-  "c2": (
-    "font-size": 12,
-    "font-weight": 600,
-    "letter-spacing": 0,
-    "line-height": 16,
+  'c2': (
+    'font-size': 12,
+    'font-weight': 600,
+    'letter-spacing': 0,
+    'line-height': 16,
   ),
-  "micro": (
-    "font-size": 10,
-    "font-weight": 600,
-    "letter-spacing": 0.2,
-    "line-height": 12,
+  'micro': (
+    'font-size': 10,
+    'font-weight': 600,
+    'letter-spacing': 0.2,
+    'line-height': 12,
   ),
 );
