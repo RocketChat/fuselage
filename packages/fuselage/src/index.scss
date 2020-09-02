@@ -1,2 +1,6 @@
+@use './styles/colors.scss';
+
 @import './styles/primitives/all.scss';
 @import './components/index.scss';
+
+@include colors.variables;

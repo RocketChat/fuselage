@@ -88,11 +88,11 @@
   }
 
   &--danger {
-    color: colors.danger(500);
+    color: colors.color('danger-500');
 
     &.disabled,
     &:disabled {
-      color: colors.danger(100);
+      color: colors.color('danger-100');
     }
   }
 
@@ -110,13 +110,13 @@
   }
 
   &--ghost-danger {
-    color: colors.danger(500);
+    color: colors.color('danger-500');
     border-color: transparent;
     background-color: transparent;
 
     &.disabled,
     &:disabled {
-      color: colors.danger(100);
+      color: colors.color('danger-100');
     }
   }
 }

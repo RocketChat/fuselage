@@ -35,7 +35,7 @@
       content: '';
 
       border-radius: 2px;
-      background-color: colors.neutral(300);
+      background-color: colors.color('neutral-300');
     }
   }
 }
@@ -81,7 +81,7 @@
 .rcx-pagination__label {
   @include typography.use-font-scale(c1);
 
-  color: colors.foreground(hint);
+  color: colors.color('hint');
 }
 
 .rcx-pagination__list {
@@ -99,7 +99,7 @@
   margin-inline: 2px;
   padding: 4px;
 
-  color: colors.foreground(hint);
+  color: colors.color('hint');
 }
 
 .rcx-pagination__link {
@@ -107,7 +107,7 @@
   @include interactivity.clickable;
   display: inline-flex;
 
-  color: colors.foreground(link);
+  color: colors.color('link');
   background: transparent;
 
   &:hover:not(.disabled):not(:disabled),
@@ -120,7 +120,7 @@
     @include typography.use-font-scale(c2);
     cursor: default;
 
-    color: colors.foreground(default);
+    color: colors.color('default');
   }
 }
 
@@ -130,11 +130,11 @@
   @include interactivity.clickable;
   display: inline-flex;
 
-  color: colors.foreground(link);
+  color: colors.color('link');
   background: transparent;
 
   &.disabled,
   &:disabled {
-    color: colors.foreground(disabled);
+    color: colors.color('disabled');
   }
 }

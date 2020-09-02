@@ -1,16 +1,13 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
-@use '../../styles/theme.scss';
 
 .rcx-tile {
   display: block;
 
   border-radius: 2px;
 
-  @include theme.with-theme {
-    color: colors.foreground(default);
-    background-color: colors.surface();
-  }
+  color: colors.color('default');
+  background-color: colors.color('surface');
 
   @include typography.use-font-scale(p1);
 
@@ -19,12 +16,12 @@
   }
 
   &--elevation-1 {
-    box-shadow: 0 0 12px 0 colors.neutral(800, 0.1);
+    box-shadow: 0 0 12px 0 colors.color('elevation-1');
   }
 
   &--elevation-2 {
     box-shadow:
-      0 0 2px 0 colors.neutral(800, 0.08),
-      0 0 12px 0 colors.neutral(800, 0.12);
+      0 0 2px 0 colors.color('elevation-2-1'),
+      0 0 12px 0 colors.color('elevation-2-2');
   }
 }

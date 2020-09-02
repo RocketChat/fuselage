@@ -7,7 +7,7 @@
   flex-flow: column nowrap;
 
   border-block-end-width: 2px;
-  border-block-end-color: colors.neutral(300);
+  border-block-end-color: colors.color('neutral-300');
 }
 
 .rcx-accordion-item {
@@ -26,31 +26,32 @@
 
   text-align: start;
 
-  color: colors.foreground(default);
+  color: colors.color('default');
+  background-color: colors.color('surface');
 
   border-width: 2px;
-  border-color: colors.neutral(300) transparent transparent;
+  border-color: colors.color('neutral-300') transparent transparent;
 
   &[tabindex] {
     @include interactivity.clickable;
 
     &.hover,
     &:hover {
-      background-color: colors.neutral(100);
+      background-color: colors.color('neutral-100');
     }
 
     &.focus,
     &:focus {
-      border-color: colors.primary(500);
-      @include interactivity.use-focus-shadow(colors.primary(100));
+      border-color: colors.color('primary-500');
+      @include interactivity.use-focus-shadow(colors.color('primary-100'));
     }
   }
 
   &--disabled {
     cursor: not-allowed;
 
-    color: colors.foreground(disabled);
-    background-color: colors.neutral(100);
+    color: colors.color('disabled');
+    background-color: colors.color('neutral-100');
   }
 }
 

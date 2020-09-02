@@ -11,4 +11,5 @@
 
 @mixin use-focus-shadow($outer-color) {
   box-shadow: 0 0 0 4px #{ $outer-color };
+  z-index: 1;
 }

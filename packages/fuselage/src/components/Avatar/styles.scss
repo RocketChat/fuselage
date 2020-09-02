@@ -18,7 +18,7 @@
     flex-direction: row-reverse;
     justify-content: center;
 
-    color: #{ colors.surface() };
+    color: #{ colors.color('surface') };
 
     & > .rcx-avatar {
       margin:

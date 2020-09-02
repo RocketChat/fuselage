@@ -11,19 +11,19 @@
   border-radius: 2px;
 
   &--type-info {
-    background-color: colors.info(200);
+    background-color: colors.color('info-200');
   }
 
   &--type-success {
-    background-color: colors.success(200);
+    background-color: colors.color('success-200');
   }
 
   &--type-warning {
-    background-color: colors.warning(200);
+    background-color: colors.color('warning-200');
   }
 
   &--type-danger {
-    background-color: colors.danger(200);
+    background-color: colors.color('danger-200');
   }
 }
 
@@ -36,7 +36,7 @@
 
   margin-inline-start: 8px;
 
-  color: colors.foreground(default);
+  color: colors.color('default');
 
   @include typography.use-font-scale(c1);
 }

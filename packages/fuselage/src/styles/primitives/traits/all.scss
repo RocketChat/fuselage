@@ -29,10 +29,10 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: colors.neutral(100, 0.05);
+    background-color: colors.color('scrollbar');
   }
 
   &:hover::-webkit-scrollbar-thumb {
-    background-color: colors.neutral(100, 0.15);
+    background-color: colors.color('scrollbar-hover');
   }
 }

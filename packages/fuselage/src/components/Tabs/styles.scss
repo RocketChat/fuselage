@@ -6,15 +6,15 @@
 
 $tabs-background-color: transparent;
 $tabs-border-color: transparent;
-$tabs-color: colors.neutral(600);
-$tabs-delimiter-color: colors.neutral(400);
-$tabs-selected-color: colors.primary(500);
-$tabs-selected-border-color: colors.primary(500);
-$tabs-hover-color: colors.neutral(700);
-$tabs-active-color: colors.neutral(800);
-$tabs-focus-border-color: colors.primary(500);
-$tabs-focus-shadow-color: colors.primary(100);
-$tabs-disabled-color: colors.neutral(500);
+$tabs-color: colors.color('neutral-600');
+$tabs-delimiter-color: colors.color('neutral-400');
+$tabs-selected-color: colors.color('primary-500');
+$tabs-selected-border-color: colors.color('primary-500');
+$tabs-hover-color: colors.color('neutral-700');
+$tabs-active-color: colors.color('neutral-800');
+$tabs-focus-border-color: colors.color('primary-500');
+$tabs-focus-shadow-color: colors.color('primary-100');
+$tabs-disabled-color: colors.color('neutral-500');
 
 // TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
 .rcx-tabs {

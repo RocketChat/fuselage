@@ -38,17 +38,17 @@
     &:link {
       text-decoration: none;
 
-      color: colors.foreground(link);
+      color: colors.color('link');
     }
 
     &:visited,
     &.visited {
-      color: colors.foreground(visited-link);
+      color: colors.color('visited-link');
     }
 
     &:active,
     &.active {
-      color: colors.foreground(active-link);
+      color: colors.color('active-link');
     }
 
     &:hover,
@@ -86,7 +86,7 @@
     letter-spacing: inherit;
 
     border-radius: 2px;
-    background-color: colors.neutral(300);
+    background-color: colors.color('neutral-300');
 
     font: inherit;
     font-family: typography.font-family(mono);
@@ -97,7 +97,7 @@
   time {
     letter-spacing: inherit;
 
-    color: colors.foreground(info);
+    color: colors.color('info');
 
     font: inherit;
   }
@@ -105,7 +105,7 @@
   dfn {
     letter-spacing: inherit;
 
-    color: colors.foreground(info);
+    color: colors.color('info');
 
     font: inherit;
     font-style: italic;

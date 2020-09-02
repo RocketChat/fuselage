@@ -3,19 +3,19 @@
 
 .rcx-label {
   @include typography.use-font-scale(p2);
-  color: colors.foreground(default);
+  color: colors.color('default');
 
   &--disabled {
     pointer-events: none;
 
-    color: colors.foreground(hint);
+    color: colors.color('hint');
   }
 
   &--required {
     &::before {
       content: '*\0a0';
 
-      color: colors.foreground(danger);
+      color: colors.color('danger');
     }
   }
 }

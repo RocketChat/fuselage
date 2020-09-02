@@ -15,11 +15,11 @@
 
   &:hover,
   &--focus {
-    background: colors.neutral(400);
+    background: colors.color('neutral-400');
   }
 
   &--selected {
-    background: colors.neutral(500);
+    background: colors.color('neutral-500');
   }
 }
 

@@ -13,10 +13,10 @@
 
     border-radius: 9999px;
 
-    background-color: colors.primary(500);
+    background-color: colors.color('primary-500');
 
     &--disabled {
-      background-color: colors.neutral(500);
+      background-color: colors.color('neutral-500');
     }
 
     &--inherit-color {

@@ -2,76 +2,6 @@
 @use 'sass:list';
 @use 'sass:map';
 @use '~@rocket.chat/fuselage-tokens/colors.scss';
-@use './theme.scss';
-
-$-map-type-to-prefix: (
-  neutral: 'n',
-  primary: 'b',
-  info: 'b',
-  success: 'g',
-  warning: 'y',
-  danger: 'r',
-);
-
-@function _get-palette-color($type, $grade, $alpha) {
-  @if not ($grade % 100 == 0 and $grade / 100 >= 1 and $grade / 100 <= 9) {
-    @error 'invalid color grade';
-  }
-
-  @if not ($alpha == null or ($alpha >= 0 and $alpha <= 1)) {
-    @error 'invalid color alpha';
-  }
-
-  $prefix: map.get($-map-type-to-prefix, $type);
-  @if not $prefix {
-    @error 'invalid color type';
-  }
-
-  $base-color: map.get(colors.$light, #{ $prefix }#{ $grade });
-
-  @if not $base-color {
-    @error 'invalid color reference';
-  }
-
-  @if ($alpha != null) {
-    @return (
-      --rcx-color-#{ $type }-#{ $grade }-#{ $alpha * 100 },
-      color.change($base-color, $alpha: $alpha),
-    );
-  }
-
-  @return (--rcx-color-#{ $type }-#{ $grade }, $base-color);
-}
-
-@function neutral($grade, $alpha: null) {
-  $pair: _get-palette-color(neutral, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-@function primary($grade, $alpha: null) {
-  $pair: _get-palette-color(primary, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-@function info($grade, $alpha: null) {
-  $pair: _get-palette-color(info, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-@function success($grade, $alpha: null) {
-  $pair: _get-palette-color(success, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-@function warning($grade, $alpha: null) {
-  $pair: _get-palette-color(warning, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-@function danger($grade, $alpha: null) {
-  $pair: _get-palette-color(danger, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
 
 $all: (
   light: (
@@ -88,30 +18,168 @@ $all: (
     link: map.get(colors.$light, 'b500'),
     visited-link: map.get(colors.$light, 'p500'),
     active-link: map.get(colors.$light, 'r500'),
+    elevation-1: color.change(map.get(colors.$light, 'n800'), $alpha: 0.1),
+    elevation-2-1: color.change(map.get(colors.$light, 'n800'), $alpha: 0.08),
+    elevation-2-2: color.change(map.get(colors.$light, 'n800'), $alpha: 0.12),
+    backdrop: color.change(map.get(colors.$light, 'n800'), $alpha: 0.5),
+    scrollbar: color.change(map.get(colors.$light, 'n100'), $alpha: 0.05),
+    scrollbar-hover: color.change(map.get(colors.$light, 'n100'), $alpha: 0.15),
+    neutral-100: map.get(colors.$light, 'n100'),
+    neutral-200: map.get(colors.$light, 'n200'),
+    neutral-300: map.get(colors.$light, 'n300'),
+    neutral-400: map.get(colors.$light, 'n400'),
+    neutral-500: map.get(colors.$light, 'n500'),
+    neutral-600: map.get(colors.$light, 'n600'),
+    neutral-700: map.get(colors.$light, 'n700'),
+    neutral-800: map.get(colors.$light, 'n800'),
+    neutral-900: map.get(colors.$light, 'n900'),
+    primary-100: map.get(colors.$light, 'b100'),
+    primary-200: map.get(colors.$light, 'b200'),
+    primary-300: map.get(colors.$light, 'b300'),
+    primary-400: map.get(colors.$light, 'b400'),
+    primary-500: map.get(colors.$light, 'b500'),
+    primary-600: map.get(colors.$light, 'b600'),
+    primary-700: map.get(colors.$light, 'b700'),
+    primary-800: map.get(colors.$light, 'b800'),
+    primary-900: map.get(colors.$light, 'b900'),
+    info-100: map.get(colors.$light, 'b100'),
+    info-200: map.get(colors.$light, 'b200'),
+    info-300: map.get(colors.$light, 'b300'),
+    info-400: map.get(colors.$light, 'b400'),
+    info-500: map.get(colors.$light, 'b500'),
+    info-600: map.get(colors.$light, 'b600'),
+    info-700: map.get(colors.$light, 'b700'),
+    info-800: map.get(colors.$light, 'b800'),
+    info-900: map.get(colors.$light, 'b900'),
+    success-100: map.get(colors.$light, 'g100'),
+    success-200: map.get(colors.$light, 'g200'),
+    success-300: map.get(colors.$light, 'g300'),
+    success-400: map.get(colors.$light, 'g400'),
+    success-500: map.get(colors.$light, 'g500'),
+    success-600: map.get(colors.$light, 'g600'),
+    success-700: map.get(colors.$light, 'g700'),
+    success-800: map.get(colors.$light, 'g800'),
+    success-900: map.get(colors.$light, 'g900'),
+    warning-100: map.get(colors.$light, 'y100'),
+    warning-200: map.get(colors.$light, 'y200'),
+    warning-300: map.get(colors.$light, 'y300'),
+    warning-400: map.get(colors.$light, 'y400'),
+    warning-500: map.get(colors.$light, 'y500'),
+    warning-600: map.get(colors.$light, 'y600'),
+    warning-700: map.get(colors.$light, 'y700'),
+    warning-800: map.get(colors.$light, 'y800'),
+    warning-900: map.get(colors.$light, 'y900'),
+    danger-100: map.get(colors.$light, 'r100'),
+    danger-200: map.get(colors.$light, 'r200'),
+    danger-300: map.get(colors.$light, 'r300'),
+    danger-400: map.get(colors.$light, 'r400'),
+    danger-500: map.get(colors.$light, 'r500'),
+    danger-600: map.get(colors.$light, 'r600'),
+    danger-700: map.get(colors.$light, 'r700'),
+    danger-800: map.get(colors.$light, 'r800'),
+    danger-900: map.get(colors.$light, 'r900'),
   ),
   dark: (
     surface: map.get(colors.$dark, 'n900'),
     default: map.get(colors.$dark, 'n100'),
-    info: map.get(colors.$light, 'n700'),
-    hint: map.get(colors.$light, 'n600'),
-    disabled: map.get(colors.$light, 'n400'),
+    info: map.get(colors.$dark, 'n700'),
+    hint: map.get(colors.$dark, 'n600'),
+    disabled: map.get(colors.$dark, 'n400'),
     alternative: #ffffff,
-    primary: map.get(colors.$light, 'b500'),
-    success: map.get(colors.$light, 'g500'),
-    danger: map.get(colors.$light, 'r500'),
-    warning: map.get(colors.$light, 'y700'),
-    link: map.get(colors.$light, 'b500'),
-    visited-link: map.get(colors.$light, 'p500'),
-    active-link: map.get(colors.$light, 'r500'),
+    primary: map.get(colors.$dark, 'b500'),
+    success: map.get(colors.$dark, 'g500'),
+    danger: map.get(colors.$dark, 'r500'),
+    warning: map.get(colors.$dark, 'y700'),
+    link: map.get(colors.$dark, 'b500'),
+    visited-link: map.get(colors.$dark, 'p500'),
+    active-link: map.get(colors.$dark, 'r500'),
+    elevation-1: color.change(map.get(colors.$dark, 'n200'), $alpha: 0.1),
+    elevation-2-1: color.change(map.get(colors.$dark, 'n200'), $alpha: 0.08),
+    elevation-2-2: color.change(map.get(colors.$dark, 'n200'), $alpha: 0.12),
+    backdrop: color.change(map.get(colors.$dark, 'n200'), $alpha: 0.5),
+    scrollbar: color.change(map.get(colors.$dark, 'n100'), $alpha: 0.05),
+    scrollbar-hover: color.change(map.get(colors.$dark, 'n100'), $alpha: 0.15),
+    neutral-100: map.get(colors.$dark, 'n900'),
+    neutral-200: map.get(colors.$dark, 'n800'),
+    neutral-300: map.get(colors.$dark, 'n700'),
+    neutral-400: map.get(colors.$dark, 'n600'),
+    neutral-500: map.get(colors.$dark, 'n500'),
+    neutral-600: map.get(colors.$dark, 'n400'),
+    neutral-700: map.get(colors.$dark, 'n300'),
+    neutral-800: map.get(colors.$dark, 'n200'),
+    neutral-900: map.get(colors.$dark, 'n100'),
+    primary-100: map.get(colors.$dark, 'b100'),
+    primary-200: map.get(colors.$dark, 'b200'),
+    primary-300: map.get(colors.$dark, 'b300'),
+    primary-400: map.get(colors.$dark, 'b400'),
+    primary-500: map.get(colors.$dark, 'b500'),
+    primary-600: map.get(colors.$dark, 'b600'),
+    primary-700: map.get(colors.$dark, 'b700'),
+    primary-800: map.get(colors.$dark, 'b800'),
+    primary-900: map.get(colors.$dark, 'b900'),
+    info-100: map.get(colors.$dark, 'b100'),
+    info-200: map.get(colors.$dark, 'b200'),
+    info-300: map.get(colors.$dark, 'b300'),
+    info-400: map.get(colors.$dark, 'b400'),
+    info-500: map.get(colors.$dark, 'b500'),
+    info-600: map.get(colors.$dark, 'b600'),
+    info-700: map.get(colors.$dark, 'b700'),
+    info-800: map.get(colors.$dark, 'b800'),
+    info-900: map.get(colors.$dark, 'b900'),
+    success-100: map.get(colors.$dark, 'g100'),
+    success-200: map.get(colors.$dark, 'g200'),
+    success-300: map.get(colors.$dark, 'g300'),
+    success-400: map.get(colors.$dark, 'g400'),
+    success-500: map.get(colors.$dark, 'g500'),
+    success-600: map.get(colors.$dark, 'g600'),
+    success-700: map.get(colors.$dark, 'g700'),
+    success-800: map.get(colors.$dark, 'g800'),
+    success-900: map.get(colors.$dark, 'g900'),
+    warning-100: map.get(colors.$dark, 'y100'),
+    warning-200: map.get(colors.$dark, 'y200'),
+    warning-300: map.get(colors.$dark, 'y300'),
+    warning-400: map.get(colors.$dark, 'y400'),
+    warning-500: map.get(colors.$dark, 'y500'),
+    warning-600: map.get(colors.$dark, 'y600'),
+    warning-700: map.get(colors.$dark, 'y700'),
+    warning-800: map.get(colors.$dark, 'y800'),
+    warning-900: map.get(colors.$dark, 'y900'),
+    danger-100: map.get(colors.$dark, 'r100'),
+    danger-200: map.get(colors.$dark, 'r200'),
+    danger-300: map.get(colors.$dark, 'r300'),
+    danger-400: map.get(colors.$dark, 'r400'),
+    danger-500: map.get(colors.$dark, 'r500'),
+    danger-600: map.get(colors.$dark, 'r600'),
+    danger-700: map.get(colors.$dark, 'r700'),
+    danger-800: map.get(colors.$dark, 'r800'),
+    danger-900: map.get(colors.$dark, 'r900'),
   ),
 );
 
-@function surface() {
-  $color: map.get(map.get($all, theme.$current-theme), 'surface');
-  @return var(--rcx-color-surface, $color);
+@function color($type) {
+  $color: map.get(map.get($all, 'light'), $type);
+
+  @if not $color {
+    @error 'there is no color of type #{ $type }'
+  }
+
+  @return var(--rcx-color-#{ $type });
 }
 
-@function foreground($type) {
-  $color: map.get(map.get($all, theme.$current-theme), $type);
-  @return var(--rcx-color-#{ $type }, $color);
+@mixin variables {
+  :root,
+  .rcx--light {
+    @each $type, $color in map.get($all, 'light') {
+      --rcx-color-#{ $type }: #{ $color };
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root,
+    .rcx--dark {
+      @each $type, $color in map.get($all, 'dark') {
+        --rcx-color-#{ $type }: #{ $color };
+      }
+    }
+  }
 }

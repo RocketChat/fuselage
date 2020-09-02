@@ -16,14 +16,14 @@
 
     margin-block: 2px;
 
-    color: colors.foreground(default);
+    color: colors.color('default');
   }
 
   &__description {
     @include typography.use-font-scale(p1);
     margin-block: 2px;
 
-    color: colors.foreground(hint);
+    color: colors.color('hint');
     @extend %--with-inline-elements;
   }
 
@@ -45,7 +45,7 @@
     @include typography.use-font-scale(p1);
     margin-block: 2px;
 
-    color: colors.foreground(hint);
+    color: colors.color('hint');
     @extend %--with-inline-elements;
   }
 
@@ -53,7 +53,7 @@
     @include typography.use-font-scale(p1);
     margin-block: 2px;
 
-    color: colors.foreground(danger);
+    color: colors.color('danger');
     @extend %--with-inline-elements;
   }
 }

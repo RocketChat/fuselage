@@ -13,7 +13,7 @@
 
   border-collapse: collapse;
 
-  background-color: colors.surface();
+  background-color: colors.color('surface');
 
   &--fixed {
     table-layout: fixed;
@@ -21,7 +21,7 @@
 
   &__selection {
     border-radius: 2px;
-    background-color: colors.primary(500);
+    background-color: colors.color('primary-500');
   }
 
   &__wrapper {
@@ -42,7 +42,7 @@
 
   &--striped {
     .rcx-table__row:nth-child(even) {
-      background-color: colors.neutral(100);
+      background-color: colors.color('neutral-100');
     }
   }
 
@@ -52,22 +52,22 @@
       top: 0;
       z-index: 10;
 
-      background-color: colors.surface();
+      background-color: colors.color('surface');
     }
   }
 
   &__row {
     display: table-row;
 
-    background-color: colors.surface();
+    background-color: colors.color('surface');
 
     &--selected {
-      background-color: colors.primary(100);
+      background-color: colors.color('primary-100');
 
       &.rcx-table__row--action {
         &:hover,
         &:focus {
-          background-color: colors.primary(300);
+          background-color: colors.color('primary-300');
         }
       }
     }
@@ -75,7 +75,7 @@
     &--action:hover,
     &--action:focus {
       @include interactivity.clickable;
-      background-color: colors.neutral(200);
+      background-color: colors.color('neutral-200');
     }
   }
 
@@ -88,14 +88,14 @@
     text-align: unset;
     vertical-align: middle;
 
-    color: colors.foreground(info);
+    color: colors.color('info');
     @include typography.use-font-scale(p1);
 
     &--header {
       position: relative;
 
       @include typography.use-font-scale(c2);
-      color: colors.foreground(hint);
+      color: colors.color('hint');
 
       &::after {
         position: absolute;
@@ -108,7 +108,7 @@
 
         content: '';
 
-        border-block-end: 2px solid colors.neutral(300);
+        border-block-end: 2px solid colors.color('neutral-300');
       }
     }
 
