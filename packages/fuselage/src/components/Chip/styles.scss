@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/interactivity.scss';
+@use '../../styles/button-colors.scss';
 
 .rcx-chip {
   @extend %box--animated;
@@ -20,9 +21,9 @@
 
   &.disabled,
   &:disabled {
-    color: $button-colors-secondary-color;
-    border-color: $button-colors-secondary-border-color;
-    background-color: $button-colors-secondary-background-color;
+    color: button-colors.$secondary-color;
+    border-color: button-colors.$secondary-border-color;
+    background-color: button-colors.$secondary-background-color;
   }
 
   &__text {

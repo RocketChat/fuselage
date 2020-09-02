@@ -1,5 +1,6 @@
 @use '../interactivity.scss';
 @use '../states.scss';
+@use '../button-colors.scss';
 
 @mixin as-button(
   $color,
@@ -55,54 +56,54 @@
 
 %button--secondary {
   @include as-button(
-    $background-color: $button-colors-secondary-background-color,
-    $border-color: $button-colors-secondary-border-color,
-    $color: $button-colors-secondary-color,
-    $hover-background-color: $button-colors-secondary-hover-background-color,
-    $hover-border-color: $button-colors-secondary-hover-border-color,
-    $active-background-color: $button-colors-secondary-active-background-color,
-    $active-border-color: $button-colors-secondary-active-border-color,
-    $focus-background-color: $button-colors-secondary-focus-background-color,
-    $focus-border-color: $button-colors-secondary-focus-border-color,
-    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-    $disabled-background-color: $button-colors-secondary-disabled-background-color,
-    $disabled-border-color: $button-colors-secondary-disabled-border-color,
-    $disabled-color: $button-colors-secondary-disabled-color,
+    $background-color: button-colors.$secondary-background-color,
+    $border-color: button-colors.$secondary-border-color,
+    $color: button-colors.$secondary-color,
+    $hover-background-color: button-colors.$secondary-hover-background-color,
+    $hover-border-color: button-colors.$secondary-hover-border-color,
+    $active-background-color: button-colors.$secondary-active-background-color,
+    $active-border-color: button-colors.$secondary-active-border-color,
+    $focus-background-color: button-colors.$secondary-focus-background-color,
+    $focus-border-color: button-colors.$secondary-focus-border-color,
+    $focus-shadow-color: button-colors.$secondary-focus-shadow-color,
+    $disabled-background-color: button-colors.$secondary-disabled-background-color,
+    $disabled-border-color: button-colors.$secondary-disabled-border-color,
+    $disabled-color: button-colors.$secondary-disabled-color,
   );
 }
 
 %button--primary {
   @include as-button(
-    $background-color: $button-colors-primary-background-color,
-    $border-color: $button-colors-primary-border-color,
-    $color: $button-colors-primary-color,
-    $hover-background-color: $button-colors-primary-hover-background-color,
-    $hover-border-color: $button-colors-primary-hover-border-color,
-    $active-background-color: $button-colors-primary-active-background-color,
-    $active-border-color: $button-colors-primary-active-border-color,
-    $focus-background-color: $button-colors-primary-focus-background-color,
-    $focus-border-color: $button-colors-primary-focus-border-color,
-    $focus-shadow-color: $button-colors-primary-focus-shadow-color,
-    $disabled-background-color: $button-colors-primary-disabled-background-color,
-    $disabled-border-color: $button-colors-primary-disabled-border-color,
-    $disabled-color: $button-colors-primary-disabled-color,
+    $background-color: button-colors.$primary-background-color,
+    $border-color: button-colors.$primary-border-color,
+    $color: button-colors.$primary-color,
+    $hover-background-color: button-colors.$primary-hover-background-color,
+    $hover-border-color: button-colors.$primary-hover-border-color,
+    $active-background-color: button-colors.$primary-active-background-color,
+    $active-border-color: button-colors.$primary-active-border-color,
+    $focus-background-color: button-colors.$primary-focus-background-color,
+    $focus-border-color: button-colors.$primary-focus-border-color,
+    $focus-shadow-color: button-colors.$primary-focus-shadow-color,
+    $disabled-background-color: button-colors.$primary-disabled-background-color,
+    $disabled-border-color: button-colors.$primary-disabled-border-color,
+    $disabled-color: button-colors.$primary-disabled-color,
   );
 }
 
 %button--danger {
   @include as-button(
-    $background-color: $button-colors-danger-background-color,
-    $border-color: $button-colors-danger-border-color,
-    $color: $button-colors-danger-color,
-    $hover-background-color: $button-colors-danger-hover-background-color,
-    $hover-border-color: $button-colors-danger-hover-border-color,
-    $active-background-color: $button-colors-danger-active-background-color,
-    $active-border-color: $button-colors-danger-active-border-color,
-    $focus-background-color: $button-colors-danger-focus-background-color,
-    $focus-border-color: $button-colors-danger-focus-border-color,
-    $focus-shadow-color: $button-colors-danger-focus-shadow-color,
-    $disabled-background-color: $button-colors-danger-disabled-background-color,
-    $disabled-border-color: $button-colors-danger-disabled-border-color,
-    $disabled-color: $button-colors-danger-disabled-color,
+    $background-color: button-colors.$danger-background-color,
+    $border-color: button-colors.$danger-border-color,
+    $color: button-colors.$danger-color,
+    $hover-background-color: button-colors.$danger-hover-background-color,
+    $hover-border-color: button-colors.$danger-hover-border-color,
+    $active-background-color: button-colors.$danger-active-background-color,
+    $active-border-color: button-colors.$danger-active-border-color,
+    $focus-background-color: button-colors.$danger-focus-background-color,
+    $focus-border-color: button-colors.$danger-focus-border-color,
+    $focus-shadow-color: button-colors.$danger-focus-shadow-color,
+    $disabled-background-color: button-colors.$danger-disabled-background-color,
+    $disabled-border-color: button-colors.$danger-disabled-border-color,
+    $disabled-color: button-colors.$danger-disabled-color,
   );
 }

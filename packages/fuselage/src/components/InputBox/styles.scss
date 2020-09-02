@@ -1,5 +1,6 @@
 @use '../../styles/typography.scss';
 @use '../../styles/interactivity.scss';
+@use '../../styles/input-colors.scss';
 
 .rcx-input-box__wrapper,
 %rcx-input-box {
@@ -177,28 +178,28 @@
   }
 
   @include with-colors(
-    $color: $input-colors-color,
-    $placeholder-color: $input-colors-placeholder-color,
-    $focus-caret-color: $input-colors-focus-caret-color,
-    $active-caret-color: $input-colors-active-caret-color,
-    $disabled-color: $input-colors-disabled-color,
+    $color: input-colors.$color,
+    $placeholder-color: input-colors.$placeholder-color,
+    $focus-caret-color: input-colors.$focus-caret-color,
+    $active-caret-color: input-colors.$active-caret-color,
+    $disabled-color: input-colors.$disabled-color,
   );
 
   &:invalid,
   &.invalid {
     @include with-colors(
-      $color: $input-colors-invalid-color,
-      $placeholder-color: $input-colors-invalid-placeholder-color,
-      $focus-caret-color: $input-colors-invalid-focus-caret-color,
-      $active-caret-color: $input-colors-invalid-active-caret-color,
-      $disabled-color: $input-colors-invalid-disabled-color,
+      $color: input-colors.$invalid-color,
+      $placeholder-color: input-colors.$invalid-placeholder-color,
+      $focus-caret-color: input-colors.$invalid-focus-caret-color,
+      $active-caret-color: input-colors.$invalid-active-caret-color,
+      $disabled-color: input-colors.$invalid-disabled-color,
     );
 
     @include with-icon-addon-colors(
-      $color: $input-colors-invalid-color,
-      $focus-caret-color: $input-colors-invalid-focus-caret-color,
-      $focus-icon-color: $input-colors-invalid-focus-icon-color,
-      $disabled-color: $input-colors-invalid-disabled-color,
+      $color: input-colors.$invalid-color,
+      $focus-caret-color: input-colors.$invalid-focus-caret-color,
+      $focus-icon-color: input-colors.$invalid-focus-icon-color,
+      $disabled-color: input-colors.$invalid-disabled-color,
     );
   }
 
@@ -209,10 +210,10 @@
   }
 
   @include with-icon-addon-colors(
-    $color: $input-colors-color,
-    $focus-caret-color: $input-colors-focus-caret-color,
-    $focus-icon-color: $input-colors-focus-icon-color,
-    $disabled-color: $input-colors-disabled-color,
+    $color: input-colors.$color,
+    $focus-caret-color: input-colors.$focus-caret-color,
+    $focus-icon-color: input-colors.$focus-icon-color,
+    $disabled-color: input-colors.$disabled-color,
   );
 
   *:disabled & + .rcx-input-box__addon,
@@ -232,7 +233,7 @@
   white-space: nowrap;
 
   @include typography.use-font-scale(p1);
-  color: #{ $input-colors-placeholder-color };
+  color: #{ input-colors.$placeholder-color };
 }
 
 .rcx-input-box__option {
@@ -240,7 +241,7 @@
   white-space: nowrap;
 
   @include typography.use-font-scale(p1);
-  color: #{ $input-colors-color };
+  color: #{ input-colors.$color };
 }
 
 .rcx-skeleton__input {
@@ -257,12 +258,12 @@
 
   vertical-align: baseline;
 
-  color: #{ $input-colors-color };
+  color: #{ input-colors.$color };
 
   border-width: 2px;
-  border-color: #{ $input-colors-border-color };
+  border-color: #{ input-colors.$border-color };
   border-radius: 2px;
-  background-color: #{ $input-colors-background-color };
+  background-color: #{ input-colors.$background-color };
 
   @include typography.use-font-scale(p1);
   @include typography.use-text-ellipsis;

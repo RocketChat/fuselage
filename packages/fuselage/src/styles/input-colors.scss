@@ -1,0 +1,31 @@
+@use './colors.scss';
+
+$background-color: colors.surface();
+$border-color: colors.neutral(500);
+$color: colors.neutral(800);
+$placeholder-color: colors.neutral(600);
+$hover-border-color: colors.neutral(600);
+$focus-border-color: colors.primary(500);
+$focus-shadow-color: colors.primary(100);
+$focus-icon-color: colors.primary(500);
+$focus-caret-color: colors.primary(500);
+$active-border-color: colors.neutral(600);
+$active-caret-color: colors.neutral(600);
+$disabled-background-color: colors.neutral(200);
+$disabled-border-color: colors.neutral(500);
+$disabled-color: colors.neutral(800);
+
+$invalid-background-color: colors.surface();
+$invalid-border-color: colors.danger(500);
+$invalid-color: colors.danger(500);
+$invalid-placeholder-color: colors.neutral(600);
+$invalid-hover-border-color: colors.danger(500);
+$invalid-focus-border-color: colors.danger(500);
+$invalid-focus-shadow-color: colors.danger(100);
+$invalid-focus-caret-color: colors.danger(500);
+$invalid-focus-icon-color: colors.danger(500);
+$invalid-active-border-color: colors.neutral(600);
+$invalid-active-caret-color: colors.neutral(600);
+$invalid-disabled-background-color: colors.neutral(200);
+$invalid-disabled-border-color: colors.neutral(500);
+$invalid-disabled-color: colors.neutral(800);

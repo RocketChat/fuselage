@@ -1,22 +1,23 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/interactivity.scss';
+@use '../../styles/button-colors.scss';
 
 %button-secondary-color { // TODO: primitive atomic component
   @include as-button (
-    $background-color: $button-colors-secondary-background-color,
-    $border-color: $button-colors-secondary-border-color,
-    $color: $button-colors-secondary-color,
-    $hover-background-color: $button-colors-secondary-hover-background-color,
-    $hover-border-color: $button-colors-secondary-hover-border-color,
-    $active-background-color: $button-colors-secondary-active-background-color,
-    $active-border-color: $button-colors-secondary-active-border-color,
-    $focus-background-color: $button-colors-secondary-focus-background-color,
-    $focus-border-color: $button-colors-secondary-focus-border-color,
-    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-    $disabled-background-color: $button-colors-secondary-disabled-background-color,
-    $disabled-border-color: $button-colors-secondary-disabled-border-color,
-    $disabled-color: $button-colors-secondary-disabled-color,
+    $background-color: button-colors.$secondary-background-color,
+    $border-color: button-colors.$secondary-border-color,
+    $color: button-colors.$secondary-color,
+    $hover-background-color: button-colors.$secondary-hover-background-color,
+    $hover-border-color: button-colors.$secondary-hover-border-color,
+    $active-background-color: button-colors.$secondary-active-background-color,
+    $active-border-color: button-colors.$secondary-active-border-color,
+    $focus-background-color: button-colors.$secondary-focus-background-color,
+    $focus-border-color: button-colors.$secondary-focus-border-color,
+    $focus-shadow-color: button-colors.$secondary-focus-shadow-color,
+    $disabled-background-color: button-colors.$secondary-disabled-background-color,
+    $disabled-border-color: button-colors.$secondary-disabled-border-color,
+    $disabled-color: button-colors.$secondary-disabled-color,
   );
 }
 
