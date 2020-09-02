@@ -64,7 +64,7 @@ const buildScripts = async (icons, distPath) => {
       '  font-family: "RocketChat";',
       '  font-style: normal;',
       '  font-weight: 400;',
-      '  font-display: auto;',
+      '  font-display: block;',
       '',
       '  src: url("./font/rocketchat.eot");',
       '  src:',
