@@ -1,7 +1,6 @@
 import { cssSupports } from '@rocket.chat/css-in-js';
 import colorTokens from '@rocket.chat/fuselage-tokens/colors.json';
 import typographyTokens from '@rocket.chat/fuselage-tokens/typography.json';
-import invariant from 'invariant';
 
 import { memoize } from './helpers/memoize';
 
@@ -45,104 +44,35 @@ export const borderRadius = measure((value) => {
   }
 });
 
-const mapTypeToPrefix = {
-  neutral: 'n',
-  primary: 'b',
-  info: 'b',
-  success: 'g',
-  warning: 'y',
-  danger: 'r',
+const withAlphaRegex = /^((neutral|primary|info|success|warning|danger)-\d+)-(\d+)$/;
+
+const withAlpha = (colorHex, alpha) => {
+  const matches = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/.exec(colorHex);
+  const [, r, g, b] = matches;
+  return `rgba(${ parseInt(r, 16) }, ${ parseInt(g, 16) }, ${ parseInt(b, 16) }, ${ alpha * 100 }%)`;
 };
 
-const getPaletteColor = (type, grade, alpha) => {
-  invariant(grade % 100 === 0 && grade / 100 >= 1 && grade / 100 <= 9, 'invalid color grade');
-  invariant(alpha === undefined || (alpha >= 0 && alpha <= 1), 'invalid color alpha');
+export const color = memoize((value) => {
+  if (colorTokens.light[value]) {
+    if (cssSupports('(--foo: bar)')) {
+      return `var(--rcx-color-${ value })`;
+    }
 
-  const prefix = mapTypeToPrefix[type];
-  invariant(!!prefix, 'invalid color type');
-
-  const baseColor = colorTokens.light[`${ prefix }${ grade }`];
-
-  invariant(!!baseColor, 'invalid color reference');
-
-  const matches = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/.exec(baseColor);
-
-  invariant(!!matches, 'invalid color token format');
-
-  if (alpha !== undefined) {
-    const [, r, g, b] = matches;
-    return [
-      `--rcx-color-${ type }-${ grade }-${ (alpha * 100).toFixed(0) }`,
-      `rgba(${ parseInt(r, 16) }, ${ parseInt(g, 16) }, ${ parseInt(b, 16) }, ${ alpha * 100 }%)`,
-    ];
+    return colorTokens.light[value];
   }
 
-  return [`--rcx-color-${ type }-${ grade }`, baseColor];
-};
-
-const foregroundColors = {
-  default: colorTokens.light.n800,
-  info: colorTokens.light.n700,
-  hint: colorTokens.light.n600,
-  disabled: colorTokens.light.n400,
-  alternative: 'white',
-  primary: colorTokens.light.b500,
-  success: colorTokens.light.g500,
-  danger: colorTokens.light.r500,
-  warning: colorTokens.light.y700,
-  link: colorTokens.light.b500,
-  'visited-link': colorTokens.light.p500,
-  'active-link': colorTokens.light.r500,
-};
-
-const getForegroundColor = (type) => {
-  const color = foregroundColors[type];
-  invariant(!!color, 'invalid foreground color');
-
-  return [`--rcx-color-foreground-${ type }`, color];
-};
-
-const paletteColorRegex = /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
-
-export const color = memoize((propValue) => {
-  if (typeof propValue !== 'string') {
-    return;
-  }
-
-  const paletteMatches = paletteColorRegex.exec(String(propValue));
+  const paletteMatches = withAlphaRegex.exec(value);
 
   if (paletteMatches) {
-    const [, type, gradeString, , alphaString] = paletteMatches;
-    const grade = parseInt(gradeString, 10);
-    const alpha = alphaString !== undefined ? parseInt(alphaString, 10) / 100 : undefined;
-    const [customProperty, color] = getPaletteColor(type, grade, alpha);
+    const [, type, , alphaString] = paletteMatches;
 
-    if (customProperty && cssSupports('(--foo: bar)')) {
-      return `var(${ customProperty }, ${ color })`;
+    if (colorTokens.light[type]) {
+      const alpha = parseInt(alphaString, 10) / 100;
+      return withAlpha(colorTokens.light[type], alpha);
     }
-
-    return color;
   }
 
-  if (propValue === 'surface') {
-    if (cssSupports('(--foo: bar)')) {
-      return 'var(--rcx-color-surface, white)';
-    }
-
-    return 'white';
-  }
-
-  if (foregroundColors[String(propValue)]) {
-    const [customProperty, color] = getForegroundColor(String(propValue));
-
-    if (customProperty && cssSupports('(--foo: bar)')) {
-      return `var(${ customProperty }, ${ color })`;
-    }
-
-    return color;
-  }
-
-  return propValue;
+  return value;
 });
 
 export const size = measure((value) => {

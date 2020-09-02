@@ -11,8 +11,8 @@ const lightTheme = create({
   brandTitle: manifest.name,
   brandImage: logo,
   brandUrl: manifest.homepage,
-  colorPrimary: colorTokens.light.n500,
-  colorSecondary: colorTokens.light.b500,
+  colorPrimary: colorTokens.light['neutral-500'],
+  colorSecondary: colorTokens.light['primary-500'],
 });
 
 // eslint-disable-next-line no-unused-vars
@@ -21,8 +21,8 @@ const darkTheme = create({
   brandTitle: manifest.name,
   brandImage: logo,
   brandUrl: manifest.homepage,
-  colorPrimary: colorTokens.dark.n500,
-  colorSecondary: colorTokens.dark.b500,
+  colorPrimary: colorTokens.dark['neutral-500'],
+  colorSecondary: colorTokens.dark['primary-500'],
 });
 
 addons.setConfig({
