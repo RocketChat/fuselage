@@ -1,0 +1,19 @@
+$current-theme: 'light';
+
+@mixin with-theme {
+  $-prev-theme: $current-theme;
+
+  $current-theme: 'light' !global;
+  @content;
+
+  $current-theme: 'dark' !global;
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+
+  .rcx-theme--dark & {
+    @content;
+  }
+
+  $current-theme: $-prev-theme !global;
+}

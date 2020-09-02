@@ -2,6 +2,7 @@
 @use 'sass:list';
 @use 'sass:map';
 @use '~@rocket.chat/fuselage-tokens/colors.scss';
+@use './theme.scss';
 
 $-map-type-to-prefix: (
   neutral: 'n',
@@ -72,38 +73,45 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-@function surface() {
-  @return var(--rcx-color-surface, white);
-}
-
-$-foreground-colors: (
-  default: map.get(colors.$light, n800),
-  info: map.get(colors.$light, n700),
-  hint: map.get(colors.$light, n600),
-  disabled: map.get(colors.$light, n400),
-  alternative: white,
-  primary: map.get(colors.$light, b500),
-  success: map.get(colors.$light, g500),
-  danger: map.get(colors.$light, r500),
-  warning: map.get(colors.$light, y700),
-  link: map.get(colors.$light, b500),
-  visited-link: map.get(colors.$light, p500),
-  active-link: map.get(colors.$light, r500),
+$all: (
+  light: (
+    surface: #ffffff,
+    default: map.get(colors.$light, 'n800'),
+    info: map.get(colors.$light, 'n700'),
+    hint: map.get(colors.$light, 'n600'),
+    disabled: map.get(colors.$light, 'n400'),
+    alternative: #ffffff,
+    primary: map.get(colors.$light, 'b500'),
+    success: map.get(colors.$light, 'g500'),
+    danger: map.get(colors.$light, 'r500'),
+    warning: map.get(colors.$light, 'y700'),
+    link: map.get(colors.$light, 'b500'),
+    visited-link: map.get(colors.$light, 'p500'),
+    active-link: map.get(colors.$light, 'r500'),
+  ),
+  dark: (
+    surface: map.get(colors.$dark, 'n900'),
+    default: map.get(colors.$dark, 'n100'),
+    info: map.get(colors.$light, 'n700'),
+    hint: map.get(colors.$light, 'n600'),
+    disabled: map.get(colors.$light, 'n400'),
+    alternative: #ffffff,
+    primary: map.get(colors.$light, 'b500'),
+    success: map.get(colors.$light, 'g500'),
+    danger: map.get(colors.$light, 'r500'),
+    warning: map.get(colors.$light, 'y700'),
+    link: map.get(colors.$light, 'b500'),
+    visited-link: map.get(colors.$light, 'p500'),
+    active-link: map.get(colors.$light, 'r500'),
+  ),
 );
 
-@function _get-foreground-color($type) {
-  @if not map.has-key($-foreground-colors, $type) {
-    @error 'invalid foreground type';
-  }
-
-  $color: map.get($-foreground-colors, $type);
-
-  @return (--rcx-color-foreground-#{ $type }, $color);
+@function surface() {
+  $color: map.get(map.get($all, theme.$current-theme), 'surface');
+  @return var(--rcx-color-surface, $color);
 }
 
 @function foreground($type) {
-  $pair: _get-foreground-color($type);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
+  $color: map.get(map.get($all, theme.$current-theme), $type);
+  @return var(--rcx-color-#{ $type }, $color);
 }
-
-$foreground-types: map.keys($-foreground-colors);
