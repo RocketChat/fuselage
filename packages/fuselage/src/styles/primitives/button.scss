@@ -1,3 +1,6 @@
+@use '../interactivity.scss';
+@use '../states.scss';
+
 @mixin as-button(
   $color,
   $background-color,
@@ -22,25 +25,25 @@
 
   appearance: none;
 
-  @include on-focus-visible {
+  @include states.on-focus-visible {
     border-color: $focus-border-color;
     background-color: $focus-background-color;
-    @include use-focus-shadow($focus-shadow-color);
+    @include interactivity.use-focus-shadow($focus-shadow-color);
   }
 
-  @include on-hover {
+  @include states.on-hover {
     border-color: $hover-border-color;
     background-color: $hover-background-color;
-    @include use-no-shadow;
+    box-shadow: none;
   }
 
-  @include on-active {
+  @include states.on-active {
     border-color: $active-border-color;
     background-color: $active-background-color;
-    @include use-no-shadow;
+    box-shadow: none;
   }
 
-  @include on-disabled {
+  @include states.on-disabled {
     color: $disabled-color;
     border-color: $disabled-border-color;
     background-color: $disabled-background-color;

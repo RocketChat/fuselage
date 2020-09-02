@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/breakpoints.scss';
 
 .rcx-modal {
   position: static;
@@ -32,7 +33,7 @@
     background-color: colors.neutral(800, $alpha: 0.5);
   }
 
-  @include on-breakpoint(sm) {
+  @include breakpoints.on-breakpoint(sm) {
     max-width: 640px;
     padding: 16px;
   }

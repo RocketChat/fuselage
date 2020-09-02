@@ -13,3 +13,6 @@
     }
   }
 }
+
+$breakpoints: breakpoints.$breakpoints;
+$breakpoint-names: map.keys(breakpoints.$breakpoints);

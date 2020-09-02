@@ -1,10 +1,8 @@
 @use 'sass:map';
-@use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
-
-$breakpoint-names: map.keys(breakpoints.$breakpoints);
+@use '../../styles/breakpoints.scss';
 
 @mixin when-item-is-on-breakpoint($breakpoint-name) {
-  @include on-breakpoint($breakpoint-name) {
+  @include breakpoints.on-breakpoint($breakpoint-name) {
     @content;
   }
 
@@ -21,7 +19,7 @@ $breakpoint-names: map.keys(breakpoints.$breakpoints);
     overflow: hidden;
   }
 
-  @each $breakpoint-name in $breakpoint-names {
+  @each $breakpoint-name in breakpoints.$breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
       margin-block: calc(#{ map.get(map.get(breakpoints.$breakpoints, $breakpoint-name), gutter-width) * 1px } / -2);
       margin-inline: calc(#{ map.get(map.get(breakpoints.$breakpoints, $breakpoint-name), gutter-width) * 1px } / -2);
@@ -32,7 +30,7 @@ $breakpoint-names: map.keys(breakpoints.$breakpoints);
 .rcx-grid__item {
   flex: 1 1 0;
 
-  @each $breakpoint-name in $breakpoint-names {
+  @each $breakpoint-name in breakpoints.$breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
       padding-block: calc(#{ map.get(map.get(breakpoints.$breakpoints, $breakpoint-name), gutter-width) * 1px } / 2);
       padding-inline: calc(#{ map.get(map.get(breakpoints.$breakpoints, $breakpoint-name), gutter-width) * 1px } / 2);

@@ -1,15 +1,13 @@
 @mixin on-hover {
   &:hover,
-  &.hover,
-  &.is-hovered {
+  &.hover {
     @content;
   }
 }
 
 @mixin on-active {
   &:active,
-  &.active,
-  &.is-active {
+  &.active {
     @content;
   }
 }
@@ -17,8 +15,7 @@
 @mixin on-focus {
   &:focus,
   &:focus-within,
-  &.focus,
-  &.is-focused {
+  &.focus {
     @content;
   }
 }
@@ -42,17 +39,7 @@
 @mixin on-disabled {
   *:disabled &,
   &:disabled,
-  &.disabled,
-  &.is-disabled {
-    @content;
-  }
-}
-
-@mixin on-invalid {
-  *:invalid &,
-  &:invalid,
-  &.invalid,
-  &.is-invalid {
+  &.disabled {
     @content;
   }
 }

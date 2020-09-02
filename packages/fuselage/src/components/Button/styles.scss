@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/interactivity.scss';
 
 %button-secondary-color { // TODO: primitive atomic component
   @include as-button (
@@ -51,7 +52,7 @@
   white-space: nowrap;
   text-decoration: none;
 
-  @include clickable;
+  @include interactivity.clickable;
   @include typography.use-font-scale(p2);
   @include typography.use-text-ellipsis;
 

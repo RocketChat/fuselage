@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/interactivity.scss';
 
 $tag-colors-secondary-color: colors.foreground(primary);
 $tag-colors-secondary-background-color: colors.primary(100);
@@ -71,6 +72,6 @@ $tag-colors-disabled-background-color: colors.neutral(400);
   }
 
   &--clickable {
-    @include clickable();
+    @include interactivity.clickable;
   }
 }

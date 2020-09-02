@@ -1,5 +1,8 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/breakpoints.scss';
+@use '../../styles/interactivity.scss';
+@use '../../styles/states.scss';
 
 $tabs-background-color: transparent;
 $tabs-border-color: transparent;
@@ -72,7 +75,7 @@ $tabs-disabled-color: colors.neutral(500);
   border-color: transparent;
   background-color: transparent;
 
-  @include clickable;
+  @include interactivity.clickable;
   @include typography.use-font-scale(s2);
 
   &--selected {
@@ -100,7 +103,7 @@ $tabs-disabled-color: colors.neutral(500);
     color: $tabs-disabled-color;
   }
 
-  @include on-focus-visible {
+  @include states.on-focus-visible {
     padding-inline: 16px;
 
     border-color: $tabs-focus-border-color;
@@ -108,11 +111,11 @@ $tabs-disabled-color: colors.neutral(500);
     border-inline-width: 2px;
     border-radius: 2px;
 
-    @include use-focus-shadow($tabs-focus-shadow-color);
+    @include interactivity.use-focus-shadow($tabs-focus-shadow-color);
   }
 }
 
-@include on-breakpoint('md') {
+@include breakpoints.on-breakpoint('md') {
   .rcx-tabs__wrapper {
     margin-inline: 24px;
   }

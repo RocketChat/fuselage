@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/interactivity.scss';
 
 .rcx-chip {
   @extend %box--animated;
@@ -14,7 +15,7 @@
 
   border-width: 0;
 
-  @include clickable;
+  @include interactivity.clickable;
   @include typography.use-font-scale('p1');
 
   &.disabled,

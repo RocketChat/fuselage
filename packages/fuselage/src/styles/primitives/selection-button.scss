@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use '../interactivity.scss';
 
 %selection-button__input {
   @extend %--visually-hidden;
@@ -21,19 +22,19 @@
 %selection-button__fake--empty--hovered {
   border-color: $button-colors-empty-hover-border-color;
   background-color: $button-colors-empty-hover-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--empty--active {
   border-color: $button-colors-empty-active-border-color;
   background-color: $button-colors-empty-active-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--empty--focused {
   border-color: $button-colors-empty-focus-border-color;
   background-color: $button-colors-empty-focus-background-color;
-  @include use-focus-shadow($button-colors-empty-focus-shadow-color);
+  @include interactivity.use-focus-shadow($button-colors-empty-focus-shadow-color);
 }
 
 %selection-button__fake--empty--disabled {
@@ -51,19 +52,19 @@
 %selection-button__fake--off--hovered {
   border-color: $button-colors-off-hover-border-color;
   background-color: $button-colors-off-hover-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--off--active {
   border-color: $button-colors-off-active-border-color;
   background-color: $button-colors-off-active-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--off--focused {
   border-color: $button-colors-off-focus-border-color;
   background-color: $button-colors-off-focus-background-color;
-  @include use-focus-shadow($button-colors-off-focus-shadow-color);
+  @include interactivity.use-focus-shadow($button-colors-off-focus-shadow-color);
 }
 
 %selection-button__fake--off--disabled {
@@ -81,19 +82,19 @@
 %selection-button__fake--primary--hovered {
   border-color: $button-colors-primary-hover-border-color;
   background-color: $button-colors-primary-hover-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--primary--active {
   border-color: $button-colors-primary-active-border-color;
   background-color: $button-colors-primary-active-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--primary--focused {
   border-color: $button-colors-primary-focus-border-color;
   background-color: $button-colors-primary-focus-background-color;
-  @include use-focus-shadow($button-colors-primary-focus-shadow-color);
+  @include interactivity.use-focus-shadow($button-colors-primary-focus-shadow-color);
 }
 
 %selection-button__fake--primary--disabled {
@@ -109,7 +110,7 @@
 
   vertical-align: middle;
 
-  @include clickable;
+  @include interactivity.clickable;
 
   $styles: (
     unchecked: $unchecked,
@@ -127,10 +128,10 @@
 
   $state-helper-classes: (
     default: null,
-    hovered: '.is-hovered',
-    focused: '.is-focused',
-    active: '.is-active',
-    disabled: '.is-disabled'
+    hovered: '.hover',
+    focused: '.focus',
+    active: '.active',
+    disabled: '.disabled'
   );
 
   @each $value in unchecked, indeterminate, checked {

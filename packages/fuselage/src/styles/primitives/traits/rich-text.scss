@@ -42,17 +42,17 @@
     }
 
     &:visited,
-    &.is-visited {
+    &.visited {
       color: colors.foreground(visited-link);
     }
 
     &:active,
-    &.is-active {
+    &.active {
       color: colors.foreground(active-link);
     }
 
     &:hover,
-    &.is-hovered {
+    &.hover {
       text-decoration: underline;
     }
   }

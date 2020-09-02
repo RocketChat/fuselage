@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/interactivity.scss';
 
 .rcx-accordion {
   display: flex;
@@ -31,7 +32,7 @@
   border-color: colors.neutral(300) transparent transparent;
 
   &[tabindex] {
-    @include clickable;
+    @include interactivity.clickable;
 
     &.hover,
     &:hover {
@@ -41,7 +42,7 @@
     &.focus,
     &:focus {
       border-color: colors.primary(500);
-      @include use-focus-shadow($outer-color: colors.primary(100));
+      @include interactivity.use-focus-shadow(colors.primary(100));
     }
   }
 

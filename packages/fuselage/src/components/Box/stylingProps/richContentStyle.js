@@ -29,17 +29,17 @@ export default css`
     }
 
     &:visited,
-    &.is-visited {
+    &.visited {
       color: ${ color('visited-link') };
     }
 
     &:active,
-    &.is-active {
+    &.active {
       color: ${ color('active-link') };
     }
 
     &:hover,
-    &.is-hovered {
+    &.hover {
       text-decoration: underline;
     }
   }
