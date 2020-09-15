@@ -29,7 +29,6 @@ export * from './RadioButton';
 export * from './SearchInput';
 export * from './Select';
 export * from './SelectInput';
-export * from './Sidebar/Item';
 export * from './Skeleton';
 export * from './Table';
 export * from './Tabs';
