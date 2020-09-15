@@ -86,6 +86,15 @@
     );
   }
 
+  &--success {
+    color: colors.success(500);
+
+    &.disabled,
+    &:disabled {
+      color: colors.success(100);
+    }
+  }
+
   &--danger {
     color: colors.danger(500);
 
@@ -103,6 +112,10 @@
     @extend %button--danger;
   }
 
+  &--primary-success {
+    @extend %button--success;
+  }
+
   &--ghost {
     border-color: transparent;
     background-color: transparent;
@@ -116,6 +129,17 @@
     &.disabled,
     &:disabled {
       color: colors.danger(100);
+    }
+  }
+
+  &--ghost-success {
+    color: colors.success(500);
+    border-color: transparent;
+    background-color: transparent;
+
+    &.disabled,
+    &:disabled {
+      color: colors.success(100);
     }
   }
 }

@@ -4,6 +4,7 @@ export * from './Avatar';
 export * from './Badge';
 export * from './Box';
 export * from './Button';
+export * from './Button/ActionButton';
 export * from './ButtonGroup';
 export * from './Callout';
 export * from './CheckBox';
