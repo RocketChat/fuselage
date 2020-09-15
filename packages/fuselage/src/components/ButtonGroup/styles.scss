@@ -49,6 +49,10 @@
     }
   }
 
+  .rcx-button-group.rcx-button-group--small > & {
+    margin-inline: lengths.margin(2);
+  }
+
   .rcx-button-group--wrap > & {
     margin-block-end: lengths.margin(16);
     margin-inline-start: lengths.margin(none);

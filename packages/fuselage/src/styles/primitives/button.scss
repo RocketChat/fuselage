@@ -88,6 +88,24 @@
   );
 }
 
+%button--success {
+  @include as-button(
+    $background-color: $button-colors-success-background-color,
+    $border-color: $button-colors-success-border-color,
+    $color: $button-colors-success-color,
+    $hover-background-color: $button-colors-success-hover-background-color,
+    $hover-border-color: $button-colors-success-hover-border-color,
+    $active-background-color: $button-colors-success-active-background-color,
+    $active-border-color: $button-colors-success-active-border-color,
+    $focus-background-color: $button-colors-success-focus-background-color,
+    $focus-border-color: $button-colors-success-focus-border-color,
+    $focus-shadow-color: $button-colors-success-focus-shadow-color,
+    $disabled-background-color: $button-colors-success-disabled-background-color,
+    $disabled-border-color: $button-colors-success-disabled-border-color,
+    $disabled-color: $button-colors-success-disabled-color,
+  );
+}
+
 %button--danger {
   @include as-button(
     $background-color: $button-colors-danger-background-color,
