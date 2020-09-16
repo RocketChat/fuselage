@@ -30,66 +30,84 @@ $sidebar-item-color-selected: colors.foreground('hint');
   }
 }
 
-.rcx-sidebar-item {
-  @extend %sidebar-base;
-  padding-block: lengths.padding(4);
-  padding-inline: lengths.padding(16);
+.rcx-sidebar {
 
-  color: $sidebar-item-color;
-  background-color: $sidebar-item-background-color;
+  &-topbar {
+    background-color: $sidebar-item-background-color;
+    color: $sidebar-item-color;
 
-  &--selected {
-    color: $sidebar-item-color-selected;
-    background-color: $sidebar-item-background-color-selected;
-  }
-
-  &--clickable {
-    @include clickable;
-    @include on-hover {
-      @include use-no-shadow;
-      color: $sidebar-item-color-hover;
-      background-color: $sidebar-item-background-color-hover;
+    &--section {
+      padding-block-start: lengths.padding(4);
     }
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: lengths.padding(16);
+      padding-inline: lengths.padding(16);
+    }
+
   }
 
-  &__avatar {
-    @include typography.use-with-truncated-text();
-    flex: 0 0 lengths.size(28);
-
-    width: lengths.size(28);
-    height: lengths.size(28);
-  }
-
-  &__container {
+  &-item {
     @extend %sidebar-base;
-    flex: 0 0 auto;
-  }
-
-  &__content {
-    @include typography.use-with-truncated-text();
-    flex-wrap: wrap;
-    flex: 1 1 100%;
-  }
-
-  &__title,
-  &__subtitle {
-    @extend %sidebar-base;
-    @include highlighted;
-    @include typography.use-with-truncated-text();
-    display: block;
-    flex: 1 1 1%;
-
-    margin-inline: lengths.padding(4);
-  }
-
-  &__subtitle {
-    @include typography.use-font-scale(c1);
-    margin-inline: lengths.padding(8);
-  }
-
-  &__wrapper {
-    @extend %sidebar-base;
-    @include typography.use-with-truncated-text();
-    display: flex;
+    padding-block: lengths.padding(4);
+    padding-inline: lengths.padding(16);
+  
+    color: $sidebar-item-color;
+    background-color: $sidebar-item-background-color;
+  
+    &--selected {
+      color: $sidebar-item-color-selected;
+      background-color: $sidebar-item-background-color-selected;
+    }
+  
+    &--clickable {
+      @include clickable;
+      @include on-hover {
+        @include use-no-shadow;
+        color: $sidebar-item-color-hover;
+        background-color: $sidebar-item-background-color-hover;
+      }
+    }
+  
+    &__avatar {
+      @include typography.use-with-truncated-text();
+      flex: 0 0 auto;
+    }
+  
+    &__container {
+      @extend %sidebar-base;
+      flex: 0 0 auto;
+    }
+  
+    &__content {
+      @include typography.use-with-truncated-text();
+      flex-wrap: wrap;
+      flex: 1 1 100%;
+    }
+  
+    &__title,
+    &__subtitle {
+      @extend %sidebar-base;
+      @include highlighted;
+      @include typography.use-with-truncated-text();
+      display: block;
+      flex: 1 1 1%;
+  
+      margin-inline: lengths.padding(4);
+    }
+  
+    &__subtitle {
+      @include typography.use-font-scale(c1);
+      margin-inline: lengths.padding(8);
+    }
+  
+    &__wrapper {
+      @extend %sidebar-base;
+      @include typography.use-with-truncated-text();
+      display: flex;
+    }
   }
 }

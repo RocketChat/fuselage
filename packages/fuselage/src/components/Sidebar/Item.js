@@ -18,7 +18,7 @@ const Icon = (props) => <FuselageIcon w='x12' mi='x4' size='x16' {...props} />;
 
 const Avatar = (props) => <Container><div className='rc-box rcx-box--full rcx-sidebar-item__avatar' {...props}/></Container>;
 
-const Actions = (props) => <ButtonGroup rcx-button-group--small {...props}/>;
+const Actions = (props) => <ButtonGroup small {...props}/>;
 
 const SidebarItem = {
   Item,

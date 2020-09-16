@@ -11,6 +11,8 @@ export function ButtonGroup({
   stretch,
   vertical,
   wrap,
+  small,
+  medium,
   ...props
 }) {
   return <Box
@@ -18,6 +20,8 @@ export function ButtonGroup({
     rcx-button-group--align={align}
     rcx-button-group--stretch={stretch}
     rcx-button-group--vertical={vertical}
+    rcx-button-group--small={small}
+    rcx-button-group--medium={medium}
     rcx-button-group--wrap={wrap}
     role='group'
     {...props}
@@ -41,4 +45,6 @@ ButtonGroup.propTypes = {
   vertical: PropTypes.bool,
   /** Will wrap the items when they exceed the container space? */
   wrap: PropTypes.bool,
+  small: PropTypes.bool,
+  medium: PropTypes.bool,
 };
