@@ -42,24 +42,24 @@ $sidebar-item-color-selected: colors.foreground('hint');
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       padding-block: lengths.padding(16);
       padding-inline: lengths.padding(16);
     }
-
   }
 
   &-item {
     @extend %sidebar-base;
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
-  
+
     color: $sidebar-item-color;
-  
+
     &--selected {
       color: $sidebar-item-color-selected;
       background-color: $sidebar-item-background-color-selected;
     }
-  
+
     &--clickable {
       @include clickable;
       @include on-hover {
@@ -68,23 +68,23 @@ $sidebar-item-color-selected: colors.foreground('hint');
         background-color: $sidebar-item-background-color-hover;
       }
     }
-  
+
     &__avatar {
       @include typography.use-with-truncated-text();
       flex: 0 0 auto;
     }
-  
+
     &__container {
       @extend %sidebar-base;
       flex: 0 0 auto;
     }
-  
+
     &__content {
       @include typography.use-with-truncated-text();
       flex-wrap: wrap;
       flex: 1 1 100%;
     }
-  
+
     &__title,
     &__subtitle {
       @extend %sidebar-base;
@@ -92,15 +92,15 @@ $sidebar-item-color-selected: colors.foreground('hint');
       @include typography.use-with-truncated-text();
       display: block;
       flex: 1 1 1%;
-  
+
       margin-inline: lengths.padding(4);
     }
-  
+
     &__subtitle {
       @include typography.use-font-scale(c1);
       margin-inline: lengths.padding(8);
     }
-  
+
     &__wrapper {
       @extend %sidebar-base;
       @include typography.use-with-truncated-text();
@@ -112,6 +112,7 @@ $sidebar-item-color-selected: colors.foreground('hint');
     @include typography.use-font-scale(c2);
     padding-block: lengths.padding(12);
     padding-inline: lengths.padding(16);
+
     color: colors.foreground(info);
   }
 }
