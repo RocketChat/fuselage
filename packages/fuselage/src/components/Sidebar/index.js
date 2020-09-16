@@ -1,8 +1,8 @@
 
-import SidebarItem from './Item';
+import Item from './Item';
 import TopBar from './TopBar';
 
 export {
   TopBar,
-  SidebarItem,
+  Item,
 };

@@ -2,7 +2,12 @@ import React from 'react';
 
 import { Icon as FuselageIcon, ButtonGroup } from '../..';
 
-const Item = ({ selected, highlighted, clickable, ...props }) => <div className={['rc-box rcx-box--full rcx-sidebar-item', highlighted && 'rcx-sidebar-item--highlighted', clickable && 'rcx-sidebar-item--clickable', selected && 'rcx-sidebar-item--selected'].filter(Boolean).join(' ')} {...props} />;
+const Item = ({ selected, highlighted, clickable, ...props }) => <div className={[
+  'rc-box rcx-box--full rcx-sidebar-item',
+  highlighted && 'rcx-sidebar-item--highlighted',
+  clickable && 'rcx-sidebar-item--clickable',
+  selected && 'rcx-sidebar-item--selected',
+].filter(Boolean).join(' ')} {...props} />;
 
 const Container = (props) => <div className='rc-box rcx-box--full rcx-sidebar-item__container' {...props}/>;
 
@@ -20,8 +25,7 @@ const Avatar = (props) => <Container><div className='rc-box rcx-box--full rcx-si
 
 const Actions = (props) => <ButtonGroup small {...props}/>;
 
-const SidebarItem = {
-  Item,
+Object.assign(Item, {
   Container,
   Content,
   Title,
@@ -30,6 +34,6 @@ const SidebarItem = {
   Icon,
   Avatar,
   Actions,
-};
+});
 
-export default SidebarItem;
+export default Item;
