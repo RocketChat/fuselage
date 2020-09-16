@@ -31,9 +31,7 @@ $sidebar-item-color-selected: colors.foreground('hint');
 }
 
 .rcx-sidebar {
-
   &-topbar {
-    background-color: $sidebar-item-background-color;
     color: $sidebar-item-color;
 
     &--section {
@@ -56,7 +54,6 @@ $sidebar-item-color-selected: colors.foreground('hint');
     padding-inline: lengths.padding(16);
   
     color: $sidebar-item-color;
-    background-color: $sidebar-item-background-color;
   
     &--selected {
       color: $sidebar-item-color-selected;
@@ -109,5 +106,12 @@ $sidebar-item-color-selected: colors.foreground('hint');
       @include typography.use-with-truncated-text();
       display: flex;
     }
+  }
+
+  &-title {
+    @include typography.use-font-scale(c2);
+    padding-block: lengths.padding(12);
+    padding-inline: lengths.padding(16);
+    color: colors.foreground(info);
   }
 }
