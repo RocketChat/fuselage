@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.14.1...v0.15.0) (2020-09-17)
+
+
+### Features
+
+* Sidebar Item ([#284](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/284)) ([44f8198](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/44f8198473f9d6385615aed59b855562dd3c784a))
+
+
+
+
+
 ## [0.14.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.14.0...v0.14.1) (2020-08-22)
 
 **Note:** Version bump only for package @rocket.chat/icons

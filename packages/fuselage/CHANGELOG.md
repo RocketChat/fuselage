@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.14.1...v0.15.0) (2020-09-17)
+
+
+### Bug Fixes
+
+* Divider variable color ([#285](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/285)) ([16e2f49](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/16e2f49d9adc26f1c1c2099ad417a5bcd37b1d5e))
+
+
+### Features
+
+* Sidebar Item ([#284](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/284)) ([44f8198](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/44f8198473f9d6385615aed59b855562dd3c784a))
+* Success Button ([#283](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/283)) ([d35f7b3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d35f7b3e92890e8915a0379f2dbbd6b596512f5b))
+
+
+
+
+
 ## [0.14.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.14.0...v0.14.1) (2020-08-22)
 
 **Note:** Version bump only for package @rocket.chat/fuselage
