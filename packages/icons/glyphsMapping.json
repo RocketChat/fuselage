@@ -682,5 +682,14 @@
   },
   "stack": {
     "start": "\ue0b4"
+  },
+  "contact": {
+    "start": "\ue0b5"
+  },
+  "phone-off": {
+    "start": "\ue0b6"
+  },
+  "message-disabled": {
+    "start": "\ue0b7"
   }
 }

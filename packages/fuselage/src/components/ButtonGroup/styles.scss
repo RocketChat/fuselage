@@ -53,6 +53,10 @@
     margin-inline: lengths.margin(2);
   }
 
+  .rcx-button-group.rcx-button-group--medium > & {
+    margin-inline: lengths.margin(4);
+  }
+
   .rcx-button-group--wrap > & {
     margin-block-end: lengths.margin(16);
     margin-inline-start: lengths.margin(none);

@@ -1,0 +1,118 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+@import '../../styles/mixins/all.scss';
+
+$sidebar-item-background-color: colors.surface();
+$sidebar-item-color: colors.foreground('hint');
+$sidebar-item-color-highlighted: colors.foreground('alternative');
+$sidebar-item-background-color-hover: colors.neutral(800);
+$sidebar-item-color-hover: colors.foreground('hint');
+$sidebar-item-background-color-selected: colors.neutral(200);
+$sidebar-item-color-selected: colors.foreground('hint');
+
+%sidebar-base {
+  display: flex;
+  align-items: center;
+
+  border-radius: lengths.border-radius(2);
+  @include typography.use-font-scale(p1);
+}
+
+%highlighted {
+  @include typography.use-font-scale(p2);
+  color: $sidebar-item-color-highlighted;
+}
+
+@mixin highlighted {
+  &--highlighted {
+    @extend %highlighted;
+  }
+}
+
+.rcx-sidebar {
+  &-topbar {
+    color: $sidebar-item-color;
+
+    &--section {
+      padding-block-start: lengths.padding(4);
+    }
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-block: lengths.padding(16);
+      padding-inline: lengths.padding(16);
+    }
+  }
+
+  &-item {
+    @extend %sidebar-base;
+    padding-block: lengths.padding(4);
+    padding-inline: lengths.padding(16);
+
+    color: $sidebar-item-color;
+
+    &--selected {
+      color: $sidebar-item-color-selected;
+      background-color: $sidebar-item-background-color-selected;
+    }
+
+    &--clickable {
+      @include clickable;
+      @include on-hover {
+        @include use-no-shadow;
+        color: $sidebar-item-color-hover;
+        background-color: $sidebar-item-background-color-hover;
+      }
+    }
+
+    &__avatar {
+      @include typography.use-with-truncated-text();
+      flex: 0 0 auto;
+    }
+
+    &__container {
+      @extend %sidebar-base;
+      flex: 0 0 auto;
+    }
+
+    &__content {
+      @include typography.use-with-truncated-text();
+      flex-wrap: wrap;
+      flex: 1 1 100%;
+    }
+
+    &__title,
+    &__subtitle {
+      @extend %sidebar-base;
+      @include highlighted;
+      @include typography.use-with-truncated-text();
+      display: block;
+      flex: 1 1 1%;
+
+      margin-inline: lengths.padding(4);
+    }
+
+    &__subtitle {
+      @include typography.use-font-scale(c1);
+      margin-inline: lengths.padding(8);
+    }
+
+    &__wrapper {
+      @extend %sidebar-base;
+      @include typography.use-with-truncated-text();
+      display: flex;
+    }
+  }
+
+  &-title {
+    @include typography.use-font-scale(c2);
+    padding-block: lengths.padding(12);
+    padding-inline: lengths.padding(16);
+
+    color: colors.foreground(info);
+  }
+}
