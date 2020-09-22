@@ -9,15 +9,15 @@ const Item = ({ selected, highlighted, clickable, ...props }) => <div className=
   selected && 'rcx-sidebar-item--selected',
 ].filter(Boolean).join(' ')} {...props} />;
 
-const Container = (props) => <div className='rc-box rcx-box--full rcx-sidebar-item__container' {...props}/>;
+const Container = ({ is: Tag = 'div', ...props }) => <Tag className='rc-box rcx-box--full rcx-sidebar-item__container' {...props}/>;
 
-const Content = (props) => <div className='rc-box rcx-box--full rcx-sidebar-item__container rcx-sidebar-item__content' {...props}/>;
+const Content = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__container rcx-sidebar-item__content ${ className }`} {...props}/>;
 
-const Title = (props) => <div className='rc-box rcx-box--full rcx-sidebar-item__title' {...props}/>;
+const Title = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__title ${ className }`} {...props}/>;
 
 const Subtitle = (props) => <div className='rc-box rcx-box--full rcx-sidebar-item__subtitle' {...props}/>;
 
-const Wrapper = (props) => <div className='rc-box rcx-box--full rcx-sidebar-item__wrapper' {...props}/>;
+const Wrapper = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__wrapper ${ className }`} {...props}/>;
 
 const Icon = (props) => <FuselageIcon w='x12' mi='x4' size='x16' {...props} />;
 
