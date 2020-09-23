@@ -25,6 +25,7 @@ export * from './NumberInput';
 export * from './Options';
 export * from './Pagination';
 export * from './PasswordInput';
+export * from './ProgressBar';
 export * from './RadioButton';
 export * from './SearchInput';
 export * from './Select';

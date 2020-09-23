@@ -1,0 +1,40 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+
+import { ProgressBar } from '../..';
+
+<Meta title='Misc/ProgressBar' parameters={{ jest: ['ProgressBar/spec'] }} />
+
+# ProgressBar
+
+The `ProgressBar` is used to inform the user the progress of an operation.
+
+<Canvas>
+  <Story name='Default'>
+    <ProgressBar percentage={30} />
+  </Story>
+</Canvas>
+
+
+<ArgsTable of={ProgressBar} />
+
+## Success
+
+When the `ProgressBar` reaches `100%` it will change to the state `success` changing colors and animation.
+
+<Canvas>
+  <Story name='Success'>
+    <ProgressBar percentage={100} />
+  </Story>
+</Canvas>
+
+
+## Error
+
+You can also manually pass the prop `error` to the `ProgressBar` to indicate an error with the operation.
+
+<Canvas>
+  <Story name='Error'>
+    <ProgressBar percentage={51} error='Error Downloading File' />
+  </Story>
+</Canvas>
+
