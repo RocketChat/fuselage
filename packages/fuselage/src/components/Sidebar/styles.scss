@@ -102,6 +102,11 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       margin-inline: lengths.padding(8);
     }
 
+    &__time {
+      @include typography.use-font-scale(micro);
+      margin-inline: lengths.padding(8);
+    }
+
     &__wrapper {
       @extend %sidebar-base;
       @include typography.use-with-truncated-text();
