@@ -19,8 +19,8 @@ export const ProgressBar = forwardRef(function ProgressBar({
     title={error || null}
     {...props}
   >
-    <Box rcx-progress-bar--fill
-      rcx-progress-bar--fill--type={(error && 'error') || (processPercentage(percentage) >= 100 ? 'success' : 'primary')}
+    <Box rcx-progress-bar__fill
+      rcx-progress-bar__fill--type={(error && 'error') || (processPercentage(percentage) >= 100 ? 'success' : 'primary')}
       width={`${ processPercentage(percentage) }%`}
     />
   </Box>;
