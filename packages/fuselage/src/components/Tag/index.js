@@ -13,6 +13,7 @@ export function Tag({
   return <Box
     is='span'
     rcx-tag
+    rcx-tag--warning={variant === 'warning'}
     rcx-tag--secondary={variant === 'secondary'}
     rcx-tag--primary={variant === 'primary'}
     rcx-tag--danger={variant === 'danger'}
@@ -28,5 +29,5 @@ export function Tag({
 Tag.propTypes = {
   disabled: PropTypes.bool,
   round: PropTypes.bool,
-  variant: PropTypes.oneOf(['secondary', 'primary', 'danger']),
+  variant: PropTypes.oneOf(['secondary', 'primary', 'danger', 'warning', 'ghost']),
 };

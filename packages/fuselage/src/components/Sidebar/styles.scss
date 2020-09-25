@@ -57,18 +57,26 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     @include highlighted;
 
-    &--selected {
-      color: $sidebar-item-color-selected;
-      background-color: $sidebar-item-background-color-selected;
-    }
-
+    
     &--clickable {
       @include clickable;
+
+      @include on-focus-visible {
+        color: $sidebar-item-color-hover;
+        background-color: $sidebar-item-background-color-hover;
+      }
+
       @include on-hover {
         @include use-no-shadow;
         color: $sidebar-item-color-hover;
         background-color: $sidebar-item-background-color-hover;
       }
+    }
+
+    &:active,
+    &--selected {
+      color: $sidebar-item-color-selected;
+      background-color: $sidebar-item-background-color-selected;
     }
 
     &__avatar {
