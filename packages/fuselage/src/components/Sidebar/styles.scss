@@ -8,6 +8,7 @@ $sidebar-item-color: theme('sidebar-item-color', colors.foreground('hint'));
 $sidebar-item-color-highlighted: theme('sidebar-item-color-highlighted', colors.foreground('alternative'));
 $sidebar-item-background-color-hover: theme('sidebar-item-background-color-hover', colors.neutral(800));
 $sidebar-item-color-hover: theme('sidebar-item-color-hover', colors.foreground('hint'));
+$sidebar-item-color-focus: theme('sidebar-item-color-focus', colors.neutral(900));
 $sidebar-item-background-color-selected: theme('sidebar-item-background-color-selected', colors.neutral(200));
 $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foreground('hint'));
 
@@ -29,7 +30,6 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     @extend %highlighted;
   }
 }
-
 
 .rcx-sidebar {
   &-topbar {
@@ -76,6 +76,10 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
         @include use-no-shadow;
         color: $sidebar-item-color-hover;
         background-color: $sidebar-item-background-color-hover;
+      }
+
+      @include on-focus-visible {
+        @include use-focus-shadow-inset($sidebar-item-color-focus);
       }
     }
 

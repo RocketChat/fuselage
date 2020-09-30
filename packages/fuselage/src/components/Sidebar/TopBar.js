@@ -26,6 +26,6 @@ TopBar.Avatar = Avatar;
 TopBar.Actions = Actions;
 TopBar.Action = (props) => <ActionButton ghost {...props}/>;
 TopBar.Divider = () => <Divider mbs='neg-x2' mbe={0} />;
-TopBar.Title = (props) => <Box fontScale='p2' color='default' withTruncatedText {...props} />;
+TopBar.Title = (props) => <Box rcx-sidebar-top-bar__title fontScale='p2' color='neutral-900' withTruncatedText {...props} />;
 
 export default TopBar;
