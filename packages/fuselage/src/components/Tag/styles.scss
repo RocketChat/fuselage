@@ -14,6 +14,9 @@ $tag-colors-danger-background-color: theme('tag-colors-danger-background-color',
 $tag-colors-ghost-color: theme('tag-colors-ghost-color', colors.foreground(alternative));
 $tag-colors-ghost-background-color: theme('tag-colors-ghost-background-color', colors.neutral(700));
 
+$tag-colors-warning-color: theme('tag-colors-warning-color', colors.foreground(alternative));
+$tag-colors-warning-background-color: theme('tag-colors-warning-background-color', colors.warning-alternative(500));
+
 $tag-colors-disabled-color: theme('tag-colors-disabled-color', colors.foreground(hint));
 $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-color', colors.neutral(400));
 
@@ -51,6 +54,11 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
   &--danger {
     color: $tag-colors-danger-color;
     background-color: $tag-colors-danger-background-color;
+  }
+
+  &--warning {
+    color: $tag-colors-warning-color;
+    background-color: $tag-colors-warning-background-color;
   }
 
   &--ghost {

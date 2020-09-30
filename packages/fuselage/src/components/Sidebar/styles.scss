@@ -8,6 +8,7 @@ $sidebar-item-color: theme('sidebar-item-color', colors.foreground('hint'));
 $sidebar-item-color-highlighted: theme('sidebar-item-color-highlighted', colors.foreground('alternative'));
 $sidebar-item-background-color-hover: theme('sidebar-item-background-color-hover', colors.neutral(800));
 $sidebar-item-color-hover: theme('sidebar-item-color-hover', colors.foreground('hint'));
+$sidebar-item-color-focus: theme('sidebar-item-color-focus', colors.neutral(900));
 $sidebar-item-background-color-selected: theme('sidebar-item-background-color-selected', colors.neutral(200));
 $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foreground('hint'));
 
@@ -57,23 +58,42 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     @include highlighted;
 
-    &--selected {
-      color: $sidebar-item-color-selected;
-      background-color: $sidebar-item-background-color-selected;
+    &__inner {
+      @extend %sidebar-base;
+
+      margin-inline: lengths.margin(-4);
     }
 
     &--clickable {
       @include clickable;
+
+      @include on-focus-visible {
+        color: $sidebar-item-color-hover;
+        background-color: $sidebar-item-background-color-hover;
+      }
+
       @include on-hover {
         @include use-no-shadow;
         color: $sidebar-item-color-hover;
         background-color: $sidebar-item-background-color-hover;
       }
+
+      @include on-focus-visible {
+        @include use-focus-shadow-inset($sidebar-item-color-focus);
+      }
+    }
+
+    &:active,
+    &--selected {
+      color: $sidebar-item-color-selected;
+      background-color: $sidebar-item-background-color-selected;
     }
 
     &__avatar {
-      @include typography.use-with-truncated-text();
       flex: 0 0 auto;
+
+      margin-block: lengths.padding(4);
+      @include typography.use-with-truncated-text();
     }
 
     &__container {
@@ -102,10 +122,38 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       margin-inline: lengths.padding(8);
     }
 
+    &__time {
+      @include typography.use-font-scale(micro);
+      margin-inline: lengths.padding(8);
+    }
+
     &__wrapper {
       @extend %sidebar-base;
       @include typography.use-with-truncated-text();
       display: flex;
+    }
+
+    &:hover &__menu-wraper,
+    &:focus-within &__menu-wraper {
+      padding-inline: lengths.padding(16);
+
+      opacity: 1;
+    }
+
+    &__menu {
+      position: absolute;
+      right: 0;
+
+      margin-block: lengths.margin(4);
+    }
+
+    &__menu-wraper {
+      position: relative;
+
+      height: 100%;
+      padding-inline: 0;
+
+      opacity: 0;
     }
   }
 
