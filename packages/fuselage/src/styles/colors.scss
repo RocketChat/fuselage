@@ -73,7 +73,6 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-
 @function danger($grade, $alpha: null) {
   $pair: _get-palette-color(danger, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));

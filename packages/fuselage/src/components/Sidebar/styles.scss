@@ -63,7 +63,7 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
       margin-inline: lengths.margin(-4);
     }
-    
+
     &--clickable {
       @include clickable;
 
@@ -90,9 +90,10 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     }
 
     &__avatar {
+      flex: 0 0 auto;
+
       margin-block: lengths.padding(4);
       @include typography.use-with-truncated-text();
-      flex: 0 0 auto;
     }
 
     &__container {
@@ -135,20 +136,24 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     &:hover &__menu-wraper,
     &:focus-within &__menu-wraper {
       padding-inline: lengths.padding(16);
+
       opacity: 1;
     }
 
     &__menu {
       position: absolute;
-      margin-block: lengths.margin(4);
       right: 0;
+
+      margin-block: lengths.margin(4);
     }
 
     &__menu-wraper {
-      opacity: 0;
-      padding-inline: 0;
-      height: 100%;
       position: relative;
+
+      height: 100%;
+      padding-inline: 0;
+
+      opacity: 0;
     }
   }
 
