@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.15.1...v0.16.0) (2020-09-30)
+
+
+### Bug Fixes
+
+* Sidebar ([#288](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/288)) ([175cb7b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/175cb7b4011f130035c02d9e541b67c04dfe5c30))
+
+
+### Features
+
+* Progress Bar ([#287](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/287)) ([74b8636](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/74b8636d7793bdb3b650f1fe06e3956dbf8eb42b))
+* Sass helper to box-shadow inset ([#289](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/289)) ([32e8f9f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/32e8f9f337f2ec7fb25d2449635dca7f3af309ec))
+
+
+
+
+
 ## [0.15.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.15.0...v0.15.1) (2020-09-22)
 
 **Note:** Version bump only for package Rocket.Chat.Fuselage
