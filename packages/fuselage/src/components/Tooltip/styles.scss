@@ -61,7 +61,7 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
     lengths.padding(8)
     lengths.padding(12);
 
-  word-break: break-all;
+  word-break: break-word;
 
   color: $tooltip-text-color;
 
