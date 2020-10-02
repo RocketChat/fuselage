@@ -131,6 +131,7 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       @extend %sidebar-base;
       @include typography.use-with-truncated-text();
       display: flex;
+      flex: 1 0 100%;
     }
 
     &:hover &__menu-wraper,
