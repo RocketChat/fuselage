@@ -92,13 +92,22 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     &__avatar {
       flex: 0 0 auto;
 
-      margin-block: lengths.padding(4);
+      margin-inline: lengths.margin(4);
       @include typography.use-with-truncated-text();
     }
 
     &__container {
       @extend %sidebar-base;
       flex: 0 0 auto;
+    }
+
+    &__icon {
+      @include typography.use-with-truncated-text();
+      display: flex;
+      justify-content: center;
+
+      width: lengths.size(12);
+      margin-inline: lengths.margin(4);
     }
 
     &__content {
@@ -114,17 +123,16 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       display: block;
       flex: 1 1 1%;
 
-      margin-inline: lengths.padding(4);
+      margin-inline: lengths.margin(4);
     }
 
     &__subtitle {
       @include typography.use-font-scale(c1);
-      margin-inline: lengths.padding(8);
     }
 
     &__time {
       @include typography.use-font-scale(micro);
-      margin-inline: lengths.padding(8);
+      margin-inline: lengths.margin(8);
     }
 
     &__wrapper {
