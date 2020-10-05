@@ -103,9 +103,10 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     &__icon {
       @include typography.use-with-truncated-text();
-      margin-inline: lengths.margin(4);
-      width: lengths.size(12);
       display: flex;
+      
+      width: lengths.size(12);
+      margin-inline: lengths.margin(4);
       justify-content: center;
     }
 
