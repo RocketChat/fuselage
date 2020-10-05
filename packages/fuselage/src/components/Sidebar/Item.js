@@ -24,7 +24,7 @@ const Subtitle = ({ className, ...props }) => <div className={`rc-box rcx-box--f
 
 const Wrapper = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__wrapper ${ className }`} {...props}/>;
 
-const Icon = (props) => <FuselageIcon w='x12' mi='x4' size='x16' {...props} />;
+const Icon = ({ children, ...props }) => <div className='rc-box rcx-box--full rcx-sidebar-item__icon' {...props}>{ children || <FuselageIcon size='x16' {...props} />}</div>;
 
 const Avatar = (props) => <Container><div className='rc-box rcx-box--full rcx-sidebar-item__avatar' {...props}/></Container>;
 
