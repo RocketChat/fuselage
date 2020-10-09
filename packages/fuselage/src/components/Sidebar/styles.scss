@@ -155,7 +155,7 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       top: 50%;
       right: 0;
 
-      margin-inline: lengths.margin(4);
+      margin-inline: lengths.margin(-8);
 
       transform: translateY(-50%);
     }
@@ -164,7 +164,6 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       position: relative;
 
       height: 100%;
-      margin-inline-end: lengths.margin(-16);
 
       padding-inline: 0;
 
