@@ -52,7 +52,7 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
   &-item {
     @extend %sidebar-base;
     padding-block: lengths.padding(4);
-    padding-inline-start: lengths.padding(16);
+    padding-inline: lengths.padding(16);
 
     color: $sidebar-item-color;
 
@@ -164,6 +164,8 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       position: relative;
 
       height: 100%;
+      margin-inline-end: lengths.margin(-16);
+
       padding-inline: 0;
 
       opacity: 0;
