@@ -144,7 +144,7 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     &:hover &__menu-wraper,
     &:focus-within &__menu-wraper {
-      padding-inline: lengths.padding(16);
+      width: lengths.size(28);
 
       opacity: 1;
     }
@@ -153,9 +153,6 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       position: absolute;
 
       top: 50%;
-      right: 0;
-
-      margin-inline: lengths.margin(-8);
 
       transform: translateY(-50%);
     }
@@ -163,9 +160,11 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     &__menu-wraper {
       position: relative;
 
+      flex-shrink: 0;
+
       height: 100%;
 
-      padding-inline: 0;
+      width: 0;
 
       opacity: 0;
     }
