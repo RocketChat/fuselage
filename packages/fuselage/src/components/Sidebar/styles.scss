@@ -53,6 +53,7 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     @extend %sidebar-base;
     padding-block: lengths.padding(4);
     padding-inline-start: lengths.padding(16);
+    padding-inline-end: lengths.padding(8);
 
     color: $sidebar-item-color;
 
@@ -144,6 +145,8 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     &:hover &__menu-wraper,
     &:focus-within &__menu-wraper {
+      position: static;
+
       width: lengths.size(20);
 
       margin-inline: lengths.margin(4);
@@ -158,8 +161,6 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     }
 
     &__menu-wraper {
-      position: static;
-
       flex-shrink: 0;
 
       width: 0;
