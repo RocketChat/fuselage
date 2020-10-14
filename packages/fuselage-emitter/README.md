@@ -1,0 +1,30 @@
+<p align="center">
+  <a href="https://rocket.chat" title="Rocket.Chat">
+    <img src="https://user-images.githubusercontent.com/2263066/87240777-f5b4f300-c3f2-11ea-8a01-cc58fdf9a99a.png" alt="Rocket.Chat" />
+  </a>
+</p>
+
+# @rocket.chat/fuselage-emitter
+
+> Event emitter build by Rocket.Chat
+
+![License: MIT](https://img.shields.io/github/license/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
+
+![Issues](https://img.shields.io/github/issues/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20fuselage-hooks?style=flat-square)
+![Pull requests](https://img.shields.io/github/issues-pr/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20fuselage-hooks?style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
+
+![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-emitter/latest?style=flat-square)
+![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-emitter/next?style=flat-square)
+![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-emitter&style=flat-square)
+![optional deps](https://img.shields.io/david/optional/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-emitter&style=flat-square)
+![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-emitter&style=flat-square)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-emitter?style=flat-square)
+![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-emitter?style=flat-square)
+![npm collaborators](https://img.shields.io/npm/collaborators/@rocket.chat/fuselage-emitter?style=flat-square)
+
+## Install
+
+```sh
+yarn add @rocket.chat/fuselage-emitter
+```
