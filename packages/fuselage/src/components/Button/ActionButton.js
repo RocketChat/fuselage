@@ -13,7 +13,7 @@ const getSize = ({ tiny, mini, small }) => {
   }
 
   if (small) {
-    return 'x24';
+    return 'x20';
   }
 
   return 'x20';
