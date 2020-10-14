@@ -121,10 +121,48 @@ Indicates an actionable user action.
     common={{ small: true, onClick: action('click') }}
     xAxis={{
       text: { children: 'Button' },
-      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x16' /> },
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x20' /> },
       'text + icon': { children: <><Icon name='circled-arrow-down' size='x12' /> Button</> },
       'text + icon + danger': { children: <><Icon name='circled-arrow-down' size='x12' /> Button</>, danger: true },
       'text + icon + success': { children: <><Icon name='circled-arrow-down' size='x12' /> Button</>, success: true },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus focus-visible' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+#### Tiny
+
+<Story name='States of Tiny Variant'>
+  <PropsVariationSection
+    component={Button}
+    common={{ tiny: true, onClick: action('click') }}
+    xAxis={{
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x20' /> },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus focus-visible' },
+      disabled: { disabled: true },
+    }}
+  />
+</Story>
+
+#### Tiny
+
+<Story name='States of Mini Variant'>
+  <PropsVariationSection
+    component={Button}
+    common={{ mini: true, onClick: action('click') }}
+    xAxis={{
+      'square + icon': { square: true, children: <Icon name='circled-arrow-down' size='x16' /> },
     }}
     yAxis={{
       default: {},

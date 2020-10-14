@@ -12,6 +12,8 @@ export const Button = forwardRef(function Button({
   primary,
   rel,
   small,
+  tiny,
+  mini,
   square,
   ...props
 }, ref) {
@@ -38,6 +40,8 @@ export const Button = forwardRef(function Button({
     rcx-button--small={small}
     rcx-button--square={square}
     rcx-button--small-square={small && square}
+    rcx-button--tiny-square={tiny && square}
+    rcx-button--mini-square={mini && square}
     ref={ref}
     {...extraProps}
     {...props}

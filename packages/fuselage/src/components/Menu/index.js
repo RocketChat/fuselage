@@ -1,10 +1,9 @@
 import React, { useRef, useCallback } from 'react';
 
 import {
-  Button,
+  ActionButton,
   PositionAnimated,
   Options,
-  Icon,
   useCursor,
 } from '..';
 
@@ -15,6 +14,9 @@ const menuAction = ([selected], options) => {
 const mapOptions = (options) => Object.entries(options).map(([value, { label }]) => [value, label]);
 
 export const Menu = ({
+  tiny,
+  mini,
+  small = tiny || mini ? null : true,
   options,
   optionWidth,
   placement = 'bottom-start',
@@ -41,18 +43,19 @@ export const Menu = ({
 
   return (
     <>
-      <Button
+      <ActionButton
         ref={ref}
-        small
         ghost
+        small={small}
+        tiny={tiny}
+        mini={mini}
         onClick={onClick}
         onBlur={hide}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
+        icon='kebab'
         {...props}
-      >
-        <Icon name='kebab' size={20} />
-      </Button>
+      />
       <PositionAnimated
         width='auto'
         visible={visible}

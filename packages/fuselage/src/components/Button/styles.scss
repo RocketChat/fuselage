@@ -78,6 +78,21 @@
     @include with-squared-size(
       $size: lengths.size(40),
     );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--tiny-square {
+    @include with-squared-size(
+      $size: lengths.size(24),
+    );
+  }
+
+  &--mini-square {
+    @include with-squared-size(
+      $size: lengths.size(20),
+    );
   }
 
   &--small-square {

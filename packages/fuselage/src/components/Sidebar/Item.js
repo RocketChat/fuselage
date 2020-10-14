@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Icon as FuselageIcon, ButtonGroup } from '../..';
+import { Icon as FuselageIcon, ButtonGroup, ActionButton } from '../..';
 
 const Item = ({ selected, highlighted, clickable, is: Tag = 'div', ...props }) => <Tag
   className={[
@@ -30,6 +30,8 @@ const Avatar = (props) => <Container><div className='rc-box rcx-box--full rcx-si
 
 const Actions = (props) => <ButtonGroup small {...props}/>;
 
+const Action = (props) => <ActionButton small {...props}/>;
+
 Object.assign(Item, {
   Menu,
   Container,
@@ -41,6 +43,7 @@ Object.assign(Item, {
   Icon,
   Avatar,
   Actions,
+  Action,
 });
 
 export default Item;
