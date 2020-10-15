@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 
 import { StatusBullet, Box } from '../..';
 
@@ -11,10 +11,10 @@ The `StatusBullet` is used to inform the user status.
 <Canvas>
   <Story name='Default'>
     <Box>
-      <StatusBullet status={`online`} />
-      <StatusBullet status={`away`} />
-      <StatusBullet status={`busy`} />
-      <StatusBullet status={`offline`} />
+      <StatusBullet status={'online'} />
+      <StatusBullet status={'away'} />
+      <StatusBullet status={'busy'} />
+      <StatusBullet status={'offline'} />
       <StatusBullet />
     </Box>
   </Story>
@@ -23,11 +23,11 @@ The `StatusBullet` is used to inform the user status.
 <Canvas>
   <Story name='Small'>
     <Box>
-      <StatusBullet size={`small`} status={`online`} />
-      <StatusBullet size={`small`} status={`away`} />
-      <StatusBullet size={`small`} status={`busy`} />
-      <StatusBullet size={`small`} status={`offline`} />
-      <StatusBullet size={`small`} />
+      <StatusBullet size={'small'} status={'online'} />
+      <StatusBullet size={'small'} status={'away'} />
+      <StatusBullet size={'small'} status={'busy'} />
+      <StatusBullet size={'small'} status={'offline'} />
+      <StatusBullet size={'small'} />
     </Box>
   </Story>
 </Canvas>
