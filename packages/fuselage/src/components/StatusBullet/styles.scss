@@ -1,6 +1,12 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
+$status-bullet-online-background-color: theme('status-bullet-online-background-color', colors.foreground('success'));
+$status-bullet-away-background-color: theme('status-bullet-away-background-color', colors.foreground('warning-alternative'));
+$status-bullet-busy-background-color: theme('status-bullet-busy-background-color', colors.foreground('danger'));
+$status-bullet-decorator-background-color: theme('$status-bullet-decorator-color', colors.foreground('alternative'));
+$status-bullet-border-color: theme('$status-bullet-border-color', colors.foreground('hint'));
+
 %status-bullet-base {
   position: relative;
 
@@ -13,22 +19,20 @@
 .rcx-status-bullet {
   @extend %status-bullet-base;
 
-  &-medium {
-    width: 12px;
-    height: 12px;
-  }
+  width: lengths.size(12);
+  height: lengths.size(12);
 
-  &-small {
+  &--small {
     width: 10px;
     height: 10px;
   }
 
-  &-online {
-    background-color: colors.foreground('success');
+  &--online {
+    background-color: $status-bullet-online-background-color;
   }
 
-  &-away {
-    background-color: colors.foreground('warning-alternative');
+  &--away {
+    background-color: $status-bullet-away-background-color;
 
     &::before {
       position: absolute;
@@ -43,13 +47,13 @@
 
       border-radius: 10px 10px 0 0;
 
-      background-color: colors.foreground('alternative');
+      background-color: $status-bullet-decorator-background-color;
     }
 
     &::after {
       position: absolute;
       top: 50%;
-      left: 60%;
+      left: 62%;
 
       width: 4px;
       height: 2px;
@@ -60,12 +64,23 @@
 
       border-radius: 0 10px 10px 0;
 
-      background-color: colors.foreground('alternative');
+      background-color: $status-bullet-decorator-background-color;
+    }
+
+    &.rcx-status-bullet--small {
+      &::before {
+        top: 10%;
+      }
+
+      &::after {
+        top: 52%;
+        left: 62%;
+      }
     }
   }
 
-  &-busy {
-    background-color: colors.foreground('danger');
+  &--busy {
+    background-color: $status-bullet-busy-background-color;
 
     &::after {
       position: absolute;
@@ -81,18 +96,16 @@
 
       border-radius: 10px;
 
-      background-color: colors.foreground('alternative');
+      background-color: $status-bullet-decorator-background-color;
     }
   }
 
-  &-offline {
-    border: 2px solid colors.foreground('hint');
+  &--offline {
+    border: 2px solid $status-bullet-border-color;
     background-color: transparent;
   }
 
-  &-loading {
-    animation: bullet-spin 3s infinite;
-
-    border: 2px dashed colors.foreground('hint');
+  &--loading {
+    border: 2px dashed $status-bullet-border-color;
   }
 }

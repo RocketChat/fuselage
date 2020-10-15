@@ -3,38 +3,12 @@ import React from 'react';
 
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 
-export const StatusBullet = ({ status, size, ...props }) => {
+export const StatusBullet = ({ status = 'loading', size, className = '', ...props }) => {
   useStyleSheet();
-  let statusClass;
-  switch (status) {
-    case 'online':
-      statusClass = 'rcx-status-bullet-online';
-      break;
-    case 'away':
-      statusClass = 'rcx-status-bullet-away';
-      break;
-    case 'busy':
-      statusClass = 'rcx-status-bullet-busy';
-      break;
-    case 'loading':
-      statusClass = 'rcx-status-bullet-loading';
-      break;
-    default:
-      statusClass = 'rcx-status-bullet-offline';
-  }
-  return (
-    <div
-      className={[
-        'rcx-status-bullet',
-        statusClass,
-        size && size === 'small' ? 'rcx-status-bullet-small' : 'rcx-status-bullet-medium',
-      ].filter(Boolean).join(' ')} {...props}
-    >
-    </div>
-  );
+  return <span className={`rcx-status-bullet rcx-status-bullet--${ status } ${ size === 'small' ? 'rcx-status-bullet--small' : '' } ${ className }`} {...props} />;
 };
 
 StatusBullet.propTypes = {
-  status: PropTypes.string,
+  status: PropTypes.oneOf(['online', 'busy', 'away', 'offline']),
   size: PropTypes.string,
 };
