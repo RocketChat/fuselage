@@ -1,111 +1,38 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/functions.scss';
 
 $status-bullet-online-background-color: theme('status-bullet-online-background-color', colors.foreground('success'));
-$status-bullet-away-background-color: theme('status-bullet-away-background-color', colors.foreground('warning-alternative'));
-$status-bullet-busy-background-color: theme('status-bullet-busy-background-color', colors.foreground('danger'));
-$status-bullet-decorator-background-color: theme('$status-bullet-decorator-color', colors.foreground('alternative'));
-$status-bullet-border-color: theme('$status-bullet-border-color', colors.foreground('hint'));
-
-%status-bullet-base {
-  position: relative;
-
-  display: inline-block;
-
-  border: 2px solid transparent;
-  border-radius: lengths.border-radius(full);
-}
+$status-bullet-away-background: url('./components/StatusBullet/icons/away.svg') top left / contain no-repeat;
+$status-bullet-busy-background: url('./components/StatusBullet/icons/busy.svg') top left / contain no-repeat;
+$status-bullet-offline-background: url('./components/StatusBullet/icons/offline.svg') top left / contain no-repeat;
+$status-bullet-loading-background: url('./components/StatusBullet/icons/loading.svg') top left / contain no-repeat;
 
 .rcx-status-bullet {
-  @extend %status-bullet-base;
+  border-radius: lengths.border-radius(full);
 
-  width: lengths.size(12);
-  height: lengths.size(12);
+  background: $status-bullet-loading-background;
+  background-size: contain;
+
+  @include square(lengths.size(12));
 
   &--small {
-    width: 10px;
-    height: 10px;
+    @include square(functions.to-rem(10));
   }
 
   &--online {
-    background-color: $status-bullet-online-background-color;
+    background: $status-bullet-online-background-color;
   }
 
   &--away {
-    background-color: $status-bullet-away-background-color;
-
-    &::before {
-      position: absolute;
-      top: 15%;
-      left: 50%;
-
-      width: 2px;
-      height: 5px;
-
-      content: "";
-      transform: translate(-50%, 0%);
-
-      border-radius: 10px 10px 0 0;
-
-      background-color: $status-bullet-decorator-background-color;
-    }
-
-    &::after {
-      position: absolute;
-      top: 50%;
-      left: 62%;
-
-      width: 4px;
-      height: 2px;
-
-      content: "";
-
-      transform: translate(-50%, 0%) rotate(30deg);
-
-      border-radius: 0 10px 10px 0;
-
-      background-color: $status-bullet-decorator-background-color;
-    }
-
-    &.rcx-status-bullet--small {
-      &::before {
-        top: 10%;
-      }
-
-      &::after {
-        top: 52%;
-        left: 62%;
-      }
-    }
+    background: $status-bullet-away-background;
   }
 
   &--busy {
-    background-color: $status-bullet-busy-background-color;
-
-    &::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-
-      width: 6px;
-      height: 2px;
-
-      content: "";
-
-      transform: translate(-50%, -50%);
-
-      border-radius: 10px;
-
-      background-color: $status-bullet-decorator-background-color;
-    }
+    background: $status-bullet-busy-background;
   }
 
   &--offline {
-    border: 2px solid $status-bullet-border-color;
-    background-color: transparent;
-  }
-
-  &--loading {
-    border: 2px dashed $status-bullet-border-color;
+    background: $status-bullet-offline-background;
   }
 }

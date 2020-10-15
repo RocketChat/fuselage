@@ -1,6 +1,6 @@
 import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
-import { StatusBullet } from '../..';
+import { StatusBullet, Box } from '../..';
 
 <Meta title='Misc/StatusBullet' parameters={{ jest: ['StatusBullet/spec'] }} />
 
@@ -10,20 +10,24 @@ The `StatusBullet` is used to inform the user status.
 
 <Canvas>
   <Story name='Default'>
-    <StatusBullet status={`online`} />
-    <StatusBullet status={`away`} />
-    <StatusBullet status={`busy`} />
-    <StatusBullet status={`offline`} />
-    <StatusBullet />
+    <Box>
+      <StatusBullet status={`online`} />
+      <StatusBullet status={`away`} />
+      <StatusBullet status={`busy`} />
+      <StatusBullet status={`offline`} />
+      <StatusBullet />
+    </Box>
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Small'>
-    <StatusBullet size={`small`} status={`online`} />
-    <StatusBullet size={`small`} status={`away`} />
-    <StatusBullet size={`small`} status={`busy`} />
-    <StatusBullet size={`small`} status={`offline`} />
-    <StatusBullet size={`small`} />
+    <Box>
+      <StatusBullet size={`small`} status={`online`} />
+      <StatusBullet size={`small`} status={`away`} />
+      <StatusBullet size={`small`} status={`busy`} />
+      <StatusBullet size={`small`} status={`offline`} />
+      <StatusBullet size={`small`} />
+    </Box>
   </Story>
 </Canvas>
