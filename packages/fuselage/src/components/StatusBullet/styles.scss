@@ -1,0 +1,98 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+
+%status-bullet-base {
+  position: relative;
+
+  display: inline-block;
+
+  border: 2px solid transparent;
+  border-radius: lengths.border-radius(full);
+}
+
+.rcx-status-bullet {
+  @extend %status-bullet-base;
+
+  &-medium {
+    width: 12px;
+    height: 12px;
+  }
+
+  &-small {
+    width: 10px;
+    height: 10px;
+  }
+
+  &-online {
+    background-color: colors.foreground('success');
+  }
+
+  &-away {
+    background-color: colors.foreground('warning-alternative');
+
+    &::before {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+
+      width: 2px;
+      height: 5px;
+
+      content: "";
+      transform: translate(-50%, 0%);
+
+      border-radius: 10px 10px 0 0;
+
+      background-color: colors.foreground('alternative');
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 60%;
+
+      width: 4px;
+      height: 2px;
+
+      content: "";
+
+      transform: translate(-50%, 0%) rotate(30deg);
+
+      border-radius: 0 10px 10px 0;
+
+      background-color: colors.foreground('alternative');
+    }
+  }
+
+  &-busy {
+    background-color: colors.foreground('danger');
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      width: 6px;
+      height: 2px;
+
+      content: "";
+
+      transform: translate(-50%, -50%);
+
+      border-radius: 10px;
+
+      background-color: colors.foreground('alternative');
+    }
+  }
+
+  &-offline {
+    border: 2px solid colors.foreground('hint');
+    background-color: transparent;
+  }
+
+  &-loading {
+    animation: bullet-spin 3s infinite;
+
+    border: 2px dashed colors.foreground('hint');
+  }
+}
