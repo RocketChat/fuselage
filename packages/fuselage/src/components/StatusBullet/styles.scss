@@ -9,6 +9,8 @@ $status-bullet-offline-background: url('./components/StatusBullet/icons/offline.
 $status-bullet-loading-background: url('./components/StatusBullet/icons/loading.svg') top left / contain no-repeat;
 
 .rcx-status-bullet {
+  display: inline-block;
+
   border-radius: lengths.border-radius(full);
 
   background: $status-bullet-loading-background;
