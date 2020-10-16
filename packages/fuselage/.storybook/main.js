@@ -33,6 +33,7 @@ module.exports = {
           options: {
             ident: 'postcss',
             plugins: () => [
+              require('postcss-svg')(),
               require('postcss-custom-properties')(),
               require('postcss-logical')({ preserve: true }),
               require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
