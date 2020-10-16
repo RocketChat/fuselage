@@ -139,7 +139,11 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     &__time {
       @include typography.use-font-scale(micro);
-      margin-inline: lengths.margin(8);
+      margin-inline: lengths.margin(4);
+    }
+
+    &__badge {
+      margin-inline: lengths.margin(4);
     }
 
     &:hover &__menu-wraper,
