@@ -11,8 +11,8 @@ $status-bullet-loading-background: theme('status-bullet-loading-background', url
 .rcx-status-bullet {
   display: inline-block;
 
-  flex-shrink: 0;
   flex-grow: 0;
+  flex-shrink: 0;
 
   border-radius: lengths.border-radius(full);
 
