@@ -20,6 +20,8 @@ const Title = ({ className, ...props }) => <div className={`rc-box rcx-box--full
 
 const Time = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__time ${ className }`} {...props}/>;
 
+const Badge = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__badge ${ className }`} {...props}/>;
+
 const Subtitle = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__subtitle ${ className }`} {...props}/>;
 
 const Wrapper = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__wrapper ${ className }`} {...props}/>;
@@ -44,6 +46,7 @@ Object.assign(Item, {
   Avatar,
   Actions,
   Action,
+  Badge,
 });
 
 export default Item;
