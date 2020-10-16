@@ -14,6 +14,8 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
 %sidebar-base {
   display: flex;
+
+  overflow: hidden;
   align-items: center;
 
   border-radius: lengths.border-radius(2);
@@ -59,10 +61,12 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     @include highlighted;
 
-    &__inner {
+    &__wrapper {
       @extend %sidebar-base;
+      @include typography.use-with-truncated-text();
+      flex: 1 0 100%;
 
-      margin-inline: lengths.margin(-4);
+      margin-inline: lengths.margin(-2);
     }
 
     &--clickable {
@@ -93,13 +97,15 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     &__avatar {
       flex: 0 0 auto;
 
-      margin-inline: lengths.margin(4);
+      margin-inline: lengths.margin(2);
       @include typography.use-with-truncated-text();
     }
 
     &__container {
       @extend %sidebar-base;
       flex: 0 0 auto;
+
+      margin-inline: lengths.margin(2);
     }
 
     &__icon {
@@ -136,17 +142,8 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       margin-inline: lengths.margin(8);
     }
 
-    &__wrapper {
-      @extend %sidebar-base;
-      @include typography.use-with-truncated-text();
-      display: flex;
-      flex: 1 0 100%;
-    }
-
     &:hover &__menu-wraper,
     &:focus-within &__menu-wraper {
-      position: static;
-
       width: lengths.size(20);
 
       margin-inline: lengths.margin(4);
@@ -155,7 +152,7 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     }
 
     &__menu {
-      position: fixed;
+      position: absolute;
 
       transform: translateY(-50%);
     }
