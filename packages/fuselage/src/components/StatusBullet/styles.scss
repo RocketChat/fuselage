@@ -3,13 +3,16 @@
 @use '../../styles/functions.scss';
 
 $status-bullet-online-background-color: theme('status-bullet-online-background-color', colors.foreground('success'));
-$status-bullet-away-background: url('./components/StatusBullet/icons/away.svg') top left / contain no-repeat;
-$status-bullet-busy-background: url('./components/StatusBullet/icons/busy.svg') top left / contain no-repeat;
-$status-bullet-offline-background: url('./components/StatusBullet/icons/offline.svg') top left / contain no-repeat;
-$status-bullet-loading-background: url('./components/StatusBullet/icons/loading.svg') top left / contain no-repeat;
+$status-bullet-away-background: theme('status-bullet-away-background', url('./components/StatusBullet/icons/away.svg') top left / contain no-repeat);
+$status-bullet-busy-background: theme('status-bullet-busy-background', url('./components/StatusBullet/icons/busy.svg') top left / contain no-repeat);
+$status-bullet-offline-background: theme('status-bullet-offline-background', url('./components/StatusBullet/icons/offline.svg') top left / contain no-repeat);
+$status-bullet-loading-background: theme('status-bullet-loading-background', url('./components/StatusBullet/icons/loading.svg') top left / contain no-repeat);
 
 .rcx-status-bullet {
   display: inline-block;
+
+  flex-shrink: 0;
+  flex-grow: 0;
 
   border-radius: lengths.border-radius(full);
 
