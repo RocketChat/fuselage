@@ -32,7 +32,7 @@
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest --watchAll --max-workers=1",
+    "test": "jest --max-workers=1",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
     "docs:api-extractor": "api-extractor run --local --verbose",
