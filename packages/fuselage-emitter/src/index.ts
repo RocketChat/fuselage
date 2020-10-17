@@ -1,53 +1,58 @@
 export type EventType = string | symbol;
 
 
-export type StopHandler = () => void;
+/**
+  * returned by an on/once method, can be used to turn `off` the subscription
+  * @public
+*/
+export type OffCallbackHandler = () => void;
+/**
+  * Handler callback
+  * @public
+*/
+export type Handler<T = any> = (event?: T) => void;
 
-export type CallBackHandler<T = any> = (event?: T) => void;
-export type Handler = {
-  callback: CallBackHandler;
-  once?: boolean;
-}
-export type EventHandlerList = Array<Handler>;
-
-export type EventHandlerMap = Map<EventType, EventHandlerList>;
+type EventHandlerList = Array<Handler>;
+type EventHandlerMap = Map<EventType, EventHandlerList>;
 
 export interface Emitter {
-  evts: EventHandlerMap;
-  on<T = any>(type: EventType, handler: CallBackHandler<T>): void;
-  once<T = any>(type: EventType, handler: CallBackHandler<T>): void;
-  off<T = any>(type: EventType, handler: CallBackHandler<T>): void;
+  on<T = any>(type: EventType, handler: Handler<T>): void;
+  once<T = any>(type: EventType, handler: Handler<T>): void;
+  off<T = any>(type: EventType, handler: Handler<T>): void;
   emit<T = any>(type: EventType, event?: T): void;
 }
 
+
+const once = Symbol('once');
+
 /**
+ * Emitter Class
  * @name emitter
  * @returns {Emitter}
+ * @public
  */
-
 export class Emitter implements Emitter {
-  evts: EventHandlerMap = new Map();
+  private evts: EventHandlerMap = new Map();
+
+  private [once] = new WeakSet<Handler>();
 
   has(key: EventType): boolean {
     return this.evts.has(key);
   }
 
-  private register<T = any>(type: EventType, handler: CallBackHandler<T>, once = false) : StopHandler {
+  on<T = any>(type: EventType, handler: Handler<T>) : OffCallbackHandler {
     const handlers = this.evts.get(type) || [] as EventHandlerList;
-    handlers.push({ callback: handler, once } as any);
+    handlers.push(handler as any);
     this.evts.set(type, handlers);
     return () => this.off(type, handler);
   }
 
-  on<T = any>(type: EventType, handler: CallBackHandler<T>) : StopHandler {
-    return this.register(type, handler);
+  once<T = any>(type: EventType, handler: Handler<T>) : OffCallbackHandler {
+    this[once].add(handler);
+    return this.on(type, handler);
   }
 
-  once<T = any>(type: EventType, handler: CallBackHandler<T>) : StopHandler {
-    return this.register(type, handler, true);
-  }
-
-  off<T = any>(type: EventType, handler: CallBackHandler<T>) : void {
+  off<T = any>(type: EventType, handler: Handler<T>) : void {
     const handlers = this.evts.get(type);
     if (!handlers) {
       return;
@@ -56,13 +61,13 @@ export class Emitter implements Emitter {
       this.evts.delete(type);
       return;
     }
-    handlers.splice(handlers.findIndex(({ callback }) => callback === handler) >>> 0, 1);
+    handlers.splice(handlers.findIndex((callback) => callback === handler) >>> 0, 1);
   }
 
   emit<T = any>(type: EventType, e: T) : void {
     [...this.evts.get(type) || [] as EventHandlerList].forEach((handler: Handler) => {
-      handler.callback(e);
-      handler.once && this.off(type, handler.callback);
+      handler(e);
+      this[once].delete(handler) && this.off(type, handler);
     });
   }
 }

@@ -10,12 +10,6 @@
 export interface Emitter 
 ```
 
-## Properties
-
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [evts](./fuselage-emitter.emitter.evts.md) | [EventHandlerMap](./fuselage-emitter.eventhandlermap.md) |  |
-
 ## Methods
 
 |  Method | Description |

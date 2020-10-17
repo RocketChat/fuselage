@@ -4,11 +4,10 @@
 
 ## Handler type
 
+Handler callback
+
 <b>Signature:</b>
 
 ```typescript
-export declare type Handler = {
-    callback: CallBackHandler;
-    once?: boolean;
-};
+export declare type Handler<T = any> = (event?: T) => void;
 ```

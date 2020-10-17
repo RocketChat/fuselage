@@ -8,7 +8,7 @@
 
 |  Class | Description |
 |  --- | --- |
-|  [Emitter](./fuselage-emitter.emitter.md) |  emitter |
+|  [Emitter](./fuselage-emitter.emitter.md) | Emitter Class  emitter |
 
 ## Interfaces
 
@@ -20,10 +20,7 @@
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [CallBackHandler](./fuselage-emitter.callbackhandler.md) |  |
-|  [EventHandlerList](./fuselage-emitter.eventhandlerlist.md) |  |
-|  [EventHandlerMap](./fuselage-emitter.eventhandlermap.md) |  |
 |  [EventType](./fuselage-emitter.eventtype.md) |  |
-|  [Handler](./fuselage-emitter.handler.md) |  |
-|  [StopHandler](./fuselage-emitter.stophandler.md) |  |
+|  [Handler](./fuselage-emitter.handler.md) | Handler callback |
+|  [OffCallbackHandler](./fuselage-emitter.offcallbackhandler.md) | returned by an on/once method, can be used to turn <code>off</code> the subscription |
 

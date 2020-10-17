@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-on<T = any>(type: EventType, handler: CallBackHandler<T>): void;
+on<T = any>(type: EventType, handler: Handler<T>): void;
 ```
 
 ## Parameters
@@ -15,7 +15,7 @@ on<T = any>(type: EventType, handler: CallBackHandler<T>): void;
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  type | [EventType](./fuselage-emitter.eventtype.md) |  |
-|  handler | [CallBackHandler](./fuselage-emitter.callbackhandler.md)<!-- -->&lt;T&gt; |  |
+|  handler | [Handler](./fuselage-emitter.handler.md)<!-- -->&lt;T&gt; |  |
 
 <b>Returns:</b>
 
