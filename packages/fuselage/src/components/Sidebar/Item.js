@@ -2,13 +2,13 @@ import React from 'react';
 
 import { Icon as FuselageIcon, ButtonGroup, ActionButton } from '../..';
 
-const Item = ({ selected, highlighted, clickable, is: Tag = 'div', ...props }) => <Tag
+const Item = ({ selected, highlighted, clickable, is: Tag = 'div', children, ...props }) => <Tag
   className={[
     'rc-box rcx-box--full rcx-sidebar-item',
     highlighted && 'rcx-sidebar-item--highlighted',
     clickable && 'rcx-sidebar-item--clickable',
     selected && 'rcx-sidebar-item--selected',
-  ].filter(Boolean).join(' ')} {...props}/>;
+  ].filter(Boolean).join(' ')} {...props}><div className='rcx-box rcx-box--full rcx-sidebar-item__wrapper' children={children}/></Tag>;
 
 const Container = (props) => <div className='rc-box rcx-box--full rcx-sidebar-item__container' {...props}/>;
 
@@ -19,6 +19,8 @@ const Content = ({ className, ...props }) => <div className={`rc-box rcx-box--fu
 const Title = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__title ${ className }`} {...props}/>;
 
 const Time = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__time ${ className }`} {...props}/>;
+
+const Badge = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__badge ${ className }`} {...props}/>;
 
 const Subtitle = ({ className, ...props }) => <div className={`rc-box rcx-box--full rcx-sidebar-item__subtitle ${ className }`} {...props}/>;
 
@@ -44,6 +46,7 @@ Object.assign(Item, {
   Avatar,
   Actions,
   Action,
+  Badge,
 });
 
 export default Item;
