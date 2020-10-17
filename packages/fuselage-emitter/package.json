@@ -1,7 +1,7 @@
 {
   "name": "@rocket.chat/fuselage-emitter",
-  "version": "0.16.0",
-  "description": "React hooks for Fuselage, Rocket.Chat's design system and UI toolkit",
+  "version": "0.0.1",
+  "description": "Event Emitter for Fuselage, Rocket.Chat's design system and UI toolkit",
   "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
   "author": {
     "name": "Rocket.Chat",
@@ -32,7 +32,7 @@
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest --max-workers=1",
+    "test": "jest --watchAll --max-workers=1",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
     "docs:api-extractor": "api-extractor run --local --verbose",

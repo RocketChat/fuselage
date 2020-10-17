@@ -28,6 +28,10 @@ export interface Emitter {
 export class Emitter implements Emitter {
   evts: EventHandlerMap = new Map();
 
+  has(key: EventType): boolean {
+    return this.evts.has(key);
+  }
+
   private register<T = any>(type: EventType, handler: CallBackHandler<T>, once = false) : StopHandler {
     const handlers = this.evts.get(type) || [] as EventHandlerList;
     handlers.push({ callback: handler, once } as any);
