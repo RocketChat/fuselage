@@ -14,6 +14,8 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
 %sidebar-base {
   display: flex;
+
+  overflow: hidden;
   align-items: center;
 
   border-radius: lengths.border-radius(2);
@@ -53,15 +55,18 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     @extend %sidebar-base;
     padding-block: lengths.padding(4);
     padding-inline-start: lengths.padding(16);
+    padding-inline-end: lengths.padding(8);
 
     color: $sidebar-item-color;
 
     @include highlighted;
 
-    &__inner {
+    &__wrapper {
       @extend %sidebar-base;
+      @include typography.use-with-truncated-text();
+      flex: 1 0 100%;
 
-      margin-inline: lengths.margin(-4);
+      margin-inline: lengths.margin(-2);
     }
 
     &--clickable {
@@ -92,13 +97,15 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     &__avatar {
       flex: 0 0 auto;
 
-      margin-inline: lengths.margin(4);
+      margin-inline: lengths.margin(2);
       @include typography.use-with-truncated-text();
     }
 
     &__container {
       @extend %sidebar-base;
       flex: 0 0 auto;
+
+      margin-inline: lengths.margin(2);
     }
 
     &__icon {
@@ -132,14 +139,11 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     &__time {
       @include typography.use-font-scale(micro);
-      margin-inline: lengths.margin(8);
+      margin-inline: lengths.margin(4);
     }
 
-    &__wrapper {
-      @extend %sidebar-base;
-      @include typography.use-with-truncated-text();
-      display: flex;
-      flex: 1 0 100%;
+    &__badge {
+      margin-inline: lengths.margin(4);
     }
 
     &:hover &__menu-wraper,
@@ -152,14 +156,12 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     }
 
     &__menu {
-      position: fixed;
+      position: absolute;
 
       transform: translateY(-50%);
     }
 
     &__menu-wraper {
-      position: static;
-
       flex-shrink: 0;
 
       width: 0;

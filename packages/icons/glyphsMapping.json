@@ -691,5 +691,8 @@
   },
   "message-disabled": {
     "start": "\ue0b7"
+  },
+  "login": {
+    "start": "\ue0b8"
   }
 }
