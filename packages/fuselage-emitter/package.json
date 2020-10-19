@@ -1,7 +1,7 @@
 {
-  "name": "@rocket.chat/fuselage-emitter",
+  "name": "@rocket.chat/emitter",
   "version": "0.0.1",
-  "description": "Event Emitter for Fuselage, Rocket.Chat's design system and UI toolkit",
+  "description": "Event Emitter by Rocket.Chat",
   "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
   "author": {
     "name": "Rocket.Chat",
@@ -75,9 +75,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@rocket.chat/fuselage-tokens": "^0.16.0",
-    "use-subscription": "^1.4.1"
   }
 }

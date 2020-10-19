@@ -8,5 +8,5 @@
 
 |  Package | Description |
 |  --- | --- |
-|  [@rocket.chat/fuselage-emitter](./fuselage-emitter.md) |  |
+|  [@rocket.chat/emitter](./emitter.md) |  |
 

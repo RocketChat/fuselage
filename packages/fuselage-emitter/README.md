@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# @rocket.chat/fuselage-emitter
+# @rocket.chat/emitter
 
 > Event emitter build by Rocket.Chat
 
@@ -26,7 +26,7 @@
 ## Install
 
 ```sh
-yarn add @rocket.chat/fuselage-emitter
+yarn add @rocket.chat/emitter
 ```
 
 ## API Reference

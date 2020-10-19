@@ -1,16 +1,15 @@
-export type EventType = string | symbol;
-
+type EventType = string | symbol;
 
 /**
   * returned by an on/once method, can be used to turn `off` the subscription
   * @public
 */
-export type OffCallbackHandler = () => void;
+type OffCallbackHandler = () => void;
 /**
   * Handler callback
   * @public
 */
-export type Handler<T = any> = (event?: T) => void;
+type Handler<T = any> = (event?: T) => void;
 
 type EventHandlerList = Array<Handler>;
 type EventHandlerMap = Map<EventType, EventHandlerList>;
