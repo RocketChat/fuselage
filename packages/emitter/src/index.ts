@@ -56,6 +56,9 @@ export class Emitter implements Emitter {
     if (!handlers) {
       return;
     }
+
+    this[once].delete(handler);
+
     if (handlers.length === 1) {
       this.evts.delete(type);
       return;
@@ -66,7 +69,7 @@ export class Emitter implements Emitter {
   emit<T = any>(type: EventType, e: T) : void {
     [...this.evts.get(type) || [] as EventHandlerList].forEach((handler: Handler) => {
       handler(e);
-      this[once].delete(handler) && this.off(type, handler);
+      this[once].has(handler) && this.off(type, handler);
     });
   }
 }

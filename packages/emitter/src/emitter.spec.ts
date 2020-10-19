@@ -42,6 +42,15 @@ describe('Emitter function', () => {
       times(5, () => emitter.emit('test'));
       expect(handler).toHaveBeenCalledTimes(1);
     });
+
+
+    it('It should call `test` handler 5 times not once - with multiple listners', () => {
+      emitter.once('test', handler);
+      emitter.off('test', handler);
+      emitter.on('test', handler);
+      times(5, () => emitter.emit('test'));
+      expect(handler).toHaveBeenCalledTimes(5);
+    });
   });
 
   describe('`off` method', () => {
