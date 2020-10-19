@@ -44,7 +44,7 @@ describe('Emitter function', () => {
     });
   });
 
-  describe('`remove` method', () => {
+  describe('`off` method', () => {
     it('It should have no `test` handler after removal', () => {
       emitter.on('test', handler);
       emitter.off('test', handler);
