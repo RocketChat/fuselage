@@ -6,7 +6,7 @@
 
 # @rocket.chat/emitter
 
-> Event emitter build by Rocket.Chat
+> Event emitter built by Rocket.Chat
 
 ![License: MIT](https://img.shields.io/github/license/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
 
@@ -35,9 +35,16 @@ yarn add @rocket.chat/emitter
 
 #### Table of Contents
 
+-   [EventType](#eventtype)
 -   [OffCallbackHandler](#offcallbackhandler)
 -   [Handler](#handler)
 -   [emitter](#emitter)
+
+### EventType
+
+Events accepted
+
+Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [symbol](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol))
 
 ### OffCallbackHandler
 

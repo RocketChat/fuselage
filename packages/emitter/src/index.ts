@@ -1,19 +1,3 @@
-type EventType = string | symbol;
-
-/**
-  * returned by an on/once method, can be used to turn `off` the subscription
-  * @public
-*/
-type OffCallbackHandler = () => void;
-/**
-  * Handler callback
-  * @public
-*/
-type Handler<T = any> = (event?: T) => void;
-
-type EventHandlerList = Array<Handler>;
-type EventHandlerMap = Map<EventType, EventHandlerList>;
-
 export interface Emitter {
   on<T = any>(type: EventType, handler: Handler<T>): void;
   once<T = any>(type: EventType, handler: Handler<T>): void;
@@ -21,6 +5,24 @@ export interface Emitter {
   emit<T = any>(type: EventType, event?: T): void;
 }
 
+/**
+  * Events accepted
+  * @public
+*/
+type EventType = string | symbol;
+
+
+/**
+  * returned by an on/once method, can be used to turn `off` the subscription
+*/
+type OffCallbackHandler = () => void;
+/**
+  * Handler callback
+*/
+type Handler<T = any> = (event?: T) => void;
+
+type EventHandlerList = Array<Handler>;
+type EventHandlerMap = Map<EventType, EventHandlerList>;
 
 const once = Symbol('once');
 const evts = Symbol('evts');
