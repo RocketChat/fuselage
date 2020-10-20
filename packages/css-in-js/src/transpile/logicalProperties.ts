@@ -27,7 +27,7 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
       const ltrFn = (value: string): string => ltr.map((property) => `${ property }:${ value }`).join(';');
       const rtlFn = (value: string): string => rtl.map((property) => `${ property }:${ value }`).join(';');
 
-      buffer += `*:not([dir=rtl]) ${ selectors.join(',') }{${ ltrFn(value) };}`
+      buffer += `html:not([dir=rtl]) ${ selectors.join(',') }{${ ltrFn(value) };}`
         + `[dir=rtl] ${ selectors.join(',') }{${ rtlFn(value) };}`;
 
       return '';

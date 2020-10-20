@@ -25,7 +25,7 @@ describe('inset', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'inset: inherit;'))
-      .toBe('*:not([dir=rtl]) div{left:inherit;top:inherit;right:inherit;bottom:inherit;}[dir=rtl] div{right:inherit;top:inherit;left:inherit;bottom:inherit;}');
+      .toBe('html:not([dir=rtl]) div{left:inherit;top:inherit;right:inherit;bottom:inherit;}[dir=rtl] div{right:inherit;top:inherit;left:inherit;bottom:inherit;}');
   });
 });
 
@@ -48,7 +48,7 @@ describe('inset-inline', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'inset-inline: inherit;'))
-      .toBe('*:not([dir=rtl]) div{left:inherit;right:inherit;}[dir=rtl] div{right:inherit;left:inherit;}');
+      .toBe('html:not([dir=rtl]) div{left:inherit;right:inherit;}[dir=rtl] div{right:inherit;left:inherit;}');
   });
 });
 
@@ -63,7 +63,7 @@ describe('inset-inline-start', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'inset-inline-start: inherit;'))
-      .toBe('*:not([dir=rtl]) div{left:inherit;}[dir=rtl] div{right:inherit;}');
+      .toBe('html:not([dir=rtl]) div{left:inherit;}[dir=rtl] div{right:inherit;}');
   });
 });
 
@@ -78,7 +78,7 @@ describe('inset-inline-end', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'inset-inline-end: inherit;'))
-      .toBe('*:not([dir=rtl]) div{right:inherit;}[dir=rtl] div{left:inherit;}');
+      .toBe('html:not([dir=rtl]) div{right:inherit;}[dir=rtl] div{left:inherit;}');
   });
 });
 

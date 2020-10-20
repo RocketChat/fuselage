@@ -17,7 +17,7 @@ describe('padding-inline', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'padding-inline: inherit;'))
-      .toBe('*:not([dir=rtl]) div{padding-left:inherit;padding-right:inherit;}[dir=rtl] div{padding-right:inherit;padding-left:inherit;}');
+      .toBe('html:not([dir=rtl]) div{padding-left:inherit;padding-right:inherit;}[dir=rtl] div{padding-right:inherit;padding-left:inherit;}');
   });
 });
 
@@ -31,7 +31,7 @@ describe('padding-inline-start', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'padding-inline-start: inherit;'))
-      .toBe('*:not([dir=rtl]) div{padding-left:inherit;}[dir=rtl] div{padding-right:inherit;}');
+      .toBe('html:not([dir=rtl]) div{padding-left:inherit;}[dir=rtl] div{padding-right:inherit;}');
   });
 });
 
@@ -45,7 +45,7 @@ describe('padding-inline-end', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'padding-inline-end: inherit;'))
-      .toBe('*:not([dir=rtl]) div{padding-right:inherit;}[dir=rtl] div{padding-left:inherit;}');
+      .toBe('html:not([dir=rtl]) div{padding-right:inherit;}[dir=rtl] div{padding-left:inherit;}');
   });
 });
 

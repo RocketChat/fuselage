@@ -19,7 +19,7 @@ describe('border-inline', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-left:inherit;border-right:inherit;}[dir=rtl] div{border-right:inherit;border-left:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-left:inherit;border-right:inherit;}[dir=rtl] div{border-right:inherit;border-left:inherit;}');
   });
 });
 
@@ -34,7 +34,7 @@ describe('border-inline-start', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-start: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-left:inherit;}[dir=rtl] div{border-right:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-left:inherit;}[dir=rtl] div{border-right:inherit;}');
   });
 });
 
@@ -49,7 +49,7 @@ describe('border-inline-end', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-end: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-right:inherit;}[dir=rtl] div{border-left:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-right:inherit;}[dir=rtl] div{border-left:inherit;}');
   });
 });
 
@@ -125,7 +125,7 @@ describe('border-inline-width', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-width: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-left-width:inherit;border-right-width:inherit;}[dir=rtl] div{border-right-width:inherit;border-left-width:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-left-width:inherit;border-right-width:inherit;}[dir=rtl] div{border-right-width:inherit;border-left-width:inherit;}');
   });
 });
 
@@ -140,7 +140,7 @@ describe('border-inline-start-width', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-start-width: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-left-width:inherit;}[dir=rtl] div{border-right-width:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-left-width:inherit;}[dir=rtl] div{border-right-width:inherit;}');
   });
 });
 
@@ -155,7 +155,7 @@ describe('border-inline-end-width', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-end-width: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-right-width:inherit;}[dir=rtl] div{border-left-width:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-right-width:inherit;}[dir=rtl] div{border-left-width:inherit;}');
   });
 });
 
@@ -231,7 +231,7 @@ describe('border-inline-style', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-style: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-left-style:inherit;border-right-style:inherit;}[dir=rtl] div{border-right-style:inherit;border-left-style:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-left-style:inherit;border-right-style:inherit;}[dir=rtl] div{border-right-style:inherit;border-left-style:inherit;}');
   });
 });
 
@@ -246,7 +246,7 @@ describe('border-inline-start-style', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-start-style: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-left-style:inherit;}[dir=rtl] div{border-right-style:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-left-style:inherit;}[dir=rtl] div{border-right-style:inherit;}');
   });
 });
 
@@ -261,7 +261,7 @@ describe('border-inline-end-style', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-end-style: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-right-style:inherit;}[dir=rtl] div{border-left-style:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-right-style:inherit;}[dir=rtl] div{border-left-style:inherit;}');
   });
 });
 
@@ -337,7 +337,7 @@ describe('border-inline-color', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-color: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-left-color:inherit;border-right-color:inherit;}[dir=rtl] div{border-right-color:inherit;border-left-color:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-left-color:inherit;border-right-color:inherit;}[dir=rtl] div{border-right-color:inherit;border-left-color:inherit;}');
   });
 });
 
@@ -352,7 +352,7 @@ describe('border-inline-start-color', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-start-color: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-left-color:inherit;}[dir=rtl] div{border-right-color:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-left-color:inherit;}[dir=rtl] div{border-right-color:inherit;}');
   });
 });
 
@@ -367,7 +367,7 @@ describe('border-inline-end-color', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-inline-end-color: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-right-color:inherit;}[dir=rtl] div{border-left-color:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-right-color:inherit;}[dir=rtl] div{border-left-color:inherit;}');
   });
 });
 
