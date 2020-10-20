@@ -36,20 +36,37 @@ describe('Emitter function', () => {
       expect(handler).toHaveBeenCalledTimes(1);
     });
 
-    it('It should call `test` handler only once - with multiple listners', () => {
+    it('It should call `test` handler only once - with multiple events and same handler', () => {
       emitter.once('test', handler);
-      emitter.once('test2', () => null);
+      emitter.once('test2', handler);
       times(5, () => emitter.emit('test'));
       expect(handler).toHaveBeenCalledTimes(1);
     });
 
-
-    it('It should call `test` handler 5 times not once - with multiple listners', () => {
+    it('It should call `test` handler 5 times afert `once + remove + on` same event', () => {
       emitter.once('test', handler);
       emitter.off('test', handler);
       emitter.on('test', handler);
       times(5, () => emitter.emit('test'));
       expect(handler).toHaveBeenCalledTimes(5);
+    });
+
+    it('It should call `test` handler once after add multiple `once` and remove n-1', () => {
+      emitter.once('test', handler);
+      emitter.once('test', handler)();
+      emitter.once('test', handler)();
+      emitter.once('test', handler)();
+      emitter.once('test', handler)();
+      emitter.once('test', handler)();
+      times(5, () => emitter.emit('test'));
+      expect(handler).toHaveBeenCalledTimes(1);
+    });
+
+    it('It should call `test` handler once after add same handler with different `once` events and remove n-1', () => {
+      emitter.once('test', handler);
+      emitter.once('test2', handler)();
+      times(5, () => emitter.emit('test'));
+      expect(handler).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -62,11 +79,9 @@ describe('Emitter function', () => {
 
 
     it('It should have no `test` handler after use stop callback', () => {
-      const stop = emitter.on('test', handler);
-      stop();
+      emitter.on('test', handler)();
       expect(emitter.has('test')).toBe(false);
     });
-
 
     it('It should have no `test` handler after emit once', () => {
       emitter.once('test', handler);

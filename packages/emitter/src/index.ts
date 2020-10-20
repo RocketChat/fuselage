@@ -23,6 +23,7 @@ export interface Emitter {
 
 
 const once = Symbol('once');
+const evts = Symbol('evts');
 
 /**
  * Emitter Class
@@ -31,45 +32,51 @@ const once = Symbol('once');
  * @public
  */
 export class Emitter implements Emitter {
-  private evts: EventHandlerMap = new Map();
+  private [evts]: EventHandlerMap = new Map();
 
-  private [once] = new WeakSet<Handler>();
+  private [once] = new WeakMap<Handler, number>();
 
   has(key: EventType): boolean {
-    return this.evts.has(key);
+    return this[evts].has(key);
   }
 
   on<T = any>(type: EventType, handler: Handler<T>) : OffCallbackHandler {
-    const handlers = this.evts.get(type) || [] as EventHandlerList;
+    const handlers = this[evts].get(type) || [] as EventHandlerList;
     handlers.push(handler as any);
-    this.evts.set(type, handlers);
+    this[evts].set(type, handlers);
     return () => this.off(type, handler);
   }
 
   once<T = any>(type: EventType, handler: Handler<T>) : OffCallbackHandler {
-    this[once].add(handler);
+    const counter = this[once].get(handler) || 0;
+    this[once].set(handler, counter + 1);
     return this.on(type, handler);
   }
 
   off<T = any>(type: EventType, handler: Handler<T>) : void {
-    const handlers = this.evts.get(type);
+    const handlers = this[evts].get(type);
     if (!handlers) {
       return;
     }
 
-    this[once].delete(handler);
+    const counter = this[once].get(handler);
+    if (counter > 1) {
+      this[once].set(handler, counter - 1);
+    } else {
+      this[once].delete(handler);
+    }
 
     if (handlers.length === 1) {
-      this.evts.delete(type);
+      this[evts].delete(type);
       return;
     }
     handlers.splice(handlers.findIndex((callback) => callback === handler) >>> 0, 1);
   }
 
   emit<T = any>(type: EventType, e: T) : void {
-    [...this.evts.get(type) || [] as EventHandlerList].forEach((handler: Handler) => {
+    [...this[evts].get(type) || [] as EventHandlerList].forEach((handler: Handler) => {
       handler(e);
-      this[once].has(handler) && this.off(type, handler);
+      this[once].get(handler) && this.off(type, handler);
     });
   }
 }
