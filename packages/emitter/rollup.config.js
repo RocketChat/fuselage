@@ -30,7 +30,7 @@ export default {
       dir: path.dirname(pkg.unpkg),
       entryFileNames: path.basename(pkg.unpkg),
       format: 'umd',
-      name: 'FuselageHooks',
+      name: 'Emitter',
       sourcemap: true,
       globals: {
         react: 'React',
