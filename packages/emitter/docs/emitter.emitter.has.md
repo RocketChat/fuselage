@@ -4,6 +4,8 @@
 
 ## Emitter.has() method
 
+Returns `true` if this emmiter has a listener attached to the `key` event type
+
 <b>Signature:</b>
 
 ```typescript
@@ -14,7 +16,7 @@ has(key: EventType): boolean;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  key | EventType |  |
+|  key | [EventType](./emitter.eventtype.md) |  |
 
 <b>Returns:</b>
 

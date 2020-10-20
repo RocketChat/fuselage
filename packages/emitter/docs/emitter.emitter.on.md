@@ -14,8 +14,8 @@ on<T = any>(type: EventType, handler: Handler<T>): void;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  type | EventType |  |
-|  handler | Handler&lt;T&gt; |  |
+|  type | [EventType](./emitter.eventtype.md) |  |
+|  handler | [Handler](./emitter.handler.md)<!-- -->&lt;T&gt; |  |
 
 <b>Returns:</b>
 

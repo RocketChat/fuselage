@@ -14,7 +14,7 @@ emit<T = any>(type: EventType, event?: T): void;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  type | EventType |  |
+|  type | [EventType](./emitter.eventtype.md) |  |
 |  event | T |  |
 
 <b>Returns:</b>

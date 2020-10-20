@@ -8,11 +8,18 @@
 
 |  Class | Description |
 |  --- | --- |
-|  [Emitter](./emitter.emitter.md) | Emitter Class  emitter |
+|  [Emitter](./emitter.emitter.md) | The event emitter class. |
 
 ## Interfaces
 
 |  Interface | Description |
 |  --- | --- |
 |  [Emitter](./emitter.emitter.md) |  |
+
+## Type Aliases
+
+|  Type Alias | Description |
+|  --- | --- |
+|  [EventType](./emitter.eventtype.md) |  |
+|  [Handler](./emitter.handler.md) |  |
 

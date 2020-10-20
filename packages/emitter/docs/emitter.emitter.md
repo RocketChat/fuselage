@@ -4,6 +4,7 @@
 
 ## Emitter interface
 
+
 <b>Signature:</b>
 
 ```typescript

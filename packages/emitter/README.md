@@ -35,31 +35,151 @@ yarn add @rocket.chat/emitter
 
 #### Table of Contents
 
+-   [Emitter](#emitter)
+    -   [has](#has)
+        -   [Parameters](#parameters)
+    -   [on](#on)
+        -   [Parameters](#parameters-1)
+    -   [once](#once)
+        -   [Parameters](#parameters-2)
+    -   [off](#off)
+        -   [Parameters](#parameters-3)
+    -   [emit](#emit)
+        -   [Parameters](#parameters-4)
+-   [Emitter](#emitter-1)
+    -   [has](#has-1)
+        -   [Parameters](#parameters-5)
+    -   [on](#on-1)
+        -   [Parameters](#parameters-6)
+    -   [once](#once-1)
+        -   [Parameters](#parameters-7)
+    -   [off](#off-1)
+        -   [Parameters](#parameters-8)
+    -   [emit](#emit-1)
+        -   [Parameters](#parameters-9)
 -   [EventType](#eventtype)
--   [OffCallbackHandler](#offcallbackhandler)
 -   [Handler](#handler)
--   [emitter](#emitter)
+
+### Emitter
+
+#### has
+
+Returns `true` if this emmiter has a listener attached to the `key` event type
+
+##### Parameters
+
+-   `key` **[EventType](#eventtype)** 
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+#### on
+
+Adds the `handler` function to listen events of the `type` type.
+
+##### Parameters
+
+-   `type` **[EventType](#eventtype)** 
+-   `handler` **[Handler](#handler)&lt;T>** 
+
+Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
+
+#### once
+
+Adds a _one-time_ `handler` function for the event of the `type` type.
+
+##### Parameters
+
+-   `type` **[EventType](#eventtype)** 
+-   `handler` **[Handler](#handler)&lt;T>** 
+
+Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
+
+#### off
+
+Removes the specified `handler` from the list of handlers of the event of the `type` type
+
+##### Parameters
+
+-   `type` **[EventType](#eventtype)** 
+-   `handler` **[Handler](#handler)&lt;T>** 
+
+Returns **void** 
+
+#### emit
+
+Calls each of the handlers registered for the event of `type` type, in the
+order they were registered, passing the supplied argument `e` to each.
+
+##### Parameters
+
+-   `type` **[EventType](#eventtype)** 
+-   `e` **T** 
+
+Returns **void** 
+
+### Emitter
+
+The event emitter class.
+
+#### has
+
+Returns `true` if this emmiter has a listener attached to the `key` event type
+
+##### Parameters
+
+-   `key` **[EventType](#eventtype)** 
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+#### on
+
+Adds the `handler` function to listen events of the `type` type.
+
+##### Parameters
+
+-   `type` **[EventType](#eventtype)** 
+-   `handler` **[Handler](#handler)&lt;T>** 
+
+Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
+
+#### once
+
+Adds a _one-time_ `handler` function for the event of the `type` type.
+
+##### Parameters
+
+-   `type` **[EventType](#eventtype)** 
+-   `handler` **[Handler](#handler)&lt;T>** 
+
+Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
+
+#### off
+
+Removes the specified `handler` from the list of handlers of the event of the `type` type
+
+##### Parameters
+
+-   `type` **[EventType](#eventtype)** 
+-   `handler` **[Handler](#handler)&lt;T>** 
+
+Returns **void** 
+
+#### emit
+
+Calls each of the handlers registered for the event of `type` type, in the
+order they were registered, passing the supplied argument `e` to each.
+
+##### Parameters
+
+-   `type` **[EventType](#eventtype)** 
+-   `e` **T** 
+
+Returns **void** 
 
 ### EventType
 
-Events accepted
-
 Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [symbol](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol))
-
-### OffCallbackHandler
-
-returned by an on/once method, can be used to turn `off` the subscription
-
-Type: function (): void
 
 ### Handler
 
-Handler callback
-
 Type: function (event: T): void
-
-### emitter
-
-Emitter Class
-
-Returns **Emitter** 
