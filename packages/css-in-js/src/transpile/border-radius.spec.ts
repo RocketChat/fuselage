@@ -11,7 +11,7 @@ describe('border-start-start-radius', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-start-start-radius: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-top-left-radius:inherit;}[dir=rtl] div{border-top-right-radius:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-top-left-radius:inherit;}[dir=rtl] div{border-top-right-radius:inherit;}');
   });
 });
 
@@ -26,7 +26,7 @@ describe('border-start-end-radius', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-start-end-radius: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-top-right-radius:inherit;}[dir=rtl] div{border-top-left-radius:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-top-right-radius:inherit;}[dir=rtl] div{border-top-left-radius:inherit;}');
   });
 });
 
@@ -41,7 +41,7 @@ describe('border-end-start-radius', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-end-start-radius: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-bottom-left-radius:inherit;}[dir=rtl] div{border-bottom-right-radius:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-bottom-left-radius:inherit;}[dir=rtl] div{border-bottom-right-radius:inherit;}');
   });
 });
 
@@ -56,6 +56,6 @@ describe('border-end-end-radius', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'border-end-end-radius: inherit;'))
-      .toBe('*:not([dir=rtl]) div{border-bottom-right-radius:inherit;}[dir=rtl] div{border-bottom-left-radius:inherit;}');
+      .toBe('html:not([dir=rtl]) div{border-bottom-right-radius:inherit;}[dir=rtl] div{border-bottom-left-radius:inherit;}');
   });
 });

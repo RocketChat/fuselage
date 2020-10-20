@@ -17,7 +17,7 @@ describe('margin-inline', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'margin-inline: inherit;'))
-      .toBe('*:not([dir=rtl]) div{margin-left:inherit;margin-right:inherit;}[dir=rtl] div{margin-right:inherit;margin-left:inherit;}');
+      .toBe('html:not([dir=rtl]) div{margin-left:inherit;margin-right:inherit;}[dir=rtl] div{margin-right:inherit;margin-left:inherit;}');
   });
 });
 
@@ -31,7 +31,7 @@ describe('margin-inline-start', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'margin-inline-start: inherit;'))
-      .toBe('*:not([dir=rtl]) div{margin-left:inherit;}[dir=rtl] div{margin-right:inherit;}');
+      .toBe('html:not([dir=rtl]) div{margin-left:inherit;}[dir=rtl] div{margin-right:inherit;}');
   });
 });
 
@@ -45,7 +45,7 @@ describe('margin-inline-end', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'margin-inline-end: inherit;'))
-      .toBe('*:not([dir=rtl]) div{margin-right:inherit;}[dir=rtl] div{margin-left:inherit;}');
+      .toBe('html:not([dir=rtl]) div{margin-right:inherit;}[dir=rtl] div{margin-left:inherit;}');
   });
 });
 
