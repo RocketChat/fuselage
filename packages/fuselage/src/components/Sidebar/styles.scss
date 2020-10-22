@@ -147,6 +147,14 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     }
 
     &:hover &__menu-wraper,
+    &.focus-within &__menu-wraper {
+      width: lengths.size(20);
+
+      margin-inline: lengths.margin(4);
+
+      opacity: 1;
+    }
+
     &:focus-within &__menu-wraper {
       width: lengths.size(20);
 
