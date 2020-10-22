@@ -18,6 +18,7 @@
   "dependencies": {
     "@juggle/resize-observer": "^3.1.2",
     "clipboard-polyfill": "^2.8.6",
+    "element-closest-polyfill": "^1.0.2",
     "focus-visible": "^5.0.2"
   }
 }
