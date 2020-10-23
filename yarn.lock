@@ -7746,6 +7746,11 @@ electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.413:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.533.tgz#d7e5ca4d57e9bc99af87efbe13e7be5dde729b0f"
   integrity sha512-YqAL+NXOzjBnpY+dcOKDlZybJDCOzgsq4koW3fvyty/ldTmsb4QazZpOWmVvZ2m0t5jbBf7L0lIGU3BUipwG+A==
 
+element-closest-polyfill@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/element-closest-polyfill/-/element-closest-polyfill-1.0.2.tgz#272c217d60effe76a0509a911cde5fcdd78da5a6"
+  integrity sha512-+3cNhtv8YIyk/oDSlBv+zqUjQFcF9puLp4TFIk2w0Gqd6IL2uZnnu0jvDdOaI7dsK1bIA9gG69KIvkEyUFVGRg==
+
 element-resize-detector@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/element-resize-detector/-/element-resize-detector-1.2.1.tgz#b0305194447a4863155e58f13323a0aef30851d1"
