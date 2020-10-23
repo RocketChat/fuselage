@@ -29,6 +29,9 @@ module.exports = (env, { mode = 'production' }) => ({
           {
             loader: 'style-loader',
             options: {
+              attributes: {
+                id: 'fuselage-style',
+              },
               injectType: 'lazySingletonStyleTag',
             },
           },
