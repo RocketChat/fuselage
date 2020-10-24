@@ -32,8 +32,7 @@
     "lint": "eslint src",
     "lint-staged": "lint-staged",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "test": "echo \"Error: run tests from root\" && exit 0"
+    "build-storybook": "build-storybook"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",

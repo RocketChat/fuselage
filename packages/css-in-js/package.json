@@ -30,7 +30,8 @@
   "scripts": {
     "start": "microbundle watch",
     "build": "microbundle",
-    "test": "jest --max-workers=1",
+    "test": "jest",
+    "test:ci": "jest --runInBand",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
     "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --section='API Reference' --readme-file README.md"

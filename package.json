@@ -16,7 +16,7 @@
     "build": "lerna run build --stream",
     "postinstall": "lerna run build --stream",
     "build-storybook": "lerna run build-storybook --parallel --stream",
-    "test": "lerna run test",
+    "test": "lerna run test:ci --stream",
     "lint": "lerna run lint",
     "lint-staged": "lerna run lint-staged",
     "storybook": "lerna run storybook --parallel",
