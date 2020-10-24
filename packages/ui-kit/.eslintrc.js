@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['@rocket.chat/eslint-config'],
   plugins: ['react', 'react-hooks'],
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   rules: {
     indent: ['error', 2],
     'import/order': ['error', {
