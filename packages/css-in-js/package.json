@@ -41,7 +41,7 @@
     "@types/jest": "^26.0.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
-    "documentation": "^13.0.1",
+    "documentation": "^13.0.2",
     "eslint": "^7.12.0",
     "eslint-plugin-import": "^2.19.1",
     "jest": "^26.1.0",

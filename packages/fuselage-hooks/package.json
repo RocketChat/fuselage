@@ -56,7 +56,7 @@
     "@types/use-subscription": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
-    "documentation": "^13.0.1",
+    "documentation": "^13.0.2",
     "eslint": "^7.12.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-react": "^7.16.0",
