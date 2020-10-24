@@ -93,7 +93,7 @@ export class Emitter implements IEmitter {
    * Calls each of the handlers registered for the event of `type` type, in the
    * order they were registered, passing the supplied argument `e` to each.
    */
-  emit<T = any>(type: EventType, e: T) : void {
+  emit<T = any>(type: EventType, e?: T) : void {
     [...this[evts].get(type) || [] as EventHandlerList].forEach((handler: Handler) => {
       handler(e);
       this[once].get(handler) && this.off(type, handler);

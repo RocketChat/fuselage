@@ -4,10 +4,12 @@
 
 ## Emitter.once() method
 
+Adds a \*one-time\* `handler` function for the event of the `type` type.
+
 <b>Signature:</b>
 
 ```typescript
-once<T = any>(type: EventType, handler: Handler<T>): void;
+once<T = any>(type: EventType, handler: Handler<T>): OffCallbackHandler;
 ```
 
 ## Parameters
@@ -19,5 +21,7 @@ once<T = any>(type: EventType, handler: Handler<T>): void;
 
 <b>Returns:</b>
 
-void
+OffCallbackHandler
+
+a function to unsubscribe the handler invoking `this.off(type, handler)`
 

@@ -4,10 +4,12 @@
 
 ## Emitter.emit() method
 
+Calls each of the handlers registered for the event of `type` type, in the order they were registered, passing the supplied argument `e` to each.
+
 <b>Signature:</b>
 
 ```typescript
-emit<T = any>(type: EventType, event?: T): void;
+emit<T = any>(type: EventType, e?: T): void;
 ```
 
 ## Parameters
@@ -15,7 +17,7 @@ emit<T = any>(type: EventType, event?: T): void;
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  type | [EventType](./emitter.eventtype.md) |  |
-|  event | T |  |
+|  e | T |  |
 
 <b>Returns:</b>
 

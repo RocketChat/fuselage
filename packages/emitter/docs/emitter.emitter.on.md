@@ -4,10 +4,12 @@
 
 ## Emitter.on() method
 
+Adds the `handler` function to listen events of the `type` type.
+
 <b>Signature:</b>
 
 ```typescript
-on<T = any>(type: EventType, handler: Handler<T>): void;
+on<T = any>(type: EventType, handler: Handler<T>): OffCallbackHandler;
 ```
 
 ## Parameters
@@ -19,5 +21,7 @@ on<T = any>(type: EventType, handler: Handler<T>): void;
 
 <b>Returns:</b>
 
-void
+OffCallbackHandler
+
+a function to unsubscribe the handler invoking `this.off(type, handler)`
 

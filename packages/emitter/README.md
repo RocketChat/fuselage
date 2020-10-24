@@ -35,6 +35,9 @@ yarn add @rocket.chat/emitter
 
 #### Table of Contents
 
+-   [EventType](#eventtype)
+-   [Handler](#handler)
+-   [IEmitter](#iemitter)
 -   [Emitter](#emitter)
     -   [has](#has)
         -   [Parameters](#parameters)
@@ -46,76 +49,16 @@ yarn add @rocket.chat/emitter
         -   [Parameters](#parameters-3)
     -   [emit](#emit)
         -   [Parameters](#parameters-4)
--   [Emitter](#emitter-1)
-    -   [has](#has-1)
-        -   [Parameters](#parameters-5)
-    -   [on](#on-1)
-        -   [Parameters](#parameters-6)
-    -   [once](#once-1)
-        -   [Parameters](#parameters-7)
-    -   [off](#off-1)
-        -   [Parameters](#parameters-8)
-    -   [emit](#emit-1)
-        -   [Parameters](#parameters-9)
--   [EventType](#eventtype)
--   [Handler](#handler)
 
-### Emitter
+### EventType
 
-#### has
+Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [symbol](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol))
 
-Returns `true` if this emmiter has a listener attached to the `key` event type
+### Handler
 
-##### Parameters
+Type: function (event: T): void
 
--   `key` **[EventType](#eventtype)** 
-
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
-
-#### on
-
-Adds the `handler` function to listen events of the `type` type.
-
-##### Parameters
-
--   `type` **[EventType](#eventtype)** 
--   `handler` **[Handler](#handler)&lt;T>** 
-
-Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
-
-#### once
-
-Adds a _one-time_ `handler` function for the event of the `type` type.
-
-##### Parameters
-
--   `type` **[EventType](#eventtype)** 
--   `handler` **[Handler](#handler)&lt;T>** 
-
-Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
-
-#### off
-
-Removes the specified `handler` from the list of handlers of the event of the `type` type
-
-##### Parameters
-
--   `type` **[EventType](#eventtype)** 
--   `handler` **[Handler](#handler)&lt;T>** 
-
-Returns **void** 
-
-#### emit
-
-Calls each of the handlers registered for the event of `type` type, in the
-order they were registered, passing the supplied argument `e` to each.
-
-##### Parameters
-
--   `type` **[EventType](#eventtype)** 
--   `e` **T** 
-
-Returns **void** 
+### IEmitter
 
 ### Emitter
 
@@ -172,14 +115,6 @@ order they were registered, passing the supplied argument `e` to each.
 ##### Parameters
 
 -   `type` **[EventType](#eventtype)** 
--   `e` **T** 
+-   `e` **T?** 
 
 Returns **void** 
-
-### EventType
-
-Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [symbol](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol))
-
-### Handler
-
-Type: function (event: T): void
