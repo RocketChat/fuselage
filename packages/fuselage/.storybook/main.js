@@ -31,14 +31,15 @@ module.exports = {
         {
           loader: 'postcss-loader',
           options: {
-            ident: 'postcss',
-            plugins: () => [
-              require('postcss-svg')(),
-              require('postcss-custom-properties')(),
-              require('postcss-logical')({ preserve: true }),
-              require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
-              require('autoprefixer')(),
-            ],
+            postcssOptions: {
+              plugins: [
+                require('postcss-svg')(),
+                require('postcss-custom-properties')(),
+                require('postcss-logical')({ preserve: true }),
+                require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
+                require('autoprefixer')(),
+              ],
+            },
           },
         },
         'sass-loader',

@@ -75,9 +75,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
-    "webpack": "^4.44.1",
+    "webpack": "^5.2.0",
     "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^4.1.0"
   },
   "gitHead": "f8467b8ffb6f90d91b46fbcdd5dca169235916a4",
   "dependencies": {

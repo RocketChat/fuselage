@@ -44,15 +44,16 @@ module.exports = (env, { mode = 'production' }) => ({
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [
-                require('postcss-svg')(),
-                require('postcss-custom-properties')(),
-                require('postcss-logical')({ preserve: true }),
-                require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
-                require('autoprefixer')(),
-                mode === 'production' && require('cssnano'),
-              ].filter(Boolean),
+              postcssOptions: {
+                plugins: [
+                  require('postcss-svg')(),
+                  require('postcss-custom-properties')(),
+                  require('postcss-logical')({ preserve: true }),
+                  require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
+                  require('autoprefixer')(),
+                  mode === 'production' && require('cssnano'),
+                ].filter(Boolean),
+              },
             },
           },
           'sass-loader',
