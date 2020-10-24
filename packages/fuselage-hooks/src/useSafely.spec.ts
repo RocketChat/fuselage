@@ -1,6 +1,6 @@
 import { useState, FunctionComponent, createElement, StrictMode } from 'react';
-import { act } from 'react-dom/test-utils';
 import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 import { useSafely } from '.';
 

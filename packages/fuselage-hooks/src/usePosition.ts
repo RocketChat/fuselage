@@ -3,6 +3,15 @@ import { useEffect, RefObject, useRef } from 'react';
 import { useDebouncedState } from './useDebouncedState';
 import { useMutableCallback } from './useMutableCallback';
 
+export type Positions = 'top' | 'left' | 'bottom' | 'right';
+
+export type Placements =
+  'top-start' | 'top-middle' | 'top-end' |
+  'bottom-start' | 'bottom-middle' | 'bottom-end' |
+  'left-start' | 'left-middle' | 'left-end' |
+  'right-start' | 'right-middle' | 'right-end' |
+  Positions;
+
 export type PositionOptions = {
   margin?: number;
   container?: Element;
@@ -56,16 +65,6 @@ enum PlacementMap {
   e = 'end',
   m = 'middle',
 }
-
-export type Positions = 'top' | 'left' | 'bottom' | 'right';
-
-export type Placements =
-    'top-start' | 'top-middle' | 'top-end' |
-    'bottom-start' | 'bottom-middle' | 'bottom-end' |
-    'left-start' | 'left-middle' | 'left-end' |
-    'right-start' | 'right-middle' | 'right-end' |
-    Positions;
-
 
 const fallbackOrderVariant = {
   start: 'sem',

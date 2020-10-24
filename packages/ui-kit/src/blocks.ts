@@ -31,6 +31,30 @@ export type ActionId = string;
 
 export type BlockId = string;
 
+export interface IElement {
+  type: ElementType;
+}
+
+export const isElement = (x: IElement): x is IElement =>
+  x !== null
+  && typeof x === 'object'
+  && 'type' in x
+  && Object.values(ElementType).includes(x.type);
+
+export interface IPlainText extends IElement {
+  type: ElementType.PLAIN_TEXT;
+  text: string;
+  emoji?: boolean;
+}
+
+export interface IMarkdown extends IElement {
+  type: ElementType.MARKDOWN;
+  text: string;
+  verbatim?: boolean;
+}
+
+export type TextObject = IPlainText | IMarkdown;
+
 export type Option = {
   text: TextObject;
   value: string;
@@ -51,116 +75,9 @@ export type ConfirmationDialog = {
   style: 'primary' | 'danger';
 };
 
-export interface IElement {
-  type: ElementType;
-}
-
-export const isElement = (x: IElement): x is IElement =>
-  x !== null
-  && typeof x === 'object'
-  && 'type' in x
-  && Object.values(ElementType).includes(x.type);
-
 export interface IActionableElement extends IElement {
   actionId: ActionId;
   confirm?: ConfirmationDialog;
-}
-
-export type TextObject = IPlainText | IMarkdown;
-
-export type SectionAccessoryElement = (
-  IImageElement
-  | IButtonElement
-  | IDatePickerElement
-  | IStaticSelectElement
-  | IMultiStaticSelectElement
-  | IOverflowElement
-);
-
-export type ActionElement = (
-  IButtonElement
-  | IStaticSelectElement
-  | IMultiStaticSelectElement
-  | IOverflowElement
-  | IDatePickerElement
-);
-
-export type ContextElement = (
-  TextObject
-  | IImageElement
-)
-
-export type InputElement = (
-  IPlainTextInput
-  | IStaticSelectElement
-  | IMultiStaticSelectElement
-  | IDatePickerElement
-);
-
-export interface IBlock extends IElement {
-  blockId?: BlockId;
-}
-
-export interface IPlainText extends IElement {
-  type: ElementType.PLAIN_TEXT;
-  text: string;
-  emoji?: boolean;
-}
-
-export interface IMarkdown extends IElement {
-  type: ElementType.MARKDOWN;
-  text: string;
-  verbatim?: boolean;
-}
-
-export interface IDividerBlock extends IBlock {
-  type: ElementType.DIVIDER;
-}
-
-export interface ISectionBlock extends IBlock {
-  type: ElementType.SECTION;
-  text?: TextObject;
-  fields?: TextObject[];
-  accessory?: SectionAccessoryElement;
-}
-
-export interface IImageBlock extends IBlock {
-  type: ElementType.IMAGE;
-  imageUrl: string;
-  altText: string;
-  title?: IPlainText;
-}
-
-export interface IActionsBlock extends IBlock {
-  type: ElementType.ACTIONS;
-  elements: ActionElement[];
-}
-
-export interface IContextBlock extends IBlock {
-  type: ElementType.CONTEXT;
-  elements: ContextElement[];
-}
-
-export interface IInputBlock extends IBlock {
-  type: ElementType.INPUT;
-  label: IPlainText;
-  element: InputElement;
-  hint?: IPlainText;
-  optional?: boolean;
-}
-
-export type Conditions = {
-  engine?: 'rocket.chat' | 'livechat'
-};
-
-export type ConditionalBlockFilters = {
-  engine?: Array<Conditions['engine']>;
-}
-
-export interface IConditionalBlock extends IBlock {
-  type: ElementType.CONDITIONAL;
-  when?: ConditionalBlockFilters;
-  render: IBlock[];
 }
 
 export interface IButtonElement extends IActionableElement {
@@ -212,4 +129,87 @@ export interface IPlainTextInput extends IActionableElement {
   multiline?: boolean;
   minLength?: number;
   maxLength?: number;
+}
+
+export type SectionAccessoryElement = (
+  IImageElement
+  | IButtonElement
+  | IDatePickerElement
+  | IStaticSelectElement
+  | IMultiStaticSelectElement
+  | IOverflowElement
+);
+
+export type ActionElement = (
+  IButtonElement
+  | IStaticSelectElement
+  | IMultiStaticSelectElement
+  | IOverflowElement
+  | IDatePickerElement
+);
+
+export type ContextElement = (
+  TextObject
+  | IImageElement
+)
+
+export type InputElement = (
+  IPlainTextInput
+  | IStaticSelectElement
+  | IMultiStaticSelectElement
+  | IDatePickerElement
+);
+
+export interface IBlock extends IElement {
+  blockId?: BlockId;
+}
+
+export interface IDividerBlock extends IBlock {
+  type: ElementType.DIVIDER;
+}
+
+export interface ISectionBlock extends IBlock {
+  type: ElementType.SECTION;
+  text?: TextObject;
+  fields?: TextObject[];
+  accessory?: SectionAccessoryElement;
+}
+
+export interface IImageBlock extends IBlock {
+  type: ElementType.IMAGE;
+  imageUrl: string;
+  altText: string;
+  title?: IPlainText;
+}
+
+export interface IActionsBlock extends IBlock {
+  type: ElementType.ACTIONS;
+  elements: ActionElement[];
+}
+
+export interface IContextBlock extends IBlock {
+  type: ElementType.CONTEXT;
+  elements: ContextElement[];
+}
+
+export interface IInputBlock extends IBlock {
+  type: ElementType.INPUT;
+  label: IPlainText;
+  element: InputElement;
+  hint?: IPlainText;
+  optional?: boolean;
+}
+
+export type Conditions = {
+  engine?: 'rocket.chat' | 'livechat'
+};
+
+export type ConditionalBlockFilters = {
+  engine?: Array<Conditions['engine']>;
+}
+
+export interface IConditionalBlock extends IBlock {
+  type: ElementType.CONDITIONAL;
+  when?: ConditionalBlockFilters;
+  render: IBlock[];
 }

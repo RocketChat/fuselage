@@ -21,7 +21,9 @@ export const memoize = <A, R>(fn: (arg: A) => R): typeof fn => {
 };
 
 export const clear = <A, R>(fn: (arg: A) => R): void => {
-  if (store.has(fn)) {
-    store.get(fn)!.clear();
+  const x = store.get(fn);
+
+  if (x) {
+    x.clear();
   }
 };
