@@ -95,28 +95,29 @@ function getScrollParents(element: Element): Array<Element | Window> {
   return parents;
 }
 
-const useBoundingClientRect = (element: RefObject<Element>, watch = false, callback) : void => useEffect(() => {
-  if (!element.current) {
-    return;
-  }
+const useBoundingClientRect = (element: RefObject<Element>, watch = false, callback: () => void) : void =>
+  useEffect(() => {
+    if (!element.current) {
+      return;
+    }
 
-  callback();
+    callback();
 
-  if (!watch) {
-    return;
-  }
+    if (!watch) {
+      return;
+    }
 
-  const parents = getScrollParents(element.current);
-  const passive = { passive: true };
+    const parents = getScrollParents(element.current);
+    const passive = { passive: true };
 
-  window.addEventListener('resize', callback);
-  parents.forEach((el) => el.addEventListener('scroll', callback, passive));
+    window.addEventListener('resize', callback);
+    parents.forEach((el) => el.addEventListener('scroll', callback, passive));
 
-  return () => {
-    window.removeEventListener('resize', callback);
-    parents.forEach((el) => el.removeEventListener('scroll', callback));
-  };
-}, [watch, callback]);
+    return () => {
+      window.removeEventListener('resize', callback);
+      parents.forEach((el) => el.removeEventListener('scroll', callback));
+    };
+  }, [watch, callback, element]);
 
 
 export const getPositionStyle = ({ placement = 'bottom-start', container, targetBoundaries, variantStore, target } : { placement: Placements, target: DOMRect, container: DOMRect, targetBoundaries: Boundaries, variantStore?: VariantBoundaries }) : PositionResult => {
