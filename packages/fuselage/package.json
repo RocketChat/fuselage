@@ -27,6 +27,7 @@
     "build": "run-s clean build:prod build:dev",
     "eslint": "eslint src",
     "stylelint": "stylelint 'src/**/*.scss'",
+    "fix": "stylelint --fix 'src/**/*.scss'",
     "lint": "run-s eslint stylelint",
     "lint-staged": "lint-staged",
     "test": "jest --max-workers=1",

@@ -49,8 +49,10 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       padding-block: lengths.padding(16);
       padding-inline: lengths.padding(16);
     }
+
     &__title {
-      @include typography.use-font-scale(p2);  
+      @include typography.use-font-scale(p2);
+
       color: colors.neutral(900);
     }
   }
