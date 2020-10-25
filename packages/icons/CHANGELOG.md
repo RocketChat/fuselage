@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.16.0...v0.17.0) (2020-10-25)
+
+
+### Features
+
+* Added login icon, added badge wrapper ([#303](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/303)) ([70ae09c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/70ae09c0d5f53d492a1367ad7097da3323be386f))
+
+
+
+
+
 # [0.16.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.15.1...v0.16.0) (2020-09-30)
 
 
