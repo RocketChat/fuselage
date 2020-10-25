@@ -23,7 +23,7 @@ class TestParser extends UiKitParserMessage {
       },
     })
 
-  divider = (element: any, context: any, index: any): any =>
+  divider = (_element: any, context: any, index: any): any =>
     ({
       component: 'divider',
       props: {
@@ -34,7 +34,7 @@ class TestParser extends UiKitParserMessage {
 
   section = (element: any, context: any, index: any): any => {
     let key = 0;
-    return ({
+    return {
       component: 'section',
       props: {
         key: index,
@@ -45,7 +45,7 @@ class TestParser extends UiKitParserMessage {
         ],
         block: context === BLOCK_CONTEXT.BLOCK,
       },
-    });
+    };
   }
 
   actions = (element: any, context: any, index: any): any => ({
@@ -82,7 +82,7 @@ class TestParser extends UiKitParserMessage {
   image = (element: any, context: any, index: any): any => {
     if (context === BLOCK_CONTEXT.BLOCK) {
       let key = 0;
-      return ({
+      return {
         component: 'image-container',
         props: {
           key: index,
@@ -102,10 +102,10 @@ class TestParser extends UiKitParserMessage {
           ],
           block: true,
         },
-      });
+      };
     }
 
-    return ({
+    return {
       component: 'image',
       props: {
         key: index,
@@ -113,15 +113,15 @@ class TestParser extends UiKitParserMessage {
         alt: element.altText,
         block: false,
       },
-    });
+    };
   }
 
-  overflow = (element: any, context: any, index: any): any =>
+  overflow = (element: any, _context: any, index: any): any =>
     ({
       component: 'menu',
       props: {
         key: index,
-        children: element.options.map((option, key) => ({
+        children: element.options.map((option: any, key: any) => ({
           component: 'menu-item',
           props: {
             key,
@@ -136,7 +136,7 @@ class TestParser extends UiKitParserMessage {
       },
     })
 
-  datePicker = (element: any, context: any, index: any): any =>
+  datePicker = (element: any, _context: any, index: any): any =>
     ({
       component: 'input',
       props: {
@@ -147,7 +147,7 @@ class TestParser extends UiKitParserMessage {
       },
     })
 
-  staticSelect = (element: any, context: any, index: any): any =>
+  staticSelect = (element: any, _context: any, index: any): any =>
     ({
       component: 'select',
       props: {
@@ -168,7 +168,7 @@ class TestParser extends UiKitParserMessage {
       },
     })
 
-  multiStaticSelect = (element: any, context: any, index: any): any =>
+  multiStaticSelect = (element: any, _context: any, index: any): any =>
     ({
       component: 'select',
       props: {

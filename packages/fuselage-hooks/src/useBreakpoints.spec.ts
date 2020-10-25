@@ -3,9 +3,9 @@ import { FunctionComponent, createElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import resizeToMock from './__mocks__/resizeTo';
-import matchMediaMock from './__mocks__/matchMedia';
 import { useBreakpoints } from '.';
+import matchMediaMock from './__mocks__/matchMedia';
+import resizeToMock from './__mocks__/resizeTo';
 
 beforeAll(() => {
   window.resizeTo = resizeToMock;

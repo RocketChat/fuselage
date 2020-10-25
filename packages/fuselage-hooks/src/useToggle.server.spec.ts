@@ -2,8 +2,8 @@
  * @jest-environment node
  */
 
-import { renderToString } from 'react-dom/server';
 import { createElement, StrictMode, FunctionComponent } from 'react';
+import { renderToString } from 'react-dom/server';
 
 import { useToggle } from '.';
 

@@ -93,8 +93,8 @@ export class ResizeObserverMock implements ResizeObserver {
         this.callback([{
           target,
           contentRect: this.contentRect,
-          borderBoxSize,
-          contentBoxSize,
+          borderBoxSize: [borderBoxSize],
+          contentBoxSize: [contentBoxSize],
         }], this);
       }
     });

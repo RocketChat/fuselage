@@ -17,9 +17,9 @@
   "main": "index.js",
   "dependencies": {
     "@juggle/resize-observer": "^3.1.2",
-    "clipboard-polyfill": "^2.8.6",
-    "focus-within-polyfill": "^5.1.0",
+    "clipboard-polyfill": "^3.0.1",
     "element-closest-polyfill": "^1.0.2",
-    "focus-visible": "^5.0.2"
+    "focus-visible": "^5.0.2",
+    "focus-within-polyfill": "^5.1.0"
   }
 }

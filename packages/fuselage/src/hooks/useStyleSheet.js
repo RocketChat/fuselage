@@ -1,14 +1,13 @@
 import { useLayoutEffect } from 'react';
 
-import { use, unuse } from '../index.scss';
-
-const effect = () => {
-  use();
-  return unuse;
-};
-
-const emptyDeps = [];
+import styleSheet from '../index.scss';
 
 export const useStyleSheet = () => {
-  useLayoutEffect(effect, emptyDeps);
+  useLayoutEffect(() => {
+    styleSheet.use();
+
+    return () => {
+      styleSheet.unuse();
+    };
+  }, []);
 };

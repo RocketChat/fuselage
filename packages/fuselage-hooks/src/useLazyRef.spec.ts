@@ -1,6 +1,6 @@
 import { FunctionComponent, createElement, StrictMode, MutableRefObject } from 'react';
-import { act } from 'react-dom/test-utils';
 import { render } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 import { useLazyRef } from '.';
 

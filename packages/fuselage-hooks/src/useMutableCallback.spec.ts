@@ -1,6 +1,6 @@
 import { createElement, StrictMode, FunctionComponent, useReducer, useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import { render } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 import { useMutableCallback } from '.';
 

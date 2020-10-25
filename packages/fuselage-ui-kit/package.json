@@ -32,8 +32,7 @@
     "lint": "eslint src",
     "lint-staged": "lint-staged",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "test": "echo \"Error: run tests from root\" && exit 0"
+    "build-storybook": "build-storybook"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
@@ -45,6 +44,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
+    "@babel/eslint-parser": "^7.12.1",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
@@ -64,7 +64,6 @@
     "@storybook/react": "^6.0.21",
     "@storybook/source-loader": "^6.0.21",
     "@storybook/theming": "^6.0.21",
-    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "eslint": "^7.7.0",
     "eslint-plugin-import": "^2.22.0",
@@ -76,9 +75,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
-    "webpack": "^4.44.1",
+    "webpack": "^5.2.0",
     "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^4.1.0"
   },
   "gitHead": "f8467b8ffb6f90d91b46fbcdd5dca169235916a4",
   "dependencies": {
