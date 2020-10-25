@@ -132,14 +132,12 @@
   }
 
   &--ghost {
-    border-color: transparent;
-    background-color: transparent;
+    border-color: $button-colors-ghost-background-color;
+    background-color: $button-colors-ghost-border-color;
   }
 
   &--ghost-danger {
     color: colors.danger(500);
-    border-color: transparent;
-    background-color: transparent;
 
     &.disabled,
     &:disabled {
@@ -149,8 +147,6 @@
 
   &--ghost-success {
     color: colors.success(500);
-    border-color: transparent;
-    background-color: transparent;
 
     &.disabled,
     &:disabled {
