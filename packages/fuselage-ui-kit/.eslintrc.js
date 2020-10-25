@@ -3,7 +3,7 @@ module.exports = {
     '@rocket.chat/eslint-config',
   ],
   plugins: ['react', 'react-hooks'],
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   rules: {
     'generator-star-spacing': ['error', 'before'],
     'import/order': ['error', {
@@ -46,7 +46,10 @@ module.exports = {
   overrides: [
     {
       files: ['*.mdx'],
-      extends: ['plugin:mdx/overrides'],
+      extends: ['plugin:mdx/recommended'],
+      parserOptions: {
+        parser: '@babel/eslint-parser',
+      },
       rules: {
         semi: 'off',
         'new-cap': 'off',

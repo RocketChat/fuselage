@@ -2,8 +2,8 @@ import { FunctionComponent, createElement, StrictMode, RefObject, CSSProperties,
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import ResizeObserverMock, { createBoxSizes } from './__mocks__/ResizeObserver';
 import { useResizeObserver } from '.';
+import ResizeObserverMock, { createBoxSizes } from './__mocks__/ResizeObserver';
 
 describe('useResizeObserver hook', () => {
   beforeAll(() => {

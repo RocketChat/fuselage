@@ -1,5 +1,5 @@
-import { createAnimationName, escapeName } from './names';
 import { memoize } from './memoize';
+import { createAnimationName, escapeName } from './names';
 
 /**
  * A shared state created by the upmost Evaluable in the call stack

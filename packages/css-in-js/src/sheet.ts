@@ -109,12 +109,11 @@ const wrapReferenceCounting = (attacher: RuleAttacher): RuleAttacher => {
  *
  * @returns a callback to detach the rules
  */
-export const attachRules: RuleAttacher = (
+export const attachRules: RuleAttacher =
   (typeof window === 'undefined' && discardRules)
   || (
     process.env.NODE_ENV === 'production'
     && !!CSSStyleSheet.prototype.insertRule
     && wrapReferenceCounting(attachRulesIntoStyleSheet)
   )
-  || wrapReferenceCounting(attachRulesIntoElement)
-);
+  || wrapReferenceCounting(attachRulesIntoElement);

@@ -14,7 +14,7 @@
 
 |  Interface | Description |
 |  --- | --- |
-|  [Emitter](./emitter.emitter.md) |  |
+|  [IEmitter](./emitter.iemitter.md) |  |
 
 ## Type Aliases
 

@@ -30,7 +30,8 @@
   "scripts": {
     "start": "microbundle watch",
     "build": "microbundle",
-    "test": "jest --max-workers=1",
+    "test": "jest",
+    "test:ci": "jest --runInBand",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
     "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --section='API Reference' --readme-file README.md"
@@ -38,15 +39,16 @@
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
     "@types/jest": "^26.0.0",
-    "@typescript-eslint/eslint-plugin": "^3.4.0",
-    "@typescript-eslint/parser": "^3.4.0",
-    "documentation": "^13.0.1",
-    "eslint": "^6.5.1",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "documentation": "^13.0.2",
+    "eslint": "^7.12.0",
     "eslint-plugin-import": "^2.19.1",
     "jest": "^26.1.0",
     "lint-staged": "^10.0.8",
     "microbundle": "^0.12.2",
-    "ts-jest": "^26.1.1"
+    "ts-jest": "^26.1.1",
+    "typescript": "^4.0.3"
   },
   "publishConfig": {
     "access": "public"

@@ -1,24 +1,24 @@
 /**
  * @public
  */
-export interface Emitter {
+export type EventType = string | symbol;
+
+/**
+ * @public
+ */
+export type Handler<T = any> = (event?: T) => void;
+
+/**
+ * @public
+ */
+export interface IEmitter {
   on<T = any>(type: EventType, handler: Handler<T>): void;
   once<T = any>(type: EventType, handler: Handler<T>): void;
   off<T = any>(type: EventType, handler: Handler<T>): void;
   emit<T = any>(type: EventType, event?: T): void;
 }
 
-/**
- * @public
- */
-export type EventType = string | symbol;
-
 type OffCallbackHandler = () => void;
-
-/**
- * @public
- */
-export type Handler<T = any> = (event?: T) => void;
 
 type EventHandlerList = Array<Handler>;
 type EventHandlerMap = Map<EventType, EventHandlerList>;
@@ -31,7 +31,7 @@ const evts = Symbol('evts');
  *
  * @public
  */
-export class Emitter implements Emitter {
+export class Emitter implements IEmitter {
   private [evts]: EventHandlerMap = new Map();
 
   private [once] = new WeakMap<Handler, number>();
@@ -93,7 +93,7 @@ export class Emitter implements Emitter {
    * Calls each of the handlers registered for the event of `type` type, in the
    * order they were registered, passing the supplied argument `e` to each.
    */
-  emit<T = any>(type: EventType, e: T) : void {
+  emit<T = any>(type: EventType, e?: T) : void {
     [...this[evts].get(type) || [] as EventHandlerList].forEach((handler: Handler) => {
       handler(e);
       this[once].get(handler) && this.off(type, handler);

@@ -23,7 +23,7 @@ class TestParser extends UiKitParserModal {
       },
     })
 
-  divider = (element: any, context: any, index: any): any =>
+  divider = (_element: any, context: any, index: any): any =>
     ({
       component: 'divider',
       props: {
@@ -34,7 +34,7 @@ class TestParser extends UiKitParserModal {
 
   section = (element: any, context: any, index: any): any => {
     let key = 0;
-    return ({
+    return {
       component: 'section',
       props: {
         key: index,
@@ -45,7 +45,7 @@ class TestParser extends UiKitParserModal {
         ],
         block: context === BLOCK_CONTEXT.BLOCK,
       },
-    });
+    };
   }
 
   actions = (element: any, context: any, index: any): any => ({
@@ -95,7 +95,7 @@ class TestParser extends UiKitParserModal {
   image = (element: any, context: any, index: any): any => {
     if (context === BLOCK_CONTEXT.BLOCK) {
       let key = 0;
-      return ({
+      return {
         component: 'image-container',
         props: {
           key: index,
@@ -115,10 +115,10 @@ class TestParser extends UiKitParserModal {
           ],
           block: true,
         },
-      });
+      };
     }
 
-    return ({
+    return {
       component: 'image',
       props: {
         key: index,
@@ -126,10 +126,10 @@ class TestParser extends UiKitParserModal {
         alt: element.altText,
         block: false,
       },
-    });
+    };
   }
 
-  overflow = (element: any, context: any, index: any): any =>
+  overflow = (element: any, _context: any, index: any): any =>
     ({
       component: 'menu',
       props: {
@@ -149,7 +149,7 @@ class TestParser extends UiKitParserModal {
       },
     })
 
-  datePicker = (element: any, context: any, index: any): any =>
+  datePicker = (element: any, _context: any, index: any): any =>
     ({
       component: 'input',
       props: {
@@ -160,7 +160,7 @@ class TestParser extends UiKitParserModal {
       },
     })
 
-  staticSelect = (element: any, context: any, index: any): any =>
+  staticSelect = (element: any, _context: any, index: any): any =>
     ({
       component: 'select',
       props: {
@@ -181,7 +181,7 @@ class TestParser extends UiKitParserModal {
       },
     })
 
-  multiStaticSelect = (element: any, context: any, index: any): any =>
+  multiStaticSelect = (element: any, _context: any, index: any): any =>
     ({
       component: 'select',
       props: {
@@ -205,7 +205,7 @@ class TestParser extends UiKitParserModal {
       },
     })
 
-  plainInput = (element: any, context: any, index: any): any =>
+  plainInput = (element: any, _context: any, index: any): any =>
     ({
       component: 'input',
       props: {
