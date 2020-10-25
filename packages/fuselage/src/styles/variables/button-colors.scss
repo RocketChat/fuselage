@@ -1,5 +1,9 @@
 @use '../colors.scss';
 
+
+$button-colors-ghost-background-color: theme('button-colors-ghost-background-color', transparent);
+$button-colors-ghost-border-color: theme('button-colors-ghost-border-color', transparent);
+
 $button-colors-primary-background-color: theme('button-colors-primary-background-color', colors.primary(500));
 $button-colors-primary-border-color: theme('button-colors-primary-border-color', colors.primary(500));
 $button-colors-primary-color: theme('button-colors-primary-color', colors.foreground(alternative));
