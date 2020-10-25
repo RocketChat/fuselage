@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.16.0...v0.17.0) (2020-10-25)
+
+
+### Features
+
+* Focus-within polyfill ([#306](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/306)) ([42d4147](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/42d41478678d74c730df9bcb30ab76e6b27314f1))
+
+
+
+
+
 # [0.16.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.15.1...v0.16.0) (2020-09-30)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-polyfills
