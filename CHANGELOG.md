@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.0...v0.17.1) (2020-10-26)
+
+
+### Bug Fixes
+
+* Emitter: Created events method ([#311](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/311)) ([e36240f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e36240f396a33bd68a2d71c6b00e845e6e22604d))
+
+
+
+
+
 # [0.17.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.16.0...v0.17.0) (2020-10-25)
 
 
