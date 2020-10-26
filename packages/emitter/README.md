@@ -39,6 +39,7 @@ yarn add @rocket.chat/emitter
 -   [Handler](#handler)
 -   [IEmitter](#iemitter)
 -   [Emitter](#emitter)
+    -   [events](#events)
     -   [has](#has)
         -   [Parameters](#parameters)
     -   [on](#on)
@@ -63,6 +64,12 @@ Type: function (event: T): void
 ### Emitter
 
 The event emitter class.
+
+#### events
+
+Returns the whole EventType list
+
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[EventType](#eventtype)>** 
 
 #### has
 
