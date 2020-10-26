@@ -37,6 +37,13 @@ export class Emitter implements IEmitter {
   private [once] = new WeakMap<Handler, number>();
 
   /**
+   * Returns the whole EventType list
+   */
+  events() : EventType[] {
+    return Array.from(this[evts].keys());
+  }
+
+  /**
    * Returns `true` if this emmiter has a listener attached to the `key` event type
    */
   has(key: EventType): boolean {
