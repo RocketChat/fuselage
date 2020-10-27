@@ -10,18 +10,18 @@
 
 ![License: MIT](https://img.shields.io/github/license/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
 
-![Issues](https://img.shields.io/github/issues/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20fuselage-hooks?style=flat-square)
-![Pull requests](https://img.shields.io/github/issues-pr/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20fuselage-hooks?style=flat-square)
+![Issues](https://img.shields.io/github/issues/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20emitter?style=flat-square)
+![Pull requests](https://img.shields.io/github/issues-pr/RocketChat/Rocket.Chat.Fuselage/%F0%9F%93%A6%20emitter?style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
 
-![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-emitter/latest?style=flat-square)
-![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-emitter/next?style=flat-square)
-![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-emitter&style=flat-square)
-![optional deps](https://img.shields.io/david/optional/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-emitter&style=flat-square)
-![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-emitter&style=flat-square)
-![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-emitter?style=flat-square)
-![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-emitter?style=flat-square)
-![npm collaborators](https://img.shields.io/npm/collaborators/@rocket.chat/fuselage-emitter?style=flat-square)
+![npm@latest](https://img.shields.io/npm/v/@rocket.chat/emitter/latest?style=flat-square)
+![npm@next](https://img.shields.io/npm/v/@rocket.chat/emitter/next?style=flat-square)
+![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Femitter&style=flat-square)
+![optional deps](https://img.shields.io/david/optional/RocketChat/Rocket.Chat.Fuselage?path=packages%2Femitter&style=flat-square)
+![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Femitter&style=flat-square)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/emitter?style=flat-square)
+![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/emitter?style=flat-square)
+![npm collaborators](https://img.shields.io/npm/collaborators/@rocket.chat/emitter?style=flat-square)
 
 ## Install
 
@@ -69,7 +69,7 @@ The event emitter class.
 
 Returns the whole EventType list
 
-Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[EventType](#eventtype)>** 
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[EventType](#eventtype)>**
 
 #### has
 
@@ -77,9 +77,9 @@ Returns `true` if this emmiter has a listener attached to the `key` event type
 
 ##### Parameters
 
--   `key` **[EventType](#eventtype)** 
+-   `key` **[EventType](#eventtype)**
 
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 #### on
 
@@ -87,8 +87,8 @@ Adds the `handler` function to listen events of the `type` type.
 
 ##### Parameters
 
--   `type` **[EventType](#eventtype)** 
--   `handler` **[Handler](#handler)&lt;T>** 
+-   `type` **[EventType](#eventtype)**
+-   `handler` **[Handler](#handler)&lt;T>**
 
 Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
 
@@ -98,8 +98,8 @@ Adds a _one-time_ `handler` function for the event of the `type` type.
 
 ##### Parameters
 
--   `type` **[EventType](#eventtype)** 
--   `handler` **[Handler](#handler)&lt;T>** 
+-   `type` **[EventType](#eventtype)**
+-   `handler` **[Handler](#handler)&lt;T>**
 
 Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
 
@@ -109,10 +109,10 @@ Removes the specified `handler` from the list of handlers of the event of the `t
 
 ##### Parameters
 
--   `type` **[EventType](#eventtype)** 
--   `handler` **[Handler](#handler)&lt;T>** 
+-   `type` **[EventType](#eventtype)**
+-   `handler` **[Handler](#handler)&lt;T>**
 
-Returns **void** 
+Returns **void**
 
 #### emit
 
@@ -121,7 +121,7 @@ order they were registered, passing the supplied argument `e` to each.
 
 ##### Parameters
 
--   `type` **[EventType](#eventtype)** 
--   `e` **T?** 
+-   `type` **[EventType](#eventtype)**
+-   `e` **T?**
 
-Returns **void** 
+Returns **void**
