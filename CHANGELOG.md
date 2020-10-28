@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.1...v0.17.2) (2020-10-28)
+
+
+### Bug Fixes
+
+* Sidebar menu transition ([#313](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/313)) ([726fe3d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/726fe3d6aaad3453df6688ce8f501a09133d1b26))
+
+
+
+
+
 ## [0.17.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.0...v0.17.1) (2020-10-26)
 
 
