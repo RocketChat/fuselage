@@ -41,6 +41,7 @@ export * from './TextAreaInput';
 export * from './TextInput';
 export * from './Throbber';
 export * from './Tile';
+export * from './Alert';
 export * from './ToggleSwitch';
 export * from './Tooltip';
 export * from './UrlInput';
