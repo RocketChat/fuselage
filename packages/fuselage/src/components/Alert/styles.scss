@@ -3,7 +3,7 @@
 @use '../../styles/typography.scss';
 
 .rcx-toast-wrapper {
-  position: relative;
+  position: static;
 }
 
 .rcx-toast {

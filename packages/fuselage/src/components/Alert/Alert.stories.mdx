@@ -1,6 +1,6 @@
 import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
-import { Alert, Box } from '../..';
+import { Alert } from '../..';
 
 <Meta title='Misc/Alert' parameters={{ jest: ['Alert/spec'] }} />
 
@@ -25,7 +25,7 @@ The `Alert` component is used to dispatch notifications.
 If we need a bigger alert we can use `size` prop.
 
 <Canvas>
-  <Story name='Size'>
+  <Story name='Large'>
     <>
       <Alert size='large'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Alert>
       <Alert size='large' type='danger'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Alert>
@@ -40,12 +40,10 @@ We can position the alert component using `verticalPosition` and `horizontalPosi
 
 <Canvas>
   <Story name='Position'>
-    <Box position='fixed'>
-      <Alert verticalPosition='top' horizontalPosition='left' type='success'>Awaiting Email Confirmation</Alert>
+    <div style={{ height: '20rem', transform: 'translateZ(0)', overflow: 'auto' }}>
+      <Alert size='large' verticalPosition='top' horizontalPosition='left' type='success'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Alert>
       <Alert verticalPosition='center' horizontalPosition='center' type='warning'>Awaiting Email Confirmation</Alert>
       <Alert verticalPosition='bottom' horizontalPosition='right' type='danger'>This is a danger alert</Alert>
-    </Box>
+    </div>
   </Story>
 </Canvas>
-
-
