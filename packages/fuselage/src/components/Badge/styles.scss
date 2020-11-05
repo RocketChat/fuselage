@@ -21,10 +21,11 @@ $badge-colors-disabled-color: theme('badge-colors-disabled-color', colors.foregr
 $badge-colors-disabled-background-color: theme('badge-colors-disabled-background-color', colors.neutral(400));
 
 .rcx-badge {
-  display: inline-block;
+  display: flex;
   overflow: hidden;
 
   width: fit-content;
+  min-width: lengths.size(16);
 
   padding:
     lengths.padding(2)

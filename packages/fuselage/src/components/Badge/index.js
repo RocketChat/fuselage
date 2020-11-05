@@ -4,8 +4,7 @@ import React from 'react';
 import { prependClassName } from '../../helpers/prependClassName';
 
 const useTagPropsToClass = (props) => {
-  props.className = prependClassName(props.className, 'rcx-badge');
-  props.className = prependClassName(props.className, 'rcx-badge--round');
+  props.className = prependClassName(props.className, 'rcx-box rcx-box--full rcx-badge rcx-badge--round');
 
   if (props.disabled) {
     props.className = prependClassName(props.className, 'rcx-badge--disabled');
