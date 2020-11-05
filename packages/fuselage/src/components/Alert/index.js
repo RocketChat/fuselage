@@ -21,7 +21,7 @@ export function Alert({
 
 Alert.propTypes = {
   children: PropTypes.string,
-  type: PropTypes.oneOf(['success', 'warning', 'danger']).isRequired,
+  type: PropTypes.oneOf(['success', 'warning', 'danger']),
   verticalPosition: PropTypes.oneOf(['top', 'bottom', 'center']),
   horizontalPosition: PropTypes.oneOf(['left', 'right', 'center']),
   size: PropTypes.string,
