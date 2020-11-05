@@ -1,10 +1,30 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Tag } from '../Tag';
+import { prependClassName } from '../../helpers/prependClassName';
 
-export function Badge(props) {
-  return <Tag {...props} round />;
+const useTagPropsToClass = (props) => {
+  props.className = prependClassName(props.className, 'rcx-badge');
+  props.className = prependClassName(props.className, 'rcx-badge--round');
+
+  if (props.disabled) {
+    props.className = prependClassName(props.className, 'rcx-badge--disabled');
+  }
+
+  props.className = props.variant
+    ? prependClassName(props.className, `rcx-badge--${ props.variant }`)
+    : prependClassName(props.className, 'rcx-badge--secondary');
+  delete props.variant;
+
+  return props;
+};
+
+export function Badge({
+  ...props
+}) {
+  props = useTagPropsToClass(props);
+
+  return <span {...props} />;
 }
 
 Badge.propTypes = {
