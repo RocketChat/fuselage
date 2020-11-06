@@ -9,13 +9,16 @@
 .rcx-toast {
   display: flex;
 
-  max-width: 340px;
+  max-width: lengths.size(340);
   padding: lengths.padding(8);
 
   @include typography.use-font-scale(micro);
 
   &--large {
-    max-width: 580px;
+    max-width: lengths.size(360);
+    @include on-breakpoint(md) {
+      max-width: lengths.size(580);
+    }
 
     @include typography.use-font-scale(c1);
   }
