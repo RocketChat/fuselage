@@ -10,7 +10,17 @@ export function Badge({
   disabled,
   ...props
 }) {
-  return <Tag className={prependClassName(className, `rcx-box rcx-box--full rcx-badge rcx-badge--round ${ disabled ? 'rcx-badge--disabled' : '' } rcx-badge--${ variant }`)} {...props} />;
+  return (
+    <Tag
+      className={
+        prependClassName(
+          className,
+          `rcx-box rcx-box--full rcx-badge ${ disabled ? 'rcx-badge--disabled' : '' } rcx-badge--${ variant }`,
+        )
+      }
+      {...props}
+    />
+  );
 }
 
 Badge.propTypes = {

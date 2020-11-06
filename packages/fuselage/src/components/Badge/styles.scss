@@ -31,6 +31,8 @@ $badge-colors-disabled-background-color: theme('badge-colors-disabled-background
     lengths.padding(2)
     lengths.padding(4);
 
+  text-align: center;
+
   white-space: nowrap;
 
   text-decoration: none;
@@ -38,7 +40,7 @@ $badge-colors-disabled-background-color: theme('badge-colors-disabled-background
 
   word-break: keep-all;
 
-  border-radius: lengths.border-radius(4);
+  border-radius: lengths.border-radius(full);
 
   @include typography.use-font-scale(micro);
 
@@ -70,13 +72,5 @@ $badge-colors-disabled-background-color: theme('badge-colors-disabled-background
   &--disabled {
     color: $badge-colors-disabled-color;
     background-color: $badge-colors-disabled-background-color;
-  }
-
-  &--round {
-    overflow: hidden;
-
-    text-align: center;
-
-    border-radius: lengths.border-radius(full);
   }
 }
