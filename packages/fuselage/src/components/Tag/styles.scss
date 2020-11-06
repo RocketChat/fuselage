@@ -71,15 +71,11 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
     background-color: $tag-colors-disabled-background-color;
   }
 
-  &--round {
-    overflow: hidden;
-
-    text-align: center;
-
-    border-radius: lengths.border-radius(full);
+  &--small {
+    @include typography.use-font-scale(c2);
   }
 
-  &--clickable {
-    @include clickable();
+  &--medium {
+    @include typography.use-font-scale(p2);
   }
 }
