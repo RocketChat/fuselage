@@ -12,7 +12,7 @@ export function Tag({
   disabled,
   ...props
 }) {
-  const modifiers = [variant, small && 'small', medium && 'medium', disabled && 'disabled'].map((modifier) => `rcx-tag--${ modifier }`).join(' ');
+  const modifiers = [variant, small && 'small', medium && 'medium', disabled && 'disabled'].map((modifier) => `rcx-tag--${ modifier }`).filter(Boolean).join(' ');
 
   return <span className={prependClassName(className, `rcx-tag ${ modifiers }`)} {...props} />;
 }
