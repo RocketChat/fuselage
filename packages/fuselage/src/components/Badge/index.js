@@ -3,27 +3,14 @@ import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
-const useTagPropsToClass = (props) => {
-  props.className = prependClassName(props.className, 'rcx-box rcx-box--full rcx-badge rcx-badge--round');
-
-  if (props.disabled) {
-    props.className = prependClassName(props.className, 'rcx-badge--disabled');
-  }
-
-  props.className = props.variant
-    ? prependClassName(props.className, `rcx-badge--${ props.variant }`)
-    : prependClassName(props.className, 'rcx-badge--secondary');
-  delete props.variant;
-
-  return props;
-};
-
 export function Badge({
+  is: Tag = 'span',
+  variant = 'secondary',
+  className,
+  disabled,
   ...props
 }) {
-  props = useTagPropsToClass(props);
-
-  return <span {...props} />;
+  return <Tag className={prependClassName(className, `rcx-box rcx-box--full rcx-badge rcx-badge--round ${ disabled ? 'rcx-badge--disabled' : '' } rcx-badge--${ variant }`)} {...props} />;
 }
 
 Badge.propTypes = {
