@@ -30,17 +30,16 @@ const buildStorybook = async (packageName) => {
     path.join(__dirname, '../packages', packageName, '.storybook/jest-results.json')], {
     stdio: 'inherit',
     cwd: path.join(__dirname, '../packages', packageName),
-    env: { ...process.env, NODE_ENV: 'production' }
   });
 
   await run('node_modules/.bin/build-storybook', ['-o', path.join(__dirname, '../static')], {
     stdio: 'inherit',
     cwd: path.join(__dirname, '../packages', packageName),
-    env: { ...process.env, NODE_ENV: 'production' }
+    env: { ...process.env, NODE_ENV: 'production' },
   });
 };
 
-(async () => {
+const run = async () => {
   process.chdir(path.join(__dirname, '..'));
 
   console.log('Building static files directory...');
@@ -62,4 +61,9 @@ const buildStorybook = async (packageName) => {
     },
     silent: true,
   });
-})();
+};
+
+run().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
