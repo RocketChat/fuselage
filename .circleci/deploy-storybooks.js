@@ -59,7 +59,7 @@ const run = async () => {
       name: 'Guilherme Gazzo',
       email: 'guilherme.gazzo@rocket.chat',
     },
-    silent: true,
+    silent: false,
   });
 };
 

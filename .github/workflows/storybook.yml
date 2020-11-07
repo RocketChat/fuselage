@@ -1,0 +1,160 @@
+name: Storybook
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - '**'
+
+jobs:
+  fuselage-master:
+    name: Build Storybook from @rocket.chat/fuselage (master)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn --check-files
+      - run: yarn jest --max-workers 1 --json --outputFile .storybook/jest-results.json
+        working-directory: packages/fuselage
+      - run: yarn build-storybook -o ../../static
+        working-directory: packages/fuselage
+        env:
+          NODE_ENV: production
+      - uses: actions/upload-artifact@v2
+        with:
+          name: fuselage-master
+          path: static
+
+  fuselage-develop:
+    name: Build Storybook from @rocket.chat/fuselage (develop)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: develop
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn --check-files
+      - run: yarn jest --max-workers 1 --json --outputFile .storybook/jest-results.json
+        working-directory: packages/fuselage
+      - run: yarn build-storybook -o ../../static
+        working-directory: packages/fuselage
+        env:
+          NODE_ENV: production
+      - uses: actions/upload-artifact@v2
+        with:
+          name: fuselage-develop
+          path: static
+
+  fuselage-ui-kit-master:
+    name: Build Storybook from @rocket.chat/fuselage-ui-kit (master)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn --check-files
+      - run: yarn build-storybook -o ../../static
+        working-directory: packages/fuselage-ui-kit
+        env:
+          NODE_ENV: production
+      - uses: actions/upload-artifact@v2
+        with:
+          name: fuselage-ui-kit-master
+          path: static
+
+  fuselage-ui-kit-develop:
+    name: Build Storybook from @rocket.chat/fuselage-ui-kit (develop)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: develop
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn --check-files
+      - run: yarn build-storybook -o ../../static
+        working-directory: packages/fuselage-ui-kit
+        env:
+          NODE_ENV: production
+      - uses: actions/upload-artifact@v2
+        with:
+          name: fuselage-ui-kit-develop
+          path: static
+
+  publish:
+    name: Publish to GitHub Pages
+    runs-on: ubuntu-latest
+    needs:
+      - fuselage-master
+      - fuselage-develop
+      - fuselage-ui-kit-master
+      - fuselage-ui-kit-develop
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: develop
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn --check-files
+      - run: mkdir -p static/fuselage
+      - uses: actions/download-artifact@v2
+        with:
+          name: fuselage-master
+          path: static/fuselage/master
+      - uses: actions/download-artifact@v2
+        with:
+          name: fuselage-develop
+          path: static/fuselage/develop
+      - run: mkdir -p static/fuselage-ui-kit
+      - uses: actions/download-artifact@v2
+        with:
+          name: fuselage-ui-kit-master
+          path: static/fuselage-ui-kit/master
+      - uses: actions/download-artifact@v2
+        with:
+          name: fuselage-ui-kit-develop
+          path: static/fuselage-ui-kit/develop
+      - run: |
+          echo '<!DOCTYPE html>' \
+            '<meta charset="utf-8">' \
+            '<title>Redirecting to fuselage/master/</title>' \
+            '<meta http-equiv="refresh" content="0; URL=fuselage/master/">' \
+            '<link rel="canonical" href="fuselage/master/">' > static/index.html
+      - run: |
+          yarn gh-pages \
+            --dist static \
+            --repo https://${{ secrets.GH_TOKEN }}@github.com/RocketChat/Rocket.Chat.Fuselage.git \
+            --message 'Deploy Storybook to Github Pages' \
+            --user 'Guilherme Gazzo <guilherme.gazzo@rocket.chat>'
