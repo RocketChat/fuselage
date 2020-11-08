@@ -19,8 +19,7 @@
     "test": "lerna run test:ci --stream",
     "lint": "lerna run lint",
     "lint-staged": "lerna run lint-staged",
-    "storybook": "lerna run storybook --parallel",
-    "heroku-postbuild": "./.heroku/build.js"
+    "storybook": "lerna run storybook --parallel"
   },
   "husky": {
     "hooks": {
