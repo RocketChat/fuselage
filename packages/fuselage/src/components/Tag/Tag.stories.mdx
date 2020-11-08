@@ -1,6 +1,6 @@
 import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
-import { Tag } from '../..';
+import { Tag, Box } from '../..';
 
 <Meta title='Data Display/Tag' parameters={{ jest: ['Tag/spec'] }} />
 
@@ -10,7 +10,7 @@ Used for mentions.
 
 <Canvas>
   <Story name='Default'>
-    <Tag>john.doe</Tag>
+    <Box display='inline-flex'><Tag>john.doe</Tag></Box>
   </Story>
 </Canvas>
 
@@ -20,7 +20,7 @@ Used for mentions.
 
 <Canvas>
   <Story name='Pointer'>
-    <Tag onClick={() => {}}>john.doe</Tag>
+    <Box display='inline-flex'><Tag onClick={() => {}}>john.doe</Tag></Box>
   </Story>
 </Canvas>
 
@@ -28,7 +28,7 @@ Used for mentions.
 
 <Canvas>
   <Story name='Primary'>
-    <Tag variant='primary'>john.doe</Tag>
+    <Box display='inline-flex'><Tag variant='primary'>john.doe</Tag></Box>
   </Story>
 </Canvas>
 
@@ -36,7 +36,7 @@ Used for mentions.
 
 <Canvas>
   <Story name='Danger'>
-    <Tag variant='danger'>john.doe</Tag>
+    <Box display='inline-flex'><Tag variant='danger'>john.doe</Tag></Box>
   </Story>
 </Canvas>
 
@@ -44,7 +44,7 @@ Used for mentions.
 
 <Canvas>
   <Story name='Warning'>
-    <Tag variant='warning'>john.doe</Tag>
+    <Box display='inline-flex'><Tag variant='warning'>john.doe</Tag></Box>
   </Story>
 </Canvas>
 
@@ -52,7 +52,7 @@ Used for mentions.
 
 <Canvas>
   <Story name='Ghost'>
-    <Tag variant='ghost'>john.doe</Tag>
+    <Box display='inline-flex'><Tag variant='ghost'>john.doe</Tag></Box>
   </Story>
 </Canvas>
 
@@ -60,6 +60,6 @@ Used for mentions.
 
 <Canvas>
   <Story name='Disabled'>
-    <Tag disabled>john.doe</Tag>
+    <Box display='inline-flex'><Tag disabled>john.doe</Tag></Box>
   </Story>
 </Canvas>
