@@ -43,10 +43,12 @@
     "@typescript-eslint/parser": "^4.5.0",
     "documentation": "^13.0.2",
     "eslint": "^7.12.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.19.1",
     "jest": "^26.1.0",
     "lint-staged": "^10.0.8",
     "microbundle": "^0.12.2",
+    "prettier": "2.1.2",
     "ts-jest": "^26.1.1",
     "typescript": "^4.0.3"
   },
