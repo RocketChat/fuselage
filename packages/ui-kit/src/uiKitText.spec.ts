@@ -1,27 +1,25 @@
 import { uiKitText, UiKitParserText, BLOCK_CONTEXT } from '.';
 
 class TestParser extends UiKitParserText {
-  plainText = (element: any, context: any, index: any): any =>
-    ({
-      component: 'text',
-      props: {
-        key: index,
-        children: element.text,
-        emoji: element.emoji,
-        block: context === BLOCK_CONTEXT.BLOCK,
-      },
-    })
+  plainText = (element: any, context: any, index: any): any => ({
+    component: 'text',
+    props: {
+      key: index,
+      children: element.text,
+      emoji: element.emoji,
+      block: context === BLOCK_CONTEXT.BLOCK,
+    },
+  });
 
-  mrkdwn = (element: any, context: any, index: any): any =>
-    ({
-      component: 'markdown',
-      props: {
-        key: index,
-        children: element.text,
-        verbatim: Boolean(element.verbatim),
-        block: context === BLOCK_CONTEXT.BLOCK,
-      },
-    })
+  mrkdwn = (element: any, context: any, index: any): any => ({
+    component: 'markdown',
+    props: {
+      key: index,
+      children: element.text,
+      verbatim: Boolean(element.verbatim),
+      block: context === BLOCK_CONTEXT.BLOCK,
+    },
+  });
 }
 
 const parser = new TestParser();
@@ -56,7 +54,8 @@ it('renders mrkdwn', () => {
   const payload = [
     {
       type: 'mrkdwn',
-      text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+      text:
+        'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
     },
   ];
   expect(parse(payload)).toStrictEqual([
@@ -64,7 +63,8 @@ it('renders mrkdwn', () => {
       component: 'markdown',
       props: {
         key: 0,
-        children: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+        children:
+          'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
         verbatim: false,
         block: true,
       },
@@ -81,7 +81,8 @@ it('renders all elements', () => {
     },
     {
       type: 'mrkdwn',
-      text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+      text:
+        'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
     },
   ];
   expect(parse(payload)).toStrictEqual([
@@ -98,7 +99,8 @@ it('renders all elements', () => {
       component: 'markdown',
       props: {
         key: 1,
-        children: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+        children:
+          'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
         verbatim: false,
         block: true,
       },
@@ -121,7 +123,8 @@ it('evaluates conditional block', () => {
         },
         {
           type: 'mrkdwn',
-          text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+          text:
+            'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
         },
       ],
     },
@@ -143,7 +146,8 @@ it('evaluates conditional block', () => {
       component: 'markdown',
       props: {
         key: 1,
-        children: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+        children:
+          'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
         verbatim: false,
         block: true,
       },
