@@ -357,8 +357,8 @@ export const createLogicalPropertiesPlugin = (
       }
 
       case 1: {
-        let i: number;
-        const property = content.slice(0, (i = content.indexOf(':')));
+        const i: number = content.indexOf(':');
+        const property = content.slice(0, i);
         const transform = transforms.get(property);
 
         if (!transform) {
