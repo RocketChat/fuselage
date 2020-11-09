@@ -1,4 +1,11 @@
-import { FunctionComponent, createElement, StrictMode, RefObject, CSSProperties, useState } from 'react';
+import {
+  FunctionComponent,
+  createElement,
+  StrictMode,
+  RefObject,
+  CSSProperties,
+  useState,
+} from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -37,7 +44,7 @@ describe('useResizeObserver hook', () => {
     await act(async () => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -72,7 +79,7 @@ describe('useResizeObserver hook', () => {
     await act(async () => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -115,7 +122,7 @@ describe('useResizeObserver hook', () => {
     await act(async () => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -154,7 +161,9 @@ describe('useResizeObserver hook', () => {
 
     const TestComponent: FunctionComponent = () => {
       let ref: RefObject<Element>;
-      ({ ref, borderBoxSize, contentBoxSize } = useResizeObserver({ debounceDelay }));
+      ({ ref, borderBoxSize, contentBoxSize } = useResizeObserver({
+        debounceDelay,
+      }));
       return createElement('div', { ref, style: initialStyle });
     };
 
@@ -166,7 +175,7 @@ describe('useResizeObserver hook', () => {
     await act(async () => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -186,8 +195,14 @@ describe('useResizeObserver hook', () => {
     const borderBoxSizeB = borderBoxSize;
     const contentBoxSizeB = contentBoxSize;
 
-    expect(borderBoxSizeA).toStrictEqual({ inlineSize: undefined, blockSize: undefined });
-    expect(contentBoxSizeA).toStrictEqual({ inlineSize: undefined, blockSize: undefined });
+    expect(borderBoxSizeA).toStrictEqual({
+      inlineSize: undefined,
+      blockSize: undefined,
+    });
+    expect(contentBoxSizeA).toStrictEqual({
+      inlineSize: undefined,
+      blockSize: undefined,
+    });
     expect(borderBoxSizeB).toStrictEqual(expectedBorderBoxSize);
     expect(contentBoxSizeB).toStrictEqual(expectedContentBoxSize);
   });

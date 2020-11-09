@@ -1,4 +1,9 @@
-import { createElement, useReducer, FunctionComponent, StrictMode } from 'react';
+import {
+  createElement,
+  useReducer,
+  FunctionComponent,
+  StrictMode,
+} from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -14,7 +19,7 @@ describe('useUniqueId hook', () => {
 
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
     expect(uniqueId).toStrictEqual(expect.any(String));
   });
@@ -28,13 +33,13 @@ describe('useUniqueId hook', () => {
 
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
     const uniqueIdA = uniqueId;
 
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
     const uniqueIdB = uniqueId;
 
@@ -52,7 +57,7 @@ describe('useUniqueId hook', () => {
 
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
     const uniqueA = uniqueId;
 
