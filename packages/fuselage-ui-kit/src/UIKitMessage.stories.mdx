@@ -15,411 +15,469 @@ import { UiKitMessage } from '.';
 
 <Canvas>
   <Story name='Section Standard'>
-    {UiKitMessage(object('payload', [{
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: 'I am an item',
-      },
-    }]))}
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'I am an item',
+          },
+        },
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Section Fields'>
-    {UiKitMessage(object('payload', [
-      {
-        type: 'section',
-        fields: [
-          {
-            type: 'plain_text',
-            text: 'field 1',
-            emoji: true,
-          },
-          {
-            type: 'plain_text',
-            text: 'field 2',
-            emoji: true,
-          },
-          {
-            type: 'plain_text',
-            text: 'field 3',
-            emoji: true,
-          },
-          {
-            type: 'plain_text',
-            text: 'field 4',
-            emoji: true,
-          },
-          {
-            type: 'plain_text',
-            text: 'field 5',
-            emoji: true,
-          },
-        ],
-      },
-    ]))}
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'section',
+          fields: [
+            {
+              type: 'plain_text',
+              text: 'field 1',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: 'field 2',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: 'field 3',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: 'field 4',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: 'field 5',
+              emoji: true,
+            },
+          ],
+        },
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Divider'>
-    {UiKitMessage(object('payload', [{
-      type: 'divider',
-    }]))}
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'divider',
+        },
+      ])
+    )}
   </Story>
 </Canvas>
 
-
 <Canvas>
   <Story name='Context Standard'>
-    {UiKitMessage(object('payload', [{
-      type: 'context',
-      elements: [
+    {UiKitMessage(
+      object('payload', [
         {
-          type: 'mrkdwn',
-          text: 'I am an item',
+          type: 'context',
+          elements: [
+            {
+              type: 'mrkdwn',
+              text: 'I am an item',
+            },
+          ],
         },
-      ],
-    }]))}
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Context Standard + icon'>
-    {UiKitMessage(object('payload', [{
-      type: 'context',
-      elements: [{
-        type: 'image',
-        title: {
-          type: 'plain_text',
-          text: 'Example Image',
-          emoji: true,
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'context',
+          elements: [
+            {
+              type: 'image',
+              title: {
+                type: 'plain_text',
+                text: 'Example Image',
+                emoji: true,
+              },
+              imageUrl:
+                'https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png',
+              altText: 'Example Image',
+            },
+            {
+              type: 'mrkdwn',
+              text: 'I am an item',
+            },
+          ],
         },
-        imageUrl: 'https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png',
-        altText: 'Example Image',
-      },
-      {
-        type: 'mrkdwn',
-        text: 'I am an item',
-      },
-      ],
-    }]))}
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Section + image'>
-    {UiKitMessage(object('payload', [{
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: 'Section + Image',
-      },
-      accessory: {
-        type: 'image',
-        imageUrl: 'https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png',
-        altText: 'plants',
-      },
-    }]))}
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'Section + Image',
+          },
+          accessory: {
+            type: 'image',
+            imageUrl:
+              'https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png',
+            altText: 'plants',
+          },
+        },
+      ])
+    )}
   </Story>
 </Canvas>
 
-
 <Canvas>
   <Story name='Section + button'>
-    {UiKitMessage(object('payload', [{
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: 'Section + button',
-      },
-      accessory: {
-        type: 'button',
-        text: {
-          type: 'mrkdwn',
-          text: 'button',
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'Section + button',
+          },
+          accessory: {
+            type: 'button',
+            text: {
+              type: 'mrkdwn',
+              text: 'button',
+            },
+          },
         },
-      },
-    }]))}
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Section + overflow'>
-    {UiKitMessage(object('payload', [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: 'This block has an overflow menu.',
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'This block has an overflow menu.',
+          },
+          accessory: {
+            type: 'overflow',
+            options: [
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Option 1',
+                  emoji: true,
+                },
+                value: 'value-0',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Option 2',
+                  emoji: true,
+                },
+                value: 'value-1',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Option 3',
+                  emoji: true,
+                },
+                value: 'value-2',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Option 4',
+                  emoji: true,
+                },
+                value: 'value-3',
+              },
+            ],
+          },
         },
-        accessory: {
-          type: 'overflow',
-          options: [
-            {
-              text: {
-                type: 'plain_text',
-                text: 'Option 1',
-                emoji: true,
-              },
-              value: 'value-0',
-            },
-            {
-              text: {
-                type: 'plain_text',
-                text: 'Option 2',
-                emoji: true,
-              },
-              value: 'value-1',
-            },
-            {
-              text: {
-                type: 'plain_text',
-                text: 'Option 3',
-                emoji: true,
-              },
-              value: 'value-2',
-            },
-            {
-              text: {
-                type: 'plain_text',
-                text: 'Option 4',
-                emoji: true,
-              },
-              value: 'value-3',
-            },
-          ],
-        },
-      },
-    ]))}
+      ])
+    )}
   </Story>
 </Canvas>
 
-
 <Canvas>
   <Story name='Section + Select'>
-    {UiKitMessage(object('payload', [{
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: 'Section + select',
-      },
-      accessory: {
-        type: 'static_select',
-        options: [
-          {
-            value: 1,
-            text: {
-              type: 'mrkdwn',
-              text: 'button',
-            },
-          }, {
-            value: 2,
-            text: {
-              type: 'mrkdwn',
-              text: 'second button',
-            },
-          }],
-      },
-    }]))}
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'Section + select',
+          },
+          accessory: {
+            type: 'static_select',
+            options: [
+              {
+                value: 1,
+                text: {
+                  type: 'mrkdwn',
+                  text: 'button',
+                },
+              },
+              {
+                value: 2,
+                text: {
+                  type: 'mrkdwn',
+                  text: 'second button',
+                },
+              },
+            ],
+          },
+        },
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Section + Multi Select'>
-    {UiKitMessage(object('payload', [{
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: 'Section + select',
-      },
-      accessory: {
-        type: 'multi_static_select',
-        options: [{
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'section',
           text: {
             type: 'mrkdwn',
-            text: 'button',
+            text: 'Section + select',
           },
-          value: 1,
-        }, {
-          text: {
-            type: 'mrkdwn',
-            text: 'opt 1',
+          accessory: {
+            type: 'multi_static_select',
+            options: [
+              {
+                text: {
+                  type: 'mrkdwn',
+                  text: 'button',
+                },
+                value: 1,
+              },
+              {
+                text: {
+                  type: 'mrkdwn',
+                  text: 'opt 1',
+                },
+                value: 2,
+              },
+              {
+                text: {
+                  type: 'mrkdwn',
+                  text: 'opt 2',
+                },
+                value: 3,
+              },
+              {
+                text: {
+                  type: 'mrkdwn',
+                  text: 'opt 3',
+                },
+                value: 4,
+              },
+            ],
           },
-          value: 2,
-        }, {
-          text: {
-            type: 'mrkdwn',
-            text: 'opt 2',
-          },
-          value: 3,
-        }, {
-          text: {
-            type: 'mrkdwn',
-            text: 'opt 3',
-          },
-          value: 4,
-        }],
-      },
-    }]))}
+        },
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Image'>
-    {UiKitMessage(object('payload', [{
-      type: 'image',
-      title: {
-        type: 'plain_text',
-        text: 'Example Image',
-        emoji: true,
-      },
-      imageUrl: 'https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png',
-      altText: 'Example Image',
-    }]))}
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'image',
+          title: {
+            type: 'plain_text',
+            text: 'Example Image',
+            emoji: true,
+          },
+          imageUrl:
+            'https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png',
+          altText: 'Example Image',
+        },
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Action - Buttons'>
-    {UiKitMessage(object('payload', [{
-      type: 'actions',
-      elements: [
+    {UiKitMessage(
+      object('payload', [
         {
-          type: 'button',
-          text: {
-            type: 'plain_text',
-            emoji: true,
-            text: 'Approve',
-          },
-          style: 'primary',
-          value: 'click_me_123',
+          type: 'actions',
+          elements: [
+            {
+              type: 'button',
+              text: {
+                type: 'plain_text',
+                emoji: true,
+                text: 'Approve',
+              },
+              style: 'primary',
+              value: 'click_me_123',
+            },
+            {
+              type: 'button',
+              text: {
+                type: 'plain_text',
+                emoji: true,
+                text: 'Deny',
+              },
+              style: 'danger',
+              value: 'click_me_123',
+            },
+          ],
         },
-        {
-          type: 'button',
-          text: {
-            type: 'plain_text',
-            emoji: true,
-            text: 'Deny',
-          },
-          style: 'danger',
-          value: 'click_me_123',
-        },
-      ],
-    }]))}
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Fields'>
-    {UiKitMessage(object('payload', [
-      {
-        type: 'section',
-        fields: [
-          {
-            type: 'plain_text',
-            text: '*this is plain_text text*',
-            emoji: true,
-          },
-          {
-            type: 'plain_text',
-            text: '*this is plain_text text*',
-            emoji: true,
-          },
-          {
-            type: 'plain_text',
-            text: '*this is plain_text text*',
-            emoji: true,
-          },
-          {
-            type: 'plain_text',
-            text: '*this is plain_text text*',
-            emoji: true,
-          },
-          {
-            type: 'plain_text',
-            text: '*this is plain_text text*',
-            emoji: true,
-          },
-        ],
-      },
-    ]))}
+    {UiKitMessage(
+      object('payload', [
+        {
+          type: 'section',
+          fields: [
+            {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+          ],
+        },
+      ])
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Action - Select'>
-    {UiKitMessage(object('payload', [{
-      type: 'actions',
-      elements: [
+    {UiKitMessage(
+      object('payload', [
         {
-          type: 'conversations_select',
-          placeholder: {
-            type: 'plain_text',
-            text: 'Select a conversation',
-            emoji: true,
-          },
-        },
-        {
-          type: 'channels_select',
-          placeholder: {
-            type: 'plain_text',
-            text: 'Select a channel',
-            emoji: true,
-          },
-        },
-        {
-          type: 'users_select',
-          placeholder: {
-            type: 'plain_text',
-            text: 'Select a user',
-            emoji: true,
-          },
-        },
-        {
-          type: 'static_select',
-          placeholder: {
-            type: 'plain_text',
-            text: 'Select an item',
-            emoji: true,
-          },
-          options: [
+          type: 'actions',
+          elements: [
             {
-              text: {
+              type: 'conversations_select',
+              placeholder: {
                 type: 'plain_text',
-                text: 'Excellent item 1',
+                text: 'Select a conversation',
                 emoji: true,
               },
-              value: 'value-0',
             },
             {
-              text: {
+              type: 'channels_select',
+              placeholder: {
                 type: 'plain_text',
-                text: 'Fantastic item 2',
+                text: 'Select a channel',
                 emoji: true,
               },
-              value: 'value-1',
             },
             {
-              text: {
+              type: 'users_select',
+              placeholder: {
                 type: 'plain_text',
-                text: 'Nifty item 3',
+                text: 'Select a user',
                 emoji: true,
               },
-              value: 'value-2',
             },
             {
-              text: {
+              type: 'static_select',
+              placeholder: {
                 type: 'plain_text',
-                text: 'Pretty good item 4',
+                text: 'Select an item',
                 emoji: true,
               },
-              value: 'value-3',
+              options: [
+                {
+                  text: {
+                    type: 'plain_text',
+                    text: 'Excellent item 1',
+                    emoji: true,
+                  },
+                  value: 'value-0',
+                },
+                {
+                  text: {
+                    type: 'plain_text',
+                    text: 'Fantastic item 2',
+                    emoji: true,
+                  },
+                  value: 'value-1',
+                },
+                {
+                  text: {
+                    type: 'plain_text',
+                    text: 'Nifty item 3',
+                    emoji: true,
+                  },
+                  value: 'value-2',
+                },
+                {
+                  text: {
+                    type: 'plain_text',
+                    text: 'Pretty good item 4',
+                    emoji: true,
+                  },
+                  value: 'value-3',
+                },
+              ],
             },
           ],
         },
-      ],
-    }]))}
+      ])
+    )}
   </Story>
 </Canvas>
