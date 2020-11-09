@@ -1,6 +1,9 @@
 import Stylis, { Options } from '@emotion/stylis';
 
-import { LogicalPropertiesOptions, createLogicalPropertiesPlugin } from './logicalProperties';
+import {
+  LogicalPropertiesOptions,
+  createLogicalPropertiesPlugin,
+} from './logicalProperties';
 
 type TranspileOptions = LogicalPropertiesOptions & Options;
 
@@ -28,7 +31,7 @@ const getDefaultStylis = (): Stylis => {
 export const transpile = (
   selector: string,
   content: string,
-  options?: TranspileOptions,
+  options?: TranspileOptions
 ): string => {
   const stylis: Stylis = options ? createStylis(options) : getDefaultStylis();
   return stylis(selector, content);
