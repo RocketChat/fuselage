@@ -11,10 +11,12 @@ const getIconDescriptors = async (srcPath) => {
 
   const paths = await promisify(glob)(path.join(srcPath, '**/*.svg'));
 
-  const descriptors = (await Promise.all(
-    paths
-      .map(async (_path) => {
-        const [, name,, type] = /^(.*?)(\.([a-z]+))?$/.exec(path.basename(_path, '.svg'));
+  const descriptors = (
+    await Promise.all(
+      paths.map(async (_path) => {
+        const [, name, , type] = /^(.*?)(\.([a-z]+))?$/.exec(
+          path.basename(_path, '.svg')
+        );
         _path = await fixBrokenSymlink(_path, srcPath);
 
         return {
@@ -22,12 +24,13 @@ const getIconDescriptors = async (srcPath) => {
           type,
           path: _path,
         };
-      }),
-  ))
-    .sort((a, b) =>
-      path.dirname(a.path).localeCompare(path.dirname(b.path))
-    || a.name.localeCompare(b.name),
-    );
+      })
+    )
+  ).sort(
+    (a, b) =>
+      path.dirname(a.path).localeCompare(path.dirname(b.path)) ||
+      a.name.localeCompare(b.name)
+  );
 
   step.resolve();
 

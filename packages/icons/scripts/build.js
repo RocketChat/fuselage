@@ -32,12 +32,22 @@ const prepareDirectories = async () => {
 const buildFont = async (icons, distPath) => {
   icons = icons.filter(({ type }) => type !== 'other');
 
-  const svgBuffer = await writeFile(distPath, 'font/rocketchat.svg', () => createSvgBuffer(icons));
-  const ttfBuffer = await writeFile(distPath, 'font/rocketchat.ttf', () => createTtfBuffer(svgBuffer));
+  const svgBuffer = await writeFile(distPath, 'font/rocketchat.svg', () =>
+    createSvgBuffer(icons)
+  );
+  const ttfBuffer = await writeFile(distPath, 'font/rocketchat.ttf', () =>
+    createTtfBuffer(svgBuffer)
+  );
   await Promise.all([
-    writeFile(distPath, 'font/rocketchat.woff', () => createWoffBuffer(ttfBuffer)),
-    writeFile(distPath, 'font/rocketchat.woff2', () => createWoff2Buffer(ttfBuffer)),
-    writeFile(distPath, 'font/rocketchat.eot', () => createEotBuffer(ttfBuffer)),
+    writeFile(distPath, 'font/rocketchat.woff', () =>
+      createWoffBuffer(ttfBuffer)
+    ),
+    writeFile(distPath, 'font/rocketchat.woff2', () =>
+      createWoff2Buffer(ttfBuffer)
+    ),
+    writeFile(distPath, 'font/rocketchat.eot', () =>
+      createEotBuffer(ttfBuffer)
+    ),
   ]);
 
   await writeFile(__dirname, '../glyphsMapping.json', () => glyphsMapping);
@@ -46,7 +56,9 @@ const buildFont = async (icons, distPath) => {
 const buildSvgImages = async (icons, distPath) => {
   const svgIcons = await createSvgIcons(icons);
   await Promise.all([
-    ...svgIcons.map(({ name, xml }) => writeFile(distPath, path.join('svg', `${ name }.svg`), () => xml)),
+    ...svgIcons.map(({ name, xml }) =>
+      writeFile(distPath, path.join('svg', `${name}.svg`), () => xml)
+    ),
     writeFile(distPath, 'icons.svg', () => createSvgSprite(svgIcons)),
   ]);
 };
@@ -56,25 +68,30 @@ const buildScripts = async (icons, distPath) => {
     writeFile(distPath, path.basename(pkg.main), () => {
       const characters = icons
         .filter(({ name }) => !!glyphsMapping[name])
-        .reduce((obj, { name }) => ({ ...obj, [name]: glyphsMapping[name].start }), {});
-      return `module.exports = ${ encodeEscapedJson(characters) };\n`;
+        .reduce(
+          (obj, { name }) => ({ ...obj, [name]: glyphsMapping[name].start }),
+          {}
+        );
+      return `module.exports = ${encodeEscapedJson(characters)};\n`;
     }),
-    writeFile(distPath, 'rocketchat.css', () => [
-      '@font-face {',
-      '  font-family: "RocketChat";',
-      '  font-style: normal;',
-      '  font-weight: 400;',
-      '  font-display: auto;',
-      '',
-      '  src: url("./font/rocketchat.eot");',
-      '  src:',
-      '    url("./font/rocketchat.eot?#iefix") format("embedded-opentype"),',
-      '    url("./font/rocketchat.woff2") format("woff2"),',
-      '    url("./font/rocketchat.woff") format("woff"),',
-      '    url("./font/rocketchat.ttf") format("truetype"),',
-      '    url("./font/rocketchat.svg#RocketChat") format("svg");',
-      '}',
-    ].join('\n')),
+    writeFile(distPath, 'rocketchat.css', () =>
+      [
+        '@font-face {',
+        '  font-family: "RocketChat";',
+        '  font-style: normal;',
+        '  font-weight: 400;',
+        '  font-display: auto;',
+        '',
+        '  src: url("./font/rocketchat.eot");',
+        '  src:',
+        '    url("./font/rocketchat.eot?#iefix") format("embedded-opentype"),',
+        '    url("./font/rocketchat.woff2") format("woff2"),',
+        '    url("./font/rocketchat.woff") format("woff"),',
+        '    url("./font/rocketchat.ttf") format("truetype"),',
+        '    url("./font/rocketchat.svg#RocketChat") format("svg");',
+        '}',
+      ].join('\n')
+    ),
   ]);
 };
 
