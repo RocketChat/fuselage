@@ -6,6 +6,8 @@ $avatar-stack-background-color: theme('avatar-background-color', colors.surface(
 .rcx-avatar {
   display: inline-flex;
 
+  vertical-align: middle;
+
   &__element {
     position: relative;
 
