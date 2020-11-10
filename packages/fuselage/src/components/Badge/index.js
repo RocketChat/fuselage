@@ -12,12 +12,12 @@ export function Badge({
 }) {
   return (
     <Tag
-      className={
-        prependClassName(
-          className,
-          `rcx-box rcx-box--full rcx-badge ${ disabled ? 'rcx-badge--disabled' : '' } rcx-badge--${ variant }`,
-        )
-      }
+      className={prependClassName(
+        className,
+        `rcx-box rcx-box--full rcx-badge ${
+          disabled ? 'rcx-badge--disabled' : ''
+        } rcx-badge--${variant}`
+      )}
       {...props}
     />
   );
