@@ -4,17 +4,19 @@ import React from 'react';
 import { Box } from '../Box';
 
 export function Grid({ xs, sm, md, lg, xl, ...props }) {
-  return <Box rcx-grid__wrapper>
-    <Box
-      rcx-grid
-      rcx-grid--xs={xs}
-      rcx-grid--sm={sm}
-      rcx-grid--md={md}
-      rcx-grid--lg={lg}
-      rcx-grid--xl={xl}
-      {...props}
-    />
-  </Box>;
+  return (
+    <Box rcx-grid__wrapper>
+      <Box
+        rcx-grid
+        rcx-grid--xs={xs}
+        rcx-grid--sm={sm}
+        rcx-grid--md={md}
+        rcx-grid--lg={lg}
+        rcx-grid--xl={xl}
+        {...props}
+      />
+    </Box>
+  );
 }
 
 Grid.propTypes = {
@@ -26,15 +28,17 @@ Grid.propTypes = {
 };
 
 export function GridItem({ xs, sm, md, lg, xl, ...props }) {
-  return <Box
-    rcx-grid__item
-    rcx-grid__item--xs={xs}
-    rcx-grid__item--sm={sm}
-    rcx-grid__item--md={md}
-    rcx-grid__item--lg={lg}
-    rcx-grid__item--xl={xl}
-    {...props}
-  />;
+  return (
+    <Box
+      rcx-grid__item
+      rcx-grid__item--xs={xs}
+      rcx-grid__item--sm={sm}
+      rcx-grid__item--md={md}
+      rcx-grid__item--lg={lg}
+      rcx-grid__item--xl={xl}
+      {...props}
+    />
+  );
 }
 
 GridItem.propTypes = {

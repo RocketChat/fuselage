@@ -6,16 +6,25 @@ import { appendClassName } from '../../../helpers/appendClassName';
 import { useStyle } from '../../../hooks/useStyle';
 import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
-function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVisibility.HIDDEN }) {
+function AnimatedVisibility({
+  children,
+  visibility: propVisibility = AnimatedVisibility.HIDDEN,
+}) {
   const [visibility, setVisibility] = useState(propVisibility);
 
   useEffect(() => {
     setVisibility((visibility) => {
-      if (propVisibility === AnimatedVisibility.VISIBLE && visibility !== propVisibility) {
+      if (
+        propVisibility === AnimatedVisibility.VISIBLE &&
+        visibility !== propVisibility
+      ) {
         return AnimatedVisibility.UNHIDING;
       }
 
-      if (propVisibility === AnimatedVisibility.HIDDEN && visibility !== propVisibility) {
+      if (
+        propVisibility === AnimatedVisibility.HIDDEN &&
+        visibility !== propVisibility
+      ) {
         return AnimatedVisibility.HIDING;
       }
 
@@ -26,8 +35,9 @@ function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVis
   const className = useStyle(css`
     animation-duration: 230ms;
 
-    ${ visibility === AnimatedVisibility.HIDING && css`
-      animation-name: ${ keyframes`
+    ${visibility === AnimatedVisibility.HIDING &&
+    css`
+      animation-name: ${keyframes`
         from {
           transform: translate3d(0, 0, 0);
           opacity: 1;
@@ -37,11 +47,12 @@ function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVis
           transform: translate3d(0, 1rem, 0);
           opacity: 0;
         }
-      ` };
-    ` }
+      `};
+    `}
 
-    ${ visibility === AnimatedVisibility.UNHIDING && css`
-      animation-name: ${ keyframes`
+    ${visibility === AnimatedVisibility.UNHIDING &&
+    css`
+      animation-name: ${keyframes`
         from {
           transform: translate3d(0, 1rem, 0);
           opacity: 0;
@@ -51,29 +62,36 @@ function AnimatedVisibility({ children, visibility: propVisibility = AnimatedVis
           transform: translate3d(0, 0, 0);
           opacity: 1;
         }
-      ` };
-    ` }
+      `};
+    `}
   `);
 
-  const handleAnimationEnd = useCallback(() => setVisibility((visibility) => {
-    if (visibility === AnimatedVisibility.HIDING) {
-      return AnimatedVisibility.HIDDEN;
-    }
+  const handleAnimationEnd = useCallback(
+    () =>
+      setVisibility((visibility) => {
+        if (visibility === AnimatedVisibility.HIDING) {
+          return AnimatedVisibility.HIDDEN;
+        }
 
-    if (visibility === AnimatedVisibility.UNHIDING) {
-      return AnimatedVisibility.VISIBLE;
-    }
+        if (visibility === AnimatedVisibility.UNHIDING) {
+          return AnimatedVisibility.VISIBLE;
+        }
 
-    return visibility;
-  }), []);
+        return visibility;
+      }),
+    []
+  );
 
-  const transformFn = useCallback((props) => {
-    if (props.onAnimationEnd === undefined) {
-      props.onAnimationEnd = handleAnimationEnd;
-    }
-    props.className = appendClassName(props.className, className);
-    return props;
-  }, [className, handleAnimationEnd]);
+  const transformFn = useCallback(
+    (props) => {
+      if (props.onAnimationEnd === undefined) {
+        props.onAnimationEnd = handleAnimationEnd;
+      }
+      props.className = appendClassName(props.className, className);
+      return props;
+    },
+    [className, handleAnimationEnd]
+  );
 
   const composedFn = useComposedBoxTransform(transformFn);
   if (visibility === AnimatedVisibility.HIDDEN) {

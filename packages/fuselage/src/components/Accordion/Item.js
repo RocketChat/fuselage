@@ -67,9 +67,9 @@ export function Item({
   const collapsibleProps = {
     'aria-controls': panelId,
     'aria-expanded': expanded ? 'true' : 'false',
-    tabIndex: !disabled ? tabIndex : undefined,
-    onClick: handleClick,
-    onKeyDown: handleKeyDown,
+    'tabIndex': !disabled ? tabIndex : undefined,
+    'onClick': handleClick,
+    'onKeyDown': handleKeyDown,
   };
 
   const nonCollapsibleProps = {
@@ -80,21 +80,43 @@ export function Item({
 
   const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
 
-  return <Box is='section' rcx-accordion-item className={className} {...props}>
-    {title && <Box rcx-accordion-item__bar rcx-accordion-item__bar--disabled={disabled} {...barProps}>
-      <Box is='h1' rcx-accordion-item__title id={titleId}>{title}</Box>
-      {!noncollapsible && <>
-        {(disabled || onToggleEnabled)
-          && <Box rcx-accordion-item__toggle-switch>
-            <ToggleSwitch checked={!disabled} onClick={handleToggleClick} onChange={onToggleEnabled} />
-          </Box>}
-        <Chevron size='x24' up={expanded} />
-      </>}
-    </Box>}
-    <Box rcx-accordion-item__panel rcx-accordion-item__panel--expanded={panelExpanded} id={panelId} role='region'>
-      {children}
+  return (
+    <Box is='section' rcx-accordion-item className={className} {...props}>
+      {title && (
+        <Box
+          rcx-accordion-item__bar
+          rcx-accordion-item__bar--disabled={disabled}
+          {...barProps}
+        >
+          <Box is='h1' rcx-accordion-item__title id={titleId}>
+            {title}
+          </Box>
+          {!noncollapsible && (
+            <>
+              {(disabled || onToggleEnabled) && (
+                <Box rcx-accordion-item__toggle-switch>
+                  <ToggleSwitch
+                    checked={!disabled}
+                    onClick={handleToggleClick}
+                    onChange={onToggleEnabled}
+                  />
+                </Box>
+              )}
+              <Chevron size='x24' up={expanded} />
+            </>
+          )}
+        </Box>
+      )}
+      <Box
+        rcx-accordion-item__panel
+        rcx-accordion-item__panel--expanded={panelExpanded}
+        id={panelId}
+        role='region'
+      >
+        {children}
+      </Box>
     </Box>
-  </Box>;
+  );
 }
 
 Item.propTypes = {
