@@ -14,9 +14,7 @@ it('returns empty array for undefined media query', () => {
     return null;
   };
 
-  renderToString(
-    createElement(StrictMode, {}, createElement(TestComponent)),
-  );
+  renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
   expect(matches).toStrictEqual([]);
 });
@@ -28,9 +26,7 @@ it('returns false for defined media query', () => {
     return null;
   };
 
-  renderToString(
-    createElement(StrictMode, {}, createElement(TestComponent)),
-  );
+  renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
   expect(matches).toStrictEqual([false]);
 });

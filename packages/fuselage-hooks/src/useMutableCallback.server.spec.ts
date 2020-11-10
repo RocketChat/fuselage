@@ -18,9 +18,7 @@ describe('useMutableCallback hook on server', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     stableCallback();
 
