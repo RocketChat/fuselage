@@ -697,5 +697,8 @@
   },
   "burguer": {
     "start": "\ue0b9"
+  },
+  "burger": {
+    "start": "\ue0ba"
   }
 }
