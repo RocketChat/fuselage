@@ -7,8 +7,11 @@ const glob = require('glob');
 
 const { logStep } = require('./log');
 
-const encodeEscapedJson = (data) => JSON.stringify(data, null, 2)
-  .replace(/[\u007f-\uffff]/g, (c) => `\\u${ `0000${ c.charCodeAt(0).toString(16) }`.slice(-4) }`);
+const encodeEscapedJson = (data) =>
+  JSON.stringify(data, null, 2).replace(
+    /[\u007f-\uffff]/g,
+    (c) => `\\u${`0000${c.charCodeAt(0).toString(16)}`.slice(-4)}`
+  );
 
 const writeFile = async (distPath, filePath, getData) => {
   const step = logStep('Write', filePath);
@@ -19,8 +22,13 @@ const writeFile = async (distPath, filePath, getData) => {
 
   const data = await getData();
 
-  if (Object(data) === data && Object.getPrototypeOf(data) === Object.prototype) {
-    await fs.promises.writeFile(destPath, encodeEscapedJson(data), { encoding: 'utf8' });
+  if (
+    Object(data) === data &&
+    Object.getPrototypeOf(data) === Object.prototype
+  ) {
+    await fs.promises.writeFile(destPath, encodeEscapedJson(data), {
+      encoding: 'utf8',
+    });
   } else if (typeof data === 'string') {
     await fs.promises.writeFile(destPath, data, { encoding: 'utf8' });
   } else {
@@ -41,10 +49,12 @@ const fixBrokenSymlink = async (_path, rootPath) => {
 
   const target = await fs.promises.readlink(_path);
   const targetBasename = path.basename(target);
-  const newTargetPath = (await promisify(glob)(path.join(rootPath, '**', targetBasename)))[0];
+  const newTargetPath = (
+    await promisify(glob)(path.join(rootPath, '**', targetBasename))
+  )[0];
 
   if (!newTargetPath) {
-    throw Error(`Broken symlink: ${ _path } -> ${ target }`);
+    throw Error(`Broken symlink: ${_path} -> ${target}`);
   }
 
   const relativeTargetPath = path.relative(path.dirname(_path), newTargetPath);

@@ -1,36 +1,33 @@
 import { uiKitMessage, UiKitParserMessage, BLOCK_CONTEXT } from '.';
 
 class TestParser extends UiKitParserMessage {
-  plainText = (element: any, context: any, index: any): any =>
-    ({
-      component: 'text',
-      props: {
-        key: index,
-        children: element.text,
-        emoji: element.emoji,
-        block: context === BLOCK_CONTEXT.BLOCK,
-      },
-    })
+  plainText = (element: any, context: any, index: any): any => ({
+    component: 'text',
+    props: {
+      key: index,
+      children: element.text,
+      emoji: element.emoji,
+      block: context === BLOCK_CONTEXT.BLOCK,
+    },
+  });
 
-  mrkdwn = (element: any, context: any, index: any): any =>
-    ({
-      component: 'markdown',
-      props: {
-        key: index,
-        children: element.text,
-        verbatim: Boolean(element.verbatim),
-        block: context === BLOCK_CONTEXT.BLOCK,
-      },
-    })
+  mrkdwn = (element: any, context: any, index: any): any => ({
+    component: 'markdown',
+    props: {
+      key: index,
+      children: element.text,
+      verbatim: Boolean(element.verbatim),
+      block: context === BLOCK_CONTEXT.BLOCK,
+    },
+  });
 
-  divider = (_element: any, context: any, index: any): any =>
-    ({
-      component: 'divider',
-      props: {
-        key: index,
-        block: context === BLOCK_CONTEXT.BLOCK,
-      },
-    })
+  divider = (_element: any, context: any, index: any): any => ({
+    component: 'divider',
+    props: {
+      key: index,
+      block: context === BLOCK_CONTEXT.BLOCK,
+    },
+  });
 
   section = (element: any, context: any, index: any): any => {
     let key = 0;
@@ -39,45 +36,63 @@ class TestParser extends UiKitParserMessage {
       props: {
         key: index,
         children: [
-          ...element.text ? [this.text(element.text, BLOCK_CONTEXT.SECTION, key++)] : [],
-          ...element.fields?.map((field: any) => this.text(field, BLOCK_CONTEXT.SECTION, key++)) ?? [],
-          ...element.accessory ? [this.renderAccessories(element.accessory, BLOCK_CONTEXT.SECTION, undefined, key++)] : [],
+          ...(element.text
+            ? [this.text(element.text, BLOCK_CONTEXT.SECTION, key++)]
+            : []),
+          ...(element.fields?.map((field: any) =>
+            this.text(field, BLOCK_CONTEXT.SECTION, key++)
+          ) ?? []),
+          ...(element.accessory
+            ? [
+                this.renderAccessories(
+                  element.accessory,
+                  BLOCK_CONTEXT.SECTION,
+                  undefined,
+                  key++
+                ),
+              ]
+            : []),
         ],
         block: context === BLOCK_CONTEXT.BLOCK,
       },
     };
-  }
+  };
 
   actions = (element: any, context: any, index: any): any => ({
     component: 'actions',
     props: {
       key: index,
-      children: element.elements.map((element: any, key: number) => this.renderActions(element, BLOCK_CONTEXT.ACTION, undefined, key)),
+      children: element.elements.map((element: any, key: number) =>
+        this.renderActions(element, BLOCK_CONTEXT.ACTION, undefined, key)
+      ),
       block: context === BLOCK_CONTEXT.BLOCK,
     },
-  })
+  });
 
   context = (element: any, context: any, index: any): any => ({
     component: 'context',
     props: {
       key: index,
-      children: element.elements.map((element: any, key: number) => this.renderContext(element, BLOCK_CONTEXT.CONTEXT, undefined, key)),
+      children: element.elements.map((element: any, key: number) =>
+        this.renderContext(element, BLOCK_CONTEXT.CONTEXT, undefined, key)
+      ),
       block: context === BLOCK_CONTEXT.BLOCK,
     },
-  })
+  });
 
-  button = (element: any, context: any, index: any): any =>
-    ({
-      component: 'button',
-      props: {
-        key: index,
-        children: element.text ? [this.text(element.text, BLOCK_CONTEXT.SECTION, 0)] : [],
-        ...element.url && { href: element.url },
-        ...element.value && { value: element.value },
-        variant: element.style ?? 'normal',
-        block: context === BLOCK_CONTEXT.BLOCK,
-      },
-    })
+  button = (element: any, context: any, index: any): any => ({
+    component: 'button',
+    props: {
+      key: index,
+      children: element.text
+        ? [this.text(element.text, BLOCK_CONTEXT.SECTION, 0)]
+        : [],
+      ...(element.url && { href: element.url }),
+      ...(element.value && { value: element.value }),
+      variant: element.style ?? 'normal',
+      block: context === BLOCK_CONTEXT.BLOCK,
+    },
+  });
 
   image = (element: any, context: any, index: any): any => {
     if (context === BLOCK_CONTEXT.BLOCK) {
@@ -96,9 +111,9 @@ class TestParser extends UiKitParserMessage {
                 block: false,
               },
             },
-            ...element.title ? [
-              this.plainText(element.title, -1, key++),
-            ] : [],
+            ...(element.title
+              ? [this.plainText(element.title, -1, key++)]
+              : []),
           ],
           block: true,
         },
@@ -114,83 +129,97 @@ class TestParser extends UiKitParserMessage {
         block: false,
       },
     };
-  }
+  };
 
-  overflow = (element: any, _context: any, index: any): any =>
-    ({
-      component: 'menu',
-      props: {
-        key: index,
-        children: element.options.map((option: any, key: any) => ({
-          component: 'menu-item',
-          props: {
-            key,
-            children: [
-              this.text(option.text, -1, 0),
-              ...option.description ? [this.plainText(option.description, -1, 1)] : [],
-            ],
-            value: option.value,
-            ...option.url && { url: option.url },
-          },
-        })),
-      },
-    })
-
-  datePicker = (element: any, _context: any, index: any): any =>
-    ({
-      component: 'input',
-      props: {
-        key: index,
-        type: 'date',
-        ...element.placeholder && { placeholder: this.text(element.placeholder, -1, 0) },
-        ...element.initialDate && { defaultValue: element.initialDate },
-      },
-    })
-
-  staticSelect = (element: any, _context: any, index: any): any =>
-    ({
-      component: 'select',
-      props: {
-        key: index,
-        ...element.placeholder && { placeholder: this.text(element.placeholder, -1, 0) },
-        children: element.options.map((option: any, key: any) => ({
-          component: 'option',
-          props: {
-            key,
-            children: this.text(option.text, -1, 0),
-            value: option.value,
-            ...option.description && { description: this.text(option.description, -1, 0) },
-          },
-        })),
-        ...element.initialOption && {
-          defaultValue: element.options.find((option: any) => option.value === element.initialOption.value)?.value,
+  overflow = (element: any, _context: any, index: any): any => ({
+    component: 'menu',
+    props: {
+      key: index,
+      children: element.options.map((option: any, key: any) => ({
+        component: 'menu-item',
+        props: {
+          key,
+          children: [
+            this.text(option.text, -1, 0),
+            ...(option.description
+              ? [this.plainText(option.description, -1, 1)]
+              : []),
+          ],
+          value: option.value,
+          ...(option.url && { url: option.url }),
         },
-      },
-    })
+      })),
+    },
+  });
 
-  multiStaticSelect = (element: any, _context: any, index: any): any =>
-    ({
-      component: 'select',
-      props: {
-        key: index,
-        ...element.placeholder && { placeholder: this.text(element.placeholder, -1, 0) },
-        multiple: true,
-        children: element.options.map((option: any, key: any) => ({
-          component: 'option',
-          props: {
-            key,
-            children: this.text(option.text, -1, 0),
-            value: option.value,
-            ...option.description && { description: this.text(option.description, -1, 0) },
-          },
-        })),
-        ...element.initialOptions && {
-          defaultValue: element.options
-            .filter((option: any) => element.initialOptions.some((initialOption: any) => option.value === initialOption.value))
-            .map((option: any) => option.value),
+  datePicker = (element: any, _context: any, index: any): any => ({
+    component: 'input',
+    props: {
+      key: index,
+      type: 'date',
+      ...(element.placeholder && {
+        placeholder: this.text(element.placeholder, -1, 0),
+      }),
+      ...(element.initialDate && { defaultValue: element.initialDate }),
+    },
+  });
+
+  staticSelect = (element: any, _context: any, index: any): any => ({
+    component: 'select',
+    props: {
+      key: index,
+      ...(element.placeholder && {
+        placeholder: this.text(element.placeholder, -1, 0),
+      }),
+      children: element.options.map((option: any, key: any) => ({
+        component: 'option',
+        props: {
+          key,
+          children: this.text(option.text, -1, 0),
+          value: option.value,
+          ...(option.description && {
+            description: this.text(option.description, -1, 0),
+          }),
         },
-      },
-    })
+      })),
+      ...(element.initialOption && {
+        defaultValue: element.options.find(
+          (option: any) => option.value === element.initialOption.value
+        )?.value,
+      }),
+    },
+  });
+
+  multiStaticSelect = (element: any, _context: any, index: any): any => ({
+    component: 'select',
+    props: {
+      key: index,
+      ...(element.placeholder && {
+        placeholder: this.text(element.placeholder, -1, 0),
+      }),
+      multiple: true,
+      children: element.options.map((option: any, key: any) => ({
+        component: 'option',
+        props: {
+          key,
+          children: this.text(option.text, -1, 0),
+          value: option.value,
+          ...(option.description && {
+            description: this.text(option.description, -1, 0),
+          }),
+        },
+      })),
+      ...(element.initialOptions && {
+        defaultValue: element.options
+          .filter((option: any) =>
+            element.initialOptions.some(
+              (initialOption: any) => option.value === initialOption.value
+            )
+          )
+          .map((option: any) => option.value),
+      }),
+    },
+  });
 }
 
 const parser = new TestParser();
@@ -259,7 +288,8 @@ describe('section', () => {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+          text:
+            'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
         },
       },
     ];
@@ -273,7 +303,8 @@ describe('section', () => {
               component: 'markdown',
               props: {
                 key: 0,
-                children: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+                children:
+                  'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
                 verbatim: false,
                 block: false,
               },
@@ -447,7 +478,8 @@ describe('section', () => {
         },
         accessory: {
           type: 'image',
-          imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+          imageUrl:
+            'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
           altText: 'cute cat',
         },
       },
@@ -472,7 +504,8 @@ describe('section', () => {
               component: 'image',
               props: {
                 key: 1,
-                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src:
+                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },
@@ -726,7 +759,8 @@ describe('image', () => {
           text: 'I Need a Marg',
           emoji: true,
         },
-        imageUrl: 'https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg',
+        imageUrl:
+          'https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg',
         altText: 'marg',
       },
     ];
@@ -740,7 +774,8 @@ describe('image', () => {
               component: 'image',
               props: {
                 key: 0,
-                src: 'https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg',
+                src:
+                  'https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg',
                 alt: 'marg',
                 block: false,
               },
@@ -765,7 +800,8 @@ describe('image', () => {
     const payload = [
       {
         type: 'image',
-        imageUrl: 'https://i1.wp.com/thetempest.co/wp-content/uploads/2017/08/The-wise-words-of-Michael-Scott-Imgur-2.jpg?w=1024&ssl=1',
+        imageUrl:
+          'https://i1.wp.com/thetempest.co/wp-content/uploads/2017/08/The-wise-words-of-Michael-Scott-Imgur-2.jpg?w=1024&ssl=1',
         altText: 'inspiration',
       },
     ];
@@ -779,7 +815,8 @@ describe('image', () => {
               component: 'image',
               props: {
                 key: 0,
-                src: 'https://i1.wp.com/thetempest.co/wp-content/uploads/2017/08/The-wise-words-of-Michael-Scott-Imgur-2.jpg?w=1024&ssl=1',
+                src:
+                  'https://i1.wp.com/thetempest.co/wp-content/uploads/2017/08/The-wise-words-of-Michael-Scott-Imgur-2.jpg?w=1024&ssl=1',
                 alt: 'inspiration',
                 block: false,
               },
@@ -953,9 +990,7 @@ describe('actions', () => {
               emoji: true,
             },
             filter: {
-              include: [
-                'private',
-              ],
+              include: ['private'],
             },
           },
         ],
@@ -966,9 +1001,7 @@ describe('actions', () => {
         component: 'actions',
         props: {
           key: 0,
-          children: [
-            null,
-          ],
+          children: [null],
           block: true,
         },
       },
@@ -1015,11 +1048,7 @@ describe('actions', () => {
         component: 'actions',
         props: {
           key: 0,
-          children: [
-            null,
-            null,
-            null,
-          ],
+          children: [null, null, null],
           block: true,
         },
       },
@@ -1193,7 +1222,8 @@ describe('context', () => {
         elements: [
           {
             type: 'image',
-            imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+            imageUrl:
+              'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
             altText: 'cute cat',
           },
           {
@@ -1213,7 +1243,8 @@ describe('context', () => {
               component: 'image',
               props: {
                 key: 0,
-                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src:
+                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },
@@ -1245,17 +1276,20 @@ describe('context', () => {
           },
           {
             type: 'image',
-            imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+            imageUrl:
+              'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
             altText: 'cute cat',
           },
           {
             type: 'image',
-            imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+            imageUrl:
+              'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
             altText: 'cute cat',
           },
           {
             type: 'image',
-            imageUrl: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+            imageUrl:
+              'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
             altText: 'cute cat',
           },
           {
@@ -1285,7 +1319,8 @@ describe('context', () => {
               component: 'image',
               props: {
                 key: 1,
-                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src:
+                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },
@@ -1294,7 +1329,8 @@ describe('context', () => {
               component: 'image',
               props: {
                 key: 2,
-                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src:
+                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },
@@ -1303,7 +1339,8 @@ describe('context', () => {
               component: 'image',
               props: {
                 key: 3,
-                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src:
+                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },

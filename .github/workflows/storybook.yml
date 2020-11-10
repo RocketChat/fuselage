@@ -1,0 +1,103 @@
+name: Storybook
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+  pull_request:
+
+jobs:
+  fuselage:
+    name: Build Storybook from @rocket.chat/fuselage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn --check-files
+      - run: yarn jest --max-workers 1 --json --outputFile .storybook/jest-results.json
+        working-directory: packages/fuselage
+      - run: yarn build-storybook -o ../../static
+        working-directory: packages/fuselage
+        env:
+          NODE_ENV: production
+      - uses: actions/upload-artifact@v2
+        with:
+          name: fuselage
+          path: static
+
+  fuselage-ui-kit:
+    name: Build Storybook from @rocket.chat/fuselage-ui-kit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn --check-files
+      - run: yarn build-storybook -o ../../static
+        working-directory: packages/fuselage-ui-kit
+        env:
+          NODE_ENV: production
+      - uses: actions/upload-artifact@v2
+        with:
+          name: fuselage-ui-kit
+          path: static
+
+  publish:
+    name: Publish to GitHub Pages
+    runs-on: ubuntu-latest
+    needs:
+      - fuselage
+      - fuselage-ui-kit
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - id: directory
+        name: Prepare directory
+        run: |
+          if [ -z "${{ github.event.number }}" ]
+          then
+            dir="${{ github.event.number }}"
+          else
+            dir=$(echo '${{ github.ref }}' | cut -d/ -f3)
+          fi
+          echo "::set-output name=directory::$dir"
+          rm -rf "fuselage/$dir" "fuselage-ui-kit/$dir"
+          mkdir -p fuselage fuselage-ui-kit
+      - uses: actions/download-artifact@v2
+        with:
+          name: fuselage
+          path: fuselage/${{ steps.directory.outputs.directory }}
+      - uses: actions/download-artifact@v2
+        with:
+          name: fuselage-ui-kit
+          path: fuselage-ui-kit/${{ steps.directory.outputs.directory }}
+      - run: |
+          cat > index.html <<EOF
+          <!DOCTYPE html>
+          <meta charset="utf-8">
+          <title>Redirecting to fuselage/master/</title>
+          <meta http-equiv="refresh" content="0; URL=fuselage/master/">
+          <link rel="canonical" href="fuselage/master/">
+          EOF
+      - uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: .
+          commit_message: 'Deploy to Github Pages [skip ci]'
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

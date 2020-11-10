@@ -1,32 +1,25 @@
-import {
-  Box,
-} from '@rocket.chat/fuselage';
-import {
-  BLOCK_CONTEXT,
-} from '@rocket.chat/ui-kit';
-import React, {
-  useState,
-  useEffect,
-} from 'react';
+import { Box } from '@rocket.chat/fuselage';
+import { BLOCK_CONTEXT } from '@rocket.chat/ui-kit';
+import React, { useState, useEffect } from 'react';
 
 import { Block } from './Block';
-
 
 const ThumbContext = (args) => <Thumb size={20} {...args} />;
 
 const Thumb = ({ element, size = 88 }) => (
-  <Box is='div'
+  <Box
+    is='div'
     style={{
       boxShadow: '0 0 0px 1px #cccccc61',
       borderRadius: '4px',
       marginLeft: '4px',
       overflow: 'hidden',
-      width: `${ size }px`,
-      height: `${ size }px`,
+      width: `${size}px`,
+      height: `${size}px`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: '50%',
       backgroundSize: 'cover',
-      backgroundImage: `url(${ element.imageUrl })`,
+      backgroundImage: `url(${element.imageUrl})`,
     }}
   />
 );
@@ -72,12 +65,12 @@ export const Media = ({ element }) => {
       style={{
         overflow: 'hidden',
         boxShadow: '0 0 0px 1px #cccccc61',
-        width: `${ width }px`,
-        height: `${ height }px`,
+        width: `${width}px`,
+        height: `${height}px`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50%',
         backgroundSize: 'cover',
-        backgroundImage: `url(${ element.imageUrl })`,
+        backgroundImage: `url(${element.imageUrl})`,
       }}
     />
   );
@@ -88,10 +81,24 @@ const genericImage = (element, context) => {
     case BLOCK_CONTEXT.SECTION:
       return <Thumb element={element} />;
     case BLOCK_CONTEXT.CONTEXT:
-      return <ThumbContext element={element}/>;
+      return <ThumbContext element={element} />;
   }
 };
 
-export const ModalImage = ({ element, context }) => genericImage(element, context) || <Block><Box display='flex' justifyContent='center'><Media element={element}/></Box></Block>;
+export const ModalImage = ({ element, context }) =>
+  genericImage(element, context) || (
+    <Block>
+      <Box display='flex' justifyContent='center'>
+        <Media element={element} />
+      </Box>
+    </Block>
+  );
 
-export const MessageImage = ({ element, context }) => genericImage(element, context) || <Block><Box display='flex' justifyContent='start'><Media element={element}/></Box></Block>;
+export const MessageImage = ({ element, context }) =>
+  genericImage(element, context) || (
+    <Block>
+      <Box display='flex' justifyContent='start'>
+        <Media element={element} />
+      </Box>
+    </Block>
+  );

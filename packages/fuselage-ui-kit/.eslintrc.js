@@ -1,8 +1,9 @@
 module.exports = {
   extends: [
     '@rocket.chat/eslint-config',
+    'prettier',
   ],
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', 'prettier'],
   parser: '@babel/eslint-parser',
   rules: {
     'generator-star-spacing': ['error', 'before'],
@@ -13,9 +14,7 @@ module.exports = {
         order: 'asc',
       },
     }],
-    indent: ['error', 2, {
-      SwitchCase: 1,
-    }],
+    'indent': 'off',
     'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
@@ -24,16 +23,12 @@ module.exports = {
     'react/react-in-jsx-scope': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'prettier/prettier': 2,
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: [
-          '.js',
-          '.jsx',
-          '.ts',
-          '.tsx',
-        ],
+        extensions: ['.js', '.ts', '.tsx'],
       },
     },
     react: {

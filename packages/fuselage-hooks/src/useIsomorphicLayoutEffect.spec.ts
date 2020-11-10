@@ -19,7 +19,7 @@ describe('useIsomorphicLayoutEffect hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 

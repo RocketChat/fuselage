@@ -2,7 +2,12 @@
  * @jest-environment node
  */
 
-import React, { FunctionComponent, createElement, StrictMode, RefCallback } from 'react';
+import React, {
+  FunctionComponent,
+  createElement,
+  StrictMode,
+  RefCallback,
+} from 'react';
 import { renderToString } from 'react-dom/server';
 
 import { useMergedRefs } from '.';
@@ -16,9 +21,7 @@ describe('useMergedRefs hook on server', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     expect(mergedRef).toStrictEqual(expect.any(Function));
   });
@@ -31,9 +34,7 @@ describe('useMergedRefs hook on server', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     const value = Symbol();
     mergedRef(value);
@@ -50,9 +51,7 @@ describe('useMergedRefs hook on server', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     const value = Symbol();
     mergedRef(value);
@@ -69,9 +68,7 @@ describe('useMergedRefs hook on server', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     const value = Symbol();
     mergedRef(value);
@@ -88,9 +85,7 @@ describe('useMergedRefs hook on server', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     const value = Symbol();
     mergedRef(value);
@@ -108,13 +103,13 @@ describe('useMergedRefs hook on server', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     const value = Symbol();
     mergedRef(value);
     refs.forEach((ref) => expect(ref.current).toBe(value));
-    callbackRefs.forEach((callbackRef) => expect(callbackRef).toHaveBeenCalledWith(value));
+    callbackRefs.forEach((callbackRef) =>
+      expect(callbackRef).toHaveBeenCalledWith(value)
+    );
   });
 });

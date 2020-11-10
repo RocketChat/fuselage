@@ -36,10 +36,10 @@ export interface IElement {
 }
 
 export const isElement = (x: IElement): x is IElement =>
-  x !== null
-  && typeof x === 'object'
-  && 'type' in x
-  && Object.values(ElementType).includes(x.type);
+  x !== null &&
+  typeof x === 'object' &&
+  'type' in x &&
+  Object.values(ElementType).includes(x.type);
 
 export interface IPlainText extends IElement {
   type: ElementType.PLAIN_TEXT;
@@ -131,34 +131,28 @@ export interface IPlainTextInput extends IActionableElement {
   maxLength?: number;
 }
 
-export type SectionAccessoryElement = (
-  IImageElement
+export type SectionAccessoryElement =
+  | IImageElement
   | IButtonElement
   | IDatePickerElement
   | IStaticSelectElement
   | IMultiStaticSelectElement
-  | IOverflowElement
-);
+  | IOverflowElement;
 
-export type ActionElement = (
-  IButtonElement
+export type ActionElement =
+  | IButtonElement
   | IStaticSelectElement
   | IMultiStaticSelectElement
   | IOverflowElement
-  | IDatePickerElement
-);
+  | IDatePickerElement;
 
-export type ContextElement = (
-  TextObject
-  | IImageElement
-)
+export type ContextElement = TextObject | IImageElement;
 
-export type InputElement = (
-  IPlainTextInput
+export type InputElement =
+  | IPlainTextInput
   | IStaticSelectElement
   | IMultiStaticSelectElement
-  | IDatePickerElement
-);
+  | IDatePickerElement;
 
 export interface IBlock extends IElement {
   blockId?: BlockId;
@@ -201,12 +195,12 @@ export interface IInputBlock extends IBlock {
 }
 
 export type Conditions = {
-  engine?: 'rocket.chat' | 'livechat'
+  engine?: 'rocket.chat' | 'livechat';
 };
 
 export type ConditionalBlockFilters = {
   engine?: Array<Conditions['engine']>;
-}
+};
 
 export interface IConditionalBlock extends IBlock {
   type: ElementType.CONDITIONAL;
