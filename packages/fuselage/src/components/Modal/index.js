@@ -6,52 +6,66 @@ import { Button } from '../Button';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import { Tile } from '../Tile';
-import { ModalBackdrop, ModalContainer, ModalPortal, ModalStack, useModalStack } from './Stack';
+import {
+  ModalBackdrop,
+  ModalContainer,
+  ModalPortal,
+  ModalStack,
+  useModalStack,
+} from './Stack';
 
-export const Modal = React.forwardRef(({ children, ...props }, ref) =>
+export const Modal = React.forwardRef(({ children, ...props }, ref) => (
   <Flex.Container>
-    <Box is='dialog' rcx-modal { ...props }>
+    <Box is='dialog' rcx-modal {...props}>
       <Flex.Container direction='column'>
         <Flex.Item grow={1}>
-          <Tile ref={ref} elevation='2' className='rcx-modal__inner' padding='none'>
+          <Tile
+            ref={ref}
+            elevation='2'
+            className='rcx-modal__inner'
+            padding='none'
+          >
             {children}
           </Tile>
         </Flex.Item>
       </Flex.Container>
     </Box>
-  </Flex.Container>);
+  </Flex.Container>
+));
 
-export const ModalHeader = ({ children, ...props }) =>
+export const ModalHeader = ({ children, ...props }) => (
   <Margins all='x32'>
     <Box is='header' {...props}>
       <Flex.Container alignItems='center' wrap='no-wrap'>
         <Margins all='neg-x8'>
           <Box>
-            <Margins all='x8'>
-              {children}
-            </Margins>
+            <Margins all='x8'>{children}</Margins>
           </Box>
         </Margins>
       </Flex.Container>
     </Box>
-  </Margins>;
+  </Margins>
+);
 
 export const ModalThumb = (props) => <Avatar size='x32' {...props} />;
 
-export const ModalTitle = ({ children, ...props }) =>
+export const ModalTitle = ({ children, ...props }) => (
   <Flex.Item grow={1} shrink={1}>
     <Box rcx-modal__title color='default' fontScale='h1' {...props}>
       {children}
     </Box>
-  </Flex.Item>;
+  </Flex.Item>
+);
 
-export const ModalClose = (props) => <Flex.Item shrink={0}>
-  <Button small ghost {...props}>
-    <Icon name='cross' size='x24' />
-  </Button>
-</Flex.Item>;
+export const ModalClose = (props) => (
+  <Flex.Item shrink={0}>
+    <Button small ghost {...props}>
+      <Icon name='cross' size='x24' />
+    </Button>
+  </Flex.Item>
+);
 
-export const ModalContent = ({ children, onScrollContent, ...props }) =>
+export const ModalContent = ({ children, onScrollContent, ...props }) => (
   <Scrollable vertical onScrollContent={onScrollContent}>
     <Box rcx-modal__content>
       <Margins inline='x32'>
@@ -60,14 +74,14 @@ export const ModalContent = ({ children, onScrollContent, ...props }) =>
         </Box>
       </Margins>
     </Box>
-  </Scrollable>;
+  </Scrollable>
+);
 
-export const ModalFooter = ({ children }) =>
+export const ModalFooter = ({ children }) => (
   <Margins all='x32'>
-    <Box rcx-modal__footer>
-      {children}
-    </Box>
-  </Margins>;
+    <Box rcx-modal__footer>{children}</Box>
+  </Margins>
+);
 
 export {
   ModalBackdrop,

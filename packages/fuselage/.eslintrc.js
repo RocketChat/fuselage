@@ -1,8 +1,9 @@
 module.exports = {
   extends: [
     '@rocket.chat/eslint-config',
+    'prettier',
   ],
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', 'prettier'],
   parser: '@babel/eslint-parser',
   rules: {
     'generator-star-spacing': ['error', 'before'],
@@ -24,6 +25,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'prettier/prettier': 2,
   },
   settings: {
     'import/resolver': {

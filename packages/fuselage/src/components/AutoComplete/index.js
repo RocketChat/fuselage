@@ -1,4 +1,7 @@
-import { useMutableCallback, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import {
+  useMutableCallback,
+  useResizeObserver,
+} from '@rocket.chat/fuselage-hooks';
 import React, { useEffect, useRef, useMemo } from 'react';
 
 import { Box, PositionAnimated, AnimatedVisibility } from '../Box';
@@ -10,7 +13,7 @@ import { useCursor, Options } from '../Options';
 
 const Addon = (props) => <Box rcx-autocomplete__addon {...props} />;
 
-const SelectedOptions = React.memo((props) => <Chip {...props}/>);
+const SelectedOptions = React.memo((props) => <Chip {...props} />);
 
 export function AutoComplete({
   value,
@@ -36,9 +39,18 @@ export function AutoComplete({
     onChange(value);
   });
 
-  const memoizedOptions = useMemo(() => options.map(({ label, value }) => [value, label]), [options]);
+  const memoizedOptions = useMemo(
+    () => options.map(({ label, value }) => [value, label]),
+    [options]
+  );
 
-  const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] = useCursor(value, memoizedOptions, selectByKeyboard);
+  const [
+    cursor,
+    handleKeyDown,
+    ,
+    reset,
+    [optionsAreVisible, hide, show],
+  ] = useCursor(value, memoizedOptions, selectByKeyboard);
 
   const onSelect = useMutableCallback(([value]) => {
     onChange(value);
@@ -49,19 +61,75 @@ export function AutoComplete({
   useEffect(reset, [filter]);
 
   return (
-    <Box rcx-autocomplete ref={containerRef} onClick={useMutableCallback(() => ref.current.focus())} flexGrow={1} className={useMemo(() => [
-      error && 'invalid',
-      disabled && 'disabled',
-    ], [error, disabled])}>
-      <Box display='flex' flexGrow={1} alignItems='center' flexWrap='wrap' margin='neg-x4' role='listbox'>
+    <Box
+      rcx-autocomplete
+      ref={containerRef}
+      onClick={useMutableCallback(() => ref.current.focus())}
+      flexGrow={1}
+      className={useMemo(() => [error && 'invalid', disabled && 'disabled'], [
+        error,
+        disabled,
+      ])}
+    >
+      <Box
+        display='flex'
+        flexGrow={1}
+        alignItems='center'
+        flexWrap='wrap'
+        margin='neg-x4'
+        role='listbox'
+      >
         <Margins all='x4'>
-          <InputBox.Input ref={ref} onChange={useMutableCallback((e) => setFilter(e.currentTarget.value))} onBlur={hide} onFocus={show} onKeyDown={handleKeyDown} placeholder={placeholder} order={1} rcx-input-box--undecorated value={filter}/>
-          {value && optionsAreVisible === AnimatedVisibility.HIDDEN && <RenderSelected role='option' value={value} label={getLabel(options.find((option) => getValue(option) === value))} children={getLabel(options.find((option) => getValue(option) === value))}/>}
+          <InputBox.Input
+            ref={ref}
+            onChange={useMutableCallback((e) =>
+              setFilter(e.currentTarget.value)
+            )}
+            onBlur={hide}
+            onFocus={show}
+            onKeyDown={handleKeyDown}
+            placeholder={placeholder}
+            order={1}
+            rcx-input-box--undecorated
+            value={filter}
+          />
+          {value && optionsAreVisible === AnimatedVisibility.HIDDEN && (
+            <RenderSelected
+              role='option'
+              value={value}
+              label={getLabel(
+                options.find((option) => getValue(option) === value)
+              )}
+              children={getLabel(
+                options.find((option) => getValue(option) === value)
+              )}
+            />
+          )}
         </Margins>
       </Box>
-      <Addon children={<Icon name={ optionsAreVisible === AnimatedVisibility.VISIBLE ? 'cross' : 'chevron-down'} size='x20' />}/>
+      <Addon
+        children={
+          <Icon
+            name={
+              optionsAreVisible === AnimatedVisibility.VISIBLE
+                ? 'cross'
+                : 'chevron-down'
+            }
+            size='x20'
+          />
+        }
+      />
       <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>
-        <Options role='option' width={borderBoxSize.inlineSize} onSelect={onSelect} renderItem={renderItem} renderEmpty={renderEmpty} cursor={cursor} value={value} options={memoizedOptions} />
+        <Options
+          role='option'
+          width={borderBoxSize.inlineSize}
+          onSelect={onSelect}
+          renderItem={renderItem}
+          renderEmpty={renderEmpty}
+          cursor={cursor}
+          value={value}
+          options={memoizedOptions}
+        />
       </PositionAnimated>
     </Box>
   );

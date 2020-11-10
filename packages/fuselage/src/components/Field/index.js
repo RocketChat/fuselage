@@ -4,11 +4,11 @@ import { Box } from '../Box';
 import { Label } from '../Label';
 
 export function FieldLabel(props) {
-  return <Box is={Label} rcx-field__label {...props}/>;
+  return <Box is={Label} rcx-field__label {...props} />;
 }
 
 export function FieldDescription(props) {
-  return <Box is='span' rcx-field__description {...props}/>;
+  return <Box is='span' rcx-field__description {...props} />;
 }
 
 export function FieldRow(props) {

@@ -22,19 +22,21 @@ const Chip = ({
 }) => {
   const onDismiss = onClick || onMouseDown;
 
-  return <button
-    type='button'
-    className={prependClassName(className, 'rcx-box rcx-chip')}
-    disabled={!onDismiss}
-    onClick={onDismiss}
-    {...rest}
-  >
-    <Margins all='x4'>
-      {thumbUrl && renderThumb && renderThumb({ url: thumbUrl })}
-      {children && <span className='rcx-box rcx-chip__text'>{children}</span>}
-      {onDismiss && renderDismissSymbol && renderDismissSymbol()}
-    </Margins>
-  </button>;
+  return (
+    <button
+      type='button'
+      className={prependClassName(className, 'rcx-box rcx-chip')}
+      disabled={!onDismiss}
+      onClick={onDismiss}
+      {...rest}
+    >
+      <Margins all='x4'>
+        {thumbUrl && renderThumb && renderThumb({ url: thumbUrl })}
+        {children && <span className='rcx-box rcx-chip__text'>{children}</span>}
+        {onDismiss && renderDismissSymbol && renderDismissSymbol()}
+      </Margins>
+    </button>
+  );
 };
 
 if (process.env.NODE_ENV !== 'production') {

@@ -9,5 +9,11 @@ export function Badge(props) {
 
 Badge.propTypes = {
   disabled: PropTypes.bool,
-  variant: PropTypes.oneOf(['secondary', 'primary', 'danger', 'warning', 'ghost']),
+  variant: PropTypes.oneOf([
+    'secondary',
+    'primary',
+    'danger',
+    'warning',
+    'ghost',
+  ]),
 };

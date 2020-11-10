@@ -6,20 +6,27 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import { /* propTypes as stylingPropsPropTypes,  */useStylingProps } from './stylingProps';
+import {
+  /* propTypes as stylingPropsPropTypes,  */ useStylingProps,
+} from './stylingProps';
 import { useBoxTransform, BoxTransforms } from './transforms';
 
 export const useArrayLikeClassNameProp = (props) => {
   const classNames = [].concat(props.className);
 
   const cssFns = classNames.filter((value) => typeof value === 'function');
-  const stylesClassName = useStyle(css`${ cssFns }`, props);
+  const stylesClassName = useStyle(
+    css`
+      ${cssFns}
+    `,
+    props
+  );
 
   const strings = classNames.filter((value) => typeof value === 'string');
 
   props.className = strings.reduce(
     (className, string) => appendClassName(className, string),
-    stylesClassName || '',
+    stylesClassName || ''
   );
 
   return props;
@@ -33,7 +40,7 @@ export const useBoxOnlyProps = (props) => {
         return;
       }
 
-      const newClassName = value === true ? key : `${ key }-${ value }`;
+      const newClassName = value === true ? key : `${key}-${value}`;
       props.className = prependClassName(props.className, newClassName);
       delete props[key];
     }
@@ -44,35 +51,33 @@ export const useBoxOnlyProps = (props) => {
   return props;
 };
 
-export const Box = memo(forwardRef(function Box({
-  is = 'div',
-  children,
-  ...props
-}, ref) {
-  useStyleSheet();
+export const Box = memo(
+  forwardRef(function Box({ is = 'div', children, ...props }, ref) {
+    useStyleSheet();
 
-  if (ref) {
-    props.ref = ref;
-  }
+    if (ref) {
+      props.ref = ref;
+    }
 
-  props = useArrayLikeClassNameProp(props);
+    props = useArrayLikeClassNameProp(props);
 
-  const transformFn = useBoxTransform();
-  if (transformFn) {
-    props = transformFn(props);
-  }
+    const transformFn = useBoxTransform();
+    if (transformFn) {
+      props = transformFn(props);
+    }
 
-  props = useBoxOnlyProps(props);
-  props = useStylingProps(props);
+    props = useBoxOnlyProps(props);
+    props = useStylingProps(props);
 
-  const element = createElement(is, props, children);
+    const element = createElement(is, props, children);
 
-  if (transformFn) {
-    return <BoxTransforms.Provider children={element} />;
-  }
+    if (transformFn) {
+      return <BoxTransforms.Provider children={element} />;
+    }
 
-  return element;
-}));
+    return element;
+  })
+);
 
 if (process.env.NODE_ENV !== 'production') {
   Box.displayName = 'Box';

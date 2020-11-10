@@ -6,38 +6,53 @@ import { Button } from '../Button';
 import Margins from '../Margins';
 
 const style = {
-  overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
 };
 
 export function Selection({ children, text, ...props }) {
-  return <Box color='alternative' rcx-table__selection display='flex' alignItems='center' justifyContent='space-between' {...props} pi='x24'>
-    <Box fontScale='p2' mb='x16' flexShrink={1} style={style}>{text}</Box>
-    { children && <Box mi='neg-x8' fontScale='p2' flexShrink={0} ><Margins inline='x4'>{children}</Margins></Box> }
-  </Box>;
+  return (
+    <Box
+      color='alternative'
+      rcx-table__selection
+      display='flex'
+      alignItems='center'
+      justifyContent='space-between'
+      {...props}
+      pi='x24'
+    >
+      <Box fontScale='p2' mb='x16' flexShrink={1} style={style}>
+        {text}
+      </Box>
+      {children && (
+        <Box mi='neg-x8' fontScale='p2' flexShrink={0}>
+          <Margins inline='x4'>{children}</Margins>
+        </Box>
+      )}
+    </Box>
+  );
 }
 
 export function SelectionButton(props) {
-  return <Button small primary flexShrink={0} { ...props } />;
+  return <Button small primary flexShrink={0} {...props} />;
 }
 
 Selection.Button = SelectionButton;
 
-export function Table({
-  striped,
-  sticky,
-  fixed = false,
-  ...props
-}) {
-  return <Box rcx-table__wrapper>
-    <Box
-      is='table'
-      rcx-table
-      rcx-table--fixed={fixed}
-      rcx-table--sticky={sticky}
-      rcx-table--striped={striped}
-      {...props}
-    />
-  </Box>;
+export function Table({ striped, sticky, fixed = false, ...props }) {
+  return (
+    <Box rcx-table__wrapper>
+      <Box
+        is='table'
+        rcx-table
+        rcx-table--fixed={fixed}
+        rcx-table--sticky={sticky}
+        rcx-table--striped={striped}
+        {...props}
+      />
+    </Box>
+  );
 }
 
 Table.Selection = Selection;
@@ -45,9 +60,11 @@ Table.Selection = Selection;
 const TableHeadContext = createContext(false);
 
 export function TableHead(props) {
-  return <TableHeadContext.Provider value={true}>
-    <Box is='thead' rcx-table__head {...props}></Box>
-  </TableHeadContext.Provider>;
+  return (
+    <TableHeadContext.Provider value={true}>
+      <Box is='thead' rcx-table__head {...props}></Box>
+    </TableHeadContext.Provider>
+  );
 }
 
 export function TableBody(props) {
@@ -59,33 +76,36 @@ export function TableFoot(props) {
 }
 
 export function TableRow({ action, selected, ...props }) {
-  return <Box
-    is='tr'
-    rcx-table__row
-    rcx-table__row--selected={selected}
-    rcx-table__row--action={action}
-    {...props}
-  />;
+  return (
+    <Box
+      is='tr'
+      rcx-table__row
+      rcx-table__row--selected={selected}
+      rcx-table__row--action={action}
+      {...props}
+    />
+  );
 }
 
-export function TableCell({
-  align,
-  clickable,
-  ...props
-}) {
+export function TableCell({ align, clickable, ...props }) {
   const isInsideHead = useContext(TableHeadContext);
-  return <Box
-    is={isInsideHead ? 'th' : 'td'}
-    rcx-table__cell
-    rcx-table__cell--align={align}
-    rcx-table__cell--header={isInsideHead}
-    rcx-table__cell--clickable={clickable}
-    {...props}
-  />;
+  return (
+    <Box
+      is={isInsideHead ? 'th' : 'td'}
+      rcx-table__cell
+      rcx-table__cell--align={align}
+      rcx-table__cell--header={isInsideHead}
+      rcx-table__cell--clickable={clickable}
+      {...props}
+    />
+  );
 }
 
 TableCell.propTypes = {
-  align: PropTypes.oneOfType([PropTypes.oneOf(['start', 'end', 'center', 'justify']), PropTypes.object]),
+  align: PropTypes.oneOfType([
+    PropTypes.oneOf(['start', 'end', 'center', 'justify']),
+    PropTypes.object,
+  ]),
   fixed: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 };
 
