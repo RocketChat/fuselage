@@ -7,6 +7,9 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
+  "scripts": {
+    "prettier-format": "prettier --config .prettierrc '**/*.js' --write"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -25,5 +28,8 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.2"
   }
 }
