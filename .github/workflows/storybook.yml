@@ -70,9 +70,9 @@ jobs:
         run: |
           if [ -z "${{ github.event.number }}" ]
           then
-            dir="${{ github.event.number }}"
-          else
             dir=$(echo '${{ github.ref }}' | cut -d/ -f3)
+          else
+            dir="${{ github.event.number }}"
           fi
           echo "::set-output name=directory::$dir"
           rm -rf "fuselage/$dir" "fuselage-ui-kit/$dir"
