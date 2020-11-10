@@ -39,7 +39,7 @@ export class Emitter implements IEmitter {
   /**
    * Returns the whole EventType list
    */
-  events() : EventType[] {
+  events(): EventType[] {
     return Array.from(this[evts].keys());
   }
 
@@ -55,8 +55,8 @@ export class Emitter implements IEmitter {
    *
    * @returns a function to unsubscribe the handler invoking `this.off(type, handler)`
    */
-  on<T = any>(type: EventType, handler: Handler<T>) : OffCallbackHandler {
-    const handlers = this[evts].get(type) || [] as EventHandlerList;
+  on<T = any>(type: EventType, handler: Handler<T>): OffCallbackHandler {
+    const handlers = this[evts].get(type) || ([] as EventHandlerList);
     handlers.push(handler as any);
     this[evts].set(type, handlers);
     return () => this.off(type, handler);
@@ -67,7 +67,7 @@ export class Emitter implements IEmitter {
    *
    * @returns a function to unsubscribe the handler invoking `this.off(type, handler)`
    */
-  once<T = any>(type: EventType, handler: Handler<T>) : OffCallbackHandler {
+  once<T = any>(type: EventType, handler: Handler<T>): OffCallbackHandler {
     const counter = this[once].get(handler) || 0;
     this[once].set(handler, counter + 1);
     return this.on(type, handler);
@@ -76,7 +76,7 @@ export class Emitter implements IEmitter {
   /**
    * Removes the specified `handler` from the list of handlers of the event of the `type` type
    */
-  off<T = any>(type: EventType, handler: Handler<T>) : void {
+  off<T = any>(type: EventType, handler: Handler<T>): void {
     const handlers = this[evts].get(type);
     if (!handlers) {
       return;
@@ -93,17 +93,22 @@ export class Emitter implements IEmitter {
       this[evts].delete(type);
       return;
     }
-    handlers.splice(handlers.findIndex((callback) => callback === handler) >>> 0, 1);
+    handlers.splice(
+      handlers.findIndex((callback) => callback === handler) >>> 0,
+      1
+    );
   }
 
   /**
    * Calls each of the handlers registered for the event of `type` type, in the
    * order they were registered, passing the supplied argument `e` to each.
    */
-  emit<T = any>(type: EventType, e?: T) : void {
-    [...this[evts].get(type) || [] as EventHandlerList].forEach((handler: Handler) => {
-      handler(e);
-      this[once].get(handler) && this.off(type, handler);
-    });
+  emit<T = any>(type: EventType, e?: T): void {
+    [...(this[evts].get(type) || ([] as EventHandlerList))].forEach(
+      (handler: Handler) => {
+        handler(e);
+        this[once].get(handler) && this.off(type, handler);
+      }
+    );
   }
 }
