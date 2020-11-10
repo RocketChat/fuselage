@@ -27,9 +27,7 @@ describe('useDebouncedCallback hook on server', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     expect(debouncedCallback).toBeInstanceOf(Function);
     expect(debouncedCallback.flush).toBeInstanceOf(Function);

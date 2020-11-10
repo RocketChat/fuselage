@@ -13,7 +13,7 @@ const fontSans = [
   'Segoe UI Symbol',
   'Meiryo UI',
   'Arial',
-  'sans-serif'
+  'sans-serif',
 ];
 
 const fontMono = [
@@ -22,7 +22,7 @@ const fontMono = [
   'Consolas',
   'Liberation Mono',
   'Courier New',
-  'monospace'
+  'monospace',
 ];
 
 export default {
@@ -80,4 +80,4 @@ export default {
       lineHeight: 12,
     },
   },
-}
+};

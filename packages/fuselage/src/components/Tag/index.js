@@ -1,37 +1,41 @@
-
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { prependClassName } from '../../helpers/prependClassName';
+import { Box } from '../..';
 
 export function Tag({
-  is: TagName = 'span',
-  small,
-  medium,
-  className,
   disabled,
-  onClick,
+  round,
   variant = 'secondary',
+  onClick,
   ...props
 }) {
-  const modifiers = [
-    variant,
-    small && 'small',
-    medium && 'medium',
-    disabled && 'disabled',
-    onClick && 'clickable',
-  ]
-    .map((modifier) => `rcx-tag--${ modifier }`)
-    .filter(Boolean)
-    .join(' ');
-
-  return <TagName className={prependClassName(className, `rcx-tag ${ modifiers }`)} {...props} />;
+  return (
+    <Box
+      is='span'
+      rcx-tag
+      rcx-tag--warning={variant === 'warning'}
+      rcx-tag--secondary={variant === 'secondary'}
+      rcx-tag--primary={variant === 'primary'}
+      rcx-tag--danger={variant === 'danger'}
+      rcx-tag--ghost={variant === 'ghost'}
+      rcx-tag--disabled={!!disabled}
+      rcx-tag--round={!!round}
+      rcx-tag--clickable={!!onClick}
+      onClick={onClick}
+      {...props}
+    />
+  );
 }
 
 Tag.propTypes = {
-  small: PropTypes.bool,
-  medium: PropTypes.bool,
   disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  variant: PropTypes.oneOf(['secondary', 'primary', 'danger', 'warning', 'ghost']),
+  round: PropTypes.bool,
+  variant: PropTypes.oneOf([
+    'secondary',
+    'primary',
+    'danger',
+    'warning',
+    'ghost',
+  ]),
 };

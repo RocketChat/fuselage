@@ -1,6 +1,6 @@
 import { Emitter } from './index';
 
-const times = (n: number, fn: () => void) : number => {
+const times = (n: number, fn: () => void): number => {
   Array.from({ length: n }, () => fn());
   return n;
 };
@@ -76,7 +76,6 @@ describe('Emitter function', () => {
       emitter.off('test', handler);
       expect(emitter.has('test')).toBe(false);
     });
-
 
     it('It should have no `test` handler after use stop callback', () => {
       emitter.on('test', handler)();

@@ -19,7 +19,7 @@ function convertBuffer(arrayBuffer: Float32Array): Int16Array {
 
   for (let i = 0; i < input.length; i++) {
     const s = Math.max(-1, Math.min(1, input[i]));
-    output[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+    output[i] = s < 0 ? s * 0x8000 : s * 0x7fff;
   }
 
   return output;
@@ -27,7 +27,11 @@ function convertBuffer(arrayBuffer: Float32Array): Int16Array {
 
 function init(config: Config): void {
   config = config || {};
-  encoder = new Mp3Encoder(config.numChannels || 1, config.sampleRate || 44100, config.bitRate || 32);
+  encoder = new Mp3Encoder(
+    config.numChannels || 1,
+    config.sampleRate || 44100,
+    config.bitRate || 32
+  );
   dataBuffer = [];
 }
 

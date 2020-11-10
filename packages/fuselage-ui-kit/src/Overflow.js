@@ -9,14 +9,21 @@ import React, { useRef, useCallback } from 'react';
 
 import { useBlockContext } from './hooks';
 
-const convertOptions = (options, parser) => options.map(({ text, value }) => [value, parser(text)]);
+const convertOptions = (options, parser) =>
+  options.map(({ text, value }) => [value, parser(text)]);
 
 export const Overflow = ({ context, options, parser, ...element }) => {
   const [{ loading }, action] = useBlockContext(element, context);
 
   const fireChange = ([value]) => action({ target: { value } });
   const convertedOptions = convertOptions(options, parser.text);
-  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(-1, convertedOptions, (args, [, hide]) => {
+  const [
+    cursor,
+    handleKeyDown,
+    handleKeyUp,
+    reset,
+    [visible, hide, show],
+  ] = useCursor(-1, convertedOptions, (args, [, hide]) => {
     fireChange(args);
     reset();
     hide();

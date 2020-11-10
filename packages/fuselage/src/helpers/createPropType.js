@@ -6,7 +6,9 @@ export const createPropType = (getValue) => {
       return;
     }
 
-    return new Error(`Invalid value for prop \`${ propName }\` supplied to \`${ componentName }\`: \`${ propValue }\``);
+    return new Error(
+      `Invalid value for prop \`${propName}\` supplied to \`${componentName}\`: \`${propValue}\``
+    );
   };
 
   propType.isRequired = (props, propName, componentName) => {
@@ -16,7 +18,9 @@ export const createPropType = (getValue) => {
       return;
     }
 
-    return new Error(`Invalid value for prop \`${ propName }\` supplied to \`${ componentName }\`: \`${ propValue }\``);
+    return new Error(
+      `Invalid value for prop \`${propName}\` supplied to \`${componentName}\`: \`${propValue}\``
+    );
   };
 
   return propType;

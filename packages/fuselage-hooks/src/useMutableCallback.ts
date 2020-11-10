@@ -10,10 +10,12 @@ import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
  * @public
  */
 export const useMutableCallback = <P extends any[], T>(
-  fn: (...args: P) => T,
-): (...args: P) => T => {
+  fn: (...args: P) => T
+): ((...args: P) => T) => {
   const fnRef = useRef(fn);
-  const stableFnRef = useRef((...args: P): T => fnRef.current.call(undefined, ...args));
+  const stableFnRef = useRef(
+    (...args: P): T => fnRef.current.call(undefined, ...args)
+  );
 
   useIsomorphicLayoutEffect(() => {
     fnRef.current = fn;

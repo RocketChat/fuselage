@@ -10,13 +10,11 @@ import { useEffect, useRef, Ref } from 'react';
  */
 export const useAutoFocus = (
   isFocused = true,
-  options?: FocusOptions,
+  options?: FocusOptions
 ): Ref<{ focus: (options?: FocusOptions) => void }> => {
   const elementRef = useRef<{ focus: (options?: FocusOptions) => void }>();
 
-  const {
-    preventScroll,
-  } = options || {};
+  const { preventScroll } = options || {};
 
   useEffect(() => {
     if (isFocused && elementRef.current) {

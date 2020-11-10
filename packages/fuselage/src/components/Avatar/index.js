@@ -19,25 +19,27 @@ export function Avatar({
 }) {
   const { baseUrl } = useContext(AvatarContext);
 
-  return <Box
-    is='figure'
-    rcx-avatar
-    aria-label={title}
-    {...props}
-    width={size}
-    height={size}
-    verticalAlign='middle'
-  >
+  return (
     <Box
-      is='img'
+      is='figure'
+      rcx-avatar
+      aria-label={title}
       {...props}
-      rcx-avatar__element
-      rcx-avatar__element--rounded={rounded}
-      src={`${ baseUrl }${ url }`}
       width={size}
       height={size}
-    />
-  </Box>;
+      verticalAlign='middle'
+    >
+      <Box
+        is='img'
+        {...props}
+        rcx-avatar__element
+        rcx-avatar__element--rounded={rounded}
+        src={`${baseUrl}${url}`}
+        width={size}
+        height={size}
+      />
+    </Box>
+  );
 }
 
 Avatar.Context = AvatarContext;
@@ -49,9 +51,10 @@ Avatar.propTypes = {
   url: PropTypes.string.isRequired,
 };
 
-const AvatarStack = ({ children, ...props }) =>
+const AvatarStack = ({ children, ...props }) => (
   <Box rcx-avatar-stack {...props}>
     {flattenChildren(children).reverse()}
-  </Box>;
+  </Box>
+);
 
 Avatar.Stack = AvatarStack;

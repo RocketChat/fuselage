@@ -11,9 +11,12 @@ it('renders without crashing', () => {
 
 it('patches non-`Box` children', () => {
   const root = document.createElement('div');
-  ReactDOM.render(<Margins all='10px'>
-    <div />
-  </Margins>, root);
+  ReactDOM.render(
+    <Margins all='10px'>
+      <div />
+    </Margins>,
+    root
+  );
 
   const div = root.firstChild;
   expect(div.className).not.toBeFalsy();

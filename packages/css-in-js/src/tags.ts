@@ -18,18 +18,21 @@ let currentContext: EvaluationContext | undefined = undefined;
  * @returns a pair of the evaluation context and a function to free it,
  *          returning the additional evaluation stored at the context.
  */
-export const holdContext = (): [EvaluationContext, (() => string)] => {
+export const holdContext = (): [EvaluationContext, () => string] => {
   if (currentContext) {
     return [currentContext, () => ''];
   }
 
   currentContext = [];
 
-  return [currentContext, () => {
-    const additions = (currentContext || []).join('');
-    currentContext = undefined;
-    return additions;
-  }];
+  return [
+    currentContext,
+    () => {
+      const additions = (currentContext || []).join('');
+      currentContext = undefined;
+      return additions;
+    },
+  ];
 };
 
 /**
@@ -40,7 +43,7 @@ type Evaluable = (...args: readonly unknown[]) => string;
 const isEvaluable = (x: unknown): x is Evaluable => typeof x === 'function';
 
 const staticEvaluable = memoize(
-  <T extends Evaluable>(content: string): T => Object.freeze(() => content) as T,
+  <T extends Evaluable>(content: string): T => Object.freeze(() => content) as T
 );
 
 export type cssFn = Evaluable;
@@ -65,20 +68,29 @@ const evaluateValue = (value: unknown, args: readonly unknown[]): string => {
 const reduceEvaluable = (
   [first, ...rest]: readonly string[],
   values: readonly unknown[],
-  args: readonly unknown[],
+  args: readonly unknown[]
 ): string =>
-  values.reduce<string>(
-    (string, value, i) => string + evaluateValue(value, args) + rest[i],
-    first,
-  ).trim();
+  values
+    .reduce<string>(
+      (string, value, i) => string + evaluateValue(value, args) + rest[i],
+      first
+    )
+    .trim();
 
 /**
  * Template string tag to declare CSS content chunks.
  *
  * @returns a callback to render the CSS content
  */
-export const css = (slices: TemplateStringsArray, ...values: readonly unknown[]): cssFn => {
-  if (!slices || slices.length === 0 || slices.some((slice) => typeof slice !== 'string')) {
+export const css = (
+  slices: TemplateStringsArray,
+  ...values: readonly unknown[]
+): cssFn => {
+  if (
+    !slices ||
+    slices.length === 0 ||
+    slices.some((slice) => typeof slice !== 'string')
+  ) {
     return staticEvaluable('');
   }
 
@@ -102,8 +114,15 @@ export const css = (slices: TemplateStringsArray, ...values: readonly unknown[])
  *
  * @returns a callback to render the CSS at-rule content
  */
-export const keyframes = (slices: TemplateStringsArray, ...values: unknown[]): keyframesFn => {
-  if (!slices || slices.length === 0 || slices.some((slice) => typeof slice !== 'string')) {
+export const keyframes = (
+  slices: TemplateStringsArray,
+  ...values: unknown[]
+): keyframesFn => {
+  if (
+    !slices ||
+    slices.length === 0 ||
+    slices.some((slice) => typeof slice !== 'string')
+  ) {
     return staticEvaluable('none');
   }
 
@@ -115,7 +134,7 @@ export const keyframes = (slices: TemplateStringsArray, ...values: unknown[]): k
     const animationName = createAnimationName(content);
     const escapedAnimationName = escapeName(animationName);
 
-    context.push(`@keyframes ${ escapedAnimationName }{${ content }}`);
+    context.push(`@keyframes ${escapedAnimationName}{${content}}`);
 
     freeContext();
 

@@ -21,7 +21,14 @@ it('accepts a string in className prop', () => {
 
 it('accepts a css tagged template string in className prop', () => {
   const root = document.createElement('div');
-  ReactDOM.render(<Box className={css`width: 10em;`} />, root);
+  ReactDOM.render(
+    <Box
+      className={css`
+        width: 10em;
+      `}
+    />,
+    root
+  );
 
   const div = root.firstChild;
   expect(div.classList).toContainEqual('rcx-box');
@@ -39,7 +46,17 @@ it('accepts an empty array in className prop', () => {
 
 it('accepts an array of values in className prop', () => {
   const root = document.createElement('div');
-  ReactDOM.render(<Box className={['fuselage', css`width: 10em;`]} />, root);
+  ReactDOM.render(
+    <Box
+      className={[
+        'fuselage',
+        css`
+          width: 10em;
+        `,
+      ]}
+    />,
+    root
+  );
 
   const div = root.firstChild;
   expect(div.classList).toContainEqual('rcx-box');
@@ -50,12 +67,10 @@ it('accepts an array of values in className prop', () => {
 
 it('attaches rcx-* props into className', () => {
   const root = document.createElement('div');
-  ReactDOM.render(<Box
-    rcx-test-a
-    rcx-test-b={false}
-    rcx-test-c={true}
-    rcx-test='d'
-  />, root);
+  ReactDOM.render(
+    <Box rcx-test-a rcx-test-b={false} rcx-test-c={true} rcx-test='d' />,
+    root
+  );
 
   const div = root.firstChild;
   expect(div.classList).toContain('rcx-box');
@@ -67,13 +82,16 @@ it('attaches rcx-* props into className', () => {
 
 it('merge rcx-* props and an empty array into className', () => {
   const root = document.createElement('div');
-  ReactDOM.render(<Box
-    className={[]}
-    rcx-test-a
-    rcx-test-b={false}
-    rcx-test-c={true}
-    rcx-test='d'
-  />, root);
+  ReactDOM.render(
+    <Box
+      className={[]}
+      rcx-test-a
+      rcx-test-b={false}
+      rcx-test-c={true}
+      rcx-test='d'
+    />,
+    root
+  );
 
   const div = root.firstChild;
   expect(div.classList).toContain('rcx-box');
@@ -85,13 +103,21 @@ it('merge rcx-* props and an empty array into className', () => {
 
 it('merge rcx-* props and an array of values into className', () => {
   const root = document.createElement('div');
-  ReactDOM.render(<Box
-    className={['fuselage', css`width: 10em;`]}
-    rcx-test-a
-    rcx-test-b={false}
-    rcx-test-c={true}
-    rcx-test='d'
-  />, root);
+  ReactDOM.render(
+    <Box
+      className={[
+        'fuselage',
+        css`
+          width: 10em;
+        `,
+      ]}
+      rcx-test-a
+      rcx-test-b={false}
+      rcx-test-c={true}
+      rcx-test='d'
+    />,
+    root
+  );
 
   const div = root.firstChild;
   expect(div.classList).toContain('rcx-box');

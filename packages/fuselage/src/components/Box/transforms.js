@@ -2,8 +2,7 @@ import { createContext, useContext, useMemo } from 'react';
 
 export const BoxTransforms = createContext();
 
-export const useBoxTransform = () =>
-  useContext(BoxTransforms);
+export const useBoxTransform = () => useContext(BoxTransforms);
 
 export const useComposedBoxTransform = (fn) => {
   const parentFn = useContext(BoxTransforms);

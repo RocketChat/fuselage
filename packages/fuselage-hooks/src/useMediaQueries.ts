@@ -14,18 +14,27 @@ export const useMediaQueries = (...queries: string[]): boolean[] => {
   const stableQueries = useStableArray(queries);
 
   const subscription = useMemo<Subscription<boolean[]>>(() => {
-    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+    if (
+      typeof window === 'undefined' ||
+      typeof window.matchMedia !== 'function'
+    ) {
       return {
-        getCurrentValue: () => Array.from({ length: stableQueries.length }, () => false),
+        getCurrentValue: () =>
+          Array.from({ length: stableQueries.length }, () => false),
         subscribe: () => () => undefined,
       };
     }
 
-    const mediaQueryLists = stableQueries.map((query) => window.matchMedia(query));
+    const mediaQueryLists = stableQueries.map((query) =>
+      window.matchMedia(query)
+    );
 
     return {
       getCurrentValue: () => {
-        if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+        if (
+          typeof window === 'undefined' ||
+          typeof window.matchMedia !== 'function'
+        ) {
           return Array.from({ length: stableQueries.length }, () => false);
         }
 
