@@ -1,6 +1,4 @@
-import {
-  Margins,
-} from '@rocket.chat/fuselage';
+import { Margins } from '@rocket.chat/fuselage';
 import React from 'react';
 
 export const Block = ({ children, blockEnd = 'x16' }) => (
