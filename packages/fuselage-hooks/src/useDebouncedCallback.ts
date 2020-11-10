@@ -12,7 +12,7 @@ import { useMemo, DependencyList, useCallback, useRef, useEffect } from 'react';
 export const useDebouncedCallback = <P extends unknown[]>(
   callback: (...args: P) => unknown,
   delay: number,
-  deps?: DependencyList,
+  deps?: DependencyList
 ): ((...args: P) => unknown) & {
   flush: () => void;
   cancel: () => void;
@@ -23,13 +23,16 @@ export const useDebouncedCallback = <P extends unknown[]>(
   const timerCallbackRef = useRef<() => void>();
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-  const debouncedCallback = useCallback((...args: P) => {
-    timerCallbackRef.current = (): void => {
-      effectiveCallback(...args);
-    };
-    clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(timerCallbackRef.current, delay);
-  }, [effectiveCallback, delay]);
+  const debouncedCallback = useCallback(
+    (...args: P) => {
+      timerCallbackRef.current = (): void => {
+        effectiveCallback(...args);
+      };
+      clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(timerCallbackRef.current, delay);
+    },
+    [effectiveCallback, delay]
+  );
 
   const flush = useCallback(() => {
     clearTimeout(timerRef.current);
@@ -40,9 +43,16 @@ export const useDebouncedCallback = <P extends unknown[]>(
     clearTimeout(timerRef.current);
   }, []);
 
-  useEffect(() => () => {
-    cancel();
-  }, [cancel]);
+  useEffect(
+    () => () => {
+      cancel();
+    },
+    [cancel]
+  );
 
-  return useMemo(() => Object.assign(debouncedCallback, { flush, cancel }), [debouncedCallback, flush, cancel]);
+  return useMemo(() => Object.assign(debouncedCallback, { flush, cancel }), [
+    debouncedCallback,
+    flush,
+    cancel,
+  ]);
 };

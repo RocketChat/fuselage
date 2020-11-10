@@ -26,7 +26,7 @@ it('returns at least the smallest breakpoint name', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -44,24 +44,34 @@ it('returns matching breakpoint names', () => {
   };
 
   act(() => {
-    window.resizeTo(initialBreakpoints[initialBreakpoints.length - 1].minViewportWidth, 768);
+    window.resizeTo(
+      initialBreakpoints[initialBreakpoints.length - 1].minViewportWidth,
+      768
+    );
 
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
-  expect(breakpoints).toStrictEqual(initialBreakpoints.map((breakpoint) => breakpoint.name));
+  expect(breakpoints).toStrictEqual(
+    initialBreakpoints.map((breakpoint) => breakpoint.name)
+  );
 
   act(() => {
-    window.resizeTo(finalBreakpoints[finalBreakpoints.length - 1].minViewportWidth, 768);
+    window.resizeTo(
+      finalBreakpoints[finalBreakpoints.length - 1].minViewportWidth,
+      768
+    );
 
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
-  expect(breakpoints).toStrictEqual(finalBreakpoints.map((breakpoint) => breakpoint.name));
+  expect(breakpoints).toStrictEqual(
+    finalBreakpoints.map((breakpoint) => breakpoint.name)
+  );
 });

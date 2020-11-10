@@ -25,14 +25,14 @@ it('returns empty array if no query is given', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
   expect(matches).toStrictEqual([]);
 });
 
-it('returns false values if the media queries don\'t match', () => {
+it("returns false values if the media queries don't match", () => {
   let matches: boolean[];
   const TestComponent: FunctionComponent = () => {
     matches = useMediaQueries('(max-width: 1024px)', '(max-width: 968px)');
@@ -42,7 +42,7 @@ it('returns false values if the media queries don\'t match', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -61,7 +61,7 @@ it('returns true if the media query does match', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -78,7 +78,7 @@ it('mutates its value to true if the media query matches', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 

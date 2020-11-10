@@ -694,5 +694,8 @@
   },
   "login": {
     "start": "\ue0b8"
+  },
+  "burger": {
+    "start": "\ue0b9"
   }
 }

@@ -6,32 +6,42 @@ export type LogicalPropertiesOptions = {
   supportedProperties?: string[];
 };
 
-const createPropertyName = (...parts: (string | undefined)[]): string => parts.filter(Boolean).join('-');
+const createPropertyName = (...parts: (string | undefined)[]): string =>
+  parts.filter(Boolean).join('-');
 
-export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions): Plugin => {
+export const createLogicalPropertiesPlugin = (
+  options: LogicalPropertiesOptions
+): Plugin => {
   const supportedProperties = new Set(options.supportedProperties);
 
   const isSupported = (property: string): boolean =>
-    supportedProperties.has(property) || cssSupports(`${ property }:inherit`);
+    supportedProperties.has(property) || cssSupports(`${property}:inherit`);
 
-  const transforms = new Map<string, (value: string, selectors: string[]) => (string | void)>();
+  const transforms = new Map<
+    string,
+    (value: string, selectors: string[]) => string | void
+  >();
 
   let buffer = '';
 
-  const replacementTransform = (replacement: string[]) =>
-    (value: string) =>
-      replacement.map((property) => `${ property }:${ value }`).join(';');
+  const replacementTransform = (replacement: string[]) => (value: string) =>
+    replacement.map((property) => `${property}:${value}`).join(';');
 
-  const inlineReplacementTransform = (ltr: string[], rtl: string[]) =>
-    (value: string, selectors: string[]) => {
-      const ltrFn = (value: string): string => ltr.map((property) => `${ property }:${ value }`).join(';');
-      const rtlFn = (value: string): string => rtl.map((property) => `${ property }:${ value }`).join(';');
+  const inlineReplacementTransform = (ltr: string[], rtl: string[]) => (
+    value: string,
+    selectors: string[]
+  ) => {
+    const ltrFn = (value: string): string =>
+      ltr.map((property) => `${property}:${value}`).join(';');
+    const rtlFn = (value: string): string =>
+      rtl.map((property) => `${property}:${value}`).join(';');
 
-      buffer += `html:not([dir=rtl]) ${ selectors.join(',') }{${ ltrFn(value) };}`
-        + `[dir=rtl] ${ selectors.join(',') }{${ rtlFn(value) };}`;
+    buffer +=
+      `html:not([dir=rtl]) ${selectors.join(',')}{${ltrFn(value)};}` +
+      `[dir=rtl] ${selectors.join(',')}{${rtlFn(value)};}`;
 
-      return '';
-    };
+    return '';
+  };
 
   [
     {
@@ -59,36 +69,41 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
       transforms.set(block, replacementTransform([fallbackBlock]));
     }
   });
+  ['clear', 'float', 'text-align'].forEach((property) => {
+    const replaceValueTransform = (
+      originalValue: string,
+      ltr: string,
+      rtl: string
+    ) => (value: string, selectors: string[]): string => {
+      buffer += `[dir=rtl] ${selectors.join(',')}{${property}: ${
+        value === originalValue ? rtl : value
+      }}`;
 
-  [
-    'clear',
-    'float',
-    'text-align',
-  ].forEach((property) => {
-    const replaceValueTransform = (originalValue: string, ltr: string, rtl: string) =>
-      (value: string, selectors: string[]): string => {
-        buffer += `[dir=rtl] ${ selectors.join(',') }{${ property }: ${ value === originalValue ? rtl : value }}`;
+      return `${property}: ${value === originalValue ? ltr : value}`;
+    };
 
-        return `${ property }: ${ value === originalValue ? ltr : value }`;
-      };
-
-    if (!cssSupports(`${ property }: start`)) {
+    if (!cssSupports(`${property}: start`)) {
       transforms.set(property, replaceValueTransform('start', 'left', 'right'));
     }
 
-    if (!cssSupports(`${ property }: inline-start`)) {
-      transforms.set(property, replaceValueTransform('inline-start', 'left', 'right'));
+    if (!cssSupports(`${property}: inline-start`)) {
+      transforms.set(
+        property,
+        replaceValueTransform('inline-start', 'left', 'right')
+      );
     }
 
-    if (!cssSupports(`${ property }: end`)) {
+    if (!cssSupports(`${property}: end`)) {
       transforms.set(property, replaceValueTransform('end', 'right', 'left'));
     }
 
-    if (!cssSupports(`${ property }: inline-end`)) {
-      transforms.set(property, replaceValueTransform('inline-end', 'right', 'left'));
+    if (!cssSupports(`${property}: inline-end`)) {
+      transforms.set(
+        property,
+        replaceValueTransform('inline-end', 'right', 'left')
+      );
     }
   });
-
   [
     {
       base: 'border',
@@ -96,32 +111,75 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
       fallbackBase: 'border',
     },
   ].forEach((property) => {
-    const startStart = createPropertyName(property.base, 'start-start', property.suffix);
-    const startEnd = createPropertyName(property.base, 'start-end', property.suffix);
-    const endStart = createPropertyName(property.base, 'end-start', property.suffix);
-    const endEnd = createPropertyName(property.base, 'end-end', property.suffix);
-    const fallbackStartStart = createPropertyName(property.base, 'top-left', property.suffix);
-    const fallbackStartEnd = createPropertyName(property.base, 'top-right', property.suffix);
-    const fallbackEndStart = createPropertyName(property.base, 'bottom-left', property.suffix);
-    const fallbackEndEnd = createPropertyName(property.base, 'bottom-right', property.suffix);
+    const startStart = createPropertyName(
+      property.base,
+      'start-start',
+      property.suffix
+    );
+    const startEnd = createPropertyName(
+      property.base,
+      'start-end',
+      property.suffix
+    );
+    const endStart = createPropertyName(
+      property.base,
+      'end-start',
+      property.suffix
+    );
+    const endEnd = createPropertyName(
+      property.base,
+      'end-end',
+      property.suffix
+    );
+    const fallbackStartStart = createPropertyName(
+      property.base,
+      'top-left',
+      property.suffix
+    );
+    const fallbackStartEnd = createPropertyName(
+      property.base,
+      'top-right',
+      property.suffix
+    );
+    const fallbackEndStart = createPropertyName(
+      property.base,
+      'bottom-left',
+      property.suffix
+    );
+    const fallbackEndEnd = createPropertyName(
+      property.base,
+      'bottom-right',
+      property.suffix
+    );
 
     if (!isSupported(startStart)) {
-      transforms.set(startStart, inlineReplacementTransform([fallbackStartStart], [fallbackStartEnd]));
+      transforms.set(
+        startStart,
+        inlineReplacementTransform([fallbackStartStart], [fallbackStartEnd])
+      );
     }
 
     if (!isSupported(startEnd)) {
-      transforms.set(startEnd, inlineReplacementTransform([fallbackStartEnd], [fallbackStartStart]));
+      transforms.set(
+        startEnd,
+        inlineReplacementTransform([fallbackStartEnd], [fallbackStartStart])
+      );
     }
 
     if (!isSupported(endStart)) {
-      transforms.set(endStart, inlineReplacementTransform([fallbackEndStart], [fallbackEndEnd]));
+      transforms.set(
+        endStart,
+        inlineReplacementTransform([fallbackEndStart], [fallbackEndEnd])
+      );
     }
 
     if (!isSupported(endEnd)) {
-      transforms.set(endEnd, inlineReplacementTransform([fallbackEndEnd], [fallbackEndStart]));
+      transforms.set(
+        endEnd,
+        inlineReplacementTransform([fallbackEndEnd], [fallbackEndStart])
+      );
     }
   });
-
   [
     {
       base: 'margin',
@@ -156,15 +214,47 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
   ].forEach((property) => {
     const all = createPropertyName(property.base, property.suffix);
     const inline = createPropertyName(property.base, 'inline', property.suffix);
-    const inlineStart = createPropertyName(property.base, 'inline-start', property.suffix);
-    const inlineEnd = createPropertyName(property.base, 'inline-end', property.suffix);
+    const inlineStart = createPropertyName(
+      property.base,
+      'inline-start',
+      property.suffix
+    );
+    const inlineEnd = createPropertyName(
+      property.base,
+      'inline-end',
+      property.suffix
+    );
     const block = createPropertyName(property.base, 'block', property.suffix);
-    const blockStart = createPropertyName(property.base, 'block-start', property.suffix);
-    const blockEnd = createPropertyName(property.base, 'block-end', property.suffix);
-    const fallbackInlineStart = createPropertyName(property.fallbackBase, 'left', property.suffix);
-    const fallbackInlineEnd = createPropertyName(property.fallbackBase, 'right', property.suffix);
-    const fallbackBlockStart = createPropertyName(property.fallbackBase, 'top', property.suffix);
-    const fallbackBlockEnd = createPropertyName(property.fallbackBase, 'bottom', property.suffix);
+    const blockStart = createPropertyName(
+      property.base,
+      'block-start',
+      property.suffix
+    );
+    const blockEnd = createPropertyName(
+      property.base,
+      'block-end',
+      property.suffix
+    );
+    const fallbackInlineStart = createPropertyName(
+      property.fallbackBase,
+      'left',
+      property.suffix
+    );
+    const fallbackInlineEnd = createPropertyName(
+      property.fallbackBase,
+      'right',
+      property.suffix
+    );
+    const fallbackBlockStart = createPropertyName(
+      property.fallbackBase,
+      'top',
+      property.suffix
+    );
+    const fallbackBlockEnd = createPropertyName(
+      property.fallbackBase,
+      'bottom',
+      property.suffix
+    );
 
     const hasInlineStart = isSupported(inlineStart);
     const hasInlineEnd = isSupported(inlineEnd);
@@ -175,11 +265,17 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
     const hasAll = isSupported(all);
 
     if (!hasInlineStart) {
-      transforms.set(inlineStart, inlineReplacementTransform([fallbackInlineStart], [fallbackInlineEnd]));
+      transforms.set(
+        inlineStart,
+        inlineReplacementTransform([fallbackInlineStart], [fallbackInlineEnd])
+      );
     }
 
     if (!hasInlineEnd) {
-      transforms.set(inlineEnd, inlineReplacementTransform([fallbackInlineEnd], [fallbackInlineStart]));
+      transforms.set(
+        inlineEnd,
+        inlineReplacementTransform([fallbackInlineEnd], [fallbackInlineStart])
+      );
     }
 
     if (!hasBlockStart) {
@@ -194,7 +290,13 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
       if (hasInlineStart && hasInlineEnd) {
         transforms.set(inline, replacementTransform([inlineStart, inlineEnd]));
       } else {
-        transforms.set(inline, inlineReplacementTransform([fallbackInlineStart, fallbackInlineEnd], [fallbackInlineEnd, fallbackInlineStart]));
+        transforms.set(
+          inline,
+          inlineReplacementTransform(
+            [fallbackInlineStart, fallbackInlineEnd],
+            [fallbackInlineEnd, fallbackInlineStart]
+          )
+        );
       }
     }
 
@@ -202,20 +304,44 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
       if (hasBlockStart && hasBlockEnd) {
         transforms.set(block, replacementTransform([blockStart, blockEnd]));
       } else {
-        transforms.set(block, replacementTransform([fallbackBlockStart, fallbackBlockEnd]));
+        transforms.set(
+          block,
+          replacementTransform([fallbackBlockStart, fallbackBlockEnd])
+        );
       }
     }
 
     if (!hasAll) {
       if (hasInline && hasBlock) {
         transforms.set(all, replacementTransform([inline, block]));
-      } else if (hasInlineStart && hasInlineEnd && hasBlockStart && hasBlockEnd) {
-        transforms.set(all, replacementTransform([inlineStart, inlineEnd, blockStart, blockEnd]));
+      } else if (
+        hasInlineStart &&
+        hasInlineEnd &&
+        hasBlockStart &&
+        hasBlockEnd
+      ) {
+        transforms.set(
+          all,
+          replacementTransform([inlineStart, inlineEnd, blockStart, blockEnd])
+        );
       } else {
-        transforms.set(all, inlineReplacementTransform(
-          [fallbackInlineStart, fallbackBlockStart, fallbackInlineEnd, fallbackBlockEnd],
-          [fallbackInlineEnd, fallbackBlockStart, fallbackInlineStart, fallbackBlockEnd],
-        ));
+        transforms.set(
+          all,
+          inlineReplacementTransform(
+            [
+              fallbackInlineStart,
+              fallbackBlockStart,
+              fallbackInlineEnd,
+              fallbackBlockEnd,
+            ],
+            [
+              fallbackInlineEnd,
+              fallbackBlockStart,
+              fallbackInlineStart,
+              fallbackBlockEnd,
+            ]
+          )
+        );
       }
     }
   });
@@ -224,15 +350,15 @@ export const createLogicalPropertiesPlugin = (options: LogicalPropertiesOptions)
     switch (context) {
       case -2: {
         try {
-          return `${ content }${ buffer }`;
+          return `${content}${buffer}`;
         } finally {
           buffer = '';
         }
       }
 
       case 1: {
-        let i: number;
-        const property = content.slice(0, i = content.indexOf(':'));
+        const i: number = content.indexOf(':');
+        const property = content.slice(0, i);
         const transform = transforms.get(property);
 
         if (!transform) {

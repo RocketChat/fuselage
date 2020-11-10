@@ -24,6 +24,7 @@ const useServerLazyRef = <T>(init: () => T): MutableRefObject<T> =>
  * @returns the ref
  * @public
  */
-export const useLazyRef = typeof window !== 'undefined' && window.document
-  ? useBrowserLazyRef
-  : useServerLazyRef;
+export const useLazyRef =
+  typeof window !== 'undefined' && window.document
+    ? useBrowserLazyRef
+    : useServerLazyRef;

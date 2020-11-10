@@ -5,9 +5,12 @@ import { Accordion } from '../..';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Accordion>
-    <Accordion.Item title='' />
-  </Accordion>, div);
+  ReactDOM.render(
+    <Accordion>
+      <Accordion.Item title='' />
+    </Accordion>,
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });
 

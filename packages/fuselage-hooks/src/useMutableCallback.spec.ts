@@ -1,4 +1,10 @@
-import { createElement, StrictMode, FunctionComponent, useReducer, useState } from 'react';
+import {
+  createElement,
+  StrictMode,
+  FunctionComponent,
+  useReducer,
+  useState,
+} from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -20,7 +26,7 @@ describe('useMutableCallback hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -48,7 +54,7 @@ describe('useMutableCallback hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -74,7 +80,7 @@ describe('useMutableCallback hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 

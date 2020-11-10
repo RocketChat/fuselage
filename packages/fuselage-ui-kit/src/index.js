@@ -1,9 +1,4 @@
-import {
-  Divider,
-  Margins,
-  InputBox,
-  Box,
-} from '@rocket.chat/fuselage';
+import { Divider, Margins, InputBox, Box } from '@rocket.chat/fuselage';
 import {
   uiKitMessage,
   uiKitModal,
@@ -29,9 +24,9 @@ export * from './hooks';
 
 export const version = process.env.VERSION;
 
-console.log(`fuselage-ui-kit version: ${ version }`);
+console.log(`fuselage-ui-kit version: ${version}`);
 
-function mrkdwn({ text/* , type = 'plain_text'*/ } = { text: '' }) {
+function mrkdwn({ text /* , type = 'plain_text'*/ } = { text: '' }) {
   return text;
 }
 
@@ -44,36 +39,53 @@ function text({ text /* , type = 'plain_text'*/ } = { text: '' }) {
 }
 
 class TextParser extends UiKitParserText {
-  mrkdwn(...args) { return mrkdwn(...args); }
+  mrkdwn(...args) {
+    return mrkdwn(...args);
+  }
 
-  plainText(...args) { return plainText(...args); }
+  plainText(...args) {
+    return plainText(...args);
+  }
 
-  text(...args) { return text(...args); }
+  text(...args) {
+    return text(...args);
+  }
 }
 
 class MessageParser extends UiKitParserMessage {
-  mrkdwn(...args) { return mrkdwn(...args); }
+  mrkdwn(...args) {
+    return mrkdwn(...args);
+  }
 
-  plainText(...args) { return plainText(...args); }
+  plainText(...args) {
+    return plainText(...args);
+  }
 
-  text(...args) { return text(...args); }
+  text(...args) {
+    return text(...args);
+  }
 
   overflow(element, context) {
-    return <Overflow context={context} {...element} parser={this}/>;
+    return <Overflow context={context} {...element} parser={this} />;
   }
 
   button(element, context, key) {
-    return <UIKitButton element={element} context={context} key={key} parser={this}/>;
+    return (
+      <UIKitButton
+        element={element}
+        context={context}
+        key={key}
+        parser={this}
+      />
+    );
   }
 
   divider(_, __, key) {
-    return <Divider mb='x24' key={key}/>;
+    return <Divider mb='x24' key={key} />;
   }
 
   section(args, context, index) {
-    return (
-      <SectionLayoutBlock key={index} {...args} parser={this} />
-    );
+    return <SectionLayoutBlock key={index} {...args} parser={this} />;
   }
 
   actions(args, _, key) {
@@ -82,7 +94,10 @@ class MessageParser extends UiKitParserMessage {
 
   datePicker(element, context, key) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [{ loading, value, error }, action] = useBlockContext(element, context);
+    const [{ loading, value, error }, action] = useBlockContext(
+      element,
+      context
+    );
     const { actionId, placeholder } = element;
     return (
       <InputBox
@@ -101,7 +116,7 @@ class MessageParser extends UiKitParserMessage {
   }
 
   image(element, context, key) {
-    return <MessageImage key={key} element={element} context={context}/>;
+    return <MessageImage key={key} element={element} context={context} />;
   }
 
   context({ elements }, context, key) {
@@ -110,17 +125,16 @@ class MessageParser extends UiKitParserMessage {
         <Box display='flex' alignItems='center' m='neg-x4'>
           {elements.map((element, i) => (
             <Margins all='x4' key={i}>
-              {[
-                ELEMENT_TYPES.PLAIN_TEXT,
-                ELEMENT_TYPES.MARKDOWN,
-              ].includes(element.type) ? (
-                  <Box is='span' fontScale='c1' color='info'>
-                    {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
-                  </Box>
-                )
-                : this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)
-              || element.type
-              }
+              {[ELEMENT_TYPES.PLAIN_TEXT, ELEMENT_TYPES.MARKDOWN].includes(
+                element.type
+              ) ? (
+                <Box is='span' fontScale='c1' color='info'>
+                  {this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this)}
+                </Box>
+              ) : (
+                this.renderContext(element, BLOCK_CONTEXT.CONTEXT, this) ||
+                element.type
+              )}
             </Margins>
           ))}
         </Box>
@@ -140,7 +154,9 @@ class MessageParser extends UiKitParserMessage {
   }
 
   staticSelect(element, context, key) {
-    return <StaticSelect key={key} context={context} {...element} parser={this} />;
+    return (
+      <StaticSelect key={key} context={context} {...element} parser={this} />
+    );
   }
 
   // selectInput(element, context, key) {
@@ -155,7 +171,8 @@ class ModalParser extends UiKitParserModal {
   constructor() {
     super();
     Object.getOwnPropertyNames(MessageParser.prototype).forEach((method) => {
-      ModalParser.prototype[method] = ModalParser.prototype[method] || MessageParser.prototype[method];
+      ModalParser.prototype[method] =
+        ModalParser.prototype[method] || MessageParser.prototype[method];
     });
   }
 
@@ -173,11 +190,18 @@ class ModalParser extends UiKitParserModal {
   }
 
   image(element, context, index) {
-    return <ModalImage key={index} element={element} context={context}/>;
+    return <ModalImage key={index} element={element} context={context} />;
   }
 
   plainInput(element, context, index) {
-    return <PlainInput parser={this} element={element} context={context} index={index}/>;
+    return (
+      <PlainInput
+        parser={this}
+        element={element}
+        context={context}
+        index={index}
+      />
+    );
   }
 }
 

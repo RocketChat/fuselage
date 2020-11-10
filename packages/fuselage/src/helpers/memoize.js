@@ -3,7 +3,7 @@ const store = new WeakMap();
 export const memoize = (fn) => {
   const cache = new Map();
 
-  const memoized = function(arg) {
+  const memoized = function (arg) {
     if (cache.has(arg)) {
       return cache.get(arg);
     }

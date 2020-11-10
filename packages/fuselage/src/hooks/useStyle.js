@@ -25,7 +25,7 @@ export const useStyle = (cssFn, arg) => {
     }
 
     const escapedClassName = escapeName(className);
-    const transpiledContent = transpile(`.${ escapedClassName }`, content);
+    const transpiledContent = transpile(`.${escapedClassName}`, content);
     const detach = attachRules(transpiledContent);
 
     return () => {
