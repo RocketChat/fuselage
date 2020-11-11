@@ -1,11 +1,5 @@
-import {
-  Box,
-  Flex,
-  Grid,
-} from '@rocket.chat/fuselage';
-import {
-  BLOCK_CONTEXT,
-} from '@rocket.chat/ui-kit';
+import { Box, Flex, Grid } from '@rocket.chat/fuselage';
+import { BLOCK_CONTEXT } from '@rocket.chat/ui-kit';
 import React from 'react';
 
 import { Block } from './Block';
@@ -14,7 +8,7 @@ const Accessory = ({ blockId, appId, element, parser }) =>
   parser.renderAccessories(
     { blockId, appId, ...element },
     BLOCK_CONTEXT.SECTION,
-    parser,
+    parser
   );
 
 const breakpoints = {
@@ -35,16 +29,34 @@ const Fields = ({ fields, parser }) => (
   </Grid>
 );
 
-export const Section = ({ blockId, appId, text, fields, accessory, parser }) => <Block>
-  <Grid>
-    <Grid.Item>
-      {text && <Box is='span' fontScale='p1' color='default'>{parser.text(text)}</Box>}
-      {fields && <Fields fields={fields} parser={parser} />}
-    </Grid.Item>
-    {accessory && <Flex.Item grow={0}>
+export const Section = ({
+  blockId,
+  appId,
+  text,
+  fields,
+  accessory,
+  parser,
+}) => (
+  <Block>
+    <Grid>
       <Grid.Item>
-        <Accessory element={{ blockId, appId, ...accessory }} parser={parser} />
+        {text && (
+          <Box is='span' fontScale='p1' color='default'>
+            {parser.text(text)}
+          </Box>
+        )}
+        {fields && <Fields fields={fields} parser={parser} />}
       </Grid.Item>
-    </Flex.Item>}
-  </Grid>
-</Block>;
+      {accessory && (
+        <Flex.Item grow={0}>
+          <Grid.Item>
+            <Accessory
+              element={{ blockId, appId, ...accessory }}
+              parser={parser}
+            />
+          </Grid.Item>
+        </Flex.Item>
+      )}
+    </Grid>
+  </Block>
+);

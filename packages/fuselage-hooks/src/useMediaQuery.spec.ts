@@ -24,7 +24,7 @@ it('does not register a undefined media query', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -40,7 +40,7 @@ it('does register a defined media query', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -57,7 +57,7 @@ it('returns false if no query is given', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -74,7 +74,7 @@ it('returns false if the media query does not match', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -93,7 +93,7 @@ it('returns true if the media query does match', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -110,7 +110,7 @@ it('mutates its value to true if the media query matches', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 

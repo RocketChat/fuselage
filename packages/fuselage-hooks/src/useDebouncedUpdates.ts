@@ -1,7 +1,4 @@
-import {
-  Dispatch,
-  DispatchWithoutAction,
-} from 'react';
+import { Dispatch, DispatchWithoutAction } from 'react';
 
 import { useDebouncedCallback } from './useDebouncedCallback';
 
@@ -16,17 +13,26 @@ import { useDebouncedCallback } from './useDebouncedCallback';
 export function useDebouncedUpdates<S>(
   [state, dispatch]: [S, DispatchWithoutAction],
   delay: number
-): [S, DispatchWithoutAction & {
-  flush: () => void;
-  cancel: () => void;
-}];
+): [
+  S,
+  DispatchWithoutAction & {
+    flush: () => void;
+    cancel: () => void;
+  }
+];
 export function useDebouncedUpdates<S, A>(
   [state, dispatch]: [S, Dispatch<A>],
   delay: number
-): [S, Dispatch<A> & {
-  flush: () => void;
-  cancel: () => void;
-}];
-export function useDebouncedUpdates([state, dispatch]: [unknown, () => unknown], delay: number): [unknown, unknown] {
+): [
+  S,
+  Dispatch<A> & {
+    flush: () => void;
+    cancel: () => void;
+  }
+];
+export function useDebouncedUpdates(
+  [state, dispatch]: [unknown, () => unknown],
+  delay: number
+): [unknown, unknown] {
   return [state, useDebouncedCallback(dispatch, delay, [])];
 }

@@ -15,9 +15,7 @@ describe('useLocalStorage hook', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     expect(value).toStrictEqual('value-default');
   });
@@ -31,9 +29,7 @@ describe('useSessionStorage hook', () => {
       return null;
     };
 
-    renderToString(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-    );
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
     expect(value).toStrictEqual('value-default');
   });

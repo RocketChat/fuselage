@@ -22,7 +22,7 @@ it('uses same-value equality by default', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -95,7 +95,7 @@ it('uses a custom equality function', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 

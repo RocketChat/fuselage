@@ -56,9 +56,10 @@ Avatar.propTypes = {
   url: PropTypes.string.isRequired,
 };
 
-const AvatarStack = ({ children, ...props }) =>
+const AvatarStack = ({ children, ...props }) => (
   <Box rcx-avatar-stack {...props}>
     {flattenChildren(children).reverse()}
-  </Box>;
+  </Box>
+);
 
 Avatar.Stack = AvatarStack;

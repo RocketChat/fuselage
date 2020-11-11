@@ -74,7 +74,9 @@ const fontFamilyProp = {
 
 const fontSizeProp = {
   toCSSValue: (value) => fontScale(value)?.fontSize || size(value),
-  propType: createPropType((value) => fontScale(value)?.fontSize || size(value)),
+  propType: createPropType(
+    (value) => fontScale(value)?.fontSize || size(value)
+  ),
 };
 
 const fontWeightProp = {
@@ -84,7 +86,9 @@ const fontWeightProp = {
 
 const lineHeightProp = {
   toCSSValue: (value) => fontScale(value)?.lineHeight || size(value),
-  propType: createPropType((value) => fontScale(value)?.lineHeight || size(value)),
+  propType: createPropType(
+    (value) => fontScale(value)?.lineHeight || size(value)
+  ),
 };
 
 const letterSpacingProp = {
@@ -215,32 +219,34 @@ const propDefs = {
   elevation: {
     toStyle: (value) => {
       if (value === '0') {
-        return css`box-shadow: none;`;
+        return css`
+          box-shadow: none;
+        `;
       }
 
       if (value === '1') {
-        return css`box-shadow: 0px 0px 12px 0px ${ color('neutral-800-10') };`;
+        return css`
+          box-shadow: 0px 0px 12px 0px ${color('neutral-800-10')};
+        `;
       }
 
       if (value === '2') {
         return css`
-        box-shadow:
-          0px 0px 2px 0px ${ color('neutral-800-8') },
-          0px 0px 12px 0px ${ color('neutral-800-12') };
-      `;
+          box-shadow: 0px 0px 2px 0px ${color('neutral-800-8')},
+            0px 0px 12px 0px ${color('neutral-800-12')};
+        `;
       }
     },
     propType: PropTypes.oneOf(['0', '1', '2']),
   },
   invisible: {
-    toStyle: (value) => (
+    toStyle: (value) =>
       value
         ? css`
-          visibility: hidden;
-          opacity: 0;
-        `
-        : undefined
-    ),
+            visibility: hidden;
+            opacity: 0;
+          `
+        : undefined,
     propType: PropTypes.bool,
   },
   withRichContent: {
@@ -248,71 +254,70 @@ const propDefs = {
     propType: PropTypes.bool,
   },
   withTruncatedText: {
-    toStyle: (value) => (
+    toStyle: (value) =>
       value
         ? css`
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        `
-        : undefined
-    ),
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          `
+        : undefined,
     propType: PropTypes.bool,
   },
   size: {
-    toStyle: (value) => (
+    toStyle: (value) =>
       size(value)
         ? css`
-          width: ${ size(value) } !important;
-          height: ${ size(value) } !important;
-        `
-        : undefined
-    ),
+            width: ${size(value)} !important;
+            height: ${size(value)} !important;
+          `
+        : undefined,
     propType: createPropType(size),
   },
   minSize: {
-    toStyle: (value) => (
+    toStyle: (value) =>
       size(value)
         ? css`
-          min-width: ${ size(value) } !important;
-          min-height: ${ size(value) } !important;
-        `
-        : undefined
-    ),
+            min-width: ${size(value)} !important;
+            min-height: ${size(value)} !important;
+          `
+        : undefined,
     propType: createPropType(size),
   },
   maxSize: {
-    toStyle: (value) => (
+    toStyle: (value) =>
       size(value)
         ? css`
-          max-width: ${ size(value) } !important;
-          max-height: ${ size(value) } !important;
-        `
-        : undefined
-    ),
+            max-width: ${size(value)} !important;
+            max-height: ${size(value)} !important;
+          `
+        : undefined,
     propType: createPropType(size),
   },
   fontScale: {
     toStyle: (value) => css`
-      font-size: ${ fontScale(value)?.fontSize } !important;
-      font-weight: ${ fontScale(value)?.fontWeight } !important;
-      letter-spacing: ${ fontScale(value)?.letterSpacing } !important;
-      line-height: ${ fontScale(value)?.lineHeight } !important;
+      font-size: ${fontScale(value)?.fontSize} !important;
+      font-weight: ${fontScale(value)?.fontWeight} !important;
+      letter-spacing: ${fontScale(value)?.letterSpacing} !important;
+      line-height: ${fontScale(value)?.lineHeight} !important;
     `,
     propType: PropTypes.oneOf(fontScale.values),
   },
 };
 
-export const propTypes = Object.entries(propDefs).reduce((obj, [propName, propDef]) => {
-  if (propDef.aliasOf) {
-    propDef = propDefs[propDef.aliasOf];
-  }
+export const propTypes = Object.entries(propDefs).reduce(
+  (obj, [propName, propDef]) => {
+    if (propDef.aliasOf) {
+      propDef = propDefs[propDef.aliasOf];
+    }
 
-  obj[propName] = propDef.propType;
-  return obj;
-}, {
-  htmlSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-});
+    obj[propName] = propDef.propType;
+    return obj;
+  },
+  {
+    htmlSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }
+);
 
 export const useStylingProps = (originalProps) => {
   const { htmlSize, ...props } = originalProps;
@@ -356,7 +361,9 @@ export const useStylingProps = (originalProps) => {
           return;
         }
 
-        return css`${ cssProperty }: ${ cssValue } !important;`;
+        return css`
+          ${cssProperty}: ${cssValue} !important;
+        `;
       };
     }
 
@@ -369,9 +376,15 @@ export const useStylingProps = (originalProps) => {
     stylingProps.set(effectivePropName, style);
   }
 
-  const styles = stylingProps.size ? Array.from(stylingProps.values()) : undefined;
+  const styles = stylingProps.size
+    ? Array.from(stylingProps.values())
+    : undefined;
 
-  const newClassName = useStyle(css`${ styles }`);
+  const newClassName = useStyle(
+    css`
+      ${styles}
+    `
+  );
 
   if (newClassName) {
     props.className = appendClassName(props.className, newClassName);

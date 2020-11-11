@@ -8,7 +8,7 @@ import { memoize } from './helpers/memoize';
 const measure = (computeSpecialValue) =>
   memoize((value) => {
     if (typeof value === 'number') {
-      return `${ value }px`;
+      return `${value}px`;
     }
 
     if (typeof value !== 'string') {
@@ -18,8 +18,9 @@ const measure = (computeSpecialValue) =>
     const xRegExp = /^(neg-|-)?x(\d+)$/;
     if (xRegExp.test(value)) {
       const [, negativeMark, measureInPixelsAsString] = xRegExp.exec(value);
-      const measureInPixels = (negativeMark ? -1 : 1) * parseInt(measureInPixelsAsString, 10);
-      return `${ measureInPixels / 16 }rem`;
+      const measureInPixels =
+        (negativeMark ? -1 : 1) * parseInt(measureInPixelsAsString, 10);
+      return `${measureInPixels / 16}rem`;
     }
 
     if (computeSpecialValue) {
@@ -55,42 +56,52 @@ const mapTypeToPrefix = {
 };
 
 const getPaletteColor = (type, grade, alpha) => {
-  invariant(grade % 100 === 0 && grade / 100 >= 1 && grade / 100 <= 9, 'invalid color grade');
-  invariant(alpha === undefined || (alpha >= 0 && alpha <= 1), 'invalid color alpha');
+  invariant(
+    grade % 100 === 0 && grade / 100 >= 1 && grade / 100 <= 9,
+    'invalid color grade'
+  );
+  invariant(
+    alpha === undefined || (alpha >= 0 && alpha <= 1),
+    'invalid color alpha'
+  );
 
   const prefix = mapTypeToPrefix[type];
   invariant(!!prefix, 'invalid color type');
 
-  const baseColor = tokenColors[`${ prefix }${ grade }`];
+  const baseColor = tokenColors[`${prefix}${grade}`];
 
   invariant(!!baseColor, 'invalid color reference');
 
-  const matches = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/.exec(baseColor);
+  const matches = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/.exec(
+    baseColor
+  );
 
   invariant(!!matches, 'invalid color token format');
 
   if (alpha !== undefined) {
     const [, r, g, b] = matches;
     return [
-      `--rcx-color-${ type }-${ grade }-${ (alpha * 100).toFixed(0) }`,
-      `rgba(${ parseInt(r, 16) }, ${ parseInt(g, 16) }, ${ parseInt(b, 16) }, ${ alpha * 100 }%)`,
+      `--rcx-color-${type}-${grade}-${(alpha * 100).toFixed(0)}`,
+      `rgba(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)}, ${
+        alpha * 100
+      }%)`,
     ];
   }
 
-  return [`--rcx-color-${ type }-${ grade }`, baseColor];
+  return [`--rcx-color-${type}-${grade}`, baseColor];
 };
 
 const foregroundColors = {
-  default: tokenColors.n800,
-  info: tokenColors.n700,
-  hint: tokenColors.n600,
-  disabled: tokenColors.n400,
-  alternative: 'white',
-  primary: tokenColors.b500,
-  success: tokenColors.g500,
-  danger: tokenColors.r500,
-  warning: tokenColors.y700,
-  link: tokenColors.b500,
+  'default': tokenColors.n800,
+  'info': tokenColors.n700,
+  'hint': tokenColors.n600,
+  'disabled': tokenColors.n400,
+  'alternative': 'white',
+  'primary': tokenColors.b500,
+  'success': tokenColors.g500,
+  'danger': tokenColors.r500,
+  'warning': tokenColors.y700,
+  'link': tokenColors.b500,
   'visited-link': tokenColors.p500,
   'active-link': tokenColors.r500,
 };
@@ -99,7 +110,7 @@ const getForegroundColor = (type) => {
   const color = foregroundColors[type];
   invariant(!!color, 'invalid foreground color');
 
-  return [`--rcx-color-foreground-${ type }`, color];
+  return [`--rcx-color-foreground-${type}`, color];
 };
 
 const paletteColorRegex = /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
@@ -114,11 +125,12 @@ export const color = memoize((propValue) => {
   if (paletteMatches) {
     const [, type, gradeString, , alphaString] = paletteMatches;
     const grade = parseInt(gradeString, 10);
-    const alpha = alphaString !== undefined ? parseInt(alphaString, 10) / 100 : undefined;
+    const alpha =
+      alphaString !== undefined ? parseInt(alphaString, 10) / 100 : undefined;
     const [customProperty, color] = getPaletteColor(type, grade, alpha);
 
     if (customProperty && cssSupports('(--foo: bar)')) {
-      return `var(${ customProperty }, ${ color })`;
+      return `var(${customProperty}, ${color})`;
     }
 
     return color;
@@ -136,7 +148,7 @@ export const color = memoize((propValue) => {
     const [customProperty, color] = getForegroundColor(String(propValue));
 
     if (customProperty && cssSupports('(--foo: bar)')) {
-      return `var(${ customProperty }, ${ color })`;
+      return `var(${customProperty}, ${color})`;
     }
 
     return color;
@@ -191,10 +203,11 @@ export const fontFamily = memoize((value) => {
   }
 
   const fontFamily = tokenTypography.fontFamilies[value]
-    .map((fontFace) => (fontFace.includes(' ') ? `'${ fontFace }'` : fontFace)).join(', ');
+    .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))
+    .join(', ');
 
   if (cssSupports('(--foo: bar)')) {
-    return `var(--rcx-font-family-${ value }, ${ fontFamily })`;
+    return `var(--rcx-font-family-${value}, ${fontFamily})`;
   }
 
   return fontFamily;
@@ -213,10 +226,10 @@ export const fontScale = (value) => {
   } = tokenTypography.fontScales[value];
 
   return {
-    fontSize: `${ fontSize / 16 }rem`,
+    fontSize: `${fontSize / 16}rem`,
     fontWeight,
-    lineHeight: `${ lineHeight / 16 }rem`,
-    letterSpacing: `${ letterSpacing / 16 }rem`,
+    lineHeight: `${lineHeight / 16}rem`,
+    letterSpacing: `${letterSpacing / 16}rem`,
   };
 };
 fontScale.values = Object.keys(tokenTypography.fontScales);

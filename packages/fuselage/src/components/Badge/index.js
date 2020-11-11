@@ -12,12 +12,12 @@ export function Badge({
 }) {
   return (
     <Tag
-      className={
-        prependClassName(
-          className,
-          `rcx-box rcx-box--full rcx-badge ${ disabled ? 'rcx-badge--disabled' : '' } rcx-badge--${ variant }`,
-        )
-      }
+      className={prependClassName(
+        className,
+        `rcx-box rcx-box--full rcx-badge ${
+          disabled ? 'rcx-badge--disabled' : ''
+        } rcx-badge--${variant}`
+      )}
       {...props}
     />
   );
@@ -25,5 +25,11 @@ export function Badge({
 
 Badge.propTypes = {
   disabled: PropTypes.bool,
-  variant: PropTypes.oneOf(['secondary', 'primary', 'danger', 'warning', 'ghost']),
+  variant: PropTypes.oneOf([
+    'secondary',
+    'primary',
+    'danger',
+    'warning',
+    'ghost',
+  ]),
 };

@@ -3,6 +3,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     '@rocket.chat/eslint-config',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -14,17 +15,25 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['@typescript-eslint', 'react-hooks'],
+  plugins: ['@typescript-eslint', 'react-hooks', 'prettier'],
   rules: {
     'func-call-spacing': 'off',
-    indent: 'off',
-    'import/order': ['error', {
-      'newlines-between': 'always',
-      groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
-      alphabetize: {
-        order: 'asc',
+    'indent': 'off',
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        'groups': [
+          'builtin',
+          'external',
+          'internal',
+          ['parent', 'sibling', 'index'],
+        ],
+        'alphabetize': {
+          order: 'asc',
+        },
       },
-    }],
+    ],
     'no-empty-function': 'off',
     'no-extra-parens': 'off',
     'no-redeclare': 'off',
@@ -33,34 +42,24 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-useless-constructor': 'off',
     'no-use-before-define': 'off',
-    'operator-linebreak': ['error', 'before', {
-      overrides: {
-        '=': 'after',
-      },
-    }],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    'operator-linebreak': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/func-call-spacing': 'error',
-    '@typescript-eslint/indent': ['error', 2, {
-      SwitchCase: 1,
-    }],
+    '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-extra-parens': ['error', 'all', {
-      conditionalAssign: true,
-      nestedBinaryExpressions: false,
-      returnAssign: true,
-      ignoreJSX: 'all',
-      enforceForArrowConditionals: false,
-    }],
+    '@typescript-eslint/no-extra-parens': 'off',
     '@typescript-eslint/no-redeclare': ['error'],
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': ['warn', {
-      allowExpressions: true,
-    }],
+    '@typescript-eslint/explicit-function-return-type': [
+      'warn',
+      {
+        allowExpressions: true,
+      },
+    ],
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars-experimental': 'warn',
+    'prettier/prettier': 2,
   },
   env: {
     browser: true,
@@ -72,11 +71,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: [
-          '.js',
-          '.ts',
-          '.tsx',
-        ],
+        extensions: ['.js', '.ts', '.tsx'],
       },
     },
   },

@@ -1,4 +1,9 @@
-import { FunctionComponent, createElement, StrictMode, MutableRefObject } from 'react';
+import {
+  FunctionComponent,
+  createElement,
+  StrictMode,
+  MutableRefObject,
+} from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -18,7 +23,7 @@ describe('useLazyRef hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -36,7 +41,7 @@ describe('useLazyRef hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 

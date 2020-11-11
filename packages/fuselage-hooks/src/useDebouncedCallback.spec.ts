@@ -1,4 +1,12 @@
-import { FunctionComponent, createElement, StrictMode, useReducer, useState, Dispatch, SetStateAction } from 'react';
+import {
+  FunctionComponent,
+  createElement,
+  StrictMode,
+  useReducer,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -27,7 +35,7 @@ describe('useDebouncedCallback hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -46,7 +54,7 @@ describe('useDebouncedCallback hook', () => {
     expect(fn).toHaveBeenCalledTimes(1);
   });
 
-  it('returns the same callback if deps don\'t change', () => {
+  it("returns the same callback if deps don't change", () => {
     const delay = 100 + Math.round(100 * Math.random());
 
     let debouncedCallback: (() => void) & {
@@ -64,7 +72,7 @@ describe('useDebouncedCallback hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -98,7 +106,7 @@ describe('useDebouncedCallback hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -131,7 +139,7 @@ describe('useDebouncedCallback hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 

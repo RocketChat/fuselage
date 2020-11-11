@@ -1,4 +1,3 @@
-
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -21,11 +20,16 @@ export function Tag({
     disabled && 'disabled',
     onClick && 'clickable',
   ]
-    .map((modifier) => `rcx-tag--${ modifier }`)
+    .map((modifier) => `rcx-tag--${modifier}`)
     .filter(Boolean)
     .join(' ');
 
-  return <TagName className={prependClassName(className, `rcx-tag ${ modifiers }`)} {...props} />;
+  return (
+    <TagName
+      className={prependClassName(className, `rcx-tag ${modifiers}`)}
+      {...props}
+    />
+  );
 }
 
 Tag.propTypes = {
@@ -33,5 +37,11 @@ Tag.propTypes = {
   medium: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  variant: PropTypes.oneOf(['secondary', 'primary', 'danger', 'warning', 'ghost']),
+  variant: PropTypes.oneOf([
+    'secondary',
+    'primary',
+    'danger',
+    'warning',
+    'ghost',
+  ]),
 };

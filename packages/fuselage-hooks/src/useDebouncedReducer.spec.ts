@@ -1,4 +1,9 @@
-import { FunctionComponent, DispatchWithoutAction, createElement, StrictMode } from 'react';
+import {
+  FunctionComponent,
+  DispatchWithoutAction,
+  createElement,
+  StrictMode,
+} from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -28,7 +33,7 @@ describe('useDebouncedReducer hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 

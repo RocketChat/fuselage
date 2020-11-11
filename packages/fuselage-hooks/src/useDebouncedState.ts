@@ -1,8 +1,4 @@
-import {
-  useState,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 
 import { useDebouncedUpdates } from './useDebouncedUpdates';
 
@@ -17,9 +13,13 @@ import { useDebouncedUpdates } from './useDebouncedUpdates';
 
 export function useDebouncedState<S>(
   initialValue: S | (() => S),
-  delay: number): [S, Dispatch<SetStateAction<S>> & {
+  delay: number
+): [
+  S,
+  Dispatch<SetStateAction<S>> & {
     flush: () => void;
     cancel: () => void;
-  }] {
+  }
+] {
   return useDebouncedUpdates(useState(initialValue), delay);
 }
