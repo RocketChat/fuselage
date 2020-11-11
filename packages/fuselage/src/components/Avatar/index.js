@@ -20,27 +20,20 @@ const usePropsToStyle = (props) => {
   return props;
 };
 
-export function Avatar({
-  title,
-  rounded = false,
-  url,
-  className,
-  ...props
-}) {
+export function Avatar({ title, rounded = false, url, className, ...props }) {
   const { baseUrl } = useContext(AvatarContext);
   props = usePropsToStyle(props);
-  className = prependClassName(props.className, 'rcx-box rcx-box--full rcx-avatar');
+  className = prependClassName(
+    props.className,
+    'rcx-box rcx-box--full rcx-avatar'
+  );
   rounded = rounded ? 'rcx-avatar__element--rounded' : '';
 
   return (
-    <figure
-      className={className}
-      aria-label={title}
-      {...props}
-    >
+    <figure className={className} aria-label={title} {...props}>
       <img
-        className={`${ className }__element ${ rounded }`}
-        src={`${ baseUrl }${ url }`}
+        className={`${className}__element ${rounded}`}
+        src={`${baseUrl}${url}`}
         {...props}
       />
     </figure>

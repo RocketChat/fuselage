@@ -7,7 +7,11 @@ import { withBoxStyling } from '../Box/withBoxStyling';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
-const defaultRenderThumb = ({ url }) => <Box><Avatar size='x20' url={url} /></Box>;
+const defaultRenderThumb = ({ url }) => (
+  <Box>
+    <Avatar size='x20' url={url} />
+  </Box>
+);
 const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
 const Chip = ({
