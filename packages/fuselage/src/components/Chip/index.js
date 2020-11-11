@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
-import { Avatar } from '../Avatar';
 import { withBoxStyling } from '../Box/withBoxStyling';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
-const defaultRenderThumb = ({ url }) => <Avatar size='x20' url={url} />;
+const defaultRenderThumb = ({ url }) => <Box><Avatar size='x20' url={url} /></Box>;
 const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
 const Chip = ({
