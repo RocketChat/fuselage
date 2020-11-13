@@ -16,6 +16,15 @@ module.exports = (env, argv) => ({
     library: 'RocketChatUiKit',
     libraryTarget: 'umd',
     umdNamedDefine: true,
+    environment: {
+      arrowFunction: false,
+      bigIntLiteral: false,
+      const: false,
+      destructuring: false,
+      dynamicImport: false,
+      forOf: false,
+      module: false,
+    },
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],

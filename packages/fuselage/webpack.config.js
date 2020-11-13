@@ -9,11 +9,20 @@ module.exports = (env, { mode = 'production' }) => ({
     fuselage: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
-    filename: `[name].${ mode }.js`,
+    filename: `[name].${mode}.js`,
     path: path.resolve(__dirname, 'dist'),
     library: 'RocketChatFuselage',
     libraryTarget: 'umd',
     umdNamedDefine: true,
+    environment: {
+      arrowFunction: false,
+      bigIntLiteral: false,
+      const: false,
+      destructuring: false,
+      dynamicImport: false,
+      forOf: false,
+      module: false,
+    },
   },
   devtool: mode === 'production' ? false : 'source-map',
   module: {
