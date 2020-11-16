@@ -12,11 +12,20 @@ module.exports = (env, { mode = 'production' }) => ({
     'fuselage-ui-kit': path.resolve(__dirname, 'src/index.js'),
   },
   output: {
-    filename: `[name].${ mode }.js`,
+    filename: `[name].${mode}.js`,
     path: path.resolve(__dirname, 'dist'),
     library: 'RocketChatFuselageUiKit',
     libraryTarget: 'umd',
     umdNamedDefine: true,
+    environment: {
+      arrowFunction: false,
+      bigIntLiteral: false,
+      const: false,
+      destructuring: false,
+      dynamicImport: false,
+      forOf: false,
+      module: false,
+    },
   },
   devtool: mode === 'production' ? false : 'source-map',
   module: {
@@ -28,11 +37,7 @@ module.exports = (env, { mode = 'production' }) => ({
       },
     ],
   },
-  externals: [
-    'react',
-    'react-dom',
-    /^@rocket.chat\//,
-  ],
+  externals: ['react', 'react-dom', /^@rocket.chat\//],
   plugins: [
     new webpack.DefinePlugin({
       'process.env.VERSION': JSON.stringify(pkg.version),

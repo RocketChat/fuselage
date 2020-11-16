@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.3...v0.18.0) (2020-11-16)
+
+
+### Bug Fixes
+
+* Burger ([#328](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/328)) ([8ec4c27](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8ec4c27e406f86dad6dac722d0edcfdae6c505c1))
+* Set a conservative output.environment on Webpack bundles ([#330](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/330)) ([62bf728](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/62bf728d3541d8d7ee72420347f2351359fb5df7))
+* Undo bad merge conflict ([#329](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/329)) ([aa9eb3b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/aa9eb3be3914d5bebc5fdca27c94af0d586eeb19))
+
+
+### Features
+
+* Menu burger ([#327](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/327)) ([f85c0b3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f85c0b3e5016ce08a278ffb2a8b987eeda31a767))
+* Remove Box dependence from Tag and Badge components ([#315](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/315)) ([4218e51](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4218e5108264ef830175b5e5f6bc1114d0367d93))
+
+
+
+
+
+## [0.17.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.2...v0.17.3) (2020-11-16)
+
+
+### Bug Fixes
+
+* Set a conservative output.environment on Webpack bundles ([#330](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/330)) ([85d4a3a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/85d4a3a5fd6881b07e97fb690d31baef405cfa69))
+
+
+
+
+
 ## [0.17.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.1...v0.17.2) (2020-10-28)
 
 
