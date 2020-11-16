@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.2...v0.17.3) (2020-11-16)
+
+
+### Bug Fixes
+
+* Set a conservative output.environment on Webpack bundles ([#330](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/330)) ([85d4a3a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/85d4a3a5fd6881b07e97fb690d31baef405cfa69))
+
+
+
+
+
 ## [0.17.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.1...v0.17.2) (2020-10-28)
 
 
