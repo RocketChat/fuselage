@@ -1,60 +1,60 @@
 import PropTypes from 'prop-types';
-import React, { useContext, createContext } from 'react';
+import React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
-import { createPropType } from '../../helpers/createPropType';
-import { size } from '../../styleTokens';
-import { Box } from '../Box';
-
-const AvatarContext = createContext({
-  baseUrl: '',
-});
+import { prependClassName } from '../../helpers/prependClassName';
 
 export function Avatar({
   title,
+  size = 'x36',
   rounded = false,
   url,
-  size = 'x36',
   ...props
 }) {
-  const { baseUrl } = useContext(AvatarContext);
+  props.className = prependClassName(
+    props.className,
+    ['rcx-box rcx-box--full rcx-avatar', size && `rcx-avatar--${size}`]
+      .filter(Boolean)
+      .join(' ')
+  );
+  const innerClass = [
+    'rcx-avatar__element',
+    rounded && 'rcx-avatar__element--rounded',
+    size && `rcx-avatar--${size}`,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <Box
-      is='figure'
-      rcx-avatar
-      aria-label={title}
-      {...props}
-      width={size}
-      height={size}
-      verticalAlign='middle'
-    >
-      <Box
-        is='img'
-        {...props}
-        rcx-avatar__element
-        rcx-avatar__element--rounded={rounded}
-        src={`${baseUrl}${url}`}
-        width={size}
-        height={size}
-      />
-    </Box>
+    <figure aria-label={title} {...props}>
+      <img src={`${url}`} className={`${innerClass}`} />
+    </figure>
   );
 }
 
-Avatar.Context = AvatarContext;
-
 Avatar.propTypes = {
   rounded: PropTypes.bool,
-  size: createPropType(size),
+  size: PropTypes.oneOf([
+    'x16',
+    'x18',
+    'x20',
+    'x24',
+    'x28',
+    'x32',
+    'x36',
+    'x48',
+    'x124',
+    'x200',
+    'x332',
+  ]),
   title: PropTypes.string,
   url: PropTypes.string.isRequired,
 };
 
-const AvatarStack = ({ children, ...props }) => (
-  <Box rcx-avatar-stack {...props}>
+const AvatarStack = ({ children, className, ...props }) => (
+  <div className={prependClassName('rcx-avatar-stack', className)} {...props}>
     {flattenChildren(children).reverse()}
-  </Box>
+  </div>
 );
 
 Avatar.Stack = AvatarStack;
