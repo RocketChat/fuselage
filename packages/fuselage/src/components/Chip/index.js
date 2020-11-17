@@ -8,7 +8,7 @@ import { Icon } from '../Icon';
 import Margins from '../Margins';
 
 const defaultRenderThumb = ({ url }) => (
-  <Box>
+  <Box rcx-avatar>
     <Avatar size='x20' url={url} />
   </Box>
 );
