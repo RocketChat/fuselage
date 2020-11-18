@@ -5,6 +5,7 @@ describe('margin-inline', () => {
     expect(
       transpile('div', 'margin-inline: inherit;', {
         supportedProperties: ['margin-inline'],
+        prefix: false,
       })
     ).toBe('div{margin-inline:inherit;}');
   });
@@ -13,6 +14,7 @@ describe('margin-inline', () => {
     expect(
       transpile('div', 'margin-inline: inherit;', {
         supportedProperties: ['margin-inline-start', 'margin-inline-end'],
+        prefix: false,
       })
     ).toBe('div{margin-inline-start:inherit;margin-inline-end:inherit;}');
   });
@@ -29,6 +31,7 @@ describe('margin-inline-start', () => {
     expect(
       transpile('div', 'margin-inline-start: inherit;', {
         supportedProperties: ['margin-inline-start'],
+        prefix: false,
       })
     ).toBe('div{margin-inline-start:inherit;}');
   });
@@ -45,6 +48,7 @@ describe('margin-inline-end', () => {
     expect(
       transpile('div', 'margin-inline-end: inherit;', {
         supportedProperties: ['margin-inline-end'],
+        prefix: false,
       })
     ).toBe('div{margin-inline-end:inherit;}');
   });
@@ -61,6 +65,7 @@ describe('margin-block', () => {
     expect(
       transpile('div', 'margin-block: inherit;', {
         supportedProperties: ['margin-block'],
+        prefix: false,
       })
     ).toBe('div{margin-block:inherit;}');
   });
@@ -69,6 +74,7 @@ describe('margin-block', () => {
     expect(
       transpile('div', 'margin-block: inherit;', {
         supportedProperties: ['margin-block-start', 'margin-block-end'],
+        prefix: false,
       })
     ).toBe('div{margin-block-start:inherit;margin-block-end:inherit;}');
   });
@@ -85,6 +91,7 @@ describe('margin-block-start', () => {
     expect(
       transpile('div', 'margin-block-start: inherit;', {
         supportedProperties: ['margin-block-start'],
+        prefix: false,
       })
     ).toBe('div{margin-block-start:inherit;}');
   });
@@ -101,6 +108,7 @@ describe('margin-block-end', () => {
     expect(
       transpile('div', 'margin-block-end: inherit;', {
         supportedProperties: ['margin-block-end'],
+        prefix: false,
       })
     ).toBe('div{margin-block-end:inherit;}');
   });

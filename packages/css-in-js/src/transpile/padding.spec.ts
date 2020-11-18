@@ -5,6 +5,7 @@ describe('padding-inline', () => {
     expect(
       transpile('div', 'padding-inline: inherit;', {
         supportedProperties: ['padding-inline'],
+        prefix: false,
       })
     ).toBe('div{padding-inline:inherit;}');
   });
@@ -13,6 +14,7 @@ describe('padding-inline', () => {
     expect(
       transpile('div', 'padding-inline: inherit;', {
         supportedProperties: ['padding-inline-start', 'padding-inline-end'],
+        prefix: false,
       })
     ).toBe('div{padding-inline-start:inherit;padding-inline-end:inherit;}');
   });
@@ -29,6 +31,7 @@ describe('padding-inline-start', () => {
     expect(
       transpile('div', 'padding-inline-start: inherit;', {
         supportedProperties: ['padding-inline-start'],
+        prefix: false,
       })
     ).toBe('div{padding-inline-start:inherit;}');
   });
@@ -45,6 +48,7 @@ describe('padding-inline-end', () => {
     expect(
       transpile('div', 'padding-inline-end: inherit;', {
         supportedProperties: ['padding-inline-end'],
+        prefix: false,
       })
     ).toBe('div{padding-inline-end:inherit;}');
   });
@@ -61,6 +65,7 @@ describe('padding-block', () => {
     expect(
       transpile('div', 'padding-block: inherit;', {
         supportedProperties: ['padding-block'],
+        prefix: false,
       })
     ).toBe('div{padding-block:inherit;}');
   });
@@ -69,6 +74,7 @@ describe('padding-block', () => {
     expect(
       transpile('div', 'padding-block: inherit;', {
         supportedProperties: ['padding-block-start', 'padding-block-end'],
+        prefix: false,
       })
     ).toBe('div{padding-block-start:inherit;padding-block-end:inherit;}');
   });
@@ -85,6 +91,7 @@ describe('padding-block-start', () => {
     expect(
       transpile('div', 'padding-block-start: inherit;', {
         supportedProperties: ['padding-block-start'],
+        prefix: false,
       })
     ).toBe('div{padding-block-start:inherit;}');
   });
@@ -101,6 +108,7 @@ describe('padding-block-end', () => {
     expect(
       transpile('div', 'padding-block-end: inherit;', {
         supportedProperties: ['padding-block-end'],
+        prefix: false,
       })
     ).toBe('div{padding-block-end:inherit;}');
   });
