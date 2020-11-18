@@ -1,10 +1,15 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/functions.scss';
 
 $avatar-stack-background-color: theme('avatar-background-color', colors.surface());
 
+$sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
+
 .rcx-avatar {
   display: inline-flex;
+
+  vertical-align: middle;
 
   &__element {
     position: relative;
@@ -31,6 +36,12 @@ $avatar-stack-background-color: theme('avatar-background-color', colors.surface(
       & > .rcx-avatar__element {
         border: lengths.border-width(2) solid currentColor;
       }
+    }
+  }
+
+  @each $size in $sizes {
+    &--x#{$size} {
+      @include square(functions.to-rem($size));
     }
   }
 }

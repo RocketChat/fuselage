@@ -47,7 +47,11 @@ export const ModalHeader = ({ children, ...props }) => (
   </Margins>
 );
 
-export const ModalThumb = (props) => <Avatar size='x32' {...props} />;
+export const ModalThumb = (props) => (
+  <Box>
+    <Avatar size='x32' {...props} />
+  </Box>
+);
 
 export const ModalTitle = ({ children, ...props }) => (
   <Flex.Item grow={1} shrink={1}>
