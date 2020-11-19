@@ -320,7 +320,7 @@ export const createLogicalPropertiesMiddleware = (
     ruleSet.children = [];
     ruleSet.return = '';
 
-    for (const rule of rules) {
+    for (const rule of rules as Element[]) {
       if (!isDeclaration(rule)) {
         ruleSet.children.push(rule);
         continue;

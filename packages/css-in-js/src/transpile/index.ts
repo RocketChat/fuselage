@@ -13,19 +13,14 @@ type TranspileOptions = {
   supportedProperties: string[];
 };
 
-const isMiddleware = (middleware: Middleware): middleware is Middleware =>
-  typeof middleware === 'function';
-
 export const createStylisMiddleware = ({
   supportedProperties = [],
 }: Partial<TranspileOptions> = {}): Middleware =>
-  middleware(
-    [
-      createLogicalPropertiesMiddleware(supportedProperties),
-      prefixer,
-      stringify,
-    ].filter(isMiddleware)
-  );
+  middleware([
+    createLogicalPropertiesMiddleware(supportedProperties),
+    prefixer,
+    stringify,
+  ]);
 
 /**
  * Transpiles CSS Modules content to CSS rules.
