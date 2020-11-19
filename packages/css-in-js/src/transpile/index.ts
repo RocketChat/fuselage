@@ -1,13 +1,33 @@
-import { compile, middleware, prefixer, serialize, stringify } from 'stylis';
-
 import {
-  LogicalPropertiesOptions,
-  createLogicalPropertiesMiddleware,
-} from './logicalProperties';
+  compile,
+  Middleware,
+  middleware,
+  prefixer,
+  serialize,
+  stringify,
+} from 'stylis';
 
-type TranspileOptions = LogicalPropertiesOptions & {
-  prefix?: boolean;
+import { createLogicalPropertiesMiddleware } from './logicalProperties';
+
+type TranspileOptions = {
+  prefix: boolean;
+  supportedProperties: string[];
 };
+
+const isMiddleware = (middleware: Middleware): middleware is Middleware =>
+  typeof middleware === 'function';
+
+export const createStylisMiddleware = ({
+  prefix = true,
+  supportedProperties = [],
+}: Partial<TranspileOptions> = {}): Middleware =>
+  middleware(
+    [
+      createLogicalPropertiesMiddleware(supportedProperties),
+      prefix && prefixer,
+      stringify,
+    ].filter(isMiddleware)
+  );
 
 /**
  * Transpiles CSS Modules content to CSS rules.
@@ -15,14 +35,9 @@ type TranspileOptions = LogicalPropertiesOptions & {
 export const transpile = (
   selector: string,
   content: string,
-  options?: TranspileOptions
-): string => {
-  return serialize(
+  options?: Partial<TranspileOptions>
+): string =>
+  serialize(
     compile(`${selector}{${content}}`),
-    middleware(
-      options?.prefix === false
-        ? [createLogicalPropertiesMiddleware(options), stringify]
-        : [createLogicalPropertiesMiddleware(options), prefixer, stringify]
-    )
+    createStylisMiddleware(options)
   );
-};

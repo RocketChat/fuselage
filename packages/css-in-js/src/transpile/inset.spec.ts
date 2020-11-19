@@ -35,7 +35,7 @@ describe('inset', () => {
 
   it('fallbacks', () => {
     expect(transpile('div', 'inset: inherit;')).toBe(
-      'html:not([dir=rtl]) div{left:inherit;top:inherit;right:inherit;bottom:inherit;}[dir=rtl] div{right:inherit;top:inherit;left:inherit;bottom:inherit;}'
+      'html:not([dir=rtl]) div{left:inherit;right:inherit;}[dir=rtl] div{right:inherit;left:inherit;}div{top:inherit;bottom:inherit;}'
     );
   });
 });

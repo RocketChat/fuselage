@@ -10,561 +10,332 @@ import {
 
 import { cssSupports } from '../cssSupports';
 
-export type LogicalPropertiesOptions = {
-  supportedProperties?: string[];
+type RuleSet = Element & {
+  type: typeof RULESET;
+  children: Element[];
+  props: string[];
 };
 
-const createPropertyName = (...parts: (string | undefined)[]): string =>
-  parts.filter(Boolean).join('-');
+type Declaration = Element & {
+  type: typeof DECLARATION;
+  props: string;
+  children: string;
+};
+
+type Operation = (
+  value: Declaration['children'],
+  ruleSet: Readonly<RuleSet>,
+  ltrRuleSet: Readonly<RuleSet>,
+  rtlRuleSet: Readonly<RuleSet>
+) => void;
+
+const isRuleSet = (element: Element): element is RuleSet =>
+  element.type === RULESET;
+
+const isDeclaration = (element: Element): element is Declaration =>
+  element.type === DECLARATION;
+
+const attachDeclaration = (
+  property: string,
+  value: string,
+  ruleSet: RuleSet
+): void => {
+  const declaration = node(
+    `${property}:${value};`,
+    ruleSet,
+    ruleSet,
+    DECLARATION,
+    (property as unknown) as string[],
+    (value as unknown) as Element[],
+    property.length + value.length + 1
+  );
+
+  ruleSet.children.push(declaration);
+};
 
 export const createLogicalPropertiesMiddleware = (
-  options: LogicalPropertiesOptions = {}
+  supportedProperties: string[]
 ): Middleware => {
-  const supportedProperties = new Set(options.supportedProperties);
+  const supportedPropertiesSet = new Set(supportedProperties);
 
-  const isSupported = (property: string): boolean =>
-    supportedProperties.has(property) || cssSupports(`${property}:inherit`);
+  const isPropertySupported = (property: string): boolean =>
+    supportedPropertiesSet.has(property) || cssSupports(`${property}:inherit`);
 
-  const transforms = new Map<
-    string,
-    (
-      element: Element,
-      child: Element,
-      newRules: Element[],
-      prependedRuleSets: Element[]
-    ) => void
-  >();
+  const isPropertyValueSupported = (property: string, value: string): boolean =>
+    cssSupports(`${property}:${value}`);
 
-  const inlineReplacementTransform = (ltr: string[], rtl: string[]) => (
-    element: Element,
-    child: Element,
-    _newRules: Element[],
-    prependedRuleSets: Element[]
-  ): void => {
-    prependedRuleSets.push(
-      node(
-        (element.props as string[])
-          .map((selector) => `html:not([dir=rtl]) ${selector}`)
-          .join(','),
-        element.root ?? null,
-        element.parent ?? null,
-        RULESET,
-        (element.props as string[]).map(
-          (selector) => `html:not([dir=rtl]) ${selector}`
-        ),
-        ltr.map((property) =>
-          node(
-            `${property}:${child.children};`,
-            element,
-            element,
-            DECLARATION,
-            (property as unknown) as string[],
-            child.children as Element[],
-            0
-          )
-        ),
-        0
-      ),
-      node(
-        (element.props as string[])
-          .map((selector) => `[dir=rtl] ${selector}`)
-          .join(','),
-        element.root ?? null,
-        element.parent ?? null,
-        RULESET,
-        (element.props as string[]).map((selector) => `[dir=rtl] ${selector}`),
-        rtl.map((property) =>
-          node(
-            `${property}:${child.children};`,
-            element,
-            element,
-            DECLARATION,
-            (property as unknown) as string[],
-            child.children as Element[],
-            0
-          )
-        ),
-        0
-      )
-    );
+  const ops = new Map<string, Operation>();
+
+  const handleLogicalValues = (property: string): void => {
+    for (const logicalValue of ['start', 'inline-start']) {
+      if (isPropertyValueSupported(property, logicalValue)) {
+        continue;
+      }
+
+      const op: Operation = (value, ruleSet, _ltrRuleSet, rtlRuleSet) => {
+        attachDeclaration(
+          property,
+          value === logicalValue ? 'left' : logicalValue,
+          ruleSet
+        );
+
+        attachDeclaration(
+          property,
+          value === logicalValue ? 'right' : logicalValue,
+          rtlRuleSet
+        );
+      };
+
+      ops.set(property, op);
+    }
+
+    for (const logicalValue of ['end', 'inline-end']) {
+      if (isPropertyValueSupported(property, logicalValue)) {
+        continue;
+      }
+
+      const op: Operation = (value, ruleSet, _ltrRuleSet, rtlRuleSet) => {
+        attachDeclaration(
+          property,
+          value === logicalValue ? 'right' : logicalValue,
+          ruleSet
+        );
+
+        attachDeclaration(
+          property,
+          value === logicalValue ? 'left' : logicalValue,
+          rtlRuleSet
+        );
+      };
+
+      ops.set(property, op);
+    }
   };
 
-  const replacementTransform = (replacement: string[]) => (
-    element: Element,
-    child: Element,
-    newRules: Element[]
-  ): void => {
-    newRules.push(
-      ...replacement.map((property) =>
-        node(
-          `${property}:${child.children};`,
-          element,
-          element,
-          DECLARATION,
-          (property as unknown) as string[],
-          child.children as Element[],
-          0
-        )
-      )
-    );
-  };
-
-  const replaceValueTransform = (
+  const replaceInlineProperty = (
     property: string,
-    originalValue: string,
-    ltr: string,
-    rtl: string
-  ) => (
-    element: Element,
-    child: Element,
-    newRules: Element[],
-    prependedRuleSets: Element[]
+    ltrFallbackProperty: string,
+    rtlFallbackProperty: string
   ): void => {
-    prependedRuleSets.push(
-      node(
-        (element.props as string[])
-          .map((selector) => `[dir=rtl] ${selector}`)
-          .join(','),
-        element.root ?? null,
-        element.parent ?? null,
-        RULESET,
-        (element.props as string[]).map((selector) => `[dir=rtl] ${selector}`),
-        [
-          node(
-            `${property}:${
-              child.children === originalValue ? rtl : child.children
-            };`,
-            element,
-            element,
-            DECLARATION,
-            (property as unknown) as string[],
-            (child.children === originalValue
-              ? rtl
-              : child.children) as Element[],
-            0
-          ),
-        ],
-        0
-      )
-    );
+    if (isPropertySupported(property)) {
+      return;
+    }
 
-    newRules.push(
-      node(
-        `${property}:${
-          child.children === originalValue ? ltr : child.children
-        };`,
-        element,
-        element,
-        DECLARATION,
-        (property as unknown) as string[],
-        (child.children === originalValue ? ltr : child.children) as Element[],
-        0
-      )
-    );
+    const op: Operation = (value, _ruleSet, ltrRuleSet, rtlRuleSet): void => {
+      attachDeclaration(ltrFallbackProperty, value, ltrRuleSet);
+      attachDeclaration(rtlFallbackProperty, value, rtlRuleSet);
+    };
+
+    ops.set(property, op);
   };
 
-  ['clear', 'float', 'text-align'].forEach((property) => {
-    if (!cssSupports(`${property}: start`)) {
-      transforms.set(
-        property,
-        replaceValueTransform(property, 'start', 'left', 'right')
-      );
+  const replaceProperty = (
+    property: string,
+    ...fallbackProperties: string[]
+  ): void => {
+    if (isPropertySupported(property)) {
+      return;
     }
 
-    if (!cssSupports(`${property}: inline-start`)) {
-      transforms.set(
-        property,
-        replaceValueTransform(property, 'inline-start', 'left', 'right')
-      );
-    }
+    const op: Operation = (value, ruleSet, ltrRuleSet, rtlRuleSet): void => {
+      for (const fallbackProperty of fallbackProperties) {
+        const fallbackTransform = ops.get(fallbackProperty);
 
-    if (!cssSupports(`${property}: end`)) {
-      transforms.set(
-        property,
-        replaceValueTransform(property, 'end', 'right', 'left')
-      );
-    }
+        if (fallbackTransform) {
+          fallbackTransform(value, ruleSet, ltrRuleSet, rtlRuleSet);
+          continue;
+        }
 
-    if (!cssSupports(`${property}: inline-end`)) {
-      transforms.set(
-        property,
-        replaceValueTransform(property, 'inline-end', 'right', 'left')
-      );
-    }
-  });
-
-  [
-    {
-      base: 'border',
-      suffix: 'radius',
-      fallbackBase: 'border',
-    },
-  ].forEach((property) => {
-    const startStart = createPropertyName(
-      property.base,
-      'start-start',
-      property.suffix
-    );
-    const startEnd = createPropertyName(
-      property.base,
-      'start-end',
-      property.suffix
-    );
-    const endStart = createPropertyName(
-      property.base,
-      'end-start',
-      property.suffix
-    );
-    const endEnd = createPropertyName(
-      property.base,
-      'end-end',
-      property.suffix
-    );
-    const fallbackStartStart = createPropertyName(
-      property.base,
-      'top-left',
-      property.suffix
-    );
-    const fallbackStartEnd = createPropertyName(
-      property.base,
-      'top-right',
-      property.suffix
-    );
-    const fallbackEndStart = createPropertyName(
-      property.base,
-      'bottom-left',
-      property.suffix
-    );
-    const fallbackEndEnd = createPropertyName(
-      property.base,
-      'bottom-right',
-      property.suffix
-    );
-
-    if (!isSupported(startStart)) {
-      transforms.set(
-        startStart,
-        inlineReplacementTransform([fallbackStartStart], [fallbackStartEnd])
-      );
-    }
-
-    if (!isSupported(startEnd)) {
-      transforms.set(
-        startEnd,
-        inlineReplacementTransform([fallbackStartEnd], [fallbackStartStart])
-      );
-    }
-
-    if (!isSupported(endStart)) {
-      transforms.set(
-        endStart,
-        inlineReplacementTransform([fallbackEndStart], [fallbackEndEnd])
-      );
-    }
-
-    if (!isSupported(endEnd)) {
-      transforms.set(
-        endEnd,
-        inlineReplacementTransform([fallbackEndEnd], [fallbackEndStart])
-      );
-    }
-  });
-
-  [
-    {
-      base: 'size',
-    },
-    {
-      prefix: 'min',
-      base: 'size',
-    },
-    {
-      prefix: 'max',
-      base: 'size',
-    },
-  ].forEach((property) => {
-    const inline = createPropertyName(property.prefix, 'inline', property.base);
-    const block = createPropertyName(property.prefix, 'block', property.base);
-    const fallbackInline = createPropertyName(property.prefix, 'width');
-    const fallbackBlock = createPropertyName(property.prefix, 'height');
-
-    if (!isSupported(inline)) {
-      transforms.set(inline, replacementTransform([fallbackInline]));
-    }
-
-    if (!isSupported(block)) {
-      transforms.set(block, replacementTransform([fallbackBlock]));
-    }
-  });
-
-  [
-    {
-      base: 'border',
-      suffix: 'radius',
-      fallbackBase: 'border',
-    },
-  ].forEach((property) => {
-    const startStart = createPropertyName(
-      property.base,
-      'start-start',
-      property.suffix
-    );
-    const startEnd = createPropertyName(
-      property.base,
-      'start-end',
-      property.suffix
-    );
-    const endStart = createPropertyName(
-      property.base,
-      'end-start',
-      property.suffix
-    );
-    const endEnd = createPropertyName(
-      property.base,
-      'end-end',
-      property.suffix
-    );
-    const fallbackStartStart = createPropertyName(
-      property.base,
-      'top-left',
-      property.suffix
-    );
-    const fallbackStartEnd = createPropertyName(
-      property.base,
-      'top-right',
-      property.suffix
-    );
-    const fallbackEndStart = createPropertyName(
-      property.base,
-      'bottom-left',
-      property.suffix
-    );
-    const fallbackEndEnd = createPropertyName(
-      property.base,
-      'bottom-right',
-      property.suffix
-    );
-
-    if (!isSupported(startStart)) {
-      transforms.set(
-        startStart,
-        inlineReplacementTransform([fallbackStartStart], [fallbackStartEnd])
-      );
-    }
-
-    if (!isSupported(startEnd)) {
-      transforms.set(
-        startEnd,
-        inlineReplacementTransform([fallbackStartEnd], [fallbackStartStart])
-      );
-    }
-
-    if (!isSupported(endStart)) {
-      transforms.set(
-        endStart,
-        inlineReplacementTransform([fallbackEndStart], [fallbackEndEnd])
-      );
-    }
-
-    if (!isSupported(endEnd)) {
-      transforms.set(
-        endEnd,
-        inlineReplacementTransform([fallbackEndEnd], [fallbackEndStart])
-      );
-    }
-  });
-  [
-    {
-      base: 'margin',
-      fallbackBase: 'margin',
-    },
-    {
-      base: 'padding',
-      fallbackBase: 'padding',
-    },
-    {
-      base: 'inset',
-    },
-    {
-      base: 'border',
-      fallbackBase: 'border',
-    },
-    {
-      base: 'border',
-      suffix: 'width',
-      fallbackBase: 'border',
-    },
-    {
-      base: 'border',
-      suffix: 'style',
-      fallbackBase: 'border',
-    },
-    {
-      base: 'border',
-      suffix: 'color',
-      fallbackBase: 'border',
-    },
-  ].forEach((property) => {
-    const all = createPropertyName(property.base, property.suffix);
-    const inline = createPropertyName(property.base, 'inline', property.suffix);
-    const inlineStart = createPropertyName(
-      property.base,
-      'inline-start',
-      property.suffix
-    );
-    const inlineEnd = createPropertyName(
-      property.base,
-      'inline-end',
-      property.suffix
-    );
-    const block = createPropertyName(property.base, 'block', property.suffix);
-    const blockStart = createPropertyName(
-      property.base,
-      'block-start',
-      property.suffix
-    );
-    const blockEnd = createPropertyName(
-      property.base,
-      'block-end',
-      property.suffix
-    );
-    const fallbackInlineStart = createPropertyName(
-      property.fallbackBase,
-      'left',
-      property.suffix
-    );
-    const fallbackInlineEnd = createPropertyName(
-      property.fallbackBase,
-      'right',
-      property.suffix
-    );
-    const fallbackBlockStart = createPropertyName(
-      property.fallbackBase,
-      'top',
-      property.suffix
-    );
-    const fallbackBlockEnd = createPropertyName(
-      property.fallbackBase,
-      'bottom',
-      property.suffix
-    );
-
-    const hasInlineStart = isSupported(inlineStart);
-    const hasInlineEnd = isSupported(inlineEnd);
-    const hasBlockStart = isSupported(blockStart);
-    const hasBlockEnd = isSupported(blockEnd);
-    const hasInline = isSupported(inline);
-    const hasBlock = isSupported(block);
-    const hasAll = isSupported(all);
-
-    if (!hasInlineStart) {
-      transforms.set(
-        inlineStart,
-        inlineReplacementTransform([fallbackInlineStart], [fallbackInlineEnd])
-      );
-    }
-
-    if (!hasInlineEnd) {
-      transforms.set(
-        inlineEnd,
-        inlineReplacementTransform([fallbackInlineEnd], [fallbackInlineStart])
-      );
-    }
-
-    if (!hasBlockStart) {
-      transforms.set(blockStart, replacementTransform([fallbackBlockStart]));
-    }
-
-    if (!hasBlockEnd) {
-      transforms.set(blockEnd, replacementTransform([fallbackBlockEnd]));
-    }
-
-    if (!hasInline) {
-      if (hasInlineStart && hasInlineEnd) {
-        transforms.set(inline, replacementTransform([inlineStart, inlineEnd]));
-      } else {
-        transforms.set(
-          inline,
-          inlineReplacementTransform(
-            [fallbackInlineStart, fallbackInlineEnd],
-            [fallbackInlineEnd, fallbackInlineStart]
-          )
-        );
+        attachDeclaration(fallbackProperty, value, ruleSet);
       }
-    }
+    };
 
-    if (!hasBlock) {
-      if (hasBlockStart && hasBlockEnd) {
-        transforms.set(block, replacementTransform([blockStart, blockEnd]));
-      } else {
-        transforms.set(
-          block,
-          replacementTransform([fallbackBlockStart, fallbackBlockEnd])
-        );
-      }
-    }
+    ops.set(property, op);
+  };
 
-    if (!hasAll) {
-      if (hasInline && hasBlock) {
-        transforms.set(all, replacementTransform([inline, block]));
-      } else if (
-        hasInlineStart &&
-        hasInlineEnd &&
-        hasBlockStart &&
-        hasBlockEnd
-      ) {
-        transforms.set(
-          all,
-          replacementTransform([inlineStart, inlineEnd, blockStart, blockEnd])
-        );
-      } else {
-        transforms.set(
-          all,
-          inlineReplacementTransform(
-            [
-              fallbackInlineStart,
-              fallbackBlockStart,
-              fallbackInlineEnd,
-              fallbackBlockEnd,
-            ],
-            [
-              fallbackInlineEnd,
-              fallbackBlockStart,
-              fallbackInlineStart,
-              fallbackBlockEnd,
-            ]
-          )
-        );
-      }
-    }
-  });
+  handleLogicalValues('clear');
+  handleLogicalValues('float');
+  handleLogicalValues('text-align');
+  replaceInlineProperty(
+    'border-start-start-radius',
+    'border-top-left-radius',
+    'border-top-right-radius'
+  );
+  replaceInlineProperty(
+    'border-start-end-radius',
+    'border-top-right-radius',
+    'border-top-left-radius'
+  );
+  replaceInlineProperty(
+    'border-end-start-radius',
+    'border-bottom-left-radius',
+    'border-bottom-right-radius'
+  );
+  replaceInlineProperty(
+    'border-end-end-radius',
+    'border-bottom-right-radius',
+    'border-bottom-left-radius'
+  );
+  replaceProperty('inline-size', 'width');
+  replaceProperty('min-inline-size', 'min-width');
+  replaceProperty('max-inline-size', 'max-width');
+  replaceProperty('block-size', 'height');
+  replaceProperty('min-block-size', 'min-height');
+  replaceProperty('max-block-size', 'max-height');
 
-  return (element): undefined | string => {
-    if (element.type !== RULESET || element.root !== null) {
+  replaceProperty('inset', 'inset-inline', 'inset-block');
+  replaceProperty('inset-inline', 'inset-inline-start', 'inset-inline-end');
+  replaceProperty('inset-block', 'inset-block-start', 'inset-block-end');
+  replaceInlineProperty('inset-inline-start', 'left', 'right');
+  replaceInlineProperty('inset-inline-end', 'right', 'left');
+  replaceProperty('inset-block-start', 'top');
+  replaceProperty('inset-block-end', 'bottom');
+
+  replaceProperty('margin-inline', 'margin-inline-start', 'margin-inline-end');
+  replaceProperty('margin-block', 'margin-block-start', 'margin-block-end');
+  replaceInlineProperty('margin-inline-start', 'margin-left', 'margin-right');
+  replaceInlineProperty('margin-inline-end', 'margin-right', 'margin-left');
+  replaceProperty('margin-block-start', 'margin-top');
+  replaceProperty('margin-block-end', 'margin-bottom');
+
+  replaceProperty(
+    'padding-inline',
+    'padding-inline-start',
+    'padding-inline-end'
+  );
+  replaceProperty('padding-block', 'padding-block-start', 'padding-block-end');
+  replaceInlineProperty(
+    'padding-inline-start',
+    'padding-left',
+    'padding-right'
+  );
+  replaceInlineProperty('padding-inline-end', 'padding-right', 'padding-left');
+  replaceProperty('padding-block-start', 'padding-top');
+  replaceProperty('padding-block-end', 'padding-bottom');
+
+  replaceProperty('border-inline', 'border-inline-start', 'border-inline-end');
+  replaceProperty('border-block', 'border-block-start', 'border-block-end');
+  replaceInlineProperty('border-inline-start', 'border-left', 'border-right');
+  replaceInlineProperty('border-inline-end', 'border-right', 'border-left');
+  replaceProperty('border-block-start', 'border-top');
+  replaceProperty('border-block-end', 'border-bottom');
+
+  replaceProperty(
+    'border-inline-width',
+    'border-inline-start-width',
+    'border-inline-end-width'
+  );
+  replaceProperty(
+    'border-block-width',
+    'border-block-start-width',
+    'border-block-end-width'
+  );
+  replaceInlineProperty(
+    'border-inline-start-width',
+    'border-left-width',
+    'border-right-width'
+  );
+  replaceInlineProperty(
+    'border-inline-end-width',
+    'border-right-width',
+    'border-left-width'
+  );
+  replaceProperty('border-block-start-width', 'border-top-width');
+  replaceProperty('border-block-end-width', 'border-bottom-width');
+
+  replaceProperty(
+    'border-inline-style',
+    'border-inline-start-style',
+    'border-inline-end-style'
+  );
+  replaceProperty(
+    'border-block-style',
+    'border-block-start-style',
+    'border-block-end-style'
+  );
+  replaceInlineProperty(
+    'border-inline-start-style',
+    'border-left-style',
+    'border-right-style'
+  );
+  replaceInlineProperty(
+    'border-inline-end-style',
+    'border-right-style',
+    'border-left-style'
+  );
+  replaceProperty('border-block-start-style', 'border-top-style');
+  replaceProperty('border-block-end-style', 'border-bottom-style');
+
+  replaceProperty(
+    'border-inline-color',
+    'border-inline-start-color',
+    'border-inline-end-color'
+  );
+  replaceProperty(
+    'border-block-color',
+    'border-block-start-color',
+    'border-block-end-color'
+  );
+  replaceInlineProperty(
+    'border-inline-start-color',
+    'border-left-color',
+    'border-right-color'
+  );
+  replaceInlineProperty(
+    'border-inline-end-color',
+    'border-right-color',
+    'border-left-color'
+  );
+  replaceProperty('border-block-start-color', 'border-top-color');
+  replaceProperty('border-block-end-color', 'border-bottom-color');
+
+  return (ruleSet: RuleSet): undefined | string => {
+    if (!isRuleSet(ruleSet) || ruleSet.root !== null) {
       return undefined;
     }
 
-    const newRules: Element[] = [];
-    const prependedRuleSets: Element[] = [];
+    const ltrRuleSet = node(
+      ruleSet.props
+        .map((selector) => `html:not([dir=rtl]) ${selector}`)
+        .join(','),
+      ruleSet.root ?? null,
+      ruleSet.parent ?? null,
+      RULESET,
+      ruleSet.props.map((selector) => `html:not([dir=rtl]) ${selector}`),
+      [],
+      0
+    ) as RuleSet;
 
-    for (const child of element.children as Element[]) {
-      if (child.type !== DECLARATION) {
-        newRules.push(child);
+    const rtlRuleSet = node(
+      ruleSet.props.map((selector) => `[dir=rtl] ${selector}`).join(','),
+      ruleSet.root ?? null,
+      ruleSet.parent ?? null,
+      RULESET,
+      ruleSet.props.map((selector) => `[dir=rtl] ${selector}`),
+      [],
+      0
+    ) as RuleSet;
+
+    const rules = ruleSet.children;
+    ruleSet.children = [];
+    ruleSet.return = '';
+
+    for (const rule of rules) {
+      if (!isDeclaration(rule)) {
+        ruleSet.children.push(rule);
         continue;
       }
 
-      const transform = transforms.get(child.props as string);
+      const op = ops.get(rule.props);
 
-      if (!transform) {
-        newRules.push(child);
+      if (op) {
+        op(rule.children, ruleSet, ltrRuleSet, rtlRuleSet);
         continue;
       }
 
-      transform(element, child, newRules, prependedRuleSets);
+      ruleSet.children.push(rule);
     }
 
-    element.children = newRules;
-    element.return = '';
-    return serialize(prependedRuleSets, stringify);
+    return serialize([ltrRuleSet, rtlRuleSet], stringify);
   };
 };
