@@ -10,7 +10,6 @@ import {
 import { createLogicalPropertiesMiddleware } from './logicalProperties';
 
 type TranspileOptions = {
-  prefix: boolean;
   supportedProperties: string[];
 };
 
@@ -18,13 +17,12 @@ const isMiddleware = (middleware: Middleware): middleware is Middleware =>
   typeof middleware === 'function';
 
 export const createStylisMiddleware = ({
-  prefix = true,
   supportedProperties = [],
 }: Partial<TranspileOptions> = {}): Middleware =>
   middleware(
     [
       createLogicalPropertiesMiddleware(supportedProperties),
-      prefix && prefixer,
+      prefixer,
       stringify,
     ].filter(isMiddleware)
   );

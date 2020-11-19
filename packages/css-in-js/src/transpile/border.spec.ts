@@ -5,7 +5,6 @@ describe('border-inline', () => {
     expect(
       transpile('div', 'border-inline: inherit;', {
         supportedProperties: ['border-inline'],
-        prefix: false,
       })
     ).toBe('div{border-inline:inherit;}');
   });
@@ -14,7 +13,6 @@ describe('border-inline', () => {
     expect(
       transpile('div', 'border-inline: inherit;', {
         supportedProperties: ['border-inline-start', 'border-inline-end'],
-        prefix: false,
       })
     ).toBe('div{border-inline-start:inherit;border-inline-end:inherit;}');
   });
@@ -31,7 +29,6 @@ describe('border-inline-start', () => {
     expect(
       transpile('div', 'border-inline-start: inherit;', {
         supportedProperties: ['border-inline-start'],
-        prefix: false,
       })
     ).toBe('div{border-inline-start:inherit;}');
   });
@@ -48,7 +45,6 @@ describe('border-inline-end', () => {
     expect(
       transpile('div', 'border-inline-end: inherit;', {
         supportedProperties: ['border-inline-end'],
-        prefix: false,
       })
     ).toBe('div{border-inline-end:inherit;}');
   });
@@ -65,7 +61,6 @@ describe('border-block', () => {
     expect(
       transpile('div', 'border-block: inherit;', {
         supportedProperties: ['border-block'],
-        prefix: false,
       })
     ).toBe('div{border-block:inherit;}');
   });
@@ -74,7 +69,6 @@ describe('border-block', () => {
     expect(
       transpile('div', 'border-block: inherit;', {
         supportedProperties: ['border-block-start', 'border-block-end'],
-        prefix: false,
       })
     ).toBe('div{border-block-start:inherit;border-block-end:inherit;}');
   });
@@ -91,7 +85,6 @@ describe('border-block-start', () => {
     expect(
       transpile('div', 'border-block-start: inherit;', {
         supportedProperties: ['border-block-start'],
-        prefix: false,
       })
     ).toBe('div{border-block-start:inherit;}');
   });
@@ -108,7 +101,6 @@ describe('border-block-end', () => {
     expect(
       transpile('div', 'border-block-end: inherit;', {
         supportedProperties: ['border-block-end'],
-        prefix: false,
       })
     ).toBe('div{border-block-end:inherit;}');
   });
@@ -125,7 +117,6 @@ describe('border-inline-width', () => {
     expect(
       transpile('div', 'border-inline-width: inherit;', {
         supportedProperties: ['border-inline-width'],
-        prefix: false,
       })
     ).toBe('div{border-inline-width:inherit;}');
   });
@@ -137,7 +128,6 @@ describe('border-inline-width', () => {
           'border-inline-start-width',
           'border-inline-end-width',
         ],
-        prefix: false,
       })
     ).toBe(
       'div{border-inline-start-width:inherit;border-inline-end-width:inherit;}'
@@ -156,7 +146,6 @@ describe('border-inline-start-width', () => {
     expect(
       transpile('div', 'border-inline-start-width: inherit;', {
         supportedProperties: ['border-inline-start-width'],
-        prefix: false,
       })
     ).toBe('div{border-inline-start-width:inherit;}');
   });
@@ -173,7 +162,6 @@ describe('border-inline-end-width', () => {
     expect(
       transpile('div', 'border-inline-end-width: inherit;', {
         supportedProperties: ['border-inline-end-width'],
-        prefix: false,
       })
     ).toBe('div{border-inline-end-width:inherit;}');
   });
@@ -190,7 +178,6 @@ describe('border-block-width', () => {
     expect(
       transpile('div', 'border-block-width: inherit;', {
         supportedProperties: ['border-block-width'],
-        prefix: false,
       })
     ).toBe('div{border-block-width:inherit;}');
   });
@@ -202,7 +189,6 @@ describe('border-block-width', () => {
           'border-block-start-width',
           'border-block-end-width',
         ],
-        prefix: false,
       })
     ).toBe(
       'div{border-block-start-width:inherit;border-block-end-width:inherit;}'
@@ -221,7 +207,6 @@ describe('border-block-start-width', () => {
     expect(
       transpile('div', 'border-block-start-width: inherit;', {
         supportedProperties: ['border-block-start-width'],
-        prefix: false,
       })
     ).toBe('div{border-block-start-width:inherit;}');
   });
@@ -238,7 +223,6 @@ describe('border-block-end-width', () => {
     expect(
       transpile('div', 'border-block-end-width: inherit;', {
         supportedProperties: ['border-block-end-width'],
-        prefix: false,
       })
     ).toBe('div{border-block-end-width:inherit;}');
   });
@@ -255,7 +239,6 @@ describe('border-inline-style', () => {
     expect(
       transpile('div', 'border-inline-style: inherit;', {
         supportedProperties: ['border-inline-style'],
-        prefix: false,
       })
     ).toBe('div{border-inline-style:inherit;}');
   });
@@ -267,7 +250,6 @@ describe('border-inline-style', () => {
           'border-inline-start-style',
           'border-inline-end-style',
         ],
-        prefix: false,
       })
     ).toBe(
       'div{border-inline-start-style:inherit;border-inline-end-style:inherit;}'
@@ -286,7 +268,6 @@ describe('border-inline-start-style', () => {
     expect(
       transpile('div', 'border-inline-start-style: inherit;', {
         supportedProperties: ['border-inline-start-style'],
-        prefix: false,
       })
     ).toBe('div{border-inline-start-style:inherit;}');
   });
@@ -303,7 +284,6 @@ describe('border-inline-end-style', () => {
     expect(
       transpile('div', 'border-inline-end-style: inherit;', {
         supportedProperties: ['border-inline-end-style'],
-        prefix: false,
       })
     ).toBe('div{border-inline-end-style:inherit;}');
   });
@@ -320,7 +300,6 @@ describe('border-block-style', () => {
     expect(
       transpile('div', 'border-block-style: inherit;', {
         supportedProperties: ['border-block-style'],
-        prefix: false,
       })
     ).toBe('div{border-block-style:inherit;}');
   });
@@ -332,7 +311,6 @@ describe('border-block-style', () => {
           'border-block-start-style',
           'border-block-end-style',
         ],
-        prefix: false,
       })
     ).toBe(
       'div{border-block-start-style:inherit;border-block-end-style:inherit;}'
@@ -351,7 +329,6 @@ describe('border-block-start-style', () => {
     expect(
       transpile('div', 'border-block-start-style: inherit;', {
         supportedProperties: ['border-block-start-style'],
-        prefix: false,
       })
     ).toBe('div{border-block-start-style:inherit;}');
   });
@@ -368,7 +345,6 @@ describe('border-block-end-style', () => {
     expect(
       transpile('div', 'border-block-end-style: inherit;', {
         supportedProperties: ['border-block-end-style'],
-        prefix: false,
       })
     ).toBe('div{border-block-end-style:inherit;}');
   });
@@ -385,7 +361,6 @@ describe('border-inline-color', () => {
     expect(
       transpile('div', 'border-inline-color: inherit;', {
         supportedProperties: ['border-inline-color'],
-        prefix: false,
       })
     ).toBe('div{border-inline-color:inherit;}');
   });
@@ -397,7 +372,6 @@ describe('border-inline-color', () => {
           'border-inline-start-color',
           'border-inline-end-color',
         ],
-        prefix: false,
       })
     ).toBe(
       'div{border-inline-start-color:inherit;border-inline-end-color:inherit;}'
@@ -416,7 +390,6 @@ describe('border-inline-start-color', () => {
     expect(
       transpile('div', 'border-inline-start-color: inherit;', {
         supportedProperties: ['border-inline-start-color'],
-        prefix: false,
       })
     ).toBe('div{border-inline-start-color:inherit;}');
   });
@@ -433,7 +406,6 @@ describe('border-inline-end-color', () => {
     expect(
       transpile('div', 'border-inline-end-color: inherit;', {
         supportedProperties: ['border-inline-end-color'],
-        prefix: false,
       })
     ).toBe('div{border-inline-end-color:inherit;}');
   });
@@ -450,7 +422,6 @@ describe('border-block-color', () => {
     expect(
       transpile('div', 'border-block-color: inherit;', {
         supportedProperties: ['border-block-color'],
-        prefix: false,
       })
     ).toBe('div{border-block-color:inherit;}');
   });
@@ -462,7 +433,6 @@ describe('border-block-color', () => {
           'border-block-start-color',
           'border-block-end-color',
         ],
-        prefix: false,
       })
     ).toBe(
       'div{border-block-start-color:inherit;border-block-end-color:inherit;}'
@@ -481,7 +451,6 @@ describe('border-block-start-color', () => {
     expect(
       transpile('div', 'border-block-start-color: inherit;', {
         supportedProperties: ['border-block-start-color'],
-        prefix: false,
       })
     ).toBe('div{border-block-start-color:inherit;}');
   });
@@ -498,7 +467,6 @@ describe('border-block-end-color', () => {
     expect(
       transpile('div', 'border-block-end-color: inherit;', {
         supportedProperties: ['border-block-end-color'],
-        prefix: false,
       })
     ).toBe('div{border-block-end-color:inherit;}');
   });

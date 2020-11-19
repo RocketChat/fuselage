@@ -21,7 +21,6 @@ describe('block-size', () => {
     expect(
       transpile('div', 'block-size: inherit;', {
         supportedProperties: ['block-size'],
-        prefix: false,
       })
     ).toBe('div{block-size:inherit;}');
   });
@@ -54,7 +53,6 @@ describe('min-block-size', () => {
     expect(
       transpile('div', 'min-block-size: inherit;', {
         supportedProperties: ['min-block-size'],
-        prefix: false,
       })
     ).toBe('div{min-block-size:inherit;}');
   });
@@ -87,7 +85,6 @@ describe('max-block-size', () => {
     expect(
       transpile('div', 'max-block-size: inherit;', {
         supportedProperties: ['max-block-size'],
-        prefix: false,
       })
     ).toBe('div{max-block-size:inherit;}');
   });

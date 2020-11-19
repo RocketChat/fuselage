@@ -26,7 +26,6 @@ describe('inset', () => {
           'inset-block-start',
           'inset-block-end',
         ],
-        prefix: false,
       })
     ).toBe(
       'div{inset-inline-start:inherit;inset-inline-end:inherit;inset-block-start:inherit;inset-block-end:inherit;}'
@@ -45,7 +44,6 @@ describe('inset-inline', () => {
     expect(
       transpile('div', 'inset-inline: inherit;', {
         supportedProperties: ['inset-inline'],
-        prefix: false,
       })
     ).toBe('div{inset-inline:inherit;}');
   });
@@ -54,7 +52,6 @@ describe('inset-inline', () => {
     expect(
       transpile('div', 'inset-inline: inherit;', {
         supportedProperties: ['inset-inline-start', 'inset-inline-end'],
-        prefix: false,
       })
     ).toBe('div{inset-inline-start:inherit;inset-inline-end:inherit;}');
   });
@@ -71,7 +68,6 @@ describe('inset-inline-start', () => {
     expect(
       transpile('div', 'inset-inline-start: inherit;', {
         supportedProperties: ['inset-inline-start'],
-        prefix: false,
       })
     ).toBe('div{inset-inline-start:inherit;}');
   });
@@ -88,7 +84,6 @@ describe('inset-inline-end', () => {
     expect(
       transpile('div', 'inset-inline-end: inherit;', {
         supportedProperties: ['inset-inline-end'],
-        prefix: false,
       })
     ).toBe('div{inset-inline-end:inherit;}');
   });
@@ -105,7 +100,6 @@ describe('inset-block', () => {
     expect(
       transpile('div', 'inset-block: inherit;', {
         supportedProperties: ['inset-block'],
-        prefix: false,
       })
     ).toBe('div{inset-block:inherit;}');
   });
@@ -114,7 +108,6 @@ describe('inset-block', () => {
     expect(
       transpile('div', 'inset-block: inherit;', {
         supportedProperties: ['inset-block-start', 'inset-block-end'],
-        prefix: false,
       })
     ).toBe('div{inset-block-start:inherit;inset-block-end:inherit;}');
   });
@@ -131,7 +124,6 @@ describe('inset-block-start', () => {
     expect(
       transpile('div', 'inset-block-start: inherit;', {
         supportedProperties: ['inset-block-start'],
-        prefix: false,
       })
     ).toBe('div{inset-block-start:inherit;}');
   });
@@ -148,7 +140,6 @@ describe('inset-block-end', () => {
     expect(
       transpile('div', 'inset-block-end: inherit;', {
         supportedProperties: ['inset-block-end'],
-        prefix: false,
       })
     ).toBe('div{inset-block-end:inherit;}');
   });
