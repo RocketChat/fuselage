@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "@emotion/hash": "^0.8.0",
-    "@emotion/stylis": "^0.8.5"
+    "@types/stylis": "^4.0.0",
+    "stylis": "^4.0.3"
   }
 }

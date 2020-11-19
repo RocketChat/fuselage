@@ -1,4 +1,12 @@
-import { Context, Plugin } from '@emotion/stylis';
+import {
+  DECLARATION,
+  Element,
+  Middleware,
+  node,
+  RULESET,
+  serialize,
+  stringify,
+} from 'stylis';
 
 import { cssSupports } from '../cssSupports';
 
@@ -9,9 +17,9 @@ export type LogicalPropertiesOptions = {
 const createPropertyName = (...parts: (string | undefined)[]): string =>
   parts.filter(Boolean).join('-');
 
-export const createLogicalPropertiesPlugin = (
-  options: LogicalPropertiesOptions
-): Plugin => {
+export const createLogicalPropertiesMiddleware = (
+  options: LogicalPropertiesOptions = {}
+): Middleware => {
   const supportedProperties = new Set(options.supportedProperties);
 
   const isSupported = (property: string): boolean =>
@@ -19,29 +27,248 @@ export const createLogicalPropertiesPlugin = (
 
   const transforms = new Map<
     string,
-    (value: string, selectors: string[]) => string | void
+    (
+      element: Element,
+      child: Element,
+      newRules: Element[],
+      prependedRuleSets: Element[]
+    ) => void
   >();
 
-  let buffer = '';
-
-  const replacementTransform = (replacement: string[]) => (value: string) =>
-    replacement.map((property) => `${property}:${value}`).join(';');
-
   const inlineReplacementTransform = (ltr: string[], rtl: string[]) => (
-    value: string,
-    selectors: string[]
-  ) => {
-    const ltrFn = (value: string): string =>
-      ltr.map((property) => `${property}:${value}`).join(';');
-    const rtlFn = (value: string): string =>
-      rtl.map((property) => `${property}:${value}`).join(';');
-
-    buffer +=
-      `html:not([dir=rtl]) ${selectors.join(',')}{${ltrFn(value)};}` +
-      `[dir=rtl] ${selectors.join(',')}{${rtlFn(value)};}`;
-
-    return '';
+    element: Element,
+    child: Element,
+    _newRules: Element[],
+    prependedRuleSets: Element[]
+  ): void => {
+    prependedRuleSets.push(
+      node(
+        (element.props as string[])
+          .map((selector) => `html:not([dir=rtl]) ${selector}`)
+          .join(','),
+        element.root ?? null,
+        element.parent ?? null,
+        RULESET,
+        (element.props as string[]).map(
+          (selector) => `html:not([dir=rtl]) ${selector}`
+        ),
+        ltr.map((property) =>
+          node(
+            `${property}:${child.children};`,
+            element,
+            element,
+            DECLARATION,
+            (property as unknown) as string[],
+            child.children as Element[],
+            0
+          )
+        ),
+        0
+      ),
+      node(
+        (element.props as string[])
+          .map((selector) => `[dir=rtl] ${selector}`)
+          .join(','),
+        element.root ?? null,
+        element.parent ?? null,
+        RULESET,
+        (element.props as string[]).map((selector) => `[dir=rtl] ${selector}`),
+        rtl.map((property) =>
+          node(
+            `${property}:${child.children};`,
+            element,
+            element,
+            DECLARATION,
+            (property as unknown) as string[],
+            child.children as Element[],
+            0
+          )
+        ),
+        0
+      )
+    );
   };
+
+  const replacementTransform = (replacement: string[]) => (
+    element: Element,
+    child: Element,
+    newRules: Element[]
+  ): void => {
+    newRules.push(
+      ...replacement.map((property) =>
+        node(
+          `${property}:${child.children};`,
+          element,
+          element,
+          DECLARATION,
+          (property as unknown) as string[],
+          child.children as Element[],
+          0
+        )
+      )
+    );
+  };
+
+  const replaceValueTransform = (
+    property: string,
+    originalValue: string,
+    ltr: string,
+    rtl: string
+  ) => (
+    element: Element,
+    child: Element,
+    newRules: Element[],
+    prependedRuleSets: Element[]
+  ): void => {
+    prependedRuleSets.push(
+      node(
+        (element.props as string[])
+          .map((selector) => `[dir=rtl] ${selector}`)
+          .join(','),
+        element.root ?? null,
+        element.parent ?? null,
+        RULESET,
+        (element.props as string[]).map((selector) => `[dir=rtl] ${selector}`),
+        [
+          node(
+            `${property}:${
+              child.children === originalValue ? rtl : child.children
+            };`,
+            element,
+            element,
+            DECLARATION,
+            (property as unknown) as string[],
+            (child.children === originalValue
+              ? rtl
+              : child.children) as Element[],
+            0
+          ),
+        ],
+        0
+      )
+    );
+
+    newRules.push(
+      node(
+        `${property}:${
+          child.children === originalValue ? ltr : child.children
+        };`,
+        element,
+        element,
+        DECLARATION,
+        (property as unknown) as string[],
+        (child.children === originalValue ? ltr : child.children) as Element[],
+        0
+      )
+    );
+  };
+
+  ['clear', 'float', 'text-align'].forEach((property) => {
+    if (!cssSupports(`${property}: start`)) {
+      transforms.set(
+        property,
+        replaceValueTransform(property, 'start', 'left', 'right')
+      );
+    }
+
+    if (!cssSupports(`${property}: inline-start`)) {
+      transforms.set(
+        property,
+        replaceValueTransform(property, 'inline-start', 'left', 'right')
+      );
+    }
+
+    if (!cssSupports(`${property}: end`)) {
+      transforms.set(
+        property,
+        replaceValueTransform(property, 'end', 'right', 'left')
+      );
+    }
+
+    if (!cssSupports(`${property}: inline-end`)) {
+      transforms.set(
+        property,
+        replaceValueTransform(property, 'inline-end', 'right', 'left')
+      );
+    }
+  });
+
+  [
+    {
+      base: 'border',
+      suffix: 'radius',
+      fallbackBase: 'border',
+    },
+  ].forEach((property) => {
+    const startStart = createPropertyName(
+      property.base,
+      'start-start',
+      property.suffix
+    );
+    const startEnd = createPropertyName(
+      property.base,
+      'start-end',
+      property.suffix
+    );
+    const endStart = createPropertyName(
+      property.base,
+      'end-start',
+      property.suffix
+    );
+    const endEnd = createPropertyName(
+      property.base,
+      'end-end',
+      property.suffix
+    );
+    const fallbackStartStart = createPropertyName(
+      property.base,
+      'top-left',
+      property.suffix
+    );
+    const fallbackStartEnd = createPropertyName(
+      property.base,
+      'top-right',
+      property.suffix
+    );
+    const fallbackEndStart = createPropertyName(
+      property.base,
+      'bottom-left',
+      property.suffix
+    );
+    const fallbackEndEnd = createPropertyName(
+      property.base,
+      'bottom-right',
+      property.suffix
+    );
+
+    if (!isSupported(startStart)) {
+      transforms.set(
+        startStart,
+        inlineReplacementTransform([fallbackStartStart], [fallbackStartEnd])
+      );
+    }
+
+    if (!isSupported(startEnd)) {
+      transforms.set(
+        startEnd,
+        inlineReplacementTransform([fallbackStartEnd], [fallbackStartStart])
+      );
+    }
+
+    if (!isSupported(endStart)) {
+      transforms.set(
+        endStart,
+        inlineReplacementTransform([fallbackEndStart], [fallbackEndEnd])
+      );
+    }
+
+    if (!isSupported(endEnd)) {
+      transforms.set(
+        endEnd,
+        inlineReplacementTransform([fallbackEndEnd], [fallbackEndStart])
+      );
+    }
+  });
 
   [
     {
@@ -69,41 +296,7 @@ export const createLogicalPropertiesPlugin = (
       transforms.set(block, replacementTransform([fallbackBlock]));
     }
   });
-  ['clear', 'float', 'text-align'].forEach((property) => {
-    const replaceValueTransform = (
-      originalValue: string,
-      ltr: string,
-      rtl: string
-    ) => (value: string, selectors: string[]): string => {
-      buffer += `[dir=rtl] ${selectors.join(',')}{${property}: ${
-        value === originalValue ? rtl : value
-      }}`;
 
-      return `${property}: ${value === originalValue ? ltr : value}`;
-    };
-
-    if (!cssSupports(`${property}: start`)) {
-      transforms.set(property, replaceValueTransform('start', 'left', 'right'));
-    }
-
-    if (!cssSupports(`${property}: inline-start`)) {
-      transforms.set(
-        property,
-        replaceValueTransform('inline-start', 'left', 'right')
-      );
-    }
-
-    if (!cssSupports(`${property}: end`)) {
-      transforms.set(property, replaceValueTransform('end', 'right', 'left'));
-    }
-
-    if (!cssSupports(`${property}: inline-end`)) {
-      transforms.set(
-        property,
-        replaceValueTransform('inline-end', 'right', 'left')
-      );
-    }
-  });
   [
     {
       base: 'border',
@@ -346,30 +539,32 @@ export const createLogicalPropertiesPlugin = (
     }
   });
 
-  return (context: Context, content: string, selectors: string[]) => {
-    switch (context) {
-      case -2: {
-        try {
-          return `${content}${buffer}`;
-        } finally {
-          buffer = '';
-        }
-      }
-
-      case 1: {
-        const i: number = content.indexOf(':');
-        const property = content.slice(0, i);
-        const transform = transforms.get(property);
-
-        if (!transform) {
-          return;
-        }
-
-        const value = content.slice(i + 1);
-        const replacement = transform(value, selectors);
-
-        return replacement;
-      }
+  return (element): undefined | string => {
+    if (element.type !== RULESET || element.root !== null) {
+      return undefined;
     }
+
+    const newRules: Element[] = [];
+    const prependedRuleSets: Element[] = [];
+
+    for (const child of element.children as Element[]) {
+      if (child.type !== DECLARATION) {
+        newRules.push(child);
+        continue;
+      }
+
+      const transform = transforms.get(child.props as string);
+
+      if (!transform) {
+        newRules.push(child);
+        continue;
+      }
+
+      transform(element, child, newRules, prependedRuleSets);
+    }
+
+    element.children = newRules;
+    element.return = '';
+    return serialize(prependedRuleSets, stringify);
   };
 };

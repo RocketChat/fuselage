@@ -1,28 +1,12 @@
-import Stylis, { Options } from '@emotion/stylis';
+import { compile, middleware, prefixer, serialize, stringify } from 'stylis';
 
 import {
   LogicalPropertiesOptions,
-  createLogicalPropertiesPlugin,
+  createLogicalPropertiesMiddleware,
 } from './logicalProperties';
 
-type TranspileOptions = LogicalPropertiesOptions & Options;
-
-const createStylis = (options: TranspileOptions): Stylis => {
-  const stylisInstance = new Stylis();
-  stylisInstance.use(createLogicalPropertiesPlugin(options));
-  stylisInstance.set(options);
-
-  return stylisInstance;
-};
-
-let defaultStylis: Stylis;
-
-const getDefaultStylis = (): Stylis => {
-  if (!defaultStylis) {
-    defaultStylis = createStylis({});
-  }
-
-  return defaultStylis;
+type TranspileOptions = LogicalPropertiesOptions & {
+  prefix?: boolean;
 };
 
 /**
@@ -33,6 +17,12 @@ export const transpile = (
   content: string,
   options?: TranspileOptions
 ): string => {
-  const stylis: Stylis = options ? createStylis(options) : getDefaultStylis();
-  return stylis(selector, content);
+  return serialize(
+    compile(`${selector}{${content}}`),
+    middleware(
+      options?.prefix === false
+        ? [createLogicalPropertiesMiddleware(options), stringify]
+        : [createLogicalPropertiesMiddleware(options), prefixer, stringify]
+    )
+  );
 };
