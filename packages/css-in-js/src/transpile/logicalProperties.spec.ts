@@ -1,3 +1,4 @@
+import { createTranspileMiddleware } from '.';
 import { transpile } from '..';
 
 it('transpiles simple properties', () => {
@@ -9,6 +10,12 @@ it('transpiles with vendor prefixing', () => {
     'div{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}'
   );
 });
+
+const propertiesWithLogicalValues = [
+  ['float'],
+  ['clear', '-webkit-clear'],
+  ['text-align', '-webkit-text-align'],
+];
 
 const unilateralInlineProperties = [
   [
@@ -199,14 +206,47 @@ const sizeProperties = [
   ['max-block-size', 'max-height'],
 ];
 
+describe.each(propertiesWithLogicalValues)('%s', (property: string) => {
+  describe.each([
+    ['start', 'left', 'right'],
+    ['inline-start', 'left', 'right'],
+    ['end', 'right', 'left'],
+    ['inline-end', 'right', 'left'],
+  ])('%s', (value: string, startValue: string, endValue: string) => {
+    it('is supported', () => {
+      expect(
+        transpile(
+          'div',
+          `${property}: ${value};`,
+          createTranspileMiddleware({
+            isPropertyValueSupported: (p, v) => p === property && v === value,
+          })
+        )
+      ).toMatch(new RegExp(`^div\\{(.*;)?${property}:${value};\\}$`));
+    });
+
+    it('fallbacks', () => {
+      expect(transpile('div', `${property}: ${value};`)).toMatch(
+        new RegExp(
+          `^\\[dir=rtl\\] div\\{(.*;)?${property}:${endValue};\\}div\\{(.*;)?${property}:${startValue};\\}$`
+        )
+      );
+    });
+  });
+});
+
 describe.each(unilateralInlineProperties)(
   `Unilateral inline property %s`,
   (property: string, startProperty: string, endProperty: string) => {
     it(`supports ${property}`, () => {
       expect(
-        transpile('div', `${property}: inherit;`, {
-          supportedProperties: [property],
-        })
+        transpile(
+          'div',
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) => p === property,
+          })
+        )
       ).toBe(`div{${property}:inherit;}`);
     });
 
@@ -228,9 +268,13 @@ describe.each(vendorPrefixedUnilateralInlineProperties)(
   ) => {
     it(`supports ${property} (with prefixed ${prefixedProperty})`, () => {
       expect(
-        transpile('div', `${property}: inherit;`, {
-          supportedProperties: [property],
-        })
+        transpile(
+          'div',
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) => p === property,
+          })
+        )
       ).toBe(`div{${prefixedProperty}:inherit;${property}:inherit;}`);
     });
 
@@ -253,17 +297,26 @@ describe.each(bilateralInlineProperties)(
   ) => {
     it(`supports ${property}`, () => {
       expect(
-        transpile(`div`, `${property}: inherit;`, {
-          supportedProperties: [property],
-        })
+        transpile(
+          `div`,
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) => p === property,
+          })
+        )
       ).toBe(`div{${property}:inherit;}`);
     });
 
     it(`fallbacks ${property} to ${startProperty} and ${endProperty}`, () => {
       expect(
-        transpile(`div`, `${property}: inherit;`, {
-          supportedProperties: [startProperty, endProperty],
-        })
+        transpile(
+          `div`,
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) =>
+              p === startProperty || p === endProperty,
+          })
+        )
       ).toBe(`div{${startProperty}:inherit;${endProperty}:inherit;}`);
     });
 
@@ -280,9 +333,13 @@ describe.each(unilateralBlockProperties)(
   (property: string, fallbackProperty: string) => {
     it(`supports ${property}`, () => {
       expect(
-        transpile('div', `${property}: inherit;`, {
-          supportedProperties: [property],
-        })
+        transpile(
+          'div',
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) => p === property,
+          })
+        )
       ).toBe(`div{${property}:inherit;}`);
     });
 
@@ -305,17 +362,26 @@ describe.each(bilateralBlockProperties)(
   ) => {
     it(`supports ${property}`, () => {
       expect(
-        transpile(`div`, `${property}: inherit;`, {
-          supportedProperties: [property],
-        })
+        transpile(
+          `div`,
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) => p === property,
+          })
+        )
       ).toBe(`div{${property}:inherit;}`);
     });
 
     it(`fallbacks ${property} to ${startProperty} and ${endProperty}`, () => {
       expect(
-        transpile(`div`, `${property}: inherit;`, {
-          supportedProperties: [startProperty, endProperty],
-        })
+        transpile(
+          `div`,
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) =>
+              p === startProperty || p === endProperty,
+          })
+        )
       ).toBe(`div{${startProperty}:inherit;${endProperty}:inherit;}`);
     });
 
@@ -344,30 +410,42 @@ describe.each(omnilateralProperties)(
   ) => {
     it(`supports ${property}`, () => {
       expect(
-        transpile(`div`, `${property}: inherit;`, {
-          supportedProperties: [`${property}`],
-        })
+        transpile(
+          `div`,
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) => p === property,
+          })
+        )
       ).toBe(`div{${property}:inherit;}`);
     });
 
     it(`supports ${inlineProperty} and ${blockProperty}`, () => {
       expect(
-        transpile(`div`, `${property}: inherit;`, {
-          supportedProperties: [`${inlineProperty}`, `${blockProperty}`],
-        })
+        transpile(
+          `div`,
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) =>
+              p === inlineProperty || p === blockProperty,
+          })
+        )
       ).toBe(`div{${inlineProperty}:inherit;${blockProperty}:inherit;}`);
     });
 
     it(`supports ${inlineStartProperty}, ${inlineEndProperty}, ${blockStartProperty}, and ${blockEndProperty}`, () => {
       expect(
-        transpile(`div`, `${property}: inherit;`, {
-          supportedProperties: [
-            inlineStartProperty,
-            inlineEndProperty,
-            blockStartProperty,
-            blockEndProperty,
-          ],
-        })
+        transpile(
+          `div`,
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) =>
+              p === inlineStartProperty ||
+              p === inlineEndProperty ||
+              p === blockStartProperty ||
+              p === blockEndProperty,
+          })
+        )
       ).toBe(
         `div{${inlineStartProperty}:inherit;${inlineEndProperty}:inherit;${blockStartProperty}:inherit;${blockEndProperty}:inherit;}`
       );
@@ -386,9 +464,13 @@ describe.each(sizeProperties)(
   (property: string, fallbackProperty: string) => {
     it(`supports ${property}`, () => {
       expect(
-        transpile('div', `${property}: inherit;`, {
-          supportedProperties: [property],
-        })
+        transpile(
+          'div',
+          `${property}: inherit;`,
+          createTranspileMiddleware({
+            isPropertySupported: (p: string) => p === property,
+          })
+        )
       ).toBe(`div{${property}:inherit;}`);
     });
 

@@ -53,63 +53,54 @@ const attachDeclaration = (
   ruleSet.children.push(declaration);
 };
 
-export const createLogicalPropertiesMiddleware = (
-  supportedProperties: string[]
-): Middleware => {
-  const supportedPropertiesSet = new Set(supportedProperties);
-
-  const isPropertySupported = (property: string): boolean =>
-    supportedPropertiesSet.has(property) || cssSupports(`${property}:inherit`);
-
-  const isPropertyValueSupported = (property: string, value: string): boolean =>
-    cssSupports(`${property}:${value}`);
-
+export const createLogicalPropertiesMiddleware = ({
+  isPropertySupported = (property: string): boolean =>
+    cssSupports(`${property}:inherit`),
+  isPropertyValueSupported = (property: string, value: string): boolean =>
+    cssSupports(`${property}:${value}`),
+}: {
+  isPropertySupported?: (property: string) => boolean;
+  isPropertyValueSupported?: (property: string, value: string) => boolean;
+}): Middleware => {
   const ops = new Map<string, Operation>();
 
   const handleLogicalValues = (property: string): void => {
-    for (const logicalValue of ['start', 'inline-start']) {
-      if (isPropertyValueSupported(property, logicalValue)) {
-        continue;
-      }
+    const logicalValues = new Map<string, boolean>(
+      ['start', 'inline-start', 'end', 'inline-end'].map((logicalValue) => [
+        logicalValue,
+        isPropertyValueSupported(property, logicalValue),
+      ])
+    );
 
-      const op: Operation = (value, ruleSet, _ltrRuleSet, rtlRuleSet) => {
-        attachDeclaration(
-          property,
-          value === logicalValue ? 'left' : logicalValue,
-          ruleSet
-        );
-
-        attachDeclaration(
-          property,
-          value === logicalValue ? 'right' : logicalValue,
-          rtlRuleSet
-        );
-      };
-
-      ops.set(property, op);
+    if (Array.from(logicalValues.values()).every((supported) => supported)) {
+      return;
     }
 
-    for (const logicalValue of ['end', 'inline-end']) {
-      if (isPropertyValueSupported(property, logicalValue)) {
-        continue;
+    const op: Operation = (value, ruleSet, _ltrRuleSet, rtlRuleSet) => {
+      switch (value) {
+        case 'start':
+        case 'inline-start':
+          if (!logicalValues.get(value)) {
+            attachDeclaration(property, 'left', ruleSet);
+            attachDeclaration(property, 'right', rtlRuleSet);
+            return;
+          }
+          break;
+
+        case 'end':
+        case 'inline-end':
+          if (!logicalValues.get(value)) {
+            attachDeclaration(property, 'right', ruleSet);
+            attachDeclaration(property, 'left', rtlRuleSet);
+            return;
+          }
+          break;
       }
 
-      const op: Operation = (value, ruleSet, _ltrRuleSet, rtlRuleSet) => {
-        attachDeclaration(
-          property,
-          value === logicalValue ? 'right' : logicalValue,
-          ruleSet
-        );
+      attachDeclaration(property, value, ruleSet);
+    };
 
-        attachDeclaration(
-          property,
-          value === logicalValue ? 'left' : logicalValue,
-          rtlRuleSet
-        );
-      };
-
-      ops.set(property, op);
-    }
+    ops.set(property, op);
   };
 
   const replaceInlineProperty = (

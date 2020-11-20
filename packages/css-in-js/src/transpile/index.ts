@@ -9,18 +9,17 @@ import {
 
 import { createLogicalPropertiesMiddleware } from './logicalProperties';
 
-type TranspileOptions = {
-  supportedProperties: string[];
+type MiddlewareOptions = {
+  isPropertySupported?: (property: string) => boolean;
+  isPropertyValueSupported?: (property: string, value: string) => boolean;
 };
 
-export const createStylisMiddleware = ({
-  supportedProperties = [],
-}: Partial<TranspileOptions> = {}): Middleware =>
-  middleware([
-    createLogicalPropertiesMiddleware(supportedProperties),
-    prefixer,
-    stringify,
-  ]);
+export const createTranspileMiddleware = (
+  options: MiddlewareOptions = {}
+): Middleware =>
+  middleware([createLogicalPropertiesMiddleware(options), prefixer, stringify]);
+
+const defaultMiddleware = createTranspileMiddleware();
 
 /**
  * Transpiles CSS Modules content to CSS rules.
@@ -28,9 +27,5 @@ export const createStylisMiddleware = ({
 export const transpile = (
   selector: string,
   content: string,
-  options?: Partial<TranspileOptions>
-): string =>
-  serialize(
-    compile(`${selector}{${content}}`),
-    createStylisMiddleware(options)
-  );
+  middleware: Middleware = defaultMiddleware
+): string => serialize(compile(`${selector}{${content}}`), middleware);
