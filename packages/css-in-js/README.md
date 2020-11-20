@@ -110,7 +110,7 @@ Transpiles CSS Modules content to CSS rules.
 
 -   `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `options` **TranspileOptions?** 
+-   `middleware` **Middleware**  (optional, default `defaultMiddleware`)
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
