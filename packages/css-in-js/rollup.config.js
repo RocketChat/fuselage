@@ -80,4 +80,32 @@ export default [
     ],
     plugins,
   },
+  {
+    input: 'src/emotion.ts',
+    output: [
+      {
+        dir: path.dirname(pkg.main),
+        entryFileNames: 'emotion.js',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        dir: path.dirname(pkg.module),
+        entryFileNames: 'emotion.module.js',
+        format: 'es',
+        sourcemap: true,
+      },
+      {
+        dir: path.dirname(pkg.unpkg),
+        entryFileNames: 'emotion.umd.js',
+        format: 'umd',
+        name: 'cssInJs',
+        sourcemap: true,
+        globals: {
+          '@emotion/hash': 'hash',
+        },
+      },
+    ],
+    plugins,
+  },
 ];

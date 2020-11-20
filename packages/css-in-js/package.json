@@ -25,7 +25,9 @@
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "emotion",
+    "logicalProperties"
   ],
   "scripts": {
     "start": "rollup -c -w",
@@ -64,6 +66,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@emotion/css": "^11.0.0",
     "@emotion/hash": "^0.8.0",
     "stylis": "^4.0.3"
   }

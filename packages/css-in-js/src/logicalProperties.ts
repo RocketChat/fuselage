@@ -5,7 +5,6 @@ import {
   node,
   RULESET,
   serialize,
-  stringify,
 } from 'stylis';
 
 import { cssSupports } from './cssSupports';
@@ -53,15 +52,13 @@ const attachDeclaration = (
   ruleSet.children.push(declaration);
 };
 
-export const createLogicalPropertiesMiddleware = ({
-  isPropertySupported = (property: string): boolean =>
-    cssSupports(`${property}:inherit`),
-  isPropertyValueSupported = (property: string, value: string): boolean =>
-    cssSupports(`${property}:${value}`),
+const compileOperations = ({
+  isPropertySupported,
+  isPropertyValueSupported,
 }: {
-  isPropertySupported?: (property: string) => boolean;
-  isPropertyValueSupported?: (property: string, value: string) => boolean;
-} = {}): Middleware => {
+  isPropertySupported: (property: string) => boolean;
+  isPropertyValueSupported: (property: string, value: string) => boolean;
+}): Map<string, Operation> => {
   const ops = new Map<string, Operation>();
 
   const withLogicalValues = (property: string): void => {
@@ -280,7 +277,24 @@ export const createLogicalPropertiesMiddleware = ({
   withFallback('min-block-size', 'min-height');
   withFallback('max-block-size', 'max-height');
 
-  return (ruleSet: RuleSet): undefined | string => {
+  return ops;
+};
+
+export const createLogicalPropertiesMiddleware = ({
+  isPropertySupported = (property: string): boolean =>
+    cssSupports(`${property}:inherit`),
+  isPropertyValueSupported = (property: string, value: string): boolean =>
+    cssSupports(`${property}:${value}`),
+}: {
+  isPropertySupported?: (property: string) => boolean;
+  isPropertyValueSupported?: (property: string, value: string) => boolean;
+} = {}): Middleware => {
+  const ops = compileOperations({
+    isPropertySupported,
+    isPropertyValueSupported,
+  });
+
+  return (ruleSet: RuleSet, _, __, callback): undefined | string => {
     if (!isRuleSet(ruleSet) || ruleSet.root !== null) {
       return undefined;
     }
@@ -289,8 +303,8 @@ export const createLogicalPropertiesMiddleware = ({
       ruleSet.props
         .map((selector) => `html:not([dir=rtl]) ${selector}`)
         .join(','),
-      ruleSet.root ?? null,
-      ruleSet.parent ?? null,
+      (undefined as unknown) as Element,
+      (undefined as unknown) as Element,
       RULESET,
       ruleSet.props.map((selector) => `html:not([dir=rtl]) ${selector}`),
       [],
@@ -299,8 +313,8 @@ export const createLogicalPropertiesMiddleware = ({
 
     const rtlRuleSet = node(
       ruleSet.props.map((selector) => `[dir=rtl] ${selector}`).join(','),
-      ruleSet.root ?? null,
-      ruleSet.parent ?? null,
+      (undefined as unknown) as Element,
+      (undefined as unknown) as Element,
       RULESET,
       ruleSet.props.map((selector) => `[dir=rtl] ${selector}`),
       [],
@@ -327,7 +341,7 @@ export const createLogicalPropertiesMiddleware = ({
       ruleSet.children.push(rule);
     }
 
-    return serialize([ltrRuleSet, rtlRuleSet], stringify);
+    return serialize([ltrRuleSet, rtlRuleSet], callback);
   };
 };
 
