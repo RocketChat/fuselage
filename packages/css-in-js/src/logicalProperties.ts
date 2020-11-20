@@ -8,7 +8,7 @@ import {
   stringify,
 } from 'stylis';
 
-import { cssSupports } from '../cssSupports';
+import { cssSupports } from './cssSupports';
 
 type RuleSet = Element & {
   type: typeof RULESET;
@@ -61,10 +61,10 @@ export const createLogicalPropertiesMiddleware = ({
 }: {
   isPropertySupported?: (property: string) => boolean;
   isPropertyValueSupported?: (property: string, value: string) => boolean;
-}): Middleware => {
+} = {}): Middleware => {
   const ops = new Map<string, Operation>();
 
-  const handleLogicalValues = (property: string): void => {
+  const withLogicalValues = (property: string): void => {
     const logicalValues = new Map<string, boolean>(
       ['start', 'inline-start', 'end', 'inline-end'].map((logicalValue) => [
         logicalValue,
@@ -103,7 +103,7 @@ export const createLogicalPropertiesMiddleware = ({
     ops.set(property, op);
   };
 
-  const replaceInlineProperty = (
+  const withDirectionalFallback = (
     property: string,
     ltrFallbackProperty: string,
     rtlFallbackProperty: string
@@ -120,7 +120,7 @@ export const createLogicalPropertiesMiddleware = ({
     ops.set(property, op);
   };
 
-  const replaceProperty = (
+  const withFallback = (
     property: string,
     ...fallbackProperties: string[]
   ): void => {
@@ -144,141 +144,141 @@ export const createLogicalPropertiesMiddleware = ({
     ops.set(property, op);
   };
 
-  handleLogicalValues('clear');
-  handleLogicalValues('float');
-  handleLogicalValues('text-align');
-  replaceInlineProperty(
+  withLogicalValues('float');
+  withLogicalValues('clear');
+  withLogicalValues('text-align');
+
+  withDirectionalFallback(
     'border-start-start-radius',
     'border-top-left-radius',
     'border-top-right-radius'
   );
-  replaceInlineProperty(
+  withDirectionalFallback(
     'border-start-end-radius',
     'border-top-right-radius',
     'border-top-left-radius'
   );
-  replaceInlineProperty(
+  withDirectionalFallback(
     'border-end-start-radius',
     'border-bottom-left-radius',
     'border-bottom-right-radius'
   );
-  replaceInlineProperty(
+  withDirectionalFallback(
     'border-end-end-radius',
     'border-bottom-right-radius',
     'border-bottom-left-radius'
   );
-  replaceProperty('inline-size', 'width');
-  replaceProperty('min-inline-size', 'min-width');
-  replaceProperty('max-inline-size', 'max-width');
-  replaceProperty('block-size', 'height');
-  replaceProperty('min-block-size', 'min-height');
-  replaceProperty('max-block-size', 'max-height');
-
-  replaceProperty('inset', 'inset-inline', 'inset-block');
-  replaceProperty('inset-inline', 'inset-inline-start', 'inset-inline-end');
-  replaceProperty('inset-block', 'inset-block-start', 'inset-block-end');
-  replaceInlineProperty('inset-inline-start', 'left', 'right');
-  replaceInlineProperty('inset-inline-end', 'right', 'left');
-  replaceProperty('inset-block-start', 'top');
-  replaceProperty('inset-block-end', 'bottom');
-
-  replaceProperty('margin-inline', 'margin-inline-start', 'margin-inline-end');
-  replaceProperty('margin-block', 'margin-block-start', 'margin-block-end');
-  replaceInlineProperty('margin-inline-start', 'margin-left', 'margin-right');
-  replaceInlineProperty('margin-inline-end', 'margin-right', 'margin-left');
-  replaceProperty('margin-block-start', 'margin-top');
-  replaceProperty('margin-block-end', 'margin-bottom');
-
-  replaceProperty(
-    'padding-inline',
-    'padding-inline-start',
-    'padding-inline-end'
-  );
-  replaceProperty('padding-block', 'padding-block-start', 'padding-block-end');
-  replaceInlineProperty(
-    'padding-inline-start',
-    'padding-left',
-    'padding-right'
-  );
-  replaceInlineProperty('padding-inline-end', 'padding-right', 'padding-left');
-  replaceProperty('padding-block-start', 'padding-top');
-  replaceProperty('padding-block-end', 'padding-bottom');
-
-  replaceProperty('border-inline', 'border-inline-start', 'border-inline-end');
-  replaceProperty('border-block', 'border-block-start', 'border-block-end');
-  replaceInlineProperty('border-inline-start', 'border-left', 'border-right');
-  replaceInlineProperty('border-inline-end', 'border-right', 'border-left');
-  replaceProperty('border-block-start', 'border-top');
-  replaceProperty('border-block-end', 'border-bottom');
-
-  replaceProperty(
-    'border-inline-width',
-    'border-inline-start-width',
-    'border-inline-end-width'
-  );
-  replaceProperty(
-    'border-block-width',
-    'border-block-start-width',
-    'border-block-end-width'
-  );
-  replaceInlineProperty(
+  withDirectionalFallback('inset-inline-start', 'left', 'right');
+  withDirectionalFallback('inset-inline-end', 'right', 'left');
+  withDirectionalFallback('border-inline-start', 'border-left', 'border-right');
+  withDirectionalFallback('border-inline-end', 'border-right', 'border-left');
+  withDirectionalFallback(
     'border-inline-start-width',
     'border-left-width',
     'border-right-width'
   );
-  replaceInlineProperty(
+  withDirectionalFallback(
     'border-inline-end-width',
     'border-right-width',
     'border-left-width'
   );
-  replaceProperty('border-block-start-width', 'border-top-width');
-  replaceProperty('border-block-end-width', 'border-bottom-width');
 
-  replaceProperty(
-    'border-inline-style',
-    'border-inline-start-style',
-    'border-inline-end-style'
-  );
-  replaceProperty(
-    'border-block-style',
-    'border-block-start-style',
-    'border-block-end-style'
-  );
-  replaceInlineProperty(
+  withDirectionalFallback(
     'border-inline-start-style',
     'border-left-style',
     'border-right-style'
   );
-  replaceInlineProperty(
+  withDirectionalFallback(
     'border-inline-end-style',
     'border-right-style',
     'border-left-style'
   );
-  replaceProperty('border-block-start-style', 'border-top-style');
-  replaceProperty('border-block-end-style', 'border-bottom-style');
-
-  replaceProperty(
-    'border-inline-color',
-    'border-inline-start-color',
-    'border-inline-end-color'
-  );
-  replaceProperty(
-    'border-block-color',
-    'border-block-start-color',
-    'border-block-end-color'
-  );
-  replaceInlineProperty(
+  withDirectionalFallback(
     'border-inline-start-color',
     'border-left-color',
     'border-right-color'
   );
-  replaceInlineProperty(
+  withDirectionalFallback(
     'border-inline-end-color',
     'border-right-color',
     'border-left-color'
   );
-  replaceProperty('border-block-start-color', 'border-top-color');
-  replaceProperty('border-block-end-color', 'border-bottom-color');
+  withDirectionalFallback('margin-inline-start', 'margin-left', 'margin-right');
+  withDirectionalFallback('margin-inline-end', 'margin-right', 'margin-left');
+  withDirectionalFallback(
+    'padding-inline-start',
+    'padding-left',
+    'padding-right'
+  );
+  withDirectionalFallback(
+    'padding-inline-end',
+    'padding-right',
+    'padding-left'
+  );
+
+  withFallback('border-inline', 'border-inline-start', 'border-inline-end');
+  withFallback(
+    'border-inline-width',
+    'border-inline-start-width',
+    'border-inline-end-width'
+  );
+  withFallback(
+    'border-inline-style',
+    'border-inline-start-style',
+    'border-inline-end-style'
+  );
+  withFallback(
+    'border-inline-color',
+    'border-inline-start-color',
+    'border-inline-end-color'
+  );
+  withFallback('inset-inline', 'inset-inline-start', 'inset-inline-end');
+  withFallback('margin-inline', 'margin-inline-start', 'margin-inline-end');
+  withFallback('padding-inline', 'padding-inline-start', 'padding-inline-end');
+
+  withFallback('border-block-start', 'border-top');
+  withFallback('border-block-end', 'border-bottom');
+  withFallback('border-block-start-width', 'border-top-width');
+  withFallback('border-block-end-width', 'border-bottom-width');
+  withFallback('border-block-start-style', 'border-top-style');
+  withFallback('border-block-end-style', 'border-bottom-style');
+  withFallback('border-block-start-color', 'border-top-color');
+  withFallback('border-block-end-color', 'border-bottom-color');
+  withFallback('inset-block-start', 'top');
+  withFallback('inset-block-end', 'bottom');
+  withFallback('margin-block-start', 'margin-top');
+  withFallback('margin-block-end', 'margin-bottom');
+  withFallback('padding-block-start', 'padding-top');
+  withFallback('padding-block-end', 'padding-bottom');
+
+  withFallback('border-block', 'border-block-start', 'border-block-end');
+  withFallback(
+    'border-block-width',
+    'border-block-start-width',
+    'border-block-end-width'
+  );
+  withFallback(
+    'border-block-style',
+    'border-block-start-style',
+    'border-block-end-style'
+  );
+  withFallback(
+    'border-block-color',
+    'border-block-start-color',
+    'border-block-end-color'
+  );
+  withFallback('inset-block', 'inset-block-start', 'inset-block-end');
+  withFallback('margin-block', 'margin-block-start', 'margin-block-end');
+  withFallback('padding-block', 'padding-block-start', 'padding-block-end');
+
+  withFallback('inset', 'inset-inline', 'inset-block');
+
+  withFallback('inline-size', 'width');
+  withFallback('min-inline-size', 'min-width');
+  withFallback('max-inline-size', 'max-width');
+  withFallback('block-size', 'height');
+  withFallback('min-block-size', 'min-height');
+  withFallback('max-block-size', 'max-height');
 
   return (ruleSet: RuleSet): undefined | string => {
     if (!isRuleSet(ruleSet) || ruleSet.root !== null) {
@@ -330,3 +330,5 @@ export const createLogicalPropertiesMiddleware = ({
     return serialize([ltrRuleSet, rtlRuleSet], stringify);
   };
 };
+
+export const logicalPropertiesMiddleware = createLogicalPropertiesMiddleware();

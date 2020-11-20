@@ -1,5 +1,4 @@
-import { createTranspileMiddleware } from '.';
-import { transpile } from '..';
+import { transpile, createTranspileMiddleware } from './transpile';
 
 it('transpiles simple properties', () => {
   expect(transpile('div', 'color: inherit;')).toBe('div{color:inherit;}');
@@ -119,12 +118,6 @@ const bilateralInlineProperties = [
 ];
 
 const unilateralBlockProperties = [
-  ['inset-block-start', 'top'],
-  ['inset-block-end', 'bottom'],
-  ['margin-block-start', 'margin-top'],
-  ['margin-block-end', 'margin-bottom'],
-  ['padding-block-start', 'padding-top'],
-  ['padding-block-end', 'padding-bottom'],
   ['border-block-start', 'border-top'],
   ['border-block-end', 'border-bottom'],
   ['border-block-start-width', 'border-top-width'],
@@ -133,6 +126,12 @@ const unilateralBlockProperties = [
   ['border-block-end-style', 'border-bottom-style'],
   ['border-block-start-color', 'border-top-color'],
   ['border-block-end-color', 'border-bottom-color'],
+  ['inset-block-start', 'top'],
+  ['inset-block-end', 'bottom'],
+  ['margin-block-start', 'margin-top'],
+  ['margin-block-end', 'margin-bottom'],
+  ['padding-block-start', 'padding-top'],
+  ['padding-block-end', 'padding-bottom'],
 ];
 
 const bilateralBlockProperties = [
