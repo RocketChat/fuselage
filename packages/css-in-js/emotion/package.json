@@ -1,6 +1,0 @@
-{
-  "name": "@rocket.chat/css-in-js/emotion",
-  "private": true,
-  "main": "../dist/emotion.js",
-  "module": "../dist/emotion.module.js"
-}
