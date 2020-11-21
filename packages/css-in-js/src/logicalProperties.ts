@@ -46,7 +46,7 @@ const attachDeclaration = (
     DECLARATION,
     (property as unknown) as string[],
     (value as unknown) as Element[],
-    property.length + value.length + 1
+    property.length
   );
 
   ruleSet.children.push(declaration);
@@ -338,7 +338,7 @@ export const createLogicalPropertiesMiddleware = ({
         continue;
       }
 
-      ruleSet.children.push(rule);
+      attachDeclaration(rule.props, rule.children, ruleSet);
     }
 
     return serialize([ltrRuleSet, rtlRuleSet], callback);

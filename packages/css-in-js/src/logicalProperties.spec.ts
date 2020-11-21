@@ -1,20 +1,14 @@
 import { transpile, createTranspileMiddleware } from './transpile';
 
 it('transpiles simple properties', () => {
-  expect(transpile('div', 'color: inherit;')).toBe('div{color:inherit;}');
+  expect(transpile('div', 'color: inherit;')).toMatch('div{color:inherit;}');
 });
 
 it('transpiles with vendor prefixing', () => {
-  expect(transpile('div', 'display: flex;')).toBe(
+  expect(transpile('div', 'display: flex;')).toMatch(
     'div{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}'
   );
 });
-
-const propertiesWithLogicalValues = [
-  ['float'],
-  ['clear', '-webkit-clear'],
-  ['text-align', '-webkit-text-align'],
-];
 
 const unilateralInlineProperties = [
   [
@@ -205,34 +199,35 @@ const sizeProperties = [
   ['max-block-size', 'max-height'],
 ];
 
-describe.each(propertiesWithLogicalValues)('%s', (property: string) => {
-  describe.each([
-    ['start', 'left', 'right'],
-    ['inline-start', 'left', 'right'],
-    ['end', 'right', 'left'],
-    ['inline-end', 'right', 'left'],
-  ])('%s', (value: string, startValue: string, endValue: string) => {
-    it('is supported', () => {
-      expect(
-        transpile(
-          'div',
-          `${property}: ${value};`,
-          createTranspileMiddleware({
-            isPropertyValueSupported: (p, v) => p === property && v === value,
-          })
-        )
-      ).toMatch(new RegExp(`^div\\{(.*;)?${property}:${value};\\}$`));
-    });
+describe.each([['float'], ['clear'], ['text-align']])(
+  '%s',
+  (property: string) => {
+    describe.each([
+      ['start', 'left', 'right'],
+      ['inline-start', 'left', 'right'],
+      ['end', 'right', 'left'],
+      ['inline-end', 'right', 'left'],
+    ])('%s', (value: string, startValue: string, endValue: string) => {
+      it('is supported', () => {
+        expect(
+          transpile(
+            'div',
+            `${property}: ${value};`,
+            createTranspileMiddleware({
+              isPropertyValueSupported: (p, v) => p === property && v === value,
+            })
+          )
+        ).toMatch(`div{${property}:${value};}`);
+      });
 
-    it('fallbacks', () => {
-      expect(transpile('div', `${property}: ${value};`)).toMatch(
-        new RegExp(
-          `^\\[dir=rtl\\] div\\{(.*;)?${property}:${endValue};\\}div\\{(.*;)?${property}:${startValue};\\}$`
-        )
-      );
+      it('fallbacks', () => {
+        expect(transpile('div', `${property}: ${value};`)).toMatch(
+          `[dir=rtl] div{${property}:${endValue};}div{${property}:${startValue};}`
+        );
+      });
     });
-  });
-});
+  }
+);
 
 describe.each(unilateralInlineProperties)(
   `Unilateral inline property %s`,
@@ -246,11 +241,11 @@ describe.each(unilateralInlineProperties)(
             isPropertySupported: (p: string) => p === property,
           })
         )
-      ).toBe(`div{${property}:inherit;}`);
+      ).toMatch(`div{${property}:inherit;}`);
     });
 
     it(`fallbacks ${property} to ${startProperty} and ${endProperty}`, () => {
-      expect(transpile(`div`, `${property}: inherit;`)).toBe(
+      expect(transpile(`div`, `${property}: inherit;`)).toMatch(
         `html:not([dir=rtl]) div{${startProperty}:inherit;}[dir=rtl] div{${endProperty}:inherit;}`
       );
     });
@@ -274,11 +269,11 @@ describe.each(vendorPrefixedUnilateralInlineProperties)(
             isPropertySupported: (p: string) => p === property,
           })
         )
-      ).toBe(`div{${prefixedProperty}:inherit;${property}:inherit;}`);
+      ).toMatch(`div{${prefixedProperty}:inherit;${property}:inherit;}`);
     });
 
     it(`fallbacks ${property} to ${startProperty} and ${endProperty}`, () => {
-      expect(transpile(`div`, `${property}: inherit;`)).toBe(
+      expect(transpile(`div`, `${property}: inherit;`)).toMatch(
         `html:not([dir=rtl]) div{${startProperty}:inherit;}[dir=rtl] div{${endProperty}:inherit;}`
       );
     });
@@ -303,7 +298,7 @@ describe.each(bilateralInlineProperties)(
             isPropertySupported: (p: string) => p === property,
           })
         )
-      ).toBe(`div{${property}:inherit;}`);
+      ).toMatch(`div{${property}:inherit;}`);
     });
 
     it(`fallbacks ${property} to ${startProperty} and ${endProperty}`, () => {
@@ -316,11 +311,15 @@ describe.each(bilateralInlineProperties)(
               p === startProperty || p === endProperty,
           })
         )
-      ).toBe(`div{${startProperty}:inherit;${endProperty}:inherit;}`);
+      ).toMatch(
+        new RegExp(
+          `^div\\{([^:]+:inherit;)?${startProperty}:inherit;([^:]+:inherit;)?${endProperty}:inherit;\\}$`
+        )
+      );
     });
 
     it(`fallbacks ${property} to ${startFallbackProperty} and ${endFallbackProperty}`, () => {
-      expect(transpile(`div`, `${property}: inherit;`)).toBe(
+      expect(transpile(`div`, `${property}: inherit;`)).toMatch(
         `html:not([dir=rtl]) div{${startFallbackProperty}:inherit;${endFallbackProperty}:inherit;}[dir=rtl] div{${endFallbackProperty}:inherit;${startFallbackProperty}:inherit;}`
       );
     });
@@ -339,11 +338,11 @@ describe.each(unilateralBlockProperties)(
             isPropertySupported: (p: string) => p === property,
           })
         )
-      ).toBe(`div{${property}:inherit;}`);
+      ).toMatch(`div{${property}:inherit;}`);
     });
 
     it(`fallbacks ${property} to ${fallbackProperty}`, () => {
-      expect(transpile(`div`, `${property}: inherit;`)).toBe(
+      expect(transpile(`div`, `${property}: inherit;`)).toMatch(
         `div{${fallbackProperty}:inherit;}`
       );
     });
@@ -368,7 +367,7 @@ describe.each(bilateralBlockProperties)(
             isPropertySupported: (p: string) => p === property,
           })
         )
-      ).toBe(`div{${property}:inherit;}`);
+      ).toMatch(`div{${property}:inherit;}`);
     });
 
     it(`fallbacks ${property} to ${startProperty} and ${endProperty}`, () => {
@@ -381,11 +380,11 @@ describe.each(bilateralBlockProperties)(
               p === startProperty || p === endProperty,
           })
         )
-      ).toBe(`div{${startProperty}:inherit;${endProperty}:inherit;}`);
+      ).toMatch(`div{${startProperty}:inherit;${endProperty}:inherit;}`);
     });
 
     it(`fallbacks ${property} to ${startFallbackProperty} and ${endFallbackProperty}`, () => {
-      expect(transpile(`div`, `${property}: inherit;`)).toBe(
+      expect(transpile(`div`, `${property}: inherit;`)).toMatch(
         `div{${startFallbackProperty}:inherit;${endFallbackProperty}:inherit;}`
       );
     });
@@ -416,7 +415,7 @@ describe.each(omnilateralProperties)(
             isPropertySupported: (p: string) => p === property,
           })
         )
-      ).toBe(`div{${property}:inherit;}`);
+      ).toMatch(`div{${property}:inherit;}`);
     });
 
     it(`supports ${inlineProperty} and ${blockProperty}`, () => {
@@ -429,7 +428,7 @@ describe.each(omnilateralProperties)(
               p === inlineProperty || p === blockProperty,
           })
         )
-      ).toBe(`div{${inlineProperty}:inherit;${blockProperty}:inherit;}`);
+      ).toMatch(`div{${inlineProperty}:inherit;${blockProperty}:inherit;}`);
     });
 
     it(`supports ${inlineStartProperty}, ${inlineEndProperty}, ${blockStartProperty}, and ${blockEndProperty}`, () => {
@@ -445,13 +444,13 @@ describe.each(omnilateralProperties)(
               p === blockEndProperty,
           })
         )
-      ).toBe(
+      ).toMatch(
         `div{${inlineStartProperty}:inherit;${inlineEndProperty}:inherit;${blockStartProperty}:inherit;${blockEndProperty}:inherit;}`
       );
     });
 
     it(`fallbacks`, () => {
-      expect(transpile(`div`, `${property}: inherit;`)).toBe(
+      expect(transpile(`div`, `${property}: inherit;`)).toMatch(
         `html:not([dir=rtl]) div{${inlineStartFallbackProperty}:inherit;${inlineEndFallbackProperty}:inherit;}[dir=rtl] div{${inlineEndFallbackProperty}:inherit;${inlineStartFallbackProperty}:inherit;}div{${blockStartFallbackProperty}:inherit;${blockEndFallbackProperty}:inherit;}`
       );
     });
@@ -470,11 +469,11 @@ describe.each(sizeProperties)(
             isPropertySupported: (p: string) => p === property,
           })
         )
-      ).toBe(`div{${property}:inherit;}`);
+      ).toMatch(`div{${property}:inherit;}`);
     });
 
     it(`fallbacks ${property} to ${fallbackProperty}`, () => {
-      expect(transpile(`div`, `${property}: inherit;`)).toBe(
+      expect(transpile(`div`, `${property}: inherit;`)).toMatch(
         `div{${fallbackProperty}:inherit;}`
       );
     });
