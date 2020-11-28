@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.18.0...v0.19.0) (2020-11-28)
+
+
+### Bug Fixes
+
+* Avatar x40 ([#331](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/331)) ([a9cefbb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a9cefbb7d3580598a824b4d4e5f9c79aa7158219))
+* Fix object-fit for image element in Avatar component ([#335](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/335)) ([a024b83](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a024b831fad78e9c15d65f6985088c0514bed312))
+
+
+### Features
+
+* Remove Box from Avatar component ([#326](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/326)) ([0bc99a3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0bc99a325cbc963d9544e304a3f6f29e0089a976))
+
+
+
+
+
 # [0.18.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.3...v0.18.0) (2020-11-16)
 
 
