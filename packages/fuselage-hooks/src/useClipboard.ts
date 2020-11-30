@@ -14,10 +14,13 @@ export const useClipboard = (
   time = 2000,
   onCopySuccess = (e?) => e,
   onCopyError = (e?) => e
-): unknown => {
+): {
+  copy: (e?: Event) => void;
+  hasCopied: boolean;
+} => {
   const [hasCopied, setHasCopied] = useState(false);
 
-  const copy = useMutableCallback(async (e) => {
+  const copy = useMutableCallback(async (e: Event) => {
     e?.preventDefault();
     try {
       await navigator.clipboard.writeText(text);
