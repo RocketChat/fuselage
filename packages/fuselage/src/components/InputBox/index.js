@@ -9,10 +9,12 @@ import { Skeleton } from '../Skeleton';
 import { Option } from './Option';
 import { Placeholder } from './Placeholder';
 
-const Wrapper = (props) => <Box is={Label} rcx-input-box__wrapper {...props} />;
+const Wrapper = (props) => (
+  <Box animated is={Label} rcx-input-box__wrapper {...props} />
+);
 
 const Input = forwardRef((props, ref) => (
-  <Box is='input' rcx-input-box ref={ref} {...props} />
+  <Box is='input' animated rcx-input-box ref={ref} {...props} />
 ));
 
 const Addon = forwardRef((props, ref) => (

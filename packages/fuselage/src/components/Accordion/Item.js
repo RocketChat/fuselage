@@ -84,6 +84,7 @@ export function Item({
     <Box is='section' rcx-accordion-item className={className} {...props}>
       {title && (
         <Box
+          animated
           rcx-accordion-item__bar
           rcx-accordion-item__bar--disabled={disabled}
           {...barProps}
@@ -108,6 +109,7 @@ export function Item({
         </Box>
       )}
       <Box
+        animated
         rcx-accordion-item__panel
         rcx-accordion-item__panel--expanded={panelExpanded}
         id={panelId}
