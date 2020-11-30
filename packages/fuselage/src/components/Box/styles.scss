@@ -1,14 +1,21 @@
 .rcx-box {
   @extend %box;
 
-  &--full {
+  &--animated {
     @extend %box--animated;
+
+    &::before,
+    &::after {
+      @extend %box--animated;
+    }
+  }
+
+  &--full {
     @extend %box--full;
 
     &::before,
     &::after {
       @extend %box;
-      @extend %box--animated;
       @extend %box--full;
     }
   }
