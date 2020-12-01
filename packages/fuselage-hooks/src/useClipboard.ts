@@ -15,20 +15,22 @@ type UseClipboardParams = {
   onCopyError?: (e?: Event) => void;
 };
 
+export type UseClipboardReturn = {
+  copy: (e?: Event) => Promise<void>;
+  hasCopied: boolean;
+};
+
 export const useClipboard = (
   text: string,
   {
     clearTime = 2000,
     onCopySuccess = (): void => undefined,
     onCopyError = (): void => undefined,
-  }: UseClipboardParams
-): {
-  copy: (e?: Event) => void;
-  hasCopied: boolean;
-} => {
+  }: UseClipboardParams = {}
+): UseClipboardReturn  => {
   const [hasCopied, setHasCopied] = useState(false);
 
-  const copy = useMutableCallback(async (e: Event) => {
+  const copy = useMutableCallback(async (e?: Event) => {
     e?.preventDefault();
     try {
       await navigator.clipboard.writeText(text);
