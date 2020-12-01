@@ -9,11 +9,19 @@ import { useMutableCallback } from './useMutableCallback';
  * @public
  */
 
+type UseClipboardParams = {
+  clearTime?: number;
+  onCopySuccess?: (e?: Event) => void;
+  onCopyError?: (e?: Event) => void;
+};
+
 export const useClipboard = (
   text: string,
-  time = 2000,
-  onCopySuccess = (e?) => e,
-  onCopyError = (e?) => e
+  {
+    clearTime = 2000,
+    onCopySuccess = (): void => undefined,
+    onCopyError = (): void => undefined,
+  }: UseClipboardParams
 ): {
   copy: (e?: Event) => void;
   hasCopied: boolean;
@@ -38,10 +46,10 @@ export const useClipboard = (
 
     const timeout = setTimeout(() => {
       setHasCopied(false);
-    }, time);
+    }, clearTime);
 
     return () => clearTimeout(timeout);
-  }, [hasCopied]);
+  }, [hasCopied, clearTime]);
 
   return { copy, hasCopied };
 };
