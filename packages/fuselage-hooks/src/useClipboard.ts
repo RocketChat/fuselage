@@ -27,7 +27,7 @@ export const useClipboard = (
     onCopySuccess = (): void => undefined,
     onCopyError = (): void => undefined,
   }: UseClipboardParams = {}
-): UseClipboardReturn  => {
+): UseClipboardReturn => {
   const [hasCopied, setHasCopied] = useState(false);
 
   const copy = useMutableCallback(async (e?: Event) => {
