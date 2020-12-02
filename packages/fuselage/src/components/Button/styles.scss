@@ -2,8 +2,9 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-%button-secondary-color { // TODO: primitive atomic component
-  @include as-button (
+%button-secondary-color {
+  // TODO: primitive atomic component
+  @include as-button(
     $background-color: $button-colors-secondary-background-color,
     $border-color: $button-colors-secondary-border-color,
     $color: $button-colors-secondary-color,
@@ -14,19 +15,23 @@
     $focus-background-color: $button-colors-secondary-focus-background-color,
     $focus-border-color: $button-colors-secondary-focus-border-color,
     $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-    $disabled-background-color: $button-colors-secondary-disabled-background-color,
+    $disabled-background-color:
+      $button-colors-secondary-disabled-background-color,
     $disabled-border-color: $button-colors-secondary-disabled-border-color,
-    $disabled-color: $button-colors-secondary-disabled-color,
+    $disabled-color: $button-colors-secondary-disabled-color
   );
 }
 
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
-    padding:
-      calc((#{ $height } - #{ $line-height }) / 2 - #{ lengths.border-width(2) })
-      calc(#{ $padding-x } - #{ lengths.border-width(2) });
-    padding-block: calc((#{ $height } - #{ $line-height }) / 2 - #{ lengths.border-width(2) });
-    padding-inline: calc(#{ $padding-x } - #{ lengths.border-width(2) });
+    padding: calc(
+        (#{$height} - #{$line-height}) / 2 - #{lengths.border-width(2)}
+      )
+      calc(#{$padding-x} - #{lengths.border-width(2)});
+    padding-block: calc(
+      (#{$height} - #{$line-height}) / 2 - #{lengths.border-width(2)}
+    );
+    padding-inline: calc(#{$padding-x} - #{lengths.border-width(2)});
   }
 
   @mixin with-squared-size($size) {
@@ -59,7 +64,7 @@
   @include with-rectangular-size(
     $height: lengths.size(40),
     $padding-x: lengths.padding(16),
-    $line-height: typography.line-height(p1),
+    $line-height: typography.line-height(p1)
   );
 
   @extend %button--secondary;
@@ -70,35 +75,27 @@
     @include with-rectangular-size(
       $height: lengths.size(28),
       $padding-x: lengths.padding(8),
-      $line-height: typography.line-height(c1),
+      $line-height: typography.line-height(c1)
     );
   }
 
   &--square {
-    @include with-squared-size(
-      $size: lengths.size(40),
-    );
+    @include with-squared-size($size: lengths.size(40));
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   &--tiny-square {
-    @include with-squared-size(
-      $size: lengths.size(24),
-    );
+    @include with-squared-size($size: lengths.size(24));
   }
 
   &--mini-square {
-    @include with-squared-size(
-      $size: lengths.size(20),
-    );
+    @include with-squared-size($size: lengths.size(20));
   }
 
   &--small-square {
-    @include with-squared-size(
-      $size: lengths.size(28),
-    );
+    @include with-squared-size($size: lengths.size(28));
   }
 
   &--success {

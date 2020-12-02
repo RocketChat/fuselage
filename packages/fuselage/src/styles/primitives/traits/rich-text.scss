@@ -80,9 +80,7 @@
   }
 
   code {
-    padding:
-      lengths.padding(4)
-      lengths.padding(8);
+    padding: lengths.padding(4) lengths.padding(8);
 
     letter-spacing: inherit;
 
@@ -167,9 +165,7 @@
   }
 
   kbd {
-    padding:
-      lengths.padding(4)
-      lengths.padding(8);
+    padding: lengths.padding(4) lengths.padding(8);
 
     letter-spacing: inherit;
 
@@ -233,9 +229,7 @@
   h6 {
     display: block;
 
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
   }
 
   p {
@@ -243,9 +237,7 @@
 
     display: block;
 
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
 
     color: inherit;
   }
@@ -254,9 +246,7 @@
   ol {
     display: block;
 
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
     padding-inline-start: lengths.padding(40);
   }
 
@@ -281,9 +271,7 @@
   }
 
   pre {
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
 
     letter-spacing: inherit;
 

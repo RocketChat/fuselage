@@ -14,11 +14,11 @@ $-map-type-to-prefix: (
 );
 
 @function _get-palette-color($type, $grade, $alpha) {
-  @if not ($grade % 100 == 0 and $grade / 100 >= 1 and $grade / 100 <= 9) {
+  @if not($grade % 100 == 0 and $grade / 100 >= 1 and $grade / 100 <= 9) {
     @error 'invalid color grade';
   }
 
-  @if not ($alpha == null or ($alpha >= 0 and $alpha <= 1)) {
+  @if not($alpha == null or ($alpha >= 0 and $alpha <= 1)) {
     @error 'invalid color alpha';
   }
 
@@ -27,7 +27,7 @@ $-map-type-to-prefix: (
     @error 'invalid color type';
   }
 
-  $base-color: map.get(token-colors.$colors, #{ $prefix }#{ $grade });
+  $base-color: map.get(token-colors.$colors, #{$prefix}#{$grade});
 
   @if not $base-color {
     @error 'invalid color reference';
@@ -35,12 +35,12 @@ $-map-type-to-prefix: (
 
   @if ($alpha != null) {
     @return (
-      --rcx-color-#{ $type }-#{ $grade }-#{ $alpha * 100 },
-      color.change($base-color, $alpha: $alpha),
+      --rcx-color-#{$type}-#{$grade}-#{$alpha * 100},
+      color.change($base-color, $alpha: $alpha)
     );
   }
 
-  @return (--rcx-color-#{ $type }-#{ $grade }, $base-color);
+  @return (--rcx-color-#{$type}-#{$grade}, $base-color);
 }
 
 @function neutral($grade, $alpha: null) {
@@ -105,7 +105,7 @@ $-foreground-colors: (
 
   $color: map.get($-foreground-colors, $type);
 
-  @return (--rcx-color-foreground-#{ $type }, $color);
+  @return (--rcx-color-foreground-#{$type}, $color);
 }
 
 @function foreground($type) {

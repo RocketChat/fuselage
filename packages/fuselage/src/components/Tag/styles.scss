@@ -2,23 +2,59 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$tag-colors-secondary-color: theme('tag-colors-secondary-color', colors.foreground(primary));
-$tag-colors-secondary-background-color: theme('tag-colors-secondary-background-color', colors.primary(100));
+$tag-colors-secondary-color: theme(
+  'tag-colors-secondary-color',
+  colors.foreground(primary)
+);
+$tag-colors-secondary-background-color: theme(
+  'tag-colors-secondary-background-color',
+  colors.primary(100)
+);
 
-$tag-colors-primary-color: theme('tag-colors-primary-color', colors.foreground(alternative));
-$tag-colors-primary-background-color: theme('tag-colors-primary-background-color', colors.primary(500));
+$tag-colors-primary-color: theme(
+  'tag-colors-primary-color',
+  colors.foreground(alternative)
+);
+$tag-colors-primary-background-color: theme(
+  'tag-colors-primary-background-color',
+  colors.primary(500)
+);
 
-$tag-colors-danger-color: theme('tag-colors-danger-color', colors.foreground(alternative));
-$tag-colors-danger-background-color: theme('tag-colors-danger-background-color', colors.danger(500));
+$tag-colors-danger-color: theme(
+  'tag-colors-danger-color',
+  colors.foreground(alternative)
+);
+$tag-colors-danger-background-color: theme(
+  'tag-colors-danger-background-color',
+  colors.danger(500)
+);
 
-$tag-colors-ghost-color: theme('tag-colors-ghost-color', colors.foreground(alternative));
-$tag-colors-ghost-background-color: theme('tag-colors-ghost-background-color', colors.neutral(700));
+$tag-colors-ghost-color: theme(
+  'tag-colors-ghost-color',
+  colors.foreground(alternative)
+);
+$tag-colors-ghost-background-color: theme(
+  'tag-colors-ghost-background-color',
+  colors.neutral(700)
+);
 
-$tag-colors-warning-color: theme('tag-colors-warning-color', colors.foreground(alternative));
-$tag-colors-warning-background-color: theme('tag-colors-warning-background-color', colors.warning-alternative(500));
+$tag-colors-warning-color: theme(
+  'tag-colors-warning-color',
+  colors.foreground(alternative)
+);
+$tag-colors-warning-background-color: theme(
+  'tag-colors-warning-background-color',
+  colors.warning-alternative(500)
+);
 
-$tag-colors-disabled-color: theme('tag-colors-disabled-color', colors.foreground(hint));
-$tag-colors-disabled-background-color: theme('tag-colors-disabled-background-color', colors.neutral(400));
+$tag-colors-disabled-color: theme(
+  'tag-colors-disabled-color',
+  colors.foreground(hint)
+);
+$tag-colors-disabled-background-color: theme(
+  'tag-colors-disabled-background-color',
+  colors.neutral(400)
+);
 
 .rcx-tag {
   display: inline-block;
@@ -26,9 +62,7 @@ $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-col
 
   width: fit-content;
 
-  padding:
-    lengths.padding(2)
-    lengths.padding(4);
+  padding: lengths.padding(2) lengths.padding(4);
 
   white-space: nowrap;
 

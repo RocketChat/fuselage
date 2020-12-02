@@ -1,88 +1,328 @@
 @use '../colors.scss';
 
-$button-colors-ghost-background-color: theme('button-colors-ghost-background-color', transparent);
-$button-colors-ghost-border-color: theme('button-colors-ghost-border-color', transparent);
+$button-colors-ghost-background-color: theme(
+  'button-colors-ghost-background-color',
+  transparent
+);
+$button-colors-ghost-border-color: theme(
+  'button-colors-ghost-border-color',
+  transparent
+);
 
-$button-colors-primary-background-color: theme('button-colors-primary-background-color', colors.primary(500));
-$button-colors-primary-border-color: theme('button-colors-primary-border-color', colors.primary(500));
-$button-colors-primary-color: theme('button-colors-primary-color', colors.foreground(alternative));
-$button-colors-primary-hover-background-color: theme('button-colors-primary-hover-background-color', colors.primary(600));
-$button-colors-primary-hover-border-color: theme('button-colors-primary-hover-border-color', colors.primary(600));
-$button-colors-primary-active-background-color: theme('button-colors-primary-active-background-color', colors.primary(700));
-$button-colors-primary-active-border-color: theme('button-colors-primary-active-border-color', colors.primary(700));
-$button-colors-primary-focus-background-color: theme('button-colors-primary-focus-background-color', colors.primary(500));
-$button-colors-primary-focus-border-color: theme('button-colors-primary-focus-border-color', colors.primary(700));
-$button-colors-primary-focus-shadow-color: theme('button-colors-primary-focus-shadow-color', colors.primary(100));
-$button-colors-primary-disabled-background-color: theme('button-colors-primary-disabled-background-color', colors.primary(200));
-$button-colors-primary-disabled-border-color: theme('button-colors-primary-disabled-border-color', colors.primary(200));
-$button-colors-primary-disabled-color: theme('button-colors-primary-disabled-color', colors.foreground(alternative));
+$button-colors-primary-background-color: theme(
+  'button-colors-primary-background-color',
+  colors.primary(500)
+);
+$button-colors-primary-border-color: theme(
+  'button-colors-primary-border-color',
+  colors.primary(500)
+);
+$button-colors-primary-color: theme(
+  'button-colors-primary-color',
+  colors.foreground(alternative)
+);
+$button-colors-primary-hover-background-color: theme(
+  'button-colors-primary-hover-background-color',
+  colors.primary(600)
+);
+$button-colors-primary-hover-border-color: theme(
+  'button-colors-primary-hover-border-color',
+  colors.primary(600)
+);
+$button-colors-primary-active-background-color: theme(
+  'button-colors-primary-active-background-color',
+  colors.primary(700)
+);
+$button-colors-primary-active-border-color: theme(
+  'button-colors-primary-active-border-color',
+  colors.primary(700)
+);
+$button-colors-primary-focus-background-color: theme(
+  'button-colors-primary-focus-background-color',
+  colors.primary(500)
+);
+$button-colors-primary-focus-border-color: theme(
+  'button-colors-primary-focus-border-color',
+  colors.primary(700)
+);
+$button-colors-primary-focus-shadow-color: theme(
+  'button-colors-primary-focus-shadow-color',
+  colors.primary(100)
+);
+$button-colors-primary-disabled-background-color: theme(
+  'button-colors-primary-disabled-background-color',
+  colors.primary(200)
+);
+$button-colors-primary-disabled-border-color: theme(
+  'button-colors-primary-disabled-border-color',
+  colors.primary(200)
+);
+$button-colors-primary-disabled-color: theme(
+  'button-colors-primary-disabled-color',
+  colors.foreground(alternative)
+);
 
-$button-colors-secondary-background-color: theme('button-colors-secondary-background-color', colors.neutral(300));
-$button-colors-secondary-border-color: theme('button-colors-secondary-border-color', colors.neutral(300));
-$button-colors-secondary-color: theme('button-colors-secondary-color', colors.neutral(800));
-$button-colors-secondary-hover-background-color: theme('button-colors-secondary-hover-background-color', colors.neutral(400));
-$button-colors-secondary-hover-border-color: theme('button-colors-secondary-hover-border-color', colors.neutral(400));
-$button-colors-secondary-active-background-color: theme('button-colors-secondary-active-background-color', colors.neutral(500));
-$button-colors-secondary-active-border-color: theme('button-colors-secondary-active-border-color', colors.neutral(500));
-$button-colors-secondary-focus-background-color: theme('button-colors-secondary-focus-background-color', colors.neutral(300));
-$button-colors-secondary-focus-border-color: theme('button-colors-secondary-focus-border-color', colors.neutral(500));
-$button-colors-secondary-focus-shadow-color: theme('button-colors-secondary-focus-shadow-color', colors.neutral(100));
-$button-colors-secondary-disabled-background-color: theme('button-colors-secondary-disabled-background-color', colors.neutral(100));
-$button-colors-secondary-disabled-border-color: theme('button-colors-secondary-disabled-border-color', colors.neutral(100));
-$button-colors-secondary-disabled-color: theme('button-colors-secondary-disabled-color', colors.neutral(400));
+$button-colors-secondary-background-color: theme(
+  'button-colors-secondary-background-color',
+  colors.neutral(300)
+);
+$button-colors-secondary-border-color: theme(
+  'button-colors-secondary-border-color',
+  colors.neutral(300)
+);
+$button-colors-secondary-color: theme(
+  'button-colors-secondary-color',
+  colors.neutral(800)
+);
+$button-colors-secondary-hover-background-color: theme(
+  'button-colors-secondary-hover-background-color',
+  colors.neutral(400)
+);
+$button-colors-secondary-hover-border-color: theme(
+  'button-colors-secondary-hover-border-color',
+  colors.neutral(400)
+);
+$button-colors-secondary-active-background-color: theme(
+  'button-colors-secondary-active-background-color',
+  colors.neutral(500)
+);
+$button-colors-secondary-active-border-color: theme(
+  'button-colors-secondary-active-border-color',
+  colors.neutral(500)
+);
+$button-colors-secondary-focus-background-color: theme(
+  'button-colors-secondary-focus-background-color',
+  colors.neutral(300)
+);
+$button-colors-secondary-focus-border-color: theme(
+  'button-colors-secondary-focus-border-color',
+  colors.neutral(500)
+);
+$button-colors-secondary-focus-shadow-color: theme(
+  'button-colors-secondary-focus-shadow-color',
+  colors.neutral(100)
+);
+$button-colors-secondary-disabled-background-color: theme(
+  'button-colors-secondary-disabled-background-color',
+  colors.neutral(100)
+);
+$button-colors-secondary-disabled-border-color: theme(
+  'button-colors-secondary-disabled-border-color',
+  colors.neutral(100)
+);
+$button-colors-secondary-disabled-color: theme(
+  'button-colors-secondary-disabled-color',
+  colors.neutral(400)
+);
 
-$button-colors-success-background-color: theme('button-colors-success-background-color', colors.success(500));
-$button-colors-success-border-color: theme('button-colors-success-border-color', colors.success(500));
-$button-colors-success-color: theme('button-colors-success-color', colors.foreground(alternative));
-$button-colors-success-hover-background-color: theme('button-colors-success-hover-background-color', colors.success(600));
-$button-colors-success-hover-border-color: theme('button-colors-success-hover-border-color', colors.success(600));
-$button-colors-success-active-background-color: theme('button-colors-success-active-background-color', colors.success(700));
-$button-colors-success-active-border-color: theme('button-colors-success-active-border-color', colors.success(700));
-$button-colors-success-focus-background-color: theme('button-colors-success-focus-background-color', colors.success(500));
-$button-colors-success-focus-border-color: theme('button-colors-success-focus-border-color', colors.success(700));
-$button-colors-success-focus-shadow-color: theme('button-colors-success-focus-shadow-color', colors.success(100));
-$button-colors-success-disabled-background-color: theme('button-colors-success-disabled-background-color', colors.success(200));
-$button-colors-success-disabled-border-color: theme('button-colors-success-disabled-border-color', colors.success(200));
-$button-colors-success-disabled-color: theme('button-colors-success-disabled-color', colors.foreground(alternative));
+$button-colors-success-background-color: theme(
+  'button-colors-success-background-color',
+  colors.success(500)
+);
+$button-colors-success-border-color: theme(
+  'button-colors-success-border-color',
+  colors.success(500)
+);
+$button-colors-success-color: theme(
+  'button-colors-success-color',
+  colors.foreground(alternative)
+);
+$button-colors-success-hover-background-color: theme(
+  'button-colors-success-hover-background-color',
+  colors.success(600)
+);
+$button-colors-success-hover-border-color: theme(
+  'button-colors-success-hover-border-color',
+  colors.success(600)
+);
+$button-colors-success-active-background-color: theme(
+  'button-colors-success-active-background-color',
+  colors.success(700)
+);
+$button-colors-success-active-border-color: theme(
+  'button-colors-success-active-border-color',
+  colors.success(700)
+);
+$button-colors-success-focus-background-color: theme(
+  'button-colors-success-focus-background-color',
+  colors.success(500)
+);
+$button-colors-success-focus-border-color: theme(
+  'button-colors-success-focus-border-color',
+  colors.success(700)
+);
+$button-colors-success-focus-shadow-color: theme(
+  'button-colors-success-focus-shadow-color',
+  colors.success(100)
+);
+$button-colors-success-disabled-background-color: theme(
+  'button-colors-success-disabled-background-color',
+  colors.success(200)
+);
+$button-colors-success-disabled-border-color: theme(
+  'button-colors-success-disabled-border-color',
+  colors.success(200)
+);
+$button-colors-success-disabled-color: theme(
+  'button-colors-success-disabled-color',
+  colors.foreground(alternative)
+);
 
-$button-colors-danger-background-color: theme('button-colors-danger-background-color', colors.danger(500));
-$button-colors-danger-border-color: theme('button-colors-danger-border-color', colors.danger(500));
-$button-colors-danger-color: theme('button-colors-danger-color', colors.foreground(alternative));
-$button-colors-danger-hover-background-color: theme('button-colors-danger-hover-background-color', colors.danger(600));
-$button-colors-danger-hover-border-color: theme('button-colors-danger-hover-border-color', colors.danger(600));
-$button-colors-danger-active-background-color: theme('button-colors-danger-active-background-color', colors.danger(700));
-$button-colors-danger-active-border-color: theme('button-colors-danger-active-border-color', colors.danger(700));
-$button-colors-danger-focus-background-color: theme('button-colors-danger-focus-background-color', colors.danger(500));
-$button-colors-danger-focus-border-color: theme('button-colors-danger-focus-border-color', colors.danger(700));
-$button-colors-danger-focus-shadow-color: theme('button-colors-danger-focus-shadow-color', colors.danger(100));
-$button-colors-danger-disabled-background-color: theme('button-colors-danger-disabled-background-color', colors.danger(200));
-$button-colors-danger-disabled-border-color: theme('button-colors-danger-disabled-border-color', colors.danger(200));
-$button-colors-danger-disabled-color: theme('button-colors-danger-disabled-color', colors.foreground(alternative));
+$button-colors-danger-background-color: theme(
+  'button-colors-danger-background-color',
+  colors.danger(500)
+);
+$button-colors-danger-border-color: theme(
+  'button-colors-danger-border-color',
+  colors.danger(500)
+);
+$button-colors-danger-color: theme(
+  'button-colors-danger-color',
+  colors.foreground(alternative)
+);
+$button-colors-danger-hover-background-color: theme(
+  'button-colors-danger-hover-background-color',
+  colors.danger(600)
+);
+$button-colors-danger-hover-border-color: theme(
+  'button-colors-danger-hover-border-color',
+  colors.danger(600)
+);
+$button-colors-danger-active-background-color: theme(
+  'button-colors-danger-active-background-color',
+  colors.danger(700)
+);
+$button-colors-danger-active-border-color: theme(
+  'button-colors-danger-active-border-color',
+  colors.danger(700)
+);
+$button-colors-danger-focus-background-color: theme(
+  'button-colors-danger-focus-background-color',
+  colors.danger(500)
+);
+$button-colors-danger-focus-border-color: theme(
+  'button-colors-danger-focus-border-color',
+  colors.danger(700)
+);
+$button-colors-danger-focus-shadow-color: theme(
+  'button-colors-danger-focus-shadow-color',
+  colors.danger(100)
+);
+$button-colors-danger-disabled-background-color: theme(
+  'button-colors-danger-disabled-background-color',
+  colors.danger(200)
+);
+$button-colors-danger-disabled-border-color: theme(
+  'button-colors-danger-disabled-border-color',
+  colors.danger(200)
+);
+$button-colors-danger-disabled-color: theme(
+  'button-colors-danger-disabled-color',
+  colors.foreground(alternative)
+);
 
-$button-colors-empty-background-color: theme('button-colors-empty-background-color', colors.surface());
-$button-colors-empty-border-color: theme('button-colors-empty-border-color', colors.neutral(400));
-$button-colors-empty-color: theme('button-colors-empty-color', colors.foreground(alternative));
-$button-colors-empty-hover-background-color: theme('button-colors-empty-hover-background-color', colors.surface());
-$button-colors-empty-hover-border-color: theme('button-colors-empty-hover-border-color', colors.neutral(500));
-$button-colors-empty-active-background-color: theme('button-colors-empty-active-background-color', colors.surface());
-$button-colors-empty-active-border-color: theme('button-colors-empty-active-border-color', colors.neutral(600));
-$button-colors-empty-focus-background-color: theme('button-colors-empty-focus-background-color', colors.surface());
-$button-colors-empty-focus-border-color: theme('button-colors-empty-focus-border-color', colors.primary(500));
-$button-colors-empty-focus-shadow-color: theme('button-colors-empty-focus-shadow-color', colors.primary(100));
-$button-colors-empty-disabled-background-color: theme('button-colors-empty-disabled-background-color', colors.neutral(200));
-$button-colors-empty-disabled-border-color: theme('button-colors-empty-disabled-border-color', colors.neutral(200));
-$button-colors-empty-disabled-color: theme('button-colors-empty-disabled-color', colors.foreground(alternative));
+$button-colors-empty-background-color: theme(
+  'button-colors-empty-background-color',
+  colors.surface()
+);
+$button-colors-empty-border-color: theme(
+  'button-colors-empty-border-color',
+  colors.neutral(400)
+);
+$button-colors-empty-color: theme(
+  'button-colors-empty-color',
+  colors.foreground(alternative)
+);
+$button-colors-empty-hover-background-color: theme(
+  'button-colors-empty-hover-background-color',
+  colors.surface()
+);
+$button-colors-empty-hover-border-color: theme(
+  'button-colors-empty-hover-border-color',
+  colors.neutral(500)
+);
+$button-colors-empty-active-background-color: theme(
+  'button-colors-empty-active-background-color',
+  colors.surface()
+);
+$button-colors-empty-active-border-color: theme(
+  'button-colors-empty-active-border-color',
+  colors.neutral(600)
+);
+$button-colors-empty-focus-background-color: theme(
+  'button-colors-empty-focus-background-color',
+  colors.surface()
+);
+$button-colors-empty-focus-border-color: theme(
+  'button-colors-empty-focus-border-color',
+  colors.primary(500)
+);
+$button-colors-empty-focus-shadow-color: theme(
+  'button-colors-empty-focus-shadow-color',
+  colors.primary(100)
+);
+$button-colors-empty-disabled-background-color: theme(
+  'button-colors-empty-disabled-background-color',
+  colors.neutral(200)
+);
+$button-colors-empty-disabled-border-color: theme(
+  'button-colors-empty-disabled-border-color',
+  colors.neutral(200)
+);
+$button-colors-empty-disabled-color: theme(
+  'button-colors-empty-disabled-color',
+  colors.foreground(alternative)
+);
 
-$button-colors-off-background-color: theme('button-colors-off-background-color', colors.neutral(400));
-$button-colors-off-border-color: theme('button-colors-off-border-color', colors.neutral(400));
-$button-colors-off-color: theme('button-colors-off-color', colors.foreground(alternative));
-$button-colors-off-hover-background-color: theme('button-colors-off-hover-background-color', colors.neutral(500));
-$button-colors-off-hover-border-color: theme('button-colors-off-hover-border-color', colors.neutral(500));
-$button-colors-off-active-background-color: theme('button-colors-off-active-background-color', colors.neutral(600));
-$button-colors-off-active-border-color: theme('button-colors-off-active-border-color', colors.neutral(600));
-$button-colors-off-focus-background-color: theme('button-colors-off-focus-background-color', colors.neutral(500));
-$button-colors-off-focus-border-color: theme('button-colors-off-focus-border-color', colors.primary(500));
-$button-colors-off-focus-shadow-color: theme('button-colors-off-focus-shadow-color', colors.primary(100));
-$button-colors-off-disabled-background-color: theme('button-colors-off-disabled-background-color', colors.neutral(400));
-$button-colors-off-disabled-border-color: theme('button-colors-off-disabled-border-color', colors.neutral(400));
-$button-colors-off-disabled-color: theme('button-colors-off-disabled-color', colors.neutral(200));
+$button-colors-off-background-color: theme(
+  'button-colors-off-background-color',
+  colors.neutral(400)
+);
+$button-colors-off-border-color: theme(
+  'button-colors-off-border-color',
+  colors.neutral(400)
+);
+$button-colors-off-color: theme(
+  'button-colors-off-color',
+  colors.foreground(alternative)
+);
+$button-colors-off-hover-background-color: theme(
+  'button-colors-off-hover-background-color',
+  colors.neutral(500)
+);
+$button-colors-off-hover-border-color: theme(
+  'button-colors-off-hover-border-color',
+  colors.neutral(500)
+);
+$button-colors-off-active-background-color: theme(
+  'button-colors-off-active-background-color',
+  colors.neutral(600)
+);
+$button-colors-off-active-border-color: theme(
+  'button-colors-off-active-border-color',
+  colors.neutral(600)
+);
+$button-colors-off-focus-background-color: theme(
+  'button-colors-off-focus-background-color',
+  colors.neutral(500)
+);
+$button-colors-off-focus-border-color: theme(
+  'button-colors-off-focus-border-color',
+  colors.primary(500)
+);
+$button-colors-off-focus-shadow-color: theme(
+  'button-colors-off-focus-shadow-color',
+  colors.primary(100)
+);
+$button-colors-off-disabled-background-color: theme(
+  'button-colors-off-disabled-background-color',
+  colors.neutral(400)
+);
+$button-colors-off-disabled-border-color: theme(
+  'button-colors-off-disabled-border-color',
+  colors.neutral(400)
+);
+$button-colors-off-disabled-color: theme(
+  'button-colors-off-disabled-color',
+  colors.neutral(200)
+);
