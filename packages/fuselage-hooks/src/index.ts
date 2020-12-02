@@ -12,6 +12,7 @@ export * from './useMediaQuery';
 export * from './useMergedRefs';
 export * from './useMutableCallback';
 export * from './usePosition';
+export * from './usePrefersReducedMotion';
 export * from './useResizeObserver';
 export * from './useSafely';
 export * from './useStableArray';
