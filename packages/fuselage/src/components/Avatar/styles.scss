@@ -19,6 +19,10 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     &--rounded {
       border-radius: 100%;
     }
+
+    &--object-fit {
+      object-fit: contain;
+    }
   }
 
   &-stack {

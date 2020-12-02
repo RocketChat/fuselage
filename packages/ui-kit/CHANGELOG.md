@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.18.0...v0.19.0) (2020-11-28)
+
+**Note:** Version bump only for package @rocket.chat/ui-kit
+
+
+
+
+
 # [0.18.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.3...v0.18.0) (2020-11-16)
 
 

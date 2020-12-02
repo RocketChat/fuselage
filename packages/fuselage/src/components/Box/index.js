@@ -52,7 +52,7 @@ export const useBoxOnlyProps = (props) => {
 };
 
 export const Box = memo(
-  forwardRef(function Box({ is = 'div', children, ...props }, ref) {
+  forwardRef(function Box({ is = 'div', children, animated, ...props }, ref) {
     useStyleSheet();
 
     if (ref) {
@@ -69,6 +69,9 @@ export const Box = memo(
     props = useBoxOnlyProps(props);
     props = useStylingProps(props);
 
+    if (animated) {
+      props.className = prependClassName(props.className, 'rcx-box--animated');
+    }
     const element = createElement(is, props, children);
 
     if (transformFn) {

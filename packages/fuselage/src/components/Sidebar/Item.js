@@ -37,7 +37,7 @@ const Container = (props) => (
 
 const Menu = (props) => (
   <div
-    className='rc-box rcx-box--full rcx-sidebar-item__menu-wraper '
+    className='rc-box rcx-box--full rcx-box--animated rcx-sidebar-item__menu-wraper '
     {...props}
   />
 );
