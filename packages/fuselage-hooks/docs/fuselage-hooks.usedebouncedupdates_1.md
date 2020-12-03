@@ -7,10 +7,13 @@
 <b>Signature:</b>
 
 ```typescript
-export declare function useDebouncedUpdates<S, A>([state, dispatch]: [S, Dispatch<A>], delay: number): [S, Dispatch<A> & {
-    flush: () => void;
-    cancel: () => void;
-}];
+export declare function useDebouncedUpdates<S, A>([state, dispatch]: [S, Dispatch<A>], delay: number): [
+    S,
+    Dispatch<A> & {
+        flush: () => void;
+        cancel: () => void;
+    }
+];
 ```
 
 ## Parameters
@@ -22,5 +25,5 @@ export declare function useDebouncedUpdates<S, A>([state, dispatch]: [S, Dispatc
 
 <b>Returns:</b>
 
-\[S, Dispatch&lt;A&gt; &amp; { flush: () =&gt; void; cancel: () =&gt; void; }\]
+\[ S, Dispatch&lt;A&gt; &amp; { flush: () =&gt; void; cancel: () =&gt; void; } \]
 

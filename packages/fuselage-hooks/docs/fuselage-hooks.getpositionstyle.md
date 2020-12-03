@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-getPositionStyle: ({ placement, container, targetBoundaries, variantStore, target }: {
+getPositionStyle: ({ placement, container, targetBoundaries, variantStore, target, }: {
     placement: Placements;
     target: DOMRect;
     container: DOMRect;

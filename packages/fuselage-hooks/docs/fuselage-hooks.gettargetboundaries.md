@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-getTargetBoundaries: ({ referenceBox, target, margin }: {
+getTargetBoundaries: ({ referenceBox, target, margin, }: {
     referenceBox?: DOMRect;
     target?: DOMRect;
     margin?: number;
