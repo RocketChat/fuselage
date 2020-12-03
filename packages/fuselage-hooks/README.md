@@ -66,19 +66,21 @@ yarn add @rocket.chat/fuselage-hooks
     -   [Parameters](#parameters-10)
 -   [usePosition](#useposition)
     -   [Parameters](#parameters-11)
+-   [usePrefersColorScheme](#usepreferscolorscheme)
+    -   [Parameters](#parameters-12)
 -   [usePrefersReducedMotion](#useprefersreducedmotion)
 -   [useResizeObserver](#useresizeobserver)
-    -   [Parameters](#parameters-12)
--   [useSafely](#usesafely)
     -   [Parameters](#parameters-13)
--   [useStableArray](#usestablearray)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-14)
--   [useLocalStorage](#uselocalstorage)
+-   [useStableArray](#usestablearray)
     -   [Parameters](#parameters-15)
--   [useSessionStorage](#usesessionstorage)
+-   [useLocalStorage](#uselocalstorage)
     -   [Parameters](#parameters-16)
--   [useToggle](#usetoggle)
+-   [useSessionStorage](#usesessionstorage)
     -   [Parameters](#parameters-17)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-18)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -226,6 +228,115 @@ Hook to deal and position an element using an anchor
 -   `targetEl`  the element to be positioned
 
 Returns **PositionResult** The style containing top and left position
+
+### usePrefersColorScheme
+
+Hook to get the prefers-color-scheme value.
+
+#### Parameters
+
+-   `scheme` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-color-scheme matches
+
+### usePrefersReducedMotion
+
+Hook to get the prefers-reduce-motion value.
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-reduce-motion is set reduce in the media queries that matches
+
+### useResizeObserver
+
+Hook to track dimension changes in a DOM element using the ResizeObserver API.
+
+#### Parameters
+
+-   `options` **UseResizeObserverOptions**  (optional, default `{}`)
+    -   `options.debounceDelay`  
+
+Returns **{ref: RefObject&lt;[Element](https://developer.mozilla.org/docs/Web/API/Element)>, contentBoxSize: ResizeObserverSize, borderBoxSize: ResizeObserverSize}** a triple containing the ref and the size information
+
+### useSafely
+
+Hook that wraps pairs of state and dispatcher to provide a new dispatcher
+which can be safe and asynchronically called even after the component unmounted.
+
+#### Parameters
+
+-   `pair` **\[S, (Dispatch&lt;A> | DispatchWithoutAction)]** the state and dispatcher pair which will be patched
+    -   `pair.0`  
+    -   `pair.1`  
+
+Returns **\[S, D]** a state value and safe dispatcher pair
+
+### useStableArray
+
+Hook to create an array with stable identity if its elements are equal.
+
+#### Parameters
+
+-   `array` **T** the array
+-   `compare` **function (a: T, b: T): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** the equality function that checks if two array elements are
+           equal (optional, default `Object.is`)
+
+Returns **T** the passed array if the elements are NOT equals; the previously
+         stored array otherwise
+
+### useLocalStorage
+
+Hook to deal with localStorage
+
+#### Parameters
+
+-   `key`  the key associated to the value in the storage
+-   `initialValue`  the value returned when the key is not found at the storage
+
+Returns **any** a state and a setter function
+
+### useSessionStorage
+
+Hook to deal with sessionStorage
+
+#### Parameters
+
+-   `key`  the key associated to the value in the storage
+-   `initialValue`  the value returned when the key is not found at the storage
+
+Returns **any** a state and a setter function
+
+### useToggle
+
+Hook to create a toggleable boolean state.
+
+#### Parameters
+
+-   `initialValue` **([boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | function (): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean))?** the initial value or the initial state generator function
+
+Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), D]** a state boolean value and a state toggler function
+
+### useUniqueId
+
+Hook to keep a unique ID string.
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the unique ID string
+
+# &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
+### usePrefersColorScheme
+
+Hook to get the prefers-color-scheme value.
+
+#### Parameters
+
+-   `scheme` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-color-scheme matches
+
+### usePrefersReducedData
+
+Hook to get the prefers-reduce-data value.
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-reduce-data is set reduce in the media queries that matches
 
 ### usePrefersReducedMotion
 
