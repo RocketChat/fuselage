@@ -43,6 +43,8 @@ yarn add @rocket.chat/fuselage-hooks
 -   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
 -   [useBreakpoints](#usebreakpoints)
+-   [UseClipboardParams](#useclipboardparams)
+    -   [Properties](#properties)
 -   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-1)
 -   [useDebouncedReducer](#usedebouncedreducer)
@@ -100,6 +102,20 @@ Returns **Ref&lt;{focus: function (options: FocusOptions): void}>** the ref whic
 Hook to catch which responsive design' breakpoints are active.
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** an array of the active breakpoint names
+
+### UseClipboardParams
+
+Hook to copy the passed content to the clipboard.
+
+Type: {clearTime: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?, onCopySuccess: function (e: [Event](https://developer.mozilla.org/docs/Web/API/Event)): void?, onCopyError: function (e: [Event](https://developer.mozilla.org/docs/Web/API/Event)): void?}
+
+#### Properties
+
+-   `clearTime` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** 
+-   `onCopySuccess` **function (e: [Event](https://developer.mozilla.org/docs/Web/API/Event)): void?** 
+-   `onCopyError` **function (e: [Event](https://developer.mozilla.org/docs/Web/API/Event)): void?** 
+
+Returns **any** an object with the copy function and the hasCopied state
 
 ### useDebouncedCallback
 
