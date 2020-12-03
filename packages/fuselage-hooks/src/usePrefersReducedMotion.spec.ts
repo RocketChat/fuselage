@@ -3,9 +3,10 @@ import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
 import { usePrefersReducedMotion } from '.';
+import matchMediaMock from './__mocks__/matchMedia';
 
 describe('usePrefersReducedMotion hook', () => {
-  let container;
+  let container: HTMLDivElement;
 
   beforeEach(() => {
     container = document.createElement('div');
@@ -18,10 +19,10 @@ describe('usePrefersReducedMotion hook', () => {
   });
 
   it('returns false on the initial call', () => {
-    let hookInstance;
+    let matches: boolean;
 
     const TestComponent: FunctionComponent = () => {
-      hookInstance = usePrefersReducedMotion();
+      matches = usePrefersReducedMotion();
       return null;
     };
 
@@ -32,6 +33,27 @@ describe('usePrefersReducedMotion hook', () => {
       );
     });
 
-    expect(hookInstance).toBe(false);
+    expect(matches).toBe(false);
+  });
+
+  it('should returns true with matchMedia mocked', () => {
+    window.matchMedia = jest.fn((media) =>
+      matchMediaMock(media, '(prefers-reduced-motion: reduce)')
+    );
+
+    let matches: boolean;
+    const TestComponent: FunctionComponent = () => {
+      matches = usePrefersReducedMotion();
+      return null;
+    };
+
+    act(() => {
+      render(
+        createElement(StrictMode, {}, createElement(TestComponent)),
+        document.createElement('div')
+      );
+    });
+
+    expect(matches).toBe(true);
   });
 });
