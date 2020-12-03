@@ -68,6 +68,7 @@ yarn add @rocket.chat/fuselage-hooks
     -   [Parameters](#parameters-11)
 -   [usePrefersColorScheme](#usepreferscolorscheme)
     -   [Parameters](#parameters-12)
+-   [usePrefersReducedData](#useprefersreduceddata)
 -   [usePrefersReducedMotion](#useprefersreducedmotion)
 -   [useResizeObserver](#useresizeobserver)
     -   [Parameters](#parameters-13)
@@ -239,6 +240,12 @@ Hook to get the prefers-color-scheme value.
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-color-scheme matches
 
+### usePrefersReducedData
+
+Hook to get the prefers-reduce-data value.
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-reduce-data is set reduce in the media queries that matches
+
 ### usePrefersReducedMotion
 
 Hook to get the prefers-reduce-motion value.
@@ -331,6 +338,8 @@ Hook to get the prefers-color-scheme value.
 -   `scheme` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-color-scheme matches
+
+=======
 
 ### usePrefersReducedData
 
