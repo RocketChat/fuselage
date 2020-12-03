@@ -7,26 +7,28 @@ import { renderToString } from 'react-dom/server';
 
 import { usePrefersReducedMotion } from '.';
 
-it('returns false for undefined media query', () => {
-  let matches: boolean;
-  const TestComponent: FunctionComponent = () => {
-    matches = usePrefersReducedMotion();
-    return null;
-  };
+describe('usePrefersReducedMotion hook on server', () => {
+  it('should return false without matchMedia mocked', () => {
+    let matches: boolean;
+    const TestComponent: FunctionComponent = () => {
+      matches = usePrefersReducedMotion();
+      return null;
+    };
 
-  renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
-  expect(matches).toBe(false);
-});
+    expect(matches).toBe(false);
+  });
 
-it('returns false for defined media query', () => {
-  let matches: boolean;
-  const TestComponent: FunctionComponent = () => {
-    matches = usePrefersReducedMotion();
-    return null;
-  };
+  it('should return false with matchMedia mocked', () => {
+    let matches: boolean;
+    const TestComponent: FunctionComponent = () => {
+      matches = usePrefersReducedMotion();
+      return null;
+    };
 
-  renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
+    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
 
-  expect(matches).toBe(false);
+    expect(matches).toBe(false);
+  });
 });
