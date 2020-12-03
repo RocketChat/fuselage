@@ -9,7 +9,7 @@ Hook to track dimension changes in a DOM element using the ResizeObserver API.
 <b>Signature:</b>
 
 ```typescript
-useResizeObserver: ({ debounceDelay }?: UseResizeObserverOptions) => {
+useResizeObserver: ({ debounceDelay, }?: UseResizeObserverOptions) => {
     ref: RefObject<Element>;
     contentBoxSize: ResizeObserverSize;
     borderBoxSize: ResizeObserverSize;

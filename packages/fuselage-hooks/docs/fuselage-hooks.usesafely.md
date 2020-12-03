@@ -9,5 +9,5 @@ Hook that wraps pairs of state and dispatcher to provide a new dispatcher which 
 <b>Signature:</b>
 
 ```typescript
-useSafely: <S, A, D extends DispatchWithoutAction | Dispatch<A>>([state, dispatcher]: [S, DispatchWithoutAction | Dispatch<A>]) => [S, D]
+useSafely: <S, A, D extends DispatchWithoutAction | Dispatch<A>>([state, dispatcher,]: [S, DispatchWithoutAction | Dispatch<A>]) => [S, D]
 ```

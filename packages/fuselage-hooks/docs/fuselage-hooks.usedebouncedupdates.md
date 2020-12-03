@@ -9,10 +9,13 @@ Hook to debounce the state dispatcher function returned by hooks like `useState(
 <b>Signature:</b>
 
 ```typescript
-export declare function useDebouncedUpdates<S>([state, dispatch]: [S, DispatchWithoutAction], delay: number): [S, DispatchWithoutAction & {
-    flush: () => void;
-    cancel: () => void;
-}];
+export declare function useDebouncedUpdates<S>([state, dispatch]: [S, DispatchWithoutAction], delay: number): [
+    S,
+    DispatchWithoutAction & {
+        flush: () => void;
+        cancel: () => void;
+    }
+];
 ```
 
 ## Parameters
@@ -24,7 +27,7 @@ export declare function useDebouncedUpdates<S>([state, dispatch]: [S, DispatchWi
 
 <b>Returns:</b>
 
-\[S, DispatchWithoutAction &amp; { flush: () =&gt; void; cancel: () =&gt; void; }\]
+\[ S, DispatchWithoutAction &amp; { flush: () =&gt; void; cancel: () =&gt; void; } \]
 
 a state value and debounced dispatcher pair
 

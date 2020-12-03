@@ -66,6 +66,7 @@ yarn add @rocket.chat/fuselage-hooks
     -   [Parameters](#parameters-10)
 -   [usePosition](#useposition)
     -   [Parameters](#parameters-11)
+-   [usePrefersReducedMotion](#useprefersreducedmotion)
 -   [useResizeObserver](#useresizeobserver)
     -   [Parameters](#parameters-12)
 -   [useSafely](#usesafely)
@@ -225,6 +226,12 @@ Hook to deal and position an element using an anchor
 -   `targetEl`  the element to be positioned
 
 Returns **PositionResult** The style containing top and left position
+
+### usePrefersReducedMotion
+
+Hook to get the prefers-reduce-motion value.
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-reduce-motion is set reduce in the media queries that matches
 
 ### useResizeObserver
 
