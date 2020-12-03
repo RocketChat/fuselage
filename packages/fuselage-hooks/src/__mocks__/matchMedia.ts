@@ -91,7 +91,7 @@ class MediaQueryListMock implements MediaQueryList {
   }
 }
 
-const matchMediaMock = (media: string, matchString: string): MediaQueryList =>
+const matchMediaMock = (media: string, matchString?: string): MediaQueryList =>
   new MediaQueryListMock(media, matchString);
 
 export default matchMediaMock;
