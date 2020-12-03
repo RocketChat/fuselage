@@ -66,6 +66,7 @@ yarn add @rocket.chat/fuselage-hooks
     -   [Parameters](#parameters-10)
 -   [usePosition](#useposition)
     -   [Parameters](#parameters-11)
+-   [usePrefersReducedData](#useprefersreduceddata)
 -   [usePrefersReducedMotion](#useprefersreducedmotion)
 -   [useResizeObserver](#useresizeobserver)
     -   [Parameters](#parameters-12)
@@ -226,6 +227,12 @@ Hook to deal and position an element using an anchor
 -   `targetEl`  the element to be positioned
 
 Returns **PositionResult** The style containing top and left position
+
+### usePrefersReducedData
+
+Hook to get the prefers-reduce-data value.
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-reduce-data is set reduce in the media queries that matches
 
 ### usePrefersReducedMotion
 
