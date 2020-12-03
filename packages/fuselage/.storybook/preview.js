@@ -16,21 +16,23 @@ addParameters({
   },
   options: {
     showRoots: true,
-    storySort: ([, a], [, b]) =>
-      a.kind.localeCompare(b.kind),
+    storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
   },
   viewport: {
-    viewports: Object.entries(breakpointTokens).reduce((obj, [name, { minViewportWidth }]) => ({
-      ...obj,
-      [name]: {
-        name,
-        styles: {
-          width: `${ minViewportWidth }px`,
-          height: '90%',
+    viewports: Object.entries(breakpointTokens).reduce(
+      (obj, [name, { minViewportWidth }]) => ({
+        ...obj,
+        [name]: {
+          name,
+          styles: {
+            width: `${minViewportWidth}px`,
+            height: '90%',
+          },
+          type: 'desktop',
         },
-        type: 'desktop',
-      },
-    }), {}),
+      }),
+      {}
+    ),
   },
 });
 

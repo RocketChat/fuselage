@@ -2,11 +2,12 @@
 
 const path = require('path');
 
+const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env, { mode = 'production' }) => ({
   entry: {
-    fuselage: path.resolve(__dirname, 'src/index.js'),
+    fuselage: path.resolve(__dirname, 'src/index.ts'),
   },
   output: {
     filename: `[name].${mode}.js`,
@@ -31,6 +32,11 @@ module.exports = (env, { mode = 'production' }) => ({
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
       },
       {
         test: /\.scss$/,
@@ -91,4 +97,15 @@ module.exports = (env, { mode = 'production' }) => ({
       openAnalyzer: false,
     }),
   ],
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx'],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+      }),
+    ],
+  },
 });

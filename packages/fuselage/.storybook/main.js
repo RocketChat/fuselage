@@ -7,11 +7,9 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
     '@storybook/addon-viewport',
-    ...process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : [],
+    ...(process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : []),
   ],
-  stories: [
-    '../src/**/*.stories.{mdx,js}',
-  ],
+  stories: ['../src/**/*.stories.{mdx,js,tsx}'],
   webpackFinal: (config) => {
     config.module.rules.push({
       test: /\.scss$/,
