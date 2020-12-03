@@ -66,20 +66,22 @@ yarn add @rocket.chat/fuselage-hooks
     -   [Parameters](#parameters-10)
 -   [usePosition](#useposition)
     -   [Parameters](#parameters-11)
+-   [usePrefersColorScheme](#usepreferscolorscheme)
+    -   [Parameters](#parameters-12)
 -   [usePrefersReducedData](#useprefersreduceddata)
 -   [usePrefersReducedMotion](#useprefersreducedmotion)
 -   [useResizeObserver](#useresizeobserver)
-    -   [Parameters](#parameters-12)
--   [useSafely](#usesafely)
     -   [Parameters](#parameters-13)
--   [useStableArray](#usestablearray)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-14)
--   [useLocalStorage](#uselocalstorage)
+-   [useStableArray](#usestablearray)
     -   [Parameters](#parameters-15)
--   [useSessionStorage](#usesessionstorage)
+-   [useLocalStorage](#uselocalstorage)
     -   [Parameters](#parameters-16)
--   [useToggle](#usetoggle)
+-   [useSessionStorage](#usesessionstorage)
     -   [Parameters](#parameters-17)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-18)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -227,6 +229,16 @@ Hook to deal and position an element using an anchor
 -   `targetEl`  the element to be positioned
 
 Returns **PositionResult** The style containing top and left position
+
+### usePrefersColorScheme
+
+Hook to get the prefers-color-scheme value.
+
+#### Parameters
+
+-   `scheme` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-color-scheme matches
 
 ### usePrefersReducedData
 
