@@ -8,6 +8,7 @@ export function Avatar({
   title,
   size = 'x36',
   rounded = false,
+  objectFit = false,
   url,
   ...props
 }) {
@@ -20,6 +21,7 @@ export function Avatar({
   const innerClass = [
     'rcx-avatar__element',
     rounded && 'rcx-avatar__element--rounded',
+    objectFit && 'rcx-avatar__element--object-fit',
     size && `rcx-avatar--${size}`,
   ]
     .filter(Boolean)

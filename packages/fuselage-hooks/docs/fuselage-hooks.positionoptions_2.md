@@ -14,3 +14,5 @@ export declare type PositionOptions = {
     watch?: boolean;
 };
 ```
+<b>References:</b> [Placements](./fuselage-hooks.placements.md)
+

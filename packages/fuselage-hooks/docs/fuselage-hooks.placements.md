@@ -9,3 +9,5 @@
 ```typescript
 export declare type Placements = 'top-start' | 'top-middle' | 'top-end' | 'bottom-start' | 'bottom-middle' | 'bottom-end' | 'left-start' | 'left-middle' | 'left-end' | 'right-start' | 'right-middle' | 'right-end' | Positions;
 ```
+<b>References:</b> [Positions](./fuselage-hooks.positions.md)
+

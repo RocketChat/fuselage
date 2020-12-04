@@ -32,6 +32,7 @@ export const Button = forwardRef(function Button(
 
   return (
     <Box
+      animated
       is={is}
       rcx-button
       rcx-button--danger={!primary && danger && !ghost}
