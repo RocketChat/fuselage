@@ -3,6 +3,7 @@ import {
   DispatchWithoutAction,
   createElement,
   StrictMode,
+  ReducerWithoutAction,
 } from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
@@ -18,7 +19,7 @@ describe('useDebouncedReducer hook', () => {
     const delay = Math.round(100 * Math.random());
     const initialState = Symbol('initial');
     const newState = Symbol('new');
-    const reducer = jest.fn(() => newState);
+    const reducer: ReducerWithoutAction<symbol> = jest.fn(() => newState);
     const initialArg = initialState;
     const init = jest.fn((state) => state);
 
