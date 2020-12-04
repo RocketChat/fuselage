@@ -43,45 +43,47 @@ yarn add @rocket.chat/fuselage-hooks
 -   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
 -   [useBreakpoints](#usebreakpoints)
--   [useDebouncedCallback](#usedebouncedcallback)
+-   [useClipboard](#useclipboard)
     -   [Parameters](#parameters-1)
--   [useDebouncedReducer](#usedebouncedreducer)
+-   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-2)
--   [useDebouncedState](#usedebouncedstate)
+-   [useDebouncedReducer](#usedebouncedreducer)
     -   [Parameters](#parameters-3)
--   [useDebouncedUpdates](#usedebouncedupdates)
+-   [useDebouncedState](#usedebouncedstate)
     -   [Parameters](#parameters-4)
--   [useDebouncedValue](#usedebouncedvalue)
+-   [useDebouncedUpdates](#usedebouncedupdates)
     -   [Parameters](#parameters-5)
+-   [useDebouncedValue](#usedebouncedvalue)
+    -   [Parameters](#parameters-6)
 -   [useIsomorphicLayoutEffect](#useisomorphiclayouteffect)
 -   [useLazyRef](#uselazyref)
-    -   [Parameters](#parameters-6)
--   [useMediaQueries](#usemediaqueries)
     -   [Parameters](#parameters-7)
--   [useMediaQuery](#usemediaquery)
+-   [useMediaQueries](#usemediaqueries)
     -   [Parameters](#parameters-8)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-9)
--   [useMutableCallback](#usemutablecallback)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-10)
--   [usePosition](#useposition)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-11)
--   [usePrefersColorScheme](#usepreferscolorscheme)
+-   [usePosition](#useposition)
     -   [Parameters](#parameters-12)
+-   [usePrefersColorScheme](#usepreferscolorscheme)
+    -   [Parameters](#parameters-13)
 -   [usePrefersReducedData](#useprefersreduceddata)
 -   [usePrefersReducedMotion](#useprefersreducedmotion)
 -   [useResizeObserver](#useresizeobserver)
-    -   [Parameters](#parameters-13)
--   [useSafely](#usesafely)
     -   [Parameters](#parameters-14)
--   [useStableArray](#usestablearray)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-15)
--   [useLocalStorage](#uselocalstorage)
+-   [useStableArray](#usestablearray)
     -   [Parameters](#parameters-16)
--   [useSessionStorage](#usesessionstorage)
+-   [useLocalStorage](#uselocalstorage)
     -   [Parameters](#parameters-17)
--   [useToggle](#usetoggle)
+-   [useSessionStorage](#usesessionstorage)
     -   [Parameters](#parameters-18)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-19)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -100,6 +102,20 @@ Returns **Ref&lt;{focus: function (options: FocusOptions): void}>** the ref whic
 Hook to catch which responsive design' breakpoints are active.
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** an array of the active breakpoint names
+
+### useClipboard
+
+Hook to copy the passed content to the clipboard.
+
+#### Parameters
+
+-   `text` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `$1` **UseClipboardParams**  (optional, default `{}`)
+    -   `$1.clearTime`   (optional, default `2000`)
+    -   `$1.onCopySuccess`   (optional, default `():void=>undefined`)
+    -   `$1.onCopyError`   (optional, default `():void=>undefined`)
+
+Returns **UseClipboardReturn** an object with the copy function and the hasCopied state
 
 ### useDebouncedCallback
 
@@ -239,107 +255,6 @@ Hook to get the prefers-color-scheme value.
 -   `scheme` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-color-scheme matches
-
-### usePrefersReducedData
-
-Hook to get the prefers-reduce-data value.
-
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-reduce-data is set reduce in the media queries that matches
-
-### usePrefersReducedMotion
-
-Hook to get the prefers-reduce-motion value.
-
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-reduce-motion is set reduce in the media queries that matches
-
-### useResizeObserver
-
-Hook to track dimension changes in a DOM element using the ResizeObserver API.
-
-#### Parameters
-
--   `options` **UseResizeObserverOptions**  (optional, default `{}`)
-    -   `options.debounceDelay`  
-
-Returns **{ref: RefObject&lt;[Element](https://developer.mozilla.org/docs/Web/API/Element)>, contentBoxSize: ResizeObserverSize, borderBoxSize: ResizeObserverSize}** a triple containing the ref and the size information
-
-### useSafely
-
-Hook that wraps pairs of state and dispatcher to provide a new dispatcher
-which can be safe and asynchronically called even after the component unmounted.
-
-#### Parameters
-
--   `pair` **\[S, (Dispatch&lt;A> | DispatchWithoutAction)]** the state and dispatcher pair which will be patched
-    -   `pair.0`  
-    -   `pair.1`  
-
-Returns **\[S, D]** a state value and safe dispatcher pair
-
-### useStableArray
-
-Hook to create an array with stable identity if its elements are equal.
-
-#### Parameters
-
--   `array` **T** the array
--   `compare` **function (a: T, b: T): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** the equality function that checks if two array elements are
-           equal (optional, default `Object.is`)
-
-Returns **T** the passed array if the elements are NOT equals; the previously
-         stored array otherwise
-
-### useLocalStorage
-
-Hook to deal with localStorage
-
-#### Parameters
-
--   `key`  the key associated to the value in the storage
--   `initialValue`  the value returned when the key is not found at the storage
-
-Returns **any** a state and a setter function
-
-### useSessionStorage
-
-Hook to deal with sessionStorage
-
-#### Parameters
-
--   `key`  the key associated to the value in the storage
--   `initialValue`  the value returned when the key is not found at the storage
-
-Returns **any** a state and a setter function
-
-### useToggle
-
-Hook to create a toggleable boolean state.
-
-#### Parameters
-
--   `initialValue` **([boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | function (): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean))?** the initial value or the initial state generator function
-
-Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), D]** a state boolean value and a state toggler function
-
-### useUniqueId
-
-Hook to keep a unique ID string.
-
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the unique ID string
-
-# &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-
-### usePrefersColorScheme
-
-Hook to get the prefers-color-scheme value.
-
-#### Parameters
-
--   `scheme` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
-
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-color-scheme matches
-
-=======
 
 ### usePrefersReducedData
 

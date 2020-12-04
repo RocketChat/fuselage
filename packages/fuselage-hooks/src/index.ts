@@ -1,5 +1,6 @@
 export * from './useAutoFocus';
 export * from './useBreakpoints';
+export * from './useClipboard';
 export * from './useDebouncedCallback';
 export * from './useDebouncedReducer';
 export * from './useDebouncedState';
