@@ -17,12 +17,12 @@ $status-bullet-busy-background: theme(
 $status-bullet-offline-background: theme(
   'status-bullet-offline-background',
   url('./components/StatusBullet/icons/offline.svg') top left / contain
-    no-repeat
+  no-repeat
 );
 $status-bullet-loading-background: theme(
   'status-bullet-loading-background',
   url('./components/StatusBullet/icons/loading.svg') top left / contain
-    no-repeat
+  no-repeat
 );
 
 .rcx-status-bullet {

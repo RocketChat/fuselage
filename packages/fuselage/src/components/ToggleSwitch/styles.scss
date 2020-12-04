@@ -29,8 +29,9 @@
   }
 
   &__input:checked + &__fake::before {
-    inset-inline-start: calc(
-      100% - #{lengths.inset(20) - 2 * lengths.border-width(2)}
-    );
+    inset-inline-start:
+      calc(
+        100% - #{lengths.inset(20) - 2 * lengths.border-width(2)}
+      );
   }
 }

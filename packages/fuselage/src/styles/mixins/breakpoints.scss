@@ -8,7 +8,8 @@
 
   @if not $min-viewport-width {
     @content;
-  } @else {
+  }
+  @else {
     @media screen and (min-width: #{ to-em($min-viewport-width) }) {
       @content;
     }

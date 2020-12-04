@@ -16,7 +16,7 @@
     $focus-border-color: $button-colors-secondary-focus-border-color,
     $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
     $disabled-background-color:
-      $button-colors-secondary-disabled-background-color,
+    $button-colors-secondary-disabled-background-color,
     $disabled-border-color: $button-colors-secondary-disabled-border-color,
     $disabled-color: $button-colors-secondary-disabled-color
   );
@@ -24,13 +24,15 @@
 
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
-    padding: calc(
+    padding:
+      calc(
         (#{$height} - #{$line-height}) / 2 - #{lengths.border-width(2)}
       )
       calc(#{$padding-x} - #{lengths.border-width(2)});
-    padding-block: calc(
-      (#{$height} - #{$line-height}) / 2 - #{lengths.border-width(2)}
-    );
+    padding-block:
+      calc(
+        (#{$height} - #{$line-height}) / 2 - #{lengths.border-width(2)}
+      );
     padding-inline: calc(#{$padding-x} - #{lengths.border-width(2)});
   }
 

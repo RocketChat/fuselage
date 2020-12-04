@@ -63,7 +63,8 @@
       width: $icon-size * lengths.size(20);
       height: $icon-thickness;
 
-      transform: translate(
+      transform:
+        translate(
           $icon-size * lengths.size(20) / -3,
           $icon-size * lengths.size(20) / 6
         )
@@ -78,7 +79,8 @@
       width: $icon-thickness;
       height: 0.5 * $icon-size * lengths.size(20);
 
-      transform: translate(
+      transform:
+        translate(
           $icon-size * lengths.size(20) / -3,
           $icon-size * lengths.size(20) / 6
         )

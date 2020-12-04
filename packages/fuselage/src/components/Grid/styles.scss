@@ -22,22 +22,24 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
 
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
-      margin-block: calc(
-        #{to-rem(
+      margin-block:
+        calc(
+          #{to-rem(
             map-get(
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
             )
           )} / -2
-      );
-      margin-inline: calc(
-        #{to-rem(
+        );
+      margin-inline:
+        calc(
+          #{to-rem(
             map-get(
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
             )
           )} / -2
-      );
+        );
     }
   }
 }
@@ -47,22 +49,24 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
 
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
-      padding-block: calc(
-        #{to-rem(
+      padding-block:
+        calc(
+          #{to-rem(
             map-get(
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
             )
           )} / 2
-      );
-      padding-inline: calc(
-        #{to-rem(
+        );
+      padding-inline:
+        calc(
+          #{to-rem(
             map-get(
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
             )
           )} / 2
-      );
+        );
 
       $total-columns: map-get(
         map-get(breakpoints.$breakpoints, $breakpoint-name),

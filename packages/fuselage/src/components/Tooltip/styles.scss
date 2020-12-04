@@ -17,9 +17,11 @@ $tooltip-text-color: theme('tooltip-text-color', colors.surface());
     content: ' ';
 
     border-width: lengths.border-width(4) + lengths.border-width(1);
-    border-color: transparent transparent $tooltip-background-color
+    border-color:
+      transparent transparent $tooltip-background-color
       $tooltip-background-color;
-    border-radius: lengths.border-radius(none) lengths.border-radius(none)
+    border-radius:
+      lengths.border-radius(none) lengths.border-radius(none)
       lengths.border-radius(none) (lengths.border-radius(2) + to-rem(1));
 
     @if $direction == 'bottom' {

@@ -20,7 +20,8 @@
   }
 
   &--elevation-2 {
-    box-shadow: 0 0 2px 0 colors.neutral(800, 0.08),
+    box-shadow:
+      0 0 2px 0 colors.neutral(800, 0.08),
       0 0 12px 0 colors.neutral(800, 0.12);
   }
 }

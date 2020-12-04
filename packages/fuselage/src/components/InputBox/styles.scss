@@ -249,7 +249,8 @@
   min-width: lengths.size(128);
   min-height: lengths.size(40);
 
-  padding: (lengths.padding(12) - lengths.border-width(2))
+  padding:
+    (lengths.padding(12) - lengths.border-width(2))
     (lengths.padding(16) - lengths.border-width(2));
 
   vertical-align: baseline;

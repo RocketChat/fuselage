@@ -20,7 +20,8 @@
   flex-flow: row nowrap;
 
   min-height: lengths.size(2 * 32 + 24);
-  padding: (lengths.padding(32) - lengths.border-width(2))
+  padding:
+    (lengths.padding(32) - lengths.border-width(2))
     (lengths.padding(8) - lengths.border-width(2));
 
   text-align: start;

@@ -31,7 +31,7 @@
     "lint": "run-s eslint stylelint",
     "lint-staged": "lint-staged",
     "test": "jest",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.{ts,tsx,js,jsx,scss,css,json}' --write",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.{ts,tsx,js,jsx,json}' --write",
     "test:ci": "jest --runInBand",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
