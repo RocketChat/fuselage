@@ -7,7 +7,8 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env, { mode = 'production' }) => ({
   entry: {
-    fuselage: path.resolve(__dirname, 'src/index.ts'),
+    'fuselage': path.resolve(__dirname, 'src/index.ts'),
+    'fuselage-hocs': path.resolve(__dirname, 'src/hocs/index.ts'),
   },
   output: {
     filename: `[name].${mode}.js`,

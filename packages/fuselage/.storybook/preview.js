@@ -11,11 +11,12 @@ addParameters({
     container: DocsContainer,
     page: DocsPage,
   },
-  grid: {
-    cellSize: 4,
+  backgrounds: {
+    grid: {
+      cellSize: 4,
+    },
   },
   options: {
-    showRoots: true,
     storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
   },
   viewport: {

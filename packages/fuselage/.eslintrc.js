@@ -96,6 +96,7 @@ module.exports = {
         ],
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars-experimental': 'warn',
+        'comma-dangle': 'off',
         'func-call-spacing': 'off',
         'indent': 'off',
         'import/order': [
