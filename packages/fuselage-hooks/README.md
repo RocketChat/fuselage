@@ -43,47 +43,47 @@ yarn add @rocket.chat/fuselage-hooks
 -   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
 -   [useBreakpoints](#usebreakpoints)
--   [UseClipboardParams](#useclipboardparams)
-    -   [Properties](#properties)
--   [useDebouncedCallback](#usedebouncedcallback)
+-   [useClipboard](#useclipboard)
     -   [Parameters](#parameters-1)
--   [useDebouncedReducer](#usedebouncedreducer)
+-   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-2)
--   [useDebouncedState](#usedebouncedstate)
+-   [useDebouncedReducer](#usedebouncedreducer)
     -   [Parameters](#parameters-3)
--   [useDebouncedUpdates](#usedebouncedupdates)
+-   [useDebouncedState](#usedebouncedstate)
     -   [Parameters](#parameters-4)
--   [useDebouncedValue](#usedebouncedvalue)
+-   [useDebouncedUpdates](#usedebouncedupdates)
     -   [Parameters](#parameters-5)
+-   [useDebouncedValue](#usedebouncedvalue)
+    -   [Parameters](#parameters-6)
 -   [useIsomorphicLayoutEffect](#useisomorphiclayouteffect)
 -   [useLazyRef](#uselazyref)
-    -   [Parameters](#parameters-6)
--   [useMediaQueries](#usemediaqueries)
     -   [Parameters](#parameters-7)
--   [useMediaQuery](#usemediaquery)
+-   [useMediaQueries](#usemediaqueries)
     -   [Parameters](#parameters-8)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-9)
--   [useMutableCallback](#usemutablecallback)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-10)
--   [usePosition](#useposition)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-11)
--   [usePrefersColorScheme](#usepreferscolorscheme)
+-   [usePosition](#useposition)
     -   [Parameters](#parameters-12)
+-   [usePrefersColorScheme](#usepreferscolorscheme)
+    -   [Parameters](#parameters-13)
 -   [usePrefersReducedData](#useprefersreduceddata)
 -   [usePrefersReducedMotion](#useprefersreducedmotion)
 -   [useResizeObserver](#useresizeobserver)
-    -   [Parameters](#parameters-13)
--   [useSafely](#usesafely)
     -   [Parameters](#parameters-14)
--   [useStableArray](#usestablearray)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-15)
--   [useLocalStorage](#uselocalstorage)
+-   [useStableArray](#usestablearray)
     -   [Parameters](#parameters-16)
--   [useSessionStorage](#usesessionstorage)
+-   [useLocalStorage](#uselocalstorage)
     -   [Parameters](#parameters-17)
--   [useToggle](#usetoggle)
+-   [useSessionStorage](#usesessionstorage)
     -   [Parameters](#parameters-18)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-19)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -103,19 +103,19 @@ Hook to catch which responsive design' breakpoints are active.
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** an array of the active breakpoint names
 
-### UseClipboardParams
+### useClipboard
 
 Hook to copy the passed content to the clipboard.
 
-Type: {clearTime: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?, onCopySuccess: function (e: [Event](https://developer.mozilla.org/docs/Web/API/Event)): void?, onCopyError: function (e: [Event](https://developer.mozilla.org/docs/Web/API/Event)): void?}
+#### Parameters
 
-#### Properties
+-   `text` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `$1` **UseClipboardParams**  (optional, default `{}`)
+    -   `$1.clearTime`   (optional, default `2000`)
+    -   `$1.onCopySuccess`   (optional, default `():void=>undefined`)
+    -   `$1.onCopyError`   (optional, default `():void=>undefined`)
 
--   `clearTime` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** 
--   `onCopySuccess` **function (e: [Event](https://developer.mozilla.org/docs/Web/API/Event)): void?** 
--   `onCopyError` **function (e: [Event](https://developer.mozilla.org/docs/Web/API/Event)): void?** 
-
-Returns **any** an object with the copy function and the hasCopied state
+Returns **UseClipboardReturn** an object with the copy function and the hasCopied state
 
 ### useDebouncedCallback
 

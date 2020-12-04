@@ -2,13 +2,6 @@ import { useEffect, useState } from 'react';
 
 import { useMutableCallback } from './useMutableCallback';
 
-/**
- * Hook to copy the passed content to the clipboard.
- *
- * @returns an object with the copy function and the hasCopied state
- * @public
- */
-
 type UseClipboardParams = {
   clearTime?: number;
   onCopySuccess?: (e?: Event) => void;
@@ -20,6 +13,12 @@ export type UseClipboardReturn = {
   hasCopied: boolean;
 };
 
+/**
+ * Hook to copy the passed content to the clipboard.
+ *
+ * @returns an object with the copy function and the hasCopied state
+ * @public
+ */
 export const useClipboard = (
   text: string,
   {

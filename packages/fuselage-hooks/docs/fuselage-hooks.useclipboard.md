@@ -4,6 +4,8 @@
 
 ## useClipboard variable
 
+Hook to copy the passed content to the clipboard.
+
 <b>Signature:</b>
 
 ```typescript
