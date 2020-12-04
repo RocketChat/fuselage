@@ -9,10 +9,13 @@ Hook to create a state with a debounced setter function.
 <b>Signature:</b>
 
 ```typescript
-export declare function useDebouncedState<S>(initialValue: S | (() => S), delay: number): [S, Dispatch<SetStateAction<S>> & {
-    flush: () => void;
-    cancel: () => void;
-}];
+export declare function useDebouncedState<S>(initialValue: S | (() => S), delay: number): [
+    S,
+    Dispatch<SetStateAction<S>> & {
+        flush: () => void;
+        cancel: () => void;
+    }
+];
 ```
 
 ## Parameters
@@ -24,7 +27,7 @@ export declare function useDebouncedState<S>(initialValue: S | (() => S), delay:
 
 <b>Returns:</b>
 
-\[S, Dispatch&lt;SetStateAction&lt;S&gt;&gt; &amp; { flush: () =&gt; void; cancel: () =&gt; void; }\]
+\[ S, Dispatch&lt;SetStateAction&lt;S&gt;&gt; &amp; { flush: () =&gt; void; cancel: () =&gt; void; } \]
 
 a state and debounced setter function
 
