@@ -1,12 +1,13 @@
 import { cssSupports } from '@rocket.chat/css-in-js';
 import tokenColors from '@rocket.chat/fuselage-tokens/colors';
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography';
-import invariant from 'invariant';
 
 import { memoize } from './helpers/memoize';
 
-const measure = (computeSpecialValue) =>
-  memoize((value) => {
+const measure = <V>(
+  computeSpecialValue: (value: V) => string | undefined
+): ((value: V) => string | undefined) =>
+  memoize((value: V): string | undefined => {
     if (typeof value === 'number') {
       return `${value}px`;
     }
@@ -17,7 +18,9 @@ const measure = (computeSpecialValue) =>
 
     const xRegExp = /^(neg-|-)?x(\d+)$/;
     if (xRegExp.test(value)) {
-      const [, negativeMark, measureInPixelsAsString] = xRegExp.exec(value);
+      const [, negativeMark, measureInPixelsAsString] = xRegExp.exec(
+        value
+      ) as any;
       const measureInPixels =
         (negativeMark ? -1 : 1) * parseInt(measureInPixelsAsString, 10);
       return `${measureInPixels / 16}rem`;
@@ -30,13 +33,17 @@ const measure = (computeSpecialValue) =>
     return value;
   });
 
-export const borderWidth = measure((value) => {
+export const borderWidth = measure((value: 'none'): string | undefined => {
   if (value === 'none') {
     return '0px';
   }
+
+  return undefined;
 });
 
-export const borderRadius = measure((value) => {
+export const borderRadius = measure((value: 'none' | 'full'):
+  | string
+  | undefined => {
   if (value === 'none') {
     return '0px';
   }
@@ -44,6 +51,8 @@ export const borderRadius = measure((value) => {
   if (value === 'full') {
     return '9999px';
   }
+
+  return undefined;
 });
 
 const mapTypeToPrefix = {
@@ -53,33 +62,35 @@ const mapTypeToPrefix = {
   success: 'g',
   warning: 'y',
   danger: 'r',
-};
+} as const;
 
-const getPaletteColor = (type, grade, alpha) => {
-  invariant(
-    grade % 100 === 0 && grade / 100 >= 1 && grade / 100 <= 9,
-    'invalid color grade'
-  );
-  invariant(
-    alpha === undefined || (alpha >= 0 && alpha <= 1),
-    'invalid color alpha'
-  );
+type PaletteColorType = keyof typeof mapTypeToPrefix;
+type PaletteColorGrade =
+  | '100'
+  | '200'
+  | '300'
+  | '400'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900';
 
+const getPaletteColor = (
+  type: PaletteColorType,
+  grade: PaletteColorGrade,
+  alpha: number | undefined
+): [string, string] => {
   const prefix = mapTypeToPrefix[type];
-  invariant(!!prefix, 'invalid color type');
 
   const baseColor = tokenColors[`${prefix}${grade}`];
-
-  invariant(!!baseColor, 'invalid color reference');
 
   const matches = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/.exec(
     baseColor
   );
 
-  invariant(!!matches, 'invalid color token format');
-
   if (alpha !== undefined) {
-    const [, r, g, b] = matches;
+    const [, r, g, b] = matches as any;
     return [
       `--rcx-color-${type}-${grade}-${(alpha * 100).toFixed(0)}`,
       `rgba(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)}, ${
@@ -104,60 +115,70 @@ const foregroundColors = {
   'link': tokenColors.b500,
   'visited-link': tokenColors.p500,
   'active-link': tokenColors.r500,
-};
+} as const;
 
-const getForegroundColor = (type) => {
+type ForegroundColorType = keyof typeof foregroundColors;
+
+const getForegroundColor = (type: ForegroundColorType): [string, string] => {
   const color = foregroundColors[type];
-  invariant(!!color, 'invalid foreground color');
 
   return [`--rcx-color-foreground-${type}`, color];
 };
 
 const paletteColorRegex = /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
-export const color = memoize((propValue) => {
-  if (typeof propValue !== 'string') {
-    return;
-  }
-
-  const paletteMatches = paletteColorRegex.exec(String(propValue));
-
-  if (paletteMatches) {
-    const [, type, gradeString, , alphaString] = paletteMatches;
-    const grade = parseInt(gradeString, 10);
-    const alpha =
-      alphaString !== undefined ? parseInt(alphaString, 10) / 100 : undefined;
-    const [customProperty, color] = getPaletteColor(type, grade, alpha);
-
-    if (customProperty && cssSupports('(--foo: bar)')) {
-      return `var(${customProperty}, ${color})`;
+export const color = memoize(
+  (propValue: 'surface' | ForegroundColorType | string) => {
+    if (typeof propValue !== 'string') {
+      return;
     }
 
-    return color;
-  }
+    const paletteMatches = paletteColorRegex.exec(String(propValue));
 
-  if (propValue === 'surface') {
-    if (cssSupports('(--foo: bar)')) {
-      return 'var(--rcx-color-surface, white)';
+    if (paletteMatches) {
+      const [, type, grade, , alphaString] = (paletteMatches as unknown) as [
+        undefined,
+        PaletteColorType,
+        PaletteColorGrade,
+        undefined,
+        string
+      ];
+      const alpha =
+        alphaString !== undefined ? parseInt(alphaString, 10) / 100 : undefined;
+      const [customProperty, color] = getPaletteColor(type, grade, alpha);
+
+      if (customProperty && cssSupports('(--foo: bar)')) {
+        return `var(${customProperty}, ${color})`;
+      }
+
+      return color;
     }
 
-    return 'white';
-  }
+    if (propValue === 'surface') {
+      if (cssSupports('(--foo: bar)')) {
+        return 'var(--rcx-color-surface, white)';
+      }
 
-  if (foregroundColors[String(propValue)]) {
-    const [customProperty, color] = getForegroundColor(String(propValue));
-
-    if (customProperty && cssSupports('(--foo: bar)')) {
-      return `var(${customProperty}, ${color})`;
+      return 'white';
     }
 
-    return color;
+    if (propValue in foregroundColors) {
+      const [customProperty, color] = getForegroundColor(
+        propValue as ForegroundColorType
+      );
+
+      if (customProperty && cssSupports('(--foo: bar)')) {
+        return `var(${customProperty}, ${color})`;
+      }
+
+      return color;
+    }
+
+    return propValue;
   }
+);
 
-  return propValue;
-});
-
-export const size = measure((value) => {
+export const size = measure((value: any): any => {
   if (value === 'none') {
     return '0px';
   }
@@ -175,25 +196,25 @@ export const size = measure((value) => {
   }
 });
 
-export const inset = measure((value) => {
+export const inset = measure((value: any): any => {
   if (value === 'none') {
     return '0px';
   }
 });
 
-export const margin = measure((value) => {
+export const margin = measure((value: any): any => {
   if (value === 'none') {
     return '0px';
   }
 });
 
-export const padding = measure((value) => {
+export const padding = measure((value: any): any => {
   if (value === 'none') {
     return '0px';
   }
 });
 
-export const fontFamily = memoize((value) => {
+export const fontFamily = memoize((value: any): any => {
   if (typeof value !== 'string') {
     return;
   }
@@ -203,7 +224,9 @@ export const fontFamily = memoize((value) => {
   }
 
   const fontFamily = tokenTypography.fontFamilies[value]
-    .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))
+    .map((fontFace: any) =>
+      fontFace.includes(' ') ? `'${fontFace}'` : fontFace
+    )
     .join(', ');
 
   if (cssSupports('(--foo: bar)')) {
@@ -213,7 +236,9 @@ export const fontFamily = memoize((value) => {
   return fontFamily;
 });
 
-export const fontScale = (value) => {
+export const fontScale = (
+  value: keyof typeof tokenTypography.fontScales
+): any => {
   if (!tokenTypography.fontScales[value]) {
     return;
   }

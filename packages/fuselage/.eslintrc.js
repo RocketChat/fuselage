@@ -125,6 +125,8 @@ module.exports = {
         'no-use-before-define': 'off',
         'operator-linebreak': 'off',
         'prettier/prettier': 2,
+        'quote-props': 'off',
+        'space-before-function-paren': 'off',
         'template-curly-spacing': 'off',
       },
       env: {
