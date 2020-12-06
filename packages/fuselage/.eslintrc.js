@@ -114,6 +114,7 @@ module.exports = {
             },
           },
         ],
+        'no-confusing-arrow': 'off',
         'no-empty-function': 'off',
         'no-extra-parens': 'off',
         'no-redeclare': 'off',

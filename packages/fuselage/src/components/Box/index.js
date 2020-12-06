@@ -1,14 +1,11 @@
 import { css } from '@rocket.chat/css-in-js';
-import PropTypes from 'prop-types';
 import React, { createElement, forwardRef, memo } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import {
-  /* propTypes as stylingPropsPropTypes,  */ useStylingProps,
-} from './stylingProps';
+import { useStylingProps } from './stylingProps';
 import { useBoxTransform, BoxTransforms } from './transforms';
 
 export const useArrayLikeClassNameProp = (props) => {
@@ -82,20 +79,7 @@ export const Box = memo(
   })
 );
 
-if (process.env.NODE_ENV !== 'production') {
-  Box.displayName = 'Box';
-
-  Box.propTypes = {
-    is: PropTypes.elementType,
-    className: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.func,
-      PropTypes.array,
-    ]),
-
-    // ...stylingPropsPropTypes,
-  };
-}
+Box.displayName = 'Box';
 
 Box.defaultProps = {
   is: 'div',

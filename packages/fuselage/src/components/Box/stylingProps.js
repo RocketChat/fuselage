@@ -1,10 +1,8 @@
 import { css } from '@rocket.chat/css-in-js';
-import PropTypes from 'prop-types';
 
-import { appendClassName } from '../../../helpers/appendClassName';
-import { createPropType } from '../../../helpers/createPropType';
-import { fromCamelToKebab } from '../../../helpers/fromCamelToKebab';
-import { useStyle } from '../../../hooks/useStyle';
+import { appendClassName } from '../../helpers/appendClassName';
+import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
+import { useStyle } from '../../hooks/useStyle';
 import {
   borderWidth,
   borderRadius,
@@ -15,12 +13,14 @@ import {
   padding,
   fontFamily,
   fontScale,
-} from '../../../styleTokens';
-import richContentStyle from './richContentStyle';
+} from '../../styleTokens';
+import { elevation } from '../../styles/runtime/elevation';
+import { invisible } from '../../styles/runtime/invisible';
+import { withRichContent } from '../../styles/runtime/withRichContent';
+import { withTruncatedText } from '../../styles/runtime/withTruncatedText';
 
 const stringProp = {
   toCSSValue: (value) => (typeof value === 'string' ? value : undefined),
-  propType: PropTypes.string,
 };
 
 const numberOrStringProp = {
@@ -29,71 +29,54 @@ const numberOrStringProp = {
       return String(value);
     }
   },
-  propType: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 const borderWidthProp = {
   toCSSValue: borderWidth,
-  propType: createPropType(borderWidth),
 };
 
 const borderRadiusProp = {
   toCSSValue: borderRadius,
-  propType: createPropType(borderRadius),
 };
 
 const colorProp = {
   toCSSValue: color,
-  propType: createPropType(color),
 };
 
 const sizeProp = {
   toCSSValue: size,
-  propType: createPropType(size),
 };
 
 const insetProp = {
   toCSSValue: inset,
-  propType: createPropType(inset),
 };
 
 const marginProp = {
   toCSSValue: margin,
-  propType: createPropType(margin),
 };
 
 const paddingProp = {
   toCSSValue: padding,
-  propType: createPropType(padding),
 };
 
 const fontFamilyProp = {
   toCSSValue: fontFamily,
-  propType: createPropType(fontFamily),
 };
 
 const fontSizeProp = {
   toCSSValue: (value) => fontScale(value)?.fontSize || size(value),
-  propType: createPropType(
-    (value) => fontScale(value)?.fontSize || size(value)
-  ),
 };
 
 const fontWeightProp = {
   toCSSValue: (value) => fontScale(value)?.fontWeight || value,
-  propType: createPropType((value) => fontScale(value)?.fontWeight || value),
 };
 
 const lineHeightProp = {
   toCSSValue: (value) => fontScale(value)?.lineHeight || size(value),
-  propType: createPropType(
-    (value) => fontScale(value)?.lineHeight || size(value)
-  ),
 };
 
 const letterSpacingProp = {
   toCSSValue: (value) => fontScale(value)?.letterSpacing || value,
-  propType: createPropType((value) => fontScale(value)?.letterSpacing || value),
 };
 
 const aliasOf = (propName) => ({
@@ -217,52 +200,16 @@ const propDefs = {
   textDecorationLine: stringProp,
 
   elevation: {
-    toStyle: (value) => {
-      if (value === '0') {
-        return css`
-          box-shadow: none;
-        `;
-      }
-
-      if (value === '1') {
-        return css`
-          box-shadow: 0px 0px 12px 0px ${color('neutral-800-10')};
-        `;
-      }
-
-      if (value === '2') {
-        return css`
-          box-shadow: 0px 0px 2px 0px ${color('neutral-800-8')},
-            0px 0px 12px 0px ${color('neutral-800-12')};
-        `;
-      }
-    },
-    propType: PropTypes.oneOf(['0', '1', '2']),
+    toStyle: elevation,
   },
   invisible: {
-    toStyle: (value) =>
-      value
-        ? css`
-            visibility: hidden;
-            opacity: 0;
-          `
-        : undefined,
-    propType: PropTypes.bool,
+    toStyle: invisible,
   },
   withRichContent: {
-    toStyle: (value) => (value ? richContentStyle : undefined),
-    propType: PropTypes.bool,
+    toStyle: withRichContent,
   },
   withTruncatedText: {
-    toStyle: (value) =>
-      value
-        ? css`
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          `
-        : undefined,
-    propType: PropTypes.bool,
+    toStyle: withTruncatedText,
   },
   size: {
     toStyle: (value) =>
@@ -272,7 +219,6 @@ const propDefs = {
             height: ${size(value)} !important;
           `
         : undefined,
-    propType: createPropType(size),
   },
   minSize: {
     toStyle: (value) =>
@@ -282,7 +228,6 @@ const propDefs = {
             min-height: ${size(value)} !important;
           `
         : undefined,
-    propType: createPropType(size),
   },
   maxSize: {
     toStyle: (value) =>
@@ -292,7 +237,6 @@ const propDefs = {
             max-height: ${size(value)} !important;
           `
         : undefined,
-    propType: createPropType(size),
   },
   fontScale: {
     toStyle: (value) => css`
@@ -301,23 +245,8 @@ const propDefs = {
       letter-spacing: ${fontScale(value)?.letterSpacing} !important;
       line-height: ${fontScale(value)?.lineHeight} !important;
     `,
-    propType: PropTypes.oneOf(fontScale.values),
   },
 };
-
-export const propTypes = Object.entries(propDefs).reduce(
-  (obj, [propName, propDef]) => {
-    if (propDef.aliasOf) {
-      propDef = propDefs[propDef.aliasOf];
-    }
-
-    obj[propName] = propDef.propType;
-    return obj;
-  },
-  {
-    htmlSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  }
-);
 
 export const useStylingProps = (originalProps) => {
   const { htmlSize, ...props } = originalProps;
