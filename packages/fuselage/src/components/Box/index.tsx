@@ -2,38 +2,28 @@ import React, { createElement, forwardRef, memo } from 'react';
 
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { useBoxTransform, BoxTransforms } from './BoxTransforms';
-import {
-  consumeBoxProps,
-  consumeCssPropertiesProps,
-  consumePostAliases,
-  consumePreAliases,
-  consumeRcxProps,
-  consumeSpecialStylingProps,
-} from './props';
+import { BoxProps, consumeBoxProps } from './props';
 import { useArrayLikeClassNameProp } from './useArrayLikeClassNameProp';
 
 export const Box = memo(
-  forwardRef(function Box({ is = 'div', children, ...props }, ref) {
+  forwardRef(function Box({ is = 'div', children, ...props }: BoxProps, ref) {
     useStyleSheet();
+
+    let consumedProps = props as Record<string, unknown>;
 
     const transformFn = useBoxTransform();
     if (transformFn) {
-      props = transformFn(props);
+      consumedProps = transformFn(consumedProps);
     }
 
-    props = consumeRcxProps(props);
-    props = consumePreAliases(props);
-    props = consumeSpecialStylingProps(props);
-    props = consumeCssPropertiesProps(props);
-    props = consumePostAliases(props);
-    props = consumeBoxProps(props);
-    props = useArrayLikeClassNameProp(props);
+    consumedProps = consumeBoxProps(consumedProps);
+    consumedProps = useArrayLikeClassNameProp(consumedProps);
 
     if (ref) {
-      props.ref = ref;
+      consumedProps.ref = ref;
     }
 
-    const element = createElement(is, props, children);
+    const element = createElement(is, consumedProps, children);
 
     if (transformFn) {
       return <BoxTransforms.Provider children={element} value={undefined} />;
@@ -49,3 +39,5 @@ export { default as AnimatedVisibility } from './AnimatedVisibility';
 export { default as Flex } from './Flex';
 export { default as Position, PositionAnimated } from './Position';
 export { default as Scrollable } from './Scrollable';
+
+export default memo(Box);

@@ -4,11 +4,11 @@ import { fontScale as fontScaleValue } from '../../styleTokens';
 
 export const fontScale = (
   value: Parameters<typeof fontScaleValue>[0]
-): ReturnType<typeof css> | undefined => {
+): ReturnType<typeof css> | null => {
   const fontScaleParams = fontScaleValue(value);
 
   if (!fontScaleParams) {
-    return undefined;
+    return null;
   }
 
   return css`

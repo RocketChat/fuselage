@@ -2,9 +2,10 @@ import { css } from '@rocket.chat/css-in-js';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { useStyle } from '../../hooks/useStyle';
+import { BoxProps } from './props';
 
 export const useArrayLikeClassNameProp = (
-  props: Record<string, unknown>
+  props: BoxProps
 ): Record<string, unknown> => {
   const classNames = ([] as (
     | undefined

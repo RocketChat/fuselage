@@ -2,11 +2,11 @@ import { css } from '@rocket.chat/css-in-js';
 
 import { size as sizeValue } from '../../styleTokens';
 
-export const size = (value: unknown): ReturnType<typeof css> | undefined => {
+export const size = (value: unknown): ReturnType<typeof css> | null => {
   const measure = sizeValue(value);
 
   if (!measure) {
-    return undefined;
+    return null;
   }
 
   return css`
@@ -15,11 +15,11 @@ export const size = (value: unknown): ReturnType<typeof css> | undefined => {
   `;
 };
 
-export const minSize = (value: unknown): ReturnType<typeof css> | undefined => {
+export const minSize = (value: unknown): ReturnType<typeof css> | null => {
   const measure = sizeValue(value);
 
   if (!measure) {
-    return undefined;
+    return null;
   }
 
   return css`
@@ -28,11 +28,11 @@ export const minSize = (value: unknown): ReturnType<typeof css> | undefined => {
   `;
 };
 
-export const maxSize = (value: unknown): ReturnType<typeof css> | undefined => {
+export const maxSize = (value: unknown): ReturnType<typeof css> | null => {
   const measure = sizeValue(value);
 
   if (!measure) {
-    return undefined;
+    return null;
   }
 
   return css`

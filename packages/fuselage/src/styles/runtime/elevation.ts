@@ -4,7 +4,7 @@ import { color } from '../../styleTokens';
 
 export const elevation = (
   value: '0' | '1' | '2'
-): ReturnType<typeof css> | undefined => {
+): ReturnType<typeof css> | null => {
   if (value === '0') {
     return css`
       box-shadow: none;
@@ -24,5 +24,5 @@ export const elevation = (
     `;
   }
 
-  return undefined;
+  return null;
 };
