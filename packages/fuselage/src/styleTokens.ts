@@ -238,7 +238,14 @@ export const fontFamily = memoize((value: any): any => {
 
 export const fontScale = (
   value: keyof typeof tokenTypography.fontScales
-): any => {
+):
+  | {
+      fontSize: string;
+      fontWeight: number;
+      lineHeight: string;
+      letterSpacing: string;
+    }
+  | undefined => {
   if (!tokenTypography.fontScales[value]) {
     return;
   }

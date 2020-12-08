@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
-import { withBoxStyling } from '../Box/withBoxStyling';
+import { withBoxStyling } from '../../hocs/withBoxStyling';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 

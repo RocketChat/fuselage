@@ -1,5 +1,9 @@
 export const prependClassName = (currentClassName, newClassName) => {
-  if (Array.isArray(currentClassName)) {
+  if (
+    Array.isArray(currentClassName) ||
+    typeof currentClassName === 'function' ||
+    typeof newClassName === 'function'
+  ) {
     return [].concat(newClassName, currentClassName);
   }
 
