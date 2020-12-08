@@ -75,7 +75,7 @@ describe('useClipboard hook', () => {
     Object.assign(navigator, {
       clipboard: {
         writeText: () =>
-          new Promise((resolve) => {
+          new Promise<void>((resolve) => {
             return resolve();
           }),
       },
