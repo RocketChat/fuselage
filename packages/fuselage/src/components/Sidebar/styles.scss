@@ -3,6 +3,10 @@
 @use '../../styles/typography.scss';
 @import '../../styles/mixins/all.scss';
 
+$sidebar-header-height: theme(
+  'sidebar-header-height',
+  theme('header-height', lengths.size(64))
+);
 $sidebar-item-background-color: theme(
   'sidebar-item-background-color',
   colors.surface()
@@ -56,6 +60,11 @@ $sidebar-item-color-selected: theme(
 
 .rcx-sidebar {
   &-topbar {
+    display: flex;
+    flex-direction: column;
+
+    height: $sidebar-header-height;
+
     color: $sidebar-item-color;
 
     &--section {
@@ -66,6 +75,8 @@ $sidebar-item-color-selected: theme(
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      flex-grow: 1;
 
       padding-block: lengths.padding(16);
       padding-inline: lengths.padding(16);
