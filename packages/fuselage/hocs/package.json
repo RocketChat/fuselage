@@ -1,6 +1,0 @@
-{
-  "name": "@rocket.chat/fuselage/hocs",
-  "private": true,
-  "main": "./hocs.js",
-  "types": "../dist/hocs/index.d.ts"
-}

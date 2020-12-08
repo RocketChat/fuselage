@@ -20,3 +20,5 @@ export const withBoxStyling = (component) => {
 
   return WithBoxStyling;
 };
+
+export default withBoxStyling;
