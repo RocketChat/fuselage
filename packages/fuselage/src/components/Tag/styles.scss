@@ -21,8 +21,9 @@ $tag-colors-disabled-color: theme('tag-colors-disabled-color', colors.foreground
 $tag-colors-disabled-background-color: theme('tag-colors-disabled-background-color', colors.neutral(400));
 
 .rcx-tag {
-  display: inline-block;
+  display: flex;
   overflow: hidden;
+  justify-content: center;
 
   width: fit-content;
 
