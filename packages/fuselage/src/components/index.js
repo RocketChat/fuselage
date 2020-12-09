@@ -23,6 +23,7 @@ export * from './Menu';
 export * from './Modal';
 export * from './NumberInput';
 export * from './Options';
+export * from './Options/Option';
 export * from './Pagination';
 export * from './PasswordInput';
 export * from './StatusBullet';

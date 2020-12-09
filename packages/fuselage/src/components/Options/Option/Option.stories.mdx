@@ -1,0 +1,67 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { Option } from '.';
+import { Box, Avatar, StatusBullet, Menu } from '../..';
+import { exampleAvatar, menuOptions } from '../../../../.storybook/helpers.js';
+
+<Meta title='Misc/Options/Option' parameters={{ jest: ['Option/spec'] }} />
+
+# Option
+
+The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo> item of options. Can be freely used or inside the <LinkTo kind='Misc/Options/Options' story='Default'>`Options`</LinkTo> as well.
+
+<Canvas>
+  <Story name='Default'>
+    <Box position='relative' maxWidth={250}>
+      <Option 
+      >Lorem Ipsum Lorem</Option>
+    </Box>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='withAvatar'>
+    <Box position='relative' maxWidth={250}>
+      <Option 
+        avatar={<Avatar url={exampleAvatar} size='x28' />}
+      >Lorem Ipsum Lorem</Option>
+    </Box>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='withPresence'>
+    <Box position='relative' maxWidth={250}>
+      <Option 
+        presence={<StatusBullet status='online' />}
+      >Lorem Ipsum Lorem</Option>
+    </Box>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='withMenu'>
+    <Box position='relative' maxWidth={250}>
+      <Option 
+        label='Lorem Ipsum Lorem'
+      ><Menu options={menuOptions} /></Option>
+    </Box>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='asUserItem'>
+    <Box position='relative' maxWidth={330}>
+      <Option 
+        avatar={<Avatar url={exampleAvatar} size='x28' />}
+        presence={<StatusBullet status='online' />}
+        label={<Box>carla.culhane <Box is='span' color='neutral-500'>(carla hune)</Box></Box>}
+      ><Menu options={menuOptions} /></Option>
+    </Box>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Option} />
+
+
