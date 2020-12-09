@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { css } from '@rocket.chat/css-in-js';
-import { AllHTMLAttributes, ElementType, SVGAttributes } from 'react';
+import { ElementType, PropsWithChildren } from 'react';
 
 import { prependClassName } from '../../../helpers/prependClassName';
+import { useStyle } from '../../../hooks/useStyle';
 import {
   consumePostAlias,
   consumePreAlias,
@@ -28,83 +29,127 @@ export type BoxStylingProps = SpecialStylingPropTypes &
   PreAliasTypes &
   PostAliasTypes;
 
-type BoxOnlyProps = {
+type BoxOnlyProps<P extends { className?: string }> = {
   animated?: boolean;
   className?:
     | string
     | ReturnType<typeof css>
     | (string | ReturnType<typeof css>)[];
-  is?: ElementType;
+  is?: ElementType<P>;
 };
 
-export type BoxProps = BoxStylingProps &
-  BoxOnlyProps &
-  Omit<AllHTMLAttributes<HTMLOrSVGElement>, keyof BoxOnlyProps> &
-  Omit<SVGAttributes<HTMLOrSVGElement>, keyof BoxOnlyProps>;
+export const useBoxStylingProps = <P extends { className?: string }>(
+  props: BoxStylingProps & Omit<P, 'className' | keyof BoxStylingProps>
+): P => {
+  const targetProps: Partial<P> = {};
+  const targetClassNames: (string | ReturnType<typeof css>)[] = [];
 
-export const consumeBoxStylingProps = (
-  props: BoxProps
-): Record<string, unknown> => {
   for (const [propName, propValue] of Object.entries(props)) {
     if (isPreAlias(propName)) {
-      delete props[propName];
-      consumePreAlias(propName, propValue, props);
+      consumePreAlias(propName, propValue, targetProps, targetClassNames);
       continue;
     }
 
     if (isSpecialStylingProp(propName)) {
-      delete props[propName];
-      consumeSpecialStylingProp(propName, propValue, props);
+      consumeSpecialStylingProp(
+        propName,
+        propValue,
+        targetProps,
+        targetClassNames
+      );
       continue;
     }
 
     if (isCssPropertyProp(propName)) {
-      delete props[propName];
-      consumeCssPropertyProp(propName, propValue, props);
+      consumeCssPropertyProp(
+        propName,
+        propValue,
+        targetProps,
+        targetClassNames
+      );
       continue;
     }
 
     if (isPostAlias(propName)) {
-      delete props[propName];
-      consumePostAlias(propName, propValue, props);
+      consumePostAlias(propName, propValue, targetProps, targetClassNames);
       continue;
     }
+
+    targetProps[propName] = propValue;
   }
 
-  return props;
+  const styles = targetClassNames.filter(
+    (value): value is ReturnType<typeof css> => typeof value === 'function'
+  );
+  const stylesClassName = useStyle(
+    css`
+      ${styles}
+    `,
+    props
+  );
+
+  const classNames = targetClassNames.filter(
+    (value): value is string => typeof value === 'string'
+  );
+
+  if (stylesClassName) {
+    classNames.push(stylesClassName);
+  }
+
+  return Object.assign(targetProps, {
+    className: classNames.join(' '),
+  }) as P;
 };
 
-export const consumeBoxProps = (props: BoxProps): Record<string, unknown> => {
+export type BoxProps<P> = PropsWithChildren<BoxStylingProps & BoxOnlyProps<P>> &
+  Omit<P, 'className' | keyof (BoxStylingProps & BoxOnlyProps<P>)>;
+
+export const useBoxProps = <P extends { className?: string }>(
+  props: BoxProps<P>
+): P => {
+  const targetProps: Partial<P> = {};
+  const targetClassNames: (string | ReturnType<typeof css>)[] = [
+    'rcx-box',
+    'rcx-box--full',
+  ];
+
   for (const [propName, propValue] of Object.entries(props)) {
     if (isRcxProp(propName)) {
-      delete props[propName];
-      consumeRcxProp(propName, propValue, props);
+      consumeRcxProp(propName, propValue, targetProps, targetClassNames);
       continue;
     }
 
     if (isPreAlias(propName)) {
-      delete props[propName];
-      consumePreAlias(propName, propValue, props);
+      consumePreAlias(propName, propValue, targetProps, targetClassNames);
       continue;
     }
 
     if (isSpecialStylingProp(propName)) {
-      delete props[propName];
-      consumeSpecialStylingProp(propName, propValue, props);
+      consumeSpecialStylingProp(
+        propName,
+        propValue,
+        targetProps,
+        targetClassNames
+      );
       continue;
     }
 
     if (isCssPropertyProp(propName)) {
-      delete props[propName];
-      consumeCssPropertyProp(propName, propValue, props);
+      consumeCssPropertyProp(
+        propName,
+        propValue,
+        targetProps,
+        targetClassNames
+      );
       continue;
     }
 
     if (isPostAlias(propName)) {
-      delete props[propName];
-      consumePostAlias(propName, propValue, props);
+      consumePostAlias(propName, propValue, targetProps, targetClassNames);
       continue;
     }
+
+    targetProps[propName] = propValue;
   }
 
   if (props.animated) {
@@ -114,5 +159,25 @@ export const consumeBoxProps = (props: BoxProps): Record<string, unknown> => {
   props.className = prependClassName(props.className, 'rcx-box--full');
   props.className = prependClassName(props.className, 'rcx-box');
 
-  return props;
+  const styles = targetClassNames.filter(
+    (value): value is ReturnType<typeof css> => typeof value === 'function'
+  );
+  const stylesClassName = useStyle(
+    css`
+      ${styles}
+    `,
+    props
+  );
+
+  const classNames = targetClassNames.filter(
+    (value): value is string => typeof value === 'string'
+  );
+
+  if (stylesClassName) {
+    classNames.push(stylesClassName);
+  }
+
+  return Object.assign(targetProps, {
+    className: classNames.join(' '),
+  }) as P;
 };

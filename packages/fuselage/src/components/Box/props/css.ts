@@ -1,6 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
 
-import { appendClassName } from '../../../helpers/appendClassName';
 import { fromCamelToKebab } from '../../../helpers/fromCamelToKebab';
 import * as styleTokens from '../../../styleTokens';
 
@@ -138,17 +137,11 @@ export const isCssPropertyProp = (
 ): propName is keyof CssPropertyPropTypes =>
   typeof cssPropertiesProps[propName] !== 'undefined';
 
-export const consumeCssPropertyProp = <
-  P extends {
-    className?:
-      | string
-      | ReturnType<typeof css>
-      | (string | ReturnType<typeof css>)[];
-  }
->(
+export const consumeCssPropertyProp = <P>(
   propName: keyof CssPropertyPropTypes,
   propValue: CssPropertyPropTypes[keyof CssPropertyPropTypes],
-  props: P
+  _props: P,
+  classNames: (string | ReturnType<typeof css>)[]
 ): void => {
   const fn = cssPropertiesProps[propName];
   const cssProperty = fromCamelToKebab(propName);
@@ -161,5 +154,5 @@ export const consumeCssPropertyProp = <
     ${`${cssProperty}: ${cssValue} !important;`}
   `;
 
-  props.className = appendClassName(props.className, style);
+  classNames.push(style);
 };

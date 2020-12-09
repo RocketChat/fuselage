@@ -1,4 +1,5 @@
-import { appendClassName } from '../../../helpers/appendClassName';
+import { css } from '@rocket.chat/css-in-js';
+
 import { elevation } from '../../../styles/runtime/elevation';
 import { fontScale } from '../../../styles/runtime/fontScales';
 import { invisible } from '../../../styles/runtime/invisible';
@@ -27,10 +28,11 @@ export const isSpecialStylingProp = (
   propName: string
 ): propName is keyof SpecialStylingPropTypes => propName in specialStylingProps;
 
-export const consumeSpecialStylingProp = (
+export const consumeSpecialStylingProp = <P>(
   propName: keyof SpecialStylingPropTypes,
   propValue: SpecialStylingPropTypes[keyof SpecialStylingPropTypes],
-  props: Record<string, unknown>
+  _props: P,
+  classNames: (string | ReturnType<typeof css>)[]
 ): void => {
   const fn = specialStylingProps[propName];
   const style = fn(propValue as never);
@@ -38,5 +40,5 @@ export const consumeSpecialStylingProp = (
     return;
   }
 
-  props.className = appendClassName(props.className, style);
+  classNames.push(style);
 };

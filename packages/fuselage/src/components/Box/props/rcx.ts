@@ -1,12 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
 
-import { prependClassName } from '../../../helpers/prependClassName';
-
 export type RcxPropTypes = {
   [propName in string]?: boolean | number | string;
 };
 
-export const isRcxProp = (propName: string): propName is keyof RcxPropTypes =>
+export const isRcxProp = (propName: string): boolean =>
   propName.slice(0, 4) === 'rcx-';
 
 export const consumeRcxProp = <
@@ -19,7 +17,8 @@ export const consumeRcxProp = <
 >(
   rcxClassName: keyof RcxPropTypes,
   value: RcxPropTypes[keyof RcxPropTypes],
-  targetProps: P
+  _props: P,
+  classNames: (string | ReturnType<typeof css>)[]
 ): void => {
   if (!value) {
     return;
@@ -27,5 +26,5 @@ export const consumeRcxProp = <
 
   const newClassName =
     value === true ? rcxClassName : `${rcxClassName}-${value}`;
-  targetProps.className = prependClassName(targetProps.className, newClassName);
+  classNames.push(newClassName);
 };

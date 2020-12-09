@@ -39,17 +39,11 @@ export type PostAliasTypes = {
 export const isPreAlias = (propName: string): propName is keyof PreAliasTypes =>
   typeof preAliases[propName] !== 'undefined';
 
-export const consumePreAlias = <
-  P extends {
-    className?:
-      | string
-      | ReturnType<typeof css>
-      | (string | ReturnType<typeof css>)[];
-  }
->(
+export const consumePreAlias = <P>(
   alias: keyof PreAliasTypes,
   value: PreAliasTypes[keyof PreAliasTypes],
-  props: P
+  props: P,
+  classNames: (string | ReturnType<typeof css>)[]
 ): void => {
   const effectivePropName = preAliases[alias];
 
@@ -57,7 +51,7 @@ export const consumePreAlias = <
     return;
   }
 
-  consumeCssPropertyProp(effectivePropName, value, props);
+  consumeCssPropertyProp(effectivePropName, value, props, classNames);
 };
 
 export const isPostAlias = (
@@ -65,17 +59,11 @@ export const isPostAlias = (
 ): propName is keyof PostAliasTypes =>
   typeof postAliases[propName] !== 'undefined';
 
-export const consumePostAlias = <
-  P extends {
-    className?:
-      | string
-      | ReturnType<typeof css>
-      | (string | ReturnType<typeof css>)[];
-  }
->(
+export const consumePostAlias = <P>(
   alias: keyof PostAliasTypes,
-  value: PostAliasTypes[keyof PostAliasTypes],
-  props: P
+  value: PostAliasTypes[keyof PostAliasTypes & keyof P],
+  props: P,
+  _classNames: (string | ReturnType<typeof css>)[]
 ): void => {
   const effectivePropName = postAliases[alias];
 
