@@ -2,7 +2,7 @@ import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { Option } from '.';
-import { Box, Avatar, StatusBullet, Menu } from '../..';
+import { Box, Avatar, Menu } from '../..';
 import { exampleAvatar, menuOptions } from '../../../../.storybook/helpers.js';
 
 <Meta title='Misc/Options/Option' parameters={{ jest: ['Option/spec'] }} />
@@ -34,7 +34,7 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
   <Story name='withPresence'>
     <Box position='relative' maxWidth={250}>
       <Option 
-        presence={<StatusBullet status='online' />}
+        presence
       >Lorem Ipsum Lorem</Option>
     </Box>
   </Story>
@@ -55,8 +55,8 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
     <Box position='relative' maxWidth={330}>
       <Option 
         avatar={<Avatar url={exampleAvatar} size='x28' />}
-        presence={<StatusBullet status='online' />}
-        label={<Box>carla.culhane <Box is='span' color='neutral-500'>(carla hune)</Box></Box>}
+        presence='online'
+        label={<Box withTruncatedText>carla.culhane <Box is='span' color='neutral-500'>(carla hune)</Box></Box>}
       ><Menu options={menuOptions} /></Option>
     </Box>
   </Story>

@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react';
 import { Box } from '../../Box';
 import { Icon } from '../../Icon';
 import Margins from '../../Margins';
+import { StatusBullet } from '../../StatusBullet';
 
 const Li = forwardRef(function Li({ children, ...props }, ref) {
   return (
@@ -38,7 +39,7 @@ export const Option = React.memo(
       {avatar}
       {presence && (
         <Box marginInline='x8' marginInlineEnd='x4'>
-          {presence}
+          <StatusBullet status={presence} />
         </Box>
       )}
       {icon && <Icon size='x16' name={icon} />}{' '}
