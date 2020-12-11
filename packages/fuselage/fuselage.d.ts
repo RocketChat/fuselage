@@ -1,5 +1,6 @@
 declare module '@rocket.chat/fuselage' {
-	import { css } from '@rocket.chat/css-in-js';
+  import type { css } from '@rocket.chat/css-in-js';
+
 	import {
 		AllHTMLAttributes,
 		Context,
@@ -226,19 +227,21 @@ declare module '@rocket.chat/fuselage' {
 	};
 
 	type ModalProps = BoxProps;
-	type ModalHeaderProps = BoxProps;
-	type ModalTitleProps = BoxProps;
+	type ModalBackdropProps = BoxProps;
 	type ModalCloseProps = BoxProps;
 	type ModalContentProps = BoxProps;
 	type ModalFooterProps = BoxProps;
-	type ModalBackdropProps = BoxProps;
+  type ModalHeaderProps = BoxProps;
+  type ModalThumbProps = BoxProps;
+	type ModalTitleProps = BoxProps;
 	export const Modal: ForwardRefExoticComponent<ModalProps> & {
-		Header: ForwardRefExoticComponent<ModalHeaderProps>;
-		Title: ForwardRefExoticComponent<ModalTitleProps>;
+    Backdrop: ForwardRefExoticComponent<ModalBackdropProps>;
 		Close: ForwardRefExoticComponent<ModalCloseProps>;
 		Content: ForwardRefExoticComponent<ModalContentProps>;
 		Footer: ForwardRefExoticComponent<ModalFooterProps>;
-		Backdrop: ForwardRefExoticComponent<ModalBackdropProps>;
+    Header: ForwardRefExoticComponent<ModalHeaderProps>;
+    Thumb: ForwardRefExoticComponent<ModalThumbProps>;
+		Title: ForwardRefExoticComponent<ModalTitleProps>;
 	};
 
 	type NumberInputProps = BoxProps;
