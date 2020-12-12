@@ -2,8 +2,8 @@
 
 const path = require('path');
 
+const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const ReplacePlugin = require('webpack-plugin-replace');
 
 const pkg = require('./package.json');
 
@@ -12,11 +12,20 @@ module.exports = (env, { mode = 'production' }) => ({
     'fuselage-ui-kit': path.resolve(__dirname, 'src/index.js'),
   },
   output: {
-    filename: `[name].${ mode }.js`,
+    filename: `[name].${mode}.js`,
     path: path.resolve(__dirname, 'dist'),
     library: 'RocketChatFuselageUiKit',
     libraryTarget: 'umd',
     umdNamedDefine: true,
+    environment: {
+      arrowFunction: false,
+      bigIntLiteral: false,
+      const: false,
+      destructuring: false,
+      dynamicImport: false,
+      forOf: false,
+      module: false,
+    },
   },
   devtool: mode === 'production' ? false : 'source-map',
   module: {
@@ -26,40 +35,18 @@ module.exports = (env, { mode = 'production' }) => ({
         exclude: /node_modules/,
         use: 'babel-loader',
       },
-      {
-        test: /\.ts$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-      },
     ],
   },
-  externals: [
-    {
-      react: {
-        commonjs: 'react',
-        commonjs2: 'react',
-        amd: 'react',
-        root: 'React',
-      },
-    },
-    'react-dom',
-    '@rocket.chat/icons',
-    '@rocket.chat/fuselage',
-    '@rocket.chat/fuselage-hooks',
-    '@rocket.chat/ui-kit',
-  ],
+  externals: ['react', 'react-dom', /^@rocket.chat\//],
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.VERSION': JSON.stringify(pkg.version),
+    }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       generateStatsFile: false,
-      reportFilename: '../bundle-report.html',
+      reportFilename: path.join(__dirname, 'bundle-report.html'),
       openAnalyzer: false,
     }),
-    new ReplacePlugin({
-      include: ['index.js'],
-      values: {
-        '"DEVELOPMENT"': JSON.stringify(pkg.version),
-      },
-    }),
-  ].filter(Boolean),
+  ],
 });

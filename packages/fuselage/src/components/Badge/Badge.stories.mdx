@@ -1,0 +1,49 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+
+import { Badge, Box } from '../..';
+
+<Meta title='Data Display/Badge' parameters={{ jest: ['Badge/spec'] }} />
+
+# Badge
+
+Shows a count.
+
+<Canvas>
+  <Story name='Default'>
+    <Box display='inline-flex'><Badge>99</Badge></Box>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Badge} />
+
+### Primary
+
+<Canvas>
+  <Story name='Primary'>
+    <Box display='inline-flex'><Badge variant='primary'>99</Badge></Box>
+  </Story>
+</Canvas>
+
+### Danger
+
+<Canvas>
+  <Story name='Danger'>
+    <Box display='inline-flex'><Badge variant='danger'>99</Badge></Box>
+  </Story>
+</Canvas>
+
+### Warning
+
+<Canvas>
+  <Story name='Warning'>
+    <Box display='inline-flex'><Badge variant='warning'>99</Badge></Box>
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name='Disabled'>
+    <Box display='inline-flex'><Badge disabled>99</Badge></Box>
+  </Story>
+</Canvas>

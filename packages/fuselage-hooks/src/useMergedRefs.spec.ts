@@ -1,4 +1,9 @@
-import React, { createElement, StrictMode, FunctionComponent, RefCallback } from 'react';
+import React, {
+  createElement,
+  StrictMode,
+  FunctionComponent,
+  RefCallback,
+} from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -16,7 +21,7 @@ describe('useMergedRefs hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -34,7 +39,7 @@ describe('useMergedRefs hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -56,7 +61,7 @@ describe('useMergedRefs hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -78,7 +83,7 @@ describe('useMergedRefs hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -100,7 +105,7 @@ describe('useMergedRefs hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -123,13 +128,15 @@ describe('useMergedRefs hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
     const value = Symbol();
     mergedRef(value);
     refs.forEach((ref) => expect(ref.current).toBe(value));
-    callbackRefs.forEach((callbackRef) => expect(callbackRef).toHaveBeenCalledWith(value));
+    callbackRefs.forEach((callbackRef) =>
+      expect(callbackRef).toHaveBeenCalledWith(value)
+    );
   });
 });

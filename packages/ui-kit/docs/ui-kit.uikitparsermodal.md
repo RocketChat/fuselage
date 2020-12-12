@@ -7,14 +7,17 @@
 <b>Signature:</b>
 
 ```typescript
-export declare abstract class UiKitParserModal extends UiKitParserMessage 
+declare abstract class UiKitParserModal extends UiKitParserMessage implements IParserModal<unknown> 
 ```
-<b>Extends:</b> [UiKitParserMessage](./ui-kit.uikitparsermessage.md)
+<b>Extends:</b> UiKitParserMessage
+
+<b>Implements:</b> IParserModal&lt;unknown&gt;
 
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [plainInput](./ui-kit.uikitparsermodal.plaininput.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, index: Number) =&gt; [Component](./ui-kit.component.md) |  |
-|  [renderInputs](./ui-kit.uikitparsermodal.renderinputs.md) |  | (element: [UiKitElement](./ui-kit.uikitelement.md)<!-- -->, context: [BLOCK\_CONTEXT](./ui-kit.block_context.md)<!-- -->, parser: any, index: any) =&gt; any |  |
+|  [input](./ui-kit.uikitparsermodal.input.md) |  | ElementRenderer&lt;unknown, [IInputBlock](./ui-kit.iinputblock.md)<!-- -->&gt; |  |
+|  [plainInput](./ui-kit.uikitparsermodal.plaininput.md) |  | ElementRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
+|  [renderInputs](./ui-kit.uikitparsermodal.renderinputs.md) |  | ElementSetRenderer&lt;unknown, [IElement](./ui-kit.ielement.md)<!-- -->&gt; |  |
 

@@ -1,0 +1,90 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { Icon, TextAreaInput } from '../..';
+import { PropsVariationSection } from '../../../.storybook/helpers';
+
+<Meta title='Forms/Inputs/TextAreaInput' parameters={{ jest: ['TextAreaInput/spec'] }} />
+
+# TextAreaInput
+
+An input for multi-line plain-text editing.
+
+<Canvas>
+  <Story name='Default'>
+    <TextAreaInput />
+  </Story>
+</Canvas>
+
+<ArgsTable of={TextAreaInput} />
+
+## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
+
+Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
+used.
+
+### With Icon Addon
+
+<Canvas>
+  <Story name='With Icon Addon'>
+    <TextAreaInput addon={<Icon name='send' size='x20' />} />
+  </Story>
+</Canvas>
+
+### Invalid
+
+<Canvas>
+  <Story name='Invalid'>
+    <TextAreaInput error='Error' />
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name='Disabled'>
+    <TextAreaInput disabled />
+  </Story>
+</Canvas>
+
+### With placeholder
+
+<Canvas>
+  <Story name='With Placeholder'>
+    <TextAreaInput placeholder='Placeholder' />
+  </Story>
+</Canvas>
+
+### With value
+
+<Canvas>
+  <Story name='With Value'>
+    <TextAreaInput defaultValue={'Roses are red\nViolets are blue'} />
+  </Story>
+</Canvas>
+
+## States
+
+<Story name='States'>
+  <PropsVariationSection
+    component={TextAreaInput}
+    common={{ onChange: () => {} }}
+    xAxis={{
+      default: {},
+      'with placeholder': { placeholder: 'Placeholder' },
+      'with value': { value: 'Value' },
+      'with icon': { addon: <Icon name='edit' size='x20' />, value: 'Value' },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+      errored: { error: 'Error' },
+      'errored + hover': { className: 'hover', error: 'Error' },
+      'errored + active': { className: 'active', error: 'Error' },
+      'errored + focus': { className: 'focus', error: 'Error' },
+    }}
+  />
+</Story>

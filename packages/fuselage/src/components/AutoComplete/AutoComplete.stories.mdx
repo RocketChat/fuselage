@@ -1,0 +1,38 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { useEffect, useState } from 'react';
+
+import { AutoComplete } from '../..';
+
+const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
+const options = [
+  [1, 'a teste 1'],
+  [2, 'b teste 2'],
+  [3, 'c teste 3'],
+  [4, 'd teste 4'],
+];
+
+
+<Meta title='Forms/Inputs/AutoComplete' parameters={{ jest: ['AutoComplete/spec'] }} />
+
+# AutoComplete
+
+An input for selection of options.
+
+<Canvas>
+  <Story name='Example'>
+    {React.createElement(() => {
+      const [options, setOptions] = useState([]);
+      const [filter, setFilter] = useState('');
+      const [value, setValue] = useState([]);
+      useEffect(() => {
+        (async () => {
+          const result = await Promise.resolve([]);
+          setOptions(result);
+        })();
+      }, [filter]);
+      return <AutoComplete { ...{ value, filter, setFilter, options, onChange: setValue } }/>;
+    })}
+  </Story>
+</Canvas>
+
+<ArgsTable of={AutoComplete} />

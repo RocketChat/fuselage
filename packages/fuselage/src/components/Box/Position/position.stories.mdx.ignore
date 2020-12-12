@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import { css } from '@rocket.chat/css-in-js';
 
 import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
@@ -8,7 +8,7 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
 
 # Position
 
-<Preview>
+<Canvas>
   <Story name='top-start'>
       {
         () => {
@@ -24,9 +24,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
         }
       }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='top-middle'>
       {
         () => {
@@ -42,9 +42,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
         }
       }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='top-end'>
       {
         () => {
@@ -60,9 +60,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
         }
       }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='bottom-start'>
       {
         () => {
@@ -78,11 +78,11 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
         }
       }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='bottom-middle'>
-      { 
+      {
         () => {
           const ref = useRef();
           return <>
@@ -96,9 +96,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
         }
       }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='bottom-end'>
     {
       () => {
@@ -114,9 +114,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
       }
     }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='right-start'>
     {
       () => {
@@ -132,9 +132,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
       }
     }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='right-middle'>
     {
       () => {
@@ -150,9 +150,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
       }
     }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='right-end'>
     {
       () => {
@@ -168,9 +168,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
       }
     }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='left-start'>
     {
       () => {
@@ -186,9 +186,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
       }
     }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='left-middle'>
     {
       () => {
@@ -204,9 +204,9 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
       }
     }
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name='left-end'>
     {
       () => {
@@ -222,6 +222,6 @@ import { Position, Box, Field, Margins, ToggleSwitch, Tile } from '../..';
       }
     }
   </Story>
-</Preview>
+</Canvas>
 
-<Props of={Position} />
+<ArgsTable of={Position} />

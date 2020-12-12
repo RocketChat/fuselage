@@ -1,6 +1,6 @@
 import { useState, FunctionComponent, createElement, StrictMode } from 'react';
-import { act } from 'react-dom/test-utils';
 import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 import { useSafely } from '.';
 
@@ -18,7 +18,7 @@ describe('useSafely hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -42,10 +42,7 @@ describe('useSafely hook', () => {
     const root = document.createElement('div');
 
     act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        root,
-      );
+      render(createElement(StrictMode, {}, createElement(TestComponent)), root);
     });
 
     act(() => {
@@ -71,7 +68,7 @@ describe('useSafely hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
     const valueA = value;

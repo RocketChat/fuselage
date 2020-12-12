@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-const ReplacePlugin = require('webpack-plugin-replace');
+const webpack = require('webpack');
 
 const pkg = require('./package.json');
 
@@ -16,6 +16,18 @@ module.exports = (env, argv) => ({
     library: 'RocketChatUiKit',
     libraryTarget: 'umd',
     umdNamedDefine: true,
+    environment: {
+      arrowFunction: false,
+      bigIntLiteral: false,
+      const: false,
+      destructuring: false,
+      dynamicImport: false,
+      forOf: false,
+      module: false,
+    },
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
   },
   devtool: argv.mode === 'production' ? false : 'source-map',
   module: {
@@ -28,11 +40,8 @@ module.exports = (env, argv) => ({
     ],
   },
   plugins: [
-    new ReplacePlugin({
-      include: ['index.ts'],
-      values: {
-        '"DEVELOPMENT"': JSON.stringify(pkg.version),
-      },
+    new webpack.DefinePlugin({
+      'process.env.VERSION': JSON.stringify(pkg.version),
     }),
   ],
 });

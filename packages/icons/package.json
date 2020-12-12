@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/icons",
-  "version": "0.13.1",
+  "version": "0.19.0",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -20,17 +20,21 @@
   ],
   "scripts": {
     "build": "node ./scripts/build",
+    "prettier-format": "prettier --config .prettierrc 'scripts/**/*.js' --write",
     "lint": "eslint ."
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
-    "chalk": "^3.0.0",
-    "eslint": "^6.1.0",
+    "chalk": "^4.1.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "glob": "^7.1.4",
     "is-valid-identifier": "^2.0.2",
+    "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
-    "svg2ttf": "^4.3.0",
+    "svg2ttf": "^5.0.0",
     "svgicons2svgfont": "^9.0.4",
     "ttf2eot": "^2.0.0",
     "ttf2woff": "^2.0.1",

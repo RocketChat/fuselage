@@ -16,7 +16,9 @@ type UseResizeObserverOptions = {
  * @returns a triple containing the ref and the size information
  * @public
  */
-export const useResizeObserver = ({ debounceDelay }: UseResizeObserverOptions = {}): {
+export const useResizeObserver = ({
+  debounceDelay,
+}: UseResizeObserverOptions = {}): {
   ref: RefObject<Element>;
   contentBoxSize: ResizeObserverSize;
   borderBoxSize: ResizeObserverSize;
@@ -25,16 +27,19 @@ export const useResizeObserver = ({ debounceDelay }: UseResizeObserverOptions = 
   const [{ borderBoxSize, contentBoxSize }, setSizes] = useDebouncedState<{
     borderBoxSize: ResizeObserverSize;
     contentBoxSize: ResizeObserverSize;
-  }>({
-    borderBoxSize: {
-      inlineSize: undefined,
-      blockSize: undefined,
+  }>(
+    {
+      borderBoxSize: {
+        inlineSize: undefined,
+        blockSize: undefined,
+      },
+      contentBoxSize: {
+        inlineSize: undefined,
+        blockSize: undefined,
+      },
     },
-    contentBoxSize: {
-      inlineSize: undefined,
-      blockSize: undefined,
-    },
-  }, debounceDelay);
+    debounceDelay
+  );
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
@@ -42,15 +47,25 @@ export const useResizeObserver = ({ debounceDelay }: UseResizeObserverOptions = 
 
       if (contentBoxSize && borderBoxSize) {
         setSizes({
-          contentBoxSize,
-          borderBoxSize,
+          contentBoxSize: Array.isArray(contentBoxSize)
+            ? contentBoxSize[0]
+            : contentBoxSize,
+          borderBoxSize: Array.isArray(borderBoxSize)
+            ? borderBoxSize[0]
+            : borderBoxSize,
         });
         return;
       }
 
       const { target, contentRect } = entry;
-      const { width: contentBoxInlineSize, height: contentBoxBlockSize } = contentRect;
-      const { width: borderBoxInlineSize, height: borderBoxBlockSize } = target.getBoundingClientRect();
+      const {
+        width: contentBoxInlineSize,
+        height: contentBoxBlockSize,
+      } = contentRect;
+      const {
+        width: borderBoxInlineSize,
+        height: borderBoxBlockSize,
+      } = target.getBoundingClientRect();
 
       setSizes({
         contentBoxSize: {

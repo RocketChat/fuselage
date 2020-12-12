@@ -3,8 +3,8 @@ import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
 import React, { useRef, useCallback } from 'react';
 
-import { useStyle } from '../../../hooks/useStyle';
 import { appendClassName } from '../../../helpers/appendClassName';
+import { useStyle } from '../../../hooks/useStyle';
 import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
 const getTouchingEdges = (element) => ({
@@ -18,10 +18,11 @@ const pollTouchingEdges = (element, touchingEdgesRef, onScrollContent) => {
   const touchingEdges = touchingEdgesRef.current;
   const newTouchingEdges = getTouchingEdges(element);
 
-  const dirty = (touchingEdges.top !== newTouchingEdges.top)
-    || (touchingEdges.bottom !== newTouchingEdges.bottom)
-    || (touchingEdges.left !== newTouchingEdges.left)
-    || (touchingEdges.right !== newTouchingEdges.right);
+  const dirty =
+    touchingEdges.top !== newTouchingEdges.top ||
+    touchingEdges.bottom !== newTouchingEdges.bottom ||
+    touchingEdges.left !== newTouchingEdges.left ||
+    touchingEdges.right !== newTouchingEdges.right;
 
   if (dirty) {
     touchingEdgesRef.current = newTouchingEdges;
@@ -29,7 +30,13 @@ const pollTouchingEdges = (element, touchingEdgesRef, onScrollContent) => {
   }
 };
 
-function Scrollable({ children, horizontal, vertical, smooth, onScrollContent }) {
+function Scrollable({
+  children,
+  horizontal,
+  vertical,
+  smooth,
+  onScrollContent,
+}) {
   const scrollTimeoutRef = useRef();
   const touchingEdgesRef = useRef({});
 
@@ -51,8 +58,8 @@ function Scrollable({ children, horizontal, vertical, smooth, onScrollContent })
     position: relative;
 
     &::-webkit-scrollbar {
-      width: ${ 4 / 16 }rem;
-      height: ${ 4 / 16 }rem;
+      width: ${4 / 16}rem;
+      height: ${4 / 16}rem;
     }
 
     &::-webkit-scrollbar-track {
@@ -61,34 +68,56 @@ function Scrollable({ children, horizontal, vertical, smooth, onScrollContent })
 
     &::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, 0.05);
-      background-color: var(--rcx-theme-scrollbar-thumb-color, rgba(0, 0, 0, 0.05));
+      background-color: var(
+        --rcx-theme-scrollbar-thumb-color,
+        rgba(0, 0, 0, 0.05)
+      );
     }
 
     &:hover::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, 0.15);
-      background-color: var(--rcx-theme-scrollbar-thumb-hover-color, rgba(0, 0, 0, 0.15));
+      background-color: var(
+        --rcx-theme-scrollbar-thumb-hover-color,
+        rgba(0, 0, 0, 0.15)
+      );
     }
 
-    ${ (horizontal && css`overflow-x: auto !important;`)
-      || (vertical && css`overflow-y: auto !important;`)
-      || css`overflow: auto !important;` }
-    ${ smooth && css`scroll-behavior: smooth !important;` }
+    ${(horizontal &&
+      css`
+        overflow-x: auto !important;
+      `) ||
+    (vertical &&
+      css`
+        overflow-y: auto !important;
+      `) ||
+    css`
+      overflow: auto !important;
+    `}
+    ${smooth &&
+    css`
+      scroll-behavior: smooth !important;
+    `}
   `);
 
-  const transformFn = useCallback((props) => {
-    props.className = appendClassName(props.className, className);
+  const transformFn = useCallback(
+    (props) => {
+      props.className = appendClassName(props.className, className);
 
-    if (onScrollContent !== undefined && props.onScroll === undefined) {
-      props.onScroll = handleScroll;
-    }
+      if (onScrollContent !== undefined && props.onScroll === undefined) {
+        props.onScroll = handleScroll;
+      }
 
-    return props;
-  }, [className, handleScroll, onScrollContent]);
+      return props;
+    },
+    [className, handleScroll, onScrollContent]
+  );
 
-  return <BoxTransforms.Provider
-    children={children}
-    value={useComposedBoxTransform(transformFn)}
-  />;
+  return (
+    <BoxTransforms.Provider
+      children={children}
+      value={useComposedBoxTransform(transformFn)}
+    />
+  );
 }
 
 Scrollable.propTypes = {

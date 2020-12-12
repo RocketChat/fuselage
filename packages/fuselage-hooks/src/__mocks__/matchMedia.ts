@@ -3,13 +3,15 @@ import { act } from 'react-dom/test-utils';
 export const mediaQueryLists = new Set<MediaQueryList>();
 
 class MediaQueryListMock implements MediaQueryList {
-  _media: string
+  _media: string;
 
-  _onchange: (ev: MediaQueryListEvent) => void | null
+  _onchange: (ev: MediaQueryListEvent) => void | null;
 
-  changeEventListeners: Set<EventListener>
+  changeEventListeners: Set<EventListener>;
 
-  constructor(media: string) {
+  _matchString: string;
+
+  constructor(media: string, matchString?: string) {
     this._media = media;
     this._onchange = null;
     this.changeEventListeners = new Set([
@@ -17,19 +19,23 @@ class MediaQueryListMock implements MediaQueryList {
         this._onchange && this._onchange.call(this, ev);
       },
     ]);
+    this._matchString = matchString;
   }
 
   get matches(): boolean {
     const regex = /^\((min-width|max-width): (\d+)(px|em)\)$/;
     if (regex.test(this._media)) {
       const [, condition, width, unit] = regex.exec(this._media);
-      const widthPx = (unit === 'em' && parseInt(width, 10) * 16)
-        || (unit === 'px' && parseInt(width, 10));
-      return (condition === 'min-width' && window.innerWidth >= widthPx)
-        || (condition === 'max-width' && window.innerWidth <= widthPx);
+      const widthPx =
+        (unit === 'em' && parseInt(width, 10) * 16) ||
+        (unit === 'px' && parseInt(width, 10));
+      return (
+        (condition === 'min-width' && window.innerWidth >= widthPx) ||
+        (condition === 'max-width' && window.innerWidth <= widthPx)
+      );
     }
 
-    return false;
+    return this._matchString && this._matchString === this._media;
   }
 
   get media(): string {
@@ -43,7 +49,7 @@ class MediaQueryListMock implements MediaQueryList {
 
     this.changeEventListeners.add(fn);
     mediaQueryLists.add(this);
-  })
+  });
 
   removeEventListener = jest.fn((type: string, fn: EventListener): void => {
     if (type !== 'change') {
@@ -52,7 +58,7 @@ class MediaQueryListMock implements MediaQueryList {
 
     this.changeEventListeners.delete(fn);
     mediaQueryLists.delete(this);
-  })
+  });
 
   get onchange(): (this: MediaQueryList, ev: MediaQueryListEvent) => void {
     return this._onchange;
@@ -62,11 +68,15 @@ class MediaQueryListMock implements MediaQueryList {
     this._onchange = fn;
   }
 
-  addListener(fn: (this: MediaQueryList, ev: MediaQueryListEvent) => void): void {
+  addListener(
+    fn: (this: MediaQueryList, ev: MediaQueryListEvent) => void
+  ): void {
     this.addEventListener('change', fn);
   }
 
-  removeListener(fn: (this: MediaQueryList, ev: MediaQueryListEvent) => void): void {
+  removeListener(
+    fn: (this: MediaQueryList, ev: MediaQueryListEvent) => void
+  ): void {
     this.removeEventListener('change', fn);
   }
 
@@ -81,7 +91,7 @@ class MediaQueryListMock implements MediaQueryList {
   }
 }
 
-const matchMediaMock = (media: string): MediaQueryList =>
-  new MediaQueryListMock(media);
+const matchMediaMock = (media: string, matchString?: string): MediaQueryList =>
+  new MediaQueryListMock(media, matchString);
 
 export default matchMediaMock;

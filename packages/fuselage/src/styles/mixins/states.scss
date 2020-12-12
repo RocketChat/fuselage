@@ -24,9 +24,10 @@
 }
 
 @mixin on-focus-visible {
-  &:focus-visible {
-    @content;
-  }
+  // TODO: reenable this, :focus-visible is crashing the other selectors of this mixin when in production
+  // &:focus-visible {
+  //   @content;
+  // }
 
   @at-root .js-focus-visible &:focus.focus-visible, .js-focus-visible &.focus.focus-visible {
     @content;

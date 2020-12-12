@@ -7,10 +7,13 @@
 <b>Signature:</b>
 
 ```typescript
-export declare function useDebouncedReducer<S, R extends ReducerWithoutAction<S>, I>(reducer: R, initialArg: I, init: (arg: I) => ReducerStateWithoutAction<R>, delay: number): [ReducerStateWithoutAction<R>, DispatchWithoutAction & {
-    flush: () => void;
-    cancel: () => void;
-}];
+export declare function useDebouncedReducer<S, R extends ReducerWithoutAction<S>, I>(reducer: R, initialArg: I, init: (arg: I) => ReducerStateWithoutAction<R>, delay: number): [
+    ReducerStateWithoutAction<R>,
+    DispatchWithoutAction & {
+        flush: () => void;
+        cancel: () => void;
+    }
+];
 ```
 
 ## Parameters
@@ -24,5 +27,5 @@ export declare function useDebouncedReducer<S, R extends ReducerWithoutAction<S>
 
 <b>Returns:</b>
 
-\[ReducerStateWithoutAction&lt;R&gt;, DispatchWithoutAction &amp; { flush: () =&gt; void; cancel: () =&gt; void; }\]
+\[ ReducerStateWithoutAction&lt;R&gt;, DispatchWithoutAction &amp; { flush: () =&gt; void; cancel: () =&gt; void; } \]
 

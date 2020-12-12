@@ -3,7 +3,7 @@ const store = new WeakMap<(arg: unknown) => unknown, Map<unknown, unknown>>();
 export const memoize = <A, R>(fn: (arg: A) => R): typeof fn => {
   const cache = new Map<A, R>();
 
-  const memoized: typeof fn = function(this: unknown, arg) {
+  const memoized: typeof fn = function (this: unknown, arg) {
     if (cache.has(arg)) {
       return cache.get(arg);
     }
@@ -21,7 +21,9 @@ export const memoize = <A, R>(fn: (arg: A) => R): typeof fn => {
 };
 
 export const clear = <A, R>(fn: (arg: A) => R): void => {
-  if (store.has(fn)) {
-    store.get(fn)!.clear();
+  const x = store.get(fn);
+
+  if (x) {
+    x.clear();
   }
 };

@@ -62,3 +62,8 @@ $font-scales: map.keys(typography.$font-scales);
 
   text-overflow: ellipsis;
 }
+
+@mixin use-with-truncated-text {
+  @include use-text-ellipsis();
+  white-space: nowrap;
+}

@@ -1,18 +1,28 @@
-import { useState, useEffect, useCallback, Dispatch, SetStateAction } from 'react';
+import {
+  useState,
+  useEffect,
+  useCallback,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 
 const makeStorage = (
   storageFactory: Storage | (() => Storage),
-  name: string,
-): <T>(key: string, initialValue: T) => [T, Dispatch<SetStateAction<T>>] => {
+  name: string
+): (<T>(key: string, initialValue: T) => [T, Dispatch<SetStateAction<T>>]) => {
   let storage: Storage = null;
 
   if (typeof window !== 'undefined') {
-    storage = typeof storageFactory === 'function' ? storageFactory() : storageFactory;
+    storage =
+      typeof storageFactory === 'function' ? storageFactory() : storageFactory;
   }
 
-  const getKey = (key: string): string => `fuselage-${ name }-${ key }`;
+  const getKey = (key: string): string => `fuselage-${name}-${key}`;
 
-  return function useGenericStorage<T>(key: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] {
+  return function useGenericStorage<T>(
+    key: string,
+    initialValue: T
+  ): [T, Dispatch<SetStateAction<T>>] {
     const [storedValue, setStoredValue] = useState<T>(() => {
       if (!storage) {
         return initialValue;
@@ -22,13 +32,17 @@ const makeStorage = (
       return item ? JSON.parse(item) : initialValue;
     });
 
-    const setValue: Dispatch<SetStateAction<T>> = useCallback((value: T extends unknown ? SetStateAction<T> : never): void => {
-      setStoredValue((prevValue: T) => {
-        const valueToStore: T = typeof value === 'function' ? value(prevValue) : value;
-        storage.setItem(getKey(key), JSON.stringify(valueToStore));
-        return valueToStore;
-      });
-    }, [key]);
+    const setValue: Dispatch<SetStateAction<T>> = useCallback(
+      (value: T extends unknown ? SetStateAction<T> : never): void => {
+        setStoredValue((prevValue: T) => {
+          const valueToStore: T =
+            typeof value === 'function' ? value(prevValue) : value;
+          storage.setItem(getKey(key), JSON.stringify(valueToStore));
+          return valueToStore;
+        });
+      },
+      [key]
+    );
 
     useEffect(() => {
       const handleEvent = (event: StorageEvent): void => {
@@ -56,7 +70,10 @@ const makeStorage = (
  * @returns a state and a setter function
  * @public
  */
-export const useLocalStorage = makeStorage(() => window.localStorage, 'localStorage');
+export const useLocalStorage = makeStorage(
+  () => window.localStorage,
+  'localStorage'
+);
 
 /**
  * Hook to deal with sessionStorage
@@ -65,4 +82,7 @@ export const useLocalStorage = makeStorage(() => window.localStorage, 'localStor
  * @returns a state and a setter function
  * @public
  */
-export const useSessionStorage = makeStorage(() => window.sessionStorage, 'sessionStorage');
+export const useSessionStorage = makeStorage(
+  () => window.sessionStorage,
+  'sessionStorage'
+);

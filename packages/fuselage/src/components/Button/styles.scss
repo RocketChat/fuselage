@@ -78,12 +78,36 @@
     @include with-squared-size(
       $size: lengths.size(40),
     );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--tiny-square {
+    @include with-squared-size(
+      $size: lengths.size(24),
+    );
+  }
+
+  &--mini-square {
+    @include with-squared-size(
+      $size: lengths.size(20),
+    );
   }
 
   &--small-square {
     @include with-squared-size(
       $size: lengths.size(28),
     );
+  }
+
+  &--success {
+    color: colors.success(500);
+
+    &.disabled,
+    &:disabled {
+      color: colors.success(100);
+    }
   }
 
   &--danger {
@@ -103,19 +127,30 @@
     @extend %button--danger;
   }
 
+  &--primary-success {
+    @extend %button--success;
+  }
+
   &--ghost {
-    border-color: transparent;
-    background-color: transparent;
+    border-color: $button-colors-ghost-background-color;
+    background-color: $button-colors-ghost-border-color;
   }
 
   &--ghost-danger {
     color: colors.danger(500);
-    border-color: transparent;
-    background-color: transparent;
 
     &.disabled,
     &:disabled {
       color: colors.danger(100);
+    }
+  }
+
+  &--ghost-success {
+    color: colors.success(500);
+
+    &.disabled,
+    &:disabled {
+      color: colors.success(100);
     }
   }
 }

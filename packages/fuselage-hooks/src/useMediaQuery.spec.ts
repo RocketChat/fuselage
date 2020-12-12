@@ -2,9 +2,9 @@ import { FunctionComponent, createElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import resizeToMock from './__mocks__/resizeTo';
-import matchMediaMock from './__mocks__/matchMedia';
 import { useMediaQuery } from '.';
+import matchMediaMock from './__mocks__/matchMedia';
+import resizeToMock from './__mocks__/resizeTo';
 
 beforeAll(() => {
   window.resizeTo = resizeToMock;
@@ -24,7 +24,7 @@ it('does not register a undefined media query', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -40,7 +40,7 @@ it('does register a defined media query', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -57,7 +57,7 @@ it('returns false if no query is given', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -74,7 +74,7 @@ it('returns false if the media query does not match', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -93,7 +93,7 @@ it('returns true if the media query does match', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 
@@ -110,7 +110,7 @@ it('mutates its value to true if the media query matches', () => {
   act(() => {
     render(
       createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div'),
+      document.createElement('div')
     );
   });
 

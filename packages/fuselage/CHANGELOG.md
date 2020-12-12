@@ -3,6 +3,160 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.18.0...v0.19.0) (2020-11-28)
+
+
+### Bug Fixes
+
+* Avatar x40 ([#331](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/331)) ([a9cefbb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a9cefbb7d3580598a824b4d4e5f9c79aa7158219))
+* Fix object-fit for image element in Avatar component ([#335](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/335)) ([a024b83](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a024b831fad78e9c15d65f6985088c0514bed312))
+
+
+### Features
+
+* Remove Box from Avatar component ([#326](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/326)) ([0bc99a3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0bc99a325cbc963d9544e304a3f6f29e0089a976))
+
+
+
+
+
+# [0.18.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.3...v0.18.0) (2020-11-16)
+
+
+### Bug Fixes
+
+* Set a conservative output.environment on Webpack bundles ([#330](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/330)) ([62bf728](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/62bf728d3541d8d7ee72420347f2351359fb5df7))
+* Undo bad merge conflict ([#329](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/329)) ([aa9eb3b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/aa9eb3be3914d5bebc5fdca27c94af0d586eeb19))
+
+
+### Features
+
+* Menu burger ([#327](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/327)) ([f85c0b3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f85c0b3e5016ce08a278ffb2a8b987eeda31a767))
+* Remove Box dependence from Tag and Badge components ([#315](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/315)) ([4218e51](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4218e5108264ef830175b5e5f6bc1114d0367d93))
+
+
+
+
+
+## [0.17.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.2...v0.17.3) (2020-11-16)
+
+
+### Bug Fixes
+
+* Set a conservative output.environment on Webpack bundles ([#330](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/330)) ([85d4a3a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/85d4a3a5fd6881b07e97fb690d31baef405cfa69))
+
+
+
+
+
+## [0.17.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.1...v0.17.2) (2020-10-28)
+
+
+### Bug Fixes
+
+* Sidebar menu transition ([#313](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/313)) ([726fe3d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/726fe3d6aaad3453df6688ce8f501a09133d1b26))
+
+
+
+
+
+## [0.17.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.0...v0.17.1) (2020-10-26)
+
+**Note:** Version bump only for package @rocket.chat/fuselage
+
+
+
+
+
+# [0.17.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.16.0...v0.17.0) (2020-10-25)
+
+
+### Bug Fixes
+
+* Button ghost background var ([#310](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/310)) ([872f325](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/872f32544167511b8ae5ca86b9b8097c072b7a58))
+* change Icon size for action buttons ([#299](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/299)) ([2f47611](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2f476113cfa86e68181c609cf92724cdeb04cba2))
+* Disable :focus-visible for the time being ([#295](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/295)) ([6b115eb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6b115eb16b33fd38892188769c95aa213fbacdb9))
+* Fuselage: word-break Tooltip ([#290](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/290)) ([1c1ae6e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1c1ae6e27da65688e7f69d43ceb19cbf55a65bcf))
+* Menu transition ([#297](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/297)) ([074d7d7](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/074d7d705908bbd3f1915e3390745f1aea3e57c8))
+* Sidebar - Missing subcomponents ([#292](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/292)) ([9ccb237](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9ccb237a6e8759a036cdbabb01d52ac9650b5e9f))
+* Sidebar item menu position ([#293](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/293)) ([0fead45](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0fead455c72289d261b2ed065af1235318ac07a8))
+* Sidebar item menu: paddings ([#294](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/294)) ([d8095e6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d8095e69df0131b7b84b2bb96c032bc199eac647))
+* Sidebar Item wrapper ([#291](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/291)) ([9fa3bf0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9fa3bf032a2feaf28144b67b270c47b6d1c9b7ff))
+* Sidebar menu positioning ([#296](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/296)) ([5aa2a74](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5aa2a747cc3fae4ec06135bc14bbfad8312e13c4))
+* Sidebar wrapper ([#302](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/302)) ([b0ca72e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b0ca72eb9753e959086c93e31084743b7c09fdda))
+* Use dir attribute from documentElement ([#304](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/304)) ([f574b8c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f574b8c6b2ad09ad5fafa696ad539297bd782758))
+
+
+### Features
+
+* Add id attribute to style tag ([#307](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/307)) ([ca301a6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ca301a6b96f82df835a3513fd795c8394b1a97cb))
+* Added login icon, added badge wrapper ([#303](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/303)) ([70ae09c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/70ae09c0d5f53d492a1367ad7097da3323be386f))
+* Focus-within polyfill ([#306](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/306)) ([42d4147](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/42d41478678d74c730df9bcb30ab76e6b27314f1))
+* StatusBullet ([#301](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/301)) ([4b0c9ca](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4b0c9ca67d578a780d63c323fd5aef498d4131d0))
+* Tiny and Mini Button variations ([#298](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/298)) ([61aca91](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/61aca9145c55347f3bb563159ebff61415fb1db5))
+
+
+
+
+
+# [0.16.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.15.1...v0.16.0) (2020-09-30)
+
+
+### Bug Fixes
+
+* Sidebar ([#288](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/288)) ([175cb7b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/175cb7b4011f130035c02d9e541b67c04dfe5c30))
+
+
+### Features
+
+* Progress Bar ([#287](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/287)) ([74b8636](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/74b8636d7793bdb3b650f1fe06e3956dbf8eb42b))
+* Sass helper to box-shadow inset ([#289](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/289)) ([32e8f9f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/32e8f9f337f2ec7fb25d2449635dca7f3af309ec))
+
+
+
+
+
+## [0.15.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.15.0...v0.15.1) (2020-09-22)
+
+**Note:** Version bump only for package @rocket.chat/fuselage
+
+
+
+
+
+# [0.15.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.14.1...v0.15.0) (2020-09-17)
+
+
+### Bug Fixes
+
+* Divider variable color ([#285](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/285)) ([16e2f49](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/16e2f49d9adc26f1c1c2099ad417a5bcd37b1d5e))
+
+
+### Features
+
+* Sidebar Item ([#284](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/284)) ([44f8198](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/44f8198473f9d6385615aed59b855562dd3c784a))
+* Success Button ([#283](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/283)) ([d35f7b3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d35f7b3e92890e8915a0379f2dbbd6b596512f5b))
+
+
+
+
+
+## [0.14.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.14.0...v0.14.1) (2020-08-22)
+
+**Note:** Version bump only for package @rocket.chat/fuselage
+
+
+
+
+
+# [0.14.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.2...v0.14.0) (2020-08-18)
+
+**Note:** Version bump only for package @rocket.chat/fuselage
+
+
+
+
+
 ## [0.13.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.1...v0.13.2) (2020-07-24)
 
 **Note:** Version bump only for package @rocket.chat/fuselage

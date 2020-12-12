@@ -1,11 +1,14 @@
 {
   "name": "@rocket.chat/fuselage-tokens",
-  "version": "0.13.1",
+  "version": "0.19.0",
   "description": "Design tokens for Fuselage, Rocket.Chat's design system",
   "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
+  },
+  "scripts": {
+    "prettier-format": "prettier --config .prettierrc '**/*.js' --write"
   },
   "license": "MIT",
   "repository": {
@@ -25,5 +28,8 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.2"
   }
 }

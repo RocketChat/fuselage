@@ -1,0 +1,31 @@
+import {
+  compile,
+  Middleware,
+  middleware,
+  prefixer,
+  serialize,
+  stringify,
+} from 'stylis';
+
+import { createLogicalPropertiesMiddleware } from './logicalProperties';
+
+type MiddlewareOptions = {
+  isPropertySupported?: (property: string) => boolean;
+  isPropertyValueSupported?: (property: string, value: string) => boolean;
+};
+
+export const createTranspileMiddleware = (
+  options: MiddlewareOptions = {}
+): Middleware =>
+  middleware([createLogicalPropertiesMiddleware(options), prefixer, stringify]);
+
+const defaultMiddleware = createTranspileMiddleware();
+
+/**
+ * Transpiles CSS Modules content to CSS rules.
+ */
+export const transpile = (
+  selector: string,
+  content: string,
+  middleware: Middleware = defaultMiddleware
+): string => serialize(compile(`${selector}{${content}}`), middleware);

@@ -1,27 +1,32 @@
 import React, { useRef, useCallback } from 'react';
 
-import {
-  Button,
-  PositionAnimated,
-  Options,
-  Icon,
-  useCursor,
-} from '..';
+import { ActionButton, PositionAnimated, Options, useCursor } from '..';
 
 const menuAction = ([selected], options) => {
   options[selected].action();
 };
 
-const mapOptions = (options) => Object.entries(options).map(([value, { label }]) => [value, label]);
+const mapOptions = (options) =>
+  Object.entries(options).map(([value, { label }]) => [value, label]);
 
 export const Menu = ({
+  tiny,
+  mini,
+  small = tiny || mini ? null : true,
   options,
   optionWidth,
   placement = 'bottom-start',
   renderItem,
-  ...props }) => {
+  ...props
+}) => {
   const mappedOptions = mapOptions(options);
-  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] = useCursor(-1, mappedOptions, (args, [, hide]) => {
+  const [
+    cursor,
+    handleKeyDown,
+    handleKeyUp,
+    reset,
+    [visible, hide, show],
+  ] = useCursor(-1, mappedOptions, (args, [, hide]) => {
     menuAction(args, options);
     reset();
     hide();
@@ -33,26 +38,30 @@ export const Menu = ({
     ref.current.classList.add('focus-visible');
   }, [show]);
 
-  const handleSelection = useCallback((args) => {
-    menuAction(args, options);
-    reset();
-    hide();
-  }, [hide, reset, options]);
+  const handleSelection = useCallback(
+    (args) => {
+      menuAction(args, options);
+      reset();
+      hide();
+    },
+    [hide, reset, options]
+  );
 
   return (
     <>
-      <Button
+      <ActionButton
         ref={ref}
-        small
         ghost
+        small={small}
+        tiny={tiny}
+        mini={mini}
         onClick={onClick}
         onBlur={hide}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
+        icon='kebab'
         {...props}
-      >
-        <Icon name='kebab' size={20} />
-      </Button>
+      />
       <PositionAnimated
         width='auto'
         visible={visible}

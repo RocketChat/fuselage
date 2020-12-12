@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-mrkdwn: (text: UiKitText, context: BLOCK_CONTEXT, index: Number) => Component;
+mrkdwn: ElementRenderer<unknown, IMarkdown>;
 ```

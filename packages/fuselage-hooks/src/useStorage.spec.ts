@@ -1,4 +1,10 @@
-import { createElement, FunctionComponent, StrictMode, Dispatch, SetStateAction } from 'react';
+import {
+  createElement,
+  FunctionComponent,
+  StrictMode,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -15,7 +21,7 @@ describe('useLocalStorage hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -34,7 +40,7 @@ describe('useLocalStorage hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -57,7 +63,7 @@ describe('useSessionStorage hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 
@@ -76,7 +82,7 @@ describe('useSessionStorage hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 

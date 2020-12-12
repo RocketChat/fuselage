@@ -10,14 +10,18 @@ import { useMutableCallback } from './useMutableCallback';
  * @returns a state value and safe dispatcher pair
  * @public
  */
-export const useSafely = <S, A, D extends DispatchWithoutAction | Dispatch<A>>(
-  [state, dispatcher]: [S, Dispatch<A> | DispatchWithoutAction],
-): [S, D] => {
+export const useSafely = <S, A, D extends DispatchWithoutAction | Dispatch<A>>([
+  state,
+  dispatcher,
+]: [S, Dispatch<A> | DispatchWithoutAction]): [S, D] => {
   const dispatcherRef = useRef(dispatcher);
 
-  useEffect(() => () => {
-    dispatcherRef.current = () => undefined;
-  }, []);
+  useEffect(
+    () => () => {
+      dispatcherRef.current = () => undefined;
+    },
+    []
+  );
 
   const safeDispatcher = useMutableCallback((action?: A) => {
     const dispatcher = dispatcherRef.current;

@@ -8,4 +8,4 @@ import { useMediaQueries } from './useMediaQueries';
  * @public
  */
 export const useMediaQuery = (query?: string): boolean =>
-  !!useMediaQueries(...query ? [query] : [])[0];
+  !!useMediaQueries(...(query ? [query] : []))[0];

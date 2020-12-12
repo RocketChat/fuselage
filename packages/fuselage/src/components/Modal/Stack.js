@@ -1,5 +1,5 @@
-import ReactDOM from 'react-dom';
 import React, { useState, createContext, useContext } from 'react';
+import ReactDOM from 'react-dom';
 
 import { AnimatedVisibility, Box } from '../Box';
 
@@ -16,7 +16,7 @@ const createModalRoot = () => {
 export const ModalPortal = ({ children, rootElement = createModalRoot() }) =>
   ReactDOM.createPortal(children, rootElement);
 
-export const ModalBackdrop = (props) => <Box rcx-modal__backdrop {...props}/>;
+export const ModalBackdrop = (props) => <Box rcx-modal__backdrop {...props} />;
 
 export function ModalContainer() {
   const { stack } = useModalStack();
@@ -24,13 +24,17 @@ export function ModalContainer() {
   return (
     <ModalPortal>
       {stack.size > 0 && <ModalBackdrop />}
-      {Array.from(stack.entries()).map(([key, element], i, array) =>
+      {Array.from(stack.entries()).map(([key, element], i, array) => (
         <AnimatedVisibility
           key={key}
           children={element}
-          visibility={i === array.length - 1 ? AnimatedVisibility.VISIBLE : AnimatedVisibility.HIDDEN}
-        />,
-      )}
+          visibility={
+            i === array.length - 1
+              ? AnimatedVisibility.VISIBLE
+              : AnimatedVisibility.HIDDEN
+          }
+        />
+      ))}
     </ModalPortal>
   );
 }

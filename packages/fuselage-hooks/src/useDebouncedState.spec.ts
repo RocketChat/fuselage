@@ -1,4 +1,10 @@
-import { createElement, Dispatch, FunctionComponent, SetStateAction, StrictMode } from 'react';
+import {
+  createElement,
+  Dispatch,
+  FunctionComponent,
+  SetStateAction,
+  StrictMode,
+} from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -25,7 +31,7 @@ describe('useDebouncedState hook', () => {
     act(() => {
       render(
         createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div'),
+        document.createElement('div')
       );
     });
 

@@ -1,0 +1,148 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { Icon, SelectInput } from '../..';
+import { PropsVariationSection } from '../../../.storybook/helpers';
+
+<Meta title='Forms/Inputs/SelectInput' parameters={{ jest: ['SelectInput/spec'] }} />
+
+# SelectInput
+
+An input for selection of options.
+
+<Canvas>
+  <Story name='Default'>
+    <SelectInput>
+      <SelectInput.Option value='a'>Item A</SelectInput.Option>
+      <SelectInput.Option value='b'>Item B</SelectInput.Option>
+      <SelectInput.Option value='c'>Item C</SelectInput.Option>
+    </SelectInput>
+  </Story>
+</Canvas>
+
+<ArgsTable of={SelectInput} />
+
+## Multiple
+
+While the default variant only allows one option and its rendered as a dropdown, the `multiple` prop flag enables
+multiple selection of options.
+
+<Canvas>
+  <Story name='Multiple'>
+    <SelectInput multiple htmlSize={3} value={['b', 'c']}>
+      <SelectInput.Option value='a'>Item A</SelectInput.Option>
+      <SelectInput.Option value='b'>Item B</SelectInput.Option>
+      <SelectInput.Option value='c'>Item C</SelectInput.Option>
+    </SelectInput>
+  </Story>
+</Canvas>
+
+## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
+
+Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
+used.
+
+### With Addon
+
+There is a subtle difference in the way the `addon` prop is handled: it is ignored when `multiple` prop is `false`.
+
+<Canvas>
+  <Story name='With Addon'>
+    <SelectInput addon={<Icon name='discover' size='x20' />}>
+      <SelectInput.Option value='a'>Item A</SelectInput.Option>
+      <SelectInput.Option value='b'>Item B</SelectInput.Option>
+      <SelectInput.Option value='c'>Item C</SelectInput.Option>
+    </SelectInput>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='Multiple With Addon'>
+    <SelectInput multiple htmlSize={3} addon={<Icon name='discover' size='x20' />}>
+      <SelectInput.Option value='a'>Item A</SelectInput.Option>
+      <SelectInput.Option value='b'>Item B</SelectInput.Option>
+      <SelectInput.Option value='c'>Item C</SelectInput.Option>
+    </SelectInput>
+  </Story>
+</Canvas>
+
+### Invalid
+
+<Canvas>
+  <Story name='Invalid'>
+    <SelectInput error='Error'>
+      <SelectInput.Option value='a'>Item A</SelectInput.Option>
+      <SelectInput.Option value='b'>Item B</SelectInput.Option>
+      <SelectInput.Option value='c'>Item C</SelectInput.Option>
+    </SelectInput>
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name='Disabled'>
+    <SelectInput disabled>
+      <SelectInput.Option value='a'>Item A</SelectInput.Option>
+      <SelectInput.Option value='b'>Item B</SelectInput.Option>
+      <SelectInput.Option value='c'>Item C</SelectInput.Option>
+    </SelectInput>
+  </Story>
+</Canvas>
+
+### With placeholder
+
+<Canvas>
+  <Story name='With Placeholder'>
+    <SelectInput placeholder='Placeholder'>
+      <SelectInput.Option value='a'>Item A</SelectInput.Option>
+      <SelectInput.Option value='b'>Item B</SelectInput.Option>
+      <SelectInput.Option value='c'>Item C</SelectInput.Option>
+    </SelectInput>
+  </Story>
+</Canvas>
+
+### With value
+
+<Canvas>
+  <Story name='With Value'>
+    <SelectInput defaultValue='b'>
+      <SelectInput.Option value='a'>Item A</SelectInput.Option>
+      <SelectInput.Option value='b'>Item B</SelectInput.Option>
+      <SelectInput.Option value='c'>Item C</SelectInput.Option>
+    </SelectInput>
+  </Story>
+</Canvas>
+
+## States
+
+<Story name='States'>
+  <PropsVariationSection
+    component={SelectInput}
+    common={{
+      children: <>
+        <SelectInput.Option value='a'>Item A</SelectInput.Option>
+        <SelectInput.Option value='b'>Item B</SelectInput.Option>
+        <SelectInput.Option value='c'>Item C</SelectInput.Option>
+      </>,
+      onChange: () => {},
+    }}
+    xAxis={{
+      default: {},
+      'with placeholder': { placeholder: 'Placeholder' },
+      'with value': { value: 'b' },
+      multiple: { multiple: true, size: 3 },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+      errored: { error: 'Error' },
+      'errored + hover': { className: 'hover', error: 'Error' },
+      'errored + active': { className: 'active', error: 'Error' },
+      'errored + focus': { className: 'focus', error: 'Error' },
+    }}
+  />
+</Story>

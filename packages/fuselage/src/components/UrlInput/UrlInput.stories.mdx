@@ -1,0 +1,90 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+
+import { Icon, UrlInput } from '../..';
+import { PropsVariationSection } from '../../../.storybook/helpers';
+
+<Meta title='Forms/Inputs/UrlInput' parameters={{ jest: ['UrlInput/spec'] }} />
+
+# UrlInput
+
+An input for URL addresses.
+
+<Canvas>
+  <Story name='Default'>
+    <UrlInput />
+  </Story>
+</Canvas>
+
+<ArgsTable of={UrlInput} />
+
+## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
+
+Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
+used.
+
+### With Icon Addon
+
+<Canvas>
+  <Story name='With Icon Addon'>
+    <UrlInput addon={<Icon name='send' size='x20' />} />
+  </Story>
+</Canvas>
+
+### Invalid
+
+<Canvas>
+  <Story name='Invalid'>
+    <UrlInput error='Error' />
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name='Disabled'>
+    <UrlInput disabled />
+  </Story>
+</Canvas>
+
+### With placeholder
+
+<Canvas>
+  <Story name='With Placeholder'>
+    <UrlInput placeholder='Placeholder' />
+  </Story>
+</Canvas>
+
+### With value
+
+<Canvas>
+  <Story name='With Value'>
+    <UrlInput defaultValue='https://rocket.chat' />
+  </Story>
+</Canvas>
+
+## States
+
+<Story name='States'>
+  <PropsVariationSection
+    component={UrlInput}
+    common={{ onChange: () => {} }}
+    xAxis={{
+      default: {},
+      'with placeholder': { placeholder: 'Placeholder' },
+      'with value': { value: 'https://rocket.chat' },
+      'with icon': { addon: <Icon name='discover' size='x20' />, value: 'https://rocket.chat' },
+    }}
+    yAxis={{
+      default: {},
+      hover: { className: 'hover' },
+      active: { className: 'active' },
+      focus: { className: 'focus' },
+      disabled: { disabled: true },
+      errored: { error: 'Error' },
+      'errored + hover': { className: 'hover', error: 'Error' },
+      'errored + active': { className: 'active', error: 'Error' },
+      'errored + focus': { className: 'focus', error: 'Error' },
+    }}
+  />
+</Story>

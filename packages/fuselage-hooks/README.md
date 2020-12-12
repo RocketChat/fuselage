@@ -43,41 +43,47 @@ yarn add @rocket.chat/fuselage-hooks
 -   [useAutoFocus](#useautofocus)
     -   [Parameters](#parameters)
 -   [useBreakpoints](#usebreakpoints)
--   [useDebouncedCallback](#usedebouncedcallback)
+-   [useClipboard](#useclipboard)
     -   [Parameters](#parameters-1)
--   [useDebouncedReducer](#usedebouncedreducer)
+-   [useDebouncedCallback](#usedebouncedcallback)
     -   [Parameters](#parameters-2)
--   [useDebouncedState](#usedebouncedstate)
+-   [useDebouncedReducer](#usedebouncedreducer)
     -   [Parameters](#parameters-3)
--   [useDebouncedUpdates](#usedebouncedupdates)
+-   [useDebouncedState](#usedebouncedstate)
     -   [Parameters](#parameters-4)
--   [useDebouncedValue](#usedebouncedvalue)
+-   [useDebouncedUpdates](#usedebouncedupdates)
     -   [Parameters](#parameters-5)
+-   [useDebouncedValue](#usedebouncedvalue)
+    -   [Parameters](#parameters-6)
 -   [useIsomorphicLayoutEffect](#useisomorphiclayouteffect)
 -   [useLazyRef](#uselazyref)
-    -   [Parameters](#parameters-6)
--   [useMediaQueries](#usemediaqueries)
     -   [Parameters](#parameters-7)
--   [useMediaQuery](#usemediaquery)
+-   [useMediaQueries](#usemediaqueries)
     -   [Parameters](#parameters-8)
--   [useMergedRefs](#usemergedrefs)
+-   [useMediaQuery](#usemediaquery)
     -   [Parameters](#parameters-9)
--   [useMutableCallback](#usemutablecallback)
+-   [useMergedRefs](#usemergedrefs)
     -   [Parameters](#parameters-10)
--   [usePosition](#useposition)
+-   [useMutableCallback](#usemutablecallback)
     -   [Parameters](#parameters-11)
--   [useResizeObserver](#useresizeobserver)
+-   [usePosition](#useposition)
     -   [Parameters](#parameters-12)
--   [useSafely](#usesafely)
+-   [usePrefersColorScheme](#usepreferscolorscheme)
     -   [Parameters](#parameters-13)
--   [useStableArray](#usestablearray)
+-   [usePrefersReducedData](#useprefersreduceddata)
+-   [usePrefersReducedMotion](#useprefersreducedmotion)
+-   [useResizeObserver](#useresizeobserver)
     -   [Parameters](#parameters-14)
--   [useLocalStorage](#uselocalstorage)
+-   [useSafely](#usesafely)
     -   [Parameters](#parameters-15)
--   [useSessionStorage](#usesessionstorage)
+-   [useStableArray](#usestablearray)
     -   [Parameters](#parameters-16)
--   [useToggle](#usetoggle)
+-   [useLocalStorage](#uselocalstorage)
     -   [Parameters](#parameters-17)
+-   [useSessionStorage](#usesessionstorage)
+    -   [Parameters](#parameters-18)
+-   [useToggle](#usetoggle)
+    -   [Parameters](#parameters-19)
 -   [useUniqueId](#useuniqueid)
 
 ### useAutoFocus
@@ -96,6 +102,20 @@ Returns **Ref&lt;{focus: function (options: FocusOptions): void}>** the ref whic
 Hook to catch which responsive design' breakpoints are active.
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** an array of the active breakpoint names
+
+### useClipboard
+
+Hook to copy the passed content to the clipboard.
+
+#### Parameters
+
+-   `text` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `$1` **UseClipboardParams**  (optional, default `{}`)
+    -   `$1.clearTime`   (optional, default `2000`)
+    -   `$1.onCopySuccess`   (optional, default `():void=>undefined`)
+    -   `$1.onCopyError`   (optional, default `():void=>undefined`)
+
+Returns **UseClipboardReturn** an object with the copy function and the hasCopied state
 
 ### useDebouncedCallback
 
@@ -225,6 +245,28 @@ Hook to deal and position an element using an anchor
 -   `targetEl`  the element to be positioned
 
 Returns **PositionResult** The style containing top and left position
+
+### usePrefersColorScheme
+
+Hook to get the prefers-color-scheme value.
+
+#### Parameters
+
+-   `scheme` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-color-scheme matches
+
+### usePrefersReducedData
+
+Hook to get the prefers-reduce-data value.
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-reduce-data is set reduce in the media queries that matches
+
+### usePrefersReducedMotion
+
+Hook to get the prefers-reduce-motion value.
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the prefers-reduce-motion is set reduce in the media queries that matches
 
 ### useResizeObserver
 

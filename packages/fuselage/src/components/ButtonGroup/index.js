@@ -11,21 +11,30 @@ export function ButtonGroup({
   stretch,
   vertical,
   wrap,
+  small,
+  medium,
   ...props
 }) {
-  return <Box
-    rcx-button-group
-    rcx-button-group--align={align}
-    rcx-button-group--stretch={stretch}
-    rcx-button-group--vertical={vertical}
-    rcx-button-group--wrap={wrap}
-    role='group'
-    {...props}
-  >
-    {patchChildren(children, (childProps) => ({
-      className: appendClassName(childProps.className, 'rcx-button-group__item'),
-    }))}
-  </Box>;
+  return (
+    <Box
+      rcx-button-group
+      rcx-button-group--align={align}
+      rcx-button-group--stretch={stretch}
+      rcx-button-group--vertical={vertical}
+      rcx-button-group--small={small}
+      rcx-button-group--medium={medium}
+      rcx-button-group--wrap={wrap}
+      role='group'
+      {...props}
+    >
+      {patchChildren(children, (childProps) => ({
+        className: appendClassName(
+          childProps.className,
+          'rcx-button-group__item'
+        ),
+      }))}
+    </Box>
+  );
 }
 
 ButtonGroup.defaultProps = {
@@ -41,4 +50,6 @@ ButtonGroup.propTypes = {
   vertical: PropTypes.bool,
   /** Will wrap the items when they exceed the container space? */
   wrap: PropTypes.bool,
+  small: PropTypes.bool,
+  medium: PropTypes.bool,
 };

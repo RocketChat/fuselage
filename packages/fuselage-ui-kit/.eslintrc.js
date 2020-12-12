@@ -1,42 +1,54 @@
-const path = require('path');
-
 module.exports = {
-  extends: ['@rocket.chat/eslint-config'],
-  plugins: ['react'],
-  parser: 'babel-eslint',
-  parserOptions:{
-    "ecmaVersion": 11,
-    "sourceType": "module",
-    "allowImportExportEverywhere": true
-  },
+  extends: [
+    '@rocket.chat/eslint-config',
+    'prettier',
+  ],
+  plugins: ['react', 'react-hooks', 'prettier'],
+  parser: '@babel/eslint-parser',
   rules: {
-    indent: ['error', 2],
+    'generator-star-spacing': ['error', 'before'],
     'import/order': ['error', {
       'newlines-between': 'always',
-      groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']]
+      groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
+      alphabetize: {
+        order: 'asc',
+      },
     }],
+    'indent': 'off',
     'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     'react/jsx-no-undef': 'error',
     'react/jsx-fragments': ['error', 'syntax'],
+    'react/react-in-jsx-scope': 'error',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'prettier/prettier': 2,
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: [
-          '.js',
-          '.ts',
-          '.tsx'
-        ],
+        extensions: ['.js', '.ts', '.tsx'],
       },
     },
     react: {
       version: 'detect',
     },
   },
-  'env': {
-    'jest': true,
+  env: {
+    jest: true,
   },
+  overrides: [
+    {
+      files: ['*.mdx'],
+      extends: ['plugin:mdx/recommended'],
+      parserOptions: {
+        parser: '@babel/eslint-parser',
+      },
+      rules: {
+        semi: 'off',
+        'new-cap': 'off',
+      },
+    },
+  ],
 };
-

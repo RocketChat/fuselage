@@ -1,5 +1,8 @@
 @use '../colors.scss';
 
+$button-colors-ghost-background-color: theme('button-colors-ghost-background-color', transparent);
+$button-colors-ghost-border-color: theme('button-colors-ghost-border-color', transparent);
+
 $button-colors-primary-background-color: theme('button-colors-primary-background-color', colors.primary(500));
 $button-colors-primary-border-color: theme('button-colors-primary-border-color', colors.primary(500));
 $button-colors-primary-color: theme('button-colors-primary-color', colors.foreground(alternative));
@@ -27,6 +30,20 @@ $button-colors-secondary-focus-shadow-color: theme('button-colors-secondary-focu
 $button-colors-secondary-disabled-background-color: theme('button-colors-secondary-disabled-background-color', colors.neutral(100));
 $button-colors-secondary-disabled-border-color: theme('button-colors-secondary-disabled-border-color', colors.neutral(100));
 $button-colors-secondary-disabled-color: theme('button-colors-secondary-disabled-color', colors.neutral(400));
+
+$button-colors-success-background-color: theme('button-colors-success-background-color', colors.success(500));
+$button-colors-success-border-color: theme('button-colors-success-border-color', colors.success(500));
+$button-colors-success-color: theme('button-colors-success-color', colors.foreground(alternative));
+$button-colors-success-hover-background-color: theme('button-colors-success-hover-background-color', colors.success(600));
+$button-colors-success-hover-border-color: theme('button-colors-success-hover-border-color', colors.success(600));
+$button-colors-success-active-background-color: theme('button-colors-success-active-background-color', colors.success(700));
+$button-colors-success-active-border-color: theme('button-colors-success-active-border-color', colors.success(700));
+$button-colors-success-focus-background-color: theme('button-colors-success-focus-background-color', colors.success(500));
+$button-colors-success-focus-border-color: theme('button-colors-success-focus-border-color', colors.success(700));
+$button-colors-success-focus-shadow-color: theme('button-colors-success-focus-shadow-color', colors.success(100));
+$button-colors-success-disabled-background-color: theme('button-colors-success-disabled-background-color', colors.success(200));
+$button-colors-success-disabled-border-color: theme('button-colors-success-disabled-border-color', colors.success(200));
+$button-colors-success-disabled-color: theme('button-colors-success-disabled-color', colors.foreground(alternative));
 
 $button-colors-danger-background-color: theme('button-colors-danger-background-color', colors.danger(500));
 $button-colors-danger-border-color: theme('button-colors-danger-border-color', colors.danger(500));

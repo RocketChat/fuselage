@@ -9,6 +9,7 @@ $-map-type-to-prefix: (
   info: 'b',
   success: 'g',
   warning: 'y',
+  warning-alternative: 'o',
   danger: 'r',
 );
 
@@ -67,6 +68,11 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
+@function warning-alternative($grade, $alpha: null) {
+  $pair: _get-palette-color(warning-alternative, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
 @function danger($grade, $alpha: null) {
   $pair: _get-palette-color(danger, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));
@@ -86,6 +92,7 @@ $-foreground-colors: (
   success: map.get(token-colors.$colors, g500),
   danger: map.get(token-colors.$colors, r500),
   warning: map.get(token-colors.$colors, y700),
+  warning-alternative: map.get(token-colors.$colors, y500),
   link: map.get(token-colors.$colors, b500),
   visited-link: map.get(token-colors.$colors, p500),
   active-link: map.get(token-colors.$colors, r500),

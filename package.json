@@ -2,13 +2,14 @@
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "devDependencies": {
     "cross-env": "^7.0.2",
     "fs-extra": "^9.0.0",
-    "gh-pages": "^2.2.0",
     "husky": "^4.2.3",
     "lerna": "^3.20.2"
   },
@@ -16,11 +17,10 @@
     "build": "lerna run build --stream",
     "postinstall": "lerna run build --stream",
     "build-storybook": "lerna run build-storybook --parallel --stream",
-    "test": "lerna run test",
+    "test": "lerna run test:ci --stream",
     "lint": "lerna run lint",
     "lint-staged": "lerna run lint-staged",
-    "storybook": "lerna run storybook --parallel",
-    "heroku-postbuild": "./.heroku/build.js"
+    "storybook": "lerna run storybook --parallel"
   },
   "husky": {
     "hooks": {

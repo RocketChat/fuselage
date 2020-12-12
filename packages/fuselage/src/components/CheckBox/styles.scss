@@ -13,6 +13,10 @@
 
   &__fake {
     @extend %selection-button__fake;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     border-radius: lengths.border-radius(2);
     inline-size: lengths.size(20);
     direction: ltr;
@@ -20,14 +24,11 @@
     &::before,
     &::after {
       position: absolute;
-      inset-block-start: 50%;
-      inset-inline-start: 50%;
 
       display: block;
       visibility: hidden;
 
       content: '';
-      transform: translate(-50%, -50%);
 
       opacity: 0;
 
@@ -60,7 +61,6 @@
       height: $icon-thickness;
 
       transform:
-        translate(-50%, -50%)
         translate($icon-size * lengths.size(20) / -3, $icon-size * lengths.size(20) / 6)
         rotate(-45deg)
         translate($icon-size * lengths.size(20) / 2, $icon-size * lengths.size(20) / 6);
@@ -71,7 +71,6 @@
       height: 0.5 * $icon-size * lengths.size(20);
 
       transform:
-        translate(-50%, -50%)
         translate($icon-size * lengths.size(20) / -3, $icon-size * lengths.size(20) / 6)
         rotate(-45deg);
     }

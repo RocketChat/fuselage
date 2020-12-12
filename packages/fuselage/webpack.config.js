@@ -9,11 +9,20 @@ module.exports = (env, { mode = 'production' }) => ({
     fuselage: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
-    filename: `[name].${ mode }.js`,
+    filename: `[name].${mode}.js`,
     path: path.resolve(__dirname, 'dist'),
     library: 'RocketChatFuselage',
     libraryTarget: 'umd',
     umdNamedDefine: true,
+    environment: {
+      arrowFunction: false,
+      bigIntLiteral: false,
+      const: false,
+      destructuring: false,
+      dynamicImport: false,
+      forOf: false,
+      module: false,
+    },
   },
   devtool: mode === 'production' ? false : 'source-map',
   module: {
@@ -29,6 +38,9 @@ module.exports = (env, { mode = 'production' }) => ({
           {
             loader: 'style-loader',
             options: {
+              attributes: {
+                id: 'fuselage-style',
+              },
               injectType: 'lazySingletonStyleTag',
             },
           },
@@ -41,14 +53,16 @@ module.exports = (env, { mode = 'production' }) => ({
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [
-                require('postcss-custom-properties')(),
-                require('postcss-logical')({ preserve: true }),
-                require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
-                require('autoprefixer')(),
-                mode === 'production' && require('cssnano'),
-              ].filter(Boolean),
+              postcssOptions: {
+                plugins: [
+                  require('postcss-svg')(),
+                  require('postcss-custom-properties')(),
+                  require('postcss-logical')({ preserve: true }),
+                  require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
+                  require('autoprefixer')(),
+                  mode === 'production' && require('cssnano'),
+                ].filter(Boolean),
+              },
             },
           },
           'sass-loader',

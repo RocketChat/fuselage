@@ -3,6 +3,106 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.18.0...v0.19.0) (2020-11-28)
+
+**Note:** Version bump only for package @rocket.chat/ui-kit
+
+
+
+
+
+# [0.18.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.3...v0.18.0) (2020-11-16)
+
+
+### Bug Fixes
+
+* Set a conservative output.environment on Webpack bundles ([#330](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/330)) ([62bf728](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/62bf728d3541d8d7ee72420347f2351359fb5df7))
+
+
+
+
+
+## [0.17.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.2...v0.17.3) (2020-11-16)
+
+
+### Bug Fixes
+
+* Set a conservative output.environment on Webpack bundles ([#330](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/330)) ([85d4a3a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/85d4a3a5fd6881b07e97fb690d31baef405cfa69))
+
+
+
+
+
+## [0.17.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.1...v0.17.2) (2020-10-28)
+
+**Note:** Version bump only for package @rocket.chat/ui-kit
+
+
+
+
+
+## [0.17.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.17.0...v0.17.1) (2020-10-26)
+
+**Note:** Version bump only for package @rocket.chat/ui-kit
+
+
+
+
+
+# [0.17.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.16.0...v0.17.0) (2020-10-25)
+
+**Note:** Version bump only for package @rocket.chat/ui-kit
+
+
+
+
+
+# [0.16.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.15.1...v0.16.0) (2020-09-30)
+
+**Note:** Version bump only for package @rocket.chat/ui-kit
+
+
+
+
+
+## [0.15.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.15.0...v0.15.1) (2020-09-22)
+
+**Note:** Version bump only for package @rocket.chat/ui-kit
+
+
+
+
+
+# [0.15.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.14.1...v0.15.0) (2020-09-17)
+
+**Note:** Version bump only for package @rocket.chat/ui-kit
+
+
+
+
+
+## [0.14.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.14.0...v0.14.1) (2020-08-22)
+
+
+### Bug Fixes
+
+* UiKit - conditional block ([38d57ea](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/38d57ea9005aafc3820316beacfda43f620fa93f))
+
+
+
+
+
+# [0.14.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.2...v0.14.0) (2020-08-18)
+
+
+### Features
+
+* UiKit types ([#274](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/274)) ([e2ea79b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e2ea79b02a0fd6492c3fad06ba57cbb88d89da2b))
+
+
+
+
+
 ## [0.13.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.13.0...v0.13.1) (2020-07-17)
 
 

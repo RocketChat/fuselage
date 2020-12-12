@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Item } from './Item';
 import { Box } from '../Box';
+import { Item } from './Item';
 
 export function Accordion(props) {
-  return <Box rcx-accordion {...props} />;
+  return <Box animated rcx-accordion {...props} />;
 }
 
 Accordion.propTypes = {
