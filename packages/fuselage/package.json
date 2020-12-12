@@ -67,6 +67,7 @@
     "@rocket.chat/fuselage-polyfills": "^0.19.0",
     "@storybook/addon-actions": "^6.0.21",
     "@storybook/addon-backgrounds": "^6.0.21",
+    "@storybook/addon-controls": "^6.1.10",
     "@storybook/addon-docs": "^6.0.21",
     "@storybook/addon-jest": "^6.0.21",
     "@storybook/addon-knobs": "^6.0.21",
