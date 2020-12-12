@@ -13,6 +13,11 @@
 
   &__inner {
     min-width: lengths.size(none);
+
+    color: colors.foreground(default);
+    border-radius: lengths.border-radius(2);
+    background-color: colors.surface();
+    @include typography.use-font-scale(p1);
   }
 
   &__title {
