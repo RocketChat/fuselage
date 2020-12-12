@@ -4,8 +4,8 @@ import { Box } from '../Box';
 import Margins from '../Margins';
 
 export const ModalHeader = ({ children, ...props }) => (
-  <Box is='header' margin={32} {...props}>
-    <Box display='flex' margin={-8} alignItems='center' flexWrap='nowrap'>
+  <Box rcx-modal__header is='header' {...props}>
+    <Box rcx-modal__header-inner>
       <Margins all='x8'>{children}</Margins>
     </Box>
   </Box>

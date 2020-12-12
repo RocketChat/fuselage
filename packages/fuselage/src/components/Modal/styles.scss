@@ -5,37 +5,66 @@
 .rcx-modal {
   position: static;
 
-  width: lengths.size(full);
-  max-height: lengths.size(full);
+  display: flex;
+
+  width: 100%;
+  max-height: 100%;
   margin: auto;
 
   background: none;
 
   &__inner {
-    min-width: lengths.size(none);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    min-width: 0;
+    padding: 0;
 
     color: colors.foreground(default);
-    border-radius: lengths.border-radius(2);
+    border-radius: 2px;
     background-color: colors.surface();
     @include typography.use-font-scale(p1);
   }
 
+  &__header {
+    margin: 32px;
+  }
+
+  &__header-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    margin: -8px;
+  }
+
   &__title {
     @include typography.use-text-ellipsis;
+    flex-grow: 1;
+    flex-shrink: 1;
+
     white-space: nowrap;
+
+    color: colors.foreground('default');
+    @include typography.use-font-scale(h1);
   }
 
   &__backdrop {
     position: fixed;
 
     z-index: 100;
-    inset: lengths.inset(none);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
 
     background-color: colors.neutral(800, $alpha: 0.5);
+  }
+
+  &__footer {
+    margin: 32px;
+  }
+
+  &__content-wrapper {
+    margin-inline: 32px;
   }
 
   @include on-breakpoint(sm) {
