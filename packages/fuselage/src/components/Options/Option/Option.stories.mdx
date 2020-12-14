@@ -2,7 +2,7 @@ import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 
 import { Option } from '.';
-import { Box, Avatar, Menu } from '../..';
+import { Box, Avatar, Menu, StatusBullet } from '../..';
 import { exampleAvatar, menuOptions } from '../../../../.storybook/helpers.js';
 
 <Meta title='Misc/Options/Option' parameters={{ jest: ['Option/spec'] }} />
@@ -14,50 +14,80 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
 <Canvas>
   <Story name='Default'>
     <Box position='relative' maxWidth={250}>
-      <Option 
-      >Lorem Ipsum Lorem</Option>
+      <Option>
+        <Option.Content>Lorem Ipsum Lorem</Option.Content>
+      </Option>
     </Box>
   </Story>
 </Canvas>
+
+## With avatar
 
 <Canvas>
   <Story name='withAvatar'>
     <Box position='relative' maxWidth={250}>
-      <Option 
-        avatar={<Avatar url={exampleAvatar} size='x28' />}
-      >Lorem Ipsum Lorem</Option>
+      <Option>
+        <Option.Avatar>
+          <Avatar url={exampleAvatar} size='x28' />
+        </Option.Avatar>
+        <Option.Content>Lorem Ipsum Lorem</Option.Content>
+      </Option>
     </Box>
   </Story>
 </Canvas>
+
+## With presence
 
 <Canvas>
   <Story name='withPresence'>
     <Box position='relative' maxWidth={250}>
-      <Option 
-        presence
-      >Lorem Ipsum Lorem</Option>
+      <Option>
+        <Option.Column><StatusBullet /></Option.Column>
+        <Option.Content>Lorem Ipsum Lorem</Option.Content>
+      </Option>
     </Box>
   </Story>
 </Canvas>
+
+## With menu
 
 <Canvas>
   <Story name='withMenu'>
     <Box position='relative' maxWidth={250}>
-      <Option 
-        label='Lorem Ipsum Lorem'
-      ><Menu options={menuOptions} /></Option>
+      <Option>
+        <Option.Content>Lorem Ipsum Lorem</Option.Content>
+        <Option.Menu><Menu options={menuOptions} /></Option.Menu>
+      </Option>
     </Box>
   </Story>
 </Canvas>
 
+## As UserItem
+
 <Canvas>
   <Story name='asUserItem'>
+    <Box maxWidth={330}>
+      <Option>
+        <Option.Avatar>
+          <Avatar url={exampleAvatar} size='x28' />
+        </Option.Avatar> 
+        
+        <Option.Column><StatusBullet status='online' /></Option.Column>
+        <Option.Content>
+          <Box withTruncatedText fontScale='p1'>carla.culhane <Box is='span' color='neutral-500'>(carla hune)</Box></Box>
+        </Option.Content>
+        <Option.Menu><Menu options={menuOptions} /></Option.Menu>
+      </Option>
+    </Box>
+  </Story>
+</Canvas>
+
+## As Skeleton
+
+<Canvas>
+  <Story name='Skeleton'>
     <Box position='relative' maxWidth={330}>
-      <Option 
-        avatar={<Avatar url={exampleAvatar} size='x28' />}
-        presence='online'
-        label={<Box withTruncatedText>carla.culhane <Box is='span' color='neutral-500'>(carla hune)</Box></Box>}
-      ><Menu options={menuOptions} /></Option>
+      <Option.Skeleton /> 
     </Box>
   </Story>
 </Canvas>

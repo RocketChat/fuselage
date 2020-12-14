@@ -4,8 +4,10 @@
 
 .rcx-option {
   @include clickable;
-  @include typography.use-font-scale(p2);
+  @include typography.use-font-scale(p1);
   @include typography.use-text-ellipsis;
+  display: flex;
+  align-items: center;
 
   padding: lengths.padding(4) lengths.padding(16);
 
@@ -21,6 +23,47 @@
   &--selected {
     background: colors.neutral(500);
   }
+
+  &:hover &__menu-wraper,
+  &.focus-within &__menu-wraper {
+    width: lengths.size(32);
+
+    margin-inline: lengths.margin(4);
+
+    opacity: 1;
+  }
+
+  &:focus-within &__menu-wraper {
+    width: lengths.size(32);
+
+    margin-inline: lengths.margin(4);
+
+    opacity: 1;
+  }
+
+  &__menu-wraper {
+    flex-shrink: 0;
+
+    width: 0;
+
+    height: 100%;
+
+    opacity: 0;
+  }
+}
+
+.rcx-option-avatar {
+  margin-inline-end: lengths.margin(4);
+}
+
+.rcx-option-content {
+  @include typography.use-text-ellipsis;
+  width: 100%;
+  margin-inline: lengths.margin(4);
+}
+
+.rcx-option-column {
+  margin-inline: lengths.margin(4);
 }
 
 .rcx-options:hover {

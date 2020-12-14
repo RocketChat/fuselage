@@ -1,59 +1,68 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 
-import { Box } from '../../Box';
 import { Icon } from '../../Icon';
-import Margins from '../../Margins';
-import { StatusBullet } from '../../StatusBullet';
+import { Skeleton } from '../../Skeleton';
 
-const Li = forwardRef(function Li({ children, ...props }, ref) {
+const OptionColumn = ({ children }) => (
+  <div className='rcx-option-column'>{children}</div>
+);
+const OptionContent = ({ children }) => (
+  <div className='rcx-option-content'>{children}</div>
+);
+const OptionAvatar = ({ children }) => (
+  <div className='rcx-option-avatar'>{children}</div>
+);
+const OptionIcon = ({ icon }) => <Icon size='x16' name={icon} />;
+
+const OptionSkeleton = () => {
   return (
-    <Box rcx-option withTruncatedText is='li' ref={ref} {...props}>
-      <Box withTruncatedText display='flex' alignItems='center' mi='neg-x4'>
-        <Margins inline='x4'>{children}</Margins>
-      </Box>
-    </Box>
+    <Option>
+      <Option.Avatar>
+        <Skeleton variant='rect' width={28} height={28} />
+      </Option.Avatar>
+      <Option.Content>
+        <Skeleton width='100%' />
+      </Option.Content>
+    </Option>
   );
-});
+};
+
+export const OptionMenu = ({ children }) => (
+  <div className='rcx-box--animated rcx-option__menu-wraper'>{children}</div>
+);
 
 export const Option = React.memo(
   ({
     id,
-    avatar,
     presence,
     children,
-    label = children,
+    label,
     focus,
     selected,
-    icon,
     className,
+    ref,
     ...options
   }) => (
-    <Li
+    <li
       key={id}
-      rcx-option--focus={focus}
       id={id}
-      rcx-option--selected={selected}
+      ref={ref}
       aria-selected={selected}
       {...options}
+      className={`rcx-option ${className}
+        ${focus ? 'rcx-option--focus' : ''}
+        ${focus ? 'rcx-option--selected' : ''}
+      `}
     >
-      {avatar}
-      {presence && (
-        <Box marginInline='x8' marginInlineEnd='x4'>
-          <StatusBullet status={presence} />
-        </Box>
-      )}
-      {icon && <Icon size='x16' name={icon} />}{' '}
-      <Box
-        is='span'
-        className={className}
-        withTruncatedText
-        flexGrow={1}
-        fontScale='p1'
-        color='default'
-      >
-        {label}
-      </Box>
+      {label && <div className='rcx-option-content'>{label}</div>}
       {label !== children && children}
-    </Li>
+    </li>
   )
 );
+
+Option.Skeleton = OptionSkeleton;
+Option.Avatar = OptionAvatar;
+Option.Menu = OptionMenu;
+Option.Icon = OptionIcon;
+Option.Column = OptionColumn;
+Option.Content = OptionContent;
