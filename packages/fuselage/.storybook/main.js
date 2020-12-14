@@ -4,14 +4,13 @@ module.exports = {
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-backgrounds',
+    '@storybook/addon-controls',
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
     '@storybook/addon-viewport',
-    ...process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : [],
+    ...(process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : []),
   ],
-  stories: [
-    '../src/**/*.stories.{mdx,js}',
-  ],
+  stories: ['../src/**/*.stories.{mdx,js}'],
   webpackFinal: (config) => {
     config.module.rules.push({
       test: /\.scss$/,
