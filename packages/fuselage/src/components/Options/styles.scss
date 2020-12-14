@@ -15,6 +15,14 @@
 
   white-space: nowrap;
 
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+
+    margin-inline: lengths.margin(-4);
+  }
+
   &:hover,
   &--focus {
     background: colors.neutral(400);
@@ -52,18 +60,22 @@
   }
 }
 
-.rcx-option-avatar {
-  margin-inline-end: lengths.margin(4);
+%column {
+  margin-inline: lengths.margin(4);
 }
 
-.rcx-option-content {
+.rcx-option__avatar {
+  @extend %column;
+}
+
+.rcx-option__content {
   @include typography.use-text-ellipsis;
+  @extend %column;
   width: 100%;
-  margin-inline: lengths.margin(4);
 }
 
-.rcx-option-column {
-  margin-inline: lengths.margin(4);
+.rcx-option__column {
+  @extend %column;
 }
 
 .rcx-options:hover {

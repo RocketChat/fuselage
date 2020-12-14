@@ -4,15 +4,19 @@ import { Icon } from '../../Icon';
 import { Skeleton } from '../../Skeleton';
 
 const OptionColumn = ({ children }) => (
-  <div className='rcx-option-column'>{children}</div>
+  <div className='rcx-option__column'>{children}</div>
 );
 const OptionContent = ({ children }) => (
-  <div className='rcx-option-content'>{children}</div>
+  <div className='rcx-option__content'>{children}</div>
 );
 const OptionAvatar = ({ children }) => (
-  <div className='rcx-option-avatar'>{children}</div>
+  <div className='rcx-option__avatar'>{children}</div>
 );
-const OptionIcon = ({ icon }) => <Icon size='x16' name={icon} />;
+const OptionIcon = ({ icon }) => (
+  <OptionContent>
+    <Icon size='x16' name={icon} />
+  </OptionContent>
+);
 
 const OptionSkeleton = () => {
   return (
@@ -54,8 +58,10 @@ export const Option = React.memo(
         ${selected ? 'rcx-option--selected' : ''}
       `}
     >
-      {label && <div className='rcx-option-content'>{label}</div>}
-      {label !== children && children}
+      <div className='rcx-option__wrapper'>
+        {label && <Option.Content>{label}</Option.Content>}
+        {label !== children && children}
+      </div>
     </li>
   )
 );
