@@ -51,7 +51,7 @@ export const Option = React.memo(
       {...options}
       className={`rcx-option ${className}
         ${focus ? 'rcx-option--focus' : ''}
-        ${focus ? 'rcx-option--selected' : ''}
+        ${selected ? 'rcx-option--selected' : ''}
       `}
     >
       {label && <div className='rcx-option-content'>{label}</div>}
