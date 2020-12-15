@@ -342,5 +342,5 @@ declare module '@rocket.chat/fuselage' {
 	};
 	export const Select: ForwardRefExoticComponent<SelectProps>;
 
-	export const Divider: React.FC;
+	export const Divider: ForwardRefExoticComponent<BoxProps>;
 }
