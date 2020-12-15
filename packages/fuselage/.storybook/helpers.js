@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box } from '../src';
+import { Box, Icon } from '../src';
 
 export function PropsVariationSection({
   component: Component,
@@ -107,3 +107,24 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII=`;
 
 export const blankAvatar = `data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BA
 AAAAAALAAAAAABAAEAAAICRAEAOw==`;
+
+export const menuOptions = {
+  makeAdmin: {
+    label: (
+      <Box display='flex' alignItems='center'>
+        <Icon mie='x4' name='key' size='x16' />
+        Make Admin
+      </Box>
+    ),
+    action: () => console.log('[...] is now admin'),
+  },
+  delete: {
+    label: (
+      <Box display='flex' alignItems='center' color='danger'>
+        <Icon mie='x4' name='trash' size='x16' />
+        Delete
+      </Box>
+    ),
+    action: () => console.log('[...] no longer exists'),
+  },
+};
