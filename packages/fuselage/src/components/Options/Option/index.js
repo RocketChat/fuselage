@@ -3,24 +3,27 @@ import React from 'react';
 import { Icon } from '../../Icon';
 import { Skeleton } from '../../Skeleton';
 
-const OptionColumn = ({ children }) => (
-  <div className='rcx-option__column'>{children}</div>
+const OptionColumn = (props) => (
+  <div className='rcx-option__column' {...props} />
 );
-const OptionContent = ({ children }) => (
-  <div className='rcx-option__content'>{children}</div>
+const OptionContent = (props) => (
+  <div className='rcx-option__content' {...props} />
 );
-const OptionAvatar = ({ children }) => (
-  <div className='rcx-option__avatar'>{children}</div>
+const OptionAvatar = (props) => (
+  <div className='rcx-option__avatar' {...props} />
 );
-const OptionIcon = ({ icon }) => (
-  <OptionContent>
-    <Icon size='x16' name={icon} />
-  </OptionContent>
+const OptionDescription = (props) => (
+  <div className='rcx-option__description' {...props} />
+);
+const OptionIcon = ({ name }) => (
+  <OptionColumn>
+    <Icon size='x16' name={name} />
+  </OptionColumn>
 );
 
-const OptionSkeleton = () => {
+const OptionSkeleton = (props) => {
   return (
-    <Option>
+    <Option {...props}>
       <Option.Avatar>
         <Skeleton variant='rect' width={28} height={28} />
       </Option.Avatar>
@@ -31,12 +34,13 @@ const OptionSkeleton = () => {
   );
 };
 
-export const OptionMenu = ({ children }) => (
-  <div className='rcx-box--animated rcx-option__menu-wraper'>{children}</div>
+export const OptionMenu = (props) => (
+  <div className='rcx-box--animated rcx-option__menu-wraper' {...props} />
 );
 
 export const Option = React.memo(
   ({
+    is: Tag = 'li',
     id,
     presence,
     children,
@@ -45,27 +49,36 @@ export const Option = React.memo(
     selected,
     className,
     ref,
+    icon,
+    avatar,
     ...options
   }) => (
-    <li
+    <Tag
       key={id}
       id={id}
       ref={ref}
       aria-selected={selected}
       {...options}
-      className={`rcx-option ${className}
-        ${focus ? 'rcx-option--focus' : ''}
-        ${selected ? 'rcx-option--selected' : ''}
-      `}
+      className={[
+        'rcx-option',
+        className,
+        focus && 'rcx-option--focus',
+        selected && 'rcx-option--selected',
+      ]
+        .filter(Boolean)
+        .join(' ')}
     >
       <div className='rcx-option__wrapper'>
+        {avatar && <Option.Avatar>{avatar}</Option.Avatar>}
+        {icon && <Option.Icon name={icon} />}
         {label && <Option.Content>{label}</Option.Content>}
         {label !== children && children}
       </div>
-    </li>
+    </Tag>
   )
 );
 
+Option.Description = OptionDescription;
 Option.Skeleton = OptionSkeleton;
 Option.Avatar = OptionAvatar;
 Option.Menu = OptionMenu;

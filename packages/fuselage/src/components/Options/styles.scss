@@ -5,27 +5,21 @@
 .rcx-option {
   @include clickable;
   @include typography.use-font-scale(p1);
-  @include typography.use-text-ellipsis;
-  display: flex;
-  align-items: center;
 
   padding: lengths.padding(4) lengths.padding(16);
 
   list-style: none;
 
-  white-space: nowrap;
-
   &__wrapper {
     display: flex;
     align-items: center;
-    flex-grow: 1;
 
     margin-inline: lengths.margin(-4);
   }
 
   &:hover,
   &--focus {
-    background: colors.neutral(400);
+    background: colors.neutral(100);
   }
 
   &--selected {
@@ -33,18 +27,12 @@
   }
 
   &:hover &__menu-wraper,
-  &.focus-within &__menu-wraper {
-    width: lengths.size(32);
-
-    margin-inline: lengths.margin(4);
-
-    opacity: 1;
-  }
-
+  &.focus-within &__menu-wraper,
   &:focus-within &__menu-wraper {
-    width: lengths.size(32);
+    display: flex;
+    align-items: center;
 
-    margin-inline: lengths.margin(4);
+    width: lengths.size(28);
 
     opacity: 1;
   }
@@ -61,6 +49,8 @@
 }
 
 %column {
+  flex: 0 0 auto;
+
   margin-inline: lengths.margin(4);
 }
 
@@ -71,11 +61,22 @@
 .rcx-option__content {
   @include typography.use-text-ellipsis;
   @extend %column;
-  width: 100%;
+  flex: 1 1 100%;
+
+  white-space: nowrap;
 }
 
 .rcx-option__column {
   @extend %column;
+  display: flex;
+}
+
+.rcx-option__description {
+  @include typography.use-font-scale(p1);
+  @extend %column;
+  display: inline;
+
+  color: colors.foreground(hint);
 }
 
 .rcx-options:hover {
