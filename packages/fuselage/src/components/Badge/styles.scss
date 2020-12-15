@@ -23,6 +23,7 @@ $badge-colors-disabled-background-color: theme('badge-colors-disabled-background
 .rcx-badge {
   display: flex;
   overflow: hidden;
+  justify-content: center;
 
   width: fit-content;
   min-width: lengths.size(16);
