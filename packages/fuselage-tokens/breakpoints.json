@@ -25,7 +25,13 @@
   },
   {
     "name": "xl",
-    "minViewportWidth": 1440,
+    "minViewportWidth": 1280,
+    "columns": 12,
+    "gutterWidth": 24
+  },
+  {
+    "name": "xxl",
+    "minViewportWidth": 1600,
     "columns": 12,
     "gutterWidth": 24
   }
