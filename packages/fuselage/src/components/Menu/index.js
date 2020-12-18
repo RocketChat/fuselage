@@ -17,6 +17,7 @@ export const Menu = ({
   optionWidth,
   placement = 'bottom-start',
   renderItem,
+  maxHeight,
   ...props
 }) => {
   const mappedOptions = mapOptions(options);
@@ -69,6 +70,7 @@ export const Menu = ({
         placement={placement}
       >
         <Options
+          maxHeight={maxHeight}
           renderItem={renderItem}
           width={optionWidth}
           onSelect={handleSelection}
