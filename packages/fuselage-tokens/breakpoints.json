@@ -34,5 +34,11 @@
     "minViewportWidth": 1600,
     "columns": 12,
     "gutterWidth": 24
+  },
+  {
+    "name": "xxxl",
+    "minViewportWidth": 1920,
+    "columns": 12,
+    "gutterWidth": 24
   }
 ]
