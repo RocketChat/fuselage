@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.19.0...v0.20.0) (2020-12-21)
+
+
+### Bug Fixes
+
+* ActionButton not accepting children ([#345](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/345)) ([92c67d8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/92c67d86ef975b18ad1ed48161b323072b465943))
+* Badge and Tag Style ([#343](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/343)) ([bb534df](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bb534df611d8e16bd1e4a6263865d7373d6953ef))
+* Divider types ([#350](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/350)) ([911be2b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/911be2b234594a3ee3e7993f2f66b8e7cf20dc45))
+* Flex-shrink on fields ([#334](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/334)) ([28c621e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/28c621ec039038b467ce1461e75219cdd4123d24))
+* Removed animation by default, Sidebar padding, and Radio RTL ([#336](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/336)) ([63bcc18](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/63bcc183903436f2e2b41436a46d5eeb651f0572))
+* Sidebar Header height ([#344](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/344)) ([273e8cf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/273e8cf81bcc1eb4229a129083c04f4b335a7d22))
+
+
+### Features
+
+* Add maxHeight prop for Menu Options ([#352](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/352)) ([eb400be](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/eb400be69499a0be41ff29511ef392361d04d8b7))
+* Fuselage typings ([#348](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/348)) ([24da5e7](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/24da5e75a62c8358cef61eb31ad335234be6fa8f))
+* Update and expose logical properties plugin for Stylis ([#333](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/333)) ([3311ee9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3311ee9b3868267d19de14ddcbbe2dcf89739e1b))
+
+
+### Performance Improvements
+
+* Modal ([#349](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/349)) ([f77ae41](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f77ae41fa42fee2a55779837b1c01cba912921fc))
+* Remove Box from Option ([#347](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/347)) ([d0d0d82](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d0d0d82aa22a7162ac509c57a869a451b5e67070))
+
+
+
+
+
 # [0.19.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.18.0...v0.19.0) (2020-11-28)
 
 

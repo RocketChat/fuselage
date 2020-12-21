@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.19.0...v0.20.0) (2020-12-21)
+
+
+### Features
+
+* Update and expose logical properties plugin for Stylis ([#333](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/333)) ([3311ee9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3311ee9b3868267d19de14ddcbbe2dcf89739e1b))
+
+
+
+
+
 # [0.19.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.18.0...v0.19.0) (2020-11-28)
 
 **Note:** Version bump only for package @rocket.chat/css-in-js
