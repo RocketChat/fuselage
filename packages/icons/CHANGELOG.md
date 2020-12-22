@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.0...v0.20.1) (2020-12-22)
+
+
+### Bug Fixes
+
+* Clip icon ([#354](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/354)) ([a688d7c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a688d7c6e5ab870c5172c0db81b62dd5b7c6d9fc))
+
+
+
+
+
 # [0.20.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.19.0...v0.20.0) (2020-12-21)
 
 **Note:** Version bump only for package @rocket.chat/icons
