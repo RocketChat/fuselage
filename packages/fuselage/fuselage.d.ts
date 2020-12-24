@@ -1,6 +1,6 @@
 declare module '@rocket.chat/fuselage' {
-  import type { css } from '@rocket.chat/css-in-js';
-
+	import type { css } from '@rocket.chat/css-in-js';
+	import { Placements } from '@rocket.chat/fuselage-hooks';
 	import {
 		AllHTMLAttributes,
 		Context,
@@ -160,12 +160,29 @@ declare module '@rocket.chat/fuselage' {
 		Item: ForwardRefExoticComponent<AccordionItemProps>;
 	};
 
+	type ActionButtonProps = ButtonProps & {
+		icon: string;
+		mini?: boolean;
+		tiny?: boolean;
+	};
+	export const ActionButton: ForwardRefExoticComponent<ActionButtonProps>;
+
 	type AvatarProps = BoxProps;
 	export const Avatar: ForwardRefExoticComponent<AvatarProps> & {
 		Context: Context<{
 			baseUrl: string;
 		}>;
 	};
+
+	type BadgeProps = {
+		is?: ElementType;
+		variant?: 'primary' | 'danger' | 'warning';
+		disabled?: boolean;
+		className?: string;
+		children?: any;
+		title?: any;
+	}
+	export const Badge: ForwardRefExoticComponent<BadgeProps>;
 
 	type ButtonProps = BoxProps & {
 		primary?: boolean;
@@ -181,6 +198,8 @@ declare module '@rocket.chat/fuselage' {
 		stretch?: boolean;
 		wrap?: boolean;
 		vertical?: boolean;
+		small?: boolean;
+		medium?: boolean;
 	};
 	export const ButtonGroup: ForwardRefExoticComponent<ButtonGroupProps>;
 
@@ -204,6 +223,9 @@ declare module '@rocket.chat/fuselage' {
 	type ChipProps = BoxProps;
 	export const Chip: ForwardRefExoticComponent<ChipProps>;
 
+	type DividerProps = BoxProps;
+	export const Divider: ForwardRefExoticComponent<DividerProps>;
+
 	type FieldProps = BoxProps;
 	export const Field: ForwardRefExoticComponent<FieldProps> & {
 		Row: ForwardRefExoticComponent<BoxProps>;
@@ -226,6 +248,23 @@ declare module '@rocket.chat/fuselage' {
 		Skeleton: ForwardRefExoticComponent<InputBoxSkeletonProps>;
 	};
 
+	export type MenuProps = Omit<ActionButtonProps, 'icon'> & {
+		icon?: string;
+		options: {
+			[id: string]: {
+				label: {
+					title: string;
+					icon: string;
+				};
+				action: Function;
+			};
+		};
+		optionWidth?: BoxProps['width'];
+		placement?: Placements;
+		renderItem?: (props: OptionProps) => ReactNode;
+	}
+	export const Menu: ForwardRefExoticComponent<MenuProps>;
+
 	type ModalProps = BoxProps;
 	type ModalBackdropProps = BoxProps;
 	type ModalCloseProps = BoxProps;
@@ -235,17 +274,30 @@ declare module '@rocket.chat/fuselage' {
   type ModalThumbProps = BoxProps;
 	type ModalTitleProps = BoxProps;
 	export const Modal: ForwardRefExoticComponent<ModalProps> & {
-    Backdrop: ForwardRefExoticComponent<ModalBackdropProps>;
+		Backdrop: ForwardRefExoticComponent<ModalBackdropProps>;
 		Close: ForwardRefExoticComponent<ModalCloseProps>;
 		Content: ForwardRefExoticComponent<ModalContentProps>;
 		Footer: ForwardRefExoticComponent<ModalFooterProps>;
-    Header: ForwardRefExoticComponent<ModalHeaderProps>;
-    Thumb: ForwardRefExoticComponent<ModalThumbProps>;
+		Header: ForwardRefExoticComponent<ModalHeaderProps>;
+		Thumb: ForwardRefExoticComponent<ModalThumbProps>;
 		Title: ForwardRefExoticComponent<ModalTitleProps>;
 	};
 
 	type NumberInputProps = BoxProps;
 	export const NumberInput: ForwardRefExoticComponent<NumberInputProps>;
+
+	type OptionProps = {
+		id?: string;
+		avatar?: typeof Avatar; // eslint-disable-line no-undef
+		label?: string;
+		focus?: boolean;
+		selected?: boolean;
+		icon?: string;
+		className?: BoxProps['className'];
+		title?: string;
+		value?: any;
+	};
+	export const Option: ForwardRefExoticComponent<OptionProps>;
 
 	type PaginationProps = BoxProps & {
 		count: number;
@@ -341,6 +393,4 @@ declare module '@rocket.chat/fuselage' {
 		options: SelectOptions;
 	};
 	export const Select: ForwardRefExoticComponent<SelectProps>;
-
-	export const Divider: ForwardRefExoticComponent<BoxProps>;
 }
