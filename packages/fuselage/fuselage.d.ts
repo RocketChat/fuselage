@@ -398,7 +398,6 @@ declare module '@rocket.chat/fuselage' {
   type StatusBulletProps = {
     status?: 'loading' | 'online' | 'busy' | 'away' | 'offline';
     size?: 'small' | 'large';
-    className?: string;
-  } & AllHTMLAttributes<HTMLSpanElement>;
+  } & Omit<AllHTMLAttributes<HTMLSpanElement>, 'size'>;
   export const StatusBullet: FC<StatusBulletProps>;
 }
