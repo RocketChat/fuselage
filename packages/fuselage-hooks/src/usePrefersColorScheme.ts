@@ -1,4 +1,4 @@
-import { useMediaQuery } from '.';
+import { useMediaQuery } from './useMediaQuery';
 
 /**
  * Hook to get the prefers-color-scheme value.
@@ -6,6 +6,5 @@ import { useMediaQuery } from '.';
  * @returns `true` if the prefers-color-scheme matches
  * @public
  */
-
 export const usePrefersColorScheme = (scheme?: string): boolean =>
   useMediaQuery(`(prefers-color-scheme: ${!scheme ? 'light' : scheme})`);
