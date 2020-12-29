@@ -7,7 +7,9 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
+  "type": "module",
   "scripts": {
+    "build": "node --experimental-modules scripts/build.mjs",
     "prettier-format": "prettier --config .prettierrc '**/*.js' --write"
   },
   "license": "MIT",
