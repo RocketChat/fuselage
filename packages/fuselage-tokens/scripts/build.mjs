@@ -158,6 +158,12 @@ const buildTypography = async () => {
   ]);
 };
 
+process.on('unhandledRejection', (err) => {
+  console.error('unhandledRejection:', err.message);
+  console.error(err.stack);
+  process.exit(1);
+});
+
 buildBreakpoints();
 buildColors();
 buildTypography();
