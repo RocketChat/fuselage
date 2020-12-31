@@ -3,6 +3,55 @@
 @use '../../typography.scss';
 
 %--with-inline-elements {
+  a,
+  abbr,
+  b,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  i,
+  ins,
+  kbd,
+  q,
+  samp,
+  small,
+  strong,
+  sub,
+  sup,
+  time,
+  var {
+    letter-spacing: inherit;
+
+    color: inherit;
+
+    font: inherit;
+  }
+
+  a {
+    &:link {
+      text-decoration: none;
+
+      color: colors.foreground(link);
+    }
+
+    &:visited,
+    &.is-visited {
+      color: colors.foreground(visited-link);
+    }
+
+    &:active,
+    &.is-active {
+      color: colors.foreground(active-link);
+    }
+
+    &:hover,
+    &.is-hovered {
+      text-decoration: underline;
+    }
+  }
+
   strong {
     letter-spacing: inherit;
 
@@ -31,33 +80,6 @@
     font-style: italic;
   }
 
-  a {
-    letter-spacing: inherit;
-
-    font: inherit;
-
-    &:link {
-      text-decoration: none;
-
-      color: colors.foreground(link);
-    }
-
-    &:visited,
-    &.is-visited {
-      color: colors.foreground(visited-link);
-    }
-
-    &:active,
-    &.is-active {
-      color: colors.foreground(active-link);
-    }
-
-    &:hover,
-    &.is-hovered {
-      text-decoration: underline;
-    }
-  }
-
   q {
     letter-spacing: inherit;
 
@@ -80,9 +102,7 @@
   }
 
   code {
-    padding:
-      lengths.padding(4)
-      lengths.padding(8);
+    padding: lengths.padding(4) lengths.padding(8);
 
     letter-spacing: inherit;
 
@@ -143,33 +163,21 @@
     position: relative;
 
     vertical-align: baseline;
-    letter-spacing: inherit;
 
-    font: inherit;
     font-size: 75%;
     line-height: 0;
   }
 
   sup {
     inset-block-start: -0.5em;
-
-    letter-spacing: inherit;
-
-    font: inherit;
   }
 
   sub {
     inset-block-end: -0.25em;
-
-    letter-spacing: inherit;
-
-    font: inherit;
   }
 
   kbd {
-    padding:
-      lengths.padding(4)
-      lengths.padding(8);
+    padding: lengths.padding(4) lengths.padding(8);
 
     letter-spacing: inherit;
 
@@ -233,9 +241,7 @@
   h6 {
     display: block;
 
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
   }
 
   p {
@@ -243,9 +249,7 @@
 
     display: block;
 
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
 
     color: inherit;
   }
@@ -254,9 +258,7 @@
   ol {
     display: block;
 
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
     padding-inline-start: lengths.padding(40);
   }
 
@@ -281,9 +283,7 @@
   }
 
   pre {
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
 
     letter-spacing: inherit;
 

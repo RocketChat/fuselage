@@ -46,13 +46,30 @@ export const useBoxOnlyProps = (props) => {
     }
   });
 
+  if (props.animated) {
+    props.className = prependClassName(props.className, 'rcx-box--animated');
+    delete props.animated;
+  }
+
+  if (props.withRichContent) {
+    props.className = prependClassName(
+      props.className,
+      'rcx-box--with-inline-elements'
+    );
+    props.className = prependClassName(
+      props.className,
+      'rcx-box--with-block-elements'
+    );
+    delete props.withRichContent;
+  }
+
   props.className = prependClassName(props.className, 'rcx-box rcx-box--full');
 
   return props;
 };
 
 export const Box = memo(
-  forwardRef(function Box({ is = 'div', children, animated, ...props }, ref) {
+  forwardRef(function Box({ is = 'div', children, ...props }, ref) {
     useStyleSheet();
 
     if (ref) {
@@ -69,9 +86,6 @@ export const Box = memo(
     props = useBoxOnlyProps(props);
     props = useStylingProps(props);
 
-    if (animated) {
-      props.className = prependClassName(props.className, 'rcx-box--animated');
-    }
     const element = createElement(is, props, children);
 
     if (transformFn) {

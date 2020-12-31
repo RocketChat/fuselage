@@ -1,10 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
 import PropTypes from 'prop-types';
 
-import { appendClassName } from '../../../helpers/appendClassName';
-import { createPropType } from '../../../helpers/createPropType';
-import { fromCamelToKebab } from '../../../helpers/fromCamelToKebab';
-import { useStyle } from '../../../hooks/useStyle';
+import { appendClassName } from '../../helpers/appendClassName';
+import { createPropType } from '../../helpers/createPropType';
+import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
+import { useStyle } from '../../hooks/useStyle';
 import {
   borderWidth,
   borderRadius,
@@ -15,8 +15,7 @@ import {
   padding,
   fontFamily,
   fontScale,
-} from '../../../styleTokens';
-import richContentStyle from './richContentStyle';
+} from '../../styleTokens';
 
 const stringProp = {
   toCSSValue: (value) => (typeof value === 'string' ? value : undefined),
@@ -247,10 +246,6 @@ const propDefs = {
             opacity: 0;
           `
         : undefined,
-    propType: PropTypes.bool,
-  },
-  withRichContent: {
-    toStyle: (value) => (value ? richContentStyle : undefined),
     propType: PropTypes.bool,
   },
   withTruncatedText: {

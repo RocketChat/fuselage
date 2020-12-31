@@ -19,4 +19,12 @@
       @extend %box--full;
     }
   }
+
+  &--with-inline-elements {
+    @extend %--with-inline-elements;
+  }
+
+  &--with-block-elements {
+    @extend %--with-block-elements;
+  }
 }
