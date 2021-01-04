@@ -1,0 +1,149 @@
+@use '../colors.scss';
+
+@function -color($type, $name, $value) {
+  @return var(--rcx-button-colors-#{$type}-#{$name}, $value);
+}
+
+$primary: (
+  background-color: -color('primary', 'background-color', colors.primary(500)),
+  border-color: -color('primary', 'border-color', colors.primary(500)),
+  color: -color('primary', 'color', colors.foreground(alternative)),
+  hover-background-color: -color('primary', 'hover-background-color', colors.primary(600)),
+  hover-border-color: -color('primary', 'hover-border-color', colors.primary(600)),
+  active-background-color: -color('primary', 'active-background-color', colors.primary(700)),
+  active-border-color: -color('primary', 'active-border-color', colors.primary(700)),
+  focus-background-color: -color('primary', 'focus-background-color', colors.primary(500)),
+  focus-border-color: -color('primary', 'focus-border-color', colors.primary(700)),
+  focus-shadow-color: -color('primary', 'focus-shadow-color', colors.primary(100)),
+  disabled-background-color: -color('primary', 'disabled-background-color', colors.primary(200)),
+  disabled-border-color: -color('primary', 'disabled-border-color', colors.primary(200)),
+  disabled-color: -color('primary', 'disabled-color', colors.foreground(alternative)),
+);
+
+$secondary: (
+  background-color: -color('secondary', 'background-color', colors.neutral(300)),
+  border-color: -color('secondary', 'border-color', colors.neutral(300)),
+  color: -color('secondary', 'color', colors.neutral(800)),
+  hover-background-color: -color('secondary', 'hover-background-color', colors.neutral(400)),
+  hover-border-color: -color('secondary', 'hover-border-color', colors.neutral(400)),
+  active-background-color: -color('secondary', 'active-background-color', colors.neutral(500)),
+  active-border-color: -color('secondary', 'active-border-color', colors.neutral(500)),
+  focus-background-color: -color('secondary', 'focus-background-color', colors.neutral(300)),
+  focus-border-color: -color('secondary', 'focus-border-color', colors.neutral(500)),
+  focus-shadow-color: -color('secondary', 'focus-shadow-color', colors.neutral(100)),
+  disabled-background-color: -color('secondary', 'disabled-background-color', colors.neutral(100)),
+  disabled-border-color: -color('secondary', 'disabled-border-color', colors.neutral(100)),
+  disabled-color: -color('secondary', 'disabled-color', colors.neutral(400)),
+);
+
+$ghost: (
+  background-color: -color('ghost', 'background-color', transparent),
+  border-color: -color('ghost', 'border-color', transparent),
+  color: -color('ghost', 'color', colors.neutral(800)),
+  hover-background-color: -color('ghost', 'hover-background-color', colors.neutral(400)),
+  hover-border-color: -color('ghost', 'hover-border-color', colors.neutral(400)),
+  active-background-color: -color('ghost', 'active-background-color', colors.neutral(500)),
+  active-border-color: -color('ghost', 'active-border-color', colors.neutral(500)),
+  focus-background-color: -color('ghost', 'focus-background-color', colors.neutral(300)),
+  focus-border-color: -color('ghost', 'focus-border-color', colors.neutral(500)),
+  focus-shadow-color: -color('ghost', 'focus-shadow-color', colors.neutral(100)),
+  disabled-background-color: -color('ghost', 'disabled-background-color', colors.neutral(100)),
+  disabled-border-color: -color('ghost', 'disabled-border-color', colors.neutral(100)),
+  disabled-color: -color('ghost', 'disabled-color', colors.neutral(400)),
+);
+
+$success: (
+  background-color: -color('success', 'background-color', colors.success(500)),
+  border-color: -color('success', 'border-color', colors.success(500)),
+  color: -color('success', 'color', colors.foreground(alternative)),
+  hover-background-color: -color('success', 'hover-background-color', colors.success(600)),
+  hover-border-color: -color('success', 'hover-border-color', colors.success(600)),
+  active-background-color: -color('success', 'active-background-color', colors.success(700)),
+  active-border-color: -color('success', 'active-border-color', colors.success(700)),
+  focus-background-color: -color('success', 'focus-background-color', colors.success(500)),
+  focus-border-color: -color('success', 'focus-border-color', colors.success(700)),
+  focus-shadow-color: -color('success', 'focus-shadow-color', colors.success(100)),
+  disabled-background-color: -color('success', 'disabled-background-color', colors.success(200)),
+  disabled-border-color: -color('success', 'disabled-border-color', colors.success(200)),
+  disabled-color: -color('success', 'disabled-color', colors.foreground(alternative)),
+);
+
+$secondary-success: (
+  background-color: -color('secondary-success', 'background-color', colors.neutral(300)),
+  border-color: -color('secondary-success', 'border-color', colors.neutral(300)),
+  color: -color('secondary-success', 'color', colors.success(500)),
+  hover-background-color: -color('secondary-success', 'hover-background-color', colors.neutral(400)),
+  hover-border-color: -color('secondary-success', 'hover-border-color', colors.neutral(400)),
+  active-background-color: -color('secondary-success', 'active-background-color', colors.neutral(500)),
+  active-border-color: -color('secondary-success', 'active-border-color', colors.neutral(500)),
+  focus-background-color: -color('secondary-success', 'focus-background-color', colors.neutral(300)),
+  focus-border-color: -color('secondary-success', 'focus-border-color', colors.neutral(500)),
+  focus-shadow-color: -color('secondary-success', 'focus-shadow-color', colors.neutral(100)),
+  disabled-background-color: -color('secondary-success', 'disabled-background-color', colors.neutral(100)),
+  disabled-border-color: -color('secondary-success', 'disabled-border-color', colors.neutral(100)),
+  disabled-color: -color('secondary-success', 'disabled-color', colors.success(100)),
+);
+
+$ghost-success: (
+  background-color: -color('ghost-success', 'background-color', transparent),
+  border-color: -color('ghost-success', 'border-color', transparent),
+  color: -color('ghost-success', 'color', colors.success(500)),
+  hover-background-color: -color('ghost-success', 'hover-background-color', colors.neutral(400)),
+  hover-border-color: -color('ghost-success', 'hover-border-color', colors.neutral(400)),
+  active-background-color: -color('ghost-success', 'active-background-color', colors.neutral(500)),
+  active-border-color: -color('ghost-success', 'active-border-color', colors.neutral(500)),
+  focus-background-color: -color('ghost-success', 'focus-background-color', colors.neutral(300)),
+  focus-border-color: -color('ghost-success', 'focus-border-color', colors.neutral(500)),
+  focus-shadow-color: -color('ghost-success', 'focus-shadow-color', colors.neutral(100)),
+  disabled-background-color: -color('ghost-success', 'disabled-background-color', colors.neutral(100)),
+  disabled-border-color: -color('ghost-success', 'disabled-border-color', colors.neutral(100)),
+  disabled-color: -color('ghost-success', 'disabled-color', colors.success(100)),
+);
+
+$danger: (
+  background-color: -color('danger', 'background-color', colors.danger(500)),
+  border-color: -color('danger', 'border-color', colors.danger(500)),
+  color: -color('danger', 'color', colors.foreground(alternative)),
+  hover-background-color: -color('danger', 'hover-background-color', colors.danger(600)),
+  hover-border-color: -color('danger', 'hover-border-color', colors.danger(600)),
+  active-background-color: -color('danger', 'active-background-color', colors.danger(700)),
+  active-border-color: -color('danger', 'active-border-color', colors.danger(700)),
+  focus-background-color: -color('danger', 'focus-background-color', colors.danger(500)),
+  focus-border-color: -color('danger', 'focus-border-color', colors.danger(700)),
+  focus-shadow-color: -color('danger', 'focus-shadow-color', colors.danger(100)),
+  disabled-background-color: -color('danger', 'disabled-background-color', colors.danger(200)),
+  disabled-border-color: -color('danger', 'disabled-border-color', colors.danger(200)),
+  disabled-color: -color('danger', 'disabled-color', colors.foreground(alternative)),
+);
+
+$secondary-danger: (
+  background-color: -color('secondary-danger', 'background-color', colors.neutral(300)),
+  border-color: -color('secondary-danger', 'border-color', colors.neutral(300)),
+  color: -color('secondary-danger', 'color', colors.danger(500)),
+  hover-background-color: -color('secondary-danger', 'hover-background-color', colors.neutral(400)),
+  hover-border-color: -color('secondary-danger', 'hover-border-color', colors.neutral(400)),
+  active-background-color: -color('secondary-danger', 'active-background-color', colors.neutral(500)),
+  active-border-color: -color('secondary-danger', 'active-border-color', colors.neutral(500)),
+  focus-background-color: -color('secondary-danger', 'focus-background-color', colors.neutral(300)),
+  focus-border-color: -color('secondary-danger', 'focus-border-color', colors.neutral(500)),
+  focus-shadow-color: -color('secondary-danger', 'focus-shadow-color', colors.neutral(100)),
+  disabled-background-color: -color('secondary-danger', 'disabled-background-color', colors.neutral(100)),
+  disabled-border-color: -color('secondary-danger', 'disabled-border-color', colors.neutral(100)),
+  disabled-color: -color('secondary-danger', 'disabled-color', colors.danger(100)),
+);
+
+$ghost-danger: (
+  background-color: -color('ghost-danger', 'background-color', transparent),
+  border-color: -color('ghost-danger', 'border-color', transparent),
+  color: -color('ghost-danger', 'color', colors.danger(500)),
+  hover-background-color: -color('ghost-danger', 'hover-background-color', colors.neutral(400)),
+  hover-border-color: -color('ghost-danger', 'hover-border-color', colors.neutral(400)),
+  active-background-color: -color('ghost-danger', 'active-background-color', colors.neutral(500)),
+  active-border-color: -color('ghost-danger', 'active-border-color', colors.neutral(500)),
+  focus-background-color: -color('ghost-danger', 'focus-background-color', colors.neutral(300)),
+  focus-border-color: -color('ghost-danger', 'focus-border-color', colors.neutral(500)),
+  focus-shadow-color: -color('ghost-danger', 'focus-shadow-color', colors.neutral(100)),
+  disabled-background-color: -color('ghost-danger', 'disabled-background-color', colors.neutral(100)),
+  disabled-border-color: -color('ghost-danger', 'disabled-border-color', colors.neutral(100)),
+  disabled-color: -color('ghost-danger', 'disabled-color', colors.danger(100)),
+);
