@@ -1,22 +1,39 @@
+import { action } from '@storybook/addon-actions';
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { withKnobs, object } from '@storybook/addon-knobs';
 
-import { UiKitMessage } from '.';
+import { kitContext, UiKitMessage } from '.';
 
 <Meta
   title='UiKit/UiKitMessage'
   parameters={{
     jest: ['UiKitMessage/spec'],
   }}
-  decorators={[withKnobs]}
+  argTypes={{
+    payload: { control: 'object' },
+  }}
+  decorators={[
+    (storyFn) => (
+      <kitContext.Provider
+        value={{
+          action: action('action'),
+          state: action('state'),
+          appId: 'core',
+          errors: {},
+        }}
+      >
+        {storyFn()}
+      </kitContext.Provider>
+    ),
+  ]}
 />
 
 # UI Kit Message
 
 <Canvas>
-  <Story name='Section Standard'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Section Standard'
+    args={{
+      payload: [
         {
           type: 'section',
           text: {
@@ -24,15 +41,18 @@ import { UiKitMessage } from '.';
             text: 'I am an item',
           },
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Section Fields'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Section Fields'
+    args={{
+      payload: [
         {
           type: 'section',
           fields: [
@@ -63,27 +83,33 @@ import { UiKitMessage } from '.';
             },
           ],
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Divider'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Divider'
+    args={{
+      payload: [
         {
           type: 'divider',
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Context Standard'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Context Standard'
+    args={{
+      payload: [
         {
           type: 'context',
           elements: [
@@ -93,15 +119,18 @@ import { UiKitMessage } from '.';
             },
           ],
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Context Standard + icon'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Context Standard + icon'
+    args={{
+      payload: [
         {
           type: 'context',
           elements: [
@@ -122,15 +151,18 @@ import { UiKitMessage } from '.';
             },
           ],
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Section + image'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Section + image'
+    args={{
+      payload: [
         {
           type: 'section',
           text: {
@@ -144,15 +176,18 @@ import { UiKitMessage } from '.';
             altText: 'plants',
           },
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Section + button'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Section + button'
+    args={{
+      payload: [
         {
           type: 'section',
           text: {
@@ -167,15 +202,18 @@ import { UiKitMessage } from '.';
             },
           },
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Section + overflow'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Section + overflow'
+    args={{
+      payload: [
         {
           type: 'section',
           text: {
@@ -220,15 +258,18 @@ import { UiKitMessage } from '.';
             ],
           },
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Section + Select'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Section + Select'
+    args={{
+      payload: [
         {
           type: 'section',
           text: {
@@ -255,15 +296,18 @@ import { UiKitMessage } from '.';
             ],
           },
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Section + Multi Select'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Section + Multi Select'
+    args={{
+      payload: [
         {
           type: 'section',
           text: {
@@ -304,15 +348,18 @@ import { UiKitMessage } from '.';
             ],
           },
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Image'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Image'
+    args={{
+      payload: [
         {
           type: 'image',
           title: {
@@ -324,15 +371,18 @@ import { UiKitMessage } from '.';
             'https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png',
           altText: 'Example Image',
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Action - Buttons'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Action - Buttons'
+    args={{
+      payload: [
         {
           type: 'actions',
           elements: [
@@ -358,15 +408,18 @@ import { UiKitMessage } from '.';
             },
           ],
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Fields'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Fields'
+    args={{
+      payload: [
         {
           type: 'section',
           fields: [
@@ -397,15 +450,18 @@ import { UiKitMessage } from '.';
             },
           ],
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Action - Select'>
-    {UiKitMessage(
-      object('payload', [
+  <Story
+    name='Action - Select'
+    args={{
+      payload: [
         {
           type: 'actions',
           elements: [
@@ -477,7 +533,9 @@ import { UiKitMessage } from '.';
             },
           ],
         },
-      ])
-    )}
+      ],
+    }}
+  >
+    {({ payload }) => UiKitMessage(payload)}
   </Story>
 </Canvas>

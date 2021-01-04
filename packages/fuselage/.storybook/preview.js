@@ -7,9 +7,11 @@ import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 
 addParameters({
-  background: {
+  backgrounds: {
     grid: {
       cellSize: 4,
+      cellAmount: 4,
+      opacity: 0.5,
     },
   },
   docs: {

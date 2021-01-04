@@ -6,12 +6,16 @@ import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 
 addParameters({
+  backgrounds: {
+    grid: {
+      cellSize: 4,
+      cellAmount: 4,
+      opacity: 0.5,
+    },
+  },
   docs: {
     container: DocsContainer,
     page: DocsPage,
-  },
-  grid: {
-    cellSize: 4,
   },
   viewport: {
     viewports: breakpointTokens.reduce(

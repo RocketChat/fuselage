@@ -1,5 +1,5 @@
+import { action } from '@storybook/addon-actions';
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import { UiKitModal, kitContext, defaultContext, UiKitComponent } from '.';
 import { Demo } from './Demo';
@@ -9,119 +9,162 @@ import { Demo } from './Demo';
   parameters={{
     jest: ['UiKitModal/spec'],
   }}
-  decorators={[withKnobs]}
+  argTypes={{
+    payload: { control: 'object' },
+    errors: { control: 'object' },
+    visible: { control: 'boolean' },
+  }}
+  decorators={[
+    (storyFn) => (
+      <kitContext.Provider
+        value={{
+          action: action('action'),
+          state: action('state'),
+          appId: 'core',
+          errors: {},
+        }}
+      >
+        {storyFn()}
+      </kitContext.Provider>
+    ),
+  ]}
 />
 
 # UI Kit Modal
 
 <Canvas>
-  <Story name='Input'>
-    <Demo visible={boolean('visible', true) ? 1 : 0}>
-      <kitContext.Provider
-        value={{
-          ...defaultContext,
-          errors: { 'input-test': text('error', 'asdas') },
-        }}
-      >
-        <UiKitComponent
-          render={UiKitModal}
-          blocks={[
-            {
-              type: 'input',
-              element: {
-                type: 'plain_text_input',
-                actionId: 'input-test',
-                placeholder: {
-                  type: 'plain_text_input',
-                  text: text('placeholder', 'asdas'),
-                },
-              },
-              label: {
-                type: 'plain_text',
-                text: 'Label',
-                emoji: true,
-              },
+  <Story
+    name='Input'
+    args={{
+      payload: [
+        {
+          type: 'input',
+          element: {
+            type: 'plain_text_input',
+            actionId: 'input-test',
+            placeholder: {
+              type: 'plain_text_input',
+              text: 'asdas',
             },
-          ]}
-        />
-      </kitContext.Provider>
-    </Demo>
+          },
+          label: {
+            type: 'plain_text',
+            text: 'Label',
+            emoji: true,
+          },
+        },
+      ],
+      errors: { 'input-test': 'asdas' },
+      visible: true,
+    }}
+  >
+    {({ payload, errors, visible }) => (
+      <Demo visible={visible}>
+        <kitContext.Provider
+          value={{
+            action: action('action'),
+            state: action('state'),
+            appId: 'core',
+            errors: errors,
+          }}
+        >
+          {UiKitModal(payload)}
+        </kitContext.Provider>
+      </Demo>
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Input Multiline'>
-    <Demo visible={boolean('visible', true) ? 1 : 0}>
-      <kitContext.Provider
-        value={{
-          ...defaultContext,
-          errors: { 'input-test': text('error', 'asdas') },
-        }}
-      >
-        <UiKitComponent
-          render={UiKitModal}
-          blocks={[
-            {
-              type: 'input',
-              element: {
-                type: 'plain_text_input',
-                multiline: true,
-                actionId: 'input-test',
-              },
-              label: {
-                type: 'plain_text',
-                text: 'Label',
-                emoji: true,
-              },
-            },
-          ]}
-        />
-      </kitContext.Provider>
-    </Demo>
+  <Story
+    name='Input Multiline'
+    args={{
+      payload: [
+        {
+          type: 'input',
+          element: {
+            type: 'plain_text_input',
+            multiline: true,
+            actionId: 'input-test',
+          },
+          label: {
+            type: 'plain_text',
+            text: 'Label',
+            emoji: true,
+          },
+        },
+      ],
+      errors: { 'input-test': 'asdas' },
+      visible: true,
+    }}
+  >
+    {({ payload, errors, visible }) => (
+      <Demo visible={visible}>
+        <kitContext.Provider
+          value={{
+            action: action('action'),
+            state: action('state'),
+            appId: 'core',
+            errors: errors,
+          }}
+        >
+          {UiKitModal(payload)}
+        </kitContext.Provider>
+      </Demo>
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Input Datepicker'>
-    <Demo visible={boolean('visible', true) ? 1 : 0}>
-      <kitContext.Provider
-        value={{
-          ...defaultContext,
-          errors: { 'input-test': text('error', 'asdas') },
-        }}
-      >
-        <UiKitComponent
-          render={UiKitModal}
-          blocks={[
-            {
-              type: 'input',
-              element: {
-                type: 'datepicker',
-                initial_date: '1990-04-28',
-                actionId: 'input-test',
-                placeholder: {
-                  type: 'plain_text',
-                  text: 'Select a date',
-                  emoji: true,
-                },
-              },
-              label: {
-                type: 'plain_text',
-                text: 'Label',
-                emoji: true,
-              },
+  <Story
+    name='Input Datepicker'
+    args={{
+      payload: [
+        {
+          type: 'input',
+          element: {
+            type: 'datepicker',
+            initial_date: '1990-04-28',
+            actionId: 'input-test',
+            placeholder: {
+              type: 'plain_text',
+              text: 'Select a date',
+              emoji: true,
             },
-          ]}
-        />
-      </kitContext.Provider>
-    </Demo>
+          },
+          label: {
+            type: 'plain_text',
+            text: 'Label',
+            emoji: true,
+          },
+        },
+      ],
+      errors: { 'input-test': 'asdas' },
+      visible: true,
+    }}
+  >
+    {({ payload, errors, visible }) => (
+      <Demo visible={visible}>
+        <kitContext.Provider
+          value={{
+            action: action('action'),
+            state: action('state'),
+            appId: 'core',
+            errors: errors,
+          }}
+        >
+          {UiKitModal(payload)}
+        </kitContext.Provider>
+      </Demo>
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Image'>
-    <Demo visible={boolean('visible', true) ? 1 : 0}>
-      {UiKitModal([
+  <Story
+    name='Image'
+    args={{
+      payload: [
         {
           type: 'image',
           title: {
@@ -133,15 +176,33 @@ import { Demo } from './Demo';
             'https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon-circle-256.png',
           altText: 'Example Image',
         },
-      ])}
-    </Demo>
+      ],
+      errors: {},
+      visible: true,
+    }}
+  >
+    {({ payload, errors, visible }) => (
+      <Demo visible={visible}>
+        <kitContext.Provider
+          value={{
+            action: action('action'),
+            state: action('state'),
+            appId: 'core',
+            errors: errors,
+          }}
+        >
+          {UiKitModal(payload)}
+        </kitContext.Provider>
+      </Demo>
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='confirm button'>
-    <Demo visible={boolean('visible', true) ? 1 : 0}>
-      {UiKitModal([
+  <Story
+    name='confirm button'
+    args={{
+      payload: [
         {
           type: 'actions',
           elements: [
@@ -185,15 +246,33 @@ import { Demo } from './Demo';
             },
           ],
         },
-      ])}
-    </Demo>
+      ],
+      errors: {},
+      visible: true,
+    }}
+  >
+    {({ payload, errors, visible }) => (
+      <Demo visible={visible}>
+        <kitContext.Provider
+          value={{
+            action: action('action'),
+            state: action('state'),
+            appId: 'core',
+            errors: errors,
+          }}
+        >
+          {UiKitModal(payload)}
+        </kitContext.Provider>
+      </Demo>
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='Poll'>
-    <Demo visible={boolean('visible', true) ? 1 : 0}>
-      {UiKitModal([
+  <Story
+    name='Poll'
+    args={{
+      payload: [
         {
           type: 'input',
           element: {
@@ -237,15 +316,50 @@ import { Demo } from './Demo';
             text: 'Question 2',
           },
         },
-      ])}
-    </Demo>
+      ],
+      errors: {},
+      visible: true,
+    }}
+  >
+    {({ payload, errors, visible }) => (
+      <Demo visible={visible}>
+        <kitContext.Provider
+          value={{
+            action: action('action'),
+            state: action('state'),
+            appId: 'core',
+            errors: errors,
+          }}
+        >
+          {UiKitModal(payload)}
+        </kitContext.Provider>
+      </Demo>
+    )}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='live button'>
-    <Demo visible={boolean('visible', true) ? 1 : 0}>
-      {UiKitModal(JSON.parse(text('json', '[]')))}
-    </Demo>
+  <Story
+    name='live button'
+    args={{
+      payload: [],
+      errors: {},
+      visible: true,
+    }}
+  >
+    {({ payload, errors, visible }) => (
+      <Demo visible={visible}>
+        <kitContext.Provider
+          value={{
+            action: action('action'),
+            state: action('state'),
+            appId: 'core',
+            errors: errors,
+          }}
+        >
+          {UiKitModal(payload)}
+        </kitContext.Provider>
+      </Demo>
+    )}
   </Story>
 </Canvas>
