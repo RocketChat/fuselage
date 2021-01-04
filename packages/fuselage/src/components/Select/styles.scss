@@ -69,14 +69,14 @@
       $placeholder-color: $input-colors-invalid-placeholder-color,
       $focus-caret-color: $input-colors-invalid-focus-caret-color,
       $active-caret-color: $input-colors-invalid-active-caret-color,
-      $disabled-color: $input-colors-invalid-disabled-color,
+      $disabled-color: $input-colors-invalid-disabled-color
     );
 
     @include with-icon-addon-colors(
       $color: $input-colors-invalid-color,
       $focus-caret-color: $input-colors-invalid-focus-caret-color,
       $focus-icon-color: $input-colors-invalid-focus-icon-color,
-      $disabled-color: $input-colors-invalid-disabled-color,
+      $disabled-color: $input-colors-invalid-disabled-color
     );
   }
 }

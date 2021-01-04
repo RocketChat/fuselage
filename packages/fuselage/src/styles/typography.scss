@@ -7,7 +7,10 @@
     @error 'invalid font family name';
   }
 
-  @return var(--rcx-font-family-#{ $name }, map.get(typography.$font-families, $name));
+  @return var(
+    --rcx-font-family-#{$name},
+    map.get(typography.$font-families, $name)
+  );
 }
 
 $font-scales: map.keys(typography.$font-scales);
@@ -30,7 +33,9 @@ $font-scales: map.keys(typography.$font-scales);
     @error 'invalid font scale name';
   }
 
-  @return functions.to-rem(map.get(map.get(typography.$font-scales, $name), letter-spacing));
+  @return functions.to-rem(
+    map.get(map.get(typography.$font-scales, $name), letter-spacing)
+  );
 }
 
 @function font-size($name) {
@@ -38,7 +43,9 @@ $font-scales: map.keys(typography.$font-scales);
     @error 'invalid font scale name';
   }
 
-  @return functions.to-rem(map.get(map.get(typography.$font-scales, $name), font-size));
+  @return functions.to-rem(
+    map.get(map.get(typography.$font-scales, $name), font-size)
+  );
 }
 
 @function font-weight($name) {
@@ -54,7 +61,9 @@ $font-scales: map.keys(typography.$font-scales);
     @error 'invalid font scale name';
   }
 
-  @return functions.to-rem(map.get(map.get(typography.$font-scales, $name), line-height));
+  @return functions.to-rem(
+    map.get(map.get(typography.$font-scales, $name), line-height)
+  );
 }
 
 @mixin use-text-ellipsis {

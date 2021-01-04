@@ -3,9 +3,9 @@
 }
 
 @mixin use-focus-shadow($outer-color) {
-  box-shadow: 0 0 0 #{ to-rem(4) } #{ $outer-color };
+  box-shadow: 0 0 0 #{to-rem(4)} #{$outer-color};
 }
 
 @mixin use-focus-shadow-inset($outer-color) {
-  box-shadow: 0 0 0 #{ to-rem(4) } #{ $outer-color } inset;
+  box-shadow: 0 0 0 #{to-rem(4)} #{$outer-color} inset;
 }

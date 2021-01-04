@@ -106,6 +106,7 @@
     "style-loader": "^2.0.0",
     "stylelint": "^13.7.0",
     "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.18.0",
     "webpack": "^5.2.0",
     "webpack-bundle-analyzer": "^3.8.0",
