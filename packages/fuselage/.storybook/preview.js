@@ -1,4 +1,4 @@
-import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints';
+import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { addDecorator, addParameters } from '@storybook/react';
 import 'loki/configure-react';
@@ -7,9 +7,11 @@ import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 
 addParameters({
-  background: {
+  backgrounds: {
     grid: {
       cellSize: 4,
+      cellAmount: 4,
+      opacity: 0.5,
     },
   },
   docs: {
@@ -20,8 +22,8 @@ addParameters({
     storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
   },
   viewport: {
-    viewports: Object.entries(breakpointTokens).reduce(
-      (obj, [name, { minViewportWidth }]) => ({
+    viewports: breakpointTokens.reduce(
+      (obj, { name, minViewportWidth }) => ({
         ...obj,
         [name]: {
           name,

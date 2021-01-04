@@ -2,11 +2,23 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$progress-bar-color-primary: theme('progress-bar-color-primary', colors.primary(200));
-$progress-bar-color-success: theme('progress-bar-color-success', colors.success(200));
-$progress-bar-color-error: theme('progress-bar-color-error', colors.danger(200));
+$progress-bar-color-primary: theme(
+  'progress-bar-color-primary',
+  colors.primary(200)
+);
+$progress-bar-color-success: theme(
+  'progress-bar-color-success',
+  colors.success(200)
+);
+$progress-bar-color-error: theme(
+  'progress-bar-color-error',
+  colors.danger(200)
+);
 $progress-bar-color-shine: theme('progress-bar-color-shine', colors.surface());
-$progress-bar-color-background: theme('progress-bar-color-background', colors.neutral(400, 1));
+$progress-bar-color-background: theme(
+  'progress-bar-color-background',
+  colors.neutral(400, 1)
+);
 
 .rcx-progress-bar {
   display: block;

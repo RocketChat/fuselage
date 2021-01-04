@@ -1,32 +1,13 @@
-@use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
+@use 'sass:map';
 @use '../../styles/typography.scss';
-
-%button-secondary-color { // TODO: primitive atomic component
-  @include as-button (
-    $background-color: $button-colors-secondary-background-color,
-    $border-color: $button-colors-secondary-border-color,
-    $color: $button-colors-secondary-color,
-    $hover-background-color: $button-colors-secondary-hover-background-color,
-    $hover-border-color: $button-colors-secondary-hover-border-color,
-    $active-background-color: $button-colors-secondary-active-background-color,
-    $active-border-color: $button-colors-secondary-active-border-color,
-    $focus-background-color: $button-colors-secondary-focus-background-color,
-    $focus-border-color: $button-colors-secondary-focus-border-color,
-    $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-    $disabled-background-color: $button-colors-secondary-disabled-background-color,
-    $disabled-border-color: $button-colors-secondary-disabled-border-color,
-    $disabled-color: $button-colors-secondary-disabled-color,
-  );
-}
+@use '../../styles/variables/buttons.scss';
 
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
-    padding:
-      calc((#{ $height } - #{ $line-height }) / 2 - #{ lengths.border-width(2) })
-      calc(#{ $padding-x } - #{ lengths.border-width(2) });
-    padding-block: calc((#{ $height } - #{ $line-height }) / 2 - #{ lengths.border-width(2) });
-    padding-inline: calc(#{ $padding-x } - #{ lengths.border-width(2) });
+    padding: calc((#{$height} - #{$line-height}) / 2 - 2px)
+      calc(#{$padding-x} - 2px);
+    padding-block: calc((#{$height} - #{$line-height}) / 2 - 2px);
+    padding-inline: calc(#{$padding-x} - 2px);
   }
 
   @mixin with-squared-size($size) {
@@ -57,100 +38,234 @@
   @include typography.use-text-ellipsis;
 
   @include with-rectangular-size(
-    $height: lengths.size(40),
-    $padding-x: lengths.padding(16),
-    $line-height: typography.line-height(p1),
+    $height: 40px,
+    $padding-x: 16px,
+    $line-height: typography.line-height(p1)
   );
 
-  @extend %button--secondary;
+  @include as-button(
+    $background-color: map.get(buttons.$secondary, background-color),
+    $border-color: map.get(buttons.$secondary, border-color),
+    $color: map.get(buttons.$secondary, color),
+    $hover-background-color: map.get(buttons.$secondary, hover-background-color),
+    $hover-border-color: map.get(buttons.$secondary, hover-border-color),
+    $active-background-color:
+      map.get(buttons.$secondary, active-background-color),
+    $active-border-color: map.get(buttons.$secondary, active-border-color),
+    $focus-background-color: map.get(buttons.$secondary, focus-background-color),
+    $focus-border-color: map.get(buttons.$secondary, focus-border-color),
+    $focus-shadow-color: map.get(buttons.$secondary, focus-shadow-color),
+    $disabled-background-color:
+      map.get(buttons.$secondary, disabled-background-color),
+    $disabled-border-color: map.get(buttons.$secondary, disabled-border-color),
+    $disabled-color: map.get(buttons.$secondary, disabled-color)
+  );
 
   &--small {
     @include typography.use-font-scale(c2);
 
     @include with-rectangular-size(
-      $height: lengths.size(28),
-      $padding-x: lengths.padding(8),
-      $line-height: typography.line-height(c1),
+      $height: 28px,
+      $padding-x: 8px,
+      $line-height: typography.line-height(c1)
     );
   }
 
   &--square {
-    @include with-squared-size(
-      $size: lengths.size(40),
-    );
+    @include with-squared-size($size: 40px);
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   &--tiny-square {
-    @include with-squared-size(
-      $size: lengths.size(24),
-    );
+    @include with-squared-size($size: 24px);
   }
 
   &--mini-square {
-    @include with-squared-size(
-      $size: lengths.size(20),
-    );
+    @include with-squared-size($size: 20px);
   }
 
   &--small-square {
-    @include with-squared-size(
-      $size: lengths.size(28),
-    );
+    @include with-squared-size($size: 28px);
   }
 
   &--success {
-    color: colors.success(500);
-
-    &.disabled,
-    &:disabled {
-      color: colors.success(100);
-    }
+    @include as-button(
+      $background-color: map.get(buttons.$secondary-success, background-color),
+      $border-color: map.get(buttons.$secondary-success, border-color),
+      $color: map.get(buttons.$secondary-success, color),
+      $hover-background-color:
+        map.get(buttons.$secondary-success, hover-background-color),
+      $hover-border-color:
+        map.get(buttons.$secondary-success, hover-border-color),
+      $active-background-color:
+        map.get(buttons.$secondary-success, active-background-color),
+      $active-border-color:
+        map.get(buttons.$secondary-success, active-border-color),
+      $focus-background-color:
+        map.get(buttons.$secondary-success, focus-background-color),
+      $focus-border-color:
+        map.get(buttons.$secondary-success, focus-border-color),
+      $focus-shadow-color:
+        map.get(buttons.$secondary-success, focus-shadow-color),
+      $disabled-background-color:
+        map.get(buttons.$secondary-success, disabled-background-color),
+      $disabled-border-color:
+        map.get(buttons.$secondary-success, disabled-border-color),
+      $disabled-color: map.get(buttons.$secondary-success, disabled-color)
+    );
   }
 
   &--danger {
-    color: colors.danger(500);
-
-    &.disabled,
-    &:disabled {
-      color: colors.danger(100);
-    }
+    @include as-button(
+      $background-color: map.get(buttons.$secondary-danger, background-color),
+      $border-color: map.get(buttons.$secondary-danger, border-color),
+      $color: map.get(buttons.$secondary-danger, color),
+      $hover-background-color:
+        map.get(buttons.$secondary-danger, hover-background-color),
+      $hover-border-color:
+        map.get(buttons.$secondary-danger, hover-border-color),
+      $active-background-color:
+        map.get(buttons.$secondary-danger, active-background-color),
+      $active-border-color:
+        map.get(buttons.$secondary-danger, active-border-color),
+      $focus-background-color:
+        map.get(buttons.$secondary-danger, focus-background-color),
+      $focus-border-color:
+        map.get(buttons.$secondary-danger, focus-border-color),
+      $focus-shadow-color:
+        map.get(buttons.$secondary-danger, focus-shadow-color),
+      $disabled-background-color:
+        map.get(buttons.$secondary-danger, disabled-background-color),
+      $disabled-border-color:
+        map.get(buttons.$secondary-danger, disabled-border-color),
+      $disabled-color: map.get(buttons.$secondary-danger, disabled-color)
+    );
   }
 
   &--primary {
-    @extend %button--primary;
+    @include as-button(
+      $background-color: map.get(buttons.$primary, background-color),
+      $border-color: map.get(buttons.$primary, border-color),
+      $color: map.get(buttons.$primary, color),
+      $hover-background-color: map.get(buttons.$primary, hover-background-color),
+      $hover-border-color: map.get(buttons.$primary, hover-border-color),
+      $active-background-color:
+        map.get(buttons.$primary, active-background-color),
+      $active-border-color: map.get(buttons.$primary, active-border-color),
+      $focus-background-color: map.get(buttons.$primary, focus-background-color),
+      $focus-border-color: map.get(buttons.$primary, focus-border-color),
+      $focus-shadow-color: map.get(buttons.$primary, focus-shadow-color),
+      $disabled-background-color:
+        map.get(buttons.$primary, disabled-background-color),
+      $disabled-border-color: map.get(buttons.$primary, disabled-border-color),
+      $disabled-color: map.get(buttons.$primary, disabled-color)
+    );
   }
 
   &--primary-danger {
-    @extend %button--danger;
+    @include as-button(
+      $background-color: map.get(buttons.$danger, background-color),
+      $border-color: map.get(buttons.$danger, border-color),
+      $color: map.get(buttons.$danger, color),
+      $hover-background-color: map.get(buttons.$danger, hover-background-color),
+      $hover-border-color: map.get(buttons.$danger, hover-border-color),
+      $active-background-color:
+        map.get(buttons.$danger, active-background-color),
+      $active-border-color: map.get(buttons.$danger, active-border-color),
+      $focus-background-color: map.get(buttons.$danger, focus-background-color),
+      $focus-border-color: map.get(buttons.$danger, focus-border-color),
+      $focus-shadow-color: map.get(buttons.$danger, focus-shadow-color),
+      $disabled-background-color:
+        map.get(buttons.$danger, disabled-background-color),
+      $disabled-border-color: map.get(buttons.$danger, disabled-border-color),
+      $disabled-color: map.get(buttons.$danger, disabled-color)
+    );
   }
 
   &--primary-success {
-    @extend %button--success;
+    @include as-button(
+      $background-color: map.get(buttons.$success, background-color),
+      $border-color: map.get(buttons.$success, border-color),
+      $color: map.get(buttons.$success, color),
+      $hover-background-color: map.get(buttons.$success, hover-background-color),
+      $hover-border-color: map.get(buttons.$success, hover-border-color),
+      $active-background-color:
+        map.get(buttons.$success, active-background-color),
+      $active-border-color: map.get(buttons.$success, active-border-color),
+      $focus-background-color: map.get(buttons.$success, focus-background-color),
+      $focus-border-color: map.get(buttons.$success, focus-border-color),
+      $focus-shadow-color: map.get(buttons.$success, focus-shadow-color),
+      $disabled-background-color:
+        map.get(buttons.$success, disabled-background-color),
+      $disabled-border-color: map.get(buttons.$success, disabled-border-color),
+      $disabled-color: map.get(buttons.$success, disabled-color)
+    );
   }
 
   &--ghost {
-    border-color: $button-colors-ghost-background-color;
-    background-color: $button-colors-ghost-border-color;
-  }
-
-  &--ghost-danger {
-    color: colors.danger(500);
-
-    &.disabled,
-    &:disabled {
-      color: colors.danger(100);
-    }
+    @include as-button(
+      $background-color: map.get(buttons.$ghost, background-color),
+      $border-color: map.get(buttons.$ghost, border-color),
+      $color: map.get(buttons.$ghost, color),
+      $hover-background-color: map.get(buttons.$ghost, hover-background-color),
+      $hover-border-color: map.get(buttons.$ghost, hover-border-color),
+      $active-background-color: map.get(buttons.$ghost, active-background-color),
+      $active-border-color: map.get(buttons.$ghost, active-border-color),
+      $focus-background-color: map.get(buttons.$ghost, focus-background-color),
+      $focus-border-color: map.get(buttons.$ghost, focus-border-color),
+      $focus-shadow-color: map.get(buttons.$ghost, focus-shadow-color),
+      $disabled-background-color:
+        map.get(buttons.$ghost, disabled-background-color),
+      $disabled-border-color: map.get(buttons.$ghost, disabled-border-color),
+      $disabled-color: map.get(buttons.$ghost, disabled-color)
+    );
   }
 
   &--ghost-success {
-    color: colors.success(500);
+    @include as-button(
+      $background-color: map.get(buttons.$ghost-success, background-color),
+      $border-color: map.get(buttons.$ghost-success, border-color),
+      $color: map.get(buttons.$ghost-success, color),
+      $hover-background-color:
+        map.get(buttons.$ghost-success, hover-background-color),
+      $hover-border-color: map.get(buttons.$ghost-success, hover-border-color),
+      $active-background-color:
+        map.get(buttons.$ghost-success, active-background-color),
+      $active-border-color: map.get(buttons.$ghost-success, active-border-color),
+      $focus-background-color:
+        map.get(buttons.$ghost-success, focus-background-color),
+      $focus-border-color: map.get(buttons.$ghost-success, focus-border-color),
+      $focus-shadow-color: map.get(buttons.$ghost-success, focus-shadow-color),
+      $disabled-background-color:
+        map.get(buttons.$ghost-success, disabled-background-color),
+      $disabled-border-color:
+        map.get(buttons.$ghost-success, disabled-border-color),
+      $disabled-color: map.get(buttons.$ghost-success, disabled-color)
+    );
+  }
 
-    &.disabled,
-    &:disabled {
-      color: colors.success(100);
-    }
+  &--ghost-danger {
+    @include as-button(
+      $background-color: map.get(buttons.$ghost-danger, background-color),
+      $border-color: map.get(buttons.$ghost-danger, border-color),
+      $color: map.get(buttons.$ghost-danger, color),
+      $hover-background-color:
+        map.get(buttons.$ghost-danger, hover-background-color),
+      $hover-border-color: map.get(buttons.$ghost-danger, hover-border-color),
+      $active-background-color:
+        map.get(buttons.$ghost-danger, active-background-color),
+      $active-border-color: map.get(buttons.$ghost-danger, active-border-color),
+      $focus-background-color:
+        map.get(buttons.$ghost-danger, focus-background-color),
+      $focus-border-color: map.get(buttons.$ghost-danger, focus-border-color),
+      $focus-shadow-color: map.get(buttons.$ghost-danger, focus-shadow-color),
+      $disabled-background-color:
+        map.get(buttons.$ghost-danger, disabled-background-color),
+      $disabled-border-color:
+        map.get(buttons.$ghost-danger, disabled-border-color),
+      $disabled-color: map.get(buttons.$ghost-danger, disabled-color)
+    );
   }
 }

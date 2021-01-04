@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 import { useClipboard, UseClipboardReturn } from './useClipboard';
 
 describe('useClipboard hook', () => {
-  let container;
+  let container: Element;
 
   beforeEach(() => {
     container = document.createElement('div');
@@ -75,8 +75,8 @@ describe('useClipboard hook', () => {
     Object.assign(navigator, {
       clipboard: {
         writeText: () =>
-          new Promise((resolve) => {
-            return resolve();
+          new Promise<void>((resolve) => {
+            resolve();
           }),
       },
     });

@@ -8,13 +8,13 @@
   $focus-shadow-color,
   $active-border-color,
   $disabled-background-color,
-  $disabled-border-color,
+  $disabled-border-color
 ) {
   border-width: lengths.border-width(2);
 
-  border-color: #{ $border-color };
+  border-color: #{$border-color};
   border-radius: lengths.border-radius(2);
-  background-color: #{ $background-color };
+  background-color: #{$background-color};
   @include use-no-shadow;
 
   @include on-hover {
@@ -27,13 +27,13 @@
   }
 
   @include on-active {
-    border-color: #{ $active-border-color };
+    border-color: #{$active-border-color};
     @include use-no-shadow;
   }
 
   @include on-disabled {
-    border-color: #{ $disabled-border-color };
-    background-color: #{ $disabled-background-color };
+    border-color: #{$disabled-border-color};
+    background-color: #{$disabled-background-color};
   }
 }
 
@@ -46,7 +46,7 @@
     $focus-shadow-color: $input-colors-focus-shadow-color,
     $active-border-color: $input-colors-active-border-color,
     $disabled-background-color: $input-colors-disabled-background-color,
-    $disabled-border-color: $input-colors-disabled-border-color,
+    $disabled-border-color: $input-colors-disabled-border-color
   );
 }
 
@@ -59,6 +59,6 @@
     $focus-shadow-color: $input-colors-invalid-focus-shadow-color,
     $active-border-color: $input-colors-invalid-active-border-color,
     $disabled-background-color: $input-colors-invalid-disabled-background-color,
-    $disabled-border-color: $input-colors-invalid-disabled-border-color,
+    $disabled-border-color: $input-colors-invalid-disabled-border-color
   );
 }

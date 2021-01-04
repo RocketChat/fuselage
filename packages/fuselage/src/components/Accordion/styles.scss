@@ -20,8 +20,7 @@
   flex-flow: row nowrap;
 
   min-height: lengths.size(2 * 32 + 24);
-  padding:
-    (lengths.padding(32) - lengths.border-width(2))
+  padding: (lengths.padding(32) - lengths.border-width(2))
     (lengths.padding(8) - lengths.border-width(2));
 
   text-align: start;
@@ -68,9 +67,7 @@
   align-items: center;
   flex: 0 0 auto;
 
-  margin:
-    lengths.margin(none)
-    lengths.margin(24);
+  margin: lengths.margin(none) lengths.margin(24);
 }
 
 .rcx-accordion-item__panel {
@@ -79,16 +76,12 @@
   overflow: hidden;
 
   height: lengths.size(none);
-  padding:
-    lengths.padding(none)
-    lengths.padding(8);
+  padding: lengths.padding(none) lengths.padding(8);
 
   &--expanded {
     visibility: visible;
 
     height: auto;
-    padding:
-      lengths.padding(32)
-      lengths.padding(8);
+    padding: lengths.padding(32) lengths.padding(8);
   }
 }

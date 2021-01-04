@@ -54,9 +54,9 @@
   $placeholder-color,
   $focus-caret-color,
   $active-caret-color,
-  $disabled-color,
+  $disabled-color
 ) {
-  color: #{ $color };
+  color: #{$color};
 
   // TODO: fix placeholder performance issue
   // &::placeholder {
@@ -64,23 +64,23 @@
   // }
 
   &.rcx-input-box--placeholder-visible {
-    color: #{ $placeholder-color };
+    color: #{$placeholder-color};
   }
 
   &:focus,
   &.focus {
-    caret-color: #{ $focus-caret-color };
+    caret-color: #{$focus-caret-color};
   }
 
   &:active,
   &.active {
-    caret-color: #{ $active-caret-color };
+    caret-color: #{$active-caret-color};
   }
 
   *:disabled &,
   &:disabled,
   &.disabled {
-    color: #{ $disabled-color };
+    color: #{$disabled-color};
   }
 }
 
@@ -88,31 +88,31 @@
   $color,
   $focus-caret-color,
   $focus-icon-color,
-  $disabled-color,
+  $disabled-color
 ) {
   & + .rcx-input-box__addon {
-    color: #{ $color };
+    color: #{$color};
   }
 
   .rcx-input-box__wrapper.focus > & {
-    caret-color: #{ $focus-caret-color };
+    caret-color: #{$focus-caret-color};
   }
 
   &:focus + .rcx-input-box__addon,
   &.focus + .rcx-input-box__addon,
   .rcx-input-box__wrapper.focus > & + .rcx-input-box__addon {
-    color: #{ $focus-icon-color };
+    color: #{$focus-icon-color};
   }
 
   .rcx-input-box__wrapper.disabled > & {
-    color: #{ $disabled-color };
+    color: #{$disabled-color};
   }
 
   *:disabled & + .rcx-input-box__addon,
   &:disabled + .rcx-input-box__addon,
   &.disabled + .rcx-input-box__addon,
   .rcx-input-box__wrapper.disabled > & + .rcx-input-box__addon {
-    color: #{ $disabled-color };
+    color: #{$disabled-color};
   }
 }
 
@@ -164,9 +164,7 @@
     min-width: lengths.size(128);
     min-height: lengths.size(40);
 
-    padding:
-      lengths.padding(8)
-      (lengths.padding(16) - lengths.border-width(2));
+    padding: lengths.padding(8) (lengths.padding(16) - lengths.border-width(2));
 
     @extend %input;
 
@@ -181,7 +179,7 @@
     $placeholder-color: $input-colors-placeholder-color,
     $focus-caret-color: $input-colors-focus-caret-color,
     $active-caret-color: $input-colors-active-caret-color,
-    $disabled-color: $input-colors-disabled-color,
+    $disabled-color: $input-colors-disabled-color
   );
 
   &:invalid,
@@ -191,14 +189,14 @@
       $placeholder-color: $input-colors-invalid-placeholder-color,
       $focus-caret-color: $input-colors-invalid-focus-caret-color,
       $active-caret-color: $input-colors-invalid-active-caret-color,
-      $disabled-color: $input-colors-invalid-disabled-color,
+      $disabled-color: $input-colors-invalid-disabled-color
     );
 
     @include with-icon-addon-colors(
       $color: $input-colors-invalid-color,
       $focus-caret-color: $input-colors-invalid-focus-caret-color,
       $focus-icon-color: $input-colors-invalid-focus-icon-color,
-      $disabled-color: $input-colors-invalid-disabled-color,
+      $disabled-color: $input-colors-invalid-disabled-color
     );
   }
 
@@ -212,7 +210,7 @@
     $color: $input-colors-color,
     $focus-caret-color: $input-colors-focus-caret-color,
     $focus-icon-color: $input-colors-focus-icon-color,
-    $disabled-color: $input-colors-disabled-color,
+    $disabled-color: $input-colors-disabled-color
   );
 
   *:disabled & + .rcx-input-box__addon,
@@ -232,7 +230,7 @@
   white-space: nowrap;
 
   @include typography.use-font-scale(p1);
-  color: #{ $input-colors-placeholder-color };
+  color: #{$input-colors-placeholder-color};
 }
 
 .rcx-input-box__option {
@@ -240,7 +238,7 @@
   white-space: nowrap;
 
   @include typography.use-font-scale(p1);
-  color: #{ $input-colors-color };
+  color: #{$input-colors-color};
 }
 
 .rcx-skeleton__input {
@@ -251,18 +249,17 @@
   min-width: lengths.size(128);
   min-height: lengths.size(40);
 
-  padding:
-    (lengths.padding(12) - lengths.border-width(2))
+  padding: (lengths.padding(12) - lengths.border-width(2))
     (lengths.padding(16) - lengths.border-width(2));
 
   vertical-align: baseline;
 
-  color: #{ $input-colors-color };
+  color: #{$input-colors-color};
 
   border-width: lengths.border-width(2);
-  border-color: #{ $input-colors-border-color };
+  border-color: #{$input-colors-border-color};
   border-radius: lengths.border-radius(2);
-  background-color: #{ $input-colors-background-color };
+  background-color: #{$input-colors-background-color};
 
   @include typography.use-font-scale(p1);
   @include typography.use-text-ellipsis;

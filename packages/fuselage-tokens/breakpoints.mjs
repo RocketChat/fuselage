@@ -1,5 +1,4 @@
-'use strict';
-module.exports = {
+export default {
   xs: { name: 'xs', minViewportWidth: null, columns: 4, gutterWidth: 16 },
   sm: { name: 'sm', minViewportWidth: 600, columns: 8, gutterWidth: 16 },
   md: { name: 'md', minViewportWidth: 768, columns: 8, gutterWidth: 24 },
