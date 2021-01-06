@@ -697,5 +697,8 @@
   },
   "burger": {
     "start": "\ue0b9"
+  },
+  "document-eye": {
+    "start": "\ue0bc"
   }
 }
