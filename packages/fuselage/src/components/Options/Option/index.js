@@ -17,7 +17,7 @@ const OptionDescription = (props) => (
 );
 const OptionIcon = ({ name }) => (
   <OptionColumn>
-    <Icon size='x16' name={name} />
+    <Icon size='x20' name={name} />
   </OptionColumn>
 );
 
