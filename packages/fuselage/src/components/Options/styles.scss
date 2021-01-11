@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
 
-    margin-inline: lengths.margin(-4);
+    margin-inline: lengths.margin(-2);
   }
 
   &:hover,
@@ -51,7 +51,7 @@
 %column {
   flex: 0 0 auto;
 
-  margin-inline: lengths.margin(4);
+  margin-inline: lengths.margin(2);
 }
 
 .rcx-option__avatar {
@@ -69,6 +69,12 @@
 .rcx-option__column {
   @extend %column;
   display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  min-width: lengths.size(20);
+  min-height: lengths.size(20);
 }
 
 .rcx-option__description {
