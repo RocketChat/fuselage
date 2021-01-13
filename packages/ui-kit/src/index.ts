@@ -19,68 +19,15 @@ import {
   IMultiStaticSelectElement,
   IOverflowElement,
   IPlainTextInput,
-  SectionAccessoryElement,
-  ActionElement,
-  ContextElement,
-  InputElement,
-  IBlock,
   ConditionalBlockFilters,
   IConditionalBlock,
   Conditions,
 } from './blocks';
-
-export const version = process.env.VERSION;
-
-type BlockRenderer<T, B extends IBlock> = (
-  block: B,
-  context: BlockContext.BLOCK,
-  index: number
-) => T;
-
-type ElementRenderer<T, E extends IElement> = (
-  element: E,
-  context: BlockContext,
-  index: number
-) => T;
-
-type ElementSetRenderer<T, E extends IElement> = (
-  element: E,
-  context: BlockContext,
-  _: undefined,
-  index: number
-) => T;
-
-interface IParser<T> {
-  text: ElementRenderer<T, TextObject>;
-  plainText: ElementRenderer<T, IPlainText>;
-  mrkdwn: ElementRenderer<T, IMarkdown>;
-}
-
-interface IParserMessage<T> extends IParser<T> {
-  divider: BlockRenderer<T, IDividerBlock>;
-  section: BlockRenderer<T, ISectionBlock>;
-  image: BlockRenderer<T, IImageBlock> | ElementRenderer<T, IImageElement>;
-  actions: BlockRenderer<T, IActionsBlock>;
-  context: BlockRenderer<T, IContextBlock>;
-
-  button: ElementRenderer<T, IButtonElement>;
-  datePicker: ElementRenderer<T, IDatePickerElement>;
-  staticSelect: ElementRenderer<T, IStaticSelectElement>;
-  multiStaticSelect: ElementRenderer<T, IMultiStaticSelectElement>;
-  overflow: ElementRenderer<T, IOverflowElement>;
-
-  renderAccessories: ElementSetRenderer<T, SectionAccessoryElement>;
-  renderActions: ElementSetRenderer<T, ActionElement>;
-  renderContext: ElementSetRenderer<T, ContextElement>;
-}
-
-interface IParserModal<T> extends IParserMessage<T> {
-  input: BlockRenderer<T, IInputBlock>;
-
-  plainInput: ElementRenderer<T, IPlainTextInput>;
-
-  renderInputs: ElementSetRenderer<T, InputElement>;
-}
+import { IParser } from './parsers/IParser';
+import { IParserMessage } from './parsers/IParserMessage';
+import { IParserModal } from './parsers/IParserModal';
+import { ElementRenderer } from './renderers/ElementRenderer';
+import { ElementSetRenderer } from './renderers/ElementSetRenderer';
 
 const renderElement = <T>(
   element: IElement,
@@ -433,4 +380,6 @@ export {
 
 export * from './blocks';
 
-console.log(`ui-kit version: ${process.env.VERSION}`);
+export const version = process.env.VERSION;
+
+console.log(`ui-kit version: ${version}`);
