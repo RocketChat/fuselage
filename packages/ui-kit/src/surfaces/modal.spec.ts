@@ -1,4 +1,4 @@
-import { uiKitModal, UiKitParserModal, BLOCK_CONTEXT } from '.';
+import { uiKitModal, UiKitParserModal, BlockContext } from '..';
 
 class TestParser extends UiKitParserModal {
   plainText = (element: any, context: any, index: any): any => ({
@@ -7,7 +7,7 @@ class TestParser extends UiKitParserModal {
       key: index,
       children: element.text,
       emoji: element.emoji,
-      block: context === BLOCK_CONTEXT.BLOCK,
+      block: context === BlockContext.BLOCK,
     },
   });
 
@@ -17,7 +17,7 @@ class TestParser extends UiKitParserModal {
       key: index,
       children: element.text,
       verbatim: Boolean(element.verbatim),
-      block: context === BLOCK_CONTEXT.BLOCK,
+      block: context === BlockContext.BLOCK,
     },
   });
 
@@ -25,7 +25,7 @@ class TestParser extends UiKitParserModal {
     component: 'divider',
     props: {
       key: index,
-      block: context === BLOCK_CONTEXT.BLOCK,
+      block: context === BlockContext.BLOCK,
     },
   });
 
@@ -37,23 +37,23 @@ class TestParser extends UiKitParserModal {
         key: index,
         children: [
           ...(element.text
-            ? [this.text(element.text, BLOCK_CONTEXT.SECTION, key++)]
+            ? [this.text(element.text, BlockContext.SECTION, key++)]
             : []),
           ...(element.fields?.map((field: any) =>
-            this.text(field, BLOCK_CONTEXT.SECTION, key++)
+            this.text(field, BlockContext.SECTION, key++)
           ) ?? []),
           ...(element.accessory
             ? [
                 this.renderAccessories(
                   element.accessory,
-                  BLOCK_CONTEXT.SECTION,
+                  BlockContext.SECTION,
                   undefined,
                   key++
                 ),
               ]
             : []),
         ],
-        block: context === BLOCK_CONTEXT.BLOCK,
+        block: context === BlockContext.BLOCK,
       },
     };
   };
@@ -63,9 +63,9 @@ class TestParser extends UiKitParserModal {
     props: {
       key: index,
       children: element.elements.map((element: any, key: number) =>
-        this.renderActions(element, BLOCK_CONTEXT.ACTION, undefined, key)
+        this.renderActions(element, BlockContext.ACTION, undefined, key)
       ),
-      block: context === BLOCK_CONTEXT.BLOCK,
+      block: context === BlockContext.BLOCK,
     },
   });
 
@@ -74,9 +74,9 @@ class TestParser extends UiKitParserModal {
     props: {
       key: index,
       children: element.elements.map((element: any, key: number) =>
-        this.renderContext(element, BLOCK_CONTEXT.CONTEXT, undefined, key)
+        this.renderContext(element, BlockContext.CONTEXT, undefined, key)
       ),
-      block: context === BLOCK_CONTEXT.BLOCK,
+      block: context === BlockContext.BLOCK,
     },
   });
 
@@ -85,13 +85,13 @@ class TestParser extends UiKitParserModal {
     props: {
       key: index,
       children: [
-        this.plainText(element.label, BLOCK_CONTEXT.FORM, 0),
-        this.renderInputs(element.element, BLOCK_CONTEXT.FORM, undefined, 1),
+        this.plainText(element.label, BlockContext.FORM, 0),
+        this.renderInputs(element.element, BlockContext.FORM, undefined, 1),
         ...(element.hint
-          ? [this.plainText(element.hint, BLOCK_CONTEXT.FORM, 2)]
+          ? [this.plainText(element.hint, BlockContext.FORM, 2)]
           : []),
       ],
-      block: context === BLOCK_CONTEXT.BLOCK,
+      block: context === BlockContext.BLOCK,
     },
   });
 
@@ -100,17 +100,17 @@ class TestParser extends UiKitParserModal {
     props: {
       key: index,
       children: element.text
-        ? [this.text(element.text, BLOCK_CONTEXT.SECTION, 0)]
+        ? [this.text(element.text, BlockContext.SECTION, 0)]
         : [],
       ...(element.url && { href: element.url }),
       ...(element.value && { value: element.value }),
       variant: element.style ?? 'normal',
-      block: context === BLOCK_CONTEXT.BLOCK,
+      block: context === BlockContext.BLOCK,
     },
   });
 
   image = (element: any, context: any, index: any): any => {
-    if (context === BLOCK_CONTEXT.BLOCK) {
+    if (context === BlockContext.BLOCK) {
       let key = 0;
       return {
         component: 'image-container',

@@ -1,4 +1,4 @@
-import { uiKitText, UiKitParserText, BLOCK_CONTEXT } from '.';
+import { uiKitText, UiKitParserText, BlockContext } from '..';
 
 class TestParser extends UiKitParserText {
   plainText = (element: any, context: any, index: any): any => ({
@@ -7,7 +7,7 @@ class TestParser extends UiKitParserText {
       key: index,
       children: element.text,
       emoji: element.emoji,
-      block: context === BLOCK_CONTEXT.BLOCK,
+      block: context === BlockContext.BLOCK,
     },
   });
 
@@ -17,7 +17,7 @@ class TestParser extends UiKitParserText {
       key: index,
       children: element.text,
       verbatim: Boolean(element.verbatim),
-      block: context === BLOCK_CONTEXT.BLOCK,
+      block: context === BlockContext.BLOCK,
     },
   });
 }
