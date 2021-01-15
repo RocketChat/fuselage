@@ -1,12 +1,12 @@
 import { ElementType, IElement, IInputBlock } from '../blocks';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
-import { IParserModal } from '../parsers/IParserModal';
+import { IParser } from '../parsers/IParser';
 import { ElementRenderer } from '../renderers/ElementRenderer';
 import { UiKitParserMessage } from './message';
 
 export abstract class UiKitParserModal
   extends UiKitParserMessage
-  implements IParserModal<unknown> {
+  implements IParser<unknown> {
   input: ElementRenderer<unknown, IInputBlock>;
 
   plainInput: ElementRenderer<unknown, IElement>;

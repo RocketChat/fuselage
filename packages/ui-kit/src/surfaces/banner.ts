@@ -17,7 +17,7 @@ import { IParser } from '../parsers/IParser';
 import { ElementRenderer } from '../renderers/ElementRenderer';
 import { UiKitParserText } from './text';
 
-export abstract class UiKitParserMessage
+export abstract class UiKitParserBanner
   extends UiKitParserText
   implements IParser<unknown> {
   divider: ElementRenderer<unknown, IDividerBlock>;
@@ -91,7 +91,7 @@ export abstract class UiKitParserMessage
   ]);
 }
 
-export const uiKitMessage = createSurfaceRenderer<unknown>([
+export const uiKitBanner = createSurfaceRenderer<unknown>([
   ElementType.DIVIDER,
   ElementType.SECTION,
   ElementType.IMAGE,

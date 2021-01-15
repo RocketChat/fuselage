@@ -23,8 +23,6 @@ import {
   Conditions,
 } from './blocks';
 import { IParser } from './parsers/IParser';
-import { IParserMessage } from './parsers/IParserMessage';
-import { IParserModal } from './parsers/IParserModal';
 import { ElementRenderer } from './renderers/ElementRenderer';
 import { ElementSetRenderer } from './renderers/ElementSetRenderer';
 
@@ -60,7 +58,7 @@ const renderElement = <T>(
         return null;
       }
 
-      return (parser as IParserMessage<T>).divider(
+      return parser.divider?.(
         element as IDividerBlock,
         BlockContext.BLOCK,
         index
@@ -71,7 +69,7 @@ const renderElement = <T>(
         return null;
       }
 
-      return (parser as IParserMessage<T>).section(
+      return parser.section?.(
         element as ISectionBlock,
         BlockContext.BLOCK,
         index
@@ -79,24 +77,21 @@ const renderElement = <T>(
 
     case ElementType.IMAGE:
       if (context !== BlockContext.BLOCK) {
-        return ((parser as IParserMessage<T>).image as ElementRenderer<
-          T,
-          IImageElement
-        >)(element as IImageElement, context, index);
+        return (parser.image as ElementRenderer<T, IImageElement>)?.(
+          element as IImageElement,
+          context,
+          index
+        );
       }
 
-      return (parser as IParserMessage<T>).image(
-        element as IImageBlock,
-        context,
-        index
-      );
+      return parser.image?.(element as IImageBlock, context, index);
 
     case ElementType.ACTIONS:
       if (context !== BlockContext.BLOCK) {
         return null;
       }
 
-      return (parser as IParserMessage<T>).actions(
+      return parser.actions?.(
         element as IActionsBlock,
         BlockContext.BLOCK,
         index
@@ -107,7 +102,7 @@ const renderElement = <T>(
         return null;
       }
 
-      return (parser as IParserMessage<T>).context(
+      return parser.context?.(
         element as IContextBlock,
         BlockContext.BLOCK,
         index
@@ -118,53 +113,33 @@ const renderElement = <T>(
         return null;
       }
 
-      return (parser as IParserModal<T>).input(
-        element as IInputBlock,
-        BlockContext.BLOCK,
-        index
-      );
+      return parser.input?.(element as IInputBlock, BlockContext.BLOCK, index);
 
     case ElementType.OVERFLOW:
-      return (parser as IParserMessage<T>).overflow(
-        element as IOverflowElement,
-        context,
-        index
-      );
+      return parser.overflow?.(element as IOverflowElement, context, index);
 
     case ElementType.BUTTON:
-      return (parser as IParserMessage<T>).button(
-        element as IButtonElement,
-        context,
-        index
-      );
+      return parser.button?.(element as IButtonElement, context, index);
 
     case ElementType.STATIC_SELECT:
-      return (parser as IParserMessage<T>).staticSelect(
+      return parser.staticSelect?.(
         element as IStaticSelectElement,
         context,
         index
       );
 
     case ElementType.MULTI_STATIC_SELECT:
-      return (parser as IParserMessage<T>).multiStaticSelect(
+      return parser.multiStaticSelect?.(
         element as IMultiStaticSelectElement,
         context,
         index
       );
 
     case ElementType.DATEPICKER:
-      return (parser as IParserMessage<T>).datePicker(
-        element as IDatePickerElement,
-        context,
-        index
-      );
+      return parser.datePicker?.(element as IDatePickerElement, context, index);
 
     case ElementType.PLAIN_TEXT_INPUT:
-      return (parser as IParserModal<T>).plainInput(
-        element as IPlainTextInput,
-        context,
-        index
-      );
+      return parser.plainInput?.(element as IPlainTextInput, context, index);
   }
 
   if (parser[element.type]) {
