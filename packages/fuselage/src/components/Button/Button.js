@@ -11,6 +11,7 @@ export const Button = forwardRef(function Button(
     primary,
     ghost,
     nude,
+    ghostish,
     external,
     is = 'button',
     rel,
@@ -40,9 +41,10 @@ export const Button = forwardRef(function Button(
       (danger && 'danger');
 
     const kind =
-      (primary && !ghost && !nude && 'primary') ||
-      (!primary && ghost && !nude && 'ghost') ||
-      (!primary && !ghost && nude && 'nude');
+      (primary && !ghost && !nude && !ghostish && 'primary') ||
+      (!primary && ghost && !nude && !ghostish && 'ghost') ||
+      (!primary && !ghost && nude && !ghostish && 'nude') ||
+      (!primary && !ghost && !nude && ghostish && 'ghostish');
 
     if (kind || variant) {
       return {
@@ -51,7 +53,7 @@ export const Button = forwardRef(function Button(
     }
 
     return {};
-  }, [danger, ghost, info, nude, primary, success, warning]);
+  }, [danger, ghost, ghostish, info, nude, primary, success, warning]);
 
   return (
     <Box

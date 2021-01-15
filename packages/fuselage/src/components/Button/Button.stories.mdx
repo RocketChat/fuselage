@@ -98,6 +98,28 @@ Indicates an actionable user action.
   </Story>
 </Canvas>
 
+### Ghostish kind
+
+<Canvas>
+  <Story name='Ghostish'>
+    <ButtonGroup>
+      <Button ghostish>Neutral</Button>
+      <Button ghostish info>
+        Info
+      </Button>
+      <Button ghostish success>
+        Success
+      </Button>
+      <Button ghostish warning>
+        Warning
+      </Button>
+      <Button ghostish danger>
+        Danger
+      </Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
 ### Square
 
 <Canvas>
@@ -375,6 +397,30 @@ Indicates an actionable user action.
       'nude + danger': {
         children: 'Button',
         nude: true,
+        danger: true,
+      },
+      'ghostish': {
+        children: 'Button',
+        ghostish: true,
+      },
+      'ghostish + info': {
+        children: 'Button',
+        ghostish: true,
+        info: true,
+      },
+      'ghostish + success': {
+        children: 'Button',
+        ghostish: true,
+        success: true,
+      },
+      'ghostish + warning': {
+        children: 'Button',
+        ghostish: true,
+        warning: true,
+      },
+      'ghostish + danger': {
+        children: 'Button',
+        ghostish: true,
         danger: true,
       },
     }}

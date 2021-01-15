@@ -93,9 +93,9 @@
   &--square {
     @include with-squared-size($size: 40px);
     display: flex;
-    flex-shrink: 0;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
   }
 
   &--tiny-square {
@@ -184,5 +184,25 @@
 
   &--nude-danger {
     @include -kind-variant(buttons.$nude-danger);
+  }
+
+  &--ghostish {
+    @include -kind-variant(buttons.$ghostish);
+  }
+
+  &--ghostish-info {
+    @include -kind-variant(buttons.$ghostish-info);
+  }
+
+  &--ghostish-success {
+    @include -kind-variant(buttons.$ghostish-success);
+  }
+
+  &--ghostish-warning {
+    @include -kind-variant(buttons.$ghostish-warning);
+  }
+
+  &--ghostish-danger {
+    @include -kind-variant(buttons.$ghostish-danger);
   }
 }
