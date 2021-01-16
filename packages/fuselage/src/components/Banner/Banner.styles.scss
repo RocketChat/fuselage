@@ -1,0 +1,117 @@
+@use 'sass:map';
+@use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
+
+@mixin -variant($colors) {
+  color: map.get($colors, color);
+  background-color: map.get($colors, background-color);
+}
+
+.rcx-banner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 0 1 auto;
+
+  box-sizing: border-box;
+
+  font-family: typography.font-family('sans');
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &--neutral {
+    @include -variant(
+      (
+        background-color: colors.neutral(100),
+        color: colors.neutral(800),
+      )
+    );
+  }
+
+  &--info {
+    @include -variant(
+      (
+        background-color: colors.info(200),
+        color: colors.info(600),
+      )
+    );
+  }
+
+  &--success {
+    @include -variant(
+      (
+        background-color: colors.success(200),
+        color: colors.success(800),
+      )
+    );
+  }
+
+  &--warning {
+    @include -variant(
+      (
+        background-color: colors.warning(200),
+        color: colors.warning(900),
+      )
+    );
+  }
+
+  &--danger {
+    @include -variant(
+      (
+        background-color: colors.danger(200),
+        color: colors.danger(600),
+      )
+    );
+  }
+
+  &__icon {
+    display: none;
+
+    padding-block: 22px;
+    padding-inline-start: 16px;
+
+    @include on-breakpoint(sm) {
+      display: unset;
+    }
+
+    &--inline {
+      padding-block: 10px;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    align-self: center;
+
+    padding-block: 14px;
+    padding-inline: 12px;
+    @include typography.use-font-scale(p1);
+
+    &--inline {
+      padding-block: 12px;
+      @include typography.use-with-truncated-text;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    @include typography.use-font-scale(p2);
+
+    &--inline {
+      float: inline-start;
+
+      padding-inline-end: 8px;
+    }
+  }
+
+  &__close-button {
+    padding-block: 20px;
+    padding-inline-end: 24px;
+
+    &--inline {
+      padding-block: 8px;
+    }
+  }
+}
