@@ -20,7 +20,10 @@ declare module '@rocket.chat/fuselage' {
 
   type BoxProps = PropsWithChildren<{
     is?: ElementType;
-    className?: string | ReturnType<typeof css> | (string | ReturnType<typeof css>)[];
+    className?:
+      | string
+      | ReturnType<typeof css>
+      | (string | ReturnType<typeof css>)[];
     style?: CSSProperties;
     border?: CSSProperties['border'];
     borderBlock?: CSSProperties['borderBlock'];
@@ -145,10 +148,10 @@ declare module '@rocket.chat/fuselage' {
     minSize?: CSSProperties['blockSize'];
     maxSize?: CSSProperties['blockSize'];
     fontScale?: FontScale;
-  }>
-  & Omit<AllHTMLAttributes<HTMLOrSVGElement>, 'className'>
-  & Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLOrSVGElement>>
-  & RefAttributes<unknown>;
+  }> &
+    Omit<AllHTMLAttributes<HTMLOrSVGElement>, 'className'> &
+    Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLOrSVGElement>> &
+    RefAttributes<unknown>;
 
   export const Box: ForwardRefExoticComponent<BoxProps>;
 
@@ -182,13 +185,18 @@ declare module '@rocket.chat/fuselage' {
     className?: string;
     children?: any;
     title?: any;
-  }
+  };
   export const Badge: ForwardRefExoticComponent<BadgeProps>;
 
   type ButtonProps = BoxProps & {
+    info?: boolean;
+    success?: boolean;
+    warning?: boolean;
+    danger?: boolean;
     primary?: boolean;
     ghost?: boolean;
-    danger?: boolean;
+    nude?: boolean;
+    ghostish?: boolean;
     small?: boolean;
     square?: boolean;
   };
@@ -263,7 +271,7 @@ declare module '@rocket.chat/fuselage' {
     optionWidth?: BoxProps['width'];
     placement?: Placements;
     renderItem?: (props: OptionProps) => ReactNode;
-  }
+  };
   export const Menu: ForwardRefExoticComponent<MenuProps>;
 
   type ModalProps = BoxProps;
@@ -305,7 +313,11 @@ declare module '@rocket.chat/fuselage' {
     current?: number;
     itemsPerPage?: 25 | 50 | 100;
     itemsPerPageLabel?: () => string;
-    showingResultsLabel?: (props: { count: number; current: number; itemsPerPage: 25 | 50 | 100 }) => string;
+    showingResultsLabel?: (props: {
+      count: number;
+      current: number;
+      itemsPerPage: 25 | 50 | 100;
+    }) => string;
     onSetCurrent?: Dispatch<SetStateAction<number>>;
     onSetItemsPerPage?: Dispatch<SetStateAction<25 | 50 | 100>>;
   };
