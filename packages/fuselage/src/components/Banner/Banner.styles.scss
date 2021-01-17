@@ -20,6 +20,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  padding-block: 14px;
+  padding-inline: 16px;
+
+  &--inline {
+    padding-block: 12px;
+  }
+
   &--neutral {
     @include -variant(
       (
@@ -66,17 +73,12 @@
   }
 
   &__icon {
-    display: none;
-
-    padding-block: 22px;
-    padding-inline-start: 16px;
-
-    @include on-breakpoint(sm) {
-      display: unset;
-    }
+    padding-block: 8px;
+    padding-inline-end: 12px;
 
     &--inline {
-      padding-block: 10px;
+      margin-block: -2px;
+      padding-block: 0;
     }
   }
 
@@ -84,12 +86,9 @@
     flex-grow: 1;
     align-self: center;
 
-    padding-block: 14px;
-    padding-inline: 12px;
     @include typography.use-font-scale(p1);
 
     &--inline {
-      padding-block: 12px;
       @include typography.use-with-truncated-text;
     }
   }
@@ -100,18 +99,20 @@
     @include typography.use-font-scale(p2);
 
     &--inline {
-      float: inline-start;
+      display: inline;
 
       padding-inline-end: 8px;
     }
   }
 
   &__close-button {
-    padding-block: 20px;
-    padding-inline-end: 24px;
+    padding-block: 6px;
+    padding-inline: 8px;
+    float: inline-end;
 
     &--inline {
-      padding-block: 8px;
+      margin-block: -4px;
+      padding-block: 0;
     }
   }
 }
