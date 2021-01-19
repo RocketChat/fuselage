@@ -16,12 +16,12 @@
 
   box-sizing: border-box;
 
+  padding-block: 14px;
+  padding-inline: 16px;
+
   font-family: typography.font-family('sans');
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  padding-block: 14px;
-  padding-inline: 16px;
 
   &--inline {
     padding-block: 12px;
@@ -106,9 +106,10 @@
   }
 
   &__close-button {
+    float: inline-end;
+
     padding-block: 6px;
     padding-inline: 8px;
-    float: inline-end;
 
     &--inline {
       margin-block: -4px;
