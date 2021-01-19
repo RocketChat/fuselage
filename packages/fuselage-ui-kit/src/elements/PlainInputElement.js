@@ -1,9 +1,9 @@
 import { TextAreaInput, TextInput } from '@rocket.chat/fuselage';
-import React from 'react';
+import React, { memo } from 'react';
 
-import { useBlockContext } from './hooks';
+import { useBlockContext } from '../hooks';
 
-export const PlainInput = React.memo(({ element, context, index, parser }) => {
+const PlainInputElement = ({ element, context, index, parser }) => {
   const [{ loading, value, error }, action] = useBlockContext(element, context);
   const { multiline, actionId, placeholder } = element;
   const Component = multiline ? TextAreaInput : TextInput;
@@ -16,9 +16,10 @@ export const PlainInput = React.memo(({ element, context, index, parser }) => {
       rows={6}
       error={error}
       value={value}
-      // onInput={action}
       onChange={action}
       placeholder={parser.plainText(placeholder)}
     />
   );
-});
+};
+
+export default memo(PlainInputElement);

@@ -7,12 +7,12 @@ import {
 } from '@rocket.chat/fuselage';
 import React, { useRef, useCallback } from 'react';
 
-import { useBlockContext } from './hooks';
+import { useBlockContext } from '../hooks';
 
 const convertOptions = (options, parser) =>
   options.map(({ text, value }) => [value, parser(text)]);
 
-export const Overflow = ({ context, options, parser, ...element }) => {
+const OverflowElement = ({ context, options, parser, ...element }) => {
   const [{ loading }, action] = useBlockContext(element, context);
 
   const fireChange = ([value]) => action({ target: { value } });
@@ -37,6 +37,7 @@ export const Overflow = ({ context, options, parser, ...element }) => {
     reset();
     hide();
   }, []);
+
   return (
     <>
       <Button
@@ -66,3 +67,5 @@ export const Overflow = ({ context, options, parser, ...element }) => {
     </>
   );
 };
+
+export default OverflowElement;

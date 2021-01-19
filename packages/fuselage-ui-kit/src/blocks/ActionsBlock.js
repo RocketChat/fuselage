@@ -1,5 +1,5 @@
 import { Button, Margins, Flex, Box } from '@rocket.chat/fuselage';
-import { BLOCK_CONTEXT } from '@rocket.chat/ui-kit';
+import { BlockContext } from '@rocket.chat/ui-kit';
 import React, { useState } from 'react';
 
 const getStyle = ({ type }) => {
@@ -23,7 +23,7 @@ const ActionsBlock = ({ blockId, appId, elements, parser }) => {
       <Flex.Item basis={getStyle(element)}>
         {parser.renderActions(
           { blockId, appId, ...element },
-          BLOCK_CONTEXT.ACTION,
+          BlockContext.ACTION,
           parser
         )}
       </Flex.Item>

@@ -1,9 +1,9 @@
 import { Button, Throbber } from '@rocket.chat/fuselage';
 import React from 'react';
 
-import { useBlockContext, getStyle } from './hooks';
+import { useBlockContext, getStyle } from '../hooks';
 
-export const UIKitButton = ({ element, context, parser }) => {
+const ButtonElement = ({ element, context, parser }) => {
   const [{ loading }, action] = useBlockContext(element, context);
   return (
     <Button
@@ -19,3 +19,5 @@ export const UIKitButton = ({ element, context, parser }) => {
     </Button>
   );
 };
+
+export default ButtonElement;

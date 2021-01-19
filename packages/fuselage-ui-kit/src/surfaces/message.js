@@ -6,15 +6,16 @@ import {
 } from '@rocket.chat/ui-kit';
 import React from 'react';
 
-import { MessageImage } from '../Image';
-import { Overflow } from '../Overflow';
-import { MultiStaticSelect, StaticSelect } from '../StaticSelect';
-import { UIKitButton } from '../UIKitButton';
 import ActionsBlock from '../blocks/ActionsBlock';
 import ContextBlock from '../blocks/ContextBlock';
 import DividerBlock from '../blocks/DividerBlock';
 import ImageBlock from '../blocks/ImageBlock';
 import SectionBlock from '../blocks/SectionBlock';
+import ButtonElement from '../elements/ButtonElement';
+import ImageElement from '../elements/ImageElement';
+import MultiStaticSelectElement from '../elements/MultiStaticSelectElement';
+import OverflowElement from '../elements/OverflowElement';
+import StaticSelectElement from '../elements/StaticSelectElement';
 import { useBlockContext } from '../hooks';
 import { mrkdwn, plainText, text } from '../text';
 
@@ -32,12 +33,12 @@ class MessageParser extends UiKitParserMessage {
   }
 
   overflow(element, context) {
-    return <Overflow context={context} {...element} parser={this} />;
+    return <OverflowElement context={context} {...element} parser={this} />;
   }
 
   button(element, context, key) {
     return (
-      <UIKitButton
+      <ButtonElement
         element={element}
         context={context}
         key={key}
@@ -87,10 +88,10 @@ class MessageParser extends UiKitParserMessage {
         return <ImageBlock key={key} element={element} surface='message' />;
 
       case BlockContext.SECTION:
-        return <MessageImage key={key} element={element} context={context} />;
+        return <ImageElement key={key} element={element} context={context} />;
 
       case BlockContext.CONTEXT:
-        return <MessageImage key={key} element={element} context={context} />;
+        return <ImageElement key={key} element={element} context={context} />;
 
       default:
         return null;
@@ -98,18 +99,12 @@ class MessageParser extends UiKitParserMessage {
   }
 
   context({ elements }, context, key) {
-    return (
-      <ContextBlock
-        key={key}
-        elements={elements}
-        renderContext={this.renderContext.bind(this)}
-      />
-    );
+    return <ContextBlock key={key} elements={elements} parser={this} />;
   }
 
   multiStaticSelect(element, context, key) {
     return (
-      <MultiStaticSelect
+      <MultiStaticSelectElement
         {...element}
         key={key}
         parser={this}
@@ -120,7 +115,12 @@ class MessageParser extends UiKitParserMessage {
 
   staticSelect(element, context, key) {
     return (
-      <StaticSelect key={key} context={context} {...element} parser={this} />
+      <StaticSelectElement
+        key={key}
+        context={context}
+        {...element}
+        parser={this}
+      />
     );
   }
 

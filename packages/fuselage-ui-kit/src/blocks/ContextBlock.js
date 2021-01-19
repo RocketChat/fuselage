@@ -2,7 +2,7 @@ import { Box, Margins } from '@rocket.chat/fuselage';
 import { BlockContext, ElementType } from '@rocket.chat/ui-kit';
 import React from 'react';
 
-const ContextBlock = ({ elements, renderContext }) => (
+const ContextBlock = ({ elements, parser }) => (
   <Margins blockEnd='x16'>
     <Box display='flex' alignItems='center' m='neg-x4'>
       {elements.map((element, i) => (
@@ -11,10 +11,11 @@ const ContextBlock = ({ elements, renderContext }) => (
             element.type
           ) ? (
             <Box is='span' fontScale='c1' color='info'>
-              {renderContext(element, BlockContext.CONTEXT, this)}
+              {parser.renderContext(element, BlockContext.CONTEXT, this)}
             </Box>
           ) : (
-            renderContext(element, BlockContext.CONTEXT, this) || element.type
+            parser.renderContext(element, BlockContext.CONTEXT, this) ||
+            element.type
           )}
         </Margins>
       ))}

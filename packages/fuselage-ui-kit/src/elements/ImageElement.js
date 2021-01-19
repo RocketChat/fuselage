@@ -22,17 +22,17 @@ const Thumb = ({ element, size = 88 }) => (
   />
 );
 
-const genericImage = (element, context) => {
+const ImageElement = ({ element, context }) => {
   switch (context) {
     case BlockContext.SECTION:
       return <Thumb element={element} />;
+
     case BlockContext.CONTEXT:
       return <ThumbContext element={element} />;
+
+    default:
+      return null;
   }
 };
 
-export const ModalImage = ({ element, context }) =>
-  genericImage(element, context);
-
-export const MessageImage = ({ element, context }) =>
-  genericImage(element, context);
+export default ImageElement;
