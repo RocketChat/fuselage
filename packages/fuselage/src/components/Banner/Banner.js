@@ -45,24 +45,18 @@ const Banner = ({
         <div className={cx('rcx-banner__icon')({ inline })}>{icon}</div>
       )}
       <div className={cx('rcx-banner__content')({ inline })}>
-        {closeable && (
-          <div className={cx('rcx-banner__close-button')({ inline })}>
-            <Button
-              ghostish
-              square
-              small
-              {...closeButtonProps}
-              onClick={onClose}
-            >
-              <Icon name='cross' size={24} />
-            </Button>
-          </div>
-        )}
         {title && (
           <h6 className={cx('rcx-banner__title')({ inline })}>{title}</h6>
         )}
         {children}
       </div>
+      {closeable && (
+        <div className={cx('rcx-banner__close-button')({ inline })}>
+          <Button ghostish square small {...closeButtonProps} onClick={onClose}>
+            <Icon name='cross' size={24} />
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
