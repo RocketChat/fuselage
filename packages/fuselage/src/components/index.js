@@ -2,7 +2,7 @@ export * from './Accordion';
 export * from './AutoComplete';
 export * from './Avatar';
 export * from './Badge';
-export { default } from './Banner';
+export { default as Banner } from './Banner';
 export * from './Box';
 export { default as Button, ActionButton } from './Button';
 export * from './ButtonGroup';
