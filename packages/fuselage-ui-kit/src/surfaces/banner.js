@@ -1,19 +1,20 @@
-import { Box, Divider, InputBox, Margins } from '@rocket.chat/fuselage';
+import { InputBox } from '@rocket.chat/fuselage';
 import {
   BlockContext,
-  ElementType,
   uiKitBanner,
   UiKitParserBanner,
 } from '@rocket.chat/ui-kit';
 import React from 'react';
 
-import { Actions as ActionsLayoutBlock } from '../Actions';
-import { Block } from '../Block';
 import { MessageImage } from '../Image';
 import { Overflow } from '../Overflow';
-import { Section as SectionLayoutBlock } from '../Section';
 import { MultiStaticSelect, StaticSelect } from '../StaticSelect';
 import { UIKitButton } from '../UIKitButton';
+import ActionsBlock from '../blocks/ActionsBlock';
+import ContextBlock from '../blocks/ContextBlock';
+import DividerBlock from '../blocks/DividerBlock';
+import ImageBlock from '../blocks/ImageBlock';
+import SectionBlock from '../blocks/SectionBlock';
 import { useBlockContext } from '../hooks';
 import { mrkdwn, plainText, text } from '../text';
 
@@ -46,15 +47,15 @@ class BannerParser extends UiKitParserBanner {
   }
 
   divider(_, __, key) {
-    return <Divider mb='x24' key={key} />;
+    return <DividerBlock key={key} />;
   }
 
   section(args, context, index) {
-    return <SectionLayoutBlock key={index} {...args} parser={this} />;
+    return <SectionBlock key={index} {...args} parser={this} />;
   }
 
   actions(args, _, key) {
-    return <ActionsLayoutBlock {...args} key={key} parser={this} />;
+    return <ActionsBlock {...args} key={key} parser={this} />;
   }
 
   datePicker(element, context, key) {
@@ -81,29 +82,28 @@ class BannerParser extends UiKitParserBanner {
   }
 
   image(element, context, key) {
-    return <MessageImage key={key} element={element} context={context} />;
+    switch (context) {
+      case BlockContext.BLOCK:
+        return <ImageBlock key={key} element={element} surface='banner' />;
+
+      case BlockContext.SECTION:
+        return <MessageImage key={key} element={element} context={context} />;
+
+      case BlockContext.CONTEXT:
+        return <MessageImage key={key} element={element} context={context} />;
+
+      default:
+        return null;
+    }
   }
 
   context({ elements }, context, key) {
     return (
-      <Block key={key}>
-        <Box display='flex' alignItems='center' m='neg-x4'>
-          {elements.map((element, i) => (
-            <Margins all='x4' key={i}>
-              {[ElementType.PLAIN_TEXT, ElementType.MARKDOWN].includes(
-                element.type
-              ) ? (
-                <Box is='span' fontScale='c1' color='info'>
-                  {this.renderContext(element, BlockContext.CONTEXT, this)}
-                </Box>
-              ) : (
-                this.renderContext(element, BlockContext.CONTEXT, this) ||
-                element.type
-              )}
-            </Margins>
-          ))}
-        </Box>
-      </Block>
+      <ContextBlock
+        key={key}
+        elements={elements}
+        renderContext={this.renderContext.bind(this)}
+      />
     );
   }
 

@@ -41,9 +41,5 @@ export const composeClassNames = (prefix) => (...args) => {
     .filter(Boolean)
     .join(' ');
 
-  if (!prefix) {
-    return classNames;
-  }
-
-  return `${prefix} ${classNames}`;
+  return [prefix, classNames].filter(Boolean).join(' ');
 };

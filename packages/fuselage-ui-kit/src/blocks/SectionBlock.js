@@ -1,13 +1,11 @@
-import { Box, Flex, Grid } from '@rocket.chat/fuselage';
-import { BLOCK_CONTEXT } from '@rocket.chat/ui-kit';
+import { Box, Flex, Grid, Margins } from '@rocket.chat/fuselage';
+import { BlockContext } from '@rocket.chat/ui-kit';
 import React from 'react';
-
-import { Block } from './Block';
 
 const Accessory = ({ blockId, appId, element, parser }) =>
   parser.renderAccessories(
     { blockId, appId, ...element },
-    BLOCK_CONTEXT.SECTION,
+    BlockContext.SECTION,
     parser
   );
 
@@ -29,15 +27,8 @@ const Fields = ({ fields, parser }) => (
   </Grid>
 );
 
-export const Section = ({
-  blockId,
-  appId,
-  text,
-  fields,
-  accessory,
-  parser,
-}) => (
-  <Block>
+const SectionBlock = ({ blockId, appId, text, fields, accessory, parser }) => (
+  <Margins blockEnd='x16'>
     <Grid>
       <Grid.Item>
         {text && (
@@ -58,5 +49,7 @@ export const Section = ({
         </Flex.Item>
       )}
     </Grid>
-  </Block>
+  </Margins>
 );
+
+export default SectionBlock;

@@ -2,8 +2,6 @@ import { Button, Margins, Flex, Box } from '@rocket.chat/fuselage';
 import { BLOCK_CONTEXT } from '@rocket.chat/ui-kit';
 import React, { useState } from 'react';
 
-import { Block } from './Block';
-
 const getStyle = ({ type }) => {
   switch (type) {
     case 'button': // ELEMENT_TYPES.BUTTON :
@@ -13,7 +11,7 @@ const getStyle = ({ type }) => {
   }
 };
 
-export const Actions = ({ blockId, appId, elements, parser }) => {
+const ActionsBlock = ({ blockId, appId, elements, parser }) => {
   const [showMoreVisible, setShowMoreVisible] = useState(
     () => elements.length > 5
   );
@@ -37,13 +35,15 @@ export const Actions = ({ blockId, appId, elements, parser }) => {
   };
 
   return (
-    <Block>
+    <Margins blockEnd='x16'>
       <Box display='flex' flexWrap='wrap' m='neg-x8'>
         {renderedElements}
         {showMoreVisible && (
           <Button onClick={handleShowMoreClick}>Show more...</Button>
         )}
       </Box>
-    </Block>
+    </Margins>
   );
 };
+
+export default ActionsBlock;
