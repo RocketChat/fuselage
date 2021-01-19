@@ -38,14 +38,14 @@ const DemoModal = ({ children, visible }) => (
 export default {
   title: 'Surfaces/Modal',
   argTypes: {
-    payload: { control: 'object' },
+    blocks: { control: 'object' },
     errors: { control: 'object' },
     visible: { control: 'boolean', defaultValue: true },
   },
 };
 
-const createStory = (payload, errors = {}) => {
-  const story = ({ payload, errors, visible }) => (
+const createStory = (blocks, errors = {}) => {
+  const story = ({ blocks, errors, visible }) => (
     <DemoModal visible={visible}>
       <kitContext.Provider
         value={{
@@ -55,12 +55,12 @@ const createStory = (payload, errors = {}) => {
           errors,
         }}
       >
-        {UiKitModal(payload)}
+        {UiKitModal(blocks)}
       </kitContext.Provider>
     </DemoModal>
   );
   story.args = {
-    payload,
+    blocks,
     errors,
   };
 

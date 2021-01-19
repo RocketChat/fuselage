@@ -4,14 +4,14 @@ import { UiKitText } from '..';
 export default {
   title: 'Surfaces/Text',
   argTypes: {
-    payload: { control: 'object' },
+    blocks: { control: 'object' },
   },
 };
 
-const createStory = (payload) => {
-  const story = ({ payload }) => UiKitText(payload);
+const createStory = (blocks) => {
+  const story = ({ blocks }) => UiKitText(blocks);
   story.args = {
-    payload,
+    blocks,
   };
 
   return story;

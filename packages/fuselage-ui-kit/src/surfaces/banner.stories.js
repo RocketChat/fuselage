@@ -8,7 +8,7 @@ import { kitContext, UiKitBanner } from '..';
 export default {
   title: 'Surfaces/Banner',
   argTypes: {
-    payload: { control: 'object' },
+    blocks: { control: 'object' },
   },
   decorators: [
     (storyFn) => (
@@ -26,14 +26,14 @@ export default {
   ],
 };
 
-const createStory = (payload) => {
-  const story = ({ payload }) => (
+const createStory = (blocks) => {
+  const story = ({ blocks }) => (
     <Banner icon={<Icon name='info' size='x20' />} closeable>
-      {UiKitBanner(payload)}
+      {UiKitBanner(blocks)}
     </Banner>
   );
   story.args = {
-    payload,
+    blocks,
   };
 
   return story;

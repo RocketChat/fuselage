@@ -7,7 +7,7 @@ import { kitContext, UiKitMessage } from '..';
 export default {
   title: 'Surfaces/Message',
   argTypes: {
-    payload: { control: 'object' },
+    blocks: { control: 'object' },
   },
   decorators: [
     (storyFn) => (
@@ -25,10 +25,10 @@ export default {
   ],
 };
 
-const createStory = (payload) => {
-  const story = ({ payload }) => UiKitMessage(payload);
+const createStory = (blocks) => {
+  const story = ({ blocks }) => UiKitMessage(blocks);
   story.args = {
-    payload,
+    blocks,
   };
 
   return story;
