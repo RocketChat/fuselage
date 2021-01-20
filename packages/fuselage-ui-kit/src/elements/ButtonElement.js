@@ -11,6 +11,7 @@ const ButtonElement = ({ element, context, parser }) => {
       disabled={loading}
       primary={element.style === 'primary'}
       danger={element.style === 'danger'}
+      minWidth='5ch'
       small
       value={element.value}
       data-group={element.groupId}
