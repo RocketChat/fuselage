@@ -16,7 +16,7 @@ const Action = ({ blockId, appId, element, parser }) => {
   return (
     <Box
       display='flex'
-      margin={8}
+      margin={4}
       flexGrow={element.type !== ElementType.BUTTON ? 1 : undefined}
       flexBasis={element.type !== ElementType.BUTTON ? '45%' : undefined}
     >
@@ -35,7 +35,7 @@ const ActionsBlock = ({ blockId, appId, elements, parser }) => {
   }, []);
 
   return (
-    <Box display='flex' flexWrap='wrap' margin={-8}>
+    <Box display='flex' flexWrap='wrap' margin={-4}>
       {(showMoreVisible ? elements.slice(0, 5) : elements).map((element, i) => (
         <Action
           key={i}
@@ -46,7 +46,7 @@ const ActionsBlock = ({ blockId, appId, elements, parser }) => {
         />
       ))}
       {showMoreVisible && (
-        <Box display='flex' margin={8}>
+        <Box display='flex' margin={4}>
           <Button small onClick={handleShowMoreClick}>
             {parser.plainText(
               { type: 'text', text: 'Show more...' },
