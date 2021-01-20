@@ -46,7 +46,15 @@ const ActionsBlock = ({ blockId, appId, elements, parser }) => {
         />
       ))}
       {showMoreVisible && (
-        <Button onClick={handleShowMoreClick}>Show more...</Button>
+        <Box display='flex' margin={8}>
+          <Button small onClick={handleShowMoreClick}>
+            {parser.plainText(
+              { type: 'text', text: 'Show more...' },
+              BlockContext.ACTION,
+              0
+            )}
+          </Button>
+        </Box>
       )}
     </Box>
   );
