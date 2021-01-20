@@ -1,22 +1,23 @@
-import { Field, Margins } from '@rocket.chat/fuselage';
+import { Field } from '@rocket.chat/fuselage';
 import { BlockContext } from '@rocket.chat/ui-kit';
 import React, { memo } from 'react';
 
 import { useBlockContext } from '../hooks';
 
-const InputBlock = ({ label, element, parser, index, hint, context }) => {
-  const [{ error }] = useBlockContext(element, context);
+const InputBlock = ({ element, parser, context }) => {
+  const [{ error }] = useBlockContext(element.element, context);
+
   return (
-    <Margins blockEnd='x16'>
-      <Field>
-        {label && <Field.Label>{label}</Field.Label>}
-        <Field.Row>
-          {parser.renderInputs(element, BlockContext.FORM, parser, index)}
-        </Field.Row>
-        {error && <Field.Error>{error}</Field.Error>}
-        {hint && <Field.Hint>{hint}</Field.Hint>}
-      </Field>
-    </Margins>
+    <Field>
+      {element.label && (
+        <Field.Label>{parser.plainText(element.label)}</Field.Label>
+      )}
+      <Field.Row>
+        {parser.renderInputs(element.element, BlockContext.FORM, parser, 0)}
+      </Field.Row>
+      {error && <Field.Error>{error}</Field.Error>}
+      {element.hint && <Field.Hint>{element.hint}</Field.Hint>}
+    </Field>
   );
 };
 

@@ -3,13 +3,12 @@ import React, { memo } from 'react';
 
 import { useBlockContext } from '../hooks';
 
-const PlainInputElement = ({ element, context, index, parser }) => {
+const PlainInputElement = ({ element, context, parser }) => {
   const [{ loading, value, error }, action] = useBlockContext(element, context);
   const { multiline, actionId, placeholder } = element;
   const Component = multiline ? TextAreaInput : TextInput;
   return (
     <Component
-      key={index}
       disabled={loading}
       id={actionId}
       name={actionId}

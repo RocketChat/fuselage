@@ -1,26 +1,38 @@
-import { Box, Margins } from '@rocket.chat/fuselage';
+import { Box } from '@rocket.chat/fuselage';
 import { BlockContext, ElementType } from '@rocket.chat/ui-kit';
 import React from 'react';
 
+const Item = ({ element, parser }) => {
+  const renderedElement = parser.renderContext(
+    element,
+    BlockContext.CONTEXT,
+    parser
+  );
+
+  if (!renderedElement) {
+    return null;
+  }
+
+  switch (element.type) {
+    case ElementType.PLAIN_TEXT:
+    case ElementType.MARKDOWN:
+      return (
+        <Box is='span' fontScale='c1' color='info' margin={4}>
+          {renderedElement}
+        </Box>
+      );
+
+    default:
+      return renderedElement;
+  }
+};
+
 const ContextBlock = ({ elements, parser }) => (
-  <Margins blockEnd='x16'>
-    <Box display='flex' alignItems='center' m='neg-x4'>
-      {elements.map((element, i) => (
-        <Margins all='x4' key={i}>
-          {[ElementType.PLAIN_TEXT, ElementType.MARKDOWN].includes(
-            element.type
-          ) ? (
-            <Box is='span' fontScale='c1' color='info'>
-              {parser.renderContext(element, BlockContext.CONTEXT, this)}
-            </Box>
-          ) : (
-            parser.renderContext(element, BlockContext.CONTEXT, this) ||
-            element.type
-          )}
-        </Margins>
-      ))}
-    </Box>
-  </Margins>
+  <Box display='flex' alignItems='center' margin={-4}>
+    {elements.map((element, i) => (
+      <Item key={i} element={element} parser={parser} />
+    ))}
+  </Box>
 );
 
 export default ContextBlock;

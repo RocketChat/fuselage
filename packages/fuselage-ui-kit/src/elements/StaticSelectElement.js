@@ -1,29 +1,33 @@
 import { SelectFiltered } from '@rocket.chat/fuselage';
-import React, { memo } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 
 import { useBlockContext } from '../hooks';
 
-export const StaticSelectElement = ({
-  options,
-  onChange,
-  parser,
-  placeholder = { text: 'select a option' },
-  context,
-  ...element
-}) => {
+export const StaticSelectElement = ({ element, context, parser }) => {
   const [{ loading, value, error }, action] = useBlockContext(element, context);
+
+  const { options, placeholder } = element;
+
+  const _options = useMemo(
+    () => options.map((option) => [option.value, parser.text(option.text)]),
+    [options, parser]
+  );
+
+  const handleChange = useCallback(
+    (value) => {
+      action({ target: { value } });
+    },
+    [action]
+  );
 
   return (
     <SelectFiltered
-      error={error}
       value={value}
       disabled={loading}
-      options={options.map((option) => [
-        option.value,
-        parser.text(option.text),
-      ])}
-      onChange={(value) => action({ target: { value } })}
+      error={error}
+      options={_options}
       placeholder={parser.text(placeholder)}
+      onChange={handleChange}
     />
   );
 };

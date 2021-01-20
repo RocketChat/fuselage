@@ -12,10 +12,15 @@ import { useBlockContext } from '../hooks';
 const convertOptions = (options, parser) =>
   options.map(({ text, value }) => [value, parser(text)]);
 
-const OverflowElement = ({ context, options, parser, ...element }) => {
+const OverflowElement = ({ element, context, parser }) => {
   const [{ loading }, action] = useBlockContext(element, context);
 
-  const fireChange = ([value]) => action({ target: { value } });
+  const { options } = element;
+
+  const fireChange = useCallback(([value]) => action({ target: { value } }), [
+    action,
+  ]);
+
   const convertedOptions = convertOptions(options, parser.text);
   const [
     cursor,
@@ -32,11 +37,14 @@ const OverflowElement = ({ context, options, parser, ...element }) => {
   const ref = useRef();
   const onClick = useCallback(() => ref.current.focus() & show(), []);
 
-  const handleSelection = useCallback((...args) => {
-    fireChange(...args);
-    reset();
-    hide();
-  }, []);
+  const handleSelection = useCallback(
+    (...args) => {
+      fireChange(...args);
+      reset();
+      hide();
+    },
+    [fireChange, hide, reset]
+  );
 
   return (
     <>

@@ -9,6 +9,13 @@ export default {
   title: 'Surfaces/Banner',
   argTypes: {
     blocks: { control: 'object' },
+    type: {
+      control: {
+        type: 'radio',
+        options: ['neutral', 'info', 'success', 'warning', 'danger'],
+      },
+      defaultValue: 'neutral',
+    },
   },
   decorators: [
     (storyFn) => (
@@ -27,8 +34,8 @@ export default {
 };
 
 const createStory = (blocks) => {
-  const story = ({ blocks }) => (
-    <Banner icon={<Icon name='info' size='x20' />} closeable>
+  const story = ({ blocks, type }) => (
+    <Banner icon={<Icon name='info' size='x20' />} closeable variant={type}>
       {UiKitBanner(blocks)}
     </Banner>
   );

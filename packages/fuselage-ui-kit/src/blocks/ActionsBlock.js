@@ -1,48 +1,54 @@
-import { Button, Margins, Flex, Box } from '@rocket.chat/fuselage';
-import { BlockContext } from '@rocket.chat/ui-kit';
-import React, { useState } from 'react';
+import { Box, Button } from '@rocket.chat/fuselage';
+import { BlockContext, ElementType } from '@rocket.chat/ui-kit';
+import React, { useCallback, useState } from 'react';
 
-const getStyle = ({ type }) => {
-  switch (type) {
-    case 'button': // ELEMENT_TYPES.BUTTON :
-      return 'auto';
-    default:
-      return '45%';
+const Action = ({ blockId, appId, element, parser }) => {
+  const renderedElement = parser.renderActions(
+    { blockId, appId, ...element },
+    BlockContext.ACTION,
+    parser
+  );
+
+  if (!renderedElement) {
+    return null;
   }
+
+  return (
+    <Box
+      display='flex'
+      margin={8}
+      flexGrow={element.type !== ElementType.BUTTON ? 1 : undefined}
+      flexBasis={element.type !== ElementType.BUTTON ? '45%' : undefined}
+    >
+      {renderedElement}
+    </Box>
+  );
 };
 
 const ActionsBlock = ({ blockId, appId, elements, parser }) => {
   const [showMoreVisible, setShowMoreVisible] = useState(
     () => elements.length > 5
   );
-  const renderedElements = (showMoreVisible
-    ? elements.slice(0, 5)
-    : elements
-  ).map((element, i) => (
-    <Margins key={i} all='x8'>
-      <Flex.Item basis={getStyle(element)}>
-        {parser.renderActions(
-          { blockId, appId, ...element },
-          BlockContext.ACTION,
-          parser
-        )}
-      </Flex.Item>
-    </Margins>
-  ));
 
-  const handleShowMoreClick = () => {
+  const handleShowMoreClick = useCallback(() => {
     setShowMoreVisible(false);
-  };
+  }, []);
 
   return (
-    <Margins blockEnd='x16'>
-      <Box display='flex' flexWrap='wrap' m='neg-x8'>
-        {renderedElements}
-        {showMoreVisible && (
-          <Button onClick={handleShowMoreClick}>Show more...</Button>
-        )}
-      </Box>
-    </Margins>
+    <Box display='flex' flexWrap='wrap' margin={-8}>
+      {(showMoreVisible ? elements.slice(0, 5) : elements).map((element, i) => (
+        <Action
+          key={i}
+          blockId={blockId}
+          appId={appId}
+          element={element}
+          parser={parser}
+        />
+      ))}
+      {showMoreVisible && (
+        <Button onClick={handleShowMoreClick}>Show more...</Button>
+      )}
+    </Box>
   );
 };
 

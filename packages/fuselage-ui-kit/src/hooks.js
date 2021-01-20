@@ -1,5 +1,5 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import { BLOCK_CONTEXT } from '@rocket.chat/ui-kit';
+import { BlockContext } from '@rocket.chat/ui-kit';
 import { createContext, useContext, useMemo, useState } from 'react';
 
 export const defaultContext = {
@@ -55,7 +55,7 @@ export const useBlockContext = (
     value,
   ]);
 
-  if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
+  if ([BlockContext.SECTION, BlockContext.ACTION].includes(context)) {
     return [result, actionFunction];
   }
 
