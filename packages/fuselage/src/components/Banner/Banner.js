@@ -36,9 +36,10 @@ const Banner = ({
   }, [variant]);
 
   return (
-    <div
+    <section
       className={cx('rcx-banner')({ [variant]: true, inline }, className)}
       ref={ref}
+      role='banner'
       {...props}
     >
       {icon && isIconVisible && (
@@ -57,7 +58,7 @@ const Banner = ({
           </Button>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 
