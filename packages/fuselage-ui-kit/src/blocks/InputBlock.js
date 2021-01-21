@@ -4,11 +4,11 @@ import React, { memo } from 'react';
 
 import { useBlockContext } from '../hooks';
 
-const InputBlock = ({ element, parser, context }) => {
+const InputBlock = ({ className, element, parser, context }) => {
   const [{ error }] = useBlockContext(element.element, context);
 
   return (
-    <Field>
+    <Field className={className}>
       {element.label && (
         <Field.Label>{parser.plainText(element.label)}</Field.Label>
       )}

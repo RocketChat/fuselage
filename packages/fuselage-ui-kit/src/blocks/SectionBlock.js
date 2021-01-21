@@ -27,7 +27,7 @@ const Fields = ({ fields, parser }) => (
   </Grid>
 );
 
-const SectionBlock = ({ element, parser }) => {
+const SectionBlock = ({ className, element, parser }) => {
   const { blockId, appId, text, fields, accessory } = element;
 
   const accessoryElement = useMemo(() => ({ blockId, appId, ...accessory }), [
@@ -37,7 +37,7 @@ const SectionBlock = ({ element, parser }) => {
   ]);
 
   return (
-    <Grid>
+    <Grid className={className}>
       <Grid.Item>
         {text && (
           <Box is='span' fontScale='p1' color='default'>

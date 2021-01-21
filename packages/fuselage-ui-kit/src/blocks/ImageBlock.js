@@ -28,7 +28,7 @@ const fetchImageState = (img) => {
   };
 };
 
-const ImageBlock = ({ element, parser }) => {
+const ImageBlock = ({ className, element, parser }) => {
   const surface = useSurfaceType();
 
   const alignment =
@@ -74,6 +74,7 @@ const ImageBlock = ({ element, parser }) => {
 
   return (
     <Box
+      className={className}
       display='flex'
       flexDirection='column'
       flexWrap='nowrap'
