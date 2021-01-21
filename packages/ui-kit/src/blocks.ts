@@ -35,12 +35,6 @@ export interface IElement {
   type: ElementType;
 }
 
-export const isElement = (x: IElement): x is IElement =>
-  x !== null &&
-  typeof x === 'object' &&
-  'type' in x &&
-  Object.values(ElementType).includes(x.type);
-
 export interface IPlainText extends IElement {
   type: ElementType.PLAIN_TEXT;
   text: string;

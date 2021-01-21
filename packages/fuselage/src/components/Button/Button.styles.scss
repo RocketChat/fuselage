@@ -1,0 +1,208 @@
+@use 'sass:map';
+@use '../../styles/typography.scss';
+@use '../../styles/variables/buttons.scss';
+
+@mixin -kind-variant($colors) {
+  color: map.get($colors, color);
+  border-width: 2px;
+  border-style: solid;
+  border-color: map.get($colors, border-color);
+  border-radius: 2px;
+  background-color: map.get($colors, background-color);
+
+  appearance: none;
+
+  @include on-focus-visible {
+    border-color: map.get($colors, focus-border-color);
+    background-color: map.get($colors, focus-background-color);
+    @include use-focus-shadow(map.get($colors, focus-shadow-color));
+  }
+
+  @include on-hover {
+    border-color: map.get($colors, hover-border-color);
+    background-color: map.get($colors, hover-background-color);
+    @include use-no-shadow;
+  }
+
+  @include on-active {
+    border-color: map.get($colors, active-border-color);
+    background-color: map.get($colors, active-background-color);
+    @include use-no-shadow;
+  }
+
+  @include on-disabled {
+    color: map.get($colors, disabled-color);
+    border-color: map.get($colors, disabled-border-color);
+    background-color: map.get($colors, disabled-background-color);
+  }
+}
+
+.rcx-button {
+  @mixin with-rectangular-size($height, $padding-x, $line-height) {
+    padding: calc((#{$height} - #{$line-height}) / 2 - 2px)
+      calc(#{$padding-x} - 2px);
+    padding-block: calc((#{$height} - #{$line-height}) / 2 - 2px);
+    padding-inline: calc(#{$padding-x} - 2px);
+  }
+
+  @mixin with-squared-size($size) {
+    width: $size;
+    height: $size;
+    padding: 0;
+
+    &::before,
+    &::after {
+      display: inline-block;
+
+      height: 100%;
+
+      content: '';
+      vertical-align: middle;
+    }
+  }
+
+  display: inline-block;
+
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+
+  @include clickable;
+  @include typography.use-font-scale(p2);
+  @include typography.use-text-ellipsis;
+
+  @include with-rectangular-size(
+    $height: 40px,
+    $padding-x: 16px,
+    $line-height: typography.line-height(p1)
+  );
+
+  @include -kind-variant(buttons.$secondary);
+
+  &--small {
+    @include typography.use-font-scale(c2);
+
+    @include with-rectangular-size(
+      $height: 28px,
+      $padding-x: 8px,
+      $line-height: typography.line-height(c1)
+    );
+  }
+
+  &--square {
+    @include with-squared-size($size: 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  &--tiny-square {
+    @include with-squared-size($size: 24px);
+  }
+
+  &--mini-square {
+    @include with-squared-size($size: 20px);
+  }
+
+  &--small-square {
+    @include with-squared-size($size: 28px);
+  }
+
+  &--info {
+    @include -kind-variant(buttons.$secondary-info);
+  }
+
+  &--success {
+    @include -kind-variant(buttons.$secondary-success);
+  }
+
+  &--warning {
+    @include -kind-variant(buttons.$secondary-warning);
+  }
+
+  &--danger {
+    @include -kind-variant(buttons.$secondary-danger);
+  }
+
+  &--primary {
+    @include -kind-variant(buttons.$primary);
+  }
+
+  &--primary-info {
+    @include -kind-variant(buttons.$info);
+  }
+
+  &--primary-success {
+    @include -kind-variant(buttons.$success);
+  }
+
+  &--primary-warning {
+    @include -kind-variant(buttons.$warning);
+  }
+
+  &--primary-danger {
+    @include -kind-variant(buttons.$danger);
+  }
+
+  &--ghost {
+    @include -kind-variant(buttons.$ghost);
+  }
+
+  &--ghost-info {
+    @include -kind-variant(buttons.$ghost-info);
+  }
+
+  &--ghost-success {
+    @include -kind-variant(buttons.$ghost-success);
+  }
+
+  &--ghost-warning {
+    @include -kind-variant(buttons.$ghost-warning);
+  }
+
+  &--ghost-danger {
+    @include -kind-variant(buttons.$ghost-danger);
+  }
+
+  &--nude {
+    @include -kind-variant(buttons.$nude);
+  }
+
+  &--nude-info {
+    @include -kind-variant(buttons.$nude-info);
+  }
+
+  &--nude-success {
+    @include -kind-variant(buttons.$nude-success);
+  }
+
+  &--nude-warning {
+    @include -kind-variant(buttons.$nude-warning);
+  }
+
+  &--nude-danger {
+    @include -kind-variant(buttons.$nude-danger);
+  }
+
+  &--ghostish {
+    @include -kind-variant(buttons.$ghostish);
+  }
+
+  &--ghostish-info {
+    @include -kind-variant(buttons.$ghostish-info);
+  }
+
+  &--ghostish-success {
+    @include -kind-variant(buttons.$ghostish-success);
+  }
+
+  &--ghostish-warning {
+    @include -kind-variant(buttons.$ghostish-warning);
+  }
+
+  &--ghostish-danger {
+    @include -kind-variant(buttons.$ghostish-danger);
+  }
+}
