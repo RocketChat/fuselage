@@ -27,8 +27,8 @@ const Item = ({ element, parser }) => {
   }
 };
 
-const ContextBlock = ({ elements, parser }) => (
-  <Box display='flex' alignItems='center' margin={-4}>
+const ContextBlock = ({ className, elements, parser }) => (
+  <Box className={className} display='flex' alignItems='center' margin={-4}>
     {elements.map((element, i) => (
       <Item key={i} element={element} parser={parser} />
     ))}
