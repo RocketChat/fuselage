@@ -188,6 +188,18 @@ declare module '@rocket.chat/fuselage' {
   };
   export const Badge: ForwardRefExoticComponent<BadgeProps>;
 
+  type BannerProps = {
+    inline?: boolean;
+    actionable?: boolean;
+    closeable?: boolean;
+    icon?: ReactElement;
+    title?: string;
+    variant?: 'neutral' | 'info' | 'success' | 'warning' | 'danger';
+    onAction?: () => void;
+    onClose?: () => void;
+  } & AllHTMLAttributes<HTMLSectionElement>;
+  export const Banner: FC<BannerProps>;
+
   type ButtonProps = BoxProps & {
     info?: boolean;
     success?: boolean;

@@ -27,6 +27,10 @@
     padding-block: 12px;
   }
 
+  &--actionable {
+    cursor: pointer;
+  }
+
   &--neutral {
     @include -variant(
       (

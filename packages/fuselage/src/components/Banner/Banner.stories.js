@@ -146,3 +146,17 @@ export const Inline = () => (
     <br />
   </>
 );
+
+export const Actionable = () => (
+  <Banner
+    actionable
+    closeable
+    icon={<Icon name='info' size={24} />}
+    title='Sed ut perspiciatis unde'
+    onAction={action('action')}
+    onClose={action('close')}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor
+  </Banner>
+);

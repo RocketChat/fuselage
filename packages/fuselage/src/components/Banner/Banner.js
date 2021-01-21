@@ -1,5 +1,5 @@
 import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
@@ -13,10 +13,12 @@ const Banner = ({
   inline = false,
   children,
   className,
+  actionable,
   closeable,
   icon,
   title,
   variant = 'neutral',
+  onAction,
   onClose,
   ...props
 }) => {
@@ -35,11 +37,32 @@ const Banner = ({
     return variant !== variants[0] ? { [variant]: true } : {};
   }, [variant]);
 
+  const handleBannerClick = useCallback(() => {
+    if (onAction) {
+      onAction();
+    }
+  }, [onAction]);
+
+  const handleCloseButtonClick = useCallback(
+    (event) => {
+      event.stopPropagation();
+
+      if (onClose) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
   return (
     <section
-      className={cx('rcx-banner')({ [variant]: true, inline }, className)}
+      className={cx('rcx-banner')(
+        { [variant]: true, inline, actionable },
+        className
+      )}
       ref={ref}
       role='banner'
+      onClick={handleBannerClick}
       {...props}
     >
       {icon && isIconVisible && (
@@ -53,7 +76,13 @@ const Banner = ({
       </div>
       {closeable && (
         <div className={cx('rcx-banner__close-button')({ inline })}>
-          <Button ghostish square small {...closeButtonProps} onClick={onClose}>
+          <Button
+            ghostish
+            square
+            small
+            {...closeButtonProps}
+            onClick={handleCloseButtonClick}
+          >
             <Icon name='cross' size={24} />
           </Button>
         </div>
