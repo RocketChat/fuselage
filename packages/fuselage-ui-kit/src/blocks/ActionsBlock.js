@@ -2,6 +2,8 @@ import { Box, Button } from '@rocket.chat/fuselage';
 import { BlockContext, ElementType } from '@rocket.chat/ui-kit';
 import React, { useCallback, useState } from 'react';
 
+import { useSurfaceType } from '../surfaces/SurfaceContext';
+
 const Action = ({ blockId, appId, element, parser }) => {
   const renderedElement = parser.renderActions(
     { blockId, appId, ...element },
@@ -26,8 +28,10 @@ const Action = ({ blockId, appId, element, parser }) => {
 };
 
 const ActionsBlock = ({ className, blockId, appId, elements, parser }) => {
+  const surfaceType = useSurfaceType();
+
   const [showMoreVisible, setShowMoreVisible] = useState(
-    () => elements.length > 5
+    () => elements.length > 5 && surfaceType !== 'banner'
   );
 
   const handleShowMoreClick = useCallback(() => {
