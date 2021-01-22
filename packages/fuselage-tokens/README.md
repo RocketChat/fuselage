@@ -10,7 +10,7 @@
 
 > Design tokens for Fuselage, Rocket.Chat's design system
 
-### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
+### 🏠 [Homepage](https://rocketchat.github.io/Rocket.Chat.Fuselage/)
 
 ## Install
 
@@ -22,8 +22,8 @@ npm install --save @rocket.chat/fuselage-tokens
 
 👤 **Rocket.Chat**
 
-* Twitter: [@RocketChat](https://twitter.com/RocketChat)
-* Github: [@RocketChat](https://github.com/RocketChat)
+- Twitter: [@RocketChat](https://twitter.com/RocketChat)
+- Github: [@RocketChat](https://github.com/RocketChat)
 
 ## 🤝 Contributing
 
@@ -33,5 +33,6 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 Give a ⭐️ if this project helped you!
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
