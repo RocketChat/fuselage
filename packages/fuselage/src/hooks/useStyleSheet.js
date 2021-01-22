@@ -1,13 +1,13 @@
 import { useLayoutEffect } from 'react';
 
-import styleSheet from '../index.scss';
+import defaultStyleSheet from '../index.scss';
 
-export const useStyleSheet = () => {
+export const useStyleSheet = (styleSheet = defaultStyleSheet) => {
   useLayoutEffect(() => {
     styleSheet.use();
 
     return () => {
       styleSheet.unuse();
     };
-  }, []);
+  }, [styleSheet]);
 };
