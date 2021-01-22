@@ -8,7 +8,7 @@
   <a href="https://twitter.com/RocketChat" target="_blank"><img alt="Twitter: RocketChat" src="https://img.shields.io/twitter/follow/RocketChat.svg?style=social" /></a>
 </p>
 
-### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
+### 🏠 [Homepage](https://rocketchat.github.io/Rocket.Chat.Fuselage/)
 
 ## Install
 
@@ -20,8 +20,8 @@ npm install --save @rocket.chat/fuselage
 
 👤 **Rocket.Chat**
 
-* Twitter: [@RocketChat](https://twitter.com/RocketChat)
-* Github: [@RocketChat](https://github.com/RocketChat)
+- Twitter: [@RocketChat](https://twitter.com/RocketChat)
+- Github: [@RocketChat](https://github.com/RocketChat)
 
 ## 🤝 Contributing
 
@@ -31,5 +31,6 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 Give a ⭐️ if this project helped you!
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
