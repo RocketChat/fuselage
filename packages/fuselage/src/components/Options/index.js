@@ -190,4 +190,4 @@ export const useCursor = (initial, options, onChange) => {
   return [cursor, handleKeyDown, handleKeyUp, reset, visibilityHandler];
 };
 
-Options.AvatarSize = 'x28';
+Options.AvatarSize = 'x20';
