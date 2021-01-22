@@ -115,6 +115,8 @@
         map.get(buttons.$secondary-success, disabled-border-color),
       $disabled-color: map.get(buttons.$secondary-success, disabled-color)
     );
+    color: white;
+    border: 1px solid #4bb543;
   }
 
   &--danger {
@@ -142,6 +144,8 @@
         map.get(buttons.$secondary-danger, disabled-border-color),
       $disabled-color: map.get(buttons.$secondary-danger, disabled-color)
     );
+    color: #e76067;
+    border: 1px solid #e76067;
   }
 
   &--primary {
@@ -162,6 +166,34 @@
       $disabled-border-color: map.get(buttons.$primary, disabled-border-color),
       $disabled-color: map.get(buttons.$primary, disabled-color)
     );
+
+    border: none;
+    background: #00c9ff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to left,
+      #92fe9d,
+      #00c9ff
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to left,
+      #92fe9d,
+      #00c9ff
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    &.hover,
+    &:hover {
+      background: #c2e59c; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to left,
+        #64b3f4,
+        #c2e59c
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to left,
+        #64b3f4,
+        #c2e59c
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
   }
 
   &--primary-danger {
@@ -267,5 +299,32 @@
         map.get(buttons.$ghost-danger, disabled-border-color),
       $disabled-color: map.get(buttons.$ghost-danger, disabled-color)
     );
+  }
+
+  background: #00c9ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #92fe9d,
+    #00c9ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #92fe9d,
+    #00c9ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  &.hover,
+  &:hover {
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to left,
+      #64b3f4,
+      #c2e59c
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to left,
+      #64b3f4,
+      #c2e59c
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 }

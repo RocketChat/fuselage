@@ -21,10 +21,5 @@
     "lint": "lerna run lint",
     "lint-staged": "lerna run lint-staged",
     "storybook": "lerna run storybook --parallel"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged"
-    }
   }
 }

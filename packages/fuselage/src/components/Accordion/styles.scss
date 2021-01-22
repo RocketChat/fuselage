@@ -35,7 +35,8 @@
 
     &.hover,
     &:hover {
-      background-color: colors.neutral(100);
+      color: white;
+      background-color: black;
     }
 
     &.focus,
@@ -55,7 +56,6 @@
 
 .rcx-accordion-item__title {
   flex: 1 1 lengths.size(none);
-
   @include typography.use-text-ellipsis;
   white-space: nowrap;
 

@@ -24,7 +24,7 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist",
     "build:prod": "webpack --mode production",
     "build": "run-p clean build:prod",
     "lint": "eslint --ext js,ts src",
