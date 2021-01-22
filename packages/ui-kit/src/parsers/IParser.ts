@@ -19,6 +19,7 @@ import {
   IInputBlock,
   IPlainTextInput,
   InputElement,
+  IToggleButtonGroupElement,
 } from '../blocks';
 import { BlockRenderer } from '../renderers/BlockRenderer';
 import { ElementRenderer } from '../renderers/ElementRenderer';
@@ -42,6 +43,7 @@ export interface IParser<T> {
   multiStaticSelect?: ElementRenderer<T, IMultiStaticSelectElement>;
   overflow?: ElementRenderer<T, IOverflowElement>;
   plainInput?: ElementRenderer<T, IPlainTextInput>;
+  toggleButtonGroup?: ElementRenderer<T, IToggleButtonGroupElement>;
 
   renderAccessories?: ElementSetRenderer<T, SectionAccessoryElement>;
   renderActions?: ElementSetRenderer<T, ActionElement>;

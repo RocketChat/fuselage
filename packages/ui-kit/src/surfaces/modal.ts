@@ -20,6 +20,7 @@ export abstract class UiKitParserModal
     ElementType.USER_SELECT,
     ElementType.USER_SELECT,
     ElementType.DATEPICKER,
+    ElementType.TOGGLE_BUTTON_GROUP,
   ]);
 }
 

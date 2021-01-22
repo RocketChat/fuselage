@@ -6,7 +6,9 @@ import {
   IContextBlock,
   IDatePickerElement,
   IDividerBlock,
+  IElement,
   IImageBlock,
+  IInputBlock,
   IMultiStaticSelectElement,
   IOverflowElement,
   ISectionBlock,
@@ -60,6 +62,10 @@ export abstract class UiKitParserBanner
     index: number
   ) => unknown;
 
+  input: ElementRenderer<unknown, IInputBlock>;
+
+  plainInput: ElementRenderer<unknown, IElement>;
+
   renderAccessories = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.IMAGE,
@@ -89,6 +95,18 @@ export abstract class UiKitParserBanner
     ElementType.PLAIN_TEXT,
     ElementType.MARKDOWN,
   ]);
+
+  renderInputs = createElementRenderer(this, [
+    ElementType.STATIC_SELECT,
+    ElementType.PLAIN_TEXT_INPUT,
+    ElementType.MULTI_STATIC_SELECT,
+    ElementType.CONVERSATION_SELECT,
+    ElementType.CHANNEL_SELECT,
+    ElementType.USER_SELECT,
+    ElementType.USER_SELECT,
+    ElementType.DATEPICKER,
+    ElementType.TOGGLE_BUTTON_GROUP,
+  ]);
 }
 
 export const uiKitBanner = createSurfaceRenderer<unknown>([
@@ -97,4 +115,5 @@ export const uiKitBanner = createSurfaceRenderer<unknown>([
   ElementType.IMAGE,
   ElementType.ACTIONS,
   ElementType.CONTEXT,
+  ElementType.INPUT,
 ]);

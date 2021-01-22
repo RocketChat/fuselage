@@ -17,6 +17,7 @@ export enum ElementType {
   STATIC_SELECT = 'static_select',
   MULTI_STATIC_SELECT = 'multi_static_select',
   DATEPICKER = 'datepicker',
+  TOGGLE_BUTTON_GROUP = 'toggle_button_group',
 }
 
 export enum BlockContext {
@@ -125,6 +126,13 @@ export interface IPlainTextInput extends IActionableElement {
   maxLength?: number;
 }
 
+export interface IToggleButtonGroupElement extends IActionableElement {
+  type: ElementType.TOGGLE_BUTTON_GROUP;
+  options: Option[];
+  initialOption?: Option;
+  initialValue?: Option['value'];
+}
+
 export type SectionAccessoryElement =
   | IImageElement
   | IButtonElement
@@ -146,7 +154,8 @@ export type InputElement =
   | IPlainTextInput
   | IStaticSelectElement
   | IMultiStaticSelectElement
-  | IDatePickerElement;
+  | IDatePickerElement
+  | IToggleButtonGroupElement;
 
 export interface IBlock extends IElement {
   blockId?: BlockId;

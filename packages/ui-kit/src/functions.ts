@@ -21,6 +21,7 @@ import {
   ConditionalBlockFilters,
   IConditionalBlock,
   Conditions,
+  IToggleButtonGroupElement,
 } from './blocks';
 import { IParser } from './parsers/IParser';
 import { ElementRenderer } from './renderers/ElementRenderer';
@@ -140,6 +141,13 @@ const renderElement = <T>(
 
     case ElementType.PLAIN_TEXT_INPUT:
       return parser.plainInput?.(element as IPlainTextInput, context, index);
+
+    case ElementType.TOGGLE_BUTTON_GROUP:
+      return parser.toggleButtonGroup?.(
+        element as IToggleButtonGroupElement,
+        context,
+        index
+      );
   }
 
   if (parser[element.type]) {
