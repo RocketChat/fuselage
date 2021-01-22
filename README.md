@@ -15,7 +15,7 @@
 
 > Rocket.Chat's Design System implementation
 
-### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
+### 🏠 [Homepage](https://rocketchat.github.io/Rocket.Chat.Fuselage/)
 
 ## Author
 
