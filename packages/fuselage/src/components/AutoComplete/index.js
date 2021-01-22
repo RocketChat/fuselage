@@ -2,7 +2,7 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 
 import { Box, PositionAnimated, AnimatedVisibility } from '../Box';
 import Chip from '../Chip';
@@ -14,7 +14,6 @@ import { useCursor, Options } from '../Options';
 const Addon = (props) => <Box rcx-autocomplete__addon {...props} />;
 
 const SelectedOptions = React.memo((props) => <Chip {...props} />);
-
 export function AutoComplete({
   value,
   filter,
@@ -34,9 +33,14 @@ export function AutoComplete({
 
   const ref = useRef();
 
+  const [selected, setSelected] = useState(() =>
+    options.find((option) => getValue(option) === value)
+  );
+
   const selectByKeyboard = useMutableCallback(([value]) => {
-    setFilter('');
+    setSelected(options.find((option) => getValue(option) === value));
     onChange(value);
+    setFilter('');
   });
 
   const memoizedOptions = useMemo(
@@ -53,6 +57,7 @@ export function AutoComplete({
   ] = useCursor(value, memoizedOptions, selectByKeyboard);
 
   const onSelect = useMutableCallback(([value]) => {
+    setSelected(options.find((option) => getValue(option) === value));
     onChange(value);
     setFilter('');
     hide();
@@ -88,21 +93,20 @@ export function AutoComplete({
             onBlur={hide}
             onFocus={show}
             onKeyDown={handleKeyDown}
-            placeholder={placeholder}
+            placeholder={
+              (optionsAreVisible !== AnimatedVisibility.HIDDEN || !value) &&
+              placeholder
+            }
             order={1}
             rcx-input-box--undecorated
             value={filter}
           />
-          {value && optionsAreVisible === AnimatedVisibility.HIDDEN && (
+          {selected && optionsAreVisible === AnimatedVisibility.HIDDEN && (
             <RenderSelected
               role='option'
               value={value}
-              label={getLabel(
-                options.find((option) => getValue(option) === value)
-              )}
-              children={getLabel(
-                options.find((option) => getValue(option) === value)
-              )}
+              label={getLabel(selected)}
+              children={getLabel(selected)}
             />
           )}
         </Margins>
