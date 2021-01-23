@@ -1,10 +1,10 @@
 import { Button, Throbber } from '@rocket.chat/fuselage';
 import React from 'react';
 
-import { useBlockContext } from '../hooks';
+import { useUiKitState } from '../hooks';
 
 const ButtonElement = ({ element, context, parser }) => {
-  const [{ loading }, action] = useBlockContext(element, context);
+  const [{ loading }, action] = useUiKitState(element, context);
 
   return (
     <Button

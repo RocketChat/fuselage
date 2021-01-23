@@ -1,6 +1,6 @@
 import { Box, Flex, Grid } from '@rocket.chat/fuselage';
 import { BlockContext } from '@rocket.chat/ui-kit';
-import React, { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 
 const Accessory = ({ blockId, appId, element, parser }) =>
   parser.renderAccessories(
@@ -27,12 +27,12 @@ const Fields = ({ fields, parser }) => (
   </Grid>
 );
 
-const SectionBlock = ({ className, element, parser }) => {
-  const { blockId, appId, text, fields, accessory } = element;
+const SectionBlock = ({ className, blockElement, parser }) => {
+  const { blockId, appId, text, fields, accessory } = blockElement;
 
-  const accessoryElement = useMemo(() => ({ blockId, appId, ...accessory }), [
-    blockId,
+  const accessoryElement = useMemo(() => ({ appId, blockId, ...accessory }), [
     appId,
+    blockId,
     accessory,
   ]);
 
@@ -57,4 +57,4 @@ const SectionBlock = ({ className, element, parser }) => {
   );
 };
 
-export default SectionBlock;
+export default memo(SectionBlock);

@@ -1,5 +1,5 @@
 import { Box, Skeleton } from '@rocket.chat/fuselage';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { memo, useEffect, useMemo, useState } from 'react';
 
 import { useSurfaceType } from '../surfaces/SurfaceContext';
 
@@ -28,7 +28,7 @@ const fetchImageState = (img) => {
   };
 };
 
-const ImageBlock = ({ className, element, parser }) => {
+const ImageBlock = ({ className, blockElement, parser }) => {
   const surface = useSurfaceType();
 
   const alignment =
@@ -36,7 +36,7 @@ const ImageBlock = ({ className, element, parser }) => {
 
   const [{ loading, width, height }, setState] = useState(() => {
     const img = document.createElement('img');
-    img.src = element.imageUrl;
+    img.src = blockElement.imageUrl;
     return fetchImageState(img);
   });
 
@@ -48,7 +48,7 @@ const ImageBlock = ({ className, element, parser }) => {
     };
 
     img.addEventListener('load', handleLoad);
-    img.src = element.imageUrl;
+    img.src = blockElement.imageUrl;
 
     if (img.complete) {
       img.removeEventListener('load', handleLoad);
@@ -58,7 +58,7 @@ const ImageBlock = ({ className, element, parser }) => {
     return () => {
       img.removeEventListener('load', handleLoad);
     };
-  }, [element.imageUrl]);
+  }, [blockElement.imageUrl]);
 
   const style = useMemo(
     () => ({
@@ -67,9 +67,9 @@ const ImageBlock = ({ className, element, parser }) => {
       backgroundPosition: '50%',
       backgroundSize: 'cover',
       backgroundColor: 'rgba(204, 204, 204, 38%)',
-      backgroundImage: `url(${element.imageUrl})`,
+      backgroundImage: `url(${blockElement.imageUrl})`,
     }),
-    [element.imageUrl]
+    [blockElement.imageUrl]
   );
 
   return (
@@ -81,9 +81,9 @@ const ImageBlock = ({ className, element, parser }) => {
       alignItems={alignment}
     >
       <Box overflow='hidden' width={width}>
-        {element.title && (
+        {blockElement.title && (
           <Box fontScale='c1' color='info' withTruncatedText marginBlockEnd={4}>
-            {parser.plainText(element.title, -1, 0)}
+            {parser.plainText(blockElement.title, -1, 0)}
           </Box>
         )}
         {loading ? (
@@ -95,7 +95,7 @@ const ImageBlock = ({ className, element, parser }) => {
             width={width}
             height={height}
             style={style}
-            aria-label={element.altText}
+            aria-label={blockElement.altText}
           />
         )}
       </Box>
@@ -103,4 +103,4 @@ const ImageBlock = ({ className, element, parser }) => {
   );
 };
 
-export default ImageBlock;
+export default memo(ImageBlock);

@@ -1,12 +1,12 @@
 import { Box, Button } from '@rocket.chat/fuselage';
 import { BlockContext, ElementType } from '@rocket.chat/ui-kit';
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useMemo, useState } from 'react';
 
 import { useSurfaceType } from '../surfaces/SurfaceContext';
 
-const Action = ({ blockId, appId, element, parser }) => {
+const Action = ({ element, parser }) => {
   const renderedElement = parser.renderActions(
-    { blockId, appId, ...element },
+    element,
     BlockContext.ACTION,
     parser
   );
@@ -27,8 +27,10 @@ const Action = ({ blockId, appId, element, parser }) => {
   );
 };
 
-const ActionsBlock = ({ className, blockId, appId, elements, parser }) => {
+const ActionsBlock = ({ className, blockElement, parser }) => {
   const surfaceType = useSurfaceType();
+
+  const { appId, blockId, elements } = blockElement;
 
   const [showMoreVisible, setShowMoreVisible] = useState(
     () => elements.length > 5 && surfaceType !== 'banner'
@@ -38,16 +40,20 @@ const ActionsBlock = ({ className, blockId, appId, elements, parser }) => {
     setShowMoreVisible(false);
   }, []);
 
+  const actionElements = useMemo(
+    () =>
+      (showMoreVisible ? elements.slice(0, 5) : elements).map((element) => ({
+        appId,
+        blockId,
+        ...element,
+      })),
+    [appId, blockId, elements, showMoreVisible]
+  );
+
   return (
     <Box className={className} display='flex' flexWrap='wrap' margin={-4}>
-      {(showMoreVisible ? elements.slice(0, 5) : elements).map((element, i) => (
-        <Action
-          key={i}
-          blockId={blockId}
-          appId={appId}
-          element={element}
-          parser={parser}
-        />
+      {actionElements.map((element, i) => (
+        <Action key={i} element={element} parser={parser} />
       ))}
       {showMoreVisible && (
         <Box display='flex' margin={4}>
@@ -64,4 +70,4 @@ const ActionsBlock = ({ className, blockId, appId, elements, parser }) => {
   );
 };
 
-export default ActionsBlock;
+export default memo(ActionsBlock);

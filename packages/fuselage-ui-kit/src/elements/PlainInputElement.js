@@ -1,10 +1,10 @@
 import { TextAreaInput, TextInput } from '@rocket.chat/fuselage';
 import React, { memo } from 'react';
 
-import { useBlockContext } from '../hooks';
+import { useUiKitState } from '../hooks';
 
 const PlainInputElement = ({ element, context, parser }) => {
-  const [{ loading, value, error }, action] = useBlockContext(element, context);
+  const [{ loading, value, error }, action] = useUiKitState(element, context);
   const { multiline, actionId, placeholder } = element;
   const Component = multiline ? TextAreaInput : TextInput;
   return (
