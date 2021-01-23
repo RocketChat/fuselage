@@ -579,11 +579,6 @@ export const InputWithToggleButtonGroup = createStory(
       type: 'input',
       element: {
         type: 'toggle_button_group',
-        placeholder: {
-          type: 'plain_text',
-          text: 'Select an item',
-          emoji: true,
-        },
         options: [
           {
             text: {
