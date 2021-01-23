@@ -1,8 +1,8 @@
 import { Divider } from '@rocket.chat/fuselage';
-import React from 'react';
+import React, { memo } from 'react';
 
 const DividerBlock = ({ className }) => (
   <Divider className={className} marginBlock='x24' />
 );
 
-export default DividerBlock;
+export default memo(DividerBlock);

@@ -1,10 +1,10 @@
 import { InputBox } from '@rocket.chat/fuselage';
 import React from 'react';
 
-import { useBlockContext } from '../hooks';
+import { useUiKitState } from '../hooks';
 
 const DatePickerElement = ({ element, context, parser }) => {
-  const [{ loading, value, error }, action] = useBlockContext(element, context);
+  const [{ loading, value, error }, action] = useUiKitState(element, context);
   const { actionId, placeholder } = element;
   return (
     <InputBox

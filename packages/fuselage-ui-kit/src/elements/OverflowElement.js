@@ -7,13 +7,13 @@ import {
 } from '@rocket.chat/fuselage';
 import React, { useRef, useCallback } from 'react';
 
-import { useBlockContext } from '../hooks';
+import { useUiKitState } from '../hooks';
 
 const convertOptions = (options, parser) =>
   options.map(({ text, value }) => [value, parser(text)]);
 
 const OverflowElement = ({ element, context, parser }) => {
-  const [{ loading }, action] = useBlockContext(element, context);
+  const [{ loading }, action] = useUiKitState(element, context);
 
   const { options } = element;
 

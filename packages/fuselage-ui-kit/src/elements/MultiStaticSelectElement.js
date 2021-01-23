@@ -1,10 +1,10 @@
 import { MultiSelectFiltered } from '@rocket.chat/fuselage';
 import React, { memo, useCallback, useMemo } from 'react';
 
-import { useBlockContext } from '../hooks';
+import { useUiKitState } from '../hooks';
 
 export const MultiStaticSelectElement = ({ element, context, parser }) => {
-  const [{ loading, value, error }, action] = useBlockContext(element, context);
+  const [{ loading, value, error }, action] = useUiKitState(element, context);
 
   const { options, placeholder } = element;
 

@@ -1,22 +1,27 @@
 import { Field } from '@rocket.chat/fuselage';
 import { BlockContext } from '@rocket.chat/ui-kit';
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 
-import { useBlockContext } from '../hooks';
+import { useUiKitState } from '../hooks';
 
-const InputBlock = ({ className, element, parser, context }) => {
-  const [{ error }] = useBlockContext(element.element, context);
+const InputBlock = ({ className, blockElement, parser, context }) => {
+  const { appId, blockId, element, label, hint } = blockElement;
+  const inputElement = useMemo(() => ({ appId, blockId, ...element }), [
+    appId,
+    blockId,
+    element,
+  ]);
+
+  const [{ error }] = useUiKitState(inputElement, context);
 
   return (
     <Field className={className}>
-      {element.label && (
-        <Field.Label>{parser.plainText(element.label)}</Field.Label>
-      )}
+      {label && <Field.Label>{parser.plainText(label)}</Field.Label>}
       <Field.Row>
-        {parser.renderInputs(element.element, BlockContext.FORM, parser, 0)}
+        {parser.renderInputs(inputElement, BlockContext.FORM, parser, 0)}
       </Field.Row>
       {error && <Field.Error>{error}</Field.Error>}
-      {element.hint && <Field.Hint>{element.hint}</Field.Hint>}
+      {hint && <Field.Hint>{hint}</Field.Hint>}
     </Field>
   );
 };

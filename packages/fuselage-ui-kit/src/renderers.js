@@ -41,7 +41,7 @@ export function section(element, context, index) {
   return (
     <SectionBlock
       key={index}
-      element={element}
+      blockElement={element}
       context={context}
       parser={this}
     />
@@ -51,7 +51,7 @@ export function section(element, context, index) {
 export function image(element, context, index) {
   switch (context) {
     case BlockContext.BLOCK:
-      return <ImageBlock key={index} element={element} parser={this} />;
+      return <ImageBlock key={index} blockElement={element} parser={this} />;
 
     case BlockContext.SECTION:
     case BlockContext.CONTEXT:
@@ -67,25 +67,15 @@ export function actions(element, context, index) {
     return null;
   }
 
-  const { blockId, appId, elements } = element;
-
-  return (
-    <ActionsBlock
-      key={index}
-      blockId={blockId}
-      appId={appId}
-      elements={elements}
-      parser={this}
-    />
-  );
+  return <ActionsBlock key={index} blockElement={element} parser={this} />;
 }
 
-export function context({ elements }, context, index) {
+export function context(element, context, index) {
   if (context !== BlockContext.BLOCK) {
     return null;
   }
 
-  return <ContextBlock key={index} elements={elements} parser={this} />;
+  return <ContextBlock key={index} blockElement={element} parser={this} />;
 }
 
 export function input(element, context, index) {
@@ -94,7 +84,12 @@ export function input(element, context, index) {
   }
 
   return (
-    <InputBlock key={index} context={context} parser={this} element={element} />
+    <InputBlock
+      key={index}
+      blockElement={element}
+      context={context}
+      parser={this}
+    />
   );
 }
 
