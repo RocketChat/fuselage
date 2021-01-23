@@ -101,6 +101,7 @@ export interface IStaticSelectElement extends IActionableElement {
   options: Option[];
   optionGroups?: OptionGroup[];
   initialOption?: Option;
+  initialValue?: Option['value'];
 }
 
 export interface IMultiStaticSelectElement extends IActionableElement {
@@ -109,6 +110,7 @@ export interface IMultiStaticSelectElement extends IActionableElement {
   options: Option[];
   optionGroups?: OptionGroup[];
   initialOption?: Option;
+  initialValue?: Option['value'];
   maxSelectItems?: number;
 }
 
@@ -131,6 +133,8 @@ export interface IToggleButtonGroupElement extends IActionableElement {
   options: Option[];
   initialOption?: Option;
   initialValue?: Option['value'];
+  preLabel?: IPlainText;
+  postLable?: IPlainText;
 }
 
 export type SectionAccessoryElement =
