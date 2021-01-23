@@ -254,6 +254,26 @@ class TestParser extends UiKitParserModal {
       }),
     },
   });
+
+  toggleButtonGroup = (element: any, _context: any, index: any): any => ({
+    component: 'toggle-button-group',
+    props: {
+      key: index,
+      children: element.options.map((option: any, key: any) => ({
+        component: 'toggle-button',
+        props: {
+          key,
+          children: this.text(option.text, -1, 0),
+          value: option.value,
+        },
+      })),
+      ...(element.initialOption && {
+        defaultValue: element.options.find(
+          (option: any) => option.value === element.initialOption.value
+        )?.value,
+      }),
+    },
+  });
 }
 
 const parser = new TestParser();
@@ -1710,6 +1730,124 @@ describe('input', () => {
                     block: false,
                   },
                 },
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('renders toggle button group', () => {
+    const payload = [
+      {
+        type: 'input',
+        element: {
+          type: 'toggle_button_group',
+          options: [
+            {
+              text: {
+                type: 'plain_text',
+                text: '*this is plain_text text*',
+                emoji: true,
+              },
+              value: 'value-0',
+            },
+            {
+              text: {
+                type: 'plain_text',
+                text: '*this is plain_text text*',
+                emoji: true,
+              },
+              value: 'value-1',
+            },
+            {
+              text: {
+                type: 'plain_text',
+                text: '*this is plain_text text*',
+                emoji: true,
+              },
+              value: 'value-2',
+            },
+          ],
+        },
+        label: {
+          type: 'plain_text',
+          text: 'Label',
+          emoji: true,
+        },
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'input-group',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'Label',
+                emoji: true,
+                block: false,
+              },
+            },
+            {
+              component: 'toggle-button-group',
+              props: {
+                key: 1,
+                children: [
+                  {
+                    component: 'toggle-button',
+                    props: {
+                      key: 0,
+                      children: {
+                        component: 'text',
+                        props: {
+                          key: 0,
+                          children: '*this is plain_text text*',
+                          emoji: true,
+                          block: false,
+                        },
+                      },
+                      value: 'value-0',
+                    },
+                  },
+                  {
+                    component: 'toggle-button',
+                    props: {
+                      key: 1,
+                      children: {
+                        component: 'text',
+                        props: {
+                          key: 0,
+                          children: '*this is plain_text text*',
+                          emoji: true,
+                          block: false,
+                        },
+                      },
+                      value: 'value-1',
+                    },
+                  },
+                  {
+                    component: 'toggle-button',
+                    props: {
+                      key: 2,
+                      children: {
+                        component: 'text',
+                        props: {
+                          key: 0,
+                          children: '*this is plain_text text*',
+                          emoji: true,
+                          block: false,
+                        },
+                      },
+                      value: 'value-2',
+                    },
+                  },
+                ],
               },
             },
           ],

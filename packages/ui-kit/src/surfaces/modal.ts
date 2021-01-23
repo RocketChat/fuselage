@@ -1,4 +1,9 @@
-import { ElementType, IElement, IInputBlock } from '../blocks';
+import {
+  ElementType,
+  IInputBlock,
+  IPlainTextInput,
+  IToggleButtonGroupElement,
+} from '../blocks';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 import { IParser } from '../parsers/IParser';
 import { ElementRenderer } from '../renderers/ElementRenderer';
@@ -9,7 +14,9 @@ export abstract class UiKitParserModal
   implements IParser<unknown> {
   input: ElementRenderer<unknown, IInputBlock>;
 
-  plainInput: ElementRenderer<unknown, IElement>;
+  plainInput: ElementRenderer<unknown, IPlainTextInput>;
+
+  toggleButtonGroup: ElementRenderer<unknown, IToggleButtonGroupElement>;
 
   renderInputs = createElementRenderer(this, [
     ElementType.STATIC_SELECT,

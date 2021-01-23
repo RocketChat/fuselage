@@ -13,6 +13,7 @@ import {
   IOverflowElement,
   ISectionBlock,
   IStaticSelectElement,
+  IToggleButtonGroupElement,
 } from '../blocks';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 import { IParser } from '../parsers/IParser';
@@ -65,6 +66,8 @@ export abstract class UiKitParserBanner
   input: ElementRenderer<unknown, IInputBlock>;
 
   plainInput: ElementRenderer<unknown, IElement>;
+
+  toggleButtonGroup: ElementRenderer<unknown, IToggleButtonGroupElement>;
 
   renderAccessories = createElementRenderer(this, [
     ElementType.BUTTON,
