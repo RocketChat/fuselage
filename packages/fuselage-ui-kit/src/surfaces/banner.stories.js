@@ -17,27 +17,22 @@ export default {
       defaultValue: 'neutral',
     },
   },
-  decorators: [
-    (storyFn) => (
-      <kitContext.Provider
-        value={{
-          action: action('action'),
-          state: action('state'),
-          appId: 'core',
-          errors: {},
-        }}
-      >
-        {storyFn()}
-      </kitContext.Provider>
-    ),
-  ],
 };
 
-const createStory = (blocks) => {
+const createStory = (blocks, errors = {}) => {
   const story = ({ blocks, type }) => (
-    <Banner icon={<Icon name='info' size='x20' />} closeable variant={type}>
-      {UiKitBanner(blocks)}
-    </Banner>
+    <kitContext.Provider
+      value={{
+        action: action('action'),
+        state: action('state'),
+        appId: 'core',
+        errors,
+      }}
+    >
+      <Banner icon={<Icon name='info' size='x20' />} closeable variant={type}>
+        {UiKitBanner(blocks)}
+      </Banner>
+    </kitContext.Provider>
   );
   story.args = {
     blocks,
@@ -432,6 +427,149 @@ export const ContextWithMrkdwn = createStory([
     ],
   },
 ]);
+
+export const InputWithMultilinePlainTextInput = createStory(
+  [
+    {
+      type: 'input',
+      element: {
+        type: 'plain_text_input',
+        multiline: true,
+        actionId: 'input-0',
+      },
+      label: {
+        type: 'plain_text',
+        text: 'Label',
+        emoji: true,
+      },
+    },
+  ],
+  {
+    'input-0': 'Error',
+  }
+);
+
+export const InputWithPlainTextInput = createStory(
+  [
+    {
+      type: 'input',
+      element: {
+        type: 'plain_text_input',
+        actionId: 'input-0',
+      },
+      label: {
+        type: 'plain_text',
+        text: 'Label',
+        emoji: true,
+      },
+    },
+  ],
+  {
+    'input-0': 'Error',
+  }
+);
+
+export const InputWithMultiUsersSelect = createStory(
+  [
+    {
+      type: 'input',
+      element: {
+        type: 'multi_users_select',
+        placeholder: {
+          type: 'plain_text',
+          text: 'Select users',
+          emoji: true,
+        },
+        actionId: 'input-0',
+      },
+      label: {
+        type: 'plain_text',
+        text: 'Label',
+        emoji: true,
+      },
+    },
+  ],
+  {
+    'input-0': 'Error',
+  }
+);
+
+export const InputWithStaticSelect = createStory(
+  [
+    {
+      type: 'input',
+      element: {
+        type: 'static_select',
+        placeholder: {
+          type: 'plain_text',
+          text: 'Select an item',
+          emoji: true,
+        },
+        options: [
+          {
+            text: {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            value: 'value-0',
+          },
+          {
+            text: {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            value: 'value-1',
+          },
+          {
+            text: {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            value: 'value-2',
+          },
+        ],
+        actionId: 'input-0',
+      },
+      label: {
+        type: 'plain_text',
+        text: 'Label',
+        emoji: true,
+      },
+    },
+  ],
+  {
+    'input-0': 'Error',
+  }
+);
+
+export const InputWithDatePicker = createStory(
+  [
+    {
+      type: 'input',
+      element: {
+        type: 'datepicker',
+        initialDate: '1990-04-28',
+        placeholder: {
+          type: 'plain_text',
+          text: 'Select a date',
+          emoji: true,
+        },
+        actionId: 'input-0',
+      },
+      label: {
+        type: 'plain_text',
+        text: 'Label',
+        emoji: true,
+      },
+    },
+  ],
+  {
+    'input-0': 'Error',
+  }
+);
 
 export const ContextWithTextAndImages = createStory([
   {
