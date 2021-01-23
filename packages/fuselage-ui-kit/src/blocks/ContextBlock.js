@@ -1,6 +1,6 @@
 import { Box } from '@rocket.chat/fuselage';
 import { BlockContext, ElementType } from '@rocket.chat/ui-kit';
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 
 const Item = ({ element, parser }) => {
   const renderedElement = parser.renderContext(
@@ -27,12 +27,21 @@ const Item = ({ element, parser }) => {
   }
 };
 
-const ContextBlock = ({ className, elements, parser }) => (
-  <Box className={className} display='flex' alignItems='center' margin={-4}>
-    {elements.map((element, i) => (
-      <Item key={i} element={element} parser={parser} />
-    ))}
-  </Box>
-);
+const ContextBlock = ({ className, blockElement, parser }) => {
+  const { appId, blockId, elements } = blockElement;
 
-export default ContextBlock;
+  const itemElements = useMemo(
+    () => elements.map((element) => ({ appId, blockId, ...element })),
+    [appId, blockId, elements]
+  );
+
+  return (
+    <Box className={className} display='flex' alignItems='center' margin={-4}>
+      {itemElements.map((element, i) => (
+        <Item key={i} element={element} parser={parser} />
+      ))}
+    </Box>
+  );
+};
+
+export default memo(ContextBlock);

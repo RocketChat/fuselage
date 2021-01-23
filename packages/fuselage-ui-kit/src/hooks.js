@@ -11,7 +11,7 @@ export const defaultContext = {
 
 export const kitContext = createContext(defaultContext);
 
-export const useBlockContext = (
+export const useUiKitState = (
   { blockId, actionId, appId, initialValue },
   context
 ) => {
@@ -45,7 +45,7 @@ export const useBlockContext = (
 
   const stateFunction = useMutableCallback(async ({ target: { value } }) => {
     setValue(value);
-    await state({ blockId, appId, actionId, value });
+    await state({ blockId, appId: appId || appIdFromContext, actionId, value });
   });
 
   const result = useMemo(() => ({ loading, setLoading, error, value }), [
