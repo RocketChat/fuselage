@@ -632,6 +632,57 @@ export const InputWithDatePicker = createStory(
   }
 );
 
+export const InputWithToggleButtonGroup = createStory(
+  [
+    {
+      type: 'input',
+      element: {
+        type: 'toggle_button_group',
+        placeholder: {
+          type: 'plain_text',
+          text: 'Select an item',
+          emoji: true,
+        },
+        options: [
+          {
+            text: {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            value: 'value-0',
+          },
+          {
+            text: {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            value: 'value-1',
+          },
+          {
+            text: {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            value: 'value-2',
+          },
+        ],
+        actionId: 'input-0',
+      },
+      label: {
+        type: 'plain_text',
+        text: 'Label',
+        emoji: true,
+      },
+    },
+  ],
+  {
+    'input-0': 'Error',
+  }
+);
+
 export const ConditionalBlock = createStory([
   {
     type: 'conditional',

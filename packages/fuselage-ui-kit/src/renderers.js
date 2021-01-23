@@ -14,6 +14,7 @@ import { MultiStaticSelectElement } from './elements/MultiStaticSelectElement';
 import OverflowElement from './elements/OverflowElement';
 import PlainInputElement from './elements/PlainInputElement';
 import { StaticSelectElement } from './elements/StaticSelectElement';
+import ToggleButtonGroupElement from './elements/ToggleButtonGroupElement';
 
 export function plainText(element) {
   const { text = '' /* , emoji = true */ } = element ?? {};
@@ -151,6 +152,17 @@ export function overflow(element, context, index) {
 export function plainInput(element, context, index) {
   return (
     <PlainInputElement
+      key={index}
+      element={element}
+      context={context}
+      parser={this}
+    />
+  );
+}
+
+export function toggleButtonGroup(element, context, index) {
+  return (
+    <ToggleButtonGroupElement
       key={index}
       element={element}
       context={context}

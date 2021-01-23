@@ -16,11 +16,12 @@ export default {
       },
       defaultValue: 'neutral',
     },
+    errors: { control: 'object' },
   },
 };
 
 const createStory = (blocks, errors = {}) => {
-  const story = ({ blocks, type }) => (
+  const story = ({ blocks, type, errors }) => (
     <kitContext.Provider
       value={{
         action: action('action'),
@@ -36,6 +37,7 @@ const createStory = (blocks, errors = {}) => {
   );
   story.args = {
     blocks,
+    errors,
   };
 
   return story;
@@ -557,6 +559,57 @@ export const InputWithDatePicker = createStory(
           text: 'Select a date',
           emoji: true,
         },
+        actionId: 'input-0',
+      },
+      label: {
+        type: 'plain_text',
+        text: 'Label',
+        emoji: true,
+      },
+    },
+  ],
+  {
+    'input-0': 'Error',
+  }
+);
+
+export const InputWithToggleButtonGroup = createStory(
+  [
+    {
+      type: 'input',
+      element: {
+        type: 'toggle_button_group',
+        placeholder: {
+          type: 'plain_text',
+          text: 'Select an item',
+          emoji: true,
+        },
+        options: [
+          {
+            text: {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            value: 'value-0',
+          },
+          {
+            text: {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            value: 'value-1',
+          },
+          {
+            text: {
+              type: 'plain_text',
+              text: '*this is plain_text text*',
+              emoji: true,
+            },
+            value: 'value-2',
+          },
+        ],
         actionId: 'input-0',
       },
       label: {

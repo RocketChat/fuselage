@@ -16,6 +16,7 @@ import {
   plainText,
   section,
   staticSelect,
+  toggleButtonGroup,
 } from '../renderers';
 import ModalSurface from './ModalSurface';
 
@@ -35,6 +36,7 @@ ModalParser.prototype.staticSelect = staticSelect;
 ModalParser.prototype.multiStaticSelect = multiStaticSelect;
 ModalParser.prototype.overflow = overflow;
 ModalParser.prototype.plainInput = plainInput;
+ModalParser.prototype.toggleButtonGroup = toggleButtonGroup;
 
 export const modalParser = new ModalParser();
 
