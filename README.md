@@ -34,12 +34,12 @@ Clone the repository to your local machine and switch into the project root dire
 git clone git@github.com:RocketChat/Rocket.Chat.Fuselage.git
 cd Rocket.Chat.Fuselage
 ````
-Then install necessary packages using ```yarn install``` and then start building uing ```yarn run```
+Then install necessary packages using ```yarn install``` and then start building uing ```yarn run```:
 ````bash
 yarn install
 yarn run
 ````
-
+Select among the options as per your requirement.
 
 ## Show your support
 
