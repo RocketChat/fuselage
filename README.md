@@ -39,7 +39,7 @@ Then install necessary packages using ```yarn install``` and then start building
 yarn install
 yarn run
 ````
-````bash
+
 
 ## Show your support
 
