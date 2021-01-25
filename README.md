@@ -28,18 +28,24 @@
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check the [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
 
-## Quick Start
-Clone the repository to your local machine and switch into the project root directory:
-````bash
-git clone git@github.com:RocketChat/Rocket.Chat.Fuselage.git
+## Quick start for code developers
+
+Prerequisites:
+
+* [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [Yarn](https://classic.yarnpkg.com/en/docs/install/)
+
+Now just clone and start the app
+
+```sh
+git clone https://github.com/RocketChat/Rocket.Chat.Fuselage.git
 cd Rocket.Chat.Fuselage
-````
-Then install necessary packages using ```yarn install``` and then start building uing ```yarn run```:
-````bash
 yarn install
 yarn run
-````
-Select among the options as per your requirement.
+```
+
+Now choose among `build`, `build-storybook`, `test`, `lint` and `storybook` as per your requirement.
+
 
 ## Show your support
 
