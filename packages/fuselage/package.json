@@ -1,18 +1,18 @@
 {
-  "name": "@rocket.chat/fuselage",
-  "version": "0.20.1",
+  "name": "@robogenixai/core",
+  "version": "1.0.0",
   "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
+    "name": "RoboChat",
+    "url": "https://robogenix.chat/"
   },
   "license": "MIT",
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "homepage": "https://github.com/robogenixaiorg/RoboChatComponents#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+    "url": "https://github.com/robogenixaiorg/RoboChatComponents"
   },
   "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+    "url": "https://github.com/robogenixaiorg/RoboChatComponents/issues"
   },
   "main": "index.js",
   "types": "fuselage.d.ts",
@@ -41,7 +41,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-storybook:loki": "cross-env NODE_ENV=loki build-storybook",
-    "update-storybook": "cross-env NODE_ENV=loki run-s build-storybook loki:update"
+    "update-storybook": "cross-env NODE_ENV=loki run-s build-storybook loki:update",
+    "build:tailwind": "tailwind build src/tailwind.css -o src/tailwind.generated.css"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -52,9 +53,12 @@
   "dependencies": {
     "@rocket.chat/css-in-js": "^0.20.1",
     "@rocket.chat/fuselage-tokens": "^0.20.1",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9",
     "invariant": "^2.2.4",
+    "postcss": "^7",
     "react-keyed-flatten-children": "^1.2.0",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
@@ -74,7 +78,6 @@
     "@storybook/react": "^6.1.11",
     "@storybook/source-loader": "^6.1.11",
     "@storybook/theming": "^6.1.11",
-    "autoprefixer": "^10.2.3",
     "babel-loader": "^8.1.0",
     "caniuse-lite": "^1.0.30001151",
     "cssnano": "^4.1.10",
@@ -85,13 +88,13 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
+    "html-webpack-plugin": "^5.0.0-beta.6",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.1",
     "lint-staged": "^10.0.8",
     "loki": "^0.25.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.2.4",
     "postcss-custom-properties": "^10.0.0",
     "postcss-dir-pseudo-class": "^5.0.0",
     "postcss-loader": "^4.0.4",
