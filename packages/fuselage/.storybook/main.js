@@ -3,6 +3,7 @@ const webpack = require('webpack');
 module.exports = {
   addons: [
     '@storybook/addon-essentials',
+    '@storybook/addon-controls',
     ...(process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : []),
   ],
   stories: ['../src/**/*.stories.{mdx,js}'],

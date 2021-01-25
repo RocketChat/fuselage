@@ -1,4 +1,5 @@
 {
+  "name": "RoboChatComponents",
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
@@ -21,10 +22,5 @@
     "lint": "lerna run lint",
     "lint-staged": "lerna run lint-staged",
     "storybook": "lerna run storybook --parallel"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged"
-    }
   }
 }

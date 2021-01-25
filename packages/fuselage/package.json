@@ -22,7 +22,7 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist",
     "start": "webpack --watch --mode development",
     "build:prod": "webpack --mode production",
     "build:dev": "webpack --mode development",
@@ -53,7 +53,8 @@
     "@rocket.chat/css-in-js": "^0.20.1",
     "@rocket.chat/fuselage-tokens": "^0.20.1",
     "invariant": "^2.2.4",
-    "react-keyed-flatten-children": "^1.2.0"
+    "react-keyed-flatten-children": "^1.2.0",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
@@ -65,6 +66,7 @@
     "@rocket.chat/eslint-config": "^0.4.0",
     "@rocket.chat/fuselage-hooks": "^0.20.1",
     "@rocket.chat/fuselage-polyfills": "^0.20.1",
+    "@storybook/addon-controls": "^6.1.14",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-jest": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
@@ -72,7 +74,7 @@
     "@storybook/react": "^6.1.11",
     "@storybook/source-loader": "^6.1.11",
     "@storybook/theming": "^6.1.11",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^10.2.3",
     "babel-loader": "^8.1.0",
     "caniuse-lite": "^1.0.30001151",
     "cssnano": "^4.1.10",
@@ -89,7 +91,7 @@
     "loki": "^0.25.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.1.4",
+    "postcss": "^8.2.4",
     "postcss-custom-properties": "^10.0.0",
     "postcss-dir-pseudo-class": "^5.0.0",
     "postcss-loader": "^4.0.4",
