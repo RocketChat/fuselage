@@ -117,6 +117,8 @@
     );
     color: white;
     border: 1px solid #4bb543;
+    border-radius: 30px;
+    overflow: hidden;
   }
 
   &--danger {
@@ -146,6 +148,8 @@
     );
     color: #e76067;
     border: 1px solid #e76067;
+    border-radius: 30px;
+    overflow: hidden;
   }
 
   &--primary {
@@ -169,6 +173,8 @@
 
     border: none;
     background: #00c9ff; /* fallback for old browsers */
+    border-radius: 30px;
+    overflow: hidden;
     background: -webkit-linear-gradient(
       to left,
       #92fe9d,
@@ -214,6 +220,8 @@
       $disabled-border-color: map.get(buttons.$danger, disabled-border-color),
       $disabled-color: map.get(buttons.$danger, disabled-color)
     );
+    border-radius: 30px;
+    overflow: hidden;
   }
 
   &--primary-success {
@@ -234,6 +242,8 @@
       $disabled-border-color: map.get(buttons.$success, disabled-border-color),
       $disabled-color: map.get(buttons.$success, disabled-color)
     );
+    border-radius: 30px;
+    overflow: hidden;
   }
 
   &--ghost {
@@ -253,6 +263,8 @@
       $disabled-border-color: map.get(buttons.$ghost, disabled-border-color),
       $disabled-color: map.get(buttons.$ghost, disabled-color)
     );
+    border-radius: 30px;
+    overflow: hidden;
   }
 
   &--ghost-success {
@@ -276,6 +288,8 @@
         map.get(buttons.$ghost-success, disabled-border-color),
       $disabled-color: map.get(buttons.$ghost-success, disabled-color)
     );
+    border-radius: 30px;
+    overflow: hidden;
   }
 
   &--ghost-danger {
@@ -299,6 +313,8 @@
         map.get(buttons.$ghost-danger, disabled-border-color),
       $disabled-color: map.get(buttons.$ghost-danger, disabled-color)
     );
+    border-radius: 30px;
+    overflow: hidden;
   }
 
   background: #00c9ff; /* fallback for old browsers */
@@ -327,4 +343,6 @@
       #c2e59c
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
+  border-radius: 30px;
+  overflow: hidden;
 }
