@@ -78,7 +78,9 @@ export const MultiSelect = ({
       rcx-select
       className={[error && 'invalid', disabled && 'disabled']}
       ref={containerRef}
-      onClick={useMutableCallback(() => ref.current.focus() & show())}
+      tabIndex="0"
+      onClick={useMutableCallback(() => (visible === AnimatedVisibility.HIDDEN ? show() : hide()))}
+      onBlur={hide}
       disabled={disabled}
       {...props}
     >
@@ -99,8 +101,6 @@ export const MultiSelect = ({
                     disabled={disabled}
                     ref={ref}
                     aria-haspopup='listbox'
-                    onClick={show}
-                    onBlur={hide}
                     onKeyUp={handleKeyUp}
                     onKeyDown={handleKeyDown}
                     order={1}
