@@ -118,7 +118,9 @@ export const Select = ({
       rcx-select
       disabled={disabled}
       ref={containerRef}
-      onClick={useMutableCallback(() => ref.current.focus() & show())}
+      tabIndex="0"
+      onClick={useMutableCallback(() => (visible === AnimatedVisibility.HIDDEN ? show() : hide()))}
+      onBlur={hide}
       className={useMemo(() => [error && 'invalid', disabled && 'disabled'], [
         error,
         disabled,
@@ -148,8 +150,6 @@ export const Select = ({
           filter={filter}
           ref={ref}
           aria-haspopup='listbox'
-          onClick={show}
-          onBlur={hide}
           onKeyUp={handleKeyUp}
           onKeyDown={handleKeyDown}
         />
