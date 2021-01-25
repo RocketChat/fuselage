@@ -28,6 +28,19 @@
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check the [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
 
+## Quick Start
+Clone the repository to your local machine and switch into the project root directory:
+````bash
+git clone git@github.com:RocketChat/Rocket.Chat.Fuselage.git
+cd Rocket.Chat.Fuselage
+````
+Then install necessary packages using ```yarn install``` and then start building uing ```yarn run```
+````bash
+yarn install
+yarn run
+````
+````bash
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
