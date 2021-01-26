@@ -5,7 +5,7 @@ type LazySingletonStyleSheet = {
   unuse(): void;
 };
 
-export const useStyleSheet = (styleSheet: LazySingletonStyleSheet) => {
+export const useStyleSheet = (styleSheet: LazySingletonStyleSheet): void => {
   useIsomorphicLayoutEffect(() => {
     styleSheet.use();
 

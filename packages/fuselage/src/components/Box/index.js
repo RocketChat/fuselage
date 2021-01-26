@@ -1,36 +1,16 @@
-import { css } from '@rocket.chat/css-in-js';
-import { useStyleSheet, useStyle } from '@rocket.chat/fuselage-box';
+import {
+  useStyleSheet,
+  useArrayLikeClassNameProp,
+} from '@rocket.chat/fuselage-box';
 import PropTypes from 'prop-types';
 import React, { createElement, forwardRef, memo } from 'react';
 
-import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
 import globalStyleSheet from '../../index.scss';
 import {
   /* propTypes as stylingPropsPropTypes,  */ useStylingProps,
 } from './stylingProps';
 import { useBoxTransform, BoxTransforms } from './transforms';
-
-export const useArrayLikeClassNameProp = (props) => {
-  const classNames = [].concat(props.className);
-
-  const cssFns = classNames.filter((value) => typeof value === 'function');
-  const stylesClassName = useStyle(
-    css`
-      ${cssFns}
-    `,
-    props
-  );
-
-  const strings = classNames.filter((value) => typeof value === 'string');
-
-  props.className = strings.reduce(
-    (className, string) => appendClassName(className, string),
-    stylesClassName || ''
-  );
-
-  return props;
-};
 
 export const useBoxOnlyProps = (props) => {
   Object.entries(props).forEach(([key, value]) => {

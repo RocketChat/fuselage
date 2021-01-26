@@ -9,8 +9,11 @@ import { useDebugValue, useLayoutEffect, useMemo } from 'react';
 
 type CssFn = ReturnType<typeof css>;
 
-export const useStyle = <T>(cssFn: CssFn, arg?: T) => {
-  const content = useMemo(() => (cssFn ? cssFn(arg) : undefined), [arg, cssFn]);
+export const useStyle = <P>(cssFn: CssFn, props?: P): string | undefined => {
+  const content = useMemo(() => (cssFn ? cssFn(props) : undefined), [
+    props,
+    cssFn,
+  ]);
 
   const className = useMemo(() => {
     if (!content) {
