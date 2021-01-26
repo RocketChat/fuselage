@@ -3,10 +3,13 @@ import {
   escapeName,
   transpile,
   attachRules,
+  css,
 } from '@rocket.chat/css-in-js';
 import { useDebugValue, useLayoutEffect, useMemo } from 'react';
 
-export const useStyle = (cssFn, arg) => {
+type CssFn = ReturnType<typeof css>;
+
+export const useStyle = <T>(cssFn: CssFn, arg?: T) => {
   const content = useMemo(() => (cssFn ? cssFn(arg) : undefined), [arg, cssFn]);
 
   const className = useMemo(() => {

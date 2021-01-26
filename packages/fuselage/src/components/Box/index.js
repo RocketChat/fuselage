@@ -1,11 +1,11 @@
 import { css } from '@rocket.chat/css-in-js';
+import { useStyleSheet, useStyle } from '@rocket.chat/fuselage-box';
 import PropTypes from 'prop-types';
 import React, { createElement, forwardRef, memo } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
-import { useStyle } from '../../hooks/useStyle';
-import { useStyleSheet } from '../../hooks/useStyleSheet';
+import globalStyleSheet from '../../index.scss';
 import {
   /* propTypes as stylingPropsPropTypes,  */ useStylingProps,
 } from './stylingProps';
@@ -70,7 +70,7 @@ export const useBoxOnlyProps = (props) => {
 
 export const Box = memo(
   forwardRef(function Box({ is = 'div', children, ...props }, ref) {
-    useStyleSheet();
+    useStyleSheet(globalStyleSheet);
 
     if (ref) {
       props.ref = ref;

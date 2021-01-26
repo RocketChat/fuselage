@@ -1,9 +1,9 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
+import { useStyle } from '@rocket.chat/fuselage-box';
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { appendClassName } from '../../../helpers/appendClassName';
-import { useStyle } from '../../../hooks/useStyle';
 import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
 function AnimatedVisibility({

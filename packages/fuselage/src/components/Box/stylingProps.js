@@ -1,10 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
+import { useStyle } from '@rocket.chat/fuselage-box';
 import PropTypes from 'prop-types';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { createPropType } from '../../helpers/createPropType';
 import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
-import { useStyle } from '../../hooks/useStyle';
 import {
   borderWidth,
   borderRadius,

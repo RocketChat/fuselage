@@ -19,7 +19,7 @@
   "type": "commonjs",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
-  "types": ".dist/esm/index.d.ts",
+  "types": "./dist/esm/index.d.ts",
   "files": [
     "./dist/"
   ],
@@ -34,10 +34,15 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
+    "prettier": "^2.2.1",
     "react": "^17.0.1",
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
     "react": "*"
+  },
+  "dependencies": {
+    "@rocket.chat/css-in-js": "^0.20.1",
+    "@rocket.chat/fuselage-hooks": "^0.20.1"
   }
 }

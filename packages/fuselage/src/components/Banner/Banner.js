@@ -1,8 +1,9 @@
+import { useStyleSheet } from '@rocket.chat/fuselage-box';
 import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, { useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
-import { useStyleSheet } from '../../hooks/useStyleSheet';
+import globalStyleSheet from '../../index.scss';
 import Button from '../Button';
 import { Icon } from '../Icon';
 import styleSheet from './Banner.styles.scss';
@@ -22,7 +23,7 @@ const Banner = ({
   onClose,
   ...props
 }) => {
-  useStyleSheet();
+  useStyleSheet(globalStyleSheet);
   useStyleSheet(styleSheet);
 
   const { ref, borderBoxSize } = useResizeObserver();

@@ -1,10 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
+import { useStyle } from '@rocket.chat/fuselage-box';
 import React, { useCallback } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { createPropType } from '../../helpers/createPropType';
 import { patchChildren } from '../../helpers/patchChildren';
-import { useStyle } from '../../hooks/useStyle';
 import { margin } from '../../styleTokens';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/transforms';
 

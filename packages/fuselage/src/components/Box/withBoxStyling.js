@@ -1,6 +1,7 @@
+import { useStyleSheet } from '@rocket.chat/fuselage-box';
 import { createElement } from 'react';
 
-import { useStyleSheet } from '../../hooks/useStyleSheet';
+import globalStyleSheet from '../../index.scss';
 import { useStylingProps } from './stylingProps';
 
 export const withBoxStyling = (component) => {
@@ -13,7 +14,7 @@ export const withBoxStyling = (component) => {
   };
 
   const WithBoxStyling = (props) => {
-    useStyleSheet();
+    useStyleSheet(globalStyleSheet);
     props = useStylingProps(props);
     return render(props);
   };
