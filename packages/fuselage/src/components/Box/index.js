@@ -26,11 +26,6 @@ export const useBoxOnlyProps = (props) => {
     }
   });
 
-  if (props.animated) {
-    props.className = prependClassName(props.className, 'rcx-box--animated');
-    delete props.animated;
-  }
-
   if (props.withRichContent) {
     props.className = prependClassName(
       props.className,

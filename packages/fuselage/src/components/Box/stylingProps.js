@@ -1,5 +1,11 @@
 import { css } from '@rocket.chat/css-in-js';
-import { useStyle } from '@rocket.chat/fuselage-box';
+import {
+  useStyle,
+  animatedStyle,
+  getFontScaleStyle,
+  invisibleStyle,
+  withTruncatedTextStyle,
+} from '@rocket.chat/fuselage-box';
 import PropTypes from 'prop-types';
 
 import { appendClassName } from '../../helpers/appendClassName';
@@ -238,27 +244,6 @@ const propDefs = {
     },
     propType: PropTypes.oneOf(['0', '1', '2']),
   },
-  invisible: {
-    toStyle: (value) =>
-      value
-        ? css`
-            visibility: hidden;
-            opacity: 0;
-          `
-        : undefined,
-    propType: PropTypes.bool,
-  },
-  withTruncatedText: {
-    toStyle: (value) =>
-      value
-        ? css`
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          `
-        : undefined,
-    propType: PropTypes.bool,
-  },
   size: {
     toStyle: (value) =>
       size(value)
@@ -289,15 +274,6 @@ const propDefs = {
         : undefined,
     propType: createPropType(size),
   },
-  fontScale: {
-    toStyle: (value) => css`
-      font-size: ${fontScale(value)?.fontSize} !important;
-      font-weight: ${fontScale(value)?.fontWeight} !important;
-      letter-spacing: ${fontScale(value)?.letterSpacing} !important;
-      line-height: ${fontScale(value)?.lineHeight} !important;
-    `,
-    propType: PropTypes.oneOf(fontScale.values),
-  },
 };
 
 export const propTypes = Object.entries(propDefs).reduce(
@@ -313,6 +289,43 @@ export const propTypes = Object.entries(propDefs).reduce(
     htmlSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }
 );
+
+const handleAnimatedProp = (props) => {
+  if (!('animated' in props) || !props.animated) {
+    return undefined;
+  }
+
+  delete props.animated;
+  return animatedStyle;
+};
+
+const handleFontScaleProp = (props) => {
+  if (!('fontScale' in props)) {
+    return undefined;
+  }
+
+  const style = getFontScaleStyle(props.fontScale);
+  delete props.fontScale;
+  return style;
+};
+
+const handleInvisibleProp = (props) => {
+  if (!('invisible' in props) || !props.invisible) {
+    return undefined;
+  }
+
+  delete props.invisible;
+  return invisibleStyle;
+};
+
+const handleWithTruncatedTextProp = (props) => {
+  if (!('withTruncatedText' in props) || !props.withTruncatedText) {
+    return undefined;
+  }
+
+  delete props.withTruncatedText;
+  return withTruncatedTextStyle;
+};
 
 export const useStylingProps = (originalProps) => {
   const { htmlSize, ...props } = originalProps;
@@ -378,7 +391,12 @@ export const useStylingProps = (originalProps) => {
   const newClassName = useStyle(
     css`
       ${styles}
-    `
+      ${handleAnimatedProp}
+      ${handleFontScaleProp}
+      ${handleInvisibleProp}
+      ${handleWithTruncatedTextProp}
+    `,
+    props
   );
 
   if (newClassName) {
