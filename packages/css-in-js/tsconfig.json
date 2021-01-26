@@ -2,8 +2,8 @@
   "compilerOptions": {
     "rootDir": "./src",
     "module": "ESNext",
-    "target": "ES2015",
-    "lib": ["dom", "ES2015"],
+    "target": "es5",
+    "lib": ["dom", "es6"],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
@@ -20,7 +20,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules", "src/*.spec.ts"]
