@@ -1,16 +1,16 @@
 import {
   useStyleSheet,
   useArrayLikeClassNameProp,
+  BoxTransforms,
 } from '@rocket.chat/fuselage-box';
 import PropTypes from 'prop-types';
-import React, { createElement, forwardRef, memo } from 'react';
+import React, { createElement, forwardRef, memo, useContext } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 import globalStyleSheet from '../../index.scss';
 import {
   /* propTypes as stylingPropsPropTypes,  */ useStylingProps,
 } from './stylingProps';
-import { useBoxTransform, BoxTransforms } from './transforms';
 
 export const useBoxOnlyProps = (props) => {
   Object.entries(props).forEach(([key, value]) => {
@@ -58,7 +58,7 @@ export const Box = memo(
 
     props = useArrayLikeClassNameProp(props);
 
-    const transformFn = useBoxTransform();
+    const transformFn = useContext(BoxTransforms);
     if (transformFn) {
       props = transformFn(props);
     }

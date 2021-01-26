@@ -1,9 +1,11 @@
+import { useStyleSheet } from '@rocket.chat/fuselage-box';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
-import { withBoxStyling } from '../Box/withBoxStyling';
+import globalStyleSheet from '../../index.scss';
+import { useStylingProps } from '../Box/stylingProps';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
@@ -16,14 +18,16 @@ const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
 const Chip = ({
   children,
-  className,
   thumbUrl,
   onClick,
   onMouseDown,
   renderThumb = defaultRenderThumb,
   renderDismissSymbol = defaultRenderDismissSymbol,
-  ...rest
+  ...props
 }) => {
+  useStyleSheet(globalStyleSheet);
+  const { className, ...rest } = useStylingProps(props);
+
   const onDismiss = onClick || onMouseDown;
 
   return (
@@ -53,4 +57,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default withBoxStyling(Chip);
+export default Chip;

@@ -1,7 +1,9 @@
+import {
+  BoxTransforms,
+  useComposedBoxTransform,
+} from '@rocket.chat/fuselage-box';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
-
-import { BoxTransforms, useComposedBoxTransform } from '../transforms';
 
 function FlexContainer({
   inline = false,

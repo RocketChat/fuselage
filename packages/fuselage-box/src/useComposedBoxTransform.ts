@@ -1,10 +1,8 @@
-import { createContext, useContext, useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 
-export const BoxTransforms = createContext();
+import { BoxTransforms, BoxTransform } from './BoxTransforms';
 
-export const useBoxTransform = () => useContext(BoxTransforms);
-
-export const useComposedBoxTransform = (fn) => {
+export const useComposedBoxTransform = (fn: BoxTransform): BoxTransform => {
   const parentFn = useContext(BoxTransforms);
 
   return useMemo(() => {
