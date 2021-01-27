@@ -1,10 +1,9 @@
 {
-  "name": "@rocket.chat/fuselage-box",
+  "name": "@rocket.chat/memo",
   "version": "0.20.1",
-  "description": "Primitive for prototyping layouts under Fuselage design system",
+  "description": "Memoization utilities",
   "keywords": [
-    "fuselage",
-    "box"
+    "memoize"
   ],
   "author": {
     "name": "Rocket.Chat",
@@ -41,18 +40,7 @@
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1",
-    "react": "^16.14.0",
     "typescript": "^4.1.3"
-  },
-  "peerDependencies": {
-    "react": "*"
-  },
-  "dependencies": {
-    "@rocket.chat/css-in-js": "^0.20.1",
-    "@rocket.chat/fuselage-hooks": "^0.20.1",
-    "@rocket.chat/fuselage-tokens": "^0.20.1"
   }
 }

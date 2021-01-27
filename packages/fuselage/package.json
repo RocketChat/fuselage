@@ -53,6 +53,7 @@
     "@rocket.chat/css-in-js": "^0.20.1",
     "@rocket.chat/fuselage-box": "^0.20.1",
     "@rocket.chat/fuselage-tokens": "^0.20.1",
+    "@rocket.chat/memo": "^0.20.1",
     "invariant": "^2.2.4",
     "react-keyed-flatten-children": "^1.2.0"
   },
