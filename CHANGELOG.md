@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.1...v0.20.2) (2021-01-27)
+
+
+### Bug Fixes
+
+* TSConfig es5 target & es6 lib ([#378](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/378)) ([8d9aaa2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8d9aaa2d1f731b7621a55e264b7f46b3631e2dfa))
+
+
+
+
+
 ## [0.20.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.0...v0.20.1) (2020-12-22)
 
 
