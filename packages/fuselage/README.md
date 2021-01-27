@@ -1,4 +1,4 @@
-<h1>@rocket.chat/fuselage</h1>
+<h1>@robogenixai/core</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/npm/v/@rocket.chat/fuselage.svg">
   <a href="https://github.com/RocketChat/Rocket.Chat.Fuselage#readme" target="_blank"><img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" /></a>
@@ -13,23 +13,11 @@
 ## Install
 
 ```sh
-npm install --save @rocket.chat/fuselage
+npm install --save @robogenixai/core
 ```
 
 ## Author
 
-👤 **Rocket.Chat**
-
-* Twitter: [@RocketChat](https://twitter.com/RocketChat)
-* Github: [@RocketChat](https://github.com/RocketChat)
-
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
