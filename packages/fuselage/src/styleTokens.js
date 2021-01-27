@@ -1,49 +1,18 @@
 import { cssSupports } from '@rocket.chat/css-in-js';
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
-import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
 
-const measure = (computeSpecialValue) =>
-  memoize((value) => {
-    if (typeof value === 'number') {
-      return `${value}px`;
-    }
-
-    if (typeof value !== 'string') {
-      return undefined;
-    }
-
-    const xRegExp = /^(neg-|-)?x(\d+)$/;
-    if (xRegExp.test(value)) {
-      const [, negativeMark, measureInPixelsAsString] = xRegExp.exec(value);
-      const measureInPixels =
-        (negativeMark ? -1 : 1) * parseInt(measureInPixelsAsString, 10);
-      return `${measureInPixels / 16}rem`;
-    }
-
-    if (computeSpecialValue) {
-      return computeSpecialValue(value) || value;
-    }
-
-    return value;
-  });
-
-export const borderWidth = measure((value) => {
-  if (value === 'none') {
-    return '0px';
-  }
-});
-
-export const borderRadius = measure((value) => {
-  if (value === 'none') {
-    return '0px';
-  }
-
-  if (value === 'full') {
-    return '9999px';
-  }
-});
+export {
+  borderRadius,
+  borderWidth,
+  fontFamily,
+  fontScale,
+  inset,
+  margin,
+  padding,
+  size,
+} from '@rocket.chat/fuselage-box';
 
 const mapTypeToPrefix = {
   neutral: 'n',
@@ -155,61 +124,3 @@ export const color = memoize((propValue) => {
 
   return propValue;
 });
-
-export const size = measure((value) => {
-  if (value === 'none') {
-    return '0px';
-  }
-
-  if (value === 'full') {
-    return '100%';
-  }
-
-  if (value === 'sw') {
-    return '100vw';
-  }
-
-  if (value === 'sh') {
-    return '100vh';
-  }
-});
-
-export const inset = measure((value) => {
-  if (value === 'none') {
-    return '0px';
-  }
-});
-
-export const margin = measure((value) => {
-  if (value === 'none') {
-    return '0px';
-  }
-});
-
-export const padding = measure((value) => {
-  if (value === 'none') {
-    return '0px';
-  }
-});
-
-export const fontFamily = memoize((value) => {
-  if (typeof value !== 'string') {
-    return;
-  }
-
-  if (!tokenTypography.fontFamilies[value]) {
-    return value;
-  }
-
-  const fontFamily = tokenTypography.fontFamilies[value]
-    .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))
-    .join(', ');
-
-  if (cssSupports('(--foo: bar)')) {
-    return `var(--rcx-font-family-${value}, ${fontFamily})`;
-  }
-
-  return fontFamily;
-});
-
-export { fontScale } from '@rocket.chat/fuselage-box';

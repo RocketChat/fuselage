@@ -38,49 +38,49 @@ const numberOrStringProp = {
 };
 
 const borderWidthProp = {
-  toCSSValue: borderWidth,
+  toCSSValue: (value) => borderWidth(value) ?? value,
   propType: createPropType(borderWidth),
 };
 
 const borderRadiusProp = {
-  toCSSValue: borderRadius,
+  toCSSValue: (value) => borderRadius(value) ?? value,
   propType: createPropType(borderRadius),
 };
 
 const colorProp = {
-  toCSSValue: color,
+  toCSSValue: (value) => color(value) ?? value,
   propType: createPropType(color),
 };
 
 const sizeProp = {
-  toCSSValue: size,
+  toCSSValue: (value) => size(value) ?? value,
   propType: createPropType(size),
 };
 
 const insetProp = {
-  toCSSValue: inset,
+  toCSSValue: (value) => inset(value) ?? value,
   propType: createPropType(inset),
 };
 
 const marginProp = {
-  toCSSValue: margin,
+  toCSSValue: (value) => margin(value) ?? value,
   propType: createPropType(margin),
 };
 
 const paddingProp = {
-  toCSSValue: padding,
+  toCSSValue: (value) => padding(value) ?? value,
   propType: createPropType(padding),
 };
 
 const fontFamilyProp = {
-  toCSSValue: fontFamily,
+  toCSSValue: (value) => fontFamily(value) ?? value,
   propType: createPropType(fontFamily),
 };
 
 const fontSizeProp = {
-  toCSSValue: (value) => fontScale(value)?.fontSize || size(value),
+  toCSSValue: (value) => fontScale(value)?.fontSize ?? size(value) ?? value,
   propType: createPropType(
-    (value) => fontScale(value)?.fontSize || size(value)
+    (value) => fontScale(value)?.fontSize ?? size(value) ?? value
   ),
 };
 
@@ -90,9 +90,9 @@ const fontWeightProp = {
 };
 
 const lineHeightProp = {
-  toCSSValue: (value) => fontScale(value)?.lineHeight || size(value),
+  toCSSValue: (value) => fontScale(value)?.lineHeight ?? size(value) ?? value,
   propType: createPropType(
-    (value) => fontScale(value)?.lineHeight || size(value)
+    (value) => fontScale(value)?.lineHeight ?? size(value) ?? value
   ),
 };
 

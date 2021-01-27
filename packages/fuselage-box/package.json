@@ -53,6 +53,7 @@
   "dependencies": {
     "@rocket.chat/css-in-js": "^0.20.1",
     "@rocket.chat/fuselage-hooks": "^0.20.1",
-    "@rocket.chat/fuselage-tokens": "^0.20.1"
+    "@rocket.chat/fuselage-tokens": "^0.20.1",
+    "@rocket.chat/memo": "^0.20.1"
   }
 }
