@@ -1,4 +1,4 @@
-import { memoize } from './memoize';
+import { memoize } from '@rocket.chat/memo';
 
 /**
  * Memoized and SSR-compatible facade of CSS.supports API
