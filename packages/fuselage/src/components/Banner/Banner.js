@@ -3,6 +3,7 @@ import React, { useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
+import { Box, Scrollable } from '../Box';
 import Button from '../Button';
 import { Icon } from '../Icon';
 import styleSheet from './Banner.styles.scss';
@@ -68,12 +69,16 @@ const Banner = ({
       {icon && isIconVisible && (
         <div className={cx('rcx-banner__icon')({ inline })}>{icon}</div>
       )}
-      <div className={cx('rcx-banner__content')({ inline })}>
-        {title && (
-          <h6 className={cx('rcx-banner__title')({ inline })}>{title}</h6>
-        )}
-        {children}
-      </div>
+      <Scrollable horizontal>
+        <Box className={cx('rcx-banner__wrapper')()}>
+          <div className={cx('rcx-banner__content')({ inline })}>
+            {title && (
+              <h6 className={cx('rcx-banner__title')({ inline })}>{title}</h6>
+            )}
+            {children}
+          </div>
+        </Box>
+      </Scrollable>
       {closeable && (
         <div className={cx('rcx-banner__close-button')({ inline })}>
           <Button

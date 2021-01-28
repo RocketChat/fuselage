@@ -1,4 +1,7 @@
 /* eslint-disable new-cap */
+import { Box } from '@rocket.chat/fuselage';
+import React from 'react';
+
 import { UiKitText } from '..';
 
 export default {
@@ -9,7 +12,11 @@ export default {
 };
 
 const createStory = (blocks) => {
-  const story = ({ blocks }) => UiKitText(blocks);
+  const story = ({ blocks }) => (
+    <Box fontScale='p1' fontFamily='sans'>
+      {UiKitText(blocks)}
+    </Box>
+  );
   story.args = {
     blocks,
   };

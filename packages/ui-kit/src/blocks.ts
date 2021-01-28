@@ -17,6 +17,7 @@ export enum ElementType {
   STATIC_SELECT = 'static_select',
   MULTI_STATIC_SELECT = 'multi_static_select',
   DATEPICKER = 'datepicker',
+  LINEAR_SCALE = 'linear_scale',
 }
 
 export enum BlockContext {
@@ -100,6 +101,7 @@ export interface IStaticSelectElement extends IActionableElement {
   options: Option[];
   optionGroups?: OptionGroup[];
   initialOption?: Option;
+  initialValue?: Option['value'];
 }
 
 export interface IMultiStaticSelectElement extends IActionableElement {
@@ -108,6 +110,7 @@ export interface IMultiStaticSelectElement extends IActionableElement {
   options: Option[];
   optionGroups?: OptionGroup[];
   initialOption?: Option;
+  initialValue?: Option['value'];
   maxSelectItems?: number;
 }
 
@@ -123,6 +126,15 @@ export interface IPlainTextInput extends IActionableElement {
   multiline?: boolean;
   minLength?: number;
   maxLength?: number;
+}
+
+export interface ILinearScaleElement extends IActionableElement {
+  type: ElementType.LINEAR_SCALE;
+  minValue?: number;
+  maxValue?: number;
+  initialValue?: number;
+  preLabel?: IPlainText;
+  postLable?: IPlainText;
 }
 
 export type SectionAccessoryElement =
@@ -146,7 +158,8 @@ export type InputElement =
   | IPlainTextInput
   | IStaticSelectElement
   | IMultiStaticSelectElement
-  | IDatePickerElement;
+  | IDatePickerElement
+  | ILinearScaleElement;
 
 export interface IBlock extends IElement {
   blockId?: BlockId;

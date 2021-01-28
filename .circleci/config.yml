@@ -31,6 +31,7 @@ jobs:
       - checkout
       - run: yarn
       - run: yarn lerna run build --stream
+
       - run: yarn lerna run build-storybook:loki --scope @rocket.chat/fuselage --stream
       - run:
           command: |
@@ -41,9 +42,18 @@ jobs:
           command: yarn run loki:test-ci
           working_directory: ~/repo/packages/fuselage
 
-      - store_artifacts:
-          path: ~/repo/packages/fuselage/.loki/difference
+      - run: yarn lerna run build-storybook:loki --scope @rocket.chat/fuselage-ui-kit --stream
+      - run:
+          command: |
+            cat package.json | sed s/\.docker/.app/ > package.json-new
+            mv package.json-new package.json
+          working_directory: ~/repo/packages/fuselage-ui-kit
+      - run:
+          command: yarn run loki:test-ci
+          working_directory: ~/repo/packages/fuselage-ui-kit
 
+      - store_artifacts:
+          path: ~/repo/packages/fuselage-ui-kit/.loki/difference
 
   publish:
     docker:
@@ -78,7 +88,6 @@ jobs:
             yarn lerna version --conventional-commits --yes
             yarn lerna publish --canary --preid $CIRCLE_PR_NUMBER --dist-tag $CIRCLE_PR_NUMBER --yes
 
-
   publish-next:
     docker:
       - image: circleci/node:10.15
@@ -105,28 +114,28 @@ workflows:
           requires:
             - loki
           filters:
-              branches:
-                only: master
-              tags:
-                only: /^v.*/
+            branches:
+              only: master
+            tags:
+              only: /^v.*/
       - publish-next:
           requires:
             - loki
           filters:
-              branches:
-                only: develop
+            branches:
+              only: develop
       - publish-alpha:
           requires:
             - hold
           filters:
-              branches:
-                only: /feature*/
+            branches:
+              only: /feature*/
       - hold:
           type: approval
           requires:
-           - build
+            - build
           filters:
-              branches:
-                ignore:
-                  - master
-                  - develop
+            branches:
+              ignore:
+                - master
+                - develop

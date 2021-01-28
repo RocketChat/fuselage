@@ -12,7 +12,7 @@ export const defaultContext = {
 export const kitContext = createContext(defaultContext);
 
 export const useUiKitState = (
-  { blockId, actionId, appId, initialValue },
+  { blockId, actionId, appId, initialOption, initialValue },
   context
 ) => {
   const {
@@ -23,7 +23,8 @@ export const useUiKitState = (
     errors,
     values = {},
   } = useContext(kitContext);
-  const { value: _value = initialValue } = values[actionId] || {};
+  const { value: _value = initialOption?.value ?? initialValue } =
+    values[actionId] || {};
   const [value, setValue] = useState(_value);
   const [loading, setLoading] = useState(false);
 
