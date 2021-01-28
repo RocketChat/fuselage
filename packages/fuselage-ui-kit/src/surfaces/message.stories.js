@@ -311,6 +311,9 @@ export const ActionsWithFilteredConversationsSelect = createStory([
     ],
   },
 ]);
+ActionsWithFilteredConversationsSelect.parameters = {
+  loki: { skip: true },
+};
 
 export const ActionsWithInitializedSelects = createStory([
   {
@@ -346,6 +349,9 @@ export const ActionsWithInitializedSelects = createStory([
     ],
   },
 ]);
+ActionsWithInitializedSelects.parameters = {
+  loki: { skip: true },
+};
 
 export const ActionsWithButton = createStory([
   {
