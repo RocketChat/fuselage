@@ -573,38 +573,15 @@ export const InputWithDatePicker = createStory(
   }
 );
 
-export const InputWithToggleButtonGroup = createStory(
+export const InputWithLinearScale = createStory(
   [
     {
       type: 'input',
       element: {
-        type: 'toggle_button_group',
-        options: [
-          {
-            text: {
-              type: 'plain_text',
-              text: '*this is plain_text text*',
-              emoji: true,
-            },
-            value: 'value-0',
-          },
-          {
-            text: {
-              type: 'plain_text',
-              text: '*this is plain_text text*',
-              emoji: true,
-            },
-            value: 'value-1',
-          },
-          {
-            text: {
-              type: 'plain_text',
-              text: '*this is plain_text text*',
-              emoji: true,
-            },
-            value: 'value-2',
-          },
-        ],
+        type: 'linear_scale',
+        minValue: 0,
+        maxValue: 10,
+        initialValue: 7,
         actionId: 'input-0',
       },
       label: {

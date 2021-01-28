@@ -16,7 +16,7 @@ import {
   plainText,
   section,
   staticSelect,
-  toggleButtonGroup,
+  linearScale,
 } from '../renderers';
 import BannerSurface from './BannerSurface';
 
@@ -36,7 +36,7 @@ BannerParser.prototype.staticSelect = staticSelect;
 BannerParser.prototype.multiStaticSelect = multiStaticSelect;
 BannerParser.prototype.overflow = overflow;
 BannerParser.prototype.plainInput = plainInput;
-BannerParser.prototype.toggleButtonGroup = toggleButtonGroup;
+BannerParser.prototype.linearScale = linearScale;
 
 export const bannerParser = new BannerParser();
 

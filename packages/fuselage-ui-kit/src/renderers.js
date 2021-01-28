@@ -10,11 +10,11 @@ import SectionBlock from './blocks/SectionBlock';
 import ButtonElement from './elements/ButtonElement';
 import DatePickerElement from './elements/DatePickerElement';
 import ImageElement from './elements/ImageElement';
+import LinearScaleElement from './elements/LinearScaleElement';
 import { MultiStaticSelectElement } from './elements/MultiStaticSelectElement';
 import OverflowElement from './elements/OverflowElement';
 import PlainInputElement from './elements/PlainInputElement';
 import { StaticSelectElement } from './elements/StaticSelectElement';
-import ToggleButtonGroupElement from './elements/ToggleButtonGroupElement';
 
 export function plainText(element) {
   const { text = '' /* , emoji = true */ } = element ?? {};
@@ -160,9 +160,9 @@ export function plainInput(element, context, index) {
   );
 }
 
-export function toggleButtonGroup(element, context, index) {
+export function linearScale(element, context, index) {
   return (
-    <ToggleButtonGroupElement
+    <LinearScaleElement
       key={index}
       element={element}
       context={context}
