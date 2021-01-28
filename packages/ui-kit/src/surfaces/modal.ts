@@ -2,7 +2,7 @@ import {
   ElementType,
   IInputBlock,
   IPlainTextInput,
-  IToggleButtonGroupElement,
+  ILinearScaleElement,
 } from '../blocks';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 import { IParser } from '../parsers/IParser';
@@ -16,7 +16,7 @@ export abstract class UiKitParserModal
 
   plainInput: ElementRenderer<unknown, IPlainTextInput>;
 
-  toggleButtonGroup: ElementRenderer<unknown, IToggleButtonGroupElement>;
+  linearScale: ElementRenderer<unknown, ILinearScaleElement>;
 
   renderInputs = createElementRenderer(this, [
     ElementType.STATIC_SELECT,
@@ -27,7 +27,7 @@ export abstract class UiKitParserModal
     ElementType.USER_SELECT,
     ElementType.USER_SELECT,
     ElementType.DATEPICKER,
-    ElementType.TOGGLE_BUTTON_GROUP,
+    ElementType.LINEAR_SCALE,
   ]);
 }
 

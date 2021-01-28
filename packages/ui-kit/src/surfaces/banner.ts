@@ -13,7 +13,7 @@ import {
   IOverflowElement,
   ISectionBlock,
   IStaticSelectElement,
-  IToggleButtonGroupElement,
+  ILinearScaleElement,
 } from '../blocks';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 import { IParser } from '../parsers/IParser';
@@ -67,7 +67,7 @@ export abstract class UiKitParserBanner
 
   plainInput: ElementRenderer<unknown, IElement>;
 
-  toggleButtonGroup: ElementRenderer<unknown, IToggleButtonGroupElement>;
+  linearScale: ElementRenderer<unknown, ILinearScaleElement>;
 
   renderAccessories = createElementRenderer(this, [
     ElementType.BUTTON,
@@ -108,7 +108,7 @@ export abstract class UiKitParserBanner
     ElementType.USER_SELECT,
     ElementType.USER_SELECT,
     ElementType.DATEPICKER,
-    ElementType.TOGGLE_BUTTON_GROUP,
+    ElementType.LINEAR_SCALE,
   ]);
 }
 

@@ -17,7 +17,7 @@ export enum ElementType {
   STATIC_SELECT = 'static_select',
   MULTI_STATIC_SELECT = 'multi_static_select',
   DATEPICKER = 'datepicker',
-  TOGGLE_BUTTON_GROUP = 'toggle_button_group',
+  LINEAR_SCALE = 'linear_scale',
 }
 
 export enum BlockContext {
@@ -128,11 +128,11 @@ export interface IPlainTextInput extends IActionableElement {
   maxLength?: number;
 }
 
-export interface IToggleButtonGroupElement extends IActionableElement {
-  type: ElementType.TOGGLE_BUTTON_GROUP;
-  options: Option[];
-  initialOption?: Option;
-  initialValue?: Option['value'];
+export interface ILinearScaleElement extends IActionableElement {
+  type: ElementType.LINEAR_SCALE;
+  minValue?: number;
+  maxValue?: number;
+  initialValue?: number;
   preLabel?: IPlainText;
   postLable?: IPlainText;
 }
@@ -159,7 +159,7 @@ export type InputElement =
   | IStaticSelectElement
   | IMultiStaticSelectElement
   | IDatePickerElement
-  | IToggleButtonGroupElement;
+  | ILinearScaleElement;
 
 export interface IBlock extends IElement {
   blockId?: BlockId;

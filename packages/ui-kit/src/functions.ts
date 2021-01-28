@@ -20,8 +20,8 @@ import {
   IPlainTextInput,
   ConditionalBlockFilters,
   IConditionalBlock,
+  ILinearScaleElement,
   Conditions,
-  IToggleButtonGroupElement,
 } from './blocks';
 import { IParser } from './parsers/IParser';
 import { ElementRenderer } from './renderers/ElementRenderer';
@@ -142,9 +142,9 @@ const renderElement = <T>(
     case ElementType.PLAIN_TEXT_INPUT:
       return parser.plainInput?.(element as IPlainTextInput, context, index);
 
-    case ElementType.TOGGLE_BUTTON_GROUP:
-      return parser.toggleButtonGroup?.(
-        element as IToggleButtonGroupElement,
+    case ElementType.LINEAR_SCALE:
+      return parser.linearScale?.(
+        element as ILinearScaleElement,
         context,
         index
       );

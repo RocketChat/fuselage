@@ -1,4 +1,5 @@
 import { uiKitBanner, UiKitParserBanner, BlockContext } from '..';
+import { IPlainText } from '../blocks';
 
 class TestParser extends UiKitParserBanner {
   plainText = (element: any, context: any, index: any): any => ({
@@ -255,23 +256,33 @@ class TestParser extends UiKitParserBanner {
     },
   });
 
-  toggleButtonGroup = (element: any, _context: any, index: any): any => ({
-    component: 'toggle-button-group',
+  linearScale = (
+    { minValue = 0, maxValue = 10 }: any,
+    _context: any,
+    index: any
+  ): any => ({
+    component: 'linear-scale',
     props: {
       key: index,
-      children: element.options.map((option: any, key: any) => ({
-        component: 'toggle-button',
-        props: {
-          key,
-          children: this.text(option.text, -1, 0),
-          value: option.value,
-        },
-      })),
-      ...(element.initialOption && {
-        defaultValue: element.options.find(
-          (option: any) => option.value === element.initialOption.value
-        )?.value,
-      }),
+      children: Array.from({ length: maxValue - minValue + 1 }).map(
+        (_, key: any) => ({
+          component: 'linear-scale-point',
+          props: {
+            key,
+            children: [
+              this.text(
+                {
+                  type: 'plain_text',
+                  text: String(minValue + key),
+                  emoji: true,
+                } as IPlainText,
+                -1,
+                0
+              ),
+            ],
+          },
+        })
+      ),
     },
   });
 }
@@ -1739,38 +1750,13 @@ describe('input', () => {
     ]);
   });
 
-  it('renders toggle button group', () => {
+  it('renders linear scale', () => {
     const payload = [
       {
         type: 'input',
         element: {
-          type: 'toggle_button_group',
-          options: [
-            {
-              text: {
-                type: 'plain_text',
-                text: '*this is plain_text text*',
-                emoji: true,
-              },
-              value: 'value-0',
-            },
-            {
-              text: {
-                type: 'plain_text',
-                text: '*this is plain_text text*',
-                emoji: true,
-              },
-              value: 'value-1',
-            },
-            {
-              text: {
-                type: 'plain_text',
-                text: '*this is plain_text text*',
-                emoji: true,
-              },
-              value: 'value-2',
-            },
-          ],
+          type: 'linear_scale',
+          maxValue: 2,
         },
         label: {
           type: 'plain_text',
@@ -1795,56 +1781,59 @@ describe('input', () => {
               },
             },
             {
-              component: 'toggle-button-group',
+              component: 'linear-scale',
               props: {
                 key: 1,
                 children: [
                   {
-                    component: 'toggle-button',
+                    component: 'linear-scale-point',
                     props: {
                       key: 0,
-                      children: {
-                        component: 'text',
-                        props: {
-                          key: 0,
-                          children: '*this is plain_text text*',
-                          emoji: true,
-                          block: false,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '0',
+                            emoji: true,
+                            block: false,
+                          },
                         },
-                      },
-                      value: 'value-0',
+                      ],
                     },
                   },
                   {
-                    component: 'toggle-button',
+                    component: 'linear-scale-point',
                     props: {
                       key: 1,
-                      children: {
-                        component: 'text',
-                        props: {
-                          key: 0,
-                          children: '*this is plain_text text*',
-                          emoji: true,
-                          block: false,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '1',
+                            emoji: true,
+                            block: false,
+                          },
                         },
-                      },
-                      value: 'value-1',
+                      ],
                     },
                   },
                   {
-                    component: 'toggle-button',
+                    component: 'linear-scale-point',
                     props: {
                       key: 2,
-                      children: {
-                        component: 'text',
-                        props: {
-                          key: 0,
-                          children: '*this is plain_text text*',
-                          emoji: true,
-                          block: false,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '2',
+                            emoji: true,
+                            block: false,
+                          },
                         },
-                      },
-                      value: 'value-2',
+                      ],
                     },
                   },
                 ],
