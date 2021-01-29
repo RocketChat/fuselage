@@ -13,6 +13,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/geake",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/icons",
       "changeProcessCWD": true
     },
