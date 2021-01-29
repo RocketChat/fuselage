@@ -33,7 +33,7 @@ const LinearScaleElement = ({ className, element, context, parser }) => {
       alignItems='center'
     >
       {preLabel && (
-        <Box fontScale='c2' paddingInlineEnd={2} textAlign='start'>
+        <Box fontScale='c2' paddingInlineEnd={8} textAlign='start'>
           {parser.plainText(preLabel)}
         </Box>
       )}
@@ -66,7 +66,7 @@ const LinearScaleElement = ({ className, element, context, parser }) => {
         </ButtonGroup>
       </Box>
       {postLabel && (
-        <Box fontScale='c2' paddingInlineStart={2} textAlign='end'>
+        <Box fontScale='c2' paddingInlineStart={8} textAlign='end'>
           {parser.plainText(postLabel)}
         </Box>
       )}
