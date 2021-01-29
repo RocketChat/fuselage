@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.2...v0.20.3) (2021-01-29)
+
+
+### Bug Fixes
+
+* sidebar-item__menu-wraper opacity on IE ([#381](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/381)) ([e818b5c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e818b5cd99b1749997d6f487517c29722c77a23a))
+
+
+
+
+
 ## [0.20.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.1...v0.20.2) (2021-01-27)
 
 **Note:** Version bump only for package @rocket.chat/fuselage
