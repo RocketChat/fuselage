@@ -1,21 +1,23 @@
-import React, { forwardRef, useCallback, useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 
-import { InputBox } from '../InputBox';
 import { Icon } from '../Icon';
+import { InputBox } from '../InputBox';
 
 export const PasswordInput = forwardRef(function PasswordInput(props, ref) {
-  return <InputBox type='password' ref={ref} {...props} />;
-});
-
-export const PasswordInputToggle = forwardRef(function PasswordInput(props, ref) {
   const [hidden, setHidden] = useState(true);
   const handleToggle = () => {
     setHidden(!hidden);
-  }
+  };
   return (
     <InputBox
       type={hidden ? 'password' : 'text'}
-      addon={<Icon name={hidden ? 'eye' : 'eye-off'} size='x20' onClick={handleToggle} />}
+      addon={
+        <Icon
+          name={hidden ? 'eye' : 'eye-off'}
+          size='x20'
+          onClick={handleToggle}
+        />
+      }
       ref={ref}
       {...props}
     />
