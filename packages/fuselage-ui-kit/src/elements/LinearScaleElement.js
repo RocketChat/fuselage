@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Throbber } from '@rocket.chat/fuselage';
+import { Box, Button, ButtonGroup } from '@rocket.chat/fuselage';
 import React, { memo, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks';
@@ -57,14 +57,10 @@ const LinearScaleElement = ({ className, element, context, parser }) => {
               flexShrink={1}
               onClick={action}
             >
-              {loading ? (
-                <Throbber />
-              ) : (
-                parser.plainText({
-                  type: 'plain_text',
-                  text: String(i + minValue),
-                })
-              )}
+              {parser.plainText({
+                type: 'plain_text',
+                text: String(i + minValue),
+              })}
             </Button>
           ))}
         </ButtonGroup>
