@@ -1,4 +1,4 @@
-import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
+import { useSafely, useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import { BlockContext } from '@rocket.chat/ui-kit';
 import { createContext, useContext, useMemo, useState } from 'react';
 
@@ -25,8 +25,8 @@ export const useUiKitState = (
   } = useContext(kitContext);
   const { value: _value = initialOption?.value ?? initialValue } =
     values[actionId] || {};
-  const [value, setValue] = useState(_value);
-  const [loading, setLoading] = useState(false);
+  const [value, setValue] = useSafely(useState(_value));
+  const [loading, setLoading] = useSafely(useState(false));
 
   const error = errors && actionId && errors[actionId];
 
