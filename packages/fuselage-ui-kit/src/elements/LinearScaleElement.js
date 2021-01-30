@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Throbber } from '@rocket.chat/fuselage';
+import { Box, Button, ButtonGroup } from '@rocket.chat/fuselage';
 import React, { memo, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks';
@@ -33,7 +33,7 @@ const LinearScaleElement = ({ className, element, context, parser }) => {
       alignItems='center'
     >
       {preLabel && (
-        <Box fontScale='c2' paddingInlineEnd={2} textAlign='start'>
+        <Box fontScale='c2' paddingInlineEnd={8} textAlign='start'>
           {parser.plainText(preLabel)}
         </Box>
       )}
@@ -57,20 +57,16 @@ const LinearScaleElement = ({ className, element, context, parser }) => {
               flexShrink={1}
               onClick={action}
             >
-              {loading ? (
-                <Throbber />
-              ) : (
-                parser.plainText({
-                  type: 'plain_text',
-                  text: String(i + minValue),
-                })
-              )}
+              {parser.plainText({
+                type: 'plain_text',
+                text: String(i + minValue),
+              })}
             </Button>
           ))}
         </ButtonGroup>
       </Box>
       {postLabel && (
-        <Box fontScale='c2' paddingInlineStart={2} textAlign='end'>
+        <Box fontScale='c2' paddingInlineStart={8} textAlign='end'>
           {parser.plainText(postLabel)}
         </Box>
       )}
