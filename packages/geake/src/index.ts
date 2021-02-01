@@ -1,1 +1,1 @@
-export { parse as parseCow } from './parsers/cow';
+export { parse as parseCow } from './grammars/cow';
