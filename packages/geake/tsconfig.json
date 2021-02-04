@@ -15,5 +15,5 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "exclude": ["src/**/*.spec.ts"]
+  "exclude": ["dist/", "src/**/*.spec.ts"]
 }
