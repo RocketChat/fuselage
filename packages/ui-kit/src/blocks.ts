@@ -150,7 +150,8 @@ export type ActionElement =
   | IStaticSelectElement
   | IMultiStaticSelectElement
   | IOverflowElement
-  | IDatePickerElement;
+  | IDatePickerElement
+  | ILinearScaleElement;
 
 export type ContextElement = TextObject | IImageElement;
 

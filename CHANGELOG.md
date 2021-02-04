@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.3...v0.21.0) (2021-01-31)
+
+
+### Bug Fixes
+
+* AvatarProps declaration ([#361](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/361)) ([6324875](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6324875c68e0b7b11536e3b766c27eb8e301fe52))
+* Banner surface adjustments ([#362](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/362)) ([2d59b7c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2d59b7c41962f24aa13face91a9b9f0ea8f1718a))
+* Change option styles ([#358](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/358)) ([c479d70](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c479d7041710e04fe8a9d8e766720ec206464e89))
+* Pass appId and blockId from blocks to elements ([#366](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/366)) ([8a1b552](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8a1b552f8dbc3a9b321d888f4a7e9dc9af2922cf))
+* sidebar-item__menu-wraper opacity on IE ([#381](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/381)) ([3038b15](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3038b15002d6df3d184a2dac2a97f5a3d0aa50f4))
+* Temporary fix for auto complete ([#364](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/364)) ([218a8b3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/218a8b30c42c7a2321f2de3d0cc081131e890834))
+* TSConfig es5 target & es6 lib ([#378](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/378)) ([5802499](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/580249900584287203dad5e4da2acc1829759cbd))
+* Update Fuselage typings ([#355](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/355)) ([85f9fa1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/85f9fa13f818703bce1100ad706a66d703c0b0ba))
+
+
+### Features
+
+* Built modules for design tokens ([#356](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/356)) ([f9c3449](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f9c344953b8161a4385cab3a3dcc8b6a7210446f))
+* linear_scale element ([#365](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/365)) ([43a4c54](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/43a4c54ed10d096ef2259ddcd30c3bbd97ae866a))
+
+
+
+
+
+## [0.20.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.2...v0.20.3) (2021-01-29)
+
+
+### Bug Fixes
+
+* sidebar-item__menu-wraper opacity on IE ([#381](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/381)) ([e818b5c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e818b5cd99b1749997d6f487517c29722c77a23a))
+
+
+
+
+
 ## [0.20.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.1...v0.20.2) (2021-01-27)
 
 

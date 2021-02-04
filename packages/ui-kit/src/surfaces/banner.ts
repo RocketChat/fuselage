@@ -91,6 +91,7 @@ export abstract class UiKitParserBanner
     ElementType.USER_SELECT,
     ElementType.USER_SELECT,
     ElementType.DATEPICKER,
+    ElementType.LINEAR_SCALE,
   ]);
 
   renderContext = createElementRenderer(this, [
