@@ -30,6 +30,19 @@ export const sequence = <T>(
   };
 };
 
+export function* takeAny(...parsers: readonly Parser<unknown>[]) {
+  const expectations = [];
+  for (const parser of parsers) {
+    try {
+      return yield parser;
+    } catch (failure) {
+      expectations.push(failure.expected);
+    }
+  }
+
+  yield failed(expectations.join(' or '));
+}
+
 export function* takeSomeMaybe<T>(parser: Parser<T>) {
   const values = [];
 
@@ -43,7 +56,7 @@ export function* takeSomeMaybe<T>(parser: Parser<T>) {
   }
 }
 
-export function* takeUpTo<T>(parser: Parser<T>, count: number) {
+export function* takeSomeUpTo<T>(parser: Parser<T>, count: number) {
   const values = [];
 
   for (let i = 0; i < count; ++i) {
@@ -58,17 +71,4 @@ export function* takeSome<T>(parser: Parser<T>) {
   const tails = yield* takeSomeMaybe(parser);
 
   return [head, ...tails];
-}
-
-export function* takeAny(...parsers: readonly Parser<unknown>[]) {
-  const expectations = [];
-  for (const parser of parsers) {
-    try {
-      return yield parser;
-    } catch (failure) {
-      expectations.push(failure.expected);
-    }
-  }
-
-  yield failed(expectations.join(' or '));
 }

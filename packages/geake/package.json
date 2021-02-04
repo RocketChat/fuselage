@@ -41,5 +41,8 @@
     "prettier": "^2.2.1",
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "unicode": "^13.0.0"
   }
 }
