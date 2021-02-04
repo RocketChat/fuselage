@@ -3,7 +3,7 @@ export type Context = Readonly<{
   index: number;
 }>;
 
-type Success<T> = Readonly<{
+export type Success<T> = Readonly<{
   success: true;
   value: T;
   ctx: Context;
@@ -30,7 +30,7 @@ export const failure = (ctx: Context, expected: string): Failure => {
 export const parseWith = <T, P extends Parser<T>>(parser: P) => (
   input: string
 ): T => {
-  const ctx: Context = { text: input, index: 0 };
+  const ctx: Context = { text: input.replace(/\u0000/g, '\uFFFD'), index: 0 };
 
   const result = parser(ctx);
   if (result.success) {

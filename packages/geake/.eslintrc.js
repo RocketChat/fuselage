@@ -17,6 +17,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
+    'arrow-body-style': 'off',
     'func-call-spacing': 'off',
     'indent': 'off',
     'import/order': [
@@ -36,6 +37,7 @@ module.exports = {
     ],
     'jsx-quotes': ['error', 'prefer-single'],
     'no-constant-condition': 'off',
+    'no-control-regex': 'off',
     'no-empty-function': 'off',
     'no-extra-parens': 'off',
     'no-redeclare': 'off',
