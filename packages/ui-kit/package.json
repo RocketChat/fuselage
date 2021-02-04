@@ -30,7 +30,7 @@
     "lint": "eslint --ext js,ts src",
     "lint-staged": "lint-staged",
     "test": "jest",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "prettier-format": "prettier --config .prettierrc '**/*.{js,ts}' --write",
     "test:ci": "jest --runInBand",
     "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md"
   },
