@@ -14,5 +14,6 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true
-  }
+  },
+  "exclude": ["src/**/*.spec.ts"]
 }
