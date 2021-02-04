@@ -7,7 +7,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./dist/",
+    "outDir": "./dist/esm/",
     // "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
