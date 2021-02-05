@@ -20,7 +20,7 @@ import {
   IPlainTextInput,
   InputElement,
   ILinearScaleElement,
-} from '../blocks';
+} from '../definition/blocks';
 import { BlockRenderer } from '../renderers/BlockRenderer';
 import { ElementRenderer } from '../renderers/ElementRenderer';
 import { ElementSetRenderer } from '../renderers/ElementSetRenderer';

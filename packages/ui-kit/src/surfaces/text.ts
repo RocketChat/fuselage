@@ -4,7 +4,7 @@ import {
   IMarkdown,
   IPlainText,
   TextObject,
-} from '../blocks';
+} from '../definition/blocks';
 import { createSurfaceRenderer } from '../functions';
 import { IParser } from '../parsers/IParser';
 import { ElementRenderer } from '../renderers/ElementRenderer';

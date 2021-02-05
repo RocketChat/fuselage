@@ -1,5 +1,4 @@
-import { uiKitBanner, UiKitParserBanner, BlockContext } from '..';
-import { IPlainText } from '../blocks';
+import { uiKitBanner, UiKitParserBanner, BlockContext, IPlainText } from '..';
 
 class TestParser extends UiKitParserBanner {
   plainText = (element: any, context: any, index: any): any => ({

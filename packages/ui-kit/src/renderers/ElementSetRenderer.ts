@@ -1,4 +1,4 @@
-import { BlockContext, IElement } from '../blocks';
+import { BlockContext, IElement } from '../definition/blocks';
 
 export type ElementSetRenderer<T, E extends IElement> = (
   element: E,

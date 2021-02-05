@@ -22,7 +22,7 @@ import {
   IConditionalBlock,
   ILinearScaleElement,
   Conditions,
-} from './blocks';
+} from './definition/blocks';
 import { IParser } from './parsers/IParser';
 import { ElementRenderer } from './renderers/ElementRenderer';
 import { ElementSetRenderer } from './renderers/ElementSetRenderer';

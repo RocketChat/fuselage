@@ -1,5 +1,4 @@
-import { uiKitModal, UiKitParserModal, BlockContext } from '..';
-import { IPlainText } from '../blocks';
+import { uiKitModal, UiKitParserModal, BlockContext, IPlainText } from '..';
 
 class TestParser extends UiKitParserModal {
   plainText = (element: any, context: any, index: any): any => ({

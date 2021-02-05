@@ -3,7 +3,7 @@ import {
   IInputBlock,
   IPlainTextInput,
   ILinearScaleElement,
-} from '../blocks';
+} from '../definition/blocks';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 import { IParser } from '../parsers/IParser';
 import { ElementRenderer } from '../renderers/ElementRenderer';
