@@ -4,9 +4,9 @@ import {
   IPlainTextInput,
   ILinearScaleElement,
 } from '../definition/blocks';
+import { ElementRenderer } from '../definition/rendering/ElementRenderer';
+import { IParser } from '../definition/rendering/IParser';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
-import { IParser } from '../parsers/IParser';
-import { ElementRenderer } from '../renderers/ElementRenderer';
 import { UiKitParserMessage } from './message';
 
 export abstract class UiKitParserModal
@@ -24,7 +24,6 @@ export abstract class UiKitParserModal
     ElementType.MULTI_STATIC_SELECT,
     ElementType.CONVERSATION_SELECT,
     ElementType.CHANNEL_SELECT,
-    ElementType.USER_SELECT,
     ElementType.USER_SELECT,
     ElementType.DATEPICKER,
     ElementType.LINEAR_SCALE,

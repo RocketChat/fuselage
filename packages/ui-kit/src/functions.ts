@@ -23,9 +23,9 @@ import {
   ILinearScaleElement,
   Conditions,
 } from './definition/blocks';
-import { IParser } from './parsers/IParser';
-import { ElementRenderer } from './renderers/ElementRenderer';
-import { ElementSetRenderer } from './renderers/ElementSetRenderer';
+import { ElementRenderer } from './definition/rendering/ElementRenderer';
+import { ElementSetRenderer } from './definition/rendering/ElementSetRenderer';
+import { IParser } from './definition/rendering/IParser';
 
 const isElement = (x: IElement): x is IElement =>
   x !== null &&

@@ -20,10 +20,10 @@ import {
   IPlainTextInput,
   InputElement,
   ILinearScaleElement,
-} from '../definition/blocks';
-import { BlockRenderer } from '../renderers/BlockRenderer';
-import { ElementRenderer } from '../renderers/ElementRenderer';
-import { ElementSetRenderer } from '../renderers/ElementSetRenderer';
+} from '../blocks';
+import { BlockRenderer } from './BlockRenderer';
+import { ElementRenderer } from './ElementRenderer';
+import { ElementSetRenderer } from './ElementSetRenderer';
 
 export interface IParser<T> {
   text: ElementRenderer<T, TextObject>;

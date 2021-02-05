@@ -5,9 +5,9 @@ import {
   IPlainText,
   TextObject,
 } from '../definition/blocks';
+import { ElementRenderer } from '../definition/rendering/ElementRenderer';
+import { IParser } from '../definition/rendering/IParser';
 import { createSurfaceRenderer } from '../functions';
-import { IParser } from '../parsers/IParser';
-import { ElementRenderer } from '../renderers/ElementRenderer';
 
 export const uiKitText = createSurfaceRenderer<unknown>([
   ElementType.PLAIN_TEXT,

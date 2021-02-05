@@ -12,9 +12,9 @@ import {
   ISectionBlock,
   IStaticSelectElement,
 } from '../definition/blocks';
+import { ElementRenderer } from '../definition/rendering/ElementRenderer';
+import { IParser } from '../definition/rendering/IParser';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
-import { IParser } from '../parsers/IParser';
-import { ElementRenderer } from '../renderers/ElementRenderer';
 import { UiKitParserText } from './text';
 
 export abstract class UiKitParserMessage

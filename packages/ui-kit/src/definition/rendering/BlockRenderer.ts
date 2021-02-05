@@ -1,4 +1,4 @@
-import { BlockContext, IBlock } from '../definition/blocks';
+import { BlockContext, IBlock } from '../blocks';
 
 export type BlockRenderer<T, B extends IBlock> = (
   block: B,
