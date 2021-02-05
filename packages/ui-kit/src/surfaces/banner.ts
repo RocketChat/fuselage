@@ -6,11 +6,14 @@ import {
   IContextBlock,
   IDatePickerElement,
   IDividerBlock,
+  IElement,
   IImageBlock,
+  IInputBlock,
   IMultiStaticSelectElement,
   IOverflowElement,
   ISectionBlock,
   IStaticSelectElement,
+  ILinearScaleElement,
 } from '../blocks';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 import { IParser } from '../parsers/IParser';
@@ -60,6 +63,12 @@ export abstract class UiKitParserBanner
     index: number
   ) => unknown;
 
+  input: ElementRenderer<unknown, IInputBlock>;
+
+  plainInput: ElementRenderer<unknown, IElement>;
+
+  linearScale: ElementRenderer<unknown, ILinearScaleElement>;
+
   renderAccessories = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.IMAGE,
@@ -82,12 +91,25 @@ export abstract class UiKitParserBanner
     ElementType.USER_SELECT,
     ElementType.USER_SELECT,
     ElementType.DATEPICKER,
+    ElementType.LINEAR_SCALE,
   ]);
 
   renderContext = createElementRenderer(this, [
     ElementType.IMAGE,
     ElementType.PLAIN_TEXT,
     ElementType.MARKDOWN,
+  ]);
+
+  renderInputs = createElementRenderer(this, [
+    ElementType.STATIC_SELECT,
+    ElementType.PLAIN_TEXT_INPUT,
+    ElementType.MULTI_STATIC_SELECT,
+    ElementType.CONVERSATION_SELECT,
+    ElementType.CHANNEL_SELECT,
+    ElementType.USER_SELECT,
+    ElementType.USER_SELECT,
+    ElementType.DATEPICKER,
+    ElementType.LINEAR_SCALE,
   ]);
 }
 
@@ -97,4 +119,5 @@ export const uiKitBanner = createSurfaceRenderer<unknown>([
   ElementType.IMAGE,
   ElementType.ACTIONS,
   ElementType.CONTEXT,
+  ElementType.INPUT,
 ]);

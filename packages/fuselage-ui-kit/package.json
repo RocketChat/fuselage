@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-ui-kit",
-  "version": "0.20.2",
+  "version": "0.21.0",
   "description": "UiKit elements for Rocket.Chat Apps built under Fuselage design system",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -32,8 +32,13 @@
     "lint": "eslint src",
     "lint-staged": "lint-staged",
     "prettier-format": "prettier --config .prettierrc 'src/**/*' --write",
+    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build-storybook:loki": "cross-env NODE_ENV=loki build-storybook",
+    "update-storybook": "cross-env NODE_ENV=loki run-s build-storybook loki:update"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
@@ -52,10 +57,10 @@
     "@babel/preset-react": "^7.10.4",
     "@rocket.chat/apps-engine": "^1.17.0",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@rocket.chat/fuselage": "^0.20.2",
-    "@rocket.chat/fuselage-hooks": "^0.20.1",
-    "@rocket.chat/icons": "^0.20.1",
-    "@rocket.chat/ui-kit": "^0.20.1",
+    "@rocket.chat/fuselage": "^0.21.0",
+    "@rocket.chat/fuselage-hooks": "^0.21.0",
+    "@rocket.chat/icons": "^0.21.0",
+    "@rocket.chat/ui-kit": "^0.21.0",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addons": "^6.1.11",
     "@storybook/react": "^6.1.11",
@@ -69,6 +74,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
+    "loki": "^0.25.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
@@ -81,6 +87,6 @@
   },
   "gitHead": "f8467b8ffb6f90d91b46fbcdd5dca169235916a4",
   "dependencies": {
-    "@rocket.chat/fuselage-polyfills": "^0.20.1"
+    "@rocket.chat/fuselage-polyfills": "^0.21.0"
   }
 }

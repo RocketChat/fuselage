@@ -700,5 +700,17 @@
   },
   "document-eye": {
     "start": "\ue0bc"
+  },
+  "baloon-arrow-left": {
+    "start": "\ue0bd"
+  },
+  "hashtag-lock": {
+    "start": "\ue0be"
+  },
+  "team-lock": {
+    "start": "\ue0bf"
+  },
+  "members": {
+    "start": "\ue0c0"
   }
 }
