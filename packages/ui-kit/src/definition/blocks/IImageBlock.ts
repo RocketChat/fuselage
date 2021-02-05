@@ -8,3 +8,10 @@ export interface IImageBlock extends IBlock {
   altText: string;
   title?: IPlainText;
 }
+
+// export interface IImageBlock extends IBlock {
+//   type: BlockType.IMAGE;
+//   imageUrl: string;
+//   altText: string;
+//   title?: ITextObject;
+// }

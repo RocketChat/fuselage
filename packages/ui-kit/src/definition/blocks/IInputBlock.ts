@@ -10,3 +10,10 @@ export interface IInputBlock extends IBlock {
   hint?: IPlainText;
   optional?: boolean;
 }
+
+// export interface IInputBlock extends IBlock {
+//   type: BlockType.INPUT;
+//   element: IInputElement;
+//   label: ITextObject;
+//   optional?: boolean;
+// }

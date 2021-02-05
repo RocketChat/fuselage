@@ -9,3 +9,9 @@ export interface ISectionBlock extends IBlock {
   fields?: TextObject[];
   accessory?: SectionAccessoryElement;
 }
+
+// export interface ISectionBlock extends IBlock {
+//   type: BlockType.SECTION;
+//   text: ITextObject;
+//   accessory?: AccessoryElements;
+// }
