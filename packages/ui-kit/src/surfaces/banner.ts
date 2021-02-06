@@ -1,33 +1,36 @@
 import {
   BlockContext,
   ElementType,
-  IActionsBlock,
-  IButtonElement,
-  IContextBlock,
-  IDatePickerElement,
-  IDividerBlock,
-  IElement,
-  IImageBlock,
-  IInputBlock,
-  IMultiStaticSelectElement,
-  IOverflowElement,
-  ISectionBlock,
-  IStaticSelectElement,
-  ILinearScaleElement,
   IPlainText,
   IMarkdown,
   TextObject,
+  SectionAccessoryElement,
+  ActionElement,
+  ContextElement,
+  InputElement,
 } from '../definition/blocks';
-import { ElementRenderer } from '../definition/rendering/ElementRenderer';
+import { ElementSetRenderer } from '../definition/rendering/ElementSetRenderer';
 import { IParser } from '../definition/rendering/IParser';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 
-export abstract class UiKitParserBanner implements IParser<unknown> {
-  plainText: ElementRenderer<unknown, IPlainText>;
+export abstract class UiKitParserBanner<Element> implements IParser<Element> {
+  plainText(
+    _element: IPlainText,
+    _context: BlockContext,
+    _index: number
+  ): Element | null {
+    return null;
+  }
 
-  mrkdwn: ElementRenderer<unknown, IMarkdown>;
+  mrkdwn(
+    _element: IMarkdown,
+    _context: BlockContext,
+    _index: number
+  ): Element | null {
+    return null;
+  }
 
-  text = (text: TextObject, context: BlockContext, index: number): unknown => {
+  text(text: TextObject, context: BlockContext, index: number): Element | null {
     if (text.type === ElementType.PLAIN_TEXT) {
       return this.plainText(text as IPlainText, context, index);
     }
@@ -37,55 +40,12 @@ export abstract class UiKitParserBanner implements IParser<unknown> {
     }
 
     return null;
-  };
+  }
 
-  divider: ElementRenderer<unknown, IDividerBlock>;
-
-  section: ElementRenderer<unknown, ISectionBlock>;
-
-  image: ElementRenderer<unknown, IImageBlock>;
-
-  actions: ElementRenderer<unknown, IActionsBlock>;
-
-  context: ElementRenderer<unknown, IContextBlock>;
-
-  button: (
-    element: IButtonElement,
-    context: BlockContext,
-    index: number
-  ) => unknown;
-
-  datePicker: (
-    element: IDatePickerElement,
-    context: BlockContext,
-    index: number
-  ) => unknown;
-
-  staticSelect: (
-    element: IStaticSelectElement,
-    context: BlockContext,
-    index: number
-  ) => unknown;
-
-  multiStaticSelect: (
-    element: IMultiStaticSelectElement,
-    context: BlockContext,
-    index: number
-  ) => unknown;
-
-  overflow: (
-    element: IOverflowElement,
-    context: BlockContext,
-    index: number
-  ) => unknown;
-
-  input: ElementRenderer<unknown, IInputBlock>;
-
-  plainInput: ElementRenderer<unknown, IElement>;
-
-  linearScale: ElementRenderer<unknown, ILinearScaleElement>;
-
-  renderAccessories = createElementRenderer(this, [
+  renderAccessories: ElementSetRenderer<
+    Element,
+    SectionAccessoryElement
+  > = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.IMAGE,
     ElementType.MULTI_STATIC_SELECT,
@@ -98,7 +58,10 @@ export abstract class UiKitParserBanner implements IParser<unknown> {
     ElementType.OVERFLOW,
   ]);
 
-  renderActions = createElementRenderer(this, [
+  renderActions: ElementSetRenderer<
+    Element,
+    ActionElement
+  > = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.STATIC_SELECT,
     ElementType.MULTI_STATIC_SELECT,
@@ -110,13 +73,19 @@ export abstract class UiKitParserBanner implements IParser<unknown> {
     ElementType.LINEAR_SCALE,
   ]);
 
-  renderContext = createElementRenderer(this, [
+  renderContext: ElementSetRenderer<
+    Element,
+    ContextElement
+  > = createElementRenderer(this, [
     ElementType.IMAGE,
     ElementType.PLAIN_TEXT,
     ElementType.MARKDOWN,
   ]);
 
-  renderInputs = createElementRenderer(this, [
+  renderInputs: ElementSetRenderer<
+    Element,
+    InputElement
+  > = createElementRenderer(this, [
     ElementType.STATIC_SELECT,
     ElementType.PLAIN_TEXT_INPUT,
     ElementType.MULTI_STATIC_SELECT,

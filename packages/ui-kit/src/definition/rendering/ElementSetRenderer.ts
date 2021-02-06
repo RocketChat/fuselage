@@ -5,4 +5,4 @@ export type ElementSetRenderer<T, E extends IElement> = (
   context: BlockContext,
   _: undefined,
   index: number
-) => T;
+) => T | null;

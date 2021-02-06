@@ -1,6 +1,6 @@
 import { uiKitBanner, UiKitParserBanner, BlockContext, IPlainText } from '..';
 
-class TestParser extends UiKitParserBanner {
+class TestParser extends UiKitParserBanner<unknown> {
   plainText = (element: any, context: any, index: any): any => ({
     component: 'text',
     props: {

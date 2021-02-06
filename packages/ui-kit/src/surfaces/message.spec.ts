@@ -1,6 +1,6 @@
 import { uiKitMessage, UiKitParserMessage, BlockContext } from '..';
 
-class TestParser extends UiKitParserMessage {
+class TestParser extends UiKitParserMessage<unknown> {
   plainText = (element: any, context: any, index: any): any => ({
     component: 'text',
     props: {

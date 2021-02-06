@@ -33,12 +33,13 @@ const isElement = (x: IElement): x is IElement =>
   'type' in x &&
   Object.values(ElementType).includes(x.type);
 
+// eslint-disable-next-line complexity
 const renderElement = <T>(
   element: IElement,
   context: BlockContext,
   parser: IParser<T>,
   index: number
-): T => {
+): T | null => {
   switch (element.type) {
     case ElementType.PLAIN_TEXT:
       if (typeof parser.text === 'function') {
@@ -59,10 +60,9 @@ const renderElement = <T>(
         return null;
       }
 
-      return parser.divider?.(
-        element as IDividerBlock,
-        BlockContext.BLOCK,
-        index
+      return (
+        parser.divider?.(element as IDividerBlock, BlockContext.BLOCK, index) ??
+        null
       );
 
     case ElementType.SECTION:
@@ -70,32 +70,32 @@ const renderElement = <T>(
         return null;
       }
 
-      return parser.section?.(
-        element as ISectionBlock,
-        BlockContext.BLOCK,
-        index
+      return (
+        parser.section?.(element as ISectionBlock, BlockContext.BLOCK, index) ??
+        null
       );
 
     case ElementType.IMAGE:
       if (context !== BlockContext.BLOCK) {
-        return (parser.image as ElementRenderer<T, IImageElement>)?.(
-          element as IImageElement,
-          context,
-          index
+        return (
+          (parser.image as ElementRenderer<T, IImageElement>)?.(
+            element as IImageElement,
+            context,
+            index
+          ) ?? null
         );
       }
 
-      return parser.image?.(element as IImageBlock, context, index);
+      return parser.image?.(element as IImageBlock, context, index) ?? null;
 
     case ElementType.ACTIONS:
       if (context !== BlockContext.BLOCK) {
         return null;
       }
 
-      return parser.actions?.(
-        element as IActionsBlock,
-        BlockContext.BLOCK,
-        index
+      return (
+        parser.actions?.(element as IActionsBlock, BlockContext.BLOCK, index) ??
+        null
       );
 
     case ElementType.CONTEXT:
@@ -103,10 +103,9 @@ const renderElement = <T>(
         return null;
       }
 
-      return parser.context?.(
-        element as IContextBlock,
-        BlockContext.BLOCK,
-        index
+      return (
+        parser.context?.(element as IContextBlock, BlockContext.BLOCK, index) ??
+        null
       );
 
     case ElementType.INPUT:
@@ -114,44 +113,53 @@ const renderElement = <T>(
         return null;
       }
 
-      return parser.input?.(element as IInputBlock, BlockContext.BLOCK, index);
+      return (
+        parser.input?.(element as IInputBlock, BlockContext.BLOCK, index) ??
+        null
+      );
 
     case ElementType.OVERFLOW:
-      return parser.overflow?.(element as IOverflowElement, context, index);
+      return (
+        parser.overflow?.(element as IOverflowElement, context, index) ?? null
+      );
 
     case ElementType.BUTTON:
-      return parser.button?.(element as IButtonElement, context, index);
+      return parser.button?.(element as IButtonElement, context, index) ?? null;
 
     case ElementType.STATIC_SELECT:
-      return parser.staticSelect?.(
-        element as IStaticSelectElement,
-        context,
-        index
+      return (
+        parser.staticSelect?.(
+          element as IStaticSelectElement,
+          context,
+          index
+        ) ?? null
       );
 
     case ElementType.MULTI_STATIC_SELECT:
-      return parser.multiStaticSelect?.(
-        element as IMultiStaticSelectElement,
-        context,
-        index
+      return (
+        parser.multiStaticSelect?.(
+          element as IMultiStaticSelectElement,
+          context,
+          index
+        ) ?? null
       );
 
     case ElementType.DATEPICKER:
-      return parser.datePicker?.(element as IDatePickerElement, context, index);
+      return (
+        parser.datePicker?.(element as IDatePickerElement, context, index) ??
+        null
+      );
 
     case ElementType.PLAIN_TEXT_INPUT:
-      return parser.plainInput?.(element as IPlainTextInput, context, index);
+      return (
+        parser.plainInput?.(element as IPlainTextInput, context, index) ?? null
+      );
 
     case ElementType.LINEAR_SCALE:
-      return parser.linearScale?.(
-        element as ILinearScaleElement,
-        context,
-        index
+      return (
+        parser.linearScale?.(element as ILinearScaleElement, context, index) ??
+        null
       );
-  }
-
-  if (parser[element.type]) {
-    return parser[element.type](element, context, index);
   }
 
   return null;
@@ -165,7 +173,7 @@ export const createElementRenderer = <T>(
   context: BlockContext,
   _: undefined,
   index: number
-): T => {
+): T | null => {
   if (allowedItems && !allowedItems.includes(element.type)) {
     return null;
   }
@@ -174,12 +182,13 @@ export const createElementRenderer = <T>(
 };
 
 const conditionsMatch = (
-  conditions: Conditions = undefined,
-  filters: ConditionalBlockFilters
+  conditions: Conditions | undefined = undefined,
+  filters: ConditionalBlockFilters = {}
 ): boolean => {
   if (!conditions) {
     return false;
   }
+
   if (
     Array.isArray(filters.engine) &&
     !filters.engine.includes(conditions.engine)
