@@ -1846,46 +1846,111 @@ describe('input', () => {
   });
 });
 
-it('evaluates conditional block', () => {
-  const blocks = [
-    {
-      type: 'conditional',
-      when: {
-        engine: ['rocket.chat'],
-      },
-      render: [
-        {
-          type: 'section',
-          text: {
-            type: 'plain_text',
-            text: 'This is a plain text section block.',
-            emoji: true,
-          },
+describe('conditional', () => {
+  it('renders when conditions match', () => {
+    const blocks = [
+      {
+        type: 'conditional',
+        when: {
+          engine: ['rocket.chat'],
         },
-      ],
-    },
-  ];
-
-  expect(parse(blocks)).toStrictEqual([]);
-
-  expect(conditionalParse(blocks)).toStrictEqual([
-    {
-      component: 'section',
-      props: {
-        key: 0,
-        children: [
+        render: [
           {
-            component: 'text',
-            props: {
-              key: 0,
-              children: 'This is a plain text section block.',
+            type: 'section',
+            text: {
+              type: 'plain_text',
+              text: 'This is a plain text section block.',
               emoji: true,
-              block: false,
             },
           },
         ],
-        block: true,
       },
-    },
-  ]);
+    ];
+
+    expect(conditionalParse(blocks)).toStrictEqual([
+      {
+        component: 'section',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'This is a plain text section block.',
+                emoji: true,
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('renders when no conditions are set', () => {
+    const blocks = [
+      {
+        type: 'conditional',
+        when: {
+          engine: ['rocket.chat'],
+        },
+        render: [
+          {
+            type: 'section',
+            text: {
+              type: 'plain_text',
+              text: 'This is a plain text section block.',
+              emoji: true,
+            },
+          },
+        ],
+      },
+    ];
+
+    expect(parse(blocks)).toStrictEqual([
+      {
+        component: 'section',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'This is a plain text section block.',
+                emoji: true,
+                block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('does not render when conditions match', () => {
+    const blocks = [
+      {
+        type: 'conditional',
+        when: {
+          engine: ['livechat'],
+        },
+        render: [
+          {
+            type: 'section',
+            text: {
+              type: 'plain_text',
+              text: 'This is a plain text section block.',
+              emoji: true,
+            },
+          },
+        ],
+      },
+    ];
+
+    expect(conditionalParse(blocks)).toStrictEqual([]);
+  });
 });

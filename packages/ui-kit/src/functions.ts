@@ -186,7 +186,7 @@ const conditionsMatch = (
   filters: ConditionalBlockFilters = {}
 ): boolean => {
   if (!conditions) {
-    return false;
+    return true;
   }
 
   if (
