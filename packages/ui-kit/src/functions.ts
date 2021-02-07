@@ -11,16 +11,16 @@ import {
   IActionsBlock,
   IContextBlock,
   IInputBlock,
-  IButtonElement,
-  IImageElement,
-  IDatePickerElement,
-  IStaticSelectElement,
-  IMultiStaticSelectElement,
-  IOverflowElement,
-  IPlainTextInput,
+  ButtonElement,
+  ImageElement,
+  DatePickerElement,
+  StaticSelectElement,
+  MultiStaticSelectElement,
+  OverflowElement,
+  PlainTextInputElement,
   ConditionalBlockFilters,
   IConditionalBlock,
-  ILinearScaleElement,
+  LinearScaleElement,
   Conditions,
 } from './definition/blocks';
 import { ElementRenderer } from './definition/rendering/ElementRenderer';
@@ -78,8 +78,8 @@ const renderElement = <T>(
     case ElementType.IMAGE:
       if (context !== BlockContext.BLOCK) {
         return (
-          (parser.image as ElementRenderer<T, IImageElement>)?.(
-            element as IImageElement,
+          (parser.image as ElementRenderer<T, ImageElement>)?.(
+            element as ImageElement,
             context,
             index
           ) ?? null
@@ -120,25 +120,22 @@ const renderElement = <T>(
 
     case ElementType.OVERFLOW:
       return (
-        parser.overflow?.(element as IOverflowElement, context, index) ?? null
+        parser.overflow?.(element as OverflowElement, context, index) ?? null
       );
 
     case ElementType.BUTTON:
-      return parser.button?.(element as IButtonElement, context, index) ?? null;
+      return parser.button?.(element as ButtonElement, context, index) ?? null;
 
     case ElementType.STATIC_SELECT:
       return (
-        parser.staticSelect?.(
-          element as IStaticSelectElement,
-          context,
-          index
-        ) ?? null
+        parser.staticSelect?.(element as StaticSelectElement, context, index) ??
+        null
       );
 
     case ElementType.MULTI_STATIC_SELECT:
       return (
         parser.multiStaticSelect?.(
-          element as IMultiStaticSelectElement,
+          element as MultiStaticSelectElement,
           context,
           index
         ) ?? null
@@ -146,18 +143,19 @@ const renderElement = <T>(
 
     case ElementType.DATEPICKER:
       return (
-        parser.datePicker?.(element as IDatePickerElement, context, index) ??
+        parser.datePicker?.(element as DatePickerElement, context, index) ??
         null
       );
 
     case ElementType.PLAIN_TEXT_INPUT:
       return (
-        parser.plainInput?.(element as IPlainTextInput, context, index) ?? null
+        parser.plainInput?.(element as PlainTextInputElement, context, index) ??
+        null
       );
 
     case ElementType.LINEAR_SCALE:
       return (
-        parser.linearScale?.(element as ILinearScaleElement, context, index) ??
+        parser.linearScale?.(element as LinearScaleElement, context, index) ??
         null
       );
   }

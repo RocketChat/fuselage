@@ -1,8 +1,8 @@
+import { Actionable } from './Actionable';
 import { ElementType } from './ElementType';
-import { IActionableElement } from './IActionableElement';
 import { Option } from './Option';
 
-export interface IOverflowElement extends IActionableElement {
+export type OverflowElement = Actionable<{
   type: ElementType.OVERFLOW;
   options: Option[];
-}
+}>;

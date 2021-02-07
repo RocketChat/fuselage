@@ -1,11 +1,10 @@
 import { ElementType } from './ElementType';
-import { IElement } from './IElement';
 
-export interface IImageElement extends IElement {
+export type ImageElement = {
   type: ElementType.IMAGE;
   imageUrl: string;
   altText: string;
-}
+};
 
 // export interface IImageElement extends IBlockElement {
 //   type: BlockElementType.IMAGE;

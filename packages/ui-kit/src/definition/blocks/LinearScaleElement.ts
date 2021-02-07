@@ -1,12 +1,12 @@
+import { Actionable } from './Actionable';
 import { ElementType } from './ElementType';
-import { IActionableElement } from './IActionableElement';
 import { IPlainText } from './IPlainText';
 
-export interface ILinearScaleElement extends IActionableElement {
+export type LinearScaleElement = Actionable<{
   type: ElementType.LINEAR_SCALE;
   minValue?: number;
   maxValue?: number;
   initialValue?: number;
   preLabel?: IPlainText;
   postLable?: IPlainText;
-}
+}>;

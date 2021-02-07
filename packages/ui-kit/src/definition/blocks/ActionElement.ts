@@ -1,14 +1,14 @@
-import { IButtonElement } from './IButtonElement';
-import { IDatePickerElement } from './IDatePickerElement';
-import { ILinearScaleElement } from './ILinearScaleElement';
-import { IMultiStaticSelectElement } from './IMultiStaticSelectElement';
-import { IOverflowElement } from './IOverflowElement';
-import { IStaticSelectElement } from './IStaticSelectElement';
+import { ButtonElement } from './ButtonElement';
+import { DatePickerElement } from './DatePickerElement';
+import { LinearScaleElement } from './LinearScaleElement';
+import { MultiStaticSelectElement } from './MultiStaticSelectElement';
+import { OverflowElement } from './OverflowElement';
+import { StaticSelectElement } from './StaticSelectElement';
 
 export type ActionElement =
-  | IButtonElement
-  | IStaticSelectElement
-  | IMultiStaticSelectElement
-  | IOverflowElement
-  | IDatePickerElement
-  | ILinearScaleElement;
+  | ButtonElement
+  | StaticSelectElement
+  | MultiStaticSelectElement
+  | OverflowElement
+  | DatePickerElement
+  | LinearScaleElement;

@@ -1,12 +1,12 @@
-import { IDatePickerElement } from './IDatePickerElement';
-import { ILinearScaleElement } from './ILinearScaleElement';
-import { IMultiStaticSelectElement } from './IMultiStaticSelectElement';
-import { IPlainTextInput } from './IPlainTextInput';
-import { IStaticSelectElement } from './IStaticSelectElement';
+import { DatePickerElement } from './DatePickerElement';
+import { LinearScaleElement } from './LinearScaleElement';
+import { MultiStaticSelectElement } from './MultiStaticSelectElement';
+import { PlainTextInputElement } from './PlainTextInputElement';
+import { StaticSelectElement } from './StaticSelectElement';
 
 export type InputElement =
-  | IPlainTextInput
-  | IStaticSelectElement
-  | IMultiStaticSelectElement
-  | IDatePickerElement
-  | ILinearScaleElement;
+  | PlainTextInputElement
+  | StaticSelectElement
+  | MultiStaticSelectElement
+  | DatePickerElement
+  | LinearScaleElement;

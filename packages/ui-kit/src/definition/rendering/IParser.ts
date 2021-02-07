@@ -5,21 +5,21 @@ import {
   IDividerBlock,
   ISectionBlock,
   IImageBlock,
-  IImageElement,
+  ImageElement,
   IActionsBlock,
   IContextBlock,
-  IButtonElement,
-  IDatePickerElement,
-  IStaticSelectElement,
-  IMultiStaticSelectElement,
-  IOverflowElement,
+  ButtonElement,
+  DatePickerElement,
+  StaticSelectElement,
+  MultiStaticSelectElement,
+  OverflowElement,
   SectionAccessoryElement,
   ActionElement,
   ContextElement,
   IInputBlock,
-  IPlainTextInput,
+  PlainTextInputElement,
   InputElement,
-  ILinearScaleElement,
+  LinearScaleElement,
 } from '../blocks';
 import { BlockRenderer } from './BlockRenderer';
 import { ElementRenderer } from './ElementRenderer';
@@ -32,18 +32,18 @@ export interface IParser<T> {
 
   divider?: BlockRenderer<T, IDividerBlock>;
   section?: BlockRenderer<T, ISectionBlock>;
-  image?: BlockRenderer<T, IImageBlock> | ElementRenderer<T, IImageElement>;
+  image?: BlockRenderer<T, IImageBlock> | ElementRenderer<T, ImageElement>;
   actions?: BlockRenderer<T, IActionsBlock>;
   context?: BlockRenderer<T, IContextBlock>;
   input?: BlockRenderer<T, IInputBlock>;
 
-  button?: ElementRenderer<T, IButtonElement>;
-  datePicker?: ElementRenderer<T, IDatePickerElement>;
-  staticSelect?: ElementRenderer<T, IStaticSelectElement>;
-  multiStaticSelect?: ElementRenderer<T, IMultiStaticSelectElement>;
-  overflow?: ElementRenderer<T, IOverflowElement>;
-  plainInput?: ElementRenderer<T, IPlainTextInput>;
-  linearScale?: ElementRenderer<T, ILinearScaleElement>;
+  button?: ElementRenderer<T, ButtonElement>;
+  datePicker?: ElementRenderer<T, DatePickerElement>;
+  staticSelect?: ElementRenderer<T, StaticSelectElement>;
+  multiStaticSelect?: ElementRenderer<T, MultiStaticSelectElement>;
+  overflow?: ElementRenderer<T, OverflowElement>;
+  plainInput?: ElementRenderer<T, PlainTextInputElement>;
+  linearScale?: ElementRenderer<T, LinearScaleElement>;
 
   renderAccessories?: ElementSetRenderer<T, SectionAccessoryElement>;
   renderActions?: ElementSetRenderer<T, ActionElement>;

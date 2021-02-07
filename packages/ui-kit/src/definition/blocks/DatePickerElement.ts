@@ -1,9 +1,9 @@
+import { Actionable } from './Actionable';
 import { ElementType } from './ElementType';
-import { IActionableElement } from './IActionableElement';
 import { TextObject } from './TextObject';
 
-export interface IDatePickerElement extends IActionableElement {
+export type DatePickerElement = Actionable<{
   type: ElementType.DATEPICKER;
   placeholder?: TextObject;
   initialDate?: string;
-}
+}>;

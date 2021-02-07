@@ -1,12 +1,12 @@
+import { Actionable } from './Actionable';
 import { ElementType } from './ElementType';
-import { IActionableElement } from './IActionableElement';
 import { IPlainText } from './IPlainText';
 
-export interface IPlainTextInput extends IActionableElement {
+export type PlainTextInputElement = Actionable<{
   type: ElementType.PLAIN_TEXT_INPUT;
   placeholder?: IPlainText;
   initialValue?: string;
   multiline?: boolean;
   minLength?: number;
   maxLength?: number;
-}
+}>;

@@ -1,14 +1,14 @@
-import { IButtonElement } from './IButtonElement';
-import { IDatePickerElement } from './IDatePickerElement';
-import { IImageElement } from './IImageElement';
-import { IMultiStaticSelectElement } from './IMultiStaticSelectElement';
-import { IOverflowElement } from './IOverflowElement';
-import { IStaticSelectElement } from './IStaticSelectElement';
+import { ButtonElement } from './ButtonElement';
+import { DatePickerElement } from './DatePickerElement';
+import { ImageElement } from './ImageElement';
+import { MultiStaticSelectElement } from './MultiStaticSelectElement';
+import { OverflowElement } from './OverflowElement';
+import { StaticSelectElement } from './StaticSelectElement';
 
 export type SectionAccessoryElement =
-  | IImageElement
-  | IButtonElement
-  | IDatePickerElement
-  | IStaticSelectElement
-  | IMultiStaticSelectElement
-  | IOverflowElement;
+  | ImageElement
+  | ButtonElement
+  | DatePickerElement
+  | StaticSelectElement
+  | MultiStaticSelectElement
+  | OverflowElement;

@@ -1,5 +1,10 @@
-import { uiKitModal, UiKitParserModal, BlockContext, IPlainText } from '..';
-import { IOverflowElement } from '../definition/blocks';
+import {
+  uiKitModal,
+  UiKitParserModal,
+  BlockContext,
+  IPlainText,
+  OverflowElement,
+} from '..';
 
 class TestParser extends UiKitParserModal<unknown> {
   plainText = (element: any, context: any, index: any): any => ({
@@ -147,7 +152,7 @@ class TestParser extends UiKitParserModal<unknown> {
     };
   };
 
-  overflow = (element: IOverflowElement, _context: any, index: any): any => ({
+  overflow = (element: OverflowElement, _context: any, index: any): any => ({
     component: 'menu',
     props: {
       key: index,
