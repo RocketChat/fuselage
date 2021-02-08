@@ -1,6 +1,6 @@
-import { BlockContext, IElement } from '../blocks';
+import { BlockContext, RenderableBlock } from '../blocks';
 
-export type ElementSetRenderer<T, E extends IElement> = (
+export type ElementSetRenderer<T, E extends RenderableBlock> = (
   element: E,
   context: BlockContext,
   _: undefined,

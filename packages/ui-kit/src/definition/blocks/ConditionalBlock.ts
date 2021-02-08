@@ -1,14 +1,14 @@
 import { Conditions } from '../Conditions';
-import { Block } from './Block';
 import { ElementType } from './ElementType';
 import { Layout } from './Layout';
+import { LayoutBlock } from './LayoutBlock';
 
 export type ConditionalBlock = Layout<{
   type: ElementType.CONDITIONAL;
   when?: {
     [K in keyof Conditions]: Conditions[K][];
   };
-  render: Exclude<Block, ConditionalBlock>[];
+  render: Exclude<LayoutBlock, ConditionalBlock>[];
 }>;
 
 // /**

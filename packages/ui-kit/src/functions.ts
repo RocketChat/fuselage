@@ -2,7 +2,7 @@ import { Conditions } from './definition/Conditions';
 import {
   ElementType,
   BlockContext,
-  IElement,
+  RenderableBlock,
   TextObject,
   PlainText,
   Markdown,
@@ -26,7 +26,7 @@ import { ElementRenderer } from './definition/rendering/ElementRenderer';
 import { ElementSetRenderer } from './definition/rendering/ElementSetRenderer';
 import { IParser } from './definition/rendering/IParser';
 
-const isElement = (x: IElement): x is IElement =>
+const isElement = (x: RenderableBlock): x is RenderableBlock =>
   x !== null &&
   typeof x === 'object' &&
   'type' in x &&
@@ -34,7 +34,7 @@ const isElement = (x: IElement): x is IElement =>
 
 // eslint-disable-next-line complexity
 const renderElement = <T>(
-  element: IElement,
+  element: RenderableBlock,
   context: BlockContext,
   parser: IParser<T>,
   index: number
@@ -164,8 +164,8 @@ const renderElement = <T>(
 export const createElementRenderer = <T>(
   parser: IParser<T>,
   allowedItems?: ElementType[]
-): ElementSetRenderer<T, IElement> => (
-  element: IElement,
+): ElementSetRenderer<T, RenderableBlock> => (
+  element: RenderableBlock,
   context: BlockContext,
   _: undefined,
   index: number
@@ -205,7 +205,7 @@ export const createSurfaceRenderer = <T>(allowedBlockTypes?: ElementType[]) => (
 
   return Array.prototype
     .concat(
-      ...blocks.filter<IElement>(isElement).map((element) => {
+      ...blocks.filter<RenderableBlock>(isElement).map((element) => {
         if (element.type === ElementType.CONDITIONAL) {
           const conditionalBlock = element as ConditionalBlock;
           if (conditionsMatch(conditions, conditionalBlock.when)) {
@@ -222,7 +222,7 @@ export const createSurfaceRenderer = <T>(allowedBlockTypes?: ElementType[]) => (
       (element) =>
         !allowedBlockTypes || allowedBlockTypes.includes(element.type)
     )
-    .map((element: IElement, index: number) =>
+    .map((element: RenderableBlock, index: number) =>
       renderElement(element, BlockContext.BLOCK, parser, index)
     );
 };

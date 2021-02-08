@@ -6,7 +6,7 @@ import { ImageBlock } from './ImageBlock';
 import { InputBlock } from './InputBlock';
 import { SectionBlock } from './SectionBlock';
 
-export type Block =
+export type LayoutBlock =
   | ActionsBlock
   | ConditionalBlock
   | ContextBlock
