@@ -1,12 +1,12 @@
 import { ElementType } from './ElementType';
-import { IPlainText } from './IPlainText';
 import { Layout } from './Layout';
+import { PlainText } from './PlainText';
 
 export type ImageBlock = Layout<{
   type: ElementType.IMAGE;
   imageUrl: string;
   altText: string;
-  title?: IPlainText;
+  title?: PlainText;
 }>;
 
 // export interface IImageBlock extends IBlock {

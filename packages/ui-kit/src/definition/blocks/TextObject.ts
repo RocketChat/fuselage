@@ -1,4 +1,4 @@
-import { IMarkdown } from './IMarkdown';
-import { IPlainText } from './IPlainText';
+import { Markdown } from './Markdown';
+import { PlainText } from './PlainText';
 
-export type TextObject = IPlainText | IMarkdown;
+export type TextObject = PlainText | Markdown;

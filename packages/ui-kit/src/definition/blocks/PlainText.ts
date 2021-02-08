@@ -1,8 +1,7 @@
 import { ElementType } from './ElementType';
-import { IElement } from './IElement';
 
-export interface IPlainText extends IElement {
+export type PlainText = {
   type: ElementType.PLAIN_TEXT;
   text: string;
   emoji?: boolean;
-}
+};

@@ -1,7 +1,7 @@
 import {
   ElementType,
-  IPlainText,
-  IMarkdown,
+  PlainText,
+  Markdown,
   TextObject,
   BlockContext,
   ActionsBlock,
@@ -15,7 +15,7 @@ import { createElementRenderer, createSurfaceRenderer } from '../functions';
 
 export abstract class UiKitParserModal<Element> implements IParser<Element> {
   plainText(
-    _element: IPlainText,
+    _element: PlainText,
     _context: BlockContext,
     _index: number
   ): Element | null {
@@ -23,7 +23,7 @@ export abstract class UiKitParserModal<Element> implements IParser<Element> {
   }
 
   mrkdwn(
-    _element: IMarkdown,
+    _element: Markdown,
     _context: BlockContext,
     _index: number
   ): Element | null {
@@ -32,11 +32,11 @@ export abstract class UiKitParserModal<Element> implements IParser<Element> {
 
   text(text: TextObject, context: BlockContext, index: number): Element | null {
     if (text.type === ElementType.PLAIN_TEXT) {
-      return this.plainText(text as IPlainText, context, index);
+      return this.plainText(text as PlainText, context, index);
     }
 
     if (text.type === ElementType.MARKDOWN) {
-      return this.mrkdwn(text as IMarkdown, context, index);
+      return this.mrkdwn(text as Markdown, context, index);
     }
 
     return null;

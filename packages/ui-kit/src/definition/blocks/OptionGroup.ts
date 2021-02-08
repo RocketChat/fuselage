@@ -1,7 +1,7 @@
-import { IPlainText } from './IPlainText';
 import { Option } from './Option';
+import { PlainText } from './PlainText';
 
 export type OptionGroup = {
-  label: IPlainText;
+  label: PlainText;
   options: Option[];
 };

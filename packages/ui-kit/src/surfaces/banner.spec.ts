@@ -1,4 +1,4 @@
-import { uiKitBanner, UiKitParserBanner, BlockContext, IPlainText } from '..';
+import { uiKitBanner, UiKitParserBanner, BlockContext, PlainText } from '..';
 
 class TestParser extends UiKitParserBanner<unknown> {
   plainText = (element: any, context: any, index: any): any => ({
@@ -274,7 +274,7 @@ class TestParser extends UiKitParserBanner<unknown> {
                   type: 'plain_text',
                   text: String(minValue + key),
                   emoji: true,
-                } as IPlainText,
+                } as PlainText,
                 -1,
                 0
               ),

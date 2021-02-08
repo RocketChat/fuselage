@@ -2,7 +2,7 @@ import {
   uiKitModal,
   UiKitParserModal,
   BlockContext,
-  IPlainText,
+  PlainText,
   OverflowElement,
 } from '..';
 
@@ -280,7 +280,7 @@ class TestParser extends UiKitParserModal<unknown> {
                   type: 'plain_text',
                   text: String(minValue + key),
                   emoji: true,
-                } as IPlainText,
+                } as PlainText,
                 -1,
                 0
               ),

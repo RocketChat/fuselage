@@ -1,8 +1,7 @@
 import { ElementType } from './ElementType';
-import { IElement } from './IElement';
 
-export interface IMarkdown extends IElement {
+export type Markdown = {
   type: ElementType.MARKDOWN;
   text: string;
   verbatim?: boolean;
-}
+};

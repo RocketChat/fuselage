@@ -1,10 +1,10 @@
-import { IPlainText } from './IPlainText';
+import { PlainText } from './PlainText';
 import { TextObject } from './TextObject';
 
 export type ConfirmationDialog = {
-  title: IPlainText;
+  title: PlainText;
   text: TextObject;
-  confirm: IPlainText;
-  deny: IPlainText;
+  confirm: PlainText;
+  deny: PlainText;
   style: 'primary' | 'danger';
 };

@@ -4,8 +4,8 @@ import {
   BlockContext,
   IElement,
   TextObject,
-  IPlainText,
-  IMarkdown,
+  PlainText,
+  Markdown,
   DividerBlock,
   SectionBlock,
   ImageBlock,
@@ -45,14 +45,14 @@ const renderElement = <T>(
         return parser.text(element as TextObject, context, index);
       }
 
-      return parser.plainText(element as IPlainText, context, index);
+      return parser.plainText(element as PlainText, context, index);
 
     case ElementType.MARKDOWN:
       if (typeof parser.text === 'function') {
         return parser.text(element as TextObject, context, index);
       }
 
-      return parser.mrkdwn(element as IMarkdown, context, index);
+      return parser.mrkdwn(element as Markdown, context, index);
 
     case ElementType.DIVIDER:
       if (context !== BlockContext.BLOCK) {

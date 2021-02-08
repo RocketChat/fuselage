@@ -10,8 +10,10 @@ import { ImageBlock } from './ImageBlock';
 import { ImageElement } from './ImageElement';
 import { InputBlock } from './InputBlock';
 import { LinearScaleElement } from './LinearScaleElement';
+import { Markdown } from './Markdown';
 import { MultiStaticSelectElement } from './MultiStaticSelectElement';
 import { OverflowElement } from './OverflowElement';
+import { PlainText } from './PlainText';
 import { PlainTextInputElement } from './PlainTextInputElement';
 import { SectionBlock } from './SectionBlock';
 import { StaticSelectElement } from './StaticSelectElement';
@@ -29,10 +31,10 @@ export { ImageBlock } from './ImageBlock';
 export { ImageElement } from './ImageElement';
 export { InputBlock } from './InputBlock';
 export { LinearScaleElement } from './LinearScaleElement';
-export { IMarkdown } from './IMarkdown';
+export { Markdown } from './Markdown';
 export { MultiStaticSelectElement } from './MultiStaticSelectElement';
 export { OverflowElement } from './OverflowElement';
-export { IPlainText } from './IPlainText';
+export { PlainText } from './PlainText';
 export { PlainTextInputElement } from './PlainTextInputElement';
 export { SectionBlock } from './SectionBlock';
 export { StaticSelectElement } from './StaticSelectElement';
@@ -70,6 +72,7 @@ export type IOverflowElement = OverflowElement;
 export type IImageElement = ImageElement;
 /** @deprecated */
 export type IActionableElement = Actionable<Record<never, never>>;
+
 /** @deprecated */
 export type IActionsBlock = ActionsBlock;
 /** @deprecated */
@@ -102,6 +105,11 @@ export type ConditionalBlockFilters = Exclude<
 >;
 /** @deprecated */
 export type IBlock = Block;
+
+/** @deprecated */
+export type IPlainText = PlainText;
+/** @deprecated */
+export type IMarkdown = Markdown;
 
 // from Apps Engine
 export { BlockType } from './BlockType';

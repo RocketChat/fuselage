@@ -1,7 +1,7 @@
 import {
   TextObject,
-  IPlainText,
-  IMarkdown,
+  PlainText,
+  Markdown,
   DividerBlock,
   SectionBlock,
   ImageBlock,
@@ -23,8 +23,8 @@ import { ElementSetRenderer } from './ElementSetRenderer';
 
 export interface IParser<T> {
   text: ElementRenderer<T, TextObject>;
-  plainText: ElementRenderer<T, IPlainText>;
-  mrkdwn: ElementRenderer<T, IMarkdown>;
+  plainText: ElementRenderer<T, PlainText>;
+  mrkdwn: ElementRenderer<T, Markdown>;
 
   divider?: BlockRenderer<T, DividerBlock>;
   section?: BlockRenderer<T, SectionBlock>;

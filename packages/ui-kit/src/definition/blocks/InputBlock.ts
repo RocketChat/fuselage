@@ -1,22 +1,22 @@
 import { DatePickerElement } from './DatePickerElement';
 import { ElementType } from './ElementType';
-import { IPlainText } from './IPlainText';
 import { Layout } from './Layout';
 import { LinearScaleElement } from './LinearScaleElement';
 import { MultiStaticSelectElement } from './MultiStaticSelectElement';
+import { PlainText } from './PlainText';
 import { PlainTextInputElement } from './PlainTextInputElement';
 import { StaticSelectElement } from './StaticSelectElement';
 
 export type InputBlock = Layout<{
   type: ElementType.INPUT;
-  label: IPlainText;
+  label: PlainText;
   element:
     | PlainTextInputElement
     | StaticSelectElement
     | MultiStaticSelectElement
     | DatePickerElement
     | LinearScaleElement;
-  hint?: IPlainText;
+  hint?: PlainText;
   optional?: boolean;
 }>;
 

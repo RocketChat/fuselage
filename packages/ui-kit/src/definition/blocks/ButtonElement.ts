@@ -1,10 +1,10 @@
 import { Actionable } from './Actionable';
 import { ElementType } from './ElementType';
-import { IPlainText } from './IPlainText';
+import { PlainText } from './PlainText';
 
 export type ButtonElement = Actionable<{
   type: ElementType.BUTTON;
-  text: IPlainText;
+  text: PlainText;
   url?: string;
   value?: string;
   style?: 'primary' | 'danger';
