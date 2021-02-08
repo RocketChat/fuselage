@@ -1,6 +1,4 @@
 import {
-  BlockContext,
-  ElementType,
   PlainText,
   Markdown,
   TextObject,
@@ -11,6 +9,8 @@ import {
 } from '../definition/blocks';
 import { ElementSetRenderer } from '../definition/rendering/ElementSetRenderer';
 import { IParser } from '../definition/rendering/IParser';
+import { ElementType } from '../enums';
+import { BlockContext } from '../enums/BlockContext';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 
 export abstract class UiKitParserBanner<Element> implements IParser<Element> {

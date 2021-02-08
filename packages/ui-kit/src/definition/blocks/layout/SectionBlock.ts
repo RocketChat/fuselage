@@ -19,9 +19,3 @@ export type SectionBlock = Layout<{
     | MultiStaticSelectElement
     | OverflowElement;
 }>;
-
-// export interface ISectionBlock extends IBlock {
-//   type: BlockType.SECTION;
-//   text: ITextObject;
-//   accessory?: AccessoryElements;
-// }

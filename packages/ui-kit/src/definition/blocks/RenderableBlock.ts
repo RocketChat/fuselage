@@ -1,5 +1,4 @@
-import { BlockElement } from './element/BlockElement';
-import { LayoutBlock } from './layout/LayoutBlock';
-import { TextObject } from './text/TextObject';
+import { Block } from './Block';
+import { ConditionalBlock } from './layout/ConditionalBlock';
 
-export type RenderableBlock = TextObject | BlockElement | LayoutBlock;
+export type RenderableBlock = Exclude<Block, ConditionalBlock>;

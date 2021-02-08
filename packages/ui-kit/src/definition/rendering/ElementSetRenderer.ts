@@ -1,6 +1,7 @@
-import { BlockContext, RenderableBlock } from '../blocks';
+import { BlockContext } from '../../enums/BlockContext';
+import { Block } from '../blocks';
 
-export type ElementSetRenderer<T, E extends RenderableBlock> = (
+export type ElementSetRenderer<T, E extends Block> = (
   element: E,
   context: BlockContext,
   _: undefined,

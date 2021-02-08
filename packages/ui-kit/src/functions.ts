@@ -1,8 +1,6 @@
 import { Conditions } from './definition/Conditions';
 import {
-  ElementType,
-  BlockContext,
-  RenderableBlock,
+  Block,
   TextObject,
   PlainText,
   Markdown,
@@ -25,8 +23,10 @@ import {
 import { ElementRenderer } from './definition/rendering/ElementRenderer';
 import { ElementSetRenderer } from './definition/rendering/ElementSetRenderer';
 import { IParser } from './definition/rendering/IParser';
+import { ElementType } from './enums';
+import { BlockContext } from './enums/BlockContext';
 
-const isElement = (x: RenderableBlock): x is RenderableBlock =>
+const isElement = (x: Block): x is Block =>
   x !== null &&
   typeof x === 'object' &&
   'type' in x &&
@@ -34,7 +34,7 @@ const isElement = (x: RenderableBlock): x is RenderableBlock =>
 
 // eslint-disable-next-line complexity
 const renderElement = <T>(
-  element: RenderableBlock,
+  element: Block,
   context: BlockContext,
   parser: IParser<T>,
   index: number
@@ -164,8 +164,8 @@ const renderElement = <T>(
 export const createElementRenderer = <T>(
   parser: IParser<T>,
   allowedItems?: string[]
-): ElementSetRenderer<T, RenderableBlock> => (
-  element: RenderableBlock,
+): ElementSetRenderer<T, Block> => (
+  element: Block,
   context: BlockContext,
   _: undefined,
   index: number
@@ -205,7 +205,7 @@ export const createSurfaceRenderer = <T>(allowedBlockTypes?: string[]) => (
 
   return Array.prototype
     .concat(
-      ...blocks.filter<RenderableBlock>(isElement).map((element) => {
+      ...blocks.filter<Block>(isElement).map((element) => {
         if (element.type === ElementType.CONDITIONAL) {
           const conditionalBlock = element as ConditionalBlock;
           if (conditionsMatch(conditions, conditionalBlock.when)) {
@@ -222,7 +222,7 @@ export const createSurfaceRenderer = <T>(allowedBlockTypes?: string[]) => (
       (element) =>
         !allowedBlockTypes || allowedBlockTypes.includes(element.type)
     )
-    .map((element: RenderableBlock, index: number) =>
+    .map((element: Block, index: number) =>
       renderElement(element, BlockContext.BLOCK, parser, index)
     );
 };

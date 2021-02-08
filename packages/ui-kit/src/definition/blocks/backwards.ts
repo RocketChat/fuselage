@@ -1,5 +1,6 @@
 import { LayoutBlock } from '../..';
-import { RenderableBlock } from './RenderableBlock';
+import { Block } from './Block';
+import { Option } from './Option';
 import { Actionable } from './element/Actionable';
 import { ButtonElement } from './element/ButtonElement';
 import { DatePickerElement } from './element/DatePickerElement';
@@ -18,6 +19,7 @@ import { InputBlock } from './layout/InputBlock';
 import { SectionBlock } from './layout/SectionBlock';
 import { Markdown } from './text/Markdown';
 import { PlainText } from './text/PlainText';
+import { TextObject } from './text/TextObject';
 
 /** @deprecated */
 export type ILinearScaleElement = LinearScaleElement;
@@ -77,4 +79,43 @@ export type IPlainText = PlainText;
 export type IMarkdown = Markdown;
 
 /** @deprecated */
-export type IElement = RenderableBlock;
+export type IElement = Block;
+
+/** @deprecated */
+export type ITextObject = TextObject & { emoji?: boolean };
+
+/** @deprecated */
+export type IOptionObject = Omit<Option, 'description' | 'url'>;
+
+/** @deprecated */
+export type IBlockElement = Pick<Block, 'type'>;
+
+/** @deprecated */
+export type IInteractiveElement = IBlockElement & {
+  actionId: string;
+};
+
+/** @deprecated */
+export type IInputElement = IBlockElement & {
+  actionId: string;
+  placeholder: ITextObject;
+  initialValue?: string | string[];
+};
+
+export type IOverflowMenuElement = IInteractiveElement & {
+  type: OverflowElement['type'];
+  options: IOptionObject[];
+};
+
+export type IPlainTextInputElement = IInputElement & {
+  type: PlainTextInputElement['type'];
+  initialValue?: string;
+  multiline?: boolean;
+};
+
+export type ISelectElement = IInputElement & {
+  type: StaticSelectElement['type'] | MultiStaticSelectElement['type'];
+};
+
+/** @deprecated */
+export type IConditionalBlockFilters = ConditionalBlock['when'];

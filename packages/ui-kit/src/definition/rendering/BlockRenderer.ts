@@ -1,4 +1,5 @@
-import { BlockContext, LayoutBlock } from '../blocks';
+import { BlockContext } from '../../enums/BlockContext';
+import { LayoutBlock } from '../blocks';
 
 export type BlockRenderer<T, B extends LayoutBlock> = (
   block: B,

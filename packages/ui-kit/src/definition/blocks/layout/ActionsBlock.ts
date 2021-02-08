@@ -17,8 +17,3 @@ export type ActionsBlock = Layout<{
     | LinearScaleElement
   )[];
 }>;
-
-// export interface IActionsBlock extends IBlock {
-//   type: BlockType.ACTIONS;
-//   elements: Array<IBlockElement>;
-// }

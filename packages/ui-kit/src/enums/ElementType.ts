@@ -11,11 +11,8 @@ export enum ElementType {
   BUTTON = 'button', // BlockElementType.BUTTON
   OVERFLOW = 'overflow', // BlockElementType.OVERFLOW
   PLAIN_TEXT_INPUT = 'plain_text_input', // BlockElementType.PLAIN_TEXT_INPUT
-  /** @deprecated */
   CONVERSATION_SELECT = 'conversations_select', // BlockElementType.CONVERSATIONS_SELECT
-  /** @deprecated */
   CHANNEL_SELECT = 'channels_select', // BlockElementType.CHANNELS_SELECT
-  /** @deprecated */
   USER_SELECT = 'users_select', // BlockElementType.USERS_SELECT
   STATIC_SELECT = 'static_select', // BlockElementType.STATIC_SELECT
   MULTI_STATIC_SELECT = 'multi_static_select', // BlockElementType.MULTI_STATIC_SELECT

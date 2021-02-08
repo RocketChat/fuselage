@@ -7,10 +7,3 @@ export type ImageBlock = Layout<{
   altText: string;
   title?: PlainText;
 }>;
-
-// export interface IImageBlock extends IBlock {
-//   type: BlockType.IMAGE;
-//   imageUrl: string;
-//   altText: string;
-//   title?: ITextObject;
-// }

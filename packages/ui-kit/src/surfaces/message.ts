@@ -1,7 +1,5 @@
 import {
   ActionsBlock,
-  BlockContext,
-  ElementType,
   ContextBlock,
   Markdown,
   PlainText,
@@ -10,6 +8,8 @@ import {
 } from '../definition/blocks';
 import { ElementSetRenderer } from '../definition/rendering/ElementSetRenderer';
 import { IParser } from '../definition/rendering/IParser';
+import { ElementType } from '../enums';
+import { BlockContext } from '../enums/BlockContext';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 
 export abstract class UiKitParserMessage<Element> implements IParser<Element> {

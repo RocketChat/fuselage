@@ -1,10 +1,5 @@
-import {
-  uiKitModal,
-  UiKitParserModal,
-  BlockContext,
-  PlainText,
-  OverflowElement,
-} from '..';
+import { uiKitModal, UiKitParserModal, PlainText, OverflowElement } from '..';
+import { BlockContext } from '../enums/BlockContext';
 
 class TestParser extends UiKitParserModal<unknown> {
   plainText = (element: any, context: any, index: any): any => ({

@@ -12,10 +12,3 @@ export type MultiStaticSelectElement = Actionable<
     maxSelectItems?: number;
   } & ({ initialOption?: Option } | { initialValue?: Option['value'] })
 >;
-
-// export interface IMultiStaticSelectElement extends ISelectElement {
-//   type: BlockElementType.MULTI_STATIC_SELECT;
-//   placeholder: ITextObject;
-//   options: Array<IOptionObject>;
-//   initialValue?: Array<string>;
-// }

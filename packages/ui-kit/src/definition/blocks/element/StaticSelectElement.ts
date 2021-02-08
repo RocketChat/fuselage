@@ -11,10 +11,3 @@ export type StaticSelectElement = Actionable<
     optionGroups?: OptionGroup[];
   } & ({ initialOption?: Option } | { initialValue?: Option['value'] })
 >;
-
-// export interface IStaticSelectElement extends ISelectElement {
-//   type: BlockElementType.STATIC_SELECT;
-//   placeholder: ITextObject;
-//   options: Array<IOptionObject>;
-//   initialValue?: string;
-// }

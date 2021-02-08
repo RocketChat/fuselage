@@ -1,4 +1,5 @@
-import { uiKitMessage, UiKitParserMessage, BlockContext } from '..';
+import { uiKitMessage, UiKitParserMessage } from '..';
+import { BlockContext } from '../enums/BlockContext';
 
 class TestParser extends UiKitParserMessage<unknown> {
   plainText = (element: any, context: any, index: any): any => ({

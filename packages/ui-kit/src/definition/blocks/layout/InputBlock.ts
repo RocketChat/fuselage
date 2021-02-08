@@ -24,10 +24,3 @@ export type InputBlock = Layout<{
   hint?: PlainText;
   optional?: boolean;
 }>;
-
-// export interface IInputBlock extends IBlock {
-//   type: BlockType.INPUT;
-//   element: IInputElement;
-//   label: ITextObject;
-//   optional?: boolean;
-// }
