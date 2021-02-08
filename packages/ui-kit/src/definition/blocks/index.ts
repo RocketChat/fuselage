@@ -1,41 +1,43 @@
+import { Block } from '../..';
 import { Actionable } from './Actionable';
+import { ActionsBlock } from './ActionsBlock';
 import { ButtonElement } from './ButtonElement';
+import { ConditionalBlock } from './ConditionalBlock';
+import { ContextBlock } from './ContextBlock';
 import { DatePickerElement } from './DatePickerElement';
+import { DividerBlock } from './DividerBlock';
+import { ImageBlock } from './ImageBlock';
 import { ImageElement } from './ImageElement';
+import { InputBlock } from './InputBlock';
 import { LinearScaleElement } from './LinearScaleElement';
 import { MultiStaticSelectElement } from './MultiStaticSelectElement';
 import { OverflowElement } from './OverflowElement';
 import { PlainTextInputElement } from './PlainTextInputElement';
+import { SectionBlock } from './SectionBlock';
 import { StaticSelectElement } from './StaticSelectElement';
 
-export { ActionElement } from './ActionElement';
-export { ConditionalBlockFilters } from './ConditionalBlockFilters';
-export { Conditions } from './Conditions';
 export { ConfirmationDialog } from './ConfirmationDialog';
-export { ContextElement } from './ContextElement';
-export { IActionsBlock } from './IActionsBlock';
-export { IBlock } from './IBlock';
+export { ActionsBlock } from './ActionsBlock';
+export { Block } from './Block';
 export { ButtonElement } from './ButtonElement';
-export { IConditionalBlock } from './IConditionalBlock';
-export { IContextBlock } from './IContextBlock';
+export { ConditionalBlock } from './ConditionalBlock';
+export { ContextBlock } from './ContextBlock';
 export { DatePickerElement } from './DatePickerElement';
-export { IDividerBlock } from './IDividerBlock';
+export { DividerBlock } from './DividerBlock';
 export { IElement } from './IElement';
-export { IImageBlock } from './IImageBlock';
+export { ImageBlock } from './ImageBlock';
 export { ImageElement } from './ImageElement';
-export { IInputBlock } from './IInputBlock';
+export { InputBlock } from './InputBlock';
 export { LinearScaleElement } from './LinearScaleElement';
 export { IMarkdown } from './IMarkdown';
 export { MultiStaticSelectElement } from './MultiStaticSelectElement';
-export { InputElement } from './InputElement';
 export { OverflowElement } from './OverflowElement';
 export { IPlainText } from './IPlainText';
 export { PlainTextInputElement } from './PlainTextInputElement';
-export { ISectionBlock } from './ISectionBlock';
+export { SectionBlock } from './SectionBlock';
 export { StaticSelectElement } from './StaticSelectElement';
 export { Option } from './Option';
 export { OptionGroup } from './OptionGroup';
-export { SectionAccessoryElement } from './SectionAccessoryElement';
 export { TextObject } from './TextObject';
 
 export {
@@ -68,6 +70,38 @@ export type IOverflowElement = OverflowElement;
 export type IImageElement = ImageElement;
 /** @deprecated */
 export type IActionableElement = Actionable<Record<never, never>>;
+/** @deprecated */
+export type IActionsBlock = ActionsBlock;
+/** @deprecated */
+export type ActionElement = ActionsBlock['elements'][number];
+/** @deprecated */
+export type ISectionBlock = SectionBlock;
+/** @deprecated */
+export type SectionAccessoryElement = Exclude<
+  SectionBlock['accessory'],
+  undefined
+>;
+/** @deprecated */
+export type IImageBlock = ImageBlock;
+/** @deprecated */
+export type IDividerBlock = DividerBlock;
+/** @deprecated */
+export type IInputBlock = InputBlock;
+/** @deprecated */
+export type InputElement = InputBlock['element'];
+/** @deprecated */
+export type IContextBlock = ContextBlock;
+/** @deprecated */
+export type ContextElement = ContextBlock['elements'][number];
+/** @deprecated */
+export type IConditionalBlock = ConditionalBlock;
+/** @deprecated */
+export type ConditionalBlockFilters = Exclude<
+  ConditionalBlock['when'],
+  undefined
+>;
+/** @deprecated */
+export type IBlock = Block;
 
 // from Apps Engine
 export { BlockType } from './BlockType';

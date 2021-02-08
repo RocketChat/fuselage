@@ -2,23 +2,19 @@ import {
   TextObject,
   IPlainText,
   IMarkdown,
-  IDividerBlock,
-  ISectionBlock,
-  IImageBlock,
+  DividerBlock,
+  SectionBlock,
+  ImageBlock,
   ImageElement,
-  IActionsBlock,
-  IContextBlock,
+  ActionsBlock,
+  ContextBlock,
   ButtonElement,
   DatePickerElement,
   StaticSelectElement,
   MultiStaticSelectElement,
   OverflowElement,
-  SectionAccessoryElement,
-  ActionElement,
-  ContextElement,
-  IInputBlock,
+  InputBlock,
   PlainTextInputElement,
-  InputElement,
   LinearScaleElement,
 } from '../blocks';
 import { BlockRenderer } from './BlockRenderer';
@@ -30,12 +26,12 @@ export interface IParser<T> {
   plainText: ElementRenderer<T, IPlainText>;
   mrkdwn: ElementRenderer<T, IMarkdown>;
 
-  divider?: BlockRenderer<T, IDividerBlock>;
-  section?: BlockRenderer<T, ISectionBlock>;
-  image?: BlockRenderer<T, IImageBlock> | ElementRenderer<T, ImageElement>;
-  actions?: BlockRenderer<T, IActionsBlock>;
-  context?: BlockRenderer<T, IContextBlock>;
-  input?: BlockRenderer<T, IInputBlock>;
+  divider?: BlockRenderer<T, DividerBlock>;
+  section?: BlockRenderer<T, SectionBlock>;
+  image?: BlockRenderer<T, ImageBlock> | ElementRenderer<T, ImageElement>;
+  actions?: BlockRenderer<T, ActionsBlock>;
+  context?: BlockRenderer<T, ContextBlock>;
+  input?: BlockRenderer<T, InputBlock>;
 
   button?: ElementRenderer<T, ButtonElement>;
   datePicker?: ElementRenderer<T, DatePickerElement>;
@@ -45,8 +41,11 @@ export interface IParser<T> {
   plainInput?: ElementRenderer<T, PlainTextInputElement>;
   linearScale?: ElementRenderer<T, LinearScaleElement>;
 
-  renderAccessories?: ElementSetRenderer<T, SectionAccessoryElement>;
-  renderActions?: ElementSetRenderer<T, ActionElement>;
-  renderContext?: ElementSetRenderer<T, ContextElement>;
-  renderInputs?: ElementSetRenderer<T, InputElement>;
+  renderAccessories?: ElementSetRenderer<
+    T,
+    Exclude<SectionBlock['accessory'], undefined>
+  >;
+  renderActions?: ElementSetRenderer<T, ActionsBlock['elements'][number]>;
+  renderContext?: ElementSetRenderer<T, ContextBlock['elements'][number]>;
+  renderInputs?: ElementSetRenderer<T, InputBlock['element']>;
 }

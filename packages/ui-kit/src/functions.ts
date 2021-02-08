@@ -1,3 +1,4 @@
+import { Conditions } from './definition/Conditions';
 import {
   ElementType,
   BlockContext,
@@ -5,12 +6,12 @@ import {
   TextObject,
   IPlainText,
   IMarkdown,
-  IDividerBlock,
-  ISectionBlock,
-  IImageBlock,
-  IActionsBlock,
-  IContextBlock,
-  IInputBlock,
+  DividerBlock,
+  SectionBlock,
+  ImageBlock,
+  ActionsBlock,
+  ContextBlock,
+  InputBlock,
   ButtonElement,
   ImageElement,
   DatePickerElement,
@@ -18,10 +19,8 @@ import {
   MultiStaticSelectElement,
   OverflowElement,
   PlainTextInputElement,
-  ConditionalBlockFilters,
-  IConditionalBlock,
+  ConditionalBlock,
   LinearScaleElement,
-  Conditions,
 } from './definition/blocks';
 import { ElementRenderer } from './definition/rendering/ElementRenderer';
 import { ElementSetRenderer } from './definition/rendering/ElementSetRenderer';
@@ -61,7 +60,7 @@ const renderElement = <T>(
       }
 
       return (
-        parser.divider?.(element as IDividerBlock, BlockContext.BLOCK, index) ??
+        parser.divider?.(element as DividerBlock, BlockContext.BLOCK, index) ??
         null
       );
 
@@ -71,7 +70,7 @@ const renderElement = <T>(
       }
 
       return (
-        parser.section?.(element as ISectionBlock, BlockContext.BLOCK, index) ??
+        parser.section?.(element as SectionBlock, BlockContext.BLOCK, index) ??
         null
       );
 
@@ -86,7 +85,7 @@ const renderElement = <T>(
         );
       }
 
-      return parser.image?.(element as IImageBlock, context, index) ?? null;
+      return parser.image?.(element as ImageBlock, context, index) ?? null;
 
     case ElementType.ACTIONS:
       if (context !== BlockContext.BLOCK) {
@@ -94,7 +93,7 @@ const renderElement = <T>(
       }
 
       return (
-        parser.actions?.(element as IActionsBlock, BlockContext.BLOCK, index) ??
+        parser.actions?.(element as ActionsBlock, BlockContext.BLOCK, index) ??
         null
       );
 
@@ -104,7 +103,7 @@ const renderElement = <T>(
       }
 
       return (
-        parser.context?.(element as IContextBlock, BlockContext.BLOCK, index) ??
+        parser.context?.(element as ContextBlock, BlockContext.BLOCK, index) ??
         null
       );
 
@@ -114,8 +113,7 @@ const renderElement = <T>(
       }
 
       return (
-        parser.input?.(element as IInputBlock, BlockContext.BLOCK, index) ??
-        null
+        parser.input?.(element as InputBlock, BlockContext.BLOCK, index) ?? null
       );
 
     case ElementType.OVERFLOW:
@@ -181,7 +179,7 @@ export const createElementRenderer = <T>(
 
 const conditionsMatch = (
   conditions: Conditions | undefined = undefined,
-  filters: ConditionalBlockFilters = {}
+  filters: ConditionalBlock['when'] = {}
 ): boolean => {
   if (!conditions) {
     return true;
@@ -209,7 +207,7 @@ export const createSurfaceRenderer = <T>(allowedBlockTypes?: ElementType[]) => (
     .concat(
       ...blocks.filter<IElement>(isElement).map((element) => {
         if (element.type === ElementType.CONDITIONAL) {
-          const conditionalBlock = element as IConditionalBlock;
+          const conditionalBlock = element as ConditionalBlock;
           if (conditionsMatch(conditions, conditionalBlock.when)) {
             return conditionalBlock.render;
           }

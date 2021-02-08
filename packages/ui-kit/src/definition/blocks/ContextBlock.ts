@@ -1,11 +1,12 @@
-import { ContextElement } from './ContextElement';
 import { ElementType } from './ElementType';
-import { IBlock } from './IBlock';
+import { ImageElement } from './ImageElement';
+import { Layout } from './Layout';
+import { TextObject } from './TextObject';
 
-export interface IContextBlock extends IBlock {
+export type ContextBlock = Layout<{
   type: ElementType.CONTEXT;
-  elements: ContextElement[];
-}
+  elements: (TextObject | ImageElement)[];
+}>;
 
 // export interface IContextBlock extends IBlock {
 //   type: BlockType.CONTEXT;

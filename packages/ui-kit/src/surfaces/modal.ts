@@ -4,10 +4,10 @@ import {
   IMarkdown,
   TextObject,
   BlockContext,
-  SectionAccessoryElement,
-  ActionElement,
-  ContextElement,
-  InputElement,
+  ActionsBlock,
+  SectionBlock,
+  InputBlock,
+  ContextBlock,
 } from '../definition/blocks';
 import { ElementSetRenderer } from '../definition/rendering/ElementSetRenderer';
 import { IParser } from '../definition/rendering/IParser';
@@ -44,7 +44,7 @@ export abstract class UiKitParserModal<Element> implements IParser<Element> {
 
   renderAccessories: ElementSetRenderer<
     Element,
-    SectionAccessoryElement
+    Exclude<SectionBlock['accessory'], undefined>
   > = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.IMAGE,
@@ -60,7 +60,7 @@ export abstract class UiKitParserModal<Element> implements IParser<Element> {
 
   renderActions: ElementSetRenderer<
     Element,
-    ActionElement
+    ActionsBlock['elements'][number]
   > = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.STATIC_SELECT,
@@ -75,7 +75,7 @@ export abstract class UiKitParserModal<Element> implements IParser<Element> {
 
   renderContext: ElementSetRenderer<
     Element,
-    ContextElement
+    ContextBlock['elements'][number]
   > = createElementRenderer(this, [
     ElementType.IMAGE,
     ElementType.PLAIN_TEXT,
@@ -84,7 +84,7 @@ export abstract class UiKitParserModal<Element> implements IParser<Element> {
 
   renderInputs: ElementSetRenderer<
     Element,
-    InputElement
+    InputBlock['element']
   > = createElementRenderer(this, [
     ElementType.STATIC_SELECT,
     ElementType.PLAIN_TEXT_INPUT,

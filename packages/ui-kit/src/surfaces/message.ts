@@ -1,11 +1,11 @@
 import {
-  ActionElement,
+  ActionsBlock,
   BlockContext,
-  ContextElement,
   ElementType,
+  ContextBlock,
   IMarkdown,
   IPlainText,
-  SectionAccessoryElement,
+  SectionBlock,
   TextObject,
 } from '../definition/blocks';
 import { ElementSetRenderer } from '../definition/rendering/ElementSetRenderer';
@@ -43,7 +43,7 @@ export abstract class UiKitParserMessage<Element> implements IParser<Element> {
 
   renderAccessories: ElementSetRenderer<
     Element,
-    SectionAccessoryElement
+    Exclude<SectionBlock['accessory'], undefined>
   > = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.IMAGE,
@@ -59,7 +59,7 @@ export abstract class UiKitParserMessage<Element> implements IParser<Element> {
 
   renderActions: ElementSetRenderer<
     Element,
-    ActionElement
+    ActionsBlock['elements'][number]
   > = createElementRenderer(this, [
     ElementType.BUTTON,
     ElementType.STATIC_SELECT,
@@ -74,7 +74,7 @@ export abstract class UiKitParserMessage<Element> implements IParser<Element> {
 
   renderContext: ElementSetRenderer<
     Element,
-    ContextElement
+    ContextBlock['elements'][number]
   > = createElementRenderer(this, [
     ElementType.IMAGE,
     ElementType.PLAIN_TEXT,

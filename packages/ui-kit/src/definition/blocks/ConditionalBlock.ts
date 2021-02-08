@@ -1,12 +1,15 @@
-import { ConditionalBlockFilters } from './ConditionalBlockFilters';
+import { Conditions } from '../Conditions';
+import { Block } from './Block';
 import { ElementType } from './ElementType';
-import { IBlock } from './IBlock';
+import { Layout } from './Layout';
 
-export interface IConditionalBlock extends IBlock {
+export type ConditionalBlock = Layout<{
   type: ElementType.CONDITIONAL;
-  when?: ConditionalBlockFilters;
-  render: IBlock[];
-}
+  when?: {
+    [K in keyof Conditions]: Conditions[K][];
+  };
+  render: Exclude<Block, ConditionalBlock>[];
+}>;
 
 // /**
 //  * Declares a block that is only visible when a certain
