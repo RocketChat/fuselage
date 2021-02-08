@@ -1,9 +1,8 @@
+import { PlainText } from '../text/PlainText';
 import { Actionable } from './Actionable';
-import { ElementType } from './ElementType';
-import { PlainText } from './PlainText';
 
 export type LinearScaleElement = Actionable<{
-  type: ElementType.LINEAR_SCALE;
+  type: 'linear_scale';
   minValue?: number;
   maxValue?: number;
   initialValue?: number;

@@ -1,10 +1,9 @@
-import { ElementType } from './ElementType';
-import { ImageElement } from './ImageElement';
+import { ImageElement } from '../element/ImageElement';
+import { TextObject } from '../text/TextObject';
 import { Layout } from './Layout';
-import { TextObject } from './TextObject';
 
 export type ContextBlock = Layout<{
-  type: ElementType.CONTEXT;
+  type: 'context';
   elements: (TextObject | ImageElement)[];
 }>;
 

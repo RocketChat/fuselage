@@ -1,9 +1,8 @@
+import { PlainText } from '../text/PlainText';
 import { Actionable } from './Actionable';
-import { ElementType } from './ElementType';
-import { PlainText } from './PlainText';
 
 export type PlainTextInputElement = Actionable<{
-  type: ElementType.PLAIN_TEXT_INPUT;
+  type: 'plain_text_input';
   placeholder?: PlainText;
   initialValue?: string;
   multiline?: boolean;

@@ -1,5 +1,5 @@
-import { BlockElement } from './BlockElement';
-import { LayoutBlock } from './LayoutBlock';
-import { TextObject } from './TextObject';
+import { BlockElement } from './element/BlockElement';
+import { LayoutBlock } from './layout/LayoutBlock';
+import { TextObject } from './text/TextObject';
 
 export type RenderableBlock = TextObject | BlockElement | LayoutBlock;

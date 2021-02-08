@@ -1,9 +1,8 @@
-import { ElementType } from './ElementType';
+import { PlainText } from '../text/PlainText';
 import { Layout } from './Layout';
-import { PlainText } from './PlainText';
 
 export type ImageBlock = Layout<{
-  type: ElementType.IMAGE;
+  type: 'image';
   imageUrl: string;
   altText: string;
   title?: PlainText;

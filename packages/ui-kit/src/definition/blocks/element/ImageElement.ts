@@ -1,7 +1,5 @@
-import { ElementType } from './ElementType';
-
 export type ImageElement = {
-  type: ElementType.IMAGE;
+  type: 'image';
   imageUrl: string;
   altText: string;
 };

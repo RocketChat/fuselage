@@ -1,8 +1,7 @@
-import { ElementType } from './ElementType';
 import { Layout } from './Layout';
 
 export type DividerBlock = Layout<{
-  type: ElementType.DIVIDER;
+  type: 'divider';
 }>;
 
 // export interface IDividerBlock extends IBlock {

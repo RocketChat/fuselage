@@ -30,7 +30,7 @@ const isElement = (x: RenderableBlock): x is RenderableBlock =>
   x !== null &&
   typeof x === 'object' &&
   'type' in x &&
-  Object.values(ElementType).includes(x.type);
+  (Object.values(ElementType) as string[]).includes(x.type);
 
 // eslint-disable-next-line complexity
 const renderElement = <T>(
@@ -163,7 +163,7 @@ const renderElement = <T>(
 
 export const createElementRenderer = <T>(
   parser: IParser<T>,
-  allowedItems?: ElementType[]
+  allowedItems?: string[]
 ): ElementSetRenderer<T, RenderableBlock> => (
   element: RenderableBlock,
   context: BlockContext,
@@ -195,7 +195,7 @@ const conditionsMatch = (
   return true;
 };
 
-export const createSurfaceRenderer = <T>(allowedBlockTypes?: ElementType[]) => (
+export const createSurfaceRenderer = <T>(allowedBlockTypes?: string[]) => (
   parser: IParser<T>,
   conditions?: Conditions
 ) => (blocks: unknown): unknown => {

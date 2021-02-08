@@ -1,10 +1,9 @@
-import { Conditions } from '../Conditions';
-import { ElementType } from './ElementType';
+import { Conditions } from '../../Conditions';
 import { Layout } from './Layout';
 import { LayoutBlock } from './LayoutBlock';
 
 export type ConditionalBlock = Layout<{
-  type: ElementType.CONDITIONAL;
+  type: 'conditional';
   when?: {
     [K in keyof Conditions]: Conditions[K][];
   };

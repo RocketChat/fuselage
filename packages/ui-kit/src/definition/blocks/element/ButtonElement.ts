@@ -1,9 +1,8 @@
+import { PlainText } from '../text/PlainText';
 import { Actionable } from './Actionable';
-import { ElementType } from './ElementType';
-import { PlainText } from './PlainText';
 
 export type ButtonElement = Actionable<{
-  type: ElementType.BUTTON;
+  type: 'button';
   text: PlainText;
   url?: string;
   value?: string;

@@ -1,12 +1,11 @@
+import { Option } from '../Option';
+import { OptionGroup } from '../OptionGroup';
+import { TextObject } from '../text/TextObject';
 import { Actionable } from './Actionable';
-import { ElementType } from './ElementType';
-import { Option } from './Option';
-import { OptionGroup } from './OptionGroup';
-import { TextObject } from './TextObject';
 
 export type StaticSelectElement = Actionable<
   {
-    type: ElementType.STATIC_SELECT;
+    type: 'static_select';
     placeholder: TextObject;
     options: Option[];
     optionGroups?: OptionGroup[];
