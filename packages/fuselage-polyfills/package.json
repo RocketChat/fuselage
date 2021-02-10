@@ -20,6 +20,7 @@
     "clipboard-polyfill": "^3.0.1",
     "element-closest-polyfill": "^1.0.2",
     "focus-visible": "^5.2.0",
-    "focus-within-polyfill": "^5.1.0"
+    "focus-within-polyfill": "^5.1.0",
+    "new-event-polyfill": "^1.0.1"
   }
 }
