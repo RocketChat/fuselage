@@ -1,11 +1,7 @@
+import { BlockElementType } from '../../../enums/BlockElementType';
+
 export type ImageElement = {
-  type: 'image';
+  type: `${BlockElementType.IMAGE}`;
   imageUrl: string;
   altText: string;
 };
-
-// export interface IImageElement extends IBlockElement {
-//   type: BlockElementType.IMAGE;
-//   imageUrl: string;
-//   altText: string;
-// }

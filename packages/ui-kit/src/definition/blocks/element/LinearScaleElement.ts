@@ -1,8 +1,9 @@
+import { BlockElementType } from '../../../enums/BlockElementType';
 import { PlainText } from '../text/PlainText';
 import { Actionable } from './Actionable';
 
 export type LinearScaleElement = Actionable<{
-  type: 'linear_scale';
+  type: `${BlockElementType.LINEAR_SCALE}`;
   minValue?: number;
   maxValue?: number;
   initialValue?: number;

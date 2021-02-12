@@ -1,4 +1,4 @@
-export enum BlockType {
+export enum LayoutBlockType {
   SECTION = 'section',
   DIVIDER = 'divider',
   IMAGE = 'image',

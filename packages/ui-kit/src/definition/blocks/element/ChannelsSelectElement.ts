@@ -1,5 +1,6 @@
+import { BlockElementType } from '../../../enums/BlockElementType';
 import { Actionable } from './Actionable';
 
 export type ChannelsSelectElement = Actionable<{
-  type: 'channels_select';
+  type: `${BlockElementType.CHANNELS_SELECT}`;
 }>;

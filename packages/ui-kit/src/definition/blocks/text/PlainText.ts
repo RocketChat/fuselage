@@ -1,5 +1,7 @@
+import { TextObjectType } from '../../../enums/TextObjectType';
+
 export type PlainText = {
-  type: 'plain_text';
+  type: `${TextObjectType.PLAIN_TEXT}`;
   text: string;
   emoji?: boolean;
 };

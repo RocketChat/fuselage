@@ -10,7 +10,9 @@ import { ElementSetRenderer } from '../definition/rendering/ElementSetRenderer';
 import { IParser } from '../definition/rendering/IParser';
 import { ElementType } from '../enums';
 import { BlockContext } from '../enums/BlockContext';
-import { createElementRenderer, createSurfaceRenderer } from '../functions';
+import { LayoutBlockType } from '../enums/LayoutBlockType';
+import { createElementRenderer } from '../functions';
+import { createSurfaceRenderer } from '../rendering';
 
 export abstract class UiKitParserMessage<Element> implements IParser<Element> {
   plainText(
@@ -82,10 +84,10 @@ export abstract class UiKitParserMessage<Element> implements IParser<Element> {
   ]);
 }
 
-export const uiKitMessage = createSurfaceRenderer<unknown>([
-  ElementType.DIVIDER,
-  ElementType.SECTION,
-  ElementType.IMAGE,
-  ElementType.ACTIONS,
-  ElementType.CONTEXT,
+export const uiKitMessage = createSurfaceRenderer([
+  LayoutBlockType.ACTIONS,
+  LayoutBlockType.CONTEXT,
+  LayoutBlockType.DIVIDER,
+  LayoutBlockType.IMAGE,
+  LayoutBlockType.SECTION,
 ]);

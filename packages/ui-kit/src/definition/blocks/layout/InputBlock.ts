@@ -1,3 +1,4 @@
+import { LayoutBlockType } from '../../../enums/LayoutBlockType';
 import { ChannelsSelectElement } from '../element/ChannelsSelectElement';
 import { ConversationsSelectElement } from '../element/ConversationsSelectElement';
 import { DatePickerElement } from '../element/DatePickerElement';
@@ -10,7 +11,7 @@ import { PlainText } from '../text/PlainText';
 import { Layout } from './Layout';
 
 export type InputBlock = Layout<{
-  type: 'input';
+  type: `${LayoutBlockType.INPUT}`;
   label: PlainText;
   element:
     | ChannelsSelectElement

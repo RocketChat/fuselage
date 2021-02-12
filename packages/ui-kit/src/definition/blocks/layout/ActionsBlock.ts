@@ -1,3 +1,4 @@
+import { LayoutBlockType } from '../../../enums/LayoutBlockType';
 import { ButtonElement } from '../element/ButtonElement';
 import { DatePickerElement } from '../element/DatePickerElement';
 import { LinearScaleElement } from '../element/LinearScaleElement';
@@ -7,7 +8,7 @@ import { StaticSelectElement } from '../element/StaticSelectElement';
 import { Layout } from './Layout';
 
 export type ActionsBlock = Layout<{
-  type: 'actions';
+  type: `${LayoutBlockType.ACTIONS}`;
   elements: (
     | ButtonElement
     | StaticSelectElement

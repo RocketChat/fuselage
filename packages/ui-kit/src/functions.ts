@@ -1,4 +1,3 @@
-import { Conditions } from './definition/Conditions';
 import {
   Block,
   TextObject,
@@ -17,7 +16,6 @@ import {
   MultiStaticSelectElement,
   OverflowElement,
   PlainTextInputElement,
-  ConditionalBlock,
   LinearScaleElement,
 } from './definition/blocks';
 import { ElementRenderer } from './definition/rendering/ElementRenderer';
@@ -25,12 +23,6 @@ import { ElementSetRenderer } from './definition/rendering/ElementSetRenderer';
 import { IParser } from './definition/rendering/IParser';
 import { ElementType } from './enums';
 import { BlockContext } from './enums/BlockContext';
-
-const isElement = (x: Block): x is Block =>
-  x !== null &&
-  typeof x === 'object' &&
-  'type' in x &&
-  (Object.values(ElementType) as string[]).includes(x.type);
 
 // eslint-disable-next-line complexity
 const renderElement = <T>(
@@ -175,54 +167,4 @@ export const createElementRenderer = <T>(
   }
 
   return renderElement<T>(element, context, parser, index);
-};
-
-const conditionsMatch = (
-  conditions: Conditions | undefined = undefined,
-  filters: ConditionalBlock['when'] = {}
-): boolean => {
-  if (!conditions) {
-    return true;
-  }
-
-  if (
-    Array.isArray(filters.engine) &&
-    !filters.engine.includes(conditions.engine)
-  ) {
-    return false;
-  }
-
-  return true;
-};
-
-export const createSurfaceRenderer = <T>(allowedBlockTypes?: string[]) => (
-  parser: IParser<T>,
-  conditions?: Conditions
-) => (blocks: unknown): unknown => {
-  if (!Array.isArray(blocks)) {
-    return [];
-  }
-
-  return Array.prototype
-    .concat(
-      ...blocks.filter<Block>(isElement).map((element) => {
-        if (element.type === ElementType.CONDITIONAL) {
-          const conditionalBlock = element as ConditionalBlock;
-          if (conditionsMatch(conditions, conditionalBlock.when)) {
-            return conditionalBlock.render;
-          }
-
-          return [];
-        }
-
-        return [element];
-      })
-    )
-    .filter(
-      (element) =>
-        !allowedBlockTypes || allowedBlockTypes.includes(element.type)
-    )
-    .map((element: Block, index: number) =>
-      renderElement(element, BlockContext.BLOCK, parser, index)
-    );
 };

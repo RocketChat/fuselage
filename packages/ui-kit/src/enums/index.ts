@@ -10,7 +10,7 @@ export {
   BlockContext as BLOCK_CONTEXT,
 } from './BlockContext';
 
-export { BlockType } from './BlockType';
+export { LayoutBlockType as BlockType } from './LayoutBlockType';
 export { BlockElementType } from './BlockElementType';
 export { TextObjectType } from './TextObjectType';
 export { ButtonStyle } from './ButtonStyle';

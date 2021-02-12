@@ -2,12 +2,16 @@ export enum BlockElementType {
   BUTTON = 'button',
   IMAGE = 'image',
   OVERFLOW = 'overflow',
+  /** @deprecated */
   OVERFLOW_MENU = 'overflow',
   PLAIN_TEXT_INPUT = 'plain_text_input',
   STATIC_SELECT = 'static_select',
   MULTI_STATIC_SELECT = 'multi_static_select',
+  /** @deprecated */
   CONVERSATION_SELECT = 'conversations_select',
+  /** @deprecated */
   CHANNEL_SELECT = 'channels_select',
+  /** @deprecated */
   USER_SELECT = 'users_select',
   CONVERSATIONS_SELECT = 'conversations_select',
   CHANNELS_SELECT = 'channels_select',

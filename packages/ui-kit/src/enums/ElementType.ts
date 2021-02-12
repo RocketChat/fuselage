@@ -1,21 +1,22 @@
+/** @deprecated */
 export enum ElementType {
-  PLAIN_TEXT = 'plain_text', // TextObjectType.PLAIN_TEXT
-  MARKDOWN = 'mrkdwn', // TextObjectType.MARKDOWN
-  DIVIDER = 'divider', // BlockType.DIVIDER
-  SECTION = 'section', // BlockType.SECTION
-  INPUT = 'input', // BlockType.INPUT
-  CONDITIONAL = 'conditional', // BlockType.CONDITIONAL
-  IMAGE = 'image', // BlockType.IMAGE | BlockElementType.IMAGE
-  ACTIONS = 'actions', // BlockType.ACTIONS
-  CONTEXT = 'context', // BlockType.CONTEXT
-  BUTTON = 'button', // BlockElementType.BUTTON
-  OVERFLOW = 'overflow', // BlockElementType.OVERFLOW
-  PLAIN_TEXT_INPUT = 'plain_text_input', // BlockElementType.PLAIN_TEXT_INPUT
-  CONVERSATION_SELECT = 'conversations_select', // BlockElementType.CONVERSATIONS_SELECT
-  CHANNEL_SELECT = 'channels_select', // BlockElementType.CHANNELS_SELECT
-  USER_SELECT = 'users_select', // BlockElementType.USERS_SELECT
-  STATIC_SELECT = 'static_select', // BlockElementType.STATIC_SELECT
-  MULTI_STATIC_SELECT = 'multi_static_select', // BlockElementType.MULTI_STATIC_SELECT
-  DATEPICKER = 'datepicker', // BlockElementType.DATEPICKER
-  LINEAR_SCALE = 'linear_scale', // BlockElementType.LINEAR_SCALE
+  PLAIN_TEXT = 'plain_text',
+  MARKDOWN = 'mrkdwn',
+  DIVIDER = 'divider',
+  SECTION = 'section',
+  INPUT = 'input',
+  CONDITIONAL = 'conditional',
+  IMAGE = 'image',
+  ACTIONS = 'actions',
+  CONTEXT = 'context',
+  BUTTON = 'button',
+  OVERFLOW = 'overflow',
+  PLAIN_TEXT_INPUT = 'plain_text_input',
+  CONVERSATION_SELECT = 'conversations_select',
+  CHANNEL_SELECT = 'channels_select',
+  USER_SELECT = 'users_select',
+  STATIC_SELECT = 'static_select',
+  MULTI_STATIC_SELECT = 'multi_static_select',
+  DATEPICKER = 'datepicker',
+  LINEAR_SCALE = 'linear_scale',
 }

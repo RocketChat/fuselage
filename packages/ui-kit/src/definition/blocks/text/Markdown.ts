@@ -1,5 +1,7 @@
+import { TextObjectType } from '../../../enums/TextObjectType';
+
 export type Markdown = {
-  type: 'mrkdwn';
+  type: `${TextObjectType.MARKDOWN}`;
   text: string;
   verbatim?: boolean;
 };
