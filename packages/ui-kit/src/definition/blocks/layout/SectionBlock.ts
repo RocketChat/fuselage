@@ -12,10 +12,10 @@ export type SectionBlock = Layout<{
   text?: TextObject;
   fields?: TextObject[];
   accessory?:
-    | ImageElement
     | ButtonElement
     | DatePickerElement
-    | StaticSelectElement
+    | ImageElement
     | MultiStaticSelectElement
-    | OverflowElement;
+    | OverflowElement
+    | StaticSelectElement;
 }>;

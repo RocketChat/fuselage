@@ -51,26 +51,45 @@ type BlockRenderers<OutputElement> = Partial<
 
 export interface ISurfaceRenderer<OutputElement>
   extends BlockRenderers<OutputElement> {
+  /** @deprecated */
   plainText: ElementRenderer<OutputElement, PlainText>;
+
+  /** @deprecated */
   text: ElementRenderer<OutputElement, TextObject>;
 
+  /** @deprecated */
   datePicker?: ElementRenderer<OutputElement, DatePickerElement>;
+
+  /** @deprecated */
   staticSelect?: ElementRenderer<OutputElement, StaticSelectElement>;
+
+  /** @deprecated */
   multiStaticSelect?: ElementRenderer<OutputElement, MultiStaticSelectElement>;
+
+  /** @deprecated */
   plainInput?: ElementRenderer<OutputElement, PlainTextInputElement>;
+
+  /** @deprecated */
   linearScale?: ElementRenderer<OutputElement, LinearScaleElement>;
 
+  /** @deprecated */
   renderAccessories?: ElementSetRenderer<
     OutputElement,
     Exclude<SectionBlock['accessory'], undefined>
   >;
+
+  /** @deprecated */
   renderActions?: ElementSetRenderer<
     OutputElement,
     ActionsBlock['elements'][number]
   >;
+
+  /** @deprecated */
   renderContext?: ElementSetRenderer<
     OutputElement,
     ContextBlock['elements'][number]
   >;
+
+  /** @deprecated */
   renderInputs?: ElementSetRenderer<OutputElement, InputBlock['element']>;
 }

@@ -1,18 +1,31 @@
 import { Conditions } from './definition/Conditions';
 import {
+  ActionsBlock,
   Block,
+  BlockElement,
   ConditionalBlock,
+  ContextBlock,
+  InputBlock,
   LayoutBlock,
   Markdown,
   PlainText,
+  SectionBlock,
   TextObject,
 } from './definition/blocks';
 import { ISurfaceRenderer } from './definition/rendering/ISurfaceRenderer';
 import { BlockContext, TextObjectType } from './enums';
+import { LayoutBlockType } from './enums/LayoutBlockType';
 import {
+  isActionsBlockElement,
   isAllowedLayoutBlock,
+  isContextBlockElement,
+  isInputBlockElement,
   isNotNull,
+  isSectionBlockAccessoryElement,
+  isTextObject,
+  renderBlockElement,
   renderLayoutBlock,
+  renderTextObject,
   resolveConditionalBlocks,
 } from './rendering';
 
@@ -35,6 +48,113 @@ export abstract class BaseSurfaceRenderer<OutputElement>
       .filter(isAllowedLayoutBlock(this.allowedLayoutBlockTypes))
       .map(renderLayoutBlock(this))
       .filter(isNotNull);
+  }
+
+  public renderTextObject(
+    textObject: TextObject,
+    index: number,
+    context: BlockContext
+  ): OutputElement | null {
+    return renderTextObject(this, context)(textObject, index);
+  }
+
+  public renderActionsBlockElement(
+    block: BlockElement,
+    index: number
+  ): OutputElement | null {
+    if (
+      this.allowedLayoutBlockTypes?.includes(LayoutBlockType.ACTIONS) ===
+        false &&
+      !isActionsBlockElement(block)
+    ) {
+      return null;
+    }
+
+    return renderBlockElement(this, BlockContext.ACTION)(block, index);
+  }
+
+  public renderActions(
+    element: ActionsBlock['elements'][number],
+    _context: BlockContext,
+    _: undefined,
+    index: number
+  ): OutputElement | null {
+    return this.renderActionsBlockElement(element, index);
+  }
+
+  public renderContextBlockElement(
+    block: TextObject | BlockElement,
+    index: number
+  ): OutputElement | null {
+    if (
+      this.allowedLayoutBlockTypes?.includes(LayoutBlockType.CONTEXT) ===
+        false &&
+      !isContextBlockElement(block)
+    ) {
+      return null;
+    }
+
+    if (isTextObject(block)) {
+      return renderTextObject(this, BlockContext.CONTEXT)(block, index);
+    }
+
+    return renderBlockElement(this, BlockContext.CONTEXT)(block, index);
+  }
+
+  public renderContext(
+    element: ContextBlock['elements'][number],
+    _context: BlockContext,
+    _: undefined,
+    index: number
+  ): OutputElement | null {
+    return this.renderContextBlockElement(element, index);
+  }
+
+  public renderInputBlockElement(
+    block: BlockElement,
+    index: number
+  ): OutputElement | null {
+    if (
+      this.allowedLayoutBlockTypes?.includes(LayoutBlockType.INPUT) === false &&
+      !isInputBlockElement(block)
+    ) {
+      return null;
+    }
+
+    return renderBlockElement(this, BlockContext.FORM)(block, index);
+  }
+
+  public renderInputs(
+    element: InputBlock['element'],
+    _context: BlockContext,
+    _: undefined,
+    index: number
+  ): OutputElement | null {
+    return this.renderInputBlockElement(element, index);
+  }
+
+  public renderSectionAccessoryBlockElement(
+    block: BlockElement,
+    index: number
+  ): OutputElement | null {
+    if (
+      this.allowedLayoutBlockTypes?.includes(LayoutBlockType.SECTION) ===
+        false &&
+      !isSectionBlockAccessoryElement(block)
+    ) {
+      return null;
+    }
+
+    return renderBlockElement(this, BlockContext.SECTION)(block, index);
+  }
+
+  public renderAccessories(
+    element: Exclude<SectionBlock['accessory'], undefined>,
+    _context: BlockContext,
+    _: undefined,
+    index: number
+  ): OutputElement | null {
+    return this.renderSectionAccessoryBlockElement(element, index);
   }
 
   public plainText(
