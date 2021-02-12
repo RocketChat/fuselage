@@ -102,17 +102,30 @@
   }
 
   code {
-    padding: lengths.padding(4) lengths.padding(8);
+    display: inline;
 
+    padding: lengths.padding(1) lengths.padding(4);
+
+    vertical-align: middle;
+
+    white-space: pre-wrap;
     letter-spacing: inherit;
+    word-wrap: break-word;
 
+    color: colors.foreground(default);
+    border-width: lengths.border-width(1);
+    border-color: colors.neutral(500);
     border-radius: lengths.border-radius(2);
-    background-color: colors.neutral(300);
+    background-color: colors.neutral(100);
 
     font: inherit;
-    font-family: typography.font-family(mono);
 
+    font-family: typography.font-family(mono);
+    direction: ltr;
     -webkit-font-smoothing: auto;
+    @include typography.use-font-scale(c2);
+
+    unicode-bidi: embed;
   }
 
   time {
@@ -283,8 +296,6 @@
   }
 
   pre {
-    margin: lengths.margin(16) lengths.margin(none);
-
     letter-spacing: inherit;
 
     font: inherit;
@@ -293,13 +304,12 @@
     code {
       display: block;
 
-      padding: lengths.padding(16);
+      overflow-y: hidden;
+
+      margin: lengths.margin(8) lengths.margin(none);
+      padding: lengths.margin(8);
 
       letter-spacing: inherit;
-
-      color: inherit;
-
-      font: inherit;
     }
   }
 }
