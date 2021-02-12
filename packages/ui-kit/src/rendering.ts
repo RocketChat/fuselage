@@ -1,6 +1,7 @@
+import { BaseSurfaceRenderer } from './BaseSurfaceRenderer';
 import { Conditions } from './definition/Conditions';
 import { Block, ConditionalBlock, LayoutBlock } from './definition/blocks';
-import { IParser } from './definition/rendering/IParser';
+import { ISurfaceRenderer } from './definition/rendering/ISurfaceRenderer';
 import { BlockContext } from './enums';
 import { LayoutBlockType } from './enums/LayoutBlockType';
 
@@ -22,7 +23,7 @@ const conditionsMatch = (
   return true;
 };
 
-const resolveConditionalBlocks = (conditions?: Conditions) => (
+export const resolveConditionalBlocks = (conditions?: Conditions) => (
   block: Block
 ): Block[] => {
   if (block.type !== LayoutBlockType.CONDITIONAL) {
@@ -36,7 +37,7 @@ const resolveConditionalBlocks = (conditions?: Conditions) => (
   return [];
 };
 
-const isAllowedLayoutBlock = (
+export const isAllowedLayoutBlock = (
   allowedLayoutBlockTypes?: Exclude<LayoutBlock, ConditionalBlock>['type'][]
 ) => (block: Block): block is Exclude<LayoutBlock, ConditionalBlock> => {
   return (
@@ -45,8 +46,8 @@ const isAllowedLayoutBlock = (
   );
 };
 
-const renderLayoutBlock = <OutputElement>(
-  renderers: IParser<OutputElement>
+export const renderLayoutBlock = <OutputElement>(
+  renderers: ISurfaceRenderer<OutputElement>
 ) => (
   layoutBlock: Exclude<LayoutBlock, ConditionalBlock>,
   index: number
@@ -64,20 +65,12 @@ const renderLayoutBlock = <OutputElement>(
   return renderer(layoutBlock, BlockContext.BLOCK, index);
 };
 
-const isNotNull = <T>(value: T | null): value is T => value !== null;
+export const isNotNull = <T>(value: T | null): value is T => value !== null;
 
-export const createSurfaceRenderer = <OutputElement>(
-  allowedLayoutBlockTypes?: Exclude<LayoutBlock, ConditionalBlock>['type'][]
-) => (parser: IParser<OutputElement>, conditions?: Conditions) => (
-  blocks: Block[]
-): OutputElement[] => {
-  if (!Array.isArray(blocks)) {
-    return [];
-  }
+type GenericBlock = { type: string };
 
-  return blocks
-    .flatMap(resolveConditionalBlocks(conditions))
-    .filter(isAllowedLayoutBlock(allowedLayoutBlockTypes))
-    .map(renderLayoutBlock(parser))
-    .filter(isNotNull);
-};
+export const createSurfaceRenderer = <OutputElement>() => (
+  surfaceRenderer: BaseSurfaceRenderer<OutputElement>,
+  conditions?: Conditions
+) => (blocks: readonly GenericBlock[]) =>
+  surfaceRenderer.render(blocks as Block[], conditions);

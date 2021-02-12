@@ -20,7 +20,7 @@ import {
 } from './definition/blocks';
 import { ElementRenderer } from './definition/rendering/ElementRenderer';
 import { ElementSetRenderer } from './definition/rendering/ElementSetRenderer';
-import { IParser } from './definition/rendering/IParser';
+import { ISurfaceRenderer } from './definition/rendering/ISurfaceRenderer';
 import { ElementType } from './enums';
 import { BlockContext } from './enums/BlockContext';
 
@@ -28,7 +28,7 @@ import { BlockContext } from './enums/BlockContext';
 const renderElement = <T>(
   element: Block,
   context: BlockContext,
-  parser: IParser<T>,
+  parser: ISurfaceRenderer<T>,
   index: number
 ): T | null => {
   switch (element.type) {
@@ -44,7 +44,7 @@ const renderElement = <T>(
         return parser.text(element as TextObject, context, index);
       }
 
-      return parser.mrkdwn(element as Markdown, context, index);
+      return parser.mrkdwn?.(element as Markdown, context, index) ?? null;
 
     case ElementType.DIVIDER:
       if (context !== BlockContext.BLOCK) {
@@ -154,7 +154,7 @@ const renderElement = <T>(
 };
 
 export const createElementRenderer = <T>(
-  parser: IParser<T>,
+  parser: ISurfaceRenderer<T>,
   allowedItems?: string[]
 ): ElementSetRenderer<T, Block> => (
   element: Block,

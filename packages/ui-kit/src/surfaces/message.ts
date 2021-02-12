@@ -1,50 +1,26 @@
-import {
-  ActionsBlock,
-  ContextBlock,
-  Markdown,
-  PlainText,
-  SectionBlock,
-  TextObject,
-} from '../definition/blocks';
+import { BaseSurfaceRenderer } from '../BaseSurfaceRenderer';
+import { ActionsBlock, ContextBlock, SectionBlock } from '../definition/blocks';
 import { ElementSetRenderer } from '../definition/rendering/ElementSetRenderer';
-import { IParser } from '../definition/rendering/IParser';
 import { ElementType } from '../enums';
-import { BlockContext } from '../enums/BlockContext';
 import { LayoutBlockType } from '../enums/LayoutBlockType';
 import { createElementRenderer } from '../functions';
 import { createSurfaceRenderer } from '../rendering';
 
-export abstract class UiKitParserMessage<Element> implements IParser<Element> {
-  plainText(
-    _element: PlainText,
-    _context: BlockContext,
-    _index: number
-  ): Element | null {
-    return null;
-  }
-
-  mrkdwn(
-    _element: Markdown,
-    _context: BlockContext,
-    _index: number
-  ): Element | null {
-    return null;
-  }
-
-  text(text: TextObject, context: BlockContext, index: number): Element | null {
-    if (text.type === ElementType.PLAIN_TEXT) {
-      return this.plainText(text as PlainText, context, index);
-    }
-
-    if (text.type === ElementType.MARKDOWN) {
-      return this.mrkdwn(text as Markdown, context, index);
-    }
-
-    return null;
+export abstract class UiKitParserMessage<
+  OutputElement
+> extends BaseSurfaceRenderer<OutputElement> {
+  public constructor() {
+    super([
+      LayoutBlockType.ACTIONS,
+      LayoutBlockType.CONTEXT,
+      LayoutBlockType.DIVIDER,
+      LayoutBlockType.IMAGE,
+      LayoutBlockType.SECTION,
+    ]);
   }
 
   renderAccessories: ElementSetRenderer<
-    Element,
+    OutputElement,
     Exclude<SectionBlock['accessory'], undefined>
   > = createElementRenderer(this, [
     ElementType.BUTTON,
@@ -60,7 +36,7 @@ export abstract class UiKitParserMessage<Element> implements IParser<Element> {
   ]);
 
   renderActions: ElementSetRenderer<
-    Element,
+    OutputElement,
     ActionsBlock['elements'][number]
   > = createElementRenderer(this, [
     ElementType.BUTTON,
@@ -75,7 +51,7 @@ export abstract class UiKitParserMessage<Element> implements IParser<Element> {
   ]);
 
   renderContext: ElementSetRenderer<
-    Element,
+    OutputElement,
     ContextBlock['elements'][number]
   > = createElementRenderer(this, [
     ElementType.IMAGE,
@@ -84,10 +60,4 @@ export abstract class UiKitParserMessage<Element> implements IParser<Element> {
   ]);
 }
 
-export const uiKitMessage = createSurfaceRenderer([
-  LayoutBlockType.ACTIONS,
-  LayoutBlockType.CONTEXT,
-  LayoutBlockType.DIVIDER,
-  LayoutBlockType.IMAGE,
-  LayoutBlockType.SECTION,
-]);
+export const uiKitMessage = createSurfaceRenderer();
