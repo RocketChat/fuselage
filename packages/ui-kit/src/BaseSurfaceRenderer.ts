@@ -73,6 +73,7 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     return renderBlockElement(this, BlockContext.ACTION)(block, index);
   }
 
+  /** @deprecated */
   public renderActions(
     element: ActionsBlock['elements'][number],
     _context: BlockContext,
@@ -101,6 +102,7 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     return renderBlockElement(this, BlockContext.CONTEXT)(block, index);
   }
 
+  /** @deprecated */
   public renderContext(
     element: ContextBlock['elements'][number],
     _context: BlockContext,
@@ -124,6 +126,7 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     return renderBlockElement(this, BlockContext.FORM)(block, index);
   }
 
+  /** @deprecated */
   public renderInputs(
     element: InputBlock['element'],
     _context: BlockContext,
@@ -148,6 +151,7 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     return renderBlockElement(this, BlockContext.SECTION)(block, index);
   }
 
+  /** @deprecated */
   public renderAccessories(
     element: Exclude<SectionBlock['accessory'], undefined>,
     _context: BlockContext,
@@ -157,6 +161,7 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     return this.renderSectionAccessoryBlockElement(element, index);
   }
 
+  /** @deprecated */
   public plainText(
     _element: PlainText,
     _context: BlockContext,
@@ -165,6 +170,7 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     return null;
   }
 
+  /** @deprecated */
   public mrkdwn(
     _element: Markdown,
     _context: BlockContext,
@@ -173,6 +179,7 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     return null;
   }
 
+  /** @deprecated */
   public text(
     textObject: TextObject,
     context: BlockContext,

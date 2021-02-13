@@ -11,27 +11,12 @@ import {
   SectionBlock,
   TextObject,
 } from './definition/blocks';
+import { BlockElementRenderer } from './definition/rendering/BlockElementRenderer';
 import { ISurfaceRenderer } from './definition/rendering/ISurfaceRenderer';
+import { LayoutBlockRenderer } from './definition/rendering/LayoutBlockRenderer';
+import { TextObjectRenderer } from './definition/rendering/TextObjectRenderer';
 import { BlockContext, BlockElementType, TextObjectType } from './enums';
 import { LayoutBlockType } from './enums/LayoutBlockType';
-
-type LayoutBlockRenderer<OutputElement> = (
-  layoutBlock: Exclude<LayoutBlock, ConditionalBlock>,
-  context: BlockContext.BLOCK,
-  index: number
-) => OutputElement | null;
-
-type BlockElementRenderer<OutputElement> = (
-  blockElement: BlockElement,
-  context: BlockContext,
-  index: number
-) => OutputElement | null;
-
-type TextObjectRenderer<OutputElement> = (
-  textObject: TextObject,
-  context: BlockContext,
-  index: number
-) => OutputElement | null;
 
 const conditionsMatch = (
   conditions: Conditions | undefined = undefined,
@@ -76,7 +61,7 @@ export const isAllowedLayoutBlock = (
 
 const getLayoutBlockRenderer = <OutputElement>(
   renderers: ISurfaceRenderer<OutputElement>,
-  type: LayoutBlock['type']
+  type: Exclude<LayoutBlock, ConditionalBlock>['type']
 ): LayoutBlockRenderer<OutputElement> | undefined => {
   return renderers[type] as LayoutBlockRenderer<OutputElement> | undefined;
 };
