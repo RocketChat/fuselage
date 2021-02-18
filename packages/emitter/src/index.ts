@@ -1,5 +1,5 @@
 /** @public */
-export type DefaultEventMap = Record<string | symbol, unknown>;
+export type DefaultEventMap = Record<string | symbol, void>;
 
 /** @public */
 export type AnyEventTypeOf<EventMap extends DefaultEventMap> = keyof EventMap;
@@ -71,7 +71,9 @@ export interface IEmitter<EventMap extends DefaultEventMap = DefaultEventMap> {
     EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
   >(
     type: EventType,
-    event: EventOf<EventMap, EventType>
+    ...[event]: EventOf<EventMap, EventType> extends void
+      ? [undefined?]
+      : [EventOf<EventMap, EventType>]
   ): void;
   has(key: AnyEventTypeOf<EventMap>): boolean;
   events(): AnyEventTypeOf<EventMap>[];
@@ -179,7 +181,12 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
   emit<
     T extends AnyEventOf<EventMap>,
     EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
-  >(type: EventType, event: EventOf<EventMap, EventType>): void {
+  >(
+    type: EventType,
+    ...[event]: EventOf<EventMap, EventType> extends void
+      ? [undefined?]
+      : [EventOf<EventMap, EventType>]
+  ): void {
     [...(this[evts].get(type) ?? [])].forEach(
       (handler: EventHandlerOf<EventMap, EventType>) => {
         handler(event);
