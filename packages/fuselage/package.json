@@ -52,6 +52,7 @@
   "dependencies": {
     "@rocket.chat/css-in-js": "^0.21.0",
     "@rocket.chat/fuselage-tokens": "^0.21.0",
+    "@rocket.chat/memo": "^0.6.3-dev.180",
     "invariant": "^2.2.4",
     "react-keyed-flatten-children": "^1.2.0"
   },
