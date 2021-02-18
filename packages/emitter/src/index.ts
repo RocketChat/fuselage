@@ -16,6 +16,39 @@ export interface IEmitter {
   once<T = any>(type: EventType, handler: Handler<T>): void;
   off<T = any>(type: EventType, handler: Handler<T>): void;
   emit<T = any>(type: EventType, event?: T): void;
+  has(key: EventType): boolean;
+  events(): EventType[];
+}
+
+/**
+ * @public
+ */
+export type TypedHandler<T> = (event: T) => void;
+
+/**
+ * Same implementation of IEmitter, but reinforcing types.
+ *
+ * @public
+ */
+export interface ITypedEmitter<Events> {
+  on<E extends keyof Events>(
+    type: E,
+    handler: TypedHandler<Events[E]>
+  ): OffCallbackHandler;
+  once<E extends keyof Events>(
+    type: E,
+    handler: TypedHandler<Events[E]>
+  ): OffCallbackHandler;
+  off<E extends keyof Events>(
+    type: E,
+    handler: TypedHandler<Events[E]>
+  ): OffCallbackHandler;
+  emit<E extends keyof Events>(
+    type: E,
+    ...event: Events[E] extends undefined ? [] : [Events[E]]
+  ): void;
+  has(key: keyof Events): boolean;
+  events(): Array<keyof Events>;
 }
 
 type OffCallbackHandler = () => void;
