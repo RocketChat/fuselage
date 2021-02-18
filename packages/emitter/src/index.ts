@@ -1,5 +1,5 @@
 /** @public */
-export type DefaultEventMap = Record<string | symbol, void>;
+export type DefaultEventMap = Record<string | symbol, any>;
 
 /** @public */
 export type AnyEventTypeOf<EventMap extends DefaultEventMap> = keyof EventMap;
