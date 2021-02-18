@@ -20,6 +20,12 @@
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [EventType](./emitter.eventtype.md) |  |
-|  [Handler](./emitter.handler.md) |  |
+|  [AnyEventHandlerOf](./emitter.anyeventhandlerof.md) |  |
+|  [AnyEventOf](./emitter.anyeventof.md) |  |
+|  [AnyEventTypeOf](./emitter.anyeventtypeof.md) |  |
+|  [DefaultEventMap](./emitter.defaulteventmap.md) |  |
+|  [EventHandlerOf](./emitter.eventhandlerof.md) |  |
+|  [EventOf](./emitter.eventof.md) |  |
+|  [EventTypeOf](./emitter.eventtypeof.md) |  |
+|  [OffCallbackHandler](./emitter.offcallbackhandler.md) |  |
 

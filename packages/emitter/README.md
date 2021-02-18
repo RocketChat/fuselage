@@ -35,8 +35,14 @@ yarn add @rocket.chat/emitter
 
 #### Table of Contents
 
--   [EventType](#eventtype)
--   [Handler](#handler)
+-   [DefaultEventMap](#defaulteventmap)
+-   [AnyEventTypeOf](#anyeventtypeof)
+-   [AnyEventOf](#anyeventof)
+-   [AnyEventHandlerOf](#anyeventhandlerof)
+-   [EventTypeOf](#eventtypeof)
+-   [EventOf](#eventof)
+-   [EventHandlerOf](#eventhandlerof)
+-   [OffCallbackHandler](#offcallbackhandler)
 -   [IEmitter](#iemitter)
 -   [Emitter](#emitter)
     -   [events](#events)
@@ -51,13 +57,37 @@ yarn add @rocket.chat/emitter
     -   [emit](#emit)
         -   [Parameters](#parameters-4)
 
-### EventType
+### DefaultEventMap
 
-Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [symbol](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol))
+Type: Record&lt;([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [symbol](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol)), any>
 
-### Handler
+### AnyEventTypeOf
 
-Type: function (event: T): void
+Type: any
+
+### AnyEventOf
+
+Type: any
+
+### AnyEventHandlerOf
+
+Type: any
+
+### EventTypeOf
+
+Type: any
+
+### EventOf
+
+Type: any
+
+### EventHandlerOf
+
+Type: any
+
+### OffCallbackHandler
+
+Type: function (): void
 
 ### IEmitter
 
@@ -69,7 +99,7 @@ The event emitter class.
 
 Returns the whole EventType list
 
-Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[EventType](#eventtype)>** 
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[AnyEventTypeOf](#anyeventtypeof)&lt;EventMap>>** 
 
 #### has
 
@@ -77,7 +107,7 @@ Returns `true` if this emmiter has a listener attached to the `key` event type
 
 ##### Parameters
 
--   `key` **[EventType](#eventtype)** 
+-   `key` **[AnyEventTypeOf](#anyeventtypeof)&lt;EventMap>** 
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
@@ -87,10 +117,10 @@ Adds the `handler` function to listen events of the `type` type.
 
 ##### Parameters
 
--   `type` **[EventType](#eventtype)** 
--   `handler` **[Handler](#handler)&lt;T>** 
+-   `type` **EventType** 
+-   `handler` **[EventHandlerOf](#eventhandlerof)&lt;EventMap, EventType>** 
 
-Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
+Returns **[OffCallbackHandler](#offcallbackhandler)** a function to unsubscribe the handler invoking `this.off(type, handler)`
 
 #### once
 
@@ -98,10 +128,10 @@ Adds a _one-time_ `handler` function for the event of the `type` type.
 
 ##### Parameters
 
--   `type` **[EventType](#eventtype)** 
--   `handler` **[Handler](#handler)&lt;T>** 
+-   `type` **EventType** 
+-   `handler` **[EventHandlerOf](#eventhandlerof)&lt;EventMap, EventType>** 
 
-Returns **OffCallbackHandler** a function to unsubscribe the handler invoking `this.off(type, handler)`
+Returns **[OffCallbackHandler](#offcallbackhandler)** a function to unsubscribe the handler invoking `this.off(type, handler)`
 
 #### off
 
@@ -109,8 +139,8 @@ Removes the specified `handler` from the list of handlers of the event of the `t
 
 ##### Parameters
 
--   `type` **[EventType](#eventtype)** 
--   `handler` **[Handler](#handler)&lt;T>** 
+-   `type` **EventType** 
+-   `handler` **[EventHandlerOf](#eventhandlerof)&lt;EventMap, EventType>** 
 
 Returns **void** 
 
@@ -121,7 +151,7 @@ order they were registered, passing the supplied argument `e` to each.
 
 ##### Parameters
 
--   `type` **[EventType](#eventtype)** 
--   `e` **T?** 
+-   `type` **EventType** 
+-   `event` **[EventOf](#eventof)&lt;EventMap, EventType>** 
 
 Returns **void** 

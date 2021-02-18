@@ -1,60 +1,81 @@
-/**
- * @public
- */
-export type EventType = string | symbol;
+/** @public */
+export type DefaultEventMap = Record<string | symbol, unknown>;
 
-/**
- * @public
- */
-export type Handler<T = any> = (event?: T) => void;
+/** @public */
+export type AnyEventTypeOf<EventMap extends DefaultEventMap> = keyof EventMap;
 
-/**
- * @public
- */
-export interface IEmitter {
-  on<T = any>(type: EventType, handler: Handler<T>): void;
-  once<T = any>(type: EventType, handler: Handler<T>): void;
-  off<T = any>(type: EventType, handler: Handler<T>): void;
-  emit<T = any>(type: EventType, event?: T): void;
-  has(key: EventType): boolean;
-  events(): EventType[];
-}
+/** @public */
+export type AnyEventOf<
+  EventMap extends DefaultEventMap
+> = EventMap[keyof EventMap];
 
-/**
- * @public
- */
-export type TypedHandler<T> = (event: T) => void;
+/** @public */
+export type AnyEventHandlerOf<EventMap extends DefaultEventMap> = {
+  [EventType in keyof EventMap]: EventMap[EventType] extends void
+    ? () => void
+    : (event: EventMap[EventType]) => void;
+}[keyof EventMap];
 
-/**
- * Same implementation of IEmitter, but reinforcing types.
- *
- * @public
- */
-export interface ITypedEmitter<Events> {
-  on<E extends keyof Events>(
-    type: E,
-    handler: TypedHandler<Events[E]>
+/** @public */
+export type EventTypeOf<
+  EventMap extends DefaultEventMap,
+  EventValue extends EventMap[keyof EventMap]
+> = {
+  [EventType in keyof EventMap]: EventMap[EventType] extends EventValue
+    ? EventType
+    : never;
+}[keyof EventMap];
+
+/** @public */
+export type EventOf<
+  EventMap extends DefaultEventMap,
+  EventType extends AnyEventTypeOf<EventMap>
+> = EventMap[EventType] extends void ? never : EventMap[EventType];
+
+/** @public */
+export type EventHandlerOf<
+  EventMap extends DefaultEventMap,
+  EventType extends AnyEventTypeOf<EventMap>
+> = EventMap[EventType] extends void
+  ? () => void
+  : (event: EventMap[EventType]) => void;
+
+/** @public */
+export type OffCallbackHandler = () => void;
+
+/** @public */
+export interface IEmitter<EventMap extends DefaultEventMap = DefaultEventMap> {
+  on<
+    T extends AnyEventOf<EventMap>,
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+  >(
+    type: EventType,
+    handler: EventHandlerOf<EventMap, EventType>
   ): OffCallbackHandler;
-  once<E extends keyof Events>(
-    type: E,
-    handler: TypedHandler<Events[E]>
+  once<
+    T extends AnyEventOf<EventMap>,
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+  >(
+    type: EventType,
+    handler: EventHandlerOf<EventMap, EventType>
   ): OffCallbackHandler;
-  off<E extends keyof Events>(
-    type: E,
-    handler: TypedHandler<Events[E]>
-  ): OffCallbackHandler;
-  emit<E extends keyof Events>(
-    type: E,
-    ...event: Events[E] extends undefined ? [] : [Events[E]]
+  off<
+    T extends AnyEventOf<EventMap>,
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+  >(
+    type: EventType,
+    handler: EventHandlerOf<EventMap, EventType>
   ): void;
-  has(key: keyof Events): boolean;
-  events(): Array<keyof Events>;
+  emit<
+    T extends AnyEventOf<EventMap>,
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+  >(
+    type: EventType,
+    event: EventOf<EventMap, EventType>
+  ): void;
+  has(key: AnyEventTypeOf<EventMap>): boolean;
+  events(): AnyEventTypeOf<EventMap>[];
 }
-
-type OffCallbackHandler = () => void;
-
-type EventHandlerList = Array<Handler>;
-type EventHandlerMap = Map<EventType, EventHandlerList>;
 
 const once = Symbol('once');
 const evts = Symbol('evts');
@@ -64,22 +85,26 @@ const evts = Symbol('evts');
  *
  * @public
  */
-export class Emitter implements IEmitter {
-  private [evts]: EventHandlerMap = new Map();
+export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
+  implements IEmitter<EventMap> {
+  private [evts] = new Map<
+    AnyEventTypeOf<EventMap>,
+    AnyEventHandlerOf<EventMap>[]
+  >();
 
-  private [once] = new WeakMap<Handler, number>();
+  private [once] = new WeakMap<AnyEventHandlerOf<EventMap>, number>();
 
   /**
    * Returns the whole EventType list
    */
-  events(): EventType[] {
+  events(): AnyEventTypeOf<EventMap>[] {
     return Array.from(this[evts].keys());
   }
 
   /**
    * Returns `true` if this emmiter has a listener attached to the `key` event type
    */
-  has(key: EventType): boolean {
+  has(key: AnyEventTypeOf<EventMap>): boolean {
     return this[evts].has(key);
   }
 
@@ -88,9 +113,15 @@ export class Emitter implements IEmitter {
    *
    * @returns a function to unsubscribe the handler invoking `this.off(type, handler)`
    */
-  on<T = any>(type: EventType, handler: Handler<T>): OffCallbackHandler {
-    const handlers = this[evts].get(type) || ([] as EventHandlerList);
-    handlers.push(handler as any);
+  on<
+    T extends AnyEventOf<EventMap>,
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+  >(
+    type: EventType,
+    handler: EventHandlerOf<EventMap, EventType>
+  ): OffCallbackHandler {
+    const handlers = this[evts].get(type) ?? [];
+    handlers.push(handler);
     this[evts].set(type, handlers);
     return () => this.off(type, handler);
   }
@@ -100,7 +131,13 @@ export class Emitter implements IEmitter {
    *
    * @returns a function to unsubscribe the handler invoking `this.off(type, handler)`
    */
-  once<T = any>(type: EventType, handler: Handler<T>): OffCallbackHandler {
+  once<
+    T extends AnyEventOf<EventMap>,
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+  >(
+    type: EventType,
+    handler: EventHandlerOf<EventMap, EventType>
+  ): OffCallbackHandler {
     const counter = this[once].get(handler) || 0;
     this[once].set(handler, counter + 1);
     return this.on(type, handler);
@@ -109,7 +146,10 @@ export class Emitter implements IEmitter {
   /**
    * Removes the specified `handler` from the list of handlers of the event of the `type` type
    */
-  off<T = any>(type: EventType, handler: Handler<T>): void {
+  off<
+    T extends AnyEventOf<EventMap>,
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+  >(type: EventType, handler: EventHandlerOf<EventMap, EventType>): void {
     const handlers = this[evts].get(type);
     if (!handlers) {
       return;
@@ -136,11 +176,17 @@ export class Emitter implements IEmitter {
    * Calls each of the handlers registered for the event of `type` type, in the
    * order they were registered, passing the supplied argument `e` to each.
    */
-  emit<T = any>(type: EventType, e?: T): void {
-    [...(this[evts].get(type) || ([] as EventHandlerList))].forEach(
-      (handler: Handler) => {
-        handler(e);
-        this[once].get(handler) && this.off(type, handler);
+  emit<
+    T extends AnyEventOf<EventMap>,
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+  >(type: EventType, event: EventOf<EventMap, EventType>): void {
+    [...(this[evts].get(type) ?? [])].forEach(
+      (handler: EventHandlerOf<EventMap, EventType>) => {
+        handler(event);
+
+        if (this[once].get(handler)) {
+          this.off(type, handler);
+        }
       }
     );
   }
