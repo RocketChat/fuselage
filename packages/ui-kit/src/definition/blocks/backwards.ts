@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import { LayoutBlock } from '../..';
 import { Block } from './Block';
 import { Option } from './Option';
@@ -21,101 +22,114 @@ import { Markdown } from './text/Markdown';
 import { PlainText } from './text/PlainText';
 import { TextObject } from './text/TextObject';
 
-/** @deprecated */
-export type ILinearScaleElement = LinearScaleElement;
-/** @deprecated */
-export type IPlainTextInput = PlainTextInputElement;
-/** @deprecated */
-export type IStaticSelectElement = StaticSelectElement;
-/** @deprecated */
-export type IMultiStaticSelectElement = MultiStaticSelectElement;
-/** @deprecated */
-export type IDatePickerElement = DatePickerElement;
-/** @deprecated */
-export type IButtonElement = ButtonElement;
-/** @deprecated */
-export type IOverflowElement = OverflowElement;
-/** @deprecated */
-export type IImageElement = ImageElement;
-/** @deprecated */
-export type IActionableElement = Actionable<Record<never, never>>;
+type InterfaceOf<T> = Pick<T, keyof T>;
 
 /** @deprecated */
-export type IActionsBlock = ActionsBlock;
+export type ILinearScaleElement = InterfaceOf<LinearScaleElement>;
 /** @deprecated */
-export type ActionElement = ActionsBlock['elements'][number];
+export type IPlainTextInput = InterfaceOf<PlainTextInputElement>;
 /** @deprecated */
-export type ISectionBlock = SectionBlock;
+export type IStaticSelectElement = InterfaceOf<StaticSelectElement>;
 /** @deprecated */
-export type SectionAccessoryElement = Exclude<
-  SectionBlock['accessory'],
-  undefined
+export type IMultiStaticSelectElement = InterfaceOf<MultiStaticSelectElement>;
+/** @deprecated */
+export type IDatePickerElement = InterfaceOf<DatePickerElement>;
+/** @deprecated */
+export type IButtonElement = InterfaceOf<ButtonElement>;
+/** @deprecated */
+export type IOverflowElement = InterfaceOf<OverflowElement>;
+/** @deprecated */
+export type IImageElement = InterfaceOf<ImageElement>;
+/** @deprecated */
+export type IActionableElement = InterfaceOf<Actionable<Record<never, never>>>;
+
+/** @deprecated */
+export type IActionsBlock = InterfaceOf<ActionsBlock>;
+/** @deprecated */
+export type ActionElement = InterfaceOf<ActionsBlock['elements'][number]>;
+/** @deprecated */
+export type ISectionBlock = InterfaceOf<SectionBlock>;
+/** @deprecated */
+export type SectionAccessoryElement = InterfaceOf<
+  Exclude<SectionBlock['accessory'], undefined>
 >;
 /** @deprecated */
-export type IImageBlock = ImageBlock;
-/** @deprecated */
-export type IDividerBlock = DividerBlock;
-/** @deprecated */
-export type IInputBlock = InputBlock;
-/** @deprecated */
-export type InputElement = InputBlock['element'];
-/** @deprecated */
-export type IContextBlock = ContextBlock;
-/** @deprecated */
-export type ContextElement = ContextBlock['elements'][number];
-/** @deprecated */
-export type IConditionalBlock = ConditionalBlock;
-/** @deprecated */
-export type ConditionalBlockFilters = Exclude<
-  ConditionalBlock['when'],
-  undefined
+export type AccessoryElements = InterfaceOf<
+  Exclude<SectionBlock['accessory'], undefined>
 >;
 /** @deprecated */
-export type IBlock = LayoutBlock;
+export type IImageBlock = InterfaceOf<ImageBlock>;
+/** @deprecated */
+export type IDividerBlock = InterfaceOf<DividerBlock>;
+/** @deprecated */
+export type IInputBlock = InterfaceOf<InputBlock>;
+/** @deprecated */
+export type InputElement = InterfaceOf<InputBlock['element']>;
+/** @deprecated */
+export type IContextBlock = InterfaceOf<ContextBlock>;
+/** @deprecated */
+export type ContextElement = InterfaceOf<ContextBlock['elements'][number]>;
+/** @deprecated */
+export type IConditionalBlock = InterfaceOf<ConditionalBlock>;
+/** @deprecated */
+export type ConditionalBlockFilters = InterfaceOf<
+  Exclude<ConditionalBlock['when'], undefined>
+>;
+/** @deprecated */
+export type IConditionalBlockFilters = InterfaceOf<ConditionalBlock['when']>;
+/** @deprecated */
+export type IBlock = InterfaceOf<LayoutBlock>;
 
 /** @deprecated */
-export type IPlainText = PlainText;
+export type IPlainText = InterfaceOf<PlainText>;
 /** @deprecated */
-export type IMarkdown = Markdown;
+export type IMarkdown = InterfaceOf<Markdown>;
 
 /** @deprecated */
-export type IElement = Block;
+export type IElement = InterfaceOf<Block>;
 
 /** @deprecated */
-export type ITextObject = TextObject & { emoji?: boolean };
+export type ITextObject = InterfaceOf<TextObject & { emoji?: boolean }>;
 
 /** @deprecated */
-export type IOptionObject = Omit<Option, 'description' | 'url'>;
+export type IOptionObject = InterfaceOf<Omit<Option, 'description' | 'url'>>;
 
 /** @deprecated */
 export type IBlockElement = Pick<Block, 'type'>;
 
 /** @deprecated */
-export type IInteractiveElement = IBlockElement & {
-  actionId: string;
-};
+export type IInteractiveElement = InterfaceOf<
+  IBlockElement & {
+    actionId: string;
+  }
+>;
 
 /** @deprecated */
-export type IInputElement = IBlockElement & {
-  actionId: string;
-  placeholder: ITextObject;
-  initialValue?: string | string[];
-};
+export type IInputElement = InterfaceOf<
+  IBlockElement & {
+    actionId: string;
+    placeholder: ITextObject;
+    initialValue?: string | string[];
+  }
+>;
 
-export type IOverflowMenuElement = IInteractiveElement & {
-  type: OverflowElement['type'];
-  options: IOptionObject[];
-};
+export type IOverflowMenuElement = InterfaceOf<
+  IInteractiveElement & {
+    type: OverflowElement['type'];
+    options: IOptionObject[];
+  }
+>;
 
-export type IPlainTextInputElement = IInputElement & {
-  type: PlainTextInputElement['type'];
-  initialValue?: string;
-  multiline?: boolean;
-};
+export type IPlainTextInputElement = InterfaceOf<
+  IInputElement & {
+    type: PlainTextInputElement['type'];
+    initialValue?: string;
+    multiline?: boolean;
+  }
+>;
 
-export type ISelectElement = IInputElement & {
-  type: StaticSelectElement['type'] | MultiStaticSelectElement['type'];
-};
-
-/** @deprecated */
-export type IConditionalBlockFilters = ConditionalBlock['when'];
+export type ISelectElement = InterfaceOf<
+  IInputElement & {
+    type: StaticSelectElement['type'] | MultiStaticSelectElement['type'];
+  }
+>;
