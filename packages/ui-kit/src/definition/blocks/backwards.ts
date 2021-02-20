@@ -121,11 +121,7 @@ export type IOverflowMenuElement = InterfaceOf<
 >;
 
 export type IPlainTextInputElement = InterfaceOf<
-  IInputElement & {
-    type: PlainTextInputElement['type'];
-    initialValue?: string;
-    multiline?: boolean;
-  }
+  IInputElement & PlainTextInputElement
 >;
 
 export type ISelectElement = InterfaceOf<

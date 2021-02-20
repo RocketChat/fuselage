@@ -31,4 +31,6 @@ export { LayoutBlock } from './layout/LayoutBlock';
 export { Block } from './Block';
 export { RenderableBlock } from './RenderableBlock';
 
+export { BlockBuilder } from './BlockBuilder';
+
 export * from './backwards';
