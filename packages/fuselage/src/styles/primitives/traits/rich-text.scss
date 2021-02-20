@@ -101,6 +101,17 @@
     }
   }
 
+  ul,
+  ol {
+    display: inline;
+
+    padding-inline-end: lengths.padding(4);
+  }
+
+  li {
+    display: inline;
+  }
+
   code {
     display: inline;
 
@@ -220,6 +231,8 @@
 }
 
 %--with-block-elements {
+  @extend %--with-inline-elements;
+
   font: inherit;
 
   h1 {
