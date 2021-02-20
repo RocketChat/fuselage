@@ -63,9 +63,9 @@ export const useBoxOnlyProps = (props) => {
         'rcx-box--with-block-elements'
       );
     }
-
-    delete props.withRichContent;
   }
+
+  delete props.withRichContent;
 
   props.className = prependClassName(props.className, 'rcx-box rcx-box--full');
 

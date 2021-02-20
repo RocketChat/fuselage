@@ -3082,6 +3082,11 @@
   dependencies:
     eslint-plugin-import "^2.17.2"
 
+"@rocket.chat/memo@^0.6.3-dev.180":
+  version "0.6.3-dev.180"
+  resolved "https://registry.yarnpkg.com/@rocket.chat/memo/-/memo-0.6.3-dev.180.tgz#95c3c1d2c542a9fbdbf66864dbf202b74bbdeaa4"
+  integrity sha512-3+zoOZW/f2/cwmjDAh8yXvGQvskopSR/QCAUmatqSAiMztFvkBljlVbSx1YUiq4y5t41dzM5m+MKYRZAEgAtLQ==
+
 "@rollup/plugin-commonjs@^15.1.0":
   version "15.1.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-15.1.0.tgz#1e7d076c4f1b2abf7e65248570e555defc37c238"

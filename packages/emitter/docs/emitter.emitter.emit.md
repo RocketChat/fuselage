@@ -9,15 +9,15 @@ Calls each of the handlers registered for the event of `type` type, in the order
 <b>Signature:</b>
 
 ```typescript
-emit<T = any>(type: EventType, e?: T): void;
+emit<T extends AnyEventOf<EventMap>, EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>>(type: EventType, event: EventOf<EventMap, EventType>): void;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  type | [EventType](./emitter.eventtype.md) |  |
-|  e | T |  |
+|  type | EventType |  |
+|  event | [EventOf](./emitter.eventof.md)<!-- -->&lt;EventMap, EventType&gt; |  |
 
 <b>Returns:</b>
 
