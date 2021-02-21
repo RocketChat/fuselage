@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { ActionButton, Divider, Box } from '../..';
+import { Box } from '../Box';
+import { ActionButton } from '../Button/ActionButton';
+import { Divider } from '../Divider';
 import { Actions } from './Actions';
 
 const Avatar = { size: 'x24' };
