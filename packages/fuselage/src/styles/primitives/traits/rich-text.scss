@@ -101,6 +101,38 @@
     }
   }
 
+  ul,
+  ol {
+    display: inline-flex;
+  }
+
+  li {
+    display: list-item;
+
+    margin-inline-start: lengths.margin(24);
+    margin-inline-end: lengths.margin(8);
+
+    &:first-child {
+      margin-inline-start: lengths.margin(16);
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+
+    span {
+      margin-inline-end: lengths.margin(8);
+    }
+
+    input {
+      vertical-align: middle;
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
   code {
     display: inline;
 
@@ -288,11 +320,17 @@
   li {
     display: list-item;
 
+    margin-inline-start: lengths.margin(0);
+
     text-align: inherit;
 
     color: inherit;
 
     font: inherit;
+
+    &:first-child {
+      margin-inline-start: lengths.margin(0);
+    }
   }
 
   pre {
