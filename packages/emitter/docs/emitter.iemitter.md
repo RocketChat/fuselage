@@ -8,7 +8,7 @@
 <b>Signature:</b>
 
 ```typescript
-export interface IEmitter 
+export interface IEmitter<EventMap extends DefaultEventMap = DefaultEventMap> 
 ```
 
 ## Methods
@@ -16,6 +16,8 @@ export interface IEmitter
 |  Method | Description |
 |  --- | --- |
 |  [emit(type, event)](./emitter.iemitter.emit.md) |  |
+|  [events()](./emitter.iemitter.events.md) |  |
+|  [has(key)](./emitter.iemitter.has.md) |  |
 |  [off(type, handler)](./emitter.iemitter.off.md) |  |
 |  [on(type, handler)](./emitter.iemitter.on.md) |  |
 |  [once(type, handler)](./emitter.iemitter.once.md) |  |

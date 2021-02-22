@@ -9,19 +9,19 @@ Adds a \*one-time\* `handler` function for the event of the `type` type.
 <b>Signature:</b>
 
 ```typescript
-once<T = any>(type: EventType, handler: Handler<T>): OffCallbackHandler;
+once<T extends AnyEventOf<EventMap>, EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>>(type: EventType, handler: EventHandlerOf<EventMap, EventType>): OffCallbackHandler;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  type | [EventType](./emitter.eventtype.md) |  |
-|  handler | [Handler](./emitter.handler.md)<!-- -->&lt;T&gt; |  |
+|  type | EventType |  |
+|  handler | [EventHandlerOf](./emitter.eventhandlerof.md)<!-- -->&lt;EventMap, EventType&gt; |  |
 
 <b>Returns:</b>
 
-OffCallbackHandler
+[OffCallbackHandler](./emitter.offcallbackhandler.md)
 
 a function to unsubscribe the handler invoking `this.off(type, handler)`
 
