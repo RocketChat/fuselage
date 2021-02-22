@@ -1,4 +1,9 @@
-import { uiKitMessage, UiKitParserMessage } from '@rocket.chat/ui-kit';
+import {
+  TextObjectType,
+  UiKitParserMessage,
+  BlockElementType,
+  LayoutBlockType,
+} from '@rocket.chat/ui-kit';
 import React from 'react';
 
 import {
@@ -17,27 +22,36 @@ import {
 } from '../renderers';
 import MessageSurface from './MessageSurface';
 
-class MessageParser extends UiKitParserMessage {}
+class MessageParser extends UiKitParserMessage {
+  [TextObjectType.PLAIN_TEXT] = plainText;
 
-MessageParser.prototype.plainText = plainText;
-MessageParser.prototype.mrkdwn = mrkdwn;
-MessageParser.prototype.divider = divider;
-MessageParser.prototype.section = section;
-MessageParser.prototype.image = image;
-MessageParser.prototype.actions = actions;
-MessageParser.prototype.context = context;
-MessageParser.prototype.button = button;
-MessageParser.prototype.datePicker = datePicker;
-MessageParser.prototype.staticSelect = staticSelect;
-MessageParser.prototype.multiStaticSelect = multiStaticSelect;
-MessageParser.prototype.overflow = overflow;
+  [TextObjectType.MARKDOWN] = mrkdwn;
+
+  [BlockElementType.BUTTON] = button;
+
+  [BlockElementType.DATEPICKER] = datePicker;
+
+  [BlockElementType.IMAGE] = image;
+
+  [BlockElementType.STATIC_SELECT] = staticSelect;
+
+  [BlockElementType.MULTI_STATIC_SELECT] = multiStaticSelect;
+
+  [BlockElementType.OVERFLOW] = overflow;
+
+  [LayoutBlockType.ACTIONS] = actions;
+
+  [LayoutBlockType.CONTEXT] = context;
+
+  [LayoutBlockType.DIVIDER] = divider;
+
+  [LayoutBlockType.SECTION] = section;
+}
 
 export const messageParser = new MessageParser();
 
 export const UiKitMessage = (blocks, conditions = {}) => (
   <MessageSurface>
-    {uiKitMessage(messageParser, { engine: 'rocket.chat', ...conditions })(
-      blocks
-    )}
+    {messageParser.render(blocks, { engine: 'rocket.chat', ...conditions })}
   </MessageSurface>
 );

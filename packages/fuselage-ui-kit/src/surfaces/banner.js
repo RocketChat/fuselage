@@ -1,4 +1,9 @@
-import { uiKitBanner, UiKitParserBanner } from '@rocket.chat/ui-kit';
+import {
+  UiKitParserBanner,
+  TextObjectType,
+  BlockElementType,
+  LayoutBlockType,
+} from '@rocket.chat/ui-kit';
 import React from 'react';
 
 import {
@@ -20,30 +25,42 @@ import {
 } from '../renderers';
 import BannerSurface from './BannerSurface';
 
-class BannerParser extends UiKitParserBanner {}
+class BannerParser extends UiKitParserBanner {
+  [TextObjectType.PLAIN_TEXT] = plainText;
 
-BannerParser.prototype.plainText = plainText;
-BannerParser.prototype.mrkdwn = mrkdwn;
-BannerParser.prototype.divider = divider;
-BannerParser.prototype.section = section;
-BannerParser.prototype.image = image;
-BannerParser.prototype.actions = actions;
-BannerParser.prototype.context = context;
-BannerParser.prototype.input = input;
-BannerParser.prototype.button = button;
-BannerParser.prototype.datePicker = datePicker;
-BannerParser.prototype.staticSelect = staticSelect;
-BannerParser.prototype.multiStaticSelect = multiStaticSelect;
-BannerParser.prototype.overflow = overflow;
-BannerParser.prototype.plainInput = plainInput;
-BannerParser.prototype.linearScale = linearScale;
+  [TextObjectType.MARKDOWN] = mrkdwn;
+
+  [BlockElementType.BUTTON] = button;
+
+  [BlockElementType.DATEPICKER] = datePicker;
+
+  [BlockElementType.IMAGE] = image;
+
+  [BlockElementType.STATIC_SELECT] = staticSelect;
+
+  [BlockElementType.MULTI_STATIC_SELECT] = multiStaticSelect;
+
+  [BlockElementType.OVERFLOW] = overflow;
+
+  [BlockElementType.PLAIN_TEXT_INPUT] = plainInput;
+
+  [BlockElementType.LINEAR_SCALE] = linearScale;
+
+  [LayoutBlockType.ACTIONS] = actions;
+
+  [LayoutBlockType.CONTEXT] = context;
+
+  [LayoutBlockType.DIVIDER] = divider;
+
+  [LayoutBlockType.INPUT] = input;
+
+  [LayoutBlockType.SECTION] = section;
+}
 
 export const bannerParser = new BannerParser();
 
 export const UiKitBanner = (blocks, conditions = {}) => (
   <BannerSurface>
-    {uiKitBanner(bannerParser, { engine: 'rocket.chat', ...conditions })(
-      blocks
-    )}
+    {bannerParser.render(blocks, { engine: 'rocket.chat', ...conditions })}
   </BannerSurface>
 );

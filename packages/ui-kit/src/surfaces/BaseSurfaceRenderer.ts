@@ -1,20 +1,18 @@
-import { Conditions } from './definition/Conditions';
-import {
-  ActionsBlock,
-  Block,
-  BlockElement,
-  ConditionalBlock,
-  ContextBlock,
-  InputBlock,
-  LayoutBlock,
-  Markdown,
-  PlainText,
-  SectionBlock,
-  TextObject,
-} from './definition/blocks';
-import { ISurfaceRenderer } from './definition/rendering/ISurfaceRenderer';
-import { BlockContext, TextObjectType } from './enums';
-import { LayoutBlockType } from './enums/LayoutBlockType';
+import { Conditions } from '../definition/Conditions';
+import { Block } from '../definition/blocks/Block';
+import { BlockElement } from '../definition/blocks/element/BlockElement';
+import { ActionsBlock } from '../definition/blocks/layout/ActionsBlock';
+import { ConditionalBlock } from '../definition/blocks/layout/ConditionalBlock';
+import { ContextBlock } from '../definition/blocks/layout/ContextBlock';
+import { InputBlock } from '../definition/blocks/layout/InputBlock';
+import { LayoutBlock } from '../definition/blocks/layout/LayoutBlock';
+import { SectionBlock } from '../definition/blocks/layout/SectionBlock';
+import { Markdown } from '../definition/blocks/text/Markdown';
+import { PlainText } from '../definition/blocks/text/PlainText';
+import { TextObject } from '../definition/blocks/text/TextObject';
+import { ISurfaceRenderer } from '../definition/rendering/ISurfaceRenderer';
+import { BlockContext, TextObjectType } from '../enums';
+import { LayoutBlockType } from '../enums/LayoutBlockType';
 import {
   isActionsBlockElement,
   isAllowedLayoutBlock,
@@ -27,7 +25,7 @@ import {
   renderLayoutBlock,
   renderTextObject,
   resolveConditionalBlocks,
-} from './rendering';
+} from '../rendering';
 
 export abstract class BaseSurfaceRenderer<OutputElement>
   implements ISurfaceRenderer<OutputElement> {
@@ -161,13 +159,19 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     return this.renderSectionAccessoryBlockElement(element, index);
   }
 
+  public abstract [TextObjectType.PLAIN_TEXT](
+    element: PlainText,
+    context: BlockContext,
+    index: number
+  ): OutputElement | null;
+
   /** @deprecated */
   public plainText(
-    _element: PlainText,
-    _context: BlockContext,
-    _index: number
+    element: PlainText,
+    context: BlockContext,
+    index: number
   ): OutputElement | null {
-    return null;
+    return this[TextObjectType.PLAIN_TEXT](element, context, index);
   }
 
   /** @deprecated */

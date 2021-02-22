@@ -1,4 +1,3 @@
-import { BaseSurfaceRenderer } from './BaseSurfaceRenderer';
 import { Conditions } from './definition/Conditions';
 import {
   ActionsBlock,
@@ -17,6 +16,7 @@ import { LayoutBlockRenderer } from './definition/rendering/LayoutBlockRenderer'
 import { TextObjectRenderer } from './definition/rendering/TextObjectRenderer';
 import { BlockContext, BlockElementType, TextObjectType } from './enums';
 import { LayoutBlockType } from './enums/LayoutBlockType';
+import { BaseSurfaceRenderer } from './surfaces/BaseSurfaceRenderer';
 
 const conditionsMatch = (
   conditions: Conditions | undefined = undefined,

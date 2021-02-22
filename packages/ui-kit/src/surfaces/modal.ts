@@ -1,6 +1,6 @@
-import { BaseSurfaceRenderer } from '../BaseSurfaceRenderer';
 import { LayoutBlockType } from '../enums/LayoutBlockType';
 import { createSurfaceRenderer } from '../rendering';
+import { BaseSurfaceRenderer } from './BaseSurfaceRenderer';
 
 export abstract class UiKitParserModal<
   OutputElement
