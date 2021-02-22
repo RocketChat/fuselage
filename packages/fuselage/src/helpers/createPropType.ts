@@ -1,9 +1,13 @@
-export const createPropType = (getValue) => {
-  const propType = (props, propName, componentName) => {
+import { Requireable, Validator } from 'prop-types';
+
+export const createPropType = <T>(
+  getValue: (propValue: unknown) => unknown
+): Requireable<T> => {
+  const propType: Validator<T> = (props, propName, componentName) => {
     const propValue = props[propName];
 
     if (propValue === undefined || getValue(propValue) !== undefined) {
-      return;
+      return null;
     }
 
     return new Error(
@@ -11,11 +15,15 @@ export const createPropType = (getValue) => {
     );
   };
 
-  propType.isRequired = (props, propName, componentName) => {
+  const isRequired: Validator<NonNullable<T>> = (
+    props,
+    propName,
+    componentName
+  ) => {
     const propValue = props[propName];
 
     if (propValue !== undefined && getValue(propValue) !== undefined) {
-      return;
+      return null;
     }
 
     return new Error(
@@ -23,5 +31,5 @@ export const createPropType = (getValue) => {
     );
   };
 
-  return propType;
+  return Object.assign(propType, { isRequired });
 };
