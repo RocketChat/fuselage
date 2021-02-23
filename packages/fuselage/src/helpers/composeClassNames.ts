@@ -1,7 +1,7 @@
-const withPrefix = (prefix) => (modifier) =>
+const withPrefix = (prefix?: string) => (modifier: string) =>
   prefix ? `${prefix}--${modifier}` : modifier;
 
-export const composeClassNames = (prefix) => (...args) => {
+export const composeClassNames = (prefix?: string) => (...args: unknown[]) => {
   const addPrefix = withPrefix(prefix);
 
   const classNames = args
