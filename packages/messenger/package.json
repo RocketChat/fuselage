@@ -1,7 +1,7 @@
 {
-  "name": "@rocket.chat/fuselage-hooks",
+  "name": "@rocket.chat/messenger",
   "version": "0.22.0",
-  "description": "React hooks for Fuselage, Rocket.Chat's design system and UI toolkit",
+  "description": "Event Emitter by Rocket.Chat",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
     "name": "Rocket.Chat",
@@ -44,45 +44,33 @@
     "docs": "run-s build docs:api-extractor docs:api-documenter docs:readme docs:clean"
   },
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.8.21",
-    "@microsoft/api-extractor": "^7.9.2",
+    "@microsoft/api-documenter": "^7.12.1",
+    "@microsoft/api-extractor": "^7.12.1",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@rollup/plugin-typescript": "^6.0.0",
-    "@types/jest": "^26.0.15",
-    "@types/react-dom": "^16.9.8",
-    "@types/resize-observer-browser": "^0.1.3",
-    "@types/use-subscription": "^1.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
-    "documentation": "^13.0.2",
-    "eslint": "^7.13.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
-    "jest": "^26.0.1",
-    "lint-staged": "^10.0.8",
-    "prettier": "^2.1.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@rollup/plugin-typescript": "^8.1.0",
+    "@types/jest": "^26.0.19",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "documentation": "^13.1.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.21.0",
+    "rollup": "^2.35.1",
     "rollup-plugin-terser": "^7.0.2",
-    "ts-jest": "^26.1.0",
-    "typescript": "^4.0.3"
-  },
-  "peerDependencies": {
-    "react": "^16.12.0"
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.3"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@rocket.chat/fuselage-tokens": "^0.22.0",
-    "use-subscription": "^1.4.1"
   }
 }

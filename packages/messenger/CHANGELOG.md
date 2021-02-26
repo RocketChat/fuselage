@@ -5,10 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
 
-
-### Features
-
-* Type Emitter Implementation ([#399](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/399)) ([cd0d3fc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cd0d3fc7b50d911dbacbc122d09745fa9fb4d921))
+**Note:** Version bump only for package @rocket.chat/messenger
 
 
 

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
+
+
+### Bug Fixes
+
+* Remove development mode warnings ([#398](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/398)) ([80e77dc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/80e77dcad1d7a26e11164301fccda93ca0c3af6d))
+* Sidebar menu cropped in extended mode ([#400](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/400)) ([8e06c60](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8e06c6024be032af64ae42d733f878a0fdca326e))
+* withRichContent prop split to fit in different contexts ([#401](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/401)) ([22ca229](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/22ca22992caffc398e3bd0fbf1c7b873c141a6df))
+
+
+### Features
+
+* [@rocket](https://github.com/rocket).chat/memo ([#380](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/380)) ([2425c04](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2425c045743ba1a4a5443a1d341e615363930ef6))
+* Added new icons ([#391](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/391)) ([9436d1c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9436d1cc99f64ab0c90bccf77840295f9a744f7f))
+* Basic TypeScript support ([#402](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/402)) ([79405d3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/79405d3a25bfeed29293cb68d67a8c4f0467c490))
+* new Event() polyfill ([#394](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/394)) ([89245c1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/89245c1fbf15612d7bd6068ccde79b89884438d2))
+* Type Emitter Implementation ([#399](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/399)) ([cd0d3fc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cd0d3fc7b50d911dbacbc122d09745fa9fb4d921))
+
+
+
+
+
 # [0.21.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.3...v0.21.0) (2021-01-31)
 
 
