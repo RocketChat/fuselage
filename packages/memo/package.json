@@ -28,7 +28,7 @@
     "build:esm": "tsc -p tsconfig.json",
     "build:cjs": "tsc -p tsconfig-cjs.json",
     "build": "run-p build:esm build:cjs",
-    "eslint": "eslint src",
+    "lint": "eslint src",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {

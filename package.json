@@ -15,9 +15,9 @@
   },
   "scripts": {
     "build": "yarn workspaces foreach -v -t run build",
+    "lint": "yarn workspaces foreach -v -t run lint",
     "build-storybook": "lerna run build-storybook --parallel --stream",
     "test": "lerna run test:ci --stream",
-    "lint": "lerna run lint",
     "lint-staged": "lerna run lint-staged",
     "storybook": "lerna run storybook --parallel"
   },
