@@ -32,9 +32,10 @@
     "start": "rollup -c -w",
     "build": "rollup -c",
     "lint": "eslint --ext js,ts,tsx src",
+    "lint-fix": "eslint --fix --ext js,ts,tsx src",
+    "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "lint-staged": "lint-staged",
     "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --section='API Reference' --readme-file README.md"
   },
   "devDependencies": {

@@ -30,6 +30,7 @@
     "start": "rollup -c -w",
     "build": "rollup -c",
     "lint": "eslint src --ext .js,.ts",
+    "lint-fix": "eslint --fix --ext .js,.ts  src",
     "test": "jest --runInBand",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint-staged": "lint-staged",

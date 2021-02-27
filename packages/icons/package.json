@@ -21,6 +21,7 @@
   "scripts": {
     "build": "node ./scripts/build",
     "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
     "prettier-format": "prettier --config .prettierrc 'scripts/**/*.js' --write"
   },
   "devDependencies": {

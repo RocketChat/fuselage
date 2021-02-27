@@ -13,8 +13,9 @@
   "scripts": {
     "build": "yarn workspaces foreach -vt run build",
     "lint": "yarn workspaces foreach -vt run lint",
-    "test": "yarn workspaces foreach -vt run test",
-    "lint-staged": "lerna run lint-staged"
+    "lint-fix": "yarn workspaces foreach -vt run lint-fix",
+    "lint-staged": "yarn workspaces foreach -vt run lint-staged",
+    "test": "yarn workspaces foreach -vt run test"
   },
   "husky": {
     "hooks": {

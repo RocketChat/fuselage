@@ -32,7 +32,8 @@ jobs:
       - run: yarn
       - run: yarn run build
 
-      - run: yarn lerna run build-storybook:loki --scope @rocket.chat/fuselage --stream
+      - run: yarn run build-storybook:loki
+          working_directory: ~/repo/packages/fuselage
       - run:
           command: |
             cat package.json | sed s/\.docker/.app/ > package.json-new
@@ -42,7 +43,8 @@ jobs:
           command: yarn run loki:test-ci
           working_directory: ~/repo/packages/fuselage
 
-      - run: yarn lerna run build-storybook:loki --scope @rocket.chat/fuselage-ui-kit --stream
+      - run: yarn run build-storybook:loki
+          working_directory: ~/repo/packages/fuselage-ui-kit
       - run:
           command: |
             cat package.json | sed s/\.docker/.app/ > package.json-new

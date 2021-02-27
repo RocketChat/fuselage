@@ -28,7 +28,8 @@
     "build:esm": "tsc -p tsconfig.json",
     "build:cjs": "tsc -p tsconfig-cjs.json",
     "build": "yarn run build:esm && yarn run build:cjs",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "lint-fix": "eslint --fix src"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"

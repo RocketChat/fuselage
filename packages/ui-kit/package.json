@@ -28,6 +28,7 @@
     "build:prod": "webpack --mode production",
     "build": "yarn run clean && yarn run build:prod",
     "lint": "eslint --ext js,ts src",
+    "lint-fix": "eslint --fix --ext js,ts src",
     "test": "jest --runInBand",
     "lint-staged": "lint-staged",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
