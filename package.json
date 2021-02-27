@@ -6,8 +6,7 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
-    "husky": "^4.2.3",
+    "husky": "^5.1.1",
     "lerna": "^3.20.2"
   },
   "scripts": {
@@ -15,11 +14,7 @@
     "lint": "yarn workspaces foreach -vt run lint",
     "lint-fix": "yarn workspaces foreach -vt run lint-fix",
     "lint-staged": "yarn workspaces foreach -vt run lint-staged",
-    "test": "yarn workspaces foreach -vt run test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged"
-    }
+    "test": "yarn workspaces foreach -vt run test",
+    "postinstall": "husky install"
   }
 }

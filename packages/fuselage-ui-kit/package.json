@@ -68,6 +68,7 @@
     "@storybook/source-loader": "^6.1.11",
     "@storybook/theming": "^6.1.11",
     "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.0",
