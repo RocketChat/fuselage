@@ -1,6 +1,4 @@
 {
-  "version": "0.1.0",
-  "license": "MIT",
   "private": true,
   "workspaces": {
     "packages": [
@@ -9,17 +7,14 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "fs-extra": "^9.0.0",
     "husky": "^4.2.3",
     "lerna": "^3.20.2"
   },
   "scripts": {
-    "build": "yarn workspaces foreach -v -t run build",
-    "lint": "yarn workspaces foreach -v -t run lint",
-    "build-storybook": "lerna run build-storybook --parallel --stream",
-    "test": "lerna run test:ci --stream",
-    "lint-staged": "lerna run lint-staged",
-    "storybook": "lerna run storybook --parallel"
+    "build": "yarn workspaces foreach -vt run build",
+    "lint": "yarn workspaces foreach -vt run lint",
+    "test": "yarn workspaces foreach -vt run test",
+    "lint-staged": "lerna run lint-staged"
   },
   "husky": {
     "hooks": {

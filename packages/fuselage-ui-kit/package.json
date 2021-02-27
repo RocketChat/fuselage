@@ -24,11 +24,11 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf dist",
     "start": "webpack --watch --mode development",
+    "clean": "rimraf dist",
     "build:prod": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build": "run-s clean build:prod build:dev",
+    "build": "yarn run clean && yarn run build:prod && yarn run build:dev",
     "lint": "eslint src",
     "lint-staged": "lint-staged",
     "prettier-format": "prettier --config .prettierrc 'src/**/*' --write",

@@ -20,8 +20,8 @@
   ],
   "scripts": {
     "build": "node ./scripts/build",
-    "prettier-format": "prettier --config .prettierrc 'scripts/**/*.js' --write",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prettier-format": "prettier --config .prettierrc 'scripts/**/*.js' --write"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",

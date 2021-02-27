@@ -32,10 +32,9 @@
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "test:ci": "jest --runInBand",
     "lint": "eslint --ext js,ts,tsx src",
+    "test": "jest --runInBand",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint-staged": "lint-staged",
     "docs:api-extractor": "api-extractor run --local --verbose",
     "docs:api-documenter": "api-documenter markdown -i temp -o docs",

@@ -15,7 +15,7 @@ jobs:
           key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
       - run: yarn run build
       - run: yarn run lint
-      - run: yarn lerna run test:ci --stream
+      - run: yarn run test
       - persist_to_workspace:
           root: ~/repo
           paths:
