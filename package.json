@@ -14,8 +14,7 @@
     "lerna": "^3.20.2"
   },
   "scripts": {
-    "build": "lerna run build --stream",
-    "postinstall": "lerna run build --stream",
+    "build": "yarn workspaces foreach -v -t run build",
     "build-storybook": "lerna run build-storybook --parallel --stream",
     "test": "lerna run test:ci --stream",
     "lint": "lerna run lint",

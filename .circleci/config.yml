@@ -13,8 +13,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
+      - run: yarn run build
       - run: yarn lerna run lint --stream
-      - run: yarn lerna run build --stream
       - run: yarn lerna run test:ci --stream
       - persist_to_workspace:
           root: ~/repo
@@ -30,7 +30,7 @@ jobs:
     steps:
       - checkout
       - run: yarn
-      - run: yarn lerna run build --stream
+      - run: yarn run build
 
       - run: yarn lerna run build-storybook:loki --scope @rocket.chat/fuselage --stream
       - run:
