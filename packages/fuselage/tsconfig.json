@@ -18,5 +18,10 @@
     "allowJs": true,
     "jsx": "react"
   },
-  "exclude": ["./dist/", "./src/**/*.spec.{js,ts,tsx}", "./*.js"]
+  "exclude": [
+    "./dist/",
+    "./src/**/*.spec.{js,ts,tsx}",
+    "./*.js",
+    "./storybook-static/"
+  ]
 }

@@ -15,6 +15,7 @@ export const Menu = ({
   small = tiny || mini ? null : true,
   options,
   optionWidth,
+  icon = 'kebab',
   placement = 'bottom-start',
   renderItem,
   maxHeight,
@@ -60,7 +61,7 @@ export const Menu = ({
         onBlur={hide}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
-        icon='kebab'
+        icon={icon}
         {...props}
       />
       <PositionAnimated
