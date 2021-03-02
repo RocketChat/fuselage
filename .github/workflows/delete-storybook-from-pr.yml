@@ -1,4 +1,4 @@
-name: Delete Storybook from pull request
+name: Delete Storybook for PR
 
 on:
   workflow_dispatch:
@@ -11,7 +11,8 @@ on:
       - closed
 
 jobs:
-  default:
+  delete-storybook-from-pr:
+    name: "Delete Storybook for PR #${{ github.event.inputs.prNumber || github.event.number }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

@@ -35,12 +35,12 @@
     "lint-fix": "yarn run eslint-fix && yarn run stylelint-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
+    "build-storybook": "jest --runInBand --json --outputFile .storybook/jest-results.json && cross-env NODE_ENV=production build-storybook",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.{ts,tsx,js,jsx}' --write",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "build-storybook:loki": "cross-env NODE_ENV=loki build-storybook",
     "update-storybook": "cross-env NODE_ENV=loki run-s build-storybook loki:update"
   },

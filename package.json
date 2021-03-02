@@ -15,6 +15,7 @@
     "lint-fix": "yarn workspaces foreach -vt run lint-fix",
     "lint-staged": "yarn workspaces foreach -vt run lint-staged",
     "test": "yarn workspaces foreach -vt run test",
+    "build-storybook": "yarn workspaces foreach -vt run build-storybook",
     "postinstall": "husky install"
   }
 }
