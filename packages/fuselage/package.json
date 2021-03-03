@@ -23,26 +23,29 @@
   ],
   "scripts": {
     "start": "webpack --watch --mode development",
-    "clean": "rimraf dist",
-    "build:prod": "webpack --mode production",
-    "build:dev": "webpack --mode development",
-    "build": "yarn run clean && yarn run build:prod && yarn run build:dev",
-    "eslint": "eslint src",
-    "eslint-fix": "eslint --fix src",
-    "stylelint": "stylelint 'src/**/*.scss'",
-    "stylelint-fix": "stylelint --fix 'src/**/*.scss'",
-    "lint": "yarn run eslint && yarn run stylelint",
-    "lint-fix": "yarn run eslint-fix && yarn run stylelint-fix",
+    "storybook": "start-storybook -p 6006",
+    "build": "run-s .:build:clean .:build:dev .:build:prod",
+    ".:build:clean": "rimraf dist",
+    ".:build:prod": "webpack --mode production",
+    ".:build:dev": "webpack --mode development",
+    "lint": "run-s .:lint:eslint .:lint:stylelint",
+    ".:lint:eslint": "eslint src",
+    ".:lint:stylelint": "stylelint 'src/**/*.scss'",
+    "lint-fix": "run-s .:lint-fix:eslint .:lint-fix:stylelint",
+    ".:lint-fix:eslint": "eslint --fix src",
+    ".:lint-fix:stylelint": "stylelint --fix 'src/**/*.scss'",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
-    "build-storybook": "jest --runInBand --json --outputFile .storybook/jest-results.json && cross-env NODE_ENV=production build-storybook",
+    "build-storybook": "run-s .:build-storybook:jest-results .:build-storybook:build-storybook",
+    ".:build-storybook:jest-results": "jest --runInBand --json --outputFile .storybook/jest-results.json",
+    ".:build-storybook:build-storybook": "cross-env NODE_ENV=production build-storybook",
+    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:loki-update",
+    ".:update-storybook:build-storybook": "build-storybook",
+    ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.{ts,tsx,js,jsx}' --write",
-    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook:loki": "cross-env NODE_ENV=loki build-storybook",
-    "update-storybook": "cross-env NODE_ENV=loki run-s build-storybook loki:update"
+    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "loki:test-ci": "loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "build-storybook:loki": "cross-env NODE_ENV=loki build-storybook"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -118,14 +121,6 @@
     "webpack": "^5.2.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^4.1.0"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/.jest/styleMock.js"
-    },
-    "setupFiles": [
-      "<rootDir>/.jest/setup.js"
-    ]
   },
   "loki": {
     "configurations": {

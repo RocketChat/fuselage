@@ -37,11 +37,11 @@
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "docs:api-extractor": "api-extractor run --local --verbose",
-    "docs:api-documenter": "api-documenter markdown -i temp -o docs",
-    "docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
-    "docs:clean": "rimraf temp",
-    "docs": "run-s build docs:api-extractor docs:api-documenter docs:readme docs:clean"
+    "docs": "run-s build .:docs:api-extractor .:docs:api-documenter .:docs:readme .:docs:clean",
+    ".:docs:api-extractor": "api-extractor run --local --verbose",
+    ".:docs:api-documenter": "api-documenter markdown -i temp -o docs",
+    ".:docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
+    ".:docs:clean": "rimraf temp"
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.8.21",
