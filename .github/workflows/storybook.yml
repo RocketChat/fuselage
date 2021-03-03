@@ -6,7 +6,6 @@ on:
       - main
       - master
       - develop
-  pull_request:
 
 jobs:
   build-storybooks:
@@ -47,12 +46,7 @@ jobs:
         with:
           ref: gh-pages
       - run: |
-          if [ -z "${{ github.event.number }}" ]
-          then
-            dir=$(echo '${{ github.ref }}' | cut -d/ -f3)
-          else
-            dir="${{ github.event.number }}"
-          fi
+          dir=$(echo '${{ github.ref }}' | cut -d/ -f3)
           echo "::set-output name=directory::$dir"
           rm -rf "fuselage/$dir" "fuselage-ui-kit/$dir"
           mkdir -p fuselage fuselage-ui-kit
@@ -94,4 +88,4 @@ jobs:
           commit_message: "Deploy to Github Pages [skip ci]"
           jekyll: false
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

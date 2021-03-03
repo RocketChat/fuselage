@@ -31,33 +31,25 @@ jobs:
       - checkout
       - run: yarn
       - run: yarn run build
+      - run: yarn run build-storybook
 
-      - run:
-          command: yarn run build-storybook:loki
-          working_directory: ~/repo/packages/fuselage
       - run:
           command: |
             cat package.json | sed s/\.docker/.app/ > package.json-new
             mv package.json-new package.json
           working_directory: ~/repo/packages/fuselage
       - run:
-          command: yarn run loki:test-ci
-          working_directory: ~/repo/packages/fuselage
-
-      - run:
-          command: yarn run build-storybook:loki
-          working_directory: ~/repo/packages/fuselage-ui-kit
-      - run:
           command: |
             cat package.json | sed s/\.docker/.app/ > package.json-new
             mv package.json-new package.json
           working_directory: ~/repo/packages/fuselage-ui-kit
+
+      - run:
+          command: yarn run loki:test-ci
+          working_directory: ~/repo/packages/fuselage
       - run:
           command: yarn run loki:test-ci
           working_directory: ~/repo/packages/fuselage-ui-kit
-
-      - store_artifacts:
-          path: ~/repo/packages/fuselage-ui-kit/.loki/difference
 
   publish:
     docker:
