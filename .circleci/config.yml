@@ -21,39 +21,9 @@ jobs:
           paths:
             - .
 
-  loki:
-    docker:
-      - image: chinello/alpine-chrome:with-node
-    working_directory: ~/repo
-    environment:
-      CHROME_PATH: /usr/bin/chromium-browser
-    steps:
-      - checkout
-      - run: yarn
-      - run: yarn run build
-      - run: yarn run build-storybook
-
-      - run:
-          command: |
-            cat package.json | sed s/\.docker/.app/ > package.json-new
-            mv package.json-new package.json
-          working_directory: ~/repo/packages/fuselage
-      - run:
-          command: |
-            cat package.json | sed s/\.docker/.app/ > package.json-new
-            mv package.json-new package.json
-          working_directory: ~/repo/packages/fuselage-ui-kit
-
-      - run:
-          command: yarn run loki:test-ci
-          working_directory: ~/repo/packages/fuselage
-      - run:
-          command: yarn run loki:test-ci
-          working_directory: ~/repo/packages/fuselage-ui-kit
-
   publish:
     docker:
-      - image: circleci/node:10.15
+      - image: circleci/node:12
     working_directory: ~/repo
     steps:
       - attach_workspace:
@@ -64,9 +34,10 @@ jobs:
       - run:
           name: Publish package
           command: yarn lerna publish from-package --yes
+
   publish-alpha:
     docker:
-      - image: circleci/node:10.15
+      - image: circleci/node:12
     working_directory: ~/repo
     steps:
       - attach_workspace:
@@ -86,7 +57,7 @@ jobs:
 
   publish-next:
     docker:
-      - image: circleci/node:10.15
+      - image: circleci/node:12
     working_directory: ~/repo
     steps:
       - attach_workspace:
@@ -103,12 +74,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - loki:
-          requires:
-            - build
       - publish:
           requires:
-            - loki
+            - build
           filters:
             branches:
               only: master
@@ -116,7 +84,7 @@ workflows:
               only: /^v.*/
       - publish-next:
           requires:
-            - loki
+            - build
           filters:
             branches:
               only: develop
