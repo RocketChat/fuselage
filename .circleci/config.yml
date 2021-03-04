@@ -14,8 +14,8 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
       - run: yarn run build
-      - run: yarn run lint
-      - run: yarn run test
+      # - run: yarn run lint
+      # - run: yarn run test
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -74,32 +74,32 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - publish:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
-            tags:
-              only: /^v.*/
-      - publish-next:
-          requires:
-            - build
-          filters:
-            branches:
-              only: develop
-      - publish-alpha:
-          requires:
-            - hold
-          filters:
-            branches:
-              only: /feature*/
-      - hold:
-          type: approval
-          requires:
-            - build
-          filters:
-            branches:
-              ignore:
-                - master
-                - develop
+      # - publish:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: master
+      #       tags:
+      #         only: /^v.*/
+      # - publish-next:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: develop
+      # - publish-alpha:
+      #     requires:
+      #       - hold
+      #     filters:
+      #       branches:
+      #         only: /feature*/
+      # - hold:
+      #     type: approval
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         ignore:
+      #           - master
+      #           - develop
