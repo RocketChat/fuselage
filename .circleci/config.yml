@@ -13,51 +13,17 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum ".circleci/config.yml" }}-{{ checksum "package.json" }}
-      - run: yarn lerna run lint --stream
-      - run: yarn lerna run build --stream
-      - run: yarn lerna run test:ci --stream
+      - run: yarn run build
+      # - run: yarn run lint
+      # - run: yarn run test
       - persist_to_workspace:
           root: ~/repo
           paths:
             - .
 
-  loki:
-    docker:
-      - image: chinello/alpine-chrome:with-node
-    working_directory: ~/repo
-    environment:
-      CHROME_PATH: /usr/bin/chromium-browser
-    steps:
-      - checkout
-      - run: yarn
-      - run: yarn lerna run build --stream
-
-      - run: yarn lerna run build-storybook:loki --scope @rocket.chat/fuselage --stream
-      - run:
-          command: |
-            cat package.json | sed s/\.docker/.app/ > package.json-new
-            mv package.json-new package.json
-          working_directory: ~/repo/packages/fuselage
-      - run:
-          command: yarn run loki:test-ci
-          working_directory: ~/repo/packages/fuselage
-
-      - run: yarn lerna run build-storybook:loki --scope @rocket.chat/fuselage-ui-kit --stream
-      - run:
-          command: |
-            cat package.json | sed s/\.docker/.app/ > package.json-new
-            mv package.json-new package.json
-          working_directory: ~/repo/packages/fuselage-ui-kit
-      - run:
-          command: yarn run loki:test-ci
-          working_directory: ~/repo/packages/fuselage-ui-kit
-
-      - store_artifacts:
-          path: ~/repo/packages/fuselage-ui-kit/.loki/difference
-
   publish:
     docker:
-      - image: circleci/node:10.15
+      - image: circleci/node:12
     working_directory: ~/repo
     steps:
       - attach_workspace:
@@ -68,9 +34,10 @@ jobs:
       - run:
           name: Publish package
           command: yarn lerna publish from-package --yes
+
   publish-alpha:
     docker:
-      - image: circleci/node:10.15
+      - image: circleci/node:12
     working_directory: ~/repo
     steps:
       - attach_workspace:
@@ -90,7 +57,7 @@ jobs:
 
   publish-next:
     docker:
-      - image: circleci/node:10.15
+      - image: circleci/node:12
     working_directory: ~/repo
     steps:
       - attach_workspace:
@@ -107,35 +74,32 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - loki:
-          requires:
-            - build
-      - publish:
-          requires:
-            - loki
-          filters:
-            branches:
-              only: master
-            tags:
-              only: /^v.*/
-      - publish-next:
-          requires:
-            - loki
-          filters:
-            branches:
-              only: develop
-      - publish-alpha:
-          requires:
-            - hold
-          filters:
-            branches:
-              only: /feature*/
-      - hold:
-          type: approval
-          requires:
-            - build
-          filters:
-            branches:
-              ignore:
-                - master
-                - develop
+      # - publish:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: master
+      #       tags:
+      #         only: /^v.*/
+      # - publish-next:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: develop
+      # - publish-alpha:
+      #     requires:
+      #       - hold
+      #     filters:
+      #       branches:
+      #         only: /feature*/
+      # - hold:
+      #     type: approval
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         ignore:
+      #           - master
+      #           - develop
