@@ -22,26 +22,28 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rimraf dist",
     "start": "webpack --watch --mode development",
-    "build:prod": "webpack --mode production",
-    "build:dev": "webpack --mode development",
-    "build": "run-s clean build:prod build:dev",
-    "eslint": "eslint src",
-    "stylelint": "stylelint 'src/**/*.scss'",
-    "fix": "stylelint --fix 'src/**/*.scss'",
-    "lint": "run-s eslint stylelint",
-    "lint-staged": "lint-staged",
-    "test": "jest",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.{ts,tsx,js,jsx}' --write",
-    "test:ci": "jest --runInBand",
-    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "loki:test-ci": "loki test --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "loki:update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build-storybook:loki": "cross-env NODE_ENV=loki build-storybook",
-    "update-storybook": "cross-env NODE_ENV=loki run-s build-storybook loki:update"
+    "build": "run-s .:build:clean .:build:dev .:build:prod",
+    ".:build:clean": "rimraf dist",
+    ".:build:prod": "webpack --mode production",
+    ".:build:dev": "webpack --mode development",
+    "lint": "run-s .:lint:eslint .:lint:stylelint",
+    ".:lint:eslint": "eslint src",
+    ".:lint:stylelint": "stylelint 'src/**/*.scss'",
+    "lint-fix": "run-s .:lint-fix:eslint .:lint-fix:stylelint",
+    ".:lint-fix:eslint": "eslint --fix src",
+    ".:lint-fix:stylelint": "stylelint --fix 'src/**/*.scss'",
+    "lint-staged": "lint-staged",
+    "test": "jest --runInBand",
+    "build-storybook": "run-s .:build-storybook:jest-results .:build-storybook:build-storybook",
+    ".:build-storybook:jest-results": "jest --runInBand --json --outputFile .storybook/jest-results.json",
+    ".:build-storybook:build-storybook": "cross-env NODE_ENV=production build-storybook",
+    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:loki-update",
+    ".:update-storybook:build-storybook": "build-storybook",
+    ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.{ts,tsx,js,jsx}' --write",
+    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -77,6 +79,7 @@
     "autoprefixer": "^10.0.1",
     "babel-loader": "^8.1.0",
     "caniuse-lite": "^1.0.30001151",
+    "cross-env": "^7.0.3",
     "cssnano": "^4.1.10",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
@@ -87,7 +90,7 @@
     "eslint-plugin-react-hooks": "^4.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.1",
-    "lint-staged": "^10.0.8",
+    "lint-staged": "^10.5.4",
     "loki": "^0.25.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
@@ -116,14 +119,6 @@
     "webpack": "^5.2.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^4.1.0"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/.jest/styleMock.js"
-    },
-    "setupFiles": [
-      "<rootDir>/.jest/setup.js"
-    ]
   },
   "loki": {
     "configurations": {

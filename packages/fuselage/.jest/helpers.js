@@ -7,15 +7,15 @@ export const testHook = (callback, ...acts) => {
   let errorThrown;
 
   class ErrorBoundary extends React.Component {
-    state = { errored: false }
+    state = { errored: false };
 
-    static getDerivedStateFromError = () => ({ errored: true })
+    static getDerivedStateFromError = () => ({ errored: true });
 
     componentDidCatch = (error) => {
       errorThrown = error;
-    }
+    };
 
-    render = () => (this.state.errored ? null : <>{this.props.children}</>)
+    render = () => (this.state.errored ? null : <>{this.props.children}</>);
   }
 
   function TestComponent() {
@@ -27,9 +27,12 @@ export const testHook = (callback, ...acts) => {
   spy.mockImplementation(() => {});
 
   const div = document.createElement('div');
-  ReactDOM.render(<ErrorBoundary>
-    <TestComponent />
-  </ErrorBoundary>, div);
+  ReactDOM.render(
+    <ErrorBoundary>
+      <TestComponent />
+    </ErrorBoundary>,
+    div
+  );
 
   acts.forEach((fn) => act(fn.bind(null, returnedValue)));
 
