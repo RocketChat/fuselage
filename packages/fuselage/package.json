@@ -40,7 +40,7 @@
     ".:build-storybook:jest-results": "jest --runInBand --json --outputFile .storybook/jest-results.json",
     ".:build-storybook:build-storybook": "cross-env NODE_ENV=production build-storybook",
     "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:loki-update",
-    ".:update-storybook:build-storybook": "build-storybook",
+    ".:update-storybook:build-storybook": "run-s build-storybook",
     ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.{ts,tsx,js,jsx}' --write",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static"
