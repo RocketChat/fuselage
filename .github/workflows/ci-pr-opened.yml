@@ -1,0 +1,56 @@
+name: Continuous Integration (PR opened)
+
+on:
+  workflow_run:
+    workflows: ["Continuous Integration"]
+    types:
+      - completed
+
+jobs:
+  publish-to-gh-pages:
+    name: Publish to GitHub Pages
+    if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: "https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage/${{ github.event.number }}"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - uses: actions/github-script@v3.1.0
+        with:
+          script: |
+            var artifacts = await github.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: ${{ github.event.workflow_run.id }},
+            });
+            var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "storybooks"
+            })[0];
+            var download = await github.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+            var fs = require('fs');
+            fs.mkdirSync('${{ github.workspace }}/packages');
+            fs.writeFileSync('${{ github.workspace }}/packages/storybooks.zip', Buffer.from(download.data));
+      - run: |
+          cd packages
+          unzip storybooks.zip
+          cd ..
+          rm -rf "fuselage/${{ github.event.number }}" "fuselage-ui-kit/${{ github.event.number }}"
+          mv -v packages/fuselage/storybook-static "fuselage/${{ github.event.number }}"
+          mv -v packages/fuselage-ui-kit/storybook-static "fuselage-ui-kit/${{ github.event.number }}"
+          rm -rf packages
+      - uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: .
+          commit_message: "Deploy to Github Pages [skip ci]"
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
