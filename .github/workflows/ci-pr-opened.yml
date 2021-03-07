@@ -7,18 +7,15 @@ on:
       - completed
 
 jobs:
-  publish-to-gh-pages:
-    name: Publish to GitHub Pages
+  download-artifact:
+    name: Download artifact
     if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: "https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage/${{ github.event.number }}"
+    outputs:
+      pr-number: ${{ steps.set-pr-number.outputs.pr-number }}
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-      - uses: actions/github-script@v3.1.0
+      - id: set-pr-number
+        uses: actions/github-script@v3.1.0
         with:
           script: |
             var artifacts = await github.actions.listWorkflowRunArtifacts({
@@ -27,7 +24,7 @@ jobs:
                run_id: ${{ github.event.workflow_run.id }},
             });
             var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
-              return artifact.name == "storybooks"
+              return /^storybooks-/.test(artifact.name);
             })[0];
             var download = await github.actions.downloadArtifact({
                owner: context.repo.owner,
@@ -36,15 +33,40 @@ jobs:
                archive_format: 'zip',
             });
             var fs = require('fs');
-            fs.mkdirSync('${{ github.workspace }}/packages');
-            fs.writeFileSync('${{ github.workspace }}/packages/storybooks.zip', Buffer.from(download.data));
+            fs.writeFileSync('${{ github.workspace }}/storybooks.zip', Buffer.from(download.data));
+            const prNumber = /^storybooks-(\d+)$/.exec(matchArtifact)[1];
+            console.log(`::set-output name=pr-number::${ prNumber }`);
+      - run: unzip storybooks.zip
+      - uses: actions/upload-artifact@v2
+        with:
+          name: storybooks
+          path: |
+            fuselage/storybook-static
+            fuselage-ui-kit/storybook-static
+
+  publish-to-gh-pages:
+    name: Publish to GitHub Pages
+    needs:
+      - download-artifact
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: "https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage/${{ needs.download-artifact.outputs.pr-number }}"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - uses: actions/download-artifact@v2
+        with:
+          name: storybooks
+          path: packages
       - run: |
           cd packages
           unzip storybooks.zip
           cd ..
-          rm -rf "fuselage/${{ github.event.number }}" "fuselage-ui-kit/${{ github.event.number }}"
-          mv -v packages/fuselage/storybook-static "fuselage/${{ github.event.number }}"
-          mv -v packages/fuselage-ui-kit/storybook-static "fuselage-ui-kit/${{ github.event.number }}"
+          rm -rf "fuselage/${{ needs.download-artifact.outputs.pr-number }}" "fuselage-ui-kit/${{ needs.download-artifact.outputs.pr-number }}"
+          mv -v packages/fuselage/storybook-static "fuselage/${{ needs.download-artifact.outputs.pr-number }}"
+          mv -v packages/fuselage-ui-kit/storybook-static "fuselage-ui-kit/${{ needs.download-artifact.outputs.pr-number }}"
           rm -rf packages
       - uses: crazy-max/ghaction-github-pages@v2
         with:
