@@ -16,6 +16,7 @@ import {
   plainText,
   section,
   staticSelect,
+  linearScale,
 } from '../renderers';
 import ModalSurface from './ModalSurface';
 
@@ -35,6 +36,7 @@ ModalParser.prototype.staticSelect = staticSelect;
 ModalParser.prototype.multiStaticSelect = multiStaticSelect;
 ModalParser.prototype.overflow = overflow;
 ModalParser.prototype.plainInput = plainInput;
+ModalParser.prototype.linearScale = linearScale;
 
 export const modalParser = new ModalParser();
 

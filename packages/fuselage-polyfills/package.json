@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-polyfills",
-  "version": "0.20.1",
+  "version": "0.22.0",
   "description": "A bundle of useful poly/ponyfills used by fuselage",
   "author": {
     "name": "Rocket.Chat",
@@ -20,6 +20,7 @@
     "clipboard-polyfill": "^3.0.1",
     "element-closest-polyfill": "^1.0.2",
     "focus-visible": "^5.2.0",
-    "focus-within-polyfill": "^5.1.0"
+    "focus-within-polyfill": "^5.1.0",
+    "new-event-polyfill": "^1.0.1"
   }
 }

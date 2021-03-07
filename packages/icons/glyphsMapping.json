@@ -700,5 +700,29 @@
   },
   "document-eye": {
     "start": "\ue0bc"
+  },
+  "baloon-arrow-left": {
+    "start": "\ue0bd"
+  },
+  "hashtag-lock": {
+    "start": "\ue0be"
+  },
+  "team-lock": {
+    "start": "\ue0bf"
+  },
+  "members": {
+    "start": "\ue0c0"
+  },
+  "baloon-arrow-top-right": {
+    "start": "\ue0c1"
+  },
+  "baloon-close-top-right": {
+    "start": "\ue0c2"
+  },
+  "burger-arrow-left": {
+    "start": "\ue0c3"
+  },
+  "mail-arrow-top-right": {
+    "start": "\ue0c4"
   }
 }

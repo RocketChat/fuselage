@@ -185,8 +185,9 @@ $sidebar-item-color-selected: theme(
 
     &:hover &__menu-wraper,
     &.focus-within &__menu-wraper {
-      width: lengths.size(20);
+      position: static;
 
+      width: lengths.size(20);
       margin-inline: lengths.margin(4);
 
       opacity: 1;
@@ -207,6 +208,8 @@ $sidebar-item-color-selected: theme(
     }
 
     &__menu-wraper {
+      position: relative;
+
       flex-shrink: 0;
 
       width: 0;

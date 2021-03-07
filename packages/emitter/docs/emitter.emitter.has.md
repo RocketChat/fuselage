@@ -9,14 +9,14 @@ Returns `true` if this emmiter has a listener attached to the `key` event type
 <b>Signature:</b>
 
 ```typescript
-has(key: EventType): boolean;
+has(key: AnyEventTypeOf<EventMap>): boolean;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  key | [EventType](./emitter.eventtype.md) |  |
+|  key | [AnyEventTypeOf](./emitter.anyeventtypeof.md)<!-- -->&lt;EventMap&gt; |  |
 
 <b>Returns:</b>
 

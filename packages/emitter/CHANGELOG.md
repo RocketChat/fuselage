@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
+
+
+### Features
+
+* Type Emitter Implementation ([#399](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/399)) ([cd0d3fc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cd0d3fc7b50d911dbacbc122d09745fa9fb4d921))
+
+
+
+
+
+# [0.21.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.3...v0.21.0) (2021-01-31)
+
+
+### Features
+
+* Built modules for design tokens ([#356](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/356)) ([f9c3449](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f9c344953b8161a4385cab3a3dcc8b6a7210446f))
+
+
+
+
+
 ## [0.20.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.0...v0.20.1) (2020-12-22)
 
 **Note:** Version bump only for package @rocket.chat/emitter

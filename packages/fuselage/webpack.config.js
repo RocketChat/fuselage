@@ -6,7 +6,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env, { mode = 'production' }) => ({
   entry: {
-    fuselage: path.resolve(__dirname, 'src/index.js'),
+    fuselage: path.resolve(__dirname, 'src/index.ts'),
   },
   output: {
     filename: `[name].${mode}.js`,
@@ -31,6 +31,11 @@ module.exports = (env, { mode = 'production' }) => ({
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
       },
       {
         test: /\.scss$/,
@@ -69,6 +74,9 @@ module.exports = (env, { mode = 'production' }) => ({
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
   },
   externals: [
     {

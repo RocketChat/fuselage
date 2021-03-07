@@ -1,4 +1,5 @@
 import { uiKitModal, UiKitParserModal, BlockContext } from '..';
+import { IPlainText } from '../blocks';
 
 class TestParser extends UiKitParserModal {
   plainText = (element: any, context: any, index: any): any => ({
@@ -252,6 +253,36 @@ class TestParser extends UiKitParserModal {
       ...(typeof element.maxLength !== 'undefined' && {
         maxLength: element.maxLength,
       }),
+    },
+  });
+
+  linearScale = (
+    { minValue = 0, maxValue = 10 }: any,
+    _context: any,
+    index: any
+  ): any => ({
+    component: 'linear-scale',
+    props: {
+      key: index,
+      children: Array.from({ length: maxValue - minValue + 1 }).map(
+        (_, key: any) => ({
+          component: 'linear-scale-point',
+          props: {
+            key,
+            children: [
+              this.text(
+                {
+                  type: 'plain_text',
+                  text: String(minValue + key),
+                  emoji: true,
+                } as IPlainText,
+                -1,
+                0
+              ),
+            ],
+          },
+        })
+      ),
     },
   });
 }
@@ -1710,6 +1741,102 @@ describe('input', () => {
                     block: false,
                   },
                 },
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('renders linear scale', () => {
+    const payload = [
+      {
+        type: 'input',
+        element: {
+          type: 'linear_scale',
+          maxValue: 2,
+        },
+        label: {
+          type: 'plain_text',
+          text: 'Label',
+          emoji: true,
+        },
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'input-group',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'Label',
+                emoji: true,
+                block: false,
+              },
+            },
+            {
+              component: 'linear-scale',
+              props: {
+                key: 1,
+                children: [
+                  {
+                    component: 'linear-scale-point',
+                    props: {
+                      key: 0,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '0',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                    },
+                  },
+                  {
+                    component: 'linear-scale-point',
+                    props: {
+                      key: 1,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '1',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                    },
+                  },
+                  {
+                    component: 'linear-scale-point',
+                    props: {
+                      key: 2,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '2',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                    },
+                  },
+                ],
               },
             },
           ],

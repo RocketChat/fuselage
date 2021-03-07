@@ -52,16 +52,25 @@ export const useBoxOnlyProps = (props) => {
   }
 
   if (props.withRichContent) {
-    props.className = prependClassName(
-      props.className,
-      'rcx-box--with-inline-elements'
-    );
-    props.className = prependClassName(
-      props.className,
-      'rcx-box--with-block-elements'
-    );
-    delete props.withRichContent;
+    if (props.withRichContent === 'inlineWithoutBreaks') {
+      props.className = prependClassName(
+        props.className,
+        'rcx-box--with-inline-elements'
+      );
+    } else {
+      props.className = prependClassName(
+        props.className,
+        'rcx-box--with-inline-elements'
+      );
+
+      props.className = prependClassName(
+        props.className,
+        'rcx-box--with-block-elements'
+      );
+    }
   }
+
+  delete props.withRichContent;
 
   props.className = prependClassName(props.className, 'rcx-box rcx-box--full');
 
