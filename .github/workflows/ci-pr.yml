@@ -31,7 +31,7 @@ jobs:
       - run: yarn run build-storybook
       - uses: actions/upload-artifact@v2
         with:
-          name: storybooks
+          name: "storybooks-${{ github.event.number }}"
           path: |
             packages/fuselage/storybook-static
             packages/fuselage-ui-kit/storybook-static
