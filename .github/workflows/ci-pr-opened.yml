@@ -34,7 +34,7 @@ jobs:
             });
             var fs = require('fs');
             fs.writeFileSync('${{ github.workspace }}/storybooks.zip', Buffer.from(download.data));
-            const prNumber = /^storybooks-(\d+)$/.exec(matchArtifact)[1];
+            const prNumber = /^storybooks-(\d+)$/.exec(matchArtifact.name)[1];
             console.log(`::set-output name=pr-number::${ prNumber }`);
       - run: unzip storybooks.zip
       - uses: actions/upload-artifact@v2
