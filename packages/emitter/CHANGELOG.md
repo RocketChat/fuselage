@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
+
+
+### Features
+
+* Type Emitter Implementation ([#399](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/399)) ([cd0d3fc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cd0d3fc7b50d911dbacbc122d09745fa9fb4d921))
+
+
+
+
+
 # [0.21.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.3...v0.21.0) (2021-01-31)
 
 

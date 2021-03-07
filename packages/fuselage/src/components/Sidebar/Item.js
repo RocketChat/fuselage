@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Icon as FuselageIcon, ButtonGroup, ActionButton } from '../..';
+import { ActionButton } from '../Button/ActionButton';
+import { ButtonGroup } from '../ButtonGroup';
+import { Icon as FuselageIcon } from '../Icon';
 
 const Item = ({
   selected,

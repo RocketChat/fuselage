@@ -1,9 +1,12 @@
-import { cloneElement, isValidElement } from 'react';
+import { cloneElement, isValidElement, ReactNode } from 'react';
 
 import { flattenChildren } from './flattenChildren';
 import { shallowEqual } from './shallowEqual';
 
-export const patchChildren = (children, patch) => {
+export const patchChildren = <Props>(
+  children: ReactNode,
+  patch: (props: Props) => Props
+) => {
   let dirty = false;
 
   const newChildren = flattenChildren(children).map((child) => {
