@@ -78,8 +78,10 @@ export const MultiSelect = ({
       rcx-select
       className={[error && 'invalid', disabled && 'disabled']}
       ref={containerRef}
-      tabIndex="0"
-      onClick={useMutableCallback(() => (visible === AnimatedVisibility.HIDDEN ? show() : hide()))}
+      tabIndex='0'
+      onClick={useMutableCallback(() =>
+        visible === AnimatedVisibility.HIDDEN ? show() : hide()
+      )}
       onBlur={hide}
       disabled={disabled}
       {...props}

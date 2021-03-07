@@ -118,8 +118,10 @@ export const Select = ({
       rcx-select
       disabled={disabled}
       ref={containerRef}
-      tabIndex="0"
-      onClick={useMutableCallback(() => (visible === AnimatedVisibility.HIDDEN ? show() : hide()))}
+      tabIndex='0'
+      onClick={useMutableCallback(() =>
+        visible === AnimatedVisibility.HIDDEN ? show() : hide()
+      )}
       onBlur={hide}
       className={useMemo(() => [error && 'invalid', disabled && 'disabled'], [
         error,
