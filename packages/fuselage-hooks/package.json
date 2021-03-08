@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-hooks",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "description": "React hooks for Fuselage, Rocket.Chat's design system and UI toolkit",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -32,16 +32,16 @@
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "test:ci": "jest --runInBand",
     "lint": "eslint --ext js,ts,tsx src",
+    "lint-fix": "eslint --fix --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
-    "docs:api-extractor": "api-extractor run --local --verbose",
-    "docs:api-documenter": "api-documenter markdown -i temp -o docs",
-    "docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
-    "docs:clean": "rimraf temp",
-    "docs": "run-s build docs:api-extractor docs:api-documenter docs:readme docs:clean"
+    "test": "jest --runInBand",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "docs": "run-s build .:docs:api-extractor .:docs:api-documenter .:docs:readme .:docs:clean",
+    ".:docs:api-extractor": "api-extractor run --local --verbose",
+    ".:docs:api-documenter": "api-documenter markdown -i temp -o docs",
+    ".:docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
+    ".:docs:clean": "rimraf temp"
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.8.21",
@@ -65,7 +65,8 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "jest": "^26.0.1",
-    "lint-staged": "^10.0.8",
+    "lint-staged": "^10.5.4",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -82,7 +83,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@rocket.chat/fuselage-tokens": "^0.21.0",
+    "@rocket.chat/fuselage-tokens": "^0.22.0",
     "use-subscription": "^1.4.1"
   }
 }

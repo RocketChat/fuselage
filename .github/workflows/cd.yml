@@ -1,0 +1,105 @@
+name: Continuous Delivery
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    outputs:
+      branch-name: ${{ steps.set-branch-name.outputs.branch-name }}
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "12"
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+      - run: yarn run build
+      - run: yarn run lint
+      - run: yarn run test
+      - run: yarn run build-storybook
+      - uses: actions/upload-artifact@v2
+        with:
+          name: storybooks
+          path: |
+            packages/fuselage/storybook-static
+            packages/fuselage-ui-kit/storybook-static
+      - run: |
+          ref='${{ github.ref }}'
+          echo "::set-output name=branch-name::$(echo "${ref:11}")"
+        id: set-branch-name
+
+  public-to-npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    needs:
+      - build-and-test
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "12"
+          registry-url: "https://registry.npmjs.org"
+          scope: "@rocket.chat"
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+      - run: yarn run build
+      - run: yarn lerna publish from-package --yes
+        if: github.ref == 'refs/heads/master'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: yarn lerna publish --canary --preid dev --dist-tag next --yes
+        if: github.ref == 'refs/heads/develop'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-to-gh-pages:
+    name: Publish to GitHub Pages
+    runs-on: ubuntu-latest
+    needs:
+      - build-and-test
+    environment:
+      name: github-pages
+      url: "https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage/${{ needs.build-and-test.outputs.branch-name }}"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - uses: actions/download-artifact@v2
+        with:
+          name: storybooks
+          path: packages
+      - run: |
+          rm -rf "fuselage/${{ needs.build-and-test.outputs.branch-name }}" "fuselage-ui-kit/${{ needs.build-and-test.outputs.branch-name }}"
+          mv -v "packages/fuselage/storybook-static" "fuselage/${{ needs.build-and-test.outputs.branch-name }}"
+          mv -v "packages/fuselage-ui-kit/storybook-static" "fuselage-ui-kit/${{ needs.build-and-test.outputs.branch-name }}"
+          rm -rf packages
+      - uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: .
+          commit_message: "Deploy to Github Pages [skip ci]"
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
