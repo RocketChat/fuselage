@@ -1,6 +1,6 @@
-import { Ref, useRef } from 'react';
+import { Ref, useRef, useState } from 'react';
 
-import { useDebouncedState } from './useDebouncedState';
+import { useDebouncedCallback } from './useDebouncedCallback';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 export const useBorderBoxSize = (
@@ -13,11 +13,13 @@ export const useBorderBoxSize = (
   blockSize: number;
 }> => {
   const ref = useRef<HTMLElement>();
-  const [size, setSize] = useDebouncedState(
-    {
-      inlineSize: 0,
-      blockSize: 0,
-    },
+  const [size, setSize] = useState({
+    inlineSize: 0,
+    blockSize: 0,
+  });
+
+  const setSizeWithDebounce = useDebouncedCallback(
+    setSize,
     options.debounceDelay
   );
 
@@ -34,7 +36,7 @@ export const useBorderBoxSize = (
           borderBoxSize: [borderBoxSize],
         },
       ]) => {
-        setSize((prevSize) => {
+        setSizeWithDebounce((prevSize) => {
           if (
             prevSize.inlineSize === borderBoxSize.inlineSize &&
             prevSize.blockSize === borderBoxSize.blockSize
@@ -60,7 +62,7 @@ export const useBorderBoxSize = (
     return () => {
       observer.unobserve(element);
     };
-  }, [setSize]);
+  }, [setSizeWithDebounce]);
 
   return {
     ref,
