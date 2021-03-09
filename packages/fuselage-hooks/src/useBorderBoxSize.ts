@@ -30,27 +30,27 @@ export const useBorderBoxSize = (
       return;
     }
 
-    const observer = new ResizeObserver(
-      ([
-        {
-          borderBoxSize: [borderBoxSize],
-        },
-      ]) => {
-        setSizeWithDebounce((prevSize) => {
-          if (
-            prevSize.inlineSize === borderBoxSize.inlineSize &&
-            prevSize.blockSize === borderBoxSize.blockSize
-          ) {
-            return prevSize;
-          }
-
-          return {
-            inlineSize: borderBoxSize.inlineSize,
-            blockSize: borderBoxSize.blockSize,
-          };
-        });
+    const observer = new ResizeObserver((entries: ResizeObserverEntry[]) => {
+      if (entries.length === 0 || entries[0].borderBoxSize.length === 0) {
+        return;
       }
-    );
+
+      const borderBoxSize = entries[0].borderBoxSize[0];
+
+      setSizeWithDebounce((prevSize) => {
+        if (
+          prevSize.inlineSize === borderBoxSize.inlineSize &&
+          prevSize.blockSize === borderBoxSize.blockSize
+        ) {
+          return prevSize;
+        }
+
+        return {
+          inlineSize: borderBoxSize.inlineSize,
+          blockSize: borderBoxSize.blockSize,
+        };
+      });
+    });
 
     observer.observe(element);
 
