@@ -724,5 +724,32 @@
   },
   "mail-arrow-top-right": {
     "start": "\ue0c4"
+  },
+  "balloon": {
+    "start": "\ue0c5"
+  },
+  "balloon-arrow-left": {
+    "start": "\ue0c6"
+  },
+  "balloon-arrow-top-right": {
+    "start": "\ue0c7"
+  },
+  "balloon-close-top-right": {
+    "start": "\ue0c8"
+  },
+  "balloon-ellipsis": {
+    "start": "\ue0c9"
+  },
+  "balloon-off": {
+    "start": "\ue0ca"
+  },
+  "balloon-text": {
+    "start": "\ue0cb"
+  },
+  "balloons": {
+    "start": "\ue0cc"
+  },
+  "balloon-exclamation": {
+    "start": "\ue0cd"
   }
 }
