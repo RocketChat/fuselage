@@ -171,6 +171,23 @@ declare module '@rocket.chat/fuselage' {
   };
   export const ActionButton: ForwardRefExoticComponent<ActionButtonProps>;
 
+  type AutoCompleteProps = {
+    value: unknown[];
+    filter: string;
+    setFilter?: (filter: string) => void;
+    options?: { label: string; value: unknown }[];
+    renderItem: ElementType;
+    renderSelected?: ElementType;
+    onChange: (value: unknown, action: 'remove' | undefined) => void;
+    getLabel?: (option: { label: string; value: unknown }) => string;
+    getValue?: (option: { label: string; value: unknown }) => unknown;
+    renderEmpty?: ElementType;
+    placeholder?: string;
+    error?: boolean;
+    disabled?: boolean;
+  };
+  export const AutoComplete: FC<AutoCompleteProps>;
+
   type AvatarProps = Omit<BoxProps, 'title' | 'size'> & {
     title?: string;
     size?:
@@ -210,7 +227,7 @@ declare module '@rocket.chat/fuselage' {
     inline?: boolean;
     actionable?: boolean;
     closeable?: boolean;
-    icon?: ReactElement;
+    icon?: ReactNode;
     title?: string;
     variant?: 'neutral' | 'info' | 'success' | 'warning' | 'danger';
     onAction?: () => void;
@@ -269,6 +286,7 @@ declare module '@rocket.chat/fuselage' {
   export const Field: ForwardRefExoticComponent<FieldProps> & {
     Row: ForwardRefExoticComponent<BoxProps>;
     Label: ForwardRefExoticComponent<BoxProps>;
+    Description: ForwardRefExoticComponent<BoxProps>;
     Hint: ForwardRefExoticComponent<BoxProps>;
     Error: ForwardRefExoticComponent<BoxProps>;
   };
@@ -325,9 +343,21 @@ declare module '@rocket.chat/fuselage' {
   type NumberInputProps = BoxProps;
   export const NumberInput: ForwardRefExoticComponent<NumberInputProps>;
 
+  type OptionsProps = BoxProps & {
+    multiple?: boolean;
+    options: [unknown, string, boolean?][];
+    cursor: number;
+    renderItem?: ElementType;
+    renderEmpty?: ElementType;
+    onSelect: (option: [unknown, string]) => void;
+  };
+  export const Options: ForwardRefExoticComponent<OptionsProps> & {
+    AvatarSize: AvatarProps['size'];
+  };
+
   type OptionProps = {
     id?: string;
-    avatar?: typeof Avatar; // eslint-disable-line no-undef
+    avatar?: ReactNode;
     label?: string;
     focus?: boolean;
     selected?: boolean;
