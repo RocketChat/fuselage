@@ -4,6 +4,7 @@ import { ModalClose } from './ModalClose';
 import { ModalContent } from './ModalContent';
 import { ModalFooter } from './ModalFooter';
 import { ModalHeader } from './ModalHeader';
+import { ModalIcon } from './ModalIcon';
 import { ModalThumb } from './ModalThumb';
 import { ModalTitle } from './ModalTitle';
 
@@ -14,6 +15,7 @@ Modal.Footer = ModalFooter;
 Modal.Header = ModalHeader;
 Modal.Thumb = ModalThumb;
 Modal.Title = ModalTitle;
+Modal.Icon = ModalIcon;
 
 export {
   Modal,
@@ -24,4 +26,5 @@ export {
   ModalHeader,
   ModalThumb,
   ModalTitle,
+  ModalIcon,
 };
