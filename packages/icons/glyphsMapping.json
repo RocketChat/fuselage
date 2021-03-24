@@ -751,5 +751,8 @@
   },
   "balloon-exclamation": {
     "start": "\ue0cd"
+  },
+  "pause-unfilled": {
+    "start": "\ue0ce"
   }
 }
