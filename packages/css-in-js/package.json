@@ -25,8 +25,8 @@
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "logicalProperties"
+    "/dist",
+    "/logicalProperties"
   ],
   "scripts": {
     "start": "rollup -c -w",

@@ -27,7 +27,7 @@
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "/dist"
   ],
   "scripts": {
     "start": "rollup -c -w",

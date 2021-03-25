@@ -22,7 +22,7 @@
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "files": [
-    "./dist/"
+    "/dist"
   ],
   "scripts": {
     "build": "run-s .:build:clean .:build:esm .:build:cjs",
