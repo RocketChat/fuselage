@@ -17,9 +17,9 @@
   "main": "index.js",
   "types": "fuselage.d.ts",
   "files": [
-    "index.js",
-    "fuselage.d.ts",
-    "dist"
+    "/dist",
+    "/fuselage.d.ts",
+    "/index.js"
   ],
   "scripts": {
     "start": "webpack --watch --mode development",
