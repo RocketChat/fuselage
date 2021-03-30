@@ -27,21 +27,21 @@
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "/dist"
   ],
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "test:ci": "jest --runInBand",
     "lint": "eslint --ext js,ts,tsx src",
+    "lint-fix": "eslint --fix --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
-    "docs:api-extractor": "api-extractor run --local --verbose",
-    "docs:api-documenter": "api-documenter markdown -i temp -o docs",
-    "docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
-    "docs:clean": "rimraf temp",
-    "docs": "run-s build docs:api-extractor docs:api-documenter docs:readme docs:clean"
+    "test": "jest --runInBand",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "docs": "run-s build .:docs:api-extractor .:docs:api-documenter .:docs:readme .:docs:clean",
+    ".:docs:api-extractor": "api-extractor run --local --verbose",
+    ".:docs:api-documenter": "api-documenter markdown -i temp -o docs",
+    ".:docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
+    ".:docs:clean": "rimraf temp"
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.12.1",
@@ -62,7 +62,8 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^26.6.3",
-    "lint-staged": "^10.5.3",
+    "lint-staged": "^10.5.4",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.35.1",

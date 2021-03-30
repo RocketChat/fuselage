@@ -1,0 +1,75 @@
+name: Continuous Integration (PR opened)
+
+on:
+  workflow_run:
+    workflows: ["Continuous Integration"]
+    types:
+      - completed
+
+jobs:
+  download-artifact:
+    name: Download artifact
+    if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    outputs:
+      pr-number: ${{ steps.set-pr-number.outputs.pr-number }}
+    steps:
+      - id: set-pr-number
+        uses: actions/github-script@v3.1.0
+        with:
+          script: |
+            var artifacts = await github.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: ${{ github.event.workflow_run.id }},
+            });
+            var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return /^storybooks-/.test(artifact.name);
+            })[0];
+            var download = await github.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+            var fs = require('fs');
+            fs.writeFileSync('${{ github.workspace }}/storybooks.zip', Buffer.from(download.data));
+            const prNumber = /^storybooks-(\d+)$/.exec(matchArtifact.name)[1];
+            console.log(`::set-output name=pr-number::${ prNumber }`);
+      - run: unzip storybooks.zip
+      - uses: actions/upload-artifact@v2
+        with:
+          name: storybooks
+          path: |
+            fuselage/storybook-static
+            fuselage-ui-kit/storybook-static
+
+  publish-to-gh-pages:
+    name: Publish to GitHub Pages
+    needs:
+      - download-artifact
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: "https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage/${{ needs.download-artifact.outputs.pr-number }}"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - uses: actions/download-artifact@v2
+        with:
+          name: storybooks
+          path: packages
+      - run: |
+          rm -rf "fuselage/${{ needs.download-artifact.outputs.pr-number }}" "fuselage-ui-kit/${{ needs.download-artifact.outputs.pr-number }}"
+          mv -v packages/fuselage/storybook-static "fuselage/${{ needs.download-artifact.outputs.pr-number }}"
+          mv -v packages/fuselage-ui-kit/storybook-static "fuselage-ui-kit/${{ needs.download-artifact.outputs.pr-number }}"
+          rm -rf packages
+      - uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: .
+          commit_message: "Deploy to Github Pages [skip ci]"
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
