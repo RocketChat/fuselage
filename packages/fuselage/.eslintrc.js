@@ -1,22 +1,31 @@
 module.exports = {
-  extends: [
-    '@rocket.chat/eslint-config',
-    'prettier',
-  ],
+  extends: ['@rocket.chat/eslint-config', 'prettier'],
   plugins: ['react', 'react-hooks', 'prettier'],
   parser: '@babel/eslint-parser',
   rules: {
     'generator-star-spacing': ['error', 'before'],
-    'import/order': ['error', {
-      'newlines-between': 'always',
-      groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
-      alphabetize: {
-        order: 'asc',
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        'groups': [
+          'builtin',
+          'external',
+          'internal',
+          ['parent', 'sibling', 'index'],
+        ],
+        'alphabetize': {
+          order: 'asc',
+        },
       },
-    }],
-    indent: ['error', 2, {
-      SwitchCase: 1,
-    }],
+    ],
+    'indent': [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+      },
+    ],
     'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
@@ -30,15 +39,10 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: [
-          '.js',
-          '.jsx',
-          '.ts',
-          '.tsx',
-        ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
-    react: {
+    'react': {
       version: 'detect',
     },
   },
@@ -53,7 +57,7 @@ module.exports = {
         parser: '@babel/eslint-parser',
       },
       rules: {
-        semi: 'off',
+        'semi': 'off',
         'new-cap': 'off',
       },
     },
