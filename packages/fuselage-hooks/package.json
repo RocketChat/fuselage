@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-hooks",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "description": "React hooks for Fuselage, Rocket.Chat's design system and UI toolkit",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -83,7 +83,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@rocket.chat/fuselage-tokens": "^0.22.0",
+    "@rocket.chat/fuselage-tokens": "^0.23.0",
     "use-subscription": "^1.4.1"
   }
 }

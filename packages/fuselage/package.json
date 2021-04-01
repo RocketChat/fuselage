@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -52,8 +52,8 @@
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@rocket.chat/css-in-js": "^0.22.0",
-    "@rocket.chat/fuselage-tokens": "^0.22.0",
+    "@rocket.chat/css-in-js": "^0.23.0",
+    "@rocket.chat/fuselage-tokens": "^0.23.0",
     "@rocket.chat/memo": "^0.6.3-dev.180",
     "invariant": "^2.2.4",
     "react-keyed-flatten-children": "^1.2.0"
@@ -66,8 +66,8 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@rocket.chat/fuselage-hooks": "^0.22.0",
-    "@rocket.chat/fuselage-polyfills": "^0.22.0",
+    "@rocket.chat/fuselage-hooks": "^0.23.0",
+    "@rocket.chat/fuselage-polyfills": "^0.23.0",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-jest": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
