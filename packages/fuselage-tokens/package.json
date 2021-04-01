@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-tokens",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "description": "Design tokens for Fuselage, Rocket.Chat's design system",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
