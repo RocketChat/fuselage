@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.22.0...v0.23.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* **npm:** Wrong paths in "files" field of package.json ([6d3c811](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6d3c811f6fd747de7f47aff145902d88476272ee))
+* Add more type definitions ([#415](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/415)) ([96bb6ae](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/96bb6ae27dfc51b344bf229c5adf121ec0a069af))
+* Broken stories for AutoComplete ([#368](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/368)) ([8b6d35e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8b6d35e3a36573931010411f733cf46a8e82579b))
+* Speech balloon icon aliases ([#414](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/414)) ([5a0fa7c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5a0fa7c43359178005d4b05d60781f6613671e9e))
+
+
+### Features
+
+* Add Modal Icon to Modal Component ([#410](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/410)) ([c6a8b3e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c6a8b3e0423f1f9e2ee0d44b9d36de1ea0e6f875))
+* New icon: pause-unfilled ([#416](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/416)) ([ba0eb1c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ba0eb1c39fb29d3b62e3e3312cd0916c8c7fac2d))
+* New icons ([#407](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/407)) ([9e708b4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9e708b42a0a3003669e1c5e76dce84b8ef563e21))
+* New tag style and stories ([#419](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/419)) ([04bdb39](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/04bdb39840beab20f80a45a49605c8a2f361f458))
+
+
+
+
+
 # [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
 
 
