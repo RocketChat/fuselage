@@ -8,7 +8,9 @@ export const StatusBullet = ({
   ...props
 }) => (
   <span
-    className={`rcx-box rcx-box--full rcx-status-bullet rcx-status-bullet--${status} ${size && size === 'small' ? 'rcx-status-bullet--small' : ''} ${className}`}
+    className={`rcx-box rcx-box--full rcx-status-bullet rcx-status-bullet--${status} ${
+      size && size === 'small' ? 'rcx-status-bullet--small' : ''
+    } ${className}`}
     {...props}
   />
 );
