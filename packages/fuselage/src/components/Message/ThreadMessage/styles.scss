@@ -1,0 +1,63 @@
+@use '../../../styles/lengths.scss';
+@use '../../../styles/colors.scss';
+@use '../../../styles/typography.scss';
+@use '../mixins.scss';
+
+.rcx-message.rcx-message--thread {
+  @include typography.use-font-scale(c1);
+  @include typography.use-with-truncated-text();
+  display: flex;
+  flex-direction: column;
+
+  color: colors.primary(500);
+}
+
+.rcx-message-thread {
+  &__container {
+    @include typography.use-with-truncated-text();
+    display: flex;
+    flex-shrink: 1;
+
+    width: 100%;
+    margin-block: lengths.margin(4);
+  }
+
+  &__row {
+    @include typography.use-with-truncated-text();
+    display: flex;
+    align-items: center;
+    flex-shrink: 1;
+
+    width: 100%;
+  }
+
+  &__message {
+    color: colors.foreground(default);
+    @include typography.use-with-truncated-text();
+  }
+
+  &__origin {
+    @include typography.use-font-scale(c1);
+    @include typography.use-with-truncated-text();
+    flex-shrink: 1;
+
+    cursor: pointer;
+
+    color: colors.primary(500);
+  }
+
+  &__icon {
+    color: colors.primary(500);
+
+    &--unfollow,
+    &--follow {
+      cursor: pointer;
+
+      color: colors.foreground(info);
+    }
+
+    &--unfollow {
+      @include mixins.visible-on-hover();
+    }
+  }
+}

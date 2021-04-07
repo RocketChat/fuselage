@@ -1,15 +1,21 @@
-import React, { FC } from 'react';
+import React, { ComponentProps, FC } from 'react';
 
-import { ActionButton } from '../../';
+import { ActionButton, ButtonGroup } from '../../';
 
-export const Toolbox: FC & {
+import './styles.scss';
+
+export const Toolbox: FC<ComponentProps<typeof ButtonGroup>> & {
   Item: FC;
-} = function ToolBox() {
-  return <div className='rcx-message-toolbox' />;
+} = function ToolBox(props) {
+  return (
+    <div className='rcx-box rcx-box--full rcx-message-toolbox'>
+      <ButtonGroup {...{ small: true }} {...props} />
+    </div>
+  );
 };
 
-const Item: FC = function Item() {
-  return <ActionButton />;
+const Item: FC<ComponentProps<typeof ActionButton>> = function Item(props) {
+  return <ActionButton {...{ ...props, small: true, ghost: true }} />;
 };
 
 Toolbox.Item = Item;

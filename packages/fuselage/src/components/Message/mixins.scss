@@ -1,0 +1,36 @@
+@use '../../styles/lengths.scss';
+
+@mixin container() {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    min-width: 1px;
+    margin-block: lengths.margin(-4);
+    margin-inline: lengths.margin(4);
+
+    &--fixed {
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    &--left {
+      align-items: center;
+      align-items: flex-end;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      width: lengths.size(36);
+      margin-block: lengths.margin(-2);
+    }
+  }
+}
+
+@mixin visible-on-hover {
+  .rcx-message:not(:hover) & {
+    display: none;
+  }
+}

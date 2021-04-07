@@ -1,9 +1,12 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use './mixins.scss';
 
-@use './Metrics/Metrics.styles.scss';
-
+@import './Metrics/Metrics.styles.scss';
+@import './Toolbox/styles.scss';
+@import './Reactions/styles.scss';
+@import './ThreadMessage/styles.scss';
 %rcx-margins-header {
   margin-inline: lengths.margin(2);
 }
@@ -12,20 +15,20 @@
 }
 
 .rcx-message {
+  @include mixins.container();
+  position: relative;
+
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+
+  padding-block: lengths.padding(8);
 
   padding-inline: lengths.padding(20);
-  padding-block: lengths.padding(16);
 
-  &--clickable {
-    cursor: pointer;
-    // border-bottom: 2px solid ${ colors.n300 } !important;
-
-    &:hover,
-    &:focus {
-      background: colors.neutral(100);
-    }
+  &:hover,
+  &:focus {
+    background: colors.neutral(100);
   }
 
   &-header {
@@ -33,42 +36,53 @@
     display: flex;
     flex-grow: 0;
     flex-shrink: 1;
+
     min-width: 1px;
 
     &__wrapper {
       @include typography.use-with-truncated-text();
-      margin-inline: lengths.margin(-2);
-      margin-block: lengths.margin(-4);
       display: flex;
       flex-direction: row;
       align-items: baseline;
       flex-grow: 1;
       flex-shrink: 1;
+
       min-width: 1px;
+      margin-block: lengths.margin(-4);
+      margin-inline: lengths.margin(-2);
     }
 
     &__time {
       @extend %rcx-margins-header;
       @include typography.use-with-truncated-text();
       @include typography.use-font-scale(c1);
+      flex-shrink: 0;
 
       color: colors.neutral(600);
-      flex-shrink: 0;
     }
 
     &__name {
       @extend %rcx-margins-header;
       @include typography.use-font-scale(p2);
       @include typography.use-with-truncated-text();
+      flex-shrink: 1;
 
       color: colors.neutral(800);
+    }
+
+    &__username {
+      @extend %rcx-margins-header;
+      @include typography.use-font-scale(p2);
+      @include typography.use-with-truncated-text();
       flex-shrink: 1;
+
+      color: colors.foreground(hint);
     }
 
     &__roles {
       display: flex;
-      @include typography.use-with-truncated-text();
       flex-shrink: 1;
+      @include typography.use-with-truncated-text();
     }
 
     &__role {
@@ -76,46 +90,26 @@
     }
   }
 
-  &-container {
-    display: flex;
-    margin-inline: lengths.margin(4);
-    margin-block: lengths.margin(-4);
-    flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 1;
-    min-width: 1px;
-
-    &--fixed {
-      flex-grow: 0;
-      flex-shrink: 0;
-      align-items: center;
-    }
-
-    &--avatar {
-      flex-grow: 0;
-      align-items: center;
-      flex-shrink: 0;
-      margin-block: lengths.margin(-2);
-    }
-  }
-
   &-body {
     @extend %rcx-margins-block;
     @include typography.use-font-scale(p1);
-    color: colors.neutral(800);
 
     flex-shrink: 1;
+
+    color: colors.neutral(800);
 
     &--clamp {
       display: -webkit-box;
       overflow: hidden;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+
       word-break: break-word;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
 
       &-2 {
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
       }
+
       &-3 {
         -webkit-line-clamp: 3;
       }
@@ -129,6 +123,6 @@
   &-block {
     @extend %rcx-margins-block;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 }
