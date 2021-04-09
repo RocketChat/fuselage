@@ -45,3 +45,4 @@ export * from './Tile';
 export * from './ToggleSwitch';
 export * from './Tooltip';
 export * from './UrlInput';
+export { default as Dropdown } from './Dropdown';

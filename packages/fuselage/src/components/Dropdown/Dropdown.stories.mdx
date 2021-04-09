@@ -1,0 +1,37 @@
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+
+import { Dropdown, Divider, Button, Box, Icon, CheckBox } from '../..';
+
+<Meta title='Misc/Dropdown' />
+
+# Dropdown
+
+<Canvas>
+  <Story name='Dropdown'>
+    <div>
+      <Dropdown overlay={
+        <Dropdown.Tile maxWidth='x200'>
+          <Box fontScale='s2' pi='x8'>I'm a title</Box>
+          <Box fontScale='p1' color='hint' pb='x4' pi='x8'>I'm just some description that was put here to make you read it 'til the end</Box>
+          <Dropdown.Item onDispatchAction={() => {console.log('1')}}>
+            <Icon name='pencil' mie='x4' />
+            Item 1
+          </Dropdown.Item>
+          <Dropdown.Item onDispatchAction={() => {console.log('2')}}>
+            Item 2
+            <Icon name='pencil' mis='x4' />
+          </Dropdown.Item>
+          <Divider />
+          <Dropdown.Item onDispatchAction={() => {console.log('3')}}>
+            Item 3
+            <CheckBox checked={true} mis='x4'/>
+          </Dropdown.Item>
+        </Dropdown.Tile>
+      }>
+        <Button>Teste</Button>
+      </Dropdown>
+    </div>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Dropdown} />
