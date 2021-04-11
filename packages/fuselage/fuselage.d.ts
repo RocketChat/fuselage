@@ -433,9 +433,11 @@ declare module '@rocket.chat/fuselage' {
   type TileProps = BoxProps;
   export const Tile: ForwardRefExoticComponent<TileProps>;
 
-  type ThrobberProps = Omit<BoxProps, 'size'> & {
-    size?: BoxProps['width'];
+  type ThrobberProps = Omit<BoxProps, 'disabled' | 'size'> & {
+    circleCount?: number;
+    disabled?: boolean;
     inheritColor?: boolean;
+    size?: BoxProps['width'];
   };
   export const Throbber: ForwardRefExoticComponent<ThrobberProps>;
 
