@@ -5,7 +5,7 @@ import React, { useRef, useCallback } from 'react';
 
 import { appendClassName } from '../../../helpers/appendClassName';
 import { useStyle } from '../../../hooks/useStyle';
-import { BoxTransforms, useComposedBoxTransform } from '../transforms';
+import { BoxTransforms, useComposedBoxTransform } from '../BoxTransforms';
 
 const getTouchingEdges = (element) => ({
   top: !element.scrollTop,

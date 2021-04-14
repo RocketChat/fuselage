@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 
-import { BoxTransforms, useComposedBoxTransform } from '../transforms';
+import { BoxTransforms, useComposedBoxTransform } from '../BoxTransforms';
 
 function FlexContainer({
   inline = false,
