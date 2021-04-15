@@ -86,8 +86,11 @@ const Wrapper = ({ className, ...props }) => (
   />
 );
 
-const Icon = ({ children, ...props }) => (
-  <div className='rc-box rcx-box--full rcx-sidebar-item__icon' {...props}>
+const Icon = ({ children, className, ...props }) => (
+  <div
+    className={`rc-box rcx-box--full rcx-sidebar-item__icon ${className}`}
+    {...props}
+  >
     {children || <FuselageIcon size='x16' {...props} />}
   </div>
 );
