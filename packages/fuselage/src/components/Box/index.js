@@ -6,10 +6,10 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
+import { useBoxTransform, BoxTransforms } from './BoxTransforms';
 import {
   /* propTypes as stylingPropsPropTypes,  */ useStylingProps,
 } from './stylingProps';
-import { useBoxTransform, BoxTransforms } from './transforms';
 
 export const useArrayLikeClassNameProp = (props) => {
   const classNames = [].concat(props.className);
@@ -98,7 +98,7 @@ export const Box = memo(
     const element = createElement(is, props, children);
 
     if (transformFn) {
-      return <BoxTransforms.Provider children={element} />;
+      return <BoxTransforms.Provider children={element} value={null} />;
     }
 
     return element;
