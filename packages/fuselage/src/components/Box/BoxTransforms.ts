@@ -1,10 +1,10 @@
 import { createContext, useContext, useMemo } from 'react';
 
-export const BoxTransforms = createContext();
+export const BoxTransforms = createContext<null | ((props: any) => any)>(null);
 
 export const useBoxTransform = () => useContext(BoxTransforms);
 
-export const useComposedBoxTransform = (fn) => {
+export const useComposedBoxTransform = (fn: (props: any) => any) => {
   const parentFn = useContext(BoxTransforms);
 
   return useMemo(() => {
@@ -16,6 +16,6 @@ export const useComposedBoxTransform = (fn) => {
       return parentFn;
     }
 
-    return (...args) => fn(parentFn(...args));
+    return (props: any) => fn(parentFn(props));
   }, [fn, parentFn]);
 };
