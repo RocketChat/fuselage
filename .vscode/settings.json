@@ -1,6 +1,14 @@
 {
   "eslint.workingDirectories": [
     {
+      "directory": "packages/css-in-js",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/emitter",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/eslint-config-alt",
       "changeProcessCWD": true
     },
@@ -21,7 +29,19 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/memo",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/mp3-encoder",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/prettier-config",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/string-helpers",
       "changeProcessCWD": true
     },
     {
