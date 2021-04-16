@@ -7,10 +7,11 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
+  "prettier": "@rocket.chat/prettier-config/fuselage",
   "type": "module",
   "scripts": {
     "build": "node --experimental-modules scripts/build.mjs",
-    "prettier-format": "prettier --config .prettierrc '**/*.js' --write"
+    "prettier-format": "prettier '**/*.js' --write"
   },
   "license": "MIT",
   "repository": {
@@ -34,6 +35,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "prettier": "^2.1.2"
   }
 }

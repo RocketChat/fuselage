@@ -18,15 +18,17 @@
   "files": [
     "/dist"
   ],
+  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "build": "node ./scripts/build",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "lint-staged": "lint-staged",
-    "prettier-format": "prettier --config .prettierrc 'scripts/**/*.js' --write"
+    "prettier-format": "prettier 'scripts/**/*.js' --write"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "chalk": "^4.1.0",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",

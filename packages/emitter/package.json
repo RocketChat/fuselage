@@ -29,6 +29,7 @@
   "files": [
     "/dist"
   ],
+  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
@@ -36,7 +37,7 @@
     "lint-fix": "eslint --fix --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "prettier-format": "prettier 'src/**/*.ts' --write",
     "docs": "run-s build .:docs:api-extractor .:docs:api-documenter .:docs:readme .:docs:clean",
     ".:docs:api-extractor": "api-extractor run --local --verbose",
     ".:docs:api-documenter": "api-documenter markdown -i temp -o docs",
@@ -47,6 +48,7 @@
     "@microsoft/api-documenter": "^7.12.1",
     "@microsoft/api-extractor": "^7.12.1",
     "@rocket.chat/eslint-config": "^0.4.0",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.1",

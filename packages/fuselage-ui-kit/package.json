@@ -23,6 +23,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "start": "webpack --watch --mode development",
     "storybook": "start-storybook -p 6006",
@@ -37,7 +38,7 @@
     "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:loki-update",
     ".:update-storybook:build-storybook": "run-s build-storybook",
     ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*' --write",
+    "prettier-format": "prettier 'src/**/*' --write",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static"
   },
   "peerDependencies": {
@@ -60,6 +61,7 @@
     "@rocket.chat/fuselage": "^0.23.0",
     "@rocket.chat/fuselage-hooks": "^0.23.0",
     "@rocket.chat/icons": "^0.23.0",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@rocket.chat/ui-kit": "^0.23.0",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addons": "^6.1.11",

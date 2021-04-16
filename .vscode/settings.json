@@ -17,6 +17,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/prettier-config",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/ui-kit",
       "changeProcessCWD": true
     }

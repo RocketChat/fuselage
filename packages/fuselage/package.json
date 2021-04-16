@@ -21,6 +21,7 @@
     "/fuselage.d.ts",
     "/index.js"
   ],
+  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "start": "webpack --watch --mode development",
     "storybook": "start-storybook -p 6006",
@@ -42,7 +43,7 @@
     "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:loki-update",
     ".:update-storybook:build-storybook": "run-s build-storybook",
     ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.{ts,tsx,js,jsx}' --write",
+    "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static"
   },
   "peerDependencies": {
@@ -68,6 +69,7 @@
     "@rocket.chat/eslint-config": "^0.4.0",
     "@rocket.chat/fuselage-hooks": "^0.23.0",
     "@rocket.chat/fuselage-polyfills": "^0.23.0",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-jest": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",

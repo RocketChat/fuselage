@@ -23,6 +23,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "build": "run-s .:build:clean .:build:prod",
     ".:build:clean": "rimraf dist",
@@ -31,7 +32,7 @@
     "lint-fix": "eslint --fix --ext js,ts src",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "prettier-format": "prettier 'src/**/*.ts' --write",
     "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@rocket.chat/eslint-config": "^0.4.0",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@types/jest": "^26.0.19",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
