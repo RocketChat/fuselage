@@ -36,7 +36,6 @@
     "lint-fix": "eslint --fix --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
-    "prettier-format": "prettier 'src/**/*.ts' --write",
     "docs": "run-s build .:docs:api-extractor .:docs:api-documenter .:docs:readme .:docs:clean",
     ".:docs:api-extractor": "api-extractor run --local --verbose",
     ".:docs:api-documenter": "api-documenter markdown -i temp -o docs",

@@ -10,7 +10,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "directory": "packages/fuselage-tokens"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -19,26 +20,23 @@
     "design",
     "tokens"
   ],
-  "type": "module",
   "files": [
-    "/*.js",
-    "/*.json",
-    "/*.mjs",
-    "/*.scss"
+    "/breakpoints.*",
+    "/colors.*",
+    "/typography.*"
   ],
   "publishConfig": {
     "access": "public"
   },
-  "eslintConfig": {
-    "extends": "@rocket.chat/eslint-config-alt/minimal"
-  },
-  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
-    "build": "node --experimental-modules scripts/build.mjs",
-    "lint": "eslint .",
-    "lint-fix": "eslint --fix .",
-    "lint-staged": "lint-staged",
-    "prettier-format": "prettier '**/*.js' --write"
+    "build": "node scripts/build.js",
+    "lint": "run-s .:lint:eslint .:lint:prettier",
+    ".:lint:eslint": "eslint .",
+    ".:lint:prettier": "prettier --check '**/*.{json,scss}'",
+    "lint-fix": "run-s .:lint-fix:eslint .:lint-fix:prettier",
+    ".:lint-fix:eslint": "eslint --fix .",
+    ".:lint-fix:prettier": "prettier --write '**/*.{json,scss}'",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
@@ -48,6 +46,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.4.0",
     "lint-staged": "^10.5.4",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1"
   }
 }
