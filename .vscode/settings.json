@@ -1,6 +1,10 @@
 {
   "eslint.workingDirectories": [
     {
+      "directory": "packages/eslint-config-alt",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/fuselage",
       "changeProcessCWD": true
     },

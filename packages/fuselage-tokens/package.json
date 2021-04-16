@@ -7,12 +7,6 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "prettier": "@rocket.chat/prettier-config/fuselage",
-  "type": "module",
-  "scripts": {
-    "build": "node --experimental-modules scripts/build.mjs",
-    "prettier-format": "prettier '**/*.js' --write"
-  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -25,6 +19,7 @@
     "design",
     "tokens"
   ],
+  "type": "module",
   "files": [
     "/*.js",
     "/*.json",
@@ -34,8 +29,21 @@
   "publishConfig": {
     "access": "public"
   },
+  "eslintConfig": {
+    "extends": "@rocket.chat/eslint-config-alt/minimal"
+  },
+  "prettier": "@rocket.chat/prettier-config/fuselage",
+  "scripts": {
+    "build": "node --experimental-modules scripts/build.mjs",
+    "prettier-format": "prettier '**/*.js' --write"
+  },
   "devDependencies": {
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
-    "prettier": "^2.1.2"
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.2.1"
   }
 }

@@ -1,6 +1,6 @@
 {
-  "name": "@rocket.chat/prettier-config",
-  "description": "Prettier configuration for Rocket.Chat repositories",
+  "name": "@rocket.chat/eslint-config-alt",
+  "description": "ESLint configuration for Rocket.Chat repositories",
   "version": "0.23.0",
   "author": {
     "name": "Rocket.Chat",
@@ -11,39 +11,41 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
-    "directory": "packages/prettier-config"
+    "directory": "packages/eslint-config-alt"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
-  "main": "default/index.js",
+  "main": "minimal/index.js",
   "files": [
-    "/default",
-    "/fuselage"
+    "/minimal",
+    "/original"
   ],
   "publishConfig": {
     "access": "public"
   },
   "eslintConfig": {
-    "extends": "@rocket.chat/eslint-config-alt/minimal"
+    "extends": "./minimal"
   },
-  "prettier": "./fuselage",
+  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "lint-staged": "lint-staged"
   },
   "peerDependencies": {
+    "@babel/eslint-parser": "^7.13.14",
+    "@rocket.chat/eslint-config": "^0.4.0",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "prettier": "^2.2.1"
   },
-  "peerDependenciesMeta": {
-    "prettier": {
-      "optional": true
-    }
-  },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.13.14",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-import": "^2.22.1",

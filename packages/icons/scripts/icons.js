@@ -3,8 +3,8 @@ const { promisify } = require('util');
 
 const glob = require('glob');
 
-const { logStep } = require('./log');
 const { fixBrokenSymlink } = require('./files');
+const { logStep } = require('./log');
 
 const getIconDescriptors = async (srcPath) => {
   const step = logStep('Read icons');

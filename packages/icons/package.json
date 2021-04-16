@@ -18,6 +18,12 @@
   "files": [
     "/dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "eslintConfig": {
+    "extends": "@rocket.chat/eslint-config-alt/minimal"
+  },
   "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "build": "node ./scripts/build",
@@ -28,6 +34,7 @@
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "chalk": "^4.1.0",
     "eslint": "^7.13.0",
@@ -46,9 +53,6 @@
     "ttf2woff2": "^3.0.0",
     "unicode": "^12.1.0",
     "xml2js": "^0.4.19"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "devEngines": {
     "node": "^10.0"
