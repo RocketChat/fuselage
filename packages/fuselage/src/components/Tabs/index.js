@@ -20,7 +20,7 @@ export function Tabs({ children, ...props }) {
 }
 
 export const TabsItem = forwardRef(function TabsItem(
-  { selected, ...props },
+  { selected, disabled, ...props },
   ref
 ) {
   return (
@@ -28,6 +28,8 @@ export const TabsItem = forwardRef(function TabsItem(
       is='button'
       rcx-tabs__item
       rcx-tabs__item--selected={selected}
+      rcx-tabs__item--disabled={disabled}
+      rcx-tabs__item--selected--disabled={selected && disabled}
       aria-selected={selected ? 'true' : 'false'}
       ref={ref}
       role='tab'
@@ -38,6 +40,7 @@ export const TabsItem = forwardRef(function TabsItem(
 
 TabsItem.propTypes = {
   selected: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 Tabs.Item = TabsItem;

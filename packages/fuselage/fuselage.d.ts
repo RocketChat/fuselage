@@ -232,7 +232,7 @@ declare module '@rocket.chat/fuselage' {
     variant?: 'neutral' | 'info' | 'success' | 'warning' | 'danger';
     onAction?: () => void;
     onClose?: () => void;
-  } & AllHTMLAttributes<HTMLSectionElement>;
+  } & AllHTMLAttributes<HTMLElement>;
   export const Banner: FC<BannerProps>;
 
   type ButtonProps = BoxProps & {
@@ -433,9 +433,11 @@ declare module '@rocket.chat/fuselage' {
   type TileProps = BoxProps;
   export const Tile: ForwardRefExoticComponent<TileProps>;
 
-  type ThrobberProps = Omit<BoxProps, 'size'> & {
-    size?: BoxProps['width'];
+  type ThrobberProps = Omit<BoxProps, 'disabled' | 'size'> & {
+    circleCount?: number;
+    disabled?: boolean;
     inheritColor?: boolean;
+    size?: BoxProps['width'];
   };
   export const Throbber: ForwardRefExoticComponent<ThrobberProps>;
 
@@ -470,6 +472,6 @@ declare module '@rocket.chat/fuselage' {
   type StatusBulletProps = {
     status?: 'loading' | 'online' | 'busy' | 'away' | 'offline';
     size?: 'small' | 'large';
-  } & Omit<AllHTMLAttributes<HTMLSpanElement>, 'size'>;
+  } & Omit<AllHTMLAttributes<HTMLElement>, 'size'>;
   export const StatusBullet: FC<StatusBulletProps>;
 }
