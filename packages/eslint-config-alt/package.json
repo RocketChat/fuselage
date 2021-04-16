@@ -24,10 +24,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "eslintConfig": {
-    "extends": "./minimal"
-  },
-  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
@@ -35,11 +31,7 @@
   },
   "peerDependencies": {
     "@babel/eslint-parser": "^7.13.14",
-    "@rocket.chat/eslint-config": "^0.4.0",
     "eslint": "^7.24.0",
-    "eslint-config-prettier": "^8.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.4.0",
     "prettier": "^2.2.1"
   },
   "devDependencies": {
@@ -47,10 +39,13 @@
     "@rocket.chat/eslint-config": "^0.4.0",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "eslint": "^7.24.0",
-    "eslint-config-prettier": "^8.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.4.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "@rocket.chat/eslint-config": "^0.4.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0"
   }
 }

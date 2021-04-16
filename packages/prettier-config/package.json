@@ -36,11 +36,6 @@
   "peerDependencies": {
     "prettier": "^2.2.1"
   },
-  "peerDependenciesMeta": {
-    "prettier": {
-      "optional": true
-    }
-  },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",

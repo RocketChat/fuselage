@@ -16,7 +16,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "directory": "packages/memo"
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -24,7 +25,6 @@
   "files": [
     "/dist"
   ],
-  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "build": "run-s .:build:clean .:build:esm .:build:cjs",
     ".:build:clean": "rimraf dist",
@@ -38,6 +38,7 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "devDependencies": {
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",

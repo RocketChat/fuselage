@@ -10,7 +10,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "directory": "packages/fuselage-ui-kit"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -23,7 +24,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "prettier": "@rocket.chat/prettier-config/fuselage",
   "scripts": {
     "start": "webpack --watch --mode development",
     "storybook": "start-storybook -p 6006",
@@ -57,7 +57,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@rocket.chat/apps-engine": "^1.17.0",
-    "@rocket.chat/eslint-config": "^0.4.0",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/fuselage": "^0.23.0",
     "@rocket.chat/fuselage-hooks": "^0.23.0",
     "@rocket.chat/icons": "^0.23.0",
@@ -89,7 +89,6 @@
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^4.1.0"
   },
-  "gitHead": "f8467b8ffb6f90d91b46fbcdd5dca169235916a4",
   "dependencies": {
     "@rocket.chat/fuselage-polyfills": "^0.23.0"
   }
