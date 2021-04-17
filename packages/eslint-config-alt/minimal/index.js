@@ -2,6 +2,8 @@ module.exports = {
   extends: ['@rocket.chat/eslint-config', 'prettier'],
   plugins: ['prettier'],
   rules: {
+    'generator-star-spacing': ['error', 'before'],
+    'import/named': 'error',
     'import/order': [
       'error',
       {
@@ -17,6 +19,8 @@ module.exports = {
         },
       },
     ],
+    'indent': 'off',
+    'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
     'prettier/prettier': 'error',
   },
   settings: {

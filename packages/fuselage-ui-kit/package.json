@@ -44,10 +44,11 @@
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
     "@rocket.chat/fuselage-hooks": "*",
+    "@rocket.chat/fuselage-polyfills": "*",
     "@rocket.chat/icons": "*",
     "@rocket.chat/ui-kit": "*",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
@@ -58,11 +59,12 @@
     "@babel/preset-react": "^7.10.4",
     "@rocket.chat/apps-engine": "^1.17.0",
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/fuselage": "^0.23.0",
-    "@rocket.chat/fuselage-hooks": "^0.23.0",
-    "@rocket.chat/icons": "^0.23.0",
+    "@rocket.chat/fuselage": "workspace:packages/fuselage",
+    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
+    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills",
+    "@rocket.chat/icons": "workspace:packages/icons",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
-    "@rocket.chat/ui-kit": "^0.23.0",
+    "@rocket.chat/ui-kit": "workspace:packages/ui-kit",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addons": "^6.1.11",
     "@storybook/react": "^6.1.11",
@@ -70,26 +72,17 @@
     "@storybook/theming": "^6.1.11",
     "babel-loader": "^8.1.0",
     "cross-env": "^7.0.3",
-    "eslint": "^7.13.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-mdx": "^1.8.2",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint": "^7.24.0",
     "lint-staged": "^10.5.4",
     "loki": "^0.25.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
     "webpack": "^5.2.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^4.1.0"
-  },
-  "dependencies": {
-    "@rocket.chat/fuselage-polyfills": "^0.23.0"
   }
 }

@@ -11,6 +11,7 @@ module.exports = {
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-extra-parens': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-redeclare': 'error',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
@@ -35,7 +36,9 @@ module.exports = {
       },
     ],
     'no-extra-parens': 'off',
+    'no-redeclare': 'off',
     'no-spaced-func': 'off',
+    'no-undef': 'off',
     'no-unused-vars': 'off',
     'no-useless-constructor': 'off',
     'no-use-before-define': 'off',
