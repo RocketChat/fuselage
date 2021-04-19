@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "scripts",
+  "scripts": {
+    "update-readme": "ts-node src/update-readme.ts"
+  },
+  "devDependencies": {
+    "@rocket.chat/eslint-config": "^0.4.0",
+    "@types/node": "^14",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

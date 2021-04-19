@@ -1,7 +1,8 @@
 {
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "scripts"
   ],
   "devDependencies": {
     "husky": "^5.1.1",
@@ -15,6 +16,7 @@
     "test": "yarn workspaces foreach -vt run test",
     "build-storybook": "yarn workspaces foreach -vt run build-storybook",
     "update-storybook": "yarn workspaces foreach -vt run update-storybook",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "update-readme": "yarn workspace scripts run update-readme"
   }
 }
