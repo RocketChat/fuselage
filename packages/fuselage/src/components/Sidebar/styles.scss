@@ -48,7 +48,6 @@ $sidebar-item-color-selected: theme(
 }
 
 %highlighted {
-  @include typography.use-font-scale(p2);
   color: $sidebar-item-color-highlighted;
 }
 
