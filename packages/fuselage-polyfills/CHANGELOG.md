@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.22.0...v0.23.0) (2021-04-01)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-polyfills
+
+
+
+
+
 # [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
 
 

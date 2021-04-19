@@ -1,10 +1,8 @@
 {
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "husky": "^5.1.1",
     "lerna": "^3.20.2"
@@ -18,5 +16,8 @@
     "build-storybook": "yarn workspaces foreach -vt run build-storybook",
     "update-storybook": "yarn workspaces foreach -vt run update-storybook",
     "postinstall": "husky install"
+  },
+  "devEngines": {
+    "node": "^14.0"
   }
 }
