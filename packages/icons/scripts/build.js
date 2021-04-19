@@ -1,5 +1,5 @@
-const path = require('path');
-const { promisify } = require('util');
+const { basename, dirname, join, relative } = require('path');
+const { inspect, promisify } = require('util');
 
 const rimraf = require('rimraf');
 
@@ -14,17 +14,18 @@ const {
 } = require('./font');
 const { glyphsMapping } = require('./glyphs');
 const { getIconDescriptors } = require('./icons');
-const { logStep } = require('./log');
 const { createSvgSprite, createSvgIcons } = require('./svg');
 
 const prepareDirectories = async () => {
-  const rootPath = path.join(__dirname, '..');
-  const distPath = path.join(rootPath, path.dirname(pkg.main));
-  const srcPath = path.join(rootPath, 'src');
+  const rootPath = join(__dirname, '..');
+  const distPath = join(rootPath, dirname(pkg.main));
+  const srcPath = join(rootPath, 'src');
 
-  const cleanStep = logStep('Clean dist directory');
+  console.log(
+    'rimraf',
+    inspect(relative(rootPath, distPath), { colors: true })
+  );
   await promisify(rimraf)(distPath);
-  cleanStep.resolve();
 
   return { srcPath, distPath };
 };
@@ -57,7 +58,7 @@ const buildSvgImages = async (icons, distPath) => {
   const svgIcons = await createSvgIcons(icons);
   await Promise.all([
     ...svgIcons.map(({ name, xml }) =>
-      writeFile(distPath, path.join('svg', `${name}.svg`), () => xml)
+      writeFile(distPath, join('svg', `${name}.svg`), () => xml)
     ),
     writeFile(distPath, 'icons.svg', () => createSvgSprite(svgIcons)),
   ]);
@@ -65,7 +66,7 @@ const buildSvgImages = async (icons, distPath) => {
 
 const buildScripts = async (icons, distPath) => {
   await Promise.all([
-    writeFile(distPath, path.basename(pkg.main), () => {
+    writeFile(distPath, basename(pkg.main), () => {
       const characters = icons
         .filter(({ name }) => !!glyphsMapping[name])
         .reduce(

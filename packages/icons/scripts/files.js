@@ -1,11 +1,9 @@
 const fs = require('fs');
-const path = require('path');
+const { basename, dirname, join, relative } = require('path');
 const { Readable } = require('stream');
-const { promisify } = require('util');
+const { inspect, promisify } = require('util');
 
 const glob = require('glob');
-
-const { logStep } = require('./log');
 
 const encodeEscapedJson = (data) =>
   JSON.stringify(data, null, 2).replace(
@@ -14,11 +12,12 @@ const encodeEscapedJson = (data) =>
   );
 
 const writeFile = async (distPath, filePath, getData) => {
-  const step = logStep('Write', filePath);
+  const rootPath = join(__dirname, '..');
+  const destPath = join(distPath, filePath);
 
-  const destPath = path.join(distPath, filePath);
+  console.log('write', inspect(relative(rootPath, destPath), { colors: true }));
 
-  await fs.promises.mkdir(path.dirname(destPath), { recursive: true });
+  await fs.promises.mkdir(dirname(destPath), { recursive: true });
 
   const data = await getData();
 
@@ -35,8 +34,6 @@ const writeFile = async (distPath, filePath, getData) => {
     await fs.promises.writeFile(destPath, data);
   }
 
-  step.resolve();
-
   return data;
 };
 
@@ -48,16 +45,16 @@ const fixBrokenSymlink = async (_path, rootPath) => {
   }
 
   const target = await fs.promises.readlink(_path);
-  const targetBasename = path.basename(target);
+  const targetBasename = basename(target);
   const newTargetPath = (
-    await promisify(glob)(path.join(rootPath, '**', targetBasename))
+    await promisify(glob)(join(rootPath, '**', targetBasename))
   )[0];
 
   if (!newTargetPath) {
     throw Error(`Broken symlink: ${_path} -> ${target}`);
   }
 
-  const relativeTargetPath = path.relative(path.dirname(_path), newTargetPath);
+  const relativeTargetPath = relative(dirname(_path), newTargetPath);
   await fs.promises.unlink(_path);
   await fs.promises.symlink(relativeTargetPath, _path);
 
