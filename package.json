@@ -16,5 +16,8 @@
     "build-storybook": "yarn workspaces foreach -vt run build-storybook",
     "update-storybook": "yarn workspaces foreach -vt run update-storybook",
     "postinstall": "husky install"
+  },
+  "devEngines": {
+    "node": "^14.0"
   }
 }

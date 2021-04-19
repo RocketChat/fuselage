@@ -1,38 +1,27 @@
-import { promises as fsPromises } from 'fs';
-import { basename, join } from 'path';
-import { fileURLToPath } from 'url';
-import { inspect } from 'util';
-import prettier from 'prettier';
+const { promises: fsPromises } = require('fs');
+const { relative, join } = require('path');
+const { inspect } = require('util');
 
-const rootDir = join(fileURLToPath(import.meta.url), '../..');
+const prettierOptions = require('@rocket.chat/prettier-config/fuselage');
+const { ESLint } = require('eslint');
+const prettier = require('prettier');
 
-let prettierOptions;
-const getPrettierOptions = async () => {
-  if (!prettierOptions) {
-    const prettierRCPath = join(rootDir, '.prettierrc');
-    prettierOptions = JSON.parse(
-      await fsPromises.readFile(prettierRCPath, { encoding: 'utf-8' })
-    );
-  }
+const rootDir = join(__dirname, '..');
 
-  return prettierOptions;
-};
+const eslint = new ESLint({ fix: true });
 
 const toCommonJS = async (data) => {
-  return prettier.format(
-    `'use strict';module.exports = ${JSON.stringify(data)};`,
-    {
-      parser: 'babel',
-      ...(await getPrettierOptions()),
-    }
-  );
+  const code = `'use strict';module.exports = ${JSON.stringify(data)};`;
+  const results = await eslint.lintText(code);
+  await ESLint.outputFixes(results);
+  return results[0].output;
 };
 
 const toESModule = async (data) => {
-  return prettier.format(`export default ${JSON.stringify(data)};`, {
-    parser: 'babel',
-    ...(await getPrettierOptions()),
-  });
+  const code = `export default ${JSON.stringify(data)};`;
+  const results = await eslint.lintText(code);
+  await ESLint.outputFixes(results);
+  return results[0].output;
 };
 
 const toScssVariables = async (data) => {
@@ -57,9 +46,7 @@ const toScssVariables = async (data) => {
     }
 
     return `(${Object.entries(chunk)
-      .map(([key, value]) => {
-        return fromCamelToKebab(key) + ':' + toValue(value);
-      })
+      .map(([key, value]) => `${fromCamelToKebab(key)}:${toValue(value)}`)
       .join(',')})`;
   };
 
@@ -72,13 +59,13 @@ const toScssVariables = async (data) => {
       .join(''),
     {
       parser: 'scss',
-      ...(await getPrettierOptions()),
+      ...prettierOptions,
     }
   );
 };
 
 const readSource = async (sourcePath) => {
-  console.log('📂', inspect(basename(sourcePath), { colors: true }));
+  console.log('read', inspect(relative(rootDir, sourcePath), { colors: true }));
 
   return JSON.parse(
     await fsPromises.readFile(sourcePath, { encoding: 'utf-8' })
@@ -86,7 +73,10 @@ const readSource = async (sourcePath) => {
 };
 
 const writeSource = async (targetPath, data) => {
-  console.log('💾', inspect(basename(targetPath), { colors: true }));
+  console.log(
+    'write',
+    inspect(relative(rootDir, targetPath), { colors: true })
+  );
   await fsPromises.writeFile(targetPath, data, { encoding: 'utf-8' });
 };
 
