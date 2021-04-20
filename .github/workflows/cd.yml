@@ -65,6 +65,7 @@ jobs:
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run build
+      - run: yarn resolve-workspace-deps
       - run: yarn lerna publish from-package --yes
         if: github.ref == 'refs/heads/master'
         env:
