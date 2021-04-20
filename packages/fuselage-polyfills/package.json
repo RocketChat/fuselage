@@ -15,6 +15,11 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
+    "lint-staged": "lint-staged"
+  },
   "dependencies": {
     "@juggle/resize-observer": "^3.2.0",
     "clipboard-polyfill": "^3.0.1",
@@ -22,5 +27,12 @@
     "focus-visible": "^5.2.0",
     "focus-within-polyfill": "^5.1.0",
     "new-event-polyfill": "^1.0.1"
+  },
+  "devDependencies": {
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "eslint": "^7.24.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
   }
 }

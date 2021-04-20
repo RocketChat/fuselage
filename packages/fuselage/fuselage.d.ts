@@ -1,3 +1,5 @@
+type FontScale = 'h1' | 's1' | 's2' | 'p1' | 'p2' | 'c1' | 'c2' | 'micro';
+
 declare module '@rocket.chat/fuselage' {
   import type { css } from '@rocket.chat/css-in-js';
   import { Placements } from '@rocket.chat/fuselage-hooks';
@@ -15,8 +17,6 @@ declare module '@rocket.chat/fuselage' {
     SetStateAction,
     SVGAttributes,
   } from 'react';
-
-  type FontScale = 'h1' | 's1' | 's2' | 'p1' | 'p2' | 'c1' | 'c2' | 'micro';
 
   type BoxProps = PropsWithChildren<{
     is?: ElementType;
@@ -313,7 +313,7 @@ declare module '@rocket.chat/fuselage' {
           title: string;
           icon: string;
         };
-        action: Function;
+        action: () => void;
       };
     };
     optionWidth?: BoxProps['width'];
@@ -371,6 +371,7 @@ declare module '@rocket.chat/fuselage' {
   type PaginationProps = BoxProps & {
     count: number;
     current?: number;
+    divider?: boolean;
     itemsPerPage?: 25 | 50 | 100;
     itemsPerPageLabel?: () => string;
     showingResultsLabel?: (props: {
@@ -463,9 +464,10 @@ declare module '@rocket.chat/fuselage' {
   export const Scrollable: ForwardRefExoticComponent<ScrollableProps>;
 
   type SelectOptions = [string, string][];
-  type SelectProps = BoxProps & {
+  type SelectProps = Omit<BoxProps, 'onChange'> & {
     error?: string;
     options: SelectOptions;
+    onChange: (value: string) => void;
   };
   export const Select: ForwardRefExoticComponent<SelectProps>;
 
@@ -474,4 +476,6 @@ declare module '@rocket.chat/fuselage' {
     size?: 'small' | 'large';
   } & Omit<AllHTMLAttributes<HTMLElement>, 'size'>;
   export const StatusBullet: FC<StatusBulletProps>;
+
+  export * from './dist/index.d';
 }
