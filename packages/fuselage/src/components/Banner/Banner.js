@@ -27,15 +27,16 @@ const Banner = ({
 
   const { ref, borderBoxSize } = useResizeObserver();
 
-  const isIconVisible = useMemo(() => {
-    return borderBoxSize.inlineSize > 375;
-  }, [borderBoxSize.inlineSize]);
+  const isIconVisible = useMemo(() => borderBoxSize.inlineSize > 375, [
+    borderBoxSize.inlineSize,
+  ]);
 
   variant = variants.includes(variant) ? variant : variants[0];
 
-  const closeButtonProps = useMemo(() => {
-    return variant !== variants[0] ? { [variant]: true } : {};
-  }, [variant]);
+  const closeButtonProps = useMemo(
+    () => (variant !== variants[0] ? { [variant]: true } : {}),
+    [variant]
+  );
 
   const handleBannerClick = useCallback(() => {
     if (onAction) {

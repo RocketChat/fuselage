@@ -21,18 +21,16 @@ const OptionIcon = ({ name }) => (
   </OptionColumn>
 );
 
-const OptionSkeleton = (props) => {
-  return (
-    <Option {...props}>
-      <Option.Avatar>
-        <Skeleton variant='rect' width={28} height={28} />
-      </Option.Avatar>
-      <Option.Content>
-        <Skeleton width='100%' />
-      </Option.Content>
-    </Option>
-  );
-};
+const OptionSkeleton = (props) => (
+  <Option {...props}>
+    <Option.Avatar>
+      <Skeleton variant='rect' width={28} height={28} />
+    </Option.Avatar>
+    <Option.Content>
+      <Skeleton width='100%' />
+    </Option.Content>
+  </Option>
+);
 
 export const OptionMenu = (props) => (
   <div className='rcx-box--animated rcx-option__menu-wraper' {...props} />

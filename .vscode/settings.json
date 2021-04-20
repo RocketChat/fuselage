@@ -9,6 +9,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/eslint-config-alt",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/fuselage",
       "changeProcessCWD": true
     },
@@ -30,6 +34,10 @@
     },
     {
       "directory": "packages/mp3-encoder",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/prettier-config",
       "changeProcessCWD": true
     },
     {

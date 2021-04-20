@@ -1,31 +1,8 @@
 import { Box, Flex, Grid } from '@rocket.chat/fuselage';
-import { BlockContext } from '@rocket.chat/ui-kit';
 import React, { memo, useMemo } from 'react';
 
-const Accessory = ({ blockId, appId, element, parser }) =>
-  parser.renderAccessories(
-    { blockId, appId, ...element },
-    BlockContext.SECTION,
-    parser
-  );
-
-const breakpoints = {
-  xs: 4,
-  sm: 4,
-  md: 4,
-  lg: 6,
-  xl: 6,
-};
-
-const Fields = ({ fields, parser }) => (
-  <Grid>
-    {fields.map((field, i) => (
-      <Grid.Item {...breakpoints} key={i}>
-        {parser.text(field)}
-      </Grid.Item>
-    ))}
-  </Grid>
-);
+import Accessory from './Accessory';
+import Fields from './Fields';
 
 const SectionBlock = ({ className, blockElement, parser }) => {
   const { blockId, appId, text, fields, accessory } = blockElement;
