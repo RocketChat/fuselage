@@ -6,7 +6,7 @@
     "resolve-workspace-deps": "run-s .:resolve-workspace-deps:run-script .:resolve-workspace-deps:update-lockfile .:resolve-workspace-deps:git-commit",
     ".:resolve-workspace-deps:run-script": "ts-node src/resolve-workspace-deps.ts",
     ".:resolve-workspace-deps:update-lockfile": "yarn",
-    ".:resolve-workspace-deps:git-commit": "git commit --all --amend --no-edit --no-verify",
+    ".:resolve-workspace-deps:git-commit": "git -c user.name='Rocket.Chat' -c user.email='support@rocket.chat' commit --all --amend --no-edit --no-verify",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
   },
