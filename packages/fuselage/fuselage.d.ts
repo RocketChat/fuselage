@@ -2,7 +2,7 @@ type FontScale = 'h1' | 's1' | 's2' | 'p1' | 'p2' | 'c1' | 'c2' | 'micro';
 
 declare module '@rocket.chat/fuselage' {
   import type { css } from '@rocket.chat/css-in-js';
-  import { Placements } from '@rocket.chat/fuselage-hooks';
+  import type { Placements } from '@rocket.chat/fuselage-hooks';
   import {
     AllHTMLAttributes,
     Context,
@@ -388,6 +388,12 @@ declare module '@rocket.chat/fuselage' {
     error?: string;
   };
   export const PasswordInput: ForwardRefExoticComponent<PasswordInputProps>;
+
+  type ProgressBarProps = BoxProps & {
+    percentage?: number;
+    error?: string;
+  };
+  export const ProgressBar: ForwardRefExoticComponent<ProgressBarProps>;
 
   type SearchInputProps = BoxProps & {
     addon?: ReactNode;
