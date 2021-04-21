@@ -171,7 +171,7 @@ declare module '@rocket.chat/fuselage' {
   };
   export const ActionButton: ForwardRefExoticComponent<ActionButtonProps>;
 
-  type AutoCompleteProps = {
+  export type AutoCompleteProps = {
     value: unknown[];
     filter: string;
     setFilter?: (filter: string) => void;
@@ -188,7 +188,7 @@ declare module '@rocket.chat/fuselage' {
   };
   export const AutoComplete: FC<AutoCompleteProps>;
 
-  type AvatarProps = Omit<BoxProps, 'title' | 'size'> & {
+  export type AvatarProps = Omit<BoxProps, 'title' | 'size'> & {
     title?: string;
     size?:
       | 'x16'
@@ -213,7 +213,7 @@ declare module '@rocket.chat/fuselage' {
     }>;
   };
 
-  type BadgeProps = {
+  export type BadgeProps = {
     is?: ElementType;
     variant?: 'primary' | 'danger' | 'warning';
     disabled?: boolean;
@@ -235,7 +235,7 @@ declare module '@rocket.chat/fuselage' {
   } & AllHTMLAttributes<HTMLElement>;
   export const Banner: FC<BannerProps>;
 
-  type ButtonProps = BoxProps & {
+  export type ButtonProps = BoxProps & {
     info?: boolean;
     success?: boolean;
     warning?: boolean;
@@ -294,7 +294,7 @@ declare module '@rocket.chat/fuselage' {
   type FieldGroupProps = BoxProps;
   export const FieldGroup: ForwardRefExoticComponent<FieldGroupProps>;
 
-  type IconProps = Omit<BoxProps, 'size'> & {
+  export type IconProps = Omit<BoxProps, 'size'> & {
     size?: BoxProps['width'];
   };
   export const Icon: ForwardRefExoticComponent<IconProps>;
@@ -425,7 +425,7 @@ declare module '@rocket.chat/fuselage' {
   type TextAreaInputProps = BoxProps;
   export const TextAreaInput: ForwardRefExoticComponent<TextAreaInputProps>;
 
-  type TextInputProps = BoxProps & {
+  export type TextInputProps = BoxProps & {
     addon?: ReactNode;
     error?: string;
   };
@@ -456,14 +456,14 @@ declare module '@rocket.chat/fuselage' {
   }>;
   export const Margins: ForwardRefExoticComponent<MarginsProps>;
 
-  type ScrollableProps = PropsWithChildren<{
+  export type ScrollableProps = PropsWithChildren<{
     horizontal?: boolean;
     vertical?: boolean;
     onScrollContent?: (touching: { top: boolean }) => void;
   }>;
   export const Scrollable: ForwardRefExoticComponent<ScrollableProps>;
 
-  type SelectOptions = [string, string][];
+  export type SelectOptions = [string, string][];
   type SelectProps = Omit<BoxProps, 'onChange'> & {
     error?: string;
     options: SelectOptions;
