@@ -7,9 +7,9 @@ const PortalTarget = forwardRef<HTMLDivElement, ComponentType<HTMLDivElement>>((
 
   useLayoutEffect(() => {
     if (ref && typeof ref === 'object' && ref.current) {
-      const newOrder = [
-        ...ref.current.querySelectorAll('[dropdown-id]'),
-      ].map((item) => item.getAttribute('dropdown-id'));
+      const newOrder: string[] = [];
+      const nodeList = ref.current.querySelectorAll('[dropdown-id]');
+      nodeList.forEach((node) => newOrder.push(node.getAttribute('dropdown-id') as string));
       updateItemOrder(newOrder);
     }
   }, [updateItemOrder, ref]);

@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Option } from '../..';
 import DropdownAction from './DropdownAction';
-import { OnDispatchAction } from './DropdownContext'
 
-const DropdownItem: FC<{ onDispatchAction: OnDispatchAction }> = ({ onDispatchAction, ...props }) => {
+const DropdownItem = ({ onDispatchAction, ...props }) => {
   return (
     <DropdownAction onDispatchAction={onDispatchAction}>
       {(active, id, onClick) => (

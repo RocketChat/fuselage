@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useMemo, ReactElement, FC } from 'react';
+import React, { useState, useCallback, useRef, useMemo } from 'react';
 
 import { PositionAnimated, Box } from '../Box';
 import { useCursor } from '../Options';
@@ -8,14 +8,10 @@ import DropdownItem from './DropdownItem';
 import DropdownTile from './DropdownTile';
 import PortalTarget from './PortalTarget';
 
-type DropdownProps = {
-  overlay: ReactElement;
-};
-
-const Dropdown: FC<DropdownProps> = ({ children, overlay }) => {
+const Dropdown = ({ children, overlay }) => {
   const [items, setItems] = useState(new Map());
   const [order, setOrder] = useState([]);
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef();
 
   const onChange = useCallback(
     (cursor) => {
