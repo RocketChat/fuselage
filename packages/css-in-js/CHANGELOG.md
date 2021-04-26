@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.22.0...v0.23.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* **npm:** Wrong paths in "files" field of package.json ([6d3c811](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6d3c811f6fd747de7f47aff145902d88476272ee))
+
+
+
+
+
+# [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
+
+
+### Features
+
+* [@rocket](https://github.com/rocket).chat/memo ([#380](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/380)) ([2425c04](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2425c045743ba1a4a5443a1d341e615363930ef6))
+
+
+
+
+
+# [0.21.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.3...v0.21.0) (2021-01-31)
+
+
+### Bug Fixes
+
+* TSConfig es5 target & es6 lib ([#378](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/378)) ([5802499](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/580249900584287203dad5e4da2acc1829759cbd))
+
+
+### Features
+
+* Built modules for design tokens ([#356](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/356)) ([f9c3449](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f9c344953b8161a4385cab3a3dcc8b6a7210446f))
+
+
+
+
+
+## [0.20.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.1...v0.20.2) (2021-01-27)
+
+
+### Bug Fixes
+
+* TSConfig es5 target & es6 lib ([#378](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/378)) ([8d9aaa2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8d9aaa2d1f731b7621a55e264b7f46b3631e2dfa))
+
+
+
+
+
 ## [0.20.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.0...v0.20.1) (2020-12-22)
 
 **Note:** Version bump only for package @rocket.chat/css-in-js

@@ -1,30 +1,26 @@
 {
-  "version": "0.1.0",
-  "license": "MIT",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
+  "workspaces": [
+    "packages/*",
+    "scripts"
+  ],
   "devDependencies": {
-    "cross-env": "^7.0.2",
-    "fs-extra": "^9.0.0",
-    "husky": "^4.2.3",
+    "husky": "^5.1.1",
     "lerna": "^3.20.2"
   },
   "scripts": {
-    "build": "lerna run build --stream",
-    "postinstall": "lerna run build --stream",
-    "build-storybook": "lerna run build-storybook --parallel --stream",
-    "test": "lerna run test:ci --stream",
-    "lint": "lerna run lint",
-    "lint-staged": "lerna run lint-staged",
-    "storybook": "lerna run storybook --parallel"
+    "build": "yarn workspaces foreach -vt run build",
+    "lint": "yarn workspaces foreach -vt run lint",
+    "lint-fix": "yarn workspaces foreach -vt run lint-fix",
+    "lint-staged": "yarn workspaces foreach -vt run lint-staged",
+    "test": "yarn workspaces foreach -vt run test",
+    "build-storybook": "yarn workspaces foreach -vt run build-storybook",
+    "update-storybook": "yarn workspaces foreach -vt run update-storybook",
+    "postinstall": "husky install",
+    "update-readme": "yarn workspace scripts run update-readme",
+    "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged"
-    }
+  "devEngines": {
+    "node": "^14.0"
   }
 }

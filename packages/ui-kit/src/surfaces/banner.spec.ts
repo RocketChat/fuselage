@@ -1,6 +1,7 @@
-import { uiKitMessage, UiKitParserMessage, BlockContext } from '..';
+import { uiKitBanner, UiKitParserBanner, BlockContext } from '..';
+import { IPlainText } from '../blocks';
 
-class TestParser extends UiKitParserMessage {
+class TestParser extends UiKitParserBanner {
   plainText = (element: any, context: any, index: any): any => ({
     component: 'text',
     props: {
@@ -76,6 +77,21 @@ class TestParser extends UiKitParserMessage {
       children: element.elements.map((element: any, key: number) =>
         this.renderContext(element, BlockContext.CONTEXT, undefined, key)
       ),
+      block: context === BlockContext.BLOCK,
+    },
+  });
+
+  input = (element: any, context: any, index: any): any => ({
+    component: 'input-group',
+    props: {
+      key: index,
+      children: [
+        this.plainText(element.label, BlockContext.FORM, 0),
+        this.renderInputs(element.element, BlockContext.FORM, undefined, 1),
+        ...(element.hint
+          ? [this.plainText(element.hint, BlockContext.FORM, 2)]
+          : []),
+      ],
       block: context === BlockContext.BLOCK,
     },
   });
@@ -220,12 +236,61 @@ class TestParser extends UiKitParserMessage {
       }),
     },
   });
+
+  plainInput = (element: any, _context: any, index: any): any => ({
+    component: 'input',
+    props: {
+      key: index,
+      type: 'text',
+      ...(element.placeholder && {
+        placeholder: this.plainText(element.placeholder, -1, 0),
+      }),
+      ...(element.initialValue && { defaultValue: element.initialValue }),
+      multiline: element.multiline ?? false,
+      ...(typeof element.minLength !== 'undefined' && {
+        minLength: element.minLength,
+      }),
+      ...(typeof element.maxLength !== 'undefined' && {
+        maxLength: element.maxLength,
+      }),
+    },
+  });
+
+  linearScale = (
+    { minValue = 0, maxValue = 10 }: any,
+    _context: any,
+    index: any
+  ): any => ({
+    component: 'linear-scale',
+    props: {
+      key: index,
+      children: Array.from({ length: maxValue - minValue + 1 }).map(
+        (_, key: any) => ({
+          component: 'linear-scale-point',
+          props: {
+            key,
+            children: [
+              this.text(
+                {
+                  type: 'plain_text',
+                  text: String(minValue + key),
+                  emoji: true,
+                } as IPlainText,
+                -1,
+                0
+              ),
+            ],
+          },
+        })
+      ),
+    },
+  });
 }
 
 const parser = new TestParser();
-const parse = uiKitMessage(parser);
+const parse = uiKitBanner(parser);
 
-const conditionalParse = uiKitMessage(parser, {
+const conditionalParse = uiKitBanner(parser, {
   engine: 'rocket.chat',
 });
 
@@ -1352,6 +1417,426 @@ describe('context', () => {
                 children: 'Author: K A Applegate',
                 emoji: true,
                 block: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+});
+
+describe('input', () => {
+  it('renders multiline plain text input', () => {
+    const payload = [
+      {
+        type: 'input',
+        element: {
+          type: 'plain_text_input',
+          multiline: true,
+        },
+        label: {
+          type: 'plain_text',
+          text: 'Label',
+          emoji: true,
+        },
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'input-group',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'Label',
+                emoji: true,
+                block: false,
+              },
+            },
+            {
+              component: 'input',
+              props: {
+                key: 1,
+                type: 'text',
+                multiline: true,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('renders plain text input', () => {
+    const payload = [
+      {
+        type: 'input',
+        element: {
+          type: 'plain_text_input',
+        },
+        label: {
+          type: 'plain_text',
+          text: 'Label',
+          emoji: true,
+        },
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'input-group',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'Label',
+                emoji: true,
+                block: false,
+              },
+            },
+            {
+              component: 'input',
+              props: {
+                key: 1,
+                type: 'text',
+                multiline: false,
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('renders multi users select', () => {
+    const payload = [
+      {
+        type: 'input',
+        element: {
+          type: 'multi_users_select',
+          placeholder: {
+            type: 'plain_text',
+            text: 'Select users',
+            emoji: true,
+          },
+        },
+        label: {
+          type: 'plain_text',
+          text: 'Label',
+          emoji: true,
+        },
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'input-group',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'Label',
+                emoji: true,
+                block: false,
+              },
+            },
+            null,
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('renders static select', () => {
+    const payload = [
+      {
+        type: 'input',
+        element: {
+          type: 'static_select',
+          placeholder: {
+            type: 'plain_text',
+            text: 'Select an item',
+            emoji: true,
+          },
+          options: [
+            {
+              text: {
+                type: 'plain_text',
+                text: '*this is plain_text text*',
+                emoji: true,
+              },
+              value: 'value-0',
+            },
+            {
+              text: {
+                type: 'plain_text',
+                text: '*this is plain_text text*',
+                emoji: true,
+              },
+              value: 'value-1',
+            },
+            {
+              text: {
+                type: 'plain_text',
+                text: '*this is plain_text text*',
+                emoji: true,
+              },
+              value: 'value-2',
+            },
+          ],
+        },
+        label: {
+          type: 'plain_text',
+          text: 'Label',
+          emoji: true,
+        },
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'input-group',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'Label',
+                emoji: true,
+                block: false,
+              },
+            },
+            {
+              component: 'select',
+              props: {
+                key: 1,
+                children: [
+                  {
+                    component: 'option',
+                    props: {
+                      key: 0,
+                      children: {
+                        component: 'text',
+                        props: {
+                          key: 0,
+                          children: '*this is plain_text text*',
+                          emoji: true,
+                          block: false,
+                        },
+                      },
+                      value: 'value-0',
+                    },
+                  },
+                  {
+                    component: 'option',
+                    props: {
+                      key: 1,
+                      children: {
+                        component: 'text',
+                        props: {
+                          key: 0,
+                          children: '*this is plain_text text*',
+                          emoji: true,
+                          block: false,
+                        },
+                      },
+                      value: 'value-1',
+                    },
+                  },
+                  {
+                    component: 'option',
+                    props: {
+                      key: 2,
+                      children: {
+                        component: 'text',
+                        props: {
+                          key: 0,
+                          children: '*this is plain_text text*',
+                          emoji: true,
+                          block: false,
+                        },
+                      },
+                      value: 'value-2',
+                    },
+                  },
+                ],
+                placeholder: {
+                  component: 'text',
+                  props: {
+                    key: 0,
+                    children: 'Select an item',
+                    emoji: true,
+                    block: false,
+                  },
+                },
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('renders datepicker', () => {
+    const payload = [
+      {
+        type: 'input',
+        element: {
+          type: 'datepicker',
+          initialDate: '1990-04-28',
+          placeholder: {
+            type: 'plain_text',
+            text: 'Select a date',
+            emoji: true,
+          },
+        },
+        label: {
+          type: 'plain_text',
+          text: 'Label',
+          emoji: true,
+        },
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'input-group',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'Label',
+                emoji: true,
+                block: false,
+              },
+            },
+            {
+              component: 'input',
+              props: {
+                key: 1,
+                type: 'date',
+                defaultValue: '1990-04-28',
+                placeholder: {
+                  component: 'text',
+                  props: {
+                    key: 0,
+                    children: 'Select a date',
+                    emoji: true,
+                    block: false,
+                  },
+                },
+              },
+            },
+          ],
+          block: true,
+        },
+      },
+    ]);
+  });
+
+  it('renders linear scale', () => {
+    const payload = [
+      {
+        type: 'input',
+        element: {
+          type: 'linear_scale',
+          maxValue: 2,
+        },
+        label: {
+          type: 'plain_text',
+          text: 'Label',
+          emoji: true,
+        },
+      },
+    ];
+    expect(parse(payload)).toStrictEqual([
+      {
+        component: 'input-group',
+        props: {
+          key: 0,
+          children: [
+            {
+              component: 'text',
+              props: {
+                key: 0,
+                children: 'Label',
+                emoji: true,
+                block: false,
+              },
+            },
+            {
+              component: 'linear-scale',
+              props: {
+                key: 1,
+                children: [
+                  {
+                    component: 'linear-scale-point',
+                    props: {
+                      key: 0,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '0',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                    },
+                  },
+                  {
+                    component: 'linear-scale-point',
+                    props: {
+                      key: 1,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '1',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                    },
+                  },
+                  {
+                    component: 'linear-scale-point',
+                    props: {
+                      key: 2,
+                      children: [
+                        {
+                          component: 'text',
+                          props: {
+                            key: 0,
+                            children: '2',
+                            emoji: true,
+                            block: false,
+                          },
+                        },
+                      ],
+                    },
+                  },
+                ],
               },
             },
           ],

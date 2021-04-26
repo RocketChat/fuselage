@@ -1,4 +1,9 @@
-import { ElementType, IElement, IInputBlock } from '../blocks';
+import {
+  ElementType,
+  IInputBlock,
+  IPlainTextInput,
+  ILinearScaleElement,
+} from '../blocks';
 import { createElementRenderer, createSurfaceRenderer } from '../functions';
 import { IParser } from '../parsers/IParser';
 import { ElementRenderer } from '../renderers/ElementRenderer';
@@ -9,7 +14,9 @@ export abstract class UiKitParserModal
   implements IParser<unknown> {
   input: ElementRenderer<unknown, IInputBlock>;
 
-  plainInput: ElementRenderer<unknown, IElement>;
+  plainInput: ElementRenderer<unknown, IPlainTextInput>;
+
+  linearScale: ElementRenderer<unknown, ILinearScaleElement>;
 
   renderInputs = createElementRenderer(this, [
     ElementType.STATIC_SELECT,
@@ -20,6 +27,7 @@ export abstract class UiKitParserModal
     ElementType.USER_SELECT,
     ElementType.USER_SELECT,
     ElementType.DATEPICKER,
+    ElementType.LINEAR_SCALE,
   ]);
 }
 

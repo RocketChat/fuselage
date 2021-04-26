@@ -20,6 +20,7 @@ import {
   IPlainTextInput,
   ConditionalBlockFilters,
   IConditionalBlock,
+  ILinearScaleElement,
   Conditions,
 } from './blocks';
 import { IParser } from './parsers/IParser';
@@ -140,6 +141,13 @@ const renderElement = <T>(
 
     case ElementType.PLAIN_TEXT_INPUT:
       return parser.plainInput?.(element as IPlainTextInput, context, index);
+
+    case ElementType.LINEAR_SCALE:
+      return parser.linearScale?.(
+        element as ILinearScaleElement,
+        context,
+        index
+      );
   }
 
   if (parser[element.type]) {

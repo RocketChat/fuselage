@@ -7,15 +7,15 @@
 <b>Signature:</b>
 
 ```typescript
-off<T = any>(type: EventType, handler: Handler<T>): void;
+off<T extends AnyEventOf<EventMap>, EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>>(type: EventType, handler: EventHandlerOf<EventMap, EventType>): void;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  type | [EventType](./emitter.eventtype.md) |  |
-|  handler | [Handler](./emitter.handler.md)<!-- -->&lt;T&gt; |  |
+|  type | EventType |  |
+|  handler | [EventHandlerOf](./emitter.eventhandlerof.md)<!-- -->&lt;EventMap, EventType&gt; |  |
 
 <b>Returns:</b>
 

@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.22.0...v0.23.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* **npm:** Wrong paths in "files" field of package.json ([6d3c811](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6d3c811f6fd747de7f47aff145902d88476272ee))
+
+
+### Features
+
+* New icons ([#407](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/407)) ([9e708b4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9e708b42a0a3003669e1c5e76dce84b8ef563e21))
+
+
+
+
+
+# [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.21.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.3...v0.21.0) (2021-01-31)
+
+
+### Bug Fixes
+
+* Banner surface adjustments ([#362](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/362)) ([2d59b7c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2d59b7c41962f24aa13face91a9b9f0ea8f1718a))
+* Pass appId and blockId from blocks to elements ([#366](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/366)) ([8a1b552](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8a1b552f8dbc3a9b321d888f4a7e9dc9af2922cf))
+
+
+### Features
+
+* Built modules for design tokens ([#356](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/356)) ([f9c3449](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f9c344953b8161a4385cab3a3dcc8b6a7210446f))
+* linear_scale element ([#365](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/365)) ([43a4c54](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/43a4c54ed10d096ef2259ddcd30c3bbd97ae866a))
+
+
+
+
+
+## [0.20.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.2...v0.20.3) (2021-01-29)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+## [0.20.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.1...v0.20.2) (2021-01-27)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
 ## [0.20.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.0...v0.20.1) (2020-12-22)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-ui-kit

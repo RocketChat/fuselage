@@ -48,7 +48,6 @@ $sidebar-item-color-selected: theme(
 }
 
 %highlighted {
-  @include typography.use-font-scale(p2);
   color: $sidebar-item-color-highlighted;
 }
 
@@ -147,6 +146,8 @@ $sidebar-item-color-selected: theme(
 
     &__icon {
       @include typography.use-with-truncated-text();
+      @include highlighted;
+
       display: flex;
       justify-content: center;
 
@@ -185,8 +186,9 @@ $sidebar-item-color-selected: theme(
 
     &:hover &__menu-wraper,
     &.focus-within &__menu-wraper {
-      width: lengths.size(20);
+      position: static;
 
+      width: lengths.size(20);
       margin-inline: lengths.margin(4);
 
       opacity: 1;
@@ -207,6 +209,8 @@ $sidebar-item-color-selected: theme(
     }
 
     &__menu-wraper {
+      position: relative;
+
       flex-shrink: 0;
 
       width: 0;
