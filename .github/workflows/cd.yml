@@ -45,7 +45,7 @@ jobs:
           name: build
           path: packages/**/dist/*
 
-  public-to-npm:
+  publish-to-npm:
     name: Publish to NPM
     runs-on: ubuntu-latest
     needs:
