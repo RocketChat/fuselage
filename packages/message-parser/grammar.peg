@@ -1,0 +1,222 @@
+{
+ const generate = (type) => (value) =>({ type, value });
+ const bold = generate('BOLD');
+ const italic = generate('ITALIC');
+ const plain = generate('PLAIN_TEXT');
+ const link = generate('LINK');
+ const paragraph = generate('PARAGRAPH');
+ const code = generate('CODE');
+ const inlineCode = generate('INLINE_CODE');
+ const heading = generate('HEADING');
+ const strike = generate('STRIKE');
+}
+
+start
+  = block:(Blocks / Inline / text:EndOfLine { return paragraph([plain("")])})+
+
+Blocks
+  = teste:(Heading / MultiplelLineCode / Tasks / Lists / OrderedLists / ReferencesEmpty / Section)
+
+Emphasis = Bold / Italic / Strikethrough
+
+Inline = value:(References / InlineCode/ Emphasis / Plain)+ EndOfLine? { return paragraph(value) }
+
+Plain = Line / text:AnyText2 {
+	return plain(text)
+}
+
+Digit1_9      = [1-9]
+EOF = !.
+crlf = '\r\n' / '\r' / '\n'
+EatLine = (!crlf !EOF .)*
+EndOfLine = ('\r\n' / '\n' / '\r')
+Space = ' '+ / '\t'
+AnyText = [\x20-\x27] / [\x2B-\x40] / [\x41-\x5A] / [\x61-\x7A] / nonascii
+ListText = [\x20-\x27] / [\x2B-\x40] / [\x41-\x5A] / [\x60-\x7A] / nonascii
+LinkText = [\x20-\x2A] / [\x2B-\x40] / [\x41-\x5B] / [\x61-\x7A] / nonascii
+CodeText = [\x20-\x2A] / [\x2B-\x40] / [\x41-\x5F] / [\x61-\x7E] / nonascii / EndOfLine / Space
+AnyText2 = [\x20-\x40] / [\x41-\x60] / [\x61-\xFFFF] / nonascii
+SectionText = [-]+ / ([\x20-\x40] / [\x41-\x60] / [\x61-\x7A] / nonascii)
+
+Line
+  = head:Space* text:AnyText+ tail:Space* {
+	return plain( head.join('') + text.join("") + tail.join(''))
+}
+
+Heading
+  = "# "+ text:Line {
+  	return heading(text);
+}
+
+/* Sceenshot ------------- */
+Section
+  = text:SectionText+ ('\r\n' / '\n' / '\r') [-]+ EndOfLine? {
+    return {
+     section: text.join("")
+    }
+}
+
+/* *Italic* */
+Italic
+  = [\x2A] text:Line [\x2A] {
+    return italic(text)
+}
+
+/* **Italic** */
+Bold
+  = ([\x2A][\x2A] / [\x5F][\x5F]) text:Line ([\x2A][\x2A] / [\x5F][\x5F]) {
+    return bold(text)
+  }
+
+/* ~~Mistaken text.~~ */
+Strikethrough
+  = [\x7E][\x7E] text:Line [\x7E][\x7E] {
+	return strike(text);
+  }
+
+ListItem
+ = ("\x2A " / "\x2D ") text:ListText+ Space?  {return text.join("").trim()}
+
+TaskItem
+ = (("- [x] " / "- [ ] ") text:AnyText+ Space?) {return text.join("").trim()}
+
+OrderedListItem
+ = "  "? (Digit1_9+ "\x2E ") text:AnyText+ Space? {return text.join("").trim()}
+
+Paragraph = EndOfLine text:AnyText2 { return paragraph(text) }
+Lists
+ = lists:ListItem+ {
+   return {
+    lists: lists
+   }
+}
+
+// - [ ] this is an incomplete item
+Tasks
+ = tasks:TaskItem+ {
+   return {
+    tasks: tasks
+   }
+}
+
+OrderedLists
+ = lists:OrderedListItem+ {
+   return {
+    listsOrdered: lists
+   }
+}
+
+Type
+  = "bash" "c" / "cpp" / "html" / "javascript" / "js" / "json"/ "java" / "ruby"
+
+InlineCode
+  = [\x60] text:Line [\x60] {return inlineCode(text)}
+
+LineCode
+  = text:CodeText+ {return text.join("").trim()}
+
+MultiplelLineCode
+  = "```"+ ' '? type:(Type)? Space? value:LineCode+ "```" {
+	return code(value.join('\n'))
+}
+
+// [Visit GitHub!](www.github.com)
+LinkTitle
+  = [\x5B] text:(Line / Emphasis) [\x5D] {return text}
+
+LinkTitleEmpty
+  = [\x5B] [\x5D] {return ""}
+
+LinkRef
+  = [\x28] text:Line [\x29] {return text}
+
+References
+  = title:LinkTitle href:LinkRef {
+	 return link([title, href])
+    }
+
+/* patch empty link name */
+ReferencesEmpty
+  = (AnyText+ / "") title:LinkTitleEmpty href:LinkRef Space? {
+     return link(title, href)
+//     return {
+     
+  //    references: {
+    //    title: title,
+       // href: href,
+      //  image: isImage(href)
+     // }
+     //}
+    }
+
+
+/* Macros */
+
+h
+  = [0-9a-f]i
+
+nonascii
+  = [\x80-\uFFFF]
+
+unicode
+  = "\\" digits:$(h h? h? h? h? h?) ("\r\n" / [ \t\r\n\f])? {
+      return String.fromCharCode(parseInt(digits, 16));
+    }
+
+escape
+  = unicode
+  / "\\" ch:[^\r\n\f0-9a-f]i { return ch; }
+
+nmstart
+  = [_a-z]i
+  / nonascii
+  / escape
+
+nmchar
+  = [_a-z0-9-]i
+  / nonascii
+  / escape
+
+string1
+  = '"' chars:([^\n\r\f\\"] / "\\" nl:nl { return ""; } / escape)* '"' {
+      return chars.join("");
+    }
+
+string2
+  = "'" chars:([^\n\r\f\\'] / "\\" nl:nl { return ""; } / escape)* "'" {
+      return chars.join("");
+    }
+
+string
+  = chars: (string1 / [_a-zA-Z0-9-\n]+) { return chars.join("")}
+
+comment
+  = "/*" [^*]* "*"+ ([^/*] [^*]* "*"+)* "/"
+
+ident
+  = prefix:$"-"? start:nmstart chars:nmchar* {
+      return prefix + start + chars.join("");
+    }
+
+name
+  = chars:nmchar+ { return chars.join(""); }
+
+num
+  = [+-]? ([0-9]+ / [0-9]* "." [0-9]+) ("e" [+-]? [0-9]+)? {
+      return parseFloat(text());
+    }
+
+url
+  = chars:([!#$%&*-\[\]-~] / nonascii / escape)* { return chars.join(""); }
+
+s
+  = [ \t\r\n\f]+
+
+w
+  = s?
+
+nl
+  = "\n"
+  / "\r\n"
+  / "\r"
+  / "\f"

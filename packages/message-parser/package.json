@@ -1,0 +1,43 @@
+{
+  "name": "md-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "npm-watch": "^0.9.0",
+    "peggy": "^1.1.0",
+    "ts-pegjs": "^0.3.1",
+    "watch": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.16",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "ts-node": "^9.1.1"
+  },
+  "scripts": {
+    "build": "peggy --format es grammar.peg",
+    "test": "mocha -w",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "test": {
+      "patterns": [
+        "./"
+      ],
+      "extensions": ".js"
+    },
+    "build": {
+      "patterns": [
+        "./"
+      ],
+      "extensions": "pegjs"
+    }
+  },
+  "author": "",
+  "license": "ISC"
+}
