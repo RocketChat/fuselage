@@ -50,9 +50,9 @@
   "devDependencies": {
     "@microsoft/api-documenter": "^7.8.21",
     "@microsoft/api-extractor": "^7.9.2",
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rocket.chat/eslint-config-alt": "^0.23.0",
+    "@rocket.chat/fuselage-tokens": "^0.23.0",
+    "@rocket.chat/prettier-config": "^0.23.0",
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",

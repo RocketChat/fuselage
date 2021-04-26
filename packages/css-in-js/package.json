@@ -39,8 +39,8 @@
     "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --section='API Reference' --readme-file README.md"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rocket.chat/eslint-config-alt": "^0.23.0",
+    "@rocket.chat/prettier-config": "^0.23.0",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "@emotion/hash": "^0.8.0",
-    "@rocket.chat/memo": "workspace:packages/memo",
+    "@rocket.chat/memo": "^0.23.0",
     "stylis": "^4.0.6"
   }
 }
