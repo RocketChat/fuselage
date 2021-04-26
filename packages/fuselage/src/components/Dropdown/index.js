@@ -74,8 +74,11 @@ const Dropdown = ({ children, overlay }) => {
   );
 
   const onClick = useCallback(() => {
-    ref?.current?.focus() && show();
-    ref?.current?.classList.add('focus-visible');
+    show();
+    if (ref && ref.current) {
+      ref.current.focus();
+      ref.current.classList.add('focus-visible');
+    }
   }, [show]);
 
   return (
