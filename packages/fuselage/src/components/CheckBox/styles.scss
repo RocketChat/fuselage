@@ -1,7 +1,11 @@
 @use '../../styles/lengths.scss';
 
 .rcx-check-box {
-  @include is-selection-button($checked: 'primary', $unchecked: 'empty', $indeterminate: 'primary');
+  @include is-selection-button(
+    $checked: 'primary',
+    $unchecked: 'empty',
+    $indeterminate: 'primary'
+  );
 
   &__input {
     @extend %selection-button__input;
@@ -59,18 +63,25 @@
       width: $icon-size * lengths.size(20);
       height: $icon-thickness;
 
-      transform:
-        translate($icon-size * lengths.size(20) / -3, $icon-size * lengths.size(20) / 6)
+      transform: translate(
+          $icon-size * lengths.size(20) / -3,
+          $icon-size * lengths.size(20) / 6
+        )
         rotate(-45deg)
-        translate($icon-size * lengths.size(20) / 2, $icon-size * lengths.size(20) / 6);
+        translate(
+          $icon-size * lengths.size(20) / 2,
+          $icon-size * lengths.size(20) / 6
+        );
     }
 
     &::after {
       width: $icon-thickness;
       height: 0.5 * $icon-size * lengths.size(20);
 
-      transform:
-        translate($icon-size * lengths.size(20) / -3, $icon-size * lengths.size(20) / 6)
+      transform: translate(
+          $icon-size * lengths.size(20) / -3,
+          $icon-size * lengths.size(20) / 6
+        )
         rotate(-45deg);
     }
   }

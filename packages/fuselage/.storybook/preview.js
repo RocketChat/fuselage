@@ -1,4 +1,4 @@
-import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints';
+import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { addDecorator, addParameters } from '@storybook/react';
 import 'loki/configure-react';
@@ -7,30 +7,35 @@ import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 
 addParameters({
+  backgrounds: {
+    grid: {
+      cellSize: 4,
+      cellAmount: 4,
+      opacity: 0.5,
+    },
+  },
   docs: {
     container: DocsContainer,
     page: DocsPage,
   },
-  grid: {
-    cellSize: 4,
-  },
   options: {
-    showRoots: true,
-    storySort: ([, a], [, b]) =>
-      a.kind.localeCompare(b.kind),
+    storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
   },
   viewport: {
-    viewports: Object.entries(breakpointTokens).reduce((obj, [name, { minViewportWidth }]) => ({
-      ...obj,
-      [name]: {
-        name,
-        styles: {
-          width: `${ minViewportWidth }px`,
-          height: '90%',
+    viewports: breakpointTokens.reduce(
+      (obj, { name, minViewportWidth }) => ({
+        ...obj,
+        [name]: {
+          name,
+          styles: {
+            width: `${minViewportWidth}px`,
+            height: '90%',
+          },
+          type: 'desktop',
         },
-        type: 'desktop',
-      },
-    }), {}),
+      }),
+      {}
+    ),
   },
 });
 

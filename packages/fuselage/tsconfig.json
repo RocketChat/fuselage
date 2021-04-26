@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src/",
+    "target": "ES5",
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM"],
+    "downlevelIteration": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist/",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "jsx": "react"
+  },
+  "exclude": [
+    "./dist/",
+    "./storybook-static/",
+    "./src/**/*.spec.{js,ts,tsx}",
+    "./*.js"
+  ]
+}

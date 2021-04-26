@@ -8,9 +8,7 @@
 
   align-items: center;
 
-  padding:
-    lengths.padding(12)
-    lengths.padding(24);
+  padding: lengths.padding(12) lengths.padding(24);
 
   @include on-breakpoint(sm) {
     flex-direction: column;

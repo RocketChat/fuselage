@@ -9,7 +9,9 @@ class MediaQueryListMock implements MediaQueryList {
 
   changeEventListeners: Set<EventListener>;
 
-  constructor(media: string) {
+  _matchString: string;
+
+  constructor(media: string, matchString?: string) {
     this._media = media;
     this._onchange = null;
     this.changeEventListeners = new Set([
@@ -17,6 +19,7 @@ class MediaQueryListMock implements MediaQueryList {
         this._onchange && this._onchange.call(this, ev);
       },
     ]);
+    this._matchString = matchString;
   }
 
   get matches(): boolean {
@@ -32,7 +35,7 @@ class MediaQueryListMock implements MediaQueryList {
       );
     }
 
-    return false;
+    return this._matchString && this._matchString === this._media;
   }
 
   get media(): string {
@@ -88,7 +91,7 @@ class MediaQueryListMock implements MediaQueryList {
   }
 }
 
-const matchMediaMock = (media: string): MediaQueryList =>
-  new MediaQueryListMock(media);
+const matchMediaMock = (media: string, matchString?: string): MediaQueryList =>
+  new MediaQueryListMock(media, matchString);
 
 export default matchMediaMock;

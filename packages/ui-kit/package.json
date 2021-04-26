@@ -1,8 +1,8 @@
 {
   "name": "@rocket.chat/ui-kit",
-  "version": "0.19.0",
+  "version": "0.23.0",
   "description": "Interactive UI elements for Rocket.Chat Apps",
-  "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
+  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -18,49 +18,42 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "/dist"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf dist",
-    "build:prod": "webpack --mode production",
-    "build": "run-p clean build:prod",
+    "build": "run-s .:build:clean .:build:prod",
+    ".:build:clean": "rimraf dist",
+    ".:build:prod": "webpack --mode production",
     "lint": "eslint --ext js,ts src",
+    "lint-fix": "eslint --fix --ext js,ts src",
     "lint-staged": "lint-staged",
-    "test": "jest",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "test:ci": "jest --runInBand",
-    "docs:api-extractor": "api-extractor run --local --verbose",
-    "docs:api-documenter": "api-documenter markdown -i temp -o docs",
-    "docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
-    "docs:clean": "rimraf temp",
-    "docs": "run-s build docs:api-extractor docs:api-documenter docs:readme docs:clean"
+    "test": "jest --runInBand",
+    "prettier-format": "prettier 'src/**/*.ts' --write",
+    "docs": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.1",
+    "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",
-    "@babel/plugin-transform-runtime": "^7.11.0",
-    "@babel/preset-env": "^7.11.0",
-    "@microsoft/api-documenter": "^7.8.25",
-    "@microsoft/api-extractor": "^7.9.4",
-    "@rocket.chat/eslint-config": "^0.4.0",
-    "@types/jest": "^26.0.10",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@types/jest": "^26.0.22",
     "babel-loader": "^8.1.0",
-    "documentation": "^13.0.2",
-    "eslint": "^7.13.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "jest": "^26.4.0",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.1.2",
+    "documentation": "^13.2.1",
+    "eslint": "^7.24.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "^26.2.0",
+    "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.2",
-    "typescript": "^4.0.3"
+    "typescript": "^4.1.3",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0"
   }
 }

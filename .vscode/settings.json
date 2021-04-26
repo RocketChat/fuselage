@@ -1,6 +1,18 @@
 {
   "eslint.workingDirectories": [
     {
+      "directory": "packages/css-in-js",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/emitter",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/eslint-config-alt",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/fuselage",
       "changeProcessCWD": true
     },
@@ -17,6 +29,22 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/memo",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/mp3-encoder",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/prettier-config",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/string-helpers",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/ui-kit",
       "changeProcessCWD": true
     }
@@ -26,5 +54,7 @@
   },
   "eslint.options": {
     "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
-  }
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

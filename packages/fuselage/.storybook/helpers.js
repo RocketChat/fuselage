@@ -1,29 +1,54 @@
 import React from 'react';
 
-import { Box } from '../src';
+import { Box, Icon } from '../src';
 
-export function PropsVariationSection({ component: Component, common = {}, xAxis = {}, yAxis = {} }) {
-  return <Box is='table' marginBlock='x16' marginInline='auto' style={{ borderCollapse: 'collapse' }}>
-    <Box is='thead'>
-      <Box is='tr'>
-        <Box is='th' />
-        {Object.keys(xAxis).map((xVariation, key) =>
-          <Box key={key} is='th' color='hint' fontScale='c1'>{xVariation}</Box>)}
+export function PropsVariationSection({
+  component: Component,
+  common = {},
+  xAxis = {},
+  yAxis = {},
+}) {
+  return (
+    <Box
+      is='table'
+      marginBlock='x16'
+      marginInline='auto'
+      style={{ borderCollapse: 'collapse' }}
+    >
+      <Box is='thead'>
+        <Box is='tr'>
+          <Box is='th' />
+          {Object.keys(xAxis).map((xVariation, key) => (
+            <Box key={key} is='th' color='hint' fontScale='c1'>
+              {xVariation}
+            </Box>
+          ))}
+        </Box>
+      </Box>
+      <Box is='tbody'>
+        {Object.entries(yAxis).map(([yVariation, yProps], y) => (
+          <Box key={y} is='tr'>
+            <Box is='th' color='hint' fontScale='c1'>
+              {yVariation}
+            </Box>
+            {Object.values(xAxis).map((xProps, x) => (
+              <Box
+                key={x}
+                is='td'
+                margin='none'
+                paddingBlock='x8'
+                paddingInline='x16'
+              >
+                <Box display='flex' alignItems='center' justifyContent='center'>
+                  <Component {...common} {...xProps} {...yProps} />
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        ))}
       </Box>
     </Box>
-    <Box is='tbody'>
-      {Object.entries(yAxis).map(([yVariation, yProps], y) => (
-        <Box key={y} is='tr'>
-          <Box is='th' color='hint' fontScale='c1'>{yVariation}</Box>
-          {Object.values(xAxis).map((xProps, x) => <Box key={x} is='td' margin='none' paddingBlock='x8' paddingInline='x16'>
-            <Box display='flex' alignItems='center' justifyContent='center'>
-              <Component {...common} {...xProps} {...yProps} />
-            </Box>
-          </Box>)}
-        </Box>
-      ))}
-    </Box>
-  </Box>;
+  );
 }
 
 export const exampleAvatar = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAA
@@ -82,3 +107,24 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII=`;
 
 export const blankAvatar = `data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BA
 AAAAAALAAAAAABAAEAAAICRAEAOw==`;
+
+export const menuOptions = {
+  makeAdmin: {
+    label: (
+      <Box display='flex' alignItems='center'>
+        <Icon mie='x4' name='key' size='x16' />
+        Make Admin
+      </Box>
+    ),
+    action: () => console.log('[...] is now admin'),
+  },
+  delete: {
+    label: (
+      <Box display='flex' alignItems='center' color='danger'>
+        <Icon mie='x4' name='trash' size='x16' />
+        Delete
+      </Box>
+    ),
+    action: () => console.log('[...] no longer exists'),
+  },
+};

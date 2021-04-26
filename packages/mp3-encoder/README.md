@@ -7,7 +7,7 @@
 
 > A LAME encoder to be used in web workers
 
-### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
+### 🏠 [Homepage](https://rocketchat.github.io/Rocket.Chat.Fuselage/)
 
 ## Install
 
@@ -31,8 +31,8 @@ yarn test
 
 👤 **Rocket.Chat**
 
--   Twitter: [@RocketChat](https://twitter.com/RocketChat)
--   Github: [@RocketChat](https://github.com/RocketChat)
+- Twitter: [@RocketChat](https://twitter.com/RocketChat)
+- Github: [@RocketChat](https://github.com/RocketChat)
 
 ## 🤝 Contributing
 
@@ -44,6 +44,6 @@ Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Fusel
 
 Give a ⭐️ if this project helped you!
 
-* * *
+---
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

@@ -3,6 +3,55 @@
 @use '../../typography.scss';
 
 %--with-inline-elements {
+  a,
+  abbr,
+  b,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  i,
+  ins,
+  kbd,
+  q,
+  samp,
+  small,
+  strong,
+  sub,
+  sup,
+  time,
+  var {
+    letter-spacing: inherit;
+
+    color: inherit;
+
+    font: inherit;
+  }
+
+  a {
+    &:link {
+      text-decoration: none;
+
+      color: colors.foreground(link);
+    }
+
+    &:visited,
+    &.is-visited {
+      color: colors.foreground(visited-link);
+    }
+
+    &:active,
+    &.is-active {
+      color: colors.foreground(active-link);
+    }
+
+    &:hover,
+    &.is-hovered {
+      text-decoration: underline;
+    }
+  }
+
   strong {
     letter-spacing: inherit;
 
@@ -31,33 +80,6 @@
     font-style: italic;
   }
 
-  a {
-    letter-spacing: inherit;
-
-    font: inherit;
-
-    &:link {
-      text-decoration: none;
-
-      color: colors.foreground(link);
-    }
-
-    &:visited,
-    &.is-visited {
-      color: colors.foreground(visited-link);
-    }
-
-    &:active,
-    &.is-active {
-      color: colors.foreground(active-link);
-    }
-
-    &:hover,
-    &.is-hovered {
-      text-decoration: underline;
-    }
-  }
-
   q {
     letter-spacing: inherit;
 
@@ -79,20 +101,63 @@
     }
   }
 
+  ul,
+  ol {
+    display: inline-flex;
+  }
+
+  li {
+    display: list-item;
+
+    margin-inline-start: lengths.margin(24);
+    margin-inline-end: lengths.margin(8);
+
+    &:first-child {
+      margin-inline-start: lengths.margin(16);
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+
+    span {
+      margin-inline-end: lengths.margin(8);
+    }
+
+    input {
+      vertical-align: middle;
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
   code {
-    padding:
-      lengths.padding(4)
-      lengths.padding(8);
+    display: inline;
 
+    padding: lengths.padding(1) lengths.padding(4);
+
+    vertical-align: middle;
+
+    white-space: pre-wrap;
     letter-spacing: inherit;
+    word-wrap: break-word;
 
+    color: colors.foreground(default);
+    border-width: lengths.border-width(1);
+    border-color: colors.neutral(500);
     border-radius: lengths.border-radius(2);
-    background-color: colors.neutral(300);
+    background-color: colors.neutral(100);
 
     font: inherit;
-    font-family: typography.font-family(mono);
 
+    font-family: typography.font-family(mono);
+    direction: ltr;
     -webkit-font-smoothing: auto;
+    @include typography.use-font-scale(c2);
+
+    unicode-bidi: embed;
   }
 
   time {
@@ -143,33 +208,21 @@
     position: relative;
 
     vertical-align: baseline;
-    letter-spacing: inherit;
 
-    font: inherit;
     font-size: 75%;
     line-height: 0;
   }
 
   sup {
     inset-block-start: -0.5em;
-
-    letter-spacing: inherit;
-
-    font: inherit;
   }
 
   sub {
     inset-block-end: -0.25em;
-
-    letter-spacing: inherit;
-
-    font: inherit;
   }
 
   kbd {
-    padding:
-      lengths.padding(4)
-      lengths.padding(8);
+    padding: lengths.padding(4) lengths.padding(8);
 
     letter-spacing: inherit;
 
@@ -233,9 +286,7 @@
   h6 {
     display: block;
 
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
   }
 
   p {
@@ -243,9 +294,7 @@
 
     display: block;
 
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
 
     color: inherit;
   }
@@ -254,9 +303,7 @@
   ol {
     display: block;
 
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
+    margin: lengths.margin(16) lengths.margin(none);
     padding-inline-start: lengths.padding(40);
   }
 
@@ -273,18 +320,20 @@
   li {
     display: list-item;
 
+    margin-inline-start: lengths.margin(0);
+
     text-align: inherit;
 
     color: inherit;
 
     font: inherit;
+
+    &:first-child {
+      margin-inline-start: lengths.margin(0);
+    }
   }
 
   pre {
-    margin:
-      lengths.margin(16)
-      lengths.margin(none);
-
     letter-spacing: inherit;
 
     font: inherit;
@@ -293,13 +342,12 @@
     code {
       display: block;
 
-      padding: lengths.padding(16);
+      overflow-y: hidden;
+
+      margin: lengths.margin(8) lengths.margin(none);
+      padding: lengths.margin(8);
 
       letter-spacing: inherit;
-
-      color: inherit;
-
-      font: inherit;
     }
   }
 }

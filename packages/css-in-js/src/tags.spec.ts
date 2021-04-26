@@ -86,7 +86,7 @@ describe('tags', () => {
         `()
       ).toEqual(
         expect.stringMatching(
-          /^animation-name: rcx-(\\@[0-9a-z]+);@keyframes rcx-\1{/
+          /^animation-name: rcx-css-([0-9a-z]+);@keyframes rcx-css-\1{/
         )
       );
     });

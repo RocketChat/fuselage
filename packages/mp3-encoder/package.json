@@ -1,8 +1,8 @@
 {
   "name": "@rocket.chat/mp3-encoder",
-  "version": "0.19.0",
+  "version": "0.23.0",
   "description": "A LAME encoder to be used in web workers",
-  "homepage": "https://rocket.chat/Rocket.Chat.Fuselage",
+  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -10,7 +10,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "directory": "packages/mp3-encoder"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -24,16 +25,16 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "/dist"
   ],
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "test:ci": "jest --runInBand",
-    "lint": "eslint src --ext .js,.ts",
+    "lint": "eslint src --ext .ts",
+    "lint-fix": "eslint --fix --ext .ts  src",
     "lint-staged": "lint-staged",
+    "test": "jest --runInBand",
+    "prettier-format": "prettier 'src/**/*.ts' --write",
     "docs": "documentation readme src/index.ts --shallow --section='API Reference' --readme-file README.md"
   },
   "publishConfig": {
@@ -43,27 +44,22 @@
     "lamejs": "https://github.com/zhuker/lamejs"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-transform-runtime": "^7.7.6",
-    "@babel/preset-env": "^7.7.6",
-    "@babel/preset-typescript": "^7.9.0",
-    "@rocket.chat/eslint-config": "^0.4.0",
-    "@rollup/plugin-typescript": "^6.0.0",
-    "@types/jest": "^26.0.15",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
-    "documentation": "^13.0.2",
-    "eslint": "^7.13.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "jest": "^26.6.1",
-    "lint-staged": "^10.0.8",
-    "prettier": "^2.1.2",
-    "rollup": "^2.1.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.2",
-    "typescript": "^4.0.3"
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@rollup/plugin-typescript": "^8.1.0",
+    "@types/jest": "^26.0.22",
+    "documentation": "^13.2.1",
+    "eslint": "^7.24.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "rollup": "^2.35.1",
+    "typescript": "^4.1.3"
   }
 }

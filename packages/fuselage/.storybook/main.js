@@ -2,16 +2,10 @@ const webpack = require('webpack');
 
 module.exports = {
   addons: [
-    '@storybook/addon-actions',
-    '@storybook/addon-backgrounds',
-    '@storybook/addon-docs',
-    '@storybook/addon-knobs',
-    '@storybook/addon-viewport',
-    ...process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : [],
+    '@storybook/addon-essentials',
+    ...(process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : []),
   ],
-  stories: [
-    '../src/**/*.stories.{mdx,js}',
-  ],
+  stories: ['../src/**/*.stories.{mdx,js}'],
   webpackFinal: (config) => {
     config.module.rules.push({
       test: /\.scss$/,

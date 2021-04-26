@@ -6,10 +6,10 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
+import { useBoxTransform, BoxTransforms } from './BoxTransforms';
 import {
   /* propTypes as stylingPropsPropTypes,  */ useStylingProps,
 } from './stylingProps';
-import { useBoxTransform, BoxTransforms } from './transforms';
 
 export const useArrayLikeClassNameProp = (props) => {
   const classNames = [].concat(props.className);
@@ -46,13 +46,39 @@ export const useBoxOnlyProps = (props) => {
     }
   });
 
+  if (props.animated) {
+    props.className = prependClassName(props.className, 'rcx-box--animated');
+    delete props.animated;
+  }
+
+  if (props.withRichContent) {
+    if (props.withRichContent === 'inlineWithoutBreaks') {
+      props.className = prependClassName(
+        props.className,
+        'rcx-box--with-inline-elements'
+      );
+    } else {
+      props.className = prependClassName(
+        props.className,
+        'rcx-box--with-inline-elements'
+      );
+
+      props.className = prependClassName(
+        props.className,
+        'rcx-box--with-block-elements'
+      );
+    }
+  }
+
+  delete props.withRichContent;
+
   props.className = prependClassName(props.className, 'rcx-box rcx-box--full');
 
   return props;
 };
 
 export const Box = memo(
-  forwardRef(function Box({ is = 'div', children, animated, ...props }, ref) {
+  forwardRef(function Box({ is = 'div', children, ...props }, ref) {
     useStyleSheet();
 
     if (ref) {
@@ -69,13 +95,10 @@ export const Box = memo(
     props = useBoxOnlyProps(props);
     props = useStylingProps(props);
 
-    if (animated) {
-      props.className = prependClassName(props.className, 'rcx-box--animated');
-    }
     const element = createElement(is, props, children);
 
     if (transformFn) {
-      return <BoxTransforms.Provider children={element} />;
+      return <BoxTransforms.Provider children={element} value={null} />;
     }
 
     return element;

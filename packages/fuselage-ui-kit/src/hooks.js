@@ -1,6 +1,6 @@
-import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import { BLOCK_CONTEXT } from '@rocket.chat/ui-kit';
-import React, { useContext, useMemo, useState } from 'react';
+import { useSafely, useMutableCallback } from '@rocket.chat/fuselage-hooks';
+import { BlockContext } from '@rocket.chat/ui-kit';
+import { createContext, useContext, useMemo, useState } from 'react';
 
 export const defaultContext = {
   action: (...args) => console.log(JSON.stringify(args)),
@@ -9,10 +9,10 @@ export const defaultContext = {
   errors: {},
 };
 
-export const kitContext = React.createContext(defaultContext);
+export const kitContext = createContext(defaultContext);
 
-export const useBlockContext = (
-  { blockId, actionId, appId, initialValue },
+export const useUiKitState = (
+  { blockId, actionId, appId, initialOption, initialValue },
   context
 ) => {
   const {
@@ -23,9 +23,10 @@ export const useBlockContext = (
     errors,
     values = {},
   } = useContext(kitContext);
-  const { value: _value = initialValue } = values[actionId] || {};
-  const [value, setValue] = useState(_value);
-  const [loading, setLoading] = useState(false);
+  const { value: _value = initialOption?.value ?? initialValue } =
+    values[actionId] || {};
+  const [value, setValue] = useSafely(useState(_value));
+  const [loading, setLoading] = useSafely(useState(false));
 
   const error = errors && actionId && errors[actionId];
 
@@ -45,7 +46,7 @@ export const useBlockContext = (
 
   const stateFunction = useMutableCallback(async ({ target: { value } }) => {
     setValue(value);
-    await state({ blockId, appId, actionId, value });
+    await state({ blockId, appId: appId || appIdFromContext, actionId, value });
   });
 
   const result = useMemo(() => ({ loading, setLoading, error, value }), [
@@ -55,7 +56,7 @@ export const useBlockContext = (
     value,
   ]);
 
-  if ([BLOCK_CONTEXT.SECTION, BLOCK_CONTEXT.ACTION].includes(context)) {
+  if ([BlockContext.SECTION, BlockContext.ACTION].includes(context)) {
     return [result, actionFunction];
   }
 

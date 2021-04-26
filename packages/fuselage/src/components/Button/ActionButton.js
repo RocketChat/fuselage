@@ -19,8 +19,11 @@ const getSize = ({ tiny, mini, small }) => {
   return 'x20';
 };
 
-export const ActionButton = React.forwardRef(({ icon, ...props }, ref) => (
-  <Button ref={ref} square flexShrink={0} {...props}>
-    <Icon name={icon} size={getSize(props)} />
-  </Button>
-));
+export const ActionButton = React.forwardRef(
+  ({ icon, children, ...props }, ref) => (
+    <Button ref={ref} square flexShrink={0} {...props}>
+      {children}
+      <Icon name={icon} size={getSize(props)} />
+    </Button>
+  )
+);

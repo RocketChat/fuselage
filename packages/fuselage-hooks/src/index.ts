@@ -1,5 +1,6 @@
 export * from './useAutoFocus';
 export * from './useBreakpoints';
+export * from './useClipboard';
 export * from './useDebouncedCallback';
 export * from './useDebouncedReducer';
 export * from './useDebouncedState';
@@ -12,6 +13,9 @@ export * from './useMediaQuery';
 export * from './useMergedRefs';
 export * from './useMutableCallback';
 export * from './usePosition';
+export * from './usePrefersColorScheme';
+export * from './usePrefersReducedData';
+export * from './usePrefersReducedMotion';
 export * from './useResizeObserver';
 export * from './useSafely';
 export * from './useStableArray';

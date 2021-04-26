@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.22.0...v0.23.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* **npm:** Wrong paths in "files" field of package.json ([6d3c811](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6d3c811f6fd747de7f47aff145902d88476272ee))
+
+
+
+
+
+# [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-hooks
+
+
+
+
+
+# [0.21.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.3...v0.21.0) (2021-01-31)
+
+
+### Features
+
+* Built modules for design tokens ([#356](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/356)) ([f9c3449](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f9c344953b8161a4385cab3a3dcc8b6a7210446f))
+
+
+
+
+
+## [0.20.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.0...v0.20.1) (2020-12-22)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-hooks
+
+
+
+
+
+# [0.20.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.19.0...v0.20.0) (2020-12-21)
+
+
+### Features
+
+* useClipboard hook ([#337](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/337)) ([35ab50a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/35ab50a89ebcf7a760b2eb8c41b4a0a4fdcecb37))
+* usePrefersColorScheme hook ([#341](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/341)) ([f54a69d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f54a69d254ec1bc4f65e11821de7335b34288ae3))
+* usePrefersReducedData hook ([#340](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/340)) ([59ae517](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/59ae517a31ec241321ba926b150b52612739d469))
+* usePrefersReducedMotion hook ([#339](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/339)) ([475ae34](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/475ae342b25b2d79d0c34d76d22f4b4044be1ba3))
+
+
+
+
+
 # [0.19.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.18.0...v0.19.0) (2020-11-28)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-hooks

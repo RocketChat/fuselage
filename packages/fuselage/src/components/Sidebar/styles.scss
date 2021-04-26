@@ -3,14 +3,39 @@
 @use '../../styles/typography.scss';
 @import '../../styles/mixins/all.scss';
 
-$sidebar-item-background-color: theme('sidebar-item-background-color', colors.surface());
+$sidebar-header-height: theme(
+  'sidebar-header-height',
+  theme('header-height', lengths.size(64))
+);
+$sidebar-item-background-color: theme(
+  'sidebar-item-background-color',
+  colors.surface()
+);
 $sidebar-item-color: theme('sidebar-item-color', colors.foreground('hint'));
-$sidebar-item-color-highlighted: theme('sidebar-item-color-highlighted', colors.foreground('alternative'));
-$sidebar-item-background-color-hover: theme('sidebar-item-background-color-hover', colors.neutral(800));
-$sidebar-item-color-hover: theme('sidebar-item-color-hover', colors.foreground('hint'));
-$sidebar-item-color-focus: theme('sidebar-item-color-focus', colors.neutral(900));
-$sidebar-item-background-color-selected: theme('sidebar-item-background-color-selected', colors.neutral(200));
-$sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foreground('hint'));
+$sidebar-item-color-highlighted: theme(
+  'sidebar-item-color-highlighted',
+  colors.foreground('alternative')
+);
+$sidebar-item-background-color-hover: theme(
+  'sidebar-item-background-color-hover',
+  colors.neutral(800)
+);
+$sidebar-item-color-hover: theme(
+  'sidebar-item-color-hover',
+  colors.foreground('hint')
+);
+$sidebar-item-color-focus: theme(
+  'sidebar-item-color-focus',
+  colors.neutral(900)
+);
+$sidebar-item-background-color-selected: theme(
+  'sidebar-item-background-color-selected',
+  colors.neutral(200)
+);
+$sidebar-item-color-selected: theme(
+  'sidebar-item-color-selected',
+  colors.foreground('hint')
+);
 
 %sidebar-base {
   display: flex;
@@ -23,7 +48,6 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 }
 
 %highlighted {
-  @include typography.use-font-scale(p2);
   color: $sidebar-item-color-highlighted;
 }
 
@@ -35,6 +59,11 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
 .rcx-sidebar {
   &-topbar {
+    display: flex;
+    flex-direction: column;
+
+    height: $sidebar-header-height;
+
     color: $sidebar-item-color;
 
     &--section {
@@ -45,6 +74,8 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      flex-grow: 1;
 
       padding-block: lengths.padding(16);
       padding-inline: lengths.padding(16);
@@ -115,6 +146,8 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     &__icon {
       @include typography.use-with-truncated-text();
+      @include highlighted;
+
       display: flex;
       justify-content: center;
 
@@ -153,8 +186,9 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
 
     &:hover &__menu-wraper,
     &.focus-within &__menu-wraper {
-      width: lengths.size(20);
+      position: static;
 
+      width: lengths.size(20);
       margin-inline: lengths.margin(4);
 
       opacity: 1;
@@ -175,6 +209,8 @@ $sidebar-item-color-selected: theme('sidebar-item-color-selected', colors.foregr
     }
 
     &__menu-wraper {
+      position: relative;
+
       flex-shrink: 0;
 
       width: 0;

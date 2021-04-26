@@ -102,7 +102,11 @@
   background-color: $button-colors-primary-disabled-background-color;
 }
 
-@mixin is-selection-button($unchecked: 'empty', $indeterminate: null, $checked: 'primary') {
+@mixin is-selection-button(
+  $unchecked: 'empty',
+  $indeterminate: null,
+  $checked: 'primary'
+) {
   position: relative;
 
   display: inline-flex;
@@ -114,7 +118,7 @@
   $styles: (
     unchecked: $unchecked,
     indeterminate: $indeterminate,
-    checked: $checked
+    checked: $checked,
   );
 
   $state-pseudo-classes: (
@@ -122,7 +126,7 @@
     hovered: ':hover',
     focused: ':focus',
     active: ':active',
-    disabled: ':disabled'
+    disabled: ':disabled',
   );
 
   $state-helper-classes: (
@@ -130,7 +134,7 @@
     hovered: '.is-hovered',
     focused: '.is-focused',
     active: '.is-active',
-    disabled: '.is-disabled'
+    disabled: '.is-disabled',
   );
 
   @each $value in unchecked, indeterminate, checked {
@@ -149,7 +153,7 @@
         $state-helper-class: map-get($state-helper-classes, $state);
 
         @at-root &__input#{$value-pseudo-class}#{$state-pseudo-class} + &__fake,
-        &#{$state-helper-class} &__input#{$value-pseudo-class} + &__fake {
+          &#{$state-helper-class} &__input#{$value-pseudo-class} + &__fake {
           @extend %selection-button__fake--#{$style}--#{$state} !optional;
 
           @if $state == disabled {

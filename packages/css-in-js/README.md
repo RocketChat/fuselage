@@ -7,7 +7,7 @@
 
 > Toolset to transpile and use CSS on runtime
 
-### 🏠 [Homepage](https://rocket.chat/Rocket.Chat.Fuselage)
+### 🏠 [Homepage](https://rocketchat.github.io/Rocket.Chat.Fuselage/)
 
 ## Install
 
@@ -27,18 +27,18 @@ yarn test
 
 #### Table of Contents
 
--   [cssSupports](#csssupports)
--   [attachRules](#attachrules)
--   [EvaluationContext](#evaluationcontext)
--   [currentContext](#currentcontext)
--   [holdContext](#holdcontext)
--   [Evaluable](#evaluable)
--   [css](#css)
-    -   [Parameters](#parameters)
--   [keyframes](#keyframes)
-    -   [Parameters](#parameters-1)
--   [transpile](#transpile)
-    -   [Parameters](#parameters-2)
+- [cssSupports](#csssupports)
+- [attachRules](#attachrules)
+- [EvaluationContext](#evaluationcontext)
+- [currentContext](#currentcontext)
+- [holdContext](#holdcontext)
+- [Evaluable](#evaluable)
+- [css](#css)
+  - [Parameters](#parameters)
+- [keyframes](#keyframes)
+  - [Parameters](#parameters-1)
+- [transpile](#transpile)
+  - [Parameters](#parameters-2)
 
 ### cssSupports
 
@@ -72,7 +72,7 @@ Type: ([EvaluationContext](#evaluationcontext) \| [undefined](https://developer.
 Holds to the evaluation context inside a Evaluable.
 
 Returns **\[[EvaluationContext](#evaluationcontext), function (): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** a pair of the evaluation context and a function to free it,
-         returning the additional evaluation stored at the context.
+returning the additional evaluation stored at the context.
 
 ### Evaluable
 
@@ -86,8 +86,8 @@ Template string tag to declare CSS content chunks.
 
 #### Parameters
 
--   `slices` **TemplateStringsArray** 
--   `values` **...any** 
+- `slices` **TemplateStringsArray**
+- `values` **...any**
 
 Returns **cssFn** a callback to render the CSS content
 
@@ -97,8 +97,8 @@ Template string tag to declare CSS `@keyframe` at-rules.
 
 #### Parameters
 
--   `slices` **TemplateStringsArray** 
--   `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>** 
+- `slices` **TemplateStringsArray**
+- `values` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>**
 
 Returns **keyframesFn** a callback to render the CSS at-rule content
 
@@ -108,18 +108,18 @@ Transpiles CSS Modules content to CSS rules.
 
 #### Parameters
 
--   `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `options` **TranspileOptions?** 
+- `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+- `content` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+- `middleware` **Middleware** (optional, default `defaultMiddleware`)
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ## Author
 
 👤 **Rocket.Chat**
 
--   Twitter: [@RocketChat](https://twitter.com/RocketChat)
--   Github: [@RocketChat](https://github.com/RocketChat)
+- Twitter: [@RocketChat](https://twitter.com/RocketChat)
+- Github: [@RocketChat](https://github.com/RocketChat)
 
 ## 🤝 Contributing
 
@@ -131,6 +131,6 @@ Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Fusel
 
 Give a ⭐️ if this project helped you!
 
-* * *
+---
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

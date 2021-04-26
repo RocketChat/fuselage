@@ -1,9 +1,8 @@
 import { cssSupports } from '@rocket.chat/css-in-js';
-import tokenColors from '@rocket.chat/fuselage-tokens/colors';
-import tokenTypography from '@rocket.chat/fuselage-tokens/typography';
+import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
+import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
+import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
-
-import { memoize } from './helpers/memoize';
 
 const measure = (computeSpecialValue) =>
   memoize((value) => {

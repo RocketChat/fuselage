@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-getVariantBoundaries: ({ referenceBox, target }: {
+getVariantBoundaries: ({ referenceBox, target, }: {
     referenceBox?: DOMRect;
     target?: DOMRect;
 }) => VariantBoundaries | null

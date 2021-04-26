@@ -9,9 +9,9 @@ Returns the whole EventType list
 <b>Signature:</b>
 
 ```typescript
-events(): EventType[];
+events(): AnyEventTypeOf<EventMap>[];
 ```
 <b>Returns:</b>
 
-[EventType](./emitter.eventtype.md)<!-- -->\[\]
+[AnyEventTypeOf](./emitter.anyeventtypeof.md)<!-- -->&lt;EventMap&gt;\[\]
 

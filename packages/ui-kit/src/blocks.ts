@@ -17,6 +17,7 @@ export enum ElementType {
   STATIC_SELECT = 'static_select',
   MULTI_STATIC_SELECT = 'multi_static_select',
   DATEPICKER = 'datepicker',
+  LINEAR_SCALE = 'linear_scale',
 }
 
 export enum BlockContext {
@@ -34,12 +35,6 @@ export type BlockId = string;
 export interface IElement {
   type: ElementType;
 }
-
-export const isElement = (x: IElement): x is IElement =>
-  x !== null &&
-  typeof x === 'object' &&
-  'type' in x &&
-  Object.values(ElementType).includes(x.type);
 
 export interface IPlainText extends IElement {
   type: ElementType.PLAIN_TEXT;
@@ -106,6 +101,7 @@ export interface IStaticSelectElement extends IActionableElement {
   options: Option[];
   optionGroups?: OptionGroup[];
   initialOption?: Option;
+  initialValue?: Option['value'];
 }
 
 export interface IMultiStaticSelectElement extends IActionableElement {
@@ -114,6 +110,7 @@ export interface IMultiStaticSelectElement extends IActionableElement {
   options: Option[];
   optionGroups?: OptionGroup[];
   initialOption?: Option;
+  initialValue?: Option['value'];
   maxSelectItems?: number;
 }
 
@@ -131,6 +128,15 @@ export interface IPlainTextInput extends IActionableElement {
   maxLength?: number;
 }
 
+export interface ILinearScaleElement extends IActionableElement {
+  type: ElementType.LINEAR_SCALE;
+  minValue?: number;
+  maxValue?: number;
+  initialValue?: number;
+  preLabel?: IPlainText;
+  postLable?: IPlainText;
+}
+
 export type SectionAccessoryElement =
   | IImageElement
   | IButtonElement
@@ -144,7 +150,8 @@ export type ActionElement =
   | IStaticSelectElement
   | IMultiStaticSelectElement
   | IOverflowElement
-  | IDatePickerElement;
+  | IDatePickerElement
+  | ILinearScaleElement;
 
 export type ContextElement = TextObject | IImageElement;
 
@@ -152,7 +159,8 @@ export type InputElement =
   | IPlainTextInput
   | IStaticSelectElement
   | IMultiStaticSelectElement
-  | IDatePickerElement;
+  | IDatePickerElement
+  | ILinearScaleElement;
 
 export interface IBlock extends IElement {
   blockId?: BlockId;

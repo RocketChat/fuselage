@@ -2,7 +2,10 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/functions.scss';
 
-$avatar-stack-background-color: theme('avatar-background-color', colors.surface());
+$avatar-stack-background-color: theme(
+  'avatar-background-color',
+  colors.surface()
+);
 
 $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
 
@@ -30,12 +33,10 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     flex-direction: row-reverse;
     justify-content: center;
 
-    color: #{ $avatar-stack-background-color };
+    color: #{$avatar-stack-background-color};
 
     & > .rcx-avatar {
-      margin:
-        auto
-        lengths.margin(-2);
+      margin: auto lengths.margin(-2);
 
       & > .rcx-avatar__element {
         border: lengths.border-width(2) solid currentColor;

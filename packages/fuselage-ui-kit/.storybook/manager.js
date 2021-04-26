@@ -1,4 +1,4 @@
-import colors from '@rocket.chat/fuselage-tokens/colors';
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { addons } from '@storybook/addons';
 import { create } from '@storybook/theming/create';
 

@@ -2,13 +2,12 @@ import {
   useMutableCallback,
   useDebouncedState,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useLayoutEffect, useState, forwardRef, useMemo } from 'react';
+import React, { useLayoutEffect, useState, useMemo } from 'react';
 
 import { AnimatedVisibility, Box, Scrollable } from '../Box';
 import { CheckBox } from '../CheckBox';
-import { Icon } from '../Icon';
-import Margins from '../Margins';
 import { Tile } from '../Tile';
+import { Option } from './Option';
 
 export const ACTIONS = {
   ESC: 27,
@@ -24,53 +23,6 @@ const prevent = (e) => {
   e.preventDefault();
   e.stopPropagation();
 };
-
-const Li = forwardRef(function Li({ children, ...props }, ref) {
-  return (
-    <Box rcx-option withTruncatedText is='li' ref={ref} {...props}>
-      <Box withTruncatedText display='flex' alignItems='center' mi='neg-x4'>
-        <Margins inline='x4'>{children}</Margins>
-      </Box>
-    </Box>
-  );
-});
-
-export const Option = React.memo(
-  ({
-    id,
-    avatar,
-    children,
-    label = children,
-    focus,
-    selected,
-    icon,
-    className,
-    ...options
-  }) => (
-    <Li
-      key={id}
-      rcx-option--focus={focus}
-      id={id}
-      rcx-option--selected={selected}
-      aria-selected={selected}
-      {...options}
-    >
-      {avatar}
-      {icon && <Icon size='x16' name={icon} />}{' '}
-      <Box
-        is='span'
-        className={className}
-        withTruncatedText
-        flexGrow={1}
-        fontScale='p1'
-        color='default'
-      >
-        {label}
-      </Box>
-      {label !== children && children}
-    </Li>
-  )
-);
 
 export const Empty = React.memo(() => <Option color='hint' label='Empty' />);
 
@@ -238,4 +190,4 @@ export const useCursor = (initial, options, onChange) => {
   return [cursor, handleKeyDown, handleKeyUp, reset, visibilityHandler];
 };
 
-Options.AvatarSize = 'x28';
+Options.AvatarSize = 'x20';

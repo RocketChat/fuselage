@@ -24,6 +24,7 @@
 |  [getVariantBoundaries](./fuselage-hooks.getvariantboundaries.md) |  |
 |  [useAutoFocus](./fuselage-hooks.useautofocus.md) | Hook to automatically request focus for an DOM element. |
 |  [useBreakpoints](./fuselage-hooks.usebreakpoints.md) | Hook to catch which responsive design' breakpoints are active. |
+|  [useClipboard](./fuselage-hooks.useclipboard.md) | Hook to copy the passed content to the clipboard. |
 |  [useDebouncedCallback](./fuselage-hooks.usedebouncedcallback.md) | Hook to memoize a debounced version of a callback. |
 |  [useDebouncedValue](./fuselage-hooks.usedebouncedvalue.md) | Hook to keep a debounced reference of a value. |
 |  [useIsomorphicLayoutEffect](./fuselage-hooks.useisomorphiclayouteffect.md) | Replacement for the <code>useEffect</code> hook that is safely ignored on SSR. |
@@ -34,6 +35,9 @@
 |  [useMergedRefs](./fuselage-hooks.usemergedrefs.md) | Hook to merge refs and callbacks refs into a single callback ref. Useful when your component need a internal ref while receiving a forwared ref. |
 |  [useMutableCallback](./fuselage-hooks.usemutablecallback.md) | Hook to create a stable callback from a mutable one. |
 |  [usePosition](./fuselage-hooks.useposition.md) | Hook to deal and position an element using an anchor |
+|  [usePrefersColorScheme](./fuselage-hooks.usepreferscolorscheme.md) | Hook to get the prefers-color-scheme value. |
+|  [usePrefersReducedData](./fuselage-hooks.useprefersreduceddata.md) | Hook to get the prefers-reduce-data value. |
+|  [usePrefersReducedMotion](./fuselage-hooks.useprefersreducedmotion.md) | Hook to get the prefers-reduce-motion value. |
 |  [useResizeObserver](./fuselage-hooks.useresizeobserver.md) | Hook to track dimension changes in a DOM element using the ResizeObserver API. |
 |  [useSafely](./fuselage-hooks.usesafely.md) | Hook that wraps pairs of state and dispatcher to provide a new dispatcher which can be safe and asynchronically called even after the component unmounted. |
 |  [useSessionStorage](./fuselage-hooks.usesessionstorage.md) | Hook to deal with sessionStorage |
@@ -49,4 +53,5 @@
 |  [PositionFlipOrder](./fuselage-hooks.positionfliporder.md) |  |
 |  [PositionOptions\_2](./fuselage-hooks.positionoptions_2.md) |  |
 |  [Positions](./fuselage-hooks.positions.md) |  |
+|  [UseClipboardReturn](./fuselage-hooks.useclipboardreturn.md) |  |
 
