@@ -146,6 +146,8 @@ $sidebar-item-color-selected: theme(
 
     &__icon {
       @include typography.use-with-truncated-text();
+      @include highlighted;
+
       display: flex;
       justify-content: center;
 

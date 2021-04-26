@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": "./src/",
     "target": "ES5",
-    "module": "ES2020",
+    "module": "ESNext",
     "lib": ["ES2020", "DOM"],
     "downlevelIteration": true,
     "declaration": true,

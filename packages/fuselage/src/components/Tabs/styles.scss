@@ -64,6 +64,8 @@ $tabs-disabled-selected-border-color: theme(
   display: flex;
 
   flex-wrap: nowrap;
+
+  margin: lengths.margin(none) lengths.margin(12);
 }
 
 .rcx-tabs__item {

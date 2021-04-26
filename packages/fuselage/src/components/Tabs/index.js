@@ -7,13 +7,7 @@ export function Tabs({ children, ...props }) {
   return (
     <Box is='div' rcx-tabs {...props}>
       <Box is='div' rcx-tabs__scroll-box>
-        <Box
-          is='div'
-          p='x4'
-          rcx-tabs__wrapper
-          children={children}
-          role='tablist'
-        />
+        <Box is='div' rcx-tabs__wrapper children={children} role='tablist' />
       </Box>
     </Box>
   );

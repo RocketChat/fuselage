@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   xs: { name: 'xs', minViewportWidth: null, columns: 4, gutterWidth: 16 },
   sm: { name: 'sm', minViewportWidth: 600, columns: 8, gutterWidth: 16 },
