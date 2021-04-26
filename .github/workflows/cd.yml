@@ -40,8 +40,12 @@ jobs:
           ref='${{ github.ref }}'
           echo "::set-output name=branch-name::$(echo "${ref:11}")"
         id: set-branch-name
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: packages/**/dist/*
 
-  public-to-npm:
+  publish-to-npm:
     name: Publish to NPM
     runs-on: ubuntu-latest
     needs:
@@ -62,9 +66,12 @@ jobs:
             **/node_modules
             .yarn/cache
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: packages
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - run: yarn run build
       - run: yarn resolve-workspace-deps
       - run: yarn lerna publish from-package --yes --no-verify-access
         if: github.ref == 'refs/heads/master'
