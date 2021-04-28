@@ -1,16 +1,3 @@
-{
- const generate = (type) => (value) =>({ type, value });
- const bold = generate('BOLD');
- const italic = generate('ITALIC');
- const plain = generate('PLAIN_TEXT');
- const link = generate('LINK');
- const paragraph = generate('PARAGRAPH');
- const code = generate('CODE');
- const inlineCode = generate('INLINE_CODE');
- const heading = generate('HEADING');
- const strike = generate('STRIKE');
-}
-
 start
   = block:(Blocks / Inline / text:EndOfLine { return paragraph([plain("")])})+
 
@@ -140,7 +127,7 @@ ReferencesEmpty
   = (AnyText+ / "") title:LinkTitleEmpty href:LinkRef Space? {
      return link(title, href)
 //     return {
-     
+
   //    references: {
     //    title: title,
        // href: href,
