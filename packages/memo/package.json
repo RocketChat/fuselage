@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/memo",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "description": "Memoization utilities",
   "keywords": [
     "memoize"
@@ -38,8 +38,8 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rocket.chat/eslint-config-alt": "^0.24.0",
+    "@rocket.chat/prettier-config": "^0.24.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
