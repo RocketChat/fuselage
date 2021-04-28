@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/ui-kit",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "description": "Interactive UI elements for Rocket.Chat Apps",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -39,8 +39,8 @@
     "@babel/eslint-parser": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "@rocket.chat/eslint-config-alt": "^0.23.0",
-    "@rocket.chat/prettier-config": "^0.23.0",
+    "@rocket.chat/eslint-config-alt": "^0.24.0",
+    "@rocket.chat/prettier-config": "^0.24.0",
     "@types/jest": "^26.0.22",
     "babel-loader": "^8.1.0",
     "documentation": "^13.2.1",

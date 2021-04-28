@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/string-helpers",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "description": "Helper functions for string manipulation",
   "keywords": [
     "string",
@@ -48,8 +48,8 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.23.0",
-    "@rocket.chat/prettier-config": "^0.23.0",
+    "@rocket.chat/eslint-config-alt": "^0.24.0",
+    "@rocket.chat/prettier-config": "^0.24.0",
     "@types/jest": "^26.0.22",
     "downlevel-dts": "^0.7.0",
     "eslint": "^7.24.0",

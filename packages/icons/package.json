@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/icons",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -29,8 +29,8 @@
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.23.0",
-    "@rocket.chat/prettier-config": "^0.23.0",
+    "@rocket.chat/eslint-config-alt": "^0.24.0",
+    "@rocket.chat/prettier-config": "^0.24.0",
     "eslint": "^7.24.0",
     "glob": "^7.1.6",
     "lint-staged": "^10.5.4",
