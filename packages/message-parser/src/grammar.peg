@@ -1,3 +1,19 @@
+{
+
+  const { paragraph,
+bold,
+plain,
+italic,
+strike,
+code,
+link,
+heading,
+inlineCode,
+quote,
+reducePlainTexts
+} = require('./utils');
+}
+
 start
   = block:(Blocks / Inline / text:EndOfLine { return paragraph([plain("")])})+
 
@@ -6,7 +22,7 @@ Blocks
 
 Emphasis = Bold / Italic / Strikethrough
 
-Inline = value:(References / InlineCode/ Emphasis / Plain)+ EndOfLine? { return paragraph(value) }
+Inline = value:(References / InlineCode/ Emphasis / Plain)+ EndOfLine? { return paragraph(reducePlainTexts(value)) }
 
 Plain = Line / text:AnyText2 {
 	return plain(text)
@@ -45,13 +61,13 @@ Section
 
 /* *Italic* */
 Italic
-  = [\x2A] text:Line [\x2A] {
-    return italic(text)
+  = [\x5F][\x5F] text:Line [\x5F][\x5F] {
+    return italic([text])
 }
 
-/* **Italic** */
+/* **Bold** */
 Bold
-  = ([\x2A][\x2A] / [\x5F][\x5F]) text:Line ([\x2A][\x2A] / [\x5F][\x5F]) {
+  = ([\x2A][\x2A]) text:(Line / Italic)+ ([\x2A][\x2A]) {
     return bold(text)
   }
 
@@ -97,14 +113,14 @@ Type
   = "bash" "c" / "cpp" / "html" / "javascript" / "js" / "json"/ "java" / "ruby"
 
 InlineCode
-  = [\x60] text:Line [\x60] {return inlineCode(text)}
+  = '`' text:Line '`' {return inlineCode(text)}
 
 LineCode
-  = text:CodeText+ {return text.join("").trim()}
+  = text:CodeText+ {return plain(text.join("").trim())}
 
 MultiplelLineCode
   = "```"+ ' '? type:(Type)? Space? value:LineCode+ "```" {
-	return code(value.join('\n'))
+	return code(value)
 }
 
 // [Visit GitHub!](www.github.com)
@@ -120,21 +136,13 @@ LinkRef
 References
   = title:LinkTitle href:LinkRef {
 	 return link([title, href])
-    }
+}
 
 /* patch empty link name */
 ReferencesEmpty
   = (AnyText+ / "") title:LinkTitleEmpty href:LinkRef Space? {
-     return link(title, href)
-//     return {
-
-  //    references: {
-    //    title: title,
-       // href: href,
-      //  image: isImage(href)
-     // }
-     //}
-    }
+     return link([title, href])
+}
 
 
 /* Macros */
