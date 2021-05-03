@@ -1,20 +1,25 @@
+export type CodeLine = {
+  type: 'CODE_LINE';
+  value: Plain;
+};
+
 export type Code = {
-  type: "CODE";
-  value: Plain[];
+  type: 'CODE';
+  value: CodeLine[];
 };
 
 export type InlineCode = {
-  type: "INLINE_CODE";
+  type: 'INLINE_CODE';
   value: Plain;
 };
 
 export type Heading = {
-  type: "HEADING";
+  type: 'HEADING';
   value: Plain[];
 };
 
 export type Quote = {
-  type: "QUOTE";
+  type: 'QUOTE';
   value: Inlines;
 };
 
@@ -24,33 +29,52 @@ export type Markup = Italic | Strike | Bold | Plain;
 export type MarkupExcluding<T extends Markup> = Exclude<Markup, T>;
 
 export type Bold = {
-  type: "BOLD";
+  type: 'BOLD';
   value: Array<MarkupExcluding<Bold>>;
 };
 
 export type Italic = {
-  type: "ITALIC";
+  type: 'ITALIC';
   value: Array<MarkupExcluding<Italic>>;
 };
 
 export type Strike = {
-  type: "STRIKE";
+  type: 'STRIKE';
   value: Array<MarkupExcluding<Strike>>;
 };
 
 export type Plain = {
-  type: "PLAIN_TEXT";
+  type: 'PLAIN_TEXT';
   value: string;
 };
 
 export type Paragraph = {
-  type: "PARAGRAPH";
-  value: Array<Bold | Plain | Italic | Strike | InlineCode | Link>;
+  type: 'PARAGRAPH';
+  value: Array<
+    | Bold
+    | Plain
+    | Italic
+    | Strike
+    | InlineCode
+    | Link
+    | UserMention
+    | ChannelMention
+  >;
 };
 
 export type Link = {
-  type: "LINK";
+  type: 'LINK';
   value: [Markup, Plain];
+};
+
+export type UserMention = {
+  type: 'MENTION_USER';
+  value: Plain;
+};
+
+export type ChannelMention = {
+  type: 'MENTION_CHANNEL';
+  value: Plain;
 };
 
 export type Types = {
@@ -60,15 +84,26 @@ export type Types = {
   ITALIC: Italic;
   STRIKE: Strike;
   CODE: Code;
+  CODE_LINE: CodeLine;
   INLINE_CODE: InlineCode;
   HEADING: Heading;
   QUOTE: Quote;
   LINK: Link;
+  MENTION_USER: UserMention;
+  MENTION_CHANNEL: ChannelMention;
 };
 
 export type TypesKeys = keyof Types;
 
-export type Inlines = Paragraph | Bold | Plain | Italic | Strike | Link;
+export type Inlines =
+  | Paragraph
+  | Bold
+  | Plain
+  | Italic
+  | Strike
+  | Link
+  | UserMention
+  | ChannelMention;
 
 export type Markdown = Array<Inlines | Blocks>;
 
