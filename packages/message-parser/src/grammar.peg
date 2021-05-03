@@ -61,19 +61,19 @@ Section
 
 /* *Italic* */
 Italic
-  = [\x5F][\x5F] text:Line [\x5F][\x5F] {
-    return italic([text])
+  = [\x5F][\x5F] text:(Line / Bold / Strikethrough)+ [\x5F][\x5F] {
+    return italic(text)
 }
 
 /* **Bold** */
 Bold
-  = ([\x2A][\x2A]) text:(Line / Italic)+ ([\x2A][\x2A]) {
+  = ([\x2A][\x2A]) text:(Line / Italic / Strikethrough)+ ([\x2A][\x2A]) {
     return bold(text)
   }
 
 /* ~~Mistaken text.~~ */
 Strikethrough
-  = [\x7E][\x7E] text:Line [\x7E][\x7E] {
+  = [\x7E][\x7E] text:(Line / Italic / Bold)+ [\x7E][\x7E] {
 	return strike(text);
   }
 

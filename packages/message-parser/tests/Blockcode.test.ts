@@ -1,20 +1,20 @@
-const { parser: grammar } = require("../dist");
-import { bold, paragraph, plain, inlineCode, code } from "../src/utils";
+import { parser } from '../src';
+import { bold, paragraph, plain, inlineCode, code } from '../src/utils';
 
-var assert = require("assert");
-describe("Blockcode", function () {
-  describe("One sigle line of content", function () {
-    it("should return the token and the inner text", function () {
-      const [tokens] = grammar.parse(`\`\`\`
+var assert = require('assert');
+describe('Blockcode', function () {
+  describe('One sigle line of content', function () {
+    it('should return the token and the inner text', function () {
+      const [tokens] = parser(`\`\`\`
         code
         \`\`\``);
-      assert.deepEqual(tokens, code([plain("code")]));
+      assert.deepEqual(tokens, code([plain('code')]));
     });
   });
 
-  describe("One sigle line of content", function () {
-    it("should return the token and the inner text", function () {
-      const [tokens] = grammar.parse(`\`\`\`
+  describe('One sigle line of content', function () {
+    it('should return the token and the inner text', function () {
+      const [tokens] = parser(`\`\`\`
 code
 code
 \`\`\``);
@@ -27,12 +27,12 @@ code`),
       );
     });
   });
-  describe("Inline Code", function () {
+  describe('Inline Code', function () {
     const snippet = `\`code\``;
     describe(snippet, function () {
-      it("should return the token and the inner text", function () {
-        const [tokens] = grammar.parse(snippet);
-        assert.deepEqual(tokens, paragraph([inlineCode(plain("code"))]));
+      it('should return the token and the inner text', function () {
+        const [tokens] = parser(snippet);
+        assert.deepEqual(tokens, paragraph([inlineCode(plain('code'))]));
       });
     });
   });

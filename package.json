@@ -22,8 +22,5 @@
   },
   "devEngines": {
     "node": "^14.0"
-  },
-  "dependencies": {
-    "peggy": "^1.1.0"
   }
 }
