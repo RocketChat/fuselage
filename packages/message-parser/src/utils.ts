@@ -15,9 +15,20 @@ export const link = generate('LINK');
 export const heading = generate('HEADING');
 export const inlineCode = generate('INLINE_CODE');
 export const quote = generate('QUOTE');
+export const emoji = (() => {
+  const fn = generate('EMOJI');
+  return (value: string) => fn(plain(value));
+})();
 
-export const mentionUser = generate('MENTION_USER');
-export const mentionChannel = generate('MENTION_CHANNEL');
+export const mentionUser = (() => {
+  const fn = generate('MENTION_USER');
+  return (value: string) => fn(plain(value));
+})();
+
+export const mentionChannel = (() => {
+  const fn = generate('MENTION_CHANNEL');
+  return (value: string) => fn(plain(value));
+})();
 
 export const reducePlainTexts = (
   values: Paragraph['value']

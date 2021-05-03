@@ -3,6 +3,11 @@ export type CodeLine = {
   value: Plain;
 };
 
+export type Emoji = {
+  type: 'EMOJI';
+  value: Plain;
+};
+
 export type Code = {
   type: 'CODE';
   value: CodeLine[];
@@ -59,6 +64,7 @@ export type Paragraph = {
     | Link
     | UserMention
     | ChannelMention
+    | Emoji
   >;
 };
 
@@ -91,6 +97,7 @@ export type Types = {
   LINK: Link;
   MENTION_USER: UserMention;
   MENTION_CHANNEL: ChannelMention;
+  EMOJI: Emoji;
 };
 
 export type TypesKeys = keyof Types;

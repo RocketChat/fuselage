@@ -14,6 +14,7 @@ reducePlainTexts,
 codeLine,
 mentionChannel,
 mentionUser,
+emoji,
 } = require('./utils');
 }
 
@@ -25,7 +26,7 @@ Blocks
 
 Emphasis = Bold / Italic / Strikethrough
 
-Inline = value:(References / InlineCode/ Emphasis / UserMention / ChannelMention / Plain)+ EndOfLine? { return paragraph(reducePlainTexts(value)) }
+Inline = value:(Emoji / References / InlineCode/ Emphasis / UserMention / ChannelMention / Plain)+ EndOfLine? { return paragraph(reducePlainTexts(value)) }
 
 Plain = Line / text:AnyText2 {
  	return plain(text)
@@ -58,10 +59,12 @@ Heading
   	return heading([text]);
 }
 
-UTF8_Names_Validation =  text:([0-9a-zA-Z-_.])+ { return plain(text.join(''))}
+utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join('') }
 
-UserMention = "@"+ user:UTF8_Names_Validation { return mentionUser(user) }
-ChannelMention = "#"+ channel:UTF8_Names_Validation { return mentionChannel(channel) }
+UserMention = "@"+ user:utf8_names_validation { return mentionUser(user) }
+ChannelMention = "#"+ channel:utf8_names_validation { return mentionChannel(channel) }
+
+Emoji = ":" text:utf8_names_validation ":" { return emoji(text) }
 
 /* Sceenshot ------------- */
 Section
