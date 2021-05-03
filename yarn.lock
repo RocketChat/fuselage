@@ -5080,7 +5080,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^11.0.1
     "@rollup/plugin-typescript": ^8.1.0
-    "@types/jest": ^26.0.22
+    "@types/jest": ^26.0.23
     "@types/stylis": ^4.0.0
     documentation: ^13.2.1
     eslint: ^7.24.0
@@ -5107,7 +5107,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^11.0.1
     "@rollup/plugin-typescript": ^8.1.0
-    "@types/jest": ^26.0.22
+    "@types/jest": ^26.0.23
     documentation: ^13.2.1
     eslint: ^7.24.0
     jest: ^26.6.3
@@ -5172,7 +5172,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^9.0.0
     "@rollup/plugin-typescript": ^6.0.0
-    "@types/jest": ^26.0.22
+    "@types/jest": ^26.0.23
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
     "@types/resize-observer-browser": ^0.1.5
@@ -5307,7 +5307,7 @@ __metadata:
     "@storybook/react": ^6.1.11
     "@storybook/source-loader": ^6.1.11
     "@storybook/theming": ^6.1.11
-    "@types/jest": ^26.0.22
+    "@types/jest": ^26.0.23
     autoprefixer: ^10.0.1
     babel-loader: ^8.1.0
     caniuse-lite: ^1.0.30001151
@@ -5408,11 +5408,10 @@ __metadata:
     "@babel/preset-typescript": ^7.13.0
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
-    "@types/chai": ^4.2.16
     "@types/jest": ^26.0.23
+    "@types/node": ^14.14.43
     "@typescript-eslint/parser": ^4.22.0
     babel-jest: ^26.6.3
-    chai: ^4.3.4
     eslint: ^7.25.0
     jest: ^26.6.3
     lint-staged: ^10.5.4
@@ -5439,7 +5438,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^17.0.0
     "@rollup/plugin-node-resolve": ^11.0.1
     "@rollup/plugin-typescript": ^8.1.0
-    "@types/jest": ^26.0.22
+    "@types/jest": ^26.0.23
     documentation: ^13.2.1
     eslint: ^7.24.0
     jest: ^26.6.3
@@ -5474,7 +5473,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    "@types/jest": ^26.0.22
+    "@types/jest": ^26.0.23
     downlevel-dts: ^0.7.0
     eslint: ^7.24.0
     jest: ^26.6.3
@@ -5498,7 +5497,7 @@ __metadata:
     "@babel/preset-env": ^7.12.11
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    "@types/jest": ^26.0.22
+    "@types/jest": ^26.0.23
     babel-loader: ^8.1.0
     documentation: ^13.2.1
     eslint: ^7.24.0
@@ -6648,13 +6647,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:^4.2.16":
-  version: 4.2.17
-  resolution: "@types/chai@npm:4.2.17"
-  checksum: a58f77b2b40d19b7e6ae017b318329f05adf4d3bcb45eba208075403a1e5db0ce3cefb46d8ac2dc175f1c067da68b4d122e0f60269f88a2e19b38a011ce38d9d
-  languageName: node
-  linkType: hard
-
 "@types/eslint-scope@npm:^3.7.0":
   version: 3.7.0
   resolution: "@types/eslint-scope@npm:3.7.0"
@@ -6794,16 +6786,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^26.0.22":
-  version: 26.0.22
-  resolution: "@types/jest@npm:26.0.22"
-  dependencies:
-    jest-diff: ^26.0.0
-    pretty-format: ^26.0.0
-  checksum: 4c98ed058522f6cc74bcb47b8b7b104b77b2d4e42e087171f3d2d3ae5338c21f43ec26f2a186bc229c1bd72c3f776ad07faba837f0ec27f22cf94e154516c0b3
-  languageName: node
-  linkType: hard
-
 "@types/jest@npm:^26.0.23":
   version: 26.0.23
   resolution: "@types/jest@npm:26.0.23"
@@ -6907,10 +6889,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.41":
-  version: 14.14.41
-  resolution: "@types/node@npm:14.14.41"
-  checksum: 37dfb639644c8ee9b9846106834983f590d494b855e74645a4f169ea24199f7559366d25f6e72e83ba940b59eb6370e002bd53963d098d6d9fdf935a37011417
+"@types/node@npm:^14.14.43":
+  version: 14.14.43
+  resolution: "@types/node@npm:14.14.43"
+  checksum: b7a9e6df7c2a6f90e783bfe6ef358cc2c3ff4e1dfcea56b83349cd3feefd02a9b6fa54b443983694b4398a06257d871c947abeae03bd0d39fd71981161d61765
   languageName: node
   linkType: hard
 
@@ -8379,13 +8361,6 @@ __metadata:
     object-assign: ^4.1.1
     util: 0.10.3
   checksum: 9bd01a7a574d99656d3998b95e904c35fe41c9e18b8193a4b1bb3b1df2772f4fb03bf75897093daca9d883ed888d9be5da2a9a952da6f1da9101f4147a2f00c1
-  languageName: node
-  linkType: hard
-
-"assertion-error@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "assertion-error@npm:1.1.0"
-  checksum: 7bbc9fa2ff51618b0ea3c4ae13dbafe6dfb71b11c267aa93c749489355f55d0b844403bfc3dc8b9a98b0f21837fa2b59191c8a8f76e65303d06498fab4867f4c
   languageName: node
   linkType: hard
 
@@ -9884,20 +9859,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chai@npm:^4.3.4":
-  version: 4.3.4
-  resolution: "chai@npm:4.3.4"
-  dependencies:
-    assertion-error: ^1.1.0
-    check-error: ^1.0.2
-    deep-eql: ^3.0.1
-    get-func-name: ^2.0.0
-    pathval: ^1.1.1
-    type-detect: ^4.0.5
-  checksum: ea3e6547b9a8d367f203e83b71632ec6a801f6380393594907968479aea15e411e4317211f46e03eda092a97f6812118b69b05bbded51b01224d193cc3f4b9b3
-  languageName: node
-  linkType: hard
-
 "chalk@npm:2.4.2, chalk@npm:^2.0.0, chalk@npm:^2.3.0, chalk@npm:^2.3.1, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -9981,13 +9942,6 @@ __metadata:
   version: 0.7.0
   resolution: "chardet@npm:0.7.0"
   checksum: b71a4ee4648489291af86418b96247824a8c1ee4f4f95d6268967fb40e9fbf70500e72fb737d5186a23cf98c8a02b91d68cb2f426d7428e92883af9d31a037ec
-  languageName: node
-  linkType: hard
-
-"check-error@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "check-error@npm:1.0.2"
-  checksum: 1460ad12da600b277575f53b7512d6e59005a34e3235ae62cfe12ff5d83b68a6ff568841907eb5f041c3f468d1385ea9fcfd22344df02175d28ea8a8b9330940
   languageName: node
   linkType: hard
 
@@ -11759,15 +11713,6 @@ __metadata:
   version: 0.7.0
   resolution: "dedent@npm:0.7.0"
   checksum: 05c18541a4b932006a65eccaf03d68ac60552981db424f39f1ca4bebf5beaa53d318eadbb4dc0be24232844e69d1140763a7ada94559b2cb7771a47c0a829aeb
-  languageName: node
-  linkType: hard
-
-"deep-eql@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "deep-eql@npm:3.0.1"
-  dependencies:
-    type-detect: ^4.0.0
-  checksum: eff42bc2d4d889dec8fd925fa9c013fa4d641842b98b502f436b9f2865460c8330f79fb7dbdb924a1e844b97b40843ed952f3847fb1e388a35bd4ef6e3d64184
   languageName: node
   linkType: hard
 
@@ -14370,13 +14315,6 @@ fsevents@~2.1.2:
   version: 2.0.5
   resolution: "get-caller-file@npm:2.0.5"
   checksum: 9dd9e1e2591039ee4c38c897365b904f66f1e650a8c1cb7b7db8ce667fa63e88cc8b13282b74df9d93de481114b3304a0487880d31cd926dfda6efe71455855d
-  languageName: node
-  linkType: hard
-
-"get-func-name@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "get-func-name@npm:2.0.0"
-  checksum: c72d3857cd05338fc61e52c385da67d553e42c226e141da11684aecb3e017a753bf7120411731fbc30768edf68f9c359dc202757703b3a851da54b2b17a9828d
   languageName: node
   linkType: hard
 
@@ -20464,13 +20402,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"pathval@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "pathval@npm:1.1.1"
-  checksum: 81cd01d46cd0cd90fb7a8e0d576f8cb4cbbd0832ed00da14362be32ad79e855cf8ecf7e92fc0c267fdfc2766bd1d8fb3de43a51081e142ffb1fc814958fb8d8f
-  languageName: node
-  linkType: hard
-
 "pbkdf2@npm:^3.0.3":
   version: 3.1.1
   resolution: "pbkdf2@npm:3.1.1"
@@ -23490,7 +23421,7 @@ resolve@~1.17.0:
   dependencies:
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    "@types/node": ^14.14.41
+    "@types/node": ^14.14.43
     "@typescript-eslint/parser": ^4.22.0
     eslint: ^7.24.0
     fast-glob: ^3.2.5
@@ -25892,7 +25823,7 @@ resolve@~1.17.0:
   languageName: node
   linkType: hard
 
-"type-detect@npm:4.0.8, type-detect@npm:^4.0.0, type-detect@npm:^4.0.5":
+"type-detect@npm:4.0.8":
   version: 4.0.8
   resolution: "type-detect@npm:4.0.8"
   checksum: e01dc6ac9098192a7859fb86c7b4073709a4e13a5cc02c54d54412378bb099563fda7a7a85640f33e3a7c2e8189182eb1511f263e67f402b2d63fe81afdde785
