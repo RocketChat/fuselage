@@ -6,25 +6,22 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.peg$/,
         use: [
           {
-            loader: path.resolve('src/pegloader.js'),
-            options: {
-              /* ... */
-            },
+            loader: path.resolve(__dirname, './loaders/pegloader.js'),
           },
         ],
-      },
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.peg'],
+    extensions: ['.ts', '.js', '.peg'],
   },
   output: {
     path: path.resolve(__dirname, './dist'),

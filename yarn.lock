@@ -5417,6 +5417,7 @@ __metadata:
     lint-staged: ^10.5.4
     peggy: ^1.1.0
     prettier: ^2.2.1
+    ts-jest: ^26.5.5
     ts-loader: ^9.1.1
     ts-node: ^9.1.1
     typescript: ^4.2.4

@@ -1,18 +1,11 @@
-import { parser } from '../src';
-import {
-  italic,
-  paragraph,
-  plain,
-  strike,
-  bold,
-  mentionUser,
-  mentionChannel,
-} from '../src/utils';
+import assert from 'assert';
 
-var assert = require('assert');
-describe('Mentions', function () {
-  describe('User mention: @guilherme.gazzo', function () {
-    it('should return the token and the inner text', function () {
+import { parser } from '../src';
+import { paragraph, plain, mentionUser, mentionChannel } from '../src/utils';
+
+describe('Mentions', () => {
+  describe('User mention: @guilherme.gazzo', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('@guilherme.gazzo');
       assert.deepEqual(
         tokens,
@@ -21,18 +14,18 @@ describe('Mentions', function () {
     });
   });
 
-  describe('mention: @guilherme.gazzo. ', function () {
-    it('should return the token and the inner text', function () {
+  describe('mention: @guilherme.gazzo. ', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('@guilherme.gazzo. ');
       assert.deepEqual(
         tokens,
-        paragraph([mentionUser(plain('guilherme.gazzo.')), plain(" ")])
+        paragraph([mentionUser(plain('guilherme.gazzo.')), plain(' ')])
       );
     });
   });
 
-  describe('Channel mention: @GENERAL', function () {
-    it('should return the token and the inner text', function () {
+  describe('Channel mention: @GENERAL', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('#GENERAL');
       assert.deepEqual(tokens, paragraph([mentionChannel(plain('GENERAL'))]));
     });
