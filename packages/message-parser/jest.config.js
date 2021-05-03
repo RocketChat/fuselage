@@ -1,8 +1,11 @@
+const path = require('path');
+
 module.exports = {
-  projects: ['./tests'],
   coverageReporters: [],
   transform: {
-    '\\.[jt]sx?$': 'babel-jest',
-    '\\peg$': './src/pegloaderjest.js',
+    '\\peg$': path.resolve(__dirname, './loaders/pegtransform.js'),
   },
+  preset: 'ts-jest',
+  errorOnDeprecated: true,
+  testMatch: ['<rootDir>/tests/**/*.(spec|test).ts'],
 };
