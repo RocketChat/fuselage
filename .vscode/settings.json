@@ -33,6 +33,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/message-parser",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/mp3-encoder",
       "changeProcessCWD": true
     },

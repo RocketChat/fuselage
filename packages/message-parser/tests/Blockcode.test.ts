@@ -1,10 +1,11 @@
+import assert from 'assert';
+
 import { parser } from '../src';
 import { bold, paragraph, plain, inlineCode, codeLine, code } from '../src/utils';
 
-var assert = require('assert');
-describe('Blockcode', function () {
-  describe('One sigle line of content', function () {
-    it('should return the token and the inner text', function () {
+describe('Blockcode', () => {
+  describe('One sigle line of content', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser(`\`\`\`
 code
 \`\`\``);
@@ -34,8 +35,8 @@ code
     });
   });
 
-  describe('One sigle line of content', function () {
-    it('should return the token and the inner text', function () {
+  describe('One sigle line of content', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser(`\`\`\`
 code
 code
@@ -68,8 +69,8 @@ code
 
   describe('Inline Code', function () {
     const snippet = `\`code\``;
-    describe(snippet, function () {
-      it('should return the token and the inner text', function () {
+    describe(snippet, () => {
+      it('should return the token and the inner text', () => {
         const [tokens] = parser(snippet);
         assert.deepEqual(tokens, paragraph([inlineCode(plain('code'))]));
       });

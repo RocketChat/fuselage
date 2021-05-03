@@ -1,10 +1,11 @@
+import assert from 'assert';
+
 import { parser } from '../src';
 import { link, paragraph, plain, bold, strike, italic } from '../src/utils';
 
-var assert = require('assert');
-describe('Link', function () {
-  describe('[title](link)', function () {
-    it('should return the token and the inner text', function () {
+describe('Link', () => {
+  describe('[title](link)', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('[title](link)');
       assert.deepEqual(
         tokens,
@@ -13,8 +14,8 @@ describe('Link', function () {
     });
   });
 
-  describe('[title](http://localhost)', function () {
-    it('should return the token and the inner text', function () {
+  describe('[title](http://localhost)', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('[title](http://localhost)');
       assert.deepEqual(
         tokens,
@@ -23,20 +24,20 @@ describe('Link', function () {
     });
   });
 
-
-  describe('[title](http://localhost?testing=true)', function () {
-    it('should return the token and the inner text', function () {
+  describe('[title](http://localhost?testing=true)', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('[title](http://localhost?testing=true)');
       assert.deepEqual(
         tokens,
-        paragraph([link([plain('title'), plain('http://localhost?testing=true')])])
+        paragraph([
+          link([plain('title'), plain('http://localhost?testing=true')]),
+        ])
       );
     });
   });
 
-
-  describe('Links should accept bold inside', function () {
-    it('should return the token and the inner text', function () {
+  describe('Links should accept bold inside', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('[**title**](link)');
       assert.deepEqual(
         tokens,
@@ -45,8 +46,8 @@ describe('Link', function () {
     });
   });
 
-  describe('Links should accept strike inside', function () {
-    it('should return the token and the inner text', function () {
+  describe('Links should accept strike inside', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('[~~title~~](link)');
       assert.deepEqual(
         tokens,
@@ -54,8 +55,8 @@ describe('Link', function () {
       );
     });
   });
-  describe('Links should accept italic inside', function () {
-    it('should return the token and the inner text', function () {
+  describe('Links should accept italic inside', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('[__title__](link)');
       assert.deepEqual(
         tokens,
@@ -64,12 +65,14 @@ describe('Link', function () {
     });
   });
 
-  describe('Links should accept italic + strike + bold inside', function () {
-    it('should return the token and the inner text', function () {
+  describe('Links should accept italic + strike + bold inside', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('[__**~~title~~**__](link)');
       assert.deepEqual(
         tokens,
-        paragraph([link([italic([bold([strike([plain('title')])])]), plain('link')])])
+        paragraph([
+          link([italic([bold([strike([plain('title')])])]), plain('link')]),
+        ])
       );
     });
   });

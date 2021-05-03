@@ -1,36 +1,37 @@
+import assert from 'assert';
+
 import { parser } from '../src';
 import { bold, paragraph, plain, italic, strike } from '../src/utils';
 
-var assert = require('assert');
-describe('Bold', function () {
-  describe('Testing alone', function () {
-    it('should return the token and the inner text', function () {
+describe('Bold', () => {
+  describe('Testing alone', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('**bold**');
       assert.deepEqual(tokens, paragraph([bold([plain('bold')])]));
     });
   });
-  describe('Testing with whitespaces inside **', function () {
-    it('should return the token and the inner text', function () {
+  describe('Testing with whitespaces inside **', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('** bold**');
       assert.deepEqual(tokens, paragraph([bold([plain(' bold')])]));
     });
-    it('should return the token and the inner text', function () {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('**bold **');
       assert.deepEqual(tokens, paragraph([bold([plain('bold ')])]));
     });
-    it('should return the token and the inner text', function () {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('** bold **');
       assert.deepEqual(tokens, paragraph([bold([plain(' bold ')])]));
     });
 
-    it('should return the token and the inner text', function () {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('** bo ld **');
       assert.deepEqual(tokens, paragraph([bold([plain(' bo ld ')])]));
     });
   });
 
-  describe('Testing with more inline elements', function () {
-    it('should return the `pre` text and the bold token', function () {
+  describe('Testing with more inline elements', () => {
+    it('should return the `pre` text and the bold token', () => {
       const [tokens] = parser('pre**bold**');
       assert.deepEqual(
         tokens,
@@ -38,7 +39,7 @@ describe('Bold', function () {
       );
     });
 
-    it('should return the bold token and pos text', function () {
+    it('should return the bold token and pos text', () => {
       const [tokens] = parser('**bold**pos');
       assert.deepEqual(
         tokens,
@@ -46,7 +47,7 @@ describe('Bold', function () {
       );
     });
 
-    it('should return two bold blocks', function () {
+    it('should return two bold blocks', () => {
       const [tokens] = parser('**bold****bold**');
       assert.deepEqual(
         tokens,
@@ -54,7 +55,7 @@ describe('Bold', function () {
       );
     });
 
-    it('should return two bold blocks between spaces', function () {
+    it('should return two bold blocks between spaces', () => {
       const [tokens] = parser('**bold** **bold**');
       assert.deepEqual(
         tokens,
@@ -62,7 +63,7 @@ describe('Bold', function () {
       );
     });
 
-    it('should return bold and italic blocks', function () {
+    it('should return bold and italic blocks', () => {
       const [tokens] = parser('**bold** __italic__');
       assert.deepEqual(
         tokens,
@@ -74,8 +75,8 @@ describe('Bold', function () {
       );
     });
 
-    describe('Italic inside Bold', function () {
-      it('should return bold and italic blocks', function () {
+    describe('Italic inside Bold', () => {
+      it('should return bold and italic blocks', () => {
         const [tokens] = parser('**__italicbold__**');
         assert.deepEqual(
           tokens,
@@ -84,8 +85,8 @@ describe('Bold', function () {
       });
     });
 
-    describe('Italic and Text inside Bold', function () {
-      it('should return a plain block and an italic inside bold', function () {
+    describe('Italic and Text inside Bold', () => {
+      it('should return a plain block and an italic inside bold', () => {
         const [tokens] = parser('plain **__italicbold__**');
         assert.deepEqual(
           tokens,
@@ -94,12 +95,15 @@ describe('Bold', function () {
       });
     });
 
-    describe('Strinke, Italic and Text inside Bold', function () {
-      it('should return a plain block and an italic inside bold', function () {
+    describe('Strinke, Italic and Text inside Bold', () => {
+      it('should return a plain block and an italic inside bold', () => {
         const [tokens] = parser('plain **__~~strikeitalicbold~~__**');
         assert.deepEqual(
           tokens,
-          paragraph([plain('plain '), bold([italic([strike([plain('strikeitalicbold')])])])])
+          paragraph([
+            plain('plain '),
+            bold([italic([strike([plain('strikeitalicbold')])])]),
+          ])
         );
       });
     });

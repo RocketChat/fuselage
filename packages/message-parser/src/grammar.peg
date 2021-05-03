@@ -55,7 +55,7 @@ line = head:Space* text:AnyText+ tail:Space* {
 
 Heading
   = "# "+ text:Line {
-  	return heading(text);
+  	return heading([text]);
 }
 
 UTF8_Names_Validation =  text:([0-9a-zA-Z-_.])+ { return plain(text.join(''))}

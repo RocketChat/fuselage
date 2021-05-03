@@ -1,7 +1,7 @@
-var pegjs = require('peggy');
+const pegjs = require('peggy');
 
 module.exports = {
-  process: function (content) {
+  process(content) {
     return pegjs.generate(content, {
       output: 'source',
       format: 'commonjs',

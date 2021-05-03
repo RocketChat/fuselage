@@ -22,11 +22,11 @@ export const mentionChannel = generate('MENTION_CHANNEL');
 export const reducePlainTexts = (
   values: Paragraph['value']
 ): Paragraph['value'] =>
-  values.reduce((result, item, index, arr) => {
+  values.reduce((result, item, index) => {
     if (index > 0) {
       const previous = result[result.length - 1];
-      if (item.type === 'PLAIN_TEXT' && item.type == previous.type) {
-        previous.value = previous.value + item.value;
+      if (item.type === 'PLAIN_TEXT' && item.type === previous.type) {
+        previous.value += item.value;
         return result;
       }
     }

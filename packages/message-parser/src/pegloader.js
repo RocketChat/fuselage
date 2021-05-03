@@ -1,9 +1,9 @@
-var pegjs = require("peggy");
+const pegjs = require('peggy');
 
 module.exports = function (content) {
   return pegjs.generate(content, {
-    output: "source",
-    format: "commonjs",
+    output: 'source',
+    format: 'commonjs',
     // plugins: [tspegjs],
     headerComments: {
       customHeader: `// import lib\nimport {

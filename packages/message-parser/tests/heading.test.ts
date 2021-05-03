@@ -1,12 +1,13 @@
-import { parser } from '../src';
-const { heading, paragraph, plain } = require('../src/utils');
+import assert from 'assert';
 
-var assert = require('assert');
-describe('Heading', function () {
-  describe('# h1', function () {
-    it('should return the token and the inner text', function () {
+import { parser } from '../src';
+import { heading, plain } from '../src/utils';
+
+describe('Heading', () => {
+  describe('# h1', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('# h1');
-      assert.deepEqual(tokens, heading(plain('h1')));
+      assert.deepEqual(tokens, heading([plain('h1')]));
     });
   });
 });
