@@ -1,20 +1,20 @@
 export type Code = {
-  type: "CODE";
+  type: 'CODE';
   value: Plain[];
 };
 
 export type InlineCode = {
-  type: "INLINE_CODE";
+  type: 'INLINE_CODE';
   value: Plain;
 };
 
 export type Heading = {
-  type: "HEADING";
+  type: 'HEADING';
   value: Plain[];
 };
 
 export type Quote = {
-  type: "QUOTE";
+  type: 'QUOTE';
   value: Inlines;
 };
 
@@ -24,32 +24,32 @@ export type Markup = Italic | Strike | Bold | Plain;
 export type MarkupExcluding<T extends Markup> = Exclude<Markup, T>;
 
 export type Bold = {
-  type: "BOLD";
+  type: 'BOLD';
   value: Array<MarkupExcluding<Bold>>;
 };
 
 export type Italic = {
-  type: "ITALIC";
+  type: 'ITALIC';
   value: Array<MarkupExcluding<Italic>>;
 };
 
 export type Strike = {
-  type: "STRIKE";
+  type: 'STRIKE';
   value: Array<MarkupExcluding<Strike>>;
 };
 
 export type Plain = {
-  type: "PLAIN_TEXT";
+  type: 'PLAIN_TEXT';
   value: string;
 };
 
 export type Paragraph = {
-  type: "PARAGRAPH";
+  type: 'PARAGRAPH';
   value: Array<Bold | Plain | Italic | Strike | InlineCode | Link>;
 };
 
 export type Link = {
-  type: "LINK";
+  type: 'LINK';
   value: [Markup, Plain];
 };
 

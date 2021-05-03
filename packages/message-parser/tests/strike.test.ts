@@ -1,17 +1,18 @@
+import assert from 'assert';
+
 import { parser } from '../src';
 import { strike, paragraph, plain } from '../src/utils';
 
-var assert = require('assert');
-describe('Strike', function () {
-  describe('~~strike~~', function () {
-    it('should return the token and the inner text', function () {
+describe('Strike', () => {
+  describe('~~strike~~', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('~~strike~~');
       assert.deepEqual(tokens, paragraph([strike([plain('strike')])]));
     });
   });
 
-  describe('pre~~strike~~post', function () {
-    it('should return the token and the inner text', function () {
+  describe('pre~~strike~~post', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser('pre~~strike~~post');
       assert.deepEqual(
         tokens,
@@ -20,8 +21,8 @@ describe('Strike', function () {
     });
   });
 
-  describe(' pre~~strike~~post ', function () {
-    it('should return the token and the inner text', function () {
+  describe(' pre~~strike~~post ', () => {
+    it('should return the token and the inner text', () => {
       const [tokens] = parser(' pre~~strike~~post ');
       assert.deepEqual(
         tokens,
