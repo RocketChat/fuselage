@@ -1,5 +1,5 @@
 {
-  "name": "md-tests",
+  "name": "@rocket.chat/message-parser",
   "version": "0.23.0",
   "author": {
     "name": "Rocket.Chat",
@@ -10,22 +10,21 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
-    "directory": "packages/fuselage"
+    "directory": "packages/message-parser"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "description": "",
-  "main": "./dist/index.js",
+  "types": "/src/index.d.ts",
+  "main": "/dist/index.js",
   "files": [
     "/dist",
     "/src/index.d.ts"
   ],
-  "typings": "/src/index.d.ts",
   "directories": {
     "test": "test"
   },
-  "types": "types/index.d.ts",
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/eslint-parser": "^7.13.14",
