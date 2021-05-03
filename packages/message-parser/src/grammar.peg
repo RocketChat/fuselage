@@ -48,7 +48,7 @@ Line
 
 Heading
   = "# "+ text:Line {
-  	return heading(text);
+  	return heading([text]);
 }
 
 /* Sceenshot ------------- */
