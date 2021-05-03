@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
+    "rootDir": "./",
+    "target": "es5",
+    "module": "ESNext",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist/esm",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
     "allowJs": true,
-    // "checkJs": true,
-    "types": ["jest", "node"],
-    "target": "es5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
-    "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
-    "strict": true /* Enable all strict type-checking options. */,
-    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
-    "typeRoots": ["./src"],
     "noImplicitThis": true,
-    "alwaysStrict": true,
-    "esModuleInterop": true
+    "alwaysStrict": true
   }
 }
