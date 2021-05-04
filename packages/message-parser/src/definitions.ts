@@ -70,7 +70,7 @@ export type Paragraph = {
 
 export type Link = {
   type: 'LINK';
-  value: [Markup, Plain];
+  value: [Plain, Markup];
 };
 
 export type UserMention = {

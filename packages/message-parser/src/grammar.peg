@@ -22,11 +22,11 @@ start
   = block:(Blocks / Inline / text:EndOfLine { return paragraph([plain("")])})+
 
 Blocks
-  = teste:(MultiplelLineCode / Heading / Tasks / Lists / OrderedLists / ReferencesEmpty / Section)
+  = teste:(MultiplelLineCode / Heading / Tasks / Lists / OrderedLists / Section)
 
 Emphasis = Bold / Italic / Strikethrough
 
-Inline = value:(Emoji / References / InlineCode/ Emphasis / UserMention / ChannelMention / Plain)+ EndOfLine? { return paragraph(reducePlainTexts(value)) }
+Inline = value:(Emoji / References / InlineCode / Uri / Emphasis / UserMention / ChannelMention / Plain)+ EndOfLine? { return paragraph(reducePlainTexts(value)) }
 
 Plain = Line / text:AnyText2 {
  	return plain(text)
@@ -47,7 +47,7 @@ SectionText = [-]+ / ([\x20-\x40] / [\x41-\x60] / [\x61-\x7A] / nonascii)
 
 Line
   = t:line {
-	return plain( t)
+	return plain(t)
 }
 
 line = head:Space* text:AnyText+ tail:Space* {
@@ -140,23 +140,14 @@ MultiplelLineCode
 
 // [Visit GitHub!](www.github.com)
 LinkTitle
-  = [\x5B] text:(Line / Emphasis) [\x5D] {return text}
-
-LinkTitleEmpty
-  = [\x5B] [\x5D] {return ""}
+  = "[" text:(Line / Emphasis) "]" {return text}
 
 LinkRef
-  = [\x28] text:Line [\x29] {return text}
+  = "(" text:url ")" {return text}
 
 References
   = title:LinkTitle href:LinkRef {
-	 return link([title, href])
-}
-
-/* patch empty link name */
-ReferencesEmpty
-  = (AnyText+ / "") title:LinkTitleEmpty href:LinkRef Space? {
-     return link([title, href])
+	 return link(href, title)
 }
 
 
@@ -215,10 +206,6 @@ num
   = [+-]? ([0-9]+ / [0-9]* "." [0-9]+) ("e" [+-]? [0-9]+)? {
       return parseFloat(text());
     }
-
-url
-  = chars:([!#$%&*-\[\]-~] / nonascii / escape)* { return chars.join(""); }
-
 s
   = [ \t\r\n\f]+
 
@@ -230,3 +217,39 @@ nl
   / "\r\n"
   / "\r"
   / "\f"
+
+
+Uri = url:url { return link(url) }
+Url = url
+url = generic
+    / httpaddress
+    / ftpaddress
+
+generic = scheme ":"  path  search?
+httpaddress = head:"http" secure:"s"? "://" h:hostport p:(path)? s:search? { return [head, secure, "://", h, p, s].filter(Boolean).join('')  }
+ftpaddress = "ftp://" login "/" path
+
+scheme = ialpha
+ialpha = a:alpha x:xalphas { return a + x }
+xalphas = a:xalpha+ { return a.join('') }
+login =  (user / user ":" password) "@" hostport
+hostport = h:host p:(":" port)? { return [h, p && p[0], p && p[1]].filter(Boolean).join('') }
+host = hostname / hostnumber
+hostname = h:ialpha h2:("."  hostname)* { return h + h2.join('') }
+hostnumber = d1:digits "." d2:digits "." d3:digits "." d4:digits { return `${d1}.${d2}.${d3}.${d4}` }
+port = digits
+path =  "/" x:xpalphas p:(path)* { return "/" + x + p.join('') }
+search = "?" s:_search { return "?" + s }
+_search = a:(xalphas) s:_search* { return a + s.join('') }
+user = xalphas
+password = xalphas
+xalpha = alpha / digit / safe / escape
+alpha = [a-zA-Z]
+digit = [0-9]
+digits = d:digit+ { return d.join('') }
+alphanum = alpha / digit
+alphanums = a:alphanum+ { return a.join('') }
+xpalphas = a:xpalpha+ { return a.join('') }
+xpalpha = xalpha
+safe = "$" / "-" / "\_" / "@" / "." / "&" / "="
+extra = "!" / "*" / "\"" /  "'" / ":" / ";" / "," / " " / "(" / ")"

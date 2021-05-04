@@ -1,4 +1,4 @@
-import { Paragraph, Types, TypesKeys } from './definitions';
+import { Markup, Paragraph, Types, TypesKeys } from './definitions';
 
 const generate = <Type extends TypesKeys>(type: Type) => (
   value: Types[Type]['value']
@@ -11,7 +11,10 @@ export const italic = generate('ITALIC');
 export const strike = generate('STRIKE');
 export const code = generate('CODE');
 export const codeLine = generate('CODE_LINE');
-export const link = generate('LINK');
+export const link = (() => {
+  const fn = generate('LINK');
+  return (src: string, label?: Markup) => fn([plain(src), label || plain(src)]);
+})();
 export const heading = generate('HEADING');
 export const inlineCode = generate('INLINE_CODE');
 export const quote = generate('QUOTE');
