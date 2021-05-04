@@ -100,6 +100,23 @@ export type Types = {
   COLOR: Color;
 };
 
+export type ASTNode =
+  | Bold
+  | Paragraph
+  | Plain
+  | Italic
+  | Strike
+  | Code
+  | CodeLine
+  | InlineCode
+  | Heading
+  | Quote
+  | Link
+  | UserMention
+  | ChannelMention
+  | Emoji
+  | Color;
+
 export type TypesKeys = keyof Types;
 
 export type Inlines =
