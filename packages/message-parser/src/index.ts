@@ -1,4 +1,4 @@
 import { ASTMessage } from './definitions';
-import grammar from './grammar.peg';
+import { parse } from './grammar.pegjs';
 
-export const parser = (input: string): ASTMessage => grammar.parse(input);
+export const parser = (input: string): ASTMessage => parse(input);
