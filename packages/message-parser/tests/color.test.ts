@@ -8,6 +8,7 @@ test.each([
   ['color:#c7c7c7c7', [paragraph([color('#c7c7c7c7')])]],
   ['color:#c7c7c7c7c7', [paragraph([plain('color:#c7c7c7c7c7')])]],
   ['color:#c7', [paragraph([plain('color:#c7')])]],
+  ['color:#zzz', [paragraph([plain('color:#zzz')])]],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });

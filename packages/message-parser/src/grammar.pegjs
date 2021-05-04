@@ -362,8 +362,6 @@ alphanum
   = alpha
   / digit
 
-alphanums = a:alphanum+ { return a.join(''); }
-
 xpalphas = a:xpalpha+ { return a.join(''); }
 
 xpalpha = xalpha
@@ -389,14 +387,18 @@ extra
   / "("
   / ")"
 
-Color = "color:#" c:_color !AnyText { return color('#' + c); }
+// color
 
-_color
-  = a:alphanum_pair b:alphanum_pair c:alphanum_pair? d:alphanum_pair? {
-      return [a, b, c, d].filter(Boolean).join('');
-    }
-  / alphanum_triplet
+Color = "color:#" c:hexTuple !AnyText { return color('#' + c); }
 
-alphanum_pair = a:alphanum b:alphanum { return a + b; }
+hexdigit = [0-9A-Fa-f]
 
-alphanum_triplet = a:alphanum b:alphanum c:alphanum { return a + b + c; }
+hexNible = a:hexdigit { return a.toLowerCase(); }
+
+hexByte = a:hexdigit b:hexdigit { return a.toLowerCase() + b.toLowerCase(); }
+
+hexTuple
+  = a:hexByte b:hexByte c:hexByte d:hexByte { return a + b + c + d; }
+  / a:hexByte b:hexByte c:hexByte { return a + b + c; }
+  / a:hexNible b:hexNible c:hexNible d:hexNible { return a + b + c + d; }
+  / a:hexNible b:hexNible c:hexNible { return a + b + c; }
