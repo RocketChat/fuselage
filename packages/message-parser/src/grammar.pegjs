@@ -15,6 +15,7 @@
     mentionChannel,
     mentionUser,
     emoji,
+    color,
   } = require('./utils');
 }
 
@@ -37,6 +38,7 @@ Inline
       / Phone
       / Uri
       / Emphasis
+      / Color
       / UserMention
       / ChannelMention
       / Plain
@@ -387,3 +389,11 @@ extra
   / " "
   / "("
   / ")"
+
+Color = "color:#" c:_color !AnyText { return color("#" + c) }
+
+_color = a:alphanum_pair b:alphanum_pair c:alphanum_pair? d:alphanum_pair? { return  [a,b,c,d].filter(Boolean).join('') }
+         / alphanum_triplet
+
+alphanum_pair = a:alphanum b:alphanum { return a + b }
+alphanum_triplet = a:alphanum b:alphanum c:alphanum { return a + b + c }

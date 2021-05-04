@@ -5,31 +5,36 @@ const generate = <Type extends TypesKeys>(type: Type) => (
 ): Types[Type] => ({ type, value } as any);
 
 export const paragraph = generate('PARAGRAPH');
+
 export const bold = generate('BOLD');
-export const plain = generate('PLAIN_TEXT');
-export const italic = generate('ITALIC');
-export const strike = generate('STRIKE');
 export const code = generate('CODE');
+export const color = (() => {
+  const fn = generate('COLOR');
+  return (value: string) => fn(plain(value));
+})();
+export const emoji = (() => {
+  const fn = generate('EMOJI');
+  return (value: string) => fn(plain(value));
+})();
+export const heading = generate('HEADING');
+export const inlineCode = generate('INLINE_CODE');
+export const italic = generate('ITALIC');
+
+export const plain = generate('PLAIN_TEXT');
+export const strike = generate('STRIKE');
 export const codeLine = generate('CODE_LINE');
 export const link = (() => {
   const fn = generate('LINK');
   return (src: string, label?: Markup) => fn([plain(src), label || plain(src)]);
 })();
-export const heading = generate('HEADING');
-export const inlineCode = generate('INLINE_CODE');
 export const quote = generate('QUOTE');
-export const emoji = (() => {
-  const fn = generate('EMOJI');
-  return (value: string) => fn(plain(value));
-})();
-
-export const mentionUser = (() => {
-  const fn = generate('MENTION_USER');
-  return (value: string) => fn(plain(value));
-})();
 
 export const mentionChannel = (() => {
   const fn = generate('MENTION_CHANNEL');
+  return (value: string) => fn(plain(value));
+})();
+export const mentionUser = (() => {
+  const fn = generate('MENTION_USER');
   return (value: string) => fn(plain(value));
 })();
 

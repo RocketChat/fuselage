@@ -3,6 +3,11 @@ export type CodeLine = {
   value: Plain;
 };
 
+export type Color = {
+  type: 'COLOR';
+  value: Plain;
+};
+
 export type Emoji = {
   type: 'EMOJI';
   value: Plain;
@@ -55,17 +60,7 @@ export type Plain = {
 
 export type Paragraph = {
   type: 'PARAGRAPH';
-  value: Array<
-    | Bold
-    | Plain
-    | Italic
-    | Strike
-    | InlineCode
-    | Link
-    | UserMention
-    | ChannelMention
-    | Emoji
-  >;
+  value: Array<Exclude<Inlines, Paragraph>>;
 };
 
 export type Link = {
@@ -98,19 +93,22 @@ export type Types = {
   MENTION_USER: UserMention;
   MENTION_CHANNEL: ChannelMention;
   EMOJI: Emoji;
+  COLOR: Color;
 };
 
 export type TypesKeys = keyof Types;
 
 export type Inlines =
-  | Paragraph
   | Bold
   | Plain
   | Italic
   | Strike
+  | InlineCode
   | Link
   | UserMention
-  | ChannelMention;
+  | ChannelMention
+  | Emoji
+  | Color;
 
 export type Markdown = Array<Inlines | Blocks>;
 
