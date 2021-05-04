@@ -3,7 +3,7 @@ import assert from 'assert';
 import { parser } from '../src';
 import { link, paragraph } from '../src/utils';
 
-describe('Mentions', () => {
+describe('URIs', () => {
   describe('link', () => {
     it('should match url with path', () => {
       const [tokens] = parser('https://rocket.chat/test');

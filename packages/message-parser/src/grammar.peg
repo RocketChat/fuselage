@@ -26,7 +26,7 @@ Blocks
 
 Emphasis = Bold / Italic / Strikethrough
 
-Inline = value:(Emoji / References / InlineCode / Uri / Emphasis / UserMention / ChannelMention / Plain)+ EndOfLine? { return paragraph(reducePlainTexts(value)) }
+Inline = value:(InlineCode / Emoji / References / Phone / Uri / Emphasis / UserMention / ChannelMention / Plain)+ EndOfLine? { return paragraph(reducePlainTexts(value)) }
 
 Plain = Line / text:AnyText2 {
  	return plain(text)
@@ -140,10 +140,10 @@ MultiplelLineCode
 
 // [Visit GitHub!](www.github.com)
 LinkTitle
-  = "[" text:(Line / Emphasis) "]" {return text}
+  = "[" text:(Emphasis / Line) "]" {return text}
 
 LinkRef
-  = "(" text:url ")" {return text}
+  = "(" text:(url / phone) ")" {return text}
 
 References
   = title:LinkTitle href:LinkRef {
@@ -219,6 +219,19 @@ nl
   / "\f"
 
 
+Phone = p:phone { return link(p) }
+
+phone = "+" p:__phone  { return '+' + p }
+
+
+__phone = p1:_phone '-' p2:__phone {return p1+"-"+p2}
+        / p1:_phone p2:__phone {return p1+p2}
+        / _phone
+
+_phone = d:digits
+      / "(" d:digits ")" { return "(" + d + ")" }
+
+
 Uri = url:url { return link(url) }
 Url = url
 url = generic
@@ -231,7 +244,11 @@ ftpaddress = "ftp://" login "/" path
 
 scheme = ialpha
 ialpha = a:alpha x:xalphas { return a + x }
+xalpha = alpha / digit / safe / escape
 xalphas = a:xalpha+ { return a.join('') }
+alpha = [a-zA-Z]
+digit = [0-9]
+
 login =  (user / user ":" password) "@" hostport
 hostport = h:host p:(":" port)? { return [h, p && p[0], p && p[1]].filter(Boolean).join('') }
 host = hostname / hostnumber
@@ -243,9 +260,6 @@ search = "?" s:_search { return "?" + s }
 _search = a:(xalphas) s:_search* { return a + s.join('') }
 user = xalphas
 password = xalphas
-xalpha = alpha / digit / safe / escape
-alpha = [a-zA-Z]
-digit = [0-9]
 digits = d:digit+ { return d.join('') }
 alphanum = alpha / digit
 alphanums = a:alphanum+ { return a.join('') }
