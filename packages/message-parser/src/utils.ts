@@ -25,7 +25,8 @@ export const strike = generate('STRIKE');
 export const codeLine = generate('CODE_LINE');
 export const link = (() => {
   const fn = generate('LINK');
-  return (src: string, label?: Markup) => fn([plain(src), label || plain(src)]);
+  return (src: string, label?: Markup) =>
+    fn({ src: plain(src), label: label || plain(src) });
 })();
 export const quote = generate('QUOTE');
 

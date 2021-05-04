@@ -16,7 +16,7 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "description": "",
-  "types": "/src/index.d.ts",
+  "types": "/dist/src/index.d.ts",
   "main": "/dist/index.js",
   "files": [
     "/dist",

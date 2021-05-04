@@ -65,7 +65,10 @@ export type Paragraph = {
 
 export type Link = {
   type: 'LINK';
-  value: [Plain, Markup];
+  value: {
+    src: Plain;
+    label: Markup;
+  };
 };
 
 export type UserMention = {

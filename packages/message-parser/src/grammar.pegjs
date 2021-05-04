@@ -212,7 +212,7 @@ LineCode "LineCode"
 MultiplelLineCode = "```\n" value:LineCode+ "\n```" { return code(value); }
 
 // [Visit GitHub!](www.github.com)
-LinkTitle = "[" text:(Line / Emphasis) "]" { return text; }
+LinkTitle = "[" text:(Emphasis / Line) "]" { return text; }
 
 LinkRef = "(" text:(url / phone) ")" { return text; }
 
@@ -279,19 +279,18 @@ nl
   / "\r"
   / "\f"
 
+Phone = p:phone { return link(p); }
 
+phone = "+" p:__phone { return '+' + p; }
 
-Phone = p:phone { return link(p) }
+__phone
+  = p1:_phone "-" p2:__phone { return p1 + '-' + p2; }
+  / p1:_phone p2:__phone { return p1 + p2; }
+  / _phone
 
-phone = "+" p:__phone  { return '+' + p }
-
-
-__phone = p1:_phone '-' p2:__phone {return p1+"-"+p2}
-        / p1:_phone p2:__phone {return p1+p2}
-        / _phone
-
-_phone = d:digits
-      / "(" d:digits ")" { return "(" + d + ")" }
+_phone
+  = d:digits
+  / "(" d:digits ")" { return '(' + d + ')'; }
 
 Uri = url:url { return link(url); }
 
@@ -390,10 +389,14 @@ extra
   / "("
   / ")"
 
-Color = "color:#" c:_color !AnyText { return color("#" + c) }
+Color = "color:#" c:_color !AnyText { return color('#' + c); }
 
-_color = a:alphanum_pair b:alphanum_pair c:alphanum_pair? d:alphanum_pair? { return  [a,b,c,d].filter(Boolean).join('') }
-         / alphanum_triplet
+_color
+  = a:alphanum_pair b:alphanum_pair c:alphanum_pair? d:alphanum_pair? {
+      return [a, b, c, d].filter(Boolean).join('');
+    }
+  / alphanum_triplet
 
-alphanum_pair = a:alphanum b:alphanum { return a + b }
-alphanum_triplet = a:alphanum b:alphanum c:alphanum { return a + b + c }
+alphanum_pair = a:alphanum b:alphanum { return a + b; }
+
+alphanum_triplet = a:alphanum b:alphanum c:alphanum { return a + b + c; }
