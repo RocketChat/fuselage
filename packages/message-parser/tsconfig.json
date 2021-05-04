@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./",
+    "rootDir": ".",
     "target": "es5",
     "module": "ESNext",
     "declaration": true,

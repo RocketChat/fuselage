@@ -4322,6 +4322,7 @@ __metadata:
     peggy: ^1.1.0
     prettier: ^2.2.1
     prettier-plugin-pegjs: ^0.3.2
+    rimraf: ^3.0.2
     ts-jest: ^26.5.5
     ts-loader: ^9.1.1
     typescript: ^4.2.4

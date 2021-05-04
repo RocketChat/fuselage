@@ -1,5 +1,6 @@
 {
   "name": "@rocket.chat/message-parser",
+  "description": "Rocket.Chat parser for messages",
   "version": "0.23.0",
   "author": {
     "name": "Rocket.Chat",
@@ -15,12 +16,21 @@
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
-  "description": "",
-  "types": "/dist/src/index.d.ts",
-  "main": "/dist/index.js",
+  "main": "messageParser.js",
+  "exports": {
+    ".": {
+      "default": "./messageParser.js"
+    },
+    "./index": {
+      "default": "./messageParser.js"
+    }
+  },
+  "module": "dist/messageParser.mjs",
+  "unpkg": "dist/messageParser.umd.js",
+  "types": "dist/index.d.ts",
   "files": [
     "/dist",
-    "/src/index.d.ts"
+    "/messageParser.js"
   ],
   "directories": {
     "test": "test"
@@ -39,6 +49,7 @@
     "peggy": "^1.1.0",
     "prettier": "^2.2.1",
     "prettier-plugin-pegjs": "^0.3.2",
+    "rimraf": "^3.0.2",
     "ts-jest": "^26.5.5",
     "ts-loader": "^9.1.1",
     "typescript": "^4.2.4",
@@ -49,7 +60,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "run-s .:build:clean .:build:bundle",
+    ".:build:clean": "rimraf dist",
+    ".:build:bundle": "webpack",
     "test": "jest --runInBand --coverage",
     "watch": "jest --watch",
     "lint": "eslint .",
