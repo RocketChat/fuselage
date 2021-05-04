@@ -23,7 +23,10 @@ const config = (outputDeclarations = false) => ({
       },
       {
         test: /\.pegjs$/,
-        use: [path.resolve(__dirname, './loaders/pegloader.js')],
+        use: [
+          'babel-loader',
+          path.resolve(__dirname, './loaders/pegloader.js'),
+        ],
       },
     ],
   },
