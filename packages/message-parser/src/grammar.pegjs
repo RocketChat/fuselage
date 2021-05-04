@@ -119,7 +119,7 @@ line
       return head.join('') + text.join('') + tail.join('');
     }
 
-Heading = "# "+ text:Line { return heading([text]); }
+Heading = "# "+ text:Line { return heading([text], 1); }
 
 utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join(''); }
 

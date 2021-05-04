@@ -1,6 +1,6 @@
-import { Markup, Paragraph, Types, TypesKeys } from './definitions';
+import { Heading, Markup, Paragraph, Types } from './definitions';
 
-const generate = <Type extends TypesKeys>(type: Type) => (
+const generate = <Type extends keyof Types>(type: Type) => (
   value: Types[Type]['value']
 ): Types[Type] => ({ type, value } as any);
 
@@ -16,7 +16,16 @@ export const emoji = (() => {
   const fn = generate('EMOJI');
   return (value: string) => fn(plain(value));
 })();
-export const heading = generate('HEADING');
+
+export const heading = (
+  value: Heading['value'],
+  level: Heading['level'] = 1
+): Heading => ({
+  type: 'HEADING',
+  level,
+  value,
+});
+
 export const inlineCode = generate('INLINE_CODE');
 export const italic = generate('ITALIC');
 
