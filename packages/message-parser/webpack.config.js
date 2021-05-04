@@ -12,11 +12,7 @@ module.exports = {
       },
       {
         test: /\.peg$/,
-        use: [
-          {
-            loader: path.resolve(__dirname, './loaders/pegloader.js'),
-          },
-        ],
+        use: [path.resolve(__dirname, './loaders/pegloader.js')],
       },
     ],
   },
