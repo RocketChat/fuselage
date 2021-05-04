@@ -11,13 +11,13 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.peg$/,
+        test: /\.pegjs$/,
         use: [path.resolve(__dirname, './loaders/pegloader.js')],
       },
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js', '.peg'],
+    extensions: ['.ts', '.js', '.pegjs'],
   },
   output: {
     path: path.resolve(__dirname, './dist'),
