@@ -25,9 +25,7 @@ start
 Blocks = teste:(MultiplelLineCode / Heading / Tasks / Section)
 
 Emphasis
-  = t:[a-zA-Z]+ c:"__" { return plain(t.join('') + c); }
-  / t:[a-zA-Z]+ c:"_" { return plain(t.join('') + c); }
-  / Bold
+  = Bold
   / Italic
   / Strikethrough
 
@@ -150,12 +148,28 @@ Section
 /* __Italic__ */
 /* _Italic_ */
 Italic
-  = [\x5F] [\x5F] i:Italic_Content [\x5F] [\x5F] { return i; }
+  = t:[a-zA-Z0-9]+ tail:([\x5F] [\x5F]?) {
+      return plain(t.join('') + tail.join(''));
+    }
+  / [\x5F] [\x5F] i:italic_Content [\x5F] [\x5F] t:[a-zA-Z0-9]+ {
+      return reducePlainTexts([plain('__'), i, plain(t.join('')), plain('__')]);
+    }
+  / [\x5F] i:italic_Content [\x5F] t:[a-zA-Z]+ {
+      return reducePlainTexts([
+        plain('_'),
+        ...i,
+        plain('_'),
+        plain(t.join('')),
+      ])[0];
+    }
+  / [\x5F] [\x5F] i:Italic_Content [\x5F] [\x5F] { return i; }
   / [\x5F] i:Italic_Content [\x5F] { return i; }
 
-Italic_Content
+Italic_Content = text:italic_Content { return italic(text); }
+
+italic_Content
   = text:(Bold / Strikethrough / Line / AnyItalic)+ {
-      return italic(reducePlainTexts(text));
+      return reducePlainTexts(text);
     }
 
 /* **Bold** */
