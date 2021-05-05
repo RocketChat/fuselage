@@ -19,10 +19,13 @@
   } = require('./utils');
 }
 
-start
-  = block:(Blocks / Inline / text:EndOfLine { return paragraph([plain('')]); })+
+start = (Blocks / Inline / EndOfLine { return paragraph([plain('')]); })+
 
-Blocks = teste:(MultiplelLineCode / Heading / Tasks / Section)
+Blocks
+  = MultiplelLineCode
+  / Heading
+  / Tasks
+  / Section
 
 Emphasis
   = Bold
@@ -430,16 +433,16 @@ extra
 
 // color
 
-Color = "color:#" c:hexTuple !anyText { return color('#' + c); }
+Color = "color:#" rgba:hexTuple !anyText { return color(...rgba); }
 
 hexdigit = [0-9A-Fa-f]
 
-hexNible = a:hexdigit { return a.toLowerCase(); }
+hexNible = a:hexdigit { return parseInt(a + a, 16); }
 
-hexByte = a:hexdigit b:hexdigit { return a.toLowerCase() + b.toLowerCase(); }
+hexByte = a:hexdigit b:hexdigit { return parseInt(a + b, 16); }
 
 hexTuple
-  = a:hexByte b:hexByte c:hexByte d:hexByte { return a + b + c + d; }
-  / a:hexByte b:hexByte c:hexByte { return a + b + c; }
-  / a:hexNible b:hexNible c:hexNible d:hexNible { return a + b + c + d; }
-  / a:hexNible b:hexNible c:hexNible { return a + b + c; }
+  = r:hexByte g:hexByte b:hexByte a:hexByte { return [r, g, b, a]; }
+  / r:hexByte g:hexByte b:hexByte { return [r, g, b]; }
+  / r:hexNible g:hexNible b:hexNible a:hexNible { return [r, g, b, a]; }
+  / r:hexNible g:hexNible b:hexNible { return [r, g, b]; }

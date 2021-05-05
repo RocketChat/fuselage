@@ -5,7 +5,12 @@ export type CodeLine = {
 
 export type Color = {
   type: 'COLOR';
-  value: Plain;
+  value: {
+    r: number;
+    g: number;
+    b: number;
+    a: number;
+  };
 };
 
 export type Emoji = {
