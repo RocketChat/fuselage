@@ -348,7 +348,7 @@ url
   / httpaddress
   / ftpaddress
 
-generic = scheme ":" path search?
+generic = scheme "://" path search?
 
 httpaddress
   = head:"http" secure:"s"? "://" h:hostport p:path? s:search? {
