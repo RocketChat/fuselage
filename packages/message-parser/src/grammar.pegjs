@@ -152,7 +152,12 @@ Italic
       return plain(t.join('') + tail.join(''));
     }
   / [\x5F] [\x5F] i:italic_Content [\x5F] [\x5F] t:[a-zA-Z0-9]+ {
-      return reducePlainTexts([plain('__'), i, plain(t.join('')), plain('__')]);
+      return reducePlainTexts([
+        plain('__'),
+        ...i,
+        plain('__'),
+        plain(t.join('')),
+      ])[0];
     }
   / [\x5F] i:italic_Content [\x5F] t:[a-zA-Z]+ {
       return reducePlainTexts([
