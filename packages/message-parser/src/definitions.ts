@@ -15,6 +15,7 @@ export type Emoji = {
 
 export type Code = {
   type: 'CODE';
+  language: string | undefined;
   value: CodeLine[];
 };
 

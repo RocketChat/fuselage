@@ -1,4 +1,4 @@
-import { Heading, Markup, Paragraph, Types } from './definitions';
+import { Heading, Markup, Paragraph, Types, Code } from './definitions';
 
 const generate = <Type extends keyof Types>(type: Type) => (
   value: Types[Type]['value']
@@ -7,7 +7,6 @@ const generate = <Type extends keyof Types>(type: Type) => (
 export const paragraph = generate('PARAGRAPH');
 
 export const bold = generate('BOLD');
-export const code = generate('CODE');
 export const color = (() => {
   const fn = generate('COLOR');
   return (value: string) => fn(plain(value));
@@ -23,6 +22,15 @@ export const heading = (
 ): Heading => ({
   type: 'HEADING',
   level,
+  value,
+});
+
+export const code = (
+  value: Code['value'],
+  language?: Code['language']
+): Code => ({
+  type: 'CODE',
+  language: language || 'none',
   value,
 });
 

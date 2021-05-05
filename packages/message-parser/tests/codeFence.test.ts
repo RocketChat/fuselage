@@ -9,6 +9,18 @@ code
     [code([codeLine(plain('code'))])],
   ],
   [
+    `\`\`\`javascript
+code
+\`\`\``,
+    [code([codeLine(plain('code'))], 'javascript')],
+  ],
+  [
+    `\`\`\`bash c
+code
+\`\`\``,
+    [code([codeLine(plain('code'))], 'bash c')],
+  ],
+  [
     `  \`\`\`
 code
 \`\`\``,

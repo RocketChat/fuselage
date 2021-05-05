@@ -237,15 +237,7 @@ OrderedLists
       };
     }
 
-Type
-  = "bash" "c"
-  / "cpp"
-  / "html"
-  / "javascript"
-  / "js"
-  / "json"
-  / "java"
-  / "ruby"
+Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
 
 InlineCode = "`" text:Line "`" { return inlineCode(text); }
 
@@ -253,7 +245,10 @@ LineCode "LineCode"
   = text:[^"\n"\`]+ "`"? { return codeLine(plain(text.join(''))); }
   / "\n"+ text:[^"\n"\`]+ "`"? { return codeLine(plain(text.join(''))); }
 
-MultiplelLineCode = "```\n" value:LineCode+ "\n"+ "```" { return code(value); }
+MultiplelLineCode
+  = "```" t:Codetype? "\n" value:LineCode+ "\n"+ "```" {
+      return code(value, t);
+    }
 
 // [Visit GitHub!](www.github.com)
 LinkTitle = "[" text:(Emphasis / Line) "]" { return text; }
