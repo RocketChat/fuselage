@@ -38,7 +38,7 @@ Inline
       / Whitespace
       / References
       / InlineCode
-      / Phone
+      / AutolinkedPhone
       / Uri
       / Emphasis
       / Color
@@ -261,7 +261,8 @@ MultiplelLineCode
 // [Visit GitHub!](www.github.com)
 LinkTitle = "[" text:(Emphasis / Line) "]" { return text; }
 
-LinkRef = "(" text:(url / phone) ")" { return text; }
+LinkRef
+  = "(" text:(url / p:Phone { return 'tel:' + p.number; }) ")" { return text; }
 
 References = title:LinkTitle href:LinkRef { return link(href, title); }
 
@@ -326,18 +327,7 @@ nl
   / "\r"
   / "\f"
 
-Phone = p:phone { return link(p); }
-
-phone = "+" p:__phone { return '+' + p; }
-
-__phone
-  = p1:_phone "-" p2:__phone { return p1 + '-' + p2; }
-  / p1:_phone p2:__phone { return p1 + p2; }
-  / _phone
-
-_phone
-  = d:digits
-  / "(" d:digits ")" { return '(' + d + ')'; }
+AutolinkedPhone = p:Phone { return link('tel:' + p.number, plain(p.text)); }
 
 Uri = url:url { return link(url); }
 
@@ -436,7 +426,11 @@ extra
   / "("
   / ")"
 
-// color
+/**
+ *
+ * Color
+ *
+ */
 
 Color = "color:#" rgba:hexTuple !anyText { return color(...rgba); }
 
@@ -451,3 +445,24 @@ hexTuple
   / r:hexByte g:hexByte b:hexByte { return [r, g, b]; }
   / r:hexNible g:hexNible b:hexNible a:hexNible { return [r, g, b, a]; }
   / r:hexNible g:hexNible b:hexNible { return [r, g, b]; }
+
+/**
+ *
+ * Phone
+ *
+ */
+
+Phone = "+" p:phoneNumber { return { text: '+' + p.text, number: p.number }; }
+
+phoneNumber
+  = p:phonePrefix "-" d:digits {
+      return { text: p.text + '-' + d, number: p.number + d };
+    }
+  / p:phonePrefix d:digits {
+      return { text: p.text + d, number: p.number + d };
+    }
+  / d:digits { return { text: d, number: d }; }
+
+phonePrefix
+  = d:digits { return { text: d, number: d }; }
+  / "(" d:digits ")" { return { text: '(' + d + ')', number: d }; }
