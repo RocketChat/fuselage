@@ -1,5 +1,13 @@
 import { parser } from '../src';
-import { italic, paragraph, plain, strike, bold, emoji } from '../src/utils';
+import {
+  italic,
+  paragraph,
+  plain,
+  strike,
+  bold,
+  emoji,
+  bigEmoji,
+} from '../src/utils';
 
 test.each([
   ['__italic__', [paragraph([italic([plain('italic')])])]],
@@ -21,7 +29,7 @@ test.each([
   ['__ __', [paragraph([plain('__ __')])]],
   ['_ Hello_', [paragraph([italic([plain(' Hello')])])]],
   ['_Hello _', [paragraph([italic([plain('Hello ')])])]],
-  [':custom_emoji_case:', [paragraph([emoji('custom_emoji_case')])]],
+  [':custom_emoji_case:', [bigEmoji([emoji('custom_emoji_case')])]],
   ['_Hel lo_', [paragraph([italic([plain('Hel lo')])])]],
   ['_Hello_', [paragraph([italic([plain('Hello')])])]],
   ['__Hello__', [paragraph([italic([plain('Hello')])])]],

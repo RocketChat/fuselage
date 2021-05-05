@@ -13,6 +13,11 @@ export type Color = {
   };
 };
 
+export type BigEmoji = {
+  type: 'BIG_EMOJI';
+  value: [Emoji] | [Emoji, Emoji] | [Emoji, Emoji, Emoji];
+};
+
 export type Emoji = {
   type: 'EMOJI';
   value: Plain;
@@ -103,10 +108,12 @@ export type Types = {
   MENTION_USER: UserMention;
   MENTION_CHANNEL: ChannelMention;
   EMOJI: Emoji;
+  BIG_EMOJI: BigEmoji;
   COLOR: Color;
 };
 
 export type ASTNode =
+  | BigEmoji
   | Bold
   | Paragraph
   | Plain
@@ -137,6 +144,6 @@ export type Inlines =
   | Emoji
   | Color;
 
-export type Markdown = Array<Inlines | Blocks>;
+export type Markdown = Array<Inlines | Blocks> | [BigEmoji];
 
 export type ASTMessage = Blocks[];

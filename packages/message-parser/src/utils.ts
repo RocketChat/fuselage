@@ -1,4 +1,12 @@
-import { Code, Color, Heading, Markup, Paragraph, Types } from './definitions';
+import {
+  BigEmoji,
+  Code,
+  Color,
+  Heading,
+  Markup,
+  Paragraph,
+  Types,
+} from './definitions';
 
 const generate = <Type extends keyof Types>(type: Type) => (
   value: Types[Type]['value']
@@ -33,6 +41,11 @@ export const code = (
 ): Code => ({
   type: 'CODE',
   language: language || 'none',
+  value,
+});
+
+export const bigEmoji = (value: BigEmoji['value']): BigEmoji => ({
+  type: 'BIG_EMOJI',
   value,
 });
 

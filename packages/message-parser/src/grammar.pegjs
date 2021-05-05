@@ -16,10 +16,18 @@
     mentionUser,
     emoji,
     color,
+    bigEmoji,
   } = require('./utils');
 }
 
-start = (Blocks / Inline / EndOfLine { return paragraph([plain('')]); })+
+start
+  = BigEmoji
+  / (Blocks / Inline / EndOfLine { return paragraph([plain('')]); })+
+
+BigEmoji
+  = e1:Emoji Space* e2:Emoji? Space* e3:Emoji? {
+      return [bigEmoji([e1, e2, e3].filter(Boolean))];
+    }
 
 Blocks
   = MultiplelLineCode
@@ -34,8 +42,8 @@ Emphasis
 
 Inline
   = value:(
-      Emoji
-      / Whitespace
+      Whitespace
+      / Emoji
       / References
       / InlineCode
       / AutolinkedPhone
@@ -53,11 +61,13 @@ Whitespace = w:" "+ { return plain(w.join('')); }
 
 Plain = text:anyText2 { return plain(text); }
 
+Extra = e:extra { return plain(e); }
+
 // = Line
 
 Line = t:line { return plain(t); }
 
-Text = text:anyText+ { return plain(text.join('')); }
+Text = text:anyText { return plain(text); }
 
 line
   = head:Space* text:anyText+ tail:Space* {
@@ -89,6 +99,12 @@ anyText
   / [\x61-\x7A]
   / nonascii
 
+anyText2
+  = [\x20-\x40]
+  / [\x41-\x60]
+  / [\x61-\xFFFF]
+  / nonascii
+
 ListText
   = [\x20-\x27]
   / [\x2B-\x40]
@@ -112,12 +128,6 @@ CodeText
   / EndOfLine
   / Space
 
-anyText2
-  = [\x20-\x40]
-  / [\x41-\x60]
-  / [\x61-\xFFFF]
-  / nonascii
-
 SectionText
   = [-]+
   / [\x20-\x40]
@@ -136,7 +146,10 @@ utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join(''); }
 UserMention = "@"+ user:utf8_names_validation { return mentionUser(user); }
 
 ChannelMention
-  = "#" channel:utf8_names_validation { return mentionChannel(channel); }
+  = t:Text "#" channel:utf8_names_validation {
+      return reducePlainTexts([t, plain('#' + channel)])[0];
+    }
+  / "#" channel:utf8_names_validation { return mentionChannel(channel); }
 
 Emoji = ":" text:utf8_names_validation ":" { return emoji(text); }
 
