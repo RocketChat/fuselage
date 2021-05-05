@@ -22,8 +22,7 @@
 start
   = block:(Blocks / Inline / text:EndOfLine { return paragraph([plain('')]); })+
 
-Blocks
-  = teste:(MultiplelLineCode / Heading / Tasks / Lists / OrderedLists / Section)
+Blocks = teste:(MultiplelLineCode / Heading / Tasks / Section)
 
 Emphasis
   = Bold
@@ -138,23 +137,36 @@ Section
       };
     }
 
-/* *Italic* */
+/* __Italic__ */
+/* _Italic_ */
 Italic
-  = [\x5F] [\x5F] text:(Line / Bold / Strikethrough)+ [\x5F] [\x5F] {
-      return italic(text);
-    }
+  = [\x5F] [\x5F] i:Italic_Content [\x5F] [\x5F] { return i; }
+  / [\x5F] i:Italic_Content [\x5F] { return i; }
+
+Italic_Content = text:(Bold / Strikethrough / Line)+ { return italic(text); }
 
 /* **Bold** */
+/* *Bold* */
 Bold
-  = ([\x2A] [\x2A]) text:(Line / Italic / Strikethrough)+ ([\x2A] [\x2A]) {
-      return bold(text);
-    }
+  = [\x2A] [\x2A] b:Bold_Content [\x2A] [\x2A] { return b; }
+  / [\x2A] b:Bold_Content [\x2A] { return b; }
+
+Bold_Content = text:(Italic / Strikethrough / Line)+ { return bold(text); }
 
 /* ~~Mistaken text.~~ */
+/* ~Mistaken text.~ */
 Strikethrough
-  = [\x7E] [\x7E] text:(Line / Italic / Bold)+ [\x7E] [\x7E] {
-      return strike(text);
-    }
+  = [\x7E] [\x7E] s:Strikethrough_Content [\x7E] [\x7E] { return s; }
+  / [\x7E] s:Strikethrough_Content [\x7E] { return s; }
+
+// Line = t:line { return plain(t); }
+
+// line
+//   = head:Space* text:AnyText+ tail:Space* {
+//       return head.join('') + text.join('') + tail.join('');
+//     }
+
+Strikethrough_Content = text:(Italic / Bold / Line)+ { return strike(text); }
 
 ListItem
   = ("\x2A " / "\x2D ") text:ListText+ Space? { return text.join('').trim(); }

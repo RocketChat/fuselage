@@ -15,8 +15,8 @@ test.each([
   ['~ ~', [paragraph([plain('~ ~')])]],
   ['~~ ~', [paragraph([plain('~~ ~')])]],
   ['~~ ~~', [paragraph([plain('~~ ~~')])]],
-  ['~ Hello~', [paragraph([plain('~ Hello~')])]],
-  ['~Hello ~', [paragraph([plain('~Hello ~')])]],
+  ['~ Hello~', [paragraph([strike([plain(' Hello')])])]],
+  ['~Hello ~', [paragraph([strike([plain('Hello ')])])]],
   [
     ':custom~emoji~case:',
     [paragraph([plain(`:custom`), strike([plain('emoji')]), plain(`case:`)])],
