@@ -39,7 +39,7 @@ Inline
       / References
       / InlineCode
       / AutolinkedPhone
-      / Uri
+      / AutolinkedURL
       / Emphasis
       / Color
       / UserMention
@@ -262,7 +262,7 @@ MultiplelLineCode
 LinkTitle = "[" text:(Emphasis / Line) "]" { return text; }
 
 LinkRef
-  = "(" text:(url / p:Phone { return 'tel:' + p.number; }) ")" { return text; }
+  = "(" text:(URL / p:Phone { return 'tel:' + p.number; }) ")" { return text; }
 
 References = title:LinkTitle href:LinkRef { return link(href, title); }
 
@@ -329,59 +329,7 @@ nl
 
 AutolinkedPhone = p:Phone { return link('tel:' + p.number, plain(p.text)); }
 
-Uri = url:url { return link(url); }
-
-Url = url
-
-url
-  = generic
-  / httpaddress
-  / ftpaddress
-
-generic = scheme "://" path search?
-
-httpaddress
-  = head:"http" secure:"s"? "://" h:hostport p:path? s:search? {
-      return [head, secure, '://', h, p, s].filter(Boolean).join('');
-    }
-
-ftpaddress = "ftp://" login "/" path
-
-scheme = ialpha
-
-ialpha = a:alpha x:xalphas { return a + x; }
-
-xalphas = a:xalpha+ { return a.join(''); }
-
-login = (user / user ":" password) "@" hostport
-
-hostport
-  = h:host p:(":" port)? {
-      return [h, p && p[0], p && p[1]].filter(Boolean).join('');
-    }
-
-host
-  = hostname
-  / hostnumber
-
-hostname = h:ialpha h2:("." hostname)* { return h + h2.join(''); }
-
-hostnumber
-  = d1:digits "." d2:digits "." d3:digits "." d4:digits {
-      return `${d1}.${d2}.${d3}.${d4}`;
-    }
-
-port = digits
-
-path = "/" x:xpalphas p:path* { return '/' + x + p.join(''); }
-
-search = "?" s:_search { return '?' + s; }
-
-_search = a:xalphas s:_search* { return a + s.join(''); }
-
-user = xalphas
-
-password = xalphas
+AutolinkedURL = u:URL { return link(u); }
 
 xalpha
   = alpha
@@ -401,9 +349,7 @@ alphanum
   = alpha
   / digit
 
-xpalphas = a:xpalpha+ { return a.join(''); }
-
-xpalpha = xalpha
+xpalphas = a:xalpha+ { return a.join(''); }
 
 safe
   = "$"
@@ -426,21 +372,25 @@ extra
   / "("
   / ")"
 
-/**
- *
- * Color
- *
- */
-
-Color = "color:#" rgba:hexTuple !anyText { return color(...rgba); }
-
 hexdigit = [0-9A-Fa-f]
 
 hexNible = a:hexdigit { return parseInt(a + a, 16); }
 
 hexByte = a:hexdigit b:hexdigit { return parseInt(a + b, 16); }
 
-hexTuple
+domainName = $(domainNameLabel ("." domainNameLabel)*)
+
+domainNameLabel = $([a-z0-9]+ $("-" [a-z0-9]+)*)
+
+/**
+ *
+ * Color
+ *
+ */
+
+Color = "color:#" rgba:colorRGBATuple !anyText { return color(...rgba); }
+
+colorRGBATuple
   = r:hexByte g:hexByte b:hexByte a:hexByte { return [r, g, b, a]; }
   / r:hexByte g:hexByte b:hexByte { return [r, g, b]; }
   / r:hexNible g:hexNible b:hexNible a:hexNible { return [r, g, b, a]; }
@@ -466,3 +416,84 @@ phoneNumber
 phonePrefix
   = d:digits { return { text: d, number: d }; }
   / "(" d:digits ")" { return { text: '(' + d + ')', number: d }; }
+
+/**
+ *
+ * URL
+ *
+ */
+
+URL
+  = s:urlScheme a:urlAuthority p:urlPath? q:urlQuery? f:urlFragment? {
+      const href = s + a + (p ?? '') + (q ?? '') + (f ?? '');
+      // const url = {
+      //   href,
+      //   scheme: s,
+      //   authority: a,
+      //   path: p,
+      //   query: q,
+      //   fragment: f,
+      // };
+
+      return href;
+    }
+
+urlScheme
+  = $(
+    [A-Za-z]
+      [A-Za-z0-9+.-]
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]? // up to 32 characters
+      ":"
+  )
+
+urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
+
+urlAuthorityUserInfo = $(urlAuthorityUser (":" urlAuthorityPassword)? "@")
+
+urlAuthorityUser = $(alpha / digit / "$" / "-" / "_" / "." / "&" / "=")+
+
+urlAuthorityPassword = $(alpha / digit / "$" / "-" / "_" / "." / "&" / "=")+
+
+urlAuthorityHost = urlAuthorityHostName (":" urlAuthorityPort)?
+
+urlAuthorityHostName
+  = domainName
+  / $(digits "." digits "." digits "." digits) // TODO: IPv4 and IPv6
+
+urlAuthorityPort
+  = digits // TODO: from "0" to "65535"
+
+urlPath = $("/" $(alpha / digit / safe)+ urlPath*)
+
+urlQuery = $("?" $(alpha / digit / safe)+)
+
+urlFragment = $("#" $(alpha / digit / safe)+)
