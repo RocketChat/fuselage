@@ -251,9 +251,9 @@ InlineCode = "`" text:Line "`" { return inlineCode(text); }
 
 LineCode "LineCode"
   = text:[^"\n"\`]+ "`"? { return codeLine(plain(text.join(''))); }
-  / "\n" text:[^"\n"\`]+ "`"? { return codeLine(plain(text.join(''))); }
+  / "\n"+ text:[^"\n"\`]+ "`"? { return codeLine(plain(text.join(''))); }
 
-MultiplelLineCode = "```\n" value:LineCode+ "\n```" { return code(value); }
+MultiplelLineCode = "```\n" value:LineCode+ "\n"+ "```" { return code(value); }
 
 // [Visit GitHub!](www.github.com)
 LinkTitle = "[" text:(Emphasis / Line) "]" { return text; }
