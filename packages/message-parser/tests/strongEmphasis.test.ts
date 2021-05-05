@@ -101,14 +101,16 @@ test.each([
       ]),
     ],
   ],
-  // [
-  //   '*__~bolditalicstrike~_*',
-  //   [
-  //     paragraph([
-  //       bold([plain('_'), italic([strike([plain('bolditalicstrike')])])]),
-  //     ]),
-  //   ],
-  // ],
+  ['*(teste*', [paragraph([bold([plain('(teste')])])]],
+  ['*(teste)*', [paragraph([bold([plain('(teste)')])])]],
+  [
+    '*__~bolditalicstrike~_*',
+    [
+      paragraph([
+        bold([plain('_'), italic([strike([plain('bolditalicstrike')])])]),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });

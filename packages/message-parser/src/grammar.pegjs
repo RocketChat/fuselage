@@ -25,13 +25,16 @@ start
 Blocks = teste:(MultiplelLineCode / Heading / Tasks / Section)
 
 Emphasis
-  = Bold
+  = t:[a-zA-Z]+ c:"__" { return plain(t.join('') + c); }
+  / t:[a-zA-Z]+ c:"_" { return plain(t.join('') + c); }
+  / Bold
   / Italic
   / Strikethrough
 
 Inline
   = value:(
       Emoji
+      / Whitespace
       / References
       / InlineCode
       / Phone
@@ -40,15 +43,25 @@ Inline
       / Color
       / UserMention
       / ChannelMention
+      / Text
       / Plain
     )+
     EndOfLine? { return paragraph(reducePlainTexts(value)); }
 
-Plain
-  = Line
-  / text:AnyText2 { return plain(text); }
+Whitespace = w:" "+ { return plain(w.join('')); }
 
-Digit1_9 = [1-9]
+Plain = text:anyText2 { return plain(text); }
+
+// = Line
+
+Line = t:line { return plain(t); }
+
+Text = text:anyText+ { return plain(text.join('')); }
+
+line
+  = head:Space* text:anyText+ tail:Space* {
+      return head.join('') + text.join('') + tail.join('');
+    }
 
 EOF = !.
 
@@ -68,7 +81,7 @@ Space
   = " "+
   / "\t"
 
-AnyText
+anyText
   = [\x20-\x27]
   / [\x2B-\x40]
   / [\x41-\x5A]
@@ -98,7 +111,7 @@ CodeText
   / EndOfLine
   / Space
 
-AnyText2
+anyText2
   = [\x20-\x40]
   / [\x41-\x60]
   / [\x61-\xFFFF]
@@ -111,21 +124,18 @@ SectionText
   / [\x61-\x7A]
   / nonascii
 
-Line = t:line { return plain(t); }
-
-line
-  = head:Space* text:AnyText+ tail:Space* {
-      return head.join('') + text.join('') + tail.join('');
-    }
-
-Heading = "# "+ text:Line { return heading([text], 1); }
+Heading
+  = "# "+ text:Line { return heading([text], 1); }
+  / "## "+ text:Line { return heading([text], 2); }
+  / "### "+ text:Line { return heading([text], 3); }
+  / "#### "+ text:Line { return heading([text], 4); }
 
 utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join(''); }
 
 UserMention = "@"+ user:utf8_names_validation { return mentionUser(user); }
 
 ChannelMention
-  = "#"+ channel:utf8_names_validation { return mentionChannel(channel); }
+  = "#" channel:utf8_names_validation { return mentionChannel(channel); }
 
 Emoji = ":" text:utf8_names_validation ":" { return emoji(text); }
 
@@ -143,7 +153,10 @@ Italic
   = [\x5F] [\x5F] i:Italic_Content [\x5F] [\x5F] { return i; }
   / [\x5F] i:Italic_Content [\x5F] { return i; }
 
-Italic_Content = text:(Bold / Strikethrough / Line)+ { return italic(text); }
+Italic_Content
+  = text:(Bold / Strikethrough / Line / AnyItalic)+ {
+      return italic(reducePlainTexts(text));
+    }
 
 /* **Bold** */
 /* *Bold* */
@@ -151,7 +164,10 @@ Bold
   = [\x2A] [\x2A] b:Bold_Content [\x2A] [\x2A] { return b; }
   / [\x2A] b:Bold_Content [\x2A] { return b; }
 
-Bold_Content = text:(Italic / Strikethrough / Line)+ { return bold(text); }
+Bold_Content
+  = text:(Italic / Strikethrough / Line / AnyBold)+ {
+      return bold(reducePlainTexts(text));
+    }
 
 /* ~~Mistaken text.~~ */
 /* ~Mistaken text.~ */
@@ -159,29 +175,31 @@ Strikethrough
   = [\x7E] [\x7E] s:Strikethrough_Content [\x7E] [\x7E] { return s; }
   / [\x7E] s:Strikethrough_Content [\x7E] { return s; }
 
-// Line = t:line { return plain(t); }
+Strikethrough_Content
+  = text:(Italic / Bold / Line / AnyStrike)+ {
+      return strike(reducePlainTexts(text));
+    }
 
-// line
-//   = head:Space* text:AnyText+ tail:Space* {
-//       return head.join('') + text.join('') + tail.join('');
-//     }
+AnyBold = t:[^\x0a\* ] { return plain(t); }
 
-Strikethrough_Content = text:(Italic / Bold / Line)+ { return strike(text); }
+AnyStrike = t:[^\x0a\~ ] { return plain(t); }
+
+AnyItalic = t:[^\x0a\_ ] { return plain(t); }
 
 ListItem
   = ("\x2A " / "\x2D ") text:ListText+ Space? { return text.join('').trim(); }
 
 TaskItem
-  = (("- [x] " / "- [ ] ") text:AnyText+ Space?) {
+  = (("- [x] " / "- [ ] ") text:anyText+ Space?) {
       return text.join('').trim();
     }
 
 OrderedListItem
-  = "  "? (Digit1_9+ "\x2E ") text:AnyText+ Space? {
+  = "  "? (digit1_9+ "\x2E ") text:anyText+ Space? {
       return text.join('').trim();
     }
 
-Paragraph = EndOfLine text:AnyText2 { return paragraph(text); }
+Paragraph = EndOfLine text:anyText2 { return paragraph(text); }
 
 Lists
   = lists:ListItem+ {
@@ -368,6 +386,8 @@ alpha = [a-zA-Z]
 
 digit = [0-9]
 
+digit1_9 = [1-9]
+
 digits = d:digit+ { return d.join(''); }
 
 alphanum
@@ -401,7 +421,7 @@ extra
 
 // color
 
-Color = "color:#" c:hexTuple !AnyText { return color('#' + c); }
+Color = "color:#" c:hexTuple !anyText { return color('#' + c); }
 
 hexdigit = [0-9A-Fa-f]
 

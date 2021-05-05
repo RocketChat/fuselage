@@ -3,21 +3,15 @@ import { italic, paragraph, plain, strike, bold, emoji } from '../src/utils';
 
 test.each([
   ['__italic__', [paragraph([italic([plain('italic')])])]],
-  [
-    'pre__italic__post',
-    [paragraph([plain('pre'), italic([plain('italic')]), plain('post')])],
-  ],
-  [
-    ' pre__italic__post ',
-    [paragraph([plain(' pre'), italic([plain('italic')]), plain('post ')])],
-  ],
+  ['pre__italic__post', [paragraph([plain('pre__italic__post')])]],
+  [' pre__italic__post', [paragraph([plain(' pre__italic__post')])]],
   [
     ' pre__**~~boldstrikeitalic~~**__post ',
     [
       paragraph([
-        plain(' pre'),
-        italic([bold([strike([plain('boldstrikeitalic')])])]),
-        plain('post '),
+        plain(' pre__'),
+        bold([strike([plain('boldstrikeitalic')])]),
+        plain('__post '),
       ]),
     ],
   ],
@@ -77,7 +71,7 @@ test.each([
       ]),
     ],
   ],
-  // ['text_hello_text', [paragraph([plain('text_hello_text')])]],
+  ['text_hello_text', [paragraph([plain('text_hello_text')])]],
   // ['_hello_text', [paragraph([plain('_hello_text')])]],
   // ['text_hello_', [paragraph([plain('text_hello_')])]],
 ])('parses %p', (input, output) => {
