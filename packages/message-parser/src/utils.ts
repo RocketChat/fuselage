@@ -6,6 +6,7 @@ import {
   Markup,
   Paragraph,
   Types,
+  Task,
 } from './definitions';
 
 const generate = <Type extends keyof Types>(type: Type) => (
@@ -49,7 +50,15 @@ export const bigEmoji = (value: BigEmoji['value']): BigEmoji => ({
   value,
 });
 
+export const task = (value: Task['value'], status: boolean): Task => ({
+  type: 'TASK',
+  status,
+  value,
+});
+
 export const inlineCode = generate('INLINE_CODE');
+export const tasks = generate('TASKS');
+
 export const italic = generate('ITALIC');
 
 export const plain = generate('PLAIN_TEXT');
