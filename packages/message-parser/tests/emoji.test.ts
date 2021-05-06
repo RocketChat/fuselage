@@ -18,6 +18,14 @@ test.each([
     [bigEmoji([emoji('smile'), emoji('smile'), emoji('smile')])],
   ],
   [
+    ' :smile::smile::smile: ',
+    [bigEmoji([emoji('smile'), emoji('smile'), emoji('smile')])],
+  ],
+  [
+    '\n :smile::smile::smile: \n',
+    [bigEmoji([emoji('smile'), emoji('smile'), emoji('smile')])],
+  ],
+  [
     ':smile:  :smile:  :smile:',
     [bigEmoji([emoji('smile'), emoji('smile'), emoji('smile')])],
   ],

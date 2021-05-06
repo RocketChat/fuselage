@@ -21,11 +21,11 @@
 }
 
 start
-  = BigEmoji
+  = EndOfLine? b:BigEmoji EndOfLine? { return b; }
   / (Blocks / Inline / EndOfLine { return paragraph([plain('')]); })+
 
 BigEmoji
-  = e1:Emoji Space* e2:Emoji? Space* e3:Emoji? {
+  = Space* e1:Emoji Space* e2:Emoji? Space* e3:Emoji? Space* {
       return [bigEmoji([e1, e2, e3].filter(Boolean))];
     }
 
