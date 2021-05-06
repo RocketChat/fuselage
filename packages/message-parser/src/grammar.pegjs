@@ -350,12 +350,6 @@ AutolinkedURL = u:URL { return link(u); }
 
 AutolinkedEmail = e:Email { return link('mailto:' + e, plain(e)); }
 
-xalpha
-  = alpha
-  / digit
-  / safe
-  / escape
-
 alpha = [a-zA-Z]
 
 digit = [0-9]
@@ -363,12 +357,6 @@ digit = [0-9]
 digit1_9 = [1-9]
 
 digits = d:digit+ { return d.join(''); }
-
-alphanum
-  = alpha
-  / digit
-
-xpalphas = a:xalpha+ { return a.join(''); }
 
 safe
   = "$"
