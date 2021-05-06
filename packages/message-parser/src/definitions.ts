@@ -9,7 +9,7 @@ export type OrderedList = {
 };
 
 export type UnorderedList = {
-  type: 'ORDERED_LIST';
+  type: 'UNORDERED_LIST';
   value: ListItem[];
 };
 
@@ -74,8 +74,6 @@ export type Quote = {
   type: 'QUOTE';
   value: Paragraph[];
 };
-
-export type Blocks = Code | Heading | Quote | Paragraph;
 
 export type Markup = Italic | Strike | Bold | Plain;
 export type MarkupExcluding<T extends Markup> = Exclude<Markup, T>;
@@ -180,6 +178,13 @@ export type Inlines =
   | Emoji
   | Color;
 
-export type Markdown = Array<Inlines | Blocks> | [BigEmoji];
+export type Blocks =
+  | Code
+  | Heading
+  | Quote
+  | ListItem
+  | Tasks
+  | OrderedList
+  | UnorderedList;
 
-export type ASTMessage = Blocks[];
+export type MarkdownAST = Array<Paragraph | Blocks> | [BigEmoji];
