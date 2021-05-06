@@ -289,7 +289,24 @@ UnorderedListItem_
   =  ("- ") text:Inline { return listItem(text, true); }
 
 UnorderedListItem__
-  =  ("* ") text:Inline { return listItem(text, true); }
+  =  ("* ") text:UnorderedListItem__Inline { return listItem(text, true); }
+
+UnorderedListItem__Inline
+  = value:
+  ( Whitespace
+    / Emoji
+    / References
+    / InlineCode
+    / AutolinkedPhone
+    / AutolinkedURL
+    / AutolinkedEmail
+    / Emphasis
+    / Color
+    / UserMention
+    / ChannelMention
+    / !'*' a:Any { return a }
+  )+
+  !'*' EndOfLine? { return reducePlainTexts(value); }
 
 OrderedList
   = lists:OrderedListItem+ {
