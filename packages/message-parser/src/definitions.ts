@@ -1,3 +1,8 @@
+export type Blockquote = {
+  type: 'BLOCKQUOTE';
+  value: Paragraph[];
+};
+
 export type OrderedList = {
   type: 'ORDERED_LIST';
   value: ListItem[];
@@ -67,7 +72,7 @@ export type Heading = {
 
 export type Quote = {
   type: 'QUOTE';
-  value: Inlines;
+  value: Paragraph[];
 };
 
 export type Blocks = Code | Heading | Quote | Paragraph;

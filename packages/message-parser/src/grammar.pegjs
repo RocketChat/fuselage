@@ -35,7 +35,8 @@ BigEmoji
     }
 
 Blocks
-  = MultiplelLineCode
+  = Blockquote
+  / MultiplelLineCode
   / Heading
   / TaskList
   / OrderedList
@@ -262,6 +263,12 @@ Lists
         lists: lists,
       };
     }
+
+Blockquote = b:BlockquoteItem+ {
+  return quote(b)
+}
+
+BlockquoteItem = "> " p:Paragraph { return p }
 
 // - [ ] this is an incomplete item
 // - [x] this is a complete item
