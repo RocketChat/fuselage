@@ -451,7 +451,7 @@ phonePrefix
 
 URL
   = s:urlScheme a:urlAuthority p:urlPath? q:urlQuery? f:urlFragment? {
-      const href = s + a + (p ?? '') + (q ?? '') + (f ?? '');
+      const href = [s, a, p, q, f].filter(Boolean).join('');
       // const url = {
       //   href,
       //   scheme: s,
