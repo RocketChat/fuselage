@@ -1,3 +1,18 @@
+export type OrderedList = {
+  type: 'ORDERED_LIST';
+  value: ListItem[];
+};
+
+export type UnorderedList = {
+  type: 'ORDERED_LIST';
+  value: ListItem[];
+};
+
+export type ListItem = {
+  type: 'LIST_ITEM';
+  value: Inlines[];
+};
+
 export type Tasks = {
   type: 'TASKS';
   value: Task[];
@@ -121,7 +136,10 @@ export type Types = {
   BIG_EMOJI: BigEmoji;
   COLOR: Color;
   TASKS: Tasks;
-  TASK: TaskS;
+  TASK: Task;
+  UNORDERED_LIST: UnorderedList;
+  ORDERED_LIST: OrderedList;
+  LIST_ITEM: ListItem;
 };
 
 export type ASTNode =

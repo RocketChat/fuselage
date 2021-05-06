@@ -18,7 +18,10 @@
     color,
     bigEmoji,
     tasks,
-    task
+    task,
+    orderedList,
+    listItem,
+    unorderedList
   } = require('./utils');
 }
 
@@ -35,7 +38,9 @@ Blocks
   = MultiplelLineCode
   / Heading
   / TaskList
-  / Section
+  / OrderedList
+  / UnorderedList
+  // / Section
 
 Emphasis
   = Bold
@@ -251,11 +256,6 @@ AnyItalic = t:[^\x0a\_ ] { return plain(t); }
 ListItem
   = ("\x2A " / "\x2D ") text:ListText+ Space? { return text.join('').trim(); }
 
-OrderedListItem
-  = "  "? (digit1_9+ "\x2E ") text:anyText+ Space? {
-      return text.join('').trim();
-    }
-
 Lists
   = lists:ListItem+ {
       return {
@@ -264,6 +264,7 @@ Lists
     }
 
 // - [ ] this is an incomplete item
+// - [x] this is a complete item
 TaskList
   = t:TaskItem+ {
       return tasks(t);
@@ -272,12 +273,30 @@ TaskList
 TaskItem = "- [x] " text:Inline  { return task(text, true); }
         / "- [ ] " text:Inline  { return task(text, false); }
 
-OrderedLists
+
+UnorderedList = UnorderedList_ / UnorderedList__
+
+
+UnorderedList_ = lists:UnorderedListItem_+ {
+  return unorderedList(lists)
+}
+
+UnorderedList__ = lists:UnorderedListItem__+ {
+  return unorderedList(lists)
+}
+
+UnorderedListItem_
+  =  ("- ") text:Inline { return listItem(text, true); }
+
+UnorderedListItem__
+  =  ("* ") text:Inline { return listItem(text, true); }
+
+OrderedList
   = lists:OrderedListItem+ {
-      return {
-        listsOrdered: lists,
-      };
+      return orderedList(lists)
     }
+OrderedListItem
+  =  (digit1_9+ "\x2E ") text:Inline { return listItem(text, true); }
 
 Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
 

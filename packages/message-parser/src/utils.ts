@@ -75,6 +75,15 @@ export const mentionChannel = (() => {
   const fn = generate('MENTION_CHANNEL');
   return (value: string) => fn(plain(value));
 })();
+
+export const orderedList = generate('ORDERED_LIST');
+
+export const unorderedList = generate('UNORDERED_LIST');
+
+export const listItem = generate('LIST_ITEM');
+
+export const list = generate('ORDERED_LIST');
+
 export const mentionUser = (() => {
   const fn = generate('MENTION_USER');
   return (value: string) => fn(plain(value));
