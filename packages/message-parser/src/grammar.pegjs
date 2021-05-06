@@ -53,14 +53,13 @@ Inline
       / Color
       / UserMention
       / ChannelMention
-      / Text
-      / Plain
+      / Any
     )+
     EndOfLine? { return paragraph(reducePlainTexts(value)); }
 
 Whitespace = w:" "+ { return plain(w.join('')); }
 
-Plain = text:anyText2 { return plain(text); }
+Any = !EndOfLine t:. { return plain(t); }
 
 Extra = e:extra { return plain(e); }
 
