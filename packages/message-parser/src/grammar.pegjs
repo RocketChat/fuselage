@@ -17,12 +17,14 @@
     emoji,
     color,
     bigEmoji,
+    tasks,
+    task
   } = require('./utils');
 }
 
 start
   = EndOfLine? b:BigEmoji EndOfLine? { return b; }
-  / (Blocks / Inline / EndOfLine { return paragraph([plain('')]); })+
+  / (Blocks / Paragraph / EndOfLine { return paragraph([plain('')]); })+
 
 BigEmoji
   = Space* e1:Emoji Space* e2:Emoji? Space* e3:Emoji? Space* {
@@ -32,7 +34,7 @@ BigEmoji
 Blocks
   = MultiplelLineCode
   / Heading
-  / Tasks
+  / TaskList
   / Section
 
 Emphasis
@@ -40,26 +42,47 @@ Emphasis
   / Italic
   / Strikethrough
 
-Inline
-  = value:(
-      Whitespace
-      / Emoji
-      / References
-      / InlineCode
-      / AutolinkedPhone
-      / AutolinkedURL
-      / AutolinkedEmail
-      / Emphasis
-      / Color
-      / UserMention
-      / ChannelMention
-      / Any
-    )+
+
+Paragraph
+= value:
+  ( Whitespace
+    / Emoji
+    / References
+    / InlineCode
+    / AutolinkedPhone
+    / AutolinkedURL
+    / AutolinkedEmail
+    / Emphasis
+    / Color
+    / UserMention
+    / ChannelMention
+    / Any
+
+  )+
     EndOfLine? { return paragraph(reducePlainTexts(value)); }
+
+Inline
+  = value:
+  ( Whitespace
+    / Emoji
+    / References
+    / InlineCode
+    / AutolinkedPhone
+    / AutolinkedURL
+    / AutolinkedEmail
+    / Emphasis
+    / Color
+    / UserMention
+    / ChannelMention
+    / Any
+  )+
+    EndOfLine? { return reducePlainTexts(value); }
 
 Whitespace = w:" "+ { return plain(w.join('')); }
 
-Any = !EndOfLine t:. { return plain(t); }
+Any = !EndOfLine t:any { return plain(t); }
+
+any = $.
 
 Extra = e:extra { return plain(e); }
 
@@ -228,17 +251,10 @@ AnyItalic = t:[^\x0a\_ ] { return plain(t); }
 ListItem
   = ("\x2A " / "\x2D ") text:ListText+ Space? { return text.join('').trim(); }
 
-TaskItem
-  = (("- [x] " / "- [ ] ") text:anyText+ Space?) {
-      return text.join('').trim();
-    }
-
 OrderedListItem
   = "  "? (digit1_9+ "\x2E ") text:anyText+ Space? {
       return text.join('').trim();
     }
-
-Paragraph = EndOfLine text:anyText2 { return paragraph(text); }
 
 Lists
   = lists:ListItem+ {
@@ -248,12 +264,13 @@ Lists
     }
 
 // - [ ] this is an incomplete item
-Tasks
-  = tasks:TaskItem+ {
-      return {
-        tasks: tasks,
-      };
+TaskList
+  = t:TaskItem+ {
+      return tasks(t);
     }
+
+TaskItem = "- [x] " text:Inline  { return task(text, true); }
+        / "- [ ] " text:Inline  { return task(text, false); }
 
 OrderedLists
   = lists:OrderedListItem+ {

@@ -1,3 +1,13 @@
+export type Tasks = {
+  type: 'TASKS';
+  value: Task[];
+};
+export type Task = {
+  type: 'TASK';
+  status: boolean;
+  value: Inlines[];
+};
+
 export type CodeLine = {
   type: 'CODE_LINE';
   value: Plain;
@@ -110,6 +120,8 @@ export type Types = {
   EMOJI: Emoji;
   BIG_EMOJI: BigEmoji;
   COLOR: Color;
+  TASKS: Tasks;
+  TASK: TaskS;
 };
 
 export type ASTNode =
@@ -128,7 +140,8 @@ export type ASTNode =
   | UserMention
   | ChannelMention
   | Emoji
-  | Color;
+  | Color
+  | Tasks;
 
 export type TypesKeys = keyof Types;
 
