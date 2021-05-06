@@ -54,7 +54,8 @@
     "@rocket.chat/fuselage-polyfills": "*",
     "@rocket.chat/icons": "*",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-virtuoso": "1.2.4"
   },
   "dependencies": {
     "@rocket.chat/css-in-js": "^0.24.0",
@@ -109,6 +110,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-live": "^2.2.2",
+    "react-virtuoso": "1.2.4",
     "rimraf": "^3.0.2",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.1",
