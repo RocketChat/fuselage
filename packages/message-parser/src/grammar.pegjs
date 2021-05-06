@@ -94,7 +94,7 @@ Space
   / "\t"
 
 anyText
-  = [\x20-\x27]
+  = [\x20-\x27] /*     ! " # $ % & ' ( )   */
   / [\x2B-\x40]
   / [\x41-\x5A]
   / [\x61-\x7A]
@@ -144,7 +144,11 @@ Heading
 
 utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join(''); }
 
-UserMention = "@"+ user:utf8_names_validation { return mentionUser(user); }
+UserMention
+  = t:Text "@"+ user:utf8_names_validation {
+      return reducePlainTexts([t, plain('@' + user)])[0];
+    }
+  / "@"+ user:utf8_names_validation { return mentionUser(user); }
 
 ChannelMention
   = t:Text "#" channel:utf8_names_validation {
@@ -387,6 +391,9 @@ extra
   / " "
   / "("
   / ")"
+  / "?"
+  / "#"
+  / "="
 
 hexdigit = [0-9A-Fa-f]
 
@@ -394,9 +401,13 @@ hexNible = a:hexdigit { return parseInt(a + a, 16); }
 
 hexByte = a:hexdigit b:hexdigit { return parseInt(a + b, 16); }
 
-domainName = $(domainNameLabel ("." domainNameLabel)*)
+domainName
+  = "localhost"
+  / $(domainNameLabel ("." domainNameLabel)+)
 
-domainNameLabel = $([a-z0-9]+ $("-" [a-z0-9]+)*)
+domainNameLabel = $(domainChar domainChar+ $("-" domainChar+)*)
+
+domainChar = !safe !extra !EndOfLine !Space .
 
 /**
  *

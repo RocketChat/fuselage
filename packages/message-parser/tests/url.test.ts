@@ -2,8 +2,12 @@ import { parser } from '../src';
 import { link, paragraph, plain } from '../src/utils';
 
 test.each([
+  ['https://test', [paragraph([plain('https://test')])]],
   ['http:/rocket.chat/teste', [paragraph([plain('http:/rocket.chat/teste')])]],
-  ['https://rocket.chat/test', [paragraph([link('https://rocket.chat/test')])]],
+  [
+    'httpsss://rocket.chat/test',
+    [paragraph([link('httpsss://rocket.chat/test')])],
+  ],
   [
     'https://rocket.chat:3000/test',
     [paragraph([link('https://rocket.chat:3000/test')])],
