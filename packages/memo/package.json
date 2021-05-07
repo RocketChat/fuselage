@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/memo",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "description": "Memoization utilities",
   "keywords": [
     "memoize"
@@ -16,7 +16,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "directory": "packages/memo"
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -37,7 +38,8 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "devDependencies": {
-    "@types/react": "^16.14.0",
+    "@rocket.chat/eslint-config-alt": "^0.24.0",
+    "@rocket.chat/prettier-config": "^0.24.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",

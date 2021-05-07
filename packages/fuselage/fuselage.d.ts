@@ -1,6 +1,8 @@
+type FontScale = 'h1' | 's1' | 's2' | 'p1' | 'p2' | 'c1' | 'c2' | 'micro';
+
 declare module '@rocket.chat/fuselage' {
   import type { css } from '@rocket.chat/css-in-js';
-  import { Placements } from '@rocket.chat/fuselage-hooks';
+  import type { Placements } from '@rocket.chat/fuselage-hooks';
   import {
     AllHTMLAttributes,
     Context,
@@ -15,8 +17,6 @@ declare module '@rocket.chat/fuselage' {
     SetStateAction,
     SVGAttributes,
   } from 'react';
-
-  type FontScale = 'h1' | 's1' | 's2' | 'p1' | 'p2' | 'c1' | 'c2' | 'micro';
 
   type BoxProps = PropsWithChildren<{
     is?: ElementType;
@@ -171,7 +171,7 @@ declare module '@rocket.chat/fuselage' {
   };
   export const ActionButton: ForwardRefExoticComponent<ActionButtonProps>;
 
-  type AutoCompleteProps = {
+  export type AutoCompleteProps = {
     value: unknown[];
     filter: string;
     setFilter?: (filter: string) => void;
@@ -188,7 +188,7 @@ declare module '@rocket.chat/fuselage' {
   };
   export const AutoComplete: FC<AutoCompleteProps>;
 
-  type AvatarProps = Omit<BoxProps, 'title' | 'size'> & {
+  export type AvatarProps = Omit<BoxProps, 'title' | 'size'> & {
     title?: string;
     size?:
       | 'x16'
@@ -213,7 +213,7 @@ declare module '@rocket.chat/fuselage' {
     }>;
   };
 
-  type BadgeProps = {
+  export type BadgeProps = {
     is?: ElementType;
     variant?: 'primary' | 'danger' | 'warning';
     disabled?: boolean;
@@ -232,10 +232,10 @@ declare module '@rocket.chat/fuselage' {
     variant?: 'neutral' | 'info' | 'success' | 'warning' | 'danger';
     onAction?: () => void;
     onClose?: () => void;
-  } & AllHTMLAttributes<HTMLSectionElement>;
+  } & AllHTMLAttributes<HTMLElement>;
   export const Banner: FC<BannerProps>;
 
-  type ButtonProps = BoxProps & {
+  export type ButtonProps = BoxProps & {
     info?: boolean;
     success?: boolean;
     warning?: boolean;
@@ -294,7 +294,7 @@ declare module '@rocket.chat/fuselage' {
   type FieldGroupProps = BoxProps;
   export const FieldGroup: ForwardRefExoticComponent<FieldGroupProps>;
 
-  type IconProps = Omit<BoxProps, 'size'> & {
+  export type IconProps = Omit<BoxProps, 'size'> & {
     size?: BoxProps['width'];
   };
   export const Icon: ForwardRefExoticComponent<IconProps>;
@@ -313,7 +313,7 @@ declare module '@rocket.chat/fuselage' {
           title: string;
           icon: string;
         };
-        action: Function;
+        action: () => void;
       };
     };
     optionWidth?: BoxProps['width'];
@@ -371,6 +371,7 @@ declare module '@rocket.chat/fuselage' {
   type PaginationProps = BoxProps & {
     count: number;
     current?: number;
+    divider?: boolean;
     itemsPerPage?: 25 | 50 | 100;
     itemsPerPageLabel?: () => string;
     showingResultsLabel?: (props: {
@@ -387,6 +388,12 @@ declare module '@rocket.chat/fuselage' {
     error?: string;
   };
   export const PasswordInput: ForwardRefExoticComponent<PasswordInputProps>;
+
+  type ProgressBarProps = BoxProps & {
+    percentage?: number;
+    error?: string;
+  };
+  export const ProgressBar: ForwardRefExoticComponent<ProgressBarProps>;
 
   type SearchInputProps = BoxProps & {
     addon?: ReactNode;
@@ -424,7 +431,7 @@ declare module '@rocket.chat/fuselage' {
   type TextAreaInputProps = BoxProps;
   export const TextAreaInput: ForwardRefExoticComponent<TextAreaInputProps>;
 
-  type TextInputProps = BoxProps & {
+  export type TextInputProps = BoxProps & {
     addon?: ReactNode;
     error?: string;
   };
@@ -433,9 +440,11 @@ declare module '@rocket.chat/fuselage' {
   type TileProps = BoxProps;
   export const Tile: ForwardRefExoticComponent<TileProps>;
 
-  type ThrobberProps = Omit<BoxProps, 'size'> & {
-    size?: BoxProps['width'];
+  type ThrobberProps = Omit<BoxProps, 'disabled' | 'size'> & {
+    circleCount?: number;
+    disabled?: boolean;
     inheritColor?: boolean;
+    size?: BoxProps['width'];
   };
   export const Throbber: ForwardRefExoticComponent<ThrobberProps>;
 
@@ -453,23 +462,26 @@ declare module '@rocket.chat/fuselage' {
   }>;
   export const Margins: ForwardRefExoticComponent<MarginsProps>;
 
-  type ScrollableProps = PropsWithChildren<{
+  export type ScrollableProps = PropsWithChildren<{
     horizontal?: boolean;
     vertical?: boolean;
     onScrollContent?: (touching: { top: boolean }) => void;
   }>;
   export const Scrollable: ForwardRefExoticComponent<ScrollableProps>;
 
-  type SelectOptions = [string, string][];
-  type SelectProps = BoxProps & {
+  export type SelectOptions = [string, string][];
+  type SelectProps = Omit<BoxProps, 'onChange'> & {
     error?: string;
     options: SelectOptions;
+    onChange: (value: string) => void;
   };
   export const Select: ForwardRefExoticComponent<SelectProps>;
 
   type StatusBulletProps = {
     status?: 'loading' | 'online' | 'busy' | 'away' | 'offline';
     size?: 'small' | 'large';
-  } & Omit<AllHTMLAttributes<HTMLSpanElement>, 'size'>;
+  } & Omit<AllHTMLAttributes<HTMLElement>, 'size'>;
   export const StatusBullet: FC<StatusBulletProps>;
+
+  export * from './dist/index.d';
 }
