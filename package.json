@@ -6,7 +6,7 @@
   ],
   "devDependencies": {
     "husky": "^5.1.1",
-    "lerna": "^3.20.2"
+    "lerna": "^4.0.0"
   },
   "scripts": {
     "build": "yarn workspaces foreach -vt run build",
