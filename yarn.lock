@@ -4882,7 +4882,7 @@ __metadata:
     rollup: ^2.47.0
     rollup-plugin-terser: ^7.0.2
     stylis: ^4.0.6
-    ts-jest: ^26.4.4
+    ts-jest: ^26.5.6
     typescript: ^4.1.3
   languageName: unknown
   linkType: soft
@@ -4909,7 +4909,7 @@ __metadata:
     rimraf: ^3.0.2
     rollup: ^2.47.0
     rollup-plugin-terser: ^7.0.2
-    ts-jest: ^26.4.4
+    ts-jest: ^26.5.6
     typescript: ^4.1.3
   languageName: unknown
   linkType: soft
@@ -4971,7 +4971,7 @@ __metadata:
     "@types/use-subscription": ^1.0.0
     documentation: ^13.2.1
     eslint: ^7.25.0
-    jest: ^26.0.1
+    jest: ^26.6.3
     lint-staged: ^11.0.0
     npm-run-all: ^4.1.5
     prettier: ^2.2.1
@@ -4980,7 +4980,7 @@ __metadata:
     rimraf: ^3.0.2
     rollup: ^2.47.0
     rollup-plugin-terser: ^7.0.2
-    ts-jest: ^26.1.0
+    ts-jest: ^26.5.6
     typescript: ^4.0.3
     use-subscription: ^1.5.1
   peerDependencies:
@@ -5110,7 +5110,7 @@ __metadata:
     eslint-plugin-mdx: ^1.13.0
     identity-obj-proxy: ^3.0.0
     invariant: ^2.2.4
-    jest: ^26.6.1
+    jest: ^26.6.3
     lint-staged: ^11.0.0
     loki: ^0.25.1
     normalize.css: ^8.0.1
@@ -5135,7 +5135,7 @@ __metadata:
     stylelint-order: ^4.1.0
     stylelint-prettier: ^1.2.0
     stylelint-scss: ^3.19.0
-    ts-jest: ^26.5.1
+    ts-jest: ^26.5.6
     ts-loader: ^9.1.2
     typescript: ^4.1.5
     webpack: ^5.36.2
@@ -5211,7 +5211,7 @@ __metadata:
     prettier: ^2.2.1
     prettier-plugin-pegjs: ^0.3.2
     rimraf: ^3.0.2
-    ts-jest: ^26.5.5
+    ts-jest: ^26.5.6
     ts-loader: ^9.1.2
     typescript: ^4.2.4
     webpack: ^5.36.2
@@ -5275,7 +5275,7 @@ __metadata:
     npm-run-all: ^4.1.5
     prettier: ^2.2.1
     rimraf: ^3.0.2
-    ts-jest: ^26.5.5
+    ts-jest: ^26.5.6
     tslib: ^2.2.0
     typescript: ^4.2.4
   languageName: unknown
@@ -5300,7 +5300,7 @@ __metadata:
     npm-run-all: ^4.1.5
     prettier: ^2.2.1
     rimraf: ^3.0.2
-    ts-jest: ^26.4.4
+    ts-jest: ^26.5.6
     ts-loader: ^9.1.2
     typescript: ^4.1.3
     webpack: ^5.36.2
@@ -6393,16 +6393,6 @@ __metadata:
   dependencies:
     "@types/istanbul-lib-report": "*"
   checksum: 8aee794ea2e8065aa83e0a1017420068d10110f5e67f8473f5751e74462509306c451f79db3856e6848507519bf1d4de7d101daede6539701cc4d74b4646acd9
-  languageName: node
-  linkType: hard
-
-"@types/jest@npm:26.x":
-  version: 26.0.15
-  resolution: "@types/jest@npm:26.0.15"
-  dependencies:
-    jest-diff: ^26.0.0
-    pretty-format: ^26.0.0
-  checksum: 42fe39d582de1d79f9d6b96f3dee43ba2e9336c9d1f0e31c4f2f58bbaa059c9f4295c42a213ea9450f91400515a3abde4aae2673522fc6e11ea33f7e21c25dbe
   languageName: node
   linkType: hard
 
@@ -16488,7 +16478,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"jest@npm:^26.0.1, jest@npm:^26.6.1, jest@npm:^26.6.3":
+"jest@npm:^26.6.3":
   version: 26.6.3
   resolution: "jest@npm:26.6.3"
   dependencies:
@@ -17226,7 +17216,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"lodash.memoize@npm:4.x, lodash.memoize@npm:^4.1.2":
+"lodash.memoize@npm:^4.1.2":
   version: 4.1.2
   resolution: "lodash.memoize@npm:4.1.2"
   checksum: 080c1095b7795b293a06078737550dc0c8138192cadbafb4e4b1303357d367ac589a1a570fad8de154175b008ca7b2b48d6a7f1755a143e13b764e20a7104080
@@ -24990,57 +24980,9 @@ resolve@~1.17.0:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^26.1.0, ts-jest@npm:^26.4.4":
-  version: 26.4.4
-  resolution: "ts-jest@npm:26.4.4"
-  dependencies:
-    "@types/jest": 26.x
-    bs-logger: 0.x
-    buffer-from: 1.x
-    fast-json-stable-stringify: 2.x
-    jest-util: ^26.1.0
-    json5: 2.x
-    lodash.memoize: 4.x
-    make-error: 1.x
-    mkdirp: 1.x
-    semver: 7.x
-    yargs-parser: 20.x
-  peerDependencies:
-    jest: ">=26 <27"
-    typescript: ">=3.8 <5.0"
-  bin:
-    ts-jest: cli.js
-  checksum: bee46b789c13a9f195c80fbb201362c6c2e5150abb5aeb3699c4ccc17b9bc9c4b229e06230c5a23bf8f17bfd05311c33a4ea33a7641683e8a4bec21529f4da77
-  languageName: node
-  linkType: hard
-
-"ts-jest@npm:^26.5.1":
-  version: 26.5.1
-  resolution: "ts-jest@npm:26.5.1"
-  dependencies:
-    "@types/jest": 26.x
-    bs-logger: 0.x
-    buffer-from: 1.x
-    fast-json-stable-stringify: 2.x
-    jest-util: ^26.1.0
-    json5: 2.x
-    lodash: 4.x
-    make-error: 1.x
-    mkdirp: 1.x
-    semver: 7.x
-    yargs-parser: 20.x
-  peerDependencies:
-    jest: ">=26 <27"
-    typescript: ">=3.8 <5.0"
-  bin:
-    ts-jest: cli.js
-  checksum: f054d4ef42740981688ebd5f314a864a8027ee2e02d2df4bfa7579148da59dda089224f2ea30ee16d9e919ec29fb50c5da953a6bd4573b6599c3aad46a2dd6cb
-  languageName: node
-  linkType: hard
-
-"ts-jest@npm:^26.5.5":
-  version: 26.5.5
-  resolution: "ts-jest@npm:26.5.5"
+"ts-jest@npm:^26.5.6":
+  version: 26.5.6
+  resolution: "ts-jest@npm:26.5.6"
   dependencies:
     bs-logger: 0.x
     buffer-from: 1.x
@@ -25057,7 +24999,7 @@ resolve@~1.17.0:
     typescript: ">=3.8 <5.0"
   bin:
     ts-jest: cli.js
-  checksum: a7fe56357bfd7e7cd833ea4a97408910ee67796fb7f3938c7155c69dc7b35f3172b76503e16282715e07a4a2b5026efd4803f0b090b3930e0c79c58d25b740db
+  checksum: fd32a8b256091d45d850c491fd090f74a368d44bccc8fedfa0dd074757727e7f07621eb2a69ebf081428f44a357a879237a2cf0aef970896410d454d0bf87ac6
   languageName: node
   linkType: hard
 
