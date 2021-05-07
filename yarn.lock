@@ -5436,8 +5436,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.24.0
-    "@rocket.chat/prettier-config": ^0.24.0
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^26.0.23
     downlevel-dts: ^0.7.0
     eslint: ^7.24.0
