@@ -5046,10 +5046,10 @@ __metadata:
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/memo": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    "@rollup/plugin-commonjs": ^17.0.0
+    "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
-    "@rollup/plugin-node-resolve": ^11.0.1
-    "@rollup/plugin-typescript": ^8.1.0
+    "@rollup/plugin-node-resolve": ^13.0.0
+    "@rollup/plugin-typescript": ^8.2.1
     "@types/jest": ^26.0.23
     "@types/stylis": ^4.0.0
     documentation: ^13.2.1
@@ -5057,7 +5057,7 @@ __metadata:
     jest: ^26.6.3
     lint-staged: ^10.5.4
     prettier: ^2.2.1
-    rollup: ^2.35.1
+    rollup: ^2.47.0
     rollup-plugin-terser: ^7.0.2
     stylis: ^4.0.6
     ts-jest: ^26.4.4
@@ -5073,10 +5073,10 @@ __metadata:
     "@microsoft/api-extractor": ^7.12.1
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    "@rollup/plugin-commonjs": ^17.0.0
+    "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
-    "@rollup/plugin-node-resolve": ^11.0.1
-    "@rollup/plugin-typescript": ^8.1.0
+    "@rollup/plugin-node-resolve": ^13.0.0
+    "@rollup/plugin-typescript": ^8.2.1
     "@types/jest": ^26.0.23
     documentation: ^13.2.1
     eslint: ^7.24.0
@@ -5085,7 +5085,7 @@ __metadata:
     npm-run-all: ^4.1.5
     prettier: ^2.2.1
     rimraf: ^3.0.2
-    rollup: ^2.35.1
+    rollup: ^2.47.0
     rollup-plugin-terser: ^7.0.2
     ts-jest: ^26.4.4
     typescript: ^4.1.3
@@ -5138,10 +5138,10 @@ __metadata:
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/fuselage-tokens": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    "@rollup/plugin-commonjs": ^15.1.0
+    "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
-    "@rollup/plugin-node-resolve": ^9.0.0
-    "@rollup/plugin-typescript": ^6.0.0
+    "@rollup/plugin-node-resolve": ^13.0.0
+    "@rollup/plugin-typescript": ^8.2.1
     "@types/jest": ^26.0.23
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
@@ -5156,7 +5156,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     rimraf: ^3.0.2
-    rollup: ^2.21.0
+    rollup: ^2.47.0
     rollup-plugin-terser: ^7.0.2
     ts-jest: ^26.1.0
     typescript: ^4.0.3
@@ -5407,9 +5407,9 @@ __metadata:
     "@babel/preset-typescript": ^7.12.7
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    "@rollup/plugin-commonjs": ^17.0.0
-    "@rollup/plugin-node-resolve": ^11.0.1
-    "@rollup/plugin-typescript": ^8.1.0
+    "@rollup/plugin-commonjs": ^19.0.0
+    "@rollup/plugin-node-resolve": ^13.0.0
+    "@rollup/plugin-typescript": ^8.2.1
     "@types/jest": ^26.0.23
     documentation: ^13.2.1
     eslint: ^7.24.0
@@ -5417,7 +5417,7 @@ __metadata:
     lamejs: "https://github.com/zhuker/lamejs"
     lint-staged: ^10.5.4
     prettier: ^2.2.1
-    rollup: ^2.35.1
+    rollup: ^2.47.0
     typescript: ^4.1.3
   languageName: unknown
   linkType: soft
@@ -5486,9 +5486,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rollup/plugin-commonjs@npm:^15.1.0":
-  version: 15.1.0
-  resolution: "@rollup/plugin-commonjs@npm:15.1.0"
+"@rollup/plugin-commonjs@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "@rollup/plugin-commonjs@npm:19.0.0"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     commondir: ^1.0.1
@@ -5498,25 +5498,8 @@ __metadata:
     magic-string: ^0.25.7
     resolve: ^1.17.0
   peerDependencies:
-    rollup: ^2.22.0
-  checksum: 307bdc17f35807559ca5796137a1a620b6c9311a6f62166d38ce78f793cd10883843c4c13b7c39f547cefcc0d06e442fc8c746e003077b96df76ec0e6b1eaa4f
-  languageName: node
-  linkType: hard
-
-"@rollup/plugin-commonjs@npm:^17.0.0":
-  version: 17.0.0
-  resolution: "@rollup/plugin-commonjs@npm:17.0.0"
-  dependencies:
-    "@rollup/pluginutils": ^3.1.0
-    commondir: ^1.0.1
-    estree-walker: ^2.0.1
-    glob: ^7.1.6
-    is-reference: ^1.2.1
-    magic-string: ^0.25.7
-    resolve: ^1.17.0
-  peerDependencies:
-    rollup: ^2.30.0
-  checksum: f2966f591491319e7f8d2b4baf63f2ace92d4e5940bb76b5a571c877388e7ceb5bfbe5cc558da556f9cc3f56c4407ba585716aa9ecec72b5bc624f48c115dee0
+    rollup: ^2.38.3
+  checksum: e6dd7c68f5256482f97e2aeef4fc7621c990d18c8ddf7f6d1a3de052f88f837507886d345a6d12c35290ed8dd3ce5cb9bf31ac1c5ea74d4a10bada297d53a251
   languageName: node
   linkType: hard
 
@@ -5531,9 +5514,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:^11.0.1":
-  version: 11.0.1
-  resolution: "@rollup/plugin-node-resolve@npm:11.0.1"
+"@rollup/plugin-node-resolve@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "@rollup/plugin-node-resolve@npm:13.0.0"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     "@types/resolve": 1.17.1
@@ -5542,52 +5525,22 @@ __metadata:
     is-module: ^1.0.0
     resolve: ^1.19.0
   peerDependencies:
-    rollup: ^1.20.0||^2.0.0
-  checksum: bbec78fba9faab9e82b8f019d8883f119b2aa59cf90aa86f48767242235e39ca76ac2d130f0404553b2fa89dbd8fef90e32159642618f1e75ced7029f1bcece5
+    rollup: ^2.42.0
+  checksum: 4b323e8ad5f1245449cd44b4857ed94a8dd3b998178ce139e74542c216a5abeb5a9e44885f3809ac747296a108f0562f986f9561055e76d1b0b268cf788a5c83
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "@rollup/plugin-node-resolve@npm:9.0.0"
-  dependencies:
-    "@rollup/pluginutils": ^3.1.0
-    "@types/resolve": 1.17.1
-    builtin-modules: ^3.1.0
-    deepmerge: ^4.2.2
-    is-module: ^1.0.0
-    resolve: ^1.17.0
-  peerDependencies:
-    rollup: ^1.20.0||^2.0.0
-  checksum: 34576bbd9cfb096ed6fcce256e9210995144ccfd352ef09134507a7c6b479cee20da2896525ebf8bf139d9a31e8eec4b6787ed9de3209ee6610a949dc9f7c268
-  languageName: node
-  linkType: hard
-
-"@rollup/plugin-typescript@npm:^6.0.0":
-  version: 6.1.0
-  resolution: "@rollup/plugin-typescript@npm:6.1.0"
+"@rollup/plugin-typescript@npm:^8.2.1":
+  version: 8.2.1
+  resolution: "@rollup/plugin-typescript@npm:8.2.1"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     resolve: ^1.17.0
   peerDependencies:
     rollup: ^2.14.0
     tslib: "*"
-    typescript: ">=3.4.0"
-  checksum: a90e81b60f3364e1d6e139357020d6c759df1ca1745edb756430ae79cb66ed1d4d1325a64ad7dd3bcc7f2dc8907f70bd27f2e7c360b7b3d95b87cb7cb5ec75b9
-  languageName: node
-  linkType: hard
-
-"@rollup/plugin-typescript@npm:^8.1.0":
-  version: 8.1.0
-  resolution: "@rollup/plugin-typescript@npm:8.1.0"
-  dependencies:
-    "@rollup/pluginutils": ^3.1.0
-    resolve: ^1.17.0
-  peerDependencies:
-    rollup: ^2.14.0
-    tslib: "*"
-    typescript: ">=3.4.0"
-  checksum: abc36e1ec975d951259b613087ea65fce32564a9977ba3f9e340e1af2bd31bdc8030bacd34d3c6c1707538bc60d34348c224f1357b39a90f5a20041804aa6ee4
+    typescript: ">=3.7.0"
+  checksum: 87f0a8308c734ee4f0e2c3bba4df5ac9965ae6f2ee8d77fd4ea2056030eff2882c51a3b056c06ca0ecc4f2d356885cbbc80cac366d40595d7dd7b89b0f38bfba
   languageName: node
   linkType: hard
 
@@ -14032,12 +13985,30 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"fsevents@patch:fsevents@~2.3.1#builtin<compat/fsevents>":
+  version: 2.3.2
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"
+  dependencies:
+    node-gyp: latest
+  checksum: 7b25d9251aefe433d508a0eb614217f0495ae05a9e8af15f7dbf9998e08c4e675acd1cf32361e0fcf71d917d9e8c4b76301fdc72a1ec1105a3ea0994f5e15a8d
+  languageName: node
+  linkType: hard
+
 fsevents@~2.1.2:
   version: 2.1.3
   resolution: "fsevents@npm:2.1.3"
   dependencies:
     node-gyp: latest
   checksum: 8977781884d06c5bcb97b5f909efdce9683c925f2a0ce7e098d2cdffe2e0a0a50b1868547bb94dca75428c06535a4a70517a7bb3bb5a974d93bf9ffc067291eb
+  languageName: node
+  linkType: hard
+
+fsevents@~2.3.1:
+  version: 2.3.2
+  resolution: "fsevents@npm:2.3.2"
+  dependencies:
+    node-gyp: latest
+  checksum: a1883f4ca12b8b403ec528f1a4cb312b0877eacd24719da535cabea78d6fdd78530e3538bdba590a1c0f6c295128f964a89182621885296353a44dcfa4f9db53
   languageName: node
   linkType: hard
 
@@ -22989,17 +22960,17 @@ resolve@~1.17.0:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.21.0, rollup@npm:^2.35.1":
-  version: 2.35.1
-  resolution: "rollup@npm:2.35.1"
+"rollup@npm:^2.47.0":
+  version: 2.47.0
+  resolution: "rollup@npm:2.47.0"
   dependencies:
-    fsevents: ~2.1.2
+    fsevents: ~2.3.1
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 01e8b621baf3b35e1a28e3679cf9bdd4c22c2e999a895343e0b1e02dfe735f92a9fe439042e1b35c981663e9a8b75c1d707e6c27d786170febbb503b83dfed39
+  checksum: bab2079fea72ebb6457e88717f64f3bd8ff52556827f77485708274aa94f2dfa19f555c022643957d604ff7329be5d010234346d28e13dcfed33d742d3e468b0
   languageName: node
   linkType: hard
 
