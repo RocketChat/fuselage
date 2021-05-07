@@ -57,7 +57,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-typescript": "^6.0.0",
-    "@types/jest": "^26.0.22",
+    "@types/jest": "^26.0.23",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/resize-observer-browser": "^0.1.5",

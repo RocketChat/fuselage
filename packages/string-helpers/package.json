@@ -22,11 +22,11 @@
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/ts3.4/index.d.ts",
   "typesVersions": {
-    "<4.1": {
+    ">=4.1": {
       "*": [
-        "ts3.4/*"
+        "dist/esm/*"
       ]
     }
   },
@@ -50,7 +50,7 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "^0.24.0",
     "@rocket.chat/prettier-config": "^0.24.0",
-    "@types/jest": "^26.0.22",
+    "@types/jest": "^26.0.23",
     "downlevel-dts": "^0.7.0",
     "eslint": "^7.24.0",
     "jest": "^26.6.3",

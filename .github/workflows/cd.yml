@@ -77,7 +77,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: yarn lerna publish from-package --no-verify-access --canary --preid dev --dist-tag next --yes
+      - run: yarn lerna publish --no-verify-access --canary --preid dev --dist-tag next --yes
         if: github.ref == 'refs/heads/develop'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
