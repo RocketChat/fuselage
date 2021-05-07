@@ -5421,11 +5421,10 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    "@types/jest": ^26.0.23
     "@types/loader-utils": ^2.0.2
+    "@types/node": ^14
     downlevel-dts: ^0.7.0
     eslint: ^7.24.0
-    jest: ^26.6.3
     lint-staged: ^10.5.4
     loader-utils: ^2.0.0
     npm-run-all: ^4.1.5
@@ -6887,6 +6886,13 @@ __metadata:
   version: 14.14.2
   resolution: "@types/node@npm:14.14.2"
   checksum: e6ad786008ec81e010525beb09067f31cc55a3a02120a7e383e21309c1422a0d4a56059c1da46716509e36dbd4d2c607790f3fd715275a09b9f3ffb2cf3b243e
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14":
+  version: 14.14.44
+  resolution: "@types/node@npm:14.14.44"
+  checksum: 5c4db716325fc8a25b5b76b800acf0ff00c8fa1e7cfcb764fc79d79594939488cb9d2a756e188eb8e8a36da51e8e2be1ffe859be901b338779cb0aa12ad73b3a
   languageName: node
   linkType: hard
 
