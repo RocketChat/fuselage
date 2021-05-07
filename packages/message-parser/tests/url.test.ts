@@ -36,6 +36,8 @@ test.each([
     'https://localhost:3000#fragment',
     [paragraph([link('https://localhost:3000#fragment')])],
   ],
+  ['https://localhost:3000#', [paragraph([link('https://localhost:3000#')])]],
+  ['https://localhost:3000?', [paragraph([link('https://localhost:3000?')])]],
   [
     'ftp://user:pass@localhost:21/etc/hosts',
     [paragraph([link('ftp://user:pass@localhost:21/etc/hosts')])],

@@ -49,29 +49,14 @@ Emphasis
   / Italic
   / Strikethrough
 
-Paragraph
-  = value:(
-      Whitespace
-      / Emoji
-      / References
-      / InlineCode
-      / AutolinkedPhone
-      / AutolinkedURL
-      / AutolinkedEmail
-      / Emphasis
-      / Color
-      / UserMention
-      / ChannelMention
-      / Any
-    )+
-    EndOfLine? { return paragraph(reducePlainTexts(value)); }
+Paragraph = value:Inline { return paragraph(value); }
 
 Inline
   = value:(
       Whitespace
       / Emoji
-      / References
       / InlineCode
+      / References
       / AutolinkedPhone
       / AutolinkedURL
       / AutolinkedEmail
@@ -313,16 +298,19 @@ OrderedListItem
 
 Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
 
-InlineCode = "`" text:Line "`" { return inlineCode(text); }
+InlineCode
+  = "`" text:InlineCode__+ "`" { return inlineCode(plain(text.join(''))); }
+
+InlineCode__ = $(!"`" !"\n" $:.)
+
+LineCode__any = $:(!"\n" !"```" t:. { return t; })+
 
 LineCode "LineCode"
-  = text:[^"\n"\`]+ "`"? { return codeLine(plain(text.join(''))); }
-  / "\n"+ text:[^"\n"\`]+ "`"? { return codeLine(plain(text.join(''))); }
+  = text:LineCode__any { return codeLine(plain(text.join(''))); }
+  / "\n"+ text:LineCode__any { return codeLine(plain(text.join(''))); }
 
 MultiplelLineCode
-  = "```" t:Codetype? "\n" value:LineCode+ "\n"+ "```" {
-      return code(value, t);
-    }
+  = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
 
 // [Visit GitHub!](www.github.com)
 LinkTitle = "[" text:(Emphasis / Line) "]" { return text; }
@@ -331,7 +319,7 @@ LinkRef
   = "(" text:(URL / p:Phone { return 'tel:' + p.number; }) ")" { return text; }
 
 References
-  = "[]" href:LinkRef { return link(href); }
+  = "[" Space* "]" href:LinkRef { return link(href); }
   / title:LinkTitle href:LinkRef { return link(href, title); }
 
 /* Macros */
@@ -548,11 +536,11 @@ urlAuthorityHostName
 urlAuthorityPort
   = digits // TODO: from "0" to "65535"
 
-urlPath = $("/" $(alpha_digit / safe)+ urlPath*) { return '1'; }
+urlPath = $("/" $(alpha_digit / safe)+ urlPath*)
 
-urlQuery = $("?" $(alpha_digit / safe)+) { return '2'; }
+urlQuery = $("?" $(alpha_digit / safe)*)
 
-urlFragment = $("#" $(alpha_digit / safe)+) { return '3'; }
+urlFragment = $("#" $(alpha_digit / safe)*)
 
 /**
  *

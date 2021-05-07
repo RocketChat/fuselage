@@ -3,6 +3,7 @@ import { link, paragraph, plain, bold, strike, italic } from '../src/utils';
 
 test.each([
   ['[](https://rocket.chat)', [paragraph([link('https://rocket.chat')])]],
+  ['[ ](https://rocket.chat)', [paragraph([link('https://rocket.chat')])]],
   [
     '[title](https://rocket.chat)',
     [paragraph([link('https://rocket.chat', plain('title'))])],
