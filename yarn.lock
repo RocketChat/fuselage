@@ -5091,7 +5091,6 @@ __metadata:
   dependencies:
     "@babel/eslint-parser": ^7.13.14
     "@rocket.chat/eslint-config": ^0.4.0
-    "@rocket.chat/prettier-config": ^0.24.0
     "@typescript-eslint/eslint-plugin": ^4.22.0
     "@typescript-eslint/parser": ^4.22.0
     eslint: ^7.24.0
@@ -5445,7 +5444,6 @@ __metadata:
   resolution: "@rocket.chat/prettier-config@workspace:packages/prettier-config"
   dependencies:
     "@rocket.chat/eslint-config": ^0.4.0
-    "@rocket.chat/eslint-config-alt": ^0.24.0
     eslint: ^7.24.0
     eslint-config-prettier: ^8.2.0
     eslint-plugin-import: ^2.22.1
