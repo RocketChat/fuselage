@@ -148,11 +148,13 @@ SectionText
   / [\x61-\x7A]
   / nonascii
 
+Not_enter = text:($:(!"\n" s:. { return s; })+) { return plain(text.join('')); }
+
 Heading
-  = "# "+ text:Line { return heading([text], 1); }
-  / "## "+ text:Line { return heading([text], 2); }
-  / "### "+ text:Line { return heading([text], 3); }
-  / "#### "+ text:Line { return heading([text], 4); }
+  = "# "+ text:Not_enter { return heading([text], 1); }
+  / "## "+ text:Not_enter { return heading([text], 2); }
+  / "### "+ text:Not_enter { return heading([text], 3); }
+  / "#### "+ text:Not_enter { return heading([text], 4); }
 
 utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join(''); }
 
@@ -313,13 +315,14 @@ MultiplelLineCode
   = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
 
 // [Visit GitHub!](www.github.com)
-LinkTitle = "[" text:(Emphasis / Line) "]" { return text; }
+
+LinkTitle = "[" text:(Emphasis / Line / Whitespace) "]" { return text; }
 
 LinkRef
   = "(" text:(URL / p:Phone { return 'tel:' + p.number; }) ")" { return text; }
 
 References
-  = "[" Space* "]" href:LinkRef { return link(href); }
+  = "[]" href:LinkRef { return link(href); }
   / title:LinkTitle href:LinkRef { return link(href, title); }
 
 /* Macros */
