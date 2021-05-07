@@ -2,6 +2,17 @@ import { parser } from '../src';
 import { emoji, bigEmoji, paragraph, plain } from '../src/utils';
 
 test.each([
+  [':smille: asd', [paragraph([emoji('smille'), plain(' asd')])]],
+  [
+    `:smille:
+  :smille:
+  `,
+    [bigEmoji([emoji('smille'), emoji('smille')])],
+  ],
+  [
+    'asdas :smille: asd',
+    [paragraph([plain('asdas '), emoji('smille'), plain(' asd')])],
+  ],
   [
     'normal emojis :smile::smile::smile:',
     [
