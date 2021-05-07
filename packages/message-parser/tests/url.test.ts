@@ -2,8 +2,17 @@ import { parser } from '../src';
 import { link, paragraph, plain } from '../src/utils';
 
 test.each([
-  ['https://test', [paragraph([plain('https://test')])]],
+  [
+    'https://www.npmjs.com/package/@rocket.chat/message-parser',
+    [
+      paragraph([
+        link('https://www.npmjs.com/package/@rocket.chat/message-parser'),
+      ]),
+    ],
+  ],
   ['http:/rocket.chat/teste', [paragraph([plain('http:/rocket.chat/teste')])]],
+  ['http:/rocket.chat/', [paragraph([plain('http:/rocket.chat/')])]],
+  ['https://test', [paragraph([plain('https://test')])]],
   [
     'httpsss://rocket.chat/test',
     [paragraph([link('httpsss://rocket.chat/test')])],
@@ -27,6 +36,8 @@ test.each([
     'https://localhost:3000#fragment',
     [paragraph([link('https://localhost:3000#fragment')])],
   ],
+  ['https://localhost:3000#', [paragraph([link('https://localhost:3000#')])]],
+  ['https://localhost:3000?', [paragraph([link('https://localhost:3000?')])]],
   [
     'ftp://user:pass@localhost:21/etc/hosts',
     [paragraph([link('ftp://user:pass@localhost:21/etc/hosts')])],

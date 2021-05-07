@@ -21,7 +21,7 @@
     task,
     orderedList,
     listItem,
-    unorderedList
+    unorderedList,
   } = require('./utils');
 }
 
@@ -41,47 +41,31 @@ Blocks
   / TaskList
   / OrderedList
   / UnorderedList
-  // / Section
+
+// / Section
 
 Emphasis
   = Bold
   / Italic
   / Strikethrough
 
-
-Paragraph
-= value:
-  ( Whitespace
-    / Emoji
-    / References
-    / InlineCode
-    / AutolinkedPhone
-    / AutolinkedURL
-    / AutolinkedEmail
-    / Emphasis
-    / Color
-    / UserMention
-    / ChannelMention
-    / Any
-
-  )+
-    EndOfLine? { return paragraph(reducePlainTexts(value)); }
+Paragraph = value:Inline { return paragraph(value); }
 
 Inline
-  = value:
-  ( Whitespace
-    / Emoji
-    / References
-    / InlineCode
-    / AutolinkedPhone
-    / AutolinkedURL
-    / AutolinkedEmail
-    / Emphasis
-    / Color
-    / UserMention
-    / ChannelMention
-    / Any
-  )+
+  = value:(
+      Whitespace
+      / Emoji
+      / InlineCode
+      / References
+      / AutolinkedPhone
+      / AutolinkedURL
+      / AutolinkedEmail
+      / Emphasis
+      / Color
+      / UserMention
+      / ChannelMention
+      / Any
+    )+
     EndOfLine? { return reducePlainTexts(value); }
 
 Whitespace = w:" "+ { return plain(w.join('')); }
@@ -164,11 +148,13 @@ SectionText
   / [\x61-\x7A]
   / nonascii
 
+Not_enter = text:($:(!"\n" s:. { return s; })+) { return plain(text.join('')); }
+
 Heading
-  = "# "+ text:Line { return heading([text], 1); }
-  / "## "+ text:Line { return heading([text], 2); }
-  / "### "+ text:Line { return heading([text], 3); }
-  / "#### "+ text:Line { return heading([text], 4); }
+  = "# "+ text:Not_enter { return heading([text], 1); }
+  / "## "+ text:Not_enter { return heading([text], 2); }
+  / "### "+ text:Not_enter { return heading([text], 3); }
+  / "#### "+ text:Not_enter { return heading([text], 4); }
 
 utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join(''); }
 
@@ -264,84 +250,80 @@ Lists
       };
     }
 
-Blockquote = b:BlockquoteItem+ {
-  return quote(b)
-}
+Blockquote = b:BlockquoteItem+ { return quote(b); }
 
-BlockquoteItem = "> " p:Paragraph { return p }
+BlockquoteItem = "> " p:Paragraph { return p; }
 
 // - [ ] this is an incomplete item
 // - [x] this is a complete item
-TaskList
-  = t:TaskItem+ {
-      return tasks(t);
-    }
+TaskList = t:TaskItem+ { return tasks(t); }
 
-TaskItem = "- [x] " text:Inline  { return task(text, true); }
-        / "- [ ] " text:Inline  { return task(text, false); }
+TaskItem
+  = "- [x] " text:Inline { return task(text, true); }
+  / "- [ ] " text:Inline { return task(text, false); }
 
+UnorderedList
+  = UnorderedList_
+  / UnorderedList__
 
-UnorderedList = UnorderedList_ / UnorderedList__
+UnorderedList_ = lists:UnorderedListItem_+ { return unorderedList(lists); }
 
+UnorderedList__ = lists:UnorderedListItem__+ { return unorderedList(lists); }
 
-UnorderedList_ = lists:UnorderedListItem_+ {
-  return unorderedList(lists)
-}
-
-UnorderedList__ = lists:UnorderedListItem__+ {
-  return unorderedList(lists)
-}
-
-UnorderedListItem_
-  =  ("- ") text:Inline { return listItem(text, true); }
+UnorderedListItem_ = "- " text:Inline { return listItem(text, true); }
 
 UnorderedListItem__
-  =  ("* ") text:UnorderedListItem__Inline { return listItem(text, true); }
+  = "* " text:UnorderedListItem__Inline { return listItem(text, true); }
 
 UnorderedListItem__Inline
-  = value:
-  ( Whitespace
-    / Emoji
-    / References
-    / InlineCode
-    / AutolinkedPhone
-    / AutolinkedURL
-    / AutolinkedEmail
-    / Emphasis
-    / Color
-    / UserMention
-    / ChannelMention
-    / !'*' a:Any { return a }
-  )+
-  !'*' EndOfLine? { return reducePlainTexts(value); }
+  = value:(
+      Whitespace
+      / Emoji
+      / References
+      / InlineCode
+      / AutolinkedPhone
+      / AutolinkedURL
+      / AutolinkedEmail
+      / Emphasis
+      / Color
+      / UserMention
+      / ChannelMention
+      / !"*" a:Any { return a; }
+    )+
+    !"*"
+    EndOfLine? { return reducePlainTexts(value); }
 
-OrderedList
-  = lists:OrderedListItem+ {
-      return orderedList(lists)
-    }
+OrderedList = lists:OrderedListItem+ { return orderedList(lists); }
+
 OrderedListItem
-  =  (digit1_9+ "\x2E ") text:Inline { return listItem(text, true); }
+  = (digit1_9+ "\x2E ") text:Inline { return listItem(text, true); }
 
 Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
 
-InlineCode = "`" text:Line "`" { return inlineCode(text); }
+InlineCode
+  = "`" text:InlineCode__+ "`" { return inlineCode(plain(text.join(''))); }
+
+InlineCode__ = $(!"`" !"\n" $:.)
+
+LineCode__any = $:(!"\n" !"```" t:. { return t; })+
 
 LineCode "LineCode"
-  = text:[^"\n"\`]+ "`"? { return codeLine(plain(text.join(''))); }
-  / "\n"+ text:[^"\n"\`]+ "`"? { return codeLine(plain(text.join(''))); }
+  = text:LineCode__any { return codeLine(plain(text.join(''))); }
+  / "\n"+ text:LineCode__any { return codeLine(plain(text.join(''))); }
 
 MultiplelLineCode
-  = "```" t:Codetype? "\n" value:LineCode+ "\n"+ "```" {
-      return code(value, t);
-    }
+  = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
 
 // [Visit GitHub!](www.github.com)
-LinkTitle = "[" text:(Emphasis / Line) "]" { return text; }
+
+LinkTitle = "[" text:(Emphasis / Line / Whitespace) "]" { return text; }
 
 LinkRef
   = "(" text:(URL / p:Phone { return 'tel:' + p.number; }) ")" { return text; }
 
-References = title:LinkTitle href:LinkRef { return link(href, title); }
+References
+  = "[]" href:LinkRef { return link(href); }
+  / title:LinkTitle href:LinkRef { return link(href, title); }
 
 /* Macros */
 
@@ -414,6 +396,10 @@ alpha = [a-zA-Z]
 
 digit = [0-9]
 
+alpha_digit
+  = alpha
+  / digit
+
 digit1_9 = [1-9]
 
 digits = d:digit+ { return d.join(''); }
@@ -454,7 +440,7 @@ domainName
 
 domainNameLabel = $(domainChar domainChar+ $("-" domainChar+)*)
 
-domainChar = !safe !extra !EndOfLine !Space .
+domainChar = !"/" !safe !extra !EndOfLine !Space .
 
 /**
  *
@@ -497,20 +483,7 @@ phonePrefix
  *
  */
 
-URL
-  = s:urlScheme a:urlAuthority p:urlPath? q:urlQuery? f:urlFragment? {
-      const href = [s, a, p, q, f].filter(Boolean).join('');
-      // const url = {
-      //   href,
-      //   scheme: s,
-      //   authority: a,
-      //   path: p,
-      //   query: q,
-      //   fragment: f,
-      // };
-
-      return href;
-    }
+URL = $(s:urlScheme a:urlAuthority p:urlPath? q:urlQuery? f:urlFragment?)
 
 urlScheme
   = $(
@@ -553,11 +526,11 @@ urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
 
 urlAuthorityUserInfo = $(urlAuthorityUser (":" urlAuthorityPassword)? "@")
 
-urlAuthorityUser = $(alpha / digit / "$" / "-" / "_" / "." / "&" / "=")+
+urlAuthorityUser = $(alpha_digit / !"@" !"/" safe)+
 
-urlAuthorityPassword = $(alpha / digit / "$" / "-" / "_" / "." / "&" / "=")+
+urlAuthorityPassword = $(alpha_digit / !"@" !"/" safe)+
 
-urlAuthorityHost = urlAuthorityHostName (":" urlAuthorityPort)?
+urlAuthorityHost = t:urlAuthorityHostName (":" urlAuthorityPort)?
 
 urlAuthorityHostName
   = domainName
@@ -566,11 +539,11 @@ urlAuthorityHostName
 urlAuthorityPort
   = digits // TODO: from "0" to "65535"
 
-urlPath = $("/" $(alpha / digit / safe)+ urlPath*)
+urlPath = $("/" $(alpha_digit / safe)+ urlPath*)
 
-urlQuery = $("?" $(alpha / digit / safe)+)
+urlQuery = $("?" $(alpha_digit / safe)*)
 
-urlFragment = $("#" $(alpha / digit / safe)+)
+urlFragment = $("#" $(alpha_digit / safe)*)
 
 /**
  *
