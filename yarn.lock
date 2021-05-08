@@ -2957,9 +2957,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@eslint/eslintrc@npm:0.4.0"
+"@eslint/eslintrc@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@eslint/eslintrc@npm:0.4.1"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.1.1
@@ -2970,7 +2970,7 @@ __metadata:
     js-yaml: ^3.13.1
     minimatch: ^3.0.4
     strip-json-comments: ^3.1.1
-  checksum: d3f51b741997cbf36662d8b5a52985bfa5d2873e48cadccd95c67fcce1706327ec98ebb6f0be79c6ecbc31bdeca32c2b1c4f66fd1cf3934c434d1ac269cbceac
+  checksum: 418f5810c8dd9897d2457ceef098197d0e5f1ad345fbe4cd9256fd4223d7ea83d5e350f9091b3ab3483b6b1c367fa560df3ba1fccc7eb8ca6e1aae5a5b126d60
   languageName: node
   linkType: hard
 
@@ -4646,7 +4646,7 @@ __metadata:
     "@rollup/plugin-typescript": ^8.2.1
     "@types/jest": ^26.0.23
     "@types/stylis": ^4.0.0
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     jest: ^26.6.3
     lint-staged: ^11.0.0
     prettier: ^2.2.1
@@ -4669,7 +4669,7 @@ __metadata:
     "@rollup/plugin-node-resolve": ^13.0.0
     "@rollup/plugin-typescript": ^8.2.1
     "@types/jest": ^26.0.23
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     jest: ^26.6.3
     lint-staged: ^11.0.0
     npm-run-all: ^4.1.5
@@ -4691,7 +4691,7 @@ __metadata:
     "@rocket.chat/prettier-config": ^0.24.0
     "@typescript-eslint/eslint-plugin": ^4.22.1
     "@typescript-eslint/parser": ^4.22.1
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-import-resolver-typescript: ^2.4.0
     eslint-plugin-import: ^2.22.1
@@ -4735,7 +4735,7 @@ __metadata:
     "@types/react-dom": ^17.0.3
     "@types/resize-observer-browser": ^0.1.5
     "@types/use-subscription": ^1.0.0
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     jest: ^26.6.3
     lint-staged: ^11.0.0
     npm-run-all: ^4.1.5
@@ -4764,7 +4764,7 @@ __metadata:
     "@rocket.chat/prettier-config": ^0.24.0
     clipboard-polyfill: ^3.0.3
     element-closest-polyfill: ^1.0.2
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     focus-visible: ^5.2.0
     focus-within-polyfill: ^5.2.1
     lint-staged: ^11.0.0
@@ -4779,7 +4779,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.22.1
     eslint-plugin-prettier: ^3.4.0
@@ -4813,7 +4813,7 @@ __metadata:
     "@storybook/theming": ^6.1.11
     babel-loader: ^8.2.2
     cross-env: ^7.0.3
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     lint-staged: ^11.0.0
     loki: ^0.25.1
     normalize.css: ^8.0.1
@@ -4868,7 +4868,7 @@ __metadata:
     cross-env: ^7.0.3
     css-loader: ^5.2.4
     cssnano: ^5.0.2
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-plugin-mdx: ^1.13.0
     identity-obj-proxy: ^3.0.0
     invariant: ^2.2.4
@@ -4918,7 +4918,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     glob: ^7.1.7
     lint-staged: ^11.0.0
     npm-run-all: ^4.1.5
@@ -4940,7 +4940,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.22.1
     eslint-plugin-prettier: ^3.4.0
@@ -4965,7 +4965,7 @@ __metadata:
     "@types/node": ^14.14.44
     "@typescript-eslint/parser": ^4.22.1
     babel-loader: ^8.2.2
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     jest: ^26.6.3
     lint-staged: ^11.0.0
     npm-run-all: ^4.1.5
@@ -4995,7 +4995,7 @@ __metadata:
     "@rollup/plugin-node-resolve": ^13.0.0
     "@rollup/plugin-typescript": ^8.2.1
     "@types/jest": ^26.0.23
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     jest: ^26.6.3
     lamejs: "https://github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab"
     lint-staged: ^11.0.0
@@ -5011,7 +5011,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config": ^0.4.0
     "@rocket.chat/eslint-config-alt": ^0.24.0
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.22.1
     eslint-plugin-prettier: ^3.4.0
@@ -5030,7 +5030,7 @@ __metadata:
     "@rocket.chat/prettier-config": ^0.24.0
     "@types/jest": ^26.0.23
     downlevel-dts: ^0.7.0
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     jest: ^26.6.3
     lint-staged: ^11.0.0
     npm-run-all: ^4.1.5
@@ -5054,7 +5054,7 @@ __metadata:
     "@rocket.chat/prettier-config": ^0.24.0
     "@types/jest": ^26.0.23
     babel-loader: ^8.2.2
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     jest: ^26.6.3
     lint-staged: ^11.0.0
     npm-run-all: ^4.1.5
@@ -11801,12 +11801,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.25.0":
-  version: 7.25.0
-  resolution: "eslint@npm:7.25.0"
+"eslint@npm:^7.26.0":
+  version: 7.26.0
+  resolution: "eslint@npm:7.26.0"
   dependencies:
     "@babel/code-frame": 7.12.11
-    "@eslint/eslintrc": ^0.4.0
+    "@eslint/eslintrc": ^0.4.1
     ajv: ^6.10.0
     chalk: ^4.0.0
     cross-spawn: ^7.0.2
@@ -11844,7 +11844,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 6e1782e2264ebf987504746ee82e996bf0ef2c29a2eaea869b54cb8aa1eaf10945b1d563618515e65ac934ca626f3609282127773f45868ad4a98744458a3c62
+  checksum: 08f99befd764fbd6ea811e9eec27d5c6b9dc9d1bbfe5ffa1016e4f1fe526a4f45ea127c4e30c554c423ee55eb290ce9af4fb7fedf9b7af3f84076a444c2bbdf6
   languageName: node
   linkType: hard
 
@@ -21452,7 +21452,7 @@ resolve@^2.0.0-next.3:
     "@rocket.chat/prettier-config": ^0.24.0
     "@types/node": ^14.14.44
     "@typescript-eslint/parser": ^4.22.1
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     fast-glob: ^3.2.5
     npm-run-all: ^4.1.5
     prettier: ^2.2.1
