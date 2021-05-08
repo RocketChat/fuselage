@@ -61,6 +61,6 @@
   "dependencies": {
     "@emotion/hash": "^0.8.0",
     "@rocket.chat/memo": "^0.24.0",
-    "stylis": "^4.0.6"
+    "stylis": "^4.0.10"
   }
 }

@@ -40,7 +40,7 @@
     "access": "public"
   },
   "dependencies": {
-    "lamejs": "https://github.com/zhuker/lamejs"
+    "lamejs": "https://github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
