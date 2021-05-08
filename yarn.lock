@@ -4618,9 +4618,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/apps-engine@npm:^1.17.0":
-  version: 1.20.0
-  resolution: "@rocket.chat/apps-engine@npm:1.20.0"
+"@rocket.chat/apps-engine@npm:^1.25.0":
+  version: 1.25.0
+  resolution: "@rocket.chat/apps-engine@npm:1.25.0"
   dependencies:
     adm-zip: ^0.4.9
     cryptiles: ^4.1.3
@@ -4628,7 +4628,7 @@ __metadata:
     semver: ^5.5.0
     stack-trace: 0.0.10
     uuid: ^3.2.1
-  checksum: 01aebe7bc10240d3bc6ad85747234ecb835c40332782f2ec20844c8b8f32d61106403fa18e2f1e2e9a0945f696bbff0792cd1dd37cb949db2fe37d61f4f332b3
+  checksum: 13ee986d0333c6b10f84dd0dd02fdd05b6d0970d4a9c1e57983ae593ec5156cc2a70d5b9ce91cb6ae3ff21eeb32c6292f867c2b3a8fada3578d90d948d008c3f
   languageName: node
   linkType: hard
 
@@ -4654,7 +4654,7 @@ __metadata:
     rollup-plugin-terser: ^7.0.2
     stylis: ^4.0.6
     ts-jest: ^26.5.6
-    typescript: ^4.1.3
+    typescript: ^4.2.4
   languageName: unknown
   linkType: soft
 
@@ -4677,7 +4677,8 @@ __metadata:
     rollup: ^2.47.0
     rollup-plugin-terser: ^7.0.2
     ts-jest: ^26.5.6
-    typescript: ^4.1.3
+    tslib: ^2.2.0
+    typescript: ^4.2.4
   languageName: unknown
   linkType: soft
 
@@ -4730,7 +4731,7 @@ __metadata:
     "@rollup/plugin-node-resolve": ^13.0.0
     "@rollup/plugin-typescript": ^8.2.1
     "@types/jest": ^26.0.23
-    "@types/react": ^17.0.3
+    "@types/react": ^17.0.5
     "@types/react-dom": ^17.0.3
     "@types/resize-observer-browser": ^0.1.5
     "@types/use-subscription": ^1.0.0
@@ -4744,7 +4745,7 @@ __metadata:
     rollup: ^2.47.0
     rollup-plugin-terser: ^7.0.2
     ts-jest: ^26.5.6
-    typescript: ^4.0.3
+    typescript: ^4.2.4
     use-subscription: ^1.5.1
   peerDependencies:
     "@rocket.chat/fuselage-tokens": "*"
@@ -4797,7 +4798,7 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.13.15
     "@babel/preset-env": ^7.14.1
     "@babel/preset-react": ^7.13.13
-    "@rocket.chat/apps-engine": ^1.17.0
+    "@rocket.chat/apps-engine": ^1.25.0
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/fuselage": ^0.24.0
     "@rocket.chat/fuselage-hooks": ^0.24.0
@@ -4898,7 +4899,7 @@ __metadata:
     stylelint-scss: ^3.19.0
     ts-jest: ^26.5.6
     ts-loader: ^9.1.2
-    typescript: ^4.1.5
+    typescript: ^4.2.4
     webpack: ^5.36.2
     webpack-bundle-analyzer: ^4.4.1
     webpack-cli: ^4.7.0
@@ -4947,7 +4948,7 @@ __metadata:
     npm-run-all: ^4.1.5
     prettier: ^2.2.1
     rimraf: ^3.0.2
-    typescript: ^4.1.3
+    typescript: ^4.2.4
   languageName: unknown
   linkType: soft
 
@@ -4961,7 +4962,7 @@ __metadata:
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^26.0.23
-    "@types/node": ^14.14.43
+    "@types/node": ^14.14.44
     "@typescript-eslint/parser": ^4.22.1
     babel-loader: ^8.2.2
     eslint: ^7.25.0
@@ -5000,7 +5001,7 @@ __metadata:
     lint-staged: ^11.0.0
     prettier: ^2.2.1
     rollup: ^2.47.0
-    typescript: ^4.1.3
+    typescript: ^4.2.4
   languageName: unknown
   linkType: soft
 
@@ -5061,7 +5062,7 @@ __metadata:
     rimraf: ^3.0.2
     ts-jest: ^26.5.6
     ts-loader: ^9.1.2
-    typescript: ^4.1.3
+    typescript: ^4.2.4
     webpack: ^5.36.2
     webpack-cli: ^4.7.0
   languageName: unknown
@@ -6211,10 +6212,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.43":
-  version: 14.14.43
-  resolution: "@types/node@npm:14.14.43"
-  checksum: b7a9e6df7c2a6f90e783bfe6ef358cc2c3ff4e1dfcea56b83349cd3feefd02a9b6fa54b443983694b4398a06257d871c947abeae03bd0d39fd71981161d61765
+"@types/node@npm:^14.14.44":
+  version: 14.14.44
+  resolution: "@types/node@npm:14.14.44"
+  checksum: 5c4db716325fc8a25b5b76b800acf0ff00c8fa1e7cfcb764fc79d79594939488cb9d2a756e188eb8e8a36da51e8e2be1ffe859be901b338779cb0aa12ad73b3a
   languageName: node
   linkType: hard
 
@@ -6329,14 +6330,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17.0.3":
-  version: 17.0.3
-  resolution: "@types/react@npm:17.0.3"
+"@types/react@npm:^17.0.5":
+  version: 17.0.5
+  resolution: "@types/react@npm:17.0.5"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 5bcaabadc90a23ad9008540eae98a5819b638c4cf1b968adc67be47d6a8dc8cb100061d877dae97618fb275e405dc484b37154080c7ac0ea7df5efcdd8f98c24
+  checksum: f9793e8113f14122d6ed20643b4fe27d30e10d7c80571a1d238c13f8171864f2a7b337194bf41310724498586ed4560fffd081a2d21e488afbb1aca33534189b
   languageName: node
   linkType: hard
 
@@ -21363,7 +21364,7 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@rocket.chat/eslint-config-alt": ^0.24.0
     "@rocket.chat/prettier-config": ^0.24.0
-    "@types/node": ^14.14.43
+    "@types/node": ^14.14.44
     "@typescript-eslint/parser": ^4.22.1
     eslint: ^7.25.0
     fast-glob: ^3.2.5
@@ -23612,16 +23613,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@^4.0.3, typescript@^4.1.3":
-  version: 4.1.3
-  resolution: "typescript@npm:4.1.3"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 4f7ab1506ea22c7a1c313ec5b4285e93ce08d709ad6086d02d3096adb399ca339972ee56d1e578213c51dd0fb7b0fad50283c2d3c39642405644458ae29774f8
-  languageName: node
-  linkType: hard
-
 "typescript@^4.1.0-dev.20201026, typescript@^4.2.4":
   version: 4.2.4
   resolution: "typescript@npm:4.2.4"
@@ -23632,26 +23623,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-typescript@^4.1.5:
-  version: 4.1.5
-  resolution: "typescript@npm:4.1.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 29157c84426ac94ce97aac836264f303a26bd9fb30865650229e3406a36ca2e89735ef4b8878075ba1b95fa4d3ff9810057b64888700c28e20b4034a6db4da83
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^4.0.3#builtin<compat/typescript>, typescript@patch:typescript@^4.1.3#builtin<compat/typescript>":
-  version: 4.1.3
-  resolution: "typescript@patch:typescript@npm%3A4.1.3#builtin<compat/typescript>::version=4.1.3&hash=a45b0e"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 28f0f616bf6284543bb14d4bfe0e1a74963e5df0396ebccfc6a57bfd4ab70b4284e51b3a2045ed2466151a4a58c8a549edb886a2f7a2232cf08fcf73496592e6
-  languageName: node
-  linkType: hard
-
 "typescript@patch:typescript@^4.1.0-dev.20201026#builtin<compat/typescript>, typescript@patch:typescript@^4.2.4#builtin<compat/typescript>":
   version: 4.2.4
   resolution: "typescript@patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"
@@ -23659,16 +23630,6 @@ typescript@^4.1.5:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 3be44317593182e8ce494c114e7ad9b0bb2553a22f3085cc6da4f0a36912c20850daa9be4c898af2ab6fc8b12f430c1c9e46ac715721867cd38643f2350d3ef9
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^4.1.5#builtin<compat/typescript>":
-  version: 4.1.5
-  resolution: "typescript@patch:typescript@npm%3A4.1.5#builtin<compat/typescript>::version=4.1.5&hash=a45b0e"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 9c57e19536e978f130694888fbda2f8fe60f92c388c6b2945881dd7c912078bf52663dcb3278100cf9f4689805fbaec86b3de42ef600fb9672545b24fc1b7b15
   languageName: node
   linkType: hard
 

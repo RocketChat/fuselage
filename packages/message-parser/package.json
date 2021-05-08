@@ -57,7 +57,7 @@
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@types/jest": "^26.0.23",
-    "@types/node": "^14.14.43",
+    "@types/node": "^14.14.44",
     "@typescript-eslint/parser": "^4.22.1",
     "babel-loader": "^8.2.2",
     "eslint": "^7.25.0",
