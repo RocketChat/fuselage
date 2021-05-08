@@ -35,6 +35,21 @@
   "directories": {
     "test": "test"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "run-s .:build:clean .:build:bundle",
+    ".:build:clean": "rimraf dist",
+    ".:build:bundle": "webpack",
+    "test": "jest --runInBand --coverage",
+    "watch": "jest --watch",
+    "lint": "eslint .",
+    "lint-fix": "run-p .:lint-fix:eslint .:lint-fix:prettier",
+    ".:lint-fix:eslint": "eslint --fix .",
+    ".:lint-fix:prettier": "prettier --write '**/*.pegjs'",
+    "lint-staged": "lint-staged"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/eslint-parser": "^7.13.14",
@@ -58,20 +73,5 @@
     "typescript": "^4.2.4",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.7.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "run-s .:build:clean .:build:bundle",
-    ".:build:clean": "rimraf dist",
-    ".:build:bundle": "webpack",
-    "test": "jest --runInBand --coverage",
-    "watch": "jest --watch",
-    "lint": "eslint .",
-    "lint-fix": "run-p .:lint-fix:eslint .:lint-fix:prettier",
-    ".:lint-fix:eslint": "eslint --fix .",
-    ".:lint-fix:prettier": "prettier --write '**/*.pegjs'",
-    "lint-staged": "lint-staged"
   }
 }
