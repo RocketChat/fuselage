@@ -34,6 +34,7 @@
     "lint": "eslint src",
     "lint-fix": "eslint --fix src",
     "lint-staged": "lint-staged",
+    "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage-ui-kit",
     "build-storybook": "cross-env NODE_ENV=production build-storybook",
     "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:loki-update",
     ".:update-storybook:build-storybook": "run-s build-storybook",

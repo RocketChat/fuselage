@@ -29,6 +29,7 @@ jobs:
       - run: yarn run build
       - run: yarn run lint
       - run: yarn run test
+      - run: yarn run docs
       - run: yarn run build-storybook
       - uses: actions/upload-artifact@v2
         with:
@@ -36,6 +37,12 @@ jobs:
           path: |
             packages/fuselage/storybook-static
             packages/fuselage-ui-kit/storybook-static
+      - if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: |
+            static
       - run: |
           ref='${{ github.ref }}'
           echo "::set-output name=branch-name::$(echo "${ref:11}")"
@@ -98,6 +105,11 @@ jobs:
         with:
           name: storybooks
           path: packages
+      - if: github.ref == 'refs/heads/master'
+        uses: actions/download-artifact@v2
+        with:
+          name: docs
+          path: .
       - run: |
           rm -rf "fuselage/${{ needs.build-and-test.outputs.branch-name }}" "fuselage-ui-kit/${{ needs.build-and-test.outputs.branch-name }}"
           mv -v "packages/fuselage/storybook-static" "fuselage/${{ needs.build-and-test.outputs.branch-name }}"
