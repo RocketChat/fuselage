@@ -6,15 +6,15 @@
   </a>
 </p>
 
-# `@rocket.chat/fuselage-tokens`
+# `@rocket.chat/memo`
 
-> Design tokens for Fuselage, Rocket.Chat's design system
+> Memoization utilities
 
 ---
 
-![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-tokens/latest?style=flat-square) ![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-tokens/next?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-tokens?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage-tokens?style=flat-square)
+![npm@latest](https://img.shields.io/npm/v/@rocket.chat/memo/latest?style=flat-square) ![npm@next](https://img.shields.io/npm/v/@rocket.chat/memo/next?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/memo?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/memo?style=flat-square)
 
-![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-tokens&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-tokens&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-tokens&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-tokens?style=flat-square)
+![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fmemo&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fmemo&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fmemo&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/memo?style=flat-square)
 
 <!--/header-->
 
@@ -22,14 +22,14 @@
 
 <!--install-->
 
-Add `@rocket.chat/fuselage-tokens` as a dependency:
+Add `@rocket.chat/memo` as a dependency:
 
 ```sh
-npm i @rocket.chat/fuselage-tokens
+npm i @rocket.chat/memo
 
 # or, if you are using yarn:
 
-yarn add @rocket.chat/fuselage-tokens
+yarn add @rocket.chat/memo
 ```
 
 <!--/install-->

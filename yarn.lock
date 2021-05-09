@@ -20803,6 +20803,7 @@ resolve@^2.0.0-next.3:
     "@rocket.chat/prettier-config": ^0.24.0
     "@types/node": ^14.14.44
     "@typescript-eslint/parser": ^4.22.1
+    endent: ^2.0.1
     eslint: ^7.26.0
     fast-glob: ^3.2.5
     npm-run-all: ^4.1.5

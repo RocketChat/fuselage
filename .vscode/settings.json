@@ -51,6 +51,10 @@
     {
       "directory": "packages/ui-kit",
       "changeProcessCWD": true
+    },
+    {
+      "directory": "scripts",
+      "changeProcessCWD": true
     }
   ],
   "editor.codeActionsOnSave": {
