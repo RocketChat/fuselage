@@ -16,10 +16,9 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "main": "index.js",
-  "types": "fuselage.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "/dist",
-    "/fuselage.d.ts",
     "/index.js"
   ],
   "publishConfig": {
@@ -32,8 +31,9 @@
     ".:build:clean": "rimraf dist",
     ".:build:prod": "webpack --mode production",
     ".:build:dev": "webpack --mode development",
-    "lint": "run-s .:lint:eslint .:lint:stylelint",
+    "lint": "run-s .:lint:eslint .:lint:tsc .:lint:stylelint",
     ".:lint:eslint": "eslint src",
+    ".:lint:tsc": "tsc --noEmit",
     ".:lint:stylelint": "stylelint 'src/**/*.scss'",
     "lint-fix": "run-s .:lint-fix:eslint .:lint-fix:stylelint",
     ".:lint-fix:eslint": "eslint --fix src",
@@ -87,6 +87,7 @@
     "autoprefixer": "^10.0.1",
     "babel-loader": "^8.1.0",
     "caniuse-lite": "^1.0.30001151",
+    "copy-webpack-plugin": "^8.1.1",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.2",
     "cssnano": "^4.1.10",
