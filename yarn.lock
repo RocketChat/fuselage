@@ -5269,6 +5269,7 @@ __metadata:
     "@storybook/react": ^6.1.11
     "@storybook/source-loader": ^6.1.11
     "@storybook/theming": ^6.1.11
+    "@types/invariant": ^2.2.34
     "@types/jest": ^26.0.23
     autoprefixer: ^10.0.1
     babel-loader: ^8.1.0
@@ -6732,6 +6733,13 @@ __metadata:
   version: 5.1.1
   resolution: "@types/html-minifier-terser@npm:5.1.1"
   checksum: 1e750b93e1240a6a3bc6d2748a4f09215c9557b8f6655ee57d1e88c7afcc171e2998a1e97a771c64ef8eeadc9db5623f9e08e09574a549cb74549cdbad5a73b7
+  languageName: node
+  linkType: hard
+
+"@types/invariant@npm:^2.2.34":
+  version: 2.2.34
+  resolution: "@types/invariant@npm:2.2.34"
+  checksum: d0ecc665e5c95abf1ad7263c8cc32604d6b3444cfbc97657fede7e63f3751554a4f35f72ae565d70c28184dfb8b0cd4c058eaec1af972999edfd0a81b365f74b
   languageName: node
   linkType: hard
 

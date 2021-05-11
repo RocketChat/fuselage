@@ -7,9 +7,7 @@ import { prependClassName } from '../../helpers/prependClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { useBoxTransform, BoxTransforms } from './BoxTransforms';
-import {
-  /* propTypes as stylingPropsPropTypes,  */ useStylingProps,
-} from './stylingProps';
+import { useStylingProps } from './stylingProps';
 
 export const useArrayLikeClassNameProp = (props) => {
   const classNames = [].concat(props.className);
@@ -115,8 +113,6 @@ if (process.env.NODE_ENV !== 'production') {
       PropTypes.func,
       PropTypes.array,
     ]),
-
-    // ...stylingPropsPropTypes,
   };
 }
 
