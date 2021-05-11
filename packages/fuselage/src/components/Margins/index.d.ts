@@ -15,4 +15,6 @@ type MarginsProps = PropsWithChildren<{
   inlineStart?: ComponentProps<typeof Box>['marginInlineStart'];
   inlineEnd?: ComponentProps<typeof Box>['marginInlineEnd'];
 }>;
-export const Margins: ForwardRefExoticComponent<MarginsProps>;
+const Margins: ForwardRefExoticComponent<MarginsProps>;
+
+export = Margins;
