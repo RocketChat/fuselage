@@ -44,4 +44,4 @@ export * from './Throbber';
 export { default as Tile } from './Tile';
 export * from './ToggleSwitch';
 export { default as Tooltip } from './Tooltip';
-export * from './UrlInput';
+export { default as UrlInput } from './UrlInput';
