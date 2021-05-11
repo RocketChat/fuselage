@@ -4113,7 +4113,6 @@ __metadata:
   dependencies:
     "@babel/eslint-parser": ^7.13.14
     "@rocket.chat/eslint-config": ^0.4.0
-    "@rocket.chat/prettier-config": ^0.24.0
     "@typescript-eslint/eslint-plugin": ^4.22.1
     "@typescript-eslint/parser": ^4.22.1
     eslint: ^7.26.0
@@ -4390,6 +4389,7 @@ __metadata:
     "@babel/eslint-parser": ^7.13.14
     "@babel/preset-env": ^7.14.1
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
+    "@rocket.chat/peggy-loader": "workspace:packages/peggy-loader"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^26.0.23
     "@types/node": ^14.14.44
@@ -4437,12 +4437,37 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@rocket.chat/peggy-loader@workspace:packages/peggy-loader":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
+  dependencies:
+    "@rocket.chat/eslint-config-alt": ^0.24.0
+    "@rocket.chat/prettier-config": ^0.24.0
+    "@types/loader-utils": ^2.0.2
+    "@types/node": ^14
+    downlevel-dts: ^0.7.0
+    eslint: ^7.24.0
+    lint-staged: ^10.5.4
+    loader-utils: ^2.0.0
+    npm-run-all: ^4.1.5
+    peggy: ^1.1.0
+    prettier: ^2.2.1
+    rimraf: ^3.0.2
+    ts-jest: ^26.5.5
+    tslib: ^2.2.0
+    typescript: ^4.2.4
+    webpack: ^5.36.2
+  peerDependencies:
+    peggy: "*"
+    webpack: "*"
+  languageName: unknown
+  linkType: soft
+
 "@rocket.chat/prettier-config@^0.24.0, @rocket.chat/prettier-config@workspace:packages/prettier-config":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/prettier-config@workspace:packages/prettier-config"
   dependencies:
     "@rocket.chat/eslint-config": ^0.4.0
-    "@rocket.chat/eslint-config-alt": ^0.24.0
     eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.22.1
@@ -4458,8 +4483,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.24.0
-    "@rocket.chat/prettier-config": ^0.24.0
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^26.0.23
     downlevel-dts: ^0.7.0
     eslint: ^7.26.0
@@ -5866,6 +5891,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/loader-utils@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@types/loader-utils@npm:2.0.2"
+  dependencies:
+    "@types/node": "*"
+    "@types/webpack": ^4
+  checksum: 274319f26588fa035a84d8d6694f10095b8da313de9588a76859fde62c80b083ad34af35174fe12f17ae487a55a10c377e9181f5723541f45b1b445b33dc9995
+  languageName: node
+  linkType: hard
+
 "@types/markdown-to-jsx@npm:^6.11.3":
   version: 6.11.3
   resolution: "@types/markdown-to-jsx@npm:6.11.3"
@@ -5938,7 +5973,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.0.10, @types/node@npm:^14.14.44":
+"@types/node@npm:^14, @types/node@npm:^14.0.10, @types/node@npm:^14.14.44":
   version: 14.14.44
   resolution: "@types/node@npm:14.14.44"
   checksum: 5c4db716325fc8a25b5b76b800acf0ff00c8fa1e7cfcb764fc79d79594939488cb9d2a756e188eb8e8a36da51e8e2be1ffe859be901b338779cb0aa12ad73b3a
@@ -6162,7 +6197,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack@npm:^4.41.26":
+"@types/webpack@npm:^4, @types/webpack@npm:^4.41.26":
   version: 4.41.28
   resolution: "@types/webpack@npm:4.41.28"
   dependencies:
@@ -9926,7 +9961,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.3.1":
+"debug@npm:4, debug@npm:^4.2.0, debug@npm:^4.3.1":
   version: 4.3.2
   resolution: "debug@npm:4.3.2"
   dependencies:
@@ -11238,7 +11273,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.26.0":
+"eslint@npm:^7.24.0, eslint@npm:^7.26.0":
   version: 7.26.0
   resolution: "eslint@npm:7.26.0"
   dependencies:
@@ -11435,7 +11470,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.0.0":
+"execa@npm:^4.0.0, execa@npm:^4.1.0":
   version: 4.1.0
   resolution: "execa@npm:4.1.0"
   dependencies:
@@ -15428,6 +15463,31 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"lint-staged@npm:^10.5.4":
+  version: 10.5.4
+  resolution: "lint-staged@npm:10.5.4"
+  dependencies:
+    chalk: ^4.1.0
+    cli-truncate: ^2.1.0
+    commander: ^6.2.0
+    cosmiconfig: ^7.0.0
+    debug: ^4.2.0
+    dedent: ^0.7.0
+    enquirer: ^2.3.6
+    execa: ^4.1.0
+    listr2: ^3.2.2
+    log-symbols: ^4.0.0
+    micromatch: ^4.0.2
+    normalize-path: ^3.0.0
+    please-upgrade-node: ^3.2.0
+    string-argv: 0.3.1
+    stringify-object: ^3.3.0
+  bin:
+    lint-staged: bin/lint-staged.js
+  checksum: dbcafe3679668379fc03f3aef481c3f710794ec03dd5c3915f26a0de110977fbcb44b55ab6dfcff9e8e5789c568ea5629e92f55944fc43f6f6fa1890ee5b07ba
+  languageName: node
+  linkType: hard
+
 "lint-staged@npm:^11.0.0":
   version: 11.0.0
   resolution: "lint-staged@npm:11.0.0"
@@ -15453,7 +15513,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"listr2@npm:^3.8.2":
+"listr2@npm:^3.2.2, listr2@npm:^3.8.2":
   version: 3.8.2
   resolution: "listr2@npm:3.8.2"
   dependencies:
@@ -15684,7 +15744,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"log-symbols@npm:^4.1.0":
+"log-symbols@npm:^4.0.0, log-symbols@npm:^4.1.0":
   version: 4.1.0
   resolution: "log-symbols@npm:4.1.0"
   dependencies:
@@ -22836,7 +22896,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^26.5.6":
+"ts-jest@npm:^26.5.5, ts-jest@npm:^26.5.6":
   version: 26.5.6
   resolution: "ts-jest@npm:26.5.6"
   dependencies:

@@ -38,7 +38,6 @@
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@rocket.chat/eslint-config-alt": "^0.24.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
