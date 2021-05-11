@@ -41,6 +41,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/peggy-loader",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/prettier-config",
       "changeProcessCWD": true
     },
