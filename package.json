@@ -9,13 +9,13 @@
     "lerna": "^3.20.2"
   },
   "scripts": {
-    "build": "yarn workspaces foreach -vt run build",
-    "lint": "yarn workspaces foreach -vt run lint",
-    "lint-fix": "yarn workspaces foreach -vt run lint-fix",
-    "lint-staged": "yarn workspaces foreach -vt run lint-staged",
-    "test": "yarn workspaces foreach -vt run test",
-    "build-storybook": "yarn workspaces foreach -vt run build-storybook",
-    "update-storybook": "yarn workspaces foreach -vt run update-storybook",
+    "build": "yarn workspaces foreach -v --topological-dev run build",
+    "lint": "yarn workspaces foreach -v --topological-dev run lint",
+    "lint-fix": "yarn workspaces foreach -v --topological-dev run lint-fix",
+    "lint-staged": "yarn workspaces foreach -v --topological-dev run lint-staged",
+    "test": "yarn workspaces foreach -v --topological-dev run test",
+    "build-storybook": "yarn workspaces foreach -v --topological-dev run build-storybook",
+    "update-storybook": "yarn workspaces foreach -v --topological-dev run update-storybook",
     "postinstall": "husky install",
     "update-readme": "yarn workspace scripts run update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps"

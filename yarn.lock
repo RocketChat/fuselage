@@ -5091,7 +5091,6 @@ __metadata:
   dependencies:
     "@babel/eslint-parser": ^7.13.14
     "@rocket.chat/eslint-config": ^0.4.0
-    "@rocket.chat/prettier-config": ^0.24.0
     "@typescript-eslint/eslint-plugin": ^4.22.0
     "@typescript-eslint/parser": ^4.22.0
     eslint: ^7.24.0
@@ -5370,6 +5369,7 @@ __metadata:
     "@babel/eslint-parser": ^7.13.14
     "@babel/preset-env": ^7.14.1
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
+    "@rocket.chat/peggy-loader": "workspace:packages/peggy-loader"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^26.0.23
     "@types/node": ^14.14.43
@@ -5416,12 +5416,37 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@rocket.chat/peggy-loader@workspace:packages/peggy-loader":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
+  dependencies:
+    "@rocket.chat/eslint-config-alt": ^0.24.0
+    "@rocket.chat/prettier-config": ^0.24.0
+    "@types/loader-utils": ^2.0.2
+    "@types/node": ^14
+    downlevel-dts: ^0.7.0
+    eslint: ^7.24.0
+    lint-staged: ^10.5.4
+    loader-utils: ^2.0.0
+    npm-run-all: ^4.1.5
+    peggy: ^1.1.0
+    prettier: ^2.2.1
+    rimraf: ^3.0.2
+    ts-jest: ^26.5.5
+    tslib: ^2.2.0
+    typescript: ^4.2.4
+    webpack: ^5.36.2
+  peerDependencies:
+    peggy: "*"
+    webpack: "*"
+  languageName: unknown
+  linkType: soft
+
 "@rocket.chat/prettier-config@^0.24.0, @rocket.chat/prettier-config@workspace:packages/prettier-config":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/prettier-config@workspace:packages/prettier-config"
   dependencies:
     "@rocket.chat/eslint-config": ^0.4.0
-    "@rocket.chat/eslint-config-alt": ^0.24.0
     eslint: ^7.24.0
     eslint-config-prettier: ^8.2.0
     eslint-plugin-import: ^2.22.1
@@ -5437,8 +5462,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.24.0
-    "@rocket.chat/prettier-config": ^0.24.0
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^26.0.23
     downlevel-dts: ^0.7.0
     eslint: ^7.24.0
@@ -6783,6 +6808,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/loader-utils@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@types/loader-utils@npm:2.0.2"
+  dependencies:
+    "@types/node": "*"
+    "@types/webpack": ^4
+  checksum: 274319f26588fa035a84d8d6694f10095b8da313de9588a76859fde62c80b083ad34af35174fe12f17ae487a55a10c377e9181f5723541f45b1b445b33dc9995
+  languageName: node
+  linkType: hard
+
 "@types/markdown-to-jsx@npm:^6.11.0":
   version: 6.11.3
   resolution: "@types/markdown-to-jsx@npm:6.11.3"
@@ -6852,6 +6887,13 @@ __metadata:
   version: 14.14.2
   resolution: "@types/node@npm:14.14.2"
   checksum: e6ad786008ec81e010525beb09067f31cc55a3a02120a7e383e21309c1422a0d4a56059c1da46716509e36dbd4d2c607790f3fd715275a09b9f3ffb2cf3b243e
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14":
+  version: 14.14.44
+  resolution: "@types/node@npm:14.14.44"
+  checksum: 5c4db716325fc8a25b5b76b800acf0ff00c8fa1e7cfcb764fc79d79594939488cb9d2a756e188eb8e8a36da51e8e2be1ffe859be901b338779cb0aa12ad73b3a
   languageName: node
   linkType: hard
 
@@ -7044,6 +7086,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/tapable@npm:^1":
+  version: 1.0.7
+  resolution: "@types/tapable@npm:1.0.7"
+  checksum: af30bb7429d590c7df1f3f5b8ef55fcf2c5498cd2d972c40b0ee543a2e7c3df988b5ac29e231b22b09b712ea1df3dbf3eb145dcbbd43544534cbfb0f1cebdfac
+  languageName: node
+  linkType: hard
+
 "@types/uglify-js@npm:*":
   version: 3.11.1
   resolution: "@types/uglify-js@npm:3.11.1"
@@ -7082,6 +7131,20 @@ __metadata:
     "@types/source-list-map": "*"
     source-map: ^0.7.3
   checksum: 26aba8ae682529be737eff726dcf08019460b180e9d22e80925e65240c908312096067b5547ac3dcb6d7b383a4bf0473eb68d0fd4ff483b17f3147fefce149af
+  languageName: node
+  linkType: hard
+
+"@types/webpack@npm:^4":
+  version: 4.41.28
+  resolution: "@types/webpack@npm:4.41.28"
+  dependencies:
+    "@types/anymatch": "*"
+    "@types/node": "*"
+    "@types/tapable": ^1
+    "@types/uglify-js": "*"
+    "@types/webpack-sources": "*"
+    source-map: ^0.6.0
+  checksum: 0edd48873e23e3f9290721596ad3a553495d16e906a8ee81d03dca1453a15a10ca90a71fc1b8a056ef97fa861ae36c69f9df880f3c69b1ec728fbb40fae7026f
   languageName: node
   linkType: hard
 
