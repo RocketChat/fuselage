@@ -23,10 +23,7 @@ const config = (outputDeclarations = false) => ({
       },
       {
         test: /\.pegjs$/,
-        use: [
-          'babel-loader',
-          path.resolve(__dirname, './loaders/pegloader.js'),
-        ],
+        use: ['babel-loader', '@rocket.chat/peggy-loader'],
       },
     ],
   },
