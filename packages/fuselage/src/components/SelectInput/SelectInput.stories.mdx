@@ -4,7 +4,10 @@ import LinkTo from '@storybook/addon-links/react';
 import { Icon, SelectInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
-<Meta title='Forms/Inputs/SelectInput' parameters={{ jest: ['SelectInput/spec'] }} />
+<Meta
+  title='Forms/Inputs/SelectInput'
+  parameters={{ jest: ['SelectInput/spec'] }}
+/>
 
 # SelectInput
 
@@ -37,9 +40,9 @@ multiple selection of options.
   </Story>
 </Canvas>
 
-## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
+## Props from <LinkTo kind='Forms/InputBox' story='Default Story'>`InputBox`</LinkTo>
 
-Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
+Aside from `type`, any other prop from <LinkTo kind='Forms/InputBox' story='Default Story'>`InputBox`</LinkTo> can be
 used.
 
 ### With Addon
@@ -58,7 +61,11 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
 
 <Canvas>
   <Story name='Multiple With Addon'>
-    <SelectInput multiple htmlSize={3} addon={<Icon name='discover' size='x20' />}>
+    <SelectInput
+      multiple
+      htmlSize={3}
+      addon={<Icon name='discover' size='x20' />}
+    >
       <SelectInput.Option value='a'>Item A</SelectInput.Option>
       <SelectInput.Option value='b'>Item B</SelectInput.Option>
       <SelectInput.Option value='c'>Item C</SelectInput.Option>
@@ -120,26 +127,28 @@ There is a subtle difference in the way the `addon` prop is handled: it is ignor
   <PropsVariationSection
     component={SelectInput}
     common={{
-      children: <>
-        <SelectInput.Option value='a'>Item A</SelectInput.Option>
-        <SelectInput.Option value='b'>Item B</SelectInput.Option>
-        <SelectInput.Option value='c'>Item C</SelectInput.Option>
-      </>,
+      children: (
+        <>
+          <SelectInput.Option value='a'>Item A</SelectInput.Option>
+          <SelectInput.Option value='b'>Item B</SelectInput.Option>
+          <SelectInput.Option value='c'>Item C</SelectInput.Option>
+        </>
+      ),
       onChange: () => {},
     }}
     xAxis={{
-      default: {},
+      'default': {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'b' },
-      multiple: { multiple: true, size: 3 },
+      'multiple': { multiple: true, size: 3 },
     }}
     yAxis={{
-      default: {},
-      hover: { className: 'hover' },
-      active: { className: 'active' },
-      focus: { className: 'focus' },
-      disabled: { disabled: true },
-      errored: { error: 'Error' },
+      'default': {},
+      'hover': { className: 'hover' },
+      'active': { className: 'active' },
+      'focus': { className: 'focus' },
+      'disabled': { disabled: true },
+      'errored': { error: 'Error' },
       'errored + hover': { className: 'hover', error: 'Error' },
       'errored + active': { className: 'active', error: 'Error' },
       'errored + focus': { className: 'focus', error: 'Error' },
