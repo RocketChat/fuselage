@@ -1,4 +1,22 @@
-# @rocket.chat/message-parser
+<!--header-->
+
+<p align="center">
+  <a href="https://rocket.chat" title="Rocket.Chat">
+    <img src="https://github.com/RocketChat/Rocket.Chat.Artwork/raw/master/Logos/2020/png/logo-horizontal-red.png" alt="Rocket.Chat" />
+  </a>
+</p>
+
+# `@rocket.chat/message-parser`
+
+> Rocket.Chat parser for messages
+
+---
+
+![npm@latest](https://img.shields.io/npm/v/@rocket.chat/message-parser/latest?style=flat-square) ![npm@next](https://img.shields.io/npm/v/@rocket.chat/message-parser/next?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/message-parser?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/message-parser?style=flat-square)
+
+![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fmessage-parser&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fmessage-parser&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fmessage-parser&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/message-parser?style=flat-square)
+
+<!--/header-->
 
 ## Description
 
@@ -22,7 +40,12 @@ The grammar provides support for markdown, mentions and emojis.
 
 ## Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
+<!--contributing(msg)-->
+
+Contributions, issues, and feature requests are welcome!<br />
+Feel free to check the [issues](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
+
+<!--/contributing(msg)-->
 
 Whenever you find a grammar-related bug, start by inserting the test case.
 

@@ -32,7 +32,8 @@
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
     "lint": "eslint src",
     "lint-fix": "eslint --fix src",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "docs": "typedoc"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -40,14 +41,15 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "^0.24.0",
     "@rocket.chat/prettier-config": "^0.24.0",
-    "eslint": "^7.18.0",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "lint-staged": "^10.5.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "lint-staged": "^11.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.1.3"
+    "typedoc": "^0.20.36",
+    "typescript": "^4.2.4"
   }
 }

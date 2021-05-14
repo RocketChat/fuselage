@@ -55,6 +55,10 @@
     {
       "directory": "packages/ui-kit",
       "changeProcessCWD": true
+    },
+    {
+      "directory": "scripts",
+      "changeProcessCWD": true
     }
   ],
   "editor.codeActionsOnSave": {
@@ -67,5 +71,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[pegjs]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
