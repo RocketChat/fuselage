@@ -1,6 +1,7 @@
 import React, { ComponentProps, FC } from 'react';
+
 import { Icon } from '../..';
-import { Message } from '../Message';
+import { Message, MessageLeftContainer } from '../Message';
 
 export const ThreadMessage: FC<ComponentProps<typeof Message>> & {
   Row: FC;
@@ -14,7 +15,9 @@ export const ThreadMessage: FC<ComponentProps<typeof Message>> & {
   Follow: FC;
   Unfollow: FC;
   Icon: FC;
-} = (props) => <Message className='rcx-message--thread' {...props} />;
+} = (props) => (
+  <Message {...({ className: 'rcx-message--thread' } as any)} {...props} />
+);
 
 ThreadMessage.Message = (props) => (
   <div
@@ -54,13 +57,11 @@ ThreadMessage.Unfollow = () => (
   />
 );
 
-ThreadMessage.LeftContainer = Message.LeftContainer;
+ThreadMessage.LeftContainer = MessageLeftContainer;
 
-ThreadMessage.Container = (props) => {
-  return (
-    <div
-      className='rcx-box rcx-box--full rcx-message-thread__container'
-      {...props}
-    />
-  );
-};
+ThreadMessage.Container = (props) => (
+  <div
+    className='rcx-box rcx-box--full rcx-message-thread__container'
+    {...props}
+  />
+);

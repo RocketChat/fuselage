@@ -1,8 +1,9 @@
 import React, { ComponentProps, FC } from 'react';
-import { BoxProps, ButtonProps } from '@rocket.chat/fuselage';
 
-import { ActionButton, Box, Button, Icon } from '../..';
+import { ActionButton, Button, Icon, Box } from '../..';
 
+type BoxProps = ComponentProps<typeof Box>;
+type ButtonProps = ComponentProps<typeof Button>;
 export const Content: FC = (props) => (
   <div className='rcx-message-metrics__content' {...props} />
 );

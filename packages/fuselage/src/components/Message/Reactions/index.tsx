@@ -1,7 +1,7 @@
 import React, { ComponentProps, FC } from 'react';
 
-import { ActionButton, ButtonGroup, Box, Icon } from '../../';
-import { Message } from '../Message';
+import { ButtonGroup, Icon } from '../..';
+import { MessageBlock } from '../Message';
 import './styles.scss';
 
 export const Reactions: FC<ComponentProps<typeof ButtonGroup>> & {
@@ -9,9 +9,9 @@ export const Reactions: FC<ComponentProps<typeof ButtonGroup>> & {
   Action: FC<{ className: string }>;
 } = function Reactions(props) {
   return (
-    <Message.Block className='rcx-message-reactions'>
+    <MessageBlock className='rcx-message-reactions'>
       <ButtonGroup {...{ small: true }} {...props} />
-    </Message.Block>
+    </MessageBlock>
   );
 };
 
@@ -30,12 +30,10 @@ const Reaction: FC<{
 
 Reactions.Reaction = Reaction;
 
-Reactions.Action = ({ className }) => {
-  return (
-    <div
-      className={`rcx-message-reactions__reaction rcx-message-reactions__reaction--action ${className}`}
-    >
-      <Icon {...({ name: 'emoji-plus', size: 'x16' } as any)}></Icon>
-    </div>
-  );
-};
+Reactions.Action = ({ className }) => (
+  <div
+    className={`rcx-message-reactions__reaction rcx-message-reactions__reaction--action ${className}`}
+  >
+    <Icon {...({ name: 'emoji-plus', size: 'x16' } as any)}></Icon>
+  </div>
+);

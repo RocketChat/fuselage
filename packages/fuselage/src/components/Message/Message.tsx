@@ -1,15 +1,17 @@
-import { Box, Margins, Tag } from '..';
-import React, { ComponentProps, FC } from 'react';
+import React, {
+  ComponentProps,
+  FC,
+  forwardRef,
+  ForwardRefExoticComponent,
+} from 'react';
 
 import './Messages.styles.scss';
-import { BoxProps } from '@rocket.chat/fuselage';
 
+import { Tag, Divider } from '..';
+import { prependClassName } from '../../helpers/prependClassName';
+import { Box, useArrayLikeClassNameProp } from '../Box';
 import { Metrics } from './Metrics';
 import { Toolbox } from './Toolbox';
-import { Divider } from '../';
-
-import { prependClassName } from '../../helpers/prependClassName';
-import { useArrayLikeClassNameProp } from '../Box';
 
 const Container: FC = function Container(props) {
   return (
@@ -26,7 +28,7 @@ const ContainerFixed: FC = function Container(props) {
   );
 };
 
-const LeftContainer: FC = function LeftContainer(props) {
+export const MessageLeftContainer: FC = function MessageLeftContainer(props) {
   return (
     <div
       className='rcx-box rcx-box--full rcx-message-container rcx-message-container--left'
@@ -67,7 +69,7 @@ const Body: FC<{
   );
 };
 
-const Block: FC<{ className?: string }> = function Block({
+export const MessageBlock: FC<{ className?: string }> = function MessageBlock({
   className,
   ...props
 }) {
@@ -84,51 +86,42 @@ const Block: FC<{ className?: string }> = function Block({
   );
 };
 
-export const Message: FC<{
-  is: BoxProps['is'];
-  onClick: BoxProps['onClick'];
-  className?: string | string[];
+type MessageProps = ComponentProps<typeof Box> & {
   clickable?: true | false;
-  sequential?: Boolean;
-}> & {
-  Toolbox: FC<ComponentProps<typeof Toolbox>>;
-  // Thread: FC;
-  Metrics: FC;
-  Container: FC;
-  ContainerFixed: FC;
-  LeftContainer: FC;
-  Header: FC;
-  Body: FC<{ className?: string | string[] }>;
-  Block: FC<{ className?: string }>;
-  Timestamp: FC<{ children: string }>;
-  Name: FC<{ children: string }>;
-  Username: FC<{ children: string }>;
-  Role: FC<{ children: string }>;
-  Roles: FC<{ children: string }>;
-  Divider: FC<ComponentProps<typeof Divider>>;
-} = function Message({
-  is: Tag = 'div',
-  className,
-  clickable,
-  sequential,
-  ...props
-}) {
-  return (
-    <Tag
-      className={prependClassName(
-        useArrayLikeClassNameProp({ className }).className,
-        [
-          'rcx-message',
-          (clickable || props.onClick) && 'rcx-message--clickable',
-          sequential && 'rcx-message--sequential',
-        ]
-          .filter(Boolean)
-          .join(' ')
-      )}
-      {...props}
-    />
-  );
+  sequential?: boolean;
 };
+
+export const Message: ForwardRefExoticComponent<MessageProps> = forwardRef(
+  function Message(
+    {
+      // is: Tag = 'div',
+      className,
+      clickable,
+      sequential,
+      ...props
+    },
+    ref
+  ) {
+    return (
+      <div
+        ref={ref}
+        className={
+          prependClassName(
+            useArrayLikeClassNameProp({ className }).className,
+            [
+              'rcx-message',
+              (clickable || props.onClick) && 'rcx-message--clickable',
+              sequential && 'rcx-message--sequential',
+            ]
+              .filter(Boolean)
+              .join(' ')
+          ) || ''
+        }
+        {...(props as any)}
+      />
+    );
+  }
+);
 
 const Timestamp: FC<{ children: string }> = function Timestamp(props) {
   return (
@@ -159,7 +152,7 @@ const Username: FC<{ children: string }> = function Name(props) {
 const Role: FC<{ children: string }> = function Role(props) {
   return (
     <Tag
-      onClick={() => {}}
+      onClick={undefined}
       className='rcx-box rcx-box--full rcx-message-header__role'
       {...props}
       small
@@ -178,17 +171,19 @@ const Roles: FC = function Role(props) {
   );
 };
 
-Message.Metrics = Metrics;
-Message.Toolbox = Toolbox;
-Message.Container = Container;
-Message.ContainerFixed = ContainerFixed;
-Message.LeftContainer = LeftContainer;
-Message.Header = Header;
-Message.Body = Body;
-Message.Block = Block;
-Message.Timestamp = Timestamp;
-Message.Name = Name;
-Message.Username = Username;
-Message.Roles = Roles;
-Message.Role = Role;
-Message.Divider = Divider;
+Object.assign(Message, {
+  Metrics,
+  Toolbox,
+  Container,
+  ContainerFixed,
+  LeftContainer: MessageLeftContainer,
+  Header,
+  Body,
+  Block: MessageBlock,
+  Timestamp,
+  Name,
+  Username,
+  Roles,
+  Role,
+  Divider,
+});

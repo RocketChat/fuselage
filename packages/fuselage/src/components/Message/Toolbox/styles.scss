@@ -4,7 +4,6 @@
 @use '../mixins.scss';
 
 .rcx-message-toolbox {
-  @include mixins.visible-on-hover();
   display: inline-block;
 
   margin-inline: lengths.margin(20);
@@ -13,6 +12,10 @@
   border: lengths.border-width(2) solid colors.neutral(200);
   border-radius: lengths.border-radius(2);
   background: colors.foreground(alternative);
+
+  &__wrapper {
+    @include mixins.visible-on-hover();
+  }
 
   @at-root .rcx-message & {
     position: absolute;

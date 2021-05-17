@@ -1,11 +1,19 @@
-import React, { ComponentProps, FC } from 'react';
+import React, {
+  ComponentProps,
+  FC,
+  forwardRef,
+  ForwardRefExoticComponent,
+} from 'react';
 
-import { ActionButton, ButtonGroup } from '../../';
+import { ActionButton, ButtonGroup } from '../..';
+import { Menu } from '../../Menu';
 
 import './styles.scss';
 
 export const Toolbox: FC<ComponentProps<typeof ButtonGroup>> & {
   Item: FC;
+  Wrapper: FC;
+  Menu: FC<ComponentProps<typeof Menu>>;
 } = function ToolBox(props) {
   return (
     <div className='rcx-box rcx-box--full rcx-message-toolbox'>
@@ -14,8 +22,24 @@ export const Toolbox: FC<ComponentProps<typeof ButtonGroup>> & {
   );
 };
 
+export const ToolboxWrapper: ForwardRefExoticComponent<any> = forwardRef(
+  function ToolboxWrapper(props, ref) {
+    return (
+      <div
+        ref={ref}
+        className='rcx-box rcx-box--full rcx-message-toolbox__wrapper'
+        {...props}
+      />
+    );
+  }
+);
+
 const Item: FC<ComponentProps<typeof ActionButton>> = function Item(props) {
   return <ActionButton {...{ ...props, small: true, ghost: true }} />;
 };
 
+Toolbox.Wrapper = ToolboxWrapper;
+
 Toolbox.Item = Item;
+
+Toolbox.Menu = Menu;

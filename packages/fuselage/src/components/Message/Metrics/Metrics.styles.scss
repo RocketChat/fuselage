@@ -6,7 +6,9 @@
   &__content,
   &__content-item {
     display: flex;
+
     margin-block: lengths.margin(4);
+
     & + & {
       margin-inline-start: lengths.margin(4);
     }
@@ -14,6 +16,7 @@
 
   &__content-wrapper {
     display: flex;
+
     margin-inline: lengths.margin(-4);
   }
 
@@ -23,7 +26,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     margin-inline: lengths.margin(4);
+
     color: colors.foreground(info);
 
     &-label {
