@@ -65,6 +65,8 @@ export const OptionsPaginated = React.forwardRef(
               style={{ height: '144px' }}
               totalCount={options.length}
               data={options}
+              // TODO Add a scroller element
+              // components={{ Scroller: ScrollableContentWrapper }}
               itemContent={(index, data) => (
                 <OptionsComponentWithData index={index} data={data} ref={ref} />
               )}
