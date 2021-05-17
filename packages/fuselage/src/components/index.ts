@@ -31,6 +31,7 @@ export * from './ProgressBar';
 export * from './RadioButton';
 export * from './SearchInput';
 export * from './Select';
+export * from './SelectPaginated';
 export * from './SelectInput';
 export * from './Sidebar';
 export * from './Skeleton';
