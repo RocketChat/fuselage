@@ -17,13 +17,13 @@ jobs:
         with:
           node-version: "14"
       - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+        - uses: actions/cache@v2
+          id: yarn-cache
+          with:
+            path: |
+              **/node_modules
+              .yarn/cache
+            key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run build
