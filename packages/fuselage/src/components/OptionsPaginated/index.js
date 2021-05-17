@@ -2,25 +2,13 @@ import {
   useMutableCallback,
   useDebouncedState,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useState } from 'react';
+import React from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import { AnimatedVisibility, Box } from '../Box';
 import { CheckBox } from '../CheckBox';
 import { Tile } from '../Tile';
 import { Option } from './Option';
-
-console.log(Virtuoso);
-
-export const ACTIONS = {
-  ESC: 27,
-  KEY_UP: 38,
-  KEY_DOWN: 40,
-  HOME: 36,
-  END: 35,
-  TAB: 9,
-  ENTER: 13,
-};
 
 const prevent = (e) => {
   e.preventDefault();
@@ -46,13 +34,13 @@ export const OptionsPaginated = React.forwardRef(
       cursor,
       renderItem: OptionComponent = Option,
       onSelect,
+      endReached,
       ...props
     },
     ref
   ) => {
     const OptionsComponentWithData = ({ index, data }) => {
       const { value, label, selected } = data;
-      console.log(options);
       return (
         <OptionComponent
           role='option'
@@ -73,34 +61,15 @@ export const OptionsPaginated = React.forwardRef(
             <EmptyComponent />
           ) : (
             <Virtuoso
+              endReached={endReached}
               style={{ height: '144px' }}
               totalCount={options.length}
               data={options}
               itemContent={(index, data) => (
                 <OptionsComponentWithData index={index} data={data} ref={ref} />
               )}
-              // components={{ Scroller: Scrollable }}
             />
           )}
-          {/* <Scrollable vertical smooth>
-            <Tile
-              ref={ref}
-              elevation='0'
-              padding='none'
-              maxHeight={maxHeight}
-              onMouseDown={prevent}
-              onClick={prevent}
-              is='ol'
-              aria-multiselectable={multiple}
-              role='listbox'
-              aria-multiselectable='true'
-              aria-activedescendant={
-                options && options[cursor] && options[cursor][0]
-              }
-            >
-              {optionsMemoized}
-            </Tile>
-          </Scrollable> */}
         </Tile>
       </Box>
     );

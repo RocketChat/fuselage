@@ -1,2 +1,2 @@
-export * from './Select';
-export * from './MultiSelect';
+export * from './PaginatedSelect';
+export * from './PaginatedMultiSelect';

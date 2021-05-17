@@ -14,9 +14,9 @@ import React, {
 import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
-import { OptionsPaginated, useVisibility } from '../OptionsPaginated';
+import { OptionsPaginated, useVisible } from '../OptionsPaginated';
 
-export const Addon = forwardRef((props, ref) => (
+const Addon = forwardRef((props, ref) => (
   <Box is='div' rcx-select__addon ref={ref} {...props} />
 ));
 
@@ -24,7 +24,7 @@ const Wrapper = forwardRef((props, ref) => (
   <Box is='div' rcx-select__wrapper ref={ref} {...props} />
 ));
 
-export const Focus = React.forwardRef((props, ref) => (
+const Focus = React.forwardRef((props, ref) => (
   <Box
     ref={ref}
     fontScale='p2'
@@ -48,16 +48,15 @@ const useDidUpdate = (func, deps = []) => {
   }, deps);
 };
 
-export const Select = ({
+export const PaginatedSelect = ({
   value,
   filter,
+  setFilter,
   error,
   disabled,
   options = [],
   anchor: Anchor = Focus,
   onChange = () => {},
-  getValue = ([value] = []) => value,
-  getLabel = ([, label] = []) => label,
   placeholder = '',
   renderOptions: _Options = OptionsPaginated,
   ...props
@@ -66,30 +65,10 @@ export const Select = ({
 
   const currentValue = value !== undefined ? value : internalValue;
 
-  const internalChangedByKeyboard = useMutableCallback(([value]) => {
-    setInternalValue(value);
-    onChange(value);
-  });
+  const option = options.find((option) => option?.value === currentValue);
 
-  const option = options.find((option) => getValue(option) === currentValue);
+  const [visible, hide, show] = useVisible();
 
-  const index = options.indexOf(option);
-
-  const filteredOptions = useMemo(() => {
-    const mapOptions = ([value, label]) => {
-      if (currentValue === value) {
-        return [value, label, true];
-      }
-      return [value, label];
-    };
-
-    const applyFilter = ([, option]) =>
-      !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
-    return options.filter(applyFilter).map(mapOptions);
-  }, [options, currentValue, filter]);
-
-  const [reset, [visible, hide, show]] = useVisible(index);
-  debugger;
   const internalChangedByClick = useMutableCallback(([value]) => {
     setInternalValue(value);
     onChange(value);
@@ -100,9 +79,9 @@ export const Select = ({
 
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  useDidUpdate(reset, [filter, internalValue]);
+  useDidUpdate([filter, internalValue]);
 
-  const valueLabel = getLabel(option);
+  const valueLabel = option?.label;
 
   const visibleText =
     (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
@@ -148,8 +127,6 @@ export const Select = ({
           aria-haspopup='listbox'
           onClick={show}
           onBlur={hide}
-          onKeyUp={handleKeyUp}
-          onKeyDown={handleKeyDown}
         />
         <Addon
           mi='x4'
@@ -170,17 +147,21 @@ export const Select = ({
           width={borderBoxSize.inlineSize}
           role='listbox'
           filter={filter}
-          options={filteredOptions}
+          options={options}
           onSelect={internalChangedByClick}
-          cursor={cursor}
         />
       </PositionAnimated>
     </Box>
   );
 };
 
-export const SelectFiltered = ({ options, placeholder, ...props }) => {
-  const [filter, setFilter] = useState('');
+export const PaginatedSelectFiltered = ({
+  filter,
+  setFilter,
+  options,
+  placeholder,
+  ...props
+}) => {
   const anchor = useCallback(
     React.forwardRef(({ children, filter, ...props }, ref) => (
       <InputBox.Input
@@ -198,7 +179,7 @@ export const SelectFiltered = ({ options, placeholder, ...props }) => {
     []
   );
   return (
-    <Select
+    <PaginatedSelect
       placeholder={null}
       filter={filter}
       options={options}

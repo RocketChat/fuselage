@@ -2,7 +2,12 @@ import { action } from '@storybook/addon-actions';
 import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 import { useState } from 'react';
 
-import { Select, MultiSelect, MultiSelectFiltered, SelectFiltered } from '.';
+import {
+  PaginatedSelect,
+  PaginatedMultiSelect,
+  PaginatedMultiSelectFiltered,
+  PaginatedSelectFiltered,
+} from '.';
 import { options } from './hugeList';
 
 export const thumb =
@@ -24,13 +29,17 @@ An input for selection of options.
 
 <Canvas>
   <Story name='Default'>
-    <Select width='250px' placeholder='Placeholder here...' options={options} />
+    <PaginatedSelect
+      width='250px'
+      placeholder='Placeholder here...'
+      options={options}
+    />
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='Error'>
-    <Select
+    <PaginatedSelect
       width='250px'
       error
       placeholder='Placeholder here...'
@@ -41,7 +50,7 @@ An input for selection of options.
 
 <Canvas>
   <Story name='Disabled'>
-    <Select
+    <PaginatedSelect
       width='250px'
       disabled
       placeholder='Placeholder here...'
@@ -54,7 +63,7 @@ An input for selection of options.
 
 <Canvas>
   <Story name='No Placeholder'>
-    <Select width='250px' options={options} />
+    <PaginatedSelect width='250px' options={options} />
   </Story>
 </Canvas>
 
@@ -66,7 +75,7 @@ An input for selection of options.
 
 <Canvas>
   <Story name='Select with filter'>
-    <SelectFiltered
+    <PaginatedSelectFiltered
       width='250px'
       placeholder='Placeholder here...'
       options={options}
@@ -76,7 +85,7 @@ An input for selection of options.
 
 <Canvas>
   <Story name='Select with filter and ellipses'>
-    <SelectFiltered
+    <PaginatedSelectFiltered
       width='250px'
       value={11}
       placeholder='Placeholder here...'
@@ -87,7 +96,7 @@ An input for selection of options.
 
 <Canvas>
   <Story name='Select with filter and error'>
-    <SelectFiltered
+    <PaginatedSelectFiltered
       width='250px'
       error
       placeholder='Placeholder here...'
@@ -98,7 +107,7 @@ An input for selection of options.
 
 <Canvas>
   <Story name='Select with filter and disabled'>
-    <SelectFiltered
+    <PaginatedSelectFiltered
       width='250px'
       disabled
       error
@@ -110,40 +119,48 @@ An input for selection of options.
 
 <ArgsTable of={SelectFiltered} />
 
-# MultiSelect
+# PaginatedMultiSelect
 
 An input for selection of options.
 
 <Canvas>
-  <Story name='MultiSelect'>
-    <MultiSelect placeholder='Placeholder here...' options={options} />
+  <Story name='PaginatedMultiSelect'>
+    <PaginatedMultiSelect placeholder='Placeholder here...' options={options} />
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='MultiSelect Error'>
-    <MultiSelect error placeholder='Placeholder here...' options={options} />
+  <Story name='PaginatedMultiSelect Error'>
+    <PaginatedMultiSelect
+      error
+      placeholder='Placeholder here...'
+      options={options}
+    />
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name='MultiSelect Disabled'>
-    <MultiSelect disabled placeholder='Placeholder here...' options={options} />
+  <Story name='PaginatedMultiSelect Disabled'>
+    <PaginatedMultiSelect
+      disabled
+      placeholder='Placeholder here...'
+      options={options}
+    />
   </Story>
 </Canvas>
 
-<ArgsTable of={MultiSelect} />
+<ArgsTable of={PaginatedMultiSelect} />
 
-# MultiSelectFiltered
+# PaginatedMultiSelectFiltered
 
 An input for selection of options.
 
 <Canvas>
-  <Story name='MultiSelectFiltered'>
+  <Story name='PaginatedMultiSelectFiltered'>
     {React.createElement(() => {
       const [filter, setFilter] = useState('');
       return (
-        <MultiSelectFiltered
+        <PaginatedMultiSelectFiltered
           placeholder='Placeholder here...'
           onChange={action('change')}
           options={options}
@@ -156,8 +173,8 @@ An input for selection of options.
 </Canvas>
 
 <Canvas>
-  <Story name='MultiSelectFiltered error'>
-    <MultiSelectFiltered
+  <Story name='PaginatedMultiSelectFiltered error'>
+    <PaginatedMultiSelectFiltered
       error
       placeholder='Placeholder here...'
       onChange={action('change')}
@@ -167,8 +184,8 @@ An input for selection of options.
 </Canvas>
 
 <Canvas>
-  <Story name='MultiSelectFiltered disabled'>
-    <MultiSelectFiltered
+  <Story name='PaginatedMultiSelectFiltered disabled'>
+    <PaginatedMultiSelectFiltered
       disabled
       placeholder='Placeholder here...'
       onChange={action('change')}
@@ -177,4 +194,4 @@ An input for selection of options.
   </Story>
 </Canvas>
 
-<ArgsTable of={MultiSelectFiltered} />
+<ArgsTable of={PaginatedMultiSelectFiltered} />

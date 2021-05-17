@@ -2,15 +2,15 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
 import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
-import { OptionsPaginated, CheckOption, useVisible } from '../OptionsPaginated';
-import { Focus, Addon } from './Select';
+import { OptionsPaginated, useVisible } from '../OptionsPaginated';
+import { Focus, Addon } from '../Select';
 
 const SelectedOptions = React.memo((props) => <Chip {...props} />);
 
@@ -20,7 +20,7 @@ const prevent = (e) => {
   e.nativeEvent.stopImmediatePropagation();
 };
 
-export const MultiSelect = ({
+export const PaginatedMultiSelect = ({
   value,
   filter,
   options = [],
@@ -30,15 +30,13 @@ export const MultiSelect = ({
   onChange = () => {},
   placeholder,
   renderOptions: _Options = OptionsPaginated,
+  endReached,
   ...props
 }) => {
   const [internalValue, setInternalValue] = useState(value || []);
 
   const currentValue = value !== undefined ? value : internalValue;
-  console.log(currentValue, internalValue, options);
-
   const option = options.find((option) => option.value === currentValue);
-  const index = options.indexOf(option);
 
   const internalChanged = ([value]) => {
     if (currentValue.includes(value)) {
@@ -101,6 +99,7 @@ export const MultiSelect = ({
                         prevent(e) & internalChanged([value]) && false
                       }
                       children={
+                        value.label ||
                         options.find((val) => val.value === value)?.label
                       }
                     />
@@ -134,10 +133,10 @@ export const MultiSelect = ({
             onMouseDown={prevent}
             multiple
             filter={filter}
-            renderItem={CheckOption}
             role='listbox'
             options={options}
             onSelect={internalChanged}
+            endReached={endReached}
           />
         </Position>
       </AnimatedVisibility>
@@ -145,7 +144,7 @@ export const MultiSelect = ({
   );
 };
 
-export const MultiSelectFiltered = ({
+export const PaginatedMultiSelectFiltered = ({
   filter,
   setFilter,
   options,
@@ -168,6 +167,11 @@ export const MultiSelectFiltered = ({
     []
   );
   return (
-    <MultiSelect filter={filter} options={options} {...props} anchor={anchor} />
+    <PaginatedMultiSelect
+      filter={filter}
+      options={options}
+      {...props}
+      anchor={anchor}
+    />
   );
 };
