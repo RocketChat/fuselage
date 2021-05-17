@@ -5,7 +5,7 @@
 !/.yarn/sdks
 !/.yarn/versions
 /.pnp.*
-
+/lerna-debug.log
 /static
 node_modules/
 storybook-static/

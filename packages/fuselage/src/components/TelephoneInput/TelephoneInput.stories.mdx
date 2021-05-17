@@ -4,7 +4,10 @@ import LinkTo from '@storybook/addon-links/react';
 import { Icon, TelephoneInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
-<Meta title='Forms/Inputs/TelephoneInput' parameters={{ jest: ['TelephoneInput/spec'] }} />
+<Meta
+  title='Forms/Inputs/TelephoneInput'
+  parameters={{ jest: ['TelephoneInput/spec'] }}
+/>
 
 # TelephoneInput
 
@@ -18,9 +21,9 @@ An input for telephone numbers.
 
 <ArgsTable of={TelephoneInput} />
 
-## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
+## Props from <LinkTo kind='Forms/InputBox' story='Default Story'>`InputBox`</LinkTo>
 
-Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
+Aside from `type`, any other prop from <LinkTo kind='Forms/InputBox' story='Default Story'>`InputBox`</LinkTo> can be
 used.
 
 ### With Icon Addon
@@ -70,18 +73,21 @@ used.
     component={TelephoneInput}
     common={{ onChange: () => {} }}
     xAxis={{
-      default: {},
+      'default': {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: '+1234567890' },
-      'with icon': { addon: <Icon name='mobile' size='x20' />, value: '+1234567890' },
+      'with icon': {
+        addon: <Icon name='mobile' size='x20' />,
+        value: '+1234567890',
+      },
     }}
     yAxis={{
-      default: {},
-      hover: { className: 'hover' },
-      active: { className: 'active' },
-      focus: { className: 'focus' },
-      disabled: { disabled: true },
-      errored: { error: 'Error' },
+      'default': {},
+      'hover': { className: 'hover' },
+      'active': { className: 'active' },
+      'focus': { className: 'focus' },
+      'disabled': { disabled: true },
+      'errored': { error: 'Error' },
       'errored + hover': { className: 'hover', error: 'Error' },
       'errored + active': { className: 'active', error: 'Error' },
       'errored + focus': { className: 'focus', error: 'Error' },

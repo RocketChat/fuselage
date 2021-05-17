@@ -12,8 +12,8 @@ export default {
     type: {
       control: {
         type: 'radio',
-        options: ['neutral', 'info', 'success', 'warning', 'danger'],
       },
+      options: ['neutral', 'info', 'success', 'warning', 'danger'],
       defaultValue: 'neutral',
     },
     errors: { control: 'object' },

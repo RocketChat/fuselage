@@ -38,11 +38,11 @@
   },
   "devDependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
-    "eslint": "^7.24.0",
-    "eslint-config-prettier": "^8.2.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.4.0",
-    "lint-staged": "^10.5.4",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.2.1"
   }
 }
