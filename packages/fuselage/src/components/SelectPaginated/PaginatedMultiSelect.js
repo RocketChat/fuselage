@@ -94,7 +94,7 @@ export const PaginatedMultiSelect = ({
                     <SelectedOptions
                       tabIndex={-1}
                       role='option'
-                      key={value}
+                      key={value && value.value}
                       onMouseDown={(e) =>
                         prevent(e) & internalChanged([value]) && false
                       }
