@@ -11,7 +11,7 @@ module.exports = {
     '@storybook/addon-essentials',
     ...(process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : []),
   ],
-  stories: ['../src/**/*.stories.{mdx,js}'],
+  stories: ['../src/**/*.stories.{mdx,js,tsx}'],
   webpackFinal: (config) => {
     config.module.rules.push({
       test: /\.scss$/,

@@ -2,6 +2,7 @@
 
 const path = require('path');
 
+const CopyPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env, { mode = 'production' }) => ({
@@ -92,6 +93,15 @@ module.exports = (env, { mode = 'production' }) => ({
     '@rocket.chat/fuselage-hooks',
   ],
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          context: 'src/',
+          from: '**/!(scss).d.ts',
+          to: '../dist',
+        },
+      ],
+    }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       generateStatsFile: false,

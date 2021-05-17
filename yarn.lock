@@ -4288,10 +4288,12 @@ __metadata:
     "@storybook/react": ^6.2.9
     "@storybook/source-loader": ^6.2.9
     "@storybook/theming": ^6.2.9
+    "@types/invariant": ^2.2.34
     "@types/jest": ^26.0.23
     autoprefixer: ^10.2.5
     babel-loader: ^8.2.2
     caniuse-lite: ^1.0.30001223
+    copy-webpack-plugin: ^8.1.1
     cross-env: ^7.0.3
     css-loader: ^5.2.4
     cssnano: ^5.0.2
@@ -5825,6 +5827,13 @@ __metadata:
   version: 5.1.1
   resolution: "@types/html-minifier-terser@npm:5.1.1"
   checksum: 1e750b93e1240a6a3bc6d2748a4f09215c9557b8f6655ee57d1e88c7afcc171e2998a1e97a771c64ef8eeadc9db5623f9e08e09574a549cb74549cdbad5a73b7
+  languageName: node
+  linkType: hard
+
+"@types/invariant@npm:^2.2.34":
+  version: 2.2.34
+  resolution: "@types/invariant@npm:2.2.34"
+  checksum: d0ecc665e5c95abf1ad7263c8cc32604d6b3444cfbc97657fede7e63f3751554a4f35f72ae565d70c28184dfb8b0cd4c058eaec1af972999edfd0a81b365f74b
   languageName: node
   linkType: hard
 
@@ -9354,6 +9363,23 @@ __metadata:
   dependencies:
     toggle-selection: ^1.0.6
   checksum: 9707f2e405ca4019de1f4194565568acdf3d1dd8a59f7b8f63d0e7257648132b579461e7aeb6140169cb943cf4b6a243b377cf0437d8c10c6f5e5bb3935dea78
+  languageName: node
+  linkType: hard
+
+"copy-webpack-plugin@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "copy-webpack-plugin@npm:8.1.1"
+  dependencies:
+    fast-glob: ^3.2.5
+    glob-parent: ^5.1.1
+    globby: ^11.0.3
+    normalize-path: ^3.0.0
+    p-limit: ^3.1.0
+    schema-utils: ^3.0.0
+    serialize-javascript: ^5.0.1
+  peerDependencies:
+    webpack: ^5.1.0
+  checksum: b06d77fa66b83b331831c74a8a2e29a66d79f0ad732dc90e4508e7301c832900fc7ee74a92766526f8853e28dfbab9bc71065b5164f14f373d88152e4a2858c0
   languageName: node
   linkType: hard
 
