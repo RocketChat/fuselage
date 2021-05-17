@@ -45,7 +45,7 @@ const useDidUpdate = (func, deps = []) => {
       fn();
     }
     didMount.current = true;
-  }, deps);
+  }, [fn]);
 };
 
 export const PaginatedSelect = ({
