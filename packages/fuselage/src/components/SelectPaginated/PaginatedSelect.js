@@ -36,7 +36,7 @@ const Focus = React.forwardRef((props, ref) => (
   />
 ));
 
-const useDidUpdate = (func, deps = []) => {
+const useDidUpdate = (func = []) => {
   const didMount = useRef(false);
   const fn = useMutableCallback(func);
 
