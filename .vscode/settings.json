@@ -41,6 +41,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/peggy-loader",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/prettier-config",
       "changeProcessCWD": true
     },
@@ -50,6 +54,10 @@
     },
     {
       "directory": "packages/ui-kit",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "scripts",
       "changeProcessCWD": true
     }
   ],
@@ -63,5 +71,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[pegjs]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

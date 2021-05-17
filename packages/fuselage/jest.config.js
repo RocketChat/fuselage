@@ -1,9 +1,9 @@
 module.exports = {
-  preset: 'ts-jest/presets/js-with-ts',
+  preset: 'ts-jest/presets/js-with-babel',
   errorOnDeprecated: true,
   testMatch: [
-    '<rootDir>/src/**/*.spec.[jt]s?(x)',
-    '<rootDir>/src/**/spec.[jt]s?(x)',
+    '<rootDir>/src/**/*.spec.{js,ts,tsx}',
+    '<rootDir>/src/**/spec.{js,ts,tsx}',
   ],
   globals: {
     'ts-jest': {

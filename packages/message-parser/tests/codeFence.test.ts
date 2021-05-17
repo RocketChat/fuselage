@@ -9,6 +9,12 @@ code
     [code([codeLine(plain('code'))])],
   ],
   [
+    `\`\`\`
+var a = "teste";
+\`\`\``,
+    [code([codeLine(plain('var a = "teste";'))])],
+  ],
+  [
     `\`\`\`javascript
 code
 \`\`\``,
