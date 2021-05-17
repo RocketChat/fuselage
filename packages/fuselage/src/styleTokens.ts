@@ -4,7 +4,9 @@ import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
 
-const measure = (computeSpecialValue) =>
+const measure = (
+  computeSpecialValue?: (value: string) => null | undefined | string
+) =>
   memoize((value) => {
     if (typeof value === 'number') {
       return `${value}px`;
@@ -15,8 +17,9 @@ const measure = (computeSpecialValue) =>
     }
 
     const xRegExp = /^(neg-|-)?x(\d+)$/;
-    if (xRegExp.test(value)) {
-      const [, negativeMark, measureInPixelsAsString] = xRegExp.exec(value);
+    const matches = xRegExp.exec(value);
+    if (matches) {
+      const [, negativeMark, measureInPixelsAsString] = matches;
       const measureInPixels =
         (negativeMark ? -1 : 1) * parseInt(measureInPixelsAsString, 10);
       return `${measureInPixels / 16}rem`;
@@ -29,13 +32,13 @@ const measure = (computeSpecialValue) =>
     return value;
   });
 
-export const borderWidth = measure((value) => {
+export const borderWidth = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
 });
 
-export const borderRadius = measure((value) => {
+export const borderRadius = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
@@ -52,24 +55,37 @@ const mapTypeToPrefix = {
   success: 'g',
   warning: 'y',
   danger: 'r',
-};
+} as const;
 
-const getPaletteColor = (type, grade, alpha) => {
-  invariant(
-    grade % 100 === 0 && grade / 100 >= 1 && grade / 100 <= 9,
-    'invalid color grade'
-  );
-  invariant(
-    alpha === undefined || (alpha >= 0 && alpha <= 1),
-    'invalid color alpha'
-  );
+const isPaletteColorType = (
+  type: unknown
+): type is keyof typeof mapTypeToPrefix =>
+  typeof type === 'string' && type in mapTypeToPrefix;
 
-  const prefix = mapTypeToPrefix[type];
-  invariant(!!prefix, 'invalid color type');
+const isPaletteColorGrade = (
+  grade: unknown
+): grade is 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 =>
+  typeof grade === 'number' &&
+  grade % 100 === 0 &&
+  grade / 100 >= 1 &&
+  grade / 100 <= 9;
 
-  const baseColor = tokenColors[`${prefix}${grade}`];
+const isPaletteColorAlpha = (alpha: unknown): alpha is number | undefined =>
+  alpha === undefined ||
+  (typeof alpha === 'number' && alpha >= 0 && alpha <= 1);
 
-  invariant(!!baseColor, 'invalid color reference');
+const isPaletteColorRef = (ref: unknown): ref is keyof typeof tokenColors =>
+  typeof ref === 'string' && ref in tokenColors;
+
+const getPaletteColor = (
+  type: keyof typeof mapTypeToPrefix,
+  grade: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
+  alpha?: number
+): [customPropertyName: string, value: string] => {
+  const ref = `${mapTypeToPrefix[type]}${grade}`;
+  invariant(isPaletteColorRef(ref), 'invalid color reference');
+
+  const baseColor = tokenColors[ref];
 
   const matches = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/.exec(
     baseColor
@@ -103,29 +119,43 @@ const foregroundColors = {
   'link': tokenColors.b500,
   'visited-link': tokenColors.p500,
   'active-link': tokenColors.r500,
-};
+} as const;
 
-const getForegroundColor = (type) => {
+const isForegroundColorRef = (
+  ref: unknown
+): ref is keyof typeof foregroundColors =>
+  typeof ref === 'string' && ref in foregroundColors;
+
+const getForegroundColor = (
+  type: keyof typeof foregroundColors
+): [customPropertyName: string, value: string] => {
+  invariant(isForegroundColorRef(type), 'invalid foreground color');
+
   const color = foregroundColors[type];
-  invariant(!!color, 'invalid foreground color');
-
   return [`--rcx-color-foreground-${type}`, color];
 };
 
 const paletteColorRegex = /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
-export const color = memoize((propValue) => {
-  if (typeof propValue !== 'string') {
+export const color = memoize((value) => {
+  if (typeof value !== 'string') {
     return;
   }
 
-  const paletteMatches = paletteColorRegex.exec(String(propValue));
-
-  if (paletteMatches) {
+  const paletteMatches = paletteColorRegex.exec(String(value));
+  if (
+    typeof paletteMatches?.length === 'number' &&
+    paletteMatches?.length >= 5
+  ) {
     const [, type, gradeString, , alphaString] = paletteMatches;
     const grade = parseInt(gradeString, 10);
     const alpha =
       alphaString !== undefined ? parseInt(alphaString, 10) / 100 : undefined;
+
+    invariant(isPaletteColorType(type), 'invalid color type');
+    invariant(isPaletteColorGrade(grade), 'invalid color grade');
+    invariant(isPaletteColorAlpha(alpha), 'invalid color alpha');
+
     const [customProperty, color] = getPaletteColor(type, grade, alpha);
 
     if (customProperty && cssSupports('(--foo: bar)')) {
@@ -135,7 +165,7 @@ export const color = memoize((propValue) => {
     return color;
   }
 
-  if (propValue === 'surface') {
+  if (value === 'surface') {
     if (cssSupports('(--foo: bar)')) {
       return 'var(--rcx-color-surface, white)';
     }
@@ -143,8 +173,8 @@ export const color = memoize((propValue) => {
     return 'white';
   }
 
-  if (foregroundColors[String(propValue)]) {
-    const [customProperty, color] = getForegroundColor(String(propValue));
+  if (isForegroundColorRef(value)) {
+    const [customProperty, color] = getForegroundColor(value);
 
     if (customProperty && cssSupports('(--foo: bar)')) {
       return `var(${customProperty}, ${color})`;
@@ -153,10 +183,10 @@ export const color = memoize((propValue) => {
     return color;
   }
 
-  return propValue;
+  return value;
 });
 
-export const size = measure((value) => {
+export const size = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
@@ -174,31 +204,32 @@ export const size = measure((value) => {
   }
 });
 
-export const inset = measure((value) => {
+export const inset = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
 });
 
-export const margin = measure((value) => {
+export const margin = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
 });
 
-export const padding = measure((value) => {
+export const padding = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
 });
 
-export const fontFamily = memoize((value) => {
-  if (typeof value !== 'string') {
-    return;
-  }
+type FontFamily = keyof typeof tokenTypography.fontFamilies;
 
-  if (!tokenTypography.fontFamilies[value]) {
-    return value;
+const isFontFamily = (value: unknown): value is FontFamily =>
+  typeof value === 'string' && value in tokenTypography.fontFamilies;
+
+export const fontFamily = memoize((value: unknown): string | undefined => {
+  if (!isFontFamily(value)) {
+    return undefined;
   }
 
   const fontFamily = tokenTypography.fontFamilies[value]
@@ -212,9 +243,21 @@ export const fontFamily = memoize((value) => {
   return fontFamily;
 });
 
-export const fontScale = (value) => {
-  if (!tokenTypography.fontScales[value]) {
-    return;
+type FontScale = keyof typeof tokenTypography.fontScales;
+
+const isFontScale = (value: unknown): value is FontScale =>
+  typeof value === 'string' && value in tokenTypography.fontScales;
+
+export const fontScale = memoize((value: unknown):
+  | {
+      fontSize: string;
+      fontWeight: number;
+      lineHeight: string;
+      letterSpacing: string;
+    }
+  | undefined => {
+  if (!isFontScale(value)) {
+    return undefined;
   }
 
   const {
@@ -230,5 +273,4 @@ export const fontScale = (value) => {
     lineHeight: `${lineHeight / 16}rem`,
     letterSpacing: `${letterSpacing / 16}rem`,
   };
-};
-fontScale.values = Object.keys(tokenTypography.fontScales);
+});
