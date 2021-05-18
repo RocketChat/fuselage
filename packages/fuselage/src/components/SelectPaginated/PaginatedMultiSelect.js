@@ -39,8 +39,10 @@ export const PaginatedMultiSelect = ({
   const option = options.find((option) => option.value === currentValue);
 
   const internalChanged = ([value]) => {
-    if (currentValue.includes(value)) {
-      const newValue = currentValue.filter((item) => item !== value);
+    if (currentValue.some((item) => item.value === value.value)) {
+      const newValue = currentValue.filter(
+        (item) => item.value !== value.value
+      );
       setInternalValue(newValue);
       return onChange(newValue);
     }
