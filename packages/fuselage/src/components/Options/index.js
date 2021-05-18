@@ -6,7 +6,7 @@ import React, { useLayoutEffect, useState, useMemo } from 'react';
 
 import { AnimatedVisibility, Box, Scrollable } from '../Box';
 import { CheckBox } from '../CheckBox';
-import { Tile } from '../Tile';
+import Tile from '../Tile';
 import { Option } from './Option';
 
 export const ACTIONS = {

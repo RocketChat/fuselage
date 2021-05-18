@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { UrlInput } from '.';
+import { Tooltip } from '../..';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<UrlInput />, div);
+  ReactDOM.render(<Tooltip />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
