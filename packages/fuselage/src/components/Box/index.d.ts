@@ -147,3 +147,5 @@ type BoxProps = PropsWithChildren<{
   RefAttributes<unknown>;
 
 export const Box: ForwardRefExoticComponent<BoxProps>;
+
+export { default as Scrollable } from './Scrollable';

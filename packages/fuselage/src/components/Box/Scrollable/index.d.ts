@@ -5,4 +5,5 @@ type ScrollableProps = PropsWithChildren<{
   vertical?: boolean;
   onScrollContent?: (touching: { top: boolean }) => void;
 }>;
-export const Scrollable: ForwardRefExoticComponent<ScrollableProps>;
+const Scrollable: ForwardRefExoticComponent<ScrollableProps>;
+export default Scrollable;
