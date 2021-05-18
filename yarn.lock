@@ -4288,10 +4288,12 @@ __metadata:
     "@storybook/react": ^6.2.9
     "@storybook/source-loader": ^6.2.9
     "@storybook/theming": ^6.2.9
+    "@types/invariant": ^2.2.34
     "@types/jest": ^26.0.23
     autoprefixer: ^10.2.5
     babel-loader: ^8.2.2
     caniuse-lite: ^1.0.30001223
+    copy-webpack-plugin: ^8.1.1
     cross-env: ^7.0.3
     css-loader: ^5.2.4
     cssnano: ^5.0.2
@@ -4317,6 +4319,7 @@ __metadata:
     react-dom: ^17.0.2
     react-keyed-flatten-children: ^1.3.0
     react-live: ^2.2.3
+    react-virtuoso: 1.2.4
     rimraf: ^3.0.2
     sass: ^1.32.12
     sass-loader: ^11.0.1
@@ -4337,6 +4340,7 @@ __metadata:
     "@rocket.chat/icons": "*"
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-virtuoso: 1.2.4
   languageName: unknown
   linkType: soft
 
@@ -4388,9 +4392,9 @@ __metadata:
     "@babel/core": ^7.14.0
     "@babel/eslint-parser": ^7.13.14
     "@babel/preset-env": ^7.14.1
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/peggy-loader": "workspace:packages/peggy-loader"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.24.0
+    "@rocket.chat/peggy-loader": ^0.24.0
+    "@rocket.chat/prettier-config": ^0.24.0
     "@types/jest": ^26.0.23
     "@types/node": ^14.14.44
     "@typescript-eslint/parser": ^4.22.1
@@ -4437,7 +4441,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/peggy-loader@workspace:packages/peggy-loader":
+"@rocket.chat/peggy-loader@^0.24.0, @rocket.chat/peggy-loader@workspace:packages/peggy-loader":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
   dependencies:
@@ -4483,8 +4487,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.24.0
+    "@rocket.chat/prettier-config": ^0.24.0
     "@types/jest": ^26.0.23
     downlevel-dts: ^0.7.0
     eslint: ^7.26.0
@@ -5828,6 +5832,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/invariant@npm:^2.2.34":
+  version: 2.2.34
+  resolution: "@types/invariant@npm:2.2.34"
+  checksum: d0ecc665e5c95abf1ad7263c8cc32604d6b3444cfbc97657fede7e63f3751554a4f35f72ae565d70c28184dfb8b0cd4c058eaec1af972999edfd0a81b365f74b
+  languageName: node
+  linkType: hard
+
 "@types/is-function@npm:^1.0.0":
   version: 1.0.0
   resolution: "@types/is-function@npm:1.0.0"
@@ -6345,6 +6356,24 @@ __metadata:
     "@typescript-eslint/types": 4.22.1
     eslint-visitor-keys: ^2.0.0
   checksum: b696851b5b7383368c29136374119ba53b39ca6f239899b00cd914c301c6c223c2e99541a6bb94f039511c160cc737b2773a2dc4fb8c817e2b079d0df12a0b94
+  languageName: node
+  linkType: hard
+
+"@virtuoso.dev/react-urx@npm:^0.2.3":
+  version: 0.2.6
+  resolution: "@virtuoso.dev/react-urx@npm:0.2.6"
+  dependencies:
+    "@virtuoso.dev/urx": ^0.2.6
+  peerDependencies:
+    react: ">=16"
+  checksum: 6c1901bf34f022315d8a7b1df23c8419ad244aedfc9d10491ecf48ee7574aff667950381cf4ce2471badee9a54e4115fad7dc9460d261702e176c3d9ca4732ca
+  languageName: node
+  linkType: hard
+
+"@virtuoso.dev/urx@npm:^0.2.3, @virtuoso.dev/urx@npm:^0.2.6":
+  version: 0.2.6
+  resolution: "@virtuoso.dev/urx@npm:0.2.6"
+  checksum: 23875af5ec7ea1f5ccb65437d3c31fff10d79326977b2c1372d48a850c8c20cab83c79cf20b7c68673fda5ab792ccaa4ccb935141ba07c7892399887b3bbd8de
   languageName: node
   linkType: hard
 
@@ -7308,7 +7337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"asap@npm:^2.0.0":
+"asap@npm:^2.0.0, asap@npm:~2.0.6":
   version: 2.0.6
   resolution: "asap@npm:2.0.6"
   checksum: 3d314f8c598b625a98347bacdba609d4c889c616ca5d8ea65acaae8050ab8b7aa6630df2cfe9856c20b260b432adf2ee7a65a1021f268ef70408c70f809e3a39
@@ -9357,6 +9386,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"copy-webpack-plugin@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "copy-webpack-plugin@npm:8.1.1"
+  dependencies:
+    fast-glob: ^3.2.5
+    glob-parent: ^5.1.1
+    globby: ^11.0.3
+    normalize-path: ^3.0.0
+    p-limit: ^3.1.0
+    schema-utils: ^3.0.0
+    serialize-javascript: ^5.0.1
+  peerDependencies:
+    webpack: ^5.1.0
+  checksum: b06d77fa66b83b331831c74a8a2e29a66d79f0ad732dc90e4508e7301c832900fc7ee74a92766526f8853e28dfbab9bc71065b5164f14f373d88152e4a2858c0
+  languageName: node
+  linkType: hard
+
 "core-js-compat@npm:^3.8.1":
   version: 3.12.0
   resolution: "core-js-compat@npm:3.12.0"
@@ -9395,6 +9441,13 @@ __metadata:
   version: 3.8.1
   resolution: "core-js@npm:3.8.1"
   checksum: e9364ce130241b65f73e0be84721f3cd704b5db77709476e2d6c1e4b56e58e3af9b46e6b51bd019865083d2d55b38a8e0888e862f75e65332c37820cb0d3c58e
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^3.5.0":
+  version: 3.12.1
+  resolution: "core-js@npm:3.12.1"
+  checksum: 8b1d05579e7ddeafcd390001cc893540275fa3e658a00ae57f88954411a25bdfe583debb1929c6a50e40631cc07f2092490ea2284b35ffb922b23d7677060f28
   languageName: node
   linkType: hard
 
@@ -19167,6 +19220,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"promise@npm:^8.0.3":
+  version: 8.1.0
+  resolution: "promise@npm:8.1.0"
+  dependencies:
+    asap: ~2.0.6
+  checksum: ec94008d8a673c276dbc7722c215f583026b8d2588fb83f40e69908c553801eac7fbe3034c9bca853d5c422af20826abdfb9391b982a888868d9c88281dc59fb
+  languageName: node
+  linkType: hard
+
 "prompts@npm:2.4.0, prompts@npm:^2.0.1":
   version: 2.4.0
   resolution: "prompts@npm:2.4.0"
@@ -19378,6 +19440,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"raf@npm:^3.4.1":
+  version: 3.4.1
+  resolution: "raf@npm:3.4.1"
+  dependencies:
+    performance-now: ^2.1.0
+  checksum: 567b0160be46ed20b124a05ace6e653f4ad3c047c48d02ac76161e9ac624488c0fdf622b2f4fb9c35c0c828a13dfa549044ad1db89c7af075cb0f99403b88c4b
+  languageName: node
+  linkType: hard
+
 "ramda@npm:^0.21.0":
   version: 0.21.0
   resolution: "ramda@npm:0.21.0"
@@ -19439,6 +19510,20 @@ fsevents@~2.3.1:
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
   checksum: 1a08968df5bf185923102de589dc28da6c9953f87059c80de3cbfdfb47bc15907f23f5e21048f03af2842df01d0dde2630826697c783c4c9683ea71f04f4538d
+  languageName: node
+  linkType: hard
+
+"react-app-polyfill@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "react-app-polyfill@npm:1.0.6"
+  dependencies:
+    core-js: ^3.5.0
+    object-assign: ^4.1.1
+    promise: ^8.0.3
+    raf: ^3.4.1
+    regenerator-runtime: ^0.13.3
+    whatwg-fetch: ^3.0.0
+  checksum: 94d24bf1d69a0cbb26d8adbb14ba600b29c7c5adc06c9f9c8337d0f8ee7358ee2c443d806f8ca96fdf002d7f37c1a5fae6a796f63164df44a4fc3996aeb2d71f
   languageName: node
   linkType: hard
 
@@ -19770,6 +19855,20 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"react-virtuoso@npm:1.2.4":
+  version: 1.2.4
+  resolution: "react-virtuoso@npm:1.2.4"
+  dependencies:
+    "@virtuoso.dev/react-urx": ^0.2.3
+    "@virtuoso.dev/urx": ^0.2.3
+    react-app-polyfill: ^1.0.6
+    resize-observer-polyfill: ^1.5.1
+  peerDependencies:
+    react: ">=16"
+  checksum: b892e4a85d7e2c98278df255d234b4c7b2b5fc0fa99e10e31bfe9db010d0fb3e8b1cf4659c0e22febe38e751d01cadeae537cc1cc8f553d0b46d6ed27f96e9bc
+  languageName: node
+  linkType: hard
+
 "react@npm:^16.14.0":
   version: 16.14.0
   resolution: "react@npm:16.14.0"
@@ -20079,6 +20178,13 @@ fsevents@~2.3.1:
   version: 1.4.2
   resolution: "regenerate@npm:1.4.2"
   checksum: 54275a99effd8a439bcdd88942b61f68a769133df841e90d94df9ae7c250cb6537c0a28dd913116539772b3415edbcb3c8d81c22275595d3755cf0353976dfa4
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.3":
+  version: 0.13.8
+  resolution: "regenerator-runtime@npm:0.13.8"
+  checksum: 20178f5753f181d59691e5c3b4c59a2769987f75c7ccf325777673b5478acca61a553b10e895585086c222f72f5ee428090acf50320264de4b79f630f7388653
   languageName: node
   linkType: hard
 
@@ -20448,6 +20554,13 @@ fsevents@~2.3.1:
   version: 2.0.0
   resolution: "require-main-filename@npm:2.0.0"
   checksum: 8d3633149a7fef67d14613146247137fe1dc4cc969bf2d1adcd40e3c28056de503229f41e78cba5efebad3a223cbfb4215fd220d879148df10c6d9a877099dbd
+  languageName: node
+  linkType: hard
+
+"resize-observer-polyfill@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "resize-observer-polyfill@npm:1.5.1"
+  checksum: ba14bfaf584eda299eafd6a06233a65c76586bc2bab3cdfdd1edd25fc6479f4270788ddd082e65390049b3ed542558f02bdf1f123bd912624de5b11d48857ac8
   languageName: node
   linkType: hard
 
@@ -24352,6 +24465,13 @@ resolve@^2.0.0-next.3:
   dependencies:
     iconv-lite: 0.4.24
   checksum: 44e4276ad2c770d1eb8c5a49294b863c581ef4bc78a10ac6a73a7eba00b377bc53ae0501d7ffce29a2c051b6af5ebbbd135f1da7d8eb98097af2cf12f7b2c984
+  languageName: node
+  linkType: hard
+
+"whatwg-fetch@npm:^3.0.0":
+  version: 3.6.2
+  resolution: "whatwg-fetch@npm:3.6.2"
+  checksum: eaa370015f81fbf7fc69d5410a13c2200d3342fa783397e9a7e64215498276459993c05e826ed736d28a8abe4e7cc3f97e9b2ffadbc58129a55f443abdfea494
   languageName: node
   linkType: hard
 
