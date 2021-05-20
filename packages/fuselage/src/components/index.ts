@@ -20,6 +20,7 @@ export * from './InputBox';
 export * from './Label';
 export { default as Margins } from './Margins';
 export * from './Menu';
+export * from './Message';
 export * from './Modal';
 export * from './NumberInput';
 export * from './Options';
