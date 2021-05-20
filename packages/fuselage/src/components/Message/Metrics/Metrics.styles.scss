@@ -1,0 +1,38 @@
+@use '../../../styles/lengths.scss';
+@use '../../../styles/colors.scss';
+@use '../../../styles/typography.scss';
+
+.rcx-message-metrics {
+  &__content,
+  &__content-item {
+    display: flex;
+
+    margin-block: lengths.margin(4);
+
+    & + & {
+      margin-inline-start: lengths.margin(4);
+    }
+  }
+
+  &__content-wrapper {
+    display: flex;
+
+    margin-inline: lengths.margin(-4);
+  }
+
+  &__item {
+    @include typography.use-font-scale(micro);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-inline: lengths.margin(4);
+
+    color: colors.foreground(info);
+
+    &-label {
+      margin-inline-start: lengths.margin(4);
+    }
+  }
+}
