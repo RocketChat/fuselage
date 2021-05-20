@@ -7,9 +7,10 @@ import React, {
 
 import './Messages.styles.scss';
 
-import { Tag, Divider } from '..';
+import { Tag } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
 import { Box } from '../Box';
+import { Divider } from './Divider';
 import { Metrics } from './Metrics';
 import { Toolbox } from './Toolbox';
 

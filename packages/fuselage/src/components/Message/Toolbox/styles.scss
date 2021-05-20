@@ -19,6 +19,7 @@
 
   @at-root .rcx-message & {
     position: absolute;
+    z-index: 10;
     top: lengths.margin(-24);
     right: 0;
 
