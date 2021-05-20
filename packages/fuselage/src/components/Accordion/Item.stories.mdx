@@ -4,7 +4,10 @@ import LinkTo from '@storybook/addon-links/react';
 
 import { Accordion, Box } from '../..';
 
-<Meta title='Containers/Accordion/Accordion.Item' parameters={{ jest: ['Accordion/spec'] }} />
+<Meta
+  title='Containers/Accordion/AccordionItem'
+  parameters={{ jest: ['Accordion/spec'] }}
+/>
 
 # Accordion.Item
 
@@ -14,7 +17,9 @@ A collapsible panel.
   <Story name='Default'>
     <Accordion>
       <Accordion.Item title='Item'>
-        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>
+          Content
+        </Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -28,7 +33,9 @@ A collapsible panel.
   <Story name='Expanded'>
     <Accordion>
       <Accordion.Item title='Item' defaultExpanded>
-        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>
+          Content
+        </Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -40,7 +47,9 @@ A collapsible panel.
   <Story name='Noncollapsible'>
     <Accordion>
       <Accordion.Item title='Item' noncollapsible>
-        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>
+          Content
+        </Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -49,14 +58,16 @@ A collapsible panel.
 ### Without title
 
 When the `title` prop is omitted, its implied that
-the <LinkTo kind='Containers|Accordion/Accordion.Item' story='Default Story'>`Accordion.Item`</LinkTo>
-is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>noncollapsible</LinkTo> too.
+the <LinkTo kind='Containers/Accordion/AccordionItem' story='Default Story'>`AccordionItem`</LinkTo>
+is <LinkTo kind='Containers/Accordion/AccordionItem' story='Noncollapsible'>noncollapsible</LinkTo> too.
 
 <Canvas>
   <Story name='Without Title'>
     <Accordion>
       <Accordion.Item>
-        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>
+          Content
+        </Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -70,7 +81,9 @@ is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>non
   <Story name='Enabled'>
     <Accordion>
       <Accordion.Item title='Item' onToggleEnabled={action('toggleEnabled')}>
-        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>
+          Content
+        </Box>
       </Accordion.Item>
     </Accordion>
   </Story>
@@ -81,8 +94,14 @@ is <LinkTo kind='Containers|Accordion/Accordion.Item' story='Noncollapsible'>non
 <Canvas>
   <Story name='Disabled'>
     <Accordion>
-      <Accordion.Item title='Item' disabled onToggleEnabled={action('toggleEnabled')}>
-        <Box color='default' fontScale='p1' marginBlockEnd='x16'>Content</Box>
+      <Accordion.Item
+        title='Item'
+        disabled
+        onToggleEnabled={action('toggleEnabled')}
+      >
+        <Box color='default' fontScale='p1' marginBlockEnd='x16'>
+          Content
+        </Box>
       </Accordion.Item>
     </Accordion>
   </Story>

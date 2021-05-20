@@ -9,7 +9,7 @@ import './Messages.styles.scss';
 
 import { Tag, Divider } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
-import { Box, useArrayLikeClassNameProp } from '../Box';
+import { Box } from '../Box';
 import { Metrics } from './Metrics';
 import { Toolbox } from './Toolbox';
 
@@ -89,6 +89,7 @@ export const MessageBlock: FC<{ className?: string }> = function MessageBlock({
 type MessageProps = ComponentProps<typeof Box> & {
   clickable?: true | false;
   sequential?: boolean;
+  className: string;
 };
 
 export const Message: ForwardRefExoticComponent<MessageProps> = forwardRef(
@@ -105,18 +106,16 @@ export const Message: ForwardRefExoticComponent<MessageProps> = forwardRef(
     return (
       <div
         ref={ref}
-        className={
-          prependClassName(
-            useArrayLikeClassNameProp({ className }).className,
-            [
-              'rcx-message',
-              (clickable || props.onClick) && 'rcx-message--clickable',
-              sequential && 'rcx-message--sequential',
-            ]
-              .filter(Boolean)
-              .join(' ')
-          ) || ''
-        }
+        className={prependClassName(
+          className,
+          [
+            'rcx-message',
+            (clickable || props.onClick) && 'rcx-message--clickable',
+            sequential && 'rcx-message--sequential',
+          ]
+            .filter(Boolean)
+            .join(' ')
+        )}
         {...(props as any)}
       />
     );
@@ -156,8 +155,7 @@ const Role: FC<{ children: string }> = function Role(props) {
       className='rcx-box rcx-box--full rcx-message-header__role'
       {...props}
       small
-      disabled={null}
-      medium={null}
+      disabled={undefined}
     />
   );
 };

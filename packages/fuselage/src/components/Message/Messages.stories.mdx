@@ -1,11 +1,11 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 
-import { Box, Avatar } from "..";
+import { Box, Avatar } from '..';
 import { Message } from './Message';
 import { Reactions } from './Reactions';
 import { ThreadMessage } from './ThreadMessage';
 
-<Meta title='Message' parameters={{ jest: ['Message/spec'] }} />
+<Meta title='Messages/Message' parameters={{ jest: ['Message/spec'] }} />
 
 # Message
 
@@ -54,11 +54,13 @@ import { ThreadMessage } from './ThreadMessage';
             <Reactions.Action />
           </Reactions>
         </Message.Container>
-        <Message.Toolbox>
-          <Message.Toolbox.Item icon='quote' />
-          <Message.Toolbox.Item icon='clock' />
-          <Message.Toolbox.Item icon='thread' />
-        </Message.Toolbox>
+        <Message.Toolbox.Wrapper>
+          <Message.Toolbox>
+            <Message.Toolbox.Item icon='quote' />
+            <Message.Toolbox.Item icon='clock' />
+            <Message.Toolbox.Item icon='thread' />
+          </Message.Toolbox>
+        </Message.Toolbox.Wrapper>
       </Message>
       <Message className='customclass' clickable sequential>
         <Message.LeftContainer></Message.LeftContainer>
@@ -67,11 +69,13 @@ import { ThreadMessage } from './ThreadMessage';
             Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
           </Message.Body>
         </Message.Container>
-        <Message.Toolbox>
-          <Message.Toolbox.Item icon='quote' />
-          <Message.Toolbox.Item icon='clock' />
-          <Message.Toolbox.Item icon='thread' />
-        </Message.Toolbox>
+        <Message.Toolbox.Wrapper>
+          <Message.Toolbox>
+            <Message.Toolbox.Item icon='quote' />
+            <Message.Toolbox.Item icon='clock' />
+            <Message.Toolbox.Item icon='thread' />
+          </Message.Toolbox>
+        </Message.Toolbox.Wrapper>
       </Message>
       <Message className='customclass' clickable sequential>
         <Message.LeftContainer></Message.LeftContainer>
@@ -80,11 +84,13 @@ import { ThreadMessage } from './ThreadMessage';
             Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
           </Message.Body>
         </Message.Container>
-        <Message.Toolbox>
-          <Message.Toolbox.Item icon='quote' />
-          <Message.Toolbox.Item icon='clock' />
-          <Message.Toolbox.Item icon='thread' />
-        </Message.Toolbox>
+        <Message.Toolbox.Wrapper>
+          <Message.Toolbox>
+            <Message.Toolbox.Item icon='quote' />
+            <Message.Toolbox.Item icon='clock' />
+            <Message.Toolbox.Item icon='thread' />
+          </Message.Toolbox>
+        </Message.Toolbox.Wrapper>
       </Message>
       <Message className='customclass' clickable sequential>
         <Message.LeftContainer></Message.LeftContainer>
@@ -108,11 +114,13 @@ import { ThreadMessage } from './ThreadMessage';
             </Message.Metrics.Item>
           </Message.Metrics>
         </Message.Container>
-        <Message.Toolbox>
-          <Message.Toolbox.Item icon='quote' />
-          <Message.Toolbox.Item icon='clock' />
-          <Message.Toolbox.Item icon='thread' />
-        </Message.Toolbox>
+        <Message.Toolbox.Wrapper>
+          <Message.Toolbox>
+            <Message.Toolbox.Item icon='quote' />
+            <Message.Toolbox.Item icon='clock' />
+            <Message.Toolbox.Item icon='thread' />
+          </Message.Toolbox>
+        </Message.Toolbox.Wrapper>
       </Message>
       <ThreadMessage>
         <ThreadMessage.Row>

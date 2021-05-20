@@ -11,7 +11,7 @@ import { Menu } from '../../Menu';
 import './styles.scss';
 
 export const Toolbox: FC<ComponentProps<typeof ButtonGroup>> & {
-  Item: FC;
+  Item: FC<ComponentProps<typeof ActionButton>>;
   Wrapper: FC;
   Menu: FC<ComponentProps<typeof Menu>>;
 } = function ToolBox(props) {
