@@ -31,8 +31,9 @@ function peggyLoader(
   this: WebpackLoaderContext,
   grammarContent: string
 ): string {
-  const options: Options = getOptions(this) ?? {
+  const options: Options = {
     format: 'commonjs',
+    ...getOptions(this),
   };
 
   return peggy.generate(grammarContent, {
