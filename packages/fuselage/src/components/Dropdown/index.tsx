@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useMemo } from 'react';
+import React, { useState, useCallback, useRef, useMemo, FC } from 'react';
 
 import { PositionAnimated, Box } from '../Box';
 import { useCursor } from '../Options';
@@ -8,10 +8,10 @@ import DropdownItem from './DropdownItem';
 import DropdownTile from './DropdownTile';
 import PortalTarget from './PortalTarget';
 
-const Dropdown = ({ children, overlay }) => {
+const Dropdown: FC<{ overlay: React.ReactNode }> = ({ children, overlay }) => {
   const [items, setItems] = useState(new Map());
   const [order, setOrder] = useState([]);
-  const ref = useRef();
+  const ref = useRef<HTMLElement>();
 
   const onChange = useCallback(
     (cursor) => {
@@ -28,12 +28,10 @@ const Dropdown = ({ children, overlay }) => {
 
   const [visibility, hide, show] = visibilityHandler;
 
-  const getItemState = useCallback(
-    (id) => {
-      return id === order[cursor];
-    },
-    [cursor, order]
-  );
+  const getItemState = useCallback((id) => id === order[cursor], [
+    cursor,
+    order,
+  ]);
 
   const unregisterItem = useCallback(
     (id) => {

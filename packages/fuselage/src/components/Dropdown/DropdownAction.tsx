@@ -3,12 +3,19 @@ import { useCallback, useContext, useEffect, FC, ReactElement } from 'react';
 
 import DropdownContext, { ItemId, OnDispatchAction } from './DropdownContext';
 
-type DropdownActionType = <T>(props: {
-  onDispatchAction: OnDispatchAction,
-  children: (active: boolean, id: ItemId, action: OnDispatchAction) => ReactElement,
-}) => ReactElement;
+type DropdownActionType = {
+  onDispatchAction: OnDispatchAction;
+  children: (
+    active: boolean,
+    id: ItemId,
+    action: OnDispatchAction
+  ) => ReactElement;
+};
 
-const DropdownAction: DropdownActionType = ({ onDispatchAction, children }) => {
+const DropdownAction: FC<DropdownActionType> = ({
+  onDispatchAction,
+  children,
+}) => {
   const id = useUniqueId();
   const { hide, getItemState, registerItem } = useContext(DropdownContext);
 

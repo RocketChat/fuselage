@@ -1,4 +1,3 @@
-import { string } from 'prop-types';
 import { createContext } from 'react';
 
 type UnregisterItem = () => void;
@@ -13,14 +12,14 @@ type DropdownContextType = {
   updateItemOrder: (newOrder: ItemOrder) => void;
   getItemState: (id: ItemId) => boolean;
   registerItem: (id: ItemId, action: OnDispatchAction) => UnregisterItem;
-  hide: () => void,
-}
+  hide: () => void;
+};
 
 const DropdownContext = createContext<DropdownContextType>({
-  updateItemOrder: () => {},
+  updateItemOrder: () => undefined,
   getItemState: () => false,
-  registerItem: () => () => {},
-  hide: () => {},
+  registerItem: () => () => undefined,
+  hide: () => undefined,
 });
 
 export default DropdownContext;
