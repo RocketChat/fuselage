@@ -1,20 +1,27 @@
 {
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "scripts"
   ],
   "devDependencies": {
-    "husky": "^5.1.1",
-    "lerna": "^3.20.2"
+    "husky": "^6.0.0",
+    "lerna": "^4.0.0"
   },
   "scripts": {
-    "build": "yarn workspaces foreach -vt run build",
-    "lint": "yarn workspaces foreach -vt run lint",
-    "lint-fix": "yarn workspaces foreach -vt run lint-fix",
-    "lint-staged": "yarn workspaces foreach -vt run lint-staged",
-    "test": "yarn workspaces foreach -vt run test",
-    "build-storybook": "yarn workspaces foreach -vt run build-storybook",
-    "update-storybook": "yarn workspaces foreach -vt run update-storybook",
-    "postinstall": "husky install"
+    "build": "yarn workspaces foreach -v --topological-dev run build",
+    "lint": "yarn workspaces foreach -v --topological-dev run lint",
+    "lint-fix": "yarn workspaces foreach -v --topological-dev run lint-fix",
+    "lint-staged": "yarn workspaces foreach -v --topological-dev run lint-staged",
+    "test": "yarn workspaces foreach -v --topological-dev run test",
+    "docs": "yarn workspaces foreach -v --topological-dev run docs",
+    "build-storybook": "yarn workspaces foreach -v --topological-dev run build-storybook",
+    "update-storybook": "yarn workspaces foreach -v --topological-dev run update-storybook",
+    "postinstall": "husky install",
+    "update-readme": "yarn workspace scripts run update-readme",
+    "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps"
+  },
+  "devEngines": {
+    "node": "^14.0"
   }
 }

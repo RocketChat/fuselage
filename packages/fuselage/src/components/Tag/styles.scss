@@ -81,7 +81,7 @@ $tag-colors-disabled-background-color: theme(
 
   word-break: keep-all;
 
-  border-radius: lengths.border-radius(4);
+  border-radius: lengths.border-radius(2);
 
   @include typography.use-font-scale(micro);
 

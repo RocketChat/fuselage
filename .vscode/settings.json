@@ -9,6 +9,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/eslint-config-alt",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/fuselage",
       "changeProcessCWD": true
     },
@@ -29,7 +33,19 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/message-parser",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/mp3-encoder",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/peggy-loader",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/prettier-config",
       "changeProcessCWD": true
     },
     {
@@ -39,14 +55,22 @@
     {
       "directory": "packages/ui-kit",
       "changeProcessCWD": true
+    },
+    {
+      "directory": "scripts",
+      "changeProcessCWD": true
     }
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
   "eslint.options": {
-    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx", ".pegjs"]
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[pegjs]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

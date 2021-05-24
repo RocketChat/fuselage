@@ -1,0 +1,116 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+@use '../../styles/functions.scss';
+
+$tooltip-background-color: functions.theme(
+  'tooltip-background-color',
+  colors.neutral(900)
+);
+$tooltip-text-color: functions.theme('tooltip-text-color', colors.surface());
+
+@mixin triangle-direction($direction) {
+  &::after {
+    position: absolute;
+
+    box-sizing: border-box;
+
+    content: ' ';
+
+    border-width: lengths.border-width(4) + lengths.border-width(1);
+    border-color: transparent transparent $tooltip-background-color
+      $tooltip-background-color;
+    border-radius: lengths.border-radius(none) lengths.border-radius(none)
+      lengths.border-radius(none) (lengths.border-radius(2) + to-rem(1));
+
+    @if $direction == 'bottom' {
+      inset-block-start: lengths.inset(-4);
+
+      transform: rotate(135deg);
+    }
+    @if $direction == 'top' {
+      inset-block-end: lengths.inset(-4);
+
+      transform: rotate(-45deg);
+    }
+    @if $direction == 'right' {
+      inset-block-start: 50%;
+      inset-inline-start: lengths.inset(-4);
+
+      margin-block-start: lengths.margin(-4);
+
+      transform: rotate(45deg);
+    }
+    @if $direction == 'left' {
+      inset-block-start: 50%;
+      inset-inline-end: lengths.inset(-4);
+
+      margin-block-start: lengths.margin(-4);
+
+      transform: rotate(-135deg);
+    }
+  }
+}
+
+.rcx-tooltip {
+  position: relative;
+
+  display: inline-block;
+
+  max-width: lengths.size(240);
+
+  padding: lengths.padding(8) lengths.padding(12);
+
+  word-break: break-word;
+
+  color: $tooltip-text-color;
+
+  border-radius: lengths.border-radius(4);
+
+  background-color: $tooltip-background-color;
+
+  @include typography.use-font-scale(p2);
+
+  &--dir-top {
+    @include triangle-direction('top');
+  }
+
+  &--dir-bottom {
+    @include triangle-direction('bottom');
+  }
+
+  &--dir-left {
+    @include triangle-direction('left');
+  }
+
+  &--dir-right {
+    @include triangle-direction('right');
+  }
+
+  &--pos {
+    &-middle {
+      &::after {
+        inset-inline-start: 50%;
+
+        margin-inline-start: lengths.margin(-4);
+      }
+    }
+
+    &-start {
+      &::after {
+        inset-inline-start: lengths.inset(8);
+
+        margin: lengths.margin(none);
+      }
+    }
+
+    &-end {
+      &::after {
+        inset-inline-start: initial;
+        inset-inline-end: lengths.inset(8);
+
+        margin: 0;
+      }
+    }
+  }
+}
