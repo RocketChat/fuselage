@@ -1,8 +1,6 @@
 import { usePosition } from '@rocket.chat/fuselage-hooks';
-import React, { useRef, useMemo, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-
-import AnimatedVisibility from '../AnimatedVisibility';
+import { useRef, useMemo, useEffect, cloneElement } from 'react';
+import { createPortal } from 'react-dom';
 
 const Position = ({
   anchor,
@@ -33,8 +31,8 @@ const Position = ({
     portalContainer,
   ]);
 
-  return ReactDOM.createPortal(
-    React.cloneElement(children, {
+  return createPortal(
+    cloneElement(children, {
       ref: target,
       style,
       ...props,
@@ -43,20 +41,5 @@ const Position = ({
     portalContainer
   );
 };
-
-export const PositionAnimated = ({
-  width,
-  margin,
-  placement,
-  visible,
-  children,
-  ...props
-}) => (
-  <AnimatedVisibility visibility={visible}>
-    <Position margin={margin} placement={placement} {...props}>
-      {children}
-    </Position>
-  </AnimatedVisibility>
-);
 
 export default Position;
