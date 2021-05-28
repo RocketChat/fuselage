@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
+
+
+### Features
+
+* usePrevious hook ([#460](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/460)) ([32f2c30](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/32f2c3054c074a93c4f17400f29f81bb8f77249d))
+
+
+
+
+
 # [0.25.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.24.0...v0.25.0) (2021-05-19)
 
 
