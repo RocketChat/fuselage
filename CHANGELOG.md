@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.24.0...v0.25.0) (2021-05-19)
+
+
+### Bug Fixes
+
+* **fuselage:** fix duplicated values on paginated multi select ([#456](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/456)) ([4518a4e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4518a4e661cb525d957f6140d59a641a50fc7b20))
+* cd.yml ([53d44c0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/53d44c014d796b749e60c0f3a72f205fbce04624))
+* Tag's border-radius ([#452](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/452)) ([177936e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/177936e72c2e136e7d021deb2f778fec71c23355))
+* **message-parser:** Big emoji ([#451](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/451)) ([6d65343](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6d653433d07edabaee821bd25ad07a5878b59a86))
+* **message-parser:** URL issues ([#448](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/448)) ([8ce6b91](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8ce6b9110547b5adf3633e87d6bc655114d4cfb4))
+* **string-helpers:** Wrong typesVersions declaration ([256758c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/256758c60ff8ed5ec7d86ff027ad3ea82f84aaf6))
+* Location in typesVersions field ([#449](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/449)) ([491f98b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/491f98b8cbc5e30f73adde377965f79fe565438b))
+* message-parser Unordered List definition ([#445](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/445)) ([6c659b8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6c659b821fd6294eb8033dfe03e42db2dba1ca06))
+
+
+### Features
+
+* **fuselage:** New paginated Selects/Options ([a7f9c9a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a7f9c9a64513a82013a902174d2195a0e26621ce))
+* [@rocket](https://github.com/rocket).chat/message-parser ([#443](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/443)) ([4722cdf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4722cdff46f5987f335d989be59649c7652bb12a))
+* Peggy loader ([#450](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/450)) ([0496cad](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0496cad457d76f8a4d6a217209e4a55e315e8365))
+
+
+
+
+
 # [0.24.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.23.0...v0.24.0) (2021-04-28)
 
 

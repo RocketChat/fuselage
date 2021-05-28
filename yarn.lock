@@ -4392,9 +4392,9 @@ __metadata:
     "@babel/core": ^7.14.0
     "@babel/eslint-parser": ^7.13.14
     "@babel/preset-env": ^7.14.1
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/peggy-loader": "workspace:packages/peggy-loader"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.24.0
+    "@rocket.chat/peggy-loader": ^0.24.0
+    "@rocket.chat/prettier-config": ^0.24.0
     "@types/jest": ^26.0.23
     "@types/node": ^14.14.44
     "@typescript-eslint/parser": ^4.22.1
@@ -4441,7 +4441,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/peggy-loader@workspace:packages/peggy-loader":
+"@rocket.chat/peggy-loader@^0.24.0, @rocket.chat/peggy-loader@workspace:packages/peggy-loader":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
   dependencies:
@@ -4487,8 +4487,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.24.0
+    "@rocket.chat/prettier-config": ^0.24.0
     "@types/jest": ^26.0.23
     downlevel-dts: ^0.7.0
     eslint: ^7.26.0
