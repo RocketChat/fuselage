@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
+
+
+### Bug Fixes
+
+* **fuselage:** fix duplicated values on paginated multi select ([#456](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/456)) ([5fbde6d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5fbde6de715478d9a5c5507d9e9374e1e937c349))
+
+
+### Features
+
+* **fuselage:** Message Template ([#458](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/458)) ([2b5308e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2b5308e2ade69e9b2aa5b419f5531a9cebc5366a))
+
+
+
+
+
 # [0.25.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.24.0...v0.25.0) (2021-05-19)
 
 
