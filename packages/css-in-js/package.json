@@ -17,7 +17,7 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "keywords": [
-    "rocketchat",
+    "rocket.chat",
     "css-in-js"
   ],
   "source": "src/index.ts",

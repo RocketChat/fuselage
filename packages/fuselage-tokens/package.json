@@ -18,7 +18,9 @@
   },
   "keywords": [
     "design",
-    "tokens"
+    "tokens",
+    "fuselage",
+    "rocket.chat"
   ],
   "files": [
     "/breakpoints.*",
