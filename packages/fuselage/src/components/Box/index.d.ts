@@ -148,4 +148,5 @@ type BoxProps = PropsWithChildren<{
 
 export const Box: ForwardRefExoticComponent<BoxProps>;
 
+export { default as Position, PositionAnimated } from './Position';
 export { default as Scrollable } from './Scrollable';
