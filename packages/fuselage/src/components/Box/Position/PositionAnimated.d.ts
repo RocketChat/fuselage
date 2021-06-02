@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, FC } from 'react';
 
 import Position from '.';
 
