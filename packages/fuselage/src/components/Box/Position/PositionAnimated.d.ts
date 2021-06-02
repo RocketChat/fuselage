@@ -7,3 +7,5 @@ type PositionAnimatedProps = {
 } & ComponentProps<typeof Position>;
 
 declare const PositionAnimated: FC<PositionAnimatedProps>;
+
+export = PositionAnimated;
