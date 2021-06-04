@@ -22,19 +22,6 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/ts3.4/index.d.ts",
-  "exports": {
-    "./*": {
-      "require": "./dist/cjs/*",
-      "import": "./dist/esm/*"
-    }
-  },
-  "typesVersions": {
-    ">=4.1": {
-      "*": [
-        "dist/esm/*"
-      ]
-    }
-  },
   "files": [
     "/dist"
   ],
