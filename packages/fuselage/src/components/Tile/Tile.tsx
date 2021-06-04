@@ -1,4 +1,4 @@
-import React, { ComponentProps, forwardRef, Ref } from 'react';
+import React, { ComponentProps, forwardRef } from 'react';
 
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { Box } from '../Box';
@@ -8,9 +8,9 @@ type TileProps = ComponentProps<typeof Box> & {
   elevation?: '0' | '1' | '2';
 };
 
-const Tile = forwardRef(function Tile(
-  { elevation = '1', padding = 'x16', ...props }: TileProps,
-  ref: Ref<HTMLElement>
+const Tile = forwardRef<HTMLElement, TileProps>(function Tile(
+  { elevation = '1', padding = 'x16', ...props },
+  ref
 ) {
   useStyleSheet();
   useStyleSheet(tileStyleSheet);
