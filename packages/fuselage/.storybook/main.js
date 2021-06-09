@@ -1,11 +1,17 @@
 const webpack = require('webpack');
 
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
+  features: {
+    postcss: false,
+  },
   addons: [
     '@storybook/addon-essentials',
     ...(process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : []),
   ],
-  stories: ['../src/**/*.stories.{mdx,js}'],
+  stories: ['../src/**/*.stories.{mdx,js,tsx}'],
   webpackFinal: (config) => {
     config.module.rules.push({
       test: /\.scss$/,
@@ -41,6 +47,15 @@ module.exports = {
     });
 
     config.plugins.push(new webpack.EnvironmentPlugin(['NODE_ENV']));
+
+    // Workaround for @storybook/addon-jest on Webpack 5
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve.alias,
+        path: require.resolve('path-browserify'),
+      },
+    };
 
     return config;
   },

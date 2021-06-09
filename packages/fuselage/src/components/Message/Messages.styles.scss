@@ -1,0 +1,143 @@
+@use '../../styles/lengths.scss';
+@use '../../styles/functions.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
+@use './mixins.scss';
+
+@import './Metrics/Metrics.styles.scss';
+@import './Toolbox/styles.scss';
+@import './Reactions/styles.scss';
+@import './ThreadMessage/styles.scss';
+@import './Divider/styles.scss';
+
+%rcx-margins-header {
+  margin-inline: lengths.margin(2);
+}
+%rcx-margins-block {
+  margin-block: lengths.margin(2);
+}
+
+$message-background-color: functions.theme(
+  'message-background-color',
+  colors.foreground(alternative)
+);
+
+$message-background-color-focus: functions.theme(
+  'message-background-color-focus',
+  colors.neutral(100)
+);
+
+.rcx-message {
+  @include mixins.container();
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  padding-block: lengths.padding(8);
+
+  padding-inline: lengths.padding(20);
+
+  background-color: $message-background-color;
+
+  &:hover,
+  &:focus {
+    background: $message-background-color-focus;
+  }
+
+  &-header {
+    @extend %rcx-margins-block;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    min-width: 1px;
+
+    &__wrapper {
+      @include typography.use-with-truncated-text();
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      flex-grow: 1;
+      flex-shrink: 1;
+
+      min-width: 1px;
+      margin-block: lengths.margin(-4);
+      margin-inline: lengths.margin(-2);
+    }
+
+    &__time {
+      @extend %rcx-margins-header;
+      @include typography.use-with-truncated-text();
+      @include typography.use-font-scale(c1);
+      flex-shrink: 0;
+
+      color: colors.neutral(600);
+    }
+
+    &__name {
+      @extend %rcx-margins-header;
+      @include typography.use-font-scale(p2);
+      @include typography.use-with-truncated-text();
+      flex-shrink: 1;
+
+      color: colors.neutral(800);
+    }
+
+    &__username {
+      @extend %rcx-margins-header;
+      @include typography.use-font-scale(p2);
+      @include typography.use-with-truncated-text();
+      flex-shrink: 1;
+
+      color: colors.foreground(hint);
+    }
+
+    &__roles {
+      display: flex;
+      flex-shrink: 1;
+      @include typography.use-with-truncated-text();
+    }
+
+    &__role {
+      @extend %rcx-margins-header;
+    }
+  }
+
+  &-body {
+    @extend %rcx-margins-block;
+    @include typography.use-font-scale(p1);
+
+    flex-shrink: 1;
+
+    color: colors.neutral(800);
+
+    &--clamp {
+      display: -webkit-box;
+      overflow: hidden;
+
+      word-break: break-word;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+
+      &-2 {
+        -webkit-line-clamp: 2;
+      }
+
+      &-3 {
+        -webkit-line-clamp: 3;
+      }
+
+      &-4 {
+        -webkit-line-clamp: 3;
+      }
+    }
+  }
+
+  &-block {
+    @extend %rcx-margins-block;
+    display: flex;
+    flex-direction: column;
+  }
+}

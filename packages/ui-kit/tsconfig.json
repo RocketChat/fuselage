@@ -1,19 +1,16 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "module": "ES2020",
-    "lib": ["ES2020"],
-    "downlevelIteration": true,
+    "lib": ["ES2018"],
+    "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist/esm/",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
   "exclude": ["dist/", "src/**/*.spec.ts"]
 }

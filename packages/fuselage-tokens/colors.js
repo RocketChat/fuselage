@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   n100: '#f7f8fa',
   n200: '#f2f3f5',

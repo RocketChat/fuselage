@@ -118,7 +118,7 @@ export function AutoComplete({
             name={
               optionsAreVisible === AnimatedVisibility.VISIBLE
                 ? 'cross'
-                : 'chevron-down'
+                : 'magnifier'
             }
             size='x20'
           />

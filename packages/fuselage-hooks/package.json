@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-hooks",
-  "version": "0.23.0",
+  "version": "0.26.0",
   "description": "React hooks for Fuselage, Rocket.Chat's design system and UI toolkit",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -10,7 +10,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "directory": "packages/fuselage-hooks"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -19,7 +20,7 @@
     "react",
     "hooks",
     "fuselage",
-    "rocketchat"
+    "rocket.chat"
   ],
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -29,6 +30,9 @@
   "files": [
     "/dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
@@ -36,54 +40,39 @@
     "lint-fix": "eslint --fix --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "docs": "run-s build .:docs:api-extractor .:docs:api-documenter .:docs:readme .:docs:clean",
-    ".:docs:api-extractor": "api-extractor run --local --verbose",
-    ".:docs:api-documenter": "api-documenter markdown -i temp -o docs",
-    ".:docs:readme": "documentation readme 'src/{,**/!(__mocks__)/**/}!(*.spec).ts' --parse-extension=ts --resolve=node --section='API Reference' --readme-file README.md",
-    ".:docs:clean": "rimraf temp"
+    "prettier-format": "prettier 'src/**/*.ts' --write"
   },
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.8.21",
-    "@microsoft/api-extractor": "^7.9.2",
-    "@rocket.chat/eslint-config": "^0.4.0",
-    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rocket.chat/eslint-config-alt": "^0.26.0",
+    "@rocket.chat/fuselage-tokens": "^0.26.0",
+    "@rocket.chat/prettier-config": "^0.26.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@rollup/plugin-typescript": "^6.0.0",
-    "@types/jest": "^26.0.15",
-    "@types/react-dom": "^16.9.8",
-    "@types/resize-observer-browser": "^0.1.3",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.1",
+    "@types/jest": "^26.0.23",
+    "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.3",
+    "@types/resize-observer-browser": "^0.1.5",
     "@types/use-subscription": "^1.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
-    "documentation": "^13.0.2",
-    "eslint": "^7.13.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
-    "jest": "^26.0.1",
-    "lint-staged": "^10.5.4",
+    "eslint": "^7.26.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^11.0.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.1.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.21.0",
+    "prettier": "^2.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rollup": "^2.47.0",
     "rollup-plugin-terser": "^7.0.2",
-    "ts-jest": "^26.1.0",
-    "typescript": "^4.0.3"
+    "ts-jest": "^26.5.6",
+    "typedoc": "^0.20.36",
+    "typescript": "^4.2.4",
+    "use-subscription": "^1.5.1"
   },
   "peerDependencies": {
-    "react": "^16.12.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@rocket.chat/fuselage-tokens": "^0.23.0",
-    "use-subscription": "^1.4.1"
+    "@rocket.chat/fuselage-tokens": "*",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "use-subscription": "^1.5.1"
   }
 }

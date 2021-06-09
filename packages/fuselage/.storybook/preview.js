@@ -5,6 +5,7 @@ import 'loki/configure-react';
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
+import { withTests } from '@storybook/addon-jest';
 
 addParameters({
   backgrounds: {
@@ -40,7 +41,6 @@ addParameters({
 });
 
 if (process.env.NODE_ENV === 'production') {
-  const { withTests } = require('@storybook/addon-jest');
   // eslint-disable-next-line import/no-unresolved
   const results = require('./jest-results.json');
   addDecorator(withTests({ results }));

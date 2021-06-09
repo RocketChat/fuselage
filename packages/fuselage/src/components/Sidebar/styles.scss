@@ -48,7 +48,6 @@ $sidebar-item-color-selected: theme(
 }
 
 %highlighted {
-  @include typography.use-font-scale(p2);
   color: $sidebar-item-color-highlighted;
 }
 
@@ -147,6 +146,8 @@ $sidebar-item-color-selected: theme(
 
     &__icon {
       @include typography.use-with-truncated-text();
+      @include highlighted;
+
       display: flex;
       justify-content: center;
 
