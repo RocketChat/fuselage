@@ -11,5 +11,5 @@ export const createSurfaceRenderer = <
 >() => (
   surfaceRenderer: BaseSurfaceRenderer<OutputElement, AllowedBlockTypes>,
   conditions?: Conditions
-) => (blocks: readonly Pick<Block, 'type'>[]): OutputElement[] =>
+) => (blocks: readonly { type: string }[]): OutputElement[] =>
   surfaceRenderer.render(blocks as Block[], conditions);

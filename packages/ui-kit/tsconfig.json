@@ -3,7 +3,6 @@
     "target": "ES5",
     "module": "ES2020",
     "lib": ["ES2020"],
-    "downlevelIteration": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,

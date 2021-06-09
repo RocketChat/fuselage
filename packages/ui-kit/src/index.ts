@@ -31,7 +31,7 @@ export { LayoutBlock } from './blocks/LayoutBlock';
 export { Block } from './blocks/Block';
 export { RenderableBlock } from './blocks/RenderableBlock';
 
-export { BlockBuilder } from './blocks/BlockBuilder';
+// export { BlockBuilder } from './blocks/BlockBuilder';
 
 export { LayoutBlockType } from './blocks/LayoutBlockType';
 export { BlockElementType } from './blocks/BlockElementType';
