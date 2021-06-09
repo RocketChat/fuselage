@@ -26,16 +26,22 @@ import { renderLayoutBlock } from './renderLayoutBlock';
 import { renderTextObject } from './renderTextObject';
 import { resolveConditionalBlocks } from './resolveConditionalBlocks';
 
-export abstract class BaseSurfaceRenderer<OutputElement>
-  implements ISurfaceRenderer<OutputElement> {
-  public constructor(
-    public allowedLayoutBlockTypes?: Exclude<
-      LayoutBlock,
-      ConditionalBlock
-    >['type'][]
-  ) {}
+export type PossibleAllowedLayouts = Exclude<
+  LayoutBlock,
+  ConditionalBlock
+>['type'];
+export abstract class BaseSurfaceRenderer<
+  OutputElement,
+  AllowedLayoutItems extends PossibleAllowedLayouts = PossibleAllowedLayouts
+> implements ISurfaceRenderer<OutputElement> {
+  public constructor(readonly allowedLayoutBlockTypes?: AllowedLayoutItems[]) {
+    this.allowedLayoutBlockTypes = allowedLayoutBlockTypes;
+  }
 
-  public render(blocks: readonly Block[], conditions?: Conditions) {
+  public render(
+    blocks: readonly Block[],
+    conditions?: Conditions
+  ): OutputElement[] {
     if (!Array.isArray(blocks)) {
       return [];
     }
@@ -60,8 +66,9 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     index: number
   ): OutputElement | null {
     if (
-      this.allowedLayoutBlockTypes?.includes(LayoutBlockType.ACTIONS) ===
-        false &&
+      (this.allowedLayoutBlockTypes as string[])?.includes(
+        LayoutBlockType.ACTIONS
+      ) === false &&
       !isActionsBlockElement(block)
     ) {
       return null;
@@ -85,8 +92,9 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     index: number
   ): OutputElement | null {
     if (
-      this.allowedLayoutBlockTypes?.includes(LayoutBlockType.CONTEXT) ===
-        false &&
+      (this.allowedLayoutBlockTypes as string[])?.includes(
+        LayoutBlockType.CONTEXT
+      ) === false &&
       !isContextBlockElement(block)
     ) {
       return null;
@@ -114,7 +122,9 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     index: number
   ): OutputElement | null {
     if (
-      this.allowedLayoutBlockTypes?.includes(LayoutBlockType.INPUT) === false &&
+      (this.allowedLayoutBlockTypes as string[])?.includes(
+        LayoutBlockType.INPUT
+      ) === false &&
       !isInputBlockElement(block)
     ) {
       return null;
@@ -138,8 +148,9 @@ export abstract class BaseSurfaceRenderer<OutputElement>
     index: number
   ): OutputElement | null {
     if (
-      this.allowedLayoutBlockTypes?.includes(LayoutBlockType.SECTION) ===
-        false &&
+      (this.allowedLayoutBlockTypes as string[])?.includes(
+        LayoutBlockType.SECTION
+      ) === false &&
       !isSectionBlockAccessoryElement(block)
     ) {
       return null;

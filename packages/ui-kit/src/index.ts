@@ -44,6 +44,15 @@ export { uiKitBanner } from './rendering/surfaces/uiKitBanner';
 export { uiKitMessage } from './rendering/surfaces/uiKitMessage';
 export { uiKitModal } from './rendering/surfaces/uiKitModal';
 
-export { UiKitParserBanner } from './rendering/surfaces/UiKitParserBanner';
-export { UiKitParserMessage } from './rendering/surfaces/UiKitParserMessage';
-export { UiKitParserModal } from './rendering/surfaces/UiKitParserModal';
+export {
+  UiKitParserBanner,
+  BannerSurfaceLayout,
+} from './rendering/surfaces/UiKitParserBanner';
+export {
+  UiKitParserMessage,
+  MessageSurfaceLayout,
+} from './rendering/surfaces/UiKitParserMessage';
+export {
+  UiKitParserModal,
+  ModalSurfaceLayout,
+} from './rendering/surfaces/UiKitParserModal';

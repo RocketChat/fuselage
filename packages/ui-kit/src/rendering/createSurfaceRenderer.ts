@@ -1,9 +1,15 @@
 import { Block } from '../blocks/Block';
-import { BaseSurfaceRenderer } from './BaseSurfaceRenderer';
+import {
+  BaseSurfaceRenderer,
+  PossibleAllowedLayouts,
+} from './BaseSurfaceRenderer';
 import { Conditions } from './Conditions';
 
-export const createSurfaceRenderer = <OutputElement>() => (
-  surfaceRenderer: BaseSurfaceRenderer<OutputElement>,
+export const createSurfaceRenderer = <
+  OutputElement,
+  AllowedBlockTypes extends PossibleAllowedLayouts
+>() => (
+  surfaceRenderer: BaseSurfaceRenderer<OutputElement, AllowedBlockTypes>,
   conditions?: Conditions
-) => (blocks: readonly { type: string }[]) =>
+) => (blocks: readonly Pick<Block, 'type'>[]): OutputElement[] =>
   surfaceRenderer.render(blocks as Block[], conditions);

@@ -3,7 +3,10 @@ import { LayoutBlockType } from '../LayoutBlockType';
 import { TextObject } from '../TextObject';
 import { ImageElement } from '../elements/ImageElement';
 
-export type ContextBlock = Layout<{
+type ContextBlockElements = TextObject | ImageElement;
+export type ContextBlock<
+  Elements extends ContextBlockElements = ContextBlockElements
+> = Layout<{
   type: `${LayoutBlockType.CONTEXT}`;
-  elements: (TextObject | ImageElement)[];
+  elements: Elements[];
 }>;

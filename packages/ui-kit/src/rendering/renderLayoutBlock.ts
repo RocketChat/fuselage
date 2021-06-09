@@ -7,9 +7,8 @@ import { LayoutBlockRenderer } from './LayoutBlockRenderer';
 const getLayoutBlockRenderer = <OutputElement>(
   renderers: ISurfaceRenderer<OutputElement>,
   type: Exclude<LayoutBlock, ConditionalBlock>['type']
-): LayoutBlockRenderer<OutputElement> | undefined => {
-  return renderers[type] as LayoutBlockRenderer<OutputElement> | undefined;
-};
+): LayoutBlockRenderer<OutputElement> | undefined =>
+  renderers[type] as LayoutBlockRenderer<OutputElement> | undefined;
 
 export const renderLayoutBlock = <OutputElement>(
   renderers: ISurfaceRenderer<OutputElement>

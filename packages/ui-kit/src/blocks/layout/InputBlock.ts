@@ -10,18 +10,22 @@ import { StaticSelectElement } from '../elements/StaticSelectElement';
 import { UsersSelectElement } from '../elements/UsersSelectElement';
 import { PlainText } from '../text/PlainText';
 
-export type InputBlock = Layout<{
+type InputBlockElement =
+  | ChannelsSelectElement
+  | ConversationsSelectElement
+  | DatePickerElement
+  | LinearScaleElement
+  | MultiStaticSelectElement
+  | PlainTextInputElement
+  | StaticSelectElement
+  | UsersSelectElement;
+
+export type InputBlock<
+  Element extends InputBlockElement = InputBlockElement
+> = Layout<{
   type: `${LayoutBlockType.INPUT}`;
   label: PlainText;
-  element:
-    | ChannelsSelectElement
-    | ConversationsSelectElement
-    | DatePickerElement
-    | LinearScaleElement
-    | MultiStaticSelectElement
-    | PlainTextInputElement
-    | StaticSelectElement
-    | UsersSelectElement;
+  element: Element;
   hint?: PlainText;
   optional?: boolean;
 }>;

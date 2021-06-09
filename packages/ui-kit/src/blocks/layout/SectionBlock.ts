@@ -7,15 +7,19 @@ import { MultiStaticSelectElement } from '../elements/MultiStaticSelectElement';
 import { OverflowElement } from '../elements/OverflowElement';
 import { StaticSelectElement } from '../elements/StaticSelectElement';
 
-export type SectionBlock = Layout<{
+type SectionBlockAcessory =
+  | ButtonElement
+  | DatePickerElement
+  | ImageElement
+  | MultiStaticSelectElement
+  | OverflowElement
+  | StaticSelectElement;
+
+export type SectionBlock<
+  Acessory extends SectionBlockAcessory = SectionBlockAcessory
+> = Layout<{
   type: 'section';
   text?: TextObject;
   fields?: TextObject[];
-  accessory?:
-    | ButtonElement
-    | DatePickerElement
-    | ImageElement
-    | MultiStaticSelectElement
-    | OverflowElement
-    | StaticSelectElement;
+  accessory?: Acessory;
 }>;

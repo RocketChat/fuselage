@@ -7,14 +7,17 @@ import { MultiStaticSelectElement } from '../elements/MultiStaticSelectElement';
 import { OverflowElement } from '../elements/OverflowElement';
 import { StaticSelectElement } from '../elements/StaticSelectElement';
 
-export type ActionsBlock = Layout<{
+type ActionsBlockElements =
+  | ButtonElement
+  | StaticSelectElement
+  | MultiStaticSelectElement
+  | OverflowElement
+  | DatePickerElement
+  | LinearScaleElement;
+
+export type ActionsBlock<
+  Elements extends ActionsBlockElements = ActionsBlockElements
+> = Layout<{
   type: `${LayoutBlockType.ACTIONS}`;
-  elements: (
-    | ButtonElement
-    | StaticSelectElement
-    | MultiStaticSelectElement
-    | OverflowElement
-    | DatePickerElement
-    | LinearScaleElement
-  )[];
+  elements: Elements[];
 }>;
