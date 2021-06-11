@@ -1,4 +1,4 @@
-import { uiKitModal, UiKitParserModal } from '@rocket.chat/ui-kit';
+import { UiKitParserModal } from '@rocket.chat/ui-kit';
 import React from 'react';
 
 import {
@@ -42,6 +42,6 @@ export const modalParser = new ModalParser();
 
 export const UiKitModal = (blocks, conditions = {}) => (
   <ModalSurface>
-    {uiKitModal(modalParser, { engine: 'rocket.chat', ...conditions })(blocks)}
+    {modalParser.render(blocks, { engine: 'rocket.chat', ...conditions })}
   </ModalSurface>
 );

@@ -1,4 +1,4 @@
-import { uiKitMessage, UiKitParserMessage } from '@rocket.chat/ui-kit';
+import { UiKitParserMessage } from '@rocket.chat/ui-kit';
 import React from 'react';
 
 import {
@@ -36,8 +36,6 @@ export const messageParser = new MessageParser();
 
 export const UiKitMessage = (blocks, conditions = {}) => (
   <MessageSurface>
-    {uiKitMessage(messageParser, { engine: 'rocket.chat', ...conditions })(
-      blocks
-    )}
+    {messageParser.render(blocks, { engine: 'rocket.chat', ...conditions })}
   </MessageSurface>
 );

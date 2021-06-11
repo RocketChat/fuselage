@@ -4231,12 +4231,12 @@ __metadata:
     "@rocket.chat/icons": ^0.26.0
     "@rocket.chat/prettier-config": ^0.26.0
     "@rocket.chat/ui-kit": ^0.26.0
-    "@storybook/addon-essentials": ^6.2.9
-    "@storybook/addons": ^6.2.9
-    "@storybook/builder-webpack5": ^6.2.9
-    "@storybook/react": ^6.2.9
-    "@storybook/source-loader": ^6.2.9
-    "@storybook/theming": ^6.2.9
+    "@storybook/addon-essentials": ^6.1.11
+    "@storybook/addons": ^6.1.11
+    "@storybook/builder-webpack5": ^6.1.11
+    "@storybook/react": ^6.1.11
+    "@storybook/source-loader": ^6.1.11
+    "@storybook/theming": ^6.1.11
     babel-loader: ^8.2.2
     cross-env: ^7.0.3
     eslint: ^7.26.0
@@ -4516,6 +4516,7 @@ __metadata:
     "@rocket.chat/prettier-config": ^0.26.0
     "@types/jest": ^26.0.23
     babel-loader: ^8.2.2
+    downlevel-dts: ^0.7.0
     eslint: ^7.26.0
     jest: ^26.6.3
     lint-staged: ^11.0.0
@@ -4809,7 +4810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-essentials@npm:^6.2.9":
+"@storybook/addon-essentials@npm:^6.1.11, @storybook/addon-essentials@npm:^6.2.9":
   version: 6.2.9
   resolution: "@storybook/addon-essentials@npm:6.2.9"
   dependencies:
@@ -4947,7 +4948,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addons@npm:6.2.9, @storybook/addons@npm:^6.2.9":
+"@storybook/addons@npm:6.2.9, @storybook/addons@npm:^6.1.11, @storybook/addons@npm:^6.2.9":
   version: 6.2.9
   resolution: "@storybook/addons@npm:6.2.9"
   dependencies:
@@ -5082,7 +5083,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-webpack5@npm:^6.2.9":
+"@storybook/builder-webpack5@npm:^6.1.11, @storybook/builder-webpack5@npm:^6.2.9":
   version: 6.2.9
   resolution: "@storybook/builder-webpack5@npm:6.2.9"
   dependencies:
@@ -5478,7 +5479,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:^6.2.9":
+"@storybook/react@npm:^6.1.11, @storybook/react@npm:^6.2.9":
   version: 6.2.9
   resolution: "@storybook/react@npm:6.2.9"
   dependencies:
@@ -5555,7 +5556,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/source-loader@npm:6.2.9, @storybook/source-loader@npm:^6.2.9":
+"@storybook/source-loader@npm:6.2.9, @storybook/source-loader@npm:^6.1.11, @storybook/source-loader@npm:^6.2.9":
   version: 6.2.9
   resolution: "@storybook/source-loader@npm:6.2.9"
   dependencies:
@@ -5576,7 +5577,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/theming@npm:6.2.9, @storybook/theming@npm:^6.2.9":
+"@storybook/theming@npm:6.2.9, @storybook/theming@npm:^6.1.11, @storybook/theming@npm:^6.2.9":
   version: 6.2.9
   resolution: "@storybook/theming@npm:6.2.9"
   dependencies:
@@ -11001,9 +11002,9 @@ __metadata:
   linkType: hard
 
 "es-module-lexer@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "es-module-lexer@npm:0.4.0"
-  checksum: 41d29cc3eb7e648c535bba09e6511834cbb9d06ed4747972ad102e605e1134567a39a3b3f482b9148693a5a95caf7ffe828db9d8f1ede833b836a5d9593f1933
+  version: 0.4.1
+  resolution: "es-module-lexer@npm:0.4.1"
+  checksum: 0c634ce62d3a77b04aa56b9ca2af2b58ff73a834afc76ac6747b25173e97d9050a28451b6ed39b54b84b8498d887ac8bd5bcf2c9aa9ba948ca0aee0acd613618
   languageName: node
   linkType: hard
 

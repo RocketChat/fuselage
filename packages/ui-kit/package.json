@@ -15,8 +15,16 @@
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "typesVersions": {
+    "<4.1": {
+      "*": [
+        "ts3.4/*"
+      ]
+    }
+  },
   "files": [
     "/dist"
   ],
@@ -24,9 +32,11 @@
     "access": "public"
   },
   "scripts": {
-    "build": "run-s .:build:clean .:build:prod",
+    "build": "run-s .:build:clean .:build:esm .:build:cjs .:build:ts3.4",
     ".:build:clean": "rimraf dist",
-    ".:build:prod": "webpack --mode production",
+    ".:build:esm": "tsc -p tsconfig.json",
+    ".:build:cjs": "tsc -p tsconfig-cjs.json",
+    ".:build:ts3.4": "downlevel-dts dist/esm/ dist/ts3.4/ --to=3.4",
     "lint": "eslint --ext js,ts src",
     "lint-fix": "eslint --fix --ext js,ts src",
     "lint-staged": "lint-staged",
@@ -43,6 +53,7 @@
     "@rocket.chat/prettier-config": "^0.26.0",
     "@types/jest": "^26.0.23",
     "babel-loader": "^8.2.2",
+    "downlevel-dts": "^0.7.0",
     "eslint": "^7.26.0",
     "jest": "^26.6.3",
     "lint-staged": "^11.0.0",

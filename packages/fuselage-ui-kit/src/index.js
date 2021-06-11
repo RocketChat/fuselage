@@ -9,5 +9,4 @@ export const UiKitComponent = ({ render, blocks }) => render(blocks);
 export * from './surfaces/banner';
 export * from './surfaces/message';
 export * from './surfaces/modal';
-export * from './surfaces/text';
 export * from './hooks';
