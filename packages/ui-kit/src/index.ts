@@ -6,6 +6,8 @@ export { PlainText } from './blocks/text/PlainText';
 export { Markdown } from './blocks/text/Markdown';
 export { TextObject } from './blocks/TextObject';
 
+export { Conditions } from './rendering/Conditions';
+
 export { ButtonElement } from './blocks/elements/ButtonElement';
 export { ChannelsSelectElement } from './blocks/elements/ChannelsSelectElement';
 export { ConversationsSelectElement } from './blocks/elements/ConversationsSelectElement';

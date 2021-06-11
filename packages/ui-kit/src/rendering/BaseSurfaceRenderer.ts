@@ -179,7 +179,7 @@ export abstract class BaseSurfaceRenderer<
   }
 
   /** @deprecated */
-  public mrkdwn(
+  public [TextObjectType.MARKDOWN](
     _element: Markdown,
     _context: BlockContext,
     _index: number

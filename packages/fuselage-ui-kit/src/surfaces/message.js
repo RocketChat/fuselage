@@ -1,9 +1,4 @@
-import {
-  TextObjectType,
-  UiKitParserMessage,
-  BlockElementType,
-  LayoutBlockType,
-} from '@rocket.chat/ui-kit';
+import { UiKitParserMessage } from '@rocket.chat/ui-kit';
 import React from 'react';
 
 import {
@@ -22,31 +17,20 @@ import {
 } from '../renderers';
 import MessageSurface from './MessageSurface';
 
-class MessageParser extends UiKitParserMessage {
-  [TextObjectType.PLAIN_TEXT] = plainText;
+class MessageParser extends UiKitParserMessage {}
 
-  [TextObjectType.MARKDOWN] = mrkdwn;
-
-  [BlockElementType.BUTTON] = button;
-
-  [BlockElementType.DATEPICKER] = datePicker;
-
-  [BlockElementType.IMAGE] = image;
-
-  [BlockElementType.STATIC_SELECT] = staticSelect;
-
-  [BlockElementType.MULTI_STATIC_SELECT] = multiStaticSelect;
-
-  [BlockElementType.OVERFLOW] = overflow;
-
-  [LayoutBlockType.ACTIONS] = actions;
-
-  [LayoutBlockType.CONTEXT] = context;
-
-  [LayoutBlockType.DIVIDER] = divider;
-
-  [LayoutBlockType.SECTION] = section;
-}
+MessageParser.prototype.plainText = plainText;
+MessageParser.prototype.mrkdwn = mrkdwn;
+MessageParser.prototype.divider = divider;
+MessageParser.prototype.section = section;
+MessageParser.prototype.image = image;
+MessageParser.prototype.actions = actions;
+MessageParser.prototype.context = context;
+MessageParser.prototype.button = button;
+MessageParser.prototype.datePicker = datePicker;
+MessageParser.prototype.staticSelect = staticSelect;
+MessageParser.prototype.multiStaticSelect = multiStaticSelect;
+MessageParser.prototype.overflow = overflow;
 
 export const messageParser = new MessageParser();
 

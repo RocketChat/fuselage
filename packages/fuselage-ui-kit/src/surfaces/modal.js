@@ -1,9 +1,4 @@
-import {
-  UiKitParserModal,
-  TextObjectType,
-  BlockElementType,
-  LayoutBlockType,
-} from '@rocket.chat/ui-kit';
+import { UiKitParserModal } from '@rocket.chat/ui-kit';
 import React from 'react';
 
 import {
@@ -25,37 +20,23 @@ import {
 } from '../renderers';
 import ModalSurface from './ModalSurface';
 
-class ModalParser extends UiKitParserModal {
-  [TextObjectType.PLAIN_TEXT] = plainText;
+class ModalParser extends UiKitParserModal {}
 
-  [TextObjectType.MARKDOWN] = mrkdwn;
-
-  [BlockElementType.BUTTON] = button;
-
-  [BlockElementType.DATEPICKER] = datePicker;
-
-  [BlockElementType.IMAGE] = image;
-
-  [BlockElementType.STATIC_SELECT] = staticSelect;
-
-  [BlockElementType.MULTI_STATIC_SELECT] = multiStaticSelect;
-
-  [BlockElementType.OVERFLOW] = overflow;
-
-  [BlockElementType.PLAIN_TEXT_INPUT] = plainInput;
-
-  [BlockElementType.LINEAR_SCALE] = linearScale;
-
-  [LayoutBlockType.ACTIONS] = actions;
-
-  [LayoutBlockType.CONTEXT] = context;
-
-  [LayoutBlockType.DIVIDER] = divider;
-
-  [LayoutBlockType.INPUT] = input;
-
-  [LayoutBlockType.SECTION] = section;
-}
+ModalParser.prototype.plainText = plainText;
+ModalParser.prototype.mrkdwn = mrkdwn;
+ModalParser.prototype.divider = divider;
+ModalParser.prototype.section = section;
+ModalParser.prototype.image = image;
+ModalParser.prototype.actions = actions;
+ModalParser.prototype.context = context;
+ModalParser.prototype.input = input;
+ModalParser.prototype.button = button;
+ModalParser.prototype.datePicker = datePicker;
+ModalParser.prototype.staticSelect = staticSelect;
+ModalParser.prototype.multiStaticSelect = multiStaticSelect;
+ModalParser.prototype.overflow = overflow;
+ModalParser.prototype.plainInput = plainInput;
+ModalParser.prototype.linearScale = linearScale;
 
 export const modalParser = new ModalParser();
 
