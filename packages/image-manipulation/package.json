@@ -1,0 +1,30 @@
+{
+  "name": "@rocket.chat/image-manipulation",
+  "version": "0.26.0",
+  "description": "Image transform functions",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
+    "lint-staged": "lint-staged"
+  },
+  "devDependencies": {
+    "@rocket.chat/eslint-config-alt": "^0.26.0",
+    "@rocket.chat/prettier-config": "^0.26.0",
+    "eslint": "^7.26.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.2.1"
+  }
+}

@@ -4366,6 +4366,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@rocket.chat/image-manipulation@workspace:packages/image-manipulation":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/image-manipulation@workspace:packages/image-manipulation"
+  dependencies:
+    "@rocket.chat/eslint-config-alt": ^0.26.0
+    "@rocket.chat/prettier-config": ^0.26.0
+    eslint: ^7.26.0
+    lint-staged: ^11.0.0
+    prettier: ^2.2.1
+  languageName: unknown
+  linkType: soft
+
 "@rocket.chat/memo@^0.26.0, @rocket.chat/memo@workspace:packages/memo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/memo@workspace:packages/memo"
