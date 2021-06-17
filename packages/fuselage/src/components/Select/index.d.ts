@@ -11,3 +11,5 @@ type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
 };
 
 export const Select: ForwardRefExoticComponent<SelectProps>;
+
+export const MultiSelect: ForwardRefExoticComponent<SelectProps>;
