@@ -35,6 +35,7 @@ jobs:
           path: |
             packages/fuselage/storybook-static
             packages/fuselage-ui-kit/storybook-static
+            packages/onboarding-ui/storybook-static
 
   test-with-loki:
     name: Test with Loki
@@ -63,11 +64,16 @@ jobs:
       - run: |
           cat packages/fuselage/package.json | sed s/\.docker/.app/ > packages/fuselage/package.json-new
           cat packages/fuselage-ui-kit/package.json | sed s/\.docker/.app/ > packages/fuselage-ui-kit/package.json-new
+          cat packages/onboarding-ui/package.json | sed s/\.docker/.app/ > packages/onboarding-ui/package.json-new
           mv packages/fuselage/package.json-new packages/fuselage/package.json
           mv packages/fuselage-ui-kit/package.json-new packages/fuselage-ui-kit/package.json
+          mv packages/onboarding-ui/package.json-new packages/onboarding-ui/package.json
       - uses: ./.github/actions/loki/test
         with:
           working_dir: ./packages/fuselage
       - uses: ./.github/actions/loki/test
         with:
           working_dir: ./packages/fuselage-ui-kit
+      - uses: ./.github/actions/loki/test
+        with:
+          working_dir: ./packages/onboarding-ui

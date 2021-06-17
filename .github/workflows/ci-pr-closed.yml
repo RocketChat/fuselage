@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: gh-pages
-      - run: rm -rf "fuselage/${{ github.event.number }}" "fuselage-ui-kit/${{ github.event.number }}"
+      - run: rm -rf "fuselage/${{ github.event.number }}" "fuselage-ui-kit/${{ github.event.number }}" "onboarding-ui/${{ github.event.number }}"
       - uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages

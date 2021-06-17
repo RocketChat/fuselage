@@ -41,6 +41,10 @@
       "changeProcessCWD": true
     },
     {
+      "directory": "packages/onboarding-ui",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/peggy-loader",
       "changeProcessCWD": true
     },
