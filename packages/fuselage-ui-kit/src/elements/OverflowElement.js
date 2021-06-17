@@ -21,7 +21,7 @@ const OverflowElement = ({ element, context, parser }) => {
     action,
   ]);
 
-  const convertedOptions = convertOptions(options, parser.text);
+  const convertedOptions = convertOptions(options, parser.text.bind(parser));
   const [
     cursor,
     handleKeyDown,
@@ -68,7 +68,7 @@ const OverflowElement = ({ element, context, parser }) => {
       >
         <Options
           onSelect={handleSelection}
-          options={convertOptions(options, parser.text)}
+          options={convertOptions(options, parser.text.bind(parser))}
           cursor={cursor}
         />
       </PositionAnimated>

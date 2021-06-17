@@ -1,4 +1,4 @@
-import { uiKitBanner, UiKitParserBanner } from '@rocket.chat/ui-kit';
+import { UiKitParserBanner } from '@rocket.chat/ui-kit';
 import React from 'react';
 
 import {
@@ -42,8 +42,6 @@ export const bannerParser = new BannerParser();
 
 export const UiKitBanner = (blocks, conditions = {}) => (
   <BannerSurface>
-    {uiKitBanner(bannerParser, { engine: 'rocket.chat', ...conditions })(
-      blocks
-    )}
+    {bannerParser.render(blocks, { engine: 'rocket.chat', ...conditions })}
   </BannerSurface>
 );

@@ -1,27 +1,18 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
-    "module": "ESNext",
     "target": "ES5",
-    "lib": ["ES2018"],
-    "sourceMap": true,
+    "module": "ES2020",
+    "lib": ["ES2020"],
     "declaration": true,
-    "declarationDir": "./dist",
-    "outDir": "./dist",
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
-    // "noEmit": true,
-    // "noImplicitReturns": true,
-    // "noImplicitThis": true,
-    // "noImplicitAny": true,
-    // "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist/esm/",
+    "strict": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
-  "include": ["src"],
-  "exclude": ["dist", "node_modules", "src/*.spec.ts"]
+  "exclude": ["dist/", "src/**/*.spec.ts"]
 }
