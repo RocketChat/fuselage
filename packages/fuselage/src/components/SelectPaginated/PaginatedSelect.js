@@ -59,6 +59,7 @@ export const PaginatedSelect = ({
   onChange = () => {},
   placeholder = '',
   renderOptions: _Options = OptionsPaginated,
+  endReached,
   ...props
 }) => {
   const [internalValue, setInternalValue] = useState(value);
@@ -149,6 +150,7 @@ export const PaginatedSelect = ({
           filter={filter}
           options={options}
           onSelect={internalChangedByClick}
+          endReached={endReached}
         />
       </PositionAnimated>
     </Box>
