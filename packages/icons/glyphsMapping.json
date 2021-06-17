@@ -760,5 +760,20 @@
   },
   "team-arrow-right": {
     "start": "\ue0d1"
+  },
+  "error-circle": {
+    "start": "\ue0d2"
+  },
+  "list-bullets": {
+    "start": "\ue0d3"
+  },
+  "list-numbers": {
+    "start": "\ue0d4"
+  },
+  "success-circle": {
+    "start": "\ue0d5"
+  },
+  "volume-lock": {
+    "start": "\ue0d6"
   }
 }
