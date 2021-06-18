@@ -12,7 +12,9 @@ import Margins from '../Margins';
 import { OptionsPaginated, useVisible } from '../OptionsPaginated';
 import { Focus, Addon } from '../Select';
 
-const SelectedOptions = React.memo((props) => <Chip {...props} />);
+const SelectedOptions = React.memo((props) => (
+  <Chip maxWidth='150px' withTruncatedText {...props} />
+));
 
 const prevent = (e) => {
   e.preventDefault();
@@ -21,6 +23,7 @@ const prevent = (e) => {
 };
 
 export const PaginatedMultiSelect = ({
+  withTitle,
   value,
   filter,
   options = [],
@@ -94,6 +97,11 @@ export const PaginatedMultiSelect = ({
                   />
                   {currentValue.map((value) => (
                     <SelectedOptions
+                      {...(withTitle && {
+                        title:
+                          value.label ||
+                          options.find((val) => val.value === value)?.label,
+                      })}
                       tabIndex={-1}
                       role='option'
                       key={value && value.value}
@@ -133,6 +141,7 @@ export const PaginatedMultiSelect = ({
       <AnimatedVisibility visibility={visible}>
         <Position anchor={containerRef}>
           <_Options
+            {...(withTitle && { title: withTitle })}
             width={borderBoxSize.inlineSize}
             onMouseDown={prevent}
             multiple

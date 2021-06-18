@@ -50,6 +50,7 @@ const useDidUpdate = (func = []) => {
 
 export const PaginatedSelect = ({
   value,
+  withTitle,
   filter,
   setFilter,
   error,
@@ -145,6 +146,7 @@ export const PaginatedSelect = ({
       </Wrapper>
       <PositionAnimated visible={visible} anchor={containerRef}>
         <_Options
+          {...(withTitle && { title: withTitle })}
           width={borderBoxSize.inlineSize}
           role='listbox'
           filter={filter}
