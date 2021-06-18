@@ -42,10 +42,15 @@ export { BlockContext } from './rendering/BlockContext';
 
 export * from './blocks/deprecations';
 
+export { uiKitAttachment } from './rendering/surfaces/uiKitAttachment';
 export { uiKitBanner } from './rendering/surfaces/uiKitBanner';
 export { uiKitMessage } from './rendering/surfaces/uiKitMessage';
 export { uiKitModal } from './rendering/surfaces/uiKitModal';
 
+export {
+  UiKitParserAttachment,
+  AttachmentSurfaceLayout,
+} from './rendering/surfaces/UiKitParserAttachment';
 export {
   UiKitParserBanner,
   BannerSurfaceLayout,
