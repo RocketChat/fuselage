@@ -1,4 +1,5 @@
 {
+  "private": "true",
   "name": "@rocket.chat/image-manipulation",
   "version": "0.26.0",
   "description": "Image transform functions",
