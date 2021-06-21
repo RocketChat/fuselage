@@ -28,6 +28,7 @@ export const CheckOption = React.memo(
 export const OptionsPaginated = React.forwardRef(
   (
     {
+      title,
       multiple,
       renderEmpty: EmptyComponent = Empty,
       options,
@@ -43,6 +44,7 @@ export const OptionsPaginated = React.forwardRef(
       const { value, label, selected } = data;
       return (
         <OptionComponent
+          {...(title && { title: label })}
           role='option'
           label={label}
           onMouseDown={(e) => {
