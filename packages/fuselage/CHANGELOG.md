@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.25.1) (2021-06-21)
+
+
+### Bug Fixes
+
+* endReached prop in _Options of PaginatedSelectFiltered Component ([#475](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/475)) ([6cb30d0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6cb30d00bbc3e162e009ba2f1a5c34eed8e00702))
+* Export MultiSelect component in .d.ts file ([#473](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/473)) ([7ae1582](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7ae158287c7bac85176de6e82f5cf14e2da84dd5))
+* Menu component and options.label prop type ([#476](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/476)) ([d402da8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d402da87306ce4ca42d25b2033efc1894bdb6b8b))
+
+
+
+
+
 # [0.25.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.24.0...v0.25.0) (2021-05-19)
 
 
