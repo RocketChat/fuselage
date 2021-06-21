@@ -9,10 +9,7 @@ type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   icon?: string;
   options: {
     [id: string]: {
-      label: {
-        title: string;
-        icon: string;
-      };
+      label: ReactElement | string;
       action: () => void;
     };
   };
