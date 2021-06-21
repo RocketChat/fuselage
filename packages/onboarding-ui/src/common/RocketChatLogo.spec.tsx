@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom';
 
-import MyComponent from './MyComponent';
+import RocketChatLogo from './RocketChatLogo';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<MyComponent />, div);
+  ReactDOM.render(<RocketChatLogo />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

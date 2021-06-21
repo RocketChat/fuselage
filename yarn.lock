@@ -4458,8 +4458,8 @@ __metadata:
     "@storybook/source-loader": ^6.2.9
     "@storybook/theming": ^6.2.9
     "@types/jest": ^26.0.23
-    "@types/react": ^17.0.8
-    "@types/react-dom": ^17.0.5
+    "@types/react": ^17.0.11
+    "@types/react-dom": ^17.0.8
     downlevel-dts: ^0.7.0
     eslint: ^7.26.0
     jest: ^26.6.3
@@ -6119,12 +6119,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.5":
-  version: 17.0.5
-  resolution: "@types/react-dom@npm:17.0.5"
+"@types/react-dom@npm:^17.0.8":
+  version: 17.0.8
+  resolution: "@types/react-dom@npm:17.0.8"
   dependencies:
     "@types/react": "*"
-  checksum: b3e23acb7be9405050abb4bcd443d14b16b2f3ded2d1853528199e4307b17b25186f905ddd236c27b6ef0297e6779b7fedd11fd24ee9170771be45a7e8e70f4b
+  checksum: 3859a6e06ec4545319c159ea71814beb3822801f0d4c41219855258557722cbcec8b5fba84551489169ec228b8817b4c05a8ef0dc87eb2bafb4d1431d1af9608
   languageName: node
   linkType: hard
 
@@ -6147,6 +6147,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react@npm:^17.0.11":
+  version: 17.0.11
+  resolution: "@types/react@npm:17.0.11"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: ed2b57e44e8da99b13a7b0cd7d9d9159e3113a5160e25c9deae4f577cfb87f05103b54bb0e9722f48a7db3ddb3a836ade12b971bbc338d397b719886fb81efff
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:^17.0.5":
   version: 17.0.5
   resolution: "@types/react@npm:17.0.5"
@@ -6155,17 +6166,6 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: f9793e8113f14122d6ed20643b4fe27d30e10d7c80571a1d238c13f8171864f2a7b337194bf41310724498586ed4560fffd081a2d21e488afbb1aca33534189b
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^17.0.8":
-  version: 17.0.8
-  resolution: "@types/react@npm:17.0.8"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: b59a3abafd240b2880f9e6a11b2b7f75165888260c56e95a77ed10a7dd55570b307fb2356eda7fde2a8e1255d2def11797e4ae9800ae114a1f578546acabda67
   languageName: node
   linkType: hard
 
