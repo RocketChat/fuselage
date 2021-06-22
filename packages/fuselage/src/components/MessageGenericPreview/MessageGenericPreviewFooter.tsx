@@ -1,7 +1,8 @@
 // import { css } from '@rocket.chat/css-in-js';
-import { Box } from '@rocket.chat/fuselage';
-// import { ContextBlock } from '@rocket.chat/ui-kit';
 import React, { FC } from 'react';
+
+import { Box } from '../..';
+// import { ContextBlock } from '@rocket.chat/ui-kit';
 
 type MessageGenericPreviewFooterProps = {
   // footer: ContextBlock;
