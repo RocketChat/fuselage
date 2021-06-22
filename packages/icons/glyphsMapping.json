@@ -775,5 +775,11 @@
   },
   "volume-lock": {
     "start": "\ue0d6"
+  },
+  "headphone": {
+    "start": "\ue0d7"
+  },
+  "headphone-off": {
+    "start": "\ue0d8"
   }
 }
