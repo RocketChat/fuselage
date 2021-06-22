@@ -22,11 +22,6 @@ export const color = (r: number, g: number, b: number, a = 255): Color => ({
   value: { r, g, b, a },
 });
 
-export const emoji = (() => {
-  const fn = generate('EMOJI');
-  return (value: string) => fn(plain(value));
-})();
-
 export const heading = (
   value: Heading['value'],
   level: Heading['level'] = 1
@@ -86,6 +81,11 @@ export const list = generate('ORDERED_LIST');
 
 export const mentionUser = (() => {
   const fn = generate('MENTION_USER');
+  return (value: string) => fn(plain(value));
+})();
+
+export const emoji = (() => {
+  const fn = generate('EMOJI');
   return (value: string) => fn(plain(value));
 })();
 

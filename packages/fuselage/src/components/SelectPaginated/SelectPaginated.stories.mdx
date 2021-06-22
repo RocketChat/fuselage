@@ -14,7 +14,10 @@ export const thumb =
   'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 
 export const optionsEllipses = [
-  [11, 'Very very very very very very very very very large text'],
+  {
+    value: 1000,
+    label: 'Very very very very very very very very very large text',
+  },
   ...options,
 ];
 
@@ -33,6 +36,17 @@ An input for selection of options.
       width='250px'
       placeholder='Placeholder here...'
       options={options}
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='WithTitle'>
+    <PaginatedSelect
+      withTitle
+      width='250px'
+      placeholder='Placeholder here...'
+      options={optionsEllipses}
     />
   </Story>
 </Canvas>
@@ -87,7 +101,7 @@ An input for selection of options.
   <Story name='Select with filter and ellipses'>
     <PaginatedSelectFiltered
       width='250px'
-      value={11}
+      value={1000}
       placeholder='Placeholder here...'
       options={optionsEllipses}
     />
@@ -125,7 +139,12 @@ An input for selection of options.
 
 <Canvas>
   <Story name='PaginatedMultiSelect'>
-    <PaginatedMultiSelect placeholder='Placeholder here...' options={options} />
+    <PaginatedMultiSelect
+      withTitle
+      placeholder='Placeholder here...'
+      value={[1000, 2, 3]}
+      options={optionsEllipses}
+    />
   </Story>
 </Canvas>
 

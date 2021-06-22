@@ -4456,6 +4456,45 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
+  dependencies:
+    "@rocket.chat/eslint-config-alt": ^0.26.0
+    "@rocket.chat/fuselage": "workspace:packages/fuselage"
+    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks"
+    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills"
+    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens"
+    "@rocket.chat/icons": "workspace:packages/icons"
+    "@rocket.chat/prettier-config": ^0.26.0
+    "@storybook/addon-essentials": ^6.2.9
+    "@storybook/addons": ^6.2.9
+    "@storybook/react": ^6.2.9
+    "@storybook/source-loader": ^6.2.9
+    "@storybook/theming": ^6.2.9
+    "@types/jest": ^26.0.23
+    "@types/react": ^17.0.8
+    "@types/react-dom": ^17.0.5
+    downlevel-dts: ^0.7.0
+    eslint: ^7.26.0
+    jest: ^26.6.3
+    lint-staged: ^11.0.0
+    loki: ^0.28.1
+    npm-run-all: ^4.1.5
+    prettier: ^2.2.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    rimraf: ^3.0.2
+    ts-jest: ^26.5.6
+    tslib: ^2.2.0
+    typedoc: ^0.20.36
+    typescript: ^4.2.4
+  peerDependencies:
+    react: 17.0.2
+    react-dom: 17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@rocket.chat/peggy-loader@^0.26.0, @rocket.chat/peggy-loader@workspace:packages/peggy-loader":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
@@ -6095,6 +6134,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^17.0.5":
+  version: 17.0.5
+  resolution: "@types/react-dom@npm:17.0.5"
+  dependencies:
+    "@types/react": "*"
+  checksum: b3e23acb7be9405050abb4bcd443d14b16b2f3ded2d1853528199e4307b17b25186f905ddd236c27b6ef0297e6779b7fedd11fd24ee9170771be45a7e8e70f4b
+  languageName: node
+  linkType: hard
+
 "@types/react-syntax-highlighter@npm:11.0.5":
   version: 11.0.5
   resolution: "@types/react-syntax-highlighter@npm:11.0.5"
@@ -6122,6 +6170,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: f9793e8113f14122d6ed20643b4fe27d30e10d7c80571a1d238c13f8171864f2a7b337194bf41310724498586ed4560fffd081a2d21e488afbb1aca33534189b
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^17.0.8":
+  version: 17.0.8
+  resolution: "@types/react@npm:17.0.8"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: b59a3abafd240b2880f9e6a11b2b7f75165888260c56e95a77ed10a7dd55570b307fb2356eda7fde2a8e1255d2def11797e4ae9800ae114a1f578546acabda67
   languageName: node
   linkType: hard
 

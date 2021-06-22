@@ -50,6 +50,7 @@ const useDidUpdate = (func = []) => {
 
 export const PaginatedSelect = ({
   value,
+  withTitle,
   filter,
   setFilter,
   error,
@@ -59,6 +60,7 @@ export const PaginatedSelect = ({
   onChange = () => {},
   placeholder = '',
   renderOptions: _Options = OptionsPaginated,
+  endReached,
   ...props
 }) => {
   const [internalValue, setInternalValue] = useState(value);
@@ -144,11 +146,13 @@ export const PaginatedSelect = ({
       </Wrapper>
       <PositionAnimated visible={visible} anchor={containerRef}>
         <_Options
+          {...(withTitle && { title: withTitle })}
           width={borderBoxSize.inlineSize}
           role='listbox'
           filter={filter}
           options={options}
           onSelect={internalChangedByClick}
+          endReached={endReached}
         />
       </PositionAnimated>
     </Box>
