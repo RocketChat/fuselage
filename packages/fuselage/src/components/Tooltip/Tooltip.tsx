@@ -4,6 +4,18 @@ import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { Box } from '../Box';
 import tooltipStyleSheet from './Tooltip.styles.scss';
 
+const parsePlacement = (placement: string | null | undefined) => {
+  const [direction, position] = placement
+    ? placement.split('-')
+    : [false, false];
+
+  if (direction === 'right' || direction === 'left') {
+    return [direction, false];
+  }
+
+  return [direction, position];
+};
+
 type TooltipProps = ComponentProps<typeof Box> & {
   placement?:
     | 'top-start'
@@ -12,12 +24,6 @@ type TooltipProps = ComponentProps<typeof Box> & {
     | 'bottom-start'
     | 'bottom-middle'
     | 'bottom-end'
-    | 'left-start'
-    | 'left-middle'
-    | 'left-end'
-    | 'right-start'
-    | 'right-middle'
-    | 'right-end'
     | 'top'
     | 'left'
     | 'bottom'
@@ -32,9 +38,7 @@ const Tooltip = forwardRef(function Tooltip(
   useStyleSheet();
   useStyleSheet(tooltipStyleSheet);
 
-  const [direction, position] = placement
-    ? placement.split('-')
-    : [false, false];
+  const [direction, position] = parsePlacement(placement);
 
   return (
     <Box
