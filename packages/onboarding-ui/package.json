@@ -85,15 +85,23 @@
   },
   "loki": {
     "configurations": {
-      "chrome.laptop": {
+      "desktop": {
         "target": "chrome.docker",
-        "width": 1366,
-        "height": 768,
+        "width": 1440,
+        "height": 896,
         "deviceScaleFactor": 1,
         "mobile": false,
         "fitWindow": false
       },
-      "chrome.iphone7": {
+      "tablet": {
+        "target": "chrome.docker",
+        "width": 768,
+        "height": 970,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "mobile": {
         "target": "chrome.docker",
         "preset": "iPhone 7"
       }

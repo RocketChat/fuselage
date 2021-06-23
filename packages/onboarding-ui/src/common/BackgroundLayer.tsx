@@ -50,6 +50,15 @@ const BackgroundLayer = ({
         url('data:image/svg+xml,${upperCorner}');
       background-repeat: no-repeat;
       background-position: left bottom, right top;
+      background-size: 87px auto, 73px auto;
+
+      @media (min-width: 768px) {
+        background-size: 98px auto, 166px auto;
+      }
+
+      @media (min-width: 1440px) {
+        background-size: auto, auto;
+      }
     `
   );
 
