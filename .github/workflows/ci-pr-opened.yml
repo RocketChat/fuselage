@@ -43,6 +43,7 @@ jobs:
           path: |
             fuselage/storybook-static
             fuselage-ui-kit/storybook-static
+            onboarding-ui/storybook-static
 
   publish-to-gh-pages:
     name: Publish to GitHub Pages
@@ -61,9 +62,10 @@ jobs:
           name: storybooks
           path: packages
       - run: |
-          rm -rf "fuselage/${{ needs.download-artifact.outputs.pr-number }}" "fuselage-ui-kit/${{ needs.download-artifact.outputs.pr-number }}"
+          rm -rf "fuselage/${{ needs.download-artifact.outputs.pr-number }}" "fuselage-ui-kit/${{ needs.download-artifact.outputs.pr-number }}" "onboarding-ui/${{ needs.download-artifact.outputs.pr-number }}"
           mv -v packages/fuselage/storybook-static "fuselage/${{ needs.download-artifact.outputs.pr-number }}"
           mv -v packages/fuselage-ui-kit/storybook-static "fuselage-ui-kit/${{ needs.download-artifact.outputs.pr-number }}"
+          mv -v packages/onboarding-ui/storybook-static "onboarding-ui/${{ needs.download-artifact.outputs.pr-number }}"
           rm -rf packages
       - uses: crazy-max/ghaction-github-pages@v2
         with:

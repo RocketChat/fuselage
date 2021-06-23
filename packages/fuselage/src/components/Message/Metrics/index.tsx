@@ -11,12 +11,6 @@ const ContentItem: FC = (props) => (
   <div className='rcx-message-metrics__content-item' {...props} />
 );
 
-export const Reply: FC<ComponentProps<typeof Button>> = (props) => (
-  <MetricsItem>
-    <Button {...props} {...{ small: true, primary: true }} />
-  </MetricsItem>
-);
-
 type IconProps = { name: 'thread' | 'user' | 'clock' | 'discussion' };
 type FollowingProps = { name: 'bell' | 'bell-off' };
 
@@ -45,6 +39,12 @@ const MetricsFollowing: FC<FollowingProps> = ({ name }) => (
   <ActionButton
     {...({ color: 'info', small: true, ghost: true, icon: name } as any)}
   />
+);
+
+export const Reply: FC<ComponentProps<typeof Button>> = (props) => (
+  <MetricsItem>
+    <Button {...props} {...{ small: true, primary: true }} />
+  </MetricsItem>
 );
 
 Metrics.Reply = Reply;

@@ -18,6 +18,7 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+    '@typescript-eslint/no-use-before-define': ['error'],
     'func-call-spacing': 'off',
     'indent': 'off',
     'import/order': [
