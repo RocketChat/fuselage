@@ -9,14 +9,10 @@ type InformationTooltipTriggerProps = {
 
 const InformationTooltipTrigger = ({
   text,
-}: InformationTooltipTriggerProps): ReactElement => {
-  0;
-
-  return (
-    <TooltipWrapper text={text}>
-      <Icon name='info' />
-    </TooltipWrapper>
-  );
-};
+}: InformationTooltipTriggerProps): ReactElement => (
+  <TooltipWrapper text={text}>
+    <Icon name='info' />
+  </TooltipWrapper>
+);
 
 export default InformationTooltipTrigger;
