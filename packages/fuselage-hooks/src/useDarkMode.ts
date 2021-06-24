@@ -1,7 +1,7 @@
-import { useMediaQuery } from '@rocket.chat/fuselage-hooks';
+import { usePrefersColorScheme } from './usePrefersColorScheme';
 
 export const useDarkMode = (forced?: boolean): boolean => {
-  const systemDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const systemDarkMode = usePrefersColorScheme('dark');
 
   if (forced !== undefined) {
     return forced;

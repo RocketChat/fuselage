@@ -1,9 +1,9 @@
 import { css } from '@rocket.chat/css-in-js';
+import { useDarkMode } from '@rocket.chat/fuselage-hooks';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { ReactElement, ReactNode, useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import { useDarkMode } from '../hooks/useDarkMode';
 import { useStyle } from '../hooks/useStyle';
 import LowerCornerStripes from './BackgroundLayer/LowerCornerStripes';
 import UpperCornerStripes from './BackgroundLayer/UpperCornerStripes';
