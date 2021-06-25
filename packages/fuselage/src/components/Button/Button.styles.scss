@@ -1,41 +1,7 @@
 @use 'sass:map';
 @use '../../styles/typography.scss';
-@use '../../styles/variables/buttons.scss';
-
-@mixin -kind-variant($colors) {
-  color: map.get($colors, color);
-  border-width: 2px;
-  border-style: solid;
-  border-color: map.get($colors, border-color);
-  border-radius: 2px;
-  background-color: map.get($colors, background-color);
-
-  appearance: none;
-
-  @include on-focus-visible {
-    border-color: map.get($colors, focus-border-color);
-    background-color: map.get($colors, focus-background-color);
-    @include use-focus-shadow(map.get($colors, focus-shadow-color));
-  }
-
-  @include on-hover {
-    border-color: map.get($colors, hover-border-color);
-    background-color: map.get($colors, hover-background-color);
-    @include use-no-shadow;
-  }
-
-  @include on-active {
-    border-color: map.get($colors, active-border-color);
-    background-color: map.get($colors, active-background-color);
-    @include use-no-shadow;
-  }
-
-  @include on-disabled {
-    color: map.get($colors, disabled-color);
-    border-color: map.get($colors, disabled-border-color);
-    background-color: map.get($colors, disabled-background-color);
-  }
-}
+@use '../../styles/variables/buttons.scss' as colors;
+@use '../../styles/primitives/button.scss';
 
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
@@ -78,7 +44,7 @@
     $line-height: typography.line-height(p1)
   );
 
-  @include -kind-variant(buttons.$secondary);
+  @include button.kind-variant(colors.$secondary);
 
   &--small {
     @include typography.use-font-scale(c2);
@@ -111,98 +77,98 @@
   }
 
   &--info {
-    @include -kind-variant(buttons.$secondary-info);
+    @include button.kind-variant(colors.$secondary-info);
   }
 
   &--success {
-    @include -kind-variant(buttons.$secondary-success);
+    @include button.kind-variant(colors.$secondary-success);
   }
 
   &--warning {
-    @include -kind-variant(buttons.$secondary-warning);
+    @include button.kind-variant(colors.$secondary-warning);
   }
 
   &--danger {
-    @include -kind-variant(buttons.$secondary-danger);
+    @include button.kind-variant(colors.$secondary-danger);
   }
 
   &--primary {
-    @include -kind-variant(buttons.$primary);
+    @include button.kind-variant(colors.$primary);
   }
 
   &--primary-info {
-    @include -kind-variant(buttons.$info);
+    @include button.kind-variant(colors.$info);
   }
 
   &--primary-success {
-    @include -kind-variant(buttons.$success);
+    @include button.kind-variant(colors.$success);
   }
 
   &--primary-warning {
-    @include -kind-variant(buttons.$warning);
+    @include button.kind-variant(colors.$warning);
   }
 
   &--primary-danger {
-    @include -kind-variant(buttons.$danger);
+    @include button.kind-variant(colors.$danger);
   }
 
   &--ghost {
-    @include -kind-variant(buttons.$ghost);
+    @include button.kind-variant(colors.$ghost);
   }
 
   &--ghost-info {
-    @include -kind-variant(buttons.$ghost-info);
+    @include button.kind-variant(colors.$ghost-info);
   }
 
   &--ghost-success {
-    @include -kind-variant(buttons.$ghost-success);
+    @include button.kind-variant(colors.$ghost-success);
   }
 
   &--ghost-warning {
-    @include -kind-variant(buttons.$ghost-warning);
+    @include button.kind-variant(colors.$ghost-warning);
   }
 
   &--ghost-danger {
-    @include -kind-variant(buttons.$ghost-danger);
+    @include button.kind-variant(colors.$ghost-danger);
   }
 
   &--nude {
-    @include -kind-variant(buttons.$nude);
+    @include button.kind-variant(colors.$nude);
   }
 
   &--nude-info {
-    @include -kind-variant(buttons.$nude-info);
+    @include button.kind-variant(colors.$nude-info);
   }
 
   &--nude-success {
-    @include -kind-variant(buttons.$nude-success);
+    @include button.kind-variant(colors.$nude-success);
   }
 
   &--nude-warning {
-    @include -kind-variant(buttons.$nude-warning);
+    @include button.kind-variant(colors.$nude-warning);
   }
 
   &--nude-danger {
-    @include -kind-variant(buttons.$nude-danger);
+    @include button.kind-variant(colors.$nude-danger);
   }
 
   &--ghostish {
-    @include -kind-variant(buttons.$ghostish);
+    @include button.kind-variant(colors.$ghostish);
   }
 
   &--ghostish-info {
-    @include -kind-variant(buttons.$ghostish-info);
+    @include button.kind-variant(colors.$ghostish-info);
   }
 
   &--ghostish-success {
-    @include -kind-variant(buttons.$ghostish-success);
+    @include button.kind-variant(colors.$ghostish-success);
   }
 
   &--ghostish-warning {
-    @include -kind-variant(buttons.$ghostish-warning);
+    @include button.kind-variant(colors.$ghostish-warning);
   }
 
   &--ghostish-danger {
-    @include -kind-variant(buttons.$ghostish-danger);
+    @include button.kind-variant(colors.$ghostish-danger);
   }
 }

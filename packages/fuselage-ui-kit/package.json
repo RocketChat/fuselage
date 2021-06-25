@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-ui-kit",
-  "version": "0.20.2",
+  "version": "0.26.0",
   "description": "UiKit elements for Rocket.Chat Apps built under Fuselage design system",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -10,77 +10,80 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "directory": "packages/fuselage-ui-kit"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "main": "index.js",
   "files": [
-    "index.js",
-    "dist"
+    "/dist",
+    "/index.js"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf dist",
     "start": "webpack --watch --mode development",
-    "build:prod": "webpack --mode production",
-    "build:dev": "webpack --mode development",
-    "build": "run-s clean build:prod build:dev",
-    "lint": "eslint src",
-    "lint-staged": "lint-staged",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*' --write",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build": "run-s .:build:clean .:build:dev .:build:prod",
+    ".:build:clean": "rimraf dist",
+    ".:build:dev": "webpack --mode development",
+    ".:build:prod": "webpack --mode production",
+    "lint": "eslint src",
+    "lint-fix": "eslint --fix src",
+    "lint-staged": "lint-staged",
+    "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage-ui-kit",
+    "build-storybook": "cross-env NODE_ENV=production build-storybook",
+    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:loki-update",
+    ".:update-storybook:build-storybook": "run-s build-storybook",
+    ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "prettier-format": "prettier 'src/**/*' --write",
+    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
     "@rocket.chat/fuselage-hooks": "*",
+    "@rocket.chat/fuselage-polyfills": "*",
     "@rocket.chat/icons": "*",
     "@rocket.chat/ui-kit": "*",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.5",
-    "@babel/eslint-parser": "^7.12.1",
-    "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@babel/plugin-transform-runtime": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-react": "^7.10.4",
-    "@rocket.chat/apps-engine": "^1.17.0",
-    "@rocket.chat/eslint-config": "^0.4.0",
-    "@rocket.chat/fuselage": "^0.20.2",
-    "@rocket.chat/fuselage-hooks": "^0.20.1",
-    "@rocket.chat/icons": "^0.20.1",
-    "@rocket.chat/ui-kit": "^0.20.1",
+    "@babel/core": "^7.14.0",
+    "@babel/eslint-parser": "^7.13.14",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-react": "^7.13.13",
+    "@rocket.chat/apps-engine": "^1.25.0",
+    "@rocket.chat/eslint-config-alt": "^0.26.0",
+    "@rocket.chat/fuselage": "^0.26.0",
+    "@rocket.chat/fuselage-hooks": "^0.26.0",
+    "@rocket.chat/fuselage-polyfills": "^0.26.0",
+    "@rocket.chat/icons": "^0.26.0",
+    "@rocket.chat/prettier-config": "^0.26.0",
+    "@rocket.chat/ui-kit": "^0.26.0",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addons": "^6.1.11",
+    "@storybook/builder-webpack5": "^6.1.11",
     "@storybook/react": "^6.1.11",
     "@storybook/source-loader": "^6.1.11",
     "@storybook/theming": "^6.1.11",
-    "babel-loader": "^8.1.0",
-    "eslint": "^7.13.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-mdx": "^1.8.2",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.26.0",
+    "lint-staged": "^11.0.0",
+    "loki": "^0.28.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "prettier": "^2.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
-    "webpack": "^5.2.0",
-    "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^4.1.0"
-  },
-  "gitHead": "f8467b8ffb6f90d91b46fbcdd5dca169235916a4",
-  "dependencies": {
-    "@rocket.chat/fuselage-polyfills": "^0.20.1"
+    "webpack": "^5.36.2",
+    "webpack-bundle-analyzer": "^4.4.1",
+    "webpack-cli": "^4.7.0"
   }
 }

@@ -26,3 +26,20 @@ export const _Modal = () => (
     </Modal.Footer>
   </Modal>
 );
+
+export const WithIcon = () => (
+  <Modal>
+    <Modal.Header>
+      <Modal.Icon name='info' />
+      <Modal.Title>Modal Header</Modal.Title>
+      <Modal.Close />
+    </Modal.Header>
+    <Modal.Content>Modal Body</Modal.Content>
+    <Modal.Footer>
+      <ButtonGroup align='end'>
+        <Button>Cancel</Button>
+        <Button primary>Submit</Button>
+      </ButtonGroup>
+    </Modal.Footer>
+  </Modal>
+);

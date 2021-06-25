@@ -700,5 +700,86 @@
   },
   "document-eye": {
     "start": "\ue0bc"
+  },
+  "baloon-arrow-left": {
+    "start": "\ue0bd"
+  },
+  "hashtag-lock": {
+    "start": "\ue0be"
+  },
+  "team-lock": {
+    "start": "\ue0bf"
+  },
+  "members": {
+    "start": "\ue0c0"
+  },
+  "baloon-arrow-top-right": {
+    "start": "\ue0c1"
+  },
+  "baloon-close-top-right": {
+    "start": "\ue0c2"
+  },
+  "burger-arrow-left": {
+    "start": "\ue0c3"
+  },
+  "mail-arrow-top-right": {
+    "start": "\ue0c4"
+  },
+  "balloon": {
+    "start": "\ue0c5"
+  },
+  "balloon-arrow-left": {
+    "start": "\ue0c6"
+  },
+  "balloon-arrow-top-right": {
+    "start": "\ue0c7"
+  },
+  "balloon-close-top-right": {
+    "start": "\ue0c8"
+  },
+  "balloon-ellipsis": {
+    "start": "\ue0c9"
+  },
+  "balloon-off": {
+    "start": "\ue0ca"
+  },
+  "balloon-text": {
+    "start": "\ue0cb"
+  },
+  "balloons": {
+    "start": "\ue0cc"
+  },
+  "balloon-exclamation": {
+    "start": "\ue0cd"
+  },
+  "pause-unfilled": {
+    "start": "\ue0ce"
+  },
+  "shredder": {
+    "start": "\ue0d0"
+  },
+  "team-arrow-right": {
+    "start": "\ue0d1"
+  },
+  "error-circle": {
+    "start": "\ue0d2"
+  },
+  "list-bullets": {
+    "start": "\ue0d3"
+  },
+  "list-numbers": {
+    "start": "\ue0d4"
+  },
+  "success-circle": {
+    "start": "\ue0d5"
+  },
+  "volume-lock": {
+    "start": "\ue0d6"
+  },
+  "headphone": {
+    "start": "\ue0d7"
+  },
+  "headphone-off": {
+    "start": "\ue0d8"
   }
 }

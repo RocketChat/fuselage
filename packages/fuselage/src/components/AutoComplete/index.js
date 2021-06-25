@@ -94,8 +94,9 @@ export function AutoComplete({
             onFocus={show}
             onKeyDown={handleKeyDown}
             placeholder={
-              (optionsAreVisible !== AnimatedVisibility.HIDDEN || !value) &&
-              placeholder
+              optionsAreVisible !== AnimatedVisibility.HIDDEN || !value
+                ? placeholder
+                : undefined
             }
             order={1}
             rcx-input-box--undecorated
@@ -117,7 +118,7 @@ export function AutoComplete({
             name={
               optionsAreVisible === AnimatedVisibility.VISIBLE
                 ? 'cross'
-                : 'chevron-down'
+                : 'magnifier'
             }
             size='x20'
           />

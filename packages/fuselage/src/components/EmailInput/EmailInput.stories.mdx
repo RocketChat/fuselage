@@ -4,7 +4,10 @@ import LinkTo from '@storybook/addon-links/react';
 import { Icon, EmailInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
-<Meta title='Forms/Inputs/EmailInput' parameters={{ jest: ['EmailInput/spec'] }} />
+<Meta
+  title='Forms/Inputs/EmailInput'
+  parameters={{ jest: ['EmailInput/spec'] }}
+/>
 
 # EmailInput
 
@@ -18,9 +21,9 @@ An input for email addresses.
 
 <ArgsTable of={EmailInput} />
 
-## Props from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo>
+## Props from <LinkTo kind='Forms/InputBox' story='Default Story'>`InputBox`</LinkTo>
 
-Aside from `type`, any other prop from <LinkTo kind='Forms|InputBox' story='Default Story'>`InputBox`</LinkTo> can be
+Aside from `type`, any other prop from <LinkTo kind='Forms/InputBox' story='Default Story'>`InputBox`</LinkTo> can be
 used.
 
 ### With Icon Addon
@@ -70,18 +73,21 @@ used.
     component={EmailInput}
     common={{ onChange: () => {} }}
     xAxis={{
-      default: {},
+      'default': {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'support@rocket.chat' },
-      'with icon': { addon: <Icon name='at' size='x20' />, value: 'support@rocket.chat' },
+      'with icon': {
+        addon: <Icon name='at' size='x20' />,
+        value: 'support@rocket.chat',
+      },
     }}
     yAxis={{
-      default: {},
-      hover: { className: 'hover' },
-      active: { className: 'active' },
-      focus: { className: 'focus' },
-      disabled: { disabled: true },
-      errored: { error: 'Error' },
+      'default': {},
+      'hover': { className: 'hover' },
+      'active': { className: 'active' },
+      'focus': { className: 'focus' },
+      'disabled': { disabled: true },
+      'errored': { error: 'Error' },
       'errored + hover': { className: 'hover', error: 'Error' },
       'errored + active': { className: 'active', error: 'Error' },
       'errored + focus': { className: 'focus', error: 'Error' },

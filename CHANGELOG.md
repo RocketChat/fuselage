@@ -3,6 +3,157 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
+
+
+### Bug Fixes
+
+* Peggy loader options ([#459](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/459)) ([fc91054](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/fc91054abeb340718596b0c8f4ce8e14c87574af))
+* **fuselage:** fix duplicated values on paginated multi select ([#456](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/456)) ([5fbde6d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5fbde6de715478d9a5c5507d9e9374e1e937c349))
+
+
+### Features
+
+* usePrevious hook ([#460](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/460)) ([32f2c30](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/32f2c3054c074a93c4f17400f29f81bb8f77249d))
+* **fuselage:** Message Template ([#458](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/458)) ([2b5308e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2b5308e2ade69e9b2aa5b419f5531a9cebc5366a))
+
+
+
+
+
+# [0.25.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.24.0...v0.25.0) (2021-05-19)
+
+
+### Bug Fixes
+
+* **fuselage:** fix duplicated values on paginated multi select ([#456](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/456)) ([4518a4e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4518a4e661cb525d957f6140d59a641a50fc7b20))
+* cd.yml ([53d44c0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/53d44c014d796b749e60c0f3a72f205fbce04624))
+* Tag's border-radius ([#452](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/452)) ([177936e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/177936e72c2e136e7d021deb2f778fec71c23355))
+* **message-parser:** Big emoji ([#451](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/451)) ([6d65343](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6d653433d07edabaee821bd25ad07a5878b59a86))
+* **message-parser:** URL issues ([#448](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/448)) ([8ce6b91](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8ce6b9110547b5adf3633e87d6bc655114d4cfb4))
+* **string-helpers:** Wrong typesVersions declaration ([256758c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/256758c60ff8ed5ec7d86ff027ad3ea82f84aaf6))
+* Location in typesVersions field ([#449](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/449)) ([491f98b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/491f98b8cbc5e30f73adde377965f79fe565438b))
+* message-parser Unordered List definition ([#445](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/445)) ([6c659b8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6c659b821fd6294eb8033dfe03e42db2dba1ca06))
+
+
+### Features
+
+* **fuselage:** New paginated Selects/Options ([a7f9c9a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a7f9c9a64513a82013a902174d2195a0e26621ce))
+* [@rocket](https://github.com/rocket).chat/message-parser ([#443](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/443)) ([4722cdf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4722cdff46f5987f335d989be59649c7652bb12a))
+* Peggy loader ([#450](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/450)) ([0496cad](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0496cad457d76f8a4d6a217209e4a55e315e8365))
+
+
+
+
+
+# [0.24.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.23.0...v0.24.0) (2021-04-28)
+
+
+### Bug Fixes
+
+* Add more props to Throbber type definition ([#429](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/429)) ([2516d42](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2516d42bcf9c87ed5d51bdfbe149b1ef65d61ab0))
+* Change highlighted style ([#422](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/422)) ([245de4f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/245de4f0777dc6143e6faf50a1d398d359f247b0))
+* Hollow shapes for status ([#430](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/430)) ([bc29d2d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bc29d2de260439263cba413ada13bb77f6b557c9))
+* Modal close button size ([#420](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/420)) ([6279f69](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6279f69af48329bb6908a9f428b942b1f961c892))
+* MultiSelect close on click when opened ([#418](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/418)) ([1e4b30b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1e4b30bac334e7ecc10840be84c69c015660f29c))
+* Pagination and Select prop types ([#436](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/436)) ([0461f41](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0461f41c8676c4d90ecc28a26939b206802721e0))
+* Prefer null over undefined on BoxTransforms ([#426](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/426)) ([9cba6b8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9cba6b802b0250d0d6704bfccc96bd7ca62cc5e6))
+* Remove reference to inexistent interface ([#424](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/424)) ([dcf43c2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/dcf43c232fd9b01161b76883b85a01356c80e774))
+* Select option don't toggle on clicking the close icon ([#417](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/417)) ([4401d94](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4401d94be1f93e192f89c433efb53ba3b1840fc4))
+* Set highlighted class to Sidebar.Item.Icon ([#433](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/433)) ([b550f49](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b550f4944a11aae34608d0e7dc112de21594eaa3))
+* Status bullet sizing ([#440](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/440)) ([f70156e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f70156ed3adc534865c841e19f115704232d860f))
+* Tabs design update ([#427](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/427)) ([a34c7cd](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a34c7cd9a873b4568bd3e099155c32f743e5c599))
+* Typings for ProgressBar ([#438](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/438)) ([6ea5648](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6ea56486164a01b100b5941976902341daeb61dd))
+
+
+### Features
+
+* [@rocket](https://github.com/rocket).chat/string-helpers ([#431](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/431)) ([2509d6a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2509d6acdbe5ec8b216e8d4430373797c5f5dfe2))
+* Tabs Design Margin ([#437](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/437)) ([c92386f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c92386f6eee7cbe2b1df8053369f7856b74d8c95))
+
+
+
+
+
+# [0.23.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.22.0...v0.23.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* **npm:** Wrong paths in "files" field of package.json ([6d3c811](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6d3c811f6fd747de7f47aff145902d88476272ee))
+* Add more type definitions ([#415](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/415)) ([96bb6ae](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/96bb6ae27dfc51b344bf229c5adf121ec0a069af))
+* Broken stories for AutoComplete ([#368](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/368)) ([8b6d35e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8b6d35e3a36573931010411f733cf46a8e82579b))
+* Speech balloon icon aliases ([#414](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/414)) ([5a0fa7c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5a0fa7c43359178005d4b05d60781f6613671e9e))
+
+
+### Features
+
+* Add Modal Icon to Modal Component ([#410](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/410)) ([c6a8b3e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c6a8b3e0423f1f9e2ee0d44b9d36de1ea0e6f875))
+* New icon: pause-unfilled ([#416](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/416)) ([ba0eb1c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ba0eb1c39fb29d3b62e3e3312cd0916c8c7fac2d))
+* New icons ([#407](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/407)) ([9e708b4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9e708b42a0a3003669e1c5e76dce84b8ef563e21))
+* New tag style and stories ([#419](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/419)) ([04bdb39](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/04bdb39840beab20f80a45a49605c8a2f361f458))
+
+
+
+
+
+# [0.22.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.21.0...v0.22.0) (2021-02-26)
+
+
+### Bug Fixes
+
+* Remove development mode warnings ([#398](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/398)) ([80e77dc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/80e77dcad1d7a26e11164301fccda93ca0c3af6d))
+* Sidebar menu cropped in extended mode ([#400](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/400)) ([8e06c60](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8e06c6024be032af64ae42d733f878a0fdca326e))
+* withRichContent prop split to fit in different contexts ([#401](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/401)) ([22ca229](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/22ca22992caffc398e3bd0fbf1c7b873c141a6df))
+
+
+### Features
+
+* [@rocket](https://github.com/rocket).chat/memo ([#380](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/380)) ([2425c04](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2425c045743ba1a4a5443a1d341e615363930ef6))
+* Added new icons ([#391](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/391)) ([9436d1c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9436d1cc99f64ab0c90bccf77840295f9a744f7f))
+* Basic TypeScript support ([#402](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/402)) ([79405d3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/79405d3a25bfeed29293cb68d67a8c4f0467c490))
+* new Event() polyfill ([#394](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/394)) ([89245c1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/89245c1fbf15612d7bd6068ccde79b89884438d2))
+* Type Emitter Implementation ([#399](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/399)) ([cd0d3fc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cd0d3fc7b50d911dbacbc122d09745fa9fb4d921))
+
+
+
+
+
+# [0.21.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.3...v0.21.0) (2021-01-31)
+
+
+### Bug Fixes
+
+* AvatarProps declaration ([#361](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/361)) ([6324875](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6324875c68e0b7b11536e3b766c27eb8e301fe52))
+* Banner surface adjustments ([#362](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/362)) ([2d59b7c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2d59b7c41962f24aa13face91a9b9f0ea8f1718a))
+* Change option styles ([#358](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/358)) ([c479d70](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c479d7041710e04fe8a9d8e766720ec206464e89))
+* Pass appId and blockId from blocks to elements ([#366](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/366)) ([8a1b552](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8a1b552f8dbc3a9b321d888f4a7e9dc9af2922cf))
+* sidebar-item__menu-wraper opacity on IE ([#381](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/381)) ([3038b15](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3038b15002d6df3d184a2dac2a97f5a3d0aa50f4))
+* Temporary fix for auto complete ([#364](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/364)) ([218a8b3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/218a8b30c42c7a2321f2de3d0cc081131e890834))
+* TSConfig es5 target & es6 lib ([#378](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/378)) ([5802499](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/580249900584287203dad5e4da2acc1829759cbd))
+* Update Fuselage typings ([#355](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/355)) ([85f9fa1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/85f9fa13f818703bce1100ad706a66d703c0b0ba))
+
+
+### Features
+
+* Built modules for design tokens ([#356](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/356)) ([f9c3449](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f9c344953b8161a4385cab3a3dcc8b6a7210446f))
+* linear_scale element ([#365](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/365)) ([43a4c54](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/43a4c54ed10d096ef2259ddcd30c3bbd97ae866a))
+
+
+
+
+
+## [0.20.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.2...v0.20.3) (2021-01-29)
+
+
+### Bug Fixes
+
+* sidebar-item__menu-wraper opacity on IE ([#381](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/381)) ([e818b5c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e818b5cd99b1749997d6f487517c29722c77a23a))
+
+
+
+
+
 ## [0.20.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.20.1...v0.20.2) (2021-01-27)
 
 

@@ -1,0 +1,24 @@
+name: Continuous Integration (PR closed)
+
+on:
+  pull_request_target:
+    types:
+      - closed
+
+jobs:
+  delete-storybook-for-pr:
+    name: "Delete Storybook for PR #${{ github.event.number }}"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - run: rm -rf "fuselage/${{ github.event.number }}" "fuselage-ui-kit/${{ github.event.number }}" "onboarding-ui/${{ github.event.number }}"
+      - uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: .
+          commit_message: "Deploy to Github Pages [skip ci]"
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
