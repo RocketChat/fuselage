@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "^0.26.0",
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens",
+    "@rocket.chat/fuselage-tokens": "^0.26.0",
     "@rocket.chat/prettier-config": "^0.26.0",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addons": "^6.2.9",
@@ -73,10 +73,10 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@rocket.chat/fuselage": "workspace:packages/fuselage",
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
-    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills",
-    "@rocket.chat/icons": "workspace:packages/icons",
+    "@rocket.chat/fuselage": "^0.26.0",
+    "@rocket.chat/fuselage-hooks": "^0.26.0",
+    "@rocket.chat/fuselage-polyfills": "^0.26.0",
+    "@rocket.chat/icons": "^0.26.0",
     "tslib": "^2.2.0"
   },
   "peerDependencies": {

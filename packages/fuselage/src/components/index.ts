@@ -26,7 +26,7 @@ export * from './NumberInput';
 export * from './Options';
 export * from './Options/Option';
 export * from './Pagination';
-export * from './PasswordInput';
+export { default as PasswordInput } from './PasswordInput';
 export * from './StatusBullet';
 export * from './ProgressBar';
 export * from './RadioButton';
