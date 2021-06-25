@@ -1,9 +1,4 @@
-import {
-  useState,
-  DispatchWithoutAction,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import { useState, SetStateAction } from 'react';
 
 import { useMutableCallback } from './useMutableCallback';
 
@@ -14,11 +9,9 @@ import { useMutableCallback } from './useMutableCallback';
  * @returns a state boolean value and a state toggler function
  * @public
  */
-export const useToggle = <
-  D extends DispatchWithoutAction | Dispatch<SetStateAction<boolean>>
->(
+export const useToggle = (
   initialValue?: boolean | (() => boolean)
-): [boolean, D] => {
+): [boolean, (forcedValue?: SetStateAction<boolean>) => void] => {
   const [value, setValue] = useState(() => {
     if (typeof initialValue === 'function') {
       return !!initialValue();
@@ -27,23 +20,22 @@ export const useToggle = <
     return !!initialValue;
   });
 
-  const dispatch = useMutableCallback<
-    D extends DispatchWithoutAction ? [] : [SetStateAction<boolean>],
-    void
-  >((forcedValue?: SetStateAction<boolean>) => {
-    // uses value from scope to avoid multiple toggles in one render cycle
-    setValue(() => {
-      if (typeof forcedValue === 'boolean') {
-        return forcedValue;
-      }
+  const dispatch = useMutableCallback(
+    (forcedValue?: SetStateAction<boolean>) => {
+      // uses value from scope to avoid multiple toggles in one render cycle
+      setValue(() => {
+        if (typeof forcedValue === 'boolean') {
+          return forcedValue;
+        }
 
-      if (typeof forcedValue === 'function') {
-        return forcedValue(value);
-      }
+        if (typeof forcedValue === 'function') {
+          return forcedValue(value);
+        }
 
-      return !value;
-    });
-  }) as D;
+        return !value;
+      });
+    }
+  );
 
   return [value, dispatch];
 };
