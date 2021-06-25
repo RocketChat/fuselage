@@ -1,13 +1,12 @@
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { ReactElement, SVGAttributes } from 'react';
-
-const DEFAULT_COLOR = '#F5455C';
 
 type RocketChatLogoProps = {
   color?: SVGAttributes<SVGSVGElement>['fill'];
 };
 
 const RocketChatLogo = ({
-  color = DEFAULT_COLOR,
+  color = colors.r500,
 }: RocketChatLogoProps): ReactElement => (
   <svg viewBox='0 0 768 221' fill={color} xmlns='http://www.w3.org/2000/svg'>
     <path d='M687.178 68.3765H699.452V85.2808H710.808V96.4023H699.452V126.607H710.193V137.528C708.453 137.935 706.305 138.141 703.849 138.141C692.7 138.141 687.174 132.326 687.174 120.692V68.3765H687.178Z' />
@@ -27,7 +26,5 @@ const RocketChatLogo = ({
     <path d='M141.605 103.678C137.534 103.678 134.233 106.956 134.233 110.999C134.233 115.042 137.534 118.32 141.605 118.32C145.676 118.32 148.976 115.042 148.976 110.999C148.976 106.956 145.672 103.678 141.605 103.678Z' />
   </svg>
 );
-
-RocketChatLogo.DEFAULT_COLOR = DEFAULT_COLOR;
 
 export default RocketChatLogo;
