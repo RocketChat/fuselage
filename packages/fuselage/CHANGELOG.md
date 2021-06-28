@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
+
+
+### Bug Fixes
+
+* Default-export typings for Position and PositionAnimated ([88fb952](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/88fb952da8caa9ab70c37ecf6ec09af5774ddd0b))
+* endReached prop in _Options of PaginatedSelectFiltered Component ([#475](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/475)) ([81ec00f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/81ec00f11c7016f25728bf394ac00686f5d6729d))
+* Export correctly props and types from PositionAnimated and Tile components ([#467](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/467)) ([67a86ec](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/67a86ece971d729085f6969eb063e17323fe59e3))
+* Export MultiSelect component in .d.ts file ([#473](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/473)) ([dbdbf58](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/dbdbf587821e8d86fed5ce17b75e3f8c95a5822f))
+* Menu component and options.label prop type ([#476](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/476)) ([dea7a16](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/dea7a16d1feb5ccc16b0cb9096842f275dc1cdc3))
+* **eslint:** Add missing ESLint rule for TypeScript ([#470](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/470)) ([cc0d498](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cc0d4989bf37f7602d1d58d051824f1dd6c096b3))
+* **fuselage:** Fuselage production build ([#477](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/477)) ([228878c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/228878cdbf260e2929b5527fb84c936fbc03b772))
+* PositionAnimated exported type ([#466](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/466)) ([472fb1e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/472fb1e03a48ee964226644221267ccbb527ab1f))
+* Typings for Position and PositionAnimated properly exported ([#465](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/465)) ([f05c126](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f05c12641d1e8ec35a8a428571e938d6ad7369a7))
+* Typings for RadioButton ([#464](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/464)) ([3e36605](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3e36605ac1518ac2adc080f14dd07f6b830fdb6b))
+
+
+### Features
+
+* onboarding-ui package ([#463](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/463)) ([ea0a6c2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ea0a6c25ae1a719103dce742a18c54ab4f3d6442))
+* Visibility toggle for PasswordInput ([#377](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/377)) ([5ef1bec](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5ef1bec606e626704235cadfdb9bb7d424f8e481))
+
+
+
+
+
 # [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
 
 
