@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
+
+
+### Bug Fixes
+
+* **string-helpers:**  typesVersions ([#469](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/469)) ([e393d98](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e393d9835bc66084c9041cab5c0e14d1ffca4ef7))
+
+
+
+
+
 # [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
 
 **Note:** Version bump only for package @rocket.chat/string-helpers

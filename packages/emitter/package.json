@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/emitter",
-  "version": "0.26.0",
+  "version": "0.27.0",
   "description": "Event Emitter by Rocket.Chat",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -42,8 +42,8 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.26.0",
-    "@rocket.chat/prettier-config": "^0.26.0",
+    "@rocket.chat/eslint-config-alt": "^0.27.0",
+    "@rocket.chat/prettier-config": "^0.27.0",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
