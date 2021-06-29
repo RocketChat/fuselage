@@ -55,7 +55,7 @@
     "@rollup/plugin-typescript": "^8.2.1",
     "@types/jest": "^26.0.23",
     "eslint": "^7.29.0",
-    "jest": "^26.6.3",
+    "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "prettier": "^2.2.1",
     "rollup": "^2.47.0",
