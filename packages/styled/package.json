@@ -1,10 +1,7 @@
----
-to: packages/<%=package%>/package.json
----
 {
-  "name": "@rocket.chat/<%=package%>",
-  "version": "<%=version%>",
-  "description": "<%=description%>",
+  "name": "@rocket.chat/styled",
+  "version": "0.27.0",
+  "description": "A simple styled API for React components",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -17,7 +14,7 @@ to: packages/<%=package%>/package.json
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
-    "directory": "packages/<%=package%>"
+    "directory": "packages/styled"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
