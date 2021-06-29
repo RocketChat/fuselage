@@ -4356,11 +4356,11 @@ __metadata:
     npm-run-all: ^4.1.5
     prettier: ^2.2.1
     rimraf: ^3.0.2
-    svg2ttf: ^5.2.0
-    svgicons2svgfont: ^9.2.0
+    svg2ttf: ^6.0.1
+    svgicons2svgfont: ^10.0.3
     ttf2eot: ^2.0.0
     ttf2woff: ^2.0.2
-    ttf2woff2: ^4.0.2
+    ttf2woff2: ^4.0.3
     unicode: ^13.0.0
     xml2js: ^0.4.23
   languageName: unknown
@@ -7384,7 +7384,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array.prototype.flatmap@npm:1.2.4, array.prototype.flatmap@npm:^1.2.1, array.prototype.flatmap@npm:^1.2.4":
+"array.prototype.flatmap@npm:^1.2.1, array.prototype.flatmap@npm:^1.2.4":
   version: 1.2.4
   resolution: "array.prototype.flatmap@npm:1.2.4"
   dependencies:
@@ -9192,7 +9192,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^4.0.1, commander@npm:^4.1.1":
+"commander@npm:^4.1.1":
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
   checksum: 448585071bf8fb4c0bf9dd52abaee43dea086f801334caec2c8e8c9f456f8abc224c1614ccbbdbf7da5ac2524d230f13cf1fc86c233cf8a041ebecea7df106e9
@@ -10087,10 +10087,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cubic2quad@npm:^1.0.0":
-  version: 1.1.1
-  resolution: "cubic2quad@npm:1.1.1"
-  checksum: 00b4d3be5e876dae197152eb5c8518d2a656e841d9ffbe21eb7f778e9255577d4e77af117d1c3043c78f7f034c33aa25657985cbd7422cbca79e9079ac42ac0c
+"cubic2quad@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "cubic2quad@npm:1.2.1"
+  checksum: 644b48b5ecc398622c44de1020831438f68081543c36009b982180f4574752a769e1bca31f74b0641d9c21852de6c79f688deae501ba1e0d0eb2cc17a8eb8cb0
   languageName: node
   linkType: hard
 
@@ -22307,20 +22307,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"string.fromcodepoint@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "string.fromcodepoint@npm:0.2.1"
-  checksum: 715fe85fef97bc4e3d1830625457e063709a989f9e18892d79714e9a10a8b2e289fa3580712528ec6cbad9bf83f4059121998f27793e3aac3bba0ae7211d3fb9
-  languageName: node
-  linkType: hard
-
-"string.prototype.codepointat@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "string.prototype.codepointat@npm:0.2.1"
-  checksum: 2621f45bdb78d969fd5754bac5aa0686776e894556cba734e11ca6b032869e39b0762a284fca5cdf04ef3d6cca9cb0fb0676fed09dba8518569aae5a353df66e
-  languageName: node
-  linkType: hard
-
 "string.prototype.matchall@npm:^4.0.0 || ^3.0.1":
   version: 4.0.3
   resolution: "string.prototype.matchall@npm:4.0.3"
@@ -22777,10 +22763,10 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"svg-pathdata@npm:^5.0.2":
-  version: 5.0.5
-  resolution: "svg-pathdata@npm:5.0.5"
-  checksum: df6647eece946f91b829b05656359a063c211b12f7105635cbca40fc2059591c06c36c609c2f32d6590925b3c9a81bd88ddf3673c2c4483f6acb68a163064e60
+"svg-pathdata@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "svg-pathdata@npm:6.0.0"
+  checksum: 5d1b32cd07a4cac4162f4e2094a31702770b68eac3ce818a552de632db8f75ebf56e6222c938151986071695eb9b9a2a1aaeb42b7e0364f3eea5c661e2232494
   languageName: node
   linkType: hard
 
@@ -22791,39 +22777,36 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"svg2ttf@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "svg2ttf@npm:5.2.0"
+"svg2ttf@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "svg2ttf@npm:6.0.1"
   dependencies:
     argparse: ^2.0.1
-    cubic2quad: ^1.0.0
+    cubic2quad: ^1.2.1
     lodash: ^4.17.10
     microbuffer: ^1.0.0
     svgpath: ^2.1.5
-    xmldom: ~0.5.0
+    xmldom: ~0.6.0
   bin:
     svg2ttf: svg2ttf.js
-  checksum: 4674b3dca01355a9a4c3bb9c9a19f1a9ddd7bb48eafd45ef2833b116cfda97d3e3ae6c7c2d5d9bed7ae1ddb480e18dee3ee39c15417f14ed42014b0accf3cc5a
+  checksum: e1660117f8f43ac71490ff031663707aa44e3f2ff6d4bb3169ef288240a8c0f5a69ab8f2e38c70d1af1ee9b79f4ce6190080057be1dea1f4dcb09d60b3775bf9
   languageName: node
   linkType: hard
 
-"svgicons2svgfont@npm:^9.2.0":
-  version: 9.2.0
-  resolution: "svgicons2svgfont@npm:9.2.0"
+"svgicons2svgfont@npm:^10.0.3":
+  version: 10.0.3
+  resolution: "svgicons2svgfont@npm:10.0.3"
   dependencies:
-    array.prototype.flatmap: 1.2.4
-    commander: ^4.0.1
+    commander: ^7.2.0
     geometry-interfaces: ^1.1.4
     glob: ^7.1.6
     neatequal: ^1.0.0
     readable-stream: ^3.4.0
     sax: ^1.2.4
-    string.fromcodepoint: ^0.2.1
-    string.prototype.codepointat: ^0.2.1
-    svg-pathdata: ^5.0.2
+    svg-pathdata: ^6.0.0
   bin:
     svgicons2svgfont: bin/svgicons2svgfont.js
-  checksum: b5db46558eff6e5cb85ed817364e7dd95766e9468001469000a0a49f346f421dd9d19c6a6cbea2cdc72838c5ff50b6d329dd395d92b342995d9c30674813794b
+  checksum: 911448320fb705bde5d5927a25e3a187bb448de50f9291945c0e727483349ae6de137f295af1ee64638f61cc4165d7068107ccdd4b5ae9d3a115594c99cd74c0
   languageName: node
   linkType: hard
 
@@ -23593,9 +23576,9 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ttf2woff2@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "ttf2woff2@npm:4.0.2"
+"ttf2woff2@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "ttf2woff2@npm:4.0.3"
   dependencies:
     bindings: ^1.5.0
     bufferstreams: ^3.0.0
@@ -23603,7 +23586,7 @@ resolve@^2.0.0-next.3:
     node-gyp: ^7.1.2
   bin:
     ttf2woff2: bin/ttf2woff2.js
-  checksum: 2d08ed7aa27475e5be4c3694dfcd4a57c4b200bb3ccf71c60c90da98d655072e4a88bfa41ba1165eb5cdc8fcf6b0a2911d5927683d72bd2f1d24d0999508d599
+  checksum: 92c3f568fef19d7245b67f46e336d037b5c6cd5aaecddf828ab1f51e0df40eda930f5e9326f18d625022be1b7db6d5f93eed0b831a7f0805ec527f08a1fbd27e
   languageName: node
   linkType: hard
 
@@ -25296,10 +25279,10 @@ typescript@^4.3.4:
   languageName: node
   linkType: hard
 
-"xmldom@npm:~0.5.0":
-  version: 0.5.0
-  resolution: "xmldom@npm:0.5.0"
-  checksum: da2d23fe8e562331983788d7b711a310b94f51455c7339deaceb4e271a26f65598c7f0ea3cb5d32bc6701f920837639f83f597951e8cca885f45885ff5dd1ae2
+"xmldom@npm:~0.6.0":
+  version: 0.6.0
+  resolution: "xmldom@npm:0.6.0"
+  checksum: cca0cddf6f95e9bfa2432a9a819f97b840e6b36fad8017833f5c7d298b4fd69ef2e3e7b5dd68f1e53ec5dd4075bfc8f68e425b06928adc0a21c9bacf0af02b0c
   languageName: node
   linkType: hard
 
