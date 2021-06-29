@@ -6,6 +6,7 @@
   ],
   "devDependencies": {
     "husky": "^6.0.0",
+    "hygen": "^6.1.0",
     "lerna": "^4.0.0"
   },
   "scripts": {
@@ -19,7 +20,8 @@
     "update-storybook": "yarn workspaces foreach -v --topological-dev run update-storybook",
     "postinstall": "husky install",
     "update-readme": "yarn workspace scripts run update-readme",
-    "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps"
+    "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
+    "create-package": "hygen create-package"
   },
   "devEngines": {
     "node": "^14.0"

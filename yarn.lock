@@ -4055,14 +4055,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/css-in-js@^0.26.0, @rocket.chat/css-in-js@workspace:packages/css-in-js":
+"@rocket.chat/css-in-js@^0.27.0, @rocket.chat/css-in-js@workspace:packages/css-in-js":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/css-in-js@workspace:packages/css-in-js"
   dependencies:
     "@emotion/hash": ^0.8.0
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/memo": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/memo": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.0.0
@@ -4086,8 +4086,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/emitter@workspace:packages/emitter"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.0.0
@@ -4107,7 +4107,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/eslint-config-alt@^0.26.0, @rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt":
+"@rocket.chat/eslint-config-alt@^0.27.0, @rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt"
   dependencies:
@@ -4143,13 +4143,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/fuselage-hooks@^0.26.0, @rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks":
+"@rocket.chat/fuselage-hooks@^0.27.0, @rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/fuselage-tokens": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/fuselage-tokens": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.0.0
@@ -4180,13 +4180,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-polyfills@^0.26.0, @rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills":
+"@rocket.chat/fuselage-polyfills@^0.27.0, @rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills"
   dependencies:
     "@juggle/resize-observer": ^3.3.1
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     clipboard-polyfill: ^3.0.3
     element-closest-polyfill: ^1.0.2
     eslint: ^7.26.0
@@ -4198,12 +4198,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-tokens@^0.26.0, @rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens":
+"@rocket.chat/fuselage-tokens@^0.27.0, @rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.22.1
@@ -4224,13 +4224,13 @@ __metadata:
     "@babel/preset-env": ^7.14.1
     "@babel/preset-react": ^7.13.13
     "@rocket.chat/apps-engine": ^1.25.0
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/fuselage": ^0.26.0
-    "@rocket.chat/fuselage-hooks": ^0.26.0
-    "@rocket.chat/fuselage-polyfills": ^0.26.0
-    "@rocket.chat/icons": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
-    "@rocket.chat/ui-kit": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/fuselage": ^0.27.0
+    "@rocket.chat/fuselage-hooks": ^0.27.0
+    "@rocket.chat/fuselage-polyfills": ^0.27.0
+    "@rocket.chat/icons": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
+    "@rocket.chat/ui-kit": ^0.27.0
     "@storybook/addon-essentials": ^6.1.11
     "@storybook/addons": ^6.1.11
     "@storybook/builder-webpack5": ^6.1.11
@@ -4262,7 +4262,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage@^0.26.0, @rocket.chat/fuselage@workspace:packages/fuselage":
+"@rocket.chat/fuselage@^0.27.0, @rocket.chat/fuselage@workspace:packages/fuselage":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage@workspace:packages/fuselage"
   dependencies:
@@ -4271,15 +4271,15 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.13.15
     "@babel/preset-env": ^7.14.1
     "@babel/preset-react": ^7.13.13
-    "@rocket.chat/css-in-js": ^0.26.0
+    "@rocket.chat/css-in-js": ^0.27.0
     "@rocket.chat/eslint-config": ^0.4.0
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/fuselage-hooks": ^0.26.0
-    "@rocket.chat/fuselage-polyfills": ^0.26.0
-    "@rocket.chat/fuselage-tokens": ^0.26.0
-    "@rocket.chat/icons": ^0.26.0
-    "@rocket.chat/memo": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/fuselage-hooks": ^0.27.0
+    "@rocket.chat/fuselage-polyfills": ^0.27.0
+    "@rocket.chat/fuselage-tokens": ^0.27.0
+    "@rocket.chat/icons": ^0.27.0
+    "@rocket.chat/memo": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@storybook/addon-essentials": ^6.2.9
     "@storybook/addon-jest": ^6.2.9
     "@storybook/addon-links": ^6.2.9
@@ -4344,12 +4344,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/icons@^0.26.0, @rocket.chat/icons@workspace:packages/icons":
+"@rocket.chat/icons@^0.27.0, @rocket.chat/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/icons@workspace:packages/icons"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     eslint: ^7.26.0
     glob: ^7.1.7
     lint-staged: ^11.0.0
@@ -4366,12 +4366,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/memo@^0.26.0, @rocket.chat/memo@workspace:packages/memo":
+"@rocket.chat/memo@^0.27.0, @rocket.chat/memo@workspace:packages/memo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/memo@workspace:packages/memo"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.22.1
@@ -4392,9 +4392,9 @@ __metadata:
     "@babel/core": ^7.14.0
     "@babel/eslint-parser": ^7.13.14
     "@babel/preset-env": ^7.14.1
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/peggy-loader": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/peggy-loader": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@types/jest": ^26.0.23
     "@types/node": ^14.14.44
     "@typescript-eslint/parser": ^4.22.1
@@ -4424,8 +4424,8 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.13.15
     "@babel/preset-env": ^7.14.1
     "@babel/preset-typescript": ^7.13.0
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-node-resolve": ^13.0.0
     "@rollup/plugin-typescript": ^8.2.1
@@ -4445,13 +4445,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/fuselage": ^0.26.0
-    "@rocket.chat/fuselage-hooks": ^0.26.0
-    "@rocket.chat/fuselage-polyfills": ^0.26.0
-    "@rocket.chat/fuselage-tokens": ^0.26.0
-    "@rocket.chat/icons": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/fuselage": ^0.27.0
+    "@rocket.chat/fuselage-hooks": ^0.27.0
+    "@rocket.chat/fuselage-polyfills": ^0.27.0
+    "@rocket.chat/fuselage-tokens": ^0.27.0
+    "@rocket.chat/icons": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@storybook/addon-essentials": ^6.2.9
     "@storybook/addons": ^6.2.9
     "@storybook/react": ^6.2.9
@@ -4480,12 +4480,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/peggy-loader@^0.26.0, @rocket.chat/peggy-loader@workspace:packages/peggy-loader":
+"@rocket.chat/peggy-loader@^0.27.0, @rocket.chat/peggy-loader@workspace:packages/peggy-loader":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@types/loader-utils": ^2.0.2
     "@types/node": ^14
     downlevel-dts: ^0.7.0
@@ -4506,7 +4506,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/prettier-config@^0.26.0, @rocket.chat/prettier-config@workspace:packages/prettier-config":
+"@rocket.chat/prettier-config@^0.27.0, @rocket.chat/prettier-config@workspace:packages/prettier-config":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/prettier-config@workspace:packages/prettier-config"
   dependencies:
@@ -4526,8 +4526,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@types/jest": ^26.0.23
     downlevel-dts: ^0.7.0
     eslint: ^7.26.0
@@ -4543,7 +4543,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/ui-kit@^0.26.0, @rocket.chat/ui-kit@workspace:packages/ui-kit":
+"@rocket.chat/ui-kit@^0.27.0, @rocket.chat/ui-kit@workspace:packages/ui-kit":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/ui-kit@workspace:packages/ui-kit"
   dependencies:
@@ -4551,8 +4551,8 @@ __metadata:
     "@babel/eslint-parser": ^7.13.14
     "@babel/plugin-transform-runtime": ^7.13.15
     "@babel/preset-env": ^7.14.1
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@types/jest": ^26.0.23
     babel-loader: ^8.2.2
     downlevel-dts: ^0.7.0
@@ -4568,6 +4568,27 @@ __metadata:
     typescript: ^4.2.4
     webpack: ^5.36.2
     webpack-cli: ^4.7.0
+  languageName: unknown
+  linkType: soft
+
+"@rocket.chat/wtf@workspace:packages/wtf":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/wtf@workspace:packages/wtf"
+  dependencies:
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
+    "@types/jest": ^26.0.23
+    downlevel-dts: ^0.7.0
+    eslint: ^7.26.0
+    jest: ^26.6.3
+    lint-staged: ^11.0.0
+    npm-run-all: ^4.1.5
+    prettier: ^2.2.1
+    rimraf: ^3.0.2
+    ts-jest: ^26.5.6
+    tslib: ^2.2.0
+    typedoc: ^0.20.36
+    typescript: ^4.2.4
   languageName: unknown
   linkType: soft
 
@@ -6031,6 +6052,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^14.14.41":
+  version: 14.17.4
+  resolution: "@types/node@npm:14.17.4"
+  checksum: 947ada8b39710c8fedf60f342b4ac1a08de8ebfbd4f09471b4e0006c2b0c7b832513e4dc2cdd455af5236910e2e725899bd9ce0aaecd097b2867d3e2ab62d8c6
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.0
   resolution: "@types/normalize-package-data@npm:2.4.0"
@@ -7479,6 +7507,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"async@npm:0.9.x":
+  version: 0.9.2
+  resolution: "async@npm:0.9.2"
+  checksum: 78c0aad8add0b84ccf9bde90d20a9cd20146e3734a4c9ac9bfb3a30d1b7df12b7d95c13119af825a89480210c02f7ffee38ac07c13ac43abd6636691b982b591
+  languageName: node
+  linkType: hard
+
 "async@npm:^3.2.0":
   version: 3.2.0
   resolution: "async@npm:3.2.0"
@@ -8427,6 +8462,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"camel-case@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "camel-case@npm:3.0.0"
+  dependencies:
+    no-case: ^2.2.0
+    upper-case: ^1.1.1
+  checksum: 1cfcf1eb9725b6e61d3b4b996bd521aa4a4b86c9022d2df2c960e451b557eee259505066a9d6d172f2b38fb7bed07c9d07b08aa645bed5c66f92b5372495cb9f
+  languageName: node
+  linkType: hard
+
 "camel-case@npm:^4.1.1":
   version: 4.1.2
   resolution: "camel-case@npm:4.1.2"
@@ -8601,6 +8646,32 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: 445c12db7aeed0046500a1e4184d31209a77d165654c885a789c41c8598a6a95bd2392180987cac572c967b93a2a730dda778bb7f87fa06ca63fd8592f8cc59f
+  languageName: node
+  linkType: hard
+
+"change-case@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "change-case@npm:3.1.0"
+  dependencies:
+    camel-case: ^3.0.0
+    constant-case: ^2.0.0
+    dot-case: ^2.1.0
+    header-case: ^1.0.0
+    is-lower-case: ^1.1.0
+    is-upper-case: ^1.1.0
+    lower-case: ^1.1.1
+    lower-case-first: ^1.0.0
+    no-case: ^2.3.2
+    param-case: ^2.1.0
+    pascal-case: ^2.0.0
+    path-case: ^2.1.0
+    sentence-case: ^2.1.0
+    snake-case: ^2.1.0
+    swap-case: ^1.1.0
+    title-case: ^2.1.0
+    upper-case: ^1.1.1
+    upper-case-first: ^1.1.0
+  checksum: c47f92b1602caef9af1d338e36bfc90f9ecd5504031c9c33c230ef4ceff827ab825cb4edfcb9774f91e68ac81a0277bd28791da97eb514664064d292c15dc668
   languageName: node
   linkType: hard
 
@@ -9248,6 +9319,16 @@ __metadata:
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
   checksum: 58a404d951bf270494fb91e136cf064652c1208ccedac23e4da24e6a3a3933998f302cadc45cbf6582a007a4aa44dab944e84056b24e3b1964e9a28aeedf76c9
+  languageName: node
+  linkType: hard
+
+"constant-case@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "constant-case@npm:2.0.0"
+  dependencies:
+    snake-case: ^2.1.0
+    upper-case: ^1.1.1
+  checksum: f3f315612189fdd0b44a52553e90d79dc1d4420d26c0890cbfc7f13445c1aefda48e4fe610cf1624ffa1db7a35158f4a84c2719e72b3faed7c1d246322f449cd
   languageName: node
   linkType: hard
 
@@ -10566,6 +10647,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dot-case@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "dot-case@npm:2.1.1"
+  dependencies:
+    no-case: ^2.2.0
+  checksum: 0f3c28282ead5d1fd52dc254ab9acaf510a19202a24d7d2f2de85eaf8a3a42bf412b8e42ec7ae668f7c368c17aec932274dd872cc255a677c4bb4adcfa3fa053
+  languageName: node
+  linkType: hard
+
 "dot-case@npm:^3.0.4":
   version: 3.0.4
   resolution: "dot-case@npm:3.0.4"
@@ -10722,6 +10812,17 @@ __metadata:
   version: 1.1.1
   resolution: "ee-first@npm:1.1.1"
   checksum: ba74f91398e3ee3b6d665b2f0d13ad6530e89a7e64ec886a6eec0602fb8a5a274652960e21bd5d4b42fdeb9017d873ff872f50342d38779e955285977edb337c
+  languageName: node
+  linkType: hard
+
+"ejs@npm:^3.1.3":
+  version: 3.1.6
+  resolution: "ejs@npm:3.1.6"
+  dependencies:
+    jake: ^10.6.1
+  bin:
+    ejs: ./bin/cli.js
+  checksum: cb77a9368e50c7b11cb8d64c911397a7bf8f9f6d155474bc64154fd1d0ccf896de28a01d5e6ce135470ede038ca7dc02a83b8c0a904277eaef605cce4ab46dfb
   languageName: node
   linkType: hard
 
@@ -11933,6 +12034,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"filelist@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "filelist@npm:1.0.2"
+  dependencies:
+    minimatch: ^3.0.4
+  checksum: f8bf29d31779dd04ee9e5d225e5a669920d5443f40b38fb5ecc8442ac29848a6f8bc3c937cb8ba78f5ae0d819dad52f4750d23c4dd1b2a51370aa67027d95c0c
+  languageName: node
+  linkType: hard
+
 "filesize@npm:6.1.0":
   version: 6.1.0
   resolution: "filesize@npm:6.1.0"
@@ -12227,6 +12337,15 @@ __metadata:
     inherits: ^2.0.1
     readable-stream: ^2.0.0
   checksum: 5f1a9bbff02d30cf5b4f12cfef20b47455876f8318b92d275ca39e3c5adf0636d3a0d8f4821a1c245339c47e79a551dce9ce5c7d9236c16347b934dc13d1d408
+  languageName: node
+  linkType: hard
+
+"front-matter@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "front-matter@npm:4.0.2"
+  dependencies:
+    js-yaml: ^3.13.1
+  checksum: 2447caa3155a00007a4ee5ca8c616f470c9779eab72846b0d6720ac780c4607740060322a85e71f9d93bda7c927ef02903d7778d3043824c9fe2259a476669fb
   languageName: node
   linkType: hard
 
@@ -13237,6 +13356,16 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"header-case@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "header-case@npm:1.0.1"
+  dependencies:
+    no-case: ^2.2.0
+    upper-case: ^1.1.3
+  checksum: 060ddbab0d62fe46a24fab897c2bac1b033e0dbdbbdbe16dd1a3d51b66b4eb4b157e3de44b750fc56f1ad56461289f953bd7ffc10084cadb78928b179ecc4d5b
+  languageName: node
+  linkType: hard
+
 "hex-color-regex@npm:^1.1.0":
   version: 1.1.0
   resolution: "hex-color-regex@npm:1.1.0"
@@ -13523,6 +13652,27 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"hygen@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "hygen@npm:6.1.0"
+  dependencies:
+    "@types/node": ^14.14.41
+    chalk: ^4.1.1
+    change-case: ^3.1.0
+    ejs: ^3.1.3
+    enquirer: ^2.3.6
+    execa: ^5.0.0
+    front-matter: ^4.0.2
+    fs-extra: ^9.1.0
+    ignore-walk: ^3.0.3
+    inflection: ^1.12.0
+    yargs-parser: ^20.2.7
+  bin:
+    hygen: dist/bin.js
+  checksum: 5a83da48e88e08faf402497fc76a64b5208b1f8552f3b489af181d5080704f6f54accef0e75569015675c8211073af20b6b7f2a5d01ff4e78547bfbffb4eff86
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -13709,6 +13859,13 @@ fsevents@~2.3.1:
   version: 1.0.4
   resolution: "infer-owner@npm:1.0.4"
   checksum: 56aa1d87b05936947765b1d9ace5f8d7ccd8cf6ccc1d69b67e8eaaee0e1ee2960d5accd51deb50d884665a5a1af3bcbb80f5d249c01a00280365bba59db9687b
+  languageName: node
+  linkType: hard
+
+"inflection@npm:^1.12.0":
+  version: 1.13.1
+  resolution: "inflection@npm:1.13.1"
+  checksum: 0b2d20e7c907a35985bb7ed1350610555fc0273b08418d3e890568fda1fcb0207b128eeec05e95edbaa3d08b4911208d51638e48942cb82e8182e3fdee12015a
   languageName: node
   linkType: hard
 
@@ -14260,6 +14417,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"is-lower-case@npm:^1.1.0":
+  version: 1.1.3
+  resolution: "is-lower-case@npm:1.1.3"
+  dependencies:
+    lower-case: ^1.1.0
+  checksum: 918f9fdfe6aa219167b01c464c1ff88d01ee6caf9d4c69473f61498d1fc93778b4711b936cb37ab4846367226817d1949697699abf9f058dfaa262522ebd63d5
+  languageName: node
+  linkType: hard
+
 "is-map@npm:^2.0.1":
   version: 2.0.1
   resolution: "is-map@npm:2.0.1"
@@ -14508,6 +14674,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"is-upper-case@npm:^1.1.0":
+  version: 1.1.2
+  resolution: "is-upper-case@npm:1.1.2"
+  dependencies:
+    upper-case: ^1.1.0
+  checksum: 0dde277915c40ec052be1f5fff425ff5c0882b7efbd8f3bb347edc674965a2bcfce00a4988229658b01e9114042e575c9095eae46c2537889375cdb736de6403
+  languageName: node
+  linkType: hard
+
 "is-url-superb@npm:^4.0.0":
   version: 4.0.0
   resolution: "is-url-superb@npm:4.0.0"
@@ -14689,6 +14864,20 @@ fsevents@~2.3.1:
     es-get-iterator: ^1.0.2
     iterate-iterator: ^1.0.1
   checksum: 7c0bef59ead553a2d1b7957954a514e180e3155765606c5e8cfb09518860c7b81aa0675c987352f506dd779b2366cd2b5e4cd249f7cf0a965b86c916e669608e
+  languageName: node
+  linkType: hard
+
+"jake@npm:^10.6.1":
+  version: 10.8.2
+  resolution: "jake@npm:10.8.2"
+  dependencies:
+    async: 0.9.x
+    chalk: ^2.4.2
+    filelist: ^1.0.1
+    minimatch: ^3.0.4
+  bin:
+    jake: ./bin/cli.js
+  checksum: c60d3f491ce59bba09b8a2ee351122eb6dd19a6826347de5ec4e94ddee5c5e70e14120c14ce6fc2efa360d0db12d7a28a1044d7aa084414dd695ce154fb87d9e
   languageName: node
   linkType: hard
 
@@ -15943,6 +16132,22 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"lower-case-first@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "lower-case-first@npm:1.0.2"
+  dependencies:
+    lower-case: ^1.1.2
+  checksum: 0ce4e379d69eeef19d1fd5f83afa1b186b1522aa2bb5496d78ce8b4f36b7690a1d2eca71e709b8681fb2a1802b5085a0d5ebc419b0290fe37f049c4054d3c0f6
+  languageName: node
+  linkType: hard
+
+"lower-case@npm:^1.1.0, lower-case@npm:^1.1.1, lower-case@npm:^1.1.2":
+  version: 1.1.4
+  resolution: "lower-case@npm:1.1.4"
+  checksum: 8150698ed173d76efb8667cf2038dde17d9df93422e83815f1b579da4fd0d46bbed3b9f42487d1902272973c6c2c0b5ecccc628b40b8f301fa9ac3246ab8a253
+  languageName: node
+  linkType: hard
+
 "lower-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "lower-case@npm:2.0.2"
@@ -16964,6 +17169,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"no-case@npm:^2.2.0, no-case@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "no-case@npm:2.3.2"
+  dependencies:
+    lower-case: ^1.1.1
+  checksum: b4206dd12c6c02743a6e530f4c9439d51f4c4e75d307b8682d9a07f8d5e3662acc204ab5f64f83f725ed1a2a854f90a1bf5fd25fa7f442f82488e1391e4249b3
+  languageName: node
+  linkType: hard
+
 "no-case@npm:^3.0.4":
   version: 3.0.4
   resolution: "no-case@npm:3.0.4"
@@ -17949,6 +18163,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"param-case@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "param-case@npm:2.1.1"
+  dependencies:
+    no-case: ^2.2.0
+  checksum: 2983386706e6c62205a5bc53f172c4393d21c2eb93e2779ae34cf26771498ea5f12464c7642834f4ea7c938dc49ef2e3d7b3d7f7ed393b7f88874cd7793e5462
+  languageName: node
+  linkType: hard
+
 "param-case@npm:^3.0.3":
   version: 3.0.4
   resolution: "param-case@npm:3.0.4"
@@ -18099,6 +18322,16 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"pascal-case@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "pascal-case@npm:2.0.1"
+  dependencies:
+    camel-case: ^3.0.0
+    upper-case-first: ^1.1.0
+  checksum: 26eda914b53a465262e07347c1232046b5f9f648f948b7fa38739975cb610ae6a8629f77bc6c1441f4cfcabe9c741b8a1215bbc81b431a61b5a1810c1c6f7359
+  languageName: node
+  linkType: hard
+
 "pascal-case@npm:^3.1.2":
   version: 3.1.2
   resolution: "pascal-case@npm:3.1.2"
@@ -18134,6 +18367,15 @@ fsevents@~2.3.1:
   version: 1.0.1
   resolution: "path-browserify@npm:1.0.1"
   checksum: 45bb7389177dfe5cba5d1ee9589e578c8272ac330c00d388343845199c1d30227ca8d59bb3a15618e478673fcfa2fb7a5ad2bfcc1083d442a61a3a71aecd7dd6
+  languageName: node
+  linkType: hard
+
+"path-case@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "path-case@npm:2.1.1"
+  dependencies:
+    no-case: ^2.2.0
+  checksum: 94341bbefb0fb73082a60c272374897c7659bf9206e9948850a64740b3f26cac73e0c9ca45d0abb20549e74295ef9e67bb0d9fc9ad112a41647003dc4fc2d5ac
   languageName: node
   linkType: hard
 
@@ -20851,6 +21093,7 @@ resolve@^2.0.0-next.3:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     husky: ^6.0.0
+    hygen: ^6.1.0
     lerna: ^4.0.0
   languageName: unknown
   linkType: soft
@@ -21083,8 +21326,8 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "scripts@workspace:scripts"
   dependencies:
-    "@rocket.chat/eslint-config-alt": ^0.26.0
-    "@rocket.chat/prettier-config": ^0.26.0
+    "@rocket.chat/eslint-config-alt": ^0.27.0
+    "@rocket.chat/prettier-config": ^0.27.0
     "@types/node": ^14.14.44
     "@typescript-eslint/parser": ^4.22.1
     endent: ^2.0.1
@@ -21187,6 +21430,16 @@ resolve@^2.0.0-next.3:
     range-parser: ~1.2.1
     statuses: ~1.5.0
   checksum: 58e4ab2e07e8dfb206ca954a9b85f4e367aba0e4d59ce4c9c96a82034385b67f25d33ad526fdb69d635744bbe4d8afea06e2c0348d7d32920e3489d86dc3ec6f
+  languageName: node
+  linkType: hard
+
+"sentence-case@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "sentence-case@npm:2.1.1"
+  dependencies:
+    no-case: ^2.2.0
+    upper-case-first: ^1.1.2
+  checksum: 3815ffabf14fa3b9bccb732eb5545fae3c88b1a8cae8d09ce6fa43201f4eca9d9f54ed213bbf935103d0308106fbc576c9bf2c43c7d499f51d2cb467411acca0
   languageName: node
   linkType: hard
 
@@ -21465,6 +21718,15 @@ resolve@^2.0.0-next.3:
   version: 4.1.0
   resolution: "smart-buffer@npm:4.1.0"
   checksum: 00a23d82a20eced9622cbba18ba781f9f8968ccfa70af7a33336ae55f54651c073aa072084c521f7e78199767e5b3584a0bbf3a47bb60e3e5b79ea4fc1ca61a1
+  languageName: node
+  linkType: hard
+
+"snake-case@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "snake-case@npm:2.1.0"
+  dependencies:
+    no-case: ^2.2.0
+  checksum: 3f768a9ff5120d3e4196f9ea895a1ec124aa1e2f790c628cf82b829ffc26eee345226d0fb1eea046060bde3516aa42033246e7b79ab7e5140b87019ae65d2f1e
   languageName: node
   linkType: hard
 
@@ -22504,6 +22766,16 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"swap-case@npm:^1.1.0":
+  version: 1.1.2
+  resolution: "swap-case@npm:1.1.2"
+  dependencies:
+    lower-case: ^1.1.1
+    upper-case: ^1.1.1
+  checksum: b089fc5e1d4792579bd22200225ea12250c792483fa25530025958a9708e7b76e6f9f1e22d336e6267ca1c151909ddb62d45ea581021d873359598c57a9f8e88
+  languageName: node
+  linkType: hard
+
 "symbol-tree@npm:^3.2.4":
   version: 3.2.4
   resolution: "symbol-tree@npm:3.2.4"
@@ -22877,6 +23149,16 @@ resolve@^2.0.0-next.3:
   version: 2.1.0
   resolution: "tiny-emitter@npm:2.1.0"
   checksum: 0055509c72e5fe35d6ab66fa6339342e0f29129e77ed2086e475fdf80be43a8651f2517be76513b46a042c8356396f4da5a35e2e23457252176808d5a892036a
+  languageName: node
+  linkType: hard
+
+"title-case@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "title-case@npm:2.1.1"
+  dependencies:
+    no-case: ^2.2.0
+    upper-case: ^1.0.3
+  checksum: 3835904155dfbe4b1a114d25683a85d9f3690a9b19eee896e5c1e59181982f20e46b7b6c1f2f66262e95b886de34dacd5b3a3d0ec3fc5aeb5bd54ad3f6a8a05e
   languageName: node
   linkType: hard
 
@@ -23777,6 +24059,22 @@ resolve@^2.0.0-next.3:
   version: 2.0.1
   resolution: "upath@npm:2.0.1"
   checksum: 50e663333f305787d6a88e3840824f1332ded90a9c1b567c8faa418ab340125f5cae66b909c034bf95d861ab34db4c306984524fe33d6da1493984eae6b8be37
+  languageName: node
+  linkType: hard
+
+"upper-case-first@npm:^1.1.0, upper-case-first@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "upper-case-first@npm:1.1.2"
+  dependencies:
+    upper-case: ^1.1.1
+  checksum: a0aaa43bd70713af90208eefcda0a26373114822576e82e17d74d18e64993d746f5065d991e85cb8f4d1c450322ff275c3c4f957874ed3793eb248bb90a8e621
+  languageName: node
+  linkType: hard
+
+"upper-case@npm:^1.0.3, upper-case@npm:^1.1.0, upper-case@npm:^1.1.1, upper-case@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "upper-case@npm:1.1.3"
+  checksum: 82bfe8d6e11981608c68629de8221daf7c7e091aef9243bd7595a306beaeb9ff145afeaf003f5f1fbe1acb20de30e52421cc4564b7617375da52838da9173d19
   languageName: node
   linkType: hard
 
@@ -24947,6 +25245,13 @@ resolve@^2.0.0-next.3:
   version: 20.2.7
   resolution: "yargs-parser@npm:20.2.7"
   checksum: 124e7f1c24c9609d5d1c343f14b83289634e19bb43770708ebb6a19852647aaa0f89edcbf0e5b18a21bee77f54513ab5051518b2950cda69eb607a7c6251aa4f
+  languageName: node
+  linkType: hard
+
+"yargs-parser@npm:^20.2.7":
+  version: 20.2.9
+  resolution: "yargs-parser@npm:20.2.9"
+  checksum: 3c58da6f6142f93c5207e309764bd90f723b9d7ed43f2e8aad0da1cefab83ee8ebf311dee2e81102646b74450c899e35b35053800b91fac23e6f433056f4c4cf
   languageName: node
   linkType: hard
 
