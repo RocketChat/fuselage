@@ -1,4 +1,4 @@
-import { styled } from '@rocket.chat/fuselage';
+import styled from '@rocket.chat/styled';
 
 const filterWrapperProps = ({
   backgroundColor,

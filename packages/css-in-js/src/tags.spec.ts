@@ -92,7 +92,7 @@ describe('tags', () => {
     });
 
     it('fails safely with invalid arguments', () => {
-      const cssUntyped = (css as unknown) as (
+      const cssUntyped = css as unknown as (
         ...args: any
       ) => (...args: unknown[]) => string;
       expect(cssUntyped()()).toBe('');
@@ -134,7 +134,8 @@ describe('tags', () => {
     it('evaluates as a string ignoring undefined, null and false as interpolated values', () => {
       const [, freeContext] = holdContext();
 
-      const escapedAnimationName = keyframes`from { opacity: ${false} ${undefined} ${null}; }`();
+      const escapedAnimationName =
+        keyframes`from { opacity: ${false} ${undefined} ${null}; }`();
 
       expect(freeContext()).toBe(
         `@keyframes ${escapedAnimationName}{from { opacity:   ; }}`
@@ -176,7 +177,7 @@ describe('tags', () => {
     });
 
     it('fails safely with invalid arguments', () => {
-      const keyframesUntyped = (keyframes as unknown) as (
+      const keyframesUntyped = keyframes as unknown as (
         ...args: any
       ) => (...args: unknown[]) => string;
       expect(keyframesUntyped()()).toBe('none');

@@ -6,11 +6,10 @@ import { useUiKitState } from '../hooks';
 
 const InputBlock = ({ className, blockElement, parser, context }) => {
   const { appId, blockId, element, label, hint } = blockElement;
-  const inputElement = useMemo(() => ({ appId, blockId, ...element }), [
-    appId,
-    blockId,
-    element,
-  ]);
+  const inputElement = useMemo(
+    () => ({ appId, blockId, ...element }),
+    [appId, blockId, element]
+  );
 
   const [{ error }] = useUiKitState(inputElement, context);
 

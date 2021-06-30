@@ -23,4 +23,5 @@ export abstract class UiKitParserAttachment<
   }
 }
 
-export type AttachmentSurfaceLayout = GenericSurfaceLayout<AllowedLayoutsAttachment>;
+export type AttachmentSurfaceLayout =
+  GenericSurfaceLayout<AllowedLayoutsAttachment>;

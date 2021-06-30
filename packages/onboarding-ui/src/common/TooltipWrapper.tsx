@@ -81,10 +81,10 @@ const TooltipWrapper = ({
 
   const id = useUniqueId();
 
-  const anchorParams = useMemo(() => ({ ref: anchorRef, toggle, id }), [
-    id,
-    toggle,
-  ]);
+  const anchorParams = useMemo(
+    () => ({ ref: anchorRef, toggle, id }),
+    [id, toggle]
+  );
   const anchor = getAnchor(children, anchorParams);
 
   return (

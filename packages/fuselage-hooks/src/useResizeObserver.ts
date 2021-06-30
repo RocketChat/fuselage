@@ -58,14 +58,10 @@ export const useResizeObserver = ({
       }
 
       const { target, contentRect } = entry;
-      const {
-        width: contentBoxInlineSize,
-        height: contentBoxBlockSize,
-      } = contentRect;
-      const {
-        width: borderBoxInlineSize,
-        height: borderBoxBlockSize,
-      } = target.getBoundingClientRect();
+      const { width: contentBoxInlineSize, height: contentBoxBlockSize } =
+        contentRect;
+      const { width: borderBoxInlineSize, height: borderBoxBlockSize } =
+        target.getBoundingClientRect();
 
       setSizes({
         contentBoxSize: {

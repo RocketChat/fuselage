@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
+
+
+### Bug Fixes
+
+* **eslint:** Add missing ESLint rule for TypeScript ([#470](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/470)) ([cc0d498](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cc0d4989bf37f7602d1d58d051824f1dd6c096b3))
+
+
+
+
+
 # [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
 
 **Note:** Version bump only for package @rocket.chat/message-parser

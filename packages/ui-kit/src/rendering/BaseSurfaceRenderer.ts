@@ -33,7 +33,8 @@ export type PossibleAllowedLayouts = Exclude<
 export abstract class BaseSurfaceRenderer<
   OutputElement,
   AllowedLayoutItems extends PossibleAllowedLayouts = PossibleAllowedLayouts
-> implements ISurfaceRenderer<OutputElement> {
+> implements ISurfaceRenderer<OutputElement>
+{
   public constructor(readonly allowedLayoutBlockTypes?: AllowedLayoutItems[]) {
     this.allowedLayoutBlockTypes = allowedLayoutBlockTypes;
   }
