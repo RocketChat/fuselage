@@ -52,29 +52,29 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.0",
+    "@babel/core": "^7.14.6",
     "@babel/eslint-parser": "^7.14.7",
-    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-env": "^7.14.7",
     "@rocket.chat/eslint-config-alt": "^0.27.0",
     "@rocket.chat/peggy-loader": "^0.27.0",
     "@rocket.chat/prettier-config": "^0.27.0",
     "@types/jest": "^26.0.23",
-    "@types/node": "^14.14.44",
+    "@types/node": "^15.12.5",
     "@typescript-eslint/parser": "^4.28.1",
     "babel-loader": "^8.2.2",
     "eslint": "^7.29.0",
     "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "npm-run-all": "^4.1.5",
-    "peggy": "^1.1.0",
+    "peggy": "^1.2.0",
     "prettier": "^2.2.1",
     "prettier-plugin-pegjs": "^0.3.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.3",
-    "ts-loader": "^9.1.2",
+    "ts-loader": "^9.2.3",
     "typedoc": "^0.21.2",
     "typescript": "^4.3.4",
-    "webpack": "^5.36.2",
-    "webpack-cli": "^4.7.0"
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
   }
 }
