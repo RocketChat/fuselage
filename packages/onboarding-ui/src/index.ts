@@ -1,1 +1,1 @@
-export { default as MyComponent } from './MyComponent';
+export { default as RocketChatLogo } from './common/RocketChatLogo';

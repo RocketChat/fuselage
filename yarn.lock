@@ -5663,6 +5663,7 @@ __metadata:
     "@rocket.chat/fuselage-tokens": ^0.27.0
     "@rocket.chat/icons": ^0.27.0
     "@rocket.chat/prettier-config": ^0.27.0
+    "@rocket.chat/styled": "workspace:packages/styled"
     "@storybook/addon-essentials": ^6.3.1
     "@storybook/addons": ^6.3.1
     "@storybook/react": ^6.3.1
@@ -5686,6 +5687,7 @@ __metadata:
     typedoc: ^0.21.2
     typescript: ^4.3.4
   peerDependencies:
+    "@rocket.chat/fuselage-polyfills": ^0.27.0
     react: 17.0.2
     react-dom: 17.0.2
   languageName: unknown
