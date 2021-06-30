@@ -37,11 +37,11 @@
         "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static"
     },
     "peerDependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "@rocket.chat/icons": "*",
         "@rocket.chat/fuselage": "*",
-        "@rocket.chat/fuselage-hooks": "*"
+        "@rocket.chat/fuselage-hooks": "*",
+        "@rocket.chat/icons": "*",
+        "react": "*",
+        "react-dom": "^17.0.2"
     },
     "devDependencies": {
         "@rocket.chat/eslint-config-alt": "^0.26.0",
