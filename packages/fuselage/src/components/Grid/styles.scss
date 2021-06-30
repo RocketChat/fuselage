@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
 
 $breakpoint-names: map-keys(breakpoints.$breakpoints);
@@ -71,9 +72,9 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
       @for $columns from 1 through $total-columns {
         &--#{$breakpoint-name}-#{$columns} {
           flex-grow: 0;
-          flex-basis: ($columns / $total-columns * 100%);
+          flex-basis: (math.div($columns, $total-columns) * 100%);
 
-          max-width: ($columns / $total-columns * 100%);
+          max-width: (math.div($columns, $total-columns) * 100%);
         }
       }
     }
