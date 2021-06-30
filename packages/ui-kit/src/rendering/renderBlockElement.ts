@@ -44,15 +44,17 @@ const getBlockElementRenderer = <OutputElement>(
   }
 };
 
-export const renderBlockElement = <OutputElement>(
-  renderers: ISurfaceRenderer<OutputElement>,
-  context: BlockContext
-) => (blockElement: BlockElement, index: number): OutputElement | null => {
-  const renderer = getBlockElementRenderer(renderers, blockElement.type);
+export const renderBlockElement =
+  <OutputElement>(
+    renderers: ISurfaceRenderer<OutputElement>,
+    context: BlockContext
+  ) =>
+  (blockElement: BlockElement, index: number): OutputElement | null => {
+    const renderer = getBlockElementRenderer(renderers, blockElement.type);
 
-  if (!renderer) {
-    return null;
-  }
+    if (!renderer) {
+      return null;
+    }
 
-  return renderer.call(renderers, blockElement, context, index);
-};
+    return renderer.call(renderers, blockElement, context, index);
+  };

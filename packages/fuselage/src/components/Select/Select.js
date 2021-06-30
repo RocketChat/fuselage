@@ -88,13 +88,8 @@ export const Select = ({
     return options.filter(applyFilter).map(mapOptions);
   }, [options, currentValue, filter]);
 
-  const [
-    cursor,
-    handleKeyDown,
-    handleKeyUp,
-    reset,
-    [visible, hide, show],
-  ] = useCursor(index, filteredOptions, internalChangedByKeyboard);
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
+    useCursor(index, filteredOptions, internalChangedByKeyboard);
 
   const internalChangedByClick = useMutableCallback(([value]) => {
     setInternalValue(value);
@@ -123,10 +118,10 @@ export const Select = ({
           ? hide()
           : ref.current.focus() & show()
       )}
-      className={useMemo(() => [error && 'invalid', disabled && 'disabled'], [
-        error,
-        disabled,
-      ])}
+      className={useMemo(
+        () => [error && 'invalid', disabled && 'disabled'],
+        [error, disabled]
+      )}
       {...props}
     >
       <Wrapper

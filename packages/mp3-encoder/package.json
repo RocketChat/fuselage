@@ -44,22 +44,22 @@
     "lamejs": "https://github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/plugin-transform-runtime": "^7.13.15",
-    "@babel/preset-env": "^7.14.1",
-    "@babel/preset-typescript": "^7.13.0",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
     "@rocket.chat/eslint-config-alt": "^0.27.0",
     "@rocket.chat/prettier-config": "^0.27.0",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-typescript": "^8.2.1",
     "@types/jest": "^26.0.23",
-    "eslint": "^7.26.0",
-    "jest": "^26.6.3",
+    "eslint": "^7.29.0",
+    "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
-    "prettier": "^2.2.1",
-    "rollup": "^2.47.0",
-    "typedoc": "^0.20.36",
-    "typescript": "^4.2.4"
+    "prettier": "^2.3.2",
+    "rollup": "^2.52.4",
+    "typedoc": "^0.21.2",
+    "typescript": "^4.3.4"
   }
 }

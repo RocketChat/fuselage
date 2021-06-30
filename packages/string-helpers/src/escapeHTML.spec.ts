@@ -11,9 +11,9 @@ describe('escapeHTML', () => {
     expect(escapeHTML('¢ £ ¥ € © ®')).toBe(
       '&cent; &pound; &yen; &euro; &copy; &reg;'
     );
-    expect(escapeHTML((5 as unknown) as string)).toBe('5');
+    expect(escapeHTML(5 as unknown as string)).toBe('5');
     expect(escapeHTML('')).toBe('');
-    expect(escapeHTML((null as unknown) as string)).toBe('');
-    expect(escapeHTML((undefined as unknown) as string)).toBe('');
+    expect(escapeHTML(null as unknown as string)).toBe('');
+    expect(escapeHTML(undefined as unknown as string)).toBe('');
   });
 });

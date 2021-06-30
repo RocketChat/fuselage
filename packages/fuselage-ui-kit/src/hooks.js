@@ -49,12 +49,10 @@ export const useUiKitState = (
     await state({ blockId, appId: appId || appIdFromContext, actionId, value });
   });
 
-  const result = useMemo(() => ({ loading, setLoading, error, value }), [
-    loading,
-    setLoading,
-    error,
-    value,
-  ]);
+  const result = useMemo(
+    () => ({ loading, setLoading, error, value }),
+    [loading, setLoading, error, value]
+  );
 
   if ([BlockContext.SECTION, BlockContext.ACTION].includes(context)) {
     return [result, actionFunction];

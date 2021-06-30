@@ -1,6 +1,7 @@
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
+@use 'sass:math';
 @use '~@rocket.chat/fuselage-tokens/colors.scss' as token-colors;
 
 $-map-type-to-prefix: (
@@ -14,7 +15,17 @@ $-map-type-to-prefix: (
 );
 
 @function _get-palette-color($type, $grade, $alpha) {
-  @if not($grade % 100 == 0 and $grade / 100 >= 1 and $grade / 100 <= 9) {
+  @if not(
+    $grade
+      %
+      100 ==
+      0 and
+      math.div($grade, 100) >=
+      1 and
+      math.div($grade, 100) <=
+      9
+  )
+  {
     @error 'invalid color grade';
   }
 
