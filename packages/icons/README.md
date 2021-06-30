@@ -53,10 +53,10 @@ yarn build
 
 <!--/yarn(build)-->
 
-After building, make sure to run at the root: 
+After building, make sure to run at the root:
 
 ```sh
-yarn 
+yarn
 
 yarn update-storybook
 ```
