@@ -14,26 +14,26 @@ describe('capitalize', () => {
   });
 
   it('should convert undefined to ""', () => {
-    expect(capitalize((undefined as unknown) as string)).toBe('');
+    expect(capitalize(undefined as unknown as string)).toBe('');
   });
 
   it('should convert null to ""', () => {
-    expect(capitalize((null as unknown) as string)).toBe('');
+    expect(capitalize(null as unknown as string)).toBe('');
   });
 
   it('should convert false to ""', () => {
-    expect(capitalize((false as unknown) as string)).toBe('');
+    expect(capitalize(false as unknown as string)).toBe('');
   });
 
   it('should convert true to ""', () => {
-    expect(capitalize((true as unknown) as string)).toBe('');
+    expect(capitalize(true as unknown as string)).toBe('');
   });
 
   it('should convert 0 to ""', () => {
-    expect(capitalize((0 as unknown) as string)).toBe('');
+    expect(capitalize(0 as unknown as string)).toBe('');
   });
 
   it('should convert 1 to ""', () => {
-    expect(capitalize((1 as unknown) as string)).toBe('');
+    expect(capitalize(1 as unknown as string)).toBe('');
   });
 });

@@ -33,6 +33,6 @@
     "@rocket.chat/prettier-config": "^0.27.0",
     "eslint": "^7.29.0",
     "lint-staged": "^11.0.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.3.2"
   }
 }

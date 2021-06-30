@@ -18,18 +18,20 @@ const Position = ({
       useMemo(() => ({ placement, margin }), [placement, margin])
     ) || {};
 
-  const style = useMemo(() => ({ position: 'fixed', ...positionStyle }), [
-    positionStyle,
-  ]);
+  const style = useMemo(
+    () => ({ position: 'fixed', ...positionStyle }),
+    [positionStyle]
+  );
   const portalContainer = useMemo(() => {
     const element = document.createElement('div');
     document.body.appendChild(element);
     return element;
   }, []);
 
-  useEffect(() => () => document.body.removeChild(portalContainer), [
-    portalContainer,
-  ]);
+  useEffect(
+    () => () => document.body.removeChild(portalContainer),
+    [portalContainer]
+  );
 
   return createPortal(
     cloneElement(children, {

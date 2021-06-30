@@ -38,7 +38,7 @@ describe('useToggle hook', () => {
   it('has false value when an initial value is falsy', () => {
     let value: boolean;
     const TestComponent: FunctionComponent = () => {
-      [value] = useToggle((0 as unknown) as boolean);
+      [value] = useToggle(0 as unknown as boolean);
       return null;
     };
 
@@ -83,7 +83,7 @@ describe('useToggle hook', () => {
   it('has true value when an initial value is truthy', () => {
     let value: boolean;
     const TestComponent: FunctionComponent = () => {
-      [value] = useToggle((1 as unknown) as boolean);
+      [value] = useToggle(1 as unknown as boolean);
       return null;
     };
 

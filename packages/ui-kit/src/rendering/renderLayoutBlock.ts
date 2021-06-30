@@ -10,17 +10,17 @@ const getLayoutBlockRenderer = <OutputElement>(
 ): LayoutBlockRenderer<OutputElement> | undefined =>
   renderers[type] as LayoutBlockRenderer<OutputElement> | undefined;
 
-export const renderLayoutBlock = <OutputElement>(
-  renderers: ISurfaceRenderer<OutputElement>
-) => (
-  layoutBlock: Exclude<LayoutBlock, ConditionalBlock>,
-  index: number
-): OutputElement | null => {
-  const renderer = getLayoutBlockRenderer(renderers, layoutBlock.type);
+export const renderLayoutBlock =
+  <OutputElement>(renderers: ISurfaceRenderer<OutputElement>) =>
+  (
+    layoutBlock: Exclude<LayoutBlock, ConditionalBlock>,
+    index: number
+  ): OutputElement | null => {
+    const renderer = getLayoutBlockRenderer(renderers, layoutBlock.type);
 
-  if (!renderer) {
-    return null;
-  }
+    if (!renderer) {
+      return null;
+    }
 
-  return renderer.call(renderers, layoutBlock, BlockContext.BLOCK, index);
-};
+    return renderer.call(renderers, layoutBlock, BlockContext.BLOCK, index);
+  };

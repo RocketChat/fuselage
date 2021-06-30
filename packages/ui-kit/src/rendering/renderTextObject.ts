@@ -27,15 +27,17 @@ const getTextObjectRenderer = <OutputElement>(
   }
 };
 
-export const renderTextObject = <OutputElement>(
-  renderers: ISurfaceRenderer<OutputElement>,
-  context: BlockContext
-) => (textObject: TextObject, index: number): OutputElement | null => {
-  const renderer = getTextObjectRenderer(renderers, textObject.type);
+export const renderTextObject =
+  <OutputElement>(
+    renderers: ISurfaceRenderer<OutputElement>,
+    context: BlockContext
+  ) =>
+  (textObject: TextObject, index: number): OutputElement | null => {
+    const renderer = getTextObjectRenderer(renderers, textObject.type);
 
-  if (!renderer) {
-    return null;
-  }
+    if (!renderer) {
+      return null;
+    }
 
-  return renderer.call(renderers, textObject, context, index);
-};
+    return renderer.call(renderers, textObject, context, index);
+  };

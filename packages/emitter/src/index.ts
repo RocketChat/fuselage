@@ -5,9 +5,8 @@ export type DefaultEventMap = Record<string | symbol, any>;
 export type AnyEventTypeOf<EventMap extends DefaultEventMap> = keyof EventMap;
 
 /** @public */
-export type AnyEventOf<
-  EventMap extends DefaultEventMap
-> = EventMap[keyof EventMap];
+export type AnyEventOf<EventMap extends DefaultEventMap> =
+  EventMap[keyof EventMap];
 
 /** @public */
 export type AnyEventHandlerOf<EventMap extends DefaultEventMap> = {
@@ -88,7 +87,8 @@ const evts = Symbol('evts');
  * @public
  */
 export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
-  implements IEmitter<EventMap> {
+  implements IEmitter<EventMap>
+{
   private [evts] = new Map<
     AnyEventTypeOf<EventMap>,
     AnyEventHandlerOf<EventMap>[]
