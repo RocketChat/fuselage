@@ -32,11 +32,19 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Margins'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) => <Box key={child.key} bg='neutral-200' m='x16'>
-          {React.cloneElement(child, { bg: 'primary-200' }, <Box bg='neutral-500' size='x16' />)}
-        </Box>)}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) => (
+            <Box key={child.key} bg='neutral-200' m='x16'>
+              {React.cloneElement(
+                child,
+                { bg: 'primary-200' },
+                <Box bg='neutral-500' size='x16' />
+              )}
+            </Box>
+          ))}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -64,11 +72,19 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Paddings'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) => <Box key={child.key} bg='neutral-200' m='x16'>
-          {React.cloneElement(child, { bg: 'primary-200' }, <Box bg='neutral-500' size='x16' />)}
-        </Box>)}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) => (
+            <Box key={child.key} bg='neutral-200' m='x16'>
+              {React.cloneElement(
+                child,
+                { bg: 'primary-200' },
+                <Box bg='neutral-500' size='x16' />
+              )}
+            </Box>
+          ))}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -98,10 +114,22 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Colors'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { bg: 'neutral-200', m: 'x4', p: 'x4' }, child.props.color))}
-      </Box>,
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(
+              child,
+              { bg: 'neutral-200', m: 'x4', p: 'x4' },
+              child.props.color
+            )
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -141,9 +169,18 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Background colors'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
-        {flattenChildren(fn().props.children).map((child) => React.cloneElement(child, { m: 'x4', size: 'x32' }))}
-      </Box>,
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { m: 'x4', size: 'x32' })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -182,7 +219,9 @@ The `is` prop allows `Box` to render any component capable of handling common DO
 <Canvas>
   <Story
     name='Opacity'
-    decorators={[(fn) => React.cloneElement(fn(), { size: 'x32', bg: 'neutral-500' })]}
+    decorators={[
+      (fn) => React.cloneElement(fn(), { size: 'x32', bg: 'neutral-500' }),
+    ]}
   >
     <Box opacity={0.5} />
   </Story>
@@ -228,15 +267,15 @@ The `is` prop allows `Box` to render any component capable of handling common DO
 <Canvas>
   <Story name='Font weights'>
     <>
-      <Box fontWeight='100'>100</Box>
-      <Box fontWeight='200'>200</Box>
-      <Box fontWeight='300'>300</Box>
-      <Box fontWeight='400'>400</Box>
-      <Box fontWeight='500'>500</Box>
-      <Box fontWeight='600'>600</Box>
-      <Box fontWeight='700'>700</Box>
-      <Box fontWeight='800'>800</Box>
-      <Box fontWeight='900'>900</Box>
+      <Box fontWeight={100}>100</Box>
+      <Box fontWeight={200}>200</Box>
+      <Box fontWeight={300}>300</Box>
+      <Box fontWeight={400}>400</Box>
+      <Box fontWeight={500}>500</Box>
+      <Box fontWeight={600}>600</Box>
+      <Box fontWeight={700}>700</Box>
+      <Box fontWeight={800}>800</Box>
+      <Box fontWeight={900}>900</Box>
       <Box fontWeight='h1'>h1</Box>
       <Box fontWeight='s1'>s1</Box>
       <Box fontWeight='s2'>s2</Box>
@@ -364,10 +403,13 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Widths'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { bg: 'primary-200', h: 'x32', m: 'x4' }))}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { bg: 'primary-200', h: 'x32', m: 'x4' })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -385,10 +427,13 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Heights'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { bg: 'primary-200', w: 'x32', m: 'x4' }))}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { bg: 'primary-200', w: 'x32', m: 'x4' })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -406,10 +451,13 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Sizes'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { bg: 'primary-200', m: 'x4' }))}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { bg: 'primary-200', m: 'x4' })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -426,10 +474,13 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Display'
     decorators={[
-      (fn) => <Box>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { children: child.props.display }))}
-      </Box>,
+      (fn) => (
+        <Box>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { children: child.props.display })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -450,10 +501,16 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Vertical alignment'
     decorators={[
-      (fn) => <Box>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { display: 'inline', children: child.props.verticalAlign }))}
-      </Box>,
+      (fn) => (
+        <Box>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, {
+              display: 'inline',
+              children: child.props.verticalAlign,
+            })
+          )}
+        </Box>
+      ),
     ]}
   >
     <Box>
@@ -476,10 +533,17 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Borders'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { bg: 'primary-200', size: 'x32', m: 'x16' }))}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, {
+              bg: 'primary-200',
+              size: 'x32',
+              m: 'x16',
+            })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -521,10 +585,17 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Border radii'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { bg: 'primary-200', size: 'x32', m: 'x16' }))}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, {
+              bg: 'primary-200',
+              size: 'x32',
+              m: 'x16',
+            })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -545,10 +616,17 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Position'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { bg: 'primary-200', size: 'x32', m: 'x16' }))}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, {
+              bg: 'primary-200',
+              size: 'x32',
+              m: 'x16',
+            })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -560,17 +638,24 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   </Story>
 </Canvas>
 
-
 #### Z-index
 
 <Canvas>
   <Story
     name='Z-index'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { bg: 'primary-200', borderWidth: 'x4', size: 'x32', m: 'neg-x2' }))}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, {
+              bg: 'primary-200',
+              borderWidth: 'x4',
+              size: 'x32',
+              m: 'neg-x2',
+            })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -588,12 +673,25 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Inset'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) =>
-          <Box key={child.key} position='relative' bg='neutral-200' m='x16' size='x64'>
-            {React.cloneElement(child, { bg: 'primary-200', position: 'absolute', minSize: 'x16' })}
-          </Box>)}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) => (
+            <Box
+              key={child.key}
+              position='relative'
+              bg='neutral-200'
+              m='x16'
+              size='x64'
+            >
+              {React.cloneElement(child, {
+                bg: 'primary-200',
+                position: 'absolute',
+                minSize: 'x16',
+              })}
+            </Box>
+          ))}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -621,10 +719,17 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Elevation'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn().props.children).map((child) =>
-          React.cloneElement(child, { bg: 'primary-100', m: 'x16', size: 'x64' }))}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, {
+              bg: 'primary-100',
+              m: 'x16',
+              size: 'x64',
+            })
+          )}
+        </Box>
+      ),
     ]}
   >
     <>
@@ -641,11 +746,15 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   <Story
     name='Invisible'
     decorators={[
-      (fn) => <Box display='flex' flexWrap='wrap' alignItems='center'>
-        {flattenChildren(fn()).map((child) => <Box key={child.key} bg='neutral-200' p='x16'>
-          {React.cloneElement(child, { bg: 'primary-200', size: 'x16' })}
-        </Box>)}
-      </Box>,
+      (fn) => (
+        <Box display='flex' flexWrap='wrap' alignItems='center'>
+          {flattenChildren(fn()).map((child) => (
+            <Box key={child.key} bg='neutral-200' p='x16'>
+              {React.cloneElement(child, { bg: 'primary-200', size: 'x16' })}
+            </Box>
+          ))}
+        </Box>
+      ),
     ]}
   >
     <Box invisible />
@@ -657,9 +766,15 @@ The `is` prop allows `Box` to render any component capable of handling common DO
 <Canvas>
   <Story name='With rich content'>
     <Box withRichContent>
-      <p><strong>This text is strong</strong></p>
-      <p><em>This text has emphasis</em></p>
-      <p>This is<sub> subscript</sub> and <sup>superscript</sup></p>
+      <p>
+        <strong>This text is strong</strong>
+      </p>
+      <p>
+        <em>This text has emphasis</em>
+      </p>
+      <p>
+        This is<sub> subscript</sub> and <sup>superscript</sup>
+      </p>
     </Box>
   </Story>
 </Canvas>
