@@ -1,23 +1,15 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import { FC } from 'react';
+import { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import { useDarkMode } from '../../common/DarkModeProvider';
 import RocketChatLogo from '../../common/RocketChatLogo';
 
-type EmailConfirmedPageProps = {
-  title?: string;
-  subtitle?: string;
-};
-
-const EmailConfirmedPage: FC<{
-  title?: string;
-  subtitle?: string;
-  forceDarkMode?: boolean;
-}> = ({ title, subtitle }: EmailConfirmedPageProps) => {
+const EmailConfirmedPage = (): ReactElement => {
   const darkMode = useDarkMode();
-  const color = darkMode ? colors.white : colors.n900;
+  const { t } = useTranslation();
 
   return (
     <BackgroundLayer>
@@ -26,24 +18,27 @@ const EmailConfirmedPage: FC<{
         flexDirection='column'
         alignItems='center'
         textAlign='center'
-        maxWidth='523px'
+        width='100%'
+        maxWidth={576}
+        paddingBlock={32}
+        paddingInline={16}
+        color={darkMode ? colors.white : colors.n900}
       >
-        <Margins blockEnd='x32'>
-          <Box width='x180'>
+        <Margins blockEnd={32}>
+          <Box width='100%' maxWidth={180}>
             <RocketChatLogo />
           </Box>
 
-          {title && (
-            <Box fontWeight={800} fontSize='x32' color={color}>
-              {title}
-            </Box>
-          )}
+          <Box
+            fontWeight={800}
+            fontSize='x52'
+            lineHeight='x62'
+            fontFamily='sans'
+          >
+            {t('page.emailConfirmed.title')}
+          </Box>
 
-          {subtitle && (
-            <Box fontScale='s1' color={color}>
-              {subtitle}
-            </Box>
-          )}
+          <Box fontScale='s1'>{t('page.emailConfirmed.subtitle')}</Box>
         </Margins>
       </Box>
     </BackgroundLayer>

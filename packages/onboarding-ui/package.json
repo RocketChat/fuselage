@@ -78,6 +78,8 @@
     "@rocket.chat/fuselage-hooks": "^0.27.0",
     "@rocket.chat/icons": "^0.27.0",
     "@rocket.chat/styled": "workspace:packages/styled",
+    "i18next": "^20.3.2",
+    "react-i18next": "^11.11.0",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {

@@ -8,18 +8,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-  argTypes: {
-    forceDarkMode: {
-      options: [undefined, true, false],
-      control: { type: 'inline-radio' },
-    },
-  },
 } as Meta;
 
-export const Default: Story = (args) => (
-  <EmailConfirmedPage
-    title='Email Confirmed!'
-    subtitle='You can return to your Rocket.Chat application – we have launched your workspace already.'
-    {...args}
-  />
+export const _EmailConfirmedPage: Story = (args) => (
+  <EmailConfirmedPage {...args} />
 );
+_EmailConfirmedPage.storyName = 'EmailConfirmedPage';
