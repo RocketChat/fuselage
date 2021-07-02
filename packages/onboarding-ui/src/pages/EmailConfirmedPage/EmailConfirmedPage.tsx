@@ -1,21 +1,26 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import { useDarkMode } from '@rocket.chat/fuselage-hooks';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { FC } from 'react';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
+import { useDarkMode } from '../../common/DarkModeProvider';
 import RocketChatLogo from '../../common/RocketChatLogo';
+
+type EmailConfirmedPageProps = {
+  title?: string;
+  subtitle?: string;
+};
 
 const EmailConfirmedPage: FC<{
   title?: string;
   subtitle?: string;
   forceDarkMode?: boolean;
-}> = ({ title, subtitle, forceDarkMode }) => {
-  const darkMode = useDarkMode(forceDarkMode);
+}> = ({ title, subtitle }: EmailConfirmedPageProps) => {
+  const darkMode = useDarkMode();
   const color = darkMode ? colors.white : colors.n900;
 
   return (
-    <BackgroundLayer forceDarkMode={forceDarkMode}>
+    <BackgroundLayer>
       <Box
         display='flex'
         flexDirection='column'
