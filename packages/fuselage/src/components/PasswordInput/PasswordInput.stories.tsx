@@ -1,4 +1,3 @@
-import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
 import { Icon, PasswordInput } from '../..';
@@ -8,25 +7,25 @@ export default {
   title: 'Forms/Inputs/PasswordInput',
   component: PasswordInput,
   parameters: { jest: ['PasswordInput.spec.tsx'] },
-} as Meta;
+};
 
-export const Default: Story = () => <PasswordInput />;
+export const Default = () => <PasswordInput />;
 
-export const WithValue: Story = () => <PasswordInput defaultValue='password' />;
+export const WithValue = () => <PasswordInput defaultValue='password' />;
 
-export const WithIconAddon: Story = () => (
+export const WithIconAddon = () => (
   <PasswordInput addon={<Icon name='send' size={20} />} />
 );
 
-export const Invalid: Story = () => <PasswordInput error='Error' />;
+export const Invalid = () => <PasswordInput error='Error' />;
 
-export const Disabled: Story = () => <PasswordInput disabled />;
+export const Disabled = () => <PasswordInput disabled />;
 
-export const WithPlaceholder: Story = () => (
+export const WithPlaceholder = () => (
   <PasswordInput placeholder='Placeholder' />
 );
 
-export const States: Story = () => (
+export const States = () => (
   <PropsVariation
     component={PasswordInput}
     common={{ onChange: () => undefined }}

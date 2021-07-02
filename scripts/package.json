@@ -13,15 +13,15 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "^0.27.0",
     "@rocket.chat/prettier-config": "^0.27.0",
-    "@types/node": "^14.14.44",
-    "@typescript-eslint/parser": "^4.22.1",
-    "endent": "^2.0.1",
-    "eslint": "^7.26.0",
-    "fast-glob": "^3.2.5",
+    "@types/node": "^15.12.5",
+    "@typescript-eslint/parser": "^4.28.1",
+    "endent": "^2.1.0",
+    "eslint": "^7.29.0",
+    "fast-glob": "^3.2.6",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4"
+    "prettier": "^2.3.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
   },
   "version": "0.27.0"
 }

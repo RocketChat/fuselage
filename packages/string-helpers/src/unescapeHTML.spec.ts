@@ -31,8 +31,8 @@ describe('unescapeHTML', () => {
     expect(unescapeHTML('&nbsp;')).toBe(' ');
     expect(unescapeHTML('&nbsp;')).toBe(' ');
 
-    expect(unescapeHTML((null as unknown) as string)).toBe('');
-    expect(unescapeHTML((undefined as unknown) as string)).toBe('');
-    expect(unescapeHTML((5 as unknown) as string)).toBe('5');
+    expect(unescapeHTML(null as unknown as string)).toBe('');
+    expect(unescapeHTML(undefined as unknown as string)).toBe('');
+    expect(unescapeHTML(5 as unknown as string)).toBe('5');
   });
 });

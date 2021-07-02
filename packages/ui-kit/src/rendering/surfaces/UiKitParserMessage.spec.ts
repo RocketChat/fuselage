@@ -289,8 +289,7 @@ describe('section', () => {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text:
-            'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+          text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
         },
       },
     ];
@@ -505,8 +504,7 @@ describe('section', () => {
               component: 'image',
               props: {
                 key: 1,
-                src:
-                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },
@@ -775,8 +773,7 @@ describe('image', () => {
               component: 'image',
               props: {
                 key: 0,
-                src:
-                  'https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg',
+                src: 'https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg',
                 alt: 'marg',
                 block: false,
               },
@@ -816,8 +813,7 @@ describe('image', () => {
               component: 'image',
               props: {
                 key: 0,
-                src:
-                  'https://i1.wp.com/thetempest.co/wp-content/uploads/2017/08/The-wise-words-of-Michael-Scott-Imgur-2.jpg?w=1024&ssl=1',
+                src: 'https://i1.wp.com/thetempest.co/wp-content/uploads/2017/08/The-wise-words-of-Michael-Scott-Imgur-2.jpg?w=1024&ssl=1',
                 alt: 'inspiration',
                 block: false,
               },
@@ -1244,8 +1240,7 @@ describe('context', () => {
               component: 'image',
               props: {
                 key: 0,
-                src:
-                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },
@@ -1320,8 +1315,7 @@ describe('context', () => {
               component: 'image',
               props: {
                 key: 1,
-                src:
-                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },
@@ -1330,8 +1324,7 @@ describe('context', () => {
               component: 'image',
               props: {
                 key: 2,
-                src:
-                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },
@@ -1340,8 +1333,7 @@ describe('context', () => {
               component: 'image',
               props: {
                 key: 3,
-                src:
-                  'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
+                src: 'https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg',
                 alt: 'cute cat',
                 block: false,
               },

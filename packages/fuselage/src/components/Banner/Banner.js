@@ -27,9 +27,10 @@ const Banner = ({
 
   const { ref, borderBoxSize } = useResizeObserver();
 
-  const isIconVisible = useMemo(() => borderBoxSize.inlineSize > 375, [
-    borderBoxSize.inlineSize,
-  ]);
+  const isIconVisible = useMemo(
+    () => borderBoxSize.inlineSize > 375,
+    [borderBoxSize.inlineSize]
+  );
 
   variant = variants.includes(variant) ? variant : variants[0];
 

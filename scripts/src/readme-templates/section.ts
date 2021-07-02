@@ -30,29 +30,31 @@ export const section = (pkg: Package, name: keyof typeof mapping): string =>
     <!--/${name}-->
   `;
 
-const replace = (pkg: Package, name: keyof typeof mapping) => (
-  content: string
-): string => {
-  const sectionBegin = `<!--${name}-->`;
-  const sectionEnd = `<!--/${name}-->`;
+const replace =
+  (pkg: Package, name: keyof typeof mapping) =>
+  (content: string): string => {
+    const sectionBegin = `<!--${name}-->`;
+    const sectionEnd = `<!--/${name}-->`;
 
-  const beginIndex = content.indexOf(sectionBegin);
+    const beginIndex = content.indexOf(sectionBegin);
 
-  if (beginIndex < 0) {
-    return content;
-  }
+    if (beginIndex < 0) {
+      return content;
+    }
 
-  const endIndex = content.indexOf(sectionEnd, beginIndex);
+    const endIndex = content.indexOf(sectionEnd, beginIndex);
 
-  if (endIndex < 0) {
-    return content;
-  }
+    if (endIndex < 0) {
+      return content;
+    }
 
-  const before = content.slice(0, beginIndex + sectionBegin.length);
-  const after = content.slice(endIndex);
+    const before = content.slice(0, beginIndex + sectionBegin.length);
+    const after = content.slice(endIndex);
 
-  return `${before}\n\n${mapping[name](pkg)}\n\n${after}`;
-};
+    return `${before}\n\n${mapping[name](pkg)}\n\n${after}`;
+  };
 
-export const replaceSections = (pkg: Package) => (content: string): string =>
-  names.reduce((content, name) => replace(pkg, name)(content), content);
+export const replaceSections =
+  (pkg: Package) =>
+  (content: string): string =>
+    names.reduce((content, name) => replace(pkg, name)(content), content);
