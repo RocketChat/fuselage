@@ -14,3 +14,6 @@ export default {
 
 export const _RocketChatLogo: Story = (props) => <RocketChatLogo {...props} />;
 _RocketChatLogo.storyName = 'RocketChatLogo';
+_RocketChatLogo.parameters = {
+  layout: 'fullscreen',
+};
