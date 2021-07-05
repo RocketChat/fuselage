@@ -1,7 +1,7 @@
 import { Box, Button, ButtonGroup } from '@rocket.chat/fuselage';
 import React, { memo, useMemo } from 'react';
 
-import { useUiKitState } from '../hooks';
+import { useUiKitState } from '../hooks/useUiKitState';
 
 const LinearScaleElement = ({ className, element, context, parser }) => {
   const {

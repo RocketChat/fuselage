@@ -6,6 +6,6 @@ export type TextObjectRenderer<
   Block extends TextObject = TextObject
 > = (
   textObject: Block,
-  context: BlockContext,
-  index: number
+  context?: BlockContext,
+  index?: number
 ) => OutputElement | null;

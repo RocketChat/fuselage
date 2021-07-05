@@ -2,7 +2,7 @@ import { Field } from '@rocket.chat/fuselage';
 import { BlockContext } from '@rocket.chat/ui-kit';
 import React, { memo, useMemo } from 'react';
 
-import { useUiKitState } from '../hooks';
+import { useUiKitState } from '../hooks/useUiKitState';
 
 const InputBlock = ({ className, blockElement, parser, context }) => {
   const { appId, blockId, element, label, hint } = blockElement;

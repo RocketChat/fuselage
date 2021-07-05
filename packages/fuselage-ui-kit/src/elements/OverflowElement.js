@@ -7,7 +7,7 @@ import {
 } from '@rocket.chat/fuselage';
 import React, { useRef, useCallback } from 'react';
 
-import { useUiKitState } from '../hooks';
+import { useUiKitState } from '../hooks/useUiKitState';
 
 const convertOptions = (options, parser) =>
   options.map(({ text, value }) => [value, parser(text)]);
