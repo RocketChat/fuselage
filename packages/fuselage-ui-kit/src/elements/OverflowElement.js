@@ -17,22 +17,18 @@ const OverflowElement = ({ element, context, parser }) => {
 
   const { options } = element;
 
-  const fireChange = useCallback(([value]) => action({ target: { value } }), [
-    action,
-  ]);
+  const fireChange = useCallback(
+    ([value]) => action({ target: { value } }),
+    [action]
+  );
 
   const convertedOptions = convertOptions(options, parser.text.bind(parser));
-  const [
-    cursor,
-    handleKeyDown,
-    handleKeyUp,
-    reset,
-    [visible, hide, show],
-  ] = useCursor(-1, convertedOptions, (args, [, hide]) => {
-    fireChange(args);
-    reset();
-    hide();
-  });
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
+    useCursor(-1, convertedOptions, (args, [, hide]) => {
+      fireChange(args);
+      reset();
+      hide();
+    });
 
   const ref = useRef();
   const onClick = useCallback(() => ref.current.focus() & show(), []);
