@@ -100,7 +100,7 @@ $sidebar-item-color-selected: theme(
     &__wrapper {
       @extend %sidebar-base;
       @include typography.use-with-truncated-text();
-      flex: 1 0 1%;
+      flex: 1 0;
 
       margin-inline: lengths.margin(-2);
     }
