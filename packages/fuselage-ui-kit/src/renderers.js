@@ -7,7 +7,7 @@ import DividerBlock from './blocks/DividerBlock';
 import ImageBlock from './blocks/ImageBlock';
 import InputBlock from './blocks/InputBlock';
 import SectionBlock from './blocks/SectionBlock';
-import ButtonElement from './elements/ButtonElement';
+import ButtonElement from './elements/ButtonElement.tsx';
 import DatePickerElement from './elements/DatePickerElement';
 import ImageElement from './elements/ImageElement';
 import LinearScaleElement from './elements/LinearScaleElement';
