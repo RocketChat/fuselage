@@ -1,7 +1,7 @@
 import { MultiSelectFiltered } from '@rocket.chat/fuselage';
 import React, { memo, useCallback, useMemo } from 'react';
 
-import { useUiKitState } from '../hooks';
+import { useUiKitState } from '../hooks/useUiKitState';
 
 export const MultiStaticSelectElement = ({ element, context, parser }) => {
   const [{ loading, value, error }, action] = useUiKitState(element, context);

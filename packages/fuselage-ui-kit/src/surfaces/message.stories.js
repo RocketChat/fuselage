@@ -407,6 +407,24 @@ export const ActionsWithButton = createStory([
   },
 ]);
 
+export const ActionsWithButtonAsLink = createStory([
+  {
+    type: 'actions',
+    elements: [
+      {
+        type: 'button',
+        text: {
+          type: 'plain_text',
+          text: 'Click Me',
+          emoji: true,
+        },
+        url: 'https://rocket.chat',
+        value: 'click_me_123',
+      },
+    ],
+  },
+]);
+
 export const ActionsWithDatePicker = createStory([
   {
     type: 'actions',
