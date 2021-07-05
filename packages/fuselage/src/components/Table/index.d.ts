@@ -2,7 +2,11 @@ import { ComponentProps, ForwardRefExoticComponent } from 'react';
 
 import { Box } from '../Box';
 
-type TableProps = ComponentProps<typeof Box>;
+type TableProps = ComponentProps<typeof Box> & {
+  striped?: boolean;
+  sticky?: boolean;
+  fixed?: boolean;
+};
 type TableHeadProps = ComponentProps<typeof Box>;
 type TableBodyProps = ComponentProps<typeof Box>;
 type TableRowProps = Omit<ComponentProps<typeof Box>, 'action'> & {
