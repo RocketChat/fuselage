@@ -104,10 +104,10 @@ export const PaginatedSelect = ({
           ? hide()
           : ref.current.focus() & show()
       )}
-      className={useMemo(() => [error && 'invalid', disabled && 'disabled'], [
-        error,
-        disabled,
-      ])}
+      className={useMemo(
+        () => [error && 'invalid', disabled && 'disabled'],
+        [error, disabled]
+      )}
       {...props}
     >
       <Wrapper
