@@ -36,7 +36,12 @@ module.exports = (env, { mode = 'production' }) => ({
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: 'ts-loader',
+        use: {
+          loader: 'ts-loader',
+          options: {
+            configFile: path.resolve(__dirname, './tsconfig-bundle.json'),
+          },
+        },
       },
       {
         test: /\.scss$/,

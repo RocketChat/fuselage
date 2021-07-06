@@ -1,7 +1,7 @@
 import { TextAreaInput, TextInput } from '@rocket.chat/fuselage';
 import React, { memo } from 'react';
 
-import { useUiKitState } from '../hooks';
+import { useUiKitState } from '../hooks/useUiKitState';
 
 const PlainInputElement = ({ element, context, parser }) => {
   const [{ loading, value, error }, action] = useUiKitState(element, context);

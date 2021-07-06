@@ -94,8 +94,7 @@ export const SectionWithMrkdwn = createStory([
     type: 'section',
     text: {
       type: 'mrkdwn',
-      text:
-        'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+      text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
     },
   },
 ]);
@@ -402,6 +401,24 @@ export const ActionsWithButton = createStory([
           text: 'Click Me',
           emoji: true,
         },
+        value: 'click_me_123',
+      },
+    ],
+  },
+]);
+
+export const ActionsWithButtonAsLink = createStory([
+  {
+    type: 'actions',
+    elements: [
+      {
+        type: 'button',
+        text: {
+          type: 'plain_text',
+          text: 'Click Me',
+          emoji: true,
+        },
+        url: 'https://rocket.chat',
         value: 'click_me_123',
       },
     ],

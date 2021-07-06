@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
+
+
+### Features
+
+* ui-kit-unified ([#392](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/392)) ([ce48ca9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ce48ca9d9806283bba8be5df7c29c7aa8c1e716f))
+
+
+
+
+
 # [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-ui-kit

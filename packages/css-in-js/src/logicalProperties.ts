@@ -44,8 +44,8 @@ const attachDeclaration = (
     ruleSet,
     ruleSet,
     DECLARATION,
-    (property as unknown) as string[],
-    (value as unknown) as Element[],
+    property as unknown as string[],
+    value as unknown as Element[],
     property.length
   );
 
@@ -303,8 +303,8 @@ export const createLogicalPropertiesMiddleware = ({
       ruleSet.props
         .map((selector) => `html:not([dir=rtl]) ${selector}`)
         .join(','),
-      (undefined as unknown) as Element,
-      (undefined as unknown) as Element,
+      undefined as unknown as Element,
+      undefined as unknown as Element,
       RULESET,
       ruleSet.props.map((selector) => `html:not([dir=rtl]) ${selector}`),
       [],
@@ -313,8 +313,8 @@ export const createLogicalPropertiesMiddleware = ({
 
     const rtlRuleSet = node(
       ruleSet.props.map((selector) => `[dir=rtl] ${selector}`).join(','),
-      (undefined as unknown) as Element,
-      (undefined as unknown) as Element,
+      undefined as unknown as Element,
+      undefined as unknown as Element,
       RULESET,
       ruleSet.props.map((selector) => `[dir=rtl] ${selector}`),
       [],

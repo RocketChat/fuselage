@@ -20,12 +20,11 @@ type InputBlockElement =
   | StaticSelectElement
   | UsersSelectElement;
 
-export type InputBlock<
-  Element extends InputBlockElement = InputBlockElement
-> = Layout<{
-  type: `${LayoutBlockType.INPUT}`;
-  label: PlainText;
-  element: Element;
-  hint?: PlainText;
-  optional?: boolean;
-}>;
+export type InputBlock<Element extends InputBlockElement = InputBlockElement> =
+  Layout<{
+    type: `${LayoutBlockType.INPUT}`;
+    label: PlainText;
+    element: Element;
+    hint?: PlainText;
+    optional?: boolean;
+  }>;

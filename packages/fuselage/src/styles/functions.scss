@@ -3,7 +3,7 @@
 
 @function to-em($length) {
   @if meta.type-of($length) == 'number' and math.is-unitless($length) {
-    @return $length / 16 * 1em;
+    @return math.div($length, 16) * 1em;
   }
 
   @return $length;
@@ -11,7 +11,7 @@
 
 @function to-rem($length) {
   @if meta.type-of($length) == 'number' and math.is-unitless($length) {
-    @return $length / 16 * 1rem;
+    @return math.div($length, 16) * 1rem;
   }
 
   @return $length;

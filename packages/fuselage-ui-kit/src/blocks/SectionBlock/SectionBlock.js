@@ -7,11 +7,10 @@ import Fields from './Fields';
 const SectionBlock = ({ className, blockElement, parser }) => {
   const { blockId, appId, text, fields, accessory } = blockElement;
 
-  const accessoryElement = useMemo(() => ({ appId, blockId, ...accessory }), [
-    appId,
-    blockId,
-    accessory,
-  ]);
+  const accessoryElement = useMemo(
+    () => ({ appId, blockId, ...accessory }),
+    [appId, blockId, accessory]
+  );
 
   return (
     <Grid className={className}>

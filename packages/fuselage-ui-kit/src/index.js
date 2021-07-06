@@ -10,3 +10,5 @@ export * from './surfaces/banner';
 export * from './surfaces/message';
 export * from './surfaces/modal';
 export * from './hooks';
+export * from './hooks/useUiKitState';
+export * from './contexts/kitContext';

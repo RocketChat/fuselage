@@ -4,8 +4,15 @@ const elementId = 'rcx-styles';
 let element: HTMLStyleElement;
 const getStyleTag = (): HTMLStyleElement => {
   if (!element) {
-    element = (document.getElementById(elementId) ||
-      document.createElement('style')) as HTMLStyleElement;
+    const el = document.getElementById(elementId) as HTMLStyleElement;
+    if (el) {
+      element = el;
+      return element;
+    }
+  }
+
+  if (!element) {
+    element = document.createElement('style');
     element.id = elementId;
     element.appendChild(document.createTextNode(''));
     if (document.head) {

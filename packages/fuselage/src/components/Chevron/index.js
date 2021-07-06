@@ -7,9 +7,10 @@ import { Box } from '../Box';
 import { Icon } from '../Icon';
 
 export function Chevron({ up, right, down, left, size, ...props }) {
-  const children = useMemo(() => <Icon name='chevron-down' size={size} />, [
-    size,
-  ]);
+  const children = useMemo(
+    () => <Icon name='chevron-down' size={size} />,
+    [size]
+  );
 
   return (
     <Box
