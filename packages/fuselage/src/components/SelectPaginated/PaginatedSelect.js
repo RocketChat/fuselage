@@ -36,6 +36,12 @@ const Focus = React.forwardRef((props, ref) => (
   />
 ));
 
+const prevent = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  e.nativeEvent.stopImmediatePropagation();
+};
+
 const useDidUpdate = (func = []) => {
   const didMount = useRef(false);
   const fn = useMutableCallback(func);
@@ -98,10 +104,10 @@ export const PaginatedSelect = ({
           ? hide()
           : ref.current.focus() & show()
       )}
-      className={useMemo(
-        () => [error && 'invalid', disabled && 'disabled'],
-        [error, disabled]
-      )}
+      className={useMemo(() => [error && 'invalid', disabled && 'disabled'], [
+        error,
+        disabled,
+      ])}
       {...props}
     >
       <Wrapper
@@ -153,6 +159,7 @@ export const PaginatedSelect = ({
           options={options}
           onSelect={internalChangedByClick}
           endReached={endReached}
+          onMouseDown={prevent}
         />
       </PositionAnimated>
     </Box>
