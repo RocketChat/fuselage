@@ -33,7 +33,8 @@ export type PossibleAllowedLayouts = Exclude<
 export abstract class BaseSurfaceRenderer<
   OutputElement,
   AllowedLayoutItems extends PossibleAllowedLayouts = PossibleAllowedLayouts
-> implements ISurfaceRenderer<OutputElement> {
+> implements ISurfaceRenderer<OutputElement>
+{
   public constructor(readonly allowedLayoutBlockTypes?: AllowedLayoutItems[]) {
     this.allowedLayoutBlockTypes = allowedLayoutBlockTypes;
   }
@@ -172,8 +173,8 @@ export abstract class BaseSurfaceRenderer<
   /** @deprecated */
   public plainText(
     element: PlainText,
-    context: BlockContext,
-    index: number
+    context?: BlockContext | undefined,
+    index?: number | undefined
   ): OutputElement | null {
     return this[TextObjectType.PLAIN_TEXT](element, context, index);
   }
@@ -181,8 +182,8 @@ export abstract class BaseSurfaceRenderer<
   /** @deprecated */
   public [TextObjectType.MARKDOWN](
     _element: Markdown,
-    _context: BlockContext,
-    _index: number
+    _context?: BlockContext,
+    _index?: number
   ): OutputElement | null {
     return null;
   }
@@ -190,8 +191,8 @@ export abstract class BaseSurfaceRenderer<
   /** @deprecated */
   public text(
     textObject: TextObject,
-    context: BlockContext,
-    index: number
+    context?: BlockContext,
+    index?: number
   ): OutputElement | null {
     switch (textObject.type) {
       case TextObjectType.PLAIN_TEXT:
@@ -207,7 +208,7 @@ export abstract class BaseSurfaceRenderer<
 
   public abstract [TextObjectType.PLAIN_TEXT](
     textObject: PlainText,
-    context: BlockContext,
-    index: number
+    context?: BlockContext,
+    index?: number
   ): OutputElement | null;
 }

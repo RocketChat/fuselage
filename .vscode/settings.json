@@ -67,6 +67,10 @@
     {
       "directory": "scripts",
       "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/styled",
+      "changeProcessCWD": true
     }
   ],
   "editor.codeActionsOnSave": {

@@ -60,13 +60,8 @@ export const MultiSelect = ({
   const applyFilter = ([, option]) =>
     !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
   const filteredOptions = options.filter(applyFilter).map(mapOptions);
-  const [
-    cursor,
-    handleKeyDown,
-    handleKeyUp,
-    reset,
-    [visible, hide, show],
-  ] = useCursor(index, filteredOptions, internalChanged);
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
+    useCursor(index, filteredOptions, internalChanged);
 
   useEffect(reset, [filter]);
 
