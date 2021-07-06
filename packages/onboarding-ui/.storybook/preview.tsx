@@ -35,6 +35,14 @@ const getI18n = () => {
       en: {
         translation: {
           page: {
+            awaitingConfirmation: {
+              title: 'Awaiting confirmation',
+              subtitle:
+                'We have sent you an email to emailname@email.com with a confirmation link. Please verify that the security code below matches the one in the email.',
+              code: 'Funny Tortoise In The Hat',
+              codeFallback:
+                'Didn’t receive email? <0>Resend</0> or <1>Change email</1>',
+            },
             emailConfirmed: {
               title: 'Email Confirmed!',
               subtitle:
