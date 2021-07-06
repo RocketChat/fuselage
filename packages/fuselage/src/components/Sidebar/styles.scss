@@ -100,7 +100,7 @@ $sidebar-item-color-selected: theme(
     &__wrapper {
       @extend %sidebar-base;
       @include typography.use-with-truncated-text();
-      flex: 1 0 100%;
+      flex: 1 0;
 
       margin-inline: lengths.margin(-2);
     }
@@ -133,7 +133,6 @@ $sidebar-item-color-selected: theme(
     &__avatar {
       flex: 0 0 auto;
 
-      margin-inline: lengths.margin(2);
       @include typography.use-with-truncated-text();
     }
 
@@ -151,8 +150,8 @@ $sidebar-item-color-selected: theme(
       display: flex;
       justify-content: center;
 
-      width: lengths.size(12);
-      margin-inline: lengths.margin(4);
+      width: lengths.size(16);
+      margin-inline: lengths.margin(2);
     }
 
     &__content {
@@ -168,7 +167,7 @@ $sidebar-item-color-selected: theme(
       display: block;
       flex: 1 1 1%;
 
-      margin-inline: lengths.margin(4);
+      margin-inline: lengths.margin(2);
     }
 
     &__subtitle {
