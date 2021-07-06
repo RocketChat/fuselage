@@ -40,6 +40,9 @@ const getI18n = () => {
               subtitle:
                 'You can return to your Rocket.Chat application – we have launched your workspace already.',
             },
+            confirmationProcess: {
+              title: 'Confirmation in Process',
+            },
           },
           form: {
             adminInfoForm: {
