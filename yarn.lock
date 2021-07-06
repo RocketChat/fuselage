@@ -4425,6 +4425,7 @@ __metadata:
     "@storybook/react": ^6.2.9
     "@storybook/source-loader": ^6.2.9
     "@storybook/theming": ^6.2.9
+    cross-env: ^7.0.3
     eslint: ^7.26.0
     lint-staged: ^11.0.0
     loki: ^0.28.1
