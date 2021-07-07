@@ -1,4 +1,7 @@
 {
+  "global": {
+    "fieldRequired": "This field is required"
+  },
   "page": {
     "awaitingConfirmation": {
       "title": "Awaiting confirmation",
