@@ -9,8 +9,7 @@ export const ContextElement: FC<{
   className?: string;
   elements: ContextBlockElements[];
   parser: BaseSurfaceRenderer<FC>;
-  index: number;
-}> = ({ elements, parser, className, index }) => (
+}> = ({ elements, parser, className }) => (
   <Box
     className={className}
     display='flex'
@@ -19,12 +18,7 @@ export const ContextElement: FC<{
     withTruncatedText
   >
     {elements.map((element, i) => (
-      <ContextElementItem
-        index={index}
-        key={i}
-        element={element}
-        parser={parser}
-      />
+      <ContextElementItem index={i} key={i} element={element} parser={parser} />
     ))}
   </Box>
 );

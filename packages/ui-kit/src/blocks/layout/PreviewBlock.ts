@@ -6,7 +6,7 @@ import {
 import { LayoutBlockType } from '../LayoutBlockType';
 import { TextObject } from '../TextObject';
 import { PlainText } from '../text/PlainText';
-// import { ContextBlock } from './ContextBlock';
+import { ContextBlockElements } from './ContextBlock';
 
 type Image<V extends VisibilityTypes = VisibilityTypesApps> = {
   url: string;
@@ -23,7 +23,7 @@ export type PreviewBlock<V extends VisibilityTypes = VisibilityTypesApps> =
       type: `${LayoutBlockType.PREVIEW}`;
       title: PlainText;
       description: TextObject;
-      // footer?: ContextBlock;
+      context?: ContextBlockElements[];
 
       preview: never;
       // downloadUrl?: never;
@@ -36,6 +36,7 @@ export type PreviewBlock<V extends VisibilityTypes = VisibilityTypesApps> =
       preview: Image<V>;
       title: PlainText;
       description: TextObject;
+      context?: ContextBlockElements[];
 
       externalUrl?: string;
     }
@@ -44,6 +45,7 @@ export type PreviewBlock<V extends VisibilityTypes = VisibilityTypesApps> =
       thumb: Image<V>;
       title: PlainText;
       description: TextObject;
+      context?: ContextBlockElements[];
 
       externalUrl?: string;
     };
