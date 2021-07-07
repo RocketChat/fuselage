@@ -10,7 +10,7 @@ import {
 import { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Form from '../helpers/Form';
+import Form from '../../common/Form';
 
 const AdminInfoForm = (): ReactElement => {
   const { t } = useTranslation();
