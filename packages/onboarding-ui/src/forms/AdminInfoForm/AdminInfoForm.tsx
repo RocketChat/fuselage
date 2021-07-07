@@ -13,14 +13,18 @@ import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
 
-type AdminInfoFormInputs = {
+export type AdminInfoFormInputs = {
   fullname: string;
   username: string;
   companyEmail: string;
   password: string;
 };
 
-const AdminInfoForm = (): ReactElement => {
+const AdminInfoForm = ({
+  onSubmit,
+}: {
+  onSubmit: SubmitHandler<AdminInfoFormInputs>;
+}): ReactElement => {
   const { t } = useTranslation();
 
   const {
@@ -28,9 +32,6 @@ const AdminInfoForm = (): ReactElement => {
     handleSubmit,
     formState: { errors },
   } = useForm<AdminInfoFormInputs>();
-
-  const onSubmit: SubmitHandler<AdminInfoFormInputs> = (data) =>
-    console.log(data);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
