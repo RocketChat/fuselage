@@ -15,6 +15,11 @@ $message-generic-preview-title-color: theme(
   colors.foreground(default)
 );
 
+$message-generic-preview-context-color: theme(
+  'message-generic-preview-context-color',
+  colors.neutral(700)
+);
+
 $message-generic-preview-description-color: theme(
   'message-generic-preview-description-color',
   colors.foreground(info)
@@ -126,6 +131,14 @@ $message-generic-preview-content-hover-background-color: theme(
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
     }
+  }
+
+  &__footer {
+    @include typography.use-with-truncated-text();
+    @include typography.use-font-scale(c1);
+    width: 100%;
+
+    color: $message-generic-preview-context-color;
   }
 
   &__thumb {

@@ -1,3 +1,4 @@
+import { Box } from '@rocket.chat/fuselage';
 import { BlockContext } from '@rocket.chat/ui-kit';
 import React from 'react';
 
@@ -173,5 +174,9 @@ export function linearScale(element, context, index) {
 }
 
 export function preview(element, context, index) {
-  return <PreviewElement key={index} element={element} />;
+  return (
+    <Box>
+      <PreviewElement key={index} element={element} parser={this} />
+    </Box>
+  );
 }

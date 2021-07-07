@@ -6,14 +6,24 @@ import {
   MessageGenericPreviewImage,
   MessageGenericPreviewThumb,
   MessageGenericPreviewTitle,
+  MessageGenericPreviewFooter,
 } from '@rocket.chat/fuselage';
+import { BlockContext } from '@rocket.chat/ui-kit';
 import { VisibilityTypesInternal } from '@rocket.chat/ui-kit/dist/esm/VisitibilityType';
 import { PreviewBlock } from '@rocket.chat/ui-kit/dist/esm/blocks/layout/PreviewBlock';
+import { BaseSurfaceRenderer } from '@rocket.chat/ui-kit/dist/esm/rendering/BaseSurfaceRenderer';
 import React, { FC } from 'react';
+
+import { ContextElement } from './ContextElement';
 
 export const PreviewElement: FC<{
   element: PreviewBlock<VisibilityTypesInternal>;
-}> = ({ element: { title, description, externalUrl, ...args } }) => (
+  context?: BlockContext;
+  parser: BaseSurfaceRenderer<FC>;
+}> = ({
+  element: { title, description, externalUrl, context, ...args },
+  parser,
+}) => (
   <MessageGenericPreview>
     {'preview' in args && args.preview !== undefined && (
       <MessageGenericPreviewImage
@@ -41,6 +51,11 @@ export const PreviewElement: FC<{
       <MessageGenericPreviewDescription>
         {description.text}
       </MessageGenericPreviewDescription>
+      {context && (
+        <MessageGenericPreviewFooter>
+          <ContextElement elements={context} parser={parser} />
+        </MessageGenericPreviewFooter>
+      )}
     </MessageGenericPreviewContent>
   </MessageGenericPreview>
 );
