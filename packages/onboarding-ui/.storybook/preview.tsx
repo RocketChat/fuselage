@@ -28,7 +28,7 @@ addParameters({
 const getI18n = () => {
   const i18n = i18next.createInstance().use(initReactI18next);
 
-  import('./en.i18n.json').then((translation) => {
+  import('../.i18n/en.i18n.json').then((translation) => {
     i18n.init({
       fallbackLng: 'en',
       debug: false,
