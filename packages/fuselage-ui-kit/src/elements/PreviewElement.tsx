@@ -48,7 +48,9 @@ export const PreviewElement: FC<{
       <MessageGenericPreviewTitle externalUrl={externalUrl}>
         {title.text}
       </MessageGenericPreviewTitle>
-      <MessageGenericPreviewDescription>
+      <MessageGenericPreviewDescription
+        clamp={'preview' in args && args.preview !== undefined}
+      >
         {description.text}
       </MessageGenericPreviewDescription>
       {context && (

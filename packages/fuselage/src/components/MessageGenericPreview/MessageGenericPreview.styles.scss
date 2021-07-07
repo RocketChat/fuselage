@@ -58,6 +58,8 @@ $message-generic-preview-content-hover-background-color: theme(
       @include typography.use-with-truncated-text();
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
 
       margin-block: lengths.margin(8);
       padding-inline: lengths.margin(16);
@@ -78,7 +80,6 @@ $message-generic-preview-content-hover-background-color: theme(
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: contain;
-    box-shadow: inset 0 0 0 2px rgb(0 0 0 / 5%);
   }
 
   &__title {
@@ -139,10 +140,15 @@ $message-generic-preview-content-hover-background-color: theme(
     width: 100%;
 
     color: $message-generic-preview-context-color;
+
+    a {
+      color: $message-generic-preview-context-color;
+    }
   }
 
   &__thumb {
     @include size.square(lengths.size(96));
+    flex-shrink: 0;
 
     margin: lengths.margin(-2);
   }
