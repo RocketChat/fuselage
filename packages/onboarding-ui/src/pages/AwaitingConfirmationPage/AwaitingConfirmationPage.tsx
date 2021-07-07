@@ -6,9 +6,21 @@ import { useTranslation, Trans } from 'react-i18next';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import { useDarkMode } from '../../common/DarkModeProvider';
 import RocketChatLogo from '../../common/RocketChatLogo';
-import Link from './Link';
+import ActionLink from './ActionLink';
 
-const AwaitingConfirmationPage = (): ReactElement => {
+type AwaitingConfirmationPageProps = {
+  emailAddress: string;
+  securityCode: string;
+  onResendEmailRequest: () => void;
+  onChangeEmailRequest: () => void;
+};
+
+const AwaitingConfirmationPage = ({
+  securityCode,
+  emailAddress,
+  onResendEmailRequest,
+  onChangeEmailRequest,
+}: AwaitingConfirmationPageProps): ReactElement => {
   const darkMode = useDarkMode();
   const { t } = useTranslation();
 
@@ -39,7 +51,9 @@ const AwaitingConfirmationPage = (): ReactElement => {
             {t('page.awaitingConfirmation.title')}
           </Box>
 
-          <Box fontScale='s1'>{t('page.awaitingConfirmation.subtitle')}</Box>
+          <Box fontScale='s1'>
+            {t('page.awaitingConfirmation.subtitle', { emailAddress })}
+          </Box>
 
           <Box
             maxWidth={498}
@@ -50,13 +64,17 @@ const AwaitingConfirmationPage = (): ReactElement => {
             backgroundColor={colors.n700}
             borderRadius='x3'
           >
-            {t('page.awaitingConfirmation.code')}
+            {securityCode}
           </Box>
 
           <Box fontScale='c1'>
             <Trans i18nKey='page.awaitingConfirmation.codeFallback'>
-              <Link href='#' />
-              <Link href='#' />
+              Didn’t receive email?
+              <ActionLink onClick={onResendEmailRequest}>Resend</ActionLink>
+              or
+              <ActionLink onClick={onChangeEmailRequest}>
+                Change email
+              </ActionLink>
             </Trans>
           </Box>
         </Margins>
