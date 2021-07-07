@@ -28,32 +28,16 @@ addParameters({
 const getI18n = () => {
   const i18n = i18next.createInstance().use(initReactI18next);
 
-  i18n.init({
-    fallbackLng: 'en',
-    debug: false,
-    resources: {
-      en: {
-        translation: {
-          page: {
-            awaitingConfirmation: {
-              title: 'Awaiting confirmation',
-              subtitle:
-                'We have sent you an email to {{emailAddress}} with a confirmation link. Please verify that the security code below matches the one in the email.',
-              codeFallback:
-                'Didn’t receive email? <1>Resend</1> or <3>Change email</3>',
-            },
-            emailConfirmed: {
-              title: 'Email Confirmed!',
-              subtitle:
-                'You can return to your Rocket.Chat application – we have launched your workspace already.',
-            },
-            confirmationProcess: {
-              title: 'Confirmation in Process',
-            },
-          },
+  import('./en.i18n.json').then((translation) => {
+    i18n.init({
+      fallbackLng: 'en',
+      debug: false,
+      resources: {
+        en: {
+          translation,
         },
       },
-    },
+    });
   });
 
   return i18n;
