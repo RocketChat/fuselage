@@ -1,0 +1,91 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+
+import { MultiSelect, MultiSelectFiltered } from '../..';
+
+export const thumb =
+  'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
+export const options = [
+  [1, 'a teste 1'],
+  [2, 'b teste 2', true],
+  [3, 'c teste 3'],
+  [4, 'd teste 4'],
+  [5, 'd teste 5'],
+  [6, 'd teste 6'],
+  [7, 'd teste 7'],
+  [8, 'd teste 8'],
+  [9, 'd teste 9'],
+  [10, 'd teste 10'],
+];
+export const optionsEllipses = [
+  [11, 'Very very very very very very very very very large text'],
+  ...options,
+];
+
+<Meta
+  title='Forms/MultiSelect'
+  component={MultiSelect}
+  parameters={{ jest: ['Select/spec'] }}
+/>
+
+# MultiSelect
+
+An input for selection of options.
+
+<Canvas>
+  <Story name='MultiSelect'>
+    <MultiSelect placeholder='Placeholder here...' options={options} />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='MultiSelect Error'>
+    <MultiSelect error placeholder='Placeholder here...' options={options} />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='MultiSelect Disabled'>
+    <MultiSelect disabled placeholder='Placeholder here...' options={options} />
+  </Story>
+</Canvas>
+
+<ArgsTable of={MultiSelect} />
+
+# MultiSelectFiltered
+
+An input for selection of options.
+
+<Canvas>
+  <Story name='MultiSelectFiltered'>
+    <MultiSelectFiltered
+      placeholder='Placeholder here...'
+      onChange={action('change')}
+      options={options}
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='MultiSelectFiltered error'>
+    <MultiSelectFiltered
+      error
+      placeholder='Placeholder here...'
+      onChange={action('change')}
+      options={options}
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='MultiSelectFiltered disabled'>
+    <MultiSelectFiltered
+      disabled
+      placeholder='Placeholder here...'
+      onChange={action('change')}
+      options={options}
+    />
+  </Story>
+</Canvas>
+
+<ArgsTable of={MultiSelectFiltered} />
