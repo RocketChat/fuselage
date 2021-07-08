@@ -1,4 +1,5 @@
 import {
+  useMergedRefs,
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
@@ -24,7 +25,7 @@ const Wrapper = forwardRef((props, ref) => (
   <Box is='div' rcx-select__wrapper ref={ref} {...props} />
 ));
 
-export const Focus = React.forwardRef((props, ref) => (
+export const Focus = forwardRef((props, ref) => (
   <Box
     ref={ref}
     fontScale='p2'
@@ -48,142 +49,148 @@ const useDidUpdate = (func, deps = []) => {
   }, deps);
 };
 
-export const Select = ({
-  value,
-  filter,
-  error,
-  disabled,
-  options = [],
-  anchor: Anchor = Focus,
-  onChange = () => {},
-  getValue = ([value] = []) => value,
-  getLabel = ([, label] = []) => label,
-  placeholder = '',
-  renderOptions: _Options = Options,
-  ...props
-}) => {
-  const [internalValue, setInternalValue] = useState(value);
+export const Select = forwardRef(
+  (
+    {
+      value,
+      filter,
+      error,
+      disabled,
+      options = [],
+      anchor: Anchor = Focus,
+      onChange = () => {},
+      getValue = ([value] = []) => value,
+      getLabel = ([, label] = []) => label,
+      placeholder = '',
+      renderOptions: _Options = Options,
+      ...props
+    },
+    ref
+  ) => {
+    const [internalValue, setInternalValue] = useState(value);
 
-  const currentValue = value !== undefined ? value : internalValue;
+    const currentValue = value !== undefined ? value : internalValue;
 
-  const internalChangedByKeyboard = useMutableCallback(([value]) => {
-    setInternalValue(value);
-    onChange(value);
-  });
+    const internalChangedByKeyboard = useMutableCallback(([value]) => {
+      setInternalValue(value);
+      onChange(value);
+    });
 
-  const option = options.find((option) => getValue(option) === currentValue);
+    const option = options.find((option) => getValue(option) === currentValue);
 
-  const index = options.indexOf(option);
+    const index = options.indexOf(option);
 
-  const filteredOptions = useMemo(() => {
-    const mapOptions = ([value, label]) => {
-      if (currentValue === value) {
-        return [value, label, true];
-      }
-      return [value, label];
-    };
+    const filteredOptions = useMemo(() => {
+      const mapOptions = ([value, label]) => {
+        if (currentValue === value) {
+          return [value, label, true];
+        }
+        return [value, label];
+      };
 
-    const applyFilter = ([, option]) =>
-      !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
-    return options.filter(applyFilter).map(mapOptions);
-  }, [options, currentValue, filter]);
+      const applyFilter = ([, option]) =>
+        !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
+      return options.filter(applyFilter).map(mapOptions);
+    }, [options, currentValue, filter]);
 
-  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-    useCursor(index, filteredOptions, internalChangedByKeyboard);
+    const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
+      useCursor(index, filteredOptions, internalChangedByKeyboard);
 
-  const internalChangedByClick = useMutableCallback(([value]) => {
-    setInternalValue(value);
-    onChange(value);
-    hide();
-  });
+    const internalChangedByClick = useMutableCallback(([value]) => {
+      setInternalValue(value);
+      onChange(value);
+      hide();
+    });
 
-  const ref = useRef();
+    const innerRef = useRef();
+    const anchorRef = useMergedRefs(ref, innerRef);
 
-  const { ref: containerRef, borderBoxSize } = useResizeObserver();
+    const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  useDidUpdate(reset, [filter, internalValue]);
+    useDidUpdate(reset, [filter, internalValue]);
 
-  const valueLabel = getLabel(option);
+    const valueLabel = getLabel(option);
 
-  const visibleText =
-    (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
-    (valueLabel || placeholder || typeof placeholder === 'string');
-  return (
-    <Box
-      rcx-select
-      disabled={disabled}
-      ref={containerRef}
-      onClick={useMutableCallback(() =>
-        visible === AnimatedVisibility.VISIBLE
-          ? hide()
-          : ref.current.focus() & show()
-      )}
-      className={useMemo(
-        () => [error && 'invalid', disabled && 'disabled'],
-        [error, disabled]
-      )}
-      {...props}
-    >
-      <Wrapper
-        display='flex'
-        mi='neg-x4'
-        rcx-select__wrapper--hidden={!!visibleText}
-      >
-        {visibleText && (
-          <Box
-            flexGrow={1}
-            is='span'
-            mi='x4'
-            rcx-select__item
-            fontScale='p2'
-            color={valueLabel ? 'default' : 'hint'}
-          >
-            {visibleText}
-          </Box>
+    const visibleText =
+      (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
+      (valueLabel || placeholder || typeof placeholder === 'string');
+    return (
+      <Box
+        rcx-select
+        disabled={disabled}
+        ref={containerRef}
+        onClick={useMutableCallback(() =>
+          visible === AnimatedVisibility.VISIBLE
+            ? hide()
+            : innerRef.current.focus() & show()
         )}
-        <Anchor
-          disabled={disabled}
-          rcx-input-box--undecorated
-          filter={filter}
-          ref={ref}
-          aria-haspopup='listbox'
-          onClick={show}
-          onBlur={hide}
-          onKeyUp={handleKeyUp}
-          onKeyDown={handleKeyDown}
-        />
-        <Addon
-          mi='x4'
-          children={
-            <Icon
-              name={
-                visible === AnimatedVisibility.VISIBLE
-                  ? 'cross'
-                  : 'chevron-down'
-              }
-              size='x20'
-            />
-          }
-        />
-      </Wrapper>
-      <PositionAnimated visible={visible} anchor={containerRef}>
-        <_Options
-          width={borderBoxSize.inlineSize}
-          role='listbox'
-          filter={filter}
-          options={filteredOptions}
-          onSelect={internalChangedByClick}
-          cursor={cursor}
-        />
-      </PositionAnimated>
-    </Box>
-  );
-};
+        className={useMemo(
+          () => [error && 'invalid', disabled && 'disabled'],
+          [error, disabled]
+        )}
+        {...props}
+      >
+        <Wrapper
+          display='flex'
+          mi='neg-x4'
+          rcx-select__wrapper--hidden={!!visibleText}
+        >
+          {visibleText && (
+            <Box
+              flexGrow={1}
+              is='span'
+              mi='x4'
+              rcx-select__item
+              fontScale='p2'
+              color={valueLabel ? 'default' : 'hint'}
+            >
+              {visibleText}
+            </Box>
+          )}
+          <Anchor
+            disabled={disabled}
+            rcx-input-box--undecorated
+            filter={filter}
+            ref={anchorRef}
+            aria-haspopup='listbox'
+            onClick={show}
+            onBlur={hide}
+            onKeyUp={handleKeyUp}
+            onKeyDown={handleKeyDown}
+          />
+          <Addon
+            mi='x4'
+            children={
+              <Icon
+                name={
+                  visible === AnimatedVisibility.VISIBLE
+                    ? 'cross'
+                    : 'chevron-down'
+                }
+                size='x20'
+              />
+            }
+          />
+        </Wrapper>
+        <PositionAnimated visible={visible} anchor={containerRef}>
+          <_Options
+            width={borderBoxSize.inlineSize}
+            role='listbox'
+            filter={filter}
+            options={filteredOptions}
+            onSelect={internalChangedByClick}
+            cursor={cursor}
+          />
+        </PositionAnimated>
+      </Box>
+    );
+  }
+);
 
 export const SelectFiltered = ({ options, placeholder, ...props }) => {
   const [filter, setFilter] = useState('');
   const anchor = useCallback(
-    React.forwardRef(({ children, filter, ...props }, ref) => (
+    forwardRef(({ children, filter, ...props }, ref) => (
       <InputBox.Input
         mi='x4'
         flexGrow={1}
@@ -198,6 +205,7 @@ export const SelectFiltered = ({ options, placeholder, ...props }) => {
     )),
     []
   );
+
   return (
     <Select
       placeholder={null}
