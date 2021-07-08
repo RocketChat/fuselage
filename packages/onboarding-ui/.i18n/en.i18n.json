@@ -77,6 +77,11 @@
         "success": "Next"
       }
     },
+    "accountEmailForm": {
+      "description": "To register your server, we need to connect it to your cloud account. If you already have one - we can link it automatically for you. Otherwise, a new account will be created.",
+      "inputLabel": "Cloud account email",
+      "inputPlaceholder": "Please enter your Email"
+    },
     "serverRegistrationForm": {
       "steps": "Step X of X",
       "title": "Register Your Server",
