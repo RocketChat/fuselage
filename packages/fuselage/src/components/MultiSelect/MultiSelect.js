@@ -2,7 +2,14 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  memo,
+  forwardRef,
+} from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
 import Chip from '../Chip';
@@ -10,9 +17,9 @@ import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
 import { Options, CheckOption, useCursor } from '../Options';
-import { Focus, Addon } from './Select';
+import { Focus, Addon } from '../Select/Select';
 
-const SelectedOptions = React.memo((props) => <Chip {...props} />);
+const SelectedOptions = memo((props) => <Chip {...props} />);
 
 const prevent = (e) => {
   e.preventDefault();
@@ -163,7 +170,7 @@ export const MultiSelect = ({
 export const MultiSelectFiltered = ({ options, placeholder, ...props }) => {
   const [filter, setFilter] = useState('');
   const anchor = useCallback(
-    React.forwardRef(({ children, filter, ...props }, ref) => (
+    forwardRef(({ children, filter, ...props }, ref) => (
       <Flex.Item grow={1}>
         <InputBox.Input
           ref={ref}
