@@ -28,116 +28,16 @@ addParameters({
 const getI18n = () => {
   const i18n = i18next.createInstance().use(initReactI18next);
 
-  i18n.init({
-    fallbackLng: 'en',
-    debug: false,
-    resources: {
-      en: {
-        translation: {
-          page: {
-            emailConfirmed: {
-              title: 'Email Confirmed!',
-              subtitle:
-                'You can return to your Rocket.Chat application – we have launched your workspace already.',
-            },
-            confirmationProcess: {
-              title: 'Confirmation in Process',
-            },
-          },
-          form: {
-            adminInfoForm: {
-              steps: 'Step X of X',
-              title: 'Admin Info',
-              subtitle:
-                'We need this to create an admin profile inside your workspace',
-              fields: {
-                fullName: {
-                  label: 'Full name',
-                  placeholder: 'First and last name',
-                },
-                username: {
-                  label: 'Username',
-                  placeholder: '@username',
-                },
-                companyEmail: {
-                  label: 'Company email',
-                  placeholder: 'Company email',
-                },
-                password: {
-                  label: 'Password',
-                  placeholder: 'Create password',
-                  hint: 'Password rules description goes here',
-                },
-              },
-              buttons: {
-                success: 'Next',
-              },
-            },
-            organizationInfoForm: {
-              steps: 'Step X of X',
-              title: 'Organization Info',
-              subtitle:
-                'Please, bear with us. This info will help us personalize your workspace',
-              fields: {
-                organizationName: {
-                  label: 'Organization name',
-                  placeholder: 'Organization name',
-                },
-                organizationType: {
-                  label: 'Organization type',
-                  placeholder: 'Select',
-                },
-                organizationIndustry: {
-                  label: 'Organization industry',
-                  placeholder: 'Select',
-                },
-                organizationSize: {
-                  label: 'Organization size',
-                  placeholder: 'Select',
-                },
-                country: {
-                  label: 'Country',
-                  placeholder: 'Select',
-                },
-              },
-              buttons: {
-                cancel: 'Back',
-                success: 'Next',
-              },
-            },
-            serverRegistrationForm: {
-              steps: 'Step X of X',
-              title: 'Register Your Server',
-              register: {
-                title: 'Register server',
-                subtitle: 'What is included',
-                description:
-                  'Preconfigured gateways and proxies provided by Rocket.Chat Technologies Corp.',
-                included: {
-                  push: 'Mobile push notification gateway',
-                  livechat: 'Livechat omnichannel proxy',
-                  oAuth: 'OAuth proxy for social network',
-                  apps: 'Apps Marketplace',
-                },
-                includeUpdates: 'Include product and security updates',
-                agreement:
-                  'I agree with Terms and Conditions and Privacy Policy',
-              },
-              standalone: {
-                title: 'Standalone server',
-                description:
-                  'You will have to set up the environment by yourself:',
-                actionList: {
-                  accounts: 'create accounts with service providers',
-                  settings: 'update preconfigured settings',
-                  mobile: 'and recompile mobile apps with your certificates',
-                },
-              },
-            },
-          },
+  import('../.i18n/en.i18n.json').then((translation) => {
+    i18n.init({
+      fallbackLng: 'en',
+      debug: false,
+      resources: {
+        en: {
+          translation,
         },
       },
-    },
+    });
   });
 
   return i18n;

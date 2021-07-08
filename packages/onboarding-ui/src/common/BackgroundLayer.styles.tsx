@@ -17,7 +17,7 @@ export const Wrapper = styled('div', filterWrapperProps)`
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: ${(p) => p.backgroundColor};
   background-image: url('data:image/svg+xml,${(p) => p.lowerCorner}'),
     url('data:image/svg+xml,${(p) => p.upperCorner}');
