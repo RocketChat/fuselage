@@ -1,24 +1,21 @@
 import type { Story, Meta } from '@storybook/react';
 
 import RegisterServerForm from '.';
-import BackgroundLayer from '../../../dist/cjs/common/BackgroundLayer';
 
 export default {
   title: 'forms/RegisterServerForm',
   component: RegisterServerForm,
   parameters: {
+    actions: { argTypesRegex: '^on.*' },
     layout: 'fullscreen',
   },
-  decorators: [
-    (Story) => (
-      <BackgroundLayer>
-        <Story />
-      </BackgroundLayer>
-    ),
-  ],
 } as Meta;
 
 export const _RegisterServerForm: Story = (args) => (
-  <RegisterServerForm {...args} />
+  <RegisterServerForm
+    onReturn={() => undefined}
+    onSubmit={(data: any) => console.log(data)}
+    {...args}
+  />
 );
 _RegisterServerForm.storyName = 'RegisterServerForm';

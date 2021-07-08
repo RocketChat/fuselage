@@ -1,16 +1,30 @@
 import { RadioButton } from '@rocket.chat/fuselage';
 import React, { ReactElement } from 'react';
+import { useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import OptionCard from './OptionCard';
 
 const RegisterOptionCard = (): ReactElement => {
   const { t } = useTranslation();
+
+  const { register, setValue } = useFormContext();
+
+  const onClickCard = () => {
+    setValue('registerType', 'standalone');
+  };
+
+  const selected = useWatch({ name: 'registerType' }) === 'standalone';
+
   return (
-    <OptionCard onClick={() => undefined}>
+    <OptionCard selected={selected} onClick={onClickCard}>
       <OptionCard.Block>
         <OptionCard.Title>
-          <RadioButton mie='x8' />
+          <RadioButton
+            {...register('registerType')}
+            mie='x8'
+            value='standalone'
+          />
           {t('form.serverRegistrationForm.standalone.title')}
         </OptionCard.Title>
       </OptionCard.Block>

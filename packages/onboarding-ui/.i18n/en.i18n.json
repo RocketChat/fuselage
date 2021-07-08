@@ -17,6 +17,8 @@
     }
   },
   "form": {
+    "next": "Next",
+    "back": "Back",
     "adminInfoForm": {
       "steps": "Step X of X",
       "title": "Admin Info",
@@ -73,6 +75,32 @@
       "buttons": {
         "cancel": "Back",
         "success": "Next"
+      }
+    },
+    "serverRegistrationForm": {
+      "steps": "Step X of X",
+      "title": "Register Your Server",
+      "register": {
+        "title": "Register server",
+        "subtitle": "What is included",
+        "description": "Preconfigured gateways and proxies provided by Rocket.Chat Technologies Corp.",
+        "included": {
+          "push": "Mobile push notification gateway",
+          "livechat": "Livechat omnichannel proxy",
+          "oAuth": "OAuth proxy for social network",
+          "apps": "Apps Marketplace"
+        },
+        "includeUpdates": "Include product and security updates",
+        "agreement": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
+      },
+      "standalone": {
+        "title": "Standalone server",
+        "description": "You will have to set up the environment by yourself:",
+        "actionList": {
+          "accounts": "create accounts with service providers",
+          "settings": "update preconfigured settings",
+          "mobile": "and recompile mobile apps with your certificates"
+        }
       }
     }
   }
