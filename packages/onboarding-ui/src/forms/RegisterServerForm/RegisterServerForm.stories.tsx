@@ -15,6 +15,8 @@ export const _RegisterServerForm: Story = (args) => (
   <RegisterServerForm
     onReturn={() => undefined}
     onSubmit={(data: any) => console.log(data)}
+    agreementHref='#'
+    policyHref='#'
     {...args}
   />
 );
