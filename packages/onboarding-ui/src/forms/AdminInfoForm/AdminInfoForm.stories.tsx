@@ -12,7 +12,7 @@ export default {
   },
 } as Meta;
 
-export const onSubmit: SubmitHandler<AdminInfoFormInputs> = (data) =>
+const onSubmit: SubmitHandler<AdminInfoFormInputs> = (data) =>
   console.log(data);
 
 export const _AdminInfoForm: Story = (args) => (
