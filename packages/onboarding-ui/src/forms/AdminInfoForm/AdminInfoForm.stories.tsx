@@ -1,21 +1,30 @@
 import type { Story, Meta } from '@storybook/react';
-import { SubmitHandler } from 'react-hook-form';
+import { ComponentProps } from 'react';
 
-import AdminInfoForm, { AdminInfoFormInputs } from './AdminInfoForm';
+import AdminInfoForm from './AdminInfoForm';
+
+type Args = ComponentProps<typeof AdminInfoForm>;
 
 export default {
   title: 'forms/AdminInfoForm',
   component: AdminInfoForm,
   parameters: {
     actions: { argTypesRegex: '^on.*' },
-    layout: 'fullscreen',
+    layout: 'centered',
   },
-} as Meta;
+  argTypes: {
+    validateUsername: { action: 'validateUsername' },
+    validateEmail: { action: 'validateEmail' },
+    validatePassword: { action: 'validatePassword' },
+  },
+} as Meta<Args>;
 
-const onSubmit: SubmitHandler<AdminInfoFormInputs> = (data) =>
-  console.log(data);
-
-export const _AdminInfoForm: Story = (args) => (
-  <AdminInfoForm onSubmit={onSubmit} {...args} />
+export const _AdminInfoForm: Story<Args> = (args) => (
+  <AdminInfoForm {...args} />
 );
 _AdminInfoForm.storyName = 'AdminInfoForm';
+_AdminInfoForm.args = {
+  currentStep: 1,
+  stepCount: 1,
+  passwordRulesHint: 'Password rules description goes here',
+};

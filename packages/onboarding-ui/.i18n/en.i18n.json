@@ -18,7 +18,7 @@
   },
   "form": {
     "adminInfoForm": {
-      "steps": "Step X of X",
+      "steps": "Step {{currentStep}} of {{stepCount}}",
       "title": "Admin Info",
       "subtitle": "We need this to create an admin profile inside your workspace",
       "fields": {
@@ -36,8 +36,7 @@
         },
         "password": {
           "label": "Password",
-          "placeholder": "Create password",
-          "hint": "Password rules description goes here"
+          "placeholder": "Create password"
         }
       },
       "buttons": {
