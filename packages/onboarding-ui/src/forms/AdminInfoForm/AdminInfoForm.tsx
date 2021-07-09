@@ -44,7 +44,7 @@ const AdminInfoForm = ({
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { isDirty, isValidating, isSubmitting, errors },
   } = useForm<AdminInfoFormInputs>();
 
   return (
@@ -134,7 +134,11 @@ const AdminInfoForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup flexGrow={1}>
-          <Button type='submit' primary>
+          <Button
+            type='submit'
+            primary
+            disabled={!isDirty || isValidating || isSubmitting}
+          >
             {t('form.adminInfoForm.buttons.success')}
           </Button>
         </ButtonGroup>
