@@ -13,8 +13,8 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "^0.27.0",
     "@rocket.chat/prettier-config": "^0.27.0",
-    "@types/node": "^15.12.5",
-    "@typescript-eslint/parser": "^4.28.1",
+    "@types/node": "^15.14.1",
+    "@typescript-eslint/parser": "^4.28.2",
     "endent": "^2.1.0",
     "eslint": "^7.29.0",
     "fast-glob": "^3.2.6",

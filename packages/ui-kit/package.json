@@ -51,7 +51,7 @@
     "@babel/preset-env": "^7.14.7",
     "@rocket.chat/eslint-config-alt": "^0.27.0",
     "@rocket.chat/prettier-config": "^0.27.0",
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^26.0.24",
     "babel-loader": "^8.2.2",
     "downlevel-dts": "^0.7.0",
     "eslint": "^7.29.0",
