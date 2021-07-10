@@ -71,7 +71,7 @@ const OrganizationInfoForm = ({
               />
             </Field.Row>
             {errors.organizationName && (
-              <Field.Error>{t('global.fieldRequired')}</Field.Error>
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
             )}
           </Field>
           <Field>

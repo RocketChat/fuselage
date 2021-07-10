@@ -1,14 +1,12 @@
 {
-  "global": {
-    "fieldRequired": "This field is required"
-  },
   "component": {
     "form": {
       "steps": "Step {{currentStep}} of {{stepCount}}",
       "action": {
         "back": "Back",
         "next": "Next"
-      }
+      },
+      "requiredField": "This field is required"
     }
   },
   "page": {

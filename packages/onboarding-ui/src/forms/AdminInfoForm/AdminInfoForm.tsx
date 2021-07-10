@@ -67,7 +67,7 @@ const AdminInfoForm = ({
               />
             </Field.Row>
             {errors.fullname && (
-              <Field.Error>{t('global.fieldRequired')}</Field.Error>
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
             )}
           </Field>
           <Field>
@@ -86,7 +86,7 @@ const AdminInfoForm = ({
               />
             </Field.Row>
             {errors.username && (
-              <Field.Error>{t('global.fieldRequired')}</Field.Error>
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
             )}
           </Field>
           <Field>
@@ -105,7 +105,7 @@ const AdminInfoForm = ({
               />
             </Field.Row>
             {errors.companyEmail && (
-              <Field.Error>{t('global.fieldRequired')}</Field.Error>
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
             )}
           </Field>
           <Field>
@@ -125,7 +125,7 @@ const AdminInfoForm = ({
             </Field.Row>
             <Field.Hint>{passwordRulesHint}</Field.Hint>
             {errors.password && (
-              <Field.Error>{t('global.fieldRequired')}</Field.Error>
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
             )}
           </Field>
         </FieldGroup>
