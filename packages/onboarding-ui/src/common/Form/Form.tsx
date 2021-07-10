@@ -8,9 +8,9 @@ const Form: FC<{ onSubmit: () => void }> = ({
   <Box
     is='form'
     backgroundColor='white'
-    padding='x40'
+    padding={40}
     width='full'
-    maxWidth='576px'
+    maxWidth={576}
     onSubmit={onSubmit}
   >
     {children}

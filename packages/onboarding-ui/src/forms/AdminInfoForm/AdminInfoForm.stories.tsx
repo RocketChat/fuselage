@@ -17,14 +17,14 @@ export default {
     validateEmail: { action: 'validateEmail' },
     validatePassword: { action: 'validatePassword' },
   },
+  args: {
+    currentStep: 1,
+    stepCount: 1,
+    passwordRulesHint: 'Password rules description goes here',
+  },
 } as Meta<Args>;
 
 export const _AdminInfoForm: Story<Args> = (args) => (
   <AdminInfoForm {...args} />
 );
 _AdminInfoForm.storyName = 'AdminInfoForm';
-_AdminInfoForm.args = {
-  currentStep: 1,
-  stepCount: 1,
-  passwordRulesHint: 'Password rules description goes here',
-};

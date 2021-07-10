@@ -59,6 +59,7 @@
     "@types/jest": "^26.0.24",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
+    "countries-list": "^2.6.1",
     "downlevel-dts": "^0.7.0",
     "eslint": "^7.29.0",
     "jest": "^27.0.6",

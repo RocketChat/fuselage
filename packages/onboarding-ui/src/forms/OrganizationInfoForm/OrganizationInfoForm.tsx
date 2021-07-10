@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
 
-export type OrganizationInfoFormInputs = {
+type OrganizationInfoFormInputs = {
   organizationName: string;
   organizationType: string;
   organizationIndustry: string;
@@ -22,6 +22,8 @@ export type OrganizationInfoFormInputs = {
 };
 
 type OrganizationInfoFormProps = {
+  currentStep: number;
+  stepCount: number;
   organizationTypeOptions: SelectOptions;
   organizationIndustryOptions: SelectOptions;
   organizationSizeOptions: SelectOptions;
@@ -30,6 +32,8 @@ type OrganizationInfoFormProps = {
 };
 
 const OrganizationInfoForm = ({
+  currentStep,
+  stepCount,
   organizationTypeOptions,
   organizationIndustryOptions,
   organizationSizeOptions,
@@ -42,12 +46,14 @@ const OrganizationInfoForm = ({
     register,
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { isDirty, isValidating, isSubmitting, errors },
   } = useForm<OrganizationInfoFormInputs>();
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Steps>{t('form.organizationInfoForm.steps')}</Form.Steps>
+      <Form.Steps>
+        {t('form.organizationInfoForm.steps', { currentStep, stepCount })}
+      </Form.Steps>
       <Form.Title>{t('form.organizationInfoForm.title')}</Form.Title>
       <Form.Subtitle>{t('form.organizationInfoForm.subtitle')}</Form.Subtitle>
       <Form.Container>
@@ -76,17 +82,14 @@ const OrganizationInfoForm = ({
               <Controller
                 name='organizationType'
                 control={control}
-                render={({ field: { ref, ...field } }) => (
-                  <>
-                    <Select
-                      {...field}
-                      options={organizationTypeOptions}
-                      placeholder={t(
-                        'form.organizationInfoForm.fields.organizationType.placeholder'
-                      )}
-                    ></Select>
-                    <input ref={ref} type='hidden' />
-                  </>
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={organizationTypeOptions}
+                    placeholder={t(
+                      'form.organizationInfoForm.fields.organizationType.placeholder'
+                    )}
+                  />
                 )}
               />
             </Field.Row>
@@ -99,17 +102,14 @@ const OrganizationInfoForm = ({
               <Controller
                 name='organizationIndustry'
                 control={control}
-                render={({ field: { ref, ...field } }) => (
-                  <>
-                    <Select
-                      {...field}
-                      options={organizationIndustryOptions}
-                      placeholder={t(
-                        'form.organizationInfoForm.fields.organizationIndustry.placeholder'
-                      )}
-                    />
-                    <input ref={ref} type='hidden' />
-                  </>
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={organizationIndustryOptions}
+                    placeholder={t(
+                      'form.organizationInfoForm.fields.organizationIndustry.placeholder'
+                    )}
+                  />
                 )}
               />
             </Field.Row>
@@ -122,17 +122,14 @@ const OrganizationInfoForm = ({
               <Controller
                 name='organizationSize'
                 control={control}
-                render={({ field: { ref, ...field } }) => (
-                  <>
-                    <Select
-                      {...field}
-                      options={organizationSizeOptions}
-                      placeholder={t(
-                        'form.organizationInfoForm.fields.organizationSize.placeholder'
-                      )}
-                    />
-                    <input ref={ref} type='hidden' />
-                  </>
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={organizationSizeOptions}
+                    placeholder={t(
+                      'form.organizationInfoForm.fields.organizationSize.placeholder'
+                    )}
+                  />
                 )}
               />
             </Field.Row>
@@ -145,17 +142,14 @@ const OrganizationInfoForm = ({
               <Controller
                 name='country'
                 control={control}
-                render={({ field: { ref, ...field } }) => (
-                  <>
-                    <Select
-                      {...field}
-                      options={countryOptions}
-                      placeholder={t(
-                        'form.organizationInfoForm.fields.country.placeholder'
-                      )}
-                    />
-                    <input ref={ref} type='hidden' />
-                  </>
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={countryOptions}
+                    placeholder={t(
+                      'form.organizationInfoForm.fields.country.placeholder'
+                    )}
+                  />
                 )}
               />
             </Field.Row>
@@ -165,7 +159,11 @@ const OrganizationInfoForm = ({
       <Form.Footer>
         <ButtonGroup flexGrow={1}>
           <Button>{t('form.organizationInfoForm.buttons.cancel')}</Button>
-          <Button type='submit' primary>
+          <Button
+            type='submit'
+            primary
+            disabled={!isDirty || isValidating || isSubmitting}
+          >
             {t('form.organizationInfoForm.buttons.success')}
           </Button>
         </ButtonGroup>

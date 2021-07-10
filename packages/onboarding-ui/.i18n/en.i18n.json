@@ -44,7 +44,7 @@
       }
     },
     "organizationInfoForm": {
-      "steps": "Step X of X",
+      "steps": "Step {{currentStep}} of {{stepCount}}",
       "title": "Organization Info",
       "subtitle": "Please, bear with us. This info will help us personalize your workspace",
       "fields": {
