@@ -4,7 +4,11 @@
   },
   "component": {
     "form": {
-      "steps": "Step {{currentStep}} of {{stepCount}}"
+      "steps": "Step {{currentStep}} of {{stepCount}}",
+      "action": {
+        "back": "Back",
+        "next": "Next"
+      }
     }
   },
   "page": {
@@ -42,9 +46,6 @@
           "label": "Password",
           "placeholder": "Create password"
         }
-      },
-      "buttons": {
-        "success": "Next"
       }
     },
     "organizationInfoForm": {
@@ -71,10 +72,6 @@
           "label": "Country",
           "placeholder": "Select"
         }
-      },
-      "buttons": {
-        "cancel": "Back",
-        "success": "Next"
       }
     }
   }

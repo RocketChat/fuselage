@@ -29,6 +29,7 @@ type OrganizationInfoFormProps = {
   organizationSizeOptions: SelectOptions;
   countryOptions: SelectOptions;
   onSubmit: SubmitHandler<OrganizationInfoFormInputs>;
+  onBackButtonClick: () => void;
 };
 
 const OrganizationInfoForm = ({
@@ -39,6 +40,7 @@ const OrganizationInfoForm = ({
   organizationSizeOptions,
   countryOptions,
   onSubmit,
+  onBackButtonClick,
 }: OrganizationInfoFormProps): ReactElement => {
   const { t } = useTranslation();
 
@@ -156,13 +158,15 @@ const OrganizationInfoForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup flexGrow={1}>
-          <Button>{t('form.organizationInfoForm.buttons.cancel')}</Button>
+          <Button onClick={onBackButtonClick}>
+            {t('component.form.action.back')}
+          </Button>
           <Button
             type='submit'
             primary
             disabled={!isDirty || isValidating || isSubmitting}
           >
-            {t('form.organizationInfoForm.buttons.success')}
+            {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
       </Form.Footer>

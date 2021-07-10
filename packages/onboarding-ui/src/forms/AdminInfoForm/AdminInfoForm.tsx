@@ -137,7 +137,7 @@ const AdminInfoForm = ({
             primary
             disabled={!isDirty || isValidating || isSubmitting}
           >
-            {t('form.adminInfoForm.buttons.success')}
+            {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
       </Form.Footer>
