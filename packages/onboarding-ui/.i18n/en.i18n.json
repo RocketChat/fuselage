@@ -2,6 +2,11 @@
   "global": {
     "fieldRequired": "This field is required"
   },
+  "component": {
+    "form": {
+      "steps": "Step {{currentStep}} of {{stepCount}}"
+    }
+  },
   "page": {
     "awaitingConfirmation": {
       "title": "Awaiting confirmation",
@@ -18,7 +23,6 @@
   },
   "form": {
     "adminInfoForm": {
-      "steps": "Step {{currentStep}} of {{stepCount}}",
       "title": "Admin Info",
       "subtitle": "We need this to create an admin profile inside your workspace",
       "fields": {
@@ -44,7 +48,6 @@
       }
     },
     "organizationInfoForm": {
-      "steps": "Step {{currentStep}} of {{stepCount}}",
       "title": "Organization Info",
       "subtitle": "Please, bear with us. This info will help us personalize your workspace",
       "fields": {
