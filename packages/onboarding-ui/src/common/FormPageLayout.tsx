@@ -1,4 +1,5 @@
-import { ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
   Aside,
@@ -12,29 +13,33 @@ import {
 import RocketChatLogo from './RocketChatLogo';
 
 type FormPageLayoutProps = {
-  title: ReactNode;
+  logo?: ReactNode;
+  title?: ReactNode;
   subtitle?: ReactNode;
   description?: ReactNode;
   children: ReactNode;
 };
 
 const FormPageLayout = ({
+  logo,
   title,
   subtitle,
   description,
   children,
-}: FormPageLayoutProps): ReactElement => (
-  <Wrapper>
-    <Aside>
-      <Logo>
-        <RocketChatLogo />
-      </Logo>
-      <Title>{title}</Title>
-      {subtitle && <Subtitle>{subtitle}</Subtitle>}
-      <Description>{description}</Description>
-    </Aside>
-    <Content>{children}</Content>
-  </Wrapper>
-);
+}: FormPageLayoutProps): ReactElement => {
+  const { t } = useTranslation();
+
+  return (
+    <Wrapper>
+      <Aside>
+        <Logo>{logo ?? <RocketChatLogo />}</Logo>
+        <Title>{title ?? t('page.form.title')}</Title>
+        {subtitle && <Subtitle>{subtitle}</Subtitle>}
+        <Description>{description}</Description>
+      </Aside>
+      <Content>{children}</Content>
+    </Wrapper>
+  );
+};
 
 export default FormPageLayout;

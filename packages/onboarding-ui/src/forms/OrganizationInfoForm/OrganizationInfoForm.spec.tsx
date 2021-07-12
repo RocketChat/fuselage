@@ -13,6 +13,7 @@ it('renders without crashing', () => {
       organizationSizeOptions={[]}
       countryOptions={[]}
       onSubmit={() => undefined}
+      onBackButtonClick={() => undefined}
     />,
     div
   );

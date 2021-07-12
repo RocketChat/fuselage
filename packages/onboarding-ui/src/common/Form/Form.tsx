@@ -1,6 +1,6 @@
 import { Box } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import { ReactElement, FC } from 'react';
+import type { ReactElement, FC } from 'react';
 
 const Form: FC<{ onSubmit: () => void }> = ({
   onSubmit,

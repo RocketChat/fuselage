@@ -7,7 +7,7 @@ import {
   PasswordInput,
   TextInput,
 } from '@rocket.chat/fuselage';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { useForm, SubmitHandler, Validate } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 

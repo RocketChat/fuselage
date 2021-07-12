@@ -1,5 +1,7 @@
 import styled from '@rocket.chat/styled';
 
+import { sans } from '../helpers/tokenFontFamilies';
+
 export const Wrapper = styled('div')`
   box-sizing: border-box;
   padding: 56px 16px 28px;
@@ -57,6 +59,8 @@ export const Logo = styled('div')`
 export const Title = styled('div')`
   padding-block-end: 24px;
   font-size: ${String(40 / 16)}rem;
+  font-family: ${sans};
+  font-weight: 800;
   line-height: ${String(42 / 16)}rem;
   text-align: center;
 

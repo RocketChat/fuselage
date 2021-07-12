@@ -1,6 +1,6 @@
 import type { Story, Meta } from '@storybook/react';
 import { countries } from 'countries-list';
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
 import OrganizationInfoPage from './OrganizationInfoPage';
 

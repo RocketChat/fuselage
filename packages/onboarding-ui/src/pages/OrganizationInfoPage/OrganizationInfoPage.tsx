@@ -1,7 +1,5 @@
-import { Box } from '@rocket.chat/fuselage';
-import { ReactElement } from 'react';
-import { SubmitHandler } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import type { ReactElement } from 'react';
+import type { SubmitHandler } from 'react-hook-form';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
@@ -26,27 +24,12 @@ type OrganizationInfoPageProps = {
 
 const OrganizationInfoPage = (
   props: OrganizationInfoPageProps
-): ReactElement => {
-  const { t } = useTranslation();
-
-  return (
-    <BackgroundLayer>
-      <FormPageLayout
-        title={
-          <Box
-            fontFamily='sans'
-            fontWeight={800}
-            fontSize='inherit'
-            lineHeight='inherit'
-          >
-            {t('page.form.title')}
-          </Box>
-        }
-      >
-        <OrganizationInfoForm {...props} />
-      </FormPageLayout>
-    </BackgroundLayer>
-  );
-};
+): ReactElement => (
+  <BackgroundLayer>
+    <FormPageLayout>
+      <OrganizationInfoForm {...props} />
+    </FormPageLayout>
+  </BackgroundLayer>
+);
 
 export default OrganizationInfoPage;

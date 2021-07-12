@@ -1,5 +1,5 @@
 import type { Story, Meta } from '@storybook/react';
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
 import AwaitingConfirmationPage from './AwaitingConfirmationPage';
 
