@@ -1,7 +1,7 @@
 import React, { useRef, useState, ComponentProps } from 'react';
 import { Box, ButtonGroup } from '@rocket.chat/fuselage';
 import { Crop, Text, Doodle, Check, Cross } from './components';
-import { Preview } from './helpers';
+import { Preview, CropRenderingLayer } from './helpers';
 
 type ImageManipulationProps = ComponentProps<typeof Box> & {
   imgSrc: string;
@@ -31,7 +31,9 @@ const ImageManipulation = ({ imgSrc, ...props }: ImageManipulationProps) => {
             : 'none'
         }
       />
-
+      {selection === 'crop' && (
+        <CropRenderingLayer imgEle={imageRef} parentEle={parentRef} />
+      )}
       {selection === null ||
         (typeof selection === 'undefined' && (
           <ButtonGroup alignSelf='flex-start' margin='5px'>
