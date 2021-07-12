@@ -41,9 +41,5 @@ export const InitCanvas = ({ img, setCanvas, parent }: InitCanvasProps) => {
     console.log(canvas);
   }, []);
 
-  return (
-    <Box is='canvas' id='canvas'>
-      {' '}
-    </Box>
-  );
+  return <Box is='canvas' id='canvas'></Box>;
 };
