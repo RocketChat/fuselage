@@ -1,11 +1,6 @@
 import { Box, ButtonGroup, Button } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import {
-  useForm,
-  SubmitHandler,
-  FormProvider,
-  UseFormProps,
-} from 'react-hook-form';
+import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
@@ -19,52 +14,45 @@ type RegisterServerFormInputs = {
 };
 
 type RegisterServerFormProps = {
-  currnetStep: number;
+  currentStep: number;
   stepCount: number;
-  onReturn: () => void;
   onSubmit: SubmitHandler<RegisterServerFormInputs>;
+  onBackButtonClick: () => void;
 };
-
-const options: UseFormProps<RegisterServerFormInputs> = {
-  defaultValues: {
-    registerType: 'registered',
-    agreement: false,
-    updates: false,
-  },
-};
-
-export type ExternalLinks = { agreementHref: string; policyHref: string };
 
 const RegisterServerForm = ({
-  currnetStep,
+  currentStep,
   stepCount,
-  onReturn,
   onSubmit,
-  agreementHref,
-  policyHref,
-}: RegisterServerFormProps & ExternalLinks): ReactElement => {
+  onBackButtonClick,
+}: RegisterServerFormProps): ReactElement => {
   const { t } = useTranslation();
 
-  const methods = useForm<RegisterServerFormInputs>(options);
+  const methods = useForm<RegisterServerFormInputs>({
+    defaultValues: {
+      registerType: 'registered',
+      agreement: false,
+      updates: false,
+    },
+  });
   const { handleSubmit } = methods;
 
   return (
     <FormProvider {...methods}>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Steps currentStep={currnetStep} stepCount={stepCount} />
+        <Form.Steps currentStep={currentStep} stepCount={stepCount} />
         <Form.Title>{t('form.serverRegistrationForm.title')}</Form.Title>
         <Box mbe='x24' mbs='x16'>
-          <RegisterOptionCard
-            agreementHref={agreementHref}
-            policyHref={policyHref}
-          />
+          <RegisterOptionCard />
         </Box>
         <StandaloneOptionCard />
         <Form.Footer>
           <ButtonGroup>
-            <Button onClick={onReturn}>{t('form.back')}</Button>
+            <Button onClick={onBackButtonClick}>
+              {t('component.form.action.back')}
+            </Button>
             <Button type='submit' primary>
-              {t('form.next')}
+              {t('component.form.action.next')}
             </Button>
           </ButtonGroup>
         </Form.Footer>

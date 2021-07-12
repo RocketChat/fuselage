@@ -4,12 +4,8 @@ import { useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import OptionCard from './OptionCard';
-import type { ExternalLinks } from './RegisterServerForm';
 
-const RegisterOptionCard = ({
-  agreementHref,
-  policyHref,
-}: ExternalLinks): ReactElement => {
+const RegisterOptionCard = (): ReactElement => {
   const { t } = useTranslation();
 
   const { register, setValue } = useFormContext();
@@ -73,18 +69,26 @@ const RegisterOptionCard = ({
         </Box>
         <Box color='default' fontScale='c1'>
           <CheckBox mie='x8' disabled={!selected} {...register('agreement')} />{' '}
-          <label htmlFor='agreement'>
+          <Box is='label' htmlFor='agreement' withRichContent>
             <Trans i18nKey='form.serverRegistrationForm.register.agreement'>
               I agree with
-              <OptionCard.Link href={agreementHref}>
+              <a
+                href='https://rocket.chat/terms'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 Terms and Conditions
-              </OptionCard.Link>
+              </a>
               and
-              <OptionCard.Link href={policyHref}>
+              <a
+                href='https://rocket.chat/policy'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 Privacy Policy
-              </OptionCard.Link>
+              </a>
             </Trans>
-          </label>
+          </Box>
         </Box>
       </OptionCard.Block>
     </OptionCard>

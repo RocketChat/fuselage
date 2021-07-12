@@ -1,6 +1,5 @@
 import Block from './Block';
 import Description from './Description';
-import Link from './Link';
 import List from './List';
 import ListItem from './ListItem';
 import OptionCard from './OptionCard';
@@ -14,5 +13,4 @@ export default Object.assign(OptionCard, {
   List,
   ListItem,
   Block,
-  Link,
 });

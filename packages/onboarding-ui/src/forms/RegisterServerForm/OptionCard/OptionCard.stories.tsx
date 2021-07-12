@@ -1,27 +1,21 @@
 import type { Story, Meta } from '@storybook/react';
+import type { ComponentProps } from 'react';
 
 import OptionCard from '.';
-// import BackgroundLayer from '../../../../dist/cjs/common/BackgroundLayer';
+
+type Args = ComponentProps<typeof OptionCard>;
 
 export default {
   title: 'forms/RegisterServerForm/OptionCard',
   component: OptionCard,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
+    actions: { argTypesRegex: '^on.*' },
   },
-  // decorators: [
-  //   (Story) => (
-  //     <BackgroundLayer>
-  //       <Story />
-  //     </BackgroundLayer>
-  //   ),
-  // ],
-} as Meta;
+} as Meta<Args>;
 
-const onClick = () => undefined;
-
-export const _OptionCard: Story = () => (
-  <OptionCard onClick={onClick}>
+export const Unselected: Story<Args> = (args) => (
+  <OptionCard {...args}>
     <OptionCard.Block>
       <OptionCard.Title>Title</OptionCard.Title>
     </OptionCard.Block>
@@ -38,10 +32,12 @@ export const _OptionCard: Story = () => (
     </OptionCard.Block>
   </OptionCard>
 );
-_OptionCard.storyName = 'OptionCard';
+Unselected.args = {
+  selected: false,
+};
 
-export const _OptionCardSelected: Story = () => (
-  <OptionCard selected onClick={onClick}>
+export const Selected: Story<Args> = (args) => (
+  <OptionCard {...args}>
     <OptionCard.Block>
       <OptionCard.Title>Title</OptionCard.Title>
     </OptionCard.Block>
@@ -58,4 +54,6 @@ export const _OptionCardSelected: Story = () => (
     </OptionCard.Block>
   </OptionCard>
 );
-_OptionCardSelected.storyName = 'OptionCard Selected';
+Selected.args = {
+  selected: true,
+};
