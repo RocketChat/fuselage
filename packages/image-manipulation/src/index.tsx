@@ -1,7 +1,7 @@
 import { Box, ButtonGroup } from '@rocket.chat/fuselage';
 import React, { useRef, ComponentProps } from 'react';
 
-import { Crop, Text, Doodle } from './components';
+import { Crop, Text, Doodle, Check, Cross } from './components';
 import { Preview } from './components/Preview';
 
 type ImageManipulationProps = ComponentProps<typeof Box> & {
@@ -19,10 +19,14 @@ const ImageManipulation = ({ imgSrc, ...props }: ImageManipulationProps) => {
       alignItems='center'
     >
       <Preview imgSrc={imgSrc} ref={imageEle} maxWidth='90%' maxHeight='90%' />
-      <ButtonGroup alignSelf='flex-start'>
+      <ButtonGroup alignSelf='flex-start' margin='5px'>
         <Crop />
         <Doodle />
         <Text />
+      </ButtonGroup>
+      <ButtonGroup alignSelf='flex-start'>
+        <Check />
+        <Cross />
       </ButtonGroup>
     </Box>
   );
