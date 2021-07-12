@@ -5,36 +5,36 @@ import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
 
-type AccountEmailFormInputs = {
+type CloudAccountEmailFormInputs = {
   email: string;
 };
 
-type AccountEmailFormProps = {
+type CloudAccountEmailFormProps = {
   currentStep: number;
   stepCount: number;
-  onReturn: () => void;
-  onSubmit: SubmitHandler<AccountEmailFormInputs>;
+  onBackButtonClick: () => void;
+  onSubmit: SubmitHandler<CloudAccountEmailFormInputs>;
 };
 
-const options: UseFormProps<AccountEmailFormInputs> = {
+const options: UseFormProps<CloudAccountEmailFormInputs> = {
   defaultValues: {
     email: '',
   },
 };
 
-const AccountEmailForm = ({
+const CloudAccountEmailForm = ({
   currentStep,
   stepCount,
-  onReturn,
+  onBackButtonClick,
   onSubmit,
-}: AccountEmailFormProps): ReactElement => {
+}: CloudAccountEmailFormProps): ReactElement => {
   const { t } = useTranslation();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AccountEmailFormInputs>(options);
+  } = useForm<CloudAccountEmailFormInputs>(options);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -59,9 +59,11 @@ const AccountEmailForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup>
-          <Button onClick={onReturn}>{t('form.back')}</Button>
+          <Button onClick={onBackButtonClick}>
+            {t('component.form.action.back')}
+          </Button>
           <Button type='submit' primary>
-            {t('form.next')}
+            {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
       </Form.Footer>
@@ -69,4 +71,4 @@ const AccountEmailForm = ({
   );
 };
 
-export default AccountEmailForm;
+export default CloudAccountEmailForm;
