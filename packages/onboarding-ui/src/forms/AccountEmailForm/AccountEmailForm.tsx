@@ -1,5 +1,5 @@
 import { ButtonGroup, Button, TextInput, Field } from '@rocket.chat/fuselage';
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { useForm, SubmitHandler, UseFormProps } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -10,6 +10,8 @@ type AccountEmailFormInputs = {
 };
 
 type AccountEmailFormProps = {
+  currentStep: number;
+  stepCount: number;
   onReturn: () => void;
   onSubmit: SubmitHandler<AccountEmailFormInputs>;
 };
@@ -21,6 +23,8 @@ const options: UseFormProps<AccountEmailFormInputs> = {
 };
 
 const AccountEmailForm = ({
+  currentStep,
+  stepCount,
   onReturn,
   onSubmit,
 }: AccountEmailFormProps): ReactElement => {
@@ -34,7 +38,7 @@ const AccountEmailForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Steps>{t('form.serverRegistrationForm.steps')}</Form.Steps>
+      <Form.Steps currentStep={currentStep} stepCount={stepCount} />
       <Form.Title>{t('form.serverRegistrationForm.title')}</Form.Title>
       <Form.Subtitle>{t('form.accountEmailForm.description')}</Form.Subtitle>
       <Form.Container>

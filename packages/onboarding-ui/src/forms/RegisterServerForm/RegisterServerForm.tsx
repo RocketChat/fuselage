@@ -1,5 +1,5 @@
 import { Box, ButtonGroup, Button } from '@rocket.chat/fuselage';
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import {
   useForm,
   SubmitHandler,
@@ -19,6 +19,8 @@ type RegisterServerFormInputs = {
 };
 
 type RegisterServerFormProps = {
+  currnetStep: number;
+  stepCount: number;
   onReturn: () => void;
   onSubmit: SubmitHandler<RegisterServerFormInputs>;
 };
@@ -34,6 +36,8 @@ const options: UseFormProps<RegisterServerFormInputs> = {
 export type ExternalLinks = { agreementHref: string; policyHref: string };
 
 const RegisterServerForm = ({
+  currnetStep,
+  stepCount,
   onReturn,
   onSubmit,
   agreementHref,
@@ -47,7 +51,7 @@ const RegisterServerForm = ({
   return (
     <FormProvider {...methods}>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Steps>{t('form.serverRegistrationForm.steps')}</Form.Steps>
+        <Form.Steps currentStep={currnetStep} stepCount={stepCount} />
         <Form.Title>{t('form.serverRegistrationForm.title')}</Form.Title>
         <Box mbe='x24' mbs='x16'>
           <RegisterOptionCard

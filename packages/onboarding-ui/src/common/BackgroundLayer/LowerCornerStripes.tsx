@@ -1,5 +1,5 @@
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 type LowerCornerStripesProps = {
   darkMode: boolean;

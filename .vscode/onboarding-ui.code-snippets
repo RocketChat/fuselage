@@ -1,0 +1,48 @@
+{
+  "React component": {
+    "scope": "typescriptreact",
+    "prefix": "onboard-comp",
+    "body": [
+      "import { ReactElement } from 'react';",
+      "",
+      "type $1Props = {};",
+      "",
+      "const $1 = (props: $1Props): ReactElement => {",
+      "  props;",
+      "",
+      "  return <></>;",
+      "};",
+      "",
+      "export default $1;",
+      ""
+    ],
+    "description": "React component for onboarding-ui"
+  },
+  "Storybook story": {
+    "scope": "typescriptreact",
+    "prefix": "onboard-story",
+    "body": [
+      "import { Meta, Story } from '@storybook/react';",
+      "import { ComponentProps } from 'react';",
+      "",
+      "import $1 from './$1';",
+      "",
+      "type Args = ComponentProps<typeof $1>;",
+      "",
+      "export default {",
+      "  title: '$2/$1',",
+      "  component: $1,",
+      "  parameters: {",
+      "    layout: 'centered',",
+      "    actions: { argTypesRegex: '^on.*' },",
+      "  },",
+      "} as Meta<Args>;",
+      "",
+      "export const _$1: Story<Args> = (args) => (",
+      "  <$1 {...args} />",
+      ");",
+      "_$1.storyName = '$1';"
+    ],
+    "description": "Storybook story for onboarding-ui"
+  }
+}

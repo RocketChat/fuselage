@@ -1,8 +1,18 @@
 {
-  "global": {
-    "fieldRequired": "This field is required"
+  "component": {
+    "form": {
+      "steps": "Step {{currentStep}} of {{stepCount}}",
+      "action": {
+        "back": "Back",
+        "next": "Next"
+      },
+      "requiredField": "This field is required"
+    }
   },
   "page": {
+    "form": {
+      "title": "Let's Launch Your Workspace"
+    },
     "awaitingConfirmation": {
       "title": "Awaiting confirmation",
       "subtitle": "We have sent you an email to {{emailAddress}} with a confirmation link. Please verify that the security code below matches the one in the email.",
@@ -17,10 +27,7 @@
     }
   },
   "form": {
-    "next": "Next",
-    "back": "Back",
     "adminInfoForm": {
-      "steps": "Step X of X",
       "title": "Admin Info",
       "subtitle": "We need this to create an admin profile inside your workspace",
       "fields": {
@@ -38,16 +45,11 @@
         },
         "password": {
           "label": "Password",
-          "placeholder": "Create password",
-          "hint": "Password rules description goes here"
+          "placeholder": "Create password"
         }
-      },
-      "buttons": {
-        "success": "Next"
       }
     },
     "organizationInfoForm": {
-      "steps": "Step X of X",
       "title": "Organization Info",
       "subtitle": "Please, bear with us. This info will help us personalize your workspace",
       "fields": {
@@ -71,10 +73,6 @@
           "label": "Country",
           "placeholder": "Select"
         }
-      },
-      "buttons": {
-        "cancel": "Back",
-        "success": "Next"
       }
     },
     "accountEmailForm": {
@@ -83,7 +81,6 @@
       "inputPlaceholder": "Please enter your Email"
     },
     "serverRegistrationForm": {
-      "steps": "Step X of X",
       "title": "Register Your Server",
       "register": {
         "title": "Register server",

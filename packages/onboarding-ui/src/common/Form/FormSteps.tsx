@@ -1,11 +1,23 @@
 import { Box } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import { ReactElement, FC } from 'react';
+import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const FormSteps: FC = ({ children }): ReactElement => (
-  <Box mbe='x8' fontScale='c2' color={colors.n600}>
-    {children}
-  </Box>
-);
+type FormStepsProps = {
+  currentStep: number;
+  stepCount: number;
+};
+
+const FormSteps = ({
+  currentStep,
+  stepCount,
+}: FormStepsProps): ReactElement => {
+  const { t } = useTranslation();
+
+  return (
+    <Box mbe='x8' fontScale='c2' color='neutral-600'>
+      {t('component.form.steps', { currentStep, stepCount })}
+    </Box>
+  );
+};
 
 export default FormSteps;

@@ -1,5 +1,5 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import React, {
+import type {
   ReactElement,
   ReactNode,
   ComponentProps,

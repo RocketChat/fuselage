@@ -1,5 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
-import React, { ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 const Link = ({
   href,

@@ -1,5 +1,6 @@
 import { Box } from '@rocket.chat/fuselage';
-import { ReactElement, FC } from 'react';
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import type { ReactElement, FC } from 'react';
 
 const Form: FC<{ onSubmit: () => void }> = ({
   onSubmit,
@@ -7,10 +8,11 @@ const Form: FC<{ onSubmit: () => void }> = ({
 }): ReactElement => (
   <Box
     is='form'
-    backgroundColor='white'
-    padding='x40'
+    backgroundColor={colors.white}
+    color={colors.n800}
+    padding={40}
     width='full'
-    maxWidth='576px'
+    maxWidth={576}
     onSubmit={onSubmit}
   >
     {children}

@@ -4,7 +4,7 @@ import { useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import OptionCard from './OptionCard';
-import { ExternalLinks } from './RegisterServerForm';
+import type { ExternalLinks } from './RegisterServerForm';
 
 const RegisterOptionCard = ({
   agreementHref,
