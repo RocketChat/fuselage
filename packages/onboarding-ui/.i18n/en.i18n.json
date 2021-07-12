@@ -10,6 +10,9 @@
     }
   },
   "page": {
+    "form": {
+      "title": "Let's Launch Your Workspace"
+    },
     "awaitingConfirmation": {
       "title": "Awaiting confirmation",
       "subtitle": "We have sent you an email to {{emailAddress}} with a confirmation link. Please verify that the security code below matches the one in the email.",
