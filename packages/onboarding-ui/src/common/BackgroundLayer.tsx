@@ -31,10 +31,12 @@ const BackgroundLayer = ({ children }: BackgroundLayerProps): ReactElement => {
   );
 
   const backgroundColor = darkMode ? colors.n800 : colors.n200;
+  const color = darkMode ? colors.white : colors.n800;
 
   return (
     <Wrapper
       backgroundColor={backgroundColor}
+      color={color}
       lowerCorner={lowerCorner}
       upperCorner={upperCorner}
     >

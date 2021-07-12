@@ -1,5 +1,18 @@
 {
+  "component": {
+    "form": {
+      "steps": "Step {{currentStep}} of {{stepCount}}",
+      "action": {
+        "back": "Back",
+        "next": "Next"
+      },
+      "requiredField": "This field is required"
+    }
+  },
   "page": {
+    "form": {
+      "title": "Let's Launch Your Workspace"
+    },
     "awaitingConfirmation": {
       "title": "Awaiting confirmation",
       "subtitle": "We have sent you an email to {{emailAddress}} with a confirmation link. Please verify that the security code below matches the one in the email.",
@@ -11,6 +24,56 @@
     },
     "confirmationProcess": {
       "title": "Confirmation in Process"
+    }
+  },
+  "form": {
+    "adminInfoForm": {
+      "title": "Admin Info",
+      "subtitle": "We need this to create an admin profile inside your workspace",
+      "fields": {
+        "fullName": {
+          "label": "Full name",
+          "placeholder": "First and last name"
+        },
+        "username": {
+          "label": "Username",
+          "placeholder": "@username"
+        },
+        "companyEmail": {
+          "label": "Company email",
+          "placeholder": "Company email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Create password"
+        }
+      }
+    },
+    "organizationInfoForm": {
+      "title": "Organization Info",
+      "subtitle": "Please, bear with us. This info will help us personalize your workspace",
+      "fields": {
+        "organizationName": {
+          "label": "Organization name",
+          "placeholder": "Organization name"
+        },
+        "organizationType": {
+          "label": "Organization type",
+          "placeholder": "Select"
+        },
+        "organizationIndustry": {
+          "label": "Organization industry",
+          "placeholder": "Select"
+        },
+        "organizationSize": {
+          "label": "Organization size",
+          "placeholder": "Select"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Select"
+        }
+      }
     }
   }
 }

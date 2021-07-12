@@ -2,11 +2,13 @@ import styled from '@rocket.chat/styled';
 
 const filterWrapperProps = ({
   backgroundColor,
+  color,
   lowerCorner,
   upperCorner,
   ...props
 }: {
   backgroundColor: string;
+  color: string;
   lowerCorner: string;
   upperCorner: string;
 }) => props;
@@ -24,6 +26,7 @@ export const Wrapper = styled('div', filterWrapperProps)`
   background-repeat: no-repeat;
   background-position: left bottom, right top;
   background-size: 87px auto, 73px auto;
+  color: ${(p) => p.color};
 
   @media (min-width: 768px) {
     background-size: 98px auto, 166px auto;

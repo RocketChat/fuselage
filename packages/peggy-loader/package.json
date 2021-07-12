@@ -54,8 +54,8 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "^0.27.0",
     "@rocket.chat/prettier-config": "^0.27.0",
-    "@types/loader-utils": "^2.0.2",
-    "@types/node": "^15.12.5",
+    "@types/loader-utils": "^2.0.3",
+    "@types/node": "^15.14.1",
     "downlevel-dts": "^0.7.0",
     "eslint": "^7.29.0",
     "lint-staged": "^11.0.0",
