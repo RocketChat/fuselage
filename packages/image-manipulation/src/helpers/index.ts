@@ -1,0 +1,1 @@
+export { getDimensions } from './dimensions';
