@@ -1,7 +1,7 @@
 import React, { useRef, useState, ComponentProps } from 'react';
 import { Box, ButtonGroup } from '@rocket.chat/fuselage';
 import { Crop, Text, Doodle, Check, Cross } from './components';
-import { Preview } from './components/Preview';
+import { Preview } from './helpers';
 
 type ImageManipulationProps = ComponentProps<typeof Box> & {
   imgSrc: string;
@@ -24,6 +24,7 @@ const ImageManipulation = ({ imgSrc, ...props }: ImageManipulationProps) => {
       <Preview
         imgSrc={imgSrc}
         ref={imageRef}
+        parentRef={parentRef}
         display={
           selection === null || typeof selection === 'undefined'
             ? 'block'
