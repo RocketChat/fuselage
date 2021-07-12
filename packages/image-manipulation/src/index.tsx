@@ -1,7 +1,8 @@
 import { Box, ButtonGroup } from '@rocket.chat/fuselage';
 import React, { useRef, ComponentProps } from 'react';
 
-import { Crop, Text, Doodle, Preview } from './components';
+import { Crop, Text, Doodle } from './components';
+import { Preview } from './components/Preview';
 
 type ImageManipulationProps = ComponentProps<typeof Box> & {
   imgSrc: string;
