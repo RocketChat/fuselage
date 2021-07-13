@@ -74,6 +74,36 @@
           "placeholder": "Select"
         }
       }
+    },
+    "accountEmailForm": {
+      "description": "To register your server, we need to connect it to your cloud account. If you already have one - we can link it automatically for you. Otherwise, a new account will be created.",
+      "inputLabel": "Cloud account email",
+      "inputPlaceholder": "Please enter your Email"
+    },
+    "serverRegistrationForm": {
+      "title": "Register Your Server",
+      "register": {
+        "title": "Register server",
+        "subtitle": "What is included",
+        "description": "Preconfigured gateways and proxies provided by Rocket.Chat Technologies Corp.",
+        "included": {
+          "push": "Mobile push notification gateway",
+          "livechat": "Livechat omnichannel proxy",
+          "oAuth": "OAuth proxy for social network",
+          "apps": "Apps Marketplace"
+        },
+        "includeUpdates": "Include product and security updates",
+        "agreement": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
+      },
+      "standalone": {
+        "title": "Standalone server",
+        "description": "You will have to set up the environment by yourself:",
+        "actionList": {
+          "accounts": "create accounts with service providers",
+          "settings": "update preconfigured settings",
+          "mobile": "and recompile mobile apps with your certificates"
+        }
+      }
     }
   }
 }

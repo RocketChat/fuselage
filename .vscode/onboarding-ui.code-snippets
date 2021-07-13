@@ -3,7 +3,7 @@
     "scope": "typescriptreact",
     "prefix": "onboard-comp",
     "body": [
-      "import { ReactElement } from 'react';",
+      "import type { ReactElement } from 'react';",
       "",
       "type $1Props = {};",
       "",
@@ -22,8 +22,8 @@
     "scope": "typescriptreact",
     "prefix": "onboard-story",
     "body": [
-      "import { Meta, Story } from '@storybook/react';",
-      "import { ComponentProps } from 'react';",
+      "import type { Meta, Story } from '@storybook/react';",
+      "import type { ComponentProps } from 'react';",
       "",
       "import $1 from './$1';",
       "",
