@@ -6,7 +6,8 @@
         "back": "Back",
         "next": "Next"
       },
-      "requiredField": "This field is required"
+      "requiredField": "This field is required",
+      "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     }
   },
   "page": {
@@ -92,8 +93,7 @@
           "oAuth": "OAuth proxy for social network",
           "apps": "Apps Marketplace"
         },
-        "includeUpdates": "Include product and security updates",
-        "agreement": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
+        "includeUpdates": "Include product and security updates"
       },
       "standalone": {
         "title": "Standalone server",
@@ -103,6 +103,32 @@
           "settings": "update preconfigured settings",
           "mobile": "and recompile mobile apps with your certificates"
         }
+      }
+    },
+    "createCloudWorkspace": {
+      "title": "Create Cloud Workspace",
+      "fields": {
+        "orgName": "Organization name",
+        "orgEmail": {
+          "label": "Organization email",
+          "placeholder": "Email",
+          "invalid": "Invalid email"
+        },
+        "workspaceName": {
+          "label": "Workspace name",
+          "tooltip": "How should be a good Workspace name"
+        },
+        "workspaceUrl": {
+          "label": "Workspace URL",
+          "placeholder": "htps://workspaceurl.com",
+          "tooltip": "URL of your Workspace",
+          "exists": "Workspace already exists"
+        },
+        "serverRegion": {
+          "label": "Server region",
+          "tooltip": "Where is your server located"
+        },
+        "keepMePosted": "Keep me posted about Rocket.Chat updates"
       }
     }
   }
