@@ -25,7 +25,19 @@
     },
     "confirmationProcess": {
       "title": "Confirmation in Process"
-    }
+    },
+    "cloudDescription": {
+      "tryGold": "Try our best Gold plan for 14 days for free",
+      "availability": "High availability",
+      "auditing": "Message audit panel / Audit logs",
+      "integrations": "1,000 integrations",
+      "ldap": "LDAP enhanced sync",
+      "omnichannel": "Omnichannel premium",
+      "sla": "SLA: Premium",
+      "push": "Secured push notifications",
+      "goldIncludes": "* Golden plan includes all features from other plans"
+    },
+    "alreadyHaveAccount": "Already have an account? <1>Manage your workspaces.</1>"
   },
   "form": {
     "adminInfoForm": {
