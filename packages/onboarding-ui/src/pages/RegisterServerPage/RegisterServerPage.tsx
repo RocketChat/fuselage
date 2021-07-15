@@ -16,7 +16,7 @@ type RegisterServerPageProps = {
   onBackButtonClick: () => void;
 };
 
-const OrganizationInfoPage = (props: RegisterServerPageProps): ReactElement => (
+const RegisterServerPage = (props: RegisterServerPageProps): ReactElement => (
   <BackgroundLayer>
     <FormPageLayout>
       <RegisterServerForm {...props} />
@@ -24,4 +24,4 @@ const OrganizationInfoPage = (props: RegisterServerPageProps): ReactElement => (
   </BackgroundLayer>
 );
 
-export default OrganizationInfoPage;
+export default RegisterServerPage;

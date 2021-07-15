@@ -14,7 +14,7 @@ type CloudAccountEmailPageProps = {
   }>;
 };
 
-const OrganizationInfoPage = (
+const CloudAccountEmailPage = (
   props: CloudAccountEmailPageProps
 ): ReactElement => (
   <BackgroundLayer>
@@ -24,4 +24,4 @@ const OrganizationInfoPage = (
   </BackgroundLayer>
 );
 
-export default OrganizationInfoPage;
+export default CloudAccountEmailPage;
