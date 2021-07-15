@@ -132,7 +132,7 @@
         },
         "workspaceUrl": {
           "label": "Workspace URL",
-          "placeholder": "htps://workspaceurl.com",
+          "placeholder": "workspaceurl",
           "tooltip": "URL of your Workspace",
           "exists": "Workspace already exists"
         },

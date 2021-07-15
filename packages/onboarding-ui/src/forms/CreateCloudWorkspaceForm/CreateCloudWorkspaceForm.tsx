@@ -15,6 +15,7 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import Form from '../../common/Form';
+import WorkspaceUrlInput from './WorkspaceUrlInput';
 
 type CreateCloudWorkspaceFormPayload = {
   organizationName: string;
@@ -31,6 +32,7 @@ type CreateCloudWorkspaceFormProps = {
   stepCount: number;
   onSubmit: SubmitHandler<CreateCloudWorkspaceFormPayload>;
   serverRegionOptions: SelectOptions;
+  domain: string;
   onBackButtonClick: () => void;
   validateUrl: (url: string) => Promise<boolean>;
   validateEmail: (url: string) => Promise<boolean>;
@@ -38,6 +40,7 @@ type CreateCloudWorkspaceFormProps = {
 
 const CreateCloudWorkspaceForm = ({
   onSubmit,
+  domain,
   currentStep,
   stepCount,
   serverRegionOptions,
@@ -131,7 +134,8 @@ const CreateCloudWorkspaceForm = ({
             />
           </Field.Label>
           <Field.Row>
-            <TextInput
+            <WorkspaceUrlInput
+              domain={domain}
               {...register('workspaceUrl', {
                 required: true,
                 validate: validateUrl,
