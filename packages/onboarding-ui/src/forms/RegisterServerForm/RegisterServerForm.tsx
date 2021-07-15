@@ -16,6 +16,7 @@ export type RegisterServerPayload = {
 type RegisterServerFormProps = {
   currentStep: number;
   stepCount: number;
+  initialValues?: RegisterServerPayload;
   onSubmit: SubmitHandler<RegisterServerPayload>;
   onBackButtonClick: () => void;
 };
@@ -23,6 +24,7 @@ type RegisterServerFormProps = {
 const RegisterServerForm = ({
   currentStep,
   stepCount,
+  initialValues,
   onSubmit,
   onBackButtonClick,
 }: RegisterServerFormProps): ReactElement => {
@@ -33,6 +35,7 @@ const RegisterServerForm = ({
       registerType: 'registered',
       agreement: false,
       updates: false,
+      ...initialValues,
     },
   });
   const { handleSubmit } = methods;

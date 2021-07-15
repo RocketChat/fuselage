@@ -4,15 +4,13 @@ import type { SubmitHandler } from 'react-hook-form';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import RegisterServerForm from '../../forms/RegisterServerForm';
+import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
 
 type RegisterServerPageProps = {
   currentStep: number;
   stepCount: number;
-  onSubmit: SubmitHandler<{
-    registerType: 'registered' | 'standalone';
-    agreement: boolean;
-    updates: boolean;
-  }>;
+  initialValues?: RegisterServerPayload;
+  onSubmit: SubmitHandler<RegisterServerPayload>;
   onBackButtonClick: () => void;
 };
 
