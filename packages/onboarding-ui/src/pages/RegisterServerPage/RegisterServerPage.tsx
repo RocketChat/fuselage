@@ -9,7 +9,7 @@ import type { RegisterServerPayload } from '../../forms/RegisterServerForm/Regis
 type RegisterServerPageProps = {
   currentStep: number;
   stepCount: number;
-  initialValues?: RegisterServerPayload;
+  initialValues?: Partial<RegisterServerPayload>;
   onSubmit: SubmitHandler<RegisterServerPayload>;
   onBackButtonClick: () => void;
 };

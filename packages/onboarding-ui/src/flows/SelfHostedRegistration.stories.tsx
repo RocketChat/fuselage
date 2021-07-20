@@ -27,7 +27,8 @@ export const SelfHostedRegistration: Story = () => {
       | 'org-info'
       | 'register-server'
       | 'cloud-email'
-      | 'awaiting'}`>('/admin-info');
+      | 'awaiting'
+      | 'home'}`>('/admin-info');
 
   const [adminInfo, setAdminInfo] =
     useState<Omit<AdminInfoPayload, 'password'>>();
@@ -35,13 +36,16 @@ export const SelfHostedRegistration: Story = () => {
   const [organizationInfo, setOrganizationInfo] =
     useState<OrganizationInfoPayload>();
 
-  const [registerServer, setRegisterServer] = useState<RegisterServerPayload>();
-
-  const [cloudAccountEmail, setCloudAccountEmail] =
-    useState<CloudAccountEmailPayload>();
+  const [serverRegistration, setServerRegistration] = useState<{
+    updates?: boolean;
+    agreement?: boolean;
+    cloudAccountEmail?: string;
+    securityCode?: string;
+  }>();
 
   const handleAdminInfoSubmit = useCallback((data: AdminInfoPayload) => {
     action('submit')(data);
+
     setAdminInfo(data);
     setPath('/org-info');
   }, []);
@@ -49,6 +53,7 @@ export const SelfHostedRegistration: Story = () => {
   const handleOrganizationInfoSubmit = useCallback(
     (data: OrganizationInfoPayload) => {
       action('submit')(data);
+
       setOrganizationInfo(data);
       setPath('/register-server');
     },
@@ -58,8 +63,23 @@ export const SelfHostedRegistration: Story = () => {
   const handleRegisterServerSubmit = useCallback(
     (data: RegisterServerPayload) => {
       action('submit')(data);
-      setRegisterServer(data);
-      setPath('/cloud-email');
+
+      switch (data.registerType) {
+        case 'standalone': {
+          setPath('/home');
+          break;
+        }
+
+        case 'registered': {
+          setServerRegistration((serverRegistration) => ({
+            ...serverRegistration,
+            updates: data.updates,
+            agreement: data.agreement,
+          }));
+          setPath('/cloud-email');
+          break;
+        }
+      }
     },
     []
   );
@@ -67,7 +87,12 @@ export const SelfHostedRegistration: Story = () => {
   const handleCloudAccountEmailSubmit = useCallback(
     (data: CloudAccountEmailPayload) => {
       action('submit')(data);
-      setCloudAccountEmail(data);
+
+      setServerRegistration((serverRegistration) => ({
+        ...serverRegistration,
+        cloudAccountEmail: data.email,
+        securityCode: 'Funny Tortoise In The Hat',
+      }));
       setPath('/awaiting');
     },
     []
@@ -109,7 +134,10 @@ export const SelfHostedRegistration: Story = () => {
       <RegisterServerPage
         currentStep={3}
         stepCount={4}
-        initialValues={registerServer}
+        initialValues={{
+          updates: serverRegistration?.updates,
+          agreement: serverRegistration?.agreement,
+        }}
         onBackButtonClick={() => setPath('/org-info')}
         onSubmit={handleRegisterServerSubmit}
       />
@@ -121,7 +149,7 @@ export const SelfHostedRegistration: Story = () => {
       <CloudAccountEmailPage
         currentStep={4}
         stepCount={4}
-        initialValues={cloudAccountEmail}
+        initialValues={{}}
         onBackButtonClick={() => setPath('/register-server')}
         onSubmit={handleCloudAccountEmailSubmit}
       />
@@ -129,14 +157,18 @@ export const SelfHostedRegistration: Story = () => {
   }
 
   if (path === '/awaiting') {
-    if (!cloudAccountEmail?.email) {
+    if (!serverRegistration?.cloudAccountEmail) {
       throw new Error('missing cloud account email');
+    }
+
+    if (!serverRegistration?.securityCode) {
+      throw new Error('missing verification code');
     }
 
     return (
       <AwaitingConfirmationPage
-        emailAddress={cloudAccountEmail?.email}
-        securityCode={'lero lero'}
+        emailAddress={serverRegistration.cloudAccountEmail}
+        securityCode={serverRegistration.securityCode}
         onChangeEmailRequest={() => undefined}
         onResendEmailRequest={() => undefined}
       />

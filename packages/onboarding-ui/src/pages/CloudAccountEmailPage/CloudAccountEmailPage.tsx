@@ -9,7 +9,7 @@ import type { CloudAccountEmailPayload } from '../../forms/CloudAccountEmailForm
 type CloudAccountEmailPageProps = {
   currentStep: number;
   stepCount: number;
-  initialValues?: CloudAccountEmailPayload;
+  initialValues?: Partial<CloudAccountEmailPayload>;
   onBackButtonClick: () => void;
   onSubmit: SubmitHandler<{
     email: string;

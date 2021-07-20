@@ -12,7 +12,7 @@ export type CloudAccountEmailPayload = {
 type CloudAccountEmailFormProps = {
   currentStep: number;
   stepCount: number;
-  initialValues?: CloudAccountEmailPayload;
+  initialValues?: Partial<CloudAccountEmailPayload>;
   onBackButtonClick: () => void;
   onSubmit: SubmitHandler<CloudAccountEmailPayload>;
 };

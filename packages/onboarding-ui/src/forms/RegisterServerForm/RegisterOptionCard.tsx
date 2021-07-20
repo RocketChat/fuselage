@@ -68,7 +68,11 @@ const RegisterOptionCard = (): ReactElement => {
           </label>
         </Box>
         <Box color='default' fontScale='c1'>
-          <CheckBox mie='x8' disabled={!selected} {...register('agreement')} />{' '}
+          <CheckBox
+            mie='x8'
+            disabled={!selected}
+            {...register('agreement', { required: selected })}
+          />{' '}
           <Box is='label' htmlFor='agreement' withRichContent>
             <Trans i18nKey='form.serverRegistrationForm.register.agreement'>
               I agree with
