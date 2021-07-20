@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Crop } from './index';
+import { Crop } from '.';
 
 export default {
   title: 'Toolbar/Plugins',

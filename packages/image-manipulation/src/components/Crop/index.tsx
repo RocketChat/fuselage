@@ -1,5 +1,5 @@
-import { Box, ActionButton } from '@rocket.chat/fuselage';
 import React, { ComponentProps } from 'react';
+import { Box, ActionButton } from '@rocket.chat/fuselage';
 
 type CropProps = ComponentProps<typeof Box>;
 

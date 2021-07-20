@@ -1,38 +1,46 @@
-import React, { forwardRef, ComponentProps, RefObject, useState } from 'react';
-import { Box } from '@rocket.chat/fuselage';
+import { useEffect, forwardRef, ComponentProps, useContext } from 'react';
 import { getDimensions } from '.';
+import { Box } from '@rocket.chat/fuselage';
+import { ActionType } from '../context/action';
+import { ManipulationContext } from '../context/manipulationContext';
 
 type PreviewProps = ComponentProps<typeof Box> & {
   imgSrc: string;
-  parentRef: RefObject<typeof Box & HTMLDivElement>;
 };
 
 export const Preview = forwardRef<typeof Box, PreviewProps>(
-  ({ imgSrc, parentRef, ...props }, ref) => {
-    const [size, setSize] = useState({});
-    const [dims, setDims] = useState({ width: 10, height: 10 });
+  ({ imgSrc, ...props }, ref) => {
+    const { state, dispatch } = useContext(ManipulationContext);
 
-    React.useEffect(() => {
-      var img = new Image();
-      img.src = imgSrc;
-      img.onload = function (e: any) {
-        setDims({
-          width: e.path[0].width,
-          height: e.path[0].height,
-        });
-      };
-    }, []);
+    const {
+      dimensions: {
+        parentDimensions,
+        originalImageDimensions,
+        previewDimensions,
+      },
+    } = state;
 
-    React.useEffect(() => {
-      const limitWidth = parentRef.current!.clientWidth * 0.9;
-      const limitHeight = parentRef.current!.clientHeight * 0.9;
-      const dimensions = getDimensions(dims.width, dims.height, {
-        width: limitWidth,
-        height: limitHeight,
+    useEffect(() => {
+      const limitWidth = parentDimensions.width * 0.9;
+      const limitHeight = parentDimensions.height * 0.9;
+      const dimensions = getDimensions(
+        originalImageDimensions?.width,
+        originalImageDimensions?.height,
+        {
+          width: limitWidth,
+          height: limitHeight,
+        }
+      );
+      dispatch({
+        type: ActionType.SET_PREVIEW_DIMENSIONS,
+        payload: dimensions,
       });
-      setSize(dimensions);
-    }, [imgSrc, parentRef, dims]);
+    }, [imgSrc, parentDimensions, originalImageDimensions]);
 
-    return <Box is='img' src={imgSrc} ref={ref} {...size} {...props} />;
+    // console.log(state);
+
+    return (
+      <Box is='img' src={imgSrc} ref={ref} {...previewDimensions} {...props} />
+    );
   }
 );

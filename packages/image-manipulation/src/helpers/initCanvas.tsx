@@ -1,45 +1,47 @@
-import React, { RefObject, useEffect, Dispatch, SetStateAction } from 'react';
+import React, {
+  RefObject,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+  useContext,
+} from 'react';
 import { Box } from '@rocket.chat/fuselage';
 import { Canvas, Image } from 'fabric/fabric-impl';
 import { fabric } from 'fabric';
-import { getDimensions } from '.';
+import { ManipulationContext } from '../context/manipulationContext';
 
 type InitCanvasProps = {
-  img: RefObject<typeof Box & HTMLImageElement>;
   setCanvas: Dispatch<SetStateAction<Canvas | null | undefined>>;
-  parent: RefObject<typeof Box & HTMLDivElement>;
+  properties: any;
 };
 
-export const InitCanvas = ({ img, setCanvas, parent }: InitCanvasProps) => {
+export const InitCanvas = ({ setCanvas, properties }: InitCanvasProps) => {
+  const { state } = useContext(ManipulationContext);
+  const { width, height } = state.dimensions?.previewDimensions;
+
   useEffect(() => {
-    console.log('Initializing Canvas');
-    const { width, height } = getDimensions(
-      img.current!.width,
-      img.current!.height,
-      {
-        width: parent.current!.clientWidth * 0.9,
-        height: parent.current!.clientHeight * 0.9,
-      }
-    );
+    console.log('Initializing Canvas', { width, height });
 
     const canvas = new fabric.Canvas('canvas', {
       height,
       width,
     });
-    new (fabric.Image as any).fromURL(
-      img.current?.currentSrc,
+    const image = new (fabric.Image as any).fromURL(
+      state.imageSrc?.current,
       (item: Image) => {
         item.scale(1);
         item.selectable = false;
-        item.scaleToWidth(canvas?.width!);
+        // item.scaleToWidth(canvas?.width!);
+
+        item.set(properties);
+
         canvas?.add(item);
         canvas?.sendToBack(item);
-        // canvas?.renderAll();
       }
     );
+
     setCanvas(canvas);
-    console.log(canvas);
-  }, []);
+  }, [properties]);
 
   return <Box is='canvas' id='canvas'></Box>;
 };

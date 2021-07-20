@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Doodle } from '.';
 
 export default {
