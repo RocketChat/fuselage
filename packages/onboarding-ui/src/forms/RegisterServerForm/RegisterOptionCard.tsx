@@ -8,7 +8,7 @@ import OptionCard from './OptionCard';
 const RegisterOptionCard = (): ReactElement => {
   const { t } = useTranslation();
 
-  const { register, setValue, getValues, trigger } = useFormContext();
+  const { register, setValue, trigger } = useFormContext();
 
   const onClickCard = () => {
     setValue('registerType', 'registered');
@@ -16,7 +16,6 @@ const RegisterOptionCard = (): ReactElement => {
   };
 
   const selected = useWatch({ name: 'registerType' }) === 'registered';
-  const agreementValue = getValues('agreement');
 
   useEffect(() => {
     if (!selected) {
@@ -24,18 +23,6 @@ const RegisterOptionCard = (): ReactElement => {
       setValue('updates', false);
     }
   }, [selected, setValue]);
-
-  const validateAgreement = () => {
-    if (selected && agreementValue) {
-      return true;
-    }
-
-    if (!selected) {
-      return true;
-    }
-
-    return false;
-  };
 
   return (
     <OptionCard selected={selected} onClick={onClickCard}>
@@ -86,7 +73,13 @@ const RegisterOptionCard = (): ReactElement => {
             mie='x8'
             disabled={!selected}
             {...register('agreement', {
-              validate: validateAgreement,
+              validate: (value) => {
+                if (!selected) {
+                  return true;
+                }
+
+                return value;
+              },
             })}
           />{' '}
           <Box is='label' htmlFor='agreement' withRichContent>
