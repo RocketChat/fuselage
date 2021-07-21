@@ -33,10 +33,10 @@ const RegisterServerForm = ({
   const form = useForm<RegisterServerPayload>({
     mode: 'onChange',
     defaultValues: {
+      ...initialValues,
       registerType: 'registered',
       agreement: false,
       updates: true,
-      ...initialValues,
     },
   });
 
