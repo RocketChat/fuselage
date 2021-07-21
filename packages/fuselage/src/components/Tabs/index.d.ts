@@ -4,7 +4,7 @@ import { Box } from '../Box';
 
 type TabsProps = ComponentProps<typeof Box>;
 
-export const Tabs: ForwardRefExoticComponent<TabsProps>;
+export const Tabs: ForwardRefExoticComponent<TabsProps> & { Item: ForwardRefExoticComponent<TabsItemProps> };
 
 type TabsItemProps = ComponentProps<typeof Box> & {
   selected?: boolean;
