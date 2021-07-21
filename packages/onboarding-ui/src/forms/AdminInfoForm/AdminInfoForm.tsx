@@ -67,14 +67,16 @@ const AdminInfoForm = ({
             </Field.Label>
             <Field.Row>
               <TextInput
-                {...register('fullname', { required: true })}
+                {...register('fullname', {
+                  required: String(t('component.form.requiredField')),
+                })}
                 placeholder={t(
                   'form.adminInfoForm.fields.fullName.placeholder'
                 )}
               />
             </Field.Row>
             {errors.fullname && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <Field.Error>{errors.fullname.message}</Field.Error>
             )}
           </Field>
           <Field>
@@ -84,7 +86,7 @@ const AdminInfoForm = ({
             <Field.Row>
               <TextInput
                 {...register('username', {
-                  required: true,
+                  required: String(t('component.form.requiredField')),
                   validate: validateUsername,
                 })}
                 placeholder={t(
@@ -93,7 +95,7 @@ const AdminInfoForm = ({
               />
             </Field.Row>
             {errors.username && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <Field.Error>{errors.username.message}</Field.Error>
             )}
           </Field>
           <Field>
@@ -103,7 +105,7 @@ const AdminInfoForm = ({
             <Field.Row>
               <EmailInput
                 {...register('companyEmail', {
-                  required: true,
+                  required: String(t('component.form.requiredField')),
                   validate: validateEmail,
                 })}
                 placeholder={t(
@@ -112,7 +114,7 @@ const AdminInfoForm = ({
               />
             </Field.Row>
             {errors.companyEmail && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <Field.Error>{errors.companyEmail.message}</Field.Error>
             )}
           </Field>
           <Field>
@@ -122,7 +124,7 @@ const AdminInfoForm = ({
             <Field.Row>
               <PasswordInput
                 {...register('password', {
-                  required: true,
+                  required: String(t('component.form.requiredField')),
                   validate: validatePassword,
                 })}
                 placeholder={t(
@@ -132,7 +134,7 @@ const AdminInfoForm = ({
             </Field.Row>
             <Field.Hint>{passwordRulesHint}</Field.Hint>
             {errors.password && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <Field.Error>{errors.password.message}</Field.Error>
             )}
           </Field>
         </FieldGroup>

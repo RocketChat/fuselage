@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import type { Meta, Story } from '@storybook/react';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 import type { AdminInfoPayload } from '../forms/AdminInfoForm/AdminInfoForm';
 import type { CloudAccountEmailPayload } from '../forms/CloudAccountEmailForm/CloudAccountEmailForm';
@@ -20,8 +20,51 @@ export default {
   },
 } as Meta;
 
+const logSubmit =
+  <T extends (...args: any[]) => any>(onSubmit: T) =>
+  (...args: Parameters<T>): ReturnType<T> => {
+    action('submit')(...args);
+    return onSubmit(...args);
+  };
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const simulateNetworkDelay = () => delay(3000 * Math.random());
+
+const fetchMock =
+  <T extends (...args: any[]) => any>(endpoint: string, handler: T) =>
+  async (...args: Parameters<T>): Promise<ReturnType<T>> => {
+    action(`fetch(${endpoint})`)(...args);
+    await simulateNetworkDelay();
+    return handler(...args);
+  };
+
+const validateUsername = fetchMock('/username/validate', (username: string) => {
+  if (username === 'admin') {
+    return `Username "${username}" is not available`;
+  }
+
+  return true;
+});
+
+const validateEmail = fetchMock('/email/validate', (email: string) => {
+  if (email === 'admin@rocket.chat') {
+    return `Email "${email}" is already in use`;
+  }
+
+  return true;
+});
+
+const validatePassword = (password: string) => {
+  if (password.length < 6) {
+    return `Password is too short`;
+  }
+
+  return true;
+};
+
 export const SelfHostedRegistration: Story = () => {
-  const [path, setPath] =
+  const [path, navigateTo] =
     useState<`/${
       | 'admin-info'
       | 'org-info'
@@ -43,30 +86,23 @@ export const SelfHostedRegistration: Story = () => {
     securityCode?: string;
   }>();
 
-  const handleAdminInfoSubmit = useCallback((data: AdminInfoPayload) => {
-    action('submit')(data);
-
+  const handleAdminInfoSubmit = logSubmit((data: AdminInfoPayload) => {
     setAdminInfo(data);
-    setPath('/org-info');
-  }, []);
+    navigateTo('/org-info');
+  });
 
-  const handleOrganizationInfoSubmit = useCallback(
+  const handleOrganizationInfoSubmit = logSubmit(
     (data: OrganizationInfoPayload) => {
-      action('submit')(data);
-
       setOrganizationInfo(data);
-      setPath('/register-server');
-    },
-    []
+      navigateTo('/register-server');
+    }
   );
 
-  const handleRegisterServerSubmit = useCallback(
+  const handleRegisterServerSubmit = logSubmit(
     (data: RegisterServerPayload) => {
-      action('submit')(data);
-
       switch (data.registerType) {
         case 'standalone': {
-          setPath('/home');
+          navigateTo('/home');
           break;
         }
 
@@ -76,26 +112,22 @@ export const SelfHostedRegistration: Story = () => {
             updates: data.updates,
             agreement: data.agreement,
           }));
-          setPath('/cloud-email');
+          navigateTo('/cloud-email');
           break;
         }
       }
-    },
-    []
+    }
   );
 
-  const handleCloudAccountEmailSubmit = useCallback(
+  const handleCloudAccountEmailSubmit = logSubmit(
     (data: CloudAccountEmailPayload) => {
-      action('submit')(data);
-
       setServerRegistration((serverRegistration) => ({
         ...serverRegistration,
         cloudAccountEmail: data.email,
         securityCode: 'Funny Tortoise In The Hat',
       }));
-      setPath('/awaiting');
-    },
-    []
+      navigateTo('/awaiting');
+    }
   );
 
   if (path === '/admin-info') {
@@ -104,9 +136,9 @@ export const SelfHostedRegistration: Story = () => {
         currentStep={1}
         stepCount={4}
         passwordRulesHint=''
-        validateUsername={() => true}
-        validateEmail={() => true}
-        validatePassword={() => true}
+        validateUsername={validateUsername}
+        validateEmail={validateEmail}
+        validatePassword={validatePassword}
         initialValues={adminInfo}
         onSubmit={handleAdminInfoSubmit}
       />
@@ -123,7 +155,7 @@ export const SelfHostedRegistration: Story = () => {
         organizationSizeOptions={[]}
         countryOptions={[]}
         initialValues={organizationInfo}
-        onBackButtonClick={() => setPath('/admin-info')}
+        onBackButtonClick={() => navigateTo('/admin-info')}
         onSubmit={handleOrganizationInfoSubmit}
       />
     );
@@ -135,10 +167,14 @@ export const SelfHostedRegistration: Story = () => {
         currentStep={3}
         stepCount={4}
         initialValues={{
-          updates: serverRegistration?.updates,
-          agreement: serverRegistration?.agreement,
+          ...(serverRegistration?.updates && {
+            updates: serverRegistration?.updates,
+          }),
+          ...(serverRegistration?.agreement && {
+            agreement: serverRegistration?.agreement,
+          }),
         }}
-        onBackButtonClick={() => setPath('/org-info')}
+        onBackButtonClick={() => navigateTo('/org-info')}
         onSubmit={handleRegisterServerSubmit}
       />
     );
@@ -150,7 +186,7 @@ export const SelfHostedRegistration: Story = () => {
         currentStep={4}
         stepCount={4}
         initialValues={{}}
-        onBackButtonClick={() => setPath('/register-server')}
+        onBackButtonClick={() => navigateTo('/register-server')}
         onSubmit={handleCloudAccountEmailSubmit}
       />
     );
