@@ -1,67 +1,35 @@
-import { action } from '@storybook/addon-actions';
+import { Box, Callout } from '@rocket.chat/fuselage';
 import type { Meta, Story } from '@storybook/react';
 import { useState } from 'react';
 
-import type { AdminInfoPayload } from '../forms/AdminInfoForm/AdminInfoForm';
-import type { CloudAccountEmailPayload } from '../forms/CloudAccountEmailForm/CloudAccountEmailForm';
-import type { OrganizationInfoPayload } from '../forms/OrganizationInfoForm/OrganizationInfoForm';
-import type { RegisterServerPayload } from '../forms/RegisterServerForm/RegisterServerForm';
-import AdminInfoPage from '../pages/AdminInfoPage';
-import AwaitingConfirmationPage from '../pages/AwaitingConfirmationPage';
-import CloudAccountEmailPage from '../pages/CloudAccountEmailPage';
-import OrganizationInfoPage from '../pages/OrganizationInfoPage';
-import RegisterServerPage from '../pages/RegisterServerPage';
+import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
+import type { CloudAccountEmailPayload } from '../../forms/CloudAccountEmailForm/CloudAccountEmailForm';
+import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
+import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
+import AdminInfoPage from '../../pages/AdminInfoPage';
+import AwaitingConfirmationPage from '../../pages/AwaitingConfirmationPage';
+import CloudAccountEmailPage from '../../pages/CloudAccountEmailPage';
+import OrganizationInfoPage from '../../pages/OrganizationInfoPage';
+import RegisterServerPage from '../../pages/RegisterServerPage';
+import {
+  countryOptions,
+  logSubmit,
+  organizationIndustryOptions,
+  organizationSizeOptions,
+  organizationTypes,
+  validateEmail,
+  validatePassword,
+  validateUsername,
+} from './mocks';
 
 export default {
   title: 'flows/Self-Hosted Registration',
   parameters: {
     layout: 'fullscreen',
     actions: { argTypesRegex: '^on.*' },
+    loki: { skip: true },
   },
 } as Meta;
-
-const logSubmit =
-  <T extends (...args: any[]) => any>(onSubmit: T) =>
-  (...args: Parameters<T>): ReturnType<T> => {
-    action('submit')(...args);
-    return onSubmit(...args);
-  };
-
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const simulateNetworkDelay = () => delay(3000 * Math.random());
-
-const fetchMock =
-  <T extends (...args: any[]) => any>(endpoint: string, handler: T) =>
-  async (...args: Parameters<T>): Promise<ReturnType<T>> => {
-    action(`fetch(${endpoint})`)(...args);
-    await simulateNetworkDelay();
-    return handler(...args);
-  };
-
-const validateUsername = fetchMock('/username/validate', (username: string) => {
-  if (username === 'admin') {
-    return `Username "${username}" is not available`;
-  }
-
-  return true;
-});
-
-const validateEmail = fetchMock('/email/validate', (email: string) => {
-  if (email === 'admin@rocket.chat') {
-    return `Email "${email}" is already in use`;
-  }
-
-  return true;
-});
-
-const validatePassword = (password: string) => {
-  if (password.length < 6) {
-    return `Password is too short`;
-  }
-
-  return true;
-};
 
 export const SelfHostedRegistration: Story = () => {
   const [path, navigateTo] =
@@ -71,7 +39,8 @@ export const SelfHostedRegistration: Story = () => {
       | 'register-server'
       | 'cloud-email'
       | 'awaiting'
-      | 'home'}`>('/admin-info');
+      | 'home'
+      | 'email'}`>('/admin-info');
 
   const [adminInfo, setAdminInfo] =
     useState<Omit<AdminInfoPayload, 'password'>>();
@@ -150,10 +119,10 @@ export const SelfHostedRegistration: Story = () => {
       <OrganizationInfoPage
         currentStep={2}
         stepCount={4}
-        organizationTypeOptions={[]}
-        organizationIndustryOptions={[]}
-        organizationSizeOptions={[]}
-        countryOptions={[]}
+        organizationTypeOptions={organizationTypes}
+        organizationIndustryOptions={organizationIndustryOptions}
+        organizationSizeOptions={organizationSizeOptions}
+        countryOptions={countryOptions}
         initialValues={organizationInfo}
         onBackButtonClick={() => navigateTo('/admin-info')}
         onSubmit={handleOrganizationInfoSubmit}
@@ -208,6 +177,20 @@ export const SelfHostedRegistration: Story = () => {
         onChangeEmailRequest={() => undefined}
         onResendEmailRequest={() => undefined}
       />
+    );
+  }
+
+  if (path === '/home') {
+    return (
+      <Box
+        width='100vw'
+        height='100vh'
+        display='flex'
+        justifyContent='center'
+        alignItems='center'
+      >
+        <Callout type='success'>This is the home of the workspace.</Callout>
+      </Box>
     );
   }
 
