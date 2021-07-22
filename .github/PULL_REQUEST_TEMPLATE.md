@@ -1,7 +1,7 @@
 <!-- This is a pull request template, you do not need to uncomment or remove the comments, they won't show up in the PR text. -->
 
 <!-- Your Pull Request name should start with one of the following tags
-  new: For new features
+  feat: For new features
   improve: For an improvement (performance or little improvements) in existing features
   fix: For bug fixes that affects the end user
   break: For pull requests including breaking changes
