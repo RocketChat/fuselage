@@ -217,5 +217,3 @@ export const SelfHostedRegistration: Story = () => {
   throw new Error('invalid path');
 };
 SelfHostedRegistration.storyName = 'Self-Hosted Registration';
-
-// AdminInfo -> OrganizationInfo -> RegisterServer -> CloudAccountEmail -> AwaitingConfirmation -> [envio de email] -> ConfirmationProcess -> EmailConfirmed
