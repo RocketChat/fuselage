@@ -9,6 +9,8 @@ import type { RegisterServerPayload } from '../../forms/RegisterServerForm/Regis
 import AdminInfoPage from '../../pages/AdminInfoPage';
 import AwaitingConfirmationPage from '../../pages/AwaitingConfirmationPage';
 import CloudAccountEmailPage from '../../pages/CloudAccountEmailPage';
+import ConfirmationProcessPage from '../../pages/ConfirmationProcessPage';
+import EmailConfirmedPage from '../../pages/EmailConfirmedPage';
 import OrganizationInfoPage from '../../pages/OrganizationInfoPage';
 import RegisterServerPage from '../../pages/RegisterServerPage';
 import {
@@ -40,7 +42,9 @@ export const SelfHostedRegistration: Story = () => {
       | 'cloud-email'
       | 'awaiting'
       | 'home'
-      | 'email'}`>('/admin-info');
+      | 'email'
+      | 'confirmation-progress'
+      | 'email-confirmed'}`>('/admin-info');
 
   const [adminInfo, setAdminInfo] =
     useState<Omit<AdminInfoPayload, 'password'>>();
@@ -170,14 +174,30 @@ export const SelfHostedRegistration: Story = () => {
       throw new Error('missing verification code');
     }
 
+    setTimeout(() => {
+      navigateTo('/confirmation-progress');
+    }, 5000);
+
     return (
       <AwaitingConfirmationPage
         emailAddress={serverRegistration.cloudAccountEmail}
         securityCode={serverRegistration.securityCode}
-        onChangeEmailRequest={() => undefined}
+        onChangeEmailRequest={() => navigateTo('/admin-info')}
         onResendEmailRequest={() => undefined}
       />
     );
+  }
+
+  if (path === '/confirmation-progress') {
+    setTimeout(() => {
+      navigateTo('/email-confirmed');
+    }, 3000);
+
+    return <ConfirmationProcessPage />;
+  }
+
+  if (path === '/email-confirmed') {
+    return <EmailConfirmedPage />;
   }
 
   if (path === '/home') {
