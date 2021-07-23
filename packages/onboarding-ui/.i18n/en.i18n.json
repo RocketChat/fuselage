@@ -37,7 +37,14 @@
       "push": "Secured push notifications",
       "goldIncludes": "* Golden plan includes all features from other plans"
     },
-    "alreadyHaveAccount": "Already have an account? <1>Manage your workspaces.</1>"
+    "alreadyHaveAccount": "Already have an account? <1>Manage your workspaces.</1>",
+    "invalidLink": {
+      "title": "Your Link is no Longer Valid",
+      "content": "Seems like you have already used invite link. It’s generated for a single sign in. Request a new one to join your workspace.",
+      "button": {
+        "text": "Request new link"
+      }
+    }
   },
   "form": {
     "adminInfoForm": {

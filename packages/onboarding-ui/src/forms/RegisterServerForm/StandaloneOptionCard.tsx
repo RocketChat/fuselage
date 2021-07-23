@@ -9,10 +9,11 @@ import OptionCard from './OptionCard';
 const RegisterOptionCard = (): ReactElement => {
   const { t } = useTranslation();
 
-  const { register, setValue } = useFormContext();
+  const { register, setValue, trigger } = useFormContext();
 
   const onClickCard = () => {
     setValue('registerType', 'standalone');
+    trigger('agreement');
   };
 
   const selected = useWatch({ name: 'registerType' }) === 'standalone';
