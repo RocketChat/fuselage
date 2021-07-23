@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
@@ -7,8 +7,8 @@ import AdminInfoForm from '../../forms/AdminInfoForm';
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
 
 type AdminInfoPageProps = {
-  title?: string;
-  description?: string;
+  title?: ReactNode;
+  description?: ReactNode;
   currentStep: number;
   stepCount: number;
   passwordRulesHint: string;
