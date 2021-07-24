@@ -4,9 +4,17 @@
   feat: For new features
   improve: For an improvement (performance or little improvements) in existing features
   fix: For bug fixes that affects the end user
-  break: For pull requests including breaking changes
   chore: For small tasks
-  doc: For documentation
+  docs: For documentation only changes
+  perf: For code change that improves performance
+  build: For changes that affect the build system or external dependencies
+  ci: For changes to our CI configuration files and scripts
+  refactor: For changes that neither fixes a bug nor adds a feature
+  test: For adding missing tests or correcting existing tests
+
+  E.g.:
+
+  feat(fuselage-hooks): Add useWhatever hook
 -->
 
 <!-- Checklist!!! If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code. -->
