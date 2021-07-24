@@ -8,10 +8,11 @@ import OptionCard from './OptionCard';
 const RegisterOptionCard = (): ReactElement => {
   const { t } = useTranslation();
 
-  const { register, setValue } = useFormContext();
+  const { register, setValue, trigger } = useFormContext();
 
   const onClickCard = () => {
     setValue('registerType', 'registered');
+    trigger('agreement');
   };
 
   const selected = useWatch({ name: 'registerType' }) === 'registered';
@@ -68,7 +69,19 @@ const RegisterOptionCard = (): ReactElement => {
           </label>
         </Box>
         <Box color='default' fontScale='c1'>
-          <CheckBox mie='x8' disabled={!selected} {...register('agreement')} />{' '}
+          <CheckBox
+            mie='x8'
+            disabled={!selected}
+            {...register('agreement', {
+              validate: (value) => {
+                if (!selected) {
+                  return true;
+                }
+
+                return value;
+              },
+            })}
+          />{' '}
           <Box is='label' htmlFor='agreement' withRichContent>
             <Trans i18nKey='form.serverRegistrationForm.register.agreement'>
               I agree with

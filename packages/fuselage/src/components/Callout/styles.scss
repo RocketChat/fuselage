@@ -9,6 +9,8 @@
   padding-inline-start: lengths.padding(16);
   padding-inline-end: lengths.padding(32);
 
+  color: colors.foreground(default);
+
   border-radius: lengths.border-radius(2);
 
   &--type-info {
@@ -36,8 +38,6 @@
   flex: 1 1 0;
 
   margin-inline-start: lengths.margin(8);
-
-  color: colors.foreground(default);
 
   @include typography.use-font-scale(c1);
 }

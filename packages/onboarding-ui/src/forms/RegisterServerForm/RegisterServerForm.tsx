@@ -7,7 +7,7 @@ import Form from '../../common/Form';
 import RegisterOptionCard from './RegisterOptionCard';
 import StandaloneOptionCard from './StandaloneOptionCard';
 
-type RegisterServerFormInputs = {
+export type RegisterServerPayload = {
   registerType: 'registered' | 'standalone';
   agreement: boolean;
   updates: boolean;
@@ -16,29 +16,37 @@ type RegisterServerFormInputs = {
 type RegisterServerFormProps = {
   currentStep: number;
   stepCount: number;
-  onSubmit: SubmitHandler<RegisterServerFormInputs>;
+  initialValues?: Partial<RegisterServerPayload>;
+  onSubmit: SubmitHandler<RegisterServerPayload>;
   onBackButtonClick: () => void;
 };
 
 const RegisterServerForm = ({
   currentStep,
   stepCount,
+  initialValues,
   onSubmit,
   onBackButtonClick,
 }: RegisterServerFormProps): ReactElement => {
   const { t } = useTranslation();
 
-  const methods = useForm<RegisterServerFormInputs>({
+  const form = useForm<RegisterServerPayload>({
+    mode: 'onChange',
     defaultValues: {
       registerType: 'registered',
       agreement: false,
-      updates: false,
+      updates: true,
+      ...initialValues,
     },
   });
-  const { handleSubmit } = methods;
+
+  const {
+    formState: { isValidating, isSubmitting, isValid },
+    handleSubmit,
+  } = form;
 
   return (
-    <FormProvider {...methods}>
+    <FormProvider {...form}>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Steps currentStep={currentStep} stepCount={stepCount} />
         <Form.Title>{t('form.serverRegistrationForm.title')}</Form.Title>
@@ -51,7 +59,11 @@ const RegisterServerForm = ({
             <Button onClick={onBackButtonClick}>
               {t('component.form.action.back')}
             </Button>
-            <Button type='submit' primary>
+            <Button
+              type='submit'
+              primary
+              disabled={isValidating || isSubmitting || !isValid}
+            >
               {t('component.form.action.next')}
             </Button>
           </ButtonGroup>
