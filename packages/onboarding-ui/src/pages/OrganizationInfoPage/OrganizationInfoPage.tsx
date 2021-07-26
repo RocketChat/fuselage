@@ -7,6 +7,8 @@ import OrganizationInfoForm from '../../forms/OrganizationInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
 
 type OrganizationInfoPageProps = {
+  title?: string;
+  description?: string;
   currentStep: number;
   stepCount: number;
   organizationTypeOptions: (readonly [string, string])[];
@@ -16,13 +18,15 @@ type OrganizationInfoPageProps = {
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
   onBackButtonClick: () => void;
+  onConfirmText?: string;
+  onClickSkip?: () => void;
 };
 
 const OrganizationInfoPage = (
   props: OrganizationInfoPageProps
 ): ReactElement => (
   <BackgroundLayer>
-    <FormPageLayout>
+    <FormPageLayout title={props.title} description={props.description}>
       <OrganizationInfoForm {...props} />
     </FormPageLayout>
   </BackgroundLayer>

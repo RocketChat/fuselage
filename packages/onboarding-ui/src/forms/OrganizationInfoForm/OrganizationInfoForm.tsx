@@ -6,8 +6,9 @@ import {
   TextInput,
   Select,
   SelectOptions,
+  Box,
 } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -28,9 +29,11 @@ type OrganizationInfoFormProps = {
   organizationIndustryOptions: SelectOptions;
   organizationSizeOptions: SelectOptions;
   countryOptions: SelectOptions;
+  onConfirmText?: ReactNode;
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
   onBackButtonClick: () => void;
+  onClickSkip?: () => void;
 };
 
 const OrganizationInfoForm = ({
@@ -40,9 +43,11 @@ const OrganizationInfoForm = ({
   organizationIndustryOptions,
   organizationSizeOptions,
   countryOptions,
+  onConfirmText,
   initialValues,
   onSubmit,
   onBackButtonClick,
+  onClickSkip,
 }: OrganizationInfoFormProps): ReactElement => {
   const { t } = useTranslation();
 
@@ -165,9 +170,20 @@ const OrganizationInfoForm = ({
           <Button onClick={onBackButtonClick}>
             {t('component.form.action.back')}
           </Button>
+
           <Button type='submit' primary disabled={isValidating || isSubmitting}>
-            {t('component.form.action.next')}
+            {onConfirmText ?? t('component.form.action.next')}
           </Button>
+
+          {onClickSkip && (
+            <Box flexGrow={1}>
+              <ButtonGroup flexGrow={1} align='end'>
+                <Button nude info onClick={onClickSkip}>
+                  {t('component.form.action.skip')}
+                </Button>
+              </ButtonGroup>
+            </Box>
+          )}
         </ButtonGroup>
       </Form.Footer>
     </Form>
