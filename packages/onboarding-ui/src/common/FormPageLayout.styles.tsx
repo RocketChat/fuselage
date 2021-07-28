@@ -86,6 +86,7 @@ export const Subtitle = styled('div')`
 
 export const Description = styled('div')`
   display: none;
+  font-family: ${sans};
 
   @media (min-width: 1440px) {
     display: unset;
