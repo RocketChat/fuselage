@@ -114,6 +114,17 @@
           "mobile": "and recompile mobile apps with your certificates"
         }
       }
+    },
+    "requestTrialForm": {
+      "request": "Request Trial",
+      "emailAddr": {
+        "label": "Email address",
+        "placeholder": "Enter email address"
+      },
+      "hasWorkspace": {
+        "label": "Already registered a workspace?",
+        "description": "Use the same email address to continue"
+      }
     }
   }
 }
