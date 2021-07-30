@@ -1,7 +1,7 @@
 {
   "name": "@rocket.chat/message-parser",
   "description": "Rocket.Chat parser for messages",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -55,9 +55,9 @@
     "@babel/core": "^7.14.6",
     "@babel/eslint-parser": "^7.14.7",
     "@babel/preset-env": "^7.14.7",
-    "@rocket.chat/eslint-config-alt": "^0.27.0",
-    "@rocket.chat/peggy-loader": "^0.27.0",
-    "@rocket.chat/prettier-config": "^0.27.0",
+    "@rocket.chat/eslint-config-alt": "^0.28.0",
+    "@rocket.chat/peggy-loader": "^0.28.0",
+    "@rocket.chat/prettier-config": "^0.28.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^15.14.1",
     "@typescript-eslint/parser": "^4.28.2",

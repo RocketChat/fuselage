@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.27.0...v0.28.0) (2021-07-30)
+
+
+### Bug Fixes
+
+* Add Tab.Item definition ([#503](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/503)) ([9a7f3d5](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9a7f3d5a357bb9bea1f5cf85c50d90398f916bee))
+* Escape trademark sign ([#500](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/500)) ([801de02](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/801de023f964f89b42da4528f0e7c7deb7c04429)), closes [RocketChat#7386](https://github.com/RocketChat/issues/7386)
+* Forwarding ref in Select components ([#492](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/492)) ([6c360bd](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6c360bd040da19dc331b7fb8d208418a5b51f916))
+* Missing Sidebar type ([#506](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/506)) ([78f202d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/78f202d5b84f1bc7fe638070ece020126dcdd686))
+* Sidebar item icon styles ([#481](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/481)) ([86b333a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/86b333a790563c9178712e5f1240d36fa0fb5be5))
+* **fuselage:** No preventDefault on PaginatedSelect ([#490](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/490)) ([0ffb736](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0ffb736b1cc1c9a6d7897fbcf89baf42573c6c33))
+* **fuselage-ui-kit:** Implements missing url prop for buttons ([#488](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/488)) ([bb19344](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bb193441804c9b20174e2586d22c4b2845a486c3))
+* Table props ([#484](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/484)) ([67b6f27](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/67b6f2757c551b9b455a5babd51e0bc89f12ed71))
+
+
+### Features
+
+* **onboarding-ui:** AdminInfoPage for Cloud Registration wizard ([#497](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/497)) ([7557dce](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7557dcea5c8afe6f658062125ab949d4ab27a45a))
+* **onboarding-ui:** Administrator information form and Organization information form ([#489](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/489)) ([b289f68](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b289f68676954b91c792d8d97680314178bf2c60))
+* **onboarding-ui:** Common components ([#478](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/478)) ([d7511ab](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d7511ab435bae8c35e02071832c9a615078a83d5))
+* **onboarding-ui:** Invalid Link page ([#496](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/496)) ([6c74576](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6c74576bb0e63e33771eb24bbd6f1c881088f44c))
+* **onboarding-ui:** Self-hosted registration ([#501](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/501)) ([e47d579](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e47d579938f1cb670e787b27402ece214e7d37e9))
+* **onboarding-ui:** Server registration form ([#494](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/494)) ([be3185f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/be3185ff8eba2b02cfda6736074ecc2f38ff1d3e))
+* styled API; monorepo grooming ([#482](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/482)) ([1b6b70c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1b6b70cf67ec16927b1566adc2350295a8927223))
+* Visibility toggle for PasswordInput ([#377](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/377)) ([d430773](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d430773ca5384ed3e88f54a34cd82364e1ee05f8))
+
+
+
+
+
 # [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
 
 

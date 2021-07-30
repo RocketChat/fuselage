@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.27.0...v0.28.0) (2021-07-30)
+
+
+### Bug Fixes
+
+* Missing Sidebar type ([#506](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/506)) ([78f202d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/78f202d5b84f1bc7fe638070ece020126dcdd686))
+
+
+### Features
+
+* **onboarding-ui:** AdminInfoPage for Cloud Registration wizard ([#497](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/497)) ([7557dce](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7557dcea5c8afe6f658062125ab949d4ab27a45a))
+* **onboarding-ui:** Administrator information form and Organization information form ([#489](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/489)) ([b289f68](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b289f68676954b91c792d8d97680314178bf2c60))
+* **onboarding-ui:** Common components ([#478](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/478)) ([d7511ab](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d7511ab435bae8c35e02071832c9a615078a83d5))
+* **onboarding-ui:** Invalid Link page ([#496](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/496)) ([6c74576](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6c74576bb0e63e33771eb24bbd6f1c881088f44c))
+* **onboarding-ui:** Self-hosted registration ([#501](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/501)) ([e47d579](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e47d579938f1cb670e787b27402ece214e7d37e9))
+* **onboarding-ui:** Server registration form ([#494](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/494)) ([be3185f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/be3185ff8eba2b02cfda6736074ecc2f38ff1d3e))
+* styled API; monorepo grooming ([#482](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/482)) ([1b6b70c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1b6b70cf67ec16927b1566adc2350295a8927223))
+
+
+
+
+
 # [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
 
 
