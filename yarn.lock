@@ -5672,7 +5672,7 @@ __metadata:
     "@rocket.chat/fuselage-tokens": ^0.27.0
     "@rocket.chat/icons": ^0.27.0
     "@rocket.chat/prettier-config": ^0.27.0
-    "@rocket.chat/styled": "workspace:packages/styled"
+    "@rocket.chat/styled": ^0.27.0
     "@storybook/addon-essentials": ^6.3.4
     "@storybook/addons": ^6.3.4
     "@storybook/react": ^6.3.4
@@ -5769,7 +5769,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/styled@workspace:packages/styled":
+"@rocket.chat/styled@^0.27.0, @rocket.chat/styled@workspace:packages/styled":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/styled@workspace:packages/styled"
   dependencies:

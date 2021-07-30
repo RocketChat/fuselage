@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.27.0...v0.28.0) (2021-07-30)
+
+
+### Bug Fixes
+
+* Add Tab.Item definition ([#503](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/503)) ([9a7f3d5](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9a7f3d5a357bb9bea1f5cf85c50d90398f916bee))
+* Forwarding ref in Select components ([#492](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/492)) ([6c360bd](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6c360bd040da19dc331b7fb8d208418a5b51f916))
+* Missing Sidebar type ([#506](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/506)) ([78f202d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/78f202d5b84f1bc7fe638070ece020126dcdd686))
+* Sidebar item icon styles ([#481](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/481)) ([86b333a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/86b333a790563c9178712e5f1240d36fa0fb5be5))
+* **fuselage:** No preventDefault on PaginatedSelect ([#490](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/490)) ([0ffb736](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0ffb736b1cc1c9a6d7897fbcf89baf42573c6c33))
+* Table props ([#484](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/484)) ([67b6f27](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/67b6f2757c551b9b455a5babd51e0bc89f12ed71))
+
+
+### Features
+
+* **onboarding-ui:** Administrator information form and Organization information form ([#489](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/489)) ([b289f68](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b289f68676954b91c792d8d97680314178bf2c60))
+* **onboarding-ui:** Common components ([#478](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/478)) ([d7511ab](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d7511ab435bae8c35e02071832c9a615078a83d5))
+* **onboarding-ui:** Self-hosted registration ([#501](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/501)) ([e47d579](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e47d579938f1cb670e787b27402ece214e7d37e9))
+* styled API; monorepo grooming ([#482](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/482)) ([1b6b70c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1b6b70cf67ec16927b1566adc2350295a8927223))
+
+
+
+
+
 # [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
 
 
