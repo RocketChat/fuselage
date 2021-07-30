@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/memo",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "description": "Memoization utilities",
   "keywords": [
     "memoize"
@@ -47,8 +47,8 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.27.0",
-    "@rocket.chat/prettier-config": "^0.27.0",
+    "@rocket.chat/eslint-config-alt": "^0.28.0",
+    "@rocket.chat/prettier-config": "^0.28.0",
     "downlevel-dts": "^0.7.0",
     "eslint": "^7.29.0",
     "lint-staged": "^11.0.0",
