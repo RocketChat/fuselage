@@ -14,6 +14,8 @@ export default {
   },
   args: {
     onSubmit: (data) => console.log(data),
+    validateEmail: (email) =>
+      email === 'rocket@rocket.chat' ? 'invalid email' : true,
   },
 } as Meta<Args>;
 

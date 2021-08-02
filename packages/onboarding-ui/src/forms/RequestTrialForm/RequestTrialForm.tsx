@@ -1,6 +1,6 @@
-import { Button, Field, FieldGroup, TextInput } from '@rocket.chat/fuselage';
+import { Button, Field, FieldGroup, EmailInput } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, Validate } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
@@ -11,21 +11,20 @@ type RequestTrialPayload = {
 
 type RequestTrialFormProps = {
   onSubmit: SubmitHandler<RequestTrialPayload>;
+  validateEmail: Validate<string>;
 };
 
 const RequestTrialForm = ({
   onSubmit,
+  validateEmail,
 }: RequestTrialFormProps): ReactElement => {
   const { t } = useTranslation();
 
   const {
     handleSubmit,
     register,
-    formState: { isValidating, isSubmitting, isValid },
-    watch,
+    formState: { isValidating, isSubmitting, isValid, errors },
   } = useForm<RequestTrialPayload>({ mode: 'onChange' });
-
-  watch('email');
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -35,11 +34,16 @@ const RequestTrialForm = ({
             {t('form.requestTrialForm.emailAddr.label')}
           </Field.Label>
           <Field.Row>
-            <TextInput
-              {...register('email', { required: true })}
+            <EmailInput
+              {...register('email', {
+                validate: validateEmail,
+                required: true,
+              })}
               placeholder={t('form.requestTrialForm.emailAddr.placeholder')}
+              error={errors?.email?.message || undefined}
             />
           </Field.Row>
+          {errors?.email && <Field.Error>{errors.email.message}</Field.Error>}
         </Field>
         <Field>
           <Field.Label>
