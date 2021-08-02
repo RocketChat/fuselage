@@ -97,28 +97,28 @@ export const TextRenderingLayer: FC = ({
           <IconButton
             icon='bold'
             onClick={() => {
-              if (canvas?.getActiveObject()) {
-                handleFormatting('fontWeight' as keyof fabric.Object, bold);
-                setBold((prevState) => (prevState === '' ? 'bold' : ''));
-              }
+              // console.log();
+              canvas?.setActiveObject(canvas?.getObjects()[1]);
+              // if (canvas?.getActiveObject()) {
+              handleFormatting('fontWeight' as keyof fabric.Object, bold);
+              setBold((prevState) => (prevState === '' ? 'bold' : ''));
+              // }
             }}
           />
           <IconButton
             icon='italic'
             onClick={() => {
-              if (canvas?.getActiveObject()) {
-                handleFormatting('fontStyle' as keyof fabric.Object, italic);
-                setItalic((prevState) => (prevState === '' ? 'italic' : ''));
-              }
+              canvas?.setActiveObject(canvas?.getObjects()[1]);
+              handleFormatting('fontStyle' as keyof fabric.Object, italic);
+              setItalic((prevState) => (prevState === '' ? 'italic' : ''));
             }}
           />
           <IconButton
             icon='underline'
             onClick={() => {
-              if (canvas?.getActiveObject()) {
-                handleFormatting('underline' as keyof fabric.Object, underline);
-                setUnderline((prevState) => (prevState === '' ? 'true' : ''));
-              }
+              canvas?.setActiveObject(canvas?.getObjects()[1]);
+              handleFormatting('underline' as keyof fabric.Object, underline);
+              setUnderline((prevState) => (prevState === '' ? 'true' : ''));
             }}
           />
         </ButtonGroup>
