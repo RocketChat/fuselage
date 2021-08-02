@@ -12,16 +12,18 @@ const WorkspaceUrlInput = ({
   <TextInput
     {...props}
     addon={
-      <Box
-        borderInlineStart='2px solid'
-        mb='neg-x8'
-        pb='x8'
-        borderColor='neutral-500'
-        color='info'
-        pis='x12'
-      >
-        {domain}
-      </Box>
+      domain && (
+        <Box
+          borderInlineStart='2px solid'
+          mb='neg-x8'
+          pb='x8'
+          borderColor='neutral-500'
+          color='info'
+          pis='x12'
+        >
+          {domain}
+        </Box>
+      )
     }
   />
 );

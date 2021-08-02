@@ -22,6 +22,7 @@ export default {
     ],
     validateUrl: async (url) => url !== 'rocket',
     validateEmail: async (email) => email !== 'rocket',
+    domain: 'rocket.chat',
   },
 } as Meta<Args>;
 
