@@ -1,38 +1,83 @@
-import React, { forwardRef, ComponentProps, RefObject, useState } from 'react';
 import { Box } from '@rocket.chat/fuselage';
-import { getDimensions } from '.';
+import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import React, { useEffect, useContext, ComponentProps, FC } from 'react';
 
-type PreviewProps = ComponentProps<typeof Box> & {
-  imgSrc: string;
-  parentRef: RefObject<typeof Box & HTMLDivElement>;
-};
+import { ActionType } from '../context/action';
+import { ManipulationContext } from '../context/manipulationContext';
+import { getDimensions } from './getDimensions';
 
-export const Preview = forwardRef<typeof Box, PreviewProps>(
-  ({ imgSrc, parentRef, ...props }, ref) => {
-    const [size, setSize] = useState({});
-    const [dims, setDims] = useState({ width: 10, height: 10 });
+type PreviewProps = ComponentProps<typeof Box>;
 
-    React.useEffect(() => {
-      var img = new Image();
-      img.src = imgSrc;
-      img.onload = function (e: any) {
-        setDims({
-          width: e.path[0].width,
-          height: e.path[0].height,
-        });
-      };
-    }, []);
+export const Preview: FC<PreviewProps> = ({ ...props }) => {
+  const { state, dispatch } = useContext(ManipulationContext);
+  const {
+    imageSrc,
+    dimensions: {
+      parentDimensions,
+      originalImageDimensions,
+      cropDimensions,
+      previewDimensions,
+    },
+  } = state;
 
-    React.useEffect(() => {
-      const limitWidth = parentRef.current!.clientWidth * 0.9;
-      const limitHeight = parentRef.current!.clientHeight * 0.9;
-      const dimensions = getDimensions(dims.width, dims.height, {
+  useEffect(() => {
+    const limitWidth = parentDimensions.width * 0.9;
+    const limitHeight = parentDimensions.height * 0.9;
+    const dimensions = getDimensions(
+      originalImageDimensions?.width,
+      originalImageDimensions?.height,
+      {
         width: limitWidth,
         height: limitHeight,
-      });
-      setSize(dimensions);
-    }, [imgSrc, parentRef, dims]);
+      }
+    );
+    dispatch({
+      type: ActionType.SET_PREVIEW_DIMENSIONS,
+      payload: dimensions,
+    });
+  }, [imageSrc.current, parentDimensions, originalImageDimensions]);
 
-    return <Box is='img' src={imgSrc} ref={ref} {...size} {...props} />;
-  }
-);
+  const {
+    ref: resizeRef,
+    contentBoxSize: { inlineSize, blockSize },
+  } = useResizeObserver();
+
+  console.log(resizeRef, inlineSize, blockSize);
+
+  useEffect(() => {
+    dispatch({
+      type: ActionType.SET_IMAGE_REF,
+      payload: resizeRef,
+    });
+  }, []);
+  useEffect(() => {
+    dispatch({
+      type: ActionType.SET_CROP_DIMENSIONS,
+      payload: { width: inlineSize, height: blockSize },
+    });
+  }, [inlineSize, blockSize]);
+
+  console.log({ cropDimensions, previewDimensions });
+
+  return (
+    <React.Fragment>
+      {cropDimensions.height > cropDimensions.width ? (
+        <Box
+          is='img'
+          src={imageSrc.current}
+          ref={resizeRef}
+          height={previewDimensions.height}
+          {...props}
+        />
+      ) : (
+        <Box
+          is='img'
+          src={imageSrc.current}
+          ref={resizeRef}
+          width={previewDimensions.width}
+          {...props}
+        />
+      )}
+    </React.Fragment>
+  );
+};

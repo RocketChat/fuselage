@@ -1,45 +1,44 @@
+/* eslint-disable new-cap */
 import { Box } from '@rocket.chat/fuselage';
 import { fabric } from 'fabric';
+// eslint-disable-next-line import/no-unresolved
 import { Canvas, Image } from 'fabric/fabric-impl';
-import React, { RefObject, useEffect, Dispatch, SetStateAction } from 'react';
+import { useEffect, Dispatch, SetStateAction, useContext, FC } from 'react';
 
-import { getDimensions } from '.';
+import { ManipulationContext } from '../context/manipulationContext';
 
-type InitCanvasProps = {
-  img: RefObject<typeof Box & HTMLImageElement>;
+type PreviewCanvasProps = {
   setCanvas: Dispatch<SetStateAction<Canvas | null | undefined>>;
-  parent: RefObject<typeof Box & HTMLDivElement>;
 };
 
-export const PreviewCanvas = ({ img, setCanvas, parent }: InitCanvasProps) => {
+export const PreviewCanvas: FC<PreviewCanvasProps> = ({
+  setCanvas,
+}: PreviewCanvasProps) => {
+  const { state } = useContext(ManipulationContext);
+  const { width, height } = state.dimensions?.cropDimensions;
+
   useEffect(() => {
-    console.log('Initializing Canvas');
-    const { width, height } = getDimensions(
-      img.current!.width,
-      img.current!.height,
-      {
-        width: parent.current!.clientWidth * 0.9,
-        height: parent.current!.clientHeight * 0.9,
-      }
-    );
+    console.log('Initializing Canvas', { width, height });
 
     const canvas = new fabric.Canvas('canvas', {
       height,
       width,
     });
+    // snippet to hide the rotation controls
+    fabric.Object.prototype.controls.mtr = new fabric.Control({
+      visible: false,
+    });
+    //
     new (fabric.Image as any).fromURL(
-      img.current?.currentSrc,
+      state.imageSrc?.current,
       (item: Image) => {
-        item.scale(1);
         item.selectable = false;
-        item.scaleToWidth(canvas?.width!);
         canvas?.add(item);
+        canvas?.width && item.scaleToWidth(canvas.width);
         canvas?.sendToBack(item);
-        // canvas?.renderAll();
       }
     );
     setCanvas(canvas);
-    console.log(canvas);
   }, []);
 
   return <Box is='canvas' id='canvas'></Box>;
