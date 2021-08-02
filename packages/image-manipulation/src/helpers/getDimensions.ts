@@ -3,7 +3,7 @@ export const getDimensions = (
   originalHeight: number,
   limits: { width: number; height: number }
 ): { width: number; height: number } => {
-  console.log(originalWidth, originalHeight, limits);
+  // console.log(originalWidth, originalHeight, limits);
   const widthRatio = originalWidth / (limits.width - 4);
   const heightRatio = originalHeight / limits.height;
 

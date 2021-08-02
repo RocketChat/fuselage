@@ -2,7 +2,7 @@ import React, { RefObject, useState, useEffect, ComponentProps } from 'react';
 import { Box } from '@rocket.chat/fuselage';
 import { Canvas, Rect } from 'fabric/fabric-impl';
 import { fabric } from 'fabric';
-import { InitCanvas } from '../index';
+import { PreviewCanvas } from '../index';
 import { getDimensions } from '../';
 
 type CropRenderingLayerProps = ComponentProps<typeof Box> & {
@@ -54,7 +54,7 @@ export const CropRenderingLayer = ({
 
   return (
     <Box {...props}>
-      <InitCanvas setCanvas={setCanvas} img={imgEle} parent={parentEle} />
+      <PreviewCanvas setCanvas={setCanvas} img={imgEle} parent={parentEle} />
     </Box>
   );
 };
