@@ -1,7 +1,8 @@
-import React, { RefObject, useEffect, Dispatch, SetStateAction } from 'react';
 import { Box } from '@rocket.chat/fuselage';
-import { Canvas, Image } from 'fabric/fabric-impl';
 import { fabric } from 'fabric';
+import { Canvas, Image } from 'fabric/fabric-impl';
+import React, { RefObject, useEffect, Dispatch, SetStateAction } from 'react';
+
 import { getDimensions } from '.';
 
 type InitCanvasProps = {

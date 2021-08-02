@@ -64,6 +64,8 @@
   },
   "dependencies": {
     "@rocket.chat/icons": "^0.27.0",
+    "@types/fabric": "^4.5.1",
+    "fabric": "^4.5.1",
     "tslib": "^2.2.0"
   },
   "loki": {
