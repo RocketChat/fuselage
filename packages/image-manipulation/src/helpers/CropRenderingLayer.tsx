@@ -18,7 +18,6 @@ export const CropRenderingLayer: FC = ({
   const [userClipPath, setUserClipPath] = useState<Rect>({} as Rect);
 
   useEffect(() => {
-    console.log('RENDERING LAYER');
     const { croppingLayerDimnesions, previewDimensions } = state.dimensions;
 
     const layerHeight = croppingLayerDimnesions.height;
