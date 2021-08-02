@@ -4,7 +4,7 @@ import { useRef, ComponentProps, useEffect, useContext } from 'react';
 import { IconButton } from '.';
 import { ActionType } from '../context/action';
 import { ManipulationContext } from '../context/manipulationContext';
-import { Preview, CropRenderingLayer } from '../helpers';
+import { Preview, CropRenderingLayer, TextRenderingLayer } from '../helpers';
 
 type AppProps = ComponentProps<typeof Box> & {
   imgSrc: string;
@@ -85,7 +85,7 @@ const App: ({ imgSrc, ...props }: AppProps) => JSX.Element = ({
       />
 
       {modifierSelected === 'crop' && <CropRenderingLayer />}
-      {/* {modifierSelected === 'text' && <TextRenderingLayer />} */}
+      {modifierSelected === 'text' && <TextRenderingLayer />}
 
       {(typeof modifierSelected === 'undefined' ||
         modifierSelected === null) && (
