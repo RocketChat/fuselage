@@ -11,7 +11,7 @@ type InitCanvasProps = {
   parent: RefObject<typeof Box & HTMLDivElement>;
 };
 
-export const InitCanvas = ({ img, setCanvas, parent }: InitCanvasProps) => {
+export const PreviewCanvas = ({ img, setCanvas, parent }: InitCanvasProps) => {
   useEffect(() => {
     console.log('Initializing Canvas');
     const { width, height } = getDimensions(

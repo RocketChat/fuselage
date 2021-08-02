@@ -1,4 +1,4 @@
 export { CropRenderingLayer } from './Crop/CropRenderingLayer';
 export { Preview } from './Preview';
-export { InitCanvas } from './initCanvas'
+export { PreviewCanvas } from './PreviewCanvas'
 export { getDimensions } from './dimensions';
