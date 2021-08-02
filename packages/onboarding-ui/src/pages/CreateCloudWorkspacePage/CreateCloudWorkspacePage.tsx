@@ -20,6 +20,7 @@ type CreateCloudWorkspacePageProps = {
     agreement: boolean;
     updates: boolean;
   }>;
+  domain: string;
   serverRegionOptions: SelectOptions;
   onBackButtonClick: () => void;
   validateUrl: (url: string) => Promise<boolean>;
