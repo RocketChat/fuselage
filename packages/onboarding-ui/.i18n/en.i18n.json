@@ -152,6 +152,17 @@
         },
         "keepMePosted": "Keep me posted about Rocket.Chat updates"
       }
+    },
+    "requestTrialForm": {
+      "request": "Request Trial",
+      "emailAddress": {
+        "label": "Email address",
+        "placeholder": "Enter email address"
+      },
+      "hasWorkspace": {
+        "label": "Already registered a workspace?",
+        "description": "Use the same email address to continue"
+      }
     }
   }
 }
