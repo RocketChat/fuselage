@@ -13,7 +13,6 @@ export default {
     actions: { argTypesRegex: '^on.*' },
   },
   args: {
-    onSubmit: (data) => console.log(data),
     validateEmail: (email) =>
       email === 'rocket@rocket.chat' ? 'invalid email' : true,
   },
