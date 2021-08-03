@@ -39,7 +39,7 @@ const RequestTrialForm = ({
                 validate: validateEmail,
                 required: true,
               })}
-              placeholder={t('form.requestTrialForm.emailAddr.placeholder')}
+              placeholder={t('form.requestTrialForm.emailAddress.placeholder')}
               error={errors?.email?.message || undefined}
             />
           </Field.Row>
