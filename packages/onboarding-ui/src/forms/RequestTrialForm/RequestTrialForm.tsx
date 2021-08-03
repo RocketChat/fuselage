@@ -31,7 +31,7 @@ const RequestTrialForm = ({
       <FieldGroup>
         <Field>
           <Field.Label>
-            {t('form.requestTrialForm.emailAddr.label')}
+            {t('form.requestTrialForm.emailAddress.label')}
           </Field.Label>
           <Field.Row>
             <EmailInput
