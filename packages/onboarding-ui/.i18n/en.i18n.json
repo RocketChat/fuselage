@@ -117,7 +117,7 @@
     },
     "requestTrialForm": {
       "request": "Request Trial",
-      "emailAddr": {
+      "emailAddress": {
         "label": "Email address",
         "placeholder": "Enter email address"
       },
