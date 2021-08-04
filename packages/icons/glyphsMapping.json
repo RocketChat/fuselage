@@ -799,5 +799,11 @@
   },
   "text-decrease": {
     "start": "\ue0de"
+  },
+  "directory-disabled": {
+    "start": "\ue0df"
+  },
+  "ignore": {
+    "start": "\ue0e0"
   }
 }
