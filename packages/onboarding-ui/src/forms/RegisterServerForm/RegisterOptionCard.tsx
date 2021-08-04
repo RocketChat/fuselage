@@ -69,6 +69,7 @@ const RegisterOptionCard = (): ReactElement => {
           alignItems='flex-start'
           color='info'
           fontScale='c1'
+          lineHeight={20}
         >
           <CheckBox mie='x8' disabled={!selected} {...register('updates')} />{' '}
           <label htmlFor='updates'>
@@ -76,11 +77,12 @@ const RegisterOptionCard = (): ReactElement => {
           </label>
         </Box>
         <Box
-          color='default'
-          fontScale='c1'
           display='flex'
           flexDirection='row'
           alignItems='flex-start'
+          color='default'
+          fontScale='c1'
+          lineHeight={20}
         >
           <CheckBox
             mie='x8'
