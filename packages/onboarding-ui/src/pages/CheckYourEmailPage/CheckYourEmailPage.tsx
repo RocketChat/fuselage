@@ -8,19 +8,15 @@ import BackgroundLayer from '../../common/BackgroundLayer';
 import { useDarkMode } from '../../common/DarkModeProvider';
 import RocketChatLogo from '../../common/RocketChatLogo';
 
-type AwaitingConfirmationPageProps = {
-  emailAddress: string;
-  securityCode: string;
+type CheckYourEmailPageProps = {
   onResendEmailRequest: () => void;
   onChangeEmailRequest: () => void;
 };
 
-const AwaitingConfirmationPage = ({
-  securityCode,
-  emailAddress,
+const CheckYourEmailPage = ({
   onResendEmailRequest,
   onChangeEmailRequest,
-}: AwaitingConfirmationPageProps): ReactElement => {
+}: CheckYourEmailPageProps): ReactElement => {
   const darkMode = useDarkMode();
   const { t } = useTranslation();
 
@@ -48,23 +44,15 @@ const AwaitingConfirmationPage = ({
             lineHeight='x62'
             fontFamily='sans'
           >
-            {t('page.awaitingConfirmation.title')}
+            {t('page.checkYourEmail.title')}
           </Box>
 
           <Box fontScale='s1'>
-            {t('page.awaitingConfirmation.subtitle', { emailAddress })}
-          </Box>
-
-          <Box
-            maxWidth={498}
-            padding='x18'
-            width='full'
-            fontSize='x22'
-            lineHeight='x32'
-            backgroundColor={colors.n700}
-            borderRadius='x3'
-          >
-            {securityCode}
+            <Trans i18nKey='page.checkYourEmail.subtitle'>
+              Your request has been sent successfully.
+              <br />
+              Check your email inbox to launch your Enterprise trial.
+            </Trans>
           </Box>
 
           <Box fontScale='c1'>
@@ -83,4 +71,4 @@ const AwaitingConfirmationPage = ({
   );
 };
 
-export default AwaitingConfirmationPage;
+export default CheckYourEmailPage;
