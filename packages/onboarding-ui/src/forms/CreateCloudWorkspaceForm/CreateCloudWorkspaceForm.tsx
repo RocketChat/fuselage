@@ -7,7 +7,6 @@ import {
   TextInput,
   Select,
   SelectOptions,
-  Icon,
   CheckBox,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
@@ -15,6 +14,7 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import Form from '../../common/Form';
+import Tooltip from '../../common/InformationTooltipTrigger';
 import WorkspaceUrlInput from './WorkspaceUrlInput';
 
 type CreateCloudWorkspaceFormPayload = {
@@ -101,14 +101,11 @@ const CreateCloudWorkspaceForm = ({
         </Field>
         <Field>
           <Field.Label>
-            {t('form.createCloudWorkspace.fields.workspaceName.label')}
-            <Icon
-              mis='x8'
-              name='info'
-              size='x16'
-              title={t(
-                'form.createCloudWorkspace.fields.workspaceName.tooltip'
-              )}
+            <Box display='inline' mie='x8'>
+              {t('form.createCloudWorkspace.fields.workspaceName.label')}
+            </Box>
+            <Tooltip
+              text={t('form.createCloudWorkspace.fields.workspaceName.tooltip')}
             />
           </Field.Label>
           <Field.Row>
@@ -125,12 +122,11 @@ const CreateCloudWorkspaceForm = ({
         </Field>
         <Field>
           <Field.Label>
-            {t('form.createCloudWorkspace.fields.workspaceUrl.label')}
-            <Icon
-              mis='x8'
-              name='info'
-              size='x16'
-              title={t('form.createCloudWorkspace.fields.workspaceUrl.tooltip')}
+            <Box display='inline' mie='x8'>
+              {t('form.createCloudWorkspace.fields.workspaceUrl.label')}
+            </Box>
+            <Tooltip
+              text={t('form.createCloudWorkspace.fields.workspaceUrl.tooltip')}
             />
           </Field.Label>
           <Field.Row>
@@ -156,12 +152,11 @@ const CreateCloudWorkspaceForm = ({
         </Field>
         <Field>
           <Field.Label>
-            {t('form.createCloudWorkspace.fields.serverRegion.label')}
-            <Icon
-              mis='x8'
-              name='info'
-              size='x16'
-              title={t('form.createCloudWorkspace.fields.serverRegion.tooltip')}
+            <Box display='inline' mie='x8'>
+              {t('form.createCloudWorkspace.fields.serverRegion.label')}
+            </Box>
+            <Tooltip
+              text={t('form.createCloudWorkspace.fields.serverRegion.tooltip')}
             />
           </Field.Label>
           <Field.Row>

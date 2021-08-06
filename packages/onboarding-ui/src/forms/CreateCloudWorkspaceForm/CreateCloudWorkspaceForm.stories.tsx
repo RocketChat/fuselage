@@ -14,7 +14,6 @@ export default {
     actions: { argTypesRegex: '^on.*' },
   },
   args: {
-    onSubmit: (val) => console.log(val),
     currentStep: 1,
     stepCount: 2,
     serverRegionOptions: [

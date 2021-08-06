@@ -10,6 +10,6 @@ export default Object.assign(OptionCard, {
   Subtitle,
   Description,
   List,
-  ListItem: List.Li,
+  ListItem: List.Item,
   Block,
 });

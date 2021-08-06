@@ -18,13 +18,13 @@ const Description = (): ReactElement => {
     <div>
       <Box mbe='x40'>
         <List color='alternative' spacing='x16' icon={icon}>
-          <List.Li>{t('page.cloudDescription.availability')}</List.Li>
-          <List.Li>{t('page.cloudDescription.auditing')}</List.Li>
-          <List.Li>{t('page.cloudDescription.integrations')}</List.Li>
-          <List.Li>{t('page.cloudDescription.ldap')}</List.Li>
-          <List.Li>{t('page.cloudDescription.omnichannel')}</List.Li>
-          <List.Li>{t('page.cloudDescription.sla')}</List.Li>
-          <List.Li>{t('page.cloudDescription.push')}</List.Li>
+          <List.Item>{t('page.cloudDescription.availability')}</List.Item>
+          <List.Item>{t('page.cloudDescription.auditing')}</List.Item>
+          <List.Item>{t('page.cloudDescription.integrations')}</List.Item>
+          <List.Item>{t('page.cloudDescription.ldap')}</List.Item>
+          <List.Item>{t('page.cloudDescription.omnichannel')}</List.Item>
+          <List.Item>{t('page.cloudDescription.sla')}</List.Item>
+          <List.Item>{t('page.cloudDescription.push')}</List.Item>
         </List>
       </Box>
       <Box fontScale='micro' color='info'>

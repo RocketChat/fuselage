@@ -38,14 +38,14 @@ const CreateCloudWorkspacePage = (
         subtitle={t('page.cloudDescription.tryGold')}
       >
         <CreateCloudWorkspaceForm {...props} />
-        <Box mbs='x28' color='alternative'>
+        <Box mbs='x28' color='alternative' display='inline' textAlign='center'>
           <Trans i18nKey='page.alreadyHaveAccount'>
             Already have an account?
             <Box
               is='a'
               color='primary-400'
               textDecorationLine='none'
-              href='https://https://cloud.rocket.chat/login'
+              href='https://cloud.rocket.chat/login'
               target='_blank'
               rel='noopener noreferrer'
             >
