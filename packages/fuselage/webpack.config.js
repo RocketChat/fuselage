@@ -46,6 +46,7 @@ module.exports = (env, { mode = 'production' }) => ({
       {
         test: /\.scss$/,
         use: [
+          'babel-loader',
           {
             loader: 'style-loader',
             options: {
