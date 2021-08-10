@@ -20,6 +20,13 @@ export const Preview: FC<PreviewProps> = ({ ...props }) => {
     },
   } = state;
 
+  const {
+    ref: resizeRef,
+    contentBoxSize: { inlineSize, blockSize },
+  } = useResizeObserver();
+
+  // console.log(resizeRef, inlineSize, blockSize);
+
   useEffect(() => {
     const limitWidth = parentDimensions.width * 0.9;
     const limitHeight = parentDimensions.height * 0.9;
@@ -31,18 +38,21 @@ export const Preview: FC<PreviewProps> = ({ ...props }) => {
         height: limitHeight,
       }
     );
+    // console.log({
+    //   width: limitWidth,
+    //   height: limitHeight,
+    // });
     dispatch({
       type: ActionType.SET_PREVIEW_DIMENSIONS,
       payload: dimensions,
     });
-  }, [imageSrc.current, parentDimensions, originalImageDimensions]);
-
-  const {
-    ref: resizeRef,
-    contentBoxSize: { inlineSize, blockSize },
-  } = useResizeObserver();
-
-  console.log(resizeRef, inlineSize, blockSize);
+  }, [
+    imageSrc.current,
+    parentDimensions,
+    originalImageDimensions,
+    inlineSize,
+    blockSize,
+  ]);
 
   useEffect(() => {
     dispatch({
@@ -60,7 +70,7 @@ export const Preview: FC<PreviewProps> = ({ ...props }) => {
   console.log({ cropDimensions, previewDimensions });
 
   return (
-    <React.Fragment>
+    <>
       {cropDimensions.height > cropDimensions.width ? (
         <Box
           is='img'
@@ -78,6 +88,6 @@ export const Preview: FC<PreviewProps> = ({ ...props }) => {
           {...props}
         />
       )}
-    </React.Fragment>
+    </>
   );
 };

@@ -1,10 +1,11 @@
-import { Box, ButtonGroup } from '@rocket.chat/fuselage';
+import { Box, Button, ButtonGroup, margin } from '@rocket.chat/fuselage';
 import { useRef, ComponentProps, useEffect, useContext } from 'react';
 
 import { IconButton } from '.';
 import { ActionType } from '../context/action';
 import { ManipulationContext } from '../context/manipulationContext';
 import { Preview, CropRenderingLayer, TextRenderingLayer } from '../helpers';
+import { DoodleRenderingLayer } from '../helpers/DoodleRenderingLayer';
 
 type AppProps = ComponentProps<typeof Box> & {
   imgSrc: string;
@@ -58,6 +59,10 @@ const App: ({ imgSrc, ...props }: AppProps) => JSX.Element = ({
       type: ActionType.SET_MODIFIER,
       payload: modifier,
     });
+    dispatch({
+      type: ActionType.SET_FUNCTION,
+      payload: null,
+    });
   };
 
   const handleCheck = () => {
@@ -67,10 +72,18 @@ const App: ({ imgSrc, ...props }: AppProps) => JSX.Element = ({
     });
   };
 
+  const handleFunction = (type: string) => {
+    dispatch({
+      type: ActionType.SET_FUNCTION,
+      payload: type,
+    });
+  };
+
   return (
     <Box
       {...props}
       display='flex'
+      flexDirection='column-reverse'
       justifyContent='space-evenly'
       alignItems='center'
       border='2px solid black'
@@ -86,25 +99,97 @@ const App: ({ imgSrc, ...props }: AppProps) => JSX.Element = ({
 
       {modifierSelected === 'crop' && <CropRenderingLayer />}
       {modifierSelected === 'text' && <TextRenderingLayer />}
+      {modifierSelected === 'doodle' && <DoodleRenderingLayer />}
 
-      {(typeof modifierSelected === 'undefined' ||
-        modifierSelected === null) && (
-        <ButtonGroup alignSelf='flex-start' margin='5px'>
-          <IconButton
-            icon='chevron-expand'
-            onClick={() => handleModifier('crop')}
-          />
-          <IconButton icon='pencil' onClick={() => handleModifier('doodle')} />
-          <IconButton icon='language' onClick={() => handleModifier('text')} />
-        </ButtonGroup>
-      )}
+      <ButtonGroup>
+        {(typeof modifierSelected === 'undefined' ||
+          modifierSelected === null) && (
+          <ButtonGroup alignSelf='flex-start' margin='5px'>
+            <IconButton
+              icon='chevron-expand'
+              onClick={() => handleModifier('crop')}
+            />
+            <IconButton
+              icon='pencil'
+              onClick={() => handleModifier('doodle')}
+            />
+            <Button onClick={() => handleModifier('text')} ghost>
+              <h3 style={{ fontWeight: 500, margin: '0px' }}>T</h3>
+            </Button>
+          </ButtonGroup>
+        )}
 
-      {modifierSelected !== null && typeof modifierSelected !== 'undefined' && (
-        <ButtonGroup alignSelf='flex-start' margin='5px'>
-          <IconButton icon='check' onClick={handleCheck} />
-          <IconButton icon='cross' onClick={() => handleModifier(null)} />
-        </ButtonGroup>
-      )}
+        {modifierSelected !== null && typeof modifierSelected !== 'undefined' && (
+          <ButtonGroup alignSelf='flex-start' margin='5px'>
+            {modifierSelected !== 'crop' && (
+              <>
+                <ButtonGroup
+                  alignItems='center'
+                  flexDirection='row'
+                  alignSelf='flex-start'
+                >
+                  <b style={{ margin: '0px' }}>T</b>
+                  <ButtonGroup flexDirection='column' alignSelf='flex-start'>
+                    <IconButton
+                      mini={true}
+                      onClick={() => {
+                        handleFunction('size inc');
+                      }}
+                      margin='0px'
+                      padding='0px'
+                      icon='chevron-up'
+                    />
+                    <IconButton
+                      mini={true}
+                      onClick={() => {
+                        handleFunction('size dec');
+                      }}
+                      padding='0px'
+                      margin='0px'
+                      icon='chevron-down'
+                    />
+                  </ButtonGroup>
+                </ButtonGroup>
+                <input
+                  onChange={(e) => {
+                    handleFunction(`color ${e.target.value}`);
+                  }}
+                  style={{ width: '20px', border: 'none', marginRight: '10px' }}
+                  type='color'
+                  name=''
+                  id=''
+                />
+              </>
+            )}
+            {modifierSelected === 'text' && (
+              <>
+                {' '}
+                <IconButton
+                  onClick={() => {
+                    handleFunction('bold');
+                  }}
+                  icon='bold'
+                />
+                <IconButton
+                  onClick={() => {
+                    handleFunction('italic');
+                  }}
+                  icon='italic'
+                />
+                <IconButton
+                  onClick={() => {
+                    handleFunction('underline');
+                  }}
+                  icon='underline'
+                />
+              </>
+            )}
+
+            <IconButton icon='check' onClick={handleCheck} />
+            <IconButton icon='cross' onClick={() => handleModifier(null)} />
+          </ButtonGroup>
+        )}
+      </ButtonGroup>
     </Box>
   );
 };

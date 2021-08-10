@@ -4,6 +4,7 @@ import { ComponentProps, FC } from 'react';
 type IconButtonProps = ComponentProps<typeof Box> & {
   icon: string;
   ghost?: boolean;
+  mini?: boolean;
 };
 
 export const IconButton: FC<IconButtonProps> = (props) => (

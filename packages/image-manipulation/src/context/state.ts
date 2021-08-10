@@ -23,6 +23,7 @@ export type State = {
   dimensions: Dimensions;
   domObjects: DomObjects;
   modifierSelected: string | null;
+  functionSelected: string | null;
   imageSrc: {
     current: string;
     original: string;
@@ -58,6 +59,7 @@ export const initialState: State = {
     imageRef: null,
   },
   modifierSelected: null,
+  functionSelected: null,
   imageSrc: {
     current: '',
     original: '',

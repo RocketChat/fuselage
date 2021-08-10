@@ -15,6 +15,7 @@ export enum ActionType {
   SET_CURRENT_IMAGE_SRC = 'SET_CURRENT_IMAGE_SRC',
   SET_IMAGE_SRC = 'SET_IMAGE_SRC',
   SET_MODIFIER = 'SET_MODIFIER',
+  SET_FUNCTION = 'SET_FUNCTION',
   SET_ACTION_SELECTED = 'SET_ACTION_SELECTED',
 }
 
@@ -75,6 +76,11 @@ export interface SetModifier {
   payload: string | null;
 }
 
+export interface SetFunction {
+  type: ActionType.SET_FUNCTION;
+  payload: string | null;
+}
+
 export interface SetActionSelcted {
   type: ActionType.SET_ACTION_SELECTED;
   payload: string | null;
@@ -92,4 +98,5 @@ export type Actions =
   | CurrentImageSrc
   | ImageSrc
   | SetModifier
+  | SetFunction
   | SetActionSelcted;

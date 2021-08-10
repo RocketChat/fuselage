@@ -16,6 +16,8 @@ export const PreviewCanvas: FC<PreviewCanvasProps> = ({
 }: PreviewCanvasProps) => {
   const { state } = useContext(ManipulationContext);
   const { width, height } = state.dimensions?.cropDimensions;
+  const { modifierSelected } = state;
+  console.log(state);
 
   useEffect(() => {
     console.log('Initializing Canvas', { width, height });
@@ -23,6 +25,7 @@ export const PreviewCanvas: FC<PreviewCanvasProps> = ({
     const canvas = new fabric.Canvas('canvas', {
       height,
       width,
+      isDrawingMode: modifierSelected === 'doodle',
     });
     // snippet to hide the rotation controls
     fabric.Object.prototype.controls.mtr = new fabric.Control({
