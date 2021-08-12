@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, margin } from '@rocket.chat/fuselage';
+import { Box, Button, ButtonGroup } from '@rocket.chat/fuselage';
 import { useRef, ComponentProps, useEffect, useContext } from 'react';
 
 import { IconButton } from '.';

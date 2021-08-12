@@ -1,7 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
 import { fabric } from 'fabric';
-// eslint-disable-next-line import/no-unresolved
-import { Canvas } from 'fabric/fabric-impl';
 import { useState, useEffect, ComponentProps, FC, useContext } from 'react';
 
 import { PreviewCanvas } from '.';
@@ -15,7 +13,7 @@ export const DoodleRenderingLayer: FC = ({
 }: TextRenderingLayerProps) => {
   const { state, dispatch } = useContext(ManipulationContext);
   const [strokeWidth, setstrokeWidth] = useState(1);
-  const [canvas, setCanvas] = useState<Canvas | null>();
+  const [canvas, setCanvas] = useState<fabric.Canvas | null>();
 
   useEffect(() => {
     if (state.actionSelected === 'doodle') {
@@ -41,21 +39,25 @@ export const DoodleRenderingLayer: FC = ({
   }, [state.actionSelected]);
 
   useEffect(() => {
+    if (!canvas) {
+      return;
+    }
+
     switch (state.functionSelected?.split(' ')[0]) {
       case 'color':
-        canvas!.freeDrawingBrush.color = state.functionSelected?.split(' ')[1];
+        canvas.freeDrawingBrush.color = state.functionSelected?.split(' ')[1];
         break;
       case 'size':
         canvas?.setActiveObject(canvas?.getObjects()[1]);
         switch (state.functionSelected?.split(' ')[1]) {
           case 'inc':
             setstrokeWidth(strokeWidth + 1);
-            canvas!.freeDrawingBrush.width = strokeWidth + 1;
+            canvas.freeDrawingBrush.width = strokeWidth + 1;
             break;
           case 'dec':
             if (strokeWidth > 0) {
               setstrokeWidth(strokeWidth - 1);
-              canvas!.freeDrawingBrush.width = strokeWidth - 1;
+              canvas.freeDrawingBrush.width = strokeWidth - 1;
             }
             break;
         }

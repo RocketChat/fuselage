@@ -1,7 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
 import { fabric } from 'fabric';
-// eslint-disable-next-line import/no-unresolved
-import { Canvas } from 'fabric/fabric-impl';
 import { useState, useEffect, ComponentProps, FC, useContext } from 'react';
 
 import { PreviewCanvas } from '.';
@@ -15,7 +13,7 @@ export const TextRenderingLayer: FC = ({
 }: TextRenderingLayerProps) => {
   const { state, dispatch } = useContext(ManipulationContext);
 
-  const [canvas, setCanvas] = useState<Canvas | null>();
+  const [canvas, setCanvas] = useState<fabric.Canvas | null>();
   const [bold, setBold] = useState('bold');
   const [italic, setItalic] = useState('italic');
   const [underline, setUnderline] = useState('true');
@@ -77,7 +75,7 @@ export const TextRenderingLayer: FC = ({
     const text = new fabric.IText('Double Tap and\nType', {
       left: 100,
       top: 100,
-      fontSize: fontSize,
+      fontSize,
     });
     canvas?.add(text);
   }, [canvas]);
