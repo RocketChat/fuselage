@@ -1,7 +1,7 @@
 {
   "name": "@rocket.chat/eslint-config-alt",
   "description": "ESLint configuration for Rocket.Chat repositories",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -45,8 +45,8 @@
   },
   "dependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@typescript-eslint/eslint-plugin": "^4.28.1",
-    "@typescript-eslint/parser": "^4.28.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.23.4",

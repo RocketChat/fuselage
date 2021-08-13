@@ -1,5 +1,5 @@
 import { Icon } from '@rocket.chat/fuselage';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import TooltipWrapper from './TooltipWrapper';
 

@@ -1,6 +1,6 @@
 import { Box, Margins, Throbber } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';

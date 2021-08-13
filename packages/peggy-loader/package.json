@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/peggy-loader",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "description": "Peggy loader for webpack",
   "keywords": [
     "peggy",
@@ -52,10 +52,10 @@
     "webpack": "*"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.27.0",
-    "@rocket.chat/prettier-config": "^0.27.0",
-    "@types/loader-utils": "^2.0.2",
-    "@types/node": "^15.12.5",
+    "@rocket.chat/eslint-config-alt": "^0.28.0",
+    "@rocket.chat/prettier-config": "^0.28.0",
+    "@types/loader-utils": "^2.0.3",
+    "@types/node": "^15.14.1",
     "downlevel-dts": "^0.7.0",
     "eslint": "^7.29.0",
     "lint-staged": "^11.0.0",

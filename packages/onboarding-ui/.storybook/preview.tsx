@@ -28,25 +28,16 @@ addParameters({
 const getI18n = () => {
   const i18n = i18next.createInstance().use(initReactI18next);
 
-  i18n.init({
-    fallbackLng: 'en',
-    debug: false,
-    resources: {
-      en: {
-        translation: {
-          page: {
-            emailConfirmed: {
-              title: 'Email Confirmed!',
-              subtitle:
-                'You can return to your Rocket.Chat application – we have launched your workspace already.',
-            },
-            confirmationProcess: {
-              title: 'Confirmation in Process',
-            },
-          },
+  import('../.i18n/en.i18n.json').then((translation) => {
+    i18n.init({
+      fallbackLng: 'en',
+      debug: false,
+      resources: {
+        en: {
+          translation,
         },
       },
-    },
+    });
   });
 
   return i18n;

@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/styled",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "description": "A simple styled API for React components",
   "author": {
     "name": "Rocket.Chat",
@@ -45,9 +45,9 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.27.0",
-    "@rocket.chat/prettier-config": "^0.27.0",
-    "@types/jest": "^26.0.23",
+    "@rocket.chat/eslint-config-alt": "^0.28.0",
+    "@rocket.chat/prettier-config": "^0.28.0",
+    "@types/jest": "^26.0.24",
     "downlevel-dts": "^0.7.0",
     "eslint": "^7.29.0",
     "jest": "^27.0.6",
