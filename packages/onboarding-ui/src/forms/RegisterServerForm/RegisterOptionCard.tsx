@@ -98,7 +98,7 @@ const RegisterOptionCard = (): ReactElement => {
             })}
           />{' '}
           <Box is='label' htmlFor='agreement' withRichContent>
-            <Trans i18nKey='form.serverRegistrationForm.register.agreement'>
+            <Trans i18nKey='component.form.termsAndConditions'>
               I agree with
               <a
                 href='https://rocket.chat/terms'
