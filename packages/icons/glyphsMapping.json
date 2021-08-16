@@ -781,5 +781,26 @@
   },
   "headphone-off": {
     "start": "\ue0d8"
+  },
+  "brush": {
+    "start": "\ue0d9"
+  },
+  "crop": {
+    "start": "\ue0da"
+  },
+  "cross-small": {
+    "start": "\ue0db"
+  },
+  "globe-off": {
+    "start": "\ue0dc"
+  },
+  "plus-small": {
+    "start": "\ue0dd"
+  },
+  "text-increase": {
+    "start": "\ue0de"
+  },
+  "text-decrease": {
+    "start": "\ue0df"
   }
 }
