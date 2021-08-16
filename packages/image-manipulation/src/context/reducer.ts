@@ -92,7 +92,7 @@ export const reducer: Reducer<State, Actions> = (
         ...state,
         modifierSelected: payload,
       };
-    case ActionType.SET_FUNCTION:
+    case ActionType.SET_CONTROL:
       return {
         ...state,
         functionSelected: payload,

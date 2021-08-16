@@ -1,18 +1,19 @@
-/* eslint-disable new-cap */
 import { Box } from '@rocket.chat/fuselage';
 import { fabric } from 'fabric';
-import { useEffect, Dispatch, SetStateAction, useContext, FC } from 'react';
+// eslint-disable-next-line import/no-unresolved
+import { Canvas, Image } from 'fabric/fabric-impl';
+import { useEffect, Dispatch, SetStateAction, FC } from 'react';
 
-import { ManipulationContext } from '../context/manipulationContext';
+import { useManipulation } from '../context/ManipulationContext';
 
 type PreviewCanvasProps = {
-  setCanvas: Dispatch<SetStateAction<fabric.Canvas | null | undefined>>;
+  setCanvas: Dispatch<SetStateAction<Canvas | null | undefined>>;
 };
 
 export const PreviewCanvas: FC<PreviewCanvasProps> = ({
   setCanvas,
 }: PreviewCanvasProps) => {
-  const { state } = useContext(ManipulationContext);
+  const { state } = useManipulation();
   const { width, height } = state.dimensions?.cropDimensions;
   const { modifierSelected } = state;
   console.log(state);
@@ -29,10 +30,10 @@ export const PreviewCanvas: FC<PreviewCanvasProps> = ({
     fabric.Object.prototype.controls.mtr = new fabric.Control({
       visible: false,
     });
-    //
+    // eslint-disable-next-line new-cap
     new (fabric.Image as any).fromURL(
       state.imageSrc?.current,
-      (item: fabric.Image) => {
+      (item: Image) => {
         item.selectable = false;
         canvas?.add(item);
         canvas?.width && item.scaleToWidth(canvas.width);

@@ -1,24 +1,24 @@
-import { Box, Button, ButtonGroup } from '@rocket.chat/fuselage';
-import { useRef, ComponentProps, useEffect, useContext } from 'react';
+import { Box } from '@rocket.chat/fuselage';
+import { useRef, ComponentProps, useEffect, FC } from 'react';
 
-import { IconButton } from '.';
+import { Toolbar } from '.';
+import { useManipulation } from '../context/ManipulationContext';
 import { ActionType } from '../context/action';
-import { ManipulationContext } from '../context/manipulationContext';
-import { Preview, CropRenderingLayer, TextRenderingLayer } from '../helpers';
-import { DoodleRenderingLayer } from '../helpers/DoodleRenderingLayer';
+import {
+  Preview,
+  CropRenderingLayer,
+  TextRenderingLayer,
+  DoodleRenderingLayer,
+} from '../helpers';
 
 type AppProps = ComponentProps<typeof Box> & {
   imgSrc: string;
 };
 
-const App: ({ imgSrc, ...props }: AppProps) => JSX.Element = ({
-  imgSrc,
-  ...props
-}) => {
+const App: FC<AppProps> = ({ imgSrc, ...props }) => {
   const parentRef = useRef<typeof Box & HTMLDivElement>(null);
   const imageRef = useRef<typeof Box & HTMLImageElement>(null);
-  const { state, dispatch } = useContext(ManipulationContext);
-
+  const { state, dispatch } = useManipulation();
   const { modifierSelected } = state;
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const App: ({ imgSrc, ...props }: AppProps) => JSX.Element = ({
       payload: modifier,
     });
     dispatch({
-      type: ActionType.SET_FUNCTION,
+      type: ActionType.SET_CONTROL,
       payload: null,
     });
   };
@@ -74,7 +74,7 @@ const App: ({ imgSrc, ...props }: AppProps) => JSX.Element = ({
 
   const handleFunction = (type: string) => {
     dispatch({
-      type: ActionType.SET_FUNCTION,
+      type: ActionType.SET_CONTROL,
       payload: type,
     });
   };
@@ -101,95 +101,9 @@ const App: ({ imgSrc, ...props }: AppProps) => JSX.Element = ({
       {modifierSelected === 'text' && <TextRenderingLayer />}
       {modifierSelected === 'doodle' && <DoodleRenderingLayer />}
 
-      <ButtonGroup>
-        {(typeof modifierSelected === 'undefined' ||
-          modifierSelected === null) && (
-          <ButtonGroup alignSelf='flex-start' margin='5px'>
-            <IconButton
-              icon='chevron-expand'
-              onClick={() => handleModifier('crop')}
-            />
-            <IconButton
-              icon='pencil'
-              onClick={() => handleModifier('doodle')}
-            />
-            <Button onClick={() => handleModifier('text')} ghost>
-              <h3 style={{ fontWeight: 500, margin: '0px' }}>T</h3>
-            </Button>
-          </ButtonGroup>
-        )}
-
-        {modifierSelected !== null && typeof modifierSelected !== 'undefined' && (
-          <ButtonGroup alignSelf='flex-start' margin='5px'>
-            {modifierSelected !== 'crop' && (
-              <>
-                <ButtonGroup
-                  alignItems='center'
-                  flexDirection='row'
-                  alignSelf='flex-start'
-                >
-                  <b style={{ margin: '0px' }}>T</b>
-                  <ButtonGroup flexDirection='column' alignSelf='flex-start'>
-                    <IconButton
-                      mini={true}
-                      onClick={() => {
-                        handleFunction('size inc');
-                      }}
-                      margin='0px'
-                      padding='0px'
-                      icon='chevron-up'
-                    />
-                    <IconButton
-                      mini={true}
-                      onClick={() => {
-                        handleFunction('size dec');
-                      }}
-                      padding='0px'
-                      margin='0px'
-                      icon='chevron-down'
-                    />
-                  </ButtonGroup>
-                </ButtonGroup>
-                <input
-                  onChange={(e) => {
-                    handleFunction(`color ${e.target.value}`);
-                  }}
-                  style={{ width: '20px', border: 'none', marginRight: '10px' }}
-                  type='color'
-                  name=''
-                  id=''
-                />
-              </>
-            )}
-            {modifierSelected === 'text' && (
-              <>
-                {' '}
-                <IconButton
-                  onClick={() => {
-                    handleFunction('bold');
-                  }}
-                  icon='bold'
-                />
-                <IconButton
-                  onClick={() => {
-                    handleFunction('italic');
-                  }}
-                  icon='italic'
-                />
-                <IconButton
-                  onClick={() => {
-                    handleFunction('underline');
-                  }}
-                  icon='underline'
-                />
-              </>
-            )}
-
-            <IconButton icon='check' onClick={handleCheck} />
-            <IconButton icon='cross' onClick={() => handleModifier(null)} />
-          </ButtonGroup>
-        )}
-      </ButtonGroup>
+      <Toolbar
+        {...{ modifierSelected, handleModifier, handleCheck, handleFunction }}
+      />
     </Box>
   );
 };

@@ -1,4 +1,4 @@
-import { FC, createContext, useReducer, useEffect } from 'react';
+import { FC, createContext, useReducer, useEffect, useContext } from 'react';
 
 import { Actions, ActionType } from './action';
 import { reducer } from './reducer';
@@ -15,7 +15,6 @@ const ManipulationContextProvider: FC = ({ children }) => {
   useEffect(() => {
     const { width, height } = state.dimensions?.cropDimensions;
     const LAYER_PADDING = 0.1;
-
     dispatch({
       type: ActionType.SET_CROPPING_LAYER_DIMENSIONS,
       payload: {
@@ -31,5 +30,7 @@ const ManipulationContextProvider: FC = ({ children }) => {
     </ManipulationContext.Provider>
   );
 };
+
+export const useManipulation = () => useContext(ManipulationContext);
 
 export default ManipulationContextProvider;

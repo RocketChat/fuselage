@@ -1,15 +1,15 @@
 import { Box } from '@rocket.chat/fuselage';
 import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import React, { useEffect, useContext, ComponentProps, FC } from 'react';
+import { useEffect, ComponentProps, FC } from 'react';
 
+import { useManipulation } from '../context/ManipulationContext';
 import { ActionType } from '../context/action';
-import { ManipulationContext } from '../context/manipulationContext';
 import { getDimensions } from './getDimensions';
 
 type PreviewProps = ComponentProps<typeof Box>;
 
 export const Preview: FC<PreviewProps> = ({ ...props }) => {
-  const { state, dispatch } = useContext(ManipulationContext);
+  const { state, dispatch } = useManipulation();
   const {
     imageSrc,
     dimensions: {
@@ -25,8 +25,6 @@ export const Preview: FC<PreviewProps> = ({ ...props }) => {
     contentBoxSize: { inlineSize, blockSize },
   } = useResizeObserver();
 
-  // console.log(resizeRef, inlineSize, blockSize);
-
   useEffect(() => {
     const limitWidth = parentDimensions.width * 0.9;
     const limitHeight = parentDimensions.height * 0.9;
@@ -38,10 +36,6 @@ export const Preview: FC<PreviewProps> = ({ ...props }) => {
         height: limitHeight,
       }
     );
-    // console.log({
-    //   width: limitWidth,
-    //   height: limitHeight,
-    // });
     dispatch({
       type: ActionType.SET_PREVIEW_DIMENSIONS,
       payload: dimensions,
@@ -60,14 +54,13 @@ export const Preview: FC<PreviewProps> = ({ ...props }) => {
       payload: resizeRef,
     });
   }, []);
+
   useEffect(() => {
     dispatch({
       type: ActionType.SET_CROP_DIMENSIONS,
       payload: { width: inlineSize, height: blockSize },
     });
   }, [inlineSize, blockSize]);
-
-  console.log({ cropDimensions, previewDimensions });
 
   return (
     <>

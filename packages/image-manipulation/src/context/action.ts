@@ -15,10 +15,10 @@ export enum ActionType {
   SET_CURRENT_IMAGE_SRC = 'SET_CURRENT_IMAGE_SRC',
   SET_IMAGE_SRC = 'SET_IMAGE_SRC',
   SET_MODIFIER = 'SET_MODIFIER',
-  SET_FUNCTION = 'SET_FUNCTION',
+  SET_CONTROL = 'SET_CONTROL',
   SET_ACTION_SELECTED = 'SET_ACTION_SELECTED',
 }
-
+``
 export interface SetPreviewDimensions {
   type: ActionType.SET_PREVIEW_DIMENSIONS;
   payload: Dimension;
@@ -77,7 +77,7 @@ export interface SetModifier {
 }
 
 export interface SetFunction {
-  type: ActionType.SET_FUNCTION;
+  type: ActionType.SET_CONTROL;
   payload: string | null;
 }
 

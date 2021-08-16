@@ -3,12 +3,11 @@ export const getDimensions = (
   originalHeight: number,
   limits: { width: number; height: number }
 ): { width: number; height: number } => {
-  // console.log(originalWidth, originalHeight, limits);
-  const widthRatio = originalWidth / (limits.width - 4);
+  const widthRatio = originalWidth / limits.width;
   const heightRatio = originalHeight / limits.height;
 
   if (widthRatio > heightRatio) {
-    const width = Math.min(originalWidth, limits.width - 4);
+    const width = Math.min(originalWidth, limits.width);
     return { width, height: (width / originalWidth) * originalHeight };
   }
 

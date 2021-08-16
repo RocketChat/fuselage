@@ -1,19 +1,21 @@
 import { Box } from '@rocket.chat/fuselage';
 import { fabric } from 'fabric';
-import { useState, useEffect, ComponentProps, FC, useContext } from 'react';
+// eslint-disable-next-line import/no-unresolved
+import { Canvas } from 'fabric/fabric-impl';
+import { useState, useEffect, ComponentProps, FC } from 'react';
 
-import { PreviewCanvas } from '.';
-import { ActionType } from '../context/action';
-import { ManipulationContext } from '../context/manipulationContext';
+import { PreviewCanvas } from '..';
+import { useManipulation } from '../../context/ManipulationContext';
+import { ActionType } from '../../context/action';
 
 type TextRenderingLayerProps = ComponentProps<typeof Box>;
 
-export const TextRenderingLayer: FC = ({
+export const TextRenderingLayer: FC<TextRenderingLayerProps> = ({
   ...props
-}: TextRenderingLayerProps) => {
-  const { state, dispatch } = useContext(ManipulationContext);
+}) => {
+  const { state, dispatch } = useManipulation();
 
-  const [canvas, setCanvas] = useState<fabric.Canvas | null>();
+  const [canvas, setCanvas] = useState<Canvas | null>();
   const [bold, setBold] = useState('bold');
   const [italic, setItalic] = useState('italic');
   const [underline, setUnderline] = useState('true');

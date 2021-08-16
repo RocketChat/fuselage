@@ -1,21 +1,21 @@
 import { Box } from '@rocket.chat/fuselage';
 import { fabric } from 'fabric';
-import { useState, useEffect, ComponentProps, useContext, FC } from 'react';
+// eslint-disable-next-line import/no-unresolved
+import { Canvas, Rect } from 'fabric/fabric-impl';
+import { useState, useEffect, ComponentProps, FC } from 'react';
 
-import { ActionType } from '../context/action';
-import { ManipulationContext } from '../context/manipulationContext';
-import { PreviewCanvas } from './index';
+import { useManipulation } from '../../context/ManipulationContext';
+import { ActionType } from '../../context/action';
+import { PreviewCanvas } from '../index';
 
 type CropRenderingLayerProps = ComponentProps<typeof Box>;
 
-export const CropRenderingLayer: FC = ({
+export const CropRenderingLayer: FC<CropRenderingLayerProps> = ({
   ...props
-}: CropRenderingLayerProps) => {
-  const { state, dispatch } = useContext(ManipulationContext);
-  const [canvas, setCanvas] = useState<fabric.Canvas | null>();
-  const [userClipPath, setUserClipPath] = useState<fabric.Rect>(
-    {} as fabric.Rect
-  );
+}) => {
+  const { state, dispatch } = useManipulation();
+  const [canvas, setCanvas] = useState<Canvas | null>();
+  const [userClipPath, setUserClipPath] = useState<Rect>({} as Rect);
 
   useEffect(() => {
     console.log('RENDERING LAYER');
