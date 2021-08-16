@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
@@ -16,9 +16,9 @@ type OrganizationInfoPageProps = {
   organizationSizeOptions: (readonly [string, string])[];
   countryOptions: (readonly [string, string])[];
   initialValues?: OrganizationInfoPayload;
+  confirmText?: ReactNode;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
   onBackButtonClick: () => void;
-  onConfirmText?: string;
   onClickSkip?: () => void;
 };
 

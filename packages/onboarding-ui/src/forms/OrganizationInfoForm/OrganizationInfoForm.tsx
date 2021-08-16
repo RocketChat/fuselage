@@ -29,7 +29,7 @@ type OrganizationInfoFormProps = {
   organizationIndustryOptions: SelectOptions;
   organizationSizeOptions: SelectOptions;
   countryOptions: SelectOptions;
-  onConfirmText?: ReactNode;
+  confirmText?: ReactNode;
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
   onBackButtonClick: () => void;
@@ -43,7 +43,7 @@ const OrganizationInfoForm = ({
   organizationIndustryOptions,
   organizationSizeOptions,
   countryOptions,
-  onConfirmText,
+  confirmText,
   initialValues,
   onSubmit,
   onBackButtonClick,
@@ -172,11 +172,11 @@ const OrganizationInfoForm = ({
           </Button>
 
           <Button type='submit' primary disabled={isValidating || isSubmitting}>
-            {onConfirmText ?? t('component.form.action.next')}
+            {confirmText ?? t('component.form.action.next')}
           </Button>
 
           {onClickSkip && (
-            <Box flexGrow={1}>
+            <Box withTruncatedText flexGrow={1}>
               <ButtonGroup flexGrow={1} align='end'>
                 <Button nude info onClick={onClickSkip}>
                   {t('component.form.action.skip')}
