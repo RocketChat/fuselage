@@ -25,7 +25,7 @@ export const Toolbar: FC<any> = ({
             icon='chevron-expand'
             onClick={() => handleModifier('crop')}
           />
-          <IconButton icon='pencil' onClick={() => handleModifier('doodle')} />
+          <IconButton icon='brush' onClick={() => handleModifier('doodle')} />
           <Button onClick={() => handleModifier('text')} ghost>
             <h3 style={{ fontWeight: 500, margin: '0px' }}>T</h3>
           </Button>
