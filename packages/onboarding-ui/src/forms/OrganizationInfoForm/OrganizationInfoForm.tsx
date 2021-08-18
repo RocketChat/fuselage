@@ -6,8 +6,10 @@ import {
   TextInput,
   Select,
   SelectOptions,
+  Box,
 } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
+import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
+import type { ReactElement, ReactNode } from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -28,9 +30,11 @@ type OrganizationInfoFormProps = {
   organizationIndustryOptions: SelectOptions;
   organizationSizeOptions: SelectOptions;
   countryOptions: SelectOptions;
+  confirmText?: ReactNode;
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
   onBackButtonClick: () => void;
+  onClickSkip?: () => void;
 };
 
 const OrganizationInfoForm = ({
@@ -40,11 +44,15 @@ const OrganizationInfoForm = ({
   organizationIndustryOptions,
   organizationSizeOptions,
   countryOptions,
+  confirmText,
   initialValues,
   onSubmit,
   onBackButtonClick,
+  onClickSkip,
 }: OrganizationInfoFormProps): ReactElement => {
   const { t } = useTranslation();
+  const breakpoints = useBreakpoints();
+  const isMobile = !breakpoints.includes('md');
 
   const {
     register,
@@ -161,13 +169,24 @@ const OrganizationInfoForm = ({
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
-        <ButtonGroup flexGrow={1}>
+        <ButtonGroup vertical={isMobile} flexGrow={1}>
           <Button onClick={onBackButtonClick}>
             {t('component.form.action.back')}
           </Button>
+
           <Button type='submit' primary disabled={isValidating || isSubmitting}>
-            {t('component.form.action.next')}
+            {confirmText ?? t('component.form.action.next')}
           </Button>
+
+          {onClickSkip && (
+            <Box withTruncatedText flexGrow={1}>
+              <ButtonGroup flexGrow={1} align='end'>
+                <Button nude info onClick={onClickSkip}>
+                  {t('component.form.action.skip')}
+                </Button>
+              </ButtonGroup>
+            </Box>
+          )}
         </ButtonGroup>
       </Form.Footer>
     </Form>

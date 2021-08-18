@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
@@ -7,6 +7,8 @@ import OrganizationInfoForm from '../../forms/OrganizationInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
 
 type OrganizationInfoPageProps = {
+  title?: string;
+  description?: string;
   currentStep: number;
   stepCount: number;
   organizationTypeOptions: (readonly [string, string])[];
@@ -14,15 +16,17 @@ type OrganizationInfoPageProps = {
   organizationSizeOptions: (readonly [string, string])[];
   countryOptions: (readonly [string, string])[];
   initialValues?: OrganizationInfoPayload;
+  confirmText?: ReactNode;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
   onBackButtonClick: () => void;
+  onClickSkip?: () => void;
 };
 
 const OrganizationInfoPage = (
   props: OrganizationInfoPageProps
 ): ReactElement => (
   <BackgroundLayer>
-    <FormPageLayout>
+    <FormPageLayout title={props.title} description={props.description}>
       <OrganizationInfoForm {...props} />
     </FormPageLayout>
   </BackgroundLayer>
