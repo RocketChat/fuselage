@@ -1,6 +1,4 @@
 import { Box } from '@rocket.chat/fuselage';
-// eslint-disable-next-line import/no-unresolved
-import { Canvas } from 'fabric/fabric-impl';
 import { useState, useEffect, ComponentProps, FC } from 'react';
 
 import { PreviewCanvas } from '..';
@@ -14,7 +12,7 @@ export const DoodleRenderingLayer: FC<DoodleRenderingLayerProps> = ({
 }) => {
   const { state, dispatch } = useManipulation();
   const [strokeWidth, setstrokeWidth] = useState(1);
-  const [canvas, setCanvas] = useState<Canvas | null>();
+  const [canvas, setCanvas] = useState<fabric.Canvas | null>();
   const [removedObjects, setremovedObjects] = useState<
     Array<fabric.Object> | []
   >([]);

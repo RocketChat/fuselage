@@ -18,7 +18,6 @@ export enum ActionType {
   SET_CONTROL = 'SET_CONTROL',
   SET_ACTION_SELECTED = 'SET_ACTION_SELECTED',
 }
-``
 export interface SetPreviewDimensions {
   type: ActionType.SET_PREVIEW_DIMENSIONS;
   payload: Dimension;
