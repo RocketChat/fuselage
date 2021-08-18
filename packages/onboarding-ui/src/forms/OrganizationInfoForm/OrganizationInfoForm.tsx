@@ -8,6 +8,7 @@ import {
   SelectOptions,
   Box,
 } from '@rocket.chat/fuselage';
+import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { ReactElement, ReactNode } from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -50,6 +51,8 @@ const OrganizationInfoForm = ({
   onClickSkip,
 }: OrganizationInfoFormProps): ReactElement => {
   const { t } = useTranslation();
+  const breakpoints = useBreakpoints();
+  const isMobile = !breakpoints.includes('md');
 
   const {
     register,
@@ -166,7 +169,7 @@ const OrganizationInfoForm = ({
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
-        <ButtonGroup flexGrow={1}>
+        <ButtonGroup vertical={isMobile} flexGrow={1}>
           <Button onClick={onBackButtonClick}>
             {t('component.form.action.back')}
           </Button>
