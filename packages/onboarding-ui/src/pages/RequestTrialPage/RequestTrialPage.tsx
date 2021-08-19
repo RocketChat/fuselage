@@ -1,20 +1,16 @@
 import { Box } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import RequestTrialForm from '../../forms/RequestTrialForm';
+import type { RequestTrialFormProps } from '../../forms/RequestTrialForm/RequestTrialForm';
 import Description from './Description';
-
-type RequestTrialFormProps = {
-  onSubmit: SubmitHandler<{ email: string }>;
-  validateEmail: Validate<string>;
-};
 
 const RequestTrialPage = (props: RequestTrialFormProps): ReactElement => {
   const { t } = useTranslation();
+
   return (
     <BackgroundLayer>
       <FormPageLayout
