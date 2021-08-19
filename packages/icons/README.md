@@ -41,6 +41,33 @@ Feel free to check the [issues](https://github.com/RocketChat/Rocket.Chat.Fusela
 
 <!--/contributing(msg)-->
 
+### Adding new icons
+
+All the icons should be designed by Rocket.Chat's design crew, following some conventions:
+
+- The view box must have the dimensions of 32x32 units;
+- Any horizontal assimetry must follow the left-to-right direction.
+- The icon must be published on Figma.
+
+As the icons might be arbitrarily scaled, the chosen source format for individual icon graphics is
+SVG. As Figma can export graphics with some additional SVG attributes and elements, they must be
+removed:
+
+- The `<svg>` element must contain only two attributes: `viewBox` (probably with the value of`"0 0 32 32"`) and
+  `xmlns`;
+- XLink references (e.g. masks and clip paths) must be discarded;
+- The `<path>` elements must keep only the `d` attribute, with no additional styling attribute;
+- `<g>` and other elements must be stripped by some optimization tooling, keeping only `<path>` elements.
+
+The `src/` directory holds all the SVG icons that would be processed. The filenames define the icon names, so they
+should stick with a basic rule: **an icon name must describe the icon shape, not its utility**. For instance:
+
+- [-] `message.svg` (wrong)
+- [x] `balloon.svg` (right)
+
+If the icon must be mirrored for right-to-left read direction, it required to add a trailing `.dir` before the file
+extension (e.g. `backspace.dir.svg`).
+
 ### Building
 
 As this package dependends on others in this monorepo, before anything run the following at the root directory:

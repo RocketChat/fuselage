@@ -3,6 +3,7 @@ import styled from '@rocket.chat/styled';
 import { sans } from '../helpers/tokenFontFamilies';
 
 export const Wrapper = styled('div')`
+  width: 100%;
   box-sizing: border-box;
   padding: 56px 16px 28px;
   display: flex;
@@ -72,9 +73,10 @@ export const Title = styled('div')`
 `;
 
 export const Subtitle = styled('div')`
-  font-size: ${String(40 / 16)}rem;
+  font-size: ${String(16 / 16)}rem;
+  line-height: ${String(22 / 16)}rem;
   font-family: ${sans};
-  line-height: ${String(42 / 16)}rem;
+  font-weight: 500;
   text-align: center;
 
   @media (min-width: 1440px) {

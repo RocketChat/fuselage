@@ -1,11 +1,11 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement } from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-import ActionLink from '../../common/ActionLink';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import { useDarkMode } from '../../common/DarkModeProvider';
+import EmailCodeFallback from '../../common/EmailCodeFallback';
 import RocketChatLogo from '../../common/RocketChatLogo';
 
 type AwaitingConfirmationPageProps = {
@@ -67,16 +67,10 @@ const AwaitingConfirmationPage = ({
             {securityCode}
           </Box>
 
-          <Box fontScale='c1'>
-            <Trans i18nKey='component.page.emailCodeFallback'>
-              Didn’t receive email?
-              <ActionLink onClick={onResendEmailRequest}>Resend</ActionLink>
-              or
-              <ActionLink onClick={onChangeEmailRequest}>
-                Change email
-              </ActionLink>
-            </Trans>
-          </Box>
+          <EmailCodeFallback
+            onResendEmailRequest={onResendEmailRequest}
+            onChangeEmailRequest={onChangeEmailRequest}
+          />
         </Margins>
       </Box>
     </BackgroundLayer>
