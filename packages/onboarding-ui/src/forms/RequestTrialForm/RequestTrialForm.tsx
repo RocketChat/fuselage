@@ -12,13 +12,13 @@ import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
 
-export type RequestTrialPayload = {
+type RequestTrialPayload = {
   email: string;
   organizationSize: string;
   country: string;
 };
 
-export type RequestTrialFormProps = {
+type RequestTrialFormProps = {
   organizationSizeOptions: SelectOptions;
   countryOptions: SelectOptions;
   onSubmit: SubmitHandler<RequestTrialPayload>;
