@@ -3,6 +3,7 @@ import styled from '@rocket.chat/styled';
 import { sans } from '../helpers/tokenFontFamilies';
 
 export const Wrapper = styled('div')`
+  width: 100%;
   box-sizing: border-box;
   padding: 56px 16px 28px;
   display: flex;
