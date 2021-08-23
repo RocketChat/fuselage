@@ -1,17 +1,17 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import { countries } from 'countries-list';
 import type { ComponentProps } from 'react';
 
-import RequestTrialForm from './RequestTrialForm';
+import RequestTrialPage from './RequestTrialPage';
 
-type Args = ComponentProps<typeof RequestTrialForm>;
+type Args = ComponentProps<typeof RequestTrialPage>;
 
 export default {
-  title: 'forms/RequestTrialForm',
-  component: RequestTrialForm,
+  title: 'pages/RequestTrialPage',
+  component: RequestTrialPage,
   parameters: {
-    layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
+    layout: 'fullscreen',
   },
   args: {
     validateEmail: (email) =>
@@ -35,7 +35,7 @@ export default {
   },
 } as Meta<Args>;
 
-export const _RequestTrialForm: Story<Args> = (args) => (
-  <RequestTrialForm {...args} />
+export const _RequestTrialPage: Story<Args> = (args) => (
+  <RequestTrialPage {...args} />
 );
-_RequestTrialForm.storyName = 'RequestTrialForm';
+_RequestTrialPage.storyName = 'RequestTrialPage';

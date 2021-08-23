@@ -1,20 +1,33 @@
-import { Button, Field, FieldGroup, EmailInput } from '@rocket.chat/fuselage';
+import {
+  Button,
+  Field,
+  FieldGroup,
+  EmailInput,
+  Select,
+  SelectOptions,
+} from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useForm, SubmitHandler, Validate } from 'react-hook-form';
+import { useForm, SubmitHandler, Validate, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
 
 type RequestTrialPayload = {
   email: string;
+  organizationSize: string;
+  country: string;
 };
 
 type RequestTrialFormProps = {
+  organizationSizeOptions: SelectOptions;
+  countryOptions: SelectOptions;
   onSubmit: SubmitHandler<RequestTrialPayload>;
   validateEmail: Validate<string>;
 };
 
 const RequestTrialForm = ({
+  organizationSizeOptions,
+  countryOptions,
   onSubmit,
   validateEmail,
 }: RequestTrialFormProps): ReactElement => {
@@ -23,6 +36,7 @@ const RequestTrialForm = ({
   const {
     handleSubmit,
     register,
+    control,
     formState: { isValidating, isSubmitting, isValid, errors },
   } = useForm<RequestTrialPayload>({ mode: 'onChange' });
 
@@ -44,6 +58,49 @@ const RequestTrialForm = ({
             />
           </Field.Row>
           {errors?.email && <Field.Error>{errors.email.message}</Field.Error>}
+        </Field>
+        <Field>
+          <Field.Label>
+            {t('form.organizationInfoForm.fields.organizationSize.label')}
+          </Field.Label>
+          <Field.Row>
+            <Controller
+              name='organizationSize'
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  options={organizationSizeOptions}
+                  placeholder={t(
+                    'form.organizationInfoForm.fields.organizationSize.placeholder'
+                  )}
+                  error={errors?.email?.message || undefined}
+                />
+              )}
+            />
+          </Field.Row>
+        </Field>
+        <Field>
+          <Field.Label>
+            {t('form.organizationInfoForm.fields.country.label')}
+          </Field.Label>
+          <Field.Row>
+            <Controller
+              name='country'
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  options={countryOptions}
+                  placeholder={t(
+                    'form.organizationInfoForm.fields.country.placeholder'
+                  )}
+                />
+              )}
+            />
+          </Field.Row>
         </Field>
         <Field>
           <Field.Label>
