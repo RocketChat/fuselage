@@ -61,26 +61,58 @@ export const Preview: FC<PreviewProps> = ({ ...props }) => {
       payload: { width: inlineSize, height: blockSize },
     });
   }, [inlineSize, blockSize]);
-
+  console.log(cropDimensions);
   return (
-    <>
+    <Box
+      display='flex'
+      alignItems='center'
+      justifyContent='center'
+      width={previewDimensions.width}
+      height={previewDimensions.height}
+    >
       {cropDimensions.height > cropDimensions.width ? (
-        <Box
-          is='img'
-          src={imageSrc.current}
-          ref={resizeRef}
-          height={previewDimensions.height}
-          {...props}
-        />
+        <>
+          {previewDimensions.width - cropDimensions.width >
+          previewDimensions.height - cropDimensions.height ? (
+            <Box
+              is='img'
+              src={imageSrc.current}
+              ref={resizeRef}
+              height='full'
+              {...props}
+            />
+          ) : (
+            <Box
+              is='img'
+              src={imageSrc.current}
+              ref={resizeRef}
+              width='full'
+              {...props}
+            />
+          )}
+        </>
       ) : (
-        <Box
-          is='img'
-          src={imageSrc.current}
-          ref={resizeRef}
-          width={previewDimensions.width}
-          {...props}
-        />
+        <>
+          {previewDimensions.width - cropDimensions.width >
+          previewDimensions.height - cropDimensions.height ? (
+            <Box
+              is='img'
+              src={imageSrc.current}
+              ref={resizeRef}
+              height='full'
+              {...props}
+            />
+          ) : (
+            <Box
+              is='img'
+              src={imageSrc.current}
+              ref={resizeRef}
+              width='full'
+              {...props}
+            />
+          )}
+        </>
       )}
-    </>
+    </Box>
   );
 };
