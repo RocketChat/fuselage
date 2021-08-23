@@ -18,10 +18,11 @@ type ProgressBarProps = ComponentProps<typeof Box> & {
   barColor?: ComponentProps<typeof Box>['bg'];
   percentage: number;
   error?: string;
+  animated?: boolean;
 };
 
 export const ProgressBar = forwardRef(function ProgressBar(
-  { barColor, percentage, error, ...props }: ProgressBarProps,
+  { barColor, percentage, error, animated = true, ...props }: ProgressBarProps,
   ref
 ) {
   return (
@@ -29,7 +30,7 @@ export const ProgressBar = forwardRef(function ProgressBar(
       <Box
         bg={barColor || getColor(percentage, error)}
         rcx-progress-bar__fill
-        rcx-progress-bar__fill-complete={percentage >= 100}
+        rcx-progress-bar__fill-complete={animated && percentage >= 100}
         width={`${processPercentage(percentage)}%`}
       />
     </Box>
