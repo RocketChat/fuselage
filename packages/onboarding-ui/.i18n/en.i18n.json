@@ -53,6 +53,10 @@
     "requestTrial": {
       "title": "Request a 30-\u2060day Trial",
       "subtitle": "Try our enterprise solution for free"
+    },
+    "magicLinkEmail": {
+      "title": "We emailed you a magic link",
+      "subtitle": "Click the link in the email we just sent you to sign in to your workspace."
     }
   },
   "form": {
