@@ -16,7 +16,7 @@ const SectionBlock = ({ className, blockElement, parser }) => {
     <Grid className={className}>
       <Grid.Item>
         {text && (
-          <Box is='span' fontScale='p1' color='default'>
+          <Box is='span' fontScale='p1' color='inherit'>
             {parser.text(text)}
           </Box>
         )}
