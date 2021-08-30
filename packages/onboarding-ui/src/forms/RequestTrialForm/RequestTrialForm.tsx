@@ -21,6 +21,7 @@ type RequestTrialPayload = {
 };
 
 type RequestTrialFormProps = {
+  defaultValues?: RequestTrialPayload;
   organizationSizeOptions: SelectOptions;
   countryOptions: SelectOptions;
   onSubmit: SubmitHandler<RequestTrialPayload>;
@@ -28,6 +29,7 @@ type RequestTrialFormProps = {
 };
 
 const RequestTrialForm = ({
+  defaultValues,
   organizationSizeOptions,
   countryOptions,
   onSubmit,
@@ -58,6 +60,7 @@ const RequestTrialForm = ({
               placeholder={t(
                 'form.requestTrialForm.fields.emailAddress.placeholder'
               )}
+              defaultValue={defaultValues?.email}
               error={errors?.email?.message || undefined}
             />
           </Field.Row>
@@ -73,9 +76,10 @@ const RequestTrialForm = ({
               placeholder={t(
                 'form.requestTrialForm.fields.organizationName.placeholder'
               )}
+              defaultValue={defaultValues?.organizationName}
             />
           </Field.Row>
-          {errors.organizationName && (
+          {errors?.organizationName && (
             <Field.Error>{t('component.form.requiredField')}</Field.Error>
           )}
         </Field>
@@ -98,6 +102,7 @@ const RequestTrialForm = ({
                   error={errors?.email?.message || undefined}
                 />
               )}
+              defaultValue={defaultValues?.organizationSize}
             />
           </Field.Row>
         </Field>
@@ -119,6 +124,7 @@ const RequestTrialForm = ({
                   )}
                 />
               )}
+              defaultValue={defaultValues?.country}
             />
           </Field.Row>
         </Field>
