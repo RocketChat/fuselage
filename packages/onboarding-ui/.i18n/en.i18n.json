@@ -167,10 +167,26 @@
       }
     },
     "requestTrialForm": {
-      "request": "Request Trial",
-      "emailAddress": {
-        "label": "Email address",
-        "placeholder": "Enter email address"
+      "fields": {
+        "emailAddress": {
+          "label": "Email address",
+          "placeholder": "Enter email address"
+        },
+        "organizationName": {
+          "label": "Organization name",
+          "placeholder": "Organization name"
+        },
+        "organizationSize": {
+          "label": "Organization size",
+          "placeholder": "Select"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Select"
+        }
+      },
+      "button": {
+        "text": "Request Trial"
       },
       "hasWorkspace": {
         "label": "Already registered a workspace?",

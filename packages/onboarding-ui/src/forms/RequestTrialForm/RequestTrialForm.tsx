@@ -2,6 +2,7 @@ import {
   Button,
   Field,
   FieldGroup,
+  TextInput,
   EmailInput,
   Select,
   SelectOptions,
@@ -14,6 +15,7 @@ import Form from '../../common/Form';
 
 type RequestTrialPayload = {
   email: string;
+  organizationName: string;
   organizationSize: string;
   country: string;
 };
@@ -45,7 +47,7 @@ const RequestTrialForm = ({
       <FieldGroup>
         <Field>
           <Field.Label>
-            {t('form.requestTrialForm.emailAddress.label')}
+            {t('form.requestTrialForm.fields.emailAddress.label')}
           </Field.Label>
           <Field.Row>
             <EmailInput
@@ -53,7 +55,9 @@ const RequestTrialForm = ({
                 validate: validateEmail,
                 required: true,
               })}
-              placeholder={t('form.requestTrialForm.emailAddress.placeholder')}
+              placeholder={t(
+                'form.requestTrialForm.fields.emailAddress.placeholder'
+              )}
               error={errors?.email?.message || undefined}
             />
           </Field.Row>
@@ -61,7 +65,23 @@ const RequestTrialForm = ({
         </Field>
         <Field>
           <Field.Label>
-            {t('form.organizationInfoForm.fields.organizationSize.label')}
+            {t('form.requestTrialForm.fields.organizationName.label')}
+          </Field.Label>
+          <Field.Row>
+            <TextInput
+              {...register('organizationName', { required: true })}
+              placeholder={t(
+                'form.requestTrialForm.fields.organizationName.placeholder'
+              )}
+            />
+          </Field.Row>
+          {errors.organizationName && (
+            <Field.Error>{t('component.form.requiredField')}</Field.Error>
+          )}
+        </Field>
+        <Field>
+          <Field.Label>
+            {t('form.requestTrialForm.fields.organizationSize.label')}
           </Field.Label>
           <Field.Row>
             <Controller
@@ -73,7 +93,7 @@ const RequestTrialForm = ({
                   {...field}
                   options={organizationSizeOptions}
                   placeholder={t(
-                    'form.organizationInfoForm.fields.organizationSize.placeholder'
+                    'form.requestTrialForm.fields.organizationSize.placeholder'
                   )}
                   error={errors?.email?.message || undefined}
                 />
@@ -83,7 +103,7 @@ const RequestTrialForm = ({
         </Field>
         <Field>
           <Field.Label>
-            {t('form.organizationInfoForm.fields.country.label')}
+            {t('form.requestTrialForm.fields.country.label')}
           </Field.Label>
           <Field.Row>
             <Controller
@@ -95,7 +115,7 @@ const RequestTrialForm = ({
                   {...field}
                   options={countryOptions}
                   placeholder={t(
-                    'form.organizationInfoForm.fields.country.placeholder'
+                    'form.requestTrialForm.fields.country.placeholder'
                   )}
                 />
               )}
@@ -117,7 +137,7 @@ const RequestTrialForm = ({
           primary
           disabled={isValidating || isSubmitting || !isValid}
         >
-          {t('form.requestTrialForm.request')}
+          {t('form.requestTrialForm.button.text')}
         </Button>
       </Form.Footer>
     </Form>
