@@ -9,11 +9,15 @@ import RequestTrialForm from '../../forms/RequestTrialForm';
 import Description from './Description';
 
 type RequestTrialPageProps = {
-  onManageWorkspaces: () => void;
+  onManageWorkspaces?: () => void;
+  manageWorkspacesLink?: string;
 } & ComponentProps<typeof RequestTrialForm>;
 
 const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
   const { t } = useTranslation();
+  const pointer = css`
+    cursor: pointer;
+  `;
 
   return (
     <BackgroundLayer>
@@ -23,7 +27,7 @@ const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
         subtitle={t('page.requestTrial.subtitle')}
       >
         <RequestTrialForm {...props} />
-        {props.onManageWorkspaces && (
+        {(props.onManageWorkspaces || props.manageWorkspacesLink) && (
           <Box
             mbs='x28'
             color='alternative'
@@ -32,18 +36,28 @@ const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
           >
             <Trans i18nKey='page.alreadyHaveAccount'>
               Already have an account?
-              <Box
-                className={css`
-                  cursor: pointer;
-                `}
-                onClick={props.onManageWorkspaces}
-                is='span'
-                cursor='pointer'
-                color='primary-400'
-                textDecorationLine='none'
-              >
-                Manage your workspaces.
-              </Box>
+              {props.onManageWorkspaces && (
+                <Box
+                  className={pointer}
+                  onClick={props.onManageWorkspaces}
+                  is='span'
+                  color='primary-400'
+                  textDecorationLine='none'
+                >
+                  Manage your workspaces.
+                </Box>
+              )}
+              {props.manageWorkspacesLink && (
+                <Box
+                  className={pointer}
+                  href={props.manageWorkspacesLink}
+                  is='a'
+                  color='primary-400'
+                  textDecorationLine='none'
+                >
+                  Manage your workspaces.
+                </Box>
+              )}
             </Trans>
           </Box>
         )}
