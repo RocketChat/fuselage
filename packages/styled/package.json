@@ -60,6 +60,7 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
+    "@rocket.chat/css-in-js": "workspace:packages/css-in-js",
     "tslib": "^2.3.0"
   }
 }
