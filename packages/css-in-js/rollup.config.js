@@ -12,6 +12,8 @@ const globals = {
   '@emotion/hash': 'hash',
   '@rocket.chat/memo': 'memo',
   '@rocket.chat/css-supports': 'cssSupports',
+  '@rocket.chat/stylis-logical-props-middleware':
+    'stylisLogicalPropsMiddleware',
 };
 
 const plugins = [
@@ -49,33 +51,6 @@ export default [
       {
         dir: path.dirname(pkg.unpkg),
         entryFileNames: path.basename(pkg.unpkg),
-        format: 'umd',
-        name: 'cssInJs',
-        sourcemap: true,
-        globals,
-      },
-    ],
-    plugins,
-  },
-  {
-    external: Object.keys(globals),
-    input: 'src/logicalProperties.ts',
-    output: [
-      {
-        dir: path.dirname(pkg.main),
-        entryFileNames: 'logicalProperties.js',
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        dir: path.dirname(pkg.module),
-        entryFileNames: 'logicalProperties.module.js',
-        format: 'es',
-        sourcemap: true,
-      },
-      {
-        dir: path.dirname(pkg.unpkg),
-        entryFileNames: 'logicalProperties.umd.js',
         format: 'umd',
         name: 'cssInJs',
         sourcemap: true,

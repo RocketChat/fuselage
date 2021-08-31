@@ -5508,6 +5508,7 @@ __metadata:
     "@rocket.chat/eslint-config-alt": ^0.28.0
     "@rocket.chat/memo": ^0.28.0
     "@rocket.chat/prettier-config": ^0.28.0
+    "@rocket.chat/stylis-logical-props-middleware": "workspace:packages/stylis-logical-props-middleware"
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.0.0
@@ -6036,6 +6037,31 @@ __metadata:
     tslib: ^2.3.0
     typedoc: ^0.21.2
     typescript: ^4.3.4
+  languageName: unknown
+  linkType: soft
+
+"@rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware"
+  dependencies:
+    "@rocket.chat/css-supports": "workspace:packages/css-supports"
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@types/jest": ^27.0.1
+    downlevel-dts: ^0.7.0
+    eslint: ^7.32.0
+    jest: ^27.1.0
+    lint-staged: ^11.1.2
+    npm-run-all: ^4.1.5
+    prettier: ^2.3.2
+    rimraf: ^3.0.2
+    stylis: 4.0.10
+    ts-jest: ^27.0.5
+    tslib: ^2.2.0
+    typedoc: ^0.21.9
+    typescript: ^4.3.4
+  peerDependencies:
+    stylis: 4.0.10
   languageName: unknown
   linkType: soft
 
@@ -25707,7 +25733,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"stylis@npm:^4.0.10":
+"stylis@npm:4.0.10, stylis@npm:^4.0.10":
   version: 4.0.10
   resolution: "stylis@npm:4.0.10"
   checksum: 271892d9f64eced85ed777879e303ef58154f3dec60de7ca962d91c4b6ec0961d278050221a196eee050c58ce34e6e06f293537dc2eb4c0d83fc40b168767750

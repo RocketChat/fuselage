@@ -71,6 +71,10 @@
     {
       "directory": "packages/css-supports",
       "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/stylis-logical-props-middleware",
+      "changeProcessCWD": true
     }
   ],
   "editor.codeActionsOnSave": {
