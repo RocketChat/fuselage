@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.28.0...v0.29.0) (2021-08-31)
+
+
+### Bug Fixes
+
+* modal styles ([de15810](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/de158102f711658cdda8899a74cbefdff29fa48a))
+
+
+### Features
+
+* **icons:** New icons ([#511](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/511)) ([1fa7748](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1fa774819edea5b4bda9e58a6b272745c7c6ad57))
+* **onboarding-ui:** Request trial form ([#505](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/505)) ([4c1bd35](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4c1bd35324903badee9fec79e878ab045f7d5897))
+
+
+
+
+
 # [0.28.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.27.0...v0.28.0) (2021-07-30)
 
 
