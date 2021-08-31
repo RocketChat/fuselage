@@ -5533,6 +5533,7 @@ __metadata:
   resolution: "@rocket.chat/css-supports@workspace:packages/css-supports"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
+    "@rocket.chat/memo": "workspace:packages/memo"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^27.0.1
     downlevel-dts: ^0.7.0
