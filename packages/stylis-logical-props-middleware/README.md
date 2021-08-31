@@ -22,6 +22,16 @@
 
 <!--install-->
 
+Firstly, install the peer dependencies (prerequisites):
+
+```sh
+npm i stylis
+
+# or, if you are using yarn:
+
+yarn add stylis
+```
+
 Add `@rocket.chat/stylis-logical-props-middleware` as a dependency:
 
 ```sh

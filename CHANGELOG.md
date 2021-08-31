@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.28.0...v0.29.0) (2021-08-31)
+
+
+### Bug Fixes
+
+* missing default values ([8d850a1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8d850a18f6f58ad77d984bf2ef0756ddd5576743))
+* review ([bfc0b97](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bfc0b97b2a43c6681383bba3f97202c53e8d6256))
+* **onboarding-ui:** Export RequestTrialPage ([#522](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/522)) ([f9cbf3b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f9cbf3b369add738dac49c725f10dd486760926a))
+* modal styles ([de15810](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/de158102f711658cdda8899a74cbefdff29fa48a))
+* **onboarding-ui:** Labels wrapping under checkbox ([#509](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/509)) ([99b873e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/99b873e794ad3451ed6d4860545a4c61a133ca2f))
+* Missing Sidebar type ([#506](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/506)) ([431a5be](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/431a5be22373abc2db0e681c0d8f138adcc4e832))
+
+
+### Features
+
+* **icons:** New icons ([#511](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/511)) ([1fa7748](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1fa774819edea5b4bda9e58a6b272745c7c6ad57))
+* **onboarding-ui:** Check your email page ([#513](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/513)) ([50caee8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/50caee84b3357beb0aebdd713eed2f0766ec910f))
+* **onboarding-ui:** CloudOrganizationInfo Page ([#498](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/498)) ([4d04e66](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4d04e66836d5dc57e8efb0ac222d03234733e4e3))
+* **onboarding-ui:** Create Cloud Workspace Form ([#499](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/499)) ([afd88bf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/afd88bf68c442e3fe487081b98622de392598df6))
+* **onboarding-ui:** Magic Link Email Page ([#524](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/524)) ([a5b56af](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a5b56af04299c604933451f2bf7bd6b9b828af45))
+* **onboarding-ui:** Request trial form ([#505](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/505)) ([4c1bd35](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4c1bd35324903badee9fec79e878ab045f7d5897))
+* **onboarding-ui:** Request trial page ([#515](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/515)) ([bdbae4e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bdbae4e142aa8694a9400db873c1c417b7db1e82))
+
+
+
+
+
 # [0.28.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.27.0...v0.28.0) (2021-07-30)
 
 
