@@ -1,10 +1,7 @@
----
-to: packages/<%=package%>/package.json
----
 {
-  "name": "@rocket.chat/<%=package%>",
-  "version": "<%=version%>",
-  "description": "<%=description%>",
+  "name": "@rocket.chat/css-supports",
+  "version": "0.28.0",
+  "description": "Memoized and SSR-compatible facade of CSS.supports API",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -17,7 +14,7 @@ to: packages/<%=package%>/package.json
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
-    "directory": "packages/<%=package%>"
+    "directory": "packages/css-supports"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -44,7 +41,7 @@ to: packages/<%=package%>/package.json
     "lint": "eslint src",
     "lint-fix": "eslint --fix src",
     "lint-staged": "lint-staged",
-    "test": "jest --runInBand",
+    "test": "jest --runInBand --passWithNoTests",
     "docs": "typedoc"
   },
   "devDependencies": {
@@ -63,6 +60,6 @@ to: packages/<%=package%>/package.json
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "tslib": "^2.2.0"
+    "tslib": "^2.3.1"
   }
 }

@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "@emotion/hash": "^0.8.0",
+    "@rocket.chat/css-supports": "workspace:packages/css-supports",
     "@rocket.chat/memo": "^0.28.0",
     "stylis": "^4.0.10"
   }

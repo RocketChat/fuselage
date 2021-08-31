@@ -1,4 +1,4 @@
-import { cssSupports } from '@rocket.chat/css-in-js';
+import { cssSupports } from '@rocket.chat/css-supports';
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';

@@ -1,3 +1,4 @@
+import { cssSupports } from '@rocket.chat/css-supports';
 import {
   DECLARATION,
   Element,
@@ -6,8 +7,6 @@ import {
   RULESET,
   serialize,
 } from 'stylis';
-
-import { cssSupports } from './cssSupports';
 
 type RuleSet = Element & {
   type: typeof RULESET;
