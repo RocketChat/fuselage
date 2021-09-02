@@ -69,6 +69,7 @@ export const Options = React.forwardRef(
             role='option'
             label={label}
             onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false}
+            onTouchStart={(e) => prevent(e) & onSelect([value, label]) && false}
             key={value}
             value={value}
             selected={selected || (multiple !== true && null)}
