@@ -1,7 +1,7 @@
 {
-  "name": "@rocket.chat/styled",
-  "version": "0.29.0",
-  "description": "A simple styled API for React components",
+  "name": "@rocket.chat/css-supports",
+  "version": "0.28.0",
+  "description": "Memoized and SSR-compatible facade of CSS.supports API",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -14,7 +14,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
-    "directory": "packages/styled"
+    "directory": "packages/css-supports"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -41,26 +41,26 @@
     "lint": "eslint src",
     "lint-fix": "eslint --fix src",
     "lint-staged": "lint-staged",
-    "test": "jest --runInBand",
+    "test": "jest --runInBand --passWithNoTests",
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.29.0",
-    "@rocket.chat/prettier-config": "^0.29.0",
-    "@types/jest": "^26.0.24",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@types/jest": "^27.0.1",
     "downlevel-dts": "^0.7.0",
-    "eslint": "^7.29.0",
-    "jest": "^27.0.6",
-    "lint-staged": "^11.0.0",
+    "eslint": "^7.32.0",
+    "jest": "^27.1.0",
+    "lint-staged": "^11.1.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
-    "ts-jest": "^27.0.3",
-    "typedoc": "^0.21.2",
+    "ts-jest": "^27.0.5",
+    "typedoc": "^0.21.9",
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@rocket.chat/css-in-js": "workspace:packages/css-in-js",
-    "tslib": "^2.3.0"
+    "@rocket.chat/memo": "workspace:packages/memo",
+    "tslib": "^2.3.1"
   }
 }

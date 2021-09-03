@@ -48,19 +48,19 @@ to: packages/<%=package%>/package.json
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.27.0",
-    "@rocket.chat/prettier-config": "^0.27.0",
-    "@types/jest": "^26.0.23",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@types/jest": "^27.0.1",
     "downlevel-dts": "^0.7.0",
-    "eslint": "^7.26.0",
-    "jest": "^26.6.3",
-    "lint-staged": "^11.0.0",
+    "eslint": "^7.32.0",
+    "jest": "^27.1.0",
+    "lint-staged": "^11.1.2",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
-    "ts-jest": "^26.5.6",
-    "typedoc": "^0.20.36",
-    "typescript": "^4.2.4"
+    "ts-jest": "^27.0.5",
+    "typedoc": "^0.21.9",
+    "typescript": "^4.3.4"
   },
   "dependencies": {
     "tslib": "^2.2.0"

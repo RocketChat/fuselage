@@ -66,6 +66,7 @@
   },
   "dependencies": {
     "@rocket.chat/css-in-js": "^0.29.0",
+    "@rocket.chat/css-supports": "workspace:packages/css-supports",
     "@rocket.chat/fuselage-tokens": "^0.29.0",
     "@rocket.chat/memo": "^0.29.0",
     "invariant": "^2.2.4",

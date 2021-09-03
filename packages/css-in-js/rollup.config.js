@@ -8,6 +8,14 @@ import { terser } from 'rollup-plugin-terser';
 
 import pkg from './package.json';
 
+const globals = {
+  '@emotion/hash': 'hash',
+  '@rocket.chat/memo': 'memo',
+  '@rocket.chat/css-supports': 'cssSupports',
+  '@rocket.chat/stylis-logical-props-middleware':
+    'stylisLogicalPropsMiddleware',
+};
+
 const plugins = [
   terser({
     compress: true,
@@ -25,6 +33,7 @@ const plugins = [
 
 export default [
   {
+    external: Object.keys(globals),
     input: 'src/index.ts',
     output: [
       {
@@ -45,34 +54,7 @@ export default [
         format: 'umd',
         name: 'cssInJs',
         sourcemap: true,
-        globals: {
-          '@emotion/hash': 'hash',
-        },
-      },
-    ],
-    plugins,
-  },
-  {
-    input: 'src/logicalProperties.ts',
-    output: [
-      {
-        dir: path.dirname(pkg.main),
-        entryFileNames: 'logicalProperties.js',
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        dir: path.dirname(pkg.module),
-        entryFileNames: 'logicalProperties.module.js',
-        format: 'es',
-        sourcemap: true,
-      },
-      {
-        dir: path.dirname(pkg.unpkg),
-        entryFileNames: 'logicalProperties.umd.js',
-        format: 'umd',
-        name: 'cssInJs',
-        sourcemap: true,
+        globals,
       },
     ],
     plugins,
