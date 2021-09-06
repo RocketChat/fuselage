@@ -52,8 +52,8 @@
     "webpack": "*"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.29.0",
-    "@rocket.chat/prettier-config": "^0.29.0",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@types/loader-utils": "^2.0.3",
     "@types/node": "^15.14.1",
     "downlevel-dts": "^0.7.0",

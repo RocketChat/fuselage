@@ -49,10 +49,10 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.29.0",
-    "@rocket.chat/fuselage-polyfills": "^0.29.0",
-    "@rocket.chat/fuselage-tokens": "^0.29.0",
-    "@rocket.chat/prettier-config": "^0.29.0",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills",
+    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addons": "^6.3.4",
     "@storybook/react": "^6.3.4",
@@ -77,17 +77,17 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@rocket.chat/fuselage": "^0.29.0",
-    "@rocket.chat/fuselage-hooks": "^0.29.0",
-    "@rocket.chat/icons": "^0.29.0",
-    "@rocket.chat/styled": "^0.29.0",
+    "@rocket.chat/fuselage": "workspace:packages/fuselage",
+    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
+    "@rocket.chat/icons": "workspace:packages/icons",
+    "@rocket.chat/styled": "workspace:packages/styled",
     "i18next": "^20.3.2",
     "react-hook-form": "^7.10.1",
     "react-i18next": "^11.11.0",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@rocket.chat/fuselage-polyfills": "^0.27.0",
+    "@rocket.chat/fuselage-polyfills": "*",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
