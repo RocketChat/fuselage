@@ -79,6 +79,21 @@ const App: FC<AppProps> = ({ imgSrc, ...props }) => {
     });
   };
 
+  const returnLayer = (modifierSelected: any) => {
+    switch (modifierSelected) {
+      case 'crop':
+        return <CropRenderingLayer />;
+      case 'doodle':
+        return <DoodleRenderingLayer />;
+      case 'text':
+        return <TextRenderingLayer />;
+      case null:
+        return <Preview />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <Box
       {...props}
@@ -89,17 +104,7 @@ const App: FC<AppProps> = ({ imgSrc, ...props }) => {
       border='2px solid black'
       ref={parentRef}
     >
-      <Preview
-        display={
-          modifierSelected === null || typeof modifierSelected === 'undefined'
-            ? 'block'
-            : 'none'
-        }
-      />
-
-      {modifierSelected === 'crop' && <CropRenderingLayer />}
-      {modifierSelected === 'text' && <TextRenderingLayer />}
-      {modifierSelected === 'doodle' && <DoodleRenderingLayer />}
+      {returnLayer(modifierSelected)}
 
       <Toolbar
         {...{ modifierSelected, handleModifier, handleCheck, handleFunction }}

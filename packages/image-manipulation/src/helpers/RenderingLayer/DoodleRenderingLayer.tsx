@@ -68,7 +68,7 @@ export const DoodleRenderingLayer: FC<DoodleRenderingLayerProps> = ({
               canvas.freeDrawingBrush.width = strokeWidth + 1;
               break;
             case 'dec':
-              if (strokeWidth > 0) {
+              if (strokeWidth > 1) {
                 setstrokeWidth(strokeWidth - 1);
                 canvas.freeDrawingBrush.width = strokeWidth - 1;
               }

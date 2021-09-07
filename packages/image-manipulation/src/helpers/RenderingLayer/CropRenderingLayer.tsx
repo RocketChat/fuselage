@@ -19,7 +19,6 @@ export const CropRenderingLayer: FC<CropRenderingLayerProps> = ({
 
   useEffect(() => {
     const { croppingLayerDimnesions, previewDimensions } = state.dimensions;
-
     const layerHeight = croppingLayerDimnesions.height;
     const layerWidth = croppingLayerDimnesions.width;
     const layer = new fabric.Rect({
@@ -36,12 +35,85 @@ export const CropRenderingLayer: FC<CropRenderingLayerProps> = ({
       borderColor: '#fdfdfd',
       borderDashArray: [5, 5],
       cornerStyle: 'circle',
+      minScaleLimit: 0.3,
+      lockScalingFlip: true,
     });
     canvas?.add(layer);
     canvas?.bringToFront(layer);
+    // canvas?.on('object:modified', (options: any) => {
+    //   const obj = options.target as any;
+    //   const boundingRect = obj.getBoundingRect();
+    //   if (
+    //     boundingRect.left < 0 ||
+    //     boundingRect.top < 0 ||
+    //     boundingRect.left + boundingRect.width > canvas?.getWidth() ||
+    //     boundingRect.top + boundingRect.height > canvas?.getHeight()
+    //   ) {
+    //     obj.top = undefined;
+    //     obj.left = undefined;
+    //     obj.scaleX = undefined;
+    //     obj.scaleY = undefined;
+    //     obj.setCoords();
+    //   }
+    // });
+    let left1 = 0;
+    let top1 = 0;
+    let scale1x = 0;
+    let scale1y = 0;
+    let width1 = 0;
+    let height1 = 0;
+
+    canvas?.on('object:scaling', (e) => {
+      const obj = e.target as any;
+      obj.setCoords();
+      const brNew = obj.getBoundingRect();
+
+      if (
+        brNew.width + brNew.left >= obj.canvas.width ||
+        brNew.height + brNew.top >= obj.canvas.height ||
+        brNew.left < 0 ||
+        brNew.top < 0
+      ) {
+        obj.left = left1;
+        obj.top = top1;
+        obj.scaleX = scale1x;
+        obj.scaleY = scale1y;
+        obj.width = width1;
+        obj.height = height1;
+      } else {
+        left1 = obj.left;
+        top1 = obj.top;
+        scale1x = obj.scaleX;
+        scale1y = obj.scaleY;
+        width1 = obj.width;
+        height1 = obj.height;
+      }
+    });
+    // canvas?.on('object:scaling', (e) => {
+    //   var obj = e.target as any;
+    //   obj.setCoords();
+    //   var brNew = obj.getBoundingRect();
+    //   if (
+    //     brNew.width + brNew.left >= obj.canvas.width ||
+    //     brNew.height + brNew.top >= obj.canvas.height ||
+    //     brNew.left < 0 ||
+    //     brNew.top < 0
+    //   ) {
+    //     console.log('bahar gaya if se');
+    //     // obj.left = 0;
+    //     // obj.right = 0;
+    //     layer.width = 400;
+    //     // obj.scale = 0.5;
+    //     obj.setCoords();
+    //   } else {
+    //     // scale1x = obj.scaleX;
+    //     // scale1y = obj.scaleY;
+    //     // width1 = obj.width;
+    //     // height1 = obj.height;
+    //   }
+    // });
 
     setUserClipPath(layer);
-    console.log(userClipPath);
   }, [canvas]);
 
   const clipImage = (): void => {

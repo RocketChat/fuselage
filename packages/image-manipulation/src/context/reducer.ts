@@ -7,8 +7,6 @@ export const reducer: Reducer<State, Actions> = (
   state = initialState,
   { type, payload }: any
 ) => {
-  console.log(type, payload, state);
-
   switch (type) {
     case ActionType.SET_PREVIEW_DIMENSIONS:
       return {

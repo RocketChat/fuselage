@@ -57,7 +57,7 @@ export const TextRenderingLayer: FC<TextRenderingLayerProps> = ({
             canvas?.renderAll();
             break;
           case 'dec':
-            if (fontSize > 0) {
+            if (fontSize > 5) {
               setfontSize(fontSize - 5);
               canvas
                 ?.getActiveObject()
@@ -71,7 +71,6 @@ export const TextRenderingLayer: FC<TextRenderingLayerProps> = ({
   }, [state]);
 
   useEffect(() => {
-    console.log('RENDERING TEXT');
     const text = new fabric.IText('Double Tap and\nType', {
       left: 100,
       top: 100,

@@ -21,10 +21,7 @@ export const Toolbar: FC<any> = ({
         modifierSelected === null) && (
         <>
           {' '}
-          <IconButton
-            icon='chevron-expand'
-            onClick={() => handleModifier('crop')}
-          />
+          <IconButton icon='crop' onClick={() => handleModifier('crop')} />
           <IconButton icon='brush' onClick={() => handleModifier('doodle')} />
           <Button onClick={() => handleModifier('text')} ghost>
             <h3 style={{ fontWeight: 500, margin: '0px' }}>T</h3>
@@ -42,7 +39,7 @@ export const Toolbar: FC<any> = ({
                 }}
                 padding='0px'
                 margin='0px'
-                icon='chevron-down'
+                icon='text-decrease'
               />
               <IconButton
                 onClick={() => {
@@ -50,7 +47,7 @@ export const Toolbar: FC<any> = ({
                 }}
                 margin='0px'
                 padding='0px'
-                icon='chevron-up'
+                icon='text-increase'
               />
             </ButtonGroup>
           </ButtonGroup>

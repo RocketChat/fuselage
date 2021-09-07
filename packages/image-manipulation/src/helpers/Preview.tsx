@@ -61,7 +61,6 @@ export const Preview: FC<PreviewProps> = ({ ...props }) => {
       payload: { width: inlineSize, height: blockSize },
     });
   }, [inlineSize, blockSize]);
-  console.log(cropDimensions);
   return (
     <Box
       display='flex'
