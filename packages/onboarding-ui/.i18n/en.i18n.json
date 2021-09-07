@@ -35,7 +35,7 @@
       "tryGold": "Try our best Gold plan for 14 days for free",
       "availability": "High availability",
       "auditing": "Message audit panel / Audit logs",
-      "integrations": "1,000 integrations",
+      "engagement": "Engagement Dashboard",
       "ldap": "LDAP enhanced sync",
       "omnichannel": "Omnichannel premium",
       "sla": "SLA: Premium",
@@ -49,6 +49,14 @@
       "button": {
         "text": "Request new link"
       }
+    },
+    "requestTrial": {
+      "title": "Request a 30-\u2060day Trial",
+      "subtitle": "Try our enterprise solution for free"
+    },
+    "magicLinkEmail": {
+      "title": "We emailed you a magic link",
+      "subtitle": "Click the link in the email we just sent you to sign in to your workspace."
     }
   },
   "form": {
@@ -159,10 +167,26 @@
       }
     },
     "requestTrialForm": {
-      "request": "Request Trial",
-      "emailAddress": {
-        "label": "Email address",
-        "placeholder": "Enter email address"
+      "fields": {
+        "emailAddress": {
+          "label": "Email address",
+          "placeholder": "Enter email address"
+        },
+        "organizationName": {
+          "label": "Organization name",
+          "placeholder": "Organization name"
+        },
+        "organizationSize": {
+          "label": "Organization size",
+          "placeholder": "Select"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Select"
+        }
+      },
+      "button": {
+        "text": "Request Trial"
       },
       "hasWorkspace": {
         "label": "Already registered a workspace?",
