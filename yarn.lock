@@ -5536,7 +5536,6 @@ __metadata:
     "@rocket.chat/memo": "workspace:packages/memo"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^27.0.1
-    downlevel-dts: ^0.7.0
     eslint: ^7.32.0
     jest: ^27.1.0
     lint-staged: ^11.1.2
@@ -5844,7 +5843,6 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
-    downlevel-dts: ^0.7.0
     eslint: ^7.29.0
     lint-staged: ^11.0.0
     npm-run-all: ^4.1.5
@@ -5933,7 +5931,6 @@ __metadata:
     "@types/react": ^17.0.14
     "@types/react-dom": ^17.0.9
     countries-list: ^2.6.1
-    downlevel-dts: ^0.7.0
     eslint: ^7.29.0
     i18next: ^20.3.2
     jest: ^27.0.6
@@ -5965,7 +5962,6 @@ __metadata:
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/loader-utils": ^2.0.3
     "@types/node": ^15.14.1
-    downlevel-dts: ^0.7.0
     eslint: ^7.29.0
     lint-staged: ^11.0.0
     loader-utils: ^2.0.0
@@ -6006,7 +6002,6 @@ __metadata:
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^26.0.24
-    downlevel-dts: ^0.7.0
     eslint: ^7.29.0
     jest: ^27.0.6
     lint-staged: ^11.0.0
@@ -6028,7 +6023,6 @@ __metadata:
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^26.0.24
-    downlevel-dts: ^0.7.0
     eslint: ^7.29.0
     jest: ^27.0.6
     lint-staged: ^11.0.0
@@ -6050,7 +6044,6 @@ __metadata:
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^27.0.1
-    downlevel-dts: ^0.7.0
     eslint: ^7.32.0
     jest: ^27.1.0
     lint-staged: ^11.1.2
@@ -6079,7 +6072,6 @@ __metadata:
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^26.0.24
     babel-loader: ^8.2.2
-    downlevel-dts: ^0.7.0
     eslint: ^7.29.0
     jest: ^27.0.6
     lint-staged: ^11.0.0
@@ -12870,19 +12862,6 @@ __metadata:
   version: 8.6.0
   resolution: "dotenv@npm:8.6.0"
   checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
-  languageName: node
-  linkType: hard
-
-"downlevel-dts@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "downlevel-dts@npm:0.7.0"
-  dependencies:
-    semver: ^7.3.2
-    shelljs: ^0.8.3
-    typescript: ^4.1.0-dev.20201026
-  bin:
-    downlevel-dts: index.js
-  checksum: 2fbfe8213a7acca73df6dbb86d3696a63d80f4100015831c7d2680def337a920cd1a53724f354c55d98584a3e2485261f76e74a234b5a8b42d937f4c91112006
   languageName: node
   linkType: hard
 
@@ -26945,16 +26924,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-typescript@^4.1.0-dev.20201026:
-  version: 4.2.4
-  resolution: "typescript@npm:4.2.4"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 89c397df192f239359ad798b96d8e8d552e12c0c189ac5676cec4c20c410d6eec636b8e59a88f2aef0a56d961a9678d99c400099be9b7cae2f7b062eb4b7b171
-  languageName: node
-  linkType: hard
-
 typescript@^4.3.4:
   version: 4.3.4
   resolution: "typescript@npm:4.3.4"
@@ -26962,16 +26931,6 @@ typescript@^4.3.4:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 75e1f2769c7ff38c718523d05eaf1c2611dbf92c0ab0f85f603ead9bb23416af2009a5dac46e76ef6a207a8508fa53f51b43a41f2a91b1241b53cd744c16128c
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^4.1.0-dev.20201026#~builtin<compat/typescript>":
-  version: 4.2.4
-  resolution: "typescript@patch:typescript@npm%3A4.2.4#~builtin<compat/typescript>::version=4.2.4&hash=32657b"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 91772e5fc70895a8f645837cb91d14af95a11b173043ed0dcf12c1069f9dcf5c3c82bc7212c217c9a2cb488900dd2cda3f40f543bed5d149428df13c90c10098
   languageName: node
   linkType: hard
 

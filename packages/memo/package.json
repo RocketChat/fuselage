@@ -25,22 +25,14 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
-  "typesVersions": {
-    "<4.1": {
-      "*": [
-        "dist/ts3.4/*"
-      ]
-    }
-  },
   "files": [
     "/dist"
   ],
   "scripts": {
-    "build": "run-s .:build:clean .:build:esm .:build:cjs .:build:ts3.4",
+    "build": "run-s .:build:clean .:build:esm .:build:cjs",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig-esm.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
-    ".:build:ts3.4": "downlevel-dts dist/esm/ dist/ts3.4/ --to=3.4",
     "lint": "eslint src",
     "lint-fix": "eslint --fix src",
     "lint-staged": "lint-staged",
@@ -49,7 +41,6 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
-    "downlevel-dts": "^0.7.0",
     "eslint": "^7.29.0",
     "lint-staged": "^11.0.0",
     "npm-run-all": "^4.1.5",
