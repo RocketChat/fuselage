@@ -33,12 +33,11 @@
   },
   "peerDependencies": {
     "@babel/eslint-parser": "^7.13.14",
-    "eslint": "^7.24.0",
-    "prettier": "^2.2.1"
+    "eslint": "^7.29.0",
+    "prettier": "^2.3.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
-    "@rocket.chat/eslint-config": "^0.4.0",
     "eslint": "^7.29.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.2"
