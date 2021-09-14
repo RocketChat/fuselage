@@ -16,14 +16,14 @@ type UseResizeObserverOptions = {
  * @returns a triple containing the ref and the size information
  * @public
  */
-export const useResizeObserver = ({
+export const useResizeObserver = <T extends Element>({
   debounceDelay,
 }: UseResizeObserverOptions = {}): {
-  ref: RefObject<Element>;
+  ref: RefObject<T>;
   contentBoxSize: ResizeObserverSize;
   borderBoxSize: ResizeObserverSize;
 } => {
-  const ref = useRef<Element>();
+  const ref = useRef<T>();
   const [{ borderBoxSize, contentBoxSize }, setSizes] = useDebouncedState<{
     borderBoxSize: ResizeObserverSize;
     contentBoxSize: ResizeObserverSize;
