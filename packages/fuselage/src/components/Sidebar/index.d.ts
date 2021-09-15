@@ -5,6 +5,7 @@ import { ActionButton } from '../Button';
 
 type SidebarProps = ComponentProps<typeof Box>;
 type SidebarTopBarProps = ComponentProps<typeof Box>;
+type SidebarTopBarActionProps = ComponentProps<typeof ActionButton>;
 type SidebarItemProps = ComponentProps<typeof Box>;
 type SidebarSectionProps = ComponentProps<typeof Box>;
 
@@ -13,7 +14,7 @@ export const Sidebar: ForwardRefExoticComponent<SidebarProps> & {
     Wrapper: ForwardRefExoticComponent<SidebarTopBarProps>;
     Avatar: { size: string };
     Actions: ForwardRefExoticComponent<SidebarTopBarProps>;
-    Action: ForwardRefExoticComponent<SidebarTopBarProps> & typeof ActionButton;
+    Action: ForwardRefExoticComponent<SidebarTopBarActionProps>;
     Divider: ForwardRefExoticComponent<SidebarTopBarProps>;
     Title: ForwardRefExoticComponent<SidebarTopBarProps>;
     ToolBox: ForwardRefExoticComponent<SidebarTopBarProps>;
