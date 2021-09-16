@@ -1,5 +1,5 @@
 import { LayoutBlockType } from '../../blocks/LayoutBlockType';
-import { BaseSurfaceRenderer } from '../BaseSurfaceRenderer';
+import { SurfaceRenderer } from '../SurfaceRenderer';
 import { GenericSurfaceLayout } from './GenericSurfaceLayout';
 
 type AllowedLayoutsMessage =
@@ -9,9 +9,10 @@ type AllowedLayoutsMessage =
   | LayoutBlockType.IMAGE
   | LayoutBlockType.SECTION;
 
-export abstract class UiKitParserMessage<
-  OutputElement
-> extends BaseSurfaceRenderer<OutputElement, AllowedLayoutsMessage> {
+export abstract class UiKitParserMessage<OutputElement> extends SurfaceRenderer<
+  OutputElement,
+  AllowedLayoutsMessage
+> {
   public constructor() {
     super([
       LayoutBlockType.ACTIONS,

@@ -1,5 +1,5 @@
 import { LayoutBlockType } from '../../blocks/LayoutBlockType';
-import { BaseSurfaceRenderer } from '../BaseSurfaceRenderer';
+import { SurfaceRenderer } from '../SurfaceRenderer';
 import { GenericSurfaceLayout } from './GenericSurfaceLayout';
 
 type AllowedLayoutsModal =
@@ -10,9 +10,10 @@ type AllowedLayoutsModal =
   | LayoutBlockType.INPUT
   | LayoutBlockType.SECTION;
 
-export abstract class UiKitParserModal<
-  OutputElement
-> extends BaseSurfaceRenderer<OutputElement, AllowedLayoutsModal> {
+export abstract class UiKitParserModal<OutputElement> extends SurfaceRenderer<
+  OutputElement,
+  AllowedLayoutsModal
+> {
   public constructor() {
     super([
       LayoutBlockType.ACTIONS,

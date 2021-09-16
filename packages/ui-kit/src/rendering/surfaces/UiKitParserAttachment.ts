@@ -1,5 +1,5 @@
 import { LayoutBlockType } from '../../blocks/LayoutBlockType';
-import { BaseSurfaceRenderer } from '../BaseSurfaceRenderer';
+import { SurfaceRenderer } from '../SurfaceRenderer';
 import { GenericSurfaceLayout } from './GenericSurfaceLayout';
 
 type AllowedLayoutsAttachment =
@@ -11,7 +11,7 @@ type AllowedLayoutsAttachment =
 
 export abstract class UiKitParserAttachment<
   OutputElement
-> extends BaseSurfaceRenderer<OutputElement, AllowedLayoutsAttachment> {
+> extends SurfaceRenderer<OutputElement, AllowedLayoutsAttachment> {
   public constructor() {
     super([
       LayoutBlockType.ACTIONS,

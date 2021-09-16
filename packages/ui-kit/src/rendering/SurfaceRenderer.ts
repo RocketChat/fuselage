@@ -30,7 +30,7 @@ export type PossibleAllowedLayouts = Exclude<
   LayoutBlock,
   ConditionalBlock
 >['type'];
-export abstract class BaseSurfaceRenderer<
+export abstract class SurfaceRenderer<
   OutputElement,
   AllowedLayoutItems extends PossibleAllowedLayouts = PossibleAllowedLayouts
 > implements ISurfaceRenderer<OutputElement>

@@ -63,3 +63,5 @@ export {
   UiKitParserModal,
   ModalSurfaceLayout,
 } from './rendering/surfaces/UiKitParserModal';
+
+export { SurfaceRenderer } from './rendering/SurfaceRenderer';
