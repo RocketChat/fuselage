@@ -14,7 +14,7 @@ type UiKitState = {
 
 export const useUiKitState: <T extends ActionableElement>(
   element: T & {
-    initialValue?: string | undefined;
+    initialValue?: number | string | undefined;
     initialOption?: Option | undefined;
     blockId: string;
     appId: string;

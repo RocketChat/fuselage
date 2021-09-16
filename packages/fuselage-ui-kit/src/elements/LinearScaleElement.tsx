@@ -1,9 +1,22 @@
 import { Box, Button, ButtonGroup } from '@rocket.chat/fuselage';
-import React, { memo, useMemo } from 'react';
+import * as UiKit from '@rocket.chat/ui-kit';
+import React, { memo, ReactElement, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
 
-const LinearScaleElement = ({ className, element, context, parser }) => {
+type LinearScaleElementProps = {
+  className?: string;
+  element: UiKit.LinearScaleElement;
+  context: UiKit.BlockContext;
+  parser: UiKit.SurfaceRenderer<ReactElement>;
+};
+
+const LinearScaleElement = ({
+  className,
+  element,
+  context,
+  parser,
+}: LinearScaleElementProps): ReactElement => {
   const {
     minValue = 0,
     maxValue = 10,
@@ -34,7 +47,7 @@ const LinearScaleElement = ({ className, element, context, parser }) => {
     >
       {preLabel && (
         <Box fontScale='c2' paddingInlineEnd={8} textAlign='start'>
-          {parser.plainText(preLabel)}
+          {parser.renderTextObject(preLabel, 0, context)}
         </Box>
       )}
       <Box>
@@ -57,17 +70,21 @@ const LinearScaleElement = ({ className, element, context, parser }) => {
               flexShrink={1}
               onClick={action}
             >
-              {parser.plainText({
-                type: 'plain_text',
-                text: String(i + minValue),
-              })}
+              {parser.renderTextObject(
+                {
+                  type: 'plain_text',
+                  text: String(i + minValue),
+                },
+                0,
+                context
+              )}
             </Button>
           ))}
         </ButtonGroup>
       </Box>
       {postLabel && (
         <Box fontScale='c2' paddingInlineStart={8} textAlign='end'>
-          {parser.plainText(postLabel)}
+          {parser.renderTextObject(postLabel, 0, context)}
         </Box>
       )}
     </Box>

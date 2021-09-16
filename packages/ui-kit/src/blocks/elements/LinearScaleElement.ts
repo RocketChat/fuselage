@@ -8,5 +8,5 @@ export type LinearScaleElement = Actionable<{
   maxValue?: number;
   initialValue?: number;
   preLabel?: PlainText;
-  postLable?: PlainText;
+  postLabel?: PlainText;
 }>;
