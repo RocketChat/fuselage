@@ -2,9 +2,8 @@ import { InputBox } from '@rocket.chat/fuselage';
 import type * as UiKit from '@rocket.chat/ui-kit';
 import React, { ReactElement } from 'react';
 
-import { fromTextObjectToString } from 'src/utils/fromTextObjectToString';
-
 import { useUiKitState } from '../hooks/useUiKitState';
+import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
 type DatePickerElementProps = {
   element: UiKit.DatePickerElement;
