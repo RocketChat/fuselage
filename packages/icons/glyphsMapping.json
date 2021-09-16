@@ -808,5 +808,11 @@
   },
   "sms": {
     "start": "\ue0e1"
+  },
+  "phone-in": {
+    "start": "\ue0e2"
+  },
+  "phone-out": {
+    "start": "\ue0e3"
   }
 }
