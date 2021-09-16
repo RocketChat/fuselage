@@ -5697,6 +5697,7 @@ __metadata:
     "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills"
     "@rocket.chat/icons": "workspace:packages/icons"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/styled": "workspace:packages/styled"
     "@rocket.chat/ui-kit": "workspace:packages/ui-kit"
     "@storybook/addon-essentials": ^6.3.4
     "@storybook/addons": ^6.3.4
