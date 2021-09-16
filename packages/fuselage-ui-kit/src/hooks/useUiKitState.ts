@@ -9,7 +9,7 @@ type UiKitState = {
   loading: boolean;
   setLoading: (loading: boolean) => void;
   error?: string;
-  value: unknown;
+  value: string | number | undefined;
 };
 
 export const useUiKitState: <T extends ActionableElement>(
