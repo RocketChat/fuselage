@@ -78,6 +78,7 @@
     "@rocket.chat/fuselage": "workspace:packages/fuselage",
     "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
     "@rocket.chat/icons": "workspace:packages/icons",
+    "@rocket.chat/logo": "workspace:packages/logo",
     "@rocket.chat/styled": "workspace:packages/styled",
     "i18next": "^20.3.2",
     "react-hook-form": "^7.10.1",
