@@ -1,6 +1,5 @@
 import { useMutableCallback, useSafely } from '@rocket.chat/fuselage-hooks';
-import { BlockContext, Option } from '@rocket.chat/ui-kit';
-import { ActionableElement } from '@rocket.chat/ui-kit/dist/esm/blocks/ActionableElement';
+import * as UiKit from '@rocket.chat/ui-kit';
 import { useContext, useMemo, useState } from 'react';
 
 import { kitContext } from '../contexts/kitContext';
@@ -12,16 +11,20 @@ type UiKitState = {
   value: string | number | undefined;
 };
 
-export const useUiKitState: <T extends ActionableElement>(
-  element: T & {
-    initialValue?: number | string | undefined;
-    initialOption?: Option | undefined;
-    blockId: string;
-    appId: string;
-  },
-  context?: BlockContext
+const hasInitialValue = <T extends UiKit.ActionableElement>(
+  element: T
+): element is T & { initialValue: number | string } =>
+  'initialValue' in element;
+
+const hasInitialOption = <T extends UiKit.ActionableElement>(
+  element: T
+): element is T & { initialOption: UiKit.Option } => 'initialOption' in element;
+
+export const useUiKitState: <T extends UiKit.ActionableElement>(
+  element: T,
+  context: UiKit.BlockContext
 ) => [UiKitState, any] = (rest, context) => {
-  const { blockId, actionId, appId, initialOption, initialValue } = rest;
+  const { blockId, actionId, appId } = rest;
   const {
     action,
     appId: appIdFromContext,
@@ -31,8 +34,12 @@ export const useUiKitState: <T extends ActionableElement>(
     values = {},
   } = useContext(kitContext);
 
-  const { value: _value = initialOption?.value ?? initialValue } =
-    values[actionId] || {};
+  const initialValue =
+    (hasInitialValue(rest) && rest.initialValue) ||
+    (hasInitialOption(rest) && rest.initialOption.value) ||
+    undefined;
+
+  const { value: _value = initialValue } = values[actionId] || {};
   const [value, setValue] = useSafely(useState(_value));
   const [loading, setLoading] = useSafely(useState(false));
 
@@ -70,7 +77,7 @@ export const useUiKitState: <T extends ActionableElement>(
 
   if (
     context &&
-    [BlockContext.SECTION, BlockContext.ACTION].includes(context)
+    [UiKit.BlockContext.SECTION, UiKit.BlockContext.ACTION].includes(context)
   ) {
     return [result, actionFunction];
   }
