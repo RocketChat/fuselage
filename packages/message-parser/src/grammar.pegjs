@@ -314,7 +314,9 @@ LineCode "LineCode"
   / "\n"+ text:LineCode__any { return codeLine(plain(text.join(''))); }
 
 MultiplelLineCode
-  = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
+  = "```" t:Codetype? "\n" value:LineCode+ "\n"* "```" {
+      return code(value, t);
+    }
 
 // [Visit GitHub!](www.github.com)
 

@@ -5,6 +5,25 @@ test.each([
   [
     `\`\`\`
 code
+
+
+
+
+
+\`\`\``,
+    [code([codeLine(plain('code'))])],
+  ],
+  [
+    `\`\`\`
+code
+
+
+\`\`\``,
+    [code([codeLine(plain('code'))])],
+  ],
+  [
+    `\`\`\`
+code
 \`\`\``,
     [code([codeLine(plain('code'))])],
   ],
