@@ -1,11 +1,19 @@
 import { Box, Skeleton } from '@rocket.chat/fuselage';
-import React, { memo, useEffect, useMemo, useState } from 'react';
+import * as UiKit from '@rocket.chat/ui-kit';
+import React, {
+  ComponentProps,
+  memo,
+  ReactElement,
+  useEffect,
+  useState,
+} from 'react';
 
 import { useSurfaceType } from '../surfaces/SurfaceContext';
+import { Image } from './ImageBlock.styles';
 
 const maxSize = 360;
 
-const fetchImageState = (img) => {
+const fetchImageState = (img: HTMLImageElement) => {
   if (!img.complete) {
     return {
       loading: true,
@@ -28,7 +36,17 @@ const fetchImageState = (img) => {
   };
 };
 
-const ImageBlock = ({ className, blockElement, parser }) => {
+type ImageBlockProps = {
+  className?: ComponentProps<typeof Box>['className'];
+  blockElement: UiKit.ImageBlock;
+  parser: UiKit.SurfaceRenderer<ReactElement>;
+};
+
+const ImageBlock = ({
+  className,
+  blockElement,
+  parser,
+}: ImageBlockProps): ReactElement => {
   const surface = useSurfaceType();
 
   const alignment =
@@ -43,8 +61,8 @@ const ImageBlock = ({ className, blockElement, parser }) => {
   useEffect(() => {
     const img = document.createElement('img');
 
-    const handleLoad = (e) => {
-      setState(fetchImageState(e.target));
+    const handleLoad = () => {
+      setState(fetchImageState(img));
     };
 
     img.addEventListener('load', handleLoad);
@@ -60,18 +78,6 @@ const ImageBlock = ({ className, blockElement, parser }) => {
     };
   }, [blockElement.imageUrl]);
 
-  const style = useMemo(
-    () => ({
-      boxShadow: '0 0 0px 1px rgba(204, 204, 204, 38%)',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: '50%',
-      backgroundSize: 'cover',
-      backgroundColor: 'rgba(204, 204, 204, 38%)',
-      backgroundImage: `url(${blockElement.imageUrl})`,
-    }),
-    [blockElement.imageUrl]
-  );
-
   return (
     <Box
       className={className}
@@ -83,18 +89,20 @@ const ImageBlock = ({ className, blockElement, parser }) => {
       <Box overflow='hidden' width={width}>
         {blockElement.title && (
           <Box fontScale='c1' color='info' withTruncatedText marginBlockEnd={4}>
-            {parser.plainText(blockElement.title, -1, 0)}
+            {parser.renderTextObject(
+              blockElement.title,
+              0,
+              -1 as UiKit.BlockContext
+            )}
           </Box>
         )}
         {loading ? (
           <Skeleton variant='rect' width={width} height={height} />
         ) : (
-          <Box
-            is='div'
-            overflow='hidden'
+          <Image
+            imageUrl={blockElement.imageUrl}
             width={width}
             height={height}
-            style={style}
             aria-label={blockElement.altText}
           />
         )}
