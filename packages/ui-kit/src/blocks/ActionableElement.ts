@@ -17,6 +17,6 @@ export type ActionableElement =
   | LinearScaleElement
   | MultiStaticSelectElement
   | OverflowElement
+  | PlainTextInputElement
   | StaticSelectElement
-  | UsersSelectElement
-  | PlainTextInputElement;
+  | UsersSelectElement;
