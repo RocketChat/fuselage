@@ -72,7 +72,7 @@ Inline
 
 Whitespace = w:" "+ { return plain(w.join('')); }
 
-Any = !EndOfLine t:any { return plain(t); }
+Any = "\\"? !EndOfLine t:any { return plain(t); }
 
 any = $.
 
@@ -414,6 +414,7 @@ safe
   / "."
   / "&"
   / "="
+  / "%"
 
 extra
   = "!"
@@ -429,6 +430,7 @@ extra
   / "?"
   / "#"
   / "="
+  / "~"
 
 hexdigit = [0-9A-Fa-f]
 
@@ -541,11 +543,11 @@ urlAuthorityHostName
 urlAuthorityPort
   = digits // TODO: from "0" to "65535"
 
-urlPath = $("/" $(alpha_digit / safe)+ urlPath*)
+urlPath = $("/" $(alpha_digit / safe)* urlPath*)
 
 urlQuery = $("?" $(alpha_digit / safe)*)
 
-urlFragment = $("#" $(alpha_digit / safe)*)
+urlFragment = $("#" $(alpha_digit / extra / safe)*)
 
 /**
  *
