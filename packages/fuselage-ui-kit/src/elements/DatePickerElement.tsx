@@ -1,5 +1,5 @@
 import { InputBox } from '@rocket.chat/fuselage';
-import type * as UiKit from '@rocket.chat/ui-kit';
+import * as UiKit from '@rocket.chat/ui-kit';
 import React, { ReactElement } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';

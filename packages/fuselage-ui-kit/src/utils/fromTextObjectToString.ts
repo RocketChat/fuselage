@@ -1,4 +1,4 @@
-import type * as UiKit from '@rocket.chat/ui-kit';
+import * as UiKit from '@rocket.chat/ui-kit';
 import { ReactElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
