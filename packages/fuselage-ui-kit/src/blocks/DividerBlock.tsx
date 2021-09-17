@@ -1,8 +1,12 @@
 import { Box, Divider } from '@rocket.chat/fuselage';
-import React, { ComponentProps, FC, memo } from 'react';
+import React, { ComponentProps, memo, ReactElement } from 'react';
 
-const DividerBlock: FC<{
-  className: ComponentProps<typeof Box>['className'];
-}> = ({ className }) => <Divider className={className} marginBlock='x24' />;
+type DividerBlockProps = {
+  className?: ComponentProps<typeof Box>['className'];
+};
+
+const DividerBlock = ({ className }: DividerBlockProps): ReactElement => (
+  <Divider className={className} marginBlock='x24' />
+);
 
 export default memo(DividerBlock);
