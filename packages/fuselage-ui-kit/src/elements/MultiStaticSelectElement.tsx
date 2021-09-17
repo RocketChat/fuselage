@@ -18,15 +18,13 @@ export const MultiStaticSelectElement = ({
 }: MultiStaticSelectElementProps): ReactElement => {
   const [{ loading, value, error }, action] = useUiKitState(element, context);
 
-  const { options, placeholder } = element;
-
-  const _options = useMemo<readonly [string, string][]>(
+  const options = useMemo<readonly [string, string][]>(
     () =>
-      options.map((option, i) => [
-        option.value,
-        fromTextObjectToString(parser, option.text, i, context) ?? '',
+      element.options.map(({ value, text }, i) => [
+        value,
+        fromTextObjectToString(parser, text, i, context) ?? '',
       ]),
-    [context, options, parser]
+    [context, element.options, parser]
   );
 
   const handleChange = useCallback(
@@ -41,8 +39,13 @@ export const MultiStaticSelectElement = ({
       value={value}
       disabled={loading}
       error={error}
-      options={_options}
-      placeholder={fromTextObjectToString(parser, placeholder, 0, context)}
+      options={options}
+      placeholder={fromTextObjectToString(
+        parser,
+        element.placeholder,
+        0,
+        context
+      )}
       onChange={handleChange}
     />
   );
