@@ -11,10 +11,10 @@ import ButtonElement from './elements/ButtonElement.tsx';
 import DatePickerElement from './elements/DatePickerElement';
 import ImageElement from './elements/ImageElement';
 import LinearScaleElement from './elements/LinearScaleElement';
-import { MultiStaticSelectElement } from './elements/MultiStaticSelectElement';
+import MultiStaticSelectElement from './elements/MultiStaticSelectElement';
 import OverflowElement from './elements/OverflowElement';
 import PlainInputElement from './elements/PlainInputElement';
-import { StaticSelectElement } from './elements/StaticSelectElement';
+import StaticSelectElement from './elements/StaticSelectElement';
 
 export function plainText(element) {
   const { text = '' /* , emoji = true */ } = element ?? {};

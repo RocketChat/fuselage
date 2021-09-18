@@ -11,7 +11,7 @@ type StaticSelectElementProps = {
   parser: UiKit.SurfaceRenderer<ReactElement>;
 };
 
-export const StaticSelectElement = ({
+const StaticSelectElement = ({
   element,
   context,
   parser,

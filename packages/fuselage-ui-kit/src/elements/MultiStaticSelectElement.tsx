@@ -11,7 +11,7 @@ type MultiStaticSelectElementProps = {
   parser: UiKit.SurfaceRenderer<ReactElement>;
 };
 
-export const MultiStaticSelectElement = ({
+const MultiStaticSelectElement = ({
   element,
   context,
   parser,
