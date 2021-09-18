@@ -316,12 +316,11 @@ LineCode__any = $:(!"\n" !"```" t:. { return t; })+
 
 LineCode "LineCode"
   = text:LineCode__any { return codeLine(plain(text.join(''))); }
-  / "\n"+ text:LineCode__any { return codeLine(plain(text.join(''))); }
+  / "\n" text:LineCode__any { return codeLine(plain(text.join(''))); }
+  / "\n" !"```" { return codeLine(plain('')); }
 
 MultiplelLineCode
-  = "```" t:Codetype? "\n" value:LineCode+ "\n"* "```" {
-      return code(value, t);
-    }
+  = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
 
 // [Visit GitHub!](www.github.com)
 

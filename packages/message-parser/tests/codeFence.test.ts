@@ -1,6 +1,9 @@
 import { parser } from '../src';
 import { paragraph, plain, codeLine, code } from '../src/utils';
 
+const multiply = <T>(a: number, element: T): Array<T> =>
+  Array.from({ length: a }, () => element);
+
 test.each([
   [
     `\`\`\`
@@ -9,9 +12,15 @@ code
 
 
 
-
+code
 \`\`\``,
-    [code([codeLine(plain('code'))])],
+    [
+      code([
+        codeLine(plain('code')),
+        ...multiply(4, codeLine(plain(''))),
+        codeLine(plain('code')),
+      ]),
+    ],
   ],
   [
     `\`\`\`
@@ -19,7 +28,7 @@ code
 
 
 \`\`\``,
-    [code([codeLine(plain('code'))])],
+    [code([codeLine(plain('code')), ...multiply(2, codeLine(plain('')))])],
   ],
   [
     `\`\`\`
