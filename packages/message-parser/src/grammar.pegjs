@@ -8,6 +8,7 @@
     code,
     link,
     heading,
+    image,
     inlineCode,
     quote,
     reducePlainTexts,
@@ -58,6 +59,7 @@ Inline
       Whitespace
       / Emoji
       / InlineCode
+      / Image
       / References
       / AutolinkedPhone
       / AutolinkedURL
@@ -324,6 +326,10 @@ LinkTitle = "[" text:(Emphasis / Line / Whitespace) "]" { return text; }
 
 LinkRef
   = "(" text:(URL / p:Phone { return 'tel:' + p.number; }) ")" { return text; }
+
+Image
+  = "![]" href:LinkRef { return image(href); }
+  / "!" title:LinkTitle href:LinkRef { return image(href, title); }
 
 References
   = "[]" href:LinkRef { return link(href); }

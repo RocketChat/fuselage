@@ -11,6 +11,7 @@ import {
 
 test.each([
   ['__italic__', [paragraph([italic([plain('italic')])])]],
+  ['__italic__non', [paragraph([italic([plain('italic')])])]],
   ['pre__italic__post', [paragraph([plain('pre__italic__post')])]],
   [' pre__italic__post', [paragraph([plain(' pre__italic__post')])]],
   [

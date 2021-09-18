@@ -103,6 +103,14 @@ export type Paragraph = {
   value: Array<Exclude<Inlines, Paragraph>>;
 };
 
+export type Image = {
+  type: 'IMAGE';
+  value: {
+    src: Plain;
+    label: Markup;
+  };
+};
+
 export type Link = {
   type: 'LINK';
   value: {
@@ -143,6 +151,7 @@ export type Types = {
   UNORDERED_LIST: UnorderedList;
   ORDERED_LIST: OrderedList;
   LIST_ITEM: ListItem;
+  IMAGE: Image;
 };
 
 export type ASTNode =
@@ -172,6 +181,7 @@ export type Inlines =
   | Italic
   | Strike
   | InlineCode
+  | Image
   | Link
   | UserMention
   | ChannelMention

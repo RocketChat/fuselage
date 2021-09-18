@@ -65,6 +65,13 @@ export const link = (() => {
   return (src: string, label?: Markup) =>
     fn({ src: plain(src), label: label || plain(src) });
 })();
+
+export const image = (() => {
+  const fn = generate('IMAGE');
+  return (src: string, label?: Markup) =>
+    fn({ src: plain(src), label: label || plain(src) });
+})();
+
 export const quote = generate('QUOTE');
 
 export const mentionChannel = (() => {
