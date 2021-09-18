@@ -6,12 +6,26 @@ import {
   strike,
   bold,
   emoji,
+  link,
   bigEmoji,
 } from '../src/utils';
 
 test.each([
+  [
+    '_[A brand new Gist](https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4)_',
+    [
+      paragraph([
+        italic([
+          link(
+            'https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4',
+            plain('A brand new Gist')
+          ),
+        ]),
+      ]),
+    ],
+  ],
   ['__italic__', [paragraph([italic([plain('italic')])])]],
-  ['__italic__non', [paragraph([italic([plain('italic')])])]],
+  ['__italic__non', [paragraph([plain('__italic__non')])]],
   ['pre__italic__post', [paragraph([plain('pre__italic__post')])]],
   [' pre__italic__post', [paragraph([plain(' pre__italic__post')])]],
   [

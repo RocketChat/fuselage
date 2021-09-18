@@ -68,13 +68,16 @@ Inline
       / Color
       / UserMention
       / ChannelMention
+      / Escaped
       / Any
     )+
     EndOfLine? { return reducePlainTexts(value); }
 
 Whitespace = w:" "+ { return plain(w.join('')); }
 
-Any = "\\"? !EndOfLine t:any { return plain(t); }
+Escaped = "\\" t:any { return plain(t); }
+
+Any = !EndOfLine t:any { return plain(t); }
 
 any = $.
 
@@ -212,7 +215,7 @@ Italic
 Italic_Content = text:italic_Content { return italic(text); }
 
 italic_Content
-  = text:(Bold / Strikethrough / Line / AnyItalic)+ {
+  = text:(References / Bold / Strikethrough / Line / AnyItalic)+ {
       return reducePlainTexts(text);
     }
 
@@ -223,7 +226,7 @@ Bold
   / [\x2A] b:Bold_Content [\x2A] { return b; }
 
 Bold_Content
-  = text:(Italic / Strikethrough / Line / AnyBold)+ {
+  = text:(References / Italic / Strikethrough / Line / AnyBold)+ {
       return bold(reducePlainTexts(text));
     }
 
@@ -234,7 +237,7 @@ Strikethrough
   / [\x7E] s:Strikethrough_Content [\x7E] { return s; }
 
 Strikethrough_Content
-  = text:(Italic / Bold / Line / AnyStrike)+ {
+  = text:(References / Italic / Bold / Line / AnyStrike)+ {
       return strike(reducePlainTexts(text));
     }
 

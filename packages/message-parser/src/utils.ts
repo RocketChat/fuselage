@@ -59,6 +59,7 @@ export const italic = generate('ITALIC');
 
 export const plain = generate('PLAIN_TEXT');
 export const strike = generate('STRIKE');
+
 export const codeLine = generate('CODE_LINE');
 export const link = (() => {
   const fn = generate('LINK');

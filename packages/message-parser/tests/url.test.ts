@@ -57,6 +57,7 @@ test.each([
     'ftp://user:pass@localhost:21/etc/hosts',
     [paragraph([link('ftp://user:pass@localhost:21/etc/hosts')])],
   ],
+  ['ssh://test@test.test', [paragraph([link('ssh://test@test.test')])]],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });

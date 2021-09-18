@@ -2,6 +2,7 @@ import { parser } from '../src';
 import { paragraph, plain, bold } from '../src/utils';
 
 test.each([
+  ['¯\\\\\\_(ツ)_/¯', [paragraph([plain('¯\\_(ツ)_/¯')])]],
   [
     '\\*escaped as*bold*escaped*',
     [

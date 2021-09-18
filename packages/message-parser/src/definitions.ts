@@ -80,17 +80,17 @@ export type MarkupExcluding<T extends Markup> = Exclude<Markup, T>;
 
 export type Bold = {
   type: 'BOLD';
-  value: Array<MarkupExcluding<Bold>>;
+  value: Array<MarkupExcluding<Bold> | Link>;
 };
 
 export type Italic = {
   type: 'ITALIC';
-  value: Array<MarkupExcluding<Italic>>;
+  value: Array<MarkupExcluding<Italic> | Link>;
 };
 
 export type Strike = {
   type: 'STRIKE';
-  value: Array<MarkupExcluding<Strike>>;
+  value: Array<MarkupExcluding<Strike> | Link>;
 };
 
 export type Plain = {
