@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 
-import { useSurfaceType } from '../surfaces/SurfaceContext';
+import { useSurfaceType } from '../contexts/SurfaceContext';
 import { Image } from './ImageBlock.styles';
 
 const maxSize = 360;

@@ -8,11 +8,11 @@ type ItemProps = {
   index: number;
 };
 
-const Item = ({ element, parser, index }: ItemProps): ReactElement => {
+const Item = ({ element, parser, index }: ItemProps): ReactElement | null => {
   const renderedElement = parser.renderContextBlockElement(element, index);
 
   if (!renderedElement) {
-    return <></>;
+    return null;
   }
 
   switch (element.type) {

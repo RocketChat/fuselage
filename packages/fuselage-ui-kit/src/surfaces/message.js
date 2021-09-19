@@ -1,5 +1,4 @@
 import { UiKitParserMessage } from '@rocket.chat/ui-kit';
-import React from 'react';
 
 import {
   actions,
@@ -16,6 +15,7 @@ import {
   staticSelect,
 } from '../renderers';
 import MessageSurface from './MessageSurface';
+import { createSurfaceRenderer } from './createSurfaceRenderer';
 
 class MessageParser extends UiKitParserMessage {}
 
@@ -34,8 +34,7 @@ MessageParser.prototype.overflow = overflow;
 
 export const messageParser = new MessageParser();
 
-export const UiKitMessage = (blocks, conditions = {}) => (
-  <MessageSurface>
-    {messageParser.render(blocks, { engine: 'rocket.chat', ...conditions })}
-  </MessageSurface>
+export const UiKitMessage = createSurfaceRenderer(
+  MessageSurface,
+  messageParser
 );

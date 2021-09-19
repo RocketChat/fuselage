@@ -8,11 +8,15 @@ type ActionProps = {
   index: number;
 };
 
-const Action = ({ element, parser, index }: ActionProps): ReactElement => {
+const Action = ({
+  element,
+  parser,
+  index,
+}: ActionProps): ReactElement | null => {
   const renderedElement = parser.renderActionsBlockElement(element, index);
 
   if (!renderedElement) {
-    return <></>;
+    return null;
   }
 
   return (

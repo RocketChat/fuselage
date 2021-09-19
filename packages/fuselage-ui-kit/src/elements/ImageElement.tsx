@@ -11,14 +11,14 @@ type ImageElementProps = {
 const ImageElement = ({
   element,
   context,
-}: ImageElementProps): ReactElement => {
+}: ImageElementProps): ReactElement | null => {
   const size =
     (context === UiKit.BlockContext.SECTION && 88) ||
     (context === UiKit.BlockContext.CONTEXT && 20) ||
     undefined;
 
   if (!size) {
-    return <></>;
+    return null;
   }
 
   return <Element imageUrl={element.imageUrl} size={size} />;

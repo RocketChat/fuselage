@@ -1,7 +1,7 @@
 import { Margins } from '@rocket.chat/fuselage';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { Surface } from './SurfaceContext';
+import { Surface } from './Surface';
 
 type MessageSurfaceProps = {
   children: ReactNode;

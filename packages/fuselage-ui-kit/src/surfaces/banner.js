@@ -1,5 +1,4 @@
 import { UiKitParserBanner } from '@rocket.chat/ui-kit';
-import React from 'react';
 
 import {
   actions,
@@ -19,6 +18,7 @@ import {
   linearScale,
 } from '../renderers';
 import BannerSurface from './BannerSurface';
+import { createSurfaceRenderer } from './createSurfaceRenderer';
 
 class BannerParser extends UiKitParserBanner {}
 
@@ -40,8 +40,4 @@ BannerParser.prototype.linearScale = linearScale;
 
 export const bannerParser = new BannerParser();
 
-export const UiKitBanner = (blocks, conditions = {}) => (
-  <BannerSurface>
-    {bannerParser.render(blocks, { engine: 'rocket.chat', ...conditions })}
-  </BannerSurface>
-);
+export const UiKitBanner = createSurfaceRenderer(BannerSurface, bannerParser);

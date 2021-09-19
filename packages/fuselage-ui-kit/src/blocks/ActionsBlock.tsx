@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 
-import { useSurfaceType } from '../surfaces/SurfaceContext';
+import { useSurfaceType } from '../contexts/SurfaceContext';
 import Action from './ActionsBlock.Action';
 
 type ActionsBlockProps = {

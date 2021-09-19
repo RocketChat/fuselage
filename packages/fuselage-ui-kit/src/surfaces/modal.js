@@ -1,5 +1,4 @@
 import { UiKitParserModal } from '@rocket.chat/ui-kit';
-import React from 'react';
 
 import {
   actions,
@@ -19,6 +18,7 @@ import {
   linearScale,
 } from '../renderers';
 import ModalSurface from './ModalSurface';
+import { createSurfaceRenderer } from './createSurfaceRenderer';
 
 class ModalParser extends UiKitParserModal {}
 
@@ -40,8 +40,4 @@ ModalParser.prototype.linearScale = linearScale;
 
 export const modalParser = new ModalParser();
 
-export const UiKitModal = (blocks, conditions = {}) => (
-  <ModalSurface>
-    {modalParser.render(blocks, { engine: 'rocket.chat', ...conditions })}
-  </ModalSurface>
-);
+export const UiKitModal = createSurfaceRenderer(ModalSurface, modalParser);
