@@ -32,9 +32,7 @@ export abstract class SurfaceRenderer<
 {
   public constructor(
     protected readonly allowedLayoutBlockTypes: Permutation<B['type']>
-  ) {
-    this.allowedLayoutBlockTypes = allowedLayoutBlockTypes;
-  }
+  ) {}
 
   private isAllowedLayoutBlock = (block: Block): block is B =>
     (this.allowedLayoutBlockTypes as string[])?.includes(block.type) ?? true;
