@@ -18,8 +18,8 @@ import { PlainText } from '../blocks/text/PlainText';
 import { isNotNull } from '../isNotNull';
 import { Permutation } from '../utils/Permutation';
 import { BlockContext } from './BlockContext';
+import { BlockRenderers } from './BlockRenderers';
 import { Conditions } from './Conditions';
-import { ISurfaceRenderer } from './ISurfaceRenderer';
 import { renderBlockElement } from './renderBlockElement';
 import { renderLayoutBlock } from './renderLayoutBlock';
 import { renderTextObject } from './renderTextObject';
@@ -28,7 +28,7 @@ import { resolveConditionalBlocks } from './resolveConditionalBlocks';
 export abstract class SurfaceRenderer<
   T,
   B extends RenderableLayoutBlock = RenderableLayoutBlock
-> implements ISurfaceRenderer<T>
+> implements BlockRenderers<T>
 {
   public constructor(
     protected readonly allowedLayoutBlockTypes: Permutation<B['type']>
@@ -165,32 +165,23 @@ export abstract class SurfaceRenderer<
   /** @deprecated */
   public plainText(
     element: PlainText,
-    context?: BlockContext | undefined,
-    index?: number | undefined
+    context: BlockContext = BlockContext.NONE,
+    index = 0
   ): T | null {
     return this[TextObjectType.PLAIN_TEXT](element, context, index);
   }
 
   /** @deprecated */
-  public [TextObjectType.MARKDOWN](
-    _element: Markdown,
-    _context?: BlockContext,
-    _index?: number
-  ): T | null {
-    return null;
-  }
-
-  /** @deprecated */
   public text(
     textObject: TextObject,
-    context?: BlockContext,
-    index?: number
+    context: BlockContext = BlockContext.NONE,
+    index = 0
   ): T | null {
     switch (textObject.type) {
       case TextObjectType.PLAIN_TEXT:
-        return this.plainText(textObject, context, index);
+        return this.plain_text(textObject, context, index);
 
-      case TextObjectType.MARKDOWN:
+      case TextObjectType.MRKDWN:
         return this.mrkdwn(textObject, context, index);
 
       default:
@@ -198,12 +189,18 @@ export abstract class SurfaceRenderer<
     }
   }
 
-  public abstract [TextObjectType.PLAIN_TEXT](
+  public abstract plain_text(
     textObject: PlainText,
-    context?: BlockContext,
-    index?: number
+    context: BlockContext,
+    index: number
+  ): T | null;
+
+  public abstract mrkdwn(
+    textObject: Markdown,
+    context: BlockContext,
+    index: number
   ): T | null;
 }
 
-export type SurfaceRendererPayload<S extends ISurfaceRenderer<any>> =
+export type SurfaceRendererPayload<S extends BlockRenderers<any>> =
   S extends SurfaceRenderer<any, infer T> ? T[] : never;
