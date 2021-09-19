@@ -4,22 +4,22 @@ import {
   actions,
   button,
   context,
-  datePicker,
+  datepicker,
   divider,
   image,
   mrkdwn,
-  multiStaticSelect,
+  multi_static_select,
   overflow,
-  plainText,
+  plain_text,
   section,
-  staticSelect,
+  static_select,
 } from '../renderers';
 import MessageSurface from './MessageSurface';
 import { createSurfaceRenderer } from './createSurfaceRenderer';
 
 class MessageParser extends UiKitParserMessage {}
 
-MessageParser.prototype.plainText = plainText;
+MessageParser.prototype.plain_text = plain_text;
 MessageParser.prototype.mrkdwn = mrkdwn;
 MessageParser.prototype.divider = divider;
 MessageParser.prototype.section = section;
@@ -27,9 +27,9 @@ MessageParser.prototype.image = image;
 MessageParser.prototype.actions = actions;
 MessageParser.prototype.context = context;
 MessageParser.prototype.button = button;
-MessageParser.prototype.datePicker = datePicker;
-MessageParser.prototype.staticSelect = staticSelect;
-MessageParser.prototype.multiStaticSelect = multiStaticSelect;
+MessageParser.prototype.datepicker = datepicker;
+MessageParser.prototype.static_select = static_select;
+MessageParser.prototype.multi_static_select = multi_static_select;
 MessageParser.prototype.overflow = overflow;
 
 export const messageParser = new MessageParser();

@@ -1,5 +1,5 @@
-import { BlockContext } from '@rocket.chat/ui-kit';
-import React from 'react';
+import * as UiKit from '@rocket.chat/ui-kit';
+import React, { Fragment } from 'react';
 
 import ActionsBlock from './blocks/ActionsBlock';
 import ContextBlock from './blocks/ContextBlock';
@@ -7,94 +7,140 @@ import DividerBlock from './blocks/DividerBlock';
 import ImageBlock from './blocks/ImageBlock';
 import InputBlock from './blocks/InputBlock';
 import SectionBlock from './blocks/SectionBlock';
-import ButtonElement from './elements/ButtonElement.tsx';
+import ButtonElement from './elements/ButtonElement';
 import DatePickerElement from './elements/DatePickerElement';
 import ImageElement from './elements/ImageElement';
 import LinearScaleElement from './elements/LinearScaleElement';
 import MultiStaticSelectElement from './elements/MultiStaticSelectElement';
 import OverflowElement from './elements/OverflowElement';
-import PlainInputElement from './elements/PlainInputElement';
+import PlainTextInputElement from './elements/PlainTextInputElement';
 import StaticSelectElement from './elements/StaticSelectElement';
 
-export function plainText(element) {
-  const { text = '' /* , emoji = true */ } = element ?? {};
-  return text;
-}
-
-export function mrkdwn(element = { text: '' }) {
-  const { text = '' } = element ?? {};
-  return text;
-}
-
-export function divider(element, context, index) {
-  if (context !== BlockContext.BLOCK) {
+export function plain_text({ text = '' }, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
     return null;
   }
 
-  return <DividerBlock key={index} />;
+  return text ? <Fragment key={index}>{text}</Fragment> : null;
 }
 
-export function section(element, context, index) {
-  if (context !== BlockContext.BLOCK) {
+export function mrkdwn({ text = '' }, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
     return null;
   }
 
-  return (
-    <SectionBlock
-      key={index}
-      blockElement={element}
-      context={context}
-      parser={this}
-    />
-  );
-}
-
-export function image(element, context, index) {
-  switch (context) {
-    case BlockContext.BLOCK:
-      return <ImageBlock key={index} blockElement={element} parser={this} />;
-
-    case BlockContext.SECTION:
-    case BlockContext.CONTEXT:
-      return <ImageElement key={index} element={element} context={context} />;
-
-    default:
-      return null;
-  }
+  return text ? <Fragment key={index}>{text}</Fragment> : null;
 }
 
 export function actions(element, context, index) {
-  if (context !== BlockContext.BLOCK) {
-    return null;
+  if (context === UiKit.BlockContext.BLOCK) {
+    return (
+      <ActionsBlock
+        key={index}
+        blockElement={element}
+        context={context}
+        index={index}
+        parser={this}
+      />
+    );
   }
 
-  return <ActionsBlock key={index} blockElement={element} parser={this} />;
+  return null;
 }
 
 export function context(element, context, index) {
-  if (context !== BlockContext.BLOCK) {
-    return null;
+  if (context === UiKit.BlockContext.BLOCK) {
+    return (
+      <ContextBlock
+        key={index}
+        blockElement={element}
+        context={context}
+        index={index}
+        parser={this}
+      />
+    );
   }
 
-  return <ContextBlock key={index} blockElement={element} parser={this} />;
+  return null;
 }
 
-export function input(element, context, index) {
-  if (context !== BlockContext.BLOCK) {
-    return null;
+export function divider(block, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return (
+      <DividerBlock
+        key={index}
+        blockElement={block}
+        context={context}
+        index={index}
+        parser={this}
+      />
+    );
+  }
+
+  return null;
+}
+
+export function image(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return (
+      <ImageBlock
+        key={index}
+        blockElement={element}
+        context={context}
+        index={index}
+        parser={this}
+      />
+    );
   }
 
   return (
-    <InputBlock
+    <ImageElement
       key={index}
-      blockElement={element}
+      element={element}
       context={context}
+      index={index}
       parser={this}
     />
   );
 }
 
+export function input(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return (
+      <InputBlock
+        key={index}
+        blockElement={element}
+        context={context}
+        index={index}
+        parser={this}
+      />
+    );
+  }
+
+  return null;
+}
+
+export function section(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return (
+      <SectionBlock
+        key={index}
+        blockElement={element}
+        context={context}
+        index={index}
+        parser={this}
+      />
+    );
+  }
+
+  return null;
+}
+
 export function button(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return null;
+  }
+
   return (
     <ButtonElement
       key={index}
@@ -105,7 +151,11 @@ export function button(element, context, index) {
   );
 }
 
-export function datePicker(element, context, index) {
+export function datepicker(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return null;
+  }
+
   return (
     <DatePickerElement
       key={index}
@@ -116,7 +166,11 @@ export function datePicker(element, context, index) {
   );
 }
 
-export function staticSelect(element, context, index) {
+export function static_select(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return null;
+  }
+
   return (
     <StaticSelectElement
       key={index}
@@ -127,7 +181,11 @@ export function staticSelect(element, context, index) {
   );
 }
 
-export function multiStaticSelect(element, context, index) {
+export function multi_static_select(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return null;
+  }
+
   return (
     <MultiStaticSelectElement
       key={index}
@@ -139,6 +197,10 @@ export function multiStaticSelect(element, context, index) {
 }
 
 export function overflow(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return null;
+  }
+
   return (
     <OverflowElement
       key={index}
@@ -149,9 +211,13 @@ export function overflow(element, context, index) {
   );
 }
 
-export function plainInput(element, context, index) {
+export function plain_text_input(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return null;
+  }
+
   return (
-    <PlainInputElement
+    <PlainTextInputElement
       key={index}
       element={element}
       context={context}
@@ -160,7 +226,11 @@ export function plainInput(element, context, index) {
   );
 }
 
-export function linearScale(element, context, index) {
+export function linear_scale(element, context, index) {
+  if (context === UiKit.BlockContext.BLOCK) {
+    return null;
+  }
+
   return (
     <LinearScaleElement
       key={index}

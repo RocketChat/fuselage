@@ -91,8 +91,8 @@ const ImageBlock = ({
           <Box fontScale='c1' color='info' withTruncatedText marginBlockEnd={4}>
             {parser.renderTextObject(
               blockElement.title,
-              0,
-              -1 as UiKit.BlockContext
+              UiKit.BlockContext.NONE,
+              0
             )}
           </Box>
         )}

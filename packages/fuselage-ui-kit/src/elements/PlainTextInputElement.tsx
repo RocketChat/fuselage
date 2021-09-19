@@ -5,17 +5,17 @@ import React, { memo, ReactElement } from 'react';
 import { useUiKitState } from '../hooks/useUiKitState';
 import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
-type PlainInputElementProps = {
+type PlainTextInputElementProps = {
   element: UiKit.PlainTextInputElement;
   context: UiKit.BlockContext;
   parser: UiKit.SurfaceRenderer<ReactElement>;
 };
 
-const PlainInputElement = ({
+const PlainTextInputElement = ({
   element,
   context,
   parser,
-}: PlainInputElementProps): ReactElement => {
+}: PlainTextInputElementProps): ReactElement => {
   const [{ loading, value, error }, action] = useUiKitState(element, context);
 
   if (element.multiline) {
@@ -54,4 +54,4 @@ const PlainInputElement = ({
   );
 };
 
-export default memo(PlainInputElement);
+export default memo(PlainTextInputElement);

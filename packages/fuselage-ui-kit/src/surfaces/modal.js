@@ -4,25 +4,25 @@ import {
   actions,
   button,
   context,
-  datePicker,
+  datepicker,
   divider,
   image,
   input,
   mrkdwn,
-  multiStaticSelect,
+  multi_static_select,
   overflow,
-  plainInput,
-  plainText,
+  plain_text_input,
+  plain_text,
   section,
-  staticSelect,
-  linearScale,
+  static_select,
+  linear_scale,
 } from '../renderers';
 import ModalSurface from './ModalSurface';
 import { createSurfaceRenderer } from './createSurfaceRenderer';
 
 class ModalParser extends UiKitParserModal {}
 
-ModalParser.prototype.plainText = plainText;
+ModalParser.prototype.plain_text = plain_text;
 ModalParser.prototype.mrkdwn = mrkdwn;
 ModalParser.prototype.divider = divider;
 ModalParser.prototype.section = section;
@@ -31,12 +31,12 @@ ModalParser.prototype.actions = actions;
 ModalParser.prototype.context = context;
 ModalParser.prototype.input = input;
 ModalParser.prototype.button = button;
-ModalParser.prototype.datePicker = datePicker;
-ModalParser.prototype.staticSelect = staticSelect;
-ModalParser.prototype.multiStaticSelect = multiStaticSelect;
+ModalParser.prototype.datepicker = datepicker;
+ModalParser.prototype.static_select = static_select;
+ModalParser.prototype.multi_static_select = multi_static_select;
 ModalParser.prototype.overflow = overflow;
-ModalParser.prototype.plainInput = plainInput;
-ModalParser.prototype.linearScale = linearScale;
+ModalParser.prototype.plain_text_input = plain_text_input;
+ModalParser.prototype.linear_scale = linear_scale;
 
 export const modalParser = new ModalParser();
 

@@ -19,7 +19,7 @@ const Fields = ({ fields, parser }: FieldsProps): ReactElement => (
   <Grid>
     {fields.map((field, i) => (
       <Grid.Item {...breakpoints} key={i}>
-        {parser.renderTextObject(field, 0, -1 as UiKit.BlockContext)}
+        {parser.renderTextObject(field, UiKit.BlockContext.NONE, 0)}
       </Grid.Item>
     ))}
   </Grid>
