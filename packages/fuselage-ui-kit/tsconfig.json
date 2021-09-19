@@ -9,7 +9,7 @@
     "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "../",
+    "rootDir": "./src",
     "outDir": "dist",
     "noImplicitReturns": true,
     "noImplicitThis": true,
