@@ -1,17 +1,20 @@
 import { LayoutBlockType } from '../../blocks/LayoutBlockType';
-import { SurfaceRenderer } from '../SurfaceRenderer';
-import { GenericSurfaceLayout } from './GenericSurfaceLayout';
+import { ActionsBlock } from '../../blocks/layout/ActionsBlock';
+import { ContextBlock } from '../../blocks/layout/ContextBlock';
+import { DividerBlock } from '../../blocks/layout/DividerBlock';
+import { ImageBlock } from '../../blocks/layout/ImageBlock';
+import { InputBlock } from '../../blocks/layout/InputBlock';
+import { SectionBlock } from '../../blocks/layout/SectionBlock';
+import { SurfaceRenderer, SurfaceRendererPayload } from '../SurfaceRenderer';
 
-type AllowedLayoutBanner =
-  | LayoutBlockType.ACTIONS
-  | LayoutBlockType.CONTEXT
-  | LayoutBlockType.DIVIDER
-  | LayoutBlockType.IMAGE
-  | LayoutBlockType.INPUT
-  | LayoutBlockType.SECTION;
-export abstract class UiKitParserBanner<OutputElement> extends SurfaceRenderer<
-  OutputElement,
-  AllowedLayoutBanner
+export abstract class UiKitParserBanner<T> extends SurfaceRenderer<
+  T,
+  | ActionsBlock
+  | ContextBlock
+  | DividerBlock
+  | ImageBlock
+  | InputBlock
+  | SectionBlock
 > {
   public constructor() {
     super([
@@ -25,4 +28,6 @@ export abstract class UiKitParserBanner<OutputElement> extends SurfaceRenderer<
   }
 }
 
-export type BannerSurfaceLayout = GenericSurfaceLayout<AllowedLayoutBanner>;
+export type BannerSurfaceLayout = SurfaceRendererPayload<
+  UiKitParserBanner<any>
+>;

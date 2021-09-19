@@ -8,29 +8,25 @@ import { BlockElementRenderer } from './BlockElementRenderer';
 import { BlockRenderers } from './BlockRenderers';
 import { TextObjectRenderer } from './TextObjectRenderer';
 
-export interface ISurfaceRenderer<OutputElement>
-  extends BlockRenderers<OutputElement> {
+export interface ISurfaceRenderer<T> extends BlockRenderers<T> {
   /** @deprecated */
-  plainText: TextObjectRenderer<OutputElement, PlainText>;
+  plainText: TextObjectRenderer<T, PlainText>;
 
   /** @deprecated */
-  text: TextObjectRenderer<OutputElement>;
+  text: TextObjectRenderer<T>;
 
   /** @deprecated */
-  datePicker?: BlockElementRenderer<OutputElement, DatePickerElement>;
+  datePicker?: BlockElementRenderer<T, DatePickerElement>;
 
   /** @deprecated */
-  staticSelect?: BlockElementRenderer<OutputElement, StaticSelectElement>;
+  staticSelect?: BlockElementRenderer<T, StaticSelectElement>;
 
   /** @deprecated */
-  multiStaticSelect?: BlockElementRenderer<
-    OutputElement,
-    MultiStaticSelectElement
-  >;
+  multiStaticSelect?: BlockElementRenderer<T, MultiStaticSelectElement>;
 
   /** @deprecated */
-  plainInput?: BlockElementRenderer<OutputElement, PlainTextInputElement>;
+  plainInput?: BlockElementRenderer<T, PlainTextInputElement>;
 
   /** @deprecated */
-  linearScale?: BlockElementRenderer<OutputElement, LinearScaleElement>;
+  linearScale?: BlockElementRenderer<T, LinearScaleElement>;
 }

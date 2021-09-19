@@ -1,10 +1,10 @@
-import { LayoutBlockMap } from '../blocks/LayoutBlock';
-import { LayoutBlockType } from '../blocks/LayoutBlockType';
+import { LayoutBlock } from '../blocks/LayoutBlock';
+import { ConditionalBlock } from '../blocks/layout/ConditionalBlock';
 import { LayoutBlockRenderer } from './LayoutBlockRenderer';
 
 export type LayoutBlockRenderers<OutputElement> = {
-  [Type in Exclude<
-    LayoutBlockType,
-    LayoutBlockType.CONDITIONAL
-  >]: LayoutBlockRenderer<OutputElement, LayoutBlockMap[Type]>;
+  [B in Exclude<
+    LayoutBlock,
+    ConditionalBlock
+  > as B['type']]: LayoutBlockRenderer<OutputElement, B>;
 };

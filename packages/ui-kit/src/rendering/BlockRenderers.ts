@@ -1,9 +1,10 @@
+import { TextObject } from '../blocks/TextObject';
 import { BlockElementRenderers } from './BlockElementRenderers';
 import { LayoutBlockRenderers } from './LayoutBlockRenderers';
-import { TextObjectRenderers } from './TextObjectRenderers';
+import { TextObjectRenderer } from './TextObjectRenderer';
 
-export type BlockRenderers<OutputElement> = Partial<
-  TextObjectRenderers<OutputElement>
-> &
+export type BlockRenderers<OutputElement> = {
+  [B in TextObject as B['type']]: TextObjectRenderer<OutputElement, B>;
+} &
   Partial<BlockElementRenderers<OutputElement>> &
   Partial<LayoutBlockRenderers<OutputElement>>;

@@ -1,17 +1,14 @@
 import { LayoutBlockType } from '../../blocks/LayoutBlockType';
-import { SurfaceRenderer } from '../SurfaceRenderer';
-import { GenericSurfaceLayout } from './GenericSurfaceLayout';
-
-type AllowedLayoutsMessage =
-  | LayoutBlockType.ACTIONS
-  | LayoutBlockType.CONTEXT
-  | LayoutBlockType.DIVIDER
-  | LayoutBlockType.IMAGE
-  | LayoutBlockType.SECTION;
+import { ActionsBlock } from '../../blocks/layout/ActionsBlock';
+import { ContextBlock } from '../../blocks/layout/ContextBlock';
+import { DividerBlock } from '../../blocks/layout/DividerBlock';
+import { ImageBlock } from '../../blocks/layout/ImageBlock';
+import { SectionBlock } from '../../blocks/layout/SectionBlock';
+import { SurfaceRenderer, SurfaceRendererPayload } from '../SurfaceRenderer';
 
 export abstract class UiKitParserMessage<OutputElement> extends SurfaceRenderer<
   OutputElement,
-  AllowedLayoutsMessage
+  ActionsBlock | ContextBlock | DividerBlock | ImageBlock | SectionBlock
 > {
   public constructor() {
     super([
@@ -24,4 +21,6 @@ export abstract class UiKitParserMessage<OutputElement> extends SurfaceRenderer<
   }
 }
 
-export type MessageSurfaceLayout = GenericSurfaceLayout<AllowedLayoutsMessage>;
+export type MessageSurfaceLayout = SurfaceRendererPayload<
+  UiKitParserMessage<any>
+>;

@@ -1,12 +1,10 @@
 import { Block } from '../blocks/Block';
+import { RenderableLayoutBlock } from '../blocks/RenderableLayoutBlock';
 import { Conditions } from './Conditions';
-import { SurfaceRenderer, PossibleAllowedLayouts } from './SurfaceRenderer';
+import { SurfaceRenderer } from './SurfaceRenderer';
 
 export const createSurfaceRenderer =
-  <OutputElement, AllowedBlockTypes extends PossibleAllowedLayouts>() =>
-  (
-    surfaceRenderer: SurfaceRenderer<OutputElement, AllowedBlockTypes>,
-    conditions?: Conditions
-  ) =>
-  (blocks: readonly { type: string }[]): OutputElement[] =>
+  <T, B extends RenderableLayoutBlock>() =>
+  (surfaceRenderer: SurfaceRenderer<T, B>, conditions?: Conditions) =>
+  (blocks: readonly { type: string }[]): T[] =>
     surfaceRenderer.render(blocks as Block[], conditions);

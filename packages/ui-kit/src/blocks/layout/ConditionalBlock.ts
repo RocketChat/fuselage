@@ -1,12 +1,11 @@
 import { Conditions } from '../../rendering/Conditions';
-import { Layout } from '../Layout';
-import { LayoutBlock } from '../LayoutBlock';
-import { LayoutBlockType } from '../LayoutBlockType';
+import { LayoutBlockish } from '../LayoutBlockish';
+import { RenderableLayoutBlock } from '../RenderableLayoutBlock';
 
-export type ConditionalBlock = Layout<{
-  type: `${LayoutBlockType.CONDITIONAL}`;
+export type ConditionalBlock = LayoutBlockish<{
+  type: 'conditional';
   when?: {
     [K in keyof Conditions]: Conditions[K][];
   };
-  render: Exclude<LayoutBlock, ConditionalBlock>[];
+  render: RenderableLayoutBlock[];
 }>;

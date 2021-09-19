@@ -1,3 +1,5 @@
+import { LayoutBlock } from './LayoutBlock';
+
 export enum LayoutBlockType {
   SECTION = 'section',
   DIVIDER = 'divider',
@@ -7,3 +9,10 @@ export enum LayoutBlockType {
   INPUT = 'input',
   CONDITIONAL = 'conditional',
 }
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type AssertEnumKeysFromBlockUnionTypes = {
+  [B in LayoutBlock as Uppercase<B['type']>]: typeof LayoutBlockType[Uppercase<
+    B['type']
+  >];
+};
