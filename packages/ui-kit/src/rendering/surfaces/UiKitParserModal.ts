@@ -1,4 +1,3 @@
-import { LayoutBlockType } from '../../blocks/LayoutBlockType';
 import { ActionsBlock } from '../../blocks/layout/ActionsBlock';
 import { ContextBlock } from '../../blocks/layout/ContextBlock';
 import { DividerBlock } from '../../blocks/layout/DividerBlock';
@@ -17,14 +16,7 @@ export abstract class UiKitParserModal<OutputElement> extends SurfaceRenderer<
   | SectionBlock
 > {
   public constructor() {
-    super([
-      LayoutBlockType.ACTIONS,
-      LayoutBlockType.CONTEXT,
-      LayoutBlockType.DIVIDER,
-      LayoutBlockType.IMAGE,
-      LayoutBlockType.INPUT,
-      LayoutBlockType.SECTION,
-    ]);
+    super(['actions', 'context', 'divider', 'image', 'input', 'section']);
   }
 }
 

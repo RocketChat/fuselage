@@ -1,9 +1,10 @@
-import { Box, Divider } from '@rocket.chat/fuselage';
-import React, { ComponentProps, memo, ReactElement } from 'react';
+import { Divider } from '@rocket.chat/fuselage';
+import * as UiKit from '@rocket.chat/ui-kit';
+import React, { memo, ReactElement } from 'react';
 
-type DividerBlockProps = {
-  className?: ComponentProps<typeof Box>['className'];
-};
+import { BlockProps } from '../utils/BlockProps';
+
+type DividerBlockProps = BlockProps<UiKit.DividerBlock>;
 
 const DividerBlock = ({ className }: DividerBlockProps): ReactElement => (
   <Divider className={className} marginBlock='x24' />

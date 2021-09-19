@@ -1,32 +1,29 @@
 import { Box, Flex, Grid } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
-import React, { ComponentProps, memo, ReactElement, useMemo } from 'react';
+import React, { memo, ReactElement, useMemo } from 'react';
 
+import { BlockProps } from '../utils/BlockProps';
 import Fields from './SectionBlock.Fields';
 
-type SectionBlockProps = {
-  className?: ComponentProps<typeof Box>['className'];
-  blockElement: UiKit.SectionBlock;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type SectionBlockProps = BlockProps<UiKit.SectionBlock>;
 
 const SectionBlock = ({
   className,
-  blockElement,
-  parser,
+  block,
+  surfaceRenderer,
 }: SectionBlockProps): ReactElement => {
-  const { text, fields } = blockElement;
+  const { text, fields } = block;
 
   const accessoryElement = useMemo(
     () =>
-      blockElement.accessory
+      block.accessory
         ? {
-            appId: blockElement.appId,
-            blockId: blockElement.blockId,
-            ...blockElement.accessory,
+            appId: block.appId,
+            blockId: block.blockId,
+            ...block.accessory,
           }
         : undefined,
-    [blockElement.appId, blockElement.blockId, blockElement.accessory]
+    [block.appId, block.blockId, block.accessory]
   );
 
   return (
@@ -34,16 +31,19 @@ const SectionBlock = ({
       <Grid.Item>
         {text && (
           <Box is='span' fontScale='p1' color='default'>
-            {parser.text(text)}
+            {surfaceRenderer.text(text)}
           </Box>
         )}
-        {fields && <Fields fields={fields} parser={parser} />}
+        {fields && <Fields fields={fields} surfaceRenderer={surfaceRenderer} />}
       </Grid.Item>
-      {blockElement.accessory && (
+      {block.accessory && (
         <Flex.Item grow={0}>
           <Grid.Item>
             {accessoryElement
-              ? parser.renderSectionAccessoryBlockElement(accessoryElement, 0)
+              ? surfaceRenderer.renderSectionAccessoryBlockElement(
+                  accessoryElement,
+                  0
+                )
               : null}
           </Grid.Item>
         </Flex.Item>

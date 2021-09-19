@@ -1,34 +1,36 @@
 import { Box } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
-import React, { ComponentProps, memo, ReactElement, useMemo } from 'react';
+import React, { memo, ReactElement, useMemo } from 'react';
 
+import { BlockProps } from '../utils/BlockProps';
 import Item from './ContextBlock.Item';
 
-type ContextBlockProps = {
-  className?: ComponentProps<typeof Box>['className'];
-  blockElement: UiKit.ContextBlock;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type ContextBlockProps = BlockProps<UiKit.ContextBlock>;
 
 const ContextBlock = ({
   className,
-  blockElement,
-  parser,
+  block,
+  surfaceRenderer,
 }: ContextBlockProps): ReactElement => {
   const itemElements = useMemo(
     () =>
-      blockElement.elements.map((element) => ({
+      block.elements.map((element) => ({
         ...element,
-        appId: blockElement.appId,
-        blockId: blockElement.blockId,
+        appId: block.appId,
+        blockId: block.blockId,
       })),
-    [blockElement.appId, blockElement.blockId, blockElement.elements]
+    [block.appId, block.blockId, block.elements]
   );
 
   return (
     <Box className={className} display='flex' alignItems='center' margin={-4}>
       {itemElements.map((element, i) => (
-        <Item key={i} element={element} parser={parser} index={i} />
+        <Item
+          key={i}
+          block={element}
+          surfaceRenderer={surfaceRenderer}
+          index={i}
+        />
       ))}
     </Box>
   );

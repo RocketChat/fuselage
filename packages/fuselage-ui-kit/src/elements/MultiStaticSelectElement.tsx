@@ -3,28 +3,25 @@ import * as UiKit from '@rocket.chat/ui-kit';
 import React, { memo, ReactElement, useCallback, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
+import { BlockProps } from '../utils/BlockProps';
 import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
-type MultiStaticSelectElementProps = {
-  element: UiKit.MultiStaticSelectElement;
-  context: UiKit.BlockContext;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type MultiStaticSelectElementProps = BlockProps<UiKit.MultiStaticSelectElement>;
 
 const MultiStaticSelectElement = ({
-  element,
+  block,
   context,
-  parser,
+  surfaceRenderer,
 }: MultiStaticSelectElementProps): ReactElement => {
-  const [{ loading, value, error }, action] = useUiKitState(element, context);
+  const [{ loading, value, error }, action] = useUiKitState(block, context);
 
   const options = useMemo<readonly [string, string][]>(
     () =>
-      element.options.map(({ value, text }, i) => [
+      block.options.map(({ value, text }, i) => [
         value,
-        fromTextObjectToString(parser, text, i, context) ?? '',
+        fromTextObjectToString(surfaceRenderer, text, i) ?? '',
       ]),
-    [context, element.options, parser]
+    [block.options, surfaceRenderer]
   );
 
   const handleChange = useCallback(
@@ -41,10 +38,9 @@ const MultiStaticSelectElement = ({
       error={error}
       options={options}
       placeholder={fromTextObjectToString(
-        parser,
-        element.placeholder,
-        0,
-        context
+        surfaceRenderer,
+        block.placeholder,
+        0
       )}
       onChange={handleChange}
     />

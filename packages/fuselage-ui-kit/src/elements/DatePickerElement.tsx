@@ -3,21 +3,18 @@ import * as UiKit from '@rocket.chat/ui-kit';
 import React, { ReactElement } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
+import { BlockProps } from '../utils/BlockProps';
 import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
-type DatePickerElementProps = {
-  element: UiKit.DatePickerElement;
-  context: UiKit.BlockContext;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type DatePickerElementProps = BlockProps<UiKit.DatePickerElement>;
 
 const DatePickerElement = ({
-  element,
+  block,
   context,
-  parser,
+  surfaceRenderer,
 }: DatePickerElementProps): ReactElement => {
-  const [{ loading, value, error }, action] = useUiKitState(element, context);
-  const { actionId, placeholder } = element;
+  const [{ loading, value, error }, action] = useUiKitState(block, context);
+  const { actionId, placeholder } = block;
 
   return (
     <InputBox
@@ -30,7 +27,7 @@ const DatePickerElement = ({
       rows={6}
       placeholder={
         placeholder
-          ? fromTextObjectToString(parser, placeholder, 0, context)
+          ? fromTextObjectToString(surfaceRenderer, placeholder, 0)
           : undefined
       }
       onInput={action}

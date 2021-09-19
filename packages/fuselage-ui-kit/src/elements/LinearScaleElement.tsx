@@ -3,19 +3,15 @@ import * as UiKit from '@rocket.chat/ui-kit';
 import React, { memo, ReactElement, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
+import { BlockProps } from '../utils/BlockProps';
 
-type LinearScaleElementProps = {
-  className?: string;
-  element: UiKit.LinearScaleElement;
-  context: UiKit.BlockContext;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type LinearScaleElementProps = BlockProps<UiKit.LinearScaleElement>;
 
 const LinearScaleElement = ({
   className,
-  element,
+  block,
   context,
-  parser,
+  surfaceRenderer,
 }: LinearScaleElementProps): ReactElement => {
   const {
     minValue = 0,
@@ -23,10 +19,10 @@ const LinearScaleElement = ({
     initialValue,
     preLabel,
     postLabel,
-  } = element;
+  } = block;
 
   const [{ loading, value = initialValue, error }, action] = useUiKitState(
-    element,
+    block,
     context
   );
 
@@ -47,7 +43,11 @@ const LinearScaleElement = ({
     >
       {preLabel && (
         <Box fontScale='c2' paddingInlineEnd={8} textAlign='start'>
-          {parser.renderTextObject(preLabel, 0, context)}
+          {surfaceRenderer.renderTextObject(
+            preLabel,
+            0,
+            UiKit.BlockContext.NONE
+          )}
         </Box>
       )}
       <Box>
@@ -70,13 +70,13 @@ const LinearScaleElement = ({
               flexShrink={1}
               onClick={action}
             >
-              {parser.renderTextObject(
+              {surfaceRenderer.renderTextObject(
                 {
                   type: 'plain_text',
                   text: String(i + minValue),
                 },
                 0,
-                context
+                UiKit.BlockContext.NONE
               )}
             </Button>
           ))}
@@ -84,7 +84,11 @@ const LinearScaleElement = ({
       </Box>
       {postLabel && (
         <Box fontScale='c2' paddingInlineStart={8} textAlign='end'>
-          {parser.renderTextObject(postLabel, 0, context)}
+          {surfaceRenderer.renderTextObject(
+            postLabel,
+            0,
+            UiKit.BlockContext.NONE
+          )}
         </Box>
       )}
     </Box>

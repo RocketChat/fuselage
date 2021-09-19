@@ -12,14 +12,14 @@ const breakpoints = {
 
 type FieldsProps = {
   fields: UiKit.TextObject[];
-  parser: UiKit.SurfaceRenderer<ReactElement>;
+  surfaceRenderer: UiKit.SurfaceRenderer<ReactElement>;
 };
 
-const Fields = ({ fields, parser }: FieldsProps): ReactElement => (
+const Fields = ({ fields, surfaceRenderer }: FieldsProps): ReactElement => (
   <Grid>
     {fields.map((field, i) => (
       <Grid.Item {...breakpoints} key={i}>
-        {parser.renderTextObject(field, UiKit.BlockContext.NONE, 0)}
+        {surfaceRenderer.renderTextObject(field, 0, UiKit.BlockContext.NONE)}
       </Grid.Item>
     ))}
   </Grid>

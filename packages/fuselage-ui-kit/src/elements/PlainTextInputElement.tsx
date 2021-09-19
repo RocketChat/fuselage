@@ -3,34 +3,31 @@ import * as UiKit from '@rocket.chat/ui-kit';
 import React, { memo, ReactElement } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
+import { BlockProps } from '../utils/BlockProps';
 import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
-type PlainTextInputElementProps = {
-  element: UiKit.PlainTextInputElement;
-  context: UiKit.BlockContext;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type PlainTextInputElementProps = BlockProps<UiKit.PlainTextInputElement>;
 
 const PlainTextInputElement = ({
-  element,
+  block,
   context,
-  parser,
+  surfaceRenderer,
 }: PlainTextInputElementProps): ReactElement => {
-  const [{ loading, value, error }, action] = useUiKitState(element, context);
+  const [{ loading, value, error }, action] = useUiKitState(block, context);
 
-  if (element.multiline) {
+  if (block.multiline) {
     return (
       <TextAreaInput
         disabled={loading}
-        id={element.actionId}
-        name={element.actionId}
+        id={block.actionId}
+        name={block.actionId}
         rows={6}
         error={error}
         value={value}
         onChange={action}
         placeholder={
-          element.placeholder
-            ? fromTextObjectToString(parser, element.placeholder, 0, context)
+          block.placeholder
+            ? fromTextObjectToString(surfaceRenderer, block.placeholder, 0)
             : undefined
         }
       />
@@ -40,14 +37,14 @@ const PlainTextInputElement = ({
   return (
     <TextInput
       disabled={loading}
-      id={element.actionId}
-      name={element.actionId}
+      id={block.actionId}
+      name={block.actionId}
       error={error}
       value={value}
       onChange={action}
       placeholder={
-        element.placeholder
-          ? fromTextObjectToString(parser, element.placeholder, 0, context)
+        block.placeholder
+          ? fromTextObjectToString(surfaceRenderer, block.placeholder, 0)
           : undefined
       }
     />

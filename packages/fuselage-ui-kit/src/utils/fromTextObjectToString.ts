@@ -5,10 +5,13 @@ import { renderToStaticMarkup } from 'react-dom/server';
 export const fromTextObjectToString = (
   surfaceRenderer: UiKit.SurfaceRenderer<ReactElement>,
   textObject: UiKit.TextObject,
-  index: number,
-  context: UiKit.BlockContext
+  index: number
 ): string | undefined => {
-  const element = surfaceRenderer.renderTextObject(textObject, index, context);
+  const element = surfaceRenderer.renderTextObject(
+    textObject,
+    index,
+    UiKit.BlockContext.NONE
+  );
 
   if (!element) {
     return undefined;

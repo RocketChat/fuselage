@@ -3,29 +3,26 @@ import * as UiKit from '@rocket.chat/ui-kit';
 import React, { ReactElement } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
+import { BlockProps } from '../utils/BlockProps';
 
-type ButtonElementProps = {
-  element: UiKit.ButtonElement;
-  context: UiKit.BlockContext;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type ButtonElementProps = BlockProps<UiKit.ButtonElement>;
 
 const ButtonElement = ({
-  element,
+  block,
   context,
-  parser,
+  surfaceRenderer,
 }: ButtonElementProps): ReactElement => {
-  const [{ loading }, action] = useUiKitState(element, context);
+  const [{ loading }, action] = useUiKitState(block, context);
 
-  if (element.url) {
+  if (block.url) {
     return (
       <Button
         is='a'
         target='_blank'
-        href={element.url}
+        href={block.url}
         disabled={loading}
-        primary={element.style === 'primary'}
-        danger={element.style === 'danger'}
+        primary={block.style === 'primary'}
+        danger={block.style === 'danger'}
         minWidth='4ch'
         small
         onClick={action}
@@ -33,7 +30,11 @@ const ButtonElement = ({
         {loading ? (
           <Throbber />
         ) : (
-          parser.renderTextObject(element.text, 0, context)
+          surfaceRenderer.renderTextObject(
+            block.text,
+            0,
+            UiKit.BlockContext.NONE
+          )
         )}
       </Button>
     );
@@ -42,17 +43,17 @@ const ButtonElement = ({
   return (
     <Button
       disabled={loading}
-      primary={element.style === 'primary'}
-      danger={element.style === 'danger'}
+      primary={block.style === 'primary'}
+      danger={block.style === 'danger'}
       minWidth='4ch'
       small
-      value={element.value}
+      value={block.value}
       onClick={action}
     >
       {loading ? (
         <Throbber />
       ) : (
-        parser.renderTextObject(element.text, 0, context)
+        surfaceRenderer.renderTextObject(block.text, 0, UiKit.BlockContext.NONE)
       )}
     </Button>
   );

@@ -9,20 +9,17 @@ import * as UiKit from '@rocket.chat/ui-kit';
 import React, { useRef, useCallback, ReactElement, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
+import { BlockProps } from '../utils/BlockProps';
 import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
-type OverflowElementProps = {
-  element: UiKit.OverflowElement;
-  context: UiKit.BlockContext;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type OverflowElementProps = BlockProps<UiKit.OverflowElement>;
 
 const OverflowElement = ({
-  element,
+  block,
   context,
-  parser,
+  surfaceRenderer,
 }: OverflowElementProps): ReactElement => {
-  const [{ loading }, action] = useUiKitState(element, context);
+  const [{ loading }, action] = useUiKitState(block, context);
 
   const fireChange = useCallback(
     ([value]: [unknown, string]) => action({ target: { value } }),
@@ -31,11 +28,11 @@ const OverflowElement = ({
 
   const options = useMemo<[string, string][]>(
     () =>
-      element.options.map(({ value, text }, i) => [
+      block.options.map(({ value, text }, i) => [
         value,
-        fromTextObjectToString(parser, text, i, context) ?? '',
+        fromTextObjectToString(surfaceRenderer, text, i) ?? '',
       ]),
-    [context, element.options, parser]
+    [block.options, surfaceRenderer]
   );
 
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =

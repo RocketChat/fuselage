@@ -2,7 +2,7 @@ import * as UiKit from '@rocket.chat/ui-kit';
 import React, { ComponentType, ReactElement } from 'react';
 
 export const createSurfaceRenderer = <
-  S extends UiKit.SurfaceRenderer<ReactElement, any>
+  S extends UiKit.SurfaceRenderer<ReactElement>
 >(
   SurfaceComponent: ComponentType,
   surfaceRenderer: S

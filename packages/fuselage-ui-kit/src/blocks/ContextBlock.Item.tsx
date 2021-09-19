@@ -3,12 +3,16 @@ import * as UiKit from '@rocket.chat/ui-kit';
 import React, { ReactElement } from 'react';
 
 type ItemProps = {
-  element: UiKit.ContextBlock['elements'][number];
-  parser: UiKit.SurfaceRenderer<ReactElement>;
+  block: UiKit.ContextBlock['elements'][number];
+  surfaceRenderer: UiKit.SurfaceRenderer<ReactElement>;
   index: number;
 };
 
-const Item = ({ element, parser, index }: ItemProps): ReactElement | null => {
+const Item = ({
+  block: element,
+  surfaceRenderer: parser,
+  index,
+}: ItemProps): ReactElement | null => {
   const renderedElement = parser.renderContextBlockElement(element, index);
 
   if (!renderedElement) {

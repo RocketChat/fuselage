@@ -1,15 +1,13 @@
 import * as UiKit from '@rocket.chat/ui-kit';
 import React, { ReactElement } from 'react';
 
+import { BlockProps } from '../utils/BlockProps';
 import { Element } from './ImageElement.styles';
 
-type ImageElementProps = {
-  element: UiKit.ImageElement;
-  context: UiKit.BlockContext;
-};
+type ImageElementProps = BlockProps<UiKit.ImageElement>;
 
 const ImageElement = ({
-  element,
+  block,
   context,
 }: ImageElementProps): ReactElement | null => {
   const size =
@@ -21,7 +19,7 @@ const ImageElement = ({
     return null;
   }
 
-  return <Element imageUrl={element.imageUrl} size={size} />;
+  return <Element imageUrl={block.imageUrl} size={size} />;
 };
 
 export default ImageElement;

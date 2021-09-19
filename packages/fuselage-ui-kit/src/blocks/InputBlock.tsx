@@ -1,43 +1,45 @@
-import { Box, Field } from '@rocket.chat/fuselage';
+import { Field } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
-import React, { ComponentProps, memo, ReactElement, useMemo } from 'react';
+import React, { memo, ReactElement, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
+import { BlockProps } from '../utils/BlockProps';
 
-type InputBlockProps = {
-  className?: ComponentProps<typeof Box>['className'];
-  blockElement: UiKit.InputBlock;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-  context: UiKit.BlockContext;
-};
+type InputBlockProps = BlockProps<UiKit.InputBlock>;
 
 const InputBlock = ({
   className,
-  blockElement,
-  parser,
+  block,
+  surfaceRenderer,
   context,
 }: InputBlockProps): ReactElement => {
   const inputElement = useMemo(
     () => ({
-      ...blockElement.element,
-      appId: blockElement.element.appId ?? blockElement.appId,
-      blockId: blockElement.element.blockId ?? blockElement.blockId,
+      ...block.element,
+      appId: block.element.appId ?? block.appId,
+      blockId: block.element.blockId ?? block.blockId,
     }),
-    [blockElement.element, blockElement.appId, blockElement.blockId]
+    [block.element, block.appId, block.blockId]
   );
 
   const [{ error }] = useUiKitState(inputElement, context);
 
   return (
     <Field className={className}>
-      {blockElement.label && (
+      {block.label && (
         <Field.Label>
-          {parser.renderTextObject(blockElement.label, 0, context)}
+          {surfaceRenderer.renderTextObject(
+            block.label,
+            0,
+            UiKit.BlockContext.NONE
+          )}
         </Field.Label>
       )}
-      <Field.Row>{parser.renderInputBlockElement(inputElement, 0)}</Field.Row>
+      <Field.Row>
+        {surfaceRenderer.renderInputBlockElement(inputElement, 0)}
+      </Field.Row>
       {error && <Field.Error>{error}</Field.Error>}
-      {blockElement.hint && <Field.Hint>{blockElement.hint}</Field.Hint>}
+      {block.hint && <Field.Hint>{block.hint}</Field.Hint>}
     </Field>
   );
 };

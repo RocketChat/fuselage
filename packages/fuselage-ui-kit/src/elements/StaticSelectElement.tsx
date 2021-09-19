@@ -3,28 +3,25 @@ import * as UiKit from '@rocket.chat/ui-kit';
 import React, { memo, ReactElement, useCallback, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
+import { BlockProps } from '../utils/BlockProps';
 import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
-type StaticSelectElementProps = {
-  element: UiKit.StaticSelectElement;
-  context: UiKit.BlockContext;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type StaticSelectElementProps = BlockProps<UiKit.StaticSelectElement>;
 
 const StaticSelectElement = ({
-  element,
+  block,
   context,
-  parser,
+  surfaceRenderer,
 }: StaticSelectElementProps): ReactElement => {
-  const [{ loading, value, error }, action] = useUiKitState(element, context);
+  const [{ loading, value, error }, action] = useUiKitState(block, context);
 
   const options = useMemo<[string, string][]>(
     () =>
-      element.options.map((option, i) => [
+      block.options.map((option, i) => [
         option.value,
-        fromTextObjectToString(parser, option.text, i, context) ?? '',
+        fromTextObjectToString(surfaceRenderer, option.text, i) ?? '',
       ]),
-    [element.options, parser, context]
+    [block.options, surfaceRenderer]
   );
 
   const handleChange = useCallback(
@@ -41,10 +38,9 @@ const StaticSelectElement = ({
       error={error}
       options={options}
       placeholder={fromTextObjectToString(
-        parser,
-        element.placeholder,
-        0,
-        context
+        surfaceRenderer,
+        block.placeholder,
+        0
       )}
       onChange={handleChange}
     />

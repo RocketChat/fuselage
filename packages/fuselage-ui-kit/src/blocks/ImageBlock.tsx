@@ -1,14 +1,9 @@
 import { Box, Skeleton } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
-import React, {
-  ComponentProps,
-  memo,
-  ReactElement,
-  useEffect,
-  useState,
-} from 'react';
+import React, { memo, ReactElement, useEffect, useState } from 'react';
 
 import { useSurfaceType } from '../contexts/SurfaceContext';
+import { BlockProps } from '../utils/BlockProps';
 import { Image } from './ImageBlock.styles';
 
 const maxSize = 360;
@@ -36,16 +31,12 @@ const fetchImageState = (img: HTMLImageElement) => {
   };
 };
 
-type ImageBlockProps = {
-  className?: ComponentProps<typeof Box>['className'];
-  blockElement: UiKit.ImageBlock;
-  parser: UiKit.SurfaceRenderer<ReactElement>;
-};
+type ImageBlockProps = BlockProps<UiKit.ImageBlock>;
 
 const ImageBlock = ({
   className,
-  blockElement,
-  parser,
+  block,
+  surfaceRenderer,
 }: ImageBlockProps): ReactElement => {
   const surface = useSurfaceType();
 
@@ -54,7 +45,7 @@ const ImageBlock = ({
 
   const [{ loading, width, height }, setState] = useState(() => {
     const img = document.createElement('img');
-    img.src = blockElement.imageUrl;
+    img.src = block.imageUrl;
     return fetchImageState(img);
   });
 
@@ -66,7 +57,7 @@ const ImageBlock = ({
     };
 
     img.addEventListener('load', handleLoad);
-    img.src = blockElement.imageUrl;
+    img.src = block.imageUrl;
 
     if (img.complete) {
       img.removeEventListener('load', handleLoad);
@@ -76,7 +67,7 @@ const ImageBlock = ({
     return () => {
       img.removeEventListener('load', handleLoad);
     };
-  }, [blockElement.imageUrl]);
+  }, [block.imageUrl]);
 
   return (
     <Box
@@ -87,12 +78,12 @@ const ImageBlock = ({
       alignItems={alignment}
     >
       <Box overflow='hidden' width={width}>
-        {blockElement.title && (
+        {block.title && (
           <Box fontScale='c1' color='info' withTruncatedText marginBlockEnd={4}>
-            {parser.renderTextObject(
-              blockElement.title,
-              UiKit.BlockContext.NONE,
-              0
+            {surfaceRenderer.renderTextObject(
+              block.title,
+              0,
+              UiKit.BlockContext.NONE
             )}
           </Box>
         )}
@@ -100,10 +91,10 @@ const ImageBlock = ({
           <Skeleton variant='rect' width={width} height={height} />
         ) : (
           <Image
-            imageUrl={blockElement.imageUrl}
+            imageUrl={block.imageUrl}
             width={width}
             height={height}
-            aria-label={blockElement.altText}
+            aria-label={block.altText}
           />
         )}
       </Box>
