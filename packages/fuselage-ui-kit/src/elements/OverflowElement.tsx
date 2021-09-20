@@ -37,7 +37,7 @@ const OverflowElement = ({
 
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
     useCursor(-1, options, (selectedOption, [, hide]) => {
-      fireChange(selectedOption);
+      fireChange([selectedOption[0], selectedOption[1]]);
       reset();
       hide();
     });

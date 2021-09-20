@@ -4,7 +4,7 @@ import React, { ReactElement, ReactNode } from 'react';
 import { Surface } from './Surface';
 
 type ModalSurfaceProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 const ModalSurface = ({ children }: ModalSurfaceProps): ReactElement => (

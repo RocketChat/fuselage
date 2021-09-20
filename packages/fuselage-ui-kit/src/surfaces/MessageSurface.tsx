@@ -4,7 +4,7 @@ import React, { ReactElement, ReactNode } from 'react';
 import { Surface } from './Surface';
 
 type MessageSurfaceProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 const MessageSurface = ({ children }: MessageSurfaceProps): ReactElement => (
