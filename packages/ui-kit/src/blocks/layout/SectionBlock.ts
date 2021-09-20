@@ -10,7 +10,7 @@ import { StaticSelectElement } from '../elements/StaticSelectElement';
 export type SectionBlock = LayoutBlockish<{
   type: 'section';
   text?: TextObject;
-  fields?: TextObject[];
+  fields?: readonly TextObject[];
   accessory?:
     | ButtonElement
     | DatePickerElement

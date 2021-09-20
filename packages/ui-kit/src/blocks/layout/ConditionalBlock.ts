@@ -5,7 +5,7 @@ import { RenderableLayoutBlock } from '../RenderableLayoutBlock';
 export type ConditionalBlock = LayoutBlockish<{
   type: 'conditional';
   when?: {
-    [K in keyof Conditions]: Conditions[K][];
+    [K in keyof Conditions]: readonly Conditions[K][];
   };
-  render: RenderableLayoutBlock[];
+  render: readonly RenderableLayoutBlock[];
 }>;

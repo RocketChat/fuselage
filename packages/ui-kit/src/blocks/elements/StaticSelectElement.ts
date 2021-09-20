@@ -7,7 +7,7 @@ export type StaticSelectElement = Actionable<
   {
     type: 'static_select';
     placeholder: TextObject;
-    options: Option[];
-    optionGroups?: OptionGroup[];
+    options: readonly Option[];
+    optionGroups?: readonly OptionGroup[];
   } & ({ initialOption?: Option } | { initialValue?: Option['value'] })
 >;

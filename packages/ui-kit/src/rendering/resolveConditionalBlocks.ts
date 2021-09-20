@@ -23,7 +23,7 @@ const conditionsMatch = (
 
 export const resolveConditionalBlocks =
   (conditions?: Conditions) =>
-  (block: Block): Block[] => {
+  (block: Block): readonly Block[] => {
     if (block.type !== LayoutBlockType.CONDITIONAL) {
       return [block];
     }

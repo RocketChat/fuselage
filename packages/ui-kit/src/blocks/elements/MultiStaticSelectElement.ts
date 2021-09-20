@@ -7,8 +7,8 @@ export type MultiStaticSelectElement = Actionable<
   {
     type: 'multi_static_select';
     placeholder: TextObject;
-    options: Option[];
-    optionGroups?: OptionGroup[];
+    options: readonly Option[];
+    optionGroups?: readonly OptionGroup[];
     maxSelectItems?: number;
   } & ({ initialOption?: Option } | { initialValue?: Option['value'] })
 >;

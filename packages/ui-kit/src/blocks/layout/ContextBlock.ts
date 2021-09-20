@@ -4,5 +4,5 @@ import { ImageElement } from '../elements/ImageElement';
 
 export type ContextBlock = LayoutBlockish<{
   type: 'context';
-  elements: (TextObject | ImageElement)[];
+  elements: readonly (TextObject | ImageElement)[];
 }>;

@@ -3,5 +3,5 @@ import { Option } from '../Option';
 
 export type OverflowElement = Actionable<{
   type: 'overflow';
-  options: Option[];
+  options: readonly Option[];
 }>;

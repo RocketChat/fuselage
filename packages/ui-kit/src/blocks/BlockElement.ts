@@ -4,7 +4,10 @@ import { ConversationsSelectElement } from './elements/ConversationsSelectElemen
 import { DatePickerElement } from './elements/DatePickerElement';
 import { ImageElement } from './elements/ImageElement';
 import { LinearScaleElement } from './elements/LinearScaleElement';
+import { MultiChannelsSelectElement } from './elements/MultiChannelsSelectElement';
+import { MultiConversationsSelectElement } from './elements/MultiConversationsSelectElement';
 import { MultiStaticSelectElement } from './elements/MultiStaticSelectElement';
+import { MultiUsersSelectElement } from './elements/MultiUsersSelectElement';
 import { OverflowElement } from './elements/OverflowElement';
 import { PlainTextInputElement } from './elements/PlainTextInputElement';
 import { StaticSelectElement } from './elements/StaticSelectElement';
@@ -17,7 +20,10 @@ export type BlockElement =
   | DatePickerElement
   | ImageElement
   | LinearScaleElement
+  | MultiChannelsSelectElement
+  | MultiConversationsSelectElement
   | MultiStaticSelectElement
+  | MultiUsersSelectElement
   | OverflowElement
   | PlainTextInputElement
   | StaticSelectElement

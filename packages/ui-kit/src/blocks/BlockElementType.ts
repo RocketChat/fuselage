@@ -20,6 +20,9 @@ export enum BlockElementType {
   USERS_SELECT = 'users_select',
   DATEPICKER = 'datepicker',
   LINEAR_SCALE = 'linear_scale',
+  MULTI_CHANNELS_SELECT = 'multi_channels_select',
+  MULTI_CONVERSATIONS_SELECT = 'multi_conversations_select',
+  MULTI_USERS_SELECT = 'multi_users_select',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
