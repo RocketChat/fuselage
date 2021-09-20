@@ -1,7 +1,7 @@
 import React, { ComponentProps, FC } from 'react';
 
 import { Icon } from '../..';
-import { Message, MessageLeftContainer } from '../Message';
+import Message from '../Message';
 
 export const ThreadMessage: FC<ComponentProps<typeof Message>> & {
   Row: FC;
@@ -57,7 +57,7 @@ ThreadMessage.Unfollow = () => (
   />
 );
 
-ThreadMessage.LeftContainer = MessageLeftContainer;
+ThreadMessage.LeftContainer = Message.LeftContainer;
 
 ThreadMessage.Container = (props) => (
   <div
