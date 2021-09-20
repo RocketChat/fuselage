@@ -18,6 +18,7 @@ const RocketChatLogo = ({
       fill={color}
       aria-labelledby={titleId}
       role='img'
+      width='100%'
     >
       <title id={titleId}>Rocket.Chat</title>
       <path d='M173.243 3.53369H176.613V8.14872H179.731V11.185H176.613V19.4313H179.562V22.4125C179.085 22.5238 178.495 22.58 177.821 22.58C174.76 22.58 173.242 20.9925 173.242 17.8163V3.53369H173.243Z' />
