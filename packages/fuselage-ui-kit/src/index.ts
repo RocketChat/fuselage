@@ -1,8 +1,8 @@
-export const version = process.env.VERSION;
+import version from './version';
 
-if (process.env.VERSION) {
-  console.log(`fuselage-ui-kit version: ${process.env.VERSION}`);
-}
+console.log(`fuselage-ui-kit version: ${version}`);
+
+export { version };
 
 export * from './hooks/useUiKitState';
 export * from './contexts/kitContext';
