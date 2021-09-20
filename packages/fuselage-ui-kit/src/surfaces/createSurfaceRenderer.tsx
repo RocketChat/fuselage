@@ -8,7 +8,7 @@ export const createSurfaceRenderer = <
   surfaceRenderer: S
 ) =>
   function Surface(
-    blocks: UiKit.Block[],
+    blocks: readonly UiKit.LayoutBlock[],
     conditions: UiKit.Conditions = {}
   ): ReactElement {
     return (

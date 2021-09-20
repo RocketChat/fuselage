@@ -11,7 +11,7 @@ const breakpoints = {
 } as const;
 
 type FieldsProps = {
-  fields: UiKit.TextObject[];
+  fields: readonly UiKit.TextObject[];
   surfaceRenderer: UiKit.SurfaceRenderer<ReactElement>;
 };
 
