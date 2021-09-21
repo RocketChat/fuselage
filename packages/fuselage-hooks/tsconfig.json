@@ -1,17 +1,13 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "module": "ESNext",
-    "target": "ES5",
     "lib": ["DOM", "ES2015"],
-    "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
-    "declaration": true,
+    "declarationMap": false,
     "declarationDir": "./dist",
     "outDir": "./dist",
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
     // "noEmit": true,
     // "noImplicitReturns": true,
     // "noImplicitThis": true,
@@ -20,8 +16,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true
+    "strict": false
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules", "src/*.spec.ts"]

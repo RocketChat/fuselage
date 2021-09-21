@@ -1,0 +1,106 @@
+{
+  "extends": "@nrwl/workspace/presets/npm.json",
+  "npmScope": "undetermined",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "package",
+          "prepare"
+        ]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ],
+    "prepare": [
+      {
+        "target": "prepare",
+        "projects": "dependencies"
+      }
+    ],
+    "package": [
+      {
+        "target": "package",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "@rocket.chat/css-in-js": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/css-supports": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/emitter": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/eslint-config-alt": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/fuselage": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/fuselage-hooks": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/fuselage-polyfills": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/fuselage-tokens": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/fuselage-ui-kit": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/icons": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/memo": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/message-parser": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/mp3-encoder": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/onboarding-ui": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/peggy-loader": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/prettier-config": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/string-helpers": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/styled": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/stylis-logical-props-middleware": {
+      "implicitDependencies": []
+    },
+    "@rocket.chat/ui-kit": {
+      "implicitDependencies": []
+    },
+    "scripts": {
+      "implicitDependencies": []
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  }
+}

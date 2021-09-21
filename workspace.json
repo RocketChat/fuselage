@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "projects": {
+    "@rocket.chat/css-in-js": {
+      "root": "packages/css-in-js"
+    },
+    "@rocket.chat/css-supports": {
+      "root": "packages/css-supports"
+    },
+    "@rocket.chat/emitter": {
+      "root": "packages/emitter"
+    },
+    "@rocket.chat/eslint-config-alt": {
+      "root": "packages/eslint-config-alt"
+    },
+    "@rocket.chat/fuselage": {
+      "root": "packages/fuselage"
+    },
+    "@rocket.chat/fuselage-hooks": {
+      "root": "packages/fuselage-hooks"
+    },
+    "@rocket.chat/fuselage-polyfills": {
+      "root": "packages/fuselage-polyfills"
+    },
+    "@rocket.chat/fuselage-tokens": {
+      "root": "packages/fuselage-tokens"
+    },
+    "@rocket.chat/fuselage-ui-kit": {
+      "root": "packages/fuselage-ui-kit"
+    },
+    "@rocket.chat/icons": {
+      "root": "packages/icons"
+    },
+    "@rocket.chat/memo": {
+      "root": "packages/memo"
+    },
+    "@rocket.chat/message-parser": {
+      "root": "packages/message-parser"
+    },
+    "@rocket.chat/mp3-encoder": {
+      "root": "packages/mp3-encoder"
+    },
+    "@rocket.chat/onboarding-ui": {
+      "root": "packages/onboarding-ui"
+    },
+    "@rocket.chat/peggy-loader": {
+      "root": "packages/peggy-loader"
+    },
+    "@rocket.chat/prettier-config": {
+      "root": "packages/prettier-config"
+    },
+    "@rocket.chat/string-helpers": {
+      "root": "packages/string-helpers"
+    },
+    "@rocket.chat/styled": {
+      "root": "packages/styled"
+    },
+    "@rocket.chat/stylis-logical-props-middleware": {
+      "root": "packages/stylis-logical-props-middleware"
+    },
+    "@rocket.chat/ui-kit": {
+      "root": "packages/ui-kit"
+    },
+    "scripts": {
+      "root": "scripts"
+    }
+  }
+}
