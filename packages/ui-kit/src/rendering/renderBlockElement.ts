@@ -1,55 +1,39 @@
 import { BlockElement } from '../blocks/BlockElement';
-import { BlockElementType } from '../blocks/BlockElementType';
 import { BlockContext } from './BlockContext';
 import { BlockElementRenderer } from './BlockElementRenderer';
-import { ISurfaceRenderer } from './ISurfaceRenderer';
+import { BlockRenderers } from './BlockRenderers';
 
-const getBlockElementRenderer = <OutputElement>(
-  renderers: ISurfaceRenderer<OutputElement>,
+const getBlockElementRenderer = <T>(
+  renderers: BlockRenderers<T>,
   type: BlockElement['type']
-): BlockElementRenderer<OutputElement> | undefined => {
-  const renderer = renderers[type] as
-    | BlockElementRenderer<OutputElement>
-    | undefined;
+): BlockElementRenderer<T> | undefined => {
+  const renderer = renderers[type] as BlockElementRenderer<T> | undefined;
 
   if (renderer) {
     return renderer;
   }
 
   switch (type) {
-    case BlockElementType.DATEPICKER:
-      return renderers.datePicker as
-        | BlockElementRenderer<OutputElement>
-        | undefined;
+    case 'datepicker':
+      return renderers.datePicker as BlockElementRenderer<T> | undefined;
 
-    case BlockElementType.STATIC_SELECT:
-      return renderers.staticSelect as
-        | BlockElementRenderer<OutputElement>
-        | undefined;
+    case 'static_select':
+      return renderers.staticSelect as BlockElementRenderer<T> | undefined;
 
-    case BlockElementType.MULTI_STATIC_SELECT:
-      return renderers.multiStaticSelect as
-        | BlockElementRenderer<OutputElement>
-        | undefined;
+    case 'multi_static_select':
+      return renderers.multiStaticSelect as BlockElementRenderer<T> | undefined;
 
-    case BlockElementType.PLAIN_TEXT_INPUT:
-      return renderers.plainInput as
-        | BlockElementRenderer<OutputElement>
-        | undefined;
+    case 'plain_text_input':
+      return renderers.plainInput as BlockElementRenderer<T> | undefined;
 
-    case BlockElementType.LINEAR_SCALE:
-      return renderers.linearScale as
-        | BlockElementRenderer<OutputElement>
-        | undefined;
+    case 'linear_scale':
+      return renderers.linearScale as BlockElementRenderer<T> | undefined;
   }
 };
 
 export const renderBlockElement =
-  <OutputElement>(
-    renderers: ISurfaceRenderer<OutputElement>,
-    context: BlockContext
-  ) =>
-  (blockElement: BlockElement, index: number): OutputElement | null => {
+  <T>(renderers: BlockRenderers<T>, context: BlockContext) =>
+  (blockElement: BlockElement, index: number): T | null => {
     const renderer = getBlockElementRenderer(renderers, blockElement.type);
 
     if (!renderer) {

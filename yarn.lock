@@ -5685,11 +5685,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-ui-kit@workspace:packages/fuselage-ui-kit"
   dependencies:
-    "@babel/core": ^7.14.6
-    "@babel/eslint-parser": ^7.14.7
-    "@babel/plugin-transform-runtime": ^7.14.5
-    "@babel/preset-env": ^7.14.7
-    "@babel/preset-react": ^7.14.5
     "@rocket.chat/apps-engine": ^1.27.1
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/fuselage": "workspace:packages/fuselage"
@@ -5697,6 +5692,7 @@ __metadata:
     "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills"
     "@rocket.chat/icons": "workspace:packages/icons"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/styled": "workspace:packages/styled"
     "@rocket.chat/ui-kit": "workspace:packages/ui-kit"
     "@storybook/addon-essentials": ^6.3.4
     "@storybook/addons": ^6.3.4
@@ -5716,15 +5712,12 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     rimraf: ^3.0.2
+    tslib: ^2.3.1
+    typescript: ^4.4.3
     webpack: ^5.41.1
-    webpack-bundle-analyzer: ^4.4.2
-    webpack-cli: ^4.7.2
   peerDependencies:
-    "@rocket.chat/fuselage": "*"
-    "@rocket.chat/fuselage-hooks": "*"
     "@rocket.chat/fuselage-polyfills": "*"
     "@rocket.chat/icons": "*"
-    "@rocket.chat/ui-kit": "*"
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -26935,6 +26928,16 @@ typescript@^4.3.4:
   languageName: node
   linkType: hard
 
+typescript@^4.4.3:
+  version: 4.4.3
+  resolution: "typescript@npm:4.4.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 05823f21796d450531a7e4ab299715d38fd9ded0e4ce7400876053f4b5166ca3dde7a68cecfe72d9086039f03c0b6edba36516fb10ed83c5837d9600532ea4c2
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@^4.3.4#~builtin<compat/typescript>":
   version: 4.3.4
   resolution: "typescript@patch:typescript@npm%3A4.3.4#~builtin<compat/typescript>::version=4.3.4&hash=32657b"
@@ -26942,6 +26945,16 @@ typescript@^4.3.4:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 6013dd3cb5e67d17e7813361e0ef6f856cf4a0c54b5f4cbc13c3fa9dc5fcfce4b53e8f5db1cb513ecfc655583e8c3321116149a0865bf07bd0f1906fef59f6a3
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
+  version: 4.4.3
+  resolution: "typescript@patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 28ab98313afab46788ff41014fdb5932430ada6e03cf9e92ac47f406526a2cac1ae2894834e7da61e46b7429318e9c47f45ba8de323332f0cb9af99b72ebae74
   languageName: node
   linkType: hard
 
