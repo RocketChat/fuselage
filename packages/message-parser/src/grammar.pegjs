@@ -114,45 +114,45 @@ Space
 
 anyText
   = [\x20-\x27] /*     ! " # $ % & ' ( )   */
-  / [\x2B-\x40]
-  / [\x41-\x5A]
-  / [\x61-\x7A]
+  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x5A] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+  / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
 anyText2
-  = [\x20-\x40]
-  / [\x41-\x60]
-  / [\x61-\xFFFF]
+  = [\x20-\x40] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x60] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
+  / [\x61-\xFFFF] // a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~                                    ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
   / nonascii
 
 ListText
-  = [\x20-\x27]
-  / [\x2B-\x40]
-  / [\x41-\x5A]
-  / [\x60-\x7A]
+  = [\x20-\x27] // `  ! " # $ % & '`
+  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x5A] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+  / [\x60-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
 LinkText
-  = [\x20-\x2A]
-  / [\x2B-\x40]
-  / [\x41-\x5B]
-  / [\x61-\x7A]
+  = [\x20-\x2A] //  ! " # $ % & ' ( ) *
+  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x5B] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [
+  / [\x61-\x7A] //  a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
 CodeText
-  = [\x20-\x2A]
-  / [\x2B-\x40]
-  / [\x41-\x5F]
-  / [\x61-\x7E]
+  = [\x20-\x2A] //  ! " # $ % & ' ( ) *
+  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x5F] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _
+  / [\x61-\x7E] //   a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
   / nonascii
   / EndOfLine
   / Space
 
 SectionText
   = [-]+
-  / [\x20-\x40]
-  / [\x41-\x60]
-  / [\x61-\x7A]
+  / [\x20-\x40] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x60] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
+  / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
 Not_enter = text:($:(!"\n" s:. { return s; })+) { return plain(text.join('')); }
@@ -333,7 +333,14 @@ Image
   = "![](" href:LinkRef ")" { return image(href); }
   / "![" title:LinkTitle "](" href:LinkRef ")" { return image(href, title); }
 
-LinkTitle2 = $(!">" .)+
+LinkTitle2
+  = $(
+    [\x20-\x3C] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ;
+    / [\x3D\x3F-\x60] // = ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
+    / [\x61-\x7B] // a b c d e f g h i j k l m n o p q r s t u v w x y z {
+    / [\x7D-\xFF] // } ~                                    ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
+    / nonascii
+  )+
 
 References
   = "[](" href:LinkRef ")" { return link(href); }
