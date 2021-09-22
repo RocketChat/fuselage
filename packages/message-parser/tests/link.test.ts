@@ -3,6 +3,19 @@ import { link, paragraph, plain, bold, strike, italic } from '../src/utils';
 
 test.each([
   [
+    '<https://domain.com|Test>',
+    [paragraph([link('https://domain.com', plain('Test'))])],
+  ],
+
+  [
+    `<https://domain.com|Test
+>`,
+    [
+      paragraph([plain('<'), link('https://domain.com'), plain('|Test')]),
+      paragraph([plain('>')]),
+    ],
+  ],
+  [
     '[Link](https://domain.com/link?a=%28node_filesystem_avail_bytes%29)',
     [
       paragraph([
