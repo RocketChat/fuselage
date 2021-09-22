@@ -2,6 +2,21 @@ import { parser } from '../src';
 import { link, paragraph, plain, bold, strike, italic } from '../src/utils';
 
 test.each([
+  [
+    '<https://domain.com|Test>',
+    [paragraph([link('https://domain.com', plain('Test'))])],
+  ],
+  [
+    '[Link](https://domain.com/link?a=%28node_filesystem_avail_bytes%29)',
+    [
+      paragraph([
+        link(
+          'https://domain.com/link?a=%28node_filesystem_avail_bytes%29',
+          plain('Link')
+        ),
+      ]),
+    ],
+  ],
   ['[](https://rocket.chat)', [paragraph([link('https://rocket.chat')])]],
   [
     '[ ](https://rocket.chat)',

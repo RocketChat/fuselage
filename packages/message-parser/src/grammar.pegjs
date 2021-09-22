@@ -316,16 +316,25 @@ LineCode "LineCode"
 MultiplelLineCode
   = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
 
+// <www.github.com|Visit GitHub!>
 // [Visit GitHub!](www.github.com)
 
-LinkTitle = "[" text:(Emphasis / Line / Whitespace) "]" { return text; }
+LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
 
-LinkRef
-  = "(" text:(URL / p:Phone { return 'tel:' + p.number; }) ")" { return text; }
+LinkRef = text:(URL / p:Phone { return 'tel:' + p.number; }) { return text; }
+
+Image
+  = "![](" href:LinkRef ")" { return image(href); }
+  / "![" title:LinkTitle "](" href:LinkRef ")" { return image(href, title); }
+
+LinkTitle2 = $(!">" .)+
 
 References
-  = "[]" href:LinkRef { return link(href); }
-  / title:LinkTitle href:LinkRef { return link(href, title); }
+  = "[](" href:LinkRef ")" { return link(href); }
+  / "[" title:LinkTitle "](" href:LinkRef ")" { return link(href, title); }
+  / "<" href:LinkRef "|" title:LinkTitle2 ">" {
+      return link(href, plain(title));
+    }
 
 /* Macros */
 
@@ -442,7 +451,7 @@ domainName
 
 domainNameLabel = $(domainChar domainChar+ $("-" domainChar+)*)
 
-domainChar = !"/" !safe !extra !EndOfLine !Space .
+domainChar = !"/" !"|" !">" !"<" !safe !extra !EndOfLine !Space .
 
 /**
  *
