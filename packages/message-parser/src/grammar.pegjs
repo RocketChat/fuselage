@@ -8,6 +8,7 @@
     code,
     link,
     heading,
+    image,
     inlineCode,
     quote,
     reducePlainTexts,
@@ -58,6 +59,7 @@ Inline
       Whitespace
       / Emoji
       / InlineCode
+      / Image
       / References
       / AutolinkedPhone
       / AutolinkedURL
@@ -66,11 +68,14 @@ Inline
       / Color
       / UserMention
       / ChannelMention
+      / Escaped
       / Any
     )+
     EndOfLine? { return reducePlainTexts(value); }
 
 Whitespace = w:" "+ { return plain(w.join('')); }
+
+Escaped = "\\" t:any { return plain(t); }
 
 Any = !EndOfLine t:any { return plain(t); }
 
@@ -210,7 +215,7 @@ Italic
 Italic_Content = text:italic_Content { return italic(text); }
 
 italic_Content
-  = text:(Bold / Strikethrough / Line / AnyItalic)+ {
+  = text:(References / Bold / Strikethrough / Line / AnyItalic)+ {
       return reducePlainTexts(text);
     }
 
@@ -221,7 +226,7 @@ Bold
   / [\x2A] b:Bold_Content [\x2A] { return b; }
 
 Bold_Content
-  = text:(Italic / Strikethrough / Line / AnyBold)+ {
+  = text:(References / Italic / Strikethrough / Line / AnyBold)+ {
       return bold(reducePlainTexts(text));
     }
 
@@ -232,7 +237,7 @@ Strikethrough
   / [\x7E] s:Strikethrough_Content [\x7E] { return s; }
 
 Strikethrough_Content
-  = text:(Italic / Bold / Line / AnyStrike)+ {
+  = text:(References / Italic / Bold / Line / AnyStrike)+ {
       return strike(reducePlainTexts(text));
     }
 
@@ -311,7 +316,8 @@ LineCode__any = $:(!"\n" !"```" t:. { return t; })+
 
 LineCode "LineCode"
   = text:LineCode__any { return codeLine(plain(text.join(''))); }
-  / "\n"+ text:LineCode__any { return codeLine(plain(text.join(''))); }
+  / "\n" text:LineCode__any { return codeLine(plain(text.join(''))); }
+  / "\n" !"```" { return codeLine(plain('')); }
 
 MultiplelLineCode
   = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
@@ -423,6 +429,7 @@ safe
   / "."
   / "&"
   / "="
+  / "%"
 
 extra
   = "!"
@@ -438,6 +445,7 @@ extra
   / "?"
   / "#"
   / "="
+  / "~"
 
 hexdigit = [0-9A-Fa-f]
 
@@ -550,11 +558,11 @@ urlAuthorityHostName
 urlAuthorityPort
   = digits // TODO: from "0" to "65535"
 
-urlPath = $("/" $(alpha_digit / safe)+ urlPath*)
+urlPath = $("/" $(alpha_digit / safe)* urlPath*)
 
 urlQuery = $("?" $(alpha_digit / safe)*)
 
-urlFragment = $("#" $(alpha_digit / safe)*)
+urlFragment = $("#" $(alpha_digit / extra / safe)*)
 
 /**
  *

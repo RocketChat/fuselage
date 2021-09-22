@@ -1,12 +1,11 @@
 import { Actionable } from '../Actionable';
-import { BlockElementType } from '../BlockElementType';
 import { PlainText } from '../text/PlainText';
 
 export type LinearScaleElement = Actionable<{
-  type: `${BlockElementType.LINEAR_SCALE}`;
+  type: 'linear_scale';
   minValue?: number;
   maxValue?: number;
   initialValue?: number;
   preLabel?: PlainText;
-  postLable?: PlainText;
+  postLabel?: PlainText;
 }>;

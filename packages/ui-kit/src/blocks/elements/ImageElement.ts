@@ -1,7 +1,5 @@
-import { BlockElementType } from '../BlockElementType';
-
 export type ImageElement = {
-  type: `${BlockElementType.IMAGE}`;
+  type: 'image';
   imageUrl: string;
   altText: string;
 };

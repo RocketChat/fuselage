@@ -1,27 +1,19 @@
-import { LayoutBlockType } from '../../blocks/LayoutBlockType';
-import { BaseSurfaceRenderer } from '../BaseSurfaceRenderer';
-import { GenericSurfaceLayout } from './GenericSurfaceLayout';
+import { ActionsBlock } from '../../blocks/layout/ActionsBlock';
+import { ContextBlock } from '../../blocks/layout/ContextBlock';
+import { DividerBlock } from '../../blocks/layout/DividerBlock';
+import { ImageBlock } from '../../blocks/layout/ImageBlock';
+import { SectionBlock } from '../../blocks/layout/SectionBlock';
+import { SurfaceRenderer, SurfaceRendererPayload } from '../SurfaceRenderer';
 
-type AllowedLayoutsAttachment =
-  | LayoutBlockType.ACTIONS
-  | LayoutBlockType.CONTEXT
-  | LayoutBlockType.DIVIDER
-  | LayoutBlockType.IMAGE
-  | LayoutBlockType.SECTION;
-
-export abstract class UiKitParserAttachment<
-  OutputElement
-> extends BaseSurfaceRenderer<OutputElement, AllowedLayoutsAttachment> {
+export abstract class UiKitParserAttachment<T> extends SurfaceRenderer<
+  T,
+  ActionsBlock | ContextBlock | DividerBlock | ImageBlock | SectionBlock
+> {
   public constructor() {
-    super([
-      LayoutBlockType.ACTIONS,
-      LayoutBlockType.CONTEXT,
-      LayoutBlockType.DIVIDER,
-      LayoutBlockType.IMAGE,
-      LayoutBlockType.SECTION,
-    ]);
+    super(['actions', 'context', 'divider', 'image', 'section']);
   }
 }
 
-export type AttachmentSurfaceLayout =
-  GenericSurfaceLayout<AllowedLayoutsAttachment>;
+export type AttachmentSurfaceLayout = SurfaceRendererPayload<
+  UiKitParserAttachment<any>
+>;
