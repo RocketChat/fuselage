@@ -9,6 +9,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/no-empty-function': 'error',
     '@typescript-eslint/no-extra-parens': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-redeclare': 'error',
@@ -37,6 +38,7 @@ module.exports = {
         },
       },
     ],
+    'no-empty-function': 'off',
     'no-extra-parens': 'off',
     'no-redeclare': 'off',
     'no-spaced-func': 'off',

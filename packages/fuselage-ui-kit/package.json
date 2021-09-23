@@ -16,25 +16,28 @@
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "files": [
-    "/dist",
-    "/index.js"
+    "/dist"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "start": "webpack --watch --mode development",
-    "storybook": "start-storybook -p 6006",
-    "build": "run-s .:build:clean .:build:dev .:build:prod",
+    "build": "run-s .:build:clean .:build:version .:build:esm .:build:cjs",
     ".:build:clean": "rimraf dist",
-    ".:build:dev": "webpack --mode development",
-    ".:build:prod": "webpack --mode production",
-    "lint": "eslint src",
+    ".:build:version": "node ./.bin/update-version.js",
+    ".:build:esm": "tsc -p tsconfig-esm.json",
+    ".:build:cjs": "tsc -p tsconfig-cjs.json",
+    "lint": "run-s .:lint:eslint .:lint:tsc",
+    ".:lint:eslint": "eslint src",
+    ".:lint:tsc": "tsc --noEmit",
     "lint-fix": "eslint --fix src",
     "lint-staged": "lint-staged",
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage-ui-kit",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "cross-env NODE_ENV=production build-storybook",
     "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:loki-update",
     ".:update-storybook:build-storybook": "run-s build-storybook",
@@ -43,28 +46,17 @@
     "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:latest --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static"
   },
   "peerDependencies": {
-    "@rocket.chat/fuselage": "*",
-    "@rocket.chat/fuselage-hooks": "*",
     "@rocket.chat/fuselage-polyfills": "*",
     "@rocket.chat/icons": "*",
-    "@rocket.chat/ui-kit": "*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/eslint-parser": "^7.14.7",
-    "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.7",
-    "@babel/preset-react": "^7.14.5",
     "@rocket.chat/apps-engine": "^1.27.1",
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/fuselage": "workspace:packages/fuselage",
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
     "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills",
     "@rocket.chat/icons": "workspace:packages/icons",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
-    "@rocket.chat/ui-kit": "workspace:packages/ui-kit",
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addons": "^6.3.4",
     "@storybook/builder-webpack5": "^6.3.4",
@@ -83,8 +75,38 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
-    "webpack": "^5.41.1",
-    "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-cli": "^4.7.2"
+    "typescript": "^4.4.3",
+    "webpack": "^5.41.1"
+  },
+  "dependencies": {
+    "@rocket.chat/fuselage": "workspace:packages/fuselage",
+    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
+    "@rocket.chat/styled": "workspace:packages/styled",
+    "@rocket.chat/ui-kit": "workspace:packages/ui-kit",
+    "tslib": "^2.3.1"
+  },
+  "loki": {
+    "configurations": {
+      "desktop": {
+        "target": "chrome.docker",
+        "width": 1440,
+        "height": 896,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "tablet": {
+        "target": "chrome.docker",
+        "width": 768,
+        "height": 970,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "mobile": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
