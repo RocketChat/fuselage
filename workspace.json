@@ -1,6 +1,85 @@
 {
   "version": 2,
   "projects": {
+    "..-playground-message-parser-playground": {
+      "root": "packages/../playground/message-parser-playground",
+      "sourceRoot": "packages/../playground/message-parser-playground/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/playground/message-parser-playground",
+            "index": "playground/message-parser-playground/src/index.html",
+            "main": "playground/message-parser-playground/src/main.tsx",
+            "polyfills": "playground/message-parser-playground/src/polyfills.ts",
+            "tsConfig": "playground/message-parser-playground/tsconfig.app.json",
+            "assets": [
+              "playground/message-parser-playground/src/favicon.ico",
+              "playground/message-parser-playground/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "playground/message-parser-playground/src/environments/environment.ts",
+                  "with": "playground/message-parser-playground/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "..-playground-message-parser-playground:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "..-playground-message-parser-playground:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "packages/../playground/message-parser-playground/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/playground/message-parser-playground"],
+          "options": {
+            "jestConfig": "playground/message-parser-playground/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "@rocket.chat/css-in-js": {
       "root": "packages/css-in-js"
     },
@@ -64,5 +143,25 @@
     "scripts": {
       "root": "scripts"
     }
-  }
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "none",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "none"
+      },
+      "library": {
+        "style": "none",
+        "linter": "eslint"
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "defaultProject": "..-playground-message-parser-playground"
 }

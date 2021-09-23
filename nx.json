@@ -5,13 +5,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "package",
-          "prepare"
-        ]
+        "cacheableOperations": ["build", "test", "lint", "package", "prepare"]
       }
     }
   },
@@ -36,6 +30,9 @@
     ]
   },
   "projects": {
+    "..-playground-message-parser-playground": {
+      "tags": []
+    },
     "@rocket.chat/css-in-js": {
       "implicitDependencies": []
     },

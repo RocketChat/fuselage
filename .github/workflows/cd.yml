@@ -26,10 +26,10 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - run: yarn nx affected:build --base=master --head=$PR_BRANCH_NAME
-      - run: yarn nx affected:lint --base=master --head=$PR_BRANCH_NAME
-      - run: yarn nx affected:test --base=master --head=$PR_BRANCH_NAME
-      - run: yarn nx affected:docs --base=master --head=$PR_BRANCH_NAME
+      - run: yarn nx affected:build
+      - run: yarn nx affected:lint
+      - run: yarn nx affected:test
+      - run: yarn nx affected:docs
       - run: yarn run build-storybook
       - uses: actions/upload-artifact@v2
         with:
