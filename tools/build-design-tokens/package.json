@@ -1,0 +1,9 @@
+{
+  "name": "build-design-tokens",
+  "private": true,
+  "bin": "./index.mjs",
+  "peerDependencies": {
+    "eslint": "*",
+    "prettier": "*"
+  }
+}

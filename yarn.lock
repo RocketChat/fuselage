@@ -5962,6 +5962,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    build-design-tokens: "workspace:tools/build-design-tokens"
     eslint: ^7.32.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.24.2
@@ -10613,6 +10614,17 @@ __metadata:
   checksum: ad479dc918b7a951d0dfa26bcc8983ed4992015084697a36df90ed4de05da763078b61e645f6fd5d8f4b8b56f7c85ff323679334c95368f51a7c471256d2689e
   languageName: node
   linkType: hard
+
+"build-design-tokens@workspace:tools/build-design-tokens":
+  version: 0.0.0-use.local
+  resolution: "build-design-tokens@workspace:tools/build-design-tokens"
+  peerDependencies:
+    eslint: "*"
+    prettier: "*"
+  bin:
+    build-design-tokens: ./index.mjs
+  languageName: unknown
+  linkType: soft
 
 "builtin-modules@npm:^3.1.0":
   version: 3.1.0

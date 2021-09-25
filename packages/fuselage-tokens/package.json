@@ -31,7 +31,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "build-design-tokens",
     "lint": "run-s .:lint:eslint .:lint:prettier",
     ".:lint:eslint": "eslint .",
     ".:lint:prettier": "prettier --check '**/*.{json,scss}'",
@@ -43,6 +43,7 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "build-design-tokens": "workspace:tools/build-design-tokens",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
