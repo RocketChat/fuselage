@@ -17,7 +17,6 @@ const RocketChatLogo = ({
       viewBox='0 0 180 30'
       fill={color}
       aria-labelledby={titleId}
-      role='img'
       width='100%'
     >
       <title id={titleId}>Rocket.Chat</title>
