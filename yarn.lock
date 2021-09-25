@@ -6007,6 +6007,7 @@ __metadata:
     tslib: ^2.3.1
     typescript: ^4.4.3
     webpack: ^5.41.1
+    write-version-module: "workspace:tools/write-version-module"
   peerDependencies:
     "@rocket.chat/fuselage-polyfills": "*"
     "@rocket.chat/icons": "*"
@@ -28764,6 +28765,14 @@ typescript@^4.4.3:
   checksum: 7864d44370f42a6761f6898d07ee2818c7a2faad45116580cf779f3adaf94e4bea5557612533a6c421c32323253ecb63b50615094960a637aeaef5df0fd2d6cd
   languageName: node
   linkType: hard
+
+"write-version-module@workspace:tools/write-version-module":
+  version: 0.0.0-use.local
+  resolution: "write-version-module@workspace:tools/write-version-module"
+  bin:
+    write-version-module: ./index.mjs
+  languageName: unknown
+  linkType: soft
 
 "ws@npm:^7, ws@npm:^7.2.5, ws@npm:^7.3.1":
   version: 7.4.5
