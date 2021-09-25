@@ -23,19 +23,6 @@ module.exports = {
       message: "What's the package version?",
     }));
 
-    const settings = JSON.parse(
-      await fs.promises.readFile(".vscode/settings.json")
-    );
-    settings["eslint.workingDirectories"].push({
-      directory: `packages/${package}`,
-      changeProcessCWD: true,
-    });
-    await fs.promises.writeFile(
-      ".vscode/settings.json",
-      JSON.stringify(settings, null, 2),
-      "utf-8"
-    );
-
     return {
       package,
       description,

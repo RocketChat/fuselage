@@ -1,83 +1,11 @@
 {
   "eslint.workingDirectories": [
     {
-      "directory": "packages/css-in-js",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/emitter",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/eslint-config-alt",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/fuselage",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/fuselage-hooks",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/fuselage-ui-kit",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/icons",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/memo",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/message-parser",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/mp3-encoder",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/onboarding-ui",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/peggy-loader",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/prettier-config",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/string-helpers",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/ui-kit",
+      "directory": "packages/*",
       "changeProcessCWD": true
     },
     {
       "directory": "scripts",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/styled",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/css-supports",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/stylis-logical-props-middleware",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/logo",
       "changeProcessCWD": true
     }
   ],
@@ -85,15 +13,7 @@
     "source.fixAll.eslint": true
   },
   "eslint.options": {
-    "extensions": [
-      ".js",
-      ".jsx",
-      ".md",
-      ".mdx",
-      ".ts",
-      ".tsx",
-      ".pegjs"
-    ]
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx", ".pegjs"]
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
