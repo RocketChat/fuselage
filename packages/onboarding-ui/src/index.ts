@@ -1,4 +1,3 @@
-export { default as RocketChatLogo } from './common/RocketChatLogo';
 export { default as AdminInfoPage } from './pages/AdminInfoPage';
 export { default as AwaitingConfirmationPage } from './pages/AwaitingConfirmationPage';
 export { default as CheckYourEmailPage } from './pages/CheckYourEmailPage';

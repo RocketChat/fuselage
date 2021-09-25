@@ -1,3 +1,4 @@
+import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ReactElement, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -10,7 +11,6 @@ import {
   Title,
   Wrapper,
 } from './FormPageLayout.styles';
-import RocketChatLogo from './RocketChatLogo';
 
 type FormPageLayoutProps = {
   logo?: ReactNode;

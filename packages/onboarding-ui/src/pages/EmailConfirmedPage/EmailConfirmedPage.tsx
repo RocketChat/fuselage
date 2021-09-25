@@ -1,11 +1,11 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import { useDarkMode } from '../../common/DarkModeProvider';
-import RocketChatLogo from '../../common/RocketChatLogo';
 
 const EmailConfirmedPage = (): ReactElement => {
   const darkMode = useDarkMode();
