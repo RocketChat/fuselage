@@ -1,76 +1,45 @@
 #!/usr/bin/env node
 
-import { readFile, writeFile } from 'fs/promises';
-import { relative, join } from 'path';
+import { readJson5, writeSource } from 'tools-utils/files';
 import {
-  formatJavaScript,
-  toScssIdentifier,
-  toScssValue,
-  toJavaScriptValue,
-  formatScss,
-} from './format.mjs';
-
-const toCommonJS = async (data) => {
-  const code = `
-    'use strict';
-    module.exports = ${toJavaScriptValue(data)};
-  `;
-  return await formatJavaScript(code);
-};
-
-const toESModule = async (data) => {
-  const code = `
-    export default ${toJavaScriptValue(data)};
-  `;
-  return await formatJavaScript(code);
-};
-
-const toScssVariables = async (data) => {
-  const code = Object.entries(data)
-    .map(
-      ([varName, value]) =>
-        `\$${toScssIdentifier(varName)}:${toScssValue(value)};`
-    )
-    .join('');
-
-  return await formatScss(code);
-};
-
-const read = async (sourcePath) => {
-  return JSON.parse(await readFile(sourcePath, { encoding: 'utf-8' }));
-};
-
-const write = (targetPath) => async (data) => {
-  await writeFile(targetPath, data, { encoding: 'utf-8' });
-};
+  toJson,
+  toCommonJsModule,
+  toEsmModule,
+  toScssVariables,
+} from 'tools-utils/source';
 
 const buildBreakpoints = async () => {
-  const entries = await read('./breakpoints.json');
+  const entries = await readJson5('./src/breakpoints.jsonc');
 
   await Promise.all([
-    toCommonJS(entries).then(write('./breakpoints.js')),
-    toESModule(entries).then(write('./breakpoints.mjs')),
-    toScssVariables({ breakpoints: entries }).then(write('./breakpoints.scss')),
+    toJson(Object.values(entries)).then(writeSource('./breakpoints.json')),
+    toCommonJsModule(entries).then(writeSource('./breakpoints.js')),
+    toEsmModule(entries).then(writeSource('./breakpoints.mjs')),
+    toScssVariables({ breakpoints: entries }).then(
+      writeSource('./breakpoints.scss')
+    ),
   ]);
 };
 
 const buildColors = async () => {
-  const entries = await read('./colors.json');
+  const entries = await readJson5('./src/colors.jsonc');
 
   await Promise.all([
-    toCommonJS(entries).then(write('./colors.js')),
-    toESModule(entries).then(write('./colors.mjs')),
-    toScssVariables({ colors: entries }).then(write('./colors.scss')),
+    toJson(entries).then(writeSource('./colors.json')),
+    toCommonJsModule(entries).then(writeSource('./colors.js')),
+    toEsmModule(entries).then(writeSource('./colors.mjs')),
+    toScssVariables({ colors: entries }).then(writeSource('./colors.scss')),
   ]);
 };
 
 const buildTypography = async () => {
-  const entries = await read('./typography.json');
+  const entries = await readJson5('./src/typography.jsonc');
 
   await Promise.all([
-    toCommonJS(entries).then(write('./typography.js')),
-    toESModule(entries).then(write('./typography.mjs')),
-    toScssVariables(entries).then(write('./typography.scss')),
+    toJson(entries).then(writeSource('./typography.json')),
+    toCommonJsModule(entries).then(writeSource('./typography.js')),
+    toEsmModule(entries).then(writeSource('./typography.mjs')),
+    toScssVariables(entries).then(writeSource('./typography.scss')),
   ]);
 };
 
