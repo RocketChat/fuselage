@@ -7,7 +7,7 @@ const glob = require('glob');
 const { fixBrokenSymlink } = require('./files');
 
 const getIconDescriptors = async (srcPath) => {
-  const rootPath = join(__dirname, '..');
+  const rootPath = process.cwd();
   console.log(
     'read',
     inspect(relative(rootPath, join(srcPath, '**/*.svg')), { colors: true })

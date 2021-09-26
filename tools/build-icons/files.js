@@ -12,7 +12,7 @@ const encodeEscapedJson = (data) =>
   );
 
 const writeFile = async (distPath, filePath, getData) => {
-  const rootPath = join(__dirname, '..');
+  const rootPath = process.cwd();
   const destPath = join(distPath, filePath);
 
   console.log('write', inspect(relative(rootPath, destPath), { colors: true }));

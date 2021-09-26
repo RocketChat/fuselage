@@ -4,8 +4,9 @@ const {
   Pi: initialPunctuationCharacters,
   Pf: finalPunctuationCharacters,
 } = require('unicode/category');
+const { join } = require('path');
 
-const glyphsMapping = require('../glyphsMapping.json');
+const glyphsMapping = require(join(process.cwd(), './glyphsMapping.json'));
 
 const startCharacters = [
   ...Object.values(punctuationStartCharacters)

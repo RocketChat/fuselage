@@ -3,8 +3,9 @@ const SVGIcons2SVGFontStream = require('svgicons2svgfont');
 const ttf2eot = require('ttf2eot');
 const ttf2woff = require('ttf2woff');
 const ttf2woff2 = require('ttf2woff2');
+const { join } = require('path');
 
-const pkg = require('../package.json');
+const pkg = require(join(process.cwd(), './package.json'));
 const { readFile, createReadableFromString } = require('./files');
 const { nextCharactersFor } = require('./glyphs');
 const { mirrorSvg } = require('./svg');

@@ -3,7 +3,7 @@ const { inspect, promisify } = require('util');
 
 const rimraf = require('rimraf');
 
-const pkg = require('../package.json');
+const pkg = require(join(process.cwd(), './package.json'));
 const { encodeEscapedJson, writeFile } = require('./files');
 const {
   createSvgBuffer,
@@ -17,7 +17,7 @@ const { getIconDescriptors } = require('./icons');
 const { createSvgSprite, createSvgIcons } = require('./svg');
 
 const prepareDirectories = async () => {
-  const rootPath = join(__dirname, '..');
+  const rootPath = process.cwd();
   const distPath = join(rootPath, dirname(pkg.main));
   const srcPath = join(rootPath, 'src');
 
@@ -51,7 +51,7 @@ const buildFont = async (icons, distPath) => {
     ),
   ]);
 
-  await writeFile(__dirname, '../glyphsMapping.json', () => glyphsMapping);
+  await writeFile(process.cwd(), './glyphsMapping.json', () => glyphsMapping);
 };
 
 const buildSvgImages = async (icons, distPath) => {
@@ -114,6 +114,4 @@ const buildAll = async () => {
   ]);
 };
 
-if (require.main === module) {
-  buildAll();
-}
+buildAll();
