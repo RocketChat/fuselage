@@ -5689,9 +5689,7 @@ __metadata:
   resolution: "@rocket.chat/fuselage-modal@workspace:packages/fuselage-modal"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/fuselage": "workspace:packages/fuselage"
     "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills"
-    "@rocket.chat/icons": "workspace:packages/icons"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@storybook/addon-essentials": ^6.3.4
     "@storybook/addons": ^6.3.4
@@ -5711,6 +5709,9 @@ __metadata:
     tslib: ^2.3.1
     typedoc: ^0.22.4
     typescript: ^4.4.3
+  peerDependencies:
+    "@rocket.chat/fuselage": "*"
+    "@rocket.chat/icons": "*"
   languageName: unknown
   linkType: soft
 

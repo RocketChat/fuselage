@@ -22,6 +22,16 @@
 
 <!--install-->
 
+Firstly, install the peer dependencies (prerequisites):
+
+```sh
+npm i @rocket.chat/fuselage @rocket.chat/icons
+
+# or, if you are using yarn:
+
+yarn add @rocket.chat/fuselage @rocket.chat/icons
+```
+
 Add `@rocket.chat/fuselage-modal` as a dependency:
 
 ```sh

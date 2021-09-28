@@ -1,4 +1,4 @@
-import type { PropsWithChildren, ReactPortal } from 'react';
+import type { ReactNode, ReactPortal } from 'react';
 import { memo, useState } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -15,7 +15,7 @@ const getModalRoot = () => {
   return newElement;
 };
 
-const ModalPortal = ({ children }: PropsWithChildren<unknown>): ReactPortal => {
+const ModalPortal = ({ children }: { children: ReactNode }): ReactPortal => {
   const [modalRoot] = useState(getModalRoot);
   return createPortal(children, modalRoot);
 };
