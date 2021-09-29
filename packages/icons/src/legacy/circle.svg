@@ -1,3 +1,1 @@
-<svg id="circle" viewBox="0 0 20 20">
-  <path d="M10,18 C5.58217143,18 2,14.4178286 2,10 C2,5.58125714 5.58217143,2 10,2 C14.4187429,2 18,5.58125714 18,10 C18,14.4178286 14.4187429,18 10,18 Z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.cls-1{fill:none;}</style></defs><title>Circle</title><g id="Layer_2" data-name="Layer 2"><g id="Elements_2" data-name="Elements 2"><path d="M12,23.75A11.75,11.75,0,1,1,23.75,12,11.76,11.76,0,0,1,12,23.75ZM12,2.8A9.2,9.2,0,1,0,21.2,12,9.21,9.21,0,0,0,12,2.8Z"/><rect class="cls-1" width="24" height="24"/></g></g></svg>
