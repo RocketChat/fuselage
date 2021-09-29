@@ -28,7 +28,7 @@
   "scripts": {
     "build": "run-s .:build:clean .:build:version .:build:esm .:build:cjs",
     ".:build:clean": "rimraf dist",
-    ".:build:version": "node ./.bin/update-version.js",
+    ".:build:version": "write-version-module",
     ".:build:esm": "tsc -p tsconfig-esm.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
     "lint": "run-s .:lint:eslint .:lint:tsc",
@@ -76,7 +76,8 @@
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3",
-    "webpack": "^5.41.1"
+    "webpack": "^5.41.1",
+    "write-version-module": "workspace:tools/write-version-module"
   },
   "dependencies": {
     "@rocket.chat/fuselage": "workspace:packages/fuselage",

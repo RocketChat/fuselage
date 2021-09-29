@@ -1,15 +1,21 @@
-const svg2ttf = require('svg2ttf');
-const SVGIcons2SVGFontStream = require('svgicons2svgfont');
-const ttf2eot = require('ttf2eot');
-const ttf2woff = require('ttf2woff');
-const ttf2woff2 = require('ttf2woff2');
+import { Readable } from 'stream';
+import svg2ttf from 'svg2ttf';
+import SVGIcons2SVGFontStream from 'svgicons2svgfont';
+import ttf2eot from 'ttf2eot';
+import ttf2woff from 'ttf2woff';
+import ttf2woff2 from 'ttf2woff2';
+import { readSource, readJson } from 'tools-utils/files';
+import { nextCharactersFor } from './glyphs.mjs';
+import { mirrorSvg } from './svg.mjs';
 
-const pkg = require('../package.json');
-const { readFile, createReadableFromString } = require('./files');
-const { nextCharactersFor } = require('./glyphs');
-const { mirrorSvg } = require('./svg');
+const createReadableFromString = (content) => {
+  const stream = new Readable();
+  stream.push(content);
+  stream.push(null);
+  return stream;
+};
 
-const createSvgBuffer = async (icons) => {
+export const createSvgBuffer = async (icons) => {
   const fontStream = new SVGIcons2SVGFontStream({
     fontName: 'RocketChat',
     fontHeight: 1024,
@@ -19,11 +25,9 @@ const createSvgBuffer = async (icons) => {
 
   await Promise.all(
     icons.map(async ({ name, type, path }) => {
-      const content = await readFile(path);
-      const { start: startCharacter, end: endCharacter } = nextCharactersFor(
-        name,
-        type
-      );
+      const content = await readSource(path);
+      const { start: startCharacter, end: endCharacter } =
+        await nextCharactersFor(name, type);
 
       const stream = createReadableFromString(content);
       stream.metadata = {
@@ -57,8 +61,9 @@ const createSvgBuffer = async (icons) => {
   });
 };
 
-const createTtfBuffer = (svgBuffer) =>
-  Buffer.from(
+export const createTtfBuffer = async (svgBuffer) => {
+  const pkg = await readJson('./package.json');
+  return Buffer.from(
     svg2ttf(svgBuffer.toString('utf8'), {
       copyright: pkg.copyright,
       description: pkg.description,
@@ -66,18 +71,13 @@ const createTtfBuffer = (svgBuffer) =>
       version: pkg.version.split('.').slice(0, 2).join('.'),
     }).buffer
   );
+};
 
-const createWoffBuffer = (ttfBuffer) =>
+export const createWoffBuffer = async (ttfBuffer) =>
   Buffer.from(ttf2woff(new Uint8Array(ttfBuffer)).buffer);
 
-const createWoff2Buffer = (ttfBuffer) =>
+export const createWoff2Buffer = async (ttfBuffer) =>
   Buffer.from(ttf2woff2(new Uint8Array(ttfBuffer)).buffer);
 
-const createEotBuffer = (ttfBuffer) =>
+export const createEotBuffer = async (ttfBuffer) =>
   Buffer.from(ttf2eot(new Uint8Array(ttfBuffer)).buffer);
-
-module.exports.createSvgBuffer = createSvgBuffer;
-module.exports.createTtfBuffer = createTtfBuffer;
-module.exports.createWoffBuffer = createWoffBuffer;
-module.exports.createWoff2Buffer = createWoff2Buffer;
-module.exports.createEotBuffer = createEotBuffer;

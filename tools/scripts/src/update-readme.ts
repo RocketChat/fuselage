@@ -9,7 +9,7 @@ import { rootReadme as rootTemplate } from './readme-templates/rootReadme';
 import { replaceSections } from './readme-templates/section';
 import { Package } from './types/Package';
 
-const rootDir = join(__dirname, '../..');
+const rootDir = join(__dirname, '../../..');
 
 const getPackages = async () => {
   const packagesDir = join(rootDir, 'packages');

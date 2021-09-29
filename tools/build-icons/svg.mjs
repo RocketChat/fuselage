@@ -1,22 +1,22 @@
-const { promisify } = require('util');
-
-const { parseString, Builder } = require('xml2js');
-
-const { readFile } = require('./files');
+import { promisify } from 'util';
+import { parseString, Builder } from 'xml2js';
+import { readSource } from 'tools-utils/files';
 
 const xmlBuilder = new Builder({ headless: true });
 
-const mirrorSvg = async (content) => {
+export const mirrorSvg = async (content) => {
   const xml = await promisify(parseString)(content);
   const [x1, , x2] = xml.svg.$.viewBox.split(' ');
-  xml.svg.$.transform = `translate(${x2 - x1} 0) scale(-1 1)`;
+  xml.svg.$.transform = `translate(${
+    parseInt(x2, 10) - parseInt(x1, 10)
+  } 0) scale(-1 1)`;
   return xmlBuilder.buildObject(xml);
 };
 
-const createSvgIcons = (icons) =>
+export const createSvgIcons = (icons) =>
   Promise.all(
     icons.map(async ({ name, type, path }) => {
-      const content = await readFile(path);
+      const content = await readSource(path);
       const {
         svg: {
           $: { viewBox },
@@ -40,7 +40,7 @@ const createSvgIcons = (icons) =>
     })
   );
 
-const createSvgSprite = async (svgIcons) =>
+export const createSvgSprite = async (svgIcons) =>
   [
     '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">',
     ...svgIcons.map(({ name, type, viewBox, elements }) =>
@@ -58,7 +58,3 @@ const createSvgSprite = async (svgIcons) =>
     ),
     '</svg>',
   ].join('\n');
-
-module.exports.mirrorSvg = mirrorSvg;
-module.exports.createSvgIcons = createSvgIcons;
-module.exports.createSvgSprite = createSvgSprite;
