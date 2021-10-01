@@ -11,6 +11,7 @@ type PackageList = {
 };
 
 type PackageManifest = {
+  version?: string;
   dependencies?: PackageList;
   devDependencies?: PackageList;
   peerDependencies?: PackageList;
@@ -41,6 +42,7 @@ const patchPackageManifest = async (
     await readFile(packageManifestsPath, { encoding: 'utf-8' })
   ) as PackageManifest;
 
+  packageManifest.version = version;
   patchPackageList(packageManifest.dependencies, version);
   patchPackageList(packageManifest.devDependencies, version);
   patchPackageList(packageManifest.peerDependencies, version);

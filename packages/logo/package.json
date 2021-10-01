@@ -43,9 +43,9 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rocket.chat/eslint-config-alt": "^0.29.0",
+    "@rocket.chat/fuselage-tokens": "^0.29.0",
+    "@rocket.chat/prettier-config": "^0.29.0",
     "@types/jest": "^27.0.1",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
@@ -62,7 +62,7 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
+    "@rocket.chat/fuselage-hooks": "^0.29.0",
     "tslib": "^2.3.1"
   },
   "peerDependencies": {

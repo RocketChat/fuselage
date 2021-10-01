@@ -1,5 +1,6 @@
 {
   "name": "write-version-module",
   "private": true,
-  "bin": "./index.mjs"
+  "bin": "./index.mjs",
+  "version": "0.29.0"
 }
