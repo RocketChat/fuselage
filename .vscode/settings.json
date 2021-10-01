@@ -5,7 +5,7 @@
       "changeProcessCWD": true
     },
     {
-      "directory": "scripts",
+      "directory": "tools/*",
       "changeProcessCWD": true
     }
   ],

@@ -2,7 +2,7 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "scripts"
+    "tools/*"
   ],
   "devDependencies": {
     "husky": "^6.0.0",
@@ -25,6 +25,10 @@
     "create-package": "hygen create-package"
   },
   "devEngines": {
-    "node": "^14.0"
+    "node": "~14.17.6"
+  },
+  "volta": {
+    "node": "14.17.6",
+    "yarn": "1.22.11"
   }
 }

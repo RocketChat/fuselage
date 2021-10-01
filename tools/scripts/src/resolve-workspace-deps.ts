@@ -4,7 +4,7 @@ import { join } from 'path';
 
 import fg from 'fast-glob';
 
-const rootDir = join(__dirname, '../..');
+const rootDir = join(__dirname, '../../..');
 
 type PackageList = {
   [packageName: string]: string;
