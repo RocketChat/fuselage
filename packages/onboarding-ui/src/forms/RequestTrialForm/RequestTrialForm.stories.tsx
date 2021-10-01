@@ -24,7 +24,7 @@ export default {
       ['4', '251-500 people'],
       ['5', '501-1000 people'],
       ['6', '1001-4000 people'],
-      ['7', '4000 or more people'],
+      ['7', '4001 or more people'],
     ],
     countryOptions: [
       ...Object.entries(countries).map<readonly [string, string]>(

@@ -120,6 +120,7 @@ const RequestTrialForm = ({
                 <SelectFiltered
                   {...field}
                   options={countryOptions}
+                  width='full'
                   placeholder={t(
                     'form.requestTrialForm.fields.country.placeholder'
                   )}
