@@ -11,12 +11,17 @@
     "lerna": "^4.0.0",
     "webpack": "^5.41.1"
   },
+  "rc-launcher": {
+    "build": [
+      "./dist"
+    ]
+  },
   "scripts": {
     "build": "rc-launcher-run build",
     "lint": "rc-launcher-run lint",
     "lint-fix": "yarn workspaces foreach -v --topological-dev run lint-fix",
     "lint-staged": "yarn workspaces foreach -v --topological-dev run lint-staged",
-    "test": "rc-launcher-run tests",
+    "test": "rc-launcher-run test",
     "docs": "yarn workspaces foreach -v --topological-dev run docs",
     "build-storybook": "rc-launcher-run build-storybook",
     "update-storybook": "rc-launcher-run update-storybook",

@@ -29,38 +29,29 @@ export const run = async (
     throw new Error('No command provided');
   }
 
+  const packageWorkspaceJson = (await readJson(
+    path.join(cwd, 'package.json')
+  )) as IPackageJson;
+
+  const cachedAssets: string[] =
+    packageWorkspaceJson['rc-launcher'][command] || [];
+
   for await (const pkg of packages) {
     if (!pkg.name || pkg.name === '@rocket.chat/fuselage-tokens') {
       continue;
     }
+
     const packagePath = path.join(cwd, pkg.location);
 
     const packageDefinition = (await readJson(
       path.join(packagePath, 'package.json')
     )) as IPackageJson;
 
-    const packageDist = path.join(packagePath, 'dist');
     const [fingerprint] = await getFingerprint(pkg.name, packagePath, {});
 
     if (!fingerprint) {
       continue;
     }
-
-    const cacheFolder = path.join(
-      process.cwd(),
-      config.cache,
-      Launcher.name,
-      pkg.location,
-      fingerprint
-    );
-
-    const exists = await fs.pathExists(cacheFolder);
-
-    console.log(
-      `📦  ${pkg.name} fingerprint:${fingerprint} ${
-        exists ? 'cache found' : 'no cache found'
-      }`
-    );
 
     if (
       !packageDefinition.scripts ||
@@ -70,23 +61,81 @@ export const run = async (
       continue;
     }
 
+    const stdoutPathDir = path.join(
+      process.cwd(),
+      config.cache,
+      Launcher.name,
+      pkg.location,
+      'stdout',
+      command
+    );
+    const stdoutPath = path.join(stdoutPathDir, fingerprint);
+
+    const packageCachedAssets: [string, string][] = cachedAssets.map((dir) => {
+      const packageDist = path.join(packagePath, dir);
+      const cacheFolder = path.join(
+        process.cwd(),
+        config.cache,
+        Launcher.name,
+        pkg.location,
+        command,
+        fingerprint,
+        dir
+      );
+      return [packageDist, cacheFolder];
+    });
+    packageCachedAssets.push(['', stdoutPathDir]);
+    const exists = (
+      await Promise.all(
+        packageCachedAssets.map(([_, cacheFolder]) =>
+          fs.pathExists(cacheFolder)
+        )
+      )
+    ).every((exists) => Boolean(exists));
+
+    console.log(
+      `📦  ${command} ${pkg.name} fingerprint:${fingerprint} ${
+        exists ? 'cache found' : 'no cache found'
+      }`
+    );
+
     if (exists) {
-      await fs.copy(cacheFolder, packageDist); // restore from cache
+      await Promise.all(
+        packageCachedAssets.map(([packageDist, cacheFolder]) => {
+          if (packageDist) {
+            fs.copy(cacheFolder, packageDist);
+          }
+          return undefined;
+        })
+      );
+      // restore from cache
       console.log(`✅ ${pkg.name} cache restored`);
       continue;
     }
-    console.log(`📦  Building ${pkg.name}`);
+    console.log(`📦  ${command} ${pkg.name}`);
 
-    execa.commandSync(`yarn ${command}`, {
+    fs.mkdirpSync(stdoutPathDir);
+
+    const stdout = fs.createWriteStream(stdoutPath, { flags: 'w' });
+
+    const cmd = execa.commandSync(`yarn ${command}`, {
       cwd: packagePath,
-      shell: true,
-      preferLocal: true,
-      stdout: 'inherit',
-      stderr: 'inherit',
     });
-    console.log(`✅ Building ${pkg.name} done`);
 
-    await fs.copy(packageDist, cacheFolder); // restore from cache
+    stdout.write(cmd.stdout);
+    stdout.end();
+
+    console.log(`✅ ${command} ${pkg.name} done`);
+
+    await Promise.all(
+      packageCachedAssets.map(([packageDist, cacheFolder]) => {
+        console.log(`📦  ${packageDist} ${cacheFolder} cache`);
+        if (packageDist) {
+          fs.copy(packageDist, cacheFolder);
+        }
+        return undefined;
+      })
+    );
   }
 };
 
