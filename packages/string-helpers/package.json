@@ -41,8 +41,8 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.30.0",
-    "@rocket.chat/prettier-config": "^0.30.0",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@types/jest": "^27.0.2",
     "eslint": "^7.32.0",
     "jest": "^27.2.1",

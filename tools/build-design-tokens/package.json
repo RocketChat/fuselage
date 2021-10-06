@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "stylelint": "^13.13.1",
-    "tools-utils": "^0.30.0"
+    "tools-utils": "workspace:tools/tools-utils"
   },
   "version": "0.30.0"
 }

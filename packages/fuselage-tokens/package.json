@@ -41,9 +41,9 @@
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.30.0",
-    "@rocket.chat/prettier-config": "^0.30.0",
-    "build-design-tokens": "^0.30.0",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "build-design-tokens": "workspace:tools/build-design-tokens",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
