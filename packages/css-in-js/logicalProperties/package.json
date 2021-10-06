@@ -1,6 +1,0 @@
-{
-  "name": "@rocket.chat/css-in-js/logicalProperties",
-  "private": true,
-  "main": "../dist/logicalProperties.js",
-  "module": "../dist/logicalProperties.module.js"
-}

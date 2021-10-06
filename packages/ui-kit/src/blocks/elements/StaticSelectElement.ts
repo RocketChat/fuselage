@@ -1,14 +1,13 @@
 import { Actionable } from '../Actionable';
-import { BlockElementType } from '../BlockElementType';
 import { Option } from '../Option';
 import { OptionGroup } from '../OptionGroup';
 import { TextObject } from '../TextObject';
 
 export type StaticSelectElement = Actionable<
   {
-    type: `${BlockElementType.STATIC_SELECT}`;
+    type: 'static_select';
     placeholder: TextObject;
-    options: Option[];
-    optionGroups?: OptionGroup[];
+    options: readonly Option[];
+    optionGroups?: readonly OptionGroup[];
   } & ({ initialOption?: Option } | { initialValue?: Option['value'] })
 >;

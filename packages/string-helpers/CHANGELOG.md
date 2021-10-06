@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.28.0...v0.29.0) (2021-08-31)
+
+**Note:** Version bump only for package @rocket.chat/string-helpers
+
+
+
+
+
+# [0.28.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.27.0...v0.28.0) (2021-07-30)
+
+
+### Bug Fixes
+
+* Escape trademark sign ([#500](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/500)) ([801de02](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/801de023f964f89b42da4528f0e7c7deb7c04429)), closes [RocketChat#7386](https://github.com/RocketChat/issues/7386)
+
+
+### Features
+
+* **onboarding-ui:** Administrator information form and Organization information form ([#489](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/489)) ([b289f68](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b289f68676954b91c792d8d97680314178bf2c60))
+* styled API; monorepo grooming ([#482](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/482)) ([1b6b70c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1b6b70cf67ec16927b1566adc2350295a8927223))
+
+
+
+
+
+# [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
+
+
+### Bug Fixes
+
+* **string-helpers:**  typesVersions ([#469](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/469)) ([e393d98](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e393d9835bc66084c9041cab5c0e14d1ffca4ef7))
+
+
+
+
+
 # [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
 
 **Note:** Version bump only for package @rocket.chat/string-helpers

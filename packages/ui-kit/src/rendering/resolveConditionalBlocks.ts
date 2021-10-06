@@ -21,16 +21,16 @@ const conditionsMatch = (
   return true;
 };
 
-export const resolveConditionalBlocks = (conditions?: Conditions) => (
-  block: Block
-): Block[] => {
-  if (block.type !== LayoutBlockType.CONDITIONAL) {
-    return [block];
-  }
+export const resolveConditionalBlocks =
+  (conditions?: Conditions) =>
+  (block: Block): readonly Block[] => {
+    if (block.type !== LayoutBlockType.CONDITIONAL) {
+      return [block];
+    }
 
-  if (conditionsMatch(conditions, block.when)) {
-    return block.render;
-  }
+    if (conditionsMatch(conditions, block.when)) {
+      return block.render;
+    }
 
-  return [];
-};
+    return [];
+  };

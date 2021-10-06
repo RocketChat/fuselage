@@ -9,7 +9,6 @@
   flex-shrink: 0;
 
   width: 100%;
-  margin-block: lengths.margin(-2);
 
   &__label {
     @include typography.use-font-scale(p2);

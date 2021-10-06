@@ -39,7 +39,7 @@ export const holdContext = (): [EvaluationContext, () => string] => {
 /**
  * A function that lazily evaluates a special string interpolation.
  */
-type Evaluable = (...args: readonly unknown[]) => string;
+type Evaluable = <T extends readonly unknown[]>(...args: T) => string;
 
 const isEvaluable = (x: unknown): x is Evaluable => typeof x === 'function';
 
@@ -101,7 +101,7 @@ export const css = (
     return staticEvaluable(content);
   }
 
-  return (...args: unknown[]): string => {
+  return <T extends readonly unknown[]>(...args: T): string => {
     const [, freeContext] = holdContext();
 
     const content = reduceEvaluable(slices, values, args);
@@ -127,7 +127,9 @@ export const keyframes = (
     return staticEvaluable('none');
   }
 
-  const fn: keyframesFn = (...args: unknown[]): string => {
+  const fn: keyframesFn = <T extends readonly unknown[]>(
+    ...args: T
+  ): string => {
     const [context, freeContext] = holdContext();
 
     const content = reduceEvaluable(slices, values, args);

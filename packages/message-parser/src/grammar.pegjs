@@ -8,6 +8,7 @@
     code,
     link,
     heading,
+    image,
     inlineCode,
     quote,
     reducePlainTexts,
@@ -58,6 +59,7 @@ Inline
       Whitespace
       / Emoji
       / InlineCode
+      / Image
       / References
       / AutolinkedPhone
       / AutolinkedURL
@@ -66,11 +68,14 @@ Inline
       / Color
       / UserMention
       / ChannelMention
+      / Escaped
       / Any
     )+
     EndOfLine? { return reducePlainTexts(value); }
 
 Whitespace = w:" "+ { return plain(w.join('')); }
+
+Escaped = "\\" t:any { return plain(t); }
 
 Any = !EndOfLine t:any { return plain(t); }
 
@@ -109,45 +114,45 @@ Space
 
 anyText
   = [\x20-\x27] /*     ! " # $ % & ' ( )   */
-  / [\x2B-\x40]
-  / [\x41-\x5A]
-  / [\x61-\x7A]
+  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x5A] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+  / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
 anyText2
-  = [\x20-\x40]
-  / [\x41-\x60]
-  / [\x61-\xFFFF]
+  = [\x20-\x40] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x60] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
+  / [\x61-\xFFFF] // a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~                                    ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
   / nonascii
 
 ListText
-  = [\x20-\x27]
-  / [\x2B-\x40]
-  / [\x41-\x5A]
-  / [\x60-\x7A]
+  = [\x20-\x27] // `  ! " # $ % & '`
+  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x5A] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+  / [\x60-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
 LinkText
-  = [\x20-\x2A]
-  / [\x2B-\x40]
-  / [\x41-\x5B]
-  / [\x61-\x7A]
+  = [\x20-\x2A] //  ! " # $ % & ' ( ) *
+  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x5B] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [
+  / [\x61-\x7A] //  a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
 CodeText
-  = [\x20-\x2A]
-  / [\x2B-\x40]
-  / [\x41-\x5F]
-  / [\x61-\x7E]
+  = [\x20-\x2A] //  ! " # $ % & ' ( ) *
+  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x5F] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _
+  / [\x61-\x7E] //   a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
   / nonascii
   / EndOfLine
   / Space
 
 SectionText
   = [-]+
-  / [\x20-\x40]
-  / [\x41-\x60]
-  / [\x61-\x7A]
+  / [\x20-\x40] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
+  / [\x41-\x60] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
+  / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
 Not_enter = text:($:(!"\n" s:. { return s; })+) { return plain(text.join('')); }
@@ -210,7 +215,7 @@ Italic
 Italic_Content = text:italic_Content { return italic(text); }
 
 italic_Content
-  = text:(Bold / Strikethrough / Line / AnyItalic)+ {
+  = text:(References / Bold / Strikethrough / Line / AnyItalic)+ {
       return reducePlainTexts(text);
     }
 
@@ -221,7 +226,7 @@ Bold
   / [\x2A] b:Bold_Content [\x2A] { return b; }
 
 Bold_Content
-  = text:(Italic / Strikethrough / Line / AnyBold)+ {
+  = text:(References / Italic / Strikethrough / Line / AnyBold)+ {
       return bold(reducePlainTexts(text));
     }
 
@@ -232,7 +237,7 @@ Strikethrough
   / [\x7E] s:Strikethrough_Content [\x7E] { return s; }
 
 Strikethrough_Content
-  = text:(Italic / Bold / Line / AnyStrike)+ {
+  = text:(References / Italic / Bold / Line / AnyStrike)+ {
       return strike(reducePlainTexts(text));
     }
 
@@ -311,21 +316,38 @@ LineCode__any = $:(!"\n" !"```" t:. { return t; })+
 
 LineCode "LineCode"
   = text:LineCode__any { return codeLine(plain(text.join(''))); }
-  / "\n"+ text:LineCode__any { return codeLine(plain(text.join(''))); }
+  / "\n" text:LineCode__any { return codeLine(plain(text.join(''))); }
+  / "\n" !"```" { return codeLine(plain('')); }
 
 MultiplelLineCode
   = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
 
+// <www.github.com|Visit GitHub!>
 // [Visit GitHub!](www.github.com)
 
-LinkTitle = "[" text:(Emphasis / Line / Whitespace) "]" { return text; }
+LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
 
-LinkRef
-  = "(" text:(URL / p:Phone { return 'tel:' + p.number; }) ")" { return text; }
+LinkRef = text:(URL / p:Phone { return 'tel:' + p.number; }) { return text; }
+
+Image
+  = "![](" href:LinkRef ")" { return image(href); }
+  / "![" title:LinkTitle "](" href:LinkRef ")" { return image(href, title); }
+
+LinkTitle2
+  = $(
+    [\x20-\x3C] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ;
+    / [\x3D\x3F-\x60] // = ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
+    / [\x61-\x7B] // a b c d e f g h i j k l m n o p q r s t u v w x y z {
+    / [\x7D-\xFF] // } ~                                    ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
+    / nonascii
+  )+
 
 References
-  = "[]" href:LinkRef { return link(href); }
-  / title:LinkTitle href:LinkRef { return link(href, title); }
+  = "[](" href:LinkRef ")" { return link(href); }
+  / "[" title:LinkTitle "](" href:LinkRef ")" { return link(href, title); }
+  / "<" href:LinkRef "|" title:LinkTitle2 ">" {
+      return link(href, plain(title));
+    }
 
 /* Macros */
 
@@ -414,6 +436,7 @@ safe
   / "."
   / "&"
   / "="
+  / "%"
 
 extra
   = "!"
@@ -429,6 +452,7 @@ extra
   / "?"
   / "#"
   / "="
+  / "~"
 
 hexdigit = [0-9A-Fa-f]
 
@@ -442,7 +466,7 @@ domainName
 
 domainNameLabel = $(domainChar domainChar+ $("-" domainChar+)*)
 
-domainChar = !"/" !safe !extra !EndOfLine !Space .
+domainChar = !"/" !"|" !">" !"<" !safe !extra !EndOfLine !Space .
 
 /**
  *
@@ -541,11 +565,11 @@ urlAuthorityHostName
 urlAuthorityPort
   = digits // TODO: from "0" to "65535"
 
-urlPath = $("/" $(alpha_digit / safe)+ urlPath*)
+urlPath = $("/" $(alpha_digit / safe)* urlPath*)
 
 urlQuery = $("?" $(alpha_digit / safe)*)
 
-urlFragment = $("#" $(alpha_digit / safe)*)
+urlFragment = $("#" $(alpha_digit / extra / safe)*)
 
 /**
  *

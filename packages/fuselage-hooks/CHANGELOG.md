@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.28.0...v0.29.0) (2021-08-31)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-hooks
+
+
+
+
+
+# [0.28.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.27.0...v0.28.0) (2021-07-30)
+
+
+### Features
+
+* **onboarding-ui:** Administrator information form and Organization information form ([#489](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/489)) ([b289f68](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b289f68676954b91c792d8d97680314178bf2c60))
+* **onboarding-ui:** Common components ([#478](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/478)) ([d7511ab](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d7511ab435bae8c35e02071832c9a615078a83d5))
+* styled API; monorepo grooming ([#482](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/482)) ([1b6b70c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1b6b70cf67ec16927b1566adc2350295a8927223))
+
+
+
+
+
+# [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
+
+
+### Features
+
+* Visibility toggle for PasswordInput ([#377](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/377)) ([5ef1bec](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5ef1bec606e626704235cadfdb9bb7d424f8e481))
+
+
+
+
+
 # [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
 
 

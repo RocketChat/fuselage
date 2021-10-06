@@ -1,7 +1,5 @@
-import { TextObjectType } from '../TextObjectType';
-
 export type PlainText = {
-  type: `${TextObjectType.PLAIN_TEXT}`;
+  type: 'plain_text';
   text: string;
   emoji?: boolean;
 };

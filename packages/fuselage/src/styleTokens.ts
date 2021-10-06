@@ -1,4 +1,4 @@
-import { cssSupports } from '@rocket.chat/css-in-js';
+import { cssSupports } from '@rocket.chat/css-supports';
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
@@ -135,7 +135,8 @@ const getForegroundColor = (
   return [`--rcx-color-foreground-${type}`, color];
 };
 
-const paletteColorRegex = /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
+const paletteColorRegex =
+  /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
 export const color = memoize((value) => {
   if (typeof value !== 'string') {
@@ -248,29 +249,29 @@ type FontScale = keyof typeof tokenTypography.fontScales;
 const isFontScale = (value: unknown): value is FontScale =>
   typeof value === 'string' && value in tokenTypography.fontScales;
 
-export const fontScale = memoize((value: unknown):
-  | {
-      fontSize: string;
-      fontWeight: number;
-      lineHeight: string;
-      letterSpacing: string;
+export const fontScale = memoize(
+  (
+    value: unknown
+  ):
+    | {
+        fontSize: string;
+        fontWeight: number;
+        lineHeight: string;
+        letterSpacing: string;
+      }
+    | undefined => {
+    if (!isFontScale(value)) {
+      return undefined;
     }
-  | undefined => {
-  if (!isFontScale(value)) {
-    return undefined;
+
+    const { fontSize, fontWeight, lineHeight, letterSpacing } =
+      tokenTypography.fontScales[value];
+
+    return {
+      fontSize: `${fontSize / 16}rem`,
+      fontWeight,
+      lineHeight: `${lineHeight / 16}rem`,
+      letterSpacing: `${letterSpacing / 16}rem`,
+    };
   }
-
-  const {
-    fontSize,
-    fontWeight,
-    lineHeight,
-    letterSpacing,
-  } = tokenTypography.fontScales[value];
-
-  return {
-    fontSize: `${fontSize / 16}rem`,
-    fontWeight,
-    lineHeight: `${lineHeight / 16}rem`,
-    letterSpacing: `${letterSpacing / 16}rem`,
-  };
-});
+);

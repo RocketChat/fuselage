@@ -5,6 +5,7 @@ module.exports = {
     '<rootDir>/src/**/*.spec.{js,ts,tsx}',
     '<rootDir>/src/**/spec.{js,ts,tsx}',
   ],
+  testEnvironment: 'jsdom',
   globals: {
     'ts-jest': {
       tsconfig: {

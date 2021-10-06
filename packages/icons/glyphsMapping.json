@@ -781,5 +781,38 @@
   },
   "headphone-off": {
     "start": "\ue0d8"
+  },
+  "brush": {
+    "start": "\ue0d9"
+  },
+  "crop": {
+    "start": "\ue0da"
+  },
+  "cross-small": {
+    "start": "\ue0db"
+  },
+  "globe-off": {
+    "start": "\ue0dc"
+  },
+  "plus-small": {
+    "start": "\ue0dd"
+  },
+  "text-increase": {
+    "start": "\ue0de"
+  },
+  "text-decrease": {
+    "start": "\ue0df"
+  },
+  "phone-disabled": {
+    "start": "\ue0e0"
+  },
+  "sms": {
+    "start": "\ue0e1"
+  },
+  "phone-in": {
+    "start": "\ue0e2"
+  },
+  "phone-out": {
+    "start": "\ue0e3"
   }
 }

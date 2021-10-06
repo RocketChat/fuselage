@@ -1,7 +1,20 @@
 import { parser } from '../src';
-import { bold, paragraph, plain, italic, strike } from '../src/utils';
+import { bold, link, paragraph, plain, italic, strike } from '../src/utils';
 
 test.each([
+  [
+    '*[A brand new Gist](https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4)*',
+    [
+      paragraph([
+        bold([
+          link(
+            'https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4',
+            plain('A brand new Gist')
+          ),
+        ]),
+      ]),
+    ],
+  ],
   ['**bold**', [paragraph([bold([plain('bold')])])]],
   ['** bold**', [paragraph([bold([plain(' bold')])])]],
   ['** bold **', [paragraph([bold([plain(' bold ')])])]],

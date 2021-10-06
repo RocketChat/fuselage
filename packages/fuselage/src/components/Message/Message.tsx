@@ -1,15 +1,15 @@
 import React, {
-  ComponentProps,
+  AllHTMLAttributes,
   FC,
   forwardRef,
-  ForwardRefExoticComponent,
+  ReactElement,
+  ReactNode,
 } from 'react';
 
 import './Messages.styles.scss';
 
-import { Tag } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
-import { Box } from '../Box';
+import { Tag } from '../Tag';
 import { Divider } from './Divider';
 import { Metrics } from './Metrics';
 import { Toolbox } from './Toolbox';
@@ -29,16 +29,20 @@ const ContainerFixed: FC = function Container(props) {
   );
 };
 
-export const MessageLeftContainer: FC = function MessageLeftContainer(props) {
-  return (
-    <div
-      className='rcx-box rcx-box--full rcx-message-container rcx-message-container--left'
-      {...props}
-    />
-  );
+type MessageLeftContainerProps = {
+  children?: ReactNode;
 };
 
-export const MessageHeader: FC = function Header({ children }) {
+export const MessageLeftContainer = (
+  props: MessageLeftContainerProps
+): ReactElement => (
+  <div
+    className='rcx-box rcx-box--full rcx-message-container rcx-message-container--left'
+    {...props}
+  />
+);
+
+const MessageHeader: FC = function Header({ children }) {
   return (
     <div className='rcx-box rcx-box--full rcx-message-header'>
       <div className='rcx-box rcx-box--full rcx-message-header__wrapper'>
@@ -48,27 +52,30 @@ export const MessageHeader: FC = function Header({ children }) {
   );
 };
 
-export const MessageBody: FC<{
+type MessageBodyProps = AllHTMLAttributes<HTMLDivElement> & {
   clamp?: 2 | 3 | 4;
-  className?: string | string[];
-}> = function Body({ clamp, className, ...props }) {
-  return (
-    <div
-      className={
-        prependClassName(
-          className,
-          [
-            'rcx-message-body',
-            clamp && `rcx-message-body--clamp rcx-message-body--clamp-${clamp}`,
-          ]
-            .filter(Boolean)
-            .join(' ')
-        ) as string
-      }
-      {...props}
-    />
-  );
 };
+
+const MessageBody = ({
+  clamp,
+  className,
+  ...props
+}: MessageBodyProps): ReactElement => (
+  <div
+    className={
+      prependClassName(
+        className,
+        [
+          'rcx-message-body',
+          clamp && `rcx-message-body--clamp rcx-message-body--clamp-${clamp}`,
+        ]
+          .filter(Boolean)
+          .join(' ')
+      ) as string
+    }
+    {...props}
+  />
+);
 
 export const MessageBlock: FC<{ className?: string }> = function MessageBlock({
   className,
@@ -87,41 +94,39 @@ export const MessageBlock: FC<{ className?: string }> = function MessageBlock({
   );
 };
 
-type MessageProps = ComponentProps<typeof Box> & {
+type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   clickable?: true | false;
   sequential?: boolean;
   className?: string;
 };
 
-export const Message: ForwardRefExoticComponent<MessageProps> = forwardRef(
-  function Message(
-    {
-      // is: Tag = 'div',
-      className,
-      clickable,
-      sequential,
-      ...props
-    },
-    ref
-  ) {
-    return (
-      <div
-        ref={ref}
-        className={prependClassName(
-          className,
-          [
-            'rcx-message',
-            (clickable || props.onClick) && 'rcx-message--clickable',
-            sequential && 'rcx-message--sequential',
-          ]
-            .filter(Boolean)
-            .join(' ')
-        )}
-        {...(props as any)}
-      />
-    );
-  }
-);
+const Message = forwardRef<HTMLDivElement, MessageProps>(function Message(
+  {
+    // is: Tag = 'div',
+    className,
+    clickable,
+    sequential,
+    ...props
+  },
+  ref
+) {
+  return (
+    <div
+      ref={ref}
+      className={prependClassName(
+        className,
+        [
+          'rcx-message',
+          (clickable || props.onClick) && 'rcx-message--clickable',
+          sequential && 'rcx-message--sequential',
+        ]
+          .filter(Boolean)
+          .join(' ')
+      )}
+      {...props}
+    />
+  );
+});
 
 export const MessageTimestamp: FC<{ children: string }> = function Timestamp(
   props
@@ -172,7 +177,7 @@ export const MessageRoles: FC = function Role(props) {
   );
 };
 
-Object.assign(Message, {
+export default Object.assign(Message, {
   Metrics,
   Toolbox,
   Container: MessageContainer,

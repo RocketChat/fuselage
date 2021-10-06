@@ -9,9 +9,10 @@ import {
   Task,
 } from './definitions';
 
-const generate = <Type extends keyof Types>(type: Type) => (
-  value: Types[Type]['value']
-): Types[Type] => ({ type, value } as any);
+const generate =
+  <Type extends keyof Types>(type: Type) =>
+  (value: Types[Type]['value']): Types[Type] =>
+    ({ type, value } as any);
 
 export const paragraph = generate('PARAGRAPH');
 
@@ -58,12 +59,20 @@ export const italic = generate('ITALIC');
 
 export const plain = generate('PLAIN_TEXT');
 export const strike = generate('STRIKE');
+
 export const codeLine = generate('CODE_LINE');
 export const link = (() => {
   const fn = generate('LINK');
   return (src: string, label?: Markup) =>
     fn({ src: plain(src), label: label || plain(src) });
 })();
+
+export const image = (() => {
+  const fn = generate('IMAGE');
+  return (src: string, label?: Markup) =>
+    fn({ src: plain(src), label: label || plain(src) });
+})();
+
 export const quote = generate('QUOTE');
 
 export const mentionChannel = (() => {

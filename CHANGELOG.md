@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.28.0...v0.29.0) (2021-08-31)
+
+
+### Bug Fixes
+
+* missing default values ([8d850a1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8d850a18f6f58ad77d984bf2ef0756ddd5576743))
+* review ([bfc0b97](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bfc0b97b2a43c6681383bba3f97202c53e8d6256))
+* **onboarding-ui:** Export RequestTrialPage ([#522](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/522)) ([f9cbf3b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f9cbf3b369add738dac49c725f10dd486760926a))
+* modal styles ([de15810](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/de158102f711658cdda8899a74cbefdff29fa48a))
+* **onboarding-ui:** Labels wrapping under checkbox ([#509](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/509)) ([99b873e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/99b873e794ad3451ed6d4860545a4c61a133ca2f))
+* Missing Sidebar type ([#506](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/506)) ([431a5be](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/431a5be22373abc2db0e681c0d8f138adcc4e832))
+
+
+### Features
+
+* **icons:** New icons ([#511](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/511)) ([1fa7748](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1fa774819edea5b4bda9e58a6b272745c7c6ad57))
+* **onboarding-ui:** Check your email page ([#513](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/513)) ([50caee8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/50caee84b3357beb0aebdd713eed2f0766ec910f))
+* **onboarding-ui:** CloudOrganizationInfo Page ([#498](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/498)) ([4d04e66](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4d04e66836d5dc57e8efb0ac222d03234733e4e3))
+* **onboarding-ui:** Create Cloud Workspace Form ([#499](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/499)) ([afd88bf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/afd88bf68c442e3fe487081b98622de392598df6))
+* **onboarding-ui:** Magic Link Email Page ([#524](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/524)) ([a5b56af](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a5b56af04299c604933451f2bf7bd6b9b828af45))
+* **onboarding-ui:** Request trial form ([#505](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/505)) ([4c1bd35](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4c1bd35324903badee9fec79e878ab045f7d5897))
+* **onboarding-ui:** Request trial page ([#515](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/515)) ([bdbae4e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bdbae4e142aa8694a9400db873c1c417b7db1e82))
+
+
+
+
+
+# [0.28.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.27.0...v0.28.0) (2021-07-30)
+
+
+### Bug Fixes
+
+* Add Tab.Item definition ([#503](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/503)) ([9a7f3d5](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9a7f3d5a357bb9bea1f5cf85c50d90398f916bee))
+* Escape trademark sign ([#500](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/500)) ([801de02](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/801de023f964f89b42da4528f0e7c7deb7c04429)), closes [RocketChat#7386](https://github.com/RocketChat/issues/7386)
+* Forwarding ref in Select components ([#492](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/492)) ([6c360bd](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6c360bd040da19dc331b7fb8d208418a5b51f916))
+* Missing Sidebar type ([#506](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/506)) ([78f202d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/78f202d5b84f1bc7fe638070ece020126dcdd686))
+* Sidebar item icon styles ([#481](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/481)) ([86b333a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/86b333a790563c9178712e5f1240d36fa0fb5be5))
+* **fuselage:** No preventDefault on PaginatedSelect ([#490](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/490)) ([0ffb736](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0ffb736b1cc1c9a6d7897fbcf89baf42573c6c33))
+* **fuselage-ui-kit:** Implements missing url prop for buttons ([#488](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/488)) ([bb19344](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bb193441804c9b20174e2586d22c4b2845a486c3))
+* Table props ([#484](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/484)) ([67b6f27](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/67b6f2757c551b9b455a5babd51e0bc89f12ed71))
+
+
+### Features
+
+* **onboarding-ui:** AdminInfoPage for Cloud Registration wizard ([#497](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/497)) ([7557dce](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7557dcea5c8afe6f658062125ab949d4ab27a45a))
+* **onboarding-ui:** Administrator information form and Organization information form ([#489](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/489)) ([b289f68](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b289f68676954b91c792d8d97680314178bf2c60))
+* **onboarding-ui:** Common components ([#478](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/478)) ([d7511ab](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d7511ab435bae8c35e02071832c9a615078a83d5))
+* **onboarding-ui:** Invalid Link page ([#496](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/496)) ([6c74576](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6c74576bb0e63e33771eb24bbd6f1c881088f44c))
+* **onboarding-ui:** Self-hosted registration ([#501](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/501)) ([e47d579](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e47d579938f1cb670e787b27402ece214e7d37e9))
+* **onboarding-ui:** Server registration form ([#494](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/494)) ([be3185f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/be3185ff8eba2b02cfda6736074ecc2f38ff1d3e))
+* styled API; monorepo grooming ([#482](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/482)) ([1b6b70c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1b6b70cf67ec16927b1566adc2350295a8927223))
+* Visibility toggle for PasswordInput ([#377](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/377)) ([d430773](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d430773ca5384ed3e88f54a34cd82364e1ee05f8))
+
+
+
+
+
+# [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
+
+
+### Bug Fixes
+
+* endReached prop in _Options of PaginatedSelectFiltered Component ([#475](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/475)) ([81ec00f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/81ec00f11c7016f25728bf394ac00686f5d6729d))
+* Export MultiSelect component in .d.ts file ([#473](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/473)) ([dbdbf58](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/dbdbf587821e8d86fed5ce17b75e3f8c95a5822f))
+* Menu component and options.label prop type ([#476](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/476)) ([dea7a16](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/dea7a16d1feb5ccc16b0cb9096842f275dc1cdc3))
+* **eslint:** Add missing ESLint rule for TypeScript ([#470](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/470)) ([cc0d498](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/cc0d4989bf37f7602d1d58d051824f1dd6c096b3))
+* **fuselage:** Fuselage production build ([#477](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/477)) ([228878c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/228878cdbf260e2929b5527fb84c936fbc03b772))
+* **string-helpers:**  typesVersions ([#469](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/469)) ([e393d98](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e393d9835bc66084c9041cab5c0e14d1ffca4ef7))
+* Default-export typings for Position and PositionAnimated ([88fb952](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/88fb952da8caa9ab70c37ecf6ec09af5774ddd0b))
+* Export correctly props and types from PositionAnimated and Tile components ([#467](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/467)) ([67a86ec](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/67a86ece971d729085f6969eb063e17323fe59e3))
+* PositionAnimated exported type ([#466](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/466)) ([472fb1e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/472fb1e03a48ee964226644221267ccbb527ab1f))
+* Typings for Position and PositionAnimated properly exported ([#465](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/465)) ([f05c126](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f05c12641d1e8ec35a8a428571e938d6ad7369a7))
+* Typings for RadioButton ([#464](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/464)) ([3e36605](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3e36605ac1518ac2adc080f14dd07f6b830fdb6b))
+
+
+### Features
+
+* Visibility toggle for PasswordInput ([#377](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/377)) ([5ef1bec](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5ef1bec606e626704235cadfdb9bb7d424f8e481))
+* **ui-kit:** Attachment Surface ([#474](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/474)) ([63bb5ea](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/63bb5ea044afc768295a50e0155406df6091b840))
+* onboarding-ui package ([#463](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/463)) ([ea0a6c2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ea0a6c25ae1a719103dce742a18c54ab4f3d6442))
+* ui-kit-unified ([#392](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/392)) ([ce48ca9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ce48ca9d9806283bba8be5df7c29c7aa8c1e716f))
+
+
+
+
+
 # [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
 
 

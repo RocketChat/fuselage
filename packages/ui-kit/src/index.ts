@@ -15,6 +15,9 @@ export { DatePickerElement } from './blocks/elements/DatePickerElement';
 export { ImageElement } from './blocks/elements/ImageElement';
 export { LinearScaleElement } from './blocks/elements/LinearScaleElement';
 export { MultiStaticSelectElement } from './blocks/elements/MultiStaticSelectElement';
+export { MultiChannelsSelectElement } from './blocks/elements/MultiChannelsSelectElement';
+export { MultiConversationsSelectElement } from './blocks/elements/MultiConversationsSelectElement';
+export { MultiUsersSelectElement } from './blocks/elements/MultiUsersSelectElement';
 export { OverflowElement } from './blocks/elements/OverflowElement';
 export { PlainTextInputElement } from './blocks/elements/PlainTextInputElement';
 export { StaticSelectElement } from './blocks/elements/StaticSelectElement';
@@ -32,8 +35,6 @@ export { LayoutBlock } from './blocks/LayoutBlock';
 
 export { Block } from './blocks/Block';
 export { RenderableBlock } from './blocks/RenderableBlock';
-
-// export { BlockBuilder } from './blocks/BlockBuilder';
 
 export { LayoutBlockType } from './blocks/LayoutBlockType';
 export { BlockElementType } from './blocks/BlockElementType';
@@ -63,3 +64,6 @@ export {
   UiKitParserModal,
   ModalSurfaceLayout,
 } from './rendering/surfaces/UiKitParserModal';
+
+export { SurfaceRenderer } from './rendering/SurfaceRenderer';
+export { ActionableElement } from './blocks/ActionableElement';

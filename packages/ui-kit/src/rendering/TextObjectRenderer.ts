@@ -1,4 +1,4 @@
-import { TextObject } from '..';
+import { TextObject } from '../blocks/TextObject';
 import { BlockContext } from './BlockContext';
 
 export type TextObjectRenderer<

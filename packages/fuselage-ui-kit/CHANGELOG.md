@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.28.0...v0.29.0) (2021-08-31)
+
+**Note:** Version bump only for package @rocket.chat/fuselage-ui-kit
+
+
+
+
+
+# [0.28.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.27.0...v0.28.0) (2021-07-30)
+
+
+### Bug Fixes
+
+* **fuselage-ui-kit:** Implements missing url prop for buttons ([#488](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/488)) ([bb19344](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bb193441804c9b20174e2586d22c4b2845a486c3))
+
+
+### Features
+
+* **onboarding-ui:** Administrator information form and Organization information form ([#489](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/489)) ([b289f68](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b289f68676954b91c792d8d97680314178bf2c60))
+* styled API; monorepo grooming ([#482](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/482)) ([1b6b70c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1b6b70cf67ec16927b1566adc2350295a8927223))
+
+
+
+
+
+# [0.27.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.26.0...v0.27.0) (2021-06-28)
+
+
+### Features
+
+* ui-kit-unified ([#392](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/392)) ([ce48ca9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ce48ca9d9806283bba8be5df7c29c7aa8c1e716f))
+
+
+
+
+
 # [0.26.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.25.0...v0.26.0) (2021-05-28)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-ui-kit

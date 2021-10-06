@@ -50,9 +50,8 @@ export const useDebouncedCallback = <P extends unknown[]>(
     [cancel]
   );
 
-  return useMemo(() => Object.assign(debouncedCallback, { flush, cancel }), [
-    debouncedCallback,
-    flush,
-    cancel,
-  ]);
+  return useMemo(
+    () => Object.assign(debouncedCallback, { flush, cancel }),
+    [debouncedCallback, flush, cancel]
+  );
 };
