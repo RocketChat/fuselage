@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-tokens",
-  "version": "0.29.0",
+  "version": "0.30.0",
   "description": "Design tokens for Fuselage, Rocket.Chat's design system",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -41,9 +41,9 @@
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.29.0",
-    "@rocket.chat/prettier-config": "^0.29.0",
-    "build-design-tokens": "^0.29.0",
+    "@rocket.chat/eslint-config-alt": "^0.30.0",
+    "@rocket.chat/prettier-config": "^0.30.0",
+    "build-design-tokens": "^0.30.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
