@@ -8,9 +8,13 @@ import { IPackageJson } from 'package-json-type';
 
 import Launcher from '../package.json';
 import { getFingerprint } from './fingerprint';
+import { topologicallySort } from './sortWorkspaces';
 import { getPackages } from './workspace';
 
 const readJson = util.promisify(fs.readJson);
+
+const getPackageJson = async (cwd: string): Promise<IPackageJson> =>
+  readJson(path.join(cwd, 'package.json')) as Promise<IPackageJson>;
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 
@@ -21,57 +25,64 @@ const config = {
 
 export const run = async (
   command: string,
-  cwd = process.cwd()
+  workspaceDir = process.cwd(),
+  options: {
+    packages?: string[];
+    exclude?: string[];
+    force?: boolean;
+    verbose?: boolean;
+  } = {}
 ): Promise<void> => {
-  const packages = await getPackages(cwd);
-
   if (!command) {
     throw new Error('No command provided');
   }
 
-  const packageWorkspaceJson = (await readJson(
-    path.join(cwd, 'package.json')
-  )) as IPackageJson;
+  const packages = topologicallySort(await getPackages(workspaceDir))
+    .filter(
+      (pkg) =>
+        !options.packages || (pkg.name && options.packages.includes(pkg.name))
+    )
+    .filter(
+      (pkg) =>
+        pkg.name && (!options.exclude || !options.exclude.includes(pkg.name))
+    );
+
+  if (packages.length === 0) {
+    throw new Error('No packages found');
+  }
+
+  const packageWorkspaceJson = await getPackageJson(workspaceDir);
 
   const cachedAssets: string[] =
     packageWorkspaceJson['rc-launcher'][command] || [];
 
   for await (const pkg of packages) {
-    if (!pkg.name || pkg.name === '@rocket.chat/fuselage-tokens') {
-      continue;
-    }
+    const packagePath = path.join(workspaceDir, pkg.location);
 
-    const packagePath = path.join(cwd, pkg.location);
-
-    const packageDefinition = (await readJson(
-      path.join(packagePath, 'package.json')
-    )) as IPackageJson;
-
-    const [fingerprint] = await getFingerprint(pkg.name, packagePath, {});
-
-    if (!fingerprint) {
-      continue;
-    }
+    const packageDefinition = await getPackageJson(packagePath);
 
     if (
       !packageDefinition.scripts ||
       !packageDefinition.scripts.hasOwnProperty(command)
     ) {
-      console.log(`⚠️  Skipped ${pkg.name} has no script ${command}`);
+      options.verbose &&
+        console.log(`⚠️  Skipped ${pkg.name} has no script ${command}`);
       continue;
     }
+
+    const [fingerprint] = await getFingerprint(pkg.name, packagePath);
 
     const stdoutPathDir = path.join(
       process.cwd(),
       config.cache,
       Launcher.name,
       pkg.location,
-      'stdout',
+      'result',
       command
     );
-    const stdoutPath = path.join(stdoutPathDir, fingerprint);
+    const processResult = path.join(stdoutPathDir, fingerprint);
 
-    const packageCachedAssets: [string, string][] = cachedAssets.map((dir) => {
+    const workspaceOutDir: [string, string][] = cachedAssets.map((dir) => {
       const packageDist = path.join(packagePath, dir);
       const cacheFolder = path.join(
         process.cwd(),
@@ -84,52 +95,85 @@ export const run = async (
       );
       return [packageDist, cacheFolder];
     });
-    packageCachedAssets.push(['', stdoutPathDir]);
-    const exists = (
-      await Promise.all(
-        packageCachedAssets.map(([_, cacheFolder]) =>
-          fs.pathExists(cacheFolder)
+
+    await Promise.all(pkg.workspaceDependencies.map((dep) => dep));
+
+    const previousProccessResult = await fs
+      .readJson(processResult)
+      .catch(() => undefined);
+
+    if (previousProccessResult && previousProccessResult.exitCode !== 0) {
+      return console.error(previousProccessResult.stderr);
+    }
+
+    // check if exists a folder for every single output dir
+    const exists =
+      options.force !== true &&
+      (
+        await Promise.all(
+          workspaceOutDir.map(([_, cacheFolder]) => fs.pathExists(cacheFolder))
         )
-      )
-    ).every((exists) => Boolean(exists));
+      ).every((exists) => Boolean(exists));
 
-    console.log(
-      `📦  ${command} ${pkg.name} fingerprint:${fingerprint} ${
-        exists ? 'cache found' : 'no cache found'
-      }`
-    );
+    !options.force &&
+      exists &&
+      workspaceOutDir.length &&
+      options.verbose &&
+      console.log(
+        `📦  ${command} ${pkg.name} fingerprint:${fingerprint} cache found`
+      );
+    !options.force &&
+      !exists &&
+      console.log(
+        `📦  ${command} ${pkg.name} fingerprint:${fingerprint} no cache found`
+      );
+    options.force &&
+      console.log(
+        `📦  ${command} ${pkg.name} fingerprint:${fingerprint} cache forced`
+      );
 
-    if (exists) {
+    // restore all folders from cache
+
+    if (exists && workspaceOutDir.length) {
       await Promise.all(
-        packageCachedAssets.map(([packageDist, cacheFolder]) => {
+        workspaceOutDir.map(([packageDist, cacheFolder]) => {
           if (packageDist) {
             fs.copy(cacheFolder, packageDist);
           }
           return undefined;
         })
       );
-      // restore from cache
-      console.log(`✅ ${pkg.name} cache restored`);
+      options.verbose && console.log(`✅ ${pkg.name} cache restored`);
       continue;
     }
-    console.log(`📦  ${command} ${pkg.name}`);
+
+    if (exists && previousProccessResult) {
+      options.verbose &&
+        previousProccessResult.stdout &&
+        console.log(previousProccessResult.stdout);
+      continue;
+    }
+
+    options.verbose && console.log(`📦  ${command} ${pkg.name}`);
 
     fs.mkdirpSync(stdoutPathDir);
-
-    const stdout = fs.createWriteStream(stdoutPath, { flags: 'w' });
 
     const cmd = execa.commandSync(`yarn ${command}`, {
       cwd: packagePath,
     });
 
-    stdout.write(cmd.stdout);
-    stdout.end();
+    fs.writeJSON(processResult, {
+      exitCode: cmd.exitCode,
+      stdout: cmd.stdout,
+      stderr: cmd.stderr,
+    });
 
-    console.log(`✅ ${command} ${pkg.name} done`);
+    options.verbose && console.log(`✅ ${command} ${pkg.name} done`);
 
     await Promise.all(
-      packageCachedAssets.map(([packageDist, cacheFolder]) => {
-        console.log(`📦  ${packageDist} ${cacheFolder} cache`);
+      workspaceOutDir.map(([packageDist, cacheFolder]) => {
+        options.verbose &&
+          console.log(`📦  ${packageDist} ${cacheFolder} cache`);
         if (packageDist) {
           fs.copy(packageDist, cacheFolder);
         }

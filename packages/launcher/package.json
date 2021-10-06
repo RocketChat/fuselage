@@ -56,12 +56,14 @@
   "dependencies": {
     "@types/folder-hash": "^4.0.1",
     "@types/fs-extra": "^9.0.13",
+    "@types/toposort": "^2.0.3",
     "debugger": "^0.35.0",
     "execa": "^5.1.1",
     "folder-hash": "^4.0.1",
     "fs-extra": "^10.0.0",
     "get-monorepo-packages": "^1.2.0",
     "package-json-type": "^1.0.3",
+    "toposort": "^2.0.2",
     "tslib": "^2.3.1",
     "yarn-lifeline": "^0.2.0",
     "yarn-workspaces-list": "^0.2.0"

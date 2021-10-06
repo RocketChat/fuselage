@@ -7,27 +7,22 @@ import { getPackages } from './workspace';
 export const getFingerprint = async (
   name: string,
   cwd = process.cwd(),
-  options: Parameters<typeof hashElement>[2]
-): Promise<[string, HashElementNode] | []> => {
-  try {
-    const result = await hashElement('.', cwd, {
-      ...options,
-      encoding: 'hex',
-      folders: {
-        exclude: ['.*', '**.*', '**node_modules', '**test_coverage', '**dist'],
-      },
-      files: {
-        exclude: ['bundle-report.html'],
-      },
-      symbolicLinks: {
-        include: false,
-      },
-    });
-    console.log(`${name} fingerprint: ${result.hash}`);
-    return [result.hash, result];
-  } catch (error) {
-    return [];
-  }
+  options: Parameters<typeof hashElement>[2] = {}
+): Promise<[string, HashElementNode]> => {
+  const result = await hashElement('.', cwd, {
+    ...options,
+    encoding: 'hex',
+    folders: {
+      exclude: ['.*', '**.*', '**node_modules', '**test_coverage', '**dist'],
+    },
+    files: {
+      exclude: ['bundle-report.html'],
+    },
+    symbolicLinks: {
+      include: false,
+    },
+  });
+  return [result.hash, result];
 };
 
 if (module === require.main) {

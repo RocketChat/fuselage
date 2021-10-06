@@ -6511,6 +6511,7 @@ __metadata:
     "@types/folder-hash": ^4.0.1
     "@types/fs-extra": ^9.0.13
     "@types/jest": ^27.0.2
+    "@types/toposort": ^2.0.3
     debugger: ^0.35.0
     eslint: ^7.32.0
     execa: ^5.1.1
@@ -6523,6 +6524,7 @@ __metadata:
     package-json-type: ^1.0.3
     prettier: ^2.4.1
     rimraf: ^3.0.2
+    toposort: ^2.0.2
     ts-jest: ^27.0.5
     tslib: ^2.3.1
     typedoc: ^0.22.5
@@ -8729,6 +8731,13 @@ __metadata:
   version: 1.0.7
   resolution: "@types/tapable@npm:1.0.7"
   checksum: efae5c6cd184cbd768f98c0777c829e30045d57664731f36fcc7e32a372fd01c0f50283375e8cd6e325d321d7962906d2bdb82ee4595f7b9f53cefd3011bfa82
+  languageName: node
+  linkType: hard
+
+"@types/toposort@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@types/toposort@npm:2.0.3"
+  checksum: 018a372a899fd417d67ed85cb98bd3f15915020b865257b9e795e443bcfa0df79c6c44693ba88cbdd9e54ca872cecb91bf46764ec03c5b63968b2234804d14d2
   languageName: node
   linkType: hard
 
