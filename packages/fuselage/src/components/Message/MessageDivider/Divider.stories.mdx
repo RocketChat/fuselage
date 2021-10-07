@@ -1,6 +1,6 @@
 import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
-import { Divider } from '.';
+import { MessageDivider } from '.';
 import { Box } from '../..';
 
 <Meta title='Messages/Divider' parameters={{ jest: ['Divider/spec'] }} />
@@ -10,11 +10,11 @@ import { Box } from '../..';
 <Canvas>
   <Story name='Default'>
     <Box>
-      <Divider>Text</Divider>
-      <Divider unreadLabel={'Unread'}>Text</Divider>
-      <Divider unreadLabel={'Unread'} />
+      <MessageDivider>Text</MessageDivider>
+      <MessageDivider unreadLabel={'Unread'}>Text</MessageDivider>
+      <MessageDivider unreadLabel={'Unread'} />
     </Box>
   </Story>
 </Canvas>
 
-<ArgsTable of={Divider} />
+<ArgsTable of={MessageDivider} />

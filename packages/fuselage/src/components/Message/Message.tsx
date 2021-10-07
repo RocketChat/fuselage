@@ -10,17 +10,17 @@ import './Messages.styles.scss';
 
 import { prependClassName } from '../../helpers/prependClassName';
 import { Tag } from '../Tag';
-import { Divider } from './Divider';
-import { Metrics } from './Metrics';
-import { Toolbox } from './Toolbox';
+import { MessageDivider } from './MessageDivider';
+import { MessageMetrics } from './MessageMetrics';
+import { MessageToolbox } from './MessageToolbox';
 
-const Container: FC = function Container(props) {
+export const MessageContainer: FC = function MessageContainer(props) {
   return (
     <div className='rcx-box rcx-box--full rcx-message-container' {...props} />
   );
 };
 
-const ContainerFixed: FC = function Container(props) {
+export const MessageContainerFixed: FC = function MessageContainerFixed(props) {
   return (
     <div
       className='rcx-box rcx-box--full rcx-message-container rcx-message-container--fixed'
@@ -42,7 +42,7 @@ export const MessageLeftContainer = (
   />
 );
 
-const Header: FC = function Header({ children }) {
+export const MessageHeader: FC = function MessageHeader({ children }) {
   return (
     <div className='rcx-box rcx-box--full rcx-message-header'>
       <div className='rcx-box rcx-box--full rcx-message-header__wrapper'>
@@ -56,7 +56,7 @@ type MessageBodyProps = AllHTMLAttributes<HTMLDivElement> & {
   clamp?: 2 | 3 | 4;
 };
 
-const MessageBody = ({
+export const MessageBody = ({
   clamp,
   className,
   ...props
@@ -99,44 +99,49 @@ type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   sequential?: boolean;
 };
 
-const Message = forwardRef<HTMLDivElement, MessageProps>(function Message(
-  {
-    // is: Tag = 'div',
-    className,
-    clickable,
-    sequential,
-    ...props
-  },
-  ref
+export const Message = forwardRef<HTMLDivElement, MessageProps>(
+  function Message(
+    {
+      // is: Tag = 'div',
+      className,
+      clickable,
+      sequential,
+      ...props
+    },
+    ref
+  ) {
+    return (
+      <div
+        ref={ref}
+        className={prependClassName(
+          className,
+          [
+            'rcx-message',
+            (clickable || props.onClick) && 'rcx-message--clickable',
+            sequential && 'rcx-message--sequential',
+          ]
+            .filter(Boolean)
+            .join(' ')
+        )}
+        {...props}
+      />
+    );
+  }
+);
+
+export const MessageTimestamp: FC<{ children: string }> =
+  function MessageTimestamp(props) {
+    return (
+      <span
+        className='rcx-box rcx-box--full rcx-message-header__time'
+        {...props}
+      />
+    );
+  };
+
+export const MessageName: FC<{ children: string }> = function MessageName(
+  props
 ) {
-  return (
-    <div
-      ref={ref}
-      className={prependClassName(
-        className,
-        [
-          'rcx-message',
-          (clickable || props.onClick) && 'rcx-message--clickable',
-          sequential && 'rcx-message--sequential',
-        ]
-          .filter(Boolean)
-          .join(' ')
-      )}
-      {...props}
-    />
-  );
-});
-
-const Timestamp: FC<{ children: string }> = function Timestamp(props) {
-  return (
-    <span
-      className='rcx-box rcx-box--full rcx-message-header__time'
-      {...props}
-    />
-  );
-};
-
-const Name: FC<{ children: string }> = function Name(props) {
   return (
     <span
       className='rcx-box rcx-box--full rcx-message-header__name'
@@ -144,16 +149,19 @@ const Name: FC<{ children: string }> = function Name(props) {
     />
   );
 };
-const Username: FC<{ children: string }> = function Name(props) {
-  return (
-    <span
-      className='rcx-box rcx-box--full rcx-message-header__username'
-      {...props}
-    />
-  );
-};
+export const MessageUsername: FC<{ children: string }> =
+  function MessageUsername(props) {
+    return (
+      <span
+        className='rcx-box rcx-box--full rcx-message-header__username'
+        {...props}
+      />
+    );
+  };
 
-const Role: FC<{ children: string }> = function Role(props) {
+export const MessageRole: FC<{ children: string }> = function MessageRole(
+  props
+) {
   return (
     <Tag
       onClick={undefined}
@@ -165,7 +173,7 @@ const Role: FC<{ children: string }> = function Role(props) {
   );
 };
 
-const Roles: FC = function Role(props) {
+export const MessageRoles: FC = function MessageRoles(props) {
   return (
     <div
       className='rcx-box rcx-box--full rcx-message-header__roles'
@@ -175,18 +183,18 @@ const Roles: FC = function Role(props) {
 };
 
 export default Object.assign(Message, {
-  Metrics,
-  Toolbox,
-  Container,
-  ContainerFixed,
+  Metrics: MessageMetrics,
+  Toolbox: MessageToolbox,
+  Container: MessageContainer,
+  ContainerFixed: MessageContainerFixed,
   LeftContainer: MessageLeftContainer,
-  Header,
+  Header: MessageHeader,
   Body: MessageBody,
   Block: MessageBlock,
-  Timestamp,
-  Name,
-  Username,
-  Roles,
-  Role,
-  Divider,
+  Timestamp: MessageTimestamp,
+  Name: MessageName,
+  Username: MessageUsername,
+  Roles: MessageRoles,
+  Role: MessageRole,
+  Divider: MessageDivider,
 });
