@@ -1,5 +1,7 @@
 import { css } from '@rocket.chat/css-in-js';
 import { Box } from '@rocket.chat/fuselage';
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ComponentProps, ReactElement } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -7,6 +9,7 @@ import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import RequestTrialForm from '../../forms/RequestTrialForm';
 import Description from './Description';
+import TitleRequestTrial from './TitleRequestTrial';
 
 type RequestTrialPageProps = {
   onManageWorkspaces?: () => void;
@@ -22,9 +25,11 @@ const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
   return (
     <BackgroundLayer>
       <FormPageLayout
+        logo={<RocketChatLogo tagTitle='Cloud' />}
         description={<Description />}
-        title={t('page.requestTrial.title')}
+        title={<TitleRequestTrial />}
         subtitle={t('page.requestTrial.subtitle')}
+        subTitleColor={colors.n900}
       >
         <RequestTrialForm {...props} />
         {(props.onManageWorkspaces || props.manageWorkspacesLink) && (
@@ -34,31 +39,33 @@ const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
             display='inline'
             textAlign='center'
           >
-            <Trans i18nKey='page.alreadyHaveAccount'>
-              Already have an account?
-              {props.onManageWorkspaces && (
-                <Box
-                  className={pointer}
-                  onClick={props.onManageWorkspaces}
-                  is='span'
-                  color='primary-400'
-                  textDecorationLine='none'
-                >
-                  Manage your workspaces.
-                </Box>
-              )}
-              {props.manageWorkspacesLink && (
-                <Box
-                  className={pointer}
-                  href={props.manageWorkspacesLink}
-                  is='a'
-                  color='primary-400'
-                  textDecorationLine='none'
-                >
-                  Manage your workspaces.
-                </Box>
-              )}
-            </Trans>
+            <Box color={colors.n900} fontScale='c1' marginBlockStart='x40'>
+              <Trans i18nKey='page.alreadyHaveAccount'>
+                Already have an account?
+                {props.onManageWorkspaces && (
+                  <Box
+                    className={pointer}
+                    onClick={props.onManageWorkspaces}
+                    is='span'
+                    color='primary-400'
+                    textDecorationLine='none'
+                  >
+                    Manage your workspaces.
+                  </Box>
+                )}
+                {props.manageWorkspacesLink && (
+                  <Box
+                    className={pointer}
+                    href={props.manageWorkspacesLink}
+                    is='a'
+                    color='primary-400'
+                    textDecorationLine='none'
+                  >
+                    Manage your workspaces.
+                  </Box>
+                )}
+              </Trans>
+            </Box>
           </Box>
         )}
       </FormPageLayout>

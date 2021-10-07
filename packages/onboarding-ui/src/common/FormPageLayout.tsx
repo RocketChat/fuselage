@@ -18,6 +18,8 @@ type FormPageLayoutProps = {
   subtitle?: ReactNode;
   description?: ReactNode;
   children: ReactNode;
+  subTitleColor?: string;
+  tag?: string;
 };
 
 const FormPageLayout = ({
@@ -25,6 +27,7 @@ const FormPageLayout = ({
   title,
   subtitle,
   description,
+  subTitleColor,
   children,
 }: FormPageLayoutProps): ReactElement => {
   const { t } = useTranslation();
@@ -34,7 +37,9 @@ const FormPageLayout = ({
       <Aside>
         <Logo>{logo ?? <RocketChatLogo />}</Logo>
         <Title>{title ?? t('page.form.title')}</Title>
-        {subtitle && <Subtitle>{subtitle}</Subtitle>}
+        {subtitle && (
+          <Subtitle fontColor={subTitleColor || ''}>{subtitle}</Subtitle>
+        )}
         <Description>{description}</Description>
       </Aside>
       <Content>{children}</Content>

@@ -33,6 +33,7 @@
     },
     "cloudDescription": {
       "tryGold": "Try our best Gold plan for 14 days for free",
+      "numberOfIntegrations": "1,000 integrations",
       "availability": "High availability",
       "auditing": "Message audit panel / Audit logs",
       "engagement": "Engagement Dashboard",
@@ -51,8 +52,9 @@
       }
     },
     "requestTrial": {
-      "title": "Request a 30-\u2060day Trial",
-      "subtitle": "Try our enterprise solution for free"
+      "title": "Request a",
+      "trial_period": "30-\u2060day Trial",
+      "subtitle": "Try our best Enterprise Edition plan for 30 days for free"
     },
     "magicLinkEmail": {
       "title": "We emailed you a magic link",

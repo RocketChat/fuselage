@@ -72,15 +72,23 @@ export const Title = styled('div')`
   }
 `;
 
-export const Subtitle = styled('div')`
+const SubTitleFormPageProps = ({
+  fontColor,
+  ...props
+}: {
+  fontColor: string;
+}) => props;
+
+export const Subtitle = styled('div', SubTitleFormPageProps)`
   font-size: ${String(16 / 16)}rem;
   line-height: ${String(22 / 16)}rem;
   font-family: ${sans};
+  color: ${(p) => (p.fontColor ? p.fontColor : '')};
   font-weight: 500;
   text-align: center;
 
   @media (min-width: 1440px) {
-    padding-block-end: 40px;
+    padding-block-end: 20px;
     text-align: start;
   }
 `;

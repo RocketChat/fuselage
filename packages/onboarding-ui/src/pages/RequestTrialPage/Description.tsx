@@ -1,3 +1,5 @@
+import { Box } from '@rocket.chat/fuselage';
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { ReactElement, useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { useTranslation } from 'react-i18next';
@@ -14,14 +16,26 @@ const Description = (): ReactElement => {
   );
 
   return (
-    <List color='alternative' spacing='x16' icon={icon}>
-      <List.Item>{t('page.cloudDescription.availability')}</List.Item>
-      <List.Item>{t('page.cloudDescription.auditing')}</List.Item>
-      <List.Item>{t('page.cloudDescription.engagement')}</List.Item>
-      <List.Item>{t('page.cloudDescription.ldap')}</List.Item>
-      <List.Item>{t('page.cloudDescription.omnichannel')}</List.Item>
-      <List.Item>{t('page.cloudDescription.push')}</List.Item>
-    </List>
+    <>
+      <List color={colors.n900} spacing='x16' icon={icon}>
+        <List.Item>{t('page.cloudDescription.availability')}</List.Item>
+        <List.Item>{t('page.cloudDescription.auditing')}</List.Item>
+        <List.Item>{t('page.cloudDescription.numberOfIntegrations')}</List.Item>
+        <List.Item>{t('page.cloudDescription.ldap')}</List.Item>
+        <List.Item>{t('page.cloudDescription.omnichannel')}</List.Item>
+        <List.Item>{t('page.cloudDescription.push')}</List.Item>
+      </List>
+
+      <Box
+        is='text'
+        height='x64'
+        marginBlockStart='x40'
+        fontScale='micro'
+        color={colors.n600}
+      >
+        * Golden plan includes all features from other plans
+      </Box>
+    </>
   );
 };
 
