@@ -5824,7 +5824,7 @@ __metadata:
   resolution: "@rocket.chat/css-supports@workspace:packages/css-supports"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/memo": "workspace:packages/memo"
+    "@rocket.chat/memo": ^0.30.0
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/jest": ^27.0.2
     eslint: ^7.32.0
@@ -5844,8 +5844,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/emitter@workspace:packages/emitter"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.30.0
+    "@rocket.chat/prettier-config": ^0.30.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.0.0
@@ -5865,7 +5865,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt":
+"@rocket.chat/eslint-config-alt@^0.30.0, @rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt"
   dependencies:
@@ -6153,7 +6153,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/memo@workspace:packages/memo":
+"@rocket.chat/memo@^0.30.0, @rocket.chat/memo@workspace:packages/memo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/memo@workspace:packages/memo"
   dependencies:
@@ -6297,7 +6297,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/prettier-config@workspace:packages/prettier-config":
+"@rocket.chat/prettier-config@^0.30.0, @rocket.chat/prettier-config@workspace:packages/prettier-config":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/prettier-config@workspace:packages/prettier-config"
   dependencies:

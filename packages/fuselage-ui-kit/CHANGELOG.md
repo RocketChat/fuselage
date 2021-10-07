@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.29.0...v0.30.0) (2021-10-06)
+
+
+### Bug Fixes
+
+* **fuselage:** Remove Field margin ([#543](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/543)) ([0cc10e1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0cc10e1b86bcf14a9ae590537a3d8e460b39b167))
+
+
+
+
+
 # [0.29.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.28.0...v0.29.0) (2021-08-31)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-ui-kit

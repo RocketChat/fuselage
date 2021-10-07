@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.29.0...v0.30.0) (2021-10-06)
+
+
+### Features
+
+* **icons:** Update/Add icons (phone-in&out, dialpad, phone-disabled) ([#533](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/533)) ([2f3ae02](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2f3ae02a6fc92d92e99e5be56a63670dda494e00))
+
+
+
+
+
 # [0.29.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.28.0...v0.29.0) (2021-08-31)
 
 

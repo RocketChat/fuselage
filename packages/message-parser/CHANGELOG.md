@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.29.0...v0.30.0) (2021-10-06)
+
+
+### Bug Fixes
+
+* **jest:** Adjust jest and ts-jest dependencies ([#547](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/547)) ([91a4fa1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/91a4fa1365394001afe1bd46480bda3bafed5505))
+* **message-parser:** <https://domain.com|Test> ([#546](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/546)) ([faca16f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/faca16febe517e411dd377cae294f888f1199d40))
+* **message-parser:** Fix Url and Escaped Markdown ([#537](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/537)) ([bc0cbce](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/bc0cbce69589b9a056d797a03b78d7cd06423aaa))
+
+
+
+
+
 # [0.29.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.28.0...v0.29.0) (2021-08-31)
 
 **Note:** Version bump only for package @rocket.chat/message-parser
