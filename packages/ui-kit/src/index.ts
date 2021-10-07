@@ -27,6 +27,7 @@ export { BlockElement } from './blocks/BlockElement';
 export { ActionsBlock } from './blocks/layout/ActionsBlock';
 export { ConditionalBlock } from './blocks/layout/ConditionalBlock';
 export { ContextBlock } from './blocks/layout/ContextBlock';
+export { PreviewBlock } from './blocks/layout/PreviewBlock';
 export { DividerBlock } from './blocks/layout/DividerBlock';
 export { ImageBlock } from './blocks/layout/ImageBlock';
 export { InputBlock } from './blocks/layout/InputBlock';
