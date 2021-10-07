@@ -58,8 +58,8 @@ $message-generic-preview-content-hover-background-color: theme(
       @include typography.use-with-truncated-text();
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
       justify-content: space-evenly;
+      flex-grow: 1;
 
       margin-block: lengths.margin(8);
       padding-inline: lengths.margin(16);
@@ -105,6 +105,7 @@ $message-generic-preview-content-hover-background-color: theme(
         &.is-hovered {
           text-decoration: underline;
         }
+
         &--uncolored {
           &:link {
             color: inherit;
@@ -167,29 +168,35 @@ $message-generic-preview-content-hover-background-color: theme(
   &__thumb,
   &__file {
     @include size.square(lengths.size(96));
-    flex-shrink: 0;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 
     margin: lengths.margin(-2);
   }
+
   &__file {
-    padding-inline-start: lengths.size(16);
-    width: lengths.size(36);
-    height: lengths.size(68);
-    color: colors.neutral(500);
     position: relative;
 
+    width: lengths.size(36);
+    height: lengths.size(68);
+    padding-inline-start: lengths.size(16);
+
+    color: colors.neutral(500);
+
     &-extension {
+      position: absolute;
+      bottom: lengths.size(16);
+
+      margin-block-start: lengths.margin(16);
+
+      text-align: center;
+      white-space: pre-wrap;
+
       color: colors.foreground(hint);
       @include typography.use-font-scale(c2);
-      margin-block-start: lengths.margin(16);
-      position: absolute;
-      white-space: pre-wrap;
-      text-align: center;
-      bottom: lengths.size(16);
     }
   }
 }
