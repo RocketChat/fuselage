@@ -10,7 +10,7 @@ import { Menu } from '../../Menu';
 
 import './styles.scss';
 
-export const Toolbox: FC<ComponentProps<typeof ButtonGroup>> & {
+export const MessageToolbox: FC<ComponentProps<typeof ButtonGroup>> & {
   Item: FC<ComponentProps<typeof ActionButton>>;
   Wrapper: FC;
   Menu: FC<ComponentProps<typeof Menu>>;
@@ -38,8 +38,8 @@ const Item: FC<ComponentProps<typeof ActionButton>> = function Item(props) {
   return <ActionButton {...{ ...props, small: true, ghost: true }} />;
 };
 
-Toolbox.Wrapper = ToolboxWrapper;
+MessageToolbox.Wrapper = ToolboxWrapper;
 
-Toolbox.Item = Item;
+MessageToolbox.Item = Item;
 
-Toolbox.Menu = Menu;
+MessageToolbox.Menu = Menu;
