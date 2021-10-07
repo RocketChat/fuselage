@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-const Divider: FC<{
+const MessageDivider: FC<{
   unreadLabel?: string;
 }> = ({ children, unreadLabel, ...props }) => (
   <div
@@ -27,4 +27,4 @@ const Divider: FC<{
     </div>
   </div>
 );
-export { Divider };
+export { MessageDivider };
