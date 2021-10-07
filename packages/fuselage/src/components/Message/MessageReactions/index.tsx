@@ -4,9 +4,9 @@ import { ButtonGroup, Icon } from '../..';
 import { MessageBlock } from '../Message';
 import './styles.scss';
 
-export const Reactions: FC<ComponentProps<typeof ButtonGroup>> & {
-  Reaction: FC<{ emoji: string; counter: number; className: string }>;
-  Action: FC<{ className: string }>;
+export const MessageReactions: FC<ComponentProps<typeof ButtonGroup>> & {
+  Reaction: FC<{ emoji?: string; counter: number; className?: string }>;
+  Action: FC<{ className?: string }>;
 } = function Reactions(props) {
   return (
     <MessageBlock className='rcx-message-reactions'>
@@ -16,9 +16,9 @@ export const Reactions: FC<ComponentProps<typeof ButtonGroup>> & {
 };
 
 const Reaction: FC<{
-  emoji: string;
+  emoji?: string;
   counter: number;
-  className: string;
+  className?: string;
 }> = function Reaction({ emoji, counter, className }) {
   return (
     <div className={`rcx-message-reactions__reaction ${className}`}>
@@ -28,9 +28,9 @@ const Reaction: FC<{
   );
 };
 
-Reactions.Reaction = Reaction;
+MessageReactions.Reaction = Reaction;
 
-Reactions.Action = ({ className }) => (
+MessageReactions.Action = ({ className }) => (
   <div
     className={`rcx-message-reactions__reaction rcx-message-reactions__reaction--action ${className}`}
   >

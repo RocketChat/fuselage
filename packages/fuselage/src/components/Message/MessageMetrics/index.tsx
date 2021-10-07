@@ -21,12 +21,12 @@ const MetricsItemLabel: FC = (props) => (
   <div className='rcx-message-metrics__item-label' {...props} />
 );
 
-const MetricsItem: FC & {
+export const MessageMetricsItem: FC & {
   Icon: FC<IconProps>;
   Label: FC<BoxProps>;
 } = (props) => <div className='rcx-message-metrics__item' {...props} />;
 
-export const Metrics: FC & {
+export const MessageMetrics: FC & {
   Item: FC<BoxProps> & { Icon: FC<IconProps>; Label: FC<BoxProps> };
   Following: FC<FollowingProps>;
   Reply: FC<ButtonProps>;
@@ -42,15 +42,15 @@ const MetricsFollowing: FC<FollowingProps> = ({ name }) => (
 );
 
 export const Reply: FC<ComponentProps<typeof Button>> = (props) => (
-  <MetricsItem>
+  <MessageMetricsItem>
     <Button {...props} {...{ small: true, primary: true }} />
-  </MetricsItem>
+  </MessageMetricsItem>
 );
 
-Metrics.Reply = Reply;
+MessageMetrics.Reply = Reply;
 
-Metrics.Item = MetricsItem;
-Metrics.Following = MetricsFollowing;
+MessageMetrics.Item = MessageMetricsItem;
+MessageMetrics.Following = MetricsFollowing;
 
-MetricsItem.Label = MetricsItemLabel;
-MetricsItem.Icon = MetricsItemIcon;
+MessageMetricsItem.Label = MetricsItemLabel;
+MessageMetricsItem.Icon = MetricsItemIcon;

@@ -1,6 +1,6 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 
-import { Toolbox } from '.';
+import { MessageToolbox } from '.';
 import { Box } from '../..';
 
 <Meta title='Messages/Toolbox' parameters={{ jest: ['Toolbox/spec'] }} />
@@ -10,11 +10,11 @@ import { Box } from '../..';
 <Canvas>
   <Story name='Default'>
     <Box>
-      <Toolbox>
-        <Toolbox.Item icon='quote' />
-        <Toolbox.Item icon='clock' />
-        <Toolbox.Item icon='thread' />
-      </Toolbox>
+      <MessageToolbox>
+        <MessageToolbox.Item icon='quote' />
+        <MessageToolbox.Item icon='clock' />
+        <MessageToolbox.Item icon='thread' />
+      </MessageToolbox>
     </Box>
   </Story>
 </Canvas>
