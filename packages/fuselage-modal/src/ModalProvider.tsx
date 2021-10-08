@@ -1,9 +1,16 @@
 import { Modal } from '@rocket.chat/fuselage';
-import type { CSSProperties, ReactElement, ReactNode } from 'react';
+import type {
+  CSSProperties,
+  ReactElement,
+  ReactNode,
+  ReactPortal,
+} from 'react';
 import { useCallback, useState, useMemo, memo, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 import { ModalContext } from './ModalContext';
 import ModalPortal from './ModalPortal';
+import PortalNodeHandler from './PortalNodeHandler';
 
 const style: CSSProperties = {
   top: 0,
@@ -14,11 +21,18 @@ const style: CSSProperties = {
 };
 
 const ModalProvider = ({ children }: { children?: ReactNode }) => {
-  const [modalStack, setModalStack] = useState<Array<ReactElement>>([]);
+  const [modalStack, setModalStack] = useState<
+    Array<[ReactPortal, HTMLDivElement]>
+  >([]);
 
   const push = useCallback(
     (modal: ReactElement) => {
-      setModalStack((modalStack) => [...modalStack, modal]);
+      const node = document.createElement('div');
+      const key = Math.random().toString(16).slice(2);
+      setModalStack((modalStack) => [
+        ...modalStack,
+        [createPortal(modal, node, key), node],
+      ]);
     },
     [setModalStack]
   );
@@ -56,9 +70,12 @@ const ModalProvider = ({ children }: { children?: ReactNode }) => {
       {children}
       {isOpen && (
         <ModalPortal>
-          <Modal.Backdrop zIndex={999}>{currentModal}</Modal.Backdrop>
-          {restModals.map((modal) => (
-            <div style={style}>{modal}</div>
+          {modalStack.map(([portal]) => portal)}
+          <Modal.Backdrop zIndex={999}>
+            <PortalNodeHandler node={currentModal[1]} />
+          </Modal.Backdrop>
+          {restModals.map(([, node], index) => (
+            <PortalNodeHandler key={index} style={style} node={node} />
           ))}
         </ModalPortal>
       )}
