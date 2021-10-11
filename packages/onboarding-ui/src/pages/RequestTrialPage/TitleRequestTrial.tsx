@@ -6,13 +6,11 @@ import { Title } from './RequestTrial.styles';
 
 const TitleRequestTrial = (): ReactElement => {
   const { t } = useTranslation();
-
+  const title = t('page.requestTrial.title').split('**');
   return (
     <>
-      <Title fontColor={colors.n900}>{t('page.requestTrial.title')}</Title>
-      <Title fontColor={colors.b500}>
-        {t('page.requestTrial.trial_period')}
-      </Title>
+      <Title fontColor={colors.n900}>{title[0]}</Title>
+      <Title fontColor={colors.b500}>{`${title[1]}`}</Title>
     </>
   );
 };

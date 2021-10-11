@@ -52,8 +52,7 @@
       }
     },
     "requestTrial": {
-      "title": "Request a",
-      "trial_period": "30-\u2060day Trial",
+      "title": "Request a**30-day Trial",
       "subtitle": "Try our best Enterprise Edition plan for 30 days for free"
     },
     "magicLinkEmail": {
