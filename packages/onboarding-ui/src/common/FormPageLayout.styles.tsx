@@ -5,7 +5,7 @@ import { sans } from '../helpers/tokenFontFamilies';
 export const Wrapper = styled('div')`
   width: 100%;
   box-sizing: border-box;
-  padding: 56px 16px 28px;
+  padding: 10px 16px 28px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -28,6 +28,7 @@ export const Aside = styled('div')`
 
   @media (min-width: 1440px) {
     align-items: flex-start;
+    min-height: 40rem;
     flex: 1 0 50%;
     padding-inline-end: 152px;
   }
@@ -45,12 +46,7 @@ export const Content = styled('div')`
 `;
 
 export const Logo = styled('div')`
-  width: 144px;
-  padding-block-end: 16px;
-
-  @media (min-width: 768px) {
-    width: 180px;
-  }
+  padding-block-end: 28px;
 
   @media (min-width: 1440px) {
     padding-block-end: 32px;
