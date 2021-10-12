@@ -6,5 +6,6 @@ require('../src/run').run(process.argv[2], process.cwd(), {
   force: process.argv.includes('--force'),
   verbose: true || process.argv.includes('--verbose'),
   exclude: ['@rocket.chat/fuselage-tokens'],
+  savePartialResults: true || process.argv.includes('--save-partial-results'),
   // packages: ['@rocket.chat/launcher'],
 });

@@ -2,7 +2,7 @@ import path from 'path';
 
 import { hashElement, HashElementNode } from 'folder-hash';
 
-import { getPackages } from './workspace';
+import { Workspace } from './workspace';
 
 export const getFingerprint = async (
   name: string,
@@ -26,15 +26,15 @@ export const getFingerprint = async (
 };
 
 if (module === require.main) {
-  getPackages()
-    .then((packages) => {
-      packages.forEach(async (pkg) => {
+  Workspace.getWorspaces()
+    .then((workspaces) => {
+      workspaces.forEach(async (workspace) => {
         const [fingerprint] = await getFingerprint(
-          pkg.name,
-          path.join(process.cwd(), pkg.location),
+          workspace.name,
+          path.join(process.cwd(), workspace.location),
           {}
         );
-        console.log(`${pkg.name}: ${fingerprint}`);
+        console.log(`${workspace.name}: ${fingerprint}`);
       });
     })
     .catch(console.error);

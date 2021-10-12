@@ -1,5 +1,5 @@
 {
-  "name": "@rocket.chat/rc-launcher",
+  "name": "launcher",
   "version": "0.29.0",
   "description": "Test",
   "author": {
@@ -29,6 +29,7 @@
     "/dist"
   ],
   "scripts": {
+    "run": "ts-node src/run.ts",
     "build": "run-s .:build:clean .:build:esm .:build:cjs",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig-esm.json",
@@ -50,6 +51,7 @@
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.5",
+    "ts-node": "^10.0.0",
     "typedoc": "^0.22.5",
     "typescript": "^4.4.3"
   },

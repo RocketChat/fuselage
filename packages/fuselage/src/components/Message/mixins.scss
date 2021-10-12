@@ -30,7 +30,8 @@
 }
 
 @mixin visible-on-hover {
-  .rcx-message:not(:hover) & {
+  .rcx-message:not(:hover) &,
+  &.visible {
     display: none;
   }
 }

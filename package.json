@@ -5,7 +5,6 @@
     "tools/*"
   ],
   "devDependencies": {
-    "@rocket.chat/rc-launcher": "workspace:packages/launcher",
     "husky": "^6.0.0",
     "hygen": "^6.1.0",
     "lerna": "^4.0.0",
@@ -17,14 +16,14 @@
     ]
   },
   "scripts": {
-    "build": "rc-launcher-run build",
-    "lint": "rc-launcher-run lint",
+    "build": "yarn workspace launcher run run build --teste -- --baasss",
+    "lint": "yarn workspace launcher run run lint",
     "lint-fix": "yarn workspaces foreach -v --topological-dev run lint-fix",
     "lint-staged": "yarn workspaces foreach -v --topological-dev run lint-staged",
-    "test": "rc-launcher-run test",
+    "test": "yarn workspace launcher run run test",
     "docs": "yarn workspaces foreach -v --topological-dev run docs",
-    "build-storybook": "rc-launcher-run build-storybook",
-    "update-storybook": "rc-launcher-run update-storybook",
+    "build-storybook": "yarn workspace launcher run run build-storybook",
+    "update-storybook": "yarn workspace launcher run run update-storybook",
     "postinstall": "husky install",
     "update-readme": "yarn workspace scripts run update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
