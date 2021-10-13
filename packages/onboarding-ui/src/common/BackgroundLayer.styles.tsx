@@ -21,6 +21,9 @@ export const Wrapper = styled('div', filterWrapperProps)`
   background-image: url('data:image/svg+xml,${(p) => p.backgroundImage}');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   color: ${(p) => p.color};
 `;
