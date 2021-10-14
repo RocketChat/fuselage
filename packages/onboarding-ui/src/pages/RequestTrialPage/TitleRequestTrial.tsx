@@ -8,10 +8,11 @@ const TitleRequestTrial = (): ReactElement => {
   const { t } = useTranslation();
   const title = t('page.requestTrial.title').split('**');
   return (
-    <>
-      <Title fontColor={colors.n900}>{title[0]}</Title>
-      <Title fontColor={colors.b500}>{`${title[1]}`}</Title>
-    </>
+    <Title fontColor={colors.n900}>
+      <Trans i18nKey="page.requestTrial.title">
+        Request a <Title fontColor={colors.b500}>30-day Trial</Title>
+      </Trans>
+    </Title>
   );
 };
 
