@@ -2,7 +2,7 @@ import { Box, Margins } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ReactElement } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import { useDarkMode } from '../../common/DarkModeProvider';
@@ -28,7 +28,7 @@ const MagicLinkEmailPage = ({
         alignItems='center'
         textAlign='center'
         width='100%'
-        maxWidth={576}
+        maxWidth={800}
         paddingBlock={32}
         paddingInline={16}
         color={darkMode ? colors.white : colors.n900}
@@ -39,7 +39,9 @@ const MagicLinkEmailPage = ({
           </Box>
 
           <Box
+            color={colors.n900}
             fontWeight={800}
+            width='100%'
             fontSize='x52'
             lineHeight='x62'
             fontFamily='sans'
@@ -47,7 +49,9 @@ const MagicLinkEmailPage = ({
             {t('page.magicLinkEmail.title')}
           </Box>
 
-          <Box fontScale='s1'>{t('page.magicLinkEmail.subtitle')}</Box>
+          <Box fontScale='s1' color={colors.n900} maxWidth={570}>
+            <Trans i18nKey='page.magicLinkEmail.subtitle'></Trans>
+          </Box>
 
           <EmailCodeFallback
             onResendEmailRequest={onResendEmailRequest}
