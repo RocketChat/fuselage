@@ -15372,6 +15372,7 @@ fsevents@^1.2.7:
   resolution: "launcher@workspace:tools/launcher"
   dependencies:
     "@babel/core": ^7.15.8
+    "@rocket.chat/emitter": "workspace:packages/emitter"
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@types/folder-hash": ^4.0.1
