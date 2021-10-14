@@ -43,11 +43,12 @@ const CheckYourEmailPage = ({
             fontSize='x52'
             lineHeight='x62'
             fontFamily='sans'
+            color={colors.n900}
           >
             {t('page.checkYourEmail.title')}
           </Box>
 
-          <Box fontScale='s1'>
+          <Box fontScale='s1' color={colors.n900}>
             <Trans i18nKey='page.checkYourEmail.subtitle'>
               Your request has been sent successfully.
               <br />
