@@ -14,7 +14,7 @@
   },
   "page": {
     "form": {
-      "title": "Let's Launch Your Workspace"
+      "title": "Let's <1>Launch</1> Your Workspace"
     },
     "awaitingConfirmation": {
       "title": "Awaiting confirmation",
