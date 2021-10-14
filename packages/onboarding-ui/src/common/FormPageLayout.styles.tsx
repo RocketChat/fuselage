@@ -19,18 +19,28 @@ export const Wrapper = styled('div')`
   }
 `;
 
-export const Aside = styled('div')`
+const asideProps = ({
+  justifyContent,
+  paddingEnd,
+  ...props
+}: {
+  justifyContent?: string;
+  paddingEnd?: string;
+}) => props;
+
+export const Aside = styled('div', asideProps)`
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   padding-block-end: 16px;
+  justify-content: ${(p) => (p.justifyContent ? p.justifyContent : '')};
 
   @media (min-width: 1440px) {
     align-items: flex-start;
     min-height: 40rem;
     flex: 1 0 50%;
-    padding-inline-end: 152px;
+    padding-inline-end: ${(p) => (p.paddingEnd ? p.paddingEnd : '152')}px;
   }
 `;
 

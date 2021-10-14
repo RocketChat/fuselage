@@ -19,6 +19,8 @@ type FormPageLayoutProps = {
   description?: ReactNode;
   children: ReactNode;
   subTitleColor?: string;
+  justifyContent?: string;
+  paddingEnd?: string;
   tag?: string;
 };
 
@@ -28,13 +30,15 @@ const FormPageLayout = ({
   subtitle,
   description,
   subTitleColor,
+  justifyContent,
+  paddingEnd,
   children,
 }: FormPageLayoutProps): ReactElement => {
   const { t } = useTranslation();
 
   return (
     <Wrapper>
-      <Aside>
+      <Aside justifyContent={justifyContent} paddingEnd={paddingEnd}>
         <Logo>{logo ?? <RocketChatLogo />}</Logo>
         <Title>{title ?? t('page.form.title')}</Title>
         {subtitle && (
