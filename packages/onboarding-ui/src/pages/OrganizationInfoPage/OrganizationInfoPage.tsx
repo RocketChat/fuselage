@@ -27,7 +27,7 @@ type OrganizationInfoPageProps = {
   organizationSizeOptions: (readonly [string, string])[];
   countryOptions: (readonly [string, string])[];
   initialValues?: OrganizationInfoPayload;
-  confirmText?: ReactNode;
+  nextStep?: ReactNode;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
   onBackButtonClick: () => void;
   onClickSkip?: () => void;

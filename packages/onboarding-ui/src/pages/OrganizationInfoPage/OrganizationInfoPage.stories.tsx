@@ -83,5 +83,5 @@ _CloudOrganizationInfoPage.storyName = 'CloudOrganizationInfoPage';
 _CloudOrganizationInfoPage.args = {
   title: 'Your Workspace is Ready!',
   description: 'Organization info will help us personalize your workspace',
-  confirmText: 'Create workspace',
+  nextStep: 'Create workspace',
 };
