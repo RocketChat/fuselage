@@ -40,11 +40,14 @@ const InvalidLinkPage = ({
             fontSize='x52'
             lineHeight='x62'
             fontFamily='sans'
+            color={colors.n900}
           >
             {t('page.invalidLink.title')}
           </Box>
 
-          <Box fontScale='s1'>{t('page.invalidLink.content')}</Box>
+          <Box fontScale='s1' color={colors.n900}>
+            {t('page.invalidLink.content')}
+          </Box>
 
           <Button onClick={onRequestNewLink} primary>
             {t('page.invalidLink.button.text')}
