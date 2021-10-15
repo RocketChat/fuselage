@@ -5,6 +5,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
+import type { FormPageLayoutStyleProps } from '../../common/Types';
 import OrganizationInfoForm from '../../forms/OrganizationInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
 import { Title } from './OrganizationInfoPage.styles';
@@ -37,16 +38,21 @@ const OrganizationInfoPage = (
   props: OrganizationInfoPageProps
 ): ReactElement => {
   const { t } = useTranslation();
+
+  const pageLayoutStyleProps: FormPageLayoutStyleProps = {
+    justifyContent: 'center',
+    subTitleProps: {
+      fontWeight: '400',
+      color: colors.n900,
+    },
+  };
+
   return (
     <BackgroundLayer>
       <FormPageLayout
-        justifyContent='center'
+        styleProps={pageLayoutStyleProps}
         title={titleOrganizationInfoPage()}
         description={props.description}
-        subTitleProps={{
-          fontWeight: '400',
-          color: colors.n900,
-        }}
         subtitle={t('page.organizationInfoPage.subtitle')}
       >
         <OrganizationInfoForm {...props} />

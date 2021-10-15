@@ -6,6 +6,7 @@ import { useTranslation, Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
+import type { FormPageLayoutStyleProps } from '../../common/Types';
 import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
 import { Title } from './CreateCloudWorkspace.styles';
 import Description from './Description';
@@ -42,11 +43,18 @@ const CreateCloudWorkspacePage = (
   props: CreateCloudWorkspacePageProps
 ): ReactElement => {
   const { t } = useTranslation();
+
+  const pageLayoutStyleProps: FormPageLayoutStyleProps = {
+    subTitleProps: {
+      color: colors.n900,
+    },
+  };
+
   return (
     <BackgroundLayer>
       <FormPageLayout
         title={titleCreateCloudPage()}
-        subTitleProps={{ color: colors.n900 }}
+        styleProps={pageLayoutStyleProps}
         description={<Description />}
         subtitle={t('page.cloudDescription.tryGold')}
       >

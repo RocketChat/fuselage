@@ -11,19 +11,16 @@ import {
   Title,
   Wrapper,
 } from './FormPageLayout.styles';
+import type { FormPageLayoutStyleProps } from './Types';
 
 type FormPageLayoutProps = {
   logo?: ReactNode;
   title?: ReactNode;
   subtitle?: ReactNode;
   description?: ReactNode;
+  styleProps?: FormPageLayoutStyleProps;
   children: ReactNode;
-  subTitleProps?: {
-    fontWeight?: string;
-    color?: string;
-  };
-  justifyContent?: string;
-  paddingEnd?: string;
+
   tag?: string;
 };
 
@@ -32,22 +29,23 @@ const FormPageLayout = ({
   title,
   subtitle,
   description,
-  subTitleProps,
-  justifyContent,
-  paddingEnd,
+  styleProps,
   children,
 }: FormPageLayoutProps): ReactElement => {
   const { t } = useTranslation();
 
   return (
     <Wrapper>
-      <Aside justifyContent={justifyContent} paddingEnd={paddingEnd}>
+      <Aside
+        justifyContent={styleProps?.justifyContent}
+        paddingEnd={styleProps?.paddingEnd}
+      >
         <Logo>{logo ?? <RocketChatLogo />}</Logo>
         <Title>{title ?? t('page.form.title')}</Title>
         {subtitle && (
           <Subtitle
-            fontWeight={subTitleProps?.fontWeight}
-            fontColor={subTitleProps?.color}
+            fontWeight={styleProps?.subTitleProps?.fontWeight}
+            fontColor={styleProps?.subTitleProps?.color}
           >
             {subtitle}
           </Subtitle>

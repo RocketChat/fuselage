@@ -5,6 +5,7 @@ import { Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
+import type { FormPageLayoutStyleProps } from '../../common/Types';
 import CloudAccountEmailForm from '../../forms/CloudAccountEmailForm';
 import type { CloudAccountEmailPayload } from '../../forms/CloudAccountEmailForm/CloudAccountEmailForm';
 import { Title } from './CloudAccountEmailPage.styles';
@@ -29,14 +30,18 @@ type CloudAccountEmailPageProps = {
   }>;
 };
 
+const pageLayoutStyleProps: FormPageLayoutStyleProps = {
+  justifyContent: 'center',
+  paddingEnd: '135',
+};
+
 const CloudAccountEmailPage = (
   props: CloudAccountEmailPageProps
 ): ReactElement => (
   <BackgroundLayer>
     <FormPageLayout
       title={titleCloudEmailPages()}
-      justifyContent='center'
-      paddingEnd='135'
+      styleProps={pageLayoutStyleProps}
     >
       <CloudAccountEmailForm {...props} />
     </FormPageLayout>
