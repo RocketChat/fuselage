@@ -18,7 +18,10 @@ type FormPageLayoutProps = {
   subtitle?: ReactNode;
   description?: ReactNode;
   children: ReactNode;
-  subTitleColor?: string;
+  subTitleProps?: {
+    fontWeight?: string;
+    color?: string;
+  };
   justifyContent?: string;
   paddingEnd?: string;
   tag?: string;
@@ -29,7 +32,7 @@ const FormPageLayout = ({
   title,
   subtitle,
   description,
-  subTitleColor,
+  subTitleProps,
   justifyContent,
   paddingEnd,
   children,
@@ -42,7 +45,12 @@ const FormPageLayout = ({
         <Logo>{logo ?? <RocketChatLogo />}</Logo>
         <Title>{title ?? t('page.form.title')}</Title>
         {subtitle && (
-          <Subtitle fontColor={subTitleColor || ''}>{subtitle}</Subtitle>
+          <Subtitle
+            fontWeight={subTitleProps?.fontWeight}
+            fontColor={subTitleProps?.color}
+          >
+            {subtitle}
+          </Subtitle>
         )}
         <Description>{description}</Description>
       </Aside>
