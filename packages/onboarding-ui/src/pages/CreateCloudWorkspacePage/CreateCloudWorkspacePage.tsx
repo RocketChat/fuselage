@@ -1,4 +1,5 @@
 import { Box, SelectOptions } from '@rocket.chat/fuselage';
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
@@ -6,7 +7,17 @@ import { useTranslation, Trans } from 'react-i18next';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
+import { Title } from './CreateCloudWorkspace.styles';
 import Description from './Description';
+
+const titleCreateCloudPage = () => (
+  <Title fontColor={colors.n900}>
+    <Trans i18nKey='page.cloudDescription.title'>
+      Let's launch your workspace and
+      <Title fontColor={colors.b500}>14-day trial Launch</Title>
+    </Trans>
+  </Title>
+);
 
 type CreateCloudWorkspacePageProps = {
   currentStep: number;
@@ -34,11 +45,13 @@ const CreateCloudWorkspacePage = (
   return (
     <BackgroundLayer>
       <FormPageLayout
+        title={titleCreateCloudPage()}
+        subTitleColor={colors.n900}
         description={<Description />}
         subtitle={t('page.cloudDescription.tryGold')}
       >
         <CreateCloudWorkspaceForm {...props} />
-        <Box mbs='x28' color='alternative' display='inline' textAlign='center'>
+        <Box mbs='x28' color='default' display='inline' textAlign='center'>
           <Trans i18nKey='page.alreadyHaveAccount'>
             Already have an account?
             <Box
