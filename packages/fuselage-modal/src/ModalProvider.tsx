@@ -20,10 +20,10 @@ const style: CSSProperties = {
   position: 'absolute',
 };
 
+type ModalStack = Array<[ReactPortal, HTMLDivElement]>;
+
 const ModalProvider = ({ children }: { children?: ReactNode }) => {
-  const [modalStack, setModalStack] = useState<
-    Array<[ReactPortal, HTMLDivElement]>
-  >([]);
+  const [modalStack, setModalStack] = useState<ModalStack>([]);
 
   const push = useCallback(
     (modal: ReactElement) => {
