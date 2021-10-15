@@ -34,11 +34,14 @@ const EmailConfirmedPage = (): ReactElement => {
             fontSize='x52'
             lineHeight='x62'
             fontFamily='sans'
+            color={colors.n900}
           >
             {t('page.emailConfirmed.title')}
           </Box>
 
-          <Box fontScale='s1'>{t('page.emailConfirmed.subtitle')}</Box>
+          <Box fontScale='s1' color={colors.n900}>
+            {t('page.emailConfirmed.subtitle')}
+          </Box>
         </Margins>
       </Box>
     </BackgroundLayer>
