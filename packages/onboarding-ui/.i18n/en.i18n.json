@@ -59,6 +59,11 @@
     "magicLinkEmail": {
       "title": "We emailed you a magic link",
       "subtitle": "Click the link in the email we just sent you to sign in to your workspace. <1>The link will expire in 30 minutes.</1>"
+    },
+    "organizationInfoPage": {
+      "title": "A few more details...",
+      "subtitle":"These will help us to personalize your workspace."
+
     }
   },
   "form": {
