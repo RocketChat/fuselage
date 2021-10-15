@@ -29,7 +29,7 @@ const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
         description={<Description />}
         title={<TitleRequestTrial />}
         subtitle={t('page.requestTrial.subtitle')}
-        subTitleColor={colors.n900}
+        subTitleProps={{ color: colors.n900 }}
       >
         <RequestTrialForm {...props} />
         {(props.onManageWorkspaces || props.manageWorkspacesLink) && (

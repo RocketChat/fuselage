@@ -46,7 +46,7 @@ const CreateCloudWorkspacePage = (
     <BackgroundLayer>
       <FormPageLayout
         title={titleCreateCloudPage()}
-        subTitleColor={colors.n900}
+        subTitleProps={{ color: colors.n900 }}
         description={<Description />}
         subtitle={t('page.cloudDescription.tryGold')}
       >
