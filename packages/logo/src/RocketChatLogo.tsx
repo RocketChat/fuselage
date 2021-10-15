@@ -1,30 +1,25 @@
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import styled from '@rocket.chat/styled';
 import type { ReactElement, SVGAttributes } from 'react';
 
+import { Container } from './RocketChatLogo.styles';
 import { Tag } from './Tag';
 
 type RocketChatLogoProps = {
   color?: SVGAttributes<SVGSVGElement>['fill'];
   tagTitle?: string;
+  width?: string;
 };
-
-const Container = styled('div')`
-  width: 14rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
 
 const RocketChatLogo = ({
   color = colors.r500,
+  width,
   tagTitle,
 }: RocketChatLogoProps): ReactElement => {
   const titleId = useUniqueId();
 
   return (
-    <Container>
+    <Container width={width}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 180 30'
