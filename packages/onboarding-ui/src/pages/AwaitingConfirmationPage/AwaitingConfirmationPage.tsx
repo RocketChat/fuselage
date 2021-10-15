@@ -5,7 +5,6 @@ import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
-import { useDarkMode } from '../../common/DarkModeProvider';
 import EmailCodeFallback from '../../common/EmailCodeFallback';
 
 type AwaitingConfirmationPageProps = {
@@ -21,7 +20,6 @@ const AwaitingConfirmationPage = ({
   onResendEmailRequest,
   onChangeEmailRequest,
 }: AwaitingConfirmationPageProps): ReactElement => {
-  const darkMode = useDarkMode();
   const { t } = useTranslation();
 
   return (
@@ -35,7 +33,7 @@ const AwaitingConfirmationPage = ({
         maxWidth={576}
         paddingBlock={32}
         paddingInline={16}
-        color={darkMode ? colors.white : colors.n900}
+        color={colors.n900}
       >
         <Margins blockEnd={32}>
           <Box width='100%' maxWidth={180}>
