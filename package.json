@@ -1,16 +1,18 @@
 {
+  "name": "@rocket.chat/fuselage-root",
   "private": true,
   "workspaces": [
     "packages/*",
     "tools/*"
   ],
   "devDependencies": {
-    "husky": "^6.0.0",
+    "husky": "^7.0.2",
     "hygen": "^6.1.0",
     "lerna": "^4.0.0",
     "webpack": "^5.41.1"
   },
   "scripts": {
+    "postinstall": "husky install",
     "build": "yarn workspaces foreach -v --topological-dev run build",
     "lint": "yarn workspaces foreach -v --topological-dev run lint",
     "lint-fix": "yarn workspaces foreach -v --topological-dev run lint-fix",
@@ -19,7 +21,6 @@
     "docs": "yarn workspaces foreach -v --topological-dev run docs",
     "build-storybook": "yarn workspaces foreach -v --topological-dev run build-storybook",
     "update-storybook": "yarn workspaces foreach -v --topological-dev run update-storybook",
-    "postinstall": "husky install",
     "update-readme": "yarn workspace scripts run update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "create-package": "hygen create-package"

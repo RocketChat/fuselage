@@ -5956,6 +5956,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@rocket.chat/fuselage-root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/fuselage-root@workspace:."
+  dependencies:
+    husky: ^7.0.2
+    hygen: ^6.1.0
+    lerna: ^4.0.0
+    webpack: ^5.41.1
+  languageName: unknown
+  linkType: soft
+
 "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens"
@@ -16358,12 +16369,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"husky@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "husky@npm:6.0.0"
+"husky@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "husky@npm:7.0.2"
   bin:
     husky: lib/bin.js
-  checksum: db6da76a670b2cd1e967990decfd291e6f35a5aee4d362208a51771474d3b4896d526acb4bf0413c2d7154716e42a4d8b6cc19f2bb108e48d1f554624c723a00
+  checksum: 2ccfe6ddc51dc05ae8ea1e2fbb893344e93a813e00c595d6b5f5e704b7b998d6b0e2adda7c57f99b5e46a60dc07c7d860269a2ea91661c6bacef0eca8e0b8e96
   languageName: node
   linkType: hard
 
@@ -24614,17 +24625,6 @@ resolve@^2.0.0-next.3:
   checksum: a97a24ff62a42bed6b9f0575f422e4c2ee8e457123f6ed51b5aa644d21e0bba36d661163e81e6be4e989918c7f73539b17b7bea0e1a11b2265805b87f4c9562d
   languageName: node
   linkType: hard
-
-"root-workspace-0b6124@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "root-workspace-0b6124@workspace:."
-  dependencies:
-    husky: ^6.0.0
-    hygen: ^6.1.0
-    lerna: ^4.0.0
-    webpack: ^5.41.1
-  languageName: unknown
-  linkType: soft
 
 "rsvp@npm:^4.8.4":
   version: 4.8.5
