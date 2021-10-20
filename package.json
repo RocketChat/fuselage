@@ -9,6 +9,7 @@
     "husky": "^7.0.2",
     "hygen": "^6.1.0",
     "lerna": "^4.0.0",
+    "lint-staged": "^11.2.3",
     "webpack": "^5.41.1"
   },
   "scripts": {
@@ -16,7 +17,6 @@
     "build": "yarn workspaces foreach -v --topological-dev run build",
     "lint": "yarn workspaces foreach -v --topological-dev run lint",
     "lint-fix": "yarn workspaces foreach -v --topological-dev run lint-fix",
-    "lint-staged": "yarn workspaces foreach -v --topological-dev run lint-staged",
     "test": "yarn workspaces foreach -v --topological-dev run test",
     "docs": "yarn workspaces foreach -v --topological-dev run docs",
     "build-storybook": "yarn workspaces foreach -v --topological-dev run build-storybook",

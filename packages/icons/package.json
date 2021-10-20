@@ -29,6 +29,7 @@
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
+    "@prettier/plugin-xml": "^1.1.0",
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "build-icons": "workspace:tools/build-icons",

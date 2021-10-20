@@ -5761,6 +5761,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prettier/plugin-xml@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@prettier/plugin-xml@npm:1.1.0"
+  dependencies:
+    "@xml-tools/parser": ^1.0.11
+    prettier: ">=2.3"
+  checksum: c2af6a816ff3a4fd555718046d5c6290616bcde7f51f67ecb2bfaa16f2162be84499c80b33a47ddcab18da58ea9814388883dbaf0aca9b814d01f8a7ede2a814
+  languageName: node
+  linkType: hard
+
 "@reach/router@npm:^1.3.4":
   version: 1.3.4
   resolution: "@reach/router@npm:1.3.4"
@@ -5963,6 +5973,7 @@ __metadata:
     husky: ^7.0.2
     hygen: ^6.1.0
     lerna: ^4.0.0
+    lint-staged: ^11.2.3
     webpack: ^5.41.1
   languageName: unknown
   linkType: soft
@@ -6120,6 +6131,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/icons@workspace:packages/icons"
   dependencies:
+    "@prettier/plugin-xml": ^1.1.0
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     build-icons: "workspace:tools/build-icons"
@@ -9035,6 +9047,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xml-tools/parser@npm:^1.0.11":
+  version: 1.0.11
+  resolution: "@xml-tools/parser@npm:1.0.11"
+  dependencies:
+    chevrotain: 7.1.1
+  checksum: 79f32386ef935c1ba65d421e36b556fb14593c7b7e5ca99160ec8ec6dba912a00be6c32d0ab8bad35f82cb5640c05f1a8cfd1d227d563aed20ecc57d678ceab2
+  languageName: node
+  linkType: hard
+
 "@xmldom/xmldom@npm:^0.7.2":
   version: 0.7.5
   resolution: "@xmldom/xmldom@npm:0.7.5"
@@ -11147,6 +11168,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chevrotain@npm:7.1.1":
+  version: 7.1.1
+  resolution: "chevrotain@npm:7.1.1"
+  dependencies:
+    regexp-to-ast: 0.5.0
+  checksum: 3ba268b745b89674712930f5d5b212f0bae6218309a05e1f89301384a9a2e8482429c83b9c52f38e536c38bb1940a53c2c0e6149e15277ea6bc6a1307528474d
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.4.2":
   version: 3.5.1
   resolution: "chokidar@npm:3.5.1"
@@ -11376,7 +11406,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-truncate@npm:^2.1.0":
+"cli-truncate@npm:2.1.0, cli-truncate@npm:^2.1.0":
   version: 2.1.0
   resolution: "cli-truncate@npm:2.1.0"
   dependencies:
@@ -11590,6 +11620,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"colorette@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "colorette@npm:1.4.0"
+  checksum: 01c3c16058b182a4ab4c126a65a75faa4d38a20fa7c845090b25453acec6c371bb2c5dceb0a2338511f17902b9d1a9af0cadd8509c9403894b79311032c256c3
+  languageName: node
+  linkType: hard
+
 "colors@npm:1.0.x":
   version: 1.0.3
   resolution: "colors@npm:1.0.3"
@@ -11669,6 +11706,13 @@ __metadata:
   version: 7.2.0
   resolution: "commander@npm:7.2.0"
   checksum: 53501cbeee61d5157546c0bef0fedb6cdfc763a882136284bed9a07225f09a14b82d2a84e7637edfd1a679fb35ed9502fd58ef1d091e6287f60d790147f68ddc
+  languageName: node
+  linkType: hard
+
+"commander@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "commander@npm:8.2.0"
+  checksum: e868805bc266777f7a9c8a740e15b9e02b8148d8251f577ea9b9ef373ac0bdeb77b9b60cfc033592c9e1affea89993be08c13c623f0c619f9bf152c0e4d12cb0
   languageName: node
   linkType: hard
 
@@ -12689,7 +12733,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.3.1":
+"debug@npm:4, debug@npm:^4.3.1, debug@npm:^4.3.2":
   version: 4.3.2
   resolution: "debug@npm:4.3.2"
   dependencies:
@@ -14336,6 +14380,23 @@ __metadata:
     signal-exit: ^3.0.3
     strip-final-newline: ^2.0.0
   checksum: a044367ebdcc68ca019810cb134510fc77bbc55c799122258ee0e00e289c132941ab48c2a331a036699c42bc8d479d451ae67c105fce5ce5cc813e7dd92d642b
+  languageName: node
+  linkType: hard
+
+"execa@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "execa@npm:5.1.1"
+  dependencies:
+    cross-spawn: ^7.0.3
+    get-stream: ^6.0.0
+    human-signals: ^2.1.0
+    is-stream: ^2.0.0
+    merge-stream: ^2.0.0
+    npm-run-path: ^4.0.1
+    onetime: ^5.1.2
+    signal-exit: ^3.0.3
+    strip-final-newline: ^2.0.0
+  checksum: fba9022c8c8c15ed862847e94c252b3d946036d7547af310e344a527e59021fd8b6bb0723883ea87044dc4f0201f949046993124a42ccb0855cae5bf8c786343
   languageName: node
   linkType: hard
 
@@ -19195,6 +19256,47 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"lint-staged@npm:^11.2.3":
+  version: 11.2.3
+  resolution: "lint-staged@npm:11.2.3"
+  dependencies:
+    cli-truncate: 2.1.0
+    colorette: ^1.4.0
+    commander: ^8.2.0
+    cosmiconfig: ^7.0.1
+    debug: ^4.3.2
+    enquirer: ^2.3.6
+    execa: ^5.1.1
+    listr2: ^3.12.2
+    micromatch: ^4.0.4
+    normalize-path: ^3.0.0
+    please-upgrade-node: ^3.2.0
+    string-argv: 0.3.1
+    stringify-object: 3.3.0
+    supports-color: 8.1.1
+  bin:
+    lint-staged: bin/lint-staged.js
+  checksum: cf3a1612a8cb3790030fb1eaf98071b97be0c71e9ee87f2f65741321974178e9b15b480dac695bb126d2cd8751dd7d72071b13d7ea0e1a97a735d88bd3cc8bb7
+  languageName: node
+  linkType: hard
+
+"listr2@npm:^3.12.2":
+  version: 3.12.2
+  resolution: "listr2@npm:3.12.2"
+  dependencies:
+    cli-truncate: ^2.1.0
+    colorette: ^1.4.0
+    log-update: ^4.0.0
+    p-map: ^4.0.0
+    rxjs: ^6.6.7
+    through: ^2.3.8
+    wrap-ansi: ^7.0.0
+  peerDependencies:
+    enquirer: ">= 2.3.0 < 3"
+  checksum: 92d72b9b6ae835893618c9a46015d538b8d39602208bd9dc0ddc2d73f3cb24175b5367c6af50a7a8ac6cdf2c1a0d4b398455dc4c4fce29954cb5267343a1d974
+  languageName: node
+  linkType: hard
+
 "listr2@npm:^3.8.2":
   version: 3.8.2
   resolution: "listr2@npm:3.8.2"
@@ -22968,21 +23070,21 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"prettier@npm:>=2.3, prettier@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "prettier@npm:2.4.1"
+  bin:
+    prettier: bin-prettier.js
+  checksum: cc6830588b401b0d742862fe9c46bc9118204fb307c3abe0e49e95b35ed23629573807ffdf9cdd65289c252a0bb51fc0171437f6626ee36378dea80f0ee80b91
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^2.3.0, prettier@npm:^2.3.2":
   version: 2.3.2
   resolution: "prettier@npm:2.3.2"
   bin:
     prettier: bin-prettier.js
   checksum: 17ce5784ac67621c292df58e2da60b2ee150c2d6aebea22a6ad9e52fcd6a5e66c349d0a8436ea3bd8ff9d778920a5f68000d7625b74f43558718a49755aa5259
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "prettier@npm:2.4.1"
-  bin:
-    prettier: bin-prettier.js
-  checksum: cc6830588b401b0d742862fe9c46bc9118204fb307c3abe0e49e95b35ed23629573807ffdf9cdd65289c252a0bb51fc0171437f6626ee36378dea80f0ee80b91
   languageName: node
   linkType: hard
 
@@ -24102,6 +24204,13 @@ fsevents@~2.1.2:
     extend-shallow: ^3.0.2
     safe-regex: ^1.1.0
   checksum: 3081403de79559387a35ef9d033740e41818a559512668cef3d12da4e8a29ef34ee13c8ed1256b07e27ae392790172e8a15c8a06b72962fd4550476cde3d8f77
+  languageName: node
+  linkType: hard
+
+"regexp-to-ast@npm:0.5.0":
+  version: 0.5.0
+  resolution: "regexp-to-ast@npm:0.5.0"
+  checksum: 72e32f2a1217bb22398ac30867ddd43e16943b6b569dd4eb472de47494c7a39e34f47ee3e92ad4cbf92308f98997da366fe094a0e58eb6b93eab0ee956fff86d
   languageName: node
   linkType: hard
 
@@ -25915,7 +26024,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"stringify-object@npm:^3.3.0":
+"stringify-object@npm:3.3.0, stringify-object@npm:^3.3.0":
   version: 3.3.0
   resolution: "stringify-object@npm:3.3.0"
   dependencies:
@@ -26229,6 +26338,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"supports-color@npm:8.1.1, supports-color@npm:^8.0.0":
+  version: 8.1.1
+  resolution: "supports-color@npm:8.1.1"
+  dependencies:
+    has-flag: ^4.0.0
+  checksum: c052193a7e43c6cdc741eb7f378df605636e01ad434badf7324f17fb60c69a880d8d8fcdcb562cf94c2350e57b937d7425ab5b8326c67c2adc48f7c87c1db406
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:^2.0.0":
   version: 2.0.0
   resolution: "supports-color@npm:2.0.0"
@@ -26260,15 +26378,6 @@ resolve@^2.0.0-next.3:
   dependencies:
     has-flag: ^4.0.0
   checksum: 3dda818de06ebbe5b9653e07842d9479f3555ebc77e9a0280caf5a14fb877ffee9ed57007c3b78f5a6324b8dbeec648d9e97a24e2ed9fdb81ddc69ea07100f4a
-  languageName: node
-  linkType: hard
-
-"supports-color@npm:^8.0.0":
-  version: 8.1.1
-  resolution: "supports-color@npm:8.1.1"
-  dependencies:
-    has-flag: ^4.0.0
-  checksum: c052193a7e43c6cdc741eb7f378df605636e01ad434badf7324f17fb60c69a880d8d8fcdcb562cf94c2350e57b937d7425ab5b8326c67c2adc48f7c87c1db406
   languageName: node
   linkType: hard
 
