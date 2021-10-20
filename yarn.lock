@@ -13743,17 +13743,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"endent@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "endent@npm:2.1.0"
-  dependencies:
-    dedent: ^0.7.0
-    fast-json-parse: ^1.0.3
-    objectorarray: ^1.0.5
-  checksum: c352831088fce745a39ddbd5f87a17e073ea6556e7e96e9010d945a3f3020f836b9a84657123fa01e897db9216f4b080d950b5ded9bf3a8227f14a34efaaaf7c
-  languageName: node
-  linkType: hard
-
 "enhanced-resolve@npm:^4.5.0":
   version: 4.5.0
   resolution: "enhanced-resolve@npm:4.5.0"
@@ -21810,13 +21799,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"objectorarray@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "objectorarray@npm:1.0.5"
-  checksum: 8fd776aa495d113e217837f4adc1d53e63f656498237094d25f84c3e2c038b34b71d6fd85c4b60c7ae5f558790e5042426a400fae3eac35f297e11be12643a78
-  languageName: node
-  linkType: hard
-
 "on-finished@npm:~2.3.0":
   version: 2.3.0
   resolution: "on-finished@npm:2.3.0"
@@ -25402,7 +25384,6 @@ resolve@^2.0.0-next.3:
     "@types/node": ^15.14.1
     "@typescript-eslint/parser": ^4.33.0
     cross-env: ^7.0.3
-    endent: ^2.1.0
     eslint: ^7.32.0
     fast-glob: ^3.2.6
     npm-run-all: ^4.1.5
