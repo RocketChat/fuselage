@@ -27,8 +27,8 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "eslint .",
-    "lint-fix": "eslint --fix .",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged"
   },
   "peerDependencies": {
@@ -37,20 +37,21 @@
     "prettier": "^2.3.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.15.7",
+    "@babel/eslint-parser": "^7.15.8",
     "eslint": "^7.32.0",
-    "lint-staged": "^11.0.0",
+    "lint-all": "workspace:tools/lint-all",
+    "lint-staged": "^11.2.3",
     "prettier": "^2.3.2"
   },
   "dependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",
-    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.26.0",
+    "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0"
   }
 }

@@ -9,6 +9,7 @@
       "changeProcessCWD": true
     }
   ],
+  "eslint.onIgnoredFiles": "warn",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
