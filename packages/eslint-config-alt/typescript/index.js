@@ -21,6 +21,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/no-var-requires': 'off',
     'func-call-spacing': 'off',
     'indent': 'off',
     'import/order': [

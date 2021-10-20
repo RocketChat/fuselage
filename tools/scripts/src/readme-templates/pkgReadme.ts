@@ -39,7 +39,7 @@ export const pkgReadme = (pkg: Package): string =>
 
             Some linter warnings and errors can be automatically fixed:
 
-            ${section(pkg, 'yarn(lint-fix)')}
+            ${section(pkg, 'yarn(lint-and-fix)')}
           `
         : ''
     }

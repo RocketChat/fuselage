@@ -70,10 +70,10 @@ yarn lint
 
 Some linter warnings and errors can be automatically fixed:
 
-<!--yarn(lint-fix)-->
+<!--yarn(lint-and-fix)-->
 
 ```sh
-yarn lint-fix
+yarn lint-and-fix
 ```
 
-<!--/yarn(lint-fix)-->
+<!--/yarn(lint-and-fix)-->

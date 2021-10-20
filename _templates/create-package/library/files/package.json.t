@@ -5,7 +5,7 @@ sh: |
   yarn add -D npm-run-all rimraf
   yarn add -D prettier @rocket.chat/prettier-config
   yarn add -D eslint @rocket.chat/eslint-config-alt
-  yarn add -D lint-staged
+  yarn add -D lint-all lint-staged
   yarn add -D jest ts-jest @types/jest
   yarn add -D typescript typedoc
   yarn add tslib
@@ -42,8 +42,8 @@ sh: |
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig-esm.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
-    "lint": "eslint src",
-    "lint-fix": "eslint --fix src",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "docs": "typedoc"
