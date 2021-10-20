@@ -1,5 +1,4 @@
 import { Box, Margins, Throbber } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -20,7 +19,6 @@ const ConfirmationProcessPage = (): ReactElement => {
         maxWidth={660}
         paddingBlock={32}
         paddingInline={16}
-        color={colors.n900}
       >
         <Margins blockEnd={32}>
           <Box width='100%' maxWidth={180}>

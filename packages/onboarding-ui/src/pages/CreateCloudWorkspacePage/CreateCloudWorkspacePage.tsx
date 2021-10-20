@@ -6,13 +6,12 @@ import { useTranslation, Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
-import type { FormPageLayoutStyleProps } from '../../common/Types';
 import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
 import { Title } from './CreateCloudWorkspace.styles';
 import Description from './Description';
 
 const titleCreateCloudPage = () => (
-  <Title fontColor={colors.n900}>
+  <Title>
     <Trans i18nKey='page.cloudDescription.title'>
       Let's launch your workspace and
       <Title fontColor={colors.b500}>14-day trial Launch</Title>
@@ -44,22 +43,15 @@ const CreateCloudWorkspacePage = (
 ): ReactElement => {
   const { t } = useTranslation();
 
-  const pageLayoutStyleProps: FormPageLayoutStyleProps = {
-    subTitleProps: {
-      color: colors.n900,
-    },
-  };
-
   return (
     <BackgroundLayer>
       <FormPageLayout
         title={titleCreateCloudPage()}
-        styleProps={pageLayoutStyleProps}
         description={<Description />}
         subtitle={t('page.cloudDescription.tryGold')}
       >
         <CreateCloudWorkspaceForm {...props} />
-        <Box mbs='x28' color='default' display='inline' textAlign='center'>
+        <Box mbs='x28' display='inline' textAlign='center'>
           <Trans i18nKey='page.alreadyHaveAccount'>
             Already have an account?
             <Box

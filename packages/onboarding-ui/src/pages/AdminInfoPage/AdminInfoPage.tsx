@@ -11,7 +11,7 @@ import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
 import { Title } from './AdminInfoPage.styles';
 
 const titleAdminInfo = () => (
-  <Title fontColor={colors.n900}>
+  <Title>
     <Trans i18nKey='page.form.title'>
       Let's
       <Title fontColor={colors.b500}>Launch</Title>

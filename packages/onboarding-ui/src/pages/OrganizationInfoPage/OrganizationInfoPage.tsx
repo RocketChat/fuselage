@@ -1,4 +1,3 @@
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
@@ -11,7 +10,7 @@ import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/O
 import { Title } from './OrganizationInfoPage.styles';
 
 const titleOrganizationInfoPage = () => (
-  <Title fontColor={colors.n900}>
+  <Title>
     <Trans i18nKey='page.organizationInfoPage.title'>
       A few more details...
     </Trans>
@@ -43,7 +42,6 @@ const OrganizationInfoPage = (
     justifyContent: 'center',
     subTitleProps: {
       fontWeight: '400',
-      color: colors.n900,
     },
   };
 

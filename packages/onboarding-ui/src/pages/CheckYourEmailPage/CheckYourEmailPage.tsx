@@ -1,11 +1,9 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ReactElement } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
-import { useDarkMode } from '../../common/DarkModeProvider';
 import EmailCodeFallback from '../../common/EmailCodeFallback';
 
 type CheckYourEmailPageProps = {
@@ -17,7 +15,6 @@ const CheckYourEmailPage = ({
   onResendEmailRequest,
   onChangeEmailRequest,
 }: CheckYourEmailPageProps): ReactElement => {
-  const darkMode = useDarkMode();
   const { t } = useTranslation();
 
   return (
@@ -31,7 +28,6 @@ const CheckYourEmailPage = ({
         maxWidth={576}
         paddingBlock={32}
         paddingInline={16}
-        color={darkMode ? colors.white : colors.n900}
       >
         <Margins blockEnd={32}>
           <Box width='100%' maxWidth={180}>
@@ -43,12 +39,11 @@ const CheckYourEmailPage = ({
             fontSize='x52'
             lineHeight='x62'
             fontFamily='sans'
-            color={colors.n900}
           >
             {t('page.checkYourEmail.title')}
           </Box>
 
-          <Box fontScale='s1' color={colors.n900}>
+          <Box fontScale='s1'>
             <Trans i18nKey='page.checkYourEmail.subtitle'>
               Your request has been sent successfully.
               <br />

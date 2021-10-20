@@ -4,10 +4,13 @@ import { ReactElement, useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { useTranslation } from 'react-i18next';
 
+import { useDarkMode } from '../../common/DarkModeProvider';
 import List from '../../common/List';
 import PlanFeatureIcon from '../../common/PlanFeatureIcon';
 
 const Description = (): ReactElement => {
+  const isDarkMode = useDarkMode();
+  const color = isDarkMode ? colors.white : colors.n900;
   const { t } = useTranslation();
 
   const icon = useMemo(
@@ -17,7 +20,7 @@ const Description = (): ReactElement => {
 
   return (
     <>
-      <List color={colors.n900} spacing='x16' icon={icon}>
+      <List color={color} spacing='x16' icon={icon}>
         <List.Item>{t('page.cloudDescription.availability')}</List.Item>
         <List.Item>{t('page.cloudDescription.auditing')}</List.Item>
         <List.Item>{t('page.cloudDescription.numberOfIntegrations')}</List.Item>

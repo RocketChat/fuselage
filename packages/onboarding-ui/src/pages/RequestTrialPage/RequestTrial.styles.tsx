@@ -2,7 +2,7 @@ import styled from '@rocket.chat/styled';
 
 import { sans } from '../../helpers/tokenFontFamilies';
 
-const filterTitleProps = ({ fontColor, ...props }: { fontColor: string }) =>
+const filterTitleProps = ({ fontColor, ...props }: { fontColor?: string }) =>
   props;
 
 export const Title = styled('div', filterTitleProps)`
@@ -11,7 +11,7 @@ export const Title = styled('div', filterTitleProps)`
   font-weight: 500;
   line-height: ${String(42 / 16)}rem;
   text-align: left;
-  color: ${(p) => p.fontColor};
+  color: ${(p) => (p.fontColor ? p.fontColor : '')};
 
   @media (min-width: 1440px) {
     text-align: start;

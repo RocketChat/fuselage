@@ -33,7 +33,6 @@ const AwaitingConfirmationPage = ({
         maxWidth={576}
         paddingBlock={32}
         paddingInline={16}
-        color={colors.n900}
       >
         <Margins blockEnd={32}>
           <Box width='100%' maxWidth={180}>
