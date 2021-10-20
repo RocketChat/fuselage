@@ -1,11 +1,11 @@
-import endent from 'endent';
+import outdent from 'outdent';
+import { depsBadge } from './badges/depsBadge.mjs';
+import { npmVersionBadge } from './badges/npmVersionBadge.mjs';
+import { rocketChatLogo } from './rocketChatLogo.mjs';
 
-import { Package } from '../types/Package';
-import { depsBadge } from './badges/deps';
-import { npmVersionBadge } from './badges/npmVersion';
-import { rocketChatLogo } from './rocketChatLogo';
+const pkgIcon = '\ud83d\udce6';
 
-export const rootReadme = (packages: Package[]): string => endent`
+export const rootReadme = (pkgs) => outdent`
   ${rocketChatLogo}
 
   <h1 align="center">Fuselage Monorepo</h1>
@@ -20,11 +20,11 @@ export const rootReadme = (packages: Package[]): string => endent`
 
   | Package | Description | Version | Dependencies |
   |---------|-------------|---------|--------------|
-  ${packages
+  ${pkgs
     .map(
       (pkg) =>
         `| ${[
-          `\ud83d\udce6 [\`${pkg.name}\`](/packages/${pkg.name})`,
+          `${pkgIcon} [\`${pkg.name}\`](/packages/${pkg.dirname})`,
           pkg.description ?? '',
           npmVersionBadge(pkg),
           depsBadge(pkg),

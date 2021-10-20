@@ -6053,6 +6053,7 @@ __metadata:
     hygen: ^6.1.0
     lerna: ^4.0.0
     lint-staged: ^11.2.3
+    update-readme: "workspace:tools/update-readme"
     webpack: ^5.41.1
   languageName: unknown
   linkType: soft
@@ -21966,6 +21967,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"outdent@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "outdent@npm:0.8.0"
+  checksum: 72b7c1a287674317ea477999ec24e73a9eda21de35eb9429218f4a5bab899e964afaee7508265898118fee5cbee1d79397916b66dd8aeee285cd948ea5b1f562
+  languageName: node
+  linkType: hard
+
 "overlayscrollbars@npm:^1.13.1":
   version: 1.13.1
   resolution: "overlayscrollbars@npm:1.13.1"
@@ -28365,6 +28373,17 @@ typescript@^4.4.3:
   checksum: 2db04f24a03ef72204c7b969d6991abec9e2cb06fb4c13a1fd1c59bc33b46526b16c3325e55930a11ff86a77a8cbbcda8f6399bf914087028c5beae21ecdb33c
   languageName: node
   linkType: hard
+
+"update-readme@workspace:tools/update-readme":
+  version: 0.0.0-use.local
+  resolution: "update-readme@workspace:tools/update-readme"
+  dependencies:
+    outdent: ^0.8.0
+    zx: ^4.2.0
+  bin:
+    update-readme: ./update-readme.mjs
+  languageName: unknown
+  linkType: soft
 
 "upper-case-first@npm:^1.1.0, upper-case-first@npm:^1.1.2":
   version: 1.1.2

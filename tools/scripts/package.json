@@ -2,7 +2,6 @@
   "private": true,
   "name": "scripts",
   "scripts": {
-    "update-readme": "ts-node src/update-readme.ts",
     "resolve-workspace-deps": "run-s .:resolve-workspace-deps:run-script .:resolve-workspace-deps:update-lockfile .:resolve-workspace-deps:git-commit",
     ".:resolve-workspace-deps:run-script": "ts-node src/resolve-workspace-deps.ts",
     ".:resolve-workspace-deps:update-lockfile": "cross-env YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn",

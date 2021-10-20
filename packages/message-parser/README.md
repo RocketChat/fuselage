@@ -54,4 +54,4 @@ We are open to other tags/markups, as long as they don't generate unexpected beh
 ## Observations and known issues
 
 - Nested lists are unsupported
-- `URL` rule doesn't allow ` `, `(`, or `)`
+- `URL` rule doesn't allow whitespace, `(`, or `)`
