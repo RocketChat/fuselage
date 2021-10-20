@@ -1,5 +1,3 @@
 {
-  "*.{js,mjs,ts,tsx,mdx}": "eslint --fix",
-  "*.{css,scss}": "stylelint --fix",
   "*.{json,jsonc,md,yml,xml,svg}": "prettier --write"
 }

@@ -1,11 +1,11 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { withTests } from '@storybook/addon-jest';
 import { addDecorator, addParameters } from '@storybook/react';
 import 'loki/configure-react';
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
-import { withTests } from '@storybook/addon-jest';
 
 addParameters({
   backgrounds: {

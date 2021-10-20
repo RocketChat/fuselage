@@ -27,8 +27,8 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "eslint .",
-    "lint-fix": "eslint --fix .",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged"
   },
   "peerDependencies": {
@@ -39,7 +39,8 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.7",
     "eslint": "^7.32.0",
-    "lint-staged": "^11.0.0",
+    "lint-all": "workspace:tools/lint-all",
+    "lint-staged": "^11.1.2",
     "prettier": "^2.3.2"
   },
   "dependencies": {
