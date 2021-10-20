@@ -194,6 +194,3 @@ export abstract class SurfaceRenderer<
     index: number
   ): T | null;
 }
-
-export type SurfaceRendererPayload<S extends BlockRenderers<any>> =
-  S extends SurfaceRenderer<any, infer T> ? T[] : never;
