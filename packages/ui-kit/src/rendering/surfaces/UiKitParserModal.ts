@@ -4,20 +4,23 @@ import { DividerBlock } from '../../blocks/layout/DividerBlock';
 import { ImageBlock } from '../../blocks/layout/ImageBlock';
 import { InputBlock } from '../../blocks/layout/InputBlock';
 import { SectionBlock } from '../../blocks/layout/SectionBlock';
-import { SurfaceRenderer, SurfaceRendererPayload } from '../SurfaceRenderer';
+import { SurfaceRenderer } from '../SurfaceRenderer';
 
-export abstract class UiKitParserModal<OutputElement> extends SurfaceRenderer<
-  OutputElement,
+type ModalSurfaceLayoutBlock =
   | ActionsBlock
   | ContextBlock
   | DividerBlock
   | ImageBlock
   | InputBlock
-  | SectionBlock
+  | SectionBlock;
+
+export abstract class UiKitParserModal<OutputElement> extends SurfaceRenderer<
+  OutputElement,
+  ModalSurfaceLayoutBlock
 > {
   public constructor() {
     super(['actions', 'context', 'divider', 'image', 'input', 'section']);
   }
 }
 
-export type ModalSurfaceLayout = SurfaceRendererPayload<UiKitParserModal<any>>;
+export type ModalSurfaceLayout = ModalSurfaceLayoutBlock[];
