@@ -1,21 +1,13 @@
 import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import type { FormPageLayoutStyleProps } from '../../common/Types';
 import OrganizationInfoForm from '../../forms/OrganizationInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
-import { Title } from './OrganizationInfoPage.styles';
-
-const titleOrganizationInfoPage = () => (
-  <Title>
-    <Trans i18nKey='page.organizationInfoPage.title'>
-      A few more details...
-    </Trans>
-  </Title>
-);
+import TitleOrganizationInfoPage from './TitleCreateCloudPage';
 
 type OrganizationInfoPageProps = {
   title?: string;
@@ -49,7 +41,7 @@ const OrganizationInfoPage = (
     <BackgroundLayer>
       <FormPageLayout
         styleProps={pageLayoutStyleProps}
-        title={titleOrganizationInfoPage()}
+        title={<TitleOrganizationInfoPage />}
         description={props.description}
         subtitle={t('page.organizationInfoPage.subtitle')}
       >

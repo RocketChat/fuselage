@@ -32,7 +32,6 @@ type CloudAccountEmailPageProps = {
 
 const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
-  paddingEnd: '135',
 };
 
 const CloudAccountEmailPage = (

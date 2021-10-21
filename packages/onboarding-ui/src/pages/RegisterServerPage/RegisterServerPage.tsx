@@ -30,7 +30,6 @@ const titleRegisterServer = () => (
 
 const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
-  paddingEnd: '135',
 };
 
 const RegisterServerPage = (props: RegisterServerPageProps): ReactElement => (

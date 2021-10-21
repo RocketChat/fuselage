@@ -1,5 +1,4 @@
 import { Box, SelectOptions } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
@@ -7,17 +6,8 @@ import { useTranslation, Trans } from 'react-i18next';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
-import { Title } from './CreateCloudWorkspace.styles';
 import Description from './Description';
-
-const titleCreateCloudPage = () => (
-  <Title>
-    <Trans i18nKey='page.cloudDescription.title'>
-      Let's launch your workspace and
-      <Title fontColor={colors.b500}>14-day trial Launch</Title>
-    </Trans>
-  </Title>
-);
+import TitleCreateCloudPage from './TitleCreateCloudPage';
 
 type CreateCloudWorkspacePageProps = {
   currentStep: number;
@@ -46,7 +36,7 @@ const CreateCloudWorkspacePage = (
   return (
     <BackgroundLayer>
       <FormPageLayout
-        title={titleCreateCloudPage()}
+        title={<TitleCreateCloudPage />}
         description={<Description />}
         subtitle={t('page.cloudDescription.tryGold')}
       >

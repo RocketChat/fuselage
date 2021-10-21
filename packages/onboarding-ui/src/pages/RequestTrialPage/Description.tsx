@@ -28,7 +28,6 @@ const Description = (): ReactElement => {
         <List.Item>{t('page.cloudDescription.omnichannel')}</List.Item>
         <List.Item>{t('page.cloudDescription.push')}</List.Item>
       </List>
-
       <Box
         is='text'
         height='x64'
@@ -36,7 +35,7 @@ const Description = (): ReactElement => {
         fontScale='micro'
         color={colors.n600}
       >
-        * Golden plan includes all features from other plans
+        {t('page.cloudDescription.goldIncludes')}
       </Box>
     </>
   );

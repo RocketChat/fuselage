@@ -14,7 +14,7 @@ const titleAdminInfo = () => (
   <Title>
     <Trans i18nKey='page.form.title'>
       Let's
-      <Title fontColor='primary'>Launch</Title>
+      <Title fontColor={colors.b500}>Launch</Title>
       Your Workspace
     </Trans>
   </Title>
@@ -36,7 +36,6 @@ type AdminInfoPageProps = {
 
 const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
-  paddingEnd: '135',
 };
 
 const AdminInfoPage = (props: AdminInfoPageProps): ReactElement => (
