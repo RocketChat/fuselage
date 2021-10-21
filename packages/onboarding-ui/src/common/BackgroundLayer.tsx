@@ -12,14 +12,17 @@ type BackgroundLayerProps = {
 
 const BackgroundLayer = ({ children }: BackgroundLayerProps): ReactElement => {
   const darkMode = useDarkMode();
-
-  const backgroundImage = useMemo(
-    () => encodeURIComponent(renderToStaticMarkup(<BackgroundImage />)),
-    []
-  );
-
   const backgroundColor = darkMode ? colors.n800 : colors.n200;
   const color = darkMode ? colors.white : colors.n800;
+  const backgroundImage = useMemo(
+    () =>
+      encodeURIComponent(
+        renderToStaticMarkup(
+          <BackgroundImage backgroundColor={backgroundColor} />
+        )
+      ),
+    [backgroundColor]
+  );
 
   return (
     <Wrapper
