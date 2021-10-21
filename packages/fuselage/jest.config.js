@@ -2,8 +2,8 @@ module.exports = {
   preset: 'ts-jest/presets/js-with-babel',
   errorOnDeprecated: true,
   testMatch: [
-    '<rootDir>/src/**/*.spec.{js,ts,tsx}',
-    '<rootDir>/src/**/spec.{js,ts,tsx}',
+    '<rootDir>/src/**/*.spec.{ts,tsx}',
+    '<rootDir>/src/**/spec.{ts,tsx}',
   ],
   testEnvironment: 'jsdom',
   globals: {

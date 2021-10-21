@@ -14,9 +14,9 @@ it('accepts a string in className prop', () => {
   const root = document.createElement('div');
   ReactDOM.render(<Box className='fuselage' />, root);
 
-  const div = root.firstChild;
-  expect(div.classList).toContainEqual('rcx-box');
-  expect(div.classList).toContainEqual('fuselage');
+  const div = root.firstElementChild;
+  expect(div?.classList).toContainEqual('rcx-box');
+  expect(div?.classList).toContainEqual('fuselage');
 });
 
 it('accepts a css tagged template string in className prop', () => {
@@ -30,18 +30,18 @@ it('accepts a css tagged template string in className prop', () => {
     root
   );
 
-  const div = root.firstChild;
-  expect(div.classList).toContainEqual('rcx-box');
-  expect(div.classList).toContainEqual(expect.stringMatching(/^rcx-css-/));
-  expect(getComputedStyle(div).width).toBe('10em');
+  const div = root.firstElementChild;
+  expect(div?.classList).toContainEqual('rcx-box');
+  expect(div?.classList).toContainEqual(expect.stringMatching(/^rcx-css-/));
+  expect(div && getComputedStyle(div).width).toBe('10em');
 });
 
 it('accepts an empty array in className prop', () => {
   const root = document.createElement('div');
   ReactDOM.render(<Box className={[]} />, root);
 
-  const div = root.firstChild;
-  expect(div.classList).toContainEqual('rcx-box');
+  const div = root.firstElementChild;
+  expect(div?.classList).toContainEqual('rcx-box');
 });
 
 it('accepts an array of values in className prop', () => {
@@ -58,11 +58,11 @@ it('accepts an array of values in className prop', () => {
     root
   );
 
-  const div = root.firstChild;
-  expect(div.classList).toContainEqual('rcx-box');
-  expect(div.classList).toContainEqual('fuselage');
-  expect(div.classList).toContainEqual(expect.stringMatching(/^rcx-css-/));
-  expect(getComputedStyle(div).width).toBe('10em');
+  const div = root.firstElementChild;
+  expect(div?.classList).toContainEqual('rcx-box');
+  expect(div?.classList).toContainEqual('fuselage');
+  expect(div?.classList).toContainEqual(expect.stringMatching(/^rcx-css-/));
+  expect(div && getComputedStyle(div).width).toBe('10em');
 });
 
 it('attaches rcx-* props into className', () => {
@@ -72,12 +72,12 @@ it('attaches rcx-* props into className', () => {
     root
   );
 
-  const div = root.firstChild;
-  expect(div.classList).toContain('rcx-box');
-  expect(div.classList).toContain('rcx-test-a');
-  expect(div.classList).not.toContain('rcx-test-b');
-  expect(div.classList).toContain('rcx-test-c');
-  expect(div.classList).toContain('rcx-test-d');
+  const div = root.firstElementChild;
+  expect(div?.classList).toContain('rcx-box');
+  expect(div?.classList).toContain('rcx-test-a');
+  expect(div?.classList).not.toContain('rcx-test-b');
+  expect(div?.classList).toContain('rcx-test-c');
+  expect(div?.classList).toContain('rcx-test-d');
 });
 
 it('merge rcx-* props and an empty array into className', () => {
@@ -93,12 +93,12 @@ it('merge rcx-* props and an empty array into className', () => {
     root
   );
 
-  const div = root.firstChild;
-  expect(div.classList).toContain('rcx-box');
-  expect(div.classList).toContain('rcx-test-a');
-  expect(div.classList).not.toContain('rcx-test-b');
-  expect(div.classList).toContain('rcx-test-c');
-  expect(div.classList).toContain('rcx-test-d');
+  const div = root.firstElementChild;
+  expect(div?.classList).toContain('rcx-box');
+  expect(div?.classList).toContain('rcx-test-a');
+  expect(div?.classList).not.toContain('rcx-test-b');
+  expect(div?.classList).toContain('rcx-test-c');
+  expect(div?.classList).toContain('rcx-test-d');
 });
 
 it('merge rcx-* props and an array of values into className', () => {
@@ -119,13 +119,13 @@ it('merge rcx-* props and an array of values into className', () => {
     root
   );
 
-  const div = root.firstChild;
-  expect(div.classList).toContain('rcx-box');
-  expect(div.classList).toContain('rcx-test-a');
-  expect(div.classList).not.toContain('rcx-test-b');
-  expect(div.classList).toContain('rcx-test-c');
-  expect(div.classList).toContain('rcx-test-d');
-  expect(div.classList).toContainEqual('fuselage');
-  expect(div.classList).toContainEqual(expect.stringMatching(/^rcx-css-/));
-  expect(getComputedStyle(div).width).toBe('10em');
+  const div = root.firstElementChild;
+  expect(div?.classList).toContain('rcx-box');
+  expect(div?.classList).toContain('rcx-test-a');
+  expect(div?.classList).not.toContain('rcx-test-b');
+  expect(div?.classList).toContain('rcx-test-c');
+  expect(div?.classList).toContain('rcx-test-d');
+  expect(div?.classList).toContainEqual('fuselage');
+  expect(div?.classList).toContainEqual(expect.stringMatching(/^rcx-css-/));
+  expect(div && getComputedStyle(div).width).toBe('10em');
 });

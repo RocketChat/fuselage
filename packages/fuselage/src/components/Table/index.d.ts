@@ -9,6 +9,7 @@ type TableProps = ComponentProps<typeof Box> & {
 };
 type TableHeadProps = ComponentProps<typeof Box>;
 type TableBodyProps = ComponentProps<typeof Box>;
+type TableFootProps = ComponentProps<typeof Box>;
 type TableRowProps = Omit<ComponentProps<typeof Box>, 'action'> & {
   action?: boolean;
 };
@@ -19,6 +20,7 @@ type TableCellProps = ComponentProps<typeof Box> & {
 export const Table: ForwardRefExoticComponent<TableProps> & {
   Head: ForwardRefExoticComponent<TableHeadProps>;
   Body: ForwardRefExoticComponent<TableBodyProps>;
+  Foot: ForwardRefExoticComponent<TableFootProps>;
   Row: ForwardRefExoticComponent<TableRowProps>;
   Cell: ForwardRefExoticComponent<TableCellProps>;
 };

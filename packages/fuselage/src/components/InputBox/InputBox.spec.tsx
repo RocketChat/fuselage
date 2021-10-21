@@ -5,7 +5,7 @@ import { InputBox } from '../..';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<InputBox />, div);
+  ReactDOM.render(<InputBox type='text' />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 

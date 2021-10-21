@@ -18,6 +18,6 @@ it('patches non-`Box` children', () => {
     root
   );
 
-  const div = root.firstChild;
-  expect(div.className).not.toBeFalsy();
+  const div = root.firstElementChild;
+  expect(div?.className).not.toBeFalsy();
 });
