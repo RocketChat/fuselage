@@ -62,8 +62,7 @@
     },
     "organizationInfoPage": {
       "title": "A few more details...",
-      "subtitle":"These will help us to personalize your workspace."
-
+      "subtitle": "These will help us to personalize your workspace."
     }
   },
   "form": {
