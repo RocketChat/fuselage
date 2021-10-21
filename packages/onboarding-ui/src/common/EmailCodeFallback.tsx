@@ -1,6 +1,8 @@
-import { Box, Button } from '@rocket.chat/fuselage';
+import { Box } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
 import { Trans } from 'react-i18next';
+
+import ActionLink from './ActionLink';
 
 type EmailCodeFallbackProps = {
   onResendEmailRequest: () => void;
@@ -14,13 +16,9 @@ const EmailCodeFallback = ({
   <Box fontScale='c1'>
     <Trans i18nKey='component.emailCodeFallback'>
       Didn’t receive email?
-      <Button nude info onClick={onResendEmailRequest}>
-        Resend
-      </Button>
+      <ActionLink onClick={onResendEmailRequest}>Resend</ActionLink>
       or
-      <Button nude info onClick={onChangeEmailRequest}>
-        Change email
-      </Button>
+      <ActionLink onClick={onChangeEmailRequest}>Change email</ActionLink>
     </Trans>
   </Box>
 );
