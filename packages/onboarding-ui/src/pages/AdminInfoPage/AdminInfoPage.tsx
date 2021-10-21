@@ -14,7 +14,7 @@ const titleAdminInfo = () => (
   <Title>
     <Trans i18nKey='page.form.title'>
       Let's
-      <Title fontColor={colors.b500}>Launch</Title>
+      <Title fontColor='primary'>Launch</Title>
       Your Workspace
     </Trans>
   </Title>
