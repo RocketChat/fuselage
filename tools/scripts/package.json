@@ -8,13 +8,13 @@
     ".:resolve-workspace-deps:update-lockfile": "cross-env YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn",
     ".:resolve-workspace-deps:git-commit": "git -c user.name='Rocket.Chat' -c user.email='support@rocket.chat' commit --all --amend --no-edit --no-verify",
     "lint": "eslint .",
-    "lint-fix": "eslint --fix ."
+    "lint-and-fix": "eslint --fix ."
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@types/node": "^15.14.1",
-    "@typescript-eslint/parser": "^4.31.2",
+    "@typescript-eslint/parser": "^4.33.0",
     "cross-env": "^7.0.3",
     "endent": "^2.1.0",
     "eslint": "^7.32.0",

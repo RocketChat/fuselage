@@ -30,8 +30,8 @@
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "lint": "eslint src --ext .ts",
-    "lint-fix": "eslint --fix --ext .ts  src",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "prettier-format": "prettier 'src/**/*.ts' --write",
@@ -44,9 +44,9 @@
     "lamejs": "https://github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.15.6",
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0",
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
@@ -56,7 +56,8 @@
     "@types/jest": "^27.0.2",
     "eslint": "^7.32.0",
     "jest": "^27.2.1",
-    "lint-staged": "^11.0.0",
+    "lint-all": "workspace:tools/lint-all",
+    "lint-staged": "^11.2.3",
     "prettier": "^2.3.2",
     "rollup": "^2.52.4",
     "ts-jest": "^27.0.5",

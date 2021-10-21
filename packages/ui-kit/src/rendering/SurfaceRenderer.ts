@@ -16,7 +16,6 @@ import { SectionBlock } from '../blocks/layout/SectionBlock';
 import { Markdown } from '../blocks/text/Markdown';
 import { PlainText } from '../blocks/text/PlainText';
 import { isNotNull } from '../isNotNull';
-import { Permutation } from '../utils/Permutation';
 import { BlockContext } from './BlockContext';
 import { BlockRenderers } from './BlockRenderers';
 import { Conditions } from './Conditions';
@@ -30,12 +29,14 @@ export abstract class SurfaceRenderer<
   B extends RenderableLayoutBlock = RenderableLayoutBlock
 > implements BlockRenderers<T>
 {
-  public constructor(
-    protected readonly allowedLayoutBlockTypes: Permutation<B['type']>
-  ) {}
+  protected readonly allowedLayoutBlockTypes: Set<B['type']>;
+
+  public constructor(allowedLayoutBlockTypes: B['type'][]) {
+    this.allowedLayoutBlockTypes = new Set(allowedLayoutBlockTypes);
+  }
 
   private isAllowedLayoutBlock = (block: Block): block is B =>
-    (this.allowedLayoutBlockTypes as string[])?.includes(block.type) ?? true;
+    this.allowedLayoutBlockTypes.has(block.type as B['type']);
 
   public render(blocks: readonly Block[], conditions?: Conditions): T[] {
     if (!Array.isArray(blocks)) {
@@ -62,9 +63,7 @@ export abstract class SurfaceRenderer<
     index: number
   ): T | null {
     if (
-      (this.allowedLayoutBlockTypes as string[])?.includes(
-        LayoutBlockType.ACTIONS
-      ) === false &&
+      this.allowedLayoutBlockTypes.has(LayoutBlockType.ACTIONS) === false &&
       !isActionsBlockElement(block)
     ) {
       return null;
@@ -88,9 +87,7 @@ export abstract class SurfaceRenderer<
     index: number
   ): T | null {
     if (
-      (this.allowedLayoutBlockTypes as string[])?.includes(
-        LayoutBlockType.CONTEXT
-      ) === false &&
+      this.allowedLayoutBlockTypes.has(LayoutBlockType.CONTEXT) === false &&
       !isContextBlockElement(block)
     ) {
       return null;
@@ -115,9 +112,7 @@ export abstract class SurfaceRenderer<
 
   public renderInputBlockElement(block: BlockElement, index: number): T | null {
     if (
-      (this.allowedLayoutBlockTypes as string[])?.includes(
-        LayoutBlockType.INPUT
-      ) === false &&
+      this.allowedLayoutBlockTypes.has(LayoutBlockType.INPUT) === false &&
       !isInputBlockElement(block)
     ) {
       return null;
@@ -141,9 +136,7 @@ export abstract class SurfaceRenderer<
     index: number
   ): T | null {
     if (
-      (this.allowedLayoutBlockTypes as string[])?.includes(
-        LayoutBlockType.SECTION
-      ) === false &&
+      this.allowedLayoutBlockTypes.has(LayoutBlockType.SECTION) === false &&
       !isSectionBlockAccessoryElement(block)
     ) {
       return null;
@@ -201,6 +194,3 @@ export abstract class SurfaceRenderer<
     index: number
   ): T | null;
 }
-
-export type SurfaceRendererPayload<S extends BlockRenderers<any>> =
-  S extends SurfaceRenderer<any, infer T> ? T[] : never;
