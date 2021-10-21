@@ -1,10 +1,11 @@
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement } from 'react';
 
 import { useDarkMode } from '../DarkModeProvider';
 
 const BackgroundImage = (): ReactElement => {
   const darkMode = useDarkMode();
-  const backgroundColor = darkMode ? '#1F2329' : '#F6F9FF';
+  const backgroundColor = darkMode ? colors.n900 : colors.white;
   return (
     <svg
       width='1440'
