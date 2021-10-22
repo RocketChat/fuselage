@@ -15,4 +15,5 @@ module.exports = {
   moduleNameMapper: {
     '\\.scss$': 'testing-utils/lazySingletonStyleTagModule',
   },
+  setupFilesAfterEnv: ['testing-utils/setup/noErrorsLogged'],
 };
