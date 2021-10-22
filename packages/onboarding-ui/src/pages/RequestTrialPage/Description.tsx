@@ -14,8 +14,11 @@ const Description = (): ReactElement => {
   const { t } = useTranslation();
 
   const icon = useMemo(
-    () => encodeURIComponent(renderToStaticMarkup(<PlanFeatureIcon />)),
-    []
+    () =>
+      encodeURIComponent(
+        renderToStaticMarkup(<PlanFeatureIcon color={color} />)
+      ),
+    [color]
   );
 
   return (

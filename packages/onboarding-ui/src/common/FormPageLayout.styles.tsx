@@ -5,7 +5,7 @@ import { sans } from '../helpers/tokenFontFamilies';
 export const Wrapper = styled('div')`
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 16px 28px;
+  padding: 28px 16px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -21,11 +21,9 @@ export const Wrapper = styled('div')`
 
 const asideProps = ({
   justifyContent,
-  paddingEnd,
   ...props
 }: {
   justifyContent?: string;
-  paddingEnd?: string;
 }) => props;
 
 export const Aside = styled('div', asideProps)`
@@ -35,12 +33,13 @@ export const Aside = styled('div', asideProps)`
   align-items: center;
   padding-block-end: 16px;
   justify-content: ${(p) => (p.justifyContent ? p.justifyContent : '')};
+  max-width: 576px;
 
   @media (min-width: 1440px) {
     align-items: flex-start;
     min-height: 40rem;
     flex: 1 0 50%;
-    padding-inline-end: ${(p) => (p.paddingEnd ? p.paddingEnd : '152')}px;
+    padding-inline: 32px;
   }
 `;
 
@@ -67,7 +66,7 @@ export const Title = styled('div')`
   padding-block-end: 24px;
   font-size: ${String(40 / 16)}rem;
   font-family: ${sans};
-  font-weight: 800;
+  font-weight: 500;
   line-height: ${String(42 / 16)}rem;
   text-align: center;
 
@@ -76,6 +75,14 @@ export const Title = styled('div')`
     font-size: ${String(52 / 16)}rem;
     line-height: ${String(62 / 16)}rem;
   }
+`;
+
+export const TitleHighlight = styled(
+  'span',
+  ({ fontColor, ...props }: { fontColor?: string }) => props
+)`
+  color: ${(p) => (p.fontColor ? p.fontColor : '#1D74F5')};
+  display: inline-block;
 `;
 
 const SubTitleFormPageProps = ({

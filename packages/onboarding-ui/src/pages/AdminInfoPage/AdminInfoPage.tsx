@@ -1,24 +1,11 @@
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
-import { Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import type { FormPageLayoutStyleProps } from '../../common/Types';
 import AdminInfoForm from '../../forms/AdminInfoForm';
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
-import { Title } from './AdminInfoPage.styles';
-
-const titleAdminInfo = () => (
-  <Title>
-    <Trans i18nKey='page.form.title'>
-      Let's
-      <Title fontColor={colors.b500}>Launch</Title>
-      Your Workspace
-    </Trans>
-  </Title>
-);
 
 type AdminInfoPageProps = {
   title?: ReactNode;
@@ -38,12 +25,16 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
 };
 
-const AdminInfoPage = (props: AdminInfoPageProps): ReactElement => (
+const AdminInfoPage = ({
+  title,
+  description,
+  ...props
+}: AdminInfoPageProps): ReactElement => (
   <BackgroundLayer>
     <FormPageLayout
-      title={titleAdminInfo()}
+      title={title}
       styleProps={pageLayoutStyleProps}
-      description={props.description}
+      description={description}
     >
       <AdminInfoForm {...props} />
     </FormPageLayout>

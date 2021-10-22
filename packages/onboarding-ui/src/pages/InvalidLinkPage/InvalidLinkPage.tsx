@@ -1,9 +1,9 @@
 import { Box, Margins, Button } from '@rocket.chat/fuselage';
-import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
+import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type InvalidLinkPageProps = {
   onRequestNewLink: () => void;
@@ -27,9 +27,7 @@ const InvalidLinkPage = ({
         paddingInline={16}
       >
         <Margins blockEnd={32}>
-          <Box width='100%' maxWidth={180}>
-            <RocketChatLogo />
-          </Box>
+          <OnboardingLogo />
 
           <Box
             fontWeight={800}

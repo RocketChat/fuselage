@@ -2,24 +2,23 @@ import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement, SVGAttributes } from 'react';
 
-import { Container } from './RocketChatLogo.styles';
-import { Tag } from './Tag';
+import { LogoContainer } from './RocketChatLogo.styles';
+import { RocketChatTag } from './RocketChatTag.styles';
 
 type RocketChatLogoProps = {
   color?: SVGAttributes<SVGSVGElement>['fill'];
   tagTitle?: string;
-  width?: string;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const RocketChatLogo = ({
   color = colors.r500,
-  width,
   tagTitle,
+  ...props
 }: RocketChatLogoProps): ReactElement => {
   const titleId = useUniqueId();
 
   return (
-    <Container width={width}>
+    <LogoContainer {...props}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 180 30'
@@ -45,8 +44,8 @@ const RocketChatLogo = ({
         <path d='M16.9293 13.1714C15.8114 13.1714 14.9053 14.0664 14.9053 15.1701C14.9053 16.2739 15.8114 17.1689 16.9293 17.1689C18.0471 17.1689 18.9533 16.2739 18.9533 15.1701C18.9533 14.0664 18.0471 13.1714 16.9293 13.1714Z' />
         <path d='M23.4449 13.1714C22.327 13.1714 21.4209 14.0664 21.4209 15.1701C21.4209 16.2739 22.327 17.1689 23.4449 17.1689C24.5627 17.1689 25.4689 16.2739 25.4689 15.1701C25.4689 14.0664 24.5615 13.1714 23.4449 13.1714Z' />
       </svg>
-      {!!tagTitle && <Tag color={color}>{tagTitle}</Tag>}
-    </Container>
+      {tagTitle && <RocketChatTag color={color}>{tagTitle}</RocketChatTag>}
+    </LogoContainer>
   );
 };
 

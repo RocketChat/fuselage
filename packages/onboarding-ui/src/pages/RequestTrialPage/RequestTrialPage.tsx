@@ -1,14 +1,14 @@
 import { css } from '@rocket.chat/css-in-js';
 import { Box } from '@rocket.chat/fuselage';
-import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ComponentProps, ReactElement } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
+import { TitleHighlight } from '../../common/FormPageLayout.styles';
+import { OnboardingLogoCloud } from '../../common/OnboardingLogo';
 import RequestTrialForm from '../../forms/RequestTrialForm';
 import Description from './Description';
-import TitleRequestTrial from './TitleRequestTrial';
 
 type RequestTrialPageProps = {
   onManageWorkspaces?: () => void;
@@ -24,9 +24,13 @@ const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
   return (
     <BackgroundLayer>
       <FormPageLayout
-        logo={<RocketChatLogo tagTitle='Cloud' />}
+        logo={<OnboardingLogoCloud />}
         description={<Description />}
-        title={<TitleRequestTrial />}
+        title={
+          <Trans i18nKey='page.requestTrial.title'>
+            Request a <TitleHighlight>30-day Trial</TitleHighlight>
+          </Trans>
+        }
         subtitle={t('page.requestTrial.subtitle')}
       >
         <RequestTrialForm {...props} />

@@ -3,6 +3,7 @@ import { countries } from 'countries-list';
 import type { ComponentProps } from 'react';
 
 import OrganizationInfoPage from './OrganizationInfoPage';
+import TitleOrganizationInfoPage from './TitleOrganizationInfoPage';
 
 type Args = ComponentProps<typeof OrganizationInfoPage>;
 
@@ -81,7 +82,7 @@ export const _CloudOrganizationInfoPage: Story<Args> = (args) => (
 
 _CloudOrganizationInfoPage.storyName = 'CloudOrganizationInfoPage';
 _CloudOrganizationInfoPage.args = {
-  title: 'Your Workspace is Ready!',
+  title: <TitleOrganizationInfoPage />,
   description: 'Organization info will help us personalize your workspace',
   nextStep: 'Create workspace',
 };

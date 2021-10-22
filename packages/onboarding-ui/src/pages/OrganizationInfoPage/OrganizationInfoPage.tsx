@@ -7,10 +7,9 @@ import FormPageLayout from '../../common/FormPageLayout';
 import type { FormPageLayoutStyleProps } from '../../common/Types';
 import OrganizationInfoForm from '../../forms/OrganizationInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
-import TitleOrganizationInfoPage from './TitleCreateCloudPage';
 
 type OrganizationInfoPageProps = {
-  title?: string;
+  title?: ReactNode;
   description?: string;
   currentStep: number;
   stepCount: number;
@@ -25,9 +24,11 @@ type OrganizationInfoPageProps = {
   onClickSkip?: () => void;
 };
 
-const OrganizationInfoPage = (
-  props: OrganizationInfoPageProps
-): ReactElement => {
+const OrganizationInfoPage = ({
+  title,
+  description,
+  ...props
+}: OrganizationInfoPageProps): ReactElement => {
   const { t } = useTranslation();
 
   const pageLayoutStyleProps: FormPageLayoutStyleProps = {
@@ -41,8 +42,8 @@ const OrganizationInfoPage = (
     <BackgroundLayer>
       <FormPageLayout
         styleProps={pageLayoutStyleProps}
-        title={<TitleOrganizationInfoPage />}
-        description={props.description}
+        title={title || t('page.organizationInfoPage.title')}
+        description={description}
         subtitle={t('page.organizationInfoPage.subtitle')}
       >
         <OrganizationInfoForm {...props} />

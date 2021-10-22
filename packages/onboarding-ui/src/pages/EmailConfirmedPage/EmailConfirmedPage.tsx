@@ -1,9 +1,9 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
+import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 const EmailConfirmedPage = (): ReactElement => {
   const { t } = useTranslation();
@@ -21,9 +21,7 @@ const EmailConfirmedPage = (): ReactElement => {
         paddingInline={16}
       >
         <Margins blockEnd={32}>
-          <Box width='100%' maxWidth={180}>
-            <RocketChatLogo />
-          </Box>
+          <OnboardingLogo />
 
           <Box
             fontWeight={800}
