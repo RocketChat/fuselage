@@ -1,0 +1,10 @@
+{
+  "name": "testing-utils",
+  "private": true,
+  "exports": {
+    "./*": {
+      "require": "./*.js",
+      "types": "./*.d.ts"
+    }
+  }
+}

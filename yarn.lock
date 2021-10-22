@@ -6163,7 +6163,6 @@ __metadata:
     es-check: ^6.0.0
     eslint: ^7.32.0
     eslint-plugin-mdx: ^1.16.0
-    identity-obj-proxy: ^3.0.0
     invariant: ^2.2.4
     jest: ^27.2.1
     lint-all: "workspace:tools/lint-all"
@@ -6193,6 +6192,7 @@ __metadata:
     stylelint-order: ^4.1.0
     stylelint-prettier: ^1.2.0
     stylelint-scss: ^3.21.0
+    testing-utils: "workspace:tools/testing-utils"
     ts-jest: ^27.0.5
     ts-loader: ^9.2.3
     typescript: ^4.3.4
@@ -16266,13 +16266,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"harmony-reflect@npm:^1.4.6":
-  version: 1.6.1
-  resolution: "harmony-reflect@npm:1.6.1"
-  checksum: 4cb91f86d262650d62c3ac713a2284ef0784a5c8be347188f97747db68d0e6d9801f09a3f12bacec59d5ec9d010cba64b8acb4c2c4827e172ef2ab215cdfef9d
-  languageName: node
-  linkType: hard
-
 "has-ansi@npm:^2.0.0":
   version: 2.0.0
   resolution: "has-ansi@npm:2.0.0"
@@ -16861,15 +16854,6 @@ fsevents@~2.1.2:
   peerDependencies:
     postcss: ^8.1.0
   checksum: 5c324d283552b1269cfc13a503aaaa172a280f914e5b81544f3803bc6f06a3b585fb79f66f7c771a2c052db7982c18bf92d001e3b47282e3abbbb4c4cc488d68
-  languageName: node
-  linkType: hard
-
-"identity-obj-proxy@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "identity-obj-proxy@npm:3.0.0"
-  dependencies:
-    harmony-reflect: ^1.4.6
-  checksum: 97559f8ea2aeaa1a880d279d8c49550dce01148321e00a2102cda5ddf9ce622fa1d7f3efc7bed63458af78889de888fdaebaf31c816312298bb3fdd0ef8aaf2c
   languageName: node
   linkType: hard
 
@@ -27285,6 +27269,12 @@ resolve@^2.0.0-next.3:
   checksum: 3b34a3d77165a2cb82b34014b3aba93b1c4637a5011807557dc2f3da826c59975a5ccad765721c4648b39817e3472789f9b0fa98fc854c5c1c7a1e632aacdc28
   languageName: node
   linkType: hard
+
+"testing-utils@workspace:tools/testing-utils":
+  version: 0.0.0-use.local
+  resolution: "testing-utils@workspace:tools/testing-utils"
+  languageName: unknown
+  linkType: soft
 
 "text-extensions@npm:^1.0.0":
   version: 1.9.0
