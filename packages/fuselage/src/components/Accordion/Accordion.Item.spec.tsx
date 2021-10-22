@@ -4,5 +4,5 @@ import React from 'react';
 import { Accordion } from '.';
 
 it('renders without crashing', () => {
-  render(<Accordion children={<></>} />);
+  render(<Accordion.Item title='' />);
 });
