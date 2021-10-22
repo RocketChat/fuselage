@@ -1,5 +1,5 @@
 module.exports = {
-  extends: '@rocket.chat/eslint-config-alt/react',
+  extends: '@rocket.chat/eslint-config-alt/typescript',
   env: {
     jest: true,
   },

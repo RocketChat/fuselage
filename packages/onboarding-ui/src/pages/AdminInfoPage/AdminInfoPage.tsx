@@ -3,6 +3,7 @@ import type { SubmitHandler, Validate } from 'react-hook-form';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
+import type { FormPageLayoutStyleProps } from '../../common/Types';
 import AdminInfoForm from '../../forms/AdminInfoForm';
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
 
@@ -20,9 +21,21 @@ type AdminInfoPageProps = {
   onSubmit: SubmitHandler<AdminInfoPayload>;
 };
 
-const AdminInfoPage = (props: AdminInfoPageProps): ReactElement => (
+const pageLayoutStyleProps: FormPageLayoutStyleProps = {
+  justifyContent: 'center',
+};
+
+const AdminInfoPage = ({
+  title,
+  description,
+  ...props
+}: AdminInfoPageProps): ReactElement => (
   <BackgroundLayer>
-    <FormPageLayout title={props.title} description={props.description}>
+    <FormPageLayout
+      title={title}
+      styleProps={pageLayoutStyleProps}
+      description={description}
+    >
       <AdminInfoForm {...props} />
     </FormPageLayout>
   </BackgroundLayer>

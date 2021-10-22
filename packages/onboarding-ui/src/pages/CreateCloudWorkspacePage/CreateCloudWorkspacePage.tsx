@@ -7,6 +7,7 @@ import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
 import Description from './Description';
+import TitleCreateCloudPage from './TitleCreateCloudPage';
 
 type CreateCloudWorkspacePageProps = {
   currentStep: number;
@@ -31,14 +32,16 @@ const CreateCloudWorkspacePage = (
   props: CreateCloudWorkspacePageProps
 ): ReactElement => {
   const { t } = useTranslation();
+
   return (
     <BackgroundLayer>
       <FormPageLayout
+        title={<TitleCreateCloudPage />}
         description={<Description />}
         subtitle={t('page.cloudDescription.tryGold')}
       >
         <CreateCloudWorkspaceForm {...props} />
-        <Box mbs='x28' color='alternative' display='inline' textAlign='center'>
+        <Box mbs='x28' display='inline' textAlign='center'>
           <Trans i18nKey='page.alreadyHaveAccount'>
             Already have an account?
             <Box

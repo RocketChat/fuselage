@@ -30,7 +30,7 @@ type OrganizationInfoFormProps = {
   organizationIndustryOptions: SelectOptions;
   organizationSizeOptions: SelectOptions;
   countryOptions: SelectOptions;
-  confirmText?: ReactNode;
+  nextStep?: ReactNode;
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
   onBackButtonClick: () => void;
@@ -44,7 +44,7 @@ const OrganizationInfoForm = ({
   organizationIndustryOptions,
   organizationSizeOptions,
   countryOptions,
-  confirmText,
+  nextStep,
   initialValues,
   onSubmit,
   onBackButtonClick,
@@ -175,7 +175,7 @@ const OrganizationInfoForm = ({
           </Button>
 
           <Button type='submit' primary disabled={isValidating || isSubmitting}>
-            {confirmText ?? t('component.form.action.next')}
+            {nextStep ?? t('component.form.action.next')}
           </Button>
 
           {onClickSkip && (

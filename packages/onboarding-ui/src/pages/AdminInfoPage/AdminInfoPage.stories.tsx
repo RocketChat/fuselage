@@ -21,6 +21,7 @@ export default {
     currentStep: 1,
     stepCount: 1,
     passwordRulesHint: 'Password rules description goes here',
+    control: { type: 'inline-radio' },
   },
 } as Meta<Args>;
 
