@@ -26,6 +26,7 @@ const ActionLink = ({
       fontScale='c2'
       href={href}
       color='primary-500'
+      mi='x4'
       textDecorationLine='none'
       onClick={handleClick}
     >

@@ -1,6 +1,5 @@
-import { RocketChatLogo } from '@rocket.chat/logo';
 import type { ReactElement, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import {
   Aside,
@@ -10,7 +9,9 @@ import {
   Subtitle,
   Title,
   Wrapper,
+  TitleHighlight,
 } from './FormPageLayout.styles';
+import { OnboardingLogo } from './OnboardingLogo';
 import type { FormPageLayoutStyleProps } from './Types';
 
 type FormPageLayoutProps = {
@@ -32,16 +33,20 @@ const FormPageLayout = ({
   styleProps,
   children,
 }: FormPageLayoutProps): ReactElement => {
-  const { t } = useTranslation();
-
+  useTranslation();
   return (
     <Wrapper>
-      <Aside
-        justifyContent={styleProps?.justifyContent}
-        paddingEnd={styleProps?.paddingEnd}
-      >
-        <Logo>{logo ?? <RocketChatLogo />}</Logo>
-        <Title>{title ?? t('page.form.title')}</Title>
+      <Aside justifyContent={styleProps?.justifyContent}>
+        <Logo>{logo ?? <OnboardingLogo />}</Logo>
+        <Title>
+          {title || (
+            <Trans i18nKey='page.form.title'>
+              Let's
+              <TitleHighlight>Launch</TitleHighlight>
+              Your Workspace
+            </Trans>
+          )}
+        </Title>
         {subtitle && (
           <Subtitle
             fontWeight={styleProps?.subTitleProps?.fontWeight}

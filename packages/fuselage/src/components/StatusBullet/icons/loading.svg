@@ -10,7 +10,7 @@
     cy="6"
     r="5"
     stroke="#9EA2A8"
-    strokeWidth="2"
-    strokeDasharray="2 2"
+    stroke-width="2"
+    stroke-dasharray="2 2"
   />
 </svg>
