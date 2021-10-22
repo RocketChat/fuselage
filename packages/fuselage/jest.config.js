@@ -15,5 +15,4 @@ module.exports = {
   moduleNameMapper: {
     '\\.scss$': 'testing-utils/lazySingletonStyleTagModule',
   },
-  setupFiles: ['<rootDir>/.jest/setup.js'],
 };
