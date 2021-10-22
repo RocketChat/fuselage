@@ -1,0 +1,16 @@
+{
+  "Component Jest Specification": {
+    "scope": "typescriptreact",
+    "prefix": "fuse-spec",
+    "body": [
+      "import { render } from '@testing-library/react';",
+      "import React from 'react';",
+      "",
+      "import { $1 } from '.';",
+      "",
+      "it('renders without crashing', () => {",
+      "  render(<$1 />);",
+      "});"
+    ]
+  }
+}
