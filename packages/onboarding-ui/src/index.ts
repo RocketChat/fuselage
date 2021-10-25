@@ -10,3 +10,4 @@ export { default as MagicLinkEmailPage } from './pages/MagicLinkEmailPage';
 export { default as OrganizationInfoPage } from './pages/OrganizationInfoPage';
 export { default as RegisterServerPage } from './pages/RegisterServerPage';
 export { default as RequestTrialPage } from './pages/RequestTrialPage';
+export { default as DarkModeProvider } from './common/DarkModeProvider';
