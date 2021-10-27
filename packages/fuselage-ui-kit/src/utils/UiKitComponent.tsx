@@ -1,10 +1,10 @@
 import * as UiKit from '@rocket.chat/ui-kit';
 import { ReactElement } from 'react';
 
-import { UiKitBanner, UiKitMessage, UiKitModal } from '../surfaces';
+import { UiKitBanner, UiKitContextualBar, UiKitMessage, UiKitModal } from '../surfaces';
 
 type UiKitComponentProps = {
-  render: typeof UiKitBanner | typeof UiKitMessage | typeof UiKitModal;
+  render: typeof UiKitBanner | typeof UiKitMessage | typeof UiKitModal | typeof UiKitContextualBar;
   blocks: UiKit.LayoutBlock[];
 };
 
