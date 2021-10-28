@@ -1,6 +1,13 @@
 import styled from '@rocket.chat/styled';
 
-const tagStyleProps = ({ color, ...props }: { color: string }) => props;
+const tagStyleProps = ({
+  color,
+  backgroundColor,
+  ...props
+}: {
+  color: string;
+  backgroundColor: string;
+}) => props;
 
 export const RocketChatTag = styled('div', tagStyleProps)`
   border-radius: 90px;
@@ -11,7 +18,8 @@ export const RocketChatTag = styled('div', tagStyleProps)`
   line-height: 100%;
   padding: 3px 8px;
   text-align: center;
-  background-color: ${(p) => p.color};
+  color: ${(p) => p.color};
+  background-color: ${(p) => p.backgroundColor};
   border-width: 0;
   border-style: solid;
   border-color: currentColor;
