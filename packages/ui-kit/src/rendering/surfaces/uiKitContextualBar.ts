@@ -1,5 +1,5 @@
 import { createSurfaceRenderer } from '../createSurfaceRenderer';
-import { ContextualBarSurfaceLayout } from './UiKitParserContextualBar';
+import { ContextualBarSurfaceLayout } from './UIKitParserContextualBar';
 
 export const uiKitContextualBar = createSurfaceRenderer<
   unknown,
