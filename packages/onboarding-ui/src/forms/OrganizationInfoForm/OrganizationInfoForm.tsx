@@ -5,10 +5,15 @@ import {
   Button,
   TextInput,
   Select,
+  SelectFiltered,
   SelectOptions,
   Box,
 } from '@rocket.chat/fuselage';
-import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
+import {
+  useBreakpoints,
+  useUniqueId,
+  useAutoFocus,
+} from '@rocket.chat/fuselage-hooks';
 import type { ReactElement, ReactNode } from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -54,6 +59,14 @@ const OrganizationInfoForm = ({
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
 
+  const organizationNameField = useUniqueId();
+  const organizationTypeField = useUniqueId();
+  const organizationIndustryField = useUniqueId();
+  const organizationSizeField = useUniqueId();
+  const countryField = useUniqueId();
+
+  const autofocus = useAutoFocus();
+
   const {
     register,
     control,
@@ -71,7 +84,7 @@ const OrganizationInfoForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={organizationNameField}>
               {t('form.organizationInfoForm.fields.organizationName.label')}
             </Field.Label>
             <Field.Row>
@@ -80,6 +93,8 @@ const OrganizationInfoForm = ({
                 placeholder={t(
                   'form.organizationInfoForm.fields.organizationName.placeholder'
                 )}
+                id={organizationNameField}
+                ref={autofocus}
               />
             </Field.Row>
             {errors.organizationName && (
@@ -87,7 +102,7 @@ const OrganizationInfoForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={organizationTypeField}>
               {t('form.organizationInfoForm.fields.organizationType.label')}
             </Field.Label>
             <Field.Row>
@@ -101,13 +116,14 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationType.placeholder'
                     )}
+                    id={organizationTypeField}
                   />
                 )}
               />
             </Field.Row>
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={organizationIndustryField}>
               {t('form.organizationInfoForm.fields.organizationIndustry.label')}
             </Field.Label>
             <Field.Row>
@@ -121,13 +137,14 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationIndustry.placeholder'
                     )}
+                    id={organizationIndustryField}
                   />
                 )}
               />
             </Field.Row>
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={organizationSizeField}>
               {t('form.organizationInfoForm.fields.organizationSize.label')}
             </Field.Label>
             <Field.Row>
@@ -141,13 +158,14 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationSize.placeholder'
                     )}
+                    id={organizationSizeField}
                   />
                 )}
               />
             </Field.Row>
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={countryField}>
               {t('form.organizationInfoForm.fields.country.label')}
             </Field.Label>
             <Field.Row>
@@ -155,12 +173,13 @@ const OrganizationInfoForm = ({
                 name='country'
                 control={control}
                 render={({ field }) => (
-                  <Select
+                  <SelectFiltered
                     {...field}
                     options={countryOptions}
                     placeholder={t(
                       'form.organizationInfoForm.fields.country.placeholder'
                     )}
+                    id={countryField}
                   />
                 )}
               />
@@ -170,7 +189,7 @@ const OrganizationInfoForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup vertical={isMobile} flexGrow={1}>
-          <Button onClick={onBackButtonClick}>
+          <Button disabled={isSubmitting} onClick={onBackButtonClick}>
             {t('component.form.action.back')}
           </Button>
 
