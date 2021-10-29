@@ -63,6 +63,27 @@
     "organizationInfoPage": {
       "title": "A few more details...",
       "subtitle": "These will help us to personalize your workspace."
+    },
+    "loginPage": {
+      "title": "Cloud Login",
+      "subtitle": "If you’re already registered we’ll email you a link to log in.",
+      "email": {
+        "label": "Email",
+        "placeholder": "Email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter your password"
+      },
+      "button": {
+        "sendLoginLink": "Send Login Link",
+        "redirect": "Enter password instead",
+        "login": "Login"
+      },
+      "footer": {
+        "label": "New here? <1>Create account</1>",
+        "resetPassword": "Forgot your password? <1>Reset password</1>"
+      }
     }
   },
   "form": {
