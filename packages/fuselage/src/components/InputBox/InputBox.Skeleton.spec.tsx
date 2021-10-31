@@ -4,5 +4,5 @@ import React from 'react';
 import { InputBox } from '.';
 
 it('renders without crashing', () => {
-  render(<InputBox type='text' />);
+  render(<InputBox.Skeleton />);
 });
