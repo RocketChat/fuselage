@@ -1,10 +1,8 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import { ButtonGroup } from '../..';
+import { ButtonGroup } from '.';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<ButtonGroup />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<ButtonGroup />);
 });
