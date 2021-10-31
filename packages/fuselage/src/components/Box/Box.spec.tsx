@@ -1,131 +1,154 @@
 import { css } from '@rocket.chat/css-in-js';
+import { render } from '@testing-library/react';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import { Box } from '../..';
 
 it('renders without crashing', () => {
-  const root = document.createElement('div');
-  ReactDOM.render(<Box />, root);
-  ReactDOM.unmountComponentAtNode(root);
+  render(<Box />);
 });
 
-it('accepts a string in className prop', () => {
-  const root = document.createElement('div');
-  ReactDOM.render(<Box className='fuselage' />, root);
+describe('className prop', () => {
+  it('accepts a string in className prop', () => {
+    const { container } = render(<Box className='fuselage' />);
 
-  const div = root.firstElementChild;
-  expect(div?.classList).toContainEqual('rcx-box');
-  expect(div?.classList).toContainEqual('fuselage');
-});
+    expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
+    expect(container.firstElementChild).toBeInstanceOf(HTMLDivElement);
+    expect(container.firstElementChild).toHaveClass('rcx-box');
+    expect(container.firstElementChild).toHaveClass('fuselage');
+  });
 
-it('accepts a css tagged template string in className prop', () => {
-  const root = document.createElement('div');
-  ReactDOM.render(
-    <Box
-      className={css`
-        width: 10em;
-      `}
-    />,
-    root
-  );
-
-  const div = root.firstElementChild;
-  expect(div?.classList).toContainEqual('rcx-box');
-  expect(div?.classList).toContainEqual(expect.stringMatching(/^rcx-css-/));
-  expect(div && getComputedStyle(div).width).toBe('10em');
-});
-
-it('accepts an empty array in className prop', () => {
-  const root = document.createElement('div');
-  ReactDOM.render(<Box className={[]} />, root);
-
-  const div = root.firstElementChild;
-  expect(div?.classList).toContainEqual('rcx-box');
-});
-
-it('accepts an array of values in className prop', () => {
-  const root = document.createElement('div');
-  ReactDOM.render(
-    <Box
-      className={[
-        'fuselage',
-        css`
+  it('accepts a css tagged template string in className prop', () => {
+    const { container } = render(
+      <Box
+        className={css`
           width: 10em;
-        `,
-      ]}
-    />,
-    root
-  );
+        `}
+      />
+    );
 
-  const div = root.firstElementChild;
-  expect(div?.classList).toContainEqual('rcx-box');
-  expect(div?.classList).toContainEqual('fuselage');
-  expect(div?.classList).toContainEqual(expect.stringMatching(/^rcx-css-/));
-  expect(div && getComputedStyle(div).width).toBe('10em');
+    expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
+    expect(container.firstElementChild).toHaveClass('rcx-box');
+    expect(container.firstElementChild).toHaveAttribute(
+      'class',
+      expect.stringMatching('rcx-css-')
+    );
+    expect(container.firstElementChild).toHaveStyle({
+      width: '10em',
+    });
+  });
+
+  it('accepts an empty array in className prop', () => {
+    const { container } = render(<Box className={[]} />);
+
+    expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
+    expect(container.firstElementChild).toHaveClass('rcx-box');
+  });
+
+  it('accepts an array of values in className prop', () => {
+    const { container } = render(
+      <Box
+        className={[
+          'fuselage',
+          css`
+            width: 10em;
+          `,
+        ]}
+      />
+    );
+
+    expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
+    expect(container.firstElementChild).toHaveClass('rcx-box');
+    expect(container.firstElementChild).toHaveClass('fuselage');
+    expect(container.firstElementChild).toHaveAttribute(
+      'class',
+      expect.stringMatching('rcx-css-')
+    );
+    expect(container.firstElementChild).toHaveStyle({
+      width: '10em',
+    });
+  });
+
+  it('attaches rcx-* props into className', () => {
+    const { container } = render(
+      <Box rcx-test-a rcx-test-b={false} rcx-test-c={true} rcx-test='d' />
+    );
+
+    expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
+    expect(container.firstElementChild).toHaveClass('rcx-box');
+    expect(container.firstElementChild).toHaveClass('rcx-test-a');
+    expect(container.firstElementChild).not.toHaveClass('rcx-test-b');
+    expect(container.firstElementChild).toHaveClass('rcx-test-c');
+    expect(container.firstElementChild).toHaveClass('rcx-test-d');
+  });
+
+  it('merges rcx-* props and an empty array into className', () => {
+    const { container } = render(
+      <Box
+        className={[]}
+        rcx-test-a
+        rcx-test-b={false}
+        rcx-test-c={true}
+        rcx-test='d'
+      />
+    );
+
+    expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
+    expect(container.firstElementChild).toHaveClass('rcx-box');
+    expect(container.firstElementChild).toHaveClass('rcx-test-a');
+    expect(container.firstElementChild).not.toHaveClass('rcx-test-b');
+    expect(container.firstElementChild).toHaveClass('rcx-test-c');
+    expect(container.firstElementChild).toHaveClass('rcx-test-d');
+  });
+
+  it('merges rcx-* props and an array of values into className', () => {
+    const { container } = render(
+      <Box
+        className={[
+          'fuselage',
+          css`
+            width: 10em;
+          `,
+        ]}
+        rcx-test-a
+        rcx-test-b={false}
+        rcx-test-c={true}
+        rcx-test='d'
+      />
+    );
+
+    expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
+    expect(container.firstElementChild).toHaveClass('rcx-box');
+    expect(container.firstElementChild).toHaveClass('rcx-test-a');
+    expect(container.firstElementChild).not.toHaveClass('rcx-test-b');
+    expect(container.firstElementChild).toHaveClass('rcx-test-c');
+    expect(container.firstElementChild).toHaveClass('rcx-test-d');
+    expect(container.firstElementChild).toHaveClass('fuselage');
+    expect(container.firstElementChild).toHaveAttribute(
+      'class',
+      expect.stringMatching('rcx-css-')
+    );
+    expect(container.firstElementChild).toHaveStyle({
+      width: '10em',
+    });
+  });
 });
 
-it('attaches rcx-* props into className', () => {
-  const root = document.createElement('div');
-  ReactDOM.render(
-    <Box rcx-test-a rcx-test-b={false} rcx-test-c={true} rcx-test='d' />,
-    root
-  );
+describe('is props', () => {
+  it('accepts a instrinsic HTML element', () => {
+    const { container } = render(<Box is='span' />);
 
-  const div = root.firstElementChild;
-  expect(div?.classList).toContain('rcx-box');
-  expect(div?.classList).toContain('rcx-test-a');
-  expect(div?.classList).not.toContain('rcx-test-b');
-  expect(div?.classList).toContain('rcx-test-c');
-  expect(div?.classList).toContain('rcx-test-d');
-});
+    expect(container.firstElementChild).toHaveProperty('tagName', 'SPAN');
+  });
 
-it('merge rcx-* props and an empty array into className', () => {
-  const root = document.createElement('div');
-  ReactDOM.render(
-    <Box
-      className={[]}
-      rcx-test-a
-      rcx-test-b={false}
-      rcx-test-c={true}
-      rcx-test='d'
-    />,
-    root
-  );
+  it('accepts a instrinsic SVG element', () => {
+    const { container } = render(<Box is='path' />, {
+      wrapper: ({ children }) => <svg children={children} />,
+    });
 
-  const div = root.firstElementChild;
-  expect(div?.classList).toContain('rcx-box');
-  expect(div?.classList).toContain('rcx-test-a');
-  expect(div?.classList).not.toContain('rcx-test-b');
-  expect(div?.classList).toContain('rcx-test-c');
-  expect(div?.classList).toContain('rcx-test-d');
-});
-
-it('merge rcx-* props and an array of values into className', () => {
-  const root = document.createElement('div');
-  ReactDOM.render(
-    <Box
-      className={[
-        'fuselage',
-        css`
-          width: 10em;
-        `,
-      ]}
-      rcx-test-a
-      rcx-test-b={false}
-      rcx-test-c={true}
-      rcx-test='d'
-    />,
-    root
-  );
-
-  const div = root.firstElementChild;
-  expect(div?.classList).toContain('rcx-box');
-  expect(div?.classList).toContain('rcx-test-a');
-  expect(div?.classList).not.toContain('rcx-test-b');
-  expect(div?.classList).toContain('rcx-test-c');
-  expect(div?.classList).toContain('rcx-test-d');
-  expect(div?.classList).toContainEqual('fuselage');
-  expect(div?.classList).toContainEqual(expect.stringMatching(/^rcx-css-/));
-  expect(div && getComputedStyle(div).width).toBe('10em');
+    expect(container.firstElementChild?.firstElementChild).toHaveProperty(
+      'tagName',
+      'path' // tagName is lowercase for SVG elements
+    );
+  });
 });
