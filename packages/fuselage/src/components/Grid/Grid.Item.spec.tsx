@@ -4,5 +4,5 @@ import React from 'react';
 import { Grid } from '.';
 
 it('renders without crashing', () => {
-  render(<Grid />);
+  render(<Grid.Item />);
 });
