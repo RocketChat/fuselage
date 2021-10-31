@@ -1,8 +1,10 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import Tooltip from '.';
+import { Table } from '.';
 
 it('renders without crashing', () => {
-  render(<Tooltip />);
+  render(<Table.Body />, {
+    wrapper: ({ children }) => <table>{children}</table>,
+  });
 });

@@ -17,6 +17,6 @@ module.exports = {
   },
   setupFilesAfterEnv: [
     'testing-utils/setup/noErrorsLogged',
-    '<rootDir>/tests/setup.ts',
+    '<rootDir>/.jest/setup.ts',
   ],
 };

@@ -1,10 +1,8 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import { Pagination } from '../..';
+import { Pagination } from '.';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Pagination count={0} />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<Pagination count={0} />);
 });
