@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { Button } from '.';
+import { ActionButton } from '.';
 
 it('renders without crashing', () => {
-  render(<Button />);
+  render(<ActionButton icon='arrow-back' />);
 });
