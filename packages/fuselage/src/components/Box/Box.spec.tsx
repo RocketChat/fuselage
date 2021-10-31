@@ -29,10 +29,7 @@ describe('className prop', () => {
 
     expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
     expect(container.firstElementChild).toHaveClass('rcx-box');
-    expect(container.firstElementChild).toHaveAttribute(
-      'class',
-      expect.stringMatching('rcx-css-')
-    );
+    expect(container.firstElementChild).toHaveCssInJsClass();
     expect(container.firstElementChild).toHaveStyle({
       width: '10em',
     });
@@ -60,10 +57,7 @@ describe('className prop', () => {
     expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
     expect(container.firstElementChild).toHaveClass('rcx-box');
     expect(container.firstElementChild).toHaveClass('fuselage');
-    expect(container.firstElementChild).toHaveAttribute(
-      'class',
-      expect.stringMatching('rcx-css-')
-    );
+    expect(container.firstElementChild).toHaveCssInJsClass();
     expect(container.firstElementChild).toHaveStyle({
       width: '10em',
     });
@@ -124,10 +118,7 @@ describe('className prop', () => {
     expect(container.firstElementChild).toHaveClass('rcx-test-c');
     expect(container.firstElementChild).toHaveClass('rcx-test-d');
     expect(container.firstElementChild).toHaveClass('fuselage');
-    expect(container.firstElementChild).toHaveAttribute(
-      'class',
-      expect.stringMatching('rcx-css-')
-    );
+    expect(container.firstElementChild).toHaveCssInJsClass();
     expect(container.firstElementChild).toHaveStyle({
       width: '10em',
     });

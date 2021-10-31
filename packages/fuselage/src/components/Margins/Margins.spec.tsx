@@ -14,8 +14,5 @@ it('patches non-`Box` children', () => {
     </Margins>
   );
 
-  expect(container.firstElementChild).toHaveAttribute(
-    'class',
-    expect.stringMatching('rcx-css-')
-  );
+  expect(container.firstElementChild).toHaveCssInJsClass();
 });
