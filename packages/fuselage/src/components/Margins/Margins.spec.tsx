@@ -1,23 +1,21 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import { Margins } from '../..';
+import Margins from '.';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Margins />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<Margins />);
 });
 
 it('patches non-`Box` children', () => {
-  const root = document.createElement('div');
-  ReactDOM.render(
+  const { container } = render(
     <Margins all='10px'>
       <div />
-    </Margins>,
-    root
+    </Margins>
   );
 
-  const div = root.firstElementChild;
-  expect(div?.className).not.toBeFalsy();
+  expect(container.firstElementChild).toHaveAttribute(
+    'class',
+    expect.stringMatching('rcx-css-')
+  );
 });
