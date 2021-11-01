@@ -4,7 +4,7 @@
 
 import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useResizeObserver } from '.';
+import { useResizeObserver } from './useResizeObserver';
 
 it('immediately returns undefined sizes', () => {
   const { result } = renderHook(() => useResizeObserver());

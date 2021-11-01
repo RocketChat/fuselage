@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import { useToggle } from '.';
+import { useToggle } from './useToggle';
 
 it('has false value when an initial value is undefined', () => {
   const { result } = renderHook(() => useToggle());

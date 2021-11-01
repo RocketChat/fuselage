@@ -4,7 +4,7 @@
 
 import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useMutableCallback } from '.';
+import { useMutableCallback } from './useMutableCallback';
 
 it('returns a callback that invokes the mutable one', () => {
   const fn = jest.fn();

@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useLazyRef } from '.';
+import { useLazyRef } from './useLazyRef';
 
 it('returns the computed value immediately', () => {
   const computedValue = Symbol('computed');

@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
-import { usePrefersReducedData } from '.';
+import { usePrefersReducedData } from './usePrefersReducedData';
 
 const setViewport = withMatchMediaMock();
 

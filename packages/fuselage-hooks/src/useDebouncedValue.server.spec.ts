@@ -4,7 +4,7 @@
 
 import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useDebouncedValue } from '.';
+import { useDebouncedValue } from './useDebouncedValue';
 
 const delay = 100;
 

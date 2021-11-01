@@ -4,7 +4,7 @@
 
 import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useSafely } from '.';
+import { useSafely } from './useSafely';
 
 it('returns the initial state', () => {
   const initialState = Symbol();

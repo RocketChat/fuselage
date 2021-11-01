@@ -4,7 +4,7 @@
 
 import { renderHook } from '@testing-library/react-hooks/server';
 
-import { usePrefersReducedData } from '.';
+import { usePrefersReducedData } from './usePrefersReducedData';
 
 it('should return false on the initial call', () => {
   const { result } = renderHook(() => usePrefersReducedData());

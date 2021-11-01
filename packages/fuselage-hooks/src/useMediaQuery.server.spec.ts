@@ -4,7 +4,7 @@
 
 import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useMediaQuery } from '.';
+import { useMediaQuery } from './useMediaQuery';
 
 it('returns false for undefined media query', () => {
   const { result } = renderHook(() => useMediaQuery());

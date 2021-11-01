@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useIsomorphicLayoutEffect } from '.';
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 it('performs a useLayoutEffect', () => {
   const watcher = jest.fn();

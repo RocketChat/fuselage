@@ -4,7 +4,7 @@
 
 import { renderHook } from '@testing-library/react-hooks/server';
 
-import { usePrefersColorScheme } from '.';
+import { usePrefersColorScheme } from './usePrefersColorScheme';
 
 it('should return false on the initial call', () => {
   const { result } = renderHook(() => usePrefersColorScheme());

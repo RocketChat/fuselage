@@ -1,7 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
-import { useMediaQueries } from '.';
+import { useMediaQueries } from './useMediaQueries';
 
 const setViewport = withMatchMediaMock();
 

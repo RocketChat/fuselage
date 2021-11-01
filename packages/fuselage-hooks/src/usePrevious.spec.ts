@@ -1,7 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { useReducer } from 'react';
 
-import { usePrevious } from '.';
+import { usePrevious } from './usePrevious';
 
 it('returns previous values', () => {
   const { result } = renderHook(() => {

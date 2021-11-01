@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import { useState } from 'react';
 
-import { useMutableCallback } from '.';
+import { useMutableCallback } from './useMutableCallback';
 
 it('returns a stable callback', () => {
   const fn = jest.fn();

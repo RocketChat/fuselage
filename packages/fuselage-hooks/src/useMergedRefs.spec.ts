@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { createRef } from 'react';
 
-import { useMergedRefs } from '.';
+import { useMergedRefs } from './useMergedRefs';
 
 it('returns a callback ref', () => {
   const { result } = renderHook(() => useMergedRefs());

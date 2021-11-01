@@ -4,7 +4,7 @@
 
 import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useUniqueId } from '.';
+import { useUniqueId } from './useUniqueId';
 
 it('returns a string', () => {
   const { result } = renderHook(() => useUniqueId());
