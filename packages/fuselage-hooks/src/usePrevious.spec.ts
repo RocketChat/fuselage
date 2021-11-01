@@ -1,43 +1,30 @@
-import { FunctionComponent, createElement, StrictMode, useState } from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook, act } from '@testing-library/react-hooks';
+import { useReducer } from 'react';
 
 import { usePrevious } from '.';
 
 it('returns previous values', () => {
-  let previous: number | undefined;
-  let current: number;
-  let increment: () => void;
+  const { result } = renderHook(() => {
+    const [current, next] = useReducer((current) => current + 1, 0);
+    const previous = usePrevious(current);
 
-  const TestComponent: FunctionComponent = () => {
-    const [count, setCount] = useState(0);
-    previous = usePrevious(count);
-
-    current = count;
-    increment = () => {
-      setCount((count) => count + 1);
-    };
-
-    return null;
-  };
-
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
+    return { current, previous, next };
   });
 
-  expect(current).toBe(0);
-  expect(previous).toBe(undefined);
+  expect(result.current.current).toBe(0);
+  expect(result.current.previous).toBe(undefined);
 
-  act(increment);
+  act(() => {
+    result.current.next();
+  });
 
-  expect(current).toBe(1);
-  expect(previous).toBe(0);
+  expect(result.current.current).toBe(1);
+  expect(result.current.previous).toBe(0);
 
-  act(increment);
+  act(() => {
+    result.current.next();
+  });
 
-  expect(current).toBe(2);
-  expect(previous).toBe(1);
+  expect(result.current.current).toBe(2);
+  expect(result.current.previous).toBe(1);
 });

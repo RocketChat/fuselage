@@ -2,30 +2,20 @@
  * @jest-environment node
  */
 
-import { FunctionComponent, createElement, StrictMode } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderHook } from '@testing-library/react-hooks/server';
 
 import { useDebouncedValue } from '.';
 
-describe('useDebouncedValue hook', () => {
-  let delay: number;
-  beforeEach(() => {
-    jest.useFakeTimers();
-    delay = Math.round(100 * Math.random());
-  });
+const delay = 100;
 
-  it('returns the initial value', () => {
-    const initialValue = Symbol();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
 
-    let value: symbol;
+it('returns the initial value', () => {
+  const initialValue = Symbol();
 
-    const TestComponent: FunctionComponent = () => {
-      value = useDebouncedValue(initialValue, delay);
-      return null;
-    };
+  const { result } = renderHook(() => useDebouncedValue(initialValue, delay));
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-    expect(value).toBe(initialValue);
-  });
+  expect(result.current).toBe(initialValue);
 });

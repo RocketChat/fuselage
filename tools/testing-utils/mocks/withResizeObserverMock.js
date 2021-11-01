@@ -1,9 +1,9 @@
-const createBoxSizes = (style) => {
-  const getSizeInPixels = (value) =>
-    (typeof value === 'string' && parseInt(value, 10)) ||
-    (typeof value === 'number' && value) ||
-    0;
+const getSizeInPixels = (value) =>
+  (typeof value === 'string' && parseInt(value, 10)) ||
+  (typeof value === 'number' && value) ||
+  0;
 
+const createBoxSizes = (style) => {
   const inlineSize = getSizeInPixels(style.inlineSize);
   const borderInlineStartWidth = getSizeInPixels(style.borderInlineStartWidth);
   const borderInlineEndWidth = getSizeInPixels(style.borderInlineEndWidth);
@@ -15,27 +15,51 @@ const createBoxSizes = (style) => {
   const paddingBlockStart = getSizeInPixels(style.paddingBlockStart);
   const paddingBlockEnd = getSizeInPixels(style.paddingBlockEnd);
 
-  const inlineExtra =
-    borderInlineStartWidth +
-    paddingInlineStart +
-    paddingInlineEnd +
-    borderInlineEndWidth;
-  const blockExtra =
-    borderBlockStartWidth +
-    paddingBlockStart +
-    paddingBlockEnd +
-    borderBlockEndWidth;
+  if (style.boxSizing === 'border-box') {
+    const borderBoxSize = Object.freeze({
+      inlineSize,
+      blockSize,
+    });
+
+    const contentBoxSize = Object.freeze({
+      inlineSize:
+        inlineSize -
+        borderInlineStartWidth -
+        paddingInlineStart -
+        paddingInlineEnd -
+        borderInlineEndWidth,
+      blockSize:
+        blockSize -
+        borderBlockStartWidth -
+        paddingBlockStart -
+        paddingBlockEnd -
+        borderBlockEndWidth,
+    });
+
+    return {
+      borderBoxSize,
+      contentBoxSize,
+    };
+  }
 
   const borderBoxSize = Object.freeze({
     inlineSize:
-      inlineSize + (style.boxSizing === 'border-box' ? 0 : inlineExtra),
-    blockSize: blockSize + (style.boxSizing === 'border-box' ? 0 : blockExtra),
+      borderInlineStartWidth +
+      paddingInlineStart +
+      inlineSize +
+      paddingInlineEnd +
+      borderInlineEndWidth,
+    blockSize:
+      borderBlockStartWidth +
+      paddingBlockStart +
+      blockSize +
+      paddingBlockEnd +
+      borderBlockEndWidth,
   });
 
   const contentBoxSize = Object.freeze({
-    inlineSize:
-      inlineSize - (style.boxSizing === 'border-box' ? 0 : inlineExtra),
-    blockSize: blockSize - (style.boxSizing === 'border-box' ? 0 : blockExtra),
+    inlineSize,
+    blockSize,
   });
 
   return {
@@ -81,32 +105,20 @@ class ResizeObserverMock {
         const { borderBoxSize, contentBoxSize } = createBoxSizes({
           boxSizing:
             styles.boxSizing === 'border-box' ? 'border-box' : 'content-box',
-          inlineSize: styles.inlineSize,
-          borderInlineStartWidth: styles.borderInlineStartWidth
-            ? parseInt(styles.borderInlineStartWidth, 10)
-            : 0,
-          borderInlineEndWidth: styles.borderInlineEndWidth
-            ? parseInt(styles.borderInlineEndWidth, 10)
-            : 0,
-          paddingInlineStart: styles.paddingInlineStart
-            ? parseInt(styles.paddingInlineStart, 10)
-            : 0,
-          paddingInlineEnd: styles.paddingInlineEnd
-            ? parseInt(styles.paddingInlineEnd, 10)
-            : 0,
-          blockSize: styles.blockSize ? parseInt(styles.blockSize, 10) : 0,
-          borderBlockStartWidth: styles.borderBlockStartWidth
-            ? parseInt(styles.borderBlockStartWidth, 10)
-            : 0,
-          borderBlockEndWidth: styles.borderBlockEndWidth
-            ? parseInt(styles.borderBlockEndWidth, 10)
-            : 0,
-          paddingBlockStart: styles.paddingBlockStart
-            ? parseInt(styles.paddingBlockStart, 10)
-            : 0,
-          paddingBlockEnd: styles.paddingBlockEnd
-            ? parseInt(styles.paddingBlockEnd, 10)
-            : 0,
+          inlineSize: styles.inlineSize || styles.width,
+          borderInlineStartWidth:
+            styles.borderInlineStartWidth || styles.borderRightWidth,
+          borderInlineEndWidth:
+            styles.borderInlineEndWidth || styles.borderRightWidth,
+          paddingInlineStart: styles.paddingInlineStart || styles.paddingLeft,
+          paddingInlineEnd: styles.paddingInlineEnd || styles.paddingRight,
+          blockSize: styles.blockSize || styles.height,
+          borderBlockStartWidth:
+            styles.borderBlockStartWidth || styles.borderTopWidth,
+          borderBlockEndWidth:
+            styles.borderBlockEndWidth || styles.borderBottomWidth,
+          paddingBlockStart: styles.paddingBlockStart || styles.paddingTop,
+          paddingBlockEnd: styles.paddingBlockEnd || styles.paddingBottom,
         });
 
         this.callback(
@@ -129,7 +141,6 @@ class ResizeObserverMock {
     });
 
     this.mutationObservers.set(target, mutationObserver);
-    target.style.inlineSize = `${target.style.inlineSize};`;
   });
 
   unobserve = jest.fn((target) => {

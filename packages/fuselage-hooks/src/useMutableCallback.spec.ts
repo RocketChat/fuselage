@@ -1,98 +1,46 @@
-import {
-  createElement,
-  StrictMode,
-  FunctionComponent,
-  useReducer,
-  useState,
-} from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { act, renderHook } from '@testing-library/react-hooks';
+import { useState } from 'react';
 
 import { useMutableCallback } from '.';
 
-describe('useMutableCallback hook', () => {
-  it('returns a stable callback', () => {
-    const fn = jest.fn();
+it('returns a stable callback', () => {
+  const fn = jest.fn();
 
-    let stableCallback: () => void;
-    let forceUpdate: () => void;
+  const { result, rerender } = renderHook(() => useMutableCallback(fn));
 
-    const TestComponent: FunctionComponent = () => {
-      stableCallback = useMutableCallback(fn);
-      [, forceUpdate] = useReducer((state) => !state, false);
-      return null;
-    };
+  rerender();
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
+  const [stableCallbackA, stableCallbackB] = result.all;
+  expect(stableCallbackB).toBe(stableCallbackA);
+});
 
-    const stableCallbackA = stableCallback;
+it('returns a callback that invokes the mutable one', () => {
+  const fn = jest.fn();
 
-    act(() => {
-      forceUpdate();
-    });
+  const { result } = renderHook(() => useMutableCallback(fn));
 
-    const stableCallbackB = stableCallback;
+  result.current();
 
-    expect(stableCallbackA).toBe(stableCallbackB);
+  expect(fn).toHaveBeenCalledTimes(1);
+});
+
+it('handles mutations in callback', () => {
+  const firstCallback = jest.fn();
+  const secondCallback = jest.fn();
+
+  const { result } = renderHook(() => {
+    const [callback, setCallback] = useState(() => firstCallback);
+    const stableCallback = useMutableCallback(callback);
+
+    return { setCallback, stableCallback };
   });
 
-  it('returns a callback that invokes the mutable one', () => {
-    const fn = jest.fn();
-
-    let stableCallback: () => void;
-
-    const TestComponent: FunctionComponent = () => {
-      stableCallback = useMutableCallback(fn);
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    stableCallback();
-
-    expect(fn).toHaveBeenCalledTimes(1);
+  act(() => {
+    result.current.setCallback(() => secondCallback);
   });
 
-  it('handles mutations in callback', () => {
-    const firstCallback = jest.fn();
-    const secondCallback = jest.fn();
+  result.current.stableCallback();
 
-    let stableCallback: () => void;
-    let setCallback: (callback: typeof jest.fn) => void;
-
-    const TestComponent: FunctionComponent = () => {
-      let callback: typeof jest.fn;
-      [callback, setCallback] = useState(() => firstCallback);
-      stableCallback = useMutableCallback(callback);
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    act(() => {
-      setCallback(() => secondCallback);
-    });
-
-    act(() => {
-      stableCallback();
-    });
-
-    expect(firstCallback).toHaveBeenCalledTimes(0);
-    expect(secondCallback).toHaveBeenCalledTimes(1);
-  });
+  expect(firstCallback).toHaveBeenCalledTimes(0);
+  expect(secondCallback).toHaveBeenCalledTimes(1);
 });

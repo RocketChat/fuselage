@@ -1,50 +1,38 @@
-import { createElement, useState, FunctionComponent, StrictMode } from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook, act } from '@testing-library/react-hooks';
+import { useState } from 'react';
 
 import { useDebouncedUpdates } from '.';
 
-describe('useDebouncedUpdates hook', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
+beforeAll(() => {
+  jest.useFakeTimers();
+});
+
+const delay = 100;
+
+it('returns a debounced state dispatcher', () => {
+  const initialState = Symbol('initial');
+  const newState = Symbol('new');
+
+  const { result } = renderHook(() =>
+    useDebouncedUpdates(useState<symbol>(initialState), delay)
+  );
+
+  const [, dispatch] = result.current;
+
+  expect(dispatch).toBeInstanceOf(Function);
+  expect(dispatch.flush).toBeInstanceOf(Function);
+  expect(dispatch.cancel).toBeInstanceOf(Function);
+
+  act(() => {
+    const [, setState] = result.current;
+    setState(newState);
   });
 
-  it('returns a debounced state dispatcher', () => {
-    const initialState = Symbol('initial');
-    const newState = Symbol('new');
-    const delay = Math.round(100 * Math.random());
+  expect(result.current[0]).toBe(initialState);
 
-    let state: symbol;
-    let dispatch: ReturnType<typeof useDebouncedUpdates>[1];
-
-    const TestComponent: FunctionComponent = () => {
-      [state, dispatch] = useDebouncedUpdates(useState(initialState), delay);
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    expect(dispatch).toBeInstanceOf(Function);
-    expect(dispatch.flush).toBeInstanceOf(Function);
-    expect(dispatch.cancel).toBeInstanceOf(Function);
-
-    expect(state).toBe(initialState);
-
-    act(() => {
-      dispatch(newState);
-    });
-
-    expect(state).toBe(initialState);
-
-    act(() => {
-      jest.advanceTimersByTime(delay);
-    });
-
-    expect(state).toBe(newState);
+  act(() => {
+    jest.advanceTimersByTime(delay);
   });
+
+  expect(result.current[0]).toBe(newState);
 });

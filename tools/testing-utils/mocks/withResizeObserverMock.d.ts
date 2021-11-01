@@ -1,1 +1,1 @@
-export declare const withResizeObserverMock: () => number;
+export declare const withResizeObserverMock: () => void;

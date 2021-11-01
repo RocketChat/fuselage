@@ -2,45 +2,33 @@
  * @jest-environment node
  */
 
-import { FunctionComponent, createElement, StrictMode } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderHook } from '@testing-library/react-hooks/server';
 
 import { useDebouncedCallback } from '.';
 
-describe('useDebouncedCallback hook on server', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
+beforeAll(() => {
+  jest.useFakeTimers();
+});
 
-  it('returns a debounced callback', () => {
-    const fn = jest.fn();
-    const delay = 100 + Math.round(100 * Math.random());
-    const delayBeforeUpdate = Math.round(delay * 0.75);
+it('returns a debounced callback', () => {
+  const halfDelay = 50;
+  const delay = 2 * halfDelay;
+  const fn = jest.fn();
 
-    let debouncedCallback: (() => void) & {
-      flush: () => void;
-      cancel: () => void;
-    };
+  const { result } = renderHook(() => useDebouncedCallback(fn, delay));
 
-    const TestComponent: FunctionComponent = () => {
-      debouncedCallback = useDebouncedCallback(fn, delay);
-      return null;
-    };
+  const debouncedCallback = result.current;
+  expect(debouncedCallback).toBeInstanceOf(Function);
+  expect(debouncedCallback.flush).toBeInstanceOf(Function);
+  expect(debouncedCallback.cancel).toBeInstanceOf(Function);
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
+  debouncedCallback();
 
-    expect(debouncedCallback).toBeInstanceOf(Function);
-    expect(debouncedCallback.flush).toBeInstanceOf(Function);
-    expect(debouncedCallback.cancel).toBeInstanceOf(Function);
+  jest.advanceTimersByTime(halfDelay);
 
-    debouncedCallback();
+  expect(fn).toHaveBeenCalledTimes(0);
 
-    jest.advanceTimersByTime(delayBeforeUpdate);
+  jest.advanceTimersByTime(halfDelay);
 
-    expect(fn).toHaveBeenCalledTimes(0);
-
-    jest.advanceTimersByTime(delay - delayBeforeUpdate);
-
-    expect(fn).toHaveBeenCalledTimes(1);
-  });
+  expect(fn).toHaveBeenCalledTimes(1);
 });

@@ -1,9 +1,17 @@
+let spyConsoleError;
+let spyConsoleWarn;
+
 beforeEach(() => {
-  jest.spyOn(console, 'error');
-  jest.spyOn(console, 'warn');
+  spyConsoleError = jest.spyOn(console, 'error');
+  spyConsoleWarn = jest.spyOn(console, 'warn');
 });
 
 afterEach(() => {
-  expect(console.error).not.toBeCalled();
-  expect(console.warn).not.toBeCalled();
+  try {
+    expect(spyConsoleError).not.toBeCalled();
+    expect(spyConsoleWarn).not.toBeCalled();
+  } finally {
+    spyConsoleError.mockRestore();
+    spyConsoleWarn.mockRestore();
+  }
 });

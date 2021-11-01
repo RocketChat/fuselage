@@ -2,26 +2,16 @@
  * @jest-environment node
  */
 
-import { FunctionComponent, createElement, StrictMode } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderHook } from '@testing-library/react-hooks/server';
 
 import { useMutableCallback } from '.';
 
-describe('useMutableCallback hook on server', () => {
-  it('returns a callback that invokes the mutable one', () => {
-    const fn = jest.fn();
+it('returns a callback that invokes the mutable one', () => {
+  const fn = jest.fn();
 
-    let stableCallback: () => void;
+  const { result } = renderHook(() => useMutableCallback(fn));
 
-    const TestComponent: FunctionComponent = () => {
-      stableCallback = useMutableCallback(fn);
-      return null;
-    };
+  result.current();
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-    stableCallback();
-
-    expect(fn).toHaveBeenCalledTimes(1);
-  });
+  expect(fn).toHaveBeenCalledTimes(1);
 });
