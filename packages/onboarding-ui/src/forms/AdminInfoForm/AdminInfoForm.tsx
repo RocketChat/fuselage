@@ -51,9 +51,9 @@ const AdminInfoForm = ({
   const autofocus = useAutoFocus();
 
   const fullnameField = useUniqueId();
-  const usernameField = useUniqueId();
+  const usernameField = useUniqueId(); // lgtm [js/insecure-randomness]
   const companyEmailField = useUniqueId();
-  const passwordField = useUniqueId();
+  const passwordField = useUniqueId(); // lgtm [js/insecure-randomness]
 
   const {
     register,
