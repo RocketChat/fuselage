@@ -1,6 +1,6 @@
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement } from 'react';
-import type { SubmitHandler } from 'react-hook-form';
+import type { SubmitHandler, Validate } from 'react-hook-form';
 import { Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
@@ -24,6 +24,7 @@ type CloudAccountEmailPageProps = {
   currentStep: number;
   stepCount: number;
   initialValues?: Partial<CloudAccountEmailPayload>;
+  validateEmail: Validate<string>;
   onBackButtonClick: () => void;
   onSubmit: SubmitHandler<{
     email: string;
