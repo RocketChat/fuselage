@@ -12587,6 +12587,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-mediaquery@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "css-mediaquery@npm:0.1.2"
+  checksum: 8e26ae52d8aaaa71893f82fc485363ff0fab494b7d3b3464572aaed50714b8b538d33dbdaa69f0c02cf7f80d1f4d9a77519306c0492223ce91b3987475031a69
+  languageName: node
+  linkType: hard
+
 "css-select-base-adapter@npm:^0.1.1":
   version: 0.1.1
   resolution: "css-select-base-adapter@npm:0.1.1"
@@ -26860,6 +26867,8 @@ resolve@^2.0.0-next.3:
 "testing-utils@workspace:tools/testing-utils":
   version: 0.0.0-use.local
   resolution: "testing-utils@workspace:tools/testing-utils"
+  dependencies:
+    css-mediaquery: ^0.1.2
   languageName: unknown
   linkType: soft
 

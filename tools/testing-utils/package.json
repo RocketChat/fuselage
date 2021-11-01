@@ -6,5 +6,8 @@
       "require": "./*.js",
       "types": "./*.d.ts"
     }
+  },
+  "dependencies": {
+    "css-mediaquery": "^0.1.2"
   }
 }

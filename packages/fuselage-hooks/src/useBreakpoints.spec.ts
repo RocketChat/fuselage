@@ -1,77 +1,38 @@
-import breakpointsDefinitions from '@rocket.chat/fuselage-tokens/breakpoints.json';
-import { FunctionComponent, createElement, StrictMode } from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import breakpoints from '@rocket.chat/fuselage-tokens/breakpoints.json';
+import { renderHook, act } from '@testing-library/react-hooks';
+import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
 import { useBreakpoints } from '.';
-import matchMediaMock from './__mocks__/matchMedia';
-import resizeToMock from './__mocks__/resizeTo';
 
-beforeAll(() => {
-  window.resizeTo = resizeToMock;
-  window.matchMedia = jest.fn(matchMediaMock);
-});
-
-beforeEach(() => {
-  window.resizeTo(1024, 768);
-});
+const setViewport = withMatchMediaMock();
 
 it('returns at least the smallest breakpoint name', () => {
-  let breakpoints: string[];
-  const TestComponent: FunctionComponent = () => {
-    breakpoints = useBreakpoints();
-    return null;
-  };
+  const { result } = renderHook(() => useBreakpoints());
 
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
-  });
-
-  expect(breakpoints[0]).toBe(breakpointsDefinitions[0].name);
+  expect(result.current[0]).toBe(breakpoints[0].name);
 });
 
-it('returns matching breakpoint names', () => {
-  const initialBreakpoints = breakpointsDefinitions.slice(0, -1);
-  const finalBreakpoints = breakpointsDefinitions.slice(0, -2);
+it('returns matching breakpoint names', async () => {
+  const initialBreakpoints = breakpoints.slice(0, -1);
+  const finalBreakpoints = breakpoints.slice(0, -2);
 
-  let breakpoints: string[];
-  const TestComponent: FunctionComponent = () => {
-    breakpoints = useBreakpoints();
-    return null;
-  };
-
-  act(() => {
-    window.resizeTo(
-      initialBreakpoints[initialBreakpoints.length - 1].minViewportWidth,
-      768
-    );
-
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
+  setViewport({
+    width: initialBreakpoints[initialBreakpoints.length - 1].minViewportWidth,
   });
 
-  expect(breakpoints).toStrictEqual(
+  const { result } = renderHook(() => useBreakpoints());
+
+  expect(result.current).toEqual(
     initialBreakpoints.map((breakpoint) => breakpoint.name)
   );
 
-  act(() => {
-    window.resizeTo(
-      finalBreakpoints[finalBreakpoints.length - 1].minViewportWidth,
-      768
-    );
-
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
+  await act(async () => {
+    setViewport({
+      width: finalBreakpoints[finalBreakpoints.length - 1].minViewportWidth,
+    });
   });
 
-  expect(breakpoints).toStrictEqual(
+  expect(result.current).toStrictEqual(
     finalBreakpoints.map((breakpoint) => breakpoint.name)
   );
 });

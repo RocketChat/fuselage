@@ -1,102 +1,50 @@
-import { FunctionComponent, createElement, StrictMode } from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook, act } from '@testing-library/react-hooks';
+import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
 import { useMediaQueries } from '.';
-import matchMediaMock from './__mocks__/matchMedia';
-import resizeToMock from './__mocks__/resizeTo';
 
-beforeAll(() => {
-  window.resizeTo = resizeToMock;
-  window.matchMedia = jest.fn(matchMediaMock);
-});
-
-beforeEach(() => {
-  window.resizeTo(1024, 768);
-});
+const setViewport = withMatchMediaMock();
 
 it('returns empty array if no query is given', () => {
-  let matches: boolean[];
-  const TestComponent: FunctionComponent = () => {
-    matches = useMediaQueries();
-    return null;
-  };
+  const { result } = renderHook(() => useMediaQueries());
 
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
-  });
-
-  expect(matches).toStrictEqual([]);
+  expect(result.current).toEqual([]);
 });
 
 it("returns false values if the media queries don't match", () => {
-  let matches: boolean[];
-  const TestComponent: FunctionComponent = () => {
-    matches = useMediaQueries('(max-width: 1024px)', '(max-width: 968px)');
-    return null;
-  };
+  const { result } = renderHook(() =>
+    useMediaQueries('(max-width: 1024px)', '(max-width: 968px)')
+  );
 
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
-  });
-
-  expect(matches).toStrictEqual([true, false]);
+  expect(result.current).toEqual([true, false]);
 });
 
 it('returns true if the media query does match', () => {
-  window.resizeTo(968, 768);
+  setViewport({ width: 968 });
 
-  let matches: boolean[];
-  const TestComponent: FunctionComponent = () => {
-    matches = useMediaQueries('(max-width: 1024px)', '(max-width: 968px)');
-    return null;
-  };
+  const { result } = renderHook(() =>
+    useMediaQueries('(max-width: 1024px)', '(max-width: 968px)')
+  );
 
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
-  });
-
-  expect(matches).toStrictEqual([true, true]);
+  expect(result.current).toEqual([true, true]);
 });
 
-it('mutates its value to true if the media query matches', () => {
-  let matches: boolean[];
-  const TestComponent: FunctionComponent = () => {
-    matches = useMediaQueries('(max-width: 1024px)', '(max-width: 968px)');
-    return null;
-  };
+it('mutates its value to true if the media query matches', async () => {
+  const { result } = renderHook(() =>
+    useMediaQueries('(max-width: 1024px)', '(max-width: 968px)')
+  );
 
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
+  expect(result.current).toEqual([true, false]);
+
+  await act(async () => {
+    setViewport({ width: 968 });
   });
 
-  const matchesA = matches;
+  expect(result.current).toEqual([true, true]);
 
-  act(() => {
-    window.resizeTo(968, 768);
+  await act(async () => {
+    setViewport({ width: 1024 });
   });
 
-  const matchesB = matches;
-
-  act(() => {
-    window.resizeTo(1024, 768);
-  });
-
-  const matchesC = matches;
-
-  expect(matchesA).toStrictEqual([true, false]);
-  expect(matchesB).toStrictEqual([true, true]);
-  expect(matchesC).toStrictEqual([true, false]);
+  expect(result.current).toEqual([true, false]);
 });

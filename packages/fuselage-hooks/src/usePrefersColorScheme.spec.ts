@@ -1,101 +1,42 @@
-import { createElement, FunctionComponent, StrictMode } from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook } from '@testing-library/react-hooks';
+import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
 import { usePrefersColorScheme } from '.';
-import matchMediaMock from './__mocks__/matchMedia';
 
-describe('usePrefersColorScheme hook', () => {
-  let container: HTMLDivElement;
+const setViewport = withMatchMediaMock();
 
-  beforeEach(() => {
-    container = document.createElement('div');
-    document.body.appendChild(container);
+it('should return false on the initial call', () => {
+  const { result } = renderHook(() => usePrefersColorScheme());
+
+  expect(result.current).toBe(false);
+});
+
+it('should return true with matchMedia mocked and anything set', () => {
+  setViewport({
+    'prefers-color-scheme': 'light',
   });
 
-  afterEach(() => {
-    container.remove();
-    container = null;
+  const { result } = renderHook(() => usePrefersColorScheme());
+
+  expect(result.current).toBe(true);
+});
+
+it('should return true with matchMedia mocked and light scheme set', () => {
+  setViewport({
+    'prefers-color-scheme': 'light',
   });
 
-  it('should return false on the initial call', () => {
-    let matches: boolean;
+  const { result } = renderHook(() => usePrefersColorScheme('light'));
 
-    const TestComponent: FunctionComponent = () => {
-      matches = usePrefersColorScheme();
-      return null;
-    };
+  expect(result.current).toBe(true);
+});
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        container
-      );
-    });
-
-    expect(matches).toBe(false);
+it('should return true with matchMedia mocked and dark scheme set', () => {
+  setViewport({
+    'prefers-color-scheme': 'dark',
   });
 
-  it('should return true with matchMedia mocked and anything set', () => {
-    window.matchMedia = jest.fn((media) =>
-      matchMediaMock(media, '(prefers-color-scheme: light)')
-    );
+  const { result } = renderHook(() => usePrefersColorScheme('dark'));
 
-    let matches: boolean;
-    const TestComponent: FunctionComponent = () => {
-      matches = usePrefersColorScheme();
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    expect(matches).toBe(true);
-  });
-
-  it('should return true with matchMedia mocked and light scheme set', () => {
-    window.matchMedia = jest.fn((media) =>
-      matchMediaMock(media, '(prefers-color-scheme: light)')
-    );
-
-    let matches: boolean;
-    const TestComponent: FunctionComponent = () => {
-      matches = usePrefersColorScheme('light');
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    expect(matches).toBe(true);
-  });
-
-  it('should return true with matchMedia mocked and dark scheme set', () => {
-    window.matchMedia = jest.fn((media) =>
-      matchMediaMock(media, '(prefers-color-scheme: dark)')
-    );
-
-    let matches: boolean;
-    const TestComponent: FunctionComponent = () => {
-      matches = usePrefersColorScheme('dark');
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    expect(matches).toBe(true);
-  });
+  expect(result.current).toBe(true);
 });
