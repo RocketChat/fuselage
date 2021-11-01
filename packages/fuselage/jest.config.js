@@ -16,6 +16,7 @@ module.exports = {
     '\\.scss$': 'testing-utils/lazySingletonStyleTagModule',
   },
   setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
     'testing-utils/setup/noErrorsLogged',
     '<rootDir>/.jest/setup.ts',
   ],

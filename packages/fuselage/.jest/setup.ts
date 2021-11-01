@@ -1,5 +1,3 @@
-import '@testing-library/jest-dom';
-
 const cssInJsClassRegex = /^rcx-css-[a-z0-9]+$/;
 
 expect.extend({
@@ -30,12 +28,3 @@ expect.extend({
     };
   },
 });
-
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace jest {
-    interface Matchers<R> {
-      toHaveCssInJsClass(): R;
-    }
-  }
-}
