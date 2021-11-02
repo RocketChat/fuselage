@@ -1,4 +1,3 @@
-import { Box } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { ReactElement, useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
