@@ -31,15 +31,6 @@ const Description = (): ReactElement => {
         <List.Item>{t('page.cloudDescription.omnichannel')}</List.Item>
         <List.Item>{t('page.cloudDescription.push')}</List.Item>
       </List>
-      <Box
-        is='text'
-        height='x64'
-        marginBlockStart='x40'
-        fontScale='micro'
-        color={colors.n600}
-      >
-        {t('page.cloudDescription.goldIncludes')}
-      </Box>
     </>
   );
 };
