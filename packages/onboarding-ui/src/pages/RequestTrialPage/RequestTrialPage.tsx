@@ -1,4 +1,3 @@
-import { css } from '@rocket.chat/css-in-js';
 import type { ComponentProps, ReactElement } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
