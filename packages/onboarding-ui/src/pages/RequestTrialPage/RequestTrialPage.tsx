@@ -1,5 +1,4 @@
 import { css } from '@rocket.chat/css-in-js';
-import { Box } from '@rocket.chat/fuselage';
 import type { ComponentProps, ReactElement } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -14,9 +13,6 @@ type RequestTrialPageProps = ComponentProps<typeof RequestTrialForm>;
 
 const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
   const { t } = useTranslation();
-  const pointer = css`
-    cursor: pointer;
-  `;
 
   return (
     <BackgroundLayer>
