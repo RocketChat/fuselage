@@ -9,8 +9,8 @@ import {
   Box,
   CheckBox,
 } from '@rocket.chat/fuselage';
-import { useUniqueId, useAutoFocus } from '@rocket.chat/fuselage-hooks';
-import type { ReactElement } from 'react';
+import { useUniqueId } from '@rocket.chat/fuselage-hooks';
+import { ReactElement, useEffect } from 'react';
 import { useForm, SubmitHandler, Validate } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -48,7 +48,6 @@ const AdminInfoForm = ({
   onSubmit,
 }: AdminInfoFormProps): ReactElement => {
   const { t } = useTranslation();
-  const autofocus = useAutoFocus();
 
   const fullnameField = useUniqueId();
   const usernameField = useUniqueId(); // lgtm [js/insecure-randomness]
@@ -59,12 +58,17 @@ const AdminInfoForm = ({
     register,
     handleSubmit,
     formState: { isValidating, isSubmitting, errors },
+    setFocus,
   } = useForm<AdminInfoPayload>({
     defaultValues: {
       ...initialValues,
       password: '',
     },
   });
+
+  useEffect(() => {
+    setFocus('fullname');
+  }, [setFocus]);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -86,7 +90,6 @@ const AdminInfoForm = ({
                   'form.adminInfoForm.fields.fullName.placeholder'
                 )}
                 id={fullnameField}
-                ref={autofocus}
               />
             </Field.Row>
             {errors.fullname && (
