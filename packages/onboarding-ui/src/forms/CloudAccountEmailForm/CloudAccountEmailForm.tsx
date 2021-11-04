@@ -1,6 +1,6 @@
 import { ButtonGroup, Button, EmailInput, Field } from '@rocket.chat/fuselage';
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
-import type { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { useForm, SubmitHandler, Validate } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -34,12 +34,17 @@ const CloudAccountEmailForm = ({
     register,
     handleSubmit,
     formState: { isValidating, isSubmitting, errors },
+    setFocus,
   } = useForm<CloudAccountEmailPayload>({
     defaultValues: {
       email: '',
       ...initialValues,
     },
   });
+
+  useEffect(() => {
+    setFocus('email');
+  }, [setFocus]);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>

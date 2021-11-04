@@ -9,12 +9,8 @@ import {
   SelectOptions,
   Box,
 } from '@rocket.chat/fuselage';
-import {
-  useBreakpoints,
-  useUniqueId,
-  useAutoFocus,
-} from '@rocket.chat/fuselage-hooks';
-import type { ReactElement, ReactNode } from 'react';
+import { useBreakpoints, useUniqueId } from '@rocket.chat/fuselage-hooks';
+import { ReactElement, ReactNode, useEffect } from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -65,16 +61,19 @@ const OrganizationInfoForm = ({
   const organizationSizeField = useUniqueId();
   const countryField = useUniqueId();
 
-  const autofocus = useAutoFocus();
-
   const {
     register,
     control,
     handleSubmit,
     formState: { isValidating, isSubmitting, errors },
+    setFocus,
   } = useForm<OrganizationInfoPayload>({
     defaultValues: initialValues,
   });
+
+  useEffect(() => {
+    setFocus('organizationName');
+  }, [setFocus]);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -94,7 +93,6 @@ const OrganizationInfoForm = ({
                   'form.organizationInfoForm.fields.organizationName.placeholder'
                 )}
                 id={organizationNameField}
-                ref={autofocus}
               />
             </Field.Row>
             {errors.organizationName && (
