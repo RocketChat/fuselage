@@ -1,10 +1,10 @@
 import {
+  useRef,
   FunctionComponent,
   createElement,
   StrictMode,
   CSSProperties,
   useState,
-  Ref,
 } from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
@@ -37,8 +37,8 @@ describe('useBorderBoxSize hook', () => {
     let blockSize: number;
 
     const TestComponent: FunctionComponent = () => {
-      let ref: Ref<HTMLElement>;
-      ({ ref, inlineSize, blockSize } = useBorderBoxSize());
+      const ref = useRef<HTMLElement>(null);
+      ({ inlineSize, blockSize } = useBorderBoxSize(ref));
       return createElement('div', { ref });
     };
 
@@ -60,8 +60,8 @@ describe('useBorderBoxSize hook', () => {
     let blockSize: number;
 
     const TestComponent: FunctionComponent = () => {
-      let ref: Ref<HTMLElement>;
-      ({ ref, inlineSize, blockSize } = useBorderBoxSize());
+      const ref = useRef<HTMLElement>(null);
+      ({ inlineSize, blockSize } = useBorderBoxSize(ref));
       return createElement('div', { ref, style: initialStyle });
     };
 
@@ -97,8 +97,8 @@ describe('useBorderBoxSize hook', () => {
     let setStyle: (style: CSSProperties) => void;
 
     const TestComponent: FunctionComponent = () => {
-      let ref: Ref<HTMLElement>;
-      ({ ref, inlineSize, blockSize } = useBorderBoxSize());
+      const ref = useRef<HTMLElement>(null);
+      ({ inlineSize, blockSize } = useBorderBoxSize(ref));
       let style: CSSProperties;
       [style, setStyle] = useState(initialStyle);
       return createElement('div', { ref, style });
@@ -145,8 +145,8 @@ describe('useBorderBoxSize hook', () => {
     let blockSize: number;
 
     const TestComponent: FunctionComponent = () => {
-      let ref: Ref<HTMLElement>;
-      ({ ref, inlineSize, blockSize } = useBorderBoxSize({
+      const ref = useRef<HTMLElement>(null);
+      ({ inlineSize, blockSize } = useBorderBoxSize(ref, {
         debounceDelay,
       }));
       return createElement('div', { ref, style: initialStyle });

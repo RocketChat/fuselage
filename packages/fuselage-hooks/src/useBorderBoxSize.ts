@@ -1,18 +1,17 @@
-import { Ref, useRef, useState } from 'react';
+import { RefObject, useState } from 'react';
 
 import { useDebouncedCallback } from './useDebouncedCallback';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 export const useBorderBoxSize = (
+  ref: RefObject<HTMLElement>,
   options: {
     debounceDelay?: number;
   } = {}
 ): Readonly<{
-  ref: Ref<HTMLElement>;
   inlineSize: number;
   blockSize: number;
 }> => {
-  const ref = useRef<HTMLElement>();
   const [size, setSize] = useState({
     inlineSize: 0,
     blockSize: 0,
@@ -64,8 +63,5 @@ export const useBorderBoxSize = (
     };
   }, [setSizeWithDebounce]);
 
-  return {
-    ref,
-    ...size,
-  };
+  return size;
 };

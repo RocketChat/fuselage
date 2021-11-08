@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { FunctionComponent, createElement, StrictMode } from 'react';
+import { useRef, FunctionComponent, createElement, StrictMode } from 'react';
 import { renderToString } from 'react-dom/server';
 
 import { useContentBoxSize } from '.';
@@ -12,7 +12,8 @@ describe('useContentBoxSize hook on server', () => {
     let inlineSize: unknown;
     let blockSize: unknown;
     const TestComponent: FunctionComponent = () => {
-      ({ inlineSize, blockSize } = useContentBoxSize());
+      const ref = useRef<HTMLElement>(null);
+      ({ inlineSize, blockSize } = useContentBoxSize(ref));
       return null;
     };
 

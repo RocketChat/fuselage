@@ -1,5 +1,5 @@
 import { useBorderBoxSize } from '@rocket.chat/fuselage-hooks';
-import React, { useCallback, useMemo } from 'react';
+import React, { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
@@ -25,7 +25,8 @@ const Banner = ({
   useStyleSheet();
   useStyleSheet(styleSheet);
 
-  const { ref, inlineSize } = useBorderBoxSize({
+  const ref = useRef(null);
+  const { inlineSize } = useBorderBoxSize(ref, {
     debounceDelay: 70,
   });
 

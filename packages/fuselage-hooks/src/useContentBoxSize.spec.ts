@@ -1,10 +1,10 @@
 import {
+  useRef,
   FunctionComponent,
   createElement,
   StrictMode,
   CSSProperties,
   useState,
-  Ref,
 } from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
@@ -37,8 +37,8 @@ describe('useContentBoxSize hook', () => {
     let blockSize: number;
 
     const TestComponent: FunctionComponent = () => {
-      let ref: Ref<HTMLElement>;
-      ({ ref, inlineSize, blockSize } = useContentBoxSize());
+      const ref = useRef<HTMLElement>(null);
+      ({ inlineSize, blockSize } = useContentBoxSize(ref));
       return createElement('div', { ref });
     };
 
@@ -60,8 +60,8 @@ describe('useContentBoxSize hook', () => {
     let blockSize: number;
 
     const TestComponent: FunctionComponent = () => {
-      let ref: Ref<HTMLElement>;
-      ({ ref, inlineSize, blockSize } = useContentBoxSize());
+      const ref = useRef<HTMLElement>(null);
+      ({ inlineSize, blockSize } = useContentBoxSize(ref));
       return createElement('div', { ref, style: initialStyle });
     };
 
@@ -97,8 +97,8 @@ describe('useContentBoxSize hook', () => {
     let setStyle: (style: CSSProperties) => void;
 
     const TestComponent: FunctionComponent = () => {
-      let ref: Ref<HTMLElement>;
-      ({ ref, inlineSize, blockSize } = useContentBoxSize());
+      const ref = useRef<HTMLElement>(null);
+      ({ inlineSize, blockSize } = useContentBoxSize(ref));
       let style: CSSProperties;
       [style, setStyle] = useState(initialStyle);
       return createElement('div', { ref, style });
@@ -145,8 +145,8 @@ describe('useContentBoxSize hook', () => {
     let blockSize: number;
 
     const TestComponent: FunctionComponent = () => {
-      let ref: Ref<HTMLElement>;
-      ({ ref, inlineSize, blockSize } = useContentBoxSize({
+      const ref = useRef<HTMLElement>(null);
+      ({ inlineSize, blockSize } = useContentBoxSize(ref, {
         debounceDelay,
       }));
       return createElement('div', { ref, style: initialStyle });
