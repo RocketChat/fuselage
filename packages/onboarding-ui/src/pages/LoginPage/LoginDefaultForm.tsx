@@ -54,25 +54,29 @@ const LoginDefaultForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>{t('page.loginPage.email.label')}</Field.Label>
+            <Field.Label>{t('form.loginDefaultForm.email.label')}</Field.Label>
             <Field.Row>
               <EmailInput
                 {...register('email', { required: true })}
-                placeholder={t('page.loginPage.email.placeholder')}
+                placeholder={t('form.loginDefaultForm.email.placeholder')}
               />
             </Field.Row>
           </Field>
           <Field>
-            <Field.Label>{t('page.loginPage.password.label')}</Field.Label>
+            <Field.Label>
+              {t('form.loginDefaultForm.password.label')}
+            </Field.Label>
             <Field.Row>
               <PasswordInput
                 {...register('password', { required: true })}
-                placeholder={t('page.loginPage.password.placeholder')}
+                placeholder={t('form.loginDefaultForm.password.placeholder')}
               />
             </Field.Row>
             {!!formError && (
               <Box textAlign='start'>
-                <Field.Error>{t('page.loginPage.password.error')}</Field.Error>
+                <Field.Error>
+                  {t('form.loginDefaultForm.password.error')}
+                </Field.Error>
               </Box>
             )}
           </Field>
@@ -81,15 +85,15 @@ const LoginDefaultForm = ({
       <Form.Footer>
         <Wrapper>
           <Button type='submit' disabled={isValidating || isSubmitting} primary>
-            {t('page.loginPage.button.login')}
+            {t('form.loginDefaultForm.button.login')}
           </Button>
           <Button nude info onClick={onSendLoginLinkForm}>
-            {t('page.loginPage.button.sendLoginLink')}
+            {t('form.loginDefaultForm.button.sendLoginLink')}
           </Button>
         </Wrapper>
       </Form.Footer>
       <Box fontScale='p1' textAlign='left'>
-        <Trans i18nKey='page.loginPage.footer.resetPassword'>
+        <Trans i18nKey='form.loginDefaultForm.footer.resetPassword'>
           Forgot your password?
           <ActionLink fontWeight={400} fontSize='p1' onClick={onResetPassword}>
             Reset password

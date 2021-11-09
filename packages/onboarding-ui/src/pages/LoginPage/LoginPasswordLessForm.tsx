@@ -49,11 +49,13 @@ const LoginPasswordLessForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>{t('page.loginPage.email.label')}</Field.Label>
+            <Field.Label>
+              {t('form.loginPasswordLessForm.email.label')}
+            </Field.Label>
             <Field.Row>
               <TextInput
                 {...register('email', { required: true })}
-                placeholder={t('page.loginPage.email.placeholder')}
+                placeholder={t('form.loginPasswordLessForm.email.placeholder')}
               />
             </Field.Row>
             {errors.email && (
@@ -67,10 +69,10 @@ const LoginPasswordLessForm = ({
       <Form.Footer>
         <Wrapper>
           <Button type='submit' primary>
-            {t('page.loginPage.button.sendLoginLink')}
+            {t('form.loginPasswordLessForm.button.sendLoginLink')}
           </Button>
           <Button nude info onClick={onChangeForm} fontWeight={400}>
-            {t('page.loginPage.button.redirect')}
+            {t('form.loginPasswordLessForm.button.redirect')}
           </Button>
         </Wrapper>
       </Form.Footer>
