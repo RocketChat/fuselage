@@ -66,14 +66,19 @@
     },
     "loginPage": {
       "title": "Cloud Login",
-      "subtitle": "If you’re already registered we’ll email you a link to log in.",
+      "subtitle": {
+        "passwordLess": "If you’re already registered we’ll email you a link to log in.",
+        "normal": "Enter your password to continue."
+      },
+
       "email": {
         "label": "Email",
         "placeholder": "Email"
       },
       "password": {
         "label": "Password",
-        "placeholder": "Enter your password"
+        "placeholder": "Enter your password",
+        "error": "Email and password do not match"
       },
       "button": {
         "sendLoginLink": "Send Login Link",
