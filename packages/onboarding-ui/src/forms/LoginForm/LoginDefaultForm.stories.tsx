@@ -6,7 +6,7 @@ import LoginDefaultForm from './LoginDefaultForm';
 type Args = ComponentProps<typeof LoginDefaultForm>;
 
 export default {
-  title: 'forms/LoginDefaultForm',
+  title: 'forms/LoginForm/LoginDefaultForm',
   component: LoginDefaultForm,
   parameters: {
     layout: 'centered',

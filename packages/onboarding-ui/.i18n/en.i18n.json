@@ -65,12 +65,10 @@
       "subtitle": "These will help us to personalize your workspace."
     },
     "loginPage": {
-      "title": "Cloud Login",
-      "subtitle": {
-        "passwordLess": "If you’re already registered we’ll email you a link to log in.",
-        "normal": "Enter your password to continue."
+      "title": {
+        "cloud": "Cloud Login"
       },
-      "footer": {
+      "createAccount": {
         "label": "New here? <1>Create account</1>"
       }
     }
@@ -209,33 +207,28 @@
         "description": "Use the same email address to continue"
       }
     },
-    "loginDefaultForm": {
-      "email": {
-        "label": "Email",
-        "placeholder": "Email"
+    "loginForm": {
+      "content": {
+        "default": "Enter your password to continue.",
+        "passwordLess": "If you’re already registered we’ll email you a link to log in."
       },
-      "password": {
-        "label": "Password",
-        "placeholder": "Enter your password",
-        "error": "Email and password do not match"
-      },
-      "button": {
-        "sendLoginLink": "Send Login Link",
-        "login": "Login"
-      },
-      "footer": {
-        "resetPassword": "Forgot your password? <1>Reset password</1>"
-      }
-    },
-    "loginPasswordLessForm": {
-      "email": {
-        "label": "Email",
-        "placeholder": "Email"
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "error": "Email and password do not match"
+        }
       },
       "button": {
-        "sendLoginLink": "Send Login Link",
-        "redirect": "Enter password instead"
-      }
+        "text": "Login"
+      },
+      "sendLoginLink": "Send Login Link",
+      "redirect": "Enter password instead",
+      "resetPassword": "Forgot your password? <1>Reset password</1>"
     }
   }
 }

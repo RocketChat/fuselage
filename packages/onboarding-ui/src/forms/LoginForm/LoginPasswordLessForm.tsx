@@ -12,14 +12,14 @@ import { useTranslation } from 'react-i18next';
 import Form from '../../common/Form';
 import { Wrapper } from './LoginForm.styles';
 
-export type LoginPasswordLessPayload = {
+type LoginPasswordLessFormPayload = {
   email: string;
 };
 
 type LoginPasswordLessFormProps = {
-  initialValues?: Partial<LoginPasswordLessPayload>;
+  initialValues?: Partial<LoginPasswordLessFormPayload>;
   onChangeForm: () => void;
-  onSubmit: SubmitHandler<LoginPasswordLessPayload>;
+  onSubmit: SubmitHandler<LoginPasswordLessFormPayload>;
 };
 
 const LoginPasswordLessForm = ({
@@ -32,7 +32,7 @@ const LoginPasswordLessForm = ({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginPasswordLessPayload>({
+  } = useForm<LoginPasswordLessFormPayload>({
     defaultValues: {
       email: '',
       ...initialValues,
@@ -43,19 +43,17 @@ const LoginPasswordLessForm = ({
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Box textAlign='start'>
         <Form.Subtitle>
-          {t('page.loginPage.subtitle.passwordLess')}
+          {t('form.loginForm.content.passwordLess')}
         </Form.Subtitle>
       </Box>
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>
-              {t('form.loginPasswordLessForm.email.label')}
-            </Field.Label>
+            <Field.Label>{t('form.loginForm.fields.email.label')}</Field.Label>
             <Field.Row>
               <TextInput
                 {...register('email', { required: true })}
-                placeholder={t('form.loginPasswordLessForm.email.placeholder')}
+                placeholder={t('form.loginForm.fields.email.placeholder')}
               />
             </Field.Row>
             {errors.email && (
@@ -69,10 +67,10 @@ const LoginPasswordLessForm = ({
       <Form.Footer>
         <Wrapper>
           <Button type='submit' primary>
-            {t('form.loginPasswordLessForm.button.sendLoginLink')}
+            {t('form.loginForm.sendLoginLink')}
           </Button>
           <Button nude info onClick={onChangeForm} fontWeight={400}>
-            {t('form.loginPasswordLessForm.button.redirect')}
+            {t('form.loginForm.redirect')}
           </Button>
         </Wrapper>
       </Form.Footer>

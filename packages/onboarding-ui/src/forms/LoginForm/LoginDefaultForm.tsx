@@ -14,7 +14,7 @@ import ActionLink from '../../common/ActionLink';
 import Form from '../../common/Form';
 import { Wrapper } from './LoginForm.styles';
 
-export type LoginDefaultFormPayload = {
+type LoginDefaultFormPayload = {
   email: string;
   password: string;
 };
@@ -49,33 +49,33 @@ const LoginDefaultForm = ({
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Box textAlign='start'>
-        <Form.Subtitle>{t('page.loginPage.subtitle.normal')}</Form.Subtitle>
+        <Form.Subtitle>{t('form.loginForm.content.default')}</Form.Subtitle>
       </Box>
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>{t('form.loginDefaultForm.email.label')}</Field.Label>
+            <Field.Label>{t('form.loginForm.fields.email.label')}</Field.Label>
             <Field.Row>
               <EmailInput
                 {...register('email', { required: true })}
-                placeholder={t('form.loginDefaultForm.email.placeholder')}
+                placeholder={t('form.loginForm.fields.email.placeholder')}
               />
             </Field.Row>
           </Field>
           <Field>
             <Field.Label>
-              {t('form.loginDefaultForm.password.label')}
+              {t('form.loginForm.fields.password.label')}
             </Field.Label>
             <Field.Row>
               <PasswordInput
                 {...register('password', { required: true })}
-                placeholder={t('form.loginDefaultForm.password.placeholder')}
+                placeholder={t('form.loginForm.fields.password.placeholder')}
               />
             </Field.Row>
             {!!formError && (
               <Box textAlign='start'>
                 <Field.Error>
-                  {t('form.loginDefaultForm.password.error')}
+                  {t('form.loginForm.fields.password.error')}
                 </Field.Error>
               </Box>
             )}
@@ -85,15 +85,15 @@ const LoginDefaultForm = ({
       <Form.Footer>
         <Wrapper>
           <Button type='submit' disabled={isValidating || isSubmitting} primary>
-            {t('form.loginDefaultForm.button.login')}
+            {t('form.loginForm.button.text')}
           </Button>
           <Button nude info onClick={onSendLoginLinkForm}>
-            {t('form.loginDefaultForm.button.sendLoginLink')}
+            {t('form.loginForm.sendLoginLink')}
           </Button>
         </Wrapper>
       </Form.Footer>
       <Box fontScale='p1' textAlign='left'>
-        <Trans i18nKey='form.loginDefaultForm.footer.resetPassword'>
+        <Trans i18nKey='form.loginForm.resetPassword'>
           Forgot your password?
           <ActionLink fontWeight={400} fontSize='p1' onClick={onResetPassword}>
             Reset password

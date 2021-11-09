@@ -8,11 +8,11 @@ import BackgroundLayer from '../../common/BackgroundLayer';
 import { OnboardingLogo } from '../../common/OnboardingLogo';
 import { LoginDefaultForm, LoginPasswordLessForm } from '../../forms/LoginForm';
 
-export type LoginPasswordLessPayload = {
+type LoginPasswordLessPayload = {
   email: string;
 };
 
-export type LoginDefaultFormPayload = {
+type LoginDefaultPayload = {
   email: string;
   password: string;
 };
@@ -24,11 +24,11 @@ type LoginPasswordLessProps = {
 };
 
 type LoginDefaultProps = {
-  initialValues?: Omit<LoginDefaultFormPayload, 'password'>;
+  initialValues?: Omit<LoginDefaultPayload, 'password'>;
   onSendLoginLinkForm: () => void;
   onResetPassword: () => void;
   error?: string;
-  onSubmit: SubmitHandler<LoginDefaultFormPayload>;
+  onSubmit: SubmitHandler<LoginDefaultPayload>;
 };
 
 type LoginPageProps = {
@@ -68,7 +68,7 @@ const LoginPage = (props: LoginPageProps): ReactElement => {
           lineHeight='x62'
           fontFamily='sans'
         >
-          {t('page.loginPage.title')}
+          {t('page.loginPage.title.cloud')}
         </Box>
 
         <Box width='full' backgroundColor='white'>
@@ -81,7 +81,7 @@ const LoginPage = (props: LoginPageProps): ReactElement => {
           </Box>
         </Box>
         <Box mb='x30' fontScale='p1'>
-          <Trans i18nKey='page.loginPage.footer.label'>
+          <Trans i18nKey='page.loginPage.createAccount.label'>
             New here?
             <ActionLink
               fontWeight={400}

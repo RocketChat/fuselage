@@ -6,7 +6,7 @@ import LoginPasswordLessForm from './LoginPasswordLessForm';
 type Args = ComponentProps<typeof LoginPasswordLessForm>;
 
 export default {
-  title: 'forms/LoginPasswordLessForm',
+  title: 'forms/LoginForm/LoginPasswordLessForm',
   component: LoginPasswordLessForm,
   parameters: {
     layout: 'centered',
