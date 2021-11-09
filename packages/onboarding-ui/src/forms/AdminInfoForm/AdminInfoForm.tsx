@@ -9,7 +9,8 @@ import {
   Box,
   CheckBox,
 } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
+import { useUniqueId } from '@rocket.chat/fuselage-hooks';
+import { ReactElement, useEffect } from 'react';
 import { useForm, SubmitHandler, Validate } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -48,16 +49,26 @@ const AdminInfoForm = ({
 }: AdminInfoFormProps): ReactElement => {
   const { t } = useTranslation();
 
+  const fullnameField = useUniqueId();
+  const usernameField = useUniqueId(); // lgtm [js/insecure-randomness]
+  const companyEmailField = useUniqueId();
+  const passwordField = useUniqueId(); // lgtm [js/insecure-randomness]
+
   const {
     register,
     handleSubmit,
     formState: { isValidating, isSubmitting, errors },
+    setFocus,
   } = useForm<AdminInfoPayload>({
     defaultValues: {
       ...initialValues,
       password: '',
     },
   });
+
+  useEffect(() => {
+    setFocus('fullname');
+  }, [setFocus]);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -67,7 +78,7 @@ const AdminInfoForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={fullnameField}>
               {t('form.adminInfoForm.fields.fullName.placeholder')}
             </Field.Label>
             <Field.Row>
@@ -78,6 +89,7 @@ const AdminInfoForm = ({
                 placeholder={t(
                   'form.adminInfoForm.fields.fullName.placeholder'
                 )}
+                id={fullnameField}
               />
             </Field.Row>
             {errors.fullname && (
@@ -85,7 +97,7 @@ const AdminInfoForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={usernameField}>
               {t('form.adminInfoForm.fields.username.label')}
             </Field.Label>
             <Field.Row>
@@ -97,6 +109,7 @@ const AdminInfoForm = ({
                 placeholder={t(
                   'form.adminInfoForm.fields.username.placeholder'
                 )}
+                id={usernameField}
               />
             </Field.Row>
             {errors.username && (
@@ -104,7 +117,7 @@ const AdminInfoForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={companyEmailField}>
               {t('form.adminInfoForm.fields.companyEmail.label')}
             </Field.Label>
             <Field.Row>
@@ -116,6 +129,7 @@ const AdminInfoForm = ({
                 placeholder={t(
                   'form.adminInfoForm.fields.companyEmail.placeholder'
                 )}
+                id={companyEmailField}
               />
             </Field.Row>
             {errors.companyEmail && (
@@ -123,7 +137,7 @@ const AdminInfoForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={passwordField}>
               {t('form.adminInfoForm.fields.password.label')}
             </Field.Label>
             <Field.Row>
@@ -135,6 +149,7 @@ const AdminInfoForm = ({
                 placeholder={t(
                   'form.adminInfoForm.fields.password.placeholder'
                 )}
+                id={passwordField}
               />
             </Field.Row>
             <Field.Hint>{passwordRulesHint}</Field.Hint>
