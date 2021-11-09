@@ -6,8 +6,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import ActionLink from '../../common/ActionLink';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import { OnboardingLogo } from '../../common/OnboardingLogo';
-import LoginDefaultForm from './LoginDefaultForm';
-import LoginPasswordLessForm from './LoginPasswordLessForm';
+import { LoginDefaultForm, LoginPasswordLessForm } from '../../forms/LoginForm';
 
 export type LoginPasswordLessPayload = {
   email: string;

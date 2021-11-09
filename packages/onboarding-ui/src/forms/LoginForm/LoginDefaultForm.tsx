@@ -12,7 +12,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import ActionLink from '../../common/ActionLink';
 import Form from '../../common/Form';
-import { Wrapper } from './LoginPage.styles';
+import { Wrapper } from './LoginForm.styles';
 
 export type LoginDefaultFormPayload = {
   email: string;

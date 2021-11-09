@@ -10,7 +10,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
-import { Wrapper } from './LoginPage.styles';
+import { Wrapper } from './LoginForm.styles';
 
 export type LoginPasswordLessPayload = {
   email: string;
