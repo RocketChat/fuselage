@@ -3,7 +3,7 @@ import styled from '@rocket.chat/styled';
 export const Wrapper = styled('div')`
   width: 100%;
   box-sizing: border-box;
-  padding: 28px 16px;
+  padding: 2rem 1rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
