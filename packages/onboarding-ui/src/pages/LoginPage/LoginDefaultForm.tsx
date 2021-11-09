@@ -1,7 +1,8 @@
 import {
   FieldGroup,
   Field,
-  TextInput,
+  EmailInput,
+  PasswordInput,
   Button,
   Box,
 } from '@rocket.chat/fuselage';
@@ -19,9 +20,10 @@ export type LoginDefaultFormPayload = {
 };
 
 type LoginDefaultFormProps = {
-  initialValues?: Partial<LoginDefaultFormPayload>;
+  initialValues?: Omit<LoginDefaultFormPayload, 'password'>;
   onSendLoginLinkForm: () => void;
   onResetPassword: () => void;
+  formError?: boolean;
   onSubmit: SubmitHandler<LoginDefaultFormPayload>;
 };
 
@@ -30,54 +32,55 @@ const LoginDefaultForm = ({
   initialValues,
   onSendLoginLinkForm,
   onResetPassword,
+  formError,
 }: LoginDefaultFormProps): ReactElement => {
   const { t } = useTranslation();
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { isValidating, isSubmitting },
   } = useForm<LoginDefaultFormPayload>({
+    mode: 'onChange',
     defaultValues: {
-      email: '',
-      password: '',
       ...initialValues,
     },
   });
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Subtitle>{t('page.loginPage.subtitle')}</Form.Subtitle>
+      <Box textAlign='start'>
+        <Form.Subtitle>{t('page.loginPage.subtitle.normal')}</Form.Subtitle>
+      </Box>
       <Form.Container>
         <FieldGroup>
           <Field>
             <Field.Label>{t('page.loginPage.email.label')}</Field.Label>
             <Field.Row>
-              <TextInput
+              <EmailInput
                 {...register('email', { required: true })}
                 placeholder={t('page.loginPage.email.placeholder')}
               />
             </Field.Row>
-            {errors.email && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
-            )}
           </Field>
           <Field>
             <Field.Label>{t('page.loginPage.password.label')}</Field.Label>
             <Field.Row>
-              <TextInput
+              <PasswordInput
                 {...register('password', { required: true })}
                 placeholder={t('page.loginPage.password.placeholder')}
               />
             </Field.Row>
-            {errors.password && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            {!!formError && (
+              <Box textAlign='start'>
+                <Field.Error>{t('page.loginPage.password.error')}</Field.Error>
+              </Box>
             )}
           </Field>
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
         <Wrapper>
-          <Button type='submit' primary>
+          <Button type='submit' disabled={isValidating || isSubmitting} primary>
             {t('page.loginPage.button.login')}
           </Button>
           <Button nude info onClick={onSendLoginLinkForm}>

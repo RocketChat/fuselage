@@ -25,9 +25,10 @@ type LoginPasswordLessProps = {
 };
 
 type LoginDefaultProps = {
-  initialValues?: Partial<LoginDefaultFormPayload>;
+  initialValues?: Omit<LoginDefaultFormPayload, 'password'>;
   onSendLoginLinkForm: () => void;
   onResetPassword: () => void;
+  error?: string;
   onSubmit: SubmitHandler<LoginDefaultFormPayload>;
 };
 

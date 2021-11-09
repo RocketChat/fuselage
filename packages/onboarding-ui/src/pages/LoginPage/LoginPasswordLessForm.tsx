@@ -1,4 +1,10 @@
-import { FieldGroup, Field, TextInput, Button } from '@rocket.chat/fuselage';
+import {
+  Box,
+  FieldGroup,
+  Field,
+  TextInput,
+  Button,
+} from '@rocket.chat/fuselage';
 import type { ReactElement } from 'markdown-to-jsx/node_modules/@types/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -35,7 +41,11 @@ const LoginPasswordLessForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Subtitle>{t('page.loginPage.subtitle')}</Form.Subtitle>
+      <Box textAlign='start'>
+        <Form.Subtitle>
+          {t('page.loginPage.subtitle.passwordLess')}
+        </Form.Subtitle>
+      </Box>
       <Form.Container>
         <FieldGroup>
           <Field>
@@ -47,7 +57,9 @@ const LoginPasswordLessForm = ({
               />
             </Field.Row>
             {errors.email && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <Box textAlign='start'>
+                <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              </Box>
             )}
           </Field>
         </FieldGroup>
