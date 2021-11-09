@@ -1,5 +1,4 @@
 import { Box } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { MouseEvent, ReactElement, ReactNode, useCallback } from 'react';
 
 type ActionLinkProps = {
@@ -26,7 +25,8 @@ const ActionLink = ({
       is='a'
       fontScale='c2'
       href={href}
-      color={colors.b200}
+      color='primary-500'
+      mi='x4'
       textDecorationLine='none'
       onClick={handleClick}
     >

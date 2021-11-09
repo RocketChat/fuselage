@@ -1,5 +1,3 @@
-/* eslint-disable react/no-multi-comp */
-
 import {
   AnimatedVisibility,
   PositionAnimated,

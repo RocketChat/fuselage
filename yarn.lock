@@ -6239,6 +6239,7 @@ __metadata:
     "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks"
     "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens"
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/styled": "workspace:packages/styled"
     "@types/jest": ^27.0.1
     "@types/react": ^17.0.14
     "@types/react-dom": ^17.0.9
@@ -6373,6 +6374,7 @@ __metadata:
     react-hook-form: ^7.10.1
     react-i18next: ^11.11.0
     rimraf: ^3.0.2
+    storybook-dark-mode: ^1.0.8
     ts-jest: ^27.0.5
     tslib: ^2.3.0
     typedoc: ^0.21.2
@@ -14897,7 +14899,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-deep-equal@npm:^3.1.1, fast-deep-equal@npm:^3.1.3":
+"fast-deep-equal@npm:^3.0.0, fast-deep-equal@npm:^3.1.1, fast-deep-equal@npm:^3.1.3":
   version: 3.1.3
   resolution: "fast-deep-equal@npm:3.1.3"
   checksum: e21a9d8d84f53493b6aa15efc9cfd53dd5b714a1f23f67fb5dc8f574af80df889b3bce25dc081887c6d25457cce704e636395333abad896ccdec03abaf1f3f9d
@@ -26195,6 +26197,22 @@ resolve@^2.0.0-next.3:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
   checksum: 8896a144897ea0e04b5bbaa2ff8e1065009d04b5ee93206396971af0960d470a9de406b9df67016241a02b0fccd4a8de95276ff30165555aca503625aca0283b
+  languageName: node
+  linkType: hard
+
+"storybook-dark-mode@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "storybook-dark-mode@npm:1.0.8"
+  dependencies:
+    fast-deep-equal: ^3.0.0
+    memoizerific: ^1.11.3
+  peerDependencies:
+    "@storybook/addons": ^6.0.0
+    "@storybook/api": ^6.0.0
+    "@storybook/components": ^6.0.0
+    "@storybook/core-events": ^6.0.0
+    "@storybook/theming": ^6.0.0
+  checksum: 76089b72471df9bfb0433a02780620d96228280280c94911bad5556044e86d82fd6665c64e8d095b6043d2bde83e9373bf731e4b378f39303a5463e3ba7963fe
   languageName: node
   linkType: hard
 
