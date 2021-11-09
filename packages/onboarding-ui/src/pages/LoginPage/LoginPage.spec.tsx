@@ -8,29 +8,17 @@ it('renders without crashing', () => {
     <LoginPage
       loginPasswordLessProps={{
         initialValues: undefined,
-        onChangeForm(): void {
-          throw new Error('Function not implemented.');
-        },
-        onSubmit() {
-          throw new Error('Function not implemented.');
-        },
+        onChangeForm: () => undefined,
+        onSubmit: () => undefined,
       }}
       loginDefaultProps={{
         initialValues: undefined,
-        onSendLoginLinkForm(): void {
-          throw new Error('Function not implemented.');
-        },
-        onResetPassword(): void {
-          throw new Error('Function not implemented.');
-        },
-        onSubmit() {
-          throw new Error('Function not implemented.');
-        },
+        onSendLoginLinkForm: () => undefined,
+        onResetPassword: () => undefined,
+        onSubmit: () => undefined,
       }}
       isPasswordLessFlow={false}
-      onCreateAccount={function (): void {
-        throw new Error('Function not implemented.');
-      }}
+      onCreateAccount={() => undefined}
     />,
     div
   );
