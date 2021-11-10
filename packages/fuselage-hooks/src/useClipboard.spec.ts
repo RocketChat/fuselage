@@ -1,197 +1,117 @@
-import { createElement, FunctionComponent, StrictMode } from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook, act } from '@testing-library/react-hooks';
+import { withClipboardMock } from 'testing-utils/mocks/withClipboardMock';
 
-import { useClipboard, UseClipboardReturn } from './useClipboard';
+import { useClipboard } from './useClipboard';
 
-describe('useClipboard hook', () => {
-  let container: Element;
+let container: Element;
 
-  beforeEach(() => {
-    container = document.createElement('div');
-    document.body.appendChild(container);
+beforeAll(() => {
+  jest.useFakeTimers();
+});
+
+beforeEach(() => {
+  container = document.createElement('div');
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  container.remove();
+  container = null;
+});
+
+const withWriteText = withClipboardMock();
+
+it('has hasCopied and copy properties', () => {
+  const { result } = renderHook(() => useClipboard('Lorem Ipsum'));
+
+  const { copy, hasCopied } = result.current;
+
+  expect(copy).toBeInstanceOf(Function);
+  expect(hasCopied).toBe(false);
+});
+
+it('updates hasCopied to true', async () => {
+  const { result } = renderHook(() => useClipboard('Lorem Ipsum'));
+
+  await act(async () => {
+    const { copy } = result.current;
+    await copy();
   });
 
-  afterEach(() => {
-    container.remove();
-    container = null;
+  expect(result.current.hasCopied).toBe(true);
+});
+
+it('reverts hasCopied to false', async () => {
+  const halfDelay = 50;
+  const delay = 2 * halfDelay;
+
+  const { result } = renderHook(() =>
+    useClipboard('Lorem Ipsum', { clearTime: delay })
+  );
+
+  await act(async () => {
+    const { copy } = result.current;
+    await copy();
   });
 
-  it('has hasCopied and copy properties', () => {
-    let hookObject: UseClipboardReturn;
+  expect(result.current.hasCopied).toBe(true);
 
-    const TestComponent: FunctionComponent = () => {
-      hookObject = useClipboard('Lorem Ipsum Indolor Dolor');
-
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        container
-      );
-    });
-
-    expect(hookObject).toHaveProperty('copy');
-    expect(hookObject).toHaveProperty('hasCopied');
+  act(() => {
+    jest.advanceTimersByTime(halfDelay);
   });
 
-  it('updates hasCopied to true', async () => {
-    Object.assign(navigator, {
-      clipboard: {
-        writeText: () => Promise.resolve(),
-      },
-    });
+  expect(result.current.hasCopied).toBe(true);
 
-    let hookObject: UseClipboardReturn;
-
-    const TestComponent: FunctionComponent = () => {
-      hookObject = useClipboard('Lorem Ipsum Indolor Dolor');
-
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        container
-      );
-    });
-
-    await act(async () => {
-      hookObject.copy();
-    });
-
-    expect(hookObject.hasCopied).toBe(true);
+  act(() => {
+    jest.advanceTimersByTime(halfDelay);
   });
 
-  it('reverts hasCopied to false', async () => {
-    jest.useFakeTimers();
+  expect(result.current.hasCopied).toBe(false);
+});
 
-    const delay = 100 + Math.round(100 * Math.random());
-    const delayBeforeUpdate = Math.round(delay * 0.75);
+it('runs only success function receiving event object', async () => {
+  const onCopySuccess = jest.fn();
+  const onCopyError = jest.fn();
 
-    Object.assign(navigator, {
-      clipboard: {
-        writeText: () =>
-          new Promise<void>((resolve) => {
-            resolve();
-          }),
-      },
-    });
+  const { result } = renderHook(() =>
+    useClipboard('Lorem Ipsum', {
+      onCopySuccess,
+      onCopyError,
+    })
+  );
 
-    let hookObject: UseClipboardReturn;
+  const event = new MouseEvent('click');
 
-    const TestComponent: FunctionComponent = () => {
-      hookObject = useClipboard('Lorem Ipsum Indolor Dolor', {
-        clearTime: delay,
-      });
-
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        container
-      );
-    });
-
-    await act(async () => {
-      hookObject.copy();
-    });
-
-    expect(hookObject.hasCopied).toBe(true);
-
-    act(() => {
-      jest.advanceTimersByTime(delayBeforeUpdate);
-    });
-
-    expect(hookObject.hasCopied).toBe(true);
-
-    act(() => {
-      jest.advanceTimersByTime(delay - delayBeforeUpdate);
-    });
-
-    expect(hookObject.hasCopied).toBe(false);
+  await act(async () => {
+    const { copy } = result.current;
+    await copy(event);
   });
 
-  it('runs only success function receiving event object', async () => {
-    Object.assign(navigator, {
-      clipboard: {
-        writeText: () => Promise.resolve(),
-      },
-    });
+  expect(onCopySuccess).toBeCalledWith(event);
+  expect(onCopyError).toBeCalledTimes(0);
+});
 
-    const onCopySuccess = jest.fn();
-    const onCopyError = jest.fn();
+it('runs only error function receiving error object', async () => {
+  const rejection = new Error('rejected');
+  withWriteText(() => Promise.reject(rejection));
 
-    let hookObject: UseClipboardReturn;
+  const onCopyError = jest.fn();
+  const onCopySuccess = jest.fn();
 
-    const TestComponent: FunctionComponent = () => {
-      hookObject = useClipboard('Lorem Ipsum Indolor Dolor', {
-        onCopySuccess,
-        onCopyError,
-      });
+  const { result } = renderHook(() =>
+    useClipboard('Lorem Ipsum', {
+      onCopySuccess,
+      onCopyError,
+    })
+  );
 
-      return null;
-    };
+  const event = new MouseEvent('click');
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        container
-      );
-    });
-
-    const event = new MouseEvent('click');
-    await act(async () => {
-      hookObject.copy(event);
-    });
-
-    expect(onCopySuccess).toBeCalledWith(
-      expect.objectContaining({ type: 'click' })
-    );
-    expect(onCopyError).toBeCalledTimes(0);
+  await act(async () => {
+    const { copy } = result.current;
+    await copy(event);
   });
 
-  it('runs only error function receiving error object', async () => {
-    Object.assign(navigator, {
-      clipboard: {
-        writeText: () => Promise.reject(new Error('rejected')),
-      },
-    });
-
-    const onCopyError = jest.fn();
-    const onCopySuccess = jest.fn();
-
-    let hookObject: UseClipboardReturn;
-
-    const TestComponent: FunctionComponent = () => {
-      hookObject = useClipboard('Lorem Ipsum Indolor Dolor', {
-        onCopySuccess,
-        onCopyError,
-      });
-
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        container
-      );
-    });
-
-    const event = new MouseEvent('click');
-    await act(async () => {
-      hookObject.copy(event);
-    });
-
-    expect(onCopyError).toBeCalledWith(
-      expect.objectContaining({ message: 'rejected' })
-    );
-    expect(onCopySuccess).toBeCalledTimes(0);
-  });
+  expect(onCopySuccess).toBeCalledTimes(0);
+  expect(onCopyError).toBeCalledWith(rejection);
 });
