@@ -56,8 +56,8 @@
     "@storybook/source-loader": "^6.3.4",
     "@storybook/theming": "^6.3.4",
     "@types/jest": "^27.0.2",
-    "@types/react": "^17.0.33",
-    "@types/react-dom": "^17.0.10",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
     "countries-list": "^2.6.1",
     "eslint": "^7.32.0",
     "jest": "^27.3.1",
@@ -71,7 +71,7 @@
     "rimraf": "^3.0.2",
     "storybook-dark-mode": "^1.0.8",
     "ts-jest": "^27.0.7",
-    "typedoc": "^0.21.2",
+    "typedoc": "^0.22.8",
     "typescript": "^4.3.4"
   },
   "dependencies": {
@@ -83,7 +83,7 @@
     "i18next": "^20.3.2",
     "react-hook-form": "^7.10.1",
     "react-i18next": "^11.11.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-polyfills": "*",

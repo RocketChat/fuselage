@@ -94,7 +94,7 @@
     "@types/jest": "^27.0.2",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^8.2.2",
-    "caniuse-lite": "^1.0.30001274",
+    "caniuse-lite": "^1.0.30001279",
     "copy-webpack-plugin": "^9.0.1",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",

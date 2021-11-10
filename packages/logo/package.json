@@ -45,8 +45,8 @@
     "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@types/jest": "^27.0.2",
-    "@types/react": "^17.0.33",
-    "@types/react-dom": "^17.0.10",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
     "eslint": "^7.32.0",
     "jest": "^27.3.1",
     "lint-all": "workspace:tools/lint-all",
@@ -57,7 +57,7 @@
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.7",
-    "typedoc": "^0.22.3",
+    "typedoc": "^0.22.8",
     "typescript": "^4.4.3"
   },
   "dependencies": {

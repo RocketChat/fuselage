@@ -5740,7 +5740,7 @@ __metadata:
     rollup-plugin-terser: ^7.0.2
     stylis: ^4.0.10
     ts-jest: ^27.0.7
-    typedoc: ^0.21.2
+    typedoc: ^0.22.8
     typescript: ^4.3.4
   languageName: unknown
   linkType: soft
@@ -5762,7 +5762,7 @@ __metadata:
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
     tslib: ^2.3.1
-    typedoc: ^0.21.9
+    typedoc: ^0.22.8
     typescript: ^4.3.4
   languageName: unknown
   linkType: soft
@@ -5787,8 +5787,8 @@ __metadata:
     rollup: ^2.52.4
     rollup-plugin-terser: ^7.0.2
     ts-jest: ^27.0.7
-    tslib: ^2.3.0
-    typedoc: ^0.21.2
+    tslib: ^2.3.1
+    typedoc: ^0.22.8
     typescript: ^4.3.4
   languageName: unknown
   linkType: soft
@@ -5858,7 +5858,7 @@ __metadata:
     rollup-plugin-terser: ^7.0.2
     testing-utils: "workspace:tools/testing-utils"
     ts-jest: ^27.0.7
-    typedoc: ^0.21.2
+    typedoc: ^0.22.8
     typescript: ^4.3.4
     use-subscription: ^1.5.1
   peerDependencies:
@@ -5941,6 +5941,8 @@ __metadata:
     "@storybook/react": ^6.3.4
     "@storybook/source-loader": ^6.3.4
     "@storybook/theming": ^6.3.4
+    "@types/react": ^17.0.34
+    "@types/react-dom": ^17.0.11
     babel-loader: ^8.2.2
     cross-env: ^7.0.3
     eslint: ^7.32.0
@@ -5999,7 +6001,7 @@ __metadata:
     "@types/jest": ^27.0.2
     autoprefixer: ^10.2.6
     babel-loader: ^8.2.2
-    caniuse-lite: ^1.0.30001274
+    caniuse-lite: ^1.0.30001279
     copy-webpack-plugin: ^9.0.1
     cross-env: ^7.0.3
     css-loader: ^5.2.6
@@ -6084,8 +6086,8 @@ __metadata:
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
     "@rocket.chat/styled": "workspace:packages/styled"
     "@types/jest": ^27.0.2
-    "@types/react": ^17.0.33
-    "@types/react-dom": ^17.0.10
+    "@types/react": ^17.0.34
+    "@types/react-dom": ^17.0.11
     eslint: ^7.32.0
     jest: ^27.3.1
     lint-all: "workspace:tools/lint-all"
@@ -6097,7 +6099,7 @@ __metadata:
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
     tslib: ^2.3.1
-    typedoc: ^0.22.3
+    typedoc: ^0.22.8
     typescript: ^4.4.3
   peerDependencies:
     react: 17.0.2
@@ -6117,8 +6119,8 @@ __metadata:
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
     rimraf: ^3.0.2
-    tslib: ^2.3.0
-    typedoc: ^0.21.2
+    tslib: ^2.3.1
+    typedoc: ^0.22.8
     typescript: ^4.3.4
   languageName: unknown
   linkType: soft
@@ -6148,7 +6150,7 @@ __metadata:
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
     ts-loader: ^9.2.3
-    typedoc: ^0.21.2
+    typedoc: ^0.22.8
     typescript: ^4.3.4
     webpack: ^5.41.1
     webpack-cli: ^4.7.2
@@ -6177,7 +6179,7 @@ __metadata:
     prettier: ^2.3.2
     rollup: ^2.52.4
     ts-jest: ^27.0.7
-    typedoc: ^0.21.2
+    typedoc: ^0.22.8
     typescript: ^4.3.4
   languageName: unknown
   linkType: soft
@@ -6201,8 +6203,8 @@ __metadata:
     "@storybook/source-loader": ^6.3.4
     "@storybook/theming": ^6.3.4
     "@types/jest": ^27.0.2
-    "@types/react": ^17.0.33
-    "@types/react-dom": ^17.0.10
+    "@types/react": ^17.0.34
+    "@types/react-dom": ^17.0.11
     countries-list: ^2.6.1
     eslint: ^7.32.0
     i18next: ^20.3.2
@@ -6219,8 +6221,8 @@ __metadata:
     rimraf: ^3.0.2
     storybook-dark-mode: ^1.0.8
     ts-jest: ^27.0.7
-    tslib: ^2.3.0
-    typedoc: ^0.21.2
+    tslib: ^2.3.1
+    typedoc: ^0.22.8
     typescript: ^4.3.4
   peerDependencies:
     "@rocket.chat/fuselage-polyfills": "*"
@@ -6246,7 +6248,7 @@ __metadata:
     prettier: ^2.3.2
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
-    tslib: ^2.3.0
+    tslib: ^2.3.1
     typescript: ^4.3.4
     webpack: ^5.41.1
   peerDependencies:
@@ -6287,8 +6289,8 @@ __metadata:
     prettier: ^2.3.2
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
-    tslib: ^2.3.0
-    typedoc: ^0.21.2
+    tslib: ^2.3.1
+    typedoc: ^0.22.8
     typescript: ^4.3.4
   languageName: unknown
   linkType: soft
@@ -6309,8 +6311,8 @@ __metadata:
     prettier: ^2.3.2
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
-    tslib: ^2.3.0
-    typedoc: ^0.21.2
+    tslib: ^2.3.1
+    typedoc: ^0.22.8
     typescript: ^4.3.4
   languageName: unknown
   linkType: soft
@@ -6332,8 +6334,8 @@ __metadata:
     rimraf: ^3.0.2
     stylis: 4.0.10
     ts-jest: ^27.0.7
-    tslib: ^2.2.0
-    typedoc: ^0.21.9
+    tslib: ^2.3.1
+    typedoc: ^0.22.8
     typescript: ^4.3.4
   peerDependencies:
     stylis: 4.0.10
@@ -6361,7 +6363,7 @@ __metadata:
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
     ts-loader: ^9.2.3
-    typedoc: ^0.21.2
+    typedoc: ^0.22.8
     typescript: ^4.3.4
     webpack: ^5.41.1
     webpack-cli: ^4.7.2
@@ -8414,6 +8416,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^17.0.11":
+  version: 17.0.11
+  resolution: "@types/react-dom@npm:17.0.11"
+  dependencies:
+    "@types/react": "*"
+  checksum: 4d5730dffbef86c887cecad7e3cecda424ce6a64d0b5441c63b5b015d48219868660a2bb1aa15e897e565ad8867fa6b885d4358b04e1c4e589ba4c07c3fda55c
+  languageName: node
+  linkType: hard
+
 "@types/react-syntax-highlighter@npm:11.0.5":
   version: 11.0.5
   resolution: "@types/react-syntax-highlighter@npm:11.0.5"
@@ -8450,6 +8461,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 5f53f3dae034229ff1eccb5de1c16d046696e883f8eae81b86e95c532798e655015e4edff8a6c9ec8f1c0ef12bb60dec43622d06256ba33ba6069e67a74b8d4e
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^17.0.34":
+  version: 17.0.34
+  resolution: "@types/react@npm:17.0.34"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: 16729ad7d50922ccbf8eb93874d7781dc2f1c64edc78134b5edc7154839d41e9fe320eb1c11ad2d1c9bf28b99cb1febda344509c1fda025955a5c2b43c688c8f
   languageName: node
   linkType: hard
 
@@ -11110,10 +11132,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001274":
-  version: 1.0.30001274
-  resolution: "caniuse-lite@npm:1.0.30001274"
-  checksum: 75790d021edbc68dbb36c0bc63255fad1e7aa3986039e685d10340e7e9a37147b0ddedaba22cf6c52b3657cca794ed41af88045ad5cce79084e9361e95f1c5d4
+"caniuse-lite@npm:^1.0.30001279":
+  version: 1.0.30001279
+  resolution: "caniuse-lite@npm:1.0.30001279"
+  checksum: c0330577718e4221caae92a1bee8131f546668001840cf66455d5aa6050797f44709865779c5cdcba7cbf32527004a743dc2879497d23f60478f8bbb203cfeeb
   languageName: node
   linkType: hard
 
@@ -15965,6 +15987,20 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"glob@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "glob@npm:7.2.0"
+  dependencies:
+    fs.realpath: ^1.0.0
+    inflight: ^1.0.4
+    inherits: 2
+    minimatch: ^3.0.4
+    once: ^1.3.0
+    path-is-absolute: ^1.0.0
+  checksum: 78a8ea942331f08ed2e055cb5b9e40fe6f46f579d7fd3d694f3412fe5db23223d29b7fee1575440202e9a7ff9a72ab106a39fee39934c7bedafe5e5f8ae20134
+  languageName: node
+  linkType: hard
+
 "global-modules@npm:2.0.0, global-modules@npm:^2.0.0":
   version: 2.0.0
   resolution: "global-modules@npm:2.0.0"
@@ -16188,24 +16224,6 @@ fsevents@~2.1.2:
   bin:
     handlebars: bin/handlebars
   checksum: 6fb9ba14c703cb6e77d5a1dcb37631126d25ae1503834b9b4f151d5324b52192a618d1944badc351588271cc28a8144093f85dbabc8c72278cfa2dbd09c70124
-  languageName: node
-  linkType: hard
-
-"handlebars@npm:^4.7.7":
-  version: 4.7.7
-  resolution: "handlebars@npm:4.7.7"
-  dependencies:
-    minimist: ^1.2.5
-    neo-async: ^2.6.0
-    source-map: ^0.6.1
-    uglify-js: ^3.1.4
-    wordwrap: ^1.0.0
-  dependenciesMeta:
-    uglify-js:
-      optional: true
-  bin:
-    handlebars: bin/handlebars
-  checksum: 1e79a43f5e18d15742977cb987923eab3e2a8f44f2d9d340982bcb69e1735ed049226e534d7c1074eaddaf37e4fb4f471a8adb71cddd5bc8cf3f894241df5cee
   languageName: node
   linkType: hard
 
@@ -19776,30 +19794,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"marked@npm:^2.1.1":
-  version: 2.1.3
-  resolution: "marked@npm:2.1.3"
+"marked@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "marked@npm:3.0.8"
   bin:
     marked: bin/marked
-  checksum: 21a5ecd4941bc760aba21dfd97185853ec3b464cf707ad971e3ddb3aeb2f44d0deeb36b0889932afdb6f734975a994d92f18815dd0fabadbd902bdaff997cc5b
-  languageName: node
-  linkType: hard
-
-"marked@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "marked@npm:3.0.2"
-  bin:
-    marked: bin/marked
-  checksum: 6f88083a7e50494f97af9f92f1b03a299ecde78055f7378dd0837f12aa2e192db84b7ed528d3e7008fd8d26d39f23a2a07af2a349899917171531574798563b5
-  languageName: node
-  linkType: hard
-
-"marked@npm:^3.0.3":
-  version: 3.0.4
-  resolution: "marked@npm:3.0.4"
-  bin:
-    marked: bin/marked
-  checksum: fdc6bf48c1997ab5d0edead3748de785a333d7ce29fad7d4ed8e239b736b642c029796380ce39c97d934edd96c5e4cf05dd32116e7f6e80e05ea97b32cef6741
+  checksum: 3cdeaa126bbeca5b1b8d2f91e9728018dcd63b250233f3607009a4d70bb6bd9df8c769f1bc52ce9856d1316c91c9dacb1d94d80696f76d094146b4fab126a4eb
   languageName: node
   linkType: hard
 
@@ -20289,7 +20289,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"minimatch@npm:3.0.4, minimatch@npm:^3.0.0, minimatch@npm:^3.0.2, minimatch@npm:^3.0.4":
+"minimatch@npm:3.0.4, minimatch@npm:^3.0.2, minimatch@npm:^3.0.4":
   version: 3.0.4
   resolution: "minimatch@npm:3.0.4"
   dependencies:
@@ -23130,7 +23130,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"progress@npm:^2.0.0, progress@npm:^2.0.3":
+"progress@npm:^2.0.0":
   version: 2.0.3
   resolution: "progress@npm:2.0.3"
   checksum: f67403fe7b34912148d9252cb7481266a354bd99ce82c835f79070643bb3c6583d10dbcfda4d41e04bbc1d8437e9af0fb1e1f2135727878f5308682a579429b7
@@ -25222,35 +25222,14 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"shiki@npm:^0.9.10":
-  version: 0.9.11
-  resolution: "shiki@npm:0.9.11"
+"shiki@npm:^0.9.12":
+  version: 0.9.12
+  resolution: "shiki@npm:0.9.12"
   dependencies:
     jsonc-parser: ^3.0.0
     onigasm: ^2.2.5
     vscode-textmate: 5.2.0
-  checksum: 04f0e3bce401bcd7dab43d71827bbc9c00e2e76c3a94f36f2b434d41c1570ab8d3c8491789aba360b625f86b6ff8a8f7daf2c39a1ae7589f7236718a7399ab50
-  languageName: node
-  linkType: hard
-
-"shiki@npm:^0.9.3":
-  version: 0.9.3
-  resolution: "shiki@npm:0.9.3"
-  dependencies:
-    onigasm: ^2.2.5
-    vscode-textmate: ^5.2.0
-  checksum: 68e1b4907f9a6924d89c55944c023925d4d57b4940396fe6db4f7943ae759ed04b48eceafa8951c8bdea27aaa4dd9cb7136fd5707081c7952ee6308d213e24a3
-  languageName: node
-  linkType: hard
-
-"shiki@npm:^0.9.8":
-  version: 0.9.8
-  resolution: "shiki@npm:0.9.8"
-  dependencies:
-    json5: ^2.2.0
-    onigasm: ^2.2.5
-    vscode-textmate: 5.2.0
-  checksum: ffbce5e5e3449b453d7acb7bd728546e4b5ea87e5df4d2ec69dc95c6c5165166c101eb6db2851e5bb333b7194133936b18b440f8dd0d8859de7ef0abe1951131
+  checksum: ee2ca7b997ffe6d412af946c7fa3909f2ade3fe505fe03b5c3f3c5cc90a9b10dbe34a208c9557ee0376d7a64c23995445cdb7c69e60da855cf80305bafdc018e
   languageName: node
   linkType: hard
 
@@ -27315,20 +27294,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "tslib@npm:2.2.0"
-  checksum: a48c9639f7496fa701ea8ffe0561070fcb44c104a59632f7f845c0af00825c99b6373575ec59b2b5cdbfd7505875086dbe5dc83312304d8979f22ce571218ca3
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "tslib@npm:2.3.0"
-  checksum: 8869694c26e4a7b56d449662fd54a4f9ba872c889d991202c74462bd99f10e61d5bd63199566c4284c0f742277736292a969642cc7b590f98727a7cae9529122
-  languageName: node
-  linkType: hard
-
 "tslib@npm:^2.3.1":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
@@ -27514,68 +27479,20 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typedoc-default-themes@npm:^0.12.10":
-  version: 0.12.10
-  resolution: "typedoc-default-themes@npm:0.12.10"
-  checksum: 4c19a0fecdf24777bd153c6ae4a4f2b23c95521a83483cdbee89aaeef985d7e37f2665b37d55f809ef36d0eb4433a921209dc45a1055791d81464bffeea77dfd
-  languageName: node
-  linkType: hard
-
-"typedoc@npm:^0.21.2":
-  version: 0.21.2
-  resolution: "typedoc@npm:0.21.2"
+"typedoc@npm:^0.22.8":
+  version: 0.22.8
+  resolution: "typedoc@npm:0.22.8"
   dependencies:
-    glob: ^7.1.7
-    handlebars: ^4.7.7
-    lodash: ^4.17.21
+    glob: ^7.2.0
     lunr: ^2.3.9
-    marked: ^2.1.1
-    minimatch: ^3.0.0
-    progress: ^2.0.3
-    shiki: ^0.9.3
-    typedoc-default-themes: ^0.12.10
-  peerDependencies:
-    typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x
-  bin:
-    typedoc: bin/typedoc
-  checksum: 18e67f1acfef098996d30e059f7f64cbfd07933a040d16e7422ec48741d877b8609539eb2785fbd66b382ebb829a0430f17eb1570839b5b9c461b1077f69e70f
-  languageName: node
-  linkType: hard
-
-"typedoc@npm:^0.21.9":
-  version: 0.21.9
-  resolution: "typedoc@npm:0.21.9"
-  dependencies:
-    glob: ^7.1.7
-    handlebars: ^4.7.7
-    lunr: ^2.3.9
-    marked: ^3.0.2
-    minimatch: ^3.0.0
-    progress: ^2.0.3
-    shiki: ^0.9.8
-    typedoc-default-themes: ^0.12.10
-  peerDependencies:
-    typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x
-  bin:
-    typedoc: bin/typedoc
-  checksum: 5079e55f7d233874aedd5be4acc9ad9deab4b1cacee9a5c950baa19a6990003945e0eccc792f288cbac9d0e900d1f7b7856fc40318bdfef413ed94b7e7690406
-  languageName: node
-  linkType: hard
-
-"typedoc@npm:^0.22.3":
-  version: 0.22.3
-  resolution: "typedoc@npm:0.22.3"
-  dependencies:
-    glob: ^7.1.7
-    lunr: ^2.3.9
-    marked: ^3.0.3
+    marked: ^3.0.8
     minimatch: ^3.0.4
-    shiki: ^0.9.10
+    shiki: ^0.9.12
   peerDependencies:
     typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x
   bin:
     typedoc: bin/typedoc
-  checksum: 65a930a02f9ce6339ab44163efe90d6bb6bcae7054da9c698fa421b4c1d0d199b84a10ff13b0899366c17939a55c65821fc7506149aa7cf1bff0ac4a3b04bc26
+  checksum: c54929f219f6663b55ce1314742467d621371c6e063cd41ec79bc5c2e30ddf2736d0ca5e32b22d5a1775e7ff60a6c0bc8d10d929c4955cdc90c681fa4612dcb6
   languageName: node
   linkType: hard
 
@@ -28320,13 +28237,6 @@ typescript@^4.4.3:
   version: 5.2.0
   resolution: "vscode-textmate@npm:5.2.0"
   checksum: 5449b42d451080f6f3649b66948f4b5ee4643c4e88cfe3558a3b31c84c78060cfdd288c4958c1690eaa5cd65d09992fa6b7c3bef9d4aa72b3651054a04624d20
-  languageName: node
-  linkType: hard
-
-"vscode-textmate@npm:^5.2.0":
-  version: 5.4.0
-  resolution: "vscode-textmate@npm:5.4.0"
-  checksum: 350ccb2d16915d60c01c4d71ec0dba9997b696fc391fb7c99196789f58f0153a471ae5d0356d298a6eb47d8ca23b6a452960ccea4326aa546b61c3a87de89548
   languageName: node
   linkType: hard
 
