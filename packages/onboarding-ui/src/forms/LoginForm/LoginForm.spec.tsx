@@ -1,12 +1,14 @@
 import ReactDOM from 'react-dom';
 
-import LoginPasswordLessForm from './LoginPasswordLessForm';
+import LoginForm from './LoginForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <LoginPasswordLessForm
+    <LoginForm
       onChangeForm={() => undefined}
+      isPasswordLess={false}
+      onResetPassword={() => undefined}
       onSubmit={() => undefined}
     />,
     div

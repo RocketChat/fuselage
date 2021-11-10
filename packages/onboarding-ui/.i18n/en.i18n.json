@@ -224,9 +224,9 @@
         }
       },
       "button": {
-        "text": "Login"
+        "text": "Log in"
       },
-      "sendLoginLink": "Send Login Link",
+      "sendLoginLink": "Send login link",
       "redirect": "Enter password instead",
       "resetPassword": "Forgot your password? <1>Reset password</1>"
     }

@@ -6,47 +6,25 @@ import { Trans, useTranslation } from 'react-i18next';
 import ActionLink from '../../common/ActionLink';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import { OnboardingLogo } from '../../common/OnboardingLogo';
-import { LoginDefaultForm, LoginPasswordLessForm } from '../../forms/LoginForm';
-
-type LoginPasswordLessPayload = {
-  email: string;
-};
-
-type LoginDefaultPayload = {
-  email: string;
-  password: string;
-};
-
-type LoginPasswordLessProps = {
-  initialValues?: Partial<LoginPasswordLessPayload>;
-  onChangeForm: () => void;
-  onSubmit: SubmitHandler<LoginPasswordLessPayload>;
-};
-
-type LoginDefaultProps = {
-  initialValues?: Omit<LoginDefaultPayload, 'password'>;
-  onSendLoginLinkForm: () => void;
-  onResetPassword: () => void;
-  error?: string;
-  onSubmit: SubmitHandler<LoginDefaultPayload>;
-};
+import LoginForm from '../../forms/LoginForm';
+import type { LoginFormPayload } from '../../forms/LoginForm/LoginForm';
 
 type LoginPageProps = {
-  loginPasswordLessProps: LoginPasswordLessProps;
-  loginDefaultProps: LoginDefaultProps;
-  initialValues?: Partial<LoginPasswordLessPayload>;
-  isPasswordLessFlow: boolean;
+  initialValues?: Omit<LoginFormPayload, 'password'>;
+  onChangeForm: () => void;
+  onResetPassword: () => void;
+  formError?: string;
+  isPasswordLess: boolean;
   onCreateAccount: () => void;
+  onSubmit: SubmitHandler<LoginFormPayload>;
 };
 
-const LoginPage = (props: LoginPageProps): ReactElement => {
+const LoginPage = ({
+  onCreateAccount,
+  ...props
+}: LoginPageProps): ReactElement => {
   const { t } = useTranslation();
-  const {
-    onCreateAccount,
-    isPasswordLessFlow = false,
-    loginPasswordLessProps,
-    loginDefaultProps,
-  } = props;
+
   return (
     <BackgroundLayer>
       <Box
@@ -73,11 +51,7 @@ const LoginPage = (props: LoginPageProps): ReactElement => {
 
         <Box width='full' backgroundColor='white'>
           <Box fontScale='c1'>
-            {isPasswordLessFlow ? (
-              <LoginPasswordLessForm {...loginPasswordLessProps} />
-            ) : (
-              <LoginDefaultForm {...loginDefaultProps} />
-            )}
+            <LoginForm {...props} />
           </Box>
         </Box>
         <Box mb='x30' fontScale='p1'>
@@ -85,7 +59,7 @@ const LoginPage = (props: LoginPageProps): ReactElement => {
             New here?
             <ActionLink
               fontWeight={400}
-              fontSize='p1'
+              fontScale='p1'
               onClick={onCreateAccount}
             >
               Create account

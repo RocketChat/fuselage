@@ -12,7 +12,6 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'fullscreen',
   },
-  args: { isPasswordLessFlow: false },
 } as Meta<Args>;
 
 export const _LoginPage: Story<Args> = (args) => <LoginPage {...args} />;
@@ -22,4 +21,4 @@ export const _LoginPasswordLessPage: Story<Args> = (args) => (
 _LoginPage.storyName = 'CloudDefaultLoginPage';
 _LoginPasswordLessPage.storyName = 'CloudPasswordLessLoginPage';
 
-_LoginPasswordLessPage.args = { isPasswordLessFlow: true };
+_LoginPasswordLessPage.args = { isPasswordLess: true };
