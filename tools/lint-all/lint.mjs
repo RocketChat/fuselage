@@ -13,6 +13,6 @@ if ((await glob('.prettierrc*')).length) {
   await $`prettier --check '**/*.{json,jsonc,md,yml,xml,svg}'`;
 }
 
-if ((await glob('.tsconfig.json')).length) {
+if ((await glob('tsconfig.json')).length) {
   await $`tsc --skipLibCheck --noEmit`;
 }

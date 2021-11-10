@@ -6,7 +6,7 @@ export default {
   title: 'Containers/Modal',
   component: Modal,
   parameters: {
-    jest: ['Modal/Modal.spec.js'],
+    jest: ['Modal/Modal.spec.tsx'],
   },
 };
 
