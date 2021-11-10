@@ -63,6 +63,14 @@
     "organizationInfoPage": {
       "title": "A few more details...",
       "subtitle": "These will help us to personalize your workspace."
+    },
+    "loginPage": {
+      "title": {
+        "cloud": "Cloud Login"
+      },
+      "createAccount": {
+        "label": "New here? <1>Create account</1>"
+      }
     }
   },
   "form": {
@@ -198,6 +206,29 @@
         "label": "Already registered a workspace?",
         "description": "Use the same email address to continue"
       }
+    },
+    "loginForm": {
+      "content": {
+        "default": "Enter your password to continue.",
+        "passwordLess": "If you’re already registered we’ll email you a link to log in."
+      },
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "error": "Email and password do not match"
+        }
+      },
+      "button": {
+        "text": "Log in"
+      },
+      "sendLoginLink": "Send login link",
+      "redirect": "Enter password instead",
+      "resetPassword": "Forgot your password? <1>Reset password</1>"
     }
   }
 }

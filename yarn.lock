@@ -5843,8 +5843,8 @@ __metadata:
     "@rollup/plugin-typescript": ^8.2.1
     "@testing-library/react-hooks": ^7.0.2
     "@types/jest": ^27.0.2
-    "@types/react": ^17.0.33
-    "@types/react-dom": ^17.0.10
+    "@types/react": ^17.0.34
+    "@types/react-dom": ^17.0.11
     "@types/resize-observer-browser": ^0.1.6
     "@types/use-subscription": ^1.0.0
     eslint: ^7.32.0
@@ -8407,7 +8407,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:>=16.9.0, @types/react-dom@npm:^17.0.10":
+"@types/react-dom@npm:>=16.9.0":
   version: 17.0.10
   resolution: "@types/react-dom@npm:17.0.10"
   dependencies:
@@ -8453,7 +8453,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:>=16.9.0, @types/react@npm:^17.0.33":
+"@types/react@npm:>=16.9.0":
   version: 17.0.33
   resolution: "@types/react@npm:17.0.33"
   dependencies:

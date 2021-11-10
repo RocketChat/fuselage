@@ -1,6 +1,7 @@
 @use 'sass:map';
 @import '../mixins/states.scss';
 @import '../mixins/shadows.scss';
+@import '../variables/button-colors';
 
 @mixin kind-variant($colors) {
   color: map.get($colors, color);
@@ -35,75 +36,4 @@
     border-color: map.get($colors, disabled-border-color);
     background-color: map.get($colors, disabled-background-color);
   }
-}
-
-@mixin as-button(
-  $color,
-  $background-color,
-  $border-color,
-  $hover-background-color,
-  $hover-border-color,
-  $active-background-color,
-  $active-border-color,
-  $focus-background-color,
-  $focus-border-color,
-  $focus-shadow-color,
-  $disabled-color,
-  $disabled-background-color,
-  $disabled-border-color
-) {
-  color: $color;
-  border-width: 2px;
-  border-style: solid;
-  border-color: $border-color;
-  border-radius: 2px;
-  background-color: $background-color;
-
-  appearance: none;
-
-  @include on-focus-visible {
-    border-color: $focus-border-color;
-    background-color: $focus-background-color;
-    @include use-focus-shadow($focus-shadow-color);
-  }
-
-  @include on-hover {
-    border-color: $hover-border-color;
-    background-color: $hover-background-color;
-    @include use-no-shadow;
-  }
-
-  @include on-active {
-    border-color: $active-border-color;
-    background-color: $active-background-color;
-    @include use-no-shadow;
-  }
-
-  @include on-disabled {
-    color: $disabled-color;
-    border-color: $disabled-border-color;
-    background-color: $disabled-background-color;
-  }
-}
-
-// The first placeholder selectors are the ones which can be overwritten.
-// Change its ordering could have undesired effects.
-
-%button--secondary {
-  // @include as-button(
-  //   $background-color: $button-colors-secondary-background-color,
-  //   $border-color: $button-colors-secondary-border-color,
-  //   $color: $button-colors-secondary-color,
-  //   $hover-background-color: $button-colors-secondary-hover-background-color,
-  //   $hover-border-color: $button-colors-secondary-hover-border-color,
-  //   $active-background-color: $button-colors-secondary-active-background-color,
-  //   $active-border-color: $button-colors-secondary-active-border-color,
-  //   $focus-background-color: $button-colors-secondary-focus-background-color,
-  //   $focus-border-color: $button-colors-secondary-focus-border-color,
-  //   $focus-shadow-color: $button-colors-secondary-focus-shadow-color,
-  //   $disabled-background-color:
-  //     $button-colors-secondary-disabled-background-color,
-  //   $disabled-border-color: $button-colors-secondary-disabled-border-color,
-  //   $disabled-color: $button-colors-secondary-disabled-color
-  // );
 }
