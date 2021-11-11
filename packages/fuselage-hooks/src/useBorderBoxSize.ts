@@ -12,10 +12,10 @@ export const useBorderBoxSize = (
   inlineSize: number;
   blockSize: number;
 }> => {
-  const [size, setSize] = useState({
-    inlineSize: 0,
-    blockSize: 0,
-  });
+  const [size, setSize] = useState(() => ({
+    inlineSize: ref.current?.offsetWidth ?? 0,
+    blockSize: ref.current?.offsetHeight ?? 0,
+  }));
 
   const setSizeWithDebounce = useDebouncedCallback(
     setSize,

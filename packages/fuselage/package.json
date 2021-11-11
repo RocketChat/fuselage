@@ -88,7 +88,7 @@
     "@storybook/react": "^6.3.4",
     "@storybook/source-loader": "^6.3.4",
     "@storybook/theming": "^6.3.4",
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
     "@types/invariant": "^2.2.35",
     "@types/jest": "^27.0.2",

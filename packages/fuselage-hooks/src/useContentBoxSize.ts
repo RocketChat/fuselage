@@ -13,8 +13,8 @@ export const useContentBoxSize = (
   blockSize: number;
 }> => {
   const [size, setSize] = useState({
-    inlineSize: 0,
-    blockSize: 0,
+    inlineSize: ref.current?.clientWidth ?? 0,
+    blockSize: ref.current?.clientHeight ?? 0,
   });
 
   const setSizeWithDebounce = useDebouncedCallback(

@@ -2,24 +2,14 @@
  * @jest-environment node
  */
 
-import { useRef, FunctionComponent, createElement, StrictMode } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderHook } from '@testing-library/react-hooks/server';
+import { useRef } from 'react';
 
-import { useBorderBoxSize } from '.';
+import { useBorderBoxSize } from './useBorderBoxSize';
 
-describe('useBorderBoxSize hook on server', () => {
-  it('immediately returns zero sizes', () => {
-    let inlineSize: unknown;
-    let blockSize: unknown;
-    const TestComponent: FunctionComponent = () => {
-      const ref = useRef<HTMLElement>(null);
-      ({ inlineSize, blockSize } = useBorderBoxSize(ref));
-      return null;
-    };
+it('immediately returns zero size', () => {
+  const { result } = renderHook(() => useBorderBoxSize(useRef()));
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-    expect(inlineSize).toStrictEqual(0);
-    expect(blockSize).toStrictEqual(0);
-  });
+  expect(result.current.inlineSize).toStrictEqual(0);
+  expect(result.current.blockSize).toStrictEqual(0);
 });
