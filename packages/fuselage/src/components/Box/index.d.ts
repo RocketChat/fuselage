@@ -12,6 +12,7 @@ import {
 type FontScale =
   | 'hero'
   | 'h1'
+  | 'h1_new'
   | 'h2'
   | 'h3'
   | 'h4'
@@ -20,6 +21,8 @@ type FontScale =
   | 's2'
   | 'p1'
   | 'p2'
+  | 'p1_new'
+  | 'p2_new'
   | 'p3'
   | 'p4'
   | 'c1'

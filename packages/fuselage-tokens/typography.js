@@ -36,6 +36,12 @@ module.exports = {
       lineHeight: 64,
     },
     h1: {
+      fontSize: 22,
+      fontWeight: 400,
+      letterSpacing: 0,
+      lineHeight: 32,
+    },
+    h1_new: {
       fontSize: 32,
       fontWeight: 700,
       letterSpacing: 0,
@@ -78,12 +84,24 @@ module.exports = {
       lineHeight: 22,
     },
     p1: {
+      fontSize: 14,
+      fontWeight: 400,
+      letterSpacing: 0,
+      lineHeight: 20,
+    },
+    p2: {
+      fontSize: 14,
+      fontWeight: 500,
+      letterSpacing: 0,
+      lineHeight: 20,
+    },
+    p1_new: {
       fontSize: 16,
       fontWeight: 400,
       letterSpacing: 0,
       lineHeight: 24,
     },
-    p2: {
+    p2_new: {
       fontSize: 16,
       fontWeight: 500,
       letterSpacing: 0,
@@ -116,7 +134,7 @@ module.exports = {
     micro: {
       fontSize: 10,
       fontWeight: 700,
-      letterSpacing: 0.2,
+      letterSpacing: 0,
       lineHeight: 12,
     },
   },
