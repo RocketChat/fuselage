@@ -18,6 +18,7 @@
     "allowJs": true,
     "jsx": "react"
   },
+  "include": ["./src/", "./.jest/**/*.d.ts", "/.storybook/"],
   "exclude": [
     "./dist/",
     "./storybook-static/",

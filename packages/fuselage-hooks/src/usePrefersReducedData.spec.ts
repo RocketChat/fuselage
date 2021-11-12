@@ -1,59 +1,22 @@
-import { createElement, FunctionComponent, StrictMode } from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook } from '@testing-library/react-hooks';
+import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
-import { usePrefersReducedData } from '.';
-import matchMediaMock from './__mocks__/matchMedia';
+import { usePrefersReducedData } from './usePrefersReducedData';
 
-describe('usePrefersReducedData hook', () => {
-  let container: HTMLDivElement;
+const setViewport = withMatchMediaMock();
 
-  beforeEach(() => {
-    container = document.createElement('div');
-    document.body.appendChild(container);
+it('should return false on the initial call', () => {
+  const { result } = renderHook(() => usePrefersReducedData());
+
+  expect(result.current).toBe(false);
+});
+
+it('should returns true with matchMedia mocked', () => {
+  setViewport({
+    'prefers-reduced-data': 'reduce',
   });
 
-  afterEach(() => {
-    container.remove();
-    container = null;
-  });
+  const { result } = renderHook(() => usePrefersReducedData());
 
-  it('should return false on the initial call', () => {
-    let matches: boolean;
-
-    const TestComponent: FunctionComponent = () => {
-      matches = usePrefersReducedData();
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        container
-      );
-    });
-
-    expect(matches).toBe(false);
-  });
-
-  it('should returns true with matchMedia mocked', () => {
-    window.matchMedia = jest.fn((media) =>
-      matchMediaMock(media, '(prefers-reduced-data: reduce)')
-    );
-
-    let matches: boolean;
-    const TestComponent: FunctionComponent = () => {
-      matches = usePrefersReducedData();
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    expect(matches).toBe(true);
-  });
+  expect(result.current).toBe(true);
 });
