@@ -1,4 +1,2 @@
-import { Package } from '../../types/Package';
-
-export const storybookBadge = (pkg: Package): string =>
+export const storybookBadge = (pkg) =>
   `[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/Rocket.Chat.Fuselage/${pkg.dirname})`;

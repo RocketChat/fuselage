@@ -2,7 +2,6 @@
   "private": true,
   "name": "scripts",
   "scripts": {
-    "update-readme": "ts-node src/update-readme.ts",
     "resolve-workspace-deps": "run-s .:resolve-workspace-deps:run-script .:resolve-workspace-deps:update-lockfile .:resolve-workspace-deps:git-commit",
     ".:resolve-workspace-deps:run-script": "ts-node src/resolve-workspace-deps.ts",
     ".:resolve-workspace-deps:update-lockfile": "cross-env YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn",
@@ -16,7 +15,6 @@
     "@types/node": "^15.14.1",
     "@typescript-eslint/parser": "^4.33.0",
     "cross-env": "^7.0.3",
-    "endent": "^2.1.0",
     "eslint": "^7.32.0",
     "fast-glob": "^3.2.6",
     "npm-run-all": "^4.1.5",
