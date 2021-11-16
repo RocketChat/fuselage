@@ -1,6 +1,6 @@
 module.exports = {
-  use: () => {},
-  unuse: () => {},
-  ref: () => {},
-  unref: () => {},
+  use: () => undefined,
+  unuse: () => undefined,
+  ref: () => undefined,
+  unref: () => undefined,
 };

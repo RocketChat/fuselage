@@ -1,7 +1,7 @@
-import endent from 'endent';
+import outdent from 'outdent';
 
-export const addDeps = (deps: string[], type?: 'dev'): string =>
-  endent`
+export const addDeps = (deps, type) =>
+  outdent`
     \`\`\`sh
     npm ${type === 'dev' ? 'i -D' : 'i'} ${deps.join(' ')}
 

@@ -1,10 +1,9 @@
-import endent from 'endent';
+import outdent from 'outdent';
 
-import { Package } from '../types/Package';
-import { section } from './section';
+import { section } from './section.mjs';
 
-export const pkgReadme = (pkg: Package): string =>
-  endent`
+export const pkgReadme = (pkg) =>
+  outdent`
     ${section(pkg, 'header')}
 
     ## Install
@@ -17,7 +16,7 @@ export const pkgReadme = (pkg: Package): string =>
 
     ${
       pkg.scripts?.build
-        ? endent`
+        ? outdent`
             ### Building
 
             As this package dependends on others in this monorepo, before anything run the following at the root directory:
@@ -29,7 +28,7 @@ export const pkgReadme = (pkg: Package): string =>
 
     ${
       pkg.scripts?.lint
-        ? endent`
+        ? outdent`
             ### Linting
 
             To ensure the source is matching our coding style, we perform [linting](https://en.wikipedia.org/wiki/Lint_(software)).
@@ -46,7 +45,7 @@ export const pkgReadme = (pkg: Package): string =>
 
     ${
       pkg.scripts?.test
-        ? endent`
+        ? outdent`
             ### Running tests
 
             Whenever possible, add tests to describe exactly what your code do. You can run them by yourself:
@@ -58,7 +57,7 @@ export const pkgReadme = (pkg: Package): string =>
 
     ${
       pkg.scripts?.storybook
-        ? endent`
+        ? outdent`
             ### Component stories
 
             We develop and describe our visual components in the form of stories, manage by a tool called [Storybook](https://storybook.js.org/).
@@ -71,7 +70,7 @@ export const pkgReadme = (pkg: Package): string =>
 
     ${
       pkg.scripts?.['update-storybook']
-        ? endent`
+        ? outdent`
             ### Visually testing stories
 
             We perform visual regression testing in our component stories using [Loki](https://loki.js.org/).
