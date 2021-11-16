@@ -6,10 +6,11 @@
     "tools/*"
   ],
   "devDependencies": {
-    "husky": "^7.0.2",
+    "husky": "^7.0.4",
     "hygen": "^6.1.0",
     "lerna": "^4.0.0",
-    "lint-staged": "^11.2.3",
+    "lint-staged": "^11.2.6",
+    "update-readme": "workspace:tools/update-readme",
     "webpack": "^5.41.1"
   },
   "scripts": {
@@ -21,7 +22,7 @@
     "docs": "yarn workspaces foreach -v --topological-dev run docs",
     "build-storybook": "yarn workspaces foreach -v --topological-dev run build-storybook",
     "update-storybook": "yarn workspaces foreach -v --topological-dev run update-storybook",
-    "update-readme": "yarn workspace scripts run update-readme",
+    "update-readme": "update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "create-package": "hygen create-package"
   },
@@ -32,5 +33,5 @@
     "node": "14.17.6",
     "yarn": "1.22.11"
   },
-  "packageManager": "yarn@3.0.2"
+  "packageManager": "yarn@3.1.0"
 }
