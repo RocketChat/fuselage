@@ -1,0 +1,67 @@
+@use '../../styles/lengths.scss';
+@use '../../styles/functions.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
+
+.rcx-fallback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__icon {
+    padding: 16px;
+
+    border-radius: 32px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    color: #2f343d;
+
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #6c727a;
+
+    font-size: 14px;
+    line-height: 20px;
+
+    strong {
+      color: #1f2229;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    list-style-position: inside;
+
+    text-align: center;
+
+    ul {
+      margin-top: 0;
+      padding-left: 0;
+    }
+
+    ul li span {
+      margin-left: -10px;
+    }
+  }
+}
+
+// @include typography.use-font-scale(h2);
+// color: colors.foreground(default);
+// lengths.margin(2);
+//
