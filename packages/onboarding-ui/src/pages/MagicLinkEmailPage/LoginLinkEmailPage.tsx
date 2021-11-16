@@ -11,7 +11,7 @@ type MagicLinkEmailProps = {
   onChangeEmailRequest: () => void;
 };
 
-const MagicLinkEmailPage = ({
+const LoginLinkEmailPage = ({
   onResendEmailRequest,
   onChangeEmailRequest,
 }: MagicLinkEmailProps): ReactElement => {
@@ -56,4 +56,4 @@ const MagicLinkEmailPage = ({
   );
 };
 
-export default MagicLinkEmailPage;
+export default LoginLinkEmailPage;
