@@ -4,7 +4,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import { TitleHighlight } from '../../common/FormPageLayout.styles';
-import { OnboardingLogoCloud } from '../../common/OnboardingLogo';
+import ManageWorkspaceFallback from '../../common/ManageWorkspaceFallback';
 import RequestTrialForm from '../../forms/RequestTrialForm';
 import Description from './Description';
 
@@ -16,7 +16,6 @@ const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
   return (
     <BackgroundLayer>
       <FormPageLayout
-        logo={<OnboardingLogoCloud />}
         description={<Description />}
         title={
           <Trans i18nKey='page.requestTrial.title'>
@@ -26,6 +25,9 @@ const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
         subtitle={t('page.requestTrial.subtitle')}
       >
         <RequestTrialForm {...props} />
+        <ManageWorkspaceFallback
+          onManageWorkspaceClick={props.onManageWorkspaceClick}
+        />
       </FormPageLayout>
     </BackgroundLayer>
   );
