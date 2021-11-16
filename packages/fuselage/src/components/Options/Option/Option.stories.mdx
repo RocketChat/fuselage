@@ -18,22 +18,15 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
         <Option.Content>Lorem Ipsum Lorem</Option.Content>
       </Option>
       <Option>
-        <Option.Content>
-          Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum
-          Lorem
-        </Option.Content>
+        <Option.Content>Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem</Option.Content>
       </Option>
       <Option>
-        <Option.Content>
-          Lorem Ipsum Lorem{' '}
-          <Option.Description>
-            Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-          </Option.Description>
-        </Option.Content>
+        <Option.Content>Lorem Ipsum Lorem <Option.Description>Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem</Option.Description></Option.Content>
       </Option>
     </Box>
   </Story>
 </Canvas>
+
 
 ## With avatar
 
@@ -49,22 +42,14 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
       <Option>
         <Option.Avatar>
           <Avatar url={exampleAvatar} size='x28' />
-        </Option.Avatar>
-        <Option.Content>
-          Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum
-          Lorem
-        </Option.Content>
+        </Option.Avatar>        
+        <Option.Content>Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem</Option.Content>
       </Option>
       <Option>
         <Option.Avatar>
           <Avatar url={exampleAvatar} size='x28' />
-        </Option.Avatar>
-        <Option.Content>
-          Lorem Ipsum Lorem{' '}
-          <Option.Description>
-            Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-          </Option.Description>
-        </Option.Content>
+        </Option.Avatar>        
+        <Option.Content>Lorem Ipsum Lorem <Option.Description>Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem</Option.Description></Option.Content>
       </Option>
     </Box>
   </Story>
@@ -76,22 +61,15 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
   <Story name='withPresence'>
     <Box position='relative' maxWidth={250}>
       <Option>
-        <Option.Column>
-          <StatusBullet />
-        </Option.Column>
+        <Option.Column><StatusBullet /></Option.Column>
         <Option.Content>Lorem Ipsum Lorem</Option.Content>
       </Option>
       <Option>
         <Option.Avatar>
           <Avatar url={exampleAvatar} size='x28' />
         </Option.Avatar>
-        <Option.Column>
-          <StatusBullet />
-        </Option.Column>
-        <Option.Content>
-          Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum
-          Lorem
-        </Option.Content>
+        <Option.Column><StatusBullet /></Option.Column>
+        <Option.Content>Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem</Option.Content>
       </Option>
     </Box>
   </Story>
@@ -104,24 +82,15 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
     <Box position='relative' maxWidth={250}>
       <Option>
         <Option.Content>Lorem Ipsum Lorem</Option.Content>
-        <Option.Menu>
-          <Menu options={menuOptions} />
-        </Option.Menu>
+        <Option.Menu><Menu options={menuOptions} /></Option.Menu>
       </Option>
       <Option>
         <Option.Avatar>
           <Avatar url={exampleAvatar} size='x28' />
         </Option.Avatar>
-        <Option.Column>
-          <StatusBullet />
-        </Option.Column>
-        <Option.Content>
-          Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum
-          Lorem
-        </Option.Content>
-        <Option.Menu>
-          <Menu options={menuOptions} />
-        </Option.Menu>
+        <Option.Column><StatusBullet /></Option.Column>
+        <Option.Content>Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem</Option.Content>
+        <Option.Menu><Menu options={menuOptions} /></Option.Menu>
       </Option>
     </Box>
   </Story>
@@ -133,27 +102,18 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
   <Story name='withIcon'>
     <Box position='relative' maxWidth={250}>
       <Option>
-        <Option.Icon name='bell' />
+        <Option.Icon name='bell'/>
         <Option.Content>Lorem Ipsum Lorem</Option.Content>
-        <Option.Menu>
-          <Menu options={menuOptions} />
-        </Option.Menu>
+        <Option.Menu><Menu options={menuOptions} /></Option.Menu>
       </Option>
       <Option>
         <Option.Avatar>
           <Avatar url={exampleAvatar} size='x28' />
         </Option.Avatar>
-        <Option.Icon name='bell' />
-        <Option.Column>
-          <StatusBullet />
-        </Option.Column>
-        <Option.Content>
-          Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum
-          Lorem
-        </Option.Content>
-        <Option.Menu>
-          <Menu options={menuOptions} />
-        </Option.Menu>
+        <Option.Icon name='bell'/>
+        <Option.Column><StatusBullet /></Option.Column>
+        <Option.Content>Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem</Option.Content>
+        <Option.Menu><Menu options={menuOptions} /></Option.Menu>
       </Option>
     </Box>
   </Story>
@@ -167,22 +127,13 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
       <Option>
         <Option.Avatar>
           <Avatar url={exampleAvatar} size='x28' />
-        </Option.Avatar>
-
-        <Option.Column>
-          <StatusBullet status='online' />
-        </Option.Column>
+        </Option.Avatar> 
+        
+        <Option.Column><StatusBullet status='online' /></Option.Column>
         <Option.Content>
-          <Box withTruncatedText fontScale='p3'>
-            carla.culhane{' '}
-            <Box is='span' color='neutral-500'>
-              (carla hune)
-            </Box>
-          </Box>
+          <Box withTruncatedText fontScale='p3'>carla.culhane <Box is='span' color='neutral-500'>(carla hune)</Box></Box>
         </Option.Content>
-        <Option.Menu>
-          <Menu options={menuOptions} />
-        </Option.Menu>
+        <Option.Menu><Menu options={menuOptions} /></Option.Menu>
       </Option>
     </Box>
   </Story>
@@ -193,9 +144,11 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
 <Canvas>
   <Story name='Skeleton'>
     <Box position='relative' maxWidth={330}>
-      <Option.Skeleton />
+      <Option.Skeleton /> 
     </Box>
   </Story>
 </Canvas>
 
 <ArgsTable of={Option} />
+
+
