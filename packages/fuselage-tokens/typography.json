@@ -34,12 +34,6 @@
       "lineHeight": 64
     },
     "h1": {
-      "fontSize": 22,
-      "fontWeight": 400,
-      "letterSpacing": 0,
-      "lineHeight": 32
-    },
-    "h1_new": {
       "fontSize": 32,
       "fontWeight": 700,
       "letterSpacing": 0,
@@ -69,37 +63,13 @@
       "letterSpacing": 0,
       "lineHeight": 20
     },
-    "s1": {
-      "fontSize": 16,
-      "fontWeight": 400,
-      "letterSpacing": 0,
-      "lineHeight": 22
-    },
-    "s2": {
-      "fontSize": 16,
-      "fontWeight": 500,
-      "letterSpacing": 0,
-      "lineHeight": 22
-    },
     "p1": {
-      "fontSize": 14,
-      "fontWeight": 400,
-      "letterSpacing": 0,
-      "lineHeight": 20
-    },
-    "p2": {
-      "fontSize": 14,
-      "fontWeight": 500,
-      "letterSpacing": 0,
-      "lineHeight": 20
-    },
-    "p1_new": {
       "fontSize": 16,
       "fontWeight": 400,
       "letterSpacing": 0,
       "lineHeight": 24
     },
-    "p2_new": {
+    "p2": {
       "fontSize": 16,
       "fontWeight": 500,
       "letterSpacing": 0,

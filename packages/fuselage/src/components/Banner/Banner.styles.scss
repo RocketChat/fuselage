@@ -90,7 +90,7 @@
     flex-grow: 1;
     align-self: center;
 
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p3);
 
     &--inline {
       @include typography.use-with-truncated-text;
@@ -100,7 +100,7 @@
   &__title {
     margin: 0;
     padding: 0;
-    @include typography.use-font-scale(p2);
+    @include typography.use-font-scale(p4);
 
     &--inline {
       display: inline;

@@ -59,7 +59,7 @@
   @include typography.use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(s2);
+  @include typography.use-font-scale(h4);
 }
 
 .rcx-accordion-item__toggle-switch {
