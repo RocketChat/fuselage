@@ -12,19 +12,19 @@
   color: colors.foreground(info);
 
   &__icon {
+    margin-block-end: lengths.margin(16);
+    padding: lengths.margin(16);
+
     border-radius: 100%;
 
-    margin-block-end: lengths.margin(16);
-
     background-color: colors.neutral(200);
-    padding: lengths.margin(16);
   }
 
   &__title {
+    margin-block-end: lengths.margin(8);
+
     color: colors.foreground(default);
     @include typography.use-font-scale(h1);
-
-    margin-block-end: lengths.margin(8);
   }
 
   &__subtitle,
@@ -37,14 +37,15 @@
     justify-content: center;
     align-items: center;
 
-    list-style-position: inside;
-
-    text-align: center;
+    width: 100%;
+    max-width: 276px;
 
     margin: 0;
     padding: 0;
-    width: 100%;
-    max-width: 276px;
+
+    list-style-position: inside;
+
+    text-align: center;
   }
 
   &__suggestion,
