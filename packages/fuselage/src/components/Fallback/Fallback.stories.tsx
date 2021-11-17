@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Box } from '..';
 import {
@@ -16,15 +16,12 @@ export default {
   //   },
 };
 
-export const Default = () => {
-  const [searchTerm] = useState('search term here');
-  return (
-    <Box>
-      <Fallback>
-        <FallbackIcon name='magnifier' />
-        <FallbackTitle />
-        <FallbackDescription searchTerm={searchTerm} />
-      </Fallback>
-    </Box>
-  );
-};
+export const Default = ({ searchTerm = 'search term here' }) => (
+  <Box>
+    <Fallback>
+      <FallbackIcon name='magnifier' />
+      <FallbackTitle />
+      <FallbackDescription searchTerm={searchTerm} />
+    </Fallback>
+  </Box>
+);
