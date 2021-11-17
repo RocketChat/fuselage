@@ -1,5 +1,7 @@
-import React, { FC, ComponentProps, HTMLAttributes } from 'react';
+import React, { FC, ComponentProps } from 'react';
 
+import { Button } from '..';
+import { ButtonGroup } from '../ButtonGroup';
 import { Icon } from '../Icon';
 import './Fallback.styles.scss';
 
@@ -7,57 +9,42 @@ export const Fallback: FC = ({ children }) => (
   <div className='rcx-fallback'>{children}</div>
 );
 
-export const FallbackIcon: FC<{ name: ComponentProps<typeof Icon>['name'] }> =
-  ({ name }) => (
-    <Icon
-      name={name}
-      size='x24'
-      className='rcx-fallback__icon'
-      mbe='x20'
-      bg='#f2f3f5'
-      borderRadius='32px'
-      p='16px'
-    />
-  );
-
-export const FallbackTitle: FC = () => (
-  <div className='rcx-fallback__title'>No app matches</div>
-);
-
-export const FallbackList: FC = () => (
-  <div className='rcx-fallback__list'>
-    You can try to: <br />
-    <ul>
-      <li>
-        <span>Search by category</span>
-      </li>
-      <li>
-        <span>Search for a more general term</span>
-      </li>
-      <li>
-        <span>Search for a more specific term</span>
-      </li>
-      <li>
-        <span>Check if the spelling is correct</span>
-      </li>
-    </ul>
+export const FallbackIcon: FC<{
+  name: ComponentProps<typeof Icon>['name'];
+  // variation?: 'danger';
+}> = ({ name }) => (
+  <div className='rcx-fallback__icon'>
+    <Icon name={name} size='x32' />
   </div>
 );
 
-interface FallbackDescriptionType extends HTMLAttributes<HTMLElement> {
-  searchTerm: string;
-}
-
-export const FallbackDescription: FC<FallbackDescriptionType> = ({
-  searchTerm,
-}: FallbackDescriptionType) => (
-  <div className='rcx-fallback__description'>
-    No Marketplace matches for:
-    <div>
-      <strong>"{searchTerm}"</strong>
-      <br />
-      <br />
-    </div>
-    <FallbackList />
-  </div>
+export const FallbackTitle: FC = ({ children }) => (
+  <div className='rcx-fallback__title'>{children}</div>
 );
+export const FallbackSubtitle: FC = ({ children }) => (
+  <div className='rcx-fallback__subtitle'>{children}</div>
+);
+
+export const FallbackSuggestion: FC = ({ children }) => (
+  <div className='rcx-fallback__suggestion'>{children}</div>
+);
+export const FallbackSuggestionText: FC = ({ children }) => (
+  <div className='rcx-fallback__suggestion-text'>{children}</div>
+);
+
+export const FallbackSuggestionList: FC = ({ children }) => (
+  <ul className='rcx-fallback__list'>{children}</ul>
+);
+
+export const FallbackSuggestionListItem: FC = ({ children }) => (
+  <li>{children}</li>
+);
+
+export const FallbackActions: FC<ComponentProps<typeof ButtonGroup>> = ({
+  children,
+  ...props
+}) => <ButtonGroup {...props}> {children} </ButtonGroup>;
+
+export const FallbackAction: FC<ComponentProps<typeof Button>> = ({
+  ...props
+}) => <Button primary {...props} />;
