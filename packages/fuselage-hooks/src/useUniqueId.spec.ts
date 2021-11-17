@@ -1,71 +1,26 @@
-import {
-  createElement,
-  useReducer,
-  FunctionComponent,
-  StrictMode,
-} from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook } from '@testing-library/react-hooks';
 
-import { useUniqueId } from '.';
+import { useUniqueId } from './useUniqueId';
 
-describe('useUniqueId hook', () => {
-  it('returns a string', () => {
-    let uniqueId: string;
-    const TestComponent: FunctionComponent = () => {
-      uniqueId = useUniqueId();
-      return null;
-    };
+it('returns a string', () => {
+  const { result } = renderHook(() => useUniqueId());
+  expect(result.current).toStrictEqual(expect.any(String));
+});
 
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
-    expect(uniqueId).toStrictEqual(expect.any(String));
-  });
+it('returns a unique ID', () => {
+  const renderingA = renderHook(() => useUniqueId());
+  const renderingB = renderHook(() => useUniqueId());
 
-  it('returns a unique ID', () => {
-    let uniqueId: string;
-    const TestComponent: FunctionComponent = () => {
-      uniqueId = useUniqueId();
-      return null;
-    };
+  const uniqueIdA = renderingA.result.current;
+  const uniqueIdB = renderingB.result.current;
+  expect(uniqueIdA).not.toBe(uniqueIdB);
+});
 
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
-    const uniqueIdA = uniqueId;
+it('returns the same ID on each render cycle', () => {
+  const { result, rerender } = renderHook(() => useUniqueId());
+  rerender();
 
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
-    const uniqueIdB = uniqueId;
+  const [uniqueIdA, uniqueIdB] = result.all;
 
-    expect(uniqueIdA).not.toBe(uniqueIdB);
-  });
-
-  it('returns the same ID on each render cycle', () => {
-    let uniqueId: string;
-    let forceUpdate: () => void;
-    const TestComponent: FunctionComponent = () => {
-      uniqueId = useUniqueId();
-      [, forceUpdate] = useReducer((state) => !state, false);
-      return null;
-    };
-
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
-    const uniqueA = uniqueId;
-
-    act(() => {
-      forceUpdate();
-    });
-    const uniqueB = uniqueId;
-
-    expect(uniqueA).toBe(uniqueB);
-  });
+  expect(uniqueIdA).toBe(uniqueIdB);
 });

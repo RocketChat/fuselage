@@ -43,7 +43,7 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
     "lint-all": "workspace:tools/lint-all",
-    "lint-staged": "^11.2.3",
+    "lint-staged": "^11.2.6",
     "prettier": "^2.3.2"
   }
 }

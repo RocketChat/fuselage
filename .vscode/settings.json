@@ -7,6 +7,10 @@
     {
       "directory": "tools/*",
       "changeProcessCWD": true
+    },
+    {
+      "directory": "packages/fuselage",
+      "changeProcessCWD": true
     }
   ],
   "eslint.onIgnoredFiles": "warn",

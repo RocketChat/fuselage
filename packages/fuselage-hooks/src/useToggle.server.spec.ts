@@ -2,93 +2,55 @@
  * @jest-environment node
  */
 
-import { createElement, StrictMode, FunctionComponent } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useToggle } from '.';
+import { useToggle } from './useToggle';
 
-describe('useToggle hook on server', () => {
-  it('has false value when an initial value is undefined', () => {
-    let value: boolean;
-    const TestComponent: FunctionComponent = () => {
-      [value] = useToggle();
-      return null;
-    };
+it('has false value when an initial value is undefined', () => {
+  const { result } = renderHook(() => useToggle());
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
+  const [enabled] = result.current;
+  expect(enabled).toBe(false);
+});
 
-    expect(value).toBe(false);
-  });
+it('has false value when an initial value is false', () => {
+  const { result } = renderHook(() => useToggle(false));
 
-  it('has false value when an initial value is false', () => {
-    let value: boolean;
-    const TestComponent: FunctionComponent = () => {
-      [value] = useToggle(false);
-      return null;
-    };
+  const [enabled] = result.current;
+  expect(enabled).toBe(false);
+});
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
+it('has false value when an initial value is falsy', () => {
+  const { result } = renderHook(() => useToggle(0 as any));
 
-    expect(value).toBe(false);
-  });
+  const [enabled] = result.current;
+  expect(enabled).toBe(false);
+});
 
-  it('has false value when an initial value is falsy', () => {
-    let value: boolean;
-    const TestComponent: FunctionComponent = () => {
-      [value] = useToggle(0 as unknown as boolean);
-      return null;
-    };
+it('has false value when an initial value is a function returning false', () => {
+  const { result } = renderHook(() => useToggle(() => false));
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
+  const [enabled] = result.current;
+  expect(enabled).toBe(false);
+});
 
-    expect(value).toBe(false);
-  });
+it('has true value when an initial value is true', () => {
+  const { result } = renderHook(() => useToggle(true));
 
-  it('has false value when an initial value is a function returning false', () => {
-    let value: boolean;
-    const TestComponent: FunctionComponent = () => {
-      [value] = useToggle(() => false);
-      return null;
-    };
+  const [enabled] = result.current;
+  expect(enabled).toBe(true);
+});
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
+it('has true value when an initial value is truthy', () => {
+  const { result } = renderHook(() => useToggle(1 as any));
 
-    expect(value).toBe(false);
-  });
+  const [enabled] = result.current;
+  expect(enabled).toBe(true);
+});
 
-  it('has true value when an initial value is true', () => {
-    let value: boolean;
-    const TestComponent: FunctionComponent = () => {
-      [value] = useToggle(true);
-      return null;
-    };
+it('has true value when an initial value is a function returning true', () => {
+  const { result } = renderHook(() => useToggle(() => true));
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-    expect(value).toBe(true);
-  });
-
-  it('has true value when an initial value is truthy', () => {
-    let value: boolean;
-    const TestComponent: FunctionComponent = () => {
-      [value] = useToggle(1 as unknown as boolean);
-      return null;
-    };
-
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-    expect(value).toBe(true);
-  });
-
-  it('has true value when an initial value is a function returning true', () => {
-    let value: boolean;
-    const TestComponent: FunctionComponent = () => {
-      [value] = useToggle(() => true);
-      return null;
-    };
-
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-    expect(value).toBe(true);
-  });
+  const [enabled] = result.current;
+  expect(enabled).toBe(true);
 });

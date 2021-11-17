@@ -1,8 +1,7 @@
-import { FC, useState, createElement, StrictMode } from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook, act } from '@testing-library/react-hooks';
+import { useState } from 'react';
 
-import { useStableArray } from '.';
+import { useStableArray } from './useStableArray';
 
 it('uses same-value equality by default', () => {
   const initialSymbolValue = Symbol('initial');
@@ -10,70 +9,76 @@ it('uses same-value equality by default', () => {
   const initialNumberValue = -0;
   const finalNumberValue = 0;
 
-  let setArray: (array: [symbol, number]) => void;
-  let stableArray: [symbol, number];
-  const TestComponent: FC = () => {
-    let array: [symbol, number];
-    [array, setArray] = useState([initialSymbolValue, initialNumberValue]);
-    stableArray = useStableArray(array);
-    return null;
-  };
-
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
+  const { result } = renderHook(() => {
+    const [array, setArray] = useState([
+      initialSymbolValue,
+      initialNumberValue,
+    ]);
+    const stableArray = useStableArray(array);
+    return { setArray, stableArray };
   });
+  const { setArray } = result.current;
 
-  expect(stableArray[0]).toBe(initialSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  let prevStableArray = stableArray;
+  const stableArrayA = result.current.stableArray;
+  expect(result.current.stableArray).toEqual([
+    initialSymbolValue,
+    initialNumberValue,
+  ]);
 
   act(() => {
     setArray([initialSymbolValue, initialNumberValue]);
   });
 
-  expect(stableArray).toBe(prevStableArray);
-  expect(stableArray[0]).toBe(initialSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayB = result.current.stableArray;
+  expect(stableArrayB).toBe(stableArrayA);
+  expect(result.current.stableArray).toEqual([
+    initialSymbolValue,
+    initialNumberValue,
+  ]);
 
   act(() => {
     setArray([finalSymbolValue, initialNumberValue]);
   });
 
-  expect(stableArray).not.toBe(prevStableArray);
-  expect(stableArray[0]).toBe(finalSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayC = result.current.stableArray;
+  expect(stableArrayC).not.toBe(stableArrayB);
+  expect(result.current.stableArray).toEqual([
+    finalSymbolValue,
+    initialNumberValue,
+  ]);
 
   act(() => {
     setArray([finalSymbolValue, initialNumberValue]);
   });
 
-  expect(stableArray).toBe(prevStableArray);
-  expect(stableArray[0]).toBe(finalSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayD = result.current.stableArray;
+  expect(stableArrayD).toBe(stableArrayC);
+  expect(result.current.stableArray).toEqual([
+    finalSymbolValue,
+    initialNumberValue,
+  ]);
 
   act(() => {
     setArray([finalSymbolValue, finalNumberValue]);
   });
 
-  expect(stableArray).not.toBe(prevStableArray);
-  expect(stableArray[0]).toBe(finalSymbolValue);
-  expect(stableArray[1]).toBe(finalNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayE = result.current.stableArray;
+  expect(stableArrayE).not.toBe(stableArrayD);
+  expect(result.current.stableArray).toEqual([
+    finalSymbolValue,
+    finalNumberValue,
+  ]);
 
   act(() => {
     setArray([finalSymbolValue, finalNumberValue]);
   });
 
-  expect(stableArray).toBe(prevStableArray);
-  expect(stableArray[0]).toBe(finalSymbolValue);
-  expect(stableArray[1]).toBe(finalNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayF = result.current.stableArray;
+  expect(stableArrayF).toBe(stableArrayE);
+  expect(result.current.stableArray).toEqual([
+    finalSymbolValue,
+    finalNumberValue,
+  ]);
 });
 
 it('uses a custom equality function', () => {
@@ -83,68 +88,74 @@ it('uses a custom equality function', () => {
   const finalNumberValue = 0;
   const compare = (a: unknown, b: unknown): boolean => typeof a === typeof b;
 
-  let setArray: (array: [symbol, number]) => void;
-  let stableArray: [symbol, number];
-  const TestComponent: FC = () => {
-    let array: [symbol, number];
-    [array, setArray] = useState([initialSymbolValue, initialNumberValue]);
-    stableArray = useStableArray(array, compare);
-    return null;
-  };
-
-  act(() => {
-    render(
-      createElement(StrictMode, {}, createElement(TestComponent)),
-      document.createElement('div')
-    );
+  const { result } = renderHook(() => {
+    const [array, setArray] = useState([
+      initialSymbolValue,
+      initialNumberValue,
+    ]);
+    const stableArray = useStableArray(array, compare);
+    return { setArray, stableArray };
   });
+  const { setArray } = result.current;
 
-  expect(stableArray[0]).toBe(initialSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  let prevStableArray = stableArray;
+  const stableArrayA = result.current.stableArray;
+  expect(result.current.stableArray).toEqual([
+    initialSymbolValue,
+    initialNumberValue,
+  ]);
 
   act(() => {
     setArray([initialSymbolValue, initialNumberValue]);
   });
 
-  expect(stableArray).toBe(prevStableArray);
-  expect(stableArray[0]).toBe(initialSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayB = result.current.stableArray;
+  expect(stableArrayB).toBe(stableArrayA);
+  expect(result.current.stableArray).toEqual([
+    initialSymbolValue,
+    initialNumberValue,
+  ]);
 
   act(() => {
     setArray([finalSymbolValue, initialNumberValue]);
   });
 
-  expect(stableArray).toBe(prevStableArray);
-  expect(stableArray[0]).toBe(initialSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayC = result.current.stableArray;
+  expect(stableArrayC).toBe(stableArrayB);
+  expect(result.current.stableArray).toEqual([
+    initialSymbolValue,
+    initialNumberValue,
+  ]);
 
   act(() => {
     setArray([finalSymbolValue, initialNumberValue]);
   });
 
-  expect(stableArray).toBe(prevStableArray);
-  expect(stableArray[0]).toBe(initialSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayD = result.current.stableArray;
+  expect(stableArrayD).toBe(stableArrayC);
+  expect(result.current.stableArray).toEqual([
+    initialSymbolValue,
+    initialNumberValue,
+  ]);
 
   act(() => {
     setArray([finalSymbolValue, finalNumberValue]);
   });
 
-  expect(stableArray).toBe(prevStableArray);
-  expect(stableArray[0]).toBe(initialSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayE = result.current.stableArray;
+  expect(stableArrayE).toBe(stableArrayD);
+  expect(result.current.stableArray).toEqual([
+    initialSymbolValue,
+    initialNumberValue,
+  ]);
 
   act(() => {
     setArray([finalSymbolValue, finalNumberValue]);
   });
 
-  expect(stableArray).toBe(prevStableArray);
-  expect(stableArray[0]).toBe(initialSymbolValue);
-  expect(stableArray[1]).toBe(initialNumberValue);
-  prevStableArray = stableArray;
+  const stableArrayF = result.current.stableArray;
+  expect(stableArrayF).toBe(stableArrayE);
+  expect(result.current.stableArray).toEqual([
+    initialSymbolValue,
+    initialNumberValue,
+  ]);
 });

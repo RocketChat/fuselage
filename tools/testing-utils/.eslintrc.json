@@ -1,0 +1,13 @@
+{
+  "extends": "@rocket.chat/eslint-config-alt/typescript",
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "extends": "@rocket.chat/eslint-config-alt/typescript"
+    }
+  ]
+}
