@@ -11,7 +11,7 @@ type ManageWorkspaceFallbackProps = {
 const ManageWorkspaceFallback = ({
   onManageWorkspaceClick,
 }: ManageWorkspaceFallbackProps): ReactElement => (
-  <Box fontScale='s1' pbs='x80'>
+  <Box fontScale='s1' pbs='x40'>
     <Trans i18nKey='component.manageWorkspaceFallback'>
       Already have an account?
       <ActionLink fontScale='s1' onClick={onManageWorkspaceClick}>
