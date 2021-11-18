@@ -5,7 +5,7 @@ import { Trans } from 'react-i18next';
 import ActionLink from './ActionLink';
 
 type ManageWorkspaceFallbackProps = {
-  onManageWorkspaceClick: void;
+  onManageWorkspaceClick: () => void;
 };
 
 const ManageWorkspaceFallback = ({
@@ -14,7 +14,7 @@ const ManageWorkspaceFallback = ({
   <Box fontScale='s1' pbs='x80'>
     <Trans i18nKey='component.manageWorkspaceFallback'>
       Already have an account?
-      <ActionLink fontScale='s1' onClick={() => onManageWorkspaceClick}>
+      <ActionLink fontScale='s1' onClick={onManageWorkspaceClick}>
         Manage your workspaces.
       </ActionLink>
     </Trans>
