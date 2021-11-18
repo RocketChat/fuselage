@@ -26,6 +26,7 @@ type RequestTrialFormProps = {
   organizationSizeOptions: SelectOptions;
   countryOptions: SelectOptions;
   onSubmit: SubmitHandler<RequestTrialPayload>;
+  onManageWorkspaceClick: () => void;
   validateEmail: Validate<string>;
 };
 
