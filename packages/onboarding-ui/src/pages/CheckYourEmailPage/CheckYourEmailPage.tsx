@@ -41,7 +41,7 @@ const CheckYourEmailPage = ({
             {t('page.checkYourEmail.title')}
           </Box>
 
-          <Box fontScale='h4'>
+          <Box fontScale='p1'>
             <Trans i18nKey='page.checkYourEmail.subtitle'>
               Your request has been sent successfully.
               <br />

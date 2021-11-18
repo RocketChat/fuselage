@@ -32,7 +32,7 @@ const EmailConfirmedPage = (): ReactElement => {
             {t('page.emailConfirmed.title')}
           </Box>
 
-          <Box fontScale='h4'>{t('page.emailConfirmed.subtitle')}</Box>
+          <Box fontScale='p1'>{t('page.emailConfirmed.subtitle')}</Box>
         </Margins>
       </Box>
     </BackgroundLayer>

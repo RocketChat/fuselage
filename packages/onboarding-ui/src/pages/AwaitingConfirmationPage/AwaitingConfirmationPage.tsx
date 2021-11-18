@@ -46,7 +46,7 @@ const AwaitingConfirmationPage = ({
             {t('page.awaitingConfirmation.title')}
           </Box>
 
-          <Box fontScale='h4'>
+          <Box fontScale='p1'>
             {t('page.awaitingConfirmation.subtitle', { emailAddress })}
           </Box>
 
