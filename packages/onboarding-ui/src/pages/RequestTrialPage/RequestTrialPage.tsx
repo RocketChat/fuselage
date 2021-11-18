@@ -4,7 +4,6 @@ import { useTranslation, Trans } from 'react-i18next';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import { TitleHighlight } from '../../common/FormPageLayout.styles';
-import ManageWorkspaceFallback from '../../common/ManageWorkspaceFallback';
 import RequestTrialForm from '../../forms/RequestTrialForm';
 import Description from './Description';
 
@@ -25,9 +24,6 @@ const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
         subtitle={t('page.requestTrial.subtitle')}
       >
         <RequestTrialForm {...props} />
-        <ManageWorkspaceFallback
-          onManageWorkspaceClick={props.onManageWorkspaceClick}
-        />
       </FormPageLayout>
     </BackgroundLayer>
   );
