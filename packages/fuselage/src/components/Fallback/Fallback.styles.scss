@@ -38,7 +38,7 @@
     align-items: center;
 
     width: 100%;
-    max-width: 276px;
+    max-width: 410px;
 
     margin: 0;
     padding: 0;
@@ -46,6 +46,10 @@
     list-style-position: inside;
 
     text-align: center;
+  }
+
+  &__suggestion-text-nomargin {
+    margin: 0;
   }
 
   &__suggestion,
