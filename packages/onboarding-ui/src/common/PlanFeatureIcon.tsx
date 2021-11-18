@@ -1,12 +1,9 @@
 import type { ReactElement } from 'react';
 
-const DescriptionIcon = ({
-  color = 'currentColor',
-}: {
-  color: string;
-}): ReactElement => (
+const PlanFeatureIcon = ({ color }: { color: string }): ReactElement => (
   <svg
     width='13'
+    height='auto'
     viewBox='0 0 16 13'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
@@ -15,4 +12,4 @@ const DescriptionIcon = ({
   </svg>
 );
 
-export default DescriptionIcon;
+export default PlanFeatureIcon;
