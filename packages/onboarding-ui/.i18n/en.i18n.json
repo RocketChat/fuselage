@@ -10,7 +10,8 @@
       "requiredField": "This field is required",
       "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     },
-    "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>"
+    "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>",
+    "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>"
   },
   "page": {
     "form": {
@@ -34,8 +35,8 @@
     "cloudDescription": {
       "title": "Let's launch your workspace and <1>14-day trial</1>",
       "tryGold": "Try our best Gold plan for 14 days for free",
-      "numberOfIntegrations": "1,000 integrations",
-      "availability": "High availability",
+      "numberOfIntegrations": "Apps and integrations",
+      "availability": "Scalable micro-services",
       "auditing": "Message audit panel / Audit logs",
       "engagement": "Engagement Dashboard",
       "ldap": "LDAP enhanced sync",
@@ -183,12 +184,12 @@
     "requestTrialForm": {
       "fields": {
         "emailAddress": {
-          "label": "Email address",
-          "placeholder": "Enter email address"
+          "label": "Organization email",
+          "placeholder": "Enter organization email address"
         },
         "organizationName": {
           "label": "Organization name",
-          "placeholder": "Organization name"
+          "placeholder": "Enter organization name"
         },
         "organizationSize": {
           "label": "Organization size",
@@ -204,7 +205,7 @@
       },
       "hasWorkspace": {
         "label": "Already registered a workspace?",
-        "description": "Use the same email address to continue"
+        "description": "Please use the email address associated with your cloud account"
       }
     },
     "loginForm": {

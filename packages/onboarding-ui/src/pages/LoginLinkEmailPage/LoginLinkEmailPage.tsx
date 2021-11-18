@@ -6,15 +6,15 @@ import BackgroundLayer from '../../common/BackgroundLayer';
 import EmailCodeFallback from '../../common/EmailCodeFallback';
 import { OnboardingLogo } from '../../common/OnboardingLogo';
 
-type MagicLinkEmailProps = {
+type LoginLinkEmailProps = {
   onResendEmailRequest: () => void;
   onChangeEmailRequest: () => void;
 };
 
-const MagicLinkEmailPage = ({
+const LoginLinkEmailPage = ({
   onResendEmailRequest,
   onChangeEmailRequest,
-}: MagicLinkEmailProps): ReactElement => {
+}: LoginLinkEmailProps): ReactElement => {
   const { t } = useTranslation();
 
   return (
@@ -56,4 +56,4 @@ const MagicLinkEmailPage = ({
   );
 };
 
-export default MagicLinkEmailPage;
+export default LoginLinkEmailPage;

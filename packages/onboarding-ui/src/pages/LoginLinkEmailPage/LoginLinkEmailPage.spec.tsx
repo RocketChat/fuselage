@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom';
 
-import MagicLinkEmailPage from './MagicLinkEmailPage';
+import LoginLinkEmailPage from './LoginLinkEmailPage';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <MagicLinkEmailPage
+    <LoginLinkEmailPage
       onResendEmailRequest={() => undefined}
       onChangeEmailRequest={() => undefined}
     />,
