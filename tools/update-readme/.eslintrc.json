@@ -5,13 +5,13 @@
     "sourceType": "module"
   },
   "env": {
-    "node": true,
-    "jest": true
+    "node": true
   },
-  "overrides": [
-    {
-      "files": ["**/*.ts", "**/*.tsx"],
-      "extends": "@rocket.chat/eslint-config-alt/typescript"
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".mjs"]
+      }
     }
-  ]
+  }
 }

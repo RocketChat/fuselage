@@ -1,4 +1,5 @@
 import outdent from 'outdent';
+
 import { depsBadge } from './badges/depsBadge.mjs';
 import { npmVersionBadge } from './badges/npmVersionBadge.mjs';
 import { rocketChatLogo } from './rocketChatLogo.mjs';
