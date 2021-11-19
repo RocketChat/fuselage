@@ -38,7 +38,7 @@ const InvalidLinkPage = ({
             {t('page.invalidLink.title')}
           </Box>
 
-          <Box fontScale='s1'>{t('page.invalidLink.content')}</Box>
+          <Box fontScale='p1'>{t('page.invalidLink.content')}</Box>
 
           <Button onClick={onRequestNewLink} primary>
             {t('page.invalidLink.button.text')}

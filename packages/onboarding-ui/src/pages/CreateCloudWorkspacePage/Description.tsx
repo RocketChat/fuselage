@@ -25,23 +25,23 @@ const Description = (): ReactElement => {
     <Box>
       <Box>
         <List color={color} spacing='x16' icon={icon}>
-          <List.Item fontScale='s1'>
+          <List.Item fontScale='h4'>
             {t('page.cloudDescription.availability')}
           </List.Item>
-          <List.Item fontScale='s1'>
+          <List.Item fontScale='h4'>
             {t('page.cloudDescription.auditing')}
           </List.Item>
-          <List.Item fontScale='s1'>
+          <List.Item fontScale='h4'>
             {t('page.cloudDescription.engagement')}
           </List.Item>
-          <List.Item fontScale='s1'>
+          <List.Item fontScale='h4'>
             {t('page.cloudDescription.ldap')}
           </List.Item>
-          <List.Item fontScale='s1'>
+          <List.Item fontScale='h4'>
             {t('page.cloudDescription.omnichannel')}
           </List.Item>
-          <List.Item fontScale='s1'>{t('page.cloudDescription.sla')}</List.Item>
-          <List.Item fontScale='s1'>
+          <List.Item fontScale='h4'>{t('page.cloudDescription.sla')}</List.Item>
+          <List.Item fontScale='h4'>
             {t('page.cloudDescription.push')}
           </List.Item>
         </List>

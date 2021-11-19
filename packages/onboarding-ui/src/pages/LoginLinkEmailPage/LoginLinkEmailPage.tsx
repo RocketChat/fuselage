@@ -42,7 +42,7 @@ const LoginLinkEmailPage = ({
             {t('page.magicLinkEmail.title')}
           </Box>
 
-          <Box fontScale='s1' maxWidth={570}>
+          <Box fontScale='p1' maxWidth={570}>
             <Trans i18nKey='page.magicLinkEmail.subtitle'></Trans>
           </Box>
 
