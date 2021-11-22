@@ -230,6 +230,31 @@
       "sendLoginLink": "Send login link",
       "redirect": "Enter password instead",
       "resetPassword": "Forgot your password? <1>Reset password</1>"
+    },
+    "newAccountForm": {
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
+        },
+        "password": {
+          "label": "Create Password",
+          "placeholder": "Enter your password",
+          "error": "Email and password do not match"
+        },
+        "confirmPassword": {
+          "label": "Confirm Password",
+          "placeholder": "Enter your password",
+          "error": "Email and password do not match"
+        }
+      },
+      "button": {
+        "text": "Log in"
+      }
     }
   }
 }
