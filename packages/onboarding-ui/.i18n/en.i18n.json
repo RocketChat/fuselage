@@ -11,7 +11,8 @@
       "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     },
     "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>",
-    "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>"
+    "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>",
+    "createNewAccountPage": "Already registered? <1>Go to login</1>"
   },
   "page": {
     "form": {
@@ -72,6 +73,9 @@
       "createAccount": {
         "label": "New here? <1>Create account</1>"
       }
+    },
+    "newAccountForm": {
+      "title": "Register new account"
     }
   },
   "form": {
