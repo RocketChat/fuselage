@@ -9,12 +9,13 @@ const getLatestVersion = async ({ tag }) => ({
   version: semver.clean(tag),
 });
 
-const getNextVersion = async ({ tag }) => {
+const getPreReleaseId = async (npmTag) => {
   const response = await npmRegistryFetch.json('/@rocket.chat/fuselage');
-  const [preid, preidCount] = semver.prerelease(response['dist-tags'].next) ?? [
-    'dev',
-    0,
-  ];
+  return semver.prerelease(response['dist-tags'][npmTag]);
+};
+
+const getNextVersion = async ({ tag }) => {
+  const [preid, preidCount] = (await getPreReleaseId('next')) ?? ['dev', 0];
 
   return {
     version: `${semver.clean(tag)}-${preid}.${preidCount}`,
@@ -23,11 +24,7 @@ const getNextVersion = async ({ tag }) => {
 };
 
 const getAlphaVersion = async ({ tag, build }) => {
-  const response = await npmRegistryFetch.json('/@rocket.chat/fuselage');
-  const [preid, preidCount] = semver.prerelease(response['dist-tags'].next) ?? [
-    'alpha',
-    0,
-  ];
+  const [preid, preidCount] = (await getPreReleaseId('alpha')) ?? ['alpha', 0];
 
   return {
     version: `${semver.clean(tag)}-${preid}.${preidCount}+${build}`,
@@ -67,7 +64,7 @@ const getReleaseType = ({ conventionalCommits, preid }) => {
   }
 
   if (conventionalCommits.some(isNewFeature)) {
-    return [preid !== undefined ? 'preminor' : 'minor', 'dev', preid];
+    return [preid !== undefined ? 'preminor' : 'minor', preid];
   }
 
   return [preid !== undefined ? 'prepatch' : 'patch', preid];
