@@ -1,0 +1,10 @@
+{
+  "extends": "@rocket.chat/eslint-config-alt/minimal",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true
+  }
+}

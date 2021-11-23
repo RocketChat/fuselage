@@ -1,0 +1,22 @@
+{
+  "name": "@rocket.chat/monorepo",
+  "private": true,
+  "bin": {
+    "bump-version": "./bin/bump-version.mjs"
+  },
+  "exports": {
+    "./*": "./*"
+  },
+  "dependencies": {
+    "conventional-commits-parser": "^3.2.3",
+    "npm-registry-fetch": "^11.0.0",
+    "semver": "^7.3.5",
+    "simple-git": "^2.47.0"
+  },
+  "devDependencies": {
+    "@rocket.chat/eslint-config-alt": "workspace:^",
+    "@rocket.chat/prettier-config": "workspace:^",
+    "eslint": "^8.3.0",
+    "prettier": "^2.4.1"
+  }
+}
