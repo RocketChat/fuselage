@@ -37,6 +37,16 @@ $sidebar-item-color-selected: theme(
   colors.foreground('hint')
 );
 
+$sidebar-footer-box-shadow: theme(
+  'sidebar-footer-box-shadow',
+  rgba(0, 0, 0, 0.1)
+);
+
+$sidebar-footer-highlight-color: theme(
+  'sidebar-footer-highlight-color',
+  colors.foreground('hint')
+);
+
 %sidebar-base {
   display: flex;
 
@@ -90,12 +100,12 @@ $sidebar-item-color-selected: theme(
 
   &-item {
     @extend %sidebar-base;
+    @include highlighted;
+
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
 
     color: $sidebar-item-color;
-
-    @include highlighted;
 
     &__wrapper {
       @extend %sidebar-base;
@@ -183,8 +193,8 @@ $sidebar-item-color-selected: theme(
       margin-inline: lengths.margin(4);
     }
 
-    &:hover &__menu-wraper,
-    &.focus-within &__menu-wraper {
+    &:hover &__menu-wrapper,
+    &.focus-within &__menu-wrapper {
       position: static;
 
       width: lengths.size(20);
@@ -193,7 +203,7 @@ $sidebar-item-color-selected: theme(
       opacity: 1;
     }
 
-    &:focus-within &__menu-wraper {
+    &:focus-within &__menu-wrapper {
       width: lengths.size(20);
 
       margin-inline: lengths.margin(4);
@@ -207,7 +217,7 @@ $sidebar-item-color-selected: theme(
       transform: translateY(-50%);
     }
 
-    &__menu-wraper {
+    &__menu-wrapper {
       position: relative;
 
       flex-shrink: 0;
@@ -223,9 +233,29 @@ $sidebar-item-color-selected: theme(
   &-title {
     @include typography.use-font-scale(c2);
     @include typography.use-with-truncated-text();
-    padding-block: lengths.padding(12);
+    padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
 
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
     color: colors.foreground(hint);
+  }
+
+  &-footer {
+    box-shadow: 0px -4px 12px $sidebar-footer-box-shadow;
+
+    padding-block: lengths.padding(8);
+
+    &__highlights {
+      @include typography.use-font-scale(c1);
+
+      display: flex;
+      justify-content: center;
+      padding-block: lengths.padding(4);
+      color: $sidebar-footer-highlight-color;
+    }
   }
 }

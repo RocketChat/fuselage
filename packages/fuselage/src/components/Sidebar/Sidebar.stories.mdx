@@ -1,6 +1,19 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 
-import Sidebar from '.';
+import Sidebar, {
+  SidebarItemContainer,
+  SidebarItemActions,
+  SidebarItemAction,
+  SidebarFooter,
+  SidebarSection,
+  SidebarItem,
+  SidebarSectionTitle,
+  SidebarItemIcon,
+  SidebarItemWrapper,
+  SidebarItemContent,
+  TopBarAction,
+  SidebarFooterHighlight,
+} from '.';
 import { Avatar } from '../..';
 
 <Meta title='Sidebar' parameters={{ jest: ['Sidebar/spec'] }} />
@@ -32,7 +45,13 @@ import { Avatar } from '../..';
         <Sidebar.TopBar.Action icon='message-disabled' />
       </Sidebar.TopBar.Actions>
     </Sidebar.TopBar.ToolBox>
-    <Sidebar.Section.Title>Calls</Sidebar.Section.Title>
+    <Sidebar.Section.Title>
+      Callss
+      <Sidebar.TopBar.Actions>
+        <Sidebar.TopBar.Action success icon='phone' />
+        <Sidebar.TopBar.Action icon='message-disabled' />
+      </Sidebar.TopBar.Actions>
+    </Sidebar.Section.Title>
     <Sidebar.Item>
       <Sidebar.Item.Avatar>
         <Avatar
@@ -115,14 +134,59 @@ import { Avatar } from '../..';
           </Sidebar.Item.Wrapper>
         </Sidebar.Item.Content>
       </Sidebar.Item.Content>
-      <Sidebar.Item.Container>
-        <Sidebar.Item.Actions>
-          <Sidebar.Item.Action primary success icon='phone' />
-          <Sidebar.Item.Action primary danger icon='circle-cross' />
-          <Sidebar.Item.Action primary icon='trash' />
-          <Sidebar.Item.Action icon='phone' />
-        </Sidebar.Item.Actions>
-      </Sidebar.Item.Container>
+      <SidebarItemContainer>
+        <SidebarItemActions>
+          <SidebarItemAction primary success icon='phone' />
+          <SidebarItemAction primary danger icon='circle-cross' />
+          <SidebarItemAction primary icon='trash' />
+          <SidebarItemAction icon='phone' />
+        </SidebarItemActions>
+      </SidebarItemContainer>
     </Sidebar.Item>
+    <SidebarFooter>
+      <SidebarFooterHighlight> 9 Chats enqeued </SidebarFooterHighlight>
+      <SidebarSectionTitle>
+        Voice Channel
+        <SidebarItemActions>
+          <TopBarAction icon='mic-off' />
+          <TopBarAction icon='mic' />
+          <TopBarAction icon='headphone-off' />
+          <TopBarAction icon='headphone' />
+        </SidebarItemActions>
+      </SidebarSectionTitle>
+      <SidebarItem>
+        <SidebarItemAvatar>
+          <Avatar
+            size='x36'
+            url={
+              'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
+            }
+          />
+        </SidebarItemAvatar>
+        <SidebarItemContent>
+          <SidebarItemContent>
+            <SidebarItemWrapper>
+              <SidebarItem.Icon name='balloon' />
+              <SidebarItemTitle>
+                aasdasda asdasdasda asdasdasdas
+              </SidebarItemTitle>
+            </SidebarItemWrapper>
+          </SidebarItemContent>
+          <SidebarItemContent>
+            <SidebarItemWrapper>
+              <SidebarItemSubtitle>
+                ddsfoasdhfiuashd ousadhfiuasdhfiuashd soduhfiuasdhfia
+                ishdfiuashdfiuas iuashdfiausdh
+              </SidebarItemSubtitle>
+            </SidebarItemWrapper>
+          </SidebarItemContent>
+        </SidebarItemContent>
+        <SidebarItemContainer>
+          <SidebarItemActions>
+            <SidebarItemAction danger primary icon='phone-off' />
+          </SidebarItemActions>
+        </SidebarItemContainer>
+      </SidebarItem>
+    </SidebarFooter>
   </Story>
 </Canvas>
