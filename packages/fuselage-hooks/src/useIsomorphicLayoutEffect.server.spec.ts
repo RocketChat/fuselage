@@ -2,25 +2,18 @@
  * @jest-environment node
  */
 
-import { FunctionComponent, createElement, StrictMode } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useIsomorphicLayoutEffect } from '.';
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
-describe('useIsomorphicLayoutEffect hook on server', () => {
-  it('performs a useEffect', () => {
-    const watcher = jest.fn();
+it('performs a useEffect', () => {
+  const watcher = jest.fn();
 
-    const TestComponent: FunctionComponent = () => {
-      useIsomorphicLayoutEffect(() => {
-        watcher();
-      });
-
-      return null;
-    };
-
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-    expect(watcher).toBeCalledTimes(0);
+  renderHook(() => {
+    useIsomorphicLayoutEffect(() => {
+      watcher();
+    });
   });
+
+  expect(watcher).toBeCalledTimes(0);
 });

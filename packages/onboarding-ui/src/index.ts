@@ -6,8 +6,9 @@ export { default as ConfirmationProcessPage } from './pages/ConfirmationProcessP
 export { default as CreateCloudWorkspacePage } from './pages/CreateCloudWorkspacePage';
 export { default as EmailConfirmedPage } from './pages/EmailConfirmedPage';
 export { default as InvalidLinkPage } from './pages/InvalidLinkPage';
-export { default as MagicLinkEmailPage } from './pages/MagicLinkEmailPage';
+export { default as LoginLinkEmailPage } from './pages/LoginLinkEmailPage';
 export { default as OrganizationInfoPage } from './pages/OrganizationInfoPage';
 export { default as RegisterServerPage } from './pages/RegisterServerPage';
 export { default as RequestTrialPage } from './pages/RequestTrialPage';
 export { default as DarkModeProvider } from './common/DarkModeProvider';
+export { default as LoginPage } from './pages/LoginPage';

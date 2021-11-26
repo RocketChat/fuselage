@@ -21,7 +21,6 @@ type FormPageLayoutProps = {
   description?: ReactNode;
   styleProps?: FormPageLayoutStyleProps;
   children: ReactNode;
-
   tag?: string;
 };
 

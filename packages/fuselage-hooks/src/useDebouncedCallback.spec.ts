@@ -1,154 +1,91 @@
-import {
-  FunctionComponent,
-  createElement,
-  StrictMode,
-  useReducer,
-  useState,
-  Dispatch,
-  SetStateAction,
-} from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook, act } from '@testing-library/react-hooks';
+import { useState } from 'react';
 
-import { useDebouncedCallback } from '.';
+import { useDebouncedCallback } from './useDebouncedCallback';
 
-describe('useDebouncedCallback hook', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
+beforeAll(() => {
+  jest.useFakeTimers();
+});
+
+it('returns a debounced callback', () => {
+  const halfDelay = 50;
+  const delay = 2 * halfDelay;
+  const fn = jest.fn();
+
+  const { result } = renderHook(() => useDebouncedCallback(fn, delay));
+
+  const debouncedCallback = result.current;
+  expect(debouncedCallback).toBeInstanceOf(Function);
+  expect(debouncedCallback.flush).toBeInstanceOf(Function);
+  expect(debouncedCallback.cancel).toBeInstanceOf(Function);
+
+  debouncedCallback();
+
+  jest.advanceTimersByTime(halfDelay);
+
+  expect(fn).toHaveBeenCalledTimes(0);
+
+  jest.advanceTimersByTime(halfDelay);
+
+  expect(fn).toHaveBeenCalledTimes(1);
+});
+
+it("returns the same callback if deps don't change", () => {
+  const delay = 100;
+  const { result, rerender } = renderHook(() =>
+    useDebouncedCallback(() => undefined, delay, [])
+  );
+
+  const initialCallback = result.current;
+
+  act(() => {
+    rerender();
   });
 
-  it('returns a debounced callback', () => {
-    const fn = jest.fn();
-    const delay = 100 + Math.round(100 * Math.random());
-    const delayBeforeUpdate = Math.round(delay * 0.75);
+  expect(result.current).toBe(initialCallback);
+});
 
-    let debouncedCallback: (() => void) & {
-      flush: () => void;
-      cancel: () => void;
-    };
+it('returns another callback if deps change', () => {
+  const delay = 100;
+  const initialDep = Symbol('initial');
+  const newDep = Symbol('new');
 
-    const TestComponent: FunctionComponent = () => {
-      debouncedCallback = useDebouncedCallback(fn, delay);
-      return null;
-    };
+  const { result } = renderHook(() => {
+    const [dep, setDep] = useState<symbol>(initialDep);
+    const debouncedCallback = useDebouncedCallback(() => undefined, delay, [
+      dep,
+    ]);
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    expect(debouncedCallback).toBeInstanceOf(Function);
-    expect(debouncedCallback.flush).toBeInstanceOf(Function);
-    expect(debouncedCallback.cancel).toBeInstanceOf(Function);
-
-    debouncedCallback();
-
-    jest.advanceTimersByTime(delayBeforeUpdate);
-
-    expect(fn).toHaveBeenCalledTimes(0);
-
-    jest.advanceTimersByTime(delay - delayBeforeUpdate);
-
-    expect(fn).toHaveBeenCalledTimes(1);
+    return { setDep, debouncedCallback };
   });
 
-  it("returns the same callback if deps don't change", () => {
-    const delay = 100 + Math.round(100 * Math.random());
+  const initialCallback = result.current.debouncedCallback;
 
-    let debouncedCallback: (() => void) & {
-      flush: () => void;
-      cancel: () => void;
-    };
-    let forceUpdate: () => void;
-
-    const TestComponent: FunctionComponent = () => {
-      debouncedCallback = useDebouncedCallback(() => undefined, delay, []);
-      [, forceUpdate] = useReducer((state) => !state, false);
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    const initialCallback = debouncedCallback;
-
-    act(() => {
-      forceUpdate();
-    });
-
-    expect(debouncedCallback).toBe(initialCallback);
+  act(() => {
+    const { setDep } = result.current;
+    setDep(newDep);
   });
 
-  it('returns another callback if deps change', () => {
-    const delay = 100 + Math.round(100 * Math.random());
-    const initialDep = Symbol('initial');
-    const newDep = Symbol('new');
+  expect(result.current.debouncedCallback).not.toBe(initialCallback);
+});
 
-    let setDep: Dispatch<SetStateAction<symbol>>;
-    let debouncedCallback: (() => void) & {
-      flush: () => void;
-      cancel: () => void;
-    };
+it('returns another callback if delay change', () => {
+  const initialDelay = 100;
+  const newDelay = 150;
 
-    const TestComponent: FunctionComponent = () => {
-      let dep: symbol;
-      [dep, setDep] = useState<symbol>(initialDep);
-      debouncedCallback = useDebouncedCallback(() => undefined, delay, [dep]);
-      return null;
-    };
+  const { result } = renderHook(() => {
+    const [delay, setDelay] = useState(initialDelay);
+    const debouncedCallback = useDebouncedCallback(() => undefined, delay, []);
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    const initialCallback = debouncedCallback;
-
-    act(() => {
-      setDep(newDep);
-    });
-
-    expect(debouncedCallback).not.toBe(initialCallback);
+    return { setDelay, debouncedCallback };
   });
 
-  it('returns another callback if delay change', () => {
-    const initialDelay = 100 + Math.round(100 * Math.random());
-    const newDelay = initialDelay + Math.round(100 * Math.random());
+  const initialCallback = result.current.debouncedCallback;
 
-    let setDelay: Dispatch<SetStateAction<number>>;
-    let debouncedCallback: (() => void) & {
-      flush: () => void;
-      cancel: () => void;
-    };
-
-    const TestComponent: FunctionComponent = () => {
-      let delay: number;
-      [delay, setDelay] = useState(initialDelay);
-      debouncedCallback = useDebouncedCallback(() => undefined, delay, []);
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    const initialCallback = debouncedCallback;
-
-    act(() => {
-      setDelay(newDelay);
-    });
-
-    expect(initialCallback).not.toBe(debouncedCallback);
+  act(() => {
+    const { setDelay } = result.current;
+    setDelay(newDelay);
   });
+
+  expect(result.current.debouncedCallback).not.toBe(initialCallback);
 });

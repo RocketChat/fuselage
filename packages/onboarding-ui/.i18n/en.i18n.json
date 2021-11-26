@@ -10,7 +10,8 @@
       "requiredField": "This field is required",
       "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     },
-    "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>"
+    "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>",
+    "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>"
   },
   "page": {
     "form": {
@@ -34,8 +35,8 @@
     "cloudDescription": {
       "title": "Let's launch your workspace and <1>14-day trial</1>",
       "tryGold": "Try our best Gold plan for 14 days for free",
-      "numberOfIntegrations": "1,000 integrations",
-      "availability": "High availability",
+      "numberOfIntegrations": "Apps and integrations",
+      "availability": "Scalable micro-services",
       "auditing": "Message audit panel / Audit logs",
       "engagement": "Engagement Dashboard",
       "ldap": "LDAP enhanced sync",
@@ -63,6 +64,14 @@
     "organizationInfoPage": {
       "title": "A few more details...",
       "subtitle": "These will help us to personalize your workspace."
+    },
+    "loginPage": {
+      "title": {
+        "cloud": "Cloud Login"
+      },
+      "createAccount": {
+        "label": "New here? <1>Create account</1>"
+      }
     }
   },
   "form": {
@@ -175,12 +184,12 @@
     "requestTrialForm": {
       "fields": {
         "emailAddress": {
-          "label": "Email address",
-          "placeholder": "Enter email address"
+          "label": "Organization email",
+          "placeholder": "Enter organization email address"
         },
         "organizationName": {
           "label": "Organization name",
-          "placeholder": "Organization name"
+          "placeholder": "Enter organization name"
         },
         "organizationSize": {
           "label": "Organization size",
@@ -196,8 +205,31 @@
       },
       "hasWorkspace": {
         "label": "Already registered a workspace?",
-        "description": "Use the same email address to continue"
+        "description": "Please use the email address associated with your cloud account"
       }
+    },
+    "loginForm": {
+      "content": {
+        "default": "Enter your password to continue.",
+        "passwordLess": "If you’re already registered we’ll email you a link to log in."
+      },
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "error": "Email and password do not match"
+        }
+      },
+      "button": {
+        "text": "Log in"
+      },
+      "sendLoginLink": "Send login link",
+      "redirect": "Enter password instead",
+      "resetPassword": "Forgot your password? <1>Reset password</1>"
     }
   }
 }
