@@ -9,7 +9,6 @@ import {
   Box,
   CheckBox,
 } from '@rocket.chat/fuselage';
-import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import { ReactElement, useEffect } from 'react';
 import { useForm, SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
@@ -33,7 +32,6 @@ type NewAccountFormProps = {
 };
 
 const NewAccountForm = ({
-  initialValues,
   validateEmail,
   validatePassword,
   validateConfirmationPassword,
@@ -41,22 +39,12 @@ const NewAccountForm = ({
 }: NewAccountFormProps): ReactElement => {
   const { t } = useTranslation();
 
-  const nameField = useUniqueId();
-  const emailField = useUniqueId(); // lgtm [js/insecure-randomness]
-  const passwordField = useUniqueId();
-  const confirmPasswordField = useUniqueId(); // lgtm [js/insecure-randomness]
-
   const {
     register,
     handleSubmit,
-    formState: { isValidating, isSubmitting, errors },
+    formState: { isValidating, isSubmitting, isValid, errors },
     setFocus,
-  } = useForm<NewAccountPayload>({
-    defaultValues: {
-      ...initialValues,
-      password: '',
-    },
-  });
+  } = useForm<NewAccountPayload>({ mode: 'onChange' });
 
   useEffect(() => {
     setFocus('name');
@@ -67,7 +55,7 @@ const NewAccountForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label htmlFor={nameField}>
+            <Field.Label>
               {t('form.newAccountForm.fields.name.label')}
             </Field.Label>
             <Field.Row>
@@ -75,37 +63,34 @@ const NewAccountForm = ({
                 {...register('name', {
                   required: String(t('component.form.requiredField')),
                 })}
-                id={nameField}
               />
             </Field.Row>
             {errors.name && <Field.Error>{errors.name.message}</Field.Error>}
           </Field>
           <Field>
-            <Field.Label htmlFor={emailField}>
+            <Field.Label>
               {t('form.newAccountForm.fields.email.label')}
             </Field.Label>
             <Field.Row>
               <EmailInput
                 {...register('email', {
-                  required: String(t('component.form.requiredField')),
                   validate: validateEmail,
+                  required: true,
                 })}
-                id={emailField}
               />
             </Field.Row>
-            {errors.email && <Field.Error>{errors.email.message}</Field.Error>}
+            {errors?.email && <Field.Error>{errors.email.message}</Field.Error>}
           </Field>
           <Field>
-            <Field.Label htmlFor={passwordField}>
+            <Field.Label>
               {t('form.newAccountForm.fields.password.label')}
             </Field.Label>
             <Field.Row>
               <PasswordInput
                 {...register('password', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                   validate: validatePassword,
                 })}
-                id={passwordField}
               />
             </Field.Row>
             {errors.password && (
@@ -113,16 +98,15 @@ const NewAccountForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={confirmPasswordField}>
+            <Field.Label>
               {t('form.newAccountForm.fields.confirmPassword.label')}
             </Field.Label>
             <Field.Row>
               <PasswordInput
                 {...register('confirmPassword', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                   validate: validateConfirmationPassword,
                 })}
-                id={confirmPasswordField}
               />
             </Field.Row>
             {errors.confirmPassword && (
@@ -169,7 +153,11 @@ const NewAccountForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup flexGrow={1}>
-          <Button type='submit' primary disabled={isValidating || isSubmitting}>
+          <Button
+            type='submit'
+            primary
+            disabled={isValidating || isSubmitting || !isValid}
+          >
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
