@@ -7,8 +7,8 @@ import { Virtuoso } from 'react-virtuoso';
 
 import { AnimatedVisibility, Box } from '../Box';
 import { CheckBox } from '../CheckBox';
+import { Option } from '../Options/Option';
 import Tile from '../Tile';
-import { Option } from './Option';
 
 const prevent = (e) => {
   e.preventDefault();
