@@ -11,7 +11,6 @@ export const Fallback: FC = ({ children }) => (
 
 export const FallbackIcon: FC<{
   name: ComponentProps<typeof Icon>['name'];
-  // variation?: 'danger';
 }> = ({ name }) => (
   <div className='rcx-fallback__icon'>
     <Icon name={name} size='x32' />

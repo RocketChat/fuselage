@@ -17,11 +17,11 @@ import {
 } from './Fallback';
 
 export default {
-  title: 'Fallback/Fallback',
-  //   component: Message,
-  //   parameters: {
-  //     jest: ['Message.spec.tsx'],
-  //   },
+  title: 'Misc/Fallback',
+  component: Fallback,
+  parameters: {
+    jest: ['Fallback.spec.tsx'],
+  },
 };
 
 export const Default = ({ searchTerm = 'search term here' }) => (
