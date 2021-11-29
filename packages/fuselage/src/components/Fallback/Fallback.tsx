@@ -28,6 +28,7 @@ export const FallbackSubtitle: FC = ({ children }) => (
 export const FallbackSuggestion: FC = ({ children }) => (
   <div className='rcx-fallback__suggestion'>{children}</div>
 );
+
 export const FallbackSuggestionText: FC = ({ children }) => (
   <div className='rcx-fallback__suggestion-text'>{children}</div>
 );
