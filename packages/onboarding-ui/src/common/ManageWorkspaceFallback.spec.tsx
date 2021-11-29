@@ -1,14 +1,11 @@
 import ReactDOM from 'react-dom';
 
-import MagicLinkEmailPage from './MagicLinkEmailPage';
+import ManageWorkspaceFallback from './ManageWorkspaceFallback';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <MagicLinkEmailPage
-      onResendEmailRequest={() => undefined}
-      onChangeEmailRequest={() => undefined}
-    />,
+    <ManageWorkspaceFallback onManageWorkspaceClick={() => undefined} />,
     div
   );
   ReactDOM.unmountComponentAtNode(div);

@@ -3,19 +3,50 @@ const getSizeInPixels = (value) =>
   (typeof value === 'number' && value) ||
   0;
 
-const createBoxSizes = (style) => {
-  const inlineSize = getSizeInPixels(style.inlineSize);
-  const borderInlineStartWidth = getSizeInPixels(style.borderInlineStartWidth);
-  const borderInlineEndWidth = getSizeInPixels(style.borderInlineEndWidth);
-  const paddingInlineStart = getSizeInPixels(style.paddingInlineStart);
-  const paddingInlineEnd = getSizeInPixels(style.paddingInlineEnd);
-  const blockSize = getSizeInPixels(style.blockSize);
-  const borderBlockStartWidth = getSizeInPixels(style.borderBlockStartWidth);
-  const borderBlockEndWidth = getSizeInPixels(style.borderBlockEndWidth);
-  const paddingBlockStart = getSizeInPixels(style.paddingBlockStart);
-  const paddingBlockEnd = getSizeInPixels(style.paddingBlockEnd);
+const getNormalizedStyle = (style) => ({
+  boxSizing: style.boxSizing === 'border-box' ? 'border-box' : 'content-box',
+  inlineSize: getSizeInPixels(style.inlineSize || style.width),
+  borderInlineStartWidth: getSizeInPixels(
+    style.borderInlineStartWidth || style.borderRightWidth
+  ),
+  borderInlineEndWidth: getSizeInPixels(
+    style.borderInlineEndWidth || style.borderRightWidth
+  ),
+  paddingInlineStart: getSizeInPixels(
+    style.paddingInlineStart || style.paddingLeft
+  ),
+  paddingInlineEnd: getSizeInPixels(
+    style.paddingInlineEnd || style.paddingRight
+  ),
+  blockSize: getSizeInPixels(style.blockSize || style.height),
+  borderBlockStartWidth: getSizeInPixels(
+    style.borderBlockStartWidth || style.borderTopWidth
+  ),
+  borderBlockEndWidth: getSizeInPixels(
+    style.borderBlockEndWidth || style.borderBottomWidth
+  ),
+  paddingBlockStart: getSizeInPixels(
+    style.paddingBlockStart || style.paddingTop
+  ),
+  paddingBlockEnd: getSizeInPixels(
+    style.paddingBlockEnd || style.paddingBottom
+  ),
+});
 
-  if (style.boxSizing === 'border-box') {
+const createBoxSizes = ({
+  boxSizing,
+  inlineSize,
+  borderInlineStartWidth,
+  borderInlineEndWidth,
+  paddingInlineStart,
+  paddingInlineEnd,
+  blockSize,
+  borderBlockStartWidth,
+  borderBlockEndWidth,
+  paddingBlockStart,
+  paddingBlockEnd,
+}) => {
+  if (boxSizing === 'border-box') {
     const borderBoxSize = Object.freeze({
       inlineSize,
       blockSize,
@@ -68,6 +99,105 @@ const createBoxSizes = (style) => {
   };
 };
 
+const sizeMock = {
+  offsetWidth: {
+    get() {
+      const {
+        boxSizing,
+        inlineSize,
+        borderInlineStartWidth,
+        paddingInlineStart,
+        paddingInlineEnd,
+        borderInlineEndWidth,
+      } = getNormalizedStyle(getComputedStyle(this));
+
+      if (boxSizing === 'border-box') {
+        return inlineSize;
+      }
+
+      return (
+        borderInlineStartWidth +
+        paddingInlineStart +
+        inlineSize +
+        paddingInlineEnd +
+        borderInlineEndWidth
+      );
+    },
+  },
+  offsetHeight: {
+    get() {
+      const {
+        boxSizing,
+        blockSize,
+        borderBlockStartWidth,
+        paddingBlockStart,
+        paddingBlockEnd,
+        borderBlockEndWidth,
+      } = getNormalizedStyle(getComputedStyle(this));
+
+      if (boxSizing === 'border-box') {
+        return blockSize;
+      }
+
+      return (
+        borderBlockStartWidth +
+        paddingBlockStart +
+        blockSize +
+        paddingBlockEnd +
+        borderBlockEndWidth
+      );
+    },
+  },
+  clientWidth: {
+    get() {
+      const {
+        boxSizing,
+        inlineSize,
+        borderInlineStartWidth,
+        paddingInlineStart,
+        paddingInlineEnd,
+        borderInlineEndWidth,
+      } = getNormalizedStyle(getComputedStyle(this));
+
+      if (boxSizing === 'border-box') {
+        return (
+          inlineSize -
+          borderInlineStartWidth -
+          paddingInlineStart -
+          paddingInlineEnd -
+          borderInlineEndWidth
+        );
+      }
+
+      return inlineSize;
+    },
+  },
+  clientHeight: {
+    get() {
+      const {
+        boxSizing,
+        blockSize,
+        borderBlockStartWidth,
+        paddingBlockStart,
+        paddingBlockEnd,
+        borderBlockEndWidth,
+      } = getNormalizedStyle(getComputedStyle(this));
+
+      if (boxSizing === 'border-box') {
+        return (
+          blockSize -
+          borderBlockStartWidth -
+          paddingBlockStart -
+          paddingBlockEnd -
+          borderBlockEndWidth
+        );
+      }
+
+      return blockSize;
+    },
+  },
+};
+
 class ResizeObserverMock {
   callback = () => undefined;
 
@@ -100,26 +230,9 @@ class ResizeObserverMock {
           return;
         }
 
-        const styles = getComputedStyle(mutation.target);
+        const style = getNormalizedStyle(getComputedStyle(mutation.target));
 
-        const { borderBoxSize, contentBoxSize } = createBoxSizes({
-          boxSizing:
-            styles.boxSizing === 'border-box' ? 'border-box' : 'content-box',
-          inlineSize: styles.inlineSize || styles.width,
-          borderInlineStartWidth:
-            styles.borderInlineStartWidth || styles.borderRightWidth,
-          borderInlineEndWidth:
-            styles.borderInlineEndWidth || styles.borderRightWidth,
-          paddingInlineStart: styles.paddingInlineStart || styles.paddingLeft,
-          paddingInlineEnd: styles.paddingInlineEnd || styles.paddingRight,
-          blockSize: styles.blockSize || styles.height,
-          borderBlockStartWidth:
-            styles.borderBlockStartWidth || styles.borderTopWidth,
-          borderBlockEndWidth:
-            styles.borderBlockEndWidth || styles.borderBottomWidth,
-          paddingBlockStart: styles.paddingBlockStart || styles.paddingTop,
-          paddingBlockEnd: styles.paddingBlockEnd || styles.paddingBottom,
-        });
+        const { borderBoxSize, contentBoxSize } = createBoxSizes(style);
 
         this.callback(
           [
@@ -150,16 +263,13 @@ class ResizeObserverMock {
 }
 
 const withResizeObserverMock = () => {
-  let prevImpl;
-
   beforeAll(() => {
-    prevImpl = window.ResizeObserver;
-    window.ResizeObserver = ResizeObserverMock;
-  });
+    if (window.ResizeObserver === ResizeObserverMock) {
+      return;
+    }
 
-  afterAll(() => {
-    window.ResizeObserver = prevImpl;
-    prevImpl = undefined;
+    window.ResizeObserver = ResizeObserverMock;
+    Object.defineProperties(window.HTMLElement.prototype, sizeMock);
   });
 };
 

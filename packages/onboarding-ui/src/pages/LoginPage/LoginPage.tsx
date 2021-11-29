@@ -54,12 +54,12 @@ const LoginPage = ({
             <LoginForm {...props} />
           </Box>
         </Box>
-        <Box mb='x30' fontScale='p1'>
+        <Box mb='x30' fontScale='p3'>
           <Trans i18nKey='page.loginPage.createAccount.label'>
             New here?
             <ActionLink
               fontWeight={400}
-              fontScale='p1'
+              fontScale='p3'
               onClick={onCreateAccount}
             >
               Create account

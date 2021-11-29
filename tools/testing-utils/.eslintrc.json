@@ -1,5 +1,9 @@
 {
-  "extends": "@rocket.chat/eslint-config-alt/typescript",
+  "extends": "@rocket.chat/eslint-config-alt/minimal",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
   "env": {
     "node": true,
     "jest": true
