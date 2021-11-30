@@ -1,0 +1,71 @@
+@use '../../styles/lengths.scss';
+@use '../../styles/functions.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
+
+.rcx-states {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: lengths.padding(16);
+
+  color: colors.foreground(info);
+
+  &__icon {
+    margin-block-end: lengths.margin(16);
+    padding: lengths.margin(16);
+
+    border-radius: 100%;
+
+    background-color: colors.neutral(200);
+  }
+
+  &__title {
+    margin-block-end: lengths.margin(8);
+
+    color: colors.foreground(default);
+    @include typography.use-font-scale(h1);
+  }
+
+  &__subtitle,
+  &__list,
+  &__suggestion {
+    @include typography.use-font-scale(p2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 410px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style-position: inside;
+
+    text-align: center;
+  }
+
+  &__suggestion-text-nomargin {
+    margin: 0;
+  }
+
+  &__suggestion,
+  &__subtitle {
+    margin-block-end: lengths.margin(24);
+  }
+
+  &__list {
+    list-style: initial;
+
+    &-item {
+      &-wrapper {
+        margin-inline-start: lengths.margin(-4);
+      }
+    }
+  }
+}
