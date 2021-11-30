@@ -12,7 +12,7 @@
 
 ---
 
-![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-ui-kit/latest?style=flat-square) ![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-ui-kit/next?style=flat-square) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage-ui-kit/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage-ui-kit) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-ui-kit?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage-ui-kit?style=flat-square)
+[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-ui-kit/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-ui-kit/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage-ui-kit/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage-ui-kit) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-ui-kit?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage-ui-kit?style=flat-square)
 
 ![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-ui-kit&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-ui-kit&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-ui-kit&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-ui-kit?style=flat-square)
 
@@ -25,11 +25,11 @@
 Firstly, install the peer dependencies (prerequisites):
 
 ```sh
-npm i @rocket.chat/fuselage @rocket.chat/fuselage-hooks @rocket.chat/fuselage-polyfills @rocket.chat/icons @rocket.chat/ui-kit react react-dom
+npm i @rocket.chat/fuselage-polyfills @rocket.chat/icons react react-dom
 
 # or, if you are using yarn:
 
-yarn add @rocket.chat/fuselage @rocket.chat/fuselage-hooks @rocket.chat/fuselage-polyfills @rocket.chat/icons @rocket.chat/ui-kit react react-dom
+yarn add @rocket.chat/fuselage-polyfills @rocket.chat/icons react react-dom
 ```
 
 Add `@rocket.chat/fuselage-ui-kit` as a dependency:
@@ -80,13 +80,13 @@ yarn lint
 
 Some linter warnings and errors can be automatically fixed:
 
-<!--yarn(lint-fix)-->
+<!--yarn(lint-and-fix)-->
 
 ```sh
-yarn lint-fix
+yarn lint-and-fix
 ```
 
-<!--/yarn(lint-fix)-->
+<!--/yarn(lint-and-fix)-->
 
 ### Component stories
 

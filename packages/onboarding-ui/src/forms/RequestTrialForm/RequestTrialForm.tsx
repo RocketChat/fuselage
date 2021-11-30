@@ -5,6 +5,7 @@ import {
   TextInput,
   EmailInput,
   Select,
+  SelectFiltered,
   SelectOptions,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
@@ -25,6 +26,7 @@ type RequestTrialFormProps = {
   organizationSizeOptions: SelectOptions;
   countryOptions: SelectOptions;
   onSubmit: SubmitHandler<RequestTrialPayload>;
+  onManageWorkspaceClick: () => void;
   validateEmail: Validate<string>;
 };
 
@@ -116,9 +118,10 @@ const RequestTrialForm = ({
               control={control}
               rules={{ required: true }}
               render={({ field }) => (
-                <Select
+                <SelectFiltered
                   {...field}
                   options={countryOptions}
+                  width='full'
                   placeholder={t(
                     'form.requestTrialForm.fields.country.placeholder'
                   )}

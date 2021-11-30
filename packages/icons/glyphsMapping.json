@@ -802,5 +802,17 @@
   },
   "text-decrease": {
     "start": "\ue0df"
+  },
+  "phone-disabled": {
+    "start": "\ue0e0"
+  },
+  "sms": {
+    "start": "\ue0e1"
+  },
+  "phone-in": {
+    "start": "\ue0e2"
+  },
+  "phone-out": {
+    "start": "\ue0e3"
   }
 }

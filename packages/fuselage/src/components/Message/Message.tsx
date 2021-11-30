@@ -1,26 +1,26 @@
 import React, {
-  ComponentProps,
+  AllHTMLAttributes,
   FC,
   forwardRef,
-  ForwardRefExoticComponent,
+  ReactElement,
+  ReactNode,
 } from 'react';
 
 import './Messages.styles.scss';
 
-import { Tag } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
-import { Box } from '../Box';
-import { Divider } from './Divider';
-import { Metrics } from './Metrics';
-import { Toolbox } from './Toolbox';
+import { Tag } from '../Tag';
+import { MessageDivider } from './MessageDivider';
+import { MessageMetrics } from './MessageMetrics';
+import { MessageToolbox } from './MessageToolbox';
 
-const Container: FC = function Container(props) {
+export const MessageContainer: FC = function MessageContainer(props) {
   return (
     <div className='rcx-box rcx-box--full rcx-message-container' {...props} />
   );
 };
 
-const ContainerFixed: FC = function Container(props) {
+export const MessageContainerFixed: FC = function MessageContainerFixed(props) {
   return (
     <div
       className='rcx-box rcx-box--full rcx-message-container rcx-message-container--fixed'
@@ -29,16 +29,20 @@ const ContainerFixed: FC = function Container(props) {
   );
 };
 
-export const MessageLeftContainer: FC = function MessageLeftContainer(props) {
-  return (
-    <div
-      className='rcx-box rcx-box--full rcx-message-container rcx-message-container--left'
-      {...props}
-    />
-  );
+type MessageLeftContainerProps = {
+  children?: ReactNode;
 };
 
-const Header: FC = function Header({ children }) {
+export const MessageLeftContainer = (
+  props: MessageLeftContainerProps
+): ReactElement => (
+  <div
+    className='rcx-box rcx-box--full rcx-message-container rcx-message-container--left'
+    {...props}
+  />
+);
+
+export const MessageHeader: FC = function MessageHeader({ children }) {
   return (
     <div className='rcx-box rcx-box--full rcx-message-header'>
       <div className='rcx-box rcx-box--full rcx-message-header__wrapper'>
@@ -48,27 +52,30 @@ const Header: FC = function Header({ children }) {
   );
 };
 
-const Body: FC<{
+type MessageBodyProps = AllHTMLAttributes<HTMLDivElement> & {
   clamp?: 2 | 3 | 4;
-  className?: string | string[];
-}> = function Body({ clamp, className, ...props }) {
-  return (
-    <div
-      className={
-        prependClassName(
-          className,
-          [
-            'rcx-message-body',
-            clamp && `rcx-message-body--clamp rcx-message-body--clamp-${clamp}`,
-          ]
-            .filter(Boolean)
-            .join(' ')
-        ) as string
-      }
-      {...props}
-    />
-  );
 };
+
+export const MessageBody = ({
+  clamp,
+  className,
+  ...props
+}: MessageBodyProps): ReactElement => (
+  <div
+    className={
+      prependClassName(
+        className,
+        [
+          'rcx-message-body',
+          clamp && `rcx-message-body--clamp rcx-message-body--clamp-${clamp}`,
+        ]
+          .filter(Boolean)
+          .join(' ')
+      ) as string
+    }
+    {...props}
+  />
+);
 
 export const MessageBlock: FC<{ className?: string }> = function MessageBlock({
   className,
@@ -87,13 +94,12 @@ export const MessageBlock: FC<{ className?: string }> = function MessageBlock({
   );
 };
 
-type MessageProps = ComponentProps<typeof Box> & {
+type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   clickable?: true | false;
   sequential?: boolean;
-  className: string;
 };
 
-export const Message: ForwardRefExoticComponent<MessageProps> = forwardRef(
+export const Message = forwardRef<HTMLDivElement, MessageProps>(
   function Message(
     {
       // is: Tag = 'div',
@@ -117,22 +123,25 @@ export const Message: ForwardRefExoticComponent<MessageProps> = forwardRef(
             .filter(Boolean)
             .join(' ')
         )}
-        {...(props as any)}
+        {...props}
       />
     );
   }
 );
 
-const Timestamp: FC<{ children: string }> = function Timestamp(props) {
-  return (
-    <span
-      className='rcx-box rcx-box--full rcx-message-header__time'
-      {...props}
-    />
-  );
-};
+export const MessageTimestamp: FC<{ children: string }> =
+  function MessageTimestamp(props) {
+    return (
+      <span
+        className='rcx-box rcx-box--full rcx-message-header__time'
+        {...props}
+      />
+    );
+  };
 
-const Name: FC<{ children: string }> = function Name(props) {
+export const MessageName: FC<{ children: string }> = function MessageName(
+  props
+) {
   return (
     <span
       className='rcx-box rcx-box--full rcx-message-header__name'
@@ -140,16 +149,19 @@ const Name: FC<{ children: string }> = function Name(props) {
     />
   );
 };
-const Username: FC<{ children: string }> = function Name(props) {
-  return (
-    <span
-      className='rcx-box rcx-box--full rcx-message-header__username'
-      {...props}
-    />
-  );
-};
+export const MessageUsername: FC<{ children: string }> =
+  function MessageUsername(props) {
+    return (
+      <span
+        className='rcx-box rcx-box--full rcx-message-header__username'
+        {...props}
+      />
+    );
+  };
 
-const Role: FC<{ children: string }> = function Role(props) {
+export const MessageRole: FC<{ children: string }> = function MessageRole(
+  props
+) {
   return (
     <Tag
       onClick={undefined}
@@ -161,7 +173,7 @@ const Role: FC<{ children: string }> = function Role(props) {
   );
 };
 
-const Roles: FC = function Role(props) {
+export const MessageRoles: FC = function MessageRoles(props) {
   return (
     <div
       className='rcx-box rcx-box--full rcx-message-header__roles'
@@ -170,19 +182,19 @@ const Roles: FC = function Role(props) {
   );
 };
 
-Object.assign(Message, {
-  Metrics,
-  Toolbox,
-  Container,
-  ContainerFixed,
+export default Object.assign(Message, {
+  Metrics: MessageMetrics,
+  Toolbox: MessageToolbox,
+  Container: MessageContainer,
+  ContainerFixed: MessageContainerFixed,
   LeftContainer: MessageLeftContainer,
-  Header,
-  Body,
+  Header: MessageHeader,
+  Body: MessageBody,
   Block: MessageBlock,
-  Timestamp,
-  Name,
-  Username,
-  Roles,
-  Role,
-  Divider,
+  Timestamp: MessageTimestamp,
+  Name: MessageName,
+  Username: MessageUsername,
+  Roles: MessageRoles,
+  Role: MessageRole,
+  Divider: MessageDivider,
 });

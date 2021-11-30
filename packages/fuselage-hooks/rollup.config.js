@@ -9,9 +9,7 @@ import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 export default {
-  external: [
-    'react',
-  ],
+  external: ['react'],
   input: 'src/index.ts',
   output: [
     {

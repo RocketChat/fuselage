@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/css-in-js",
-  "version": "0.29.0",
+  "version": "0.30.0",
   "description": "Toolset to transpile and use CSS on runtime",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -33,36 +33,38 @@
     "access": "public"
   },
   "scripts": {
-    "start": "rollup -c -w",
     "build": "rollup -c",
-    "lint": "eslint --ext ts,tsx src",
-    "lint-fix": "eslint --fix --ext ts,tsx src",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.29.0",
-    "@rocket.chat/prettier-config": "^0.29.0",
+    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
+    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-typescript": "^8.2.1",
-    "@types/jest": "^26.0.24",
+    "@types/jest": "^27.0.2",
     "@types/stylis": "^4.0.1",
-    "eslint": "^7.29.0",
-    "jest": "^27.0.6",
-    "lint-staged": "^11.0.0",
+    "eslint": "^8.2.0",
+    "jest": "^27.3.1",
+    "lint-all": "workspace:tools/lint-all",
+    "lint-staged": "^11.2.6",
     "prettier": "^2.3.2",
     "rollup": "^2.52.4",
     "rollup-plugin-terser": "^7.0.2",
-    "ts-jest": "^27.0.3",
-    "typedoc": "^0.21.2",
+    "ts-jest": "^27.0.7",
+    "typedoc": "^0.22.8",
     "typescript": "^4.3.4"
   },
   "dependencies": {
     "@emotion/hash": "^0.8.0",
-    "@rocket.chat/memo": "^0.29.0",
+    "@rocket.chat/css-supports": "workspace:packages/css-supports",
+    "@rocket.chat/memo": "workspace:packages/memo",
+    "@rocket.chat/stylis-logical-props-middleware": "workspace:packages/stylis-logical-props-middleware",
     "stylis": "^4.0.10"
   }
 }

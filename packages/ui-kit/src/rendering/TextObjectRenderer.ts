@@ -1,4 +1,4 @@
-import { TextObject } from '..';
+import { TextObject } from '../blocks/TextObject';
 import { BlockContext } from './BlockContext';
 
 export type TextObjectRenderer<
@@ -6,6 +6,6 @@ export type TextObjectRenderer<
   Block extends TextObject = TextObject
 > = (
   textObject: Block,
-  context?: BlockContext,
-  index?: number
+  context: BlockContext,
+  index: number
 ) => OutputElement | null;

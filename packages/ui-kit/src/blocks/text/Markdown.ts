@@ -1,7 +1,5 @@
-import { TextObjectType } from '../TextObjectType';
-
 export type Markdown = {
-  type: `${TextObjectType.MARKDOWN}`;
+  type: 'mrkdwn';
   text: string;
   verbatim?: boolean;
 };

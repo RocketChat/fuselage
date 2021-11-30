@@ -1,9 +1,8 @@
 import { Actionable } from '../Actionable';
-import { BlockElementType } from '../BlockElementType';
 import { TextObject } from '../TextObject';
 
 export type DatePickerElement = Actionable<{
-  type: `${BlockElementType.DATEPICKER}`;
+  type: 'datepicker';
   placeholder?: TextObject;
   initialDate?: string;
 }>;

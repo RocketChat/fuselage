@@ -49,10 +49,12 @@
 
     opacity: 1;
 
+    & > .rcx-select__focus {
+      flex-shrink: 1;
+    }
+
     &--hidden {
       & > .rcx-select__focus {
-        flex-shrink: 1;
-
         width: 0;
 
         transition: none;

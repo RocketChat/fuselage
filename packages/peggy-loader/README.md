@@ -12,7 +12,7 @@
 
 ---
 
-![npm@latest](https://img.shields.io/npm/v/@rocket.chat/peggy-loader/latest?style=flat-square) ![npm@next](https://img.shields.io/npm/v/@rocket.chat/peggy-loader/next?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/peggy-loader?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/peggy-loader?style=flat-square)
+[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/peggy-loader/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/peggy-loader/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/peggy-loader?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/peggy-loader?style=flat-square)
 
 ![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fpeggy-loader&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fpeggy-loader&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fpeggy-loader&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/peggy-loader?style=flat-square)
 
@@ -80,10 +80,10 @@ yarn lint
 
 Some linter warnings and errors can be automatically fixed:
 
-<!--yarn(lint-fix)-->
+<!--yarn(lint-and-fix)-->
 
 ```sh
-yarn lint-fix
+yarn lint-and-fix
 ```
 
-<!--/yarn(lint-fix)-->
+<!--/yarn(lint-and-fix)-->

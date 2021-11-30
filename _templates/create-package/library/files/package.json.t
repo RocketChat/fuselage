@@ -1,5 +1,14 @@
 ---
 to: packages/<%=package%>/package.json
+sh: |
+  cd packages/<%=package%>
+  yarn add -D npm-run-all rimraf
+  yarn add -D prettier @rocket.chat/prettier-config
+  yarn add -D eslint @rocket.chat/eslint-config-alt
+  yarn add -D lint-all lint-staged
+  yarn add -D jest ts-jest @types/jest
+  yarn add -D typescript typedoc
+  yarn add tslib
 ---
 {
   "name": "@rocket.chat/<%=package%>",
@@ -25,44 +34,18 @@ to: packages/<%=package%>/package.json
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
-  "typesVersions": {
-    "<4.1": {
-      "*": [
-        "dist/ts3.4/*"
-      ]
-    }
-  },
   "files": [
     "/dist"
   ],
   "scripts": {
-    "build": "run-s .:build:clean .:build:esm .:build:cjs .:build:ts3.4",
+    "build": "run-s .:build:clean .:build:esm .:build:cjs",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig-esm.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
-    ".:build:ts3.4": "downlevel-dts dist/esm/ dist/ts3.4/ --to=3.4",
-    "lint": "eslint src",
-    "lint-fix": "eslint --fix src",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "docs": "typedoc"
-  },
-  "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.27.0",
-    "@rocket.chat/prettier-config": "^0.27.0",
-    "@types/jest": "^26.0.23",
-    "downlevel-dts": "^0.7.0",
-    "eslint": "^7.26.0",
-    "jest": "^26.6.3",
-    "lint-staged": "^11.0.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^26.5.6",
-    "typedoc": "^0.20.36",
-    "typescript": "^4.2.4"
-  },
-  "dependencies": {
-    "tslib": "^2.2.0"
   }
 }

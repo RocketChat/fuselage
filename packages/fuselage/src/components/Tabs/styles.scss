@@ -90,7 +90,7 @@ $tabs-disabled-selected-border-color: theme(
   border-inline-width: lengths.border-width(none);
 
   @include clickable;
-  @include typography.use-font-scale(s2);
+  @include typography.use-font-scale(h4);
 
   &.hover,
   &:hover {

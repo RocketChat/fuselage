@@ -80,17 +80,17 @@ export type MarkupExcluding<T extends Markup> = Exclude<Markup, T>;
 
 export type Bold = {
   type: 'BOLD';
-  value: Array<MarkupExcluding<Bold>>;
+  value: Array<MarkupExcluding<Bold> | Link>;
 };
 
 export type Italic = {
   type: 'ITALIC';
-  value: Array<MarkupExcluding<Italic>>;
+  value: Array<MarkupExcluding<Italic> | Link>;
 };
 
 export type Strike = {
   type: 'STRIKE';
-  value: Array<MarkupExcluding<Strike>>;
+  value: Array<MarkupExcluding<Strike> | Link>;
 };
 
 export type Plain = {
@@ -101,6 +101,14 @@ export type Plain = {
 export type Paragraph = {
   type: 'PARAGRAPH';
   value: Array<Exclude<Inlines, Paragraph>>;
+};
+
+export type Image = {
+  type: 'IMAGE';
+  value: {
+    src: Plain;
+    label: Markup;
+  };
 };
 
 export type Link = {
@@ -143,6 +151,7 @@ export type Types = {
   UNORDERED_LIST: UnorderedList;
   ORDERED_LIST: OrderedList;
   LIST_ITEM: ListItem;
+  IMAGE: Image;
 };
 
 export type ASTNode =
@@ -172,6 +181,7 @@ export type Inlines =
   | Italic
   | Strike
   | InlineCode
+  | Image
   | Link
   | UserMention
   | ChannelMention

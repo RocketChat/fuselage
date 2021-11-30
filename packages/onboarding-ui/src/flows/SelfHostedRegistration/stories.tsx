@@ -159,6 +159,7 @@ export const SelfHostedRegistration: Story = () => {
         currentStep={4}
         stepCount={4}
         initialValues={{}}
+        validateEmail={validateEmail}
         onBackButtonClick={() => navigateTo('/register-server')}
         onSubmit={handleCloudAccountEmailSubmit}
       />

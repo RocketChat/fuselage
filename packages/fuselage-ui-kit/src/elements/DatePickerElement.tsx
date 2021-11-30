@@ -1,24 +1,21 @@
 import { InputBox } from '@rocket.chat/fuselage';
-import {
-  BlockContext,
-  DatePickerElement as DatePickerElementProps,
-  PlainText,
-} from '@rocket.chat/ui-kit';
-import { BaseSurfaceRenderer } from '@rocket.chat/ui-kit/dist/esm/rendering/BaseSurfaceRenderer';
-import React, { FC } from 'react';
+import * as UiKit from '@rocket.chat/ui-kit';
+import React, { ReactElement } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
+import { BlockProps } from '../utils/BlockProps';
+import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
-const DatePickerElement: FC<{
-  element: DatePickerElementProps;
-  context?: BlockContext;
-  parser: BaseSurfaceRenderer<string>;
-}> = ({ element, context, parser }) => {
-  const [{ loading, value, error }, action] = useUiKitState(element, context);
-  const { actionId, placeholder } = element;
+type DatePickerElementProps = BlockProps<UiKit.DatePickerElement>;
 
-  const plchd =
-    placeholder?.text === 'plain_text' ? (placeholder as PlainText) : undefined;
+const DatePickerElement = ({
+  block,
+  context,
+  surfaceRenderer,
+}: DatePickerElementProps): ReactElement => {
+  const [{ loading, value, error }, action] = useUiKitState(block, context);
+  const { actionId, placeholder } = block;
+
   return (
     <InputBox
       type='date'
@@ -28,7 +25,11 @@ const DatePickerElement: FC<{
       id={actionId}
       name={actionId}
       rows={6}
-      placeholder={(plchd && (parser.plainText(plchd) as string)) || undefined}
+      placeholder={
+        placeholder
+          ? fromTextObjectToString(surfaceRenderer, placeholder, 0)
+          : undefined
+      }
       onInput={action}
     />
   );

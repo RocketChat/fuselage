@@ -4,9 +4,8 @@ import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
-import { useDarkMode } from '../../common/DarkModeProvider';
 import EmailCodeFallback from '../../common/EmailCodeFallback';
-import RocketChatLogo from '../../common/RocketChatLogo';
+import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type AwaitingConfirmationPageProps = {
   emailAddress: string;
@@ -21,7 +20,6 @@ const AwaitingConfirmationPage = ({
   onResendEmailRequest,
   onChangeEmailRequest,
 }: AwaitingConfirmationPageProps): ReactElement => {
-  const darkMode = useDarkMode();
   const { t } = useTranslation();
 
   return (
@@ -35,12 +33,9 @@ const AwaitingConfirmationPage = ({
         maxWidth={576}
         paddingBlock={32}
         paddingInline={16}
-        color={darkMode ? colors.white : colors.n900}
       >
         <Margins blockEnd={32}>
-          <Box width='100%' maxWidth={180}>
-            <RocketChatLogo />
-          </Box>
+          <OnboardingLogo />
 
           <Box
             fontWeight={800}
@@ -51,7 +46,7 @@ const AwaitingConfirmationPage = ({
             {t('page.awaitingConfirmation.title')}
           </Box>
 
-          <Box fontScale='s1'>
+          <Box fontScale='p1'>
             {t('page.awaitingConfirmation.subtitle', { emailAddress })}
           </Box>
 

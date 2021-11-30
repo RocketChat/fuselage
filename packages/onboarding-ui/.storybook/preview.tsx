@@ -7,6 +7,9 @@ import '@rocket.chat/fuselage-polyfills';
 import i18next from 'i18next';
 import { ElementType, ReactElement, Suspense } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
+import { useDarkMode } from 'storybook-dark-mode';
+
+import DarkModeProvider from '../src/common/DarkModeProvider';
 
 addParameters({
   backgrounds: {
@@ -44,11 +47,16 @@ const getI18n = () => {
 };
 
 export const decorators: DecoratorFunction<ReactElement>[] = [
-  (Story: ElementType): ReactElement => (
-    <Suspense fallback={null}>
-      <I18nextProvider i18n={getI18n()}>
-        <Story />
-      </I18nextProvider>
-    </Suspense>
-  ),
+  (Story: ElementType): ReactElement => {
+    const dark = useDarkMode();
+    return (
+      <Suspense fallback={null}>
+        <I18nextProvider i18n={getI18n()}>
+          <DarkModeProvider forcedDarkMode={dark}>
+            <Story />
+          </DarkModeProvider>
+        </I18nextProvider>
+      </Suspense>
+    );
+  },
 ];

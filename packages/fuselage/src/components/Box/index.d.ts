@@ -9,7 +9,20 @@ import {
   SVGAttributes,
 } from 'react';
 
-type FontScale = 'h1' | 's1' | 's2' | 'p1' | 'p2' | 'c1' | 'c2' | 'micro';
+type FontScale =
+  | 'hero'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'p1'
+  | 'p2'
+  | 'p3'
+  | 'p4'
+  | 'c1'
+  | 'c2'
+  | 'micro';
 
 type BoxProps = PropsWithChildren<{
   is?: ElementType;
@@ -149,5 +162,6 @@ type BoxProps = PropsWithChildren<{
 export const Box: ForwardRefExoticComponent<BoxProps>;
 
 export { default as AnimatedVisibility } from './AnimatedVisibility';
+export { default as Flex } from './Flex';
 export { default as Position, PositionAnimated } from './Position';
 export { default as Scrollable } from './Scrollable';

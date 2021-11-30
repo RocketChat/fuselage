@@ -12,7 +12,7 @@
 
 ---
 
-![npm@latest](https://img.shields.io/npm/v/@rocket.chat/message-parser/latest?style=flat-square) ![npm@next](https://img.shields.io/npm/v/@rocket.chat/message-parser/next?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/message-parser?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/message-parser?style=flat-square)
+[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/message-parser/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/message-parser/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/message-parser?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/message-parser?style=flat-square)
 
 ![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fmessage-parser&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fmessage-parser&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fmessage-parser&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/message-parser?style=flat-square)
 
@@ -54,4 +54,4 @@ We are open to other tags/markups, as long as they don't generate unexpected beh
 ## Observations and known issues
 
 - Nested lists are unsupported
-- `URL` rule doesn't allow ` `, `(`, or `)`
+- `URL` rule doesn't allow whitespace, `(`, or `)`
