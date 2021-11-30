@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
+import React, { ComponentProps, FC } from 'react';
 
 import { Box } from '../Box';
-import { ActionButton } from '../Button/ActionButton';
 import { Divider } from '../Divider';
-import { Actions } from './Actions';
+import { SidebarAction, SidebarActions } from './SidebarActions';
 
 const Avatar = { size: 'x24' };
 
@@ -32,26 +31,46 @@ const TopBarWrapper: FC = ({ children }) => (
   />
 );
 
-export const TopBarToolBox: FC = ({ children, ...props }) => (
-  <TopBar className='rcx-sidebar-topbar--toolbox' {...props}>
+export const TopBarToolBox: FC<{ className: string }> = ({
+  children,
+  className,
+  ...props
+}) => (
+  <TopBar
+    className={['rcx-sidebar-topbar--toolbox', className]
+      .filter(Boolean)
+      .join(' ')}
+    {...props}
+  >
     <TopBarWrapper children={children} />
     <TopBarDivider />
   </TopBar>
 );
 
-export const TopBarSection: FC = ({ children, ...props }) => (
-  <TopBar className='rcx-sidebar-topbar--section' {...props}>
+export const TopBarSection: FC<{ className: string }> = ({
+  className,
+  children,
+  ...props
+}) => (
+  <TopBar
+    className={['rcx-sidebar-topbar--section', className]
+      .filter(Boolean)
+      .join(' ')}
+    {...props}
+  >
     <TopBarWrapper children={children} />
     <TopBarDivider />
   </TopBar>
 );
 
 export const TopBarAvatar = Avatar;
-export const TopBarActions = Actions;
-export const TopBarAction: FC = (props) => (
-  <ActionButton small ghost {...props} />
-);
+export const TopBarActions = SidebarActions;
+export const TopBarAction: FC<ComponentProps<typeof SidebarAction>> = (
+  props
+) => <SidebarAction ghost {...props} />;
+
 export const TopBarDivider: FC = () => <Divider mbs='neg-x2' mbe={0} />;
+
 export const TopBarTitle: FC = (props) => (
   <Box rcx-sidebar-top-bar__title withTruncatedText {...props} />
 );

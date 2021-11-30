@@ -1,9 +1,8 @@
 import React, { ComponentProps, FC } from 'react';
 
 import { Box } from '..';
-import { ActionButton } from '../Button/ActionButton';
-import { ButtonGroup } from '../ButtonGroup';
 import { Icon as FuselageIcon } from '../Icon';
+import { SidebarAction, SidebarActions } from './SidebarActions';
 
 export const SidebarItem: FC<{
   selected?: boolean;
@@ -134,13 +133,11 @@ export const SidebarItemAvatar: FC = (props) => (
   </SidebarItemContainer>
 );
 
-export const SidebarItemActions: FC<{ className: string }> = (props) => (
-  <ButtonGroup medium {...props} />
-);
+export const SidebarItemActions = SidebarActions;
 
-export const SidebarItemAction: FC<{ className: string }> = (props) => (
-  <ActionButton small {...props} />
-);
+export const SidebarItemAction: FC<ComponentProps<typeof SidebarAction>> = (
+  props
+) => <SidebarAction {...props} />;
 
 Object.assign(SidebarItem, {
   Menu: SidebarItemMenu,
