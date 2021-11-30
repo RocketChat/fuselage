@@ -1,45 +1,9 @@
-import React, { FC, Ref, ComponentProps, ReactNode } from 'react';
+import React, { Ref, ComponentProps, ReactNode } from 'react';
 
 import { Box } from '../../Box';
-import { Icon } from '../../Icon';
-import { Skeleton } from '../../Skeleton';
-
-const OptionColumn: FC = (props) => (
-  <div className='rcx-option__column' {...props} />
-);
-const OptionContent: FC = (props) => (
-  <div className='rcx-option__content' {...props} />
-);
-const OptionAvatar: FC = (props) => (
-  <div className='rcx-option__avatar' {...props} />
-);
-const OptionDescription: FC = (props) => (
-  <div className='rcx-option__description' {...props} />
-);
-const OptionIcon = ({
-  name,
-}: {
-  name: ComponentProps<typeof Icon>['name'];
-}) => (
-  <OptionColumn>
-    <Icon size='x20' name={name} />
-  </OptionColumn>
-);
-
-const OptionSkeleton = () => (
-  <Option>
-    <OptionAvatar>
-      <Skeleton variant='rect' width={28} height={28} />
-    </OptionAvatar>
-    <OptionContent>
-      <Skeleton width='100%' />
-    </OptionContent>
-  </Option>
-);
-
-const OptionMenu: FC = (props) => (
-  <div className='rcx-box--animated rcx-option__menu-wraper' {...props} />
-);
+import OptionAvatar from './OptionAvatar';
+import OptionContent from './OptionContent';
+import OptionIcon from './OptionIcon';
 
 type OptionProps = {
   is?: ComponentProps<typeof Box>['is'];
@@ -98,12 +62,4 @@ const Option = React.memo(
   )
 );
 
-export default Object.assign(Option, {
-  Description: OptionDescription,
-  Skeleton: OptionSkeleton,
-  Avatar: OptionAvatar,
-  Menu: OptionMenu,
-  Icon: OptionIcon,
-  Column: OptionColumn,
-  Content: OptionContent,
-});
+export default Option;
