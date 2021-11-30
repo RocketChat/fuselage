@@ -3,11 +3,13 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
 
-.rcx-fallback {
+.rcx-states {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  padding: lengths.padding(16);
 
   color: colors.foreground(info);
 
@@ -55,5 +57,15 @@
   &__suggestion,
   &__subtitle {
     margin-block-end: lengths.margin(24);
+  }
+
+  &__list {
+    list-style: initial;
+
+    &-item {
+      &-wrapper {
+        margin-inline-start: lengths.margin(-4);
+      }
+    }
   }
 }

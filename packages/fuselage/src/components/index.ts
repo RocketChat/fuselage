@@ -12,7 +12,7 @@ export * from './Chevron';
 export { default as Chip } from './Chip';
 export * from './Divider';
 export * from './EmailInput';
-export * from './Fallback';
+export * from './States';
 export * from './Field';
 export * from './FieldGroup';
 export * from './Grid';
