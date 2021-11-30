@@ -8,7 +8,7 @@ import OptionIcon from './OptionIcon';
 type OptionProps = {
   is?: ComponentProps<typeof Box>['is'];
   id?: string;
-  children: ReactNode;
+  children?: ReactNode;
   label?: string;
   focus?: boolean;
   selected?: boolean;
