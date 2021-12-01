@@ -26,13 +26,13 @@
     margin-block-end: lengths.margin(8);
 
     color: colors.foreground(default);
-    @include typography.use-font-scale(h1);
+    @include typography.use-font-scale(h2);
   }
 
   &__subtitle,
   &__list,
   &__suggestion {
-    @include typography.use-font-scale(p2);
+    @include typography.use-font-scale(p4);
 
     display: flex;
     flex-direction: column;

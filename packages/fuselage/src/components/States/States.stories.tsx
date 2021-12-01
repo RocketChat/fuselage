@@ -1,6 +1,10 @@
 import React from 'react';
 
 import {
+  States,
+  StatesSubtitle,
+  StatesIcon,
+  StatesTitle,
   StatesSuggestionList,
   StatesSuggestionListItem,
   StatesSuggestion,
@@ -9,7 +13,6 @@ import {
   StatesAction,
 } from '.';
 import { Box } from '..';
-import { States, StatesSubtitle, StatesIcon, StatesTitle } from './States';
 
 export default {
   title: 'States/States',
