@@ -13,9 +13,9 @@ export default {
     layout: 'fullscreen',
   },
   argTypes: {
-    validateUsername: { action: 'validateUsername' },
     validateEmail: { action: 'validateEmail' },
     validatePassword: { action: 'validatePassword' },
+    validateConfirmationPassword: { action: 'validateConfirmationPassword' },
   },
   args: {
     control: { type: 'inline-radio' },

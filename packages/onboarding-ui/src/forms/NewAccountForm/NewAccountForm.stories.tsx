@@ -16,7 +16,7 @@ export default {
     validateUsername: { action: 'validateUsername' },
     validateEmail: { action: 'validateEmail' },
     validatePassword: { action: 'validatePassword' },
-    validateCurrentPassword: { action: 'validate' },
+    validateConfirmPassword: { action: 'validateConfirmPassword' },
   },
   args: {},
 } as Meta<Args>;
