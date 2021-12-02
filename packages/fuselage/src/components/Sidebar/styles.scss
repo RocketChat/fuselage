@@ -7,6 +7,11 @@ $sidebar-header-height: theme(
   'sidebar-header-height',
   theme('header-height', lengths.size(64))
 );
+
+$sidebar-section-height: theme(
+  'sidebar-section-height',
+  theme('section-height', lengths.size(56))
+);
 $sidebar-item-background-color: theme(
   'sidebar-item-background-color',
   colors.surface()
@@ -50,7 +55,6 @@ $sidebar-footer-highlight-color: theme(
 %sidebar-base {
   display: flex;
 
-  overflow: hidden;
   align-items: center;
 
   border-radius: lengths.border-radius(2);
@@ -80,6 +84,10 @@ $sidebar-footer-highlight-color: theme(
       padding-block-start: lengths.padding(4);
     }
 
+    &--toolbox {
+      height: $sidebar-section-height;
+    }
+
     &__wrapper {
       display: flex;
       justify-content: space-between;
@@ -87,7 +95,7 @@ $sidebar-footer-highlight-color: theme(
 
       flex-grow: 1;
 
-      padding-block: lengths.padding(16);
+      padding-block: lengths.padding(12);
       padding-inline: lengths.padding(16);
     }
 
@@ -233,7 +241,6 @@ $sidebar-footer-highlight-color: theme(
   &-title {
     @include typography.use-font-scale(c2);
     @include typography.use-with-truncated-text();
-    padding-block: lengths.padding(4);
 
     color: colors.foreground(hint);
   }
@@ -243,15 +250,16 @@ $sidebar-footer-highlight-color: theme(
 
     justify-content: space-between;
     align-items: center;
-    margin-block: lengths.margin(4);
+
+    margin-block: lengths.margin(8);
     padding-inline: lengths.padding(16);
   }
 
   &-footer {
-    padding-block: lengths.padding(8);
+    padding-block: lengths.padding(4);
 
     &--elevated {
-      box-shadow: 0px -4px 12px $sidebar-footer-box-shadow;
+      box-shadow: 0 -4px 12px $sidebar-footer-box-shadow;
     }
 
     &__highlights {
@@ -259,7 +267,9 @@ $sidebar-footer-highlight-color: theme(
 
       display: flex;
       justify-content: center;
-      padding-block: lengths.padding(4);
+
+      padding-block-start: lengths.padding(4);
+
       color: $sidebar-footer-highlight-color;
     }
   }
