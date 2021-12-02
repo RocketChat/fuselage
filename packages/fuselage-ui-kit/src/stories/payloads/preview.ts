@@ -6,11 +6,13 @@ import img from './img';
 export const preview: PreviewBlock[] = [
   {
     type: 'preview',
-    title: {
-      type: 'plain_text',
-      text: 'I Need a Marg',
-      emoji: true,
-    },
+    title: [
+      {
+        type: 'plain_text',
+        text: 'I Need a Marg',
+        emoji: true,
+      },
+    ],
     description: {
       type: 'plain_text',
       text: 'I Need a Description',

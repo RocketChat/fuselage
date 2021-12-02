@@ -4,22 +4,23 @@ import { DividerBlock } from '../../blocks/layout/DividerBlock';
 import { ImageBlock } from '../../blocks/layout/ImageBlock';
 import { PreviewBlock } from '../../blocks/layout/PreviewBlock';
 import { SectionBlock } from '../../blocks/layout/SectionBlock';
-import { SurfaceRenderer, SurfaceRendererPayload } from '../SurfaceRenderer';
+import { SurfaceRenderer } from '../SurfaceRenderer';
 
-export abstract class UiKitParserMessage<OutputElement> extends SurfaceRenderer<
-  OutputElement,
+type MessageSurfaceLayoutBlock =
   | ActionsBlock
   | ContextBlock
   | DividerBlock
   | ImageBlock
   | SectionBlock
-  | PreviewBlock
+  | PreviewBlock;
+
+export abstract class UiKitParserMessage<OutputElement> extends SurfaceRenderer<
+  OutputElement,
+  MessageSurfaceLayoutBlock
 > {
   public constructor() {
     super(['actions', 'context', 'divider', 'image', 'section', 'preview']);
   }
 }
 
-export type MessageSurfaceLayout = SurfaceRendererPayload<
-  UiKitParserMessage<any>
->;
+export type MessageSurfaceLayout = MessageSurfaceLayoutBlock[];

@@ -10,11 +10,12 @@
       "requiredField": "This field is required",
       "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     },
-    "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>"
+    "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>",
+    "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>"
   },
   "page": {
     "form": {
-      "title": "Let's Launch Your Workspace"
+      "title": "Let's <1>Launch</1> Your Workspace"
     },
     "awaitingConfirmation": {
       "title": "Awaiting confirmation",
@@ -26,14 +27,16 @@
     },
     "checkYourEmail": {
       "title": "Check your email",
-      "subtitle": "Your request has been sent successfully.<1></1>Check your email inbox to launch your Enterprise trial."
+      "subtitle": "Your request has been sent successfully.<1></1>Check your email inbox to launch your Enterprise trial.<1></1>The link will expire in 30 minutes."
     },
     "confirmationProcess": {
       "title": "Confirmation in Process"
     },
     "cloudDescription": {
+      "title": "Let's launch your workspace and <1>14-day trial</1>",
       "tryGold": "Try our best Gold plan for 14 days for free",
-      "availability": "High availability",
+      "numberOfIntegrations": "Apps and integrations",
+      "availability": "Scalable micro-services",
       "auditing": "Message audit panel / Audit logs",
       "engagement": "Engagement Dashboard",
       "ldap": "LDAP enhanced sync",
@@ -51,12 +54,24 @@
       }
     },
     "requestTrial": {
-      "title": "Request a 30-\u2060day Trial",
-      "subtitle": "Try our enterprise solution for free"
+      "title": "Request a <1>30-day Trial</1>",
+      "subtitle": "Try our best Enterprise Edition plan for 30 days for free"
     },
     "magicLinkEmail": {
-      "title": "We emailed you a magic link",
-      "subtitle": "Click the link in the email we just sent you to sign in to your workspace."
+      "title": "We emailed you a login link",
+      "subtitle": "Click the link in the email we just sent you to sign in to your workspace. <1>The link will expire in 30 minutes.</1>"
+    },
+    "organizationInfoPage": {
+      "title": "A few more details...",
+      "subtitle": "These will help us to personalize your workspace."
+    },
+    "loginPage": {
+      "title": {
+        "cloud": "Cloud Login"
+      },
+      "createAccount": {
+        "label": "New here? <1>Create account</1>"
+      }
     }
   },
   "form": {
@@ -169,12 +184,12 @@
     "requestTrialForm": {
       "fields": {
         "emailAddress": {
-          "label": "Email address",
-          "placeholder": "Enter email address"
+          "label": "Organization email",
+          "placeholder": "Enter organization email address"
         },
         "organizationName": {
           "label": "Organization name",
-          "placeholder": "Organization name"
+          "placeholder": "Enter organization name"
         },
         "organizationSize": {
           "label": "Organization size",
@@ -190,8 +205,31 @@
       },
       "hasWorkspace": {
         "label": "Already registered a workspace?",
-        "description": "Use the same email address to continue"
+        "description": "Please use the email address associated with your cloud account"
       }
+    },
+    "loginForm": {
+      "content": {
+        "default": "Enter your password to continue.",
+        "passwordLess": "If you’re already registered we’ll email you a link to log in."
+      },
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "error": "Email and password do not match"
+        }
+      },
+      "button": {
+        "text": "Log in"
+      },
+      "sendLoginLink": "Send login link",
+      "redirect": "Enter password instead",
+      "resetPassword": "Forgot your password? <1>Reset password</1>"
     }
   }
 }

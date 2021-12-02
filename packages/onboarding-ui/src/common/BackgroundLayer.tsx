@@ -3,8 +3,7 @@ import { ReactElement, ReactNode, useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import { Wrapper } from './BackgroundLayer.styles';
-import LowerCornerStripes from './BackgroundLayer/LowerCornerStripes';
-import UpperCornerStripes from './BackgroundLayer/UpperCornerStripes';
+import BackgroundImage from './BackgroundLayer/BackgroundImage';
 import { useDarkMode } from './DarkModeProvider';
 
 type BackgroundLayerProps = {
@@ -13,32 +12,23 @@ type BackgroundLayerProps = {
 
 const BackgroundLayer = ({ children }: BackgroundLayerProps): ReactElement => {
   const darkMode = useDarkMode();
-
-  const upperCorner = useMemo(
-    () =>
-      encodeURIComponent(
-        renderToStaticMarkup(<UpperCornerStripes darkMode={darkMode} />)
-      ),
-    [darkMode]
-  );
-
-  const lowerCorner = useMemo(
-    () =>
-      encodeURIComponent(
-        renderToStaticMarkup(<LowerCornerStripes darkMode={darkMode} />)
-      ),
-    [darkMode]
-  );
-
   const backgroundColor = darkMode ? colors.n800 : colors.n200;
   const color = darkMode ? colors.white : colors.n800;
+  const backgroundImage = useMemo(
+    () =>
+      encodeURIComponent(
+        renderToStaticMarkup(
+          <BackgroundImage backgroundColor={backgroundColor} />
+        )
+      ),
+    [backgroundColor]
+  );
 
   return (
     <Wrapper
       backgroundColor={backgroundColor}
       color={color}
-      lowerCorner={lowerCorner}
-      upperCorner={upperCorner}
+      backgroundImage={backgroundImage}
     >
       {children}
     </Wrapper>

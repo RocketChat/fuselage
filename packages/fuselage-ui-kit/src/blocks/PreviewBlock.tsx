@@ -21,16 +21,20 @@ const PreviewBlock = ({
   <MessagePreview>
     <MessagePreviewContent
       thumb={
-        <MessagePreviewThumb>
-          <MessagePreviewImage height={192} width={368} url={block.thumb.url} />
-        </MessagePreviewThumb>
+        block.thumb && (
+          <MessagePreviewThumb>
+            <MessagePreviewImage
+              height={192}
+              width={368}
+              url={block.thumb.url}
+            />
+          </MessagePreviewThumb>
+        )
       }
     >
       <MessagePreviewTitle>
-        {surfaceRenderer.renderTextObject(
-          block.title,
-          0,
-          UiKit.BlockContext.NONE
+        {block.title.map((title) =>
+          surfaceRenderer.renderTextObject(title, 0, UiKit.BlockContext.NONE)
         )}
       </MessagePreviewTitle>
       <MessagePreviewDescription clamp>

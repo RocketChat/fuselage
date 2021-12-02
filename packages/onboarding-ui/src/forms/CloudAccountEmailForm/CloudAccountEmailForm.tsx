@@ -1,6 +1,7 @@
-import { ButtonGroup, Button, TextInput, Field } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { ButtonGroup, Button, EmailInput, Field } from '@rocket.chat/fuselage';
+import { useUniqueId } from '@rocket.chat/fuselage-hooks';
+import { ReactElement, useEffect } from 'react';
+import { useForm, SubmitHandler, Validate } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
@@ -13,6 +14,7 @@ type CloudAccountEmailFormProps = {
   currentStep: number;
   stepCount: number;
   initialValues?: Partial<CloudAccountEmailPayload>;
+  validateEmail: Validate<string>;
   onBackButtonClick: () => void;
   onSubmit: SubmitHandler<CloudAccountEmailPayload>;
 };
@@ -21,21 +23,28 @@ const CloudAccountEmailForm = ({
   currentStep,
   stepCount,
   initialValues,
+  validateEmail,
   onBackButtonClick,
   onSubmit,
 }: CloudAccountEmailFormProps): ReactElement => {
   const { t } = useTranslation();
+  const emailField = useUniqueId();
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { isValidating, isSubmitting, errors },
+    setFocus,
   } = useForm<CloudAccountEmailPayload>({
     defaultValues: {
       email: '',
       ...initialValues,
     },
   });
+
+  useEffect(() => {
+    setFocus('email');
+  }, [setFocus]);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -44,13 +53,17 @@ const CloudAccountEmailForm = ({
       <Form.Subtitle>{t('form.accountEmailForm.description')}</Form.Subtitle>
       <Form.Container>
         <Field>
-          <Field.Label htmlFor='email'>
+          <Field.Label htmlFor={emailField}>
             {t('form.accountEmailForm.inputLabel')}
           </Field.Label>
           <Field.Row>
-            <TextInput
-              {...register('email', { required: true })}
+            <EmailInput
+              {...register('email', {
+                required: true,
+                validate: validateEmail,
+              })}
               placeholder={t('form.accountEmailForm.inputPlaceholder')}
+              id={emailField}
             />
           </Field.Row>
           {errors.email && (
@@ -60,10 +73,10 @@ const CloudAccountEmailForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup>
-          <Button onClick={onBackButtonClick}>
+          <Button disabled={isSubmitting} onClick={onBackButtonClick}>
             {t('component.form.action.back')}
           </Button>
-          <Button type='submit' primary>
+          <Button disabled={isValidating || isSubmitting} type='submit' primary>
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>

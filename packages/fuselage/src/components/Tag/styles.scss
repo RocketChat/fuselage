@@ -127,6 +127,6 @@ $tag-colors-disabled-background-color: theme(
   @include clickable();
 
   &--medium {
-    @include typography.use-font-scale(p2);
+    @include typography.use-font-scale(p4);
   }
 }
