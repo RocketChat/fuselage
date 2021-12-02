@@ -8,7 +8,7 @@ const ListItem = ({
   fontScale = 'c1',
 }: {
   children: ReactNode;
-  icon?: string;
+  icon?: ComponentProps<typeof Icon>['name'];
   iconColor?: ComponentProps<typeof Icon>['color'];
   fontScale?: ComponentProps<typeof Box>['fontScale'];
 }): ReactElement => (
