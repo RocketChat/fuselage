@@ -1,14 +1,17 @@
 import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
 
 import { Options, CheckOption } from '.';
-import { Box } from '..'
-import { Option } from './Option';
+import { Box } from '..';
+import Option from './Option';
 
 export const options = [
   [1, 'a teste 1'],
   [2, 'b teste 2'],
   [3, 'c teste 3', true],
-  [4, 'd testeadsasdasdasdasdjhasjfhasdkjfhaskdfjhkasjdfhkasjdhfkasjdhfkasjdhfkasjdhfkasdjhfkasdjhfaksjdfhkasjdh 4'],
+  [
+    4,
+    'd testeadsasdasdasdasdjhasjfhasdkjfhaskdfjhkasjdfhkasjdhfkasjdhfkasjdhfkasjdhfkasdjhfkasdjhfaksjdfhkasjdh 4',
+  ],
 ];
 
 <Meta title='Misc/Options/Options' parameters={{ jest: ['Options/spec'] }} />
@@ -25,11 +28,15 @@ An input for selection of options.
   </Story>
 </Canvas>
 
-
 <Canvas>
   <Story name='Option'>
     <Box position='relative' maxWidth={250}>
-      <Options ref={React.createRef()} options={options} renderItem={Option} cursor={1} />
+      <Options
+        ref={React.createRef()}
+        options={options}
+        renderItem={Option}
+        cursor={1}
+      />
     </Box>
   </Story>
 </Canvas>
@@ -39,7 +46,13 @@ An input for selection of options.
 <Canvas>
   <Story name='CheckOption'>
     <Box position='relative' maxWidth={250}>
-      <Options ref={React.createRef()} renderItem={CheckOption} options={options} value={[1]} cursor={0}/>
+      <Options
+        ref={React.createRef()}
+        renderItem={CheckOption}
+        options={options}
+        value={[1]}
+        cursor={0}
+      />
     </Box>
   </Story>
 </Canvas>
