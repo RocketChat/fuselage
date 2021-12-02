@@ -8,7 +8,7 @@ export const SidebarItem: FC<{
   selected?: boolean;
   highlighted?: boolean;
   clickable?: boolean;
-  is: ComponentProps<typeof Box>['is'];
+  is?: ComponentProps<typeof Box>['is'];
 }> = ({
   selected,
   highlighted,
@@ -49,8 +49,8 @@ export const SidebarItemMenu: FC = (props) => (
   />
 );
 
-export const SidebarItemContent: FC<{ className: string }> = ({
-  className,
+export const SidebarItemContent: FC<{ className?: string }> = ({
+  className = '',
   ...props
 }) => (
   <div
@@ -59,8 +59,8 @@ export const SidebarItemContent: FC<{ className: string }> = ({
   />
 );
 
-export const SidebarItemTitle: FC<{ className: string }> = ({
-  className,
+export const SidebarItemTitle: FC<{ className?: string }> = ({
+  className = '',
   ...props
 }) => (
   <div
@@ -99,8 +99,8 @@ export const SidebarItemSubtitle: FC<{ className: string }> = ({
   />
 );
 
-export const SidebarItemWrapper: FC<{ className: string }> = ({
-  className,
+export const SidebarItemWrapper: FC<{ className?: string }> = ({
+  className = '',
   ...props
 }) => (
   <div
@@ -127,7 +127,7 @@ export const SidebarItemIcon: FC<{
   </div>
 );
 
-export const SidebarItemAvatar: FC = (props) => (
+export const SidebarItemAvatar: FC = ({ ...props }) => (
   <SidebarItemContainer>
     <div className='rc-box rcx-box--full rcx-sidebar-item__avatar' {...props} />
   </SidebarItemContainer>
