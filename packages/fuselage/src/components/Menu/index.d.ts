@@ -3,7 +3,7 @@ import { ComponentProps, ForwardRefExoticComponent, ReactNode } from 'react';
 
 import { Box } from '../Box';
 import { ActionButton } from '../Button';
-import { Option } from '../Options/Option';
+import Option from '../Options/Option';
 
 type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   icon?: string;

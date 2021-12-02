@@ -7,8 +7,8 @@ import { Virtuoso } from 'react-virtuoso';
 
 import { AnimatedVisibility, Box } from '../Box';
 import { CheckBox } from '../CheckBox';
+import Option from '../Options/Option';
 import Tile from '../Tile';
-import { Option } from './Option';
 
 const prevent = (e) => {
   e.preventDefault();
@@ -74,7 +74,7 @@ export const OptionsPaginated = React.forwardRef(
               // TODO Add a scroller element
               // components={{ Scroller: ScrollableContentWrapper }}
               itemContent={(index, data) => (
-                <OptionsComponentWithData index={index} data={data} ref={ref} />
+                <OptionsComponentWithData index={index} data={data} />
               )}
             />
           )}
