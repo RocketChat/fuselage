@@ -1,5 +1,6 @@
 import React, { Ref, ComponentProps, ReactNode } from 'react';
 
+import { Icon } from '../..';
 import { Box } from '../../Box';
 import OptionAvatar from './OptionAvatar';
 import OptionContent from './OptionContent';
@@ -14,7 +15,7 @@ type OptionProps = {
   selected?: boolean;
   className?: ComponentProps<typeof Box>['className'];
   ref?: Ref<Element>;
-  icon?: string;
+  icon?: ComponentProps<typeof Icon>['name'];
   avatar?: ReactNode;
   title?: string;
 } & Pick<ComponentProps<typeof Box>, 'onClick'>;
