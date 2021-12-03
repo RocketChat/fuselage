@@ -8,6 +8,7 @@ import {
   buildEsmModule,
   buildSvgImages,
   buildFont,
+  buildDefinition,
 } from './build.mjs';
 
 const fromSourceToIcon = async (path) => {
@@ -45,4 +46,5 @@ await Promise.all([
   buildEsmModule(icons),
   buildSvgImages(icons),
   buildFont(icons),
+  buildDefinition(icons),
 ]);
