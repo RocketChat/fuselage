@@ -1,7 +1,7 @@
 {
   "name": "@rocket.chat/eslint-config-alt",
   "description": "ESLint configuration for Rocket.Chat repositories",
-  "version": "0.29.0",
+  "version": "0.30.0",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -27,8 +27,8 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "eslint .",
-    "lint-fix": "eslint --fix .",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged"
   },
   "peerDependencies": {
@@ -37,20 +37,21 @@
     "prettier": "^2.3.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.15.7",
-    "eslint": "^7.32.0",
-    "lint-staged": "^11.0.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "eslint": "^8.2.0",
+    "lint-all": "workspace:tools/lint-all",
+    "lint-staged": "^11.2.6",
     "prettier": "^2.3.2"
   },
   "dependencies": {
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",
-    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.26.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }

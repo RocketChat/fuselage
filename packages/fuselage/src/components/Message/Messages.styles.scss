@@ -4,11 +4,12 @@
 @use '../../styles/typography.scss';
 @use './mixins.scss';
 
-@import './Metrics/Metrics.styles.scss';
-@import './Toolbox/styles.scss';
-@import './Reactions/styles.scss';
+@import './MessageMetrics/Metrics.styles.scss';
+@import './MessageToolbox/styles.scss';
+@import './MessageReactions/styles.scss';
 @import './ThreadMessage/styles.scss';
-@import './Divider/styles.scss';
+@import './MessageDivider/styles.scss';
+@import './MessagePreview/MessagePreview.styles.scss';
 
 %rcx-margins-header {
   margin-inline: lengths.margin(2);
@@ -78,7 +79,7 @@ $message-background-color-focus: functions.theme(
 
     &__name {
       @extend %rcx-margins-header;
-      @include typography.use-font-scale(p2);
+      @include typography.use-font-scale(h5);
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
@@ -87,7 +88,7 @@ $message-background-color-focus: functions.theme(
 
     &__username {
       @extend %rcx-margins-header;
-      @include typography.use-font-scale(p2);
+      @include typography.use-font-scale(p4);
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
@@ -107,7 +108,7 @@ $message-background-color-focus: functions.theme(
 
   &-body {
     @extend %rcx-margins-block;
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p3);
 
     flex-shrink: 1;
 

@@ -18,7 +18,9 @@ module.exports = {
         'plugin:mdx/recommended',
       ],
       parserOptions: {
-        parser: '@babel/eslint-parser',
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
       rules: {
         'new-cap': 'off',

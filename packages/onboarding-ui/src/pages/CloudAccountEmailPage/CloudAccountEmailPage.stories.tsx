@@ -15,8 +15,6 @@ export default {
   args: {
     currentStep: 1,
     stepCount: 1,
-    onSubmit: (data) => console.log(data),
-    onBackButtonClick: () => console.log('Back'),
   },
 } as Meta<Args>;
 

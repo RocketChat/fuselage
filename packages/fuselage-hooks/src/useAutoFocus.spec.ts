@@ -1,91 +1,51 @@
-import {
-  createElement,
-  forwardRef,
-  ForwardRefExoticComponent,
-  FunctionComponent,
-  Ref,
-  RefAttributes,
-  StrictMode,
-  useImperativeHandle,
-  useReducer,
-} from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook, act } from '@testing-library/react-hooks';
+import { useImperativeHandle, useState } from 'react';
 
-import { useAutoFocus } from '.';
+import { useAutoFocus } from './useAutoFocus';
 
-describe('useAutoFocus hook', () => {
-  let focus: () => void;
-  let FocusableComponent: ForwardRefExoticComponent<RefAttributes<unknown>>;
+const focus = jest.fn();
 
-  beforeEach(() => {
-    focus = jest.fn();
-    FocusableComponent = forwardRef((_, ref) => {
-      useImperativeHandle(ref, () => ({ focus }));
-      return null;
-    });
+afterEach(() => {
+  focus.mockClear();
+});
+
+it('invokes focus', async () => {
+  renderHook(() => {
+    const ref = useAutoFocus();
+    useImperativeHandle(ref, () => ({ focus }));
   });
 
-  it('invokes focus', () => {
-    let ref: Ref<{ focus: () => void }>;
+  act(() => undefined);
 
-    const TestComponent: FunctionComponent = () => {
-      ref = useAutoFocus();
-      return createElement(FocusableComponent, { ref });
-    };
+  expect(focus).toHaveBeenCalledTimes(1);
+});
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    expect(focus).toHaveBeenCalledTimes(1);
+it('does not invoke focus if isFocused is false', () => {
+  renderHook(() => {
+    const ref = useAutoFocus(false);
+    useImperativeHandle(ref, () => ({ focus }));
   });
 
-  it('does not invoke focus if isFocused is false', () => {
-    let ref: Ref<{ focus: () => void }>;
+  act(() => undefined);
 
-    const TestComponent: FunctionComponent = () => {
-      ref = useAutoFocus(false);
-      return createElement(FocusableComponent, { ref });
-    };
+  expect(focus).toHaveBeenCalledTimes(0);
+});
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    expect(focus).toHaveBeenCalledTimes(0);
+it('invokes focus if isFocused is toggled', () => {
+  const { result } = renderHook(() => {
+    const [isFocused, setIsFocused] = useState(false);
+    const ref = useAutoFocus(isFocused);
+    useImperativeHandle(ref, () => ({ focus }));
+    return { setIsFocused };
   });
 
-  it('invokes focus if isFocused is toggled', () => {
-    let requestFocus: () => void;
-    let ref: Ref<{ focus: () => void }>;
+  act(() => undefined);
 
-    const TestComponent: FunctionComponent = () => {
-      let isFocused: boolean;
-      [isFocused, requestFocus] = useReducer((state) => !state, false);
-      ref = useAutoFocus(isFocused);
-      return createElement(FocusableComponent, { ref });
-    };
+  expect(focus).toHaveBeenCalledTimes(0);
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    expect(focus).toHaveBeenCalledTimes(0);
-
-    act(() => {
-      requestFocus();
-    });
-
-    expect(focus).toHaveBeenCalledTimes(1);
+  act(() => {
+    result.current.setIsFocused(true);
   });
+
+  expect(focus).toHaveBeenCalledTimes(1);
 });

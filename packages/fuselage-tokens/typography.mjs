@@ -27,31 +27,61 @@ export default {
     ],
   },
   fontScales: {
+    hero: {
+      fontSize: 48,
+      fontWeight: 800,
+      letterSpacing: 0,
+      lineHeight: 64,
+    },
     h1: {
-      fontSize: 22,
-      fontWeight: 400,
+      fontSize: 32,
+      fontWeight: 700,
+      letterSpacing: 0,
+      lineHeight: 40,
+    },
+    h2: {
+      fontSize: 24,
+      fontWeight: 700,
       letterSpacing: 0,
       lineHeight: 32,
     },
-    s1: {
+    h3: {
+      fontSize: 20,
+      fontWeight: 700,
+      letterSpacing: 0,
+      lineHeight: 28,
+    },
+    h4: {
+      fontSize: 16,
+      fontWeight: 700,
+      letterSpacing: 0,
+      lineHeight: 24,
+    },
+    h5: {
+      fontSize: 14,
+      fontWeight: 700,
+      letterSpacing: 0,
+      lineHeight: 20,
+    },
+    p1: {
       fontSize: 16,
       fontWeight: 400,
       letterSpacing: 0,
-      lineHeight: 22,
+      lineHeight: 24,
     },
-    s2: {
+    p2: {
       fontSize: 16,
       fontWeight: 500,
       letterSpacing: 0,
-      lineHeight: 22,
+      lineHeight: 24,
     },
-    p1: {
+    p3: {
       fontSize: 14,
       fontWeight: 400,
       letterSpacing: 0,
       lineHeight: 20,
     },
-    p2: {
+    p4: {
       fontSize: 14,
       fontWeight: 500,
       letterSpacing: 0,
@@ -65,14 +95,14 @@ export default {
     },
     c2: {
       fontSize: 12,
-      fontWeight: 600,
+      fontWeight: 700,
       letterSpacing: 0,
       lineHeight: 16,
     },
     micro: {
       fontSize: 10,
-      fontWeight: 600,
-      letterSpacing: 0.2,
+      fontWeight: 700,
+      letterSpacing: 0,
       lineHeight: 12,
     },
   },

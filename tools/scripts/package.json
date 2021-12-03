@@ -2,27 +2,26 @@
   "private": true,
   "name": "scripts",
   "scripts": {
-    "update-readme": "ts-node src/update-readme.ts",
     "resolve-workspace-deps": "run-s .:resolve-workspace-deps:run-script .:resolve-workspace-deps:update-lockfile .:resolve-workspace-deps:git-commit",
     ".:resolve-workspace-deps:run-script": "ts-node src/resolve-workspace-deps.ts",
     ".:resolve-workspace-deps:update-lockfile": "cross-env YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn",
     ".:resolve-workspace-deps:git-commit": "git -c user.name='Rocket.Chat' -c user.email='support@rocket.chat' commit --all --amend --no-edit --no-verify",
     "lint": "eslint .",
-    "lint-fix": "eslint --fix ."
+    "lint-and-fix": "eslint --fix ."
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
     "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
     "@types/node": "^15.14.1",
-    "@typescript-eslint/parser": "^4.31.2",
+    "@typescript-eslint/parser": "^5.3.1",
     "cross-env": "^7.0.3",
     "endent": "^2.1.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.2.0",
     "fast-glob": "^3.2.6",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.4"
   },
-  "version": "0.29.0"
+  "version": "0.30.0"
 }

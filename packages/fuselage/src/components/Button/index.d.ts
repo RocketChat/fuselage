@@ -20,6 +20,7 @@ type ActionButtonProps = ButtonProps & {
   icon: string;
   mini?: boolean;
   tiny?: boolean;
+  small?: boolean;
 };
 export const ActionButton: ForwardRefExoticComponent<ActionButtonProps>;
 

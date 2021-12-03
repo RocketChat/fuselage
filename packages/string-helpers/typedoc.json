@@ -1,6 +1,4 @@
 {
-  "entryPoints": [
-    "src/index.ts"
-  ],
+  "entryPoints": ["src/index.ts"],
   "out": "../../static/string-helpers"
 }

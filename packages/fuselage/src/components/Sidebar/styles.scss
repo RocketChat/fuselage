@@ -7,6 +7,11 @@ $sidebar-header-height: theme(
   'sidebar-header-height',
   theme('header-height', lengths.size(64))
 );
+
+$sidebar-section-height: theme(
+  'sidebar-section-height',
+  theme('section-height', lengths.size(56))
+);
 $sidebar-item-background-color: theme(
   'sidebar-item-background-color',
   colors.surface()
@@ -18,7 +23,7 @@ $sidebar-item-color-highlighted: theme(
 );
 $sidebar-item-background-color-hover: theme(
   'sidebar-item-background-color-hover',
-  colors.neutral(800)
+  transparent
 );
 $sidebar-item-color-hover: theme(
   'sidebar-item-color-hover',
@@ -37,14 +42,23 @@ $sidebar-item-color-selected: theme(
   colors.foreground('hint')
 );
 
+$sidebar-footer-box-shadow: theme(
+  'sidebar-footer-box-shadow',
+  rgba(0, 0, 0, 0.1)
+);
+
+$sidebar-footer-highlight-color: theme(
+  'sidebar-footer-highlight-color',
+  colors.foreground('hint')
+);
+
 %sidebar-base {
   display: flex;
 
-  overflow: hidden;
   align-items: center;
 
   border-radius: lengths.border-radius(2);
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p3);
 }
 
 %highlighted {
@@ -70,6 +84,10 @@ $sidebar-item-color-selected: theme(
       padding-block-start: lengths.padding(4);
     }
 
+    &--toolbox {
+      height: $sidebar-section-height;
+    }
+
     &__wrapper {
       display: flex;
       justify-content: space-between;
@@ -77,12 +95,12 @@ $sidebar-item-color-selected: theme(
 
       flex-grow: 1;
 
-      padding-block: lengths.padding(16);
+      padding-block: lengths.padding(12);
       padding-inline: lengths.padding(16);
     }
 
     &__title {
-      @include typography.use-font-scale(p2);
+      @include typography.use-font-scale(p4);
 
       color: colors.neutral(900);
     }
@@ -90,12 +108,12 @@ $sidebar-item-color-selected: theme(
 
   &-item {
     @extend %sidebar-base;
+    @include highlighted;
+
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
 
     color: $sidebar-item-color;
-
-    @include highlighted;
 
     &__wrapper {
       @extend %sidebar-base;
@@ -183,8 +201,8 @@ $sidebar-item-color-selected: theme(
       margin-inline: lengths.margin(4);
     }
 
-    &:hover &__menu-wraper,
-    &.focus-within &__menu-wraper {
+    &:hover &__menu-wrapper,
+    &.focus-within &__menu-wrapper {
       position: static;
 
       width: lengths.size(20);
@@ -193,7 +211,7 @@ $sidebar-item-color-selected: theme(
       opacity: 1;
     }
 
-    &:focus-within &__menu-wraper {
+    &:focus-within &__menu-wrapper {
       width: lengths.size(20);
 
       margin-inline: lengths.margin(4);
@@ -207,7 +225,7 @@ $sidebar-item-color-selected: theme(
       transform: translateY(-50%);
     }
 
-    &__menu-wraper {
+    &__menu-wrapper {
       position: relative;
 
       flex-shrink: 0;
@@ -223,9 +241,36 @@ $sidebar-item-color-selected: theme(
   &-title {
     @include typography.use-font-scale(c2);
     @include typography.use-with-truncated-text();
-    padding-block: lengths.padding(12);
-    padding-inline: lengths.padding(16);
 
     color: colors.foreground(hint);
+  }
+
+  &-section {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-block: lengths.margin(8);
+    padding-inline: lengths.padding(16);
+  }
+
+  &-footer {
+    padding-block: lengths.padding(4);
+
+    &--elevated {
+      box-shadow: 0 -4px 12px $sidebar-footer-box-shadow;
+    }
+
+    &__highlights {
+      @include typography.use-font-scale(c1);
+
+      display: flex;
+      justify-content: center;
+
+      padding-block-start: lengths.padding(4);
+
+      color: $sidebar-footer-highlight-color;
+    }
   }
 }
