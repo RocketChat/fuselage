@@ -18,6 +18,7 @@ type OptionProps = {
   icon?: ComponentProps<typeof Icon>['name'];
   avatar?: ReactNode;
   title?: string;
+  value?: string;
 } & Pick<ComponentProps<typeof Box>, 'onClick'>;
 
 const Option = React.memo(
