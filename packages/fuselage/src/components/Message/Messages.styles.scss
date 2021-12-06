@@ -10,6 +10,7 @@
 @import './ThreadMessage/styles.scss';
 @import './MessageDivider/styles.scss';
 @import './MessagePreview/MessagePreview.styles.scss';
+@import './MessageStatusIndicator/MessageStatusIndicator.styles.scss';
 
 %rcx-margins-header {
   margin-inline: lengths.margin(2);
