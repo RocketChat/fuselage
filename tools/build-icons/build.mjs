@@ -89,3 +89,21 @@ export const buildFont = (icons) =>
         ),
       ])
     );
+
+export const buildDefinition = (icons) => {
+  Promise.resolve(icons)
+    .then(
+      (icons) =>
+        `declare type Keys= ${icons
+          .map((icon) => `\n  | "${icon.name}"`)
+          .join('')};
+
+declare type Icons = {
+  [k in Keys]: string;
+};
+export default Icons;`
+    )
+    // .then(runEslint('index.d.ts'))
+    .then(writeSource('dist/index.d.ts'))
+    .catch(console.log);
+};
