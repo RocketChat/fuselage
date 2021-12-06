@@ -5,3 +5,4 @@ export * from './MessagePreview';
 export * from './MessageReactions';
 export * from './MessageToolbox';
 export * from './ThreadMessage';
+export * from './MessageStatusIndicator';

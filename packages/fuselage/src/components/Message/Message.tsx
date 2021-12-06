@@ -150,15 +150,14 @@ export const MessageName: FC<{ children: string }> = function MessageName(
     />
   );
 };
-export const MessageUsername: FC<{ children: string }> =
-  function MessageUsername(props) {
-    return (
-      <span
-        className='rcx-box rcx-box--full rcx-message-header__username'
-        {...props}
-      />
-    );
-  };
+export const MessageUsername: FC = function MessageUsername(props) {
+  return (
+    <span
+      className='rcx-box rcx-box--full rcx-message-header__username'
+      {...props}
+    />
+  );
+};
 
 export const MessageRole: FC<{ children: string }> = function MessageRole(
   props

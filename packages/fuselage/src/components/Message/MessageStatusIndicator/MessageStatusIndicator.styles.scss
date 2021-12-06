@@ -11,6 +11,10 @@ $variants: (
 );
 
 .rcx-message-status-indicator {
+  &:empty {
+    display: none;
+  }
+
   &__item {
     color: colors.foreground('hint');
     @each $name, $color in $variants {
