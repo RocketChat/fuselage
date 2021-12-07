@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -90,12 +91,16 @@ export const WithoutTitle = Template.bind({});
 export const Enabled = Template.bind({});
 Enabled.args = {
   title: 'Item',
-  onToggleEnabled: () => 'toggleEnabled',
+  onToggleEnabled: () => {
+    action('toggleEnabled');
+  },
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   title: 'Item',
-  onToggleEnabled: () => 'toggleEnabled',
+  onToggleEnabled: () => {
+    action('toggleEnabled');
+  },
   disabled: true,
 };
