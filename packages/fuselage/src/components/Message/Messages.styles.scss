@@ -79,7 +79,7 @@ $message-background-color-focus: functions.theme(
 
     &__name {
       @extend %rcx-margins-header;
-      @include typography.use-font-scale(p4);
+      @include typography.use-font-scale(h5);
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 

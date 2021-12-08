@@ -11,7 +11,8 @@
       "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     },
     "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>",
-    "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>"
+    "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>",
+    "createNewAccountPage": "Already registered? <1>Go to login</1>"
   },
   "page": {
     "form": {
@@ -72,6 +73,9 @@
       "createAccount": {
         "label": "New here? <1>Create account</1>"
       }
+    },
+    "newAccountForm": {
+      "title": "Register new account"
     }
   },
   "form": {
@@ -230,6 +234,31 @@
       "sendLoginLink": "Send login link",
       "redirect": "Enter password instead",
       "resetPassword": "Forgot your password? <1>Reset password</1>"
+    },
+    "newAccountForm": {
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
+        },
+        "password": {
+          "label": "Create Password",
+          "placeholder": "Enter your password",
+          "error": "Email and password do not match"
+        },
+        "confirmPassword": {
+          "label": "Confirm Password",
+          "placeholder": "Enter your password",
+          "error": "Email and password do not match"
+        }
+      },
+      "button": {
+        "text": "Log in"
+      }
     }
   }
 }

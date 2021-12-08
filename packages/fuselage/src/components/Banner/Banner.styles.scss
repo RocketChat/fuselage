@@ -100,7 +100,7 @@
   &__title {
     margin: 0;
     padding: 0;
-    @include typography.use-font-scale(p4);
+    @include typography.use-font-scale(h5);
 
     &--inline {
       display: inline;
