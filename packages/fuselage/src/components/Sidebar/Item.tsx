@@ -113,7 +113,7 @@ export const SidebarItemIcon: FC<{
   className: string;
   highlighted?: boolean;
   icon: ComponentProps<typeof FuselageIcon>['name'];
-}> = ({ highlighted, children, className, ...props }) => (
+}> = ({ highlighted, children, icon, className, ...props }) => (
   <div
     className={[
       'rc-box rcx-box--full rcx-sidebar-item__icon',
@@ -123,7 +123,7 @@ export const SidebarItemIcon: FC<{
       .join(' ')}
     {...props}
   >
-    {children || <FuselageIcon size='x16' {...props} />}
+    {children || <FuselageIcon name={icon} size='x16' {...props} />}
   </div>
 );
 
