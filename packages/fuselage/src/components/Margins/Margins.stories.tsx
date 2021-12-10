@@ -321,6 +321,7 @@ export const WithNegativeValues = () => (
   </Box>
 );
 WithNegativeValues.storyName = 'With negative values';
+
 export const WithAutoValue = () => (
   <Tile display='flex'>
     <Tile padding='x40' />
