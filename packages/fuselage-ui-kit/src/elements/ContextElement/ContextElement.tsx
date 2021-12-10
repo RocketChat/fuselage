@@ -1,15 +1,17 @@
 import { Box } from '@rocket.chat/fuselage';
-import { ContextBlockElements } from '@rocket.chat/ui-kit/dist/esm/blocks/layout/ContextBlock';
-import { BaseSurfaceRenderer } from '@rocket.chat/ui-kit/dist/esm/rendering/BaseSurfaceRenderer';
+import * as UiKit from '@rocket.chat/ui-kit';
 import React, { FC } from 'react';
 
+import { BlockProps } from '../../utils/BlockProps';
 import { ContextElementItem } from './ContextElementItem';
 
-export const ContextElement: FC<{
-  className?: string;
-  elements: ContextBlockElements[];
-  parser: BaseSurfaceRenderer<FC>;
-}> = ({ elements, parser, className }) => (
+type ContextElementProps = BlockProps<UiKit.ContextBlock>;
+
+export const ContextElement: FC<ContextElementProps> = ({
+  block,
+  surfaceRenderer,
+  className,
+}) => (
   <Box
     className={className}
     display='flex'
@@ -17,8 +19,13 @@ export const ContextElement: FC<{
     margin={-4}
     withTruncatedText
   >
-    {elements.map((element, i) => (
-      <ContextElementItem index={i} key={i} element={element} parser={parser} />
+    {block.elements.map((element, i) => (
+      <ContextElementItem
+        index={i}
+        key={i}
+        element={element}
+        surfaceRenderer={surfaceRenderer}
+      />
     ))}
   </Box>
 );

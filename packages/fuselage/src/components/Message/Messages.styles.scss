@@ -11,6 +11,7 @@
 @import './MessageDivider/styles.scss';
 @import './MessagePreview/MessagePreview.styles.scss';
 @import './MessageStatusIndicator/MessageStatusIndicator.styles.scss';
+@import './MessageSystem/MessageSystem.styles.scss';
 
 %rcx-margins-header {
   margin-inline: lengths.margin(2);
@@ -51,6 +52,7 @@ $message-background-color-focus: functions.theme(
   &-header {
     @extend %rcx-margins-block;
     display: flex;
+    flex-direction: row;
     flex-grow: 0;
     flex-shrink: 1;
 
@@ -84,7 +86,7 @@ $message-background-color-focus: functions.theme(
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
-      color: colors.neutral(800);
+      color: colors.foreground(default);
     }
 
     &__username {

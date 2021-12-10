@@ -6,3 +6,4 @@ export * from './MessageReactions';
 export * from './MessageToolbox';
 export * from './ThreadMessage';
 export * from './MessageStatusIndicator';
+export * from './MessageSystem';

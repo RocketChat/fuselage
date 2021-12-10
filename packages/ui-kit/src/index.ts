@@ -32,6 +32,7 @@ export { ImageBlock } from './blocks/layout/ImageBlock';
 export { InputBlock } from './blocks/layout/InputBlock';
 export { SectionBlock } from './blocks/layout/SectionBlock';
 export { LayoutBlock } from './blocks/LayoutBlock';
+export { PreviewBlock } from './blocks/layout/PreviewBlock';
 
 export { Block } from './blocks/Block';
 export { RenderableBlock } from './blocks/RenderableBlock';

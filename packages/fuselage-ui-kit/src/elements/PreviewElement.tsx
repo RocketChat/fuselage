@@ -8,21 +8,18 @@ import {
   MessageGenericPreviewTitle,
   MessageGenericPreviewFooter,
 } from '@rocket.chat/fuselage';
-import { BlockContext } from '@rocket.chat/ui-kit';
-import { VisibilityTypesInternal } from '@rocket.chat/ui-kit/dist/esm/VisitibilityType';
-import { PreviewBlock } from '@rocket.chat/ui-kit/dist/esm/blocks/layout/PreviewBlock';
-import { BaseSurfaceRenderer } from '@rocket.chat/ui-kit/dist/esm/rendering/BaseSurfaceRenderer';
+import * as UiKit from '@rocket.chat/ui-kit';
+import { BLOCK_CONTEXT } from '@rocket.chat/ui-kit';
 import React, { FC } from 'react';
 
+import { BlockProps } from '../utils/BlockProps';
 import { ContextElement } from './ContextElement';
 
-export const PreviewElement: FC<{
-  element: PreviewBlock<VisibilityTypesInternal>;
-  context?: BlockContext;
-  parser: BaseSurfaceRenderer<FC>;
-}> = ({
-  element: { title, description, externalUrl, context, ...args },
-  parser,
+type PreviewElementProps = BlockProps<UiKit.PreviewBlock>;
+
+export const PreviewElement: FC<PreviewElementProps> = ({
+  block: { title, description, externalUrl, context, thumb, ...args },
+  surfaceRenderer,
 }) => (
   <MessageGenericPreview>
     {'preview' in args && args.preview !== undefined && (
@@ -55,7 +52,15 @@ export const PreviewElement: FC<{
       </MessageGenericPreviewDescription>
       {context && (
         <MessageGenericPreviewFooter>
-          <ContextElement elements={context} parser={parser} />
+          <ContextElement
+            block={{
+              type: 'context',
+              elements: context,
+            }}
+            index={0}
+            context={BLOCK_CONTEXT.BLOCK}
+            surfaceRenderer={surfaceRenderer}
+          />
         </MessageGenericPreviewFooter>
       )}
     </MessageGenericPreviewContent>

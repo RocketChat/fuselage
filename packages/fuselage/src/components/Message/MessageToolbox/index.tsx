@@ -1,4 +1,9 @@
-import React, { ComponentProps, FC, forwardRef } from 'react';
+import React, {
+  AllHTMLAttributes,
+  ComponentProps,
+  FC,
+  forwardRef,
+} from 'react';
 
 import { ActionButton, ButtonGroup } from '../..';
 import { Menu } from '../../Menu';
@@ -17,17 +22,23 @@ export const MessageToolbox: FC<ComponentProps<typeof ButtonGroup>> & {
   );
 };
 
-export const MessageToolboxWrapper = forwardRef<HTMLDivElement>(
-  function ToolboxWrapper(props, ref) {
-    return (
-      <div
-        ref={ref}
-        className='rcx-box rcx-box--full rcx-message-toolbox__wrapper'
-        {...props}
-      />
-    );
-  }
-);
+export const MessageToolboxWrapper = forwardRef<
+  HTMLDivElement,
+  AllHTMLAttributes<HTMLDivElement>
+>(function ToolboxWrapper({ className, ...props }, ref) {
+  return (
+    <div
+      ref={ref}
+      className={[
+        'rcx-box rcx-box--full rcx-message-toolbox__wrapper',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      {...props}
+    />
+  );
+});
 
 export const MessageToolboxItem = forwardRef<
   HTMLButtonElement,

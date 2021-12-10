@@ -9,7 +9,7 @@ const OptionIcon = ({
   name: ComponentProps<typeof Icon>['name'];
 }) => (
   <OptionColumn>
-    <Icon size='x20' name={name} />
+    <Icon size='x20' rcx-option__icon name={name} />
   </OptionColumn>
 );
 

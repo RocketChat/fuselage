@@ -27,6 +27,7 @@ export * from './MultiSelect';
 export * from './NumberInput';
 export * from './Options';
 export { default as Option } from './Options/Option';
+export * from './Options/Option';
 export * from './Pagination';
 export { default as PasswordInput } from './PasswordInput';
 export * from './StatusBullet';

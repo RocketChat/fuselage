@@ -14,11 +14,20 @@ import LinearScaleElement from '../elements/LinearScaleElement';
 import MultiStaticSelectElement from '../elements/MultiStaticSelectElement';
 import OverflowElement from '../elements/OverflowElement';
 import PlainTextInputElement from '../elements/PlainTextInputElement';
+import { PreviewElement } from '../elements/PreviewElement';
 import StaticSelectElement from '../elements/StaticSelectElement';
 
 export class FuselageSurfaceRenderer extends UiKit.SurfaceRenderer<ReactElement> {
   public constructor() {
-    super(['actions', 'context', 'divider', 'image', 'input', 'section']);
+    super([
+      'actions',
+      'context',
+      'divider',
+      'image',
+      'input',
+      'section',
+      'preview',
+    ]);
   }
 
   public plain_text(
@@ -308,6 +317,22 @@ export class FuselageSurfaceRenderer extends UiKit.SurfaceRenderer<ReactElement>
         block={block}
         context={context}
         index={index}
+        surfaceRenderer={this}
+      />
+    );
+  }
+
+  preview(
+    block: UiKit.PreviewBlock<1>,
+    context: UiKit.BlockContext,
+    index: number
+  ) {
+    return (
+      <PreviewElement
+        index={index}
+        key={index}
+        context={context}
+        block={block}
         surfaceRenderer={this}
       />
     );

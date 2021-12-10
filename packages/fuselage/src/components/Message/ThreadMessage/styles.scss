@@ -13,18 +13,21 @@
 }
 
 .rcx-message-thread {
+  padding-block: 0;
+
   &__container {
     @include typography.use-with-truncated-text();
     display: flex;
     flex-shrink: 1;
 
     width: 100%;
-    margin-block: lengths.margin(4);
+    margin: lengths.margin(4);
   }
 
   &__row {
     @include typography.use-with-truncated-text();
     display: flex;
+    flex-direction: row;
     align-items: center;
     flex-shrink: 1;
 

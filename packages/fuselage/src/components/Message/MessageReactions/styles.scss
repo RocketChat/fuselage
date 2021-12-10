@@ -11,6 +11,7 @@
     @include button.kind-variant(buttons.$ghost);
     @include typography.use-font-scale(c1);
     display: inline-flex;
+    align-items: center;
 
     padding: lengths.padding(2);
 
@@ -22,7 +23,43 @@
 
     &--action {
       @include mixins.visible-on-hover();
-      padding: 0;
+      padding: lengths.padding(2);
+    }
+
+    &--mine {
+      @include button.kind-variant(
+        (
+          color: theme('message-reaction-color', colors.primary(500)),
+          border-color:
+            theme('message-reaction-border-color', colors.primary(200)),
+          background-color:
+            theme('message-reaction-background-color', colors.primary(100)),
+          hover-border-color:
+            theme('message-reaction-hover-border-color', colors.primary(300)),
+          hover-background-color:
+            theme(
+              'message-reaction-hover-background-color',
+              colors.primary(200)
+            ),
+          active-border-color:
+            theme('message-reaction-active-border-color', colors.primary(500)),
+          active-background-color:
+            theme(
+              'message-reaction-active-background-color',
+              colors.primary(300)
+            ),
+          disabled-color:
+            theme('message-reaction-disabled-color', colors.primary(500)),
+          disabled-border-color:
+            theme('message-reaction-disabled-border-color', colors.primary(500)),
+          disabled-background-color:
+            theme(
+              'message-reaction-disabled-background-color',
+              colors.primary(200)
+            ),
+        )
+      );
+      border-width: lengths.border-width(1);
     }
   }
 
@@ -32,6 +69,7 @@
   }
 
   &__counter {
-    margin-inline-start: lengths.margin(4);
+    @include typography.use-font-scale(c1);
+    margin-inline: lengths.margin(2);
   }
 }

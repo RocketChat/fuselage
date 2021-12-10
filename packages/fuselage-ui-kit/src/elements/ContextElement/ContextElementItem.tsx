@@ -1,15 +1,18 @@
 import { Box } from '@rocket.chat/fuselage';
+import * as UiKit from '@rocket.chat/ui-kit';
 import { BlockContext, ElementType } from '@rocket.chat/ui-kit';
-import { ContextBlockElements } from '@rocket.chat/ui-kit/dist/esm/blocks/layout/ContextBlock';
-import { BaseSurfaceRenderer } from '@rocket.chat/ui-kit/dist/esm/rendering/BaseSurfaceRenderer';
 import React, { FC } from 'react';
 
+import { BlockProps } from '../../utils/BlockProps';
+
+type ContextElementProps = BlockProps<UiKit.ContextBlock>;
+
 export const ContextElementItem: FC<{
-  element: ContextBlockElements;
-  parser: BaseSurfaceRenderer<FC>;
+  element: ContextElementProps['block']['elements'][number];
+  surfaceRenderer: ContextElementProps['surfaceRenderer'];
   index: number;
-}> = ({ element, parser, index }) => {
-  const renderedElement = parser.renderContext(
+}> = ({ element, surfaceRenderer, index }) => {
+  const renderedElement = surfaceRenderer.renderContext(
     element,
     BlockContext.CONTEXT,
     undefined,

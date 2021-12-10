@@ -33,10 +33,11 @@ $message-divider-size-neg: theme(
 );
 
 .rcx-message-divider {
-  @include typography.use-font-scale(c1);
-  position: relative;
+  @include typography.use-font-scale(c2);
+  background-color: $message-background-color;
   z-index: 1;
 
+  position: relative;
   display: flex;
   align-items: center;
 
@@ -81,12 +82,13 @@ $message-divider-size-neg: theme(
     background-color: $message-background-color;
 
     &--unread {
-      position: fixed;
+      position: absolute;
       z-index: 1;
 
       order: 1;
 
       padding-inline-start: lengths.padding(8);
+      right: lengths.padding(8);
 
       color: $message-divider-color-unread;
       background-color: $message-background-color;

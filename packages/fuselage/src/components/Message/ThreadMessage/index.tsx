@@ -1,67 +1,85 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps, FC, ReactElement } from 'react';
 
 import { Icon } from '../..';
 import Message from '../Message';
 
 export const ThreadMessage: FC<ComponentProps<typeof Message>> & {
-  Row: FC;
+  Row: typeof ThreadMessageRow;
 
-  Container: FC;
-  LeftContainer: FC;
+  Container: typeof ThreadMessageContainer;
+  LeftContainer: typeof ThreadMessageLeftContainer;
 
-  Origin: FC;
-  Message: FC;
+  Origin: typeof ThreadMessageOrigin;
+  Message: typeof ThreadMessageBody;
 
-  Follow: FC;
-  Unfollow: FC;
-  Icon: FC;
+  Follow: typeof ThreadMessageFollow;
+  Unfollow: typeof ThreadMessageUnfollow;
+  Icon: typeof ThreadMessageIconThread;
 } = (props) => (
   <Message {...({ className: 'rcx-message--thread' } as any)} {...props} />
 );
 
-ThreadMessage.Message = (props) => (
+export const ThreadMessageBody: FC = (props) => (
   <div
     className='rcx-box rcx-box--full rcx-message-thread__message'
     {...props}
   />
 );
 
-ThreadMessage.Row = (props) => (
+export const ThreadMessageRow: FC = (props) => (
   <div className='rcx-box rcx-box--full rcx-message-thread__row' {...props} />
 );
 
-ThreadMessage.Origin = (props) => (
+export const ThreadMessageOrigin: FC = (props) => (
   <div
     className='rcx-box rcx-box--full rcx-message-thread__origin'
     {...props}
   />
 );
 
-ThreadMessage.Icon = (props) => (
+export const ThreadMessageIconThread = () => (
+  <ThreadMessageIcon name='thread' />
+);
+
+export const ThreadMessageIcon = ({
+  ...props
+}: ComponentProps<typeof Icon>): ReactElement => (
   <Icon
     className='rcx-box rcx-box--full rcx-message-thread__icon'
-    {...({ name: 'thread', size: 'x16', ...props } as any)}
+    size='x16'
+    {...props}
   />
 );
 
-ThreadMessage.Follow = () => (
-  <ThreadMessage.Icon
+export const ThreadMessageFollow = () => (
+  <ThreadMessageIcon
     className='rcx-box rcx-box--full rcx-message-thread__icon rcx-message-thread__icon--follow'
     {...({ name: 'bell' } as any)}
   />
 );
-ThreadMessage.Unfollow = () => (
-  <ThreadMessage.Icon
+
+export const ThreadMessageUnfollow = () => (
+  <ThreadMessageIcon
     className='rcx-box rcx-box--full rcx-message-thread__icon rcx-message-thread__icon--unfollow'
     {...({ name: 'bell-off' } as any)}
   />
 );
 
-ThreadMessage.LeftContainer = Message.LeftContainer;
+export const ThreadMessageLeftContainer = Message.LeftContainer;
 
-ThreadMessage.Container = (props) => (
+export const ThreadMessageContainer: FC = (props) => (
   <div
     className='rcx-box rcx-box--full rcx-message-thread__container'
     {...props}
   />
 );
+
+/* deprecated */
+ThreadMessage.Message = ThreadMessageBody;
+ThreadMessage.Row = ThreadMessageRow;
+ThreadMessage.Origin = ThreadMessageOrigin;
+ThreadMessage.Icon = ThreadMessageIconThread;
+ThreadMessage.Container = ThreadMessageContainer;
+ThreadMessage.LeftContainer = ThreadMessageLeftContainer;
+ThreadMessage.Follow = ThreadMessageFollow;
+ThreadMessage.Unfollow = ThreadMessageUnfollow;

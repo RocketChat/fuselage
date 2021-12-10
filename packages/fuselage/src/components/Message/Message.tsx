@@ -77,22 +77,20 @@ export const MessageBody = ({
   />
 );
 
-export const MessageBlock: FC<{ className?: string }> = function MessageBlock({
-  className,
-  ...props
-}) {
-  return (
-    <div
-      className={
-        prependClassName(
-          className,
-          'rcx-box rcx-box--full rcx-message-block'
-        ) as any
-      }
-      {...props}
-    />
-  );
-};
+export const MessageBlock: FC<AllHTMLAttributes<HTMLDivElement>> =
+  function MessageBlock({ className, ...props }) {
+    return (
+      <div
+        className={
+          prependClassName(
+            className,
+            'rcx-box rcx-box--full rcx-message-block'
+          ) as any
+        }
+        {...props}
+      />
+    );
+  };
 
 type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   clickable?: true | false;
@@ -140,28 +138,26 @@ export const MessageTimestamp: FC<{ children: string }> =
     );
   };
 
-export const MessageName: FC<{ children: string }> = function MessageName(
-  props
-) {
-  return (
-    <span
-      className='rcx-box rcx-box--full rcx-message-header__name'
-      {...props}
-    />
-  );
-};
-export const MessageUsername: FC = function MessageUsername(props) {
-  return (
-    <span
-      className='rcx-box rcx-box--full rcx-message-header__username'
-      {...props}
-    />
-  );
-};
+export const MessageName: FC<AllHTMLAttributes<HTMLSpanElement>> =
+  function MessageName(props) {
+    return (
+      <span
+        className='rcx-box rcx-box--full rcx-message-header__name'
+        {...props}
+      />
+    );
+  };
+export const MessageUsername: FC<AllHTMLAttributes<HTMLSpanElement>> =
+  function MessageUsername(props) {
+    return (
+      <span
+        className='rcx-box rcx-box--full rcx-message-header__username'
+        {...props}
+      />
+    );
+  };
 
-export const MessageRole: FC<{ children: string }> = function MessageRole(
-  props
-) {
+export const MessageRole: FC = function MessageRole(props) {
   return (
     <Tag
       onClick={undefined}
