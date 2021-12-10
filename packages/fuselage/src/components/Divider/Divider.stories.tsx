@@ -10,4 +10,4 @@ export default {
 
 const Template: ComponentStory<typeof Divider> = () => <Divider />;
 
-export const Default = Template.bind({});
+export const Default: ComponentStory<typeof Divider> = Template.bind({});
