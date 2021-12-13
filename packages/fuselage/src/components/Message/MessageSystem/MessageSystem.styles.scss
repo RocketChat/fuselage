@@ -26,7 +26,7 @@
   &__body {
     @include typography.use-font-scale(p4);
     @include typography.use-with-truncated-text();
-    margin-inline: lengths.margin(2);
+    margin-inline: lengths.margin(4);
 
     color: colors.foreground(hint);
 
@@ -38,7 +38,7 @@
     @include typography.use-with-truncated-text();
     flex-shrink: 0;
 
-    margin-inline: lengths.margin(2);
+    margin-inline: lengths.margin(4);
 
     color: colors.foreground(default);
   }
