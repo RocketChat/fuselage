@@ -1,3 +1,12 @@
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary as PrimaryStory,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -6,7 +15,25 @@ import { Button, ButtonGroup } from '../..';
 export default {
   title: 'Buttons/ButtonGroup_new',
   component: ButtonGroup,
-} as ComponentMeta<typeof Button>;
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A container for grouping buttons that semantically share a common action context.',
+      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <PrimaryStory />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories title={''} />
+        </>
+      ),
+    },
+  },
+} as ComponentMeta<typeof ButtonGroup>;
 
 export const Default = () => (
   <ButtonGroup>
@@ -16,7 +43,7 @@ export const Default = () => (
   </ButtonGroup>
 );
 
-export const Wrap = () => (
+export const Wrap: ComponentStory<typeof ButtonGroup> = () => (
   <ButtonGroup wrap>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
@@ -41,7 +68,7 @@ export const Wrap = () => (
   </ButtonGroup>
 );
 
-export const Strech = () => (
+export const Strech: ComponentStory<typeof ButtonGroup> = () => (
   <ButtonGroup stretch>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
@@ -49,7 +76,7 @@ export const Strech = () => (
   </ButtonGroup>
 );
 
-export const Vertical = () => (
+export const Vertical: ComponentStory<typeof ButtonGroup> = () => (
   <ButtonGroup vertical>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
@@ -57,7 +84,7 @@ export const Vertical = () => (
   </ButtonGroup>
 );
 
-export const WithStretch = () => (
+export const WithStretch: ComponentStory<typeof ButtonGroup> = () => (
   <ButtonGroup vertical stretch>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
@@ -75,17 +102,20 @@ const GroupAlignment: ComponentStory<typeof ButtonGroup> = (args) => (
 
 GroupAlignment.storyName = 'Alignment';
 
-export const AlignedAtStart = GroupAlignment.bind({});
+export const AlignedAtStart: ComponentStory<typeof ButtonGroup> =
+  GroupAlignment.bind({});
 AlignedAtStart.args = {
   align: 'start',
 };
 
-export const AlignedAtCenter = GroupAlignment.bind({});
+export const AlignedAtCenter: ComponentStory<typeof ButtonGroup> =
+  GroupAlignment.bind({});
 AlignedAtCenter.args = {
   align: 'center',
 };
 
-export const AlignedAtEnd = GroupAlignment.bind({});
+export const AlignedAtEnd: ComponentStory<typeof ButtonGroup> =
+  GroupAlignment.bind({});
 AlignedAtEnd.args = {
   align: 'end',
 };
