@@ -12,6 +12,13 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'fullscreen',
   },
+  args: {
+    clientName: 'Rocket.Chat',
+    error: {
+      message: '',
+      onGoBack: () => console.log('Back'),
+    },
+  },
 } as Meta<Args>;
 
 export const _OauthAuthorizationPage: Story<Args> = (args) => (

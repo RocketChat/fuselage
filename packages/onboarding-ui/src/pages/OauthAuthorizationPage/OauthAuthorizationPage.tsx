@@ -50,14 +50,12 @@ const OauthAuthorizationPage = ({
         </Box>
         <Box width='full' backgroundColor='white'>
           <Box fontScale='p1' p='x40' textAlign='start' color={colors.n900}>
-            {error ? (
+            {error.message ? (
               <>
                 <Box fontScale='h1' mbe='x18'>
                   Error
                 </Box>
-                {/* {error.message} */}
-                Email must be verified before you can utilize OAuth. Please
-                verify and try again
+                {error.message}
                 <Box mbs='x24'>
                   <Button onClick={error.onGoBack} primary>
                     {t('page.oauthAuthorizationPage.buttons.goBack')}
@@ -74,9 +72,7 @@ const OauthAuthorizationPage = ({
                   <strong>{{ name }}</strong>
                   to login with your Rocket.Chat Cloud Account?
                 </Trans>
-                {/* {t('page.oauthAuthorizationPage.allowLogin', {
-                  clientName: clientName || '...loading...',
-                })} */}
+
                 <Box mbs='x24'>
                   <Button onClick={onClickAuthorizeOAuth} primary>
                     {t('page.oauthAuthorizationPage.buttons.authorize')}
