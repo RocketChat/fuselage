@@ -6,11 +6,12 @@
 .rcx-message-system {
   @include typography.use-font-scale(c1);
   @include typography.use-with-truncated-text();
-  padding-inline: lengths.padding(20);
-  padding-block: lengths.padding(8);
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+
+  padding-block: lengths.padding(8);
+  padding-inline: lengths.padding(20);
 
   &__container {
     @include typography.use-with-truncated-text();
@@ -26,7 +27,9 @@
     @include typography.use-font-scale(p4);
     @include typography.use-with-truncated-text();
     margin-inline: lengths.margin(2);
+
     color: colors.foreground(hint);
+
     font-style: italic;
   }
 
@@ -35,8 +38,9 @@
     @include typography.use-with-truncated-text();
     flex-shrink: 0;
 
-    color: colors.foreground(default);
     margin-inline: lengths.margin(2);
+
+    color: colors.foreground(default);
   }
 
   &__block {
