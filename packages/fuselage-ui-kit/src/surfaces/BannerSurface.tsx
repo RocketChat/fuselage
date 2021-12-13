@@ -1,13 +1,14 @@
 import { Margins } from '@rocket.chat/fuselage';
-import React, { FC } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
-import { Surface } from './SurfaceContext';
+import { Surface } from './Surface';
 
-const value = {
-  type: 'banner',
-} as const;
-const BannerSurface: FC = ({ children }) => (
-  <Surface value={value}>
+type BannerSurfaceProps = {
+  children?: ReactNode;
+};
+
+const BannerSurface = ({ children }: BannerSurfaceProps): ReactElement => (
+  <Surface type='banner'>
     <Margins block='x8'>{children}</Margins>
   </Surface>
 );
