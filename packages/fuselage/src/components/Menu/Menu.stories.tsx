@@ -7,6 +7,13 @@ import { menuOptions } from '../../../.storybook/helpers.js';
 export default {
   title: 'Misc/Menu_new',
   component: Menu,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Kebab Menu',
+      },
+    },
+  },
 } as ComponentMeta<typeof Menu>;
 
 export const Template: ComponentStory<typeof Menu> = () => (

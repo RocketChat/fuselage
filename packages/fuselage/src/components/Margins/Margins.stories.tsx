@@ -1,3 +1,10 @@
+import {
+  Title,
+  Description,
+  Primary,
+  Stories,
+  ArgsTable,
+} from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -6,7 +13,23 @@ import { Box, Button, ButtonGroup, Margins, Tile } from '../..';
 export default {
   title: 'Layout/Margins_new',
   component: Margins,
-} as ComponentMeta<typeof Margins>;
+  parameters: {
+    docs: {
+      description: {
+        component: 'Add margins to the wrapped component.',
+      },
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <ArgsTable />
+          <Stories title={''} />
+        </>
+      ),
+    },
+  },
+} as ComponentMeta<typeof ButtonGroup>;
 
 const Template: ComponentStory<typeof Margins> = (args) => (
   <ButtonGroup>
