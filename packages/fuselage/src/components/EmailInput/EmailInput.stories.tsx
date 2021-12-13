@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -7,6 +8,22 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 export default {
   title: 'Forms/Inputs/EmailInput_new',
   component: EmailInput,
+  parameters: {
+    docs: {
+      description: {
+        component: 'An input for email addresses.',
+      },
+
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <Stories title={'Props from InputBox'} />
+        </>
+      ),
+    },
+  },
 } as ComponentMeta<typeof EmailInput>;
 
 const Template: ComponentStory<typeof EmailInput> = (args) => (

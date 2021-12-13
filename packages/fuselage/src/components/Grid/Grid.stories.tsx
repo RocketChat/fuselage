@@ -1,3 +1,10 @@
+import {
+  Title,
+  Description,
+  Primary,
+  Stories,
+  ArgsTable,
+} from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -7,6 +14,23 @@ import { Grid, Tile } from '../..';
 export default {
   title: 'Containers/Grid_new',
   component: Grid,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A container for grouping fields that semantically share a common data context.',
+      },
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <ArgsTable />
+          <Stories title={''} />
+        </>
+      ),
+    },
+  },
 } as ComponentMeta<typeof Grid>;
 
 const Template: ComponentStory<typeof Grid> = () => (

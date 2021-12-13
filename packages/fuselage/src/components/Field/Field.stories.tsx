@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -6,6 +7,22 @@ import { CheckBox, Field, InputBox, ToggleSwitch } from '../..';
 export default {
   title: 'Forms/Field_new',
   component: Field,
+  parameters: {
+    docs: {
+      description: {
+        component: 'A `Field` is a wrapper representing an entry in a form.',
+      },
+
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <Stories title={'Label positioning for selection buttons'} />
+        </>
+      ),
+    },
+  },
 } as ComponentMeta<typeof Field>;
 
 export const Example: ComponentStory<typeof Field> = () => (

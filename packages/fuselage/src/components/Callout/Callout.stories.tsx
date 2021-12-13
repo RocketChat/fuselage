@@ -1,3 +1,12 @@
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary as PrimaryStory,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -6,6 +15,24 @@ import { Callout } from '../..';
 export default {
   title: 'Misc/Callout_new',
   component: Callout,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The `Callout` is used to get the user's attention explaining something important in the content of the current page.",
+      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <PrimaryStory />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories title={''} />
+        </>
+      ),
+    },
+  },
 } as ComponentMeta<typeof Callout>;
 
 const Template: ComponentStory<typeof Callout> = (args) => (

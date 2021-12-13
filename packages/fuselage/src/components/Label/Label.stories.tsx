@@ -1,3 +1,10 @@
+import {
+  Title,
+  Description,
+  Primary,
+  Stories,
+  ArgsTable,
+} from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -6,6 +13,22 @@ import { Label } from '../..';
 export default {
   title: 'Forms/Label_new',
   component: Label,
+  parameters: {
+    docs: {
+      description: {
+        component: 'A caption for an input component.',
+      },
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <ArgsTable />
+          <Stories title={'Input component state'} />
+        </>
+      ),
+    },
+  },
 } as ComponentMeta<typeof Label>;
 
 const Template: ComponentStory<typeof Label> = (args) => (

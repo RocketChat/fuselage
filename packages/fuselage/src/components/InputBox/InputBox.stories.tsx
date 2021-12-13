@@ -1,4 +1,11 @@
 import { action } from '@storybook/addon-actions';
+import {
+  Title,
+  Description,
+  Primary,
+  Stories,
+  ArgsTable,
+} from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -7,7 +14,24 @@ import { Icon, InputBox } from '../..';
 export default {
   title: 'Forms/InputBox_new',
   component: InputBox,
-} as ComponentMeta<typeof InputBox>;
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A decorated input control with support for addons. <br/> Usually you'll perfer to use `-Input` (e.g. <LinkTo kind='Forms/TextInput' story='Default'>`TextInput`</LinkTo>) components over this one because it works as a construction block for them.",
+      },
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <ArgsTable />
+          <Stories title={''} />
+        </>
+      ),
+    },
+  },
+} as ComponentMeta<typeof Icon>;
 
 const Template: ComponentStory<typeof InputBox> = (args) => (
   <InputBox {...args} />
