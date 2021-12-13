@@ -12,3 +12,4 @@ export { default as RegisterServerPage } from './pages/RegisterServerPage';
 export { default as RequestTrialPage } from './pages/RequestTrialPage';
 export { default as DarkModeProvider } from './common/DarkModeProvider';
 export { default as LoginPage } from './pages/LoginPage';
+export { default as CreateNewAccountPage } from './pages/CreateNewAccountPage';
