@@ -1,0 +1,47 @@
+@use '../../../styles/lengths.scss';
+@use '../../../styles/colors.scss';
+@use '../../../styles/typography.scss';
+@use '../mixins.scss';
+
+.rcx-message-system {
+  @include typography.use-font-scale(c1);
+  @include typography.use-with-truncated-text();
+  padding-inline: lengths.padding(20);
+  padding-block: lengths.padding(8);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  &__container {
+    @include typography.use-with-truncated-text();
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+
+    width: 100%;
+    margin-block: lengths.margin(-4);
+  }
+
+  &__body {
+    @include typography.use-font-scale(p4);
+    @include typography.use-with-truncated-text();
+    margin-inline: lengths.margin(2);
+    color: colors.foreground(hint);
+    font-style: italic;
+  }
+
+  &__name {
+    @include typography.use-font-scale(h5);
+    @include typography.use-with-truncated-text();
+    flex-shrink: 0;
+
+    color: colors.foreground(default);
+    margin-inline: lengths.margin(2);
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

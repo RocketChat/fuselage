@@ -3,6 +3,7 @@ import OptionAvatar from './OptionAvatar';
 import OptionColumn from './OptionColumn';
 import OptionContent from './OptionContent';
 import OptionDescription from './OptionDescription';
+import OptionDivider from './OptionDivider';
 import OptionIcon from './OptionIcon';
 import OptionMenu from './OptionMenu';
 import OptionSkeleton from './OptionSkeleton';
@@ -13,6 +14,16 @@ export default Object.assign(Option, {
   Avatar: OptionAvatar,
   Menu: OptionMenu,
   Icon: OptionIcon,
+  Divider: OptionDivider,
   Column: OptionColumn,
   Content: OptionContent,
 });
+
+export { OptionAvatar };
+export { OptionColumn };
+export { OptionContent };
+export { OptionDescription };
+export { OptionDivider };
+export { OptionIcon };
+export { OptionMenu };
+export { OptionSkeleton };

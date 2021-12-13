@@ -64,7 +64,7 @@ export const Default = () => (
           veniam...
         </MessageBody>
         <MessageReactions>
-          <MessageReactions.Reaction counter={1} />
+          <MessageReactions.Reaction mine counter={1} />
           <MessageReactions.Reaction counter={2} />
           <MessageReactions.Reaction counter={3} />
           <MessageReactions.Action />
@@ -295,7 +295,7 @@ export const MessageWithThread = () => (
                 6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkB
                 SuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlP
                 UH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
-            size={'x16'}
+            size='x16'
           />
         </ThreadMessage.LeftContainer>
         <ThreadMessage.Container>

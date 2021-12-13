@@ -153,3 +153,6 @@ export const ContextWithTextAndImages = createStory(
 export const Conditional = createStory(payloads.conditional);
 
 export const Preview = createStory(payloads.preview);
+export const PreviewWithExternalUrl = createStory(
+  payloads.previewWithExternalUrl
+);

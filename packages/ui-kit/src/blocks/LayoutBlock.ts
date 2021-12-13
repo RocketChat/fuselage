@@ -15,4 +15,5 @@ export type LayoutBlock =
   | DividerBlock
   | ImageBlock
   | InputBlock
-  | SectionBlock;
+  | SectionBlock
+  | PreviewBlock;

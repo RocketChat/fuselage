@@ -1,14 +1,14 @@
 import { Margins } from '@rocket.chat/fuselage';
-import React, { ReactElement, ReactNode } from 'react';
+import React, { FC } from 'react';
 
-import { Surface } from './Surface';
+import { Surface } from './SurfaceContext';
 
-type MessageSurfaceProps = {
-  children?: ReactNode;
-};
+const value = {
+  type: 'message',
+} as const;
 
-const MessageSurface = ({ children }: MessageSurfaceProps): ReactElement => (
-  <Surface type='message'>
+const MessageSurface: FC = ({ children }) => (
+  <Surface value={value}>
     <Margins blockEnd='x16'>{children}</Margins>
   </Surface>
 );

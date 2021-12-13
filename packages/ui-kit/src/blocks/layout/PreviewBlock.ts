@@ -1,5 +1,6 @@
 import { LayoutBlockType } from '../LayoutBlockType';
 import { TextObject } from '../TextObject';
+import { ContextBlock } from './ContextBlock';
 
 type Image = {
   url: string;
@@ -9,28 +10,34 @@ type Image = {
   };
 };
 
-export type PreviewBlock = {
+export type PreviewBlockBase = {
   type: `${LayoutBlockType.PREVIEW}`;
   title: TextObject[];
-  description: TextObject;
-  footer?: TextObject[];
-} & (
-  | {
-      preview: Image;
-      externalUrl?: string;
-      oembedUrl?: string;
-      thumb: undefined;
-    }
-  | {
-      thumb: Image;
-    }
-  | Record<string, never>
-);
+  description: TextObject[];
+  footer?: ContextBlock;
+};
 
-type PreviewBlockWithThumb = PreviewBlock & {
+export type PreviewBlockWithThumb = PreviewBlockBase & {
   thumb: Image;
 };
+
+export type PreviewBlockWithPreview = PreviewBlockBase & {
+  preview: Image;
+  externalUrl?: string;
+  oembedUrl?: string;
+  thumb: undefined;
+};
+
+export type PreviewBlock =
+  | PreviewBlockBase
+  | PreviewBlockWithThumb
+  | PreviewBlockWithPreview;
 
 export const isPreviewBlockWithThumb = (
   previewBlock: PreviewBlock
 ): previewBlock is PreviewBlockWithThumb => 'thumb' in previewBlock;
+
+export const isPreviewBlockWithPreview = (
+  previewBlock: PreviewBlock
+): previewBlock is PreviewBlockWithPreview =>
+  'externalUrl' in previewBlock || 'oembedUrl' in previewBlock;
