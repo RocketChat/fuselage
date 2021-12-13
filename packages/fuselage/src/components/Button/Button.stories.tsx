@@ -1,4 +1,13 @@
 import { action } from '@storybook/addon-actions';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary as PrimaryStory,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -8,7 +17,24 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 export default {
   title: 'Buttons/Button_new',
   component: Button,
-} as ComponentMeta<typeof Button>;
+  parameters: {
+    docs: {
+      description: {
+        component: 'Indicates an actionable user action.',
+      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <PrimaryStory />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories title={''} />
+        </>
+      ),
+    },
+  },
+} as ComponentMeta<typeof ButtonGroup>;
 
 export const Default = () => <Button onClick={action('click')}>Button</Button>;
 
@@ -30,35 +56,35 @@ const Group: ComponentStory<typeof Button> = (args) => (
   </ButtonGroup>
 );
 
-export const Variants = Group.bind({});
+export const Variants: ComponentStory<typeof Button> = Group.bind({});
 
-export const Primary = Group.bind({});
+export const Primary: ComponentStory<typeof Button> = Group.bind({});
 Primary.args = {
   primary: true,
 };
 
-export const Ghost = Group.bind({});
+export const Ghost: ComponentStory<typeof Button> = Group.bind({});
 Ghost.args = {
   ghost: true,
 };
 
-export const Nude = Group.bind({});
+export const Nude: ComponentStory<typeof Button> = Group.bind({});
 Nude.args = {
   nude: true,
 };
 
-export const Ghostish = Group.bind({});
+export const Ghostish: ComponentStory<typeof Button> = Group.bind({});
 Ghostish.args = {
   ghostish: true,
 };
 
-export const Square = () => (
+export const Square: ComponentStory<typeof Button> = () => (
   <Button square>
     <Icon name='plus' size='x20' />
   </Button>
 );
 
-export const Sizes = () => (
+export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
   <>
     <ButtonGroup marginBlockEnd={12}>
       <Button small>Button</Button>
@@ -81,7 +107,7 @@ export const Sizes = () => (
   </>
 );
 
-export const AsLink = () => (
+export const AsLink: ComponentStory<typeof Button> = () => (
   <Button is='a' href='https://rocket.chat' external>
     Button
   </Button>
