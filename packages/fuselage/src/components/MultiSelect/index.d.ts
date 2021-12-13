@@ -2,7 +2,7 @@ import { ComponentProps, ForwardRefExoticComponent } from 'react';
 
 import { Box } from '../Box';
 
-type MultiSelectOptions = readonly (readonly [string, string])[];
+type MultiSelectOptions = readonly (readonly [string, string, boolean?])[];
 
 type MultiSelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   error?: string;
