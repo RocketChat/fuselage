@@ -6,7 +6,15 @@ import { Accordion, Box } from '../..';
 export default {
   title: 'CONTAINERS/Accordion_new',
   component: Accordion,
-} as ComponentMeta<typeof Accordion>;
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'An `Accordion` allows users to toggle the display of sections of content.',
+      },
+    },
+  },
+} as ComponentMeta<typeof Accordion.Item>;
 
 const Template: ComponentStory<typeof Accordion> = (args) => {
   console.log(args);
@@ -31,4 +39,4 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: ComponentStory<typeof Accordion> = Template.bind({});

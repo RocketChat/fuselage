@@ -1,4 +1,12 @@
 import { action } from '@storybook/addon-actions';
+import {
+  Title,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -6,55 +14,26 @@ import { Accordion, Box } from '../..';
 
 export default {
   title: 'CONTAINERS/Accordion_new/AccordionItem',
-  component: Accordion,
-  argTypes: {
-    title: {
-      description: 'node',
-      control: {
-        type: null,
+  component: Accordion.Item,
+  parameters: {
+    docs: {
+      description: {
+        component: 'A collapsible panel.',
       },
-    },
-    defaultExpanded: {
-      description: 'bool',
-      control: {
-        type: null,
-      },
-    },
-    disabled: {
-      description: 'bool',
-      control: {
-        type: null,
-      },
-    },
-    expanded: {
-      description: 'bool',
-      control: {
-        type: null,
-      },
-    },
-    tabIndex: {
-      description: 'number',
-      defaultValue: 10,
-      control: {
-        type: null,
-      },
-    },
-    onToggle: {
-      description: 'func',
-      control: {
-        type: null,
-      },
-    },
-    onToggleEnabled: {
-      description: 'func',
-      control: {
-        type: null,
-      },
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories title={''} />
+        </>
+      ),
     },
   },
-} as ComponentMeta<typeof Accordion>;
+} as ComponentMeta<typeof Accordion.Item>;
 
-const Template: ComponentStory<typeof Accordion> = (args) => {
+const Template: ComponentStory<typeof Accordion.Item> = (args) => {
   console.log(args);
   return (
     <Accordion>
@@ -66,8 +45,6 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
     </Accordion>
   );
 };
-
-Template.storyName = 'Accordion.Item';
 
 export const Default = Template.bind({});
 Default.args = {
@@ -91,16 +68,12 @@ export const WithoutTitle = Template.bind({});
 export const Enabled = Template.bind({});
 Enabled.args = {
   title: 'Item',
-  onToggleEnabled: () => {
-    action('toggleEnabled');
-  },
+  onToggleEnabled: action('toggleEnabled'),
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   title: 'Item',
-  onToggleEnabled: () => {
-    action('toggleEnabled');
-  },
+  onToggleEnabled: action('toggleEnabled'),
   disabled: true,
 };
