@@ -7,6 +7,13 @@ import { AutoComplete } from '../..';
 export default {
   title: 'FORMS/Inputs/AutoComplete_new',
   component: AutoComplete,
+  parameters: {
+    docs: {
+      description: {
+        component: 'An input for selection of options.',
+      },
+    },
+  },
 } as ComponentMeta<typeof AutoComplete>;
 
 const Template: ComponentStory<typeof AutoComplete> = () => {
