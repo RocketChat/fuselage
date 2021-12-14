@@ -74,6 +74,14 @@
         "label": "New here? <1>Create account</1>"
       }
     },
+    "oauthAuthorizationPage": {
+      "title": "Authorization",
+      "allowLogin": "Do you wish to allow <1>{{name}}</1> to login with your Rocket.Chat Cloud Account?",
+      "buttons": {
+        "authorize": "Authorize",
+        "goBack": "Go Back"
+      }
+    },
     "newAccountForm": {
       "title": "Register new account"
     }
