@@ -12,7 +12,9 @@
     },
     "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>",
     "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>",
-    "createNewAccountPage": "Already registered? <1>Go to login</1>"
+    "createNewAccountPage": "Already registered? <1>Go to login</1>",
+    "resetPasswordPage": "What to log in? <1>Go to login</1>",
+    "createPasswordPage": "What to log in? <1>Go to login</1>"
   },
   "page": {
     "form": {
@@ -76,6 +78,12 @@
     },
     "newAccountForm": {
       "title": "Register new account"
+    },
+    "resetPasswordPage": {
+      "title": "Reset password?"
+    },
+    "createPasswordPage": {
+      "title": "Create new password"
     }
   },
   "form": {
@@ -258,6 +266,35 @@
       },
       "button": {
         "text": "Log in"
+      }
+    },
+    "resetPasswordForm": {
+      "action": {
+        "submit": "Reset Password"
+      },
+      "content": {
+        "subtitle": "Enter the email address associated with your account."
+      },
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
+        }
+      }
+    },
+    "createPasswordForm": {
+      "fields": {
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter new password"
+        },
+        "confirmPassword": {
+          "label": "Confirm new password",
+          "placeholder": "Enter new password"
+        }
+      },
+      "button": {
+        "text": "Save new password"
       }
     }
   }
