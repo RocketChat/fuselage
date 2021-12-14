@@ -36,7 +36,7 @@ const OauthAuthorizationPage = ({
         paddingBlock={32}
         paddingInline={16}
       >
-        <OnboardingLogo tag='Cloud' />
+        <OnboardingLogo />
         <Box
           fontWeight={500}
           width='100%'
