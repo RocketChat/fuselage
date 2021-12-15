@@ -88,7 +88,11 @@
       "title": "Register new account"
     },
     "resetPasswordPage": {
-      "title": "Reset password?"
+      "title": "Reset password?",
+      "emailSent": {
+        "title": "Password reset request received!",
+        "subtitle": "If there is a user with that email you will receive an email to finish password reset process."
+      }
     },
     "createPasswordPage": {
       "title": "Create new password"
