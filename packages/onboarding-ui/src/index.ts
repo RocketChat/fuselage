@@ -15,5 +15,5 @@ export { default as LoginPage } from './pages/LoginPage';
 export { default as CreateNewAccountPage } from './pages/CreateNewAccountPage';
 export { default as ResetPasswordPage } from './pages/ResetPasswordPage';
 export { default as CreateNewPasswordPage } from './pages/CreateNewPasswordPage';
-export { default as ConfirmationPage } from './pages/ConfirmationPage';
+export { default as ResetPasswordConfirmationPage } from './pages/ResetPasswordConfirmationPage';
 export { default as OauthAuthorizationPage } from './pages/OauthAuthorizationPage';
