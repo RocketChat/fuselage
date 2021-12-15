@@ -1,9 +1,9 @@
-@use '../../styles/lengths.scss';
-@use '../../styles/functions.scss';
-@use '../../styles/colors.scss';
-@use '../../styles/typography.scss';
-@use '../../styles/mixins/size.scss';
-@use '../../styles/primitives/traits/rich-text.scss';
+@use '../../../styles/lengths.scss';
+@use '../../../styles/functions.scss';
+@use '../../../styles/colors.scss';
+@use '../../../styles/typography.scss';
+@use '../../../styles/mixins/size.scss';
+@use '../../../styles/primitives/traits/rich-text.scss';
 
 $message-generic-preview-border-color: theme(
   'message-generic-preview-border-color',

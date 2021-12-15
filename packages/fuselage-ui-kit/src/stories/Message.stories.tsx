@@ -1,17 +1,5 @@
 /* eslint-disable new-cap */
-import {
-  Message,
-  Avatar,
-  MessageLeftContainer,
-  MessageHeader,
-  MessageContainer,
-  MessageName,
-  MessageUsername,
-  MessageRole,
-  MessageTimestamp,
-  MessageToolbox,
-  MessageBody,
-} from '@rocket.chat/fuselage';
+import { Message, Avatar } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
 import { action } from '@storybook/addon-actions';
 import React from 'react';
@@ -35,7 +23,7 @@ const createStory = (blocks: readonly UiKit.LayoutBlock[]) => {
     errors: Record<string, string>;
   }) => (
     <Message clickable>
-      <MessageLeftContainer>
+      <Message.LeftContainer>
         <Avatar
           url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
               4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
@@ -50,17 +38,17 @@ const createStory = (blocks: readonly UiKit.LayoutBlock[]) => {
               UH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           size={'x36'}
         />
-      </MessageLeftContainer>
-      <MessageContainer>
-        <MessageHeader>
-          <MessageName>Haylie George</MessageName>
-          <MessageUsername>@haylie.george</MessageUsername>
-          <MessageRole>Admin</MessageRole>
-          <MessageRole>User</MessageRole>
-          <MessageRole>Owner</MessageRole>
-          <MessageTimestamp>12:00 PM</MessageTimestamp>
-        </MessageHeader>
-        <MessageBody>
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.Name>Haylie George</Message.Name>
+          <Message.Username>@haylie.george</Message.Username>
+          <Message.Role>Admin</Message.Role>
+          <Message.Role>User</Message.Role>
+          <Message.Role>Owner</Message.Role>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <Message.Body>
           <kitContext.Provider
             value={{
               action: action('action'),
@@ -72,15 +60,15 @@ const createStory = (blocks: readonly UiKit.LayoutBlock[]) => {
           >
             {UiKitMessage(blocks)}
           </kitContext.Provider>
-        </MessageBody>
-      </MessageContainer>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+        </Message.Body>
+      </Message.Container>
+      <Message.Toolbox.Wrapper>
+        <Message.Toolbox>
+          <Message.Toolbox.Item icon='quote' />
+          <Message.Toolbox.Item icon='clock' />
+          <Message.Toolbox.Item icon='thread' />
+        </Message.Toolbox>
+      </Message.Toolbox.Wrapper>
     </Message>
   );
   story.args = {

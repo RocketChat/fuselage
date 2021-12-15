@@ -3,4 +3,4 @@ import './MessageGenericPreview.styles.scss';
 
 export const MessageGenericPreview: FC<React.HTMLAttributes<HTMLDivElement>> = (
   props
-) => <div {...props} className='rcx-message-generic-preview' />;
+) => <div className='rcx-message-generic-preview' {...props} />;

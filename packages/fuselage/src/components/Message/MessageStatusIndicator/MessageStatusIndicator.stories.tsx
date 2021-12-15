@@ -1,25 +1,14 @@
 import React from 'react';
 
 import { MessageStatusIndicator, MessageStatusIndicatorItem } from '.';
+import Message from '..';
 import { Box, Avatar } from '../..';
-import {
-  Message,
-  MessageBody,
-  MessageContainer,
-  MessageHeader,
-  MessageLeftContainer,
-  MessageName,
-  MessageRole,
-  MessageTimestamp,
-  MessageUsername,
-} from '../Message';
 import { MessageDivider } from '../MessageDivider';
-// import { MessageMetricsItem } from './MessageMetrics';
-import { MessageReactions } from '../MessageReactions';
-import { MessageToolbox } from '../MessageToolbox';
+import MessageReactions from '../MessageReactions';
+import MessageToolbox from '../MessageToolbox';
 
 export default {
-  title: 'Messages/StatusIndicator',
+  title: 'Message/StatusIndicator',
   component: Message,
   // parameters: {
   //   jest: ['Message.spec.tsx'],
@@ -30,7 +19,7 @@ export const Default = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message clickable>
-      <MessageLeftContainer>
+      <Message.LeftContainer>
         <Avatar
           url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
                 4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
@@ -45,15 +34,15 @@ export const Default = () => (
                 UH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           size={'x36'}
         />
-      </MessageLeftContainer>
-      <MessageContainer>
-        <MessageHeader>
-          <MessageName>Haylie George</MessageName>
-          <MessageUsername>@haylie.george</MessageUsername>
-          <MessageRole>Admin</MessageRole>
-          <MessageRole>User</MessageRole>
-          <MessageRole>Owner</MessageRole>
-          <MessageTimestamp>12:00 PM</MessageTimestamp>
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.Name>Haylie George</Message.Name>
+          <Message.Username>@haylie.george</Message.Username>
+          <Message.Role>Admin</Message.Role>
+          <Message.Role>User</Message.Role>
+          <Message.Role>Owner</Message.Role>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
           <MessageStatusIndicator>
             <MessageStatusIndicatorItem name='star' variant='success' />
             <MessageStatusIndicatorItem name='star' variant='danger' />
@@ -64,22 +53,22 @@ export const Default = () => (
               data-title={'starred'}
             />
           </MessageStatusIndicator>
-        </MessageHeader>
-        <MessageBody>
+        </Message.Header>
+        <Message.Body>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           veniam...
-        </MessageBody>
+        </Message.Body>
         <MessageReactions>
           <MessageReactions.Reaction counter={1} />
           <MessageReactions.Reaction counter={2} />
           <MessageReactions.Reaction counter={3} />
           <MessageReactions.Action />
         </MessageReactions>
-      </MessageContainer>
+      </Message.Container>
       <MessageToolbox.Wrapper>
         <MessageToolbox>
           <MessageToolbox.Item icon='quote' />
@@ -89,7 +78,7 @@ export const Default = () => (
       </MessageToolbox.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <MessageLeftContainer>
+      <Message.LeftContainer>
         <MessageStatusIndicator>
           <MessageStatusIndicatorItem name='star-filled' />
           <MessageStatusIndicatorItem name='star-filled' />
@@ -100,12 +89,12 @@ export const Default = () => (
             data-title={'starred'}
           />
         </MessageStatusIndicator>
-      </MessageLeftContainer>
-      <MessageContainer>
-        <MessageBody>
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Body>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </MessageBody>
-      </MessageContainer>
+        </Message.Body>
+      </Message.Container>
       <MessageToolbox.Wrapper>
         <MessageToolbox>
           <MessageToolbox.Item icon='quote' />

@@ -8,11 +8,12 @@ import {
   MessageSystemName,
   MessageSystemTimestamp,
 } from '.';
-import { MessageDivider, MessageReactions, MessageSystemBlock } from '..';
+import { MessageDivider, MessageSystemBlock } from '..';
 import { Avatar, Box } from '../..';
+import MessageReactions from '../MessageReactions';
 
 export default {
-  title: 'Messages/System',
+  title: 'Message/System',
   component: MessageSystem,
   parameters: {
     jest: ['Message.spec.tsx'],

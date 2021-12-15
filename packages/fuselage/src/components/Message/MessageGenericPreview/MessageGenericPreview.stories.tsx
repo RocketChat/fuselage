@@ -1,35 +1,24 @@
 import { Story } from '@storybook/react';
 import React, { ReactNode } from 'react';
 
-import { MessageGenericPreview, Box } from '../..';
-import { Avatar } from '../Avatar';
-import { Message } from '../Message';
-import {
-  MessageBlock,
-  MessageBody,
-  MessageContainer,
-  MessageHeader,
-  MessageLeftContainer,
-  MessageName,
-  MessageRole,
-  MessageTimestamp,
-  MessageUsername,
-} from '../Message/Message';
+import { MessageGenericPreview } from '.';
+import Message from '..';
+import { Box } from '../..';
+import { Avatar } from '../../Avatar';
 import { MessageGenericPreviewContent } from './MessageGenericPreviewContent';
 import { MessageGenericPreviewDescription } from './MessageGenericPreviewDescription';
-// import { MessageGenericPreviewFooter } from './MessageGenericPreviewFooter';
 import { MessageGenericPreviewImage } from './MessageGenericPreviewImage';
 import { MessageGenericPreviewThumb } from './MessageGenericPreviewThumb';
 import { MessageGenericPreviewTitle } from './MessageGenericPreviewTitle';
 
 export default {
-  title: 'components/MessageGenericPreview',
+  title: 'Message/GenericPreview',
   component: MessageGenericPreview,
   decorators: [
     (storyFn: () => ReactNode) => (
       <Box>
         <Message>
-          <MessageLeftContainer>
+          <Message.LeftContainer>
             <Avatar
               url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
                 4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
@@ -44,20 +33,20 @@ export default {
                 UH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
               size={'x36'}
             />
-          </MessageLeftContainer>
-          <MessageContainer>
-            <MessageHeader>
-              <MessageName>Haylie George</MessageName>
-              <MessageUsername>@haylie.george</MessageUsername>
-              <MessageRole>Admin</MessageRole>
-              <MessageRole>User</MessageRole>
-              <MessageRole>Owner</MessageRole>
-              <MessageTimestamp>12:00 PM</MessageTimestamp>
-            </MessageHeader>
-            <MessageBody>
-              <MessageBlock> {storyFn()}</MessageBlock>
-            </MessageBody>
-          </MessageContainer>
+          </Message.LeftContainer>
+          <Message.Container>
+            <Message.Header>
+              <Message.Name>Haylie George</Message.Name>
+              <Message.Username>@haylie.george</Message.Username>
+              <Message.Role>Admin</Message.Role>
+              <Message.Role>User</Message.Role>
+              <Message.Role>Owner</Message.Role>
+              <Message.Timestamp>12:00 PM</Message.Timestamp>
+            </Message.Header>
+            <Message.Body>
+              <Message.Block> {storyFn()}</Message.Block>
+            </Message.Body>
+          </Message.Container>
         </Message>
       </Box>
     ),

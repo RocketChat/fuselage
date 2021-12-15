@@ -1,54 +1,12 @@
-import React, {
-  AllHTMLAttributes,
-  ComponentProps,
-  FC,
-  forwardRef,
-} from 'react';
-
-import { ActionButton, ButtonGroup } from '../..';
 import { Menu } from '../../Menu';
+import { MessageToolbox } from './MessageToolbox';
+import { MessageToolboxItem } from './MessageToolboxItem';
+import { MessageToolboxWrapper } from './MessageToolboxWrapper';
 
-import './styles.scss';
+import './MessageToolbox.styles.scss';
 
-export const MessageToolbox: FC<ComponentProps<typeof ButtonGroup>> & {
-  Item: typeof MessageToolboxItem;
-  Wrapper: typeof MessageToolboxWrapper;
-  Menu: FC<ComponentProps<typeof Menu>>;
-} = function ToolBox(props) {
-  return (
-    <div className='rcx-box rcx-box--full rcx-message-toolbox'>
-      <ButtonGroup {...{ small: true }} {...props} />
-    </div>
-  );
-};
-
-export const MessageToolboxWrapper = forwardRef<
-  HTMLDivElement,
-  AllHTMLAttributes<HTMLDivElement>
->(function ToolboxWrapper({ className, ...props }, ref) {
-  return (
-    <div
-      ref={ref}
-      className={[
-        'rcx-box rcx-box--full rcx-message-toolbox__wrapper',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      {...props}
-    />
-  );
+export default Object.assign(MessageToolbox, {
+  Item: MessageToolboxItem,
+  Wrapper: MessageToolboxWrapper,
+  Menu,
 });
-
-export const MessageToolboxItem = forwardRef<
-  HTMLButtonElement,
-  ComponentProps<typeof ActionButton>
->(function Item(props, ref) {
-  return <ActionButton ref={ref} {...{ ...props, small: true, ghost: true }} />;
-});
-
-MessageToolbox.Wrapper = MessageToolboxWrapper;
-
-MessageToolbox.Item = MessageToolboxItem;
-
-MessageToolbox.Menu = Menu;

@@ -1,11 +1,5 @@
-import React, {
-  AllHTMLAttributes,
-  ComponentProps,
-  FC,
-  forwardRef,
-} from 'react';
+import React, { AllHTMLAttributes, forwardRef } from 'react';
 
-import { Icon } from '../..';
 import './MessageStatusIndicator.styles.scss';
 
 export const MessageStatusIndicator = forwardRef<
@@ -14,40 +8,3 @@ export const MessageStatusIndicator = forwardRef<
 >((props, ref) => (
   <div ref={ref} className='rcx-message-status-indicator' {...props} />
 ));
-
-type MessageStatusIndicatorItemProps = {
-  name: ComponentProps<typeof Icon>['name'];
-  variant?: 'success' | 'danger' | 'warning' | 'primary';
-} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
-
-export const MessageStatusIndicatorItem = ({
-  name,
-  variant,
-  ...props
-}: MessageStatusIndicatorItemProps) => (
-  <Icon
-    name={name}
-    size='x16'
-    className={[
-      'rcx-message-status-indicator__item',
-      variant && `rcx-message-status-indicator__item--${variant}`,
-    ]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  />
-);
-
-export const MessageStatusPrivateIndicator: FC<
-  Omit<MessageStatusIndicatorItemProps, 'name'>
-> = ({ variant, ...props }) => (
-  <span
-    className={[
-      'rcx-message-status-indicator__item `rcx-message-status-indicator__item--private',
-      variant && `rcx-message-status-indicator__item--${variant}`,
-    ]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  />
-);
