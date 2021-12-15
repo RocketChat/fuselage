@@ -13,8 +13,7 @@
     "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>",
     "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>",
     "createNewAccountPage": "Already registered? <1>Go to login</1>",
-    "resetPasswordPage": "What to log in? <1>Go to login</1>",
-    "createPasswordPage": "What to log in? <1>Go to login</1>"
+    "wantToLogin": "Want to log in? <1>Go to login</1>"
   },
   "page": {
     "form": {
