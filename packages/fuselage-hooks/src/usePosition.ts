@@ -51,18 +51,24 @@ type VariantBoundaries = {
 };
 
 type PositionStyle = {
-  top?: string;
-  left?: string;
+  top: string;
+  left: string;
   position?: 'fixed';
-  zIndex?: '9999';
-  transition?: 'none !important';
-  opacity?: 0 | 1;
+  ZIndex: '9999';
+  transition: 'none !important';
   bottom?: 0;
-  display?: 'flex';
+  display: 'flex';
+};
+
+type PositionEmptyResult = {
+  visibility: 'hidden';
+  top: '-9999px';
+  left: '-9999px';
+  position: 'fixed';
 };
 
 type PositionResult = {
-  style?: PositionStyle;
+  style: PositionStyle | PositionEmptyResult;
   placement?: Placements;
 };
 
@@ -88,6 +94,15 @@ const fallbackOrder = {
   right: 'rltb',
   left: 'lrbt',
 } as const;
+
+const emptyStyle: PositionResult = {
+  style: {
+    position: 'fixed',
+    visibility: 'hidden',
+    top: '-9999px',
+    left: '-9999px',
+  },
+};
 
 const getParents = function (element: Element): Array<Element | Window> {
   // Set up a parent array
@@ -148,7 +163,7 @@ export const getPositionStyle = ({
   margin?: number;
 }): PositionResult => {
   if (!targetBoundaries) {
-    return {};
+    return emptyStyle;
   }
 
   const { top, left, bottom, right } = container;
@@ -222,8 +237,7 @@ export const getPositionStyle = ({
         bottom: margin,
         display: 'flex',
       }),
-      zIndex: '9999',
-      opacity: 1,
+      ZIndex: '9999',
     },
     placement: `${PlacementMap[placementAttempt]}-${
       PlacementMap[variantsAttempts[0]]
@@ -287,7 +301,7 @@ export const usePosition = (
   } = options;
   const container = useRef(containerElement);
 
-  const [style, setStyle] = useDebouncedState<PositionResult>({}, 10);
+  const [style, setStyle] = useDebouncedState<PositionResult>(emptyStyle, 10);
 
   const callback = useMutableCallback(() => {
     const boundaries = target.current.getBoundingClientRect();
@@ -315,6 +329,5 @@ export const usePosition = (
   useBoundingClientRect(target, watch, callback);
   useBoundingClientRect(reference, watch, callback);
   useBoundingClientRect(container, watch, callback);
-
   return style;
 };

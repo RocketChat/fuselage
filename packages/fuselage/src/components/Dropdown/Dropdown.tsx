@@ -5,7 +5,7 @@ import { Box, Tile } from '..';
 
 export const Dropdown: FC<{
   reference: React.RefObject<Element>;
-  placement: Parameters<typeof usePosition>[2]['placement'];
+  placement?: Parameters<typeof usePosition>[2]['placement'];
   // backdrop?: boolean;
 }> = ({
   children,
