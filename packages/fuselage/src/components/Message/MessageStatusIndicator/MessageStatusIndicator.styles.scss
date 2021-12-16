@@ -1,0 +1,26 @@
+@use '../../../styles/lengths.scss';
+@use '../../../styles/functions.scss';
+@use '../../../styles/colors.scss';
+@use '../../../styles/typography.scss';
+
+$variants: (
+  'success': colors.success(700),
+  'danger': colors.danger(700),
+  'warning': colors.warning(700),
+  'primary': colors.primary(700),
+);
+
+.rcx-message-status-indicator {
+  &:empty {
+    display: none;
+  }
+
+  &__item {
+    color: colors.foreground('hint');
+    @each $name, $color in $variants {
+      &--#{$name} {
+        color: theme('message-status-variant-color-#{$name}', $color);
+      }
+    }
+  }
+}
