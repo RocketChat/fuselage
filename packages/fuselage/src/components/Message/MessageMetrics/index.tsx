@@ -8,3 +8,10 @@ export default Object.assign(MessageMetrics, {
   Item: MessageMetricsItem,
   Following: MessageMetricsFollowing,
 });
+
+export {
+  MessageMetrics,
+  MessageMetricsFollowing,
+  MessageMetricsItem,
+  MessageMetricsReply,
+};

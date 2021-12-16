@@ -20,3 +20,15 @@ export default Object.assign(ThreadMessage, {
   Unfollow: ThreadMessageUnfollow,
   Icon: ThreadMessageIconThread,
 });
+
+export {
+  ThreadMessage,
+  ThreadMessageBody,
+  ThreadMessageContainer,
+  ThreadMessageFollow,
+  ThreadMessageIconThread,
+  ThreadMessageOrigin,
+  ThreadMessageRow,
+  ThreadMessageUnfollow,
+  ThreadMessageLeftContainer,
+};
