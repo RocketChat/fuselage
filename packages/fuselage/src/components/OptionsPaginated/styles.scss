@@ -26,9 +26,9 @@
     background: colors.neutral(500);
   }
 
-  &:hover &__menu-wraper,
-  &.focus-within &__menu-wraper,
-  &:focus-within &__menu-wraper {
+  &:hover &__menu-wrapper,
+  &.focus-within &__menu-wrapper,
+  &:focus-within &__menu-wrapper {
     display: flex;
     align-items: center;
 
@@ -37,7 +37,7 @@
     opacity: 1;
   }
 
-  &__menu-wraper {
+  &__menu-wrapper {
     flex-shrink: 0;
 
     width: 0;

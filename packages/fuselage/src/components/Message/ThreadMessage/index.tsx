@@ -1,67 +1,22 @@
-import React, { ComponentProps, FC } from 'react';
+import { MessageLeftContainer } from '../MessageLeftContainer';
+import { ThreadMessage } from './ThreadMessage';
+import { ThreadMessageBody } from './ThreadMessageBody';
+import { ThreadMessageContainer } from './ThreadMessageContainer';
+import { ThreadMessageFollow } from './ThreadMessageFollow';
+import { ThreadMessageIconThread } from './ThreadMessageIconThread';
+import { ThreadMessageOrigin } from './ThreadMessageOrigin';
+import { ThreadMessageRow } from './ThreadMessageRow';
+import { ThreadMessageUnfollow } from './ThreadMessageUnfollow';
 
-import { Icon } from '../..';
-import Message from '../Message';
+const ThreadMessageLeftContainer = MessageLeftContainer;
 
-export const ThreadMessage: FC<ComponentProps<typeof Message>> & {
-  Row: FC;
-
-  Container: FC;
-  LeftContainer: FC;
-
-  Origin: FC;
-  Message: FC;
-
-  Follow: FC;
-  Unfollow: FC;
-  Icon: FC;
-} = (props) => (
-  <Message {...({ className: 'rcx-message--thread' } as any)} {...props} />
-);
-
-ThreadMessage.Message = (props) => (
-  <div
-    className='rcx-box rcx-box--full rcx-message-thread__message'
-    {...props}
-  />
-);
-
-ThreadMessage.Row = (props) => (
-  <div className='rcx-box rcx-box--full rcx-message-thread__row' {...props} />
-);
-
-ThreadMessage.Origin = (props) => (
-  <div
-    className='rcx-box rcx-box--full rcx-message-thread__origin'
-    {...props}
-  />
-);
-
-ThreadMessage.Icon = (props) => (
-  <Icon
-    className='rcx-box rcx-box--full rcx-message-thread__icon'
-    {...({ name: 'thread', size: 'x16', ...props } as any)}
-  />
-);
-
-ThreadMessage.Follow = () => (
-  <ThreadMessage.Icon
-    className='rcx-box rcx-box--full rcx-message-thread__icon rcx-message-thread__icon--follow'
-    {...({ name: 'bell' } as any)}
-  />
-);
-ThreadMessage.Unfollow = () => (
-  <ThreadMessage.Icon
-    className='rcx-box rcx-box--full rcx-message-thread__icon rcx-message-thread__icon--unfollow'
-    {...({ name: 'bell-off' } as any)}
-  />
-);
-
-ThreadMessage.LeftContainer = Message.LeftContainer;
-
-ThreadMessage.Container = (props) => (
-  <div
-    className='rcx-box rcx-box--full rcx-message-thread__container'
-    {...props}
-  />
-);
+export default Object.assign(ThreadMessage, {
+  Row: ThreadMessageRow,
+  Container: ThreadMessageContainer,
+  LeftContainer: ThreadMessageLeftContainer,
+  Origin: ThreadMessageOrigin,
+  Message: ThreadMessageBody,
+  Follow: ThreadMessageFollow,
+  Unfollow: ThreadMessageUnfollow,
+  Icon: ThreadMessageIconThread,
+});

@@ -12,13 +12,13 @@ import { LayoutBlockRenderer } from './LayoutBlockRenderer';
 import { TextObjectRenderer } from './TextObjectRenderer';
 
 export type BlockRenderers<T> = {
-  [B in TextObject as B['type']]: TextObjectRenderer<T, B>;
+  [B in RenderableLayoutBlock as B['type']]?: LayoutBlockRenderer<T, B>;
 } &
   {
-    [B in BlockElement as B['type']]?: BlockElementRenderer<T, B>;
+    [B in TextObject as B['type']]: TextObjectRenderer<T, B>;
   } &
   {
-    [B in RenderableLayoutBlock as B['type']]?: LayoutBlockRenderer<T, B>;
+    [B in BlockElement as B['type']]?: BlockElementRenderer<T, B>;
   } & {
     /** @deprecated */
     plainText?: TextObjectRenderer<T, PlainText>;

@@ -19,6 +19,7 @@ type OptionProps = {
   avatar?: ReactNode;
   title?: string;
   value?: string;
+  variant?: 'danger' | 'success' | 'warning' | 'primary';
 } & Pick<ComponentProps<typeof Box>, 'onClick'>;
 
 const Option = React.memo(
@@ -35,6 +36,7 @@ const Option = React.memo(
     avatar,
     title,
     onClick,
+    variant,
     ...options
   }: OptionProps) => (
     <Tag
@@ -50,6 +52,7 @@ const Option = React.memo(
         className,
         focus && 'rcx-option--focus',
         selected && 'rcx-option--selected',
+        variant && `rcx-option--${variant}`,
       ]
         .filter(Boolean)
         .join(' ')}

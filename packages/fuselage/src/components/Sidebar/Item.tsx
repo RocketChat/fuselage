@@ -123,7 +123,7 @@ export const SidebarItemIcon: FC<{
       .join(' ')}
     {...props}
   >
-    {children || <FuselageIcon name={icon} size='x16' {...props} />}
+    {children || <FuselageIcon size='x16' name={icon} {...props} />}
   </div>
 );
 
