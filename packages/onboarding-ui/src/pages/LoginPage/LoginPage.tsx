@@ -5,7 +5,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import ActionLink from '../../common/ActionLink';
 import BackgroundLayer from '../../common/BackgroundLayer';
-import { OnboardingLogoCloud } from '../../common/OnboardingLogo';
+import { OnboardingLogo } from '../../common/OnboardingLogo';
 import LoginForm from '../../forms/LoginForm';
 import type { LoginFormPayload } from '../../forms/LoginForm/LoginForm';
 
@@ -37,7 +37,7 @@ const LoginPage = ({
         paddingBlock={32}
         paddingInline={16}
       >
-        <OnboardingLogoCloud />
+        <OnboardingLogo />
         <Box
           fontWeight={500}
           width='100%'

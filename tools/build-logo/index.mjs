@@ -20,8 +20,7 @@ const renderAssets = async () => {
 
   fs.writeFileSync(outputSvg, prettySvg);
 
-  // eslint-disable-next-line new-cap
-  sharp(new Buffer.from(prettySvg), { density: 450 })
+  sharp(Buffer.from(prettySvg), { density: 450 })
     .resize({ width: 1000 })
     .png()
     .toFile(outputPng);
