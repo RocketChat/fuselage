@@ -22,6 +22,17 @@ export { default as MessageMetrics } from './MessageMetrics';
 export { default as MessageReactions } from './MessageReactions';
 export { default as MessageToolbox } from './MessageToolbox';
 export { default as ThreadMessage } from './ThreadMessage';
+export * from './MessageBlock';
+export * from './MessageBody';
+export * from './MessageContainer';
+export * from './MessageContainerFixed';
+export * from './MessageHeader';
+export * from './MessageLeftContainer';
+export * from './MessageName';
+export * from './MessageRole';
+export * from './MessageRoles';
+export * from './MessageTimestamp';
+export * from './MessageUsername';
 
 export default Object.assign(Message, {
   Metrics: MessageMetrics,
