@@ -33,6 +33,7 @@ const ResetPasswordForm = ({
     handleSubmit,
     formState: { isValidating, isSubmitting, isValid, errors },
   } = useForm<ResetPasswordFormPayload>({
+    mode: 'onChange',
     defaultValues: {
       ...initialValues,
     },
