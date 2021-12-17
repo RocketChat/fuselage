@@ -16,6 +16,8 @@ export const Default = () => {
   const anchor = useRef(null);
   const target = useRef(null);
 
+  const list = Array.from(new Array(20));
+
   return (
     <Box
       w='400px'
@@ -26,53 +28,9 @@ export const Default = () => {
     >
       <ActionButton ref={anchor} icon='doner' />
       <Dropdown ref={target} reference={anchor} placement='bottom-end'>
-        <Option>Example 1</Option>
-        <Option>Example 2</Option>
-        <Option>Example 3</Option>
-        {/* <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option>
-        <Option>Example 3</Option> */}
+        {list.map((_, i) => (
+          <Option>Example {i + 1}</Option>
+        ))}
       </Dropdown>
     </Box>
   );
