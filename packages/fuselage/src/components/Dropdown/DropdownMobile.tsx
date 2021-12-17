@@ -25,9 +25,9 @@ export const DropdownMobile = forwardRef(function DropdownMobile<
       flexDirection='column'
       overflow='auto'
       style={{ bottom: 0, left: 0 }}
-      zIndex='2'
+      zIndex={2}
     >
-      <Box flexShrink='1' pb='x16'>
+      <Box flexShrink={1} pb='x16'>
         {children}
       </Box>
     </Tile>
