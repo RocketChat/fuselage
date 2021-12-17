@@ -36,6 +36,7 @@ const CreateNewPassword = ({
     handleSubmit,
     formState: { isValidating, isSubmitting, isValid, errors },
   } = useForm<CreateNewPasswordPayload>({
+    mode: 'onChange',
     defaultValues: {
       ...initialValues,
     },
