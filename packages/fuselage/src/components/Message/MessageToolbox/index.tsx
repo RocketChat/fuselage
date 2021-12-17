@@ -10,3 +10,5 @@ export default Object.assign(MessageToolbox, {
   Wrapper: MessageToolboxWrapper,
   Menu,
 });
+
+export { MessageToolbox, MessageToolboxItem, MessageToolboxWrapper, Menu };
