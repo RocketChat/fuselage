@@ -14,6 +14,8 @@ export default {
 
 export const Default = () => {
   const anchor = useRef(null);
+  const target = useRef(null);
+
   return (
     <Box
       w='400px'
@@ -23,10 +25,54 @@ export const Default = () => {
       alignItems='center'
     >
       <ActionButton ref={anchor} icon='doner' />
-      <Dropdown reference={anchor} placement='bottom-end'>
+      <Dropdown ref={target} reference={anchor} placement='bottom-end'>
         <Option>Example 1</Option>
         <Option>Example 2</Option>
         <Option>Example 3</Option>
+        {/* <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option>
+        <Option>Example 3</Option> */}
       </Dropdown>
     </Box>
   );

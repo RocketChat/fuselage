@@ -1,28 +1,34 @@
-import { usePosition } from '@rocket.chat/fuselage-hooks';
-import React, { FC, useRef } from 'react';
+import { useMediaQuery, usePosition } from '@rocket.chat/fuselage-hooks';
+import React, { forwardRef, ReactNode, Ref, RefObject } from 'react';
 
-import { Box, Tile } from '..';
+import { DropdownDesktop } from './DropdownDesktop';
+import { DropdownMobile } from './DropdownMobile';
 
-export const Dropdown: FC<{
-  reference: React.RefObject<Element>;
-  placement?: Parameters<typeof usePosition>[2]['placement'];
-  // backdrop?: boolean;
-}> = ({
-  children,
-  reference,
-  placement = 'bottom-start',
-  // backdrop,
-}) => {
-  const target = useRef(null);
+export const Dropdown = forwardRef(function Dropdown<
+  T extends HTMLElement,
+  R extends HTMLElement
+>(
+  {
+    children,
+    reference,
+    placement = 'bottom-start',
+  }: {
+    reference: RefObject<T>;
+    placement?: Parameters<typeof usePosition>[2]['placement'];
+    children: ReactNode;
+  },
+  ref: Ref<R>
+) {
+  const notSmall = useMediaQuery('(min-width: 500px)');
 
-  const { style } = usePosition(reference, target, { placement });
-
-  return (
-    <Box>
-      {/* {backdrop && <Box />} */}
-      <Tile style={style} ref={target} elevation='2' pi='0' pb='x16'>
-        {children}
-      </Tile>
-    </Box>
+  return notSmall ? (
+    <DropdownDesktop
+      reference={reference}
+      children={children}
+      placement={placement}
+      ref={ref}
+    />
+  ) : (
+    <DropdownMobile children={children} ref={ref} />
   );
-};
+});
