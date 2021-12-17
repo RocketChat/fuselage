@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 
 import { ActionButton, Box } from '..';
-import Dropdown from './Dropdown';
+import Option from '../Options/Option/Option';
+import { Dropdown } from './Dropdown';
 
 export default {
-  title: 'Dropdown',
+  title: 'Dropdown/Dropdown',
   component: Dropdown,
   parameters: {
     jest: ['Dropdown.spec.tsx'],
@@ -22,7 +23,11 @@ export const Default = () => {
       alignItems='center'
     >
       <ActionButton ref={anchor} icon='doner' />
-      <Dropdown reference={anchor}>hello</Dropdown>
+      <Dropdown reference={anchor} placement='bottom-end'>
+        <Option>Example 1</Option>
+        <Option>Example 2</Option>
+        <Option>Example 3</Option>
+      </Dropdown>
     </Box>
   );
 };
