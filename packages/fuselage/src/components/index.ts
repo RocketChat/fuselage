@@ -11,6 +11,7 @@ export * from './CheckBox';
 export * from './Chevron';
 export { default as Chip } from './Chip';
 export * from './Divider';
+export * from './Dropdown';
 export * from './EmailInput';
 export * from './Field';
 export * from './FieldGroup';
