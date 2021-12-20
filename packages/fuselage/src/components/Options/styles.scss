@@ -24,7 +24,7 @@ $variants: (
 
     padding-block-start: lengths.padding(8);
     padding-block-end: lengths.padding(8);
-    padding-inline: length.padding(16);
+    padding-inline: lengths.padding(16);
 
     color: colors.foreground(default);
   }
