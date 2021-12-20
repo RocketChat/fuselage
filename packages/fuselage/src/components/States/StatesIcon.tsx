@@ -12,7 +12,7 @@ const StatesIcon: FC<{
 
   return (
     <div className='rcx-states__icon'>
-      <Icon name={name} size='x32' color={`${variations[`${variation}`]}`} />
+      <Icon name={name} size='x32' color={variations[`${variation}`]} />
     </div>
   );
 };
