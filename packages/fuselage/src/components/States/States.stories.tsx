@@ -12,7 +12,7 @@ import {
   StatesActions,
   StatesAction,
 } from '.';
-import { Box } from '..';
+import { Box, Icon } from '..';
 
 export default {
   title: 'States/States',
@@ -77,6 +77,7 @@ export const ActionButton = () => (
     </States>
   </Box>
 );
+
 export const ActionButtonWithNoSuggestions = () => (
   <Box>
     <States>
@@ -88,6 +89,24 @@ export const ActionButtonWithNoSuggestions = () => (
       </StatesSubtitle>
       <StatesActions>
         <StatesAction>Reload</StatesAction>
+      </StatesActions>
+    </States>
+  </Box>
+);
+
+export const ErrorState = () => (
+  <Box>
+    <States>
+      <StatesIcon name='info' variation='danger' />
+      <StatesTitle>Connection error</StatesTitle>
+      <StatesSubtitle>
+        Cannot connect to internet or your workspace may be an offline install.{' '}
+        <br /> Contact your workspace admin for more information.
+      </StatesSubtitle>
+      <StatesActions>
+        <StatesAction>
+          <Icon name='arrow-loop' /> Reload
+        </StatesAction>
       </StatesActions>
     </States>
   </Box>
