@@ -1,18 +1,23 @@
-import React, { AllHTMLAttributes, FC } from 'react';
+import React, { AllHTMLAttributes, ComponentProps, FC } from 'react';
 
-import { prependClassName } from '../../helpers/prependClassName';
+import { Box, useArrayLikeClassNameProp } from '../Box';
 
-export const MessageBlock: FC<AllHTMLAttributes<HTMLDivElement>> =
-  function MessageBlock({ className, ...props }) {
-    return (
-      <div
-        className={
-          prependClassName(
-            className,
-            'rcx-box rcx-box--full rcx-message-block'
-          ) as any
-        }
-        {...props}
-      />
-    );
-  };
+export const MessageBlock: FC<
+  AllHTMLAttributes<HTMLDivElement> & {
+    className: ComponentProps<typeof Box>['className'];
+  }
+> = function MessageBlock({ className, ...props }) {
+  return (
+    <div
+      className={
+        className
+          ? useArrayLikeClassNameProp({
+              ...props,
+              className: [className, 'rcx-box rcx-box--full rcx-message-block'],
+            }).className
+          : 'rcx-box rcx-box--full rcx-message-block'
+      }
+      {...props}
+    />
+  );
+};
