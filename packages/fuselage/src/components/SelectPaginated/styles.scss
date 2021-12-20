@@ -5,8 +5,9 @@
 
   position: relative;
 
-  align-items: center; // TODO move to .rcx-input-box
+  align-items: center;
 
+  // TODO move to .rcx-input-box
   &__item {
     @include typography.use-text-ellipsis;
   }

@@ -172,7 +172,6 @@ export const useArrayLikeClassNameProp: <
       | string
       | ReturnType<typeof css>
       | (string | ReturnType<typeof css>)[];
-    [keys: string]: unknown;
   }
 >(
   props: T
