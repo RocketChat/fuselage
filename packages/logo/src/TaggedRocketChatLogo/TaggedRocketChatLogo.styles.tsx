@@ -9,7 +9,17 @@ const tagStyleProps = ({
   backgroundColor: string;
 }) => props;
 
-export const RocketChatTag = styled('div', tagStyleProps)`
+const containerProps = ({ width, ...props }: { width?: string }) => props;
+
+export const LogoContainer = styled('div', containerProps)`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const LogoTag = styled('div', tagStyleProps)`
   border-radius: 90px;
   margin: 0;
   margin-inline-start: 0.5rem;

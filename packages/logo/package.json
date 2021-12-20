@@ -30,10 +30,11 @@
     "/dist"
   ],
   "scripts": {
-    "build": "run-s .:build:clean .:build:esm .:build:cjs",
+    "build": "run-s .:build:clean .:build:esm .:build:cjs .:build:logo",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig-esm.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
+    ".:build:logo": "build-logo",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
@@ -47,6 +48,7 @@
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.34",
     "@types/react-dom": "^17.0.11",
+    "build-logo": "workspace:tools/build-logo",
     "eslint": "^8.2.0",
     "jest": "^27.3.1",
     "lint-all": "workspace:tools/lint-all",
