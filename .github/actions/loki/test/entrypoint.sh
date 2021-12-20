@@ -1,5 +1,7 @@
 #!/bin/sh -ex
 
+echo Force rebuild
+
 cd "$INPUT_WORKING_DIR"
 yarn loki \
   test \
