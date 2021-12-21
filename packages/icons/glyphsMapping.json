@@ -814,5 +814,23 @@
   },
   "phone-out": {
     "start": "\ue0e3"
+  },
+  "apple": {
+    "start": "\ue0e4"
+  },
+  "facebook-messenger": {
+    "start": "\ue0e5"
+  },
+  "instagram": {
+    "start": "\ue0e6"
+  },
+  "omni-twitter": {
+    "start": "\ue0e7"
+  },
+  "telegram": {
+    "start": "\ue0e8"
+  },
+  "whatsapp": {
+    "start": "\ue0e9"
   }
 }
