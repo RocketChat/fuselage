@@ -94,7 +94,7 @@ export const ActionButtonWithNoSuggestions = () => (
   </Box>
 );
 
-export const ErrorState = () => (
+export const Variations = () => (
   <Box>
     <States>
       <StatesIcon name='info' variation='danger' />
@@ -105,7 +105,63 @@ export const ErrorState = () => (
       </StatesSubtitle>
       <StatesActions>
         <StatesAction>
-          <Icon name='arrow-loop' /> Reload
+          <Icon name='reload' /> Reload
+        </StatesAction>
+      </StatesActions>
+    </States>
+
+    <States>
+      <StatesIcon name='info' variation='neutral' />
+      <StatesTitle>Connection error</StatesTitle>
+      <StatesSubtitle>
+        Cannot connect to internet or your workspace may be an offline install.{' '}
+        <br /> Contact your workspace admin for more information.
+      </StatesSubtitle>
+      <StatesActions>
+        <StatesAction>
+          <Icon name='reload' /> Reload
+        </StatesAction>
+      </StatesActions>
+    </States>
+
+    <States>
+      <StatesIcon name='info' variation='info' />
+      <StatesTitle>Connection error</StatesTitle>
+      <StatesSubtitle>
+        Cannot connect to internet or your workspace may be an offline install.{' '}
+        <br /> Contact your workspace admin for more information.
+      </StatesSubtitle>
+      <StatesActions>
+        <StatesAction>
+          <Icon name='reload' /> Reload
+        </StatesAction>
+      </StatesActions>
+    </States>
+
+    <States>
+      <StatesIcon name='info' variation='success' />
+      <StatesTitle>Connection error</StatesTitle>
+      <StatesSubtitle>
+        Cannot connect to internet or your workspace may be an offline install.{' '}
+        <br /> Contact your workspace admin for more information.
+      </StatesSubtitle>
+      <StatesActions>
+        <StatesAction>
+          <Icon name='reload' /> Reload
+        </StatesAction>
+      </StatesActions>
+    </States>
+
+    <States>
+      <StatesIcon name='info' variation='warning' />
+      <StatesTitle>Connection error</StatesTitle>
+      <StatesSubtitle>
+        Cannot connect to internet or your workspace may be an offline install.{' '}
+        <br /> Contact your workspace admin for more information.
+      </StatesSubtitle>
+      <StatesActions>
+        <StatesAction>
+          <Icon name='reload' /> Reload
         </StatesAction>
       </StatesActions>
     </States>

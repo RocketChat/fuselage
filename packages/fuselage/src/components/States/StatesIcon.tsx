@@ -8,11 +8,15 @@ const StatesIcon: FC<{
 }> = ({ name, variation = '' }) => {
   const variations: { [key: string]: string } = {
     danger: 'danger-600',
+    info: 'info-600',
+    neutral: 'neutral-800',
+    success: 'success-800',
+    warning: 'warning-900',
   };
 
   return (
     <div className='rcx-states__icon'>
-      <Icon name={name} size='x32' color={variations[`${variation}`]} />
+      <Icon name={name} size='x32' color={variations[variation]} />
     </div>
   );
 };
