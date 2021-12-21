@@ -824,13 +824,13 @@
   "instagram": {
     "start": "\ue0e6"
   },
-  "omni-twitter": {
+  "telegram": {
     "start": "\ue0e7"
   },
-  "telegram": {
+  "whatsapp": {
     "start": "\ue0e8"
   },
-  "whatsapp": {
+  "line": {
     "start": "\ue0e9"
   }
 }
