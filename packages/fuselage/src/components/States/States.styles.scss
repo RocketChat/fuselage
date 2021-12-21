@@ -3,6 +3,13 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
 
+$variants: (
+  'success': colors.success(600),
+  'danger': colors.danger(600),
+  'warning': colors.warning(600),
+  'primary': colors.primary(600),
+);
+
 .rcx-states {
   display: flex;
   flex-direction: column;
@@ -20,6 +27,14 @@
     border-radius: 100%;
 
     background-color: colors.neutral(200);
+
+    color: colors.foreground(default);
+
+    @each $name, $color in $variants {
+      &--#{$name} {
+        color: theme('states-icons-color-#{$name}', $color);
+      }
+    }
   }
 
   &__title {

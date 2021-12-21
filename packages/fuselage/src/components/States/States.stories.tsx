@@ -97,6 +97,20 @@ export const ActionButtonWithNoSuggestions = () => (
 export const Variations = () => (
   <Box>
     <States>
+      <StatesIcon name='circle-exclamation' />
+      <StatesTitle>Connection error</StatesTitle>
+      <StatesSubtitle>
+        Cannot connect to internet or your workspace may be an offline install.{' '}
+        <br /> Contact your workspace admin for more information.
+      </StatesSubtitle>
+      <StatesActions>
+        <StatesAction>
+          <Icon name='reload' /> Reload
+        </StatesAction>
+      </StatesActions>
+    </States>
+
+    <States>
       <StatesIcon name='circle-exclamation' variation='danger' />
       <StatesTitle>Connection error</StatesTitle>
       <StatesSubtitle>
@@ -109,9 +123,8 @@ export const Variations = () => (
         </StatesAction>
       </StatesActions>
     </States>
-
     <States>
-      <StatesIcon name='circle-exclamation' variation='neutral' />
+      <StatesIcon name='circle-exclamation' variation='primary' />
       <StatesTitle>Connection error</StatesTitle>
       <StatesSubtitle>
         Cannot connect to internet or your workspace may be an offline install.{' '}
@@ -125,7 +138,7 @@ export const Variations = () => (
     </States>
 
     <States>
-      <StatesIcon name='circle-exclamation' variation='info' />
+      <StatesIcon name='magnifier' variation='success' />
       <StatesTitle>Connection error</StatesTitle>
       <StatesSubtitle>
         Cannot connect to internet or your workspace may be an offline install.{' '}
@@ -139,21 +152,7 @@ export const Variations = () => (
     </States>
 
     <States>
-      <StatesIcon name='circle-exclamation' variation='success' />
-      <StatesTitle>Connection error</StatesTitle>
-      <StatesSubtitle>
-        Cannot connect to internet or your workspace may be an offline install.{' '}
-        <br /> Contact your workspace admin for more information.
-      </StatesSubtitle>
-      <StatesActions>
-        <StatesAction>
-          <Icon name='reload' /> Reload
-        </StatesAction>
-      </StatesActions>
-    </States>
-
-    <States>
-      <StatesIcon name='circle-exclamation' variation='warning' />
+      <StatesIcon name='magnifier' variation='warning' />
       <StatesTitle>Connection error</StatesTitle>
       <StatesSubtitle>
         Cannot connect to internet or your workspace may be an offline install.{' '}
