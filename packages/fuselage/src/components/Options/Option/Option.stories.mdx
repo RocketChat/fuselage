@@ -4,6 +4,7 @@ import LinkTo from '@storybook/addon-links/react';
 
 import { Box, Avatar, Menu, StatusBullet, Option } from '../..';
 import { exampleAvatar, menuOptions } from '../../../../.storybook/helpers.js';
+import OptionTitle from './OptionTitle';
 
 <Meta title='Misc/Options/Option' parameters={{ jest: ['Option/spec'] }} />
 
@@ -14,6 +15,7 @@ The generic <LinkTo kind='Misc/Options/Option' story='Default'>`Option`</LinkTo>
 <Canvas>
   <Story name='Default'>
     <Box position='relative' maxWidth={250}>
+      <OptionTitle>Title</OptionTitle>
       <Option onClick={action('click')}>
         <Option.Content>Lorem Ipsum Lorem</Option.Content>
       </Option>

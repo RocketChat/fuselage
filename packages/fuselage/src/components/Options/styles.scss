@@ -19,6 +19,16 @@ $variants: (
 
   color: colors.foreground(default);
 
+  &__title {
+    @include typography.use-font-scale(c1);
+
+    padding-block-start: lengths.padding(8);
+    padding-block-end: lengths.padding(8);
+    padding-inline: lengths.padding(16);
+
+    color: colors.foreground(default);
+  }
+
   &__wrapper {
     display: flex;
     align-items: center;

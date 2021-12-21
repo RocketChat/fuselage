@@ -1,18 +1,8 @@
-import React, { AllHTMLAttributes, FC } from 'react';
+import React, { ComponentProps, FC } from 'react';
 
-import { prependClassName } from '../../helpers/prependClassName';
+import { Box } from '../Box';
 
-export const MessageBlock: FC<AllHTMLAttributes<HTMLDivElement>> =
+export const MessageBlock: FC<ComponentProps<typeof Box>> =
   function MessageBlock({ className, ...props }) {
-    return (
-      <div
-        className={
-          prependClassName(
-            className,
-            'rcx-box rcx-box--full rcx-message-block'
-          ) as any
-        }
-        {...props}
-      />
-    );
+    return <Box rcx-message-block {...props} />;
   };
