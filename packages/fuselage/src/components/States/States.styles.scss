@@ -26,9 +26,9 @@ $variants: (
 
     border-radius: 100%;
 
-    background-color: colors.neutral(200);
-
     color: colors.foreground(info);
+    
+    background-color: colors.neutral(200);
 
     @each $name, $color in $variants {
       &--#{$name} {
