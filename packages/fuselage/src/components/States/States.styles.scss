@@ -28,7 +28,7 @@ $variants: (
 
     background-color: colors.neutral(200);
 
-    color: colors.foreground(default);
+    color: colors.foreground(info);
 
     @each $name, $color in $variants {
       &--#{$name} {
