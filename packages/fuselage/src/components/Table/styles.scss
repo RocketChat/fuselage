@@ -87,7 +87,7 @@
     vertical-align: middle;
 
     color: colors.foreground(info);
-    @include typography.use-font-scale(p3);
+    @include typography.use-font-scale(p2);
 
     &--header {
       position: relative;

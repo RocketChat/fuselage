@@ -26,7 +26,7 @@
     color: colors.foreground(default);
     border-radius: 2px;
     background-color: colors.surface();
-    @include typography.use-font-scale(p3);
+    @include typography.use-font-scale(p2);
   }
 
   &__header {

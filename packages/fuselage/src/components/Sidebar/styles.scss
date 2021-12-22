@@ -58,7 +58,7 @@ $sidebar-footer-highlight-color: theme(
   align-items: center;
 
   border-radius: lengths.border-radius(2);
-  @include typography.use-font-scale(p3);
+  @include typography.use-font-scale(p2);
 }
 
 %highlighted {
@@ -100,7 +100,7 @@ $sidebar-footer-highlight-color: theme(
     }
 
     &__title {
-      @include typography.use-font-scale(p4);
+      @include typography.use-font-scale(p2m);
 
       color: colors.neutral(900);
     }

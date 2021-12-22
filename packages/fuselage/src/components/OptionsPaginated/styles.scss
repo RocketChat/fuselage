@@ -4,7 +4,7 @@
 
 .rcx-option {
   @include clickable;
-  @include typography.use-font-scale(p3);
+  @include typography.use-font-scale(p2);
 
   padding: lengths.padding(4) lengths.padding(16);
 
@@ -78,7 +78,7 @@
 }
 
 .rcx-option__description {
-  @include typography.use-font-scale(p3);
+  @include typography.use-font-scale(p2);
   @extend %column;
   display: inline;
 
