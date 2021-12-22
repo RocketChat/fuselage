@@ -73,7 +73,7 @@ $chip-disabled-color: functions.theme(
   );
 
   @include clickable;
-  @include typography.use-font-scale('p3');
+  @include typography.use-font-scale('p2');
 
   display: flex;
   overflow: hidden;

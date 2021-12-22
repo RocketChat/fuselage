@@ -68,21 +68,33 @@ $font-scales: (
     letter-spacing: 0,
     line-height: 24,
   ),
-  p2: (
+  p1m: (
     font-size: 16,
     font-weight: 500,
     letter-spacing: 0,
     line-height: 24,
   ),
-  p3: (
+  p1b: (
+    font-size: 16,
+    font-weight: 700,
+    letter-spacing: 0,
+    line-height: 24,
+  ),
+  p2: (
     font-size: 14,
     font-weight: 400,
     letter-spacing: 0,
     line-height: 20,
   ),
-  p4: (
+  p2m: (
     font-size: 14,
     font-weight: 500,
+    letter-spacing: 0,
+    line-height: 20,
+  ),
+  p2b: (
+    font-size: 14,
+    font-weight: 700,
     letter-spacing: 0,
     line-height: 20,
   ),

@@ -141,7 +141,7 @@ export const Select = forwardRef(
               is='span'
               mi='x4'
               rcx-select__item
-              fontScale='p3'
+              fontScale='p2'
               color={valueLabel ? 'default' : 'hint'}
             >
               {visibleText}

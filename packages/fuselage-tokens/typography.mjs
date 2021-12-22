@@ -69,21 +69,33 @@ export default {
       letterSpacing: 0,
       lineHeight: 24,
     },
-    p2: {
+    p1m: {
       fontSize: 16,
       fontWeight: 500,
       letterSpacing: 0,
       lineHeight: 24,
     },
-    p3: {
+    p1b: {
+      fontSize: 16,
+      fontWeight: 700,
+      letterSpacing: 0,
+      lineHeight: 24,
+    },
+    p2: {
       fontSize: 14,
       fontWeight: 400,
       letterSpacing: 0,
       lineHeight: 20,
     },
-    p4: {
+    p2m: {
       fontSize: 14,
       fontWeight: 500,
+      letterSpacing: 0,
+      lineHeight: 20,
+    },
+    p2b: {
+      fontSize: 14,
+      fontWeight: 700,
       letterSpacing: 0,
       lineHeight: 20,
     },

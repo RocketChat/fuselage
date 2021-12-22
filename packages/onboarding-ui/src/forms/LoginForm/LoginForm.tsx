@@ -97,24 +97,24 @@ const LoginForm = ({
               : t('form.loginForm.button.text')}
           </Button>
           {!isPasswordLess && (
-            <ActionLink fontScale='p3' onClick={onChangeForm}>
+            <ActionLink fontScale='p2' onClick={onChangeForm}>
               {t('form.loginForm.sendLoginLink')}
             </ActionLink>
           )}
           {isPasswordLess && (
-            <ActionLink fontScale='p3' onClick={onChangeForm}>
+            <ActionLink fontScale='p2' onClick={onChangeForm}>
               {t('form.loginForm.redirect')}
             </ActionLink>
           )}
         </LoginActionsWrapper>
 
         {!isPasswordLess && (
-          <Box mbs='x24' fontScale='p3' textAlign='left'>
+          <Box mbs='x24' fontScale='p2' textAlign='left'>
             <Trans i18nKey='form.loginForm.resetPassword'>
               Forgot your password?
               <ActionLink
                 fontWeight={400}
-                fontScale='p3'
+                fontScale='p2'
                 onClick={onResetPassword}
               >
                 Reset password

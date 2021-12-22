@@ -6,7 +6,11 @@ import { Box } from '../..';
   title='Box/Rich content'
   parameters={{ jest: ['Box/spec'] }}
   decorators={[
-    (fn) => <Box fontFamily='sans' fontScale='p3' withRichContent>{fn()}</Box>,
+    (fn) => (
+      <Box fontFamily='sans' fontScale='p2' withRichContent>
+        {fn()}
+      </Box>
+    ),
   ]}
 />
 
@@ -38,24 +42,39 @@ Here is how rich content will be rendered, in details.
 
 <Canvas>
   <Story name='i'>
-    <i>technical terms, foreign language phrases, or fictional character thoughts</i>
+    <i>
+      technical terms, foreign language phrases, or fictional character thoughts
+    </i>
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='a'>
     <>
-      <a href='#'>Normal</a><br />
-      <a href='#' className='is-visited'>Visited</a><br />
-      <a href='#' className='is-active'>Active</a><br />
-      <a href='#' className='is-hovered'>Hovered</a><br />
+      <a href='#'>Normal</a>
+      <br />
+      <a href='#' className='is-visited'>
+        Visited
+      </a>
+      <br />
+      <a href='#' className='is-active'>
+        Active
+      </a>
+      <br />
+      <a href='#' className='is-hovered'>
+        Hovered
+      </a>
+      <br />
     </>
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name='q and cite'>
-    <q>The problem with quotes found on the internet is that they are often not true. <cite>Abraham Lincoln</cite></q>
+    <q>
+      The problem with quotes found on the internet is that they are often not
+      true. <cite>Abraham Lincoln</cite>
+    </q>
   </Story>
 </Canvas>
 
@@ -241,10 +260,12 @@ Here is how rich content will be rendered, in details.
   <Story name='blockquote and cite'>
     <blockquote>
       <p>
-        Words can be like X-rays, if you use them properly — they’ll go through anything.
-        You read and you’re pierced.
+        Words can be like X-rays, if you use them properly — they’ll go through
+        anything. You read and you’re pierced.
       </p>
-      <footer>— Aldous Huxley, <cite>Brave New World</cite></footer>
+      <footer>
+        — Aldous Huxley, <cite>Brave New World</cite>
+      </footer>
     </blockquote>
   </Story>
 </Canvas>
@@ -252,15 +273,11 @@ Here is how rich content will be rendered, in details.
 <Canvas>
   <Story name='pre'>
     <pre>
-      # A UNINTENDED LOL-ZONE: SORRY FOR THIS{'\n'}
-      # ------------+----------+-------------{'\n'}
-      #      /\O    |    _O    |      O      {'\n'}
-      #       /\/   |   //|_   |     /_      {'\n'}
-      #      /\     |    |     |     |\      {'\n'}
-      #     /  \    |   /|     |    / |      {'\n'}
-      #   LOL  LOL  |   LLOL   |  LOLLOL     {'\n'}
-      # ------------+----------+-------------{'\n'}
-      # BLACK MAGIC FULL FEATURED ENABLED
+      # A UNINTENDED LOL-ZONE: SORRY FOR THIS{'\n'}#
+      ------------+----------+-------------
+      {'\n'}# /\O | _O | O {'\n'}# /\/ | //|_ | /_ {'\n'}# /\ | | | |\ {'\n'}# /
+      \ | /| | / | {'\n'}# LOL LOL | LLOL | LOLLOL {'\n'}# ------------+----------+-------------
+      {'\n'}# BLACK MAGIC FULL FEATURED ENABLED
     </pre>
   </Story>
 </Canvas>
@@ -269,15 +286,11 @@ Here is how rich content will be rendered, in details.
   <Story name='pre with code'>
     <pre>
       <code>
-        # A UNINTENDED LOL-ZONE: SORRY FOR THIS{'\n'}
-        # ------------+----------+-------------{'\n'}
-        #      /\O    |    _O    |      O      {'\n'}
-        #       /\/   |   //|_   |     /_      {'\n'}
-        #      /\     |    |     |     |\      {'\n'}
-        #     /  \    |   /|     |    / |      {'\n'}
-        #   LOL  LOL  |   LLOL   |  LOLLOL     {'\n'}
-        # ------------+----------+-------------{'\n'}
-        # BLACK MAGIC FULL FEATURED ENABLED
+        # A UNINTENDED LOL-ZONE: SORRY FOR THIS{'\n'}#
+        ------------+----------+-------------
+        {'\n'}# /\O | _O | O {'\n'}# /\/ | //|_ | /_ {'\n'}# /\ | | | |\ {'\n'}#
+        / \ | /| | / | {'\n'}# LOL LOL | LLOL | LOLLOL {'\n'}# ------------+----------+-------------
+        {'\n'}# BLACK MAGIC FULL FEATURED ENABLED
       </code>
     </pre>
   </Story>
