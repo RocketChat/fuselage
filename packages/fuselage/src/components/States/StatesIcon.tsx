@@ -4,11 +4,14 @@ import { Icon } from '../Icon';
 
 const StatesIcon: FC<{
   name: ComponentProps<typeof Icon>['name'];
-  // variation?: 'danger';
-}> = ({ name }) => (
-  <div className='rcx-states__icon'>
-    <Icon name={name} size='x32' />
-  </div>
+  variation?: 'danger' | 'success' | 'warning' | 'primary';
+}> = ({ name, variation }) => (
+  <Icon
+    rcx-states__icon
+    className={variation && `rcx-states__icon--${variation}`}
+    name={name}
+    size='x32'
+  />
 );
 
 export default StatesIcon;

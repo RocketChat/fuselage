@@ -3,6 +3,13 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
 
+$variants: (
+  'success': colors.success(600),
+  'danger': colors.danger(600),
+  'warning': colors.warning(600),
+  'primary': colors.primary(600),
+);
+
 .rcx-states {
   display: flex;
   flex-direction: column;
@@ -17,9 +24,17 @@
     margin-block-end: lengths.margin(16);
     padding: lengths.margin(16);
 
+    color: colors.foreground(info);
+
     border-radius: 100%;
 
     background-color: colors.neutral(200);
+
+    @each $name, $color in $variants {
+      &--#{$name} {
+        color: theme('states-icons-color-#{$name}', $color);
+      }
+    }
   }
 
   &__title {
@@ -40,7 +55,7 @@
     align-items: center;
 
     width: 100%;
-    max-width: 410px;
+    max-width: 462px;
 
     margin: 0;
     padding: 0;
