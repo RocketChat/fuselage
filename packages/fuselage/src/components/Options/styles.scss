@@ -22,7 +22,6 @@ $variants: (
   &__title {
     @include typography.use-font-scale(c1);
 
-    padding-block-start: lengths.padding(8);
     padding-block-end: lengths.padding(8);
     padding-inline: lengths.padding(16);
 
@@ -77,6 +76,7 @@ $variants: (
   flex: 0 0 auto;
 
   margin-inline: lengths.margin(2);
+  padding-inline-start: lengths.padding(24);
 }
 
 .rcx-option__icon {
