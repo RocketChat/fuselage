@@ -18,8 +18,10 @@ type FontScale =
   | 'h5'
   | 'p1'
   | 'p1m'
+  | 'p1b'
   | 'p2'
-  | 'p4'
+  | 'p2m'
+  | 'p2b'
   | 'c1'
   | 'c2'
   | 'micro';
