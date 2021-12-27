@@ -7,6 +7,7 @@ import OptionDivider from './OptionDivider';
 import OptionIcon from './OptionIcon';
 import OptionMenu from './OptionMenu';
 import OptionSkeleton from './OptionSkeleton';
+import OptionTitle from './OptionTitle';
 
 export default Object.assign(Option, {
   Description: OptionDescription,
@@ -27,3 +28,4 @@ export { OptionDivider };
 export { OptionIcon };
 export { OptionMenu };
 export { OptionSkeleton };
+export { OptionTitle };
