@@ -109,7 +109,7 @@ export const Breakpoints = () => (
 export const ExtraSmall: ComponentStory<typeof Grid> = () => (
   <Grid>
     {Array.from({ length: 4 })
-      .map((_, i) => i + 1)
+      .map((_, i) => (i + 1) as 1 | 2 | 3 | 4)
       .map((columns) => (
         <React.Fragment key={columns}>
           <Grid.Item xs={columns}>
@@ -129,7 +129,7 @@ ExtraSmall.storyName = 'Extra Small (xs)';
 export const Small: ComponentStory<typeof Grid> = () => (
   <Grid>
     {Array.from({ length: 8 })
-      .map((_, i) => i + 1)
+      .map((_, i) => (i + 1) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)
       .map((columns) => (
         <React.Fragment key={columns}>
           <Grid.Item sm={columns}>
@@ -149,7 +149,7 @@ Small.storyName = 'Small (sm)';
 export const Medium: ComponentStory<typeof Grid> = () => (
   <Grid>
     {Array.from({ length: 8 })
-      .map((_, i) => i + 1)
+      .map((_, i) => (i + 1) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)
       .map((columns) => (
         <React.Fragment key={columns}>
           <Grid.Item md={columns}>
@@ -169,7 +169,9 @@ Medium.storyName = 'Medium (md)';
 export const Large: ComponentStory<typeof Grid> = () => (
   <Grid>
     {Array.from({ length: 12 })
-      .map((_, i) => i + 1)
+      .map(
+        (_, i) => (i + 1) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+      )
       .map((columns) => (
         <React.Fragment key={columns}>
           <Grid.Item lg={columns}>
@@ -189,7 +191,9 @@ Large.storyName = 'Large (lg)';
 export const ExtraLarge: ComponentStory<typeof Grid> = () => (
   <Grid>
     {Array.from({ length: 12 })
-      .map((_, i) => i + 1)
+      .map(
+        (_, i) => (i + 1) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+      )
       .map((columns) => (
         <React.Fragment key={columns}>
           <Grid.Item xl={columns}>

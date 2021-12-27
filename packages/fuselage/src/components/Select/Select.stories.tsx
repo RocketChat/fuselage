@@ -10,12 +10,12 @@ import React from 'react';
 
 import { Select, SelectFiltered } from '../..';
 
-const options = Array.from(new Array(10)).map((_, i) => [
-  i + 1,
-  `a teste ${i + 1}`,
-]);
-const optionsEllipses = [
-  [11, 'Very very very very very very very very very large text'],
+const options: readonly (readonly [string, string])[] = Array.from({
+  length: 10,
+}).map((_, i) => [`${i + 1}`, `a teste ${i + 1}`]);
+
+const optionsEllipses: readonly (readonly [string, string])[] = [
+  ['11', 'Very very very very very very very very very large text'],
   ...options,
 ];
 
@@ -52,7 +52,7 @@ Default.args = {
 export const Error: ComponentStory<typeof Select> = Template.bind({});
 Error.args = {
   width: '250px',
-  error: true,
+  error: 'Error',
   placeholder: 'Placeholder here...',
   options,
 };
@@ -96,7 +96,7 @@ export const SelectWithFilterAndError: ComponentStory<typeof Select> =
   TemplateWithFilter.bind({});
 SelectWithFilterAndError.args = {
   width: '250px',
-  error: true,
+  error: 'Error',
   placeholder: 'Placeholder here...',
   options,
 };
@@ -105,7 +105,7 @@ export const SelectWithFilterAndDisabled: ComponentStory<typeof Select> =
   TemplateWithFilter.bind({});
 SelectWithFilterAndDisabled.args = {
   width: '250px',
-  error: true,
+  error: 'Error',
   disabled: true,
   placeholder: 'Placeholder here...',
   options,

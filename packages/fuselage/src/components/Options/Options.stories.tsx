@@ -8,11 +8,12 @@ import {
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Options, CheckOption } from '.';
+import { Options } from '.';
 import { Box } from '..';
+import { CheckOption } from '../OptionsPaginated';
 import Option from './Option';
 
-const options = [
+const options: [unknown, string, boolean?][] = [
   [1, 'a teste 1'],
   [2, 'b teste 2'],
   [3, 'c teste 3', true],
@@ -66,7 +67,7 @@ export const CheckOptionStory: ComponentStory<typeof Options> = Template.bind(
 );
 CheckOptionStory.args = {
   renderItem: CheckOption,
-  value: [1],
+  value: ['1'],
   cursor: 0,
 };
 CheckOptionStory.storyName = 'CheckOption';

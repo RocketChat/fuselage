@@ -34,7 +34,7 @@ Left.args = {
   left: true,
 };
 
-export const Size = () => (
+export const Size: ComponentStory<typeof Chevron> = () => (
   <Box display='flex' alignItems='center'>
     <Chevron size='x2' />
     <Chevron size='x4' />

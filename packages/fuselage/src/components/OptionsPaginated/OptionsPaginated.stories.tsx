@@ -6,11 +6,12 @@ import { OptionsPaginated, CheckOption } from '.';
 import { Box } from '..';
 import Option from '../Options/Option';
 
-const options = Array.from(new Array(90)).map((_, i) => ({
-  value: i + 1,
-  label: `a teste ${i + 1}`,
-  selected: i === 0,
-}));
+const options: { value: number; label: string; selected: boolean }[] =
+  Array.from({ length: 90 }).map((_, i) => ({
+    value: i + 1,
+    label: `a teste ${i + 1}`,
+    selected: i === 0,
+  }));
 
 export default {
   title: 'Misc/Options/OptionsPaginated_new',

@@ -12,6 +12,7 @@ type TableBodyProps = ComponentProps<typeof Box>;
 type TableFootProps = ComponentProps<typeof Box>;
 type TableRowProps = Omit<ComponentProps<typeof Box>, 'action'> & {
   action?: boolean;
+  hasAction?: boolean;
 };
 type TableCellProps = ComponentProps<typeof Box> & {
   align?: 'start' | 'center' | 'end';

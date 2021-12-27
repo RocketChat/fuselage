@@ -192,6 +192,8 @@ export const PaginatedMultiSelectFilteredError: ComponentStory<
     placeholder='Placeholder here...'
     onChange={action('change')}
     options={options}
+    filter={undefined}
+    setFilter={undefined}
   />
 );
 
@@ -203,5 +205,7 @@ export const PaginatedMultiSelectFilteredDisabled: ComponentStory<
     placeholder='Placeholder here...'
     onChange={action('change')}
     options={options}
+    filter={undefined}
+    setFilter={undefined}
   />
 );

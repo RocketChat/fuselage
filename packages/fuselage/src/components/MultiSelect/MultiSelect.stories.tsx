@@ -35,17 +35,17 @@ export default {
   },
 } as ComponentMeta<typeof MultiSelect>;
 
-const options = [
-  [1, 'a teste 1'],
-  [2, 'b teste 2', true],
-  [3, 'c teste 3'],
-  [4, 'd teste 4'],
-  [5, 'd teste 5'],
-  [6, 'd teste 6'],
-  [7, 'd teste 7'],
-  [8, 'd teste 8'],
-  [9, 'd teste 9'],
-  [10, 'd teste 10'],
+const options: (readonly [string, string, boolean?])[] = [
+  ['1', 'a teste 1'],
+  ['2', 'b teste 2', true],
+  ['3', 'c teste 3'],
+  ['4', 'd teste 4'],
+  ['5', 'd teste 5'],
+  ['6', 'd teste 6'],
+  ['7', 'd teste 7'],
+  ['8', 'd teste 8'],
+  ['9', 'd teste 9'],
+  ['10', 'd teste 10'],
 ];
 
 const Template: ComponentStory<typeof MultiSelect> = (args) => (
@@ -62,7 +62,7 @@ Default.args = {
 export const MultiSelectError: ComponentStory<typeof MultiSelect> =
   Template.bind({});
 MultiSelectError.args = {
-  error: true,
+  error: 'Error',
   placeholder: 'Placeholder here...',
   options,
 };
@@ -92,7 +92,7 @@ Filtered.storyName = 'MultiSelectFiltered';
 export const FilteredError: ComponentStory<typeof MultiSelectFiltered> =
   FilteredTemplate.bind({});
 FilteredError.args = {
-  error: true,
+  error: 'Error',
   placeholder: 'Placeholder here...',
   onChange: action('change'),
   options,
