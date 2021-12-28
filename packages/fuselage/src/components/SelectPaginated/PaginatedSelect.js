@@ -27,7 +27,7 @@ const Wrapper = forwardRef((props, ref) => (
 const Focus = React.forwardRef((props, ref) => (
   <Box
     ref={ref}
-    fontScale='p4'
+    fontScale='p2m'
     color='hint'
     rcx-select__focus
     is='button'
@@ -121,7 +121,7 @@ export const PaginatedSelect = ({
             is='span'
             mi='x4'
             rcx-select__item
-            fontScale='p4'
+            fontScale='p2m'
             color={valueLabel ? 'default' : 'hint'}
           >
             {visibleText}
