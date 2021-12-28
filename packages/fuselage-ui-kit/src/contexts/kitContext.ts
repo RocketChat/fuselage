@@ -36,10 +36,10 @@ export const useUiKitStateValue = <T extends string | number | undefined>(
   value: T;
   error: string | undefined;
 } => {
-  const { values, errors } = useUiKitContext();
+  const { values = {}, errors = {} } = useUiKitContext();
 
   return {
     value: (values[actionId]?.value as T) ?? initialValue,
-    error: errors && errors[actionId],
+    error: errors[actionId],
   };
 };
