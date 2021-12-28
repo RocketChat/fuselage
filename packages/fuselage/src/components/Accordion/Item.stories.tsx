@@ -11,10 +11,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Accordion, Box } from '../..';
+import { Item } from './Item';
 
 export default {
   title: 'CONTAINERS/Accordion_new/AccordionItem',
-  component: Accordion.Item,
+  component: Item,
   parameters: {
     docs: {
       description: {

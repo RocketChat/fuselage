@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import flattenChildren from 'react-keyed-flatten-children';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
@@ -53,11 +52,3 @@ Avatar.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string.isRequired,
 };
-
-const AvatarStack = ({ children, className, ...props }) => (
-  <div className={prependClassName('rcx-avatar-stack', className)} {...props}>
-    {flattenChildren(children).reverse()}
-  </div>
-);
-
-Avatar.Stack = AvatarStack;

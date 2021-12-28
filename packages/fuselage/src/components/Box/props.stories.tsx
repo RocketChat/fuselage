@@ -61,8 +61,8 @@ const marginElements = (
 
 export const Margins: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
-    {flattenChildren(marginElements).map((child) => (
-      <Box key={child} bg='neutral-200' m='x16'>
+    {flattenChildren(marginElements).map((child, i) => (
+      <Box key={i} bg='neutral-200' m='x16'>
         {React.cloneElement(
           child,
           { bg: 'primary-200' },

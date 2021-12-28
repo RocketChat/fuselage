@@ -2,21 +2,35 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Avatar, Box, Margins } from '../..';
+import { AvatarStack } from './Stack';
 
 export default {
   title: 'Data Display/Avatar_new',
   component: Avatar,
 } as ComponentMeta<typeof Avatar>;
 
+const sizes: (
+  | 'x16'
+  | 'x18'
+  | 'x20'
+  | 'x24'
+  | 'x28'
+  | 'x32'
+  | 'x36'
+  | 'x40'
+  | 'x48'
+  | 'x124'
+  | 'x200'
+  | 'x332'
+)[] = ['x16', 'x18', 'x28', 'x32', 'x36', 'x48', 'x124', 'x200', 'x332'];
+
 const Template: ComponentStory<typeof Avatar> = (args) => (
   <Margins all='x16'>
-    {['x16', 'x18', 'x28', 'x32', 'x36', 'x48', 'x124', 'x200', 'x332'].map(
-      (size, i) => (
-        <Box display='inline-flex' verticalAlign='middle' key={i}>
-          <Avatar url={args.url} size={size} rounded={args.rounded} />
-        </Box>
-      )
-    )}
+    {sizes.map((size, i) => (
+      <Box display='inline-flex' verticalAlign='middle' key={i}>
+        <Avatar url={args.url} size={size} rounded={args.rounded} />
+      </Box>
+    ))}
   </Margins>
 );
 
@@ -36,17 +50,15 @@ Rounded.args = {
 
 const StackTemplate: ComponentStory<typeof Avatar> = (args) => (
   <Margins all='x16'>
-    {['x16', 'x18', 'x28', 'x32', 'x36', 'x48', 'x124', 'x200', 'x332'].map(
-      (size, i) => (
-        <Box key={i}>
-          <Avatar.Stack>
-            <Avatar url={args.url} size={size} rounded={args.rounded} />
-            <Avatar url={args.url} size={size} rounded={args.rounded} />
-            <Avatar url={args.url} size={size} rounded={args.rounded} />
-          </Avatar.Stack>
-        </Box>
-      )
-    )}
+    {sizes.map((size, i) => (
+      <Box key={i}>
+        <AvatarStack className={args.className}>
+          <Avatar url={args.url} size={size} rounded={args.rounded} />
+          <Avatar url={args.url} size={size} rounded={args.rounded} />
+          <Avatar url={args.url} size={size} rounded={args.rounded} />
+        </AvatarStack>
+      </Box>
+    ))}
   </Margins>
 );
 

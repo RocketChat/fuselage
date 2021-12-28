@@ -20,6 +20,7 @@ const Template: ComponentStory<typeof AutoComplete> = () => {
   const [options, setOptions] = useState([]);
   const [filter, setFilter] = useState('');
   const [value, setValue] = useState([]);
+
   useEffect(() => {
     (async () => {
       const result = await Promise.resolve([]);
