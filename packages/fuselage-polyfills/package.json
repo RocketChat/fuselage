@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-polyfills",
-  "version": "0.30.0",
+  "version": "0.30.1",
   "description": "A bundle of useful poly/ponyfills used by fuselage",
   "author": {
     "name": "Rocket.Chat",
@@ -29,10 +29,10 @@
     "new-event-polyfill": "^1.0.1"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rocket.chat/eslint-config-alt": "^0.30.1",
+    "@rocket.chat/prettier-config": "^0.30.1",
     "eslint": "^8.2.0",
-    "lint-all": "workspace:tools/lint-all",
+    "lint-all": "^0.30.1",
     "lint-staged": "^11.2.6",
     "prettier": "^2.3.2"
   }

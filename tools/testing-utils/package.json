@@ -9,5 +9,6 @@
   },
   "dependencies": {
     "css-mediaquery": "^0.1.2"
-  }
+  },
+  "version": "0.30.1"
 }

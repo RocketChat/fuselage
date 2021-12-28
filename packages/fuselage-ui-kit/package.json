@@ -52,10 +52,10 @@
   },
   "devDependencies": {
     "@rocket.chat/apps-engine": "^1.27.1",
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills",
-    "@rocket.chat/icons": "workspace:packages/icons",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rocket.chat/eslint-config-alt": "^0.30.1",
+    "@rocket.chat/fuselage-polyfills": "^0.30.1",
+    "@rocket.chat/icons": "^0.30.1",
+    "@rocket.chat/prettier-config": "^0.30.1",
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addons": "^6.3.4",
     "@storybook/builder-webpack5": "^6.3.4",
@@ -68,7 +68,7 @@
     "babel-loader": "^8.2.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.2.0",
-    "lint-all": "workspace:tools/lint-all",
+    "lint-all": "^0.30.1",
     "lint-staged": "^11.2.6",
     "loki": "^0.28.1",
     "normalize.css": "^8.0.1",
@@ -79,13 +79,13 @@
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3",
     "webpack": "^5.41.1",
-    "write-version-module": "workspace:tools/write-version-module"
+    "write-version-module": "^0.30.1"
   },
   "dependencies": {
-    "@rocket.chat/fuselage": "workspace:packages/fuselage",
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
-    "@rocket.chat/styled": "workspace:packages/styled",
-    "@rocket.chat/ui-kit": "workspace:packages/ui-kit",
+    "@rocket.chat/fuselage": "^0.30.1",
+    "@rocket.chat/fuselage-hooks": "^0.30.1",
+    "@rocket.chat/styled": "^0.30.1",
+    "@rocket.chat/ui-kit": "^0.30.1",
     "tslib": "^2.3.1"
   },
   "loki": {

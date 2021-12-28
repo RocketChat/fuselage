@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/logo",
-  "version": "0.30.0",
+  "version": "0.30.1",
   "description": "Rocket.Chat logo package",
   "keywords": [
     "rocketchat",
@@ -42,16 +42,16 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rocket.chat/eslint-config-alt": "^0.30.1",
+    "@rocket.chat/fuselage-tokens": "^0.30.1",
+    "@rocket.chat/prettier-config": "^0.30.1",
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.34",
     "@types/react-dom": "^17.0.11",
-    "build-logo": "workspace:tools/build-logo",
+    "build-logo": "^0.30.1",
     "eslint": "^8.2.0",
     "jest": "^27.3.1",
-    "lint-all": "workspace:tools/lint-all",
+    "lint-all": "^0.30.1",
     "lint-staged": "^11.2.6",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.4.1",
@@ -63,8 +63,8 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
-    "@rocket.chat/styled": "workspace:packages/styled",
+    "@rocket.chat/fuselage-hooks": "^0.30.1",
+    "@rocket.chat/styled": "^0.30.1",
     "tslib": "^2.3.1"
   },
   "peerDependencies": {
