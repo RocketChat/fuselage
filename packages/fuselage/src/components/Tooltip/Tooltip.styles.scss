@@ -74,7 +74,7 @@ $tooltip-text-color: functions.theme('tooltip-text-color', colors.surface());
 
   background-color: $tooltip-background-color;
 
-  @include typography.use-font-scale(p4);
+  @include typography.use-font-scale(p2m);
 
   &--dir-top {
     @include triangle-direction('top');

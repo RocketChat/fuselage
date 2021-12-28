@@ -22,11 +22,11 @@ export function Selection({ children, text, ...props }) {
       {...props}
       pi='x24'
     >
-      <Box fontScale='p4' mb='x16' flexShrink={1} style={style}>
+      <Box fontScale='p2m' mb='x16' flexShrink={1} style={style}>
         {text}
       </Box>
       {children && (
-        <Box mi='neg-x8' fontScale='p4' flexShrink={0}>
+        <Box mi='neg-x8' fontScale='p2m' flexShrink={0}>
           <Margins inline='x4'>{children}</Margins>
         </Box>
       )}

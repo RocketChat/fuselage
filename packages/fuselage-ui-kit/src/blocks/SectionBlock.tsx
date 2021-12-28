@@ -30,7 +30,7 @@ const SectionBlock = ({
     <Grid className={className}>
       <Grid.Item>
         {text && (
-          <Box is='span' fontScale='p3' color='default'>
+          <Box is='span' fontScale='p2' color='default'>
             {surfaceRenderer.text(text)}
           </Box>
         )}

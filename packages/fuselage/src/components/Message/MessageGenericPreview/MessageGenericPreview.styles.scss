@@ -84,7 +84,7 @@ $message-generic-preview-content-hover-background-color: theme(
 
   &__title {
     @include typography.use-with-truncated-text();
-    @include typography.use-font-scale(p2);
+    @include typography.use-font-scale(p1m);
     margin-block-end: lengths.margin(4);
 
     color: $message-generic-preview-title-color;
@@ -115,7 +115,7 @@ $message-generic-preview-content-hover-background-color: theme(
   }
 
   &__description {
-    @include typography.use-font-scale(p3);
+    @include typography.use-font-scale(p2);
     margin-block-end: lengths.margin(4);
 
     white-space: normal;

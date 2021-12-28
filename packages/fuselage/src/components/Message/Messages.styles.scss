@@ -90,7 +90,7 @@ $message-background-color-focus: functions.theme(
 
     &__username {
       @extend %rcx-margins-header;
-      @include typography.use-font-scale(p4);
+      @include typography.use-font-scale(p2m);
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
@@ -110,7 +110,7 @@ $message-background-color-focus: functions.theme(
 
   &-body {
     @extend %rcx-margins-block;
-    @include typography.use-font-scale(p3);
+    @include typography.use-font-scale(p2);
 
     flex-shrink: 1;
 

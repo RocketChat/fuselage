@@ -28,7 +28,7 @@ const Wrapper = forwardRef((props, ref) => (
 export const Focus = forwardRef((props, ref) => (
   <Box
     ref={ref}
-    fontScale='p4'
+    fontScale='p2m'
     color='hint'
     rcx-select__focus
     is='button'
@@ -141,7 +141,7 @@ export const Select = forwardRef(
               is='span'
               mi='x4'
               rcx-select__item
-              fontScale='p3'
+              fontScale='p2'
               color={valueLabel ? 'default' : 'hint'}
             >
               {visibleText}

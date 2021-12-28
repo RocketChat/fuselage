@@ -47,7 +47,7 @@ $variants: (
   &__subtitle,
   &__list,
   &__suggestion {
-    @include typography.use-font-scale(p4);
+    @include typography.use-font-scale(p2m);
 
     display: flex;
     flex-direction: column;

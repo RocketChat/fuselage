@@ -11,7 +11,7 @@ $variants: (
 
 .rcx-option {
   @include clickable;
-  @include typography.use-font-scale(p3);
+  @include typography.use-font-scale(p2);
 
   padding: lengths.padding(4) lengths.padding(16);
 
@@ -22,7 +22,6 @@ $variants: (
   &__title {
     @include typography.use-font-scale(c1);
 
-    padding-block-start: lengths.padding(8);
     padding-block-end: lengths.padding(8);
     padding-inline: lengths.padding(16);
 
@@ -109,7 +108,7 @@ $variants: (
 }
 
 .rcx-option__description {
-  @include typography.use-font-scale(p3);
+  @include typography.use-font-scale(p2);
   @extend %column;
   display: inline;
 

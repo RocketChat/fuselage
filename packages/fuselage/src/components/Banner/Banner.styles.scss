@@ -90,7 +90,7 @@
     flex-grow: 1;
     align-self: center;
 
-    @include typography.use-font-scale(p3);
+    @include typography.use-font-scale(p2);
 
     &--inline {
       @include typography.use-with-truncated-text;
