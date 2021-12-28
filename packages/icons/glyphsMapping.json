@@ -814,5 +814,11 @@
   },
   "phone-out": {
     "start": "\ue0e3"
+  },
+  "circle-exclamation": {
+    "start": "\ue0e5"
+  },
+  "emoji-neutral": {
+    "start": "\ue0e7"
   }
 }
