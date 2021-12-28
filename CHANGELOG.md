@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.30.1...v0.31.0) (2021-12-28)
+
+### Bug Fixes
+
+- **fuselage-ui-kit:** Initial Value being ignored on text input fields upon modal update ([#600](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/600)) ([d9bd704](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d9bd704848eb9f2d9dd8b45f33cb8992ea39f9e2))
+- add mode on change in forms ([#592](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/592)) ([62ba8f1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/62ba8f1ea4ec13cf5b89dba16b38cbf7ad7be864))
+- **fuselage-hooks:** usePosition fallback ([#588](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/588)) ([4662cf0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4662cf07c812aa23afb19a60bf4cabc651ffdd9d))
+- docker image version ([8f181cf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8f181cf5a96084d7abd9ea94efd46cc50840c798))
+- **fuselage:** Chip missing styles ([#568](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/568)) ([e1b8963](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e1b8963861abbb5a98996d48482e47c5f383f887))
+- **fuselage:** States Component Font Style ([#579](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/579)) ([4322376](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/432237670f77dfcf391d9bbf6a6f2d30e0f9ba05))
+- **onboarding-ui:** Remove manage workspace fallback ([#573](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/573)) ([7f0b870](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7f0b870a268db5f7ca9030d134b1e78ea2fd2128))
+- replace useAutoFocus ([34e406e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/34e406e1a2cf2ee96aaf0b1b095d2a7d2a848baf))
+- **ui-kit:** Fix `SurfaceRendererPayload` ([#556](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/556)) ([8d76a0d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8d76a0dadab5798afba1d6ce3911aa974d33c103))
+
+### Features
+
+- Empty state variations Logic ([#598](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/598)) ([06ee58c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/06ee58c30bf360072632f7875d0bfee184c8ce4c))
+- **fuselage:** Component Dropdown ([#594](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/594)) ([31314b3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/31314b3a7d29446a23307495e919de9aa3a4e8d0))
+- **fuselage:** Empty State Component ([#572](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/572)) ([aa22b55](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/aa22b55ddb57b046411d0cd08468e47e56158f38))
+- **fuselage:** Message preview component ([#553](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/553)) ([f8bd0ad](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f8bd0ad637c0d2edad47b3c2384dac9c84e8d4fd))
+- **fuselage:** Replace typography of Message's user name and Banner's title ([#577](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/577)) ([6af2dba](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6af2dbabc90d2e2f1598cbbd113ecc3ea82adfc0))
+- **icons:** New icons ([#596](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/596)) ([c54702b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c54702bc4a36e599f5ce84850c4f0ad0ebe29c27))
+- **onboarding-ui:** Add export to DarkModeProvider ([#561](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/561)) ([8e3f2ec](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8e3f2ec136e55727b01adaa2bc90079903ef705b))
+- **onboarding-ui:** add new background layer with new brand redesign ([#554](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/554)) ([6df6e74](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6df6e74045183d59deee6db73ae19e59ae1a1482))
+- **onboarding-ui:** add reset password flow ([#585](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/585)) ([7ca5dfe](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7ca5dfef85805382be9a5f67847a8111446130de))
+- Message Preview ([#587](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/587)) ([e69dad3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e69dad3a6619e98ff70bcd1cb68567a159187336))
+- **onboarding-ui:** add oauth auth page ([#586](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/586)) ([4a7ae0b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4a7ae0b7f0343425bb0134316b57682868d4b06f))
+- **onboarding-ui:** Create new account page ([#575](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/575)) ([f443a11](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f443a118156c4af3bfce57967097a5755a9c4ca5))
+- New hooks for element size tracking ([#413](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/413)) ([8ca682c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8ca682c636d2e4813f7d346cb881513382be63cf))
+- **onboarding-ui:** PasswordLess login flow ([#565](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/565)) ([19c3e08](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/19c3e089a37f4c89889d7012084f9593f86d33e4)), closes [#562](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/562)
+
 ## [0.30.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.30.0...v0.30.1) (2021-10-20)
 
 ### Bug Fixes

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.30.1...v0.31.0) (2021-12-28)
+
+### Bug Fixes
+
+- **ui-kit:** Fix `SurfaceRendererPayload` ([#556](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/556)) ([8d76a0d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8d76a0dadab5798afba1d6ce3911aa974d33c103))
+
+### Features
+
+- Message Preview ([#587](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/587)) ([e69dad3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e69dad3a6619e98ff70bcd1cb68567a159187336))
+- New hooks for element size tracking ([#413](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/413)) ([8ca682c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8ca682c636d2e4813f7d346cb881513382be63cf))
+
 ## [0.30.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.30.0...v0.30.1) (2021-10-20)
 
 ### Bug Fixes

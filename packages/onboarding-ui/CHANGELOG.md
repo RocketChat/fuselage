@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.30.1...v0.31.0) (2021-12-28)
+
+### Bug Fixes
+
+- add mode on change in forms ([#592](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/592)) ([62ba8f1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/62ba8f1ea4ec13cf5b89dba16b38cbf7ad7be864))
+- docker image version ([8f181cf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8f181cf5a96084d7abd9ea94efd46cc50840c798))
+- **onboarding-ui:** Remove manage workspace fallback ([#573](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/573)) ([7f0b870](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7f0b870a268db5f7ca9030d134b1e78ea2fd2128))
+- replace useAutoFocus ([34e406e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/34e406e1a2cf2ee96aaf0b1b095d2a7d2a848baf))
+
+### Features
+
+- **onboarding-ui:** Add export to DarkModeProvider ([#561](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/561)) ([8e3f2ec](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8e3f2ec136e55727b01adaa2bc90079903ef705b))
+- **onboarding-ui:** add new background layer with new brand redesign ([#554](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/554)) ([6df6e74](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6df6e74045183d59deee6db73ae19e59ae1a1482))
+- **onboarding-ui:** add oauth auth page ([#586](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/586)) ([4a7ae0b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4a7ae0b7f0343425bb0134316b57682868d4b06f))
+- **onboarding-ui:** add reset password flow ([#585](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/585)) ([7ca5dfe](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7ca5dfef85805382be9a5f67847a8111446130de))
+- **onboarding-ui:** Create new account page ([#575](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/575)) ([f443a11](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f443a118156c4af3bfce57967097a5755a9c4ca5))
+- New hooks for element size tracking ([#413](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/413)) ([8ca682c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8ca682c636d2e4813f7d346cb881513382be63cf))
+- **onboarding-ui:** PasswordLess login flow ([#565](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/565)) ([19c3e08](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/19c3e089a37f4c89889d7012084f9593f86d33e4)), closes [#562](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/562)
+
 # [0.30.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.29.0...v0.30.0) (2021-10-06)
 
 ### Bug Fixes

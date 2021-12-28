@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/css-in-js",
-  "version": "0.30.1",
+  "version": "0.31.0",
   "description": "Toolset to transpile and use CSS on runtime",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -41,8 +41,8 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.30.1",
-    "@rocket.chat/prettier-config": "^0.30.1",
+    "@rocket.chat/eslint-config-alt": "^0.31.0",
+    "@rocket.chat/prettier-config": "^0.31.0",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
@@ -51,7 +51,7 @@
     "@types/stylis": "^4.0.1",
     "eslint": "^8.2.0",
     "jest": "^27.3.1",
-    "lint-all": "^0.30.1",
+    "lint-all": "^0.31.0",
     "lint-staged": "^11.2.6",
     "prettier": "^2.3.2",
     "rollup": "^2.52.4",
@@ -62,9 +62,9 @@
   },
   "dependencies": {
     "@emotion/hash": "^0.8.0",
-    "@rocket.chat/css-supports": "^0.30.1",
-    "@rocket.chat/memo": "^0.30.1",
-    "@rocket.chat/stylis-logical-props-middleware": "^0.30.1",
+    "@rocket.chat/css-supports": "^0.31.0",
+    "@rocket.chat/memo": "^0.31.0",
+    "@rocket.chat/stylis-logical-props-middleware": "^0.31.0",
     "stylis": "^4.0.10"
   }
 }
