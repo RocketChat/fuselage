@@ -1,6 +1,6 @@
 import { useMutableCallback, useSafely } from '@rocket.chat/fuselage-hooks';
 import * as UiKit from '@rocket.chat/ui-kit';
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 
 import { kitContext, useUiKitStateValue } from '../contexts/kitContext';
 
@@ -66,6 +66,10 @@ export const useUiKitState: <T extends UiKit.ActionableElement>(
       viewId,
     });
   });
+
+  useEffect(() => {
+    setValue(_value || '');
+  }, [_value, setValue]);
 
   const result: UiKitState = useMemo(
     () => ({ loading, setLoading, error, value }),
