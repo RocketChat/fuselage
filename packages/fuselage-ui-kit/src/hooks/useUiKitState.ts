@@ -2,7 +2,7 @@ import { useMutableCallback, useSafely } from '@rocket.chat/fuselage-hooks';
 import * as UiKit from '@rocket.chat/ui-kit';
 import { useContext, useMemo, useState } from 'react';
 
-import { kitContext } from '../contexts/kitContext';
+import { kitContext, useUiKitStateValue } from '../contexts/kitContext';
 
 type UiKitState = {
   loading: boolean;
@@ -30,8 +30,6 @@ export const useUiKitState: <T extends UiKit.ActionableElement>(
     appId: appIdFromContext,
     viewId,
     state,
-    errors,
-    values = {},
   } = useContext(kitContext);
 
   const initialValue =
@@ -39,11 +37,10 @@ export const useUiKitState: <T extends UiKit.ActionableElement>(
     (hasInitialOption(rest) && rest.initialOption.value) ||
     undefined;
 
-  const { value: _value = initialValue } = values[actionId] || {};
+  const { value: _value, error } = useUiKitStateValue(actionId, initialValue);
+  // const { value: _value = initialValue } = values[actionId] || {};
   const [value, setValue] = useSafely(useState(_value));
   const [loading, setLoading] = useSafely(useState(false));
-
-  const error = errors && actionId && errors[actionId];
 
   const actionFunction = useMutableCallback(async ({ target: { value } }) => {
     setLoading(true);

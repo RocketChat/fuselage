@@ -169,7 +169,7 @@ export class FuselageSurfaceRenderer extends UiKit.SurfaceRenderer<ReactElement>
     if (context === UiKit.BlockContext.BLOCK) {
       return (
         <InputBlock
-          key={index}
+          key={block.element.actionId || index}
           block={block}
           context={context}
           index={index}
@@ -232,7 +232,7 @@ export class FuselageSurfaceRenderer extends UiKit.SurfaceRenderer<ReactElement>
 
     return (
       <DatePickerElement
-        key={index}
+        key={block.actionId || index}
         block={block}
         context={context}
         index={index}
@@ -252,7 +252,7 @@ export class FuselageSurfaceRenderer extends UiKit.SurfaceRenderer<ReactElement>
 
     return (
       <StaticSelectElement
-        key={index}
+        key={block.actionId || index}
         block={block}
         context={context}
         index={index}
@@ -272,7 +272,7 @@ export class FuselageSurfaceRenderer extends UiKit.SurfaceRenderer<ReactElement>
 
     return (
       <MultiStaticSelectElement
-        key={index}
+        key={block.actionId || index}
         block={block}
         context={context}
         index={index}
@@ -312,7 +312,7 @@ export class FuselageSurfaceRenderer extends UiKit.SurfaceRenderer<ReactElement>
 
     return (
       <PlainTextInputElement
-        key={index}
+        key={block.actionId || index}
         block={block}
         context={context}
         index={index}
@@ -332,7 +332,7 @@ export class FuselageSurfaceRenderer extends UiKit.SurfaceRenderer<ReactElement>
 
     return (
       <LinearScaleElement
-        key={index}
+        key={block.actionId || index}
         block={block}
         context={context}
         index={index}
