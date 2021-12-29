@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.30.0",
+  "version": "0.31.0",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -61,10 +61,10 @@
     "react-virtuoso": "1.2.4"
   },
   "dependencies": {
-    "@rocket.chat/css-in-js": "workspace:packages/css-in-js",
-    "@rocket.chat/css-supports": "workspace:packages/css-supports",
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens",
-    "@rocket.chat/memo": "workspace:packages/memo",
+    "@rocket.chat/css-in-js": "^0.31.0",
+    "@rocket.chat/css-supports": "^0.31.0",
+    "@rocket.chat/fuselage-tokens": "^0.31.0",
+    "@rocket.chat/memo": "^0.31.0",
     "invariant": "^2.2.4",
     "react-keyed-flatten-children": "^1.3.0"
   },
@@ -75,11 +75,11 @@
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
-    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills",
-    "@rocket.chat/icons": "workspace:packages/icons",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rocket.chat/eslint-config-alt": "^0.31.0",
+    "@rocket.chat/fuselage-hooks": "^0.31.0",
+    "@rocket.chat/fuselage-polyfills": "^0.31.0",
+    "@rocket.chat/icons": "^0.31.0",
+    "@rocket.chat/prettier-config": "^0.31.0",
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addon-jest": "^6.3.4",
     "@storybook/addon-links": "^6.3.4",
@@ -104,7 +104,7 @@
     "eslint": "^8.2.0",
     "eslint-plugin-mdx": "^1.16.0",
     "jest": "^27.3.1",
-    "lint-all": "workspace:tools/lint-all",
+    "lint-all": "^0.31.0",
     "lint-staged": "^11.2.6",
     "loki": "^0.28.1",
     "normalize.css": "^8.0.1",
@@ -130,7 +130,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.2.0",
     "stylelint-scss": "^3.21.0",
-    "testing-utils": "workspace:tools/testing-utils",
+    "testing-utils": "^0.31.0",
     "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.4",
