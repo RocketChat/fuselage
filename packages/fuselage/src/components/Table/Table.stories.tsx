@@ -5,10 +5,19 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { Table, CheckBox } from '../..';
+import { CheckBox } from '../..';
+import {
+  Table,
+  TableSelection,
+  TableSelectionButton,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+} from './index.js';
 
 export default {
   title: 'Data Display/Table_new',
@@ -26,219 +35,219 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Table>;
+};
 
-export const Default: ComponentStory<typeof Table> = () => (
+export const Default = () => (
   <>
     <Table>
-      <Table.Head>
-        <Table.Row>
-          <Table.Cell>Dessert (100g serving)</Table.Cell>
-          <Table.Cell align='end'>Calories</Table.Cell>
-          <Table.Cell align='end'>Fat&nbsp;(g)</Table.Cell>
-          <Table.Cell align='end'>Carbs&nbsp;(g)</Table.Cell>
-          <Table.Cell align='end'>Protein&nbsp;(g)</Table.Cell>
-        </Table.Row>
-      </Table.Head>
-      <Table.Body>
-        <Table.Row hasAction>
-          <Table.Cell is='th' scope='row'>
+      <TableHead>
+        <TableRow>
+          <TableCell>Dessert (100g serving)</TableCell>
+          <TableCell align='end'>Calories</TableCell>
+          <TableCell align='end'>Fat&nbsp;(g)</TableCell>
+          <TableCell align='end'>Carbs&nbsp;(g)</TableCell>
+          <TableCell align='end'>Protein&nbsp;(g)</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        <TableRow hasAction>
+          <TableCell is='th' scope='row'>
             Frozen yoghurt
-          </Table.Cell>
-          <Table.Cell align='end'>159</Table.Cell>
-          <Table.Cell align='end'>6</Table.Cell>
-          <Table.Cell align='end'>24</Table.Cell>
-          <Table.Cell align='end'>4</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell is='th' scope='row'>
+          </TableCell>
+          <TableCell align='end'>159</TableCell>
+          <TableCell align='end'>6</TableCell>
+          <TableCell align='end'>24</TableCell>
+          <TableCell align='end'>4</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell is='th' scope='row'>
             Ice cream sandwich
-          </Table.Cell>
-          <Table.Cell align='end'>237</Table.Cell>
-          <Table.Cell align='end'>9</Table.Cell>
-          <Table.Cell align='end'>37</Table.Cell>
-          <Table.Cell align='end'>4.3</Table.Cell>
-        </Table.Row>
-      </Table.Body>
+          </TableCell>
+          <TableCell align='end'>237</TableCell>
+          <TableCell align='end'>9</TableCell>
+          <TableCell align='end'>37</TableCell>
+          <TableCell align='end'>4.3</TableCell>
+        </TableRow>
+      </TableBody>
     </Table>
   </>
 );
 
 export const Selected: ComponentStory<typeof Table> = () => (
   <>
-    <Table.Selection text='5 Items selected'>
-      <Table.Selection.Button>Delete</Table.Selection.Button>
-    </Table.Selection>
+    <TableSelection text='5 Items selected'>
+      <TableSelectionButton>Delete</TableSelectionButton>
+    </TableSelection>
     <Table>
-      <Table.Head>
-        <Table.Row>
-          <Table.Cell>
+      <TableHead>
+        <TableRow>
+          <TableCell>
             <CheckBox checked={false} />
-          </Table.Cell>
-          <Table.Cell>Dessert (100g serving)</Table.Cell>
-          <Table.Cell align='end'>Calories</Table.Cell>
-          <Table.Cell align='end'>Fat&nbsp;(g)</Table.Cell>
-          <Table.Cell align='end'>Carbs&nbsp;(g)</Table.Cell>
-          <Table.Cell align='end'>Protein&nbsp;(g)</Table.Cell>
-        </Table.Row>
-      </Table.Head>
-      <Table.Body>
-        <Table.Row selected>
-          <Table.Cell>
+          </TableCell>
+          <TableCell>Dessert (100g serving)</TableCell>
+          <TableCell align='end'>Calories</TableCell>
+          <TableCell align='end'>Fat&nbsp;(g)</TableCell>
+          <TableCell align='end'>Carbs&nbsp;(g)</TableCell>
+          <TableCell align='end'>Protein&nbsp;(g)</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        <TableRow selected>
+          <TableCell>
             <CheckBox checked />
-          </Table.Cell>
-          <Table.Cell is='th' scope='row'>
+          </TableCell>
+          <TableCell is='th' scope='row'>
             Frozen yoghurt
-          </Table.Cell>
-          <Table.Cell align='end'>159</Table.Cell>
-          <Table.Cell align='end'>6</Table.Cell>
-          <Table.Cell align='end'>24</Table.Cell>
-          <Table.Cell align='end'>4</Table.Cell>
-        </Table.Row>
-        <Table.Row selected>
-          <Table.Cell>
+          </TableCell>
+          <TableCell align='end'>159</TableCell>
+          <TableCell align='end'>6</TableCell>
+          <TableCell align='end'>24</TableCell>
+          <TableCell align='end'>4</TableCell>
+        </TableRow>
+        <TableRow selected>
+          <TableCell>
             <CheckBox checked />
-          </Table.Cell>
-          <Table.Cell is='th' scope='row'>
+          </TableCell>
+          <TableCell is='th' scope='row'>
             Frozen yoghurt
-          </Table.Cell>
-          <Table.Cell align='end'>159</Table.Cell>
-          <Table.Cell align='end'>6</Table.Cell>
-          <Table.Cell align='end'>24</Table.Cell>
-          <Table.Cell align='end'>4</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>
+          </TableCell>
+          <TableCell align='end'>159</TableCell>
+          <TableCell align='end'>6</TableCell>
+          <TableCell align='end'>24</TableCell>
+          <TableCell align='end'>4</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>
             <CheckBox checked={false} />
-          </Table.Cell>
-          <Table.Cell is='th' scope='row'>
+          </TableCell>
+          <TableCell is='th' scope='row'>
             Frozen yoghurt
-          </Table.Cell>
-          <Table.Cell align='end'>159</Table.Cell>
-          <Table.Cell align='end'>6</Table.Cell>
-          <Table.Cell align='end'>24</Table.Cell>
-          <Table.Cell align='end'>4</Table.Cell>
-        </Table.Row>
-        <Table.Row selected>
-          <Table.Cell>
+          </TableCell>
+          <TableCell align='end'>159</TableCell>
+          <TableCell align='end'>6</TableCell>
+          <TableCell align='end'>24</TableCell>
+          <TableCell align='end'>4</TableCell>
+        </TableRow>
+        <TableRow selected>
+          <TableCell>
             <CheckBox checked />
-          </Table.Cell>
-          <Table.Cell is='th' scope='row'>
+          </TableCell>
+          <TableCell is='th' scope='row'>
             Frozen yoghurt
-          </Table.Cell>
-          <Table.Cell align='end'>159</Table.Cell>
-          <Table.Cell align='end'>6</Table.Cell>
-          <Table.Cell align='end'>24</Table.Cell>
-          <Table.Cell align='end'>4</Table.Cell>
-        </Table.Row>
-        <Table.Row selected>
-          <Table.Cell>
+          </TableCell>
+          <TableCell align='end'>159</TableCell>
+          <TableCell align='end'>6</TableCell>
+          <TableCell align='end'>24</TableCell>
+          <TableCell align='end'>4</TableCell>
+        </TableRow>
+        <TableRow selected>
+          <TableCell>
             <CheckBox checked />
-          </Table.Cell>
-          <Table.Cell is='th' scope='row'>
+          </TableCell>
+          <TableCell is='th' scope='row'>
             Frozen yoghurt
-          </Table.Cell>
-          <Table.Cell align='end'>159</Table.Cell>
-          <Table.Cell align='end'>6</Table.Cell>
-          <Table.Cell align='end'>24</Table.Cell>
-          <Table.Cell align='end'>4</Table.Cell>
-        </Table.Row>
-      </Table.Body>
+          </TableCell>
+          <TableCell align='end'>159</TableCell>
+          <TableCell align='end'>6</TableCell>
+          <TableCell align='end'>24</TableCell>
+          <TableCell align='end'>4</TableCell>
+        </TableRow>
+      </TableBody>
     </Table>
   </>
 );
 
 export const Striped: ComponentStory<typeof Table> = () => (
   <Table fixed striped sticky>
-    <Table.Head>
-      <Table.Row>
-        <Table.Cell>Dessert (100g serving)</Table.Cell>
-        <Table.Cell align='end'>Calories</Table.Cell>
-        <Table.Cell align='end'>Fat&nbsp;(g)</Table.Cell>
-        <Table.Cell align='end'>Carbs&nbsp;(g)</Table.Cell>
-        <Table.Cell align='end'>Protein&nbsp;(g)</Table.Cell>
-      </Table.Row>
-    </Table.Head>
-    <Table.Body>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+    <TableHead>
+      <TableRow>
+        <TableCell>Dessert (100g serving)</TableCell>
+        <TableCell align='end'>Calories</TableCell>
+        <TableCell align='end'>Fat&nbsp;(g)</TableCell>
+        <TableCell align='end'>Carbs&nbsp;(g)</TableCell>
+        <TableCell align='end'>Protein&nbsp;(g)</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Frozen yoghurt
-        </Table.Cell>
-        <Table.Cell align='end'>159</Table.Cell>
-        <Table.Cell align='end'>6</Table.Cell>
-        <Table.Cell align='end'>24</Table.Cell>
-        <Table.Cell align='end'>4</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+        </TableCell>
+        <TableCell align='end'>159</TableCell>
+        <TableCell align='end'>6</TableCell>
+        <TableCell align='end'>24</TableCell>
+        <TableCell align='end'>4</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Frozen yoghurt
-        </Table.Cell>
-        <Table.Cell align='end'>159</Table.Cell>
-        <Table.Cell align='end'>6</Table.Cell>
-        <Table.Cell align='end'>24</Table.Cell>
-        <Table.Cell align='end'>4</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+        </TableCell>
+        <TableCell align='end'>159</TableCell>
+        <TableCell align='end'>6</TableCell>
+        <TableCell align='end'>24</TableCell>
+        <TableCell align='end'>4</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Frozen yoghurt
-        </Table.Cell>
-        <Table.Cell align='end'>159</Table.Cell>
-        <Table.Cell align='end'>6</Table.Cell>
-        <Table.Cell align='end'>24</Table.Cell>
-        <Table.Cell align='end'>4</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+        </TableCell>
+        <TableCell align='end'>159</TableCell>
+        <TableCell align='end'>6</TableCell>
+        <TableCell align='end'>24</TableCell>
+        <TableCell align='end'>4</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Frozen yoghurt
-        </Table.Cell>
-        <Table.Cell align='end'>159</Table.Cell>
-        <Table.Cell align='end'>6</Table.Cell>
-        <Table.Cell align='end'>24</Table.Cell>
-        <Table.Cell align='end'>4</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+        </TableCell>
+        <TableCell align='end'>159</TableCell>
+        <TableCell align='end'>6</TableCell>
+        <TableCell align='end'>24</TableCell>
+        <TableCell align='end'>4</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Ice cream sandwich
-        </Table.Cell>
-        <Table.Cell align='end'>237</Table.Cell>
-        <Table.Cell align='end'>9</Table.Cell>
-        <Table.Cell align='end'>37</Table.Cell>
-        <Table.Cell align='end'>4.3</Table.Cell>
-      </Table.Row>
-    </Table.Body>
+        </TableCell>
+        <TableCell align='end'>237</TableCell>
+        <TableCell align='end'>9</TableCell>
+        <TableCell align='end'>37</TableCell>
+        <TableCell align='end'>4.3</TableCell>
+      </TableRow>
+    </TableBody>
   </Table>
 );
 
 export const Fixed: ComponentStory<typeof Table> = () => (
   <Table fixed>
-    <Table.Head>
-      <Table.Row>
-        <Table.Cell>Dessert (100g serving)</Table.Cell>
-        <Table.Cell align='end'>Calories</Table.Cell>
-        <Table.Cell align='end'>Fat&nbsp;(g)</Table.Cell>
-        <Table.Cell align='end'>Carbs&nbsp;(g)</Table.Cell>
-        <Table.Cell align='end'>Protein&nbsp;(g)</Table.Cell>
-      </Table.Row>
-    </Table.Head>
-    <Table.Body>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+    <TableHead>
+      <TableRow>
+        <TableCell>Dessert (100g serving)</TableCell>
+        <TableCell align='end'>Calories</TableCell>
+        <TableCell align='end'>Fat&nbsp;(g)</TableCell>
+        <TableCell align='end'>Carbs&nbsp;(g)</TableCell>
+        <TableCell align='end'>Protein&nbsp;(g)</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Frozen yoghurt
-        </Table.Cell>
-        <Table.Cell align='end'>159</Table.Cell>
-        <Table.Cell align='end'>6</Table.Cell>
-        <Table.Cell align='end'>24</Table.Cell>
-        <Table.Cell align='end'>4</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+        </TableCell>
+        <TableCell align='end'>159</TableCell>
+        <TableCell align='end'>6</TableCell>
+        <TableCell align='end'>24</TableCell>
+        <TableCell align='end'>4</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Ice cream sandwich
-        </Table.Cell>
-        <Table.Cell align='end'>237</Table.Cell>
-        <Table.Cell align='end'>9</Table.Cell>
-        <Table.Cell align='end'>37</Table.Cell>
-        <Table.Cell align='end'>4.3</Table.Cell>
-      </Table.Row>
-    </Table.Body>
+        </TableCell>
+        <TableCell align='end'>237</TableCell>
+        <TableCell align='end'>9</TableCell>
+        <TableCell align='end'>37</TableCell>
+        <TableCell align='end'>4.3</TableCell>
+      </TableRow>
+    </TableBody>
   </Table>
 );

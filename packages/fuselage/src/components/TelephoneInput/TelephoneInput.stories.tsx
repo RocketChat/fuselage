@@ -31,33 +31,27 @@ const Template: ComponentStory<typeof TelephoneInput> = (args) => (
 
 export const Default: ComponentStory<typeof TelephoneInput> = Template.bind({});
 
-export const WithIconAddon: ComponentStory<typeof TelephoneInput> =
-  Template.bind({});
+export const WithIconAddon = Template.bind({});
 WithIconAddon.args = {
   addon: <Icon name='send' size='x20' />,
 };
 
-export const Invalid: ComponentStory<typeof TelephoneInput> = Template.bind({});
+export const Invalid = Template.bind({});
 Invalid.args = {
   error: 'Error',
 };
 
-export const Disabled: ComponentStory<typeof TelephoneInput> = Template.bind(
-  {}
-);
+export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const WithPlaceholder: ComponentStory<typeof TelephoneInput> =
-  Template.bind({});
+export const WithPlaceholder = Template.bind({});
 WithPlaceholder.args = {
   placeholder: 'Placeholder',
 };
 
-export const WithValue: ComponentStory<typeof TelephoneInput> = Template.bind(
-  {}
-);
+export const WithValue = Template.bind({});
 WithValue.args = {
   defaultValue: '+1 (213) 724-2528',
 };
