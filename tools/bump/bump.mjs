@@ -4,21 +4,37 @@ import { $, glob, fs, argv } from 'zx';
 
 const { workspaces } = await fs.readJSON('./package.json');
 
-const bumpFiles = await glob([
-  './package.json',
-  './lerna.json',
-  ...workspaces.map((workspace) => `${workspace}/package.json`),
-]);
-
 await standardVersion({
   dryRun: argv['dry-run'] === true,
+  prerelease: argv.prerelease,
   skip: {
     bump: false,
     changelog: argv['no-changelog'] === true,
     commit: argv.commit !== true,
     tag: argv.tag !== true,
   },
-  bumpFiles,
+  packageFiles: [
+    {
+      filename: './package.json',
+      type: 'json',
+    },
+  ],
+  bumpFiles: [
+    {
+      filename: './package.json',
+      type: 'json',
+    },
+    {
+      filename: './lerna.json',
+      type: 'json',
+    },
+    ...(
+      await glob(workspaces.map((workspace) => `${workspace}/package.json`))
+    ).map((filename) => ({
+      filename,
+      type: 'json',
+    })),
+  ],
 });
 
 await $`prettier --write ./CHANGELOG.md`;
