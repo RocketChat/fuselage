@@ -47,4 +47,4 @@ export const SelectInput = forwardRef(function SelectInput(
   );
 });
 
-SelectInput.Option = InputBox.Option;
+export const SelectInputOption = InputBox.Option;

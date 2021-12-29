@@ -17,6 +17,7 @@ import Sidebar, {
   SidebarItemContent,
   TopBarAction,
   SidebarFooterHighlight,
+  SidebarItemIcon,
 } from '.';
 import { Avatar } from '../..';
 
@@ -39,7 +40,7 @@ export default {
 
 export const Default: ComponentStory<typeof Sidebar> = () => (
   <>
-    <Sidebar.TopBar.Section>
+    <SidebarSection>
       <Avatar
         size={Sidebar.TopBar.Avatar.size}
         url={
@@ -54,7 +55,7 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
         <Sidebar.TopBar.Action icon='sort' />
         <Sidebar.TopBar.Action icon='edit-rounded' />
       </Sidebar.TopBar.Actions>
-    </Sidebar.TopBar.Section>
+    </SidebarSection>
     <Sidebar.TopBar.ToolBox>
       <Sidebar.TopBar.Title>Title</Sidebar.TopBar.Title>
       <Sidebar.TopBar.Actions>
@@ -72,87 +73,87 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
       </Sidebar.TopBar.Actions>
     </SidebarSection>
     <Sidebar.Item>
-      <Sidebar.Item.Avatar>
+      <SidebarItemAvatar>
         <Avatar
           size='x16'
           url={
             'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           }
         />
-      </Sidebar.Item.Avatar>
-      <Sidebar.Item.Content>
-        <Sidebar.Item.Wrapper>
-          <Sidebar.Item.Icon name='lock' />
-          <Sidebar.Item.Title>
+      </SidebarItemAvatar>
+      <SidebarItemContent>
+        <SidebarItemWrapper>
+          <SidebarItemIcon icon='lock' />
+          <SidebarItemTitle>
             ddsfoasdhfiuashd ousadhfiuasdhfiuashd soduhfiuasdhfia
             ishdfiuashdfiuas iuashdfiausdh
-          </Sidebar.Item.Title>
-        </Sidebar.Item.Wrapper>
-      </Sidebar.Item.Content>
-      <Sidebar.Item.Container>
-        <Sidebar.Item.Actions>
-          <Sidebar.Item.Action primary success icon='phone' />
-          <Sidebar.Item.Action primary danger icon='circle-cross' />
-          <Sidebar.Item.Action primary icon='trash' />
-          <Sidebar.Item.Action icon='phone' />
-        </Sidebar.Item.Actions>
-      </Sidebar.Item.Container>
+          </SidebarItemTitle>
+        </SidebarItemWrapper>
+      </SidebarItemContent>
+      <SidebarItemContainer>
+        <SidebarItemActions>
+          <SidebarItemAction primary success icon='phone' />
+          <SidebarItemAction primary danger icon='circle-cross' />
+          <SidebarItemAction primary icon='trash' />
+          <SidebarItemAction icon='phone' />
+        </SidebarItemActions>
+      </SidebarItemContainer>
     </Sidebar.Item>
     <Sidebar.Item selected clickable>
-      <Sidebar.Item.Avatar>
+      <SidebarItemAvatar>
         <Avatar
           size='x28'
           url={
             'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           }
         />
-      </Sidebar.Item.Avatar>
-      <Sidebar.Item.Content>
-        <Sidebar.Item.Wrapper>
-          <Sidebar.Item.Icon name='balloon' />
-          <Sidebar.Item.Title>
+      </SidebarItemAvatar>
+      <SidebarItemContent>
+        <SidebarItemWrapper>
+          <SidebarItemIcon icon='balloon' />
+          <SidebarItemTitle>
             ddsfoasdhfiuashd ousadhfiuasdhfiuashd soduhfiuasdhfia
             ishdfiuashdfiuas iuashdfiausdh
-          </Sidebar.Item.Title>
-        </Sidebar.Item.Wrapper>
-      </Sidebar.Item.Content>
-      <Sidebar.Item.Container>
-        <Sidebar.Item.Actions>
-          <Sidebar.Item.Action primary success icon='phone' />
-          <Sidebar.Item.Action primary danger icon='circle-cross' />
-          <Sidebar.Item.Action primary icon='trash' />
-          <Sidebar.Item.Action icon='phone' />
-        </Sidebar.Item.Actions>
-      </Sidebar.Item.Container>
+          </SidebarItemTitle>
+        </SidebarItemWrapper>
+      </SidebarItemContent>
+      <SidebarItemContainer>
+        <SidebarItemActions>
+          <SidebarItemAction primary success icon='phone' />
+          <SidebarItemAction primary danger icon='circle-cross' />
+          <SidebarItemAction primary icon='trash' />
+          <SidebarItemAction icon='phone' />
+        </SidebarItemActions>
+      </SidebarItemContainer>
     </Sidebar.Item>
     <Sidebar.Item clickable>
-      <Sidebar.Item.Avatar>
+      <SidebarItemAvatar>
         <Avatar
           size='x36'
           url={
             'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           }
         />
-      </Sidebar.Item.Avatar>
-      <Sidebar.Item.Content>
-        <Sidebar.Item.Content>
-          <Sidebar.Item.Wrapper>
-            <Sidebar.Item.Icon name='lock' />
-            <Sidebar.Item.Title>
+      </SidebarItemAvatar>
+      <SidebarItemContent>
+        <SidebarItemContent>
+          <SidebarItemWrapper>
+            <SidebarItemIcon icon='lock' />
+            <SidebarItemTitle>
               ddsfoasdhfiuashd ousadhfiuasdhfiuashd soduhfiuasdhfia
               ishdfiuashdfiuas iuashdfiausdh
-            </Sidebar.Item.Title>
-          </Sidebar.Item.Wrapper>
-        </Sidebar.Item.Content>
-        <Sidebar.Item.Content>
-          <Sidebar.Item.Wrapper>
-            <Sidebar.Item.Subtitle>
+            </SidebarItemTitle>
+          </SidebarItemWrapper>
+        </SidebarItemContent>
+        <SidebarItemContent>
+          <SidebarItemWrapper>
+            <SidebarItemSubtitle>
               ddsfoasdhfiuashd ousadhfiuasdhfiuashd soduhfiuasdhfia
               ishdfiuashdfiuas iuashdfiausdh
-            </Sidebar.Item.Subtitle>
-          </Sidebar.Item.Wrapper>
-        </Sidebar.Item.Content>
-      </Sidebar.Item.Content>
+            </SidebarItemSubtitle>
+          </SidebarItemWrapper>
+        </SidebarItemContent>
+      </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
           <SidebarItemAction primary success icon='phone' />
@@ -167,7 +168,7 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
 
 export const WithFooter: ComponentStory<typeof Sidebar> = () => (
   <>
-    <Sidebar.TopBar.Section>
+    <SidebarSection>
       <Avatar
         size={Sidebar.TopBar.Avatar.size}
         url={
@@ -182,7 +183,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
         <Sidebar.TopBar.Action icon='sort' />
         <Sidebar.TopBar.Action icon='edit-rounded' />
       </Sidebar.TopBar.Actions>
-    </Sidebar.TopBar.Section>
+    </SidebarSection>
     <Sidebar.TopBar.ToolBox>
       <Sidebar.TopBar.Title>Title</Sidebar.TopBar.Title>
       <Sidebar.TopBar.Actions>
@@ -200,87 +201,87 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
       </Sidebar.TopBar.Actions>
     </SidebarSection>
     <Sidebar.Item>
-      <Sidebar.Item.Avatar>
+      <SidebarItemAvatar>
         <Avatar
           size='x16'
           url={
             'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           }
         />
-      </Sidebar.Item.Avatar>
-      <Sidebar.Item.Content>
-        <Sidebar.Item.Wrapper>
-          <Sidebar.Item.Icon name='lock' />
-          <Sidebar.Item.Title>
+      </SidebarItemAvatar>
+      <SidebarItemContent>
+        <SidebarItemWrapper>
+          <SidebarItemIcon icon='lock' />
+          <SidebarItemTitle>
             ddsfoasdhfiuashd ousadhfiuasdhfiuashd soduhfiuasdhfia
             ishdfiuashdfiuas iuashdfiausdh
-          </Sidebar.Item.Title>
-        </Sidebar.Item.Wrapper>
-      </Sidebar.Item.Content>
-      <Sidebar.Item.Container>
-        <Sidebar.Item.Actions>
-          <Sidebar.Item.Action primary success icon='phone' />
-          <Sidebar.Item.Action primary danger icon='circle-cross' />
-          <Sidebar.Item.Action primary icon='trash' />
-          <Sidebar.Item.Action icon='phone' />
-        </Sidebar.Item.Actions>
-      </Sidebar.Item.Container>
+          </SidebarItemTitle>
+        </SidebarItemWrapper>
+      </SidebarItemContent>
+      <SidebarItemContainer>
+        <SidebarItemActions>
+          <SidebarItemAction primary success icon='phone' />
+          <SidebarItemAction primary danger icon='circle-cross' />
+          <SidebarItemAction primary icon='trash' />
+          <SidebarItemAction icon='phone' />
+        </SidebarItemActions>
+      </SidebarItemContainer>
     </Sidebar.Item>
     <Sidebar.Item selected clickable>
-      <Sidebar.Item.Avatar>
+      <SidebarItemAvatar>
         <Avatar
           size='x28'
           url={
             'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           }
         />
-      </Sidebar.Item.Avatar>
-      <Sidebar.Item.Content>
-        <Sidebar.Item.Wrapper>
-          <Sidebar.Item.Icon name='balloon' />
-          <Sidebar.Item.Title>
+      </SidebarItemAvatar>
+      <SidebarItemContent>
+        <SidebarItemWrapper>
+          <SidebarItemIcon icon='balloon' />
+          <SidebarItemTitle>
             ddsfoasdhfiuashd ousadhfiuasdhfiuashd soduhfiuasdhfia
             ishdfiuashdfiuas iuashdfiausdh
-          </Sidebar.Item.Title>
-        </Sidebar.Item.Wrapper>
-      </Sidebar.Item.Content>
-      <Sidebar.Item.Container>
-        <Sidebar.Item.Actions>
-          <Sidebar.Item.Action primary success icon='phone' />
-          <Sidebar.Item.Action primary danger icon='circle-cross' />
-          <Sidebar.Item.Action primary icon='trash' />
-          <Sidebar.Item.Action icon='phone' />
-        </Sidebar.Item.Actions>
-      </Sidebar.Item.Container>
+          </SidebarItemTitle>
+        </SidebarItemWrapper>
+      </SidebarItemContent>
+      <SidebarItemContainer>
+        <SidebarItemActions>
+          <SidebarItemAction primary success icon='phone' />
+          <SidebarItemAction primary danger icon='circle-cross' />
+          <SidebarItemAction primary icon='trash' />
+          <SidebarItemAction icon='phone' />
+        </SidebarItemActions>
+      </SidebarItemContainer>
     </Sidebar.Item>
     <Sidebar.Item clickable>
-      <Sidebar.Item.Avatar>
+      <SidebarItemAvatar>
         <Avatar
           size='x36'
           url={
             'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           }
         />
-      </Sidebar.Item.Avatar>
-      <Sidebar.Item.Content>
-        <Sidebar.Item.Content>
-          <Sidebar.Item.Wrapper>
-            <Sidebar.Item.Icon name='lock' />
-            <Sidebar.Item.Title>
+      </SidebarItemAvatar>
+      <SidebarItemContent>
+        <SidebarItemContent>
+          <SidebarItemWrapper>
+            <SidebarItemIcon icon='lock' />
+            <SidebarItemTitle>
               ddsfoasdhfiuashd ousadhfiuasdhfiuashd soduhfiuasdhfia
               ishdfiuashdfiuas iuashdfiausdh
-            </Sidebar.Item.Title>
-          </Sidebar.Item.Wrapper>
-        </Sidebar.Item.Content>
-        <Sidebar.Item.Content>
-          <Sidebar.Item.Wrapper>
-            <Sidebar.Item.Subtitle>
+            </SidebarItemTitle>
+          </SidebarItemWrapper>
+        </SidebarItemContent>
+        <SidebarItemContent>
+          <SidebarItemWrapper>
+            <SidebarItemSubtitle>
               ddsfoasdhfiuashd ousadhfiuasdhfiuashd soduhfiuasdhfia
               ishdfiuashdfiuas iuashdfiausdh
-            </Sidebar.Item.Subtitle>
-          </Sidebar.Item.Wrapper>
-        </Sidebar.Item.Content>
-      </Sidebar.Item.Content>
+            </SidebarItemSubtitle>
+          </SidebarItemWrapper>
+        </SidebarItemContent>
+      </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
           <SidebarItemAction primary success icon='phone' />
@@ -320,7 +321,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
         <SidebarItemContent>
           <SidebarItemContent>
             <SidebarItemWrapper>
-              <SidebarItem.Icon name='balloon' />
+              <SidebarItemIcon icon='balloon' />
               <SidebarItemTitle>
                 aasdasda asdasdasda asdasdasdas
               </SidebarItemTitle>

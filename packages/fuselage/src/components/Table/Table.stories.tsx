@@ -17,7 +17,7 @@ import {
   TableRow,
   TableCell,
   TableBody,
-} from './index.js';
+} from './index';
 
 export default {
   title: 'Data Display/Table_new',

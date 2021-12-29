@@ -2,6 +2,8 @@ import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
+import { SidebarSection } from '.';
+import { TopBarToolBox } from '..';
 import { Avatar } from '../..';
 import TopBar from './TopBar';
 
@@ -27,7 +29,7 @@ export default {
 
 export const Default: ComponentStory<typeof TopBar> = () => (
   <>
-    <TopBar.Section>
+    <SidebarSection>
       <Avatar
         size={TopBar.Avatar.size}
         url={
@@ -42,15 +44,15 @@ export const Default: ComponentStory<typeof TopBar> = () => (
         <TopBar.Action icon='sort' />
         <TopBar.Action icon='edit-rounded' />
       </TopBar.Actions>
-    </TopBar.Section>
-    <TopBar.ToolBox>
+    </SidebarSection>
+    <TopBarToolBox>
       <TopBar.Title>Title</TopBar.Title>
       <TopBar.Actions>
         <TopBar.Action success icon='phone' />
         <TopBar.Action icon='message-disabled' />
       </TopBar.Actions>
-    </TopBar.ToolBox>
-    <TopBar.ToolBox>
+    </TopBarToolBox>
+    <TopBarToolBox>
       <TopBar.Title>
         Long Title Long Title Long Title Long Title Long Title Long Title Long
         Title Long Title Long Title Long Title Long Title Long Title Long Title
@@ -64,6 +66,6 @@ export const Default: ComponentStory<typeof TopBar> = () => (
         <TopBar.Action icon='message' />
         <TopBar.Action icon='contact' />
       </TopBar.Actions>
-    </TopBar.ToolBox>
+    </TopBarToolBox>
   </>
 );
