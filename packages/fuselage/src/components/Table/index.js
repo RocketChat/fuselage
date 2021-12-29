@@ -38,7 +38,7 @@ export function TableSelectionButton(props) {
   return <Button small primary flexShrink={0} {...props} />;
 }
 
-// Selection.Button = SelectionButton;
+Selection.Button = TableSelectionButton;
 
 export function Table({ striped, sticky, fixed = false, ...props }) {
   return (
@@ -55,7 +55,7 @@ export function Table({ striped, sticky, fixed = false, ...props }) {
   );
 }
 
-// Table.Selection = Selection;
+Table.Selection = Selection;
 
 const TableHeadContext = createContext(false);
 
@@ -109,8 +109,8 @@ TableCell.propTypes = {
   fixed: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 };
 
-// Table.Head = TableHead;
-// Table.Body = TableBody;
-// Table.Foot = TableFoot;
-// Table.Row = TableRow;
-// Table.Cell = TableCell;
+Table.Head = TableHead;
+Table.Body = TableBody;
+Table.Foot = TableFoot;
+Table.Row = TableRow;
+Table.Cell = TableCell;

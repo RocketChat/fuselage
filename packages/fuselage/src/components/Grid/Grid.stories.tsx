@@ -8,7 +8,7 @@ import {
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Table } from '..';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '..';
 import { Grid, Tile } from '../..';
 
 export default {
@@ -51,58 +51,58 @@ export const Default: ComponentStory<typeof Grid> = Template.bind({});
 
 export const Breakpoints = () => (
   <Table fixed striped sticky>
-    <Table.Head>
-      <Table.Row>
-        <Table.Cell></Table.Cell>
-        <Table.Cell>extra-small</Table.Cell>
-        <Table.Cell>small</Table.Cell>
-        <Table.Cell>medium</Table.Cell>
-        <Table.Cell>large</Table.Cell>
-        <Table.Cell>extra-large</Table.Cell>
-      </Table.Row>
-    </Table.Head>
-    <Table.Body>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+    <TableHead>
+      <TableRow>
+        <TableCell></TableCell>
+        <TableCell>extra-small</TableCell>
+        <TableCell>small</TableCell>
+        <TableCell>medium</TableCell>
+        <TableCell>large</TableCell>
+        <TableCell>extra-large</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Alias
-        </Table.Cell>
-        <Table.Cell>xs</Table.Cell>
-        <Table.Cell>sm</Table.Cell>
-        <Table.Cell>md</Table.Cell>
-        <Table.Cell>lg</Table.Cell>
-        <Table.Cell>xl</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+        </TableCell>
+        <TableCell>xs</TableCell>
+        <TableCell>sm</TableCell>
+        <TableCell>md</TableCell>
+        <TableCell>lg</TableCell>
+        <TableCell>xl</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Minimun width
-        </Table.Cell>
-        <Table.Cell>320px</Table.Cell>
-        <Table.Cell>600px</Table.Cell>
-        <Table.Cell>768px</Table.Cell>
-        <Table.Cell>1024px</Table.Cell>
-        <Table.Cell>1440px</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+        </TableCell>
+        <TableCell>320px</TableCell>
+        <TableCell>600px</TableCell>
+        <TableCell>768px</TableCell>
+        <TableCell>1024px</TableCell>
+        <TableCell>1440px</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Columns
-        </Table.Cell>
-        <Table.Cell>4</Table.Cell>
-        <Table.Cell>8</Table.Cell>
-        <Table.Cell>8</Table.Cell>
-        <Table.Cell>12</Table.Cell>
-        <Table.Cell>12</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell is='th' scope='row'>
+        </TableCell>
+        <TableCell>4</TableCell>
+        <TableCell>8</TableCell>
+        <TableCell>8</TableCell>
+        <TableCell>12</TableCell>
+        <TableCell>12</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell is='th' scope='row'>
           Margins / Gutters
-        </Table.Cell>
-        <Table.Cell>16px</Table.Cell>
-        <Table.Cell>16px</Table.Cell>
-        <Table.Cell>24px</Table.Cell>
-        <Table.Cell>24px</Table.Cell>
-        <Table.Cell>24px</Table.Cell>
-      </Table.Row>
-    </Table.Body>
+        </TableCell>
+        <TableCell>16px</TableCell>
+        <TableCell>16px</TableCell>
+        <TableCell>24px</TableCell>
+        <TableCell>24px</TableCell>
+        <TableCell>24px</TableCell>
+      </TableRow>
+    </TableBody>
   </Table>
 );
 

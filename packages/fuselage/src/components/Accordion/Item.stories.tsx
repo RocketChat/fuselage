@@ -39,7 +39,7 @@ const Template: ComponentStory<typeof Accordion.Item> = (args) => {
   return (
     <Accordion>
       <Accordion.Item {...args}>
-        <Box color='default' fontScale='p3' marginBlockEnd='x16'>
+        <Box color='default' fontScale='p2m' marginBlockEnd='x16'>
           Content
         </Box>
       </Accordion.Item>

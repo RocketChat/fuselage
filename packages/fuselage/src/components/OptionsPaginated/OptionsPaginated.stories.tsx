@@ -1,5 +1,5 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { OptionsPaginated, CheckOption } from '.';
@@ -33,28 +33,24 @@ export default {
   },
 } as ComponentMeta<typeof OptionsPaginated>;
 
-const Template: ComponentStory<typeof OptionsPaginated> = (args) => (
+const Template = (args) => (
   <Box position='relative' maxWidth={250}>
     <OptionsPaginated {...args} ref={React.createRef()} options={options} />
   </Box>
 );
 
-export const Default: ComponentStory<typeof OptionsPaginated> = Template.bind(
-  {}
-);
+export const Default = Template.bind({});
 Default.args = {
   cursor: 1,
 };
-export const OptionStory: ComponentStory<typeof OptionsPaginated> =
-  Template.bind({});
+export const OptionStory = Template.bind({});
 OptionStory.args = {
   cursor: 1,
   renderItem: Option,
 };
 OptionStory.storyName = 'Option';
 
-export const CheckOptionStory: ComponentStory<typeof OptionsPaginated> =
-  Template.bind({});
+export const CheckOptionStory = Template.bind({});
 CheckOptionStory.args = {
   cursor: 0,
   value: [1],
