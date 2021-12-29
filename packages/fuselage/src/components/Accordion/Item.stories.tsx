@@ -11,11 +11,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Accordion, Box } from '../..';
-import { Item } from './Item';
+import { Item as AccordionItem } from './Item';
 
 export default {
   title: 'CONTAINERS/Accordion_new/AccordionItem',
-  component: Item,
+  component: AccordionItem,
   parameters: {
     docs: {
       description: {
@@ -32,17 +32,17 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Accordion.Item>;
+} as ComponentMeta<typeof AccordionItem>;
 
-const Template: ComponentStory<typeof Accordion.Item> = (args) => {
+const Template: ComponentStory<typeof AccordionItem> = (args) => {
   console.log(args);
   return (
     <Accordion>
-      <Accordion.Item {...args}>
+      <AccordionItem {...args}>
         <Box color='default' fontScale='p2m' marginBlockEnd='x16'>
           Content
         </Box>
-      </Accordion.Item>
+      </AccordionItem>
     </Accordion>
   );
 };
