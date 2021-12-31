@@ -10,19 +10,20 @@
     "hygen": "^6.1.0",
     "lerna": "^4.0.0",
     "lint-staged": "^11.2.6",
+    "turbo": "^1.0.24",
     "update-readme": "workspace:tools/update-readme",
     "webpack": "^5.41.1"
   },
   "scripts": {
     "postinstall": "husky install",
-    "build": "yarn workspaces foreach -v --topological-dev run build",
-    "lint": "yarn workspaces foreach -v --topological-dev run lint",
-    "lint-and-fix": "yarn workspaces foreach -v --topological-dev run lint-and-fix",
-    "test": "yarn workspaces foreach -v --topological-dev run test",
-    "docs": "yarn workspaces foreach -v --topological-dev run docs",
-    "build-storybook": "yarn workspaces foreach -v --topological-dev run build-storybook",
-    "update-storybook": "yarn workspaces foreach -v --topological-dev run update-storybook",
-    "loki:test": "yarn workspaces foreach -v --topological-dev run loki:test",
+    "build": "yarn turbo run build",
+    "lint": "yarn turbo run lint",
+    "lint-and-fix": "yarn turbo run lint-and-fix",
+    "test": "yarn turbo run test",
+    "docs": "yarn turbo run docs",
+    "build-storybook": "yarn turbo run build-storybook",
+    "update-storybook": "yarn turbo run update-storybook",
+    "loki:test": "yarn turbo run loki:test",
     "update-readme": "update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "create-package": "hygen create-package"
@@ -34,5 +35,36 @@
     "node": "14.17.6",
     "yarn": "1.22.11"
   },
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.0",
+  "turbo": {
+    "baseBranch": "origin/master",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ]
+      },
+      "test": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      },
+      "lint": {
+        "outputs": []
+      },
+      "update-storybook": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      },
+      "build-storybook": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      }
+    }
+  }
 }
