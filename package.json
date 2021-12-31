@@ -16,7 +16,7 @@
   },
   "scripts": {
     "postinstall": "husky install",
-    "ci": "yarn turbo run build lint test",
+    "ci": "yarn turbo run .:build:version build lint test",
     "build": "yarn turbo run build",
     "lint": "yarn turbo run lint",
     "lint-and-fix": "yarn turbo run lint-and-fix",
@@ -49,6 +49,9 @@
         "dependsOn": [
           "^build"
         ],
+        "outputs": []
+      },
+      ".:build:version": {
         "outputs": []
       },
       "lint": {
