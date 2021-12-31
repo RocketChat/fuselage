@@ -33,9 +33,7 @@ jobs:
             turbo-${{ github.job }}-${{ github.ref_name }}-
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - run: yarn run build
-      - run: yarn run lint
-      - run: yarn run test
+      - run: yarn run ci
       - run: yarn run build-storybook
       - uses: actions/upload-artifact@v2
         with:
