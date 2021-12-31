@@ -2,7 +2,4 @@
 
 echo Force rebuild
 
-yarn run loki:test \
-  --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' \
-  --verboseRenderer \
-  --requireReference \
+yarn run loki:test
