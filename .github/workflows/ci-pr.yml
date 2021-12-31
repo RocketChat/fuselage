@@ -34,7 +34,6 @@ jobs:
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
-      - run: yarn run build-storybook
       - uses: actions/upload-artifact@v2
         with:
           name: "storybooks-${{ github.event.number }}"
@@ -107,4 +106,4 @@ jobs:
       #   with:
       #     name: "storybooks-${{ github.event.number }}"
       #     path: packages
-      - run: yarn run loki:test
+      - uses: ./.github/actions/loki/test

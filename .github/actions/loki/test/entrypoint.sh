@@ -2,8 +2,7 @@
 
 echo Force rebuild
 
-cd "$INPUT_WORKING_DIR"
-yarn loki \
+yarn run loki:test \
   test \
   --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' \
   --verboseRenderer \

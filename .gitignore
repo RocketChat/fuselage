@@ -15,3 +15,4 @@ storybook-static/
 *.tmp
 .DS_Store
 .turbo
+storybook-static
