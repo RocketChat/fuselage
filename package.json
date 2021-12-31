@@ -70,6 +70,12 @@
         "outputs": [
           "storybook-static/*"
         ]
+      },
+      "loki:test": {
+        "dependsOn": [
+          "^build-storybook"
+        ],
+        "outputs": []
       }
     }
   }
