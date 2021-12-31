@@ -65,7 +65,7 @@
           "^build"
         ],
         "outputs": [
-          "storybook-static/*"
+          "storybook-static/**"
         ]
       },
       "loki:test": {
