@@ -47,25 +47,25 @@
       },
       "test": {
         "dependsOn": [
-          "^build"
+          "build"
         ],
         "outputs": []
       },
       "lint": {
         "dependsOn": [
-          "^build"
+          "build"
         ],
         "outputs": []
       },
       "update-storybook": {
         "dependsOn": [
-          "^build"
+          "build"
         ],
         "outputs": []
       },
       "build-storybook": {
         "dependsOn": [
-          "^build"
+          "build"
         ],
         "outputs": [
           "storybook-static/**"
@@ -73,7 +73,7 @@
       },
       "loki:test": {
         "dependsOn": [
-          "^build-storybook"
+          "build-storybook"
         ],
         "outputs": []
       }
