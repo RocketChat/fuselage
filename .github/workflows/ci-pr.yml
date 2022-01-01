@@ -103,9 +103,9 @@ jobs:
             turbo-${{ github.job }}-${{ github.ref_name }}-
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      # - run: yarn run build
-      # - uses: actions/download-artifact@v2
-      #   with:
-      #     name: "storybooks-${{ github.event.number }}"
-      #     path: packages
+      - run: yarn run build
+      - uses: actions/download-artifact@v2
+        with:
+          name: "storybooks-${{ github.event.number }}"
+          path: packages
       - uses: ./.github/actions/loki/test
