@@ -15,4 +15,5 @@ storybook-static/
 *.tmp
 .DS_Store
 .turbo
-storybook-static
+**/.storybook/jest-results.json
+**/bundle-report.html

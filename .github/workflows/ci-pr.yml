@@ -44,6 +44,8 @@ jobs:
   build-storybook:
     name: Build build-storybook
     runs-on: ubuntu-latest
+    needs:
+      - build-and-test
     steps:
       - uses: actions/setup-node@v2
         with:
