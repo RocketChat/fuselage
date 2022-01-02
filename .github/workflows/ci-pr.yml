@@ -34,13 +34,6 @@ jobs:
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
-      - uses: actions/upload-artifact@v2
-        with:
-          name: "storybooks-${{ github.event.number }}"
-          path: |
-            packages/fuselage/storybook-static
-            packages/fuselage-ui-kit/storybook-static
-            packages/onboarding-ui/storybook-static
   build-storybook:
     name: Build build-storybook
     runs-on: ubuntu-latest
@@ -69,13 +62,13 @@ jobs:
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run build-storybook
-      # - uses: actions/upload-artifact@v2
-      #   with:
-      #     name: "storybooks-${{ github.event.number }}"
-      #     path: |
-      #       packages/fuselage/storybook-static
-      #       packages/fuselage-ui-kit/storybook-static
-      #       packages/onboarding-ui/storybook-static
+      - uses: actions/upload-artifact@v2
+        with:
+          name: "storybooks-${{ github.event.number }}"
+          path: |
+            packages/fuselage/storybook-static
+            packages/fuselage-ui-kit/storybook-static
+            packages/onboarding-ui/storybook-static
   test-with-loki:
     name: Test with Loki
     runs-on: ubuntu-latest
