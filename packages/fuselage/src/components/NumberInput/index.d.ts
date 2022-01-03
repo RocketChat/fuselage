@@ -1,10 +1,9 @@
-import { ComponentProps, ForwardRefExoticComponent } from 'react';
+import { ComponentProps, ForwardRefExoticComponent, ReactNode } from 'react';
 
 import { Box } from '../Box';
-import { Icon } from '../Icon';
 
 type NumberInputProps = ComponentProps<typeof Box> & {
   error?: string;
-  addon?: Element<typeof Icon>;
+  addon?: ReactNode;
 };
 export const NumberInput: ForwardRefExoticComponent<NumberInputProps>;
