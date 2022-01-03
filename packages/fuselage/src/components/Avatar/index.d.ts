@@ -1,4 +1,4 @@
-import { ComponentProps, Context, ForwardRefExoticComponent } from 'react';
+import { ComponentProps, Context, ForwardRefExoticComponent, FC } from 'react';
 
 import { Box } from '../Box';
 
@@ -21,8 +21,16 @@ type AvatarProps = Omit<ComponentProps<typeof Box>, 'title' | 'size'> & {
   objectFit?: boolean;
   url: string;
 };
+
 export const Avatar: ForwardRefExoticComponent<AvatarProps> & {
   Context: Context<{
     baseUrl: string;
+  }>;
+};
+
+export const AvatarStack: Omit<AvatarProps> & {
+  Context: Context<{
+    className?: string;
+    children: FC<Avatar>;
   }>;
 };

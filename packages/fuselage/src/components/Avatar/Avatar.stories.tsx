@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Avatar, Box, Margins } from '../..';
-import { AvatarStack } from './Stack';
+import { AvatarStack } from './index.js';
 
 export default {
   title: 'Data Display/Avatar_new',
