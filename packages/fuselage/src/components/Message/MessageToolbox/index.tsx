@@ -34,7 +34,9 @@ export const ToolboxWrapper: ForwardRefExoticComponent<any> = forwardRef(
   }
 );
 
-const Item: FC<ComponentProps<typeof ActionButton>> = function Item(props) {
+export const Item: FC<ComponentProps<typeof ActionButton>> = function Item(
+  props
+) {
   return <ActionButton {...{ ...props, small: true, ghost: true }} />;
 };
 

@@ -2,7 +2,7 @@ import { Title, Primary } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { MessageToolbox } from '.';
+import { MessageToolbox, ToolboxWrapper, Item } from '.';
 import { Box } from '../..';
 
 export default {
@@ -18,14 +18,14 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MessageToolbox>;
+} as ComponentMeta<typeof ToolboxWrapper>;
 
 export const Default: ComponentStory<typeof MessageToolbox> = () => (
   <Box>
     <MessageToolbox>
-      <MessageToolbox.Item icon='quote' />
-      <MessageToolbox.Item icon='clock' />
-      <MessageToolbox.Item icon='thread' />
+      <Item icon='quote' />
+      <Item icon='clock' />
+      <Item icon='thread' />
     </MessageToolbox>
   </Box>
 );
