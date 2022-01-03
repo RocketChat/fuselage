@@ -72,9 +72,6 @@
         ]
       },
       "loki:test": {
-        "dependsOn": [
-          "build-storybook"
-        ],
         "outputs": []
       }
     }
