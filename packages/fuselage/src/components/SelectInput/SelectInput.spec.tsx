@@ -4,5 +4,5 @@ import React from 'react';
 import { SelectInput } from '.';
 
 it('renders without crashing', () => {
-  render(<SelectInput />);
+  render(<SelectInput options={[]} onChange={() => {}} addon={undefined} />);
 });
