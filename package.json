@@ -16,7 +16,7 @@
   },
   "scripts": {
     "postinstall": "husky install",
-    "ci": "yarn turbo run build lint test --cache-dir=\".turbo\"",
+    "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
     "build": "yarn turbo run build",
     "lint": "yarn turbo run lint",
     "lint-and-fix": "yarn turbo run lint-and-fix",
