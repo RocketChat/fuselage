@@ -66,7 +66,6 @@ MultiSelectError.args = {
   placeholder: 'Placeholder here...',
   options,
 };
-MultiSelectError.storyName = null;
 
 export const MultiSelectDisabled: ComponentStory<typeof MultiSelect> =
   Template.bind({});
