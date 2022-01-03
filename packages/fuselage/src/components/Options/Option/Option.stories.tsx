@@ -9,8 +9,17 @@ import {
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box, Avatar, Menu, StatusBullet, Option } from '../..';
+import { Box, Menu, StatusBullet } from '../..';
 import { exampleAvatar, menuOptions } from '../../../../.storybook/helpers.js';
+import { Avatar } from '../../Avatar';
+import Option from './Option';
+import OptionAvatar from './OptionAvatar';
+import OptionColumn from './OptionColumn';
+import OptionContent from './OptionContent';
+import OptionDescription from './OptionDescription';
+import OptionIcon from './OptionIcon';
+import OptionMenu from './OptionMenu';
+import OptionSkeleton from './OptionSkeleton';
 
 export default {
   title: 'Misc/Options/Option_new',
@@ -32,25 +41,25 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Option>;
+} as ComponentMeta<typeof Menu>;
 
 export const Default: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={250}>
     <Option onClick={action('click')}>
-      <Option.Content>Lorem Ipsum Lorem</Option.Content>
+      <OptionContent>Lorem Ipsum Lorem</OptionContent>
     </Option>
     <Option>
-      <Option.Content>
+      <OptionContent>
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-      </Option.Content>
+      </OptionContent>
     </Option>
     <Option>
-      <Option.Content>
+      <OptionContent>
         Lorem Ipsum Lorem{' '}
-        <Option.Description>
+        <OptionDescription>
           Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-        </Option.Description>
-      </Option.Content>
+        </OptionDescription>
+      </OptionContent>
     </Option>
   </Box>
 );
@@ -58,29 +67,29 @@ export const Default: ComponentStory<typeof Option> = () => (
 export const WithAvatar: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={250}>
     <Option onClick={action('click')}>
-      <Option.Avatar>
+      <OptionAvatar>
         <Avatar url={exampleAvatar} size='x28' />
-      </Option.Avatar>
-      <Option.Content>Lorem Ipsum Lorem</Option.Content>
+      </OptionAvatar>
+      <OptionContent>Lorem Ipsum Lorem</OptionContent>
     </Option>
     <Option>
-      <Option.Avatar>
+      <OptionAvatar>
         <Avatar url={exampleAvatar} size='x28' />
-      </Option.Avatar>
-      <Option.Content>
+      </OptionAvatar>
+      <OptionContent>
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-      </Option.Content>
+      </OptionContent>
     </Option>
     <Option>
-      <Option.Avatar>
+      <OptionAvatar>
         <Avatar url={exampleAvatar} size='x28' />
-      </Option.Avatar>
-      <Option.Content>
+      </OptionAvatar>
+      <OptionContent>
         Lorem Ipsum Lorem{' '}
-        <Option.Description>
+        <OptionDescription>
           Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-        </Option.Description>
-      </Option.Content>
+        </OptionDescription>
+      </OptionContent>
     </Option>
   </Box>
 );
@@ -88,21 +97,21 @@ export const WithAvatar: ComponentStory<typeof Option> = () => (
 export const WithPresence: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={250}>
     <Option onClick={action('click')}>
-      <Option.Column>
+      <OptionColumn>
         <StatusBullet />
-      </Option.Column>
-      <Option.Content>Lorem Ipsum Lorem</Option.Content>
+      </OptionColumn>
+      <OptionContent>Lorem Ipsum Lorem</OptionContent>
     </Option>
     <Option>
-      <Option.Avatar>
+      <OptionAvatar>
         <Avatar url={exampleAvatar} size='x28' />
-      </Option.Avatar>
-      <Option.Column>
+      </OptionAvatar>
+      <OptionColumn>
         <StatusBullet />
-      </Option.Column>
-      <Option.Content>
+      </OptionColumn>
+      <OptionContent>
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-      </Option.Content>
+      </OptionContent>
     </Option>
   </Box>
 );
@@ -110,24 +119,24 @@ export const WithPresence: ComponentStory<typeof Option> = () => (
 export const WithMenu: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={250}>
     <Option onClick={action('click')}>
-      <Option.Content>Lorem Ipsum Lorem</Option.Content>
-      <Option.Menu>
+      <OptionContent>Lorem Ipsum Lorem</OptionContent>
+      <OptionMenu>
         <Menu options={menuOptions} />
-      </Option.Menu>
+      </OptionMenu>
     </Option>
     <Option>
-      <Option.Avatar>
+      <OptionAvatar>
         <Avatar url={exampleAvatar} size='x28' />
-      </Option.Avatar>
-      <Option.Column>
+      </OptionAvatar>
+      <OptionColumn>
         <StatusBullet />
-      </Option.Column>
-      <Option.Content>
+      </OptionColumn>
+      <OptionContent>
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-      </Option.Content>
-      <Option.Menu>
+      </OptionContent>
+      <OptionMenu>
         <Menu options={menuOptions} />
-      </Option.Menu>
+      </OptionMenu>
     </Option>
   </Box>
 );
@@ -135,26 +144,26 @@ export const WithMenu: ComponentStory<typeof Option> = () => (
 export const WithIcon: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={250}>
     <Option onClick={action('click')}>
-      <Option.Icon name='bell' />
-      <Option.Content>Lorem Ipsum Lorem</Option.Content>
-      <Option.Menu>
+      <OptionIcon name='bell' />
+      <OptionContent>Lorem Ipsum Lorem</OptionContent>
+      <OptionMenu>
         <Menu options={menuOptions} />
-      </Option.Menu>
+      </OptionMenu>
     </Option>
     <Option>
-      <Option.Avatar>
+      <OptionAvatar>
         <Avatar url={exampleAvatar} size='x28' />
-      </Option.Avatar>
-      <Option.Icon name='bell' />
-      <Option.Column>
+      </OptionAvatar>
+      <OptionIcon name='bell' />
+      <OptionColumn>
         <StatusBullet />
-      </Option.Column>
-      <Option.Content>
+      </OptionColumn>
+      <OptionContent>
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-      </Option.Content>
-      <Option.Menu>
+      </OptionContent>
+      <OptionMenu>
         <Menu options={menuOptions} />
-      </Option.Menu>
+      </OptionMenu>
     </Option>
   </Box>
 );
@@ -162,29 +171,29 @@ export const WithIcon: ComponentStory<typeof Option> = () => (
 export const AsUserItem: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={330}>
     <Option onClick={action('click')}>
-      <Option.Avatar>
+      <OptionAvatar>
         <Avatar url={exampleAvatar} size='x28' />
-      </Option.Avatar>
-      <Option.Column>
+      </OptionAvatar>
+      <OptionColumn>
         <StatusBullet />
-      </Option.Column>
-      <Option.Content>
-        <Box withTruncatedText fontScale='p3'>
+      </OptionColumn>
+      <OptionContent>
+        <Box withTruncatedText fontScale='p2'>
           carla.culhane{' '}
           <Box is='span' color='neutral-500'>
             (carla hune)
           </Box>
         </Box>
-      </Option.Content>
-      <Option.Menu>
+      </OptionContent>
+      <OptionMenu>
         <Menu options={menuOptions} />
-      </Option.Menu>
+      </OptionMenu>
     </Option>
   </Box>
 );
 
 export const AsSkeleton: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={330}>
-    <Option.Skeleton />
+    <OptionSkeleton />
   </Box>
 );
