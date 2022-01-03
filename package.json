@@ -72,7 +72,7 @@
           "storybook-static/**"
         ]
       },
-      "loki:test": {
+      "loki:test-ci": {
         "outputs": []
       }
     }
