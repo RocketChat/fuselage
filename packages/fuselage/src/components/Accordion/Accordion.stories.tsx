@@ -16,27 +16,24 @@ export default {
   },
 } as ComponentMeta<typeof Accordion.Item>;
 
-const Template: ComponentStory<typeof Accordion> = (args) => {
-  console.log(args);
-  return (
-    <Accordion>
-      <Accordion.Item title='Item #1' defaultExpanded>
-        <Box color='default' fontScale='p3' marginBlockEnd='x16'>
-          Content #1
-        </Box>
-      </Accordion.Item>
-      <Accordion.Item title='Item #2'>
-        <Box color='default' fontScale='p3' marginBlockEnd='x16'>
-          Content #2
-        </Box>
-      </Accordion.Item>
-      <Accordion.Item title='Item #3'>
-        <Box color='default' fontScale='p3' marginBlockEnd='x16'>
-          Content #3
-        </Box>
-      </Accordion.Item>
-    </Accordion>
-  );
-};
+const Template: ComponentStory<typeof Accordion> = () => (
+  <Accordion>
+    <Accordion.Item title='Item #1' defaultExpanded>
+      <Box color='default' fontScale='p2' marginBlockEnd='x16'>
+        Content #1
+      </Box>
+    </Accordion.Item>
+    <Accordion.Item title='Item #2'>
+      <Box color='default' fontScale='p2' marginBlockEnd='x16'>
+        Content #2
+      </Box>
+    </Accordion.Item>
+    <Accordion.Item title='Item #3'>
+      <Box color='default' fontScale='p2' marginBlockEnd='x16'>
+        Content #3
+      </Box>
+    </Accordion.Item>
+  </Accordion>
+);
 
 export const Default: ComponentStory<typeof Accordion> = Template.bind({});

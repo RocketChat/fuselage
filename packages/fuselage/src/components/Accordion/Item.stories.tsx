@@ -34,18 +34,15 @@ export default {
   },
 } as ComponentMeta<typeof AccordionItem>;
 
-const Template: ComponentStory<typeof AccordionItem> = (args) => {
-  console.log(args);
-  return (
-    <Accordion>
-      <AccordionItem {...args}>
-        <Box color='default' fontScale='p2m' marginBlockEnd='x16'>
-          Content
-        </Box>
-      </AccordionItem>
-    </Accordion>
-  );
-};
+const Template: ComponentStory<typeof AccordionItem> = (args) => (
+  <Accordion>
+    <AccordionItem {...args}>
+      <Box color='default' fontScale='p2m' marginBlockEnd='x16'>
+        Content
+      </Box>
+    </AccordionItem>
+  </Accordion>
+);
 
 export const Default = Template.bind({});
 Default.args = {

@@ -1,5 +1,5 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import { ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { OptionsPaginated, CheckOption } from '.';
@@ -33,7 +33,7 @@ export default {
   },
 } as ComponentMeta<typeof OptionsPaginated>;
 
-const Template = (args) => (
+const Template: ComponentStory<typeof OptionsPaginated> = (args) => (
   <Box position='relative' maxWidth={250}>
     <OptionsPaginated {...args} ref={React.createRef()} options={options} />
   </Box>
