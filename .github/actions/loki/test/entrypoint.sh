@@ -2,4 +2,4 @@
 
 echo Force rebuild
 
-yarn run loki:test:ci
+yarn run loki:test-ci
