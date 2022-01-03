@@ -9,7 +9,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Options } from '.';
-import { Box } from '..';
+import { Box, Menu } from '..';
 import { CheckOption } from '../OptionsPaginated';
 import Option from './Option';
 
@@ -42,7 +42,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Options>;
+} as ComponentMeta<typeof Menu>;
 
 const Template: ComponentStory<typeof Options> = (args) => (
   <Box position='relative' maxWidth={250}>
