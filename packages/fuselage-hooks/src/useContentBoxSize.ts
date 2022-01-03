@@ -30,11 +30,15 @@ export const useContentBoxSize = (
     }
 
     const observer = new ResizeObserver((entries: ResizeObserverEntry[]) => {
-      if (entries.length === 0 || entries[0].borderBoxSize.length === 0) {
+      if (entries.length === 0) {
         return;
       }
 
-      const contentBoxSize = entries[0].contentBoxSize[0];
+      const contentBoxSize: ResizeObserverSize = Array.isArray(
+        entries[0].contentBoxSize
+      )
+        ? entries[0].contentBoxSize[0]
+        : entries[0].contentBoxSize;
 
       setSizeWithDebounce((prevSize) => {
         if (
