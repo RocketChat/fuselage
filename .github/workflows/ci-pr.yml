@@ -28,9 +28,10 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          key: turbo-${{ runner.os }}-${{ github.ref_name }}-${{ github.sha }}
           restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
+            turbo-${{ runner.os }}-${{ github.ref_name }}-
+            turbo-${{ runner.os }}-
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
