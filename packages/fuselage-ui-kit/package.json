@@ -42,7 +42,7 @@
     ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*' --write",
     "loki:test": "loki test -- --targetFilter='.*\\.docker' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static",
-    "loki:test-ci": "loki test -- --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
+    "loki:test-ci": "loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-polyfills": "*",
