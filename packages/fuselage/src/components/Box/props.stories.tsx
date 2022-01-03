@@ -10,6 +10,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
+import { Menu } from '..';
 import { Box, Button } from '../..';
 
 export default {
@@ -33,7 +34,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} as ComponentMeta<typeof Menu>;
 
 export const isProp: ComponentStory<typeof Box> = () => (
   <Box is={Button}>A Box rendering a Button</Box>
