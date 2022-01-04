@@ -36,12 +36,11 @@
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage-ui-kit",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "cross-env NODE_ENV=production build-storybook",
-    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update",
+    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve-loki",
     ".:update-storybook:build-storybook": "run-s build-storybook",
     ".:update-storybook:purge-refs": "rimraf .loki/reference",
     ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*' --write",
-    "loki:test": "loki test --targetFilter='.*\\.docker' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static",
     "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
   },
   "peerDependencies": {
@@ -76,6 +75,7 @@
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "resolve-loki": "workspace:tools/resolve-loki",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3",
     "webpack": "^5.41.1"
@@ -89,8 +89,28 @@
   },
   "loki": {
     "configurations": {
-      "desktop": {
+      "desktop.docker": {
         "target": "chrome.docker",
+        "width": 1440,
+        "height": 896,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "tablet.docker": {
+        "target": "chrome.docker",
+        "width": 768,
+        "height": 970,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "mobile.docker": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      },
+      "desktop": {
+        "target": "chrome.app",
         "width": 1440,
         "height": 896,
         "deviceScaleFactor": 1,
@@ -98,7 +118,7 @@
         "fitWindow": false
       },
       "tablet": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "width": 768,
         "height": 970,
         "deviceScaleFactor": 1,
@@ -106,26 +126,6 @@
         "fitWindow": false
       },
       "mobile": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
-      },
-      "desktop.app": {
-        "target": "chrome.app",
-        "width": 1440,
-        "height": 896,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "tablet.app": {
-        "target": "chrome.app",
-        "width": 768,
-        "height": 970,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "mobile.app": {
         "target": "chrome.app",
         "preset": "iPhone 7"
       }

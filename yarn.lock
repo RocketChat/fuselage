@@ -5905,11 +5905,11 @@ __metadata:
     prettier: ^2.3.2
     react: ^17.0.2
     react-dom: ^17.0.2
+    resolve-loki: "workspace:tools/resolve-loki"
     rimraf: ^3.0.2
     tslib: ^2.3.1
     typescript: ^4.4.3
     webpack: ^5.41.1
-    write-version-module: ^0.31.0
   peerDependencies:
     "@rocket.chat/fuselage-polyfills": "*"
     "@rocket.chat/icons": "*"
@@ -5981,6 +5981,7 @@ __metadata:
     react-keyed-flatten-children: ^1.3.0
     react-live: ^2.3.0
     react-virtuoso: 1.9.3
+    resolve-loki: "workspace:tools/resolve-loki"
     rimraf: ^3.0.2
     sass: ^1.35.1
     sass-loader: ^12.1.0
@@ -6170,6 +6171,7 @@ __metadata:
     react-dom: ^17.0.2
     react-hook-form: ^7.10.1
     react-i18next: ^11.11.0
+    resolve-loki: "workspace:tools/resolve-loki"
     rimraf: ^3.0.2
     storybook-dark-mode: ^1.0.8
     ts-jest: ^27.0.7
@@ -24354,6 +24356,27 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"resolve-loki@workspace:tools/resolve-loki":
+  version: 0.0.0-use.local
+  resolution: "resolve-loki@workspace:tools/resolve-loki"
+  dependencies:
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
+    "@types/node": ^15.14.1
+    "@typescript-eslint/parser": ^5.3.1
+    cross-env: ^7.0.3
+    endent: ^2.1.0
+    eslint: ^8.2.0
+    fast-glob: ^3.2.6
+    npm-run-all: ^4.1.5
+    prettier: ^2.3.2
+    ts-node: ^10.0.0
+    typescript: ^4.3.4
+  bin:
+    resolve-loki: bin/resolve-loki-references.js
+  languageName: unknown
+  linkType: soft
+
 "resolve-url@npm:^0.2.1":
   version: 0.2.1
   resolution: "resolve-url@npm:0.2.1"
@@ -28993,7 +29016,7 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"write-version-module@^0.31.0, write-version-module@workspace:tools/write-version-module":
+"write-version-module@workspace:tools/write-version-module":
   version: 0.0.0-use.local
   resolution: "write-version-module@workspace:tools/write-version-module"
   bin:
