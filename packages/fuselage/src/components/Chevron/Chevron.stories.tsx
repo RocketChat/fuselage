@@ -4,7 +4,7 @@ import React from 'react';
 import { Box, Chevron } from '../..';
 
 export default {
-  title: 'Misc/Chevron_new',
+  title: 'Misc/Chevron',
   component: Chevron,
 } as ComponentMeta<typeof Chevron>;
 

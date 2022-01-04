@@ -5,7 +5,7 @@ import React from 'react';
 import { CheckBox, Field, InputBox, ToggleSwitch } from '../..';
 
 export default {
-  title: 'Forms/Field_new',
+  title: 'Forms/Field',
   component: Field,
   parameters: {
     docs: {

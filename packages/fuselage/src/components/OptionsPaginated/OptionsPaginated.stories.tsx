@@ -11,7 +11,7 @@ const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
 }).map((_: unknown, i: number) => [i + 1, `a teste ${i + 1}`, i === 0]);
 
 export default {
-  title: 'Misc/Options/OptionsPaginated_new',
+  title: 'Misc/Options/OptionsPaginated',
   component: OptionsPaginated,
   parameters: {
     docs: {

@@ -12,7 +12,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '..';
 import { Grid, Tile } from '../..';
 
 export default {
-  title: 'Containers/Grid_new',
+  title: 'Containers/Grid',
   component: Grid,
   parameters: {
     docs: {

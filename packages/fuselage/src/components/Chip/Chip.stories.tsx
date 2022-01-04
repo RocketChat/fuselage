@@ -6,7 +6,7 @@ import { Box, Chip, Margins } from '../..';
 import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Data Display/Chip_new',
+  title: 'Data Display/Chip',
   component: Chip,
 } as ComponentMeta<typeof Chip>;
 

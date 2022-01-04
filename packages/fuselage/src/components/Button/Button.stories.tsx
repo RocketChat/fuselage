@@ -15,7 +15,7 @@ import { Button, ButtonGroup, Icon } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Buttons/Button_new',
+  title: 'Buttons/Button',
   component: Button,
   parameters: {
     docs: {

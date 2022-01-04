@@ -11,7 +11,7 @@ import React from 'react';
 import { Box, Button, ButtonGroup, Margins, Tile } from '../..';
 
 export default {
-  title: 'Layout/Margins_new',
+  title: 'Layout/Margins',
   component: Margins,
   parameters: {
     docs: {

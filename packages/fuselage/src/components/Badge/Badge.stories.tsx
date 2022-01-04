@@ -13,7 +13,7 @@ import React from 'react';
 import { Badge, Box } from '../..';
 
 export default {
-  title: 'Data Display/Badge_new',
+  title: 'Data Display/Badge',
   component: Badge,
   parameters: {
     docs: {

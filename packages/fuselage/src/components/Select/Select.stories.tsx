@@ -20,7 +20,7 @@ const optionsEllipses: readonly (readonly [string, string])[] = [
 ];
 
 export default {
-  title: 'Forms/Select_new',
+  title: 'Forms/Select',
   component: Select,
   parameters: {
     docs: {

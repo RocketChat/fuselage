@@ -11,7 +11,7 @@ import React from 'react';
 import { Tag, Box, Icon } from '../..';
 
 export default {
-  title: 'Data Display/Tag_new',
+  title: 'Data Display/Tag',
   component: Tag,
   parameters: {
     docs: {

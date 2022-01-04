@@ -6,7 +6,7 @@ import { MessageToolbox, ToolboxWrapper, Item } from '.';
 import { Box } from '../..';
 
 export default {
-  title: 'Messages/Toolbox_new',
+  title: 'Messages/Toolbox',
   component: MessageToolbox,
   parameters: {
     docs: {

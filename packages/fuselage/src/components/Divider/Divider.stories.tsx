@@ -4,7 +4,7 @@ import React from 'react';
 import { Divider } from '../..';
 
 export default {
-  title: 'Misc/Divider_new',
+  title: 'Misc/Divider',
   component: Divider,
 } as ComponentMeta<typeof Divider>;
 

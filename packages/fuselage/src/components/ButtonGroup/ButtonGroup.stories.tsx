@@ -13,7 +13,7 @@ import React from 'react';
 import { Button, ButtonGroup } from '../..';
 
 export default {
-  title: 'Buttons/ButtonGroup_new',
+  title: 'Buttons/ButtonGroup',
   component: ButtonGroup,
   parameters: {
     docs: {

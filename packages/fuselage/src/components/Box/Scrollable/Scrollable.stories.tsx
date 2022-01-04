@@ -12,7 +12,7 @@ import React from 'react';
 import { Box, Scrollable, Tile } from '../../..';
 
 export default {
-  title: 'Box/Modifiers/Scrollable_new',
+  title: 'Box/Modifiers/Scrollable',
   component: Scrollable,
   parameters: {
     docs: {

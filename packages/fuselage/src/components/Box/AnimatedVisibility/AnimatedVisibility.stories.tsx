@@ -4,7 +4,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { AnimatedVisibility, Field, Margins, ToggleSwitch, Tile } from '../..';
 
 export default {
-  title: 'Box/Modifiers/AnimatedVisibility_new',
+  title: 'Box/Modifiers/AnimatedVisibility',
   component: AnimatedVisibility,
 } as ComponentMeta<typeof AnimatedVisibility>;
 

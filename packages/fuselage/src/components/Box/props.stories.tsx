@@ -14,7 +14,7 @@ import { Menu } from '..';
 import { Box, Button } from '../..';
 
 export default {
-  title: 'Box/Props_new',
+  title: 'Box/Props',
   component: Box,
   parameters: {
     docs: {

@@ -11,7 +11,7 @@ import React from 'react';
 import { ProgressBar } from '../..';
 
 export default {
-  title: 'Misc/ProgressBar_new',
+  title: 'Misc/ProgressBar',
   component: ProgressBar,
   parameters: {
     docs: {

@@ -5,7 +5,7 @@ import { Avatar, Box, Margins } from '../..';
 import { AvatarStack } from './index.js';
 
 export default {
-  title: 'Data Display/Avatar_new',
+  title: 'Data Display/Avatar',
   component: Avatar,
 } as ComponentMeta<typeof Avatar>;
 

@@ -13,7 +13,7 @@ import { Icon, SelectInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Forms/Inputs/SelectInput_new',
+  title: 'Forms/Inputs/SelectInput',
   component: SelectInput,
   parameters: {
     docs: {

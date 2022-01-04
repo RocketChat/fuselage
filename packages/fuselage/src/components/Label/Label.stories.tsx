@@ -11,7 +11,7 @@ import React from 'react';
 import { Label } from '../..';
 
 export default {
-  title: 'Forms/Label_new',
+  title: 'Forms/Label',
   component: Label,
   parameters: {
     docs: {

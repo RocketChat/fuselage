@@ -6,7 +6,7 @@ import { Icon, TextAreaInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Forms/Inputs/TextAreaInput_new',
+  title: 'Forms/Inputs/TextAreaInput',
   component: TextAreaInput,
   parameters: {
     docs: {

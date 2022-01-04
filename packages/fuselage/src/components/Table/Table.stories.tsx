@@ -20,7 +20,7 @@ import {
 } from './index';
 
 export default {
-  title: 'Data Display/Table_new',
+  title: 'Data Display/Table',
   component: Table,
   parameters: {
     docs: {

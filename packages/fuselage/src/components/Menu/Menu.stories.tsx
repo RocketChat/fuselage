@@ -5,7 +5,7 @@ import { Box, Menu } from '..';
 import { menuOptions } from '../../../.storybook/helpers.js';
 
 export default {
-  title: 'Misc/Menu_new',
+  title: 'Misc/Menu',
   component: Menu,
   parameters: {
     docs: {

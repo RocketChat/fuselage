@@ -13,7 +13,7 @@ import { ToggleSwitch } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Buttons/ToggleSwitch_new',
+  title: 'Buttons/ToggleSwitch',
   component: ToggleSwitch,
   parameters: {
     docs: {

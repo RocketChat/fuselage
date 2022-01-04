@@ -5,7 +5,7 @@ import { MessageDivider } from '.';
 import { Box } from '../..';
 
 export default {
-  title: 'Messages/Divider_new',
+  title: 'Messages/Divider',
   component: MessageDivider,
 } as ComponentMeta<typeof MessageDivider>;
 

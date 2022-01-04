@@ -24,7 +24,7 @@ const options: [unknown, string, boolean?][] = [
 ];
 
 export default {
-  title: 'Misc/Options/Options_new',
+  title: 'Misc/Options/Options',
   component: Options,
   parameters: {
     docs: {
