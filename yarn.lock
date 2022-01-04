@@ -5664,16 +5664,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/css-in-js@workspace:packages/css-in-js":
+"@rocket.chat/css-in-js@^0.31.0, @rocket.chat/css-in-js@workspace:packages/css-in-js":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/css-in-js@workspace:packages/css-in-js"
   dependencies:
     "@emotion/hash": ^0.8.0
-    "@rocket.chat/css-supports": "workspace:packages/css-supports"
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/memo": "workspace:packages/memo"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
-    "@rocket.chat/stylis-logical-props-middleware": "workspace:packages/stylis-logical-props-middleware"
+    "@rocket.chat/css-supports": ^0.31.0
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/memo": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
+    "@rocket.chat/stylis-logical-props-middleware": ^0.31.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.0.0
@@ -5682,7 +5682,7 @@ __metadata:
     "@types/stylis": ^4.0.1
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     prettier: ^2.3.2
     rollup: ^2.52.4
@@ -5694,17 +5694,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/css-supports@workspace:packages/css-supports":
+"@rocket.chat/css-supports@^0.31.0, @rocket.chat/css-supports@workspace:packages/css-supports":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/css-supports@workspace:packages/css-supports"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/memo": "workspace:packages/memo"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/memo": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@types/jest": ^27.0.2
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
@@ -5720,8 +5720,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/emitter@workspace:packages/emitter"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.0.0
@@ -5729,7 +5729,7 @@ __metadata:
     "@types/jest": ^27.0.2
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
@@ -5742,7 +5742,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt":
+"@rocket.chat/eslint-config-alt@^0.31.0, @rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt"
   dependencies:
@@ -5757,7 +5757,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-react: ^7.27.0
     eslint-plugin-react-hooks: ^4.3.0
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     prettier: ^2.3.2
   peerDependencies:
@@ -5779,13 +5779,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks":
+"@rocket.chat/fuselage-hooks@^0.31.0, @rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/fuselage-tokens": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.0.0
@@ -5798,14 +5798,14 @@ __metadata:
     "@types/use-subscription": ^1.0.0
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
     react: ^17.0.2
     rollup: ^2.52.4
     rollup-plugin-terser: ^7.0.2
-    testing-utils: "workspace:tools/testing-utils"
+    testing-utils: ^0.31.0
     ts-jest: ^27.0.7
     typedoc: ^0.22.8
     typescript: ^4.3.4
@@ -5817,19 +5817,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills":
+"@rocket.chat/fuselage-polyfills@^0.31.0, @rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills"
   dependencies:
     "@juggle/resize-observer": ^3.3.1
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     clipboard-polyfill: ^3.0.3
     element-closest-polyfill: ^1.0.4
     eslint: ^8.2.0
     focus-visible: ^5.2.0
     focus-within-polyfill: ^5.2.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     new-event-polyfill: ^1.0.1
     prettier: ^2.3.2
@@ -5844,23 +5844,24 @@ __metadata:
     hygen: ^6.1.0
     lerna: ^4.0.0
     lint-staged: ^11.2.6
+    turbo: ^1.0.24
     update-readme: "workspace:tools/update-readme"
     webpack: ^5.41.1
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens":
+"@rocket.chat/fuselage-tokens@^0.31.0, @rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
-    build-design-tokens: "workspace:tools/build-design-tokens"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
+    build-design-tokens: ^0.31.0
     eslint: ^8.2.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.25.3
     eslint-plugin-prettier: ^4.0.0
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
@@ -5876,14 +5877,14 @@ __metadata:
   resolution: "@rocket.chat/fuselage-ui-kit@workspace:packages/fuselage-ui-kit"
   dependencies:
     "@rocket.chat/apps-engine": ^1.27.1
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/fuselage": "workspace:packages/fuselage"
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks"
-    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills"
-    "@rocket.chat/icons": "workspace:packages/icons"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
-    "@rocket.chat/styled": "workspace:packages/styled"
-    "@rocket.chat/ui-kit": "workspace:packages/ui-kit"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/fuselage": ^0.31.0
+    "@rocket.chat/fuselage-hooks": ^0.31.0
+    "@rocket.chat/fuselage-polyfills": ^0.31.0
+    "@rocket.chat/icons": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
+    "@rocket.chat/styled": ^0.31.0
+    "@rocket.chat/ui-kit": ^0.31.0
     "@storybook/addon-essentials": ^6.3.4
     "@storybook/addons": ^6.3.4
     "@storybook/builder-webpack5": ^6.3.4
@@ -5896,7 +5897,7 @@ __metadata:
     babel-loader: ^8.2.2
     cross-env: ^7.0.3
     eslint: ^8.2.0
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     loki: ^0.28.1
     normalize.css: ^8.0.1
@@ -5904,11 +5905,11 @@ __metadata:
     prettier: ^2.3.2
     react: ^17.0.2
     react-dom: ^17.0.2
+    resolve-loki: "workspace:tools/resolve-loki"
     rimraf: ^3.0.2
     tslib: ^2.3.1
     typescript: ^4.4.3
     webpack: ^5.41.1
-    write-version-module: "workspace:tools/write-version-module"
   peerDependencies:
     "@rocket.chat/fuselage-polyfills": "*"
     "@rocket.chat/icons": "*"
@@ -5917,7 +5918,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage@workspace:packages/fuselage":
+"@rocket.chat/fuselage@^0.31.0, @rocket.chat/fuselage@workspace:packages/fuselage":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage@workspace:packages/fuselage"
   dependencies:
@@ -5926,16 +5927,16 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.16.0
     "@babel/preset-env": ^7.16.0
     "@babel/preset-react": ^7.16.0
-    "@rocket.chat/css-in-js": "workspace:packages/css-in-js"
-    "@rocket.chat/css-supports": "workspace:packages/css-supports"
+    "@rocket.chat/css-in-js": ^0.31.0
+    "@rocket.chat/css-supports": ^0.31.0
     "@rocket.chat/eslint-config": ^0.4.0
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks"
-    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills"
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens"
-    "@rocket.chat/icons": "workspace:packages/icons"
-    "@rocket.chat/memo": "workspace:packages/memo"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/fuselage-hooks": ^0.31.0
+    "@rocket.chat/fuselage-polyfills": ^0.31.0
+    "@rocket.chat/fuselage-tokens": ^0.31.0
+    "@rocket.chat/icons": ^0.31.0
+    "@rocket.chat/memo": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@storybook/addon-essentials": ^6.3.4
     "@storybook/addon-jest": ^6.3.4
     "@storybook/addon-links": ^6.3.4
@@ -5961,7 +5962,7 @@ __metadata:
     eslint-plugin-mdx: ^1.16.0
     invariant: ^2.2.4
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     loki: ^0.28.1
     normalize.css: ^8.0.1
@@ -5980,6 +5981,7 @@ __metadata:
     react-keyed-flatten-children: ^1.3.0
     react-live: ^2.3.0
     react-virtuoso: 1.9.3
+    resolve-loki: "workspace:tools/resolve-loki"
     rimraf: ^3.0.2
     sass: ^1.35.1
     sass-loader: ^12.1.0
@@ -5988,7 +5990,7 @@ __metadata:
     stylelint-order: ^4.1.0
     stylelint-prettier: ^1.2.0
     stylelint-scss: ^3.21.0
-    testing-utils: "workspace:tools/testing-utils"
+    testing-utils: ^0.31.0
     ts-jest: ^27.0.7
     ts-loader: ^9.2.3
     typescript: ^4.3.4
@@ -6005,16 +6007,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/icons@workspace:packages/icons":
+"@rocket.chat/icons@^0.31.0, @rocket.chat/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/icons@workspace:packages/icons"
   dependencies:
     "@prettier/plugin-xml": ^1.1.0
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
-    build-icons: "workspace:tools/build-icons"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
+    build-icons: ^0.31.0
     eslint: ^8.2.0
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
@@ -6026,21 +6028,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/logo@workspace:packages/logo":
+"@rocket.chat/logo@^0.31.0, @rocket.chat/logo@workspace:packages/logo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/logo@workspace:packages/logo"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks"
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
-    "@rocket.chat/styled": "workspace:packages/styled"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/fuselage-hooks": ^0.31.0
+    "@rocket.chat/fuselage-tokens": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
+    "@rocket.chat/styled": ^0.31.0
     "@types/jest": ^27.0.2
     "@types/react": ^17.0.34
     "@types/react-dom": ^17.0.11
+    build-logo: ^0.31.0
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.4.1
@@ -6057,14 +6060,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/memo@workspace:packages/memo":
+"@rocket.chat/memo@^0.31.0, @rocket.chat/memo@workspace:packages/memo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/memo@workspace:packages/memo"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     eslint: ^8.2.0
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
@@ -6082,16 +6085,16 @@ __metadata:
     "@babel/core": ^7.16.0
     "@babel/eslint-parser": ^7.16.3
     "@babel/preset-env": ^7.16.0
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/peggy-loader": "workspace:packages/peggy-loader"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/peggy-loader": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@types/jest": ^27.0.2
     "@types/node": ^15.14.1
     "@typescript-eslint/parser": ^5.3.1
     babel-loader: ^8.2.2
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     peggy: ^1.2.0
@@ -6115,8 +6118,8 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.16.0
     "@babel/preset-env": ^7.16.0
     "@babel/preset-typescript": ^7.16.0
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-node-resolve": ^13.0.0
     "@rollup/plugin-typescript": ^8.2.1
@@ -6124,7 +6127,7 @@ __metadata:
     eslint: ^8.2.0
     jest: ^27.3.1
     lamejs: "https://github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab"
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     prettier: ^2.3.2
     rollup: ^2.52.4
@@ -6138,15 +6141,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/fuselage": "workspace:packages/fuselage"
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks"
-    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills"
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens"
-    "@rocket.chat/icons": "workspace:packages/icons"
-    "@rocket.chat/logo": "workspace:packages/logo"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
-    "@rocket.chat/styled": "workspace:packages/styled"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/fuselage": ^0.31.0
+    "@rocket.chat/fuselage-hooks": ^0.31.0
+    "@rocket.chat/fuselage-polyfills": ^0.31.0
+    "@rocket.chat/fuselage-tokens": ^0.31.0
+    "@rocket.chat/icons": ^0.31.0
+    "@rocket.chat/logo": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
+    "@rocket.chat/styled": ^0.31.0
     "@storybook/addon-essentials": ^6.3.4
     "@storybook/addons": ^6.3.4
     "@storybook/react": ^6.3.4
@@ -6159,7 +6162,7 @@ __metadata:
     eslint: ^8.2.0
     i18next: ^20.3.2
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     loki: ^0.28.1
     npm-run-all: ^4.1.5
@@ -6168,6 +6171,7 @@ __metadata:
     react-dom: ^17.0.2
     react-hook-form: ^7.10.1
     react-i18next: ^11.11.0
+    resolve-loki: "workspace:tools/resolve-loki"
     rimraf: ^3.0.2
     storybook-dark-mode: ^1.0.8
     ts-jest: ^27.0.7
@@ -6181,16 +6185,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/peggy-loader@workspace:packages/peggy-loader":
+"@rocket.chat/peggy-loader@^0.31.0, @rocket.chat/peggy-loader@workspace:packages/peggy-loader":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@types/loader-utils": ^2.0.3
     "@types/node": ^15.14.1
     eslint: ^8.2.0
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     loader-utils: ^2.0.0
     npm-run-all: ^4.1.5
@@ -6207,7 +6211,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/prettier-config@workspace:packages/prettier-config":
+"@rocket.chat/prettier-config@^0.31.0, @rocket.chat/prettier-config@workspace:packages/prettier-config":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/prettier-config@workspace:packages/prettier-config"
   dependencies:
@@ -6216,7 +6220,7 @@ __metadata:
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.25.3
     eslint-plugin-prettier: ^4.0.0
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     prettier: ^2.3.2
   peerDependencies:
@@ -6228,12 +6232,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@types/jest": ^27.0.2
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
@@ -6245,17 +6249,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/styled@workspace:packages/styled":
+"@rocket.chat/styled@^0.31.0, @rocket.chat/styled@workspace:packages/styled":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/styled@workspace:packages/styled"
   dependencies:
-    "@rocket.chat/css-in-js": "workspace:packages/css-in-js"
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/css-in-js": ^0.31.0
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@types/jest": ^27.0.2
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
@@ -6267,17 +6271,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware":
+"@rocket.chat/stylis-logical-props-middleware@^0.31.0, @rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware"
   dependencies:
-    "@rocket.chat/css-supports": "workspace:packages/css-supports"
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/css-supports": ^0.31.0
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@types/jest": ^27.0.2
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
@@ -6292,7 +6296,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/ui-kit@workspace:packages/ui-kit":
+"@rocket.chat/ui-kit@^0.31.0, @rocket.chat/ui-kit@workspace:packages/ui-kit":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/ui-kit@workspace:packages/ui-kit"
   dependencies:
@@ -6300,13 +6304,13 @@ __metadata:
     "@babel/eslint-parser": ^7.16.3
     "@babel/plugin-transform-runtime": ^7.16.0
     "@babel/preset-env": ^7.16.0
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@types/jest": ^27.0.2
     babel-loader: ^8.2.2
     eslint: ^8.2.0
     jest: ^27.3.1
-    lint-all: "workspace:tools/lint-all"
+    lint-all: ^0.31.0
     lint-staged: ^11.2.6
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
@@ -10314,7 +10318,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"base64-js@npm:^1.0.2":
+"base64-js@npm:^1.0.2, base64-js@npm:^1.3.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 669632eb3745404c2f822a18fc3a0122d2f9a7a13f7fb8b5823ee19d1d2ff9ee5b52c53367176ea4ad093c332fd5ab4bd0ebae5a8e27917a4105a4cfc86b1005
@@ -10395,6 +10399,17 @@ __metadata:
   dependencies:
     file-uri-to-path: 1.0.0
   checksum: 65b6b48095717c2e6105a021a7da4ea435aa8d3d3cd085cb9e85bcb6e5773cf318c4745c3f7c504412855940b585bdf9b918236612a1c7a7942491de176f1ae7
+  languageName: node
+  linkType: hard
+
+"bl@npm:^4.0.3":
+  version: 4.1.0
+  resolution: "bl@npm:4.1.0"
+  dependencies:
+    buffer: ^5.5.0
+    inherits: ^2.0.4
+    readable-stream: ^3.4.0
+  checksum: 9e8521fa7e83aa9427c6f8ccdcba6e8167ef30cc9a22df26effcc5ab682ef91d2cbc23a239f945d099289e4bbcfae7a192e9c28c84c6202e710a0dfec3722662
   languageName: node
   linkType: hard
 
@@ -10725,6 +10740,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"buffer@npm:^5.5.0":
+  version: 5.7.1
+  resolution: "buffer@npm:5.7.1"
+  dependencies:
+    base64-js: ^1.3.1
+    ieee754: ^1.1.13
+  checksum: e2cf8429e1c4c7b8cbd30834ac09bd61da46ce35f5c22a78e6c2f04497d6d25541b16881e30a019c6fd3154150650ccee27a308eff3e26229d788bbdeb08ab84
+  languageName: node
+  linkType: hard
+
 "bufferstreams@npm:^3.0.0":
   version: 3.0.0
   resolution: "bufferstreams@npm:3.0.0"
@@ -10734,12 +10759,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"build-design-tokens@workspace:tools/build-design-tokens":
+"build-design-tokens@^0.31.0, build-design-tokens@workspace:tools/build-design-tokens":
   version: 0.0.0-use.local
   resolution: "build-design-tokens@workspace:tools/build-design-tokens"
   dependencies:
     stylelint: ^13.13.1
-    tools-utils: "workspace:tools/tools-utils"
+    tools-utils: ^0.31.0
   peerDependencies:
     eslint: "*"
     prettier: "*"
@@ -10748,13 +10773,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"build-icons@workspace:tools/build-icons":
+"build-icons@^0.31.0, build-icons@workspace:tools/build-icons":
   version: 0.0.0-use.local
   resolution: "build-icons@workspace:tools/build-icons"
   dependencies:
     svg2ttf: ^6.0.3
     svgicons2svgfont: ^10.0.5
-    tools-utils: "workspace:tools/tools-utils"
+    tools-utils: ^0.31.0
     ttf2eot: ^3.0.0
     ttf2woff: ^3.0.0
     ttf2woff2: ^4.0.4
@@ -10762,6 +10787,20 @@ __metadata:
     xml2js: ^0.4.23
   bin:
     build-icons: ./index.mjs
+  languageName: unknown
+  linkType: soft
+
+"build-logo@^0.31.0, build-logo@workspace:tools/build-logo":
+  version: 0.0.0-use.local
+  resolution: "build-logo@workspace:tools/build-logo"
+  dependencies:
+    prettier: ^2.5.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    sharp: ^0.29.3
+    tools-utils: ^0.31.0
+  bin:
+    build-logo: ./index.mjs
   languageName: unknown
   linkType: soft
 
@@ -11644,6 +11683,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"color-string@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "color-string@npm:1.9.0"
+  dependencies:
+    color-name: ^1.0.0
+    simple-swizzle: ^0.2.2
+  checksum: 93c6678b847f8cfa47d19677fd19e1d4b19d7a33f100644400357c298266080b5bca64e5f874fa8ac8cc0aa0606ad44f7a838b4e6fd05e6affea190a68555bb4
+  languageName: node
+  linkType: hard
+
 "color@npm:^3.1.3":
   version: 3.2.1
   resolution: "color@npm:3.2.1"
@@ -11651,6 +11700,16 @@ __metadata:
     color-convert: ^1.9.3
     color-string: ^1.6.0
   checksum: f81220e8b774d35865c2561be921f5652117638dcda7ca4029262046e37fc2444ac7bbfdd110cf1fd9c074a4ee5eda8f85944ffbdda26186b602dd9bb05f6400
+  languageName: node
+  linkType: hard
+
+"color@npm:^4.0.1":
+  version: 4.1.0
+  resolution: "color@npm:4.1.0"
+  dependencies:
+    color-convert: ^2.0.1
+    color-string: ^1.9.0
+  checksum: 9f2ca574f8453983ab549282962ccdb094d8b5d29de2d162f2bca81c0c82429d1dfac49d8dabf2c0c0369bb7ceae16ceabc9f523f9eaedcba38a464e72091458
   languageName: node
   linkType: hard
 
@@ -12893,10 +12952,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"decompress-response@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "decompress-response@npm:6.0.0"
+  dependencies:
+    mimic-response: ^3.1.0
+  checksum: d377cf47e02d805e283866c3f50d3d21578b779731e8c5072d6ce8c13cc31493db1c2f6784da9d1d5250822120cefa44f1deab112d5981015f2e17444b763812
+  languageName: node
+  linkType: hard
+
 "dedent@npm:^0.7.0":
   version: 0.7.0
   resolution: "dedent@npm:0.7.0"
   checksum: 87de191050d9a40dd70cad01159a0bcf05ecb59750951242070b6abf9569088684880d00ba92a955b4058804f16eeaf91d604f283929b4f614d181cd7ae633d2
+  languageName: node
+  linkType: hard
+
+"deep-extend@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "deep-extend@npm:0.6.0"
+  checksum: 7be7e5a8d468d6b10e6a67c3de828f55001b6eb515d014f7aeb9066ce36bd5717161eb47d6a0f7bed8a9083935b465bc163ee2581c8b128d29bf61092fdf57a7
   languageName: node
   linkType: hard
 
@@ -13055,6 +13130,15 @@ __metadata:
   version: 6.0.0
   resolution: "detect-indent@npm:6.0.0"
   checksum: 0c38f362016e2d07af1c65b1ecd6ad8a91f06bfdd11383887c867a495ad286d04be2ab44027ac42444704d523982013115bd748c1541df7c9396ad76b22aaf5d
+  languageName: node
+  linkType: hard
+
+"detect-libc@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "detect-libc@npm:1.0.3"
+  bin:
+    detect-libc: ./bin/detect-libc.js
+  checksum: daaaed925ffa7889bd91d56e9624e6c8033911bb60f3a50a74a87500680652969dbaab9526d1e200a4c94acf80fc862a22131841145a0a8482d60a99c24f4a3e
   languageName: node
   linkType: hard
 
@@ -13629,7 +13713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"end-of-stream@npm:^1.0.0, end-of-stream@npm:^1.1.0":
+"end-of-stream@npm:^1.0.0, end-of-stream@npm:^1.1.0, end-of-stream@npm:^1.4.1":
   version: 1.4.4
   resolution: "end-of-stream@npm:1.4.4"
   dependencies:
@@ -14526,6 +14610,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expand-template@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "expand-template@npm:2.0.3"
+  checksum: 588c19847216421ed92befb521767b7018dc88f88b0576df98cb242f20961425e96a92cbece525ef28cc5becceae5d544ae0f5b9b5e2aa05acb13716ca5b3099
+  languageName: node
+  linkType: hard
+
 "expect@npm:^27.3.1":
   version: 27.3.1
   resolution: "expect@npm:27.3.1"
@@ -15162,6 +15253,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-constants@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "fs-constants@npm:1.0.0"
+  checksum: 18f5b718371816155849475ac36c7d0b24d39a11d91348cfcb308b4494824413e03572c403c86d3a260e049465518c4f0d5bd00f0371cdfcad6d4f30a85b350d
+  languageName: node
+  linkType: hard
+
 "fs-extra@npm:^0.30.0":
   version: 0.30.0
   resolution: "fs-extra@npm:0.30.0"
@@ -15603,6 +15701,13 @@ fsevents@~2.1.2:
   dependencies:
     ini: ^1.3.2
   checksum: e6d2764c15bbab6d1d1000d1181bb907f6b3796bb04f63614dba571b18369e0ecb1beaf27ce8da5b24307ef607e3a5f262a67cb9575510b9446aac697d421beb
+  languageName: node
+  linkType: hard
+
+"github-from-package@npm:0.0.0":
+  version: 0.0.0
+  resolution: "github-from-package@npm:0.0.0"
+  checksum: 14e448192a35c1e42efee94c9d01a10f42fe790375891a24b25261246ce9336ab9df5d274585aedd4568f7922246c2a78b8a8cd2571bfe99c693a9718e7dd0e3
   languageName: node
   linkType: hard
 
@@ -16600,7 +16705,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"ieee754@npm:^1.1.4":
+"ieee754@npm:^1.1.13, ieee754@npm:^1.1.4":
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
   checksum: 5144c0c9815e54ada181d80a0b810221a253562422e7c6c3a60b1901154184f49326ec239d618c416c1c5945a2e197107aee8d986a3dd836b53dffefd99b5e7e
@@ -16782,7 +16887,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"ini@npm:^1.3.5":
+"ini@npm:^1.3.5, ini@npm:~1.3.0":
   version: 1.3.8
   resolution: "ini@npm:1.3.8"
   checksum: dfd98b0ca3a4fc1e323e38a6c8eb8936e31a97a918d3b377649ea15bdb15d481207a0dda1021efbd86b464cae29a0d33c1d7dcaf6c5672bee17fa849bc50a1b3
@@ -18904,7 +19009,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lint-all@workspace:tools/lint-all":
+"lint-all@^0.31.0, lint-all@workspace:tools/lint-all":
   version: 0.0.0-use.local
   resolution: "lint-all@workspace:tools/lint-all"
   dependencies:
@@ -19984,6 +20089,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"mimic-response@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "mimic-response@npm:3.1.0"
+  checksum: 25739fee32c17f433626bf19f016df9036b75b3d84a3046c7d156e72ec963dd29d7fc8a302f55a3d6c5a4ff24259676b15d915aad6480815a969ff2ec0836867
+  languageName: node
+  linkType: hard
+
 "min-document@npm:^2.19.0":
   version: 2.19.0
   resolution: "min-document@npm:2.19.0"
@@ -20034,7 +20146,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.1.1, minimist@npm:^1.1.3, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
+"minimist@npm:^1.1.1, minimist@npm:^1.1.3, minimist@npm:^1.2.0, minimist@npm:^1.2.3, minimist@npm:^1.2.5":
   version: 1.2.5
   resolution: "minimist@npm:1.2.5"
   checksum: 86706ce5b36c16bfc35c5fe3dbb01d5acdc9a22f2b6cc810b6680656a1d2c0e44a0159c9a3ba51fb072bb5c203e49e10b51dcd0eec39c481f4c42086719bae52
@@ -20165,6 +20277,13 @@ fsevents@~2.1.2:
     for-in: ^1.0.2
     is-extendable: ^1.0.1
   checksum: 820d5a51fcb7479f2926b97f2c3bb223546bc915e6b3a3eb5d906dda871bba569863595424a76682f2b15718252954644f3891437cb7e3f220949bed54b1750d
+  languageName: node
+  linkType: hard
+
+"mkdirp-classic@npm:^0.5.2, mkdirp-classic@npm:^0.5.3":
+  version: 0.5.3
+  resolution: "mkdirp-classic@npm:0.5.3"
+  checksum: 3f4e088208270bbcc148d53b73e9a5bd9eef05ad2cbf3b3d0ff8795278d50dd1d11a8ef1875ff5aea3fa888931f95bfcb2ad5b7c1061cfefd6284d199e6776ac
   languageName: node
   linkType: hard
 
@@ -20330,6 +20449,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"napi-build-utils@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "napi-build-utils@npm:1.0.2"
+  checksum: 06c14271ee966e108d55ae109f340976a9556c8603e888037145d6522726aebe89dd0c861b4b83947feaf6d39e79e08817559e8693deedc2c94e82c5cbd090c7
+  languageName: node
+  linkType: hard
+
 "native-url@npm:^0.2.6":
   version: 0.2.6
   resolution: "native-url@npm:0.2.6"
@@ -20406,6 +20532,24 @@ fsevents@~2.1.2:
     lower-case: ^2.0.2
     tslib: ^2.0.3
   checksum: 0b2ebc113dfcf737d48dde49cfebf3ad2d82a8c3188e7100c6f375e30eafbef9e9124aadc3becef237b042fd5eb0aad2fd78669c20972d045bbe7fea8ba0be5c
+  languageName: node
+  linkType: hard
+
+"node-abi@npm:^3.3.0":
+  version: 3.5.0
+  resolution: "node-abi@npm:3.5.0"
+  dependencies:
+    semver: ^7.3.5
+  checksum: e7fa2363cea366e788e460ead39cf900cc3c49b5978fa56790fda87df54b6937424c72ea00cbfb72fe1513eedcbb48a0ac50a56e7961cc6bd425ef09efbe1916
+  languageName: node
+  linkType: hard
+
+"node-addon-api@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "node-addon-api@npm:4.2.0"
+  dependencies:
+    node-gyp: latest
+  checksum: 52ea6ff01a882766ceec74a0752c0cf9571fa72559a7a3e8969779fa5ae113a2d63cb54dd267fa83a533ab2b7617131d4a6996114701f4ca27246d2513b0e5a5
   languageName: node
   linkType: hard
 
@@ -20817,7 +20961,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"npmlog@npm:^4.1.2":
+"npmlog@npm:^4.0.1, npmlog@npm:^4.1.2":
   version: 4.1.2
   resolution: "npmlog@npm:4.1.2"
   dependencies:
@@ -22673,6 +22817,29 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"prebuild-install@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "prebuild-install@npm:7.0.0"
+  dependencies:
+    detect-libc: ^1.0.3
+    expand-template: ^2.0.3
+    github-from-package: 0.0.0
+    minimist: ^1.2.3
+    mkdirp-classic: ^0.5.3
+    napi-build-utils: ^1.0.1
+    node-abi: ^3.3.0
+    npmlog: ^4.0.1
+    pump: ^3.0.0
+    rc: ^1.2.7
+    simple-get: ^4.0.0
+    tar-fs: ^2.0.0
+    tunnel-agent: ^0.6.0
+  bin:
+    prebuild-install: bin.js
+  checksum: 413783f74677a9691c286f3302ef37a9d4d6121b85bb38064d286931dfc57961da6066bfe02e7c411ee828c2ee40b0ba467575e7197178582db8385dd8402d5f
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -22720,6 +22887,15 @@ fsevents@~2.1.2:
   bin:
     prettier: bin-prettier.js
   checksum: 17ce5784ac67621c292df58e2da60b2ee150c2d6aebea22a6ad9e52fcd6a5e66c349d0a8436ea3bd8ff9d778920a5f68000d7625b74f43558718a49755aa5259
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "prettier@npm:2.5.1"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 21b9408476ea1c544b0e45d51ceb94a84789ff92095abb710942d780c862d0daebdb29972d47f6b4d0f7ebbfb0ffbf56cc2cfa3e3e9d1cca54864af185b15b66
   languageName: node
   linkType: hard
 
@@ -23139,6 +23315,20 @@ fsevents@~2.1.2:
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
   checksum: 51cc1b0d0e8c37c4336b5318f3b2c9c51d6998ad6f56ea09612afcfefc9c1f596341309e934a744ae907177f28efc9f1654eacd62151e82853fcc6d37450e795
+  languageName: node
+  linkType: hard
+
+"rc@npm:^1.2.7":
+  version: 1.2.8
+  resolution: "rc@npm:1.2.8"
+  dependencies:
+    deep-extend: ^0.6.0
+    ini: ~1.3.0
+    minimist: ^1.2.0
+    strip-json-comments: ~2.0.1
+  bin:
+    rc: ./cli.js
+  checksum: 2e26e052f8be2abd64e6d1dabfbd7be03f80ec18ccbc49562d31f617d0015fbdbcf0f9eed30346ea6ab789e0fdfe4337f033f8016efdbee0df5354751842080e
   languageName: node
   linkType: hard
 
@@ -24166,6 +24356,27 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"resolve-loki@workspace:tools/resolve-loki":
+  version: 0.0.0-use.local
+  resolution: "resolve-loki@workspace:tools/resolve-loki"
+  dependencies:
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
+    "@types/node": ^15.14.1
+    "@typescript-eslint/parser": ^5.3.1
+    cross-env: ^7.0.3
+    endent: ^2.1.0
+    eslint: ^8.2.0
+    fast-glob: ^3.2.6
+    npm-run-all: ^4.1.5
+    prettier: ^2.3.2
+    ts-node: ^10.0.0
+    typescript: ^4.3.4
+  bin:
+    resolve-loki: bin/resolve-loki-references.js
+  languageName: unknown
+  linkType: soft
+
 "resolve-url@npm:^0.2.1":
   version: 0.2.1
   resolution: "resolve-url@npm:0.2.1"
@@ -24610,8 +24821,8 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "scripts@workspace:tools/scripts"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config"
+    "@rocket.chat/eslint-config-alt": ^0.31.0
+    "@rocket.chat/prettier-config": ^0.31.0
     "@types/node": ^15.14.1
     "@typescript-eslint/parser": ^5.3.1
     cross-env: ^7.0.3
@@ -24841,6 +25052,23 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"sharp@npm:^0.29.3":
+  version: 0.29.3
+  resolution: "sharp@npm:0.29.3"
+  dependencies:
+    color: ^4.0.1
+    detect-libc: ^1.0.3
+    node-addon-api: ^4.2.0
+    node-gyp: latest
+    prebuild-install: ^7.0.0
+    semver: ^7.3.5
+    simple-get: ^4.0.0
+    tar-fs: ^2.1.1
+    tunnel-agent: ^0.6.0
+  checksum: d496cdd546c9abe743aebcee013731295f735687819a18c2bdcbba6f31a6b259f3da95af5c11260a8fedc9d4ab95697f5f8c4f3cd65232792b5cfb876bea7c9a
+  languageName: node
+  linkType: hard
+
 "shebang-command@npm:^1.2.0":
   version: 1.2.0
   resolution: "shebang-command@npm:1.2.0"
@@ -24929,6 +25157,24 @@ resolve@^2.0.0-next.3:
   version: 3.0.3
   resolution: "signal-exit@npm:3.0.3"
   checksum: f0169d3f1263d06df32ca072b0bf33b34c6f8f0341a7a1621558a2444dfbe8f5fec76b35537fcc6f0bc4944bdb5336fe0bdcf41a5422c4e45a1dba3f45475e6c
+  languageName: node
+  linkType: hard
+
+"simple-concat@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "simple-concat@npm:1.0.1"
+  checksum: 4d211042cc3d73a718c21ac6c4e7d7a0363e184be6a5ad25c8a1502e49df6d0a0253979e3d50dbdd3f60ef6c6c58d756b5d66ac1e05cda9cacd2e9fc59e3876a
+  languageName: node
+  linkType: hard
+
+"simple-get@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "simple-get@npm:4.0.0"
+  dependencies:
+    decompress-response: ^6.0.0
+    once: ^1.3.1
+    simple-concat: ^1.0.0
+  checksum: 8af4fb788be27af3586395857a1617be133391a7356b007a76379f5eb2ad1c19ea6a13ba9467b0fe790b9e468f9fb124639779b62eb21e6d3ab2cb9b2850cb8d
   languageName: node
   linkType: hard
 
@@ -25824,6 +26070,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"strip-json-comments@npm:~2.0.1":
+  version: 2.0.1
+  resolution: "strip-json-comments@npm:2.0.1"
+  checksum: 1074ccb63270d32ca28edfb0a281c96b94dc679077828135141f27d52a5a398ef5e78bcf22809d23cadc2b81dfbe345eb5fd8699b385c8b1128907dec4a7d1e1
+  languageName: node
+  linkType: hard
+
 "strong-log-transformer@npm:^2.1.0":
   version: 2.1.0
   resolution: "strong-log-transformer@npm:2.1.0"
@@ -26245,6 +26498,31 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"tar-fs@npm:^2.0.0, tar-fs@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "tar-fs@npm:2.1.1"
+  dependencies:
+    chownr: ^1.1.1
+    mkdirp-classic: ^0.5.2
+    pump: ^3.0.0
+    tar-stream: ^2.1.4
+  checksum: f5b9a70059f5b2969e65f037b4e4da2daf0fa762d3d232ffd96e819e3f94665dbbbe62f76f084f1acb4dbdcce16c6e4dac08d12ffc6d24b8d76720f4d9cf032d
+  languageName: node
+  linkType: hard
+
+"tar-stream@npm:^2.1.4":
+  version: 2.2.0
+  resolution: "tar-stream@npm:2.2.0"
+  dependencies:
+    bl: ^4.0.3
+    end-of-stream: ^1.4.1
+    fs-constants: ^1.0.0
+    inherits: ^2.0.3
+    readable-stream: ^3.1.1
+  checksum: 699831a8b97666ef50021c767f84924cfee21c142c2eb0e79c63254e140e6408d6d55a065a2992548e72b06de39237ef2b802b99e3ece93ca3904a37622a66f3
+  languageName: node
+  linkType: hard
+
 "tar@npm:^4.4.12":
   version: 4.4.13
   resolution: "tar@npm:4.4.13"
@@ -26518,7 +26796,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"testing-utils@workspace:tools/testing-utils":
+"testing-utils@^0.31.0, testing-utils@workspace:tools/testing-utils":
   version: 0.0.0-use.local
   resolution: "testing-utils@workspace:tools/testing-utils"
   dependencies:
@@ -26704,7 +26982,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tools-utils@workspace:tools/tools-utils":
+"tools-utils@^0.31.0, tools-utils@workspace:tools/tools-utils":
   version: 0.0.0-use.local
   resolution: "tools-utils@workspace:tools/tools-utils"
   dependencies:
@@ -27044,6 +27322,137 @@ resolve@^2.0.0-next.3:
   dependencies:
     safe-buffer: ^5.0.1
   checksum: 05f6510358f8afc62a057b8b692f05d70c1782b70db86d6a1e0d5e28a32389e52fa6e7707b6c5ecccacc031462e4bc35af85ecfe4bbc341767917b7cf6965711
+  languageName: node
+  linkType: hard
+
+"turbo-darwin-64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-darwin-64@npm:1.0.24"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-darwin-arm64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-darwin-arm64@npm:1.0.24"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-freebsd-64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-freebsd-64@npm:1.0.24"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-freebsd-arm64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-freebsd-arm64@npm:1.0.24"
+  conditions: os=freebsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-linux-32@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-32@npm:1.0.24"
+  conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"turbo-linux-64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-64@npm:1.0.24"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-linux-arm64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-arm64@npm:1.0.24"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-linux-arm@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-arm@npm:1.0.24"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"turbo-linux-mips64le@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-mips64le@npm:1.0.24"
+  conditions: os=linux & cpu=mips64el
+  languageName: node
+  linkType: hard
+
+"turbo-linux-ppc64le@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-ppc64le@npm:1.0.24"
+  conditions: os=linux & cpu=ppc64
+  languageName: node
+  linkType: hard
+
+"turbo-windows-32@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-windows-32@npm:1.0.24"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"turbo-windows-64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-windows-64@npm:1.0.24"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo@npm:^1.0.24":
+  version: 1.0.24
+  resolution: "turbo@npm:1.0.24"
+  dependencies:
+    turbo-darwin-64: 1.0.24
+    turbo-darwin-arm64: 1.0.24
+    turbo-freebsd-64: 1.0.24
+    turbo-freebsd-arm64: 1.0.24
+    turbo-linux-32: 1.0.24
+    turbo-linux-64: 1.0.24
+    turbo-linux-arm: 1.0.24
+    turbo-linux-arm64: 1.0.24
+    turbo-linux-mips64le: 1.0.24
+    turbo-linux-ppc64le: 1.0.24
+    turbo-windows-32: 1.0.24
+    turbo-windows-64: 1.0.24
+  dependenciesMeta:
+    turbo-darwin-64:
+      optional: true
+    turbo-darwin-arm64:
+      optional: true
+    turbo-freebsd-64:
+      optional: true
+    turbo-freebsd-arm64:
+      optional: true
+    turbo-linux-32:
+      optional: true
+    turbo-linux-64:
+      optional: true
+    turbo-linux-arm:
+      optional: true
+    turbo-linux-arm64:
+      optional: true
+    turbo-linux-mips64le:
+      optional: true
+    turbo-linux-ppc64le:
+      optional: true
+    turbo-windows-32:
+      optional: true
+    turbo-windows-64:
+      optional: true
+  bin:
+    turbo: bin/turbo
+  checksum: 64a5b926191c77fb6b6f11ee7fedb17779094ad9664066b7e80f1337b526975bf881fe020bd32d61b9dde242f9072b7c640958aac4cc9bd3ff5f57057068c51b
   languageName: node
   linkType: hard
 

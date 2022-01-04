@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.30.1...v0.31.0) (2021-12-28)
+
+### Bug Fixes
+
+- docker image version ([8f181cf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8f181cf5a96084d7abd9ea94efd46cc50840c798))
+- **fuselage:** Chip missing styles ([#568](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/568)) ([e1b8963](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e1b8963861abbb5a98996d48482e47c5f383f887))
+- **fuselage:** States Component Font Style ([#579](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/579)) ([4322376](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/432237670f77dfcf391d9bbf6a6f2d30e0f9ba05))
+
+### Features
+
+- Empty state variations Logic ([#598](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/598)) ([06ee58c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/06ee58c30bf360072632f7875d0bfee184c8ce4c))
+- **fuselage:** Component Dropdown ([#594](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/594)) ([31314b3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/31314b3a7d29446a23307495e919de9aa3a4e8d0))
+- **fuselage:** Empty State Component ([#572](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/572)) ([aa22b55](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/aa22b55ddb57b046411d0cd08468e47e56158f38))
+- **fuselage:** Message preview component ([#553](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/553)) ([f8bd0ad](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f8bd0ad637c0d2edad47b3c2384dac9c84e8d4fd))
+- **fuselage:** Replace typography of Message's user name and Banner's title ([#577](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/577)) ([6af2dba](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6af2dbabc90d2e2f1598cbbd113ecc3ea82adfc0))
+- **icons:** New icons ([#596](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/596)) ([c54702b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c54702bc4a36e599f5ce84850c4f0ad0ebe29c27))
+- Message Preview ([#587](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/587)) ([e69dad3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e69dad3a6619e98ff70bcd1cb68567a159187336))
+- New hooks for element size tracking ([#413](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/413)) ([8ca682c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8ca682c636d2e4813f7d346cb881513382be63cf))
+
 # [0.30.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.29.0...v0.30.0) (2021-10-06)
 
 ### Bug Fixes

@@ -263,7 +263,7 @@
   }
 
   h3 {
-    @include typography.use-font-scale(p4);
+    @include typography.use-font-scale(p2m);
   }
 
   h4 {
@@ -290,7 +290,7 @@
   }
 
   p {
-    @include typography.use-font-scale(p3);
+    @include typography.use-font-scale(p2);
 
     display: block;
 
@@ -308,12 +308,12 @@
   }
 
   ul {
-    @include typography.use-font-scale(p3);
+    @include typography.use-font-scale(p2);
     list-style-type: disc;
   }
 
   ol {
-    @include typography.use-font-scale(p3);
+    @include typography.use-font-scale(p2);
     list-style-type: decimal;
   }
 

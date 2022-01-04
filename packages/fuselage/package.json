@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.30.0",
+  "version": "0.31.0",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -45,12 +45,13 @@
     "build-storybook": "run-s .:build-storybook:jest-results .:build-storybook:build-storybook",
     ".:build-storybook:jest-results": "jest --runInBand --json --outputFile .storybook/jest-results.json",
     ".:build-storybook:build-storybook": "cross-env NODE_ENV=production build-storybook",
-    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update",
+    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
+    "resolve": "resolve-loki",
     ".:update-storybook:build-storybook": "run-s build-storybook",
     ".:update-storybook:purge-refs": "rimraf .loki/reference",
-    ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    ".:update-storybook:loki-update": "loki update --targetFilter='.*\\.docker' --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
-    "loki:test": "loki test --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static"
+    "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -61,10 +62,10 @@
     "react-virtuoso": "1.2.4"
   },
   "dependencies": {
-    "@rocket.chat/css-in-js": "workspace:packages/css-in-js",
-    "@rocket.chat/css-supports": "workspace:packages/css-supports",
-    "@rocket.chat/fuselage-tokens": "workspace:packages/fuselage-tokens",
-    "@rocket.chat/memo": "workspace:packages/memo",
+    "@rocket.chat/css-in-js": "^0.31.0",
+    "@rocket.chat/css-supports": "^0.31.0",
+    "@rocket.chat/fuselage-tokens": "^0.31.0",
+    "@rocket.chat/memo": "^0.31.0",
     "invariant": "^2.2.4",
     "react-keyed-flatten-children": "^1.3.0"
   },
@@ -75,11 +76,11 @@
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
     "@rocket.chat/eslint-config": "^0.4.0",
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/fuselage-hooks": "workspace:packages/fuselage-hooks",
-    "@rocket.chat/fuselage-polyfills": "workspace:packages/fuselage-polyfills",
-    "@rocket.chat/icons": "workspace:packages/icons",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
+    "@rocket.chat/eslint-config-alt": "^0.31.0",
+    "@rocket.chat/fuselage-hooks": "^0.31.0",
+    "@rocket.chat/fuselage-polyfills": "^0.31.0",
+    "@rocket.chat/icons": "^0.31.0",
+    "@rocket.chat/prettier-config": "^0.31.0",
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addon-jest": "^6.3.4",
     "@storybook/addon-links": "^6.3.4",
@@ -104,7 +105,7 @@
     "eslint": "^8.2.0",
     "eslint-plugin-mdx": "^1.16.0",
     "jest": "^27.3.1",
-    "lint-all": "workspace:tools/lint-all",
+    "lint-all": "^0.31.0",
     "lint-staged": "^11.2.6",
     "loki": "^0.28.1",
     "normalize.css": "^8.0.1",
@@ -122,6 +123,7 @@
     "react-dom": "^17.0.2",
     "react-live": "^2.3.0",
     "react-virtuoso": "1.9.3",
+    "resolve-loki": "workspace:tools/resolve-loki",
     "rimraf": "^3.0.2",
     "sass": "^1.35.1",
     "sass-loader": "^12.1.0",
@@ -130,7 +132,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.2.0",
     "stylelint-scss": "^3.21.0",
-    "testing-utils": "workspace:tools/testing-utils",
+    "testing-utils": "^0.31.0",
     "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.4",
@@ -140,7 +142,7 @@
   },
   "loki": {
     "configurations": {
-      "chrome.laptop": {
+      "chrome.laptop.docker": {
         "target": "chrome.docker",
         "width": 1366,
         "height": 768,
@@ -148,8 +150,20 @@
         "mobile": false,
         "fitWindow": false
       },
-      "chrome.iphone7": {
+      "chrome.iphone7.docker": {
         "target": "chrome.docker",
+        "preset": "iPhone 7"
+      },
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
         "preset": "iPhone 7"
       }
     }

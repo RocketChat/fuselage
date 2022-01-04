@@ -2,13 +2,31 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
+$variants: (
+  'success': colors.success(700),
+  'danger': colors.danger(700),
+  'warning': colors.warning(700),
+  'primary': colors.primary(700),
+);
+
 .rcx-option {
   @include clickable;
-  @include typography.use-font-scale(p3);
+  @include typography.use-font-scale(p2);
 
   padding: lengths.padding(4) lengths.padding(16);
 
   list-style: none;
+
+  color: colors.foreground(default);
+
+  &__title {
+    @include typography.use-font-scale(c1);
+
+    padding-block-end: lengths.padding(8);
+    padding-inline: lengths.padding(16);
+
+    color: colors.foreground(default);
+  }
 
   &__wrapper {
     display: flex;
@@ -26,9 +44,9 @@
     background: colors.neutral(500);
   }
 
-  &:hover &__menu-wraper,
-  &.focus-within &__menu-wraper,
-  &:focus-within &__menu-wraper {
+  &:hover &__menu-wrapper,
+  &.focus-within &__menu-wrapper,
+  &:focus-within &__menu-wrapper {
     display: flex;
     align-items: center;
 
@@ -37,7 +55,7 @@
     opacity: 1;
   }
 
-  &__menu-wraper {
+  &__menu-wrapper {
     flex-shrink: 0;
 
     width: 0;
@@ -46,12 +64,22 @@
 
     opacity: 0;
   }
+
+  @each $name, $color in $variants {
+    &--#{$name} {
+      color: theme('option-color-variant-#{$name}', $color);
+    }
+  }
 }
 
 %column {
   flex: 0 0 auto;
 
   margin-inline: lengths.margin(2);
+}
+
+.rcx-option__icon {
+  color: inherit;
 }
 
 .rcx-option__avatar {
@@ -62,6 +90,8 @@
   @include typography.use-text-ellipsis;
   @extend %column;
   flex: 1 1 100%;
+
+  text-align: start;
 
   white-space: nowrap;
 }
@@ -78,7 +108,7 @@
 }
 
 .rcx-option__description {
-  @include typography.use-font-scale(p3);
+  @include typography.use-font-scale(p2);
   @extend %column;
   display: inline;
 

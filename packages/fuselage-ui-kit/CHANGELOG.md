@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.30.1...v0.31.0) (2021-12-28)
+
+### Bug Fixes
+
+- **fuselage-ui-kit:** Initial Value being ignored on text input fields upon modal update ([#600](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/600)) ([d9bd704](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d9bd704848eb9f2d9dd8b45f33cb8992ea39f9e2))
+- docker image version ([8f181cf](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8f181cf5a96084d7abd9ea94efd46cc50840c798))
+
+### Features
+
+- Message Preview ([#587](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/587)) ([e69dad3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e69dad3a6619e98ff70bcd1cb68567a159187336))
+- **fuselage:** Replace typography of Message's user name and Banner's title ([#577](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/577)) ([6af2dba](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6af2dbabc90d2e2f1598cbbd113ecc3ea82adfc0))
+- New hooks for element size tracking ([#413](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/413)) ([8ca682c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8ca682c636d2e4813f7d346cb881513382be63cf))
+- **fuselage:** Message preview component ([#553](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/553)) ([f8bd0ad](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f8bd0ad637c0d2edad47b3c2384dac9c84e8d4fd))
+
 ## [0.30.1](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.30.0...v0.30.1) (2021-10-20)
 
 **Note:** Version bump only for package @rocket.chat/fuselage-ui-kit

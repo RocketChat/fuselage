@@ -2,7 +2,7 @@
   "name": "update-readme",
   "private": true,
   "bin": "./update-readme.mjs",
-  "version": "0.30.0",
+  "version": "0.31.0",
   "dependencies": {
     "outdent": "^0.8.0",
     "zx": "^4.2.0"
