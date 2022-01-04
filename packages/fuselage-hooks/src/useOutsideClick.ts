@@ -16,7 +16,6 @@ export function useOutsideClick<T extends HTMLElement>(
   const handleClickOutside = useMutableCallback(function handleClickOutside(
     event: MouseEvent
   ): void {
-    console.log(event);
     if (
       elements.every(
         (ref) =>

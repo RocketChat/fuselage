@@ -2,6 +2,17 @@ import { renderHook } from '@testing-library/react-hooks';
 
 import { useOutsideClick } from './useOutsideClick';
 
+function simulateMouseClick(targetNode) {
+  function triggerMouseEvent(targetNode, eventType) {
+    const clickEvent = document.createEvent('MouseEvents');
+    clickEvent.initEvent(eventType, true, true);
+    targetNode.dispatchEvent(clickEvent);
+  }
+  ['mouseover', 'mousedown', 'mouseup', 'click'].forEach((eventType) => {
+    triggerMouseEvent(targetNode, eventType);
+  });
+}
+
 it('it should call the callback when the user clicked outside the element', () => {
   const ref = { current: null };
   const cb = jest.fn();
@@ -14,7 +25,7 @@ it('it should call the callback when the user clicked outside the element', () =
   document.body.appendChild(sibling);
 
   expect(cb).not.toHaveBeenCalled();
-  sibling.click();
+  simulateMouseClick(sibling);
   expect(cb).toHaveBeenCalled();
 });
 
@@ -34,8 +45,7 @@ it('it should call the callback when the user clicked outside the elements', () 
   document.body.appendChild(sibling);
 
   expect(cb).not.toHaveBeenCalled();
-  sibling.dispatchEvent(new MouseEvent('mousedown'));
-  sibling.dispatchEvent(new MouseEvent('mouseup'));
+  simulateMouseClick(sibling);
   expect(cb).toHaveBeenCalled();
 });
 
@@ -49,8 +59,7 @@ it('it should not call the callback when the user clicked inside the element', (
   document.body.appendChild(element);
 
   expect(cb).not.toHaveBeenCalled();
-  element.dispatchEvent(new MouseEvent('mousedown'));
-  element.dispatchEvent(new MouseEvent('mouseup'));
+  simulateMouseClick(element);
   expect(cb).not.toHaveBeenCalled();
 });
 
@@ -68,8 +77,7 @@ it('it should not call the callback when the user clicked inside the elements', 
   document.body.appendChild(element2);
 
   expect(cb).not.toHaveBeenCalled();
-  element.dispatchEvent(new MouseEvent('mousedown'));
-  element.dispatchEvent(new MouseEvent('mouseup'));
+  simulateMouseClick(element);
   expect(cb).not.toHaveBeenCalled();
 });
 
@@ -85,8 +93,7 @@ it('it should not call the callback when the user clicked inside the element and
   document.body.appendChild(element);
 
   expect(cb).not.toHaveBeenCalled();
-  child.dispatchEvent(new MouseEvent('mousedown'));
-  child.dispatchEvent(new MouseEvent('mouseup'));
+  simulateMouseClick(child);
   expect(cb).not.toHaveBeenCalled();
 });
 
@@ -106,7 +113,6 @@ it('it should not call the callback when the user clicked inside of some given e
   document.body.appendChild(element2);
 
   expect(cb).not.toHaveBeenCalled();
-  child.dispatchEvent(new MouseEvent('mousedown'));
-  child.dispatchEvent(new MouseEvent('mouseup'));
+  simulateMouseClick(child);
   expect(cb).not.toHaveBeenCalled();
 });
