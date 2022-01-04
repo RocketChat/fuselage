@@ -72,4 +72,4 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}-
-      - run: yarn run loki:test-ci
+      - run: yarn run loki:test-ci --concurrency=1
