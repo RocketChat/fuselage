@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">Fuselage Monorepo </h1>
+<h1 align="center">Fuselage Monorepo</h1>
 
 ![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
 ![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/RocketChat/Rocket.Chat.Fuselage?style=flat-square)
