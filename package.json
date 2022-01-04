@@ -21,7 +21,7 @@
     "lint": "yarn turbo run lint",
     "lint-and-fix": "yarn turbo run lint-and-fix",
     "test": "yarn turbo run test",
-    "docs": "yarn turbo run docs",
+    "docs": "yarn workspaces foreach -v --topological-dev run docs",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
     "update-storybook": "yarn turbo run update-storybook",
     "loki:test": "yarn turbo run loki:test --cache-dir=\".turbo\"",
