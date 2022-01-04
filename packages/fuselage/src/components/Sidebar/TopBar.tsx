@@ -31,7 +31,7 @@ const TopBarWrapper: FC = ({ children }) => (
   />
 );
 
-export const TopBarToolBox: FC<{ className: string }> = ({
+export const TopBarToolBox: FC<{ className?: string }> = ({
   children,
   className,
   ...props
