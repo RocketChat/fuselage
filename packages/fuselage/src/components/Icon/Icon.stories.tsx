@@ -1,8 +1,8 @@
-import namesToCharactersMapping from '@rocket.chat/icons';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import { Box, Icon } from '../..';
+import { iconsList, IconType } from './IconsList';
 
 export default {
   title: 'Misc/Icon_new',
@@ -11,13 +11,16 @@ export default {
 
 export const Default: ComponentStory<typeof Icon> = () => (
   <Box color='default'>
-    {Object.keys(namesToCharactersMapping).map((name) => (
-      <Icon key={name} name={name} size='x40' />
+    {iconsList.map((name) => (
+      <Icon key={name} name={name as IconType} size='x40' />
     ))}
   </Box>
 );
 
-const styles = {
+const styles: {
+  container?: CSSProperties;
+  wrapper?: CSSProperties;
+} = {
   container: {
     display: 'flex',
     flexFlow: 'row wrap',
@@ -33,10 +36,10 @@ const styles = {
 
 export const AvailableIcons: ComponentStory<typeof Icon> = () => (
   <div style={styles.container}>
-    {Object.keys(namesToCharactersMapping).map((name) => (
+    {iconsList.map((name) => (
       <div key={name} style={styles.wrapper}>
         <Box>
-          <Icon name={name} size='x40' />
+          <Icon name={name as IconType} size='x40' />
         </Box>
         <Box color='hint'>{name}</Box>
       </div>
