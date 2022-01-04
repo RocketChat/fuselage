@@ -44,7 +44,6 @@ jobs:
             fuselage/storybook-static
             fuselage-ui-kit/storybook-static
             onboarding-ui/storybook-static
-
   publish-to-gh-pages:
     name: Publish to GitHub Pages
     needs:
