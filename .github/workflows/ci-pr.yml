@@ -28,9 +28,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.ref_name }}-${{ github.sha }}
+          key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
-            turbo-${{ runner.os }}-${{ github.ref_name }}-
             turbo-${{ runner.os }}-
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
@@ -70,8 +69,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.ref_name }}-${{ github.sha }}
+          key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
-            turbo-${{ runner.os }}-${{ github.ref_name }}-
             turbo-${{ runner.os }}-
       - uses: ./.github/actions/loki/test
