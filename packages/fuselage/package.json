@@ -45,7 +45,8 @@
     "build-storybook": "run-s .:build-storybook:jest-results .:build-storybook:build-storybook",
     ".:build-storybook:jest-results": "jest --runInBand --json --outputFile .storybook/jest-results.json",
     ".:build-storybook:build-storybook": "cross-env NODE_ENV=production build-storybook",
-    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve-loki",
+    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
+    "resolve": "resolve-loki",
     ".:update-storybook:build-storybook": "run-s build-storybook",
     ".:update-storybook:purge-refs": "rimraf .loki/reference",
     ".:update-storybook:loki-update": "loki update --targetFilter='.*\\.docker' --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
@@ -149,7 +150,7 @@
         "mobile": false,
         "fitWindow": false
       },
-      "chrome.docker": {
+      "chrome.iphone7.docker": {
         "target": "chrome.docker",
         "preset": "iPhone 7"
       },

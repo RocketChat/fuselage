@@ -36,12 +36,13 @@
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage-ui-kit",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "cross-env NODE_ENV=production build-storybook",
-    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve-loki",
+    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
     ".:update-storybook:build-storybook": "run-s build-storybook",
     ".:update-storybook:purge-refs": "rimraf .loki/reference",
     ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\" --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*' --write",
-    "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
+    "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static",
+    "resolve": "resolve-loki"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-polyfills": "*",

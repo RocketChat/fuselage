@@ -1,5 +1,3 @@
 #!/bin/sh -ex
 
-echo Force rebuild
-
-yarn run loki:test-ci
+yarn run loki:test-ci --concurrency=1
