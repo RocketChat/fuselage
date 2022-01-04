@@ -39,10 +39,9 @@
     "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
     ".:update-storybook:build-storybook": "run-s build-storybook",
     ".:update-storybook:purge-refs": "rimraf .loki/reference",
-    ".:update-storybook:loki-update": "loki update --targetFilter='.*\\.docker' --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    ".:update-storybook:loki-update": "loki update -- --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*' --write",
-    "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static",
-    "resolve": "resolve-loki"
+    "loki:test-ci": "loki test -- --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-polyfills": "*",
@@ -76,7 +75,6 @@
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "resolve-loki": "workspace:tools/resolve-loki",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3",
     "webpack": "^5.41.1"
@@ -90,28 +88,8 @@
   },
   "loki": {
     "configurations": {
-      "desktop.docker": {
-        "target": "chrome.docker",
-        "width": 1440,
-        "height": 896,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "tablet.docker": {
-        "target": "chrome.docker",
-        "width": 768,
-        "height": 970,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "mobile.docker": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
-      },
       "desktop": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "width": 1440,
         "height": 896,
         "deviceScaleFactor": 1,
@@ -119,7 +97,7 @@
         "fitWindow": false
       },
       "tablet": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "width": 768,
         "height": 970,
         "deviceScaleFactor": 1,
@@ -127,7 +105,7 @@
         "fitWindow": false
       },
       "mobile": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     }

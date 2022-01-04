@@ -72,4 +72,4 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}-
-      - uses: ./.github/actions/loki/test
+      - run: yarn run loki:test-ci
