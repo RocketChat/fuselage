@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 import { AnimatedVisibility, Field, Margins, ToggleSwitch, Tile } from '../..';
 
@@ -9,14 +9,16 @@ export default {
 } as ComponentMeta<typeof AnimatedVisibility>;
 
 export const Default: ComponentStory<typeof AnimatedVisibility> = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useState(false);
   return (
     <Margins block='x16'>
       <Field>
         <Field.Row>
           <ToggleSwitch
             checked={visible}
-            onChange={({ currentTarget: { checked } }) => setVisible(checked)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setVisible(e.currentTarget.checked)
+            }
           />
           <Field.Label>Visible?</Field.Label>
         </Field.Row>

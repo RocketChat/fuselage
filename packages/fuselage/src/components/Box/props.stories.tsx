@@ -7,7 +7,7 @@ import {
   Subtitle,
 } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import React, { DetailedReactHTMLElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Menu } from '..';
@@ -65,7 +65,7 @@ export const Margins: ComponentStory<typeof Box> = () => (
     {flattenChildren(marginElements).map((child, i) => (
       <Box key={i} bg='neutral-200' m='x16'>
         {React.cloneElement(
-          child,
+          child as DetailedReactHTMLElement<any, HTMLElement>,
           { bg: 'primary-200' },
           <Box bg='neutral-500' size='x16' />
         )}
@@ -95,10 +95,10 @@ const paddingElements = (
 
 export const Paddings: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
-    {flattenChildren(paddingElements).map((child) => (
-      <Box key={child} bg='neutral-200' m='x16'>
+    {flattenChildren(paddingElements).map((child, i) => (
+      <Box key={i} bg='neutral-200' m='x16'>
         {React.cloneElement(
-          child,
+          child as DetailedReactHTMLElement<any, HTMLElement>,
           { bg: 'primary-200' },
           <Box bg='neutral-500' size='x16' />
         )}
@@ -141,7 +141,7 @@ export const Colors: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
     {flattenChildren(colorElements).map((child) =>
       React.cloneElement(
-        child,
+        child as DetailedReactHTMLElement<any, HTMLElement>,
         { bg: 'neutral-200', m: 'x4', p: 'x4' },
         child.props.color
       )
@@ -183,7 +183,10 @@ const bgElements = (
 export const BackgroundColors: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
     {flattenChildren(bgElements).map((child) =>
-      React.cloneElement(child, { m: 'x4', size: 'x32' })
+      React.cloneElement(child as DetailedReactHTMLElement<any, HTMLElement>, {
+        m: 'x4',
+        size: 'x32',
+      })
     )}
   </Box>
 );
@@ -353,7 +356,11 @@ const widthElements = (
 export const Widths: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
     {flattenChildren(widthElements).map((child) =>
-      React.cloneElement(child, { bg: 'primary-200', h: 'x32', m: 'x4' })
+      React.cloneElement(child as DetailedReactHTMLElement<any, HTMLElement>, {
+        bg: 'primary-200',
+        h: 'x32',
+        m: 'x4',
+      })
     )}
   </Box>
 );
@@ -369,7 +376,11 @@ const heightElements = (
 export const Heights: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
     {flattenChildren(heightElements).map((child) =>
-      React.cloneElement(child, { bg: 'primary-200', w: 'x32', m: 'x4' })
+      React.cloneElement(child as DetailedReactHTMLElement<any, HTMLElement>, {
+        bg: 'primary-200',
+        w: 'x32',
+        m: 'x4',
+      })
     )}
   </Box>
 );
@@ -384,7 +395,10 @@ const sizeElements = (
 export const Sizes: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
     {flattenChildren(sizeElements).map((child) =>
-      React.cloneElement(child, { bg: 'primary-200', m: 'x4' })
+      React.cloneElement(child as DetailedReactHTMLElement<any, HTMLElement>, {
+        bg: 'primary-200',
+        m: 'x4',
+      })
     )}
   </Box>
 );
@@ -404,7 +418,9 @@ const displayElements = (
 export const Display: ComponentStory<typeof Box> = () => (
   <Box>
     {flattenChildren(displayElements).map((child) =>
-      React.cloneElement(child, { children: child.props.display })
+      React.cloneElement(child as DetailedReactHTMLElement<any, HTMLElement>, {
+        children: child.props.display,
+      })
     )}
   </Box>
 );
@@ -466,7 +482,7 @@ const borderRadioElements = (
 export const BorderRadio: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
     {flattenChildren(borderRadioElements).map((child) =>
-      React.cloneElement(child, {
+      React.cloneElement(child as DetailedReactHTMLElement<any, HTMLElement>, {
         bg: 'primary-200',
         size: 'x32',
         m: 'x16',
@@ -506,7 +522,7 @@ const zIndexElements = (
 export const ZIndex: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
     {flattenChildren(zIndexElements).map((child) =>
-      React.cloneElement(child, {
+      React.cloneElement(child as DetailedReactHTMLElement<any, HTMLElement>, {
         bg: 'primary-200',
         borderWidth: 'x4',
         size: 'x32',
@@ -534,19 +550,16 @@ const insetElements = (
 );
 export const Inset: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
-    {flattenChildren(insetElements).map((child) => (
-      <Box
-        key={child.key}
-        position='relative'
-        bg='neutral-200'
-        m='x16'
-        size='x64'
-      >
-        {React.cloneElement(child, {
-          bg: 'primary-200',
-          position: 'absolute',
-          minSize: 'x16',
-        })}
+    {flattenChildren(insetElements).map((child, i) => (
+      <Box key={i} position='relative' bg='neutral-200' m='x16' size='x64'>
+        {React.cloneElement(
+          child as DetailedReactHTMLElement<any, HTMLElement>,
+          {
+            bg: 'primary-200',
+            position: 'absolute',
+            minSize: 'x16',
+          }
+        )}
       </Box>
     ))}
   </Box>
@@ -562,7 +575,7 @@ const elevationElements = (
 export const Elevation: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
     {flattenChildren(elevationElements).map((child) =>
-      React.cloneElement(child, {
+      React.cloneElement(child as DetailedReactHTMLElement<any, HTMLElement>, {
         bg: 'primary-100',
         m: 'x16',
         size: 'x64',
@@ -574,9 +587,12 @@ export const Elevation: ComponentStory<typeof Box> = () => (
 const invisibleElements = <Box invisible />;
 export const Invisible: ComponentStory<typeof Box> = () => (
   <Box display='flex' flexWrap='wrap' alignItems='center'>
-    {flattenChildren(invisibleElements).map((child) => (
-      <Box key={child.key} bg='neutral-200' p='x16'>
-        {React.cloneElement(child, { bg: 'primary-200', size: 'x16' })}
+    {flattenChildren(invisibleElements).map((child, i) => (
+      <Box key={i} bg='neutral-200' p='x16'>
+        {React.cloneElement(
+          child as DetailedReactHTMLElement<any, HTMLElement>,
+          { bg: 'primary-200', size: 'x16' }
+        )}
       </Box>
     ))}
   </Box>
