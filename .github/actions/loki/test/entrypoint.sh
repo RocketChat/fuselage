@@ -1,3 +1,3 @@
 #!/bin/sh -ex
 
-yarn run loki:test-ci --concurrency=1
+yarn run loki:test-ci --concurrency=2
