@@ -1,9 +1,8 @@
-import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import React, { useCallback, useMemo } from 'react';
+import { useBorderBoxSize } from '@rocket.chat/fuselage-hooks';
+import React, { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import { Box, Scrollable } from '../Box';
 import Button from '../Button';
 import { Icon } from '../Icon';
 import styleSheet from './Banner.styles.scss';
@@ -26,17 +25,19 @@ const Banner = ({
   useStyleSheet();
   useStyleSheet(styleSheet);
 
-  const { ref, borderBoxSize } = useResizeObserver();
+  const ref = useRef(null);
+  const { inlineSize } = useBorderBoxSize(ref, {
+    debounceDelay: 70,
+  });
 
-  const isIconVisible = useMemo(() => {
-    return borderBoxSize.inlineSize > 375;
-  }, [borderBoxSize.inlineSize]);
+  const isIconVisible = useMemo(() => inlineSize > 375, [inlineSize]);
 
   variant = variants.includes(variant) ? variant : variants[0];
 
-  const closeButtonProps = useMemo(() => {
-    return variant !== variants[0] ? { [variant]: true } : {};
-  }, [variant]);
+  const closeButtonProps = useMemo(
+    () => (variant !== variants[0] ? { [variant]: true } : {}),
+    [variant]
+  );
 
   const handleBannerClick = useCallback(() => {
     if (onAction) {
@@ -69,16 +70,12 @@ const Banner = ({
       {icon && isIconVisible && (
         <div className={cx('rcx-banner__icon')({ inline })}>{icon}</div>
       )}
-      <Scrollable horizontal>
-        <Box className={cx('rcx-banner__wrapper')()}>
-          <div className={cx('rcx-banner__content')({ inline })}>
-            {title && (
-              <h6 className={cx('rcx-banner__title')({ inline })}>{title}</h6>
-            )}
-            {children}
-          </div>
-        </Box>
-      </Scrollable>
+      <div className={cx('rcx-banner__content')({ inline })}>
+        {title && (
+          <h6 className={cx('rcx-banner__title')({ inline })}>{title}</h6>
+        )}
+        {children}
+      </div>
       {closeable && (
         <div className={cx('rcx-banner__close-button')({ inline })}>
           <Button

@@ -1,3 +1,4 @@
+import { createLogicalPropertiesMiddleware } from '@rocket.chat/stylis-logical-props-middleware';
 import {
   compile,
   Middleware,
@@ -6,8 +7,6 @@ import {
   serialize,
   stringify,
 } from 'stylis';
-
-import { createLogicalPropertiesMiddleware } from './logicalProperties';
 
 type MiddlewareOptions = {
   isPropertySupported?: (property: string) => boolean;

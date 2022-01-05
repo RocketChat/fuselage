@@ -1,0 +1,135 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+
+import { OptionsPaginated, CheckOption } from '.';
+import { Box } from '..';
+import Option from '../Options/Option';
+
+export const options = [
+  { value: 1, label: 'a teste 1', selected: true },
+  { value: 2, label: 'a teste 2' },
+  { value: 3, label: 'a teste 3' },
+  { value: 4, label: 'a teste 4' },
+  { value: 5, label: 'a teste 5' },
+  { value: 6, label: 'a teste 6' },
+  { value: 7, label: 'a teste 7' },
+  { value: 8, label: 'a teste 8' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+  { value: 9, label: 'a teste 9' },
+];
+
+<Meta
+  title='Misc/Options/OptionsPaginated'
+  parameters={{ jest: ['Options/spec'] }}
+/>
+
+# Options
+
+An input for selection of options.
+
+<Canvas>
+  <Story name='Default'>
+    <Box position='relative' maxWidth={250}>
+      <OptionsPaginated ref={React.createRef()} options={options} cursor={1} />
+    </Box>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='Option'>
+    <Box position='relative' maxWidth={250}>
+      <OptionsPaginated
+        ref={React.createRef()}
+        options={options}
+        renderItem={Option}
+        cursor={1}
+      />
+    </Box>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='CheckOption'>
+    <Box position='relative' maxWidth={250}>
+      <OptionsPaginated
+        ref={React.createRef()}
+        renderItem={CheckOption}
+        options={options}
+        value={[1]}
+        cursor={0}
+      />
+    </Box>
+  </Story>
+</Canvas>

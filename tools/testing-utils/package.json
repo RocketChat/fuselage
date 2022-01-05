@@ -1,0 +1,14 @@
+{
+  "name": "testing-utils",
+  "private": true,
+  "exports": {
+    "./*": {
+      "require": "./*.js",
+      "types": "./*.d.ts"
+    }
+  },
+  "dependencies": {
+    "css-mediaquery": "^0.1.2"
+  },
+  "version": "0.31.1"
+}

@@ -9,7 +9,7 @@
 
   width: 100%;
   max-height: 100%;
-  margin: auto;
+  margin: 0 auto;
 
   background: none;
 
@@ -18,13 +18,15 @@
     flex-direction: column;
     flex-grow: 1;
 
+    width: 100%;
+
     min-width: 0;
     padding: 0;
 
     color: colors.foreground(default);
     border-radius: 2px;
     background-color: colors.surface();
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p2);
   }
 
   &__header {
@@ -47,7 +49,7 @@
     white-space: nowrap;
 
     color: colors.foreground('default');
-    @include typography.use-font-scale(h1);
+    @include typography.use-font-scale(h2);
   }
 
   &__backdrop {
@@ -55,6 +57,9 @@
 
     z-index: 100;
     inset: 0;
+
+    display: flex;
+    flex-direction: column;
 
     background-color: colors.neutral(800, $alpha: 0.5);
   }

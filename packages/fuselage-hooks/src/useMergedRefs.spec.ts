@@ -1,142 +1,67 @@
-import React, {
-  createElement,
-  StrictMode,
-  FunctionComponent,
-  RefCallback,
-} from 'react';
-import { render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { renderHook } from '@testing-library/react-hooks';
+import { createRef } from 'react';
 
-import { useMergedRefs } from '.';
+import { useMergedRefs } from './useMergedRefs';
 
-describe('useMergedRefs hook', () => {
-  it('returns a callback ref', () => {
-    let mergedRef: RefCallback<any>;
+it('returns a callback ref', () => {
+  const { result } = renderHook(() => useMergedRefs());
 
-    const TestComponent: FunctionComponent = () => {
-      mergedRef = useMergedRefs();
-      return null;
-    };
+  expect(result.current).toEqual(expect.any(Function));
+});
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
+it('works without any arguments', () => {
+  const { result } = renderHook(() => jest.fn(useMergedRefs()));
 
-    expect(mergedRef).toStrictEqual(expect.any(Function));
-  });
+  const value = Symbol();
+  result.current(value);
 
-  it('works without any arguments', () => {
-    let mergedRef: RefCallback<any>;
+  expect(result.current).toHaveBeenCalledWith(value);
+});
 
-    const TestComponent: FunctionComponent = () => {
-      mergedRef = jest.fn(useMergedRefs());
-      return null;
-    };
+it('works with one ref', () => {
+  const ref = createRef();
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
+  const { result } = renderHook(() => useMergedRefs(ref));
 
-    const value = Symbol();
-    mergedRef(value);
-    expect(mergedRef).toHaveBeenCalledWith(value);
-  });
+  const value = Symbol();
+  result.current(value);
 
-  it('works with one ref', () => {
-    const ref = React.createRef();
+  expect(ref.current).toBe(value);
+});
 
-    let mergedRef: RefCallback<any>;
+it('works with many refs', () => {
+  const refs = Array.from({ length: 10 }).map(() => createRef());
 
-    const TestComponent: FunctionComponent = () => {
-      mergedRef = useMergedRefs(ref);
-      return null;
-    };
+  const { result } = renderHook(() => useMergedRefs(...refs));
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
+  const value = Symbol();
+  result.current(value);
 
-    const value = Symbol();
-    mergedRef(value);
-    expect(ref.current).toBe(value);
-  });
+  refs.forEach((ref) => expect(ref.current).toBe(value));
+});
 
-  it('works with many refs', () => {
-    const refs = new Array(10).fill(undefined).map(() => React.createRef());
+it('works with callback ref', () => {
+  const callbackRef = jest.fn();
 
-    let mergedRef: RefCallback<any>;
+  const { result } = renderHook(() => useMergedRefs(callbackRef));
 
-    const TestComponent: FunctionComponent = () => {
-      mergedRef = useMergedRefs(...refs);
-      return null;
-    };
+  const value = Symbol();
+  result.current(value);
 
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
+  expect(callbackRef).toHaveBeenCalledWith(value);
+});
 
-    const value = Symbol();
-    mergedRef(value);
-    refs.forEach((ref) => expect(ref.current).toBe(value));
-  });
+it('works with refs and callback refs', () => {
+  const refs = Array.from({ length: 5 }).map(() => createRef());
+  const callbackRefs = Array.from({ length: 5 }).map(() => jest.fn());
 
-  it('works with callback ref', () => {
-    const callbackRef = jest.fn();
+  const { result } = renderHook(() => useMergedRefs(...refs, ...callbackRefs));
 
-    let mergedRef: RefCallback<any>;
+  const value = Symbol();
+  result.current(value);
 
-    const TestComponent: FunctionComponent = () => {
-      mergedRef = useMergedRefs(callbackRef);
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    const value = Symbol();
-    mergedRef(value);
-    expect(callbackRef).toHaveBeenCalledWith(value);
-  });
-
-  it('works with refs and callback refs', () => {
-    const refs = new Array(5).fill(undefined).map(() => React.createRef());
-    const callbackRefs = new Array(5).fill(undefined).map(() => jest.fn());
-
-    let mergedRef: RefCallback<any>;
-
-    const TestComponent: FunctionComponent = () => {
-      mergedRef = useMergedRefs(...refs, ...callbackRefs);
-      return null;
-    };
-
-    act(() => {
-      render(
-        createElement(StrictMode, {}, createElement(TestComponent)),
-        document.createElement('div')
-      );
-    });
-
-    const value = Symbol();
-    mergedRef(value);
-    refs.forEach((ref) => expect(ref.current).toBe(value));
-    callbackRefs.forEach((callbackRef) =>
-      expect(callbackRef).toHaveBeenCalledWith(value)
-    );
-  });
+  refs.forEach((ref) => expect(ref.current).toBe(value));
+  callbackRefs.forEach((callbackRef) =>
+    expect(callbackRef).toHaveBeenCalledWith(value)
+  );
 });

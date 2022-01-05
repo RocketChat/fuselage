@@ -1,6 +1,9 @@
 export * from './useAutoFocus';
+export * from './useBorderBoxSize';
 export * from './useBreakpoints';
 export * from './useClipboard';
+export * from './useDarkMode';
+export * from './useContentBoxSize';
 export * from './useDebouncedCallback';
 export * from './useDebouncedReducer';
 export * from './useDebouncedState';
@@ -16,6 +19,7 @@ export * from './usePosition';
 export * from './usePrefersColorScheme';
 export * from './usePrefersReducedData';
 export * from './usePrefersReducedMotion';
+export * from './usePrevious';
 export * from './useResizeObserver';
 export * from './useSafely';
 export * from './useStableArray';

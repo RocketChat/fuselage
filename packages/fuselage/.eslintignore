@@ -1,3 +1,6 @@
-/node_modules
 /dist
+/node_modules
+/storybook-static
+!/.jest
 !/.storybook
+/.storybook/jest-results.json

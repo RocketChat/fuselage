@@ -1,32 +1,29 @@
 {
   "eslint.workingDirectories": [
     {
+      "directory": "packages/*",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "tools/*",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "packages/fuselage",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/fuselage-hooks",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/fuselage-ui-kit",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/icons",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/ui-kit",
       "changeProcessCWD": true
     }
   ],
+  "eslint.onIgnoredFiles": "warn",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
   "eslint.options": {
-    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx", ".pegjs"]
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[pegjs]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

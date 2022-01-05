@@ -1,0 +1,79 @@
+{
+  "name": "@rocket.chat/message-parser",
+  "description": "Rocket.Chat parser for messages",
+  "version": "0.31.1",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "directory": "packages/message-parser"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  },
+  "main": "messageParser.js",
+  "exports": {
+    ".": {
+      "default": "./messageParser.js"
+    },
+    "./index": {
+      "default": "./messageParser.js"
+    }
+  },
+  "module": "dist/messageParser.mjs",
+  "unpkg": "dist/messageParser.umd.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist",
+    "/messageParser.js"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "run-s .:build:clean .:build:bundle",
+    ".:build:clean": "rimraf dist",
+    ".:build:bundle": "webpack",
+    "test": "jest --runInBand --coverage",
+    "watch": "jest --watch",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
+    "lint-staged": "lint-staged",
+    "docs": "typedoc"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "@babel/preset-env": "^7.16.0",
+    "@rocket.chat/eslint-config-alt": "^0.31.1",
+    "@rocket.chat/peggy-loader": "^0.31.1",
+    "@rocket.chat/prettier-config": "^0.31.1",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^15.14.1",
+    "@typescript-eslint/parser": "^5.3.1",
+    "babel-loader": "^8.2.2",
+    "eslint": "^8.2.0",
+    "jest": "^27.3.1",
+    "lint-all": "^0.31.1",
+    "lint-staged": "^11.2.6",
+    "npm-run-all": "^4.1.5",
+    "peggy": "^1.2.0",
+    "prettier": "^2.3.2",
+    "prettier-plugin-pegjs": "^0.4.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.7",
+    "ts-loader": "^9.2.3",
+    "typedoc": "^0.22.8",
+    "typescript": "^4.3.4",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
+  }
+}

@@ -1,0 +1,156 @@
+import {
+  Button,
+  Field,
+  FieldGroup,
+  TextInput,
+  EmailInput,
+  Select,
+  SelectFiltered,
+  SelectOptions,
+} from '@rocket.chat/fuselage';
+import type { ReactElement } from 'react';
+import { useForm, SubmitHandler, Validate, Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+
+import Form from '../../common/Form';
+
+type RequestTrialPayload = {
+  email: string;
+  organizationName: string;
+  organizationSize: string;
+  country: string;
+};
+
+type RequestTrialFormProps = {
+  defaultValues?: RequestTrialPayload;
+  organizationSizeOptions: SelectOptions;
+  countryOptions: SelectOptions;
+  onSubmit: SubmitHandler<RequestTrialPayload>;
+  onManageWorkspaceClick: () => void;
+  validateEmail: Validate<string>;
+};
+
+const RequestTrialForm = ({
+  defaultValues,
+  organizationSizeOptions,
+  countryOptions,
+  onSubmit,
+  validateEmail,
+}: RequestTrialFormProps): ReactElement => {
+  const { t } = useTranslation();
+
+  const {
+    handleSubmit,
+    register,
+    control,
+    formState: { isValidating, isSubmitting, isValid, errors },
+  } = useForm<RequestTrialPayload>({ mode: 'onChange' });
+
+  return (
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <FieldGroup>
+        <Field>
+          <Field.Label>
+            {t('form.requestTrialForm.fields.emailAddress.label')}
+          </Field.Label>
+          <Field.Row>
+            <EmailInput
+              {...register('email', {
+                validate: validateEmail,
+                required: true,
+              })}
+              placeholder={t(
+                'form.requestTrialForm.fields.emailAddress.placeholder'
+              )}
+              defaultValue={defaultValues?.email}
+              error={errors?.email?.message || undefined}
+            />
+          </Field.Row>
+          {errors?.email && <Field.Error>{errors.email.message}</Field.Error>}
+        </Field>
+        <Field>
+          <Field.Label>
+            {t('form.requestTrialForm.fields.organizationName.label')}
+          </Field.Label>
+          <Field.Row>
+            <TextInput
+              {...register('organizationName', { required: true })}
+              placeholder={t(
+                'form.requestTrialForm.fields.organizationName.placeholder'
+              )}
+              defaultValue={defaultValues?.organizationName}
+            />
+          </Field.Row>
+          {errors?.organizationName && (
+            <Field.Error>{t('component.form.requiredField')}</Field.Error>
+          )}
+        </Field>
+        <Field>
+          <Field.Label>
+            {t('form.requestTrialForm.fields.organizationSize.label')}
+          </Field.Label>
+          <Field.Row>
+            <Controller
+              name='organizationSize'
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  options={organizationSizeOptions}
+                  placeholder={t(
+                    'form.requestTrialForm.fields.organizationSize.placeholder'
+                  )}
+                  error={errors?.email?.message || undefined}
+                />
+              )}
+              defaultValue={defaultValues?.organizationSize}
+            />
+          </Field.Row>
+        </Field>
+        <Field>
+          <Field.Label>
+            {t('form.requestTrialForm.fields.country.label')}
+          </Field.Label>
+          <Field.Row>
+            <Controller
+              name='country'
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <SelectFiltered
+                  {...field}
+                  options={countryOptions}
+                  width='full'
+                  placeholder={t(
+                    'form.requestTrialForm.fields.country.placeholder'
+                  )}
+                />
+              )}
+              defaultValue={defaultValues?.country}
+            />
+          </Field.Row>
+        </Field>
+        <Field>
+          <Field.Label>
+            {t('form.requestTrialForm.hasWorkspace.label')}
+          </Field.Label>
+          <Field.Description>
+            {t('form.requestTrialForm.hasWorkspace.description')}
+          </Field.Description>
+        </Field>
+      </FieldGroup>
+      <Form.Footer>
+        <Button
+          type='submit'
+          primary
+          disabled={isValidating || isSubmitting || !isValid}
+        >
+          {t('form.requestTrialForm.button.text')}
+        </Button>
+      </Form.Footer>
+    </Form>
+  );
+};
+
+export default RequestTrialForm;

@@ -1,16 +1,11 @@
 {
-  "version": "0.20.3",
+  "version": "0.31.1",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*", "scripts"],
   "command": {
     "version": {
-      "allowBranch": [
-        "master",
-        "feature*"
-      ]
+      "allowBranch": ["master", "feature*"]
     }
   }
 }

@@ -48,13 +48,8 @@ export function AutoComplete({
     [options]
   );
 
-  const [
-    cursor,
-    handleKeyDown,
-    ,
-    reset,
-    [optionsAreVisible, hide, show],
-  ] = useCursor(value, memoizedOptions, selectByKeyboard);
+  const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
+    useCursor(value, memoizedOptions, selectByKeyboard);
 
   const onSelect = useMutableCallback(([value]) => {
     setSelected(options.find((option) => getValue(option) === value));
@@ -71,10 +66,10 @@ export function AutoComplete({
       ref={containerRef}
       onClick={useMutableCallback(() => ref.current.focus())}
       flexGrow={1}
-      className={useMemo(() => [error && 'invalid', disabled && 'disabled'], [
-        error,
-        disabled,
-      ])}
+      className={useMemo(
+        () => [error && 'invalid', disabled && 'disabled'],
+        [error, disabled]
+      )}
     >
       <Box
         display='flex'
@@ -94,8 +89,9 @@ export function AutoComplete({
             onFocus={show}
             onKeyDown={handleKeyDown}
             placeholder={
-              (optionsAreVisible !== AnimatedVisibility.HIDDEN || !value) &&
-              placeholder
+              optionsAreVisible !== AnimatedVisibility.HIDDEN || !value
+                ? placeholder
+                : undefined
             }
             order={1}
             rcx-input-box--undecorated
@@ -117,7 +113,7 @@ export function AutoComplete({
             name={
               optionsAreVisible === AnimatedVisibility.VISIBLE
                 ? 'cross'
-                : 'chevron-down'
+                : 'magnifier'
             }
             size='x20'
           />

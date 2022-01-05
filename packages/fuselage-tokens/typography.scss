@@ -26,33 +26,75 @@ $font-families: (
   ),
 );
 $font-scales: (
+  hero: (
+    font-size: 48,
+    font-weight: 800,
+    letter-spacing: 0,
+    line-height: 64,
+  ),
   h1: (
-    font-size: 22,
-    font-weight: 400,
+    font-size: 32,
+    font-weight: 700,
+    letter-spacing: 0,
+    line-height: 40,
+  ),
+  h2: (
+    font-size: 24,
+    font-weight: 700,
     letter-spacing: 0,
     line-height: 32,
   ),
-  s1: (
+  h3: (
+    font-size: 20,
+    font-weight: 700,
+    letter-spacing: 0,
+    line-height: 28,
+  ),
+  h4: (
+    font-size: 16,
+    font-weight: 700,
+    letter-spacing: 0,
+    line-height: 24,
+  ),
+  h5: (
+    font-size: 14,
+    font-weight: 700,
+    letter-spacing: 0,
+    line-height: 20,
+  ),
+  p1: (
     font-size: 16,
     font-weight: 400,
     letter-spacing: 0,
-    line-height: 22,
+    line-height: 24,
   ),
-  s2: (
+  p1m: (
     font-size: 16,
     font-weight: 500,
     letter-spacing: 0,
-    line-height: 22,
+    line-height: 24,
   ),
-  p1: (
+  p1b: (
+    font-size: 16,
+    font-weight: 700,
+    letter-spacing: 0,
+    line-height: 24,
+  ),
+  p2: (
     font-size: 14,
     font-weight: 400,
     letter-spacing: 0,
     line-height: 20,
   ),
-  p2: (
+  p2m: (
     font-size: 14,
     font-weight: 500,
+    letter-spacing: 0,
+    line-height: 20,
+  ),
+  p2b: (
+    font-size: 14,
+    font-weight: 700,
     letter-spacing: 0,
     line-height: 20,
   ),
@@ -64,14 +106,14 @@ $font-scales: (
   ),
   c2: (
     font-size: 12,
-    font-weight: 600,
+    font-weight: 700,
     letter-spacing: 0,
     line-height: 16,
   ),
   micro: (
     font-size: 10,
-    font-weight: 600,
-    letter-spacing: 0.2,
+    font-weight: 700,
+    letter-spacing: 0,
     line-height: 12,
   ),
 );

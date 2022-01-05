@@ -5,8 +5,9 @@
 
   position: relative;
 
-  align-items: center; // TODO move to .rcx-input-box
+  align-items: center;
 
+  // TODO move to .rcx-input-box
   &__item {
     @include typography.use-text-ellipsis;
   }
@@ -49,10 +50,12 @@
 
     opacity: 1;
 
+    & > .rcx-select__focus {
+      flex-shrink: 1;
+    }
+
     &--hidden {
       & > .rcx-select__focus {
-        flex-shrink: 1;
-
         width: 0;
 
         transition: none;

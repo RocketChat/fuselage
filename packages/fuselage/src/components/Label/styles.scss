@@ -2,7 +2,7 @@
 @use '../../styles/typography.scss';
 
 .rcx-label {
-  @include typography.use-font-scale(p2);
+  @include typography.use-font-scale(p2m);
   color: colors.foreground(default);
 
   &--disabled {

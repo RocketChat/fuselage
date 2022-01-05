@@ -1,0 +1,57 @@
+{
+  "name": "@rocket.chat/eslint-config-alt",
+  "description": "ESLint configuration for Rocket.Chat repositories",
+  "version": "0.31.1",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "directory": "packages/eslint-config-alt"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+  },
+  "main": "minimal/index.js",
+  "files": [
+    "/minimal",
+    "/original",
+    "/react",
+    "/typescript"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
+    "lint-staged": "lint-staged"
+  },
+  "peerDependencies": {
+    "@babel/eslint-parser": "^7.13.14",
+    "eslint": "^7.29.0",
+    "prettier": "^2.3.2"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.3",
+    "eslint": "^8.2.0",
+    "lint-all": "^0.31.1",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.3.2"
+  },
+  "dependencies": {
+    "@rocket.chat/eslint-config": "^0.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.3.0"
+  }
+}

@@ -1,0 +1,121 @@
+@use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
+@use '../../styles/functions.scss';
+
+$tooltip-background-color: functions.theme(
+  'tooltip-background-color',
+  colors.neutral(900)
+);
+$tooltip-text-color: functions.theme('tooltip-text-color', colors.surface());
+
+@mixin triangle-direction($direction) {
+  &::after {
+    position: absolute;
+
+    box-sizing: border-box;
+
+    content: ' ';
+
+    border-width: 4px;
+    border-color: transparent transparent $tooltip-background-color
+      $tooltip-background-color;
+    border-radius: 0 0 0 (2px);
+
+    block-size: 0;
+    inline-size: 0;
+
+    @if $direction == 'bottom' {
+      inset-block-start: -4px;
+
+      transform: rotate(135deg);
+    }
+    @if $direction == 'top' {
+      inset-block-end: -4px;
+
+      transform: rotate(-45deg);
+    }
+    @if $direction == 'right' {
+      inset-block-start: 50%;
+      inset-inline-start: -4px;
+
+      margin-block-start: -4px;
+
+      transform: rotate(45deg);
+    }
+    @if $direction == 'left' {
+      inset-block-start: 50%;
+      inset-inline-end: -4px;
+
+      margin-block-start: -4px;
+
+      transform: rotate(-135deg);
+    }
+  }
+}
+
+.rcx-tooltip {
+  position: relative;
+
+  display: inline-block;
+
+  max-width: 240px;
+
+  padding: 8px 12px;
+
+  user-select: none;
+
+  word-break: break-word;
+
+  pointer-events: none;
+
+  color: $tooltip-text-color;
+
+  border-radius: 4px;
+
+  background-color: $tooltip-background-color;
+
+  @include typography.use-font-scale(p2m);
+
+  &--dir-top {
+    @include triangle-direction('top');
+  }
+
+  &--dir-bottom {
+    @include triangle-direction('bottom');
+  }
+
+  &--dir-left {
+    @include triangle-direction('left');
+  }
+
+  &--dir-right {
+    @include triangle-direction('right');
+  }
+
+  &--pos {
+    &-middle {
+      &::after {
+        inset-inline-start: 50%;
+
+        margin-inline-start: -4px;
+      }
+    }
+
+    &-start {
+      &::after {
+        inset-inline-start: 8px;
+
+        margin: 0;
+      }
+    }
+
+    &-end {
+      &::after {
+        inset-inline-start: initial;
+        inset-inline-end: 8px;
+
+        margin: 0;
+      }
+    }
+  }
+}

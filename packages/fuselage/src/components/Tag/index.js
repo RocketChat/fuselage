@@ -10,7 +10,7 @@ export function Tag({
   className,
   disabled,
   onClick,
-  variant = 'secondary',
+  variant = 'default',
   ...props
 }) {
   const modifiers = [
@@ -43,5 +43,6 @@ Tag.propTypes = {
     'danger',
     'warning',
     'ghost',
+    'default',
   ]),
 };

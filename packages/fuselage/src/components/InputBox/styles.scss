@@ -137,7 +137,7 @@
 
   background-color: transparent;
 
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p2);
   @include typography.use-text-ellipsis;
 
   &--type-textarea {
@@ -229,7 +229,7 @@
   @include typography.use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p2);
   color: #{$input-colors-placeholder-color};
 }
 
@@ -237,7 +237,7 @@
   @include typography.use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p2);
   color: #{$input-colors-color};
 }
 
@@ -261,6 +261,6 @@
   border-radius: lengths.border-radius(2);
   background-color: #{$input-colors-background-color};
 
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p2);
   @include typography.use-text-ellipsis;
 }

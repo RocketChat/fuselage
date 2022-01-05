@@ -1,11 +1,79 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/functions';
+@use '../../styles/primitives/button.scss';
+// : theme('badge-colors-primary-color', colors.foreground(alternative));
+
+$chip-background-color: functions.theme(
+  'chip-background-color',
+  colors.neutral(300)
+);
+$chip-border-color: functions.theme('chip-border-color', colors.neutral(300));
+$chip-color: functions.theme('chip-color', colors.neutral(800));
+$chip-hover-background-color: functions.theme(
+  'chip-hover-background-color',
+  colors.neutral(400)
+);
+$chip-hover-border-color: functions.theme(
+  'chip-hover-border-color',
+  colors.neutral(400)
+);
+$chip-active-background-color: functions.theme(
+  'chip-active-background-color',
+  colors.neutral(500)
+);
+$chip-active-border-color: functions.theme(
+  'chip-active-border-color',
+  colors.neutral(500)
+);
+$chip-focus-background-color: functions.theme(
+  'chip-focus-background-color',
+  colors.neutral(300)
+);
+$chip-focus-border-color: functions.theme(
+  'chip-focus-border-color',
+  colors.neutral(500)
+);
+$chip-focus-shadow-color: functions.theme(
+  'chip-focus-shadow-color',
+  colors.neutral(100)
+);
+$chip-disabled-background-color: functions.theme(
+  'chip-disabled-background-color',
+  colors.neutral(100)
+);
+$chip-disabled-border-color: functions.theme(
+  'chip-disabled-border-color',
+  colors.neutral(100)
+);
+$chip-disabled-color: functions.theme(
+  'chip-disabled-color',
+  colors.neutral(400)
+);
 
 .rcx-chip {
-  @extend %box--animated;
   @extend %box--full;
-  @extend %button--secondary;
+  @include button.kind-variant(
+    (
+      background-color: $chip-background-color,
+      border-color: $chip-border-color,
+      color: $chip-color,
+      hover-background-color: $chip-hover-background-color,
+      hover-border-color: $chip-hover-border-color,
+      active-background-color: $chip-active-background-color,
+      active-border-color: $chip-active-border-color,
+      focus-background-color: $chip-focus-background-color,
+      focus-border-color: $chip-focus-border-color,
+      focus-shadow-color: $chip-focus-shadow-color,
+      disabled-background-color: $chip-disabled-background-color,
+      disabled-border-color: $chip-disabled-border-color,
+      disabled-color: $chip-disabled-color,
+    )
+  );
+
+  @include clickable;
+  @include typography.use-font-scale('p2');
 
   display: flex;
   overflow: hidden;
@@ -15,9 +83,6 @@
 
   border-width: 0;
 
-  @include clickable;
-  @include typography.use-font-scale('p1');
-
   &.disabled,
   &:disabled {
     color: $button-colors-secondary-color;
@@ -26,13 +91,13 @@
   }
 
   &__text {
+    @include typography.use-text-ellipsis;
+
     white-space: nowrap;
     letter-spacing: inherit;
 
     color: inherit;
 
     font: inherit;
-
-    @include typography.use-text-ellipsis;
   }
 }

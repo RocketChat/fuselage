@@ -2,11 +2,15 @@
 
 const path = require('path');
 
+const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+const pkg = require('./package.json');
 
 module.exports = (env, { mode = 'production' }) => ({
   entry: {
-    fuselage: path.resolve(__dirname, 'src/index.js'),
+    fuselage: path.resolve(__dirname, 'src/index.ts'),
   },
   output: {
     filename: `[name].${mode}.js`,
@@ -33,8 +37,19 @@ module.exports = (env, { mode = 'production' }) => ({
         use: 'babel-loader',
       },
       {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            configFile: path.resolve(__dirname, './tsconfig-bundle.json'),
+          },
+        },
+      },
+      {
         test: /\.scss$/,
         use: [
+          'babel-loader',
           {
             loader: 'style-loader',
             options: {
@@ -70,6 +85,9 @@ module.exports = (env, { mode = 'production' }) => ({
       },
     ],
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+  },
   externals: [
     {
       react: {
@@ -84,6 +102,18 @@ module.exports = (env, { mode = 'production' }) => ({
     '@rocket.chat/fuselage-hooks',
   ],
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          context: 'src/',
+          from: '**/!(scss).d.ts',
+          to: '../dist',
+        },
+      ],
+    }),
+    new webpack.DefinePlugin({
+      'process.env.VERSION': JSON.stringify(pkg.version),
+    }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       generateStatsFile: false,

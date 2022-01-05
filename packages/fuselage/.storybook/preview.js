@@ -1,5 +1,6 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { withTests } from '@storybook/addon-jest';
 import { addDecorator, addParameters } from '@storybook/react';
 import 'loki/configure-react';
 import 'normalize.css/normalize.css';
@@ -40,7 +41,6 @@ addParameters({
 });
 
 if (process.env.NODE_ENV === 'production') {
-  const { withTests } = require('@storybook/addon-jest');
   // eslint-disable-next-line import/no-unresolved
   const results = require('./jest-results.json');
   addDecorator(withTests({ results }));

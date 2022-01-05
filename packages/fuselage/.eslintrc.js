@@ -1,46 +1,11 @@
 module.exports = {
-  extends: [
-    '@rocket.chat/eslint-config',
-    'prettier',
-  ],
-  plugins: ['react', 'react-hooks', 'prettier'],
-  parser: '@babel/eslint-parser',
+  extends: '@rocket.chat/eslint-config-alt/typescript',
   rules: {
-    'generator-star-spacing': ['error', 'before'],
-    'import/order': ['error', {
-      'newlines-between': 'always',
-      groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
-      alphabetize: {
-        order: 'asc',
-      },
-    }],
-    indent: ['error', 2, {
-      SwitchCase: 1,
-    }],
-    'jsx-quotes': ['error', 'prefer-single'],
-    'react/jsx-uses-react': 'error',
-    'react/jsx-uses-vars': 'error',
-    'react/jsx-no-undef': 'error',
-    'react/jsx-fragments': ['error', 'syntax'],
-    'react/react-in-jsx-scope': 'error',
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    'prettier/prettier': 2,
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: [
-          '.js',
-          '.jsx',
-          '.ts',
-          '.tsx',
-        ],
-      },
-    },
-    react: {
-      version: 'detect',
-    },
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    'react/display-name': 'off',
+    'react/no-multi-comp': 'off',
   },
   env: {
     jest: true,
@@ -48,13 +13,19 @@ module.exports = {
   overrides: [
     {
       files: ['*.mdx'],
-      extends: ['plugin:mdx/recommended'],
+      extends: [
+        '@rocket.chat/eslint-config-alt/react',
+        'plugin:mdx/recommended',
+      ],
       parserOptions: {
-        parser: '@babel/eslint-parser',
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
       rules: {
-        semi: 'off',
         'new-cap': 'off',
+        'prefer-arrow-callback': 'off',
+        'semi': 'off',
       },
     },
   ],

@@ -1,34 +1,112 @@
-<h1>@rocket.chat/icons</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/npm/v/@rocket.chat/icons.svg">
-  <a href="https://github.com/RocketChat/Rocket.Chat.Fuselage/graphs/commit-activity">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
-  </a>
-  <a href="https://twitter.com/RocketChat">
-    <img alt="Twitter: RocketChat" src="https://img.shields.io/twitter/follow/RocketChat.svg?style=social" target="_blank" />
+<!--header-->
+
+<p align="center">
+  <a href="https://rocket.chat" title="Rocket.Chat">
+    <img src="https://github.com/RocketChat/Rocket.Chat.Artwork/raw/master/Logos/2020/png/logo-horizontal-red.png" alt="Rocket.Chat" />
   </a>
 </p>
 
+# `@rocket.chat/icons`
+
+---
+
+[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/icons/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/icons/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/icons?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/icons?style=flat-square)
+
+![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ficons&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ficons&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ficons&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/icons?style=flat-square)
+
+<!--/header-->
+
 ## Install
 
+<!--install-->
+
+Add `@rocket.chat/icons` as a dependency:
+
 ```sh
-npm install --save @rocket.chat/icons
+npm i @rocket.chat/icons
+
+# or, if you are using yarn:
+
+yarn add @rocket.chat/icons
 ```
 
-## Author
+<!--/install-->
 
-👤 **RocketChat**
+## Contributing
 
-* Twitter: [@RocketChat](https://twitter.com/RocketChat)
-* Github: [@RocketChat](https://github.com/RocketChat)
+<!--contributing(msg)-->
 
-## 🤝 Contributing
+Contributions, issues, and feature requests are welcome!<br />
+Feel free to check the [issues](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
+<!--/contributing(msg)-->
 
-## Show your support
+### Adding new icons
 
-Give a ⭐️ if this project helped you!
+All the icons should be designed by Rocket.Chat's design crew, following some conventions:
 
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+- The view box must have the dimensions of 32x32 units;
+- Any horizontal assimetry must follow the left-to-right direction.
+- The icon must be published on Figma.
+
+As the icons might be arbitrarily scaled, the chosen source format for individual icon graphics is
+SVG. As Figma can export graphics with some additional SVG attributes and elements, they must be
+removed:
+
+- The `<svg>` element must contain only two attributes: `viewBox` (probably with the value of`"0 0 32 32"`) and
+  `xmlns`;
+- XLink references (e.g. masks and clip paths) must be discarded;
+- The `<path>` elements must keep only the `d` attribute, with no additional styling attribute;
+- `<g>` and other elements must be stripped by some optimization tooling, keeping only `<path>` elements.
+
+The `src/` directory holds all the SVG icons that would be processed. The filenames define the icon names, so they
+should stick with a basic rule: **an icon name must describe the icon shape, not its utility**. For instance:
+
+- [-] `message.svg` (wrong)
+- [x] `balloon.svg` (right)
+
+If the icon must be mirrored for right-to-left read direction, it required to add a trailing `.dir` before the file
+extension (e.g. `backspace.dir.svg`).
+
+### Building
+
+As this package dependends on others in this monorepo, before anything run the following at the root directory:
+
+<!--yarn(build)-->
+
+```sh
+yarn build
+```
+
+<!--/yarn(build)-->
+
+After building, make sure to run at the root:
+
+```sh
+yarn
+
+yarn update-storybook
+```
+
+### Linting
+
+To ensure the source is matching our coding style, we perform [linting](<https://en.wikipedia.org/wiki/Lint_(software)>).
+Before commiting, check if your code fits our style by running:
+
+<!--yarn(lint)-->
+
+```sh
+yarn lint
+```
+
+<!--/yarn(lint)-->
+
+Some linter warnings and errors can be automatically fixed:
+
+<!--yarn(lint-and-fix)-->
+
+```sh
+yarn lint-and-fix
+```
+
+<!--/yarn(lint-and-fix)-->
