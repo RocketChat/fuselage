@@ -51,7 +51,8 @@
     ".:update-storybook:purge-refs": "rimraf .loki/reference",
     ".:update-storybook:loki-update": "loki update --targetFilter='.*\\.docker' --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
-    "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
+    "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static",
+    "storycap:ci": "storycap http://localhost:6006 --serverCmd 'start-storybook -p 6006'"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -126,6 +127,7 @@
     "rimraf": "^3.0.2",
     "sass": "^1.35.1",
     "sass-loader": "^12.1.0",
+    "storycap": "^3.1.0",
     "style-loader": "^3.0.0",
     "stylelint": "^13.13.1",
     "stylelint-order": "^4.1.0",

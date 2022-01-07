@@ -9,6 +9,7 @@ module.exports = {
   },
   addons: [
     '@storybook/addon-essentials',
+    'storycap',
     ...(process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : []),
   ],
   stories: ['../src/**/*.stories.{mdx,js,tsx}'],

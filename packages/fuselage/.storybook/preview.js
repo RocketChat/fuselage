@@ -2,6 +2,7 @@ import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { withTests } from '@storybook/addon-jest';
 import { addDecorator, addParameters } from '@storybook/react';
+import { withScreenshot } from 'storycap';
 import 'loki/configure-react';
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
@@ -45,3 +46,5 @@ if (process.env.NODE_ENV === 'production') {
   const results = require('./jest-results.json');
   addDecorator(withTests({ results }));
 }
+
+addDecorator(withScreenshot);
