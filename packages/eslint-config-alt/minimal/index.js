@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@rocket.chat/eslint-config', 'prettier'],
+  extends: ['../original', 'prettier'],
   plugins: ['prettier'],
   rules: {
     'generator-star-spacing': ['error', 'before'],
