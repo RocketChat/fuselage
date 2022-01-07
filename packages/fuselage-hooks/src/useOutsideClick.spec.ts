@@ -1,5 +1,4 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { useOutsideClick } from './useOutsideClick';
