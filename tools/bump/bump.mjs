@@ -38,3 +38,5 @@ await standardVersion({
 });
 
 await $`prettier --write ./CHANGELOG.md`;
+
+await $`yarn`;
