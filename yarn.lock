@@ -5128,7 +5128,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@loki/runner@npm:^0.28.1":
+"@loki/runner@npm:0.28.1, @loki/runner@npm:^0.28.1":
   version: 0.28.1
   resolution: "@loki/runner@npm:0.28.1"
   dependencies:
@@ -5155,6 +5155,36 @@ __metadata:
   bin:
     loki: bin/loki
   checksum: 3b8d11e2b699b02c5d4cf982c6343f26978d8a99a591bf5b8631d57253d488df530ce2fdaf6b154033026fc62adf836b3a4a0e9c8b5f30b7d4aeec1b2af118bf
+  languageName: node
+  linkType: hard
+
+"@loki/runner@patch:@loki/runner@0.28.1#./loki-runner.patch::locator=%40rocket.chat%2Ffuselage%40workspace%3Apackages%2Ffuselage":
+  version: 0.28.1
+  resolution: "@loki/runner@patch:@loki/runner@npm%3A0.28.1#./loki-runner.patch::version=0.28.1&hash=107943&locator=%40rocket.chat%2Ffuselage%40workspace%3Apackages%2Ffuselage"
+  dependencies:
+    "@loki/core": ^0.28.0
+    "@loki/diff-graphics-magick": ^0.28.0
+    "@loki/diff-looks-same": ^0.28.0
+    "@loki/diff-pixelmatch": ^0.28.0
+    "@loki/target-chrome-app": ^0.28.0
+    "@loki/target-chrome-aws-lambda": ^0.28.0
+    "@loki/target-chrome-docker": ^0.28.1
+    "@loki/target-native-android-emulator": ^0.28.0
+    "@loki/target-native-ios-simulator": ^0.28.0
+    async: ^3.2.0
+    chalk: ^4.1.0
+    ci-info: ^2.0.0
+    cosmiconfig: ^7.0.0
+    fs-extra: ^9.1.0
+    import-jsx: ^4.0.0
+    ink: ^3.0.8
+    minimist: ^1.2.0
+    ramda: ^0.27.1
+    react: ^16.14.0
+    transliteration: ^2.2.0
+  bin:
+    loki: bin/loki
+  checksum: be601c8d7dc903b616df2966a385640f117892d09cd7e92a8f88ecdfe9649cd9547413887098206745eef2ea248447d442100d249b591987fbafb1df7ca704ce
   languageName: node
   linkType: hard
 
@@ -5924,6 +5954,7 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.16.0
     "@babel/preset-env": ^7.16.0
     "@babel/preset-react": ^7.16.0
+    "@loki/runner": "patch:@loki/runner@0.28.1#./loki-runner.patch"
     "@rocket.chat/css-in-js": ^0.31.1
     "@rocket.chat/css-supports": ^0.31.1
     "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt"

@@ -62,6 +62,7 @@
     "react-virtuoso": "1.2.4"
   },
   "dependencies": {
+    "@loki/runner": "patch:@loki/runner@0.28.1#./loki-runner.patch",
     "@rocket.chat/css-in-js": "^0.31.1",
     "@rocket.chat/css-supports": "^0.31.1",
     "@rocket.chat/fuselage-tokens": "^0.31.1",
