@@ -87,8 +87,7 @@ Disabled.args = {
   options,
 };
 
-export const NoPlaceholder: ComponentStory<typeof PaginatedSelect> =
-  Template.bind({});
+export const NoPlaceholder = Template.bind({});
 NoPlaceholder.args = {
   width: '250px',
   options,
@@ -106,18 +105,14 @@ SelectWithFilter.args = {
   placeholder: 'Placeholder here...',
 };
 
-export const SelectWithFilterAndEllipses: ComponentStory<
-  typeof PaginatedSelectFiltered
-> = TemplateWithFilter.bind({});
+export const SelectWithFilterAndEllipses = TemplateWithFilter.bind({});
 SelectWithFilterAndEllipses.args = {
   width: '250px',
   options: optionsEllipses,
   placeholder: 'Placeholder here...',
 };
 
-export const SelectWithFilterAndError: ComponentStory<
-  typeof PaginatedSelectFiltered
-> = TemplateWithFilter.bind({});
+export const SelectWithFilterAndError = TemplateWithFilter.bind({});
 SelectWithFilterAndError.args = {
   width: '250px',
   options,
@@ -125,9 +120,7 @@ SelectWithFilterAndError.args = {
   error: true,
 };
 
-export const SelectWithFilterAndDisabled: ComponentStory<
-  typeof PaginatedSelectFiltered
-> = TemplateWithFilter.bind({});
+export const SelectWithFilterAndDisabled = TemplateWithFilter.bind({});
 SelectWithFilterAndDisabled.args = {
   width: '250px',
   options,

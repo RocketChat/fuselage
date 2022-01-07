@@ -1,11 +1,11 @@
 import { useEffect, useState } from '@storybook/client-api';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { AutoComplete } from '../..';
 
 export default {
-  title: 'FORMS/Inputs/AutoComplete',
+  title: 'Forms/Inputs/AutoComplete',
   component: AutoComplete,
   parameters: {
     docs: {
@@ -16,7 +16,7 @@ export default {
   },
 } as ComponentMeta<typeof AutoComplete>;
 
-const Template: ComponentStory<typeof AutoComplete> = () => {
+export const Example = () => {
   const [options, setOptions] = useState([]);
   const [filter, setFilter] = useState('');
   const [value, setValue] = useState([]);
@@ -33,5 +33,3 @@ const Template: ComponentStory<typeof AutoComplete> = () => {
     />
   );
 };
-
-export const Example = Template.bind({});

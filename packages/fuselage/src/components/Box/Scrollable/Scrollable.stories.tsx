@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Scrollable, Tile } from '../../..';
@@ -32,7 +32,7 @@ export default {
   },
 } as ComponentMeta<typeof Scrollable>;
 
-export const Default: ComponentStory<typeof Scrollable> = () => (
+export const Default = () => (
   <Scrollable>
     <Tile padding='none' maxWidth='full' h={100}>
       <Box w='200%' h='1000%' />
@@ -40,7 +40,7 @@ export const Default: ComponentStory<typeof Scrollable> = () => (
   </Scrollable>
 );
 
-export const HorizontalScrolling: ComponentStory<typeof Scrollable> = () => (
+export const HorizontalScrolling = () => (
   <Scrollable horizontal>
     <Tile padding='none' maxWidth='full'>
       <Box width='200%' height={100} />
@@ -48,7 +48,7 @@ export const HorizontalScrolling: ComponentStory<typeof Scrollable> = () => (
   </Scrollable>
 );
 
-export const VerticalScrolling: ComponentStory<typeof Scrollable> = () => (
+export const VerticalScrolling = () => (
   <Scrollable vertical>
     <Tile padding='none' height={100}>
       <Box height='1000%' />
@@ -56,7 +56,7 @@ export const VerticalScrolling: ComponentStory<typeof Scrollable> = () => (
   </Scrollable>
 );
 
-export const SmoothScrolling: ComponentStory<typeof Scrollable> = () => (
+export const SmoothScrolling = () => (
   <Scrollable smooth>
     <Tile padding='none' height={100}>
       <Box height='1000%' />
@@ -64,7 +64,7 @@ export const SmoothScrolling: ComponentStory<typeof Scrollable> = () => (
   </Scrollable>
 );
 
-export const OnScrollContentEvent: ComponentStory<typeof Scrollable> = () => (
+export const OnScrollContentEvent = () => (
   <Scrollable onScrollContent={action('scrollContent')}>
     <Tile padding='none' height={100}>
       <Box height='1000%' />

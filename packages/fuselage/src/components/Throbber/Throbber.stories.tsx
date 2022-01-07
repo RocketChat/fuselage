@@ -43,7 +43,7 @@ export const InsideButton: ComponentStory<typeof Throbber> = () => (
   </Button>
 );
 
-export const InsideButtonInheritColor: ComponentStory<typeof Throbber> = () => (
+export const InsideButtonInheritColor = () => (
   <Box>
     <Button primary danger minHeight='x40' marginInlineEnd='5px'>
       <Throbber size='x12' inheritColor />
