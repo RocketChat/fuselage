@@ -22,7 +22,7 @@ import Sidebar, {
 import { Avatar } from '../..';
 
 export default {
-  title: 'Sidebar_New/Sidebar',
+  title: 'Sidebar/Sidebar',
   component: Sidebar,
   parameters: {
     docs: {

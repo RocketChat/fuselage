@@ -17,13 +17,17 @@ const prevent = (e) => {
 
 export const Empty = React.memo(() => <Option color='hint' label='Empty' />);
 
-export const CheckOption = React.memo(
-  ({ selected, children: label, ...options }) => (
+export const CheckOption = React.memo(function CheckOption({
+  selected,
+  children: label,
+  ...options
+}) {
+  return (
     <Option label={label} selected={selected} {...options}>
       <CheckBox checked={selected} />
     </Option>
-  )
-);
+  );
+});
 
 export const OptionsPaginated = React.forwardRef(
   (

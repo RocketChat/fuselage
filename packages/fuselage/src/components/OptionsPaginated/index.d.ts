@@ -5,7 +5,7 @@ import { Box } from '../Box';
 
 type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
-  options: [unknown, string, ?boolean][];
+  options: { value: unknown; label: string }[];
   cursor: number;
   renderItem?: ElementType;
   renderEmpty?: ElementType;

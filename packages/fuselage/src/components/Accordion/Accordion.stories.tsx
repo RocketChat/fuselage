@@ -4,7 +4,7 @@ import React from 'react';
 import { Accordion, Box } from '../..';
 
 export default {
-  title: 'CONTAINERS/Accordion',
+  title: 'Containers/Accordion',
   component: Accordion,
   parameters: {
     docs: {

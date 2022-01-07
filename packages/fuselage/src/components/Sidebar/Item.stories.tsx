@@ -23,7 +23,7 @@ import {
 } from './Item';
 
 export default {
-  title: 'Sidebar_new/Item',
+  title: 'Sidebar/Item',
   component: SidebarItem,
   parameters: {
     docs: {

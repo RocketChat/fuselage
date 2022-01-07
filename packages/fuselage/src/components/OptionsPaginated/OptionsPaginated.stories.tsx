@@ -8,7 +8,10 @@ import Option from '../Options/Option/Option';
 // ComponentProps<typeof Option.Icon>['name']
 const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
   length: 90,
-}).map((_: unknown, i: number) => [i + 1, `a teste ${i + 1}`, i === 0]);
+}).map((_: unknown, i: number) => ({
+  value: 1 + i,
+  label: `a test ${i + 1}`,
+}));
 
 export default {
   title: 'Misc/Options/OptionsPaginated',

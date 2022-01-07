@@ -8,7 +8,7 @@ import { Avatar } from '../..';
 import TopBar from './TopBar';
 
 export default {
-  title: 'Sidebar_new/TopBar',
+  title: 'Sidebar/TopBar',
   component: TopBar,
   parameters: {
     docs: {

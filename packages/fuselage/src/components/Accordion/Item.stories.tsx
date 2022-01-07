@@ -14,7 +14,7 @@ import { Accordion, Box } from '../..';
 import { Item as AccordionItem } from './Item';
 
 export default {
-  title: 'CONTAINERS/Accordion_new/AccordionItem',
+  title: 'Containers/Accordion/AccordionItem',
   component: AccordionItem,
   parameters: {
     docs: {

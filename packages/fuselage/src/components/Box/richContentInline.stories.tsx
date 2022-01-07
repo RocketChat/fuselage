@@ -12,7 +12,7 @@ import React from 'react';
 import { Box } from '../..';
 
 export default {
-  title: 'Box/Rich content_new/Inline',
+  title: 'Box/Rich content/Inline',
   component: Box,
   parameters: {
     docs: {

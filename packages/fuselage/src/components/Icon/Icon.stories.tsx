@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { CSSProperties } from 'react';
 
 import { Box, Icon } from '../..';
-import { iconsList, IconType } from './IconsList';
+import { iconsList } from './IconsList';
 
 export default {
   title: 'Misc/Icon',
@@ -12,7 +12,7 @@ export default {
 export const Default: ComponentStory<typeof Icon> = () => (
   <Box color='default'>
     {iconsList.map((name) => (
-      <Icon key={name} name={name as IconType} size='x40' />
+      <Icon key={name} name={name} size='x40' />
     ))}
   </Box>
 );
@@ -39,7 +39,7 @@ export const AvailableIcons: ComponentStory<typeof Icon> = () => (
     {iconsList.map((name) => (
       <div key={name} style={styles.wrapper}>
         <Box>
-          <Icon name={name as IconType} size='x40' />
+          <Icon name={name} size='x40' />
         </Box>
         <Box color='hint'>{name}</Box>
       </div>
