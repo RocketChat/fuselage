@@ -1,4 +1,4 @@
-FROM regviz/node-xcb:node-16.13.1
+FROM chinello/alpine-chrome:with-node
 
 COPY entrypoint.sh /entrypoint.sh
 
