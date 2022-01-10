@@ -136,5 +136,19 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "exports": {
+    ".": [
+      "./index.js",
+      "./index.d.ts"
+    ],
+    "./cloud": [
+      "./cloud/index.js",
+      "./cloud/index.d.ts"
+    ],
+    "./chat": [
+      "./chat/index.js",
+      "./chat/index.d.ts"
+    ]
   }
 }

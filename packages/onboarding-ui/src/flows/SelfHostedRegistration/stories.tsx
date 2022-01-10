@@ -2,17 +2,17 @@ import { Box, Callout } from '@rocket.chat/fuselage';
 import type { Meta, Story } from '@storybook/react';
 import { useState } from 'react';
 
+import type { CloudAccountEmailPayload } from '../../chat/forms/CloudAccountEmailForm/CloudAccountEmailForm';
+import type { RegisterServerPayload } from '../../chat/forms/RegisterServerForm/RegisterServerForm';
+import CloudAccountEmailPage from '../../chat/pages/CloudAccountEmailPage';
+import RegisterServerPage from '../../chat/pages/RegisterServerPage';
+import EmailConfirmedPage from '../../cloud/pages/EmailConfirmedPage';
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
-import type { CloudAccountEmailPayload } from '../../forms/CloudAccountEmailForm/CloudAccountEmailForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
-import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
 import AdminInfoPage from '../../pages/AdminInfoPage';
 import AwaitingConfirmationPage from '../../pages/AwaitingConfirmationPage';
-import CloudAccountEmailPage from '../../pages/CloudAccountEmailPage';
 import ConfirmationProcessPage from '../../pages/ConfirmationProcessPage';
-import EmailConfirmedPage from '../../pages/EmailConfirmedPage';
 import OrganizationInfoPage from '../../pages/OrganizationInfoPage';
-import RegisterServerPage from '../../pages/RegisterServerPage';
 import {
   countryOptions,
   logSubmit,
