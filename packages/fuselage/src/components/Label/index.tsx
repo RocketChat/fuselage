@@ -1,11 +1,25 @@
-import PropTypes from 'prop-types';
-import React, { createContext, useContext } from 'react';
+import React, {
+  ComponentProps,
+  createContext,
+  useContext,
+  ReactElement,
+} from 'react';
 
 import { Box } from '../Box';
 
 const LabelContext = createContext(false);
 
-export function Label({ disabled, is, required, ...props }) {
+type LabelProps = ComponentProps<typeof Box> & {
+  disabled?: boolean;
+  required?: boolean;
+};
+
+export function Label({
+  disabled,
+  is,
+  required,
+  ...props
+}: LabelProps): ReactElement {
   const isInsideLabel = useContext(LabelContext);
   const component = is || (isInsideLabel && 'span') || 'label';
 
@@ -21,8 +35,3 @@ export function Label({ disabled, is, required, ...props }) {
     </LabelContext.Provider>
   );
 }
-
-Label.propTypes = {
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-};
