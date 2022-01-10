@@ -7,16 +7,18 @@ import React, {
 
 import { Box } from '../Box';
 
-type ThrobberProps = Omit<ComponentProps<typeof Box>, 'disabled' | 'size'> & {
+type ThrobberProps = Omit<ComponentProps<typeof Box>, 'disabled'> & {
   circleCount?: number;
   disabled?: boolean;
   inheritColor?: boolean;
-  size?: string;
 };
 
-type CircleProps = ThrobberProps & {
-  iteration: number | undefined;
-};
+type CircleProps = {
+  circleCount: number;
+  iteration: number;
+  inheritColor?: boolean;
+  disabled?: boolean;
+} & Pick<ComponentProps<typeof Box>, 'size'>;
 
 function Circle({
   disabled,
@@ -50,6 +52,7 @@ export const Throbber: ForwardRefExoticComponent<ThrobberProps> = forwardRef(
         {Array.from({ length: circleCount || 3 }, (_, iteration) => (
           <Circle
             key={iteration}
+            circleCount={circleCount}
             iteration={iteration}
             disabled={!!disabled}
             size={size}

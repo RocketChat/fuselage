@@ -9,6 +9,8 @@ import {
   SVGAttributes,
 } from 'react';
 
+type Size = '1' | '2' | '4' | '8' | '12' | '16' | '20' | '24' | '32' | '40';
+
 type FontScale =
   | 'hero'
   | 'h1'
@@ -152,12 +154,12 @@ type BoxProps = PropsWithChildren<{
   invisible?: boolean;
   withRichContent?: boolean | string;
   withTruncatedText?: boolean;
-  size?: CSSProperties['blockSize'];
+  size?: `x${Size}` | `neg-x${Size}` | CSSProperties['blockSize'];
   minSize?: CSSProperties['blockSize'];
   maxSize?: CSSProperties['blockSize'];
   fontScale?: FontScale;
 }> &
-  Omit<AllHTMLAttributes<HTMLOrSVGElement>, 'className'> &
+  Omit<AllHTMLAttributes<HTMLOrSVGElement>, 'className' | 'size'> &
   Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLOrSVGElement>> &
   RefAttributes<unknown>;
 
