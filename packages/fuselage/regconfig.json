@@ -16,7 +16,8 @@
       "clientId": "M7QwtzQ1Nrc01w/KT85OLdFzzkgs0XMrLU7NSUxP1TcyMjCxMDA2g8qCJAE="
     },
     "reg-publish-s3-plugin": {
-      "bucketName": "store-cap"
+      "bucketName": "story-cap",
+      "acl": "private"
     }
   }
 }

@@ -80,16 +80,15 @@ jobs:
   storycap:
     name: Storycap
     runs-on: ubuntu-latest
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     needs:
       - build-and-test
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
           node-version: "14.17.6"
-      - uses: actions/checkout@v2
       - uses: actions/cache@v2
         id: yarn-cache
         with:
@@ -104,6 +103,9 @@ jobs:
           name: "storybooks-${{ github.event.number }}"
           path: packages
       - name: Turbo Cache
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
         id: turbo-cache
         uses: actions/cache@v2
         with:
@@ -111,4 +113,14 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}-
-      - uses: ./.github/actions/storycap
+      # - uses: ./.github/actions/storycap
+      # - name: workaround for detached HEAD
+      #   run: git checkout ${GITHUB_REF#refs/heads/} || git checkout -b ${GITHUB_REF#refs/heads/} && git pull
+      - name: capture snapshots
+        run: |
+          yarn storycap http://127.0.0.1:8080 --serverCmd "npx http-server storybook-static"
+      - name: run reg-suit
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: yarn run storycap:test
