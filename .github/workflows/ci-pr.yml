@@ -86,7 +86,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
-          fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
           node-version: "14.17.6"
@@ -114,18 +113,8 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}-
-      # - uses: ./.github/actions/storycap
-      - run: |
-          git config user.email "support@rocket.chat"
-          git config user.name "Rocket.Chat"
-      # - name: workaround for detached HEAD
-      #   run: |
-      #     git checkout ${GITHUB_REF#refs/heads/} || git checkout -b ${GITHUB_REF#refs/heads/} && git pull
-      - name: capture snapshots
-        run: |
-          yarn workspace @rocket.chat/fuselage storycap http://127.0.0.1:8080 --serverCmd "npx http-server storybook-static"
-      - name: run reg-suit
+      - name: Capture snapshots & run reg-suit
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: yarn run storycap:test
+        run: yarn run storycap:ci

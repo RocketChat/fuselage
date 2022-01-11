@@ -52,7 +52,9 @@
     ".:update-storybook:loki-update": "loki update --targetFilter='.*\\.docker' --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
     "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static",
-    "storycap:test": "reg-suit run"
+    "storycap:ci": "run-s .:storycap:ci .:storycap:test",
+    ".:storycap:ci": "storycap http://127.0.0.1:8080 --serverCmd 'npx http-server ./storybook-static'",
+    ".:storycap:test": "reg-suit run"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
