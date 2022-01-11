@@ -1,7 +1,15 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ElementType } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
+
+type BadgeProps = {
+  is?: ElementType;
+  variant?: 'secondary' | 'primary' | 'danger' | 'warning' | 'ghost';
+  disabled?: boolean;
+  className?: string;
+  children?: any;
+  title?: any;
+};
 
 export function Badge({
   is: Tag = 'span',
@@ -9,7 +17,7 @@ export function Badge({
   className,
   disabled,
   ...props
-}) {
+}: BadgeProps) {
   return (
     <Tag
       className={prependClassName(
@@ -22,14 +30,3 @@ export function Badge({
     />
   );
 }
-
-Badge.propTypes = {
-  disabled: PropTypes.bool,
-  variant: PropTypes.oneOf([
-    'secondary',
-    'primary',
-    'danger',
-    'warning',
-    'ghost',
-  ]),
-};
