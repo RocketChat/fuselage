@@ -1,15 +1,26 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ComponentProps, ReactNode } from 'react';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 
-export function Callout({ children, title, type = 'info', ...props }) {
-  const iconName =
+type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
+  type: 'info' | 'success' | 'warning' | 'danger';
+  title?: ReactNode;
+  children: ReactNode;
+};
+
+export function Callout({
+  children,
+  title,
+  type = 'info',
+  ...props
+}: CalloutProps) {
+  const iconName: 'info-circled' | 'checkmark-circled' | 'warning' | 'ban' =
     (type === 'info' && 'info-circled') ||
     (type === 'success' && 'checkmark-circled') ||
     (type === 'warning' && 'warning') ||
-    (type === 'danger' && 'ban');
+    (type === 'danger' && 'ban') ||
+    'info-circled';
 
   return (
     <Box is='section' rcx-callout rcx-callout--type={type} {...props}>
@@ -25,13 +36,3 @@ export function Callout({ children, title, type = 'info', ...props }) {
     </Box>
   );
 }
-
-Callout.defaultProps = {
-  type: 'info',
-};
-
-Callout.propTypes = {
-  children: PropTypes.node,
-  title: PropTypes.node,
-  type: PropTypes.oneOf(['info', 'success', 'warning', 'danger']).isRequired,
-};
