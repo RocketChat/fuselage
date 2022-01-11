@@ -5581,6 +5581,7 @@ __metadata:
     concurrently: ^7.0.0
     cross-env: ^7.0.3
     eslint: ^8.2.0
+    http-server: ^14.1.0
     lint-all: ^0.31.1
     lint-staged: ^11.2.6
     normalize.css: ^8.0.1
@@ -5853,6 +5854,7 @@ __metadata:
     concurrently: ^7.0.0
     countries-list: ^2.6.1
     eslint: ^8.2.0
+    http-server: ^14.1.0
     i18next: ^20.3.2
     jest: ^27.3.1
     lint-all: ^0.31.1
@@ -16720,6 +16722,29 @@ fsevents@~2.1.2:
   bin:
     http-server: bin/http-server
   checksum: 2b7d0f86e7779aafca3a19c5f6a2452c54e3d1cb31656f0ea26b45e86ebbaea713634d9d04eb48101bb84dcce5ebad4c0359d43c7f5f51c5846cda257a30b20b
+  languageName: node
+  linkType: hard
+
+"http-server@npm:^14.1.0":
+  version: 14.1.0
+  resolution: "http-server@npm:14.1.0"
+  dependencies:
+    basic-auth: ^2.0.1
+    chalk: ^4.1.2
+    corser: ^2.0.1
+    he: ^1.2.0
+    html-encoding-sniffer: ^3.0.0
+    http-proxy: ^1.18.1
+    mime: ^1.6.0
+    minimist: ^1.2.5
+    opener: ^1.5.1
+    portfinder: ^1.0.28
+    secure-compare: 3.0.1
+    union: ~0.5.0
+    url-join: ^4.0.1
+  bin:
+    http-server: bin/http-server
+  checksum: 9a88fb47aa25aff445183da7d801d849e0dc0ae7decbc7580cded2d32c7d17c88405a88a69e7b10c77320ecdc6f67cb71b4973afe66b5898c95f9b186bad67af
   languageName: node
   linkType: hard
 

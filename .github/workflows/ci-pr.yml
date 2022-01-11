@@ -90,7 +90,11 @@ jobs:
       - name: Snapshot commit
         id: snapshot-commit
         uses: EndBug/add-and-commit@v7
+        # with:
+        #   message: Snapshot updates
+        #   committer_name: Rocket.Chat
+        #   committer_email: support@rocket.chat
         with:
           message: Snapshot updates
-          committer_name: Rocket.Chat
-          committer_email: support@rocket.chat
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
