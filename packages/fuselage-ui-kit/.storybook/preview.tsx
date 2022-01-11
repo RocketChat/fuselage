@@ -1,6 +1,6 @@
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { addParameters } from '@storybook/react';
-import 'loki/configure-react';
+import { withScreenshot } from 'storycap';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 import 'normalize.css/normalize.css';
@@ -21,3 +21,5 @@ addParameters({
     storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
   },
 });
+
+export const decorators = [withScreenshot];

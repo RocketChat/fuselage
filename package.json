@@ -26,9 +26,7 @@
     "docs": "yarn workspaces foreach -v --topological-dev run docs",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
     "update-storybook": "yarn turbo run update-storybook",
-    "loki:test": "yarn turbo run loki:test --cache-dir=\".turbo\"",
-    "loki:test-ci": "yarn turbo run loki:test-ci --cache-dir=\".turbo\"",
-    "storycap:ci": "yarn turbo run storycap:ci --cache-dir=\".turbo\"",
+    "storycap:ci": "yarn turbo run storycap:ci --cache-dir=\".turbo\" --concurrency=1",
     "update-readme": "update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "create-package": "hygen create-package"
@@ -75,13 +73,7 @@
           "storybook-static/**"
         ]
       },
-      "loki:test-ci": {
-        "outputs": []
-      },
       "storycap:ci": {
-        "outputs": []
-      },
-      "storycap:test": {
         "outputs": []
       }
     }

@@ -29,7 +29,6 @@ export default {
   parameters: {
     layout: 'fullscreen',
     actions: { argTypesRegex: '^on.*' },
-    loki: { skip: true },
   },
 } as Meta;
 

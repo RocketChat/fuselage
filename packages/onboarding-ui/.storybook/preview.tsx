@@ -1,13 +1,12 @@
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-import { DecoratorFunction } from '@storybook/addons';
 import { addParameters } from '@storybook/react';
-import 'loki/configure-react';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 import i18next from 'i18next';
 import { ElementType, ReactElement, Suspense } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { useDarkMode } from 'storybook-dark-mode';
+import { withScreenshot } from 'storycap';
 
 import DarkModeProvider from '../src/common/DarkModeProvider';
 
@@ -46,7 +45,7 @@ const getI18n = () => {
   return i18n;
 };
 
-export const decorators: DecoratorFunction<ReactElement>[] = [
+export const decorators = [
   (Story: ElementType): ReactElement => {
     const dark = useDarkMode();
     return (
@@ -59,4 +58,5 @@ export const decorators: DecoratorFunction<ReactElement>[] = [
       </Suspense>
     );
   },
+  withScreenshot,
 ];

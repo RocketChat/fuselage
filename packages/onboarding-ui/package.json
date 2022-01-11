@@ -37,12 +37,8 @@
     "docs": "typedoc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
-    ".:update-storybook:build-storybook": "run-s build-storybook",
-    ".:update-storybook:purge-refs": "rimraf .loki/reference",
-    ".:update-storybook:loki-update": "loki update --targetFilter='.*\\.docker' --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static",
-    "resolve": "resolve-loki"
+    "storycap:ci": "run-s .:storycap:snaps",
+    ".:storycap:snaps": "concurrently -k --success=first 'storycap http://127.0.0.1:8080' 'http-server ./storybook-static > /dev/null'"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -60,19 +56,23 @@
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.34",
     "@types/react-dom": "^17.0.11",
+    "concurrently": "^7.0.0",
     "countries-list": "^2.6.1",
     "eslint": "^8.2.0",
     "jest": "^27.3.1",
     "lint-all": "^0.31.1",
     "lint-staged": "^11.2.6",
-    "loki": "^0.28.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "resolve-loki": "workspace:tools/resolve-loki",
+    "reg-keygen-git-hash-plugin": "^0.11.1",
+    "reg-notify-github-plugin": "^0.11.1",
+    "reg-publish-s3-plugin": "^0.11.0",
+    "reg-suit": "^0.11.1",
     "rimraf": "^3.0.2",
     "storybook-dark-mode": "^1.0.8",
+    "storycap": "^3.1.0",
     "ts-jest": "^27.0.7",
     "typedoc": "^0.22.8",
     "typescript": "^4.3.4"
@@ -92,49 +92,5 @@
     "@rocket.chat/fuselage-polyfills": "*",
     "react": "17.0.2",
     "react-dom": "17.0.2"
-  },
-  "loki": {
-    "configurations": {
-      "desktop.desktop": {
-        "target": "chrome.docker",
-        "width": 1440,
-        "height": 896,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "tablet.desktop": {
-        "target": "chrome.docker",
-        "width": 768,
-        "height": 970,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "mobile.desktop": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
-      },
-      "desktop": {
-        "target": "chrome.app",
-        "width": 1440,
-        "height": 896,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "tablet": {
-        "target": "chrome.app",
-        "width": 768,
-        "height": 970,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "mobile": {
-        "target": "chrome.app",
-        "preset": "iPhone 7"
-      }
-    }
   }
 }
