@@ -3,15 +3,17 @@ import React, {
   createContext,
   useContext,
   ReactElement,
+  ElementType,
 } from 'react';
 
 import { Box } from '../Box';
 
 const LabelContext = createContext(false);
 
-type LabelProps = ComponentProps<typeof Box> & {
+type LabelProps = Omit<ComponentProps<typeof Box>, 'is'> & {
   disabled?: boolean;
   required?: boolean;
+  is?: (ElementType<any> & string) | undefined;
 };
 
 export function Label({
