@@ -5,6 +5,7 @@ import {
   ElementType,
   ForwardRefExoticComponent,
   PropsWithChildren,
+  ReactElement,
   RefAttributes,
   SVGAttributes,
 } from 'react';
@@ -29,7 +30,9 @@ type FontScale =
   | 'micro';
 
 type BoxProps = PropsWithChildren<{
-  is?: ElementType;
+  is?:
+    | ReactElement<any, string | JSXElementConstructor<any>>
+    | (ElementType<any> & string);
   className?:
     | string
     | ReturnType<typeof css>
