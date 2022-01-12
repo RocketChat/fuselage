@@ -1,7 +1,20 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ComponentProps } from 'react';
 
+import { Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
+
+type TagProps = ComponentProps<typeof Box> & {
+  small?: boolean;
+  variant?:
+    | 'secondary'
+    | 'primary'
+    | 'danger'
+    | 'warning'
+    | 'ghost'
+    | 'default';
+  medium?: boolean;
+  disabled?: boolean;
+};
 
 export function Tag({
   is: TagName = 'span',
@@ -12,7 +25,7 @@ export function Tag({
   onClick,
   variant = 'default',
   ...props
-}) {
+}: TagProps) {
   const modifiers = [
     variant,
     small && 'small',
@@ -26,23 +39,8 @@ export function Tag({
 
   return (
     <TagName
-      className={prependClassName(className, `rcx-tag ${modifiers}`)}
+      className={prependClassName(className as string, `rcx-tag ${modifiers}`)}
       {...props}
     />
   );
 }
-
-Tag.propTypes = {
-  small: PropTypes.bool,
-  medium: PropTypes.bool,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  variant: PropTypes.oneOf([
-    'secondary',
-    'primary',
-    'danger',
-    'warning',
-    'ghost',
-    'default',
-  ]),
-};
