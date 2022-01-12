@@ -1,10 +1,13 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 
 import { ToggleSwitch } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
-<Meta title='Buttons/ToggleSwitch' parameters={{ jest: ['ToggleSwitch/spec'] }} />
+<Meta
+  title='Buttons/ToggleSwitch'
+  parameters={{ jest: ['ToggleSwitch/spec'] }}
+/>
 
 # ToggleSwitch
 
@@ -43,7 +46,7 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
       unchecked: { checked: false },
     }}
     yAxis={{
-      default: { },
+      default: {},
       hover: { className: 'is-hovered' },
       active: { className: 'is-active' },
       focus: { className: 'is-focused' },

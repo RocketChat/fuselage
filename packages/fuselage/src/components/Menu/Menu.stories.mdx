@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 
 import { Box, Menu } from '..';
 import { menuOptions } from '../../../.storybook/helpers.js';
@@ -11,7 +11,7 @@ Kebab Menu
 
 <Canvas>
   <Story name='Default'>
-    <Box style={{ position: 'relative', maxWidth: 250 }} >
+    <Box style={{ position: 'relative', maxWidth: 250 }}>
       <Menu options={menuOptions} />
     </Box>
   </Story>

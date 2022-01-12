@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 
 import { Grid, Tile } from '../..';
 
@@ -33,7 +33,7 @@ import { Grid, Tile } from '../..';
 ## Breakpoints
 
 |                   | extra-small | small | medium | large  | extra-large |
-|-------------------|-------------|-------|--------|--------|-------------|
+| ----------------- | ----------- | ----- | ------ | ------ | ----------- |
 | Alias             | xs          | sm    | md     | lg     | xl          |
 | Minimum width     | 320px       | 600px | 768px  | 1024px | 1440px      |
 | Columns           | 4           | 8     | 8      | 12     | 12          |
@@ -43,17 +43,20 @@ import { Grid, Tile } from '../..';
 
 <Story name='xs breakpoint'>
   <Grid>
-    {Array.from({ length: 4 }).map((_, i) => i + 1).map((columns) =>
-      <React.Fragment key={columns}>
-        <Grid.Item xs={columns}>
-          <Tile>xs={columns}</Tile>
-        </Grid.Item>
-        {(4 - columns > 0)
-        && <Grid.Item xs={4 - columns}>
-          <Tile>xs={4 - columns}</Tile>
-        </Grid.Item>}
-      </React.Fragment>,
-    )}
+    {Array.from({ length: 4 })
+      .map((_, i) => i + 1)
+      .map((columns) => (
+        <React.Fragment key={columns}>
+          <Grid.Item xs={columns}>
+            <Tile>xs={columns}</Tile>
+          </Grid.Item>
+          {4 - columns > 0 && (
+            <Grid.Item xs={4 - columns}>
+              <Tile>xs={4 - columns}</Tile>
+            </Grid.Item>
+          )}
+        </React.Fragment>
+      ))}
   </Grid>
 </Story>
 
@@ -61,17 +64,20 @@ import { Grid, Tile } from '../..';
 
 <Story name='sm breakpoint'>
   <Grid>
-    {Array.from({ length: 8 }).map((_, i) => i + 1).map((columns) =>
-      <React.Fragment key={columns}>
-        <Grid.Item sm={columns}>
-          <Tile>sm={columns}</Tile>
-        </Grid.Item>
-        {(8 - columns > 0)
-        && <Grid.Item sm={8 - columns}>
-          <Tile>sm={8 - columns}</Tile>
-        </Grid.Item>}
-      </React.Fragment>,
-    )}
+    {Array.from({ length: 8 })
+      .map((_, i) => i + 1)
+      .map((columns) => (
+        <React.Fragment key={columns}>
+          <Grid.Item sm={columns}>
+            <Tile>sm={columns}</Tile>
+          </Grid.Item>
+          {8 - columns > 0 && (
+            <Grid.Item sm={8 - columns}>
+              <Tile>sm={8 - columns}</Tile>
+            </Grid.Item>
+          )}
+        </React.Fragment>
+      ))}
   </Grid>
 </Story>
 
@@ -79,17 +85,20 @@ import { Grid, Tile } from '../..';
 
 <Story name='md breakpoint'>
   <Grid>
-    {Array.from({ length: 8 }).map((_, i) => i + 1).map((columns) =>
-      <React.Fragment key={columns}>
-        <Grid.Item md={columns}>
-          <Tile>md={columns}</Tile>
-        </Grid.Item>
-        {(8 - columns > 0)
-        && <Grid.Item md={8 - columns}>
-          <Tile>md={8 - columns}</Tile>
-        </Grid.Item>}
-      </React.Fragment>,
-    )}
+    {Array.from({ length: 8 })
+      .map((_, i) => i + 1)
+      .map((columns) => (
+        <React.Fragment key={columns}>
+          <Grid.Item md={columns}>
+            <Tile>md={columns}</Tile>
+          </Grid.Item>
+          {8 - columns > 0 && (
+            <Grid.Item md={8 - columns}>
+              <Tile>md={8 - columns}</Tile>
+            </Grid.Item>
+          )}
+        </React.Fragment>
+      ))}
   </Grid>
 </Story>
 
@@ -97,17 +106,20 @@ import { Grid, Tile } from '../..';
 
 <Story name='lg breakpoint'>
   <Grid>
-    {Array.from({ length: 12 }).map((_, i) => i + 1).map((columns) =>
-      <React.Fragment key={columns}>
-        <Grid.Item lg={columns}>
-          <Tile>lg={columns}</Tile>
-        </Grid.Item>
-        {(12 - columns > 0)
-        && <Grid.Item lg={12 - columns}>
-          <Tile>lg={12 - columns}</Tile>
-        </Grid.Item>}
-      </React.Fragment>,
-    )}
+    {Array.from({ length: 12 })
+      .map((_, i) => i + 1)
+      .map((columns) => (
+        <React.Fragment key={columns}>
+          <Grid.Item lg={columns}>
+            <Tile>lg={columns}</Tile>
+          </Grid.Item>
+          {12 - columns > 0 && (
+            <Grid.Item lg={12 - columns}>
+              <Tile>lg={12 - columns}</Tile>
+            </Grid.Item>
+          )}
+        </React.Fragment>
+      ))}
   </Grid>
 </Story>
 
@@ -115,16 +127,19 @@ import { Grid, Tile } from '../..';
 
 <Story name='xl breakpoint'>
   <Grid>
-    {Array.from({ length: 12 }).map((_, i) => i + 1).map((columns) =>
-      <React.Fragment key={columns}>
-        <Grid.Item xl={columns}>
-          <Tile>xl={columns}</Tile>
-        </Grid.Item>
-        {(12 - columns > 0)
-        && <Grid.Item xl={12 - columns}>
-          <Tile>xl={12 - columns}</Tile>
-        </Grid.Item>}
-      </React.Fragment>,
-    )}
+    {Array.from({ length: 12 })
+      .map((_, i) => i + 1)
+      .map((columns) => (
+        <React.Fragment key={columns}>
+          <Grid.Item xl={columns}>
+            <Tile>xl={columns}</Tile>
+          </Grid.Item>
+          {12 - columns > 0 && (
+            <Grid.Item xl={12 - columns}>
+              <Tile>xl={12 - columns}</Tile>
+            </Grid.Item>
+          )}
+        </React.Fragment>
+      ))}
   </Grid>
 </Story>

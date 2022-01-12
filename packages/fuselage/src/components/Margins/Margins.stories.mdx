@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 
 import { Box, Button, ButtonGroup, Margins, Tile } from '../..';
 
@@ -11,20 +11,12 @@ Add margins to the wrapped component.
 <Canvas>
   <Story name='Example'>
     <ButtonGroup>
-      <Button>
-        Without margins
-      </Button>
+      <Button>Without margins</Button>
       <Margins all='x32'>
-        <Button>
-          With margins
-        </Button>
+        <Button>With margins</Button>
       </Margins>
-      <Button>
-        Without margins
-      </Button>
-      <Button>
-        Without margins
-      </Button>
+      <Button>Without margins</Button>
+      <Button>Without margins</Button>
     </ButtonGroup>
   </Story>
 </Canvas>
@@ -34,13 +26,16 @@ Add margins to the wrapped component.
 ### `all` prop
 
 <Canvas>
-  <Story name='`all` prop' decorators={[
-    (fn) => <Box display='flex' alignItems='center'>
-      <Margins all='x8'>
-        {fn()}
-      </Margins>
-    </Box>,
-  ]}>
+  <Story
+    name='`all` prop'
+    decorators={[
+      (fn) => (
+        <Box display='flex' alignItems='center'>
+          <Margins all='x8'>{fn()}</Margins>
+        </Box>
+      ),
+    ]}
+  >
     <>
       <Tile display='flex' padding='none'>
         <Margins all='x4'>
@@ -79,13 +74,16 @@ Add margins to the wrapped component.
 ### `block` prop
 
 <Canvas>
-  <Story name='`block` prop' decorators={[
-    (fn) => <Box display='flex' alignItems='center'>
-      <Margins all='x8'>
-        {fn()}
-      </Margins>
-    </Box>,
-  ]}>
+  <Story
+    name='`block` prop'
+    decorators={[
+      (fn) => (
+        <Box display='flex' alignItems='center'>
+          <Margins all='x8'>{fn()}</Margins>
+        </Box>
+      ),
+    ]}
+  >
     <>
       <Tile display='flex' padding='none'>
         <Margins block='x4'>
@@ -124,13 +122,16 @@ Add margins to the wrapped component.
 ### `blockStart` prop
 
 <Canvas>
-  <Story name='`blockStart` prop' decorators={[
-    (fn) => <Box display='flex' alignItems='center'>
-      <Margins all='x8'>
-        {fn()}
-      </Margins>
-    </Box>,
-  ]}>
+  <Story
+    name='`blockStart` prop'
+    decorators={[
+      (fn) => (
+        <Box display='flex' alignItems='center'>
+          <Margins all='x8'>{fn()}</Margins>
+        </Box>
+      ),
+    ]}
+  >
     <>
       <Tile display='flex' padding='none'>
         <Margins blockStart='x4'>
@@ -169,13 +170,16 @@ Add margins to the wrapped component.
 ### `blockEnd` prop
 
 <Canvas>
-  <Story name='`blockEnd` prop' decorators={[
-    (fn) => <Box display='flex' alignItems='center'>
-      <Margins all='x8'>
-        {fn()}
-      </Margins>
-    </Box>,
-  ]}>
+  <Story
+    name='`blockEnd` prop'
+    decorators={[
+      (fn) => (
+        <Box display='flex' alignItems='center'>
+          <Margins all='x8'>{fn()}</Margins>
+        </Box>
+      ),
+    ]}
+  >
     <>
       <Tile display='flex' padding='none'>
         <Margins blockEnd='x4'>
@@ -214,13 +218,16 @@ Add margins to the wrapped component.
 ### `inline` prop
 
 <Canvas>
-  <Story name='`inline` prop' decorators={[
-    (fn) => <Box display='flex' alignItems='center'>
-      <Margins all='x8'>
-        {fn()}
-      </Margins>
-    </Box>,
-  ]}>
+  <Story
+    name='`inline` prop'
+    decorators={[
+      (fn) => (
+        <Box display='flex' alignItems='center'>
+          <Margins all='x8'>{fn()}</Margins>
+        </Box>
+      ),
+    ]}
+  >
     <>
       <Tile display='flex' padding='none'>
         <Margins inline='x4'>
@@ -259,13 +266,16 @@ Add margins to the wrapped component.
 ### `inlineStart` prop
 
 <Canvas>
-  <Story name='`inlineStart` prop' decorators={[
-    (fn) => <Box display='flex' alignItems='center'>
-      <Margins all='x8'>
-        {fn()}
-      </Margins>
-    </Box>,
-  ]}>
+  <Story
+    name='`inlineStart` prop'
+    decorators={[
+      (fn) => (
+        <Box display='flex' alignItems='center'>
+          <Margins all='x8'>{fn()}</Margins>
+        </Box>
+      ),
+    ]}
+  >
     <>
       <Tile display='flex' padding='none'>
         <Margins inlineStart='x4'>
@@ -304,13 +314,16 @@ Add margins to the wrapped component.
 ### `inlineEnd` prop
 
 <Canvas>
-  <Story name='`inlineEnd` prop' decorators={[
-    (fn) => <Box display='flex' alignItems='center'>
-      <Margins all='x8'>
-        {fn()}
-      </Margins>
-    </Box>,
-  ]}>
+  <Story
+    name='`inlineEnd` prop'
+    decorators={[
+      (fn) => (
+        <Box display='flex' alignItems='center'>
+          <Margins all='x8'>{fn()}</Margins>
+        </Box>
+      ),
+    ]}
+  >
     <>
       <Tile display='flex' padding='none'>
         <Margins inlineEnd='x4'>
@@ -349,13 +362,16 @@ Add margins to the wrapped component.
 ### With negative values
 
 <Canvas>
-  <Story name='With negative values' decorators={[
-    (fn) => <Box display='flex' flexDirection='column' alignItems='center'>
-      <Margins all='x20'>
-        {fn()}
-      </Margins>
-    </Box>,
-  ]}>
+  <Story
+    name='With negative values'
+    decorators={[
+      (fn) => (
+        <Box display='flex' flexDirection='column' alignItems='center'>
+          <Margins all='x20'>{fn()}</Margins>
+        </Box>
+      ),
+    ]}
+  >
     <>
       <Tile>
         <Margins inline='-x40'>

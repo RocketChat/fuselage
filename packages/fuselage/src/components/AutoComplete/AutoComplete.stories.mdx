@@ -1,9 +1,10 @@
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 import { useEffect, useState } from 'react';
 
 import { AutoComplete } from '../..';
 
-export const thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
+export const thumb =
+  'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 export const options = [
   [1, 'a teste 1'],
   [2, 'b teste 2'],
@@ -11,8 +12,10 @@ export const options = [
   [4, 'd teste 4'],
 ];
 
-
-<Meta title='Forms/Inputs/AutoComplete' parameters={{ jest: ['AutoComplete/spec'] }} />
+<Meta
+  title='Forms/Inputs/AutoComplete'
+  parameters={{ jest: ['AutoComplete/spec'] }}
+/>
 
 # AutoComplete
 
@@ -30,7 +33,11 @@ An input for selection of options.
           setOptions(result);
         })();
       }, [filter]);
-      return <AutoComplete { ...{ value, filter, setFilter, options, onChange: setValue } }/>;
+      return (
+        <AutoComplete
+          {...{ value, filter, setFilter, options, onChange: setValue }}
+        />
+      );
     })}
   </Story>
 </Canvas>

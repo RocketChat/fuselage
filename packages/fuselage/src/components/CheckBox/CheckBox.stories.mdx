@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 
 import { CheckBox } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -52,7 +52,7 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
       indeterminate: { indeterminate: true },
     }}
     yAxis={{
-      default: { },
+      default: {},
       hover: { className: 'is-hovered' },
       active: { className: 'is-active' },
       focus: { className: 'is-focused' },

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 
 import { Tag, Box, Icon } from '../..';
 
@@ -32,7 +32,9 @@ Used for mentions.
 
 <Canvas>
   <Story name='Secondary'>
-    <Box display='inline-flex'><Tag variant='secondary'>john.doe</Tag></Box>
+    <Box display='inline-flex'>
+      <Tag variant='secondary'>john.doe</Tag>
+    </Box>
   </Story>
 </Canvas>
 
@@ -40,7 +42,12 @@ Used for mentions.
 
 <Canvas>
   <Story name='With Icon'>
-    <Box display='inline-flex'><Tag variant='secondary'><Icon size='x12' mie='x4' name='team-lock'/>john.doe</Tag></Box>
+    <Box display='inline-flex'>
+      <Tag variant='secondary'>
+        <Icon size='x12' mie='x4' name='team-lock' />
+        john.doe
+      </Tag>
+    </Box>
   </Story>
 </Canvas>
 

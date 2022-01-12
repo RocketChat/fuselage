@@ -1,8 +1,8 @@
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 
 import { Table, CheckBox } from '../..';
 
-<Meta title='Data Display/Table' parameters={{ jest: ['Table/spec'] }}/>
+<Meta title='Data Display/Table' parameters={{ jest: ['Table/spec'] }} />
 
 # Table
 
@@ -20,15 +20,19 @@ import { Table, CheckBox } from '../..';
           </Table.Row>
         </Table.Head>
         <Table.Body>
-          <Table.Row hasAction>
-            <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Row action>
+            <Table.Cell is='th' scope='row'>
+              Frozen yoghurt
+            </Table.Cell>
             <Table.Cell align='end'>159</Table.Cell>
             <Table.Cell align='end'>6</Table.Cell>
             <Table.Cell align='end'>24</Table.Cell>
             <Table.Cell align='end'>4</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell is='th' scope='row'>Ice cream sandwich</Table.Cell>
+            <Table.Cell is='th' scope='row'>
+              Ice cream sandwich
+            </Table.Cell>
             <Table.Cell align='end'>237</Table.Cell>
             <Table.Cell align='end'>9</Table.Cell>
             <Table.Cell align='end'>37</Table.Cell>
@@ -55,7 +59,9 @@ import { Table, CheckBox } from '../..';
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Cell><CheckBox checked={false}/></Table.Cell>
+            <Table.Cell>
+              <CheckBox checked={false} />
+            </Table.Cell>
             <Table.Cell>Dessert (100g serving)</Table.Cell>
             <Table.Cell align='end'>Calories</Table.Cell>
             <Table.Cell align='end'>Fat&nbsp;(g)</Table.Cell>
@@ -65,40 +71,60 @@ import { Table, CheckBox } from '../..';
         </Table.Head>
         <Table.Body>
           <Table.Row selected>
-            <Table.Cell><CheckBox checked/></Table.Cell>
-            <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+            <Table.Cell>
+              <CheckBox checked />
+            </Table.Cell>
+            <Table.Cell is='th' scope='row'>
+              Frozen yoghurt
+            </Table.Cell>
             <Table.Cell align='end'>159</Table.Cell>
             <Table.Cell align='end'>6</Table.Cell>
             <Table.Cell align='end'>24</Table.Cell>
             <Table.Cell align='end'>4</Table.Cell>
           </Table.Row>
           <Table.Row selected>
-            <Table.Cell><CheckBox checked/></Table.Cell>
-            <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+            <Table.Cell>
+              <CheckBox checked />
+            </Table.Cell>
+            <Table.Cell is='th' scope='row'>
+              Frozen yoghurt
+            </Table.Cell>
             <Table.Cell align='end'>159</Table.Cell>
             <Table.Cell align='end'>6</Table.Cell>
             <Table.Cell align='end'>24</Table.Cell>
             <Table.Cell align='end'>4</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell><CheckBox checked={false}/></Table.Cell>
-            <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+            <Table.Cell>
+              <CheckBox checked={false} />
+            </Table.Cell>
+            <Table.Cell is='th' scope='row'>
+              Frozen yoghurt
+            </Table.Cell>
             <Table.Cell align='end'>159</Table.Cell>
             <Table.Cell align='end'>6</Table.Cell>
             <Table.Cell align='end'>24</Table.Cell>
             <Table.Cell align='end'>4</Table.Cell>
           </Table.Row>
           <Table.Row selected>
-            <Table.Cell><CheckBox checked/></Table.Cell>
-            <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+            <Table.Cell>
+              <CheckBox checked />
+            </Table.Cell>
+            <Table.Cell is='th' scope='row'>
+              Frozen yoghurt
+            </Table.Cell>
             <Table.Cell align='end'>159</Table.Cell>
             <Table.Cell align='end'>6</Table.Cell>
             <Table.Cell align='end'>24</Table.Cell>
             <Table.Cell align='end'>4</Table.Cell>
           </Table.Row>
           <Table.Row selected>
-            <Table.Cell><CheckBox checked/></Table.Cell>
-            <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+            <Table.Cell>
+              <CheckBox checked />
+            </Table.Cell>
+            <Table.Cell is='th' scope='row'>
+              Frozen yoghurt
+            </Table.Cell>
             <Table.Cell align='end'>159</Table.Cell>
             <Table.Cell align='end'>6</Table.Cell>
             <Table.Cell align='end'>24</Table.Cell>
@@ -109,7 +135,6 @@ import { Table, CheckBox } from '../..';
     </>
   </Story>
 </Canvas>
-
 
 ### Striped
 
@@ -127,35 +152,45 @@ import { Table, CheckBox } from '../..';
       </Table.Head>
       <Table.Body>
         <Table.Row>
-          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell is='th' scope='row'>
+            Frozen yoghurt
+          </Table.Cell>
           <Table.Cell align='end'>159</Table.Cell>
           <Table.Cell align='end'>6</Table.Cell>
           <Table.Cell align='end'>24</Table.Cell>
           <Table.Cell align='end'>4</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell is='th' scope='row'>
+            Frozen yoghurt
+          </Table.Cell>
           <Table.Cell align='end'>159</Table.Cell>
           <Table.Cell align='end'>6</Table.Cell>
           <Table.Cell align='end'>24</Table.Cell>
           <Table.Cell align='end'>4</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell is='th' scope='row'>
+            Frozen yoghurt
+          </Table.Cell>
           <Table.Cell align='end'>159</Table.Cell>
           <Table.Cell align='end'>6</Table.Cell>
           <Table.Cell align='end'>24</Table.Cell>
           <Table.Cell align='end'>4</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell is='th' scope='row'>
+            Frozen yoghurt
+          </Table.Cell>
           <Table.Cell align='end'>159</Table.Cell>
           <Table.Cell align='end'>6</Table.Cell>
           <Table.Cell align='end'>24</Table.Cell>
           <Table.Cell align='end'>4</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell is='th' scope='row'>Ice cream sandwich</Table.Cell>
+          <Table.Cell is='th' scope='row'>
+            Ice cream sandwich
+          </Table.Cell>
           <Table.Cell align='end'>237</Table.Cell>
           <Table.Cell align='end'>9</Table.Cell>
           <Table.Cell align='end'>37</Table.Cell>
@@ -165,7 +200,6 @@ import { Table, CheckBox } from '../..';
     </Table>
   </Story>
 </Canvas>
-
 
 ### Fixed
 
@@ -183,14 +217,18 @@ import { Table, CheckBox } from '../..';
       </Table.Head>
       <Table.Body>
         <Table.Row>
-          <Table.Cell is='th' scope='row'>Frozen yoghurt</Table.Cell>
+          <Table.Cell is='th' scope='row'>
+            Frozen yoghurt
+          </Table.Cell>
           <Table.Cell align='end'>159</Table.Cell>
           <Table.Cell align='end'>6</Table.Cell>
           <Table.Cell align='end'>24</Table.Cell>
           <Table.Cell align='end'>4</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell is='th' scope='row'>Ice cream sandwich</Table.Cell>
+          <Table.Cell is='th' scope='row'>
+            Ice cream sandwich
+          </Table.Cell>
           <Table.Cell align='end'>237</Table.Cell>
           <Table.Cell align='end'>9</Table.Cell>
           <Table.Cell align='end'>37</Table.Cell>

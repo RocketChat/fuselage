@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 
 import { Box, Chip, Margins } from '../..';
 import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
@@ -10,7 +10,9 @@ import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
 
 <Canvas>
   <Story name='Example'>
-    <Chip thumbUrl={exampleAvatar} onClick={action('click')}>Marie Rowe</Chip>
+    <Chip thumbUrl={exampleAvatar} onClick={action('click')}>
+      Marie Rowe
+    </Chip>
   </Story>
 </Canvas>
 
@@ -35,16 +37,21 @@ import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
 ### With thumb
 
 <Canvas>
-  <Story name='With thumb' decorators={[
-    (storyFn) => <Box display='flex' margin='-x4'>
-      <Margins all='x4'>
-        {storyFn()}
-      </Margins>
-    </Box>,
-  ]}>
+  <Story
+    name='With thumb'
+    decorators={[
+      (storyFn) => (
+        <Box display='flex' margin='-x4'>
+          <Margins all='x4'>{storyFn()}</Margins>
+        </Box>
+      ),
+    ]}
+  >
     <>
       <Chip thumbUrl={blankAvatar}>Chip</Chip>
-      <Chip thumbUrl={blankAvatar} onClick={action('click')}>Chip</Chip>
+      <Chip thumbUrl={blankAvatar} onClick={action('click')}>
+        Chip
+      </Chip>
     </>
   </Story>
 </Canvas>

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs';
 
 import { Throbber, Button, Box } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -12,7 +12,7 @@ Indicates content that has not loaded yet.
 
 <Canvas>
   <Story name='Default'>
-    <Throbber/>
+    <Throbber />
   </Story>
 </Canvas>
 
@@ -22,7 +22,7 @@ Indicates content that has not loaded yet.
 
 <Canvas>
   <Story name='Disabled'>
-    <Throbber disabled/>
+    <Throbber disabled />
   </Story>
 </Canvas>
 
@@ -31,7 +31,7 @@ Indicates content that has not loaded yet.
 <Canvas>
   <Story name='Inside Button'>
     <Button minHeight='x40'>
-      <Throbber size='x12'/>
+      <Throbber size='x12' />
     </Button>
   </Story>
 </Canvas>
@@ -42,15 +42,14 @@ Indicates content that has not loaded yet.
   <Story name='Inside Button, inherit color'>
     <Box>
       <Button primary danger minHeight='x40' marginInlineEnd='5px'>
-        <Throbber size='x12' inheritColor/>
+        <Throbber size='x12' inheritColor />
       </Button>
       <Button primary minHeight='x40'>
-        <Throbber size='x12' inheritColor/>
+        <Throbber size='x12' inheritColor />
       </Button>
     </Box>
   </Story>
 </Canvas>
-
 
 ### Variations
 
@@ -59,7 +58,7 @@ Indicates content that has not loaded yet.
     component={Throbber}
     common={{ onClick: action('click') }}
     yAxis={{
-      default: {},
+      'default': {},
       '3 circles + x40': { circleCount: 3, size: 'x40' },
       '5 circles + x32': { circleCount: 5, size: 'x32' },
       '7 circles + x24': { circleCount: 7, size: 'x24' },

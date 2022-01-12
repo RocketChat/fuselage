@@ -1,5 +1,5 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { withTests } from '@storybook/addon-jest';
 import { addDecorator, addParameters } from '@storybook/react';
 import 'loki/configure-react';
