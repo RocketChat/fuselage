@@ -1,22 +1,22 @@
 import React, { ComponentProps, ForwardRefExoticComponent } from 'react';
 
 import { Box } from '../Box';
-import { ModalBackdropProps } from './ModalBackdrop';
-import { ModalCloseProps } from './ModalClose';
-import { ModalContentProps } from './ModalContent';
-import { ModalFooterProps } from './ModalFooter';
-import { ModalHeaderProps } from './ModalHeader';
-import { ModalThumbProps } from './ModalThumb';
-import { ModalTitleProps } from './ModalTitle';
+import { ModalBackdrop } from './ModalBackdrop';
+import { ModalClose } from './ModalClose';
+import { ModalContent } from './ModalContent';
+import { ModalFooter } from './ModalFooter';
+import { ModalHeader } from './ModalHeader';
+import { ModalThumb } from './ModalThumb';
+import { ModalTitle } from './ModalTitle';
 
 type ModalProps = ComponentProps<typeof Box> & {
-  Backdrop: ForwardRefExoticComponent<ModalBackdropProps>;
-  Close: ForwardRefExoticComponent<ModalCloseProps>;
-  Content: ForwardRefExoticComponent<ModalContentProps>;
-  Footer: ForwardRefExoticComponent<ModalFooterProps>;
-  Header: ForwardRefExoticComponent<ModalHeaderProps>;
-  Thumb: ForwardRefExoticComponent<ModalThumbProps>;
-  Title: ForwardRefExoticComponent<ModalTitleProps>;
+  Backdrop: typeof ModalBackdrop;
+  Close: typeof ModalClose;
+  Content: typeof ModalContent;
+  Footer: typeof ModalFooter;
+  Header: typeof ModalHeader;
+  Thumb: typeof ModalThumb;
+  Title: typeof ModalTitle;
 };
 
 export const Modal: ForwardRefExoticComponent<ModalProps> = React.forwardRef(
