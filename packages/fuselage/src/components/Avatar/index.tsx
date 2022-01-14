@@ -1,9 +1,4 @@
-import React, {
-  ComponentProps,
-  Context,
-  ForwardRefExoticComponent,
-  ReactElement,
-} from 'react';
+import React, { ComponentProps, ReactElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box } from '..';
@@ -40,11 +35,7 @@ export function Avatar({
   objectFit = false,
   url,
   ...props
-}: AvatarProps): ForwardRefExoticComponent<AvatarProps> & {
-  Context: Context<{
-    baseUrl: string;
-  }>;
-} {
+}: AvatarProps) {
   props.className = prependClassName(
     props.className,
     ['rcx-box rcx-box--full rcx-avatar', size && `rcx-avatar--${size}`]
