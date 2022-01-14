@@ -1,5 +1,6 @@
 import { useRef, useEffect, RefObject } from 'react';
 
+import { extractSizeFromObserver } from './extractSizeFromObserver';
 import { useDebouncedState } from './useDebouncedState';
 
 /**
@@ -43,35 +44,9 @@ export const useResizeObserver = <T extends Element>({
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
-      const { contentBoxSize, borderBoxSize }: any = entry;
-
-      if (contentBoxSize && borderBoxSize) {
-        setSizes({
-          contentBoxSize: Array.isArray(contentBoxSize)
-            ? contentBoxSize[0]
-            : contentBoxSize,
-          borderBoxSize: Array.isArray(borderBoxSize)
-            ? borderBoxSize[0]
-            : borderBoxSize,
-        });
-        return;
-      }
-
-      const { target, contentRect } = entry;
-      const { width: contentBoxInlineSize, height: contentBoxBlockSize } =
-        contentRect;
-      const { width: borderBoxInlineSize, height: borderBoxBlockSize } =
-        target.getBoundingClientRect();
-
       setSizes({
-        contentBoxSize: {
-          inlineSize: contentBoxInlineSize,
-          blockSize: contentBoxBlockSize,
-        },
-        borderBoxSize: {
-          inlineSize: borderBoxInlineSize,
-          blockSize: borderBoxBlockSize,
-        },
+        contentBoxSize: extractSizeFromObserver(entry, 'contentBoxSize'),
+        borderBoxSize: extractSizeFromObserver(entry, 'borderBoxSize'),
       });
     });
 
