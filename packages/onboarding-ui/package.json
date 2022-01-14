@@ -138,17 +138,20 @@
     }
   },
   "exports": {
-    ".": [
-      "./index.js",
-      "./index.d.ts"
-    ],
-    "./cloud": [
-      "./cloud/index.js",
-      "./cloud/index.d.ts"
-    ],
-    "./chat": [
-      "./chat/index.js",
-      "./chat/index.d.ts"
-    ]
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./cloud": {
+      "types": "./dist/esm/cloud/index.d.ts",
+      "import": "./dist/esm/cloud/index.js",
+      "require": "./dist/cjs/cloud/index.js"
+    },
+    "./chat": {
+      "types": "./dist/esm/chat/index.d.ts",
+      "import": "./dist/esm/chat/index.js",
+      "require": "./dist/cjs/chat/index.js"
+    }
   }
 }
