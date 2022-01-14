@@ -3,7 +3,7 @@ import React, { ComponentProps, FC } from 'react';
 import { Box } from '../Box';
 import Margins from '../Margins';
 
-type ModalHeaderProps = ComponentProps<typeof Box>;
+export type ModalHeaderProps = ComponentProps<typeof Box>;
 
 export const ModalHeader: FC<ModalHeaderProps> = ({
   children,

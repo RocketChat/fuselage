@@ -2,7 +2,7 @@ import React, { ComponentProps, FC } from 'react';
 
 import { Box } from '../Box';
 
-type ModalFooterProps = ComponentProps<typeof Box>;
+export type ModalFooterProps = ComponentProps<typeof Box>;
 
 export const ModalFooter: FC<ModalFooterProps> = ({
   children,

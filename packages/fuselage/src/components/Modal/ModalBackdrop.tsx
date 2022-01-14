@@ -2,7 +2,7 @@ import React, { ComponentProps, FC } from 'react';
 
 import { Box } from '../Box';
 
-type ModalBackdropProps = ComponentProps<typeof Box>;
+export type ModalBackdropProps = ComponentProps<typeof Box>;
 
 export const ModalBackdrop: FC<ModalBackdropProps> = (
   props: ModalBackdropProps

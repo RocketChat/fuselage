@@ -2,7 +2,7 @@ import React, { ComponentProps, FC } from 'react';
 
 import { Box } from '../Box';
 
-type ModalTitleProps = ComponentProps<typeof Box>;
+export type ModalTitleProps = ComponentProps<typeof Box>;
 
 export const ModalTitle: FC<ModalTitleProps> = ({
   children,
