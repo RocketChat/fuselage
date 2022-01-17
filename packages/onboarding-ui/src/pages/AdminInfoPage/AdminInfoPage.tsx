@@ -30,7 +30,7 @@ const AdminInfoPage = ({
   description,
   ...props
 }: AdminInfoPageProps): ReactElement => (
-  <BackgroundLayer>
+  <BackgroundLayer context='app'>
     <FormPageLayout
       title={title}
       styleProps={pageLayoutStyleProps}

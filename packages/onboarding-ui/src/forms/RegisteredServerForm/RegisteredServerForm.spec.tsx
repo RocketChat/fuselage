@@ -1,16 +1,17 @@
 import ReactDOM from 'react-dom';
 
-import CloudAccountEmailForm from './CloudAccountEmailForm';
+import RegisteredServerForm from './RegisteredServerForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <CloudAccountEmailForm
+    <RegisteredServerForm
       currentStep={1}
       stepCount={1}
       validateEmail={() => true}
-      onSubmit={() => undefined}
       onBackButtonClick={() => undefined}
+      onClickContinue={() => undefined}
+      onSubmit={() => undefined}
     />,
     div
   );

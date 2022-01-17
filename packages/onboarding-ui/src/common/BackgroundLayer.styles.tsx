@@ -4,11 +4,13 @@ const filterWrapperProps = ({
   backgroundColor,
   color,
   backgroundImage,
+  context,
   ...props
 }: {
   backgroundColor: string;
   color: string;
   backgroundImage: string;
+  context?: string;
 }) => props;
 
 export const Wrapper = styled('div', filterWrapperProps)`
@@ -26,4 +28,14 @@ export const Wrapper = styled('div', filterWrapperProps)`
   -moz-background-size: cover;
   -o-background-size: cover;
   color: ${(p) => p.color};
+  ${(p) =>
+    p.context === 'app'
+      ? `
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+  `
+      : ''}
 `;

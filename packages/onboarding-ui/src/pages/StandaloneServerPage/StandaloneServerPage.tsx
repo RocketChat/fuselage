@@ -6,14 +6,14 @@ import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import { Title, TitleHighlight } from '../../common/FormPageLayout.styles';
 import type { FormPageLayoutStyleProps } from '../../common/Types';
-import RegisterServerForm from '../../forms/RegisterServerForm';
-import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
+import StandaloneServerForm from '../../forms/StandaloneServerForm';
+import type { StandaloneServerPayload } from '../../forms/StandaloneServerForm/StandaloneServerForm';
 
-type RegisterServerPageProps = {
+type RegisteredServerPageProps = {
   currentStep: number;
   stepCount: number;
-  initialValues?: Partial<RegisterServerPayload>;
-  onSubmit: SubmitHandler<RegisterServerPayload>;
+  initialValues?: Partial<StandaloneServerPayload>;
+  onSubmit: SubmitHandler<StandaloneServerPayload>;
   onBackButtonClick: () => void;
 };
 
@@ -21,7 +21,9 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
 };
 
-const RegisterServerPage = (props: RegisterServerPageProps): ReactElement => (
+const StandaloneServerPage = (
+  props: RegisteredServerPageProps
+): ReactElement => (
   <BackgroundLayer>
     <FormPageLayout
       title={
@@ -35,9 +37,9 @@ const RegisterServerPage = (props: RegisterServerPageProps): ReactElement => (
       }
       styleProps={pageLayoutStyleProps}
     >
-      <RegisterServerForm {...props} />
+      <StandaloneServerForm {...props} />
     </FormPageLayout>
   </BackgroundLayer>
 );
 
-export default RegisterServerPage;
+export default StandaloneServerPage;

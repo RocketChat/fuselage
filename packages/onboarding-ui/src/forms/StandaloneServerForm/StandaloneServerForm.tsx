@@ -4,38 +4,33 @@ import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
-import RegisterOptionCard from './RegisterOptionCard';
-import StandaloneOptionCard from './StandaloneOptionCard';
+import List from '../../common/List';
 
-export type RegisterServerPayload = {
+export type StandaloneServerPayload = {
   registerType: 'registered' | 'standalone';
-  agreement: boolean;
-  updates: boolean;
 };
 
-type RegisterServerFormProps = {
+type StandaloneServerFormProps = {
   currentStep: number;
   stepCount: number;
-  initialValues?: Partial<RegisterServerPayload>;
-  onSubmit: SubmitHandler<RegisterServerPayload>;
+  initialValues?: Partial<StandaloneServerPayload>;
+  onSubmit: SubmitHandler<StandaloneServerPayload>;
   onBackButtonClick: () => void;
 };
 
-const RegisterServerForm = ({
+const StandaloneServerForm = ({
   currentStep,
   stepCount,
   initialValues,
   onSubmit,
   onBackButtonClick,
-}: RegisterServerFormProps): ReactElement => {
+}: StandaloneServerFormProps): ReactElement => {
   const { t } = useTranslation();
 
-  const form = useForm<RegisterServerPayload>({
+  const form = useForm<StandaloneServerPayload>({
     mode: 'onChange',
     defaultValues: {
       registerType: 'registered',
-      agreement: false,
-      updates: true,
       ...initialValues,
     },
   });
@@ -49,11 +44,21 @@ const RegisterServerForm = ({
     <FormProvider {...form}>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-        <Form.Title>{t('form.serverRegistrationForm.title')}</Form.Title>
+        <Form.Title>{t('form.standaloneServerForm.title')}</Form.Title>
+
         <Box mbe='x24' mbs='x16'>
-          <RegisterOptionCard />
+          <List>
+            <List.Item fontScale='c2' icon='warning' iconColor='warning'>
+              {t('form.standaloneServerForm.servicesUnavailable')}
+            </List.Item>
+            <List.Item fontScale='c1' icon='info' iconColor='neutral'>
+              {t('form.standaloneServerForm.publishOwnApp')}
+            </List.Item>
+            <List.Item fontScale='c1' icon='info' iconColor='neutral'>
+              {t('form.standaloneServerForm.manuallyIntegrate')}
+            </List.Item>
+          </List>
         </Box>
-        <StandaloneOptionCard />
         <Form.Footer>
           <ButtonGroup>
             <Button onClick={onBackButtonClick}>
@@ -64,7 +69,7 @@ const RegisterServerForm = ({
               primary
               disabled={isValidating || isSubmitting || !isValid}
             >
-              {t('component.form.action.next')}
+              {t('component.form.action.confirm')}
             </Button>
           </ButtonGroup>
         </Form.Footer>
@@ -73,4 +78,4 @@ const RegisterServerForm = ({
   );
 };
 
-export default RegisterServerForm;
+export default StandaloneServerForm;
