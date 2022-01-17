@@ -23,6 +23,10 @@ export function FieldError(props) {
   return <Box is='span' rcx-field__error {...props} />;
 }
 
+export function FieldLink(props) {
+  return <Box is='a' target='_blank' rcx-field__link {...props} />;
+}
+
 export function Field(props) {
   return <Box rcx-field {...props} />;
 }
@@ -32,3 +36,4 @@ Field.Description = FieldDescription;
 Field.Row = FieldRow;
 Field.Error = FieldError;
 Field.Hint = FieldHint;
+Field.Link = FieldLink;

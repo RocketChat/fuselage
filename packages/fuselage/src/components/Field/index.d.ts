@@ -8,6 +8,7 @@ type FieldLabelProps = ComponentProps<typeof Box>;
 type FieldDescriptionProps = ComponentProps<typeof Box>;
 type FieldHintProps = ComponentProps<typeof Box>;
 type FieldErrorProps = ComponentProps<typeof Box>;
+type FieldLinkProps = ComponentProps<typeof Box>;
 
 export const Field: ForwardRefExoticComponent<FieldProps> & {
   Row: ForwardRefExoticComponent<FieldRowProps>;
@@ -15,4 +16,5 @@ export const Field: ForwardRefExoticComponent<FieldProps> & {
   Description: ForwardRefExoticComponent<FieldDescriptionProps>;
   Hint: ForwardRefExoticComponent<FieldHintProps>;
   Error: ForwardRefExoticComponent<FieldErrorProps>;
+  Link: ForwardRefExoticComponent<FieldLinkProps>;
 };

@@ -52,6 +52,94 @@ A `Field` is a wrapper representing an entry in a form.
   </Story>
 </Canvas>
 
+## Field.Error
+
+They appear when the user has inputted an invalid response to a field and let's the user know exactly what the issue is so as to lets them remedy the error as easily as possible.
+
+<Canvas>
+  <Story name='Error'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Error>Error text</Field.Error>
+    </Field>
+  </Story>
+</Canvas>
+
+## Field Hint
+
+Hint fields help by explaining technical terms or concepts related to third-party apps and integrations.
+
+<Canvas>
+  <Story name='Hint'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Error>Error text</Field.Error>
+    </Field>
+  </Story>
+</Canvas>
+
+### Hint and Error together
+
+When both Field.Hint and Field.Error are present, Field.Error must be above Field.Hint.
+
+<Canvas>
+  <Story name='Error and Hint together'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Error>Error text</Field.Error>
+      <Field.Hint>Hint text</Field.Hint>
+    </Field>
+  </Story>
+</Canvas>
+
+## Field Link
+
+Link to external resources or documentation to let the user learn more should they wish to.
+
+A Field.Row wrapper should be used to keep the Field.Link at the right side.
+
+<Canvas>
+  <Story name='Link'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Row justifyContent='end'>
+        <Field.Link href='#'>Link name</Field.Link>
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
+
+### Hint and Link
+
+When both Field.Hint and Field.Link are present, both must be in the same row but in opposite sides.
+
+<Canvas>
+  <Story name='With Link2'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Row justifyContent='space-between'>
+        <Field.Hint>Hint</Field.Hint>
+        <Field.Link href='#'>Link name</Field.Link>
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
+
 ## Field.Description
 
 <ArgsTable of={Field.Description} />
@@ -63,7 +151,3 @@ A `Field` is a wrapper representing an entry in a form.
 ## Field.Hint
 
 <ArgsTable of={Field.Hint} />
-
-## Field.Error
-
-<ArgsTable of={Field.Error} />
