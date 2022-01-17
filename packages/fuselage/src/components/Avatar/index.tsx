@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC, ReactElement } from 'react';
+import React, { ComponentProps, FC } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box } from '..';

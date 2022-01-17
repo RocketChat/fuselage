@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, FC } from 'react';
 
 import { Box } from '../Box';
 import { Label } from '../Label';
@@ -30,9 +30,15 @@ export function FieldError(props: FieldErrorProps) {
   return <Box is='span' rcx-field__error {...props} />;
 }
 
-export function Field(props: FieldProps) {
+export const Field: FC<FieldProps> & {
+  Label: typeof FieldLabel;
+  Description: typeof FieldDescription;
+  Row: typeof FieldRow;
+  Hint: typeof FieldHint;
+  Error: typeof FieldError;
+} = function Field(props: FieldProps) {
   return <Box rcx-field {...props} />;
-}
+};
 
 Field.Label = FieldLabel;
 Field.Description = FieldDescription;

@@ -1,8 +1,4 @@
-import React, {
-  ComponentProps,
-  forwardRef,
-  ForwardRefExoticComponent,
-} from 'react';
+import React, { ComponentProps, forwardRef } from 'react';
 
 import { Box } from '../Box';
 import { Label } from '../Label';
@@ -25,8 +21,8 @@ type ToggleSwitchProps = ComponentProps<typeof Box> & {
   'onInvalid': (value: unknown, action: unknown | undefined) => void;
 };
 
-export const ToggleSwitch: ForwardRefExoticComponent<ToggleSwitchProps> =
-  forwardRef(function ToggleSwitch(
+export const ToggleSwitch = forwardRef<HTMLElement, ToggleSwitchProps>(
+  function ToggleSwitch(
     {
       autoComplete,
       checked,
@@ -44,7 +40,7 @@ export const ToggleSwitch: ForwardRefExoticComponent<ToggleSwitchProps> =
       onInput,
       onInvalid,
       ...props
-    }: ToggleSwitchProps,
+    },
     ref
   ) {
     return (
@@ -72,4 +68,5 @@ export const ToggleSwitch: ForwardRefExoticComponent<ToggleSwitchProps> =
         <Box is='i' rcx-toggle-switch__fake aria-hidden='true' />
       </Box>
     );
-  });
+  }
+);
