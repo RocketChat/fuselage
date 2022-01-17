@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 
 import { CheckBox, Field, InputBox, ToggleSwitch } from '../..';
 
@@ -16,17 +16,30 @@ A `Field` is a wrapper representing an entry in a form.
       <Field.Row>
         <InputBox.Skeleton />
       </Field.Row>
-      <Field.Hint>Hint</Field.Hint>
       <Field.Error>Error</Field.Error>
+      <Field.Hint>Hint</Field.Hint>
     </Field>
   </Story>
 </Canvas>
 
-<ArgsTable of={Field} />
-
 ## Field.Label
 
-<ArgsTable of={Field.Label} />
+This property is mandatory:
+
+- If the surrounding user interface does not make explicit how the input should be used;
+
+- Or there are no surrounding user interface explicitly connected to the input usage;
+
+<Canvas>
+  <Story name='Label'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
 
 ### Label positioning for selection buttons
 
@@ -47,6 +60,37 @@ A `Field` is a wrapper representing an entry in a form.
       <Field.Row>
         <ToggleSwitch id='toggle-switch' />
         <Field.Label htmlFor='toggle-switch'>Label</Field.Label>
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
+
+## Field.Description
+
+Descriptions should add useful and relevant additional information about what is required of the user for the related input. Its content is strictly composed by plain text.
+
+<Canvas>
+  <Story name='Description'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Description>Description</Field.Description>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
+
+## Field.Row
+
+The `Field.Row` is mostly used to wrap a input component.
+
+<Canvas>
+  <Story name='Row'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
       </Field.Row>
     </Field>
   </Story>
@@ -86,10 +130,10 @@ Hint fields help by explaining technical terms or concepts related to third-part
 
 ### Hint and Error together
 
-When both Field.Hint and Field.Error are present, Field.Error must be above Field.Hint.
+`Field.Error` must be above `Field.Hint` when both are present.
 
 <Canvas>
-  <Story name='Error and Hint together'>
+  <Story name='Error and Hint'>
     <Field>
       <Field.Label>Label</Field.Label>
       <Field.Row>
@@ -105,7 +149,7 @@ When both Field.Hint and Field.Error are present, Field.Error must be above Fiel
 
 Link to external resources or documentation to let the user learn more should they wish to.
 
-A Field.Row wrapper should be used to keep the Field.Link at the right side.
+A `Field.Row` wrapper should be used to keep the `Field.Link` at the right side.
 
 <Canvas>
   <Story name='Link'>
@@ -121,12 +165,12 @@ A Field.Row wrapper should be used to keep the Field.Link at the right side.
   </Story>
 </Canvas>
 
-### Hint and Link
+### Hint and Link together
 
-When both Field.Hint and Field.Link are present, both must be in the same row but in opposite sides.
+When both `Field.Hint` and `Field.Link` are present, both must be in the same row but in opposite sides.
 
 <Canvas>
-  <Story name='With Link2'>
+  <Story name='Hint and Link'>
     <Field>
       <Field.Label>Label</Field.Label>
       <Field.Row>
@@ -139,15 +183,3 @@ When both Field.Hint and Field.Link are present, both must be in the same row bu
     </Field>
   </Story>
 </Canvas>
-
-## Field.Description
-
-<ArgsTable of={Field.Description} />
-
-## Field.Row
-
-<ArgsTable of={Field.Row} />
-
-## Field.Hint
-
-<ArgsTable of={Field.Hint} />
