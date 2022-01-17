@@ -5,6 +5,7 @@ module.exports = {
   rules: {
     'jsx-quotes': ['error', 'prefer-single'],
     'react/display-name': 'error',
+    'react/self-closing-comp': 'error',
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     'react/jsx-no-undef': 'error',
