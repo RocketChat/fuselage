@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactElement } from 'react';
+import React, { ComponentProps, FC, ReactElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box } from '..';
@@ -28,14 +28,16 @@ type AvatarProps = Omit<
   className: string | undefined;
 };
 
-export function Avatar({
+export const Avatar: FC<AvatarProps> & {
+  Stack: typeof AvatarStack;
+} = function Avatar({
   title,
   size = 'x36',
   rounded = false,
   objectFit = false,
   url,
   ...props
-}: AvatarProps) {
+}) {
   props.className = prependClassName(
     props.className,
     ['rcx-box rcx-box--full rcx-avatar', size && `rcx-avatar--${size}`]
@@ -56,16 +58,11 @@ export function Avatar({
       <img src={`${url}`} className={`${innerClass}`} />
     </figure>
   );
-}
+};
 
-const AvatarStack = ({
-  children,
-  className,
-  ...props
-}: AvatarProps): ReactElement => (
-  <div className={prependClassName('rcx-avatar-stack', className)} {...props}>
-    {flattenChildren(children).reverse()}
-  </div>
-);
+const AvatarStack: FC<AvatarProps> = ({ children, ...props }) => {
+  props.className = prependClassName(props.className, 'rcx-avatar-stack');
+  return <div {...props}>{flattenChildren(children).reverse()}</div>;
+};
 
 Avatar.Stack = AvatarStack;
