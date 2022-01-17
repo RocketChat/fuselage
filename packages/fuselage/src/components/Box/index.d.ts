@@ -29,10 +29,11 @@ type FontScale =
   | 'c2'
   | 'micro';
 
-type BoxProps = PropsWithChildren<{
+type BoxProps<E extends HTMLElement> = PropsWithChildren<{
   is?:
-    | ReactElement<any, string | JSXElementConstructor<any>>
-    | (ElementType<any> & string);
+    | ReactElement<E, string | JSXElementConstructor<E>>
+    | (ElementType<E> & string)
+    | string;
   className?:
     | string
     | ReturnType<typeof css>

@@ -1,11 +1,11 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentPropsWithoutRef, FC } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
 
 type AvatarProps = Omit<
-  ComponentProps<typeof Box>,
+  ComponentPropsWithoutRef<typeof Box>,
   'title' | 'size' | 'className'
 > & {
   title?: string;

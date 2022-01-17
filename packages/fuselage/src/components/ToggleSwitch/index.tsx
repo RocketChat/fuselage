@@ -1,9 +1,9 @@
-import React, { ComponentProps, forwardRef } from 'react';
+import React, { ComponentPropsWithoutRef, forwardRef } from 'react';
 
 import { Box } from '../Box';
 import { Label } from '../Label';
 
-type ToggleSwitchProps = ComponentProps<typeof Box> & {
+type ToggleSwitchProps = ComponentPropsWithoutRef<typeof Box> & {
   'autoComplete'?: string;
   'checked': boolean;
   'defaultChecked': boolean;
