@@ -10,6 +10,9 @@ on:
 jobs:
   build-and-test:
     name: Build and Test
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v2
@@ -44,6 +47,9 @@ jobs:
   test-with-loki:
     name: Test with Loki
     runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     needs:
       - build-and-test
     steps:
