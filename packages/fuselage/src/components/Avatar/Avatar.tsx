@@ -1,4 +1,9 @@
-import React, { ComponentPropsWithoutRef, FC } from 'react';
+import React, {
+  ComponentPropsWithoutRef,
+  FC,
+  DetailedHTMLProps,
+  HTMLAttributes,
+} from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box } from '..';
@@ -60,7 +65,9 @@ export const Avatar: FC<AvatarProps> & {
   );
 };
 
-const AvatarStack: FC<AvatarProps> = ({ children, ...props }) => {
+const AvatarStack: FC<
+  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+> = ({ children, ...props }) => {
   props.className = prependClassName(props.className, 'rcx-avatar-stack');
   return <div {...props}>{flattenChildren(children).reverse()}</div>;
 };

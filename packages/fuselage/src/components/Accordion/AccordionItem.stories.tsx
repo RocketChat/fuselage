@@ -11,7 +11,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Accordion, Box } from '../..';
-import { Item as AccordionItem } from './Item';
+import { AccordionItem } from './AccordionItem';
 
 export default {
   title: 'Containers/Accordion/AccordionItem',

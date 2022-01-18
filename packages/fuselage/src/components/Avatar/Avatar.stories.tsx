@@ -2,7 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Avatar, Box, Margins } from '../..';
-import { AvatarStack } from './index.js';
 
 export default {
   title: 'Data Display/Avatar',
@@ -52,11 +51,11 @@ const StackTemplate: ComponentStory<typeof Avatar> = (args) => (
   <Margins all='x16'>
     {sizes.map((size, i) => (
       <Box key={i}>
-        <AvatarStack className={args.className}>
+        <Avatar.Stack className={args.className}>
           <Avatar url={args.url} size={size} rounded={args.rounded} />
           <Avatar url={args.url} size={size} rounded={args.rounded} />
           <Avatar url={args.url} size={size} rounded={args.rounded} />
-        </AvatarStack>
+        </Avatar.Stack>
       </Box>
     ))}
   </Margins>
