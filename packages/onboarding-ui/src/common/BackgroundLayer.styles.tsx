@@ -4,13 +4,11 @@ const filterWrapperProps = ({
   backgroundColor,
   color,
   backgroundImage,
-  context,
   ...props
 }: {
   backgroundColor: string;
   color: string;
   backgroundImage: string;
-  context?: string;
 }) => props;
 
 export const Wrapper = styled('div', filterWrapperProps)`

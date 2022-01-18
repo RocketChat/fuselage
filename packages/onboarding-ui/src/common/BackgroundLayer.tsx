@@ -8,13 +8,9 @@ import { useDarkMode } from './DarkModeProvider';
 
 type BackgroundLayerProps = {
   children?: ReactNode;
-  context?: string;
 };
 
-const BackgroundLayer = ({
-  children,
-  context,
-}: BackgroundLayerProps): ReactElement => {
+const BackgroundLayer = ({ children }: BackgroundLayerProps): ReactElement => {
   const darkMode = useDarkMode();
   const backgroundColor = darkMode ? colors.n800 : colors.n200;
   const color = darkMode ? colors.white : colors.n800;
@@ -33,7 +29,6 @@ const BackgroundLayer = ({
       backgroundColor={backgroundColor}
       color={color}
       backgroundImage={backgroundImage}
-      context={context}
     >
       {children}
     </Wrapper>
