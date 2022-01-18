@@ -6,27 +6,21 @@
   fix: For bug fixes that affects the end user
   chore: For small tasks
   docs: For documentation only changes
-  perf: For code change that improves performance
-  build: For changes that affect the build system or external dependencies
-  ci: For changes to our CI configuration files and scripts
-  refactor: For changes that neither fixes a bug nor adds a feature
-  test: For adding missing tests or correcting existing tests
 
-  E.g.:
-
-  feat(fuselage-hooks): Add useWhatever hook
+  E.g.: feat(fuselage-hooks): Add useWhatever hook
 -->
 
-<!-- Checklist!!! If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code. -->
+<!-- Checklist!!! If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
 
-- [x] I have read the Contributing Guide
-- [x] I have signed the CLA
-- [x] Lint and unit tests pass locally with my changes
-- [ ] I have labeled the PR correctly with the related package
-- [ ] I have run Loki's visual regression tests (if applicable)
-- [ ] I have added tests that prove my fix is effective or that my feature works (if applicable)
-- [ ] I have added necessary documentation (if applicable)
-- [ ] Any dependent changes have been merged and published in downstream modules
+- I have read the Contributing Guide - https://github.com/RocketChat/Rocket.Chat/blob/develop/.github/CONTRIBUTING.md#contributing-to-rocketchat doc
+- I have signed the CLA - https://cla-assistant.io/RocketChat/Rocket.Chat
+- Lint and unit tests pass locally with my changes
+- I have labeled the PR correctly with the related package
+- I have run visual regression tests (if applicable)
+- I have added tests that prove my fix is effective or that my feature works (if applicable)
+- I have added necessary documentation (if applicable)
+- Any dependent changes have been merged and published in downstream modules
+-->
 
 ## Proposed changes (including videos or screenshots)
 
@@ -41,7 +35,7 @@
 
 ## Issue(s)
 
-<!-- Link the issues being closed by or related to this PR. For example, you can use #594 if this PR closes issue number 594 -->
+<!-- Link the issues being closed by or related to this PR. For example, you can use Closes #594 if this PR closes issue number 594 -->
 
 ## Further comments
 
