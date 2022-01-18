@@ -1,7 +1,6 @@
 import type { Story, Meta } from '@storybook/react';
 import type { ComponentProps } from 'react';
 
-import { rcAppDecorator } from '../../helpers/decorators/rcAppDecorator';
 import AdminInfoPage from './AdminInfoPage';
 
 type Args = ComponentProps<typeof AdminInfoPage>;
@@ -35,7 +34,6 @@ export const _CloudAdminInfoPage: Story<Args> = (args) => (
 );
 
 _AdminInfoPage.storyName = 'AdminInfoPage';
-_AdminInfoPage.decorators = [rcAppDecorator];
 
 _CloudAdminInfoPage.storyName = 'CloudAdminInfoPage';
 
