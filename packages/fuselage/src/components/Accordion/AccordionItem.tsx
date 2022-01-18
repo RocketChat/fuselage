@@ -1,12 +1,26 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC, KeyboardEvent, MouseEvent, ReactNode } from 'react';
 
 import { Box } from '../Box';
 import { Chevron } from '../Chevron';
 import { ToggleSwitch } from '../ToggleSwitch';
 
-export function Item({
+export const AccordionItem: FC<{
+  className?: string;
+  defaultExpanded?: boolean;
+  disabled?: boolean;
+  expanded?: boolean;
+  tabIndex?: number;
+  title: ReactNode;
+  noncollapsible?: boolean;
+  onToggle?: (
+    e: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>
+  ) => void;
+  onToggleEnabled?: (
+    e: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>
+  ) => void;
+}> = function Item({
   children,
   className,
   defaultExpanded,
@@ -21,7 +35,9 @@ export function Item({
 }) {
   const [stateExpanded, toggleStateExpanded] = useToggle(defaultExpanded);
   const expanded = propExpanded || stateExpanded;
-  const toggleExpanded = () => {
+  const toggleExpanded = (
+    event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>
+  ) => {
     if (onToggle) {
       onToggle.call(event.currentTarget, event);
       return;
@@ -35,16 +51,15 @@ export function Item({
   const titleId = useUniqueId();
   const panelId = useUniqueId();
 
-  const handleClick = (event) => {
+  const handleClick = (e: MouseEvent<HTMLElement, MouseEvent>) => {
     if (disabled) {
       return;
     }
-
-    event.currentTarget.blur();
-    toggleExpanded();
+    e.currentTarget?.blur();
+    toggleExpanded(e);
   };
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (disabled || event.currentTarget !== event.target) {
       return;
     }
@@ -56,11 +71,11 @@ export function Item({
         return;
       }
 
-      toggleExpanded();
+      toggleExpanded(event);
     }
   };
 
-  const handleToggleClick = (event) => {
+  const handleToggleClick = (event: MouseEvent) => {
     event.stopPropagation();
   };
 
@@ -119,10 +134,9 @@ export function Item({
       </Box>
     </Box>
   );
-}
+};
 
-Item.propTypes = {
-  children: PropTypes.node,
+AccordionItem.propTypes = {
   defaultExpanded: PropTypes.bool,
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
