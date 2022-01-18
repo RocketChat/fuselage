@@ -34,6 +34,7 @@ export const _CloudAdminInfoPage: Story<Args> = (args) => (
 );
 
 _AdminInfoPage.storyName = 'AdminInfoPage';
+
 _CloudAdminInfoPage.storyName = 'CloudAdminInfoPage';
 
 _CloudAdminInfoPage.args = {
