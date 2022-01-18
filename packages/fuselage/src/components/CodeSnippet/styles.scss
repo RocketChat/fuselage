@@ -1,0 +1,19 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+.rcx-code-snippet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: lengths.padding(16);
+
+  border-radius: lengths.border-width(2);
+  background-color: colors.neutral(300);
+
+  &__codebox {
+    white-space: pre-line;
+  }
+}
