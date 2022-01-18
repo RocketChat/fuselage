@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactNode } from 'react';
+import React, { ComponentProps, FC, ReactNode } from 'react';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';
@@ -9,12 +9,12 @@ type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
   children: ReactNode;
 };
 
-export function Callout({
+export const Callout: FC<CalloutProps> = function Callout({
   children,
   title,
   type = 'info',
   ...props
-}: CalloutProps) {
+}) {
   const iconName: 'info-circled' | 'checkmark-circled' | 'warning' | 'ban' =
     (type === 'info' && 'info-circled') ||
     (type === 'success' && 'checkmark-circled') ||
@@ -35,4 +35,4 @@ export function Callout({
       </Box>
     </Box>
   );
-}
+};
