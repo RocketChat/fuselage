@@ -54,7 +54,7 @@ const CreateCloudWorkspaceForm = ({
     control,
     handleSubmit,
     formState: { isDirty, isValidating, isSubmitting, errors },
-  } = useForm();
+  } = useForm<CreateCloudWorkspaceFormPayload, object>();
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -132,7 +132,7 @@ const CreateCloudWorkspaceForm = ({
           <Field.Row>
             <WorkspaceUrlInput
               domain={domain}
-              {...register('workspaceUrl', {
+              {...register('workspaceURL', {
                 required: true,
                 validate: validateUrl,
               })}
@@ -141,10 +141,10 @@ const CreateCloudWorkspaceForm = ({
               )}
             />
           </Field.Row>
-          {errors.workspaceUrl?.type === 'required' && (
+          {errors.workspaceURL?.type === 'required' && (
             <Field.Error>{t('component.form.requiredField')}</Field.Error>
           )}
-          {errors.workspaceUrl?.type === 'validate' && (
+          {errors.workspaceURL?.type === 'validate' && (
             <Field.Error>
               {t('form.createCloudWorkspace.fields.workspaceUrl.exists')}
             </Field.Error>

@@ -12,6 +12,7 @@ const filterWrapperProps = ({
 }) => props;
 
 export const Wrapper = styled('div', filterWrapperProps)`
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,8 +23,5 @@ export const Wrapper = styled('div', filterWrapperProps)`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   color: ${(p) => p.color};
 `;
