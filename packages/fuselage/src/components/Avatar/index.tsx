@@ -25,7 +25,7 @@ type AvatarProps = Omit<
   rounded?: boolean;
   objectFit?: boolean;
   url: string;
-  className: string | undefined;
+  className?: string;
 };
 
 export const Avatar: FC<AvatarProps> & {
