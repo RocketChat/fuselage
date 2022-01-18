@@ -91,28 +91,8 @@
   },
   "loki": {
     "configurations": {
-      "desktop.docker": {
-        "target": "chrome.docker",
-        "width": 1440,
-        "height": 896,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "tablet.docker": {
-        "target": "chrome.docker",
-        "width": 768,
-        "height": 970,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "mobile.docker": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
-      },
       "desktop": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "width": 1440,
         "height": 896,
         "deviceScaleFactor": 1,
@@ -120,7 +100,7 @@
         "fitWindow": false
       },
       "tablet": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "width": 768,
         "height": 970,
         "deviceScaleFactor": 1,
@@ -128,7 +108,7 @@
         "fitWindow": false
       },
       "mobile": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     }
