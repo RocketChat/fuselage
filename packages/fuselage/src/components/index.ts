@@ -9,6 +9,7 @@ export * from './ButtonGroup';
 export * from './Callout';
 export * from './CheckBox';
 export * from './Chevron';
+export { default as CodeSnippet } from './CodeSnippet';
 export { default as Chip } from './Chip';
 export * from './Divider';
 export * from './Dropdown';
