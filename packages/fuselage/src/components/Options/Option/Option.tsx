@@ -20,7 +20,8 @@ type OptionProps = {
   title?: string;
   value?: string;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
-} & Pick<ComponentProps<typeof Box>, 'onClick'>;
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+};
 
 const Option = React.memo(
   ({

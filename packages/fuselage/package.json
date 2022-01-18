@@ -49,9 +49,9 @@
     "resolve": "resolve-loki",
     ".:update-storybook:build-storybook": "run-s build-storybook",
     ".:update-storybook:purge-refs": "rimraf .loki/reference",
-    ".:update-storybook:loki-update": "loki update --targetFilter='.*\\.docker' --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
-    "loki:test-ci": "loki test --targetFilter='.*\\.app' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
+    "loki:test-ci": "loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -142,28 +142,24 @@
   },
   "loki": {
     "configurations": {
-      "chrome.laptop.docker": {
+      "desktop": {
         "target": "chrome.docker",
-        "width": 1366,
-        "height": 768,
+        "width": 1440,
+        "height": 896,
         "deviceScaleFactor": 1,
         "mobile": false,
         "fitWindow": false
       },
-      "chrome.iphone7.docker": {
+      "tablet": {
         "target": "chrome.docker",
-        "preset": "iPhone 7"
-      },
-      "chrome.laptop": {
-        "target": "chrome.app",
-        "width": 1366,
-        "height": 768,
+        "width": 768,
+        "height": 970,
         "deviceScaleFactor": 1,
         "mobile": false,
         "fitWindow": false
       },
-      "chrome.iphone7": {
-        "target": "chrome.app",
+      "mobile": {
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     }
