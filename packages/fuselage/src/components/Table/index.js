@@ -11,7 +11,7 @@ const style = {
   whiteSpace: 'nowrap',
 };
 
-export function Selection({ children, text, ...props }) {
+export function TableSelection({ children, text, ...props }) {
   return (
     <Box
       color='alternative'
@@ -34,11 +34,11 @@ export function Selection({ children, text, ...props }) {
   );
 }
 
-export function SelectionButton(props) {
+export function TableSelectionButton(props) {
   return <Button small primary flexShrink={0} {...props} />;
 }
 
-Selection.Button = SelectionButton;
+Selection.Button = TableSelectionButton;
 
 export function Table({ striped, sticky, fixed = false, ...props }) {
   return (

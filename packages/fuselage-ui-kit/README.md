@@ -100,17 +100,3 @@ yarn storybook
 ```
 
 <!--/yarn(storybook)-->
-
-### Visually testing stories
-
-We perform visual regression testing in our component stories using [Loki](https://loki.js.org/).
-Everytime you add, modify, or remove components, you should update the set of reference images used to match
-how the components render in a real browser by running the following:
-
-<!--yarn(update-storybook)-->
-
-```sh
-yarn update-storybook
-```
-
-<!--/yarn(update-storybook)-->

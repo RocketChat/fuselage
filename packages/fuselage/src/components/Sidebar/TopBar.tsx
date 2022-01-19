@@ -4,7 +4,7 @@ import { Box } from '../Box';
 import { Divider } from '../Divider';
 import { SidebarAction, SidebarActions } from './SidebarActions';
 
-const Avatar = { size: 'x24' };
+const Avatar: { size: 'x24' } = { size: 'x24' };
 
 const TopBar: FC<{ className: string }> & {
   Section: typeof TopBarSection;
@@ -64,7 +64,8 @@ export const TopBarSection: FC<{ className: string }> = ({
 );
 
 export const TopBarAvatar = Avatar;
-export const TopBarActions = SidebarActions;
+export const TopBarActions: FC<ComponentProps<typeof SidebarActions>> =
+  SidebarActions;
 export const TopBarAction: FC<ComponentProps<typeof SidebarAction>> = (
   props
 ) => <SidebarAction ghost {...props} />;
