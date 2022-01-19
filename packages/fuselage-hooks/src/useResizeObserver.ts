@@ -1,6 +1,9 @@
 import { useRef, useEffect, RefObject } from 'react';
 
-import { extractContentBoxSizeFromObserver, extractBorderBoxSizeFromObserver } from './extractSizeFromObserver';
+import { 
+  extractContentBoxSizeFromObserver, 
+  extractBorderBoxSizeFromObserver 
+} from './extractSizeFromObserver';
 import { useDebouncedState } from './useDebouncedState';
 
 /**
