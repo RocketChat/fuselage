@@ -37,3 +37,11 @@ export const extractSizeFromObserver = (
     inlineSize: size.inlineSize,
   };
 };
+
+export const extractContentBoxSizeFromObserver = (
+  entry: ResizeObserverEntry
+): ResizeObserverSize => extractSizeFromObserver(entry, 'contentBoxSize');
+
+export const extractBorderBoxSizeFromObserver = (
+  entry: ResizeObserverEntry
+): ResizeObserverSize => extractSizeFromObserver(entry, 'borderBoxSize');

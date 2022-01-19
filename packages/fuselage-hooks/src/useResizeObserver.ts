@@ -1,6 +1,6 @@
 import { useRef, useEffect, RefObject } from 'react';
 
-import { extractSizeFromObserver } from './extractSizeFromObserver';
+import { extractContentBoxSizeFromObserver } from './extractSizeFromObserver';
 import { useDebouncedState } from './useDebouncedState';
 
 /**
@@ -45,8 +45,8 @@ export const useResizeObserver = <T extends Element>({
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
       setSizes({
-        contentBoxSize: extractSizeFromObserver(entry, 'contentBoxSize'),
-        borderBoxSize: extractSizeFromObserver(entry, 'borderBoxSize'),
+        contentBoxSize: extractContentBoxSizeFromObserver(entry),
+        borderBoxSize: extractBorderBoxSizeFromObserver(entry),
       });
     });
 
