@@ -1,11 +1,16 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
-import React, { ReactNode, useCallback, useEffect, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 
 import { appendClassName } from '../../../helpers/appendClassName';
 import { useStyle } from '../../../hooks/useStyle';
 import { BoxTransforms, useComposedBoxTransform } from '../BoxTransforms';
 
-type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
+export type VisibilityType =
+  | 'hidden'
+  | 'visible'
+  | 'hiding'
+  | 'unhiding'
+  | undefined;
 
 type AnimatedVisibilityProps = {
   children: ReactNode;
@@ -19,7 +24,7 @@ const Visibility = {
   UNHIDING: 'unhiding' as VisibilityType,
 };
 
-function AnimatedVisibility(props: AnimatedVisibilityProps) {
+const AnimatedVisibility: FC<AnimatedVisibilityProps> = (props) => {
   const propVisibility = props.visibility || Visibility.HIDDEN;
 
   const [visibility, setVisibility] = useState<VisibilityType>(propVisibility);
@@ -117,6 +122,6 @@ function AnimatedVisibility(props: AnimatedVisibilityProps) {
   return (
     <BoxTransforms.Provider children={props.children} value={composedFn} />
   );
-}
+};
 
 export default AnimatedVisibility;

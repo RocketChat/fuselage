@@ -18,6 +18,8 @@ import React, { ReactNode } from 'react';
 import { kitContext, UiKitModal } from '..';
 import * as payloads from './payloads';
 
+type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
+
 const DemoModal = ({
   children,
   visible,
@@ -27,7 +29,9 @@ const DemoModal = ({
 }) => (
   <AnimatedVisibility
     visibility={
-      visible ? AnimatedVisibility.VISIBLE : AnimatedVisibility.HIDDEN
+      visible
+        ? (AnimatedVisibility.VISIBLE as VisibilityType)
+        : (AnimatedVisibility.HIDDEN as VisibilityType)
     }
   >
     <Modal open={visible}>
