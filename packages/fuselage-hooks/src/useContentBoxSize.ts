@@ -1,6 +1,6 @@
 import { RefObject, useState } from 'react';
 
-import { extractContentBoxSizeFromObserver } from './extractContentBoxSizeFromObserver';
+import { extractContentBoxSizeFromObserver } from './extractSizeFromObserver';
 import { useDebouncedCallback } from './useDebouncedCallback';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
