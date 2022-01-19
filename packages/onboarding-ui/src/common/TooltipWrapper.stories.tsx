@@ -27,9 +27,6 @@ export const WithRenderProp: Story = () => (
 );
 WithRenderProp.parameters = {
   layout: 'centered',
-  loki: {
-    skip: true,
-  },
 };
 
 export const WithElement: Story = () => (
@@ -39,7 +36,4 @@ export const WithElement: Story = () => (
 );
 WithElement.parameters = {
   layout: 'centered',
-  loki: {
-    skip: true,
-  },
 };
