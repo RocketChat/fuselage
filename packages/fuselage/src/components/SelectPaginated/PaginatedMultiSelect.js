@@ -95,7 +95,7 @@ export const PaginatedMultiSelect = ({
                     rcx-input-box--undecorated
                     children={!value ? option || placeholder : null}
                   />
-                  {currentValue.map((value) => (
+                  {currentValue.map((value, index) => (
                     <SelectedOptions
                       {...(withTitle && {
                         title:
@@ -104,7 +104,7 @@ export const PaginatedMultiSelect = ({
                       })}
                       tabIndex={-1}
                       role='option'
-                      key={value && value.value}
+                      key={index}
                       onMouseDown={(e) => {
                         prevent(e);
                         internalChanged([value]);
