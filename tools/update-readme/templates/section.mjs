@@ -15,7 +15,6 @@ const mapping = {
   'yarn(lint-and-fix)': () => yarnCmd('lint-and-fix'),
   'yarn(test)': () => yarnCmd('test'),
   'yarn(storybook)': () => yarnCmd('storybook'),
-  'yarn(update-storybook)': () => yarnCmd('update-storybook'),
 };
 
 const names = Object.keys(mapping);

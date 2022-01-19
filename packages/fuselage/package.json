@@ -45,13 +45,7 @@
     "build-storybook": "run-s .:build-storybook:jest-results .:build-storybook:build-storybook",
     ".:build-storybook:jest-results": "jest --runInBand --json --outputFile .storybook/jest-results.json",
     ".:build-storybook:build-storybook": "cross-env NODE_ENV=production build-storybook",
-    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
-    "resolve": "resolve-loki",
-    ".:update-storybook:build-storybook": "run-s build-storybook",
-    ".:update-storybook:purge-refs": "rimraf .loki/reference",
-    ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
-    "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
-    "loki:test-ci": "loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
+    "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -107,7 +101,6 @@
     "jest": "^27.3.1",
     "lint-all": "^0.31.1",
     "lint-staged": "^11.2.6",
-    "loki": "^0.28.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "path-browserify": "^1.0.1",
@@ -123,7 +116,6 @@
     "react-dom": "^17.0.2",
     "react-live": "^2.3.0",
     "react-virtuoso": "1.9.3",
-    "resolve-loki": "workspace:tools/resolve-loki",
     "rimraf": "^3.0.2",
     "sass": "^1.35.1",
     "sass-loader": "^12.1.0",
@@ -139,29 +131,5 @@
     "webpack": "^5.41.1",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.2"
-  },
-  "loki": {
-    "configurations": {
-      "desktop": {
-        "target": "chrome.docker",
-        "width": 1440,
-        "height": 896,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "tablet": {
-        "target": "chrome.docker",
-        "width": 768,
-        "height": 970,
-        "deviceScaleFactor": 1,
-        "mobile": false,
-        "fitWindow": false
-      },
-      "mobile": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
-      }
-    }
   }
 }

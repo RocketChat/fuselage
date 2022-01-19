@@ -1,5 +1,6 @@
 import { RefObject, useState } from 'react';
 
+import { extractContentBoxSizeFromObserver } from './extractSizeFromObserver';
 import { useDebouncedCallback } from './useDebouncedCallback';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
@@ -34,11 +35,7 @@ export const useContentBoxSize = (
         return;
       }
 
-      const contentBoxSize: ResizeObserverSize = Array.isArray(
-        entries[0].contentBoxSize
-      )
-        ? entries[0].contentBoxSize[0]
-        : entries[0].contentBoxSize;
+      const contentBoxSize = extractContentBoxSizeFromObserver(entries[0]);
 
       setSizeWithDebounce((prevSize) => {
         if (
