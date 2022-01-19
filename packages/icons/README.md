@@ -80,14 +80,6 @@ yarn build
 
 <!--/yarn(build)-->
 
-After building, make sure to run at the root:
-
-```sh
-yarn
-
-yarn update-storybook
-```
-
 ### Linting
 
 To ensure the source is matching our coding style, we perform [linting](<https://en.wikipedia.org/wiki/Lint_(software)>).
