@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 
 import { CheckBox, Field, InputBox, ToggleSwitch } from '../..';
 
@@ -16,17 +16,30 @@ A `Field` is a wrapper representing an entry in a form.
       <Field.Row>
         <InputBox.Skeleton />
       </Field.Row>
-      <Field.Hint>Hint</Field.Hint>
       <Field.Error>Error</Field.Error>
+      <Field.Hint>Hint</Field.Hint>
     </Field>
   </Story>
 </Canvas>
 
-<ArgsTable of={Field} />
-
 ## Field.Label
 
-<ArgsTable of={Field.Label} />
+This property is mandatory:
+
+- If the surrounding user interface does not make explicit how the input should be used;
+
+- Or there are no surrounding user interface explicitly connected to the input usage;
+
+<Canvas>
+  <Story name='Label'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
 
 ### Label positioning for selection buttons
 
@@ -54,16 +67,119 @@ A `Field` is a wrapper representing an entry in a form.
 
 ## Field.Description
 
-<ArgsTable of={Field.Description} />
+Descriptions should add useful and relevant additional information about what is required of the user for the related input. Its content is strictly composed by plain text.
+
+<Canvas>
+  <Story name='Description'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Description>Description</Field.Description>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
 
 ## Field.Row
 
-<ArgsTable of={Field.Row} />
+The `Field.Row` is mostly used to wrap a input component.
 
-## Field.Hint
-
-<ArgsTable of={Field.Hint} />
+<Canvas>
+  <Story name='Row'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
 
 ## Field.Error
 
-<ArgsTable of={Field.Error} />
+They appear when the user has inputted an invalid response to a field and let's the user know exactly what the issue is so as to lets them remedy the error as easily as possible.
+
+<Canvas>
+  <Story name='Error'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Error>Error text</Field.Error>
+    </Field>
+  </Story>
+</Canvas>
+
+## Field Hint
+
+Hint fields help by explaining technical terms or concepts related to third-party apps and integrations.
+
+<Canvas>
+  <Story name='Hint'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Error>Error text</Field.Error>
+    </Field>
+  </Story>
+</Canvas>
+
+### Hint and Error together
+
+`Field.Error` must be above `Field.Hint` when both are present.
+
+<Canvas>
+  <Story name='Error and Hint'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Error>Error text</Field.Error>
+      <Field.Hint>Hint text</Field.Hint>
+    </Field>
+  </Story>
+</Canvas>
+
+## Field Link
+
+Link to external resources or documentation to let the user learn more should they wish to.
+
+A `Field.Row` wrapper should be used to keep the `Field.Link` at the right side.
+
+<Canvas>
+  <Story name='Link'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Row justifyContent='end'>
+        <Field.Link href='#'>Link name</Field.Link>
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
+
+### Hint and Link together
+
+When both `Field.Hint` and `Field.Link` are present, both must be in the same row but in opposite sides.
+
+<Canvas>
+  <Story name='Hint and Link'>
+    <Field>
+      <Field.Label>Label</Field.Label>
+      <Field.Row>
+        <InputBox.Skeleton />
+      </Field.Row>
+      <Field.Row justifyContent='space-between'>
+        <Field.Hint>Hint</Field.Hint>
+        <Field.Link href='#'>Link name</Field.Link>
+      </Field.Row>
+    </Field>
+  </Story>
+</Canvas>
