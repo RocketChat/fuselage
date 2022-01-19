@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./src/",
+    "rootDirs": ["./src/", "./.storybook/"],
     "target": "ES5",
     "module": "ESNext",
     "lib": ["ES2020", "DOM"],
@@ -18,7 +18,7 @@
     "allowJs": true,
     "jsx": "react"
   },
-  "include": ["./src/", "./.jest/**/*.d.ts", "/.storybook/"],
+  "include": ["./src/", "./.jest/**/*.d.ts"],
   "exclude": [
     "./dist/",
     "./storybook-static/",

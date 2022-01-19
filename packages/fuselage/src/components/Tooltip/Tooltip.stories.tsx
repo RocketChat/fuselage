@@ -1,3 +1,4 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Margins, Tooltip } from '../..';
@@ -8,9 +9,11 @@ export default {
   parameters: {
     jest: ['Tooltip.spec.tsx'],
   },
-};
+} as ComponentMeta<typeof Tooltip>;
 
-export const Default = () => <Tooltip>A example tooltip</Tooltip>;
+export const Default: ComponentStory<typeof Tooltip> = () => (
+  <Tooltip>A example tooltip</Tooltip>
+);
 
 export const ArrowPositioning = () => (
   <Margins inline='neg-x8'>
