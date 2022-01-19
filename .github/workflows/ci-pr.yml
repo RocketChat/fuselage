@@ -44,38 +44,3 @@ jobs:
             packages/fuselage/storybook-static
             packages/fuselage-ui-kit/storybook-static
             packages/onboarding-ui/storybook-static
-  test-with-loki:
-    name: Test with Loki
-    runs-on: ubuntu-latest
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-    needs:
-      - build-and-test
-    steps:
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "14.17.6"
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-      - run: yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - uses: actions/download-artifact@v2
-        with:
-          name: "storybooks-${{ github.event.number }}"
-          path: packages
-      - name: Turbo Cache
-        id: turbo-cache
-        uses: actions/cache@v2
-        with:
-          path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}
-          restore-keys: |
-            turbo-${{ runner.os }}-
-      - uses: ./.github/actions/loki/test
