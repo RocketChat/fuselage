@@ -1,6 +1,20 @@
-import { usePosition } from '@rocket.chat/fuselage-hooks';
-import { useRef, useMemo, useEffect, cloneElement } from 'react';
+import { Placements, usePosition } from '@rocket.chat/fuselage-hooks';
+import {
+  useRef,
+  useMemo,
+  useEffect,
+  cloneElement,
+  RefObject,
+  ComponentProps,
+} from 'react';
 import { createPortal } from 'react-dom';
+
+import { Box } from '..';
+
+type PositionProps = {
+  anchor?: RefObject<Element>;
+  placement?: Placements;
+} & ComponentProps<typeof Box>;
 
 const Position = ({
   anchor,
@@ -9,8 +23,8 @@ const Position = ({
   margin,
   className,
   ...props
-}) => {
-  const target = useRef();
+}: PositionProps) => {
+  const target = useRef(null);
   const { style: positionStyle, placement: positionPlacement } =
     usePosition(
       anchor,
@@ -29,7 +43,10 @@ const Position = ({
   }, []);
 
   useEffect(
-    () => () => document.body.removeChild(portalContainer),
+    () =>
+      function () {
+        document.body.removeChild(portalContainer);
+      },
     [portalContainer]
   );
 
