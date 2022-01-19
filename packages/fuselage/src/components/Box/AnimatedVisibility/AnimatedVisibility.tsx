@@ -119,9 +119,4 @@ function AnimatedVisibility(props: AnimatedVisibilityProps) {
   );
 }
 
-AnimatedVisibility.HIDDEN = 'hidden';
-AnimatedVisibility.VISIBLE = 'visible';
-AnimatedVisibility.HIDING = 'hiding';
-AnimatedVisibility.UNHIDING = 'unhiding';
-
 export default AnimatedVisibility;
