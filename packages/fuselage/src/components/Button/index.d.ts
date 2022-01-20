@@ -12,7 +12,10 @@ type ButtonProps = ComponentProps<typeof Box> & {
   nude?: boolean;
   ghostish?: boolean;
   small?: boolean;
+  mini?: boolean;
+  tiny?: boolean;
   square?: boolean;
+  external?: boolean;
 };
 export const Button: ForwardRefExoticComponent<ButtonProps>;
 

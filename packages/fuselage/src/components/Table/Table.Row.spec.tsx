@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { Table } from '.';
+import { TableRow } from '.';
 
 it('renders without crashing', () => {
-  render(<Table.Row />, {
+  render(<TableRow />, {
     wrapper: ({ children }) => (
       <table>
         <tbody>{children}</tbody>

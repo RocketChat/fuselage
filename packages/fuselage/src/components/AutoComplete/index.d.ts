@@ -1,11 +1,13 @@
 import { ElementType, FC } from 'react';
 
-type AutoCompleteProps = {
+import { Options } from '..';
+
+type AutoCompleteProps = Omit<ComponentProps<typeof Options>> & {
   value: unknown[];
   filter: string;
   setFilter?: (filter: string) => void;
   options?: { label: string; value: unknown }[];
-  renderItem: ElementType;
+  renderItem?: ElementType;
   renderSelected?: ElementType;
   onChange: (value: unknown, action: 'remove' | undefined) => void;
   getLabel?: (option: { label: string; value: unknown }) => string;
