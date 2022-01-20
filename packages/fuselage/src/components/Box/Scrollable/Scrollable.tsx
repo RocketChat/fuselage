@@ -4,10 +4,9 @@ import React, {
   useRef,
   useCallback,
   PropsWithChildren,
-  ForwardRefRenderFunction,
-  RefAttributes,
   MouseEvent,
   MutableRefObject,
+  FC,
 } from 'react';
 
 import { appendClassName } from '../../../helpers/appendClassName';
@@ -49,10 +48,13 @@ const pollTouchingEdges = (
   }
 };
 
-export const Scrollable: ForwardRefRenderFunction<
-  RefAttributes<HTMLElement>,
-  ScrollableProps
-> = ({ children, horizontal, vertical, smooth, onScrollContent }) => {
+export const Scrollable: FC<ScrollableProps> = ({
+  children,
+  horizontal,
+  vertical,
+  smooth,
+  onScrollContent,
+}) => {
   const scrollTimeoutRef = useRef(false);
   const touchingEdgesRef = useRef({});
 
