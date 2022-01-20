@@ -3,7 +3,7 @@ import {
   AllHTMLAttributes,
   CSSProperties,
   ElementType,
-  ForwardRefExoticComponent,
+  JSXElementConstructor,
   PropsWithChildren,
   ReactElement,
   RefAttributes,
@@ -29,7 +29,7 @@ type FontScale =
   | 'c2'
   | 'micro';
 
-type BoxProps<E extends HTMLElement> = PropsWithChildren<{
+export type BoxProps<E extends HTMLElement> = PropsWithChildren<{
   is?:
     | ReactElement<E, string | JSXElementConstructor<E>>
     | (ElementType<E> & string)
@@ -166,21 +166,3 @@ type BoxProps<E extends HTMLElement> = PropsWithChildren<{
   Omit<AllHTMLAttributes<HTMLOrSVGElement>, 'className' | 'size'> &
   Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLOrSVGElement>> &
   RefAttributes<unknown>;
-
-export const Box: ForwardRefExoticComponent<BoxProps>;
-
-export { default as AnimatedVisibility } from './AnimatedVisibility';
-export { default as Flex } from './Flex';
-export { default as Position, PositionAnimated } from './Position';
-export { default as Scrollable } from './Scrollable';
-
-export const useArrayLikeClassNameProp: <
-  T extends {
-    className?:
-      | string
-      | ReturnType<typeof css>
-      | (string | ReturnType<typeof css>)[];
-  }
->(
-  props: T
-) => T & { className: string };

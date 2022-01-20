@@ -11,7 +11,7 @@ import React, {
 
 import { appendClassName } from '../../../helpers/appendClassName';
 import { useStyle } from '../../../hooks/useStyle';
-import { BoxTransforms, useComposedBoxTransform } from '../BoxTransforms';
+import { BoxTransforms, useComposedBoxTransform } from '../hooks/BoxTransforms';
 
 type ScrollableProps = PropsWithChildren<{
   horizontal?: boolean;

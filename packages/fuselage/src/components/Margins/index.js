@@ -6,7 +6,10 @@ import { createPropType } from '../../helpers/createPropType';
 import { patchChildren } from '../../helpers/patchChildren';
 import { useStyle } from '../../hooks/useStyle';
 import { margin } from '../../styleTokens';
-import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
+import {
+  BoxTransforms,
+  useComposedBoxTransform,
+} from '../Box/hooks/BoxTransforms';
 
 function Margins(props) {
   const {
