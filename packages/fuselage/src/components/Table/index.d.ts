@@ -1,4 +1,8 @@
-import { ComponentProps, ForwardRefExoticComponent } from 'react';
+import {
+  ComponentProps,
+  ForwardRefExoticComponent,
+  JSXElementConstructor,
+} from 'react';
 
 import { Box } from '../Box';
 
@@ -12,15 +16,31 @@ type TableBodyProps = ComponentProps<typeof Box>;
 type TableFootProps = ComponentProps<typeof Box>;
 type TableRowProps = Omit<ComponentProps<typeof Box>, 'action'> & {
   action?: boolean;
+  hasAction?: boolean;
 };
 type TableCellProps = ComponentProps<typeof Box> & {
   align?: 'start' | 'center' | 'end';
   clickable?: boolean;
 };
-export const Table: ForwardRefExoticComponent<TableProps> & {
-  Head: ForwardRefExoticComponent<TableHeadProps>;
-  Body: ForwardRefExoticComponent<TableBodyProps>;
-  Foot: ForwardRefExoticComponent<TableFootProps>;
-  Row: ForwardRefExoticComponent<TableRowProps>;
-  Cell: ForwardRefExoticComponent<TableCellProps>;
+type TableSelectionProps = ComponentProps<typeof Box> & {
+  children?: JSXElementConstructor;
+  text?: string;
 };
+
+type TableSelectionButtonProps = ComponentProps<typeof Box>;
+
+export const Table: ForwardRefExoticComponent<TableProps>;
+export const TableHead: ForwardRefExoticComponent<TableProps> &
+  ForwardRefExoticComponent<TableHeadProps>;
+export const TableBody: ForwardRefExoticComponent<TableProps> &
+  ForwardRefExoticComponent<TableBodyProps>;
+export const TableFoot: ForwardRefExoticComponent<TableProps> &
+  ForwardRefExoticComponent<TableFootProps>;
+export const TableSelection: ForwardRefExoticComponent<TableProps> &
+  ForwardRefExoticComponent<TableSelectionProps>;
+export const TableSelectionButton: ForwardRefExoticComponent<TableProps> &
+  ForwardRefExoticComponent<TableSelectionButtonProps>;
+export const TableRow: ForwardRefExoticComponent<TableProps> &
+  ForwardRefExoticComponent<TableRowProps>;
+export const TableCell: ForwardRefExoticComponent<TableProps> &
+  ForwardRefExoticComponent<TableCellProps>;

@@ -19,7 +19,4 @@ export const _InformationTooltipTrigger: Story = (args) => (
 _InformationTooltipTrigger.storyName = 'InformationTooltipTrigger';
 _InformationTooltipTrigger.parameters = {
   layout: 'centered',
-  loki: {
-    skip: true,
-  },
 };

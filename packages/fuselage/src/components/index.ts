@@ -14,7 +14,7 @@ export { default as Chip } from './Chip';
 export * from './Divider';
 export * from './Dropdown';
 export * from './EmailInput';
-export * from './Field';
+export { default as Field } from './Field';
 export * from './FieldGroup';
 export * from './Grid';
 export * from './Icon';
