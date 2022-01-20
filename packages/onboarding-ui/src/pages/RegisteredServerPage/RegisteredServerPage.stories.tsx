@@ -15,6 +15,8 @@ export default {
   args: {
     currentStep: 1,
     stepCount: 1,
+    termsHref: '#',
+    policyHref: '#',
   },
 } as Meta<Args>;
 
