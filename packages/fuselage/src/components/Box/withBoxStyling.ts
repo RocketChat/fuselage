@@ -1,10 +1,17 @@
-import { createElement } from 'react';
+import {
+  ComponentProps,
+  createElement,
+  ForwardRefExoticComponent,
+} from 'react';
 
+import { Box } from '.';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { useStylingProps } from './stylingProps';
 
-export const withBoxStyling = (component) => {
-  const render = (props) => {
+export const withBoxStyling = (
+  component: ForwardRefExoticComponent<typeof Box>
+) => {
+  const render = (props: ComponentProps<typeof Box>) => {
     if (typeof component === 'function') {
       return component(props);
     }
@@ -12,7 +19,7 @@ export const withBoxStyling = (component) => {
     return createElement(component, props);
   };
 
-  const WithBoxStyling = (props) => {
+  const WithBoxStyling = (props: ComponentProps<typeof Box>) => {
     useStyleSheet();
     props = useStylingProps(props);
     return render(props);
