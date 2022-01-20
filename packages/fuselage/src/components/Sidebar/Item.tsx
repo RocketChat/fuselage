@@ -89,7 +89,7 @@ export const SidebarItemBadge: FC<{ className: string }> = ({
   />
 );
 
-export const SidebarItemSubtitle: FC<{ className: string }> = ({
+export const SidebarItemSubtitle: FC<{ className?: string }> = ({
   className,
   ...props
 }) => (
@@ -110,7 +110,7 @@ export const SidebarItemWrapper: FC<{ className?: string }> = ({
 );
 
 export const SidebarItemIcon: FC<{
-  className: string;
+  className?: string;
   highlighted?: boolean;
   icon: ComponentProps<typeof FuselageIcon>['name'];
 }> = ({ highlighted, children, icon, className, ...props }) => (
@@ -133,7 +133,8 @@ export const SidebarItemAvatar: FC = ({ ...props }) => (
   </SidebarItemContainer>
 );
 
-export const SidebarItemActions = SidebarActions;
+export const SidebarItemActions: FC<ComponentProps<typeof SidebarActions>> =
+  SidebarActions;
 
 export const SidebarItemAction: FC<ComponentProps<typeof SidebarAction>> = (
   props

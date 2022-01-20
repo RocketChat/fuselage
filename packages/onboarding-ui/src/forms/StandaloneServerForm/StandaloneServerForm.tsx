@@ -30,7 +30,7 @@ const StandaloneServerForm = ({
   const form = useForm<StandaloneServerPayload>({
     mode: 'onChange',
     defaultValues: {
-      registerType: 'registered',
+      registerType: 'standalone',
       ...initialValues,
     },
   });

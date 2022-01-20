@@ -29,7 +29,7 @@ export const Default = () => {
       <ActionButton ref={anchor} icon='doner' />
       <Dropdown ref={target} reference={anchor} placement='bottom-end'>
         {list.map((_, i) => (
-          <Option>Example {i + 1}</Option>
+          <Option key={i}>Example {i + 1}</Option>
         ))}
       </Dropdown>
     </Box>

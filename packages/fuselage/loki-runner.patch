@@ -1,0 +1,41 @@
+diff --git a/src/commands/test/compare-screenshot.js b/src/commands/test/compare-screenshot.js
+index 1bbfb230a867b6fcdb63000b19df3bd84311ab75..d8578b75ed5f7f5c34865c0a6a6b40f1e433b888 100644
+--- a/src/commands/test/compare-screenshot.js
++++ b/src/commands/test/compare-screenshot.js
+@@ -1,8 +1,8 @@
+-const fs = require('fs-extra');
+-const path = require('path');
+-const { ReferenceImageError } = require('@loki/core');
+-const { getImageDiffer } = require('./get-image-differ');
+-const { getOutputPaths } = require('./get-output-paths');
++const fs = require("fs-extra");
++const path = require("path");
++const { ReferenceImageError } = require("@loki/core");
++const { getImageDiffer } = require("./get-image-differ");
++const { getOutputPaths } = require("./get-output-paths");
+ 
+ async function compareScreenshot(
+   screenshot,
+@@ -32,7 +32,12 @@ async function compareScreenshot(
+   }
+ 
+   if (!referenceExists) {
+-    throw new ReferenceImageError('No reference image found', kind, story);
++    throw new ReferenceImageError(
++      "No reference image found",
++      `"${kind}" "${story}"`,
++      `referencePath: "${referencePath}" `,
++      `outputPath: "${outputPath}" `
++    );
+   }
+ 
+   const isEqual = await getImageDiffer(
+@@ -43,7 +48,7 @@ async function compareScreenshot(
+   if (!isEqual) {
+     throw new ReferenceImageError(
+       `Screenshot differs from reference, see ${path.relative(
+-        path.resolve('./'),
++        path.resolve("./"),
+         diffPath
+       )}`,
+       kind,

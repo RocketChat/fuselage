@@ -5,6 +5,7 @@ import { Box } from '../Box';
 type InputBoxProps = ComponentProps<typeof Box> & {
   addon?: ReactNode;
   input?: ReactNode;
+  multiple?: boolean;
   error?: string;
   type:
     | 'button'
