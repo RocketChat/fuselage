@@ -5,7 +5,13 @@ import { useTranslation } from 'react-i18next';
 import BackgroundLayer from '../../common/BackgroundLayer';
 import { OnboardingLogo } from '../../common/OnboardingLogo';
 
-const SomethingWentWrongPage = (): ReactElement => {
+type SomethingWentWrongPageProps = {
+  requestId?: string;
+};
+
+const SomethingWentWrongPage = ({
+  requestId = undefined,
+}: SomethingWentWrongPageProps): ReactElement => {
   const { t } = useTranslation();
 
   return (
@@ -33,6 +39,11 @@ const SomethingWentWrongPage = (): ReactElement => {
           </Box>
 
           <Box fontScale='p1'>{t('page.somethingWentWrongPage.subtitle')}</Box>
+          {requestId && (
+            <Box>
+              {t('page.somethingWentWrongPage.requestId', { requestId })}
+            </Box>
+          )}
         </Margins>
       </Box>
     </BackgroundLayer>

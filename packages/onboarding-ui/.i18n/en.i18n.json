@@ -100,7 +100,8 @@
     },
     "somethingWentWrongPage": {
       "title": "Something went wrong",
-      "subtitle": "Please, contact support."
+      "subtitle": "Please, contact support.",
+      "requestId": "Request ID: {{requestId}}"
     }
   },
   "form": {
