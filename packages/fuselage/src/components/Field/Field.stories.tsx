@@ -18,7 +18,7 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <Stories title={'Label positioning for selection buttons'} />
+          <Stories title={'Field Patterns'} />
         </>
       ),
     },
@@ -32,8 +32,8 @@ export const Example: ComponentStory<typeof Field> = () => (
     <Field.Row>
       <InputBox.Skeleton />
     </Field.Row>
-    <Field.Hint>Hint</Field.Hint>
     <Field.Error>Error</Field.Error>
+    <Field.Hint>Hint</Field.Hint>
   </Field>
 );
 
@@ -51,6 +51,85 @@ export const WithToggleSwitch: ComponentStory<typeof Field> = () => (
     <Field.Row>
       <ToggleSwitch id='toggle-switch' />
       <Field.Label htmlFor='toggle-switch'>Label</Field.Label>
+    </Field.Row>
+  </Field>
+);
+
+export const WithDescription: ComponentStory<typeof Field> = () => (
+  <Field>
+    <Field.Label>Label</Field.Label>
+    <Field.Description>
+      Descriptions should add useful and relevant additional information about
+      what is required of the user for the related input. Its content is
+      strictly composed by plain text.
+    </Field.Description>
+    <Field.Row>
+      <InputBox.Skeleton />
+    </Field.Row>
+  </Field>
+);
+
+export const WithError: ComponentStory<typeof Field> = () => (
+  <Field>
+    <Field.Label>Label</Field.Label>
+    <Field.Row>
+      <InputBox.Skeleton />
+    </Field.Row>
+    <Field.Error>
+      Error text appears when the user has inputted an invalid response to a
+      field and let's the user know exactly what the issue is, so as to let them
+      remedy the error as easily as possible.
+    </Field.Error>
+  </Field>
+);
+
+export const WithHint: ComponentStory<typeof Field> = () => (
+  <Field>
+    <Field.Label>Label</Field.Label>
+    <Field.Row>
+      <InputBox.Skeleton />
+    </Field.Row>
+    <Field.Hint>
+      Hint fields help by explaining technical terms or concepts related to
+      third-party apps and integrations.
+    </Field.Hint>
+  </Field>
+);
+
+export const WithHintAndError: ComponentStory<typeof Field> = () => (
+  <Field>
+    <Field.Label>Label</Field.Label>
+    <Field.Row>
+      <InputBox.Skeleton />
+    </Field.Row>
+    <Field.Error>Error must be above.</Field.Error>
+    <Field.Hint>Hint must be below.</Field.Hint>
+  </Field>
+);
+
+export const WithLink: ComponentStory<typeof Field> = () => (
+  <Field>
+    <Field.Label>Label</Field.Label>
+    <Field.Row>
+      <InputBox.Skeleton />
+    </Field.Row>
+    <Field.Row justifyContent='end'>
+      <Field.Link href='#'>
+        Link is used for external resources or documentation.
+      </Field.Link>
+    </Field.Row>
+  </Field>
+);
+
+export const WithHintAndLink: ComponentStory<typeof Field> = () => (
+  <Field>
+    <Field.Label>Label</Field.Label>
+    <Field.Row>
+      <InputBox.Skeleton />
+    </Field.Row>
+    <Field.Row justifyContent='space-between'>
+      <Field.Hint>Same line as Link in the left</Field.Hint>
+      <Field.Link href='#'>Same line as Hint in the right</Field.Link>
     </Field.Row>
   </Field>
 );
