@@ -6,7 +6,7 @@ import BackgroundLayer from '../../common/BackgroundLayer';
 import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type SomethingWentWrongPageProps = {
-  requestId?: string;
+  requestId: string | undefined;
 };
 
 const SomethingWentWrongPage = ({

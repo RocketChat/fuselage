@@ -13,7 +13,7 @@ export default {
     layout: 'fullscreen',
   },
   args: {
-    requestId: '6818214a-f735-4f80-ba37-f9e909db7b08',
+    requestId: undefined,
   },
 } as Meta<Args>;
 
