@@ -17,6 +17,8 @@ type RegisteredServerPageProps = {
   onBackButtonClick: () => void;
   onClickContinue: () => void;
   validateEmail?: Validate<string>;
+  termsHref?: string;
+  policyHref?: string;
 };
 
 const pageLayoutStyleProps: FormPageLayoutStyleProps = {
