@@ -8,14 +8,14 @@ type FieldGroupProps = ComponentProps<typeof Box>;
 
 export const FieldGroup: FC<FieldGroupProps> = ({ children, ...props }) => (
   <Box is='fieldset' rcx-field-group role='group' {...props}>
-    {patchChildren(children, (childProps: { className: string | string[] }) => {
-      console.log('--->', childProps);
-      return {
+    {patchChildren(
+      children,
+      (childProps: { className: string | string[] }) => ({
         className: appendClassName(
           childProps.className,
           'rcx-field-group__item'
         ),
-      };
-    })}
+      })
+    )}
   </Box>
 );
