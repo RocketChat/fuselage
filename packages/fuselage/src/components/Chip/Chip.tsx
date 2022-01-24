@@ -1,20 +1,23 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ComponentProps, FC } from 'react';
 
 import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
-import { withBoxStyling } from '../Box/withBoxStyling';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
-const defaultRenderThumb = ({ url }) => (
+type ChipProps = ComponentProps<typeof Box> & {
+  thumbUrl: string;
+};
+
+const defaultRenderThumb = ({ url }: { url: string }) => (
   <Box rcx-avatar>
     <Avatar size='x20' url={url} />
   </Box>
 );
 const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
-const Chip = ({
+export const Chip: FC<ChipProps> = ({
   children,
   className,
   thumbUrl,
@@ -52,5 +55,3 @@ if (process.env.NODE_ENV !== 'production') {
     renderDismissSymbol: PropTypes.func,
   };
 }
-
-export default withBoxStyling(Chip);
