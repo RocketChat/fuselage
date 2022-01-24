@@ -6,7 +6,7 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { prependClassName } from '../../helpers/prependClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import { useBoxTransform, BoxTransforms } from './hooks/BoxTransforms';
+import { useBoxTransform, BoxTransforms } from './BoxTransforms';
 import { useStylingProps } from './stylingProps';
 
 export const useArrayLikeClassNameProp = (props) => {
