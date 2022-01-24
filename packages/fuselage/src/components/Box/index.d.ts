@@ -3,14 +3,11 @@ import {
   AllHTMLAttributes,
   CSSProperties,
   ElementType,
-  JSXElementConstructor,
+  ForwardRefExoticComponent,
   PropsWithChildren,
-  ReactElement,
   RefAttributes,
   SVGAttributes,
 } from 'react';
-
-type Size = '1' | '2' | '4' | '8' | '12' | '16' | '20' | '24' | '32' | '40';
 
 type FontScale =
   | 'hero'
@@ -29,11 +26,8 @@ type FontScale =
   | 'c2'
   | 'micro';
 
-export type BoxProps<E extends HTMLElement> = PropsWithChildren<{
-  is?:
-    | ReactElement<E, string | JSXElementConstructor<E>>
-    | (ElementType<E> & string)
-    | string;
+type BoxProps = PropsWithChildren<{
+  is?: ElementType;
   className?:
     | string
     | ReturnType<typeof css>
@@ -158,11 +152,29 @@ export type BoxProps<E extends HTMLElement> = PropsWithChildren<{
   invisible?: boolean;
   withRichContent?: boolean | string;
   withTruncatedText?: boolean;
-  size?: `x${Size}` | `neg-x${Size}` | CSSProperties['blockSize'];
+  size?: CSSProperties['blockSize'];
   minSize?: CSSProperties['blockSize'];
   maxSize?: CSSProperties['blockSize'];
   fontScale?: FontScale;
 }> &
-  Omit<AllHTMLAttributes<HTMLOrSVGElement>, 'className' | 'size'> &
+  Omit<AllHTMLAttributes<HTMLOrSVGElement>, 'className'> &
   Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLOrSVGElement>> &
   RefAttributes<unknown>;
+
+export const Box: ForwardRefExoticComponent<BoxProps>;
+
+export { default as AnimatedVisibility } from './AnimatedVisibility';
+export { default as Flex } from './Flex';
+export { default as Position, PositionAnimated } from './Position';
+export { default as Scrollable } from './Scrollable';
+
+export const useArrayLikeClassNameProp: <
+  T extends {
+    className?:
+      | string
+      | ReturnType<typeof css>
+      | (string | ReturnType<typeof css>)[];
+  }
+>(
+  props: T
+) => T & { className: string };
