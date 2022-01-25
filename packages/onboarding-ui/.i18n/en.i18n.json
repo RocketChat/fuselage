@@ -97,6 +97,11 @@
     },
     "createPasswordPage": {
       "title": "Create new password"
+    },
+    "somethingWentWrongPage": {
+      "title": "Something went wrong",
+      "subtitle": "Please, contact support.",
+      "requestId": "Request ID: {{requestId}}"
     }
   },
   "form": {

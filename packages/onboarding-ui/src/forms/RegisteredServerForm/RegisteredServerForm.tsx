@@ -48,7 +48,7 @@ const RegisterServerForm = ({
   onBackButtonClick,
   onClickContinue,
   termsHref = 'https://rocket.chat/terms',
-  policyHref = 'https://rocket.chat/policy',
+  policyHref = 'https://rocket.chat/privacy',
 }: RegisterServerFormProps): ReactElement => {
   const { t } = useTranslation();
   const emailField = useUniqueId();
