@@ -7,6 +7,7 @@ type InputBoxProps = ComponentProps<typeof Box> & {
   input?: ReactNode;
   multiple?: boolean;
   error?: string;
+  placeholder?: string;
   type:
     | 'button'
     | 'checkbox'
@@ -38,4 +39,5 @@ type InputBoxSkeletonProps = ComponentProps<typeof Box>;
 
 export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
   Skeleton: ForwardRefExoticComponent<InputBoxSkeletonProps>;
+  Input: ForwardRefExoticComponent<InputBoxProps>;
 };
