@@ -17,3 +17,4 @@ export { default as ResetPasswordPage } from './pages/ResetPasswordPage';
 export { default as CreateNewPasswordPage } from './pages/CreateNewPasswordPage';
 export { default as ResetPasswordConfirmationPage } from './pages/ResetPasswordConfirmationPage';
 export { default as OauthAuthorizationPage } from './pages/OauthAuthorizationPage';
+export { default as SomethingWentWrongPage } from './pages/SomethingWentWrongPage';
