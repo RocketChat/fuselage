@@ -64,6 +64,9 @@
         "outputs": [
           "storybook-static/**"
         ]
+      },
+      "lint-staged": {
+        "outputs": []
       }
     }
   }
