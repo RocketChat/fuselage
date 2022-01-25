@@ -4,26 +4,28 @@ import { Box } from '../Box';
 import { Button } from '../Button';
 
 type CodeSnippetProps = ComponentProps<typeof Box> & {
-  code?: string;
+  children: string;
   buttonText?: string;
-  handleClick?: () => void;
+  onClick?: () => void;
 };
 
 const CodeSnippet = ({
-  code,
-  handleClick,
+  children,
+  onClick,
   buttonText = 'Copy',
   ...props
 }: CodeSnippetProps): ReactElement<CodeSnippetProps> => (
   <Box is='pre' rcx-code-snippet {...props}>
     <Box rcx-code-snippet__codebox>
-      <code>{code}</code>
+      <code>{children}</code>
     </Box>
-    <Box>
-      <Button small primary onClick={handleClick}>
-        {buttonText}
-      </Button>
-    </Box>
+    {onClick && (
+      <Box>
+        <Button small primary onClick={onClick}>
+          {buttonText}
+        </Button>
+      </Box>
+    )}
   </Box>
 );
 

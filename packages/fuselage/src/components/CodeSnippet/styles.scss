@@ -6,8 +6,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
   width: 100%;
+
+  min-height: lengths.size(60);
   padding: lengths.padding(16);
 
   border-radius: lengths.border-width(2);

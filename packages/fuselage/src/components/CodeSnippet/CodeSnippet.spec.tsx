@@ -4,5 +4,5 @@ import React from 'react';
 import CodeSnippet from './CodeSnippet';
 
 it('renders without crashing', () => {
-  render(<CodeSnippet code='code' handleClick={() => {}} />);
+  render(<CodeSnippet onClick={() => undefined}>code</CodeSnippet>);
 });
