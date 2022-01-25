@@ -7,28 +7,45 @@ import React, {
   useState,
   useRef,
   useEffect,
-  useCallback,
-  memo,
   forwardRef,
+  ComponentProps,
+  SyntheticEvent,
 } from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
-import Chip from '../Chip';
 import { Icon } from '../Icon';
-import { InputBox } from '../InputBox';
 import Margins from '../Margins';
 import { Options, CheckOption, useCursor } from '../Options';
+import { UseCursorOnChange, Option } from '../Options/useCursor';
 import { Focus, Addon } from '../Select/Select';
+import { SelectedOptions } from './SelectedOptions';
 
-const SelectedOptions = memo((props) => <Chip {...props} />);
+type MultiSelectOptions = readonly (readonly [
+  MultiSelectValue,
+  string,
+  boolean?
+])[];
 
-const prevent = (e) => {
+type MultiSelectValue = string | number;
+
+type MultiSelectValues = MultiSelectValue[];
+
+type MultiSelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+  error?: string;
+  options: MultiSelectOptions;
+  onChange: (value: MultiSelectValues) => void;
+  getLabel?: (params: MultiSelectOptions[0]) => string;
+  filter?: string;
+  value?: MultiSelectValues;
+};
+
+const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
   e.stopPropagation();
   e.nativeEvent.stopImmediatePropagation();
 };
 
-export const MultiSelect = forwardRef(
+export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
   (
     {
       value,
@@ -38,8 +55,13 @@ export const MultiSelect = forwardRef(
       disabled,
       anchor: Anchor = Focus,
       onChange = () => {},
-      getLabel = ([, label] = []) => label,
-      getValue = ([value]) => value,
+      getLabel = (args) => {
+        if (Array.isArray(args) && args.length > 2) {
+          return args[1];
+        }
+        return '';
+      },
+      getValue = ([value]: string[] | undefined[]) => value,
       placeholder,
       renderOptions: _Options = Options,
       ...props
@@ -47,12 +69,13 @@ export const MultiSelect = forwardRef(
     ref
   ) => {
     const [internalValue, setInternalValue] = useState(value || []);
+    const currentValue: MultiSelectValues =
+      value !== undefined ? value : internalValue;
 
-    const currentValue = value !== undefined ? value : internalValue;
     const option = options.find((option) => getValue(option) === currentValue);
-    const index = options.indexOf(option);
+    const index = option ? options.indexOf(option) : undefined;
 
-    const internalChanged = ([value]) => {
+    const internalChanged: UseCursorOnChange = ([value]) => {
       if (currentValue.includes(value)) {
         const newValue = currentValue.filter((item) => item !== value);
         setInternalValue(newValue);
@@ -63,24 +86,40 @@ export const MultiSelect = forwardRef(
       return onChange(newValue);
     };
 
-    const mapOptions = ([value, label]) => {
+    const mapOptions = ([value, label]: MultiSelectOptions[number]) => {
       if (currentValue.includes(value)) {
         return [value, label, true];
       }
       return [value, label];
     };
-    const applyFilter = ([, option]) =>
+
+    const applyFilter = ([, option]: MultiSelectOptions[number]) =>
       !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
+
     const filteredOptions = options.filter(applyFilter).map(mapOptions);
+
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index, filteredOptions, internalChanged);
+      useCursor(
+        index as number,
+        filteredOptions as Option[],
+        internalChanged as UseCursorOnChange
+      );
 
     useEffect(reset, [filter]);
 
-    const innerRef = useRef();
+    const innerRef = useRef<HTMLInputElement | null>(null);
     const anchorRef = useMergedRefs(ref, innerRef);
-
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
+
+    const handleClick = useMutableCallback(() => {
+      if (visible === AnimatedVisibility.VISIBLE) {
+        return hide();
+      }
+      if (innerRef && innerRef.current) {
+        innerRef.current.focus();
+        return show();
+      }
+    });
 
     return (
       <Box
@@ -88,11 +127,7 @@ export const MultiSelect = forwardRef(
         rcx-select
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
-        onClick={useMutableCallback(() =>
-          visible === AnimatedVisibility.VISIBLE
-            ? hide()
-            : innerRef.current.focus() & show()
-        )}
+        onClick={handleClick}
         disabled={disabled}
         {...props}
       >
@@ -125,12 +160,16 @@ export const MultiSelect = forwardRef(
                       <SelectedOptions
                         tabIndex={-1}
                         role='option'
-                        key={value}
-                        onMouseDown={(e) =>
-                          prevent(e) & internalChanged([value]) && false
-                        }
+                        key={`${value}`}
+                        onMouseDown={(e: SyntheticEvent) => {
+                          prevent(e);
+                          internalChanged([value, '', false]);
+                          return false;
+                        }}
                         children={getLabel(
-                          options.find(([val]) => val === value)
+                          options.find(
+                            ([val]) => val === value
+                          ) as MultiSelectOptions[0]
                         )}
                       />
                     ))}
@@ -175,25 +214,3 @@ export const MultiSelect = forwardRef(
     );
   }
 );
-
-export const MultiSelectFiltered = ({ options, placeholder, ...props }) => {
-  const [filter, setFilter] = useState('');
-  const anchor = useCallback(
-    forwardRef(({ children, filter, ...props }, ref) => (
-      <Flex.Item grow={1}>
-        <InputBox.Input
-          ref={ref}
-          placeholder={placeholder}
-          value={filter}
-          onInput={(e) => setFilter(e.currentTarget.value)}
-          {...props}
-          rcx-input-box--undecorated
-        />
-      </Flex.Item>
-    )),
-    []
-  );
-  return (
-    <MultiSelect filter={filter} options={options} {...props} anchor={anchor} />
-  );
-};

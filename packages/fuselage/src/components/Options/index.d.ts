@@ -1,7 +1,13 @@
-import { ComponentProps, ElementType, ForwardRefExoticComponent } from 'react';
+import {
+  ComponentProps,
+  ElementType,
+  FC,
+  ForwardRefExoticComponent,
+} from 'react';
 
 import { Avatar } from '../Avatar';
 import { Box } from '../Box';
+import { OptionProps } from './Option/Option';
 
 type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
@@ -14,5 +20,7 @@ type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
 export const Options: ForwardRefExoticComponent<OptionsProps> & {
   AvatarSize: ComponentProps<typeof Avatar>['size'];
 };
+
+export const CheckOption: FC<OptionProps>;
 
 export { useCursor } from './useCursor';
