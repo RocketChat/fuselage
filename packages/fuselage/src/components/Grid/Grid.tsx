@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { ComponentProps, FC } from 'react';
 
 import { Box } from '../Box';
+import { GridItem } from './GridItem';
 
 type GridProps = ComponentProps<typeof Box> & {
   xs?: boolean;
@@ -11,7 +12,14 @@ type GridProps = ComponentProps<typeof Box> & {
   xl?: boolean;
 };
 
-export const Grid: FC<GridProps> = ({ xs, sm, md, lg, xl, ...props }) => (
+export const Grid: FC<GridProps> & { Item: typeof GridItem } = ({
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  ...props
+}) => (
   <Box rcx-grid__wrapper>
     <Box
       rcx-grid
@@ -32,3 +40,5 @@ Grid.propTypes = {
   lg: PropTypes.bool,
   xl: PropTypes.bool,
 };
+
+Grid.Item = GridItem;
