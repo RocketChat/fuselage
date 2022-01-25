@@ -13,31 +13,29 @@ import { TextObjectRenderer } from './TextObjectRenderer';
 
 export type BlockRenderers<T> = {
   [B in RenderableLayoutBlock as B['type']]?: LayoutBlockRenderer<T, B>;
-} &
-  {
-    [B in TextObject as B['type']]: TextObjectRenderer<T, B>;
-  } &
-  {
-    [B in BlockElement as B['type']]?: BlockElementRenderer<T, B>;
-  } & {
-    /** @deprecated */
-    plainText?: TextObjectRenderer<T, PlainText>;
+} & {
+  [B in TextObject as B['type']]: TextObjectRenderer<T, B>;
+} & {
+  [B in BlockElement as B['type']]?: BlockElementRenderer<T, B>;
+} & {
+  /** @deprecated */
+  plainText?: TextObjectRenderer<T, PlainText>;
 
-    /** @deprecated */
-    text?: TextObjectRenderer<T>;
+  /** @deprecated */
+  text?: TextObjectRenderer<T>;
 
-    /** @deprecated */
-    datePicker?: BlockElementRenderer<T, DatePickerElement>;
+  /** @deprecated */
+  datePicker?: BlockElementRenderer<T, DatePickerElement>;
 
-    /** @deprecated */
-    staticSelect?: BlockElementRenderer<T, StaticSelectElement>;
+  /** @deprecated */
+  staticSelect?: BlockElementRenderer<T, StaticSelectElement>;
 
-    /** @deprecated */
-    multiStaticSelect?: BlockElementRenderer<T, MultiStaticSelectElement>;
+  /** @deprecated */
+  multiStaticSelect?: BlockElementRenderer<T, MultiStaticSelectElement>;
 
-    /** @deprecated */
-    plainInput?: BlockElementRenderer<T, PlainTextInputElement>;
+  /** @deprecated */
+  plainInput?: BlockElementRenderer<T, PlainTextInputElement>;
 
-    /** @deprecated */
-    linearScale?: BlockElementRenderer<T, LinearScaleElement>;
-  };
+  /** @deprecated */
+  linearScale?: BlockElementRenderer<T, LinearScaleElement>;
+};

@@ -22,7 +22,7 @@ export type Option = [
 
 export type UseCursorOnChange = (
   option: Option,
-  visibilityHandler?: ReturnType<typeof useVisible>
+  visibilityHandler: ReturnType<typeof useVisible>
 ) => void;
 
 export const useCursor = (
