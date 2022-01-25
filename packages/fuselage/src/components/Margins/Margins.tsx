@@ -1,14 +1,30 @@
 import { css } from '@rocket.chat/css-in-js';
-import React, { useCallback } from 'react';
+import React, {
+  ComponentProps,
+  FC,
+  PropsWithChildren,
+  useCallback,
+} from 'react';
 
+import { Box } from '..';
 import { appendClassName } from '../../helpers/appendClassName';
-import { createPropType } from '../../helpers/createPropType';
 import { patchChildren } from '../../helpers/patchChildren';
 import { useStyle } from '../../hooks/useStyle';
 import { margin } from '../../styleTokens';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
-function Margins(props) {
+type MarginsProps = PropsWithChildren<{
+  all?: ComponentProps<typeof Box>['margin'];
+  block?: ComponentProps<typeof Box>['marginBlock'];
+  blockStart?: ComponentProps<typeof Box>['marginBlockStart'];
+  blockEnd?: ComponentProps<typeof Box>['marginBlockEnd'];
+  inline?: ComponentProps<typeof Box>['marginInline'];
+  inlineStart?: ComponentProps<typeof Box>['marginInlineStart'];
+  inlineEnd?: ComponentProps<typeof Box>['marginInlineEnd'];
+  className?: string;
+}>;
+
+export const Margins: FC<MarginsProps> = (props) => {
   const {
     children,
     className,
@@ -90,14 +106,20 @@ function Margins(props) {
       }
     `,
     props
-  );
+  ) as string;
 
-  const patchedChildren = patchChildren(children, (childProps) => ({
-    className: appendClassName(
-      childProps.className,
-      appendClassName(className, marginsClassName)
-    ),
-  }));
+  const patchedChildren = patchChildren(
+    children,
+    (childProps: {
+      className: string | string[];
+      [index: string]: unknown;
+    }) => ({
+      className: appendClassName(
+        childProps.className,
+        appendClassName(className, marginsClassName)
+      ),
+    })
+  );
 
   return (
     <BoxTransforms.Provider
@@ -105,16 +127,4 @@ function Margins(props) {
       value={useComposedBoxTransform(transformFn)}
     />
   );
-}
-
-Margins.propTypes = {
-  all: createPropType(margin),
-  block: createPropType(margin),
-  blockStart: createPropType(margin),
-  blockEnd: createPropType(margin),
-  inline: createPropType(margin),
-  inlineStart: createPropType(margin),
-  inlineEnd: createPropType(margin),
 };
-
-export default Margins;
