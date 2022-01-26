@@ -159,7 +159,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                         key={`${value}`}
                         onMouseDown={(e: SyntheticEvent) => {
                           prevent(e);
-                          internalChanged([value, '', false], undefined as any);
+                          internalChanged([value, '', false], [] as any);
                           return false;
                         }}
                         children={getLabel(

@@ -55,7 +55,7 @@ export const Scrollable: FC<ScrollableProps> = ({
   smooth,
   onScrollContent,
 }) => {
-  const scrollTimeoutRef = useRef(false);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const touchingEdgesRef = useRef({});
 
   const handleScroll = useMutableCallback((event: MouseEvent) => {
@@ -65,12 +65,10 @@ export const Scrollable: FC<ScrollableProps> = ({
       pollTouchingEdges(element, touchingEdgesRef, onScrollContent);
     }
 
-    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    scrollTimeoutRef.current && clearTimeout(scrollTimeoutRef.current);
 
-    timeoutId && clearTimeout(timeoutId);
-
-    timeoutId = setTimeout(() => {
-      scrollTimeoutRef.current = false;
+    scrollTimeoutRef.current = setTimeout(() => {
+      scrollTimeoutRef.current = undefined;
       pollTouchingEdges(element, touchingEdgesRef, onScrollContent);
     }, 200);
   });
