@@ -75,7 +75,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     const option = options.find((option) => getValue(option) === currentValue);
     const index = option ? options.indexOf(option) : undefined;
 
-    const internalChanged: UseCursorOnChange = ([value]) => {
+    const internalChanged: UseCursorOnChange = ([value], _) => {
       if (currentValue.includes(value)) {
         const newValue = currentValue.filter((item) => item !== value);
         setInternalValue(newValue);
