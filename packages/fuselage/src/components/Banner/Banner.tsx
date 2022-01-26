@@ -1,5 +1,12 @@
 import { useBorderBoxSize } from '@rocket.chat/fuselage-hooks';
-import React, { useRef, useCallback, useMemo } from 'react';
+import React, {
+  useRef,
+  useCallback,
+  useMemo,
+  FC,
+  ReactNode,
+  AllHTMLAttributes,
+} from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
@@ -7,9 +14,28 @@ import Button from '../Button';
 import { Icon } from '../Icon';
 import styleSheet from './Banner.styles.scss';
 
-const variants = ['neutral', 'info', 'success', 'warning', 'danger'];
+type VariantType = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 
-const Banner = ({
+const variants: VariantType[] = [
+  'neutral',
+  'info',
+  'success',
+  'warning',
+  'danger',
+];
+
+type BannerProps = {
+  inline?: boolean;
+  actionable?: boolean;
+  closeable?: boolean;
+  icon?: ReactNode;
+  title?: string;
+  variant?: VariantType;
+  onAction?: () => void;
+  onClose?: () => void;
+} & AllHTMLAttributes<HTMLElement>;
+
+const Banner: FC<BannerProps> = ({
   inline = false,
   children,
   className,
