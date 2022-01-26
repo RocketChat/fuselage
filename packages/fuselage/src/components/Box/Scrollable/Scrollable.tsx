@@ -65,9 +65,9 @@ export const Scrollable: FC<ScrollableProps> = ({
       pollTouchingEdges(element, touchingEdgesRef, onScrollContent);
     }
 
-    let timeoutId: null | ReturnType<typeof setTimeout> = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
-    clearTimeout(Number(timeoutId));
+    timeoutId && clearTimeout(timeoutId);
 
     timeoutId = setTimeout(() => {
       scrollTimeoutRef.current = false;

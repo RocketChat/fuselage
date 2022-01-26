@@ -99,11 +99,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     const filteredOptions = options.filter(applyFilter).map(mapOptions);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(
-        index as number,
-        filteredOptions as Option[],
-        internalChanged as UseCursorOnChange
-      );
+      useCursor(index as number, filteredOptions as Option[], internalChanged);
 
     useEffect(reset, [filter]);
 
@@ -163,10 +159,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                         key={`${value}`}
                         onMouseDown={(e: SyntheticEvent) => {
                           prevent(e);
-                          internalChanged(
-                            [value, '', false],
-                            (() => undefined) as any
-                          );
+                          internalChanged([value, '', false], undefined as any);
                           return false;
                         }}
                         children={getLabel(
