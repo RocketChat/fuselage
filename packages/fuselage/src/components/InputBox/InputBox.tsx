@@ -11,8 +11,9 @@ import React, {
   useRef,
 } from 'react';
 
-import { Input, InputBoxAddon as Addon, InputBoxSkeleton, Wrapper } from '.';
+import { Input, InputBoxSkeleton, Wrapper } from '.';
 import { Box } from '../Box';
+import { Addon } from './Addon';
 
 type InputBoxProps = ComponentProps<typeof Box> & {
   addon?: ReactNode;
