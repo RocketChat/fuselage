@@ -14,6 +14,8 @@ import React, {
 import { Input, InputBoxSkeleton, Wrapper } from '.';
 import { Box } from '../Box';
 import { Addon } from './Addon';
+import { Option } from './Option';
+import { Placeholder } from './Placeholder';
 
 type InputBoxProps = ComponentProps<typeof Box> & {
   addon?: ReactNode;
@@ -52,6 +54,8 @@ type InputBoxProps = ComponentProps<typeof Box> & {
 export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
   Input?: ComponentProps<typeof Box>;
   Skeleton?: ComponentProps<typeof InputBoxSkeleton>;
+  Option?: ComponentProps<typeof Option>;
+  Placeholder?: ComponentProps<typeof Placeholder>;
 } = forwardRef(function InputBox(
   {
     className,
