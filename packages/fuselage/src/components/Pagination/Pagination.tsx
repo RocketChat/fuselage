@@ -1,18 +1,47 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React, {
+  ComponentProps,
+  Dispatch,
+  FC,
+  SetStateAction,
+  useMemo,
+} from 'react';
 
 import { Box } from '../Box';
 import { Chevron } from '../Chevron';
 
+type PaginationProps = ComponentProps<typeof Box> & {
+  count: number;
+  current?: number;
+  divider?: boolean;
+  itemsPerPage?: 25 | 50 | 100;
+  itemsPerPageLabel?: () => string;
+  showingResultsLabel?: (props: {
+    count: number;
+    current: number;
+    itemsPerPage: 25 | 50 | 100;
+  }) => string;
+  onSetCurrent?: Dispatch<SetStateAction<number>>;
+  onSetItemsPerPage?: Dispatch<SetStateAction<25 | 50 | 100>>;
+};
+
 const defaultItemsPerPageLabel = () => 'Items per page:';
 
-const defaultShowingResultsLabel = ({ count, current, itemsPerPage }) =>
+const defaultShowingResultsLabel = ({
+  count,
+  current,
+  itemsPerPage,
+}: {
+  count: PaginationProps['count'];
+  current: PaginationProps['current'];
+  itemsPerPage: PaginationProps['itemsPerPage'];
+}) =>
   `Showing results ${current + 1} - ${Math.min(
     current + itemsPerPage,
     count
   )} of ${count}`;
 
-export function Pagination({
+export const Pagination: FC<PaginationProps> = ({
   count,
   current = 0,
   itemsPerPage = 25,
@@ -22,7 +51,7 @@ export function Pagination({
   onSetCurrent,
   divider,
   ...props
-}) {
+}) => {
   const itemsPerPageOptions = [25, 50, 100].filter((i) => i <= count);
   const hasItemsPerPageSelection = itemsPerPageOptions.length > 1;
   const currentPage = Math.floor(current / itemsPerPage);
@@ -57,11 +86,12 @@ export function Pagination({
 
   const renderingContext = { count, pages, current, currentPage, itemsPerPage };
 
-  const handleSetItemsPerPageLinkClick = (itemsPerPageOption) => () => {
-    onSetItemsPerPage && onSetItemsPerPage(itemsPerPageOption);
-  };
+  const handleSetItemsPerPageLinkClick =
+    (itemsPerPageOption: PaginationProps['itemsPerPage']) => () => {
+      onSetItemsPerPage && onSetItemsPerPage(itemsPerPageOption);
+    };
 
-  const handleSetPageLinkClick = (page) => () => {
+  const handleSetPageLinkClick = (page: number) => () => {
     onSetCurrent && onSetCurrent(page * itemsPerPage);
   };
 
@@ -113,9 +143,9 @@ export function Pagination({
                   is='button'
                   rcx-pagination__link
                   disabled={currentPage === page}
-                  onClick={handleSetPageLinkClick(page)}
+                  onClick={handleSetPageLinkClick(page as number)}
                 >
-                  {page + 1}
+                  {(page as number) + 1}
                 </Box>
               )}
             </Box>
@@ -134,7 +164,7 @@ export function Pagination({
       </Box>
     </Box>
   );
-}
+};
 
 Pagination.defaultProps = {
   current: 0,
