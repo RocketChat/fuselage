@@ -2,7 +2,15 @@ import {
   useMutableCallback,
   useDebouncedState,
 } from '@rocket.chat/fuselage-hooks';
-import React from 'react';
+import React, {
+  ComponentProps,
+  ElementType,
+  forwardRef,
+  ForwardRefExoticComponent,
+  memo,
+  Ref,
+  SyntheticEvent,
+} from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import { AnimatedVisibility, Box } from '../Box';
@@ -10,26 +18,32 @@ import { CheckBox } from '../CheckBox';
 import Option from '../Options/Option';
 import Tile from '../Tile';
 
-const prevent = (e) => {
+const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
   e.stopPropagation();
 };
 
-export const Empty = React.memo(() => <Option color='hint' label='Empty' />);
+type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
+  multiple?: boolean;
+  options: { value: unknown; label: string; selected?: boolean }[];
+  cursor: number;
+  renderItem?: ElementType;
+  renderEmpty?: ElementType;
+  onSelect: (option: [unknown, string]) => void;
+};
 
-export const CheckOption = React.memo(function CheckOption({
-  selected,
-  children: label,
-  ...options
-}) {
-  return (
-    <Option label={label} selected={selected} {...options}>
-      <CheckBox checked={selected} />
-    </Option>
-  );
-});
+export const Empty = memo(() => <Option label='Empty' />);
 
-export const OptionsPaginated = React.forwardRef(
+export const CheckOption: ForwardRefExoticComponent<OptionsPaginatedProps> =
+  memo(function CheckOption({ selected, children: label, ...options }) {
+    return (
+      <Option label={label as string} selected={selected} {...options}>
+        <CheckBox checked={selected} />
+      </Option>
+    );
+  });
+
+export const OptionsPaginated = forwardRef<Ref<Element>, OptionsPaginatedProps>(
   (
     {
       title,
@@ -44,14 +58,20 @@ export const OptionsPaginated = React.forwardRef(
     },
     ref
   ) => {
-    const OptionsComponentWithData = ({ index, data }) => {
+    const OptionsComponentWithData = ({
+      index,
+      data,
+    }: {
+      index: number;
+      data: OptionsPaginatedProps['options'][0];
+    }) => {
       const { value, label, selected } = data;
       return (
         <OptionComponent
           {...(title && { title: label })}
           role='option'
           label={label}
-          onMouseDown={(e) => {
+          onMouseDown={(e: SyntheticEvent) => {
             prevent(e);
             onSelect([value, label]);
             return false;
@@ -95,5 +115,3 @@ export const useVisible = (initialVisibility = AnimatedVisibility.HIDDEN) => {
 
   return [visible, hide, show];
 };
-
-OptionsPaginated.AvatarSize = 'x20';
