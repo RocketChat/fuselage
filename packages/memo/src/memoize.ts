@@ -37,11 +37,8 @@ export const memoize = <T, A, R>(
 };
 
 export const clear = (
-  fn: MemoizableFunction<unknown, unknown, unknown>
+  fn: MemoizedFunction<unknown, unknown, unknown>
 ): void => {
-  const x = store.get(fn);
-
-  if (x) {
-    x.clear();
-  }
+  const cache = store.get(fn);
+  cache?.clear();
 };
