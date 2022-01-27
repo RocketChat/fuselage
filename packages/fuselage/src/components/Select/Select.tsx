@@ -17,7 +17,7 @@ import { Icon } from '../Icon';
 import { Options, useCursor } from '../Options';
 import { Option } from '../Options/useCursor';
 
-type SelectOptions = readonly (readonly [string, string])[];
+export type SelectOptions = readonly (readonly [string, string])[];
 
 export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   error?: string;
