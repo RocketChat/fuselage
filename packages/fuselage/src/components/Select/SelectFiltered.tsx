@@ -1,18 +1,28 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import React, { FC, forwardRef, useCallback, useState } from 'react';
+import React, {
+  ComponentProps,
+  FC,
+  forwardRef,
+  useCallback,
+  useState,
+} from 'react';
 
 import { Select } from '.';
 import { InputBox } from '../InputBox';
-import { SelectProps } from './Select';
 
-export const SelectFiltered: FC<SelectProps> = ({
+export type SelectFilteredProps = Omit<
+  ComponentProps<typeof Select>,
+  'onChange'
+>;
+
+export const SelectFiltered: FC<SelectFilteredProps> = ({
   options,
   placeholder,
   ...props
 }) => {
   const [filter, setFilter] = useState('');
   const anchor = useCallback(
-    forwardRef<HTMLInputElement, SelectProps>(
+    forwardRef<HTMLInputElement, ComponentProps<typeof InputBox>>(
       ({ children, filter, ...props }, ref) => (
         <InputBox.Input
           mi='x4'
