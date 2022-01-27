@@ -6,38 +6,53 @@ import {
 import React, {
   useState,
   useRef,
-  useCallback,
   useEffect,
   forwardRef,
   useMemo,
+  ComponentProps,
 } from 'react';
 
 import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
-import { InputBox } from '../InputBox';
 import { Options, useCursor } from '../Options';
+import { Option } from '../Options/useCursor';
 
-export const Addon = forwardRef((props, ref) => (
-  <Box is='div' rcx-select__addon ref={ref} {...props} />
-));
+type SelectOptions = readonly (readonly [string, string])[];
 
-const Wrapper = forwardRef((props, ref) => (
-  <Box is='div' rcx-select__wrapper ref={ref} {...props} />
-));
+export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+  error?: string;
+  options: SelectOptions;
+  onChange: (value: SelectOptions[number][0]) => void;
+  getLabel?: (params: SelectOptions[0]) => string;
+  filter?: string;
+};
 
-export const Focus = forwardRef((props, ref) => (
-  <Box
-    ref={ref}
-    fontScale='p2m'
-    color='hint'
-    rcx-select__focus
-    is='button'
-    type='button'
-    {...props}
-  />
-));
+export const Addon = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
+  (props, ref) => <Box is='div' rcx-select__addon ref={ref} {...props} />
+);
 
-const useDidUpdate = (func, deps = []) => {
+const Wrapper = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
+  (props, ref) => <Box is='div' rcx-select__wrapper ref={ref} {...props} />
+);
+
+export const Focus = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
+  (props, ref) => (
+    <Box
+      ref={ref}
+      fontScale='p2m'
+      color='hint'
+      rcx-select__focus
+      is='button'
+      type='button'
+      {...props}
+    />
+  )
+);
+
+const useDidUpdate = (
+  func: () => void,
+  deps: React.DependencyList | undefined
+) => {
   const didMount = useRef(false);
   const fn = useMutableCallback(func);
 
@@ -46,10 +61,10 @@ const useDidUpdate = (func, deps = []) => {
       fn();
     }
     didMount.current = true;
-  }, deps);
+  }, deps || []);
 };
 
-export const Select = forwardRef(
+export const Select = forwardRef<HTMLInputElement, SelectProps>(
   (
     {
       value,
@@ -59,15 +74,22 @@ export const Select = forwardRef(
       options = [],
       anchor: Anchor = Focus,
       onChange = () => {},
-      getValue = ([value] = []) => value,
-      getLabel = ([, label] = []) => label,
+      getValue = ([value]: string[] | undefined[]) => value,
+      getLabel = (args) => {
+        if (Array.isArray(args) && args.length > 2) {
+          return args[1];
+        }
+        return '';
+      },
       placeholder = '',
       renderOptions: _Options = Options,
       ...props
     },
     ref
   ) => {
-    const [internalValue, setInternalValue] = useState(value);
+    const [internalValue, setInternalValue] = useState<
+      string | string[] | number | undefined
+    >(value);
 
     const currentValue = value !== undefined ? value : internalValue;
 
@@ -76,25 +98,27 @@ export const Select = forwardRef(
       onChange(value);
     });
 
-    const option = options.find((option) => getValue(option) === currentValue);
+    const option = options.find(
+      (option) => getValue(option) === currentValue
+    ) as SelectOptions[number];
 
     const index = options.indexOf(option);
 
     const filteredOptions = useMemo(() => {
-      const mapOptions = ([value, label]) => {
+      const mapOptions = ([value, label]: SelectOptions[number]) => {
         if (currentValue === value) {
           return [value, label, true];
         }
         return [value, label];
       };
 
-      const applyFilter = ([, option]) =>
+      const applyFilter = ([, option]: SelectOptions[number]) =>
         !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
       return options.filter(applyFilter).map(mapOptions);
     }, [options, currentValue, filter]);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index, filteredOptions, internalChangedByKeyboard);
+      useCursor(index, filteredOptions as Option[], internalChangedByKeyboard);
 
     const internalChangedByClick = useMutableCallback(([value]) => {
       setInternalValue(value);
@@ -102,7 +126,7 @@ export const Select = forwardRef(
       hide();
     });
 
-    const innerRef = useRef();
+    const innerRef = useRef<HTMLInputElement | null>(null);
     const anchorRef = useMergedRefs(ref, innerRef);
 
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
@@ -114,16 +138,22 @@ export const Select = forwardRef(
     const visibleText =
       (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
       (valueLabel || placeholder || typeof placeholder === 'string');
+
+    const handleClick = useMutableCallback(() => {
+      if (visible === AnimatedVisibility.VISIBLE) {
+        return hide();
+      }
+      if (innerRef && innerRef.current) {
+        innerRef.current.focus();
+        return show();
+      }
+    });
     return (
       <Box
         rcx-select
         disabled={disabled}
         ref={containerRef}
-        onClick={useMutableCallback(() =>
-          visible === AnimatedVisibility.VISIBLE
-            ? hide()
-            : innerRef.current.focus() & show()
-        )}
+        onClick={handleClick}
         className={useMemo(
           () => [error && 'invalid', disabled && 'disabled'],
           [error, disabled]
@@ -186,33 +216,3 @@ export const Select = forwardRef(
     );
   }
 );
-
-export const SelectFiltered = ({ options, placeholder, ...props }) => {
-  const [filter, setFilter] = useState('');
-  const anchor = useCallback(
-    forwardRef(({ children, filter, ...props }, ref) => (
-      <InputBox.Input
-        mi='x4'
-        flexGrow={1}
-        className='rcx-select__focus'
-        ref={ref}
-        placeholder={placeholder}
-        value={filter}
-        onChange={useMutableCallback((e) => setFilter(e.currentTarget.value))}
-        {...props}
-        rcx-input-box--undecorated
-      />
-    )),
-    []
-  );
-
-  return (
-    <Select
-      placeholder={null}
-      filter={filter}
-      options={options}
-      {...props}
-      anchor={anchor}
-    />
-  );
-};
