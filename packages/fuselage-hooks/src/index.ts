@@ -26,3 +26,4 @@ export * from './useStableArray';
 export * from './useStorage';
 export * from './useToggle';
 export * from './useUniqueId';
+export * from './useOutsideClick';

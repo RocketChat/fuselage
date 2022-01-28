@@ -1,0 +1,14 @@
+{
+  "name": "bump",
+  "private": true,
+  "bin": "./bump.mjs",
+  "version": "0.31.1",
+  "dependencies": {
+    "prettier": "^2.5.1",
+    "standard-version": "^9.3.2",
+    "zx": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/prettier": "^2"
+  }
+}

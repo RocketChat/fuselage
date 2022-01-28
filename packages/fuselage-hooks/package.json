@@ -74,5 +74,8 @@
     "@rocket.chat/fuselage-tokens": "*",
     "react": "^17.0.2",
     "use-subscription": "^1.5.1"
+  },
+  "dependencies": {
+    "@testing-library/user-event": "^13.5.0"
   }
 }
