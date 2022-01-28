@@ -9,7 +9,7 @@ import { ModalThumb } from './ModalThumb';
 import { ModalTitle } from './ModalTitle';
 
 /* @deprecated use named exports */
-Object.assign(Modal, {
+export default Object.assign(Modal, {
   Backdrop: ModalBackdrop,
   Close: ModalClose,
   Content: ModalContent,
@@ -21,7 +21,6 @@ Object.assign(Modal, {
 });
 
 export {
-  Modal,
   ModalBackdrop,
   ModalClose,
   ModalContent,

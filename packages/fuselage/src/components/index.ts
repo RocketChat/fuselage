@@ -24,6 +24,7 @@ export { default as Margins } from './Margins';
 export * from './Menu';
 export { default as Message } from './Message';
 export * from './Message';
+export { default as Modal } from './Modal';
 export * from './Modal';
 export * from './MultiSelect';
 export * from './NumberInput';
