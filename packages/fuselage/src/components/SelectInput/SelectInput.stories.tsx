@@ -8,7 +8,8 @@ import {
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Icon, SelectInput, SelectInputOption } from '../..';
+import { SelectInputOption } from '.';
+import { Icon, SelectInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
