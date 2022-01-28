@@ -2,7 +2,15 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useMemo,
+  useState,
+  ComponentProps,
+  ElementType,
+  FC,
+} from 'react';
 
 import { Box, PositionAnimated, AnimatedVisibility } from '../Box';
 import Chip from '../Chip';
@@ -10,11 +18,35 @@ import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
 import { useCursor, Options } from '../Options';
+import { Option } from '../Options/useCursor';
 
-const Addon = (props) => <Box rcx-autocomplete__addon {...props} />;
+type OptionType = {
+  value: string | number | unknown;
+  label?: string | number | undefined;
+};
+
+type AutoCompleteProps = ComponentProps<typeof Options> & {
+  value: unknown[];
+  filter: string;
+  setFilter?: (filter: string) => void;
+  options?: OptionType[];
+  renderItem?: ElementType;
+  renderSelected?: ElementType;
+  onChange: (value: unknown, action?: 'remove' | undefined) => void;
+  getLabel?: (option: OptionType) => string;
+  getValue?: (option: OptionType) => unknown;
+  renderEmpty?: ElementType;
+  placeholder?: string;
+  error?: boolean;
+  disabled?: boolean;
+};
+
+const Addon = (props: ComponentProps<typeof Box>) => (
+  <Box rcx-autocomplete__addon {...props} />
+);
 
 const SelectedOptions = React.memo((props) => <Chip {...props} />);
-export function AutoComplete({
+export const AutoComplete: FC<AutoCompleteProps> = ({
   value,
   filter,
   setFilter = () => {},
@@ -22,20 +54,22 @@ export function AutoComplete({
   renderItem,
   renderSelected: RenderSelected = SelectedOptions,
   onChange = () => {},
-  getLabel = ({ label } = {}) => label,
+  getLabel = ({ label }) => label,
   getValue = ({ value }) => value,
   renderEmpty,
   placeholder,
   error,
   disabled,
-}) {
+}) => {
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  const ref = useRef();
+  const ref = useRef<HTMLElement>(null);
 
   const [selected, setSelected] = useState(() =>
     options.find((option) => getValue(option) === value)
   );
+
+  const index = options.indexOf(selected as OptionType);
 
   const selectByKeyboard = useMutableCallback(([value]) => {
     setSelected(options.find((option) => getValue(option) === value));
@@ -47,9 +81,9 @@ export function AutoComplete({
     () => options.map(({ label, value }) => [value, label]),
     [options]
   );
-
+  console.log(value);
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
-    useCursor(value, memoizedOptions, selectByKeyboard);
+    useCursor(index, memoizedOptions as Option[], selectByKeyboard);
 
   const onSelect = useMutableCallback(([value]) => {
     setSelected(options.find((option) => getValue(option) === value));
@@ -64,7 +98,7 @@ export function AutoComplete({
     <Box
       rcx-autocomplete
       ref={containerRef}
-      onClick={useMutableCallback(() => ref.current.focus())}
+      onClick={useMutableCallback(() => ref.current && ref.current.focus())}
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -133,4 +167,4 @@ export function AutoComplete({
       </PositionAnimated>
     </Box>
   );
-}
+};
