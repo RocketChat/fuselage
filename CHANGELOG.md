@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.1...v0.31.2) (2022-01-28)
+
+### Features
+
+- **eslint-config-alt:** Include ESLint rule `react/self-closing-comp` ([debaf1d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/debaf1daa35b8bf1416e1667568e2c11421b27a4))
+- **fuselage-hooks:** useOutsideClick ([#607](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/607)) ([f0662eb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f0662eb300c30a32b243a53dcc409c07f04131c6))
+
+### Bug Fixes
+
+- **fuselage-hooks:** Handle ResizeObserver bug on Firefox ESR 91 ([#606](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/606)) ([5577a49](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5577a4937cd24cf3f96c6c46ce97a546eb72a541))
+- **fuselage:** Menu toggle ([#389](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/389)) ([74a67be](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/74a67beda05868918d66cf508b539315a8a81130))
+
 # [0.31.0](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.30.1...v0.31.0) (2021-12-28)
 
 ### Bug Fixes

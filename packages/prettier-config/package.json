@@ -1,7 +1,7 @@
 {
   "name": "@rocket.chat/prettier-config",
   "description": "Prettier configuration for Rocket.Chat repositories",
-  "version": "0.31.1",
+  "version": "0.31.2",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -41,7 +41,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
-    "lint-all": "^0.31.1",
+    "lint-all": "workspace:^",
     "lint-staged": "^11.2.6",
     "prettier": "^2.3.2"
   }
