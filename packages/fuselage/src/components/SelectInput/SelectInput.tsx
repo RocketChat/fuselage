@@ -64,5 +64,3 @@ export const SelectInput = forwardRef<HTMLElement, SelectInputProps>(
     );
   }
 );
-
-export const SelectInputOption = InputBox.Option;
