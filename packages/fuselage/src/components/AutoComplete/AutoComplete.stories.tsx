@@ -19,7 +19,7 @@ export default {
 export const Example = () => {
   const [options, setOptions] = useState([]);
   const [filter, setFilter] = useState('');
-  const [value, setValue] = useState([]);
+  const [value, setValue] = useState<string | number>('');
 
   useEffect(() => {
     (async () => {
@@ -29,7 +29,11 @@ export const Example = () => {
   }, [filter]);
   return (
     <AutoComplete
-      {...{ value, filter, setFilter, options, onChange: setValue }}
+      value={value}
+      filter={filter}
+      setFilter={setFilter}
+      options={options}
+      onChange={setValue}
     />
   );
 };

@@ -20,21 +20,22 @@ import Margins from '../Margins';
 import { useCursor, Options } from '../Options';
 import { Option } from '../Options/useCursor';
 
+type OptionValue = string | number;
 type OptionType = {
-  value: string | number | unknown;
+  value: OptionValue;
   label?: string | number;
 };
 
 type AutoCompleteProps = Omit<ComponentProps<typeof Options>, 'options'> & {
-  value: unknown[];
+  value: OptionValue;
   filter: string;
   setFilter?: (filter: string) => void;
   options?: OptionType[];
   renderItem?: ElementType;
   renderSelected?: ElementType;
-  onChange: (value: unknown, action?: 'remove' | undefined) => void;
+  onChange: (value: OptionValue, action?: 'remove' | undefined) => void;
   getLabel?: (option: OptionType) => string;
-  getValue?: (option: OptionType) => unknown;
+  getValue?: (option: OptionType) => OptionValue;
   renderEmpty?: ElementType;
   placeholder?: string;
   error?: boolean;
