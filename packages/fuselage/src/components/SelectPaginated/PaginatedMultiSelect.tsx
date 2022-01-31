@@ -2,7 +2,15 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useState, useRef, useCallback } from 'react';
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  SyntheticEvent,
+  ComponentProps,
+  FC,
+  forwardRef,
+} from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
 import Chip from '../Chip';
@@ -16,13 +24,21 @@ const SelectedOptions = React.memo((props) => (
   <Chip maxWidth='150px' withTruncatedText {...props} />
 ));
 
-const prevent = (e) => {
+const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
   e.stopPropagation();
   e.nativeEvent.stopImmediatePropagation();
 };
+type PaginatedMultiSelecOption = {
+  value?: string | number;
+  label?: string | number;
+};
+type PaginatedMultiSelectProps = ComponentProps<typeof Box> & {
+  error?: string;
+  options: PaginatedMultiSelecOption[];
+};
 
-export const PaginatedMultiSelect = ({
+export const PaginatedMultiSelect: FC<PaginatedMultiSelectProps> = ({
   withTitle,
   value,
   filter,
@@ -39,12 +55,18 @@ export const PaginatedMultiSelect = ({
   const [internalValue, setInternalValue] = useState(value || []);
 
   const currentValue = value !== undefined ? value : internalValue;
-  const option = options.find((option) => option.value === currentValue);
+  const option = options.find(
+    (option: PaginatedMultiSelecOption) => option.value === currentValue
+  );
 
-  const internalChanged = ([value]) => {
-    if (currentValue.some((item) => item.value === value.value)) {
+  const internalChanged = ([value]: PaginatedMultiSelecOption[]) => {
+    if (
+      currentValue.some(
+        (item: PaginatedMultiSelecOption) => item.value === value.value
+      )
+    ) {
       const newValue = currentValue.filter(
-        (item) => item.value !== value.value
+        (item: PaginatedMultiSelecOption) => item.value !== value.value
       );
       setInternalValue(newValue);
       return onChange(newValue);
@@ -58,17 +80,23 @@ export const PaginatedMultiSelect = ({
 
   const ref = useRef();
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
+
+  const handleClick = useMutableCallback(() => {
+    if (visible === AnimatedVisibility.VISIBLE) {
+      return hide();
+    }
+    if (ref && ref.current) {
+      ref.current.focus();
+      return show();
+    }
+  });
   return (
     <Box
       is='div'
       rcx-select
       className={[error && 'invalid', disabled && 'disabled']}
       ref={containerRef}
-      onClick={useMutableCallback(() =>
-        visible === AnimatedVisibility.VISIBLE
-          ? hide()
-          : ref?.current.focus() & show()
-      )}
+      onClick={handleClick}
       disabled={disabled}
       {...props}
     >
@@ -95,27 +123,29 @@ export const PaginatedMultiSelect = ({
                     rcx-input-box--undecorated
                     children={!value ? option || placeholder : null}
                   />
-                  {currentValue.map((value, index) => (
-                    <SelectedOptions
-                      {...(withTitle && {
-                        title:
+                  {currentValue.map(
+                    (value: PaginatedMultiSelecOption, index) => (
+                      <SelectedOptions
+                        {...(withTitle && {
+                          title:
+                            value.label ||
+                            options.find((val) => val.value === value)?.label,
+                        })}
+                        tabIndex={-1}
+                        role='option'
+                        key={index}
+                        onMouseDown={(e) => {
+                          prevent(e);
+                          internalChanged([value]);
+                          return false;
+                        }}
+                        children={
                           value.label ||
-                          options.find((val) => val.value === value)?.label,
-                      })}
-                      tabIndex={-1}
-                      role='option'
-                      key={index}
-                      onMouseDown={(e) => {
-                        prevent(e);
-                        internalChanged([value]);
-                        return false;
-                      }}
-                      children={
-                        value.label ||
-                        options.find((val) => val.value === value)?.label
-                      }
-                    />
-                  ))}
+                          options.find((val) => val.value === value)?.label
+                        }
+                      />
+                    )
+                  )}
                 </Margins>
               </Box>
             </Box>
@@ -157,26 +187,36 @@ export const PaginatedMultiSelect = ({
   );
 };
 
-export const PaginatedMultiSelectFiltered = ({
-  filter,
-  setFilter,
-  options,
-  placeholder,
-  ...props
-}) => {
+type PaginatedMultiSelectFilteredProps = Omit<
+  ComponentProps<typeof Box>,
+  'onChange'
+> & {
+  setFilter: (value: PaginatedMultiSelecOption['value']) => void;
+  placeholder: string;
+  error?: string;
+  options: PaginatedMultiSelecOption;
+  filter?: string;
+  value?: PaginatedMultiSelecOption['value'];
+};
+
+export const PaginatedMultiSelectFiltered: FC<
+  PaginatedMultiSelectFilteredProps
+> = ({ filter, setFilter, options, placeholder, ...props }) => {
   const anchor = useCallback(
-    React.forwardRef(({ children, filter, ...props }, ref) => (
-      <Flex.Item grow={1}>
-        <InputBox.Input
-          ref={ref}
-          placeholder={placeholder}
-          value={filter}
-          onInput={(e) => setFilter(e.currentTarget.value)}
-          {...props}
-          rcx-input-box--undecorated
-        />
-      </Flex.Item>
-    )),
+    forwardRef<HTMLInputElement, ComponentProps<typeof InputBox>>(
+      ({ children, filter, ...props }, ref) => (
+        <Flex.Item grow={1}>
+          <InputBox.Input
+            ref={ref}
+            placeholder={placeholder}
+            value={filter}
+            onInput={(e) => setFilter(e.currentTarget.value)}
+            {...props}
+            rcx-input-box--undecorated
+          />
+        </Flex.Item>
+      )
+    ),
     []
   );
   return (
