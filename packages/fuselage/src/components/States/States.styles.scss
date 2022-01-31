@@ -21,7 +21,7 @@ $variants: (
   color: colors.foreground(info);
 
   &__icon {
-    margin-block-end: lengths.margin(16);
+    margin-block-end: lengths.margin(20);
     padding: lengths.margin(16);
 
     color: colors.foreground(info);
@@ -44,11 +44,18 @@ $variants: (
     @include typography.use-font-scale(h2);
   }
 
-  &__subtitle,
   &__list,
   &__suggestion {
     @include typography.use-font-scale(p2m);
+  }
 
+  &__subtitle {
+    @include typography.use-font-scale(p1);
+  }
+
+  &__subtitle,
+  &__list,
+  &__suggestion {
     display: flex;
     flex-direction: column;
     justify-content: center;

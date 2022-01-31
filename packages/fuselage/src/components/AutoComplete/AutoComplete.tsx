@@ -22,10 +22,10 @@ import { Option } from '../Options/useCursor';
 
 type OptionType = {
   value: string | number | unknown;
-  label?: string | number | undefined;
+  label?: string | number;
 };
 
-type AutoCompleteProps = ComponentProps<typeof Options> & {
+type AutoCompleteProps = Omit<ComponentProps<typeof Options>, 'options'> & {
   value: unknown[];
   filter: string;
   setFilter?: (filter: string) => void;
@@ -69,7 +69,7 @@ export const AutoComplete: FC<AutoCompleteProps> = ({
     options.find((option) => getValue(option) === value)
   );
 
-  const index = options.indexOf(selected as OptionType);
+  const index = (selected && options.indexOf(selected)) || 0;
 
   const selectByKeyboard = useMutableCallback(([value]) => {
     setSelected(options.find((option) => getValue(option) === value));
@@ -77,11 +77,14 @@ export const AutoComplete: FC<AutoCompleteProps> = ({
     setFilter('');
   });
 
-  const memoizedOptions = useMemo(
-    () => options.map(({ label, value }) => [value, label]),
+  const memoizedOptions = useMemo<[unknown, string, boolean?][]>(
+    () =>
+      options.map(
+        ({ label, value }) => [value, label] as [unknown, string, boolean?]
+      ),
     [options]
   );
-  console.log(value);
+
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(index, memoizedOptions as Option[], selectByKeyboard);
 
