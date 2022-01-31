@@ -140,7 +140,7 @@ export const SidebarItemAction: FC<ComponentProps<typeof SidebarAction>> = (
   props
 ) => <SidebarAction {...props} />;
 
-Object.assign(SidebarItem, {
+export default Object.assign(SidebarItem, {
   Menu: SidebarItemMenu,
   Container: SidebarItemContainer,
   Content: SidebarItemContent,
@@ -154,5 +154,3 @@ Object.assign(SidebarItem, {
   Action: SidebarItemAction,
   Badge: SidebarItemBadge,
 });
-
-export default SidebarItem;

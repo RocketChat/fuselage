@@ -5,11 +5,11 @@ export const SidebarSectionTitle: FC = (props) => (
 );
 
 export const SidebarSection: FC & {
-  Title: typeof SidebarSectionTitle;
+  Title?: typeof SidebarSectionTitle;
 } = (props) => (
   <div className='rcx-box rcx-box--full rcx-sidebar-section' {...props} />
 );
 
-SidebarSection.Title = SidebarSectionTitle;
-
-export default SidebarSection;
+export default Object.assign(SidebarSection, {
+  Title: SidebarSectionTitle,
+});
