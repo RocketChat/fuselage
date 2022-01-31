@@ -1,29 +1,37 @@
-import React, { useLayoutEffect, useMemo } from 'react';
+import React, {
+  ComponentProps,
+  ElementType,
+  forwardRef,
+  memo,
+  SyntheticEvent,
+  useLayoutEffect,
+  useMemo,
+} from 'react';
 
 import { Box, Scrollable } from '../Box';
-import { CheckBox } from '../CheckBox';
 import Tile from '../Tile';
 import Option from './Option';
 import { useCursor } from './useCursor';
 
 export { useCursor };
 
-const prevent = (e) => {
+const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
   e.stopPropagation();
 };
 
-export const Empty = React.memo(() => <Option color='hint' label='Empty' />);
+type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
+  multiple?: boolean;
+  options: [unknown, string, boolean?][];
+  cursor: number;
+  renderItem?: ElementType;
+  renderEmpty?: ElementType;
+  onSelect: (option: [unknown, string]) => void;
+};
 
-export const CheckOption = React.memo(
-  ({ selected, children: label, ...options }) => (
-    <Option label={label} selected={selected} {...options}>
-      <CheckBox checked={selected} />
-    </Option>
-  )
-);
+export const Empty = memo(() => <Option label='Empty' />);
 
-export const Options = React.forwardRef(
+export const Options = forwardRef<HTMLElement, OptionsProps>(
   (
     {
       maxHeight = '144px',
@@ -57,7 +65,11 @@ export const Options = React.forwardRef(
           <OptionComponent
             role='option'
             label={label}
-            onMouseDown={(e) => prevent(e) & onSelect([value, label]) && false}
+            onMouseDown={(e: SyntheticEvent) => {
+              prevent(e);
+              onSelect([value, label]);
+              return false;
+            }}
             key={value}
             value={value}
             selected={selected || (multiple !== true && null)}
@@ -78,9 +90,8 @@ export const Options = React.forwardRef(
               onMouseDown={prevent}
               onClick={prevent}
               is='ol'
-              aria-multiselectable={multiple}
+              aria-multiselectable={multiple || true}
               role='listbox'
-              aria-multiselectable='true'
               aria-activedescendant={
                 options && options[cursor] && options[cursor][0]
               }
@@ -94,5 +105,3 @@ export const Options = React.forwardRef(
     );
   }
 );
-
-Options.AvatarSize = 'x20';

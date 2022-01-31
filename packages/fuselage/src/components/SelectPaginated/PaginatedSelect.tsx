@@ -5,44 +5,60 @@ import {
 import React, {
   useState,
   useRef,
-  useCallback,
-  useEffect,
   forwardRef,
   useMemo,
+  SyntheticEvent,
+  ComponentProps,
+  FC,
+  useEffect,
 } from 'react';
 
+import type { SelectProps } from '..';
 import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
-import { InputBox } from '../InputBox';
-import { OptionsPaginated, useVisible } from '../OptionsPaginated';
+import { useVisible } from '../Options/useVisible';
+import { OptionsPaginated } from '../OptionsPaginated';
 
-const Addon = forwardRef((props, ref) => (
-  <Box is='div' rcx-select__addon ref={ref} {...props} />
-));
+type PaginatedOptionType = {
+  value: string | number;
+  label?: string | number | undefined;
+};
+export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
+  options: PaginatedOptionType[];
+};
 
-const Wrapper = forwardRef((props, ref) => (
-  <Box is='div' rcx-select__wrapper ref={ref} {...props} />
-));
+const Addon = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
+  (props, ref) => <Box is='div' rcx-select__addon ref={ref} {...props} />
+);
 
-const Focus = React.forwardRef((props, ref) => (
-  <Box
-    ref={ref}
-    fontScale='p2m'
-    color='hint'
-    rcx-select__focus
-    is='button'
-    type='button'
-    {...props}
-  />
-));
+const Wrapper = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
+  (props, ref) => <Box is='div' rcx-select__wrapper ref={ref} {...props} />
+);
 
-const prevent = (e) => {
+const Focus = React.forwardRef<HTMLButtonElement, ComponentProps<typeof Box>>(
+  (props, ref) => (
+    <Box
+      ref={ref}
+      fontScale='p2m'
+      color='hint'
+      rcx-select__focus
+      is='button'
+      type='button'
+      {...props}
+    />
+  )
+);
+
+const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
   e.stopPropagation();
   e.nativeEvent.stopImmediatePropagation();
 };
 
-const useDidUpdate = (func = []) => {
+const useDidUpdate = (
+  func: () => void,
+  deps: React.DependencyList | undefined
+) => {
   const didMount = useRef(false);
   const fn = useMutableCallback(func);
 
@@ -51,10 +67,10 @@ const useDidUpdate = (func = []) => {
       fn();
     }
     didMount.current = true;
-  }, [fn]);
+  }, [deps || []]);
 };
 
-export const PaginatedSelect = ({
+export const PaginatedSelect: FC<PaginatedSelectProps> = ({
   value,
   withTitle,
   filter,
@@ -83,27 +99,48 @@ export const PaginatedSelect = ({
     hide();
   });
 
-  const ref = useRef();
+  const ref = useRef<HTMLInputElement>(null);
 
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  useDidUpdate([filter, internalValue]);
+  const filteredOptions = useMemo(() => {
+    const mapOptions = ([value, label]) => {
+      if (currentValue === value) {
+        return [value, label, true];
+      }
+      return [value, label];
+    };
+
+    const applyFilter = ([, option]) =>
+      !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
+
+    return options.filter(applyFilter).map(mapOptions);
+  }, [options, currentValue, filter]);
+
+  useDidUpdate(filteredOptions, [filter, internalValue]);
 
   const valueLabel = option?.label;
 
   const visibleText =
     (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
     (valueLabel || placeholder || typeof placeholder === 'string');
+
+  const handleClick = useMutableCallback(() => {
+    if (visible === AnimatedVisibility.VISIBLE) {
+      return hide();
+    }
+    if (ref && ref.current) {
+      ref.current.focus();
+      return show();
+    }
+  });
+
   return (
     <Box
       rcx-select
       disabled={disabled}
       ref={containerRef}
-      onClick={useMutableCallback(() =>
-        visible === AnimatedVisibility.VISIBLE
-          ? hide()
-          : ref.current.focus() & show()
-      )}
+      onClick={handleClick}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
         [error, disabled]
@@ -163,39 +200,5 @@ export const PaginatedSelect = ({
         />
       </PositionAnimated>
     </Box>
-  );
-};
-
-export const PaginatedSelectFiltered = ({
-  filter,
-  setFilter,
-  options,
-  placeholder,
-  ...props
-}) => {
-  const anchor = useCallback(
-    React.forwardRef(({ children, filter, ...props }, ref) => (
-      <InputBox.Input
-        mi='x4'
-        flexGrow={1}
-        className='rcx-select__focus'
-        ref={ref}
-        placeholder={placeholder}
-        value={filter}
-        onChange={useMutableCallback((e) => setFilter(e.currentTarget.value))}
-        {...props}
-        rcx-input-box--undecorated
-      />
-    )),
-    []
-  );
-  return (
-    <PaginatedSelect
-      placeholder={null}
-      filter={filter}
-      options={options}
-      {...props}
-      anchor={anchor}
-    />
   );
 };
