@@ -1,15 +1,44 @@
-import React, { useRef, useCallback } from 'react';
+import { Placements } from '@rocket.chat/fuselage-hooks';
+import React, {
+  useRef,
+  useCallback,
+  ComponentProps,
+  ReactElement,
+  ReactNode,
+  FC,
+} from 'react';
 
-import { ActionButton, PositionAnimated, Options, useCursor } from '..';
+import {
+  ActionButton,
+  PositionAnimated,
+  Options,
+  useCursor,
+  Box,
+  Option,
+} from '..';
+import type { Option as OptionType } from '../Options/useCursor';
 
-const menuAction = ([selected], options) => {
+type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
+  icon?: string;
+  options: {
+    [id: string]: {
+      label: ReactElement | string;
+      action: () => void;
+    };
+  };
+  optionWidth?: ComponentProps<typeof Box>['width'];
+  placement?: Placements;
+  renderItem?: (props: ComponentProps<typeof Option>) => ReactNode;
+};
+
+const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
   options[selected].action();
 };
 
-const mapOptions = (options) =>
+const mapOptions = (options: MenuProps['options']) =>
   Object.entries(options).map(([value, { label }]) => [value, label]);
 
-export const Menu = ({
+export const Menu: FC<MenuProps> = ({
   tiny,
   mini,
   small = tiny || mini ? null : true,
@@ -22,19 +51,22 @@ export const Menu = ({
 }) => {
   const mappedOptions = mapOptions(options);
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-    useCursor(-1, mappedOptions, (args, [, hide]) => {
-      menuAction(args, options);
+    useCursor(-1, mappedOptions as OptionType[], (args, [, hide]) => {
+      console.log(args);
+      menuAction(args as OptionType, options);
       reset();
       hide();
     });
 
-  const ref = useRef();
+  const ref = useRef<HTMLElement>(null);
   const onClick = useCallback(() => {
-    if (ref.current.classList.contains('focus-visible')) {
+    if (ref.current?.classList.contains('focus-visible')) {
       ref.current.classList.remove('focus-visible');
-      hide();
-    } else {
-      ref.current.focus() & show();
+      return hide();
+    }
+    if (ref.current) {
+      ref.current.focus();
+      show();
       ref.current.classList.add('focus-visible');
     }
   }, [show]);
@@ -47,7 +79,6 @@ export const Menu = ({
     },
     [hide, reset, options]
   );
-
   return (
     <>
       <ActionButton
@@ -76,6 +107,7 @@ export const Menu = ({
           onSelect={handleSelection}
           options={mappedOptions}
           cursor={cursor}
+          ref={ref}
         />
       </PositionAnimated>
     </>
