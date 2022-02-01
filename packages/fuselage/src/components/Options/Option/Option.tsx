@@ -6,7 +6,7 @@ import OptionAvatar from './OptionAvatar';
 import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';
 
-type OptionProps = {
+export type OptionProps = {
   is?: ComponentProps<typeof Box>['is'];
   id?: string;
   children?: ReactNode;
