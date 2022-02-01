@@ -21,7 +21,7 @@ import { OptionsPaginated } from '../OptionsPaginated';
 
 type PaginatedOptionType = {
   value: string | number;
-  label?: string | number | undefined;
+  label: string;
 };
 export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   options: PaginatedOptionType[];
@@ -55,19 +55,16 @@ const prevent = (e: SyntheticEvent) => {
   e.nativeEvent.stopImmediatePropagation();
 };
 
-const useDidUpdate = (
-  func: () => void,
-  deps: React.DependencyList | undefined
-) => {
+const useDidUpdate = (func: string[]) => {
   const didMount = useRef(false);
-  const fn = useMutableCallback(func);
+  const fn = useMutableCallback(func as any);
 
   useEffect(() => {
     if (didMount.current) {
       fn();
     }
     didMount.current = true;
-  }, [deps || []]);
+  }, [fn]);
 };
 
 export const PaginatedSelect: FC<PaginatedSelectProps> = ({
@@ -103,21 +100,7 @@ export const PaginatedSelect: FC<PaginatedSelectProps> = ({
 
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  const filteredOptions = useMemo(() => {
-    const mapOptions = ([value, label]) => {
-      if (currentValue === value) {
-        return [value, label, true];
-      }
-      return [value, label];
-    };
-
-    const applyFilter = ([, option]) =>
-      !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
-
-    return options.filter(applyFilter).map(mapOptions);
-  }, [options, currentValue, filter]);
-
-  useDidUpdate(filteredOptions, [filter, internalValue]);
+  useDidUpdate([filter, internalValue]);
 
   const valueLabel = option?.label;
 

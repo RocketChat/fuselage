@@ -17,7 +17,8 @@ import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
-import { OptionsPaginated, useVisible } from '../OptionsPaginated';
+import { useVisible } from '../Options/useVisible';
+import { OptionsPaginated } from '../OptionsPaginated';
 import { Focus, Addon } from '../Select';
 
 const SelectedOptions = React.memo((props) => (
@@ -78,7 +79,7 @@ export const PaginatedMultiSelect: FC<PaginatedMultiSelectProps> = ({
 
   const [visible, hide, show] = useVisible();
 
-  const ref = useRef();
+  const ref = useRef<HTMLInputElement>(null);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const handleClick = useMutableCallback(() => {
@@ -124,24 +125,30 @@ export const PaginatedMultiSelect: FC<PaginatedMultiSelectProps> = ({
                     children={!value ? option || placeholder : null}
                   />
                   {currentValue.map(
-                    (value: PaginatedMultiSelecOption, index) => (
+                    (value: PaginatedMultiSelecOption, index: number) => (
                       <SelectedOptions
                         {...(withTitle && {
                           title:
                             value.label ||
-                            options.find((val) => val.value === value)?.label,
+                            options.find(
+                              (val: PaginatedMultiSelecOption) =>
+                                val.value === value
+                            )?.label,
                         })}
                         tabIndex={-1}
                         role='option'
                         key={index}
-                        onMouseDown={(e) => {
+                        onMouseDown={(e: SyntheticEvent) => {
                           prevent(e);
                           internalChanged([value]);
                           return false;
                         }}
                         children={
                           value.label ||
-                          options.find((val) => val.value === value)?.label
+                          options.find(
+                            (val: PaginatedMultiSelecOption) =>
+                              val.value === value
+                          )?.label
                         }
                       />
                     )
@@ -210,7 +217,9 @@ export const PaginatedMultiSelectFiltered: FC<
             ref={ref}
             placeholder={placeholder}
             value={filter}
-            onInput={(e) => setFilter(e.currentTarget.value)}
+            onInput={(e: SyntheticEvent) =>
+              setFilter((e.currentTarget as HTMLInputElement).value)
+            }
             {...props}
             rcx-input-box--undecorated
           />
