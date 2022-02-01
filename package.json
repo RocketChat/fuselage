@@ -21,7 +21,7 @@
     "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
     "build": "yarn turbo run build",
     "lint": "yarn turbo run lint",
-    "lint-and-fix": "yarn turbo run lint-and-fix",
+    "lint-and-fix": "yarn workspaces foreach -v --topological-dev run lint-and-fix",
     "test": "yarn turbo run test",
     "docs": "yarn workspaces foreach -v --topological-dev run docs",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
@@ -64,6 +64,9 @@
         "outputs": [
           "storybook-static/**"
         ]
+      },
+      "lint-staged": {
+        "outputs": []
       }
     }
   }

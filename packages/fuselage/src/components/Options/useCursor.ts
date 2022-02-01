@@ -14,19 +14,21 @@ const keyCodes = {
   ENTER: 13,
 };
 
-type Option = [
-  value: number | string | undefined,
+export type Option = [
+  value: number | string,
   label: string,
   selected?: boolean
 ];
 
+export type UseCursorOnChange = (
+  option: Option,
+  visibilityHandler: ReturnType<typeof useVisible>
+) => void;
+
 export const useCursor = (
   initial: number,
   options: Option[],
-  onChange: (
-    option: Option,
-    visibilityHandler: ReturnType<typeof useVisible>
-  ) => void
+  onChange: UseCursorOnChange
 ): [
   cursor: number,
   handleKeyDown: (e: KeyboardEvent<HTMLOrSVGElement>) => void,

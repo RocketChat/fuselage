@@ -1,6 +1,7 @@
 import React, { ComponentProps, FC } from 'react';
 
-import { Box, Scrollable } from '../Box';
+import { Box } from '../Box';
+import Scrollable from '../Box/Scrollable';
 
 export type ModalContentProps = ComponentProps<typeof Box> & {
   onScrollContent?: ((touching: { top: boolean }) => void) | undefined;

@@ -7,14 +7,14 @@ import { SidebarAction, SidebarActions } from './SidebarActions';
 const Avatar: { size: 'x24' } = { size: 'x24' };
 
 const TopBar: FC<{ className: string }> & {
-  Section: typeof TopBarSection;
-  ToolBox: typeof TopBarToolBox;
-  Avatar: typeof TopBarAvatar;
-  Actions: typeof TopBarActions;
-  Action: typeof TopBarAction;
-  Divider: typeof TopBarDivider;
-  Title: typeof TopBarTitle;
-  Wrapper: typeof TopBarWrapper;
+  Section?: typeof TopBarSection;
+  ToolBox?: typeof TopBarToolBox;
+  Avatar?: typeof TopBarAvatar;
+  Actions?: typeof TopBarActions;
+  Action?: typeof TopBarAction;
+  Divider?: typeof TopBarDivider;
+  Title?: typeof TopBarTitle;
+  Wrapper?: typeof TopBarWrapper;
 } = ({ className, ...props }) => (
   <div
     className={['rc-box rc-box--full rcx-sidebar-topbar', className]
@@ -76,14 +76,13 @@ export const TopBarTitle: FC = (props) => (
   <Box rcx-sidebar-top-bar__title withTruncatedText {...props} />
 );
 
-TopBar.Section = TopBarSection;
-TopBar.ToolBox = TopBarToolBox;
-TopBar.Wrapper = TopBarWrapper;
-TopBar.Avatar = TopBarAvatar;
-TopBar.Actions = TopBarActions;
-TopBar.Action = TopBarAction;
-TopBar.Divider = TopBarDivider;
-TopBar.Title = TopBarTitle;
-TopBar.Wrapper = TopBarWrapper;
-
-export default TopBar;
+export default Object.assign(TopBar, {
+  Section: TopBarSection,
+  ToolBox: TopBarToolBox,
+  Wrapper: TopBarWrapper,
+  Avatar: TopBarAvatar,
+  Actions: TopBarActions,
+  Action: TopBarAction,
+  Divider: TopBarDivider,
+  Title: TopBarTitle,
+});
