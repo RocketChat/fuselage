@@ -35,7 +35,7 @@ type PaginatedMultiSelecOption = {
   label?: string | number;
 };
 type PaginatedMultiSelectProps = ComponentProps<typeof Box> & {
-  error?: string;
+  error?: boolean;
   options: PaginatedMultiSelecOption[];
 };
 
@@ -198,10 +198,10 @@ type PaginatedMultiSelectFilteredProps = Omit<
   ComponentProps<typeof Box>,
   'onChange'
 > & {
-  setFilter: (value: PaginatedMultiSelecOption['value']) => void;
+  setFilter?: (value: PaginatedMultiSelecOption['value']) => void;
   placeholder: string;
-  error?: string;
-  options: PaginatedMultiSelecOption;
+  error?: boolean;
+  options: PaginatedMultiSelecOption[];
   filter?: string;
   value?: PaginatedMultiSelecOption['value'];
 };
@@ -217,6 +217,7 @@ export const PaginatedMultiSelectFiltered: FC<PaginatedMultiSelectFilteredProps>
               placeholder={placeholder}
               value={filter}
               onInput={(e: SyntheticEvent) =>
+                setFilter &&
                 setFilter((e.currentTarget as HTMLInputElement).value)
               }
               {...props}
