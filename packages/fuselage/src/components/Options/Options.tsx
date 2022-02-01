@@ -3,6 +3,7 @@ import React, {
   ElementType,
   forwardRef,
   memo,
+  MutableRefObject,
   SyntheticEvent,
   useLayoutEffect,
   useMemo,
@@ -45,9 +46,9 @@ export const Options = forwardRef<HTMLElement, OptionsProps>(
     },
     ref
   ) => {
+    const { current } = ref as MutableRefObject<HTMLLIElement>;
     useLayoutEffect(() => {
-      const { current } = ref;
-      const li = current.querySelector('.rcx-option--focus');
+      const li = current.querySelector<HTMLLIElement>('.rcx-option--focus');
       if (!li) {
         return;
       }
