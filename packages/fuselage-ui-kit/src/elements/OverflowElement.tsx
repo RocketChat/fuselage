@@ -14,8 +14,6 @@ import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
 type OverflowElementProps = BlockProps<UiKit.OverflowElement>;
 
-type Option = [string, string];
-
 const OverflowElement = ({
   block,
   context,
@@ -28,7 +26,7 @@ const OverflowElement = ({
     [action]
   );
 
-  const options = useMemo<Option[]>(
+  const options = useMemo<[string, string][]>(
     () =>
       block.options.map(({ value, text }, i) => [
         value,
@@ -38,7 +36,7 @@ const OverflowElement = ({
   );
 
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-    useCursor<Option>(-1, options, (selectedOption, [, hide]) => {
+    useCursor(-1, options, (selectedOption, [, hide]) => {
       fireChange([selectedOption[0], selectedOption[1]]);
       reset();
       hide();
