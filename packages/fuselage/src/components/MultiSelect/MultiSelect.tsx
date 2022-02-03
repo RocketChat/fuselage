@@ -16,7 +16,6 @@ import { AnimatedVisibility, Box, Flex, Position } from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import { Options, CheckOption, useCursor, OptionType } from '../Options';
-import { UseCursorOnChange } from '../Options/useCursor';
 import { Focus, Addon } from '../Select/Select';
 import { SelectedOptions } from './SelectedOptions';
 
@@ -24,7 +23,7 @@ type MultiSelectValue = string | number;
 
 type MultiSelectValues = MultiSelectValue[];
 
-type MultiSelectOptions = readonly [OptionType[0], string, OptionType[2]][];
+type MultiSelectOptions = readonly [OptionType[0], string, OptionType[2]?][];
 
 type MultiSelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   error?: string;
@@ -71,7 +70,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     const option = options.find((option) => getValue(option) === currentValue);
     const index = option ? options.indexOf(option) : 0;
 
-    const internalChanged: UseCursorOnChange = ([value], _) => {
+    const internalChanged = ([value]: MultiSelectOptions[number]) => {
       if (currentValue.includes(value)) {
         const newValue = currentValue.filter((item) => item !== value);
         setInternalValue(newValue);
@@ -85,7 +84,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     const mapOptions = ([
       value,
       label,
-    ]: MultiSelectOptions[number]): OptionType => {
+    ]: MultiSelectOptions[number]): MultiSelectOptions[number] => {
       if (currentValue.includes(value)) {
         return [value, label, true];
       }
@@ -98,7 +97,11 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     const filteredOptions = options.filter(applyFilter).map(mapOptions);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index, filteredOptions, internalChanged);
+      useCursor<MultiSelectOptions[number]>(
+        index,
+        filteredOptions,
+        internalChanged
+      );
 
     useEffect(reset, [filter]);
 
@@ -158,7 +161,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                         key={`${value}`}
                         onMouseDown={(e: SyntheticEvent) => {
                           prevent(e);
-                          internalChanged([value, '', false], [] as any);
+                          internalChanged([value, '', false]);
                           return false;
                         }}
                         children={getLabel(
