@@ -17,6 +17,9 @@
   background-color: colors.neutral(300);
 
   &__codebox {
+    margin-right: lengths.margin(8);
+
     white-space: pre-line;
+    word-break: break-all;
   }
 }
