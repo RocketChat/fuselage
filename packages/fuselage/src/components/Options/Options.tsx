@@ -47,8 +47,9 @@ export const Options = forwardRef<HTMLElement, OptionsProps>(
     ref
   ) => {
     const { current } = ref as MutableRefObject<HTMLLIElement>;
+
     useLayoutEffect(() => {
-      const li = current.querySelector<HTMLLIElement>('.rcx-option--focus');
+      const li = current?.querySelector<HTMLLIElement>('.rcx-option--focus');
       if (!li) {
         return;
       }
