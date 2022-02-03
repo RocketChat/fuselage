@@ -1,7 +1,6 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import React, {
   ComponentProps,
-  FC,
   forwardRef,
   useCallback,
   useState,
@@ -15,38 +14,39 @@ export type SelectFilteredProps = Omit<
   'onChange'
 >;
 
-export const SelectFiltered: FC<SelectFilteredProps> = ({
-  options,
-  placeholder,
-  ...props
-}) => {
-  const [filter, setFilter] = useState('');
-  const anchor = useCallback(
-    forwardRef<HTMLInputElement, ComponentProps<typeof InputBox>>(
-      ({ children, filter, ...props }, ref) => (
-        <InputBox.Input
-          mi='x4'
-          flexGrow={1}
-          className='rcx-select__focus'
-          ref={ref}
-          placeholder={placeholder}
-          value={filter}
-          onChange={useMutableCallback((e) => setFilter(e.currentTarget.value))}
-          {...props}
-          rcx-input-box--undecorated
-        />
-      )
-    ),
-    []
-  );
+export const SelectFiltered = forwardRef<HTMLInputElement, SelectFilteredProps>(
+  ({ options, placeholder, ...props }, ref) => {
+    const [filter, setFilter] = useState('');
+    const anchor = useCallback(
+      forwardRef<HTMLInputElement, ComponentProps<typeof InputBox>>(
+        ({ children, filter, ...props }, ref) => (
+          <InputBox.Input
+            mi='x4'
+            flexGrow={1}
+            className='rcx-select__focus'
+            ref={ref}
+            placeholder={placeholder}
+            value={filter}
+            onChange={useMutableCallback((e) =>
+              setFilter(e.currentTarget.value)
+            )}
+            {...props}
+            rcx-input-box--undecorated
+          />
+        )
+      ),
+      []
+    );
 
-  return (
-    <Select
-      placeholder={null}
-      filter={filter}
-      options={options}
-      {...props}
-      anchor={anchor}
-    />
-  );
-};
+    return (
+      <Select
+        ref={ref}
+        placeholder={null}
+        filter={filter}
+        options={options}
+        {...props}
+        anchor={anchor}
+      />
+    );
+  }
+);
