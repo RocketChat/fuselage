@@ -74,13 +74,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       options = [],
       anchor: Anchor = Focus,
       onChange = () => {},
-      getValue = ([value]: string[] | undefined[]) => value,
-      getLabel = (args) => {
-        if (Array.isArray(args) && args.length > 2) {
-          return args[1];
-        }
-        return '';
-      },
+      getValue = ([value]: string[] = []) => value,
+      getLabel = ([_, label]: readonly [string, string] = ['', '']) => label,
       placeholder = '',
       renderOptions: _Options = Options,
       ...props
@@ -148,6 +143,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
         return show();
       }
     });
+
     return (
       <Box
         rcx-select
