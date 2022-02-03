@@ -51,7 +51,7 @@ export const Menu: FC<MenuProps> = ({
 }) => {
   const mappedOptions = mapOptions(options);
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-    useCursor(-1, mappedOptions as OptionType[], (args, [, hide]) => {
+    useCursor(-1, mappedOptions, (args, [, hide]) => {
       menuAction(args, options);
       reset();
       hide();

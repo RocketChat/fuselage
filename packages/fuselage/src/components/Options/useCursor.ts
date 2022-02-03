@@ -15,17 +15,15 @@ const keyCodes = {
   ENTER: 13,
 };
 
-// export type Options = Array<Append<Option, [selected?: boolean]>>;
-
-export type UseCursorOnChange = (
-  option: OptionType,
+export type UseCursorOnChange<T> = (
+  option: T,
   visibilityHandler: ReturnType<typeof useVisible>
 ) => void;
 
-export const useCursor = (
+export const useCursor = <T extends [unknown, unknown] = OptionType>(
   initial: number,
-  options: Array<OptionType>,
-  onChange: UseCursorOnChange
+  options: Array<T>,
+  onChange: UseCursorOnChange<T>
 ): [
   cursor: number,
   handleKeyDown: (e: KeyboardEvent<HTMLOrSVGElement>) => void,
