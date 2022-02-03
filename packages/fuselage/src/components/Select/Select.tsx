@@ -14,10 +14,9 @@ import React, {
 
 import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
-import { Options, useCursor } from '../Options';
-import { Option } from '../Options/useCursor';
+import { Options, useCursor, OptionType } from '../Options';
 
-export type SelectOptions = readonly (readonly [string, string])[];
+export type SelectOptions = readonly [OptionType[0], string][];
 
 export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   error?: string;
@@ -71,7 +70,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       filter,
       error,
       disabled,
-      options = [],
+      options,
       anchor: Anchor = Focus,
       onChange = () => {},
       getValue = ([value]: string[] | undefined[]) => value,
@@ -104,8 +103,11 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
     const index = options.indexOf(option);
 
-    const filteredOptions = useMemo(() => {
-      const mapOptions = ([value, label]: SelectOptions[number]) => {
+    const filteredOptions = useMemo<OptionType[]>((): OptionType[] => {
+      const mapOptions = ([
+        value,
+        label,
+      ]: SelectOptions[number]): OptionType => {
         if (currentValue === value) {
           return [value, label, true];
         }
@@ -114,11 +116,12 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
       const applyFilter = ([, option]: SelectOptions[number]) =>
         !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
+
       return options.filter(applyFilter).map(mapOptions);
     }, [options, currentValue, filter]);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index, filteredOptions as Option[], internalChangedByKeyboard);
+      useCursor(index, filteredOptions, internalChangedByKeyboard);
 
     const internalChangedByClick = useMutableCallback(([value]) => {
       setInternalValue(value);

@@ -15,20 +15,16 @@ import React, {
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
-import { Options, CheckOption, useCursor } from '../Options';
-import { UseCursorOnChange, Option } from '../Options/useCursor';
+import { Options, CheckOption, useCursor, OptionType } from '../Options';
+import { UseCursorOnChange } from '../Options/useCursor';
 import { Focus, Addon } from '../Select/Select';
 import { SelectedOptions } from './SelectedOptions';
-
-type MultiSelectOptions = readonly (readonly [
-  MultiSelectValue,
-  string,
-  boolean?
-])[];
 
 type MultiSelectValue = string | number;
 
 type MultiSelectValues = MultiSelectValue[];
+
+type MultiSelectOptions = readonly [OptionType[0], string, OptionType[2]][];
 
 type MultiSelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   error?: string;
@@ -50,7 +46,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     {
       value,
       filter,
-      options = [],
+      options,
       error,
       disabled,
       anchor: Anchor = Focus,
@@ -73,7 +69,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       value !== undefined ? value : internalValue;
 
     const option = options.find((option) => getValue(option) === currentValue);
-    const index = option ? options.indexOf(option) : undefined;
+    const index = option ? options.indexOf(option) : 0;
 
     const internalChanged: UseCursorOnChange = ([value], _) => {
       if (currentValue.includes(value)) {
@@ -86,7 +82,10 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return onChange(newValue);
     };
 
-    const mapOptions = ([value, label]: MultiSelectOptions[number]) => {
+    const mapOptions = ([
+      value,
+      label,
+    ]: MultiSelectOptions[number]): OptionType => {
       if (currentValue.includes(value)) {
         return [value, label, true];
       }
@@ -99,7 +98,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     const filteredOptions = options.filter(applyFilter).map(mapOptions);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index as number, filteredOptions as Option[], internalChanged);
+      useCursor(index, filteredOptions, internalChanged);
 
     useEffect(reset, [filter]);
 

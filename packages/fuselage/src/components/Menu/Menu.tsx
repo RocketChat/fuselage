@@ -16,7 +16,7 @@ import {
   Box,
   Option,
 } from '..';
-import type { Option as OptionType } from '../Options/useCursor';
+import type { OptionType } from '../Options';
 
 type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   icon?: string;
@@ -35,7 +35,7 @@ const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
   options[selected].action();
 };
 
-const mapOptions = (options: MenuProps['options']) =>
+const mapOptions = (options: MenuProps['options']): OptionType[] =>
   Object.entries(options).map(([value, { label }]) => [value, label]);
 
 export const Menu: FC<MenuProps> = ({
