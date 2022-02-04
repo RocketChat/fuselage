@@ -22,7 +22,8 @@ export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   error?: string;
   options: SelectOptions;
   onChange: (value: SelectOptions[number][0]) => void;
-  getLabel?: (params: SelectOptions[0]) => string;
+  getLabel?: (params: SelectOptions[number]) => SelectOptions[number][1];
+  getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
   filter?: string;
 };
 
@@ -73,8 +74,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       options,
       anchor: Anchor = Focus,
       onChange = () => {},
-      getValue = ([value]: string[] = []) => value,
-      getLabel = ([_, label]: readonly [string, string] = ['', '']) => label,
+      getValue = ([value] = ['', '']) => value,
+      getLabel = ([_, label] = ['', '']) => label,
       placeholder = '',
       renderOptions: _Options = Options,
       ...props
