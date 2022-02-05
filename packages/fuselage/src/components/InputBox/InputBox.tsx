@@ -4,6 +4,7 @@ import React, {
   forwardRef,
   ForwardRefExoticComponent,
   ReactNode,
+  Ref,
   useCallback,
   useLayoutEffect,
   useRef,
@@ -49,12 +50,15 @@ type InputBoxProps = ComponentProps<typeof Box> & {
     | 'select';
 };
 
-export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
-  Input?: ComponentProps<typeof Box>;
-  Skeleton?: ComponentProps<typeof InputBoxSkeleton>;
-  Option?: ComponentProps<typeof Option>;
-  Placeholder?: ComponentProps<typeof Placeholder>;
-} = forwardRef(function InputBox(
+export type InputBox = ForwardRefExoticComponent<InputBoxProps> & {
+  Input: ForwardRefExoticComponent<ComponentProps<typeof Box>>;
+  Skeleton: ForwardRefExoticComponent<ComponentProps<typeof InputBoxSkeleton>>;
+  Option: ForwardRefExoticComponent<ComponentProps<typeof Option>>;
+  Placeholder: ForwardRefExoticComponent<ComponentProps<typeof Placeholder>>;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const InputBox = forwardRef(function InputBox(
   {
     className,
     addon,
@@ -66,10 +70,12 @@ export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
     type = 'text',
     onChange,
     ...props
-  },
-  ref
+  }: InputBoxProps,
+  ref: Ref<any> | null
 ) {
-  const innerRef = useRef<HTMLObjectElement>(null);
+  const innerRef = useRef<
+    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+  >(null);
   const mergedRef = useMergedRefs(ref, innerRef);
 
   useLayoutEffect(() => {
@@ -158,4 +164,4 @@ export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
       <Addon children={addon} />
     </Wrapper>
   );
-});
+}) as unknown as InputBox;
