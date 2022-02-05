@@ -5368,7 +5368,7 @@ __metadata:
     stylis: ^4.0.10
     ts-jest: ^27.0.7
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   languageName: unknown
   linkType: soft
 
@@ -5390,7 +5390,7 @@ __metadata:
     ts-jest: ^27.0.7
     tslib: ^2.3.1
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   languageName: unknown
   linkType: soft
 
@@ -5416,7 +5416,7 @@ __metadata:
     ts-jest: ^27.0.7
     tslib: ^2.3.1
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   languageName: unknown
   linkType: soft
 
@@ -5474,7 +5474,7 @@ __metadata:
     testing-utils: "workspace:^"
     ts-jest: ^27.0.7
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
     use-subscription: ^1.5.1
   peerDependencies:
     "@rocket.chat/fuselage-tokens": "*"
@@ -5573,7 +5573,7 @@ __metadata:
     react-dom: ^17.0.2
     rimraf: ^3.0.2
     tslib: ^2.3.1
-    typescript: ^4.4.3
+    typescript: ~4.3.5
     webpack: ^5.41.1
     write-version-module: "workspace:^"
   peerDependencies:
@@ -5656,7 +5656,7 @@ __metadata:
     testing-utils: "workspace:^"
     ts-jest: ^27.0.7
     ts-loader: ^9.2.3
-    typescript: ^4.3.4
+    typescript: ~4.3.5
     webpack: ^5.41.1
     webpack-bundle-analyzer: ^4.4.2
     webpack-cli: ^4.7.2
@@ -5716,7 +5716,7 @@ __metadata:
     ts-jest: ^27.0.7
     tslib: ^2.3.1
     typedoc: ^0.22.8
-    typescript: ^4.4.3
+    typescript: ~4.3.5
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
@@ -5737,7 +5737,7 @@ __metadata:
     rimraf: ^3.0.2
     tslib: ^2.3.1
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   languageName: unknown
   linkType: soft
 
@@ -5767,7 +5767,7 @@ __metadata:
     ts-jest: ^27.0.7
     ts-loader: ^9.2.3
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
     webpack: ^5.41.1
     webpack-cli: ^4.7.2
   languageName: unknown
@@ -5796,7 +5796,7 @@ __metadata:
     rollup: ^2.52.4
     ts-jest: ^27.0.7
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   languageName: unknown
   linkType: soft
 
@@ -5838,7 +5838,7 @@ __metadata:
     ts-jest: ^27.0.7
     tslib: ^2.3.1
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   peerDependencies:
     "@rocket.chat/fuselage-polyfills": "*"
     react: 17.0.2
@@ -5864,7 +5864,7 @@ __metadata:
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
     tslib: ^2.3.1
-    typescript: ^4.3.4
+    typescript: ~4.3.5
     webpack: ^5.41.1
   peerDependencies:
     peggy: "*"
@@ -5905,7 +5905,7 @@ __metadata:
     ts-jest: ^27.0.7
     tslib: ^2.3.1
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   languageName: unknown
   linkType: soft
 
@@ -5927,7 +5927,7 @@ __metadata:
     ts-jest: ^27.0.7
     tslib: ^2.3.1
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   languageName: unknown
   linkType: soft
 
@@ -5950,7 +5950,7 @@ __metadata:
     ts-jest: ^27.0.7
     tslib: ^2.3.1
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   peerDependencies:
     stylis: 4.0.10
   languageName: unknown
@@ -5978,7 +5978,7 @@ __metadata:
     ts-jest: ^27.0.7
     ts-loader: ^9.2.3
     typedoc: ^0.22.8
-    typescript: ^4.3.4
+    typescript: ~4.3.5
     webpack: ^5.41.1
     webpack-cli: ^4.7.2
   languageName: unknown
@@ -24020,7 +24020,7 @@ resolve@^2.0.0-next.3:
     npm-run-all: ^4.1.5
     prettier: ^2.3.2
     ts-node: ^10.0.0
-    typescript: ^4.3.4
+    typescript: ~4.3.5
   languageName: unknown
   linkType: soft
 
@@ -26732,43 +26732,23 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-typescript@^4.3.4:
-  version: 4.3.4
-  resolution: "typescript@npm:4.3.4"
+"typescript@npm:~4.3.5":
+  version: 4.3.5
+  resolution: "typescript@npm:4.3.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 75e1f2769c7ff38c718523d05eaf1c2611dbf92c0ab0f85f603ead9bb23416af2009a5dac46e76ef6a207a8508fa53f51b43a41f2a91b1241b53cd744c16128c
+  checksum: bab033b5e2b0790dd35b77fd005df976ef80b8d84fd2c6e63cc31808151875beae9216e5a315fe7068e8499905c3c354248fe83272cdfc13b7705635f0c66c97
   languageName: node
   linkType: hard
 
-typescript@^4.4.3:
-  version: 4.4.3
-  resolution: "typescript@npm:4.4.3"
+"typescript@patch:typescript@~4.3.5#~builtin<compat/typescript>":
+  version: 4.3.5
+  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=ddd1e8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 05823f21796d450531a7e4ab299715d38fd9ded0e4ce7400876053f4b5166ca3dde7a68cecfe72d9086039f03c0b6edba36516fb10ed83c5837d9600532ea4c2
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^4.3.4#~builtin<compat/typescript>":
-  version: 4.3.4
-  resolution: "typescript@patch:typescript@npm%3A4.3.4#~builtin<compat/typescript>::version=4.3.4&hash=ddd1e8"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 49f3e6734d6f27c1931d3a665439350d9015b28eee87ba26ebcae0ba35fc609962ad8eb0b09f0324366497d65260c4222b8735098325bba46d508b5cab7b4640
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
-  version: 4.4.3
-  resolution: "typescript@patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=ddd1e8"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 79f5c13d21c9dea3eb44d2b7002ff25a0569fefc432e083d65a360e3aca990aca25fc733e14aa6883b5e9a68e3e2f0330a34123e048806f91d701732ece00e6f
+  checksum: 61fc1a2ca5037420de5bbe17c6ddc4cbcc0d52301ed94f0a7b5821c55ff9eb96307f0816f745ca8f0fc87ed92f3951cde6d97cd6fd6bc6920c02ea63b5b26259
   languageName: node
   linkType: hard
 
