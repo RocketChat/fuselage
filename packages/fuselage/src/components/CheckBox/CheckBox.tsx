@@ -14,21 +14,8 @@ import { Label } from '../Label';
 
 type CheckBoxProps = ComponentProps<typeof Box> & {
   'indeterminate'?: boolean;
-  'autoComplete': string;
-  'checked': boolean;
-  'defaultChecked': boolean;
-  'disabled': boolean;
-  'form': string;
-  'id': string;
-  'name': string;
-  'required': boolean;
-  'tabIndex': number;
-  'value': string;
-  'qa': string;
-  'data-qa': string;
-  'onChange': FormEventHandler<HTMLElement>;
-  'onInput': () => void;
-  'onInvalid': () => void;
+  'qa'?: string;
+  'data-qa'?: string;
 };
 
 export const CheckBox: ForwardRefExoticComponent<CheckBoxProps> = forwardRef(

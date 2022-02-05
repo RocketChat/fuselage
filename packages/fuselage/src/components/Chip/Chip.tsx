@@ -1,11 +1,12 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
-type ChipProps = ComponentProps<typeof Box> & {
+type ChipProps = Omit<ComponentProps<typeof Box>, 'className'> & {
+  className?: string;
   thumbUrl: string;
 };
 
@@ -16,7 +17,7 @@ const defaultRenderThumb = ({ url }: { url: string }) => (
 );
 const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
-export const Chip: FC<ChipProps> = ({
+export const Chip = ({
   children,
   className,
   thumbUrl,
@@ -25,7 +26,7 @@ export const Chip: FC<ChipProps> = ({
   renderThumb = defaultRenderThumb,
   renderDismissSymbol = defaultRenderDismissSymbol,
   ...rest
-}) => {
+}: ChipProps) => {
   const onDismiss = onClick || onMouseDown;
 
   return (
