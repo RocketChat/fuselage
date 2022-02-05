@@ -9,19 +9,25 @@ import React, {
 import { Box } from '../Box';
 import { Chevron } from '../Chevron';
 
+type ItemsPerPage = 25 | 50 | 100;
+
 type PaginationProps = ComponentProps<typeof Box> & {
   count: number;
   current?: number;
   divider?: boolean;
-  itemsPerPage?: 25 | 50 | 100;
-  itemsPerPageLabel?: () => string;
-  showingResultsLabel?: (props: {
+  itemsPerPage?: ItemsPerPage;
+  itemsPerPageLabel?: (context: {
     count: number;
     current: number;
-    itemsPerPage: 25 | 50 | 100;
+    itemsPerPage: ItemsPerPage;
+  }) => string;
+  showingResultsLabel?: (context: {
+    count: number;
+    current: number;
+    itemsPerPage: ItemsPerPage;
   }) => string;
   onSetCurrent?: Dispatch<SetStateAction<number>>;
-  onSetItemsPerPage?: Dispatch<SetStateAction<25 | 50 | 100>>;
+  onSetItemsPerPage?: Dispatch<SetStateAction<ItemsPerPage>>;
 };
 
 const defaultItemsPerPageLabel = () => 'Items per page:';
@@ -31,9 +37,9 @@ const defaultShowingResultsLabel = ({
   current,
   itemsPerPage,
 }: {
-  count: PaginationProps['count'];
-  current: PaginationProps['current'];
-  itemsPerPage: PaginationProps['itemsPerPage'];
+  count: number;
+  current: number;
+  itemsPerPage: ItemsPerPage;
 }) =>
   `Showing results ${current + 1} - ${Math.min(
     current + itemsPerPage,
@@ -51,7 +57,9 @@ export const Pagination: FC<PaginationProps> = ({
   divider,
   ...props
 }) => {
-  const itemsPerPageOptions = [25, 50, 100].filter((i) => i <= count);
+  const itemsPerPageOptions = ([25, 50, 100] as ItemsPerPage[]).filter(
+    (i) => i <= count
+  );
   const hasItemsPerPageSelection = itemsPerPageOptions.length > 1;
   const currentPage = Math.floor(current / itemsPerPage);
   const pages = Math.ceil(count / itemsPerPage);
@@ -86,12 +94,12 @@ export const Pagination: FC<PaginationProps> = ({
   const renderingContext = { count, pages, current, currentPage, itemsPerPage };
 
   const handleSetItemsPerPageLinkClick =
-    (itemsPerPageOption: PaginationProps['itemsPerPage']) => () => {
-      onSetItemsPerPage && onSetItemsPerPage(itemsPerPageOption);
+    (itemsPerPageOption: ItemsPerPage) => () => {
+      onSetItemsPerPage?.(itemsPerPageOption);
     };
 
   const handleSetPageLinkClick = (page: number) => () => {
-    onSetCurrent && onSetCurrent(page * itemsPerPage);
+    onSetCurrent?.(page * itemsPerPage);
   };
 
   return (
