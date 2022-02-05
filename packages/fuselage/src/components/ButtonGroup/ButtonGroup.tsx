@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { ComponentProps, FC } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
@@ -15,7 +14,7 @@ type ButtonGroupProps = ComponentProps<typeof Box> & {
 };
 
 export const ButtonGroup: FC<ButtonGroupProps> = ({
-  align,
+  align = 'start',
   children,
   stretch,
   vertical,
@@ -46,20 +45,3 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
     )}
   </Box>
 );
-
-ButtonGroup.defaultProps = {
-  align: 'start',
-};
-
-ButtonGroup.propTypes = {
-  /** The alignment that should be applied to the items */
-  align: PropTypes.oneOf(['start', 'center', 'end']),
-  /** Will be the items stretched to fill space? */
-  stretch: PropTypes.bool,
-  /** Is the items vertically placed? */
-  vertical: PropTypes.bool,
-  /** Will wrap the items when they exceed the container space? */
-  wrap: PropTypes.bool,
-  small: PropTypes.bool,
-  medium: PropTypes.bool,
-};

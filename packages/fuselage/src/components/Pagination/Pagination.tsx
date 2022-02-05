@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, {
   ComponentProps,
   Dispatch,
@@ -164,17 +163,4 @@ export const Pagination: FC<PaginationProps> = ({
       </Box>
     </Box>
   );
-};
-
-Pagination.defaultProps = {
-  current: 0,
-  itemsPerPage: 25,
-  itemsPerPageLabel: defaultItemsPerPageLabel,
-  showingResultsLabel: defaultShowingResultsLabel,
-};
-
-Pagination.propTypes = {
-  count: PropTypes.number.isRequired,
-  current: PropTypes.number,
-  itemsPerPage: PropTypes.oneOf([25, 50, 100]),
 };

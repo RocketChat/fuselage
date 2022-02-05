@@ -1,6 +1,4 @@
-/* eslint-disable complexity */
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import PropTypes from 'prop-types';
 import React, {
   ComponentProps,
   forwardRef,
@@ -65,7 +63,7 @@ export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
     invisible,
     multiple,
     placeholderVisible,
-    type,
+    type = 'text',
     onChange,
     ...props
   },
@@ -161,40 +159,3 @@ export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
     </Wrapper>
   );
 });
-
-InputBox.defaultProps = {
-  type: 'text',
-};
-
-InputBox.propTypes = {
-  addon: PropTypes.element,
-  input: PropTypes.element,
-  error: PropTypes.string,
-  type: PropTypes.oneOf([
-    'button',
-    'checkbox',
-    'color',
-    'date',
-    'datetime',
-    'datetime-local',
-    'email',
-    'file',
-    'hidden',
-    'image',
-    'month',
-    'number',
-    'password',
-    'radio',
-    'range',
-    'reset',
-    'search',
-    'submit',
-    'tel',
-    'text',
-    'time',
-    'url',
-    'week',
-    'textarea',
-    'select',
-  ]).isRequired,
-};

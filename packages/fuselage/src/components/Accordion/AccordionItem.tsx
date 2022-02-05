@@ -1,5 +1,4 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import PropTypes from 'prop-types';
 import React, { FC, KeyboardEvent, MouseEvent, ReactNode } from 'react';
 
 import { Box } from '../Box';
@@ -134,14 +133,4 @@ export const AccordionItem: FC<{
       </Box>
     </Box>
   );
-};
-
-AccordionItem.propTypes = {
-  defaultExpanded: PropTypes.bool,
-  disabled: PropTypes.bool,
-  expanded: PropTypes.bool,
-  tabIndex: PropTypes.number,
-  title: PropTypes.node,
-  onToggle: PropTypes.func,
-  onToggleEnabled: PropTypes.func,
 };

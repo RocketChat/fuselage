@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { ComponentProps, forwardRef } from 'react';
 
 import { Box } from '../Box';
@@ -55,21 +54,3 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     );
   }
 );
-
-RadioButton.propTypes = {
-  'autoComplete': PropTypes.string,
-  'checked': PropTypes.bool,
-  'defaultChecked': PropTypes.bool,
-  'disabled': PropTypes.bool,
-  'form': PropTypes.string,
-  'id': PropTypes.string,
-  'name': PropTypes.string,
-  'required': PropTypes.bool,
-  'tabIndex': PropTypes.number,
-  'value': PropTypes.string,
-  'qa': PropTypes.string,
-  'data-qa': PropTypes.string,
-  'onChange': PropTypes.func,
-  'onInput': PropTypes.func,
-  'onInvalid': PropTypes.func,
-};

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { ComponentProps, FC } from 'react';
 
 import { Avatar, Box } from '..';
@@ -46,12 +45,4 @@ export const Chip: FC<ChipProps> = ({
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  Chip.displayName = 'Chip';
-
-  Chip.propTypes = {
-    thumbUrl: PropTypes.string,
-    renderThumb: PropTypes.func,
-    renderDismissSymbol: PropTypes.func,
-  };
-}
+Chip.displayName = 'Chip';

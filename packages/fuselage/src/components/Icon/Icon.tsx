@@ -1,11 +1,7 @@
 import nameToCharacterMapping, { Keys } from '@rocket.chat/icons';
-import PropTypes from 'prop-types';
 import React, { ComponentProps, forwardRef } from 'react';
 
-import { createPropType } from '../../helpers/createPropType';
-import { size } from '../../styleTokens';
 import { Box } from '../Box';
-import { iconsList } from './IconsList';
 
 type IconProps = Omit<ComponentProps<typeof Box>, 'size'> & {
   name: Keys;
@@ -29,8 +25,3 @@ export const Icon = forwardRef<HTMLInputElement, IconProps>(function Icon(
     />
   );
 });
-
-Icon.propTypes = {
-  name: PropTypes.oneOf(iconsList).isRequired,
-  size: createPropType(size),
-};
