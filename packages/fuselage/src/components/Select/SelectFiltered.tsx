@@ -1,7 +1,9 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import React, {
   ComponentProps,
+  FormEvent,
   forwardRef,
+  Ref,
   useCallback,
   useState,
 } from 'react';
@@ -14,8 +16,11 @@ export type SelectFilteredProps = Omit<
   'onChange'
 >;
 
-export const SelectFiltered = forwardRef<HTMLInputElement, SelectFilteredProps>(
-  ({ options, placeholder, ...props }, ref) => {
+export const SelectFiltered = forwardRef(
+  (
+    { options, placeholder, ...props }: SelectFilteredProps,
+    ref: Ref<HTMLInputElement>
+  ) => {
     const [filter, setFilter] = useState('');
     const anchor = useCallback(
       forwardRef<HTMLInputElement, ComponentProps<typeof InputBox>>(
@@ -27,7 +32,7 @@ export const SelectFiltered = forwardRef<HTMLInputElement, SelectFilteredProps>(
             ref={ref}
             placeholder={placeholder}
             value={filter}
-            onChange={useMutableCallback((e) =>
+            onChange={useMutableCallback((e: FormEvent<HTMLInputElement>) =>
               setFilter(e.currentTarget.value)
             )}
             {...props}

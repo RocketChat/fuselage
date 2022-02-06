@@ -10,6 +10,7 @@ import React, {
   ComponentProps,
   ElementType,
   FC,
+  FormEvent,
 } from 'react';
 
 import { Box, PositionAnimated, AnimatedVisibility } from '../Box';
@@ -120,7 +121,7 @@ export const AutoComplete: FC<AutoCompleteProps> = ({
         <Margins all='x4'>
           <InputBox.Input
             ref={ref}
-            onChange={useMutableCallback((e) =>
+            onChange={useMutableCallback((e: FormEvent<HTMLInputElement>) =>
               setFilter(e.currentTarget.value)
             )}
             onBlur={hide}

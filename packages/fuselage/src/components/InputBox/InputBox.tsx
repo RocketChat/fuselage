@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import React, {
   ComponentProps,
@@ -94,7 +95,7 @@ export const InputBox = forwardRef(function InputBox(
   }, []);
 
   const handleChange = useCallback(
-    (event, ...args) => {
+    (event) => {
       if (addon && innerRef.current && innerRef.current.parentElement) {
         innerRef.current.parentElement.classList.toggle(
           'invalid',
@@ -102,7 +103,7 @@ export const InputBox = forwardRef(function InputBox(
         );
       }
 
-      return onChange && onChange.call(event.currentTarget, event, ...args);
+      onChange?.call(event.currentTarget, event);
     },
     [addon, onChange]
   );
@@ -136,7 +137,10 @@ export const InputBox = forwardRef(function InputBox(
 
   return (
     <Wrapper
-      className={[props.disabled && 'disabled', className]}
+      className={[
+        props.disabled && 'disabled',
+        ...(Array.isArray(className) ? className : [className]),
+      ]}
       hidden={hidden}
       invisible={invisible}
     >

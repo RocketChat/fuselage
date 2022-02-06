@@ -47,8 +47,8 @@ export const Button: ForwardRefExoticComponent<ButtonProps> = forwardRef(
   ) {
     const extraProps =
       (is === 'a' && {
-        rel: external && 'noopener noreferrer',
-        target: external && '_blank',
+        rel: external ? 'noopener noreferrer' : undefined,
+        target: external ? '_blank' : undefined,
       }) ||
       (is === 'button' && {
         type: 'button',

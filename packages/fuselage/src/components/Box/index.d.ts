@@ -1,5 +1,6 @@
 import type { css } from '@rocket.chat/css-in-js';
 import {
+  AllHTMLAttributes,
   ComponentProps,
   CSSProperties,
   ElementType,
@@ -165,12 +166,16 @@ export type BoxProps<TElementType extends ElementType> = BoxStylingProps & {
     : never;
 } & Omit<ComponentProps<TElementType>, 'is' | 'className' | 'size'>;
 
+type UnsafeBoxProps = BoxProps<any> &
+  Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'className' | 'size'> &
+  Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLOrSVGElement>>;
+
 export const Box: {
-  // Box unfortunately cannot be a generic component because of the abuse of `ComponentProps<typeof Box>`
+  // `Box` unfortunately cannot be a generic component because of the abuse of `ComponentProps<typeof Box>`
   /* <TElementType extends ElementType = 'div'>(
     props: BoxProps<TElementType>
   ): ReactElement | null; */
-  (props: BoxProps<any>): ReactElement | null;
+  (props: UnsafeBoxProps): ReactElement | null;
   defaultProps?: undefined;
   propTypes?: undefined;
   displayName?: string | undefined;

@@ -28,9 +28,9 @@ export const SelectInput = forwardRef<HTMLElement, SelectInputProps>(
       !props.value && !props.defaultValue
     );
     const handleChange = useCallback(
-      (event, ...args) => {
+      (event) => {
         setPlaceholderVisible(!event.currentTarget.value);
-        onChange && onChange.call(event.currentTarget, event, ...args);
+        onChange?.call(event.currentTarget, event);
       },
       [onChange]
     );

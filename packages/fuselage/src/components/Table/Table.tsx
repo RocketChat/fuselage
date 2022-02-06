@@ -1,14 +1,15 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps, CSSProperties, FC } from 'react';
 
 import { Box } from '../Box';
 import { TableSelection } from './TableSelection';
 import { TableSelectionButton } from './TableSelectionButton';
 
-export const style = {
+export const style: CSSProperties = {
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
 };
+
 export type TableProps = ComponentProps<typeof Box> & {
   striped?: boolean;
   sticky?: boolean;

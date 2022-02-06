@@ -13,12 +13,8 @@ export const AccordionItem: FC<{
   tabIndex?: number;
   title: ReactNode;
   noncollapsible?: boolean;
-  onToggle?: (
-    e: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>
-  ) => void;
-  onToggleEnabled?: (
-    e: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>
-  ) => void;
+  onToggle?: (e: MouseEvent | KeyboardEvent) => void;
+  onToggleEnabled?: (e: MouseEvent | KeyboardEvent) => void;
 }> = function Item({
   children,
   className,
@@ -34,9 +30,7 @@ export const AccordionItem: FC<{
 }) {
   const [stateExpanded, toggleStateExpanded] = useToggle(defaultExpanded);
   const expanded = propExpanded || stateExpanded;
-  const toggleExpanded = (
-    event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>
-  ) => {
+  const toggleExpanded = (event: MouseEvent | KeyboardEvent) => {
     if (onToggle) {
       onToggle.call(event.currentTarget, event);
       return;
@@ -50,7 +44,7 @@ export const AccordionItem: FC<{
   const titleId = useUniqueId();
   const panelId = useUniqueId();
 
-  const handleClick = (e: MouseEvent<HTMLElement, MouseEvent>) => {
+  const handleClick = (e: MouseEvent<HTMLElement>) => {
     if (disabled) {
       return;
     }
@@ -58,7 +52,7 @@ export const AccordionItem: FC<{
     toggleExpanded(e);
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (disabled || event.currentTarget !== event.target) {
       return;
     }
@@ -84,13 +78,13 @@ export const AccordionItem: FC<{
     'tabIndex': !disabled ? tabIndex : undefined,
     'onClick': handleClick,
     'onKeyDown': handleKeyDown,
-  };
+  } as const;
 
   const nonCollapsibleProps = {
     'aria-disabled': 'true',
     'aria-expanded': 'true',
     'aria-labelledby': titleId,
-  };
+  } as const;
 
   const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
 
