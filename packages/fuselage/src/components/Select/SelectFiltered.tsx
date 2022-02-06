@@ -23,8 +23,11 @@ export const SelectFiltered = forwardRef(
   ) => {
     const [filter, setFilter] = useState('');
     const anchor = useCallback(
-      forwardRef<HTMLInputElement, ComponentProps<typeof InputBox>>(
-        ({ children, filter, ...props }, ref) => (
+      forwardRef(
+        (
+          { children, filter, ...props }: ComponentProps<typeof InputBox>,
+          ref: Ref<HTMLInputElement>
+        ) => (
           <InputBox.Input
             mi='x4'
             flexGrow={1}

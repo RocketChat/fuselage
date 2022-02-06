@@ -1,10 +1,12 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { ActionButton } from '../..';
 
-type FollowingProps = { name: 'bell' | 'bell-off' };
+type MessageMetricsFollowingProps = { name: 'bell' | 'bell-off' };
 
-export const MessageMetricsFollowing: FC<FollowingProps> = ({ name }) => (
+export const MessageMetricsFollowing = ({
+  name,
+}: MessageMetricsFollowingProps) => (
   <ActionButton
     {...({ color: 'info', small: true, ghost: true, icon: name } as any)}
   />

@@ -1,16 +1,14 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-// const clamp = css`
-// 	display: -webkit-box;
-// 	-webkit-line-clamp: 1;
-// 	-webkit-box-orient: vertical;
-// 	overflow: hidden;
-// `;
+type MessageGenericPreviewDescriptionProps = {
+  children?: ReactNode;
+  clamp?: boolean;
+};
 
-export const MessageGenericPreviewDescription: FC<{ clamp?: boolean }> = ({
+export const MessageGenericPreviewDescription = ({
   children,
   clamp = false,
-}) => (
+}: MessageGenericPreviewDescriptionProps) => (
   <div
     className={[
       'rcx-message-generic-preview__description',

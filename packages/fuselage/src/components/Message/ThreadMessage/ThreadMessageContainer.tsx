@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-export const ThreadMessageContainer: FC = (props) => (
+type ThreadMessageContainerProps = {
+  children?: ReactNode;
+};
+
+export const ThreadMessageContainer = (props: ThreadMessageContainerProps) => (
   <div
     className='rcx-box rcx-box--full rcx-message-thread__container'
     {...props}

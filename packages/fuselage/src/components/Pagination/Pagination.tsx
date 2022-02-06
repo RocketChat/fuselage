@@ -1,7 +1,6 @@
 import React, {
   ComponentProps,
   Dispatch,
-  FC,
   SetStateAction,
   useMemo,
 } from 'react';
@@ -46,7 +45,7 @@ const defaultShowingResultsLabel = ({
     count
   )} of ${count}`;
 
-export const Pagination: FC<PaginationProps> = ({
+export const Pagination = ({
   count,
   current = 0,
   itemsPerPage = 25,
@@ -56,7 +55,7 @@ export const Pagination: FC<PaginationProps> = ({
   onSetCurrent,
   divider,
   ...props
-}) => {
+}: PaginationProps) => {
   const itemsPerPageOptions = ([25, 50, 100] as ItemsPerPage[]).filter(
     (i) => i <= count
   );

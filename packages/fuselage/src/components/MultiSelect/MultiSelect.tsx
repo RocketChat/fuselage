@@ -10,6 +10,7 @@ import React, {
   forwardRef,
   ComponentProps,
   SyntheticEvent,
+  Ref,
 } from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
@@ -45,7 +46,7 @@ const prevent = (e: SyntheticEvent) => {
   e.nativeEvent.stopImmediatePropagation();
 };
 
-export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
+export const MultiSelect = forwardRef(
   (
     {
       value,
@@ -65,8 +66,8 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       placeholder,
       renderOptions: _Options = Options,
       ...props
-    },
-    ref
+    }: MultiSelectProps,
+    ref: Ref<HTMLInputElement>
   ) => {
     const [internalValue, setInternalValue] = useState(value || []);
     const currentValue: MultiSelectValues =

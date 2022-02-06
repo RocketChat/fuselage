@@ -4,6 +4,7 @@ import React, {
   useCallback,
   ComponentProps,
   ReactNode,
+  Ref,
 } from 'react';
 
 import { Box } from '..';
@@ -19,48 +20,46 @@ type SelectInputProps = ComponentProps<typeof Box> & {
   addon: ReactNode;
 };
 
-export const SelectInput = forwardRef<HTMLElement, SelectInputProps>(
-  function SelectInput(
-    { children, multiple, placeholder, onChange, ...props },
-    ref
-  ) {
-    const [isPlaceholderVisible, setPlaceholderVisible] = useState(
-      !props.value && !props.defaultValue
-    );
-    const handleChange = useCallback(
-      (event) => {
-        setPlaceholderVisible(!event.currentTarget.value);
-        onChange?.call(event.currentTarget, event);
-      },
-      [onChange]
-    );
+export const SelectInput = forwardRef(function SelectInput(
+  { children, multiple, placeholder, onChange, ...props }: SelectInputProps,
+  ref: Ref<HTMLElement>
+) {
+  const [isPlaceholderVisible, setPlaceholderVisible] = useState(
+    !props.value && !props.defaultValue
+  );
+  const handleChange = useCallback(
+    (event) => {
+      setPlaceholderVisible(!event.currentTarget.value);
+      onChange?.call(event.currentTarget, event);
+    },
+    [onChange]
+  );
 
-    if (multiple) {
-      return (
-        <InputBox
-          children={children}
-          {...props}
-          multiple
-          type='select'
-          onChange={handleChange}
-        />
-      );
-    }
-
+  if (multiple) {
     return (
       <InputBox
-        placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
-        ref={ref}
+        children={children}
         {...props}
-        addon={<Icon name='chevron-down' size='x20' />}
+        multiple
         type='select'
         onChange={handleChange}
-      >
-        {placeholder && (
-          <InputBox.Placeholder value=''>{placeholder}</InputBox.Placeholder>
-        )}
-        {children}
-      </InputBox>
+      />
     );
   }
-);
+
+  return (
+    <InputBox
+      placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
+      ref={ref}
+      {...props}
+      addon={<Icon name='chevron-down' size='x20' />}
+      type='select'
+      onChange={handleChange}
+    >
+      {placeholder && (
+        <InputBox.Placeholder value=''>{placeholder}</InputBox.Placeholder>
+      )}
+      {children}
+    </InputBox>
+  );
+});

@@ -1,22 +1,31 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import React, { FC, FormEvent, useCallback, useState } from 'react';
+import React, {
+  FormEvent,
+  forwardRef,
+  Ref,
+  useCallback,
+  useState,
+} from 'react';
 
 import { PaginatedSelect, PaginatedSelectProps } from '.';
 import { InputBox } from '../InputBox';
 
 type PaginatedSelectFilteredProps = PaginatedSelectProps;
 
-export const PaginatedSelectFiltered: FC<PaginatedSelectFilteredProps> = ({
+export const PaginatedSelectFiltered = ({
   // filter,
   // setFilter,
   options,
   placeholder,
   ...props
-}) => {
+}: PaginatedSelectFilteredProps) => {
   const [filter, setFilter] = useState('');
   const anchor = useCallback(
-    React.forwardRef<HTMLInputElement, PaginatedSelectFilteredProps>(
-      ({ children, filter, ...props }, ref) => (
+    forwardRef(
+      (
+        { children, filter, ...props }: PaginatedSelectFilteredProps,
+        ref: Ref<HTMLInputElement>
+      ) => (
         <InputBox.Input
           mi='x4'
           flexGrow={1}

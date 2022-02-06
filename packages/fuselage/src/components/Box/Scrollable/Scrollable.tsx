@@ -6,7 +6,6 @@ import React, {
   PropsWithChildren,
   MouseEvent,
   MutableRefObject,
-  FC,
 } from 'react';
 
 import { appendClassName } from '../../../helpers/appendClassName';
@@ -48,13 +47,13 @@ const pollTouchingEdges = (
   }
 };
 
-export const Scrollable: FC<ScrollableProps> = ({
+export const Scrollable = ({
   children,
   horizontal,
   vertical,
   smooth,
   onScrollContent,
-}) => {
+}: ScrollableProps) => {
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const touchingEdgesRef = useRef({});
 

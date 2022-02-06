@@ -1,5 +1,9 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-export const MessageMetricsContentItem: FC = (props) => (
-  <div className='rcx-message-metrics__content-item' {...props} />
-);
+type MessageMetricsContentItemProps = {
+  children?: ReactNode;
+};
+
+export const MessageMetricsContentItem = (
+  props: MessageMetricsContentItemProps
+) => <div className='rcx-message-metrics__content-item' {...props} />;

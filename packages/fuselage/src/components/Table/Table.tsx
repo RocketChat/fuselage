@@ -1,4 +1,4 @@
-import React, { ComponentProps, CSSProperties, FC } from 'react';
+import React, { ComponentProps, CSSProperties } from 'react';
 
 import { Box } from '../Box';
 import { TableSelection } from './TableSelection';
@@ -16,10 +16,12 @@ export type TableProps = ComponentProps<typeof Box> & {
   fixed?: boolean;
 };
 
-export const Table: FC<TableProps> & {
-  Selection: ComponentProps<typeof TableSelection>;
-  Button: ComponentProps<typeof TableSelectionButton>;
-} = ({ striped, sticky, fixed = false, ...props }) => (
+export const Table = ({
+  striped,
+  sticky,
+  fixed = false,
+  ...props
+}: TableProps) => (
   <Box rcx-table__wrapper>
     <Box
       is='table'

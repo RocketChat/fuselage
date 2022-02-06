@@ -1,5 +1,5 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
-import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
+import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 
 import { appendClassName } from '../../../helpers/appendClassName';
 import { useStyle } from '../../../hooks/useStyle';
@@ -24,7 +24,7 @@ const Visibility = {
   UNHIDING: 'unhiding' as VisibilityType,
 };
 
-const AnimatedVisibility: FC<AnimatedVisibilityProps> = (props) => {
+const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
   const propVisibility = props.visibility || Visibility.HIDDEN;
 
   const [visibility, setVisibility] = useState<VisibilityType>(propVisibility);

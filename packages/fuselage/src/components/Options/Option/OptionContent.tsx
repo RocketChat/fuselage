@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-const OptionContent: FC = (props) => (
+type OptionContentProps = {
+  children?: ReactNode;
+};
+
+const OptionContent = (props: OptionContentProps) => (
   <div className='rcx-option__content' {...props} />
 );
 

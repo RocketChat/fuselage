@@ -1,12 +1,11 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { ButtonGroup } from '../..';
 
-export const MessageToolbox: FC<ComponentProps<typeof ButtonGroup>> =
-  function ToolBox(props) {
-    return (
-      <div className='rcx-box rcx-box--full rcx-message-toolbox'>
-        <ButtonGroup {...{ small: true }} {...props} />
-      </div>
-    );
-  };
+type MessageToolboxProps = ComponentProps<typeof ButtonGroup>;
+
+export const MessageToolbox = (props: MessageToolboxProps) => (
+  <div className='rcx-box rcx-box--full rcx-message-toolbox'>
+    <ButtonGroup {...{ small: true }} {...props} />
+  </div>
+);

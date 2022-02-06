@@ -1,8 +1,12 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
 import './States.styles.scss';
 
-const States: FC = ({ children }) => (
+type StatesProps = {
+  children?: ReactNode;
+};
+
+const States = ({ children }: StatesProps) => (
   <div className='rcx-states'>{children}</div>
 );
 

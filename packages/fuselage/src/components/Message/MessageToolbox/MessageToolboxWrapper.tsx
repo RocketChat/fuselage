@@ -1,9 +1,11 @@
-import React, { AllHTMLAttributes, forwardRef } from 'react';
+import React, { AllHTMLAttributes, forwardRef, Ref } from 'react';
 
-export const MessageToolboxWrapper = forwardRef<
-  HTMLDivElement,
-  AllHTMLAttributes<HTMLDivElement>
->(function ToolboxWrapper({ className, ...props }, ref) {
+type MessageToolboxWrapperProps = AllHTMLAttributes<HTMLDivElement>;
+
+export const MessageToolboxWrapper = forwardRef(function ToolboxWrapper(
+  { className, ...props }: MessageToolboxWrapperProps,
+  ref: Ref<HTMLDivElement>
+) {
   return (
     <div
       ref={ref}

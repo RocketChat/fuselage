@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps, ReactNode } from 'react';
 
 import { Box } from '../Box';
 import { Divider } from '../Divider';
@@ -6,16 +6,12 @@ import { SidebarAction, SidebarActions } from './SidebarActions';
 
 const Avatar: { size: 'x24' } = { size: 'x24' };
 
-const TopBar: FC<{ className: string }> & {
-  Section?: typeof TopBarSection;
-  ToolBox?: typeof TopBarToolBox;
-  Avatar?: typeof TopBarAvatar;
-  Actions?: typeof TopBarActions;
-  Action?: typeof TopBarAction;
-  Divider?: typeof TopBarDivider;
-  Title?: typeof TopBarTitle;
-  Wrapper?: typeof TopBarWrapper;
-} = ({ className, ...props }) => (
+type TopBarProps = {
+  children?: ReactNode;
+  className?: string;
+};
+
+const TopBar = ({ className, ...props }: TopBarProps) => (
   <div
     className={['rc-box rc-box--full rcx-sidebar-topbar', className]
       .filter(Boolean)
@@ -24,18 +20,27 @@ const TopBar: FC<{ className: string }> & {
   />
 );
 
-const TopBarWrapper: FC = ({ children }) => (
+type TopBarWrapperProps = {
+  children?: ReactNode;
+};
+
+const TopBarWrapper = ({ children }: TopBarWrapperProps) => (
   <div
     className='rc-box rc-box--full rcx-sidebar-topbar__wrapper'
     children={children}
   />
 );
 
-export const TopBarToolBox: FC<{ className?: string }> = ({
+type TopBarToolBoxProps = {
+  children?: ReactNode;
+  className?: string;
+};
+
+export const TopBarToolBox = ({
   children,
   className,
   ...props
-}) => (
+}: TopBarToolBoxProps) => (
   <TopBar
     className={['rcx-sidebar-topbar--toolbox', className]
       .filter(Boolean)
@@ -47,11 +52,16 @@ export const TopBarToolBox: FC<{ className?: string }> = ({
   </TopBar>
 );
 
-export const TopBarSection: FC<{ className: string }> = ({
+type TopBarSectionProps = {
+  children?: React.ReactNode;
+  className?: string;
+};
+
+export const TopBarSection = ({
   className,
   children,
   ...props
-}) => (
+}: TopBarSectionProps) => (
   <TopBar
     className={['rcx-sidebar-topbar--section', className]
       .filter(Boolean)
@@ -64,15 +74,21 @@ export const TopBarSection: FC<{ className: string }> = ({
 );
 
 export const TopBarAvatar = Avatar;
-export const TopBarActions: FC<ComponentProps<typeof SidebarActions>> =
-  SidebarActions;
-export const TopBarAction: FC<ComponentProps<typeof SidebarAction>> = (
-  props
-) => <SidebarAction ghost {...props} />;
 
-export const TopBarDivider: FC = () => <Divider mbs='neg-x2' mbe={0} />;
+export const TopBarActions = SidebarActions;
 
-export const TopBarTitle: FC = (props) => (
+type TopBarActionProps = ComponentProps<typeof SidebarAction>;
+export const TopBarAction = (props: TopBarActionProps) => (
+  <SidebarAction ghost {...props} />
+);
+
+export const TopBarDivider = () => <Divider mbs='neg-x2' mbe={0} />;
+
+type TopBarTitleProps = {
+  children?: ReactNode;
+};
+
+export const TopBarTitle = (props: TopBarTitleProps) => (
   <Box rcx-sidebar-top-bar__title withTruncatedText {...props} />
 );
 

@@ -10,6 +10,8 @@ import React, {
   forwardRef,
   useMemo,
   ComponentProps,
+  DependencyList,
+  Ref,
 } from 'react';
 
 import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
@@ -27,16 +29,24 @@ export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   filter?: string;
 };
 
-export const Addon = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
-  (props, ref) => <Box is='div' rcx-select__addon ref={ref} {...props} />
+type AddonProps = ComponentProps<typeof Box>;
+
+export const Addon = forwardRef(
+  (props: AddonProps, ref: Ref<HTMLDivElement>) => (
+    <Box is='div' rcx-select__addon ref={ref} {...props} />
+  )
 );
 
-const Wrapper = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
-  (props, ref) => <Box is='div' rcx-select__wrapper ref={ref} {...props} />
-);
+type WrapperProps = ComponentProps<typeof Box>;
 
-export const Focus = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
-  (props, ref) => (
+const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
+  <Box is='div' rcx-select__wrapper ref={ref} {...props} />
+));
+
+type FocusProps = ComponentProps<typeof Box>;
+
+export const Focus = forwardRef(
+  (props: FocusProps, ref: Ref<HTMLButtonElement>) => (
     <Box
       ref={ref}
       fontScale='p2m'
@@ -49,10 +59,7 @@ export const Focus = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
   )
 );
 
-const useDidUpdate = (
-  func: () => void,
-  deps: React.DependencyList | undefined
-) => {
+const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   const didMount = useRef(false);
   const fn = useMutableCallback(func);
 
@@ -64,7 +71,7 @@ const useDidUpdate = (
   }, deps || []);
 };
 
-export const Select = forwardRef<HTMLInputElement, SelectProps>(
+export const Select = forwardRef(
   (
     {
       value,
@@ -79,8 +86,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       placeholder = '',
       renderOptions: _Options = Options,
       ...props
-    },
-    ref
+    }: SelectProps,
+    ref: Ref<HTMLInputElement>
   ) => {
     const [internalValue, setInternalValue] = useState<
       string | string[] | number | undefined

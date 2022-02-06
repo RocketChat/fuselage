@@ -1,12 +1,12 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { Box } from '../Box';
 
 type SkeletonProps = ComponentProps<typeof Box> & {
-  variant?: 'rect' | 'rect';
+  variant?: 'text' | 'rect';
 };
 
-const Skeleton: FC<SkeletonProps> = ({ variant = 'text', ...props }) => (
+const Skeleton = ({ variant = 'text', ...props }: SkeletonProps) => (
   <Box
     is='span'
     rcx-skeleton

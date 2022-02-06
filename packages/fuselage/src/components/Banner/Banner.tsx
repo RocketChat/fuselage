@@ -3,7 +3,6 @@ import React, {
   useRef,
   useCallback,
   useMemo,
-  FC,
   ReactNode,
   AllHTMLAttributes,
 } from 'react';
@@ -35,7 +34,7 @@ type BannerProps = {
   onClose?: () => void;
 } & AllHTMLAttributes<HTMLElement>;
 
-const Banner: FC<BannerProps> = ({
+const Banner = ({
   inline = false,
   children,
   className,
@@ -47,7 +46,7 @@ const Banner: FC<BannerProps> = ({
   onAction,
   onClose,
   ...props
-}) => {
+}: BannerProps) => {
   useStyleSheet();
   useStyleSheet(styleSheet);
 

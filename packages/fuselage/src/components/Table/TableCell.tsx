@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { Box } from '../Box';
 import { TableProps } from './Table';
@@ -9,11 +9,7 @@ type TableCellProps = TableProps & {
   clickable?: boolean;
 };
 
-export const TableCell: FC<TableCellProps> = ({
-  align,
-  clickable,
-  ...props
-}) => {
+export const TableCell = ({ align, clickable, ...props }: TableCellProps) => {
   const isInsideHead = useContext(TableHeadContext);
   return (
     <Box

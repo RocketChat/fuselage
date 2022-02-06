@@ -9,8 +9,9 @@ import React, {
   useState,
   ComponentProps,
   ElementType,
-  FC,
   FormEvent,
+  memo,
+  ReactNode,
 } from 'react';
 
 import { Box, PositionAnimated, AnimatedVisibility } from '../Box';
@@ -35,7 +36,7 @@ type AutoCompleteProps = Omit<ComponentProps<typeof Options>, 'options'> & {
   renderItem?: ElementType;
   renderSelected?: ElementType;
   onChange: (value: OptionValue, action?: 'remove' | undefined) => void;
-  getLabel?: (option: OptionType) => string;
+  getLabel?: (option: OptionType) => ReactNode;
   getValue?: (option: OptionType) => OptionValue;
   renderEmpty?: ElementType;
   placeholder?: string;
@@ -47,8 +48,9 @@ const Addon = (props: ComponentProps<typeof Box>) => (
   <Box rcx-autocomplete__addon {...props} />
 );
 
-const SelectedOptions = React.memo((props) => <Chip {...props} />);
-export const AutoComplete: FC<AutoCompleteProps> = ({
+const SelectedOptions = memo((props) => <Chip {...props} />);
+
+export const AutoComplete = ({
   value,
   filter,
   setFilter = () => {},
@@ -62,7 +64,7 @@ export const AutoComplete: FC<AutoCompleteProps> = ({
   placeholder,
   error,
   disabled,
-}) => {
+}: AutoCompleteProps) => {
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const ref = useRef<HTMLElement>(null);

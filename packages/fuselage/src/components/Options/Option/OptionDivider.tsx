@@ -1,9 +1,9 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { Divider } from '../..';
 
-const OptionDivider: FC<ComponentProps<typeof Divider>> = (props) => (
-  <Divider {...props} />
-);
+type OptionDividerProps = ComponentProps<typeof Divider>;
+
+const OptionDivider = (props: OptionDividerProps) => <Divider {...props} />;
 
 export default OptionDivider;

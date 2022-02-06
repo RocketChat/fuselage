@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { Box } from '../Box';
 
@@ -7,7 +7,7 @@ type TableRowProps = Omit<ComponentProps<typeof Box>, 'action'> & {
   hasAction?: boolean;
 };
 
-export const TableRow: FC<TableRowProps> = ({ action, selected, ...props }) => (
+export const TableRow = ({ action, selected, ...props }: TableRowProps) => (
   <Box
     is='tr'
     rcx-table__row

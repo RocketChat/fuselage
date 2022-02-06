@@ -1,7 +1,9 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-export const MessageContainer: FC = function MessageContainer(props) {
-  return (
-    <div className='rcx-box rcx-box--full rcx-message-container' {...props} />
-  );
+type MessageContainerProps = {
+  children?: ReactNode;
 };
+
+export const MessageContainer = (props: MessageContainerProps) => (
+  <div className='rcx-box rcx-box--full rcx-message-container' {...props} />
+);

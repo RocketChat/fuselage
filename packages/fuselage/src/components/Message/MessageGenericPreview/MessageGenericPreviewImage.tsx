@@ -1,10 +1,17 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-export const MessageGenericPreviewImage: FC<{
+type MessageGenericPreviewImageProps = {
   url: string;
   width: number;
   height: number;
-}> = ({ url, width, height, ...props }) => (
+};
+
+export const MessageGenericPreviewImage = ({
+  url,
+  width,
+  height,
+  ...props
+}: MessageGenericPreviewImageProps) => (
   <div
     className='rcx-message-generic-preview__preview'
     style={{ backgroundImage: `url(${url})`, maxWidth: '100%' }}

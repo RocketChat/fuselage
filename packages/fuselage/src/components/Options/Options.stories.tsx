@@ -6,7 +6,7 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import React, { createRef } from 'react';
 
 import { Options } from '.';
 import { Box, Menu } from '..';
@@ -46,7 +46,7 @@ export default {
 
 const Template: ComponentStory<typeof Options> = (args) => (
   <Box position='relative' maxWidth={250}>
-    <Options {...args} ref={React.createRef()} options={options} />
+    <Options {...args} ref={createRef()} options={options} />
   </Box>
 );
 

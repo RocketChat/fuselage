@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
@@ -13,7 +13,7 @@ type ButtonGroupProps = ComponentProps<typeof Box> & {
   medium?: boolean;
 };
 
-export const ButtonGroup: FC<ButtonGroupProps> = ({
+export const ButtonGroup = ({
   align = 'start',
   children,
   stretch,
@@ -22,7 +22,7 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
   small,
   medium,
   ...props
-}) => (
+}: ButtonGroupProps) => (
   <Box
     rcx-button-group
     rcx-button-group--align={align}

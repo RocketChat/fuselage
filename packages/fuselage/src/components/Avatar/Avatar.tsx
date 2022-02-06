@@ -1,6 +1,5 @@
 import React, {
   ComponentPropsWithoutRef,
-  FC,
   DetailedHTMLProps,
   HTMLAttributes,
 } from 'react';
@@ -33,16 +32,14 @@ type AvatarProps = Omit<
   className?: string;
 };
 
-export const Avatar: FC<AvatarProps> & {
-  Stack: typeof AvatarStack;
-} = function Avatar({
+export const Avatar = ({
   title,
   size = 'x36',
   rounded = false,
   objectFit = false,
   url,
   ...props
-}) {
+}: AvatarProps) => {
   props.className = prependClassName(
     props.className,
     ['rcx-box rcx-box--full rcx-avatar', size && `rcx-avatar--${size}`]
@@ -65,9 +62,12 @@ export const Avatar: FC<AvatarProps> & {
   );
 };
 
-const AvatarStack: FC<
-  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({ children, ...props }) => {
+type AvatarStackProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
+const AvatarStack = ({ children, ...props }: AvatarStackProps) => {
   props.className = prependClassName(props.className, 'rcx-avatar-stack');
   return <div {...props}>{flattenChildren(children).reverse()}</div>;
 };

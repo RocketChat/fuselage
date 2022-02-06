@@ -4,7 +4,7 @@ import { Box } from '../Box';
 
 type OptionProps = ComponentProps<typeof Box>;
 
-export const Option = forwardRef<HTMLInputElement, OptionProps>(function Option(
+export const Option = forwardRef(function Option(
   props: OptionProps,
   ref: Ref<HTMLInputElement>
 ) {

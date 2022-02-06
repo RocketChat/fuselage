@@ -1,7 +1,12 @@
-import React, { ComponentProps, forwardRef } from 'react';
+import React, { ComponentProps, forwardRef, Ref } from 'react';
 
 import { Box } from '../Box';
 
-export const Input = forwardRef<HTMLInputElement, ComponentProps<typeof Box>>(
-  (props, ref) => <Box is='input' animated rcx-input-box ref={ref} {...props} />
-);
+type InputProps = ComponentProps<typeof Box>;
+
+export const Input = forwardRef(function Input(
+  props: InputProps,
+  ref: Ref<HTMLInputElement>
+) {
+  return <Box is='input' animated rcx-input-box ref={ref} {...props} />;
+});

@@ -1,8 +1,11 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-export const SidebarFooter: FC<{
+type SidebarFooterProps = {
+  children?: React.ReactNode;
   elevated?: boolean;
-}> = ({ elevated, ...props }) => (
+};
+
+export const SidebarFooter = ({ elevated, ...props }: SidebarFooterProps) => (
   <div
     className={[
       'rcx-box rcx-box--full rcx-sidebar-footer',
@@ -14,7 +17,13 @@ export const SidebarFooter: FC<{
   />
 );
 
-export const SidebarFooterHighlight: FC = ({ ...props }) => (
+type SidebarFooterHighlightProps = {
+  children?: ReactNode;
+};
+
+export const SidebarFooterHighlight = ({
+  ...props
+}: SidebarFooterHighlightProps) => (
   <div
     className='rcx-box rcx-box--full rcx-sidebar-footer__highlights'
     {...props}

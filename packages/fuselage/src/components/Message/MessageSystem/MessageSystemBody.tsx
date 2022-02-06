@@ -1,5 +1,7 @@
-import React, { FC, HtmlHTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 
-export const MessageSystemBody: FC<HtmlHTMLAttributes<HTMLDivElement>> = (
-  props
-) => <div className='rcx-message-system__body' {...props} />;
+type MessageSystemBodyProps = HTMLAttributes<HTMLDivElement>;
+
+export const MessageSystemBody = (props: MessageSystemBodyProps) => (
+  <div className='rcx-message-system__body' {...props} />
+);

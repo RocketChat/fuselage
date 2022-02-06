@@ -5,7 +5,6 @@ import React, {
   ComponentProps,
   ReactElement,
   ReactNode,
-  FC,
 } from 'react';
 
 import {
@@ -38,7 +37,7 @@ const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
 const mapOptions = (options: MenuProps['options']) =>
   Object.entries(options).map(([value, { label }]) => [value, label]);
 
-export const Menu: FC<MenuProps> = ({
+export const Menu = ({
   tiny,
   mini,
   small = tiny || mini ? null : true,
@@ -48,7 +47,7 @@ export const Menu: FC<MenuProps> = ({
   renderItem,
   maxHeight,
   ...props
-}) => {
+}: MenuProps) => {
   const mappedOptions = mapOptions(options);
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
     useCursor(-1, mappedOptions as OptionType[], (args, [, hide]) => {

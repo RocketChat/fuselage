@@ -4,6 +4,7 @@ import React, {
   forwardRef,
   memo,
   MutableRefObject,
+  Ref,
   SyntheticEvent,
   useLayoutEffect,
   useMemo,
@@ -32,7 +33,7 @@ type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
 
 export const Empty = memo(() => <Option label='Empty' />);
 
-export const Options = forwardRef<HTMLElement, OptionsProps>(
+export const Options = forwardRef(
   (
     {
       maxHeight = '144px',
@@ -43,8 +44,8 @@ export const Options = forwardRef<HTMLElement, OptionsProps>(
       renderItem: OptionComponent = Option,
       onSelect,
       ...props
-    },
-    ref
+    }: OptionsProps,
+    ref: Ref<HTMLElement>
   ) => {
     const { current } = ref as MutableRefObject<HTMLLIElement>;
 

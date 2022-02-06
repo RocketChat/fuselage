@@ -1,11 +1,12 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import React, { FC, KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import React, { KeyboardEvent, MouseEvent, ReactNode } from 'react';
 
 import { Box } from '../Box';
 import { Chevron } from '../Chevron';
 import { ToggleSwitch } from '../ToggleSwitch';
 
-export const AccordionItem: FC<{
+type AccordionItemProps = {
+  children?: ReactNode;
   className?: string;
   defaultExpanded?: boolean;
   disabled?: boolean;
@@ -15,7 +16,9 @@ export const AccordionItem: FC<{
   noncollapsible?: boolean;
   onToggle?: (e: MouseEvent | KeyboardEvent) => void;
   onToggleEnabled?: (e: MouseEvent | KeyboardEvent) => void;
-}> = function Item({
+};
+
+export const AccordionItem = function Item({
   children,
   className,
   defaultExpanded,
@@ -27,7 +30,7 @@ export const AccordionItem: FC<{
   onToggle,
   onToggleEnabled,
   ...props
-}) {
+}: AccordionItemProps) {
   const [stateExpanded, toggleStateExpanded] = useToggle(defaultExpanded);
   const expanded = propExpanded || stateExpanded;
   const toggleExpanded = (event: MouseEvent | KeyboardEvent) => {
