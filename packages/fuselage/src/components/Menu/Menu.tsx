@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import { ActionButton, PositionAnimated, Options, useCursor, Box } from '..';
-import type { Option as OptionType } from '../Options/useCursor';
+import type { OptionType } from '../Options';
 
 type MenuProps = ComponentProps<typeof ActionButton> & {
   options: {
@@ -26,7 +26,7 @@ const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
   options[selected].action();
 };
 
-const mapOptions = (options: MenuProps['options']) =>
+const mapOptions = (options: MenuProps['options']): OptionType[] =>
   Object.entries(options).map(([value, { label }]) => [value, label]);
 
 export const Menu = ({
@@ -43,7 +43,7 @@ export const Menu = ({
 }: MenuProps) => {
   const mappedOptions = mapOptions(options);
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-    useCursor(-1, mappedOptions as OptionType[], (args, [, hide]) => {
+    useCursor(-1, mappedOptions, (args, [, hide]) => {
       menuAction(args, options);
       reset();
       hide();

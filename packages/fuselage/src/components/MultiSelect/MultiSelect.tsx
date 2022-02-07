@@ -10,31 +10,37 @@ import React, {
   forwardRef,
   ComponentProps,
   SyntheticEvent,
+  ElementType,
 } from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
-import { Options, CheckOption, useCursor } from '../Options';
-import { UseCursorOnChange, Option } from '../Options/useCursor';
+import { Options, CheckOption, useCursor, OptionType } from '../Options';
 import { Focus, Addon } from '../Select/Select';
 import { SelectedOptions } from './SelectedOptions';
-
-type MultiSelectOptions = readonly (readonly [
-  MultiSelectValue,
-  string,
-  boolean?
-])[];
 
 type MultiSelectValue = string | number;
 
 type MultiSelectValues = MultiSelectValue[];
 
-type MultiSelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+type MultiSelectOptions = readonly [OptionType[0], string, OptionType[2]?][];
+
+type MultiSelectProps = Omit<
+  ComponentProps<typeof Box>,
+  'value' | 'onChange'
+> & {
+  anchor?: ElementType;
+  renderOptions?: ElementType;
   error?: string;
   options: MultiSelectOptions;
   onChange: (value: MultiSelectValues) => void;
-  getLabel?: (params: MultiSelectOptions[0]) => string;
+  getLabel?: (
+    params: MultiSelectOptions[number]
+  ) => MultiSelectOptions[number][1];
+  getValue?: (
+    params: MultiSelectOptions[number]
+  ) => MultiSelectOptions[number][0];
   filter?: string;
   value?: MultiSelectValues;
 };
@@ -48,9 +54,9 @@ const prevent = (e: SyntheticEvent) => {
 export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
   (
     {
-      value,
+      value = [],
       filter,
-      options = [],
+      options,
       error,
       disabled,
       anchor: Anchor = Focus,
@@ -61,21 +67,18 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
         }
         return '';
       },
-      getValue = ([value]: string[] | undefined[]) => value,
+      getValue = ([value]) => value,
       placeholder,
       renderOptions: _Options = Options,
       ...props
     },
     ref
   ) => {
-    const [internalValue, setInternalValue] = useState(value || []);
+    const [internalValue, setInternalValue] = useState(value);
     const currentValue: MultiSelectValues =
       value !== undefined ? value : internalValue;
 
-    const option = options.find((option) => getValue(option) === currentValue);
-    const index = option ? options.indexOf(option) : undefined;
-
-    const internalChanged: UseCursorOnChange = ([value], _) => {
+    const internalChanged = ([value]: MultiSelectOptions[number]) => {
       if (currentValue.includes(value)) {
         const newValue = currentValue.filter((item) => item !== value);
         setInternalValue(newValue);
@@ -86,7 +89,10 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return onChange(newValue);
     };
 
-    const mapOptions = ([value, label]: MultiSelectOptions[number]) => {
+    const mapOptions = ([
+      value,
+      label,
+    ]: MultiSelectOptions[number]): MultiSelectOptions[number] => {
       if (currentValue.includes(value)) {
         return [value, label, true];
       }
@@ -99,7 +105,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     const filteredOptions = options.filter(applyFilter).map(mapOptions);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index as number, filteredOptions as Option[], internalChanged);
+      useCursor(0, filteredOptions, internalChanged);
 
     useEffect(reset, [filter]);
 
@@ -150,7 +156,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       onKeyDown={handleKeyDown}
                       order={1}
                       rcx-input-box--undecorated
-                      children={!value ? option || placeholder : null}
+                      children={!currentValue ? placeholder : null}
                     />
                     {currentValue.map((value) => (
                       <SelectedOptions
@@ -159,12 +165,12 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                         key={`${value}`}
                         onMouseDown={(e: SyntheticEvent) => {
                           prevent(e);
-                          internalChanged([value, '', false], [] as any);
+                          internalChanged([value, '', false]);
                           return false;
                         }}
                         children={getLabel(
                           options.find(
-                            ([val]) => val === value
+                            (option) => getValue(option) === value
                           ) as MultiSelectOptions[0]
                         )}
                       />

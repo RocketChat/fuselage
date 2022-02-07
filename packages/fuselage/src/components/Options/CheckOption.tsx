@@ -1,11 +1,12 @@
-import React, { memo, ReactElement } from 'react';
+import React, { ComponentProps, memo } from 'react';
 
 import { CheckBox } from '../CheckBox';
 import Option from './Option';
-import { OptionProps } from './Option/Option';
+
+type CheckOptionProps = ComponentProps<typeof Option>;
 
 export const CheckOption = memo(
-  ({ selected, children: label, ...options }: OptionProps): ReactElement => (
+  ({ selected, children: label, ...options }: CheckOptionProps) => (
     <Option label={label as string} selected={selected} {...options}>
       <CheckBox checked={selected} />
     </Option>

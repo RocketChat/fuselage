@@ -11,7 +11,6 @@ import React, {
   ElementType,
   FormEvent,
   memo,
-  ReactNode,
 } from 'react';
 
 import { Box, PositionAnimated, AnimatedVisibility } from '../Box';
@@ -19,11 +18,10 @@ import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
-import { useCursor, Options } from '../Options';
-import { Option } from '../Options/useCursor';
+import { useCursor, Options, OptionType } from '../Options';
 
 type OptionValue = string | number;
-type OptionType = {
+type AutoCompleteOption = {
   value: OptionValue;
   label?: string | number;
 };
@@ -32,12 +30,12 @@ type AutoCompleteProps = Omit<ComponentProps<typeof Options>, 'options'> & {
   value: OptionValue;
   filter: string;
   setFilter?: (filter: string) => void;
-  options?: OptionType[];
+  options?: AutoCompleteOption[];
   renderItem?: ElementType;
   renderSelected?: ElementType;
   onChange: (value: OptionValue, action?: 'remove' | undefined) => void;
-  getLabel?: (option: OptionType) => ReactNode;
-  getValue?: (option: OptionType) => OptionValue;
+  getLabel?: (option: AutoCompleteOption) => AutoCompleteOption['label'];
+  getValue?: (option: AutoCompleteOption) => OptionValue;
   renderEmpty?: ElementType;
   placeholder?: string;
   error?: boolean;
@@ -81,16 +79,13 @@ export const AutoComplete = ({
     setFilter('');
   });
 
-  const memoizedOptions = useMemo<[unknown, string, boolean?][]>(
-    () =>
-      options.map(
-        ({ label, value }) => [value, label] as [unknown, string, boolean?]
-      ),
+  const memoizedOptions = useMemo<OptionType[]>(
+    () => options.map(({ label, value }) => [value, label]),
     [options]
   );
 
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
-    useCursor(index, memoizedOptions as Option[], selectByKeyboard);
+    useCursor(index, memoizedOptions, selectByKeyboard);
 
   const onSelect = useMutableCallback(([value]) => {
     setSelected(options.find((option) => getValue(option) === value));

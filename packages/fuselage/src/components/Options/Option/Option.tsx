@@ -6,11 +6,11 @@ import OptionAvatar from './OptionAvatar';
 import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';
 
-export type OptionProps = {
+type OptionProps = {
   is?: ComponentProps<typeof Box>['is'];
   id?: string;
   children?: ReactNode;
-  label?: string;
+  label?: ReactNode;
   focus?: boolean;
   selected?: boolean;
   className?: ComponentProps<typeof Box>['className'];

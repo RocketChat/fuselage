@@ -22,7 +22,7 @@ export const MultiSelectFiltered = ({
   const anchor = useCallback(
     forwardRef(
       (
-        { children, filter, ...props }: MultiSelectFilteredProps,
+        { children, filter, ...props }: ComponentProps<typeof InputBox.Input>,
         ref: Ref<HTMLInputElement>
       ) => (
         <Flex.Item grow={1}>
