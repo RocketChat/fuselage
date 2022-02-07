@@ -4,21 +4,13 @@ import React, {
   useCallback,
   ComponentProps,
   ReactElement,
-  ReactNode,
+  ElementType,
 } from 'react';
 
-import {
-  ActionButton,
-  PositionAnimated,
-  Options,
-  useCursor,
-  Box,
-  Option,
-} from '..';
+import { ActionButton, PositionAnimated, Options, useCursor, Box } from '..';
 import type { Option as OptionType } from '../Options/useCursor';
 
-type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
-  icon?: string;
+type MenuProps = ComponentProps<typeof ActionButton> & {
   options: {
     [id: string]: {
       label: ReactElement | string;
@@ -27,7 +19,7 @@ type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   };
   optionWidth?: ComponentProps<typeof Box>['width'];
   placement?: Placements;
-  renderItem?: (props: ComponentProps<typeof Option>) => ReactNode;
+  renderItem?: ElementType;
 };
 
 const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
@@ -40,12 +32,13 @@ const mapOptions = (options: MenuProps['options']) =>
 export const Menu = ({
   tiny,
   mini,
-  small = tiny || mini ? null : true,
+  small = !(tiny || mini),
   options,
   optionWidth,
   placement = 'bottom-start',
   renderItem,
   maxHeight,
+  icon = 'kebab',
   ...props
 }: MenuProps) => {
   const mappedOptions = mapOptions(options);
@@ -89,7 +82,7 @@ export const Menu = ({
         onBlur={hide}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
-        icon='kebab'
+        icon={icon}
         {...props}
       />
       <PositionAnimated

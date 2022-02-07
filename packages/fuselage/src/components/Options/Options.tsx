@@ -95,9 +95,7 @@ export const Options = forwardRef(
               is='ol'
               aria-multiselectable={multiple || true}
               role='listbox'
-              aria-activedescendant={
-                options && options[cursor] && options[cursor][0]
-              }
+              aria-activedescendant={options?.[cursor]?.[0]}
             >
               {!options.length && <EmptyComponent />}
               {optionsMemoized}

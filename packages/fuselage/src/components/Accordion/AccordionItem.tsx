@@ -1,5 +1,5 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import React, { KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import React, { FormEvent, KeyboardEvent, MouseEvent, ReactNode } from 'react';
 
 import { Box } from '../Box';
 import { Chevron } from '../Chevron';
@@ -15,7 +15,7 @@ type AccordionItemProps = {
   title: ReactNode;
   noncollapsible?: boolean;
   onToggle?: (e: MouseEvent | KeyboardEvent) => void;
-  onToggleEnabled?: (e: MouseEvent | KeyboardEvent) => void;
+  onToggleEnabled?: (e: FormEvent) => void;
 };
 
 export const AccordionItem = function Item({

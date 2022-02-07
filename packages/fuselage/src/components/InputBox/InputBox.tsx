@@ -23,6 +23,7 @@ type InputBoxProps = ComponentProps<typeof Box> & {
   multiple?: boolean;
   error?: string;
   placeholder?: string;
+  placeholderVisible?: boolean;
   type:
     | 'button'
     | 'checkbox'

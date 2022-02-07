@@ -23,7 +23,12 @@ export const PaginatedSelectFiltered = ({
   const anchor = useCallback(
     forwardRef(
       (
-        { children, filter, ...props }: PaginatedSelectFilteredProps,
+        {
+          children,
+          filter,
+          onChange: _onChange,
+          ...props
+        }: PaginatedSelectFilteredProps,
         ref: Ref<HTMLInputElement>
       ) => (
         <InputBox.Input
@@ -45,7 +50,7 @@ export const PaginatedSelectFiltered = ({
   );
   return (
     <PaginatedSelect
-      placeholder={null}
+      placeholder={undefined}
       filter={filter}
       options={options}
       {...props}

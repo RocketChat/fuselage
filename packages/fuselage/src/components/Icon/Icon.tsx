@@ -3,7 +3,7 @@ import React, { ComponentProps, forwardRef, Ref } from 'react';
 
 import { Box } from '../Box';
 
-type IconProps = Omit<ComponentProps<typeof Box>, 'size'> & {
+type IconProps = Omit<ComponentProps<typeof Box>, 'name' | 'size'> & {
   name: Keys;
   size?: ComponentProps<typeof Box>['width'];
 };

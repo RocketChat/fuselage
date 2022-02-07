@@ -12,6 +12,7 @@ import React, {
   ComponentProps,
   DependencyList,
   Ref,
+  ElementType,
 } from 'react';
 
 import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
@@ -19,14 +20,20 @@ import { Icon } from '../Icon';
 import { Options, useCursor } from '../Options';
 import { Option } from '../Options/useCursor';
 
-export type SelectOptions = readonly (readonly [string, string])[];
+export type SelectOptions = readonly (readonly [
+  value: string,
+  label: string
+])[];
 
 export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+  anchor?: ElementType;
   error?: string;
   options: SelectOptions;
   onChange: (value: SelectOptions[number][0]) => void;
-  getLabel?: (params: SelectOptions[0]) => string;
+  getLabel?: (tuple: readonly [value: string, label: string]) => string;
+  getValue?: (tuple: readonly [value: string, label: string]) => string;
   filter?: string;
+  renderOptions?: ElementType;
 };
 
 type AddonProps = ComponentProps<typeof Box>;
@@ -81,7 +88,7 @@ export const Select = forwardRef(
       options = [],
       anchor: Anchor = Focus,
       onChange = () => {},
-      getValue = ([value]: string[] = []) => value,
+      getValue = ([value]: readonly [string, string] = ['', '']) => value,
       getLabel = ([_, label]: readonly [string, string] = ['', '']) => label,
       placeholder = '',
       renderOptions: _Options = Options,
@@ -89,9 +96,7 @@ export const Select = forwardRef(
     }: SelectProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    const [internalValue, setInternalValue] = useState<
-      string | string[] | number | undefined
-    >(value);
+    const [internalValue, setInternalValue] = useState(value);
 
     const currentValue = value !== undefined ? value : internalValue;
 

@@ -29,15 +29,18 @@ type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   renderItem?: ElementType;
   renderEmpty?: ElementType;
   onSelect: (option: [unknown, string]) => void;
+  endReached?: (index: number) => void;
 };
 
 export const Empty = memo(() => <Option label='Empty' />);
+
+type CheckOptionProps = ComponentProps<typeof Option>;
 
 export const CheckOption = memo(function CheckOption({
   selected,
   children: label,
   ...options
-}: OptionsPaginatedProps) {
+}: CheckOptionProps) {
   return (
     <Option label={label as string} selected={selected} {...options}>
       <CheckBox checked={selected} />

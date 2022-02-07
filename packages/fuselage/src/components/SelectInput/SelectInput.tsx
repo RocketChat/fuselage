@@ -7,13 +7,12 @@ import React, {
   Ref,
 } from 'react';
 
-import { Box } from '..';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 
 type SelectInputOptions = readonly (readonly [string, string])[];
 
-type SelectInputProps = ComponentProps<typeof Box> & {
+type SelectInputProps = ComponentProps<typeof InputBox> & {
   error?: string;
   options: SelectInputOptions;
   htmlSize?: number;

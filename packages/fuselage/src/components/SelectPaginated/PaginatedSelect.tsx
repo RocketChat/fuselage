@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   useMutableCallback,
   useResizeObserver,
@@ -11,6 +12,7 @@ import React, {
   ComponentProps,
   useEffect,
   Ref,
+  ElementType,
 } from 'react';
 
 import type { SelectProps } from '..';
@@ -24,6 +26,7 @@ type PaginatedOptionType = {
   label: string;
 };
 export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
+  anchor?: ElementType;
   options: PaginatedOptionType[];
 };
 

@@ -1,13 +1,14 @@
-import React, { ComponentProps } from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
-type ChipProps = Omit<ComponentProps<typeof Box>, 'className'> & {
-  className?: string;
+type ChipProps = Omit<HTMLAttributes<HTMLButtonElement>, 'type'> & {
   thumbUrl: string;
+  renderThumb?: (props: { url: string }) => React.ReactNode;
+  renderDismissSymbol?: () => React.ReactNode;
 };
 
 const defaultRenderThumb = ({ url }: { url: string }) => (

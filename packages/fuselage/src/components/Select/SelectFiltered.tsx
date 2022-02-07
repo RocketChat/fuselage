@@ -11,10 +11,7 @@ import React, {
 import { Select } from '.';
 import { InputBox } from '../InputBox';
 
-export type SelectFilteredProps = Omit<
-  ComponentProps<typeof Select>,
-  'onChange'
->;
+export type SelectFilteredProps = ComponentProps<typeof Select>;
 
 export const SelectFiltered = forwardRef(
   (
@@ -49,7 +46,7 @@ export const SelectFiltered = forwardRef(
     return (
       <Select
         ref={ref}
-        placeholder={null}
+        placeholder={undefined}
         filter={filter}
         options={options}
         {...props}

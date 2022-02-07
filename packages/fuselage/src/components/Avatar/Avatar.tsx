@@ -1,18 +1,9 @@
-import React, {
-  ComponentPropsWithoutRef,
-  DetailedHTMLProps,
-  HTMLAttributes,
-} from 'react';
+import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
-import { Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
 
-type AvatarProps = Omit<
-  ComponentPropsWithoutRef<typeof Box>,
-  'title' | 'size' | 'className'
-> & {
-  title?: string;
+type AvatarProps = {
   size?:
     | 'x16'
     | 'x18'
@@ -29,8 +20,7 @@ type AvatarProps = Omit<
   rounded?: boolean;
   objectFit?: boolean;
   url: string;
-  className?: string;
-};
+} & HTMLAttributes<HTMLElement>;
 
 export const Avatar = ({
   title,

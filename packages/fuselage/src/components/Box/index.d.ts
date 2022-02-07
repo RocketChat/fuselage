@@ -1,10 +1,12 @@
 import type { css } from '@rocket.chat/css-in-js';
-import {
+import type {
   AllHTMLAttributes,
   ComponentProps,
   CSSProperties,
   ElementType,
   ReactElement,
+  RefAttributes,
+  SVGAttributes,
 } from 'react';
 
 type Size = '1' | '2' | '4' | '8' | '12' | '16' | '20' | '24' | '32' | '40';
@@ -159,22 +161,27 @@ type BoxStylingProps = {
   className?: string | EvaluableCss | (string | EvaluableCss | Falsy)[];
 };
 
-export type BoxProps<TElementType extends ElementType> = BoxStylingProps & {
+export type BoxProps<TElementType extends ElementType> = {
   is?: TElementType;
   htmlSize?: 'size' extends keyof ComponentProps<TElementType>
     ? ComponentProps<TElementType>['size']
     : never;
-} & Omit<ComponentProps<TElementType>, 'is' | 'className' | 'size'>;
+} & BoxStylingProps &
+  Omit<ComponentProps<TElementType>, 'is' | 'className' | 'size'>;
 
-type UnsafeBoxProps = BoxProps<any> &
-  Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'className' | 'size'> &
-  Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLOrSVGElement>>;
+type UnsafeBoxProps = {
+  is?: ElementType;
+  htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
+} & BoxStylingProps &
+  Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size'> &
+  Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement>> &
+  RefAttributes<any>;
 
 export const Box: {
   // `Box` unfortunately cannot be a generic component because of the abuse of `ComponentProps<typeof Box>`
-  /* <TElementType extends ElementType = 'div'>(
-    props: BoxProps<TElementType>
-  ): ReactElement | null; */
+  // <TElementType extends ElementType = 'div'>(
+  //   props: BoxProps<TElementType>
+  // ): ReactElement | null;
   (props: UnsafeBoxProps): ReactElement | null;
   defaultProps?: undefined;
   propTypes?: undefined;

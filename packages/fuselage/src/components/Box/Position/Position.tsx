@@ -7,6 +7,7 @@ import {
   RefObject,
   ComponentProps,
   ReactPortal,
+  ReactElement,
 } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -14,9 +15,10 @@ import { Box } from '..';
 
 type PositionProps = {
   anchor: RefObject<Element>;
+  children: ReactElement;
   margin?: number;
   placement?: Placements;
-} & Omit<ComponentProps<typeof Box>, 'margin'>;
+} & Omit<ComponentProps<typeof Box>, 'children' | 'margin'>;
 
 const Position = ({
   anchor,

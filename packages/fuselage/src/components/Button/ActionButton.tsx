@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import React, { ComponentProps, forwardRef, Ref } from 'react';
 
 import { Button } from '.';
 import { Icon } from '../Icon';
@@ -11,7 +11,7 @@ type ButtonSize = {
 };
 type ActionButtonProps = ButtonProps &
   ButtonSize & {
-    icon: string;
+    icon: ComponentProps<typeof Icon>['name'];
   };
 
 const getSize = ({ tiny, mini, small }: ButtonSize) => {

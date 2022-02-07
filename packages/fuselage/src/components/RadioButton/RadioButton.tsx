@@ -3,7 +3,10 @@ import React, { ComponentProps, forwardRef, Ref } from 'react';
 import { Box } from '../Box';
 import { Label } from '../Label';
 
-type RadioButtonProps = ComponentProps<typeof Box>;
+type RadioButtonProps = ComponentProps<typeof Box> & {
+  'qa'?: unknown;
+  'data-qa'?: unknown;
+};
 
 export const RadioButton = forwardRef(function RadioButton(
   {
