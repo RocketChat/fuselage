@@ -4,22 +4,13 @@ import React, {
   useCallback,
   ComponentProps,
   ReactElement,
-  ReactNode,
-  FC,
+  ElementType,
 } from 'react';
 
-import {
-  ActionButton,
-  PositionAnimated,
-  Options,
-  useCursor,
-  Box,
-  Option,
-} from '..';
-import type { Option as OptionType } from '../Options/useCursor';
+import { ActionButton, PositionAnimated, Options, useCursor, Box } from '..';
+import type { OptionType } from '../Options';
 
-type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
-  icon?: string;
+export type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   options: {
     [id: string]: {
       label: ReactElement | string;
@@ -28,30 +19,32 @@ type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   };
   optionWidth?: ComponentProps<typeof Box>['width'];
   placement?: Placements;
-  renderItem?: (props: ComponentProps<typeof Option>) => ReactNode;
+  renderItem?: ElementType;
+  icon?: ComponentProps<typeof ActionButton>['icon'];
 };
 
 const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
   options[selected].action();
 };
 
-const mapOptions = (options: MenuProps['options']) =>
+const mapOptions = (options: MenuProps['options']): OptionType[] =>
   Object.entries(options).map(([value, { label }]) => [value, label]);
 
-export const Menu: FC<MenuProps> = ({
+export const Menu = ({
   tiny,
   mini,
-  small = tiny || mini ? null : true,
+  small = !(tiny || mini),
   options,
   optionWidth,
   placement = 'bottom-start',
   renderItem,
   maxHeight,
+  icon = 'kebab',
   ...props
-}) => {
+}: MenuProps) => {
   const mappedOptions = mapOptions(options);
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-    useCursor(-1, mappedOptions as OptionType[], (args, [, hide]) => {
+    useCursor(-1, mappedOptions, (args, [, hide]) => {
       menuAction(args, options);
       reset();
       hide();
@@ -90,7 +83,7 @@ export const Menu: FC<MenuProps> = ({
         onBlur={hide}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
-        icon='kebab'
+        icon={icon}
         {...props}
       />
       <PositionAnimated

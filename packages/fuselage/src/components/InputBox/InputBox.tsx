@@ -1,11 +1,11 @@
 /* eslint-disable complexity */
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import PropTypes from 'prop-types';
 import React, {
   ComponentProps,
   forwardRef,
   ForwardRefExoticComponent,
   ReactNode,
+  Ref,
   useCallback,
   useLayoutEffect,
   useRef,
@@ -23,6 +23,7 @@ type InputBoxProps = ComponentProps<typeof Box> & {
   multiple?: boolean;
   error?: string;
   placeholder?: string;
+  placeholderVisible?: boolean;
   type:
     | 'button'
     | 'checkbox'
@@ -51,12 +52,15 @@ type InputBoxProps = ComponentProps<typeof Box> & {
     | 'select';
 };
 
-export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
-  Input?: ComponentProps<typeof Box>;
-  Skeleton?: ComponentProps<typeof InputBoxSkeleton>;
-  Option?: ComponentProps<typeof Option>;
-  Placeholder?: ComponentProps<typeof Placeholder>;
-} = forwardRef(function InputBox(
+export type InputBox = ForwardRefExoticComponent<InputBoxProps> & {
+  Input: ForwardRefExoticComponent<ComponentProps<typeof Box>>;
+  Skeleton: ForwardRefExoticComponent<ComponentProps<typeof InputBoxSkeleton>>;
+  Option: ForwardRefExoticComponent<ComponentProps<typeof Option>>;
+  Placeholder: ForwardRefExoticComponent<ComponentProps<typeof Placeholder>>;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const InputBox = forwardRef(function InputBox(
   {
     className,
     addon,
@@ -65,13 +69,15 @@ export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
     invisible,
     multiple,
     placeholderVisible,
-    type,
+    type = 'text',
     onChange,
     ...props
-  },
-  ref
+  }: InputBoxProps,
+  ref: Ref<any> | null
 ) {
-  const innerRef = useRef<HTMLObjectElement>(null);
+  const innerRef = useRef<
+    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+  >(null);
   const mergedRef = useMergedRefs(ref, innerRef);
 
   useLayoutEffect(() => {
@@ -90,7 +96,7 @@ export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
   }, []);
 
   const handleChange = useCallback(
-    (event, ...args) => {
+    (event) => {
       if (addon && innerRef.current && innerRef.current.parentElement) {
         innerRef.current.parentElement.classList.toggle(
           'invalid',
@@ -98,7 +104,7 @@ export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
         );
       }
 
-      return onChange && onChange.call(event.currentTarget, event, ...args);
+      onChange?.call(event.currentTarget, event);
     },
     [addon, onChange]
   );
@@ -132,7 +138,10 @@ export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
 
   return (
     <Wrapper
-      className={[props.disabled && 'disabled', className]}
+      className={[
+        props.disabled && 'disabled',
+        ...(Array.isArray(className) ? className : [className]),
+      ]}
       hidden={hidden}
       invisible={invisible}
     >
@@ -160,41 +169,4 @@ export const InputBox: ForwardRefExoticComponent<InputBoxProps> & {
       <Addon children={addon} />
     </Wrapper>
   );
-});
-
-InputBox.defaultProps = {
-  type: 'text',
-};
-
-InputBox.propTypes = {
-  addon: PropTypes.element,
-  input: PropTypes.element,
-  error: PropTypes.string,
-  type: PropTypes.oneOf([
-    'button',
-    'checkbox',
-    'color',
-    'date',
-    'datetime',
-    'datetime-local',
-    'email',
-    'file',
-    'hidden',
-    'image',
-    'month',
-    'number',
-    'password',
-    'radio',
-    'range',
-    'reset',
-    'search',
-    'submit',
-    'tel',
-    'text',
-    'time',
-    'url',
-    'week',
-    'textarea',
-    'select',
-  ]).isRequired,
-};
+}) as unknown as InputBox;

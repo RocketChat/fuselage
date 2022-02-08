@@ -1,4 +1,4 @@
-import React, { forwardRef, ForwardRefExoticComponent } from 'react';
+import React, { ComponentProps, forwardRef, Ref } from 'react';
 
 import { Button } from '.';
 import { Icon } from '../Icon';
@@ -11,7 +11,7 @@ type ButtonSize = {
 };
 type ActionButtonProps = ButtonProps &
   ButtonSize & {
-    icon: string;
+    icon: ComponentProps<typeof Icon>['name'];
   };
 
 const getSize = ({ tiny, mini, small }: ButtonSize) => {
@@ -24,10 +24,11 @@ const getSize = ({ tiny, mini, small }: ButtonSize) => {
   return 'x20';
 };
 
-export const ActionButton: ForwardRefExoticComponent<ActionButtonProps> =
-  forwardRef(({ icon, children, ...props }, ref) => (
+export const ActionButton = forwardRef(
+  ({ icon, children, ...props }: ActionButtonProps, ref: Ref<HTMLElement>) => (
     <Button ref={ref} square flexShrink={0} {...props}>
       {children}
       <Icon name={icon} size={getSize(props)} />
     </Button>
-  ));
+  )
+);

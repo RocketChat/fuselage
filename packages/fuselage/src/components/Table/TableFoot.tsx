@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Box } from '../Box';
 import { TableProps } from './Table';
 
-export const TableFoot: FC<TableProps> = (props) => (
+type TableFootProps = TableProps;
+
+export const TableFoot = (props: TableFootProps) => (
   <Box is='tfoot' rcx-table__foot {...props} />
 );

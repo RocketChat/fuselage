@@ -1,5 +1,9 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-export const Content: FC = (props) => (
+type ContentProps = {
+  children?: ReactNode;
+};
+
+export const Content = (props: ContentProps) => (
   <div className='rcx-message-metrics__content' {...props} />
 );

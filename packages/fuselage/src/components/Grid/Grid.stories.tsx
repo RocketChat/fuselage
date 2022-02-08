@@ -6,7 +6,7 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { Table, TableBody, TableCell, TableHead, TableRow } from '..';
 import { Grid, Tile } from '../..';
@@ -113,7 +113,7 @@ export const ExtraSmall: ComponentStory<typeof Grid> = () => {
       {Array.from({ length: 4 })
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
-          <React.Fragment key={columns}>
+          <Fragment key={columns}>
             <Grid.Item xs={columns}>
               <Tile>xs={columns}</Tile>
             </Grid.Item>
@@ -122,7 +122,7 @@ export const ExtraSmall: ComponentStory<typeof Grid> = () => {
                 <Tile>xs={4 - columns}</Tile>
               </Grid.Item>
             )}
-          </React.Fragment>
+          </Fragment>
         ))}
     </Grid>
   );
@@ -136,7 +136,7 @@ export const Small: ComponentStory<typeof Grid> = () => {
       {Array.from({ length: 8 })
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
-          <React.Fragment key={columns}>
+          <Fragment key={columns}>
             <Grid.Item sm={columns}>
               <Tile>sm={columns}</Tile>
             </Grid.Item>
@@ -145,7 +145,7 @@ export const Small: ComponentStory<typeof Grid> = () => {
                 <Tile>sm={8 - columns}</Tile>
               </Grid.Item>
             )}
-          </React.Fragment>
+          </Fragment>
         ))}
     </Grid>
   );
@@ -159,7 +159,7 @@ export const Medium: ComponentStory<typeof Grid> = () => {
       {Array.from({ length: 8 })
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
-          <React.Fragment key={columns}>
+          <Fragment key={columns}>
             <Grid.Item md={columns}>
               <Tile>md={columns}</Tile>
             </Grid.Item>
@@ -168,7 +168,7 @@ export const Medium: ComponentStory<typeof Grid> = () => {
                 <Tile>md={8 - columns}</Tile>
               </Grid.Item>
             )}
-          </React.Fragment>
+          </Fragment>
         ))}
     </Grid>
   );
@@ -182,7 +182,7 @@ export const Large: ComponentStory<typeof Grid> = () => {
       {Array.from({ length: 12 })
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
-          <React.Fragment key={columns}>
+          <Fragment key={columns}>
             <Grid.Item lg={columns}>
               <Tile>lg={columns}</Tile>
             </Grid.Item>
@@ -191,7 +191,7 @@ export const Large: ComponentStory<typeof Grid> = () => {
                 <Tile>lg={12 - columns}</Tile>
               </Grid.Item>
             )}
-          </React.Fragment>
+          </Fragment>
         ))}
     </Grid>
   );
@@ -205,7 +205,7 @@ export const ExtraLarge: ComponentStory<typeof Grid> = () => {
       {Array.from({ length: 12 })
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
-          <React.Fragment key={columns}>
+          <Fragment key={columns}>
             <Grid.Item xl={columns}>
               <Tile>xl={columns}</Tile>
             </Grid.Item>
@@ -214,7 +214,7 @@ export const ExtraLarge: ComponentStory<typeof Grid> = () => {
                 <Tile>xl={12 - columns}</Tile>
               </Grid.Item>
             )}
-          </React.Fragment>
+          </Fragment>
         ))}
     </Grid>
   );

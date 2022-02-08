@@ -1,20 +1,15 @@
-import PropTypes from 'prop-types';
-import React, { FC, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { Box } from '../Box';
 import { TableProps } from './Table';
 import { TableHeadContext } from './TableHead';
 
 type TableCellProps = TableProps & {
-  align?: 'start' | 'center' | 'end';
+  align?: 'start' | 'center' | 'end' | 'justify' | object;
   clickable?: boolean;
 };
 
-export const TableCell: FC<TableCellProps> = ({
-  align,
-  clickable,
-  ...props
-}) => {
+export const TableCell = ({ align, clickable, ...props }: TableCellProps) => {
   const isInsideHead = useContext(TableHeadContext);
   return (
     <Box
@@ -26,12 +21,4 @@ export const TableCell: FC<TableCellProps> = ({
       {...props}
     />
   );
-};
-
-TableCell.propTypes = {
-  align: PropTypes.oneOfType([
-    PropTypes.oneOf(['start', 'end', 'center', 'justify']),
-    PropTypes.object,
-  ]),
-  fixed: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 };

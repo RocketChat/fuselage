@@ -1,8 +1,12 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
 import './MessageSystem.styles.scss';
 
-export const MessageSystem: FC = (props) => (
+type MessageSystemProps = {
+  children?: ReactNode;
+};
+
+export const MessageSystem = (props: MessageSystemProps) => (
   <div className='rcx-box rcx-box--full rcx-message-system'>
     {props.children}
   </div>

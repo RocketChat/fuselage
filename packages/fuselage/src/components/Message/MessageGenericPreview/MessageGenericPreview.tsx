@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { HTMLAttributes } from 'react';
 import './MessageGenericPreview.styles.scss';
 
-export const MessageGenericPreview: FC<React.HTMLAttributes<HTMLDivElement>> = (
-  props
+export const MessageGenericPreview = (
+  props: HTMLAttributes<HTMLDivElement>
 ) => <div className='rcx-message-generic-preview' {...props} />;

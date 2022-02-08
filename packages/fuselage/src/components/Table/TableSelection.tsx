@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { Box } from '../Box';
 import Margins from '../Margins';
@@ -8,11 +8,11 @@ type TableSelectionProps = ComponentProps<typeof Box> & {
   text?: string;
 };
 
-export const TableSelection: FC<TableSelectionProps> = ({
+export const TableSelection = ({
   children,
   text,
   ...props
-}) => (
+}: TableSelectionProps) => (
   <Box
     color='alternative'
     rcx-table__selection

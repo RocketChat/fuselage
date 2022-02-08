@@ -3,49 +3,24 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  forwardRef,
-  ComponentProps,
-  SyntheticEvent,
-} from 'react';
+import React, { useState, useRef, useEffect, memo, forwardRef } from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
+import Chip from '../Chip';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import { Options, CheckOption, useCursor } from '../Options';
-import { UseCursorOnChange, Option } from '../Options/useCursor';
 import { Focus, Addon } from '../Select/Select';
-import { SelectedOptions } from './SelectedOptions';
 
-type MultiSelectOptions = readonly (readonly [
-  MultiSelectValue,
-  string,
-  boolean?
-])[];
+const SelectedOptions = memo((props) => <Chip {...props} />);
 
-type MultiSelectValue = string | number;
-
-type MultiSelectValues = MultiSelectValue[];
-
-type MultiSelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
-  error?: string;
-  options: MultiSelectOptions;
-  onChange: (value: MultiSelectValues) => void;
-  getLabel?: (params: MultiSelectOptions[0]) => string;
-  filter?: string;
-  value?: MultiSelectValues;
-};
-
-const prevent = (e: SyntheticEvent) => {
+const prevent = (e) => {
   e.preventDefault();
   e.stopPropagation();
   e.nativeEvent.stopImmediatePropagation();
 };
 
-export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
+export const MultiSelect = forwardRef(
   (
     {
       value,
@@ -55,13 +30,8 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       disabled,
       anchor: Anchor = Focus,
       onChange = () => {},
-      getLabel = (args) => {
-        if (Array.isArray(args) && args.length > 2) {
-          return args[1];
-        }
-        return '';
-      },
-      getValue = ([value]: string[] | undefined[]) => value,
+      getLabel = ([, label] = []) => label,
+      getValue = ([value]) => value,
       placeholder,
       renderOptions: _Options = Options,
       ...props
@@ -69,13 +39,12 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     ref
   ) => {
     const [internalValue, setInternalValue] = useState(value || []);
-    const currentValue: MultiSelectValues =
-      value !== undefined ? value : internalValue;
 
+    const currentValue = value !== undefined ? value : internalValue;
     const option = options.find((option) => getValue(option) === currentValue);
-    const index = option ? options.indexOf(option) : undefined;
+    const index = options.indexOf(option);
 
-    const internalChanged: UseCursorOnChange = ([value], _) => {
+    const internalChanged = ([value]) => {
       if (currentValue.includes(value)) {
         const newValue = currentValue.filter((item) => item !== value);
         setInternalValue(newValue);
@@ -86,36 +55,24 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return onChange(newValue);
     };
 
-    const mapOptions = ([value, label]: MultiSelectOptions[number]) => {
+    const mapOptions = ([value, label]) => {
       if (currentValue.includes(value)) {
         return [value, label, true];
       }
       return [value, label];
     };
-
-    const applyFilter = ([, option]: MultiSelectOptions[number]) =>
+    const applyFilter = ([, option]) =>
       !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
-
     const filteredOptions = options.filter(applyFilter).map(mapOptions);
-
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index as number, filteredOptions as Option[], internalChanged);
+      useCursor(index, filteredOptions, internalChanged);
 
     useEffect(reset, [filter]);
 
-    const innerRef = useRef<HTMLInputElement | null>(null);
+    const innerRef = useRef();
     const anchorRef = useMergedRefs(ref, innerRef);
-    const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-    const handleClick = useMutableCallback(() => {
-      if (visible === AnimatedVisibility.VISIBLE) {
-        return hide();
-      }
-      if (innerRef && innerRef.current) {
-        innerRef.current.focus();
-        return show();
-      }
-    });
+    const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
     return (
       <Box
@@ -123,7 +80,11 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
         rcx-select
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
-        onClick={handleClick}
+        onClick={useMutableCallback(() =>
+          visible === AnimatedVisibility.VISIBLE
+            ? hide()
+            : innerRef.current.focus() & show()
+        )}
         disabled={disabled}
         {...props}
       >
@@ -156,16 +117,12 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       <SelectedOptions
                         tabIndex={-1}
                         role='option'
-                        key={`${value}`}
-                        onMouseDown={(e: SyntheticEvent) => {
-                          prevent(e);
-                          internalChanged([value, '', false], [] as any);
-                          return false;
-                        }}
+                        key={value}
+                        onMouseDown={(e) =>
+                          prevent(e) & internalChanged([value]) && false
+                        }
                         children={getLabel(
-                          options.find(
-                            ([val]) => val === value
-                          ) as MultiSelectOptions[0]
+                          options.find(([val]) => val === value)
                         )}
                       />
                     ))}

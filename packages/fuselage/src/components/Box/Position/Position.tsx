@@ -6,15 +6,19 @@ import {
   cloneElement,
   RefObject,
   ComponentProps,
+  ReactPortal,
+  ReactElement,
 } from 'react';
 import { createPortal } from 'react-dom';
 
 import { Box } from '..';
 
 type PositionProps = {
-  anchor?: RefObject<Element>;
+  anchor: RefObject<Element>;
+  children: ReactElement;
+  margin?: number;
   placement?: Placements;
-} & ComponentProps<typeof Box>;
+} & Omit<ComponentProps<typeof Box>, 'children' | 'margin'>;
 
 const Position = ({
   anchor,
@@ -23,7 +27,7 @@ const Position = ({
   margin,
   className,
   ...props
-}: PositionProps) => {
+}: PositionProps): ReactPortal => {
   const target = useRef(null);
   const { style: positionStyle, placement: positionPlacement } =
     usePosition(

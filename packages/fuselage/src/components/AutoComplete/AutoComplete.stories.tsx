@@ -19,7 +19,8 @@ export default {
 export const Example = () => {
   const [options, setOptions] = useState([]);
   const [filter, setFilter] = useState('');
-  const [value, setValue] = useState<string | number>('');
+
+  const [value, setValue] = useState<unknown[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -27,13 +28,21 @@ export const Example = () => {
       setOptions(result);
     })();
   }, [filter]);
+
+  const handleValue = (value: unknown, action: 'remove' | undefined): void => {
+    if (action) {
+      return;
+    }
+    setValue([]);
+  };
+
   return (
     <AutoComplete
       value={value}
       filter={filter}
       setFilter={setFilter}
       options={options}
-      onChange={setValue}
+      onChange={handleValue}
     />
   );
 };

@@ -1,11 +1,11 @@
-import React, { ComponentProps, ForwardRefExoticComponent } from 'react';
+import React, { ComponentProps, forwardRef, Ref } from 'react';
 
 import { Box } from '../Box';
 
 type ModalProps = ComponentProps<typeof Box>;
 
-export const Modal: ForwardRefExoticComponent<ModalProps> = React.forwardRef(
-  ({ children, ...props }: ModalProps, ref) => (
+export const Modal = forwardRef(
+  ({ children, ...props }: ModalProps, ref: Ref<HTMLDivElement>) => (
     <Box is='dialog' rcx-modal {...props}>
       <Box ref={ref} rcx-modal__inner elevation='2'>
         {children}

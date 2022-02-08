@@ -1,13 +1,14 @@
-import PropTypes from 'prop-types';
-import React, { ComponentProps, FC } from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 
-type ChipProps = ComponentProps<typeof Box> & {
+type ChipProps = Omit<HTMLAttributes<HTMLButtonElement>, 'type'> & {
   thumbUrl: string;
+  renderThumb?: (props: { url: string }) => React.ReactNode;
+  renderDismissSymbol?: () => React.ReactNode;
 };
 
 const defaultRenderThumb = ({ url }: { url: string }) => (
@@ -17,7 +18,7 @@ const defaultRenderThumb = ({ url }: { url: string }) => (
 );
 const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
-export const Chip: FC<ChipProps> = ({
+export const Chip = ({
   children,
   className,
   thumbUrl,
@@ -26,7 +27,7 @@ export const Chip: FC<ChipProps> = ({
   renderThumb = defaultRenderThumb,
   renderDismissSymbol = defaultRenderDismissSymbol,
   ...rest
-}) => {
+}: ChipProps) => {
   const onDismiss = onClick || onMouseDown;
 
   return (
@@ -46,12 +47,4 @@ export const Chip: FC<ChipProps> = ({
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  Chip.displayName = 'Chip';
-
-  Chip.propTypes = {
-    thumbUrl: PropTypes.string,
-    renderThumb: PropTypes.func,
-    renderDismissSymbol: PropTypes.func,
-  };
-}
+Chip.displayName = 'Chip';

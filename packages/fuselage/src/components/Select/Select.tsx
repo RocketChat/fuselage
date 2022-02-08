@@ -10,33 +10,46 @@ import React, {
   forwardRef,
   useMemo,
   ComponentProps,
+  DependencyList,
+  Ref,
+  ElementType,
 } from 'react';
 
 import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
-import { Options, useCursor } from '../Options';
-import { Option } from '../Options/useCursor';
+import { Options, useCursor, OptionType } from '../Options';
 
-export type SelectOptions = readonly (readonly [string, string])[];
+export type SelectOptions = readonly [value: string, label: string][];
 
 export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+  anchor?: ElementType;
   error?: string;
   options: SelectOptions;
   onChange: (value: SelectOptions[number][0]) => void;
-  getLabel?: (params: SelectOptions[0]) => string;
+  getLabel?: (params: SelectOptions[number]) => SelectOptions[number][1];
+  getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
   filter?: string;
+  renderOptions?: ElementType;
 };
 
-export const Addon = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
-  (props, ref) => <Box is='div' rcx-select__addon ref={ref} {...props} />
+type AddonProps = ComponentProps<typeof Box>;
+
+export const Addon = forwardRef(
+  (props: AddonProps, ref: Ref<HTMLDivElement>) => (
+    <Box is='div' rcx-select__addon ref={ref} {...props} />
+  )
 );
 
-const Wrapper = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
-  (props, ref) => <Box is='div' rcx-select__wrapper ref={ref} {...props} />
-);
+type WrapperProps = ComponentProps<typeof Box>;
 
-export const Focus = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
-  (props, ref) => (
+const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
+  <Box is='div' rcx-select__wrapper ref={ref} {...props} />
+));
+
+type FocusProps = ComponentProps<typeof Box>;
+
+export const Focus = forwardRef(
+  (props: FocusProps, ref: Ref<HTMLButtonElement>) => (
     <Box
       ref={ref}
       fontScale='p2m'
@@ -49,10 +62,7 @@ export const Focus = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
   )
 );
 
-const useDidUpdate = (
-  func: () => void,
-  deps: React.DependencyList | undefined
-) => {
+const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   const didMount = useRef(false);
   const fn = useMutableCallback(func);
 
@@ -64,27 +74,25 @@ const useDidUpdate = (
   }, deps || []);
 };
 
-export const Select = forwardRef<HTMLInputElement, SelectProps>(
+export const Select = forwardRef(
   (
     {
       value,
       filter,
       error,
       disabled,
-      options = [],
+      options,
       anchor: Anchor = Focus,
       onChange = () => {},
-      getValue = ([value]: string[] = []) => value,
-      getLabel = ([_, label]: readonly [string, string] = ['', '']) => label,
+      getValue = ([value] = ['', '']) => value,
+      getLabel = ([_, label] = ['', '']) => label,
       placeholder = '',
       renderOptions: _Options = Options,
       ...props
-    },
-    ref
+    }: SelectProps,
+    ref: Ref<HTMLInputElement>
   ) => {
-    const [internalValue, setInternalValue] = useState<
-      string | string[] | number | undefined
-    >(value);
+    const [internalValue, setInternalValue] = useState(value);
 
     const currentValue = value !== undefined ? value : internalValue;
 
@@ -99,8 +107,11 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
     const index = options.indexOf(option);
 
-    const filteredOptions = useMemo(() => {
-      const mapOptions = ([value, label]: SelectOptions[number]) => {
+    const filteredOptions = useMemo<OptionType[]>((): OptionType[] => {
+      const mapOptions = ([
+        value,
+        label,
+      ]: SelectOptions[number]): OptionType => {
         if (currentValue === value) {
           return [value, label, true];
         }
@@ -109,11 +120,12 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
       const applyFilter = ([, option]: SelectOptions[number]) =>
         !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
+
       return options.filter(applyFilter).map(mapOptions);
     }, [options, currentValue, filter]);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index, filteredOptions as Option[], internalChangedByKeyboard);
+      useCursor(index, filteredOptions, internalChangedByKeyboard);
 
     const internalChangedByClick = useMutableCallback(([value]) => {
       setInternalValue(value);

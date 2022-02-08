@@ -1,14 +1,18 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-export const MessageReactionEmoji: FC<{
+type MessageReactionEmojiProps = {
   name: string;
   className?: string;
   image?: string;
-}> = function ReactionEmoji({ name, className, image }) {
-  return (
-    <div
-      className={`rcx-message-reactions__emoji ${name} ${className}`}
-      style={image && image.length ? { backgroundImage: image } : undefined}
-    ></div>
-  );
 };
+
+export const MessageReactionEmoji = ({
+  name,
+  className,
+  image,
+}: MessageReactionEmojiProps) => (
+  <div
+    className={`rcx-message-reactions__emoji ${name} ${className}`}
+    style={image && image.length ? { backgroundImage: image } : undefined}
+  ></div>
+);

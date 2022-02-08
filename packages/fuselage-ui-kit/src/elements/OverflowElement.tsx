@@ -4,6 +4,7 @@ import {
   Options,
   Icon,
   useCursor,
+  OptionType,
 } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
 import React, { useRef, useCallback, ReactElement, useMemo } from 'react';
@@ -49,7 +50,7 @@ const OverflowElement = ({
   }, [show]);
 
   const handleSelection = useCallback(
-    ([value]: [unknown, string]) => {
+    ([value]: OptionType) => {
       action({ target: { value } });
       reset();
       hide();

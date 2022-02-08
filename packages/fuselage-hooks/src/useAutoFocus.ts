@@ -7,12 +7,15 @@ import { useEffect, useRef, Ref } from 'react';
  * @param options - options of the focus request
  * @returns the ref which holds the element
  * @public
+ * @deprecated
  */
-export const useAutoFocus = (
+export const useAutoFocus = <
+  T extends { focus: (options?: FocusOptions) => void }
+>(
   isFocused = true,
   options?: FocusOptions
-): Ref<{ focus: (options?: FocusOptions) => void }> => {
-  const elementRef = useRef<{ focus: (options?: FocusOptions) => void }>();
+): Ref<T> => {
+  const elementRef = useRef<T>();
 
   const { preventScroll } = options || {};
 

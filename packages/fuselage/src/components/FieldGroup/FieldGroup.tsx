@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
@@ -6,7 +6,7 @@ import { Box } from '../Box';
 
 type FieldGroupProps = ComponentProps<typeof Box>;
 
-export const FieldGroup: FC<FieldGroupProps> = ({ children, ...props }) => (
+export const FieldGroup = ({ children, ...props }: FieldGroupProps) => (
   <Box is='fieldset' rcx-field-group role='group' {...props}>
     {patchChildren(
       children,

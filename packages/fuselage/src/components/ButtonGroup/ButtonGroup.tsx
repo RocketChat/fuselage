@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types';
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { Box } from '../Box';
 
-type ButtonGroupProps = ComponentProps<typeof Box> & {
+type ButtonGroupProps = Omit<ComponentProps<typeof Box>, 'wrap'> & {
   align?: 'start' | 'center' | 'end';
   stretch?: boolean;
   wrap?: boolean;
@@ -14,8 +13,8 @@ type ButtonGroupProps = ComponentProps<typeof Box> & {
   medium?: boolean;
 };
 
-export const ButtonGroup: FC<ButtonGroupProps> = ({
-  align,
+export const ButtonGroup = ({
+  align = 'start',
   children,
   stretch,
   vertical,
@@ -23,7 +22,7 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
   small,
   medium,
   ...props
-}) => (
+}: ButtonGroupProps) => (
   <Box
     rcx-button-group
     rcx-button-group--align={align}
@@ -46,20 +45,3 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
     )}
   </Box>
 );
-
-ButtonGroup.defaultProps = {
-  align: 'start',
-};
-
-ButtonGroup.propTypes = {
-  /** The alignment that should be applied to the items */
-  align: PropTypes.oneOf(['start', 'center', 'end']),
-  /** Will be the items stretched to fill space? */
-  stretch: PropTypes.bool,
-  /** Is the items vertically placed? */
-  vertical: PropTypes.bool,
-  /** Will wrap the items when they exceed the container space? */
-  wrap: PropTypes.bool,
-  small: PropTypes.bool,
-  medium: PropTypes.bool,
-};

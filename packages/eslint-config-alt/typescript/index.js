@@ -8,6 +8,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     '@typescript-eslint/ban-ts-ignore': 'off',
+    '@typescript-eslint/ban-ts-comment': 'warn',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-empty-function': 'error',
     '@typescript-eslint/no-extra-parens': 'off',

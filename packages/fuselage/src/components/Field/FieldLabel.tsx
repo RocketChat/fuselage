@@ -1,10 +1,10 @@
-import React, { ComponentPropsWithoutRef, FC } from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 
 import { Box } from '../Box';
 import { Label } from '../Label';
 
 type FieldLabelProps = ComponentPropsWithoutRef<typeof Box>;
 
-export const FieldLabel: FC<FieldLabelProps> = function FieldLabel(props) {
-  return <Box is={Label} rcx-field__label {...props} />;
-};
+export const FieldLabel = (props: FieldLabelProps) => (
+  <Box is={Label} rcx-field__label {...props} />
+);

@@ -1,14 +1,12 @@
-import React, {
-  ComponentProps,
-  forwardRef,
-  ForwardRefExoticComponent,
-} from 'react';
+import React, { ComponentProps, forwardRef, Ref } from 'react';
 
 import { Box } from '../Box';
 
 type PlaceholderProps = ComponentProps<typeof Box>;
 
-export const Placeholder: ForwardRefExoticComponent<PlaceholderProps> =
-  forwardRef(function Placeholder(props: PlaceholderProps, ref) {
-    return <Box is='option' rcx-input-box__placeholder ref={ref} {...props} />;
-  });
+export const Placeholder = forwardRef(function Placeholder(
+  props: PlaceholderProps,
+  ref: Ref<HTMLOptionElement>
+) {
+  return <Box is='option' rcx-input-box__placeholder ref={ref} {...props} />;
+});

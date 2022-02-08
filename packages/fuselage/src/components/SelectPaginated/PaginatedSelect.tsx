@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   useMutableCallback,
   useResizeObserver,
@@ -9,8 +10,9 @@ import React, {
   useMemo,
   SyntheticEvent,
   ComponentProps,
-  FC,
   useEffect,
+  Ref,
+  ElementType,
 } from 'react';
 
 import type { SelectProps } from '..';
@@ -24,30 +26,38 @@ type PaginatedOptionType = {
   label: string;
 };
 export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
+  anchor?: ElementType;
   options: PaginatedOptionType[];
+  withTitle?: boolean;
+  endReached: (index: number) => void;
+  setFilter: (value: string | undefined | number) => void;
 };
 
-const Addon = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
-  (props, ref) => <Box is='div' rcx-select__addon ref={ref} {...props} />
-);
+type AddonProps = ComponentProps<typeof Box>;
 
-const Wrapper = forwardRef<HTMLDivElement, ComponentProps<typeof Box>>(
-  (props, ref) => <Box is='div' rcx-select__wrapper ref={ref} {...props} />
-);
+const Addon = forwardRef((props: AddonProps, ref: Ref<HTMLDivElement>) => (
+  <Box is='div' rcx-select__addon ref={ref} {...props} />
+));
 
-const Focus = React.forwardRef<HTMLButtonElement, ComponentProps<typeof Box>>(
-  (props, ref) => (
-    <Box
-      ref={ref}
-      fontScale='p2m'
-      color='hint'
-      rcx-select__focus
-      is='button'
-      type='button'
-      {...props}
-    />
-  )
-);
+type WrapperProps = ComponentProps<typeof Box>;
+
+const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
+  <Box is='div' rcx-select__wrapper ref={ref} {...props} />
+));
+
+type FocusProps = ComponentProps<typeof Box>;
+
+const Focus = forwardRef((props: FocusProps, ref: Ref<HTMLButtonElement>) => (
+  <Box
+    ref={ref}
+    fontScale='p2m'
+    color='hint'
+    rcx-select__focus
+    is='button'
+    type='button'
+    {...props}
+  />
+));
 
 const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
@@ -67,7 +77,7 @@ const useDidUpdate = (func: string[]) => {
   }, [fn]);
 };
 
-export const PaginatedSelect: FC<PaginatedSelectProps> = ({
+export const PaginatedSelect = ({
   value,
   withTitle,
   filter,
@@ -81,7 +91,7 @@ export const PaginatedSelect: FC<PaginatedSelectProps> = ({
   renderOptions: _Options = OptionsPaginated,
   endReached,
   ...props
-}) => {
+}: PaginatedSelectProps) => {
   const [internalValue, setInternalValue] = useState(value);
 
   const currentValue = value !== undefined ? value : internalValue;

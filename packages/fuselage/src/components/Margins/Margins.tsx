@@ -1,10 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import React, {
-  ComponentProps,
-  FC,
-  PropsWithChildren,
-  useCallback,
-} from 'react';
+import React, { ComponentProps, PropsWithChildren, useCallback } from 'react';
 
 import { Box } from '..';
 import { appendClassName } from '../../helpers/appendClassName';
@@ -24,7 +19,7 @@ type MarginsProps = PropsWithChildren<{
   className?: string;
 }>;
 
-export const Margins: FC<MarginsProps> = (props) => {
+export const Margins = (props: MarginsProps) => {
   const {
     children,
     className,

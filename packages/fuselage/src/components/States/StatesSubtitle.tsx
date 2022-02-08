@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-const StatesSubtitle: FC = ({ children }) => (
+type StatesSubtitleProps = {
+  children?: ReactNode;
+};
+
+const StatesSubtitle = ({ children }: StatesSubtitleProps) => (
   <div className='rcx-states__subtitle'>{children}</div>
 );
 

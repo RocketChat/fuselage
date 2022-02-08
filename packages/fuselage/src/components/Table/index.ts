@@ -16,9 +16,14 @@ export * from './TableSelection';
 export * from './TableSelectionButton';
 
 export default Object.assign(Table, {
+  /** @deprecated */
   Head: TableHead,
+  /** @deprecated */
   Body: TableBody,
+  /** @deprecated */
   Foot: TableFoot,
+  /** @deprecated */
   Row: TableRow,
+  /** @deprecated */
   Cell: TableCell,
 });

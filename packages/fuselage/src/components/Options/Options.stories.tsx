@@ -6,14 +6,14 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import React, { createRef } from 'react';
 
-import { Options } from '.';
+import { Options, OptionType } from '.';
 import { Box, Menu } from '..';
 import { CheckOption } from '../OptionsPaginated';
 import Option from './Option';
 
-const options: [unknown, string, boolean?][] = [
+const options: OptionType[] = [
   [1, 'a teste 1'],
   [2, 'b teste 2'],
   [3, 'c teste 3', true],
@@ -46,7 +46,7 @@ export default {
 
 const Template: ComponentStory<typeof Options> = (args) => (
   <Box position='relative' maxWidth={250}>
-    <Options {...args} ref={React.createRef()} options={options} />
+    <Options {...args} ref={createRef()} options={options} />
   </Box>
 );
 

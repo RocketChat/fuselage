@@ -2,11 +2,13 @@ import React, {
   ComponentProps,
   ElementType,
   forwardRef,
+  ReactNode,
   memo,
-  MutableRefObject,
+  Ref,
   SyntheticEvent,
   useLayoutEffect,
   useMemo,
+  useRef,
 } from 'react';
 
 import { Box, Scrollable } from '../Box';
@@ -21,18 +23,20 @@ const prevent = (e: SyntheticEvent) => {
   e.stopPropagation();
 };
 
+export type OptionType = [string | number, ReactNode, boolean?];
+
 type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
-  options: [unknown, string, boolean?][];
+  options: Array<OptionType>;
   cursor: number;
   renderItem?: ElementType;
   renderEmpty?: ElementType;
-  onSelect: (option: [unknown, string]) => void;
+  onSelect: (option: OptionType) => void;
 };
 
 export const Empty = memo(() => <Option label='Empty' />);
 
-export const Options = forwardRef<HTMLElement, OptionsProps>(
+export const Options = forwardRef(
   (
     {
       maxHeight = '144px',
@@ -43,12 +47,16 @@ export const Options = forwardRef<HTMLElement, OptionsProps>(
       renderItem: OptionComponent = Option,
       onSelect,
       ...props
-    },
-    ref
+    }: OptionsProps,
+    ref: Ref<HTMLElement>
   ) => {
-    const { current } = ref as MutableRefObject<HTMLLIElement>;
+    const liRef = useRef<HTMLElement>(null);
 
     useLayoutEffect(() => {
+      if (!liRef.current) {
+        return;
+      }
+      const { current } = liRef;
       const li = current?.querySelector<HTMLLIElement>('.rcx-option--focus');
       if (!li) {
         return;
@@ -60,7 +68,8 @@ export const Options = forwardRef<HTMLElement, OptionsProps>(
       ) {
         current.scrollTop = li.offsetTop;
       }
-    }, [cursor, ref]);
+    }, [cursor]);
+
     const optionsMemoized = useMemo(
       () =>
         options.map(([value, label, selected], i) => (
@@ -81,11 +90,11 @@ export const Options = forwardRef<HTMLElement, OptionsProps>(
       [options, multiple, cursor, onSelect]
     );
     return (
-      <Box rcx-options {...props}>
+      <Box rcx-options {...props} ref={ref}>
         <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
           <Scrollable vertical smooth>
             <Tile
-              ref={ref}
+              ref={liRef}
               elevation='0'
               padding='none'
               maxHeight={maxHeight}
@@ -95,7 +104,9 @@ export const Options = forwardRef<HTMLElement, OptionsProps>(
               aria-multiselectable={multiple || true}
               role='listbox'
               aria-activedescendant={
-                options && options[cursor] && options[cursor][0]
+                options?.[cursor]?.[0]
+                  ? String(options?.[cursor]?.[0])
+                  : undefined
               }
             >
               {!options.length && <EmptyComponent />}

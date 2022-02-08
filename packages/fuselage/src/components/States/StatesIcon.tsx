@@ -1,11 +1,13 @@
-import React, { FC, ComponentProps } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { Icon } from '../Icon';
 
-const StatesIcon: FC<{
+type StatesIconProps = {
   name: ComponentProps<typeof Icon>['name'];
   variation?: 'danger' | 'success' | 'warning' | 'primary';
-}> = ({ name, variation }) => (
+};
+
+const StatesIcon = ({ name, variation }: StatesIconProps) => (
   <Icon
     rcx-states__icon
     className={variation && `rcx-states__icon--${variation}`}

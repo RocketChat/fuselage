@@ -1,7 +1,5 @@
-import React, { FC } from 'react';
+import React, { HTMLAttributes } from 'react';
 
-export const MessageGenericPreviewThumb: FC<
-  React.HTMLAttributes<HTMLDivElement>
-> = (props) => (
-  <div className='rcx-message-generic-preview__thumb' {...props} />
-);
+export const MessageGenericPreviewThumb = (
+  props: HTMLAttributes<HTMLDivElement>
+) => <div className='rcx-message-generic-preview__thumb' {...props} />;
