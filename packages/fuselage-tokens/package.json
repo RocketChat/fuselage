@@ -37,14 +37,14 @@
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.31.1",
-    "@rocket.chat/prettier-config": "^0.31.1",
-    "build-design-tokens": "^0.31.1",
+    "@rocket.chat/eslint-config-alt": "workspace:^",
+    "@rocket.chat/prettier-config": "workspace:^",
+    "build-design-tokens": "workspace:^",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
-    "lint-all": "^0.31.1",
+    "lint-all": "workspace:^",
     "lint-staged": "^11.2.6",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",

@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Icon } from '../../../..';
 
-type IconProps = { name: 'thread' | 'user' | 'clock' | 'discussion' };
+type MessageMetricsItemIconProps = {
+  name: 'thread' | 'user' | 'clock' | 'discussion';
+};
 
-export const MessageMetricsItemIcon: FC<IconProps> = (props) => (
+export const MessageMetricsItemIcon = (props: MessageMetricsItemIconProps) => (
   <Icon {...{ size: 'x24' }} {...(props as any)} />
 );

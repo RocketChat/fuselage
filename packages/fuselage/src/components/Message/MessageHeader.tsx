@@ -1,11 +1,13 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-export const MessageHeader: FC = function MessageHeader({ children }) {
-  return (
-    <div className='rcx-box rcx-box--full rcx-message-header'>
-      <div className='rcx-box rcx-box--full rcx-message-header__wrapper'>
-        {children}
-      </div>
-    </div>
-  );
+type MessageHeaderProps = {
+  children?: ReactNode;
 };
+
+export const MessageHeader = ({ children }: MessageHeaderProps) => (
+  <div className='rcx-box rcx-box--full rcx-message-header'>
+    <div className='rcx-box rcx-box--full rcx-message-header__wrapper'>
+      {children}
+    </div>
+  </div>
+);

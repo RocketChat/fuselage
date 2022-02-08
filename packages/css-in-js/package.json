@@ -41,8 +41,8 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.31.1",
-    "@rocket.chat/prettier-config": "^0.31.1",
+    "@rocket.chat/eslint-config-alt": "workspace:^",
+    "@rocket.chat/prettier-config": "workspace:^",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
@@ -51,20 +51,20 @@
     "@types/stylis": "^4.0.1",
     "eslint": "^8.2.0",
     "jest": "^27.3.1",
-    "lint-all": "^0.31.1",
+    "lint-all": "workspace:^",
     "lint-staged": "^11.2.6",
     "prettier": "^2.3.2",
     "rollup": "^2.52.4",
     "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^27.0.7",
     "typedoc": "^0.22.8",
-    "typescript": "^4.3.4"
+    "typescript": "~4.3.5"
   },
   "dependencies": {
     "@emotion/hash": "^0.8.0",
-    "@rocket.chat/css-supports": "^0.31.1",
-    "@rocket.chat/memo": "^0.31.1",
-    "@rocket.chat/stylis-logical-props-middleware": "^0.31.1",
+    "@rocket.chat/css-supports": "workspace:^",
+    "@rocket.chat/memo": "workspace:^",
+    "@rocket.chat/stylis-logical-props-middleware": "workspace:^",
     "stylis": "^4.0.10"
   }
 }

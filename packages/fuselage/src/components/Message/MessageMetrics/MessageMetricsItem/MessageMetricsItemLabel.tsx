@@ -1,5 +1,9 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-export const MessageMetricsItemLabel: FC = (props) => (
-  <div className='rcx-message-metrics__item-label' {...props} />
-);
+type MessageMetricsItemLabelProps = {
+  children?: ReactNode;
+};
+
+export const MessageMetricsItemLabel = (
+  props: MessageMetricsItemLabelProps
+) => <div className='rcx-message-metrics__item-label' {...props} />;

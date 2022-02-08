@@ -4,5 +4,5 @@ import React from 'react';
 import { Callout } from '.';
 
 it('renders without crashing', () => {
-  render(<Callout />);
+  render(<Callout>Callout</Callout>);
 });

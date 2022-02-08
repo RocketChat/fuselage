@@ -4,6 +4,12 @@ import {
   Button,
   ButtonGroup,
   Modal,
+  ModalHeader,
+  ModalThumb,
+  ModalContent,
+  ModalTitle,
+  ModalFooter,
+  ModalClose,
 } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
 import { action } from '@storybook/addon-actions';
@@ -11,6 +17,8 @@ import React, { ReactNode } from 'react';
 
 import { kitContext, UiKitModal } from '..';
 import * as payloads from './payloads';
+
+type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
 
 const DemoModal = ({
   children,
@@ -21,24 +29,26 @@ const DemoModal = ({
 }) => (
   <AnimatedVisibility
     visibility={
-      visible ? AnimatedVisibility.VISIBLE : AnimatedVisibility.HIDDEN
+      visible
+        ? (AnimatedVisibility.VISIBLE as VisibilityType)
+        : (AnimatedVisibility.HIDDEN as VisibilityType)
     }
   >
     <Modal open={visible}>
-      <Modal.Header>
-        <Modal.Thumb url='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' />
-        <Modal.Title>Modal Header</Modal.Title>
-        <Modal.Close onClick={action('close')} />
-      </Modal.Header>
-      <Modal.Content>{children}</Modal.Content>
-      <Modal.Footer>
+      <ModalHeader>
+        <ModalThumb url='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' />
+        <ModalTitle>Modal Header</ModalTitle>
+        <ModalClose onClick={action('close')} />
+      </ModalHeader>
+      <ModalContent>{children}</ModalContent>
+      <ModalFooter>
         <ButtonGroup align='end'>
           <Button onClick={action('cancel')}>Cancel</Button>
           <Button primary onClick={action('submit')}>
             Submit
           </Button>
         </ButtonGroup>
-      </Modal.Footer>
+      </ModalFooter>
     </Modal>
   </AnimatedVisibility>
 );

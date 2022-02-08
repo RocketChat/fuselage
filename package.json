@@ -21,13 +21,10 @@
     "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
     "build": "yarn turbo run build",
     "lint": "yarn turbo run lint",
-    "lint-and-fix": "yarn turbo run lint-and-fix",
+    "lint-and-fix": "yarn workspaces foreach -v --topological-dev run lint-and-fix",
     "test": "yarn turbo run test",
     "docs": "yarn workspaces foreach -v --topological-dev run docs",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
-    "update-storybook": "yarn turbo run update-storybook",
-    "loki:test": "yarn turbo run loki:test --cache-dir=\".turbo\"",
-    "loki:test-ci": "yarn turbo run loki:test-ci --cache-dir=\".turbo\"",
     "update-readme": "update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "create-package": "hygen create-package"
@@ -60,12 +57,6 @@
         ],
         "outputs": []
       },
-      "update-storybook": {
-        "dependsOn": [
-          "build"
-        ],
-        "outputs": []
-      },
       "build-storybook": {
         "dependsOn": [
           "build"
@@ -74,7 +65,7 @@
           "storybook-static/**"
         ]
       },
-      "loki:test-ci": {
+      "lint-staged": {
         "outputs": []
       }
     }

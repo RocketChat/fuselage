@@ -1,7 +1,6 @@
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { DecoratorFunction } from '@storybook/addons';
 import { addParameters } from '@storybook/react';
-import 'loki/configure-react';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 import i18next from 'i18next';

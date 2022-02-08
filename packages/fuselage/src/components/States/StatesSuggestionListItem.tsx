@@ -1,6 +1,12 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-const StatesSuggestionListItem: FC = ({ children }) => (
+type StatesSuggestionListItemProps = {
+  children?: ReactNode;
+};
+
+const StatesSuggestionListItem = ({
+  children,
+}: StatesSuggestionListItemProps) => (
   <li className='rcx-states__list-item'>
     <span className='rcx-states__list-item-wrapper'>{children}</span>
   </li>

@@ -1,8 +1,15 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-export const MessageDivider: FC<{
+type MessageDividerProps = {
+  children?: ReactNode;
   unreadLabel?: string;
-}> = ({ children, unreadLabel, ...props }) => (
+};
+
+export const MessageDivider = ({
+  children,
+  unreadLabel,
+  ...props
+}: MessageDividerProps) => (
   <div
     role='separator'
     className={

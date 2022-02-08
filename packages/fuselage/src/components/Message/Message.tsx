@@ -1,4 +1,4 @@
-import React, { AllHTMLAttributes, forwardRef } from 'react';
+import React, { AllHTMLAttributes, forwardRef, Ref } from 'react';
 
 import './Messages.styles.scss';
 
@@ -10,23 +10,24 @@ type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   className?: string;
 };
 
-export const Message = forwardRef<HTMLDivElement, MessageProps>(
-  function Message({ className, clickable, sequential, ...props }, ref) {
-    return (
-      <div
-        ref={ref}
-        className={prependClassName(
-          className,
-          [
-            'rcx-message',
-            (clickable || props.onClick) && 'rcx-message--clickable',
-            sequential && 'rcx-message--sequential',
-          ]
-            .filter(Boolean)
-            .join(' ')
-        )}
-        {...props}
-      />
-    );
-  }
-);
+export const Message = forwardRef(function Message(
+  { className, clickable, sequential, ...props }: MessageProps,
+  ref: Ref<HTMLDivElement>
+) {
+  return (
+    <div
+      ref={ref}
+      className={prependClassName(
+        className,
+        [
+          'rcx-message',
+          (clickable || props.onClick) && 'rcx-message--clickable',
+          sequential && 'rcx-message--sequential',
+        ]
+          .filter(Boolean)
+          .join(' ')
+      )}
+      {...props}
+    />
+  );
+});

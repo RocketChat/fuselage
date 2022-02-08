@@ -21,7 +21,7 @@ export type AdminInfoPayload = {
   username: string;
   companyEmail: string;
   password: string;
-  keepPosted: boolean;
+  keepPosted?: boolean;
 };
 
 type AdminInfoFormProps = {

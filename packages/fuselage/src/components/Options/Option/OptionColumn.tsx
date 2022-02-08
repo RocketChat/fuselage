@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-const OptionColumn: FC = (props) => (
+type OptionColumnProps = {
+  children?: ReactNode;
+};
+
+const OptionColumn = (props: OptionColumnProps) => (
   <div className='rcx-option__column' {...props} />
 );
 

@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-const OptionMenu: FC = (props) => (
+type OptionMenuProps = {
+  children?: ReactNode;
+};
+
+const OptionMenu = (props: OptionMenuProps) => (
   <div className='rcx-box--animated rcx-option__menu-wrapper' {...props} />
 );
 

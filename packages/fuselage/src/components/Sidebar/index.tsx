@@ -1,21 +1,19 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { Box } from '..';
 import SidebarItem from './Item';
 import SidebarSection from './Section';
 import SidebarTopBar from './TopBar';
 
-export const Sidebar: FC<ComponentProps<typeof Box>> & {
-  TopBar: typeof SidebarTopBar;
-  Item: typeof SidebarItem;
-  Section: typeof SidebarSection;
-} = (props) => <Box rcx-sidebar {...props} />;
+type SidebarProps = ComponentProps<typeof Box>;
 
-Sidebar.TopBar = SidebarTopBar;
-Sidebar.Item = SidebarItem;
-Sidebar.Section = SidebarSection;
+export const Sidebar = (props: SidebarProps) => <Box rcx-sidebar {...props} />;
 
-export default Sidebar;
+export default Object.assign(Sidebar, {
+  TopBar: SidebarTopBar,
+  Item: SidebarItem,
+  Section: SidebarSection,
+});
 
 export { default as SidebarItem } from './Item';
 export * from './Item';

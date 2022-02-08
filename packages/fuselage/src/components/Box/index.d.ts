@@ -1,13 +1,15 @@
 import type { css } from '@rocket.chat/css-in-js';
-import {
+import type {
   AllHTMLAttributes,
+  ComponentProps,
   CSSProperties,
   ElementType,
-  ForwardRefExoticComponent,
-  PropsWithChildren,
+  ReactElement,
   RefAttributes,
   SVGAttributes,
 } from 'react';
+
+type Size = '1' | '2' | '4' | '8' | '12' | '16' | '20' | '24' | '32' | '40';
 
 type FontScale =
   | 'hero'
@@ -26,13 +28,11 @@ type FontScale =
   | 'c2'
   | 'micro';
 
-type BoxProps = PropsWithChildren<{
-  is?: ElementType;
-  className?:
-    | string
-    | ReturnType<typeof css>
-    | (string | ReturnType<typeof css>)[];
-  style?: CSSProperties;
+type Falsy = false | 0 | '' | null | undefined;
+
+type EvaluableCss = ReturnType<typeof css>;
+
+type BoxStylingProps = {
   border?: CSSProperties['border'];
   borderBlock?: CSSProperties['borderBlock'];
   borderBlockStart?: CSSProperties['borderBlockStart'];
@@ -148,20 +148,46 @@ type BoxProps = PropsWithChildren<{
   textTransform?: CSSProperties['textTransform'];
   textDecorationLine?: CSSProperties['textDecorationLine'];
 
+  animated?: boolean;
   elevation?: '0' | '1' | '2';
   invisible?: boolean;
   withRichContent?: boolean | string;
   withTruncatedText?: boolean;
-  size?: CSSProperties['blockSize'];
+  size?: `x${Size}` | `neg-x${Size}` | CSSProperties['blockSize'];
   minSize?: CSSProperties['blockSize'];
   maxSize?: CSSProperties['blockSize'];
   fontScale?: FontScale;
-}> &
-  Omit<AllHTMLAttributes<HTMLOrSVGElement>, 'className'> &
-  Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLOrSVGElement>> &
-  RefAttributes<unknown>;
 
-export const Box: ForwardRefExoticComponent<BoxProps>;
+  className?: string | EvaluableCss | (string | EvaluableCss | Falsy)[];
+};
+
+export type BoxProps<TElementType extends ElementType> = {
+  is?: TElementType;
+  htmlSize?: 'size' extends keyof ComponentProps<TElementType>
+    ? ComponentProps<TElementType>['size']
+    : never;
+} & BoxStylingProps &
+  Omit<ComponentProps<TElementType>, 'is' | 'className' | 'size'>;
+
+type UnsafeBoxProps = {
+  is?: ElementType;
+  htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
+} & BoxStylingProps &
+  Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size'> &
+  Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement>> &
+  RefAttributes<any>;
+
+export const Box: {
+  // `Box` unfortunately cannot be a generic component because of the abuse of `ComponentProps<typeof Box>`
+  // <TElementType extends ElementType = 'div'>(
+  //   props: BoxProps<TElementType>
+  // ): ReactElement | null;
+  (props: UnsafeBoxProps): ReactElement | null;
+  defaultProps?: undefined;
+  propTypes?: undefined;
+  displayName?: string | undefined;
+  readonly $$typeof: symbol;
+};
 
 export { default as AnimatedVisibility } from './AnimatedVisibility';
 export { default as Flex } from './Flex';

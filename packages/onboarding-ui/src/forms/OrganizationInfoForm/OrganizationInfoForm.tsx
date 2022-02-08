@@ -128,6 +128,7 @@ const OrganizationInfoForm = ({
               <Controller
                 name='organizationIndustry'
                 control={control}
+                rules={{ required: true }}
                 render={({ field }) => (
                   <Select
                     {...field}
@@ -140,6 +141,9 @@ const OrganizationInfoForm = ({
                 )}
               />
             </Field.Row>
+            {errors.organizationIndustry && (
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            )}
           </Field>
           <Field>
             <Field.Label htmlFor={organizationSizeField}>
@@ -149,6 +153,7 @@ const OrganizationInfoForm = ({
               <Controller
                 name='organizationSize'
                 control={control}
+                rules={{ required: true }}
                 render={({ field }) => (
                   <Select
                     {...field}
@@ -161,6 +166,9 @@ const OrganizationInfoForm = ({
                 )}
               />
             </Field.Row>
+            {errors.organizationSize && (
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            )}
           </Field>
           <Field>
             <Field.Label htmlFor={countryField}>
@@ -170,6 +178,7 @@ const OrganizationInfoForm = ({
               <Controller
                 name='country'
                 control={control}
+                rules={{ required: true }}
                 render={({ field }) => (
                   <SelectFiltered
                     {...field}
@@ -182,6 +191,9 @@ const OrganizationInfoForm = ({
                 )}
               />
             </Field.Row>
+            {errors.country && (
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            )}
           </Field>
         </FieldGroup>
       </Form.Container>

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 
 <Meta title='Box/Intro' parameters={{ jest: ['Box/spec'] }} />
 
@@ -14,11 +14,17 @@ values appended to the `className` prop.
 For instance,
 
 ```jsx
-  <Box rcx-component rcx-component--bool-modifier rcx-component--string-modifier='value' />
+<Box
+  rcx-component
+  rcx-component--bool-modifier
+  rcx-component--string-modifier='value'
+/>
 ```
 
 is rendered as
 
 ```html
-  <div class="rcx-box rcx-component rcx-component--bool-modifier rcx-component--string-modifier-value"></div>
+<div
+  class="rcx-box rcx-component rcx-component--bool-modifier rcx-component--string-modifier-value"
+></div>
 ```

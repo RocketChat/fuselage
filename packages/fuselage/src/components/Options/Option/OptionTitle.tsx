@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-const OptionTitle: FC = (props) => (
+type OptionTitleProps = {
+  children?: ReactNode;
+};
+
+const OptionTitle = (props: OptionTitleProps) => (
   <div className='rcx-option__title' {...props} />
 );
 
