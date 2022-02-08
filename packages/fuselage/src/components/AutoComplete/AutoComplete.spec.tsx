@@ -10,7 +10,7 @@ it('renders without crashing', () => {
   render(
     <AutoComplete
       filter=''
-      value={''}
+      value={[]}
       renderItem={() => null}
       onChange={jest.fn()}
     />
