@@ -36,6 +36,7 @@ export { default as Modal } from './Modal';
 export * from './Modal';
 export * from './MultiSelect';
 export * from './NumberInput';
+export { default as Options } from './Options';
 export * from './Options';
 export { default as Option } from './Options/Option';
 export * from './Options/Option';

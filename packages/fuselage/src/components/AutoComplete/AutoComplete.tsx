@@ -26,7 +26,7 @@ type AutoCompleteOption = {
   label?: string | number;
 };
 
-type AutoCompleteProps = Omit<ComponentProps<typeof Options>, 'options'> & {
+export type AutoCompleteProps = {
   value: OptionValue;
   filter: string;
   setFilter?: (filter: string) => void;

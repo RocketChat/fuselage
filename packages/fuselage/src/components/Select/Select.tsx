@@ -19,7 +19,7 @@ import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
 import { Options, useCursor, OptionType } from '../Options';
 
-export type SelectOptions = readonly [value: OptionType[0], label: string][];
+export type SelectOptions = readonly [value: string, label: string][];
 
 export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   anchor?: ElementType;

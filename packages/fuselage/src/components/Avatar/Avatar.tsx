@@ -3,7 +3,7 @@ import flattenChildren from 'react-keyed-flatten-children';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
-type AvatarProps = {
+export type AvatarProps = {
   size?:
     | 'x16'
     | 'x18'

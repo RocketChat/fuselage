@@ -6,7 +6,7 @@ import { Icon } from '../Icon';
 type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
   type?: 'info' | 'success' | 'warning' | 'danger';
   title?: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export const Callout = ({

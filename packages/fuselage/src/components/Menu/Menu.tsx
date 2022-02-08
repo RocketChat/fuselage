@@ -10,7 +10,7 @@ import React, {
 import { ActionButton, PositionAnimated, Options, useCursor, Box } from '..';
 import type { OptionType } from '../Options';
 
-type MenuProps = ComponentProps<typeof ActionButton> & {
+export type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   options: {
     [id: string]: {
       label: ReactElement | string;
@@ -20,6 +20,7 @@ type MenuProps = ComponentProps<typeof ActionButton> & {
   optionWidth?: ComponentProps<typeof Box>['width'];
   placement?: Placements;
   renderItem?: ElementType;
+  icon?: ComponentProps<typeof ActionButton>['icon'];
 };
 
 const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
