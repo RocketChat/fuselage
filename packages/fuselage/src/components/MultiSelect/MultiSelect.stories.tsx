@@ -35,7 +35,7 @@ export default {
   },
 } as ComponentMeta<typeof MultiSelect>;
 
-const options: (readonly [string, string, boolean?])[] = [
+const options: readonly (readonly [string, string, boolean?])[] = [
   ['1', 'a teste 1'],
   ['2', 'b teste 2', true],
   ['3', 'c teste 3'],
