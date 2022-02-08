@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/peggy-loader",
-  "version": "0.31.2",
+  "version": "0.31.3",
   "description": "Peggy loader for webpack",
   "keywords": [
     "peggy",
