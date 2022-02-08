@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.2...v0.31.3) (2022-02-08)
+
+### Features
+
+- **fuselage:** Add loading Skeleton to CodeSnippet ([#632](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/632)) ([46fe245](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/46fe245d6bc970ceb187edd33555a4731669a5cf))
+- **fuselage:** Code snippet component ([#622](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/622)) ([147f8a1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/147f8a13ba7aba528c8572d8f712bb003da801c8))
+- **fuselage:** Convert mdx to csf ([#584](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/584)) ([238768e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/238768e22986e620d013fd8d33ac529fa456ef80))
+- **fuselage:** Field.Link component ([#619](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/619)) ([7bce30a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7bce30aa820ef4f8aa94e6c565ad70a49212120a))
+- **onboarding-ui:** Add SomethingWentWrongPage Component ([#624](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/624)) ([68e12dc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/68e12dc3ec2bf0d934d12ffc967896c76b60a10d))
+- **onboarding-ui:** RegisterServer Step Flow ([#618](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/618)) ([f8098eb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f8098eb1d5b30d96c8ffd9e40ad7453491dd36f4))
+- **request-trial:** add checkbox to confirm terms and conditions ([#628](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/628)) ([f289d01](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f289d014f1abfcb55973354c013340c7219f3749))
+
+### Bug Fixes
+
+- **fuselage-hooks:** useContentBoxSize and useBorderBoxSize crashing in safari ([#616](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/616)) ([d1514f6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d1514f6085e08405b3fa596e2600e40cf2c403d4))
+- **fuselage:** CodeSnippet word-break ([#634](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/634)) ([ed2ca9a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ed2ca9a901f1b952338d1dfc9496c745b5e97113))
+- **fuselage:** InputBox style ([#631](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/631)) ([17d4c80](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/17d4c8079afdf88923e6ad58806cc5c93cb1b3d9))
+- **fuselage:** Some fuselage types ([#637](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/637)) ([9653c77](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9653c7750c8f05384a07e46243d15c916c346c99))
+
 ### [0.31.2](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.1...v0.31.2) (2022-01-28)
 
 ### Features

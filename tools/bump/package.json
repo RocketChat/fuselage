@@ -2,7 +2,7 @@
   "name": "bump",
   "private": true,
   "bin": "./bump.mjs",
-  "version": "0.31.2",
+  "version": "0.31.3",
   "dependencies": {
     "prettier": "^2.5.1",
     "standard-version": "^9.3.2",
