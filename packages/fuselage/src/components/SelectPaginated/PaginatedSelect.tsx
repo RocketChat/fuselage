@@ -28,6 +28,9 @@ type PaginatedOptionType = {
 export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   anchor?: ElementType;
   options: PaginatedOptionType[];
+  withTitle?: boolean;
+  endReached: (index: number) => void;
+  setFilter: (value: string | undefined | number) => void;
 };
 
 type AddonProps = ComponentProps<typeof Box>;

@@ -12,7 +12,7 @@ import { InputBox } from '../InputBox';
 
 type SelectInputOptions = readonly (readonly [string, string])[];
 
-type SelectInputProps = ComponentProps<typeof InputBox> & {
+type SelectInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   error?: string;
   options: SelectInputOptions;
   htmlSize?: number;

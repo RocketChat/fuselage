@@ -61,8 +61,8 @@ export default {
       ['7', '4000 or more people'],
     ],
     countryOptions: [
-      ...Object.entries(countries).map<readonly [string, string]>(
-        ([code, { name }]) => [code, name]
+      ...Object.entries(countries).map(
+        ([code, { name }]): [value: string, label: string] => [code, name]
       ),
       ['worldwide', 'Worldwide'],
     ],

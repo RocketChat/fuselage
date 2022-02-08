@@ -26,7 +26,7 @@ const optionsEllipses = [
 ];
 
 export default {
-  title: 'Forms/Inputs/SelectPaginated',
+  title: 'Forms/SelectPaginated',
   component: PaginatedSelect,
   parameters: {
     docs: {
@@ -71,7 +71,7 @@ WithTitle.args = {
 
 export const Error: ComponentStory<typeof PaginatedSelect> = Template.bind({});
 Error.args = {
-  error: true,
+  error: 'Error',
   width: '250px',
   placeholder: 'Placeholder here...',
   options,
@@ -117,7 +117,7 @@ SelectWithFilterAndError.args = {
   width: '250px',
   options,
   placeholder: 'Placeholder here...',
-  error: true,
+  error: 'Error',
 };
 
 export const SelectWithFilterAndDisabled = TemplateWithFilter.bind({});
@@ -136,7 +136,7 @@ export const PaginatedMultiSelectStory: ComponentStory<
   typeof PaginatedMultiSelect
 > = TemplateMultiSelect.bind({});
 PaginatedMultiSelectStory.args = {
-  value: [1000, 2, 3],
+  value: 1000,
   options: optionsEllipses,
   placeholder: 'Placeholder here...',
   withTitle: true,

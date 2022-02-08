@@ -1,9 +1,8 @@
 import React, { ComponentProps, forwardRef, ReactNode, Ref } from 'react';
 
-import { Box } from '..';
 import { InputBox } from '../InputBox';
 
-type TelephoneInputProps = Omit<ComponentProps<typeof Box>, 'type'> & {
+type TelephoneInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   addon?: ReactNode;
   input?: ReactNode;
   error?: string;

@@ -1,9 +1,8 @@
 import React, { ComponentProps, forwardRef, ReactNode, Ref } from 'react';
 
-import { Box } from '..';
 import { InputBox } from '../InputBox';
 
-export type TextInputProps = Omit<ComponentProps<typeof Box>, 'type'> & {
+export type TextInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   addon?: ReactNode;
   error?: string;
 };

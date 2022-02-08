@@ -4,7 +4,7 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { Box } from '../Box';
 
-type ButtonGroupProps = ComponentProps<typeof Box> & {
+type ButtonGroupProps = Omit<ComponentProps<typeof Box>, 'wrap'> & {
   align?: 'start' | 'center' | 'end';
   stretch?: boolean;
   wrap?: boolean;

@@ -23,7 +23,6 @@ const prevent = (e: SyntheticEvent) => {
   e.stopPropagation();
 };
 
-// type OptProps = ComponentProps<typeof Option>;
 export type OptionType = [string | number, ReactNode, boolean?];
 
 type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {

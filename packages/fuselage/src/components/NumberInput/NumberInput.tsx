@@ -1,9 +1,8 @@
 import React, { ComponentProps, forwardRef, Ref } from 'react';
 
-import { Box } from '..';
 import { InputBox } from '../InputBox';
 
-type NumberInputProps = Omit<ComponentProps<typeof Box>, 'type'>;
+type NumberInputProps = Omit<ComponentProps<typeof InputBox>, 'type'>;
 
 export const NumberInput = forwardRef(function NumberInput(
   props: NumberInputProps,
