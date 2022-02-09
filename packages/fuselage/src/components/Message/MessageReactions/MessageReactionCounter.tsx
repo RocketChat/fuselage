@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-export const MessageReactionCounter: FC<{
+type MessageReactionCounterProps = {
   counter: number;
   className?: string;
-}> = function ReactionCounter({ counter, className }) {
-  return (
-    <div className={`rcx-message-reactions__counter ${className}`}>
-      {counter}
-    </div>
-  );
 };
+
+export const MessageReactionCounter = ({
+  counter,
+  className,
+}: MessageReactionCounterProps) => (
+  <div className={`rcx-message-reactions__counter ${className}`}>{counter}</div>
+);

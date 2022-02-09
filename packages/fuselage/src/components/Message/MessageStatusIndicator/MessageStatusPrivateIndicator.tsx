@@ -1,4 +1,4 @@
-import React, { FC, ComponentProps } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { MessageStatusIndicatorItem } from './MessageStatusIndicatorItem';
 
@@ -6,9 +6,10 @@ type MessageStatusIndicatorItemProps = ComponentProps<
   typeof MessageStatusIndicatorItem
 >;
 
-export const MessageStatusPrivateIndicator: FC<
-  Omit<MessageStatusIndicatorItemProps, 'name'>
-> = ({ variant, ...props }) => (
+export const MessageStatusPrivateIndicator = ({
+  variant,
+  ...props
+}: MessageStatusIndicatorItemProps) => (
   <span
     className={[
       'rcx-message-status-indicator__item `rcx-message-status-indicator__item--private',

@@ -1,8 +1,10 @@
-import React, { FC, ComponentProps } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { Button } from '..';
 
-const StatesAction: FC<ComponentProps<typeof Button>> = ({ ...props }) => (
+type StatesActionProps = ComponentProps<typeof Button>;
+
+const StatesAction = ({ ...props }: StatesActionProps) => (
   <Button primary {...props} />
 );
 

@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-const OptionAvatar: FC = (props) => (
+type OptionAvatarProps = {
+  children?: ReactNode;
+};
+
+const OptionAvatar = (props: OptionAvatarProps) => (
   <div className='rcx-option__avatar' {...props} />
 );
 

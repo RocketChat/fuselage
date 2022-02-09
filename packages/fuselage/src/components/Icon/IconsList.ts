@@ -1,4 +1,8 @@
-export const iconsList = [
+import type { ComponentProps } from 'react';
+
+import { Icon } from '.';
+
+export const iconsList: ComponentProps<typeof Icon>['name'][] = [
   'arrow-back',
   'arrow-collapse',
   'arrow-down',
@@ -241,8 +245,6 @@ export const iconsList = [
   'loading',
   'play-solid',
   'reply',
-  'sort-down',
-  'sort-up',
   'adobe',
   'facebook',
   'github',
@@ -252,4 +254,4 @@ export const iconsList = [
   'hubot',
   'linkedin',
   'twitter',
-] as const;
+];

@@ -11,7 +11,7 @@
 
   align-items: flex-start;
 
-  flex: 1 0 auto;
+  flex-grow: 1;
 
   min-width: 8rem;
 
@@ -147,6 +147,7 @@
 
     resize: none;
     vertical-align: middle;
+    white-space: initial;
   }
 
   &--type-select {

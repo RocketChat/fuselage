@@ -1,5 +1,7 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 
-export const MessageMetricsItem: FC<HTMLAttributes<HTMLDivElement>> = (
-  props
-) => <div className='rcx-message-metrics__item' {...props} />;
+type MessageMetricsItemProps = HTMLAttributes<HTMLDivElement>;
+
+export const MessageMetricsItem = (props: MessageMetricsItemProps) => (
+  <div className='rcx-message-metrics__item' {...props} />
+);

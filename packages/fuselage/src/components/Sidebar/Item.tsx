@@ -1,22 +1,25 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps, ReactNode } from 'react';
 
 import { Box } from '..';
 import { Icon as FuselageIcon } from '../Icon';
 import { SidebarAction, SidebarActions } from './SidebarActions';
 
-export const SidebarItem: FC<{
+type SidebarItemProps = {
   selected?: boolean;
   highlighted?: boolean;
   clickable?: boolean;
   is?: ComponentProps<typeof Box>['is'];
-}> = ({
+  children?: ReactNode;
+};
+
+export const SidebarItem = ({
   selected,
   highlighted,
   clickable,
   is: Tag = 'div',
   children,
   ...props
-}) => (
+}: SidebarItemProps) => (
   <Tag
     className={[
       'rc-box rcx-box--full rcx-sidebar-item',
@@ -35,85 +38,132 @@ export const SidebarItem: FC<{
   </Tag>
 );
 
-export const SidebarItemContainer: FC = (props) => (
+type SidebarItemContainerProps = {
+  children?: ReactNode;
+};
+
+export const SidebarItemContainer = (props: SidebarItemContainerProps) => (
   <div
     className='rc-box rcx-box--full rcx-sidebar-item__container'
     {...props}
   />
 );
 
-export const SidebarItemMenu: FC = (props) => (
+type SidebarItemMenuProps = {
+  children?: ReactNode;
+};
+
+export const SidebarItemMenu = (props: SidebarItemMenuProps) => (
   <div
     className='rc-box rcx-box--full rcx-box--animated rcx-sidebar-item__menu-wrapper'
     {...props}
   />
 );
 
-export const SidebarItemContent: FC<{ className?: string }> = ({
+type SidebarItemContentProps = {
+  children?: ReactNode;
+  className?: string;
+};
+
+export const SidebarItemContent = ({
   className = '',
   ...props
-}) => (
+}: SidebarItemContentProps) => (
   <div
     className={`rc-box rcx-box--full rcx-sidebar-item__container rcx-sidebar-item__content ${className}`}
     {...props}
   />
 );
 
-export const SidebarItemTitle: FC<{ className?: string }> = ({
+type SidebarItemTitleProps = {
+  children?: ReactNode;
+  className?: string;
+};
+
+export const SidebarItemTitle = ({
   className = '',
   ...props
-}) => (
+}: SidebarItemTitleProps) => (
   <div
     className={`rc-box rcx-box--full rcx-sidebar-item__title ${className}`}
     {...props}
   />
 );
 
-export const SidebarItemTime: FC<{ className: string }> = ({
+type SidebarItemTimeProps = {
+  children?: ReactNode;
+  className?: string;
+};
+
+export const SidebarItemTime = ({
   className,
   ...props
-}) => (
+}: SidebarItemTimeProps) => (
   <div
     className={`rc-box rcx-box--full rcx-sidebar-item__time ${className}`}
     {...props}
   />
 );
 
-export const SidebarItemBadge: FC<{ className: string }> = ({
+type SidebarItemBadgeProps = {
+  children?: ReactNode;
+  className?: string;
+};
+
+export const SidebarItemBadge = ({
   className,
   ...props
-}) => (
+}: SidebarItemBadgeProps) => (
   <div
     className={`rc-box rcx-box--full rcx-sidebar-item__badge ${className}`}
     {...props}
   />
 );
 
-export const SidebarItemSubtitle: FC<{ className?: string }> = ({
+type SidebarItemSubtitleProps = {
+  children?: ReactNode;
+  className?: string;
+};
+
+export const SidebarItemSubtitle = ({
   className,
   ...props
-}) => (
+}: SidebarItemSubtitleProps) => (
   <div
     className={`rc-box rcx-box--full rcx-sidebar-item__subtitle ${className}`}
     {...props}
   />
 );
 
-export const SidebarItemWrapper: FC<{ className?: string }> = ({
+type SidebarItemWrapperProps = {
+  children?: ReactNode;
+  className?: string;
+};
+
+export const SidebarItemWrapper = ({
   className = '',
   ...props
-}) => (
+}: SidebarItemWrapperProps) => (
   <div
     className={`rc-box rcx-box--full rcx-sidebar-item__wrapper ${className}`}
     {...props}
   />
 );
 
-export const SidebarItemIcon: FC<{
+type SidebarItemIconProps = {
+  children?: ReactNode;
   className?: string;
   highlighted?: boolean;
   icon: ComponentProps<typeof FuselageIcon>['name'];
-}> = ({ highlighted, children, icon, className, ...props }) => (
+};
+
+export const SidebarItemIcon = ({
+  highlighted,
+  children,
+  icon,
+  className,
+  ...props
+}: SidebarItemIconProps) => (
   <div
     className={[
       'rc-box rcx-box--full rcx-sidebar-item__icon',
@@ -127,20 +177,25 @@ export const SidebarItemIcon: FC<{
   </div>
 );
 
-export const SidebarItemAvatar: FC = ({ ...props }) => (
+type SidebarItemAvatarProps = {
+  children?: ReactNode;
+};
+
+export const SidebarItemAvatar = ({ ...props }: SidebarItemAvatarProps) => (
   <SidebarItemContainer>
     <div className='rc-box rcx-box--full rcx-sidebar-item__avatar' {...props} />
   </SidebarItemContainer>
 );
 
-export const SidebarItemActions: FC<ComponentProps<typeof SidebarActions>> =
-  SidebarActions;
+export const SidebarItemActions = SidebarActions;
 
-export const SidebarItemAction: FC<ComponentProps<typeof SidebarAction>> = (
-  props
-) => <SidebarAction {...props} />;
+type SidebarItemActionProps = ComponentProps<typeof SidebarAction>;
 
-Object.assign(SidebarItem, {
+export const SidebarItemAction = (props: SidebarItemActionProps) => (
+  <SidebarAction {...props} />
+);
+
+export default Object.assign(SidebarItem, {
   Menu: SidebarItemMenu,
   Container: SidebarItemContainer,
   Content: SidebarItemContent,
@@ -154,5 +209,3 @@ Object.assign(SidebarItem, {
   Action: SidebarItemAction,
   Badge: SidebarItemBadge,
 });
-
-export default SidebarItem;

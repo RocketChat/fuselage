@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-const StatesSuggestionText: FC = ({ children }) => (
+type StatesSuggestionTextProps = {
+  children?: ReactNode;
+};
+
+const StatesSuggestionText = ({ children }: StatesSuggestionTextProps) => (
   <div className='rcx-states__suggestion-text'>{children}</div>
 );
 

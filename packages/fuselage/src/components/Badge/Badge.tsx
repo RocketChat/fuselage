@@ -2,7 +2,7 @@ import React, { ElementType } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
-type BadgeProps = {
+export type BadgeProps = {
   is?: ElementType;
   variant?: 'secondary' | 'primary' | 'danger' | 'warning' | 'ghost';
   disabled?: boolean;

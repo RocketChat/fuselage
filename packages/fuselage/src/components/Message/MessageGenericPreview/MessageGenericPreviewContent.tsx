@@ -1,16 +1,16 @@
-import React, { FC, ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
 type MessageGenericPreviewContentProps = {
+  children?: ReactNode;
   thumb?: ReactElement;
 };
 
-export const MessageGenericPreviewContent: FC<MessageGenericPreviewContentProps> =
-  ({ thumb, ...props }) => (
-    <div className='rcx-message-generic-preview__content'>
-      {thumb}
-      <div
-        className='rcx-message-generic-preview__content-wrapper'
-        {...props}
-      />
-    </div>
-  );
+export const MessageGenericPreviewContent = ({
+  thumb,
+  ...props
+}: MessageGenericPreviewContentProps) => (
+  <div className='rcx-message-generic-preview__content'>
+    {thumb}
+    <div className='rcx-message-generic-preview__content-wrapper' {...props} />
+  </div>
+);

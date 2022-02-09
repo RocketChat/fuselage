@@ -3,7 +3,15 @@ export * from './AutoComplete';
 export * from './Avatar';
 export * from './Badge';
 export { default as Banner } from './Banner';
-export * from './Box';
+export {
+  Box,
+  AnimatedVisibility,
+  Flex,
+  Position,
+  PositionAnimated,
+  Scrollable,
+  useArrayLikeClassNameProp,
+} from './Box';
 export { default as Button, ActionButton } from './Button';
 export * from './ButtonGroup';
 export * from './Callout';
@@ -24,9 +32,11 @@ export { default as Margins } from './Margins';
 export * from './Menu';
 export { default as Message } from './Message';
 export * from './Message';
+export { default as Modal } from './Modal';
 export * from './Modal';
 export * from './MultiSelect';
 export * from './NumberInput';
+export { default as Options } from './Options';
 export * from './Options';
 export { default as Option } from './Options/Option';
 export * from './Options/Option';
@@ -39,10 +49,20 @@ export * from './SearchInput';
 export * from './Select';
 export * from './SelectPaginated';
 export * from './SelectInput';
+export { default as Sidebar } from './Sidebar';
 export * from './Sidebar';
 export * from './Skeleton';
 export * from './States';
-export * from './Table';
+export {
+  default as Table,
+  TableBody,
+  TableCell,
+  TableFoot,
+  TableHead,
+  TableRow,
+  TableSelection,
+  TableSelectionButton,
+} from './Table';
 export * from './Tabs';
 export * from './Tag';
 export * from './TelephoneInput';

@@ -2,6 +2,7 @@ import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import { KeyboardEvent, useState } from 'react';
 
 import { AnimatedVisibility } from '../Box';
+import type { OptionType } from './Options';
 import { useVisible } from './useVisible';
 
 const keyCodes = {
@@ -14,19 +15,15 @@ const keyCodes = {
   ENTER: 13,
 };
 
-type Option = [
-  value: number | string | undefined,
-  label: string,
-  selected?: boolean
-];
+export type UseCursorOnChange<T> = (
+  option: T,
+  visibilityHandler: ReturnType<typeof useVisible>
+) => void;
 
-export const useCursor = (
+export const useCursor = <T extends [unknown, unknown, unknown?] = OptionType>(
   initial: number,
-  options: Option[],
-  onChange: (
-    option: Option,
-    visibilityHandler: ReturnType<typeof useVisible>
-  ) => void
+  options: Array<T>,
+  onChange: UseCursorOnChange<T>
 ): [
   cursor: number,
   handleKeyDown: (e: KeyboardEvent<HTMLOrSVGElement>) => void,
@@ -105,7 +102,8 @@ export const useCursor = (
         default:
           if (key.match(/^[\d\w]$/i)) {
             const index = options.findIndex(
-              ([, label]) => label[0].toLowerCase() === key
+              ([, label]) =>
+                typeof label === 'string' && label[0].toLowerCase() === key
             );
             ~index && setCursor(index);
           }

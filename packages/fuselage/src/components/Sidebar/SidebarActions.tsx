@@ -1,12 +1,16 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { ActionButton } from '..';
 import { ButtonGroup } from '../ButtonGroup';
 
-export const SidebarActions: FC<ComponentProps<typeof ButtonGroup>> = (
-  props
-) => <ButtonGroup mb='neg-x2' medium {...props} />;
+type SidebarActionsProps = ComponentProps<typeof ButtonGroup>;
 
-export const SidebarAction: FC<ComponentProps<typeof ActionButton>> = (
-  props
-) => <ActionButton small {...props} />;
+export const SidebarActions = (props: SidebarActionsProps) => (
+  <ButtonGroup mb='neg-x2' medium {...props} />
+);
+
+type SidebarActionProps = ComponentProps<typeof ActionButton>;
+
+export const SidebarAction = (props: SidebarActionProps) => (
+  <ActionButton small {...props} />
+);

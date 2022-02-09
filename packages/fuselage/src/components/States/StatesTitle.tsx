@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-const StatesTitle: FC = ({ children }) => (
+type StatesTitleProps = {
+  children?: ReactNode;
+};
+
+const StatesTitle = ({ children }: StatesTitleProps) => (
   <div className='rcx-states__title'>{children}</div>
 );
 

@@ -1,5 +1,4 @@
 import { css } from '@rocket.chat/css-in-js';
-import PropTypes from 'prop-types';
 import React, { createElement, forwardRef, memo } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
@@ -103,22 +102,7 @@ export const Box = memo(
   })
 );
 
-if (process.env.NODE_ENV !== 'production') {
-  Box.displayName = 'Box';
-
-  Box.propTypes = {
-    is: PropTypes.elementType,
-    className: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.func,
-      PropTypes.array,
-    ]),
-  };
-}
-
-Box.defaultProps = {
-  is: 'div',
-};
+Box.displayName = 'Box';
 
 export { default as AnimatedVisibility } from './AnimatedVisibility';
 export { default as Flex } from './Flex';

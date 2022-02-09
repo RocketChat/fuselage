@@ -1,14 +1,8 @@
-import React, {
-  ComponentProps,
-  forwardRef,
-  ForwardRefExoticComponent,
-  ReactNode,
-} from 'react';
+import React, { ComponentProps, forwardRef, ReactNode, Ref } from 'react';
 
-import { Box } from '..';
 import { InputBox } from '../InputBox';
 
-type EmailInputProps = Omit<ComponentProps<typeof Box>, 'type'> & {
+type EmailInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   addon?: ReactNode;
   error?: string;
 };
@@ -43,7 +37,9 @@ type InputType =
 
 const type: InputType = 'email';
 
-export const EmailInput: ForwardRefExoticComponent<EmailInputProps> =
-  forwardRef(function EmailInput(props: EmailInputProps, ref) {
-    return <InputBox type={type} ref={ref} {...props} />;
-  });
+export const EmailInput = forwardRef(function EmailInput(
+  props: EmailInputProps,
+  ref: Ref<HTMLElement>
+) {
+  return <InputBox type={type} ref={ref} {...props} />;
+});

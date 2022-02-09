@@ -1,5 +1,12 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
-export const MessageGenericPreviewFooter: FC<{ clamp?: boolean }> = ({
+type MessageGenericPreviewFooterProps = {
+  children?: ReactNode;
+  clamp?: boolean;
+};
+
+export const MessageGenericPreviewFooter = ({
   children,
-}) => <div className={'rcx-message-generic-preview__footer'}>{children}</div>;
+}: MessageGenericPreviewFooterProps) => (
+  <div className={'rcx-message-generic-preview__footer'}>{children}</div>
+);

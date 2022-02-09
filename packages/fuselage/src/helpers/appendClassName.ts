@@ -1,14 +1,16 @@
-export const appendClassName = (
-  currentClassName: string | string[] | undefined,
+type R<T> = T extends void ? string : T extends string ? string : string[];
+
+export const appendClassName = <T extends string | string[] | undefined>(
+  currentClassName: T,
   newClassName: string
-) => {
+): R<T> => {
+  if (currentClassName === undefined) {
+    return newClassName as R<T>;
+  }
+
   if (Array.isArray(currentClassName)) {
-    return ([] as string[]).concat(currentClassName, newClassName);
+    return [...currentClassName, newClassName] as R<T>;
   }
 
-  if (currentClassName) {
-    return `${currentClassName} ${newClassName}`;
-  }
-
-  return newClassName;
+  return `${currentClassName} ${newClassName}` as R<T>;
 };

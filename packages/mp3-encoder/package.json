@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/mp3-encoder",
-  "version": "0.31.1",
+  "version": "0.31.3",
   "description": "A LAME encoder to be used in web workers",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -48,20 +48,20 @@
     "@babel/plugin-transform-runtime": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
-    "@rocket.chat/eslint-config-alt": "^0.31.1",
-    "@rocket.chat/prettier-config": "^0.31.1",
+    "@rocket.chat/eslint-config-alt": "workspace:^",
+    "@rocket.chat/prettier-config": "workspace:^",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-typescript": "^8.2.1",
     "@types/jest": "^27.0.2",
     "eslint": "^8.2.0",
     "jest": "^27.3.1",
-    "lint-all": "^0.31.1",
+    "lint-all": "workspace:^",
     "lint-staged": "^11.2.6",
     "prettier": "^2.3.2",
     "rollup": "^2.52.4",
     "ts-jest": "^27.0.7",
     "typedoc": "^0.22.8",
-    "typescript": "^4.3.4"
+    "typescript": "~4.3.5"
   }
 }

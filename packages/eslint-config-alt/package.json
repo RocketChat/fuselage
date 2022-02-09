@@ -1,7 +1,7 @@
 {
   "name": "@rocket.chat/eslint-config-alt",
   "description": "ESLint configuration for Rocket.Chat repositories",
-  "version": "0.31.1",
+  "version": "0.31.3",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
     "eslint": "^8.2.0",
-    "lint-all": "^0.31.1",
+    "lint-all": "workspace:^",
     "lint-staged": "^11.2.6",
     "prettier": "^2.3.2"
   },

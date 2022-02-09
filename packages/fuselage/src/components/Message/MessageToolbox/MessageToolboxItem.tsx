@@ -1,10 +1,12 @@
-import React, { ComponentProps, forwardRef } from 'react';
+import React, { ComponentProps, forwardRef, Ref } from 'react';
 
 import { ActionButton } from '../..';
 
-export const MessageToolboxItem = forwardRef<
-  HTMLButtonElement,
-  ComponentProps<typeof ActionButton>
->(function Item(props, ref) {
+type MessageToolboxItemProps = ComponentProps<typeof ActionButton>;
+
+export const MessageToolboxItem = forwardRef(function Item(
+  props: MessageToolboxItemProps,
+  ref: Ref<HTMLButtonElement>
+) {
   return <ActionButton ref={ref} {...{ ...props, small: true, ghost: true }} />;
 });

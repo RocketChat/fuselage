@@ -50,7 +50,7 @@ export const Default = () => (
         </TableRow>
       </TableHead>
       <TableBody>
-        <TableRow hasAction>
+        <TableRow action>
           <TableCell is='th' scope='row'>
             Frozen yoghurt
           </TableCell>

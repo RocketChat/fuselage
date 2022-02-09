@@ -31,3 +31,9 @@ export const NoCopyButton = Template.bind({});
 NoCopyButton.args = {
   children: 'curl -L https://go.rocket.chat/i/docker-compose.yml -O',
 };
+
+export const LoadingCode = Template.bind({});
+LoadingCode.args = {
+  children: '',
+  onClick: action('click'),
+};

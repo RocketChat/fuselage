@@ -1,4 +1,4 @@
-import React, { Ref, ComponentProps, ReactNode } from 'react';
+import React, { Ref, ComponentProps, ReactNode, memo, MouseEvent } from 'react';
 
 import { Icon } from '../..';
 import { Box } from '../../Box';
@@ -10,7 +10,7 @@ type OptionProps = {
   is?: ComponentProps<typeof Box>['is'];
   id?: string;
   children?: ReactNode;
-  label?: string;
+  label?: ReactNode;
   focus?: boolean;
   selected?: boolean;
   className?: ComponentProps<typeof Box>['className'];
@@ -20,10 +20,10 @@ type OptionProps = {
   title?: string;
   value?: string;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onClick?: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
-const Option = React.memo(
+const Option = memo(
   ({
     is: Tag = 'li',
     id,
