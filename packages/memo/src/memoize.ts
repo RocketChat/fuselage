@@ -45,15 +45,30 @@ export const clear = (
 
 export const timedMemoize = <T, A, R>(
   fn: MemoizableFunction<T, A, R>,
-  maxAge?: number
+  maxAge: number
 ): MemoizedFunction<T, A, R> => {
   const cache = new Map<A, R>();
+  const cacheTimers = new Map<A, ReturnType<typeof setTimeout>>();
 
   const memoized: MemoizedFunction<T, A, R> = function (this, arg) {
+    const cleanUp = (): void => {
+      cache.delete(arg);
+      cacheTimers.delete(arg);
+    };
+
     const cachedValue = cache.get(arg);
 
     // return cachedValue if already cached
     if (isCachedValue(cachedValue, arg, cache)) {
+      // reset timer for `arg`
+      const oldTimer = cacheTimers.get(arg);
+      if (oldTimer) {
+        clearTimeout(oldTimer);
+      }
+
+      const timer = setTimeout(cleanUp, maxAge);
+      cacheTimers.set(arg, timer);
+
       return cachedValue;
     }
 
@@ -61,11 +76,9 @@ export const timedMemoize = <T, A, R>(
 
     cache.set(arg, result);
 
-    if (maxAge) {
-      setTimeout(() => {
-        cache.delete(arg);
-      }, maxAge);
-    }
+    // set timer for `arg`
+    const timer = setTimeout(cleanUp, maxAge);
+    cacheTimers.set(arg, timer);
 
     return result;
   };

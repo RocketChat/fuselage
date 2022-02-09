@@ -68,8 +68,9 @@ describe('timeout', () => {
     memoized(5); // called -> fn = 1
     jest.advanceTimersByTime(2000);
     memoized(5); // not called
-    jest.advanceTimersByTime(1000);
-
+    jest.advanceTimersByTime(2000);
+    memoized(5); // not called
+    jest.advanceTimersByTime(3000);
     memoized(5); // called -> fn = 2
 
     expect(fn).toHaveBeenCalledTimes(2);
@@ -77,9 +78,10 @@ describe('timeout', () => {
     expect(memoized).toHaveNthReturnedWith(1, 6);
     expect(memoized).toHaveNthReturnedWith(2, 6);
     expect(memoized).toHaveNthReturnedWith(3, 6);
+    expect(memoized).toHaveNthReturnedWith(4, 6);
   });
 
-  it('should memoize two functions and clear both after x ms', () => {
+  it('should memoize a function caching for two parameters and clearing both after x ms each one', () => {
     jest.useFakeTimers();
 
     const fn = jest.fn((i: number) => i + 1);
@@ -90,14 +92,14 @@ describe('timeout', () => {
     memoized(6); // called -> fn = 2
     jest.advanceTimersByTime(2000);
 
-    memoized(5); // called -> fn = 3
     memoized(6); // not called
+    memoized(5); // called -> fn = 3
 
     expect(fn).toHaveBeenCalledTimes(3);
 
     expect(memoized).toHaveNthReturnedWith(1, 6);
     expect(memoized).toHaveNthReturnedWith(2, 7);
-    expect(memoized).toHaveNthReturnedWith(3, 6);
-    expect(memoized).toHaveNthReturnedWith(4, 7);
+    expect(memoized).toHaveNthReturnedWith(3, 7);
+    expect(memoized).toHaveNthReturnedWith(4, 6);
   });
 });
