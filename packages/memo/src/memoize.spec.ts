@@ -1,4 +1,4 @@
-import { memoize, clear } from './memoize';
+import { memoize, clear, timedMemoize } from './memoize';
 
 it('should memoize a function that takes no parameter', () => {
   const fn = jest.fn(() => 'foo');
@@ -55,5 +55,49 @@ describe('clear', () => {
     const fn = jest.fn(() => 'foo');
 
     expect(() => clear(fn)).not.toThrowError();
+  });
+});
+
+describe('timeout', () => {
+  it('should memoize a function that takes one parameter and clear after x ms', () => {
+    jest.useFakeTimers();
+
+    const fn = jest.fn((i: number) => i + 1);
+    const memoized = jest.fn(timedMemoize(fn, 3000));
+
+    memoized(5); // called -> fn = 1
+    jest.advanceTimersByTime(2000);
+    memoized(5); // not called
+    jest.advanceTimersByTime(1000);
+
+    memoized(5); // called -> fn = 2
+
+    expect(fn).toHaveBeenCalledTimes(2);
+
+    expect(memoized).toHaveNthReturnedWith(1, 6);
+    expect(memoized).toHaveNthReturnedWith(2, 6);
+    expect(memoized).toHaveNthReturnedWith(3, 6);
+  });
+
+  it('should memoize two functions and clear both after x ms', () => {
+    jest.useFakeTimers();
+
+    const fn = jest.fn((i: number) => i + 1);
+    const memoized = jest.fn(timedMemoize(fn, 3000));
+
+    memoized(5); // called -> fn = 1
+    jest.advanceTimersByTime(2000);
+    memoized(6); // called -> fn = 2
+    jest.advanceTimersByTime(2000);
+
+    memoized(5); // called -> fn = 3
+    memoized(6); // not called
+
+    expect(fn).toHaveBeenCalledTimes(3);
+
+    expect(memoized).toHaveNthReturnedWith(1, 6);
+    expect(memoized).toHaveNthReturnedWith(2, 7);
+    expect(memoized).toHaveNthReturnedWith(3, 6);
+    expect(memoized).toHaveNthReturnedWith(4, 7);
   });
 });

@@ -42,3 +42,35 @@ export const clear = (
   const cache = store.get(fn);
   cache?.clear();
 };
+
+export const timedMemoize = <T, A, R>(
+  fn: MemoizableFunction<T, A, R>,
+  maxAge?: number
+): MemoizedFunction<T, A, R> => {
+  const cache = new Map<A, R>();
+
+  const memoized: MemoizedFunction<T, A, R> = function (this, arg) {
+    const cachedValue = cache.get(arg);
+
+    // return cachedValue if already cached
+    if (isCachedValue(cachedValue, arg, cache)) {
+      return cachedValue;
+    }
+
+    const result = fn.call(this, arg);
+
+    cache.set(arg, result);
+
+    if (maxAge) {
+      setTimeout(() => {
+        cache.delete(arg);
+      }, maxAge);
+    }
+
+    return result;
+  };
+
+  store.set(memoized as MemoizableFunction<unknown, unknown, unknown>, cache);
+
+  return memoized;
+};
