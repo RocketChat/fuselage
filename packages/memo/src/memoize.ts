@@ -16,33 +16,9 @@ const isCachedValue = <A, R>(
   cache: Map<A, R>
 ): cachedValue is R => cache.has(arg) && cache.get(arg) === cachedValue;
 
-const noTimedMemoize = <T, A, R>(
-  fn: MemoizableFunction<T, A, R>
-): MemoizedFunction<T, A, R> => {
-  const cache = new Map<A, R>();
-
-  const memoized: MemoizedFunction<T, A, R> = function (this, arg) {
-    const cachedValue = cache.get(arg);
-
-    if (isCachedValue(cachedValue, arg, cache)) {
-      return cachedValue;
-    }
-
-    const result = fn.call(this, arg);
-
-    cache.set(arg, result);
-
-    return result;
-  };
-
-  store.set(memoized as MemoizableFunction<unknown, unknown, unknown>, cache);
-
-  return memoized;
-};
-
-const timedMemoize = <T, A, R>(
+export const memoize = <T, A, R>(
   fn: MemoizableFunction<T, A, R>,
-  maxAge: number
+  _options?: Options
 ): MemoizedFunction<T, A, R> => {
   const cache = new Map<A, R>();
   const cacheTimers = new Map<A, ReturnType<typeof setTimeout>>();
@@ -63,8 +39,10 @@ const timedMemoize = <T, A, R>(
         clearTimeout(oldTimer);
       }
 
-      const timer = setTimeout(cleanUp, maxAge);
-      cacheTimers.set(arg, timer);
+      if (_options) {
+        const timer = setTimeout(cleanUp, _options.maxAge);
+        cacheTimers.set(arg, timer);
+      }
 
       return cachedValue;
     }
@@ -74,8 +52,10 @@ const timedMemoize = <T, A, R>(
     cache.set(arg, result);
 
     // set timer for `arg`
-    const timer = setTimeout(cleanUp, maxAge);
-    cacheTimers.set(arg, timer);
+    if (_options) {
+      const timer = setTimeout(cleanUp, _options.maxAge);
+      cacheTimers.set(arg, timer);
+    }
 
     return result;
   };
@@ -83,16 +63,6 @@ const timedMemoize = <T, A, R>(
   store.set(memoized as MemoizableFunction<unknown, unknown, unknown>, cache);
 
   return memoized;
-};
-
-export const memoize = <T, A, R>(
-  fn: MemoizableFunction<T, A, R>,
-  _options?: Options
-): MemoizedFunction<T, A, R> => {
-  if (_options) {
-    return timedMemoize(fn, _options.maxAge);
-  }
-  return noTimedMemoize(fn);
 };
 
 export const clear = (
