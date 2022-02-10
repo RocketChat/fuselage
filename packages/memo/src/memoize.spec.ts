@@ -1,4 +1,4 @@
-import { memoize, clear, timedMemoize } from './memoize';
+import { memoize, clear } from './memoize';
 
 it('should memoize a function that takes no parameter', () => {
   const fn = jest.fn(() => 'foo');
@@ -63,7 +63,7 @@ describe('timeout', () => {
     jest.useFakeTimers();
 
     const fn = jest.fn((i: number) => i + 1);
-    const memoized = jest.fn(timedMemoize(fn, 3000));
+    const memoized = jest.fn(memoize(fn, { maxAge: 3000 }));
 
     memoized(5); // called -> fn = 1
     jest.advanceTimersByTime(2000);
@@ -85,7 +85,7 @@ describe('timeout', () => {
     jest.useFakeTimers();
 
     const fn = jest.fn((i: number) => i + 1);
-    const memoized = jest.fn(timedMemoize(fn, 3000));
+    const memoized = jest.fn(memoize(fn, { maxAge: 3000 }));
 
     memoized(5); // called -> fn = 1
     jest.advanceTimersByTime(2000);

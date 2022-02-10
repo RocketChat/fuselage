@@ -1,6 +1,10 @@
 type MemoizableFunction<T, A, R> = (this: T, arg: A) => R;
 type MemoizedFunction<T, A, R> = (this: T, arg: A) => R;
 
+interface Options {
+  maxAge: number;
+}
+
 const store = new WeakMap<
   MemoizableFunction<unknown, unknown, unknown>,
   Map<unknown, unknown>
@@ -12,7 +16,7 @@ const isCachedValue = <A, R>(
   cache: Map<A, R>
 ): cachedValue is R => cache.has(arg) && cache.get(arg) === cachedValue;
 
-export const memoize = <T, A, R>(
+const noTimedMemoize = <T, A, R>(
   fn: MemoizableFunction<T, A, R>
 ): MemoizedFunction<T, A, R> => {
   const cache = new Map<A, R>();
@@ -36,14 +40,7 @@ export const memoize = <T, A, R>(
   return memoized;
 };
 
-export const clear = (
-  fn: MemoizedFunction<unknown, unknown, unknown>
-): void => {
-  const cache = store.get(fn);
-  cache?.clear();
-};
-
-export const timedMemoize = <T, A, R>(
+const timedMemoize = <T, A, R>(
   fn: MemoizableFunction<T, A, R>,
   maxAge: number
 ): MemoizedFunction<T, A, R> => {
@@ -86,4 +83,21 @@ export const timedMemoize = <T, A, R>(
   store.set(memoized as MemoizableFunction<unknown, unknown, unknown>, cache);
 
   return memoized;
+};
+
+export const memoize = <T, A, R>(
+  fn: MemoizableFunction<T, A, R>,
+  _options?: Options
+): MemoizedFunction<T, A, R> => {
+  if (_options) {
+    return timedMemoize(fn, _options.maxAge);
+  }
+  return noTimedMemoize(fn);
+};
+
+export const clear = (
+  fn: MemoizedFunction<unknown, unknown, unknown>
+): void => {
+  const cache = store.get(fn);
+  cache?.clear();
 };
