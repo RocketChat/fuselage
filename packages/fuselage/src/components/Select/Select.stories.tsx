@@ -32,8 +32,8 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <Stories title={''} />
           <ArgsTable />
+          <Stories title={''} />
         </>
       ),
     },
@@ -75,56 +75,36 @@ const TemplateWithFilter: ComponentStory<typeof Select> = (args) => (
   <SelectFiltered {...args} />
 );
 
-export const SelectWithFilter: ComponentStory<typeof Select> =
+export const WithFilter: ComponentStory<typeof Select> =
   TemplateWithFilter.bind({});
-SelectWithFilter.args = {
+WithFilter.args = {
   width: '250px',
   placeholder: 'Placeholder here...',
   options,
 };
 
-export const SelectWithFilterAndEllipses: ComponentStory<typeof Select> =
+export const WithFilterAndEllipses: ComponentStory<typeof Select> =
   TemplateWithFilter.bind({});
-SelectWithFilterAndEllipses.args = {
+WithFilterAndEllipses.args = {
   width: '250px',
   placeholder: 'Placeholder here...',
   options: optionsEllipses,
   value: '11',
 };
 
-export const SelectWithFilterAndError: ComponentStory<typeof Select> =
+export const WithEmptyOptions: ComponentStory<typeof Select> =
   TemplateWithFilter.bind({});
-SelectWithFilterAndError.args = {
-  width: '250px',
-  error: 'Error',
-  placeholder: 'Placeholder here...',
-  options,
-};
-
-export const SelectWithFilterAndDisabled: ComponentStory<typeof Select> =
-  TemplateWithFilter.bind({});
-SelectWithFilterAndDisabled.args = {
-  width: '250px',
-  error: 'Error',
-  disabled: true,
-  placeholder: 'Placeholder here...',
-  options,
-};
-
-export const SelectWithEmptyOptions: ComponentStory<typeof Select> =
-  TemplateWithFilter.bind({});
-SelectWithEmptyOptions.args = {
+WithEmptyOptions.args = {
   width: '250px',
   placeholder: 'Placeholder here...',
   options: [],
 };
 
-export const SelectWithEmptyOptionsCustomPlaceholder: ComponentStory<
-  typeof Select
-> = TemplateWithFilter.bind({});
-SelectWithEmptyOptionsCustomPlaceholder.args = {
+export const CustomEmpty: ComponentStory<typeof Select> =
+  TemplateWithFilter.bind({});
+CustomEmpty.args = {
   width: '250px',
   placeholder: 'Placeholder here...',
   options: [],
-  emptyPlaceholder: 'Custom empty placeholder',
+  customEmpty: 'Custom empty placeholder',
 };

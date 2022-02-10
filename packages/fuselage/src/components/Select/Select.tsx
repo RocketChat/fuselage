@@ -72,7 +72,7 @@ export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
   filter?: string;
   renderOptions?: ElementType;
-  emptyPlaceholder?: string;
+  customEmpty?: string;
 };
 
 export const Select = forwardRef(
@@ -89,7 +89,7 @@ export const Select = forwardRef(
       getLabel = ([_, label] = ['', '']) => label,
       placeholder = '',
       renderOptions: _Options = Options,
-      emptyPlaceholder,
+      customEmpty,
       ...props
     }: SelectProps,
     ref: Ref<HTMLInputElement>
@@ -216,7 +216,7 @@ export const Select = forwardRef(
             options={filteredOptions}
             onSelect={internalChangedByClick}
             cursor={cursor}
-            emptyPlaceholder={emptyPlaceholder}
+            customEmpty={customEmpty}
           />
         </PositionAnimated>
       </Box>

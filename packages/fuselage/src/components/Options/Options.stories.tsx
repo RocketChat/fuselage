@@ -81,10 +81,9 @@ EmptyOptions.args = {
   options: [],
 };
 
-export const EmptyOptionsWithCustomPlaceholder: ComponentStory<typeof Options> =
-  Template.bind({});
-EmptyOptionsWithCustomPlaceholder.args = {
+export const CustomEmpty: ComponentStory<typeof Options> = Template.bind({});
+CustomEmpty.args = {
   cursor: 1,
   options: [],
-  emptyPlaceholder: 'Custom empty placeholder',
+  customEmpty: 'Custom empty placeholder',
 };
