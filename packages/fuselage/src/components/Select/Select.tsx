@@ -96,15 +96,13 @@ export const Select = forwardRef(
   ) => {
     const [internalValue, setInternalValue] = useState(value);
 
-    const currentValue = value !== undefined ? value : internalValue;
-
     const internalChangedByKeyboard = useMutableCallback(([value]) => {
       setInternalValue(value);
       onChange(value);
     });
 
     const option = options.find(
-      (option) => getValue(option) === currentValue
+      (option) => getValue(option) === internalValue
     ) as SelectOptions[number];
 
     const index = options.indexOf(option);
@@ -114,7 +112,7 @@ export const Select = forwardRef(
         value,
         label,
       ]: SelectOptions[number]): OptionType => {
-        if (currentValue === value) {
+        if (internalValue === value) {
           return [value, label, true];
         }
         return [value, label];
@@ -124,7 +122,7 @@ export const Select = forwardRef(
         !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
 
       return options.filter(applyFilter).map(mapOptions);
-    }, [options, currentValue, filter]);
+    }, [options, internalValue, filter]);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
       useCursor(index, filteredOptions, internalChangedByKeyboard);

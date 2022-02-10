@@ -89,7 +89,7 @@ SelectWithFilterAndEllipses.args = {
   width: '250px',
   placeholder: 'Placeholder here...',
   options: optionsEllipses,
-  value: 11,
+  value: '11',
 };
 
 export const SelectWithFilterAndError: ComponentStory<typeof Select> =
