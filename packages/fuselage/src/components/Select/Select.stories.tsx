@@ -110,3 +110,12 @@ SelectWithFilterAndDisabled.args = {
   placeholder: 'Placeholder here...',
   options,
 };
+
+export const SelectWithCustomAddonIcon: ComponentStory<typeof Select> =
+  TemplateWithFilter.bind({});
+SelectWithCustomAddonIcon.args = {
+  width: '250px',
+  placeholder: 'Placeholder here...',
+  options,
+  addonIcon: 'magnifier',
+};
