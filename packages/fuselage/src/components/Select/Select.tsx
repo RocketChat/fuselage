@@ -21,17 +21,6 @@ import { Options, useCursor, OptionType } from '../Options';
 
 export type SelectOptions = readonly [value: string, label: string][];
 
-export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
-  anchor?: ElementType;
-  error?: string;
-  options: SelectOptions;
-  onChange: (value: SelectOptions[number][0]) => void;
-  getLabel?: (params: SelectOptions[number]) => SelectOptions[number][1];
-  getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
-  filter?: string;
-  renderOptions?: ElementType;
-};
-
 type AddonProps = ComponentProps<typeof Box>;
 
 export const Addon = forwardRef(
@@ -74,6 +63,18 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   }, deps || []);
 };
 
+export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+  anchor?: ElementType;
+  error?: string;
+  options: SelectOptions;
+  onChange: (value: SelectOptions[number][0]) => void;
+  getLabel?: (params: SelectOptions[number]) => SelectOptions[number][1];
+  getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
+  filter?: string;
+  renderOptions?: ElementType;
+  customEmpty?: string;
+};
+
 export const Select = forwardRef(
   (
     {
@@ -88,13 +89,12 @@ export const Select = forwardRef(
       getLabel = ([_, label] = ['', '']) => label,
       placeholder = '',
       renderOptions: _Options = Options,
+      customEmpty,
       ...props
     }: SelectProps,
     ref: Ref<HTMLInputElement>
   ) => {
     const [internalValue, setInternalValue] = useState(value);
-
-    const currentValue = value !== undefined ? value : internalValue;
 
     const internalChangedByKeyboard = useMutableCallback(([value]) => {
       setInternalValue(value);
@@ -102,7 +102,7 @@ export const Select = forwardRef(
     });
 
     const option = options.find(
-      (option) => getValue(option) === currentValue
+      (option) => getValue(option) === internalValue
     ) as SelectOptions[number];
 
     const index = options.indexOf(option);
@@ -112,7 +112,7 @@ export const Select = forwardRef(
         value,
         label,
       ]: SelectOptions[number]): OptionType => {
-        if (currentValue === value) {
+        if (internalValue === value) {
           return [value, label, true];
         }
         return [value, label];
@@ -122,7 +122,7 @@ export const Select = forwardRef(
         !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
 
       return options.filter(applyFilter).map(mapOptions);
-    }, [options, currentValue, filter]);
+    }, [options, internalValue, filter]);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
       useCursor(index, filteredOptions, internalChangedByKeyboard);
@@ -150,10 +150,8 @@ export const Select = forwardRef(
       if (visible === AnimatedVisibility.VISIBLE) {
         return hide();
       }
-      if (innerRef && innerRef.current) {
-        innerRef.current.focus();
-        return show();
-      }
+      innerRef.current?.focus();
+      return show();
     });
 
     return (
@@ -218,6 +216,7 @@ export const Select = forwardRef(
             options={filteredOptions}
             onSelect={internalChangedByClick}
             cursor={cursor}
+            customEmpty={customEmpty}
           />
         </PositionAnimated>
       </Box>

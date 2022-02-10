@@ -53,57 +53,42 @@ const Template: ComponentStory<typeof MultiSelect> = (args) => (
 );
 
 export const Default: ComponentStory<typeof MultiSelect> = Template.bind({});
-Default.storyName = 'MultiSelect';
 Default.args = {
   placeholder: 'Placeholder here...',
   options,
 };
 
-export const MultiSelectError: ComponentStory<typeof MultiSelect> =
-  Template.bind({});
-MultiSelectError.args = {
+export const Error: ComponentStory<typeof MultiSelect> = Template.bind({});
+Error.args = {
   error: 'Error',
   placeholder: 'Placeholder here...',
   options,
 };
 
-export const MultiSelectDisabled: ComponentStory<typeof MultiSelect> =
-  Template.bind({});
-MultiSelectDisabled.args = {
+export const Disabled: ComponentStory<typeof MultiSelect> = Template.bind({});
+Disabled.args = {
   disabled: true,
   placeholder: 'Placeholder here...',
   options,
+};
+
+export const CustomEmpty: ComponentStory<typeof MultiSelect> = Template.bind(
+  {}
+);
+CustomEmpty.args = {
+  customEmpty: 'Custom Empty Placeholder',
+  placeholder: 'Placeholder here...',
+  options: [],
 };
 
 const FilteredTemplate: ComponentStory<typeof MultiSelectFiltered> = (args) => (
   <MultiSelectFiltered {...args} />
 );
 
-export const Filtered: ComponentStory<typeof MultiSelectFiltered> =
+export const WithFilter: ComponentStory<typeof MultiSelectFiltered> =
   FilteredTemplate.bind({});
-Filtered.args = {
+WithFilter.args = {
   placeholder: 'Placeholder here...',
   onChange: action('change'),
   options,
 };
-Filtered.storyName = 'MultiSelectFiltered';
-
-export const FilteredError: ComponentStory<typeof MultiSelectFiltered> =
-  FilteredTemplate.bind({});
-FilteredError.args = {
-  error: 'Error',
-  placeholder: 'Placeholder here...',
-  onChange: action('change'),
-  options,
-};
-FilteredError.storyName = 'MultiSelectFiltered error';
-
-export const FilteredDisabled: ComponentStory<typeof MultiSelectFiltered> =
-  FilteredTemplate.bind({});
-FilteredDisabled.args = {
-  disabled: true,
-  placeholder: 'Placeholder here...',
-  onChange: action('change'),
-  options,
-};
-FilteredDisabled.storyName = 'MultiSelectFiltered disabled';
