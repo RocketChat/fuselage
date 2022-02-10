@@ -21,17 +21,6 @@ import { Options, useCursor, OptionType } from '../Options';
 
 export type SelectOptions = readonly [value: string, label: string][];
 
-export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
-  anchor?: ElementType;
-  error?: string;
-  options: SelectOptions;
-  onChange: (value: SelectOptions[number][0]) => void;
-  getLabel?: (params: SelectOptions[number]) => SelectOptions[number][1];
-  getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
-  filter?: string;
-  renderOptions?: ElementType;
-};
-
 type AddonProps = ComponentProps<typeof Box>;
 
 export const Addon = forwardRef(
@@ -74,6 +63,18 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   }, deps || []);
 };
 
+export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+  anchor?: ElementType;
+  error?: string;
+  options: SelectOptions;
+  onChange: (value: SelectOptions[number][0]) => void;
+  getLabel?: (params: SelectOptions[number]) => SelectOptions[number][1];
+  getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
+  filter?: string;
+  renderOptions?: ElementType;
+  emptyPlaceholder?: string;
+};
+
 export const Select = forwardRef(
   (
     {
@@ -88,6 +89,7 @@ export const Select = forwardRef(
       getLabel = ([_, label] = ['', '']) => label,
       placeholder = '',
       renderOptions: _Options = Options,
+      emptyPlaceholder,
       ...props
     }: SelectProps,
     ref: Ref<HTMLInputElement>
@@ -150,10 +152,8 @@ export const Select = forwardRef(
       if (visible === AnimatedVisibility.VISIBLE) {
         return hide();
       }
-      if (innerRef && innerRef.current) {
-        innerRef.current.focus();
-        return show();
-      }
+      innerRef.current?.focus();
+      return show();
     });
 
     return (
@@ -218,6 +218,7 @@ export const Select = forwardRef(
             options={filteredOptions}
             onSelect={internalChangedByClick}
             cursor={cursor}
+            emptyPlaceholder={emptyPlaceholder}
           />
         </PositionAnimated>
       </Box>

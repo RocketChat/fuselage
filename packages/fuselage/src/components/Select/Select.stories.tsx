@@ -110,3 +110,21 @@ SelectWithFilterAndDisabled.args = {
   placeholder: 'Placeholder here...',
   options,
 };
+
+export const SelectWithEmptyOptions: ComponentStory<typeof Select> =
+  TemplateWithFilter.bind({});
+SelectWithEmptyOptions.args = {
+  width: '250px',
+  placeholder: 'Placeholder here...',
+  options: [],
+};
+
+export const SelectWithEmptyOptionsCustomPlaceholder: ComponentStory<
+  typeof Select
+> = TemplateWithFilter.bind({});
+SelectWithEmptyOptionsCustomPlaceholder.args = {
+  width: '250px',
+  placeholder: 'Placeholder here...',
+  options: [],
+  emptyPlaceholder: 'Custom empty placeholder',
+};

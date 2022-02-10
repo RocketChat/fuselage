@@ -8,6 +8,7 @@ type MultiSelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   error?: string;
   options: MultiSelectOptions;
   onChange: (value: MultiSelectOptions[number][0]) => void;
+  emptyPlaceholder?: string;
 };
 
 export const MultiSelect: ForwardRefExoticComponent<MultiSelectProps>;

@@ -34,6 +34,7 @@ export const MultiSelect = forwardRef(
       getValue = ([value]) => value,
       placeholder,
       renderOptions: _Options = Options,
+      emptyPlaceholder,
       ...props
     },
     ref
@@ -160,6 +161,7 @@ export const MultiSelect = forwardRef(
               options={filteredOptions}
               onSelect={internalChanged}
               cursor={cursor}
+              emptyPlaceholder={emptyPlaceholder}
             />
           </Position>
         </AnimatedVisibility>
