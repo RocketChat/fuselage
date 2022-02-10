@@ -46,7 +46,7 @@ export const SelectFiltered = forwardRef(
     return (
       <Select
         ref={ref}
-        placeholder={undefined}
+        placeholder={placeholder}
         filter={filter}
         options={options}
         {...props}
