@@ -124,6 +124,7 @@ export class ResizeObserverMock implements ResizeObserver {
                 contentRect: this.contentRect,
                 borderBoxSize: [borderBoxSize],
                 contentBoxSize: [contentBoxSize],
+                devicePixelContentBoxSize: [],
               },
             ],
             this

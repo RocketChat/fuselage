@@ -7,14 +7,14 @@
     "tools/*"
   ],
   "devDependencies": {
-    "bump": "workspace:^",
-    "husky": "^7.0.4",
-    "hygen": "^6.1.0",
-    "lerna": "^4.0.0",
-    "lint-staged": "^11.2.6",
-    "turbo": "^1.0.24",
-    "update-readme": "workspace:tools/update-readme",
-    "webpack": "^5.41.1"
+    "bump": "workspace:~",
+    "husky": "~7.0.4",
+    "hygen": "~6.1.0",
+    "lerna": "~4.0.0",
+    "lint-staged": "~12.3.3",
+    "turbo": "~1.1.2",
+    "update-readme": "workspace:~",
+    "webpack": "~5.68.0"
   },
   "scripts": {
     "postinstall": "husky install",
