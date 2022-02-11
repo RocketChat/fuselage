@@ -57,5 +57,27 @@
   },
   "dependencies": {
     "tslib": "^2.3.1"
+  },
+  "eslintConfig": {
+    "extends": "@rocket.chat/eslint-config-alt/typescript",
+    "env": {
+      "jest": true
+    }
+  },
+  "prettier": "@rocket.chat/prettier-config/fuselage",
+  "jest": {
+    "preset": "ts-jest",
+    "errorOnDeprecated": true,
+    "testMatch": [
+      "<rootDir>/src/**/*.spec.[jt]s?(x)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": {
+          "noUnusedLocals": false,
+          "noUnusedParameters": false
+        }
+      }
+    }
   }
 }
