@@ -19,6 +19,7 @@
   "scripts": {
     "postinstall": "husky install",
     "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
+    "clean": "yarn workspaces foreach -v --topological-dev run clean",
     "build": "yarn turbo run build",
     "lint": "yarn turbo run lint",
     "lint-and-fix": "yarn workspaces foreach -v --topological-dev run lint-and-fix",
