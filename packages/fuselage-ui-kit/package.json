@@ -35,8 +35,7 @@
     "lint-staged": "lint-staged",
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage-ui-kit",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "cross-env NODE_ENV=production build-storybook",
-    "prettier-format": "prettier 'src/**/*' --write"
+    "build-storybook": "cross-env NODE_ENV=production build-storybook"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-polyfills": "*",
@@ -45,11 +44,11 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@rocket.chat/apps-engine": "^1.27.1",
-    "@rocket.chat/eslint-config-alt": "workspace:^",
-    "@rocket.chat/fuselage-polyfills": "workspace:^",
-    "@rocket.chat/icons": "workspace:^",
-    "@rocket.chat/prettier-config": "workspace:^",
+    "@rocket.chat/apps-engine": "~1.30.0",
+    "@rocket.chat/eslint-config-alt": "workspace:~",
+    "@rocket.chat/fuselage-polyfills": "workspace:~",
+    "@rocket.chat/icons": "workspace:~",
+    "@rocket.chat/prettier-config": "workspace:~",
     "@storybook/addon-essentials": "~6.4.18",
     "@storybook/addons": "~6.4.18",
     "@storybook/builder-webpack5": "~6.4.18",
@@ -57,28 +56,28 @@
     "@storybook/react": "~6.4.18",
     "@storybook/source-loader": "~6.4.18",
     "@storybook/theming": "~6.4.18",
-    "@types/react": "^17.0.34",
+    "@types/react": "~17.0.39",
     "@types/react-dom": "^17.0.11",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "~8.2.3",
     "cross-env": "^7.0.3",
-    "eslint": "^8.2.0",
-    "lint-all": "workspace:^",
-    "lint-staged": "^11.2.6",
+    "eslint": "~8.8.0",
+    "lint-all": "workspace:~",
+    "lint-staged": "~12.3.3",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2",
+    "prettier": "~2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
     "typescript": "~4.3.5",
-    "webpack": "^5.41.1",
-    "write-version-module": "workspace:^"
+    "webpack": "~5.68.0",
+    "write-version-module": "workspace:~"
   },
   "dependencies": {
-    "@rocket.chat/fuselage": "workspace:^",
-    "@rocket.chat/fuselage-hooks": "workspace:^",
-    "@rocket.chat/styled": "workspace:^",
-    "@rocket.chat/ui-kit": "workspace:^",
+    "@rocket.chat/fuselage": "workspace:~",
+    "@rocket.chat/fuselage-hooks": "workspace:~",
+    "@rocket.chat/styled": "workspace:~",
+    "@rocket.chat/ui-kit": "workspace:~",
     "tslib": "^2.3.1"
   }
 }

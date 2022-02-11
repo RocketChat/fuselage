@@ -32,9 +32,12 @@ type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   renderItem?: ElementType;
   renderEmpty?: ElementType;
   onSelect: (option: OptionType) => void;
+  customEmpty?: string;
 };
 
-export const Empty = memo(() => <Option label='Empty' />);
+export const Empty = memo(({ customEmpty }: { customEmpty: string }) => (
+  <Option label={customEmpty || 'Empty'} />
+));
 
 export const Options = forwardRef(
   (
@@ -46,6 +49,7 @@ export const Options = forwardRef(
       cursor,
       renderItem: OptionComponent = Option,
       onSelect,
+      customEmpty,
       ...props
     }: OptionsProps,
     ref: Ref<HTMLElement>
@@ -109,7 +113,7 @@ export const Options = forwardRef(
                   : undefined
               }
             >
-              {!options.length && <EmptyComponent />}
+              {!options.length && <EmptyComponent customEmpty={customEmpty} />}
               {optionsMemoized}
             </Tile>
           </Scrollable>
