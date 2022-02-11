@@ -34,7 +34,7 @@ type OrganizationInfoFormProps = {
   nextStep?: ReactNode;
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
-  onBackButtonClick: () => void;
+  onBackButtonClick?: () => void;
   onClickSkip?: () => void;
 };
 
@@ -199,9 +199,11 @@ const OrganizationInfoForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup vertical={isMobile} flexGrow={1}>
-          <Button disabled={isSubmitting} onClick={onBackButtonClick}>
-            {t('component.form.action.back')}
-          </Button>
+          {onBackButtonClick && (
+            <Button disabled={isSubmitting} onClick={onBackButtonClick}>
+              {t('component.form.action.back')}
+            </Button>
+          )}
 
           <Button type='submit' primary disabled={isValidating || isSubmitting}>
             {nextStep ?? t('component.form.action.next')}

@@ -1,7 +1,5 @@
-import { getOptions } from 'loader-utils';
 import peggy, { BuildOptionsBase } from 'peggy';
-
-type WebpackLoaderContext = Parameters<typeof getOptions>[0];
+import { LoaderContext } from 'webpack';
 
 type Options = BuildOptionsBase &
   (
@@ -28,12 +26,12 @@ type Options = BuildOptionsBase &
   );
 
 function peggyLoader(
-  this: WebpackLoaderContext,
+  this: LoaderContext<Options>,
   grammarContent: string
 ): string {
   const options: Options = {
     format: 'commonjs',
-    ...getOptions(this),
+    ...this.getOptions(),
   };
 
   return peggy.generate(grammarContent, {

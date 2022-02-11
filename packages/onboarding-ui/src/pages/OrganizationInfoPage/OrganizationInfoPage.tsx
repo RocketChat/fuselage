@@ -21,7 +21,7 @@ type OrganizationInfoPageProps = {
   initialValues?: OrganizationInfoPayload;
   nextStep?: ReactNode;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
-  onBackButtonClick: () => void;
+  onBackButtonClick?: () => void;
   onClickSkip?: () => void;
 };
 

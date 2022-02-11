@@ -15,5 +15,11 @@ to: packages/<%=package%>/tsconfig.json
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/index.ts"
+    ],
+    "out": "../../static/<%=package%>"
   }
 }
