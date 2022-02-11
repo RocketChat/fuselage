@@ -35,8 +35,7 @@
     "lint-staged": "lint-staged",
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage-ui-kit",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "cross-env NODE_ENV=production build-storybook",
-    "prettier-format": "prettier 'src/**/*' --write"
+    "build-storybook": "cross-env NODE_ENV=production build-storybook"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-polyfills": "*",

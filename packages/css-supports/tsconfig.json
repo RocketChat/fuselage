@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": "./src",
     "target": "es5",
     "module": "ESNext",
     "declaration": true,
@@ -12,5 +13,6 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true
-  }
+  },
+  "include": ["src/**/*"]
 }

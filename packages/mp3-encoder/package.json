@@ -34,7 +34,6 @@
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
-    "prettier-format": "prettier 'src/**/*.ts' --write",
     "docs": "typedoc"
   },
   "publishConfig": {
