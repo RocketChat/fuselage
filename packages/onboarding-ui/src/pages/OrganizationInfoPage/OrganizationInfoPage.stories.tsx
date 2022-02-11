@@ -73,8 +73,12 @@ export default {
 export const _OrganizationInfoPage: Story<Args> = (args) => (
   <OrganizationInfoPage {...args} />
 );
-
 _OrganizationInfoPage.storyName = 'OrganizationInfoPage';
+
+export const _WithoutBack: Story<Args> = (args) => (
+  <OrganizationInfoPage {...args} onBackButtonClick={undefined} />
+);
+_WithoutBack.storyName = 'WithoutBack';
 
 export const _CloudOrganizationInfoPage: Story<Args> = (args) => (
   <OrganizationInfoPage {...args} />
