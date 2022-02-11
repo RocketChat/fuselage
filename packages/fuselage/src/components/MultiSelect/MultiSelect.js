@@ -38,29 +38,30 @@ export const MultiSelect = forwardRef(
       placeholder,
       renderOptions: _Options = Options,
       customEmpty,
+      onSelect,
       ...props
     },
     ref
   ) => {
     const [internalValue, setInternalValue] = useState(value || []);
 
-    const currentValue = value !== undefined ? value : internalValue;
-    const option = options.find((option) => getValue(option) === currentValue);
+    const option = options.find((option) => getValue(option) === internalValue);
     const index = options.indexOf(option);
 
     const internalChanged = ([value]) => {
-      if (currentValue.includes(value)) {
-        const newValue = currentValue.filter((item) => item !== value);
+      if (internalValue.includes(value)) {
+        const newValue = internalValue.filter((item) => item !== value);
         setInternalValue(newValue);
         return onChange(newValue);
       }
-      const newValue = [...currentValue, value];
+      const newValue = [...internalValue, value];
       setInternalValue(newValue);
+      onSelect();
       return onChange(newValue);
     };
 
     const mapOptions = ([value, label]) => {
-      if (currentValue.includes(value)) {
+      if (internalValue.includes(value)) {
         return [value, label, true];
       }
       return [value, label];
@@ -78,17 +79,20 @@ export const MultiSelect = forwardRef(
 
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
+    const handleClick = useMutableCallback((e) => {
+      if (e.target.tagName !== 'I') {
+        innerRef.current?.focus();
+      }
+      return visible === AnimatedVisibility.VISIBLE ? hide() : show();
+    });
+
     return (
       <Box
         is='div'
         rcx-select
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
-        onClick={useMutableCallback(() =>
-          visible === AnimatedVisibility.VISIBLE
-            ? hide()
-            : innerRef.current.focus() & show()
-        )}
+        onClick={handleClick}
         disabled={disabled}
         {...props}
       >
@@ -117,7 +121,7 @@ export const MultiSelect = forwardRef(
                       rcx-input-box--undecorated
                       children={!value ? option || placeholder : null}
                     />
-                    {currentValue.map((value) => (
+                    {internalValue.map((value) => (
                       <SelectedOptions
                         tabIndex={-1}
                         role='option'

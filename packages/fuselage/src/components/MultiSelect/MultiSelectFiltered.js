@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useState } from 'react';
+import React, { forwardRef, useCallback, useEffect, useState } from 'react';
 
 import Flex from '../Flex';
 import { InputBox } from '../InputBox';
@@ -6,6 +6,15 @@ import { MultiSelect } from './MultiSelect';
 
 export const MultiSelectFiltered = ({ options, placeholder, ...props }) => {
   const [filter, setFilter] = useState('');
+  const [isSelected, setIsSelected] = useState(false);
+
+  useEffect(() => {
+    if (isSelected) {
+      setFilter('');
+      setIsSelected(false);
+    }
+  }, [isSelected]);
+
   const anchor = useCallback(
     forwardRef(({ children, filter, ...props }, ref) => (
       <Flex.Item grow={1}>
@@ -19,9 +28,15 @@ export const MultiSelectFiltered = ({ options, placeholder, ...props }) => {
         />
       </Flex.Item>
     )),
-    []
+    [isSelected]
   );
   return (
-    <MultiSelect filter={filter} options={options} {...props} anchor={anchor} />
+    <MultiSelect
+      filter={filter}
+      options={options}
+      {...props}
+      anchor={anchor}
+      onSelect={() => setIsSelected(true)}
+    />
   );
 };
