@@ -12,6 +12,8 @@ import React, {
   forwardRef,
   memo,
   Ref,
+  Dispatch,
+  SetStateAction,
 } from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
@@ -40,6 +42,7 @@ type PaginatedMultiSelectProps = ComponentProps<typeof Box> & {
   error?: boolean;
   options: PaginatedMultiSelecOption[];
   withTitle?: boolean;
+  endReached?: (start: number) => void;
 };
 
 export const PaginatedMultiSelect = ({
@@ -197,14 +200,15 @@ export const PaginatedMultiSelect = ({
   );
 };
 
-type PaginatedMultiSelectFilteredProps = ComponentProps<typeof Box> & {
-  setFilter?: (value: PaginatedMultiSelecOption['value']) => void;
-  placeholder: string;
-  error?: boolean;
-  options: PaginatedMultiSelecOption[];
-  filter?: string;
-  value?: PaginatedMultiSelecOption['value'];
-};
+type PaginatedMultiSelectFilteredProps = PaginatedMultiSelectProps &
+  ComponentProps<typeof Box> & {
+    setFilter?: Dispatch<SetStateAction<string>>;
+    placeholder: string;
+    error?: boolean;
+    options: PaginatedMultiSelecOption[];
+    filter?: string;
+    value?: PaginatedMultiSelecOption['value'][];
+  };
 
 export const PaginatedMultiSelectFiltered = ({
   filter,
