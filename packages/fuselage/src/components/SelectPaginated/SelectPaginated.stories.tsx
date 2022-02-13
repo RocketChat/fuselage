@@ -164,7 +164,7 @@ PaginatedMultiSelectError.args = {
 export const PaginatedMultiSelectFilteredStory: ComponentStory<
   typeof PaginatedMultiSelectFiltered
 > = () => {
-  const [filter, setFilter] = useState<string | undefined | number>('');
+  const [filter, setFilter] = useState<string>('');
   return (
     <PaginatedMultiSelectFiltered
       placeholder='Placeholder here...'
