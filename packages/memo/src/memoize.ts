@@ -31,9 +31,7 @@ export const memoize = <T, A, R>(
 
     const cachedValue = cache.get(arg);
 
-    // return cachedValue if already cached
     if (isCachedValue(cachedValue, arg, cache)) {
-      // reset timer for `arg`
       const oldTimer = cacheTimers.get(arg);
       if (oldTimer) {
         clearTimeout(oldTimer);
@@ -51,7 +49,6 @@ export const memoize = <T, A, R>(
 
     cache.set(arg, result);
 
-    // set timer for `arg`
     if (_options) {
       const timer = setTimeout(cleanUp, _options.maxAge);
       cacheTimers.set(arg, timer);

@@ -39,10 +39,10 @@ describe('clear', () => {
     const memoized = memoize(fn);
     const spiedMemoized = jest.fn(memoized);
 
-    spiedMemoized(undefined); // fn is called
-    spiedMemoized(undefined); // fn is NOT called; cached value is returned
-    clear(memoized); // clear the cache
-    spiedMemoized(undefined); // fn is called
+    spiedMemoized(undefined);
+    spiedMemoized(undefined);
+    clear(memoized);
+    spiedMemoized(undefined);
 
     expect(spiedMemoized).toHaveBeenCalledTimes(3);
     expect(fn).toHaveBeenCalledTimes(2);
@@ -65,13 +65,13 @@ describe('timeout', () => {
     const fn = jest.fn((i: number) => i + 1);
     const memoized = jest.fn(memoize(fn, { maxAge: 3000 }));
 
-    memoized(5); // called -> fn = 1
+    memoized(5);
     jest.advanceTimersByTime(2000);
-    memoized(5); // not called
+    memoized(5);
     jest.advanceTimersByTime(2000);
-    memoized(5); // not called
+    memoized(5);
     jest.advanceTimersByTime(3000);
-    memoized(5); // called -> fn = 2
+    memoized(5);
 
     expect(fn).toHaveBeenCalledTimes(2);
 
@@ -87,13 +87,13 @@ describe('timeout', () => {
     const fn = jest.fn((i: number) => i + 1);
     const memoized = jest.fn(memoize(fn, { maxAge: 3000 }));
 
-    memoized(5); // called -> fn = 1
+    memoized(5);
     jest.advanceTimersByTime(2000);
-    memoized(6); // called -> fn = 2
+    memoized(6);
     jest.advanceTimersByTime(2000);
 
-    memoized(6); // not called
-    memoized(5); // called -> fn = 3
+    memoized(6);
+    memoized(5);
 
     expect(fn).toHaveBeenCalledTimes(3);
 
