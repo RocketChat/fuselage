@@ -34,7 +34,9 @@ export const MultiSelect = forwardRef(
       getValue = ([value]) => value,
       placeholder,
       renderOptions: _Options = Options,
+      renderItem,
       customEmpty,
+      renderSelected: RenderSelected,
       ...props
     },
     ref
@@ -114,19 +116,32 @@ export const MultiSelect = forwardRef(
                       rcx-input-box--undecorated
                       children={!value ? option || placeholder : null}
                     />
-                    {currentValue.map((value) => (
-                      <SelectedOptions
-                        tabIndex={-1}
-                        role='option'
-                        key={value}
-                        onMouseDown={(e) =>
-                          prevent(e) & internalChanged([value]) && false
-                        }
-                        children={getLabel(
-                          options.find(([val]) => val === value)
-                        )}
-                      />
-                    ))}
+                    {currentValue.map((value) =>
+                      RenderSelected ? (
+                        <RenderSelected
+                          role='option'
+                          value={value}
+                          key={value}
+                          label={getLabel(value)}
+                          onMouseDown={(e) =>
+                            prevent(e) & internalChanged([value]) && false
+                          }
+                          children={getLabel(value)}
+                        />
+                      ) : (
+                        <SelectedOptions
+                          tabIndex={-1}
+                          role='option'
+                          key={value}
+                          onMouseDown={(e) =>
+                            prevent(e) & internalChanged([value]) && false
+                          }
+                          children={getLabel(
+                            options.find(([val]) => val === value)
+                          )}
+                        />
+                      )
+                    )}
                   </Margins>
                 </Box>
               </Box>
@@ -156,7 +171,7 @@ export const MultiSelect = forwardRef(
               onMouseDown={prevent}
               multiple
               filter={filter}
-              renderItem={CheckOption}
+              renderItem={renderItem || CheckOption}
               role='listbox'
               options={filteredOptions}
               onSelect={internalChanged}

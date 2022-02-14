@@ -4,7 +4,13 @@ import { Flex } from '../Box';
 import { InputBox } from '../InputBox';
 import { MultiSelect } from './MultiSelect';
 
-export const MultiSelectFiltered = ({ options, placeholder, ...props }) => {
+export const MultiSelectFiltered = ({
+  options,
+  placeholder,
+  filter: propFilter,
+  setFilter: propSetFilter,
+  ...props
+}) => {
   const [filter, setFilter] = useState('');
   const anchor = useCallback(
     forwardRef(({ children, filter, ...props }, ref) => (
@@ -12,8 +18,12 @@ export const MultiSelectFiltered = ({ options, placeholder, ...props }) => {
         <InputBox.Input
           ref={ref}
           placeholder={placeholder}
-          value={filter}
-          onInput={(e) => setFilter(e.currentTarget.value)}
+          value={propFilter || filter}
+          onInput={(e) =>
+            propSetFilter
+              ? propSetFilter(e.currentTarget.value)
+              : setFilter(e.currentTarget.value)
+          }
           {...props}
           rcx-input-box--undecorated
         />
