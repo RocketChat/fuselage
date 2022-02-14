@@ -136,7 +136,6 @@ export const Select = forwardRef(
     });
 
     const innerRef = useRef<HTMLInputElement | null>(null);
-    const addonRef = useRef<HTMLElement | null>(null);
     const anchorRef = useMergedRefs(ref, innerRef);
 
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
@@ -149,16 +148,11 @@ export const Select = forwardRef(
       (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
       (valueLabel || placeholder || typeof placeholder === 'string');
 
-    const handleClick = useMutableCallback((e) => {
-      const addonClicked = addonRef.current === e.target;
+    const handleClick = useMutableCallback(() => {
       if (visible === AnimatedVisibility.VISIBLE) {
         return hide();
       }
-
-      if (!addonClicked) {
-        innerRef.current?.focus();
-      }
-
+      innerRef.current?.focus();
       return show();
     });
 
@@ -206,7 +200,6 @@ export const Select = forwardRef(
             mi='x4'
             children={
               <Icon
-                ref={addonRef}
                 name={
                   visible === AnimatedVisibility.VISIBLE
                     ? 'cross'
