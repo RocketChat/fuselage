@@ -6,7 +6,6 @@ export { default as Banner } from './Banner';
 export {
   Box,
   AnimatedVisibility,
-  Flex,
   Position,
   PositionAnimated,
   Scrollable,
@@ -24,6 +23,7 @@ export * from './Dropdown';
 export * from './EmailInput';
 export { default as Field } from './Field';
 export * from './FieldGroup';
+export { default as Flex } from './Flex';
 export * from './Grid';
 export * from './Icon';
 export * from './InputBox';
