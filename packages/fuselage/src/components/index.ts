@@ -8,7 +8,6 @@ export {
   AnimatedVisibility,
   Position,
   PositionAnimated,
-  Scrollable,
   useArrayLikeClassNameProp,
 } from './Box';
 export { default as Button, ActionButton } from './Button';
@@ -45,6 +44,7 @@ export { default as PasswordInput } from './PasswordInput';
 export * from './StatusBullet';
 export * from './ProgressBar';
 export * from './RadioButton';
+export { default as Scrollable } from './Scrollable';
 export * from './SearchInput';
 export * from './Select';
 export * from './SelectPaginated';
