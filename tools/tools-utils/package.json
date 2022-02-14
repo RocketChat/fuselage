@@ -10,7 +10,7 @@
     "stylelint": "*"
   },
   "dependencies": {
-    "fast-glob": "^3.2.7",
+    "fast-glob": "~3.2.11",
     "json5": "^2.2.0",
     "rimraf": "^3.0.2"
   },

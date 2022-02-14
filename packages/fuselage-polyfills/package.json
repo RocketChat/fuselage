@@ -29,11 +29,11 @@
     "new-event-polyfill": "^1.0.1"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:^",
-    "@rocket.chat/prettier-config": "workspace:^",
-    "eslint": "^8.2.0",
-    "lint-all": "workspace:^",
-    "lint-staged": "^11.2.6",
-    "prettier": "^2.3.2"
+    "@rocket.chat/eslint-config-alt": "workspace:~",
+    "@rocket.chat/prettier-config": "workspace:~",
+    "eslint": "~8.8.0",
+    "lint-all": "workspace:~",
+    "lint-staged": "~12.3.3",
+    "prettier": "~2.5.1"
   }
 }
