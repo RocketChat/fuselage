@@ -15,7 +15,10 @@ import { MultiSelect } from './MultiSelect';
 
 type MultiSelectOption = [value: string, label: string, selected?: boolean];
 
-type MultiSelectFilteredProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+type MultiSelectFilteredProps = Omit<
+  ComponentProps<typeof Box>,
+  'onChange' | 'value'
+> & {
   value?: MultiSelectOption[1][];
   error?: string;
   options: MultiSelectOption[];
