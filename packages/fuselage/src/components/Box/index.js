@@ -103,5 +103,3 @@ export const Box = memo(
 );
 
 Box.displayName = 'Box';
-
-export { default as Position, PositionAnimated } from './Position';

@@ -189,8 +189,6 @@ export const Box: {
   readonly $$typeof: symbol;
 };
 
-export { default as Position, PositionAnimated } from './Position';
-
 export const useArrayLikeClassNameProp: <
   T extends {
     className?:
