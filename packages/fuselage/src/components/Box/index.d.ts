@@ -1,4 +1,4 @@
-import type { css } from '@rocket.chat/css-in-js';
+import type { cssFn } from '@rocket.chat/css-in-js';
 import type {
   AllHTMLAttributes,
   ComponentProps,
@@ -29,8 +29,6 @@ type FontScale =
   | 'micro';
 
 type Falsy = false | 0 | '' | null | undefined;
-
-type EvaluableCss = ReturnType<typeof css>;
 
 type BoxStylingProps = {
   border?: CSSProperties['border'];
@@ -158,7 +156,7 @@ type BoxStylingProps = {
   maxSize?: CSSProperties['blockSize'];
   fontScale?: FontScale;
 
-  className?: string | EvaluableCss | (string | EvaluableCss | Falsy)[];
+  className?: string | cssFn | (string | cssFn | Falsy)[];
 };
 
 export type BoxProps<TElementType extends ElementType> = {
