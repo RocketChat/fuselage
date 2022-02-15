@@ -1,11 +1,11 @@
 export * from './Accordion';
+export { default as AnimatedVisibility } from './AnimatedVisibility';
 export * from './AutoComplete';
 export * from './Avatar';
 export * from './Badge';
 export { default as Banner } from './Banner';
 export {
   Box,
-  AnimatedVisibility,
   Position,
   PositionAnimated,
   useArrayLikeClassNameProp,

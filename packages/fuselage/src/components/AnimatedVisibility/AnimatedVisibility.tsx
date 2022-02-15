@@ -1,9 +1,9 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 
-import { appendClassName } from '../../../helpers/appendClassName';
-import { useStyle } from '../../../hooks/useStyle';
-import { BoxTransforms, useComposedBoxTransform } from '../BoxTransforms';
+import { appendClassName } from '../../helpers/appendClassName';
+import { useStyle } from '../../hooks/useStyle';
+import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
 export type VisibilityType =
   | 'hidden'

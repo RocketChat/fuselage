@@ -3,7 +3,7 @@ import {
   useDebouncedState,
 } from '@rocket.chat/fuselage-hooks';
 
-import AnimatedVisibility from '../Box/AnimatedVisibility';
+import AnimatedVisibility from '../AnimatedVisibility';
 
 export const useVisible = (
   initialVisibility:

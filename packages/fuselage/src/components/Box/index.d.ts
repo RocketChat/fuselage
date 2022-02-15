@@ -189,7 +189,6 @@ export const Box: {
   readonly $$typeof: symbol;
 };
 
-export { default as AnimatedVisibility } from './AnimatedVisibility';
 export { default as Position, PositionAnimated } from './Position';
 
 export const useArrayLikeClassNameProp: <
