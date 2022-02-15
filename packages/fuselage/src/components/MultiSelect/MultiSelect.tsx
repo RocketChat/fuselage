@@ -3,21 +3,47 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useState, useRef, useEffect, memo, forwardRef } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  forwardRef,
+  ComponentProps,
+  SyntheticEvent,
+  ElementType,
+  Ref,
+} from 'react';
 
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
-import Chip from '../Chip';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import { Options, CheckOption, useCursor } from '../Options';
 import { Focus, Addon } from '../Select/Select';
+import { SelectedOptions } from './SelectedOptions';
 
-const SelectedOptions = memo((props) => <Chip {...props} />);
-
-const prevent = (e) => {
+const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
   e.stopPropagation();
   e.nativeEvent.stopImmediatePropagation();
+};
+
+type MultiSelectOption = [value: string, label: string, selected?: boolean];
+
+type MultiSelectProps = Omit<
+  ComponentProps<typeof Box>,
+  'onChange' | 'value'
+> & {
+  value?: MultiSelectOption[1][];
+  error?: string;
+  options: MultiSelectOption[];
+  onChange: (params: MultiSelectOption[0][]) => void;
+  getLabel?: (params: MultiSelectOption) => MultiSelectOption[1];
+  getValue?: (params: MultiSelectOption) => MultiSelectOption[0];
+  customEmpty?: string;
+  anchor?: ElementType;
+  renderOptions?: ElementType;
+  renderItem?: ElementType;
+  renderSelected?: ElementType;
 };
 
 export const MultiSelect = forwardRef(
@@ -30,7 +56,7 @@ export const MultiSelect = forwardRef(
       disabled,
       anchor: Anchor = Focus,
       onChange = () => {},
-      getLabel = ([, label] = []) => label,
+      getLabel = ([, label] = ['', '']) => label,
       getValue = ([value]) => value,
       placeholder,
       renderOptions: _Options = Options,
@@ -38,41 +64,60 @@ export const MultiSelect = forwardRef(
       customEmpty,
       renderSelected: RenderSelected,
       ...props
-    },
-    ref
+    }: MultiSelectProps,
+    ref: Ref<HTMLInputElement>
   ) => {
-    const [internalValue, setInternalValue] = useState(value || []);
+    const [internalValue, setInternalValue] = useState<MultiSelectOption[0][]>(
+      value || []
+    );
+    const [currentOptionValue, setCurrentOption] =
+      useState<MultiSelectOption[0]>();
 
     const currentValue = value !== undefined ? value : internalValue;
-    const option = options.find((option) => getValue(option) === currentValue);
-    const index = options.indexOf(option);
+    const option = options.find(
+      (option) => getValue(option) === currentOptionValue
+    );
 
-    const internalChanged = ([value]) => {
+    const index = options.findIndex(
+      (option) => getValue(option) === currentOptionValue
+    );
+
+    const internalChanged = ([value]: MultiSelectOption) => {
       if (currentValue.includes(value)) {
+        setCurrentOption(undefined);
         const newValue = currentValue.filter((item) => item !== value);
         setInternalValue(newValue);
         return onChange(newValue);
       }
+      setCurrentOption(value);
       const newValue = [...currentValue, value];
       setInternalValue(newValue);
       return onChange(newValue);
     };
 
-    const mapOptions = ([value, label]) => {
+    const mapOptions = ([
+      value,
+      label,
+    ]: MultiSelectOption): MultiSelectOption => {
       if (currentValue.includes(value)) {
         return [value, label, true];
       }
       return [value, label];
     };
-    const applyFilter = ([, option]) =>
-      !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
-    const filteredOptions = options.filter(applyFilter).map(mapOptions);
+
+    const applyFilter = ([, option]: MultiSelectOption) =>
+      !filter || option.toLowerCase().includes(filter.toLowerCase());
+
+    const filteredOptions: MultiSelectOption[] = options
+      .filter(applyFilter)
+      .map(mapOptions);
+
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
       useCursor(index, filteredOptions, internalChanged);
 
     useEffect(reset, [filter]);
 
-    const innerRef = useRef();
+    const innerRef = useRef<HTMLElement>(null);
     const anchorRef = useMergedRefs(ref, innerRef);
 
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
@@ -83,11 +128,13 @@ export const MultiSelect = forwardRef(
         rcx-select
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
-        onClick={useMutableCallback(() =>
-          visible === AnimatedVisibility.VISIBLE
-            ? hide()
-            : innerRef.current.focus() & show()
-        )}
+        onClick={useMutableCallback(() => {
+          if (visible === AnimatedVisibility.VISIBLE) {
+            return hide();
+          }
+          innerRef.current?.focus();
+          return show();
+        })}
         disabled={disabled}
         {...props}
       >
@@ -114,34 +161,37 @@ export const MultiSelect = forwardRef(
                       onKeyDown={handleKeyDown}
                       order={1}
                       rcx-input-box--undecorated
-                      children={!value ? option || placeholder : null}
+                      children={value ? option : placeholder}
                     />
-                    {currentValue.map((value) =>
-                      RenderSelected ? (
+                    {currentValue.map((value: MultiSelectOption[0]) => {
+                      const currentOption = options.find(
+                        ([val]) => val === value
+                      ) as MultiSelectOption;
+                      return RenderSelected ? (
                         <RenderSelected
                           role='option'
                           value={value}
                           key={value}
-                          label={getLabel(value)}
-                          onMouseDown={(e) =>
-                            prevent(e) & internalChanged([value]) && false
-                          }
-                          children={getLabel(value)}
+                          label={getLabel(currentOption)}
+                          onMouseDown={(e: SyntheticEvent) => {
+                            prevent(e);
+                            internalChanged(currentOption);
+                          }}
+                          children={getLabel(currentOption)}
                         />
                       ) : (
                         <SelectedOptions
                           tabIndex={-1}
                           role='option'
                           key={value}
-                          onMouseDown={(e) =>
-                            prevent(e) & internalChanged([value]) && false
-                          }
-                          children={getLabel(
-                            options.find(([val]) => val === value)
-                          )}
+                          onMouseDown={(e: SyntheticEvent) => {
+                            prevent(e);
+                            internalChanged(currentOption);
+                          }}
+                          children={getLabel(currentOption)}
                         />
-                      )
-                    )}
+                      );
+                    })}
                   </Margins>
                 </Box>
               </Box>
