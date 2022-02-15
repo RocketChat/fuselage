@@ -15,9 +15,11 @@ import React, {
   ElementType,
 } from 'react';
 
-import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
+import AnimatedVisibility from '../AnimatedVisibility';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { Options, useCursor, OptionType } from '../Options';
+import PositionAnimated from '../PositionAnimated';
 
 export type SelectOptions = readonly [value: string, label: string][];
 

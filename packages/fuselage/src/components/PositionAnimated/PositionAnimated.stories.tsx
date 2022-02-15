@@ -1,17 +1,23 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { useRef } from 'react';
 
-import { Position, Tile } from '../..';
+import { PositionAnimated, Tile, AnimatedVisibility } from '../..';
 
 export default {
-  title: 'Layout/Position',
-  component: Position,
+  title: 'Layout/PositionAnimated',
+  component: PositionAnimated,
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof Position>;
+  args: {
+    visible: AnimatedVisibility.VISIBLE,
+  },
+} as ComponentMeta<typeof PositionAnimated>;
 
-const Template: ComponentStory<typeof Position> = ({ placement }) => {
+const Template: ComponentStory<typeof PositionAnimated> = ({
+  visible,
+  placement,
+}) => {
   const ref = useRef<HTMLElement>(null);
 
   return (
@@ -19,9 +25,9 @@ const Template: ComponentStory<typeof Position> = ({ placement }) => {
       <Tile padding={12} ref={ref}>
         Anchor element
       </Tile>
-      <Position anchor={ref} placement={placement}>
+      <PositionAnimated anchor={ref} visible={visible} placement={placement}>
         <Tile>Positioned element</Tile>
-      </Position>
+      </PositionAnimated>
     </>
   );
 };

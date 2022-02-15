@@ -11,7 +11,8 @@ import React, {
   useRef,
 } from 'react';
 
-import { Box, Scrollable } from '../Box';
+import { Box } from '../Box';
+import Scrollable from '../Scrollable';
 import Tile from '../Tile';
 import Option from './Option';
 import { useCursor } from './useCursor';

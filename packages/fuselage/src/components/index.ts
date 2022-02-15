@@ -38,7 +38,7 @@ export * from './Pagination';
 export { default as PasswordInput } from './PasswordInput';
 export * from './StatusBullet';
 export { default as Position } from './Position';
-export { default as PositionAnimated } from './Box/Position/PositionAnimated';
+export { default as PositionAnimated } from './PositionAnimated';
 export * from './ProgressBar';
 export * from './RadioButton';
 export { default as Scrollable } from './Scrollable';
