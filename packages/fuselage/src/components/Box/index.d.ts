@@ -188,14 +188,3 @@ export const Box: {
   displayName?: string | undefined;
   readonly $$typeof: symbol;
 };
-
-export const useArrayLikeClassNameProp: <
-  T extends {
-    className?:
-      | string
-      | ReturnType<typeof css>
-      | (string | ReturnType<typeof css>)[];
-  }
->(
-  props: T
-) => T & { className: string };
