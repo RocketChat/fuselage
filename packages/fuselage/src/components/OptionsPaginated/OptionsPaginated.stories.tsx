@@ -14,7 +14,7 @@ const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
 }));
 
 export default {
-  title: 'Misc/Options/OptionsPaginated',
+  title: 'Navigation/Options/OptionsPaginated',
   component: OptionsPaginated,
   parameters: {
     docs: {

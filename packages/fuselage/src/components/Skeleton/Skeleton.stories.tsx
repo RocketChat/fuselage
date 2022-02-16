@@ -11,7 +11,7 @@ import React from 'react';
 import { Skeleton } from '../..';
 
 export default {
-  title: 'Misc/Skeleton',
+  title: 'Layout/Skeleton',
   component: Skeleton,
   parameters: {
     docs: {

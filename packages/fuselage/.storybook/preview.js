@@ -2,9 +2,11 @@ import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { withTests } from '@storybook/addon-jest';
 import { addDecorator, addParameters } from '@storybook/react';
+
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
+import { storySort } from './storySort';
 
 addParameters({
   backgrounds: {
@@ -19,7 +21,7 @@ addParameters({
     page: DocsPage,
   },
   options: {
-    storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
+    storySort,
   },
   viewport: {
     viewports: breakpointTokens.reduce(

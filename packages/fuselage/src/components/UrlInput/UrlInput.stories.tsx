@@ -4,7 +4,7 @@ import { Icon, UrlInput } from '../..';
 import PropsVariation from '../../.storybook/PropsVariation';
 
 export default {
-  title: 'Forms/Inputs/UrlInput',
+  title: 'Inputs/UrlInput',
   component: UrlInput,
   parameters: {
     jest: ['UrlInput.spec.tsx'],

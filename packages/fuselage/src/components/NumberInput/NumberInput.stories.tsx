@@ -12,7 +12,7 @@ import { Icon, NumberInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Forms/Inputs/NumberInput',
+  title: 'Inputs/NumberInput',
   component: NumberInput,
   parameters: {
     docs: {

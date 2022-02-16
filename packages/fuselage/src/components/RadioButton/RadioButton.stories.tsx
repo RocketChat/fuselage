@@ -13,7 +13,7 @@ import { RadioButton } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Buttons/RadioButton',
+  title: 'Inputs/RadioButton',
   component: RadioButton,
   parameters: {
     docs: {

@@ -7,7 +7,7 @@ import { Throbber, Button, Box } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Misc/Throbber',
+  title: 'Data Display/Throbber',
   component: Throbber,
   parameters: {
     docs: {
