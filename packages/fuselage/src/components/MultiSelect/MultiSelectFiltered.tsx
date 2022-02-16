@@ -1,35 +1,17 @@
 import React, {
   ComponentProps,
   Dispatch,
-  ElementType,
   forwardRef,
   SetStateAction,
   useCallback,
   useState,
 } from 'react';
 
-import { Box } from '..';
 import { Flex } from '../Box';
 import { InputBox } from '../InputBox';
 import { MultiSelect } from './MultiSelect';
 
-type MultiSelectOption = [value: string, label: string, selected?: boolean];
-
-type MultiSelectFilteredProps = Omit<
-  ComponentProps<typeof Box>,
-  'onChange' | 'value'
-> & {
-  value?: MultiSelectOption[1][];
-  error?: string;
-  options: MultiSelectOption[];
-  onChange: (params: MultiSelectOption[0][]) => void;
-  getLabel?: (params: MultiSelectOption) => MultiSelectOption[1];
-  getValue?: (params: MultiSelectOption) => MultiSelectOption[0];
-  customEmpty?: string;
-  anchor?: ElementType;
-  renderOptions?: ElementType;
-  renderItem?: ElementType;
-  renderSelected?: ElementType;
+type MultiSelectFilteredProps = ComponentProps<typeof MultiSelect> & {
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
 };
@@ -64,6 +46,6 @@ export const MultiSelectFiltered = ({
     []
   );
   return (
-    <MultiSelect filter={filter} options={options} {...props} anchor={anchor} />
+    <MultiSelect {...props} filter={filter} options={options} anchor={anchor} />
   );
 };

@@ -20,7 +20,9 @@ export type UseCursorOnChange<T> = (
   visibilityHandler: ReturnType<typeof useVisible>
 ) => void;
 
-export const useCursor = <T extends [unknown, unknown, unknown?] = OptionType>(
+export const useCursor = <
+  T extends readonly [unknown, unknown, unknown?] = OptionType
+>(
   initial: number,
   options: Array<T>,
   onChange: UseCursorOnChange<T>

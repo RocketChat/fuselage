@@ -19,7 +19,11 @@ import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
 import { Icon } from '../Icon';
 import { Options, useCursor, OptionType } from '../Options';
 
-export type SelectOptions = readonly [value: string, label: string][];
+export type SelectOption = readonly [
+  value: string,
+  label: string,
+  selected?: boolean
+];
 
 type AddonProps = ComponentProps<typeof Box>;
 
@@ -66,10 +70,10 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
 export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   anchor?: ElementType;
   error?: string;
-  options: SelectOptions;
-  onChange: (value: SelectOptions[number][0]) => void;
-  getLabel?: (params: SelectOptions[number]) => SelectOptions[number][1];
-  getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
+  options: SelectOption[];
+  onChange: (value: SelectOption[0]) => void;
+  getLabel?: (params: SelectOption) => SelectOption[1];
+  getValue?: (params: SelectOption) => SelectOption[0];
   filter?: string;
   renderOptions?: ElementType;
   customEmpty?: string;
@@ -103,22 +107,19 @@ export const Select = forwardRef(
 
     const option = options.find(
       (option) => getValue(option) === internalValue
-    ) as SelectOptions[number];
+    ) as SelectOption;
 
     const index = options.indexOf(option);
 
     const filteredOptions = useMemo<OptionType[]>((): OptionType[] => {
-      const mapOptions = ([
-        value,
-        label,
-      ]: SelectOptions[number]): OptionType => {
+      const mapOptions = ([value, label]: SelectOption): OptionType => {
         if (internalValue === value) {
           return [value, label, true];
         }
         return [value, label];
       };
 
-      const applyFilter = ([, option]: SelectOptions[number]) =>
+      const applyFilter = ([, option]: SelectOption) =>
         !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
 
       return options.filter(applyFilter).map(mapOptions);

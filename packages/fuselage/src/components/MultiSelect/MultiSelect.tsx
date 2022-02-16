@@ -14,6 +14,7 @@ import React, {
   Ref,
 } from 'react';
 
+import { SelectOption } from '..';
 import { AnimatedVisibility, Box, Flex, Position } from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
@@ -27,18 +28,16 @@ const prevent = (e: SyntheticEvent) => {
   e.nativeEvent.stopImmediatePropagation();
 };
 
-type MultiSelectOption = [value: string, label: string, selected?: boolean];
-
 type MultiSelectProps = Omit<
   ComponentProps<typeof Box>,
   'onChange' | 'value'
 > & {
-  value?: MultiSelectOption[1][];
+  value?: SelectOption[0][];
   error?: string;
-  options: MultiSelectOption[];
-  onChange: (params: MultiSelectOption[0][]) => void;
-  getLabel?: (params: MultiSelectOption) => MultiSelectOption[1];
-  getValue?: (params: MultiSelectOption) => MultiSelectOption[0];
+  options: SelectOption[];
+  onChange: (params: SelectOption[0][]) => void;
+  getLabel?: (params: SelectOption) => SelectOption[1];
+  getValue?: (params: SelectOption) => SelectOption[0];
   customEmpty?: string;
   anchor?: ElementType;
   renderOptions?: ElementType;
@@ -67,11 +66,10 @@ export const MultiSelect = forwardRef(
     }: MultiSelectProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    const [internalValue, setInternalValue] = useState<MultiSelectOption[0][]>(
+    const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
       value || []
     );
-    const [currentOptionValue, setCurrentOption] =
-      useState<MultiSelectOption[0]>();
+    const [currentOptionValue, setCurrentOption] = useState<SelectOption[0]>();
 
     const currentValue = value !== undefined ? value : internalValue;
     const option = options.find(
@@ -82,7 +80,7 @@ export const MultiSelect = forwardRef(
       (option) => getValue(option) === currentOptionValue
     );
 
-    const internalChanged = ([value]: MultiSelectOption) => {
+    const internalChanged = ([value]: SelectOption) => {
       if (currentValue.includes(value)) {
         setCurrentOption(undefined);
         const newValue = currentValue.filter((item) => item !== value);
@@ -95,20 +93,17 @@ export const MultiSelect = forwardRef(
       return onChange(newValue);
     };
 
-    const mapOptions = ([
-      value,
-      label,
-    ]: MultiSelectOption): MultiSelectOption => {
+    const mapOptions = ([value, label]: SelectOption): SelectOption => {
       if (currentValue.includes(value)) {
         return [value, label, true];
       }
       return [value, label];
     };
 
-    const applyFilter = ([, option]: MultiSelectOption) =>
+    const applyFilter = ([, option]: SelectOption) =>
       !filter || option.toLowerCase().includes(filter.toLowerCase());
 
-    const filteredOptions: MultiSelectOption[] = options
+    const filteredOptions: SelectOption[] = options
       .filter(applyFilter)
       .map(mapOptions);
 
@@ -163,10 +158,10 @@ export const MultiSelect = forwardRef(
                       rcx-input-box--undecorated
                       children={value ? option : placeholder}
                     />
-                    {currentValue.map((value: MultiSelectOption[0]) => {
+                    {currentValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(
                         ([val]) => val === value
-                      ) as MultiSelectOption;
+                      ) as SelectOption;
                       return RenderSelected ? (
                         <RenderSelected
                           role='option'
@@ -183,7 +178,7 @@ export const MultiSelect = forwardRef(
                         <SelectedOptions
                           tabIndex={-1}
                           role='option'
-                          key={value}
+                          key={String(value)}
                           onMouseDown={(e: SyntheticEvent) => {
                             prevent(e);
                             internalChanged(currentOption);
