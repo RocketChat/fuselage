@@ -9,6 +9,12 @@ $variants: (
   'primary': colors.primary(700),
 );
 
+%column {
+  flex: 0 0 auto;
+
+  margin-inline: lengths.margin(2);
+}
+
 .rcx-option {
   @include clickable;
   @include typography.use-font-scale(p2);
@@ -35,6 +41,64 @@ $variants: (
     margin-inline: lengths.margin(-2);
   }
 
+  &__icon {
+    color: inherit;
+  }
+
+  &__avatar {
+    @extend %column;
+  }
+
+  &__content {
+    @include typography.use-text-ellipsis;
+    @extend %column;
+    flex: 1 1 100%;
+
+    text-align: start;
+
+    white-space: nowrap;
+  }
+
+  &__header {
+    @include typography.use-font-scale(micro);
+
+    padding-block: lengths.padding(8);
+    padding-inline: lengths.padding(16);
+
+    text-transform: uppercase;
+
+    font-weight: 400;
+  }
+
+  &__menu-wrapper {
+    flex-shrink: 0;
+
+    width: 0;
+
+    height: 100%;
+
+    opacity: 0;
+  }
+
+  &.rcx-option__column {
+    @extend %column;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-width: lengths.size(20);
+    min-height: lengths.size(20);
+  }
+
+  &.rcx-option__description {
+    @include typography.use-font-scale(p2);
+    @extend %column;
+    display: inline;
+
+    color: colors.foreground(hint);
+  }
+
   &:hover,
   &--focus {
     background: colors.neutral(100);
@@ -55,16 +119,6 @@ $variants: (
     opacity: 1;
   }
 
-  &__menu-wrapper {
-    flex-shrink: 0;
-
-    width: 0;
-
-    height: 100%;
-
-    opacity: 0;
-  }
-
   @each $name, $color in $variants {
     &--#{$name} {
       color: theme('option-color-variant-#{$name}', $color);
@@ -72,51 +126,10 @@ $variants: (
   }
 }
 
-%column {
-  flex: 0 0 auto;
-
-  margin-inline: lengths.margin(2);
-}
-
-.rcx-option__icon {
-  color: inherit;
-}
-
-.rcx-option__avatar {
-  @extend %column;
-}
-
-.rcx-option__content {
-  @include typography.use-text-ellipsis;
-  @extend %column;
-  flex: 1 1 100%;
-
-  text-align: start;
-
-  white-space: nowrap;
-}
-
-.rcx-option__column {
-  @extend %column;
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  min-width: lengths.size(20);
-  min-height: lengths.size(20);
-}
-
-.rcx-option__description {
-  @include typography.use-font-scale(p2);
-  @extend %column;
-  display: inline;
-
-  color: colors.foreground(hint);
-}
-
-.rcx-options:hover {
-  .rcx-option--focus:not(.rcx-option--selected):not(:hover) {
-    background: initial;
+.rcx-options {
+  &:hover {
+    .rcx-option--focus:not(.rcx-option--selected):not(:hover) {
+      background: initial;
+    }
   }
 }

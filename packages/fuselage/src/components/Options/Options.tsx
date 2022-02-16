@@ -51,6 +51,7 @@ export const Options = forwardRef(
       renderItem: OptionComponent = Option,
       onSelect,
       customEmpty,
+      children,
       ...props
     }: OptionsProps,
     ref: Ref<HTMLElement>
@@ -77,7 +78,7 @@ export const Options = forwardRef(
 
     const optionsMemoized = useMemo(
       () =>
-        options.map(([value, label, selected], i) => (
+        options?.map(([value, label, selected], i) => (
           <OptionComponent
             role='option'
             label={label}
@@ -94,6 +95,7 @@ export const Options = forwardRef(
         )),
       [options, multiple, cursor, onSelect]
     );
+
     return (
       <Box rcx-options {...props} ref={ref}>
         <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
@@ -114,8 +116,10 @@ export const Options = forwardRef(
                   : undefined
               }
             >
-              {!options.length && <EmptyComponent customEmpty={customEmpty} />}
-              {optionsMemoized}
+              {options?.length ? optionsMemoized : children}
+              {!options?.length && !children && (
+                <EmptyComponent customEmpty={customEmpty} />
+              )}
             </Tile>
           </Scrollable>
         </Tile>
