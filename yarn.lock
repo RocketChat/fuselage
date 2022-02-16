@@ -5658,7 +5658,6 @@ __metadata:
     "@rocket.chat/memo": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     "@storybook/addon-essentials": ~6.4.18
-    "@storybook/addon-jest": ~6.4.18
     "@storybook/addon-links": ~6.4.18
     "@storybook/addons": ~6.4.18
     "@storybook/builder-webpack5": ~6.4.18
@@ -6356,32 +6355,6 @@ __metadata:
     webpack:
       optional: true
   checksum: 5f77f3fb94db89104222a47eabc6b2d77575a118789ee258d84747f0df51d1bc3b86eba1472beb01b70ec2b416c3d6d858f9d952949a9b0836362b629775ce58
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-jest@npm:~6.4.18":
-  version: 6.4.18
-  resolution: "@storybook/addon-jest@npm:6.4.18"
-  dependencies:
-    "@storybook/addons": 6.4.18
-    "@storybook/api": 6.4.18
-    "@storybook/components": 6.4.18
-    "@storybook/core-events": 6.4.18
-    "@storybook/theming": 6.4.18
-    core-js: ^3.8.2
-    global: ^4.4.0
-    react-sizeme: ^3.0.1
-    regenerator-runtime: ^0.13.7
-    upath: ^1.2.0
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: c80b45d9bf1eaaadae7bfa9a8cf39d5259be1184ddd410160debcd2cca3651f431f9c93dec195b34947602bc2615c8469289b92ea7dd433f94658fd9f08a9993
   languageName: node
   linkType: hard
 
@@ -26989,7 +26962,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"upath@npm:^1.1.1, upath@npm:^1.2.0":
+"upath@npm:^1.1.1":
   version: 1.2.0
   resolution: "upath@npm:1.2.0"
   checksum: 4c05c094797cb733193a0784774dbea5b1889d502fc9f0572164177e185e4a59ba7099bf0b0adf945b232e2ac60363f9bf18aac9b2206fb99cbef971a8455445
