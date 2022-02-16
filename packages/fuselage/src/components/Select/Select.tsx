@@ -73,6 +73,7 @@ export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   filter?: string;
   renderOptions?: ElementType;
   customEmpty?: string;
+  addonIcon?: ComponentProps<typeof Icon>['name'];
 };
 
 export const Select = forwardRef(
@@ -89,6 +90,7 @@ export const Select = forwardRef(
       getLabel = ([_, label] = ['', '']) => label,
       placeholder = '',
       renderOptions: _Options = Options,
+      addonIcon,
       customEmpty,
       ...props
     }: SelectProps,
@@ -201,7 +203,7 @@ export const Select = forwardRef(
                 name={
                   visible === AnimatedVisibility.VISIBLE
                     ? 'cross'
-                    : 'chevron-down'
+                    : addonIcon || 'chevron-down'
                 }
                 size='x20'
               />

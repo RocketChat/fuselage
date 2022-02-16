@@ -100,6 +100,16 @@ WithEmptyOptions.args = {
   options: [],
 };
 
+export const WithAddon: ComponentStory<typeof Select> = TemplateWithFilter.bind(
+  {}
+);
+WithAddon.args = {
+  width: '250px',
+  placeholder: 'Placeholder here...',
+  options,
+  addonIcon: 'magnifier',
+};
+
 export const CustomEmpty: ComponentStory<typeof Select> =
   TemplateWithFilter.bind({});
 CustomEmpty.args = {
