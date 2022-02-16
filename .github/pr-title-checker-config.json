@@ -4,7 +4,7 @@
     "color": "B60205"
   },
   "CHECKS": {
-    "regexp": "^(?<type>build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(?<scope>(?:\\([^()\r\n]*\\)|\\()?(?<breaking>!)?)(?<subject>:.*)?$",
+    "regexp": "^(?<type>chore|docs|feat|fix|refactor|revert|test)(?<scope>(?:\\([^()\r\n]*\\)|\\()?(?<breaking>!)?)(?<subject>:.*)?$",
     "ignoreLabels": ["[ignore-title]"]
   }
 }
