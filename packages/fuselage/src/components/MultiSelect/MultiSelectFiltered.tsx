@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 
-import { Box } from '..';
+import { Box, Icon } from '..';
 import { Flex } from '../Box';
 import { InputBox } from '../InputBox';
 import { MultiSelect } from './MultiSelect';
@@ -32,6 +32,7 @@ type MultiSelectFilteredProps = Omit<
   renderSelected?: ElementType;
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
+  addonIcon?: ComponentProps<typeof Icon>['name'];
 };
 
 export const MultiSelectFiltered = ({

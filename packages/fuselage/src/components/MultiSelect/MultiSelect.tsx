@@ -44,6 +44,7 @@ type MultiSelectProps = Omit<
   renderOptions?: ElementType;
   renderItem?: ElementType;
   renderSelected?: ElementType;
+  addonIcon?: ComponentProps<typeof Icon>['name'];
 };
 
 export const MultiSelect = forwardRef(
@@ -63,6 +64,7 @@ export const MultiSelect = forwardRef(
       renderItem,
       customEmpty,
       renderSelected: RenderSelected,
+      addonIcon,
       ...props
     }: MultiSelectProps,
     ref: Ref<HTMLInputElement>
@@ -206,7 +208,7 @@ export const MultiSelect = forwardRef(
                   name={
                     visible === AnimatedVisibility.VISIBLE
                       ? 'cross'
-                      : 'chevron-down'
+                      : addonIcon || 'chevron-down'
                   }
                   size='x20'
                 />
