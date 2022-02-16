@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useState } from 'react';
 
-import { Flex } from '../Flex';
+import Flex from '../Flex';
 import { InputBox } from '../InputBox';
 import { MultiSelect } from './MultiSelect';
 

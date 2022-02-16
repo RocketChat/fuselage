@@ -53,7 +53,7 @@ export const Breakpoints = () => (
   <Table fixed striped sticky>
     <TableHead>
       <TableRow>
-        <TableCell></TableCell>
+        <TableCell />
         <TableCell>extra-small</TableCell>
         <TableCell>small</TableCell>
         <TableCell>medium</TableCell>
