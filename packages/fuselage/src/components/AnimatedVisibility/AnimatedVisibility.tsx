@@ -1,5 +1,6 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
-import React, { ReactNode, useCallback, useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { useStyle } from '../../hooks/useStyle';

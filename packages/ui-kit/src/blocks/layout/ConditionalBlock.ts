@@ -1,6 +1,6 @@
-import { Conditions } from '../../rendering/Conditions';
-import { LayoutBlockish } from '../LayoutBlockish';
-import { RenderableLayoutBlock } from '../RenderableLayoutBlock';
+import type { Conditions } from '../../rendering/Conditions';
+import type { LayoutBlockish } from '../LayoutBlockish';
+import type { RenderableLayoutBlock } from '../RenderableLayoutBlock';
 
 export type ConditionalBlock = LayoutBlockish<{
   type: 'conditional';

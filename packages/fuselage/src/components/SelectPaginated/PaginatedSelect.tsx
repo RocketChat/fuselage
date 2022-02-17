@@ -3,17 +3,8 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useState,
-  useRef,
-  forwardRef,
-  useMemo,
-  SyntheticEvent,
-  ComponentProps,
-  useEffect,
-  Ref,
-  ElementType,
-} from 'react';
+import type { SyntheticEvent, ComponentProps, Ref, ElementType } from 'react';
+import React, { useState, useRef, forwardRef, useMemo, useEffect } from 'react';
 
 import type { SelectProps } from '..';
 import AnimatedVisibility from '../AnimatedVisibility';

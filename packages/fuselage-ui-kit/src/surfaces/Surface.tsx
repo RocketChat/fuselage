@@ -1,4 +1,5 @@
-import React, { ContextType, ReactElement, ReactNode } from 'react';
+import type { ContextType, ReactElement, ReactNode } from 'react';
+import React from 'react';
 
 import { SurfaceContext } from '../contexts/SurfaceContext';
 

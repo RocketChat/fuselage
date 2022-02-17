@@ -1,4 +1,5 @@
-import React, { AllHTMLAttributes, ComponentProps } from 'react';
+import type { AllHTMLAttributes, ComponentProps } from 'react';
+import React from 'react';
 
 import { Icon } from '../..';
 

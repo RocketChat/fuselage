@@ -1,9 +1,5 @@
-import React, {
-  ComponentProps,
-  Dispatch,
-  SetStateAction,
-  useMemo,
-} from 'react';
+import type { ComponentProps, Dispatch, SetStateAction } from 'react';
+import React, { useMemo } from 'react';
 
 import { Box } from '../Box';
 import { Chevron } from '../Chevron';

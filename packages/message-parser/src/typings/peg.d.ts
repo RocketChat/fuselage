@@ -1,6 +1,7 @@
 declare module '*.pegjs' {
-  export const parse: (
-    input: string,
-    options?: import('peggy').ParserOptions
-  ) => import('../definitions').ASTMessage;
+  import type { ParserOptions } from 'peggy';
+
+  import type { ASTMessage } from '../definitions';
+
+  export const parse: (input: string, options?: ParserOptions) => ASTMessage;
 }

@@ -7,7 +7,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Button, ButtonGroup } from '../..';

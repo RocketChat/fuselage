@@ -1,5 +1,5 @@
 import * as UiKit from '@rocket.chat/ui-kit';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 export const fromTextObjectToString = (

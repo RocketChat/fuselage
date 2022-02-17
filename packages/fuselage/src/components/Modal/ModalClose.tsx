@@ -1,6 +1,7 @@
-import React, { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
+import React from 'react';
 
-import { Box } from '..';
+import type { Box } from '..';
 import { ActionButton } from '../Button';
 
 export type ModalCloseProps = ComponentProps<typeof Box>;

@@ -1,5 +1,5 @@
-import { Option } from './Option';
-import { PlainText } from './text/PlainText';
+import type { Option } from './Option';
+import type { PlainText } from './text/PlainText';
 
 export type OptionGroup = {
   label: PlainText;

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { CodeSnippet } from '../..';

@@ -5,11 +5,13 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { createRef } from 'react';
 
-import { Options, OptionType } from '.';
-import { Box, Menu, Divider } from '..';
+import type { OptionType } from '.';
+import { Options } from '.';
+import type { Menu } from '..';
+import { Box, Divider } from '..';
 import { CheckOption } from './CheckOption';
 import Option, { OptionHeader } from './Option';
 

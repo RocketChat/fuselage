@@ -1,10 +1,5 @@
-import React, {
-  ComponentProps,
-  createContext,
-  useContext,
-  ReactElement,
-  ElementType,
-} from 'react';
+import type { ComponentProps, ReactElement, ElementType } from 'react';
+import React, { createContext, useContext } from 'react';
 
 import { Box } from '../Box';
 

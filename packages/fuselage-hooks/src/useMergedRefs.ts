@@ -1,4 +1,5 @@
-import { useCallback, useRef, Ref, RefCallback, MutableRefObject } from 'react';
+import type { Ref, RefCallback, MutableRefObject } from 'react';
+import { useCallback, useRef } from 'react';
 
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 

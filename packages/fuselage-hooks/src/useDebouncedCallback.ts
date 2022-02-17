@@ -1,4 +1,5 @@
-import { useMemo, DependencyList, useCallback, useRef, useEffect } from 'react';
+import type { DependencyList } from 'react';
+import { useMemo, useCallback, useRef, useEffect } from 'react';
 
 /**
  * Hook to memoize a debounced version of a callback.

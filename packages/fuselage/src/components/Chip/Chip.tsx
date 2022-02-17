@@ -1,4 +1,5 @@
-import React, { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
+import React from 'react';
 
 import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';

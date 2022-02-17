@@ -1,4 +1,5 @@
-import { attachDeclaration, RuleSet, Declaration } from './elements';
+import type { RuleSet, Declaration } from './elements';
+import { attachDeclaration } from './elements';
 
 export type Operation = (
   value: Declaration['children'],

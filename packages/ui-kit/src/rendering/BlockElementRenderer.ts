@@ -1,5 +1,5 @@
-import { BlockElement } from '..';
-import { BlockContext } from './BlockContext';
+import type { BlockElement } from '..';
+import type { BlockContext } from './BlockContext';
 
 export type BlockElementRenderer<
   OutputElement,

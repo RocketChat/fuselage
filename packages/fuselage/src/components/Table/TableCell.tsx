@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { Box } from '../Box';
-import { TableProps } from './Table';
+import type { TableProps } from './Table';
 import { TableHeadContext } from './TableHead';
 
 type TableCellProps = TableProps & {

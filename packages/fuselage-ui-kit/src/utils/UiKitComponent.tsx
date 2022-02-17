@@ -1,7 +1,7 @@
-import * as UiKit from '@rocket.chat/ui-kit';
-import { ReactElement } from 'react';
+import type * as UiKit from '@rocket.chat/ui-kit';
+import type { ReactElement } from 'react';
 
-import { UiKitBanner, UiKitMessage, UiKitModal } from '../surfaces';
+import type { UiKitBanner, UiKitMessage, UiKitModal } from '../surfaces';
 
 type UiKitComponentProps = {
   render: typeof UiKitBanner | typeof UiKitMessage | typeof UiKitModal;

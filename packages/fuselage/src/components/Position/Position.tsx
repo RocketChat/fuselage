@@ -1,17 +1,15 @@
-import { Placements, usePosition } from '@rocket.chat/fuselage-hooks';
-import {
-  useRef,
-  useMemo,
-  useEffect,
-  cloneElement,
+import type { Placements } from '@rocket.chat/fuselage-hooks';
+import { usePosition } from '@rocket.chat/fuselage-hooks';
+import type {
   RefObject,
   ComponentProps,
   ReactPortal,
   ReactElement,
 } from 'react';
+import { useRef, useMemo, useEffect, cloneElement } from 'react';
 import { createPortal } from 'react-dom';
 
-import { Box } from '../Box';
+import type { Box } from '../Box';
 
 type PositionProps = {
   anchor: RefObject<Element>;

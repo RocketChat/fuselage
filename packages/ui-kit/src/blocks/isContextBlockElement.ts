@@ -1,8 +1,8 @@
-import { BlockElement } from './BlockElement';
+import type { BlockElement } from './BlockElement';
 import { BlockElementType } from './BlockElementType';
-import { TextObject } from './TextObject';
+import type { TextObject } from './TextObject';
 import { TextObjectType } from './TextObjectType';
-import { ContextBlock } from './layout/ContextBlock';
+import type { ContextBlock } from './layout/ContextBlock';
 
 export const isContextBlockElement = (
   block: TextObject | BlockElement

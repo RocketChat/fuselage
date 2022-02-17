@@ -1,7 +1,8 @@
 import { css } from '@rocket.chat/css-in-js';
-import React, { ComponentProps, PropsWithChildren, useCallback } from 'react';
+import type { ComponentProps, PropsWithChildren } from 'react';
+import React, { useCallback } from 'react';
 
-import { Box } from '..';
+import type { Box } from '..';
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { useStyle } from '../../hooks/useStyle';

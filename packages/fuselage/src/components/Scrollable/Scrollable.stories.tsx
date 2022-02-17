@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentMeta } from '@storybook/react';
+import type { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Scrollable, Tile } from '../..';

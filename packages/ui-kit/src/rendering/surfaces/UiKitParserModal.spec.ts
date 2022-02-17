@@ -1,9 +1,5 @@
-import {
-  uiKitModal,
-  UiKitParserModal,
-  PlainText,
-  OverflowElement,
-} from '../..';
+import type { PlainText, OverflowElement } from '../..';
+import { uiKitModal, UiKitParserModal } from '../..';
 import { BlockContext } from '../BlockContext';
 
 class TestParser extends UiKitParserModal<unknown> {

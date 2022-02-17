@@ -1,8 +1,9 @@
 import { Divider } from '@rocket.chat/fuselage';
-import * as UiKit from '@rocket.chat/ui-kit';
-import React, { memo, ReactElement } from 'react';
+import type * as UiKit from '@rocket.chat/ui-kit';
+import type { ReactElement } from 'react';
+import React, { memo } from 'react';
 
-import { BlockProps } from '../utils/BlockProps';
+import type { BlockProps } from '../utils/BlockProps';
 
 type DividerBlockProps = BlockProps<UiKit.DividerBlock>;
 

@@ -1,10 +1,11 @@
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-import { DecoratorFunction } from '@storybook/addons';
+import type { DecoratorFunction } from '@storybook/addons';
 import { addParameters } from '@storybook/react';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 import i18next from 'i18next';
-import { ElementType, ReactElement, Suspense } from 'react';
+import type { ElementType, ReactElement } from 'react';
+import { Suspense } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { useDarkMode } from 'storybook-dark-mode';
 

@@ -1,4 +1,5 @@
-import { useRef, MutableRefObject } from 'react';
+import type { MutableRefObject } from 'react';
+import { useRef } from 'react';
 
 const hasChanged = <T extends unknown[]>(
   ref: MutableRefObject<T>,

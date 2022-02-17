@@ -1,4 +1,5 @@
-import React, { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
+import React from 'react';
 
 import { Icon } from '../../Icon';
 import OptionColumn from './OptionColumn';

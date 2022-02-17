@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box } from '../Box';
-import { TableProps } from './Table';
+import type { TableProps } from './Table';
 
 type TableFootProps = TableProps;
 

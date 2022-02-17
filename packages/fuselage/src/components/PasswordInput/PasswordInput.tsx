@@ -1,5 +1,6 @@
 import { useToggle } from '@rocket.chat/fuselage-hooks';
-import React, { ComponentProps, forwardRef, Ref } from 'react';
+import type { ComponentProps, Ref } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';

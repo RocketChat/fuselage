@@ -1,8 +1,9 @@
 import { Title, Primary } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { MessageToolbox, MessageToolboxItem, MessageToolboxWrapper } from '.';
+import type { MessageToolboxWrapper } from '.';
+import { MessageToolbox, MessageToolboxItem } from '.';
 import { Box } from '../..';
 
 export default {

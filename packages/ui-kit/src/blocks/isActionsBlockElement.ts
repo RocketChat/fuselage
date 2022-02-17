@@ -1,6 +1,6 @@
-import { BlockElement } from './BlockElement';
+import type { BlockElement } from './BlockElement';
 import { BlockElementType } from './BlockElementType';
-import { ActionsBlock } from './layout/ActionsBlock';
+import type { ActionsBlock } from './layout/ActionsBlock';
 
 export const isActionsBlockElement = (
   block: BlockElement

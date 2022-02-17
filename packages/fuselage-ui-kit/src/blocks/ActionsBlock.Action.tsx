@@ -1,6 +1,7 @@
 import { Box } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import React from 'react';
 
 type ActionProps = {
   element: UiKit.ActionsBlock['elements'][number];

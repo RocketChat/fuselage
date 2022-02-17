@@ -1,4 +1,5 @@
-import React, { ComponentProps, forwardRef, Ref, useMemo } from 'react';
+import type { ComponentProps, Ref } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 
 import { Box } from '../Box';
 

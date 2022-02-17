@@ -1,4 +1,5 @@
-import React, { ComponentProps, memo } from 'react';
+import type { ComponentProps } from 'react';
+import React, { memo } from 'react';
 
 import { CheckBox } from '../CheckBox';
 import Option from './Option';

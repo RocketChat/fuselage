@@ -1,12 +1,6 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import React, {
-  ComponentProps,
-  FormEvent,
-  forwardRef,
-  Ref,
-  useCallback,
-  useState,
-} from 'react';
+import type { ComponentProps, FormEvent, Ref } from 'react';
+import React, { forwardRef, useCallback, useState } from 'react';
 
 import { Select } from '.';
 import { InputBox } from '../InputBox';

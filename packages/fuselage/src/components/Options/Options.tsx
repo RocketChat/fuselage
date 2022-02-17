@@ -1,11 +1,13 @@
-import React, {
+import type {
   ComponentProps,
   ElementType,
-  forwardRef,
   ReactNode,
-  memo,
   Ref,
   SyntheticEvent,
+} from 'react';
+import React, {
+  forwardRef,
+  memo,
   useLayoutEffect,
   useMemo,
   useRef,

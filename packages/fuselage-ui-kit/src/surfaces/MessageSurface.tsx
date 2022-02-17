@@ -1,5 +1,6 @@
 import { Margins } from '@rocket.chat/fuselage';
-import React, { ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import React from 'react';
 
 import { Surface } from './Surface';
 

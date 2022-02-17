@@ -1,6 +1,6 @@
-import { ComponentProps, ForwardRefExoticComponent } from 'react';
+import type { ComponentProps, ForwardRefExoticComponent } from 'react';
 
-import { Box } from '../Box';
+import type { Box } from '../Box';
 
 type MultiSelectOptions = readonly (readonly [string, string, boolean?])[];
 

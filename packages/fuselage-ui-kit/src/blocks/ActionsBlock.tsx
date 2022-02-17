@@ -1,15 +1,10 @@
 import { Box, Button } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
-import React, {
-  memo,
-  ReactElement,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react';
+import type { ReactElement } from 'react';
+import React, { memo, useCallback, useMemo, useState } from 'react';
 
 import { useSurfaceType } from '../contexts/SurfaceContext';
-import { BlockProps } from '../utils/BlockProps';
+import type { BlockProps } from '../utils/BlockProps';
 import Action from './ActionsBlock.Action';
 
 type ActionsBlockProps = BlockProps<UiKit.ActionsBlock>;

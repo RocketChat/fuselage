@@ -1,5 +1,7 @@
-import nameToCharacterMapping, { Keys } from '@rocket.chat/icons';
-import React, { ComponentProps, forwardRef, Ref } from 'react';
+import type { Keys } from '@rocket.chat/icons';
+import nameToCharacterMapping from '@rocket.chat/icons';
+import type { ComponentProps, Ref } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
