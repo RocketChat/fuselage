@@ -4,8 +4,8 @@ import {
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
 import React, { useState, useRef, useEffect, memo, forwardRef } from 'react';
-import { isForwardRef } from 'react-is';
 
+import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
 import Chip from '../Chip';
@@ -87,7 +87,7 @@ export const MultiSelect = forwardRef(function MultiSelect(
     return visible === AnimatedVisibility.VISIBLE ? hide() : show();
   });
 
-  const renderAnchor = isForwardRef(Anchor)
+  const renderAnchor = isForwardRefType(Anchor)
     ? (params) => <Anchor {...params} />
     : Anchor;
 
