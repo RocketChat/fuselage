@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-const OptionHeader = ({ children }: { children: string }) => (
+type OptionHeaderProps = {
+  children: ReactNode;
+};
+
+const OptionHeader = ({ children }: OptionHeaderProps) => (
   <div className='rcx-option__header'>{children}</div>
 );
 

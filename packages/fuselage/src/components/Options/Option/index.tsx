@@ -11,13 +11,21 @@ import OptionSkeleton from './OptionSkeleton';
 import OptionTitle from './OptionTitle';
 
 export default Object.assign(Option, {
+  /** @deprecated */
   Description: OptionDescription,
+  /** @deprecated */
   Skeleton: OptionSkeleton,
+  /** @deprecated */
   Avatar: OptionAvatar,
+  /** @deprecated */
   Menu: OptionMenu,
+  /** @deprecated */
   Icon: OptionIcon,
+  /** @deprecated */
   Divider: OptionDivider,
+  /** @deprecated */
   Column: OptionColumn,
+  /** @deprecated */
   Content: OptionContent,
 });
 
