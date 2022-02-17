@@ -5,7 +5,6 @@ import { addParameters } from '@storybook/react';
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
-import { storySort } from './storySort';
 
 addParameters({
   backgrounds: {
@@ -20,7 +19,18 @@ addParameters({
     page: DocsPage,
   },
   options: {
-    storySort,
+    storySort: {
+      order: [
+        'Inputs',
+        'Data Display',
+        'Feedback',
+        'Containers',
+        'Navigation',
+        'Layout',
+        'Message',
+        'Sidebar',
+      ],
+    },
   },
   viewport: {
     viewports: breakpointTokens.reduce(
