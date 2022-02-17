@@ -128,27 +128,3 @@ export const menuOptions = {
     action: () => console.log('[...] no longer exists'),
   },
 };
-
-export const customMenuOptions = {
-  example: {
-    label: 'Example',
-    action: () => console.log('[...] no longer exists'),
-  },
-  divider1: {
-    type: 'divider',
-  },
-  heading: {
-    type: 'heading',
-    label: 'Heading Example',
-  },
-  delete: {
-    type: 'option',
-    label: (
-      <Box display='flex' alignItems='center' color='danger'>
-        <Icon mie='x4' name='trash' size='x16' />
-        Delete
-      </Box>
-    ),
-    action: () => console.log('[...] no longer exists'),
-  },
-};
