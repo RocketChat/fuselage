@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box, Menu } from '..';
-import { menuOptions } from '../../../.storybook/helpers.js';
+import { Box, Menu, MenuProps } from '..';
+import { menuOptions, customMenuOptions } from '../../../.storybook/helpers.js';
 
 export default {
   title: 'Navigation/Menu',
@@ -16,8 +16,14 @@ export default {
   },
 } as ComponentMeta<typeof Menu>;
 
-export const Template: ComponentStory<typeof Menu> = () => (
+export const Default: ComponentStory<typeof Menu> = () => (
   <Box style={{ position: 'relative', maxWidth: 250 }}>
     <Menu options={menuOptions} />
+  </Box>
+);
+
+export const CustomOptions: ComponentStory<typeof Menu> = () => (
+  <Box style={{ position: 'relative', maxWidth: 250 }}>
+    <Menu options={customMenuOptions as MenuProps['options']} />
   </Box>
 );
