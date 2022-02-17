@@ -9,41 +9,20 @@ import React, { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
+import Margins from '../Margins';
 import type { OptionType } from '../Options';
 import { Options, useCursor } from '../Options';
 import PositionAnimated from '../PositionAnimated';
+import SelectAddon from './SelectAddon';
+import SelectFocus from './SelectFocus';
 
 export type SelectOptions = readonly [value: string, label: string][];
-
-type AddonProps = ComponentProps<typeof Box>;
-
-export const Addon = forwardRef(
-  (props: AddonProps, ref: Ref<HTMLDivElement>) => (
-    <Box is='div' rcx-select__addon ref={ref} {...props} />
-  )
-);
 
 type WrapperProps = ComponentProps<typeof Box>;
 
 const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
   <Box is='div' rcx-select__wrapper ref={ref} {...props} />
 ));
-
-type FocusProps = ComponentProps<typeof Box>;
-
-export const Focus = forwardRef(
-  (props: FocusProps, ref: Ref<HTMLButtonElement>) => (
-    <Box
-      ref={ref}
-      fontScale='p2m'
-      color='hint'
-      rcx-select__focus
-      is='button'
-      type='button'
-      {...props}
-    />
-  )
-);
 
 const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   const didMount = useRef(false);
@@ -78,7 +57,7 @@ export const Select = forwardRef(
       error,
       disabled,
       options,
-      anchor: Anchor = Focus,
+      anchor: Anchor = SelectFocus,
       onChange = () => {},
       getValue = ([value] = ['', '']) => value,
       getLabel = ([_, label] = ['', '']) => label,
@@ -190,19 +169,20 @@ export const Select = forwardRef(
             onKeyUp={handleKeyUp}
             onKeyDown={handleKeyDown}
           />
-          <Addon
-            mi='x4'
-            children={
-              <Icon
-                name={
-                  visible === AnimatedVisibility.VISIBLE
-                    ? 'cross'
-                    : addonIcon || 'chevron-down'
-                }
-                size='x20'
-              />
-            }
-          />
+          <Margins inline='x4'>
+            <SelectAddon
+              children={
+                <Icon
+                  name={
+                    visible === AnimatedVisibility.VISIBLE
+                      ? 'cross'
+                      : addonIcon || 'chevron-down'
+                  }
+                  size='x20'
+                />
+              }
+            />
+          </Margins>
         </Wrapper>
         <PositionAnimated visible={visible} anchor={containerRef}>
           <_Options

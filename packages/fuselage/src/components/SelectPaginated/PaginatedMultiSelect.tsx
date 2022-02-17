@@ -16,7 +16,8 @@ import Margins from '../Margins';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
 import Position from '../Position';
-import { Focus, Addon } from '../Select';
+import SelectAddon from '../Select/SelectAddon';
+import SelectFocus from '../Select/SelectFocus';
 
 const SelectedOptions = memo((props) => (
   <Chip maxWidth='150px' withTruncatedText {...props} />
@@ -44,7 +45,7 @@ export const PaginatedMultiSelect = ({
   options = [],
   error,
   disabled,
-  anchor: Anchor = Focus,
+  anchor: Anchor = SelectFocus,
   onChange = () => {},
   placeholder,
   renderOptions: _Options = OptionsPaginated,
@@ -159,7 +160,7 @@ export const PaginatedMultiSelect = ({
       </Flex.Item>
       <Flex.Item grow={0} shrink={0}>
         <Margins inline='x4'>
-          <Addon
+          <SelectAddon
             children={
               <Icon
                 name={
