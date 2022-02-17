@@ -9,9 +9,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { createRef } from 'react';
 
 import { Options, OptionType } from '.';
-import { Box, Menu } from '..';
-import { CheckOption } from '../OptionsPaginated';
-import Option from './Option';
+import { Box, Menu, Divider } from '..';
+import { CheckOption } from './CheckOption';
+import Option, { OptionHeader } from './Option';
 
 const options: OptionType[] = [
   [1, 'a teste 1'],
@@ -87,3 +87,16 @@ CustomEmpty.args = {
   options: [],
   customEmpty: 'Custom empty placeholder',
 };
+
+export const CustomRender: ComponentStory<typeof Options> = (args) => (
+  <Box position='relative' maxWidth={250}>
+    <Options {...args} ref={createRef()}>
+      <Option>Option Example</Option>
+      <Divider />
+      <OptionHeader>Title</OptionHeader>
+      <CheckOption icon='magnifier'>CheckOption Example</CheckOption>
+      <CheckOption>CheckOption Example</CheckOption>
+      <CheckOption>CheckOption Example With Ellipsis</CheckOption>
+    </Options>
+  </Box>
+);
