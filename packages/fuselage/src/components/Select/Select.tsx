@@ -76,6 +76,8 @@ export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   getValue?: (params: SelectOption) => SelectOption[0];
   filter?: string;
   renderOptions?: ElementType;
+  renderItem?: ElementType;
+  renderSelected?: ElementType;
   customEmpty?: string;
 };
 
@@ -86,19 +88,21 @@ export const Select = forwardRef(
       filter,
       error,
       disabled,
-      options,
+      options = [],
       anchor: Anchor = Focus,
       onChange = () => {},
       getValue = ([value] = ['', '']) => value,
       getLabel = ([_, label] = ['', '']) => label,
       placeholder = '',
+      renderItem,
+      renderSelected: RenderSelected,
       renderOptions: _Options = Options,
       customEmpty,
       ...props
     }: SelectProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    const [internalValue, setInternalValue] = useState(value);
+    const [internalValue, setInternalValue] = useState(value || '');
 
     const internalChangedByKeyboard = useMutableCallback(([value]) => {
       setInternalValue(value);
@@ -172,18 +176,26 @@ export const Select = forwardRef(
           mi='neg-x4'
           rcx-select__wrapper--hidden={!!visibleText}
         >
-          {visibleText && (
-            <Box
-              flexGrow={1}
-              is='span'
-              mi='x4'
-              rcx-select__item
-              fontScale='p2'
-              color={valueLabel ? 'default' : 'hint'}
-            >
-              {visibleText}
-            </Box>
-          )}
+          {visibleText &&
+            (RenderSelected ? (
+              <RenderSelected
+                role='option'
+                value={getValue(option)}
+                label={valueLabel}
+                key={getValue(option)}
+              />
+            ) : (
+              <Box
+                flexGrow={1}
+                is='span'
+                mi='x4'
+                rcx-select__item
+                fontScale='p2'
+                color={valueLabel ? 'default' : 'hint'}
+              >
+                {visibleText}
+              </Box>
+            ))}
           <Anchor
             disabled={disabled}
             rcx-input-box--undecorated
@@ -216,6 +228,7 @@ export const Select = forwardRef(
             filter={filter}
             options={filteredOptions}
             onSelect={internalChangedByClick}
+            renderItem={renderItem}
             cursor={cursor}
             customEmpty={customEmpty}
           />

@@ -73,7 +73,6 @@ export const MultiSelect = forwardRef(
     );
     const [currentOptionValue, setCurrentOption] = useState<SelectOption[0]>();
 
-    const currentValue = value !== undefined ? value : internalValue;
     const option = options.find(
       (option) => getValue(option) === currentOptionValue
     );
@@ -83,20 +82,20 @@ export const MultiSelect = forwardRef(
     );
 
     const internalChanged = ([value]: SelectOption) => {
-      if (currentValue.includes(value)) {
+      if (internalValue.includes(value)) {
         setCurrentOption(undefined);
-        const newValue = currentValue.filter((item) => item !== value);
+        const newValue = internalValue.filter((item) => item !== value);
         setInternalValue(newValue);
         return onChange(newValue);
       }
       setCurrentOption(value);
-      const newValue = [...currentValue, value];
+      const newValue = [...internalValue, value];
       setInternalValue(newValue);
       return onChange(newValue);
     };
 
     const mapOptions = ([value, label]: SelectOption): SelectOption => {
-      if (currentValue.includes(value)) {
+      if (internalValue.includes(value)) {
         return [value, label, true];
       }
       return [value, label];
@@ -160,7 +159,7 @@ export const MultiSelect = forwardRef(
                       rcx-input-box--undecorated
                       children={value ? option : placeholder}
                     />
-                    {currentValue.map((value: SelectOption[0]) => {
+                    {internalValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(
                         ([val]) => val === value
                       ) as SelectOption;
