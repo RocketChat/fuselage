@@ -1,8 +1,4 @@
-import {
-  useMergedRefs,
-  useMutableCallback,
-  useResizeObserver,
-} from '@rocket.chat/fuselage-hooks';
+import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, { useState, useRef, useEffect, memo, forwardRef } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
@@ -80,12 +76,15 @@ export const MultiSelect = forwardRef(function MultiSelect(
 
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  const handleClick = useMutableCallback((e) => {
-    if (e.target.tagName !== 'I') {
-      innerRef.current?.focus();
-    }
+  const handleClick = () => {
+    innerRef.current?.focus();
     return visible === AnimatedVisibility.VISIBLE ? hide() : show();
-  });
+  };
+
+  const handleAddonClick = (e) => {
+    e.stopPropagation();
+    return visible === AnimatedVisibility.VISIBLE ? hide() : show();
+  };
 
   const renderAnchor = isForwardRefType(Anchor)
     ? (params) => <Anchor {...params} />
@@ -152,6 +151,7 @@ export const MultiSelect = forwardRef(function MultiSelect(
                   : 'chevron-down'
               }
               size='x20'
+              onClick={handleAddonClick}
             />
           </SelectAddon>
         </Margins>
