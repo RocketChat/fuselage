@@ -11,7 +11,7 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-import { Box } from '..';
+import { Box } from '../Box';
 
 type PositionProps = {
   anchor: RefObject<Element>;

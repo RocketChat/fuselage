@@ -14,7 +14,7 @@ import React from 'react';
 import { MultiSelect, MultiSelectFiltered } from '../..';
 
 export default {
-  title: 'Forms/MultiSelect',
+  title: 'Inputs/MultiSelect',
   component: MultiSelect,
   parameters: {
     docs: {

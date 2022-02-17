@@ -1,5 +1,8 @@
 module.exports = {
-  extends: '@rocket.chat/eslint-config-alt/typescript',
+  extends: [
+    '@rocket.chat/eslint-config-alt/typescript',
+    '@rocket.chat/eslint-config-alt/react',
+  ],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-empty-function': 'off',

@@ -11,7 +11,7 @@ import React from 'react';
 import { StatusBullet, Box } from '../..';
 
 export default {
-  title: 'Misc/StatusBullet',
+  title: 'Data Display/StatusBullet',
   component: StatusBullet,
   parameters: {
     docs: {

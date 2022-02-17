@@ -14,5 +14,5 @@ export const MessageReactionEmoji = ({
   <div
     className={`rcx-message-reactions__emoji ${name} ${className}`}
     style={image && image.length ? { backgroundImage: image } : undefined}
-  ></div>
+  />
 );

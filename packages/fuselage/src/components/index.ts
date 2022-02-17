@@ -1,17 +1,11 @@
 export * from './Accordion';
+export { default as AnimatedVisibility } from './AnimatedVisibility';
 export * from './AutoComplete';
 export * from './Avatar';
 export * from './Badge';
 export { default as Banner } from './Banner';
-export {
-  Box,
-  AnimatedVisibility,
-  Flex,
-  Position,
-  PositionAnimated,
-  Scrollable,
-  useArrayLikeClassNameProp,
-} from './Box';
+export { Box } from './Box';
+export { useArrayLikeClassNameProp } from '../hooks/useArrayLikeClassNameProp';
 export { default as Button, ActionButton } from './Button';
 export * from './ButtonGroup';
 export * from './Callout';
@@ -24,6 +18,7 @@ export * from './Dropdown';
 export * from './EmailInput';
 export { default as Field } from './Field';
 export * from './FieldGroup';
+export { default as Flex } from './Flex';
 export * from './Grid';
 export * from './Icon';
 export * from './InputBox';
@@ -43,8 +38,11 @@ export * from './Options/Option';
 export * from './Pagination';
 export { default as PasswordInput } from './PasswordInput';
 export * from './StatusBullet';
+export { default as Position } from './Position';
+export { default as PositionAnimated } from './PositionAnimated';
 export * from './ProgressBar';
 export * from './RadioButton';
+export { default as Scrollable } from './Scrollable';
 export * from './SearchInput';
 export * from './Select';
 export * from './SelectPaginated';

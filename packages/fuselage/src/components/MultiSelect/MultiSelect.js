@@ -5,11 +5,14 @@ import {
 } from '@rocket.chat/fuselage-hooks';
 import React, { useState, useRef, useEffect, memo, forwardRef } from 'react';
 
-import { AnimatedVisibility, Box, Flex, Position } from '../Box';
+import AnimatedVisibility from '../AnimatedVisibility';
+import { Box } from '../Box';
 import Chip from '../Chip';
+import Flex from '../Flex';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import { Options, CheckOption, useCursor } from '../Options';
+import Position from '../Position';
 import { Focus, Addon } from '../Select/Select';
 
 const SelectedOptions = memo((props) => <Chip {...props} />);

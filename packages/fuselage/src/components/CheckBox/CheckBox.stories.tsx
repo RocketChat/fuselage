@@ -6,7 +6,7 @@ import { CheckBox } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Buttons/CheckBox',
+  title: 'Inputs/CheckBox',
   component: CheckBox,
 } as ComponentMeta<typeof CheckBox>;
 

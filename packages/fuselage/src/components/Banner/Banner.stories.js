@@ -5,7 +5,7 @@ import { Icon } from '../Icon';
 import Banner from './Banner';
 
 export default {
-  title: 'Containers/Banner',
+  title: 'Feedback/Banner',
   component: Banner,
 };
 

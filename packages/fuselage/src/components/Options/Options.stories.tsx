@@ -24,7 +24,7 @@ const options: OptionType[] = [
 ];
 
 export default {
-  title: 'Misc/Options/Options',
+  title: 'Navigation/Options',
   component: Options,
   parameters: {
     docs: {

@@ -4,7 +4,7 @@ import { Icon, PasswordInput } from '../..';
 import PropsVariation from '../../.storybook/PropsVariation';
 
 export default {
-  title: 'Forms/Inputs/PasswordInput',
+  title: 'Inputs/PasswordInput',
   component: PasswordInput,
   parameters: { jest: ['PasswordInput.spec.tsx'] },
 };

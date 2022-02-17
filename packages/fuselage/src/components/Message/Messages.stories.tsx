@@ -123,7 +123,7 @@ export const WithSequential = () => (
       </MessageToolbox.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer></Message.LeftContainer>
+      <Message.LeftContainer />
       <Message.Container>
         <Message.Body>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -138,7 +138,7 @@ export const WithSequential = () => (
       </MessageToolbox.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer></Message.LeftContainer>
+      <Message.LeftContainer />
       <Message.Container>
         <Message.Body>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -146,7 +146,7 @@ export const WithSequential = () => (
       </Message.Container>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer></Message.LeftContainer>
+      <Message.LeftContainer />
       <Message.Container>
         <Message.Body>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -216,7 +216,7 @@ export const MessageWithThread = () => (
       </MessageToolbox.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer></Message.LeftContainer>
+      <Message.LeftContainer />
       <Message.Container>
         <Message.Body>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -231,7 +231,7 @@ export const MessageWithThread = () => (
       </MessageToolbox.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer></Message.LeftContainer>
+      <Message.LeftContainer />
       <Message.Container>
         <Message.Body>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -239,7 +239,7 @@ export const MessageWithThread = () => (
       </Message.Container>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer></Message.LeftContainer>
+      <Message.LeftContainer />
       <Message.Container>
         <Message.Body>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua

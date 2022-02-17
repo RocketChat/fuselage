@@ -8,9 +8,9 @@ import React, {
   MutableRefObject,
 } from 'react';
 
-import { appendClassName } from '../../../helpers/appendClassName';
-import { useStyle } from '../../../hooks/useStyle';
-import { BoxTransforms, useComposedBoxTransform } from '../BoxTransforms';
+import { appendClassName } from '../../helpers/appendClassName';
+import { useStyle } from '../../hooks/useStyle';
+import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
 type ScrollableProps = PropsWithChildren<{
   horizontal?: boolean;

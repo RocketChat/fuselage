@@ -14,13 +14,16 @@ import React, {
   Ref,
 } from 'react';
 
-import { AnimatedVisibility, Box, Flex, Position } from '../Box';
+import AnimatedVisibility from '../AnimatedVisibility';
+import { Box } from '../Box';
 import Chip from '../Chip';
+import Flex from '../Flex';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
+import Position from '../Position';
 import { Focus, Addon } from '../Select';
 
 const SelectedOptions = memo((props) => (
