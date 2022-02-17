@@ -53,7 +53,7 @@ export const MultiSelect = forwardRef(function MultiSelect(
     }
     const newValue = [...internalValue, value];
     setInternalValue(newValue);
-    onSelect();
+    onSelect?.();
     return onChange(newValue);
   };
 
