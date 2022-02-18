@@ -10,7 +10,7 @@ import React, {
 import { ActionButton, PositionAnimated, Options, useCursor, Box } from '..';
 import type { OptionType } from '../Options';
 
-export type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
+type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   options: {
     [id: string]: {
       type?: 'option' | 'heading' | 'divider';
