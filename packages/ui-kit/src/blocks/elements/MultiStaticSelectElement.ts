@@ -10,5 +10,5 @@ export type MultiStaticSelectElement = Actionable<
     options: readonly Option[];
     optionGroups?: readonly OptionGroup[];
     maxSelectItems?: number;
-  } & ({ initialOption?: Option } | { initialValue?: Option['value'] })
+  } & ({ initialOption?: Option[] } | { initialValue?: Option['value'][] })
 >;
