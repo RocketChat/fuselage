@@ -1,4 +1,4 @@
-import { ForwardRefExoticComponent } from 'react';
+import type { ForwardRefExoticComponent } from 'react';
 
 export const isForwardRefType = <P = any>(
   type: any
