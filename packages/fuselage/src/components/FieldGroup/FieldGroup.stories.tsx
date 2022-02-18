@@ -5,7 +5,7 @@ import React from 'react';
 import { Field, FieldGroup, InputBox } from '../..';
 
 export default {
-  title: 'Forms/FieldGroup',
+  title: 'Inputs/FieldGroup',
   component: FieldGroup,
   parameters: {
     docs: {

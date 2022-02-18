@@ -12,7 +12,7 @@ import { MessageGenericPreviewThumb } from './MessageGenericPreviewThumb';
 import { MessageGenericPreviewTitle } from './MessageGenericPreviewTitle';
 
 export default {
-  title: 'Message/GenericPreview',
+  title: 'Message/MessageGenericPreview',
   component: MessageGenericPreview,
   decorators: [
     (storyFn: () => ReactNode) => (

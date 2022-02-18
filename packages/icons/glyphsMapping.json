@@ -755,9 +755,6 @@
   "pause-unfilled": {
     "start": "\ue0ce"
   },
-  "shredder": {
-    "start": "\ue0d0"
-  },
   "team-arrow-right": {
     "start": "\ue0d1"
   },
@@ -820,5 +817,8 @@
   },
   "emoji-neutral": {
     "start": "\ue0e7"
+  },
+  "stopwatch": {
+    "start": "\ue0e9"
   }
 }

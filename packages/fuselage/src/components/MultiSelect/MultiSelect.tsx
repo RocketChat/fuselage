@@ -12,14 +12,21 @@ import React, {
   SyntheticEvent,
   ElementType,
   Ref,
+  ReactNode,
 } from 'react';
 
 import { SelectOption } from '..';
-import { AnimatedVisibility, Box, Flex, Position } from '../Box';
+import { isForwardRefType } from '../../helpers/isForwardRefType';
+import AnimatedVisibility from '../AnimatedVisibility';
+import { Box } from '../Box';
+import Flex from '../Flex';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import { Options, CheckOption, useCursor } from '../Options';
-import { Focus, Addon } from '../Select/Select';
+import Position from '../Position';
+import SelectAddon from '../Select/SelectAddon';
+import MultiSelectAnchor from './MultiSelectAnchor';
+import { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import { SelectedOptions } from './SelectedOptions';
 
 const prevent = (e: SyntheticEvent) => {
@@ -39,7 +46,9 @@ type MultiSelectProps = Omit<
   getLabel?: (params: SelectOption) => SelectOption[1];
   getValue?: (params: SelectOption) => SelectOption[0];
   customEmpty?: string;
-  anchor?: ElementType;
+  anchor?:
+    | ElementType<MultiSelectAnchorParams>
+    | ((params: MultiSelectAnchorParams) => ReactNode);
   renderOptions?: ElementType;
   renderItem?: ElementType;
   renderSelected?: ElementType;
@@ -54,7 +63,7 @@ export const MultiSelect = forwardRef(
       options = [],
       error,
       disabled,
-      anchor: Anchor = Focus,
+      anchor: Anchor = MultiSelectAnchor,
       onChange = () => {},
       getLabel = ([, label] = ['', '']) => label,
       getValue = ([value]) => value,
@@ -118,6 +127,20 @@ export const MultiSelect = forwardRef(
 
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
+    const renderAnchor = (params: MultiSelectAnchorParams) => {
+      if (isForwardRefType(Anchor)) {
+        return <Anchor {...params} />;
+      }
+
+      if (typeof Anchor === 'function') {
+        return (Anchor as (params: MultiSelectAnchorParams) => ReactNode)(
+          params
+        );
+      }
+
+      return null;
+    };
+
     return (
       <Box
         is='div'
@@ -147,18 +170,15 @@ export const MultiSelect = forwardRef(
                   role='listbox'
                 >
                   <Margins all='x4'>
-                    <Anchor
-                      disabled={disabled}
-                      ref={anchorRef}
-                      aria-haspopup='listbox'
-                      onClick={show}
-                      onBlur={hide}
-                      onKeyUp={handleKeyUp}
-                      onKeyDown={handleKeyDown}
-                      order={1}
-                      rcx-input-box--undecorated
-                      children={value ? option : placeholder}
-                    />
+                    {renderAnchor({
+                      ref: anchorRef,
+                      children: !value ? option || placeholder : null,
+                      disabled: disabled ?? false,
+                      onClick: show,
+                      onBlur: hide,
+                      onKeyDown: handleKeyDown,
+                      onKeyUp: handleKeyUp,
+                    })}
                     {internalValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(
                         ([val]) => val === value
@@ -196,7 +216,7 @@ export const MultiSelect = forwardRef(
         </Flex.Item>
         <Flex.Item grow={0} shrink={0}>
           <Margins inline='x4'>
-            <Addon
+            <SelectAddon
               children={
                 <Icon
                   name={

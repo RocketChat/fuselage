@@ -13,7 +13,7 @@ import React from 'react';
 import { Callout } from '../..';
 
 export default {
-  title: 'Misc/Callout',
+  title: 'Feedback/Callout',
   component: Callout,
   parameters: {
     docs: {

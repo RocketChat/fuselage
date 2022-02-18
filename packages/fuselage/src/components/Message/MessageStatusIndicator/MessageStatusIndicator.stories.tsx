@@ -8,7 +8,7 @@ import MessageReactions from '../MessageReactions';
 import MessageToolbox from '../MessageToolbox';
 
 export default {
-  title: 'Message/StatusIndicator',
+  title: 'Message/MessageStatusIndicator',
   component: Message,
   // parameters: {
   //   jest: ['Message.spec.tsx'],

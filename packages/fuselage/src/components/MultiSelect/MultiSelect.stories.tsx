@@ -15,7 +15,7 @@ import { MultiSelect, MultiSelectFiltered } from '../..';
 import { SelectOption } from '../Select';
 
 export default {
-  title: 'Forms/MultiSelect',
+  title: 'Inputs/MultiSelect',
   component: MultiSelect,
   parameters: {
     docs: {

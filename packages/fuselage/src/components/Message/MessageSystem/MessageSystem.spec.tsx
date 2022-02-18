@@ -14,7 +14,7 @@ import {
 it('renders without crashing', () => {
   render(
     <MessageSystem>
-      <MessageSystemLeftContainer></MessageSystemLeftContainer>
+      <MessageSystemLeftContainer />
       <MessageSystemContainer>
         <MessageSystemBlock>
           <MessageSystemName>Haylie George</MessageSystemName>

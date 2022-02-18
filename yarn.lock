@@ -5658,7 +5658,6 @@ __metadata:
     "@rocket.chat/memo": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     "@storybook/addon-essentials": ~6.4.18
-    "@storybook/addon-jest": ~6.4.18
     "@storybook/addon-links": ~6.4.18
     "@storybook/addons": ~6.4.18
     "@storybook/builder-webpack5": ~6.4.18
@@ -5698,7 +5697,6 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-keyed-flatten-children: ^1.3.0
-    react-live: ~2.4.1
     react-virtuoso: ~2.6.0
     rimraf: ^3.0.2
     sass: ~1.49.7
@@ -6357,32 +6355,6 @@ __metadata:
     webpack:
       optional: true
   checksum: 5f77f3fb94db89104222a47eabc6b2d77575a118789ee258d84747f0df51d1bc3b86eba1472beb01b70ec2b416c3d6d858f9d952949a9b0836362b629775ce58
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-jest@npm:~6.4.18":
-  version: 6.4.18
-  resolution: "@storybook/addon-jest@npm:6.4.18"
-  dependencies:
-    "@storybook/addons": 6.4.18
-    "@storybook/api": 6.4.18
-    "@storybook/components": 6.4.18
-    "@storybook/core-events": 6.4.18
-    "@storybook/theming": 6.4.18
-    core-js: ^3.8.2
-    global: ^4.4.0
-    react-sizeme: ^3.0.1
-    regenerator-runtime: ^0.13.7
-    upath: ^1.2.0
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: c80b45d9bf1eaaadae7bfa9a8cf39d5259be1184ddd410160debcd2cca3651f431f9c93dec195b34947602bc2615c8469289b92ea7dd433f94658fd9f08a9993
   languageName: node
   linkType: hard
 
@@ -7593,15 +7565,6 @@ __metadata:
   dependencies:
     "@babel/types": ^7.3.0
   checksum: 6a45519ebf58e6b1197a0177211099fc3ed613d2a435cf9470c39217af35f29013f7984e1f8c2e160a93b588767cfbbcf0d7f77eae399dfcca18d5257f04cbc2
-  languageName: node
-  linkType: hard
-
-"@types/buble@npm:^0.20.0":
-  version: 0.20.0
-  resolution: "@types/buble@npm:0.20.0"
-  dependencies:
-    magic-string: ^0.25.0
-  checksum: 5e1d474e508edf988a4db124cb2379e3c2309f1de49934fd098c98d6676b08a111002c234d8b4bb9931ba38f6239312fd4c2554a1816547f8aa5f90b7a8c068d
   languageName: node
   linkType: hard
 
@@ -10475,22 +10438,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buble@npm:0.19.6":
-  version: 0.19.6
-  resolution: "buble@npm:0.19.6"
-  dependencies:
-    chalk: ^2.4.1
-    magic-string: ^0.25.1
-    minimist: ^1.2.0
-    os-homedir: ^1.0.1
-    regexpu-core: ^4.2.0
-    vlq: ^1.0.0
-  bin:
-    buble: ./bin/buble
-  checksum: 565fec70c3283de499f334804e1fade787ebd21bdc8cdb84b0466b852951bc9adca15f8d55cbc879f2361e898eae6adf4a4da0664e0913092228a1ae0ff7240e
-  languageName: node
-  linkType: hard
-
 "buffer-from@npm:^1.0.0":
   version: 1.1.1
   resolution: "buffer-from@npm:1.1.1"
@@ -11589,20 +11536,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"component-props@npm:1.1.1":
-  version: 1.1.1
-  resolution: "component-props@npm:1.1.1"
-  checksum: fda496d2cbe0a1de223741cafce1c3dd35214d6ad86b6b1a1c57109d047e0de149d8bbbb9fe4c39e90ad5902f0026da524a6355683c23dc12c552c3d0ddf8dcf
-  languageName: node
-  linkType: hard
-
-"component-xor@npm:0.0.4":
-  version: 0.0.4
-  resolution: "component-xor@npm:0.0.4"
-  checksum: 3ef1bfadbe99a6c1d557fa4b22c49158987dc30177d08d0926f0663185cb154438c6e76e86cf7e30b7f2ee4c4af9e41f9da19b56ba391ab3c773aaa2bf5c1f2a
-  languageName: node
-  linkType: hard
-
 "compressible@npm:~2.0.16":
   version: 2.0.18
   resolution: "compressible@npm:2.0.18"
@@ -12097,13 +12030,6 @@ __metadata:
   version: 3.8.1
   resolution: "core-js@npm:3.8.1"
   checksum: 0212b6d2d113d2ed50d5cfed467e1b64fa25b53f0d5c38eba4ac591a7d6d05bd74bab544fa982c07acaf781daab5f468e8b7d3f5a774bccdf6059bf0ce54b3d5
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^3.14.0":
-  version: 3.15.2
-  resolution: "core-js@npm:3.15.2"
-  checksum: f8f61569c4c3bdf50679226f5a1045551192a2f4bc3fa46a873b6fa834cff6d1634ee138a6e4bae3eea99f1b1db2d588fa693de74640447476292b41f595a4c3
   languageName: node
   linkType: hard
 
@@ -13063,16 +12989,6 @@ __metadata:
   dependencies:
     utila: ~0.4
   checksum: ea52fe303f5392e48dea563abef0e6fb3a478b8dbe3c599e99bb5d53981c6c38fc4944e56bb92a8ead6bb989d10b7914722ae11febbd2fd0910e33b9fc4aaa77
-  languageName: node
-  linkType: hard
-
-"dom-iterator@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "dom-iterator@npm:1.0.0"
-  dependencies:
-    component-props: 1.1.1
-    component-xor: 0.0.4
-  checksum: ad02e194985969fbf3c2a73897b667f81c15f28e4e6090d853f2062737b619825dc153744cd3fa7bf71a43305041e72fe2df99bdb80480166593358438a7de75
   languageName: node
   linkType: hard
 
@@ -18947,7 +18863,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.25.0, magic-string@npm:^0.25.1, magic-string@npm:^0.25.7":
+"magic-string@npm:^0.25.7":
   version: 0.25.7
   resolution: "magic-string@npm:0.25.7"
   dependencies:
@@ -20745,7 +20661,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"os-homedir@npm:^1.0.0, os-homedir@npm:^1.0.1":
+"os-homedir@npm:^1.0.0":
   version: 1.0.2
   resolution: "os-homedir@npm:1.0.2"
   checksum: af609f5a7ab72de2f6ca9be6d6b91a599777afc122ac5cad47e126c1f67c176fe9b52516b9eeca1ff6ca0ab8587fe66208bc85e40a3940125f03cdb91408e9d2
@@ -22239,15 +22155,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"prism-react-renderer@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "prism-react-renderer@npm:1.2.1"
-  peerDependencies:
-    react: ">=0.14.9"
-  checksum: 66cab3d9f9f18ff5db222df74e1f326262ad093202f855ef2bd9e8001fef21b92f2242a2292caa77c36a517a7f379620417b421eaa320405deb6ecb27c18ee5e
-  languageName: node
-  linkType: hard
-
 "prismjs@npm:^1.21.0, prismjs@npm:~1.22.0":
   version: 1.22.0
   resolution: "prismjs@npm:1.22.0"
@@ -22782,22 +22689,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-live@npm:~2.4.1":
-  version: 2.4.1
-  resolution: "react-live@npm:2.4.1"
-  dependencies:
-    "@types/buble": ^0.20.0
-    buble: 0.19.6
-    core-js: ^3.14.0
-    dom-iterator: ^1.0.0
-    prism-react-renderer: ^1.2.1
-    prop-types: ^15.7.2
-    react-simple-code-editor: ^0.11.0
-    unescape: ^1.0.1
-  checksum: a8624ac8d94848bf7273fdfb9236418c9752e8d0ab8200d84df0952f15a18f2a54983dab785d7cc001e4bf4e5348ddc365f2c77f3030addaf7aa8cfd6654e358
-  languageName: node
-  linkType: hard
-
 "react-popper-tooltip@npm:^3.1.1":
   version: 3.1.1
   resolution: "react-popper-tooltip@npm:3.1.1"
@@ -22853,16 +22744,6 @@ fsevents@~2.1.2:
   peerDependencies:
     react: ">=16.8"
   checksum: 081a89237ab4f32195d1f2173bc4b3d95637cd6942a4d1a9e90d4ac8c80faa95528255ca2ec44c1e88c1b369e712c4ca74cba5ae3acef6fc30a51a62805b95a4
-  languageName: node
-  linkType: hard
-
-"react-simple-code-editor@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "react-simple-code-editor@npm:0.11.0"
-  peerDependencies:
-    react: ^16.0.0
-    react-dom: ^16.0.0
-  checksum: 20d9381c77c7a7ef256e2d871e1b0ab95cc0b025b3933467840f6608ce37835f98785d50b6709df7e4daf75889f3c95a0d80b1809f8399b2361ec282a063196b
   languageName: node
   linkType: hard
 
@@ -23261,7 +23142,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"regexpu-core@npm:^4.2.0, regexpu-core@npm:^4.7.1":
+"regexpu-core@npm:^4.7.1":
   version: 4.7.1
   resolution: "regexpu-core@npm:4.7.1"
   dependencies:
@@ -26795,15 +26676,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"unescape@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "unescape@npm:1.0.1"
-  dependencies:
-    extend-shallow: ^2.0.1
-  checksum: 0d89b0f55e08a2843e635f1ccf8472a35b367c41d9a8014dd7de5cc3af710a6e988a950b86b6229e143147ade21772f2d72054bc846f4972eb448df472b856ec
-  languageName: node
-  linkType: hard
-
 "unfetch@npm:^4.2.0":
   version: 4.2.0
   resolution: "unfetch@npm:4.2.0"
@@ -27090,7 +26962,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"upath@npm:^1.1.1, upath@npm:^1.2.0":
+"upath@npm:^1.1.1":
   version: 1.2.0
   resolution: "upath@npm:1.2.0"
   checksum: 4c05c094797cb733193a0784774dbea5b1889d502fc9f0572164177e185e4a59ba7099bf0b0adf945b232e2ac60363f9bf18aac9b2206fb99cbef971a8455445
@@ -27438,13 +27310,6 @@ resolve@^2.0.0-next.3:
     unist-util-stringify-position: ^2.0.0
     vfile-message: ^2.0.0
   checksum: ee5726e10d170472cde778fc22e0f7499caa096eb85babea5d0ce0941455b721037ee1c9e6ae506ca2803250acd313d0f464328ead0b55cfe7cb6315f1b462d6
-  languageName: node
-  linkType: hard
-
-"vlq@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "vlq@npm:1.0.1"
-  checksum: 67ab6dd35c787eaa02c0ff1a869dd07a230db08722fb6014adaaf432634808ddb070765f70958b47997e438c331790cfcf20902411b0d6453f1a2a5923522f55
   languageName: node
   linkType: hard
 

@@ -1,7 +1,7 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-import { withTests } from '@storybook/addon-jest';
-import { addDecorator, addParameters } from '@storybook/react';
+import { addParameters } from '@storybook/react';
+
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
@@ -19,7 +19,18 @@ addParameters({
     page: DocsPage,
   },
   options: {
-    storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
+    storySort: {
+      order: [
+        'Inputs',
+        'Data Display',
+        'Feedback',
+        'Containers',
+        'Navigation',
+        'Layout',
+        'Message',
+        'Sidebar',
+      ],
+    },
   },
   viewport: {
     viewports: breakpointTokens.reduce(
@@ -38,9 +49,3 @@ addParameters({
     ),
   },
 });
-
-if (process.env.NODE_ENV === 'production') {
-  // eslint-disable-next-line import/no-unresolved
-  const results = require('./jest-results.json');
-  addDecorator(withTests({ results }));
-}

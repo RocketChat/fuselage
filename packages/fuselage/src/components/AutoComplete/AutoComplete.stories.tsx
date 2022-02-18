@@ -5,7 +5,7 @@ import React from 'react';
 import { AutoComplete } from '../..';
 
 export default {
-  title: 'Forms/Inputs/AutoComplete',
+  title: 'Inputs/AutoComplete',
   component: AutoComplete,
   parameters: {
     docs: {

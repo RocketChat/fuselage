@@ -1,16 +1,14 @@
 import React, {
   ComponentProps,
   Dispatch,
-  forwardRef,
   SetStateAction,
-  useCallback,
   useState,
 } from 'react';
 
 import { Icon } from '..';
-import { Flex } from '../Box';
-import { InputBox } from '../InputBox';
 import { MultiSelect } from './MultiSelect';
+import { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
+import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor';
 
 type MultiSelectFilteredProps = ComponentProps<typeof MultiSelect> & {
   filter?: string;
@@ -26,28 +24,20 @@ export const MultiSelectFiltered = ({
   ...props
 }: MultiSelectFilteredProps) => {
   const [filter, setFilter] = useState('');
-  const anchor = useCallback(
-    forwardRef<HTMLInputElement, ComponentProps<typeof InputBox>>(
-      ({ children, filter, ...props }, ref) => (
-        <Flex.Item grow={1}>
-          <InputBox.Input
-            ref={ref}
-            placeholder={placeholder}
-            value={propFilter || filter}
-            onInput={(e) =>
-              propSetFilter
-                ? propSetFilter((e.currentTarget as HTMLInputElement).value)
-                : setFilter((e.currentTarget as HTMLInputElement).value)
-            }
-            {...props}
-            rcx-input-box--undecorated
-          />
-        </Flex.Item>
-      )
-    ),
-    []
-  );
+
   return (
-    <MultiSelect {...props} filter={filter} options={options} anchor={anchor} />
+    <MultiSelect
+      {...props}
+      filter={filter}
+      options={options}
+      anchor={(params: MultiSelectAnchorParams) => (
+        <MultiSelectFilteredAnchor
+          placeholder={placeholder}
+          filter={filter}
+          onChangeFilter={setFilter}
+          {...params}
+        />
+      )}
+    />
   );
 };

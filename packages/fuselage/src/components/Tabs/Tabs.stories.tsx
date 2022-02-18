@@ -5,7 +5,7 @@ import React from 'react';
 import { Tabs } from '../..';
 
 export default {
-  title: 'Misc/Tabs',
+  title: 'Navigation/Tabs',
   component: Tabs,
   parameters: {
     docs: {

@@ -16,10 +16,12 @@ import React, {
 } from 'react';
 
 import type { SelectProps } from '..';
-import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
+import AnimatedVisibility from '../AnimatedVisibility';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
+import PositionAnimated from '../PositionAnimated';
 
 type PaginatedOptionType = {
   value: string | number;

@@ -20,7 +20,7 @@ const optionsEllipses: SelectOption[] = [
 ];
 
 export default {
-  title: 'Forms/Select',
+  title: 'Inputs/Select',
   component: Select,
   parameters: {
     docs: {
@@ -98,6 +98,16 @@ WithEmptyOptions.args = {
   width: '250px',
   placeholder: 'Placeholder here...',
   options: [],
+};
+
+export const WithAddon: ComponentStory<typeof Select> = TemplateWithFilter.bind(
+  {}
+);
+WithAddon.args = {
+  width: '250px',
+  placeholder: 'Placeholder here...',
+  options,
+  addonIcon: 'magnifier',
 };
 
 export const CustomEmpty: ComponentStory<typeof Select> =

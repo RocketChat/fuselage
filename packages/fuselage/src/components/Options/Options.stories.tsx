@@ -10,7 +10,7 @@ import React, { createRef } from 'react';
 
 import { Options, OptionType } from '.';
 import { Box, Menu } from '..';
-import { CheckOption } from '../OptionsPaginated';
+import { CheckOption } from './CheckOption';
 import Option from './Option';
 
 const options: OptionType[] = [
@@ -24,7 +24,7 @@ const options: OptionType[] = [
 ];
 
 export default {
-  title: 'Misc/Options/Options',
+  title: 'Navigation/Options',
   component: Options,
   parameters: {
     docs: {

@@ -15,7 +15,7 @@ import {
 import { Box, Icon } from '..';
 
 export default {
-  title: 'States/States',
+  title: 'Feedback/States',
 };
 
 export const Default = ({ searchTerm = 'search term here' }) => (

@@ -6,7 +6,7 @@ import { Icon, EmailInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Forms/Inputs/EmailInput',
+  title: 'Inputs/EmailInput',
   component: EmailInput,
   parameters: {
     docs: {

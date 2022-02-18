@@ -12,7 +12,7 @@ import { Icon, SearchInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Forms/Inputs/SearchInput',
+  title: 'Inputs/SearchInput',
   component: SearchInput,
   parameters: {
     docs: {

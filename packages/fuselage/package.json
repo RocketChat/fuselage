@@ -39,12 +39,8 @@
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
-    "docs": "run-s .:docs:jest-results .:docs:storybook",
-    ".:docs:jest-results": "jest --runInBand --json --outputFile .storybook/jest-results.json",
-    ".:docs:storybook": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage",
-    "build-storybook": "run-s .:build-storybook:jest-results .:build-storybook:build-storybook",
-    ".:build-storybook:jest-results": "jest --runInBand --json --outputFile .storybook/jest-results.json",
-    ".:build-storybook:build-storybook": "cross-env NODE_ENV=production build-storybook"
+    "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage",
+    "build-storybook": "cross-env NODE_ENV=production build-storybook"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -74,7 +70,6 @@
     "@rocket.chat/icons": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "@storybook/addon-essentials": "~6.4.18",
-    "@storybook/addon-jest": "~6.4.18",
     "@storybook/addon-links": "~6.4.18",
     "@storybook/addons": "~6.4.18",
     "@storybook/builder-webpack5": "~6.4.18",
@@ -112,7 +107,6 @@
     "prettier": "~2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-live": "~2.4.1",
     "react-virtuoso": "~2.6.0",
     "rimraf": "^3.0.2",
     "sass": "~1.49.7",

@@ -1,6 +1,6 @@
 import React, { ReactNode, useCallback } from 'react';
 
-import { BoxTransforms, useComposedBoxTransform } from '../BoxTransforms';
+import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
 type FlexContainerProps = {
   children?: ReactNode;
@@ -17,7 +17,7 @@ type FlexContainerProps = {
     | 'space-around';
 };
 
-export function FlexContainer({
+function FlexContainer({
   inline = false,
   children,
   direction,
@@ -73,3 +73,5 @@ export function FlexContainer({
     />
   );
 }
+
+export default FlexContainer;
