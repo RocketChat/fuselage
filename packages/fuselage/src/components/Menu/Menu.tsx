@@ -25,10 +25,7 @@ export type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
 };
 
 const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
-  const actionSelected = options[selected].action;
-  if (actionSelected) {
-    actionSelected();
-  }
+  options[selected].action?.();
 };
 
 const mapOptions = (options: MenuProps['options']): OptionType[] =>
