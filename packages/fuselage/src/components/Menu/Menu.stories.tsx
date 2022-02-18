@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Menu } from '..';
+import { menuOptions } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
 
 export default {
@@ -26,26 +27,7 @@ const Template: ComponentStory<typeof Menu> = (args) => (
 
 export const simple = Template.bind({});
 simple.args = {
-  options: {
-    makeAdmin: {
-      label: (
-        <Box display='flex' alignItems='center'>
-          <Icon mie='x4' name='key' size='x16' />
-          Make Admin
-        </Box>
-      ),
-      action: action('makeAdmin.action'),
-    },
-    delete: {
-      label: (
-        <Box display='flex' alignItems='center' color='danger'>
-          <Icon mie='x4' name='trash' size='x16' />
-          Delete
-        </Box>
-      ),
-      action: action('delete.action'),
-    },
-  },
+  options: menuOptions,
 };
 
 export const complex = Template.bind({});
