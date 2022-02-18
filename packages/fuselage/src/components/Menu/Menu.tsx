@@ -3,8 +3,8 @@ import React, {
   useRef,
   useCallback,
   ComponentProps,
-  ReactElement,
   ElementType,
+  ReactNode,
 } from 'react';
 
 import { ActionButton, PositionAnimated, Options, useCursor, Box } from '..';
@@ -14,7 +14,7 @@ type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   options: {
     [id: string]: {
       type?: 'option' | 'heading' | 'divider';
-      label?: ReactElement | string;
+      label?: ReactNode;
       action?: () => void;
     };
   };
