@@ -80,7 +80,7 @@ $variants: (
     opacity: 0;
   }
 
-  &.rcx-option__column {
+  .rcx-option__column {
     @extend %column;
     display: flex;
 
@@ -91,7 +91,7 @@ $variants: (
     min-height: lengths.size(20);
   }
 
-  &.rcx-option__description {
+  .rcx-option__description {
     @include typography.use-font-scale(p2);
     @extend %column;
     display: inline;
