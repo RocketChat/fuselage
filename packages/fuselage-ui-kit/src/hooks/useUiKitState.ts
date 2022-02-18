@@ -4,26 +4,36 @@ import { useContext, useMemo, useState } from 'react';
 
 import { kitContext, useUiKitStateValue } from '../contexts/kitContext';
 
-type UiKitState = {
+type UiKitState<
+  TElement extends UiKit.ActionableElement = UiKit.ActionableElement
+> = {
   loading: boolean;
   setLoading: (loading: boolean) => void;
   error?: string;
-  value: string | number | undefined;
+  value: UiKit.ActionOf<TElement>;
 };
 
-const hasInitialValue = <T extends UiKit.ActionableElement>(
-  element: T
-): element is T & { initialValue: number | string } =>
+const hasInitialValue = <TElement extends UiKit.ActionableElement>(
+  element: TElement
+): element is TElement & { initialValue: number | string } =>
   'initialValue' in element;
 
-const hasInitialOption = <T extends UiKit.ActionableElement>(
-  element: T
-): element is T & { initialOption: UiKit.Option } => 'initialOption' in element;
+const hasInitialOption = <TElement extends UiKit.ActionableElement>(
+  element: TElement
+): element is TElement & { initialOption: UiKit.Option } =>
+  'initialOption' in element;
 
-export const useUiKitState: <T extends UiKit.ActionableElement>(
-  element: T,
+export const useUiKitState: <TElement extends UiKit.ActionableElement>(
+  element: TElement,
   context: UiKit.BlockContext
-) => [UiKitState, any] = (rest, context) => {
+) => [
+  state: UiKitState<TElement>,
+  action: (
+    pseudoEvent?:
+      | { target: EventTarget }
+      | { target: { value: UiKit.ActionOf<TElement> } }
+  ) => void
+] = (rest, context) => {
   const { blockId, actionId, appId } = rest;
   const {
     action,
