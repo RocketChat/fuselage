@@ -70,7 +70,7 @@ export const Menu = ({
       show();
       ref.current.classList.add('focus-visible');
     }
-  }, [show]);
+  }, [hide, show]);
 
   const handleSelection = useCallback(
     (args) => {
@@ -80,6 +80,7 @@ export const Menu = ({
     },
     [hide, reset, options]
   );
+
   return (
     <>
       <ActionButton

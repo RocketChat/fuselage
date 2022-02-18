@@ -24,11 +24,16 @@ const prevent = (e: SyntheticEvent) => {
   e.stopPropagation();
 };
 
-export type OptionType = [string | number, ReactNode, boolean?, string?];
+export type OptionType = [
+  value: string | number,
+  label: ReactNode,
+  selected?: boolean,
+  type?: 'heading' | 'divider' | 'option'
+];
 
 type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
-  options: Array<OptionType>;
+  options: OptionType[];
   cursor: number;
   renderItem?: ElementType;
   renderEmpty?: ElementType;

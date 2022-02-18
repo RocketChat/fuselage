@@ -15,12 +15,60 @@ const keyCodes = {
   ENTER: 13,
 };
 
+const findLastIndex = <T>(
+  options: T[],
+  predicate: (value: T, index: number, obj: T[]) => unknown
+) => {
+  for (let i = options.length - 1; i >= 0; i--) {
+    if (predicate(options[i], i, options)) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+
+const findPreviousIndex = <T>(
+  options: T[],
+  predicate: (value: T, index: number, obj: T[]) => unknown,
+  currentIndex: number
+) => {
+  for (let i = currentIndex - 1; i >= 0; i--) {
+    if (predicate(options[i], i, options)) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+
+const findNextIndex = <T>(
+  options: T[],
+  predicate: (value: T, index: number, obj: T[]) => unknown,
+  currentIndex: number
+) => {
+  for (let i = currentIndex + 1; i < options.length; i++) {
+    if (predicate(options[i], i, options)) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+
 export type UseCursorOnChange<T> = (
   option: T,
   visibilityHandler: ReturnType<typeof useVisible>
 ) => void;
 
-export const useCursor = <T extends [unknown, unknown, unknown?] = OptionType>(
+export const useCursor = <
+  T extends [
+    value: unknown,
+    label: unknown,
+    selected?: unknown,
+    type?: OptionType[3]
+  ] = OptionType
+>(
   initial: number,
   options: Array<T>,
   onChange: UseCursorOnChange<T>
@@ -49,7 +97,10 @@ export const useCursor = <T extends [unknown, unknown, unknown?] = OptionType>(
 
   const handleKeyDown = useMutableCallback(
     (e: KeyboardEvent<HTMLOrSVGElement>) => {
-      const lastIndex = options.length - 1;
+      const isSelectableOption = ([, , , type]: T) =>
+        !type || type === 'option';
+      const getLastIndex = () => findLastIndex(options, isSelectableOption);
+
       const { keyCode, key } = e;
       if (
         AnimatedVisibility.HIDDEN === visibility &&
@@ -62,21 +113,28 @@ export const useCursor = <T extends [unknown, unknown, unknown?] = OptionType>(
         case keyCodes.HOME:
           e.preventDefault();
           return reset();
+
         case keyCodes.END:
           e.preventDefault();
-          return setCursor(lastIndex);
+          return setCursor(getLastIndex());
+
         case keyCodes.KEY_UP:
           e.preventDefault();
           if (cursor < 1) {
-            return setCursor(lastIndex);
+            return setCursor(getLastIndex());
           }
-          return setCursor(cursor - 1);
+          return setCursor((cursor) =>
+            findPreviousIndex(options, isSelectableOption, cursor)
+          );
+
         case keyCodes.KEY_DOWN:
           e.preventDefault();
-          if (cursor === lastIndex) {
+          if (cursor === getLastIndex()) {
             return setCursor(0);
           }
-          return setCursor(cursor + 1);
+          return setCursor((cursor) =>
+            findNextIndex(options, isSelectableOption, cursor)
+          );
 
         case keyCodes.ENTER:
           e.preventDefault();
@@ -88,6 +146,7 @@ export const useCursor = <T extends [unknown, unknown, unknown?] = OptionType>(
           hide();
           onChange(options[cursor], visibilityHandler);
           return;
+
         case keyCodes.ESC:
           e.preventDefault();
           reset();
@@ -99,12 +158,19 @@ export const useCursor = <T extends [unknown, unknown, unknown?] = OptionType>(
             return false;
           }
           break;
+
         default:
           if (key.match(/^[\d\w]$/i)) {
-            const index = options.findIndex(
-              ([, label]) =>
+            const index = options.findIndex((option) => {
+              if (!isSelectableOption(option)) {
+                return false;
+              }
+
+              const [, label] = option;
+              return (
                 typeof label === 'string' && label[0].toLowerCase() === key
-            );
+              );
+            });
             ~index && setCursor(index);
           }
       }
