@@ -9,12 +9,8 @@ import {
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { ReactElement } from 'react';
-import {
-  useForm,
-  SubmitHandler,
-  FormProvider,
-  Validate,
-} from 'react-hook-form';
+import type { SubmitHandler, Validate } from 'react-hook-form';
+import { useForm, FormProvider } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import Form from '../../common/Form';

@@ -1,4 +1,5 @@
-import { useEffect, useRef, Ref } from 'react';
+import type { Ref } from 'react';
+import { useEffect, useRef } from 'react';
 
 /**
  * Hook to automatically request focus for an DOM element.

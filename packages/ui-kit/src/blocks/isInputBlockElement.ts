@@ -1,6 +1,6 @@
-import { BlockElement } from './BlockElement';
+import type { BlockElement } from './BlockElement';
 import { BlockElementType } from './BlockElementType';
-import { InputBlock } from './layout/InputBlock';
+import type { InputBlock } from './layout/InputBlock';
 
 export const isInputBlockElement = (
   block: BlockElement

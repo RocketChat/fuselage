@@ -1,6 +1,6 @@
-import { BlockElement } from './BlockElement';
+import type { BlockElement } from './BlockElement';
 import { BlockElementType } from './BlockElementType';
-import { SectionBlock } from './layout/SectionBlock';
+import type { SectionBlock } from './layout/SectionBlock';
 
 export const isSectionBlockAccessoryElement = (
   block: BlockElement

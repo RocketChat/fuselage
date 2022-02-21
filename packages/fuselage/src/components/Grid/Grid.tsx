@@ -1,4 +1,5 @@
-import React, { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
+import React from 'react';
 
 import { Box } from '../Box';
 import { GridItem } from './GridItem';

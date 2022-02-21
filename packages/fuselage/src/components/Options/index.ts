@@ -1,4 +1,4 @@
-import { AvatarProps } from '../Avatar';
+import type { AvatarProps } from '../Avatar';
 import { Options } from './Options';
 
 export * from './Options';

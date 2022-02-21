@@ -1,11 +1,5 @@
-import React, {
-  forwardRef,
-  useState,
-  useCallback,
-  ComponentProps,
-  ReactNode,
-  Ref,
-} from 'react';
+import type { ComponentProps, ReactNode, Ref } from 'react';
+import React, { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';

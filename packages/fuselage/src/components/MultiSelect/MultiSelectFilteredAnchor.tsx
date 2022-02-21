@@ -1,12 +1,12 @@
-import React, {
+import type {
   FocusEventHandler,
   FormEvent,
-  forwardRef,
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
   Ref,
 } from 'react';
+import React, { forwardRef } from 'react';
 
 import Flex from '../Flex';
 import { InputBox } from '../InputBox';

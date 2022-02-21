@@ -1,3 +1,4 @@
+import type { SelectOption } from '@rocket.chat/fuselage';
 import {
   FieldGroup,
   Field,
@@ -6,11 +7,11 @@ import {
   Box,
   TextInput,
   Select,
-  SelectOption,
   CheckBox,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+import type { SubmitHandler } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import Form from '../../common/Form';

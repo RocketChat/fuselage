@@ -1,5 +1,6 @@
-import peggy, { BuildOptionsBase } from 'peggy';
-import { LoaderContext } from 'webpack';
+import type { BuildOptionsBase } from 'peggy';
+import peggy from 'peggy';
+import type { LoaderContext } from 'webpack';
 
 type Options = BuildOptionsBase &
   (

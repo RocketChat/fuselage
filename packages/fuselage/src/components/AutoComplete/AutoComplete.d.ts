@@ -1,4 +1,4 @@
-import { ElementType, FC } from 'react';
+import type { ElementType, FC } from 'react';
 
 type AutoCompleteProps = {
   value: unknown[];

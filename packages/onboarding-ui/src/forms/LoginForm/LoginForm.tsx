@@ -7,7 +7,8 @@ import {
   Box,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import type { SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
 import ActionLink from '../../common/ActionLink';

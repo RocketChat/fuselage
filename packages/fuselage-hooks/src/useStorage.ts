@@ -1,10 +1,5 @@
-import {
-  useState,
-  useEffect,
-  useCallback,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const makeStorage = (
   storageFactory: Storage | (() => Storage),

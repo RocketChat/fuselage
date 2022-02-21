@@ -1,5 +1,6 @@
 import { usePosition } from '@rocket.chat/fuselage-hooks';
-import React, { forwardRef, ReactNode, Ref, RefObject } from 'react';
+import type { ReactNode, Ref, RefObject } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Box, Tile } from '..';
 

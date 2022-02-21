@@ -1,11 +1,11 @@
 import { Box } from '@rocket.chat/fuselage';
-import {
+import type {
   MouseEvent,
   ComponentProps,
   ReactElement,
   ReactNode,
-  useCallback,
 } from 'react';
+import { useCallback } from 'react';
 
 type ActionLinkProps = {
   children?: ReactNode;

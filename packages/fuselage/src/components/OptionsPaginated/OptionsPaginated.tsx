@@ -2,14 +2,8 @@ import {
   useMutableCallback,
   useDebouncedState,
 } from '@rocket.chat/fuselage-hooks';
-import React, {
-  ComponentProps,
-  ElementType,
-  forwardRef,
-  memo,
-  Ref,
-  SyntheticEvent,
-} from 'react';
+import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
+import React, { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import AnimatedVisibility from '../AnimatedVisibility';

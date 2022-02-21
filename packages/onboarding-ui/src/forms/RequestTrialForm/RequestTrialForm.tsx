@@ -1,3 +1,4 @@
+import type { SelectOption } from '@rocket.chat/fuselage';
 import {
   Button,
   Field,
@@ -8,10 +9,10 @@ import {
   EmailInput,
   Select,
   SelectFiltered,
-  SelectOption,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useForm, SubmitHandler, Validate, Controller } from 'react-hook-form';
+import type { SubmitHandler, Validate } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import Form from '../../common/Form';

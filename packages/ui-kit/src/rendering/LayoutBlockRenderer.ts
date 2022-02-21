@@ -1,5 +1,5 @@
-import { RenderableLayoutBlock } from '../blocks/RenderableLayoutBlock';
-import { BlockContext } from './BlockContext';
+import type { RenderableLayoutBlock } from '../blocks/RenderableLayoutBlock';
+import type { BlockContext } from './BlockContext';
 
 export type LayoutBlockRenderer<
   T,

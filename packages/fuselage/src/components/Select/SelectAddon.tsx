@@ -1,4 +1,5 @@
-import React, { forwardRef, ComponentProps, Ref } from 'react';
+import type { ComponentProps, Ref } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 

@@ -1,4 +1,5 @@
-import { DECLARATION, Element, node, RULESET } from 'stylis';
+import type { Element } from 'stylis';
+import { DECLARATION, node, RULESET } from 'stylis';
 
 export type RuleSet = Element & {
   type: typeof RULESET;

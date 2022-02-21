@@ -1,4 +1,5 @@
-import React, { ComponentProps, ReactElement, useMemo } from 'react';
+import type { ComponentProps, ReactElement } from 'react';
+import React, { useMemo } from 'react';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';

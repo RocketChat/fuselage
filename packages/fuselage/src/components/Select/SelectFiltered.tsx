@@ -1,17 +1,15 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import React, {
+import type {
   ComponentProps,
   Dispatch,
   FormEvent,
-  forwardRef,
   Ref,
   SetStateAction,
-  useCallback,
-  useState,
 } from 'react';
+import React, { forwardRef, useCallback, useState } from 'react';
 
 import { Select } from '.';
-import { Icon } from '..';
+import type { Icon } from '..';
 import { InputBox } from '../InputBox';
 
 export type SelectFilteredProps = ComponentProps<typeof Select> & {

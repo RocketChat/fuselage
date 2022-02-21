@@ -1,11 +1,11 @@
-import { LayoutBlockish } from '../LayoutBlockish';
-import { TextObject } from '../TextObject';
-import { ButtonElement } from '../elements/ButtonElement';
-import { DatePickerElement } from '../elements/DatePickerElement';
-import { ImageElement } from '../elements/ImageElement';
-import { MultiStaticSelectElement } from '../elements/MultiStaticSelectElement';
-import { OverflowElement } from '../elements/OverflowElement';
-import { StaticSelectElement } from '../elements/StaticSelectElement';
+import type { LayoutBlockish } from '../LayoutBlockish';
+import type { TextObject } from '../TextObject';
+import type { ButtonElement } from '../elements/ButtonElement';
+import type { DatePickerElement } from '../elements/DatePickerElement';
+import type { ImageElement } from '../elements/ImageElement';
+import type { MultiStaticSelectElement } from '../elements/MultiStaticSelectElement';
+import type { OverflowElement } from '../elements/OverflowElement';
+import type { StaticSelectElement } from '../elements/StaticSelectElement';
 
 export type SectionBlock = LayoutBlockish<{
   type: 'section';

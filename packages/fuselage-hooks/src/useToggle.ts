@@ -1,4 +1,5 @@
-import { useState, SetStateAction } from 'react';
+import type { SetStateAction } from 'react';
+import { useState } from 'react';
 
 import { useMutableCallback } from './useMutableCallback';
 

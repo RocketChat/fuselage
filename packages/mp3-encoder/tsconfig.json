@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "rootDir": "./src",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "importsNotUsedAsValues": "error"
   }
 }

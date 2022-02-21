@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-import { Icon } from '.';
+import type { Icon } from '.';
 
 export const iconsList: ComponentProps<typeof Icon>['name'][] = [
   'arrow-back',

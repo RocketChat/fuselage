@@ -3,19 +3,16 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  forwardRef,
+import type {
   ComponentProps,
   SyntheticEvent,
   ElementType,
   Ref,
   ReactNode,
 } from 'react';
+import React, { useState, useRef, useEffect, forwardRef } from 'react';
 
-import { SelectOption } from '..';
+import type { SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
@@ -26,7 +23,7 @@ import { Options, CheckOption, useCursor } from '../Options';
 import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import MultiSelectAnchor from './MultiSelectAnchor';
-import { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
+import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import { SelectedOptions } from './SelectedOptions';
 
 const prevent = (e: SyntheticEvent) => {

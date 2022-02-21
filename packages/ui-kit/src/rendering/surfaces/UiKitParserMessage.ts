@@ -1,9 +1,9 @@
-import { ActionsBlock } from '../../blocks/layout/ActionsBlock';
-import { ContextBlock } from '../../blocks/layout/ContextBlock';
-import { DividerBlock } from '../../blocks/layout/DividerBlock';
-import { ImageBlock } from '../../blocks/layout/ImageBlock';
-import { PreviewBlock } from '../../blocks/layout/PreviewBlock';
-import { SectionBlock } from '../../blocks/layout/SectionBlock';
+import type { ActionsBlock } from '../../blocks/layout/ActionsBlock';
+import type { ContextBlock } from '../../blocks/layout/ContextBlock';
+import type { DividerBlock } from '../../blocks/layout/DividerBlock';
+import type { ImageBlock } from '../../blocks/layout/ImageBlock';
+import type { PreviewBlock } from '../../blocks/layout/PreviewBlock';
+import type { SectionBlock } from '../../blocks/layout/SectionBlock';
 import { SurfaceRenderer } from '../SurfaceRenderer';
 
 type MessageSurfaceLayoutBlock =

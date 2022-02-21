@@ -1,21 +1,19 @@
 /* eslint-disable complexity */
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import React, {
+import type {
   ComponentProps,
-  forwardRef,
   ForwardRefExoticComponent,
   ReactNode,
   Ref,
-  useCallback,
-  useLayoutEffect,
-  useRef,
 } from 'react';
+import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
-import { Input, InputBoxSkeleton, Wrapper } from '.';
-import { Box } from '../Box';
+import type { InputBoxSkeleton } from '.';
+import { Input, Wrapper } from '.';
+import type { Box } from '../Box';
 import { Addon } from './Addon';
-import { Option } from './Option';
-import { Placeholder } from './Placeholder';
+import type { Option } from './Option';
+import type { Placeholder } from './Placeholder';
 
 type InputBoxProps = ComponentProps<typeof Box> & {
   addon?: ReactNode;

@@ -1,11 +1,11 @@
-import React, {
+import type {
   FocusEventHandler,
-  forwardRef,
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
   Ref,
 } from 'react';
+import React, { forwardRef } from 'react';
 
 import SelectFocus from '../Select/SelectFocus';
 

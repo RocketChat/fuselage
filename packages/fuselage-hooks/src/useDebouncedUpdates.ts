@@ -1,4 +1,4 @@
-import { Dispatch, DispatchWithoutAction } from 'react';
+import type { Dispatch, DispatchWithoutAction } from 'react';
 
 import { useDebouncedCallback } from './useDebouncedCallback';
 

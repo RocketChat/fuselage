@@ -1,6 +1,7 @@
-import React, { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
+import React from 'react';
 
-import { MessageStatusIndicatorItem } from './MessageStatusIndicatorItem';
+import type { MessageStatusIndicatorItem } from './MessageStatusIndicatorItem';
 
 type MessageStatusIndicatorItemProps = ComponentProps<
   typeof MessageStatusIndicatorItem

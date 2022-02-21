@@ -1,16 +1,17 @@
+import type { OptionType } from '@rocket.chat/fuselage';
 import {
   Button,
   PositionAnimated,
   Options,
   Icon,
   useCursor,
-  OptionType,
 } from '@rocket.chat/fuselage';
-import * as UiKit from '@rocket.chat/ui-kit';
-import React, { useRef, useCallback, ReactElement, useMemo } from 'react';
+import type * as UiKit from '@rocket.chat/ui-kit';
+import type { ReactElement } from 'react';
+import React, { useRef, useCallback, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
-import { BlockProps } from '../utils/BlockProps';
+import type { BlockProps } from '../utils/BlockProps';
 import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
 type OverflowElementProps = BlockProps<UiKit.OverflowElement>;

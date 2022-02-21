@@ -1,5 +1,5 @@
-import { Actionable } from '../Actionable';
-import { TextObject } from '../TextObject';
+import type { Actionable } from '../Actionable';
+import type { TextObject } from '../TextObject';
 
 export type DatePickerElement = Actionable<{
   type: 'datepicker';

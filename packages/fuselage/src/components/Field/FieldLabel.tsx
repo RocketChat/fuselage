@@ -1,4 +1,5 @@
-import React, { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
+import React from 'react';
 
 import { Box } from '../Box';
 import { Label } from '../Label';

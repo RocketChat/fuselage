@@ -5,10 +5,11 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Select, SelectFiltered, SelectOption } from '../..';
+import type { SelectOption } from '../..';
+import { Select, SelectFiltered } from '../..';
 
 export const options: SelectOption[] = Array.from({
   length: 10,

@@ -1,9 +1,9 @@
+import type { cssFn } from '@rocket.chat/css-in-js';
 import {
   createClassName,
   escapeName,
   transpile,
   attachRules,
-  cssFn,
 } from '@rocket.chat/css-in-js';
 import { useDebugValue, useLayoutEffect, useMemo } from 'react';
 

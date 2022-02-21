@@ -8,11 +8,11 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { MultiSelect, MultiSelectFiltered } from '../..';
-import { SelectOption } from '../Select';
+import type { SelectOption } from '../Select';
 
 export default {
   title: 'Inputs/MultiSelect',

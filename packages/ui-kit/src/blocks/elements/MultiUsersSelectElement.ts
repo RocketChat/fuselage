@@ -1,4 +1,4 @@
-import { Actionable } from '../Actionable';
+import type { Actionable } from '../Actionable';
 
 /** @todo */
 export type MultiUsersSelectElement = Actionable<{

@@ -1,7 +1,8 @@
-import React, { Ref, ComponentProps, ReactNode, memo, MouseEvent } from 'react';
+import type { Ref, ComponentProps, ReactNode, MouseEvent } from 'react';
+import React, { memo } from 'react';
 
-import { Icon } from '../..';
-import { Box } from '../../Box';
+import type { Icon } from '../..';
+import type { Box } from '../../Box';
 import OptionAvatar from './OptionAvatar';
 import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';

@@ -3,23 +3,15 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  forwardRef,
-  useMemo,
-  ComponentProps,
-  DependencyList,
-  Ref,
-  ElementType,
-} from 'react';
+import type { ComponentProps, DependencyList, Ref, ElementType } from 'react';
+import React, { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
-import { Options, useCursor, OptionType } from '../Options';
+import type { OptionType } from '../Options';
+import { Options, useCursor } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 import SelectAddon from './SelectAddon';
 import SelectFocus from './SelectFocus';

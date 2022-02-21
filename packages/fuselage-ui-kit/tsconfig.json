@@ -20,7 +20,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "importsNotUsedAsValues": "error"
   },
   "exclude": ["node_modules", "dist"]
 }

@@ -1,17 +1,17 @@
-import { ActionableElement } from '../blocks/ActionableElement';
-import { ButtonElement } from '../blocks/elements/ButtonElement';
-import { ChannelsSelectElement } from '../blocks/elements/ChannelsSelectElement';
-import { ConversationsSelectElement } from '../blocks/elements/ConversationsSelectElement';
-import { DatePickerElement } from '../blocks/elements/DatePickerElement';
-import { LinearScaleElement } from '../blocks/elements/LinearScaleElement';
-import { MultiChannelsSelectElement } from '../blocks/elements/MultiChannelsSelectElement';
-import { MultiConversationsSelectElement } from '../blocks/elements/MultiConversationsSelectElement';
-import { MultiStaticSelectElement } from '../blocks/elements/MultiStaticSelectElement';
-import { MultiUsersSelectElement } from '../blocks/elements/MultiUsersSelectElement';
-import { OverflowElement } from '../blocks/elements/OverflowElement';
-import { PlainTextInputElement } from '../blocks/elements/PlainTextInputElement';
-import { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
-import { UsersSelectElement } from '../blocks/elements/UsersSelectElement';
+import type { ActionableElement } from '../blocks/ActionableElement';
+import type { ButtonElement } from '../blocks/elements/ButtonElement';
+import type { ChannelsSelectElement } from '../blocks/elements/ChannelsSelectElement';
+import type { ConversationsSelectElement } from '../blocks/elements/ConversationsSelectElement';
+import type { DatePickerElement } from '../blocks/elements/DatePickerElement';
+import type { LinearScaleElement } from '../blocks/elements/LinearScaleElement';
+import type { MultiChannelsSelectElement } from '../blocks/elements/MultiChannelsSelectElement';
+import type { MultiConversationsSelectElement } from '../blocks/elements/MultiConversationsSelectElement';
+import type { MultiStaticSelectElement } from '../blocks/elements/MultiStaticSelectElement';
+import type { MultiUsersSelectElement } from '../blocks/elements/MultiUsersSelectElement';
+import type { OverflowElement } from '../blocks/elements/OverflowElement';
+import type { PlainTextInputElement } from '../blocks/elements/PlainTextInputElement';
+import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
+import type { UsersSelectElement } from '../blocks/elements/UsersSelectElement';
 
 export type ActionOf<TElement extends ActionableElement> =
   TElement extends ButtonElement

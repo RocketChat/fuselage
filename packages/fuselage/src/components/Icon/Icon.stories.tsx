@@ -1,5 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { CSSProperties } from 'react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { CSSProperties } from 'react';
+import React from 'react';
 
 import { Box, Icon } from '../..';
 import { iconsList } from './IconsList';
