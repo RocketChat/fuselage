@@ -16,7 +16,11 @@ import PositionAnimated from '../PositionAnimated';
 import SelectAddon from './SelectAddon';
 import SelectFocus from './SelectFocus';
 
-export type SelectOptions = readonly [value: string, label: string][];
+export type SelectOption = readonly [
+  value: string,
+  label: string,
+  selected?: boolean
+];
 
 type WrapperProps = ComponentProps<typeof Box>;
 
@@ -39,12 +43,14 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
 export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   anchor?: ElementType;
   error?: string;
-  options: SelectOptions;
-  onChange: (value: SelectOptions[number][0]) => void;
-  getLabel?: (params: SelectOptions[number]) => SelectOptions[number][1];
-  getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
+  options: SelectOption[];
+  onChange: (value: SelectOption[0]) => void;
+  getLabel?: (params: SelectOption) => SelectOption[1];
+  getValue?: (params: SelectOption) => SelectOption[0];
   filter?: string;
   renderOptions?: ElementType;
+  renderItem?: ElementType;
+  renderSelected?: ElementType;
   customEmpty?: string;
   addonIcon?: ComponentProps<typeof Icon>['name'];
 };
@@ -56,12 +62,14 @@ export const Select = forwardRef(
       filter,
       error,
       disabled,
-      options,
+      options = [],
       anchor: Anchor = SelectFocus,
       onChange = () => {},
       getValue = ([value] = ['', '']) => value,
       getLabel = ([_, label] = ['', '']) => label,
       placeholder = '',
+      renderItem,
+      renderSelected: RenderSelected,
       renderOptions: _Options = Options,
       addonIcon,
       customEmpty,
@@ -69,7 +77,7 @@ export const Select = forwardRef(
     }: SelectProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    const [internalValue, setInternalValue] = useState(value);
+    const [internalValue, setInternalValue] = useState(value || '');
 
     const internalChangedByKeyboard = useMutableCallback(([value]) => {
       setInternalValue(value);
@@ -78,22 +86,19 @@ export const Select = forwardRef(
 
     const option = options.find(
       (option) => getValue(option) === internalValue
-    ) as SelectOptions[number];
+    ) as SelectOption;
 
     const index = options.indexOf(option);
 
     const filteredOptions = useMemo<OptionType[]>((): OptionType[] => {
-      const mapOptions = ([
-        value,
-        label,
-      ]: SelectOptions[number]): OptionType => {
+      const mapOptions = ([value, label]: SelectOption): OptionType => {
         if (internalValue === value) {
           return [value, label, true];
         }
         return [value, label];
       };
 
-      const applyFilter = ([, option]: SelectOptions[number]) =>
+      const applyFilter = ([, option]: SelectOption) =>
         !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
 
       return options.filter(applyFilter).map(mapOptions);
@@ -146,18 +151,26 @@ export const Select = forwardRef(
           mi='neg-x4'
           rcx-select__wrapper--hidden={!!visibleText}
         >
-          {visibleText && (
-            <Box
-              flexGrow={1}
-              is='span'
-              mi='x4'
-              rcx-select__item
-              fontScale='p2'
-              color={valueLabel ? 'default' : 'hint'}
-            >
-              {visibleText}
-            </Box>
-          )}
+          {visibleText &&
+            (RenderSelected ? (
+              <RenderSelected
+                role='option'
+                value={getValue(option)}
+                label={valueLabel}
+                key={getValue(option)}
+              />
+            ) : (
+              <Box
+                flexGrow={1}
+                is='span'
+                mi='x4'
+                rcx-select__item
+                fontScale='p2'
+                color={valueLabel ? 'default' : 'hint'}
+              >
+                {visibleText}
+              </Box>
+            ))}
           <Anchor
             disabled={disabled}
             rcx-input-box--undecorated
@@ -191,6 +204,7 @@ export const Select = forwardRef(
             filter={filter}
             options={filteredOptions}
             onSelect={internalChangedByClick}
+            renderItem={renderItem}
             cursor={cursor}
             customEmpty={customEmpty}
           />

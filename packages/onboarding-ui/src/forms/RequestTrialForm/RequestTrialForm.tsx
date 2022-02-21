@@ -1,4 +1,4 @@
-import type { SelectOptions } from '@rocket.chat/fuselage';
+import type { SelectOption } from '@rocket.chat/fuselage';
 import {
   Button,
   Field,
@@ -28,8 +28,8 @@ type RequestTrialPayload = {
 
 type RequestTrialFormProps = {
   defaultValues?: RequestTrialPayload;
-  organizationSizeOptions: SelectOptions;
-  countryOptions: SelectOptions;
+  organizationSizeOptions: SelectOption[];
+  countryOptions: SelectOption[];
   onSubmit: SubmitHandler<RequestTrialPayload>;
   onManageWorkspaceClick: () => void;
   validateEmail: Validate<string>;

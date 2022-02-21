@@ -68,3 +68,4 @@ export {
 
 export { SurfaceRenderer } from './rendering/SurfaceRenderer';
 export { ActionableElement } from './blocks/ActionableElement';
+export { ActionOf } from './rendering/ActionOf';

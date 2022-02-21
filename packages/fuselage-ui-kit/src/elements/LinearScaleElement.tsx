@@ -61,7 +61,7 @@ const LinearScaleElement = ({
           {points.map((point, i) => (
             <Button
               key={i}
-              className={point === value ? 'active' : undefined}
+              className={point === String(value) ? 'active' : undefined}
               disabled={loading}
               danger={!!error}
               minWidth='4ch'

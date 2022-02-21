@@ -24,7 +24,8 @@ const OverflowElement = ({
   const [{ loading }, action] = useUiKitState(block, context);
 
   const fireChange = useCallback(
-    ([value]: [unknown, string]) => action({ target: { value } }),
+    ([value]: [UiKit.ActionOf<UiKit.OverflowElement>, string]) =>
+      action({ target: { value } }),
     [action]
   );
 
@@ -52,7 +53,7 @@ const OverflowElement = ({
 
   const handleSelection = useCallback(
     ([value]: OptionType) => {
-      action({ target: { value } });
+      action({ target: { value: String(value) } });
       reset();
       hide();
     },

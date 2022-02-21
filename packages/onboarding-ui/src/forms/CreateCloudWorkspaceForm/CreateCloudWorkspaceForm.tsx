@@ -1,4 +1,4 @@
-import type { SelectOptions } from '@rocket.chat/fuselage';
+import type { SelectOption } from '@rocket.chat/fuselage';
 import {
   FieldGroup,
   Field,
@@ -32,7 +32,7 @@ type CreateCloudWorkspaceFormProps = {
   currentStep: number;
   stepCount: number;
   onSubmit: SubmitHandler<CreateCloudWorkspaceFormPayload>;
-  serverRegionOptions: SelectOptions;
+  serverRegionOptions: SelectOption[];
   domain: string;
   onBackButtonClick: () => void;
   validateUrl: (url: string) => Promise<boolean>;

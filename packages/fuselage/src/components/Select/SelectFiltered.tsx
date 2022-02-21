@@ -1,15 +1,32 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, FormEvent, Ref } from 'react';
+import type {
+  ComponentProps,
+  Dispatch,
+  FormEvent,
+  Ref,
+  SetStateAction,
+} from 'react';
 import React, { forwardRef, useCallback, useState } from 'react';
 
 import { Select } from '.';
+import type { Icon } from '..';
 import { InputBox } from '../InputBox';
 
-export type SelectFilteredProps = ComponentProps<typeof Select>;
+export type SelectFilteredProps = ComponentProps<typeof Select> & {
+  filter?: string;
+  setFilter?: Dispatch<SetStateAction<string>>;
+  addonIcon?: ComponentProps<typeof Icon>['name'];
+};
 
 export const SelectFiltered = forwardRef(
   (
-    { options, placeholder, ...props }: SelectFilteredProps,
+    {
+      options,
+      placeholder,
+      filter: propFilter,
+      setFilter: propSetFilter,
+      ...props
+    }: SelectFilteredProps,
     ref: Ref<HTMLInputElement>
   ) => {
     const [filter, setFilter] = useState('');
@@ -25,9 +42,11 @@ export const SelectFiltered = forwardRef(
             className='rcx-select__focus'
             ref={ref}
             placeholder={placeholder}
-            value={filter}
+            value={propFilter || filter}
             onChange={useMutableCallback((e: FormEvent<HTMLInputElement>) =>
-              setFilter(e.currentTarget.value)
+              propSetFilter
+                ? propSetFilter(e.currentTarget.value)
+                : setFilter(e.currentTarget.value)
             )}
             {...props}
             rcx-input-box--undecorated

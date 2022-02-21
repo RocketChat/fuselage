@@ -1,4 +1,4 @@
-import type { SelectOptions } from '@rocket.chat/fuselage';
+import type { SelectOption } from '@rocket.chat/fuselage';
 import {
   FieldGroup,
   Field,
@@ -29,10 +29,10 @@ export type OrganizationInfoPayload = {
 type OrganizationInfoFormProps = {
   currentStep: number;
   stepCount: number;
-  organizationTypeOptions: SelectOptions;
-  organizationIndustryOptions: SelectOptions;
-  organizationSizeOptions: SelectOptions;
-  countryOptions: SelectOptions;
+  organizationTypeOptions: SelectOption[];
+  organizationIndustryOptions: SelectOption[];
+  organizationSizeOptions: SelectOption[];
+  countryOptions: SelectOption[];
   nextStep?: ReactNode;
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
