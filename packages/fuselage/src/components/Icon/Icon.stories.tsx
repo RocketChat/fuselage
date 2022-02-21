@@ -5,7 +5,7 @@ import { Box, Icon } from '../..';
 import { iconsList } from './IconsList';
 
 export default {
-  title: 'Misc/Icon',
+  title: 'Data Display/Icon',
   component: Icon,
 } as ComponentMeta<typeof Icon>;
 

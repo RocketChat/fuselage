@@ -11,9 +11,10 @@ import React, {
   useRef,
 } from 'react';
 
-import { Box, Scrollable } from '../Box';
+import { Box } from '../Box';
+import Scrollable from '../Scrollable';
 import Tile from '../Tile';
-import Option from './Option';
+import Option, { OptionHeader, OptionDivider } from './Option';
 import { useCursor } from './useCursor';
 
 export { useCursor };
@@ -23,11 +24,16 @@ const prevent = (e: SyntheticEvent) => {
   e.stopPropagation();
 };
 
-export type OptionType = [string | number, ReactNode, boolean?];
+export type OptionType = [
+  value: string | number,
+  label: ReactNode,
+  selected?: boolean,
+  type?: 'heading' | 'divider' | 'option'
+];
 
 type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
-  options: Array<OptionType>;
+  options: OptionType[];
   cursor: number;
   renderItem?: ElementType;
   renderEmpty?: ElementType;
@@ -76,23 +82,33 @@ export const Options = forwardRef(
 
     const optionsMemoized = useMemo(
       () =>
-        options.map(([value, label, selected], i) => (
-          <OptionComponent
-            role='option'
-            label={label}
-            onMouseDown={(e: SyntheticEvent) => {
-              prevent(e);
-              onSelect([value, label]);
-              return false;
-            }}
-            key={value}
-            value={value}
-            selected={selected || (multiple !== true && null)}
-            focus={cursor === i || null}
-          />
-        )),
-      [options, multiple, cursor, onSelect]
+        options?.map(([value, label, selected, type], i) => {
+          switch (type) {
+            case 'heading':
+              return <OptionHeader key={value}>{label}</OptionHeader>;
+            case 'divider':
+              return <OptionDivider key={value} />;
+            default:
+              return (
+                <OptionComponent
+                  role='option'
+                  label={label}
+                  onMouseDown={(e: SyntheticEvent) => {
+                    prevent(e);
+                    onSelect([value, label]);
+                    return false;
+                  }}
+                  key={value}
+                  value={value}
+                  selected={selected || (multiple !== true && null)}
+                  focus={cursor === i || null}
+                />
+              );
+          }
+        }),
+      [options, multiple, cursor, onSelect, OptionComponent]
     );
+
     return (
       <Box rcx-options {...props} ref={ref}>
         <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>

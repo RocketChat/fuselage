@@ -12,7 +12,7 @@ import React from 'react';
 import { Pagination } from '../..';
 
 export default {
-  title: 'Data Display/Pagination',
+  title: 'Navigation/Pagination',
   component: Pagination,
   parameters: {
     docs: {

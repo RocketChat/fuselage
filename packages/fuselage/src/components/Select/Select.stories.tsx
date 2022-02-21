@@ -20,7 +20,7 @@ const optionsEllipses: SelectOptions = [
 ];
 
 export default {
-  title: 'Forms/Select',
+  title: 'Inputs/Select',
   component: Select,
   parameters: {
     docs: {

@@ -22,7 +22,7 @@ import OptionMenu from './OptionMenu';
 import OptionSkeleton from './OptionSkeleton';
 
 export default {
-  title: 'Misc/Options/Option',
+  title: 'Navigation/Options/Option',
   component: Option,
   parameters: {
     docs: {

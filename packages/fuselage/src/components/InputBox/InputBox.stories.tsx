@@ -12,7 +12,7 @@ import React from 'react';
 import { Icon, InputBox } from '../..';
 
 export default {
-  title: 'Forms/InputBox',
+  title: 'Inputs/InputBox',
   component: InputBox,
   parameters: {
     docs: {

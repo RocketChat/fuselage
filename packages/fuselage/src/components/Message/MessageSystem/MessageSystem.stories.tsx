@@ -13,7 +13,7 @@ import { Avatar, Box } from '../..';
 import MessageReactions from '../MessageReactions';
 
 export default {
-  title: 'Message/System',
+  title: 'Message/MessageSystem',
   component: MessageSystem,
   parameters: {
     jest: ['Message.spec.tsx'],

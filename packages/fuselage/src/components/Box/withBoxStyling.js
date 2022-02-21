@@ -18,11 +18,9 @@ export const withBoxStyling = (component) => {
     return render(props);
   };
 
-  if (process.env.NODE_ENV !== 'production') {
-    WithBoxStyling.displayName = `WithBoxStyling(${
-      component.displayName || component.name || 'Component'
-    })`;
-  }
+  WithBoxStyling.displayName = `WithBoxStyling(${
+    component.displayName || component.name || 'Component'
+  })`;
 
   return WithBoxStyling;
 };

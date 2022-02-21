@@ -6,7 +6,7 @@ import { Icon, TelephoneInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Forms/Inputs/TelephoneInput',
+  title: 'Inputs/TelephoneInput',
   component: TelephoneInput,
   parameters: {
     docs: {

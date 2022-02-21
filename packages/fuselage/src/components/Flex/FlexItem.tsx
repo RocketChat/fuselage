@@ -1,6 +1,6 @@
 import React, { ReactNode, useCallback } from 'react';
 
-import { BoxTransforms, useComposedBoxTransform } from '../BoxTransforms';
+import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
 type FlexItemProps = {
   children?: ReactNode;
@@ -11,7 +11,7 @@ type FlexItemProps = {
   align?: 'auto' | 'start' | 'end' | 'center' | 'stretch';
 };
 
-export function FlexItem({
+function FlexItem({
   children,
   order,
   grow,
@@ -56,3 +56,5 @@ export function FlexItem({
     />
   );
 }
+
+export default FlexItem;

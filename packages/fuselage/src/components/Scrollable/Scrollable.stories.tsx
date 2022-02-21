@@ -9,10 +9,10 @@ import {
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box, Scrollable, Tile } from '../../..';
+import { Box, Scrollable, Tile } from '../..';
 
 export default {
-  title: 'Box/Modifiers/Scrollable',
+  title: 'Layout/Scrollable',
   component: Scrollable,
   parameters: {
     docs: {
