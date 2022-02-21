@@ -62,7 +62,7 @@ export type UseCursorOnChange<T> = (
 ) => void;
 
 export const useCursor = <
-  T extends [
+  T extends readonly [
     value: unknown,
     label: unknown,
     selected?: unknown,
@@ -74,8 +74,8 @@ export const useCursor = <
   onChange: UseCursorOnChange<T>
 ): [
   cursor: number,
-  handleKeyDown: (e: KeyboardEvent<HTMLOrSVGElement>) => void,
-  handleKeyUp: (e: KeyboardEvent<HTMLOrSVGElement>) => void,
+  handleKeyDown: (e: KeyboardEvent) => void,
+  handleKeyUp: (e: KeyboardEvent) => void,
   reset: () => void,
   visibilityHandler: ReturnType<typeof useVisible>
 ] => {
@@ -83,99 +83,89 @@ export const useCursor = <
   const visibilityHandler = useVisible();
   const [visibility, hide, show] = visibilityHandler;
   const reset = useMutableCallback(() => setCursor(0));
-  const handleKeyUp = useMutableCallback(
-    (e: KeyboardEvent<HTMLOrSVGElement>) => {
-      const { keyCode } = e;
-      if (
-        AnimatedVisibility.HIDDEN === visibility &&
-        keyCode === keyCodes.TAB
-      ) {
-        return show();
-      }
+  const handleKeyUp = useMutableCallback((e: KeyboardEvent) => {
+    const { keyCode } = e;
+    if (AnimatedVisibility.HIDDEN === visibility && keyCode === keyCodes.TAB) {
+      return show();
     }
-  );
+  });
 
-  const handleKeyDown = useMutableCallback(
-    (e: KeyboardEvent<HTMLOrSVGElement>) => {
-      const isSelectableOption = ([, , , type]: T) =>
-        !type || type === 'option';
-      const getLastIndex = () => findLastIndex(options, isSelectableOption);
+  const handleKeyDown = useMutableCallback((e: KeyboardEvent) => {
+    const isSelectableOption = ([, , , type]: T) => !type || type === 'option';
+    const getLastIndex = () => findLastIndex(options, isSelectableOption);
 
-      const { keyCode, key } = e;
-      if (
-        AnimatedVisibility.HIDDEN === visibility &&
-        keyCode !== keyCodes.ESC &&
-        keyCode !== keyCodes.TAB
-      ) {
-        show();
-      }
-      switch (keyCode) {
-        case keyCodes.HOME:
-          e.preventDefault();
-          return reset();
+    const { keyCode, key } = e;
+    if (
+      AnimatedVisibility.HIDDEN === visibility &&
+      keyCode !== keyCodes.ESC &&
+      keyCode !== keyCodes.TAB
+    ) {
+      show();
+    }
+    switch (keyCode) {
+      case keyCodes.HOME:
+        e.preventDefault();
+        return reset();
 
-        case keyCodes.END:
-          e.preventDefault();
+      case keyCodes.END:
+        e.preventDefault();
+        return setCursor(getLastIndex());
+
+      case keyCodes.KEY_UP:
+        e.preventDefault();
+        if (cursor < 1) {
           return setCursor(getLastIndex());
+        }
+        return setCursor((cursor) =>
+          findPreviousIndex(options, isSelectableOption, cursor)
+        );
 
-        case keyCodes.KEY_UP:
-          e.preventDefault();
-          if (cursor < 1) {
-            return setCursor(getLastIndex());
-          }
-          return setCursor((cursor) =>
-            findPreviousIndex(options, isSelectableOption, cursor)
-          );
+      case keyCodes.KEY_DOWN:
+        e.preventDefault();
+        if (cursor === getLastIndex()) {
+          return setCursor(0);
+        }
+        return setCursor((cursor) =>
+          findNextIndex(options, isSelectableOption, cursor)
+        );
 
-        case keyCodes.KEY_DOWN:
-          e.preventDefault();
-          if (cursor === getLastIndex()) {
-            return setCursor(0);
-          }
-          return setCursor((cursor) =>
-            findNextIndex(options, isSelectableOption, cursor)
-          );
+      case keyCodes.ENTER:
+        e.preventDefault();
+        if (visibility === AnimatedVisibility.VISIBLE) {
+          e.persist();
+          e.nativeEvent.stopImmediatePropagation(); // TODO
+          e.stopPropagation();
+        }
+        hide();
+        onChange(options[cursor], visibilityHandler);
+        return;
 
-        case keyCodes.ENTER:
-          e.preventDefault();
-          if (visibility === AnimatedVisibility.VISIBLE) {
-            e.persist();
-            e.nativeEvent.stopImmediatePropagation(); // TODO
-            e.stopPropagation();
-          }
-          hide();
-          onChange(options[cursor], visibilityHandler);
-          return;
+      case keyCodes.ESC:
+        e.preventDefault();
+        reset();
+        hide();
+        if (visibility === AnimatedVisibility.VISIBLE) {
+          e.persist();
+          e.nativeEvent.stopImmediatePropagation(); // TODO
+          e.stopPropagation();
+          return false;
+        }
+        break;
 
-        case keyCodes.ESC:
-          e.preventDefault();
-          reset();
-          hide();
-          if (visibility === AnimatedVisibility.VISIBLE) {
-            e.persist();
-            e.nativeEvent.stopImmediatePropagation(); // TODO
-            e.stopPropagation();
-            return false;
-          }
-          break;
+      default:
+        if (key.match(/^[\d\w]$/i)) {
+          const index = options.findIndex((option) => {
+            if (!isSelectableOption(option)) {
+              return false;
+            }
 
-        default:
-          if (key.match(/^[\d\w]$/i)) {
-            const index = options.findIndex((option) => {
-              if (!isSelectableOption(option)) {
-                return false;
-              }
-
-              const [, label] = option;
-              return (
-                typeof label === 'string' && label[0].toLowerCase() === key
-              );
-            });
-            ~index && setCursor(index);
-          }
-      }
+            const [, label] = option;
+            return typeof label === 'string' && label[0].toLowerCase() === key;
+          });
+          ~index && setCursor(index);
+        }
     }
-  );
+  });
 
   return [cursor, handleKeyDown, handleKeyUp, reset, visibilityHandler];
 };

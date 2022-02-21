@@ -6,7 +6,7 @@ import {
   TextInput,
   Select,
   SelectFiltered,
-  SelectOptions,
+  SelectOption,
   Box,
 } from '@rocket.chat/fuselage';
 import { useBreakpoints, useUniqueId } from '@rocket.chat/fuselage-hooks';
@@ -27,10 +27,10 @@ export type OrganizationInfoPayload = {
 type OrganizationInfoFormProps = {
   currentStep: number;
   stepCount: number;
-  organizationTypeOptions: SelectOptions;
-  organizationIndustryOptions: SelectOptions;
-  organizationSizeOptions: SelectOptions;
-  countryOptions: SelectOptions;
+  organizationTypeOptions: SelectOption[];
+  organizationIndustryOptions: SelectOption[];
+  organizationSizeOptions: SelectOption[];
+  countryOptions: SelectOption[];
   nextStep?: ReactNode;
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;

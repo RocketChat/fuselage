@@ -12,6 +12,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { MultiSelect, MultiSelectFiltered } from '../..';
+import { SelectOption } from '../Select';
 
 export default {
   title: 'Inputs/MultiSelect',
@@ -35,7 +36,7 @@ export default {
   },
 } as ComponentMeta<typeof MultiSelect>;
 
-const options: readonly (readonly [string, string, boolean?])[] = [
+const options: SelectOption[] = [
   ['1', 'a teste 1'],
   ['2', 'b teste 2', true],
   ['3', 'c teste 3'],
@@ -56,6 +57,13 @@ export const Default: ComponentStory<typeof MultiSelect> = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder here...',
   options,
+};
+
+export const WithValue: ComponentStory<typeof MultiSelect> = Template.bind({});
+WithValue.args = {
+  placeholder: 'Placeholder here...',
+  options,
+  value: ['1', '2'],
 };
 
 export const Error: ComponentStory<typeof MultiSelect> = Template.bind({});

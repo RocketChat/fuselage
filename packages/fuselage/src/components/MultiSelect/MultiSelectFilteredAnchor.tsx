@@ -16,7 +16,7 @@ type MultiSelectFilteredAnchorProps = {
   disabled: boolean;
   filter: string;
   onChangeFilter: (filter: string) => void;
-  placeholder: string;
+  placeholder?: string;
   onClick: MouseEventHandler;
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;

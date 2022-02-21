@@ -7,7 +7,7 @@ import { useEffect, useRef, Ref } from 'react';
  * @param options - options of the focus request
  * @returns the ref which holds the element
  * @public
- * @deprecated
+ * @deprecated in favor of focus provided by react-hook-form
  */
 export const useAutoFocus = <
   T extends { focus: (options?: FocusOptions) => void }

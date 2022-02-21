@@ -8,13 +8,13 @@ import {
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Select, SelectFiltered, SelectOptions } from '../..';
+import { Select, SelectFiltered, SelectOption } from '../..';
 
-const options: SelectOptions = Array.from({
+export const options: SelectOption[] = Array.from({
   length: 10,
 }).map((_, i) => [`${i + 1}`, `a teste ${i + 1}`]);
 
-const optionsEllipses: SelectOptions = [
+const optionsEllipses: SelectOption[] = [
   ['11', 'Very very very very very very very very very large text'],
   ...options,
 ];

@@ -6,7 +6,7 @@ import {
   Box,
   TextInput,
   Select,
-  SelectOptions,
+  SelectOption,
   CheckBox,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
@@ -31,7 +31,7 @@ type CreateCloudWorkspaceFormProps = {
   currentStep: number;
   stepCount: number;
   onSubmit: SubmitHandler<CreateCloudWorkspaceFormPayload>;
-  serverRegionOptions: SelectOptions;
+  serverRegionOptions: SelectOption[];
   domain: string;
   onBackButtonClick: () => void;
   validateUrl: (url: string) => Promise<boolean>;

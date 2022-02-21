@@ -1,4 +1,4 @@
-import { MultiSelectFiltered } from '@rocket.chat/fuselage';
+import { MultiSelectFiltered, SelectOption } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
 import React, { memo, ReactElement, useCallback, useMemo } from 'react';
 
@@ -15,7 +15,7 @@ const MultiStaticSelectElement = ({
 }: MultiStaticSelectElementProps): ReactElement => {
   const [{ loading, value, error }, action] = useUiKitState(block, context);
 
-  const options = useMemo<readonly [string, string][]>(
+  const options = useMemo<SelectOption[]>(
     () =>
       block.options.map(({ value, text }, i) => [
         value,

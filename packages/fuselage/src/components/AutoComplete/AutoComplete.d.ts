@@ -15,4 +15,8 @@ type AutoCompleteProps = {
   error?: boolean;
   disabled?: boolean;
 };
+
+/**
+ * @deprecated in favor of Select and MultiSelect
+ */
 export const AutoComplete: FC<AutoCompleteProps>;
