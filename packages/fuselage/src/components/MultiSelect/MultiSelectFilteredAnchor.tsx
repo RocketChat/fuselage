@@ -25,7 +25,7 @@ type MultiSelectFilteredAnchorProps = {
 
 const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
   {
-    children,
+    children: _children,
     filter,
     onChangeFilter,
     placeholder,

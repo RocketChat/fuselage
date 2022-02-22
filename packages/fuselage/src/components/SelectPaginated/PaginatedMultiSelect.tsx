@@ -212,7 +212,11 @@ export const PaginatedMultiSelectFiltered = ({
   const anchor = useCallback(
     forwardRef(
       (
-        { children, filter, ...props }: ComponentProps<typeof InputBox>,
+        {
+          children: _children,
+          filter,
+          ...props
+        }: ComponentProps<typeof InputBox>,
         ref: Ref<HTMLInputElement>
       ) => (
         <Flex.Item grow={1}>

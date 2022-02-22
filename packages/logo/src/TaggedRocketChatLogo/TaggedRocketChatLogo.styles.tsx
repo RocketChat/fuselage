@@ -1,15 +1,16 @@
 import styled from '@rocket.chat/styled';
 
 const tagStyleProps = ({
-  color,
-  backgroundColor,
+  color: _color,
+  backgroundColor: _backgroundColor,
   ...props
 }: {
   color: string;
   backgroundColor: string;
 }) => props;
 
-const containerProps = ({ width, ...props }: { width?: string }) => props;
+const containerProps = ({ width: _width, ...props }: { width?: string }) =>
+  props;
 
 export const LogoContainer = styled('div', containerProps)`
   width: 100%;

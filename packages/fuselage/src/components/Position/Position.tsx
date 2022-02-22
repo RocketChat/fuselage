@@ -23,7 +23,7 @@ const Position = ({
   children,
   placement,
   margin,
-  className,
+  className: _className,
   ...props
 }: PositionProps): ReactPortal => {
   const target = useRef(null);

@@ -37,38 +37,5 @@
     "node": "14.17.6",
     "yarn": "1.22.11"
   },
-  "packageManager": "yarn@3.1.0",
-  "turbo": {
-    "baseBranch": "origin/master",
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ]
-      },
-      "test": {
-        "dependsOn": [
-          "build"
-        ],
-        "outputs": []
-      },
-      "lint": {
-        "dependsOn": [
-          "build"
-        ],
-        "outputs": []
-      },
-      "build-storybook": {
-        "dependsOn": [
-          "build"
-        ],
-        "outputs": [
-          "storybook-static/**"
-        ]
-      },
-      "lint-staged": {
-        "outputs": []
-      }
-    }
-  }
+  "packageManager": "yarn@3.1.0"
 }

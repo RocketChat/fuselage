@@ -1,8 +1,8 @@
 import styled from '@rocket.chat/styled';
 
 const filterElementProps = ({
-  imageUrl,
-  size,
+  imageUrl: _imageUrl,
+  size: _size,
   ...props
 }: {
   imageUrl: string;

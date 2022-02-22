@@ -1,9 +1,9 @@
 import styled from '@rocket.chat/styled';
 
 const filterImageProps = ({
-  imageUrl,
-  width,
-  height,
+  imageUrl: _imageUrl,
+  width: _width,
+  height: _height,
   ...props
 }: {
   imageUrl: string;
