@@ -24,13 +24,13 @@ export const MultiSelectFiltered = ({
   return (
     <MultiSelect
       {...props}
-      filter={filter}
+      filter={propFilter || filter}
       options={options}
       anchor={(params: MultiSelectAnchorParams) => (
         <MultiSelectFilteredAnchor
           placeholder={placeholder}
-          filter={filter}
-          onChangeFilter={setFilter}
+          filter={propFilter || filter}
+          onChangeFilter={propSetFilter || setFilter}
           {...params}
         />
       )}
