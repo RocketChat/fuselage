@@ -1,12 +1,9 @@
 import { cssSupports } from '@rocket.chat/css-supports';
-import { Element, Middleware, node, RULESET, serialize } from 'stylis';
+import type { Element, Middleware } from 'stylis';
+import { node, RULESET, serialize } from 'stylis';
 
-import {
-  attachDeclaration,
-  isDeclaration,
-  isRuleSet,
-  RuleSet,
-} from './elements';
+import type { RuleSet } from './elements';
+import { attachDeclaration, isDeclaration, isRuleSet } from './elements';
 import { compileOperations } from './operations';
 
 export const createLogicalPropertiesMiddleware = ({

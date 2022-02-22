@@ -3,64 +3,30 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  forwardRef,
-  useMemo,
-  ComponentProps,
-  DependencyList,
-  Ref,
-  ElementType,
-} from 'react';
+import type { ComponentProps, DependencyList, Ref, ElementType } from 'react';
+import React, { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
-import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
+import AnimatedVisibility from '../AnimatedVisibility';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
-import { Options, useCursor, OptionType } from '../Options';
+import Margins from '../Margins';
+import type { OptionType } from '../Options';
+import { Options, useCursor } from '../Options';
+import PositionAnimated from '../PositionAnimated';
+import SelectAddon from './SelectAddon';
+import SelectFocus from './SelectFocus';
 
-export type SelectOptions = readonly [value: string, label: string][];
-
-export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
-  anchor?: ElementType;
-  error?: string;
-  options: SelectOptions;
-  onChange: (value: SelectOptions[number][0]) => void;
-  getLabel?: (params: SelectOptions[number]) => SelectOptions[number][1];
-  getValue?: (params: SelectOptions[number]) => SelectOptions[number][0];
-  filter?: string;
-  renderOptions?: ElementType;
-};
-
-type AddonProps = ComponentProps<typeof Box>;
-
-export const Addon = forwardRef(
-  (props: AddonProps, ref: Ref<HTMLDivElement>) => (
-    <Box is='div' rcx-select__addon ref={ref} {...props} />
-  )
-);
+export type SelectOption = readonly [
+  value: string,
+  label: string,
+  selected?: boolean
+];
 
 type WrapperProps = ComponentProps<typeof Box>;
 
 const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
   <Box is='div' rcx-select__wrapper ref={ref} {...props} />
 ));
-
-type FocusProps = ComponentProps<typeof Box>;
-
-export const Focus = forwardRef(
-  (props: FocusProps, ref: Ref<HTMLButtonElement>) => (
-    <Box
-      ref={ref}
-      fontScale='p2m'
-      color='hint'
-      rcx-select__focus
-      is='button'
-      type='button'
-      {...props}
-    />
-  )
-);
 
 const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   const didMount = useRef(false);
@@ -74,6 +40,21 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   }, deps || []);
 };
 
+export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+  anchor?: ElementType;
+  error?: string;
+  options: SelectOption[];
+  onChange: (value: SelectOption[0]) => void;
+  getLabel?: (params: SelectOption) => SelectOption[1];
+  getValue?: (params: SelectOption) => SelectOption[0];
+  filter?: string;
+  renderOptions?: ElementType;
+  renderItem?: ElementType;
+  renderSelected?: ElementType;
+  customEmpty?: string;
+  addonIcon?: ComponentProps<typeof Icon>['name'];
+};
+
 export const Select = forwardRef(
   (
     {
@@ -81,20 +62,22 @@ export const Select = forwardRef(
       filter,
       error,
       disabled,
-      options,
-      anchor: Anchor = Focus,
+      options = [],
+      anchor: Anchor = SelectFocus,
       onChange = () => {},
       getValue = ([value] = ['', '']) => value,
       getLabel = ([_, label] = ['', '']) => label,
       placeholder = '',
+      renderItem,
+      renderSelected: RenderSelected,
       renderOptions: _Options = Options,
+      addonIcon,
+      customEmpty,
       ...props
     }: SelectProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    const [internalValue, setInternalValue] = useState(value);
-
-    const currentValue = value !== undefined ? value : internalValue;
+    const [internalValue, setInternalValue] = useState(value || '');
 
     const internalChangedByKeyboard = useMutableCallback(([value]) => {
       setInternalValue(value);
@@ -102,27 +85,24 @@ export const Select = forwardRef(
     });
 
     const option = options.find(
-      (option) => getValue(option) === currentValue
-    ) as SelectOptions[number];
+      (option) => getValue(option) === internalValue
+    ) as SelectOption;
 
     const index = options.indexOf(option);
 
     const filteredOptions = useMemo<OptionType[]>((): OptionType[] => {
-      const mapOptions = ([
-        value,
-        label,
-      ]: SelectOptions[number]): OptionType => {
-        if (currentValue === value) {
+      const mapOptions = ([value, label]: SelectOption): OptionType => {
+        if (internalValue === value) {
           return [value, label, true];
         }
         return [value, label];
       };
 
-      const applyFilter = ([, option]: SelectOptions[number]) =>
+      const applyFilter = ([, option]: SelectOption) =>
         !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
 
       return options.filter(applyFilter).map(mapOptions);
-    }, [options, currentValue, filter]);
+    }, [options, internalValue, filter]);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
       useCursor(index, filteredOptions, internalChangedByKeyboard);
@@ -150,10 +130,8 @@ export const Select = forwardRef(
       if (visible === AnimatedVisibility.VISIBLE) {
         return hide();
       }
-      if (innerRef && innerRef.current) {
-        innerRef.current.focus();
-        return show();
-      }
+      innerRef.current?.focus();
+      return show();
     });
 
     return (
@@ -173,18 +151,26 @@ export const Select = forwardRef(
           mi='neg-x4'
           rcx-select__wrapper--hidden={!!visibleText}
         >
-          {visibleText && (
-            <Box
-              flexGrow={1}
-              is='span'
-              mi='x4'
-              rcx-select__item
-              fontScale='p2'
-              color={valueLabel ? 'default' : 'hint'}
-            >
-              {visibleText}
-            </Box>
-          )}
+          {visibleText &&
+            (RenderSelected ? (
+              <RenderSelected
+                role='option'
+                value={getValue(option)}
+                label={valueLabel}
+                key={getValue(option)}
+              />
+            ) : (
+              <Box
+                flexGrow={1}
+                is='span'
+                mi='x4'
+                rcx-select__item
+                fontScale='p2'
+                color={valueLabel ? 'default' : 'hint'}
+              >
+                {visibleText}
+              </Box>
+            ))}
           <Anchor
             disabled={disabled}
             rcx-input-box--undecorated
@@ -196,19 +182,20 @@ export const Select = forwardRef(
             onKeyUp={handleKeyUp}
             onKeyDown={handleKeyDown}
           />
-          <Addon
-            mi='x4'
-            children={
-              <Icon
-                name={
-                  visible === AnimatedVisibility.VISIBLE
-                    ? 'cross'
-                    : 'chevron-down'
-                }
-                size='x20'
-              />
-            }
-          />
+          <Margins inline='x4'>
+            <SelectAddon
+              children={
+                <Icon
+                  name={
+                    visible === AnimatedVisibility.VISIBLE
+                      ? 'cross'
+                      : addonIcon || 'chevron-down'
+                  }
+                  size='x20'
+                />
+              }
+            />
+          </Margins>
         </Wrapper>
         <PositionAnimated visible={visible} anchor={containerRef}>
           <_Options
@@ -217,7 +204,9 @@ export const Select = forwardRef(
             filter={filter}
             options={filteredOptions}
             onSelect={internalChangedByClick}
+            renderItem={renderItem}
             cursor={cursor}
+            customEmpty={customEmpty}
           />
         </PositionAnimated>
       </Box>

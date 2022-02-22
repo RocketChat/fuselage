@@ -1,9 +1,10 @@
 import { Box, Skeleton } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
-import React, { memo, ReactElement, useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
 import { useSurfaceType } from '../contexts/SurfaceContext';
-import { BlockProps } from '../utils/BlockProps';
+import type { BlockProps } from '../utils/BlockProps';
 import { Image } from './ImageBlock.styles';
 
 const maxSize = 360;

@@ -1,6 +1,7 @@
-import React, { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
+import React from 'react';
 
-import { Icon } from '../..';
+import { Icon } from '../../Icon';
 
 export const MessageReactionAction = ({
   className,
@@ -15,6 +16,6 @@ export const MessageReactionAction = ({
       .join(' ')}
     {...props}
   >
-    <Icon {...({ name: 'emoji-plus', size: 'x16' } as any)}></Icon>
+    <Icon name='emoji-plus' size={16} />
   </div>
 );

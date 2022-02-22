@@ -37,20 +37,21 @@
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:^",
-    "@rocket.chat/prettier-config": "workspace:^",
-    "build-design-tokens": "workspace:^",
-    "eslint": "^8.2.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-prettier": "^4.0.0",
-    "lint-all": "workspace:^",
-    "lint-staged": "^11.2.6",
+    "@rocket.chat/eslint-config-alt": "workspace:~",
+    "@rocket.chat/prettier-config": "workspace:~",
+    "build-design-tokens": "workspace:~",
+    "eslint": "~8.8.0",
+    "eslint-config-prettier": "~8.3.0",
+    "eslint-plugin-import": "~2.25.4",
+    "eslint-plugin-prettier": "~4.0.0",
+    "lint-all": "workspace:~",
+    "lint-staged": "~12.3.3",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2",
-    "stylelint": "^13.13.1",
-    "stylelint-order": "^4.1.0",
-    "stylelint-prettier": "^1.2.0",
-    "stylelint-scss": "^3.21.0"
+    "postcss-scss": "~4.0.3",
+    "prettier": "~2.5.1",
+    "stylelint": "~14.5.0",
+    "stylelint-order": "~5.0.0",
+    "stylelint-prettier": "~2.0.0",
+    "stylelint-scss": "~4.1.0"
   }
 }

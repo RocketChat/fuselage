@@ -1,6 +1,7 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { ComponentProps, createRef } from 'react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentProps } from 'react';
+import React, { createRef } from 'react';
 
 import { OptionsPaginated, CheckOption } from '.';
 import { Box } from '..';
@@ -14,7 +15,7 @@ const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
 }));
 
 export default {
-  title: 'Misc/Options/OptionsPaginated',
+  title: 'Navigation/Options/OptionsPaginated',
   component: OptionsPaginated,
   parameters: {
     docs: {

@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef, MutableRefObject } from 'react';
+import type { MutableRefObject } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 const EMPTY = Symbol('empty');
 

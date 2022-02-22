@@ -5,7 +5,7 @@ import Option from '../Options/Option/Option';
 import { Dropdown } from './Dropdown';
 
 export default {
-  title: 'Dropdown/Dropdown',
+  title: 'Navigation/Dropdown',
   component: Dropdown,
   parameters: {
     jest: ['Dropdown.spec.tsx'],

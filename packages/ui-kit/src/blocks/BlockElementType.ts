@@ -1,4 +1,4 @@
-import { BlockElement } from './BlockElement';
+import type { BlockElement } from './BlockElement';
 
 export enum BlockElementType {
   BUTTON = 'button',

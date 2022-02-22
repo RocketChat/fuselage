@@ -1,6 +1,7 @@
-import React, { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
+import React from 'react';
 
-import { Box } from '../Box';
+import type { Box } from '../Box';
 import { Button } from '../Button';
 
 type TableSelectionButtonProps = ComponentProps<typeof Box>;

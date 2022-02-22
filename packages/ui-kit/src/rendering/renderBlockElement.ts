@@ -1,7 +1,7 @@
-import { BlockElement } from '../blocks/BlockElement';
-import { BlockContext } from './BlockContext';
-import { BlockElementRenderer } from './BlockElementRenderer';
-import { BlockRenderers } from './BlockRenderers';
+import type { BlockElement } from '../blocks/BlockElement';
+import type { BlockContext } from './BlockContext';
+import type { BlockElementRenderer } from './BlockElementRenderer';
+import type { BlockRenderers } from './BlockRenderers';
 
 const getBlockElementRenderer = <T>(
   renderers: BlockRenderers<T>,

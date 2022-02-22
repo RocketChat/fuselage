@@ -1,4 +1,5 @@
-import React, { forwardRef, ReactNode, Ref } from 'react';
+import type { ReactNode, Ref } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Box, Tile } from '..';
 

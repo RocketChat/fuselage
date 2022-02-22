@@ -5,14 +5,14 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Icon, NumberInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Forms/Inputs/NumberInput',
+  title: 'Inputs/NumberInput',
   component: NumberInput,
   parameters: {
     docs: {

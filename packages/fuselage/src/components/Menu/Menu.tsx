@@ -1,20 +1,17 @@
-import { Placements } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useRef,
-  useCallback,
-  ComponentProps,
-  ReactElement,
-  ElementType,
-} from 'react';
+import type { Placements } from '@rocket.chat/fuselage-hooks';
+import type { ComponentProps, ElementType, ReactNode } from 'react';
+import React, { useRef, useCallback } from 'react';
 
-import { ActionButton, PositionAnimated, Options, useCursor, Box } from '..';
+import type { Box } from '..';
+import { ActionButton, PositionAnimated, Options, useCursor } from '..';
 import type { OptionType } from '../Options';
 
-export type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
+type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   options: {
     [id: string]: {
-      label: ReactElement | string;
-      action: () => void;
+      type?: 'option' | 'heading' | 'divider';
+      label?: ReactNode;
+      action?: () => void;
     };
   };
   optionWidth?: ComponentProps<typeof Box>['width'];
@@ -24,11 +21,16 @@ export type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
 };
 
 const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
-  options[selected].action();
+  options[selected].action?.();
 };
 
 const mapOptions = (options: MenuProps['options']): OptionType[] =>
-  Object.entries(options).map(([value, { label }]) => [value, label]);
+  Object.entries(options).map(([value, { type = 'option', label }]) => [
+    value,
+    label,
+    undefined,
+    type,
+  ]);
 
 export const Menu = ({
   tiny,
@@ -61,7 +63,7 @@ export const Menu = ({
       show();
       ref.current.classList.add('focus-visible');
     }
-  }, [show]);
+  }, [hide, show]);
 
   const handleSelection = useCallback(
     (args) => {
@@ -71,6 +73,7 @@ export const Menu = ({
     },
     [hide, reset, options]
   );
+
   return (
     <>
       <ActionButton

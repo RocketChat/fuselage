@@ -1,6 +1,6 @@
 /* eslint-disable new-cap */
 import { Banner, Icon } from '@rocket.chat/fuselage';
-import * as UiKit from '@rocket.chat/ui-kit';
+import type * as UiKit from '@rocket.chat/ui-kit';
 import { action } from '@storybook/addon-actions';
 import React from 'react';
 

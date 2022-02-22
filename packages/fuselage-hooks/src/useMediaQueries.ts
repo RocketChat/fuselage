@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import { useSubscription, Subscription } from 'use-subscription';
+import type { Subscription } from 'use-subscription';
+import { useSubscription } from 'use-subscription';
 
 import { useStableArray } from './useStableArray';
 

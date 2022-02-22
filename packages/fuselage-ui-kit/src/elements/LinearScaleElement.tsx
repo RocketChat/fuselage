@@ -1,9 +1,10 @@
 import { Box, Button, ButtonGroup } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
-import React, { memo, ReactElement, useMemo } from 'react';
+import type { ReactElement } from 'react';
+import React, { memo, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
-import { BlockProps } from '../utils/BlockProps';
+import type { BlockProps } from '../utils/BlockProps';
 
 type LinearScaleElementProps = BlockProps<UiKit.LinearScaleElement>;
 
@@ -60,7 +61,7 @@ const LinearScaleElement = ({
           {points.map((point, i) => (
             <Button
               key={i}
-              className={point === value ? 'active' : undefined}
+              className={point === String(value) ? 'active' : undefined}
               disabled={loading}
               danger={!!error}
               minWidth='4ch'

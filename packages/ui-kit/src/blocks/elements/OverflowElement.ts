@@ -1,5 +1,5 @@
-import { Actionable } from '../Actionable';
-import { Option } from '../Option';
+import type { Actionable } from '../Actionable';
+import type { Option } from '../Option';
 
 export type OverflowElement = Actionable<{
   type: 'overflow';

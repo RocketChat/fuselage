@@ -2,17 +2,12 @@ import {
   useMutableCallback,
   useDebouncedState,
 } from '@rocket.chat/fuselage-hooks';
-import React, {
-  ComponentProps,
-  ElementType,
-  forwardRef,
-  memo,
-  Ref,
-  SyntheticEvent,
-} from 'react';
+import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
+import React, { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
-import { AnimatedVisibility, Box } from '../Box';
+import AnimatedVisibility from '../AnimatedVisibility';
+import { Box } from '../Box';
 import { CheckBox } from '../CheckBox';
 import Option from '../Options/Option';
 import Tile from '../Tile';

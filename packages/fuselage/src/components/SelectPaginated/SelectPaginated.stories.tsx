@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { useState } from 'react';
 
 import {
@@ -26,7 +26,7 @@ const optionsEllipses = [
 ];
 
 export default {
-  title: 'Forms/SelectPaginated',
+  title: 'Inputs/SelectPaginated',
   component: PaginatedSelect,
   parameters: {
     docs: {

@@ -1,4 +1,4 @@
-import type { SelectOptions } from '@rocket.chat/fuselage';
+import type { SelectOption } from '@rocket.chat/fuselage';
 import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -14,14 +14,14 @@ type OrganizationInfoPageProps = {
   description?: string;
   currentStep: number;
   stepCount: number;
-  organizationTypeOptions: SelectOptions;
-  organizationIndustryOptions: SelectOptions;
-  organizationSizeOptions: SelectOptions;
-  countryOptions: SelectOptions;
+  organizationTypeOptions: SelectOption[];
+  organizationIndustryOptions: SelectOption[];
+  organizationSizeOptions: SelectOption[];
+  countryOptions: SelectOption[];
   initialValues?: OrganizationInfoPayload;
   nextStep?: ReactNode;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
-  onBackButtonClick: () => void;
+  onBackButtonClick?: () => void;
   onClickSkip?: () => void;
 };
 

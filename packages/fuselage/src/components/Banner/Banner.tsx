@@ -1,11 +1,6 @@
 import { useBorderBoxSize } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useRef,
-  useCallback,
-  useMemo,
-  ReactNode,
-  AllHTMLAttributes,
-} from 'react';
+import type { ReactNode, AllHTMLAttributes } from 'react';
+import React, { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';

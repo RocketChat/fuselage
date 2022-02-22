@@ -1,4 +1,4 @@
-import { ElementType, FC } from 'react';
+import type { ElementType, FC } from 'react';
 
 type AutoCompleteProps = {
   value: unknown[];
@@ -15,4 +15,8 @@ type AutoCompleteProps = {
   error?: boolean;
   disabled?: boolean;
 };
+
+/**
+ * @deprecated in favor of Select and MultiSelect
+ */
 export const AutoComplete: FC<AutoCompleteProps>;

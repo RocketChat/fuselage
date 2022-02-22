@@ -1,12 +1,12 @@
-import {
+import type {
   Dispatch,
   DispatchWithoutAction,
   Reducer,
   ReducerState,
   ReducerStateWithoutAction,
   ReducerWithoutAction,
-  useReducer,
 } from 'react';
+import { useReducer } from 'react';
 
 import { useDebouncedUpdates } from './useDebouncedUpdates';
 

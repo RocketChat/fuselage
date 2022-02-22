@@ -1,26 +1,26 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-import { LayoutBlock } from '..';
-import { Actionable } from './Actionable';
-import { Block } from './Block';
-import { Option } from './Option';
-import { TextObject } from './TextObject';
-import { ButtonElement } from './elements/ButtonElement';
-import { DatePickerElement } from './elements/DatePickerElement';
-import { ImageElement } from './elements/ImageElement';
-import { LinearScaleElement } from './elements/LinearScaleElement';
-import { MultiStaticSelectElement } from './elements/MultiStaticSelectElement';
-import { OverflowElement } from './elements/OverflowElement';
-import { PlainTextInputElement } from './elements/PlainTextInputElement';
-import { StaticSelectElement } from './elements/StaticSelectElement';
-import { ActionsBlock } from './layout/ActionsBlock';
-import { ConditionalBlock } from './layout/ConditionalBlock';
-import { ContextBlock } from './layout/ContextBlock';
-import { DividerBlock } from './layout/DividerBlock';
-import { ImageBlock } from './layout/ImageBlock';
-import { InputBlock } from './layout/InputBlock';
-import { SectionBlock } from './layout/SectionBlock';
-import { Markdown } from './text/Markdown';
-import { PlainText } from './text/PlainText';
+import type { LayoutBlock } from '..';
+import type { Actionable } from './Actionable';
+import type { Block } from './Block';
+import type { Option } from './Option';
+import type { TextObject } from './TextObject';
+import type { ButtonElement } from './elements/ButtonElement';
+import type { DatePickerElement } from './elements/DatePickerElement';
+import type { ImageElement } from './elements/ImageElement';
+import type { LinearScaleElement } from './elements/LinearScaleElement';
+import type { MultiStaticSelectElement } from './elements/MultiStaticSelectElement';
+import type { OverflowElement } from './elements/OverflowElement';
+import type { PlainTextInputElement } from './elements/PlainTextInputElement';
+import type { StaticSelectElement } from './elements/StaticSelectElement';
+import type { ActionsBlock } from './layout/ActionsBlock';
+import type { ConditionalBlock } from './layout/ConditionalBlock';
+import type { ContextBlock } from './layout/ContextBlock';
+import type { DividerBlock } from './layout/DividerBlock';
+import type { ImageBlock } from './layout/ImageBlock';
+import type { InputBlock } from './layout/InputBlock';
+import type { SectionBlock } from './layout/SectionBlock';
+import type { Markdown } from './text/Markdown';
+import type { PlainText } from './text/PlainText';
 
 type InterfaceOf<T> = Pick<T, keyof T>;
 

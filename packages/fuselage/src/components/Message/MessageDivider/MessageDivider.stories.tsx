@@ -1,11 +1,11 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { MessageDivider } from '.';
 import { Box } from '../..';
 
 export default {
-  title: 'Messages/Divider',
+  title: 'Message/MessageDivider',
   component: MessageDivider,
 } as ComponentMeta<typeof MessageDivider>;
 

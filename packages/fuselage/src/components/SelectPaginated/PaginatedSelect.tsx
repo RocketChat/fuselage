@@ -3,23 +3,16 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useState,
-  useRef,
-  forwardRef,
-  useMemo,
-  SyntheticEvent,
-  ComponentProps,
-  useEffect,
-  Ref,
-  ElementType,
-} from 'react';
+import type { SyntheticEvent, ComponentProps, Ref, ElementType } from 'react';
+import React, { useState, useRef, forwardRef, useMemo, useEffect } from 'react';
 
 import type { SelectProps } from '..';
-import { PositionAnimated, Box, AnimatedVisibility } from '../Box';
+import AnimatedVisibility from '../AnimatedVisibility';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
+import PositionAnimated from '../PositionAnimated';
 
 type PaginatedOptionType = {
   value: string | number;

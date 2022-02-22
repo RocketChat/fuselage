@@ -1,4 +1,4 @@
-import { ConfirmationDialog } from './ConfirmationDialog';
+import type { ConfirmationDialog } from './ConfirmationDialog';
 
 export type Actionable<Block> = Block & {
   appId: string;

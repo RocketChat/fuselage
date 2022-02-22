@@ -1,5 +1,5 @@
-import { TextObject } from '../blocks/TextObject';
-import { BlockContext } from './BlockContext';
+import type { TextObject } from '../blocks/TextObject';
+import type { BlockContext } from './BlockContext';
 
 export type TextObjectRenderer<
   OutputElement,

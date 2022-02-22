@@ -1,6 +1,7 @@
-import React, { ComponentProps, ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
+import React from 'react';
 
-import { Box } from '..';
+import type { Box } from '..';
 import { Icon as FuselageIcon } from '../Icon';
 import { SidebarAction, SidebarActions } from './SidebarActions';
 

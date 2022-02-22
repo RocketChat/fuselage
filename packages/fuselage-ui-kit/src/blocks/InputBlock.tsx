@@ -1,9 +1,10 @@
 import { Field } from '@rocket.chat/fuselage';
 import * as UiKit from '@rocket.chat/ui-kit';
-import React, { memo, ReactElement, useMemo } from 'react';
+import type { ReactElement } from 'react';
+import React, { memo, useMemo } from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
-import { BlockProps } from '../utils/BlockProps';
+import type { BlockProps } from '../utils/BlockProps';
 
 type InputBlockProps = BlockProps<UiKit.InputBlock>;
 

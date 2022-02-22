@@ -1,3 +1,4 @@
+import type { SelectOption } from '@rocket.chat/fuselage';
 import {
   Button,
   Field,
@@ -8,10 +9,10 @@ import {
   EmailInput,
   Select,
   SelectFiltered,
-  SelectOptions,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useForm, SubmitHandler, Validate, Controller } from 'react-hook-form';
+import type { SubmitHandler, Validate } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import Form from '../../common/Form';
@@ -27,8 +28,8 @@ type RequestTrialPayload = {
 
 type RequestTrialFormProps = {
   defaultValues?: RequestTrialPayload;
-  organizationSizeOptions: SelectOptions;
-  countryOptions: SelectOptions;
+  organizationSizeOptions: SelectOption[];
+  countryOptions: SelectOption[];
   onSubmit: SubmitHandler<RequestTrialPayload>;
   onManageWorkspaceClick: () => void;
   validateEmail: Validate<string>;

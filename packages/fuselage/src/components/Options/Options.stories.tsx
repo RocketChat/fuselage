@@ -5,12 +5,14 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { createRef } from 'react';
 
-import { Options, OptionType } from '.';
-import { Box, Menu } from '..';
-import { CheckOption } from '../OptionsPaginated';
+import type { OptionType } from '.';
+import { Options } from '.';
+import type { Menu } from '..';
+import { Box } from '..';
+import { CheckOption } from './CheckOption';
 import Option from './Option';
 
 const options: OptionType[] = [
@@ -24,7 +26,7 @@ const options: OptionType[] = [
 ];
 
 export default {
-  title: 'Misc/Options/Options',
+  title: 'Navigation/Options',
   component: Options,
   parameters: {
     docs: {
@@ -46,19 +48,21 @@ export default {
 
 const Template: ComponentStory<typeof Options> = (args) => (
   <Box position='relative' maxWidth={250}>
-    <Options {...args} ref={createRef()} options={options} />
+    <Options {...args} ref={createRef()} />
   </Box>
 );
 
 export const Default: ComponentStory<typeof Options> = Template.bind({});
 Default.args = {
   cursor: 1,
+  options,
 };
 
 export const OptionStory: ComponentStory<typeof Options> = Template.bind({});
 OptionStory.args = {
   renderItem: Option,
   cursor: 1,
+  options,
 };
 OptionStory.storyName = 'Option';
 
@@ -69,5 +73,19 @@ CheckOptionStory.args = {
   renderItem: CheckOption,
   value: ['1'],
   cursor: 0,
+  options,
 };
 CheckOptionStory.storyName = 'CheckOption';
+
+export const EmptyOptions: ComponentStory<typeof Options> = Template.bind({});
+EmptyOptions.args = {
+  cursor: 1,
+  options: [],
+};
+
+export const CustomEmpty: ComponentStory<typeof Options> = Template.bind({});
+CustomEmpty.args = {
+  cursor: 1,
+  options: [],
+  customEmpty: 'Custom empty placeholder',
+};

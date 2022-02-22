@@ -1,12 +1,12 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Icon, TextInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Forms/Inputs/TextInput',
+  title: 'Inputs/TextInput',
   component: TextInput,
   parameters: {
     docs: {

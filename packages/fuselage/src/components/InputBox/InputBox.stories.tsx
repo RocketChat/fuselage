@@ -6,13 +6,13 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Icon, InputBox } from '../..';
 
 export default {
-  title: 'Forms/InputBox',
+  title: 'Inputs/InputBox',
   component: InputBox,
   parameters: {
     docs: {

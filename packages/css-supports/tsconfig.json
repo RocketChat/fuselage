@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": "./src",
     "target": "es5",
     "module": "ESNext",
     "declaration": true,
@@ -11,6 +12,12 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "importsNotUsedAsValues": "error"
+  },
+  "include": ["src/**/*"],
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/css-supports"
   }
 }

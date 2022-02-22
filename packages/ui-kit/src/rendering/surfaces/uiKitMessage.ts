@@ -1,5 +1,5 @@
 import { createSurfaceRenderer } from '../createSurfaceRenderer';
-import { MessageSurfaceLayout } from './UiKitParserMessage';
+import type { MessageSurfaceLayout } from './UiKitParserMessage';
 
 export const uiKitMessage = createSurfaceRenderer<
   unknown,

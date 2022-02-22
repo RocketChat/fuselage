@@ -1,12 +1,12 @@
 import { action } from '@storybook/addon-actions';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { CheckBox } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
-  title: 'Buttons/CheckBox',
+  title: 'Inputs/CheckBox',
   component: CheckBox,
 } as ComponentMeta<typeof CheckBox>;
 

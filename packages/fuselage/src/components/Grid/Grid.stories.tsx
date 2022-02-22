@@ -5,14 +5,14 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { Fragment } from 'react';
 
 import { Table, TableBody, TableCell, TableHead, TableRow } from '..';
 import { Grid, Tile } from '../..';
 
 export default {
-  title: 'Containers/Grid',
+  title: 'Layout/Grid',
   component: Grid,
   parameters: {
     docs: {
@@ -53,7 +53,7 @@ export const Breakpoints = () => (
   <Table fixed striped sticky>
     <TableHead>
       <TableRow>
-        <TableCell></TableCell>
+        <TableCell />
         <TableCell>extra-small</TableCell>
         <TableCell>small</TableCell>
         <TableCell>medium</TableCell>

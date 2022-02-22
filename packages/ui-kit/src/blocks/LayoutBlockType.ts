@@ -1,4 +1,4 @@
-import { LayoutBlock } from './LayoutBlock';
+import type { LayoutBlock } from './LayoutBlock';
 
 export enum LayoutBlockType {
   SECTION = 'section',

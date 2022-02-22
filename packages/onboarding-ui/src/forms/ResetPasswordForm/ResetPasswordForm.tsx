@@ -6,7 +6,8 @@ import {
   Button,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useForm, SubmitHandler, Validate } from 'react-hook-form';
+import type { SubmitHandler, Validate } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';

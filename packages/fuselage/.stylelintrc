@@ -4,7 +4,10 @@
     "stylelint-scss",
     "stylelint-prettier"
   ],
-  "ignoreFiles": ["src/**/*.js"],
+  "customSyntax": "postcss-scss",
+  "ignoreFiles": [
+    "src/**/*.js"
+  ],
   "rules": {
     "prettier/prettier": true,
     "block-no-empty": true,

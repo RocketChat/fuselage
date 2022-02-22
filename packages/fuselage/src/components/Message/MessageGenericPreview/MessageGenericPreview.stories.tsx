@@ -1,5 +1,6 @@
-import { Story } from '@storybook/react';
-import React, { ReactNode } from 'react';
+import type { Story } from '@storybook/react';
+import type { ReactNode } from 'react';
+import React from 'react';
 
 import { MessageGenericPreview } from '.';
 import Message from '..';
@@ -12,7 +13,7 @@ import { MessageGenericPreviewThumb } from './MessageGenericPreviewThumb';
 import { MessageGenericPreviewTitle } from './MessageGenericPreviewTitle';
 
 export default {
-  title: 'Message/GenericPreview',
+  title: 'Message/MessageGenericPreview',
   component: MessageGenericPreview,
   decorators: [
     (storyFn: () => ReactNode) => (

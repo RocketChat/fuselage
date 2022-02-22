@@ -1,0 +1,84 @@
+import { Meta, ArgsTable, Story, Preview } from '@storybook/addon-docs';
+
+import { Flex } from '../..';
+import * as stories from './Flex.stories';
+
+<Meta title='Layout/Flex' parameters={{ jest: ['/Flex.spec'] }} />
+
+# Flex
+
+<Preview>
+  <Story story={stories.example} />
+</Preview>
+
+---
+
+## Flex.Container
+
+<ArgsTable of={Flex.Container} />
+
+## Flex.Item
+
+<ArgsTable of={Flex.Item} />
+
+---
+
+### Direction
+
+<Preview>
+  <Story story={stories.direction} />
+</Preview>
+
+### Wrap
+
+<Preview>
+  <Story story={stories.wrap} />
+</Preview>
+
+### Justify Content
+
+<Preview>
+  <Story story={stories.justifyContent} />
+</Preview>
+
+### Align Items
+
+<Preview>
+  <Story story={stories.alignItems} />
+</Preview>
+
+### Align Content
+
+<Preview>
+  <Story story={stories.alignContent} />
+</Preview>
+
+### Order
+
+<Preview>
+  <Story story={stories.order} />
+</Preview>
+
+### Grow
+
+<Preview>
+  <Story story={stories.grow} />
+</Preview>
+
+### Shrink
+
+<Preview>
+  <Story story={stories.shrink} />
+</Preview>
+
+### Basis
+
+<Preview>
+  <Story story={stories.basis} />
+</Preview>
+
+### Align
+
+<Preview>
+  <Story story={stories.align} />
+</Preview>

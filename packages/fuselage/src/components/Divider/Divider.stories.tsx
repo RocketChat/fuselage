@@ -1,10 +1,10 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Divider } from '../..';
 
 export default {
-  title: 'Misc/Divider',
+  title: 'Data Display/Divider',
   component: Divider,
 } as ComponentMeta<typeof Divider>;
 

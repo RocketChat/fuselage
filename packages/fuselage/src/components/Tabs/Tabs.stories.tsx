@@ -1,11 +1,11 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Tabs } from '../..';
 
 export default {
-  title: 'Misc/Tabs',
+  title: 'Navigation/Tabs',
   component: Tabs,
   parameters: {
     docs: {

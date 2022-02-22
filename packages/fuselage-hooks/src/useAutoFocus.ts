@@ -1,4 +1,5 @@
-import { useEffect, useRef, Ref } from 'react';
+import type { Ref } from 'react';
+import { useEffect, useRef } from 'react';
 
 /**
  * Hook to automatically request focus for an DOM element.
@@ -7,7 +8,7 @@ import { useEffect, useRef, Ref } from 'react';
  * @param options - options of the focus request
  * @returns the ref which holds the element
  * @public
- * @deprecated
+ * @deprecated in favor of focus provided by react-hook-form
  */
 export const useAutoFocus = <
   T extends { focus: (options?: FocusOptions) => void }

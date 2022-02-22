@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Menu, StatusBullet } from '../..';
@@ -22,7 +22,7 @@ import OptionMenu from './OptionMenu';
 import OptionSkeleton from './OptionSkeleton';
 
 export default {
-  title: 'Misc/Options/Option',
+  title: 'Navigation/Options/Option',
   component: Option,
   parameters: {
     docs: {

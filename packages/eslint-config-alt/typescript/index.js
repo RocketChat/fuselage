@@ -9,6 +9,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/ban-ts-comment': 'warn',
+    '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-empty-function': 'error',
     '@typescript-eslint/no-extra-parens': 'off',
@@ -21,7 +22,7 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
-    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/no-use-before-define': 'error',
     '@typescript-eslint/no-var-requires': 'off',
     'func-call-spacing': 'off',
     'indent': 'off',

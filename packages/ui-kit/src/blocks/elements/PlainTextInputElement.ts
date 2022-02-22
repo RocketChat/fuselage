@@ -1,5 +1,5 @@
-import { Actionable } from '../Actionable';
-import { PlainText } from '../text/PlainText';
+import type { Actionable } from '../Actionable';
+import type { PlainText } from '../text/PlainText';
 
 export type PlainTextInputElement = Actionable<{
   type: 'plain_text_input';

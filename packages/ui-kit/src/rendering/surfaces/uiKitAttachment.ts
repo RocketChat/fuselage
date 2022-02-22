@@ -1,5 +1,5 @@
 import { createSurfaceRenderer } from '../createSurfaceRenderer';
-import { AttachmentSurfaceLayout } from './UiKitParserAttachment';
+import type { AttachmentSurfaceLayout } from './UiKitParserAttachment';
 
 export const uiKitAttachment = createSurfaceRenderer<
   unknown,

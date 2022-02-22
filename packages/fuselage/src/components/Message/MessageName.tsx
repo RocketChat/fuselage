@@ -1,4 +1,5 @@
-import React, { AllHTMLAttributes } from 'react';
+import type { AllHTMLAttributes } from 'react';
+import React from 'react';
 
 type MessageNameProps = AllHTMLAttributes<HTMLSpanElement>;
 

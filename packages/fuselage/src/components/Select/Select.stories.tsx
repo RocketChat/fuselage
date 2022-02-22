@@ -5,22 +5,23 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Select, SelectFiltered, SelectOptions } from '../..';
+import type { SelectOption } from '../..';
+import { Select, SelectFiltered } from '../..';
 
-const options: SelectOptions = Array.from({
+export const options: SelectOption[] = Array.from({
   length: 10,
 }).map((_, i) => [`${i + 1}`, `a teste ${i + 1}`]);
 
-const optionsEllipses: SelectOptions = [
+const optionsEllipses: SelectOption[] = [
   ['11', 'Very very very very very very very very very large text'],
   ...options,
 ];
 
 export default {
-  title: 'Forms/Select',
+  title: 'Inputs/Select',
   component: Select,
   parameters: {
     docs: {
@@ -32,8 +33,8 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <Stories title={''} />
           <ArgsTable />
+          <Stories title={''} />
         </>
       ),
     },
@@ -75,38 +76,46 @@ const TemplateWithFilter: ComponentStory<typeof Select> = (args) => (
   <SelectFiltered {...args} />
 );
 
-export const SelectWithFilter: ComponentStory<typeof Select> =
+export const WithFilter: ComponentStory<typeof Select> =
   TemplateWithFilter.bind({});
-SelectWithFilter.args = {
+WithFilter.args = {
   width: '250px',
   placeholder: 'Placeholder here...',
   options,
 };
 
-export const SelectWithFilterAndEllipses: ComponentStory<typeof Select> =
+export const WithFilterAndEllipses: ComponentStory<typeof Select> =
   TemplateWithFilter.bind({});
-SelectWithFilterAndEllipses.args = {
+WithFilterAndEllipses.args = {
   width: '250px',
   placeholder: 'Placeholder here...',
   options: optionsEllipses,
-  value: 11,
+  value: '11',
 };
 
-export const SelectWithFilterAndError: ComponentStory<typeof Select> =
+export const WithEmptyOptions: ComponentStory<typeof Select> =
   TemplateWithFilter.bind({});
-SelectWithFilterAndError.args = {
+WithEmptyOptions.args = {
   width: '250px',
-  error: 'Error',
   placeholder: 'Placeholder here...',
-  options,
+  options: [],
 };
 
-export const SelectWithFilterAndDisabled: ComponentStory<typeof Select> =
-  TemplateWithFilter.bind({});
-SelectWithFilterAndDisabled.args = {
+export const WithAddon: ComponentStory<typeof Select> = TemplateWithFilter.bind(
+  {}
+);
+WithAddon.args = {
   width: '250px',
-  error: 'Error',
-  disabled: true,
   placeholder: 'Placeholder here...',
   options,
+  addonIcon: 'magnifier',
+};
+
+export const CustomEmpty: ComponentStory<typeof Select> =
+  TemplateWithFilter.bind({});
+CustomEmpty.args = {
+  width: '250px',
+  placeholder: 'Placeholder here...',
+  options: [],
+  customEmpty: 'Custom empty placeholder',
 };

@@ -1,4 +1,5 @@
-import { Box, SelectOptions } from '@rocket.chat/fuselage';
+import type { SelectOption } from '@rocket.chat/fuselage';
+import { Box } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
@@ -22,7 +23,7 @@ type CreateCloudWorkspacePageProps = {
     updates: boolean;
   }>;
   domain: string;
-  serverRegionOptions: SelectOptions;
+  serverRegionOptions: SelectOption[];
   onBackButtonClick: () => void;
   validateUrl: (url: string) => Promise<boolean>;
   validateEmail: (url: string) => Promise<boolean>;

@@ -1,13 +1,9 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import React, {
-  FormEvent,
-  forwardRef,
-  Ref,
-  useCallback,
-  useState,
-} from 'react';
+import type { FormEvent, Ref } from 'react';
+import React, { forwardRef, useCallback, useState } from 'react';
 
-import { PaginatedSelect, PaginatedSelectProps } from '.';
+import type { PaginatedSelectProps } from '.';
+import { PaginatedSelect } from '.';
 import { InputBox } from '../InputBox';
 
 type PaginatedSelectFilteredProps = PaginatedSelectProps;

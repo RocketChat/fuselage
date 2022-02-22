@@ -1,4 +1,4 @@
-import { LayoutBlockish } from '../LayoutBlockish';
+import type { LayoutBlockish } from '../LayoutBlockish';
 
 export type DividerBlock = LayoutBlockish<{
   type: 'divider';

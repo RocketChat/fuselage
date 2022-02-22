@@ -1,9 +1,10 @@
 import { InputBox } from '@rocket.chat/fuselage';
-import * as UiKit from '@rocket.chat/ui-kit';
-import React, { ReactElement } from 'react';
+import type * as UiKit from '@rocket.chat/ui-kit';
+import type { ReactElement } from 'react';
+import React from 'react';
 
 import { useUiKitState } from '../hooks/useUiKitState';
-import { BlockProps } from '../utils/BlockProps';
+import type { BlockProps } from '../utils/BlockProps';
 import { fromTextObjectToString } from '../utils/fromTextObjectToString';
 
 type DatePickerElementProps = BlockProps<UiKit.DatePickerElement>;

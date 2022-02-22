@@ -11,6 +11,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "importsNotUsedAsValues": "error"
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/string-helpers"
   }
 }

@@ -1,4 +1,5 @@
-import React, { AllHTMLAttributes, forwardRef, Ref } from 'react';
+import type { AllHTMLAttributes, Ref } from 'react';
+import React, { forwardRef } from 'react';
 
 import './Messages.styles.scss';
 

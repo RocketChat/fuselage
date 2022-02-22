@@ -5,17 +5,19 @@ import {
   escapeName,
   transpile,
 } from '@rocket.chat/css-in-js';
-import {
-  createElement,
+import type {
   DetailedHTMLProps,
-  forwardRef,
   ForwardRefExoticComponent,
-  Fragment,
   HTMLAttributes,
   PropsWithoutRef,
   Ref,
   RefAttributes,
   SVGProps,
+} from 'react';
+import {
+  createElement,
+  forwardRef,
+  Fragment,
   useDebugValue,
   useLayoutEffect,
 } from 'react';

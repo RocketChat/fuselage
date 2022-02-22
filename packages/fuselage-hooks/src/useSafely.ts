@@ -1,4 +1,5 @@
-import { useEffect, useRef, Dispatch, DispatchWithoutAction } from 'react';
+import type { Dispatch, DispatchWithoutAction } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { useMutableCallback } from './useMutableCallback';
 

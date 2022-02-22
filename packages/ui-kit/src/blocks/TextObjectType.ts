@@ -1,4 +1,4 @@
-import { TextObject } from './TextObject';
+import type { TextObject } from './TextObject';
 
 export enum TextObjectType {
   /** @deprecated */

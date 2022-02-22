@@ -5,13 +5,13 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Label } from '../..';
 
 export default {
-  title: 'Forms/Label',
+  title: 'Inputs/Label',
   component: Label,
   parameters: {
     docs: {

@@ -1,3 +1,4 @@
+import type { SelectOption } from '@rocket.chat/fuselage';
 import {
   FieldGroup,
   Field,
@@ -6,12 +7,13 @@ import {
   TextInput,
   Select,
   SelectFiltered,
-  SelectOptions,
   Box,
 } from '@rocket.chat/fuselage';
 import { useBreakpoints, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import { ReactElement, ReactNode, useEffect } from 'react';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+import type { ReactElement, ReactNode } from 'react';
+import { useEffect } from 'react';
+import type { SubmitHandler } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
@@ -27,14 +29,14 @@ export type OrganizationInfoPayload = {
 type OrganizationInfoFormProps = {
   currentStep: number;
   stepCount: number;
-  organizationTypeOptions: SelectOptions;
-  organizationIndustryOptions: SelectOptions;
-  organizationSizeOptions: SelectOptions;
-  countryOptions: SelectOptions;
+  organizationTypeOptions: SelectOption[];
+  organizationIndustryOptions: SelectOption[];
+  organizationSizeOptions: SelectOption[];
+  countryOptions: SelectOption[];
   nextStep?: ReactNode;
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
-  onBackButtonClick: () => void;
+  onBackButtonClick?: () => void;
   onClickSkip?: () => void;
 };
 
@@ -199,9 +201,11 @@ const OrganizationInfoForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup vertical={isMobile} flexGrow={1}>
-          <Button disabled={isSubmitting} onClick={onBackButtonClick}>
-            {t('component.form.action.back')}
-          </Button>
+          {onBackButtonClick && (
+            <Button disabled={isSubmitting} onClick={onBackButtonClick}>
+              {t('component.form.action.back')}
+            </Button>
+          )}
 
           <Button type='submit' primary disabled={isValidating || isSubmitting}>
             {nextStep ?? t('component.form.action.next')}

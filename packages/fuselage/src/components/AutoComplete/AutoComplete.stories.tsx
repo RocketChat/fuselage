@@ -1,11 +1,11 @@
 import { useEffect, useState } from '@storybook/client-api';
-import { ComponentMeta } from '@storybook/react';
+import type { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { AutoComplete } from '../..';
 
 export default {
-  title: 'Forms/Inputs/AutoComplete',
+  title: 'Inputs/AutoComplete',
   component: AutoComplete,
   parameters: {
     docs: {

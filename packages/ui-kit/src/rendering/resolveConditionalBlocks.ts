@@ -1,7 +1,7 @@
-import { Block } from '../blocks/Block';
+import type { Block } from '../blocks/Block';
 import { LayoutBlockType } from '../blocks/LayoutBlockType';
-import { ConditionalBlock } from '../blocks/layout/ConditionalBlock';
-import { Conditions } from './Conditions';
+import type { ConditionalBlock } from '../blocks/layout/ConditionalBlock';
+import type { Conditions } from './Conditions';
 
 const conditionsMatch = (
   conditions: Conditions | undefined = undefined,

@@ -3,25 +3,21 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useState,
-  useRef,
-  useCallback,
-  SyntheticEvent,
-  ComponentProps,
-  forwardRef,
-  memo,
-  Ref,
-} from 'react';
+import type { SyntheticEvent, ComponentProps, Ref } from 'react';
+import React, { useState, useRef, useCallback, forwardRef, memo } from 'react';
 
-import { AnimatedVisibility, Box, Flex, Position } from '../Box';
+import AnimatedVisibility from '../AnimatedVisibility';
+import { Box } from '../Box';
 import Chip from '../Chip';
+import Flex from '../Flex';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
-import { Focus, Addon } from '../Select';
+import Position from '../Position';
+import SelectAddon from '../Select/SelectAddon';
+import SelectFocus from '../Select/SelectFocus';
 
 const SelectedOptions = memo((props) => (
   <Chip maxWidth='150px' withTruncatedText {...props} />
@@ -49,7 +45,7 @@ export const PaginatedMultiSelect = ({
   options = [],
   error,
   disabled,
-  anchor: Anchor = Focus,
+  anchor: Anchor = SelectFocus,
   onChange = () => {},
   placeholder,
   renderOptions: _Options = OptionsPaginated,
@@ -164,7 +160,7 @@ export const PaginatedMultiSelect = ({
       </Flex.Item>
       <Flex.Item grow={0} shrink={0}>
         <Margins inline='x4'>
-          <Addon
+          <SelectAddon
             children={
               <Icon
                 name={

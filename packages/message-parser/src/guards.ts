@@ -1,4 +1,4 @@
-import { ASTNode } from './definitions';
+import type { ASTNode } from './definitions';
 
 export const isNodeOfType = <N extends ASTNode>(
   value: unknown,

@@ -1,10 +1,10 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Chevron } from '../..';
 
 export default {
-  title: 'Misc/Chevron',
+  title: 'Data Display/Chevron',
   component: Chevron,
 } as ComponentMeta<typeof Chevron>;
 

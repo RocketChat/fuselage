@@ -13,9 +13,10 @@ import {
   isPreviewBlockWithThumb,
   isPreviewBlockWithPreview,
 } from '@rocket.chat/ui-kit';
-import React, { memo, ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import React, { memo } from 'react';
 
-import { BlockProps } from '../utils/BlockProps';
+import type { BlockProps } from '../utils/BlockProps';
 import ContextBlock from './ContextBlock';
 
 type PreviewBlockProps = BlockProps<UiKit.PreviewBlock>;

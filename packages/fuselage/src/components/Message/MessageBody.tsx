@@ -1,4 +1,5 @@
-import React, { AllHTMLAttributes, ReactElement } from 'react';
+import type { AllHTMLAttributes, ReactElement } from 'react';
+import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 

@@ -1,4 +1,5 @@
-import React, { memo, NamedExoticComponent, SyntheticEvent } from 'react';
+import type { NamedExoticComponent, SyntheticEvent } from 'react';
+import React, { memo } from 'react';
 
 import Chip from '../Chip';
 

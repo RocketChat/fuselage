@@ -1,4 +1,5 @@
-import { RefObject, useState } from 'react';
+import type { RefObject } from 'react';
+import { useState } from 'react';
 
 import { extractBorderBoxSizeFromObserver } from './extractSizeFromObserver';
 import { useDebouncedCallback } from './useDebouncedCallback';

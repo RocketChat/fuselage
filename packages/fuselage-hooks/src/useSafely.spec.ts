@@ -1,5 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useState, DispatchWithoutAction, Dispatch } from 'react';
+import type { DispatchWithoutAction, Dispatch } from 'react';
+import { useState } from 'react';
 
 import { useSafely } from './useSafely';
 

@@ -1,11 +1,11 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { CheckBox, Field, InputBox, ToggleSwitch } from '../..';
 
 export default {
-  title: 'Forms/Field',
+  title: 'Inputs/Field',
   component: Field,
   parameters: {
     docs: {

@@ -1,5 +1,5 @@
 import { createSurfaceRenderer } from '../createSurfaceRenderer';
-import { ModalSurfaceLayout } from './UiKitParserModal';
+import type { ModalSurfaceLayout } from './UiKitParserModal';
 
 export const uiKitModal = createSurfaceRenderer<
   unknown,

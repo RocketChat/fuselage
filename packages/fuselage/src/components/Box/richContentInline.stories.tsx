@@ -6,13 +6,13 @@ import {
   ArgsTable,
   Subtitle,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Box } from '../..';
 
 export default {
-  title: 'Box/Rich content/Inline',
+  title: 'Layout/Box/Rich content/Inline',
   component: Box,
   parameters: {
     docs: {

@@ -7,13 +7,13 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Callout } from '../..';
 
 export default {
-  title: 'Misc/Callout',
+  title: 'Feedback/Callout',
   component: Callout,
   parameters: {
     docs: {

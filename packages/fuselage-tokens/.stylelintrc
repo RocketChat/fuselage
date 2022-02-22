@@ -4,6 +4,7 @@
     "stylelint-scss",
     "stylelint-prettier"
   ],
+  "customSyntax": "postcss-scss",
   "ignoreFiles": [
     "src/**/*.js"
   ],

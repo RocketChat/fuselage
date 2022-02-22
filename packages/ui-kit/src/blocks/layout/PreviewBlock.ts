@@ -1,6 +1,6 @@
-import { LayoutBlockType } from '../LayoutBlockType';
-import { TextObject } from '../TextObject';
-import { ContextBlock } from './ContextBlock';
+import type { LayoutBlockType } from '../LayoutBlockType';
+import type { TextObject } from '../TextObject';
+import type { ContextBlock } from './ContextBlock';
 
 type Image = {
   url: string;

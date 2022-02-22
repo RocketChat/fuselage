@@ -1,7 +1,7 @@
-import { Block } from '../blocks/Block';
-import { RenderableLayoutBlock } from '../blocks/RenderableLayoutBlock';
-import { Conditions } from './Conditions';
-import { SurfaceRenderer } from './SurfaceRenderer';
+import type { Block } from '../blocks/Block';
+import type { RenderableLayoutBlock } from '../blocks/RenderableLayoutBlock';
+import type { Conditions } from './Conditions';
+import type { SurfaceRenderer } from './SurfaceRenderer';
 
 export const createSurfaceRenderer =
   <T, B extends RenderableLayoutBlock>() =>

@@ -2,10 +2,12 @@
 
 <!-- Your Pull Request name should start with one of the following tags
   feat: For new features
-  improve: For an improvement (performance or little improvements) in existing features
-  fix: For bug fixes that affects the end user
+  fix: For bug fixes that affect the end-user
   chore: For small tasks
   docs: For documentation only changes
+  refactor: For code organization without affecting the end-user
+  revert: For git source control reversions
+  test: For test-related tasks
 
   E.g.: feat(fuselage-hooks): Add useWhatever hook
 -->
