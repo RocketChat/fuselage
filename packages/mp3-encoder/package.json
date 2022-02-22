@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/mp3-encoder",
-  "version": "0.31.3",
+  "version": "0.31.4",
   "description": "A LAME encoder to be used in web workers",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
