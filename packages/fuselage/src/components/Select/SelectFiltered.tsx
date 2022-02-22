@@ -33,7 +33,11 @@ export const SelectFiltered = forwardRef(
     const anchor = useCallback(
       forwardRef(
         (
-          { children, filter, ...props }: ComponentProps<typeof InputBox>,
+          {
+            children: _children,
+            filter,
+            ...props
+          }: ComponentProps<typeof InputBox>,
           ref: Ref<HTMLInputElement>
         ) => (
           <InputBox.Input

@@ -162,7 +162,7 @@ export const SidebarItemIcon = ({
   highlighted,
   children,
   icon,
-  className,
+  className: _className,
   ...props
 }: SidebarItemIconProps) => (
   <div

@@ -74,7 +74,7 @@ export const PaginatedSelect = ({
   value,
   withTitle,
   filter,
-  setFilter,
+  setFilter: _setFilter,
   error,
   disabled,
   options = [],

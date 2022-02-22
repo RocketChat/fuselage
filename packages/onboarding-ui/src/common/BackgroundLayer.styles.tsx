@@ -1,9 +1,9 @@
 import styled from '@rocket.chat/styled';
 
 const filterWrapperProps = ({
-  backgroundColor,
-  color,
-  backgroundImage,
+  backgroundColor: _backgroundColor,
+  color: _color,
+  backgroundImage: _backgroundImage,
   ...props
 }: {
   backgroundColor: string;

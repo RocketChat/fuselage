@@ -18,7 +18,7 @@ it('should create a styled component', () => {
 it('should create a styled component with props', () => {
   const component = styled(
     'div',
-    ({ foo, ...props }: { foo: string }) => props
+    ({ foo: _foo, ...props }: { foo: string }) => props
   )`
     color: ${(props) => props.foo};
   `;
