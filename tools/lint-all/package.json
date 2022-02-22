@@ -5,7 +5,7 @@
     "lint": "./lint.mjs",
     "lint-and-fix": "./lint-and-fix.mjs"
   },
-  "version": "0.31.3",
+  "version": "0.31.4",
   "dependencies": {
     "@prettier/plugin-xml": "~1.2.0",
     "eslint": "~8.8.0",

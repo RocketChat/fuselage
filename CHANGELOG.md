@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.4](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.3...v0.31.4) (2022-02-22)
+
+### Features
+
+- **fuselage:** Add custom Icon to Select Component ([#639](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/639)) ([66021a8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/66021a80a6310264c4150cce42ee77b513103ca3))
+- **fuselage:** Clear MultiSelect filter after selection ([#641](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/641)) ([74c0089](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/74c00894777bc5ae559f1a6763ba7a22a17d9fd3))
+- **fuselage:** Extend menu options props ([#650](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/650)) ([5193110](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/51931108e0f89d2ee7eee0b674860c5cc2cd3d0b))
+- **fuselage:** Flexibility to render custom option inside `Options` ([#647](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/647)) ([9710be0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9710be03cabcda9f22a76c811b0ec030e42cec81))
+- **fuselage:** MultiSelect improvements ([#645](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/645)) ([900aae8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/900aae8d7932ffe9a1d7cf3e71992697cb1e4092))
+- **memo:** Cache timeout ([#630](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/630)) ([9e36aec](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9e36aecf546d1a7ae7768fdce017137a4bee4c4e))
+
+### Bug Fixes
+
+- **fuselage,regression:** `MultiSelect` errors ([#651](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/651)) ([b3b075b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b3b075bd9e3f379f74ef2873c01a825bb3f841ba))
+
 ### [0.31.3](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.2...v0.31.3) (2022-02-08)
 
 ### Features

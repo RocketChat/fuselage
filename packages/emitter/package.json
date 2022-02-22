@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/emitter",
-  "version": "0.31.3",
+  "version": "0.31.4",
   "description": "Event Emitter by Rocket.Chat",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
