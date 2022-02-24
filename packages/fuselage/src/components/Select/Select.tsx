@@ -178,6 +178,7 @@ export const Select = forwardRef(
                 value={getValue(option)}
                 label={valueLabel}
                 key={getValue(option)}
+                onClick={internalChangedByClick}
               />
             ) : (
               <Box
