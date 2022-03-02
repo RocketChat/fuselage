@@ -1,16 +1,10 @@
-import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  Dispatch,
-  FormEvent,
-  Ref,
-  SetStateAction,
-} from 'react';
-import React, { forwardRef, useCallback, useState } from 'react';
+import type { ComponentProps, Dispatch, SetStateAction } from 'react';
+import React, { useState } from 'react';
 
 import { Select } from '.';
 import type { Icon } from '..';
-import { InputBox } from '../InputBox';
+import type { SelectAnchorParams } from './SelectAnchorParams';
+import SelectFilteredAnchor from './SelectFilteredAnchor';
 
 export type SelectFilteredProps = ComponentProps<typeof Select> & {
   filter?: string;
@@ -18,53 +12,29 @@ export type SelectFilteredProps = ComponentProps<typeof Select> & {
   addonIcon?: ComponentProps<typeof Icon>['name'];
 };
 
-export const SelectFiltered = forwardRef(
-  (
-    {
-      options,
-      placeholder,
-      filter: propFilter,
-      setFilter: propSetFilter,
-      ...props
-    }: SelectFilteredProps,
-    ref: Ref<HTMLInputElement>
-  ) => {
-    const [filter, setFilter] = useState('');
-    const anchor = useCallback(
-      forwardRef(
-        (
-          { children, filter, ...props }: ComponentProps<typeof InputBox>,
-          ref: Ref<HTMLInputElement>
-        ) => (
-          <InputBox.Input
-            mi='x4'
-            flexGrow={1}
-            className='rcx-select__focus'
-            ref={ref}
-            placeholder={placeholder}
-            value={propFilter || filter}
-            onChange={useMutableCallback((e: FormEvent<HTMLInputElement>) =>
-              propSetFilter
-                ? propSetFilter(e.currentTarget.value)
-                : setFilter(e.currentTarget.value)
-            )}
-            {...props}
-            rcx-input-box--undecorated
-          />
-        )
-      ),
-      []
-    );
+export const SelectFiltered = ({
+  options,
+  placeholder,
+  filter: propFilter,
+  setFilter: propSetFilter,
+  ...props
+}: SelectFilteredProps) => {
+  const [filter, setFilter] = useState('');
 
-    return (
-      <Select
-        ref={ref}
-        placeholder={placeholder}
-        filter={filter}
-        options={options}
-        {...props}
-        anchor={anchor}
-      />
-    );
-  }
-);
+  return (
+    <Select
+      placeholder={placeholder}
+      filter={propFilter || filter}
+      options={options}
+      {...props}
+      anchor={(params: SelectAnchorParams) => (
+        <SelectFilteredAnchor
+          placeholder={placeholder}
+          filter={propFilter || filter}
+          onChangeFilter={propSetFilter || setFilter}
+          {...params}
+        />
+      )}
+    />
+  );
+};

@@ -20,7 +20,7 @@ export const Wrapper = styled('div')`
 `;
 
 const asideProps = ({
-  justifyContent,
+  justifyContent: _justifyContent,
   ...props
 }: {
   justifyContent?: string;
@@ -79,15 +79,15 @@ export const Title = styled('div')`
 
 export const TitleHighlight = styled(
   'span',
-  ({ fontColor, ...props }: { fontColor?: string }) => props
+  ({ fontColor: _fontColor, ...props }: { fontColor?: string }) => props
 )`
   color: ${(p) => (p.fontColor ? p.fontColor : '#1D74F5')};
   display: inline-block;
 `;
 
 const SubTitleFormPageProps = ({
-  fontColor,
-  fontWeight,
+  fontColor: _fontColor,
+  fontWeight: _fontWeight,
   ...props
 }: {
   fontColor?: string;

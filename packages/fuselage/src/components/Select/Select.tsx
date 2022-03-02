@@ -3,9 +3,16 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, DependencyList, Ref, ElementType } from 'react';
+import type {
+  ComponentProps,
+  DependencyList,
+  Ref,
+  ElementType,
+  ReactNode,
+} from 'react';
 import React, { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
+import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
@@ -14,6 +21,7 @@ import type { OptionType } from '../Options';
 import { Options, useCursor } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 import SelectAddon from './SelectAddon';
+import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFocus from './SelectFocus';
 
 export type SelectOption = readonly [
@@ -116,6 +124,18 @@ export const Select = forwardRef(
     const innerRef = useRef<HTMLInputElement | null>(null);
     const anchorRef = useMergedRefs(ref, innerRef);
 
+    const renderAnchor = (params: SelectAnchorParams) => {
+      if (isForwardRefType(Anchor)) {
+        return <Anchor {...params} />;
+      }
+
+      if (typeof Anchor === 'function') {
+        return (Anchor as (params: SelectAnchorParams) => ReactNode)(params);
+      }
+
+      return null;
+    };
+
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
     useDidUpdate(reset, [filter, internalValue]);
@@ -158,6 +178,7 @@ export const Select = forwardRef(
                 value={getValue(option)}
                 label={valueLabel}
                 key={getValue(option)}
+                onClick={internalChangedByClick}
               />
             ) : (
               <Box
@@ -171,17 +192,15 @@ export const Select = forwardRef(
                 {visibleText}
               </Box>
             ))}
-          <Anchor
-            disabled={disabled}
-            rcx-input-box--undecorated
-            filter={filter}
-            ref={anchorRef}
-            aria-haspopup='listbox'
-            onClick={show}
-            onBlur={hide}
-            onKeyUp={handleKeyUp}
-            onKeyDown={handleKeyDown}
-          />
+          {renderAnchor({
+            ref: anchorRef,
+            children: !value ? option || placeholder : null,
+            disabled: disabled ?? false,
+            onClick: show,
+            onBlur: hide,
+            onKeyDown: handleKeyDown,
+            onKeyUp: handleKeyUp,
+          })}
           <Margins inline='x4'>
             <SelectAddon
               children={

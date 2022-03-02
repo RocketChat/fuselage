@@ -5,6 +5,7 @@ import { Box } from '../Box';
 
 type MessageBlockProps = ComponentProps<typeof Box>;
 
-export const MessageBlock = ({ className, ...props }: MessageBlockProps) => (
-  <Box rcx-message-block {...props} />
-);
+export const MessageBlock = ({
+  className: _className,
+  ...props
+}: MessageBlockProps) => <Box rcx-message-block {...props} />;

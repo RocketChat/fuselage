@@ -20,7 +20,7 @@ export const PaginatedSelectFiltered = ({
     forwardRef(
       (
         {
-          children,
+          children: _children,
           filter,
           onChange: _onChange,
           ...props

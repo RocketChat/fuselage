@@ -31,7 +31,7 @@ export const Button = forwardRef(function Button(
     ghostish,
     external,
     is = 'button',
-    rel,
+    rel: _rel,
     small,
     tiny,
     mini,

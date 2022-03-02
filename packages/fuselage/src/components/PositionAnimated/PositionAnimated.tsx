@@ -9,7 +9,7 @@ type PositionAnimatedProps = {
 } & ComponentProps<typeof Position>;
 
 const PositionAnimated = ({
-  width,
+  width: _width,
   visible,
   children,
   ...props
