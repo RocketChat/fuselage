@@ -1,11 +1,21 @@
 {
   "name": "bump",
   "private": true,
-  "bin": "./bump.mjs",
+  "bin": {
+    "bump": "./bump.mjs",
+    "bump-next": "./bump-next.mjs"
+  },
   "version": "0.31.5",
   "dependencies": {
+    "conventional-recommended-bump": "~6.1.0",
+    "latest-version": "~6.0.0",
     "prettier": "~2.5.1",
+    "semver": "~7.3.5",
     "standard-version": "^9.3.2",
     "zx": "~4.3.0"
+  },
+  "devDependencies": {
+    "@types/conventional-recommended-bump": "^6",
+    "@types/semver": "^7"
   }
 }
