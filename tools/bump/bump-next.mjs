@@ -4,33 +4,42 @@ import { promisify } from 'util';
 
 import conventionalRecommendedBump from 'conventional-recommended-bump';
 import latestVersion from 'latest-version';
+import pkgVersions from 'pkg-versions';
 import semver from 'semver';
 import standardVersion from 'standard-version';
 import { argv, fs } from 'zx';
 
+const { name, version } = await fs.readJSON('./package.json');
+
+const publishedVersions = await pkgVersions(name);
+
 const getNextVersionFromManifest = async () => {
-  const { version } = await fs.readJSON('./package.json');
-  const currentVersion = semver.parse(version);
+  const nextVersion = semver.parse(version);
 
   const { releaseType } = await promisify(conventionalRecommendedBump)({
     path: '.',
     preset: 'angular',
   });
-  currentVersion.inc(`pre${releaseType}`, 'dev');
+  nextVersion.inc(`pre${releaseType}`, 'dev');
 
-  return currentVersion;
+  while (publishedVersions.has(nextVersion.format())) {
+    nextVersion.inc('prerelease', 'dev');
+  }
+
+  return nextVersion;
 };
 
 const getNextVersionFromRegistry = async () => {
   try {
-    const { name } = await fs.readJSON('./package.json');
-    const previousVersion = semver.parse(
+    const nextVersion = semver.parse(
       await latestVersion(name, { version: 'next' })
     );
 
-    previousVersion.inc('prerelease', 'dev');
+    do {
+      nextVersion.inc('prerelease', 'dev');
+    } while (publishedVersions.has(nextVersion.format()));
 
-    return previousVersion;
+    return nextVersion;
   } catch (err) {
     return semver.parse('0.1.0-dev.0');
   }
