@@ -35,7 +35,8 @@
     "lint-staged": "lint-staged",
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage-ui-kit",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "cross-env NODE_ENV=production build-storybook"
+    "build-storybook": "cross-env NODE_ENV=production build-storybook",
+    "bump-next": "bump-next"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-polyfills": "*",
@@ -59,6 +60,7 @@
     "@types/react": "~17.0.39",
     "@types/react-dom": "^17.0.11",
     "babel-loader": "~8.2.3",
+    "bump": "workspace:~",
     "cross-env": "^7.0.3",
     "eslint": "~8.8.0",
     "lint-all": "workspace:~",

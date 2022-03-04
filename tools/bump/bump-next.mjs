@@ -6,7 +6,7 @@ import conventionalRecommendedBump from 'conventional-recommended-bump';
 import latestVersion from 'latest-version';
 import semver from 'semver';
 import standardVersion from 'standard-version';
-import { fs } from 'zx';
+import { argv, fs } from 'zx';
 
 const getNextVersionFromManifest = async () => {
   const { version } = await fs.readJSON('./package.json');
@@ -41,16 +41,12 @@ const candidates = await Promise.all([
   getNextVersionFromRegistry(),
 ]);
 
-const nextVersion = semver.parse(
-  semver
-    .maxSatisfying(candidates, '*', {
-      includePrerelease: true,
-    })
-    .format()
-);
+const nextVersion = semver.maxSatisfying(candidates, '*', {
+  includePrerelease: true,
+});
 
 await standardVersion({
-  dryRun: true,
+  dryRun: argv['dry-run'] === true,
   releaseAs: nextVersion.format(),
   skip: {
     changelog: true,
