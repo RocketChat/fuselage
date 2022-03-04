@@ -15,6 +15,9 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
