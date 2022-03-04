@@ -7649,50 +7649,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/conventional-changelog-core@npm:*":
-  version: 4.2.1
-  resolution: "@types/conventional-changelog-core@npm:4.2.1"
-  dependencies:
-    "@types/conventional-changelog-writer": "*"
-    "@types/conventional-commits-parser": "*"
-    "@types/conventional-recommended-bump": "*"
-    "@types/git-raw-commits": "*"
-    "@types/node": "*"
-    "@types/normalize-package-data": "*"
-  checksum: bd8557c1cb2cfc225d728e874eca794ef75270dcfaa1681efe4599c5fdd69d8352a10526f07321b870c7c6a23df1b2a21508dd5317255ab71dd65f2eadbad44c
-  languageName: node
-  linkType: hard
-
-"@types/conventional-changelog-writer@npm:*":
-  version: 4.0.1
-  resolution: "@types/conventional-changelog-writer@npm:4.0.1"
-  dependencies:
-    "@types/conventional-commits-parser": "*"
-    "@types/node": "*"
-  checksum: 1e029327a97406de0be4df76ee98a183a0c67a6d90d518e7b72a922e3e4f66e56e4c4c829f1bce02a80946ed474389742708739dd0ecb3e144ec0e421140ae48
-  languageName: node
-  linkType: hard
-
-"@types/conventional-commits-parser@npm:*":
-  version: 3.0.2
-  resolution: "@types/conventional-commits-parser@npm:3.0.2"
-  dependencies:
-    "@types/node": "*"
-  checksum: 886c9c35db7b1f82ff29b405e0de2f0545bc310fd543c7b770cdc02841c1952ae9501f31b6ab97b2d089f7994012ff9986055899683122b0fd6d5343ccaccc4f
-  languageName: node
-  linkType: hard
-
-"@types/conventional-recommended-bump@npm:*, @types/conventional-recommended-bump@npm:^6":
-  version: 6.1.0
-  resolution: "@types/conventional-recommended-bump@npm:6.1.0"
-  dependencies:
-    "@types/conventional-changelog-core": "*"
-    "@types/conventional-changelog-writer": "*"
-    "@types/conventional-commits-parser": "*"
-  checksum: 123c0d7a3b9cbf3e4a55f5d0bc9a889e65ccfc22a88543e43b73fb840c5a9c5b386285e5a1c873d86af405dae94c957b3f2401c8b86ee9dcd880558c8a1c79f3
-  languageName: node
-  linkType: hard
-
 "@types/eslint-scope@npm:^3.7.0":
   version: 3.7.0
   resolution: "@types/eslint-scope@npm:3.7.0"
@@ -7747,15 +7703,6 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: add79e212acd5ac76b97b9045834e03a7996aef60a814185e0459088fd290519a3c1620865d588fa36c4498bf614210d2a703af5cf80aa1dbc125db78f6edac3
-  languageName: node
-  linkType: hard
-
-"@types/git-raw-commits@npm:*":
-  version: 2.0.1
-  resolution: "@types/git-raw-commits@npm:2.0.1"
-  dependencies:
-    "@types/node": "*"
-  checksum: b5d41433a5201b8fbd475d29d08df77d60a402acfdba9703125eab96449a7040721d698e8bad8debbb3377338e08c3d75faab409e2e2b47b6f0a66f535d1594f
   languageName: node
   linkType: hard
 
@@ -8010,13 +7957,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/normalize-package-data@npm:*":
-  version: 2.4.1
-  resolution: "@types/normalize-package-data@npm:2.4.1"
-  checksum: e87bccbf11f95035c89a132b52b79ce69a1e3652fe55962363063c9c0dae0fe2477ebc585e03a9652adc6f381d24ba5589cc5e51849df4ced3d3e004a7d40ed5
-  languageName: node
-  linkType: hard
-
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.0
   resolution: "@types/normalize-package-data@npm:2.4.0"
@@ -8175,13 +8115,6 @@ __metadata:
   version: 0.16.1
   resolution: "@types/scheduler@npm:0.16.1"
   checksum: 2ff8034df029a6cbb3623b05fa895cac4fc504806a8e948ebe29675a1edfa5ac04faac7611016076b3ffefc2037bbe344ad1978304059b2d4c78e513ec43c7bf
-  languageName: node
-  linkType: hard
-
-"@types/semver@npm:^7":
-  version: 7.3.9
-  resolution: "@types/semver@npm:7.3.9"
-  checksum: 60bfcfdfa7f937be2c6f4b37ddb6714fb0f27b05fe4cbdfdd596a97d35ed95d13ee410efdd88e72a66449d0384220bf20055ab7d6b5df10de4990fbd20e5cbe0
   languageName: node
   linkType: hard
 
@@ -10709,8 +10642,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bump@workspace:tools/bump"
   dependencies:
-    "@types/conventional-recommended-bump": ^6
-    "@types/semver": ^7
     conventional-recommended-bump: ~6.1.0
     latest-version: ~6.0.0
     pkg-versions: ~2.1.0

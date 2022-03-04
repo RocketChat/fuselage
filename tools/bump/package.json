@@ -14,9 +14,5 @@
     "semver": "~7.3.5",
     "standard-version": "^9.3.2",
     "zx": "~4.3.0"
-  },
-  "devDependencies": {
-    "@types/conventional-recommended-bump": "^6",
-    "@types/semver": "^7"
   }
 }
