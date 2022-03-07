@@ -309,6 +309,23 @@
       "button": {
         "text": "Save new password"
       }
+    },
+    "totpForm": {
+      "fields": {
+        "totpCode": {
+          "label": "MFA CODE",
+          "placeholder": "TOTP Code"
+        },
+        "backupCode": {
+          "placeholder": "Backup Code"
+        }
+      },
+      "button": {
+        "text": "Log in"
+      },
+      "buttonBackupCode": {
+        "text": "Need to use backup code?"
+      }
     }
   }
 }
