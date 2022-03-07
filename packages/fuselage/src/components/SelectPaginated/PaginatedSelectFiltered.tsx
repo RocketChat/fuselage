@@ -8,6 +8,11 @@ import { InputBox } from '../InputBox';
 
 type PaginatedSelectFilteredProps = PaginatedSelectProps;
 
+type PaginatedSelectFilteredAnchorProps = Omit<
+  PaginatedSelectProps,
+  'onChange'
+>;
+
 export const PaginatedSelectFiltered = ({
   // filter,
   // setFilter,
@@ -16,15 +21,19 @@ export const PaginatedSelectFiltered = ({
   ...props
 }: PaginatedSelectFilteredProps) => {
   const [filter, setFilter] = useState('');
+
+  const handleChange = useMutableCallback((e: FormEvent<HTMLInputElement>) => {
+    setFilter(e.currentTarget.value);
+  });
+
   const anchor = useCallback(
     forwardRef(
       (
         {
           children: _children,
           filter,
-          onChange: _onChange,
           ...props
-        }: PaginatedSelectFilteredProps,
+        }: PaginatedSelectFilteredAnchorProps,
         ref: Ref<HTMLInputElement>
       ) => (
         <InputBox.Input
@@ -34,9 +43,7 @@ export const PaginatedSelectFiltered = ({
           ref={ref}
           placeholder={placeholder}
           value={filter}
-          onChange={useMutableCallback((e: FormEvent<HTMLInputElement>) => {
-            setFilter(e.currentTarget.value);
-          })}
+          onChange={handleChange}
           {...props}
           rcx-input-box--undecorated
         />
