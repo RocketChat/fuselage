@@ -61,6 +61,7 @@ export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   renderSelected?: ElementType;
   customEmpty?: string;
   addonIcon?: ComponentProps<typeof Icon>['name'];
+  isControlled?: boolean;
 };
 
 export const Select = forwardRef(
@@ -81,6 +82,7 @@ export const Select = forwardRef(
       renderOptions: _Options = Options,
       addonIcon,
       customEmpty,
+      isControlled = false,
       ...props
     }: SelectProps,
     ref: Ref<HTMLInputElement>
@@ -106,6 +108,9 @@ export const Select = forwardRef(
         return [value, label];
       };
 
+      if (isControlled) {
+        return options.map(mapOptions);
+      }
       const applyFilter = ([, option]: SelectOption) =>
         !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
 
@@ -221,7 +226,7 @@ export const Select = forwardRef(
             width={borderBoxSize.inlineSize}
             role='listbox'
             filter={filter}
-            options={filteredOptions}
+            options={isControlled ? options : filteredOptions}
             onSelect={internalChangedByClick}
             renderItem={renderItem}
             cursor={cursor}

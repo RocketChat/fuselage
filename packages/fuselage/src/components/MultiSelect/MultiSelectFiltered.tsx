@@ -26,6 +26,7 @@ export const MultiSelectFiltered = ({
       {...props}
       filter={propFilter || filter}
       options={options}
+      isControlled={Boolean(propFilter)}
       anchor={(params: MultiSelectAnchorParams) => (
         <MultiSelectFilteredAnchor
           placeholder={placeholder}

@@ -50,6 +50,7 @@ type MultiSelectProps = Omit<
   renderItem?: ElementType;
   renderSelected?: ElementType;
   addonIcon?: ComponentProps<typeof Icon>['name'];
+  isControlled?: boolean;
 };
 
 export const MultiSelect = forwardRef(
@@ -70,6 +71,7 @@ export const MultiSelect = forwardRef(
       customEmpty,
       renderSelected: RenderSelected,
       addonIcon,
+      isControlled = false,
       ...props
     }: MultiSelectProps,
     ref: Ref<HTMLInputElement>
@@ -236,7 +238,7 @@ export const MultiSelect = forwardRef(
               filter={filter}
               renderItem={renderItem || CheckOption}
               role='listbox'
-              options={filteredOptions}
+              options={isControlled ? options : filteredOptions}
               onSelect={internalChanged}
               cursor={cursor}
               customEmpty={customEmpty}

@@ -26,6 +26,7 @@ export const SelectFiltered = ({
       placeholder={placeholder}
       filter={propFilter || filter}
       options={options}
+      isControlled={Boolean(propFilter)}
       {...props}
       anchor={(params: SelectAnchorParams) => (
         <SelectFilteredAnchor
