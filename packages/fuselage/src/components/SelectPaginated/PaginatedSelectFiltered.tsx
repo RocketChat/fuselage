@@ -1,56 +1,51 @@
 import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent, Ref } from 'react';
-import React, { forwardRef, useCallback, useState } from 'react';
+import React, { useMemo, forwardRef } from 'react';
 
 import type { PaginatedSelectProps } from '.';
 import { PaginatedSelect } from '.';
 import { InputBox } from '../InputBox';
 
-type PaginatedSelectFilteredProps = PaginatedSelectProps;
-
-type PaginatedSelectFilteredAnchorProps = Omit<
-  PaginatedSelectProps,
-  'onChange'
->;
+type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
+  setFilter: (value: string | undefined | number) => void;
+};
 
 export const PaginatedSelectFiltered = ({
-  // filter,
-  // setFilter,
+  filter,
+  setFilter,
   options,
   placeholder,
   ...props
 }: PaginatedSelectFilteredProps) => {
-  const [filter, setFilter] = useState('');
-
-  const handleChange = useMutableCallback((e: FormEvent<HTMLInputElement>) => {
-    setFilter(e.currentTarget.value);
-  });
-
-  const anchor = useCallback(
-    forwardRef(
-      (
-        {
-          children: _children,
-          filter,
-          ...props
-        }: PaginatedSelectFilteredAnchorProps,
-        ref: Ref<HTMLInputElement>
-      ) => (
-        <InputBox.Input
-          mi='x4'
-          flexGrow={1}
-          className='rcx-select__focus'
-          ref={ref}
-          placeholder={placeholder}
-          value={filter}
-          onChange={handleChange}
-          {...props}
-          rcx-input-box--undecorated
-        />
-      )
-    ),
-    []
+  const anchor = useMemo(
+    () =>
+      forwardRef(
+        (
+          {
+            filter,
+            onChange: _onChange,
+            ...props
+          }: PaginatedSelectFilteredProps,
+          ref: Ref<HTMLInputElement>
+        ) => (
+          <InputBox.Input
+            mi='x4'
+            flexGrow={1}
+            className='rcx-select__focus'
+            ref={ref}
+            placeholder={placeholder}
+            value={filter}
+            onChange={useMutableCallback((e: FormEvent<HTMLInputElement>) => {
+              setFilter(e.currentTarget.value);
+            })}
+            {...props}
+            rcx-input-box--undecorated
+          />
+        )
+      ),
+    [placeholder, setFilter]
   );
+
   return (
     <PaginatedSelect
       placeholder={undefined}

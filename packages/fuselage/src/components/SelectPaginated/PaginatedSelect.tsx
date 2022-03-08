@@ -23,7 +23,7 @@ export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   options: PaginatedOptionType[];
   withTitle?: boolean;
   endReached: (index: number) => void;
-  setFilter: (value: string | undefined | number) => void;
+  setFilter?: (value: string | undefined | number) => void;
 };
 
 type AddonProps = ComponentProps<typeof Box>;
