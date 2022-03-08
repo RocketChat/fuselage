@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.5](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.4...v0.31.5) (2022-03-02)
+
+### Bug Fixes
+
+- **fuselage, regression:** listen for clicks on `Select` options ([#655](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/655)) ([5b41041](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5b410410f18c06d611ea6273775ced8b7270d34e))
+- **fuselage, regression:** MultiSelectFiltered ([#653](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/653)) ([874604a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/874604ae04ad78270ea9668c432a62d8952fb4c0))
+- **fuselage, regression:** Select filter and anchor overhaul ([#654](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/654)) ([10ad4f1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/10ad4f170f4458cdcd0e4edef392a5ac8fd006bc))
+
 ### [0.31.4](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.3...v0.31.4) (2022-02-22)
 
 ### Features

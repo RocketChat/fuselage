@@ -26,7 +26,7 @@ const optionsEllipses = [
 ];
 
 export default {
-  title: 'Inputs/SelectPaginated',
+  title: 'Inputs/PaginatedSelect',
   component: PaginatedSelect,
   parameters: {
     docs: {
