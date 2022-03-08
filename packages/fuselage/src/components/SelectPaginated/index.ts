@@ -1,3 +1,2 @@
-export * from './PaginatedSelect';
-export * from './PaginatedSelectFiltered';
-export * from './PaginatedMultiSelect';
+export { PaginatedSelectFiltered } from './PaginatedSelectFiltered';
+export { PaginatedMultiSelectFiltered } from './PaginatedMultiSelect';

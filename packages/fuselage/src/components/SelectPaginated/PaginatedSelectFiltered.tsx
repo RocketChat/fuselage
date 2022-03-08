@@ -2,9 +2,9 @@ import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent, Ref } from 'react';
 import React, { useMemo, forwardRef } from 'react';
 
-import type { PaginatedSelectProps } from '.';
-import { PaginatedSelect } from '.';
 import { InputBox } from '../InputBox';
+import type { PaginatedSelectProps } from './PaginatedSelect';
+import { PaginatedSelect } from './PaginatedSelect';
 
 type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
   setFilter: (value: string | undefined | number) => void;
