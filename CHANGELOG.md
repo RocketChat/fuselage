@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.6](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.5...v0.31.6) (2022-03-09)
+
+### Bug Fixes
+
+- **fuselage:** `onChange` prop on `PaginatedSelectFiltered` ([#659](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/659)) ([9e170ff](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9e170ffbb36aa4825dcbe21c8db01eac8c407ee1))
+- **fuselage:** `PaginatedSelectFiltered` filter state ([#661](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/661)) ([0975754](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0975754a53ebdb32e8bcb4a7912a0335d5dcf2eb))
+
 ### [0.31.5](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.4...v0.31.5) (2022-03-02)
 
 ### Bug Fixes
