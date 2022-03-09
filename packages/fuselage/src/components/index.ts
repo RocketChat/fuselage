@@ -45,7 +45,7 @@ export * from './RadioButton';
 export { default as Scrollable } from './Scrollable';
 export * from './SearchInput';
 export * from './Select';
-export * from './SelectPaginated';
+export * from './PaginatedSelect';
 export * from './SelectInput';
 export { default as Sidebar } from './Sidebar';
 export * from './Sidebar';
