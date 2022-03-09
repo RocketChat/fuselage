@@ -1,4 +1,4 @@
-import { Box } from '@rocket.chat/fuselage';
+import { Box, Icon } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement } from 'react';
 import { useMemo } from 'react';
@@ -14,6 +14,16 @@ const Description = (): ReactElement => {
   const color = isDarkMode ? colors.white : colors.n900;
   const { t } = useTranslation();
 
+  const featuresList = [
+    t('page.createCloudWorkspaceSimplified.auditing'),
+    t('page.createCloudWorkspaceSimplified.numberOfIntegrations'),
+    t('page.createCloudWorkspaceSimplified.ldap'),
+    t('page.createCloudWorkspaceSimplified.omnichannel'),
+    t('page.createCloudWorkspaceSimplified.sla'),
+    t('page.createCloudWorkspaceSimplified.push'),
+    t('page.createCloudWorkspaceSimplified.engagement'),
+  ];
+
   const icon = useMemo(
     () =>
       encodeURIComponent(
@@ -22,29 +32,18 @@ const Description = (): ReactElement => {
     [color]
   );
 
+  const listItem = (text: string) => (
+    <List.Item fontScale='p1'>
+      <Icon name='check' size='x24' mie='x12' />
+      {text}
+    </List.Item>
+  );
+
   return (
     <Box>
       <Box>
         <List color={color} spacing='x16' icon={icon}>
-          <List.Item fontScale='p1'>
-            {t('page.cloudDescription.availability')}
-          </List.Item>
-          <List.Item fontScale='p1'>
-            {t('page.cloudDescription.auditing')}
-          </List.Item>
-          <List.Item fontScale='h4'>
-            {t('page.cloudDescription.engagement')}
-          </List.Item>
-          <List.Item fontScale='h4'>
-            {t('page.cloudDescription.ldap')}
-          </List.Item>
-          <List.Item fontScale='h4'>
-            {t('page.cloudDescription.omnichannel')}
-          </List.Item>
-          <List.Item fontScale='h4'>{t('page.cloudDescription.sla')}</List.Item>
-          <List.Item fontScale='h4'>
-            {t('page.cloudDescription.push')}
-          </List.Item>
+          {featuresList.map((text) => listItem(text))}
         </List>
       </Box>
       <Box fontScale='micro' color='info'>

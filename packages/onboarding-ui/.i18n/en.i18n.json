@@ -106,15 +106,13 @@
     "createCloudWorkspaceSimplified": {
       "title": "Launch new workspace and <1>30-day trial</1>",
       "tryGold": "Try Rocket.Chat Gold Edition for 30 days. No credit card required.",
-      "numberOfIntegrations": "Apps and integrations",
-      "availability": "Scalable micro-services",
       "auditing": "Message audit panel / Audit logs",
-      "engagement": "Engagement Dashboard",
+      "numberOfIntegrations": "Apps and integrations",
       "ldap": "LDAP enhanced sync",
-      "omnichannel": "Omnichannel premium",
+      "omnichannel": "Enhanced Omnichannel",
       "sla": "SLA: Premium",
-      "push": "Secured push notifications",
-      "goldIncludes": "* Golden plan includes all features from other plans"
+      "push": "Unlimited push notifications",
+      "engagement": "Engagement Dashboard"
     }
   },
   "form": {
