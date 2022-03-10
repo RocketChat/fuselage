@@ -11,19 +11,18 @@ import Description from './Description';
 import TitleCreateCloudPage from './TitleCreateCloudPage';
 
 type CreateCloudWorkspacePageProps = {
-  currentStep: number;
-  stepCount: number;
   onSubmit: SubmitHandler<{
-    organizationName: string;
     organizationEmail: string;
     workspaceName: string;
     workspaceURL: string;
     serverRegion: string;
+    language: string;
     agreement: boolean;
     updates: boolean;
   }>;
   domain: string;
   serverRegionOptions: SelectOption[];
+  languageOptions: SelectOption[];
   onBackButtonClick: () => void;
   validateUrl: (url: string) => Promise<boolean>;
   validateEmail: (url: string) => Promise<boolean>;
