@@ -313,10 +313,11 @@
     "totpForm": {
       "fields": {
         "totpCode": {
-          "label": "MFA CODE",
+          "label": "TOTP Code",
           "placeholder": "TOTP Code"
         },
         "backupCode": {
+          "label": "Backup Code",
           "placeholder": "Backup Code"
         }
       },
@@ -325,6 +326,9 @@
       },
       "buttonBackupCode": {
         "text": "Need to use backup code?"
+      },
+      "buttonTotpCode": {
+        "text": "Use TOTP code."
       }
     }
   }

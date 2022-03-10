@@ -50,9 +50,15 @@ const TotpForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>
-              {t('form.totpForm.fields.totpCode.label')}
-            </Field.Label>
+            {isBackupCode ? (
+              <Field.Label>
+                {t('form.totpForm.fields.backupCode.label')}
+              </Field.Label>
+            ) : (
+              <Field.Label>
+                {t('form.totpForm.fields.totpCode.label')}
+              </Field.Label>
+            )}
             <Field.Row>
               {isBackupCode ? (
                 <TextInput
@@ -85,7 +91,9 @@ const TotpForm = ({
             {t('form.totpForm.button.text')}
           </Button>
           <ActionLink fontScale='p2' onClick={onChangeTotpForm}>
-            {t('form.totpForm.buttonBackupCode.text')}
+            {isBackupCode
+              ? t('form.totpForm.buttonTotpCode.text')
+              : t('form.totpForm.buttonBackupCode.text')}
           </ActionLink>
         </TotpActionsWrapper>
       </Form.Footer>
