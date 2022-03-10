@@ -3,8 +3,6 @@ import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-export type SelectOptions = readonly [value: string, label: string][];
-
 type SelectFocusProps = ComponentProps<typeof Box>;
 
 const SelectFocus = forwardRef(function SelectFocus(

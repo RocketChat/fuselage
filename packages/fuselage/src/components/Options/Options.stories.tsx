@@ -8,10 +8,10 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { createRef } from 'react';
 
-import type { OptionType } from '.';
 import { Options } from '.';
 import type { Menu } from '..';
 import { Box } from '..';
+import type { OptionType } from '../../types/OptionType';
 import { CheckOption } from './CheckOption';
 import Option from './Option';
 
