@@ -46,9 +46,6 @@ const Description = (): ReactElement => {
           {featuresList.map((text) => listItem(text))}
         </List>
       </Box>
-      <Box fontScale='micro' color='info'>
-        {t('page.cloudDescription.goldIncludes')}
-      </Box>
     </Box>
   );
 };

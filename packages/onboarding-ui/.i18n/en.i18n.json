@@ -192,21 +192,18 @@
       "manuallyIntegrate": "Need to manually integrate with external services"
     },
     "createCloudWorkspace": {
-      "title": "Create Cloud Workspace",
+      "title": "New Cloud Workspace",
       "fields": {
-        "orgName": "Organization name",
         "orgEmail": {
           "label": "Organization email",
-          "placeholder": "Email",
           "invalid": "Invalid email"
         },
         "workspaceName": {
-          "label": "Workspace name",
-          "tooltip": "How should be a good Workspace name"
+          "label": "Workspace name"
         },
         "workspaceUrl": {
           "label": "Workspace URL",
-          "placeholder": "workspaceurl",
+          "placeholder": "http://",
           "tooltip": "URL of your Workspace",
           "exists": "Workspace already exists"
         },
@@ -214,7 +211,11 @@
           "label": "Server region",
           "tooltip": "Where is your server located"
         },
-        "keepMePosted": "Keep me posted about Rocket.Chat updates"
+        "language": {
+          "label": "Language",
+          "tooltip": "The language used on your workspace's interface"
+        },
+        "keepMeInformed": "Keep me informed about news and events"
       }
     },
     "requestTrialForm": {
