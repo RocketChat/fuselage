@@ -103,7 +103,7 @@
       "subtitle": "Please, contact support.",
       "requestId": "Request ID: {{requestId}}"
     },
-    "createCloudWorkspaceSimplified": {
+    "createCloudWorkspace": {
       "title": "Launch new workspace and <1>30-day trial</1>",
       "tryGold": "Try Rocket.Chat Gold Edition for 30 days. No credit card required.",
       "auditing": "Message audit panel / Audit logs",

@@ -39,7 +39,7 @@ const CreateCloudWorkspacePage = (
       <FormPageLayout
         title={<TitleCreateCloudPage />}
         description={<Description />}
-        subtitle={t('page.cloudDescription.tryGold')}
+        subtitle={t('page.createCloudWorkspace.tryGold')}
       >
         <CreateCloudWorkspaceForm {...props} />
         <Box mbs='x28' display='inline' textAlign='center'>
