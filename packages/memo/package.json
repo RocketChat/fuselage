@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/memo",
-  "version": "0.31.5",
+  "version": "0.31.6",
   "description": "Memoization utilities",
   "keywords": [
     "memoize"

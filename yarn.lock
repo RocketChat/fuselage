@@ -5661,6 +5661,7 @@ __metadata:
     "@storybook/addon-links": ~6.4.19
     "@storybook/addons": ~6.4.19
     "@storybook/builder-webpack5": ~6.4.19
+    "@storybook/client-api": ~6.4.19
     "@storybook/manager-webpack5": ~6.4.19
     "@storybook/react": ~6.4.19
     "@storybook/source-loader": ~6.4.19
@@ -6728,7 +6729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/client-api@npm:6.4.19":
+"@storybook/client-api@npm:6.4.19, @storybook/client-api@npm:~6.4.19":
   version: 6.4.19
   resolution: "@storybook/client-api@npm:6.4.19"
   dependencies:
