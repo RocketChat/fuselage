@@ -80,6 +80,7 @@
     "@storybook/theming": "~6.4.19",
     "@testing-library/jest-dom": "~5.16.2",
     "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "~13.5.0",
     "@types/invariant": "^2.2.35",
     "@types/jest": "~27.4.1",
     "autoprefixer": "~10.4.2",

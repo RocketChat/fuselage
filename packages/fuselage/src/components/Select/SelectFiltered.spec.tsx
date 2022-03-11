@@ -1,4 +1,5 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
@@ -23,13 +24,13 @@ it('renders with options', async () => {
     />
   );
 
-  fireEvent.click(screen.getByRole('combobox'));
+  userEvent.click(screen.getByRole('combobox'));
 
   await waitFor(() =>
     expect(screen.queryByRole('listbox')).toBeInTheDocument()
   );
 
-  fireEvent.mouseDown(screen.getByRole('option', { name: 'Item #2' }));
+  userEvent.click(screen.getByRole('option', { name: 'Item #2' }));
 
   expect(handleChange).toHaveBeenCalledTimes(1);
   expect(handleChange).toHaveBeenCalledWith('2');
@@ -49,7 +50,7 @@ it('accepts filter', async () => {
     />
   );
 
-  fireEvent.input(screen.getByRole('textbox'), { target: { value: '#1' } });
+  userEvent.paste(screen.getByRole('textbox'), '#1');
 
   expect(handleSetFilter).toHaveBeenCalledTimes(1);
   expect(handleSetFilter).toHaveBeenCalledWith('#1');
@@ -67,7 +68,7 @@ it('does NOT filters options if controlled', async () => {
     />
   );
 
-  fireEvent.click(screen.getByRole('combobox'));
+  userEvent.click(screen.getByRole('combobox'));
 
   await waitFor(() =>
     expect(screen.queryByRole('listbox')).toBeInTheDocument()
@@ -87,9 +88,9 @@ it('does filters options if uncontrolled', async () => {
     />
   );
 
-  fireEvent.click(screen.getByRole('combobox'));
+  userEvent.click(screen.getByRole('combobox'));
 
-  fireEvent.input(screen.getByRole('textbox'), { target: { value: '#1' } });
+  userEvent.paste(screen.getByRole('textbox'), '#1');
 
   await waitFor(() =>
     expect(screen.queryByRole('listbox')).toBeInTheDocument()
