@@ -10,7 +10,7 @@ import type {
   Ref,
   ReactNode,
 } from 'react';
-import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import React, { useMemo, useState, useRef, useEffect, forwardRef } from 'react';
 
 import type { SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
@@ -102,19 +102,22 @@ export const MultiSelect = forwardRef(
       return onChange(newValue);
     };
 
-    const mapOptions = ([value, label]: SelectOption): SelectOption => {
-      if (internalValue.includes(value)) {
-        return [value, label, true];
+    const filteredOptions: SelectOption[] = useMemo(() => {
+      const mapOptions = ([value, label]: SelectOption): SelectOption => {
+        if (internalValue.includes(value)) {
+          return [value, label, true];
+        }
+        return [value, label];
+      };
+
+      const applyFilter = ([, option]: SelectOption) =>
+        !filter || option.toLowerCase().includes(filter.toLowerCase());
+
+      if (isControlled) {
+        return options.map(mapOptions);
       }
-      return [value, label];
-    };
-
-    const applyFilter = ([, option]: SelectOption) =>
-      !filter || option.toLowerCase().includes(filter.toLowerCase());
-
-    const filteredOptions: SelectOption[] = options
-      .filter(applyFilter)
-      .map(mapOptions);
+      return options.filter(applyFilter).map(mapOptions);
+    }, [options, internalValue, filter, isControlled]);
 
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
       useCursor(index, filteredOptions, internalChanged);
