@@ -42,7 +42,7 @@ type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   addonIcon?: Keys;
 };
 
-export const Select = forwardRef(function Select(
+const Select = forwardRef(function Select(
   {
     value,
     filter,
@@ -194,3 +194,5 @@ export const Select = forwardRef(function Select(
     </SelectContainer>
   );
 });
+
+export default Select;

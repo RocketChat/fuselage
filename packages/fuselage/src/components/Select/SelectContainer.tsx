@@ -21,7 +21,15 @@ const SelectContainer = forwardRef(function SelectContainer(
     [invalid, disabled]
   );
 
-  return <Box ref={ref} rcx-select className={stateClassName} {...props} />;
+  return (
+    <Box
+      ref={ref}
+      rcx-select
+      role='combobox'
+      className={stateClassName}
+      {...props}
+    />
+  );
 });
 
 export default SelectContainer;

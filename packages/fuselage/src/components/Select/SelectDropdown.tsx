@@ -24,22 +24,17 @@ const SelectDropdown = ({
   renderItem,
   cursor,
   customEmpty,
-}: SelectDropdownProps) => {
-  0;
-
-  return (
-    <PositionAnimated visible={visibility} anchor={anchorRef}>
-      <Options
-        width={inlineSize}
-        role='listbox'
-        options={options}
-        onSelect={onSelect}
-        renderItem={renderItem}
-        cursor={cursor}
-        customEmpty={customEmpty}
-      />
-    </PositionAnimated>
-  );
-};
+}: SelectDropdownProps) => (
+  <PositionAnimated visible={visibility} anchor={anchorRef}>
+    <Options
+      width={inlineSize}
+      options={options}
+      onSelect={onSelect}
+      renderItem={renderItem}
+      cursor={cursor}
+      customEmpty={customEmpty}
+    />
+  </PositionAnimated>
+);
 
 export default SelectDropdown;
