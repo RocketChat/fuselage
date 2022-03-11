@@ -17,7 +17,7 @@ import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
 import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
-import SelectFocus from '../Select/SelectFocus';
+import SelectAnchor from '../Select/SelectAnchor';
 
 const SelectedOptions = memo((props) => (
   <Chip maxWidth='150px' withTruncatedText {...props} />
@@ -45,7 +45,7 @@ export const PaginatedMultiSelect = ({
   options = [],
   error,
   disabled,
-  anchor: Anchor = SelectFocus,
+  anchor: Anchor = SelectAnchor,
   onChange = () => {},
   placeholder,
   renderOptions: _Options = OptionsPaginated,

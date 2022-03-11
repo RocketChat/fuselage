@@ -1,10 +1,4 @@
-import type {
-  ComponentProps,
-  ElementType,
-  ReactNode,
-  Ref,
-  SyntheticEvent,
-} from 'react';
+import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
 import React, {
   forwardRef,
   memo,
@@ -13,6 +7,7 @@ import React, {
   useRef,
 } from 'react';
 
+import type { OptionType } from '../../types/OptionType';
 import { Box } from '../Box';
 import Scrollable from '../Scrollable';
 import Tile from '../Tile';
@@ -25,13 +20,6 @@ const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
   e.stopPropagation();
 };
-
-export type OptionType = [
-  value: string | number,
-  label: ReactNode,
-  selected?: boolean,
-  type?: 'heading' | 'divider' | 'option'
-];
 
 type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;

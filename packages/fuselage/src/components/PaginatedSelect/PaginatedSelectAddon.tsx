@@ -3,13 +3,13 @@ import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-type SelectAddonProps = ComponentProps<typeof Box>;
+type PaginatedSelectAddonProps = ComponentProps<typeof Box>;
 
-const SelectAddon = forwardRef(function SelectAddon(
-  props: SelectAddonProps,
+const PaginatedSelectAddon = forwardRef(function PaginatedSelectAddon(
+  props: PaginatedSelectAddonProps,
   ref: Ref<HTMLDivElement>
 ) {
   return <Box is='div' rcx-select__addon ref={ref} {...props} />;
 });
 
-export default SelectAddon;
+export default PaginatedSelectAddon;

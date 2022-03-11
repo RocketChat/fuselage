@@ -3,13 +3,11 @@ import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-export type SelectOptions = readonly [value: string, label: string][];
+type PaginatedSelectFocusProps = ComponentProps<typeof Box>;
 
-type SelectFocusProps = ComponentProps<typeof Box>;
-
-const SelectFocus = forwardRef(function SelectFocus(
-  props: SelectFocusProps,
-  ref: Ref<Element>
+const PaginatedSelectFocus = forwardRef(function PaginatedSelectFocus(
+  props: PaginatedSelectFocusProps,
+  ref: Ref<HTMLButtonElement>
 ) {
   return (
     <Box
@@ -24,4 +22,4 @@ const SelectFocus = forwardRef(function SelectFocus(
   );
 });
 
-export default SelectFocus;
+export default PaginatedSelectFocus;

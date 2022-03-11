@@ -7,7 +7,7 @@ import type {
 } from 'react';
 import React, { forwardRef } from 'react';
 
-import SelectFocus from '../Select/SelectFocus';
+import { Box } from '../Box';
 
 type MultiSelectAnchorProps = {
   children: ReactNode;
@@ -23,9 +23,14 @@ const MultiSelectAnchor = forwardRef(function MultiSelectAnchor(
   ref: Ref<Element>
 ) {
   return (
-    <SelectFocus
-      rcx-input-box--undecorated
+    <Box
       ref={ref}
+      fontScale='p2m'
+      color='hint'
+      rcx-select__focus
+      is='button'
+      type='button'
+      rcx-input-box--undecorated
       aria-haspopup='listbox'
       order={1}
       {...props}

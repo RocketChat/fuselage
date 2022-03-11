@@ -4,7 +4,7 @@ import React, { useRef, useCallback } from 'react';
 
 import type { Box } from '..';
 import { ActionButton, PositionAnimated, Options, useCursor } from '..';
-import type { OptionType } from '../Options';
+import type { OptionType } from '../../types/OptionType';
 
 type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   options: {

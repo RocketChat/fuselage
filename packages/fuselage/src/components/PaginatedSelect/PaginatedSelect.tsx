@@ -3,54 +3,47 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import type { SyntheticEvent, ComponentProps, Ref, ElementType } from 'react';
-import React, { useState, useRef, forwardRef, useMemo, useEffect } from 'react';
+import type { Keys } from '@rocket.chat/icons';
+import type { SyntheticEvent, ElementType, ComponentProps } from 'react';
+import React, { useState, useRef, useMemo, useEffect } from 'react';
 
-import type { SelectProps } from '..';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
 import PositionAnimated from '../PositionAnimated';
+import PaginatedSelectAddon from './PaginatedSelectAddon';
+import PaginatedSelectFocus from './PaginatedSelectFocus';
+import PaginatedSelectWrapper from './PaginatedSelectWrapper';
 
 type PaginatedOptionType = {
   value: string | number;
   label: string;
 };
-export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
+export type PaginatedSelectProps = Omit<
+  ComponentProps<typeof Box>,
+  'onChange'
+> & {
+  anchor?: ElementType;
+  error?: string;
+  options: PaginatedOptionType[];
+  onChange: (value: PaginatedOptionType['value']) => void;
+  getLabel?: (params: PaginatedOptionType) => PaginatedOptionType['label'];
+  getValue?: (params: PaginatedOptionType) => PaginatedOptionType['value'];
+  filter?: string;
+  renderOptions?: ElementType;
+  renderItem?: ElementType;
+  renderSelected?: ElementType;
+  customEmpty?: string;
+  addonIcon?: Keys;
+  isControlled?: boolean;
   anchor?: ElementType;
   options: PaginatedOptionType[];
   withTitle?: boolean;
   endReached: (index: number) => void;
-  setFilter: (value: string | undefined | number) => void;
+  setFilter?: (value: string | undefined | number) => void;
 };
-
-type AddonProps = ComponentProps<typeof Box>;
-
-const Addon = forwardRef((props: AddonProps, ref: Ref<HTMLDivElement>) => (
-  <Box is='div' rcx-select__addon ref={ref} {...props} />
-));
-
-type WrapperProps = ComponentProps<typeof Box>;
-
-const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
-  <Box is='div' rcx-select__wrapper ref={ref} {...props} />
-));
-
-type FocusProps = ComponentProps<typeof Box>;
-
-const Focus = forwardRef((props: FocusProps, ref: Ref<HTMLButtonElement>) => (
-  <Box
-    ref={ref}
-    fontScale='p2m'
-    color='hint'
-    rcx-select__focus
-    is='button'
-    type='button'
-    {...props}
-  />
-));
 
 const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
@@ -78,7 +71,7 @@ export const PaginatedSelect = ({
   error,
   disabled,
   options = [],
-  anchor: Anchor = Focus,
+  anchor: Anchor = PaginatedSelectFocus,
   onChange = () => {},
   placeholder = '',
   renderOptions: _Options = OptionsPaginated,
@@ -133,7 +126,7 @@ export const PaginatedSelect = ({
       )}
       {...props}
     >
-      <Wrapper
+      <PaginatedSelectWrapper
         display='flex'
         mi='neg-x4'
         rcx-select__wrapper--hidden={!!visibleText}
@@ -159,20 +152,15 @@ export const PaginatedSelect = ({
           onClick={show}
           onBlur={hide}
         />
-        <Addon
-          mi='x4'
-          children={
-            <Icon
-              name={
-                visible === AnimatedVisibility.VISIBLE
-                  ? 'cross'
-                  : 'chevron-down'
-              }
-              size='x20'
-            />
-          }
-        />
-      </Wrapper>
+        <PaginatedSelectAddon mi='x4'>
+          <Icon
+            name={
+              visible === AnimatedVisibility.VISIBLE ? 'cross' : 'chevron-down'
+            }
+            size='x20'
+          />
+        </PaginatedSelectAddon>
+      </PaginatedSelectWrapper>
       <PositionAnimated visible={visible} anchor={containerRef}>
         <_Options
           {...(withTitle && { title: withTitle })}

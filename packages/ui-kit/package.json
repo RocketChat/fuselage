@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/ui-kit",
-  "version": "0.31.5",
+  "version": "0.31.6",
   "description": "Interactive UI elements for Rocket.Chat Apps",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -42,7 +42,7 @@
     "@babel/preset-env": "~7.16.11",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
-    "@types/jest": "~27.4.0",
+    "@types/jest": "~27.4.1",
     "babel-loader": "~8.2.3",
     "eslint": "~8.8.0",
     "jest": "~27.5.1",

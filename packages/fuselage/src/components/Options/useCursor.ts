@@ -2,8 +2,8 @@ import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
 import type { KeyboardEvent } from 'react';
 import { useState } from 'react';
 
+import type { OptionType } from '../../types/OptionType';
 import AnimatedVisibility from '../AnimatedVisibility';
-import type { OptionType } from './Options';
 import { useVisible } from './useVisible';
 
 const keyCodes = {

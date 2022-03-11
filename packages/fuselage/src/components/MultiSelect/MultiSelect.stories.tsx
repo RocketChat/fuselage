@@ -12,7 +12,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { MultiSelect, MultiSelectFiltered } from '../..';
-import type { SelectOption } from '../Select';
+import type { SelectOption } from '../../types/SelectOption';
 
 export default {
   title: 'Inputs/MultiSelect',
