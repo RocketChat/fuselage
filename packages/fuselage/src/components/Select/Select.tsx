@@ -3,6 +3,7 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
+import type { Keys } from '@rocket.chat/icons';
 import type { ComponentProps, Ref, ElementType, ReactNode } from 'react';
 import React, { useState, useRef, forwardRef, useMemo } from 'react';
 
@@ -21,7 +22,7 @@ import SelectFocus from './SelectFocus';
 import SelectWrapper from './SelectWrapper';
 import { useDidUpdate } from './useDidUpdate';
 
-export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   anchor?: ElementType;
   error?: string;
   options: SelectOption[];
@@ -33,7 +34,7 @@ export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   renderItem?: ElementType;
   renderSelected?: ElementType;
   customEmpty?: string;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: Keys;
   isControlled?: boolean;
 };
 

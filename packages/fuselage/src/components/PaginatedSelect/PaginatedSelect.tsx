@@ -3,10 +3,10 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import type { SyntheticEvent, ElementType } from 'react';
+import type { Keys } from '@rocket.chat/icons';
+import type { SyntheticEvent, ElementType, ComponentProps } from 'react';
 import React, { useState, useRef, useMemo, useEffect } from 'react';
 
-import type { SelectProps } from '..';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
@@ -21,7 +21,23 @@ type PaginatedOptionType = {
   value: string | number;
   label: string;
 };
-export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
+export type PaginatedSelectProps = Omit<
+  ComponentProps<typeof Box>,
+  'onChange'
+> & {
+  anchor?: ElementType;
+  error?: string;
+  options: PaginatedOptionType[];
+  onChange: (value: PaginatedOptionType['value']) => void;
+  getLabel?: (params: PaginatedOptionType) => PaginatedOptionType['label'];
+  getValue?: (params: PaginatedOptionType) => PaginatedOptionType['value'];
+  filter?: string;
+  renderOptions?: ElementType;
+  renderItem?: ElementType;
+  renderSelected?: ElementType;
+  customEmpty?: string;
+  addonIcon?: Keys;
+  isControlled?: boolean;
   anchor?: ElementType;
   options: PaginatedOptionType[];
   withTitle?: boolean;
