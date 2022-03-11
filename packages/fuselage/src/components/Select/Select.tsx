@@ -1,13 +1,13 @@
 import {
+  useBorderBoxSize,
   useMergedRefs,
   useMutableCallback,
-  useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
 import type { Keys } from '@rocket.chat/icons';
 import type { ComponentProps, Ref, ElementType, ReactNode } from 'react';
-import React, { useState, useRef, forwardRef, useMemo } from 'react';
+import React, { useEffect, useState, useRef, forwardRef, useMemo } from 'react';
 
-import { isForwardRefType } from '../../helpers/isForwardRefType';
+import { renderComponentOrFunction } from '../../helpers/renderComponentOrFunction';
 import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -17,45 +17,45 @@ import Margins from '../Margins';
 import { Options, useCursor } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 import SelectAddon from './SelectAddon';
+import SelectAnchor from './SelectAnchor';
 import type { SelectAnchorParams } from './SelectAnchorParams';
-import SelectFocus from './SelectFocus';
+import SelectContainer from './SelectContainer';
 import SelectWrapper from './SelectWrapper';
-import { useDidUpdate } from './useDidUpdate';
+
+const defaultRenderAnchor = (params: SelectAnchorParams) => (
+  <SelectAnchor {...params} />
+);
 
 type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
-  anchor?: ElementType;
+  anchor?:
+    | ElementType<SelectAnchorParams>
+    | ((params: SelectAnchorParams) => ReactNode);
   error?: string;
   options: SelectOption[];
   onChange: (value: SelectOption[0]) => void;
   getLabel?: (params: SelectOption) => SelectOption[1];
   getValue?: (params: SelectOption) => SelectOption[0];
-  filter?: string;
-  renderOptions?: ElementType;
   renderItem?: ElementType;
   renderSelected?: ElementType;
   customEmpty?: string;
   addonIcon?: Keys;
-  isControlled?: boolean;
 };
 
 export const Select = forwardRef(function Select(
   {
     value,
-    filter,
     error,
     disabled,
     options = [],
-    anchor: Anchor = SelectFocus,
+    anchor: renderAnchor = defaultRenderAnchor,
     onChange = () => {},
     getValue = ([value] = ['', '']) => value,
     getLabel = ([_, label] = ['', '']) => label,
     placeholder = '',
     renderItem,
     renderSelected: RenderSelected,
-    renderOptions: RenderOptions = Options,
     addonIcon,
     customEmpty,
-    isControlled = false,
     ...props
   }: SelectProps,
   ref: Ref<HTMLInputElement>
@@ -67,31 +67,40 @@ export const Select = forwardRef(function Select(
     onChange(value);
   });
 
-  const option = options.find(
+  const index = options.findIndex(
     (option) => getValue(option) === internalValue
-  ) as SelectOption;
+  );
 
-  const index = options.indexOf(option);
+  const option = options[index];
 
-  const filteredOptions = useMemo<OptionType[]>((): OptionType[] => {
-    const mapOptions = ([value, label]: SelectOption): OptionType => {
-      if (internalValue === value) {
-        return [value, label, true];
+  const mappedOptions = useMemo(
+    (): OptionType[] =>
+      options.map(([value, label]: SelectOption): OptionType => {
+        if (internalValue === value) {
+          return [value, label, true];
+        }
+
+        return [value, label];
+      }),
+    [options, internalValue]
+  );
+
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visibility, hide, show]] =
+    useCursor(index, mappedOptions, internalChangedByKeyboard);
+
+  const prevOptions = useRef<OptionType[]>();
+
+  useEffect(
+    () => () => {
+      if (prevOptions.current === mappedOptions) {
+        return;
       }
-      return [value, label];
-    };
 
-    if (isControlled) {
-      return options.map(mapOptions);
-    }
-    const applyFilter = ([, option]: SelectOption) =>
-      !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
-
-    return options.filter(applyFilter).map(mapOptions);
-  }, [options, internalValue, filter]);
-
-  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-    useCursor(index, filteredOptions, internalChangedByKeyboard);
+      reset();
+      prevOptions.current = mappedOptions;
+    },
+    [mappedOptions, reset]
+  );
 
   const internalChangedByClick = useMutableCallback(([value]) => {
     setInternalValue(value);
@@ -102,67 +111,48 @@ export const Select = forwardRef(function Select(
   const innerRef = useRef<HTMLInputElement | null>(null);
   const anchorRef = useMergedRefs(ref, innerRef);
 
-  const renderAnchor = (params: SelectAnchorParams) => {
-    if (isForwardRefType(Anchor)) {
-      return <Anchor {...params} />;
-    }
-
-    if (typeof Anchor === 'function') {
-      return (Anchor as (params: SelectAnchorParams) => ReactNode)(params);
-    }
-
-    return null;
-  };
-
-  const { ref: containerRef, borderBoxSize } = useResizeObserver();
-
-  useDidUpdate(reset, [filter, internalValue]);
+  const containerRef = useRef<HTMLElement>(null);
+  const { inlineSize } = useBorderBoxSize(containerRef);
 
   const valueLabel = getLabel(option);
+  const valueValue = getValue(option);
 
   const visibleText =
-    (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
+    visibility === AnimatedVisibility.HIDDEN &&
     (valueLabel || placeholder || typeof placeholder === 'string');
 
   const handleClick = useMutableCallback(() => {
-    if (visible === AnimatedVisibility.VISIBLE) {
+    if (visibility === AnimatedVisibility.VISIBLE) {
       return hide();
     }
+
     innerRef.current?.focus();
     return show();
   });
 
   return (
-    <Box
-      rcx-select
-      disabled={disabled}
+    <SelectContainer
       ref={containerRef}
+      disabled={Boolean(disabled)}
+      invalid={Boolean(error)}
       onClick={handleClick}
-      className={useMemo(
-        () => [error && 'invalid', disabled && 'disabled'],
-        [error, disabled]
-      )}
       {...props}
     >
-      <SelectWrapper
-        display='flex'
-        mi='neg-x4'
-        rcx-select__wrapper--hidden={!!visibleText}
-      >
+      <SelectWrapper hidden={Boolean(visibleText)}>
         {visibleText &&
           (RenderSelected ? (
             <RenderSelected
               role='option'
-              value={getValue(option)}
+              value={valueValue}
               label={valueLabel}
-              key={getValue(option)}
+              key={valueValue}
               onClick={internalChangedByClick}
             />
           ) : (
             <Box
               flexGrow={1}
               is='span'
-              mi='x4'
+              mi={4}
               rcx-select__item
               fontScale='p2'
               color={valueLabel ? 'default' : 'hint'}
@@ -170,7 +160,7 @@ export const Select = forwardRef(function Select(
               {visibleText}
             </Box>
           ))}
-        {renderAnchor({
+        {renderComponentOrFunction(renderAnchor, {
           ref: anchorRef,
           children: !value ? option || placeholder : null,
           disabled: disabled ?? false,
@@ -179,33 +169,27 @@ export const Select = forwardRef(function Select(
           onKeyDown: handleKeyDown,
           onKeyUp: handleKeyUp,
         })}
-        <Margins inline='x4'>
-          <SelectAddon
-            children={
-              <Icon
-                name={
-                  visible === AnimatedVisibility.VISIBLE
-                    ? 'cross'
-                    : addonIcon || 'chevron-down'
-                }
-                size='x20'
-              />
-            }
-          />
+        <Margins inline={4}>
+          <SelectAddon>
+            {visibility === AnimatedVisibility.VISIBLE ? (
+              <Icon name='cross' size={20} />
+            ) : (
+              <Icon name={addonIcon ?? 'chevron-down'} size={20} />
+            )}
+          </SelectAddon>
         </Margins>
       </SelectWrapper>
-      <PositionAnimated visible={visible} anchor={containerRef}>
-        <RenderOptions
-          width={borderBoxSize.inlineSize}
+      <PositionAnimated visible={visibility} anchor={containerRef}>
+        <Options
+          width={inlineSize}
           role='listbox'
-          filter={filter}
-          options={isControlled ? options : filteredOptions}
+          options={mappedOptions}
           onSelect={internalChangedByClick}
           renderItem={renderItem}
           cursor={cursor}
           customEmpty={customEmpty}
         />
       </PositionAnimated>
-    </Box>
+    </SelectContainer>
   );
 });

@@ -5,7 +5,7 @@ import type {
   ElementType,
   SetStateAction,
 } from 'react';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { Select } from '.';
 import type { SelectOption } from '../../types/SelectOption';
@@ -20,7 +20,6 @@ type SelectFilteredProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   onChange: (value: SelectOption[0]) => void;
   getLabel?: (params: SelectOption) => SelectOption[1];
   getValue?: (params: SelectOption) => SelectOption[0];
-  renderOptions?: ElementType;
   renderItem?: ElementType;
   renderSelected?: ElementType;
   customEmpty?: string;
@@ -39,12 +38,22 @@ export const SelectFiltered = ({
 }: SelectFilteredProps) => {
   const [filter, setFilter] = useState('');
 
+  const filteredOptions = useMemo((): SelectOption[] => {
+    if (propFilter) {
+      return options;
+    }
+
+    return options.filter(
+      ([, option]: SelectOption) =>
+        !filter || ~option.toLowerCase().indexOf(filter.toLowerCase())
+    );
+  }, [propFilter, options, filter]);
+
   return (
     <Select
       placeholder={placeholder}
       filter={propFilter || filter}
-      options={options}
-      isControlled={Boolean(propFilter)}
+      options={filteredOptions}
       {...props}
       anchor={(params: SelectAnchorParams) => (
         <SelectFilteredAnchor

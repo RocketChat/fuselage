@@ -1,12 +1,13 @@
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
+import type { SelectAnchorParams } from './SelectAnchorParams';
 
-type SelectFocusProps = ComponentProps<typeof Box>;
+type SelectAnchorProps = SelectAnchorParams;
 
-const SelectFocus = forwardRef(function SelectFocus(
-  props: SelectFocusProps,
+const SelectAnchor = forwardRef(function SelectFocus(
+  props: SelectAnchorProps,
   ref: Ref<Element>
 ) {
   return (
@@ -22,4 +23,4 @@ const SelectFocus = forwardRef(function SelectFocus(
   );
 });
 
-export default SelectFocus;
+export default SelectAnchor;

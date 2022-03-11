@@ -1,15 +1,29 @@
-import type { ComponentProps, Ref } from 'react';
+import type { ReactNode, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-type SelectWrapperProps = ComponentProps<typeof Box>;
+type SelectWrapperProps = {
+  children: ReactNode;
+  hidden: boolean;
+};
 
 const SelectWrapper = forwardRef(function SelectWrapper(
-  props: SelectWrapperProps,
+  { children, hidden }: SelectWrapperProps,
   ref: Ref<HTMLDivElement>
 ) {
-  return <Box is='div' rcx-select__wrapper ref={ref} {...props} />;
+  return (
+    <Box
+      is='div'
+      display='flex'
+      mi='neg-x4'
+      rcx-select__wrapper
+      rcx-select__wrapper--hidden={hidden}
+      ref={ref}
+    >
+      {children}
+    </Box>
+  );
 });
 
 export default SelectWrapper;
