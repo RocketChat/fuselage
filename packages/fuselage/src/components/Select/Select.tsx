@@ -14,12 +14,12 @@ import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
-import { Options, useCursor } from '../Options';
-import PositionAnimated from '../PositionAnimated';
+import { useCursor } from '../Options/useCursor';
 import SelectAddon from './SelectAddon';
 import SelectAnchor from './SelectAnchor';
 import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectContainer from './SelectContainer';
+import SelectDropdown from './SelectDropdown';
 import SelectWrapper from './SelectWrapper';
 
 const defaultRenderAnchor = (params: SelectAnchorParams) => (
@@ -35,6 +35,7 @@ type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   onChange: (value: SelectOption[0]) => void;
   getLabel?: (params: SelectOption) => SelectOption[1];
   getValue?: (params: SelectOption) => SelectOption[0];
+  filter?: string;
   renderItem?: ElementType;
   renderSelected?: ElementType;
   customEmpty?: string;
@@ -44,6 +45,7 @@ type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
 export const Select = forwardRef(function Select(
   {
     value,
+    filter,
     error,
     disabled,
     options = [],
@@ -118,7 +120,7 @@ export const Select = forwardRef(function Select(
   const valueValue = getValue(option);
 
   const visibleText =
-    visibility === AnimatedVisibility.HIDDEN &&
+    (filter === undefined || visibility === AnimatedVisibility.HIDDEN) &&
     (valueLabel || placeholder || typeof placeholder === 'string');
 
   const handleClick = useMutableCallback(() => {
@@ -179,17 +181,16 @@ export const Select = forwardRef(function Select(
           </SelectAddon>
         </Margins>
       </SelectWrapper>
-      <PositionAnimated visible={visibility} anchor={containerRef}>
-        <Options
-          width={inlineSize}
-          role='listbox'
-          options={mappedOptions}
-          onSelect={internalChangedByClick}
-          renderItem={renderItem}
-          cursor={cursor}
-          customEmpty={customEmpty}
-        />
-      </PositionAnimated>
+      <SelectDropdown
+        anchorRef={containerRef}
+        cursor={cursor}
+        inlineSize={inlineSize}
+        onSelect={internalChangedByClick}
+        options={mappedOptions}
+        renderItem={renderItem}
+        customEmpty={customEmpty}
+        visibility={visibility}
+      />
     </SelectContainer>
   );
 });
