@@ -5,6 +5,7 @@ import {
   ButtonGroup,
   Button,
   Box,
+  EmailInput,
   TextInput,
   Select,
   CheckBox,
@@ -53,8 +54,11 @@ const CreateCloudWorkspaceForm = ({
     register,
     control,
     handleSubmit,
-    formState: { isDirty, isValidating, isSubmitting, errors },
-  } = useForm<CreateCloudWorkspaceFormPayload, object>();
+    formState: { isValid, isValidating, isSubmitting, errors },
+  } = useForm<CreateCloudWorkspaceFormPayload>({ mode: 'onChange' });
+
+  console.log(errors);
+  console.log(errors?.workspaceURL?.type);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -66,7 +70,8 @@ const CreateCloudWorkspaceForm = ({
             {t('form.createCloudWorkspace.fields.orgEmail.label')}
           </Field.Label>
           <Field.Row>
-            <TextInput
+            <EmailInput
+              error={errors?.organizationEmail?.type || undefined}
               {...register('organizationEmail', {
                 required: true,
                 validate: validateEmail,
@@ -90,7 +95,10 @@ const CreateCloudWorkspaceForm = ({
             </Box>
           </Field.Label>
           <Field.Row>
-            <TextInput {...register('workspaceName', { required: true })} />
+            <TextInput
+              error={errors?.workspaceName?.type || undefined}
+              {...register('workspaceName', { required: true })}
+            />
           </Field.Row>
           {errors.workspaceName && (
             <Field.Error>{t('component.form.requiredField')}</Field.Error>
@@ -102,12 +110,10 @@ const CreateCloudWorkspaceForm = ({
             <Box display='inline' mie='x8'>
               {t('form.createCloudWorkspace.fields.workspaceUrl.label')}
             </Box>
-            <Tooltip
-              text={t('form.createCloudWorkspace.fields.workspaceUrl.tooltip')}
-            />
           </Field.Label>
           <Field.Row>
             <WorkspaceUrlInput
+              // TODO: refactor WorkspaceURLInput error={errors?.workspaceURL?.type || undefined}
               domain={domain}
               {...register('workspaceURL', {
                 required: true,
@@ -171,7 +177,7 @@ const CreateCloudWorkspaceForm = ({
               </Field.Label>
               <Field.Row>
                 <Controller
-                  name='serverRegion'
+                  name='language'
                   control={control}
                   render={({ field }) => (
                     <Select
@@ -232,7 +238,7 @@ const CreateCloudWorkspaceForm = ({
           <Button
             type='submit'
             primary
-            disabled={!isDirty || isValidating || isSubmitting}
+            disabled={isValidating || isSubmitting || !isValid}
           >
             {t('component.form.action.next')}
           </Button>
