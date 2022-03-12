@@ -110,15 +110,15 @@ const CreateCloudWorkspaceForm = ({
           </Field.Label>
           <Field.Row>
             <WorkspaceUrlInput
-              // TODO: refactor error={errors?.workspaceURL?.type || undefined}
+              // TODO: refactor WorkspaceUrlInput error={errors?.workspaceURL?.type || undefined}
               domain={domain}
               {...register('workspaceURL', {
                 required: true,
                 validate: validateUrl,
               })}
-              placeholder={t(
-                'form.createCloudWorkspace.fields.workspaceUrl.placeholder'
-              )}
+              // TODO: refactor WorkspaceUrlInput placeholder={t(
+              //   'form.createCloudWorkspace.fields.workspaceUrl.placeholder'
+              // )}
             />
           </Field.Row>
           {errors.workspaceURL?.type === 'required' && (

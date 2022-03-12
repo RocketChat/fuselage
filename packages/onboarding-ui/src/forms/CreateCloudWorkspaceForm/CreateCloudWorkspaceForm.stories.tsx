@@ -14,8 +14,6 @@ export default {
     actions: { argTypesRegex: '^on.*' },
   },
   args: {
-    currentStep: 1,
-    stepCount: 2,
     serverRegionOptions: [
       ['us', 'US'],
       ['br', 'BR'],
