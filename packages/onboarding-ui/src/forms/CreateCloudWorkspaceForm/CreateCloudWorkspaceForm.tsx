@@ -57,9 +57,6 @@ const CreateCloudWorkspaceForm = ({
     formState: { isValid, isValidating, isSubmitting, errors },
   } = useForm<CreateCloudWorkspaceFormPayload>({ mode: 'onChange' });
 
-  console.log(errors);
-  console.log(errors?.workspaceURL?.type);
-
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
@@ -113,7 +110,7 @@ const CreateCloudWorkspaceForm = ({
           </Field.Label>
           <Field.Row>
             <WorkspaceUrlInput
-              // TODO: refactor WorkspaceURLInput error={errors?.workspaceURL?.type || undefined}
+              // TODO: refactor error={errors?.workspaceURL?.type || undefined}
               domain={domain}
               {...register('workspaceURL', {
                 required: true,

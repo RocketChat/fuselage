@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 
 type WorkspaceUrlInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   addon?: ReactNode;
-  error?: string;
+  error?: string | undefined;
   domain: string;
 };
 
@@ -13,24 +13,23 @@ const WorkspaceUrlInput = forwardRef(function TextInput(
   ref: Ref<HTMLInputElement>
 ) {
   const { domain } = props;
+
   return (
     <InputBox
       type='text'
       ref={ref}
       {...props}
       addon={
-        domain && (
-          <Box
-            borderInlineStart='2px solid'
-            mb='neg-x8'
-            pb='x8'
-            borderColor='neutral-500'
-            color='info'
-            pis='x12'
-          >
-            {domain}
-          </Box>
-        )
+        <Box
+          borderInlineStart='2px solid'
+          mb='neg-x8'
+          pb='x8'
+          borderColor='neutral-500'
+          color='info'
+          pis='x12'
+        >
+          {domain}
+        </Box>
       }
     />
   );
