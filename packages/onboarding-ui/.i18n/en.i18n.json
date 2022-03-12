@@ -320,6 +320,27 @@
       "button": {
         "text": "Save new password"
       }
+    },
+    "totpForm": {
+      "fields": {
+        "totpCode": {
+          "label": "TOTP Code",
+          "placeholder": "TOTP Code"
+        },
+        "backupCode": {
+          "label": "Backup Code",
+          "placeholder": "Backup Code"
+        }
+      },
+      "button": {
+        "text": "Log in"
+      },
+      "buttonBackupCode": {
+        "text": "Need to use backup code?"
+      },
+      "buttonTotpCode": {
+        "text": "Use TOTP code."
+      }
     }
   }
 }
