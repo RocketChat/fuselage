@@ -8,6 +8,7 @@ export default {
   component: Select,
   parameters: {
     layout: 'centered',
+    actions: { argTypesRegex: '^on.*' },
   },
   args: {
     width: '250px',

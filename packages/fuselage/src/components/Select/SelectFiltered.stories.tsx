@@ -8,6 +8,7 @@ export default {
   component: SelectFiltered,
   parameters: {
     layout: 'centered',
+    actions: { argTypesRegex: '^on.*' },
   },
   args: {
     width: '250px',

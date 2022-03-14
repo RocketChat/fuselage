@@ -53,202 +53,198 @@ type MultiSelectProps = Omit<
   isControlled?: boolean;
 };
 
-export const MultiSelect = forwardRef(
-  (
-    {
-      value,
-      filter,
-      options = [],
-      error,
-      disabled,
-      anchor: Anchor = MultiSelectAnchor,
-      onChange = () => {},
-      getLabel = ([, label] = ['', '']) => label,
-      getValue = ([value]) => value,
-      placeholder,
-      renderOptions: _Options = Options,
-      renderItem,
-      customEmpty,
-      renderSelected: RenderSelected,
-      addonIcon,
-      isControlled = false,
-      ...props
-    }: MultiSelectProps,
-    ref: Ref<HTMLInputElement>
-  ) => {
-    const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
-      value || []
-    );
-    const [currentOptionValue, setCurrentOption] = useState<SelectOption[0]>();
+export const MultiSelect = forwardRef(function MultiSelect(
+  {
+    value,
+    filter,
+    options = [],
+    error,
+    disabled,
+    anchor: Anchor = MultiSelectAnchor,
+    onChange = () => {},
+    getLabel = ([, label] = ['', '']) => label,
+    getValue = ([value]) => value,
+    placeholder,
+    renderOptions: _Options = Options,
+    renderItem,
+    customEmpty,
+    renderSelected: RenderSelected,
+    addonIcon,
+    isControlled = false,
+    ...props
+  }: MultiSelectProps,
+  ref: Ref<HTMLInputElement>
+) {
+  const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
+    value || []
+  );
+  const [currentOptionValue, setCurrentOption] = useState<SelectOption[0]>();
 
-    const option = options.find(
-      (option) => getValue(option) === currentOptionValue
-    );
+  const option = options.find(
+    (option) => getValue(option) === currentOptionValue
+  );
 
-    const index = options.findIndex(
-      (option) => getValue(option) === currentOptionValue
-    );
+  const index = options.findIndex(
+    (option) => getValue(option) === currentOptionValue
+  );
 
-    const internalChanged = ([value]: SelectOption) => {
-      if (internalValue.includes(value)) {
-        setCurrentOption(undefined);
-        const newValue = internalValue.filter((item) => item !== value);
-        setInternalValue(newValue);
-        return onChange(newValue);
-      }
-      setCurrentOption(value);
-      const newValue = [...internalValue, value];
+  const internalChanged = ([value]: SelectOption) => {
+    if (internalValue.includes(value)) {
+      setCurrentOption(undefined);
+      const newValue = internalValue.filter((item) => item !== value);
       setInternalValue(newValue);
       return onChange(newValue);
+    }
+    setCurrentOption(value);
+    const newValue = [...internalValue, value];
+    setInternalValue(newValue);
+    return onChange(newValue);
+  };
+
+  const filteredOptions: SelectOption[] = useMemo(() => {
+    const mapOptions = ([value, label]: SelectOption): SelectOption => {
+      if (internalValue.includes(value)) {
+        return [value, label, true];
+      }
+      return [value, label];
     };
 
-    const filteredOptions: SelectOption[] = useMemo(() => {
-      const mapOptions = ([value, label]: SelectOption): SelectOption => {
-        if (internalValue.includes(value)) {
-          return [value, label, true];
+    const applyFilter = ([, option]: SelectOption) =>
+      !filter || option.toLowerCase().includes(filter.toLowerCase());
+
+    if (isControlled) {
+      return options.map(mapOptions);
+    }
+    return options.filter(applyFilter).map(mapOptions);
+  }, [options, internalValue, filter, isControlled]);
+
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
+    useCursor(index, filteredOptions, internalChanged);
+
+  useEffect(reset, [filter]);
+
+  const innerRef = useRef<HTMLElement>(null);
+  const anchorRef = useMergedRefs(ref, innerRef);
+
+  const { ref: containerRef, borderBoxSize } = useResizeObserver();
+
+  const renderAnchor = (params: MultiSelectAnchorParams) => {
+    if (isForwardRefType(Anchor)) {
+      return <Anchor {...params} />;
+    }
+
+    if (typeof Anchor === 'function') {
+      return (Anchor as (params: MultiSelectAnchorParams) => ReactNode)(params);
+    }
+
+    return null;
+  };
+
+  return (
+    <Box
+      is='div'
+      rcx-select
+      className={[error && 'invalid', disabled && 'disabled']}
+      ref={containerRef}
+      onClick={useMutableCallback(() => {
+        if (visible === AnimatedVisibility.VISIBLE) {
+          return hide();
         }
-        return [value, label];
-      };
-
-      const applyFilter = ([, option]: SelectOption) =>
-        !filter || option.toLowerCase().includes(filter.toLowerCase());
-
-      if (isControlled) {
-        return options.map(mapOptions);
-      }
-      return options.filter(applyFilter).map(mapOptions);
-    }, [options, internalValue, filter, isControlled]);
-
-    const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index, filteredOptions, internalChanged);
-
-    useEffect(reset, [filter]);
-
-    const innerRef = useRef<HTMLElement>(null);
-    const anchorRef = useMergedRefs(ref, innerRef);
-
-    const { ref: containerRef, borderBoxSize } = useResizeObserver();
-
-    const renderAnchor = (params: MultiSelectAnchorParams) => {
-      if (isForwardRefType(Anchor)) {
-        return <Anchor {...params} />;
-      }
-
-      if (typeof Anchor === 'function') {
-        return (Anchor as (params: MultiSelectAnchorParams) => ReactNode)(
-          params
-        );
-      }
-
-      return null;
-    };
-
-    return (
-      <Box
-        is='div'
-        rcx-select
-        className={[error && 'invalid', disabled && 'disabled']}
-        ref={containerRef}
-        onClick={useMutableCallback(() => {
-          if (visible === AnimatedVisibility.VISIBLE) {
-            return hide();
-          }
-          innerRef.current?.focus();
-          return show();
-        })}
-        disabled={disabled}
-        {...props}
-      >
-        <Flex.Item grow={1}>
-          <Margins inline='x4'>
-            <Flex.Container>
-              <Box is='div'>
-                <Box
-                  is='div'
-                  display='flex'
-                  alignItems='center'
-                  flexWrap='wrap'
-                  margin='-x8'
-                  role='listbox'
-                >
-                  <Margins all='x4'>
-                    {renderAnchor({
-                      ref: anchorRef,
-                      children: !value ? option || placeholder : null,
-                      disabled: disabled ?? false,
-                      onClick: show,
-                      onBlur: hide,
-                      onKeyDown: handleKeyDown,
-                      onKeyUp: handleKeyUp,
-                    })}
-                    {internalValue.map((value: SelectOption[0]) => {
-                      const currentOption = options.find(
-                        ([val]) => val === value
-                      ) as SelectOption;
-                      return RenderSelected ? (
-                        <RenderSelected
-                          role='option'
-                          value={value}
-                          key={value}
-                          label={getLabel(currentOption)}
-                          onMouseDown={(e: SyntheticEvent) => {
-                            prevent(e);
-                            internalChanged(currentOption);
-                          }}
-                          children={getLabel(currentOption)}
-                        />
-                      ) : (
-                        <SelectedOptions
-                          tabIndex={-1}
-                          role='option'
-                          key={String(value)}
-                          onMouseDown={(e: SyntheticEvent) => {
-                            prevent(e);
-                            internalChanged(currentOption);
-                          }}
-                          children={getLabel(currentOption)}
-                        />
-                      );
-                    })}
-                  </Margins>
-                </Box>
+        innerRef.current?.focus();
+        return show();
+      })}
+      disabled={disabled}
+      {...props}
+    >
+      <Flex.Item grow={1}>
+        <Margins inline='x4'>
+          <Flex.Container>
+            <Box is='div'>
+              <Box
+                is='div'
+                display='flex'
+                alignItems='center'
+                flexWrap='wrap'
+                margin='-x8'
+                role='listbox'
+              >
+                <Margins all='x4'>
+                  {renderAnchor({
+                    ref: anchorRef,
+                    children: !value ? option || placeholder : null,
+                    disabled: disabled ?? false,
+                    onClick: show,
+                    onBlur: hide,
+                    onKeyDown: handleKeyDown,
+                    onKeyUp: handleKeyUp,
+                  })}
+                  {internalValue.map((value: SelectOption[0]) => {
+                    const currentOption = options.find(
+                      ([val]) => val === value
+                    ) as SelectOption;
+                    return RenderSelected ? (
+                      <RenderSelected
+                        role='option'
+                        value={value}
+                        key={value}
+                        label={getLabel(currentOption)}
+                        onMouseDown={(e: SyntheticEvent) => {
+                          prevent(e);
+                          internalChanged(currentOption);
+                        }}
+                        children={getLabel(currentOption)}
+                      />
+                    ) : (
+                      <SelectedOptions
+                        tabIndex={-1}
+                        role='option'
+                        key={String(value)}
+                        onMouseDown={(e: SyntheticEvent) => {
+                          prevent(e);
+                          internalChanged(currentOption);
+                        }}
+                        children={getLabel(currentOption)}
+                      />
+                    );
+                  })}
+                </Margins>
               </Box>
-            </Flex.Container>
-          </Margins>
-        </Flex.Item>
-        <Flex.Item grow={0} shrink={0}>
-          <Margins inline='x4'>
-            <SelectAddon
-              children={
-                <Icon
-                  name={
-                    visible === AnimatedVisibility.VISIBLE
-                      ? 'cross'
-                      : addonIcon || 'chevron-down'
-                  }
-                  size='x20'
-                />
-              }
-            />
-          </Margins>
-        </Flex.Item>
-        <AnimatedVisibility visibility={visible}>
-          <Position anchor={containerRef}>
-            <_Options
-              width={borderBoxSize.inlineSize}
-              onMouseDown={prevent}
-              multiple
-              filter={filter}
-              renderItem={renderItem || CheckOption}
-              role='listbox'
-              options={isControlled ? options : filteredOptions}
-              onSelect={internalChanged}
-              cursor={cursor}
-              customEmpty={customEmpty}
-            />
-          </Position>
-        </AnimatedVisibility>
-      </Box>
-    );
-  }
-);
+            </Box>
+          </Flex.Container>
+        </Margins>
+      </Flex.Item>
+      <Flex.Item grow={0} shrink={0}>
+        <Margins inline='x4'>
+          <SelectAddon
+            children={
+              <Icon
+                name={
+                  visible === AnimatedVisibility.VISIBLE
+                    ? 'cross'
+                    : addonIcon || 'chevron-down'
+                }
+                size='x20'
+              />
+            }
+          />
+        </Margins>
+      </Flex.Item>
+      <AnimatedVisibility visibility={visible}>
+        <Position anchor={containerRef}>
+          <_Options
+            width={borderBoxSize.inlineSize}
+            onMouseDown={prevent}
+            multiple
+            filter={filter}
+            renderItem={renderItem || CheckOption}
+            role='listbox'
+            options={isControlled ? options : filteredOptions}
+            onSelect={internalChanged}
+            cursor={cursor}
+            customEmpty={customEmpty}
+          />
+        </Position>
+      </AnimatedVisibility>
+    </Box>
+  );
+});
