@@ -1,7 +1,7 @@
 import {
+  useBorderBoxSize,
   useMergedRefs,
   useMutableCallback,
-  useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
 import type {
   ComponentProps,
@@ -12,7 +12,7 @@ import type {
 } from 'react';
 import React, { useMemo, useState, useRef, useEffect, forwardRef } from 'react';
 
-import { isForwardRefType } from '../../helpers/isForwardRefType';
+import { renderComponentOrFunction } from '../../helpers/renderComponentOrFunction';
 import type { SelectOption } from '../../types/SelectOption';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
@@ -25,6 +25,10 @@ import SelectAddon from '../Select/SelectAddon';
 import MultiSelectAnchor from './MultiSelectAnchor';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import { SelectedOptions } from './SelectedOptions';
+
+const defaultRenderAnchor = (params: MultiSelectAnchorParams) => (
+  <MultiSelectAnchor {...params} />
+);
 
 const prevent = (e: SyntheticEvent) => {
   e.preventDefault();
@@ -60,7 +64,7 @@ export const MultiSelect = forwardRef(function MultiSelect(
     options = [],
     error,
     disabled,
-    anchor: Anchor = MultiSelectAnchor,
+    anchor: renderAnchor = defaultRenderAnchor,
     onChange = () => {},
     getLabel = ([, label] = ['', '']) => label,
     getValue = ([value]) => value,
@@ -118,7 +122,7 @@ export const MultiSelect = forwardRef(function MultiSelect(
     return options.filter(applyFilter).map(mapOptions);
   }, [options, internalValue, filter, isControlled]);
 
-  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visibility, hide, show]] =
     useCursor(index, filteredOptions, internalChanged);
 
   useEffect(reset, [filter]);
@@ -126,113 +130,109 @@ export const MultiSelect = forwardRef(function MultiSelect(
   const innerRef = useRef<HTMLElement>(null);
   const anchorRef = useMergedRefs(ref, innerRef);
 
-  const { ref: containerRef, borderBoxSize } = useResizeObserver();
+  const containerRef = useRef<HTMLElement>(null);
+  const { inlineSize } = useBorderBoxSize(containerRef);
 
-  const renderAnchor = (params: MultiSelectAnchorParams) => {
-    if (isForwardRefType(Anchor)) {
-      return <Anchor {...params} />;
+  const stateClassName = useMemo(
+    () =>
+      [error && 'invalid', disabled && 'disabled'].filter(Boolean).join(' '),
+    [error, disabled]
+  );
+
+  const handleClick = useMutableCallback(() => {
+    if (visibility === AnimatedVisibility.VISIBLE) {
+      return hide();
     }
 
-    if (typeof Anchor === 'function') {
-      return (Anchor as (params: MultiSelectAnchorParams) => ReactNode)(params);
-    }
-
-    return null;
-  };
+    innerRef.current?.focus();
+    return show();
+  });
 
   return (
     <Box
-      is='div'
-      rcx-select
-      className={[error && 'invalid', disabled && 'disabled']}
+      rcx-multi-select
+      className={stateClassName}
       ref={containerRef}
-      onClick={useMutableCallback(() => {
-        if (visible === AnimatedVisibility.VISIBLE) {
-          return hide();
-        }
-        innerRef.current?.focus();
-        return show();
-      })}
+      onClick={handleClick}
       disabled={disabled}
+      position='relative'
+      alignItems='center'
       {...props}
     >
       <Flex.Item grow={1}>
-        <Margins inline='x4'>
-          <Flex.Container>
-            <Box is='div'>
-              <Box
-                is='div'
-                display='flex'
-                alignItems='center'
-                flexWrap='wrap'
-                margin='-x8'
-                role='listbox'
-              >
-                <Margins all='x4'>
-                  {renderAnchor({
-                    ref: anchorRef,
-                    children: !value ? option || placeholder : null,
-                    disabled: disabled ?? false,
-                    onClick: show,
-                    onBlur: hide,
-                    onKeyDown: handleKeyDown,
-                    onKeyUp: handleKeyUp,
-                  })}
-                  {internalValue.map((value: SelectOption[0]) => {
-                    const currentOption = options.find(
-                      ([val]) => val === value
-                    ) as SelectOption;
-                    return RenderSelected ? (
-                      <RenderSelected
-                        role='option'
-                        value={value}
-                        key={value}
-                        label={getLabel(currentOption)}
-                        onMouseDown={(e: SyntheticEvent) => {
-                          prevent(e);
-                          internalChanged(currentOption);
-                        }}
-                        children={getLabel(currentOption)}
-                      />
-                    ) : (
-                      <SelectedOptions
-                        tabIndex={-1}
-                        role='option'
-                        key={String(value)}
-                        onMouseDown={(e: SyntheticEvent) => {
-                          prevent(e);
-                          internalChanged(currentOption);
-                        }}
-                        children={getLabel(currentOption)}
-                      />
-                    );
-                  })}
-                </Margins>
-              </Box>
+        <Margins inline={4}>
+          <Box display='flex'>
+            <Box
+              display='flex'
+              alignItems='center'
+              flexWrap='wrap'
+              margin={-8}
+              role='listbox'
+            >
+              <Margins all={4}>
+                {renderComponentOrFunction(renderAnchor, {
+                  ref: anchorRef,
+                  children: !value ? option || placeholder : null,
+                  disabled: disabled ?? false,
+                  onClick: show,
+                  onBlur: hide,
+                  onKeyDown: handleKeyDown,
+                  onKeyUp: handleKeyUp,
+                })}
+                {internalValue.map((value: SelectOption[0]) => {
+                  const currentOption = options.find(
+                    ([val]) => val === value
+                  ) as SelectOption;
+                  return RenderSelected ? (
+                    <RenderSelected
+                      role='option'
+                      value={value}
+                      key={value}
+                      label={getLabel(currentOption)}
+                      onMouseDown={(e: SyntheticEvent) => {
+                        prevent(e);
+                        internalChanged(currentOption);
+                      }}
+                      children={getLabel(currentOption)}
+                    />
+                  ) : (
+                    <SelectedOptions
+                      tabIndex={-1}
+                      role='option'
+                      key={String(value)}
+                      onMouseDown={(e: SyntheticEvent) => {
+                        prevent(e);
+                        internalChanged(currentOption);
+                      }}
+                      children={getLabel(currentOption)}
+                    />
+                  );
+                })}
+              </Margins>
             </Box>
-          </Flex.Container>
+          </Box>
         </Margins>
       </Flex.Item>
       <Flex.Item grow={0} shrink={0}>
-        <Margins inline='x4'>
+        <Margins inline={4}>
           <SelectAddon
             children={
               <Icon
                 name={
-                  visible === AnimatedVisibility.VISIBLE
+                  visibility === AnimatedVisibility.VISIBLE
                     ? 'cross'
                     : addonIcon || 'chevron-down'
                 }
-                size='x20'
+                size={20}
               />
             }
           />
         </Margins>
       </Flex.Item>
-      <AnimatedVisibility visibility={visible}>
+      <AnimatedVisibility visibility={visibility}>
         <Position anchor={containerRef}>
           <_Options
-            width={borderBoxSize.inlineSize}
+            width={inlineSize}
             onMouseDown={prevent}
             multiple
             filter={filter}

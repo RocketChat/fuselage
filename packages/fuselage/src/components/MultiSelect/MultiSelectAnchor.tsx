@@ -27,9 +27,14 @@ const MultiSelectAnchor = forwardRef(function MultiSelectAnchor(
       ref={ref}
       fontScale='p2m'
       color='hint'
-      rcx-select__focus
+      rcx-multi-select__focus
       is='button'
       type='button'
+      display='inline-block'
+      minWidth='auto'
+      textAlign='start'
+      verticalAlign='middle'
+      textDecoration='none'
       rcx-input-box--undecorated
       aria-haspopup='listbox'
       order={1}
