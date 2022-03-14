@@ -14,9 +14,8 @@ const SelectWrapper = forwardRef(function SelectWrapper(
 ) {
   return (
     <Box
-      is='div'
       display='flex'
-      mi='neg-x4'
+      mi={-4}
       rcx-select__wrapper
       rcx-select__wrapper--hidden={hidden}
       ref={ref}

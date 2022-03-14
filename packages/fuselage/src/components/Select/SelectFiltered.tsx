@@ -29,7 +29,7 @@ type SelectFilteredProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   addonIcon?: Keys;
 };
 
-export const SelectFiltered = ({
+const SelectFiltered = ({
   options,
   placeholder,
   filter: propFilter,
@@ -66,3 +66,5 @@ export const SelectFiltered = ({
     />
   );
 };
+
+export default SelectFiltered;
