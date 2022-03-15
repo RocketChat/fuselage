@@ -11,7 +11,7 @@ import { renderComponentOrFunction } from '../../helpers/renderComponentOrFuncti
 import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
 import AnimatedVisibility from '../AnimatedVisibility';
-import { Box } from '../Box';
+import type { Box } from '../Box';
 import { Icon } from '../Icon';
 import { useCursor } from '../Options/useCursor';
 import SelectAddon from './SelectAddon';
@@ -19,24 +19,32 @@ import SelectAnchor from './SelectAnchor';
 import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectContainer from './SelectContainer';
 import SelectDropdown from './SelectDropdown';
+import SelectValue from './SelectValue';
+import type { SelectValueParams } from './SelectValueParams';
 import SelectWrapper from './SelectWrapper';
 
 const defaultRenderAnchor = (params: SelectAnchorParams) => (
   <SelectAnchor {...params} />
 );
 
+const defaultRenderSelected = <TValue,>(params: SelectValueParams<TValue>) => (
+  <SelectValue {...params} />
+);
+
 type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   anchor?:
     | ElementType<SelectAnchorParams>
     | ((params: SelectAnchorParams) => ReactNode);
-  error?: string;
+  anchorInactive?: boolean;
+  error?: string | boolean;
   options: SelectOption[];
-  onChange: (value: SelectOption[0]) => void;
+  onChange?: (value: SelectOption[0]) => void;
   getLabel?: (params: SelectOption) => SelectOption[1];
   getValue?: (params: SelectOption) => SelectOption[0];
-  filter?: string;
   renderItem?: ElementType;
-  renderSelected?: ElementType;
+  renderSelected?:
+    | ElementType<SelectValueParams>
+    | ((params: SelectValueParams) => ReactNode);
   customEmpty?: string;
   addonIcon?: Keys;
 };
@@ -44,17 +52,17 @@ type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
 const Select = forwardRef(function Select(
   {
     value,
-    filter,
     error,
     disabled = false,
     options = [],
     anchor: renderAnchor = defaultRenderAnchor,
-    onChange = () => {},
+    anchorInactive = true,
+    onChange,
     getValue = ([value] = ['', '']) => value,
     getLabel = ([_, label] = ['', '']) => label,
     placeholder = '',
     renderItem,
-    renderSelected: RenderSelected,
+    renderSelected = defaultRenderSelected,
     addonIcon,
     customEmpty,
     ...props
@@ -63,73 +71,84 @@ const Select = forwardRef(function Select(
 ) {
   const [internalValue, setInternalValue] = useState(value || '');
 
-  const internalChangedByKeyboard = useMutableCallback(([value]) => {
-    setInternalValue(value);
-    onChange(value);
+  const handleChange = useMutableCallback((value: unknown) => {
+    const newOption = options.find((option) => getValue(option) === value);
+
+    if (!newOption) {
+      setInternalValue('');
+      return;
+    }
+
+    setInternalValue(getValue(newOption));
+    onChange?.(getValue(newOption));
   });
 
-  const index = options.findIndex(
+  const dropdownIndex = options.findIndex(
     (option) => getValue(option) === internalValue
   );
 
-  const option = options[index];
+  const option = options[dropdownIndex];
 
-  const mappedOptions = useMemo(
+  const dropdownOptions = useMemo(
     (): OptionType[] =>
-      options.map(([value, label]: SelectOption): OptionType => {
-        if (internalValue === value) {
-          return [value, label, true];
-        }
-
-        return [value, label];
-      }),
-    [options, internalValue]
+      options.map(
+        (option): OptionType => [
+          getValue(option),
+          getLabel(option),
+          internalValue === getValue(option),
+        ]
+      ),
+    [options, getValue, getLabel, internalValue]
   );
 
-  const [cursor, handleKeyDown, handleKeyUp, reset, [visibility, hide, show]] =
-    useCursor(index, mappedOptions, internalChangedByKeyboard);
+  const handleDropdownChange = ([value]: OptionType) => {
+    handleChange(value);
+  };
+
+  const [
+    dropdownCursor,
+    handleAnchorKeyDown,
+    handleAnchorKeyUp,
+    resetCursor,
+    [dropdownVisibility, hideDropdown, showDropdown],
+  ] = useCursor(dropdownIndex, dropdownOptions, handleDropdownChange);
 
   const prevOptions = useRef<OptionType[]>();
 
   useEffect(
     () => () => {
-      if (prevOptions.current === mappedOptions) {
+      if (prevOptions.current === dropdownOptions) {
         return;
       }
 
-      reset();
-      prevOptions.current = mappedOptions;
+      resetCursor();
+      prevOptions.current = dropdownOptions;
     },
-    [mappedOptions, reset]
+    [dropdownOptions, resetCursor]
   );
 
-  const internalChangedByClick = useMutableCallback(([value]) => {
-    setInternalValue(value);
-    onChange(value);
-    hide();
+  const handleDropdownSelect = useMutableCallback(([value]) => {
+    handleChange(value);
+    hideDropdown();
   });
 
-  const innerRef = useRef<HTMLInputElement | null>(null);
-  const anchorRef = useMergedRefs(ref, innerRef);
+  const innerAnchorRef = useRef<HTMLInputElement | null>(null);
+  const anchorRef = useMergedRefs(ref, innerAnchorRef);
 
   const containerRef = useRef<HTMLElement>(null);
   const { inlineSize } = useBorderBoxSize(containerRef);
 
-  const valueLabel = getLabel(option);
-  const valueValue = getValue(option);
-
-  const visibleText =
-    (filter === undefined || visibility === AnimatedVisibility.HIDDEN) &&
-    (valueLabel || placeholder || typeof placeholder === 'string');
+  const dropdownHidden = dropdownVisibility === AnimatedVisibility.HIDDEN;
+  const valueShown = Boolean(getLabel(option)) || Boolean(placeholder);
 
   const handleClick = useMutableCallback(() => {
-    if (visibility === AnimatedVisibility.VISIBLE) {
-      hide();
+    if (dropdownVisibility === AnimatedVisibility.VISIBLE) {
+      hideDropdown();
       return;
     }
 
-    innerRef.current?.focus();
-    show();
+    innerAnchorRef.current?.focus();
+    showDropdown();
   });
 
   return (
@@ -140,41 +159,35 @@ const Select = forwardRef(function Select(
       onClick={handleClick}
       {...props}
     >
-      <SelectWrapper hidden={Boolean(visibleText)}>
-        {visibleText &&
-          (RenderSelected ? (
-            <RenderSelected
-              role='option'
-              value={valueValue}
-              label={valueLabel}
-              key={valueValue}
-              onClick={internalChangedByClick}
-            />
-          ) : (
-            <Box
-              flexGrow={1}
-              is='span'
-              mi={4}
-              rcx-select__item
-              fontScale='p2'
-              color={valueLabel ? 'default' : 'hint'}
-            >
-              {visibleText}
-            </Box>
-          ))}
+      <SelectWrapper
+        hiddenAnchor={(anchorInactive || dropdownHidden) && valueShown}
+      >
+        {renderComponentOrFunction(
+          renderSelected,
+          option
+            ? {
+                value: getValue(option),
+                label: getLabel(option),
+                anchorActive: dropdownVisibility !== AnimatedVisibility.HIDDEN,
+              }
+            : {
+                placeholder,
+                anchorActive: dropdownVisibility !== AnimatedVisibility.HIDDEN,
+              }
+        )}
         {renderComponentOrFunction(renderAnchor, {
           ref: anchorRef,
           disabled,
           placeholder,
-          filled: Boolean(internalValue),
-          onClick: show,
-          onBlur: hide,
-          onKeyDown: handleKeyDown,
-          onKeyUp: handleKeyUp,
+          filled: Boolean(option),
+          onClick: showDropdown,
+          onBlur: hideDropdown,
+          onKeyDown: handleAnchorKeyDown,
+          onKeyUp: handleAnchorKeyUp,
         })}
       </SelectWrapper>
       <SelectAddon>
-        {visibility === AnimatedVisibility.VISIBLE ? (
+        {dropdownVisibility === AnimatedVisibility.VISIBLE ? (
           <Icon name='cross' size={20} />
         ) : (
           <Icon name={addonIcon ?? 'chevron-down'} size={20} />
@@ -182,13 +195,13 @@ const Select = forwardRef(function Select(
       </SelectAddon>
       <SelectDropdown
         anchorRef={containerRef}
-        cursor={cursor}
+        cursor={dropdownCursor}
         inlineSize={inlineSize}
-        onSelect={internalChangedByClick}
-        options={mappedOptions}
+        onSelect={handleDropdownSelect}
+        options={dropdownOptions}
         renderItem={renderItem}
         customEmpty={customEmpty}
-        visibility={visibility}
+        visibility={dropdownVisibility}
       />
     </SelectContainer>
   );

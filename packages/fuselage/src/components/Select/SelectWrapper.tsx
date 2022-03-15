@@ -5,11 +5,11 @@ import { Box } from '../Box';
 
 type SelectWrapperProps = {
   children: ReactNode;
-  hidden: boolean;
+  hiddenAnchor: boolean;
 };
 
 const SelectWrapper = forwardRef(function SelectWrapper(
-  { children, hidden }: SelectWrapperProps,
+  { children, hiddenAnchor }: SelectWrapperProps,
   ref: Ref<HTMLDivElement>
 ) {
   return (
@@ -17,7 +17,7 @@ const SelectWrapper = forwardRef(function SelectWrapper(
       display='flex'
       mi={-4}
       rcx-select__wrapper
-      rcx-select__wrapper--hidden={hidden}
+      rcx-select__wrapper--hidden={hiddenAnchor}
       ref={ref}
     >
       {children}
