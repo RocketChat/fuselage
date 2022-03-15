@@ -23,7 +23,7 @@ type SelectFilteredProps = Omit<
   anchor?: ElementType;
   error?: string;
   options: SelectOption[];
-  value: SelectOption[0];
+  value?: SelectOption[0];
   onChange: (value: SelectOption[0]) => void;
   getLabel?: (params: SelectOption) => SelectOption[1];
   getValue?: (params: SelectOption) => SelectOption[0];

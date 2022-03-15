@@ -31,13 +31,14 @@ const defaultRenderSelected = <TValue,>(params: SelectValueParams<TValue>) => (
   <SelectValue {...params} />
 );
 
-type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
   anchor?:
     | ElementType<SelectAnchorParams>
     | ((params: SelectAnchorParams) => ReactNode);
   anchorInactive?: boolean;
   error?: string | boolean;
   options: SelectOption[];
+  value?: SelectOption[0];
   onChange?: (value: SelectOption[0]) => void;
   getLabel?: (params: SelectOption) => SelectOption[1];
   getValue?: (params: SelectOption) => SelectOption[0];
