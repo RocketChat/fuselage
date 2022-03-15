@@ -3,7 +3,7 @@ import React, { useMemo, forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-type SelectContainerProps = Omit<
+type MultiSelectContainerProps = Omit<
   ComponentProps<typeof Box>,
   'disabled' | 'invalid' | 'className'
 > & {
@@ -11,8 +11,8 @@ type SelectContainerProps = Omit<
   invalid: boolean;
 };
 
-const SelectContainer = forwardRef(function SelectContainer(
-  { disabled, invalid, ...props }: SelectContainerProps,
+const MultiSelectContainer = forwardRef(function MultiSelectContainer(
+  { disabled, invalid, ...props }: MultiSelectContainerProps,
   ref: Ref<Element>
 ) {
   const stateClassName = useMemo(
@@ -24,7 +24,7 @@ const SelectContainer = forwardRef(function SelectContainer(
   return (
     <Box
       ref={ref}
-      rcx-select
+      rcx-multi-select
       role='combobox'
       className={stateClassName}
       position='relative'
@@ -34,4 +34,4 @@ const SelectContainer = forwardRef(function SelectContainer(
   );
 });
 
-export default SelectContainer;
+export default MultiSelectContainer;

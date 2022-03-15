@@ -13,7 +13,6 @@ import type { SelectOption } from '../../types/SelectOption';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
-import Margins from '../Margins';
 import { useCursor } from '../Options/useCursor';
 import SelectAddon from './SelectAddon';
 import SelectAnchor from './SelectAnchor';
@@ -47,7 +46,7 @@ const Select = forwardRef(function Select(
     value,
     filter,
     error,
-    disabled,
+    disabled = false,
     options = [],
     anchor: renderAnchor = defaultRenderAnchor,
     onChange = () => {},
@@ -135,7 +134,7 @@ const Select = forwardRef(function Select(
   return (
     <SelectContainer
       ref={containerRef}
-      disabled={Boolean(disabled)}
+      disabled={disabled}
       invalid={Boolean(error)}
       onClick={handleClick}
       {...props}
@@ -165,21 +164,19 @@ const Select = forwardRef(function Select(
         {renderComponentOrFunction(renderAnchor, {
           ref: anchorRef,
           children: !value ? option || placeholder : null,
-          disabled: disabled ?? false,
+          disabled,
           onClick: show,
           onBlur: hide,
           onKeyDown: handleKeyDown,
           onKeyUp: handleKeyUp,
         })}
-        <Margins inline={4}>
-          <SelectAddon>
-            {visibility === AnimatedVisibility.VISIBLE ? (
-              <Icon name='cross' size={20} />
-            ) : (
-              <Icon name={addonIcon ?? 'chevron-down'} size={20} />
-            )}
-          </SelectAddon>
-        </Margins>
+        <SelectAddon>
+          {visibility === AnimatedVisibility.VISIBLE ? (
+            <Icon name='cross' size={20} />
+          ) : (
+            <Icon name={addonIcon ?? 'chevron-down'} size={20} />
+          )}
+        </SelectAddon>
       </SelectWrapper>
       <SelectDropdown
         anchorRef={containerRef}

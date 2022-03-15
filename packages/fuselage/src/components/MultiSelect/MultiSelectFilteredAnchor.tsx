@@ -45,7 +45,6 @@ const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
         {...props}
         rcx-input-box--undecorated
         aria-haspopup='listbox'
-        order={1}
       />
     </Flex.Item>
   );

@@ -9,7 +9,7 @@ const SelectAddon = forwardRef(function SelectAddon(
   props: SelectAddonProps,
   ref: Ref<HTMLDivElement>
 ) {
-  return <Box is='div' rcx-select__addon ref={ref} {...props} />;
+  return <Box rcx-select__addon marginInline={4} ref={ref} {...props} />;
 });
 
 export default SelectAddon;

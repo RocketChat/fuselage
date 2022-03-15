@@ -37,7 +37,6 @@ const MultiSelectAnchor = forwardRef(function MultiSelectAnchor(
       textDecoration='none'
       rcx-input-box--undecorated
       aria-haspopup='listbox'
-      order={1}
       {...props}
     />
   );

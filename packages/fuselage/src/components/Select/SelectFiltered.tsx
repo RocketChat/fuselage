@@ -44,8 +44,8 @@ const SelectFiltered = ({
     }
 
     return options.filter(
-      ([, option]: SelectOption) =>
-        !filter || ~option.toLowerCase().indexOf(filter.toLowerCase())
+      ([, label]: SelectOption) =>
+        !filter || label.toLowerCase().includes(filter.toLowerCase())
     );
   }, [propFilter, options, filter]);
 

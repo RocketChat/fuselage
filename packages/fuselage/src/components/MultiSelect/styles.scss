@@ -13,6 +13,12 @@
     @include typography.use-text-ellipsis;
   }
 
+  &__addon {
+    @extend .rcx-input-box__addon;
+    @include clickable;
+    padding: initial;
+  }
+
   &:invalid,
   &.invalid {
     @include with-colors(
