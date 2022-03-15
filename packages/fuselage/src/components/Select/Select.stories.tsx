@@ -26,6 +26,11 @@ const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 export const Default = Template.bind({});
 
+export const WithValue = Template.bind({});
+WithValue.args = {
+  value: '2',
+};
+
 export const Errored = Template.bind({});
 Errored.args = {
   error: 'Error',
@@ -39,4 +44,10 @@ Disabled.args = {
 export const WithoutPlaceholder = Template.bind({});
 WithoutPlaceholder.args = {
   placeholder: undefined,
+};
+
+export const CustomEmpty = Template.bind({});
+CustomEmpty.args = {
+  customEmpty: 'Custom Empty Placeholder',
+  options: [],
 };

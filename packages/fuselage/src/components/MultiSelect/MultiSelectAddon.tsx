@@ -1,23 +1,30 @@
-import type { ComponentProps, Ref } from 'react';
+import type { ReactNode, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
 
-type MultiSelectAddonProps = ComponentProps<typeof Box>;
+type MultiSelectAddonProps = {
+  children: ReactNode;
+};
 
 const MultiSelectAddon = forwardRef(function MultiSelectAddon(
-  props: MultiSelectAddonProps,
+  { children }: MultiSelectAddonProps,
   ref: Ref<HTMLDivElement>
 ) {
   return (
     <Box
+      ref={ref}
       rcx-multi-select__addon
+      marginInline={4}
       flexGrow={0}
       flexShrink={0}
-      marginInline={4}
-      ref={ref}
-      {...props}
-    />
+      display='flex'
+      flexDirection='row'
+      flexWrap='nowrap'
+      alignItems='flex-start'
+    >
+      {children}
+    </Box>
   );
 });
 

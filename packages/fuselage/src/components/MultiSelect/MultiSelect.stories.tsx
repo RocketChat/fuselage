@@ -18,6 +18,7 @@ export default {
       },
       (_, i) => [`${i + 1}`, `Item #${i + 1}`]
     ),
+    width: '250px',
   },
 } as ComponentMeta<typeof MultiSelect>;
 
@@ -32,14 +33,19 @@ WithValue.args = {
   value: ['1', '2'],
 };
 
-export const Error = Template.bind({});
-Error.args = {
+export const Errored = Template.bind({});
+Errored.args = {
   error: 'Error',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
+};
+
+export const WithoutPlaceholder = Template.bind({});
+WithoutPlaceholder.args = {
+  placeholder: undefined,
 };
 
 export const CustomEmpty = Template.bind({});

@@ -170,14 +170,14 @@ const Select = forwardRef(function Select(
           onKeyDown: handleKeyDown,
           onKeyUp: handleKeyUp,
         })}
-        <SelectAddon>
-          {visibility === AnimatedVisibility.VISIBLE ? (
-            <Icon name='cross' size={20} />
-          ) : (
-            <Icon name={addonIcon ?? 'chevron-down'} size={20} />
-          )}
-        </SelectAddon>
       </SelectWrapper>
+      <SelectAddon>
+        {visibility === AnimatedVisibility.VISIBLE ? (
+          <Icon name='cross' size={20} />
+        ) : (
+          <Icon name={addonIcon ?? 'chevron-down'} size={20} />
+        )}
+      </SelectAddon>
       <SelectDropdown
         anchorRef={containerRef}
         cursor={cursor}
