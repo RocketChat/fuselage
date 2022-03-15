@@ -8,6 +8,16 @@ import BackgroundLayer from '../../common/BackgroundLayer';
 import { OnboardingLogo } from '../../common/OnboardingLogo';
 import LoginForm from '../../forms/LoginForm';
 import type { LoginFormPayload } from '../../forms/LoginForm/LoginForm';
+import TotpForm from '../../forms/TotpForm';
+import type { TotpFormPayload } from '../../forms/TotpForm/TotpForm';
+
+type TotpFormProps = {
+  initialValues?: TotpFormPayload;
+  onChangeTotpForm: () => void;
+  isBackupCode?: boolean;
+  formError?: string;
+  onSubmit: SubmitHandler<TotpFormPayload>;
+};
 
 type LoginPageProps = {
   initialValues?: Omit<LoginFormPayload, 'password'>;
@@ -15,7 +25,9 @@ type LoginPageProps = {
   onResetPassword: () => void;
   formError?: string;
   isPasswordLess: boolean;
+  isMfa: boolean;
   onCreateAccount: () => void;
+  mfaProps?: TotpFormProps;
   onSubmit: SubmitHandler<LoginFormPayload>;
 };
 
@@ -24,6 +36,7 @@ const LoginPage = ({
   ...props
 }: LoginPageProps): ReactElement => {
   const { t } = useTranslation();
+  const { isMfa, mfaProps } = props;
 
   return (
     <BackgroundLayer>
@@ -51,20 +64,26 @@ const LoginPage = ({
 
         <Box width='full' backgroundColor='white'>
           <Box fontScale='c1'>
-            <LoginForm {...props} />
+            {isMfa && !!mfaProps ? (
+              <TotpForm {...mfaProps} />
+            ) : (
+              <LoginForm {...props} />
+            )}
           </Box>
         </Box>
         <Box mb='x30' fontScale='p2'>
-          <Trans i18nKey='page.loginPage.createAccount.label'>
-            New here?
-            <ActionLink
-              fontWeight={400}
-              fontScale='p2'
-              onClick={onCreateAccount}
-            >
-              Create account
-            </ActionLink>
-          </Trans>
+          {!isMfa && (
+            <Trans i18nKey='page.loginPage.createAccount.label'>
+              New here?
+              <ActionLink
+                fontWeight={400}
+                fontScale='p2'
+                onClick={onCreateAccount}
+              >
+                Create account
+              </ActionLink>
+            </Trans>
+          )}
         </Box>
       </Box>
     </BackgroundLayer>
