@@ -11,7 +11,6 @@ export default {
     actions: { argTypesRegex: '^on.*' },
   },
   args: {
-    width: '250px',
     placeholder: 'Placeholder here...',
     options: Array.from(
       {
@@ -19,6 +18,7 @@ export default {
       },
       (_, i) => [`${i + 1}`, `Item #${i + 1}`]
     ),
+    width: 250,
   },
 } as ComponentMeta<typeof Select>;
 

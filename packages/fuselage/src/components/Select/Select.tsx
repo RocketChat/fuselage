@@ -124,11 +124,12 @@ const Select = forwardRef(function Select(
 
   const handleClick = useMutableCallback(() => {
     if (visibility === AnimatedVisibility.VISIBLE) {
-      return hide();
+      hide();
+      return;
     }
 
     innerRef.current?.focus();
-    return show();
+    show();
   });
 
   return (
@@ -163,8 +164,9 @@ const Select = forwardRef(function Select(
           ))}
         {renderComponentOrFunction(renderAnchor, {
           ref: anchorRef,
-          children: !value ? option || placeholder : null,
           disabled,
+          placeholder,
+          filled: Boolean(internalValue),
           onClick: show,
           onBlur: hide,
           onKeyDown: handleKeyDown,

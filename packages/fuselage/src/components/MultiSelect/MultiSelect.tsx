@@ -81,10 +81,6 @@ export const MultiSelect = forwardRef(function MultiSelect(
   );
   const [currentOptionValue, setCurrentOption] = useState<SelectOption[0]>();
 
-  const option = options.find(
-    (option) => getValue(option) === currentOptionValue
-  );
-
   const index = options.findIndex(
     (option) => getValue(option) === currentOptionValue
   );
@@ -188,8 +184,9 @@ export const MultiSelect = forwardRef(function MultiSelect(
             })}
             {renderComponentOrFunction(renderAnchor, {
               ref: anchorRef,
-              children: !value ? option || placeholder : null,
-              disabled: disabled ?? false,
+              disabled,
+              placeholder,
+              filled: internalValue.length > 0,
               onClick: show,
               onBlur: hide,
               onKeyDown: handleKeyDown,

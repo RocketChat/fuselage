@@ -2,14 +2,14 @@ import type {
   FocusEventHandler,
   KeyboardEventHandler,
   MouseEventHandler,
-  ReactNode,
   Ref,
 } from 'react';
 
 export type MultiSelectAnchorParams = {
   ref: Ref<Element>;
-  children: ReactNode;
   disabled: boolean;
+  placeholder: string | undefined;
+  filled: boolean;
   onClick: MouseEventHandler;
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;

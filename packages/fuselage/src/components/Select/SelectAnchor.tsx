@@ -7,19 +7,21 @@ import type { SelectAnchorParams } from './SelectAnchorParams';
 type SelectAnchorProps = SelectAnchorParams;
 
 const SelectAnchor = forwardRef(function SelectFocus(
-  props: SelectAnchorProps,
+  { placeholder, filled, ...props }: SelectAnchorProps,
   ref: Ref<Element>
 ) {
   return (
     <Box
+      is='button'
+      rcx-select__focus
       ref={ref}
       fontScale='p2m'
       color='hint'
-      rcx-select__focus
-      is='button'
       type='button'
       {...props}
-    />
+    >
+      {filled ? null : placeholder}
+    </Box>
   );
 });
 

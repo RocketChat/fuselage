@@ -18,6 +18,7 @@ export default {
       },
       (_, i) => [`${i + 1}`, `Item #${i + 1}`]
     ),
+    width: 250,
   },
 } as ComponentMeta<typeof MultiSelectFiltered>;
 

@@ -12,8 +12,7 @@
     @include typography.use-text-ellipsis;
   }
 
-  &__focus,
-  &__placeholder {
+  &__focus {
     display: inline-block;
 
     min-width: auto;

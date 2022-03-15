@@ -37,7 +37,6 @@ type MultiSelectFilteredProps = Omit<
 
 export const MultiSelectFiltered = ({
   options,
-  placeholder,
   filter: propFilter,
   setFilter: propSetFilter,
   ...props
@@ -62,7 +61,6 @@ export const MultiSelectFiltered = ({
       options={filteredOptions}
       anchor={(params: MultiSelectAnchorParams) => (
         <MultiSelectFilteredAnchor
-          placeholder={placeholder}
           filter={propFilter || filter}
           onChangeFilter={propSetFilter || setFilter}
           {...params}
