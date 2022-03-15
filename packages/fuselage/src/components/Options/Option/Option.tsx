@@ -24,31 +24,32 @@ type OptionProps = {
   onClick?: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
-const Option = memo(
-  ({
-    is: Tag = 'li',
-    id,
-    children,
-    label,
-    focus,
-    selected,
-    className,
-    ref,
-    icon,
-    avatar,
-    title,
-    onClick,
-    variant,
-    ...options
-  }: OptionProps) => (
+const Option = memo(function Option({
+  is: Tag = 'li',
+  id,
+  children,
+  label,
+  focus,
+  selected,
+  className,
+  ref,
+  icon,
+  avatar,
+  title,
+  onClick,
+  variant,
+  ...props
+}: OptionProps) {
+  return (
     <Tag
       key={id}
       id={id}
       ref={ref}
       aria-selected={selected}
+      aria-label={label}
       title={title}
       onClick={onClick}
-      {...options}
+      {...props}
       className={[
         'rcx-option',
         className,
@@ -66,7 +67,7 @@ const Option = memo(
         {label !== children && children}
       </div>
     </Tag>
-  )
-);
+  );
+});
 
 export default Option;

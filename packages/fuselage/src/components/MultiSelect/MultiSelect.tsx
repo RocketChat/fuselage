@@ -68,7 +68,7 @@ export const MultiSelect = forwardRef(function MultiSelect(
     getLabel = ([, label] = ['', '']) => label,
     getValue = ([value]) => value,
     placeholder,
-    renderItem,
+    renderItem = CheckOption,
     customEmpty,
     renderSelected: RenderSelected,
     addonIcon,
@@ -138,11 +138,12 @@ export const MultiSelect = forwardRef(function MultiSelect(
 
   const handleClick = useMutableCallback(() => {
     if (visibility === AnimatedVisibility.VISIBLE) {
-      return hide();
+      hide();
+      return;
     }
 
     innerRef.current?.focus();
-    return show();
+    show();
   });
 
   return (
@@ -154,13 +155,7 @@ export const MultiSelect = forwardRef(function MultiSelect(
       {...props}
     >
       <Box display='flex' flexGrow={1} marginInline={4}>
-        <Box
-          display='flex'
-          alignItems='center'
-          flexWrap='wrap'
-          margin={-8}
-          role='listbox'
-        >
+        <Box display='flex' alignItems='center' flexWrap='wrap' margin={-8}>
           <Margins all={4}>
             {internalValue.map((value: SelectOption[0]) => {
               const currentOption = options.find(
@@ -216,7 +211,7 @@ export const MultiSelect = forwardRef(function MultiSelect(
         inlineSize={inlineSize}
         onSelect={internalChanged}
         options={mappedOptions}
-        renderItem={renderItem || CheckOption}
+        renderItem={renderItem}
         customEmpty={customEmpty}
         visibility={visibility}
       />
