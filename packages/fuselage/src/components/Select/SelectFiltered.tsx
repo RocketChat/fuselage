@@ -85,7 +85,6 @@ const SelectFiltered = forwardRef(function SelectFiltered(
     disabled,
     error,
     anchorInactive: false,
-    addonIcon,
     renderItem,
     customEmpty,
   });
@@ -100,7 +99,7 @@ const SelectFiltered = forwardRef(function SelectFiltered(
           {...anchorParams}
         />
       </SelectWrapper>
-      <SelectAddon {...addonProps} />
+      <SelectAddon icon={addonIcon} {...addonProps} />
       <SelectDropdown {...dropdownProps} />
     </SelectContainer>
   );

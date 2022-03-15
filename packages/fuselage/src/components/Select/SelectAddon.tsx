@@ -1,14 +1,17 @@
-import type { ReactNode, Ref } from 'react';
+import type { Keys } from '@rocket.chat/icons';
+import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
+import { Icon } from '../Icon';
 
 type SelectAddonProps = {
-  children: ReactNode;
+  icon?: Keys;
+  dropdownOpen?: boolean;
 };
 
 const SelectAddon = forwardRef(function SelectAddon(
-  { children }: SelectAddonProps,
+  { icon = 'chevron-down', dropdownOpen = false }: SelectAddonProps,
   ref: Ref<HTMLDivElement>
 ) {
   return (
@@ -23,7 +26,11 @@ const SelectAddon = forwardRef(function SelectAddon(
       flexWrap='nowrap'
       alignItems='flex-start'
     >
-      {children}
+      {dropdownOpen ? (
+        <Icon name='cross' size={20} />
+      ) : (
+        <Icon name={icon} size={20} />
+      )}
     </Box>
   );
 });

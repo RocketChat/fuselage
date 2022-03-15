@@ -3,14 +3,12 @@ import {
   useMergedRefs,
   useMutableCallback,
 } from '@rocket.chat/fuselage-hooks';
-import type { Keys } from '@rocket.chat/icons';
 import type { Ref, ElementType } from 'react';
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 
 import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
 import AnimatedVisibility from '../AnimatedVisibility';
-import { Icon } from '../Icon';
 import { useCursor } from '../Options/useCursor';
 
 const defaultGetValue = ([value]: SelectOption = ['', '']) => value;
@@ -27,7 +25,6 @@ export const useSelect = ({
   disabled,
   error,
   anchorInactive,
-  addonIcon,
   renderItem,
   customEmpty,
 }: {
@@ -41,7 +38,6 @@ export const useSelect = ({
   disabled: boolean;
   error: string | boolean;
   anchorInactive: boolean;
-  addonIcon: Keys;
   renderItem?: ElementType;
   customEmpty?: string;
 }) => {
@@ -158,12 +154,7 @@ export const useSelect = ({
       onKeyUp: handleAnchorKeyUp,
     },
     addonProps: {
-      children:
-        dropdownVisibility === AnimatedVisibility.VISIBLE ? (
-          <Icon name='cross' size={20} />
-        ) : (
-          <Icon name={addonIcon} size={20} />
-        ),
+      dropdownOpen: dropdownVisibility === AnimatedVisibility.VISIBLE,
     },
     dropdownProps: {
       anchorRef: containerRef,

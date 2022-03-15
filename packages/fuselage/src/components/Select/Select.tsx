@@ -13,9 +13,9 @@ import SelectWrapper from './SelectWrapper';
 import { useSelect } from './useSelect';
 
 type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
-  error?: string | boolean;
-  options: SelectOption[];
   value?: SelectOption[0];
+  options: SelectOption[];
+  error?: string | boolean;
   onChange?: (value: SelectOption[0]) => void;
   getLabel?: (params: SelectOption) => SelectOption[1];
   getValue?: (params: SelectOption) => SelectOption[0];
@@ -59,7 +59,6 @@ const Select = forwardRef(function Select(
     disabled,
     error,
     anchorInactive: true,
-    addonIcon,
     renderItem,
     customEmpty,
   });
@@ -70,7 +69,7 @@ const Select = forwardRef(function Select(
         <SelectValue {...valueParams} />
         <SelectAnchor {...anchorParams} />
       </SelectWrapper>
-      <SelectAddon {...addonProps} />
+      <SelectAddon icon={addonIcon} {...addonProps} />
       <SelectDropdown {...dropdownProps} />
     </SelectContainer>
   );
