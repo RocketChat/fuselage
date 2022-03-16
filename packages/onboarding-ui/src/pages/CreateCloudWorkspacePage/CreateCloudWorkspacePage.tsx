@@ -11,19 +11,18 @@ import Description from './Description';
 import TitleCreateCloudPage from './TitleCreateCloudPage';
 
 type CreateCloudWorkspacePageProps = {
-  currentStep: number;
-  stepCount: number;
   onSubmit: SubmitHandler<{
-    organizationName: string;
     organizationEmail: string;
     workspaceName: string;
     workspaceURL: string;
     serverRegion: string;
+    language: string;
     agreement: boolean;
     updates: boolean;
   }>;
   domain: string;
   serverRegionOptions: SelectOption[];
+  languageOptions: SelectOption[];
   onBackButtonClick: () => void;
   validateUrl: (url: string) => Promise<boolean>;
   validateEmail: (url: string) => Promise<boolean>;
@@ -39,7 +38,7 @@ const CreateCloudWorkspacePage = (
       <FormPageLayout
         title={<TitleCreateCloudPage />}
         description={<Description />}
-        subtitle={t('page.cloudDescription.tryGold')}
+        subtitle={t('page.createCloudWorkspace.tryGold')}
       >
         <CreateCloudWorkspaceForm {...props} />
         <Box mbs='x28' display='inline' textAlign='center'>
