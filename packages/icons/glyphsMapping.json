@@ -820,5 +820,11 @@
   },
   "stopwatch": {
     "start": "\ue0e9"
+  },
+  "globe-cross": {
+    "start": "\ue0eb"
+  },
+  "arrow-stack-up": {
+    "start": "\ue0ed"
   }
 }
