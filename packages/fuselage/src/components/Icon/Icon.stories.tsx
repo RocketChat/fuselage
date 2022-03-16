@@ -1,9 +1,12 @@
+import type { Keys } from '@rocket.chat/icons';
+import nameToCharacterMapping from '@rocket.chat/icons';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import type { CSSProperties } from 'react';
 import React from 'react';
 
 import { Box, Icon } from '../..';
-import { iconsList } from './IconsList';
+
+const iconsList = Object.keys(nameToCharacterMapping) as Keys[];
 
 export default {
   title: 'Data Display/Icon',
