@@ -66,38 +66,41 @@ export function useSelect<TOption, TValue>(
     toDropdownOption,
   }: UseSelectOptions<TOption, TValue>
 ): UseSelectResult {
-  const [internalValue, setInternalValue] = useState(() => value);
+  const [option, setOption] = useState(() =>
+    options.find((option) => getValue(option) === value)
+  );
+  const matchOption = useMutableCallback((o: TOption) =>
+    option ? getValue(o) === getValue(option) : false
+  );
 
-  const handleChange = useMutableCallback((value: unknown) => {
-    const newOption = options.find((option) => getValue(option) === value);
+  const [dropdownIndex, dropdownOptions, fromDropdownOption] = useMemo(() => {
+    const dropdownOptions = options.map((option) =>
+      toDropdownOption(option, matchOption(option))
+    );
 
-    if (!newOption) {
-      setInternalValue(undefined);
-      return;
-    }
+    const dropdownIndex = dropdownOptions.findIndex(
+      (option) => option[2] ?? false
+    );
 
-    setInternalValue(getValue(newOption));
-    onChange?.(getValue(newOption), newOption);
+    const fromDropdownOption = (option: OptionType) => {
+      const index = dropdownOptions.findIndex((o) => o[0] === option[0]);
+      return options[index];
+    };
+
+    return [dropdownIndex, dropdownOptions, fromDropdownOption];
+  }, [matchOption, options, toDropdownOption]);
+
+  const handleDropdownChange = useMutableCallback((option: OptionType) => {
+    setOption(() => {
+      const newOption = fromDropdownOption(option);
+      if (!newOption) {
+        return undefined;
+      }
+
+      onChange?.(getValue(newOption), newOption);
+      return newOption;
+    });
   });
-
-  const dropdownIndex = options.findIndex(
-    (option) => getValue(option) === internalValue
-  );
-
-  const option = options[dropdownIndex];
-
-  const dropdownOptions = useMemo(
-    () =>
-      options.map(
-        (option): OptionType =>
-          toDropdownOption(option, getValue(option) === internalValue)
-      ),
-    [options, getValue, internalValue, toDropdownOption]
-  );
-
-  const handleDropdownChange = ([value]: OptionType) => {
-    handleChange(value);
-  };
 
   const [
     dropdownCursor,
@@ -121,9 +124,17 @@ export function useSelect<TOption, TValue>(
     [dropdownOptions, resetCursor]
   );
 
-  const handleDropdownSelect = useMutableCallback(([value]) => {
-    handleChange(value);
+  const handleDropdownSelect = useMutableCallback((option: OptionType) => {
     hideDropdown();
+    setOption(() => {
+      const newOption = fromDropdownOption(option);
+      if (!newOption) {
+        return undefined;
+      }
+
+      onChange?.(getValue(newOption), newOption);
+      return newOption;
+    });
   });
 
   const containerRef = useRef<HTMLElement>(null);
