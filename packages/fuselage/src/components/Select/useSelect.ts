@@ -2,6 +2,7 @@ import {
   useBorderBoxSize,
   useMutableCallback,
 } from '@rocket.chat/fuselage-hooks';
+import type { ReactNode } from 'react';
 import { useEffect, useState, useRef, useMemo } from 'react';
 
 import type { OptionType } from '../../types/OptionType';
@@ -9,21 +10,22 @@ import type { SelectOption } from '../../types/SelectOption';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { useCursor } from '../Options/useCursor';
 
-const defaultGetValue = ([value]: SelectOption<string> = ['', '']) => value;
-const defaultGetLabel = ([_, label]: SelectOption<string> = ['', '']) => label;
-
-export const useSelect = ({
-  value = '',
+export const useSelect = <TOption = SelectOption<string>, TValue = string>({
+  emptyValue,
+  getValue,
+  getLabel,
+  getAccessibleLabel,
+  value = emptyValue,
   options,
   onChange,
-  getValue = defaultGetValue,
-  getLabel = defaultGetLabel,
 }: {
-  value?: SelectOption<string>[0];
-  options: SelectOption<string>[];
-  onChange?: (value: SelectOption<string>[0]) => void;
-  getValue?: (params: SelectOption<string>) => SelectOption<string>[0];
-  getLabel?: (params: SelectOption<string>) => SelectOption<string>[1];
+  emptyValue: TValue;
+  getValue: (option: TOption) => TValue;
+  getLabel: (option: TOption) => ReactNode;
+  getAccessibleLabel: (option: TOption) => string;
+  value?: TValue;
+  options: TOption[];
+  onChange?: (value: TValue, option: TOption) => void;
 }) => {
   const [internalValue, setInternalValue] = useState(() => value);
 
@@ -31,12 +33,12 @@ export const useSelect = ({
     const newOption = options.find((option) => getValue(option) === value);
 
     if (!newOption) {
-      setInternalValue('');
+      setInternalValue(emptyValue);
       return;
     }
 
     setInternalValue(getValue(newOption));
-    onChange?.(getValue(newOption));
+    onChange?.(getValue(newOption), newOption);
   });
 
   const dropdownIndex = options.findIndex(
@@ -46,18 +48,15 @@ export const useSelect = ({
   const option = options[dropdownIndex];
 
   const dropdownOptions = useMemo(
-    (): OptionType[] =>
-      options.map(
-        (option): OptionType => [
-          getValue(option),
-          getLabel(option),
-          internalValue === getValue(option),
-        ]
-      ),
-    [options, getValue, getLabel, internalValue]
+    () =>
+      options.map((option): OptionType<TValue> => {
+        const value = getValue(option);
+        return [value, getAccessibleLabel(option), internalValue === value];
+      }),
+    [options, getValue, getAccessibleLabel, internalValue]
   );
 
-  const handleDropdownChange = ([value]: OptionType) => {
+  const handleDropdownChange = ([value]: OptionType<TValue>) => {
     handleChange(value);
   };
 
@@ -69,7 +68,7 @@ export const useSelect = ({
     [dropdownVisibility, hideDropdown, showDropdown],
   ] = useCursor(dropdownIndex, dropdownOptions, handleDropdownChange);
 
-  const prevOptions = useRef<OptionType[]>();
+  const prevOptions = useRef<OptionType<TValue>[]>();
 
   useEffect(
     () => () => {
@@ -112,7 +111,7 @@ export const useSelect = ({
     },
     valueProps: {
       label: option ? getLabel(option) : null,
-      accessibleLabel: option ? getLabel(option) : undefined,
+      accessibleLabel: option ? getAccessibleLabel(option) : undefined,
     },
     anchorProps: {
       onClick: showDropdown,

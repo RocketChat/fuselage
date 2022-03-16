@@ -5,7 +5,7 @@ import type {
   ElementType,
   SetStateAction,
 } from 'react';
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
@@ -25,8 +25,6 @@ type SelectFilteredProps = Omit<
   options: SelectOption[];
   value?: SelectOption[0];
   onChange: (value: SelectOption[0]) => void;
-  getLabel?: (params: SelectOption) => SelectOption[1];
-  getValue?: (params: SelectOption) => SelectOption[0];
   renderItem?: ElementType;
   customEmpty?: string;
   isControlled?: boolean;
@@ -39,8 +37,6 @@ const SelectFiltered = function SelectFiltered({
   value,
   options,
   onChange,
-  getValue,
-  getLabel,
   placeholder,
   disabled = false,
   error = false,
@@ -72,11 +68,16 @@ const SelectFiltered = function SelectFiltered({
     anchorProps,
     dropdownProps,
   } = useSelect({
+    emptyValue: '',
+    getValue: useCallback((option: SelectOption) => option[0] ?? '', []),
+    getLabel: useCallback((option: SelectOption) => option[1] ?? '', []),
+    getAccessibleLabel: useCallback(
+      (option: SelectOption) => option[1] ?? '',
+      []
+    ),
     value,
     options: filteredOptions,
     onChange,
-    getValue,
-    getLabel,
   });
 
   return (

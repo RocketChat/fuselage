@@ -23,10 +23,11 @@ type SelectFilteredAnchorProps = {
 
 const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
   {
-    filter,
-    onChangeFilter,
+    disabled,
     placeholder,
     hidden,
+    filter,
+    onChangeFilter,
     ...props
   }: SelectFilteredAnchorProps,
   ref: Ref<Element>
@@ -39,8 +40,9 @@ const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
       ref={ref}
       marginInline={4}
       flexGrow={1}
-      placeholder={placeholder}
       value={filter}
+      placeholder={placeholder}
+      disabled={disabled}
       onInput={(e: FormEvent<HTMLInputElement>) =>
         onChangeFilter(e.currentTarget.value)
       }

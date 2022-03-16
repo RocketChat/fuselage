@@ -1,7 +1,7 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import type { Keys } from '@rocket.chat/icons';
 import type { ComponentProps, Ref, ElementType } from 'react';
-import React, { forwardRef } from 'react';
+import React, { useCallback, forwardRef } from 'react';
 
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
@@ -18,8 +18,6 @@ type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
   options: SelectOption[];
   error?: string | boolean;
   onChange?: (value: SelectOption[0]) => void;
-  getLabel?: (params: SelectOption) => SelectOption[1];
-  getValue?: (params: SelectOption) => SelectOption[0];
   renderItem?: ElementType;
   customEmpty?: string;
   addonIcon?: Keys;
@@ -32,15 +30,13 @@ const Select = forwardRef(function Select(
     disabled = false,
     options = [],
     onChange,
-    getValue,
-    getLabel,
     placeholder = '',
     renderItem,
     addonIcon = 'chevron-down',
     customEmpty,
     ...props
   }: SelectProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLElement>
 ) {
   const {
     containerRef,
@@ -51,11 +47,16 @@ const Select = forwardRef(function Select(
     anchorProps,
     dropdownProps,
   } = useSelect({
+    emptyValue: '',
+    getValue: useCallback((option: SelectOption) => option[0] ?? '', []),
+    getLabel: useCallback((option: SelectOption) => option[1] ?? '', []),
+    getAccessibleLabel: useCallback(
+      (option: SelectOption) => option[1] ?? '',
+      []
+    ),
     value,
     options,
     onChange,
-    getValue,
-    getLabel,
   });
   const mergedAnchorRef = useMergedRefs(ref, anchorRef);
 
