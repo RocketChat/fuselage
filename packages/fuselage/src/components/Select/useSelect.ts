@@ -2,7 +2,14 @@ import {
   useBorderBoxSize,
   useMutableCallback,
 } from '@rocket.chat/fuselage-hooks';
-import type { ReactNode } from 'react';
+import type {
+  FocusEventHandler,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  ReactNode,
+  Ref,
+  RefObject,
+} from 'react';
 import { useEffect, useState, useRef, useMemo } from 'react';
 
 import type { OptionType } from '../../types/OptionType';
@@ -10,30 +17,62 @@ import type { SelectOption } from '../../types/SelectOption';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { useCursor } from '../Options/useCursor';
 
-export const useSelect = <TOption = SelectOption<string>, TValue = string>({
-  emptyValue,
-  getValue,
-  getLabel,
-  getAccessibleLabel,
-  value = emptyValue,
-  options,
-  onChange,
-}: {
-  emptyValue: TValue;
-  getValue: (option: TOption) => TValue;
-  getLabel: (option: TOption) => ReactNode;
-  getAccessibleLabel: (option: TOption) => string;
+type UseSelectParams<TOption, TValue> = {
   value?: TValue;
   options: TOption[];
   onChange?: (value: TValue, option: TOption) => void;
-}) => {
+};
+
+type UseSelectOptions<TOption, TValue> = {
+  getValue: (option: TOption) => TValue;
+  getLabel: (option: TOption) => ReactNode;
+  getAccessibleLabel: (option: TOption) => string;
+  toDropdownOption: (option: TOption, selected: boolean) => OptionType;
+};
+
+type UseSelectResult = {
+  containerRef: Ref<HTMLElement>;
+  anchorRef: Ref<HTMLElement>;
+  dropdownOpen: boolean;
+  containerProps: {
+    onClick: MouseEventHandler;
+  };
+  valueProps: {
+    label: ReactNode;
+    accessibleLabel: string | undefined;
+  };
+  anchorProps: {
+    onClick: MouseEventHandler;
+    onBlur: FocusEventHandler;
+    onKeyDown: KeyboardEventHandler;
+    onKeyUp: KeyboardEventHandler;
+  };
+  dropdownProps: {
+    anchorRef: RefObject<HTMLElement>;
+    cursor: number;
+    inlineSize: number;
+    options: OptionType[];
+    onSelect: (value: OptionType) => void;
+    visibility: 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
+  };
+};
+
+export function useSelect<TOption, TValue>(
+  { value = undefined, options, onChange }: UseSelectParams<TOption, TValue>,
+  {
+    getValue,
+    getLabel,
+    getAccessibleLabel,
+    toDropdownOption,
+  }: UseSelectOptions<TOption, TValue>
+): UseSelectResult {
   const [internalValue, setInternalValue] = useState(() => value);
 
   const handleChange = useMutableCallback((value: unknown) => {
     const newOption = options.find((option) => getValue(option) === value);
 
     if (!newOption) {
-      setInternalValue(emptyValue);
+      setInternalValue(undefined);
       return;
     }
 
@@ -49,14 +88,14 @@ export const useSelect = <TOption = SelectOption<string>, TValue = string>({
 
   const dropdownOptions = useMemo(
     () =>
-      options.map((option): OptionType<TValue> => {
-        const value = getValue(option);
-        return [value, getAccessibleLabel(option), internalValue === value];
-      }),
-    [options, getValue, getAccessibleLabel, internalValue]
+      options.map(
+        (option): OptionType =>
+          toDropdownOption(option, getValue(option) === internalValue)
+      ),
+    [options, getValue, internalValue, toDropdownOption]
   );
 
-  const handleDropdownChange = ([value]: OptionType<TValue>) => {
+  const handleDropdownChange = ([value]: OptionType) => {
     handleChange(value);
   };
 
@@ -68,7 +107,7 @@ export const useSelect = <TOption = SelectOption<string>, TValue = string>({
     [dropdownVisibility, hideDropdown, showDropdown],
   ] = useCursor(dropdownIndex, dropdownOptions, handleDropdownChange);
 
-  const prevOptions = useRef<OptionType<TValue>[]>();
+  const prevOptions = useRef<OptionType[]>();
 
   useEffect(
     () => () => {
@@ -128,4 +167,18 @@ export const useSelect = <TOption = SelectOption<string>, TValue = string>({
       visibility: dropdownVisibility,
     },
   };
+}
+
+const defaultOptions: UseSelectOptions<SelectOption<string>, string> = {
+  getValue: (option: SelectOption) => option[0],
+  getLabel: (option: SelectOption) => option[1],
+  getAccessibleLabel: (option: SelectOption) => option[1],
+  toDropdownOption: (option, selected): OptionType => {
+    const value = option[0];
+    return [value, option[1], selected];
+  },
 };
+
+export const useDefaultSelect = (
+  params: UseSelectParams<SelectOption<string>, string>
+) => useSelect(params, defaultOptions);

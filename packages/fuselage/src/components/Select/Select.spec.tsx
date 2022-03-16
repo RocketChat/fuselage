@@ -31,5 +31,5 @@ it('renders with options', async () => {
   userEvent.click(screen.getByRole('option', { name: 'Item #2' }));
 
   expect(handleChange).toHaveBeenCalledTimes(1);
-  expect(handleChange).toHaveBeenCalledWith('2');
+  expect(handleChange).toHaveBeenCalledWith('2', ['2', 'Item #2']);
 });

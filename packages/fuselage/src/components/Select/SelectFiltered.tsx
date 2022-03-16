@@ -5,7 +5,7 @@ import type {
   ElementType,
   SetStateAction,
 } from 'react';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
@@ -15,7 +15,7 @@ import SelectDropdown from './SelectDropdown';
 import SelectFilteredAnchor from './SelectFilteredAnchor';
 import SelectValue from './SelectValue';
 import SelectWrapper from './SelectWrapper';
-import { useSelect } from './useSelect';
+import { useDefaultSelect } from './useSelect';
 
 type SelectFilteredProps = Omit<
   ComponentProps<typeof Box>,
@@ -67,14 +67,7 @@ const SelectFiltered = function SelectFiltered({
     valueProps,
     anchorProps,
     dropdownProps,
-  } = useSelect({
-    emptyValue: '',
-    getValue: useCallback((option: SelectOption) => option[0] ?? '', []),
-    getLabel: useCallback((option: SelectOption) => option[1] ?? '', []),
-    getAccessibleLabel: useCallback(
-      (option: SelectOption) => option[1] ?? '',
-      []
-    ),
+  } = useDefaultSelect({
     value,
     options: filteredOptions,
     onChange,
