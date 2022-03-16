@@ -1,13 +1,24 @@
-import type { FormEvent, Ref } from 'react';
+import type {
+  FocusEventHandler,
+  FormEvent,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  Ref,
+} from 'react';
 import React, { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
-import type { SelectAnchorParams } from './SelectAnchorParams';
 
-type SelectFilteredAnchorProps = SelectAnchorParams & {
+type SelectFilteredAnchorProps = {
+  disabled: boolean;
+  placeholder: string | undefined;
+  hidden: boolean;
+  onClick: MouseEventHandler;
+  onBlur: FocusEventHandler;
+  onKeyUp: KeyboardEventHandler;
+  onKeyDown: KeyboardEventHandler;
   filter: string;
   onChangeFilter: (filter: string) => void;
-  placeholder?: string;
 };
 
 const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
@@ -15,7 +26,7 @@ const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
     filter,
     onChangeFilter,
     placeholder,
-    filled: _filled,
+    hidden,
     ...props
   }: SelectFilteredAnchorProps,
   ref: Ref<Element>
@@ -24,6 +35,7 @@ const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
     <InputBox.Input
       rcx-input-box--undecorated
       rcx-select__focus
+      rcx-select__focus--hidden={hidden}
       ref={ref}
       marginInline={4}
       flexGrow={1}

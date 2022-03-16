@@ -30,6 +30,14 @@
 
     @include clickable;
     @include typography.use-text-ellipsis;
+
+    &--hidden {
+      width: 0;
+
+      transition: none;
+
+      opacity: 0;
+    }
   }
 
   &__addon {

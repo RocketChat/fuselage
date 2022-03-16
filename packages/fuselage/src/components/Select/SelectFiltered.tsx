@@ -3,10 +3,9 @@ import type {
   ComponentProps,
   Dispatch,
   ElementType,
-  Ref,
   SetStateAction,
 } from 'react';
-import React, { forwardRef, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
@@ -36,25 +35,22 @@ type SelectFilteredProps = Omit<
   addonIcon?: Keys;
 };
 
-const SelectFiltered = forwardRef(function SelectFiltered(
-  {
-    value,
-    options,
-    onChange,
-    getValue,
-    getLabel,
-    placeholder,
-    disabled = false,
-    error = false,
-    addonIcon = 'chevron-down',
-    renderItem,
-    customEmpty,
-    filter: propFilter,
-    setFilter: propSetFilter,
-    ...props
-  }: SelectFilteredProps,
-  ref: Ref<HTMLElement>
-) {
+const SelectFiltered = function SelectFiltered({
+  value,
+  options,
+  onChange,
+  getValue,
+  getLabel,
+  placeholder,
+  disabled = false,
+  error = false,
+  addonIcon = 'chevron-down',
+  renderItem,
+  customEmpty,
+  filter: propFilter,
+  setFilter: propSetFilter,
+  ...props
+}: SelectFilteredProps) {
   const [filter, setFilter] = useState('');
 
   const filteredOptions = useMemo((): SelectOption[] => {
@@ -68,41 +64,51 @@ const SelectFiltered = forwardRef(function SelectFiltered(
   }, [propFilter, options, filter]);
 
   const {
+    containerRef,
+    anchorRef,
+    dropdownOpen,
     containerProps,
-    wrapperProps,
-    valueParams,
-    anchorParams,
-    addonProps,
+    valueProps,
+    anchorProps,
     dropdownProps,
   } = useSelect({
-    ref,
     value,
     options: filteredOptions,
     onChange,
     getValue,
     getLabel,
-    placeholder,
-    disabled,
-    error,
-    anchorInactive: false,
-    renderItem,
-    customEmpty,
   });
 
   return (
-    <SelectContainer {...containerProps} {...props}>
-      <SelectWrapper {...wrapperProps}>
-        {valueParams.anchorActive ? null : <SelectValue {...valueParams} />}
+    <SelectContainer
+      ref={containerRef}
+      disabled={disabled}
+      invalid={Boolean(error)}
+      {...containerProps}
+      {...props}
+    >
+      <SelectWrapper>
+        {!dropdownOpen ? (
+          <SelectValue placeholder={placeholder} {...valueProps} />
+        ) : null}
         <SelectFilteredAnchor
+          ref={anchorRef}
+          hidden={!dropdownOpen}
+          placeholder={placeholder}
+          disabled={disabled}
           filter={propFilter || filter}
           onChangeFilter={propSetFilter || setFilter}
-          {...anchorParams}
+          {...anchorProps}
         />
       </SelectWrapper>
-      <SelectAddon icon={addonIcon} {...addonProps} />
-      <SelectDropdown {...dropdownProps} />
+      <SelectAddon icon={addonIcon} closed={dropdownOpen} />
+      <SelectDropdown
+        renderItem={renderItem}
+        customEmpty={customEmpty}
+        {...dropdownProps}
+      />
     </SelectContainer>
   );
-});
+};
 
 export default SelectFiltered;

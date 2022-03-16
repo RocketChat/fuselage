@@ -7,11 +7,11 @@ import { Icon } from '../Icon';
 
 type SelectAddonProps = {
   icon?: Keys;
-  dropdownOpen?: boolean;
+  closed?: boolean;
 };
 
 const SelectAddon = forwardRef(function SelectAddon(
-  { icon = 'chevron-down', dropdownOpen = false }: SelectAddonProps,
+  { icon = 'chevron-down', closed = false }: SelectAddonProps,
   ref: Ref<HTMLDivElement>
 ) {
   return (
@@ -26,7 +26,7 @@ const SelectAddon = forwardRef(function SelectAddon(
       flexWrap='nowrap'
       alignItems='flex-start'
     >
-      {dropdownOpen ? (
+      {closed ? (
         <Icon name='cross' size={20} />
       ) : (
         <Icon name={icon} size={20} />

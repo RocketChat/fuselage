@@ -1,9 +1,7 @@
 import {
   useBorderBoxSize,
-  useMergedRefs,
   useMutableCallback,
 } from '@rocket.chat/fuselage-hooks';
-import type { Ref, ElementType } from 'react';
 import { useEffect, useState, useRef, useMemo } from 'react';
 
 import type { OptionType } from '../../types/OptionType';
@@ -11,37 +9,23 @@ import type { SelectOption } from '../../types/SelectOption';
 import AnimatedVisibility from '../AnimatedVisibility';
 import { useCursor } from '../Options/useCursor';
 
-const defaultGetValue = ([value]: SelectOption = ['', '']) => value;
-const defaultGetLabel = ([_, label]: SelectOption = ['', '']) => label;
+const defaultGetValue = ([value]: SelectOption<string> = ['', '']) => value;
+const defaultGetLabel = ([_, label]: SelectOption<string> = ['', '']) => label;
 
 export const useSelect = ({
-  ref,
-  value,
+  value = '',
   options,
   onChange,
   getValue = defaultGetValue,
   getLabel = defaultGetLabel,
-  placeholder,
-  disabled,
-  error,
-  anchorInactive,
-  renderItem,
-  customEmpty,
 }: {
-  ref: Ref<HTMLElement>;
-  value?: SelectOption[0];
-  options: SelectOption[];
-  onChange?: (value: SelectOption[0]) => void;
-  getValue?: (params: SelectOption) => SelectOption[0];
-  getLabel?: (params: SelectOption) => SelectOption[1];
-  placeholder?: string;
-  disabled: boolean;
-  error: string | boolean;
-  anchorInactive: boolean;
-  renderItem?: ElementType;
-  customEmpty?: string;
+  value?: SelectOption<string>[0];
+  options: SelectOption<string>[];
+  onChange?: (value: SelectOption<string>[0]) => void;
+  getValue?: (params: SelectOption<string>) => SelectOption<string>[0];
+  getLabel?: (params: SelectOption<string>) => SelectOption<string>[1];
 }) => {
-  const [internalValue, setInternalValue] = useState(value || '');
+  const [internalValue, setInternalValue] = useState(() => value);
 
   const handleChange = useMutableCallback((value: unknown) => {
     const newOption = options.find((option) => getValue(option) === value);
@@ -104,14 +88,10 @@ export const useSelect = ({
     hideDropdown();
   });
 
-  const innerAnchorRef = useRef<HTMLInputElement | null>(null);
-  const anchorRef = useMergedRefs(ref, innerAnchorRef);
-
   const containerRef = useRef<HTMLElement>(null);
-  const { inlineSize } = useBorderBoxSize(containerRef);
+  const anchorRef = useRef<HTMLElement>(null);
 
-  const dropdownHidden = dropdownVisibility === AnimatedVisibility.HIDDEN;
-  const valueShown = Boolean(getLabel(option)) || Boolean(placeholder);
+  const { inlineSize } = useBorderBoxSize(containerRef);
 
   const handleClick = useMutableCallback(() => {
     if (dropdownVisibility === AnimatedVisibility.VISIBLE) {
@@ -119,42 +99,26 @@ export const useSelect = ({
       return;
     }
 
-    innerAnchorRef.current?.focus();
+    anchorRef.current?.focus();
     showDropdown();
   });
 
   return {
+    containerRef,
+    anchorRef,
+    dropdownOpen: dropdownVisibility !== AnimatedVisibility.HIDDEN,
     containerProps: {
-      ref: containerRef,
-      disabled,
-      invalid: Boolean(error),
       onClick: handleClick,
     },
-    wrapperProps: {
-      hiddenAnchor: (anchorInactive || dropdownHidden) && valueShown,
+    valueProps: {
+      label: option ? getLabel(option) : null,
+      accessibleLabel: option ? getLabel(option) : undefined,
     },
-    valueParams: option
-      ? {
-          value: getValue(option),
-          label: getLabel(option),
-          anchorActive: dropdownVisibility !== AnimatedVisibility.HIDDEN,
-        }
-      : {
-          placeholder,
-          anchorActive: dropdownVisibility !== AnimatedVisibility.HIDDEN,
-        },
-    anchorParams: {
-      ref: anchorRef,
-      disabled,
-      placeholder,
-      filled: Boolean(option),
+    anchorProps: {
       onClick: showDropdown,
       onBlur: hideDropdown,
       onKeyDown: handleAnchorKeyDown,
       onKeyUp: handleAnchorKeyUp,
-    },
-    addonProps: {
-      dropdownOpen: dropdownVisibility === AnimatedVisibility.VISIBLE,
     },
     dropdownProps: {
       anchorRef: containerRef,
@@ -162,8 +126,6 @@ export const useSelect = ({
       inlineSize,
       onSelect: handleDropdownSelect,
       options: dropdownOptions,
-      renderItem,
-      customEmpty,
       visibility: dropdownVisibility,
     },
   };

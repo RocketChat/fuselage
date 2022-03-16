@@ -1,3 +1,4 @@
+import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import type { Keys } from '@rocket.chat/icons';
 import type { ComponentProps, Ref, ElementType } from 'react';
 import React, { forwardRef } from 'react';
@@ -42,35 +43,45 @@ const Select = forwardRef(function Select(
   ref: Ref<HTMLInputElement>
 ) {
   const {
+    containerRef,
+    anchorRef,
+    dropdownOpen,
     containerProps,
-    wrapperProps,
-    valueParams,
-    anchorParams,
-    addonProps,
+    valueProps,
+    anchorProps,
     dropdownProps,
   } = useSelect({
-    ref,
     value,
     options,
     onChange,
     getValue,
     getLabel,
-    placeholder,
-    disabled,
-    error,
-    anchorInactive: true,
-    renderItem,
-    customEmpty,
   });
+  const mergedAnchorRef = useMergedRefs(ref, anchorRef);
 
   return (
-    <SelectContainer {...containerProps} {...props}>
-      <SelectWrapper {...wrapperProps}>
-        <SelectValue {...valueParams} />
-        <SelectAnchor {...anchorParams} />
+    <SelectContainer
+      ref={containerRef}
+      disabled={disabled}
+      invalid={Boolean(error)}
+      {...containerProps}
+      {...props}
+    >
+      <SelectWrapper>
+        <SelectValue placeholder={placeholder} {...valueProps} />
+        <SelectAnchor
+          ref={mergedAnchorRef}
+          placeholder={placeholder}
+          disabled={disabled}
+          {...anchorProps}
+        />
       </SelectWrapper>
-      <SelectAddon icon={addonIcon} {...addonProps} />
-      <SelectDropdown {...dropdownProps} />
+      <SelectAddon icon={addonIcon} closed={dropdownOpen} />
+      <SelectDropdown
+        renderItem={renderItem}
+        customEmpty={customEmpty}
+        {...dropdownProps}
+      />
     </SelectContainer>
   );
 });

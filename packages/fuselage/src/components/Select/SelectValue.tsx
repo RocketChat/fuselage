@@ -1,14 +1,20 @@
+import type { ReactNode } from 'react';
 import React from 'react';
 
 import { Box } from '../Box';
-import type { SelectValueParams } from './SelectValueParams';
 
-type SelectValueProps<TValue> = SelectValueParams<TValue>;
+type SelectValueProps = {
+  label: ReactNode;
+  accessibleLabel: string | undefined;
+  placeholder: string | undefined;
+};
 
-const SelectValue = <TValue,>(props: SelectValueProps<TValue>) => {
-  if ('value' in props) {
-    const { label } = props;
-
+const SelectValue = ({
+  label,
+  accessibleLabel,
+  placeholder,
+}: SelectValueProps) => {
+  if (label) {
     return (
       <Box
         is='span'
@@ -17,13 +23,12 @@ const SelectValue = <TValue,>(props: SelectValueProps<TValue>) => {
         marginInline={4}
         fontScale='p2'
         color='default'
+        aria-label={accessibleLabel}
       >
         {label}
       </Box>
     );
   }
-
-  const { placeholder } = props;
 
   return (
     <Box
@@ -33,6 +38,7 @@ const SelectValue = <TValue,>(props: SelectValueProps<TValue>) => {
       marginInline={4}
       fontScale='p2'
       color='hint'
+      aria-hidden
     >
       {placeholder}
     </Box>
