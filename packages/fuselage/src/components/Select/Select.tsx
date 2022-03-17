@@ -3,6 +3,7 @@ import type { Keys } from '@rocket.chat/icons';
 import type { ComponentProps, Ref, ElementType } from 'react';
 import React, { forwardRef } from 'react';
 
+import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
 import SelectAddon from './SelectAddon';
@@ -12,7 +13,8 @@ import SelectDropdown from './SelectDropdown';
 import SelectPlaceholder from './SelectPlaceholder';
 import SelectValue from './SelectValue';
 import SelectWrapper from './SelectWrapper';
-import { useDefaultSelect } from './useSelect';
+import { useSelectDropdown } from './useSelectDropdown';
+import { useSelectState } from './useSelectState';
 
 type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
   value?: SelectOption[0];
@@ -40,20 +42,33 @@ const Select = forwardRef(function Select(
   ref: Ref<HTMLElement>
 ) {
   const {
-    containerRef,
-    anchorRef,
-    dropdownOpen,
-    triggerDropdown,
     selectedOptions: [selectedOption],
-    anchorProps,
-    dropdownProps,
-    getLabel,
-    getAccessibleLabel,
-  } = useDefaultSelect({
-    value,
+    isOptionSelected,
+    selectOption,
+  } = useSelectState({
+    defaultValue: value,
     options,
     onChange,
+    getValue: (option: SelectOption) => option[0],
   });
+
+  const {
+    containerRef,
+    anchorRef,
+    anchorProps,
+    dropdownProps,
+    dropdownOpen,
+    triggerDropdown,
+  } = useSelectDropdown({
+    options,
+    isOptionSelected,
+    selectOption,
+    toDropdownOption: (option, selected): OptionType => {
+      const value = option[0];
+      return [value, option[1], selected];
+    },
+  });
+
   const mergedAnchorRef = useMergedRefs(ref, anchorRef);
 
   return (
@@ -67,8 +82,8 @@ const Select = forwardRef(function Select(
       <SelectWrapper>
         {selectedOption ? (
           <SelectValue
-            label={getLabel(selectedOption)}
-            accessibleLabel={getAccessibleLabel(selectedOption)}
+            label={selectedOption[1]}
+            accessibleLabel={selectedOption[1]}
           />
         ) : (
           <SelectPlaceholder>{placeholder}</SelectPlaceholder>

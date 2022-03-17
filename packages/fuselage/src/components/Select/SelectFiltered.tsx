@@ -7,6 +7,7 @@ import type {
 } from 'react';
 import React, { useMemo, useState } from 'react';
 
+import { localeIncludes } from '../../helpers/localeIncludes';
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
 import SelectAddon from './SelectAddon';
@@ -16,7 +17,8 @@ import SelectFilteredAnchor from './SelectFilteredAnchor';
 import SelectPlaceholder from './SelectPlaceholder';
 import SelectValue from './SelectValue';
 import SelectWrapper from './SelectWrapper';
-import { useDefaultSelect } from './useSelect';
+import { useSelectDropdown } from './useSelectDropdown';
+import { useSelectState } from './useSelectState';
 
 type SelectFilteredProps = Omit<
   ComponentProps<typeof Box>,
@@ -56,24 +58,38 @@ const SelectFiltered = function SelectFiltered({
     }
 
     return options.filter(([, label]: SelectOption) =>
-      label.toLowerCase().includes(filter.toLowerCase())
+      localeIncludes(label, filter, {
+        sensitivity: 'base',
+      })
     );
   }, [propFilter, options, filter]);
 
   const {
+    selectedOptions: [selectedOption],
+    isOptionSelected,
+    selectOption,
+  } = useSelectState({
+    defaultValue: value,
+    options,
+    onChange,
+    getValue: (option: SelectOption) => option[0],
+  });
+
+  const {
     containerRef,
     anchorRef,
-    dropdownOpen,
-    triggerDropdown,
-    selectedOptions: [selectedOption],
     anchorProps,
     dropdownProps,
-    getLabel,
-    getAccessibleLabel,
-  } = useDefaultSelect({
-    value,
+    dropdownOpen,
+    triggerDropdown,
+  } = useSelectDropdown({
     options: filteredOptions,
-    onChange,
+    isOptionSelected,
+    selectOption,
+    toDropdownOption: (option, selected) => {
+      const value = option[0];
+      return [value, option[1], selected];
+    },
   });
 
   return (
@@ -89,8 +105,8 @@ const SelectFiltered = function SelectFiltered({
           <>
             {selectedOption ? (
               <SelectValue
-                label={getLabel(selectedOption)}
-                accessibleLabel={getAccessibleLabel(selectedOption)}
+                label={selectedOption[1]}
+                accessibleLabel={selectedOption[1]}
               />
             ) : (
               <SelectPlaceholder>{placeholder}</SelectPlaceholder>
