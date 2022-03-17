@@ -5,44 +5,21 @@ import { Box } from '../Box';
 
 type SelectValueProps = {
   label: ReactNode;
-  accessibleLabel: string | undefined;
-  placeholder: string | undefined;
+  accessibleLabel: string;
 };
 
-const SelectValue = ({
-  label,
-  accessibleLabel,
-  placeholder,
-}: SelectValueProps) => {
-  if (label) {
-    return (
-      <Box
-        is='span'
-        rcx-select__item
-        flexGrow={1}
-        marginInline={4}
-        fontScale='p2'
-        color='default'
-        aria-label={accessibleLabel}
-      >
-        {label}
-      </Box>
-    );
-  }
-
-  return (
-    <Box
-      is='span'
-      rcx-select__item
-      flexGrow={1}
-      marginInline={4}
-      fontScale='p2'
-      color='hint'
-      aria-hidden
-    >
-      {placeholder}
-    </Box>
-  );
-};
+const SelectValue = ({ label, accessibleLabel }: SelectValueProps) => (
+  <Box
+    is='span'
+    rcx-select__item
+    flexGrow={1}
+    marginInline={4}
+    fontScale='p2'
+    color='default'
+    aria-label={accessibleLabel}
+  >
+    {label}
+  </Box>
+);
 
 export default SelectValue;

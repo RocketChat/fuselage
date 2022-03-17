@@ -9,6 +9,7 @@ import SelectAddon from './SelectAddon';
 import SelectAnchor from './SelectAnchor';
 import SelectContainer from './SelectContainer';
 import SelectDropdown from './SelectDropdown';
+import SelectPlaceholder from './SelectPlaceholder';
 import SelectValue from './SelectValue';
 import SelectWrapper from './SelectWrapper';
 import { useDefaultSelect } from './useSelect';
@@ -42,10 +43,12 @@ const Select = forwardRef(function Select(
     containerRef,
     anchorRef,
     dropdownOpen,
-    containerProps,
-    valueProps,
+    triggerDropdown,
+    selectedOptions: [selectedOption],
     anchorProps,
     dropdownProps,
+    getLabel,
+    getAccessibleLabel,
   } = useDefaultSelect({
     value,
     options,
@@ -58,11 +61,18 @@ const Select = forwardRef(function Select(
       ref={containerRef}
       disabled={disabled}
       invalid={Boolean(error)}
-      {...containerProps}
+      onClick={triggerDropdown}
       {...props}
     >
       <SelectWrapper>
-        <SelectValue placeholder={placeholder} {...valueProps} />
+        {selectedOption ? (
+          <SelectValue
+            label={getLabel(selectedOption)}
+            accessibleLabel={getAccessibleLabel(selectedOption)}
+          />
+        ) : (
+          <SelectPlaceholder>{placeholder}</SelectPlaceholder>
+        )}
         <SelectAnchor
           ref={mergedAnchorRef}
           placeholder={placeholder}
@@ -72,6 +82,7 @@ const Select = forwardRef(function Select(
       </SelectWrapper>
       <SelectAddon icon={addonIcon} closed={dropdownOpen} />
       <SelectDropdown
+        anchorRef={containerRef}
         renderItem={renderItem}
         customEmpty={customEmpty}
         {...dropdownProps}

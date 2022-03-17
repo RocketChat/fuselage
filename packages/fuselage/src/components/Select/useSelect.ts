@@ -7,7 +7,6 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
-  Ref,
   RefObject,
 } from 'react';
 import { useEffect, useState, useRef, useMemo } from 'react';
@@ -30,17 +29,12 @@ type UseSelectOptions<TOption, TValue> = {
   toDropdownOption: (option: TOption, selected: boolean) => OptionType;
 };
 
-type UseSelectResult = {
-  containerRef: Ref<HTMLElement>;
-  anchorRef: Ref<HTMLElement>;
+type UseSelectResult<TOption> = {
+  containerRef: RefObject<HTMLElement>;
+  anchorRef: RefObject<HTMLElement>;
   dropdownOpen: boolean;
-  containerProps: {
-    onClick: MouseEventHandler;
-  };
-  valueProps: {
-    label: ReactNode;
-    accessibleLabel: string | undefined;
-  };
+  triggerDropdown: () => void;
+  selectedOptions: TOption[];
   anchorProps: {
     onClick: MouseEventHandler;
     onBlur: FocusEventHandler;
@@ -48,13 +42,14 @@ type UseSelectResult = {
     onKeyUp: KeyboardEventHandler;
   };
   dropdownProps: {
-    anchorRef: RefObject<HTMLElement>;
     cursor: number;
     inlineSize: number;
     options: OptionType[];
     onSelect: (value: OptionType) => void;
     visibility: 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
   };
+  getLabel: (option: TOption) => ReactNode;
+  getAccessibleLabel: (option: TOption) => string;
 };
 
 export function useSelect<TOption, TValue>(
@@ -65,7 +60,7 @@ export function useSelect<TOption, TValue>(
     getAccessibleLabel,
     toDropdownOption,
   }: UseSelectOptions<TOption, TValue>
-): UseSelectResult {
+): UseSelectResult<TOption> {
   const [option, setOption] = useState(() =>
     options.find((option) => getValue(option) === value)
   );
@@ -140,9 +135,7 @@ export function useSelect<TOption, TValue>(
   const containerRef = useRef<HTMLElement>(null);
   const anchorRef = useRef<HTMLElement>(null);
 
-  const { inlineSize } = useBorderBoxSize(containerRef);
-
-  const handleClick = useMutableCallback(() => {
+  const triggerDropdown = useMutableCallback(() => {
     if (dropdownVisibility === AnimatedVisibility.VISIBLE) {
       hideDropdown();
       return;
@@ -152,17 +145,14 @@ export function useSelect<TOption, TValue>(
     showDropdown();
   });
 
+  const { inlineSize } = useBorderBoxSize(containerRef);
+
   return {
     containerRef,
     anchorRef,
     dropdownOpen: dropdownVisibility !== AnimatedVisibility.HIDDEN,
-    containerProps: {
-      onClick: handleClick,
-    },
-    valueProps: {
-      label: option ? getLabel(option) : null,
-      accessibleLabel: option ? getAccessibleLabel(option) : undefined,
-    },
+    triggerDropdown,
+    selectedOptions: option ? [option] : [],
     anchorProps: {
       onClick: showDropdown,
       onBlur: hideDropdown,
@@ -170,13 +160,14 @@ export function useSelect<TOption, TValue>(
       onKeyUp: handleAnchorKeyUp,
     },
     dropdownProps: {
-      anchorRef: containerRef,
       cursor: dropdownCursor,
       inlineSize,
       onSelect: handleDropdownSelect,
       options: dropdownOptions,
       visibility: dropdownVisibility,
     },
+    getLabel,
+    getAccessibleLabel,
   };
 }
 

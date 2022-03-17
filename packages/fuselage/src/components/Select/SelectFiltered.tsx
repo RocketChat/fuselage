@@ -13,6 +13,7 @@ import SelectAddon from './SelectAddon';
 import SelectContainer from './SelectContainer';
 import SelectDropdown from './SelectDropdown';
 import SelectFilteredAnchor from './SelectFilteredAnchor';
+import SelectPlaceholder from './SelectPlaceholder';
 import SelectValue from './SelectValue';
 import SelectWrapper from './SelectWrapper';
 import { useDefaultSelect } from './useSelect';
@@ -63,10 +64,12 @@ const SelectFiltered = function SelectFiltered({
     containerRef,
     anchorRef,
     dropdownOpen,
-    containerProps,
-    valueProps,
+    triggerDropdown,
+    selectedOptions: [selectedOption],
     anchorProps,
     dropdownProps,
+    getLabel,
+    getAccessibleLabel,
   } = useDefaultSelect({
     value,
     options: filteredOptions,
@@ -78,12 +81,21 @@ const SelectFiltered = function SelectFiltered({
       ref={containerRef}
       disabled={disabled}
       invalid={Boolean(error)}
-      {...containerProps}
+      onClick={triggerDropdown}
       {...props}
     >
       <SelectWrapper>
         {!dropdownOpen ? (
-          <SelectValue placeholder={placeholder} {...valueProps} />
+          <>
+            {selectedOption ? (
+              <SelectValue
+                label={getLabel(selectedOption)}
+                accessibleLabel={getAccessibleLabel(selectedOption)}
+              />
+            ) : (
+              <SelectPlaceholder>{placeholder}</SelectPlaceholder>
+            )}
+          </>
         ) : null}
         <SelectFilteredAnchor
           ref={anchorRef}
@@ -97,6 +109,7 @@ const SelectFiltered = function SelectFiltered({
       </SelectWrapper>
       <SelectAddon icon={addonIcon} closed={dropdownOpen} />
       <SelectDropdown
+        anchorRef={containerRef}
         renderItem={renderItem}
         customEmpty={customEmpty}
         {...dropdownProps}
