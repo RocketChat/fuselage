@@ -41,11 +41,7 @@ const Select = forwardRef(function Select(
   }: SelectProps,
   ref: Ref<HTMLElement>
 ) {
-  const {
-    selectedOptions: [selectedOption],
-    isOptionSelected,
-    selectOption,
-  } = useSelectState({
+  const { selectedOptions, matchOptions, selectOption } = useSelectState({
     defaultValue: value,
     options,
     onChange,
@@ -61,7 +57,9 @@ const Select = forwardRef(function Select(
     triggerDropdown,
   } = useSelectDropdown({
     options,
-    isOptionSelected,
+    selectedOptions,
+    hideOnSelect: true,
+    matchOptions,
     selectOption,
     toDropdownOption: (option, selected): OptionType => {
       const value = option[0];
@@ -70,6 +68,8 @@ const Select = forwardRef(function Select(
   });
 
   const mergedAnchorRef = useMergedRefs(ref, anchorRef);
+
+  const [selectedOption] = selectedOptions;
 
   return (
     <SelectContainer

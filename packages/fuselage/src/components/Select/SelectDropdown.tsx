@@ -1,8 +1,14 @@
-import type { ElementType, RefObject } from 'react';
+import type { ElementType, RefObject, SyntheticEvent } from 'react';
 import React from 'react';
 
 import { Options, PositionAnimated } from '..';
 import type { OptionType } from '../../types/OptionType';
+
+const prevent = (e: SyntheticEvent) => {
+  e.preventDefault();
+  e.stopPropagation();
+  e.nativeEvent.stopImmediatePropagation();
+};
 
 type SelectDropdownProps = {
   anchorRef: RefObject<Element>;
@@ -13,6 +19,7 @@ type SelectDropdownProps = {
   renderItem?: ElementType;
   cursor: number;
   customEmpty?: string;
+  multiple?: boolean;
 };
 
 const SelectDropdown = ({
@@ -24,6 +31,7 @@ const SelectDropdown = ({
   renderItem,
   cursor,
   customEmpty,
+  multiple = false,
 }: SelectDropdownProps) => (
   <PositionAnimated visible={visibility} anchor={anchorRef}>
     <Options
@@ -33,6 +41,8 @@ const SelectDropdown = ({
       renderItem={renderItem}
       cursor={cursor}
       customEmpty={customEmpty}
+      onMouseDown={prevent}
+      multiple={multiple}
     />
   </PositionAnimated>
 );

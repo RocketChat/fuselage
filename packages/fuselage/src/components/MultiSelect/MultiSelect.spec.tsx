@@ -32,6 +32,13 @@ it('renders with options', async () => {
   userEvent.click(screen.getByRole('option', { name: 'Item #1' }));
 
   expect(handleChange).toHaveBeenCalledTimes(2);
-  expect(handleChange).toHaveBeenNthCalledWith(1, ['2']);
-  expect(handleChange).toHaveBeenNthCalledWith(2, ['2', '1']);
+  expect(handleChange).toHaveBeenNthCalledWith(1, ['2'], [['2', 'Item #2']]);
+  expect(handleChange).toHaveBeenNthCalledWith(
+    2,
+    ['2', '1'],
+    [
+      ['2', 'Item #2'],
+      ['1', 'Item #1'],
+    ]
+  );
 });

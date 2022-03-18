@@ -1,42 +1,21 @@
-import {
-  useBorderBoxSize,
-  useMergedRefs,
-  useMutableCallback,
-} from '@rocket.chat/fuselage-hooks';
+import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import type { Keys } from '@rocket.chat/icons';
-import type {
-  ComponentProps,
-  SyntheticEvent,
-  ElementType,
-  Ref,
-  ReactNode,
-} from 'react';
-import React, { useMemo, useState, useRef, useEffect, forwardRef } from 'react';
+import type { ComponentProps, ElementType, Ref } from 'react';
+import React, { forwardRef } from 'react';
 
-import { renderComponentOrFunction } from '../../helpers/renderComponentOrFunction';
 import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
-import AnimatedVisibility from '../AnimatedVisibility';
-import { Box } from '../Box';
-import { Icon } from '../Icon';
-import Margins from '../Margins';
-import { CheckOption, useCursor } from '../Options';
-import MultiSelectAddon from './MultiSelectAddon';
+import type { Box } from '../Box';
+import { CheckOption } from '../Options';
+import SelectAddon from '../Select/SelectAddon';
+import SelectContainer from '../Select/SelectContainer';
+import SelectDropdown from '../Select/SelectDropdown';
+import SelectPlaceholder from '../Select/SelectPlaceholder';
+import { useSelectDropdown } from '../Select/useSelectDropdown';
 import MultiSelectAnchor from './MultiSelectAnchor';
-import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
-import MultiSelectContainer from './MultiSelectContainer';
-import MultiSelectDropdown from './MultiSelectDropdown';
-import { SelectedOptions } from './SelectedOptions';
-
-const defaultRenderAnchor = (params: MultiSelectAnchorParams) => (
-  <MultiSelectAnchor {...params} />
-);
-
-const prevent = (e: SyntheticEvent) => {
-  e.preventDefault();
-  e.stopPropagation();
-  e.nativeEvent.stopImmediatePropagation();
-};
+import MultiSelectValue from './MultiSelectValue';
+import MultiSelectWrapper from './MultiSelectWrapper';
+import { useMultiSelectState } from './useMultiSelectState';
 
 type MultiSelectProps = Omit<
   ComponentProps<typeof Box>,
@@ -45,173 +24,93 @@ type MultiSelectProps = Omit<
   value?: SelectOption[0][];
   error?: string;
   options: SelectOption[];
-  onChange: (params: SelectOption[0][]) => void;
-  getLabel?: (params: SelectOption) => SelectOption[1];
-  getValue?: (params: SelectOption) => SelectOption[0];
+  onChange?: (
+    values: string[],
+    selectedOptions: SelectOption<string>[]
+  ) => void;
   customEmpty?: string;
-  anchor?:
-    | ElementType<MultiSelectAnchorParams>
-    | ((params: MultiSelectAnchorParams) => ReactNode);
   renderItem?: ElementType;
-  renderSelected?: ElementType;
   addonIcon?: Keys;
 };
 
 export const MultiSelect = forwardRef(function MultiSelect(
   {
     value,
-    options = [],
+    options,
     error,
     disabled = false,
-    anchor: renderAnchor = defaultRenderAnchor,
-    onChange = () => {},
-    getLabel = ([, label] = ['', '']) => label,
-    getValue = ([value]) => value,
+    onChange,
     placeholder,
     renderItem = CheckOption,
     customEmpty,
-    renderSelected: RenderSelected,
     addonIcon,
     ...props
   }: MultiSelectProps,
   ref: Ref<HTMLInputElement>
 ) {
-  const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
-    value || []
-  );
-  const [currentOptionValue, setCurrentOption] = useState<SelectOption[0]>();
-
-  const index = options.findIndex(
-    (option) => getValue(option) === currentOptionValue
-  );
-
-  const internalChanged = useMutableCallback(([value]) => {
-    if (internalValue.includes(value)) {
-      setCurrentOption(undefined);
-      const newValue = internalValue.filter((item) => item !== value);
-      setInternalValue(newValue);
-      return onChange(newValue);
-    }
-    setCurrentOption(value);
-    const newValue = [...internalValue, value];
-    setInternalValue(newValue);
-    return onChange(newValue);
+  const { selectedOptions, matchOptions, selectOption } = useMultiSelectState({
+    defaultValue: value ?? [],
+    options,
+    onChange,
+    getValue: ([value]) => value,
   });
 
-  const mappedOptions = useMemo(
-    () =>
-      options.map(([value, label]: SelectOption): OptionType => {
-        if (internalValue.includes(value)) {
-          return [value, label, true];
-        }
-        return [value, label];
-      }),
-    [options, internalValue]
-  );
-
-  const [cursor, handleKeyDown, handleKeyUp, reset, [visibility, hide, show]] =
-    useCursor(index, mappedOptions, internalChanged);
-
-  const prevOptions = useRef<OptionType[]>();
-
-  useEffect(
-    () => () => {
-      if (prevOptions.current === mappedOptions) {
-        return;
-      }
-
-      reset();
-      prevOptions.current = mappedOptions;
+  const {
+    containerRef,
+    anchorRef,
+    anchorProps,
+    dropdownProps,
+    dropdownOpen,
+    triggerDropdown,
+  } = useSelectDropdown({
+    options,
+    selectedOptions,
+    hideOnSelect: false,
+    matchOptions,
+    selectOption,
+    toDropdownOption: (option, selected): OptionType => {
+      const value = option[0];
+      return [value, option[1], selected];
     },
-    [mappedOptions, reset]
-  );
-
-  const innerRef = useRef<HTMLElement>(null);
-  const anchorRef = useMergedRefs(ref, innerRef);
-
-  const containerRef = useRef<HTMLElement>(null);
-  const { inlineSize } = useBorderBoxSize(containerRef);
-
-  const handleClick = useMutableCallback(() => {
-    if (visibility === AnimatedVisibility.VISIBLE) {
-      hide();
-      return;
-    }
-
-    innerRef.current?.focus();
-    show();
   });
+
+  const mergedAnchorRef = useMergedRefs(ref, anchorRef);
 
   return (
-    <MultiSelectContainer
+    <SelectContainer
       ref={containerRef}
       disabled={disabled}
       invalid={Boolean(error)}
-      onClick={handleClick}
+      onClick={triggerDropdown}
       {...props}
     >
-      <Box display='flex' flexGrow={1} marginInline={4}>
-        <Box display='flex' alignItems='center' flexWrap='wrap' margin={-8}>
-          <Margins all={4}>
-            {internalValue.map((value: SelectOption[0]) => {
-              const currentOption = options.find(
-                ([val]) => val === value
-              ) as SelectOption;
-              return RenderSelected ? (
-                <RenderSelected
-                  role='option'
-                  value={value}
-                  key={value}
-                  label={getLabel(currentOption)}
-                  onMouseDown={(e: SyntheticEvent) => {
-                    prevent(e);
-                    internalChanged(currentOption);
-                  }}
-                  children={getLabel(currentOption)}
-                />
-              ) : (
-                <SelectedOptions
-                  tabIndex={-1}
-                  role='option'
-                  key={String(value)}
-                  onMouseDown={(e: SyntheticEvent) => {
-                    prevent(e);
-                    internalChanged(currentOption);
-                  }}
-                  children={getLabel(currentOption)}
-                />
-              );
-            })}
-            {renderComponentOrFunction(renderAnchor, {
-              ref: anchorRef,
-              disabled,
-              placeholder,
-              filled: internalValue.length > 0,
-              onClick: show,
-              onBlur: hide,
-              onKeyDown: handleKeyDown,
-              onKeyUp: handleKeyUp,
-            })}
-          </Margins>
-        </Box>
-      </Box>
-      <MultiSelectAddon>
-        {visibility === AnimatedVisibility.VISIBLE ? (
-          <Icon name='cross' size={20} />
-        ) : (
-          <Icon name={addonIcon ?? 'chevron-down'} size={20} />
+      <MultiSelectWrapper>
+        {selectedOptions.map((selectedOption) => (
+          <MultiSelectValue
+            key={selectedOption[0]}
+            label={selectedOption[1]}
+            accessibleLabel={selectedOption[1]}
+            onClick={() => selectOption(selectedOption)}
+          />
+        ))}
+        {selectedOptions.length === 0 && (
+          <SelectPlaceholder>{placeholder}</SelectPlaceholder>
         )}
-      </MultiSelectAddon>
-      <MultiSelectDropdown
+        <MultiSelectAnchor
+          ref={mergedAnchorRef}
+          placeholder={selectedOptions.length > 0 ? undefined : undefined}
+          disabled={disabled}
+          {...anchorProps}
+        />
+      </MultiSelectWrapper>
+      <SelectAddon icon={addonIcon} closed={dropdownOpen} />
+      <SelectDropdown
         anchorRef={containerRef}
-        cursor={cursor}
-        inlineSize={inlineSize}
-        onSelect={internalChanged}
-        options={mappedOptions}
         renderItem={renderItem}
         customEmpty={customEmpty}
-        visibility={visibility}
+        multiple
+        {...dropdownProps}
       />
-    </MultiSelectContainer>
+    </SelectContainer>
   );
 });

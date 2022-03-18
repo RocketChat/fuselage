@@ -1,21 +1,32 @@
-import type { Ref } from 'react';
+import type {
+  FocusEventHandler,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  Ref,
+} from 'react';
 import React, { forwardRef } from 'react';
 
 import { Box } from '../Box';
-import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 
-type MultiSelectAnchorProps = MultiSelectAnchorParams;
+type MultiSelectAnchorProps = {
+  disabled: boolean;
+  placeholder: string | undefined;
+  onClick: MouseEventHandler;
+  onBlur: FocusEventHandler;
+  onKeyUp: KeyboardEventHandler;
+  onKeyDown: KeyboardEventHandler;
+};
 
 const MultiSelectAnchor = forwardRef(function MultiSelectAnchor(
-  { placeholder, filled, ...props }: MultiSelectAnchorProps,
+  { placeholder, ...props }: MultiSelectAnchorProps,
   ref: Ref<Element>
 ) {
   return (
     <Box
       is='button'
-      rcx-multi-select__focus
+      rcx-select__focus
       ref={ref}
-      marginInline={4}
+      margin={4}
       fontScale='p2'
       color='hint'
       type='button'
@@ -27,7 +38,7 @@ const MultiSelectAnchor = forwardRef(function MultiSelectAnchor(
       aria-haspopup='listbox'
       {...props}
     >
-      {filled ? null : placeholder}
+      {placeholder}
     </Box>
   );
 });

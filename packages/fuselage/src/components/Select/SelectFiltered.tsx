@@ -64,11 +64,7 @@ const SelectFiltered = function SelectFiltered({
     );
   }, [propFilter, options, filter]);
 
-  const {
-    selectedOptions: [selectedOption],
-    isOptionSelected,
-    selectOption,
-  } = useSelectState({
+  const { selectedOptions, matchOptions, selectOption } = useSelectState({
     defaultValue: value,
     options,
     onChange,
@@ -84,13 +80,17 @@ const SelectFiltered = function SelectFiltered({
     triggerDropdown,
   } = useSelectDropdown({
     options: filteredOptions,
-    isOptionSelected,
+    selectedOptions,
+    hideOnSelect: true,
+    matchOptions,
     selectOption,
     toDropdownOption: (option, selected) => {
       const value = option[0];
       return [value, option[1], selected];
     },
   });
+
+  const [selectedOption] = selectedOptions;
 
   return (
     <SelectContainer

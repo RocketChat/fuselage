@@ -16,7 +16,9 @@ import { useCursor } from '../Options/useCursor';
 
 type UseSelectDropdownParams<TOption> = {
   options: TOption[];
-  isOptionSelected: (option: TOption) => boolean;
+  selectedOptions: TOption[];
+  hideOnSelect: boolean;
+  matchOptions: (a: TOption, b: TOption) => boolean;
   selectOption: (option: TOption) => void;
   toDropdownOption: (option: TOption, selected: boolean) => OptionType;
 };
@@ -43,26 +45,45 @@ type UseSelectDropdownResult = {
 
 export const useSelectDropdown = <TOption>({
   options,
-  isOptionSelected,
+  selectedOptions,
+  hideOnSelect,
+  matchOptions,
   selectOption,
   toDropdownOption,
 }: UseSelectDropdownParams<TOption>): UseSelectDropdownResult => {
-  const [dropdownIndex, dropdownOptions, fromDropdownOption] = useMemo(() => {
-    const dropdownOptions = options.map((option) =>
-      toDropdownOption(option, isOptionSelected(option))
-    );
+  const matchOptionsRef = useRef(matchOptions);
+  matchOptionsRef.current = matchOptions;
 
-    const dropdownIndex = dropdownOptions.findIndex(
+  const toDropdownOptionRef = useRef(toDropdownOption);
+  toDropdownOptionRef.current = toDropdownOption;
+
+  const dropdownOptions = useMemo(() => {
+    const toDropdownOption = toDropdownOptionRef.current;
+    const matchOptions = matchOptionsRef.current;
+
+    return options.map((option) =>
+      toDropdownOption(
+        option,
+        selectedOptions.some((selectedOption) =>
+          matchOptions(option, selectedOption)
+        )
+      )
+    );
+  }, [options, selectedOptions]);
+
+  const initialIndexRef = useRef<number>();
+  if (initialIndexRef.current === undefined) {
+    initialIndexRef.current = dropdownOptions.findIndex(
       (option) => option[2] ?? false
     );
+  }
 
-    const fromDropdownOption = (option: OptionType): TOption | undefined => {
+  const fromDropdownOption = useMutableCallback(
+    (option: OptionType): TOption | undefined => {
       const index = dropdownOptions.findIndex((o) => o[0] === option[0]);
       return options[index];
-    };
-
-    return [dropdownIndex, dropdownOptions, fromDropdownOption];
-  }, [isOptionSelected, options, toDropdownOption]);
+    }
+  );
 
   const handleDropdownChange = useMutableCallback((option: OptionType) => {
     const newOption = fromDropdownOption(option);
@@ -79,7 +100,7 @@ export const useSelectDropdown = <TOption>({
     handleAnchorKeyUp,
     resetCursor,
     [dropdownVisibility, hideDropdown, showDropdown],
-  ] = useCursor(dropdownIndex, dropdownOptions, handleDropdownChange);
+  ] = useCursor(initialIndexRef.current, dropdownOptions, handleDropdownChange);
 
   const prevOptions = useRef<OptionType[]>();
 
@@ -96,7 +117,10 @@ export const useSelectDropdown = <TOption>({
   );
 
   const handleDropdownSelect = useMutableCallback((option: OptionType) => {
-    hideDropdown();
+    if (hideOnSelect) {
+      hideDropdown();
+    }
+
     const newOption = fromDropdownOption(option);
     if (!newOption) {
       return;

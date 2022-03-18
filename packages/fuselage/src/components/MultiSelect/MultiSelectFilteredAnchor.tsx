@@ -1,13 +1,23 @@
-import type { FormEvent, Ref } from 'react';
+import type {
+  FocusEventHandler,
+  FormEvent,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  Ref,
+} from 'react';
 import React, { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
-import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 
-type MultiSelectFilteredAnchorProps = MultiSelectAnchorParams & {
+type MultiSelectFilteredAnchorProps = {
+  disabled: boolean;
+  placeholder: string | undefined;
+  onClick: MouseEventHandler;
+  onBlur: FocusEventHandler;
+  onKeyUp: KeyboardEventHandler;
+  onKeyDown: KeyboardEventHandler;
   filter: string;
   onChangeFilter: (filter: string) => void;
-  placeholder?: string;
 };
 
 const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
@@ -15,7 +25,6 @@ const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
     filter,
     onChangeFilter,
     placeholder,
-    filled,
     ...props
   }: MultiSelectFilteredAnchorProps,
   ref: Ref<Element>
@@ -24,9 +33,10 @@ const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
     <InputBox.Input
       rcx-input-box--undecorated
       ref={ref}
-      placeholder={filled ? undefined : placeholder}
+      placeholder={placeholder}
       value={filter}
       flexGrow={1}
+      margin={4}
       onInput={(e: FormEvent<HTMLInputElement>) =>
         onChangeFilter(e.currentTarget.value)
       }

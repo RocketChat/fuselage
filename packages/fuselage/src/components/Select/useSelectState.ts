@@ -4,13 +4,13 @@ import { useState } from 'react';
 type UseSelectStateParams<TOption, TValue> = {
   defaultValue: TValue | undefined;
   options: TOption[];
-  onChange?: (value: TValue, option: TOption) => void;
+  onChange?: (value: TValue, selectedOptions: TOption) => void;
   getValue: (option: TOption) => TValue;
 };
 
 type UseSelectStateResult<TOption> = {
   selectedOptions: TOption[];
-  isOptionSelected: (option: TOption) => boolean;
+  matchOptions: (a: TOption, b: TOption) => boolean;
   selectOption: (option: TOption) => void;
 };
 
@@ -24,8 +24,8 @@ export const useSelectState = <TOption, TValue>({
     options.find((option) => getValue(option) === defaultValue)
   );
 
-  const isOptionSelected = useMutableCallback((o: TOption) =>
-    selectedOption ? getValue(o) === getValue(selectedOption) : false
+  const matchOptions = useMutableCallback(
+    (a: TOption, b: TOption) => getValue(a) === getValue(b)
   );
 
   const selectOption = useMutableCallback((newOption: TOption) => {
@@ -43,7 +43,7 @@ export const useSelectState = <TOption, TValue>({
 
   return {
     selectedOptions,
-    isOptionSelected,
+    matchOptions,
     selectOption,
   };
 };
