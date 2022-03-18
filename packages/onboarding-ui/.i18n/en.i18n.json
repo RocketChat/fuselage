@@ -113,6 +113,17 @@
       "sla": "SLA: Premium",
       "push": "Unlimited push notifications",
       "engagement": "Engagement Dashboard"
+    },
+    "launchingWorkspace": {
+      "notReady": {
+        "title": "Launching {{name}}...",
+        "subtitles": {}
+      },
+      "ready": {
+        "title": "{{name}} workspace is ready!",
+        "subtitle": "Redirecting in {{seconds}} seconds...",
+        "redirectLink": "Redirect not working? <1>Open workspace</1>"
+      }
     }
   },
   "form": {
