@@ -10,7 +10,6 @@ type LoaderPageProps = {
   subtitles: string[];
   isReady: boolean;
   loadingSeconds?: number;
-  loadingPercentage?: number;
 };
 
 const LoaderPage = ({
