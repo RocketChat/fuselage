@@ -1,5 +1,5 @@
-import type { ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { ReactNode } from 'react';
+import React from 'react';
 
 import { Box } from '../Box';
 
@@ -7,15 +7,12 @@ type SelectWrapperProps = {
   children: ReactNode;
 };
 
-const SelectWrapper = forwardRef(function SelectWrapper(
-  { children }: SelectWrapperProps,
-  ref: Ref<HTMLDivElement>
-) {
-  return (
-    <Box display='flex' marginInline={-4} rcx-select__wrapper ref={ref}>
+const SelectWrapper = ({ children }: SelectWrapperProps) => (
+  <Box display='flex' flexGrow={1} marginInline={4}>
+    <Box display='flex' alignItems='center' flexWrap='wrap' margin={-8}>
       {children}
     </Box>
-  );
-});
+  </Box>
+);
 
 export default SelectWrapper;

@@ -10,7 +10,6 @@ import { Box } from '../Box';
 
 type MultiSelectAnchorProps = {
   disabled: boolean;
-  placeholder: string | undefined;
   onClick: MouseEventHandler;
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;
@@ -18,7 +17,7 @@ type MultiSelectAnchorProps = {
 };
 
 const MultiSelectAnchor = forwardRef(function MultiSelectAnchor(
-  { placeholder, ...props }: MultiSelectAnchorProps,
+  props: MultiSelectAnchorProps,
   ref: Ref<Element>
 ) {
   return (
@@ -37,9 +36,7 @@ const MultiSelectAnchor = forwardRef(function MultiSelectAnchor(
       textDecoration='none'
       aria-haspopup='listbox'
       {...props}
-    >
-      {placeholder}
-    </Box>
+    />
   );
 });
 

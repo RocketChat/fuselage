@@ -40,6 +40,7 @@ const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
       ref={ref}
       marginInline={4}
       flexGrow={1}
+      flexShrink={1}
       value={filter}
       placeholder={placeholder}
       disabled={disabled}

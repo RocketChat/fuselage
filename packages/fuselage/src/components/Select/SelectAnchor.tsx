@@ -30,6 +30,7 @@ const SelectAnchor = forwardRef(function SelectAnchor(
       fontScale='p2m'
       color='hint'
       type='button'
+      flexShrink={1}
       {...props}
     >
       {placeholder}

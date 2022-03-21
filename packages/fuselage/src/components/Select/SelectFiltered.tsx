@@ -40,9 +40,9 @@ const SelectFiltered = function SelectFiltered({
   value,
   options,
   onChange,
-  placeholder,
   disabled = false,
   error = false,
+  placeholder,
   addonIcon = 'chevron-down',
   renderItem,
   customEmpty,
@@ -68,7 +68,7 @@ const SelectFiltered = function SelectFiltered({
     defaultValue: value,
     options,
     onChange,
-    getValue: (option: SelectOption) => option[0],
+    getValue: (option) => option[0],
   });
 
   const {
@@ -84,10 +84,7 @@ const SelectFiltered = function SelectFiltered({
     hideOnSelect: true,
     matchOptions,
     selectOption,
-    toDropdownOption: (option, selected) => {
-      const value = option[0];
-      return [value, option[1], selected];
-    },
+    toDropdownOption: (option, selected) => [option[0], option[1], selected],
   });
 
   const [selectedOption] = selectedOptions;

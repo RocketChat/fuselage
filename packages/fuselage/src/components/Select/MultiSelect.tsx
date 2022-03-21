@@ -3,17 +3,16 @@ import type { Keys } from '@rocket.chat/icons';
 import type { ComponentProps, ElementType, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
-import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
 import { CheckOption } from '../Options';
 import MultiSelectAnchor from './MultiSelectAnchor';
 import MultiSelectValue from './MultiSelectValue';
-import MultiSelectWrapper from './MultiSelectWrapper';
 import SelectAddon from './SelectAddon';
 import SelectContainer from './SelectContainer';
 import SelectDropdown from './SelectDropdown';
 import SelectPlaceholder from './SelectPlaceholder';
+import SelectWrapper from './SelectWrapper';
 import { useMultiSelectState } from './useMultiSelectState';
 import { useSelectDropdown } from './useSelectDropdown';
 
@@ -22,29 +21,29 @@ type MultiSelectProps = Omit<
   'onChange' | 'value'
 > & {
   value?: SelectOption[0][];
-  error?: string;
   options: SelectOption[];
   onChange?: (
     values: string[],
     selectedOptions: SelectOption<string>[]
   ) => void;
+  addonIcon?: Keys;
+  error?: string | boolean;
   customEmpty?: string;
   renderItem?: ElementType;
-  addonIcon?: Keys;
 };
 
 const MultiSelect = forwardRef(function MultiSelect(
   {
     value,
     options,
-    error,
-    disabled = false,
     onChange,
+    disabled = false,
+    error = false,
     placeholder,
+    addonIcon,
     renderItem = CheckOption,
     customEmpty,
-    addonIcon,
-    ...props
+    ...containerProps
   }: MultiSelectProps,
   ref: Ref<HTMLInputElement>
 ) {
@@ -52,7 +51,7 @@ const MultiSelect = forwardRef(function MultiSelect(
     defaultValue: value ?? [],
     options,
     onChange,
-    getValue: ([value]) => value,
+    getValue: (option) => option[0],
   });
 
   const {
@@ -68,10 +67,7 @@ const MultiSelect = forwardRef(function MultiSelect(
     hideOnSelect: false,
     matchOptions,
     selectOption,
-    toDropdownOption: (option, selected): OptionType => {
-      const value = option[0];
-      return [value, option[1], selected];
-    },
+    toDropdownOption: (option, selected) => [option[0], option[1], selected],
   });
 
   const mergedAnchorRef = useMergedRefs(ref, anchorRef);
@@ -82,9 +78,9 @@ const MultiSelect = forwardRef(function MultiSelect(
       disabled={disabled}
       invalid={Boolean(error)}
       onClick={triggerDropdown}
-      {...props}
+      {...containerProps}
     >
-      <MultiSelectWrapper>
+      <SelectWrapper>
         {selectedOptions.map((selectedOption) => (
           <MultiSelectValue
             key={selectedOption[0]}
@@ -98,11 +94,10 @@ const MultiSelect = forwardRef(function MultiSelect(
         )}
         <MultiSelectAnchor
           ref={mergedAnchorRef}
-          placeholder={selectedOptions.length > 0 ? undefined : undefined}
           disabled={disabled}
           {...anchorProps}
         />
-      </MultiSelectWrapper>
+      </SelectWrapper>
       <SelectAddon icon={addonIcon} closed={dropdownOpen} />
       <SelectDropdown
         anchorRef={containerRef}

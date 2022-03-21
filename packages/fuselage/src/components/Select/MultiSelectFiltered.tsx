@@ -9,16 +9,15 @@ import React, { useMemo } from 'react';
 
 import { localeIncludes } from '../../helpers/localeIncludes';
 import { useControlledState } from '../../hooks/useControlledState';
-import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
 import { CheckOption } from '../Options';
 import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor';
 import MultiSelectValue from './MultiSelectValue';
-import MultiSelectWrapper from './MultiSelectWrapper';
 import SelectAddon from './SelectAddon';
 import SelectContainer from './SelectContainer';
 import SelectDropdown from './SelectDropdown';
+import SelectWrapper from './SelectWrapper';
 import { useMultiSelectState } from './useMultiSelectState';
 import { useSelectDropdown } from './useSelectDropdown';
 
@@ -34,26 +33,25 @@ type MultiSelectFilteredProps = Omit<
   ) => void;
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
-  error?: string;
+  addonIcon?: Keys;
+  error?: string | boolean;
   customEmpty?: string;
   renderItem?: ElementType;
-  renderSelected?: ElementType;
-  addonIcon?: Keys;
 };
 
 const MultiSelectFiltered = ({
+  value,
+  options,
+  onChange,
   filter: propFilter,
   setFilter: propSetFilter,
-  value,
-  options = [],
-  error,
-  disabled = false,
-  onChange,
   placeholder,
+  disabled = false,
+  error = false,
+  addonIcon,
   renderItem = CheckOption,
   customEmpty,
-  addonIcon,
-  ...props
+  ...containerProps
 }: MultiSelectFilteredProps) => {
   const [filter, setFilter] = useControlledState(propFilter, '', propSetFilter);
 
@@ -73,7 +71,7 @@ const MultiSelectFiltered = ({
     defaultValue: value ?? [],
     options: filteredOptions,
     onChange,
-    getValue: ([value]) => value,
+    getValue: (option) => option[0],
   });
 
   const {
@@ -89,10 +87,7 @@ const MultiSelectFiltered = ({
     hideOnSelect: false,
     matchOptions,
     selectOption,
-    toDropdownOption: (option, selected): OptionType => {
-      const value = option[0];
-      return [value, option[1], selected];
-    },
+    toDropdownOption: (option, selected) => [option[0], option[1], selected],
   });
 
   return (
@@ -101,9 +96,9 @@ const MultiSelectFiltered = ({
       disabled={disabled}
       invalid={Boolean(error)}
       onClick={triggerDropdown}
-      {...props}
+      {...containerProps}
     >
-      <MultiSelectWrapper>
+      <SelectWrapper>
         {selectedOptions.map((selectedOption) => (
           <MultiSelectValue
             key={selectedOption[0]}
@@ -120,7 +115,7 @@ const MultiSelectFiltered = ({
           disabled={disabled}
           {...anchorProps}
         />
-      </MultiSelectWrapper>
+      </SelectWrapper>
       <SelectAddon icon={addonIcon} closed={dropdownOpen} />
       <SelectDropdown
         anchorRef={containerRef}
