@@ -29,7 +29,6 @@ export { default as Message } from './Message';
 export * from './Message';
 export { default as Modal } from './Modal';
 export * from './Modal';
-export * from './MultiSelect';
 export * from './NumberInput';
 export { default as Options } from './Options';
 export * from './Options';

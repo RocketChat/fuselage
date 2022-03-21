@@ -11,14 +11,14 @@ import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
 import { CheckOption } from '../Options';
-import SelectAddon from '../Select/SelectAddon';
-import SelectContainer from '../Select/SelectContainer';
-import SelectDropdown from '../Select/SelectDropdown';
-import { useSelectDropdown } from '../Select/useSelectDropdown';
 import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor';
 import MultiSelectValue from './MultiSelectValue';
 import MultiSelectWrapper from './MultiSelectWrapper';
+import SelectAddon from './SelectAddon';
+import SelectContainer from './SelectContainer';
+import SelectDropdown from './SelectDropdown';
 import { useMultiSelectState } from './useMultiSelectState';
+import { useSelectDropdown } from './useSelectDropdown';
 
 type MultiSelectFilteredProps = Omit<
   ComponentProps<typeof Box>,
@@ -39,7 +39,7 @@ type MultiSelectFilteredProps = Omit<
   addonIcon?: Keys;
 };
 
-export const MultiSelectFiltered = ({
+const MultiSelectFiltered = ({
   filter: propFilter,
   setFilter: propSetFilter,
   value,
@@ -129,3 +129,5 @@ export const MultiSelectFiltered = ({
     </SelectContainer>
   );
 };
+
+export default MultiSelectFiltered;

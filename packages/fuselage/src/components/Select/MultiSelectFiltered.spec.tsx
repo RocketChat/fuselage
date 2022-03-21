@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
-import { MultiSelectFiltered } from '.';
+import MultiSelectFiltered from './MultiSelectFiltered';
 
 withResizeObserverMock();
 

@@ -15,7 +15,7 @@ export const useStyle = (cssFn: cssFn, arg: unknown) => {
       return;
     }
 
-    return content ? createClassName(content) : undefined;
+    return createClassName(content);
   }, [content]);
 
   useDebugValue(className);

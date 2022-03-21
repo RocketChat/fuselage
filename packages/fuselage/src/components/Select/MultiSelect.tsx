@@ -7,15 +7,15 @@ import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
 import { CheckOption } from '../Options';
-import SelectAddon from '../Select/SelectAddon';
-import SelectContainer from '../Select/SelectContainer';
-import SelectDropdown from '../Select/SelectDropdown';
-import SelectPlaceholder from '../Select/SelectPlaceholder';
-import { useSelectDropdown } from '../Select/useSelectDropdown';
 import MultiSelectAnchor from './MultiSelectAnchor';
 import MultiSelectValue from './MultiSelectValue';
 import MultiSelectWrapper from './MultiSelectWrapper';
+import SelectAddon from './SelectAddon';
+import SelectContainer from './SelectContainer';
+import SelectDropdown from './SelectDropdown';
+import SelectPlaceholder from './SelectPlaceholder';
 import { useMultiSelectState } from './useMultiSelectState';
+import { useSelectDropdown } from './useSelectDropdown';
 
 type MultiSelectProps = Omit<
   ComponentProps<typeof Box>,
@@ -33,7 +33,7 @@ type MultiSelectProps = Omit<
   addonIcon?: Keys;
 };
 
-export const MultiSelect = forwardRef(function MultiSelect(
+const MultiSelect = forwardRef(function MultiSelect(
   {
     value,
     options,
@@ -114,3 +114,5 @@ export const MultiSelect = forwardRef(function MultiSelect(
     </SelectContainer>
   );
 });
+
+export default MultiSelect;
