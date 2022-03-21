@@ -5,9 +5,10 @@ import type {
   ElementType,
   SetStateAction,
 } from 'react';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 
 import { localeIncludes } from '../../helpers/localeIncludes';
+import { useControlledState } from '../../hooks/useControlledState';
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
 import SelectAddon from './SelectAddon';
@@ -24,16 +25,15 @@ type SelectFilteredProps = Omit<
   ComponentProps<typeof Box>,
   'value' | 'onChange'
 > & {
-  error?: string | boolean;
-  options: SelectOption[];
   value?: SelectOption[0];
+  options: SelectOption[];
   onChange: (value: SelectOption[0]) => void;
-  renderItem?: ElementType;
-  customEmpty?: string;
-  isControlled?: boolean;
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
   addonIcon?: Keys;
+  error?: string | boolean;
+  renderItem?: ElementType;
+  customEmpty?: string;
 };
 
 const SelectFiltered = function SelectFiltered({
@@ -48,12 +48,12 @@ const SelectFiltered = function SelectFiltered({
   customEmpty,
   filter: propFilter,
   setFilter: propSetFilter,
-  ...props
+  ...containerProps
 }: SelectFilteredProps) {
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useControlledState(propFilter, '', propSetFilter);
 
   const filteredOptions = useMemo((): SelectOption[] => {
-    if (propFilter || !filter) {
+    if (propFilter !== undefined) {
       return options;
     }
 
@@ -98,7 +98,7 @@ const SelectFiltered = function SelectFiltered({
       disabled={disabled}
       invalid={Boolean(error)}
       onClick={triggerDropdown}
-      {...props}
+      {...containerProps}
     >
       <SelectWrapper>
         {!dropdownOpen ? (
@@ -118,8 +118,8 @@ const SelectFiltered = function SelectFiltered({
           hidden={!dropdownOpen}
           placeholder={placeholder}
           disabled={disabled}
-          filter={propFilter || filter}
-          onChangeFilter={propSetFilter || setFilter}
+          filter={filter}
+          onChangeFilter={setFilter}
           {...anchorProps}
         />
       </SelectWrapper>

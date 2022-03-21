@@ -5,8 +5,10 @@ import type {
   ElementType,
   SetStateAction,
 } from 'react';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 
+import { localeIncludes } from '../../helpers/localeIncludes';
+import { useControlledState } from '../../hooks/useControlledState';
 import type { OptionType } from '../../types/OptionType';
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
@@ -25,17 +27,17 @@ type MultiSelectFilteredProps = Omit<
   'onChange' | 'value'
 > & {
   value?: SelectOption[0][];
-  error?: string;
   options: SelectOption[];
   onChange?: (
     values: string[],
     selectedOptions: SelectOption<string>[]
   ) => void;
+  filter?: string;
+  setFilter?: Dispatch<SetStateAction<string>>;
+  error?: string;
   customEmpty?: string;
   renderItem?: ElementType;
   renderSelected?: ElementType;
-  filter?: string;
-  setFilter?: Dispatch<SetStateAction<string>>;
   addonIcon?: Keys;
 };
 
@@ -53,16 +55,17 @@ const MultiSelectFiltered = ({
   addonIcon,
   ...props
 }: MultiSelectFilteredProps) => {
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useControlledState(propFilter, '', propSetFilter);
 
   const filteredOptions: SelectOption[] = useMemo(() => {
-    if (propFilter) {
+    if (propFilter !== undefined) {
       return options;
     }
 
-    return options.filter(
-      ([, label]: SelectOption) =>
-        !filter || label.toLowerCase().includes(filter.toLowerCase())
+    return options.filter(([, label]: SelectOption) =>
+      localeIncludes(label, filter, {
+        sensitivity: 'base',
+      })
     );
   }, [propFilter, options, filter]);
 

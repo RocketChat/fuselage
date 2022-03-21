@@ -19,8 +19,8 @@ import { useSelectState } from './useSelectState';
 type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
   value?: SelectOption[0];
   options: SelectOption[];
-  error?: string | boolean;
   onChange?: (value: SelectOption[0]) => void;
+  error?: string | boolean;
   renderItem?: ElementType;
   customEmpty?: string;
   addonIcon?: Keys;
@@ -29,15 +29,15 @@ type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
 const Select = forwardRef(function Select(
   {
     value,
+    options,
+    onChange,
     error = false,
     disabled = false,
-    options = [],
-    onChange,
     placeholder = '',
     renderItem,
     addonIcon = 'chevron-down',
     customEmpty,
-    ...props
+    ...containerProps
   }: SelectProps,
   ref: Ref<HTMLElement>
 ) {
@@ -77,7 +77,7 @@ const Select = forwardRef(function Select(
       disabled={disabled}
       invalid={Boolean(error)}
       onClick={triggerDropdown}
-      {...props}
+      {...containerProps}
     >
       <SelectWrapper>
         {selectedOption ? (
