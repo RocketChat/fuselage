@@ -116,7 +116,7 @@ export const PaginatedSelect = ({
 
   return (
     <Box
-      rcx-select
+      rcx-paginated-select
       disabled={disabled}
       ref={containerRef}
       onClick={handleClick}
@@ -129,14 +129,14 @@ export const PaginatedSelect = ({
       <PaginatedSelectWrapper
         display='flex'
         mi='neg-x4'
-        rcx-select__wrapper--hidden={!!visibleText}
+        rcx-paginated-select__wrapper--hidden={!!visibleText}
       >
         {visibleText && (
           <Box
             flexGrow={1}
             is='span'
             mi='x4'
-            rcx-select__item
+            rcx-paginated-select__item
             fontScale='p2m'
             color={valueLabel ? 'default' : 'hint'}
           >

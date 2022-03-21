@@ -93,7 +93,7 @@ export const PaginatedMultiSelect = ({
   return (
     <Box
       is='div'
-      rcx-select
+      rcx-paginated-select
       className={[error && 'invalid', disabled && 'disabled']}
       ref={containerRef}
       onClick={handleClick}

@@ -9,7 +9,7 @@ const PaginatedSelectWrapper = forwardRef(function PaginatedSelectWrapper(
   props: PaginatedSelectWrapperProps,
   ref: Ref<HTMLDivElement>
 ) {
-  return <Box is='div' rcx-select__wrapper ref={ref} {...props} />;
+  return <Box is='div' rcx-paginated-select__wrapper ref={ref} {...props} />;
 });
 
 export default PaginatedSelectWrapper;

@@ -9,7 +9,7 @@ const PaginatedSelectAddon = forwardRef(function PaginatedSelectAddon(
   props: PaginatedSelectAddonProps,
   ref: Ref<HTMLDivElement>
 ) {
-  return <Box is='div' rcx-select__addon ref={ref} {...props} />;
+  return <Box is='div' rcx-paginated-select__addon ref={ref} {...props} />;
 });
 
 export default PaginatedSelectAddon;

@@ -14,7 +14,7 @@ const PaginatedSelectFocus = forwardRef(function PaginatedSelectFocus(
       ref={ref}
       fontScale='p2m'
       color='hint'
-      rcx-select__focus
+      rcx-paginated-select__focus
       is='button'
       type='button'
       {...props}

@@ -1,16 +1,75 @@
 @use '../../styles/typography.scss';
 
-.rcx-autocomplete {
+.rcx-paginated-select {
   @extend %rcx-input-box;
 
   position: relative;
 
   align-items: center;
 
+  // TODO move to .rcx-input-box
+  &__item {
+    @include typography.use-text-ellipsis;
+  }
+
+  &__focus {
+    display: inline-block;
+
+    min-width: auto;
+
+    user-select: none;
+
+    text-align: start;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none;
+
+    background: inherit;
+
+    appearance: none;
+
+    @include clickable;
+    @include typography.use-text-ellipsis;
+
+    &--hidden {
+      width: 0;
+
+      transition: none;
+
+      opacity: 0;
+    }
+  }
+
   &__addon {
     @extend .rcx-input-box__addon;
     @include clickable;
     padding: initial;
+  }
+
+  &__wrapper {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    min-width: 0;
+
+    user-select: none;
+    white-space: nowrap;
+
+    opacity: 1;
+
+    & > .rcx-paginated-select__focus {
+      flex-shrink: 1;
+    }
+
+    &--hidden {
+      & > .rcx-paginated-select__focus {
+        width: 0;
+
+        transition: none;
+
+        opacity: 0;
+      }
+    }
   }
 
   &:invalid,

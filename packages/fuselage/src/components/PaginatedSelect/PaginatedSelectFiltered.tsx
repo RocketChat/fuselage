@@ -31,7 +31,7 @@ export const PaginatedSelectFiltered = ({
           <InputBox.Input
             mi='x4'
             flexGrow={1}
-            className='rcx-select__focus'
+            className='rcx-paginated-select__focus'
             ref={ref}
             placeholder={placeholder}
             value={filter}
