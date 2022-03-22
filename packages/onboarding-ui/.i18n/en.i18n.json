@@ -113,6 +113,10 @@
       "sla": "SLA: Premium",
       "push": "Unlimited push notifications",
       "engagement": "Engagement Dashboard"
+    },
+    "redirect": {
+      "subtitle": "Redirecting in {{seconds}} seconds",
+      "redirectNotWorking": "Redirect not working? <1>Open workspace</1>"
     }
   },
   "form": {
