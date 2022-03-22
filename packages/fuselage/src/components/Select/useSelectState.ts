@@ -1,49 +1,103 @@
-import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
-import { useState } from 'react';
+import { useCallback, useRef } from 'react';
+
+import { useControlledState } from '../../hooks/useControlledState';
 
 type UseSelectStateParams<TOption, TValue> = {
-  defaultValue: TValue | undefined;
   options: TOption[];
-  onChange?: (value: TValue, selectedOptions: TOption) => void;
+  values?: TValue[];
+  defaultValues: TValue[];
   getValue: (option: TOption) => TValue;
+  onReplace?: (value: TValue, selected: TOption[]) => void;
+  onAppend?: (values: TValue[], selected: TOption[]) => void;
 };
 
 type UseSelectStateResult<TOption> = {
-  selectedOptions: TOption[];
-  matchOptions: (a: TOption, b: TOption) => boolean;
-  selectOption: (option: TOption) => void;
+  selected: TOption[];
+  match: (a: TOption, b: TOption) => boolean;
+  replace: (option: TOption) => void;
+  append: (option: TOption) => void;
 };
 
+const extractSelected = <TOption, TValue>(
+  options: TOption[],
+  values: TValue[],
+  getValue: (option: TOption) => TValue
+) =>
+  values
+    .map((v) => options.find((o) => getValue(o) === v))
+    .filter((o): o is TOption => !!o);
+
 export const useSelectState = <TOption, TValue>({
-  defaultValue,
   options,
-  onChange,
+  values: propValues,
+  defaultValues,
   getValue,
+  onReplace,
+  onAppend,
 }: UseSelectStateParams<TOption, TValue>): UseSelectStateResult<TOption> => {
-  const [selectedOption, setSelectedOption] = useState(() =>
-    options.find((option) => getValue(option) === defaultValue)
-  );
+  const [values, setValues] = useControlledState(propValues, defaultValues);
 
-  const matchOptions = useMutableCallback(
-    (a: TOption, b: TOption) => getValue(a) === getValue(b)
-  );
+  const ref = useRef({
+    options,
+    setValues,
+    getValue,
+    onReplace,
+    onAppend,
+  });
+  ref.current = {
+    options,
+    setValues,
+    getValue,
+    onReplace,
+    onAppend,
+  };
 
-  const selectOption = useMutableCallback((newOption: TOption) => {
-    setSelectedOption((selectedOption) => {
-      if (selectedOption && getValue(selectedOption) === getValue(newOption)) {
-        return selectedOption;
+  const match = useCallback((a: TOption, b: TOption) => {
+    const { getValue } = ref.current;
+    return getValue(a) === getValue(b);
+  }, []);
+
+  const replace = useCallback((newOption: TOption) => {
+    const { setValues } = ref.current;
+
+    setValues((prevValues) => {
+      const { options, getValue, onReplace } = ref.current;
+
+      const newValue = getValue(newOption);
+
+      if (prevValues.length === 1 && prevValues[0] === newValue) {
+        return prevValues;
       }
 
-      onChange?.(getValue(newOption), newOption);
-      return newOption;
-    });
-  });
+      onReplace?.(newValue, extractSelected(options, [newValue], getValue));
 
-  const selectedOptions = selectedOption ? [selectedOption] : [];
+      return [newValue];
+    });
+  }, []);
+
+  const append = useCallback((newOption: TOption) => {
+    const { setValues } = ref.current;
+
+    setValues((prevValues) => {
+      const { options, getValue, onAppend } = ref.current;
+
+      const newValue = getValue(newOption);
+
+      const newValues = prevValues.filter((v) => v !== newValue);
+      newValues.push(newValue);
+
+      onAppend?.(newValues, extractSelected(options, newValues, getValue));
+
+      return newValues;
+    });
+  }, []);
+
+  const selected = extractSelected(options, values, getValue);
 
   return {
-    selectedOptions,
-    matchOptions,
-    selectOption,
+    selected,
+    match,
+    replace,
+    append,
   };
 };

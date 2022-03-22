@@ -18,7 +18,7 @@ import { useSelectState } from './useSelectState';
 type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
   value?: SelectOption[0];
   options: SelectOption[];
-  onChange?: (value: SelectOption[0]) => void;
+  onChange?: (value: SelectOption[0], selected: SelectOption[]) => void;
   addonIcon?: Keys;
   error?: string | boolean;
   renderItem?: ElementType;
@@ -40,10 +40,15 @@ const Select = forwardRef(function Select(
   }: SelectProps,
   ref: Ref<HTMLElement>
 ) {
-  const { selectedOptions, matchOptions, selectOption } = useSelectState({
-    defaultValue: value,
+  const {
+    selected: selectedOptions,
+    match: matchOptions,
+    replace: selectOption,
+  } = useSelectState({
+    values: value ? [value] : undefined,
+    defaultValues: [],
     options,
-    onChange,
+    onReplace: onChange,
     getValue: (option) => option[0],
   });
 

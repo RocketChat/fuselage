@@ -13,8 +13,8 @@ import SelectContainer from './SelectContainer';
 import SelectDropdown from './SelectDropdown';
 import SelectPlaceholder from './SelectPlaceholder';
 import SelectWrapper from './SelectWrapper';
-import { useMultiSelectState } from './useMultiSelectState';
 import { useSelectDropdown } from './useSelectDropdown';
+import { useSelectState } from './useSelectState';
 
 type MultiSelectProps = Omit<
   ComponentProps<typeof Box>,
@@ -47,10 +47,15 @@ const MultiSelect = forwardRef(function MultiSelect(
   }: MultiSelectProps,
   ref: Ref<HTMLInputElement>
 ) {
-  const { selectedOptions, matchOptions, selectOption } = useMultiSelectState({
-    defaultValue: value ?? [],
+  const {
+    selected: selectedOptions,
+    match: matchOptions,
+    append: selectOption,
+  } = useSelectState({
+    values: value,
+    defaultValues: [],
     options,
-    onChange,
+    onAppend: onChange,
     getValue: (option) => option[0],
   });
 

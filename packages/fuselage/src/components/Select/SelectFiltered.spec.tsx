@@ -33,7 +33,7 @@ it('renders with options', async () => {
   userEvent.click(screen.getByRole('option', { name: 'Item #2' }));
 
   expect(handleChange).toHaveBeenCalledTimes(1);
-  expect(handleChange).toHaveBeenCalledWith('2', ['2', 'Item #2']);
+  expect(handleChange).toHaveBeenCalledWith('2', [['2', 'Item #2']]);
 });
 
 it('accepts filter', async () => {
@@ -45,7 +45,6 @@ it('accepts filter', async () => {
         ['1', 'Item #1'],
         ['2', 'Item #2'],
       ]}
-      onChange={jest.fn()}
       setFilter={handleSetFilter}
     />
   );
@@ -84,7 +83,6 @@ it('does filters options if uncontrolled', async () => {
         ['1', 'Item #1'],
         ['2', 'Item #2'],
       ]}
-      onChange={jest.fn()}
     />
   );
 

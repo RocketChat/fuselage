@@ -27,7 +27,7 @@ type SelectFilteredProps = Omit<
 > & {
   value?: SelectOption[0];
   options: SelectOption[];
-  onChange: (value: SelectOption[0]) => void;
+  onChange?: (value: SelectOption[0], selected: SelectOption[]) => void;
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
   addonIcon?: Keys;
@@ -64,10 +64,15 @@ const SelectFiltered = function SelectFiltered({
     );
   }, [propFilter, options, filter]);
 
-  const { selectedOptions, matchOptions, selectOption } = useSelectState({
-    defaultValue: value,
-    options,
-    onChange,
+  const {
+    selected: selectedOptions,
+    match: matchOptions,
+    replace: selectOption,
+  } = useSelectState({
+    values: value ? [value] : undefined,
+    defaultValues: [],
+    options: filteredOptions,
+    onReplace: onChange,
     getValue: (option) => option[0],
   });
 
