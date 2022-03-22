@@ -115,7 +115,8 @@
       "engagement": "Engagement Dashboard"
     },
     "createFirstMember": {
-      "title": "Create first <1>workspace member</1>",
+      "title": "Create first <1>workspace member</1>"
+    },
     "redirect": {
       "subtitle": "Redirecting in {{seconds}} seconds",
       "redirectNotWorking": "Redirect not working? <1>Open workspace</1>"
