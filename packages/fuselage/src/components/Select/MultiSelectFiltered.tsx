@@ -5,10 +5,9 @@ import type {
   ElementType,
   SetStateAction,
 } from 'react';
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { localeIncludes } from '../../helpers/localeIncludes';
-import { useControlledState } from '../../hooks/useControlledState';
 import type { SelectOption } from '../../types/SelectOption';
 import type { Box } from '../Box';
 import { CheckOption } from '../Options';
@@ -18,8 +17,7 @@ import SelectAddon from './SelectAddon';
 import SelectContainer from './SelectContainer';
 import SelectDropdown from './SelectDropdown';
 import SelectWrapper from './SelectWrapper';
-import { useSelectDropdown } from './useSelectDropdown';
-import { useSelectState } from './useSelectState';
+import { useSelect } from './useSelect';
 
 type MultiSelectFilteredProps = Omit<
   ComponentProps<typeof Box>,
@@ -53,46 +51,30 @@ const MultiSelectFiltered = ({
   customEmpty,
   ...containerProps
 }: MultiSelectFilteredProps) => {
-  const [filter, setFilter] = useControlledState(propFilter, '', propSetFilter);
-
-  const filteredOptions: SelectOption[] = useMemo(() => {
-    if (propFilter !== undefined) {
-      return options;
-    }
-
-    return options.filter(([, label]: SelectOption) =>
-      localeIncludes(label, filter, {
-        sensitivity: 'base',
-      })
-    );
-  }, [propFilter, options, filter]);
-
   const {
-    selected: selectedOptions,
-    match: matchOptions,
-    append: selectOption,
-  } = useSelectState({
-    values: value,
-    defaultValues: [],
-    options: filteredOptions,
-    onAppend: onChange,
-    getValue: (option) => option[0],
-  });
-
-  const {
+    selected,
+    select,
+    filter,
+    setFilter,
     containerRef,
     anchorRef,
     anchorProps,
     dropdownProps,
     dropdownOpen,
     triggerDropdown,
-  } = useSelectDropdown({
-    options: filteredOptions,
-    selectedOptions,
-    hideOnSelect: false,
-    matchOptions,
-    selectOption,
-    toDropdownOption: (option, selected) => [option[0], option[1], selected],
+  } = useSelect({
+    options,
+    multiple: true,
+    values: value,
+    onChange,
+    getValue: ([value]) => value,
+    filter: propFilter,
+    onChangeFilter: propSetFilter,
+    matchFilter: ([, label], filter) =>
+      localeIncludes(label, filter, {
+        sensitivity: 'base',
+      }),
+    toDropdownOption: ([value, label], selected) => [value, label, selected],
   });
 
   return (
@@ -104,18 +86,18 @@ const MultiSelectFiltered = ({
       {...containerProps}
     >
       <SelectWrapper>
-        {selectedOptions.map((selectedOption) => (
+        {selected.map((selected) => (
           <MultiSelectValue
-            key={selectedOption[0]}
-            label={selectedOption[1]}
-            accessibleLabel={selectedOption[1]}
-            onClick={() => selectOption(selectedOption)}
+            key={selected[0]}
+            label={selected[1]}
+            accessibleLabel={selected[1]}
+            onClick={() => select(selected)}
           />
         ))}
         <MultiSelectFilteredAnchor
           ref={anchorRef}
-          filter={propFilter || filter}
-          onChangeFilter={propSetFilter || setFilter}
+          filter={filter}
+          onChangeFilter={setFilter}
           placeholder={placeholder}
           disabled={disabled}
           {...anchorProps}

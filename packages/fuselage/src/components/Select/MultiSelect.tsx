@@ -13,8 +13,7 @@ import SelectContainer from './SelectContainer';
 import SelectDropdown from './SelectDropdown';
 import SelectPlaceholder from './SelectPlaceholder';
 import SelectWrapper from './SelectWrapper';
-import { useSelectDropdown } from './useSelectDropdown';
-import { useSelectState } from './useSelectState';
+import { useSelect } from './useSelect';
 
 type MultiSelectProps = Omit<
   ComponentProps<typeof Box>,
@@ -48,31 +47,21 @@ const MultiSelect = forwardRef(function MultiSelect(
   ref: Ref<HTMLInputElement>
 ) {
   const {
-    selected: selectedOptions,
-    match: matchOptions,
-    append: selectOption,
-  } = useSelectState({
-    values: value,
-    defaultValues: [],
-    options,
-    onAppend: onChange,
-    getValue: (option) => option[0],
-  });
-
-  const {
+    selected,
+    select,
     containerRef,
     anchorRef,
     anchorProps,
     dropdownProps,
     dropdownOpen,
     triggerDropdown,
-  } = useSelectDropdown({
+  } = useSelect({
     options,
-    selectedOptions,
-    hideOnSelect: false,
-    matchOptions,
-    selectOption,
-    toDropdownOption: (option, selected) => [option[0], option[1], selected],
+    multiple: true,
+    values: value,
+    onChange,
+    getValue: ([value]) => value,
+    toDropdownOption: ([value, label], selected) => [value, label, selected],
   });
 
   const mergedAnchorRef = useMergedRefs(ref, anchorRef);
@@ -86,15 +75,15 @@ const MultiSelect = forwardRef(function MultiSelect(
       {...containerProps}
     >
       <SelectWrapper>
-        {selectedOptions.map((selectedOption) => (
+        {selected.map((selected) => (
           <MultiSelectValue
-            key={selectedOption[0]}
-            label={selectedOption[1]}
-            accessibleLabel={selectedOption[1]}
-            onClick={() => selectOption(selectedOption)}
+            key={selected[0]}
+            label={selected[1]}
+            accessibleLabel={selected[1]}
+            onClick={() => select(selected)}
           />
         ))}
-        {selectedOptions.length === 0 && (
+        {selected.length === 0 && (
           <SelectPlaceholder>{placeholder}</SelectPlaceholder>
         )}
         <MultiSelectAnchor

@@ -12,8 +12,7 @@ import SelectDropdown from './SelectDropdown';
 import SelectPlaceholder from './SelectPlaceholder';
 import SelectValue from './SelectValue';
 import SelectWrapper from './SelectWrapper';
-import { useSelectDropdown } from './useSelectDropdown';
-import { useSelectState } from './useSelectState';
+import { useSelect } from './useSelect';
 
 type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
   value?: SelectOption[0];
@@ -41,36 +40,24 @@ const Select = forwardRef(function Select(
   ref: Ref<HTMLElement>
 ) {
   const {
-    selected: selectedOptions,
-    match: matchOptions,
-    replace: selectOption,
-  } = useSelectState({
-    values: value ? [value] : undefined,
-    defaultValues: [],
-    options,
-    onReplace: onChange,
-    getValue: (option) => option[0],
-  });
-
-  const {
+    selected,
     containerRef,
     anchorRef,
     anchorProps,
     dropdownProps,
     dropdownOpen,
     triggerDropdown,
-  } = useSelectDropdown({
+  } = useSelect({
     options,
-    selectedOptions,
-    hideOnSelect: true,
-    matchOptions,
-    selectOption,
-    toDropdownOption: (option, selected) => [option[0], option[1], selected],
+    value,
+    onChange,
+    getValue: ([value]) => value,
+    toDropdownOption: ([value, label], selected) => [value, label, selected],
   });
 
   const mergedAnchorRef = useMergedRefs(ref, anchorRef);
 
-  const [selectedOption] = selectedOptions;
+  const [selectedOption] = selected;
 
   return (
     <SelectContainer
