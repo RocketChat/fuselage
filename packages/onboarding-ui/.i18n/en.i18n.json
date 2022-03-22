@@ -113,6 +113,9 @@
       "sla": "SLA: Premium",
       "push": "Unlimited push notifications",
       "engagement": "Engagement Dashboard"
+    },
+    "createFirstMember": {
+      "title": "Create first <1>workspace member</1>"
     }
   },
   "form": {
@@ -340,6 +343,21 @@
       },
       "buttonTotpCode": {
         "text": "Use TOTP code."
+      }
+    },
+    "createFirstMemberForm": {
+      "title": "New admin account",
+      "subtitle": "This will be your admin user for {{workspaceName}}.",
+      "fields": {
+        "username": {
+          "label": "Username"
+        },
+        "password": {
+          "label": "Password"
+        }
+      },
+      "button": {
+        "submit": "Launch workspace"
       }
     }
   }
