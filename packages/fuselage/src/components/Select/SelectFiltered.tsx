@@ -21,9 +21,10 @@ import { useSelect } from './useSelect';
 
 type SelectFilteredProps = Omit<
   ComponentProps<typeof Box>,
-  'value' | 'onChange'
+  'value' | 'defaultValue' | 'onChange'
 > & {
   value?: SelectOption[0];
+  defaultValue?: SelectOption[0];
   options: SelectOption[];
   onChange?: (value: SelectOption[0], selected: SelectOption[]) => void;
   filter?: string;
@@ -35,8 +36,9 @@ type SelectFilteredProps = Omit<
 };
 
 const SelectFiltered = function SelectFiltered({
-  value,
   options,
+  value,
+  defaultValue,
   onChange,
   disabled = false,
   error = false,
@@ -61,6 +63,7 @@ const SelectFiltered = function SelectFiltered({
   } = useSelect({
     options,
     value,
+    defaultValue,
     onChange,
     getValue: ([value]) => value,
     filter: propFilter,

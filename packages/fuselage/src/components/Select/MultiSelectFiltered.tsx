@@ -21,9 +21,10 @@ import { useSelect } from './useSelect';
 
 type MultiSelectFilteredProps = Omit<
   ComponentProps<typeof Box>,
-  'onChange' | 'value'
+  'value' | 'defaultValue' | 'onChange'
 > & {
   value?: SelectOption[0][];
+  defaultValue?: SelectOption[0][];
   options: SelectOption[];
   onChange?: (
     values: string[],
@@ -38,8 +39,9 @@ type MultiSelectFilteredProps = Omit<
 };
 
 const MultiSelectFiltered = ({
-  value,
   options,
+  value,
+  defaultValue,
   onChange,
   filter: propFilter,
   setFilter: propSetFilter,
@@ -66,6 +68,7 @@ const MultiSelectFiltered = ({
     options,
     multiple: true,
     values: value,
+    defaultValues: defaultValue,
     onChange,
     getValue: ([value]) => value,
     filter: propFilter,

@@ -14,8 +14,12 @@ import SelectValue from './SelectValue';
 import SelectWrapper from './SelectWrapper';
 import { useSelect } from './useSelect';
 
-type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
+type SelectProps = Omit<
+  ComponentProps<typeof Box>,
+  'value' | 'defaultValue' | 'onChange'
+> & {
   value?: SelectOption[0];
+  defaultValue?: SelectOption[0];
   options: SelectOption[];
   onChange?: (value: SelectOption[0], selected: SelectOption[]) => void;
   addonIcon?: Keys;
@@ -27,6 +31,7 @@ type SelectProps = Omit<ComponentProps<typeof Box>, 'value' | 'onChange'> & {
 const Select = forwardRef(function Select(
   {
     value,
+    defaultValue,
     options,
     onChange,
     error = false,
@@ -50,6 +55,7 @@ const Select = forwardRef(function Select(
   } = useSelect({
     options,
     value,
+    defaultValue,
     onChange,
     getValue: ([value]) => value,
     toDropdownOption: ([value, label], selected) => [value, label, selected],

@@ -17,9 +17,10 @@ import { useSelect } from './useSelect';
 
 type MultiSelectProps = Omit<
   ComponentProps<typeof Box>,
-  'onChange' | 'value'
+  'value' | 'defaultValue' | 'onChange'
 > & {
   value?: SelectOption[0][];
+  defaultValue?: SelectOption[0][];
   options: SelectOption[];
   onChange?: (
     values: string[],
@@ -33,8 +34,9 @@ type MultiSelectProps = Omit<
 
 const MultiSelect = forwardRef(function MultiSelect(
   {
-    value,
     options,
+    value,
+    defaultValue,
     onChange,
     disabled = false,
     error = false,
@@ -59,6 +61,7 @@ const MultiSelect = forwardRef(function MultiSelect(
     options,
     multiple: true,
     values: value,
+    defaultValues: defaultValue,
     onChange,
     getValue: ([value]) => value,
     toDropdownOption: ([value, label], selected) => [value, label, selected],
