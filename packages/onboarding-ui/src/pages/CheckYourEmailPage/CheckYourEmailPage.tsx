@@ -1,5 +1,5 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
@@ -7,15 +7,30 @@ import EmailCodeFallback from '../../common/EmailCodeFallback';
 import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type CheckYourEmailPageProps = {
+  title?: string;
+  children?: ReactNode;
   onResendEmailRequest: () => void;
   onChangeEmailRequest: () => void;
 };
 
 const CheckYourEmailPage = ({
+  title,
+  children,
   onResendEmailRequest,
   onChangeEmailRequest,
 }: CheckYourEmailPageProps): ReactElement => {
   const { t } = useTranslation();
+
+  const defaultSubtitleComponent = (
+    <Trans i18nKey='page.checkYourEmail.subtitle'>
+      Your request has been sent successfully.
+      <br />
+      Check your email inbox to launch your Enterprise trial.
+    </Trans>
+  );
+
+  title = title || t('page.checkYourEmail.title');
+  children = children || defaultSubtitleComponent;
 
   return (
     <BackgroundLayer>
@@ -38,16 +53,10 @@ const CheckYourEmailPage = ({
             lineHeight='x62'
             fontFamily='sans'
           >
-            {t('page.checkYourEmail.title')}
+            {title}
           </Box>
 
-          <Box fontScale='p1'>
-            <Trans i18nKey='page.checkYourEmail.subtitle'>
-              Your request has been sent successfully.
-              <br />
-              Check your email inbox to launch your Enterprise trial.
-            </Trans>
-          </Box>
+          <Box fontScale='p1'>{children}</Box>
 
           <EmailCodeFallback
             onResendEmailRequest={onResendEmailRequest}
