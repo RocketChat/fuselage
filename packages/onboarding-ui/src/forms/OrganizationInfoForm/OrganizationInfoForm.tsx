@@ -27,6 +27,7 @@ export type OrganizationInfoPayload = {
 };
 
 type OrganizationInfoFormProps = {
+  formSubtitle?: string;
   currentStep: number;
   stepCount: number;
   organizationTypeOptions: SelectOption[];
@@ -41,6 +42,7 @@ type OrganizationInfoFormProps = {
 };
 
 const OrganizationInfoForm = ({
+  formSubtitle,
   currentStep,
   stepCount,
   organizationTypeOptions,
@@ -81,7 +83,9 @@ const OrganizationInfoForm = ({
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Steps currentStep={currentStep} stepCount={stepCount} />
       <Form.Title>{t('form.organizationInfoForm.title')}</Form.Title>
-      <Form.Subtitle>{t('form.organizationInfoForm.subtitle')}</Form.Subtitle>
+      <Form.Subtitle>
+        {formSubtitle || t('form.organizationInfoForm.subtitle')}
+      </Form.Subtitle>
       <Form.Container>
         <FieldGroup>
           <Field>

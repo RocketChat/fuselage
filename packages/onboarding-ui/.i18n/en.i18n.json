@@ -154,15 +154,15 @@
           "placeholder": "Organization name"
         },
         "organizationType": {
-          "label": "Organization type",
+          "label": "Type",
           "placeholder": "Select"
         },
         "organizationIndustry": {
-          "label": "Organization industry",
+          "label": "Industry",
           "placeholder": "Select"
         },
         "organizationSize": {
-          "label": "Organization size",
+          "label": "Size",
           "placeholder": "Select"
         },
         "country": {
