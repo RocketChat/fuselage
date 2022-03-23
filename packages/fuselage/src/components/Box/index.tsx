@@ -1,13 +1,20 @@
 import type { cssFn } from '@rocket.chat/css-in-js';
+import React, { createElement, forwardRef, memo } from 'react';
 import type {
   AllHTMLAttributes,
-  ComponentProps,
   CSSProperties,
   ElementType,
-  ReactElement,
   RefAttributes,
   SVGAttributes,
+  Ref,
 } from 'react';
+
+import { useArrayLikeClassNameProp } from '../../hooks/useArrayLikeClassNameProp';
+import { useBoxOnlyProps } from '../../hooks/useBoxOnlyProps';
+import { useStyleSheet } from '../../hooks/useStyleSheet';
+import type { Falsy } from '../../types/Falsy';
+import { useBoxTransform, BoxTransforms } from './BoxTransforms';
+import { useStylingProps } from './stylingProps';
 
 type Size = '1' | '2' | '4' | '8' | '12' | '16' | '20' | '24' | '32' | '40';
 
@@ -27,8 +34,6 @@ type FontScale =
   | 'c1'
   | 'c2'
   | 'micro';
-
-type Falsy = false | 0 | '' | null | undefined;
 
 type BoxStylingProps = {
   border?: CSSProperties['border'];
@@ -149,7 +154,7 @@ type BoxStylingProps = {
   animated?: boolean;
   elevation?: '0' | '1' | '2';
   invisible?: boolean;
-  withRichContent?: boolean | string;
+  withRichContent?: boolean | 'inlineWithoutBreaks';
   withTruncatedText?: boolean;
   size?: `x${Size}` | `neg-x${Size}` | CSSProperties['blockSize'];
   minSize?: CSSProperties['blockSize'];
@@ -159,30 +164,44 @@ type BoxStylingProps = {
   className?: string | cssFn | (string | cssFn | Falsy)[];
 };
 
-export type BoxProps<TElementType extends ElementType> = {
-  is?: TElementType;
-  htmlSize?: 'size' extends keyof ComponentProps<TElementType>
-    ? ComponentProps<TElementType>['size']
-    : never;
-} & BoxStylingProps &
-  Omit<ComponentProps<TElementType>, 'is' | 'className' | 'size'>;
-
-type UnsafeBoxProps = {
+type BoxProps = {
   is?: ElementType;
   htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
 } & BoxStylingProps &
   Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size'> &
-  Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement>> &
-  RefAttributes<any>;
+  Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement>>;
 
-export const Box: {
-  // `Box` unfortunately cannot be a generic component because of the abuse of `ComponentProps<typeof Box>`
-  // <TElementType extends ElementType = 'div'>(
-  //   props: BoxProps<TElementType>
-  // ): ReactElement | null;
-  (props: UnsafeBoxProps): ReactElement | null;
-  defaultProps?: undefined;
-  propTypes?: undefined;
-  displayName?: string | undefined;
-  readonly $$typeof: symbol;
-};
+export const Box = memo(
+  forwardRef(function Box(
+    { is = 'div', children, ...props }: BoxProps,
+    ref: Ref<any>
+  ) {
+    useStyleSheet();
+
+    const propsWithRef: BoxProps & RefAttributes<any> = props;
+
+    if (ref) {
+      propsWithRef.ref = ref;
+    }
+
+    let propsWithStringClassName = useArrayLikeClassNameProp(propsWithRef);
+
+    const transformFn = useBoxTransform();
+    if (transformFn) {
+      propsWithStringClassName = transformFn(propsWithStringClassName);
+    }
+
+    const propsWithoutBoxOnlyProps = useBoxOnlyProps(propsWithStringClassName);
+    const propsWithoutStylingProps = useStylingProps(propsWithoutBoxOnlyProps);
+
+    const element = createElement(is, propsWithoutStylingProps, children);
+
+    if (transformFn) {
+      return <BoxTransforms.Provider children={element} value={null} />;
+    }
+
+    return element;
+  })
+);
+
+// Box.displayName = 'Box';

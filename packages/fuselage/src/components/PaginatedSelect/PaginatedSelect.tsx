@@ -25,7 +25,7 @@ export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   anchor?: ElementType;
   options: PaginatedOptionType[];
   withTitle?: boolean;
-  endReached: (index: number) => void;
+  endReached?: (index: number) => void;
   setFilter?: (value: string | undefined | number) => void;
 };
 
