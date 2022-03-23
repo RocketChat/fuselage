@@ -190,6 +190,7 @@ const CreateCloudWorkspaceForm = ({
         <Field>
           <Field.Row justifyContent='flex-start'>
             <CheckBox {...register('agreement', { required: true })} mie='x8' />
+
             <Box is='label' htmlFor='agreement' withRichContent fontScale='c1'>
               <Trans i18nKey='component.form.termsAndConditions'>
                 I agree with
@@ -219,6 +220,7 @@ const CreateCloudWorkspaceForm = ({
         <Field>
           <Field.Row justifyContent='flex-start'>
             <CheckBox {...register('updates')} mie='x8' />
+
             <Box fontScale='c1'>
               {t('form.createCloudWorkspace.fields.keepMeInformed')}
             </Box>
