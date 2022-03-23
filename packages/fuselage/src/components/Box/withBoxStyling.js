@@ -1,7 +1,7 @@
 import { createElement } from 'react';
 
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import { useStylingProps } from './stylingProps';
+import { useStylingProps } from './useStylingProps';
 
 export const withBoxStyling = (component) => {
   const render = (props) => {

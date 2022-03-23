@@ -1,85 +1,96 @@
+import type { cssFn } from '@rocket.chat/css-in-js';
 import { css } from '@rocket.chat/css-in-js';
 
-import { appendClassName } from '../../helpers/appendClassName';
-import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
-import { useStyle } from '../../hooks/useStyle';
 import {
-  borderWidth,
   borderRadius,
+  borderWidth,
   color,
-  size,
+  fontFamily,
+  fontScale,
   inset,
   margin,
   padding,
-  fontFamily,
-  fontScale,
+  size,
 } from '../../styleTokens';
 
-const stringProp = {
+type PropDefinition =
+  | {
+      toCSSValue: (value: unknown) => string | undefined;
+    }
+  | { aliasOf: string }
+  | {
+      toStyle: (value: unknown) => cssFn | undefined;
+    };
+
+const stringProp: PropDefinition = {
   toCSSValue: (value) => (typeof value === 'string' ? value : undefined),
 };
 
-const numberOrStringProp = {
+const numberOrStringProp: PropDefinition = {
   toCSSValue: (value) => {
     if (typeof value === 'number' || typeof value === 'string') {
       return String(value);
     }
+
+    return undefined;
   },
 };
 
-const borderWidthProp = {
+const borderWidthProp: PropDefinition = {
   toCSSValue: borderWidth,
 };
 
-const borderRadiusProp = {
+const borderRadiusProp: PropDefinition = {
   toCSSValue: borderRadius,
 };
 
-const colorProp = {
+const colorProp: PropDefinition = {
   toCSSValue: color,
 };
 
-const sizeProp = {
+const sizeProp: PropDefinition = {
   toCSSValue: size,
 };
 
-const insetProp = {
+const insetProp: PropDefinition = {
   toCSSValue: inset,
 };
 
-const marginProp = {
+const marginProp: PropDefinition = {
   toCSSValue: margin,
 };
 
-const paddingProp = {
+const paddingProp: PropDefinition = {
   toCSSValue: padding,
 };
 
-const fontFamilyProp = {
+const fontFamilyProp: PropDefinition = {
   toCSSValue: fontFamily,
 };
 
-const fontSizeProp = {
+const fontSizeProp: PropDefinition = {
   toCSSValue: (value) => fontScale(value)?.fontSize || size(value),
 };
 
-const fontWeightProp = {
-  toCSSValue: (value) => fontScale(value)?.fontWeight || value,
+const fontWeightProp: PropDefinition = {
+  toCSSValue: (value) =>
+    value ? String(fontScale(value)?.fontWeight || value) : undefined,
 };
 
-const lineHeightProp = {
+const lineHeightProp: PropDefinition = {
   toCSSValue: (value) => fontScale(value)?.lineHeight || size(value),
 };
 
-const letterSpacingProp = {
-  toCSSValue: (value) => fontScale(value)?.letterSpacing || value,
+const letterSpacingProp: PropDefinition = {
+  toCSSValue: (value) =>
+    value ? String(fontScale(value)?.letterSpacing || value) : undefined,
 };
 
-const aliasOf = (propName) => ({
+const aliasOf = (propName: string): PropDefinition => ({
   aliasOf: propName,
 });
 
-const propDefs = {
+export const propDefs: Record<string, PropDefinition> = {
   border: stringProp,
   borderBlock: stringProp,
   borderBlockStart: stringProp,
@@ -271,82 +282,4 @@ const propDefs = {
       line-height: ${fontScale(value)?.lineHeight} !important;
     `,
   },
-};
-
-export const useStylingProps = (originalProps) => {
-  const { htmlSize, ...props } = originalProps;
-
-  const stylingProps = new Map();
-
-  for (const entry of Object.entries(props)) {
-    const [propName, propValue] = entry;
-    const propDef = propDefs[propName];
-
-    if (!propDef) {
-      continue;
-    }
-
-    delete props[propName];
-
-    if (propValue === undefined) {
-      continue;
-    }
-
-    let effectivePropName = propName;
-    let effectivePropDef = propDef;
-
-    if (effectivePropDef.aliasOf) {
-      if (stylingProps.has(effectivePropDef.aliasOf)) {
-        continue;
-      }
-
-      effectivePropName = effectivePropDef.aliasOf;
-      effectivePropDef = propDefs[effectivePropName];
-    }
-
-    let { toStyle } = effectivePropDef;
-
-    if (effectivePropDef.toCSSValue) {
-      const cssProperty = fromCamelToKebab(effectivePropName);
-      const { toCSSValue } = effectivePropDef;
-      toStyle = (value) => {
-        const cssValue = toCSSValue(value);
-        if (cssValue === undefined) {
-          return;
-        }
-
-        return css`
-          ${cssProperty}: ${cssValue} !important;
-        `;
-      };
-    }
-
-    const style = toStyle(propValue);
-
-    if (style === undefined) {
-      continue;
-    }
-
-    stylingProps.set(effectivePropName, style);
-  }
-
-  const styles = stylingProps.size
-    ? Array.from(stylingProps.values())
-    : undefined;
-
-  const newClassName = useStyle(
-    css`
-      ${styles}
-    `
-  );
-
-  if (newClassName) {
-    props.className = appendClassName(props.className, newClassName);
-  }
-
-  if (htmlSize) {
-    props.size = htmlSize;
-  }
-
-  return props;
 };

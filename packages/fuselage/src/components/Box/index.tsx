@@ -14,7 +14,7 @@ import { useBoxOnlyProps } from '../../hooks/useBoxOnlyProps';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
 import type { Falsy } from '../../types/Falsy';
 import { useBoxTransform, BoxTransforms } from './BoxTransforms';
-import { useStylingProps } from './stylingProps';
+import { useStylingProps } from './useStylingProps';
 
 type Size = '1' | '2' | '4' | '8' | '12' | '16' | '20' | '24' | '32' | '40';
 
