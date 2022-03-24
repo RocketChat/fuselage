@@ -29,6 +29,11 @@ $message-background-color-focus: functions.theme(
   colors.neutral(100)
 );
 
+$message-background-color-selected: functions.theme(
+  'message-background-color-focus',
+  colors.foreground(success)
+);
+
 .rcx-message {
   @include mixins.container();
   position: relative;
@@ -46,6 +51,10 @@ $message-background-color-focus: functions.theme(
   &:hover,
   &:focus {
     background: $message-background-color-focus;
+  }
+
+  &--selected {
+    background: $message-background-color-selected;
   }
 
   &-header {
