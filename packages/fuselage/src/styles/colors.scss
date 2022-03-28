@@ -104,6 +104,7 @@ $-foreground-colors: (
   danger: map.get(token-colors.$colors, r500),
   warning: map.get(token-colors.$colors, y700),
   warning-alternative: map.get(token-colors.$colors, y500),
+  editing: map.get(token-colors.$colors, y100),
   link: map.get(token-colors.$colors, b500),
   visited-link: map.get(token-colors.$colors, p500),
   active-link: map.get(token-colors.$colors, r500),

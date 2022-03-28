@@ -9,11 +9,19 @@ type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   clickable?: true | false;
   sequential?: boolean;
   className?: string;
-  selected?: boolean;
+  isSelected?: boolean;
+  isEditing?: boolean;
 };
 
 export const Message = forwardRef(function Message(
-  { className, clickable, sequential, selected, ...props }: MessageProps,
+  {
+    className,
+    clickable,
+    sequential,
+    isSelected,
+    isEditing,
+    ...props
+  }: MessageProps,
   ref: Ref<HTMLDivElement>
 ) {
   return (
@@ -25,7 +33,8 @@ export const Message = forwardRef(function Message(
           'rcx-message',
           (clickable || props.onClick) && 'rcx-message--clickable',
           sequential && 'rcx-message--sequential',
-          selected && 'rcx-message--selected',
+          isSelected && 'rcx-message--selected',
+          isEditing && 'rcx-message--editing',
         ]
           .filter(Boolean)
           .join(' ')
