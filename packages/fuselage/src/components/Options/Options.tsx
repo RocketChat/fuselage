@@ -13,7 +13,7 @@ import React, {
   useRef,
 } from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import Scrollable from '../Scrollable';
 import Tile from '../Tile';
 import Option, { OptionHeader, OptionDivider } from './Option';

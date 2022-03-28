@@ -1,4 +1,4 @@
-import { Box } from '@rocket.chat/fuselage';
+import Box from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';

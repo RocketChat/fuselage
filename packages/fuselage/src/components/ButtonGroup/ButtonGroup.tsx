@@ -3,7 +3,7 @@ import React from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
-import { Box } from '../Box';
+import Box from '../Box';
 
 type ButtonGroupProps = Omit<ComponentProps<typeof Box>, 'wrap'> & {
   align?: 'start' | 'center' | 'end';

@@ -1,4 +1,4 @@
-import type { Box } from '@rocket.chat/fuselage';
+import type Box from '@rocket.chat/fuselage';
 import type * as UiKit from '@rocket.chat/ui-kit';
 import type { ComponentProps, ReactElement } from 'react';
 

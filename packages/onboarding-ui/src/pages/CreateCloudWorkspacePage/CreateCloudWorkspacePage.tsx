@@ -1,5 +1,5 @@
 import type { SelectOption } from '@rocket.chat/fuselage';
-import { Box } from '@rocket.chat/fuselage';
+import Box from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';

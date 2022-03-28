@@ -1,4 +1,4 @@
-import { Box } from '@rocket.chat/fuselage';
+import Box from '@rocket.chat/fuselage';
 import type { ReactElement, FC } from 'react';
 
 const FormTitle: FC = ({ children }): ReactElement => (

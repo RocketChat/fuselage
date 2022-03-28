@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import React, { forwardRef } from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 
 const getWidth = (percentage: number): string =>
   `${Math.min(Math.max(0, percentage), 100).toFixed(1)}%`;

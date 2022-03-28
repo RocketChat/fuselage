@@ -1,4 +1,4 @@
-import { Box } from '@rocket.chat/fuselage';
+import Box from '@rocket.chat/fuselage';
 import type * as UiKit from '@rocket.chat/ui-kit';
 import { BlockContext, ElementType } from '@rocket.chat/ui-kit';
 import type { FC } from 'react';
