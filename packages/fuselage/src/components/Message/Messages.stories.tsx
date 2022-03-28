@@ -302,7 +302,7 @@ export const MessageWithThread = () => (
   </Box>
 );
 
-export const Selected = () => (
+export const MessageSelected = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -395,7 +395,7 @@ export const Selected = () => (
   </Box>
 );
 
-export const Editing = () => (
+export const MessageEditing = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
