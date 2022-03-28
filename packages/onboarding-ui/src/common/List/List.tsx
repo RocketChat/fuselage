@@ -1,4 +1,4 @@
-import type Box from '@rocket.chat/fuselage';
+import type { Box } from '@rocket.chat/fuselage';
 import { Margins } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type {

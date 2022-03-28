@@ -1,4 +1,4 @@
-import Box from '@rocket.chat/fuselage';
+import { Box } from '@rocket.chat/fuselage';
 import { TaggedRocketChatLogo, RocketChatLogo } from '@rocket.chat/logo';
 import type { ReactElement } from 'react';
 

@@ -1,4 +1,4 @@
-import Box from '@rocket.chat/fuselage';
+import { Box } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement, FC } from 'react';
 
