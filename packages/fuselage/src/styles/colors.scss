@@ -101,6 +101,7 @@ $-foreground-colors: (
   alternative: white,
   primary: map.get(token-colors.$colors, b500),
   success: map.get(token-colors.$colors, g500),
+  success-light: map.get(token-colors.$colors, g200),
   danger: map.get(token-colors.$colors, r500),
   warning: map.get(token-colors.$colors, y700),
   warning-alternative: map.get(token-colors.$colors, y500),
