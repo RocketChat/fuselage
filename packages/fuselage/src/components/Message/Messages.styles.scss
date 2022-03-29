@@ -75,6 +75,10 @@ $message-background-color-highlight: functions.theme(
     background: $message-background-color-highlight !important;
   }
 
+  &--clickable {
+    cursor: pointer;
+  }
+
   &-header {
     @extend %rcx-margins-block;
     display: flex;
