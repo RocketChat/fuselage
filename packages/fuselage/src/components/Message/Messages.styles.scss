@@ -36,7 +36,12 @@ $message-background-color-selected: functions.theme(
 
 $message-background-color-editing: functions.theme(
   'message-background-color-editing',
-  colors.foreground(editing)
+  colors.foreground(highlight)
+);
+
+$message-background-color-highlight: functions.theme(
+  'message-background-color-highlight',
+  colors.foreground(highlight)
 );
 
 .rcx-message {
@@ -64,6 +69,10 @@ $message-background-color-editing: functions.theme(
 
   &--editing {
     background: $message-background-color-editing !important;
+  }
+
+  &--highlight {
+    background: $message-background-color-highlight !important;
   }
 
   &-header {
