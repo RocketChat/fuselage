@@ -11,7 +11,8 @@ import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/O
 
 type OrganizationInfoPageProps = {
   title?: ReactNode;
-  description?: string;
+  subtitle?: ReactNode;
+  description?: ReactNode;
   currentStep: number;
   stepCount: number;
   organizationTypeOptions: SelectOption[];
@@ -27,6 +28,7 @@ type OrganizationInfoPageProps = {
 
 const OrganizationInfoPage = ({
   title,
+  subtitle,
   description,
   ...props
 }: OrganizationInfoPageProps): ReactElement => {
@@ -45,7 +47,7 @@ const OrganizationInfoPage = ({
         styleProps={pageLayoutStyleProps}
         title={title || t('page.organizationInfoPage.title')}
         description={description}
-        subtitle={t('page.organizationInfoPage.subtitle')}
+        subtitle={subtitle || t('page.organizationInfoPage.subtitle')}
       >
         <OrganizationInfoForm {...props} />
       </FormPageLayout>
