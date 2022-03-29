@@ -72,7 +72,17 @@ $message-background-color-highlight: functions.theme(
   }
 
   &--highlight {
-    background: $message-background-color-highlight !important;
+    animation: background-fade 6s forwards;
+  }
+
+  @keyframes background-fade {
+    50% {
+      background: $message-background-color-highlight;
+    }
+
+    100% {
+      background: $message-background-color;
+    }
   }
 
   &--clickable {

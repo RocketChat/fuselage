@@ -11,7 +11,7 @@ type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   className?: string;
   isSelected?: boolean;
   isEditing?: boolean;
-  isHighlighted?: boolean;
+  highlight?: boolean;
 };
 
 export const Message = forwardRef(function Message(
@@ -21,7 +21,7 @@ export const Message = forwardRef(function Message(
     sequential,
     isSelected,
     isEditing,
-    isHighlighted,
+    highlight,
     ...props
   }: MessageProps,
   ref: Ref<HTMLDivElement>
@@ -37,7 +37,7 @@ export const Message = forwardRef(function Message(
           sequential && 'rcx-message--sequential',
           isSelected && 'rcx-message--selected',
           isEditing && 'rcx-message--editing',
-          isHighlighted && 'rcx-message--highlight',
+          highlight && 'rcx-message--highlight',
         ]
           .filter(Boolean)
           .join(' ')
