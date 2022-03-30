@@ -145,6 +145,7 @@ const CreateCloudWorkspaceForm = ({
                 <Controller
                   name='serverRegion'
                   control={control}
+                  rules={{ required: true }}
                   render={({ field }) => (
                     <Select
                       {...field}
@@ -173,6 +174,7 @@ const CreateCloudWorkspaceForm = ({
                 <Controller
                   name='language'
                   control={control}
+                  rules={{ required: true }}
                   render={({ field }) => (
                     <Select
                       {...field}
