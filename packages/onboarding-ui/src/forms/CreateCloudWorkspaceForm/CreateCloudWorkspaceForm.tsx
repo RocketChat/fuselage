@@ -5,9 +5,11 @@ import {
   ButtonGroup,
   Button,
   Box,
+  EmailInput,
   TextInput,
   Select,
   CheckBox,
+  Grid,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
@@ -19,20 +21,19 @@ import Tooltip from '../../common/InformationTooltipTrigger';
 import WorkspaceUrlInput from './WorkspaceUrlInput';
 
 type CreateCloudWorkspaceFormPayload = {
-  organizationName: string;
   organizationEmail: string;
   workspaceName: string;
   workspaceURL: string;
   serverRegion: string;
+  language: string;
   agreement: boolean;
   updates: boolean;
 };
 
 type CreateCloudWorkspaceFormProps = {
-  currentStep: number;
-  stepCount: number;
   onSubmit: SubmitHandler<CreateCloudWorkspaceFormPayload>;
   serverRegionOptions: SelectOption[];
+  languageOptions: SelectOption[];
   domain: string;
   onBackButtonClick: () => void;
   validateUrl: (url: string) => Promise<boolean>;
@@ -42,9 +43,8 @@ type CreateCloudWorkspaceFormProps = {
 const CreateCloudWorkspaceForm = ({
   onSubmit,
   domain,
-  currentStep,
-  stepCount,
   serverRegionOptions,
+  languageOptions,
   validateUrl,
   validateEmail,
 }: CreateCloudWorkspaceFormProps): ReactElement => {
@@ -54,41 +54,25 @@ const CreateCloudWorkspaceForm = ({
     register,
     control,
     handleSubmit,
-    formState: { isDirty, isValidating, isSubmitting, errors },
-  } = useForm<CreateCloudWorkspaceFormPayload, object>();
+    formState: { isValid, isValidating, isSubmitting, errors },
+  } = useForm<CreateCloudWorkspaceFormPayload>({ mode: 'onChange' });
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Steps currentStep={currentStep} stepCount={stepCount} />
       <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
+
       <FieldGroup mbs='x16'>
-        <Field>
-          <Field.Label>
-            {t('form.createCloudWorkspace.fields.orgName')}
-          </Field.Label>
-          <Field.Row>
-            <TextInput
-              {...register('organizationName', { required: true })}
-              placeholder={t('form.createCloudWorkspace.fields.orgName')}
-            />
-          </Field.Row>
-          {errors.organizationName && (
-            <Field.Error>{t('component.form.requiredField')}</Field.Error>
-          )}
-        </Field>
         <Field>
           <Field.Label>
             {t('form.createCloudWorkspace.fields.orgEmail.label')}
           </Field.Label>
           <Field.Row>
-            <TextInput
+            <EmailInput
+              error={errors?.organizationEmail?.type || undefined}
               {...register('organizationEmail', {
                 required: true,
                 validate: validateEmail,
               })}
-              placeholder={t(
-                'form.createCloudWorkspace.fields.orgEmail.placeholder'
-              )}
             />
           </Field.Row>
           {errors.organizationEmail?.type === 'required' && (
@@ -100,35 +84,29 @@ const CreateCloudWorkspaceForm = ({
             </Field.Error>
           )}
         </Field>
+
         <Field>
           <Field.Label>
             <Box display='inline' mie='x8'>
               {t('form.createCloudWorkspace.fields.workspaceName.label')}
             </Box>
-            <Tooltip
-              text={t('form.createCloudWorkspace.fields.workspaceName.tooltip')}
-            />
           </Field.Label>
           <Field.Row>
             <TextInput
+              error={errors?.workspaceName?.type || undefined}
               {...register('workspaceName', { required: true })}
-              placeholder={t(
-                'form.createCloudWorkspace.fields.workspaceName.label'
-              )}
             />
           </Field.Row>
           {errors.workspaceName && (
             <Field.Error>{t('component.form.requiredField')}</Field.Error>
           )}
         </Field>
+
         <Field>
           <Field.Label>
             <Box display='inline' mie='x8'>
               {t('form.createCloudWorkspace.fields.workspaceUrl.label')}
             </Box>
-            <Tooltip
-              text={t('form.createCloudWorkspace.fields.workspaceUrl.tooltip')}
-            />
           </Field.Label>
           <Field.Row>
             <WorkspaceUrlInput
@@ -137,9 +115,6 @@ const CreateCloudWorkspaceForm = ({
                 required: true,
                 validate: validateUrl,
               })}
-              placeholder={t(
-                'form.createCloudWorkspace.fields.workspaceUrl.placeholder'
-              )}
             />
           </Field.Row>
           {errors.workspaceURL?.type === 'required' && (
@@ -151,31 +126,67 @@ const CreateCloudWorkspaceForm = ({
             </Field.Error>
           )}
         </Field>
-        <Field>
-          <Field.Label>
-            <Box display='inline' mie='x8'>
-              {t('form.createCloudWorkspace.fields.serverRegion.label')}
-            </Box>
-            <Tooltip
-              text={t('form.createCloudWorkspace.fields.serverRegion.tooltip')}
-            />
-          </Field.Label>
-          <Field.Row>
-            <Controller
-              name='serverRegion'
-              control={control}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={serverRegionOptions}
-                  placeholder={t(
-                    'form.createCloudWorkspace.fields.serverRegion.label'
+
+        <Grid mb='x16'>
+          <Grid.Item>
+            <Field>
+              <Field.Label>
+                <Box display='inline' mie='x8'>
+                  {t('form.createCloudWorkspace.fields.serverRegion.label')}
+                </Box>
+                <Tooltip
+                  text={t(
+                    'form.createCloudWorkspace.fields.serverRegion.tooltip'
                   )}
                 />
-              )}
-            />
-          </Field.Row>
-        </Field>
+              </Field.Label>
+              <Field.Row>
+                <Controller
+                  name='serverRegion'
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      options={serverRegionOptions}
+                      placeholder={t(
+                        'form.createCloudWorkspace.fields.serverRegion.label'
+                      )}
+                    />
+                  )}
+                />
+              </Field.Row>
+            </Field>
+          </Grid.Item>
+
+          <Grid.Item>
+            <Field>
+              <Field.Label>
+                <Box display='inline' mie='x8'>
+                  {t('form.createCloudWorkspace.fields.language.label')}
+                </Box>
+                <Tooltip
+                  text={t('form.createCloudWorkspace.fields.language.tooltip')}
+                />
+              </Field.Label>
+              <Field.Row>
+                <Controller
+                  name='language'
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      options={languageOptions}
+                      placeholder={t(
+                        'form.createCloudWorkspace.fields.language.label'
+                      )}
+                    />
+                  )}
+                />
+              </Field.Row>
+            </Field>
+          </Grid.Item>
+        </Grid>
+
         <Field>
           <Field.Row justifyContent='flex-start'>
             <CheckBox {...register('agreement', { required: true })} mie='x8' />
@@ -204,21 +215,23 @@ const CreateCloudWorkspaceForm = ({
             <Field.Error>{t('component.form.requiredField')}</Field.Error>
           )}
         </Field>
+
         <Field>
           <Field.Row justifyContent='flex-start'>
             <CheckBox {...register('updates')} mie='x8' />
             <Box fontScale='c1'>
-              {t('form.createCloudWorkspace.fields.keepMePosted')}
+              {t('form.createCloudWorkspace.fields.keepMeInformed')}
             </Box>
           </Field.Row>
         </Field>
       </FieldGroup>
+
       <Form.Footer>
         <ButtonGroup>
           <Button
             type='submit'
             primary
-            disabled={!isDirty || isValidating || isSubmitting}
+            disabled={isValidating || isSubmitting || !isValid}
           >
             {t('component.form.action.next')}
           </Button>

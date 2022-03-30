@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import Scrollable from '../Scrollable';
 
 export type ModalContentProps = ComponentProps<typeof Box> & {

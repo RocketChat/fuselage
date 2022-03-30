@@ -7,7 +7,7 @@ import React, { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import AnimatedVisibility from '../AnimatedVisibility';
-import { Box } from '../Box';
+import Box from '../Box';
 import { CheckBox } from '../CheckBox';
 import Option from '../Options/Option';
 import Tile from '../Tile';

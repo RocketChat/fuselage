@@ -102,6 +102,24 @@
       "title": "Something went wrong",
       "subtitle": "Please, contact support.",
       "requestId": "Request ID: {{requestId}}"
+    },
+    "createCloudWorkspace": {
+      "title": "Launch new workspace and <1>30-day trial</1>",
+      "tryGold": "Try Rocket.Chat Gold Edition for 30 days. No credit card required.",
+      "auditing": "Message audit panel / Audit logs",
+      "numberOfIntegrations": "Apps and integrations",
+      "ldap": "LDAP enhanced sync",
+      "omnichannel": "Enhanced Omnichannel",
+      "sla": "SLA: Premium",
+      "push": "Unlimited push notifications",
+      "engagement": "Engagement Dashboard"
+    },
+    "createFirstMember": {
+      "title": "Create first <1>workspace member</1>"
+    },
+    "redirect": {
+      "subtitle": "Redirecting in {{seconds}} seconds",
+      "redirectNotWorking": "Redirect not working? <1>Open workspace</1>"
     }
   },
   "form": {
@@ -181,29 +199,29 @@
       "manuallyIntegrate": "Need to manually integrate with external services"
     },
     "createCloudWorkspace": {
-      "title": "Create Cloud Workspace",
+      "title": "New Cloud Workspace",
       "fields": {
-        "orgName": "Organization name",
         "orgEmail": {
           "label": "Organization email",
-          "placeholder": "Email",
-          "invalid": "Invalid email"
+          "invalid": "Organization email required"
         },
         "workspaceName": {
-          "label": "Workspace name",
-          "tooltip": "How should be a good Workspace name"
+          "label": "Workspace name"
         },
         "workspaceUrl": {
           "label": "Workspace URL",
-          "placeholder": "workspaceurl",
-          "tooltip": "URL of your Workspace",
+          "placeholder": "https://",
           "exists": "Workspace already exists"
         },
         "serverRegion": {
           "label": "Server region",
           "tooltip": "Where is your server located"
         },
-        "keepMePosted": "Keep me posted about Rocket.Chat updates"
+        "language": {
+          "label": "Language",
+          "tooltip": "The language used on your workspace's interface"
+        },
+        "keepMeInformed": "Keep me informed about news and events"
       }
     },
     "requestTrialForm": {
@@ -329,6 +347,21 @@
       },
       "buttonTotpCode": {
         "text": "Use TOTP code."
+      }
+    },
+    "createFirstMemberForm": {
+      "title": "New admin account",
+      "subtitle": "This will be your admin user for {{workspaceName}}.",
+      "fields": {
+        "username": {
+          "label": "Username"
+        },
+        "password": {
+          "label": "Password"
+        }
+      },
+      "button": {
+        "submit": "Launch workspace"
       }
     }
   }

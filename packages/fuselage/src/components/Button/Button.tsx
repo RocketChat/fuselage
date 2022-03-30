@@ -1,7 +1,7 @@
 import type { ComponentProps, Ref } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 
 export type ButtonProps = ComponentProps<typeof Box> & {
   info?: boolean;

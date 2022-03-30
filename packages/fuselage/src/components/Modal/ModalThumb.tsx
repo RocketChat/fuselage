@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react';
 import React from 'react';
 
 import { Avatar } from '../Avatar';
-import { Box } from '../Box';
+import Box from '../Box';
 
 export type ModalThumbProps = ComponentProps<typeof Avatar>;
 

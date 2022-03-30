@@ -1,7 +1,7 @@
 import type { ComponentProps, Dispatch, SetStateAction } from 'react';
 import React, { useMemo } from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import { Chevron } from '../Chevron';
 
 type ItemsPerPage = 25 | 50 | 100;
