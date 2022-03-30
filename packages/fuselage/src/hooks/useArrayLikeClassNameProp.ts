@@ -2,17 +2,18 @@ import type { cssFn } from '@rocket.chat/css-in-js';
 import { css } from '@rocket.chat/css-in-js';
 
 import { appendClassName } from '../helpers/appendClassName';
+import type { Falsy } from '../types/Falsy';
 import { useStyle } from './useStyle';
 
 export const useArrayLikeClassNameProp = <
   T extends {
-    className?: string | cssFn | (string | cssFn)[];
+    className?: string | cssFn | (string | cssFn | Falsy)[];
   }
 >(
   props: T
 ): T & { className: string } => {
   const classNames = props.className
-    ? ([] as (string | cssFn)[]).concat(props.className)
+    ? ([] as (string | cssFn | Falsy)[]).concat(props.className)
     : [];
 
   const cssFns = classNames.filter(

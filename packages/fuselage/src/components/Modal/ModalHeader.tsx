@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import Margins from '../Margins';
 
 export type ModalHeaderProps = ComponentProps<typeof Box>;

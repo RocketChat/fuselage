@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import type { Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
+import type Box from '../Box';
 
 type TagProps = ComponentProps<typeof Box> & {
   small?: boolean;
