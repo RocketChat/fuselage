@@ -35,7 +35,7 @@ type CreateCloudWorkspaceFormProps = {
   serverRegionOptions: SelectOption[];
   languageOptions: SelectOption[];
   domain: string;
-  onBackButtonClick: () => void;
+  onBackButtonClick?: () => void;
   validateUrl: (url: string) => Promise<boolean>;
   validateEmail: (url: string) => Promise<boolean>;
 };
@@ -45,6 +45,7 @@ const CreateCloudWorkspaceForm = ({
   domain,
   serverRegionOptions,
   languageOptions,
+  onBackButtonClick,
   validateUrl,
   validateEmail,
 }: CreateCloudWorkspaceFormProps): ReactElement => {
@@ -228,6 +229,12 @@ const CreateCloudWorkspaceForm = ({
 
       <Form.Footer>
         <ButtonGroup>
+          {onBackButtonClick && (
+            <Button disabled={isSubmitting} onClick={onBackButtonClick}>
+              {t('component.form.action.back')}
+            </Button>
+          )}
+
           <Button
             type='submit'
             primary

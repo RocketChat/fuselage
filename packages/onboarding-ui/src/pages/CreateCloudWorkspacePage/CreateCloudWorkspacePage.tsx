@@ -23,7 +23,7 @@ type CreateCloudWorkspacePageProps = {
   domain: string;
   serverRegionOptions: SelectOption[];
   languageOptions: SelectOption[];
-  onBackButtonClick: () => void;
+  onBackButtonClick?: () => void;
   validateUrl: (url: string) => Promise<boolean>;
   validateEmail: (url: string) => Promise<boolean>;
 };
