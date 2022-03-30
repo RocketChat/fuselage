@@ -6,7 +6,7 @@ import './Messages.styles.scss';
 import { prependClassName } from '../../helpers/prependClassName';
 
 type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
-  clickable?: true | false;
+  clickable?: boolean;
   sequential?: boolean;
   className?: string;
   isSelected?: boolean;
