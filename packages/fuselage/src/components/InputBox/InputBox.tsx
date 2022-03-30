@@ -10,7 +10,7 @@ import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
 import type { InputBoxSkeleton } from '.';
 import { Input, Wrapper } from '.';
-import type { Box } from '../Box';
+import type Box from '../Box';
 import { Addon } from './Addon';
 import type { Option } from './Option';
 import type { Placeholder } from './Placeholder';

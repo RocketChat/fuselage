@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { Box } from '..';
+import Box from '../Box';
 import SidebarItem from './Item';
 import SidebarSection from './Section';
 import SidebarTopBar from './TopBar';

@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactElement } from 'react';
 import React, { useMemo } from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import { Icon } from '../Icon';
 
 type ChevronProps = Omit<ComponentProps<typeof Box>, 'size'> & {
