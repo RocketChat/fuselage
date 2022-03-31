@@ -4,7 +4,7 @@ import type { ComponentProps, Ref, ElementType } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { SelectOption } from '../../types/SelectOption';
-import type { Box } from '../Box';
+import type Box from '../Box';
 import SelectAddon from './SelectAddon';
 import SelectAnchor from './SelectAnchor';
 import SelectContainer from './SelectContainer';

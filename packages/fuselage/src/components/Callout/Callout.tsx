@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from 'react';
 import React from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import { Icon } from '../Icon';
 
 type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {

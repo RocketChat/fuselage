@@ -7,7 +7,7 @@ import {
 } from '@rocket.chat/css-in-js';
 import { useDebugValue, useLayoutEffect, useMemo } from 'react';
 
-export const useStyle = (cssFn: cssFn, arg: unknown) => {
+export const useStyle = (cssFn: cssFn | undefined, arg: unknown) => {
   const content = useMemo(() => (cssFn ? cssFn(arg) : undefined), [arg, cssFn]);
 
   const className = useMemo(() => {

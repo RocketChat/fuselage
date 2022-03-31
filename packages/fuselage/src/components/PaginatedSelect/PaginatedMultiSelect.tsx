@@ -7,7 +7,7 @@ import type { SyntheticEvent, ComponentProps, Ref } from 'react';
 import React, { useState, useRef, useCallback, forwardRef, memo } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
-import { Box } from '../Box';
+import Box from '../Box';
 import Chip from '../Chip';
 import Flex from '../Flex';
 import { Icon } from '../Icon';

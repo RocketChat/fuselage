@@ -2,7 +2,7 @@ import type { Keys } from '@rocket.chat/icons';
 import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import { Icon } from '../Icon';
 
 type SelectAddonProps = {

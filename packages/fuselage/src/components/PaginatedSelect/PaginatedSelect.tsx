@@ -8,7 +8,7 @@ import type { SyntheticEvent, ElementType, ComponentProps } from 'react';
 import React, { useState, useRef, useMemo, useEffect } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
-import { Box } from '../Box';
+import Box from '../Box';
 import { Icon } from '../Icon';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
@@ -41,7 +41,7 @@ export type PaginatedSelectProps = Omit<
   anchor?: ElementType;
   options: PaginatedOptionType[];
   withTitle?: boolean;
-  endReached: (index: number) => void;
+  endReached?: (index: number) => void;
   setFilter?: (value: string | undefined | number) => void;
 };
 

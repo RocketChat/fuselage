@@ -5,7 +5,7 @@ import {
 import React, { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
-import { Box } from '../Box';
+import Box from '../Box';
 import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';

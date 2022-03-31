@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import type { OptionType } from '../../types/OptionType';
-import { Box } from '../Box';
+import Box from '../Box';
 import Scrollable from '../Scrollable';
 import Tile from '../Tile';
 import Option, { OptionHeader, OptionDivider } from './Option';

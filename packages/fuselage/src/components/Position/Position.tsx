@@ -9,7 +9,7 @@ import type {
 import { useRef, useMemo, useEffect, cloneElement } from 'react';
 import { createPortal } from 'react-dom';
 
-import type { Box } from '../Box';
+import type Box from '../Box';
 
 type PositionProps = {
   anchor: RefObject<Element>;

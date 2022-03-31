@@ -1,7 +1,7 @@
 import type { ComponentProps, Ref } from 'react';
 import React, { useMemo, forwardRef } from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 
 type SelectContainerProps = Omit<
   ComponentProps<typeof Box>,

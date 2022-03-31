@@ -6,7 +6,7 @@ import type {
 } from 'react';
 import React, { forwardRef } from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 
 type SelectAnchorProps = {
   disabled: boolean;

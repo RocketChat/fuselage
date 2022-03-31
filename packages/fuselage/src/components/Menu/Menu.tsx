@@ -2,9 +2,9 @@ import type { Placements } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps, ElementType, ReactNode } from 'react';
 import React, { useRef, useCallback } from 'react';
 
-import type { Box } from '..';
 import { ActionButton, PositionAnimated, Options, useCursor } from '..';
 import type { OptionType } from '../../types/OptionType';
+import type Box from '../Box';
 
 type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   options: {

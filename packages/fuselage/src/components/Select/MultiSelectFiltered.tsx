@@ -9,7 +9,7 @@ import React from 'react';
 
 import { localeIncludes } from '../../helpers/localeIncludes';
 import type { SelectOption } from '../../types/SelectOption';
-import type { Box } from '../Box';
+import type Box from '../Box';
 import { CheckOption } from '../Options';
 import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor';
 import MultiSelectValue from './MultiSelectValue';
