@@ -29,6 +29,21 @@ $message-background-color-focus: functions.theme(
   colors.neutral(100)
 );
 
+$message-background-color-selected: functions.theme(
+  'message-background-color-selected',
+  colors.foreground(success-light)
+);
+
+$message-background-color-editing: functions.theme(
+  'message-background-color-editing',
+  colors.foreground(highlight)
+);
+
+$message-background-color-highlight: functions.theme(
+  'message-background-color-highlight',
+  colors.foreground(highlight)
+);
+
 .rcx-message {
   @include mixins.container();
   position: relative;
@@ -46,6 +61,32 @@ $message-background-color-focus: functions.theme(
   &:hover,
   &:focus {
     background: $message-background-color-focus;
+  }
+
+  &--selected {
+    background: $message-background-color-selected !important;
+  }
+
+  &--editing {
+    background: $message-background-color-editing !important;
+  }
+
+  &--highlight {
+    animation: background-fade 6s forwards;
+  }
+
+  @keyframes background-fade {
+    50% {
+      background: $message-background-color-highlight;
+    }
+
+    100% {
+      background: $message-background-color;
+    }
+  }
+
+  &--clickable {
+    cursor: pointer;
   }
 
   &-header {
