@@ -15,7 +15,7 @@ import React, { useState, useRef, useEffect, forwardRef } from 'react';
 import type { SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';
-import { Box } from '../Box';
+import Box from '../Box';
 import Flex from '../Flex';
 import { Icon } from '../Icon';
 import Margins from '../Margins';

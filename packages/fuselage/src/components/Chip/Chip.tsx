@@ -7,7 +7,7 @@ import { Icon } from '../Icon';
 import Margins from '../Margins';
 
 type ChipProps = Omit<HTMLAttributes<HTMLButtonElement>, 'type'> & {
-  thumbUrl: string;
+  thumbUrl?: string;
   renderThumb?: (props: { url: string }) => React.ReactNode;
   renderDismissSymbol?: () => React.ReactNode;
 };
