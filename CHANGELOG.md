@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.8](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.7...v0.31.8) (2022-03-31)
+
+### Bug Fixes
+
+- **fuselage:** Correct `withBoxStyling` return type ([#677](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/677)) ([6f31ff3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6f31ff3e336d875409e8200a1d56776ecbfea518))
+
 ### [0.31.7](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.6...v0.31.7) (2022-03-31)
 
 ### Features
