@@ -8,8 +8,8 @@ type MessageSystemProps = {
   title?: string;
 };
 
-export const MessageSystem = (props: MessageSystemProps) => (
-  <div className='rcx-box rcx-box--full rcx-message-system'>
-    {props.children}
+export const MessageSystem = ({ children, title }: MessageSystemProps) => (
+  <div className='rcx-box rcx-box--full rcx-message-system' title={title}>
+    {children}
   </div>
 );
