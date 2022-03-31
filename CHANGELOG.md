@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.7](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.6...v0.31.7) (2022-03-31)
+
+### Features
+
+- add totp form ([#658](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/658)) ([50234f4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/50234f4560ab8a6e690c50fd0e779b500c1c2b41)), closes [#659](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/659) [#661](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/661)
+- **fuselage:** `Box` rewritten in TypeScript ([#670](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/670)) ([acc8c85](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/acc8c85a72a4a5b76d49fb211ce1d06beb62ce4a))
+- **onboarding-ui:** add CreateFirstWorkspacePage ([#668](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/668)) ([224ea82](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/224ea82eff95dd2aa3f0d642a005bccb8b075469))
+- **onboarding-ui:** add optional description to InformationPage ([#674](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/674)) ([9d3c56c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9d3c56cd512d674ce23544a3ce7c353f63f33e3c))
+- **onboarding-ui:** add optional subtitle prop to OrganizationInfoPage ([#673](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/673)) ([ce87027](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ce870276d86ebe7cdffd6682a40f6bf720fbd447))
+- **onboarding-ui:** allow title and subtitle editing ([#665](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/665)) ([fc7974e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/fc7974e91ba67ae62448e3e59148557583f29309))
+- **onboarding-ui:** Create Cloud Workspace Simplified Page ([#660](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/660)) ([e746cfb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e746cfb67ca4bd312f9ee482adb89594a3763142))
+- **onboarding-ui:** create LaunchingWorkspace page ([#666](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/666)) ([c53d685](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c53d6856b47a3f7d1775b4f63315912c26217034))
+- **onboarding-ui:** create redirect page ([#667](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/667)) ([be2c9bd](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/be2c9bd40cf980e7b4879c1cb4bda49a3a87c1cd))
+- **onboarding-ui:** create reusable InformationPage ([#663](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/663)) ([5285d76](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5285d761bf5af22df2630027dd5e4b45c975d125))
+
+### Bug Fixes
+
+- **onboarding-ui:** export missing pages ([#671](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/671)) ([40e18d8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/40e18d810804bb8ec7361d65a14cc2b67e39fd43))
+
 ### [0.31.6](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.5...v0.31.6) (2022-03-09)
 
 ### Bug Fixes
