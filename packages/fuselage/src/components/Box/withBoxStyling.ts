@@ -7,7 +7,7 @@ import { useStylingProps } from './useStylingProps';
 
 export const withBoxStyling = <TProps>(
   component: ComponentType<TProps>
-): ComponentType<TProps> => {
+): ComponentType<TProps & Partial<StylingProps>> => {
   const WithBoxStyling = (props: TProps & Partial<StylingProps>) => {
     useStyleSheet();
     const propsWithoutStylingProps = useStylingProps(props);
