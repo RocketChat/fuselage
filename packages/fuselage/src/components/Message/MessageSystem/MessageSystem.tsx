@@ -5,6 +5,7 @@ import './MessageSystem.styles.scss';
 
 type MessageSystemProps = {
   children?: ReactNode;
+  title: string;
 };
 
 export const MessageSystem = (props: MessageSystemProps) => (
