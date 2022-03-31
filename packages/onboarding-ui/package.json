@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/onboarding-ui",
-  "version": "0.31.6",
+  "version": "0.31.7",
   "description": "Set of components and functions for the onboarding experience on Rocket.Chat",
   "keywords": [
     "rocketchat"
@@ -36,7 +36,8 @@
     "test": "jest --runInBand",
     "docs": "typedoc",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "bump-next": "bump-next"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
@@ -54,6 +55,7 @@
     "@types/jest": "~27.4.0",
     "@types/react": "~17.0.39",
     "@types/react-dom": "^17.0.11",
+    "bump": "workspace:~",
     "countries-list": "^2.6.1",
     "eslint": "~8.8.0",
     "jest": "~27.5.1",

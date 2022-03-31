@@ -3,7 +3,7 @@ import nameToCharacterMapping from '@rocket.chat/icons';
 import type { ComponentProps, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 
 export type IconProps = Omit<ComponentProps<typeof Box>, 'name' | 'size'> & {
   name: Keys;

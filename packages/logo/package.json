@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/logo",
-  "version": "0.31.6",
+  "version": "0.31.7",
   "description": "Rocket.Chat logo package",
   "keywords": [
     "rocketchat",
@@ -39,7 +39,8 @@
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "bump-next": "bump-next"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
@@ -49,6 +50,7 @@
     "@types/react": "~17.0.39",
     "@types/react-dom": "^17.0.11",
     "build-logo": "workspace:~",
+    "bump": "workspace:~",
     "eslint": "~8.8.0",
     "jest": "~27.5.1",
     "lint-all": "workspace:~",

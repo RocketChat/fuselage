@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-hooks",
-  "version": "0.31.6",
+  "version": "0.31.7",
   "description": "React hooks for Fuselage, Rocket.Chat's design system and UI toolkit",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -38,7 +38,8 @@
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "bump-next": "bump-next"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
@@ -54,6 +55,7 @@
     "@types/react-dom": "^17.0.11",
     "@types/resize-observer-browser": "~0.1.7",
     "@types/use-subscription": "^1.0.0",
+    "bump": "workspace:~",
     "eslint": "~8.8.0",
     "jest": "~27.5.1",
     "lint-all": "workspace:~",

@@ -2,7 +2,7 @@ import { css } from '@rocket.chat/css-in-js';
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { Box } from '../..';
+import Box from '.';
 
 it('renders without crashing', () => {
   render(<Box />);

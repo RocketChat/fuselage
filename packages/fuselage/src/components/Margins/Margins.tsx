@@ -2,11 +2,11 @@ import { css } from '@rocket.chat/css-in-js';
 import type { ComponentProps, PropsWithChildren } from 'react';
 import React, { useCallback } from 'react';
 
-import type { Box } from '..';
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { useStyle } from '../../hooks/useStyle';
 import { margin } from '../../styleTokens';
+import type Box from '../Box';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
 type MarginsProps = PropsWithChildren<{

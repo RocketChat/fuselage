@@ -1,12 +1,12 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type InformationPageProps = {
   title: string;
-  description: string;
+  description?: ReactNode;
 };
 
 const InformationPage = ({
@@ -31,7 +31,7 @@ const InformationPage = ({
           {title}
         </Box>
 
-        <Box fontScale='p1'>{description}</Box>
+        {description && <Box fontScale='p1'>{description}</Box>}
       </Margins>
     </Box>
   </BackgroundLayer>

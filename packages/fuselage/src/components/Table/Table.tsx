@@ -1,7 +1,7 @@
 import type { ComponentProps, CSSProperties } from 'react';
 import React from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import { TableSelection } from './TableSelection';
 import { TableSelectionButton } from './TableSelectionButton';
 
