@@ -22,7 +22,7 @@ const buildBreakpoints = async () => {
 };
 
 const buildColors = async () => {
-  const entries = await readJson5('./src/colors.jsonc');
+  const entries = await readJson5('./src/colors.json');
 
   await Promise.all([
     toJson(entries).then(writeSource('./dist/colors.json')),
