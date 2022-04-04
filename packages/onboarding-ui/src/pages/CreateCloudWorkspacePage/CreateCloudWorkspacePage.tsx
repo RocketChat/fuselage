@@ -1,7 +1,5 @@
-import type { SelectOption } from '@rocket.chat/fuselage';
 import { Box } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
-import type { SubmitHandler } from 'react-hook-form';
+import type { ComponentProps, ReactElement } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
@@ -10,23 +8,9 @@ import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
 import Description from './Description';
 import TitleCreateCloudPage from './TitleCreateCloudPage';
 
-type CreateCloudWorkspacePageProps = {
-  onSubmit: SubmitHandler<{
-    organizationEmail: string;
-    workspaceName: string;
-    workspaceURL: string;
-    serverRegion: string;
-    language: string;
-    agreement: boolean;
-    updates: boolean;
-  }>;
-  domain: string;
-  serverRegionOptions: SelectOption[];
-  languageOptions: SelectOption[];
-  onBackButtonClick?: () => void;
-  validateUrl: (url: string) => Promise<boolean>;
-  validateEmail: (url: string) => Promise<boolean>;
-};
+type CreateCloudWorkspacePageProps = ComponentProps<
+  typeof CreateCloudWorkspaceForm
+>;
 
 const CreateCloudWorkspacePage = (
   props: CreateCloudWorkspacePageProps

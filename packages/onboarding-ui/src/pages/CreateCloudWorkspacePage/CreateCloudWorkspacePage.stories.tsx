@@ -22,7 +22,7 @@ export default {
       ['pt', 'Português'],
     ],
     domain: 'rocket.chat',
-    validateUrl: async (url) => url !== 'rocket',
+    validateUrl: async (url) => (url === 'rocket' ? 'invalid url' : true),
     validateEmail: async (email) =>
       email === 'rocket@rocket.chat' ? 'invalid email' : true,
   },
