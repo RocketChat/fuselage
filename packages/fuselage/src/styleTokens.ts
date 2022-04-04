@@ -1,6 +1,6 @@
 import { cssSupports } from '@rocket.chat/css-supports';
-import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
-import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
+import tokenColors from '@rocket.chat/fuselage-tokens/dist/colors.json';
+import tokenTypography from '@rocket.chat/fuselage-tokens/dist/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
 

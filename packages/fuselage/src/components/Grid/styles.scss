@@ -1,5 +1,5 @@
 @use 'sass:math';
-@use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
+@use '~@rocket.chat/fuselage-tokens/dist/breakpoints.scss';
 
 $breakpoint-names: map-keys(breakpoints.$breakpoints);
 

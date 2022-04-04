@@ -23,18 +23,15 @@
     "rocket.chat"
   ],
   "files": [
-    "/breakpoints.*",
-    "/colors.*",
-    "/typography.*"
+    "dist/breakpoints.*",
+    "dist/colors.*",
+    "dist/typography.*"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "build": "build-design-tokens",
-    "lint": "lint",
-    "lint-and-fix": "lint-and-fix",
-    "lint-staged": "lint-staged",
     "bump-next": "bump-next"
   },
   "devDependencies": {
