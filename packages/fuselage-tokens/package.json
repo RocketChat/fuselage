@@ -7,6 +7,9 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
