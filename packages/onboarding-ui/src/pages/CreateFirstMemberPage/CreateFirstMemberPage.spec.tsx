@@ -4,14 +4,16 @@ import CreateFirstMemberPage from './CreateFirstMemberPage';
 
 const onSubmit = jest.fn();
 const onBackButtonClick = jest.fn();
+const validateUsername = jest.fn();
 const validatePassword = jest.fn();
 
 const props = {
   currentStep: 1,
   stepCount: 1,
-  workspaceName: 'Kapai',
+  organizationName: 'Kapai',
   onSubmit,
   onBackButtonClick,
+  validateUsername,
   validatePassword,
 };
 
