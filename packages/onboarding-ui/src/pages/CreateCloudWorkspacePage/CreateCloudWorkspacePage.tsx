@@ -25,6 +25,7 @@ const CreateCloudWorkspacePage = (
         subtitle={t('page.createCloudWorkspace.tryGold')}
       >
         <CreateCloudWorkspaceForm {...props} />
+
         <Box mbs='x28' display='inline' textAlign='center'>
           <Trans i18nKey='page.alreadyHaveAccount'>
             Already have an account?
