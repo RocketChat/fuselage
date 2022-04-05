@@ -19,6 +19,8 @@ export default {
     workspaceName: 'Kapai',
     onSubmit: action('onSubmit'),
     onBackButtonClick: action('onBackButtonClick'),
+    validateUsername: async (username) =>
+      username === 'rocket' ? 'Invalid username' : true,
     validatePassword: async (password) =>
       password === '12345' ? 'Invalid password' : true,
   },
