@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-tokens",
-  "version": "0.29.0",
+  "version": "0.31.9",
   "description": "Design tokens for Fuselage, Rocket.Chat's design system",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -31,24 +31,29 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node scripts/build.js",
-    "lint": "run-s .:lint:eslint .:lint:prettier",
-    ".:lint:eslint": "eslint .",
-    ".:lint:prettier": "prettier --check '**/*.{json,scss}'",
-    "lint-fix": "run-s .:lint-fix:eslint .:lint-fix:prettier",
-    ".:lint-fix:eslint": "eslint --fix .",
-    ".:lint-fix:prettier": "prettier --write '**/*.{json,scss}'",
-    "lint-staged": "lint-staged"
+    "build": "build-design-tokens",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
+    "lint-staged": "lint-staged",
+    "bump-next": "bump-next"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.29.0",
-    "@rocket.chat/prettier-config": "^0.29.0",
-    "eslint": "^7.29.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-prettier": "^3.4.0",
-    "lint-staged": "^11.0.0",
+    "@rocket.chat/eslint-config-alt": "workspace:~",
+    "@rocket.chat/prettier-config": "workspace:~",
+    "build-design-tokens": "workspace:~",
+    "bump": "workspace:~",
+    "eslint": "~8.8.0",
+    "eslint-config-prettier": "~8.3.0",
+    "eslint-plugin-import": "~2.25.4",
+    "eslint-plugin-prettier": "~4.0.0",
+    "lint-all": "workspace:~",
+    "lint-staged": "~12.3.3",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2"
+    "postcss-scss": "~4.0.3",
+    "prettier": "~2.5.1",
+    "stylelint": "~14.5.0",
+    "stylelint-order": "~5.0.0",
+    "stylelint-prettier": "~2.0.0",
+    "stylelint-scss": "~4.1.0"
   }
 }

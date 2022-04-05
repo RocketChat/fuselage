@@ -1,4 +1,5 @@
-import { useEffect, RefObject, useRef } from 'react';
+import type { RefObject } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { useDebouncedState } from './useDebouncedState';
 import { useMutableCallback } from './useMutableCallback';
@@ -51,16 +52,24 @@ type VariantBoundaries = {
 };
 
 type PositionStyle = {
-  top?: string;
-  left?: string;
+  top: string;
+  left: string;
   position?: 'fixed';
-  zIndex?: '9999';
-  transition?: 'none !important';
-  opacity?: 0 | 1;
+  ZIndex: '9999';
+  transition: 'none !important';
+  bottom?: 0;
+  display: 'flex';
+};
+
+type PositionEmptyResult = {
+  visibility: 'hidden';
+  top: '-9999px';
+  left: '-9999px';
+  position: 'fixed';
 };
 
 type PositionResult = {
-  style?: PositionStyle;
+  style: PositionStyle | PositionEmptyResult;
   placement?: Placements;
 };
 
@@ -85,6 +94,15 @@ const fallbackOrder = {
   bottom: 'btrl',
   right: 'rltb',
   left: 'lrbt',
+} as const;
+
+const emptyStyle: PositionResult = {
+  style: {
+    position: 'fixed',
+    visibility: 'hidden',
+    top: '-9999px',
+    left: '-9999px',
+  },
 };
 
 const getParents = function (element: Element): Array<Element | Window> {
@@ -136,15 +154,17 @@ export const getPositionStyle = ({
   targetBoundaries,
   variantStore,
   target,
+  margin = 0,
 }: {
   placement: Placements;
   target: DOMRect;
   container: DOMRect;
   targetBoundaries: Boundaries;
   variantStore?: VariantBoundaries;
+  margin?: number;
 }): PositionResult => {
   if (!targetBoundaries) {
-    return {};
+    return emptyStyle;
   }
 
   const { top, left, bottom, right } = container;
@@ -197,11 +217,11 @@ export const getPositionStyle = ({
           opacity: 1,
         },
         placement: `${PlacementMap[placementAttempt]}-${PlacementMap[v]}`,
-      } as PositionResult;
+      } as unknown as PositionResult;
     }
   }
 
-  const placementAttempt = targetBoundaries[placementAttempts[0]];
+  const placementAttempt = placementAttempts[0];
 
   const directionVertical = ['t', 'b'].includes(placementAttempt);
 
@@ -214,8 +234,11 @@ export const getPositionStyle = ({
       top: `${point}px`,
       left: `${variantPoint}px`,
       position: 'fixed',
-      zIndex: '9999',
-      opacity: 1,
+      ...(bottom < target.height + point && {
+        bottom: margin,
+        display: 'flex',
+      }),
+      ZIndex: '9999',
     },
     placement: `${PlacementMap[placementAttempt]}-${
       PlacementMap[variantsAttempts[0]]
@@ -266,9 +289,9 @@ export const getVariantBoundaries = ({
  * @public
  */
 
-export const usePosition = (
-  reference: RefObject<Element>,
-  target: RefObject<Element>,
+export const usePosition = <T extends Element, R extends Element>(
+  reference: RefObject<R>,
+  target: RefObject<T>,
   options: PositionOptions
 ): PositionResult => {
   const {
@@ -279,7 +302,7 @@ export const usePosition = (
   } = options;
   const container = useRef(containerElement);
 
-  const [style, setStyle] = useDebouncedState({} as PositionResult, 10);
+  const [style, setStyle] = useDebouncedState<PositionResult>(emptyStyle, 10);
 
   const callback = useMutableCallback(() => {
     const boundaries = target.current.getBoundingClientRect();
@@ -299,6 +322,7 @@ export const usePosition = (
         targetBoundaries,
         variantStore,
         target: boundaries,
+        margin,
       })
     );
   });
@@ -306,6 +330,5 @@ export const usePosition = (
   useBoundingClientRect(target, watch, callback);
   useBoundingClientRect(reference, watch, callback);
   useBoundingClientRect(container, watch, callback);
-
   return style;
 };

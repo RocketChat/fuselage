@@ -35,13 +35,13 @@
   text-decoration: none;
 
   @include clickable;
-  @include typography.use-font-scale(p2);
+  @include typography.use-font-scale(p2m);
   @include typography.use-text-ellipsis;
 
   @include with-rectangular-size(
     $height: 40px,
     $padding-x: 16px,
-    $line-height: typography.line-height(p1)
+    $line-height: typography.line-height(p2)
   );
 
   @include button.kind-variant(colors.$secondary);

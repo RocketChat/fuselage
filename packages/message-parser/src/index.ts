@@ -1,4 +1,4 @@
-import { MarkdownAST } from './definitions';
+import type { MarkdownAST } from './definitions';
 import { parse } from './grammar.pegjs';
 
 export * from './definitions';

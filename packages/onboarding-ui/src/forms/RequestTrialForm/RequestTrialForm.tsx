@@ -1,15 +1,19 @@
+import type { SelectOption } from '@rocket.chat/fuselage';
 import {
   Button,
   Field,
+  Box,
+  CheckBox,
   FieldGroup,
   TextInput,
   EmailInput,
   Select,
-  SelectOptions,
+  SelectFiltered,
 } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useForm, SubmitHandler, Validate, Controller } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import type { SubmitHandler, Validate } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
+import { useTranslation, Trans } from 'react-i18next';
 
 import Form from '../../common/Form';
 
@@ -18,14 +22,19 @@ type RequestTrialPayload = {
   organizationName: string;
   organizationSize: string;
   country: string;
+  updates: boolean;
+  agreement: boolean;
 };
 
 type RequestTrialFormProps = {
   defaultValues?: RequestTrialPayload;
-  organizationSizeOptions: SelectOptions;
-  countryOptions: SelectOptions;
+  organizationSizeOptions: SelectOption[];
+  countryOptions: SelectOption[];
   onSubmit: SubmitHandler<RequestTrialPayload>;
+  onManageWorkspaceClick: () => void;
   validateEmail: Validate<string>;
+  termsHref?: string;
+  policyHref?: string;
 };
 
 const RequestTrialForm = ({
@@ -34,6 +43,8 @@ const RequestTrialForm = ({
   countryOptions,
   onSubmit,
   validateEmail,
+  termsHref = 'https://rocket.chat/terms',
+  policyHref = 'https://rocket.chat/privacy',
 }: RequestTrialFormProps): ReactElement => {
   const { t } = useTranslation();
 
@@ -116,9 +127,10 @@ const RequestTrialForm = ({
               control={control}
               rules={{ required: true }}
               render={({ field }) => (
-                <Select
+                <SelectFiltered
                   {...field}
                   options={countryOptions}
+                  width='full'
                   placeholder={t(
                     'form.requestTrialForm.fields.country.placeholder'
                   )}
@@ -128,6 +140,53 @@ const RequestTrialForm = ({
             />
           </Field.Row>
         </Field>
+        <Field>
+          <Box mbs='x24'>
+            <Box
+              mbe='x8'
+              display='flex'
+              flexDirection='row'
+              alignItems='flex-start'
+              fontScale='c1'
+              lineHeight={20}
+            >
+              <CheckBox mie='x8' {...register('updates')} />{' '}
+              <Box is='label' htmlFor='updates'>
+                {t('form.registeredServerForm.keepInformed')}
+              </Box>
+            </Box>
+            <Box
+              display='flex'
+              flexDirection='row'
+              alignItems='flex-start'
+              color='default'
+              fontScale='c1'
+              lineHeight={20}
+            >
+              <CheckBox
+                mie='x8'
+                {...register('agreement', { required: true })}
+              />{' '}
+              <Box is='label' htmlFor='agreement' withRichContent>
+                <Trans i18nKey='component.form.termsAndConditions'>
+                  I agree with
+                  <a href={termsHref} target='_blank' rel='noopener noreferrer'>
+                    Terms and Conditions
+                  </a>
+                  and
+                  <a
+                    href={policyHref}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Privacy Policy
+                  </a>
+                </Trans>
+              </Box>
+            </Box>
+          </Box>
+        </Field>
+
         <Field>
           <Field.Label>
             {t('form.requestTrialForm.hasWorkspace.label')}

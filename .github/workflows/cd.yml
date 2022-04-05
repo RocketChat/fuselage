@@ -10,13 +10,24 @@ jobs:
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     outputs:
       branch-name: ${{ steps.set-branch-name.outputs.branch-name }}
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "14.17.6"
       - uses: actions/checkout@v2
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache@v2
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.job }}
+          restore-keys: |
+            turbo-${{ runner.os }}-
       - uses: actions/cache@v2
         id: yarn-cache
         with:
@@ -26,11 +37,8 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - run: yarn run build
-      - run: yarn run lint
-      - run: yarn run test
+      - run: yarn run ci
       - run: yarn run docs
-      - run: yarn run build-storybook
       - uses: actions/upload-artifact@v2
         with:
           name: storybooks
@@ -61,7 +69,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "14.17.6"
           registry-url: "https://registry.npmjs.org"
           scope: "@rocket.chat"
       - uses: actions/checkout@v2
@@ -81,14 +89,17 @@ jobs:
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn resolve-workspace-deps
+        if: github.ref == 'refs/heads/master'
       - run: yarn lerna publish from-package --yes --no-verify-access
         if: github.ref == 'refs/heads/master'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: yarn lerna publish --no-verify-access --canary --preid dev --dist-tag next --yes
+      - run: yarn bump-next
+        if: github.ref == 'refs/heads/develop'
+      - run: yarn release-next
         if: github.ref == 'refs/heads/develop'
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-to-gh-pages:
     name: Publish to GitHub Pages

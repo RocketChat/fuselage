@@ -1,24 +1,36 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
-import { useDarkMode } from '../../common/DarkModeProvider';
 import EmailCodeFallback from '../../common/EmailCodeFallback';
-import RocketChatLogo from '../../common/RocketChatLogo';
+import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type CheckYourEmailPageProps = {
+  title?: string;
+  children?: ReactNode;
   onResendEmailRequest: () => void;
   onChangeEmailRequest: () => void;
 };
 
 const CheckYourEmailPage = ({
+  title,
+  children,
   onResendEmailRequest,
   onChangeEmailRequest,
 }: CheckYourEmailPageProps): ReactElement => {
-  const darkMode = useDarkMode();
   const { t } = useTranslation();
+
+  const defaultSubtitleComponent = (
+    <Trans i18nKey='page.checkYourEmail.subtitle'>
+      Your request has been sent successfully.
+      <br />
+      Check your email inbox to launch your Enterprise trial.
+    </Trans>
+  );
+
+  title = title || t('page.checkYourEmail.title');
+  children = children || defaultSubtitleComponent;
 
   return (
     <BackgroundLayer>
@@ -31,12 +43,9 @@ const CheckYourEmailPage = ({
         maxWidth={576}
         paddingBlock={32}
         paddingInline={16}
-        color={darkMode ? colors.white : colors.n900}
       >
         <Margins blockEnd={32}>
-          <Box width='100%' maxWidth={180}>
-            <RocketChatLogo />
-          </Box>
+          <OnboardingLogo />
 
           <Box
             fontWeight={800}
@@ -44,16 +53,10 @@ const CheckYourEmailPage = ({
             lineHeight='x62'
             fontFamily='sans'
           >
-            {t('page.checkYourEmail.title')}
+            {title}
           </Box>
 
-          <Box fontScale='s1'>
-            <Trans i18nKey='page.checkYourEmail.subtitle'>
-              Your request has been sent successfully.
-              <br />
-              Check your email inbox to launch your Enterprise trial.
-            </Trans>
-          </Box>
+          <Box fontScale='p1'>{children}</Box>
 
           <EmailCodeFallback
             onResendEmailRequest={onResendEmailRequest}

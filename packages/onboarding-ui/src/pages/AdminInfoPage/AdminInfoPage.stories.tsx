@@ -21,6 +21,7 @@ export default {
     currentStep: 1,
     stepCount: 1,
     passwordRulesHint: 'Password rules description goes here',
+    control: { type: 'inline-radio' },
   },
 } as Meta<Args>;
 
@@ -33,6 +34,7 @@ export const _CloudAdminInfoPage: Story<Args> = (args) => (
 );
 
 _AdminInfoPage.storyName = 'AdminInfoPage';
+
 _CloudAdminInfoPage.storyName = 'CloudAdminInfoPage';
 
 _CloudAdminInfoPage.args = {

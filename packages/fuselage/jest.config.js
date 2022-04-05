@@ -1,10 +1,7 @@
 module.exports = {
   preset: 'ts-jest/presets/js-with-babel',
   errorOnDeprecated: true,
-  testMatch: [
-    '<rootDir>/src/**/*.spec.{js,ts,tsx}',
-    '<rootDir>/src/**/spec.{js,ts,tsx}',
-  ],
+  testMatch: ['<rootDir>/src/**/*.spec.{ts,tsx}'],
   testEnvironment: 'jsdom',
   globals: {
     'ts-jest': {
@@ -16,7 +13,11 @@ module.exports = {
     },
   },
   moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>/.jest/styleMock.js',
+    '\\.scss$': 'testing-utils/lazySingletonStyleTagModule',
   },
-  setupFiles: ['<rootDir>/.jest/setup.js'],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    'testing-utils/setup/noErrorsLogged',
+    '<rootDir>/.jest/setup.ts',
+  ],
 };

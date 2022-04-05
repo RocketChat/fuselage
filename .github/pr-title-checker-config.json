@@ -1,0 +1,10 @@
+{
+  "LABEL": {
+    "name": "\u274c invalid-title",
+    "color": "B60205"
+  },
+  "CHECKS": {
+    "regexp": "^(?<type>chore|docs|feat|fix|refactor|revert|test)(?<scope>(?:\\([^()\r\n]*\\)|\\()?(?<breaking>!)?)(?<subject>:.*)?$",
+    "ignoreLabels": ["[ignore-title]"]
+  }
+}

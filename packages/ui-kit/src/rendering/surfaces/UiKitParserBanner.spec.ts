@@ -1,4 +1,5 @@
-import { uiKitBanner, UiKitParserBanner, PlainText } from '../..';
+import type { PlainText } from '../..';
+import { uiKitBanner, UiKitParserBanner } from '../..';
 import { BlockContext } from '../BlockContext';
 
 class TestParser extends UiKitParserBanner<unknown> {

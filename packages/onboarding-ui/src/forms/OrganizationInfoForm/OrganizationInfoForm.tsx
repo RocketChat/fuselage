@@ -1,3 +1,4 @@
+import type { SelectOption } from '@rocket.chat/fuselage';
 import {
   FieldGroup,
   Field,
@@ -5,12 +6,14 @@ import {
   Button,
   TextInput,
   Select,
-  SelectOptions,
+  SelectFiltered,
   Box,
 } from '@rocket.chat/fuselage';
-import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
+import { useBreakpoints, useUniqueId } from '@rocket.chat/fuselage-hooks';
 import type { ReactElement, ReactNode } from 'react';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+import { useEffect } from 'react';
+import type { SubmitHandler } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import Form from '../../common/Form';
@@ -26,14 +29,14 @@ export type OrganizationInfoPayload = {
 type OrganizationInfoFormProps = {
   currentStep: number;
   stepCount: number;
-  organizationTypeOptions: SelectOptions;
-  organizationIndustryOptions: SelectOptions;
-  organizationSizeOptions: SelectOptions;
-  countryOptions: SelectOptions;
-  confirmText?: ReactNode;
+  organizationTypeOptions: SelectOption[];
+  organizationIndustryOptions: SelectOption[];
+  organizationSizeOptions: SelectOption[];
+  countryOptions: SelectOption[];
+  nextStep?: ReactNode;
   initialValues?: OrganizationInfoPayload;
   onSubmit: SubmitHandler<OrganizationInfoPayload>;
-  onBackButtonClick: () => void;
+  onBackButtonClick?: () => void;
   onClickSkip?: () => void;
 };
 
@@ -44,7 +47,7 @@ const OrganizationInfoForm = ({
   organizationIndustryOptions,
   organizationSizeOptions,
   countryOptions,
-  confirmText,
+  nextStep,
   initialValues,
   onSubmit,
   onBackButtonClick,
@@ -54,14 +57,25 @@ const OrganizationInfoForm = ({
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
 
+  const organizationNameField = useUniqueId();
+  const organizationTypeField = useUniqueId();
+  const organizationIndustryField = useUniqueId();
+  const organizationSizeField = useUniqueId();
+  const countryField = useUniqueId();
+
   const {
     register,
     control,
     handleSubmit,
     formState: { isValidating, isSubmitting, errors },
+    setFocus,
   } = useForm<OrganizationInfoPayload>({
     defaultValues: initialValues,
   });
+
+  useEffect(() => {
+    setFocus('organizationName');
+  }, [setFocus]);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -71,7 +85,7 @@ const OrganizationInfoForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={organizationNameField}>
               {t('form.organizationInfoForm.fields.organizationName.label')}
             </Field.Label>
             <Field.Row>
@@ -80,6 +94,7 @@ const OrganizationInfoForm = ({
                 placeholder={t(
                   'form.organizationInfoForm.fields.organizationName.placeholder'
                 )}
+                id={organizationNameField}
               />
             </Field.Row>
             {errors.organizationName && (
@@ -87,7 +102,7 @@ const OrganizationInfoForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={organizationTypeField}>
               {t('form.organizationInfoForm.fields.organizationType.label')}
             </Field.Label>
             <Field.Row>
@@ -101,19 +116,21 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationType.placeholder'
                     )}
+                    id={organizationTypeField}
                   />
                 )}
               />
             </Field.Row>
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={organizationIndustryField}>
               {t('form.organizationInfoForm.fields.organizationIndustry.label')}
             </Field.Label>
             <Field.Row>
               <Controller
                 name='organizationIndustry'
                 control={control}
+                rules={{ required: true }}
                 render={({ field }) => (
                   <Select
                     {...field}
@@ -121,19 +138,24 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationIndustry.placeholder'
                     )}
+                    id={organizationIndustryField}
                   />
                 )}
               />
             </Field.Row>
+            {errors.organizationIndustry && (
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            )}
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={organizationSizeField}>
               {t('form.organizationInfoForm.fields.organizationSize.label')}
             </Field.Label>
             <Field.Row>
               <Controller
                 name='organizationSize'
                 control={control}
+                rules={{ required: true }}
                 render={({ field }) => (
                   <Select
                     {...field}
@@ -141,41 +163,52 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationSize.placeholder'
                     )}
+                    id={organizationSizeField}
                   />
                 )}
               />
             </Field.Row>
+            {errors.organizationSize && (
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            )}
           </Field>
           <Field>
-            <Field.Label>
+            <Field.Label htmlFor={countryField}>
               {t('form.organizationInfoForm.fields.country.label')}
             </Field.Label>
             <Field.Row>
               <Controller
                 name='country'
                 control={control}
+                rules={{ required: true }}
                 render={({ field }) => (
-                  <Select
+                  <SelectFiltered
                     {...field}
                     options={countryOptions}
                     placeholder={t(
                       'form.organizationInfoForm.fields.country.placeholder'
                     )}
+                    id={countryField}
                   />
                 )}
               />
             </Field.Row>
+            {errors.country && (
+              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            )}
           </Field>
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
         <ButtonGroup vertical={isMobile} flexGrow={1}>
-          <Button onClick={onBackButtonClick}>
-            {t('component.form.action.back')}
-          </Button>
+          {onBackButtonClick && (
+            <Button disabled={isSubmitting} onClick={onBackButtonClick}>
+              {t('component.form.action.back')}
+            </Button>
+          )}
 
           <Button type='submit' primary disabled={isValidating || isSubmitting}>
-            {confirmText ?? t('component.form.action.next')}
+            {nextStep ?? t('component.form.action.next')}
           </Button>
 
           {onClickSkip && (

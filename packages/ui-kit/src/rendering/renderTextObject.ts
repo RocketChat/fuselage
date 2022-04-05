@@ -1,38 +1,32 @@
-import { TextObject } from '../blocks/TextObject';
-import { TextObjectType } from '../blocks/TextObjectType';
-import { BlockContext } from './BlockContext';
-import { ISurfaceRenderer } from './ISurfaceRenderer';
-import { TextObjectRenderer } from './TextObjectRenderer';
+import type { TextObject } from '../blocks/TextObject';
+import type { BlockContext } from './BlockContext';
+import type { BlockRenderers } from './BlockRenderers';
+import type { TextObjectRenderer } from './TextObjectRenderer';
 
-const getTextObjectRenderer = <OutputElement>(
-  renderers: ISurfaceRenderer<OutputElement>,
+const getTextObjectRenderer = <T>(
+  renderers: BlockRenderers<T>,
   type: TextObject['type']
-): TextObjectRenderer<OutputElement> | undefined => {
-  const renderer = renderers[type] as
-    | TextObjectRenderer<OutputElement>
-    | undefined;
+): TextObjectRenderer<T> | undefined => {
+  const renderer = renderers[type] as TextObjectRenderer<T> | undefined;
 
   if (renderer) {
     return renderer;
   }
 
   switch (type) {
-    case TextObjectType.PLAIN_TEXT:
+    case 'plain_text':
       return (renderers.plainText ?? renderers.text) as
-        | TextObjectRenderer<OutputElement>
+        | TextObjectRenderer<T>
         | undefined;
 
-    case TextObjectType.MARKDOWN:
-      return renderers.text as TextObjectRenderer<OutputElement> | undefined;
+    case 'mrkdwn':
+      return renderers.text as TextObjectRenderer<T> | undefined;
   }
 };
 
 export const renderTextObject =
-  <OutputElement>(
-    renderers: ISurfaceRenderer<OutputElement>,
-    context: BlockContext
-  ) =>
-  (textObject: TextObject, index: number): OutputElement | null => {
+  <T>(renderers: BlockRenderers<T>, context: BlockContext) =>
+  (textObject: TextObject, index: number): T | null => {
     const renderer = getTextObjectRenderer(renderers, textObject.type);
 
     if (!renderer) {

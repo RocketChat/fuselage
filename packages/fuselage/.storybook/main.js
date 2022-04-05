@@ -7,10 +7,7 @@ module.exports = {
   features: {
     postcss: false,
   },
-  addons: [
-    '@storybook/addon-essentials',
-    ...(process.env.NODE_ENV === 'production' ? ['@storybook/addon-jest'] : []),
-  ],
+  addons: ['@storybook/addon-essentials'],
   stories: ['../src/**/*.stories.{mdx,js,tsx}'],
   webpackFinal: (config) => {
     config.module.rules.push({

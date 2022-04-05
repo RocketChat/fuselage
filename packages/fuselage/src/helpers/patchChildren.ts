@@ -1,4 +1,5 @@
-import { cloneElement, isValidElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { cloneElement, isValidElement } from 'react';
 
 import { flattenChildren } from './flattenChildren';
 import { shallowEqual } from './shallowEqual';

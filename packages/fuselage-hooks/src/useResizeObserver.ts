@@ -1,5 +1,10 @@
-import { useRef, useEffect, RefObject } from 'react';
+import type { RefObject } from 'react';
+import { useRef, useEffect } from 'react';
 
+import {
+  extractContentBoxSizeFromObserver,
+  extractBorderBoxSizeFromObserver,
+} from './extractSizeFromObserver';
 import { useDebouncedState } from './useDebouncedState';
 
 /**
@@ -16,14 +21,14 @@ type UseResizeObserverOptions = {
  * @returns a triple containing the ref and the size information
  * @public
  */
-export const useResizeObserver = ({
+export const useResizeObserver = <T extends Element>({
   debounceDelay,
 }: UseResizeObserverOptions = {}): {
-  ref: RefObject<Element>;
+  ref: RefObject<T>;
   contentBoxSize: ResizeObserverSize;
   borderBoxSize: ResizeObserverSize;
 } => {
-  const ref = useRef<Element>();
+  const ref = useRef<T>();
   const [{ borderBoxSize, contentBoxSize }, setSizes] = useDebouncedState<{
     borderBoxSize: ResizeObserverSize;
     contentBoxSize: ResizeObserverSize;
@@ -43,35 +48,9 @@ export const useResizeObserver = ({
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
-      const { contentBoxSize, borderBoxSize }: any = entry;
-
-      if (contentBoxSize && borderBoxSize) {
-        setSizes({
-          contentBoxSize: Array.isArray(contentBoxSize)
-            ? contentBoxSize[0]
-            : contentBoxSize,
-          borderBoxSize: Array.isArray(borderBoxSize)
-            ? borderBoxSize[0]
-            : borderBoxSize,
-        });
-        return;
-      }
-
-      const { target, contentRect } = entry;
-      const { width: contentBoxInlineSize, height: contentBoxBlockSize } =
-        contentRect;
-      const { width: borderBoxInlineSize, height: borderBoxBlockSize } =
-        target.getBoundingClientRect();
-
       setSizes({
-        contentBoxSize: {
-          inlineSize: contentBoxInlineSize,
-          blockSize: contentBoxBlockSize,
-        },
-        borderBoxSize: {
-          inlineSize: borderBoxInlineSize,
-          blockSize: borderBoxBlockSize,
-        },
+        contentBoxSize: extractContentBoxSizeFromObserver(entry),
+        borderBoxSize: extractBorderBoxSizeFromObserver(entry),
       });
     });
 

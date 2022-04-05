@@ -2,29 +2,19 @@
  * @jest-environment node
  */
 
-import { FunctionComponent, createElement, StrictMode } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useResizeObserver } from '.';
+import { useResizeObserver } from './useResizeObserver';
 
-describe('useResizeObserver hook on server', () => {
-  it('immediately returns undefined sizes', () => {
-    let borderBoxSize: unknown;
-    let contentBoxSize: unknown;
-    const TestComponent: FunctionComponent = () => {
-      ({ borderBoxSize, contentBoxSize } = useResizeObserver());
-      return null;
-    };
+it('immediately returns undefined sizes', () => {
+  const { result } = renderHook(() => useResizeObserver());
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-    expect(borderBoxSize).toStrictEqual({
-      inlineSize: undefined,
-      blockSize: undefined,
-    });
-    expect(contentBoxSize).toStrictEqual({
-      inlineSize: undefined,
-      blockSize: undefined,
-    });
+  expect(result.current.borderBoxSize).toEqual({
+    inlineSize: undefined,
+    blockSize: undefined,
+  });
+  expect(result.current.contentBoxSize).toEqual({
+    inlineSize: undefined,
+    blockSize: undefined,
   });
 });

@@ -1,10 +1,17 @@
 import { Box } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import { MouseEvent, ReactElement, ReactNode, useCallback } from 'react';
+import type {
+  MouseEvent,
+  ComponentProps,
+  ReactElement,
+  ReactNode,
+} from 'react';
+import { useCallback } from 'react';
 
 type ActionLinkProps = {
   children?: ReactNode;
   href?: string;
+  fontScale?: ComponentProps<typeof Box>['fontScale'];
+  fontWeight?: number;
   onClick?: () => void;
 };
 
@@ -12,6 +19,8 @@ const ActionLink = ({
   children,
   href = '#',
   onClick,
+  fontScale = 'c2',
+  fontWeight,
 }: ActionLinkProps): ReactElement => {
   const handleClick = useCallback(
     (event: MouseEvent<HTMLAnchorElement>) => {
@@ -24,9 +33,11 @@ const ActionLink = ({
   return (
     <Box
       is='a'
-      fontScale='c2'
+      fontScale={fontScale}
+      fontWeight={fontWeight}
       href={href}
-      color={colors.b200}
+      color='primary-500'
+      mi='x4'
       textDecorationLine='none'
       onClick={handleClick}
     >

@@ -255,15 +255,15 @@
   font: inherit;
 
   h1 {
-    @include typography.use-font-scale(h1);
+    @include typography.use-font-scale(h2);
   }
 
   h2 {
-    @include typography.use-font-scale(s2);
+    @include typography.use-font-scale(h4);
   }
 
   h3 {
-    @include typography.use-font-scale(p2);
+    @include typography.use-font-scale(p2m);
   }
 
   h4 {
@@ -290,7 +290,7 @@
   }
 
   p {
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p2);
 
     display: block;
 
@@ -308,12 +308,12 @@
   }
 
   ul {
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p2);
     list-style-type: disc;
   }
 
   ol {
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p2);
     list-style-type: decimal;
   }
 

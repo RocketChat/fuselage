@@ -26,7 +26,7 @@
     color: colors.foreground(default);
     border-radius: 2px;
     background-color: colors.surface();
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p2);
   }
 
   &__header {
@@ -49,7 +49,7 @@
     white-space: nowrap;
 
     color: colors.foreground('default');
-    @include typography.use-font-scale(h1);
+    @include typography.use-font-scale(h2);
   }
 
   &__backdrop {

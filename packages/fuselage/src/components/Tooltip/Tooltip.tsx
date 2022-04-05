@@ -1,7 +1,8 @@
-import React, { ComponentProps, forwardRef, Ref } from 'react';
+import type { ComponentProps, Ref } from 'react';
+import React, { forwardRef } from 'react';
 
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import { Box } from '../Box';
+import Box from '../Box';
 import tooltipStyleSheet from './Tooltip.styles.scss';
 
 const parsePlacement = (placement: string | null | undefined) => {

@@ -1,17 +1,8 @@
-import { usePrefersColorScheme } from '@rocket.chat/fuselage-hooks';
-import { createContext, ReactElement, ReactNode, useContext } from 'react';
+import { useDarkMode as useDarkModeFuselage } from '@rocket.chat/fuselage-hooks';
+import type { ReactElement, ReactNode } from 'react';
+import { createContext, useContext } from 'react';
 
 const DarkModeContext = createContext(true);
-
-const useDarkModeQuery = (forced?: boolean) => {
-  const systemDarkMode = usePrefersColorScheme('dark');
-
-  if (forced !== undefined) {
-    return forced;
-  }
-
-  return systemDarkMode;
-};
 
 type DarkModeProviderProps = {
   children?: ReactNode;
@@ -22,7 +13,7 @@ const DarkModeProvider = ({
   children,
   forcedDarkMode,
 }: DarkModeProviderProps): ReactElement => {
-  const value = useDarkModeQuery(forcedDarkMode);
+  const value = useDarkModeFuselage(forcedDarkMode);
   return <DarkModeContext.Provider children={children} value={value} />;
 };
 

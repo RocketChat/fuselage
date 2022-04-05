@@ -1,0 +1,16 @@
+{
+  "name": "build-icons",
+  "private": true,
+  "bin": "./index.mjs",
+  "dependencies": {
+    "svg2ttf": "~6.0.3",
+    "svgicons2svgfont": "~10.0.5",
+    "tools-utils": "workspace:~",
+    "ttf2eot": "~3.1.0",
+    "ttf2woff": "~3.0.0",
+    "ttf2woff2": "~4.0.4",
+    "unicode": "~14.0.0",
+    "xml2js": "~0.4.23"
+  },
+  "version": "0.31.9"
+}

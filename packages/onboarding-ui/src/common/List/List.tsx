@@ -1,4 +1,5 @@
-import { Box, Margins } from '@rocket.chat/fuselage';
+import type { Box } from '@rocket.chat/fuselage';
+import { Margins } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type {
   ReactElement,
@@ -8,6 +9,7 @@ import type {
 } from 'react';
 
 import { ListComponent } from './List.styles';
+import ListItem from './ListItem';
 
 const List = ({
   children,
@@ -26,5 +28,7 @@ const List = ({
     <Margins block={spacing}>{children}</Margins>
   </ListComponent>
 );
+
+List.Item = ListItem;
 
 export default List;

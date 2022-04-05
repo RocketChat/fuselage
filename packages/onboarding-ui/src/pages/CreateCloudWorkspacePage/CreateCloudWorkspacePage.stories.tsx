@@ -13,15 +13,18 @@ export default {
     layout: 'fullscreen',
   },
   args: {
-    currentStep: 1,
-    stepCount: 2,
     serverRegionOptions: [
       ['us', 'US'],
       ['br', 'BR'],
     ],
-    validateUrl: async (url) => url !== 'rocket',
-    validateEmail: async (email) => email !== 'rocket',
+    languageOptions: [
+      ['en', 'English'],
+      ['pt', 'Português'],
+    ],
     domain: 'rocket.chat',
+    validateUrl: async (url) => url !== 'rocket',
+    validateEmail: async (email) =>
+      email === 'rocket@rocket.chat' ? 'invalid email' : true,
   },
 } as Meta<Args>;
 

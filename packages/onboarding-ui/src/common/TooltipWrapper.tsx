@@ -1,25 +1,19 @@
-/* eslint-disable react/no-multi-comp */
-
 import {
   AnimatedVisibility,
   PositionAnimated,
   Tooltip,
 } from '@rocket.chat/fuselage';
 import { useDebouncedState, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import {
-  cloneElement,
+import type {
   ComponentProps,
   Dispatch,
-  forwardRef,
   MutableRefObject,
   ReactElement,
   ReactNode,
   Ref,
   SetStateAction,
-  useCallback,
-  useMemo,
-  useRef,
 } from 'react';
+import { cloneElement, forwardRef, useCallback, useMemo, useRef } from 'react';
 
 type AnchorParams = {
   ref: MutableRefObject<null>;

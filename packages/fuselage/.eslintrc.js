@@ -1,7 +1,12 @@
 module.exports = {
-  extends: '@rocket.chat/eslint-config-alt/react',
+  extends: [
+    '@rocket.chat/eslint-config-alt/typescript',
+    '@rocket.chat/eslint-config-alt/react',
+  ],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
     'react/display-name': 'off',
     'react/no-multi-comp': 'off',
   },
@@ -11,9 +16,14 @@ module.exports = {
   overrides: [
     {
       files: ['*.mdx'],
-      extends: ['plugin:mdx/recommended'],
+      extends: [
+        '@rocket.chat/eslint-config-alt/react',
+        'plugin:mdx/recommended',
+      ],
       parserOptions: {
-        parser: '@babel/eslint-parser',
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
       rules: {
         'new-cap': 'off',

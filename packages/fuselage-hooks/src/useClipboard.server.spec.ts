@@ -2,23 +2,15 @@
  * @jest-environment node
  */
 
-import { FunctionComponent, createElement, StrictMode } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useClipboard, UseClipboardReturn } from './useClipboard';
+import { useClipboard } from './useClipboard';
 
-describe('useClipboard hook on server', () => {
-  it('has hasCopied and copy properties', () => {
-    let hookObject: UseClipboardReturn;
+it('has hasCopied and copy properties', () => {
+  const { result } = renderHook(() => useClipboard('Lorem Ipsum'));
 
-    const TestComponent: FunctionComponent = () => {
-      hookObject = useClipboard('Lorem Ipsum Indolor Dolor');
-      return null;
-    };
+  const { copy, hasCopied } = result.current;
 
-    renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-    expect(hookObject).toHaveProperty('copy');
-    expect(hookObject).toHaveProperty('hasCopied');
-  });
+  expect(copy).toBeInstanceOf(Function);
+  expect(hasCopied).toBe(false);
 });

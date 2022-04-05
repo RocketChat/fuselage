@@ -9,7 +9,7 @@
   border-radius: lengths.border-radius(2);
   background-color: colors.surface();
 
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p2);
 
   &--elevation-0 {
     box-shadow: none;

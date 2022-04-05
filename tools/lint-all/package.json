@@ -1,0 +1,16 @@
+{
+  "name": "lint-all",
+  "private": true,
+  "bin": {
+    "lint": "./lint.mjs",
+    "lint-and-fix": "./lint-and-fix.mjs"
+  },
+  "version": "0.31.9",
+  "dependencies": {
+    "@prettier/plugin-xml": "~1.2.0",
+    "eslint": "~8.8.0",
+    "prettier": "~2.5.1",
+    "stylelint": "~14.5.0",
+    "zx": "~4.3.0"
+  }
+}

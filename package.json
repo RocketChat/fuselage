@@ -1,30 +1,43 @@
 {
+  "name": "@rocket.chat/fuselage-root",
   "private": true,
+  "version": "0.31.9",
   "workspaces": [
     "packages/*",
-    "scripts"
+    "tools/*"
   ],
   "devDependencies": {
-    "husky": "^6.0.0",
-    "hygen": "^6.1.0",
-    "lerna": "^4.0.0",
-    "webpack": "^5.41.1"
+    "bump": "workspace:~",
+    "husky": "~7.0.4",
+    "hygen": "~6.1.0",
+    "lerna": "~4.0.0",
+    "lint-staged": "~12.3.3",
+    "turbo": "~1.1.2",
+    "update-readme": "workspace:~",
+    "webpack": "~5.68.0"
   },
   "scripts": {
-    "build": "yarn workspaces foreach -v --topological-dev run build",
-    "lint": "yarn workspaces foreach -v --topological-dev run lint",
-    "lint-fix": "yarn workspaces foreach -v --topological-dev run lint-fix",
-    "lint-staged": "yarn workspaces foreach -v --topological-dev run lint-staged",
-    "test": "yarn workspaces foreach -v --topological-dev run test",
-    "docs": "yarn workspaces foreach -v --topological-dev run docs",
-    "build-storybook": "yarn workspaces foreach -v --topological-dev run build-storybook",
-    "update-storybook": "yarn workspaces foreach -v --topological-dev run update-storybook",
     "postinstall": "husky install",
-    "update-readme": "yarn workspace scripts run update-readme",
+    "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
+    "clean": "yarn workspaces foreach -v --topological-dev run clean",
+    "build": "yarn turbo run build",
+    "lint": "yarn turbo run lint",
+    "lint-and-fix": "yarn workspaces foreach -v --topological-dev run lint-and-fix",
+    "test": "yarn turbo run test",
+    "docs": "yarn workspaces foreach -v --topological-dev run docs",
+    "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
+    "update-readme": "update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
-    "create-package": "hygen create-package"
+    "create-package": "hygen create-package",
+    "bump-next": "yarn workspaces foreach --no-private -v run bump-next",
+    "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish"
   },
   "devEngines": {
-    "node": "^14.0"
-  }
+    "node": "~14.17.6"
+  },
+  "volta": {
+    "node": "14.17.6",
+    "yarn": "1.22.11"
+  },
+  "packageManager": "yarn@3.1.0"
 }

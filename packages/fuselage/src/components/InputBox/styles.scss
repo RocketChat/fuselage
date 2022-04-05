@@ -11,7 +11,7 @@
 
   align-items: flex-start;
 
-  flex: 1 0 auto;
+  flex-grow: 1;
 
   min-width: 8rem;
 
@@ -137,7 +137,7 @@
 
   background-color: transparent;
 
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p2);
   @include typography.use-text-ellipsis;
 
   &--type-textarea {
@@ -147,6 +147,7 @@
 
     resize: none;
     vertical-align: middle;
+    white-space: initial;
   }
 
   &--type-select {
@@ -229,7 +230,7 @@
   @include typography.use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p2);
   color: #{$input-colors-placeholder-color};
 }
 
@@ -237,7 +238,7 @@
   @include typography.use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p2);
   color: #{$input-colors-color};
 }
 
@@ -261,6 +262,6 @@
   border-radius: lengths.border-radius(2);
   background-color: #{$input-colors-background-color};
 
-  @include typography.use-font-scale(p1);
+  @include typography.use-font-scale(p2);
   @include typography.use-text-ellipsis;
 }

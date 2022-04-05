@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-polyfills",
-  "version": "0.29.0",
+  "version": "0.31.9",
   "description": "A bundle of useful poly/ponyfills used by fuselage",
   "author": {
     "name": "Rocket.Chat",
@@ -15,10 +15,14 @@
     "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
   },
   "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "lint": "eslint .",
-    "lint-fix": "eslint --fix .",
-    "lint-staged": "lint-staged"
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
+    "lint-staged": "lint-staged",
+    "bump-next": "bump-next"
   },
   "dependencies": {
     "@juggle/resize-observer": "^3.3.1",
@@ -29,10 +33,12 @@
     "new-event-polyfill": "^1.0.1"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "^0.29.0",
-    "@rocket.chat/prettier-config": "^0.29.0",
-    "eslint": "^7.29.0",
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.3.2"
+    "@rocket.chat/eslint-config-alt": "workspace:~",
+    "@rocket.chat/prettier-config": "workspace:~",
+    "bump": "workspace:~",
+    "eslint": "~8.8.0",
+    "lint-all": "workspace:~",
+    "lint-staged": "~12.3.3",
+    "prettier": "~2.5.1"
   }
 }

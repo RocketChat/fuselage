@@ -3,7 +3,7 @@ import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement, FC } from 'react';
 
 const FormSubtitle: FC = ({ children }): ReactElement => (
-  <Box fontScale='p1' color={colors.n700}>
+  <Box fontScale='p2' color={colors.n700}>
     {children}
   </Box>
 );

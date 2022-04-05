@@ -3,6 +3,7 @@ import { countries } from 'countries-list';
 import type { ComponentProps } from 'react';
 
 import OrganizationInfoPage from './OrganizationInfoPage';
+import TitleOrganizationInfoPage from './TitleOrganizationInfoPage';
 
 type Args = ComponentProps<typeof OrganizationInfoPage>;
 
@@ -61,8 +62,8 @@ export default {
       ['7', '4000 or more people'],
     ],
     countryOptions: [
-      ...Object.entries(countries).map<readonly [string, string]>(
-        ([code, { name }]) => [code, name]
+      ...Object.entries(countries).map(
+        ([code, { name }]): [value: string, label: string] => [code, name]
       ),
       ['worldwide', 'Worldwide'],
     ],
@@ -72,8 +73,15 @@ export default {
 export const _OrganizationInfoPage: Story<Args> = (args) => (
   <OrganizationInfoPage {...args} />
 );
-
 _OrganizationInfoPage.storyName = 'OrganizationInfoPage';
+
+export const _WithoutBack: Story<Args> = (args) => (
+  <OrganizationInfoPage {...args} />
+);
+_WithoutBack.storyName = 'WithoutBack';
+_WithoutBack.args = {
+  onBackButtonClick: undefined,
+};
 
 export const _CloudOrganizationInfoPage: Story<Args> = (args) => (
   <OrganizationInfoPage {...args} />
@@ -81,7 +89,7 @@ export const _CloudOrganizationInfoPage: Story<Args> = (args) => (
 
 _CloudOrganizationInfoPage.storyName = 'CloudOrganizationInfoPage';
 _CloudOrganizationInfoPage.args = {
-  title: 'Your Workspace is Ready!',
+  title: <TitleOrganizationInfoPage />,
   description: 'Organization info will help us personalize your workspace',
-  confirmText: 'Go to workspace',
+  nextStep: 'Create workspace',
 };

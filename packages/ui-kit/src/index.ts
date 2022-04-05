@@ -15,6 +15,9 @@ export { DatePickerElement } from './blocks/elements/DatePickerElement';
 export { ImageElement } from './blocks/elements/ImageElement';
 export { LinearScaleElement } from './blocks/elements/LinearScaleElement';
 export { MultiStaticSelectElement } from './blocks/elements/MultiStaticSelectElement';
+export { MultiChannelsSelectElement } from './blocks/elements/MultiChannelsSelectElement';
+export { MultiConversationsSelectElement } from './blocks/elements/MultiConversationsSelectElement';
+export { MultiUsersSelectElement } from './blocks/elements/MultiUsersSelectElement';
 export { OverflowElement } from './blocks/elements/OverflowElement';
 export { PlainTextInputElement } from './blocks/elements/PlainTextInputElement';
 export { StaticSelectElement } from './blocks/elements/StaticSelectElement';
@@ -24,6 +27,7 @@ export { BlockElement } from './blocks/BlockElement';
 export { ActionsBlock } from './blocks/layout/ActionsBlock';
 export { ConditionalBlock } from './blocks/layout/ConditionalBlock';
 export { ContextBlock } from './blocks/layout/ContextBlock';
+export * from './blocks/layout/PreviewBlock';
 export { DividerBlock } from './blocks/layout/DividerBlock';
 export { ImageBlock } from './blocks/layout/ImageBlock';
 export { InputBlock } from './blocks/layout/InputBlock';
@@ -32,8 +36,6 @@ export { LayoutBlock } from './blocks/LayoutBlock';
 
 export { Block } from './blocks/Block';
 export { RenderableBlock } from './blocks/RenderableBlock';
-
-// export { BlockBuilder } from './blocks/BlockBuilder';
 
 export { LayoutBlockType } from './blocks/LayoutBlockType';
 export { BlockElementType } from './blocks/BlockElementType';
@@ -63,3 +65,7 @@ export {
   UiKitParserModal,
   ModalSurfaceLayout,
 } from './rendering/surfaces/UiKitParserModal';
+
+export { SurfaceRenderer } from './rendering/SurfaceRenderer';
+export { ActionableElement } from './blocks/ActionableElement';
+export { ActionOf } from './rendering/ActionOf';

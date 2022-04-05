@@ -1,9 +1,8 @@
-import { Actionable } from '../Actionable';
-import { BlockElementType } from '../BlockElementType';
-import { PlainText } from '../text/PlainText';
+import type { Actionable } from '../Actionable';
+import type { PlainText } from '../text/PlainText';
 
 export type PlainTextInputElement = Actionable<{
-  type: `${BlockElementType.PLAIN_TEXT_INPUT}`;
+  type: 'plain_text_input';
   placeholder?: PlainText;
   initialValue?: string;
   multiline?: boolean;

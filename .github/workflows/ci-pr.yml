@@ -10,11 +10,14 @@ on:
 jobs:
   build-and-test:
     name: Build and Test
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: "12"
+          node-version: "14.17.6"
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
         id: yarn-cache
@@ -23,12 +26,17 @@ jobs:
             **/node_modules
             .yarn/cache
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache@v2
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.job }}
+          restore-keys: |
+            turbo-${{ runner.os }}-
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - run: yarn run build
-      - run: yarn run lint
-      - run: yarn run test
-      - run: yarn run build-storybook
+      - run: yarn run ci
       - uses: actions/upload-artifact@v2
         with:
           name: "storybooks-${{ github.event.number }}"
@@ -36,44 +44,3 @@ jobs:
             packages/fuselage/storybook-static
             packages/fuselage-ui-kit/storybook-static
             packages/onboarding-ui/storybook-static
-
-  test-with-loki:
-    name: Test with Loki
-    runs-on: ubuntu-latest
-    needs:
-      - build-and-test
-    steps:
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "12"
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-      - run: yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - run: yarn run build
-      - uses: actions/download-artifact@v2
-        with:
-          name: "storybooks-${{ github.event.number }}"
-          path: packages
-      - run: |
-          cat packages/fuselage/package.json | sed s/\.docker/.app/ > packages/fuselage/package.json-new
-          cat packages/fuselage-ui-kit/package.json | sed s/\.docker/.app/ > packages/fuselage-ui-kit/package.json-new
-          cat packages/onboarding-ui/package.json | sed s/\.docker/.app/ > packages/onboarding-ui/package.json-new
-          mv packages/fuselage/package.json-new packages/fuselage/package.json
-          mv packages/fuselage-ui-kit/package.json-new packages/fuselage-ui-kit/package.json
-          mv packages/onboarding-ui/package.json-new packages/onboarding-ui/package.json
-      - uses: ./.github/actions/loki/test
-        with:
-          working_dir: ./packages/fuselage
-      - uses: ./.github/actions/loki/test
-        with:
-          working_dir: ./packages/fuselage-ui-kit
-      - uses: ./.github/actions/loki/test
-        with:
-          working_dir: ./packages/onboarding-ui

@@ -1,36 +1,52 @@
-import { Box } from '@rocket.chat/fuselage';
-import { ReactElement, useMemo } from 'react';
+import { Box, Icon } from '@rocket.chat/fuselage';
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import type { ReactElement } from 'react';
+import { useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { useTranslation } from 'react-i18next';
 
+import { useDarkMode } from '../../common/DarkModeProvider';
 import List from '../../common/List';
 import PlanFeatureIcon from '../../common/PlanFeatureIcon';
 
 const Description = (): ReactElement => {
+  const isDarkMode = useDarkMode();
+  const color = isDarkMode ? colors.white : colors.n900;
   const { t } = useTranslation();
 
+  const featuresList = [
+    t('page.createCloudWorkspace.auditing'),
+    t('page.createCloudWorkspace.numberOfIntegrations'),
+    t('page.createCloudWorkspace.ldap'),
+    t('page.createCloudWorkspace.omnichannel'),
+    t('page.createCloudWorkspace.sla'),
+    t('page.createCloudWorkspace.push'),
+    t('page.createCloudWorkspace.engagement'),
+  ];
+
   const icon = useMemo(
-    () => encodeURIComponent(renderToStaticMarkup(<PlanFeatureIcon />)),
-    []
+    () =>
+      encodeURIComponent(
+        renderToStaticMarkup(<PlanFeatureIcon color={color} />)
+      ),
+    [color]
+  );
+
+  const listItem = (text: string) => (
+    <List.Item fontScale='p1'>
+      <Icon name='check' size='x24' mie='x12' />
+      {text}
+    </List.Item>
   );
 
   return (
-    <div>
-      <Box mbe='x40'>
-        <List color='alternative' spacing='x16' icon={icon}>
-          <List.Item>{t('page.cloudDescription.availability')}</List.Item>
-          <List.Item>{t('page.cloudDescription.auditing')}</List.Item>
-          <List.Item>{t('page.cloudDescription.engagement')}</List.Item>
-          <List.Item>{t('page.cloudDescription.ldap')}</List.Item>
-          <List.Item>{t('page.cloudDescription.omnichannel')}</List.Item>
-          <List.Item>{t('page.cloudDescription.sla')}</List.Item>
-          <List.Item>{t('page.cloudDescription.push')}</List.Item>
+    <Box>
+      <Box>
+        <List color={color} spacing='x16' icon={icon}>
+          {featuresList.map((text) => listItem(text))}
         </List>
       </Box>
-      <Box fontScale='micro' color='info'>
-        {t('page.cloudDescription.goldIncludes')}
-      </Box>
-    </div>
+    </Box>
   );
 };
 

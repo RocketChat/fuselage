@@ -2,31 +2,18 @@
  * @jest-environment node
  */
 
-import { FunctionComponent, createElement, StrictMode } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderHook } from '@testing-library/react-hooks/server';
 
-import { useMediaQuery } from '.';
+import { useMediaQuery } from './useMediaQuery';
 
 it('returns false for undefined media query', () => {
-  let matches: boolean;
-  const TestComponent: FunctionComponent = () => {
-    matches = useMediaQuery();
-    return null;
-  };
+  const { result } = renderHook(() => useMediaQuery());
 
-  renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-  expect(matches).toBe(false);
+  expect(result.current).toBe(false);
 });
 
 it('returns false for defined media query', () => {
-  let matches: boolean;
-  const TestComponent: FunctionComponent = () => {
-    matches = useMediaQuery('(max-width: 1024)');
-    return null;
-  };
+  const { result } = renderHook(() => useMediaQuery('(max-width: 1024)'));
 
-  renderToString(createElement(StrictMode, {}, createElement(TestComponent)));
-
-  expect(matches).toBe(false);
+  expect(result.current).toBe(false);
 });

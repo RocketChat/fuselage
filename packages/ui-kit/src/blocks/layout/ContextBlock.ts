@@ -1,12 +1,9 @@
-import { Layout } from '../Layout';
-import { LayoutBlockType } from '../LayoutBlockType';
-import { TextObject } from '../TextObject';
-import { ImageElement } from '../elements/ImageElement';
+import type { LayoutBlockish } from '../LayoutBlockish';
+import type { TextObject } from '../TextObject';
+import type { ImageElement } from '../elements/ImageElement';
 
-type ContextBlockElements = TextObject | ImageElement;
-export type ContextBlock<
-  Elements extends ContextBlockElements = ContextBlockElements
-> = Layout<{
-  type: `${LayoutBlockType.CONTEXT}`;
-  elements: Elements[];
+export type ContextBlockElements = TextObject | ImageElement;
+export type ContextBlock = LayoutBlockish<{
+  type: 'context';
+  elements: readonly ContextBlockElements[];
 }>;

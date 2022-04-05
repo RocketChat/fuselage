@@ -1,188 +1,48 @@
-import React, {
-  ComponentProps,
-  FC,
-  forwardRef,
-  ForwardRefExoticComponent,
-} from 'react';
+import type { AllHTMLAttributes, Ref } from 'react';
+import React, { forwardRef } from 'react';
 
 import './Messages.styles.scss';
 
-import { Tag } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
-import { Box } from '../Box';
-import { Divider } from './Divider';
-import { Metrics } from './Metrics';
-import { Toolbox } from './Toolbox';
 
-const Container: FC = function Container(props) {
-  return (
-    <div className='rcx-box rcx-box--full rcx-message-container' {...props} />
-  );
-};
-
-const ContainerFixed: FC = function Container(props) {
-  return (
-    <div
-      className='rcx-box rcx-box--full rcx-message-container rcx-message-container--fixed'
-      {...props}
-    />
-  );
-};
-
-export const MessageLeftContainer: FC = function MessageLeftContainer(props) {
-  return (
-    <div
-      className='rcx-box rcx-box--full rcx-message-container rcx-message-container--left'
-      {...props}
-    />
-  );
-};
-
-const Header: FC = function Header({ children }) {
-  return (
-    <div className='rcx-box rcx-box--full rcx-message-header'>
-      <div className='rcx-box rcx-box--full rcx-message-header__wrapper'>
-        {children}
-      </div>
-    </div>
-  );
-};
-
-const Body: FC<{
-  clamp?: 2 | 3 | 4;
-  className?: string | string[];
-}> = function Body({ clamp, className, ...props }) {
-  return (
-    <div
-      className={
-        prependClassName(
-          className,
-          [
-            'rcx-message-body',
-            clamp && `rcx-message-body--clamp rcx-message-body--clamp-${clamp}`,
-          ]
-            .filter(Boolean)
-            .join(' ')
-        ) as string
-      }
-      {...props}
-    />
-  );
-};
-
-export const MessageBlock: FC<{ className?: string }> = function MessageBlock({
-  className,
-  ...props
-}) {
-  return (
-    <div
-      className={
-        prependClassName(
-          className,
-          'rcx-box rcx-box--full rcx-message-block'
-        ) as any
-      }
-      {...props}
-    />
-  );
-};
-
-type MessageProps = ComponentProps<typeof Box> & {
-  clickable?: true | false;
+type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
+  clickable?: boolean;
   sequential?: boolean;
-  className: string;
+  className?: string;
+  isSelected?: boolean;
+  isEditing?: boolean;
+  highlight?: boolean;
 };
 
-export const Message: ForwardRefExoticComponent<MessageProps> = forwardRef(
-  function Message(
-    {
-      // is: Tag = 'div',
-      className,
-      clickable,
-      sequential,
-      ...props
-    },
-    ref
-  ) {
-    return (
-      <div
-        ref={ref}
-        className={prependClassName(
-          className,
-          [
-            'rcx-message',
-            (clickable || props.onClick) && 'rcx-message--clickable',
-            sequential && 'rcx-message--sequential',
-          ]
-            .filter(Boolean)
-            .join(' ')
-        )}
-        {...(props as any)}
-      />
-    );
-  }
-);
-
-const Timestamp: FC<{ children: string }> = function Timestamp(props) {
-  return (
-    <span
-      className='rcx-box rcx-box--full rcx-message-header__time'
-      {...props}
-    />
-  );
-};
-
-const Name: FC<{ children: string }> = function Name(props) {
-  return (
-    <span
-      className='rcx-box rcx-box--full rcx-message-header__name'
-      {...props}
-    />
-  );
-};
-const Username: FC<{ children: string }> = function Name(props) {
-  return (
-    <span
-      className='rcx-box rcx-box--full rcx-message-header__username'
-      {...props}
-    />
-  );
-};
-
-const Role: FC<{ children: string }> = function Role(props) {
-  return (
-    <Tag
-      onClick={undefined}
-      className='rcx-box rcx-box--full rcx-message-header__role'
-      {...props}
-      small
-      disabled={undefined}
-    />
-  );
-};
-
-const Roles: FC = function Role(props) {
+export const Message = forwardRef(function Message(
+  {
+    className,
+    clickable,
+    sequential,
+    isSelected,
+    isEditing,
+    highlight,
+    ...props
+  }: MessageProps,
+  ref: Ref<HTMLDivElement>
+) {
   return (
     <div
-      className='rcx-box rcx-box--full rcx-message-header__roles'
+      ref={ref}
+      className={prependClassName(
+        className,
+        [
+          'rcx-message',
+          (clickable || props.onClick) && 'rcx-message--clickable',
+          sequential && 'rcx-message--sequential',
+          isSelected && 'rcx-message--selected',
+          isEditing && 'rcx-message--editing',
+          highlight && 'rcx-message--highlight',
+        ]
+          .filter(Boolean)
+          .join(' ')
+      )}
       {...props}
     />
   );
-};
-
-Object.assign(Message, {
-  Metrics,
-  Toolbox,
-  Container,
-  ContainerFixed,
-  LeftContainer: MessageLeftContainer,
-  Header,
-  Body,
-  Block: MessageBlock,
-  Timestamp,
-  Name,
-  Username,
-  Roles,
-  Role,
-  Divider,
 });

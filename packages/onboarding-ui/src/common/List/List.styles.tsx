@@ -9,7 +9,12 @@ type ListComponentProps = {
 
 export const ListComponent = styled(
   'ul',
-  ({ color, icon, listStyleType, ...props }: ListComponentProps) => props
+  ({
+    color: _color,
+    icon: _icon,
+    listStyleType: _listStyleType,
+    ...props
+  }: ListComponentProps) => props
 )`
   padding: 0;
   margin: 0;

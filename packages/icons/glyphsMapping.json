@@ -755,9 +755,6 @@
   "pause-unfilled": {
     "start": "\ue0ce"
   },
-  "shredder": {
-    "start": "\ue0d0"
-  },
   "team-arrow-right": {
     "start": "\ue0d1"
   },
@@ -802,5 +799,32 @@
   },
   "text-decrease": {
     "start": "\ue0df"
+  },
+  "phone-disabled": {
+    "start": "\ue0e0"
+  },
+  "sms": {
+    "start": "\ue0e1"
+  },
+  "phone-in": {
+    "start": "\ue0e2"
+  },
+  "phone-out": {
+    "start": "\ue0e3"
+  },
+  "circle-exclamation": {
+    "start": "\ue0e5"
+  },
+  "emoji-neutral": {
+    "start": "\ue0e7"
+  },
+  "stopwatch": {
+    "start": "\ue0e9"
+  },
+  "globe-cross": {
+    "start": "\ue0eb"
+  },
+  "arrow-stack-up": {
+    "start": "\ue0ed"
   }
 }

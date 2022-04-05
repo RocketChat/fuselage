@@ -1,7 +1,9 @@
 export * from './useAutoFocus';
+export * from './useBorderBoxSize';
 export * from './useBreakpoints';
 export * from './useClipboard';
 export * from './useDarkMode';
+export * from './useContentBoxSize';
 export * from './useDebouncedCallback';
 export * from './useDebouncedReducer';
 export * from './useDebouncedState';
@@ -24,3 +26,4 @@ export * from './useStableArray';
 export * from './useStorage';
 export * from './useToggle';
 export * from './useUniqueId';
+export * from './useOutsideClick';

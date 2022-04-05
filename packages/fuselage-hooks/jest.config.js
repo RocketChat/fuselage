@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   errorOnDeprecated: true,
-  testMatch: ['<rootDir>/src/**/*.spec.ts?(x)'],
+  testMatch: ['<rootDir>/src/**/*.spec.{ts,tsx}'],
   testEnvironment: 'jsdom',
   globals: {
     'ts-jest': {
@@ -11,4 +11,5 @@ module.exports = {
       },
     },
   },
+  setupFilesAfterEnv: ['testing-utils/setup/noErrorsLogged'],
 };

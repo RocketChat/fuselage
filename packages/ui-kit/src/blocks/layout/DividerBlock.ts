@@ -1,6 +1,5 @@
-import { Layout } from '../Layout';
-import { LayoutBlockType } from '../LayoutBlockType';
+import type { LayoutBlockish } from '../LayoutBlockish';
 
-export type DividerBlock = Layout<{
-  type: `${LayoutBlockType.DIVIDER}`;
+export type DividerBlock = LayoutBlockish<{
+  type: 'divider';
 }>;

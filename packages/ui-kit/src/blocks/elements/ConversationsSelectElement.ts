@@ -1,7 +1,6 @@
-import { Actionable } from '../Actionable';
-import { BlockElementType } from '../BlockElementType';
+import type { Actionable } from '../Actionable';
 
 /** @todo */
 export type ConversationsSelectElement = Actionable<{
-  type: `${BlockElementType.CONVERSATIONS_SELECT}`;
+  type: 'conversations_select';
 }>;

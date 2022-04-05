@@ -9,10 +9,9 @@
   flex-shrink: 0;
 
   width: 100%;
-  margin-block: lengths.margin(-2);
 
   &__label {
-    @include typography.use-font-scale(p2);
+    @include typography.use-font-scale(p2m);
     flex: 1 1 0;
     align-self: flex-start;
 
@@ -22,7 +21,7 @@
   }
 
   &__description {
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p2);
     margin-block: lengths.margin(2);
 
     color: colors.foreground(hint);
@@ -44,7 +43,7 @@
   }
 
   &__hint {
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p2);
     margin-block: lengths.margin(2);
 
     color: colors.foreground(hint);
@@ -52,10 +51,20 @@
   }
 
   &__error {
-    @include typography.use-font-scale(p1);
+    @include typography.use-font-scale(p2);
     margin-block: lengths.margin(2);
 
     color: colors.foreground(danger);
+    @extend %--with-inline-elements;
+  }
+
+  &__link {
+    @include typography.use-font-scale(p2);
+    margin-block: lengths.margin(2);
+
+    text-decoration: none;
+
+    color: colors.foreground(link);
     @extend %--with-inline-elements;
   }
 }

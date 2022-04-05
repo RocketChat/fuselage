@@ -25,44 +25,54 @@ to: packages/<%=package%>/package.json
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
-  "typesVersions": {
-    "<4.1": {
-      "*": [
-        "dist/ts3.4/*"
-      ]
-    }
-  },
   "files": [
     "/dist"
   ],
   "scripts": {
-    "build": "run-s .:build:clean .:build:esm .:build:cjs .:build:ts3.4",
-    ".:build:clean": "rimraf dist",
+    "clean": "rimraf dist",
+    "build": "run .:build:esm && run .:build:cjs",
     ".:build:esm": "tsc -p tsconfig-esm.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
-    ".:build:ts3.4": "downlevel-dts dist/esm/ dist/ts3.4/ --to=3.4",
-    "lint": "eslint src",
-    "lint-fix": "eslint --fix src",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:packages/eslint-config-alt",
-    "@rocket.chat/prettier-config": "workspace:packages/prettier-config",
-    "@types/jest": "^27.0.1",
-    "downlevel-dts": "^0.7.0",
-    "eslint": "^7.32.0",
-    "jest": "^27.1.0",
-    "lint-staged": "^11.1.2",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^27.0.5",
-    "typedoc": "^0.21.9",
-    "typescript": "^4.3.4"
+    "@rocket.chat/eslint-config-alt": "workspace:~",
+    "@rocket.chat/prettier-config": "workspace:~",
+    "@types/jest": "~27.4.0",
+    "eslint": "~8.8.0",
+    "jest": "~27.5.1",
+    "lint-all": "workspace:~",
+    "lint-staged": "~12.3.3",
+    "prettier": "~2.5.1",
+    "rimraf": "~3.0.2",
+    "ts-jest": "~27.1.3",
+    "typedoc": "~0.22.11",
+    "typescript": "~4.3.5"
   },
-  "dependencies": {
-    "tslib": "^2.2.0"
+  "eslintConfig": {
+    "extends": "@rocket.chat/eslint-config-alt/typescript",
+    "env": {
+      "jest": true
+    }
+  },
+  "prettier": "@rocket.chat/prettier-config/fuselage",
+  "jest": {
+    "preset": "ts-jest",
+    "errorOnDeprecated": true,
+    "testMatch": [
+      "<rootDir>/src/**/*.spec.[jt]s?(x)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": {
+          "noUnusedLocals": false,
+          "noUnusedParameters": false
+        }
+      }
+    }
   }
 }

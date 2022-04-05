@@ -1,14 +1,11 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
-import { useDarkMode } from '../../common/DarkModeProvider';
-import RocketChatLogo from '../../common/RocketChatLogo';
+import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 const EmailConfirmedPage = (): ReactElement => {
-  const darkMode = useDarkMode();
   const { t } = useTranslation();
 
   return (
@@ -22,12 +19,9 @@ const EmailConfirmedPage = (): ReactElement => {
         maxWidth={576}
         paddingBlock={32}
         paddingInline={16}
-        color={darkMode ? colors.white : colors.n900}
       >
         <Margins blockEnd={32}>
-          <Box width='100%' maxWidth={180}>
-            <RocketChatLogo />
-          </Box>
+          <OnboardingLogo />
 
           <Box
             fontWeight={800}
@@ -38,7 +32,7 @@ const EmailConfirmedPage = (): ReactElement => {
             {t('page.emailConfirmed.title')}
           </Box>
 
-          <Box fontScale='s1'>{t('page.emailConfirmed.subtitle')}</Box>
+          <Box fontScale='p1'>{t('page.emailConfirmed.subtitle')}</Box>
         </Margins>
       </Box>
     </BackgroundLayer>
