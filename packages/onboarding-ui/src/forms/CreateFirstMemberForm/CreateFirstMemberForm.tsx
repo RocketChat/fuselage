@@ -20,20 +20,24 @@ type CreateFirstMemberFormPayload = {
 };
 
 type CreateFirstMemberFormProps = {
+  defaultValues?: CreateFirstMemberFormPayload;
   currentStep: number;
   stepCount: number;
-  workspaceName: string;
+  organizationName: string;
   onSubmit: SubmitHandler<CreateFirstMemberFormPayload>;
   onBackButtonClick: () => void;
+  validateUsername: Validate<string>;
   validatePassword: Validate<string>;
 };
 
 const CreateFirstMemberForm = ({
+  defaultValues,
   currentStep,
   stepCount,
-  workspaceName,
+  organizationName,
   onSubmit,
   onBackButtonClick,
+  validateUsername,
   validatePassword,
 }: CreateFirstMemberFormProps): ReactElement => {
   const { t } = useTranslation();
@@ -49,7 +53,7 @@ const CreateFirstMemberForm = ({
       <Form.Steps currentStep={currentStep} stepCount={stepCount} />
       <Form.Title>{t('form.createFirstMemberForm.title')}</Form.Title>
       <Form.Subtitle>
-        {t('form.createFirstMemberForm.subtitle', { workspaceName })}
+        {t('form.createFirstMemberForm.subtitle', { organizationName })}
       </Form.Subtitle>
 
       <FieldGroup mbs='x16'>
@@ -61,12 +65,16 @@ const CreateFirstMemberForm = ({
           </Field.Label>
           <Field.Row>
             <TextInput
+              {...register('username', {
+                validate: validateUsername,
+                required: true,
+              })}
+              defaultValue={defaultValues?.username}
               error={errors?.username?.type || undefined}
-              {...register('username', { required: true })}
             />
           </Field.Row>
-          {errors.username && (
-            <Field.Error>{t('component.form.requiredField')}</Field.Error>
+          {errors?.username && (
+            <Field.Error>{errors.username.message}</Field.Error>
           )}
         </Field>
 
@@ -80,6 +88,7 @@ const CreateFirstMemberForm = ({
                 validate: validatePassword,
                 required: true,
               })}
+              defaultValue={defaultValues?.password}
             />
           </Field.Row>
           {errors.password && (

@@ -1,5 +1,4 @@
-import type { ReactElement } from 'react';
-import type { SubmitHandler } from 'react-hook-form';
+import type { ComponentProps, ReactElement } from 'react';
 
 import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
@@ -7,17 +6,9 @@ import type { FormPageLayoutStyleProps } from '../../common/Types';
 import CreateFirstMemberForm from '../../forms/CreateFirstMemberForm';
 import TitleCreateFirstMemberPage from './TitleCreateFirstMemberPage';
 
-type CreateCloudWorkspacePageProps = {
-  currentStep: number;
-  stepCount: number;
-  workspaceName: string;
-  onSubmit: SubmitHandler<{
-    username: string;
-    password: string;
-  }>;
-  onBackButtonClick: () => void;
-  validatePassword: (url: string) => Promise<boolean>;
-};
+type CreateCloudWorkspacePageProps = ComponentProps<
+  typeof CreateFirstMemberForm
+>;
 
 const CreateFirstMemberPage = (
   props: CreateCloudWorkspacePageProps
