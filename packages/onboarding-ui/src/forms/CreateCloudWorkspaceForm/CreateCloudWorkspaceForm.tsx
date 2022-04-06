@@ -11,7 +11,7 @@ import {
   CheckBox,
   Grid,
 } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
+import type { ReactElement, FocusEvent } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
@@ -57,8 +57,15 @@ const CreateCloudWorkspaceForm = ({
     register,
     control,
     handleSubmit,
+    setValue,
     formState: { isValid, isValidating, isSubmitting, errors },
   } = useForm<CreateCloudWorkspaceFormPayload>({ mode: 'onChange' });
+
+  const onNameBlur = (e: FocusEvent<HTMLInputElement>) => {
+    const fieldValue = e.target.value;
+    const workspaceURL = fieldValue.replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
+    setValue('workspaceURL', workspaceURL, { shouldValidate: true });
+  };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -95,6 +102,7 @@ const CreateCloudWorkspaceForm = ({
               {...register('workspaceName', { required: true })}
               defaultValue={defaultValues?.workspaceName}
               error={errors?.workspaceName?.type || undefined}
+              onBlur={onNameBlur}
             />
           </Field.Row>
           {errors.workspaceName && (
