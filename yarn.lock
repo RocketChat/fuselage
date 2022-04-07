@@ -3364,7 +3364,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.14.5":
+"@babel/runtime@npm:^7.12.0":
   version: 7.14.6
   resolution: "@babel/runtime@npm:7.14.6"
   dependencies:
@@ -3379,6 +3379,15 @@ __metadata:
   dependencies:
     regenerator-runtime: ^0.13.4
   checksum: 257dc2594355dd8798455f25b6f2f9a00f162b427391265752933e0e3337b3b14661d09283187d5039ae3764f723890ffe767e995c73d662f1d515bdf48e5ade
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.14.5":
+  version: 7.17.9
+  resolution: "@babel/runtime@npm:7.17.9"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 4d56bdb82890f386d5a57c40ef985a0ed7f0a78f789377a2d0c3e8826819e0f7f16ba0fe906d9b2241c5f7ca56630ef0653f5bb99f03771f7b87ff8af4bf5fe3
   languageName: node
   linkType: hard
 
@@ -5913,6 +5922,7 @@ __metadata:
     "@rocket.chat/fuselage-polyfills": "*"
     react: 17.0.2
     react-dom: 17.0.2
+    react-i18next: ~11.15.4
   languageName: unknown
   linkType: soft
 
@@ -23182,8 +23192,8 @@ fsevents@~2.1.2:
   linkType: hard
 
 "react-i18next@npm:~11.15.4":
-  version: 11.15.4
-  resolution: "react-i18next@npm:11.15.4"
+  version: 11.15.7
+  resolution: "react-i18next@npm:11.15.7"
   dependencies:
     "@babel/runtime": ^7.14.5
     html-escaper: ^2.0.2
@@ -23196,7 +23206,7 @@ fsevents@~2.1.2:
       optional: true
     react-native:
       optional: true
-  checksum: 1fa984c55ee252a7e5815deaf60a488aa8ef8508791c02c275290c6119a326be9491668e7a9a8e87e44a7dfef75b3c226e6e26ac79fe268576f9d4695860aed4
+  checksum: 9898fc0dd6bc68b93402556d50b5e8ac3a027e36f5f5575e706dc7c7f42c2704dc6ab12e07802497473454f735560a2ed1e4a4d4cd6f4eec544b5b47961907e1
   languageName: node
   linkType: hard
 
