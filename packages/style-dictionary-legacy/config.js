@@ -10,18 +10,26 @@ module.exports = {
       files: tokens.map((tokenCategory) => ({
         destination: `${tokenCategory}.js`,
         format: "cjsmodule",
-        filter: (token) => token.filePath.includes(tokenCategory),
+        filter: (token) => token.group === tokenCategory,
+      })),
+    },
+    json: {
+      transformGroup: "custom/js",
+      buildPath: "build/json/",
+      files: tokens.map((tokenCategory) => ({
+        destination: `${tokenCategory}.json`,
+        format: "json/nested",
+        filter: (token) => token.group === tokenCategory,
       })),
     },
     scss: {
       transformGroup: "scss",
       buildPath: "build/scss/",
-      files: [
-        {
-          destination: "colors.scss",
-          format: "scss/variables",
-        },
-      ],
+      files: tokens.map((tokenCategory) => ({
+        destination: `${tokenCategory}.scss`,
+        format: "scss/map-flat",
+        filter: (token) => token.group === tokenCategory,
+      })),
     },
   },
 };

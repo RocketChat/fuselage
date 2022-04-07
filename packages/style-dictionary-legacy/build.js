@@ -17,7 +17,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: "breakpointObject",
   type: "value",
-  matcher: (token) => token.filePath.includes("breakpoints"),
+  matcher: (token) => token.group === "breakpoint",
   transformer: (token) => {
     return token.value;
   },
@@ -44,6 +44,28 @@ StyleDictionary.registerFormat({
           token.original.value
         )}`
     )}\n};`;
+  },
+});
+
+// StyleDictionary.registerFormat({
+//   name: "custom/json",
+//   formatter: function ({ dictionary }) {
+//     return dictionary.allTokens.map((token) => {
+//       console.log(token);
+//       // return JSON.stringify(token.original.value);
+//     });
+//   },
+// });
+
+StyleDictionary.registerFormat({
+  name: "custom/scss",
+  formatter: function ({ dictionary }) {
+    const group = Object.keys(dictionary.properties).map(
+      (key) => dictionary.properties[key].original.group
+    );
+    return `$${group[0]}: (${dictionary.allTokens.map((token) => {
+      return `\n\t${token.name}: (${JSON.stringify(token.original.value)})`;
+    })})`;
   },
 });
 
