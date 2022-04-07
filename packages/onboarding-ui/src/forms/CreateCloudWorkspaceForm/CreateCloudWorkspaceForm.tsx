@@ -5,6 +5,7 @@ import {
   ButtonGroup,
   Button,
   Box,
+  Divider,
   EmailInput,
   TextInput,
   Select,
@@ -194,6 +195,8 @@ const CreateCloudWorkspaceForm = ({
             </Field>
           </Grid.Item>
         </Grid>
+
+        <Divider mb='x0' />
 
         <Field>
           <Field.Row justifyContent='flex-start'>
