@@ -38,14 +38,12 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerFormat({
   name: "cjsmodule",
   formatter: function ({ dictionary }) {
-    return `module.exports = {${dictionary.allTokens.map((token) => {
-      if (token.filePath.includes("colors")) {
-        return `\n\t${token.name.toString()}: "${token.original.value}"`;
-      } else {
-        console.log(token);
-        return `\n\t${token.name}: ${JSON.stringify(token.original.value)}`;
-      }
-    })}\n};`;
+    return `module.exports = {${dictionary.allTokens.map(
+      (token) =>
+        `\n\t${JSON.stringify(token.name)}: ${JSON.stringify(
+          token.original.value
+        )}`
+    )}\n};`;
   },
 });
 
