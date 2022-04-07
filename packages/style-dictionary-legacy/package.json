@@ -1,0 +1,11 @@
+{
+  "name": "style-dictionary-legacy",
+  "packageManager": "yarn@3.1.0",
+  "scripts": {
+    "build": "node ./build --config ./config.js",
+    "clean": "rm -rf build"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.7.0"
+  }
+}
