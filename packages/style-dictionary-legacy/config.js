@@ -1,5 +1,4 @@
 const tokens = require("./tokens");
-const StyleDictionary = require("style-dictionary");
 
 module.exports = {
   source: ["tokens/**/*.json"],

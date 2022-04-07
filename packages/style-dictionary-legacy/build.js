@@ -24,7 +24,6 @@ StyleDictionary.registerTransform({
 });
 
 // Register custom transform to the platform
-
 StyleDictionary.registerTransformGroup({
   name: "custom/js",
   transforms: ["lowerCase", "breakpointObject"],
@@ -47,16 +46,6 @@ StyleDictionary.registerFormat({
   },
 });
 
-// StyleDictionary.registerFormat({
-//   name: "custom/json",
-//   formatter: function ({ dictionary }) {
-//     return dictionary.allTokens.map((token) => {
-//       console.log(token);
-//       // return JSON.stringify(token.original.value);
-//     });
-//   },
-// });
-
 StyleDictionary.registerFormat({
   name: "custom/scss",
   formatter: function ({ dictionary }) {
@@ -70,11 +59,10 @@ StyleDictionary.registerFormat({
 });
 
 // APPLY THE CONFIGURATION
-// IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration
 const StyleDictionaryExtended = StyleDictionary.extend("./config.js");
 
-// FINALLY, BUILD ALL THE PLATFORMS
+// Build all platforms
 StyleDictionaryExtended.buildAllPlatforms();
 
 console.log("\n==============================================");
