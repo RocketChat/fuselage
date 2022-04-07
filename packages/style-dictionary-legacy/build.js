@@ -45,6 +45,17 @@ StyleDictionary.registerFormat({
     )}\n};`;
   },
 });
+StyleDictionary.registerFormat({
+  name: "mjsmodule",
+  formatter: function ({ dictionary }) {
+    return `export default {${dictionary.allTokens.map(
+      (token) =>
+        `\n\t${JSON.stringify(token.name)}: ${JSON.stringify(
+          token.original.value
+        )}`
+    )}\n};`;
+  },
+});
 
 StyleDictionary.registerFormat({
   name: "custom/scss",
