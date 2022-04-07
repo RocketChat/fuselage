@@ -1,0 +1,10 @@
+{
+  "name": "style-dictionary-test",
+  "packageManager": "yarn@3.1.0",
+  "scripts": {
+    "build": "style-dictionary build"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.7.0"
+  }
+}
