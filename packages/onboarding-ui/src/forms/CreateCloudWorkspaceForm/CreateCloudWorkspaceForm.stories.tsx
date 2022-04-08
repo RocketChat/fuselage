@@ -29,20 +29,21 @@ const isValidCharacter = (domainName: string) => {
   return true;
 };
 
-const validationList = [isValidLength, isValidFirstSubstring, isValidCharacter];
-
 const isValidDomainName = async (domainName: string) => {
-  let isValid: boolean | string = true;
-  validationList.every((validate) => {
+  const validationList = [
+    isValidLength,
+    isValidFirstSubstring,
+    isValidCharacter,
+  ];
+
+  for (const validate of validationList) {
     const check = validate(domainName);
     if (check !== true) {
-      isValid = check;
-      return false;
+      return check;
     }
-    return true;
-  });
+  }
 
-  return isValid;
+  return true;
 };
 
 export default {
