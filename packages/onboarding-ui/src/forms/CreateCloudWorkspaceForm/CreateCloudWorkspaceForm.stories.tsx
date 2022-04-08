@@ -37,9 +37,9 @@ const isValidDomainName = async (domainName: string) => {
   ];
 
   for (const validate of validationList) {
-    const check = validate(domainName);
-    if (check !== true) {
-      return check;
+    const validateMessage = validate(domainName);
+    if (typeof validateMessage === 'string') {
+      return validateMessage;
     }
   }
 
