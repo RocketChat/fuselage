@@ -6,19 +6,43 @@ import WorkspaceUrlInput from './WorkspaceUrlInput';
 
 type Args = ComponentProps<typeof CreateCloudWorkspaceForm>;
 
-const isValidDomainName = async (domainName: string) => {
+const isValidLength = (domainName: string) => {
   if (domainName.length < 3) {
     return 'Workspace URL should have at least 3 characters';
   }
+  return true;
+};
+
+const isValidFirstSubstring = (domainName: string) => {
   const firstSubstring = domainName.slice(0, 3);
   if (firstSubstring === 'rc-') {
     return 'Workspace URL address unavailable';
   }
+  return true;
+};
+
+const isValidCharacter = (domainName: string) => {
   const regex = RegExp('^([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9]))$');
   if (!regex.test(domainName)) {
     return 'Invalid character for Workspace URL';
   }
   return true;
+};
+
+const validationList = [isValidLength, isValidFirstSubstring, isValidCharacter];
+
+const isValidDomainName = async (domainName: string) => {
+  let isValid: boolean | string = true;
+  validationList.every((validate) => {
+    const check = validate(domainName);
+    if (check !== true) {
+      isValid = check;
+      return false;
+    }
+    return true;
+  });
+
+  return isValid;
 };
 
 export default {
