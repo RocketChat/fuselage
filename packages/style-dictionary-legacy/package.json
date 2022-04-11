@@ -6,6 +6,6 @@
     "clean": "rm -rf build"
   },
   "devDependencies": {
-    "style-dictionary": "^3.7.0"
+    "style-dictionary": "workspace:~"
   }
 }
