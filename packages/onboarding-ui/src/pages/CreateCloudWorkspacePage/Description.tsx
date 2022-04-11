@@ -32,8 +32,8 @@ const Description = (): ReactElement => {
     [color]
   );
 
-  const listItem = (text: string) => (
-    <List.Item fontScale='p1'>
+  const listItem = (text: string, id: number) => (
+    <List.Item key={id} fontScale='p1'>
       <Icon name='check' size='x24' mie='x12' />
       {text}
     </List.Item>
@@ -43,7 +43,7 @@ const Description = (): ReactElement => {
     <Box>
       <Box>
         <List color={color} spacing='x16' icon={icon}>
-          {featuresList.map((text) => listItem(text))}
+          {featuresList.map((text, id) => listItem(text, id))}
         </List>
       </Box>
     </Box>
