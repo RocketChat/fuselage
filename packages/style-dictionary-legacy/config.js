@@ -21,7 +21,7 @@ module.exports = {
         filter: (token) => token.group === tokenCategory,
       })),
     },
-    js: {
+    mjs: {
       transformGroup: "custom/js",
       buildPath: "build/js/",
       files: tokens.map((tokenCategory) => ({
