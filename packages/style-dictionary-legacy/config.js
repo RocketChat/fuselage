@@ -21,7 +21,7 @@ module.exports = {
         filter: (token) => token.group === tokenCategory,
       })),
     },
-    json: {
+    js: {
       transformGroup: "custom/js",
       buildPath: "build/js/",
       files: tokens.map((tokenCategory) => ({
@@ -35,7 +35,7 @@ module.exports = {
       buildPath: "build/scss/",
       files: tokens.map((tokenCategory) => ({
         destination: `${tokenCategory}.scss`,
-        format: "scss/map-flat",
+        format: "custom/scss",
         filter: (token) => token.group === tokenCategory,
       })),
     },

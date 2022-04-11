@@ -56,6 +56,36 @@ StyleDictionary.registerFormat({
     )}\n};`;
   },
 });
+const encodeJson = (data) =>
+  JSON.stringify(data, null, 2).replace(
+    /[\u007f-\uffff]/g,
+    (c) => `\\u${`0000${c.charCodeAt(0).toString(16)}`.slice(-4)}`
+  );
+
+const toScssIdentifier = (string) =>
+  string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();
+
+const toScssValue = (chunk) => {
+  if (typeof chunk === "boolean" || typeof chunk === "number") {
+    return chunk;
+  }
+
+  if (typeof chunk === "string") {
+    return /\s/.test(chunk) ? encodeJson(chunk) : chunk;
+  }
+
+  if (chunk === undefined || chunk === null) {
+    return "null";
+  }
+
+  if (Array.isArray(chunk)) {
+    return `(${chunk.map(toScssValue).join(",")})`;
+  }
+
+  return `(${Object.entries(chunk)
+    .map(([key, value]) => `${toScssIdentifier(key)}:${toScssValue(value)}`)
+    .join(",")})`;
+};
 
 StyleDictionary.registerFormat({
   name: "custom/scss",
@@ -63,9 +93,12 @@ StyleDictionary.registerFormat({
     const group = Object.keys(dictionary.properties).map(
       (key) => dictionary.properties[key].original.group
     );
-    return `$${group[0]}: (${dictionary.allTokens.map((token) => {
-      return `\n\t${token.name}: (${JSON.stringify(token.original.value)})`;
-    })})`;
+    return `$${group[0]}: (${dictionary.allTokens
+      .map((token) => {
+        console.log(token);
+        return `\n${toScssIdentifier(token.name)}:${toScssValue(token.value)},`;
+      })
+      .join("")})`;
   },
 });
 
