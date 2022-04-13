@@ -4,25 +4,16 @@ module.exports = {
   source: ['src/**/*.json'],
   platforms: {
     js: {
-      transformGroup: 'custom/js',
+      transformGroup: 'js',
       buildPath: 'dist/',
-      files: tokens.map((tokenCategory) => {
-        if (tokenCategory === 'palette') {
-          return {
-            destination: `${tokenCategory}.js`,
-            format: 'camelCase',
-            filter: (token) => token.filePath.includes(tokenCategory),
-          };
-        }
-        return {
-          destination: `${tokenCategory}.js`,
-          format: 'cjsmodule',
-          filter: (token) => token.filePath.includes(tokenCategory),
-        };
-      }),
+      files: tokens.map((tokenCategory) => ({
+        destination: `${tokenCategory}.js`,
+        format: 'camelCase',
+        filter: (token) => token.filePath.includes(tokenCategory),
+      })),
     },
     json: {
-      transformGroup: 'custom/js',
+      transformGroup: 'js',
       buildPath: 'dist/',
       files: tokens.map((tokenCategory) => {
         if (tokenCategory === 'breakpoints') {

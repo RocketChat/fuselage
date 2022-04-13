@@ -39,38 +39,9 @@ const toScssValue = (chunk) => {
     .join(',')})`;
 };
 
-// REGISTER THE CUSTOM TRANFORMS
-
-StyleDictionary.registerTransform({
-  name: 'lowerCase',
-  type: 'value',
-  matcher: (token) => token.group === 'color',
-  transformer(token) {
-    return token.name.toLowerCase();
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'breakpointObject',
-  type: 'value',
-  matcher: (token) => token.group === 'breakpoint',
-  transformer: (token) => token.value,
-});
-
-// Register custom transform to the platform
-StyleDictionary.registerTransformGroup({
-  name: 'custom/js',
-  transforms: ['lowerCase', 'breakpointObject'],
-});
-
 StyleDictionary.registerTransformGroup({
   name: 'custom/mjs',
   transforms: ['name/cti/camel'],
-});
-
-StyleDictionary.registerTransformGroup({
-  name: 'custom/scss',
-  transforms: StyleDictionary.transformGroup.scss,
 });
 
 StyleDictionary.registerFormat({
@@ -95,12 +66,18 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'camelCase',
   formatter({ dictionary }) {
-    return `module.exports = {${dictionary.allTokens.map(
-      (token) =>
-        `\n\t${encodeJson(arrayTocamelCase(token.path))}: ${encodeJson(
-          token.value
-        )}`
-    )}\n};`;
+    // Get group name through folder name ./src/******
+    const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
+    const [, group] = dictionary.allTokens[0].filePath.match(exp);
+
+    return `module.exports = {${dictionary.allTokens.map((token) => {
+      const name =
+        group === 'colors'
+          ? encodeJson(token.path[1])
+          : encodeJson(arrayTocamelCase(token.path));
+
+      return `\n\t${name}: ${encodeJson(token.value)}`;
+    })}\n};`;
   },
 });
 
@@ -127,13 +104,16 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'custom/scss',
   formatter({ dictionary }) {
-    const group = Object.keys(dictionary.allTokens).map(
-      (key) => dictionary.allTokens[key].original.group
-    );
-    return `$${group[0]}: (${dictionary.allTokens
+    // Get group name through folder name ./src/******
+    const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
+    const [, group] = dictionary.allTokens[0].filePath.match(exp);
+
+    return `$${group}: (${dictionary.allTokens
       .map(
         (token) =>
-          `\n${toScssIdentifier(token.name)}:${toScssValue(token.value)},`
+          `\n${toScssIdentifier(
+            group === 'colors' ? token.path[1] : token.name
+          )}:${toScssValue(token.value)},`
       )
       .join('')})`;
   },
