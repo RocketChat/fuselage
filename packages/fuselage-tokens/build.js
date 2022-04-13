@@ -119,6 +119,15 @@ StyleDictionary.registerFormat({
   },
 });
 
+StyleDictionary.registerFormat({
+  name: 'custom/typography-scss',
+  formatter({ dictionary }) {
+    return `${dictionary.allTokens
+      .map((token) => `$${token.name}: \n${toScssValue(token.value)};`)
+      .join('')}`;
+  },
+});
+
 // APPLY THE CONFIGURATION
 // needs to be done _before_ applying the configuration
 const StyleDictionaryExtended = StyleDictionary.extend('./config.js');

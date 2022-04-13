@@ -53,7 +53,10 @@ module.exports = {
       buildPath: 'dist/',
       files: tokens.map((tokenCategory) => ({
         destination: `${tokenCategory}.scss`,
-        format: 'custom/scss',
+        format:
+          tokenCategory === 'typography'
+            ? 'custom/typography-scss'
+            : 'custom/scss',
         filter: (token) => token.filePath.includes(tokenCategory),
       })),
     },
