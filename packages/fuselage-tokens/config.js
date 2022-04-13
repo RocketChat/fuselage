@@ -16,16 +16,13 @@ module.exports = {
       transformGroup: 'js',
       buildPath: 'dist/',
       files: tokens.map((tokenCategory) => {
-        if (tokenCategory === 'breakpoints') {
-          return {
-            destination: `${tokenCategory}.json`,
-            format: 'breakpoints/custom-json',
-            filter: (token) => token.filePath.includes(tokenCategory),
-          };
-        }
+        const customFormat = `custom/${tokenCategory}-json`;
         return {
           destination: `${tokenCategory}.json`,
-          format: 'json/nested',
+          format:
+            tokenCategory === 'breakpoints' || tokenCategory === 'colors'
+              ? customFormat
+              : 'json/nested',
           filter: (token) => token.filePath.includes(tokenCategory),
         };
       }),

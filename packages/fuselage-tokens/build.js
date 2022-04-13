@@ -45,7 +45,19 @@ StyleDictionary.registerTransformGroup({
 });
 
 StyleDictionary.registerFormat({
-  name: 'breakpoints/custom-json',
+  name: 'custom/colors-json',
+  formatter({ dictionary }) {
+    return `{${dictionary.allTokens.map((token) => {
+      console.log(token);
+      return `\n\t${encodeJson(token.path[1])}: ${encodeJson(
+        token.original.value
+      )}`;
+    })}\n}`;
+  },
+});
+
+StyleDictionary.registerFormat({
+  name: 'custom/breakpoints-json',
   formatter({ dictionary }) {
     return `[${dictionary.allTokens.map(
       (token) => `\n\t${encodeJson(token.original.value, null, 2)}`
