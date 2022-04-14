@@ -19,7 +19,7 @@
 
   "stroke": {
     "extraLight": { "value": "{colors.white}" },
-    "light": { "value": "{colors.n400}" },
+    "light": { "value": "{colors.n500}" },
     "medium": { "value": "{colors.n600}" },
     "dark": { "value": "{colors.n700}" },
     "extraDark": { "value": "{colors.n800}" },

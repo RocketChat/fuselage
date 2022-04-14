@@ -177,4 +177,13 @@
   &--primary-new {
     @include button.kind-variant(colorsNew.$primary-new);
   }
+  &--secondary-new {
+    @include button.kind-variant(colorsNew.$secondary-new);
+  }
+  &--secondary-danger-new {
+    @include button.kind-variant(colorsNew.$secondary-danger-new);
+  }
+  &--danger-new {
+    @include button.kind-variant(colorsNew.$danger-new);
+  }
 }
