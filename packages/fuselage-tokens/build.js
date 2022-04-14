@@ -60,7 +60,7 @@ StyleDictionary.registerFormat({
   name: 'custom/breakpoints-json',
   formatter({ dictionary }) {
     return `[${dictionary.allTokens.map(
-      (token) => `\n\t${encodeJson(token.original.value, null, 2)}`
+      (token) => `\n\t${encodeJson(token.original.value)}`
     )}\n]`;
   },
 });
