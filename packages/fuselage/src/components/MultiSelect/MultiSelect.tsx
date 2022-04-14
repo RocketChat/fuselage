@@ -117,6 +117,8 @@ export const MultiSelect = forwardRef(
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
       useCursor(index, filteredOptions, internalChanged);
 
+    const [visibility, setVisibility] = useState(visible);
+
     useEffect(reset, [filter]);
 
     const innerRef = useRef<HTMLElement>(null);
@@ -145,9 +147,11 @@ export const MultiSelect = forwardRef(
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
         onClick={useMutableCallback(() => {
-          if (visible === AnimatedVisibility.VISIBLE) {
+          if (visibility === AnimatedVisibility.VISIBLE) {
+            setVisibility('hidden');
             return hide();
           }
+          setVisibility('visible');
           innerRef.current?.focus();
           return show();
         })}
@@ -217,7 +221,7 @@ export const MultiSelect = forwardRef(
               children={
                 <Icon
                   name={
-                    visible === AnimatedVisibility.VISIBLE
+                    visibility === AnimatedVisibility.VISIBLE
                       ? 'cross'
                       : addonIcon || 'chevron-down'
                   }
@@ -227,7 +231,7 @@ export const MultiSelect = forwardRef(
             />
           </Margins>
         </Flex.Item>
-        <AnimatedVisibility visibility={visible}>
+        <AnimatedVisibility visibility={visibility}>
           <Position anchor={containerRef}>
             <_Options
               width={borderBoxSize.inlineSize}
