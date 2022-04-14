@@ -1,0 +1,24 @@
+@use '~@rocket.chat/fuselage-tokens/dist/palette.scss';
+
+@function paletteColor($name) {
+  $button-type: 'button-' + $name;
+  @return map-get(palette.$palette, $button-type);
+}
+
+$primary-new: (
+  background-color: paletteColor(primary),
+  border-color: paletteColor(primary),
+  color: paletteColor(on-primary),
+  hover-background-color: paletteColor(hover-primary),
+  hover-border-color: paletteColor(hover-primary),
+  focus-background-color: paletteColor(focus-primary),
+  focus-border-color: paletteColor(focus-primary),
+  disabled-background-color: paletteColor(disable-primary),
+  disabled-border-color: paletteColor(disable-primary),
+  disabled-color: paletteColor(on-disable),
+  active-background-color: paletteColor(press-primary),
+  active-border-color: paletteColor(press-primary),
+  key-focus-background-color: paletteColor(keyfocus-primary),
+  // keyfocus ?
+  // focus-shadow-color: -color('primary', 'focus-shadow-color', colors.primary(100)),,,,,,
+);

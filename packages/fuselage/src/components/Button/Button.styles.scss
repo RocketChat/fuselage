@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use '../../styles/typography.scss';
 @use '../../styles/variables/buttons.scss' as colors;
+@use '../../styles/variables/buttons-new.scss' as colorsNew;
 @use '../../styles/primitives/button.scss';
 
 .rcx-button {
@@ -88,13 +89,13 @@
     @include button.kind-variant(colors.$secondary-warning);
   }
 
-  &--danger {
-    @include button.kind-variant(colors.$secondary-danger);
-  }
+  // &--danger {
+  //   @include button.kind-variant(colors.$secondary-danger);
+  // }
 
-  &--primary {
-    @include button.kind-variant(colors.$primary);
-  }
+  // &--primary {
+  //   @include button.kind-variant(colors.$primary);
+  // }
 
   &--primary-info {
     @include button.kind-variant(colors.$info);
@@ -170,5 +171,10 @@
 
   &--ghostish-danger {
     @include button.kind-variant(colors.$ghostish-danger);
+  }
+
+  // New palette
+  &--primary-new {
+    @include button.kind-variant(colorsNew.$primary-new);
   }
 }

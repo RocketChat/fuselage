@@ -13,6 +13,7 @@ import React from 'react';
 
 import { Button, ButtonGroup, Icon } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import ButtonNew from './ButtonNew';
 
 export default {
   title: 'Inputs/Button',
@@ -82,6 +83,10 @@ export const Square: ComponentStory<typeof Button> = () => (
   <Button square>
     <Icon name='plus' size='x20' />
   </Button>
+);
+
+export const NewPalette: ComponentStory<typeof Button> = () => (
+  <ButtonNew primary>New palette</ButtonNew>
 );
 
 export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
