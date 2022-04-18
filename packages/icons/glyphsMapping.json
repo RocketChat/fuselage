@@ -826,5 +826,8 @@
   },
   "arrow-stack-up": {
     "start": "\ue0ed"
+  },
+  "shield-blank": {
+    "start": "\ue0ef"
   }
 }
