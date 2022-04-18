@@ -11,7 +11,6 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import type { Button } from '../..';
 import { ButtonGroup, Icon } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import ButtonNew from './ButtonNew';
@@ -30,8 +29,8 @@ export default {
           <Subtitle />
           <Description />
           <PrimaryStory />
-          <ArgsTable story={PRIMARY_STORY} />
           <Stories title={''} />
+          <ArgsTable story={PRIMARY_STORY} />
         </>
       ),
     },
@@ -48,8 +47,13 @@ export const Square: ComponentStory<typeof ButtonNew> = () => (
   </ButtonNew>
 );
 
-export const Primary: ComponentStory<typeof ButtonNew> = () => (
-  <ButtonNew primary>Primary</ButtonNew>
+export const Variants: ComponentStory<typeof ButtonNew> = () => (
+  <ButtonGroup>
+    <ButtonNew primary>Primary</ButtonNew>
+    <ButtonNew secondary>Secondary</ButtonNew>
+    <ButtonNew secondaryDanger>Secondary Danger</ButtonNew>
+    <ButtonNew danger>Danger</ButtonNew>
+  </ButtonGroup>
 );
 
 export const Sizes: ComponentStory<typeof ButtonGroup> = () => (

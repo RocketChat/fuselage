@@ -9,6 +9,7 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   secondaryDanger?: boolean;
   danger?: boolean;
 
+  disabled?: boolean;
   small?: boolean;
   mini?: boolean;
   tiny?: boolean;
@@ -21,7 +22,6 @@ export const ButtonNew = forwardRef(function Button(
     primary,
     secondary,
     secondaryDanger,
-
     danger,
     external,
     is = 'button',
