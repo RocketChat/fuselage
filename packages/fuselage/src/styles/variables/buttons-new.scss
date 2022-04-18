@@ -1,70 +1,70 @@
 @use '~@rocket.chat/fuselage-tokens/dist/palette.scss';
 
-@function paletteColor($name) {
+@function palette-color($name) {
   @return map-get(palette.$palette, $name);
 }
 
-@function paletteButtonColor($name) {
+@function palette-button-color($name) {
   $button-type: 'button-' + $name;
   @return map-get(palette.$palette, $button-type);
 }
 
 $primary-new: (
-  background-color: paletteButtonColor(primary),
-  border-color: paletteButtonColor(primary),
-  color: paletteButtonColor(on-primary),
-  hover-background-color: paletteButtonColor(hover-primary),
-  hover-border-color: paletteButtonColor(hover-primary),
-  focus-background-color: paletteButtonColor(primary),
-  focus-border-color: paletteColor(stroke-light),
-  disabled-background-color: paletteButtonColor(disable-primary),
-  disabled-border-color: paletteButtonColor(disable-primary),
-  disabled-color: paletteButtonColor(on-disable),
-  active-background-color: paletteButtonColor(press-primary),
-  active-border-color: paletteButtonColor(press-primary),
+  background-color: palette-button-color(primary),
+  border-color: palette-button-color(primary),
+  color: palette-button-color(on-primary),
+  hover-background-color: palette-button-color(hover-primary),
+  hover-border-color: palette-button-color(hover-primary),
+  focus-background-color: palette-button-color(primary),
+  focus-border-color: palette-color(stroke-light),
+  disabled-background-color: palette-button-color(disable-primary),
+  disabled-border-color: palette-button-color(disable-primary),
+  disabled-color: palette-button-color(on-disable),
+  active-background-color: palette-button-color(press-primary),
+  active-border-color: palette-button-color(press-primary),
 );
 
 $secondary-new: (
-  background-color: paletteButtonColor(secondary),
-  border-color: paletteButtonColor(secondary),
-  color: paletteButtonColor(on-secondary),
-  hover-background-color: paletteButtonColor(hover-secondary),
-  hover-border-color: paletteButtonColor(hover-secondary),
-  focus-background-color: paletteButtonColor(secondary),
-  focus-border-color: paletteColor(stroke-light),
-  disabled-background-color: paletteButtonColor(disable-secondary),
-  disabled-border-color: paletteButtonColor(disable-secondary),
-  disabled-color: paletteButtonColor(on-disable),
-  active-background-color: paletteButtonColor(press-secondary),
-  active-border-color: paletteButtonColor(press-secondary),
+  background-color: palette-button-color(secondary),
+  border-color: palette-button-color(secondary),
+  color: palette-button-color(on-secondary),
+  hover-background-color: palette-button-color(hover-secondary),
+  hover-border-color: palette-button-color(hover-secondary),
+  focus-background-color: palette-button-color(secondary),
+  focus-border-color: palette-color(stroke-light),
+  disabled-background-color: palette-button-color(disable-secondary),
+  disabled-border-color: palette-button-color(disable-secondary),
+  disabled-color: palette-button-color(on-disable),
+  active-background-color: palette-button-color(press-secondary),
+  active-border-color: palette-button-color(press-secondary),
 );
 
 $secondary-danger-new: (
-  background-color: paletteButtonColor(secondary-danger),
-  border-color: paletteButtonColor(secondary-danger),
-  color: paletteButtonColor(on-secondary-danger),
-  hover-background-color: paletteButtonColor(hover-secondary-danger),
-  hover-border-color: paletteButtonColor(hover-secondary-danger),
-  focus-background-color: paletteButtonColor(secondary-danger),
-  focus-border-color: paletteColor(stroke-extra-light-error),
-  disabled-background-color: paletteButtonColor(disable-secondary-danger),
-  disabled-border-color: paletteButtonColor(disable-secondary-danger),
-  disabled-color: paletteButtonColor(on-disable),
-  active-background-color: paletteButtonColor(press-secondary-danger),
-  active-border-color: paletteButtonColor(press-secondary-danger),
+  background-color: palette-button-color(secondary-danger),
+  border-color: palette-button-color(secondary-danger),
+  color: palette-button-color(on-secondary-danger),
+  hover-background-color: palette-button-color(hover-secondary-danger),
+  hover-border-color: palette-button-color(hover-secondary-danger),
+  focus-background-color: palette-button-color(secondary-danger),
+  focus-border-color: palette-color(stroke-extra-light-error),
+  disabled-background-color: palette-button-color(disable-secondary-danger),
+  disabled-border-color: palette-button-color(disable-secondary-danger),
+  disabled-color: palette-button-color(on-disable),
+  active-background-color: palette-button-color(press-secondary-danger),
+  active-border-color: palette-button-color(press-secondary-danger),
 );
 
 $danger-new: (
-  background-color: paletteButtonColor(danger),
-  border-color: paletteButtonColor(danger),
-  color: paletteButtonColor(on-danger),
-  hover-background-color: paletteButtonColor(hover-danger),
-  hover-border-color: paletteButtonColor(hover-danger),
-  focus-background-color: paletteButtonColor(danger),
-  focus-border-color: paletteColor(stroke-extra-light-error),
-  disabled-background-color: paletteButtonColor(disable-danger),
-  disabled-border-color: paletteButtonColor(disable-danger),
-  disabled-color: paletteButtonColor(on-disable),
-  active-background-color: paletteButtonColor(press-danger),
-  active-border-color: paletteButtonColor(press-danger),
+  background-color: palette-button-color(danger),
+  border-color: palette-button-color(danger),
+  color: palette-button-color(on-danger),
+  hover-background-color: palette-button-color(hover-danger),
+  hover-border-color: palette-button-color(hover-danger),
+  focus-background-color: palette-button-color(danger),
+  focus-border-color: palette-color(stroke-extra-light-error),
+  disabled-background-color: palette-button-color(disable-danger),
+  disabled-border-color: palette-button-color(disable-danger),
+  disabled-color: palette-button-color(on-disable),
+  active-background-color: palette-button-color(press-danger),
+  active-border-color: palette-button-color(press-danger),
 );
