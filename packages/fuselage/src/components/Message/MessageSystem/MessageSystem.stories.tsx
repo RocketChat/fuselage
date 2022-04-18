@@ -10,7 +10,6 @@ import {
 } from '.';
 import { MessageDivider, MessageSystemBlock } from '..';
 import { Avatar, Box } from '../..';
-import MessageReactions from '../MessageReactions';
 
 export default {
   title: 'Message/MessageSystem',
@@ -86,17 +85,8 @@ export const Default = () => (
           </MessageSystemBody>
           <MessageSystemTimestamp>12:00 PM</MessageSystemTimestamp>
         </MessageSystemBlock>
-        <MessageSystemBlock>
-          <MessageReactions>
-            <MessageReactions.Reaction counter={1} />
-            <MessageReactions.Reaction counter={2} />
-            <MessageReactions.Reaction counter={3} />
-            <MessageReactions.Action />
-          </MessageReactions>
-        </MessageSystemBlock>
       </MessageSystemContainer>
     </MessageSystem>
-    <MessageDivider unreadLabel='Unread' />
     <MessageSystem>
       <MessageSystemLeftContainer>
         <Avatar
@@ -118,9 +108,8 @@ export const Default = () => (
         <MessageSystemBlock>
           <MessageSystemName>Haylie George</MessageSystemName>
           <MessageSystemBody>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            Reprehenderit ut aliquip ex ea commodo consequat a duis aute irure
+            dolor in in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam...
