@@ -67,16 +67,16 @@
     "keyfocusSecondary": { "value": "{colors.n400}" },
     "keyfocusSecondaryDanger": { "value": "{colors.n400}" },
     "keyfocusDanger": { "value": "{colors.d500}" },
-    "disablePrimary": { "value": "{colors.p200}" },
-    "disableSecondary": { "value": "{colors.n300}" },
-    "disableSecondaryDanger": { "value": "{colors.n300}" },
-    "disableDanger": { "value": "{colors.d200}" },
+    "disabledPrimary": { "value": "{colors.p200}" },
+    "disabledSecondary": { "value": "{colors.n300}" },
+    "disabledSecondaryDanger": { "value": "{colors.n300}" },
+    "disabledDanger": { "value": "{colors.d200}" },
 
     "onPrimary": { "value": "{colors.white}" },
     "onSecondary": { "value": "{colors.n900}" },
     "onSecondaryDanger": { "value": "{colors.d700}" },
     "onDanger": { "value": "{colors.white}" },
-    "onDisable": { "value": "{colors.n600}" },
+    "onDisabled": { "value": "{colors.n600}" },
     "onSecondaryDangerDisable": { "value": "{colors.d300}" }
   }
 }
