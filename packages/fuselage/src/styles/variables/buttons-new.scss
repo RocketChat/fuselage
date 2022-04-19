@@ -72,3 +72,18 @@ $danger-new: (
   focus-border-color: palette-color(stroke-extra-dark),
   focus-shadow-color: palette-color(stroke-extra-light-error),
 );
+$warning-new: (
+  background-color: palette-button-color(warning),
+  border-color: palette-button-color(warning),
+  color: palette-button-color(on-warning),
+  hover-background-color: palette-button-color(hover-warning),
+  hover-border-color: palette-button-color(hover-warning),
+  disabled-background-color: palette-button-color(disabled-warning),
+  disabled-border-color: palette-button-color(disabled-warning),
+  disabled-color: palette-button-color(on-disabled),
+  active-background-color: palette-button-color(press-warning),
+  active-border-color: palette-button-color(press-warning),
+  focus-background-color: palette-button-color(warning),
+  focus-border-color: palette-color(stroke-extra-dark),
+  focus-shadow-color: palette-color(stroke-extra-light-highlight),
+);

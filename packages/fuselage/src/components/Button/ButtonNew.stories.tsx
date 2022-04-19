@@ -53,6 +53,7 @@ export const Variants: ComponentStory<typeof ButtonNew> = () => (
     <ButtonNew secondary>Secondary</ButtonNew>
     <ButtonNew secondaryDanger>Secondary Danger</ButtonNew>
     <ButtonNew danger>Danger</ButtonNew>
+    <ButtonNew warning>Warning</ButtonNew>
   </ButtonGroup>
 );
 
@@ -128,6 +129,10 @@ export const States = () => (
           children: 'Button',
           danger: true,
         },
+        'warning': {
+          children: 'Button',
+          warning: true,
+        },
       }}
     />
     <PropsVariationSection
@@ -173,6 +178,10 @@ export const States = () => (
         'danger': {
           children: 'Button',
           danger: true,
+        },
+        'warning': {
+          children: 'Button',
+          warning: true,
         },
       }}
     />

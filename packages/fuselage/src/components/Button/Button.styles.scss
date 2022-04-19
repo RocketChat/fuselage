@@ -189,4 +189,8 @@
   &--danger-new {
     @include button.kind-variant(colorsNew.$danger-new);
   }
+
+  &--warning-new {
+    @include button.kind-variant(colorsNew.$warning-new);
+  }
 }
