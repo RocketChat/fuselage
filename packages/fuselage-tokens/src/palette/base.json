@@ -26,7 +26,8 @@
     "extraLightHighlight": { "value": "{colors.p200}" },
     "highlight": { "value": "{colors.p500}" },
     "extraLightError": { "value": "{colors.d200}" },
-    "error": { "value": "{colors.d500}" }
+    "error": { "value": "{colors.d500}" },
+    "warning": { "value": "{colors.w200}" }
   },
 
   "text": {
@@ -53,6 +54,7 @@
     "danger": { "value": "{colors.d500}" },
     "warning": { "value": "{colors.w400}" },
     "secondaryWarning": { "value": "{colors.n400}" },
+    "success": { "value": "{colors.s500}" },
 
     "hoverPrimary": { "value": "{colors.p600}" },
     "hoverSecondary": { "value": "{colors.n500}" },
@@ -60,6 +62,7 @@
     "hoverDanger": { "value": "{colors.d600}" },
     "hoverWarning": { "value": "{colors.w500}" },
     "hoverSecondaryWarning": { "value": "{colors.n500}" },
+    "hoverSuccess": { "value": "{colors.s600}" },
 
     "pressPrimary": { "value": "{colors.p700}" },
     "pressSecondary": { "value": "{colors.n600}" },
@@ -67,6 +70,7 @@
     "pressDanger": { "value": "{colors.d700}" },
     "pressWarning": { "value": "{colors.w600}" },
     "pressSecondaryWarning": { "value": "{colors.n600}" },
+    "pressSuccess": { "value": "{colors.s700}" },
 
     "focusPrimary": { "value": "{colors.p500}" },
     "focusSecondary": { "value": "{colors.n400}" },
@@ -74,6 +78,7 @@
     "focusDanger": { "value": "{colors.d500}" },
     "focusWarning": { "value": "{colors.w400}" },
     "focusSecondaryWarning": { "value": "{colors.n400}" },
+    "focusSuccess": { "value": "{colors.s500}" },
 
     "keyfocusPrimary": { "value": "{colors.p500}" },
     "keyfocusSecondary": { "value": "{colors.n400}" },
@@ -81,6 +86,7 @@
     "keyfocusDanger": { "value": "{colors.d500}" },
     "keyfocusWarning": { "value": "{colors.w400}" },
     "keyfocusSecondaryWarning": { "value": "{colors.n400}" },
+    "keyfocusSuccess": { "value": "{colors.s500}" },
 
     "disabledPrimary": { "value": "{colors.p200}" },
     "disabledSecondary": { "value": "{colors.n300}" },
@@ -88,6 +94,7 @@
     "disabledDanger": { "value": "{colors.d200}" },
     "disabledWarning": { "value": "{colors.w200}" },
     "disabledSecondaryWarning": { "value": "{colors.n300}" },
+    "disabledSuccess": { "value": "{colors.s200}" },
 
     "onPrimary": { "value": "{colors.white}" },
     "onSecondary": { "value": "{colors.n900}" },

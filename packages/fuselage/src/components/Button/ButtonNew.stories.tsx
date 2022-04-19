@@ -134,6 +134,10 @@ export const States = () => (
           children: 'Button',
           warning: true,
         },
+        'secondary-warning': {
+          children: 'Button',
+          secondaryWarning: true,
+        },
       }}
     />
     <PropsVariationSection
@@ -183,6 +187,10 @@ export const States = () => (
         'warning': {
           children: 'Button',
           warning: true,
+        },
+        'secondary-warning': {
+          children: 'Button',
+          secondaryWarning: true,
         },
       }}
     />

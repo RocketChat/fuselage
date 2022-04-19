@@ -85,7 +85,7 @@ $warning-new: (
   active-border-color: palette-button-color(press-warning),
   focus-background-color: palette-button-color(warning),
   focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-extra-light-highlight),
+  focus-shadow-color: palette-color(stroke-warning),
 );
 $secondary-warning-new: (
   background-color: palette-button-color(secondary-warning),
@@ -100,5 +100,5 @@ $secondary-warning-new: (
   active-border-color: palette-button-color(press-secondary-warning),
   focus-background-color: palette-button-color(secondary-warning),
   focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-extra-light-highlight),
+  focus-shadow-color: palette-color(stroke-warning),
 );
