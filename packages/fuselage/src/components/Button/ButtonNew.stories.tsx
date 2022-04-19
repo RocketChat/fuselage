@@ -53,15 +53,28 @@ export const Variants: ComponentStory<typeof ButtonNew> = () => (
     <ButtonNew primary>Primary</ButtonNew>
     <ButtonNew secondary>Secondary</ButtonNew>
     <Box display='flex' flexDirection='column'>
-      <ButtonNew danger>Danger</ButtonNew>
-      <ButtonNew secondaryDanger>Secondary Danger</ButtonNew>
+      <ButtonNew m='2px' danger>
+        Danger
+      </ButtonNew>
+      <ButtonNew m='2px' secondaryDanger>
+        Secondary Danger
+      </ButtonNew>
     </Box>
     <Box display='flex' flexDirection='column'>
-      <ButtonNew warning>Warning</ButtonNew>
-      <ButtonNew secondaryWarning>Secondary Warning</ButtonNew>
+      <ButtonNew m='2px' warning>
+        Warning
+      </ButtonNew>
+      <ButtonNew m='2px' secondaryWarning>
+        Secondary Warning
+      </ButtonNew>
     </Box>
     <Box display='flex' flexDirection='column'>
-      <ButtonNew success>Success</ButtonNew>
+      <ButtonNew m='2px' success>
+        Success
+      </ButtonNew>
+      <ButtonNew m='2px' secondarySuccess>
+        Secondary Success
+      </ButtonNew>
     </Box>
   </ButtonGroup>
 );
@@ -150,6 +163,10 @@ export const States = () => (
           children: 'Button',
           success: true,
         },
+        'secondary-success': {
+          children: 'Button',
+          secondarySuccess: true,
+        },
       }}
     />
     <PropsVariationSection
@@ -206,7 +223,11 @@ export const States = () => (
         },
         'success': {
           children: 'Button',
-          warning: true,
+          success: true,
+        },
+        'secondary-success': {
+          children: 'Button',
+          secondarySuccess: true,
         },
       }}
     />

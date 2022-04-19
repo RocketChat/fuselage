@@ -117,3 +117,18 @@ $success-new: (
   focus-border-color: palette-color(stroke-extra-dark),
   focus-shadow-color: palette-color(stroke-success),
 );
+$secondary-success-new: (
+  background-color: palette-button-color(secondary-success),
+  border-color: palette-button-color(secondary-success),
+  color: palette-button-color(on-secondary-success),
+  hover-background-color: palette-button-color(hover-secondary-success),
+  hover-border-color: palette-button-color(hover-secondary-success),
+  disabled-background-color: palette-button-color(disabled-secondary-success),
+  disabled-border-color: palette-button-color(disabled-secondary-success),
+  disabled-color: palette-button-color(on-disabled),
+  active-background-color: palette-button-color(press-secondary-success),
+  active-border-color: palette-button-color(press-secondary-success),
+  focus-background-color: palette-button-color(secondary-success),
+  focus-border-color: palette-color(stroke-extra-dark),
+  focus-shadow-color: palette-color(stroke-success),
+);

@@ -201,4 +201,8 @@
   &--success-new {
     @include button.kind-variant(colorsNew.$success-new);
   }
+
+  &--secondary-success-new {
+    @include button.kind-variant(colorsNew.$secondary-success-new);
+  }
 }
