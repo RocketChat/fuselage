@@ -16,7 +16,7 @@
   @include on-focus-visible {
     border-color: map.get($colors, focus-border-color);
     background-color: map.get($colors, focus-background-color);
-    @include use-focus-shadow(map.get($colors, focus-shadow-color));
+    @include use-button-focus-shadow(map.get($colors, focus-shadow-color));
   }
 
   @include on-hover {

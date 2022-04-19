@@ -15,13 +15,14 @@ $primary-new: (
   color: palette-button-color(on-primary),
   hover-background-color: palette-button-color(hover-primary),
   hover-border-color: palette-button-color(hover-primary),
-  focus-background-color: palette-button-color(primary),
-  focus-border-color: palette-color(stroke-light),
   disabled-background-color: palette-button-color(disable-primary),
   disabled-border-color: palette-button-color(disable-primary),
   disabled-color: palette-button-color(on-disable),
   active-background-color: palette-button-color(press-primary),
   active-border-color: palette-button-color(press-primary),
+  focus-background-color: palette-button-color(primary),
+  focus-border-color: palette-color(stroke-extra-dark),
+  focus-shadow-color: palette-color(stroke-extra-light-highlight),
 );
 
 $secondary-new: (
@@ -30,13 +31,14 @@ $secondary-new: (
   color: palette-button-color(on-secondary),
   hover-background-color: palette-button-color(hover-secondary),
   hover-border-color: palette-button-color(hover-secondary),
-  focus-background-color: palette-button-color(secondary),
-  focus-border-color: palette-color(stroke-light),
   disabled-background-color: palette-button-color(disable-secondary),
   disabled-border-color: palette-button-color(disable-secondary),
   disabled-color: palette-button-color(on-disable),
   active-background-color: palette-button-color(press-secondary),
   active-border-color: palette-button-color(press-secondary),
+  focus-background-color: palette-button-color(secondary),
+  focus-border-color: palette-color(stroke-extra-dark),
+  focus-shadow-color: palette-color(stroke-extra-light-highlight),
 );
 
 $secondary-danger-new: (
@@ -45,13 +47,14 @@ $secondary-danger-new: (
   color: palette-button-color(on-secondary-danger),
   hover-background-color: palette-button-color(hover-secondary-danger),
   hover-border-color: palette-button-color(hover-secondary-danger),
-  focus-background-color: palette-button-color(secondary-danger),
-  focus-border-color: palette-color(stroke-extra-light-error),
   disabled-background-color: palette-button-color(disable-secondary-danger),
   disabled-border-color: palette-button-color(disable-secondary-danger),
   disabled-color: palette-button-color(on-disable),
   active-background-color: palette-button-color(press-secondary-danger),
   active-border-color: palette-button-color(press-secondary-danger),
+  focus-background-color: palette-button-color(secondary-danger),
+  focus-border-color: palette-color(stroke-extra-dark),
+  focus-shadow-color: palette-color(stroke-extra-light-error),
 );
 
 $danger-new: (
@@ -60,11 +63,12 @@ $danger-new: (
   color: palette-button-color(on-danger),
   hover-background-color: palette-button-color(hover-danger),
   hover-border-color: palette-button-color(hover-danger),
-  focus-background-color: palette-button-color(danger),
-  focus-border-color: palette-color(stroke-extra-light-error),
   disabled-background-color: palette-button-color(disable-danger),
   disabled-border-color: palette-button-color(disable-danger),
   disabled-color: palette-button-color(on-disable),
   active-background-color: palette-button-color(press-danger),
   active-border-color: palette-button-color(press-danger),
+  focus-background-color: palette-button-color(danger),
+  focus-border-color: palette-color(stroke-extra-dark),
+  focus-shadow-color: palette-color(stroke-extra-light-error),
 );
