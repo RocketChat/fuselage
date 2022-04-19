@@ -193,4 +193,8 @@
   &--warning-new {
     @include button.kind-variant(colorsNew.$warning-new);
   }
+
+  &--secondary-warning-new {
+    @include button.kind-variant(colorsNew.$secondary-warning-new);
+  }
 }

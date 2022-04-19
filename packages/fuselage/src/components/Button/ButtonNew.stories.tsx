@@ -51,9 +51,10 @@ export const Variants: ComponentStory<typeof ButtonNew> = () => (
   <ButtonGroup>
     <ButtonNew primary>Primary</ButtonNew>
     <ButtonNew secondary>Secondary</ButtonNew>
-    <ButtonNew secondaryDanger>Secondary Danger</ButtonNew>
     <ButtonNew danger>Danger</ButtonNew>
+    <ButtonNew secondaryDanger>Secondary Danger</ButtonNew>
     <ButtonNew warning>Warning</ButtonNew>
+    <ButtonNew secondaryWarning>Secondary Warning</ButtonNew>
   </ButtonGroup>
 );
 
