@@ -197,4 +197,8 @@
   &--secondary-warning-new {
     @include button.kind-variant(colorsNew.$secondary-warning-new);
   }
+
+  &--success-new {
+    @include button.kind-variant(colorsNew.$success-new);
+  }
 }

@@ -13,6 +13,7 @@ import React from 'react';
 
 import { ButtonGroup, Icon } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import Box from '../Box';
 import ButtonNew from './ButtonNew';
 
 export default {
@@ -51,10 +52,17 @@ export const Variants: ComponentStory<typeof ButtonNew> = () => (
   <ButtonGroup>
     <ButtonNew primary>Primary</ButtonNew>
     <ButtonNew secondary>Secondary</ButtonNew>
-    <ButtonNew danger>Danger</ButtonNew>
-    <ButtonNew secondaryDanger>Secondary Danger</ButtonNew>
-    <ButtonNew warning>Warning</ButtonNew>
-    <ButtonNew secondaryWarning>Secondary Warning</ButtonNew>
+    <Box display='flex' flexDirection='column'>
+      <ButtonNew danger>Danger</ButtonNew>
+      <ButtonNew secondaryDanger>Secondary Danger</ButtonNew>
+    </Box>
+    <Box display='flex' flexDirection='column'>
+      <ButtonNew warning>Warning</ButtonNew>
+      <ButtonNew secondaryWarning>Secondary Warning</ButtonNew>
+    </Box>
+    <Box display='flex' flexDirection='column'>
+      <ButtonNew success>Success</ButtonNew>
+    </Box>
   </ButtonGroup>
 );
 
@@ -122,13 +130,13 @@ export const States = () => (
           children: 'Button',
           secondary: true,
         },
-        'secondary-danger': {
-          children: 'Button',
-          secondaryDanger: true,
-        },
         'danger': {
           children: 'Button',
           danger: true,
+        },
+        'secondary-danger': {
+          children: 'Button',
+          secondaryDanger: true,
         },
         'warning': {
           children: 'Button',
@@ -137,6 +145,10 @@ export const States = () => (
         'secondary-warning': {
           children: 'Button',
           secondaryWarning: true,
+        },
+        'success': {
+          children: 'Button',
+          success: true,
         },
       }}
     />
@@ -176,13 +188,13 @@ export const States = () => (
           children: 'Button',
           secondary: true,
         },
-        'secondary-danger': {
-          children: 'Button',
-          secondaryDanger: true,
-        },
         'danger': {
           children: 'Button',
           danger: true,
+        },
+        'secondary-danger': {
+          children: 'Button',
+          secondaryDanger: true,
         },
         'warning': {
           children: 'Button',
@@ -191,6 +203,10 @@ export const States = () => (
         'secondary-warning': {
           children: 'Button',
           secondaryWarning: true,
+        },
+        'success': {
+          children: 'Button',
+          warning: true,
         },
       }}
     />

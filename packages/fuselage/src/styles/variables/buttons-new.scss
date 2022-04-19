@@ -102,3 +102,18 @@ $secondary-warning-new: (
   focus-border-color: palette-color(stroke-extra-dark),
   focus-shadow-color: palette-color(stroke-warning),
 );
+$success-new: (
+  background-color: palette-button-color(success),
+  border-color: palette-button-color(success),
+  color: palette-button-color(on-success),
+  hover-background-color: palette-button-color(hover-success),
+  hover-border-color: palette-button-color(hover-success),
+  disabled-background-color: palette-button-color(disabled-success),
+  disabled-border-color: palette-button-color(disabled-success),
+  disabled-color: palette-button-color(on-disabled),
+  active-background-color: palette-button-color(press-success),
+  active-border-color: palette-button-color(press-success),
+  focus-background-color: palette-button-color(success),
+  focus-border-color: palette-color(stroke-extra-dark),
+  focus-shadow-color: palette-color(stroke-success),
+);

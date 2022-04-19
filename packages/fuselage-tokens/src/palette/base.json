@@ -27,7 +27,8 @@
     "highlight": { "value": "{colors.p500}" },
     "extraLightError": { "value": "{colors.d200}" },
     "error": { "value": "{colors.d500}" },
-    "warning": { "value": "{colors.w200}" }
+    "warning": { "value": "{colors.w200}" },
+    "success": { "value": "{colors.s200}" }
   },
 
   "text": {
@@ -103,6 +104,7 @@
     "onDisabled": { "value": "{colors.n600}" },
     "onSecondaryDangerDisable": { "value": "{colors.d300}" },
     "onWarning": { "value": "{colors.n900}" },
-    "onSecondaryWarning": { "value": "{colors.w900}" }
+    "onSecondaryWarning": { "value": "{colors.w900}" },
+    "onSuccess": { "value": "{colors.n900}" }
   }
 }

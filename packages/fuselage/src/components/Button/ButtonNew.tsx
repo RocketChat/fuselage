@@ -6,10 +6,11 @@ import Box from '../Box';
 export type ButtonProps = ComponentProps<typeof Box> & {
   primary?: boolean;
   secondary?: boolean;
-  secondaryDanger?: boolean;
   danger?: boolean;
+  secondaryDanger?: boolean;
   warning?: boolean;
   secondaryWarning?: boolean;
+  success?: boolean;
   disabled?: boolean;
   small?: boolean;
   mini?: boolean;
@@ -22,10 +23,11 @@ export const ButtonNew = forwardRef(function Button(
   {
     primary,
     secondary,
-    secondaryDanger,
     danger,
+    secondaryDanger,
     warning,
     secondaryWarning,
+    success,
     external,
     is = 'button',
     rel: _rel,
@@ -51,10 +53,11 @@ export const ButtonNew = forwardRef(function Button(
     const variant =
       (primary && 'primary-new') ||
       (secondary && 'secondary-new') ||
-      (secondaryDanger && 'secondary-danger-new') ||
       (danger && 'danger-new') ||
+      (secondaryDanger && 'secondary-danger-new') ||
       (warning && 'warning-new') ||
-      (secondaryWarning && 'secondary-warning-new');
+      (secondaryWarning && 'secondary-warning-new') ||
+      (success && 'success-new');
 
     if (variant) {
       return {
@@ -63,7 +66,15 @@ export const ButtonNew = forwardRef(function Button(
     }
 
     return {};
-  }, [primary, secondary, secondaryDanger, danger, warning, secondaryWarning]);
+  }, [
+    primary,
+    secondary,
+    secondaryDanger,
+    danger,
+    warning,
+    secondaryWarning,
+    success,
+  ]);
 
   return (
     <Box
