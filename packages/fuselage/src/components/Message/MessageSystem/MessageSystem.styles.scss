@@ -3,6 +3,8 @@
 @use '../../../styles/typography.scss';
 @use '../mixins.scss';
 
+@import '../Message.styles.scss';
+
 .rcx-message-system {
   @include typography.use-font-scale(c1);
   @include typography.use-with-truncated-text();
