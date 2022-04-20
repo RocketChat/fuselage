@@ -34,8 +34,8 @@ export function Tag({
     disabled && 'disabled',
     onClick && 'clickable',
   ]
-    .map((modifier) => `rcx-tag--${modifier}`)
     .filter(Boolean)
+    .map((modifier) => `rcx-tag--${modifier}`)
     .join(' ');
 
   return (
