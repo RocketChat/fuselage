@@ -135,9 +135,9 @@
           "label": "Username",
           "placeholder": "@username"
         },
-        "companyEmail": {
-          "label": "Company email",
-          "placeholder": "Company email"
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
         },
         "password": {
           "label": "Password",
