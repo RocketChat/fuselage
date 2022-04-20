@@ -829,5 +829,8 @@
   },
   "shield-blank": {
     "start": "\ue0ef"
+  },
+  "mobile-exclamation": {
+    "start": "\ue0f1"
   }
 }
