@@ -13,6 +13,10 @@
   padding-block: lengths.padding(8);
   padding-inline: lengths.padding(20);
 
+  &--selected {
+    background: $message-background-color-selected !important;
+  }
+
   &__container {
     @include typography.use-with-truncated-text();
     display: flex;
