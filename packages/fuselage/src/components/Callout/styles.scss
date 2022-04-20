@@ -18,7 +18,10 @@
   }
 
   &--type-success {
-    background-color: colors.success(200);
+    background-color: theme(
+      'callout-background-color-success',
+      colors.success(200)
+    );
   }
 
   &--type-warning {

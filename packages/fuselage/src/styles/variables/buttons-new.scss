@@ -9,12 +9,21 @@
   @return map-get(palette.$palette, $button-type);
 }
 
+@function color($type) {
+  $button-type: 'button-on-' + $type;
+  @return map-get(palette.$palette, $button-type);
+}
+@function hover($type) {
+  $button-type: 'button-hover-' + $type;
+  @return map-get(palette.$palette, $button-type);
+}
+
 $primary-new: (
   background-color: palette-button-color(primary),
   border-color: palette-button-color(primary),
-  color: palette-button-color(on-primary),
-  hover-background-color: palette-button-color(hover-primary),
-  hover-border-color: palette-button-color(hover-primary),
+  color: color(primary),
+  hover-background-color: hover(primary),
+  hover-border-color: hover(primary),
   disabled-background-color: palette-button-color(disabled-primary),
   disabled-border-color: palette-button-color(disabled-primary),
   disabled-color: palette-button-color(on-disabled),
