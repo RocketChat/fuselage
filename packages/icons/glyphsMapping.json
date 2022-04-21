@@ -826,5 +826,23 @@
   },
   "arrow-stack-up": {
     "start": "\ue0ed"
+  },
+  "shield-blank": {
+    "start": "\ue0ef"
+  },
+  "mobile-exclamation": {
+    "start": "\ue0f1"
+  },
+  "circle-half": {
+    "start": "\ue0f3"
+  },
+  "circle-quarter": {
+    "start": "\ue0f5"
+  },
+  "circle-three-quarters": {
+    "start": "\ue0f7"
+  },
+  "mobile-check": {
+    "start": "\ue0f9"
   }
 }

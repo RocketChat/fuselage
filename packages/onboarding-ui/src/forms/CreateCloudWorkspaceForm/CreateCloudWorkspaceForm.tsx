@@ -5,14 +5,15 @@ import {
   ButtonGroup,
   Button,
   Box,
+  Divider,
   EmailInput,
   TextInput,
   Select,
   CheckBox,
   Grid,
 } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
-import type { SubmitHandler } from 'react-hook-form';
+import type { ReactElement, FocusEvent } from 'react';
+import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -31,20 +32,23 @@ type CreateCloudWorkspaceFormPayload = {
 };
 
 type CreateCloudWorkspaceFormProps = {
+  defaultValues?: CreateCloudWorkspaceFormPayload;
   onSubmit: SubmitHandler<CreateCloudWorkspaceFormPayload>;
   serverRegionOptions: SelectOption[];
   languageOptions: SelectOption[];
   domain: string;
-  onBackButtonClick: () => void;
-  validateUrl: (url: string) => Promise<boolean>;
-  validateEmail: (url: string) => Promise<boolean>;
+  onBackButtonClick?: () => void;
+  validateUrl: Validate<string>;
+  validateEmail: Validate<string>;
 };
 
 const CreateCloudWorkspaceForm = ({
+  defaultValues,
   onSubmit,
   domain,
   serverRegionOptions,
   languageOptions,
+  onBackButtonClick,
   validateUrl,
   validateEmail,
 }: CreateCloudWorkspaceFormProps): ReactElement => {
@@ -54,8 +58,15 @@ const CreateCloudWorkspaceForm = ({
     register,
     control,
     handleSubmit,
+    setValue,
     formState: { isValid, isValidating, isSubmitting, errors },
   } = useForm<CreateCloudWorkspaceFormPayload>({ mode: 'onChange' });
+
+  const onNameBlur = (e: FocusEvent<HTMLInputElement>) => {
+    const fieldValue = e.target.value;
+    const workspaceURL = fieldValue.replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
+    setValue('workspaceURL', workspaceURL, { shouldValidate: true });
+  };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -68,20 +79,16 @@ const CreateCloudWorkspaceForm = ({
           </Field.Label>
           <Field.Row>
             <EmailInput
-              error={errors?.organizationEmail?.type || undefined}
               {...register('organizationEmail', {
                 required: true,
                 validate: validateEmail,
               })}
+              defaultValue={defaultValues?.organizationEmail}
+              error={errors?.organizationEmail?.type || undefined}
             />
           </Field.Row>
-          {errors.organizationEmail?.type === 'required' && (
-            <Field.Error>{t('component.form.requiredField')}</Field.Error>
-          )}
-          {errors.organizationEmail?.type === 'validate' && (
-            <Field.Error>
-              {t('form.createCloudWorkspace.fields.orgEmail.invalid')}
-            </Field.Error>
+          {errors?.organizationEmail && (
+            <Field.Error>{errors.organizationEmail.message}</Field.Error>
           )}
         </Field>
 
@@ -93,8 +100,10 @@ const CreateCloudWorkspaceForm = ({
           </Field.Label>
           <Field.Row>
             <TextInput
-              error={errors?.workspaceName?.type || undefined}
               {...register('workspaceName', { required: true })}
+              defaultValue={defaultValues?.workspaceName}
+              error={errors?.workspaceName?.type || undefined}
+              onBlur={onNameBlur}
             />
           </Field.Row>
           {errors.workspaceName && (
@@ -115,15 +124,11 @@ const CreateCloudWorkspaceForm = ({
                 required: true,
                 validate: validateUrl,
               })}
+              defaultValue={defaultValues?.workspaceURL}
             />
           </Field.Row>
-          {errors.workspaceURL?.type === 'required' && (
-            <Field.Error>{t('component.form.requiredField')}</Field.Error>
-          )}
-          {errors.workspaceURL?.type === 'validate' && (
-            <Field.Error>
-              {t('form.createCloudWorkspace.fields.workspaceUrl.exists')}
-            </Field.Error>
+          {errors?.workspaceURL && (
+            <Field.Error>{errors.workspaceURL.message}</Field.Error>
           )}
         </Field>
 
@@ -144,6 +149,8 @@ const CreateCloudWorkspaceForm = ({
                 <Controller
                   name='serverRegion'
                   control={control}
+                  rules={{ required: true }}
+                  defaultValue={defaultValues?.serverRegion}
                   render={({ field }) => (
                     <Select
                       {...field}
@@ -172,6 +179,8 @@ const CreateCloudWorkspaceForm = ({
                 <Controller
                   name='language'
                   control={control}
+                  rules={{ required: true }}
+                  defaultValue={defaultValues?.language}
                   render={({ field }) => (
                     <Select
                       {...field}
@@ -186,6 +195,8 @@ const CreateCloudWorkspaceForm = ({
             </Field>
           </Grid.Item>
         </Grid>
+
+        <Divider mb='x0' />
 
         <Field>
           <Field.Row justifyContent='flex-start'>
@@ -228,6 +239,12 @@ const CreateCloudWorkspaceForm = ({
 
       <Form.Footer>
         <ButtonGroup>
+          {onBackButtonClick && (
+            <Button disabled={isSubmitting} onClick={onBackButtonClick}>
+              {t('component.form.action.back')}
+            </Button>
+          )}
+
           <Button
             type='submit'
             primary
