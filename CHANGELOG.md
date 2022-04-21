@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.10](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.9...v0.31.10) (2022-04-21)
+
+### Features
+
+- add is pending status to message ([95e1cd2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/95e1cd215692f10610c1c0c29ef5eca65bf0ed51))
+- **fuselage:** Add isPending status to message component ([#695](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/695)) ([4ea4b60](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4ea4b60222c46ae518eb21cb5b88eed3637036cb))
+- **icons:** add circles and mobile icons ([8b58c4f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8b58c4ffc26168ebb86bbcde0bbece4ed3e03680))
+- **onboarding-ui:** add function to prefill Workspace URL based on W… ([#694](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/694)) ([ab3391d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ab3391d8ea720af2b77aa5d10b84e6f44a01f9f2))
+- **onboarding-ui:** update props and fix bugs in CreateCloudWorkspac… ([#675](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/675)) ([d2c69db](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d2c69db7401295403e1ea9021f12e32cb8f8f24d))
+- update CreateFirstMemberPage props ([#690](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/690)) ([aea7c9a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/aea7c9adfaee724443795cdee5f9ca2e01ad49a1))
+
+### Bug Fixes
+
+- **fuselage:** Message role text color ([#705](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/705)) ([9a303ae](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9a303aee2721a2d5c9c2f2f1ae7a99695667f120))
+- **fuselage:** Missing type on system message ([#706](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/706)) ([7cdf6b7](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7cdf6b7539f80216eb23f3baa738859926aac72a))
+- **fuselage:** Vertical alignment on message system ([#701](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/701)) ([2e3c550](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2e3c550bf502a748c316c6c90595159e1780a4fb))
+- vertical align on message system ([eaf2406](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/eaf2406bec10803acbaa6a380bca8468e434a075))
+
 ### [0.31.9](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.8...v0.31.9) (2022-04-01)
 
 ### Bug Fixes
