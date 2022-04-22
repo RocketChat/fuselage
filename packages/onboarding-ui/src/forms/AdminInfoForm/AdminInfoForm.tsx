@@ -81,7 +81,7 @@ const AdminInfoForm = ({
         <FieldGroup>
           <Field>
             <Field.Label htmlFor={fullnameField}>
-              {t('form.adminInfoForm.fields.fullName.placeholder')}
+              {t('form.adminInfoForm.fields.fullName.label')}
             </Field.Label>
             <Field.Row>
               <TextInput
