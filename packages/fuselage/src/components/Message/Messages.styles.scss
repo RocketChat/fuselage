@@ -75,6 +75,12 @@ $message-background-color-highlight: functions.theme(
     animation: background-fade 6s forwards;
   }
 
+  &--pending {
+    .rcx-message-body {
+      opacity: 0.4;
+    }
+  }
+
   @keyframes background-fade {
     50% {
       background: $message-background-color-highlight;
@@ -154,6 +160,10 @@ $message-background-color-highlight: functions.theme(
     @include typography.use-font-scale(p2);
 
     flex-shrink: 1;
+
+    transition: opacity 0.3s linear;
+
+    opacity: 1;
 
     color: colors.neutral(800);
 
