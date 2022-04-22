@@ -1,0 +1,61 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+.rcx-toastbar {
+  max-width: lengths.size(416);
+
+  border-radius: lengths.border-radius(4);
+
+  @include typography.use-font-scale(p2);
+
+  &--large {
+    max-width: lengths.size(360);
+    @include on-breakpoint(md) {
+      max-width: lengths.size(580);
+    }
+  }
+
+  &--info {
+    background-color: colors.neutral(100);
+  }
+
+  &--success {
+    color: colors.success(900);
+    background-color: colors.success(200);
+  }
+
+  &--error {
+    color: colors.danger(700);
+    background-color: colors.danger(200);
+  }
+}
+
+.rcx-toastbar-inner {
+  display: flex;
+
+  padding: lengths.padding(16);
+}
+
+.rcx-toastbar-content {
+  width: lengths.size(full);
+  margin: lengths.margin(0) lengths.margin(16);
+}
+
+.rcx-toastbar-progressbar {
+  overflow: hidden;
+
+  height: lengths.size(4);
+
+  border-radius: 0 0 lengths.border-radius(4) lengths.border-radius(4);
+
+  &::after {
+    display: block;
+
+    height: 100%;
+
+    content: '';
+
+    background-color: colors.neutral(800, 0.1);
+  }
+}
