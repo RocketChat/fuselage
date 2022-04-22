@@ -32,17 +32,14 @@
 
 // export default ToastBarProvider;
 
-// import { ToastBar } from '@rocket.chat/fuselage';
 import { ToastBar } from '@rocket.chat/fuselage';
 import type { ReactNode, ReactElement } from 'react';
 import React, { useState, memo } from 'react';
 
-// import { modal } from '../../app/ui-utils/client/lib/modal';
-// import ModalBackdrop from '../components/modal/ModalBackdrop';
 import type { ToastBarPayload } from './ToastBarContext';
 import { ToastBarContext } from './ToastBarContext';
 import ToastBarPortal from './ToastBarPortal';
-// import { useImperativeModal } from '../views/hooks/useImperativeModal';
+import ToastBarZone from './ToastBarZone';
 
 type ToastBarProps = {
   children?: ReactNode;
@@ -57,8 +54,6 @@ const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
       setToasts((toasts) => [...toasts, option]),
   };
 
-  console.log(toasts);
-
   // useImperativeModal(setCurrentModal);
 
   // const handleDismiss = useCallback(
@@ -66,14 +61,11 @@ const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
   //   [setCurrentModal]
   // );
 
-  console.log(ToastBar);
-
   return (
     <ToastBarContext.Provider value={contextValue}>
       {children}
       <ToastBarPortal>
-        {/* <ToastBar>Test</ToastBar> */}
-        {/* <>
+        <ToastBarZone>
           {toasts?.map((toast, index) => (
             <ToastBar
               key={index}
@@ -81,9 +73,8 @@ const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
               children={toast.message}
             />
           ))}
-        </> */}
-        {JSON.stringify(toasts)}
-        <ToastBar children='Lorem Ipsum' />
+        </ToastBarZone>
+
         {/* <ModalBackdrop onDismiss={handleDismiss}>
             {currentModal}
           </ModalBackdrop> */}

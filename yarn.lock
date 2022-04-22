@@ -5591,7 +5591,6 @@ __metadata:
   resolution: "@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     "@types/jest": ~27.4.0
     eslint: ~8.8.0
@@ -5605,6 +5604,7 @@ __metadata:
     typedoc: ~0.22.11
     typescript: ~4.3.5
   peerDependencies:
+    "@rocket.chat/fuselage": "*"
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
