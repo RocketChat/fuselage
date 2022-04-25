@@ -1,21 +1,21 @@
-@use '~@rocket.chat/fuselage-tokens/dist/palette.scss';
+@use '~@rocket.chat/fuselage-tokens/dist/button.scss';
+@use '~@rocket.chat/fuselage-tokens/dist/stroke.scss';
 
 @function palette-color($name) {
-  @return map-get(palette.$palette, $name);
+  @return map-get(stroke.$stroke, $name);
 }
 
 @function palette-button-color($name) {
-  $button-type: 'button-' + $name;
-  @return map-get(palette.$palette, $button-type);
+  @return map-get(button.$button, $name);
 }
 
 @function color($type) {
-  $button-type: 'button-on-' + $type;
-  @return map-get(palette.$palette, $button-type);
+  $button-type: 'on-' + $type;
+  @return map-get(button.$button, $button-type);
 }
 @function hover($type) {
-  $button-type: 'button-hover-' + $type;
-  @return map-get(palette.$palette, $button-type);
+  $button-type: 'hover-' + $type;
+  @return map-get(button.$button, $button-type);
 }
 
 $primary-new: (
@@ -30,8 +30,8 @@ $primary-new: (
   active-background-color: palette-button-color(press-primary),
   active-border-color: palette-button-color(press-primary),
   focus-background-color: palette-button-color(primary),
-  focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-extra-light-highlight),
+  focus-border-color: palette-color(extra-dark),
+  focus-shadow-color: palette-color(extra-light-highlight),
 );
 
 $secondary-new: (
@@ -46,8 +46,8 @@ $secondary-new: (
   active-background-color: palette-button-color(press-secondary),
   active-border-color: palette-button-color(press-secondary),
   focus-background-color: palette-button-color(secondary),
-  focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-extra-light-highlight),
+  focus-border-color: palette-color(extra-dark),
+  focus-shadow-color: palette-color(extra-light-highlight),
 );
 
 $secondary-danger-new: (
@@ -62,8 +62,8 @@ $secondary-danger-new: (
   active-background-color: palette-button-color(press-secondary-danger),
   active-border-color: palette-button-color(press-secondary-danger),
   focus-background-color: palette-button-color(secondary-danger),
-  focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-extra-light-error),
+  focus-border-color: palette-color(extra-dark),
+  focus-shadow-color: palette-color(extra-light-error),
 );
 
 $danger-new: (
@@ -78,8 +78,8 @@ $danger-new: (
   active-background-color: palette-button-color(press-danger),
   active-border-color: palette-button-color(press-danger),
   focus-background-color: palette-button-color(danger),
-  focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-extra-light-error),
+  focus-border-color: palette-color(extra-dark),
+  focus-shadow-color: palette-color(extra-light-error),
 );
 $warning-new: (
   background-color: palette-button-color(warning),
@@ -93,8 +93,8 @@ $warning-new: (
   active-background-color: palette-button-color(press-warning),
   active-border-color: palette-button-color(press-warning),
   focus-background-color: palette-button-color(warning),
-  focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-warning),
+  focus-border-color: palette-color(extra-dark),
+  focus-shadow-color: palette-color(warning),
 );
 $secondary-warning-new: (
   background-color: palette-button-color(secondary-warning),
@@ -108,8 +108,8 @@ $secondary-warning-new: (
   active-background-color: palette-button-color(press-secondary-warning),
   active-border-color: palette-button-color(press-secondary-warning),
   focus-background-color: palette-button-color(secondary-warning),
-  focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-warning),
+  focus-border-color: palette-color(extra-dark),
+  focus-shadow-color: palette-color(warning),
 );
 $success-new: (
   background-color: palette-button-color(success),
@@ -123,8 +123,8 @@ $success-new: (
   active-background-color: palette-button-color(press-success),
   active-border-color: palette-button-color(press-success),
   focus-background-color: palette-button-color(success),
-  focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-success),
+  focus-border-color: palette-color(extra-dark),
+  focus-shadow-color: palette-color(success),
 );
 $secondary-success-new: (
   background-color: palette-button-color(secondary-success),
@@ -138,6 +138,6 @@ $secondary-success-new: (
   active-background-color: palette-button-color(press-secondary-success),
   active-border-color: palette-button-color(press-secondary-success),
   focus-background-color: palette-button-color(secondary-success),
-  focus-border-color: palette-color(stroke-extra-dark),
-  focus-shadow-color: palette-color(stroke-success),
+  focus-border-color: palette-color(extra-dark),
+  focus-shadow-color: palette-color(success),
 );
