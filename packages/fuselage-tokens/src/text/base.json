@@ -1,0 +1,18 @@
+{
+  "text": {
+    "white": { "value": "{colors.white}" },
+    "disabled": { "value": "{colors.n500}" },
+    "annotation": { "value": "{colors.n600}" },
+    "hint": { "value": "{colors.n700}" },
+    "default": { "value": "{colors.n800}" },
+    "titlesLabels": { "value": "{colors.n900}" },
+    "danger": { "value": "{colors.d600}" },
+    "secondaryInfo": { "value": "{colors.n700}" },
+    "onInfo": { "value": "{colors.i600}" },
+    "onSuccess": { "value": "{colors.s800}" },
+    "onWarning": { "value": "{colors.w900}" },
+    "onDanger": { "value": "{colors.d800}" },
+    "onService1": { "value": "{colors.s1-800}" },
+    "onService2": { "value": "{colors.s2-600}" }
+  }
+}

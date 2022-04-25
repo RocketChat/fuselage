@@ -119,6 +119,23 @@ StyleDictionary.registerFormat({
     // Get group name through folder name ./src/******
     const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
     const [, group] = dictionary.allTokens[0].filePath.match(exp);
+    const newPaletteGroup = [
+      'background',
+      'surface',
+      'stroke',
+      'button',
+      'text',
+    ];
+
+    if (newPaletteGroup.includes(group)) {
+      const subGroup = dictionary.allTokens[0].name.split('-')[0];
+      return `$${subGroup}: (${dictionary.allTokens.map((token) => {
+        const nameArray = token.name.split('-');
+        nameArray.shift();
+        const tokenName = nameArray.join('-');
+        return `\n${toScssIdentifier(tokenName)}:${toScssValue(token.value)}`;
+      })}\n);`;
+    }
 
     return `$${group}: (${dictionary.allTokens
       .map(
