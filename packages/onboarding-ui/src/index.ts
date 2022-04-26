@@ -22,3 +22,4 @@ export { default as InformationPage } from './pages/InformationPage';
 export { default as LoaderPage } from './pages/LoaderPage';
 export { default as RedirectPage } from './pages/RedirectPage';
 export { default as CreateFirstMemberPage } from './pages/CreateFirstMemberPage';
+export { default as BackgroundLayer } from './common/BackgroundLayer';
