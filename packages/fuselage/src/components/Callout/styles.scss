@@ -9,27 +9,42 @@
   padding-inline-start: lengths.padding(16);
   padding-inline-end: lengths.padding(32);
 
-  color: colors.foreground(default);
+  color: theme('callout-color', colors.text(on-neutral));
 
   border-radius: lengths.border-radius(2);
 
+  background-color: theme('callout-background-color', colors.surface(neutral));
+
   &--type-info {
-    background-color: colors.info(200);
+    color: theme('callout-color-info', colors.text(on-info));
+    background-color: theme(
+      'callout-background-color-info',
+      colors.surface(info)
+    );
   }
 
   &--type-success {
+    color: theme('callout-color-success', colors.text(on-success));
     background-color: theme(
       'callout-background-color-success',
-      colors.success(200)
+      colors.surface(success)
     );
   }
 
   &--type-warning {
-    background-color: colors.warning(200);
+    color: theme('callout-color-warning', colors.text(on-warning));
+    background-color: theme(
+      'callout-background-color-warning',
+      colors.surface(warning)
+    );
   }
 
   &--type-danger {
-    background-color: colors.danger(200);
+    color: theme('callout-color-danger', colors.text(on-danger));
+    background-color: theme(
+      'callout-background-color-danger',
+      colors.surface(danger)
+    );
   }
 }
 

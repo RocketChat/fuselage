@@ -109,7 +109,7 @@ $button-colors-secondary-disabled-color: functions.theme(
 
 $button-colors-empty-background-color: functions.theme(
   'button-colors-empty-background-color',
-  colors.surface()
+  colors.surface-deprecated()
 );
 $button-colors-empty-border-color: functions.theme(
   'button-colors-empty-border-color',
@@ -121,7 +121,7 @@ $button-colors-empty-color: functions.theme(
 );
 $button-colors-empty-hover-background-color: functions.theme(
   'button-colors-empty-hover-background-color',
-  colors.surface()
+  colors.surface-deprecated()
 );
 $button-colors-empty-hover-border-color: functions.theme(
   'button-colors-empty-hover-border-color',
@@ -129,7 +129,7 @@ $button-colors-empty-hover-border-color: functions.theme(
 );
 $button-colors-empty-active-background-color: functions.theme(
   'button-colors-empty-active-background-color',
-  colors.surface()
+  colors.surface-deprecated()
 );
 $button-colors-empty-active-border-color: functions.theme(
   'button-colors-empty-active-border-color',
@@ -137,7 +137,7 @@ $button-colors-empty-active-border-color: functions.theme(
 );
 $button-colors-empty-focus-background-color: functions.theme(
   'button-colors-empty-focus-background-color',
-  colors.surface()
+  colors.surface-deprecated()
 );
 $button-colors-empty-focus-border-color: functions.theme(
   'button-colors-empty-focus-border-color',

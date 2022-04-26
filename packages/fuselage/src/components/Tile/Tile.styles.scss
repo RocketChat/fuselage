@@ -7,7 +7,7 @@
 
   color: colors.foreground(default);
   border-radius: lengths.border-radius(2);
-  background-color: colors.surface();
+  background-color: colors.surface-deprecated();
 
   @include typography.use-font-scale(p2);
 

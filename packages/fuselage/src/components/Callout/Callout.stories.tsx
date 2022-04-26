@@ -38,6 +38,9 @@ export default {
 const Template: ComponentStory<typeof Callout> = (args) => (
   <>
     <Callout title='This is a generic message'>{args.children}</Callout>
+    <Callout title='This is a info message' type='info'>
+      {args.children}
+    </Callout>
     <Callout title='This is a successful message' type='success'>
       {args.children}
     </Callout>
@@ -60,6 +63,7 @@ WithDescription.args = {
 export const WithDescriptionOnly = () => (
   <>
     <Callout>This is a generic description.</Callout>
+    <Callout type='info'>This is a generic description.</Callout>
     <Callout type='success'>This is a successful description.</Callout>
     <Callout type='warning'>This is a warning description.</Callout>
     <Callout type='danger'>This is a danger description.</Callout>

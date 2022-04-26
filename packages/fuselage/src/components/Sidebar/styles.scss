@@ -14,7 +14,7 @@ $sidebar-section-height: theme(
 );
 $sidebar-item-background-color: theme(
   'sidebar-item-background-color',
-  colors.surface()
+  colors.surface-deprecated()
 );
 $sidebar-item-color: theme('sidebar-item-color', colors.foreground('hint'));
 $sidebar-item-color-highlighted: theme(

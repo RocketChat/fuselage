@@ -2,7 +2,7 @@
 
 $input-colors-background-color: theme(
   'input-colors-background-color',
-  colors.surface()
+  colors.surface-deprecated()
 );
 $input-colors-border-color: theme(
   'input-colors-border-color',
@@ -56,7 +56,7 @@ $input-colors-disabled-color: theme(
 
 $input-colors-invalid-background-color: theme(
   'input-colors-invalid-background-color',
-  colors.surface()
+  colors.surface-deprecated()
 );
 $input-colors-invalid-border-color: theme(
   'input-colors-invalid-border-color',

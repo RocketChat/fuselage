@@ -2,7 +2,10 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$progress-bar-color-shine: theme('progress-bar-color-shine', colors.surface());
+$progress-bar-color-shine: theme(
+  'progress-bar-color-shine',
+  colors.surface-deprecated()
+);
 $progress-bar-color-background: theme(
   'progress-bar-color-background',
   colors.neutral(400, 1)
