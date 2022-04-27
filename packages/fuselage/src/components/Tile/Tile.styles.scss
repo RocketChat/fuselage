@@ -5,9 +5,9 @@
 .rcx-tile {
   display: block;
 
-  color: colors.foreground(default);
+  color: colors.text(default);
   border-radius: lengths.border-radius(2);
-  background-color: colors.surface-deprecated();
+  background-color: colors.surface(white);
 
   @include typography.use-font-scale(p2);
 
@@ -16,11 +16,11 @@
   }
 
   &--elevation-1 {
-    box-shadow: 0 0 12px 0 colors.neutral(800, 0.1);
+    box-shadow: 0 0 12px 0 colors.elevation(1);
   }
 
   &--elevation-2 {
-    box-shadow: 0 0 2px 0 colors.neutral(800, 0.08),
-      0 0 12px 0 colors.neutral(800, 0.12);
+    box-shadow: 0 0 2px 0 colors.elevation('2x'),
+      0 0 12px 0 colors.elevation('2y');
   }
 }

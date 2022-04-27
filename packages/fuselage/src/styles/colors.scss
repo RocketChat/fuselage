@@ -241,3 +241,13 @@ $-buttons: (
 @function button($type) {
   @return map.get($-buttons, $type);
 }
+
+$-elevation-level: (
+  1: colors.neutral(800, 0.1),
+  2x: colors.neutral(800, 0.08),
+  2y: colors.neutral(800, 0.12),
+);
+
+@function elevation($level) {
+  @return map.get($-elevation-level, $level);
+}
