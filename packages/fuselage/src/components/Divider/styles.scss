@@ -1,7 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
-$divider-color: theme('divider-color', colors.neutral(300));
+$divider-color: theme('divider-color', colors.surface(danger));
 
 .rcx-divider {
   margin-block: lengths.margin(8);
