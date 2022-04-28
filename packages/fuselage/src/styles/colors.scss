@@ -59,9 +59,6 @@ $-map-type-to-prefix: (
 @function neutral($grade, $alpha: null) {
   $pair: _get-palette-color(neutral, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));
-  // var(--rcx-color-neutral-100, white);
-  // color: neutral(100);
-  // color: var(--rcx-color-neutral-100, white);
 }
 
 @function primary($grade, $alpha: null) {
@@ -212,30 +209,58 @@ $-buttons: (
   secondary: neutral(400),
   danger: danger(500),
   secondary-danger: neutral(400),
+  warning: warning(400),
+  secondary-warning: neutral(400),
+  success: success(500),
+  secondary-success: neutral(400),
   hover-primary: primary(600),
   hover-secondary: neutral(500),
   hover-danger: danger(600),
   hover-secondary-danger: neutral(500),
+  hover-warning: warning(500),
+  hover-secondary-warning: neutral(500),
+  hover-success: success(600),
+  hover-secondary-success: neutral(500),
   press-primary: primary(700),
   press-secondary: neutral(600),
   press-danger: danger(700),
   press-secondary-danger: neutral(600),
+  press-warning: warning(600),
+  press-secondary-warning: neutral(600),
+  press-success: success(700),
+  press-secondary-success: neutral(600),
   focus-primary: primary(500),
   focus-secondary: neutral(400),
   focus-danger: danger(500),
   focus-secondary-danger: neutral(400),
+  focus-warning: warning(400),
+  focus-secondary-warning: neutral(400),
+  focus-success: success(500),
+  focus-secondary-success: neutral(400),
   keyfocus-primary: primary(500),
   keyfocus-secondary: neutral(400),
   keyfocus-danger: danger(500),
   keyfocus-secondary-danger: neutral(400),
+  keyfocus-warning: warning(400),
+  keyfocus-secondary-warning: neutral(400),
+  keyfocus-success: success(500),
+  keyfocus-secondary-success: neutral(400),
   disabled-primary: primary(200),
   disabled-secondary: neutral(300),
   disabled-danger: danger(200),
   disabled-secondary-danger: neutral(300),
+  disabled-warning: warning(200),
+  disabled-secondary-warning: neutral(300),
+  disabled-success: success(200),
+  disabled-secondary-success: neutral(300),
   on-primary: white,
   on-secondary: neutral(900),
   on-danger: white,
   on-secondary-danger: danger(700),
+  on-warning: neutral(900),
+  on-secondary-warning: warning(900),
+  on-success: neutral(900),
+  on-secondary-success: success(700),
 );
 
 @function button($type) {

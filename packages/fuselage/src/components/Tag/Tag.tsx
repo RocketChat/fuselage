@@ -6,13 +6,7 @@ import type Box from '../Box';
 
 type TagProps = ComponentProps<typeof Box> & {
   small?: boolean;
-  variant?:
-    | 'secondary'
-    | 'primary'
-    | 'danger'
-    | 'warning'
-    | 'ghost'
-    | 'default';
+  variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'default';
   medium?: boolean;
   disabled?: boolean;
 };

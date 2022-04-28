@@ -4,43 +4,43 @@
 
 $tag-colors-default-color: theme(
   'tag-colors-default-color',
-  colors.foreground(default)
+  colors.text(titles-labels)
 );
 $tag-colors-default-background-color: theme(
   'tag-colors-default-background-color',
-  colors.neutral(400)
-);
-
-$tag-colors-secondary-color: theme(
-  'tag-colors-secondary-color',
-  colors.foreground(primary)
-);
-$tag-colors-secondary-background-color: theme(
-  'tag-colors-secondary-background-color',
-  colors.primary(100)
+  colors.surface(neutral)
 );
 
 $tag-colors-primary-color: theme(
   'tag-colors-primary-color',
-  colors.foreground(alternative)
+  colors.button(on-primary)
 );
 $tag-colors-primary-background-color: theme(
   'tag-colors-primary-background-color',
-  colors.primary(500)
+  colors.button(primary)
+);
+
+$tag-colors-secondary-color: theme(
+  'tag-colors-secondary-color',
+  colors.button(on-secondary)
+);
+$tag-colors-secondary-background-color: theme(
+  'tag-colors-secondary-background-color',
+  colors.button(secondary)
 );
 
 $tag-colors-danger-color: theme(
   'tag-colors-danger-color',
-  colors.foreground(alternative)
+  colors.button(on-danger)
 );
 $tag-colors-danger-background-color: theme(
   'tag-colors-danger-background-color',
-  colors.danger(500)
+  colors.button(danger)
 );
 
 $tag-colors-ghost-color: theme(
   'tag-colors-ghost-color',
-  colors.foreground(alternative)
+  colors.text(alternative)
 );
 $tag-colors-ghost-background-color: theme(
   'tag-colors-ghost-background-color',
@@ -49,20 +49,20 @@ $tag-colors-ghost-background-color: theme(
 
 $tag-colors-warning-color: theme(
   'tag-colors-warning-color',
-  colors.foreground(alternative)
+  colors.button(on-warning)
 );
 $tag-colors-warning-background-color: theme(
   'tag-colors-warning-background-color',
-  colors.warning-alternative(500)
+  colors.button(warning)
 );
 
 $tag-colors-disabled-color: theme(
   'tag-colors-disabled-color',
-  colors.foreground(hint)
+  colors.button(disabled-secondary)
 );
 $tag-colors-disabled-background-color: theme(
   'tag-colors-disabled-background-color',
-  colors.neutral(400)
+  colors.button(on-disabled)
 );
 
 .rcx-tag {
