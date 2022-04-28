@@ -1,6 +1,7 @@
 @use '../../../styles/lengths.scss';
 @use '../../../styles/colors.scss';
 @use '../../../styles/typography.scss';
+@use '../../../styles/mixins/size.scss';
 @use '../mixins.scss';
 
 .rcx-message.rcx-message--thread {
@@ -62,5 +63,15 @@
     &--unfollow {
       @include mixins.visible-on-hover();
     }
+  }
+
+  &__emoji {
+    display: inline-block;
+
+    margin-inline: lengths.margin(2);
+
+    background-size: contain;
+
+    @include size.square(lengths.size(12));
   }
 }

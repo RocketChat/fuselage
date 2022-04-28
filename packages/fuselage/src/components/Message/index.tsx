@@ -33,6 +33,7 @@ export * from './MessageRole';
 export * from './MessageRoles';
 export * from './MessageTimestamp';
 export * from './MessageUsername';
+export * from './MessageEmoji';
 
 export default Object.assign(Message, {
   Metrics: MessageMetrics,
