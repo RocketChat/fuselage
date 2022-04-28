@@ -117,7 +117,7 @@
     @include typography.use-font-scale(c2);
     cursor: default;
 
-    color: colors.text(default);
+    color: colors.text(text);
   }
 }
 

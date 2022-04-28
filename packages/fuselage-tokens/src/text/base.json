@@ -4,7 +4,7 @@
     "disabled": { "value": "{colors.n500}" },
     "annotation": { "value": "{colors.n600}" },
     "hint": { "value": "{colors.n700}" },
-    "default": { "value": "{colors.n800}" },
+    "text": { "value": "{colors.n800}" },
     "titlesLabels": { "value": "{colors.n900}" },
     "danger": { "value": "{colors.d600}" },
     "secondaryInfo": { "value": "{colors.n700}" },

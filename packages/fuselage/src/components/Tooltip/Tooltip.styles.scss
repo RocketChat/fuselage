@@ -6,10 +6,7 @@ $tooltip-background-color: functions.theme(
   'tooltip-background-color',
   colors.surface(neutral)
 );
-$tooltip-text-color: functions.theme(
-  'tooltip-text-color',
-  colors.text(default)
-);
+$tooltip-text-color: functions.theme('tooltip-text-color', colors.text(text));
 
 @mixin triangle-direction($direction) {
   &::after {
@@ -120,5 +117,7 @@ $tooltip-text-color: functions.theme(
         margin: 0;
       }
     }
+  }
+}
   }
 }
