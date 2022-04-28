@@ -4,6 +4,7 @@ import { MessageBody } from './MessageBody';
 import { MessageContainer } from './MessageContainer';
 import { MessageContainerFixed } from './MessageContainerFixed';
 import { MessageDivider } from './MessageDivider';
+import { MessageEmoji } from './MessageEmoji';
 import { MessageHeader } from './MessageHeader';
 import { MessageLeftContainer } from './MessageLeftContainer';
 import MessageMetrics from './MessageMetrics';
@@ -33,6 +34,7 @@ export * from './MessageRole';
 export * from './MessageRoles';
 export * from './MessageTimestamp';
 export * from './MessageUsername';
+export * from './MessageEmoji';
 
 export default Object.assign(Message, {
   Metrics: MessageMetrics,
@@ -49,4 +51,5 @@ export default Object.assign(Message, {
   Roles: MessageRoles,
   Role: MessageRole,
   Divider: MessageDivider,
+  Emoji: MessageEmoji,
 });

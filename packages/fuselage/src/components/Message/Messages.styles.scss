@@ -2,6 +2,7 @@
 @use '../../styles/functions.scss';
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/size.scss';
 @use './mixins.scss';
 
 @import './MessageMetrics/MessageMetrics.styles.scss';
@@ -193,5 +194,14 @@ $message-background-color-highlight: functions.theme(
     @extend %rcx-margins-block;
     display: flex;
     flex-direction: column;
+  }
+
+  &-emoji {
+    display: inline-block;
+    @include size.square(22px);
+
+    &--big {
+      @include size.square(44px);
+    }
   }
 }

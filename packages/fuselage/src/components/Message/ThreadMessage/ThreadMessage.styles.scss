@@ -1,6 +1,8 @@
 @use '../../../styles/lengths.scss';
 @use '../../../styles/colors.scss';
 @use '../../../styles/typography.scss';
+@use '../../../styles/mixins/size.scss';
+
 @use '../mixins.scss';
 
 .rcx-message.rcx-message--thread {
@@ -22,6 +24,10 @@
 
     width: 100%;
     margin: lengths.margin(4);
+
+    .rcx-message-emoji {
+      @include size.square(lengths.size(12));
+    }
   }
 
   &__row {
