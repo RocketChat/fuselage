@@ -243,9 +243,9 @@ $-buttons: (
 }
 
 $-elevation-level: (
-  1: colors.neutral(800, 0.1),
-  2x: colors.neutral(800, 0.08),
-  2y: colors.neutral(800, 0.12),
+  1: neutral(800, 0.1),
+  2x: neutral(800, 0.08),
+  2y: neutral(800, 0.12),
 );
 
 @function elevation($level) {
