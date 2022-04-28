@@ -77,35 +77,132 @@
     @include with-squared-size($size: 28px);
   }
 
-  &--primary {
-    @include button.kind-variant(colors.$primary);
-  }
-
-  &--secondary {
-    @include button.kind-variant(colors.$secondary);
-  }
-
-  &--secondary-danger {
-    @include button.kind-variant(colors.$secondary-danger);
-  }
-
-  &--danger {
-    @include button.kind-variant(colors.$danger);
-  }
-
-  &--warning {
-    @include button.kind-variant(colors.$warning);
-  }
-
-  &--secondary-warning {
-    @include button.kind-variant(colors.$secondary-warning);
+  &--info {
+    @include button.kind-variant(colors.$secondary-info);
   }
 
   &--success {
+    @include button.kind-variant(colors.$secondary-success);
+  }
+
+  &--warning {
+    @include button.kind-variant(colors.$secondary-warning);
+  }
+
+  // &--danger {
+  //   @include button.kind-variant(colors.$secondary-danger);
+  // }
+
+  // &--primary {
+  //   @include button.kind-variant(colors.$primary);
+  // }
+
+  &--primary-info {
+    @include button.kind-variant(colors.$info);
+  }
+
+  &--primary-success {
     @include button.kind-variant(colors.$success);
   }
 
-  &--secondary-success {
-    @include button.kind-variant(colors.$secondary-success);
+  &--primary-warning {
+    @include button.kind-variant(colors.$warning);
+  }
+
+  &--primary-danger {
+    @include button.kind-variant(colors.$danger);
+  }
+
+  &--ghost {
+    @include button.kind-variant(colors.$ghost);
+  }
+
+  &--ghost-info {
+    @include button.kind-variant(colors.$ghost-info);
+  }
+
+  &--ghost-success {
+    @include button.kind-variant(colors.$ghost-success);
+  }
+
+  &--ghost-warning {
+    @include button.kind-variant(colors.$ghost-warning);
+  }
+
+  &--ghost-danger {
+    @include button.kind-variant(colors.$ghost-danger);
+  }
+
+  &--nude {
+    @include button.kind-variant(colors.$nude);
+  }
+
+  &--nude-info {
+    @include button.kind-variant(colors.$nude-info);
+  }
+
+  &--nude-success {
+    @include button.kind-variant(colors.$nude-success);
+  }
+
+  &--nude-warning {
+    @include button.kind-variant(colors.$nude-warning);
+  }
+
+  &--nude-danger {
+    @include button.kind-variant(colors.$nude-danger);
+  }
+
+  &--ghostish {
+    @include button.kind-variant(colors.$ghostish);
+  }
+
+  &--ghostish-info {
+    @include button.kind-variant(colors.$ghostish-info);
+  }
+
+  &--ghostish-success {
+    @include button.kind-variant(colors.$ghostish-success);
+  }
+
+  &--ghostish-warning {
+    @include button.kind-variant(colors.$ghostish-warning);
+  }
+
+  &--ghostish-danger {
+    @include button.kind-variant(colors.$ghostish-danger);
+  }
+
+  // New palette
+  &--primary-new {
+    @include button.kind-variant(colorsNew.$primary-new);
+  }
+
+  &--secondary-new {
+    @include button.kind-variant(colorsNew.$secondary-new);
+  }
+
+  &--secondary-danger-new {
+    @include button.kind-variant(colorsNew.$secondary-danger-new);
+  }
+
+  &--danger-new {
+    @include button.kind-variant(colorsNew.$danger-new);
+  }
+
+  &--warning-new {
+    @include button.kind-variant(colorsNew.$warning-new);
+  }
+
+  &--secondary-warning-new {
+    @include button.kind-variant(colorsNew.$secondary-warning-new);
+  }
+
+  &--success-new {
+    @include button.kind-variant(colorsNew.$success-new);
+  }
+
+  &--secondary-success-new {
+    @include button.kind-variant(colorsNew.$secondary-success-new);
   }
 }
