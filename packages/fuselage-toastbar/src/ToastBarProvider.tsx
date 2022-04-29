@@ -66,7 +66,16 @@ const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
       {children}
       <ToastBarPortal>
         <ToastBarZone>
-          {toasts?.map((toast, index) => (
+          {/* {Object.entries(
+          toasts?.reduce((zones, toast) => {
+            console.log(toast);
+            zones[toast.position || 'top-end'] =
+              zones[toast.position || 'top-end'] || [];
+            zones[toast.position || 'top-end'].push(toast);
+            return zones;
+          }, {} as Record<'top-start' | 'top-end' | 'bottom-start' | 'bottom-end', ToastBarPayload[]>)
+        ).map(([zone, toast], index) => ( */}
+          {toasts.map((toast, index) => (
             <ToastBar
               key={index}
               variant={toast.type}
