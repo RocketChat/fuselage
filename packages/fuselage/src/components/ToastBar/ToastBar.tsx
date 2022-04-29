@@ -1,42 +1,66 @@
-import styled from '@rocket.chat/styled';
+import { css, keyframes } from '@rocket.chat/css-in-js';
 import type { ReactNode } from 'react';
 import React from 'react';
 
+import Box from '../Box';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 
 export type ToastBarProps = {
   variant?: 'info' | 'success' | 'error';
-  disabled?: boolean;
   className?: string;
   children?: ReactNode;
   size?: string;
-  progress?: string;
+  id: string;
+  time: number;
+  onClose?: (id: string) => void;
 };
-
-export const ToastBarProgressBar = styled(
-  'div',
-  ({ progress: _progress, ...props }: ToastBarProps) => props
-)`
-  &::after {
-    width: ${(p) => (p.progress ? p.progress : '0%')};
-  }
-`;
 
 export function ToastBar({
   children,
   className = '',
   variant = 'info',
   size,
-  progress,
+  id,
+  time,
+  onClose,
 }: ToastBarProps) {
   const iconName =
     (variant === 'success' && 'check') ||
     (variant === 'error' && 'warning') ||
     'info';
 
+  const sideOpen = keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `;
+
+  const progressBar = keyframes`
+    from {
+      width: 0%;
+    }
+
+    to {
+      width: 100%;
+    }
+  `;
+
+  const toastBarAnimation = css`
+    animation: ${sideOpen} 0.5s;
+  `;
+
+  const progressBarAnimation = css`
+  &::after {
+    width: 0%;
+    animation: ${progressBar} ${time}s;
+  ;`;
+
   return (
-    <div className='rcx-box rcx-box--full rcx-toastbar-wrapper'>
+    <Box className={['rcx-toastbar-wrapper', toastBarAnimation]}>
       <div
         className={`rcx-toastbar rcx-toastbar--${variant} ${
           size === 'large' ? 'rcx-toastbar--large' : ''
@@ -45,25 +69,25 @@ export function ToastBar({
         <div className='rcx-toastbar-inner'>
           <Icon size='x20' name={iconName} />
           <div className='rcx-toastbar-content'>{children}</div>
-          <div className='rcx-toastbar-close'>
-            <Button
-              small
-              square
-              ghost
-              {...{
-                success: variant === 'success',
-                danger: variant === 'error',
-              }}
-            >
-              <Icon name='cross' size='x20' />
-            </Button>
-          </div>
+          {onClose && (
+            <div className='rcx-toastbar-close'>
+              <Button
+                small
+                square
+                ghost
+                {...{
+                  success: variant === 'success',
+                  danger: variant === 'error',
+                }}
+                onClick={() => onClose(id)}
+              >
+                <Icon name='cross' size='x20' />
+              </Button>
+            </div>
+          )}
         </div>
-        <ToastBarProgressBar
-          progress={progress}
-          className='rcx-toastbar-progressbar'
-        />
+        <Box className={[progressBarAnimation, 'rcx-toastbar-progressbar']} />
       </div>
-    </div>
+    </Box>
   );
 }

@@ -1,9 +1,17 @@
 // import { Box } from '@rocket.chat/fuselage';
 import styled from '@rocket.chat/styled';
+// import { css } from '@rocket'
 import type { ReactNode, ReactElement } from 'react';
 import React from 'react';
 
 import type { ToastBarPayload } from './ToastBarContext';
+
+const positionProps = {
+  'top-start': 'top: 0; left: 0;',
+  'top-end': 'top: 0; right: 0;',
+  'bottom-start': 'bottom: 0; left: 0;',
+  'bottom-end': 'bottom: 0; right: 0;',
+};
 
 export const ToastBarContainer = styled(
   'div',
@@ -11,17 +19,13 @@ export const ToastBarContainer = styled(
     props
 )`
   position: fixed;
-  ${(p) =>
-    p.position
-      ? 'top-end' &&
-        `
-      top: 0;
-      right: 0;
-  `
-      : ''}
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 1rem;
+  ${(p) => (p.position ? positionProps[p.position] : '')}
 `;
-
-// width: ${(p) => (p.progress ? p.progress : '0%')};
 
 type ToastBarZoneProps = {
   position?: ToastBarPayload['position'];
@@ -30,11 +34,9 @@ type ToastBarZoneProps = {
 
 const ToastBarZone = ({
   children,
-  position,
+  position = 'top-end',
 }: ToastBarZoneProps): ReactElement => (
-  <ToastBarContainer position={position}>
-    <div>{children}</div>
-  </ToastBarContainer>
+  <ToastBarContainer position={position}>{children}</ToastBarContainer>
 );
 
 export default ToastBarZone;

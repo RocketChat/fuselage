@@ -1,44 +1,10 @@
-// import React, { FC, useEffect } from 'react';
-// // import toastr from 'toastr';
-
-// import { ToastBarContext } from './ToastBarContext';
-// // import { dispatchToastMessage, subscribeToToastMessages } from '../lib/toast';
-// // import { handleError } from '../lib/utils/handleError';
-
-// const contextValue = {
-//   dispatch: dispatchToastMessage,
-// };
-
-// const ToastBarProvider: FC = ({ children }) => {
-//   // useEffect(
-//   //   () =>
-//   //     subscribeToToastMessages(({ type, message, title, options }) => {
-//   //       if (type === 'error' && typeof message === 'object') {
-//   //         handleError(message);
-//   //         return;
-//   //       }
-
-//   //       if (typeof message !== 'string') {
-//   //         message = `[${message.name}] ${message.message}`;
-//   //       }
-
-//   //       toastr[type](message, title, options);
-//   //     }),
-//   //   []
-//   // );
-
-//   return <ToastBarContext.Provider children={children} value={contextValue} />;
-// };
-
-// export default ToastBarProvider;
-
-import { ToastBar } from '@rocket.chat/fuselage';
 import type { ReactNode, ReactElement } from 'react';
 import React, { useState, memo } from 'react';
 
 import type { ToastBarPayload } from './ToastBarContext';
 import { ToastBarContext } from './ToastBarContext';
 import ToastBarPortal from './ToastBarPortal';
+import ToastBarTimed from './ToastBarTimed';
 import ToastBarZone from './ToastBarZone';
 
 type ToastBarProps = {
@@ -47,47 +13,40 @@ type ToastBarProps = {
 
 const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
   const [toasts, setToasts] = useState<ToastBarPayload[]>([]);
-  // const [currentToast, setCurrentToast] = useState<ReactNode>(null);
 
   const contextValue = {
-    dispatch: (option: ToastBarPayload) =>
-      setToasts((toasts) => [...toasts, option]),
+    dispatch: (
+      option: Omit<ToastBarPayload, 'id' | 'time'> & { time?: number }
+    ) =>
+      setToasts((toasts) => [
+        ...toasts,
+        { ...option, time: option.time || 5, id: Math.random().toString() },
+      ]),
+    dismiss: (id: ToastBarPayload['id']) =>
+      setToasts((prevState) => prevState.filter((toast) => toast.id !== id)),
   };
-
-  // useImperativeModal(setCurrentModal);
-
-  // const handleDismiss = useCallback(
-  //   () => setCurrentModal(null),
-  //   [setCurrentModal]
-  // );
 
   return (
     <ToastBarContext.Provider value={contextValue}>
       {children}
       <ToastBarPortal>
-        <ToastBarZone>
-          {/* {Object.entries(
+        {Object.entries(
           toasts?.reduce((zones, toast) => {
-            console.log(toast);
             zones[toast.position || 'top-end'] =
               zones[toast.position || 'top-end'] || [];
             zones[toast.position || 'top-end'].push(toast);
             return zones;
           }, {} as Record<'top-start' | 'top-end' | 'bottom-start' | 'bottom-end', ToastBarPayload[]>)
-        ).map(([zone, toast], index) => ( */}
-          {toasts.map((toast, index) => (
-            <ToastBar
-              key={index}
-              variant={toast.type}
-              children={toast.message}
-            />
-          ))}
-        </ToastBarZone>
-
-        {/* <ModalBackdrop onDismiss={handleDismiss}>
-            {currentModal}
-          </ModalBackdrop> */}
-        {/* {currentToast} */}
+        ).map(([zone, toasts]) => (
+          <ToastBarZone
+            key={zone}
+            position={zone as ToastBarPayload['position']}
+          >
+            {toasts.map((toast) => (
+              <ToastBarTimed key={toast.id} {...toast} />
+            ))}
+          </ToastBarZone>
+        ))}
       </ToastBarPortal>
     </ToastBarContext.Provider>
   );

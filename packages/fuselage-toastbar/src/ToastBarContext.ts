@@ -1,20 +1,27 @@
 import { createContext, useContext } from 'react';
 
 export type ToastBarPayload = {
-  type: 'success' | 'info' | 'error';
+  type?: 'success' | 'info' | 'error';
   message: string | Error;
   title?: string;
-  options?: object;
   position?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
+  time: number;
+  id: string;
 };
 
 type ToastBarContextValue = {
-  dispatch: (payload: ToastBarPayload) => void;
+  dispatch: (
+    payload: Omit<ToastBarPayload, 'id' | 'time'> & { time?: number }
+  ) => void;
+  dismiss: (id: ToastBarPayload['id']) => void;
 };
 
 export const ToastBarContext = createContext<ToastBarContextValue>({
   dispatch: () => undefined,
+  dismiss: () => undefined,
 });
 
 export const useToastBarDispatch = (): ToastBarContextValue['dispatch'] =>
   useContext(ToastBarContext).dispatch;
+export const useToastBarDismiss = (): ToastBarContextValue['dismiss'] =>
+  useContext(ToastBarContext).dismiss;
