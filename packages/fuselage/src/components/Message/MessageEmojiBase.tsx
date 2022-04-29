@@ -14,7 +14,7 @@ export const MessageEmojiBase = ({
   image,
   children,
 }: MessageEmojiBaseProps) => (
-  <div
+  <span
     className={`${className || ''} ${name}`}
     style={image && image.length ? { backgroundImage: image } : undefined}
     children={children}
