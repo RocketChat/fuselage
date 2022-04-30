@@ -30,7 +30,6 @@ const ToastBarTimed = ({
       variant={type}
       children={message}
       onClose={dismissToastMessage}
-      id={id}
       time={time}
     />
   );

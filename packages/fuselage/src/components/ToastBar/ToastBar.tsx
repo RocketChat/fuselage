@@ -1,4 +1,5 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
+import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode } from 'react';
 import React from 'react';
 
@@ -11,8 +12,7 @@ export type ToastBarProps = {
   className?: string;
   children?: ReactNode;
   size?: string;
-  id: string;
-  time: number;
+  time?: number;
   onClose?: (id: string) => void;
 };
 
@@ -21,8 +21,7 @@ export function ToastBar({
   className = '',
   variant = 'info',
   size,
-  id,
-  time,
+  time = 5,
   onClose,
 }: ToastBarProps) {
   const iconName =
@@ -58,6 +57,8 @@ export function ToastBar({
     width: 0%;
     animation: ${progressBar} ${time}s;
   ;`;
+
+  const id = useUniqueId();
 
   return (
     <Box className={['rcx-toastbar-wrapper', toastBarAnimation]}>
