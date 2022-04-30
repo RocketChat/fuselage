@@ -21,7 +21,7 @@ import Form from '../../common/Form';
 export type AdminInfoPayload = {
   fullname: string;
   username: string;
-  companyEmail: string;
+  email: string;
   password: string;
   keepPosted?: boolean;
 };
@@ -53,7 +53,7 @@ const AdminInfoForm = ({
 
   const fullnameField = useUniqueId();
   const usernameField = useUniqueId(); // lgtm [js/insecure-randomness]
-  const companyEmailField = useUniqueId();
+  const emailField = useUniqueId();
   const passwordField = useUniqueId(); // lgtm [js/insecure-randomness]
 
   const {
@@ -81,7 +81,7 @@ const AdminInfoForm = ({
         <FieldGroup>
           <Field>
             <Field.Label htmlFor={fullnameField}>
-              {t('form.adminInfoForm.fields.fullName.placeholder')}
+              {t('form.adminInfoForm.fields.fullName.label')}
             </Field.Label>
             <Field.Row>
               <TextInput
@@ -119,24 +119,20 @@ const AdminInfoForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={companyEmailField}>
-              {t('form.adminInfoForm.fields.companyEmail.label')}
+            <Field.Label htmlFor={emailField}>
+              {t('form.adminInfoForm.fields.email.label')}
             </Field.Label>
             <Field.Row>
               <EmailInput
-                {...register('companyEmail', {
+                {...register('email', {
                   required: String(t('component.form.requiredField')),
                   validate: validateEmail,
                 })}
-                placeholder={t(
-                  'form.adminInfoForm.fields.companyEmail.placeholder'
-                )}
-                id={companyEmailField}
+                placeholder={t('form.adminInfoForm.fields.email.placeholder')}
+                id={emailField}
               />
             </Field.Row>
-            {errors.companyEmail && (
-              <Field.Error>{errors.companyEmail.message}</Field.Error>
-            )}
+            {errors.email && <Field.Error>{errors.email.message}</Field.Error>}
           </Field>
           <Field>
             <Field.Label htmlFor={passwordField}>
