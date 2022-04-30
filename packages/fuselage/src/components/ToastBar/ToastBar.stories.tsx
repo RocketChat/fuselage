@@ -59,8 +59,3 @@ export const Small = Template.bind({});
 Small.args = {
   children: 'Lorem ipsum dolor sit amet',
 };
-
-export const WithPercentage = Template.bind({});
-WithPercentage.args = {
-  progress: '75%',
-};

@@ -5591,6 +5591,7 @@ __metadata:
   resolution: "@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
+    "@rocket.chat/fuselage-hooks": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
     "@storybook/addon-essentials": ~6.4.18
