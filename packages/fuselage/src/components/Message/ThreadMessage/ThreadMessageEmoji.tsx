@@ -3,21 +3,21 @@ import React from 'react';
 
 import { MessageEmojiBase } from '../MessageEmojiBase';
 
-type MessageReactionEmojiProps = {
+type ThreadMessageEmojiProps = {
   name: string;
   className?: string;
-  children?: ReactNode;
   image?: string;
+  children?: ReactNode;
 };
 
-export const MessageReactionEmoji = ({
+export const ThreadMessageEmoji = ({
   name,
   className,
   image,
   children,
-}: MessageReactionEmojiProps) => (
+}: ThreadMessageEmojiProps) => (
   <MessageEmojiBase
-    className={`rcx-message-reactions__emoji ${className || ''}`}
+    className={`rcx-message-thread__emoji ${className || ''}`}
     name={name}
     image={image}
     children={children}
