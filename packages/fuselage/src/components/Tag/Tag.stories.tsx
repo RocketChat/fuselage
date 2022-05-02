@@ -62,6 +62,10 @@ export const _Danger: ComponentStory<typeof Tag> = Template.bind({});
 _Danger.args = {
   variant: 'danger',
 };
+export const _SecondaryDanger: ComponentStory<typeof Tag> = Template.bind({});
+_SecondaryDanger.args = {
+  variant: 'secondary-danger',
+};
 
 export const Warning: ComponentStory<typeof Tag> = Template.bind({});
 Warning.args = {

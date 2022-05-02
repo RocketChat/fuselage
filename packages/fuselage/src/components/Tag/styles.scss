@@ -58,6 +58,19 @@ $tag-colors-danger-hover-background-color: theme(
   colors.button(hover-danger)
 );
 
+$tag-colors-secondary-danger-color: theme(
+  'tag-colors-secondary-danger-color',
+  colors.button(on-secondary-danger)
+);
+$tag-colors-secondary-danger-background-color: theme(
+  'tag-colors-secondary-danger-background-color',
+  colors.button(secondary-danger)
+);
+$tag-colors-secondary-danger-hover-background-color: theme(
+  'tag-colors-secondary-danger-hover-background-color',
+  colors.button(hover-secondary-danger)
+);
+
 $tag-colors-ghost-color: theme(
   'tag-colors-ghost-color',
   colors.text(alternative)
@@ -109,15 +122,6 @@ $tag-colors-disabled-background-color: theme(
 
   @include typography.use-font-scale(micro);
 
-  &--default {
-    color: $tag-colors-default-color;
-    background-color: $tag-colors-default-background-color;
-
-    &:hover {
-      background-color: $tag-colors-default-hover-background-color;
-    }
-  }
-
   &--secondary {
     color: $tag-colors-secondary-color;
     background-color: $tag-colors-secondary-background-color;
@@ -142,6 +146,15 @@ $tag-colors-disabled-background-color: theme(
 
     &:hover {
       background-color: $tag-colors-danger-hover-background-color;
+    }
+  }
+
+  &--secondary-danger {
+    color: $tag-colors-secondary-danger-color;
+    background-color: $tag-colors-secondary-danger-background-color;
+
+    &:hover {
+      background-color: $tag-colors-secondary-danger-hover-background-color;
     }
   }
 
