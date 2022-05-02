@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/onboarding-ui",
-  "version": "0.31.10",
+  "version": "0.31.11",
   "description": "Set of components and functions for the onboarding experience on Rocket.Chat",
   "keywords": [
     "rocketchat"
