@@ -5592,6 +5592,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
+    "@rocket.chat/onboarding-ui": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
     "@storybook/addon-essentials": ~6.4.18
@@ -5607,12 +5608,13 @@ __metadata:
     npm-run-all: ^4.1.5
     prettier: ~2.5.1
     rimraf: ~3.0.2
-    storybook-dark-mode: ^1.0.8
+    storybook-dark-mode: ~1.1.0
     ts-jest: ~27.1.3
     typedoc: ~0.22.11
     typescript: ~4.3.5
   peerDependencies:
     "@rocket.chat/fuselage": "*"
+    "@rocket.chat/fuselage-polyfills": "*"
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -5911,7 +5913,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui":
+"@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui, @rocket.chat/onboarding-ui@workspace:~":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
   dependencies:
@@ -25407,6 +25409,22 @@ resolve@^2.0.0-next.3:
     "@storybook/core-events": ^6.0.0
     "@storybook/theming": ^6.0.0
   checksum: 76089b72471df9bfb0433a02780620d96228280280c94911bad5556044e86d82fd6665c64e8d095b6043d2bde83e9373bf731e4b378f39303a5463e3ba7963fe
+  languageName: node
+  linkType: hard
+
+"storybook-dark-mode@npm:~1.1.0":
+  version: 1.1.0
+  resolution: "storybook-dark-mode@npm:1.1.0"
+  dependencies:
+    fast-deep-equal: ^3.0.0
+    memoizerific: ^1.11.3
+  peerDependencies:
+    "@storybook/addons": ^6.0.0
+    "@storybook/api": ^6.0.0
+    "@storybook/components": ^6.0.0
+    "@storybook/core-events": ^6.0.0
+    "@storybook/theming": ^6.0.0
+  checksum: e1d7abbb96d1cdbe9cdba1e20aabffa6878f170e348958cc328de4183027c2052f44f6d78f82a45039f803349c7a4ec19988d42898030b2720dc591192f520e6
   languageName: node
   linkType: hard
 
