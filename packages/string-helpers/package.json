@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/string-helpers",
-  "version": "0.31.10",
+  "version": "0.31.11",
   "description": "Helper functions for string manipulation",
   "keywords": [
     "string",
