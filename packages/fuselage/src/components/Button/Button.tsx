@@ -12,6 +12,8 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   secondaryWarning?: boolean;
   success?: boolean;
   secondarySuccess?: boolean;
+  ghost?: boolean;
+  ghostish?: boolean;
 
   disabled?: boolean;
   small?: boolean;
