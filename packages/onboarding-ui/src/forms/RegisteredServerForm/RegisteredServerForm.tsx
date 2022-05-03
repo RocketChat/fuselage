@@ -184,7 +184,7 @@ const RegisterServerForm = ({
 
             <Box withTruncatedText flexGrow={1}>
               <ButtonGroup flexGrow={1} align='end'>
-                <Button nude info onClick={onClickContinue}>
+                <Button secondary onClick={onClickContinue}>
                   {t('form.registeredServerForm.continueStandalone')}
                 </Button>
               </ButtonGroup>

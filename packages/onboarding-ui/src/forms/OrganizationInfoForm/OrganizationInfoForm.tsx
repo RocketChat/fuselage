@@ -214,7 +214,7 @@ const OrganizationInfoForm = ({
           {onClickSkip && (
             <Box withTruncatedText flexGrow={1}>
               <ButtonGroup flexGrow={1} align='end'>
-                <Button nude info onClick={onClickSkip}>
+                <Button secondary onClick={onClickSkip}>
                   {t('component.form.action.skip')}
                 </Button>
               </ButtonGroup>
