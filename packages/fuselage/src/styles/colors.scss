@@ -6,12 +6,12 @@
 
 $-map-type-to-prefix: (
   neutral: 'n',
-  primary: 'b',
-  info: 'b',
-  success: 'g',
-  warning: 'y',
+  primary: 'p',
+  info: 'i',
+  success: 's',
+  warning: 'w',
   warning-alternative: 'o',
-  danger: 'r',
+  danger: 'd',
   service-1: 's1-',
   service-2: 's2-',
 );
@@ -198,6 +198,8 @@ $-strokes: (
   highlight: primary(500),
   extra-light-error: danger(200),
   error: danger(500),
+  warning: warning(200),
+  success: success(200),
 );
 
 @function stroke($type) {
@@ -260,7 +262,8 @@ $-buttons: (
   on-warning: neutral(900),
   on-secondary-warning: warning(900),
   on-success: neutral(900),
-  on-secondary-success: success(700),
+  on-secondary-success: success(600),
+  on-disabled: neutral(600),
 );
 
 @function button($type) {
