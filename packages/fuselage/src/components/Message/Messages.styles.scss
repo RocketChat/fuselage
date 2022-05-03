@@ -1,6 +1,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/functions.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/mixins/size.scss';
 @use '../../styles/typography.scss';
 @use './mixins.scss';
 
@@ -73,6 +74,12 @@ $message-background-color-highlight: functions.theme(
 
   &--highlight {
     animation: background-fade 6s forwards;
+  }
+
+  &--pending {
+    .rcx-message-body {
+      opacity: 0.4;
+    }
   }
 
   @keyframes background-fade {
@@ -155,6 +162,10 @@ $message-background-color-highlight: functions.theme(
 
     flex-shrink: 1;
 
+    transition: opacity 0.3s linear;
+
+    opacity: 1;
+
     color: colors.neutral(800);
 
     &--clamp {
@@ -183,5 +194,18 @@ $message-background-color-highlight: functions.theme(
     @extend %rcx-margins-block;
     display: flex;
     flex-direction: column;
+  }
+
+  &__emoji {
+    display: inline-block;
+
+    margin-inline: lengths.margin(2);
+
+    background-size: contain;
+    @include size.square(lengths.size(24));
+
+    &--big {
+      @include size.square(lengths.size(44));
+    }
   }
 }

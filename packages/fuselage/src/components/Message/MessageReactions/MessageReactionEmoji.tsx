@@ -1,8 +1,12 @@
+import type { ReactNode } from 'react';
 import React from 'react';
+
+import { MessageEmojiBase } from '../MessageEmojiBase';
 
 type MessageReactionEmojiProps = {
   name: string;
   className?: string;
+  children?: ReactNode;
   image?: string;
 };
 
@@ -10,9 +14,12 @@ export const MessageReactionEmoji = ({
   name,
   className,
   image,
+  children,
 }: MessageReactionEmojiProps) => (
-  <div
-    className={`rcx-message-reactions__emoji ${name} ${className}`}
-    style={image && image.length ? { backgroundImage: image } : undefined}
+  <MessageEmojiBase
+    className={`rcx-message-reactions__emoji ${className || ''}`}
+    name={name}
+    image={image}
+    children={children}
   />
 );

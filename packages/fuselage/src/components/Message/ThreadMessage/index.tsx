@@ -2,6 +2,7 @@ import { MessageLeftContainer } from '../MessageLeftContainer';
 import { ThreadMessage } from './ThreadMessage';
 import { ThreadMessageBody } from './ThreadMessageBody';
 import { ThreadMessageContainer } from './ThreadMessageContainer';
+import { ThreadMessageEmoji } from './ThreadMessageEmoji';
 import { ThreadMessageFollow } from './ThreadMessageFollow';
 import { ThreadMessageIconThread } from './ThreadMessageIconThread';
 import { ThreadMessageOrigin } from './ThreadMessageOrigin';
@@ -29,6 +30,7 @@ export {
   ThreadMessageIconThread,
   ThreadMessageOrigin,
   ThreadMessageRow,
+  ThreadMessageEmoji,
   ThreadMessageUnfollow,
   ThreadMessageLeftContainer,
 };
