@@ -270,10 +270,20 @@ $-buttons: (
   @return map.get($-buttons, $type);
 }
 
+$-neutral-alpha-level: (
+  8: neutral(800, 0.08),
+  10: neutral(800, 0.1),
+  12: neutral(800, 0.12),
+);
+
+@function surface-neutral-alpha($level) {
+  @return map.get($-neutral-alpha-level, $level);
+}
+
 $-elevation-level: (
-  1: neutral(800, 0.1),
-  2x: neutral(800, 0.08),
-  2y: neutral(800, 0.12),
+  1: surface-neutral-alpha(10),
+  2x: surface-neutral-alpha(8),
+  2y: surface-neutral-alpha(12),
 );
 
 @function elevation($level) {
