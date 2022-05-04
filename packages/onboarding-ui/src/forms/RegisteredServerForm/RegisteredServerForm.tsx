@@ -13,6 +13,7 @@ import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
+import ActionLink from '../../common/ActionLink';
 import Form from '../../common/Form';
 import List from '../../common/List';
 
@@ -184,9 +185,9 @@ const RegisterServerForm = ({
 
             <Box withTruncatedText flexGrow={1}>
               <ButtonGroup flexGrow={1} align='end'>
-                <Button secondary onClick={onClickContinue}>
+                <ActionLink onClick={onClickContinue}>
                   {t('form.registeredServerForm.continueStandalone')}
-                </Button>
+                </ActionLink>
               </ButtonGroup>
             </Box>
           </ButtonGroup>
