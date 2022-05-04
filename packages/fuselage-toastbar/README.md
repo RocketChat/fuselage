@@ -8,6 +8,8 @@
 
 # `@rocket.chat/fuselage-toastbar`
 
+> Fuselage ToastBar component
+
 ---
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-toastbar/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-toastbar/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage-toastbar/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage-toastbar) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-toastbar?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage-toastbar?style=flat-square)
