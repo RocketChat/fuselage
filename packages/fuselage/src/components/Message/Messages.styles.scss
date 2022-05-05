@@ -196,6 +196,34 @@ $message-background-color-highlight: functions.theme(
     flex-direction: column;
   }
 
+  &-paragraph {
+    margin: 0;
+    padding: 0;
+
+    &:empty::before {
+      display: inline-block;
+
+      content: '';
+    }
+  }
+
+  &-unordered-list {
+    list-style: none;
+
+    &__item {
+      list-style-position: inside;
+      list-style-type: '- ';
+    }
+  }
+
+  &-ordered-list {
+    list-style: decimal;
+
+    &__item {
+      list-style-position: inside;
+    }
+  }
+
   &__emoji {
     display: inline-block;
 

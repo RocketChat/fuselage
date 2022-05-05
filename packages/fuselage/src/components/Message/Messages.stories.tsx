@@ -421,6 +421,98 @@ export const MessageEditing = () => (
   </Box>
 );
 
+export const MessageUnorderedList = () => (
+  <Box>
+    <MessageDivider>May, 24, 2020</MessageDivider>
+    <Message className='customclass' clickable>
+      <Message.LeftContainer>
+        <Avatar url={avatarUrl} size={'x36'} />
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.Name>Haylie George</Message.Name>
+          <Message.Username>@haylie.george</Message.Username>
+          <Message.Role>Admin</Message.Role>
+          <Message.Role>User</Message.Role>
+          <Message.Role>Owner</Message.Role>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <Message.Body>
+          <Message.Paragraph>Unordered list</Message.Paragraph>
+          <Message.UnorderedList>
+            <Message.UnorderedListItem>
+              ut enim ad minim
+            </Message.UnorderedListItem>
+            <Message.UnorderedListItem>
+              incididunt ut labore
+            </Message.UnorderedListItem>
+            <Message.UnorderedListItem>
+              labore et dolore
+            </Message.UnorderedListItem>
+          </Message.UnorderedList>
+        </Message.Body>
+        <MessageReactions>
+          <MessageReactions.Reaction counter={1} />
+          <MessageReactions.Reaction counter={2} />
+          <MessageReactions.Reaction counter={3} />
+          <MessageReactions.Action />
+        </MessageReactions>
+      </Message.Container>
+      <MessageToolbox.Wrapper>
+        <MessageToolbox>
+          <MessageToolbox.Item icon='quote' />
+          <MessageToolbox.Item icon='clock' />
+          <MessageToolbox.Item icon='thread' />
+        </MessageToolbox>
+      </MessageToolbox.Wrapper>
+    </Message>
+  </Box>
+);
+
+export const MessageOrderedList = () => (
+  <Box>
+    <MessageDivider>May, 24, 2020</MessageDivider>
+    <Message className='customclass' clickable>
+      <Message.LeftContainer>
+        <Avatar url={avatarUrl} size={'x36'} />
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.Name>Haylie George</Message.Name>
+          <Message.Username>@haylie.george</Message.Username>
+          <Message.Role>Admin</Message.Role>
+          <Message.Role>User</Message.Role>
+          <Message.Role>Owner</Message.Role>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <Message.Body>
+          <Message.Paragraph>Ordered list</Message.Paragraph>
+          <Message.OrderedList>
+            <Message.OrderedListItem>ut enim ad minim</Message.OrderedListItem>
+            <Message.OrderedListItem>
+              incididunt ut labore
+            </Message.OrderedListItem>
+            <Message.OrderedListItem>labore et dolore</Message.OrderedListItem>
+          </Message.OrderedList>
+        </Message.Body>
+        <MessageReactions>
+          <MessageReactions.Reaction counter={1} />
+          <MessageReactions.Reaction counter={2} />
+          <MessageReactions.Reaction counter={3} />
+          <MessageReactions.Action />
+        </MessageReactions>
+      </Message.Container>
+      <MessageToolbox.Wrapper>
+        <MessageToolbox>
+          <MessageToolbox.Item icon='quote' />
+          <MessageToolbox.Item icon='clock' />
+          <MessageToolbox.Item icon='thread' />
+        </MessageToolbox>
+      </MessageToolbox.Wrapper>
+    </Message>
+  </Box>
+);
+
 export const MessageHighlighted = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
