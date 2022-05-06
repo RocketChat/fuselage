@@ -23,14 +23,7 @@ const ConfirmationProcessPage = (): ReactElement => {
         <Margins blockEnd={32}>
           <OnboardingLogo />
 
-          <Box
-            fontWeight={800}
-            fontSize='x52'
-            lineHeight='x62'
-            fontFamily='sans'
-          >
-            {t('page.confirmationProcess.title')}
-          </Box>
+          <Box fontScale='hero'>{t('page.confirmationProcess.title')}</Box>
 
           <Throbber size='x16' inheritColor={true} />
         </Margins>

@@ -32,13 +32,7 @@ const LoginLinkEmailPage = ({
         <Margins blockEnd={32}>
           <OnboardingLogo />
 
-          <Box
-            fontWeight={800}
-            width='100%'
-            fontSize='x52'
-            lineHeight='x62'
-            fontFamily='sans'
-          >
+          <Box fontScale='hero' width='100%'>
             {t('page.magicLinkEmail.title')}
           </Box>
 
