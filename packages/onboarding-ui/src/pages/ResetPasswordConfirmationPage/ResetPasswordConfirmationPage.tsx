@@ -22,12 +22,7 @@ const ResetPasswordConfirmationPage = (): ReactElement => {
         <Margins blockEnd={32}>
           <OnboardingLogo />
 
-          <Box
-            fontWeight={800}
-            fontSize='x52'
-            lineHeight='x62'
-            fontFamily='sans'
-          >
+          <Box fontScale='hero'>
             {t('page.resetPasswordPage.emailSent.title')}
           </Box>
 
