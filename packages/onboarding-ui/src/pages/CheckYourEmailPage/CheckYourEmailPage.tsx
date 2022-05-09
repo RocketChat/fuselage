@@ -47,14 +47,7 @@ const CheckYourEmailPage = ({
         <Margins blockEnd={32}>
           <OnboardingLogo />
 
-          <Box
-            fontWeight={800}
-            fontSize='x52'
-            lineHeight='x62'
-            fontFamily='sans'
-          >
-            {title}
-          </Box>
+          <Box fontScale='hero'>{title}</Box>
 
           <Box fontScale='p1'>{children}</Box>
 
