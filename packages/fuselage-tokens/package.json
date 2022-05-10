@@ -36,8 +36,6 @@
     "build": "run-s .:build:clean  .:build:legacy .:build",
     ".:build": "node ./build --config ./config.js",
     ".:build:legacy": "build-design-tokens",
-    ".:build:base": "node ./base/build --config ./base/config.js",
-    ".:build:new": "node ./new/build --config ./new/config.js",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
