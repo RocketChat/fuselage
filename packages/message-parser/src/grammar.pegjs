@@ -509,7 +509,10 @@ phonePrefix
  *
  */
 
-URL = $(s:urlScheme a:urlAuthority p:urlPath? q:urlQuery? f:urlFragment?)
+URL
+  = $(
+    s:urlScheme a:urlAuthority p:urlPath? q:urlQuery? f:urlFragment? g:urlPath?
+  )
 
 urlScheme
   = $(
