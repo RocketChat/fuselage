@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 
 import Box from '../Box';
-import { Button } from '../Button';
+import { IconButton } from '../Button';
 import { Icon } from '../Icon';
 
 export type ToastBarProps = {
@@ -72,18 +72,15 @@ export function ToastBar({
           <div className='rcx-toastbar-content'>{children}</div>
           {onClose && (
             <div className='rcx-toastbar-close'>
-              <Button
-                small
-                square
-                ghost
+              <IconButton
+                tiny
                 {...{
-                  success: variant === 'success',
-                  danger: variant === 'error',
+                  secondarySuccess: variant === 'success',
+                  secondaryDanger: variant === 'error',
                 }}
                 onClick={() => onClose(id)}
-              >
-                <Icon name='cross' size='x20' />
-              </Button>
+                icon='cross'
+              />
             </div>
           )}
         </div>

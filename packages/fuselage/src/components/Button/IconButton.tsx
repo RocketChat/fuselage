@@ -17,6 +17,8 @@ type IconButtonProps = ComponentProps<typeof Box> &
 
     primary?: boolean;
     secondary?: boolean;
+    info?: boolean;
+    secondaryInfo?: boolean;
     danger?: boolean;
     secondaryDanger?: boolean;
     warning?: boolean;
@@ -33,7 +35,9 @@ export const IconButton = forwardRef(
       icon,
       children,
       primary,
+      info,
       secondary,
+      secondaryInfo,
       danger,
       secondaryDanger,
       warning,
@@ -47,8 +51,9 @@ export const IconButton = forwardRef(
   ) => {
     const kindAndVariantProps = useMemo(() => {
       const variant =
-        (primary && 'primary') ||
+        ((primary || info) && 'primary') ||
         (secondary && 'secondary') ||
+        (secondaryInfo && 'ghost-info') ||
         (danger && 'danger') ||
         (secondaryDanger && 'ghost-danger') ||
         (warning && 'warning') ||
@@ -65,9 +70,11 @@ export const IconButton = forwardRef(
       return {};
     }, [
       primary,
+      info,
       secondary,
-      secondaryDanger,
+      secondaryInfo,
       danger,
+      secondaryDanger,
       warning,
       secondaryWarning,
       success,

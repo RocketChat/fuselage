@@ -113,6 +113,10 @@
     @include button.kind-variant(colors.$secondary-success);
   }
 
+  &--ghost-info {
+    @include button.kind-variant(colors.$ghost-info);
+  }
+
   &--ghost-success {
     @include button.kind-variant(colors.$ghost-success);
   }

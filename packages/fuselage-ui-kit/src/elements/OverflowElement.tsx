@@ -1,9 +1,8 @@
 import type { OptionType } from '@rocket.chat/fuselage';
 import {
-  Button,
+  IconButton,
   PositionAnimated,
   Options,
-  Icon,
   useCursor,
 } from '@rocket.chat/fuselage';
 import type * as UiKit from '@rocket.chat/ui-kit';
@@ -62,18 +61,16 @@ const OverflowElement = ({
 
   return (
     <>
-      <Button
+      <IconButton
         ref={ref}
         small
-        ghost
         onClick={onClick}
         onBlur={hide}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
         disabled={loading}
-      >
-        <Icon name='kebab' size={20} />
-      </Button>
+        icon='kebab'
+      />
       <PositionAnimated
         width='auto'
         visible={visible}
