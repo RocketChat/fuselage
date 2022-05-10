@@ -47,12 +47,10 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerFormat({
   name: 'custom/colors-json',
   formatter({ dictionary }) {
-    return `{${dictionary.allTokens.map((token) => {
-      console.log(token);
-      return `\n\t${encodeJson(token.path[1])}: ${encodeJson(
-        token.original.value
-      )}`;
-    })}\n}`;
+    return `{${dictionary.allTokens.map(
+      (token) =>
+        `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`
+    )}\n}`;
   },
 });
 

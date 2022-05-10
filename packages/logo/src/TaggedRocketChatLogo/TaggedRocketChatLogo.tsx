@@ -1,4 +1,4 @@
-import colors from '@rocket.chat/fuselage-tokens/dist/colors.json';
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement } from 'react';
 
 import RocketChatLogo from '../RocketChatLogo';

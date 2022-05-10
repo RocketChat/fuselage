@@ -9,5 +9,5 @@ export const MessageToolboxItem = forwardRef(function Item(
   props: MessageToolboxItemProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  return <ActionButton ref={ref} {...{ ...props, small: true, ghost: true }} />;
+  return <ActionButton ref={ref} small {...props} />;
 });

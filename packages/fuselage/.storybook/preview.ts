@@ -1,4 +1,4 @@
-import breakpointTokens from '@rocket.chat/fuselage-tokens/dist/breakpoints.json';
+import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { addParameters } from '@storybook/react';
 

@@ -1,4 +1,4 @@
-@use '~@rocket.chat/fuselage-tokens/dist/breakpoints.scss';
+@use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
 
 @mixin on-breakpoint($breakpoint-name) {
   $min-viewport-width: map-get(

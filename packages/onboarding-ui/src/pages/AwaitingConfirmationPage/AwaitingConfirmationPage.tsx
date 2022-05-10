@@ -1,5 +1,5 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/dist/colors.json';
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
