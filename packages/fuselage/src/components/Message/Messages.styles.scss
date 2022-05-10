@@ -208,19 +208,36 @@ $message-background-color-highlight: functions.theme(
   }
 
   &-unordered-list {
+    padding-top: lengths.padding(4);
+
     list-style: none;
 
     &__item {
-      list-style-position: inside;
-      list-style-type: '- ';
+      &::before {
+        padding: 0 lengths.padding(8);
+
+        content: '•';
+
+        font-weight: bold;
+      }
     }
   }
 
   &-ordered-list {
-    list-style: decimal;
+    padding-top: lengths.padding(4);
+
+    list-style: none;
 
     &__item {
-      list-style-position: inside;
+      counter-increment: items;
+
+      &::before {
+        padding: 0 lengths.padding(8);
+
+        content: counter(items) '.';
+
+        font-weight: bold;
+      }
     }
   }
 

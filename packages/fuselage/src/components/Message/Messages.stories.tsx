@@ -438,16 +438,16 @@ export const MessageUnorderedList = () => (
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
-          <Message.Paragraph>Unordered list</Message.Paragraph>
+          <Message.Paragraph>Unordered list:</Message.Paragraph>
           <Message.UnorderedList>
             <Message.UnorderedListItem>
-              ut enim ad minim
+              Ut enim ad minim
             </Message.UnorderedListItem>
             <Message.UnorderedListItem>
-              incididunt ut labore
+              Incididunt ut labore
             </Message.UnorderedListItem>
             <Message.UnorderedListItem>
-              labore et dolore
+              Labore et dolore
             </Message.UnorderedListItem>
           </Message.UnorderedList>
         </Message.Body>
@@ -486,13 +486,13 @@ export const MessageOrderedList = () => (
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
-          <Message.Paragraph>Ordered list</Message.Paragraph>
+          <Message.Paragraph>Ordered list:</Message.Paragraph>
           <Message.OrderedList>
-            <Message.OrderedListItem>ut enim ad minim</Message.OrderedListItem>
+            <Message.OrderedListItem>Ut enim ad minim</Message.OrderedListItem>
             <Message.OrderedListItem>
-              incididunt ut labore
+              Incididunt ut labore
             </Message.OrderedListItem>
-            <Message.OrderedListItem>labore et dolore</Message.OrderedListItem>
+            <Message.OrderedListItem>Labore et dolore</Message.OrderedListItem>
           </Message.OrderedList>
         </Message.Body>
         <MessageReactions>
