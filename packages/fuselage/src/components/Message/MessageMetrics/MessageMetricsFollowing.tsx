@@ -6,6 +6,4 @@ type MessageMetricsFollowingProps = { name: 'bell' | 'bell-off' };
 
 export const MessageMetricsFollowing = ({
   name,
-}: MessageMetricsFollowingProps) => (
-  <IconButton {...{ color: 'info', small: true, icon: name }} />
-);
+}: MessageMetricsFollowingProps) => <IconButton info small icon={name} />;
