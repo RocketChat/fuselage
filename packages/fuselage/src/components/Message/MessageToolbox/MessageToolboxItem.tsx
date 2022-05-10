@@ -9,5 +9,5 @@ export const MessageToolboxItem = forwardRef(function Item(
   props: MessageToolboxItemProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  return <IconButton secondary ref={ref} small {...props} />;
+  return <IconButton ref={ref} small {...props} />;
 });
