@@ -148,6 +148,72 @@ test.each([
       ]),
     ],
   ],
+  [
+    '[title](https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351?query=test12-34)',
+    [
+      paragraph([
+        link(
+          'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351?query=test12-34',
+          plain('title')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[title](https://desk.rocket.chat/support/rocketchat/ShowHomePage.do?query=test12-34#Cases/dv/413244000073043351)',
+    [
+      paragraph([
+        link(
+          'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do?query=test12-34#Cases/dv/413244000073043351',
+          plain('title')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[title](https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351?query=test12-34&query2=abc123)',
+    [
+      paragraph([
+        link(
+          'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351?query=test12-34&query2=abc123',
+          plain('title')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[title](https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases?query=test12-34&query2=abcd!e/dv/413244000073043351)',
+    [
+      paragraph([
+        link(
+          'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases?query=test12-34&query2=abcd!e/dv/413244000073043351',
+          plain('title')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[title](https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases?query=test12-34&query2=abcd!e/dv/413244000073043351)',
+    [
+      paragraph([
+        link(
+          'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases?query=test12-34&query2=abcd!e/dv/413244000073043351',
+          plain('title')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[title](https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351?query=test12-34&query2=abcd!~-._%2B+)',
+    [
+      paragraph([
+        link(
+          'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351?query=test12-34&query2=abcd!~-._%2B+',
+          plain('title')
+        ),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });

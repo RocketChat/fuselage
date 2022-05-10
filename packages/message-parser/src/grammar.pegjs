@@ -437,6 +437,10 @@ safe
   / "&"
   / "="
   / "%"
+  / "!"
+  / "~"
+  / "_"
+  / "+"
 
 extra
   = "!"
@@ -511,7 +515,13 @@ phonePrefix
 
 URL
   = $(
-    s:urlScheme a:urlAuthority p:urlPath? q:urlQuery? f:urlFragment? g:urlPath?
+    s:urlScheme
+      a:urlAuthority
+      p:urlPath?
+      q:urlQuery?
+      f:urlFragment?
+      g:urlPath?
+      h:urlQuery?
   )
 
 urlScheme
