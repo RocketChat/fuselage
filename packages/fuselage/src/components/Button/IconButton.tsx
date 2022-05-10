@@ -5,23 +5,25 @@ import Box from '../Box';
 import { Icon } from '../Icon';
 
 type ButtonSize = {
+  square?: boolean;
   mini?: boolean;
   tiny?: boolean;
   small?: boolean;
 };
-type IconButtonProps = ButtonSize & {
-  icon: ComponentProps<typeof Icon>['name'];
-  children?: ReactNode;
+type IconButtonProps = ComponentProps<typeof Box> &
+  ButtonSize & {
+    icon: ComponentProps<typeof Icon>['name'];
+    children?: ReactNode;
 
-  primary?: boolean;
-  secondary?: boolean;
-  danger?: boolean;
-  secondaryDanger?: boolean;
-  warning?: boolean;
-  secondaryWarning?: boolean;
-  success?: boolean;
-  secondarySuccess?: boolean;
-};
+    primary?: boolean;
+    secondary?: boolean;
+    danger?: boolean;
+    secondaryDanger?: boolean;
+    warning?: boolean;
+    secondaryWarning?: boolean;
+    success?: boolean;
+    secondarySuccess?: boolean;
+  };
 
 const getSize = ({ mini }: ButtonSize) => (mini ? 'x16' : 'x20');
 
@@ -38,6 +40,7 @@ export const IconButton = forwardRef(
       secondaryWarning,
       success,
       secondarySuccess,
+      square,
       ...props
     }: IconButtonProps,
     ref: Ref<HTMLElement>
@@ -47,11 +50,11 @@ export const IconButton = forwardRef(
         (primary && 'primary') ||
         (secondary && 'secondary') ||
         (danger && 'danger') ||
-        (secondaryDanger && 'secondary-danger') ||
+        (secondaryDanger && 'ghost-danger') ||
         (warning && 'warning') ||
-        (secondaryWarning && 'secondary-warning') ||
+        (secondaryWarning && 'ghost-warning') ||
         (success && 'success') ||
-        (secondarySuccess && 'secondary-success');
+        (secondarySuccess && 'ghost-success');
 
       if (variant) {
         return {
@@ -74,12 +77,13 @@ export const IconButton = forwardRef(
     return (
       <Box
         is='button'
+        rcx-button
         rcx-button--icon
-        rcx-button--square
+        rcx-button--square={square}
         {...kindAndVariantProps}
-        rcx-button--small={props.small}
-        rcx-button--tiny={props.tiny}
-        rcx-button--mini={props.mini}
+        rcx-button--small-square={props.small}
+        rcx-button--tiny-square={props.tiny}
+        rcx-button--mini-square={props.mini}
         ref={ref}
         {...props}
       >

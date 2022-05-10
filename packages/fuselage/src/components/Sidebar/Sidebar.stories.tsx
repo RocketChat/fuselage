@@ -58,7 +58,7 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
     <Sidebar.TopBar.ToolBox>
       <Sidebar.TopBar.Title>Title</Sidebar.TopBar.Title>
       <Sidebar.TopBar.Actions>
-        <Sidebar.TopBar.Action success icon='phone' />
+        <Sidebar.TopBar.Action secondarySuccess icon='phone' />
         <Sidebar.TopBar.Action icon='message-disabled' />
       </Sidebar.TopBar.Actions>
     </Sidebar.TopBar.ToolBox>
@@ -67,7 +67,7 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
         CallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallss
       </Sidebar.Section.Title>
       <Sidebar.TopBar.Actions>
-        <Sidebar.TopBar.Action success icon='phone' />
+        <Sidebar.TopBar.Action secondarySuccess icon='phone' />
         <Sidebar.TopBar.Action icon='message-disabled' />
       </Sidebar.TopBar.Actions>
     </SidebarSection>
@@ -91,10 +91,10 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction primary success icon='phone' />
-          <SidebarItemAction primary danger icon='circle-cross' />
-          <SidebarItemAction primary icon='trash' />
-          <SidebarItemAction icon='phone' />
+          <SidebarItemAction success icon='phone' />
+          <SidebarItemAction danger icon='circle-cross' />
+          <SidebarItemAction icon='trash' />
+          <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
     </Sidebar.Item>
@@ -118,10 +118,10 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction primary success icon='phone' />
-          <SidebarItemAction primary danger icon='circle-cross' />
-          <SidebarItemAction primary icon='trash' />
-          <SidebarItemAction icon='phone' />
+          <SidebarItemAction success icon='phone' />
+          <SidebarItemAction danger icon='circle-cross' />
+          <SidebarItemAction icon='trash' />
+          <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
     </Sidebar.Item>
@@ -155,10 +155,10 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction primary success icon='phone' />
-          <SidebarItemAction primary danger icon='circle-cross' />
-          <SidebarItemAction primary icon='trash' />
-          <SidebarItemAction icon='phone' />
+          <SidebarItemAction success icon='phone' />
+          <SidebarItemAction danger icon='circle-cross' />
+          <SidebarItemAction icon='trash' />
+          <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
     </Sidebar.Item>
@@ -185,7 +185,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
     <Sidebar.TopBar.ToolBox>
       <Sidebar.TopBar.Title>Title</Sidebar.TopBar.Title>
       <Sidebar.TopBar.Actions>
-        <Sidebar.TopBar.Action success icon='phone' />
+        <Sidebar.TopBar.Action secondarySuccess icon='phone' />
         <Sidebar.TopBar.Action icon='message-disabled' />
       </Sidebar.TopBar.Actions>
     </Sidebar.TopBar.ToolBox>
@@ -194,7 +194,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
         CallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallss
       </Sidebar.Section.Title>
       <Sidebar.TopBar.Actions>
-        <Sidebar.TopBar.Action success icon='phone' />
+        <Sidebar.TopBar.Action secondarySuccess icon='phone' />
         <Sidebar.TopBar.Action icon='message-disabled' />
       </Sidebar.TopBar.Actions>
     </SidebarSection>
@@ -218,10 +218,10 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction primary success icon='phone' />
-          <SidebarItemAction primary danger icon='circle-cross' />
+          <SidebarItemAction success icon='phone' />
+          <SidebarItemAction danger icon='circle-cross' />
           <SidebarItemAction primary icon='trash' />
-          <SidebarItemAction icon='phone' />
+          <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
     </Sidebar.Item>
@@ -245,10 +245,10 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction primary success icon='phone' />
-          <SidebarItemAction primary danger icon='circle-cross' />
+          <SidebarItemAction success icon='phone' />
+          <SidebarItemAction danger icon='circle-cross' />
           <SidebarItemAction primary icon='trash' />
-          <SidebarItemAction icon='phone' />
+          <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
     </Sidebar.Item>
@@ -282,10 +282,10 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction primary success icon='phone' />
-          <SidebarItemAction primary danger icon='circle-cross' />
+          <SidebarItemAction success icon='phone' />
+          <SidebarItemAction danger icon='circle-cross' />
           <SidebarItemAction primary icon='trash' />
-          <SidebarItemAction icon='phone' />
+          <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
     </Sidebar.Item>
@@ -336,7 +336,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
         </SidebarItemContent>
         <SidebarItemContainer>
           <SidebarItemActions>
-            <SidebarItemAction danger primary icon='phone-off' />
+            <SidebarItemAction danger icon='phone-off' />
           </SidebarItemActions>
         </SidebarItemContainer>
       </SidebarItem>

@@ -66,6 +66,7 @@
 
   &--icon {
     @include button.kind-variant(colors.$ghost);
+    padding: 0;
   }
 
   &--tiny-square {
@@ -110,5 +111,17 @@
 
   &--secondary-success {
     @include button.kind-variant(colors.$secondary-success);
+  }
+
+  &--ghost-success {
+    @include button.kind-variant(colors.$ghost-success);
+  }
+
+  &--ghost-warning {
+    @include button.kind-variant(colors.$ghost-warning);
+  }
+
+  &--ghost-danger {
+    @include button.kind-variant(colors.$ghost-danger);
   }
 }
