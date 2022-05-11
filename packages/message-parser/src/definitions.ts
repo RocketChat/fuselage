@@ -5,7 +5,7 @@ export type Blockquote = {
 
 export type OrderedList = {
   type: 'ORDERED_LIST';
-  value: ListItem[];
+  value: OrderedListItem[];
 };
 
 export type UnorderedList = {
@@ -16,6 +16,11 @@ export type UnorderedList = {
 export type ListItem = {
   type: 'LIST_ITEM';
   value: Inlines[];
+};
+
+export type OrderedListItem = {
+  type: 'ORDERED_LIST_ITEM';
+  value: { digit: string; text: Inlines[] };
 };
 
 export type Tasks = {
@@ -155,6 +160,7 @@ export type Types = {
   TASK: Task;
   UNORDERED_LIST: UnorderedList;
   ORDERED_LIST: OrderedList;
+  ORDERED_LIST_ITEM: OrderedListItem;
   LIST_ITEM: ListItem;
   IMAGE: Image;
   LINE_BREAK: LineBreak;

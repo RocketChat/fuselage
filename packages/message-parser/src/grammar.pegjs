@@ -22,6 +22,7 @@
     task,
     orderedList,
     listItem,
+    orderedListItem,
     unorderedList,
     lineBreak,
   } = require('./utils');
@@ -300,7 +301,7 @@ UnorderedListItem__Inline
 OrderedList = lists:OrderedListItem+ { return orderedList(lists); }
 
 OrderedListItem
-  = (digit1_9+ "\x2E ") text:Inline { return listItem(text, true); }
+  = d:digits "\x2E " text:Inline { return orderedListItem(d, text); }
 
 Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
 
