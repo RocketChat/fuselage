@@ -45,6 +45,9 @@ export const IconButton = forwardRef(
       success,
       secondarySuccess,
       square,
+      small,
+      tiny,
+      mini,
       ...props
     }: IconButtonProps,
     ref: Ref<HTMLElement>
@@ -88,14 +91,14 @@ export const IconButton = forwardRef(
         rcx-button--icon
         rcx-button--square={square}
         {...kindAndVariantProps}
-        rcx-button--small-square={props.small}
-        rcx-button--tiny-square={props.tiny}
-        rcx-button--mini-square={props.mini}
+        rcx-button--small-square={small}
+        rcx-button--tiny-square={tiny}
+        rcx-button--mini-square={mini}
         ref={ref}
         {...props}
       >
         {children}
-        <Icon name={icon} size={getSize(props)} />
+        <Icon name={icon} size={getSize({ mini })} />
       </Box>
     );
   }
