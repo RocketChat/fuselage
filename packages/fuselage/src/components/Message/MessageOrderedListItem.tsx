@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 
 type MessageOrderedListItemProps = {
+  value: number;
   children?: ReactNode;
 };
 

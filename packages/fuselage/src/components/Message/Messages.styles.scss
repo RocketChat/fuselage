@@ -229,12 +229,10 @@ $message-background-color-highlight: functions.theme(
     list-style: none;
 
     &__item {
-      counter-increment: items;
-
       &::before {
         padding: 0 lengths.padding(8);
 
-        content: counter(items) '.';
+        content: attr(value) '.';
 
         font-weight: bold;
       }

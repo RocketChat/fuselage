@@ -438,7 +438,7 @@ export const MessageUnorderedList = () => (
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
-          <Message.Paragraph>Unordered list:</Message.Paragraph>
+          Unordered list:
           <Message.UnorderedList>
             <Message.UnorderedListItem>
               Ut enim ad minim
@@ -486,13 +486,17 @@ export const MessageOrderedList = () => (
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
-          <Message.Paragraph>Ordered list:</Message.Paragraph>
+          Ordered list:
           <Message.OrderedList>
-            <Message.OrderedListItem>Ut enim ad minim</Message.OrderedListItem>
-            <Message.OrderedListItem>
+            <Message.OrderedListItem value={1}>
+              Ut enim ad minim
+            </Message.OrderedListItem>
+            <Message.OrderedListItem value={2}>
               Incididunt ut labore
             </Message.OrderedListItem>
-            <Message.OrderedListItem>Labore et dolore</Message.OrderedListItem>
+            <Message.OrderedListItem value={3}>
+              Labore et dolore
+            </Message.OrderedListItem>
           </Message.OrderedList>
         </Message.Body>
         <MessageReactions>
