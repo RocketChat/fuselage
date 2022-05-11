@@ -68,6 +68,8 @@
     @include button.kind-variant(colors.$icon);
     padding: 0;
 
+    line-height: 0;
+
     &-secondary {
       @include button.kind-variant(colors.$secondary);
     }
