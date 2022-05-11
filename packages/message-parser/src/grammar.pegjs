@@ -23,6 +23,7 @@
     orderedList,
     listItem,
     unorderedList,
+    lineBreak,
   } = require('./utils');
 }
 
@@ -31,6 +32,8 @@ start
   / (Blocks / Paragraph / EndOfLine { return paragraph([plain('')]); })+
 
 b = (EndOfLine / Space)*
+
+LineBreak = (Space* EndOfLine) { return lineBreak(''); }
 
 BigEmoji
   = b e1:Emoji b e2:Emoji? b e3:Emoji? b {
@@ -44,6 +47,7 @@ Blocks
   / TaskList
   / OrderedList
   / UnorderedList
+  / LineBreak
 
 // / Section
 
@@ -95,13 +99,6 @@ line
     }
 
 EOF = !.
-
-crlf
-  = "\r\n"
-  / "\r"
-  / "\n"
-
-EatLine = (!crlf !EOF .)*
 
 EndOfLine
   = "\r\n"

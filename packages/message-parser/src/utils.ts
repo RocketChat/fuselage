@@ -112,3 +112,5 @@ export const reducePlainTexts = (
 
     return [...result, item];
   }, [] as Paragraph['value']);
+
+export const lineBreak = generate('LINE_BREAK');
