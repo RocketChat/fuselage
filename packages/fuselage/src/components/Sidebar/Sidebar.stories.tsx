@@ -220,7 +220,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
         <SidebarItemActions>
           <SidebarItemAction secondarySuccess icon='phone' />
           <SidebarItemAction secondaryDanger icon='circle-cross' />
-          <SidebarItemAction primary secondaryInfo icon='trash' />
+          <SidebarItemAction secondaryInfo icon='trash' />
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -247,7 +247,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
         <SidebarItemActions>
           <SidebarItemAction secondarySuccess icon='phone' />
           <SidebarItemAction secondaryDanger icon='circle-cross' />
-          <SidebarItemAction primary secondaryInfo icon='trash' />
+          <SidebarItemAction secondaryInfo icon='trash' />
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -284,7 +284,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
         <SidebarItemActions>
           <SidebarItemAction secondarySuccess icon='phone' />
           <SidebarItemAction secondaryDanger icon='circle-cross' />
-          <SidebarItemAction primary secondaryInfo icon='trash' />
+          <SidebarItemAction secondaryInfo icon='trash' />
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
