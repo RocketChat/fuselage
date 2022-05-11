@@ -22,7 +22,9 @@
     task,
     orderedList,
     listItem,
+    orderedListItem,
     unorderedList,
+    lineBreak,
   } = require('./utils');
 }
 
@@ -31,6 +33,8 @@ start
   / (Blocks / Paragraph / EndOfLine { return paragraph([plain('')]); })+
 
 b = (EndOfLine / Space)*
+
+LineBreak = (Space* EndOfLine) { return lineBreak(''); }
 
 BigEmoji
   = b e1:Emoji b e2:Emoji? b e3:Emoji? b {
@@ -44,6 +48,7 @@ Blocks
   / TaskList
   / OrderedList
   / UnorderedList
+  / LineBreak
 
 // / Section
 
@@ -95,13 +100,6 @@ line
     }
 
 EOF = !.
-
-crlf
-  = "\r\n"
-  / "\r"
-  / "\n"
-
-EatLine = (!crlf !EOF .)*
 
 EndOfLine
   = "\r\n"
@@ -303,7 +301,7 @@ UnorderedListItem__Inline
 OrderedList = lists:OrderedListItem+ { return orderedList(lists); }
 
 OrderedListItem
-  = (digit1_9+ "\x2E ") text:Inline { return listItem(text, true); }
+  = d:digits "\x2E " text:Inline { return orderedListItem(d, text); }
 
 Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
 
