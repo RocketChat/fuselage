@@ -75,8 +75,8 @@ export function ToastBar({
               <IconButton
                 tiny
                 {...{
-                  secondarySuccess: variant === 'success',
-                  secondaryDanger: variant === 'error',
+                  success: variant === 'success',
+                  danger: variant === 'error',
                 }}
                 onClick={() => onClose(id)}
                 icon='cross'
