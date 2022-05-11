@@ -65,9 +65,9 @@ export const Default: ComponentStory<typeof SidebarItem> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction success icon='phone' />
-          <SidebarItemAction danger icon='circle-cross' />
-          <SidebarItemAction primary icon='trash' />
+          <SidebarItemAction secondarySuccess icon='phone' />
+          <SidebarItemAction secondaryDanger icon='circle-cross' />
+          <SidebarItemAction secondaryInfo icon='trash' />
           <SidebarItemAction secondary icon='phone' />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -92,9 +92,9 @@ export const Default: ComponentStory<typeof SidebarItem> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction success icon='phone' />
-          <SidebarItemAction danger icon='circle-cross' />
-          <SidebarItemAction primary icon='trash' />
+          <SidebarItemAction secondarySuccess icon='phone' />
+          <SidebarItemAction secondaryDanger icon='circle-cross' />
+          <SidebarItemAction secondaryInfo icon='trash' />
           <SidebarItemAction secondary icon='phone' />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -129,9 +129,9 @@ export const Default: ComponentStory<typeof SidebarItem> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction success icon='phone' />
-          <SidebarItemAction danger icon='circle-cross' />
-          <SidebarItemAction primary icon='trash' />
+          <SidebarItemAction secondarySuccess icon='phone' />
+          <SidebarItemAction secondaryDanger icon='circle-cross' />
+          <SidebarItemAction secondaryInfo icon='trash' />
           <SidebarItemAction secondary icon='phone' />
         </SidebarItemActions>
       </SidebarItemContainer>
