@@ -54,19 +54,19 @@ export const IconButton = forwardRef(
   ) => {
     const kindAndVariantProps = useMemo(() => {
       const variant =
-        ((primary || info) && 'primary') ||
+        ((primary || info) && 'info') ||
         (secondary && 'secondary') ||
-        (secondaryInfo && 'ghost-info') ||
+        (secondaryInfo && 'secondary-info') ||
         (danger && 'danger') ||
-        (secondaryDanger && 'ghost-danger') ||
+        (secondaryDanger && 'secondary-danger') ||
         (warning && 'warning') ||
-        (secondaryWarning && 'ghost-warning') ||
+        (secondaryWarning && 'secondary-warning') ||
         (success && 'success') ||
-        (secondarySuccess && 'ghost-success');
+        (secondarySuccess && 'secondary-success');
 
       if (variant) {
         return {
-          [`rcx-button--${[variant].filter(Boolean).join('-')}`]: true,
+          [`rcx-button--icon-${[variant].filter(Boolean).join('-')}`]: true,
         };
       }
 

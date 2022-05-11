@@ -65,8 +65,44 @@
   }
 
   &--icon {
-    @include button.kind-variant(colors.$ghost);
+    @include button.kind-variant(colors.$icon);
     padding: 0;
+
+    &-secondary {
+      @include button.kind-variant(colors.$secondary);
+    }
+
+    &-info {
+      @include button.kind-variant(colors.$icon-info);
+    }
+
+    &-success {
+      @include button.kind-variant(colors.$icon-success);
+    }
+
+    &-warning {
+      @include button.kind-variant(colors.$icon-warning);
+    }
+
+    &-danger {
+      @include button.kind-variant(colors.$icon-danger);
+    }
+
+    &-secondary-info {
+      @include button.kind-variant(colors.$primary);
+    }
+
+    &-secondary-success {
+      @include button.kind-variant(colors.$success);
+    }
+
+    &-secondary-warning {
+      @include button.kind-variant(colors.$warning);
+    }
+
+    &-secondary-danger {
+      @include button.kind-variant(colors.$danger);
+    }
   }
 
   &--tiny-square {
@@ -111,21 +147,5 @@
 
   &--secondary-success {
     @include button.kind-variant(colors.$secondary-success);
-  }
-
-  &--ghost-info {
-    @include button.kind-variant(colors.$ghost-info);
-  }
-
-  &--ghost-success {
-    @include button.kind-variant(colors.$ghost-success);
-  }
-
-  &--ghost-warning {
-    @include button.kind-variant(colors.$ghost-warning);
-  }
-
-  &--ghost-danger {
-    @include button.kind-variant(colors.$ghost-danger);
   }
 }
