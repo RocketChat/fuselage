@@ -54,10 +54,10 @@ const Banner = ({
   variant = variants.includes(variant) ? variant : variants[0];
   const closeButtonProps = useMemo(
     () => ({
-      secondaryInfo: variant === 'info',
-      secondarySuccess: variant === 'success',
-      secondaryWarning: variant === 'warning',
-      secondaryDanger: variant === 'danger',
+      info: variant === 'info',
+      success: variant === 'success',
+      warning: variant === 'warning',
+      danger: variant === 'danger',
     }),
     [variant]
   );
