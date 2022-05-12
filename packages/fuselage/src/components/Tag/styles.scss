@@ -58,7 +58,7 @@ $tag-colors-warning-background-color: theme(
 
 $tag-colors-disabled-color: theme(
   'tag-colors-disabled-color',
-  colors.foreground(hint)
+  colors.foreground(info)
 );
 $tag-colors-disabled-background-color: theme(
   'tag-colors-disabled-background-color',
