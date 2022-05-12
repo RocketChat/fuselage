@@ -196,6 +196,49 @@ $message-background-color-highlight: functions.theme(
     flex-direction: column;
   }
 
+  &-paragraph {
+    margin: 0;
+    padding: 0;
+
+    &:empty::before {
+      display: inline-block;
+
+      content: '';
+    }
+  }
+
+  &-unordered-list {
+    padding-top: lengths.padding(4);
+
+    list-style: none;
+
+    &__item {
+      &::before {
+        padding: 0 lengths.padding(8);
+
+        content: '•';
+
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-ordered-list {
+    padding-top: lengths.padding(4);
+
+    list-style: none;
+
+    &__item {
+      &::before {
+        padding: 0 lengths.padding(8);
+
+        content: attr(value) '.';
+
+        font-weight: bold;
+      }
+    }
+  }
+
   &__emoji {
     display: inline-block;
 
