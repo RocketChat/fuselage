@@ -3,6 +3,7 @@
 @use '../../styles/typography.scss';
 
 .rcx-toastbar {
+  min-width: lengths.size(232);
   max-width: lengths.size(416);
 
   border-radius: lengths.border-radius(4);
@@ -43,8 +44,12 @@
 }
 
 .rcx-toastbar-progressbar {
+  position: absolute;
+  bottom: 0;
+
   overflow: hidden;
 
+  width: 100%;
   height: lengths.size(4);
 
   border-radius: 0 0 lengths.border-radius(4) lengths.border-radius(4);
