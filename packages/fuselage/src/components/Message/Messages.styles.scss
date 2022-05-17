@@ -251,4 +251,8 @@ $message-background-color-highlight: functions.theme(
       @include size.square(lengths.size(44));
     }
   }
+
+  &-attachment {
+    white-space: normal;
+  }
 }
