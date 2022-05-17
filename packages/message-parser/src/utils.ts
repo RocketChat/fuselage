@@ -7,6 +7,7 @@ import type {
   Paragraph,
   Types,
   Task,
+  ListItem,
   Inlines,
 } from './definitions';
 
@@ -85,12 +86,13 @@ export const orderedList = generate('ORDERED_LIST');
 
 export const unorderedList = generate('UNORDERED_LIST');
 
-export const listItem = generate('LIST_ITEM');
+// export const listItem = generate('LIST_ITEM');
 
-export const orderedListItem = (() => {
-  const fn = generate('ORDERED_LIST_ITEM');
-  return (digit: string, text: Inlines[]) => fn({ digit, text });
-})();
+export const listItem = (text: Inlines[], digit?: string): ListItem => ({
+  type: 'LIST_ITEM',
+  value: text,
+  digit: Number(digit),
+});
 
 export const mentionUser = (() => {
   const fn = generate('MENTION_USER');
