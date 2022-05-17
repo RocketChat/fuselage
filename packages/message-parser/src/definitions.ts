@@ -16,7 +16,7 @@ export type UnorderedList = {
 export type ListItem = {
   type: 'LIST_ITEM';
   value: Inlines[];
-  digit?: number;
+  number?: number;
 };
 
 export type Tasks = {
