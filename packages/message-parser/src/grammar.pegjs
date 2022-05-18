@@ -22,7 +22,6 @@
     task,
     orderedList,
     listItem,
-    orderedListItem,
     unorderedList,
     lineBreak,
   } = require('./utils');
@@ -275,10 +274,10 @@ UnorderedList_ = lists:UnorderedListItem_+ { return unorderedList(lists); }
 
 UnorderedList__ = lists:UnorderedListItem__+ { return unorderedList(lists); }
 
-UnorderedListItem_ = "- " text:Inline { return listItem(text, true); }
+UnorderedListItem_ = "- " text:Inline { return listItem(text); }
 
 UnorderedListItem__
-  = "* " text:UnorderedListItem__Inline { return listItem(text, true); }
+  = "* " text:UnorderedListItem__Inline { return listItem(text); }
 
 UnorderedListItem__Inline
   = value:(
@@ -300,8 +299,7 @@ UnorderedListItem__Inline
 
 OrderedList = lists:OrderedListItem+ { return orderedList(lists); }
 
-OrderedListItem
-  = d:digits "\x2E " text:Inline { return orderedListItem(d, text); }
+OrderedListItem = d:digits "\x2E " text:Inline { return listItem(text, d); }
 
 Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
 

@@ -1,5 +1,5 @@
 import { parser } from '../src';
-import { bold, plain, orderedList, orderedListItem } from '../src/utils';
+import { bold, plain, orderedList, listItem } from '../src/utils';
 
 test.each([
   [
@@ -12,11 +12,11 @@ test.each([
 `.trim(),
     [
       orderedList([
-        orderedListItem('7', [plain('First item')]),
-        orderedListItem('2', [plain('Second item')]),
-        orderedListItem('8', [plain('Third item')]),
-        orderedListItem('4', [bold([plain('Fourth item')])]),
-        orderedListItem('15', [bold([plain('Fifteenth item')])]),
+        listItem([plain('First item')], '7'),
+        listItem([plain('Second item')], '2'),
+        listItem([plain('Third item')], '8'),
+        listItem([bold([plain('Fourth item')])], '4'),
+        listItem([bold([plain('Fifteenth item')])], '15'),
       ]),
     ],
   ],

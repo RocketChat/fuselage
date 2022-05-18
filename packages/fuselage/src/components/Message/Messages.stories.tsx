@@ -439,17 +439,11 @@ export const MessageUnorderedList = () => (
         </Message.Header>
         <Message.Body>
           Unordered list:
-          <Message.UnorderedList>
-            <Message.UnorderedListItem>
-              Ut enim ad minim
-            </Message.UnorderedListItem>
-            <Message.UnorderedListItem>
-              Incididunt ut labore
-            </Message.UnorderedListItem>
-            <Message.UnorderedListItem>
-              Labore et dolore
-            </Message.UnorderedListItem>
-          </Message.UnorderedList>
+          <ul>
+            <li>Ut enim ad minim</li>
+            <li>Incididunt ut labore</li>
+            <li>Labore et dolore</li>
+          </ul>
         </Message.Body>
         <MessageReactions>
           <MessageReactions.Reaction counter={1} />
@@ -487,17 +481,11 @@ export const MessageOrderedList = () => (
         </Message.Header>
         <Message.Body>
           Ordered list:
-          <Message.OrderedList>
-            <Message.OrderedListItem value={1}>
-              Ut enim ad minim
-            </Message.OrderedListItem>
-            <Message.OrderedListItem value={2}>
-              Incididunt ut labore
-            </Message.OrderedListItem>
-            <Message.OrderedListItem value={3}>
-              Labore et dolore
-            </Message.OrderedListItem>
-          </Message.OrderedList>
+          <ol>
+            <li value={1}>Ut enim ad minim</li>
+            <li value={2}>Incididunt ut labore</li>
+            <li value={6}>Labore et dolore</li>
+          </ol>
         </Message.Body>
         <MessageReactions>
           <MessageReactions.Reaction counter={1} />

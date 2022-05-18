@@ -207,36 +207,30 @@ $message-background-color-highlight: functions.theme(
     }
   }
 
-  &-unordered-list {
-    padding-top: lengths.padding(4);
+  & ul,
+  ol {
+    margin: 0;
+    padding-block-start: lengths.padding(4);
+    padding-block-end: 0;
+    padding-inline: 0;
 
     list-style: none;
-
-    &__item {
-      &::before {
-        padding: 0 lengths.padding(8);
-
-        content: '•';
-
-        font-weight: bold;
-      }
-    }
   }
 
-  &-ordered-list {
-    padding-top: lengths.padding(4);
+  & ul li::before {
+    padding: 0 lengths.padding(8);
 
-    list-style: none;
+    content: '•';
 
-    &__item {
-      &::before {
-        padding: 0 lengths.padding(8);
+    font-weight: bold;
+  }
 
-        content: attr(value) '.';
+  & ol li::before {
+    padding: 0 lengths.padding(8);
 
-        font-weight: bold;
-      }
-    }
+    content: attr(value) '.';
+
+    font-weight: bold;
   }
 
   &__emoji {
