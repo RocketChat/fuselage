@@ -11,7 +11,6 @@ export type ToastBarProps = {
   variant?: 'info' | 'success' | 'error';
   className?: string;
   children?: ReactNode;
-  size?: string;
   time?: number;
   id?: string;
   onClose?: (id: string) => void;
@@ -21,7 +20,6 @@ export function ToastBar({
   children,
   className = '',
   variant = 'info',
-  size,
   time = 5,
   id,
   onClose,
@@ -65,11 +63,7 @@ export function ToastBar({
 
   return (
     <Box className={['rcx-toastbar-wrapper', toastBarAnimation]}>
-      <div
-        className={`rcx-toastbar rcx-toastbar--${variant} ${
-          size === 'large' ? 'rcx-toastbar--large' : ''
-        } ${className}`}
-      >
+      <div className={`rcx-toastbar rcx-toastbar--${variant} ${className}`}>
         <div className='rcx-toastbar-inner'>
           <Icon size='x20' name={iconName} />
           <div className='rcx-toastbar-content'>{children}</div>
