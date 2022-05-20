@@ -3,19 +3,14 @@
 @use '../../styles/typography.scss';
 
 .rcx-toastbar {
+  position: relative;
+
   min-width: lengths.size(232);
   max-width: lengths.size(416);
 
   border-radius: lengths.border-radius(4);
 
   @include typography.use-font-scale(p2);
-
-  &--large {
-    max-width: lengths.size(360);
-    @include on-breakpoint(md) {
-      max-width: lengths.size(580);
-    }
-  }
 
   &--info {
     background-color: colors.neutral(100);
