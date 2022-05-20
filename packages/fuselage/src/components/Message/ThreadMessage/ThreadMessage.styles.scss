@@ -4,18 +4,18 @@
 @use '../../../styles/mixins/size.scss';
 @use '../mixins.scss';
 
-.rcx-message.rcx-message--thread {
+.rcx-message.rcx-message-thread {
   @include typography.use-font-scale(c1);
   @include typography.use-with-truncated-text();
   display: flex;
   flex-direction: column;
 
+  padding-block: 0;
+
   color: colors.primary(500);
 }
 
 .rcx-message-thread {
-  padding-block: 0;
-
   &__container {
     @include typography.use-with-truncated-text();
     display: flex;
