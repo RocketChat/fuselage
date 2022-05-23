@@ -222,6 +222,10 @@ $message-background-color-highlight: functions.theme(
     flex-direction: column;
   }
 
+  &-uikit-block {
+    max-width: 400px;
+  }
+
   &-paragraph {
     margin: 0;
     padding: 0;
