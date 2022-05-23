@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.12](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.11...v0.31.12) (2022-05-23)
+
+### Features
+
+- add paragraph and message list ([2d459bc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/2d459bc21bf9412abb60d9832ee9337591cb0e7f))
+- **fuselage-toastbar:** ToastBar Component & Package ([#707](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/707)) ([621116f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/621116f9ca7793260ef03f3ad2f684cbcde92f1b))
+- **fuselage:** add message list component ([#715](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/715)) ([fdda70d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/fdda70d6fb3cdf700e3c64a1cac77f996841c442))
+- **message-parser:** LineBreak token and OrderedListItem digit ([#720](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/720)) ([51d5d66](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/51d5d66d585ce228c7878b9e1d1693c55800077a))
+
+### Bug Fixes
+
+- **fuselage-toastbar:** ToastBar close function ([#722](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/722)) ([7525caa](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7525caa07676408a3b66cac45b061180f2b21f67))
+- **fuselage, message-parser:** Remove list components and update list grammar ([#724](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/724)) ([99b2fdd](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/99b2fdd112d36c44241e625f253d32a7d2aa6a3f))
+- **fuselage:** List style affecting other components ([#727](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/727)) ([4b5cc58](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4b5cc58bd50360532dd377c45188980e870dd0bb))
+- **fuselage:** Message tag and message box styles ([6df4c36](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6df4c368f614eb985b57be3276b4f332e217aea6))
+- **fuselage:** ToastBar style ([#725](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/725)) ([245303c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/245303c417a427162e57b89fb2a17a22b718dc15))
+- **fuselage:** Wrong className in ThreadMessage component ([#726](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/726)) ([203673c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/203673c626c00afeef938a6a37dc8588954cc57f))
+- **icons:** mobile-exclamation icon ([#714](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/714)) ([18a4d7c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/18a4d7ce377cd9253c282425057a684c9bca7a7a))
+- Line break fix ([7afa65a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7afa65a8ae1b38eba256d6987880dceb9274a7fd))
+- **message-parser:** Adding more test cases and adding safe chars ([88bebf2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/88bebf2970cd082920ab61a975643aebd41666c3))
+- **message-parser:** Link is not showing correct and it not opening correctly ([#717](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/717)) ([886d2c0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/886d2c0a1cd7b07d6ecc787dc020b4126801c046))
+- **message-parser:** Link parser ([51ffac0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/51ffac02934da13347c60ffbaa969297d1bdca16))
+
 ### [0.31.11](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.9...v0.31.11) (2022-05-02)
 
 ### Features
