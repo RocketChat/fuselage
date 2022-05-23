@@ -37,14 +37,7 @@ const AwaitingConfirmationPage = ({
         <Margins blockEnd={32}>
           <OnboardingLogo />
 
-          <Box
-            fontWeight={800}
-            fontSize='x52'
-            lineHeight='x62'
-            fontFamily='sans'
-          >
-            {t('page.awaitingConfirmation.title')}
-          </Box>
+          <Box fontScale='hero'>{t('page.awaitingConfirmation.title')}</Box>
 
           <Box fontScale='p1'>
             {t('page.awaitingConfirmation.subtitle', { emailAddress })}

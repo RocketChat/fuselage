@@ -68,6 +68,7 @@ export * from './TextAreaInput';
 export * from './TextInput';
 export * from './Throbber';
 export { default as Tile } from './Tile';
+export * from './ToastBar';
 export * from './ToggleSwitch';
 export { default as Tooltip } from './Tooltip';
 export { default as UrlInput } from './UrlInput';

@@ -23,6 +23,7 @@
     orderedList,
     listItem,
     unorderedList,
+    lineBreak,
   } = require('./utils');
 }
 
@@ -31,6 +32,8 @@ start
   / (Blocks / Paragraph / EndOfLine { return paragraph([plain('')]); })+
 
 b = (EndOfLine / Space)*
+
+LineBreak = (Space* EndOfLine) { return lineBreak(''); }
 
 BigEmoji
   = b e1:Emoji b e2:Emoji? b e3:Emoji? b {
@@ -44,6 +47,7 @@ Blocks
   / TaskList
   / OrderedList
   / UnorderedList
+  / LineBreak
 
 // / Section
 
@@ -95,13 +99,6 @@ line
     }
 
 EOF = !.
-
-crlf
-  = "\r\n"
-  / "\r"
-  / "\n"
-
-EatLine = (!crlf !EOF .)*
 
 EndOfLine
   = "\r\n"
@@ -277,10 +274,10 @@ UnorderedList_ = lists:UnorderedListItem_+ { return unorderedList(lists); }
 
 UnorderedList__ = lists:UnorderedListItem__+ { return unorderedList(lists); }
 
-UnorderedListItem_ = "- " text:Inline { return listItem(text, true); }
+UnorderedListItem_ = "- " text:Inline { return listItem(text); }
 
 UnorderedListItem__
-  = "* " text:UnorderedListItem__Inline { return listItem(text, true); }
+  = "* " text:UnorderedListItem__Inline { return listItem(text); }
 
 UnorderedListItem__Inline
   = value:(
@@ -302,8 +299,7 @@ UnorderedListItem__Inline
 
 OrderedList = lists:OrderedListItem+ { return orderedList(lists); }
 
-OrderedListItem
-  = (digit1_9+ "\x2E ") text:Inline { return listItem(text, true); }
+OrderedListItem = d:digits "\x2E " text:Inline { return listItem(text, d); }
 
 Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
 
@@ -437,6 +433,10 @@ safe
   / "&"
   / "="
   / "%"
+  / "!"
+  / "~"
+  / "_"
+  / "+"
 
 extra
   = "!"
@@ -509,7 +509,16 @@ phonePrefix
  *
  */
 
-URL = $(s:urlScheme a:urlAuthority p:urlPath? q:urlQuery? f:urlFragment?)
+URL
+  = $(
+    s:urlScheme
+      a:urlAuthority
+      p:urlPath?
+      q:urlQuery?
+      f:urlFragment?
+      g:urlPath?
+      h:urlQuery?
+  )
 
 urlScheme
   = $(

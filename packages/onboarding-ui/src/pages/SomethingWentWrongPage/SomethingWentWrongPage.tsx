@@ -29,14 +29,7 @@ const SomethingWentWrongPage = ({
         <Margins blockEnd={32}>
           <OnboardingLogo />
 
-          <Box
-            fontWeight={800}
-            fontSize='x52'
-            lineHeight='x62'
-            fontFamily='sans'
-          >
-            {t('page.somethingWentWrongPage.title')}
-          </Box>
+          <Box fontScale='hero'>{t('page.somethingWentWrongPage.title')}</Box>
 
           <Box fontScale='p1'>{t('page.somethingWentWrongPage.subtitle')}</Box>
           {requestId && (
