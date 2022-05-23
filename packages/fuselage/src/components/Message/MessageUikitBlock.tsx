@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 
-type MessageBlockProps = {
+type MessageUikitBlockProps = {
   className?: string;
   children?: ReactNode;
 };
@@ -9,4 +9,6 @@ type MessageBlockProps = {
 export const MessageUikitBlock = ({
   className: _className,
   ...props
-}: MessageBlockProps) => <div className='rcx-message-uikit-block' {...props} />;
+}: MessageUikitBlockProps) => (
+  <div className='rcx-message-uikit-block' {...props} />
+);
