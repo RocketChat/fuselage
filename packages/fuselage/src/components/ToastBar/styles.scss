@@ -3,18 +3,14 @@
 @use '../../styles/typography.scss';
 
 .rcx-toastbar {
+  position: relative;
+
+  min-width: lengths.size(232);
   max-width: lengths.size(416);
 
   border-radius: lengths.border-radius(4);
 
   @include typography.use-font-scale(p2);
-
-  &--large {
-    max-width: lengths.size(360);
-    @include on-breakpoint(md) {
-      max-width: lengths.size(580);
-    }
-  }
 
   &--info {
     background-color: theme(
@@ -52,8 +48,12 @@
 }
 
 .rcx-toastbar-progressbar {
+  position: absolute;
+  bottom: 0;
+
   overflow: hidden;
 
+  width: 100%;
   height: lengths.size(4);
 
   border-radius: 0 0 lengths.border-radius(4) lengths.border-radius(4);

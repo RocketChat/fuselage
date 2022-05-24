@@ -7,6 +7,8 @@ import type {
   Paragraph,
   Types,
   Task,
+  ListItem,
+  Inlines,
 } from './definitions';
 
 const generate =
@@ -84,9 +86,11 @@ export const orderedList = generate('ORDERED_LIST');
 
 export const unorderedList = generate('UNORDERED_LIST');
 
-export const listItem = generate('LIST_ITEM');
-
-export const list = generate('ORDERED_LIST');
+export const listItem = (text: Inlines[], number?: string): ListItem => ({
+  type: 'LIST_ITEM',
+  value: text,
+  ...(number && { number: Number(number) }),
+});
 
 export const mentionUser = (() => {
   const fn = generate('MENTION_USER');
@@ -112,3 +116,5 @@ export const reducePlainTexts = (
 
     return [...result, item];
   }, [] as Paragraph['value']);
+
+export const lineBreak = generate('LINE_BREAK');

@@ -16,6 +16,7 @@ export type UnorderedList = {
 export type ListItem = {
   type: 'LIST_ITEM';
   value: Inlines[];
+  number?: number;
 };
 
 export type Tasks = {
@@ -98,6 +99,11 @@ export type Plain = {
   value: string;
 };
 
+export type LineBreak = {
+  type: 'LINE_BREAK';
+  value: string;
+};
+
 export type Paragraph = {
   type: 'PARAGRAPH';
   value: Array<Exclude<Inlines, Paragraph>>;
@@ -152,6 +158,7 @@ export type Types = {
   ORDERED_LIST: OrderedList;
   LIST_ITEM: ListItem;
   IMAGE: Image;
+  LINE_BREAK: LineBreak;
 };
 
 export type ASTNode =
@@ -195,6 +202,7 @@ export type Blocks =
   | ListItem
   | Tasks
   | OrderedList
-  | UnorderedList;
+  | UnorderedList
+  | LineBreak;
 
 export type MarkdownAST = Array<Paragraph | Blocks> | [BigEmoji];

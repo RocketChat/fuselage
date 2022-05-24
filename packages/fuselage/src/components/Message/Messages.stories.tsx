@@ -421,6 +421,90 @@ export const MessageEditing = () => (
   </Box>
 );
 
+export const MessageUnorderedList = () => (
+  <Box>
+    <MessageDivider>May, 24, 2020</MessageDivider>
+    <Message className='customclass' clickable>
+      <Message.LeftContainer>
+        <Avatar url={avatarUrl} size={'x36'} />
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.Name>Haylie George</Message.Name>
+          <Message.Username>@haylie.george</Message.Username>
+          <Message.Role>Admin</Message.Role>
+          <Message.Role>User</Message.Role>
+          <Message.Role>Owner</Message.Role>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <Message.Body>
+          Unordered list:
+          <ul>
+            <li>Ut enim ad minim</li>
+            <li>Incididunt ut labore</li>
+            <li>Labore et dolore</li>
+          </ul>
+        </Message.Body>
+        <MessageReactions>
+          <MessageReactions.Reaction counter={1} />
+          <MessageReactions.Reaction counter={2} />
+          <MessageReactions.Reaction counter={3} />
+          <MessageReactions.Action />
+        </MessageReactions>
+      </Message.Container>
+      <MessageToolbox.Wrapper>
+        <MessageToolbox>
+          <MessageToolbox.Item icon='quote' />
+          <MessageToolbox.Item icon='clock' />
+          <MessageToolbox.Item icon='thread' />
+        </MessageToolbox>
+      </MessageToolbox.Wrapper>
+    </Message>
+  </Box>
+);
+
+export const MessageOrderedList = () => (
+  <Box>
+    <MessageDivider>May, 24, 2020</MessageDivider>
+    <Message className='customclass' clickable>
+      <Message.LeftContainer>
+        <Avatar url={avatarUrl} size={'x36'} />
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.Name>Haylie George</Message.Name>
+          <Message.Username>@haylie.george</Message.Username>
+          <Message.Role>Admin</Message.Role>
+          <Message.Role>User</Message.Role>
+          <Message.Role>Owner</Message.Role>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <Message.Body>
+          Ordered list:
+          <ol>
+            <li value={1}>Ut enim ad minim</li>
+            <li value={2}>Incididunt ut labore</li>
+            <li value={6}>Labore et dolore</li>
+          </ol>
+        </Message.Body>
+        <MessageReactions>
+          <MessageReactions.Reaction counter={1} />
+          <MessageReactions.Reaction counter={2} />
+          <MessageReactions.Reaction counter={3} />
+          <MessageReactions.Action />
+        </MessageReactions>
+      </Message.Container>
+      <MessageToolbox.Wrapper>
+        <MessageToolbox>
+          <MessageToolbox.Item icon='quote' />
+          <MessageToolbox.Item icon='clock' />
+          <MessageToolbox.Item icon='thread' />
+        </MessageToolbox>
+      </MessageToolbox.Wrapper>
+    </Message>
+  </Box>
+);
+
 export const MessageHighlighted = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>

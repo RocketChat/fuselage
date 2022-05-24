@@ -11,8 +11,8 @@ export type ToastBarProps = {
   variant?: 'info' | 'success' | 'error';
   className?: string;
   children?: ReactNode;
-  size?: string;
   time?: number;
+  id?: string;
   onClose?: (id: string) => void;
 };
 
@@ -20,8 +20,8 @@ export function ToastBar({
   children,
   className = '',
   variant = 'info',
-  size,
   time = 5,
+  id,
   onClose,
 }: ToastBarProps) {
   const iconName =
@@ -58,15 +58,12 @@ export function ToastBar({
     animation: ${progressBar} ${time}s;
   ;`;
 
-  const id = useUniqueId();
+  const uniqueId = useUniqueId();
+  const toastId = id || uniqueId;
 
   return (
     <Box className={['rcx-toastbar-wrapper', toastBarAnimation]}>
-      <div
-        className={`rcx-toastbar rcx-toastbar--${variant} ${
-          size === 'large' ? 'rcx-toastbar--large' : ''
-        } ${className}`}
-      >
+      <div className={`rcx-toastbar rcx-toastbar--${variant} ${className}`}>
         <div className='rcx-toastbar-inner'>
           <Icon size='x20' name={iconName} />
           <div className='rcx-toastbar-content'>{children}</div>
@@ -78,7 +75,7 @@ export function ToastBar({
                   success: variant === 'success',
                   danger: variant === 'error',
                 }}
-                onClick={() => onClose(id)}
+                onClick={() => onClose(toastId)}
                 icon='cross'
               />
             </div>

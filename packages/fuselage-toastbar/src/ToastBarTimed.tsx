@@ -5,16 +5,12 @@ import React, { useEffect } from 'react';
 import type { ToastBarPayload } from './ToastBarContext';
 import { useToastBarDismiss } from './ToastBarContext';
 
-type ToastBarTimedProps = ToastBarPayload & {
-  time: number;
-};
-
 const ToastBarTimed = ({
   time,
   type,
   id,
   message,
-}: ToastBarTimedProps): ReactElement => {
+}: ToastBarPayload): ReactElement => {
   const dismissToastMessage = useToastBarDismiss();
 
   useEffect(() => {
@@ -30,6 +26,7 @@ const ToastBarTimed = ({
       variant={type}
       children={message}
       onClose={dismissToastMessage}
+      id={id}
       time={time}
     />
   );
