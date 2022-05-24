@@ -11,7 +11,15 @@ import { argv, fs } from 'zx';
 
 const { name, version } = await fs.readJSON('./package.json');
 
-const publishedVersions = await pkgVersions(name);
+const getPkgVersions = async (name, version) => {
+  try {
+    return await pkgVersions(name);
+  } catch (error) {
+    return new Set([version]);
+  }
+};
+
+const publishedVersions = await getPkgVersions(name, version);
 
 const getNextVersionFromManifest = async () => {
   const nextVersion = semver.parse(version);

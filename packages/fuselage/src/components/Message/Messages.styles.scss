@@ -53,7 +53,7 @@ $message-background-color-highlight: functions.theme(
   flex-direction: row;
   align-items: flex-start;
 
-  padding-block: lengths.padding(8);
+  padding-block: lengths.padding(12);
 
   padding-inline: lengths.padding(20);
 
@@ -168,6 +168,32 @@ $message-background-color-highlight: functions.theme(
 
     color: colors.neutral(800);
 
+    & ul,
+    ol {
+      margin: 0;
+      padding-block-start: lengths.padding(4);
+      padding-block-end: 0;
+      padding-inline: 0;
+
+      list-style: none;
+    }
+
+    & ul li::before {
+      padding: 0 lengths.padding(8);
+
+      content: '•';
+
+      font-weight: bold;
+    }
+
+    & ol li::before {
+      padding: 0 lengths.padding(8);
+
+      content: attr(value) '.';
+
+      font-weight: bold;
+    }
+
     &--clamp {
       display: -webkit-box;
       overflow: hidden;
@@ -194,6 +220,17 @@ $message-background-color-highlight: functions.theme(
     @extend %rcx-margins-block;
     display: flex;
     flex-direction: column;
+  }
+
+  &-paragraph {
+    margin: 0;
+    padding: 0;
+
+    &:empty::before {
+      display: inline-block;
+
+      content: '';
+    }
   }
 
   &__emoji {
