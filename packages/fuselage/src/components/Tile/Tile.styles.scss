@@ -7,7 +7,7 @@
 
   color: colors.text(text);
   border-radius: lengths.border-radius(2);
-  background-color: colors.surface(white);
+  background-color: colors.surface(light);
 
   @include typography.use-font-scale(p2);
 
