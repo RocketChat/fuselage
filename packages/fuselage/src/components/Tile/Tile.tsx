@@ -15,6 +15,7 @@ const Tile = forwardRef(function Tile(
 ) {
   useStyleSheet();
   useStyleSheet(tileStyleSheet);
+  
   return (
     <Box
       ref={ref}
