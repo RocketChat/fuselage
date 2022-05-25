@@ -82,6 +82,10 @@ $message-background-color-highlight: functions.theme(
     }
   }
 
+  &--sequential {
+    padding-block: lengths.padding(8);
+  }
+
   @keyframes background-fade {
     50% {
       background: $message-background-color-highlight;
