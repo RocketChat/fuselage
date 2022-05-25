@@ -53,7 +53,8 @@ $message-background-color-highlight: functions.theme(
   flex-direction: row;
   align-items: flex-start;
 
-  padding-block: lengths.padding(12);
+  padding-block-start: lengths.padding(12);
+  padding-block-end: lengths.padding(8);
 
   padding-inline: lengths.padding(20);
 
@@ -80,6 +81,10 @@ $message-background-color-highlight: functions.theme(
     .rcx-message-body {
       opacity: 0.4;
     }
+  }
+
+  &--sequential {
+    padding-block: lengths.padding(8);
   }
 
   @keyframes background-fade {
