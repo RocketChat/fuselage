@@ -53,8 +53,8 @@ $message-background-color-highlight: functions.theme(
   flex-direction: row;
   align-items: flex-start;
 
-  padding-block-start: lengths.padding(12);
-  padding-block-end: lengths.padding(8);
+  padding-block-start: lengths.padding(8);
+  padding-block-end: lengths.padding(4);
 
   padding-inline: lengths.padding(20);
 
@@ -84,7 +84,7 @@ $message-background-color-highlight: functions.theme(
   }
 
   &--sequential {
-    padding-block: lengths.padding(8);
+    padding-block: lengths.padding(4);
   }
 
   @keyframes background-fade {
