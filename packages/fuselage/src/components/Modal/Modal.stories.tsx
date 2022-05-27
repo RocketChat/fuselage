@@ -1,6 +1,8 @@
+import type { Story } from '@storybook/react';
 import React from 'react';
 
-import { ButtonGroup, Button, Modal } from '../..';
+import Modal from '.';
+import { ButtonGroup, Button } from '..';
 
 export default {
   title: 'Containers/Modal',
@@ -10,7 +12,7 @@ export default {
   },
 };
 
-export const _Modal = () => (
+export const _Modal: Story = () => (
   <Modal>
     <Modal.Header>
       <Modal.Thumb url='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' />
@@ -27,7 +29,7 @@ export const _Modal = () => (
   </Modal>
 );
 
-export const WithIcon = () => (
+export const WithIcon: Story = () => (
   <Modal>
     <Modal.Header>
       <Modal.Icon name='info' />
