@@ -7,14 +7,14 @@
     "url": "https://rocket.chat/"
   },
   "license": "MIT",
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "homepage": "https://github.com/RocketChat/fuselage#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/prettier-config"
   },
   "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "main": "default/index.js",
   "files": [
