@@ -222,10 +222,11 @@ $message-background-color-highlight: functions.theme(
     flex-direction: column;
 
     &--width-fixed {
-      width: 100;
-      max-width: functions.theme('message-block-width-fixed', 368px);
       flex-grow: 0;
       flex-shrink: 1;
+
+      width: 100;
+      max-width: functions.theme('message-block-width-fixed', 368px);
     }
   }
 
