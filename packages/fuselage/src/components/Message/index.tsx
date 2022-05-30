@@ -12,7 +12,6 @@ import { MessageRole } from './MessageRole';
 import { MessageRoles } from './MessageRoles';
 import { MessageTimestamp } from './MessageTimestamp';
 import MessageToolbox from './MessageToolbox';
-import { MessageUikitBlock } from './MessageUikitBlock';
 import { MessageUsername } from './MessageUsername';
 
 export * from './MessageDivider';
@@ -24,7 +23,6 @@ export * from './MessageReactions';
 export * from './MessageToolbox';
 export * from './ThreadMessage';
 export * from './MessageBlock';
-export * from './MessageUikitBlock';
 export * from './MessageBody';
 export * from './MessageContainer';
 export * from './MessageContainerFixed';
@@ -46,7 +44,6 @@ export default Object.assign(Message, {
   Header: MessageHeader,
   Body: MessageBody,
   Block: MessageBlock,
-  BlockUikit: MessageUikitBlock,
   Timestamp: MessageTimestamp,
   Name: MessageName,
   Username: MessageUsername,
