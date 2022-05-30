@@ -4,17 +4,17 @@ import React from 'react';
 import Box from '../Box';
 
 type MessageBlockProps = {
-  widthFixed?: boolean;
+  fixedWidth?: boolean;
 } & ComponentProps<typeof Box>;
 
 export const MessageBlock = ({
   className: _className,
-  widthFixed,
+  fixedWidth,
   ...props
 }: MessageBlockProps) => (
   <Box
     rcx-message-block
-    rcx-message-block--width-fixed={widthFixed}
+    rcx-message-block--width-fixed={fixedWidth}
     {...props}
   />
 );
