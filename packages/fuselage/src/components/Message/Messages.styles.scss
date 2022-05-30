@@ -223,7 +223,7 @@ $message-background-color-highlight: functions.theme(
 
     &--width-fixed {
       width: 100;
-      max-width: functions.theme('message-message-block-width', 368px);
+      max-width: functions.theme('message-block-width-fixed', 368px);
       flex-grow: 0;
       flex-shrink: 1;
     }
