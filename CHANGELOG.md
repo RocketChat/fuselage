@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.13](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.12...v0.31.13) (2022-05-31)
+
+### Bug Fixes
+
+- **deps,mp3-encoder:** Yarn resolution of `lamejs` ([#731](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/731)) ([c6c4e21](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c6c4e2111f7d902c7c3d1cd51ad44b97fa27cadf))
+- **fuselage:** Adjusting sequential messages padding ([#730](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/730)) ([f04e65a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f04e65a659714f19bf21cddaa14a39321503388d))
+- **fuselage:** Message negative margins ([#733](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/733)) ([5518b00](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5518b005c522d1ccac5c37c0edf42223ec01511b))
+
 ### [0.31.12](https://github.com/RocketChat/fuselage/compare/v0.31.11...v0.31.12) (2022-05-23)
 
 ### Features
