@@ -65,8 +65,15 @@ export const strike = generate('STRIKE');
 export const codeLine = generate('CODE_LINE');
 export const link = (() => {
   const fn = generate('LINK');
-  return (src: string, label?: Markup) =>
-    fn({ src: plain(src), label: label || plain(src) });
+
+  return (src: string, label?: Markup) => {
+    const href =
+      src !== '' && !src.startsWith('http') && !src.startsWith('//')
+        ? `//${src}`
+        : src;
+
+    return fn({ src: plain(href), label: label || plain(src) });
+  };
 })();
 
 export const image = (() => {

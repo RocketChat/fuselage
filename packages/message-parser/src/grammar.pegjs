@@ -66,8 +66,8 @@ Inline
       / Image
       / References
       / AutolinkedPhone
-      / AutolinkedURL
       / AutolinkedEmail
+      / AutolinkedURL
       / Emphasis
       / Color
       / UserMention
@@ -286,8 +286,8 @@ UnorderedListItem__Inline
       / References
       / InlineCode
       / AutolinkedPhone
-      / AutolinkedURL
       / AutolinkedEmail
+      / AutolinkedURL
       / Emphasis
       / Color
       / UserMention
@@ -511,7 +511,7 @@ phonePrefix
 
 URL
   = $(
-    s:urlScheme
+    s:urlScheme?
       a:urlAuthority
       p:urlPath?
       q:urlQuery?
@@ -522,42 +522,10 @@ URL
 
 urlScheme
   = $(
-    [A-Za-z]
-      [A-Za-z0-9+.-]
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]? // up to 32 characters
-      ":"
+    [A-Za-z] [A-Za-z0-9+.-]+ ":" "/"+ // up to 32 characters
   )
 
-urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
+urlAuthority = $(urlAuthorityUserInfo? urlAuthorityHost)
 
 urlAuthorityUserInfo = $(urlAuthorityUser (":" urlAuthorityPassword)? "@")
 

@@ -24,8 +24,8 @@ test.each([
       ]),
     ],
   ],
-  ['http:/rocket.chat/teste', [paragraph([plain('http:/rocket.chat/teste')])]],
-  ['http:/rocket.chat/', [paragraph([plain('http:/rocket.chat/')])]],
+  ['http:/rocket.chat/teste', [paragraph([link('http:/rocket.chat/teste')])]],
+  ['http:/rocket.chat/', [paragraph([link('http:/rocket.chat/')])]],
   ['https://test', [paragraph([plain('https://test')])]],
   [
     'httpsss://rocket.chat/test',

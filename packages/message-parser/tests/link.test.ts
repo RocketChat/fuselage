@@ -214,6 +214,10 @@ test.each([
       ]),
     ],
   ],
+  ['google.com', [paragraph([link('//google.com', plain('google.com'))])]],
+  ['www.google.com', [paragraph([link('www.google.com')])]],
+  ['rocket.chat:8080', [paragraph([link('rocket.chat:8080')])]],
+  ['ShouldNotBeALink', [paragraph([plain('ShouldNotBeALink')])]],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });
