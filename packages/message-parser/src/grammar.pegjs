@@ -522,7 +522,40 @@ URL
 
 urlScheme
   = $(
-    [A-Za-z] [A-Za-z0-9+.-]+ ":" "/"+ // up to 32 characters
+    [[A-Za-z]
+      [A-Za-z0-9+.-]
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]?
+      [A-Za-z0-9+.-]? // up to 32 characters
+      ":"
+      "/"+
   )
 
 urlAuthority = $(urlAuthorityUserInfo? urlAuthorityHost)
