@@ -94,7 +94,6 @@ $tabs-disabled-selected-border-color: theme(
   border-style: solid;
   border-color: transparent;
   background-color: transparent;
-  border-inline-width: lengths.border-width(none);
 
   @include clickable;
   @include typography.use-font-scale(h4);
@@ -112,8 +111,6 @@ $tabs-disabled-selected-border-color: theme(
   @include on-focus-visible {
     border-color: $tabs-focus-border-color;
     border-radius: lengths.border-radius(2);
-    border-block-start-width: lengths.border-width(2);
-    border-inline-width: lengths.border-width(2);
 
     @include use-button-focus-shadow($tabs-focus-shadow-color);
   }
@@ -134,7 +131,7 @@ $tabs-disabled-selected-border-color: theme(
     color: $tabs-selected-color;
     border-block-end-color: $tabs-selected-border-color;
     border-block-end-width: lengths.border-width(4);
-    border-inline-width: lengths.border-width(none);
+    border-inline-width: lengths.border-width(2);
 
     &:hover {
       color: $tabs-hover-selected-color;
