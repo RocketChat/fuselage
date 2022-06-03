@@ -27,29 +27,97 @@
   } = require('./utils');
 }
 
-start
+Start
   = b:BigEmoji !. { return b; }
   / (Blocks / Paragraph / EndOfLine { return paragraph([plain('')]); })+
 
-b = (EndOfLine / Space)*
-
-LineBreak = (Space* EndOfLine) { return lineBreak(''); }
-
 BigEmoji
-  = b e1:Emoji b e2:Emoji? b e3:Emoji? b {
+  = _ e1:Emoji _ e2:Emoji? _ e3:Emoji? _ {
       return [bigEmoji([e1, e2, e3].filter(Boolean))];
     }
 
+_ = (EndOfLine / Space)*
+
 Blocks
   = Blockquote
-  / MultiplelLineCode
+  / Code
   / Heading
-  / TaskList
+  / Tasks
   / OrderedList
   / UnorderedList
   / LineBreak
 
-// / Section
+Blockquote = b:Blockquote_line+ { return quote(b); }
+
+Blockquote_line = ">" [ \t]* p:Paragraph { return p; }
+
+Code
+  = "```" language:Code_language? EndOfLine lines:Code_line+ EndOfLine "```" {
+      return code(lines, language);
+    }
+
+Code_language = $[a-zA-Z0-9 \_\-.]+
+
+Code_line
+  = chunk:Code_chunk { return codeLine(chunk); }
+  / "\n" chunk:Code_chunk { return codeLine(chunk); }
+  / "\n" !"```" { return codeLine(plain('')); }
+
+Code_chunk = text:$(!EndOfLine !"```" .)+ { return plain(text); }
+
+Heading
+  = "#" [ \t]+ text:Heading_chunk { return heading([text], 1); }
+  / "##" [ \t]+ text:Heading_chunk { return heading([text], 2); }
+  / "###" [ \t]+ text:Heading_chunk { return heading([text], 3); }
+  / "####" [ \t]+ text:Heading_chunk { return heading([text], 4); }
+
+Heading_chunk = text:$(!EndOfLine .)+ { return plain(text); }
+
+Tasks = items:Task_item+ { return tasks(items); }
+
+Task_item
+  = Task_done
+  / Task_todo
+
+Task_done = "- [x]" [ \t]+ text:Inline { return task(text, true); }
+
+Task_todo = "- [ ]" [ \t]+ text:Inline { return task(text, false); }
+
+OrderedList = items:OrderedList_item+ { return orderedList(items); }
+
+OrderedList_item
+  = number:digits "." [ \t]+ text:Inline {
+      return listItem(text, parseInt(number, 10));
+    }
+
+UnorderedList
+  = items:UnorderedList_hyphenItem+ { return unorderedList(items); }
+  / items:UnorderedList_asteriskItem+ { return unorderedList(items); }
+
+UnorderedList_hyphenItem = "-" [ \t]+ text:Inline { return listItem(text); }
+
+UnorderedList_asteriskItem
+  = "*" [ \t]+ text:UnorderedList_itemContent { return listItem(text); }
+
+UnorderedList_itemContent
+  = value:(
+      Whitespace
+      / Emoji
+      / References
+      / InlineCode
+      / AutolinkedPhone
+      / AutolinkedURL
+      / AutolinkedEmail
+      / Emphasis
+      / Color
+      / UserMention
+      / ChannelMention
+      / !"*" a:Any { return a; }
+    )+
+    !"*"
+    EndOfLine? { return reducePlainTexts(value); }
+
+LineBreak = (Space* EndOfLine) { return lineBreak(''); }
 
 Emphasis
   = Bold
@@ -152,14 +220,6 @@ SectionText
   / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
-Not_enter = text:($:(!"\n" s:. { return s; })+) { return plain(text.join('')); }
-
-Heading
-  = "# "+ text:Not_enter { return heading([text], 1); }
-  / "## "+ text:Not_enter { return heading([text], 2); }
-  / "### "+ text:Not_enter { return heading([text], 3); }
-  / "#### "+ text:Not_enter { return heading([text], 4); }
-
 utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join(''); }
 
 UserMention
@@ -244,79 +304,10 @@ AnyStrike = t:[^\x0a\~ ] { return plain(t); }
 
 AnyItalic = t:[^\x0a\_ ] { return plain(t); }
 
-ListItem
-  = ("\x2A " / "\x2D ") text:ListText+ Space? { return text.join('').trim(); }
-
-Lists
-  = lists:ListItem+ {
-      return {
-        lists: lists,
-      };
-    }
-
-Blockquote = b:BlockquoteItem+ { return quote(b); }
-
-BlockquoteItem = "> " p:Paragraph { return p; }
-
-// - [ ] this is an incomplete item
-// - [x] this is a complete item
-TaskList = t:TaskItem+ { return tasks(t); }
-
-TaskItem
-  = "- [x] " text:Inline { return task(text, true); }
-  / "- [ ] " text:Inline { return task(text, false); }
-
-UnorderedList
-  = UnorderedList_
-  / UnorderedList__
-
-UnorderedList_ = lists:UnorderedListItem_+ { return unorderedList(lists); }
-
-UnorderedList__ = lists:UnorderedListItem__+ { return unorderedList(lists); }
-
-UnorderedListItem_ = "- " text:Inline { return listItem(text); }
-
-UnorderedListItem__
-  = "* " text:UnorderedListItem__Inline { return listItem(text); }
-
-UnorderedListItem__Inline
-  = value:(
-      Whitespace
-      / Emoji
-      / References
-      / InlineCode
-      / AutolinkedPhone
-      / AutolinkedURL
-      / AutolinkedEmail
-      / Emphasis
-      / Color
-      / UserMention
-      / ChannelMention
-      / !"*" a:Any { return a; }
-    )+
-    !"*"
-    EndOfLine? { return reducePlainTexts(value); }
-
-OrderedList = lists:OrderedListItem+ { return orderedList(lists); }
-
-OrderedListItem = d:digits "\x2E " text:Inline { return listItem(text, d); }
-
-Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
-
 InlineCode
   = "`" text:InlineCode__+ "`" { return inlineCode(plain(text.join(''))); }
 
 InlineCode__ = $(!"`" !"\n" $:.)
-
-LineCode__any = $:(!"\n" !"```" t:. { return t; })+
-
-LineCode "LineCode"
-  = text:LineCode__any { return codeLine(plain(text.join(''))); }
-  / "\n" text:LineCode__any { return codeLine(plain(text.join(''))); }
-  / "\n" !"```" { return codeLine(plain('')); }
-
-MultiplelLineCode
-  = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
 
 // <www.github.com|Visit GitHub!>
 // [Visit GitHub!](www.github.com)

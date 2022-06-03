@@ -86,10 +86,10 @@ export const orderedList = generate('ORDERED_LIST');
 
 export const unorderedList = generate('UNORDERED_LIST');
 
-export const listItem = (text: Inlines[], number?: string): ListItem => ({
+export const listItem = (text: Inlines[], number?: number): ListItem => ({
   type: 'LIST_ITEM',
   value: text,
-  ...(number && { number: Number(number) }),
+  ...(number && { number }),
 });
 
 export const mentionUser = (() => {
