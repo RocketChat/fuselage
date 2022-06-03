@@ -147,13 +147,9 @@ Inline
 
 Whitespace = w:" "+ { return plain(w.join('')); }
 
-Escaped = "\\" t:any { return plain(t); }
+Escaped = "\\" t:$. { return plain(t); }
 
-Any = !EndOfLine t:any { return plain(t); }
-
-any = $.
-
-Extra = e:extra { return plain(e); }
+Any = !EndOfLine t:$. { return plain(t); }
 
 // = Line
 
@@ -165,8 +161,6 @@ line
   = head:Space* text:anyText+ tail:Space* {
       return head.join('') + text.join('') + tail.join('');
     }
-
-EOF = !.
 
 EndOfLine
   = "\r\n"
@@ -183,35 +177,6 @@ anyText
   / [\x41-\x5A] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
   / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
-
-anyText2
-  = [\x20-\x40] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x60] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
-  / [\x61-\xFFFF] // a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~                                    ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
-  / nonascii
-
-ListText
-  = [\x20-\x27] // `  ! " # $ % & '`
-  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x5A] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-  / [\x60-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
-  / nonascii
-
-LinkText
-  = [\x20-\x2A] //  ! " # $ % & ' ( ) *
-  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x5B] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [
-  / [\x61-\x7A] //  a b c d e f g h i j k l m n o p q r s t u v w x y z
-  / nonascii
-
-CodeText
-  = [\x20-\x2A] //  ! " # $ % & ' ( ) *
-  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x5F] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _
-  / [\x61-\x7E] //   a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
-  / nonascii
-  / EndOfLine
-  / Space
 
 SectionText
   = [-]+
@@ -235,14 +200,6 @@ ChannelMention
   / "#" channel:utf8_names_validation { return mentionChannel(channel); }
 
 Emoji = ":" text:utf8_names_validation ":" { return emoji(text); }
-
-/* Sceenshot ------------- */
-Section
-  = text:SectionText+ ("\r\n" / "\n" / "\r") [-]+ EndOfLine? {
-      return {
-        section: text.join(''),
-      };
-    }
 
 /* __Italic__ */
 /* _Italic_ */
@@ -309,9 +266,6 @@ InlineCode
 
 InlineCode__ = $(!"`" !"\n" $:.)
 
-// <www.github.com|Visit GitHub!>
-// [Visit GitHub!](www.github.com)
-
 LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
 
 LinkRef = text:(URL / p:Phone { return 'tel:' + p.number; }) { return text; }
@@ -366,31 +320,6 @@ string1
       return chars.join('');
     }
 
-string2
-  = "'" chars:([^\n\r\f\\'] / "\\" nl:nl { return ''; } / escape)* "'" {
-      return chars.join('');
-    }
-
-string = chars:(string1 / [_a-zA-Z0-9-\n]+) { return chars.join(''); }
-
-comment = "/*" [^*]* "*"+ ([^/*] [^*]* "*"+)* "/"
-
-ident
-  = prefix:$"-"? start:nmstart chars:nmchar* {
-      return prefix + start + chars.join('');
-    }
-
-name = chars:nmchar+ { return chars.join(''); }
-
-num
-  = [+-]? ([0-9]+ / [0-9]* "." [0-9]+) ("e" [+-]? [0-9]+)? {
-      return parseFloat(text());
-    }
-
-s = [ \t\r\n\f]+
-
-w = s?
-
 nl
   = "\n"
   / "\r\n"
@@ -410,8 +339,6 @@ digit = [0-9]
 alpha_digit
   = alpha
   / digit
-
-digit1_9 = [1-9]
 
 digits = d:digit+ { return d.join(''); }
 
