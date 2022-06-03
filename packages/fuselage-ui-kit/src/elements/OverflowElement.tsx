@@ -29,18 +29,21 @@ const OverflowElement = ({
     [action]
   );
 
-  const options = useMemo<[string, string][]>(
+  const options = useMemo<OptionType[]>(
     () =>
-      block.options.map(({ value, text }, i) => [
+      block.options.map(({ value, text, url }: UiKit.Option, i) => [
         value,
         fromTextObjectToString(surfaceRenderer, text, i) ?? '',
+        undefined,
+        undefined,
+        url,
       ]),
     [block.options, surfaceRenderer]
   );
 
   const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
     useCursor(-1, options, (selectedOption, [, hide]) => {
-      fireChange([selectedOption[0], selectedOption[1]]);
+      fireChange([selectedOption[0] as string, selectedOption[1] as string]);
       reset();
       hide();
     });
@@ -52,7 +55,10 @@ const OverflowElement = ({
   }, [show]);
 
   const handleSelection = useCallback(
-    ([value]: OptionType) => {
+    ([value, _label, _selected, _type, url]: OptionType) => {
+      if (url) {
+        window.open(url);
+      }
       action({ target: { value: String(value) } });
       reset();
       hide();
