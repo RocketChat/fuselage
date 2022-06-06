@@ -392,7 +392,10 @@ domainChar = !"/" !"|" !">" !"<" !safe !extra !EndOfLine !Space .
  *
  */
 
-Color = "color:#" rgba:colorRGBATuple !anyText { return color(...rgba); }
+Color
+  = & { return options.hexColor; } "color:#" rgba:colorRGBATuple !anyText {
+      return color(...rgba);
+    }
 
 colorRGBATuple
   = r:hexByte g:hexByte b:hexByte a:hexByte { return [r, g, b, a]; }
