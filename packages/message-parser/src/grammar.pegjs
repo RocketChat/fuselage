@@ -117,7 +117,7 @@ UnorderedList_itemContent
     !"*"
     EndOfLine? { return reducePlainTexts(value); }
 
-LineBreak = (Space* EndOfLine) { return lineBreak(''); }
+LineBreak = (Space* EndOfLine) { return lineBreak(); }
 
 Emphasis
   = Bold

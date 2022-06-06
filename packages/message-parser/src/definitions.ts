@@ -101,7 +101,7 @@ export type Plain = {
 
 export type LineBreak = {
   type: 'LINE_BREAK';
-  value: string;
+  value: undefined;
 };
 
 export type Paragraph = {

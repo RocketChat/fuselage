@@ -9,6 +9,7 @@ import type {
   Task,
   ListItem,
   Inlines,
+  LineBreak,
 } from './definitions';
 
 const generate =
@@ -117,4 +118,7 @@ export const reducePlainTexts = (
     return [...result, item];
   }, [] as Paragraph['value']);
 
-export const lineBreak = generate('LINE_BREAK');
+export const lineBreak = (): LineBreak => ({
+  type: 'LINE_BREAK',
+  value: undefined,
+});
