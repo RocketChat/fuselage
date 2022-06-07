@@ -145,7 +145,7 @@ Inline
     )+
     EndOfLine? { return reducePlainTexts(value); }
 
-Whitespace = w:" "+ { return plain(w.join('')); }
+Whitespace = w:$" "+ { return plain(w); }
 
 Escaped = "\\" t:$. { return plain(t); }
 
@@ -157,10 +157,7 @@ Line = t:line { return plain(t); }
 
 Text = text:anyText { return plain(text); }
 
-line
-  = head:Space* text:anyText+ tail:Space* {
-      return head.join('') + text.join('') + tail.join('');
-    }
+line = head:$Space* text:$anyText+ tail:$Space* { return head + text + tail; }
 
 EndOfLine
   = "\r\n"
@@ -185,7 +182,7 @@ SectionText
   / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
-utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join(''); }
+utf8_names_validation = $[0-9a-zA-Z-_.]+
 
 UserMention
   = t:Text "@"+ user:utf8_names_validation {
@@ -204,24 +201,12 @@ Emoji = ":" text:utf8_names_validation ":" { return emoji(text); }
 /* __Italic__ */
 /* _Italic_ */
 Italic
-  = t:[a-zA-Z0-9]+ tail:([\x5F] [\x5F]?) {
-      return plain(t.join('') + tail.join(''));
+  = t:$[a-zA-Z0-9]+ tail:$([\x5F] [\x5F]?) { return plain(t + tail); }
+  / [\x5F] [\x5F] i:italic_Content [\x5F] [\x5F] t:$[a-zA-Z0-9]+ {
+      return reducePlainTexts([plain('__'), ...i, plain('__'), plain(t)])[0];
     }
-  / [\x5F] [\x5F] i:italic_Content [\x5F] [\x5F] t:[a-zA-Z0-9]+ {
-      return reducePlainTexts([
-        plain('__'),
-        ...i,
-        plain('__'),
-        plain(t.join('')),
-      ])[0];
-    }
-  / [\x5F] i:italic_Content [\x5F] t:[a-zA-Z]+ {
-      return reducePlainTexts([
-        plain('_'),
-        ...i,
-        plain('_'),
-        plain(t.join('')),
-      ])[0];
+  / [\x5F] i:italic_Content [\x5F] t:$[a-zA-Z]+ {
+      return reducePlainTexts([plain('_'), ...i, plain('_'), plain(t)])[0];
     }
   / [\x5F] [\x5F] i:Italic_Content [\x5F] [\x5F] { return i; }
   / [\x5F] i:Italic_Content [\x5F] { return i; }
@@ -261,8 +246,7 @@ AnyStrike = t:[^\x0a\~ ] { return plain(t); }
 
 AnyItalic = t:[^\x0a\_ ] { return plain(t); }
 
-InlineCode
-  = "`" text:InlineCode__+ "`" { return inlineCode(plain(text.join(''))); }
+InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
 
 InlineCode__ = $(!"`" !"\n" $:.)
 
@@ -316,8 +300,8 @@ nmchar
   / escape
 
 string1
-  = "\"" chars:([^\n\r\f\\"] / "\\" nl:nl { return ''; } / escape)* "\"" {
-      return chars.join('');
+  = "\"" chars:$([^\n\r\f\\"] / "\\" nl:nl { return ''; } / escape)* "\"" {
+      return chars;
     }
 
 nl
@@ -340,7 +324,7 @@ alpha_digit
   = alpha
   / digit
 
-digits = d:digit+ { return d.join(''); }
+digits = d:$digit+
 
 safe
   = "$"
