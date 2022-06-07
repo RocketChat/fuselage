@@ -16,6 +16,7 @@
     mentionChannel,
     mentionUser,
     emoji,
+    emojiUnicode,
     color,
     bigEmoji,
     tasks,
@@ -196,7 +197,44 @@ ChannelMention
     }
   / "#" channel:utf8_names_validation { return mentionChannel(channel); }
 
-Emoji = ":" text:utf8_names_validation ":" { return emoji(text); }
+Emoji
+  = shortCode:Emoji_shortCode { return emoji(shortCode); }
+  / unicode:Emoji_unicode { return emojiUnicode(unicode); }
+
+Emoji_shortCode
+  = ":" shortCode:$(text:utf8_names_validation) ":" { return shortCode; }
+
+// Note: it's just a subset of unicode emoticons
+Emoji_unicode
+  = Emoji_unicodeEmoticon
+  / Emoji_unicodeSupplementalSymbolsAndPictographs
+  / $(
+    (Emoji_unicodeMiscellaneousSymbolsAndPictographs [\u200D])*
+      Emoji_unicodeMiscellaneousSymbolsAndPictographs
+  )
+  / Emoji_unicodeTransportAndMapSymbols
+  / Emoji_unicodeMiscellaneousTechnical
+  / Emoji_unicodeMiscellaneousSymbols
+  / Emoji_unicodeDingbats
+  / Emoji_unicodeFlags
+
+Emoji_unicodeEmoticon = $([\uD83D] [\uDE00-\uDE4F])
+
+Emoji_unicodeSupplementalSymbolsAndPictographs = $([\uD83E] [\uDD00-\uDDFF])
+
+Emoji_unicodeMiscellaneousSymbolsAndPictographs
+  = $([\uD83C] [\uDF00-\uDFFF] [\uFE00-\uFE0F]?)
+  / $([\uD83D] [\uDC00-\uDDFF] [\uFE00-\uFE0F]?)
+
+Emoji_unicodeTransportAndMapSymbols = $([\uD83D] [\uDE80-\uDEFA])
+
+Emoji_unicodeMiscellaneousTechnical = $([\u2300-\u23FF] [\uFE00-\uFE0F]?)
+
+Emoji_unicodeMiscellaneousSymbols = $([\u2600-\u26FF] [\uFE00-\uFE0F]?)
+
+Emoji_unicodeDingbats = $([\u2700-\u27BF] [\uFE00-\uFE0F]?)
+
+Emoji_unicodeFlags = $([\uD83C] [\uDD00-\uDDFF] [\uD83C] [\uDD00-\uDDFF])
 
 /* __Italic__ */
 /* _Italic_ */

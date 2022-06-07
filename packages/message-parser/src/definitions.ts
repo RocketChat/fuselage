@@ -49,10 +49,17 @@ export type BigEmoji = {
   value: [Emoji] | [Emoji, Emoji] | [Emoji, Emoji, Emoji];
 };
 
-export type Emoji = {
-  type: 'EMOJI';
-  value: Plain;
-};
+export type Emoji =
+  | {
+      type: 'EMOJI';
+      value: Plain;
+      shortCode: string;
+    }
+  | {
+      type: 'EMOJI';
+      value: undefined;
+      unicode: string;
+    };
 
 export type Code = {
   type: 'CODE';

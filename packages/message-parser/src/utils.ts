@@ -10,6 +10,7 @@ import type {
   ListItem,
   Inlines,
   LineBreak,
+  Emoji,
 } from './definitions';
 
 const generate =
@@ -98,10 +99,17 @@ export const mentionUser = (() => {
   return (value: string) => fn(plain(value));
 })();
 
-export const emoji = (() => {
-  const fn = generate('EMOJI');
-  return (value: string) => fn(plain(value));
-})();
+export const emoji = (shortCode: string): Emoji => ({
+  type: 'EMOJI',
+  value: plain(shortCode),
+  shortCode,
+});
+
+export const emojiUnicode = (unicode: string): Emoji => ({
+  type: 'EMOJI',
+  value: undefined,
+  unicode,
+});
 
 export const reducePlainTexts = (
   values: Paragraph['value']
