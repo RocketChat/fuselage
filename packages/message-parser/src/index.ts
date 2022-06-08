@@ -9,6 +9,10 @@ export { MarkdownAST };
 type Options = {
   colors?: boolean;
   emoticons?: boolean;
+  katex?: {
+    dollarSyntax?: boolean;
+    parenthesisSyntax?: boolean;
+  };
 };
 
 export const parser = (input: string, options?: Options): MarkdownAST =>

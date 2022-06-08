@@ -111,6 +111,16 @@ export type LineBreak = {
   value: undefined;
 };
 
+export type KaTeX = {
+  type: 'KATEX';
+  value: string;
+};
+
+export type InlineKaTeX = {
+  type: 'INLINE_KATEX';
+  value: string;
+};
+
 export type Paragraph = {
   type: 'PARAGRAPH';
   value: Array<Exclude<Inlines, Paragraph>>;
@@ -200,7 +210,8 @@ export type Inlines =
   | UserMention
   | ChannelMention
   | Emoji
-  | Color;
+  | Color
+  | InlineKaTeX;
 
 export type Blocks =
   | Code
@@ -210,6 +221,7 @@ export type Blocks =
   | Tasks
   | OrderedList
   | UnorderedList
-  | LineBreak;
+  | LineBreak
+  | KaTeX;
 
 export type MarkdownAST = Array<Paragraph | Blocks> | [BigEmoji];

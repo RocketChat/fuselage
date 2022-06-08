@@ -11,6 +11,8 @@ import type {
   Inlines,
   LineBreak,
   Emoji,
+  KaTeX,
+  InlineKaTeX,
 } from './definitions';
 
 const generate =
@@ -135,4 +137,14 @@ export const reducePlainTexts = (
 export const lineBreak = (): LineBreak => ({
   type: 'LINE_BREAK',
   value: undefined,
+});
+
+export const katex = (content: string): KaTeX => ({
+  type: 'KATEX',
+  value: content,
+});
+
+export const inlineKatex = (content: string): InlineKaTeX => ({
+  type: 'INLINE_KATEX',
+  value: content,
 });
