@@ -17,6 +17,7 @@
     mentionUser,
     emoji,
     emojiUnicode,
+    emoticon,
     color,
     bigEmoji,
     tasks,
@@ -33,9 +34,13 @@ Start
   / (Blocks / Paragraph / EndOfLine { return paragraph([plain('')]); })+
 
 BigEmoji
-  = _ e1:Emoji _ e2:Emoji? _ e3:Emoji? _ {
-      return [bigEmoji([e1, e2, e3].filter(Boolean))];
-    }
+  = _
+    e1:(Emoji / Emoticon)
+    _
+    e2:(Emoji / Emoticon)?
+    _
+    e3:(Emoji / Emoticon)?
+    _ { return [bigEmoji([e1, e2, e3].filter(Boolean))]; }
 
 _ = (EndOfLine / Space)*
 
@@ -111,6 +116,7 @@ UnorderedList_itemContent
       / AutolinkedEmail
       / Emphasis
       / Color
+      / Emoticon
       / UserMention
       / ChannelMention
       / !"*" a:Any { return a; }
@@ -139,6 +145,7 @@ Inline
       / AutolinkedEmail
       / Emphasis
       / Color
+      / Emoticon
       / UserMention
       / ChannelMention
       / Escaped
@@ -198,11 +205,11 @@ ChannelMention
   / "#" channel:utf8_names_validation { return mentionChannel(channel); }
 
 Emoji
-  = shortCode:Emoji_shortCode { return emoji(shortCode); }
+  = Emoji_shortCode
   / unicode:Emoji_unicode { return emojiUnicode(unicode); }
 
 Emoji_shortCode
-  = ":" shortCode:$(text:utf8_names_validation) ":" { return shortCode; }
+  = ":" shortCode:$(text:utf8_names_validation) ":" { return emoji(shortCode); }
 
 // Note: it's just a subset of unicode emoticons
 Emoji_unicode
@@ -235,6 +242,79 @@ Emoji_unicodeMiscellaneousSymbols = $([\u2600-\u26FF] [\uFE00-\uFE0F]?)
 Emoji_unicodeDingbats = $([\u2700-\u27BF] [\uFE00-\uFE0F]?)
 
 Emoji_unicodeFlags = $([\uD83C] [\uDD00-\uDDFF] [\uD83C] [\uDD00-\uDDFF])
+
+Emoticon = & { return options.emoticons; } e:Emoticon_ascii { return e; }
+
+Emoticon_ascii
+  = e:$"<3" { return emoticon(e, 'heart'); }
+  / e:$"</3" { return emoticon(e, 'broken_heart'); }
+  / e:$(":D" / ":-D" / "=D") { return emoticon(e, 'smiley'); }
+  / e:$(">:)" / ">;)" / ">:-)" / ">=)") { return emoticon(e, 'laughing'); }
+  / e:$("':)" / "':-)" / "'=)" / "':D" / "':-D" / "'=D") {
+      return emoticon(e, 'sweat_smile');
+    }
+  / e:$(":')" / ":'-)") { return emoticon(e, 'joy'); }
+  / e:$(
+    "O:-)"
+    / "0:-3"
+    / "0:3"
+    / "0:-)"
+    / "0:)"
+    / "0;^)"
+    / "O:)"
+    / "O;-)"
+    / "O=)"
+    / "0;-)"
+    / "O:-3"
+    / "O:3"
+  ) { return emoticon(e, 'innocent'); }
+  / e:$(":)" / ":-)" / "=]" / "=)" / ":]") {
+      return emoticon(e, 'slight_smile');
+    }
+  / e:$(";)" / ";-)" / "*-)" / "*)" / ";-]" / ";]" / ";D" / ";^)") {
+      return emoticon(e, 'wink');
+    }
+  / e:$(":*" / ":-*" / "=*" / ":^*") { return emoticon(e, 'kissing_heart'); }
+  / e:$(":P" / ":-P" / "=P" / ":-\u00de" / ":\u00de" / ":-b" / ":b") {
+      return emoticon(e, 'stuck_out_tongue');
+    }
+  / e:$(">:P" / "X-P") { return emoticon(e, 'stuck_out_tongue_winking_eye'); }
+  / e:$("B-)" / "B)" / "8)" / "8-)" / "B-D" / "8-D") {
+      return emoticon(e, 'sunglasses');
+    }
+  / e:$(">:[" / ":-(" / ":(" / ":-[" / ":[" / "=(") {
+      return emoticon(e, 'disappointed');
+    }
+  / e:$(
+    ">:\\"
+    / ">:\/"
+    / ":-\/"
+    / ":-."
+    / ":\/"
+    / ":\\"
+    / "=\/"
+    / "=\\"
+    / ":L"
+    / "=L"
+  ) { return emoticon(e, 'confused'); }
+  / e:$">.<" { return emoticon(e, 'persevere'); }
+  / e:$(":'(" / ":'-(" / ";(" / ";-(") { return emoticon(e, 'cry'); }
+  / e:$(">:(" / ">:-(" / ":@") { return emoticon(e, 'angry'); }
+  / e:$(":$" / "=$") { return emoticon(e, 'flushed'); }
+  / e:$"D:" { return emoticon(e, 'fearfulc'); }
+  / e:$("':(" / "':-(" / "'=(") { return emoticon(e, 'sweat'); }
+  / e:$(":-X" / ":X" / ":-#" / ":#" / "=X" / "=#") {
+      return emoticon(e, 'no_mouth');
+    }
+  / e:$("-_-" / "-__-" / "-___-") { return emoticon(e, 'expressionless'); }
+  / e:$(":-O" / ":O" / "O_O" / ">:O") { return emoticon(e, 'open_mouth'); }
+  / e:$("#-)" / "#)" / "%-)" / "%)" / "X)" / "X-)") {
+      return emoticon(e, 'dizzy_face');
+    }
+  / e:$"(y)" { return emoticon(e, 'thumbsup'); }
+  / e:$("*\\0\/*" / "\\0\/" / "*\\O\/*" / "\\O\/") {
+      return emoticon(e, 'person_gesturing_ok');
+    }
 
 /* __Italic__ */
 /* _Italic_ */
@@ -415,7 +495,7 @@ domainChar = !"/" !"|" !">" !"<" !safe !extra !EndOfLine !Space .
  */
 
 Color
-  = & { return options.hexColor; } "color:#" rgba:colorRGBATuple !anyText {
+  = & { return options.colors; } "color:#" rgba:colorRGBATuple !anyText {
       return color(...rgba);
     }
 

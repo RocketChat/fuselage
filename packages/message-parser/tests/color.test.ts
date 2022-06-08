@@ -26,9 +26,9 @@ test.each([
   ['color:#c7', [paragraph([plain('color:#c7')])], undefined],
   ['color:#zzz', [paragraph([plain('color:#zzz')])], undefined],
 ])('parses %p', (input, output, disabledOutput) => {
-  expect(parser(input, { hexColor: true })).toMatchObject(output);
+  expect(parser(input, { colors: true })).toMatchObject(output);
 
   if (disabledOutput) {
-    expect(parser(input, { hexColor: false })).toMatchObject(disabledOutput);
+    expect(parser(input, { colors: false })).toMatchObject(disabledOutput);
   }
 });

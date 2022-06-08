@@ -111,6 +111,12 @@ export const emojiUnicode = (unicode: string): Emoji => ({
   unicode,
 });
 
+export const emoticon = (emoticon: string, shortCode: string): Emoji => ({
+  type: 'EMOJI',
+  value: plain(emoticon),
+  shortCode,
+});
+
 export const reducePlainTexts = (
   values: Paragraph['value']
 ): Paragraph['value'] =>

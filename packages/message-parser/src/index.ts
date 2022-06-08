@@ -7,7 +7,8 @@ export { isNodeOfType } from './guards';
 export { MarkdownAST };
 
 type Options = {
-  hexColor?: boolean;
+  colors?: boolean;
+  emoticons?: boolean;
 };
 
 export const parser = (input: string, options?: Options): MarkdownAST =>
