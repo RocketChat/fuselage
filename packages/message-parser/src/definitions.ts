@@ -224,4 +224,4 @@ export type Blocks =
   | LineBreak
   | KaTeX;
 
-export type MarkdownAST = Array<Paragraph | Blocks> | [BigEmoji];
+export type Root = Array<Paragraph | Blocks> | [BigEmoji];

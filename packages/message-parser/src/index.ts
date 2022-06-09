@@ -1,12 +1,11 @@
-import type { MarkdownAST } from './definitions';
-import { parse } from './grammar.pegjs';
+import type { Root } from './definitions';
+import * as grammar from './grammar.pegjs';
 
 export * from './definitions';
 
 export { isNodeOfType } from './guards';
-export { MarkdownAST };
 
-type Options = {
+export type Options = {
   colors?: boolean;
   emoticons?: boolean;
   katex?: {
@@ -15,5 +14,12 @@ type Options = {
   };
 };
 
-export const parser = (input: string, options?: Options): MarkdownAST =>
-  parse(input, options);
+export const parse = (input: string, options?: Options): Root =>
+  grammar.parse(input, options);
+
+export {
+  /** @deprecated */
+  parse as parser,
+  /** @deprecated */
+  Root as MarkdownAST,
+};
