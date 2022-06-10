@@ -1,20 +1,20 @@
 {
   "name": "@rocket.chat/eslint-config-alt",
   "description": "ESLint configuration for Rocket.Chat repositories",
-  "version": "0.31.12",
+  "version": "0.31.13",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
   "license": "MIT",
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "homepage": "https://github.com/RocketChat/fuselage#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/eslint-config-alt"
   },
   "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "main": "minimal/index.js",
   "files": [

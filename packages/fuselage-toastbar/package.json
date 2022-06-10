@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-toastbar",
-  "version": "0.31.12",
+  "version": "0.31.13",
   "description": "Fuselage ToastBar component",
   "keywords": [
     "rocketchat",
@@ -13,18 +13,18 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "homepage": "https://github.com/RocketChat/fuselage#readme",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/fuselage-toastbar"
   },
   "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

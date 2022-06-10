@@ -1,23 +1,23 @@
 {
   "name": "@rocket.chat/stylis-logical-props-middleware",
-  "version": "0.31.12",
+  "version": "0.31.13",
   "description": "Stylis middleware to handle CSS Logical Properties and their fallbacks",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "homepage": "https://github.com/RocketChat/fuselage#readme",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/stylis-logical-props-middleware"
   },
   "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
