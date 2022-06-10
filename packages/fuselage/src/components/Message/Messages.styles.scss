@@ -225,6 +225,14 @@ $message-background-color-highlight: functions.theme(
     @extend %rcx-margins-block;
     display: flex;
     flex-direction: column;
+
+    &--width-fixed {
+      flex-grow: 0;
+      flex-shrink: 1;
+
+      width: 100;
+      max-width: functions.theme('message-block-width-fixed', 368px);
+    }
   }
 
   &-paragraph {
