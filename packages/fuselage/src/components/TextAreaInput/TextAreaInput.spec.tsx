@@ -3,6 +3,8 @@ import React from 'react';
 
 import { TextAreaInput } from '.';
 
-it('renders without crashing', () => {
-  render(<TextAreaInput />);
+describe('[TextAreaInput]', () => {
+  it('renders without crashing', () => {
+    render(<TextAreaInput />);
+  });
 });

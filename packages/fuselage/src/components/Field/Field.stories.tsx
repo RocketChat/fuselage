@@ -25,7 +25,7 @@ export default {
   },
 } as ComponentMeta<typeof Field>;
 
-export const Example: ComponentStory<typeof Field> = () => (
+export const Default: ComponentStory<typeof Field> = () => (
   <Field>
     <Field.Label>Label</Field.Label>
     <Field.Description>Description</Field.Description>

@@ -3,6 +3,8 @@ import React from 'react';
 
 import { Tabs } from '.';
 
-it('renders without crashing', () => {
-  render(<Tabs />);
+describe('[Tabs Component]', () => {
+  it('renders without crashing', () => {
+    render(<Tabs />);
+  });
 });

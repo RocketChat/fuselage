@@ -3,14 +3,12 @@ import React from 'react';
 
 import Flex from '.';
 
-describe('Flex.Container', () => {
-  it('renders without crashing', () => {
+describe('[Flex Component]', () => {
+  it('renders Flex.Container without crashing', () => {
     render(<Flex.Container />);
   });
-});
 
-describe('Flex.Item', () => {
-  it('renders without crashing', () => {
+  it('renders Flex.Item without crashing', () => {
     render(<Flex.Item />);
   });
 });

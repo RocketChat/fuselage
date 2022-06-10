@@ -6,6 +6,8 @@ import Banner from './Banner';
 
 withResizeObserverMock();
 
-it('renders without crashing', () => {
-  render(<Banner />);
+describe('[Banner Component]', () => {
+  it('renders without crashing', () => {
+    render(<Banner />);
+  });
 });

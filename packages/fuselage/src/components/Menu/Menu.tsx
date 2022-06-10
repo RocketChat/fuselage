@@ -83,6 +83,7 @@ export const Menu = ({
   return (
     <>
       <ActionButton
+        data-testid='menu'
         ref={ref}
         ghost
         small={small}

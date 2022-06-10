@@ -3,6 +3,12 @@ import React from 'react';
 
 import { Grid } from '.';
 
-it('renders without crashing', () => {
-  render(<Grid />);
+describe('[Grid Component]', () => {
+  it('renders Grid without crashing', () => {
+    render(<Grid />);
+  });
+
+  it('renders Grid.Item without crashing', () => {
+    render(<Grid.Item />);
+  });
 });

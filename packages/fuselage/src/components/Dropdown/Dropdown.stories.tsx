@@ -1,3 +1,4 @@
+import type { ComponentStory } from '@storybook/react';
 import React, { useRef } from 'react';
 
 import { ActionButton, Box } from '..';
@@ -12,7 +13,7 @@ export default {
   },
 };
 
-export const Default = () => {
+export const Default: ComponentStory<typeof Dropdown> = () => {
   const anchor = useRef(null);
   const target = useRef(null);
 

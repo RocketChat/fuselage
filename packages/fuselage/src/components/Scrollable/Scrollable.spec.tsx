@@ -3,6 +3,8 @@ import React from 'react';
 
 import { Scrollable } from '../..';
 
-it('renders without crashing', () => {
-  render(<Scrollable />);
+describe('Scrollabe Component', () => {
+  it('renders without crashing', () => {
+    render(<Scrollable />);
+  });
 });
