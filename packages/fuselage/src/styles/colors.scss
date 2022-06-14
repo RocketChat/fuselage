@@ -101,26 +101,22 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-@function surface-deprecated() {
-  @return var(--rcx-color-surface, white);
-}
-
 $-foreground-colors: (
   default: map.get(token-colors.$colors, n800),
   info: map.get(token-colors.$colors, n700),
   hint: map.get(token-colors.$colors, n600),
   disabled: map.get(token-colors.$colors, n400),
   alternative: white,
-  primary: map.get(token-colors.$colors, b500),
-  success: map.get(token-colors.$colors, g500),
-  success-light: map.get(token-colors.$colors, g200),
-  danger: map.get(token-colors.$colors, r500),
-  warning: map.get(token-colors.$colors, y700),
-  warning-alternative: map.get(token-colors.$colors, y500),
-  highlight: map.get(token-colors.$colors, y100),
-  link: map.get(token-colors.$colors, b500),
-  visited-link: map.get(token-colors.$colors, p500),
-  active-link: map.get(token-colors.$colors, r500),
+  primary: map.get(token-colors.$colors, p500),
+  success: map.get(token-colors.$colors, s500),
+  success-light: map.get(token-colors.$colors, s200),
+  danger: map.get(token-colors.$colors, d500),
+  warning: map.get(token-colors.$colors, w700),
+  warning-alternative: map.get(token-colors.$colors, w500),
+  highlight: map.get(token-colors.$colors, w100),
+  link: map.get(token-colors.$colors, p500),
+  visited-link: map.get(token-colors.$colors, s2-500),
+  active-link: map.get(token-colors.$colors, d500),
 );
 
 @function _get-foreground-color($type) {

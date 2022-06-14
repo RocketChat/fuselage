@@ -4,7 +4,7 @@
 
 $progress-bar-color-shine: theme(
   'progress-bar-color-shine',
-  colors.surface-deprecated()
+  colors.surface(light)
 );
 $progress-bar-color-background: theme(
   'progress-bar-color-background',

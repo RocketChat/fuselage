@@ -112,13 +112,13 @@ const foregroundColors = {
   'hint': tokenColors.n600,
   'disabled': tokenColors.n400,
   'alternative': 'white',
-  'primary': tokenColors.b500,
-  'success': tokenColors.g500,
-  'danger': tokenColors.r500,
-  'warning': tokenColors.y700,
-  'link': tokenColors.b500,
-  'visited-link': tokenColors.p500,
-  'active-link': tokenColors.r500,
+  'primary': tokenColors.p500,
+  'success': tokenColors.s500,
+  'danger': tokenColors.d500,
+  'warning': tokenColors.w700,
+  'link': tokenColors.p500,
+  'visited-link': tokenColors['s2-500'],
+  'active-link': tokenColors.d500,
 } as const;
 
 const isForegroundColorRef = (
