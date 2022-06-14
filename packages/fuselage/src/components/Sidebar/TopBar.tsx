@@ -80,7 +80,7 @@ export const TopBarActions = SidebarActions;
 
 type TopBarActionProps = ComponentProps<typeof SidebarAction>;
 export const TopBarAction = (props: TopBarActionProps) => (
-  <SidebarAction ghost {...props} />
+  <SidebarAction {...props} />
 );
 
 export const TopBarDivider = () => <Divider mbs='neg-x2' mbe={0} />;

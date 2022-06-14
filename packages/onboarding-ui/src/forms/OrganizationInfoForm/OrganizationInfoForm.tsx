@@ -16,6 +16,7 @@ import type { SubmitHandler } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
+import ActionLink from '../../common/ActionLink';
 import Form from '../../common/Form';
 
 export type OrganizationInfoPayload = {
@@ -214,9 +215,9 @@ const OrganizationInfoForm = ({
           {onClickSkip && (
             <Box withTruncatedText flexGrow={1}>
               <ButtonGroup flexGrow={1} align='end'>
-                <Button nude info onClick={onClickSkip}>
+                <ActionLink onClick={onClickSkip}>
                   {t('component.form.action.skip')}
-                </Button>
+                </ActionLink>
               </ButtonGroup>
             </Box>
           )}

@@ -23,8 +23,8 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <ArgsTable />
           <Stories title={''} />
+          <ArgsTable />
         </>
       ),
     },
@@ -41,14 +41,12 @@ const Template: ComponentStory<typeof Tag> = (args) => (
 );
 
 export const Default: ComponentStory<typeof Tag> = Template.bind({});
-Default.args = {
+
+export const PrimaryStory: ComponentStory<typeof Tag> = Template.bind({});
+PrimaryStory.args = {
   variant: 'primary',
 };
-
-export const WithPointerCursor: ComponentStory<typeof Tag> = Template.bind({});
-WithPointerCursor.args = {
-  onClick: () => {},
-};
+PrimaryStory.storyName = 'Primary';
 
 export const Secondary: ComponentStory<typeof Tag> = Template.bind({});
 Secondary.args = {
@@ -57,29 +55,21 @@ Secondary.args = {
 
 export const WithIcon: ComponentStory<typeof Tag> = Template.bind({});
 WithIcon.args = {
-  variant: 'secondary',
   children: <Icon size='x12' mie='x4' name='team-lock' />,
 };
 
-export const PrimaryStory: ComponentStory<typeof Tag> = Template.bind({});
-PrimaryStory.args = {
-  onClick: () => {},
-};
-PrimaryStory.storyName = 'Primary';
-
-export const Danger: ComponentStory<typeof Tag> = Template.bind({});
-Danger.args = {
+export const _Danger: ComponentStory<typeof Tag> = Template.bind({});
+_Danger.args = {
   variant: 'danger',
+};
+export const _SecondaryDanger: ComponentStory<typeof Tag> = Template.bind({});
+_SecondaryDanger.args = {
+  variant: 'secondary-danger',
 };
 
 export const Warning: ComponentStory<typeof Tag> = Template.bind({});
 Warning.args = {
   variant: 'warning',
-};
-
-export const Ghost: ComponentStory<typeof Tag> = Template.bind({});
-Ghost.args = {
-  variant: 'ghost',
 };
 
 export const Disabled: ComponentStory<typeof Tag> = Template.bind({});
