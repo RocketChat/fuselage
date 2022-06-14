@@ -13,17 +13,26 @@
   @include typography.use-font-scale(p2);
 
   &--info {
-    background-color: colors.neutral(100);
+    background-color: theme(
+      'toastbar-info-background-color',
+      colors.surface(tint)
+    );
   }
 
   &--success {
-    color: colors.success(900);
-    background-color: colors.success(200);
+    color: theme('toastbar-success-color', colors.text(on-success));
+    background-color: theme(
+      'toastbar-success-background-color',
+      colors.surface(success)
+    );
   }
 
   &--error {
-    color: colors.danger(700);
-    background-color: colors.danger(200);
+    color: theme('toastbar-error-color', colors.text(on-danger));
+    background-color: theme(
+      'toastbar-error-background-color',
+      colors.surface(danger)
+    );
   }
 }
 
@@ -56,6 +65,6 @@
 
     content: '';
 
-    background-color: colors.neutral(800, 0.1);
+    background-color: colors.surface-neutral-alpha(10);
   }
 }
