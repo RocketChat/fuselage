@@ -7,49 +7,52 @@
 
 $chip-background-color: functions.theme(
   'chip-background-color',
-  colors.neutral(300)
+  colors.button(secondary)
 );
-$chip-border-color: functions.theme('chip-border-color', colors.neutral(300));
-$chip-color: functions.theme('chip-color', colors.neutral(800));
+$chip-border-color: functions.theme(
+  'chip-border-color',
+  colors.button(secondary)
+);
+$chip-color: functions.theme('chip-color', colors.text(on-secondary));
 $chip-hover-background-color: functions.theme(
   'chip-hover-background-color',
-  colors.neutral(400)
+  colors.button(hover-secondary)
 );
 $chip-hover-border-color: functions.theme(
   'chip-hover-border-color',
-  colors.neutral(400)
+  colors.button(hover-secondary)
 );
 $chip-active-background-color: functions.theme(
   'chip-active-background-color',
-  colors.neutral(500)
+  colors.button(press-secondary)
 );
 $chip-active-border-color: functions.theme(
   'chip-active-border-color',
-  colors.neutral(500)
+  colors.button(press-secondary)
 );
 $chip-focus-background-color: functions.theme(
   'chip-focus-background-color',
-  colors.neutral(300)
+  colors.button(focus-secondary)
 );
 $chip-focus-border-color: functions.theme(
   'chip-focus-border-color',
-  colors.neutral(500)
+  colors.stroke(extra-dark)
 );
 $chip-focus-shadow-color: functions.theme(
   'chip-focus-shadow-color',
-  colors.neutral(100)
+  colors.stroke(extra-light-highlight)
 );
 $chip-disabled-background-color: functions.theme(
   'chip-disabled-background-color',
-  colors.neutral(100)
+  colors.button(disabled-secondary)
 );
 $chip-disabled-border-color: functions.theme(
   'chip-disabled-border-color',
-  colors.neutral(100)
+  colors.button(disabled-secondary)
 );
 $chip-disabled-color: functions.theme(
   'chip-disabled-color',
-  colors.neutral(400)
+  colors.text(on-disabled)
 );
 
 .rcx-chip {

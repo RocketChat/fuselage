@@ -6,13 +6,7 @@ import type Box from '../Box';
 
 type TagProps = ComponentProps<typeof Box> & {
   small?: boolean;
-  variant?:
-    | 'secondary'
-    | 'primary'
-    | 'danger'
-    | 'warning'
-    | 'ghost'
-    | 'default';
+  variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'secondary-danger';
   medium?: boolean;
   disabled?: boolean;
 };
@@ -24,7 +18,7 @@ export function Tag({
   className,
   disabled,
   onClick,
-  variant = 'default',
+  variant = 'secondary',
   ...props
 }: TagProps) {
   const modifiers = [
