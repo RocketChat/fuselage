@@ -53,7 +53,8 @@ $message-background-color-highlight: functions.theme(
   flex-direction: row;
   align-items: flex-start;
 
-  padding-block: lengths.padding(12);
+  padding-block-start: lengths.padding(8);
+  padding-block-end: lengths.padding(4);
 
   padding-inline: lengths.padding(20);
 
@@ -80,6 +81,10 @@ $message-background-color-highlight: functions.theme(
     .rcx-message-body {
       opacity: 0.4;
     }
+  }
+
+  &--sequential {
+    padding-block: lengths.padding(4);
   }
 
   @keyframes background-fade {
@@ -220,6 +225,14 @@ $message-background-color-highlight: functions.theme(
     @extend %rcx-margins-block;
     display: flex;
     flex-direction: column;
+
+    &--width-fixed {
+      flex-grow: 0;
+      flex-shrink: 1;
+
+      width: 100;
+      max-width: functions.theme('message-block-width-fixed', 368px);
+    }
   }
 
   &-paragraph {

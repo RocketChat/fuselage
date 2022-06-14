@@ -14,7 +14,7 @@
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/prettier-config/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/prettier-config/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/prettier-config?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/prettier-config?style=flat-square)
 
-![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fprettier-config&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fprettier-config&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Fprettier-config&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/prettier-config?style=flat-square)
+![deps](https://img.shields.io/david/RocketChat/fuselage?path=packages%2Fprettier-config&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/fuselage?path=packages%2Fprettier-config&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/fuselage?path=packages%2Fprettier-config&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/prettier-config?style=flat-square)
 
 <!--/header-->
 
@@ -49,7 +49,7 @@ yarn add -D @rocket.chat/prettier-config
 <!--contributing(msg)-->
 
 Contributions, issues, and feature requests are welcome!<br />
-Feel free to check the [issues](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
+Feel free to check the [issues](https://github.com/RocketChat/fuselage/issues).
 
 <!--/contributing(msg)-->
 

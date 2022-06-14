@@ -1,6 +1,6 @@
 import type { Placements } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps, ElementType, ReactNode } from 'react';
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useEffect } from 'react';
 
 import { PositionAnimated, Options, useCursor } from '..';
 import type Box from '../Box';
@@ -75,6 +75,12 @@ export const Menu = ({
     },
     [hide, reset, options]
   );
+
+  useEffect(() => {
+    if (visible === 'hidden') {
+      ref.current?.classList.remove('focus-visible');
+    }
+  }, [visible]);
 
   return (
     <>
