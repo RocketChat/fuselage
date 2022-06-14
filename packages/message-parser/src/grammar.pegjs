@@ -81,7 +81,7 @@ Whitespace = w:" "+ { return plain(w.join('')); }
 
 Escaped = "\\" t:any { return plain(t); }
 
-Any = !EndOfLine t:any { return plain(t); }
+Any = !EndOfLine t:any u:$URL? { return plain(t + u); }
 
 any = $.
 
@@ -511,8 +511,16 @@ phonePrefix
 
 URL
   = $(
-    s:urlScheme?
+    s:urlScheme
       a:urlAuthority
+      p:urlPath?
+      q:urlQuery?
+      f:urlFragment?
+      g:urlPath?
+      h:urlQuery?
+  )
+  / $(
+    urlAuthorityHost
       p:urlPath?
       q:urlQuery?
       f:urlFragment?
@@ -555,10 +563,9 @@ urlScheme
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]? // up to 32 characters
       ":"
-      "/"+
   )
 
-urlAuthority = $(urlAuthorityUserInfo? urlAuthorityHost)
+urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
 
 urlAuthorityUserInfo = $(urlAuthorityUser (":" urlAuthorityPassword)? "@")
 
