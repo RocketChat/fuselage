@@ -5734,7 +5734,7 @@ __metadata:
     autoprefixer: ~10.4.2
     babel-loader: ~8.2.3
     bump: "workspace:~"
-    caniuse-lite: ~1.0.30001311
+    caniuse-lite: ~1.0.30001351
     copy-webpack-plugin: ~10.2.4
     cross-env: ^7.0.3
     css-loader: ~6.6.0
@@ -5881,7 +5881,7 @@ __metadata:
     lint-all: "workspace:~"
     lint-staged: ~12.3.3
     npm-run-all: ^4.1.5
-    peggy: ^1.2.0
+    peggy: ^2.0.1
     prettier: ~2.5.1
     prettier-plugin-pegjs: ~0.5.0
     rimraf: ^3.0.2
@@ -5982,7 +5982,7 @@ __metadata:
     lint-all: "workspace:~"
     lint-staged: ~12.3.3
     npm-run-all: ^4.1.5
-    peggy: ^1.2.0
+    peggy: ^2.0.1
     prettier: ~2.5.1
     rimraf: ^3.0.2
     ts-jest: ~27.1.3
@@ -11161,45 +11161,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0":
-  version: 1.0.30001150
-  resolution: "caniuse-lite@npm:1.0.30001150"
-  checksum: e8495586366083dfbeae9ad5c8cc3cb831b3cf89a7902bbbb4d97b992fc136feb16ffad5bb5bac767c488a9ec3b4f885b2cd403c08c56d7a173dd4c90f64b796
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001165":
-  version: 1.0.30001171
-  resolution: "caniuse-lite@npm:1.0.30001171"
-  checksum: 5d5e1cc0fcb77627e802d774c2a068256ff86348006e0279de6de867e3e079499c59401d7485b12f52207b050c2f0e30e7c44d8c901043aa882e3038517ce205
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001135":
-  version: 1.0.30001156
-  resolution: "caniuse-lite@npm:1.0.30001156"
-  checksum: df81d727a01bdd6fb96d5153b29b920842724acd8b3296c5cc5152038edc4a8dd6537232afb67dc9e6022f4328e30635f0c9bce54ed0118fda7e2339dda69127
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001219":
-  version: 1.0.30001221
-  resolution: "caniuse-lite@npm:1.0.30001221"
-  checksum: 0ea5b56fe790d6982679ad641068780619e8be4d1c48a3fc1d8e60df4d86cfd5c1a1d2fb26dee77b8cde1fae4d2f797721f43662b7c0596ac53c44e801c66c09
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001274":
-  version: 1.0.30001279
-  resolution: "caniuse-lite@npm:1.0.30001279"
-  checksum: c0330577718e4221caae92a1bee8131f546668001840cf66455d5aa6050797f44709865779c5cdcba7cbf32527004a743dc2879497d23f60478f8bbb203cfeeb
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001297, caniuse-lite@npm:~1.0.30001311":
-  version: 1.0.30001311
-  resolution: "caniuse-lite@npm:1.0.30001311"
-  checksum: a96a2724db91f7d820d7c83d98d6d80f71f4ef5542fd9af49478e6f5057a92d61fbb6c2a2c151e13323c760c7d9f046f422a9b1ac77ab08dc2cacc62bd22f941
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001135, caniuse-lite@npm:^1.0.30001165, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001274, caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001297, caniuse-lite@npm:~1.0.30001351":
+  version: 1.0.30001351
+  resolution: "caniuse-lite@npm:1.0.30001351"
+  checksum: 0d8fedb1cc7f58beefc0216f1426feff6d3fb8d72b57cb343cf0b72a940f1f8691d5a67a166631195ba16c4e12f358780a8876a4071b9a4ae56e7883335ec6d8
   languageName: node
   linkType: hard
 
@@ -11935,6 +11900,13 @@ __metadata:
   version: 8.3.0
   resolution: "commander@npm:8.3.0"
   checksum: 0f82321821fc27b83bd409510bb9deeebcfa799ff0bf5d102128b500b7af22872c0c92cb6a0ebc5a4cf19c6b550fba9cedfa7329d18c6442a625f851377bacf0
+  languageName: node
+  linkType: hard
+
+"commander@npm:^9.3.0":
+  version: 9.3.0
+  resolution: "commander@npm:9.3.0"
+  checksum: d421ce66fee25792a1470c69aa8d1b86434bf873a96483aa92c8267f81a6f20c6f7c426f5e82f88ac50a8ec4855d3f2787aebcdef8aa559e1080a2337a95a217
   languageName: node
   linkType: hard
 
@@ -21901,12 +21873,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"peggy@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "peggy@npm:1.2.0"
+"peggy@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "peggy@npm:2.0.1"
+  dependencies:
+    commander: ^9.3.0
+    source-map-generator: 0.8.0
   bin:
-    peggy: bin/peggy
-  checksum: 658c985df8175cb7e90990f663ec5f84d25db6d05adb7f2ffcbcc86c7cddc8de0b818c8d1eb64e78c84ae848e921ff54acabb39da4fb5e497c1dcfdcbfc50b47
+    peggy: bin/peggy.js
+  checksum: 0ce0ee8f9f872bc96183bfcb7ce9ccabcad6d1df1e4ff9b1b7ebaf57f3996dcb1016b7610013f6a8a1bd8b135a8b3b15ccff914bdd88ab2264bdcbca5b36f2f1
   languageName: node
   linkType: hard
 
@@ -25183,6 +25158,13 @@ resolve@^2.0.0-next.3:
   version: 2.0.1
   resolution: "source-list-map@npm:2.0.1"
   checksum: 806efc6f75e7cd31e4815e7a3aaf75a45c704871ea4075cb2eb49882c6fca28998f44fc5ac91adb6de03b2882ee6fb02f951fdc85e6a22b338c32bfe19557938
+  languageName: node
+  linkType: hard
+
+"source-map-generator@npm:0.8.0":
+  version: 0.8.0
+  resolution: "source-map-generator@npm:0.8.0"
+  checksum: 15e7854c04a4b1bc8a477664a65c58316d792fb24a7b427219ac597eed7f57a3905637c783126b123cf05f9d4fdc45a8fadb8bc2fbf010a82d92e35c193aba51
   languageName: node
   linkType: hard
 
