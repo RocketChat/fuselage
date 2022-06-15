@@ -4,8 +4,7 @@ import React, { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import Button from '../Button';
-import { Icon } from '../Icon';
+import { IconButton } from '../Button';
 import styleSheet from './Banner.styles.scss';
 
 type VariantType = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
@@ -53,9 +52,13 @@ const Banner = ({
   const isIconVisible = useMemo(() => inlineSize > 375, [inlineSize]);
 
   variant = variants.includes(variant) ? variant : variants[0];
-
   const closeButtonProps = useMemo(
-    () => (variant !== variants[0] ? { [variant]: true } : {}),
+    () => ({
+      info: variant === 'info',
+      success: variant === 'success',
+      warning: variant === 'warning',
+      danger: variant === 'danger',
+    }),
     [variant]
   );
 
@@ -98,15 +101,12 @@ const Banner = ({
       </div>
       {closeable && (
         <div className={cx('rcx-banner__close-button')({ inline })}>
-          <Button
-            ghostish
-            square
+          <IconButton
             small
             {...closeButtonProps}
             onClick={handleCloseButtonClick}
-          >
-            <Icon name='cross' size={24} />
-          </Button>
+            icon='cross'
+          />
         </div>
       )}
     </section>
