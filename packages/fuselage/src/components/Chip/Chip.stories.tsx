@@ -26,6 +26,10 @@ export const Dismissible = Template.bind({});
 Dismissible.args = {
   onClick: action('click'),
 };
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};
 
 export const WithThumb = () => (
   <Box display='flex' margin='-x4'>

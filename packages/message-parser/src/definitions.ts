@@ -49,10 +49,17 @@ export type BigEmoji = {
   value: [Emoji] | [Emoji, Emoji] | [Emoji, Emoji, Emoji];
 };
 
-export type Emoji = {
-  type: 'EMOJI';
-  value: Plain;
-};
+export type Emoji =
+  | {
+      type: 'EMOJI';
+      value: Plain;
+      shortCode: string;
+    }
+  | {
+      type: 'EMOJI';
+      value: undefined;
+      unicode: string;
+    };
 
 export type Code = {
   type: 'CODE';
@@ -101,6 +108,16 @@ export type Plain = {
 
 export type LineBreak = {
   type: 'LINE_BREAK';
+  value: undefined;
+};
+
+export type KaTeX = {
+  type: 'KATEX';
+  value: string;
+};
+
+export type InlineKaTeX = {
+  type: 'INLINE_KATEX';
   value: string;
 };
 
@@ -193,7 +210,8 @@ export type Inlines =
   | UserMention
   | ChannelMention
   | Emoji
-  | Color;
+  | Color
+  | InlineKaTeX;
 
 export type Blocks =
   | Code
@@ -203,6 +221,7 @@ export type Blocks =
   | Tasks
   | OrderedList
   | UnorderedList
-  | LineBreak;
+  | LineBreak
+  | KaTeX;
 
-export type MarkdownAST = Array<Paragraph | Blocks> | [BigEmoji];
+export type Root = Array<Paragraph | Blocks> | [BigEmoji];

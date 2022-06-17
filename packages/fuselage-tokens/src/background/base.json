@@ -1,0 +1,6 @@
+{
+  "background": {
+    "light": { "value": "{colors.white}" },
+    "tint": { "value": "{colors.n100}" }
+  }
+}

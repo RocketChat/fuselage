@@ -4,9 +4,9 @@
 
 $tooltip-background-color: functions.theme(
   'tooltip-background-color',
-  colors.neutral(900)
+  colors.surface(neutral)
 );
-$tooltip-text-color: functions.theme('tooltip-text-color', colors.surface());
+$tooltip-text-color: functions.theme('tooltip-text-color', colors.text(text));
 
 @mixin triangle-direction($direction) {
   &::after {

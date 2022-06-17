@@ -87,7 +87,7 @@
     "autoprefixer": "~10.4.2",
     "babel-loader": "~8.2.3",
     "bump": "workspace:~",
-    "caniuse-lite": "~1.0.30001311",
+    "caniuse-lite": "~1.0.30001351",
     "copy-webpack-plugin": "~10.2.4",
     "cross-env": "^7.0.3",
     "css-loader": "~6.6.0",

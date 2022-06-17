@@ -1,29 +1,33 @@
 {
   const {
-    paragraph,
+    bigEmoji,
     bold,
-    plain,
-    italic,
-    strike,
     code,
-    link,
+    codeLine,
+    color,
+    emoji,
+    emojiUnicode,
+    emoticon,
     heading,
     image,
     inlineCode,
-    quote,
-    reducePlainTexts,
-    codeLine,
+    inlineKatex,
+    italic,
+    katex,
+    lineBreak,
+    link,
+    listItem,
     mentionChannel,
     mentionUser,
-    emoji,
-    color,
-    bigEmoji,
-    tasks,
-    task,
     orderedList,
-    listItem,
+    paragraph,
+    plain,
+    quote,
+    reducePlainTexts,
+    strike,
+    task,
+    tasks,
     unorderedList,
-    lineBreak,
   } = require('./utils');
 }
 
@@ -31,25 +35,89 @@ start
   = b:BigEmoji !. { return b; }
   / (Blocks / Paragraph / EndOfLine { return paragraph([plain('')]); })+
 
-b = (EndOfLine / Space)*
-
-LineBreak = (Space* EndOfLine) { return lineBreak(''); }
-
 BigEmoji
-  = b e1:Emoji b e2:Emoji? b e3:Emoji? b {
-      return [bigEmoji([e1, e2, e3].filter(Boolean))];
-    }
+  = _
+    e1:(Emoji / emoticon)
+    _
+    e2:(Emoji / emoticon)?
+    _
+    e3:(Emoji / emoticon)?
+    _ { return [bigEmoji([e1, e2, e3].filter(Boolean))]; }
+
+_ = (EndOfLine / Space)*
 
 Blocks
   = Blockquote
-  / MultiplelLineCode
+  / Code
   / Heading
-  / TaskList
+  / tasks
   / OrderedList
   / UnorderedList
+  / katex
   / LineBreak
 
-// / Section
+Blockquote = b:Blockquote_line+ { return quote(b); }
+
+Blockquote_line = ">" [ \t]* p:Paragraph { return p; }
+
+Code
+  = "```" language:Code_language? EndOfLine lines:Code_line+ EndOfLine "```" {
+      return code(lines, language);
+    }
+
+Code_language = $[a-zA-Z0-9 \_\-.]+
+
+Code_line
+  = chunk:Code_chunk { return codeLine(chunk); }
+  / "\n" chunk:Code_chunk { return codeLine(chunk); }
+  / "\n" !"```" { return codeLine(plain('')); }
+
+Code_chunk = text:$(!EndOfLine !"```" .)+ { return plain(text); }
+
+Heading
+  = "#" [ \t]+ text:Heading_chunk { return heading([text], 1); }
+  / "##" [ \t]+ text:Heading_chunk { return heading([text], 2); }
+  / "###" [ \t]+ text:Heading_chunk { return heading([text], 3); }
+  / "####" [ \t]+ text:Heading_chunk { return heading([text], 4); }
+
+Heading_chunk = text:$(!EndOfLine .)+ { return plain(text); }
+
+OrderedList = items:OrderedList_item+ { return orderedList(items); }
+
+OrderedList_item
+  = number:digits "." [ \t]+ text:Inline {
+      return listItem(text, parseInt(number, 10));
+    }
+
+UnorderedList
+  = items:UnorderedList_hyphenItem+ { return unorderedList(items); }
+  / items:UnorderedList_asteriskItem+ { return unorderedList(items); }
+
+UnorderedList_hyphenItem = "-" [ \t]+ text:Inline { return listItem(text); }
+
+UnorderedList_asteriskItem
+  = "*" [ \t]+ text:UnorderedList_itemContent { return listItem(text); }
+
+UnorderedList_itemContent
+  = value:(
+      Whitespace
+      / Emoji
+      / References
+      / InlineCode
+      / AutolinkedPhone
+      / AutolinkedURL
+      / AutolinkedEmail
+      / Emphasis
+      / color
+      / emoticon
+      / UserMention
+      / ChannelMention
+      / !"*" a:Any { return a; }
+    )+
+    !"*"
+    EndOfLine? { return reducePlainTexts(value); }
+
+LineBreak = (Space* EndOfLine) { return lineBreak(); }
 
 Emphasis
   = Bold
@@ -63,13 +131,15 @@ Inline
       Whitespace
       / Emoji
       / InlineCode
+      / inlineKatex
       / Image
       / References
       / AutolinkedPhone
       / AutolinkedEmail
       / AutolinkedURL
       / Emphasis
-      / Color
+      / color
+      / emoticon
       / UserMention
       / ChannelMention
       / Escaped
@@ -77,15 +147,11 @@ Inline
     )+
     EndOfLine? { return reducePlainTexts(value); }
 
-Whitespace = w:" "+ { return plain(w.join('')); }
+Whitespace = w:$" "+ { return plain(w); }
 
-Escaped = "\\" t:any { return plain(t); }
+Escaped = "\\" t:$. { return plain(t); }
 
-Any = !EndOfLine t:any u:$URL? { return plain(t + u); }
-
-any = $.
-
-Extra = e:extra { return plain(e); }
+Any = !EndOfLine t:$. u:$URL? { return plain(t + u); }
 
 // = Line
 
@@ -93,12 +159,7 @@ Line = t:line { return plain(t); }
 
 Text = text:anyText { return plain(text); }
 
-line
-  = head:Space* text:anyText+ tail:Space* {
-      return head.join('') + text.join('') + tail.join('');
-    }
-
-EOF = !.
+line = head:$Space* text:$anyText+ tail:$Space* { return head + text + tail; }
 
 EndOfLine
   = "\r\n"
@@ -116,35 +177,6 @@ anyText
   / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
-anyText2
-  = [\x20-\x40] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x60] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
-  / [\x61-\xFFFF] // a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~                                    ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
-  / nonascii
-
-ListText
-  = [\x20-\x27] // `  ! " # $ % & '`
-  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x5A] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-  / [\x60-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
-  / nonascii
-
-LinkText
-  = [\x20-\x2A] //  ! " # $ % & ' ( ) *
-  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x5B] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [
-  / [\x61-\x7A] //  a b c d e f g h i j k l m n o p q r s t u v w x y z
-  / nonascii
-
-CodeText
-  = [\x20-\x2A] //  ! " # $ % & ' ( ) *
-  / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x5F] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _
-  / [\x61-\x7E] //   a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
-  / nonascii
-  / EndOfLine
-  / Space
-
 SectionText
   = [-]+
   / [\x20-\x40] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
@@ -152,15 +184,7 @@ SectionText
   / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
-Not_enter = text:($:(!"\n" s:. { return s; })+) { return plain(text.join('')); }
-
-Heading
-  = "# "+ text:Not_enter { return heading([text], 1); }
-  / "## "+ text:Not_enter { return heading([text], 2); }
-  / "### "+ text:Not_enter { return heading([text], 3); }
-  / "#### "+ text:Not_enter { return heading([text], 4); }
-
-utf8_names_validation = text:[0-9a-zA-Z-_.]+ { return text.join(''); }
+utf8_names_validation = $[0-9a-zA-Z-_.]+
 
 UserMention
   = t:Text "@"+ user:utf8_names_validation {
@@ -174,37 +198,22 @@ ChannelMention
     }
   / "#" channel:utf8_names_validation { return mentionChannel(channel); }
 
-Emoji = ":" text:utf8_names_validation ":" { return emoji(text); }
+Emoji
+  = Emoji_shortCode
+  / ch:unicodeEmoji { return emojiUnicode(ch); }
 
-/* Sceenshot ------------- */
-Section
-  = text:SectionText+ ("\r\n" / "\n" / "\r") [-]+ EndOfLine? {
-      return {
-        section: text.join(''),
-      };
-    }
+Emoji_shortCode
+  = ":" shortCode:$(text:utf8_names_validation) ":" { return emoji(shortCode); }
 
 /* __Italic__ */
 /* _Italic_ */
 Italic
-  = t:[a-zA-Z0-9]+ tail:([\x5F] [\x5F]?) {
-      return plain(t.join('') + tail.join(''));
+  = t:$[a-zA-Z0-9]+ tail:$([\x5F] [\x5F]?) { return plain(t + tail); }
+  / [\x5F] [\x5F] i:italic_Content [\x5F] [\x5F] t:$[a-zA-Z0-9]+ {
+      return reducePlainTexts([plain('__'), ...i, plain('__'), plain(t)])[0];
     }
-  / [\x5F] [\x5F] i:italic_Content [\x5F] [\x5F] t:[a-zA-Z0-9]+ {
-      return reducePlainTexts([
-        plain('__'),
-        ...i,
-        plain('__'),
-        plain(t.join('')),
-      ])[0];
-    }
-  / [\x5F] i:italic_Content [\x5F] t:[a-zA-Z]+ {
-      return reducePlainTexts([
-        plain('_'),
-        ...i,
-        plain('_'),
-        plain(t.join('')),
-      ])[0];
+  / [\x5F] i:italic_Content [\x5F] t:$[a-zA-Z]+ {
+      return reducePlainTexts([plain('_'), ...i, plain('_'), plain(t)])[0];
     }
   / [\x5F] [\x5F] i:Italic_Content [\x5F] [\x5F] { return i; }
   / [\x5F] i:Italic_Content [\x5F] { return i; }
@@ -244,82 +253,9 @@ AnyStrike = t:[^\x0a\~ ] { return plain(t); }
 
 AnyItalic = t:[^\x0a\_ ] { return plain(t); }
 
-ListItem
-  = ("\x2A " / "\x2D ") text:ListText+ Space? { return text.join('').trim(); }
-
-Lists
-  = lists:ListItem+ {
-      return {
-        lists: lists,
-      };
-    }
-
-Blockquote = b:BlockquoteItem+ { return quote(b); }
-
-BlockquoteItem = "> " p:Paragraph { return p; }
-
-// - [ ] this is an incomplete item
-// - [x] this is a complete item
-TaskList = t:TaskItem+ { return tasks(t); }
-
-TaskItem
-  = "- [x] " text:Inline { return task(text, true); }
-  / "- [ ] " text:Inline { return task(text, false); }
-
-UnorderedList
-  = UnorderedList_
-  / UnorderedList__
-
-UnorderedList_ = lists:UnorderedListItem_+ { return unorderedList(lists); }
-
-UnorderedList__ = lists:UnorderedListItem__+ { return unorderedList(lists); }
-
-UnorderedListItem_ = "- " text:Inline { return listItem(text); }
-
-UnorderedListItem__
-  = "* " text:UnorderedListItem__Inline { return listItem(text); }
-
-UnorderedListItem__Inline
-  = value:(
-      Whitespace
-      / Emoji
-      / References
-      / InlineCode
-      / AutolinkedPhone
-      / AutolinkedEmail
-      / AutolinkedURL
-      / Emphasis
-      / Color
-      / UserMention
-      / ChannelMention
-      / !"*" a:Any { return a; }
-    )+
-    !"*"
-    EndOfLine? { return reducePlainTexts(value); }
-
-OrderedList = lists:OrderedListItem+ { return orderedList(lists); }
-
-OrderedListItem = d:digits "\x2E " text:Inline { return listItem(text, d); }
-
-Codetype = t:[a-zA-Z0-9 \_\-.]+ { return t.join(''); }
-
-InlineCode
-  = "`" text:InlineCode__+ "`" { return inlineCode(plain(text.join(''))); }
+InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
 
 InlineCode__ = $(!"`" !"\n" $:.)
-
-LineCode__any = $:(!"\n" !"```" t:. { return t; })+
-
-LineCode "LineCode"
-  = text:LineCode__any { return codeLine(plain(text.join(''))); }
-  / "\n" text:LineCode__any { return codeLine(plain(text.join(''))); }
-  / "\n" !"```" { return codeLine(plain('')); }
-
-MultiplelLineCode
-  = "```" t:Codetype? "\n" value:LineCode+ "\n```" { return code(value, t); }
-
-// <www.github.com|Visit GitHub!>
-// [Visit GitHub!](www.github.com)
 
 LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
 
@@ -371,34 +307,9 @@ nmchar
   / escape
 
 string1
-  = "\"" chars:([^\n\r\f\\"] / "\\" nl:nl { return ''; } / escape)* "\"" {
-      return chars.join('');
+  = "\"" chars:$([^\n\r\f\\"] / "\\" nl:nl { return ''; } / escape)* "\"" {
+      return chars;
     }
-
-string2
-  = "'" chars:([^\n\r\f\\'] / "\\" nl:nl { return ''; } / escape)* "'" {
-      return chars.join('');
-    }
-
-string = chars:(string1 / [_a-zA-Z0-9-\n]+) { return chars.join(''); }
-
-comment = "/*" [^*]* "*"+ ([^/*] [^*]* "*"+)* "/"
-
-ident
-  = prefix:$"-"? start:nmstart chars:nmchar* {
-      return prefix + start + chars.join('');
-    }
-
-name = chars:nmchar+ { return chars.join(''); }
-
-num
-  = [+-]? ([0-9]+ / [0-9]* "." [0-9]+) ("e" [+-]? [0-9]+)? {
-      return parseFloat(text());
-    }
-
-s = [ \t\r\n\f]+
-
-w = s?
 
 nl
   = "\n"
@@ -420,9 +331,7 @@ alpha_digit
   = alpha
   / digit
 
-digit1_9 = [1-9]
-
-digits = d:digit+ { return d.join(''); }
+digits = d:$digit+
 
 safe
   = "$"
@@ -467,20 +376,6 @@ domainName
 domainNameLabel = $(domainChar domainChar+ $("-" domainChar+)*)
 
 domainChar = !"/" !"|" !">" !"<" !safe !extra !EndOfLine !Space .
-
-/**
- *
- * Color
- *
- */
-
-Color = "color:#" rgba:colorRGBATuple !anyText { return color(...rgba); }
-
-colorRGBATuple
-  = r:hexByte g:hexByte b:hexByte a:hexByte { return [r, g, b, a]; }
-  / r:hexByte g:hexByte b:hexByte { return [r, g, b]; }
-  / r:hexNible g:hexNible b:hexNible a:hexNible { return [r, g, b, a]; }
-  / r:hexNible g:hexNible b:hexNible { return [r, g, b]; }
 
 /**
  *
@@ -624,3 +519,162 @@ markChar
 
 decimalNumberChar
   = [0-9\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0BE6-\u0BEF\u0C66-\u0C6F\u0CE6-\u0CEF\u0D66-\u0D6F\u0DE6-\u0DEF\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F29\u1040-\u1049\u1090-\u1099\u17E0-\u17E9\u1810-\u1819\u1946-\u194F\u19D0-\u19D9\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\uA620-\uA629\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uA9F0-\uA9F9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19]
+
+/* KaTeX */
+
+katex = katexStart content:$(!katexEnd .)* katexEnd { return katex(content); }
+
+katexStart
+  = & { return options.katex?.parenthesisSyntax; } "\\["
+  / & { return options.katex?.dollarSyntax; } "$$"
+
+katexEnd
+  = & { return options.katex?.parenthesisSyntax; } "\\]"
+  / & { return options.katex?.dollarSyntax; } "$$"
+
+inlineKatex
+  = inlineKatexStart content:$(!inlineKatexEnd .)* inlineKatexEnd {
+      return inlineKatex(content);
+    }
+
+inlineKatexStart
+  = & { return options.katex?.parenthesisSyntax; } "\\("
+  / & { return options.katex?.dollarSyntax; } "$"
+
+inlineKatexEnd
+  = & { return options.katex?.parenthesisSyntax; } "\\)"
+  / & { return options.katex?.dollarSyntax; } "$"
+
+/* Emoticons */
+
+emoticon = & { return options.emoticons; } e:emoticonPattern { return e; }
+
+emoticonPattern
+  = e:$"<3" { return emoticon(e, 'heart'); }
+  / e:$"</3" { return emoticon(e, 'broken_heart'); }
+  / e:$(":D" / ":-D" / "=D") { return emoticon(e, 'smiley'); }
+  / e:$(">:)" / ">;)" / ">:-)" / ">=)") { return emoticon(e, 'laughing'); }
+  / e:$("':)" / "':-)" / "'=)" / "':D" / "':-D" / "'=D") {
+      return emoticon(e, 'sweat_smile');
+    }
+  / e:$(":')" / ":'-)") { return emoticon(e, 'joy'); }
+  / e:$(
+    "O:-)"
+    / "0:-3"
+    / "0:3"
+    / "0:-)"
+    / "0:)"
+    / "0;^)"
+    / "O:)"
+    / "O;-)"
+    / "O=)"
+    / "0;-)"
+    / "O:-3"
+    / "O:3"
+  ) { return emoticon(e, 'innocent'); }
+  / e:$(":)" / ":-)" / "=]" / "=)" / ":]") {
+      return emoticon(e, 'slight_smile');
+    }
+  / e:$(";)" / ";-)" / "*-)" / "*)" / ";-]" / ";]" / ";D" / ";^)") {
+      return emoticon(e, 'wink');
+    }
+  / e:$(":*" / ":-*" / "=*" / ":^*") { return emoticon(e, 'kissing_heart'); }
+  / e:$(":P" / ":-P" / "=P" / ":-\u00de" / ":\u00de" / ":-b" / ":b") {
+      return emoticon(e, 'stuck_out_tongue');
+    }
+  / e:$(">:P" / "X-P") { return emoticon(e, 'stuck_out_tongue_winking_eye'); }
+  / e:$("B-)" / "B)" / "8)" / "8-)" / "B-D" / "8-D") {
+      return emoticon(e, 'sunglasses');
+    }
+  / e:$(">:[" / ":-(" / ":(" / ":-[" / ":[" / "=(") {
+      return emoticon(e, 'disappointed');
+    }
+  / e:$(
+    ">:\\"
+    / ">:\/"
+    / ":-\/"
+    / ":-."
+    / ":\/"
+    / ":\\"
+    / "=\/"
+    / "=\\"
+    / ":L"
+    / "=L"
+  ) { return emoticon(e, 'confused'); }
+  / e:$">.<" { return emoticon(e, 'persevere'); }
+  / e:$(":'(" / ":'-(" / ";(" / ";-(") { return emoticon(e, 'cry'); }
+  / e:$(">:(" / ">:-(" / ":@") { return emoticon(e, 'angry'); }
+  / e:$(":$" / "=$") { return emoticon(e, 'flushed'); }
+  / e:$"D:" { return emoticon(e, 'fearfulc'); }
+  / e:$("':(" / "':-(" / "'=(") { return emoticon(e, 'sweat'); }
+  / e:$(":-X" / ":X" / ":-#" / ":#" / "=X" / "=#") {
+      return emoticon(e, 'no_mouth');
+    }
+  / e:$("-_-" / "-__-" / "-___-") { return emoticon(e, 'expressionless'); }
+  / e:$(":-O" / ":O" / "O_O" / ">:O") { return emoticon(e, 'open_mouth'); }
+  / e:$("#-)" / "#)" / "%-)" / "%)" / "X)" / "X-)") {
+      return emoticon(e, 'dizzy_face');
+    }
+  / e:$"(y)" { return emoticon(e, 'thumbsup'); }
+  / e:$("*\\0\/*" / "\\0\/" / "*\\O\/*" / "\\O\/") {
+      return emoticon(e, 'person_gesturing_ok');
+    }
+
+/* Unicode emojis */
+
+// Note: it's just a subset of unicode emoticons
+unicodeEmoji
+  = unicodeEmojiEmoticon
+  / unicodeEmojiSupplementalSymbolsAndPictographs
+  / $(
+    (unicodeEmojiMiscellaneousSymbolsAndPictographs [\u200D])*
+      unicodeEmojiMiscellaneousSymbolsAndPictographs
+  )
+  / unicodeEmojiTransportAndMapSymbols
+  / unicodeEmojiMiscellaneousTechnical
+  / unicodeEmojiMiscellaneousSymbols
+  / unicodeEmojiDingbats
+  / unicodeEmojiFlags
+
+unicodeEmojiEmoticon = $([\uD83D] [\uDE00-\uDE4F])
+
+unicodeEmojiSupplementalSymbolsAndPictographs = $([\uD83E] [\uDD00-\uDDFF])
+
+unicodeEmojiMiscellaneousSymbolsAndPictographs
+  = $([\uD83C] [\uDF00-\uDFFF] [\uFE00-\uFE0F]?)
+  / $([\uD83D] [\uDC00-\uDDFF] [\uFE00-\uFE0F]?)
+
+unicodeEmojiTransportAndMapSymbols = $([\uD83D] [\uDE80-\uDEFA])
+
+unicodeEmojiMiscellaneousTechnical = $([\u2300-\u23FF] [\uFE00-\uFE0F]?)
+
+unicodeEmojiMiscellaneousSymbols = $([\u2600-\u26FF] [\uFE00-\uFE0F]?)
+
+unicodeEmojiDingbats = $([\u2700-\u27BF] [\uFE00-\uFE0F]?)
+
+unicodeEmojiFlags = $([\uD83C] [\uDD00-\uDDFF] [\uD83C] [\uDD00-\uDDFF])
+
+/* Colors */
+
+color
+  = & { return options.colors; } "color:#" rgba:colorRGBATuple !anyText {
+      return color(...rgba);
+    }
+
+colorRGBATuple
+  = r:hexByte g:hexByte b:hexByte a:hexByte { return [r, g, b, a]; }
+  / r:hexByte g:hexByte b:hexByte { return [r, g, b]; }
+  / r:hexNible g:hexNible b:hexNible a:hexNible { return [r, g, b, a]; }
+  / r:hexNible g:hexNible b:hexNible { return [r, g, b]; }
+
+/* Tasks */
+
+tasks = items:task+ { return tasks(items); }
+
+task
+  = taskDone
+  / taskToDo
+
+taskDone = "- [x]" [ \t]+ text:Inline { return task(text, true); }
+
+taskToDo = "- [ ]" [ \t]+ text:Inline { return task(text, false); }

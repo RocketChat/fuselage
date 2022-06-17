@@ -1,5 +1,5 @@
 import { parser } from '../src';
-import { emoji, bigEmoji, paragraph, plain } from '../src/utils';
+import { emoji, bigEmoji, paragraph, plain, emojiUnicode } from '../src/utils';
 
 test.each([
   [':smille: asd', [paragraph([emoji('smille'), plain(' asd')])]],
@@ -42,6 +42,24 @@ test.each([
   ],
   [':smile::smile:', [bigEmoji([emoji('smile'), emoji('smile')])]],
   [':smile:', [bigEmoji([emoji('smile')])]],
+])('parses %p', (input, output) => {
+  expect(parser(input)).toMatchObject(output);
+});
+
+test.each([
+  ['😀', [bigEmoji([emojiUnicode('😀')])]],
+  ['😃', [bigEmoji([emojiUnicode('😃')])]],
+  ['🥵', [bigEmoji([emojiUnicode('🥵')])]],
+  ['🧿', [bigEmoji([emojiUnicode('🧿')])]],
+  ['🐶', [bigEmoji([emojiUnicode('🐶')])]],
+  ['🍏', [bigEmoji([emojiUnicode('🍏')])]],
+  ['⚽', [bigEmoji([emojiUnicode('⚽')])]],
+  ['⚽️', [bigEmoji([emojiUnicode('⚽️')])]],
+  ['👨‍👩‍👧‍👦', [bigEmoji([emojiUnicode('👨‍👩‍👧‍👦')])]],
+  ['🚗', [bigEmoji([emojiUnicode('🚗')])]],
+  ['⌚️', [bigEmoji([emojiUnicode('⌚️')])]],
+  ['❤️', [bigEmoji([emojiUnicode('❤️')])]],
+  ['🏳️', [bigEmoji([emojiUnicode('🏳️')])]],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });
