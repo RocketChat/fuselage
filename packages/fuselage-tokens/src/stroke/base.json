@@ -1,0 +1,15 @@
+{
+  "stroke": {
+    "extraLight": { "value": "{colors.white}" },
+    "light": { "value": "{colors.n500}" },
+    "medium": { "value": "{colors.n600}" },
+    "dark": { "value": "{colors.n700}" },
+    "extraDark": { "value": "{colors.n800}" },
+    "extraLightHighlight": { "value": "{colors.p200}" },
+    "highlight": { "value": "{colors.p500}" },
+    "extraLightError": { "value": "{colors.d200}" },
+    "error": { "value": "{colors.d500}" },
+    "warning": { "value": "{colors.w200}" },
+    "success": { "value": "{colors.s200}" }
+  }
+}

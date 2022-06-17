@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '~@rocket.chat/fuselage-tokens/typography.scss';
+@use '~@rocket.chat/fuselage-tokens/dist/typography.scss';
 @use './functions.scss';
 
 @function font-family($name) {

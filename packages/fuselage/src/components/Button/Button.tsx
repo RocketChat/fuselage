@@ -4,14 +4,16 @@ import React, { forwardRef, useMemo } from 'react';
 import Box from '../Box';
 
 export type ButtonProps = ComponentProps<typeof Box> & {
-  info?: boolean;
-  success?: boolean;
-  warning?: boolean;
-  danger?: boolean;
   primary?: boolean;
-  ghost?: boolean;
-  nude?: boolean;
-  ghostish?: boolean;
+  secondary?: boolean;
+  danger?: boolean;
+  secondaryDanger?: boolean;
+  warning?: boolean;
+  secondaryWarning?: boolean;
+  success?: boolean;
+  secondarySuccess?: boolean;
+
+  disabled?: boolean;
   small?: boolean;
   mini?: boolean;
   tiny?: boolean;
@@ -21,14 +23,14 @@ export type ButtonProps = ComponentProps<typeof Box> & {
 
 export const Button = forwardRef(function Button(
   {
-    info,
-    success,
-    warning,
-    danger,
     primary,
-    ghost,
-    nude,
-    ghostish,
+    secondary,
+    danger,
+    secondaryDanger,
+    warning,
+    secondaryWarning,
+    success,
+    secondarySuccess,
     external,
     is = 'button',
     rel: _rel,
@@ -52,25 +54,32 @@ export const Button = forwardRef(function Button(
 
   const kindAndVariantProps = useMemo(() => {
     const variant =
-      (info && 'info') ||
-      (success && 'success') ||
+      (primary && 'primary') ||
+      (secondary && 'secondary') ||
+      (danger && 'danger') ||
+      (secondaryDanger && 'secondary-danger') ||
       (warning && 'warning') ||
-      (danger && 'danger');
+      (secondaryWarning && 'secondary-warning') ||
+      (success && 'success') ||
+      (secondarySuccess && 'secondary-success');
 
-    const kind =
-      (primary && !ghost && !nude && !ghostish && 'primary') ||
-      (!primary && ghost && !nude && !ghostish && 'ghost') ||
-      (!primary && !ghost && nude && !ghostish && 'nude') ||
-      (!primary && !ghost && !nude && ghostish && 'ghostish');
-
-    if (kind || variant) {
+    if (variant) {
       return {
-        [`rcx-button--${[kind, variant].filter(Boolean).join('-')}`]: true,
+        [`rcx-button--${[variant].filter(Boolean).join('-')}`]: true,
       };
     }
 
     return {};
-  }, [danger, ghost, ghostish, info, nude, primary, success, warning]);
+  }, [
+    primary,
+    secondary,
+    secondaryDanger,
+    danger,
+    warning,
+    secondaryWarning,
+    success,
+    secondarySuccess,
+  ]);
 
   return (
     <Box

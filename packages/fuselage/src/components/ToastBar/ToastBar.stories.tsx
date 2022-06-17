@@ -59,3 +59,23 @@ export const Small = Template.bind({});
 Small.args = {
   children: 'Lorem ipsum dolor sit amet',
 };
+
+export const SuccessWithCloseButton = Template.bind({});
+SuccessWithCloseButton.args = {
+  children: 'Lorem ipsum dolor sit amet',
+  variant: 'success',
+  onClose: () => {},
+};
+
+export const ErrorWithCloseButton = Template.bind({});
+ErrorWithCloseButton.args = {
+  children: 'Lorem ipsum dolor sit amet',
+  variant: 'error',
+  onClose: () => {},
+};
+
+export const DefaultWithCloseButton = Template.bind({});
+DefaultWithCloseButton.args = {
+  children: 'Lorem ipsum dolor sit amet',
+  onClose: () => {},
+};

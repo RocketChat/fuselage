@@ -32,7 +32,7 @@
       content: '';
 
       border-radius: lengths.border-radius(2);
-      background-color: colors.neutral(300);
+      background-color: colors.stroke(extra-light);
     }
   }
 }
@@ -78,7 +78,7 @@
 .rcx-pagination__label {
   @include typography.use-font-scale(c1);
 
-  color: colors.foreground(hint);
+  color: colors.text(secondary-info);
 }
 
 .rcx-pagination__list {
@@ -96,7 +96,7 @@
   margin-inline: lengths.margin(2);
   padding: lengths.padding(4);
 
-  color: colors.foreground(hint);
+  color: colors.text(secondary-info);
 }
 
 .rcx-pagination__link {
@@ -104,7 +104,7 @@
   @include clickable;
   display: inline-flex;
 
-  color: colors.foreground(link);
+  color: colors.text(on-info);
   background: transparent;
 
   &:hover:not(.disabled):not(:disabled),
@@ -117,7 +117,7 @@
     @include typography.use-font-scale(c2);
     cursor: default;
 
-    color: colors.foreground(default);
+    color: colors.text(text);
   }
 }
 
@@ -127,11 +127,11 @@
   @include clickable;
   display: inline-flex;
 
-  color: colors.foreground(link);
+  color: colors.text(secondary-info);
   background: transparent;
 
   &.disabled,
   &:disabled {
-    color: colors.foreground(disabled);
+    color: colors.text(secondary-info);
   }
 }
