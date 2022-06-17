@@ -151,7 +151,8 @@ $-surfaces: (
 );
 
 @function surface($type) {
-  @return map.get($-surfaces, $type);
+  $color: map.get($-surfaces, $type);
+  @return var(--rcx-color-surface, $color);
 }
 
 $-text: (
