@@ -8,7 +8,7 @@
 
 .rcx-message-reactions {
   &__reaction {
-    @include button.kind-variant(buttons.$ghost);
+    @include button.kind-variant(buttons.$icon);
     @include typography.use-font-scale(c1);
     display: inline-flex;
     align-items: center;

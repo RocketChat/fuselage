@@ -4,7 +4,7 @@ import React from 'react';
 
 import * as stories from './Button.stories';
 
-const { Default, AsActionButton } = composeStories(stories);
+const { Default, AsIconButton } = composeStories(stories);
 
 describe('[Button Component]', () => {
   it('renders Button without crashing', () => {
@@ -12,6 +12,6 @@ describe('[Button Component]', () => {
   });
 
   it('renders ActionButton without crashing', () => {
-    render(<AsActionButton />);
+    render(<AsIconButton />);
   });
 });
