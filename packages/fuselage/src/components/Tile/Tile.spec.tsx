@@ -3,6 +3,8 @@ import React from 'react';
 
 import Tile from '.';
 
-it('renders without crashing', () => {
-  render(<Tile />);
+describe('[Tile Component]', () => {
+  it('renders without crashing', () => {
+    render(<Tile />);
+  });
 });

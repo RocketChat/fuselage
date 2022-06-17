@@ -3,6 +3,8 @@ import React from 'react';
 
 import { Icon } from '.';
 
-it('renders without crashing', () => {
-  render(<Icon name='chat' />);
+describe('[Icon Component]', () => {
+  it('renders without crashing', () => {
+    render(<Icon name='chat' />);
+  });
 });

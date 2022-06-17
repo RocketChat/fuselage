@@ -3,6 +3,8 @@ import React from 'react';
 
 import { StatusBullet } from '.';
 
-it('renders without crashing', () => {
-  render(<StatusBullet />);
+describe('[StatusBullet Component]', () => {
+  it('renders without crashing', () => {
+    render(<StatusBullet />);
+  });
 });

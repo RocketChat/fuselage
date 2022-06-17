@@ -3,6 +3,8 @@ import React from 'react';
 
 import { ProgressBar } from '../..';
 
-it('renders without crashing', () => {
-  render(<ProgressBar percentage={0} />);
+describe('[ProgressBar Component]', () => {
+  it('renders without crashing', () => {
+    render(<ProgressBar percentage={0} />);
+  });
 });
