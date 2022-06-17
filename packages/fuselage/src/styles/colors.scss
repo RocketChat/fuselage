@@ -279,8 +279,11 @@ $-neutral-alpha-level: (
 
 $-elevation-level: (
   1: surface-neutral-alpha(10),
-  2x: surface-neutral-alpha(8),
+  <<<<<<< HEAD 2x: surface-neutral-alpha(8),
   2y: surface-neutral-alpha(12),
+  ======= '2x': surface-neutral-alpha(8),
+  '2y': surface-neutral-alpha(12),
+  >>>>>>> f41cd0f500425b676deed9ba1912238540732b41,
 );
 
 @function elevation($level) {
