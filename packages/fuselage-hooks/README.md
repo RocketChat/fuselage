@@ -14,7 +14,7 @@
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-hooks/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-hooks/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage-hooks/peer/react?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-hooks?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage-hooks?style=flat-square)
 
-![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-hooks&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-hooks&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage-hooks&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-hooks?style=flat-square)
+![deps](https://img.shields.io/david/RocketChat/fuselage?path=packages%2Ffuselage-hooks&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/fuselage?path=packages%2Ffuselage-hooks&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/fuselage?path=packages%2Ffuselage-hooks&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-hooks?style=flat-square)
 
 <!--/header-->
 
@@ -25,11 +25,11 @@
 Firstly, install the peer dependencies (prerequisites):
 
 ```sh
-npm i @rocket.chat/fuselage-tokens react use-subscription
+npm i @rocket.chat/fuselage-tokens react
 
 # or, if you are using yarn:
 
-yarn add @rocket.chat/fuselage-tokens react use-subscription
+yarn add @rocket.chat/fuselage-tokens react
 ```
 
 Add `@rocket.chat/fuselage-hooks` as a dependency:
@@ -49,7 +49,7 @@ yarn add @rocket.chat/fuselage-hooks
 <!--contributing(msg)-->
 
 Contributions, issues, and feature requests are welcome!<br />
-Feel free to check the [issues](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
+Feel free to check the [issues](https://github.com/RocketChat/fuselage/issues).
 
 <!--/contributing(msg)-->
 

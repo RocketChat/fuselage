@@ -25,7 +25,7 @@
 
     color: colors.foreground(default);
     border-radius: 2px;
-    background-color: colors.surface();
+    background-color: colors.surface(light);
     @include typography.use-font-scale(p2);
   }
 

@@ -1,11 +1,53 @@
 @use 'sass:map';
+@use '../../styles/functions';
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
 
-@mixin -variant($colors) {
-  color: map.get($colors, color);
-  background-color: map.get($colors, background-color);
-}
+// neutral
+$banner-colors-neutral-color: functions.theme(
+  'banner-colors-neutral-color',
+  colors.text(on-neutral)
+);
+$banner-colors-neutral-background-color: functions.theme(
+  'banner-colors-neutral-background-color',
+  colors.surface(neutral)
+);
+// info
+$banner-colors-info-color: functions.theme(
+  'banner-colors-info-color',
+  colors.text(on-info)
+);
+$banner-colors-info-background-color: functions.theme(
+  'banner-colors-info-background-color',
+  colors.surface(info)
+);
+// success
+$banner-colors-success-color: functions.theme(
+  'banner-colors-success-color',
+  colors.text(on-success)
+);
+$banner-colors-success-background-color: functions.theme(
+  'banner-colors-success-background-color',
+  colors.surface(success)
+);
+// warning
+$banner-colors-warning-color: functions.theme(
+  'banner-colors-warning-color',
+  colors.text(on-warning)
+);
+$banner-colors-warning-background-color: functions.theme(
+  'banner-colors-warning-background-color',
+  colors.surface(warning)
+);
+// danger
+$banner-colors-danger-color: functions.theme(
+  'banner-colors-danger-color',
+  colors.text(on-danger)
+);
+$banner-colors-danger-background-color: functions.theme(
+  'banner-colors-danger-background-color',
+  colors.surface(danger)
+);
 
 .rcx-banner {
   display: flex;
@@ -32,48 +74,28 @@
   }
 
   &--neutral {
-    @include -variant(
-      (
-        background-color: colors.neutral(100),
-        color: colors.neutral(800),
-      )
-    );
+    color: $banner-colors-neutral-color;
+    background-color: $banner-colors-neutral-background-color;
   }
 
   &--info {
-    @include -variant(
-      (
-        background-color: colors.info(200),
-        color: colors.info(600),
-      )
-    );
+    color: $banner-colors-info-color;
+    background-color: $banner-colors-info-background-color;
   }
 
   &--success {
-    @include -variant(
-      (
-        background-color: colors.success(200),
-        color: colors.success(800),
-      )
-    );
+    color: $banner-colors-success-color;
+    background-color: $banner-colors-success-background-color;
   }
 
   &--warning {
-    @include -variant(
-      (
-        background-color: colors.warning(200),
-        color: colors.warning(900),
-      )
-    );
+    color: $banner-colors-warning-color;
+    background-color: $banner-colors-warning-background-color;
   }
 
   &--danger {
-    @include -variant(
-      (
-        background-color: colors.danger(200),
-        color: colors.danger(600),
-      )
-    );
+    color: $banner-colors-danger-color;
+    background-color: $banner-colors-danger-background-color;
   }
 
   &__icon {

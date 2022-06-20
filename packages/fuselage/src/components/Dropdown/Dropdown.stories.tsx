@@ -1,6 +1,8 @@
+import type { ComponentStory } from '@storybook/react';
 import React, { useRef } from 'react';
 
-import { ActionButton, Box } from '..';
+import { Box } from '..';
+import { IconButton } from '../Button';
 import Option from '../Options/Option/Option';
 import { Dropdown } from './Dropdown';
 
@@ -12,7 +14,7 @@ export default {
   },
 };
 
-export const Default = () => {
+export const Default: ComponentStory<typeof Dropdown> = () => {
   const anchor = useRef(null);
   const target = useRef(null);
 
@@ -26,7 +28,7 @@ export const Default = () => {
       justifyContent='center'
       alignItems='center'
     >
-      <ActionButton ref={anchor} icon='doner' />
+      <IconButton secondary small ref={anchor} icon='doner' />
       <Dropdown ref={target} reference={anchor} placement='bottom-end'>
         {list.map((_, i) => (
           <Option key={i}>Example {i + 1}</Option>

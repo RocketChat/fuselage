@@ -12,7 +12,7 @@
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage?style=flat-square)
 
-![deps](https://img.shields.io/david/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/Rocket.Chat.Fuselage?path=packages%2Ffuselage&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage?style=flat-square)
+![deps](https://img.shields.io/david/RocketChat/fuselage?path=packages%2Ffuselage&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/fuselage?path=packages%2Ffuselage&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/fuselage?path=packages%2Ffuselage&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage?style=flat-square)
 
 <!--/header-->
 
@@ -47,7 +47,7 @@ yarn add @rocket.chat/fuselage
 <!--contributing(msg)-->
 
 Contributions, issues, and feature requests are welcome!<br />
-Feel free to check the [issues](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues).
+Feel free to check the [issues](https://github.com/RocketChat/fuselage/issues).
 
 <!--/contributing(msg)-->
 

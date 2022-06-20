@@ -1,20 +1,20 @@
 {
   "name": "@rocket.chat/message-parser",
   "description": "Rocket.Chat parser for messages",
-  "version": "0.31.12",
+  "version": "0.31.13",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
   "license": "MIT",
-  "homepage": "https://github.com/RocketChat/Rocket.Chat.Fuselage#readme",
+  "homepage": "https://github.com/RocketChat/fuselage#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/message-parser"
   },
   "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "main": "messageParser.js",
   "exports": {
@@ -67,7 +67,7 @@
     "lint-all": "workspace:~",
     "lint-staged": "~12.3.3",
     "npm-run-all": "^4.1.5",
-    "peggy": "^1.2.0",
+    "peggy": "^2.0.1",
     "prettier": "~2.5.1",
     "prettier-plugin-pegjs": "~0.5.0",
     "rimraf": "^3.0.2",

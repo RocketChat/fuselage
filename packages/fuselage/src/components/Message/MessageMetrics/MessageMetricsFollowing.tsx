@@ -1,13 +1,9 @@
 import React from 'react';
 
-import { ActionButton } from '../..';
+import { IconButton } from '../../Button';
 
 type MessageMetricsFollowingProps = { name: 'bell' | 'bell-off' };
 
 export const MessageMetricsFollowing = ({
   name,
-}: MessageMetricsFollowingProps) => (
-  <ActionButton
-    {...({ color: 'info', small: true, ghost: true, icon: name } as any)}
-  />
-);
+}: MessageMetricsFollowingProps) => <IconButton small icon={name} />;

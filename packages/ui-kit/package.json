@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/ui-kit",
-  "version": "0.31.12",
+  "version": "0.31.13",
   "description": "Interactive UI elements for Rocket.Chat Apps",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -10,10 +10,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Fuselage.git"
+    "url": "git+https://github.com/RocketChat/fuselage.git"
   },
   "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Fuselage/issues"
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

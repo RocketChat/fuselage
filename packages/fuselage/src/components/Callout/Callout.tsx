@@ -10,12 +10,7 @@ type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
   children?: ReactNode;
 };
 
-export const Callout = ({
-  children,
-  title,
-  type = 'info',
-  ...props
-}: CalloutProps) => {
+export const Callout = ({ children, title, type, ...props }: CalloutProps) => {
   const iconName: 'info-circled' | 'checkmark-circled' | 'warning' | 'ban' =
     (type === 'info' && 'info-circled') ||
     (type === 'success' && 'checkmark-circled') ||

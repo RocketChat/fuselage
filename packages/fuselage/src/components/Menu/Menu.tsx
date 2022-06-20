@@ -1,12 +1,13 @@
 import type { Placements } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps, ElementType, ReactNode } from 'react';
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useEffect } from 'react';
 
-import { ActionButton, PositionAnimated, Options, useCursor } from '..';
+import { PositionAnimated, Options, useCursor } from '..';
 import type Box from '../Box';
+import { IconButton } from '../Button/IconButton';
 import type { OptionType } from '../Options';
 
-type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
+type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
   options: {
     [id: string]: {
       type?: 'option' | 'heading' | 'divider';
@@ -17,7 +18,8 @@ type MenuProps = Omit<ComponentProps<typeof ActionButton>, 'icon'> & {
   optionWidth?: ComponentProps<typeof Box>['width'];
   placement?: Placements;
   renderItem?: ElementType;
-  icon?: ComponentProps<typeof ActionButton>['icon'];
+  icon?: ComponentProps<typeof IconButton>['icon'];
+  maxHeight?: string | number;
 };
 
 const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
@@ -74,11 +76,17 @@ export const Menu = ({
     [hide, reset, options]
   );
 
+  useEffect(() => {
+    if (visible === 'hidden') {
+      ref.current?.classList.remove('focus-visible');
+    }
+  }, [visible]);
+
   return (
     <>
-      <ActionButton
+      <IconButton
+        data-testid='menu'
         ref={ref}
-        ghost
         small={small}
         tiny={tiny}
         mini={mini}
