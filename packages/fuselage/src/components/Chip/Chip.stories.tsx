@@ -14,13 +14,13 @@ const Template: ComponentStory<typeof Chip> = (args) => (
   <Chip {...args}>Marie Rowe</Chip>
 );
 
-export const Example = Template.bind({});
-Example.args = {
+export const Default = Template.bind({});
+
+export const WithThumbUrl = Template.bind({});
+WithThumbUrl.args = {
   thumbUrl: exampleAvatar,
   onClick: action('click'),
 };
-
-export const Default = Template.bind({});
 
 export const Dismissible = Template.bind({});
 Dismissible.args = {

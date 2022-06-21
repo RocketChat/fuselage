@@ -11,10 +11,8 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { ButtonGroup, Icon } from '../..';
+import { Box, Button, ButtonGroup, Icon, IconButton } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import Box from '../Box';
-import Button from './Button';
 
 export default {
   title: 'Inputs/Button',
@@ -38,7 +36,9 @@ export default {
   },
 } as ComponentMeta<typeof ButtonGroup>;
 
-export const Default = () => <Button onClick={action('click')}>Button</Button>;
+export const Default: ComponentStory<typeof Button> = () => (
+  <Button onClick={action('click')}>Button</Button>
+);
 
 export const Square: ComponentStory<typeof Button> = () => (
   <Button square>
@@ -231,3 +231,12 @@ export const States = () => (
     />
   </>
 );
+
+export const AsIconButton: ComponentStory<typeof IconButton> = (args) => (
+  <IconButton {...args} icon='arrow-back' onClick={action('click')} />
+);
+
+// export const Variants = Group.bind({});
+// export const Variants = Group.bind({});
+// export const Variants = Group.bind({});
+// export const Variants = Group.bind({});

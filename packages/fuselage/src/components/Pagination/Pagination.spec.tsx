@@ -3,6 +3,8 @@ import React from 'react';
 
 import { Pagination } from '.';
 
-it('renders without crashing', () => {
-  render(<Pagination count={0} />);
+describe('[Pagination Component]', () => {
+  it('renders without crashing', () => {
+    render(<Pagination count={0} />);
+  });
 });
