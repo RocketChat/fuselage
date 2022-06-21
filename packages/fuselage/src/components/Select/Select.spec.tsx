@@ -7,6 +7,8 @@ import { options } from './Select.stories';
 
 withResizeObserverMock();
 
-it('renders without crashing', () => {
-  render(<Select options={options} onChange={() => undefined} />);
+describe('[Select Component]', () => {
+  it('renders without crashing', () => {
+    render(<Select options={options} onChange={() => undefined} />);
+  });
 });

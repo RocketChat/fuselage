@@ -35,7 +35,7 @@ export default {
   },
 } as ComponentMeta<typeof ButtonGroup>;
 
-export const Default = () => (
+export const Default: ComponentStory<typeof ButtonGroup> = () => (
   <ButtonGroup>
     <Button>Button 1</Button>
     <Button>Button 2</Button>

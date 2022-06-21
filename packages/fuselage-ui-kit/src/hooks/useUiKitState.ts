@@ -30,6 +30,7 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
   state: UiKitState<TElement>,
   action: (
     pseudoEvent?:
+      | Event
       | { target: EventTarget }
       | { target: { value: UiKit.ActionOf<TElement> } }
   ) => void
@@ -51,46 +52,59 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
   const [value, setValue] = useSafely(useState(_value));
   const [loading, setLoading] = useSafely(useState(false));
 
-  const actionFunction = useMutableCallback(async ({ target: { value } }) => {
+  const actionFunction = useMutableCallback(async (e) => {
+    const {
+      target: { value },
+    } = e;
     setLoading(true);
     setValue(value);
-    state && (await state({ blockId, appId, actionId, value, viewId }));
-    await action({
-      blockId,
-      appId: appId || appIdFromContext,
-      actionId,
-      value,
-      viewId,
-    });
+    state && (await state({ blockId, appId, actionId, value, viewId }, e));
+    await action(
+      {
+        blockId,
+        appId: appId || appIdFromContext,
+        actionId,
+        value,
+        viewId,
+      },
+      e
+    );
     setLoading(false);
   });
 
   // Used for triggering actions on text inputs. Removing the load state
   // makes the text input field remain focused after running the action
-  const noLoadStateActionFunction = useMutableCallback(
-    async ({ target: { value } }) => {
-      setValue(value);
-      state && (await state({ blockId, appId, actionId, value, viewId }));
-      await action({
+  const noLoadStateActionFunction = useMutableCallback(async (e) => {
+    setValue(value);
+    state && (await state({ blockId, appId, actionId, value, viewId }, e));
+    await action(
+      {
         blockId,
         appId: appId || appIdFromContext,
         actionId,
         value,
         viewId,
         dispatchActionConfig,
-      });
-    }
-  );
+      },
+      e
+    );
+  });
 
-  const stateFunction = useMutableCallback(async ({ target: { value } }) => {
+  const stateFunction = useMutableCallback(async (e) => {
+    const {
+      target: { value },
+    } = e;
     setValue(value);
-    await state({
-      blockId,
-      appId: appId || appIdFromContext,
-      actionId,
-      value,
-      viewId,
-    });
+    await state(
+      {
+        blockId,
+        appId: appId || appIdFromContext,
+        actionId,
+        value,
+        viewId,
+      },
+      e
+    );
   });
 
   const result: UiKitState = useMemo(

@@ -3,6 +3,8 @@ import React from 'react';
 
 import { Label } from '.';
 
-it('renders without crashing', () => {
-  render(<Label />);
+describe('[Label Component]', () => {
+  it('renders without crashing', () => {
+    render(<Label />);
+  });
 });

@@ -12,11 +12,11 @@ test.each([
 `.trim(),
     [
       orderedList([
-        listItem([plain('First item')], '7'),
-        listItem([plain('Second item')], '2'),
-        listItem([plain('Third item')], '8'),
-        listItem([bold([plain('Fourth item')])], '4'),
-        listItem([bold([plain('Fifteenth item')])], '15'),
+        listItem([plain('First item')], 7),
+        listItem([plain('Second item')], 2),
+        listItem([plain('Third item')], 8),
+        listItem([bold([plain('Fourth item')])], 4),
+        listItem([bold([plain('Fifteenth item')])], 15),
       ]),
     ],
   ],

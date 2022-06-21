@@ -1,12 +1,12 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import Option from '.';
+import Option, { OptionContent } from '.';
 
 it('renders without crashing', () => {
   render(
     <Option>
-      <Option.Content>Lorem Ipsum Lorem</Option.Content>
+      <OptionContent>Lorem Ipsum Lorem</OptionContent>
     </Option>
   );
 });

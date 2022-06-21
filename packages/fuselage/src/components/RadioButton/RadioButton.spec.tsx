@@ -3,6 +3,8 @@ import React from 'react';
 
 import { RadioButton } from '.';
 
-it('renders without crashing', () => {
-  render(<RadioButton />);
+describe('RadioButton Component', () => {
+  it('renders without crashing', () => {
+    render(<RadioButton />);
+  });
 });

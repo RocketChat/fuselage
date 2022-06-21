@@ -3,6 +3,8 @@ import React from 'react';
 
 import { Skeleton } from '.';
 
-it('renders without crashing', () => {
-  render(<Skeleton />);
+describe('[Skeleton Component]', () => {
+  it('renders without crashing', () => {
+    render(<Skeleton />);
+  });
 });

@@ -1,5 +1,11 @@
 import { parser } from '../src';
-import { heading, mentionChannel, paragraph, plain } from '../src/utils';
+import {
+  heading,
+  lineBreak,
+  mentionChannel,
+  paragraph,
+  plain,
+} from '../src/utils';
 
 test.each([
   ['# h1', [heading([plain('h1')], 1)]],
@@ -45,6 +51,8 @@ test.each([
   ['####Hello', [paragraph([plain('####Hello')])]],
   ['####Hello####', [paragraph([plain('####Hello####')])]],
   ['He####llo', [paragraph([plain('He####llo')])]],
+  ['# Hello\n', [heading([plain('Hello')], 1), lineBreak()]],
+  ['# # Hello\n', [heading([plain('# Hello')], 1), lineBreak()]],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });

@@ -11,8 +11,14 @@ type ActionParams = {
 };
 
 type UiKitContext = {
-  action: (state: ActionParams) => Promise<void> | void;
-  state: (state: ActionParams) => Promise<void> | void;
+  action: (
+    state: ActionParams,
+    event: Parameters<React.MouseEventHandler<HTMLElement>>[0]
+  ) => Promise<void> | void;
+  state: (
+    state: ActionParams,
+    event: Parameters<React.MouseEventHandler<HTMLElement>>[0]
+  ) => Promise<void> | void;
   appId: string;
   errors?: Record<string, string>;
   values: Record<string, { value: string } | undefined>;

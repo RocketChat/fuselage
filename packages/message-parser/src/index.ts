@@ -1,8 +1,25 @@
-import type { MarkdownAST } from './definitions';
-import { parse } from './grammar.pegjs';
+import type { Root } from './definitions';
+import * as grammar from './grammar.pegjs';
 
 export * from './definitions';
 
 export { isNodeOfType } from './guards';
-export { MarkdownAST };
-export const parser = (input: string): MarkdownAST => parse(input);
+
+export type Options = {
+  colors?: boolean;
+  emoticons?: boolean;
+  katex?: {
+    dollarSyntax?: boolean;
+    parenthesisSyntax?: boolean;
+  };
+};
+
+export const parse = (input: string, options?: Options): Root =>
+  grammar.parse(input, options);
+
+export {
+  /** @deprecated */
+  parse as parser,
+  /** @deprecated */
+  Root as MarkdownAST,
+};
