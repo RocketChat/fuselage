@@ -75,6 +75,9 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
   // Used for triggering actions on text inputs. Removing the load state
   // makes the text input field remain focused after running the action
   const noLoadStateActionFunction = useMutableCallback(async (e) => {
+    const {
+      target: { value },
+    } = e;
     setValue(value);
     state && (await state({ blockId, appId, actionId, value, viewId }, e));
     await action(
