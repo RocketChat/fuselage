@@ -1,3 +1,4 @@
+import type { InputElementDispatchAction } from '@rocket.chat/ui-kit';
 import { createContext, useContext } from 'react';
 
 type ActionParams = {
@@ -6,6 +7,7 @@ type ActionParams = {
   actionId: string;
   value: unknown;
   viewId?: string;
+  dispatchActionConfig?: InputElementDispatchAction[];
 };
 
 type UiKitContext = {
