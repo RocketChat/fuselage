@@ -98,15 +98,25 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
     [loading, setLoading, error, value]
   );
 
-  if (
-    context === UiKit.BlockContext.FORM &&
-    rest.dispatchActionConfig &&
-    rest.dispatchActionConfig.length > 0 &&
-    rest.dispatchActionConfig.includes(
-      UiKit.InputElementDispatchAction.ON_CHARACTER_ENTERED
-    )
-  ) {
-    return [result, noLoadStateActionFunction];
+  if (context === UiKit.BlockContext.FORM) {
+    if (
+      rest.type === 'plain_text_input' &&
+      Array.isArray(rest?.dispatchActionConfig) &&
+      rest.dispatchActionConfig.includes(
+        UiKit.InputElementDispatchAction.ON_CHARACTER_ENTERED
+      )
+    ) {
+      return [result, noLoadStateActionFunction];
+    }
+
+    if (
+      Array.isArray(rest?.dispatchActionConfig) &&
+      rest.dispatchActionConfig.includes(
+        UiKit.InputElementDispatchAction.ON_ITEM_SELECTED
+      )
+    ) {
+      return [result, actionFunction];
+    }
   }
 
   if (
