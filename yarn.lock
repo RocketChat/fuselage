@@ -5911,7 +5911,7 @@ __metadata:
     bump: "workspace:~"
     eslint: ~8.8.0
     jest: ~27.5.1
-    lamejs: "git+https://git@github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab"
+    lamejs: "git+https://github.com/zhuker/lamejs.git#commit=582bbba6a12f981b984d8fb9e1874499fed85675"
     lint-all: "workspace:~"
     lint-staged: ~12.3.3
     prettier: ~2.5.1
@@ -18912,12 +18912,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lamejs@git+https://git@github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab":
-  version: 1.2.0
-  resolution: "lamejs@https://git@github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab"
+"lamejs@git+https://github.com/zhuker/lamejs.git#commit=582bbba6a12f981b984d8fb9e1874499fed85675":
+  version: 1.2.1
+  resolution: "lamejs@https://github.com/zhuker/lamejs.git#commit=582bbba6a12f981b984d8fb9e1874499fed85675"
   dependencies:
     use-strict: 1.0.1
-  checksum: ebf4cf6699b71a06e84975f48343fb0cd70bfea2c9a7d0c307484da8b13444762f0fcade70d6b1b59ac9816c26588629f0ce0a4766a76fad5666d30a47fca6ba
+  checksum: fa829e0c170a65573e653b4d908a44aaf06a50e1bbade3b1217a300a03ccd59a537e294e2d924a584f9d70c7726a12d4c3af9c675436d48d08be5fb94b5eb400
   languageName: node
   linkType: hard
 
