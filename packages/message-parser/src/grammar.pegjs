@@ -135,8 +135,8 @@ Inline
       / Image
       / References
       / AutolinkedPhone
-      / AutolinkedURL
       / AutolinkedEmail
+      / AutolinkedURL
       / Emphasis
       / color
       / emoticon
@@ -151,7 +151,7 @@ Whitespace = w:$" "+ { return plain(w); }
 
 Escaped = "\\" t:$. { return plain(t); }
 
-Any = !EndOfLine t:$. { return plain(t); }
+Any = !EndOfLine t:$. u:$URL? { return plain(t + u); }
 
 // = Line
 
@@ -414,10 +414,18 @@ URL
       g:urlPath?
       h:urlQuery?
   )
+  / $(
+    urlAuthorityHost
+      p:urlPath?
+      q:urlQuery?
+      f:urlFragment?
+      g:urlPath?
+      h:urlQuery?
+  )
 
 urlScheme
   = $(
-    [A-Za-z]
+    [[A-Za-z]
       [A-Za-z0-9+.-]
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?

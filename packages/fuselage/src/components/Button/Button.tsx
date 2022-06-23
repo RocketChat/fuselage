@@ -57,7 +57,6 @@ export const Button = forwardRef(function Button(
       (danger && 'danger') ||
       (secondary && 'secondary');
 
-    console.log(variant);
     if (variant) {
       return {
         [`rcx-button--${[variant].filter(Boolean).join('-')}`]: true,
@@ -71,6 +70,7 @@ export const Button = forwardRef(function Button(
     <Box
       animated
       is={is}
+      type='button'
       rcx-button
       {...kindAndVariantProps}
       rcx-button--small={small}
