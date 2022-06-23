@@ -52,7 +52,7 @@ $button-colors-primary-disabled-border-color: theme(
 );
 $button-colors-primary-disabled-color: theme(
   'button-colors-primary-disabled-color',
-  colors.button(on-disabled)
+  colors.button(on-primary)
 );
 
 // secondary
@@ -160,7 +160,7 @@ $button-colors-danger-disabled-border-color: theme(
 );
 $button-colors-danger-disabled-color: theme(
   'button-colors-danger-disabled-color',
-  colors.button(on-disabled)
+  colors.button(on-danger)
 );
 
 // secondary-danger
