@@ -119,18 +119,14 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
     if (
       rest.type === 'plain_text_input' &&
       Array.isArray(rest?.dispatchActionConfig) &&
-      rest.dispatchActionConfig.includes(
-        UiKit.InputElementDispatchAction.ON_CHARACTER_ENTERED
-      )
+      rest.dispatchActionConfig.includes('on_character_entered')
     ) {
       return [result, noLoadStateActionFunction];
     }
 
     if (
       Array.isArray(rest?.dispatchActionConfig) &&
-      rest.dispatchActionConfig.includes(
-        UiKit.InputElementDispatchAction.ON_ITEM_SELECTED
-      )
+      rest.dispatchActionConfig.includes('on_item_selected')
     ) {
       return [result, actionFunction];
     }
