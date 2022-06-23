@@ -5,6 +5,6 @@ import Button from '../Button';
 
 const ContextualBarButton = (
   props: ComponentProps<typeof Button>
-): ReactElement => <Button small square flexShrink={0} ghost {...props} />;
+): ReactElement => <Button small square flexShrink={0} {...props} />;
 
 export default memo(ContextualBarButton);

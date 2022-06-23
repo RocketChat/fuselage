@@ -11,8 +11,6 @@ const ContextualBarAction = ({
   name: ComponentProps<typeof Icon>['name'];
   title?: string;
   onClick?: MouseEventHandler<HTMLOrSVGElement>;
-}): ReactElement => (
-  <ActionButton flexShrink={0} icon={name} ghost {...props} tiny />
-);
+}): ReactElement => <ActionButton flexShrink={0} icon={name} {...props} tiny />;
 
 export default memo(ContextualBarAction);
