@@ -18,13 +18,9 @@ type IconButtonProps = ComponentProps<typeof Box> &
     primary?: boolean;
     secondary?: boolean;
     info?: boolean;
-    secondaryInfo?: boolean;
     danger?: boolean;
-    secondaryDanger?: boolean;
     warning?: boolean;
-    secondaryWarning?: boolean;
     success?: boolean;
-    secondarySuccess?: boolean;
   };
 
 const getSize = ({ mini }: ButtonSize) => (mini ? 'x16' : 'x20');
@@ -37,13 +33,9 @@ export const IconButton = forwardRef(
       primary,
       info,
       secondary,
-      secondaryInfo,
       danger,
-      secondaryDanger,
       warning,
-      secondaryWarning,
       success,
-      secondarySuccess,
       square,
       small,
       tiny,
@@ -54,15 +46,15 @@ export const IconButton = forwardRef(
   ) => {
     const kindAndVariantProps = useMemo(() => {
       const variant =
+        (secondary && info && 'secondary-info') ||
+        (secondary && danger && 'secondary-danger') ||
+        (secondary && warning && 'secondary-warning') ||
+        (secondary && success && 'secondary-success') ||
         ((primary || info) && 'info') ||
-        (secondary && 'secondary') ||
-        (secondaryInfo && 'secondary-info') ||
-        (danger && 'danger') ||
-        (secondaryDanger && 'secondary-danger') ||
-        (warning && 'warning') ||
-        (secondaryWarning && 'secondary-warning') ||
         (success && 'success') ||
-        (secondarySuccess && 'secondary-success');
+        (warning && 'warning') ||
+        (danger && 'danger') ||
+        (secondary && 'secondary');
 
       if (variant) {
         return {
@@ -71,18 +63,7 @@ export const IconButton = forwardRef(
       }
 
       return {};
-    }, [
-      primary,
-      info,
-      secondary,
-      secondaryInfo,
-      danger,
-      secondaryDanger,
-      warning,
-      secondaryWarning,
-      success,
-      secondarySuccess,
-    ]);
+    }, [primary, info, secondary, danger, warning, success]);
 
     return (
       <Box
