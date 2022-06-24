@@ -625,7 +625,13 @@ emoticonPattern
 // Note: it's just a subset of unicode emoticons
 unicodeEmoji
   = unicodeEmojiEmoticon
-  / unicodeEmojiSupplementalSymbolsAndPictographs
+  / $(
+    unicodeEmojiSupplementalSymbolsAndPictographs
+      (
+        unicodeEmojiMiscellaneousSymbolsAndPictographs
+          ([\u200D] unicodeEmojiMiscellaneousSymbolsAndPictographs)*
+      )?
+  )
   / $(
     (unicodeEmojiMiscellaneousSymbolsAndPictographs [\u200D])*
       unicodeEmojiMiscellaneousSymbolsAndPictographs
