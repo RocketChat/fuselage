@@ -35,7 +35,7 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
       | { target: { value: UiKit.ActionOf<TElement> } }
   ) => void
 ] = (rest, context) => {
-  const { blockId, actionId, appId } = rest;
+  const { blockId, actionId, appId, dispatchActionConfig } = rest;
   const {
     action,
     appId: appIdFromContext,
@@ -72,6 +72,27 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
     setLoading(false);
   });
 
+  // Used for triggering actions on text inputs. Removing the load state
+  // makes the text input field remain focused after running the action
+  const noLoadStateActionFunction = useMutableCallback(async (e) => {
+    const {
+      target: { value },
+    } = e;
+    setValue(value);
+    state && (await state({ blockId, appId, actionId, value, viewId }, e));
+    await action(
+      {
+        blockId,
+        appId: appId || appIdFromContext,
+        actionId,
+        value,
+        viewId,
+        dispatchActionConfig,
+      },
+      e
+    );
+  });
+
   const stateFunction = useMutableCallback(async (e) => {
     const {
       target: { value },
@@ -93,6 +114,23 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
     () => ({ loading, setLoading, error, value }),
     [loading, setLoading, error, value]
   );
+
+  if (context === UiKit.BlockContext.FORM) {
+    if (
+      rest.type === 'plain_text_input' &&
+      Array.isArray(rest?.dispatchActionConfig) &&
+      rest.dispatchActionConfig.includes('on_character_entered')
+    ) {
+      return [result, noLoadStateActionFunction];
+    }
+
+    if (
+      Array.isArray(rest?.dispatchActionConfig) &&
+      rest.dispatchActionConfig.includes('on_item_selected')
+    ) {
+      return [result, actionFunction];
+    }
+  }
 
   if (
     context &&
