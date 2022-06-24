@@ -60,6 +60,7 @@ test.each([
   ['⌚️', [bigEmoji([emojiUnicode('⌚️')])]],
   ['❤️', [bigEmoji([emojiUnicode('❤️')])]],
   ['🏳️', [bigEmoji([emojiUnicode('🏳️')])]],
+  ['🧑🏾‍💻', [bigEmoji([emojiUnicode('🧑🏾‍💻')])]],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });
