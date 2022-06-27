@@ -34,6 +34,8 @@ export { InputBlock } from './blocks/layout/InputBlock';
 export { SectionBlock } from './blocks/layout/SectionBlock';
 export { LayoutBlock } from './blocks/LayoutBlock';
 
+export { InputElementDispatchAction } from './blocks/InputElementDispatchAction';
+
 export { Block } from './blocks/Block';
 export { RenderableBlock } from './blocks/RenderableBlock';
 

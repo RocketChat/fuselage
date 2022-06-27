@@ -1,30 +1,25 @@
-import type { BuildOptionsBase } from 'peggy';
+import type {
+  BuildOptionsBase,
+  OutputFormatAmdCommonjsEs,
+  OutputFormatBare,
+  OutputFormatGlobals,
+  OutputFormatUmd,
+  SourceOptionsBase,
+} from 'peggy';
 import peggy from 'peggy';
 import type { LoaderContext } from 'webpack';
 
-type Options = BuildOptionsBase &
-  (
-    | {
-        format: 'es';
-        dependencies?: any;
-      }
-    | {
-        format: 'amd' | 'commonjs';
-        dependencies?: any;
-      }
-    | {
-        format: 'umd';
-        dependencies?: any;
-        exportVar?: any;
-      }
-    | {
-        format: 'globals';
-        exportVar?: any;
-      }
-    | {
-        format?: 'bare';
-      }
-  );
+type Options =
+  | BuildOptionsBase &
+      (
+        | Omit<
+            OutputFormatAmdCommonjsEs<'source'>,
+            keyof SourceOptionsBase<'source'>
+          >
+        | Omit<OutputFormatUmd<'source'>, keyof SourceOptionsBase<'source'>>
+        | Omit<OutputFormatGlobals<'source'>, keyof SourceOptionsBase<'source'>>
+        | Omit<OutputFormatBare<'source'>, keyof SourceOptionsBase<'source'>>
+      );
 
 function peggyLoader(
   this: LoaderContext<Options>,

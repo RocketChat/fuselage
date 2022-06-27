@@ -2,16 +2,18 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use '~@rocket.chat/fuselage-tokens/colors.scss' as token-colors;
+@use '~@rocket.chat/fuselage-tokens/dist/colors.scss' as token-colors;
 
 $-map-type-to-prefix: (
   neutral: 'n',
-  primary: 'b',
-  info: 'b',
-  success: 'g',
-  warning: 'y',
+  primary: 'p',
+  info: 'i',
+  success: 's',
+  warning: 'w',
   warning-alternative: 'o',
-  danger: 'r',
+  danger: 'd',
+  service-1: 's1-',
+  service-2: 's2-',
 );
 
 @function _get-palette-color($type, $grade, $alpha) {
@@ -89,8 +91,14 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-@function surface() {
-  @return var(--rcx-color-surface, white);
+@function service-1($grade, $alpha: null) {
+  $pair: _get-palette-color(service-1, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
+@function service-2($grade, $alpha: null) {
+  $pair: _get-palette-color(service-2, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
 $-foreground-colors: (
@@ -99,16 +107,16 @@ $-foreground-colors: (
   hint: map.get(token-colors.$colors, n600),
   disabled: map.get(token-colors.$colors, n400),
   alternative: white,
-  primary: map.get(token-colors.$colors, b500),
-  success: map.get(token-colors.$colors, g500),
-  success-light: map.get(token-colors.$colors, g200),
-  danger: map.get(token-colors.$colors, r500),
-  warning: map.get(token-colors.$colors, y700),
-  warning-alternative: map.get(token-colors.$colors, y500),
-  highlight: map.get(token-colors.$colors, y100),
-  link: map.get(token-colors.$colors, b500),
-  visited-link: map.get(token-colors.$colors, p500),
-  active-link: map.get(token-colors.$colors, r500),
+  primary: map.get(token-colors.$colors, p500),
+  success: map.get(token-colors.$colors, s500),
+  success-light: map.get(token-colors.$colors, s200),
+  danger: map.get(token-colors.$colors, d500),
+  warning: map.get(token-colors.$colors, w700),
+  warning-alternative: map.get(token-colors.$colors, w500),
+  highlight: map.get(token-colors.$colors, w100),
+  link: map.get(token-colors.$colors, p500),
+  visited-link: map.get(token-colors.$colors, s2-500),
+  active-link: map.get(token-colors.$colors, d500),
 );
 
 @function _get-foreground-color($type) {
@@ -127,3 +135,154 @@ $-foreground-colors: (
 }
 
 $foreground-types: map-keys($-foreground-colors);
+
+$-surfaces: (
+  light: white,
+  tint: neutral(100),
+  neutral: neutral(400),
+  disabled: neutral(100),
+  hover: neutral(400),
+  info: info(200),
+  success: success(200),
+  warning: warning(200),
+  danger: danger(200),
+  service-1: service-1(200),
+  service-2: service-2(200),
+);
+
+@function surface($type) {
+  $color: map.get($-surfaces, $type);
+  @return var(--rcx-color-surface, $color);
+}
+
+$-text: (
+  white: white,
+  disabled: neutral(500),
+  annotation: neutral(600),
+  hint: neutral(700),
+  default: neutral(800),
+  titles-labels: neutral(900),
+  danger: danger(600),
+  secondary-info: neutral(700),
+  on-info: info(600),
+  on-success: success(800),
+  on-warning: warning(900),
+  on-danger: danger(800),
+  on-service-1: service-1(800),
+  on-service-2: service-2(600),
+);
+
+@function text($type) {
+  @return map.get($-text, $type);
+}
+
+$-backgrounds: (
+  light: white,
+  tint: neutral(100),
+);
+
+@function background($type) {
+  @return map.get($-backgrounds, $type);
+}
+
+$-strokes: (
+  extra-light: neutral(200),
+  light: neutral(500),
+  medium: neutral(600),
+  dark: neutral(700),
+  extra-dark: neutral(800),
+  extra-light-highlight: primary(200),
+  highlight: primary(500),
+  extra-light-error: danger(200),
+  error: danger(500),
+  warning: warning(200),
+  success: success(200),
+);
+
+@function stroke($type) {
+  @return map.get($-strokes, $type);
+}
+
+$-buttons: (
+  primary: primary(500),
+  secondary: neutral(400),
+  danger: danger(500),
+  secondary-danger: neutral(400),
+  warning: warning(400),
+  secondary-warning: neutral(400),
+  success: success(500),
+  secondary-success: neutral(400),
+  hover-primary: primary(600),
+  hover-secondary: neutral(500),
+  hover-danger: danger(600),
+  hover-secondary-danger: neutral(500),
+  hover-warning: warning(500),
+  hover-secondary-warning: neutral(500),
+  hover-success: success(600),
+  hover-secondary-success: neutral(500),
+  press-primary: primary(700),
+  press-secondary: neutral(600),
+  press-danger: danger(700),
+  press-secondary-danger: neutral(600),
+  press-warning: warning(600),
+  press-secondary-warning: neutral(600),
+  press-success: success(700),
+  press-secondary-success: neutral(600),
+  focus-primary: primary(500),
+  focus-secondary: neutral(400),
+  focus-danger: danger(500),
+  focus-secondary-danger: neutral(400),
+  focus-warning: warning(400),
+  focus-secondary-warning: neutral(400),
+  focus-success: success(500),
+  focus-secondary-success: neutral(400),
+  keyfocus-primary: primary(500),
+  keyfocus-secondary: neutral(400),
+  keyfocus-danger: danger(500),
+  keyfocus-secondary-danger: neutral(400),
+  keyfocus-warning: warning(400),
+  keyfocus-secondary-warning: neutral(400),
+  keyfocus-success: success(500),
+  keyfocus-secondary-success: neutral(400),
+  disabled-primary: primary(200),
+  disabled-secondary: neutral(300),
+  disabled-danger: danger(200),
+  disabled-secondary-danger: neutral(300),
+  disabled-warning: warning(200),
+  disabled-secondary-warning: neutral(300),
+  disabled-success: success(200),
+  disabled-secondary-success: neutral(300),
+  on-primary: white,
+  on-secondary: neutral(900),
+  on-danger: white,
+  on-secondary-danger: danger(700),
+  on-warning: neutral(900),
+  on-secondary-warning: warning(900),
+  on-success: neutral(900),
+  on-secondary-success: success(600),
+  on-disabled: neutral(600),
+);
+
+@function button($type) {
+  @return map.get($-buttons, $type);
+}
+
+$-neutral-alpha-level: (
+  8: neutral(800, 0.08),
+  10: neutral(800, 0.1),
+  12: neutral(800, 0.12),
+);
+
+@function surface-neutral-alpha($level) {
+  @return map.get($-neutral-alpha-level, $level);
+}
+
+$-elevation-level: (
+  1: surface-neutral-alpha(10),
+  '2x': surface-neutral-alpha(8),
+  '2y': surface-neutral-alpha(12),
+);
+
+@function elevation($level) {
+  @return map.get($-elevation-level, $level);
+}

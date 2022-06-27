@@ -1,5 +1,13 @@
 import { parser } from '../src';
-import { link, paragraph, plain, bold, strike, italic } from '../src/utils';
+import {
+  link,
+  paragraph,
+  plain,
+  bold,
+  strike,
+  italic,
+  quote,
+} from '../src/utils';
 
 test.each([
   [
@@ -10,9 +18,14 @@ test.each([
   [
     `<https://domain.com|Test
 >`,
+    [paragraph([plain('<https://domain.com|Test')]), paragraph([plain('>')])],
+  ],
+  [
+    `<https://domain.com|Test
+> quote here`,
     [
-      paragraph([plain('<'), link('https://domain.com'), plain('|Test')]),
-      paragraph([plain('>')]),
+      paragraph([plain('<https://domain.com|Test')]),
+      quote([paragraph([plain('quote here')])]),
     ],
   ],
   [
@@ -213,6 +226,14 @@ test.each([
         ),
       ]),
     ],
+  ],
+  ['google.com', [paragraph([link('//google.com', plain('google.com'))])]],
+  ['www.google.com', [paragraph([link('www.google.com')])]],
+  ['rocket.chat:8080', [paragraph([link('rocket.chat:8080')])]],
+  ['ShouldNotBeALink', [paragraph([plain('ShouldNotBeALink')])]],
+  [
+    'http:/ google.com',
+    [paragraph([plain('http:/ '), link('//google.com', plain('google.com'))])],
   ],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);

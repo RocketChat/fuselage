@@ -3,6 +3,8 @@ import React from 'react';
 
 import PasswordInput from '.';
 
-it('renders without crashing', () => {
-  render(<PasswordInput />);
+describe('[PasswordInput Component]', () => {
+  it('renders without crashing', () => {
+    render(<PasswordInput />);
+  });
 });

@@ -3,6 +3,8 @@ import React from 'react';
 
 import { States } from '.';
 
-it('renders without crashing', () => {
-  render(<States />);
+describe('[States Component]', () => {
+  it('renders without crashing', () => {
+    render(<States />);
+  });
 });

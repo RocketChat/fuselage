@@ -24,8 +24,8 @@ const Template: ComponentStory<typeof Menu> = (args) => (
   </Box>
 );
 
-export const simple = Template.bind({});
-simple.args = {
+export const Simple = Template.bind({});
+Simple.args = {
   options: {
     makeAdmin: {
       label: (
@@ -48,8 +48,8 @@ simple.args = {
   },
 };
 
-export const complex = Template.bind({});
-complex.args = {
+export const Complex = Template.bind({});
+Complex.args = {
   options: {
     example: {
       label: 'Example',

@@ -65,10 +65,10 @@ export const Default: ComponentStory<typeof SidebarItem> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction primary success icon='phone' />
-          <SidebarItemAction primary danger icon='circle-cross' />
-          <SidebarItemAction primary icon='trash' />
-          <SidebarItemAction icon='phone' />
+          <SidebarItemAction secondary success icon='phone' />
+          <SidebarItemAction secondary danger icon='circle-cross' />
+          <SidebarItemAction secondary info icon='trash' />
+          <SidebarItemAction secondary icon='phone' />
         </SidebarItemActions>
       </SidebarItemContainer>
     </SidebarItem>
@@ -92,10 +92,10 @@ export const Default: ComponentStory<typeof SidebarItem> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction primary success icon='phone' />
-          <SidebarItemAction primary danger icon='circle-cross' />
-          <SidebarItemAction primary icon='trash' />
-          <SidebarItemAction icon='phone' />
+          <SidebarItemAction secondary success icon='phone' />
+          <SidebarItemAction secondary danger icon='circle-cross' />
+          <SidebarItemAction secondary info icon='trash' />
+          <SidebarItemAction secondary icon='phone' />
         </SidebarItemActions>
       </SidebarItemContainer>
     </SidebarItem>
@@ -129,10 +129,10 @@ export const Default: ComponentStory<typeof SidebarItem> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction primary success icon='phone' />
-          <SidebarItemAction primary danger icon='circle-cross' />
-          <SidebarItemAction primary icon='trash' />
-          <SidebarItemAction icon='phone' />
+          <SidebarItemAction secondary success icon='phone' />
+          <SidebarItemAction secondary danger icon='circle-cross' />
+          <SidebarItemAction secondary info icon='trash' />
+          <SidebarItemAction secondary icon='phone' />
         </SidebarItemActions>
       </SidebarItemContainer>
     </SidebarItem>

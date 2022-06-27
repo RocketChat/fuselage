@@ -4,32 +4,38 @@
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);
-$tabs-color: theme('tabs-color', colors.neutral(600));
-$tabs-hover-color: theme('tabs-hover-border-color', colors.neutral(700));
-$tabs-selected-color: theme('tabs-selected-color', colors.primary(500));
+$tabs-color: theme('tabs-color', colors.text(secondary-info));
+$tabs-hover-color: theme('tabs-hover-border-color', colors.text(titles-labels));
+$tabs-selected-color: theme('tabs-selected-color', colors.button(primary));
 $tabs-selected-border-color: theme(
   'tabs-selected-border-color',
-  colors.primary(500)
+  colors.stroke(highlight)
 );
 $tabs-hover-selected-color: theme(
   'tabs-hover-selected-color',
-  colors.primary(600)
+  colors.button(hover-primary)
 );
 $tabs-hover-selected-border-color: theme(
   'tabs-hover-selected-border-color',
-  colors.primary(600)
+  colors.button(hover-primary)
 );
-$tabs-active-color: theme('tabs-active-color', colors.neutral(800));
+$tabs-active-color: theme('tabs-active-color', colors.text(titles-labels));
 $tabs-active-selected-color: theme(
   'tabs-active-selected-color',
-  colors.primary(700)
+  colors.button(press-primary)
 );
 $tabs-active-selected-border-color: theme(
   'tabs-active-selected-border-color',
-  colors.primary(700)
+  colors.button(press-primary)
 );
-$tabs-focus-border-color: theme('tabs-focus-border-color', colors.primary(500));
-$tabs-focus-shadow-color: theme('tabs-focus-shadow-color', colors.primary(100));
+$tabs-focus-border-color: theme(
+  'tabs-focus-border-color',
+  colors.button(primary)
+);
+$tabs-focus-shadow-color: theme(
+  'tabs-focus-shadow-color',
+  colors.stroke(extra-light-highlight)
+);
 $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
 $tabs-disabled-selected-color: theme(
   'tabs-disabled-selected-color',
@@ -66,6 +72,8 @@ $tabs-disabled-selected-border-color: theme(
   flex-wrap: nowrap;
 
   margin: lengths.margin(none) lengths.margin(12);
+
+  padding: lengths.padding(4) lengths.padding(none);
 }
 
 .rcx-tabs__item {
@@ -86,8 +94,6 @@ $tabs-disabled-selected-border-color: theme(
   border-style: solid;
   border-color: transparent;
   background-color: transparent;
-  border-block-end-width: lengths.border-width(4);
-  border-inline-width: lengths.border-width(none);
 
   @include clickable;
   @include typography.use-font-scale(h4);
@@ -105,10 +111,8 @@ $tabs-disabled-selected-border-color: theme(
   @include on-focus-visible {
     border-color: $tabs-focus-border-color;
     border-radius: lengths.border-radius(2);
-    border-block-start-width: lengths.border-width(2);
-    border-inline-width: lengths.border-width(2);
 
-    @include use-focus-shadow($tabs-focus-shadow-color);
+    @include use-button-focus-shadow($tabs-focus-shadow-color);
   }
 
   &--disabled {
@@ -127,7 +131,7 @@ $tabs-disabled-selected-border-color: theme(
     color: $tabs-selected-color;
     border-block-end-color: $tabs-selected-border-color;
     border-block-end-width: lengths.border-width(4);
-    border-inline-width: lengths.border-width(none);
+    border-inline-width: lengths.border-width(2);
 
     &:hover {
       color: $tabs-hover-selected-color;

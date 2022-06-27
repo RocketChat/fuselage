@@ -3,6 +3,8 @@ import React from 'react';
 
 import Tooltip from '.';
 
-it('renders without crashing', () => {
-  render(<Tooltip />);
+describe('[Tooltip Component]', () => {
+  it('renders without crashing', () => {
+    render(<Tooltip />);
+  });
 });
