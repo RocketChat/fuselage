@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.14](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.13...v0.31.14) (2022-06-27)
+
+### Features
+
+- **fuselage-tokens:** New color palette ([#691](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/691)) ([4c137e3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/4c137e32ba23958e664e3d76e044a1e2692ba372))
+- **fuselage-ui-kit:** allow dispatchment of actions from input elements ([#747](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/747)) ([844043d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/844043db58ac511604aefc57290a43d62e769d9d))
+- **icons:** New icons ([#755](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/755)) ([8a12c8d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8a12c8d67396340b29872a59cf0050cbbd23280d))
+- **message-parser:** Parser options ([#739](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/739)) ([fbaee98](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/fbaee98c80864bf399de3bd1b2da9756429e5c98))
+
+### Bug Fixes
+
+- Button disabled color ([#752](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/752)) ([dab7d28](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/dab7d283f640320b332d9798ad5ceedfa9140b58))
+- colors and button flags ([#750](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/750)) ([9c0c0c1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/9c0c0c1b23e3f98f2fd8715e0043050dfd17a00f))
+- **deps,mp3-encoder:** Bump `lamejs` version ([#732](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/732)) ([efc9bde](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/efc9bdef44ea728d1efdb19dc3b0bea659c66a1d))
+- **fuselage:** IconButton hover color ([#754](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/754)) ([ca9b3e1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ca9b3e1b5efa27c503139353f28244d1d8e262e2))
+- **fuselage:** kebab menu click not working properly ([#740](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/740)) ([8e5b4af](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8e5b4afbb0954d2e6ca36fbd8bf2580bc64d53ab))
+- **fuselage:** Surface values using css var ([#748](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/748)) ([17012f8](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/17012f8f2fa7c9bb05c47c369f7309a672f423a1))
+- IconButton type ([#751](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/751)) ([c1b4e1c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c1b4e1cc23d9172685843857fa1f449e42daccff))
+- **message-parser:** Expand emoji detection ([#753](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/753)) ([005e135](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/005e1359ebfe7baf28f7b6f250d3b86b51ebde24))
+- **message-parser:** Relative URL being displayed as plain text ([#736](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/736)) ([3ccd090](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3ccd0907c7bc6bef5581e66f8b0b15bd4f3d46de))
+- **usePosition:** change style when target dont fit screen ([41c5c37](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/41c5c37cd556c3874f3f7092823484edc641a082))
+
 ### [0.31.13](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.12...v0.31.13) (2022-05-31)
 
 ### Bug Fixes
