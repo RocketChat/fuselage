@@ -847,5 +847,14 @@
   },
   "phone-issue": {
     "start": "\ue0fb"
+  },
+  "notebook-hashtag-crossed": {
+    "start": "\ue0fd"
+  },
+  "notebook-hashtag": {
+    "start": "\ue0ff"
+  },
+  "arrow-forward": {
+    "start": "\ue101"
   }
 }
