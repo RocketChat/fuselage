@@ -2,7 +2,7 @@
   "name": "build-logo",
   "private": true,
   "bin": "./index.mjs",
-  "version": "0.31.13",
+  "version": "0.31.14",
   "dependencies": {
     "prettier": "~2.5.1",
     "react": "^17.0.2",

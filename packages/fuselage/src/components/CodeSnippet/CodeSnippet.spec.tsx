@@ -1,8 +1,13 @@
+import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import CodeSnippet from './CodeSnippet';
+import * as stories from './CodeSnippet.stories';
 
-it('renders without crashing', () => {
-  render(<CodeSnippet onClick={() => undefined}>code</CodeSnippet>);
+const { Default } = composeStories(stories);
+
+describe('[CodeSnippet Component]', () => {
+  it('renders without crashing', () => {
+    render(<Default />);
+  });
 });

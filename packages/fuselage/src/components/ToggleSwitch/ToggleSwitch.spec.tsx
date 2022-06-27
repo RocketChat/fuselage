@@ -3,6 +3,8 @@ import React from 'react';
 
 import { ToggleSwitch } from '.';
 
-it('renders without crashing', () => {
-  render(<ToggleSwitch />);
+describe('[ToggleSwitch Component]', () => {
+  it('renders without crashing', () => {
+    render(<ToggleSwitch />);
+  });
 });

@@ -3,6 +3,8 @@ import React from 'react';
 
 import Modal from '.';
 
-it('renders without crashing', () => {
-  render(<Modal />);
+describe('[Modal Component]', () => {
+  it('renders without crashing', () => {
+    render(<Modal />);
+  });
 });

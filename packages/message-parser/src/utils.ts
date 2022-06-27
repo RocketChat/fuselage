@@ -9,6 +9,10 @@ import type {
   Task,
   ListItem,
   Inlines,
+  LineBreak,
+  Emoji,
+  KaTeX,
+  InlineKaTeX,
 } from './definitions';
 
 const generate =
@@ -65,8 +69,15 @@ export const strike = generate('STRIKE');
 export const codeLine = generate('CODE_LINE');
 export const link = (() => {
   const fn = generate('LINK');
-  return (src: string, label?: Markup) =>
-    fn({ src: plain(src), label: label || plain(src) });
+
+  return (src: string, label?: Markup) => {
+    const href =
+      src !== '' && !src.startsWith('http') && !src.startsWith('//')
+        ? `//${src}`
+        : src;
+
+    return fn({ src: plain(href), label: label || plain(src) });
+  };
 })();
 
 export const image = (() => {
@@ -86,10 +97,10 @@ export const orderedList = generate('ORDERED_LIST');
 
 export const unorderedList = generate('UNORDERED_LIST');
 
-export const listItem = (text: Inlines[], number?: string): ListItem => ({
+export const listItem = (text: Inlines[], number?: number): ListItem => ({
   type: 'LIST_ITEM',
   value: text,
-  ...(number && { number: Number(number) }),
+  ...(number && { number }),
 });
 
 export const mentionUser = (() => {
@@ -97,10 +108,23 @@ export const mentionUser = (() => {
   return (value: string) => fn(plain(value));
 })();
 
-export const emoji = (() => {
-  const fn = generate('EMOJI');
-  return (value: string) => fn(plain(value));
-})();
+export const emoji = (shortCode: string): Emoji => ({
+  type: 'EMOJI',
+  value: plain(shortCode),
+  shortCode,
+});
+
+export const emojiUnicode = (unicode: string): Emoji => ({
+  type: 'EMOJI',
+  value: undefined,
+  unicode,
+});
+
+export const emoticon = (emoticon: string, shortCode: string): Emoji => ({
+  type: 'EMOJI',
+  value: plain(emoticon),
+  shortCode,
+});
 
 export const reducePlainTexts = (
   values: Paragraph['value']
@@ -117,4 +141,17 @@ export const reducePlainTexts = (
     return [...result, item];
   }, [] as Paragraph['value']);
 
-export const lineBreak = generate('LINE_BREAK');
+export const lineBreak = (): LineBreak => ({
+  type: 'LINE_BREAK',
+  value: undefined,
+});
+
+export const katex = (content: string): KaTeX => ({
+  type: 'KATEX',
+  value: content,
+});
+
+export const inlineKatex = (content: string): InlineKaTeX => ({
+  type: 'INLINE_KATEX',
+  value: content,
+});

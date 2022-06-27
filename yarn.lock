@@ -5528,7 +5528,7 @@ __metadata:
     "@types/react": ~17.0.39
     "@types/react-dom": ^17.0.11
     "@types/resize-observer-browser": ~0.1.7
-    "@types/use-subscription": ^1.0.0
+    "@types/use-sync-external-store": ~0.0.3
     bump: "workspace:~"
     eslint: ~8.8.0
     jest: ~27.5.1
@@ -5543,11 +5543,10 @@ __metadata:
     ts-jest: ~27.1.3
     typedoc: ~0.22.11
     typescript: ~4.3.5
-    use-subscription: ^1.5.1
+    use-sync-external-store: ~1.2.0
   peerDependencies:
     "@rocket.chat/fuselage-tokens": "*"
     react: ^17.0.2
-    use-subscription: ^1.5.1
   languageName: unknown
   linkType: soft
 
@@ -5726,6 +5725,7 @@ __metadata:
     "@storybook/manager-webpack5": ~6.4.18
     "@storybook/react": ~6.4.18
     "@storybook/source-loader": ~6.4.18
+    "@storybook/testing-react": ~1.3.0
     "@storybook/theming": ~6.4.18
     "@testing-library/jest-dom": ~5.16.2
     "@testing-library/react": ^12.1.2
@@ -5734,7 +5734,7 @@ __metadata:
     autoprefixer: ~10.4.2
     babel-loader: ~8.2.3
     bump: "workspace:~"
-    caniuse-lite: ~1.0.30001311
+    caniuse-lite: ~1.0.30001351
     copy-webpack-plugin: ~10.2.4
     cross-env: ^7.0.3
     css-loader: ~6.6.0
@@ -5881,7 +5881,7 @@ __metadata:
     lint-all: "workspace:~"
     lint-staged: ~12.3.3
     npm-run-all: ^4.1.5
-    peggy: ^1.2.0
+    peggy: ^2.0.1
     prettier: ~2.5.1
     prettier-plugin-pegjs: ~0.5.0
     rimraf: ^3.0.2
@@ -5911,7 +5911,7 @@ __metadata:
     bump: "workspace:~"
     eslint: ~8.8.0
     jest: ~27.5.1
-    lamejs: "git+https://git@github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab"
+    lamejs: "git+https://github.com/zhuker/lamejs.git#commit=582bbba6a12f981b984d8fb9e1874499fed85675"
     lint-all: "workspace:~"
     lint-staged: ~12.3.3
     prettier: ~2.5.1
@@ -5982,7 +5982,7 @@ __metadata:
     lint-all: "workspace:~"
     lint-staged: ~12.3.3
     npm-run-all: ^4.1.5
-    peggy: ^1.2.0
+    peggy: ^2.0.1
     prettier: ~2.5.1
     rimraf: ^3.0.2
     ts-jest: ~27.1.3
@@ -7581,6 +7581,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/testing-react@npm:~1.3.0":
+  version: 1.3.0
+  resolution: "@storybook/testing-react@npm:1.3.0"
+  dependencies:
+    "@storybook/csf": 0.0.2--canary.87bc651.0
+  peerDependencies:
+    "@storybook/addons": ">=6.4.0"
+    "@storybook/client-api": ">=6.4.0"
+    "@storybook/preview-web": ">=6.4.0"
+    "@storybook/react": ">=6.4.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: f7da948bfc100b7a3d8f3ddf02e8d610da80344904761ecdaa7a575dcc312c921ef4a28663edcc719aee587b14716643147b0e10414fa17abb740056cf9e80b5
+  languageName: node
+  linkType: hard
+
 "@storybook/theming@npm:6.4.18, @storybook/theming@npm:~6.4.18":
   version: 6.4.18
   resolution: "@storybook/theming@npm:6.4.18"
@@ -8446,10 +8461,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/use-subscription@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@types/use-subscription@npm:1.0.0"
-  checksum: 47fff868682692ecda7110bd04ba4c5b1324854c0bcccc765606a42d4bd9be475207413c8829a883b98e7edd801100df53876da0ff89ac21a8f964e440636ef2
+"@types/use-sync-external-store@npm:~0.0.3":
+  version: 0.0.3
+  resolution: "@types/use-sync-external-store@npm:0.0.3"
+  checksum: 161ddb8eec5dbe7279ac971531217e9af6b99f7783213566d2b502e2e2378ea19cf5e5ea4595039d730aa79d3d35c6567d48599f69773a02ffcff1776ec2a44e
   languageName: node
   linkType: hard
 
@@ -11161,45 +11176,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0":
-  version: 1.0.30001150
-  resolution: "caniuse-lite@npm:1.0.30001150"
-  checksum: e8495586366083dfbeae9ad5c8cc3cb831b3cf89a7902bbbb4d97b992fc136feb16ffad5bb5bac767c488a9ec3b4f885b2cd403c08c56d7a173dd4c90f64b796
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001165":
-  version: 1.0.30001171
-  resolution: "caniuse-lite@npm:1.0.30001171"
-  checksum: 5d5e1cc0fcb77627e802d774c2a068256ff86348006e0279de6de867e3e079499c59401d7485b12f52207b050c2f0e30e7c44d8c901043aa882e3038517ce205
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001135":
-  version: 1.0.30001156
-  resolution: "caniuse-lite@npm:1.0.30001156"
-  checksum: df81d727a01bdd6fb96d5153b29b920842724acd8b3296c5cc5152038edc4a8dd6537232afb67dc9e6022f4328e30635f0c9bce54ed0118fda7e2339dda69127
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001219":
-  version: 1.0.30001221
-  resolution: "caniuse-lite@npm:1.0.30001221"
-  checksum: 0ea5b56fe790d6982679ad641068780619e8be4d1c48a3fc1d8e60df4d86cfd5c1a1d2fb26dee77b8cde1fae4d2f797721f43662b7c0596ac53c44e801c66c09
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001274":
-  version: 1.0.30001279
-  resolution: "caniuse-lite@npm:1.0.30001279"
-  checksum: c0330577718e4221caae92a1bee8131f546668001840cf66455d5aa6050797f44709865779c5cdcba7cbf32527004a743dc2879497d23f60478f8bbb203cfeeb
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001297, caniuse-lite@npm:~1.0.30001311":
-  version: 1.0.30001311
-  resolution: "caniuse-lite@npm:1.0.30001311"
-  checksum: a96a2724db91f7d820d7c83d98d6d80f71f4ef5542fd9af49478e6f5057a92d61fbb6c2a2c151e13323c760c7d9f046f422a9b1ac77ab08dc2cacc62bd22f941
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001135, caniuse-lite@npm:^1.0.30001165, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001274, caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001297, caniuse-lite@npm:~1.0.30001351":
+  version: 1.0.30001351
+  resolution: "caniuse-lite@npm:1.0.30001351"
+  checksum: 0d8fedb1cc7f58beefc0216f1426feff6d3fb8d72b57cb343cf0b72a940f1f8691d5a67a166631195ba16c4e12f358780a8876a4071b9a4ae56e7883335ec6d8
   languageName: node
   linkType: hard
 
@@ -11935,6 +11915,13 @@ __metadata:
   version: 8.3.0
   resolution: "commander@npm:8.3.0"
   checksum: 0f82321821fc27b83bd409510bb9deeebcfa799ff0bf5d102128b500b7af22872c0c92cb6a0ebc5a4cf19c6b550fba9cedfa7329d18c6442a625f851377bacf0
+  languageName: node
+  linkType: hard
+
+"commander@npm:^9.3.0":
+  version: 9.3.0
+  resolution: "commander@npm:9.3.0"
+  checksum: d421ce66fee25792a1470c69aa8d1b86434bf873a96483aa92c8267f81a6f20c6f7c426f5e82f88ac50a8ec4855d3f2787aebcdef8aa559e1080a2337a95a217
   languageName: node
   linkType: hard
 
@@ -18925,12 +18912,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lamejs@git+https://git@github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab":
-  version: 1.2.0
-  resolution: "lamejs@https://git@github.com/zhuker/lamejs.git#commit=564612b5b57336238a5920ba4c301b49f7cb2bab"
+"lamejs@git+https://github.com/zhuker/lamejs.git#commit=582bbba6a12f981b984d8fb9e1874499fed85675":
+  version: 1.2.1
+  resolution: "lamejs@https://github.com/zhuker/lamejs.git#commit=582bbba6a12f981b984d8fb9e1874499fed85675"
   dependencies:
     use-strict: 1.0.1
-  checksum: ebf4cf6699b71a06e84975f48343fb0cd70bfea2c9a7d0c307484da8b13444762f0fcade70d6b1b59ac9816c26588629f0ce0a4766a76fad5666d30a47fca6ba
+  checksum: fa829e0c170a65573e653b4d908a44aaf06a50e1bbade3b1217a300a03ccd59a537e294e2d924a584f9d70c7726a12d4c3af9c675436d48d08be5fb94b5eb400
   languageName: node
   linkType: hard
 
@@ -21901,12 +21888,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"peggy@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "peggy@npm:1.2.0"
+"peggy@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "peggy@npm:2.0.1"
+  dependencies:
+    commander: ^9.3.0
+    source-map-generator: 0.8.0
   bin:
-    peggy: bin/peggy
-  checksum: 658c985df8175cb7e90990f663ec5f84d25db6d05adb7f2ffcbcc86c7cddc8de0b818c8d1eb64e78c84ae848e921ff54acabb39da4fb5e497c1dcfdcbfc50b47
+    peggy: bin/peggy.js
+  checksum: 0ce0ee8f9f872bc96183bfcb7ce9ccabcad6d1df1e4ff9b1b7ebaf57f3996dcb1016b7610013f6a8a1bd8b135a8b3b15ccff914bdd88ab2264bdcbca5b36f2f1
   languageName: node
   linkType: hard
 
@@ -25186,6 +25176,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"source-map-generator@npm:0.8.0":
+  version: 0.8.0
+  resolution: "source-map-generator@npm:0.8.0"
+  checksum: 15e7854c04a4b1bc8a477664a65c58316d792fb24a7b427219ac597eed7f57a3905637c783126b123cf05f9d4fdc45a8fadb8bc2fbf010a82d92e35c193aba51
+  languageName: node
+  linkType: hard
+
 "source-map-js@npm:>=0.6.2 <2.0.0, source-map-js@npm:^1.0.2":
   version: 1.0.2
   resolution: "source-map-js@npm:1.0.2"
@@ -27911,14 +27908,12 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"use-subscription@npm:^1.5.1":
-  version: 1.5.1
-  resolution: "use-subscription@npm:1.5.1"
-  dependencies:
-    object-assign: ^4.1.1
+"use-sync-external-store@npm:~1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-  checksum: 96e64977a573244fd11350a3141b2cf57fb72dd9dd902f387c8a0a565d0a948bc81588bd7378c6ef6defc0d1119f37f73aac4a7a287c8443abd444bd4e7bbea8
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 

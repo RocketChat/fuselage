@@ -1,8 +1,54 @@
 import { useMemo } from 'react';
-import type { Subscription } from 'use-subscription';
-import { useSubscription } from 'use-subscription';
+import { useSyncExternalStore } from 'use-sync-external-store/shim';
 
 import { useStableArray } from './useStableArray';
+
+const createStore = (queries: string[]) => {
+  if (
+    typeof window === 'undefined' ||
+    typeof window.matchMedia !== 'function'
+  ) {
+    const snapshot = Array.from({ length: queries.length }, () => false);
+    return [() => () => undefined, () => snapshot] as const;
+  }
+
+  const mediaQueryLists = queries.map((query) => window.matchMedia(query));
+  let snapshot = mediaQueryLists.map(
+    (mediaQueryList) => mediaQueryList.matches
+  );
+
+  return [
+    (onStoreChange: () => void) => {
+      const callback = () => {
+        snapshot = mediaQueryLists.map(
+          (mediaQueryList) => mediaQueryList.matches
+        );
+        onStoreChange();
+      };
+
+      mediaQueryLists.forEach((mediaQueryList) => {
+        if (typeof mediaQueryList.addEventListener === 'function') {
+          mediaQueryList.addEventListener('change', callback);
+          return;
+        }
+
+        mediaQueryList.addListener(callback);
+      });
+
+      return () => {
+        mediaQueryLists.forEach((mediaQueryList) => {
+          if (typeof mediaQueryList.removeEventListener === 'function') {
+            mediaQueryList.removeEventListener('change', callback);
+            return;
+          }
+
+          mediaQueryList.removeListener(callback);
+        });
+      };
+    },
+    () => snapshot,
+  ] as const;
+};
 
 /**
  * Hook to listen to a set of media queries.
@@ -13,57 +59,10 @@ import { useStableArray } from './useStableArray';
  */
 export const useMediaQueries = (...queries: string[]): boolean[] => {
   const stableQueries = useStableArray(queries);
+  const [subscribe, getSnapshot] = useMemo(
+    () => createStore(stableQueries),
+    [stableQueries]
+  );
 
-  const subscription = useMemo<Subscription<boolean[]>>(() => {
-    if (
-      typeof window === 'undefined' ||
-      typeof window.matchMedia !== 'function'
-    ) {
-      return {
-        getCurrentValue: () =>
-          Array.from({ length: stableQueries.length }, () => false),
-        subscribe: () => () => undefined,
-      };
-    }
-
-    const mediaQueryLists = stableQueries.map((query) =>
-      window.matchMedia(query)
-    );
-
-    return {
-      getCurrentValue: () => {
-        if (
-          typeof window === 'undefined' ||
-          typeof window.matchMedia !== 'function'
-        ) {
-          return Array.from({ length: stableQueries.length }, () => false);
-        }
-
-        return mediaQueryLists.map((mediaQueryList) => mediaQueryList.matches);
-      },
-      subscribe: (cb: () => void) => {
-        mediaQueryLists.forEach((mediaQueryList) => {
-          if (typeof mediaQueryList.addEventListener === 'function') {
-            mediaQueryList.addEventListener('change', cb);
-            return;
-          }
-
-          mediaQueryList.addListener(cb);
-        });
-
-        return () => {
-          mediaQueryLists.forEach((mediaQueryList) => {
-            if (typeof mediaQueryList.removeEventListener === 'function') {
-              mediaQueryList.removeEventListener('change', cb);
-              return;
-            }
-
-            mediaQueryList.removeListener(cb);
-          });
-        };
-      },
-    };
-  }, [stableQueries]);
-
-  return useSubscription(subscription);
+  return useSyncExternalStore(subscribe, getSnapshot);
 };

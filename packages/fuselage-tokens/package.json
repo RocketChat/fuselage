@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-tokens",
-  "version": "0.31.13",
+  "version": "0.31.14",
   "description": "Design tokens for Fuselage, Rocket.Chat's design system",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
@@ -27,7 +27,10 @@
   "files": [
     "dist/breakpoints.*",
     "dist/colors.*",
-    "dist/typography.*"
+    "dist/typography.*",
+    "/breakpoints.*",
+    "/colors.*",
+    "/typography.*"
   ],
   "publishConfig": {
     "access": "public"

@@ -85,6 +85,7 @@ export const Menu = ({
   return (
     <>
       <IconButton
+        data-testid='menu'
         ref={ref}
         small={small}
         tiny={tiny}

@@ -3,6 +3,8 @@ import React from 'react';
 
 import { NumberInput } from '.';
 
-it('renders without crashing', () => {
-  render(<NumberInput />);
+describe('[NumberInput Component]', () => {
+  it('renders without crashing', () => {
+    render(<NumberInput />);
+  });
 });

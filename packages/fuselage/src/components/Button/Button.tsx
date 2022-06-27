@@ -7,11 +7,8 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   primary?: boolean;
   secondary?: boolean;
   danger?: boolean;
-  secondaryDanger?: boolean;
   warning?: boolean;
-  secondaryWarning?: boolean;
   success?: boolean;
-  secondarySuccess?: boolean;
 
   disabled?: boolean;
   small?: boolean;
@@ -26,11 +23,8 @@ export const Button = forwardRef(function Button(
     primary,
     secondary,
     danger,
-    secondaryDanger,
     warning,
-    secondaryWarning,
     success,
-    secondarySuccess,
     external,
     is = 'button',
     rel: _rel,
@@ -55,13 +49,13 @@ export const Button = forwardRef(function Button(
   const kindAndVariantProps = useMemo(() => {
     const variant =
       (primary && 'primary') ||
-      (secondary && 'secondary') ||
-      (danger && 'danger') ||
-      (secondaryDanger && 'secondary-danger') ||
-      (warning && 'warning') ||
-      (secondaryWarning && 'secondary-warning') ||
+      (secondary && success && 'secondary-success') ||
+      (secondary && warning && 'secondary-warning') ||
+      (secondary && danger && 'secondary-danger') ||
       (success && 'success') ||
-      (secondarySuccess && 'secondary-success');
+      (warning && 'warning') ||
+      (danger && 'danger') ||
+      (secondary && 'secondary');
 
     if (variant) {
       return {
@@ -70,21 +64,13 @@ export const Button = forwardRef(function Button(
     }
 
     return {};
-  }, [
-    primary,
-    secondary,
-    secondaryDanger,
-    danger,
-    warning,
-    secondaryWarning,
-    success,
-    secondarySuccess,
-  ]);
+  }, [primary, secondary, danger, warning, success]);
 
   return (
     <Box
       animated
       is={is}
+      type='button'
       rcx-button
       {...kindAndVariantProps}
       rcx-button--small={small}

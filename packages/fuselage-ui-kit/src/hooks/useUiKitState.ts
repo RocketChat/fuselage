@@ -30,11 +30,12 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
   state: UiKitState<TElement>,
   action: (
     pseudoEvent?:
+      | Event
       | { target: EventTarget }
       | { target: { value: UiKit.ActionOf<TElement> } }
   ) => void
 ] = (rest, context) => {
-  const { blockId, actionId, appId } = rest;
+  const { blockId, actionId, appId, dispatchActionConfig } = rest;
   const {
     action,
     appId: appIdFromContext,
@@ -51,35 +52,85 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
   const [value, setValue] = useSafely(useState(_value));
   const [loading, setLoading] = useSafely(useState(false));
 
-  const actionFunction = useMutableCallback(async ({ target: { value } }) => {
+  const actionFunction = useMutableCallback(async (e) => {
+    const {
+      target: { value },
+    } = e;
     setLoading(true);
     setValue(value);
-    state && (await state({ blockId, appId, actionId, value, viewId }));
-    await action({
-      blockId,
-      appId: appId || appIdFromContext,
-      actionId,
-      value,
-      viewId,
-    });
+    state && (await state({ blockId, appId, actionId, value, viewId }, e));
+    await action(
+      {
+        blockId,
+        appId: appId || appIdFromContext,
+        actionId,
+        value,
+        viewId,
+      },
+      e
+    );
     setLoading(false);
   });
 
-  const stateFunction = useMutableCallback(async ({ target: { value } }) => {
+  // Used for triggering actions on text inputs. Removing the load state
+  // makes the text input field remain focused after running the action
+  const noLoadStateActionFunction = useMutableCallback(async (e) => {
+    const {
+      target: { value },
+    } = e;
     setValue(value);
-    await state({
-      blockId,
-      appId: appId || appIdFromContext,
-      actionId,
-      value,
-      viewId,
-    });
+    state && (await state({ blockId, appId, actionId, value, viewId }, e));
+    await action(
+      {
+        blockId,
+        appId: appId || appIdFromContext,
+        actionId,
+        value,
+        viewId,
+        dispatchActionConfig,
+      },
+      e
+    );
+  });
+
+  const stateFunction = useMutableCallback(async (e) => {
+    const {
+      target: { value },
+    } = e;
+    setValue(value);
+    await state(
+      {
+        blockId,
+        appId: appId || appIdFromContext,
+        actionId,
+        value,
+        viewId,
+      },
+      e
+    );
   });
 
   const result: UiKitState = useMemo(
     () => ({ loading, setLoading, error, value }),
     [loading, setLoading, error, value]
   );
+
+  if (context === UiKit.BlockContext.FORM) {
+    if (
+      rest.type === 'plain_text_input' &&
+      Array.isArray(rest?.dispatchActionConfig) &&
+      rest.dispatchActionConfig.includes('on_character_entered')
+    ) {
+      return [result, noLoadStateActionFunction];
+    }
+
+    if (
+      Array.isArray(rest?.dispatchActionConfig) &&
+      rest.dispatchActionConfig.includes('on_item_selected')
+    ) {
+      return [result, actionFunction];
+    }
+  }
 
   if (
     context &&

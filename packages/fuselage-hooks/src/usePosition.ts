@@ -57,8 +57,8 @@ type PositionStyle = {
   position?: 'fixed';
   ZIndex: '9999';
   transition: 'none !important';
-  bottom?: 0;
-  display: 'flex';
+  bottom?: '0px';
+  overflowY?: 'auto';
 };
 
 type PositionEmptyResult = {
@@ -66,6 +66,7 @@ type PositionEmptyResult = {
   top: '-9999px';
   left: '-9999px';
   position: 'fixed';
+  overflowY?: 'initial';
 };
 
 type PositionResult = {
@@ -235,8 +236,8 @@ export const getPositionStyle = ({
       left: `${variantPoint}px`,
       position: 'fixed',
       ...(bottom < target.height + point && {
-        bottom: margin,
-        display: 'flex',
+        bottom: `${margin}px`,
+        overflowY: 'auto',
       }),
       ZIndex: '9999',
     },

@@ -1,10 +1,10 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import { ToastBar } from '.';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<ToastBar />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('[ToastBar Component]', () => {
+  it('renders without crashing', () => {
+    render(<ToastBar />);
+  });
 });

@@ -11,10 +11,8 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { ButtonGroup, Icon } from '../..';
+import { Box, Button, ButtonGroup, Icon, IconButton } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import Box from '../Box';
-import Button from './Button';
 
 export default {
   title: 'Inputs/Button',
@@ -38,7 +36,9 @@ export default {
   },
 } as ComponentMeta<typeof ButtonGroup>;
 
-export const Default = () => <Button onClick={action('click')}>Button</Button>;
+export const Default: ComponentStory<typeof Button> = () => (
+  <Button onClick={action('click')}>Button</Button>
+);
 
 export const Square: ComponentStory<typeof Button> = () => (
   <Button square>
@@ -54,7 +54,7 @@ export const Variants: ComponentStory<typeof Button> = () => (
       <Button m='2px' danger>
         Danger
       </Button>
-      <Button m='2px' secondaryDanger>
+      <Button m='2px' secondary danger>
         Secondary Danger
       </Button>
     </Box>
@@ -62,7 +62,7 @@ export const Variants: ComponentStory<typeof Button> = () => (
       <Button m='2px' warning>
         Warning
       </Button>
-      <Button m='2px' secondaryWarning>
+      <Button m='2px' secondary warning>
         Secondary Warning
       </Button>
     </Box>
@@ -70,7 +70,7 @@ export const Variants: ComponentStory<typeof Button> = () => (
       <Button m='2px' success>
         Success
       </Button>
-      <Button m='2px' secondarySuccess>
+      <Button m='2px' secondary success>
         Secondary Success
       </Button>
     </Box>
@@ -147,7 +147,8 @@ export const States = () => (
         },
         'secondary-danger': {
           children: 'Button',
-          secondaryDanger: true,
+          secondary: true,
+          danger: true,
         },
         'warning': {
           children: 'Button',
@@ -155,7 +156,8 @@ export const States = () => (
         },
         'secondary-warning': {
           children: 'Button',
-          secondaryWarning: true,
+          secondary: true,
+          warning: true,
         },
         'success': {
           children: 'Button',
@@ -163,7 +165,8 @@ export const States = () => (
         },
         'secondary-success': {
           children: 'Button',
-          secondarySuccess: true,
+          secondary: true,
+          success: true,
         },
       }}
     />
@@ -209,7 +212,8 @@ export const States = () => (
         },
         'secondary-danger': {
           children: 'Button',
-          secondaryDanger: true,
+          secondary: true,
+          danger: true,
         },
         'warning': {
           children: 'Button',
@@ -217,7 +221,8 @@ export const States = () => (
         },
         'secondary-warning': {
           children: 'Button',
-          secondaryWarning: true,
+          secondary: true,
+          warning: true,
         },
         'success': {
           children: 'Button',
@@ -225,9 +230,14 @@ export const States = () => (
         },
         'secondary-success': {
           children: 'Button',
-          secondarySuccess: true,
+          secondary: true,
+          success: true,
         },
       }}
     />
   </>
+);
+
+export const AsIconButton: ComponentStory<typeof IconButton> = (args) => (
+  <IconButton {...args} icon='arrow-back' onClick={action('click')} />
 );
