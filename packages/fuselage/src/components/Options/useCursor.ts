@@ -68,7 +68,7 @@ export const useCursor = <
     label: unknown,
     selected?: unknown,
     type?: OptionType[3],
-    url?: unknown
+    url?: string
   ] = OptionType
 >(
   initial: number,
