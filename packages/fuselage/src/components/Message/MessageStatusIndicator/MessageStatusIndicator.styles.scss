@@ -11,8 +11,17 @@ $variants: (
 );
 
 .rcx-message-status-indicator {
+  margin-block: lengths.margin(2);
+
   &:empty {
     display: none;
+  }
+
+  &__text {
+    white-space: nowrap;
+
+    color: colors.foreground('info');
+    @include typography.use-font-scale(c1);
   }
 
   &__item {
