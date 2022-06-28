@@ -108,8 +108,7 @@ export const Default = () => (
       <Message.LeftContainer>
         <MessageStatusIndicator>
           <MessageStatusIndicatorText>
-            <MessageStatusIndicatorItem name='star-filled' />
-            Status
+            <MessageStatusIndicatorItem name='star-filled' /> Status
           </MessageStatusIndicatorText>
         </MessageStatusIndicator>
       </Message.LeftContainer>
