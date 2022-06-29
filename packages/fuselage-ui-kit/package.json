@@ -39,8 +39,8 @@
     "bump-next": "bump-next"
   },
   "peerDependencies": {
-    "@rocket.chat/fuselage": "workspace:~",
-    "@rocket.chat/fuselage-hooks": "workspace:~",
+    "@rocket.chat/fuselage": "*",
+    "@rocket.chat/fuselage-hooks": "*",
     "@rocket.chat/fuselage-polyfills": "*",
     "@rocket.chat/icons": "*",
     "@rocket.chat/styled": "workspace:~",

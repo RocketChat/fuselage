@@ -5590,8 +5590,8 @@ __metadata:
   resolution: "@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
+    "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/onboarding-ui": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
     "@storybook/addon-essentials": ~6.4.18
@@ -5688,8 +5688,8 @@ __metadata:
     webpack: ~5.68.0
     write-version-module: "workspace:~"
   peerDependencies:
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
+    "@rocket.chat/fuselage": "*"
+    "@rocket.chat/fuselage-hooks": "*"
     "@rocket.chat/fuselage-polyfills": "*"
     "@rocket.chat/icons": "*"
     "@rocket.chat/styled": "workspace:~"
@@ -5922,7 +5922,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui, @rocket.chat/onboarding-ui@workspace:~":
+"@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
   dependencies:
@@ -5963,7 +5963,12 @@ __metadata:
     typedoc: ~0.22.11
     typescript: ~4.3.5
   peerDependencies:
+    "@rocket.chat/fuselage": "*"
+    "@rocket.chat/fuselage-hooks": "*"
     "@rocket.chat/fuselage-polyfills": "*"
+    "@rocket.chat/icons": "*"
+    "@rocket.chat/logo": "*"
+    "@rocket.chat/styled": "*"
     react: 17.0.2
     react-dom: 17.0.2
     react-i18next: ~11.15.4
