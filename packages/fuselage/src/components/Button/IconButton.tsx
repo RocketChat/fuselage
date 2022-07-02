@@ -10,11 +10,11 @@ type ButtonSize = {
   tiny?: boolean;
   small?: boolean;
 };
+
 type IconButtonProps = ComponentProps<typeof Box> &
   ButtonSize & {
     icon: ComponentProps<typeof Icon>['name'];
     children?: ReactNode;
-
     primary?: boolean;
     secondary?: boolean;
     info?: boolean;

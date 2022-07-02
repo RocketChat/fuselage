@@ -2,6 +2,7 @@ import {
   useMergedRefs,
   useMutableCallback,
   useResizeObserver,
+  useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
 import type {
   ComponentProps,
@@ -50,6 +51,7 @@ type MultiSelectProps = Omit<
   renderItem?: ElementType;
   renderSelected?: ElementType;
   addonIcon?: ComponentProps<typeof Icon>['name'];
+  setFilter?: (filter: string) => void;
 };
 
 export const MultiSelect = forwardRef(
@@ -57,6 +59,7 @@ export const MultiSelect = forwardRef(
     {
       value,
       filter,
+      setFilter,
       options = [],
       error,
       disabled,
@@ -79,13 +82,12 @@ export const MultiSelect = forwardRef(
     );
     const [currentOptionValue, setCurrentOption] = useState<SelectOption[0]>();
 
-    const option = options.find(
-      (option) => getValue(option) === currentOptionValue
-    );
-
     const index = options.findIndex(
       (option) => getValue(option) === currentOptionValue
     );
+
+    const removeFocusClass = () =>
+      innerRef.current?.classList.remove('focus-visible');
 
     const internalChanged = ([value]: SelectOption) => {
       if (internalValue.includes(value)) {
@@ -94,6 +96,7 @@ export const MultiSelect = forwardRef(
         setInternalValue(newValue);
         return onChange(newValue);
       }
+      setFilter?.('');
       setCurrentOption(value);
       const newValue = [...internalValue, value];
       setInternalValue(newValue);
@@ -123,6 +126,7 @@ export const MultiSelect = forwardRef(
     const anchorRef = useMergedRefs(ref, innerRef);
 
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
+    useOutsideClick([containerRef], removeFocusClass);
 
     const renderAnchor = (params: MultiSelectAnchorParams) => {
       if (isForwardRefType(Anchor)) {
@@ -138,19 +142,24 @@ export const MultiSelect = forwardRef(
       return null;
     };
 
+    const handleClick = useMutableCallback(() => {
+      if (innerRef.current?.classList.contains('focus-visible')) {
+        removeFocusClass();
+        return hide();
+      }
+
+      innerRef.current?.classList.add('focus-visible');
+      innerRef.current?.focus();
+      return show();
+    });
+
     return (
       <Box
         is='div'
         rcx-select
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
-        onClick={useMutableCallback(() => {
-          if (visible === AnimatedVisibility.VISIBLE) {
-            return hide();
-          }
-          innerRef.current?.focus();
-          return show();
-        })}
+        onClick={handleClick}
         disabled={disabled}
         {...props}
       >
@@ -169,7 +178,7 @@ export const MultiSelect = forwardRef(
                   <Margins all='x4'>
                     {renderAnchor({
                       ref: anchorRef,
-                      children: !value ? option || placeholder : null,
+                      children: internalValue.length === 0 ? placeholder : null,
                       disabled: disabled ?? false,
                       onClick: show,
                       onBlur: hide,
@@ -189,6 +198,7 @@ export const MultiSelect = forwardRef(
                           onMouseDown={(e: SyntheticEvent) => {
                             prevent(e);
                             internalChanged(currentOption);
+                            removeFocusClass();
                           }}
                           children={getLabel(currentOption)}
                         />
@@ -200,6 +210,7 @@ export const MultiSelect = forwardRef(
                           onMouseDown={(e: SyntheticEvent) => {
                             prevent(e);
                             internalChanged(currentOption);
+                            removeFocusClass();
                           }}
                           children={getLabel(currentOption)}
                         />
@@ -218,7 +229,7 @@ export const MultiSelect = forwardRef(
                 <Icon
                   name={
                     visible === AnimatedVisibility.VISIBLE
-                      ? 'cross'
+                      ? 'chevron-up'
                       : addonIcon || 'chevron-down'
                   }
                   size='x20'
