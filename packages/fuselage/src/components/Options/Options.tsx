@@ -30,7 +30,8 @@ export type OptionType = [
   value: string | number,
   label: ReactNode,
   selected?: boolean,
-  type?: 'heading' | 'divider' | 'option'
+  type?: 'heading' | 'divider' | 'option',
+  url?: string
 ];
 
 type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
@@ -84,7 +85,7 @@ export const Options = forwardRef(
 
     const optionsMemoized = useMemo(
       () =>
-        options?.map(([value, label, selected, type], i) => {
+        options?.map(([value, label, selected, type, url], i) => {
           switch (type) {
             case 'heading':
               return <OptionHeader key={value}>{label}</OptionHeader>;
@@ -97,7 +98,7 @@ export const Options = forwardRef(
                   label={label}
                   onMouseDown={(e: SyntheticEvent) => {
                     prevent(e);
-                    onSelect([value, label]);
+                    onSelect([value, label, selected, type, url]);
                     return false;
                   }}
                   key={value}
