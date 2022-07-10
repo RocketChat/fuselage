@@ -162,6 +162,20 @@ export const InputWithMultilinePlainTextInput = createStory(
   }
 );
 
+export const InputWithMediumMultilinePlainTextInput = createStory(
+  payloads.inputWithMediumMultilinePlainTextInput,
+  {
+    'input-0': 'Error',
+  }
+);
+
+export const InputWithLargeMultilinePlainTextInput = createStory(
+  payloads.inputWithLargeMultilinePlainTextInput,
+  {
+    'input-0': 'Error',
+  }
+);
+
 export const InputWithPlainTextInput = createStory(
   payloads.inputWithPlainTextInput,
   {
