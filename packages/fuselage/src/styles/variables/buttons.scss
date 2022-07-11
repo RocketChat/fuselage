@@ -175,9 +175,9 @@ $icon: (
   focus-background-color: -color('icon', 'focus-background-color', colors.neutral(400)),
   focus-border-color: -color('icon', 'focus-border-color', colors.neutral(500)),
   focus-shadow-color: -color('icon', 'focus-shadow-color', colors.neutral(100)),
-  disabled-background-color: -color('icon', 'disabled-background-color', colors.neutral(100)),
-  disabled-border-color: -color('icon', 'disabled-border-color', colors.neutral(100)),
-  disabled-color: -color('icon', 'disabled-color', colors.neutral(200)),
+  disabled-background-color: -color('icon', 'disabled-background-color', transparent),
+  disabled-border-color: -color('icon', 'disabled-border-color', transparent),
+  disabled-color: -color('icon', 'disabled-color', colors.neutral(600)),
 );
 
 $icon-info: (
@@ -191,8 +191,8 @@ $icon-info: (
   focus-background-color: -color('icon-info', 'focus-background-color', colors.info(300)),
   focus-border-color: -color('icon-info', 'focus-border-color', colors.info(400)),
   focus-shadow-color: -color('icon-info', 'focus-shadow-color', colors.info(100)),
-  disabled-background-color: -color('icon-info', 'disabled-background-color', colors.info(100)),
-  disabled-border-color: -color('icon-info', 'disabled-border-color', colors.info(100)),
+  disabled-background-color: -color('icon', 'disabled-background-color', transparent),
+  disabled-border-color: -color('icon', 'disabled-border-color', transparent),
   disabled-color: -color('icon-info', 'disabled-color', colors.info(200)),
 );
 
@@ -207,8 +207,8 @@ $icon-success: (
   focus-background-color: -color('icon-success', 'focus-background-color', colors.success(300)),
   focus-border-color: -color('icon-success', 'focus-border-color', colors.success(400)),
   focus-shadow-color: -color('icon-success', 'focus-shadow-color', colors.success(100)),
-  disabled-background-color: -color('icon-success', 'disabled-background-color', colors.success(100)),
-  disabled-border-color: -color('icon-success', 'disabled-border-color', colors.success(100)),
+  disabled-background-color: -color('icon', 'disabled-background-color', transparent),
+  disabled-border-color: -color('icon', 'disabled-border-color', transparent),
   disabled-color: -color('icon-success', 'disabled-color', colors.success(200)),
 );
 
@@ -223,8 +223,8 @@ $icon-warning: (
   focus-background-color: -color('icon-warning', 'focus-background-color', colors.warning(300)),
   focus-border-color: -color('icon-warning', 'focus-border-color', colors.warning(400)),
   focus-shadow-color: -color('icon-warning', 'focus-shadow-color', colors.warning(100)),
-  disabled-background-color: -color('icon-warning', 'disabled-background-color', colors.warning(100)),
-  disabled-border-color: -color('icon-warning', 'disabled-border-color', colors.warning(100)),
+  disabled-background-color: -color('icon', 'disabled-background-color', transparent),
+  disabled-border-color: -color('icon', 'disabled-border-color', transparent),
   disabled-color: -color('icon-warning', 'disabled-color', colors.warning(200)),
 );
 
@@ -239,7 +239,7 @@ $icon-danger: (
   focus-background-color: -color('icon-danger', 'focus-background-color', colors.danger(300)),
   focus-border-color: -color('icon-danger', 'focus-border-color', colors.danger(400)),
   focus-shadow-color: -color('icon-danger', 'focus-shadow-color', colors.danger(100)),
-  disabled-background-color: -color('icon-danger', 'disabled-background-color', colors.danger(100)),
-  disabled-border-color: -color('icon-danger', 'disabled-border-color', colors.danger(100)),
+  disabled-background-color: -color('icon', 'disabled-background-color', transparent),
+  disabled-border-color: -color('icon', 'disabled-border-color', transparent),
   disabled-color: -color('icon-danger', 'disabled-color', colors.danger(200)),
 );

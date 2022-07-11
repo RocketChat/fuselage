@@ -68,6 +68,7 @@ export const IconButton = forwardRef(
     return (
       <Box
         is='button'
+        type='button'
         rcx-button
         rcx-button--icon
         rcx-button--square={square}
