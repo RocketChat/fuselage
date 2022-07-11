@@ -9,7 +9,6 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   danger?: boolean;
   warning?: boolean;
   success?: boolean;
-
   disabled?: boolean;
   small?: boolean;
   mini?: boolean;
