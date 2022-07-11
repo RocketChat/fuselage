@@ -13,6 +13,8 @@ $variants: (
 .rcx-message-status-indicator {
   margin-block: lengths.margin(2);
 
+  user-select: none;
+
   &:empty {
     display: none;
   }
