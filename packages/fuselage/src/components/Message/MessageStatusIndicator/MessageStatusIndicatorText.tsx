@@ -8,5 +8,7 @@ type MessageStatusIndicatorTextProps = {
 export const MessageStatusIndicatorText = ({
   children,
 }: MessageStatusIndicatorTextProps) => (
-  <span className='rcx-message-status-indicator__text'>{children}</span>
+  <span className='rcx-message-status-indicator__text' aria-hidden>
+    {children}
+  </span>
 );
