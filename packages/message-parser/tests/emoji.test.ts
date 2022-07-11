@@ -61,6 +61,24 @@ test.each([
   ['❤️', [bigEmoji([emojiUnicode('❤️')])]],
   ['🏳️', [bigEmoji([emojiUnicode('🏳️')])]],
   ['🧑🏾‍💻', [bigEmoji([emojiUnicode('🧑🏾‍💻')])]],
+  ['🧑🏾‍💻🧑🏾‍💻', [bigEmoji([emojiUnicode('🧑🏾‍💻'), emojiUnicode('🧑🏾‍💻')])]],
+  [
+    '🧑🏾‍💻🧑🏾‍💻🧑🏾‍💻',
+    [
+      bigEmoji([
+        emojiUnicode('🧑🏾‍💻'),
+        emojiUnicode('🧑🏾‍💻'),
+        emojiUnicode('🧑🏾‍💻'),
+      ]),
+    ],
+  ],
+  ['👆🏽', [bigEmoji([emojiUnicode('👆🏽')])]],
+  ['👆🏽👆🏽', [bigEmoji([emojiUnicode('👆🏽'), emojiUnicode('👆🏽')])]],
+  [
+    '👆🏽👆🏽👆🏽',
+    [bigEmoji([emojiUnicode('👆🏽'), emojiUnicode('👆🏽'), emojiUnicode('👆🏽')])],
+  ],
+  ['👆🏺', [bigEmoji([emojiUnicode('👆'), emojiUnicode('🏺')])]],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });
