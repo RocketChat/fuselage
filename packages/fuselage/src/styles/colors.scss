@@ -142,17 +142,13 @@ $-surfaces: (
   neutral: neutral(400),
   disabled: neutral(100),
   hover: neutral(400),
-  info: info(200),
-  success: success(200),
-  warning: warning(200),
-  danger: danger(200),
   service-1: service-1(200),
   service-2: service-2(200),
 );
 
 @function surface($type) {
   $color: map.get($-surfaces, $type);
-  @return var(--rcx-color-surface, $color);
+  @return var(--rcx-color-surface-#{$type}, $color);
 }
 
 $-text: (
@@ -160,29 +156,41 @@ $-text: (
   disabled: neutral(500),
   annotation: neutral(600),
   hint: neutral(700),
-  default: neutral(800),
-  titles-labels: neutral(900),
-  danger: danger(600),
   secondary-info: neutral(700),
-  on-info: info(600),
-  on-success: success(800),
-  on-warning: warning(900),
-  on-danger: danger(800),
-  on-service-1: service-1(800),
-  on-service-2: service-2(600),
+  text: neutral(800),
+  titles-labels: neutral(900),
+  info: info(600),
+  danger: danger(600),
 );
 
 @function text($type) {
   @return map.get($-text, $type);
 }
 
-$-backgrounds: (
-  light: white,
-  tint: neutral(100),
+$-status-backgrounds: (
+  success: success(200),
+  warning: warning(200),
+  danger: danger(200),
+  service-1: service-1(200),
+  service-2: service-2(200),
+  info: info(200),
 );
 
-@function background($type) {
-  @return map.get($-backgrounds, $type);
+@function statusBackground($type) {
+  @return map.get($-status-backgrounds, $type);
+}
+
+$-status-foregrounds: (
+  on-success: success(800),
+  on-warning: warning(900),
+  on-danger: danger(800),
+  on-service-1: service-1(800),
+  on-service-2: service-2(600),
+  on-info: info(600),
+);
+
+@function statusForeground($type) {
+  @return map.get($-status-foregrounds, $type);
 }
 
 $-strokes: (

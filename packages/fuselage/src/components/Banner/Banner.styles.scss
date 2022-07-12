@@ -6,7 +6,7 @@
 // neutral
 $banner-colors-neutral-color: functions.theme(
   'banner-colors-neutral-color',
-  colors.text(on-neutral)
+  colors.text(text)
 );
 $banner-colors-neutral-background-color: functions.theme(
   'banner-colors-neutral-background-color',
@@ -15,38 +15,38 @@ $banner-colors-neutral-background-color: functions.theme(
 // info
 $banner-colors-info-color: functions.theme(
   'banner-colors-info-color',
-  colors.text(on-info)
+  colors.statusforeground(on-info)
 );
 $banner-colors-info-background-color: functions.theme(
   'banner-colors-info-background-color',
-  colors.surface(info)
+  colors.statusbackground(info)
 );
 // success
 $banner-colors-success-color: functions.theme(
   'banner-colors-success-color',
-  colors.text(on-success)
+  colors.statusforeground(on-success)
 );
 $banner-colors-success-background-color: functions.theme(
   'banner-colors-success-background-color',
-  colors.surface(success)
+  colors.statusbackground(success)
 );
 // warning
 $banner-colors-warning-color: functions.theme(
   'banner-colors-warning-color',
-  colors.text(on-warning)
+  colors.statusforeground(on-warning)
 );
 $banner-colors-warning-background-color: functions.theme(
   'banner-colors-warning-background-color',
-  colors.surface(warning)
+  colors.statusbackground(warning)
 );
 // danger
 $banner-colors-danger-color: functions.theme(
   'banner-colors-danger-color',
-  colors.text(on-danger)
+  colors.statusforeground(on-danger)
 );
 $banner-colors-danger-background-color: functions.theme(
   'banner-colors-danger-background-color',
-  colors.surface(danger)
+  colors.statusbackground(danger)
 );
 
 .rcx-banner {

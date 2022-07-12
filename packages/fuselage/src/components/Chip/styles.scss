@@ -3,7 +3,6 @@
 @use '../../styles/typography.scss';
 @use '../../styles/functions';
 @use '../../styles/primitives/button.scss';
-// : theme('badge-colors-primary-color', colors.foreground(alternative));
 
 $chip-background-color: functions.theme(
   'chip-background-color',
@@ -13,7 +12,7 @@ $chip-border-color: functions.theme(
   'chip-border-color',
   colors.button(secondary)
 );
-$chip-color: functions.theme('chip-color', colors.text(on-secondary));
+$chip-color: functions.theme('chip-color', colors.text(secondary-info));
 $chip-hover-background-color: functions.theme(
   'chip-hover-background-color',
   colors.button(hover-secondary)
@@ -52,7 +51,7 @@ $chip-disabled-border-color: functions.theme(
 );
 $chip-disabled-color: functions.theme(
   'chip-disabled-color',
-  colors.text(on-disabled)
+  colors.text(disabled)
 );
 
 .rcx-chip {

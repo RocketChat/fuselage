@@ -9,41 +9,41 @@
   padding-inline-start: lengths.padding(16);
   padding-inline-end: lengths.padding(32);
 
-  color: theme('callout-color', colors.text(on-neutral));
+  color: theme('callout-color', colors.text(text));
 
   border-radius: lengths.border-radius(2);
 
   background-color: theme('callout-background-color', colors.surface(neutral));
 
   &--type-info {
-    color: theme('callout-color-info', colors.text(on-info));
+    color: theme('callout-color-info', colors.statusforeground(on-info));
     background-color: theme(
       'callout-background-color-info',
-      colors.surface(info)
+      colors.statusbackground(info)
     );
   }
 
   &--type-success {
-    color: theme('callout-color-success', colors.text(on-success));
+    color: theme('callout-color-success', colors.statusforeground(on-success));
     background-color: theme(
       'callout-background-color-success',
-      colors.surface(success)
+      colors.statusbackground(success)
     );
   }
 
   &--type-warning {
-    color: theme('callout-color-warning', colors.text(on-warning));
+    color: theme('callout-color-warning', colors.statusforeground(on-warning));
     background-color: theme(
       'callout-background-color-warning',
-      colors.surface(warning)
+      colors.statusbackground(warning)
     );
   }
 
   &--type-danger {
-    color: theme('callout-color-danger', colors.text(on-danger));
+    color: theme('callout-color-danger', colors.statusforeground(on-danger));
     background-color: theme(
       'callout-background-color-danger',
-      colors.surface(danger)
+      colors.statusbackground(danger)
     );
   }
 }

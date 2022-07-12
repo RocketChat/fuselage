@@ -104,7 +104,7 @@
   @include clickable;
   display: inline-flex;
 
-  color: colors.text(on-info);
+  color: colors.text(info);
   background: transparent;
 
   &:hover:not(.disabled):not(:disabled),
