@@ -3,8 +3,9 @@ import React from 'react';
 
 import type { MessageStatusIndicatorItem } from './MessageStatusIndicatorItem';
 
-type MessageStatusIndicatorItemProps = ComponentProps<
-  typeof MessageStatusIndicatorItem
+type MessageStatusIndicatorItemProps = Pick<
+  ComponentProps<typeof MessageStatusIndicatorItem>,
+  'variant'
 >;
 
 export const MessageStatusPrivateIndicator = ({

@@ -9,18 +9,18 @@ type ButtonSize = {
   tiny?: boolean;
   small?: boolean;
 };
-type IconButtonProps = ComponentProps<typeof Box> &
-  ButtonSize & {
-    icon: ComponentProps<typeof Icon>['name'];
-    children?: ReactNode;
 
-    primary?: boolean;
-    secondary?: boolean;
-    info?: boolean;
-    danger?: boolean;
-    warning?: boolean;
-    success?: boolean;
-  };
+type IconButtonProps = {
+  icon: ComponentProps<typeof Icon>['name'];
+  children?: ReactNode;
+  primary?: boolean;
+  secondary?: boolean;
+  info?: boolean;
+  danger?: boolean;
+  warning?: boolean;
+  success?: boolean;
+} & ButtonSize &
+  ComponentProps<typeof Box>;
 
 const getSize = ({ mini }: ButtonSize) => (mini ? 'x16' : 'x20');
 
