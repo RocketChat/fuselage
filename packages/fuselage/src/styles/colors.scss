@@ -142,8 +142,6 @@ $-surfaces: (
   neutral: neutral(400),
   disabled: neutral(100),
   hover: neutral(400),
-  service-1: service-1(200),
-  service-2: service-2(200),
 );
 
 @function surface($type) {
@@ -164,7 +162,8 @@ $-text: (
 );
 
 @function text($type) {
-  @return map.get($-text, $type);
+  $color: map.get($-text, $type);
+  @return var(--rcx-text-#{$type}, $color);
 }
 
 $-status-backgrounds: (
@@ -177,7 +176,8 @@ $-status-backgrounds: (
 );
 
 @function statusBackground($type) {
-  @return map.get($-status-backgrounds, $type);
+  $color: map.get($-status-backgrounds, $type);
+  @return var(--rcx-status-background-#{$type}, $color);
 }
 
 $-status-foregrounds: (
@@ -190,7 +190,8 @@ $-status-foregrounds: (
 );
 
 @function statusForeground($type) {
-  @return map.get($-status-foregrounds, $type);
+  $color: map.get($-status-foregrounds, $type);
+  @return var(--rcx-status-foregrounds-#{$type}, $color);
 }
 
 $-strokes: (

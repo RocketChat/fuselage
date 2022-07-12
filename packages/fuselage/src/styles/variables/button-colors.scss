@@ -256,7 +256,7 @@ $button-colors-warning-focus-border-color: theme(
 );
 $button-colors-warning-focus-shadow-color: theme(
   'button-colors-warning-focus-shadow-color',
-  colors.stroke(warning)
+  colors.statusbackground(warning)
 );
 $button-colors-warning-disabled-background-color: theme(
   'button-colors-warning-disabled-background-color',
@@ -310,7 +310,7 @@ $button-colors-secondary-warning-focus-border-color: theme(
 );
 $button-colors-secondary-warning-focus-shadow-color: theme(
   'button-colors-secondary-warning-focus-shadow-color',
-  colors.stroke(warning)
+  colors.statusbackground(warning)
 );
 $button-colors-secondary-warning-disabled-background-color: theme(
   'button-colors-secondary-warning-disabled-background-color',
@@ -364,7 +364,7 @@ $button-colors-success-focus-border-color: theme(
 );
 $button-colors-success-focus-shadow-color: theme(
   'button-colors-success-focus-shadow-color',
-  colors.stroke(success)
+  colors.statusbackground(success)
 );
 $button-colors-success-disabled-background-color: theme(
   'button-colors-success-disabled-background-color',
@@ -418,7 +418,7 @@ $button-colors-secondary-success-focus-border-color: theme(
 );
 $button-colors-secondary-success-focus-shadow-color: theme(
   'button-colors-secondary-success-focus-shadow-color',
-  colors.stroke(success)
+  colors.statusbackground(success)
 );
 $button-colors-secondary-success-disabled-background-color: theme(
   'button-colors-secondary-success-disabled-background-color',
