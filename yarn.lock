@@ -22361,7 +22361,7 @@ fsevents@~2.1.2:
   version: 3.0.0
   resolution: "postcss-svg@npm:3.0.0"
   dependencies:
-    postcss: ^7.0.6
+    postcss: ^7.0.36
     postcss-values-parser: ^2.0.0
     svgo: ^1.1.1
     xmldoc: ^1.1.2
@@ -22425,17 +22425,6 @@ fsevents@~2.1.2:
     source-map: ^0.6.1
     supports-color: ^6.1.0
   checksum: 4cfc0989b9ad5d0e8971af80d87f9c5beac5c84cb89ff22ad69852edf73c0a2fa348e7e0a135b5897bf893edad0fe86c428769050431ad9b532f072ff530828d
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^7.0.6":
-  version: 7.0.35
-  resolution: "postcss@npm:7.0.35"
-  dependencies:
-    chalk: ^2.4.2
-    source-map: ^0.6.1
-    supports-color: ^6.1.0
-  checksum: 6b197769057f38b9d4d8778c7e3b8b4a56c0c2c3ac8edf7552b06ac964e1a3601567fa2c5335a54fba103492305b0fc1347ce786fd72e30903a22f09f86525ae
   languageName: node
   linkType: hard
 
