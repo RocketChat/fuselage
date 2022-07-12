@@ -113,12 +113,6 @@ yarn storybook
 
 ### Usage
 
-To use the fuselage icons, you need to import the css first:
-
-```css
-@import url('@rocket.chat/icons/dist/rocketchat.css');
-```
-
 Note: If you are using Next.js for development and wish to use Rocket.Chat Fuselage components, you need to dynamically import the component. More on this can be found [here](https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97#3-third-solution-dynamic-loading).
 
 For example,
