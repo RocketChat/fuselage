@@ -1,17 +1,17 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 import React from 'react';
 
 import type { MessageStatusIndicatorItem } from './MessageStatusIndicatorItem';
 
-type MessageStatusIndicatorItemProps = Pick<
-  ComponentProps<typeof MessageStatusIndicatorItem>,
-  'variant'
->;
+type MessageStatusPrivateIndicatorProps = {
+  children?: ReactNode;
+  variant?: ComponentProps<typeof MessageStatusIndicatorItem>['variant'];
+};
 
 export const MessageStatusPrivateIndicator = ({
+  children,
   variant,
-  ...props
-}: MessageStatusIndicatorItemProps) => (
+}: MessageStatusPrivateIndicatorProps) => (
   <span
     className={[
       'rcx-message-status-indicator__item `rcx-message-status-indicator__item--private',
@@ -19,6 +19,7 @@ export const MessageStatusPrivateIndicator = ({
     ]
       .filter(Boolean)
       .join(' ')}
-    {...props}
-  />
+  >
+    {children}
+  </span>
 );
