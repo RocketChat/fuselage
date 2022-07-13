@@ -1,5 +1,5 @@
-import type { ComponentProps, ReactNode } from 'react';
-import React from 'react';
+import type { ComponentProps, ReactNode, Ref } from 'react';
+import React, { forwardRef } from 'react';
 
 import Box from '../Box';
 import { Divider } from '../Divider';
@@ -79,9 +79,13 @@ export const TopBarAvatar = Avatar;
 export const TopBarActions = SidebarActions;
 
 type TopBarActionProps = ComponentProps<typeof SidebarAction>;
-export const TopBarAction = (props: TopBarActionProps) => (
-  <SidebarAction {...props} />
-);
+
+export const TopBarAction = forwardRef(function TopBarAction(
+  props: TopBarActionProps,
+  ref: Ref<any>
+) {
+  return <SidebarAction ref={ref} {...props} />;
+});
 
 export const TopBarDivider = () => <Divider mbs='neg-x2' mbe={0} />;
 
