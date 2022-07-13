@@ -1,17 +1,13 @@
 {
-  "text": {
+  "font": {
     "white": { "value": "{colors.white}" },
     "disabled": { "value": "{colors.n500}" },
     "annotation": { "value": "{colors.n600}" },
     "hint": { "value": "{colors.n700}" },
     "secondaryInfo": { "value": "{colors.n700}" },
-    "text": { "value": "{colors.n800}" },
+    "default": { "value": "{colors.n800}" },
     "titlesLabels": { "value": "{colors.n900}" },
     "info": { "value": "{colors.i600}" },
-    "danger": { "value": "{colors.d600}" },
-    "success": { "value": "{colors.s800}" },
-    "warning": { "value": "{colors.w900}" },
-    "service1": { "value": "{colors.s1-800}" },
-    "service2": { "value": "{colors.s2-600}" }
+    "danger": { "value": "{colors.d600}" }
   }
 }
