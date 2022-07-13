@@ -6,7 +6,7 @@
 // neutral
 $banner-colors-neutral-color: functions.theme(
   'banner-colors-neutral-color',
-  colors.text(text)
+  colors.font(default)
 );
 $banner-colors-neutral-background-color: functions.theme(
   'banner-colors-neutral-background-color',

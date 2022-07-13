@@ -4,7 +4,7 @@
 
 $tag-colors-default-color: theme(
   'tag-colors-default-color',
-  colors.text(titles-labels)
+  colors.font(titles-labels)
 );
 $tag-colors-default-hover-color: theme(
   'tag-colors-default-hover-color',

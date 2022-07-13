@@ -9,7 +9,7 @@
   padding-inline-start: lengths.padding(16);
   padding-inline-end: lengths.padding(32);
 
-  color: theme('callout-color', colors.text(text));
+  color: theme('callout-color', colors.font(default));
 
   border-radius: lengths.border-radius(2);
 

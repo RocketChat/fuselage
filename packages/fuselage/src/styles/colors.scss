@@ -149,21 +149,21 @@ $-surfaces: (
   @return var(--rcx-color-surface-#{$type}, $color);
 }
 
-$-text: (
+$-font: (
   white: white,
   disabled: neutral(500),
   annotation: neutral(600),
   hint: neutral(700),
   secondary-info: neutral(700),
-  text: neutral(800),
+  default: neutral(800),
   titles-labels: neutral(900),
   info: info(600),
   danger: danger(600),
 );
 
-@function text($type) {
-  $color: map.get($-text, $type);
-  @return var(--rcx-text-#{$type}, $color);
+@function font($type) {
+  $color: map.get($-font, $type);
+  @return var(--rcx-font-#{$type}, $color);
 }
 
 $-status-backgrounds: (

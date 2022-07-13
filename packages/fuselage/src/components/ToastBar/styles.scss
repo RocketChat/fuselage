@@ -28,7 +28,7 @@
   }
 
   &--error {
-    color: theme('toastbar-error-color', colors.text(danger));
+    color: theme('toastbar-error-color', colors.font(danger));
     background-color: theme(
       'toastbar-error-background-color',
       colors.statusbackground(danger)

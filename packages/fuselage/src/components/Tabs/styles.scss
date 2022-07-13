@@ -4,8 +4,8 @@
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);
-$tabs-color: theme('tabs-color', colors.text(secondary-info));
-$tabs-hover-color: theme('tabs-hover-border-color', colors.text(titles-labels));
+$tabs-color: theme('tabs-color', colors.font(secondary-info));
+$tabs-hover-color: theme('tabs-hover-border-color', colors.font(titles-labels));
 $tabs-selected-color: theme('tabs-selected-color', colors.button(primary));
 $tabs-selected-border-color: theme(
   'tabs-selected-border-color',
@@ -19,7 +19,7 @@ $tabs-hover-selected-border-color: theme(
   'tabs-hover-selected-border-color',
   colors.button(hover-primary)
 );
-$tabs-active-color: theme('tabs-active-color', colors.text(titles-labels));
+$tabs-active-color: theme('tabs-active-color', colors.font(titles-labels));
 $tabs-active-selected-color: theme(
   'tabs-active-selected-color',
   colors.button(press-primary)
