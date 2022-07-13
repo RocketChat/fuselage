@@ -175,7 +175,7 @@ $-status-backgrounds: (
   info: info(200),
 );
 
-@function statusBackground($type) {
+@function statusbackground($type) {
   $color: map.get($-status-backgrounds, $type);
   @return var(--rcx-status-background-#{$type}, $color);
 }
@@ -189,7 +189,7 @@ $-status-foregrounds: (
   on-info: info(600),
 );
 
-@function statusForeground($type) {
+@function statusforeground($type) {
   $color: map.get($-status-foregrounds, $type);
   @return var(--rcx-status-foregrounds-#{$type}, $color);
 }
