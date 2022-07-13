@@ -20,10 +20,13 @@
   }
 
   &--success {
-    color: theme('toastbar-success-color', colors.statusforeground(on-success));
+    color: theme(
+      'toastbar-success-color',
+      colors.status-foreground(on-success)
+    );
     background-color: theme(
       'toastbar-success-background-color',
-      colors.statusbackground(success)
+      colors.status-background(success)
     );
   }
 
@@ -31,7 +34,7 @@
     color: theme('toastbar-error-color', colors.font(danger));
     background-color: theme(
       'toastbar-error-background-color',
-      colors.statusbackground(danger)
+      colors.status-background(danger)
     );
   }
 }

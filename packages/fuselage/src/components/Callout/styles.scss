@@ -16,34 +16,34 @@
   background-color: theme('callout-background-color', colors.surface(neutral));
 
   &--type-info {
-    color: theme('callout-color-info', colors.statusforeground(on-info));
+    color: theme('callout-color-info', colors.status-foreground(on-info));
     background-color: theme(
       'callout-background-color-info',
-      colors.statusbackground(info)
+      colors.status-background(info)
     );
   }
 
   &--type-success {
-    color: theme('callout-color-success', colors.statusforeground(on-success));
+    color: theme('callout-color-success', colors.status-foreground(on-success));
     background-color: theme(
       'callout-background-color-success',
-      colors.statusbackground(success)
+      colors.status-background(success)
     );
   }
 
   &--type-warning {
-    color: theme('callout-color-warning', colors.statusforeground(on-warning));
+    color: theme('callout-color-warning', colors.status-foreground(on-warning));
     background-color: theme(
       'callout-background-color-warning',
-      colors.statusbackground(warning)
+      colors.status-background(warning)
     );
   }
 
   &--type-danger {
-    color: theme('callout-color-danger', colors.statusforeground(on-danger));
+    color: theme('callout-color-danger', colors.status-foreground(on-danger));
     background-color: theme(
       'callout-background-color-danger',
-      colors.statusbackground(danger)
+      colors.status-background(danger)
     );
   }
 }

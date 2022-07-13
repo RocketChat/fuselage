@@ -15,38 +15,38 @@ $banner-colors-neutral-background-color: functions.theme(
 // info
 $banner-colors-info-color: functions.theme(
   'banner-colors-info-color',
-  colors.statusforeground(on-info)
+  colors.status-foreground(on-info)
 );
 $banner-colors-info-background-color: functions.theme(
   'banner-colors-info-background-color',
-  colors.statusbackground(info)
+  colors.status-background(info)
 );
 // success
 $banner-colors-success-color: functions.theme(
   'banner-colors-success-color',
-  colors.statusforeground(on-success)
+  colors.status-foreground(on-success)
 );
 $banner-colors-success-background-color: functions.theme(
   'banner-colors-success-background-color',
-  colors.statusbackground(success)
+  colors.status-background(success)
 );
 // warning
 $banner-colors-warning-color: functions.theme(
   'banner-colors-warning-color',
-  colors.statusforeground(on-warning)
+  colors.status-foreground(on-warning)
 );
 $banner-colors-warning-background-color: functions.theme(
   'banner-colors-warning-background-color',
-  colors.statusbackground(warning)
+  colors.status-background(warning)
 );
 // danger
 $banner-colors-danger-color: functions.theme(
   'banner-colors-danger-color',
-  colors.statusforeground(on-danger)
+  colors.status-foreground(on-danger)
 );
 $banner-colors-danger-background-color: functions.theme(
   'banner-colors-danger-background-color',
-  colors.statusbackground(danger)
+  colors.status-background(danger)
 );
 
 .rcx-banner {
