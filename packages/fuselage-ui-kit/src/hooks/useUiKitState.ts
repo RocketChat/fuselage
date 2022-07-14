@@ -115,26 +115,23 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
     [loading, setLoading, error, value]
   );
 
-  if (context === UiKit.BlockContext.FORM) {
-    if (
-      rest.type === 'plain_text_input' &&
-      Array.isArray(rest?.dispatchActionConfig) &&
-      rest.dispatchActionConfig.includes('on_character_entered')
-    ) {
-      return [result, noLoadStateActionFunction];
-    }
+  console.log(`context`, context);
 
-    if (
-      Array.isArray(rest?.dispatchActionConfig) &&
-      rest.dispatchActionConfig.includes('on_item_selected')
-    ) {
-      return [result, actionFunction];
-    }
+  if (
+    rest.type === 'plain_text_input' &&
+    Array.isArray(rest?.dispatchActionConfig) &&
+    rest.dispatchActionConfig.includes('on_character_entered')
+  ) {
+    return [result, noLoadStateActionFunction];
   }
 
   if (
-    context &&
-    [UiKit.BlockContext.SECTION, UiKit.BlockContext.ACTION].includes(context)
+    (context &&
+      [UiKit.BlockContext.SECTION, UiKit.BlockContext.ACTION].includes(
+        context
+      )) ||
+    (Array.isArray(rest?.dispatchActionConfig) &&
+      rest.dispatchActionConfig.includes('on_item_selected'))
   ) {
     return [result, actionFunction];
   }
