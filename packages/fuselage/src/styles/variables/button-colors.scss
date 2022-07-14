@@ -49,7 +49,7 @@ $button-primary-disabled-border-color: theme(
 );
 $button-primary-disabled-color: theme(
   'button-primary-disabled-color',
-  colors.button(on-primary)
+  colors.button(on-primary-disabled)
 );
 
 // secondary
@@ -103,7 +103,7 @@ $button-secondary-disabled-border-color: theme(
 );
 $button-secondary-disabled-color: theme(
   'button-secondary-disabled-color',
-  colors.button(on-disabled)
+  colors.button(on-secondary-disabled)
 );
 
 // danger
@@ -154,7 +154,7 @@ $button-danger-disabled-border-color: theme(
 );
 $button-danger-disabled-color: theme(
   'button-danger-disabled-color',
-  colors.button(on-danger)
+  colors.button(on-danger-disabled)
 );
 
 // secondary-danger
@@ -208,7 +208,7 @@ $button-secondary-danger-disabled-border-color: theme(
 );
 $button-secondary-danger-disabled-color: theme(
   'button-secondary-danger-disabled-color',
-  colors.button(on-disabled)
+  colors.button(on-secondary-danger-disabled)
 );
 
 // warning
@@ -259,7 +259,7 @@ $button-warning-disabled-border-color: theme(
 );
 $button-warning-disabled-color: theme(
   'button-warning-disabled-color',
-  colors.button(on-disabled)
+  colors.button(on-warning-disabled)
 );
 
 // secondary-warning
@@ -313,7 +313,7 @@ $button-secondary-warning-disabled-border-color: theme(
 );
 $button-secondary-warning-disabled-color: theme(
   'button-secondary-warning-disabled-color',
-  colors.button(on-disabled)
+  colors.button(on-secondary-warning-disabled)
 );
 
 // success
@@ -364,7 +364,7 @@ $button-success-disabled-border-color: theme(
 );
 $button-success-disabled-color: theme(
   'button-success-disabled-color',
-  colors.button(on-disabled)
+  colors.button(on-success-disabled)
 );
 
 // secondary-success
@@ -418,7 +418,7 @@ $button-secondary-success-disabled-border-color: theme(
 );
 $button-secondary-success-disabled-color: theme(
   'button-secondary-success-disabled-color',
-  colors.button(on-disabled)
+  colors.button(on-secondary-success-disabled)
 );
 
 // empty

@@ -263,23 +263,32 @@ $-button-backgrounds: (
 );
 
 $-button-foregrounds: (
+  // primary
   on-primary: white,
   on-primary-disabled: white,
+  // secondary
   on-secondary: neutral(900),
   on-secondary-disabled: neutral(600),
+  // danger
   on-danger: white,
   on-danger-disabled: white,
+  // secondary-danger
   on-secondary-danger: danger(700),
   on-secondary-danger-disabled: danger(300),
+  // warning
   on-warning: neutral(900),
-  on-warning-disabled: neutral(300),
+  on-warning-disabled: neutral(600),
+  // secondary-warning
   on-secondary-warning: warning(900),
-  on-secondary-warning-disabled: warning(900),
+  on-secondary-warning-disabled: warning(600),
+  // success
   on-success: neutral(900),
-  on-success-disabled: neutral(900),
+  on-success-disabled: white,
+  // secondary-success
   on-secondary-success: success(600),
-  on-secondary-success-disabled: success(600),
-  on-disabled: neutral(600),
+  on-secondary-success-disabled: success(400),
+  // disabled
+  on-disabled: neutral(600)
 );
 
 @function button($type) {
