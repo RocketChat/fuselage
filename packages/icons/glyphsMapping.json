@@ -856,5 +856,8 @@
   },
   "arrow-forward": {
     "start": "\ue101"
+  },
+  "address-book": {
+    "start": "\ue103"
   }
 }

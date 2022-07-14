@@ -18,7 +18,7 @@ export function Tag({
   className,
   disabled,
   onClick,
-  variant = 'secondary',
+  variant,
   ...props
 }: TagProps) {
   const modifiers = [
@@ -35,6 +35,7 @@ export function Tag({
   return (
     <TagName
       className={prependClassName(className as string, `rcx-tag ${modifiers}`)}
+      onClick={onClick}
       {...props}
     />
   );

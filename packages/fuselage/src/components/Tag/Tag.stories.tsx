@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import {
   Title,
   Description,
@@ -33,46 +34,61 @@ export default {
 
 const Template: ComponentStory<typeof Tag> = (args) => (
   <Box display='inline-flex'>
-    <Tag {...args}>
-      {args.children}
-      john.doe
-    </Tag>
+    <Tag {...args}>{args.children || 'john.doe'}</Tag>
   </Box>
 );
 
-export const Default: ComponentStory<typeof Tag> = Template.bind({});
+export const Default = Template.bind({});
 
-export const PrimaryStory: ComponentStory<typeof Tag> = Template.bind({});
-PrimaryStory.args = {
+export const _Primary = Template.bind({});
+_Primary.args = {
   variant: 'primary',
 };
-PrimaryStory.storyName = 'Primary';
 
-export const Secondary: ComponentStory<typeof Tag> = Template.bind({});
+export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
 };
 
-export const WithIcon: ComponentStory<typeof Tag> = Template.bind({});
+export const WithIcon = Template.bind({});
 WithIcon.args = {
-  children: <Icon size='x12' mie='x4' name='team-lock' />,
+  children: (
+    <>
+      <Icon size='x12' mie='x4' name='team-lock' /> Team
+    </>
+  ),
 };
 
-export const _Danger: ComponentStory<typeof Tag> = Template.bind({});
+export const _Danger = Template.bind({});
 _Danger.args = {
   variant: 'danger',
 };
-export const _SecondaryDanger: ComponentStory<typeof Tag> = Template.bind({});
+export const _SecondaryDanger = Template.bind({});
 _SecondaryDanger.args = {
   variant: 'secondary-danger',
 };
 
-export const Warning: ComponentStory<typeof Tag> = Template.bind({});
+export const Warning = Template.bind({});
 Warning.args = {
   variant: 'warning',
 };
 
-export const Disabled: ComponentStory<typeof Tag> = Template.bind({});
+export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
+};
+
+export const Clickable = Template.bind({});
+Clickable.args = {
+  onClick: action('click'),
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  small: true,
+};
+
+export const Medium = Template.bind({});
+Medium.args = {
+  medium: true,
 };

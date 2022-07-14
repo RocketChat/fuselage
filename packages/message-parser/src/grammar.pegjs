@@ -633,8 +633,13 @@ unicodeEmoji
       )?
   )
   / $(
-    (unicodeEmojiMiscellaneousSymbolsAndPictographs [\u200D])*
+    (
+        unicodeEmojiMiscellaneousSymbolsAndPictographs
+          unicodeEmojiMiscellaneousSymbolsAndPictographsFitzpatrickModifiers?
+          [\u200D]
+      )*
       unicodeEmojiMiscellaneousSymbolsAndPictographs
+      unicodeEmojiMiscellaneousSymbolsAndPictographsFitzpatrickModifiers?
   )
   / unicodeEmojiTransportAndMapSymbols
   / unicodeEmojiMiscellaneousTechnical
@@ -649,6 +654,9 @@ unicodeEmojiSupplementalSymbolsAndPictographs = $([\uD83E] [\uDD00-\uDDFF])
 unicodeEmojiMiscellaneousSymbolsAndPictographs
   = $([\uD83C] [\uDF00-\uDFFF] [\uFE00-\uFE0F]?)
   / $([\uD83D] [\uDC00-\uDDFF] [\uFE00-\uFE0F]?)
+
+unicodeEmojiMiscellaneousSymbolsAndPictographsFitzpatrickModifiers
+  = $([\uD83C] [\uDFFB-\uDFFF])
 
 unicodeEmojiTransportAndMapSymbols = $([\uD83D] [\uDE80-\uDEFA])
 
