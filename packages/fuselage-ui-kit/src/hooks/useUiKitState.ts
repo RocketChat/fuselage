@@ -115,8 +115,6 @@ export const useUiKitState: <TElement extends UiKit.ActionableElement>(
     [loading, setLoading, error, value]
   );
 
-  console.log(`context`, context);
-
   if (
     rest.type === 'plain_text_input' &&
     Array.isArray(rest?.dispatchActionConfig) &&
