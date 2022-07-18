@@ -235,6 +235,17 @@ test.each([
     'http:/ google.com',
     [paragraph([plain('http:/ '), link('//google.com', plain('google.com'))])],
   ],
+  ['{{agent.name}}', [paragraph([plain('{{agent.name}}')])]],
+  [
+    '{{ https://domain.com }}',
+    [
+      paragraph([
+        plain('{{ '),
+        link('https://domain.com', plain('https://domain.com')),
+        plain(' }}'),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });
