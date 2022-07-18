@@ -37,7 +37,7 @@ $button-primary-focus-border-color: theme(
 );
 $button-primary-focus-shadow-color: theme(
   'button-primary-focus-shadow-color',
-  colors.stroke(extra-light-highlight)
+  colors.stroke(light)
 );
 $button-primary-disabled-background-color: theme(
   'button-primary-disabled-background-color',
@@ -91,7 +91,7 @@ $button-secondary-focus-border-color: theme(
 );
 $button-secondary-focus-shadow-color: theme(
   'button-secondary-focus-shadow-color',
-  colors.stroke(extra-light-highlight)
+  colors.stroke(light)
 );
 $button-secondary-disabled-background-color: theme(
   'button-secondary-disabled-background-color',
@@ -142,7 +142,7 @@ $button-danger-focus-border-color: theme(
 );
 $button-danger-focus-shadow-color: theme(
   'button-danger-focus-shadow-color',
-  colors.stroke(extra-light-error)
+  colors.stroke(light)
 );
 $button-danger-disabled-background-color: theme(
   'button-danger-disabled-background-color',
@@ -196,7 +196,7 @@ $button-secondary-danger-focus-border-color: theme(
 );
 $button-secondary-danger-focus-shadow-color: theme(
   'button-secondary-danger-focus-shadow-color',
-  colors.stroke(extra-light-error)
+  colors.stroke(light)
 );
 $button-secondary-danger-disabled-background-color: theme(
   'button-secondary-danger-disabled-background-color',
@@ -247,7 +247,7 @@ $button-warning-focus-border-color: theme(
 );
 $button-warning-focus-shadow-color: theme(
   'button-warning-focus-shadow-color',
-  colors.stroke(warning)
+  colors.stroke(light)
 );
 $button-warning-disabled-background-color: theme(
   'button-warning-disabled-background-color',
@@ -301,7 +301,7 @@ $button-secondary-warning-focus-border-color: theme(
 );
 $button-secondary-warning-focus-shadow-color: theme(
   'button-secondary-warning-focus-shadow-color',
-  colors.stroke(warning)
+  colors.stroke(light)
 );
 $button-secondary-warning-disabled-background-color: theme(
   'button-secondary-warning-disabled-background-color',
@@ -352,7 +352,7 @@ $button-success-focus-border-color: theme(
 );
 $button-success-focus-shadow-color: theme(
   'button-success-focus-shadow-color',
-  colors.stroke(success)
+  colors.stroke(light)
 );
 $button-success-disabled-background-color: theme(
   'button-success-disabled-background-color',
@@ -406,7 +406,7 @@ $button-secondary-success-focus-border-color: theme(
 );
 $button-secondary-success-focus-shadow-color: theme(
   'button-secondary-success-focus-shadow-color',
-  colors.stroke(success)
+  colors.stroke(light)
 );
 $button-secondary-success-disabled-background-color: theme(
   'button-secondary-success-disabled-background-color',
