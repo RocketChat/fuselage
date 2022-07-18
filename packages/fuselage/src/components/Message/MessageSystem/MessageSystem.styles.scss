@@ -35,7 +35,7 @@ $message-system-background-color-selected: functions.theme(
   }
 
   &__body {
-    @include typography.use-font-scale(p2m);
+    @include typography.use-font-scale(c1);
     @include typography.use-with-truncated-text();
     margin-inline: lengths.margin(4);
 
@@ -45,7 +45,7 @@ $message-system-background-color-selected: functions.theme(
   }
 
   &__name {
-    @include typography.use-font-scale(h5);
+    @include typography.use-font-scale(c2);
     @include typography.use-with-truncated-text();
     flex-shrink: 0;
 
