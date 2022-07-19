@@ -140,14 +140,19 @@ const useBoundingClientRect = (
     const parents = getScrollParents(element.current);
     const passive = { passive: true };
 
-    const observer = new ResizeObserver(callback);
+    const observer = new ResizeObserver(() => {
+      if (!element.current) {
+        return;
+      }
+      callback();
+    });
     observer.observe(element.current);
-    // window.addEventListener('resize', callback);
+    window.addEventListener('resize', callback);
     parents.forEach((el) => el.addEventListener('scroll', callback, passive));
 
     return () => {
       observer.disconnect();
-      // window.removeEventListener('resize', callback);
+      window.removeEventListener('resize', callback);
       parents.forEach((el) => el.removeEventListener('scroll', callback));
     };
   }, [watch, callback, element]);
