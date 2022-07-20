@@ -6,6 +6,7 @@ import type { Option } from './Option';
 import type { TextObject } from './TextObject';
 import type { ButtonElement } from './elements/ButtonElement';
 import type { DatePickerElement } from './elements/DatePickerElement';
+import type { DateTimePickerElement } from './elements/DateTimePickerElement';
 import type { ImageElement } from './elements/ImageElement';
 import type { LinearScaleElement } from './elements/LinearScaleElement';
 import type { MultiStaticSelectElement } from './elements/MultiStaticSelectElement';
@@ -34,6 +35,8 @@ export type IStaticSelectElement = InterfaceOf<StaticSelectElement>;
 export type IMultiStaticSelectElement = InterfaceOf<MultiStaticSelectElement>;
 /** @deprecated */
 export type IDatePickerElement = InterfaceOf<DatePickerElement>;
+/** @deprecated */
+export type IDateTimePickerElement = InterfaceOf<DateTimePickerElement>;
 /** @deprecated */
 export type IButtonElement = InterfaceOf<ButtonElement>;
 /** @deprecated */

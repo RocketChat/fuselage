@@ -18,5 +18,6 @@ export enum ElementType {
   STATIC_SELECT = 'static_select',
   MULTI_STATIC_SELECT = 'multi_static_select',
   DATEPICKER = 'datepicker',
+  DATETIMEPICKER = 'datetimepicker',
   LINEAR_SCALE = 'linear_scale',
 }

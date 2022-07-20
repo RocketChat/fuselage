@@ -2,6 +2,7 @@ import type { ButtonElement } from './elements/ButtonElement';
 import type { ChannelsSelectElement } from './elements/ChannelsSelectElement';
 import type { ConversationsSelectElement } from './elements/ConversationsSelectElement';
 import type { DatePickerElement } from './elements/DatePickerElement';
+import type { DateTimePickerElement } from './elements/DateTimePickerElement';
 import type { ImageElement } from './elements/ImageElement';
 import type { LinearScaleElement } from './elements/LinearScaleElement';
 import type { MultiChannelsSelectElement } from './elements/MultiChannelsSelectElement';
@@ -18,6 +19,7 @@ export type BlockElement =
   | ChannelsSelectElement
   | ConversationsSelectElement
   | DatePickerElement
+  | DateTimePickerElement
   | ImageElement
   | LinearScaleElement
   | MultiChannelsSelectElement
