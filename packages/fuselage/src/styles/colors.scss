@@ -270,7 +270,7 @@ $-button-backgrounds: (
   secondary-success-disabled: neutral(300)
 );
 
-$-button-foregrounds: (
+$-button-fonts: (
   // primary
   on-primary: white,
   on-primary-disabled: white,
@@ -304,9 +304,9 @@ $-button-foregrounds: (
     $background: map.get($-button-backgrounds, $type);
     @return var(--rcx-color-button-background-#{$type}, $background);
   }
-  @if map.get($-button-foregrounds, $type) {
-    $foreground: map.get($-button-foregrounds, $type);
-    @return var(--rcx-color-button-foreground-#{$type}, $foreground);
+  @if map.get($-button-fonts, $type) {
+    $foreground: map.get($-button-fonts, $type);
+    @return var(--rcx-color-button-font-#{$type}, $foreground);
   }
   @error "Unknown button type #{$type}.";
 }
