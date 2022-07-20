@@ -82,7 +82,6 @@
     "write-version-module": "workspace:~"
   },
   "dependencies": {
-    "@rocket.chat/fuselage-ui-kit": "~0.31.14",
     "@rocket.chat/ui-kit": "workspace:~",
     "tslib": "^2.3.1"
   }
