@@ -135,7 +135,7 @@ export const inputWithDateTimePicker: readonly UiKit.LayoutBlock[] = [
       appId: 'dummy-app-id',
       blockId: 'dummy-block-id',
       type: 'datetimepicker',
-      initialDate: '1990-04-28',
+      initialDateTime: '2022-07-22T00:00',
       placeholder: {
         type: 'plain_text',
         text: 'Select date-time',
