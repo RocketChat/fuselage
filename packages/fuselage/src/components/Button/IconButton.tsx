@@ -5,23 +5,22 @@ import Box from '../Box';
 import { Icon } from '../Icon';
 
 type ButtonSize = {
-  square?: boolean;
   mini?: boolean;
   tiny?: boolean;
   small?: boolean;
 };
 
-type IconButtonProps = ComponentProps<typeof Box> &
-  ButtonSize & {
-    icon: ComponentProps<typeof Icon>['name'];
-    children?: ReactNode;
-    primary?: boolean;
-    secondary?: boolean;
-    info?: boolean;
-    danger?: boolean;
-    warning?: boolean;
-    success?: boolean;
-  };
+type IconButtonProps = {
+  icon: ComponentProps<typeof Icon>['name'];
+  children?: ReactNode;
+  primary?: boolean;
+  secondary?: boolean;
+  info?: boolean;
+  danger?: boolean;
+  warning?: boolean;
+  success?: boolean;
+} & ButtonSize &
+  ComponentProps<typeof Box>;
 
 const getSize = ({ mini }: ButtonSize) => (mini ? 'x16' : 'x20');
 
@@ -36,7 +35,6 @@ export const IconButton = forwardRef(
       danger,
       warning,
       success,
-      square,
       small,
       tiny,
       mini,
@@ -71,7 +69,7 @@ export const IconButton = forwardRef(
         type='button'
         rcx-button
         rcx-button--icon
-        rcx-button--square={square}
+        rcx-button--square
         {...kindAndVariantProps}
         rcx-button--small-square={small}
         rcx-button--tiny-square={tiny}
