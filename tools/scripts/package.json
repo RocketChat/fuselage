@@ -23,5 +23,5 @@
     "ts-node": "~10.5.0",
     "typescript": "~4.3.5"
   },
-  "version": "0.31.14"
+  "version": "0.31.15"
 }

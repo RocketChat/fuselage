@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/stylis-logical-props-middleware",
-  "version": "0.31.14",
+  "version": "0.31.15",
   "description": "Stylis middleware to handle CSS Logical Properties and their fallbacks",
   "author": {
     "name": "Rocket.Chat",
