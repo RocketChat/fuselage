@@ -15,7 +15,7 @@ $banner-colors-neutral-background-color: functions.theme(
 // info
 $banner-colors-info-color: functions.theme(
   'banner-colors-info-color',
-  colors.status-foreground(on-info)
+  colors.status-font(on-info)
 );
 $banner-colors-info-background-color: functions.theme(
   'banner-colors-info-background-color',
@@ -24,7 +24,7 @@ $banner-colors-info-background-color: functions.theme(
 // success
 $banner-colors-success-color: functions.theme(
   'banner-colors-success-color',
-  colors.status-foreground(on-success)
+  colors.status-font(on-success)
 );
 $banner-colors-success-background-color: functions.theme(
   'banner-colors-success-background-color',
@@ -33,7 +33,7 @@ $banner-colors-success-background-color: functions.theme(
 // warning
 $banner-colors-warning-color: functions.theme(
   'banner-colors-warning-color',
-  colors.status-foreground(on-warning)
+  colors.status-font(on-warning)
 );
 $banner-colors-warning-background-color: functions.theme(
   'banner-colors-warning-background-color',
@@ -42,7 +42,7 @@ $banner-colors-warning-background-color: functions.theme(
 // danger
 $banner-colors-danger-color: functions.theme(
   'banner-colors-danger-color',
-  colors.status-foreground(on-danger)
+  colors.status-font(on-danger)
 );
 $banner-colors-danger-background-color: functions.theme(
   'banner-colors-danger-background-color',

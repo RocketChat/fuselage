@@ -180,7 +180,7 @@ $-status-backgrounds: (
   @return var(--rcx-status-background-#{$type}, $color);
 }
 
-$-status-foregrounds: (
+$-status-fonts: (
   on-success: success(800),
   on-warning: warning(900),
   on-danger: danger(800),
@@ -189,9 +189,9 @@ $-status-foregrounds: (
   on-info: info(600),
 );
 
-@function status-foreground($type) {
-  $color: map.get($-status-foregrounds, $type);
-  @return var(--rcx-status-foregrounds-#{$type}, $color);
+@function status-font($type) {
+  $color: map.get($-status-fonts, $type);
+  @return var(--rcx-status-fonts-#{$type}, $color);
 }
 
 $-strokes: (
