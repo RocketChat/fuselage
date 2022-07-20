@@ -6,32 +6,32 @@
 
 $chip-background-color: functions.theme(
   'chip-background-color',
-  colors.button(secondary)
+  colors.button(secondary-default)
 );
 $chip-border-color: functions.theme(
   'chip-border-color',
-  colors.button(secondary)
+  colors.button(secondary-default)
 );
 $chip-color: functions.theme('chip-color', colors.font(secondary-info));
 $chip-hover-background-color: functions.theme(
   'chip-hover-background-color',
-  colors.button(hover-secondary)
+  colors.button(secondary-hover)
 );
 $chip-hover-border-color: functions.theme(
   'chip-hover-border-color',
-  colors.button(hover-secondary)
+  colors.button(secondary-hover)
 );
 $chip-active-background-color: functions.theme(
   'chip-active-background-color',
-  colors.button(press-secondary)
+  colors.button(secondary-press)
 );
 $chip-active-border-color: functions.theme(
   'chip-active-border-color',
-  colors.button(press-secondary)
+  colors.button(secondary-press)
 );
 $chip-focus-background-color: functions.theme(
   'chip-focus-background-color',
-  colors.button(focus-secondary)
+  colors.button(secondary-focus)
 );
 $chip-focus-border-color: functions.theme(
   'chip-focus-border-color',
@@ -43,11 +43,11 @@ $chip-focus-shadow-color: functions.theme(
 );
 $chip-disabled-background-color: functions.theme(
   'chip-disabled-background-color',
-  colors.button(disabled-secondary)
+  colors.button(secondary-disabled)
 );
 $chip-disabled-border-color: functions.theme(
   'chip-disabled-border-color',
-  colors.button(disabled-secondary)
+  colors.button(secondary-disabled)
 );
 $chip-disabled-color: functions.theme(
   'chip-disabled-color',
@@ -87,9 +87,9 @@ $chip-disabled-color: functions.theme(
 
   &.disabled,
   &:disabled {
-    color: $button-colors-secondary-color;
-    border-color: $button-colors-secondary-border-color;
-    background-color: $button-colors-secondary-background-color;
+    color: $button-secondary-color;
+    border-color: $button-secondary-border-color;
+    background-color: $button-secondary-background-color;
   }
 
   &__text {
