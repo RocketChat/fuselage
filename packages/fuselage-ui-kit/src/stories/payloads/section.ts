@@ -178,7 +178,7 @@ export const sectionWithDateTimePickerAccessory: readonly UiKit.LayoutBlock[] =
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: 'Pick a date for the deadline.',
+        text: 'Pick date and time for the deadline.',
       },
       accessory: {
         appId: 'dummy-app-id',
