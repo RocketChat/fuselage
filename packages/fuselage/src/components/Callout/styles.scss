@@ -9,41 +9,41 @@
   padding-inline-start: lengths.padding(16);
   padding-inline-end: lengths.padding(32);
 
-  color: theme('callout-color', colors.text(on-neutral));
+  color: theme('callout-color', colors.font(default));
 
   border-radius: lengths.border-radius(2);
 
   background-color: theme('callout-background-color', colors.surface(neutral));
 
   &--type-info {
-    color: theme('callout-color-info', colors.text(on-info));
+    color: theme('callout-color-info', colors.status-font(on-info));
     background-color: theme(
       'callout-background-color-info',
-      colors.surface(info)
+      colors.status-background(info)
     );
   }
 
   &--type-success {
-    color: theme('callout-color-success', colors.text(on-success));
+    color: theme('callout-color-success', colors.status-font(on-success));
     background-color: theme(
       'callout-background-color-success',
-      colors.surface(success)
+      colors.status-background(success)
     );
   }
 
   &--type-warning {
-    color: theme('callout-color-warning', colors.text(on-warning));
+    color: theme('callout-color-warning', colors.status-font(on-warning));
     background-color: theme(
       'callout-background-color-warning',
-      colors.surface(warning)
+      colors.status-background(warning)
     );
   }
 
   &--type-danger {
-    color: theme('callout-color-danger', colors.text(on-danger));
+    color: theme('callout-color-danger', colors.status-font(on-danger));
     background-color: theme(
       'callout-background-color-danger',
-      colors.surface(danger)
+      colors.status-background(danger)
     );
   }
 }

@@ -4,11 +4,11 @@
 
 $tag-colors-default-color: theme(
   'tag-colors-default-color',
-  colors.text(titles-labels)
+  colors.font(titles-labels)
 );
-$tag-colors-default-background-color: theme(
-  'tag-colors-default-background-color',
-  colors.surface(neutral)
+$tag-colors-default-hover-color: theme(
+  'tag-colors-default-hover-color',
+  colors.button(on-secondary)
 );
 $tag-colors-default-background-color: theme(
   'tag-colors-default-background-color',
@@ -16,7 +16,7 @@ $tag-colors-default-background-color: theme(
 );
 $tag-colors-default-hover-background-color: theme(
   'tag-colors-default-hover-background-color',
-  colors.button(hover-secondary)
+  colors.button(secondary-hover)
 );
 
 $tag-colors-primary-color: theme(
@@ -25,11 +25,11 @@ $tag-colors-primary-color: theme(
 );
 $tag-colors-primary-background-color: theme(
   'tag-colors-primary-background-color',
-  colors.button(primary)
+  colors.button(primary-default)
 );
 $tag-colors-primary-hover-background-color: theme(
   'tag-colors-primary-hover-background-color',
-  colors.button(hover-primary)
+  colors.button(primary-hover)
 );
 
 $tag-colors-secondary-color: theme(
@@ -38,11 +38,11 @@ $tag-colors-secondary-color: theme(
 );
 $tag-colors-secondary-background-color: theme(
   'tag-colors-secondary-background-color',
-  colors.button(secondary)
+  colors.button(secondary-default)
 );
 $tag-colors-secondary-hover-background-color: theme(
   'tag-colors-secondary-hover-background-color',
-  colors.button(hover-secondary)
+  colors.button(secondary-hover)
 );
 
 $tag-colors-danger-color: theme(
@@ -51,11 +51,11 @@ $tag-colors-danger-color: theme(
 );
 $tag-colors-danger-background-color: theme(
   'tag-colors-danger-background-color',
-  colors.button(danger)
+  colors.button(danger-default)
 );
 $tag-colors-danger-hover-background-color: theme(
   'tag-colors-danger-hover-background-color',
-  colors.button(hover-danger)
+  colors.button(danger-hover)
 );
 
 $tag-colors-secondary-danger-color: theme(
@@ -64,20 +64,11 @@ $tag-colors-secondary-danger-color: theme(
 );
 $tag-colors-secondary-danger-background-color: theme(
   'tag-colors-secondary-danger-background-color',
-  colors.button(secondary-danger)
+  colors.button(secondary-danger-default)
 );
 $tag-colors-secondary-danger-hover-background-color: theme(
   'tag-colors-secondary-danger-hover-background-color',
-  colors.button(hover-secondary-danger)
-);
-
-$tag-colors-ghost-color: theme(
-  'tag-colors-ghost-color',
-  colors.text(alternative)
-);
-$tag-colors-ghost-background-color: theme(
-  'tag-colors-ghost-background-color',
-  colors.neutral(700)
+  colors.button(secondary-danger-hover)
 );
 
 $tag-colors-warning-color: theme(
@@ -86,11 +77,11 @@ $tag-colors-warning-color: theme(
 );
 $tag-colors-warning-background-color: theme(
   'tag-colors-warning-background-color',
-  colors.button(warning)
+  colors.button(warning-default)
 );
 $tag-colors-warning-hover-background-color: theme(
   'tag-colors-warning-hover-background-color',
-  colors.button(hover-warning)
+  colors.button(warning-hover)
 );
 
 $tag-colors-disabled-color: theme(
@@ -118,25 +109,33 @@ $tag-colors-disabled-background-color: theme(
 
   word-break: keep-all;
 
+  color: $tag-colors-default-color;
   border-radius: lengths.border-radius(2);
+  background-color: $tag-colors-default-background-color;
 
   @include typography.use-font-scale(micro);
-
-  &--secondary {
-    color: $tag-colors-secondary-color;
-    background-color: $tag-colors-secondary-background-color;
-
-    &:hover {
-      background-color: $tag-colors-secondary-hover-background-color;
-    }
-  }
 
   &--primary {
     color: $tag-colors-primary-color;
     background-color: $tag-colors-primary-background-color;
 
-    &:hover {
-      background-color: $tag-colors-primary-hover-background-color;
+    &.rcx-tag--clickable {
+      &:hover {
+        color: $tag-colors-primary-color;
+        background-color: $tag-colors-primary-hover-background-color;
+      }
+    }
+  }
+
+  &--secondary {
+    color: $tag-colors-secondary-color;
+    background-color: $tag-colors-secondary-background-color;
+
+    &.rcx-tag--clickable {
+      &:hover {
+        color: $tag-colors-secondary-color;
+        background-color: $tag-colors-secondary-hover-background-color;
+      }
     }
   }
 
@@ -144,8 +143,11 @@ $tag-colors-disabled-background-color: theme(
     color: $tag-colors-danger-color;
     background-color: $tag-colors-danger-background-color;
 
-    &:hover {
-      background-color: $tag-colors-danger-hover-background-color;
+    &.rcx-tag--clickable {
+      &:hover {
+        color: $tag-colors-danger-color;
+        background-color: $tag-colors-danger-hover-background-color;
+      }
     }
   }
 
@@ -153,8 +155,11 @@ $tag-colors-disabled-background-color: theme(
     color: $tag-colors-secondary-danger-color;
     background-color: $tag-colors-secondary-danger-background-color;
 
-    &:hover {
-      background-color: $tag-colors-secondary-danger-hover-background-color;
+    &.rcx-tag--clickable {
+      &:hover {
+        color: $tag-colors-secondary-danger-color;
+        background-color: $tag-colors-secondary-danger-hover-background-color;
+      }
     }
   }
 
@@ -162,14 +167,12 @@ $tag-colors-disabled-background-color: theme(
     color: $tag-colors-warning-color;
     background-color: $tag-colors-warning-background-color;
 
-    &:hover {
-      background-color: $tag-colors-warning-hover-background-color;
+    &.rcx-tag--clickable {
+      &:hover {
+        color: $tag-colors-warning-color;
+        background-color: $tag-colors-warning-hover-background-color;
+      }
     }
-  }
-
-  &--ghost {
-    color: $tag-colors-ghost-color;
-    background-color: $tag-colors-ghost-background-color;
   }
 
   &--disabled {
@@ -179,13 +182,20 @@ $tag-colors-disabled-background-color: theme(
     background-color: $tag-colors-disabled-background-color;
   }
 
+  &--clickable {
+    @include clickable();
+
+    &:hover {
+      color: $tag-colors-default-hover-color;
+      background-color: $tag-colors-default-hover-background-color;
+    }
+  }
+
   &--small {
     @include typography.use-font-scale(c2);
   }
 
-  @include clickable();
-
   &--medium {
-    @include typography.use-font-scale(p2m);
+    @include typography.use-font-scale(p2b);
   }
 }

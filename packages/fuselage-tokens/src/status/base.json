@@ -1,0 +1,16 @@
+{
+  "status": {
+    "info": { "value": "{colors.p200}" },
+    "font-on-info": { "value": "{colors.p600}" },
+    "success": { "value": "{colors.s200}" },
+    "font-on-success": { "value": "{colors.s800}" },
+    "danger": { "value": "{colors.d200}" },
+    "font-on-danger": { "value": "{colors.d800}" },
+    "warning": { "value": "{colors.w200}" },
+    "font-on-warning": { "value": "{colors.w900}" },
+    "service-1": { "value": "{colors.s1-200}" },
+    "font-on-service-1": { "value": "{colors.s1-800}" },
+    "service-2": { "value": "{colors.s2-200}" },
+    "font-on-service-2": { "value": "{colors.s2-600}" }
+  }
+}

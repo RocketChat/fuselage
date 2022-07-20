@@ -2,7 +2,7 @@
   "version": "0.31.14",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": ["packages/*", "scripts"],
+  "packages": ["packages/*", "tools/*"],
   "command": {
     "version": {
       "allowBranch": ["master", "feature*"]

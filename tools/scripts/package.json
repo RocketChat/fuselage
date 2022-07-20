@@ -1,6 +1,6 @@
 {
-  "private": true,
   "name": "scripts",
+  "private": true,
   "scripts": {
     "resolve-workspace-deps": "run-s .:resolve-workspace-deps:run-script .:resolve-workspace-deps:update-lockfile .:resolve-workspace-deps:git-commit",
     ".:resolve-workspace-deps:run-script": "ts-node src/resolve-workspace-deps.ts",

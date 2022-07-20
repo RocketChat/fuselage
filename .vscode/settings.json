@@ -1,15 +1,11 @@
 {
   "eslint.workingDirectories": [
     {
-      "directory": "packages/*",
+      "pattern": "packages/*",
       "changeProcessCWD": true
     },
     {
-      "directory": "tools/*",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "packages/fuselage",
+      "pattern": "tools/*",
       "changeProcessCWD": true
     }
   ],

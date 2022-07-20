@@ -10,11 +10,12 @@ import type { SelectProps } from '..';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import { Icon } from '../Icon';
+import Margins from '../Margins';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
 import PositionAnimated from '../PositionAnimated';
-import PaginatedSelectAddon from './PaginatedSelectAddon';
-import PaginatedSelectFocus from './PaginatedSelectFocus';
+import SelectAddon from '../Select/SelectAddon';
+import SelectFocus from '../Select/SelectFocus';
 import PaginatedSelectWrapper from './PaginatedSelectWrapper';
 
 type PaginatedOptionType = {
@@ -55,7 +56,7 @@ export const PaginatedSelect = ({
   error,
   disabled,
   options = [],
-  anchor: Anchor = PaginatedSelectFocus,
+  anchor: Anchor = SelectFocus,
   onChange = () => {},
   placeholder = '',
   renderOptions: _Options = OptionsPaginated,
@@ -136,14 +137,18 @@ export const PaginatedSelect = ({
           onClick={show}
           onBlur={hide}
         />
-        <PaginatedSelectAddon mi='x4'>
-          <Icon
-            name={
-              visible === AnimatedVisibility.VISIBLE ? 'cross' : 'chevron-down'
-            }
-            size='x20'
-          />
-        </PaginatedSelectAddon>
+        <Margins inline='x4'>
+          <SelectAddon>
+            <Icon
+              name={
+                visible === AnimatedVisibility.VISIBLE
+                  ? 'chevron-up'
+                  : 'chevron-down'
+              }
+              size='x20'
+            />
+          </SelectAddon>
+        </Margins>
       </PaginatedSelectWrapper>
       <PositionAnimated visible={visible} anchor={containerRef}>
         <_Options

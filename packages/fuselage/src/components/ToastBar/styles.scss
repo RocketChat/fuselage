@@ -20,18 +20,18 @@
   }
 
   &--success {
-    color: theme('toastbar-success-color', colors.text(on-success));
+    color: theme('toastbar-success-color', colors.status-font(on-success));
     background-color: theme(
       'toastbar-success-background-color',
-      colors.surface(success)
+      colors.status-background(success)
     );
   }
 
   &--error {
-    color: theme('toastbar-error-color', colors.text(on-danger));
+    color: theme('toastbar-error-color', colors.font(danger));
     background-color: theme(
       'toastbar-error-background-color',
-      colors.surface(danger)
+      colors.status-background(danger)
     );
   }
 }
