@@ -78,7 +78,7 @@
 .rcx-pagination__label {
   @include typography.use-font-scale(c1);
 
-  color: colors.text(secondary-info);
+  color: colors.font(secondary-info);
 }
 
 .rcx-pagination__list {
@@ -96,7 +96,7 @@
   margin-inline: lengths.margin(2);
   padding: lengths.padding(4);
 
-  color: colors.text(secondary-info);
+  color: colors.font(secondary-info);
 }
 
 .rcx-pagination__link {
@@ -104,7 +104,7 @@
   @include clickable;
   display: inline-flex;
 
-  color: colors.text(on-info);
+  color: colors.font(info);
   background: transparent;
 
   &:hover:not(.disabled):not(:disabled),
@@ -117,7 +117,7 @@
     @include typography.use-font-scale(c2);
     cursor: default;
 
-    color: colors.text(text);
+    color: colors.font(default);
   }
 }
 
@@ -127,11 +127,11 @@
   @include clickable;
   display: inline-flex;
 
-  color: colors.text(secondary-info);
+  color: colors.font(secondary-info);
   background: transparent;
 
   &.disabled,
   &:disabled {
-    color: colors.text(secondary-info);
+    color: colors.font(secondary-info);
   }
 }
