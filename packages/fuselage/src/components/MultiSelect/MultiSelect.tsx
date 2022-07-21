@@ -143,12 +143,9 @@ export const MultiSelect = forwardRef(
     };
 
     const handleClick = useMutableCallback(() => {
-      if (innerRef.current?.classList.contains('focus-visible')) {
-        removeFocusClass();
+      if (visible === AnimatedVisibility.VISIBLE) {
         return hide();
       }
-
-      innerRef.current?.classList.add('focus-visible');
       innerRef.current?.focus();
       return show();
     });
