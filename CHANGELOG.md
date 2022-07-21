@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.16](https://github.com/RocketChat/fuselage/compare/v0.31.15...v0.31.16) (2022-07-21)
+
+### Bug Fixes
+
+- **fuselage:** Multiselect show ([#785](https://github.com/RocketChat/fuselage/issues/785)) ([3bb025e](https://github.com/RocketChat/fuselage/commit/3bb025e276b3db3250f09a7337ab329c3c957fdb))
+
 ### [0.31.15](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.14...v0.31.15) (2022-07-20)
 
 ### Features
