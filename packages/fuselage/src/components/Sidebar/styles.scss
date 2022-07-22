@@ -242,7 +242,7 @@ $sidebar-footer-highlight-color: theme(
     @include typography.use-font-scale(c2);
     @include typography.use-with-truncated-text();
 
-    color: colors.foreground(hint);
+    color: colors.font(annotation);
   }
 
   &-section {

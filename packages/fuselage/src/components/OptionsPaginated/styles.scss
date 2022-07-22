@@ -82,7 +82,7 @@
   @extend %column;
   display: inline;
 
-  color: colors.foreground(hint);
+  color: colors.font(annotation);
 }
 
 .rcx-options:hover {

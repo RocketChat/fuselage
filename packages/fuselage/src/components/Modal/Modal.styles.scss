@@ -23,7 +23,7 @@
     min-width: 0;
     padding: 0;
 
-    color: colors.foreground(default);
+    color: colors.font(default);
     border-radius: 2px;
     background-color: colors.surface(light);
     @include typography.use-font-scale(p2);

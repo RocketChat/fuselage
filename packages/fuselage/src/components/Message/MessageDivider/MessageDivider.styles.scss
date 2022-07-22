@@ -4,17 +4,14 @@
 
 $message-background-color: theme(
   'message-background-color',
-  colors.foreground(alternative)
+  colors.font(white)
 );
 
 $message-divider-background-color: theme(
   'message-divider-background-color',
   colors.neutral(300)
 );
-$message-divider-color: theme(
-  'message-divider-color',
-  colors.foreground(default)
-);
+$message-divider-color: theme('message-divider-color', colors.font(default));
 
 $message-divider-color-unread: theme(
   'message-divider-color-unread',

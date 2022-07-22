@@ -17,7 +17,7 @@
 
     cursor: pointer;
 
-    color: colors.foreground(info);
+    color: colors.font(secondary-info);
     border: lengths.border-width(1) solid colors.neutral(400);
     border-radius: lengths.border-radius(4);
 

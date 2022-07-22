@@ -11,7 +11,7 @@
 
   border: lengths.border-width(2) solid colors.neutral(200);
   border-radius: lengths.border-radius(2);
-  background: colors.foreground(alternative);
+  background: colors.font(white);
 
   &__wrapper {
     @include mixins.visible-on-hover();

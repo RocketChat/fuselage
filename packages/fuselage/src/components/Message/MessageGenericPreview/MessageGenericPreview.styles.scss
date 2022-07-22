@@ -12,7 +12,7 @@ $message-generic-preview-border-color: theme(
 
 $message-generic-preview-title-color: theme(
   'message-generic-preview-title-color',
-  colors.foreground(default)
+  colors.font(default)
 );
 
 $message-generic-preview-context-color: theme(
@@ -22,7 +22,7 @@ $message-generic-preview-context-color: theme(
 
 $message-generic-preview-description-color: theme(
   'message-generic-preview-description-color',
-  colors.foreground(info)
+  colors.font(secondary-info)
 );
 
 $message-generic-preview-content-background-color: theme(
@@ -93,17 +93,17 @@ $message-generic-preview-content-hover-background-color: theme(
         &:link {
           text-decoration: none;
 
-          color: colors.foreground(link);
+          color: colors.status-font(on-info);
         }
 
         &:visited,
         &.is-visited {
-          color: colors.foreground(link);
+          color: colors.status-font(on-info);
         }
 
         &:active,
         &.is-active {
-          color: colors.foreground(active-link);
+          color: colors.status-font(on-danger);
         }
 
         &:hover,

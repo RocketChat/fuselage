@@ -172,7 +172,7 @@ $-status-backgrounds: (
   danger: danger(200),
   service-1: service-1(200),
   service-2: service-2(200),
-  info: info(200),
+  info: primary(200),
 );
 
 @function status-background($type) {
@@ -186,7 +186,7 @@ $-status-fonts: (
   on-danger: danger(800),
   on-service-1: service-1(800),
   on-service-2: service-2(600),
-  on-info: info(600),
+  on-info: primary(600),
 );
 
 @function status-font($type) {
