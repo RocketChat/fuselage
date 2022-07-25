@@ -20,7 +20,7 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     &--radius {
       @each $size in $sizes {
         &--x#{$size} {
-          @if $size <= 36 {
+          @if $size <= 18 {
             border-radius: lengths.border-radius(2);
           } @else if $size == 332 {
             border-radius: lengths.border-radius(8);
