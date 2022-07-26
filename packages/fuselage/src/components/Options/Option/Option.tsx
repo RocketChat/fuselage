@@ -1,5 +1,5 @@
 import type { Ref, ComponentProps, ReactNode, MouseEvent } from 'react';
-import React, { memo } from 'react';
+import React, { forwardRef, memo } from 'react';
 
 import type { Icon } from '../..';
 import type Box from '../../Box';
@@ -15,7 +15,7 @@ type OptionProps = {
   focus?: boolean;
   selected?: boolean;
   className?: ComponentProps<typeof Box>['className'];
-  ref?: Ref<Element>;
+  // ref?: Ref<Element>;
   icon?: ComponentProps<typeof Icon>['name'];
   avatar?: ReactNode;
   title?: string;
@@ -24,23 +24,25 @@ type OptionProps = {
   onClick?: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
-const Option = memo(
-  ({
-    is: Tag = 'li',
-    id,
-    children,
-    label,
-    focus,
-    selected,
-    className,
-    ref,
-    icon,
-    avatar,
-    title,
-    onClick,
-    variant,
-    ...options
-  }: OptionProps) => (
+const Option = forwardRef<Element, OptionProps>(
+  (
+    {
+      is: Tag = 'li',
+      id,
+      children,
+      label,
+      focus,
+      selected,
+      className,
+      icon,
+      avatar,
+      title,
+      onClick,
+      variant,
+      ...options
+    }: OptionProps,
+    ref
+  ) => (
     <Tag
       key={id}
       id={id}

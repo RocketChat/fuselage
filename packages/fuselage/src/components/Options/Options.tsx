@@ -125,7 +125,6 @@ export const Options = forwardRef(
               onClick={prevent}
               is='ol'
               aria-multiselectable={multiple || true}
-              role='listbox'
               aria-activedescendant={
                 options?.[cursor]?.[0]
                   ? String(options?.[cursor]?.[0])

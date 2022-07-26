@@ -314,7 +314,7 @@ export const usePosition = <T extends Element, R extends Element>(
   const [style, setStyle] = useDebouncedState<PositionResult>(emptyStyle, 10);
 
   const callback = useMutableCallback(() => {
-    const boundaries = target.current.getBoundingClientRect();
+    const boundaries = target.current?.getBoundingClientRect();
     const targetBoundaries = getTargetBoundaries({
       referenceBox: reference.current.getBoundingClientRect(),
       target: boundaries,
