@@ -32,9 +32,11 @@ export const Default: ComponentStory<typeof Message> = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -74,9 +76,11 @@ export const WithSequential = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -185,9 +189,11 @@ export const MessageWithThread = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -318,9 +324,11 @@ export const MessageSelected = () => {
           <Message.Header>
             <Message.Name>Haylie George</Message.Name>
             <Message.Username>@haylie.george</Message.Username>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
+            <Message.Roles>
+              <Message.Role>Admin</Message.Role>
+              <Message.Role>User</Message.Role>
+              <Message.Role>Owner</Message.Role>
+            </Message.Roles>
             <Message.Timestamp>12:00 PM</Message.Timestamp>
           </Message.Header>
           <Message.Body>
@@ -354,9 +362,11 @@ export const MessageEditing = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -434,9 +444,11 @@ export const MessageUnorderedList = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -476,9 +488,11 @@ export const MessageOrderedList = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -518,9 +532,11 @@ export const MessageHighlighted = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -598,9 +614,11 @@ export const MessagePending = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -671,9 +689,11 @@ export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
