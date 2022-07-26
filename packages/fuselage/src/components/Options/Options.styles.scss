@@ -1,0 +1,9 @@
+@import './Option/Option.styles.scss';
+
+.rcx-options {
+  &:hover {
+    .rcx-option--focus:not(.rcx-option--selected):not(:hover) {
+      background: initial;
+    }
+  }
+}

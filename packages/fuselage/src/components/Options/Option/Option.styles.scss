@@ -1,6 +1,6 @@
-@use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../../styles/colors.scss';
+@use '../../../styles/lengths.scss';
+@use '../../../styles/typography.scss';
 
 $variants: (
   'success': colors.success(700),
@@ -123,14 +123,6 @@ $variants: (
   @each $name, $color in $variants {
     &--#{$name} {
       color: theme('option-color-variant-#{$name}', $color);
-    }
-  }
-}
-
-.rcx-options {
-  &:hover {
-    .rcx-option--focus:not(.rcx-option--selected):not(:hover) {
-      background: initial;
     }
   }
 }
