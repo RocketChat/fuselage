@@ -90,7 +90,7 @@ $tag-colors-disabled-color: theme(
 );
 $tag-colors-disabled-background-color: theme(
   'tag-colors-disabled-background-color',
-  colors.neutral(400)
+  colors.surface(neutral)
 );
 
 .rcx-tag {

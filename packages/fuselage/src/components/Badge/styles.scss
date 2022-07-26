@@ -4,7 +4,7 @@
 
 $badge-colors-secondary-color: theme(
   'badge-colors-secondary-color',
-  colors.status-font(on-info)
+  colors.status-font(on-primary)
 );
 $badge-colors-secondary-background-color: theme(
   'badge-colors-secondary-background-color',
@@ -49,7 +49,7 @@ $badge-colors-warning-background-color: theme(
 
 $badge-colors-disabled-color: theme(
   'badge-colors-disabled-color',
-  colors.font(annotation)
+  colors.font(secondary-info)
 );
 $badge-colors-disabled-background-color: theme(
   'badge-colors-disabled-background-color',

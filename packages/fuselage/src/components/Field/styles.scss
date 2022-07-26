@@ -24,7 +24,7 @@
     @include typography.use-font-scale(p2);
     margin-block: lengths.margin(2);
 
-    color: colors.font(annotation);
+    color: colors.font(secondary-info);
     @extend %--with-inline-elements;
   }
 
@@ -46,7 +46,7 @@
     @include typography.use-font-scale(p2);
     margin-block: lengths.margin(2);
 
-    color: colors.font(annotation);
+    color: colors.font(secondary-info);
     @extend %--with-inline-elements;
   }
 
@@ -54,7 +54,7 @@
     @include typography.use-font-scale(p2);
     margin-block: lengths.margin(2);
 
-    color: colors.status-font(on-danger);
+    color: colors.font(danger);
     @extend %--with-inline-elements;
   }
 
@@ -64,7 +64,7 @@
 
     text-decoration: none;
 
-    color: colors.status-font(on-info);
+    color: colors.font(info);
     @extend %--with-inline-elements;
   }
 }

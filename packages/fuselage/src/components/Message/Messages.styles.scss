@@ -27,7 +27,7 @@ $message-background-color: functions.theme(
 
 $message-background-color-focus: functions.theme(
   'message-background-color-focus',
-  colors.neutral(100)
+  colors.surface(tint)
 );
 
 $message-background-color-selected: functions.theme(
@@ -129,7 +129,7 @@ $message-background-color-highlight: functions.theme(
       @include typography.use-font-scale(c1);
       flex-shrink: 0;
 
-      color: colors.neutral(600);
+      color: colors.font(annotation);
     }
 
     &__name {
@@ -147,7 +147,7 @@ $message-background-color-highlight: functions.theme(
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
-      color: colors.font(annotation);
+      color: colors.font(secondary-info);
     }
 
     &__roles {
@@ -171,7 +171,7 @@ $message-background-color-highlight: functions.theme(
 
     opacity: 1;
 
-    color: colors.neutral(800);
+    color: colors.font(default);
 
     & ul,
     ol {

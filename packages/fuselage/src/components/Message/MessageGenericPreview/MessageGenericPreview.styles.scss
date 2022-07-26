@@ -17,7 +17,7 @@ $message-generic-preview-title-color: theme(
 
 $message-generic-preview-context-color: theme(
   'message-generic-preview-context-color',
-  colors.neutral(700)
+  colors.font(secondary-info)
 );
 
 $message-generic-preview-description-color: theme(
@@ -27,11 +27,11 @@ $message-generic-preview-description-color: theme(
 
 $message-generic-preview-content-background-color: theme(
   'message-generic-preview-content-background-color',
-  colors.neutral(100)
+  colors.surface(tint)
 );
 $message-generic-preview-content-hover-background-color: theme(
   'message-generic-preview-content-hover-background-color',
-  colors.neutral(200)
+  colors.stroke(extra-light)
 );
 
 .rcx-message-generic-preview {
@@ -93,17 +93,17 @@ $message-generic-preview-content-hover-background-color: theme(
         &:link {
           text-decoration: none;
 
-          color: colors.status-font(on-info);
+          color: colors.font(info);
         }
 
         &:visited,
         &.is-visited {
-          color: colors.status-font(on-info);
+          color: colors.font(info);
         }
 
         &:active,
         &.is-active {
-          color: colors.status-font(on-danger);
+          color: colors.font(info);
         }
 
         &:hover,

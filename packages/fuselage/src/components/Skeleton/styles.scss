@@ -8,8 +8,7 @@
 
   animation: rcx-skeleton__animation 1s linear 0s infinite running;
 
-  opacity: 0.1;
-  background-color: colors.font(default);
+  background-color: colors.stroke(extra-dark);
 
   &--text {
     height: auto;

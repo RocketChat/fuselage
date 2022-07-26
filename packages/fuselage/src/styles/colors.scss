@@ -103,20 +103,29 @@ $-map-type-to-prefix: (
 
 $-foreground-colors: (
   default: map.get(token-colors.$colors, n800),
+  // font(default) | stroke(extra-dark)
   info: map.get(token-colors.$colors, n700),
+  // font(secondary-info) **
   hint: map.get(token-colors.$colors, n600),
+  // font(secondary-info) **
   disabled: map.get(token-colors.$colors, n400),
+  // font(disabled) (n500) **
   alternative: white,
+  // font(white) | surface(light)
   primary: map.get(token-colors.$colors, p500),
-  success: map.get(token-colors.$colors, s500),
+  // status-font(on-primary) **
   success-light: map.get(token-colors.$colors, s200),
+  // status-background(success)
   danger: map.get(token-colors.$colors, d500),
-  warning: map.get(token-colors.$colors, w700),
-  warning-alternative: map.get(token-colors.$colors, w500),
+  // font(danger) **
   highlight: map.get(token-colors.$colors, w100),
+  // status-background(warning) (w200) **
   link: map.get(token-colors.$colors, p500),
+  // font(info) (info(600)) **
   visited-link: map.get(token-colors.$colors, s2-500),
+  // font(info) (info(600)) **
   active-link: map.get(token-colors.$colors, d500),
+  // font(info) (info(600)) **
 );
 
 @function _get-foreground-color($type) {

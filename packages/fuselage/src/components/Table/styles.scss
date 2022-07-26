@@ -93,7 +93,7 @@
       position: relative;
 
       @include typography.use-font-scale(c2);
-      color: colors.font(annotation);
+      color: colors.font(secondary-info);
 
       &::after {
         position: absolute;

@@ -96,7 +96,7 @@ $variants: (
     @extend %column;
     display: inline;
 
-    color: colors.font(annotation);
+    color: colors.font(secondary-info);
   }
 
   &:hover,

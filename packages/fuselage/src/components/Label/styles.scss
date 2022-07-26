@@ -8,14 +8,14 @@
   &--disabled {
     pointer-events: none;
 
-    color: colors.font(annotation);
+    color: colors.font(secondary-info);
   }
 
   &--required {
     &::before {
       content: '*\0a0';
 
-      color: colors.status-font(on-danger);
+      color: colors.font(danger);
     }
   }
 }

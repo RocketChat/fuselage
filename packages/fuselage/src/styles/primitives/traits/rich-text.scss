@@ -33,12 +33,12 @@
     &:link {
       text-decoration: none;
 
-      color: colors.status-font(on-info);
+      color: colors.font(info);
     }
 
     &:visited,
     &.is-visited {
-      color: colors.status-font(on-service-2);
+      color: colors.font(info);
     }
 
     &:active,
