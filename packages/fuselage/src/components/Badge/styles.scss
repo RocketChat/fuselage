@@ -4,7 +4,7 @@
 
 $badge-colors-secondary-color: theme(
   'badge-colors-secondary-color',
-  colors.status-font(on-primary)
+  colors.font(info)
 );
 $badge-colors-secondary-background-color: theme(
   'badge-colors-secondary-background-color',

@@ -48,7 +48,7 @@
 
     white-space: nowrap;
 
-    color: colors.foreground('default');
+    color: colors.font(default);
     @include typography.use-font-scale(h2);
   }
 

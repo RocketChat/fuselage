@@ -101,50 +101,6 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-$-foreground-colors: (
-  default: map.get(token-colors.$colors, n800),
-  // font(default) | stroke(extra-dark)
-  info: map.get(token-colors.$colors, n700),
-  // font(secondary-info) **
-  hint: map.get(token-colors.$colors, n600),
-  // font(secondary-info) **
-  disabled: map.get(token-colors.$colors, n400),
-  // font(disabled) (n500) **
-  alternative: white,
-  // font(white) | surface(light)
-  primary: map.get(token-colors.$colors, p500),
-  // status-font(on-primary) **
-  success-light: map.get(token-colors.$colors, s200),
-  // status-background(success)
-  danger: map.get(token-colors.$colors, d500),
-  // font(danger) **
-  highlight: map.get(token-colors.$colors, w100),
-  // status-background(warning) (w200) **
-  link: map.get(token-colors.$colors, p500),
-  // font(info) (info(600)) **
-  visited-link: map.get(token-colors.$colors, s2-500),
-  // font(info) (info(600)) **
-  active-link: map.get(token-colors.$colors, d500),
-  // font(info) (info(600)) **
-);
-
-@function _get-foreground-color($type) {
-  @if not map.has-key($-foreground-colors, $type) {
-    @error 'invalid foreground type';
-  }
-
-  $color: map.get($-foreground-colors, $type);
-
-  @return (--rcx-color-foreground-#{$type}, $color);
-}
-
-@function foreground($type) {
-  $pair: _get-foreground-color($type);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-$foreground-types: map-keys($-foreground-colors);
-
 $-surfaces: (
   light: white,
   tint: neutral(100),

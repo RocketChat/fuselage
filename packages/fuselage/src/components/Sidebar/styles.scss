@@ -16,10 +16,10 @@ $sidebar-item-background-color: theme(
   'sidebar-item-background-color',
   colors.surface(light)
 );
-$sidebar-item-color: theme('sidebar-item-color', colors.foreground('hint'));
+$sidebar-item-color: theme('sidebar-item-color', colors.font(secondary-info));
 $sidebar-item-color-highlighted: theme(
   'sidebar-item-color-highlighted',
-  colors.foreground('alternative')
+  colors.font(white)
 );
 $sidebar-item-background-color-hover: theme(
   'sidebar-item-background-color-hover',
@@ -27,7 +27,7 @@ $sidebar-item-background-color-hover: theme(
 );
 $sidebar-item-color-hover: theme(
   'sidebar-item-color-hover',
-  colors.foreground('hint')
+  colors.font(secondary-info)
 );
 $sidebar-item-color-focus: theme(
   'sidebar-item-color-focus',
@@ -39,7 +39,7 @@ $sidebar-item-background-color-selected: theme(
 );
 $sidebar-item-color-selected: theme(
   'sidebar-item-color-selected',
-  colors.foreground('hint')
+  colors.font(secondary-info)
 );
 
 $sidebar-footer-box-shadow: theme(
@@ -49,7 +49,7 @@ $sidebar-footer-box-shadow: theme(
 
 $sidebar-footer-highlight-color: theme(
   'sidebar-footer-highlight-color',
-  colors.foreground('hint')
+  colors.font(secondary-info)
 );
 
 %sidebar-base {
