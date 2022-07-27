@@ -35,14 +35,22 @@ export default {
   },
 } as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = ({ placeholder }) => (
+const Template: ComponentStory<typeof Select> = ({
+  placeholder,
+  onSelectionChange,
+}) => (
   <div
     style={{
       height: '100vh',
       width: '100vw',
     }}
   >
-    <Select label='Favorite Animal' placeholder={placeholder}>
+    <Select
+      label='Favorite Animal'
+      placeholder={placeholder}
+      onSelectionChange={onSelectionChange}
+      defaultSelectedKey={1}
+    >
       <Item key={1}>a teste 1</Item>
       <Item key={2}>a teste 2</Item>
       <Item key={3}>a teste 3</Item>
@@ -64,3 +72,4 @@ export const Default: ComponentStory<typeof Select> = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder here...',
 };
+Default.argTypes = { onSelectionChange: { action: 'change' } };

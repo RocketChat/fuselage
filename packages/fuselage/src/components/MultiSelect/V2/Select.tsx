@@ -17,6 +17,8 @@ export function Select<
     label?: string;
     name?: string;
     placeholder?: string;
+    onSelectionChange?: (value: string | number) => void;
+    defaultSelectedKey?: string | number;
   }
 >(props: AriaAttributes & T & { children: any }) {
   // Create state based on the incoming props
