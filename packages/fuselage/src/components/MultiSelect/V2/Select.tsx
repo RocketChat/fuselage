@@ -1,7 +1,7 @@
 import type { AriaAttributes } from 'react';
 import React, { memo, useRef } from 'react';
 import { HiddenSelect, useButton, useSelect } from 'react-aria';
-import { useSelectState } from 'react-stately';
+import { Item, useSelectState } from 'react-stately';
 
 import Box from '../../Box';
 import { SelectAddon } from './SelectAddon';
@@ -61,3 +61,5 @@ export const Select = memo(function Select<
     </Box>
   );
 });
+
+export const SelectItem = Item;

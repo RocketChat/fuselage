@@ -9,9 +9,8 @@ import {
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { Item } from 'react-stately';
 
-import { Select } from './Select';
+import { Select, SelectItem } from './Select';
 
 export default {
   title: 'Inputs/MultiSelect/V2',
@@ -46,19 +45,19 @@ const Template: ComponentStory<typeof Select> = ({
     onSelectionChange={onSelectionChange}
     defaultSelectedKey={defaultSelectedKey}
   >
-    <Item key={1}>a teste 1</Item>
-    <Item key={2}>a teste 2</Item>
-    <Item key={3}>a teste 3</Item>
-    <Item key={4}>a teste 4</Item>
-    <Item key={5}>a teste 5</Item>
-    <Item key={6}>a teste 6</Item>
-    <Item key={7}>a teste 7</Item>
-    <Item key={8}>a teste 8</Item>
-    <Item key={9}>a teste 9</Item>
-    <Item key={10}>a teste 10</Item>
-    <Item key={11}>a teste 11</Item>
-    <Item key={12}>a teste 12</Item>
-    <Item key={13}>a teste 13</Item>
+    <SelectItem key={1}>a teste 1</SelectItem>
+    <SelectItem key={2}>a teste 2</SelectItem>
+    <SelectItem key={3}>a teste 3</SelectItem>
+    <SelectItem key={4}>a teste 4</SelectItem>
+    <SelectItem key={5}>a teste 5</SelectItem>
+    <SelectItem key={6}>a teste 6</SelectItem>
+    <SelectItem key={7}>a teste 7</SelectItem>
+    <SelectItem key={8}>a teste 8</SelectItem>
+    <SelectItem key={9}>a teste 9</SelectItem>
+    <SelectItem key={10}>a teste 10</SelectItem>
+    <SelectItem key={11}>a teste 11</SelectItem>
+    <SelectItem key={12}>a teste 12</SelectItem>
+    <SelectItem key={13}>a teste 13</SelectItem>
   </Select>
 );
 
