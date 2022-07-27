@@ -1,6 +1,5 @@
-import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type { AriaAttributes } from 'react';
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import { HiddenSelect, useButton, useSelect } from 'react-aria';
 import { useSelectState } from 'react-stately';
 
@@ -12,7 +11,7 @@ import { SelectPopover } from './SelectPopover';
 import { SelectTrigger } from './SelectTrigger';
 import { SelectValue } from './SelectValue';
 
-export function Select<
+export const Select = memo(function Select<
   T extends {
     label?: string;
     name?: string;
@@ -27,7 +26,7 @@ export function Select<
   const { triggerProps, valueProps, menuProps } = useSelect(props, state, ref);
 
   const { buttonProps } = useButton(triggerProps, ref);
-  const { ref: containerRef, borderBoxSize } = useResizeObserver();
+  const containerRef = useRef<HTMLElement>(null);
 
   return (
     <Box rcx-select ref={containerRef}>
@@ -56,13 +55,9 @@ export function Select<
           onClose={state.close}
           anchor={containerRef}
         >
-          <SelectListBox
-            width={borderBoxSize.inlineSize}
-            {...menuProps}
-            state={state}
-          />
+          <SelectListBox {...menuProps} state={state} />
         </SelectPopover>
       )}
     </Box>
   );
-}
+});

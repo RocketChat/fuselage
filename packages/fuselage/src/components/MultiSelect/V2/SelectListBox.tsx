@@ -1,5 +1,5 @@
 import type { AriaListBoxOptions } from '@react-aria/listbox';
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import { useListBox } from 'react-aria';
 import type { ListState } from 'react-stately';
 
@@ -12,7 +12,7 @@ interface ListBoxProps extends AriaListBoxOptions<unknown> {
   width?: number;
 }
 
-export const SelectListBox = function ListBox({
+export const SelectListBox = memo(function ListBox({
   state,
   width,
   ...props
@@ -20,11 +20,18 @@ export const SelectListBox = function ListBox({
   const ref = useRef<HTMLUListElement>(null);
   const { listBoxRef = ref } = props;
   const { listBoxProps } = useListBox(props, state, listBoxRef);
+
   return (
-    <Box width={width} {...listBoxProps} is='ul' rcx-options ref={listBoxRef}>
+    <Box
+      rcx-options
+      style={{ width }}
+      {...listBoxProps}
+      ref={listBoxRef}
+      is='ul'
+    >
       {[...state.collection].map((item) => (
         <SelectOption key={item.key} item={item} state={state} />
       ))}
     </Box>
   );
-};
+});

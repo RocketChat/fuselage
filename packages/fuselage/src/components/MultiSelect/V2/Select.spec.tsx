@@ -1,5 +1,11 @@
 import { composeStories } from '@storybook/testing-react';
-import { render, waitFor } from '@testing-library/react';
+import {
+  fireEvent,
+  queryAllByRole,
+  render,
+  waitFor,
+} from '@testing-library/react';
+import userEvents from '@testing-library/user-event';
 import React from 'react';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
@@ -36,7 +42,7 @@ describe('[Select Component]', () => {
     });
 
     it('should no placeholder if defaultValue is defined', async () => {
-      const { queryByLabelText } = render(<Default defaultSelectedKey={1} />);
+      const { queryByLabelText } = render(<Default defaultSelectedKey={'1'} />);
 
       const placeholder = Default.args?.placeholder;
       if (!placeholder) {
@@ -86,6 +92,36 @@ describe('[Select Component]', () => {
       (await findByRole('button')).click();
       (await findByRole('button')).click();
       expect(queryByRole('listbox')).not.toBeInTheDocument();
+    });
+  });
+
+  describe('[when the user clicks press key up or down after list opened]', () => {
+    it('should navigate through the list', async () => {
+      const { queryByRole, findByRole, findAllByRole, queryAllByRole } = render(
+        <Default />
+      );
+
+      (await findByRole('button')).click();
+
+      await waitFor(() => {
+        expect(queryByRole('listbox')).toBeInTheDocument();
+      });
+      await waitFor(() => {
+        expect(queryAllByRole('option').length).toBeGreaterThan(0);
+      });
+      const options = await findAllByRole('option');
+
+      const keyCount = Math.round(options.length / 2);
+      for (let i = 0; i < keyCount; i++) {
+        fireEvent.keyDown(document.activeElement!, { key: 'ArrowDown' });
+      }
+      await waitFor(() => {
+        expect(queryByRole('listbox')).toBeInTheDocument();
+      });
+
+      options.forEach((e, index) => {
+        expect(e).toHaveAttribute('tabindex', index === keyCount ? '0' : '-1');
+      });
     });
   });
 });
