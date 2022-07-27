@@ -1,5 +1,5 @@
-import type { Ref, ComponentProps, ReactNode, MouseEvent } from 'react';
-import React, { forwardRef, memo } from 'react';
+import type { ComponentProps, ReactNode, MouseEvent } from 'react';
+import React, { forwardRef } from 'react';
 
 import type { Icon } from '../..';
 import type Box from '../../Box';
