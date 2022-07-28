@@ -10,7 +10,7 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import type { ButtonGroup } from '../ButtonGroup';
+import { ButtonGroup } from '../ButtonGroup';
 import { IconButton } from './IconButton';
 
 export default {
@@ -39,8 +39,41 @@ export const _IconButtonDisabled: ComponentStory<typeof IconButton> = () => (
   <IconButton icon='balloon' disabled />
 );
 
-export const _IconButtonMini: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon='balloon' mini />
+export const Variants = () => (
+  <>
+    <ButtonGroup>
+      <IconButton icon='balloon' small />
+      <IconButton icon='balloon' secondary small />
+      <IconButton icon='balloon' info small />
+      <IconButton icon='balloon' secondary info small />
+      <IconButton icon='balloon' success small />
+      <IconButton icon='balloon' secondary success small />
+      <IconButton icon='balloon' warning small />
+      <IconButton icon='balloon' secondary warning small />
+      <IconButton icon='balloon' danger small />
+      <IconButton icon='balloon' secondary danger small />
+    </ButtonGroup>
+    <ButtonGroup>
+      <IconButton icon='balloon' disabled small />
+      <IconButton icon='balloon' disabled secondary small />
+      <IconButton icon='balloon' disabled info small />
+      <IconButton icon='balloon' disabled secondary info small />
+      <IconButton icon='balloon' disabled success small />
+      <IconButton icon='balloon' disabled secondary success small />
+      <IconButton icon='balloon' disabled warning small />
+      <IconButton icon='balloon' disabled secondary warning small />
+      <IconButton icon='balloon' disabled danger small />
+      <IconButton icon='balloon' disabled secondary danger small />
+    </ButtonGroup>
+  </>
+);
+
+export const Sizes = () => (
+  <ButtonGroup>
+    <IconButton icon='balloon' secondary info small />
+    <IconButton icon='balloon' secondary info tiny />
+    <IconButton icon='balloon' secondary info mini />
+  </ButtonGroup>
 );
 
 export const _IconButtonInfo: ComponentStory<typeof IconButton> = () => (
