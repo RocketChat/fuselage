@@ -42,7 +42,7 @@ jobs:
           name: storybooks
           path: |
             fuselage/storybook-static
-            packages/uikit-playground/build
+            uikit-playground/build
             fuselage-ui-kit/storybook-static
             onboarding-ui/storybook-static
   publish-to-gh-pages:
