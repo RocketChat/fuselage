@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: "https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage/${{ needs.download-artifact.outputs.pr-number }}"
+      url: "https://rocketchat.github.io/fuselage/fuselage/${{ needs.download-artifact.outputs.pr-number }}"
     steps:
       - uses: actions/checkout@v2
         with:
