@@ -114,7 +114,7 @@ $message-background-color-highlight: functions.theme(
       @include typography.use-with-truncated-text();
       display: flex;
       flex-direction: row;
-      align-items: baseline;
+      align-items: center;
       flex-grow: 1;
       flex-shrink: 1;
 
