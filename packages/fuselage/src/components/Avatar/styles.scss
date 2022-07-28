@@ -17,7 +17,19 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
   &__element {
     position: relative;
 
-    border-radius: lengths.border-width(2);
+    &--radius {
+      @each $size in $sizes {
+        &--x#{$size} {
+          @if $size <= 18 {
+            border-radius: lengths.border-radius(2);
+          } @else if $size == 332 {
+            border-radius: lengths.border-radius(8);
+          } @else {
+            border-radius: lengths.border-radius(4);
+          }
+        }
+      }
+    }
 
     &--rounded {
       border-radius: 100%;
