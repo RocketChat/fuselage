@@ -24,21 +24,28 @@
     padding: 0;
 
     color: colors.foreground(default);
-    border-radius: 2px;
+    border-radius: lengths.border-radius(8);
     background-color: colors.surface(light);
     @include typography.use-font-scale(p2);
   }
 
   &__header {
-    margin: 32px;
+    margin: lengths.size(32);
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-shrink: 1;
+      @include typography.use-text-ellipsis;
+    }
   }
 
   &__header-inner {
     display: flex;
     flex-wrap: nowrap;
-    align-items: center;
 
-    margin: -8px;
+    margin: -4px;
   }
 
   &__title {
@@ -50,6 +57,12 @@
 
     color: colors.foreground('default');
     @include typography.use-font-scale(h2);
+  }
+
+  &__tagline {
+    color: colors.neutral(600);
+
+    @include typography.use-font-scale(c2);
   }
 
   &__backdrop {
@@ -65,11 +78,19 @@
   }
 
   &__footer {
-    margin: 32px;
+    display: flex;
+    align-items: center;
+
+    margin: lengths.size(32);
+
+    &-annotation {
+      color: colors.neutral(600);
+      @include typography.use-font-scale(c1);
+    }
   }
 
   &__content-wrapper {
-    margin-inline: 32px;
+    margin-inline: lengths.size(32);
   }
 
   @include on-breakpoint(sm) {
