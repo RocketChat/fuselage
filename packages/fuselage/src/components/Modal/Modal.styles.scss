@@ -2,7 +2,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$modal-border-radius: theme('modal-border-radius', lengths.border-radius(2));
+$modal-margin: theme('modal-margin', lengths.size(32));
 
 .rcx-modal {
   position: static;
@@ -26,13 +26,13 @@ $modal-border-radius: theme('modal-border-radius', lengths.border-radius(2));
     padding: 0;
 
     color: colors.foreground(default);
-    border-radius: $modal-border-radius;
+    border-radius: theme('modal-border-radius', lengths.border-radius(2));
     background-color: colors.surface(light);
     @include typography.use-font-scale(p2);
   }
 
   &__header {
-    margin: lengths.size(32);
+    margin: $modal-margin;
 
     &-text {
       display: flex;
@@ -83,7 +83,7 @@ $modal-border-radius: theme('modal-border-radius', lengths.border-radius(2));
     display: flex;
     align-items: center;
 
-    margin: lengths.size(32);
+    margin: $modal-margin;
 
     &-annotation {
       color: colors.neutral(600);
@@ -92,7 +92,7 @@ $modal-border-radius: theme('modal-border-radius', lengths.border-radius(2));
   }
 
   &__content-wrapper {
-    margin-inline: lengths.size(32);
+    margin-inline: $modal-margin;
   }
 
   @include on-breakpoint(sm) {
