@@ -2,7 +2,9 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$modal-margin: theme('modal-margin', lengths.size(32));
+$modal-container-margin: theme('modal-container-margin', lengths.size(32));
+
+$modal-margin: theme('modal-margin', auto);
 
 .rcx-modal {
   position: static;
@@ -11,7 +13,7 @@ $modal-margin: theme('modal-margin', lengths.size(32));
 
   width: 100%;
   max-height: 100%;
-  margin: auto;
+  margin: $modal-margin;
 
   background: none;
 
@@ -32,7 +34,7 @@ $modal-margin: theme('modal-margin', lengths.size(32));
   }
 
   &__header {
-    margin: $modal-margin;
+    margin: $modal-container-margin;
 
     &-text {
       display: flex;
@@ -83,7 +85,7 @@ $modal-margin: theme('modal-margin', lengths.size(32));
     display: flex;
     align-items: center;
 
-    margin: $modal-margin;
+    margin: $modal-container-margin;
 
     &-annotation {
       color: colors.neutral(600);
@@ -92,7 +94,7 @@ $modal-margin: theme('modal-margin', lengths.size(32));
   }
 
   &__content-wrapper {
-    margin-inline: $modal-margin;
+    margin-inline: $modal-container-margin;
   }
 
   @include on-breakpoint(sm) {
