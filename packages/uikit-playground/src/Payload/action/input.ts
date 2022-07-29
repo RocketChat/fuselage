@@ -1,16 +1,16 @@
 export const actionWithSingleLineInput = [
   {
-    type: "actions",
+    type: 'actions',
     elements: [
       {
-        type: "plain_text_input",
-        actionId: "plain_text_input_1",
+        type: 'plain_text_input',
+        actionId: 'plain_text_input_1',
         placeholder: {
-          type: "plain_text",
-          text: "Enter name",
+          type: 'plain_text',
+          text: 'Enter name',
           emoji: true,
         },
-        initialValue: "Vivek Srivastava",
+        initialValue: 'Vivek Srivastava',
         multiline: false,
       },
     ],
@@ -19,17 +19,17 @@ export const actionWithSingleLineInput = [
 
 export const actionWithMultiLineInput = [
   {
-    type: "actions",
+    type: 'actions',
     elements: [
       {
-        type: "plain_text_input",
-        actionId: "plain_text_input_1",
+        type: 'plain_text_input',
+        actionId: 'plain_text_input_1',
         placeholder: {
-          type: "plain_text",
-          text: "Enter name",
+          type: 'plain_text',
+          text: 'Enter name',
           emoji: true,
         },
-        initialValue: "Vivek Srivastava",
+        initialValue: 'Vivek Srivastava',
         multiline: true,
       },
     ],

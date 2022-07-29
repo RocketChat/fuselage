@@ -1,21 +1,21 @@
-import { Box, Scrollable } from "@rocket.chat/fuselage";
-import type { FC } from "react";
-import React from "react";
+import { Box, Scrollable } from '@rocket.chat/fuselage';
+import type { FC } from 'react';
+import React from 'react';
 
-import CodeEditor from "../../CodeEditor";
-import extensions from "../../CodeEditor/Extensions";
+import CodeEditor from '../../CodeEditor';
+import extensions from '../../CodeEditor/Extensions';
 
 const Editor: FC = () => (
   <Scrollable vertical>
     <Box
-      position="relative"
-      height={"100%"}
-      width={"100%"}
+      position='relative'
+      height={'100%'}
+      width={'100%'}
       zIndex={1}
-      bg={"#f6f9fc"}
-      display={"flex"}
-      borderInlineStart={"var(--default-border)"}
-      overflow={"auto"}
+      bg={'#f6f9fc'}
+      display={'flex'}
+      borderInlineStart={'var(--default-border)'}
+      overflow={'auto'}
     >
       <CodeEditor extensions={extensions} />
     </Box>

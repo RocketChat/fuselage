@@ -4,6 +4,6 @@ type action = {
 };
 
 export const isTabletAction = (payload: boolean): action => ({
-  type: "isTablet",
+  type: 'isTablet',
   payload,
 });

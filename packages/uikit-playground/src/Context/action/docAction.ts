@@ -1,4 +1,4 @@
-import type { docType } from "../initialState";
+import type { docType } from '../initialState';
 
 type action = {
   type: string;
@@ -6,6 +6,6 @@ type action = {
 };
 
 export const docAction = (payload: docType): action => ({
-  type: "doc",
+  type: 'doc',
   payload,
 });

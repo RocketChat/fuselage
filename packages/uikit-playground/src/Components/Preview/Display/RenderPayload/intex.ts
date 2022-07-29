@@ -1,1 +1,1 @@
-export { default } from "./RenderPayload";
+export { default } from './RenderPayload';

@@ -1,7 +1,7 @@
-import type { Configuration } from "webpack";
+import type { Configuration } from 'webpack';
 
 const config: Configuration = {
-  mode: "development",
+  mode: 'development',
   module: {
     rules: [
       // JavaScript
@@ -9,9 +9,9 @@ const config: Configuration = {
         test: /\.jsx?$/, // JavaScript and Reactive JavaScript
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader", // Transpiles ES6 JavaScript files
+          loader: 'babel-loader', // Transpiles ES6 JavaScript files
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ['@babel/preset-env'],
           },
         },
       },
@@ -19,7 +19,7 @@ const config: Configuration = {
       // TypeScript
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
         exclude: /node_modules/,
       },
 
@@ -27,15 +27,15 @@ const config: Configuration = {
       {
         test: /\.css$/,
         use: [
-          "style-loader",
-          { loader: "css-loader", options: { importLoaders: 1 } },
-          "postcss-loader",
+          'style-loader',
+          { loader: 'css-loader', options: { import: 1 } },
+          'postcss-loader',
         ],
       },
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 };
 

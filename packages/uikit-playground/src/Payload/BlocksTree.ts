@@ -1,4 +1,4 @@
-import type { Item } from "../Components/DropDown/types";
+import type { Item } from '../Components/DropDown/types';
 import {
   actionWithButtonDefault,
   actionWithButtonPrimary,
@@ -12,15 +12,15 @@ import {
   actionWithMultiStaticSelect,
   actionWithDatePicker,
   actionWithLinearScale,
-} from "./action";
+} from './action';
 import {
   contextWithPlainText,
   contextWithMrkdwn,
   contextWithImage,
   contextWithAllElements,
-} from "./context";
-import { divider } from "./divider";
-import { imageWithTitle, imageWithoutTitle } from "./image";
+} from './context';
+import { divider } from './divider';
+import { imageWithTitle, imageWithoutTitle } from './image';
 import {
   inputWithSingleLineInput,
   inputWithMultiLineInput,
@@ -28,13 +28,13 @@ import {
   inputWithMultiStaticSelect,
   inputWithDatePicker,
   inputWithLinearSelect,
-} from "./input";
+} from './input';
 import {
   previewPlain,
   previewWithImage,
   previewWithUrl,
   previewWithImageAndUrl,
-} from "./preview";
+} from './preview';
 import {
   sectionWithPlainText,
   sectionWithMrkdwn,
@@ -46,219 +46,219 @@ import {
   sectionWithImage,
   sectionWithMenu,
   sectionWithdatePicker,
-} from "./section";
+} from './section';
 
 const BlocksTree: Item = [
   {
-    label: "actions",
+    label: 'actions',
     branches: [
       {
-        label: "button",
+        label: 'button',
         branches: [
           {
-            label: "default",
+            label: 'default',
             payload: actionWithButtonDefault,
           },
           {
-            label: "primary",
+            label: 'primary',
             payload: actionWithButtonPrimary,
           },
           {
-            label: "danger",
+            label: 'danger',
             payload: actionWithButtonDanger,
           },
           {
-            label: "as Link",
+            label: 'as Link',
             payload: actionWithButtonAsLink,
           },
         ],
       },
 
       {
-        label: "static select",
+        label: 'static select',
         branches: [
           {
-            label: "Single",
+            label: 'Single',
             payload: actionWithSingleStaticSelect,
           },
           {
-            label: "Multi",
+            label: 'Multi',
             payload: actionWithMultiStaticSelect,
           },
         ],
       },
       {
-        label: "menu",
+        label: 'menu',
         payload: actionWithMenu,
       },
       {
-        label: "date Picker",
+        label: 'date Picker',
         payload: actionWithDatePicker,
       },
       {
-        label: "linear scale",
+        label: 'linear scale',
         payload: actionWithLinearScale,
       },
     ],
   },
   {
-    label: "section",
+    label: 'section',
     branches: [
       {
-        label: "text",
+        label: 'text',
         branches: [
           {
-            label: "plain text",
+            label: 'plain text',
             payload: sectionWithPlainText,
           },
           {
-            label: "mrkdwn",
+            label: 'mrkdwn',
             payload: sectionWithMrkdwn,
           },
           {
-            label: "text fields",
+            label: 'text fields',
             payload: sectionWithTextFields,
           },
         ],
       },
       {
-        label: "button",
+        label: 'button',
         branches: [
           {
-            label: "default",
+            label: 'default',
             payload: sectionWithButtonDefault,
           },
           {
-            label: "primary",
+            label: 'primary',
             payload: sectionWithButtonPrimary,
           },
           {
-            label: "danger",
+            label: 'danger',
             payload: sectionWithButtonDanger,
           },
           {
-            label: "as Link",
+            label: 'as Link',
             payload: sectionWithButtonAsLink,
           },
         ],
       },
       {
-        label: "image",
+        label: 'image',
         payload: sectionWithImage,
       },
       {
-        label: "menu",
+        label: 'menu',
         payload: sectionWithMenu,
       },
       {
-        label: "date Picker",
+        label: 'date Picker',
         payload: sectionWithdatePicker,
       },
     ],
   },
   {
-    label: "preview",
+    label: 'preview',
     branches: [
       {
-        label: "plain",
+        label: 'plain',
         payload: previewPlain,
       },
       {
-        label: "image",
+        label: 'image',
         payload: previewWithImage,
       },
       {
-        label: "URL",
+        label: 'URL',
         payload: previewWithUrl,
       },
       {
-        label: "image and URL",
+        label: 'image and URL',
         payload: previewWithImageAndUrl,
       },
     ],
   },
   {
-    label: "input",
+    label: 'input',
     branches: [
       {
-        label: "textfeild",
+        label: 'textfeild',
         branches: [
           {
-            label: "single line",
+            label: 'single line',
             payload: inputWithSingleLineInput,
           },
           {
-            label: "multi line",
+            label: 'multi line',
             payload: inputWithMultiLineInput,
           },
         ],
       },
       {
-        label: "static select",
+        label: 'static select',
         branches: [
           {
-            label: "single",
+            label: 'single',
             payload: inputWithSingleStaticSelect,
           },
           {
-            label: "multi",
+            label: 'multi',
             payload: inputWithMultiStaticSelect,
           },
         ],
       },
       {
-        label: "date Picker",
+        label: 'date Picker',
         payload: inputWithDatePicker,
       },
       {
-        label: "linear scale",
+        label: 'linear scale',
         payload: inputWithLinearSelect,
       },
     ],
   },
   {
-    label: "image",
+    label: 'image',
     branches: [
       {
-        label: "with title",
+        label: 'with title',
         payload: imageWithTitle,
       },
       {
-        label: "without title",
+        label: 'without title',
         payload: imageWithoutTitle,
       },
     ],
   },
   {
-    label: "Context",
+    label: 'Context',
     branches: [
       {
-        label: "Plain Text",
+        label: 'Plain Text',
         payload: contextWithPlainText,
       },
       {
-        label: "Mrkdwn",
+        label: 'Mrkdwn',
         payload: contextWithMrkdwn,
       },
       {
-        label: "Image",
+        label: 'Image',
         payload: contextWithImage,
       },
       {
-        label: "All Elements",
+        label: 'All Elements',
         payload: contextWithAllElements,
       },
     ],
   },
   {
-    label: "Conditional",
+    label: 'Conditional',
     branches: [],
   },
   {
-    label: "divider",
+    label: 'divider',
     branches: [
       {
-        label: "Plain",
+        label: 'Plain',
         payload: divider,
       },
     ],

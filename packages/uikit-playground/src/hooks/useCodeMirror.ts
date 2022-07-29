@@ -1,7 +1,7 @@
-import { EditorState } from "@codemirror/state";
-import type { Extension } from "@codemirror/state";
-import { EditorView } from "codemirror";
-import { useCallback, useEffect, useState, useRef } from "react";
+import { EditorState } from '@codemirror/state';
+import type { Extension } from '@codemirror/state';
+import { EditorView } from 'codemirror';
+import { useCallback, useEffect, useState, useRef } from 'react';
 
 type changes = {
   value: string;
@@ -13,7 +13,7 @@ export default function useCodeMirror(extensions?: Extension[], doc?: string) {
   const view = useRef<EditorView>();
   const [element, setElement] = useState<HTMLElement>();
   const [changes, setChanges] = useState<changes>({
-    value: "[]",
+    value: '[]',
     isDispatch: true,
     cursor: 0,
   });
@@ -27,7 +27,7 @@ export default function useCodeMirror(extensions?: Extension[], doc?: string) {
   const updateListener = EditorView.updateListener.of((update) => {
     if (update.docChanged) {
       setChanges({
-        value: view.current?.state?.doc.toString() || "",
+        value: view.current?.state?.doc.toString() || '',
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         isDispatch: update?.transactions[0]?.annotations?.length === 1 || false,
@@ -53,7 +53,7 @@ export default function useCodeMirror(extensions?: Extension[], doc?: string) {
         changes: {
           from: from || 0,
           to: to || view.current.state.doc.length,
-          insert: value || "",
+          insert: value || '',
         },
         selection: { anchor: cursor || 0 },
       });
@@ -67,7 +67,7 @@ export default function useCodeMirror(extensions?: Extension[], doc?: string) {
 
     view.current = new EditorView({
       state: EditorState.create({
-        doc: doc || "",
+        doc: doc || '',
         extensions: [updateListener, ...(extensions || [])],
       }),
       parent: element,

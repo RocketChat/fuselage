@@ -1,11 +1,11 @@
-import { css } from "@rocket.chat/css-in-js";
-import { Box } from "@rocket.chat/fuselage";
-import type { FC } from "react";
-import React, { useEffect, useContext } from "react";
+import { css } from '@rocket.chat/css-in-js';
+import { Box } from '@rocket.chat/fuselage';
+import type { FC } from 'react';
+import React, { useEffect, useContext } from 'react';
 
-import { context, tabsToggleAction } from "../../Context";
-import NavPanel from "./NavPanel";
-import Wrapper from "./Wrapper";
+import { context, tabsToggleAction } from '../../Context';
+import NavPanel from './NavPanel';
+import Wrapper from './Wrapper';
 
 const Preview: FC = () => {
   const {
@@ -19,13 +19,13 @@ const Preview: FC = () => {
 
   return (
     <Box
-      display={"flex"}
+      display={'flex'}
       flexGrow={1}
-      bg="#fff"
+      bg='#fff'
       zIndex={3}
-      height={"100%"}
-      flexDirection={"column"}
-      pis={isMobile ? "" : "var(--sidebar-width)"}
+      height={'100%'}
+      flexDirection={'column'}
+      pis={isMobile ? '' : 'var(--sidebar-width)'}
       className={css`
         transition: 0.5s ease;
       `}

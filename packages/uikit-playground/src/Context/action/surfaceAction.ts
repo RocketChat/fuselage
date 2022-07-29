@@ -4,6 +4,6 @@ type action = {
 };
 
 export const surfaceAction = (payload: number): action => ({
-  type: "surface",
+  type: 'surface',
   payload,
 });
