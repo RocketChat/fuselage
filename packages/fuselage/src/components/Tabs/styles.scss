@@ -4,33 +4,36 @@
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);
-$tabs-color: theme('tabs-color', colors.text(secondary-info));
-$tabs-hover-color: theme('tabs-hover-border-color', colors.text(titles-labels));
-$tabs-selected-color: theme('tabs-selected-color', colors.button(primary));
+$tabs-color: theme('tabs-color', colors.font(secondary-info));
+$tabs-hover-color: theme('tabs-hover-border-color', colors.font(titles-labels));
+$tabs-selected-color: theme(
+  'tabs-selected-color',
+  colors.button(primary-default)
+);
 $tabs-selected-border-color: theme(
   'tabs-selected-border-color',
   colors.stroke(highlight)
 );
 $tabs-hover-selected-color: theme(
   'tabs-hover-selected-color',
-  colors.button(hover-primary)
+  colors.button(primary-hover)
 );
 $tabs-hover-selected-border-color: theme(
   'tabs-hover-selected-border-color',
-  colors.button(hover-primary)
+  colors.button(primary-hover)
 );
-$tabs-active-color: theme('tabs-active-color', colors.text(titles-labels));
+$tabs-active-color: theme('tabs-active-color', colors.font(titles-labels));
 $tabs-active-selected-color: theme(
   'tabs-active-selected-color',
-  colors.button(press-primary)
+  colors.button(primary-press)
 );
 $tabs-active-selected-border-color: theme(
   'tabs-active-selected-border-color',
-  colors.button(press-primary)
+  colors.button(primary-press)
 );
 $tabs-focus-border-color: theme(
   'tabs-focus-border-color',
-  colors.button(primary)
+  colors.button(primary-default)
 );
 $tabs-focus-shadow-color: theme(
   'tabs-focus-shadow-color',

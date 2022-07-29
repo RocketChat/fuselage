@@ -5,7 +5,7 @@
 .rcx-tile {
   display: block;
 
-  color: colors.text(text);
+  color: colors.font(default);
   border-radius: lengths.border-radius(2);
   background-color: colors.surface(light);
 

@@ -4,7 +4,7 @@
 
 $tag-colors-default-color: theme(
   'tag-colors-default-color',
-  colors.text(titles-labels)
+  colors.font(titles-labels)
 );
 $tag-colors-default-hover-color: theme(
   'tag-colors-default-hover-color',
@@ -16,7 +16,7 @@ $tag-colors-default-background-color: theme(
 );
 $tag-colors-default-hover-background-color: theme(
   'tag-colors-default-hover-background-color',
-  colors.button(hover-secondary)
+  colors.button(secondary-hover)
 );
 
 $tag-colors-primary-color: theme(
@@ -25,11 +25,11 @@ $tag-colors-primary-color: theme(
 );
 $tag-colors-primary-background-color: theme(
   'tag-colors-primary-background-color',
-  colors.button(primary)
+  colors.button(primary-default)
 );
 $tag-colors-primary-hover-background-color: theme(
   'tag-colors-primary-hover-background-color',
-  colors.button(hover-primary)
+  colors.button(primary-hover)
 );
 
 $tag-colors-secondary-color: theme(
@@ -38,11 +38,11 @@ $tag-colors-secondary-color: theme(
 );
 $tag-colors-secondary-background-color: theme(
   'tag-colors-secondary-background-color',
-  colors.button(secondary)
+  colors.button(secondary-default)
 );
 $tag-colors-secondary-hover-background-color: theme(
   'tag-colors-secondary-hover-background-color',
-  colors.button(hover-secondary)
+  colors.button(secondary-hover)
 );
 
 $tag-colors-danger-color: theme(
@@ -51,11 +51,11 @@ $tag-colors-danger-color: theme(
 );
 $tag-colors-danger-background-color: theme(
   'tag-colors-danger-background-color',
-  colors.button(danger)
+  colors.button(danger-default)
 );
 $tag-colors-danger-hover-background-color: theme(
   'tag-colors-danger-hover-background-color',
-  colors.button(hover-danger)
+  colors.button(danger-hover)
 );
 
 $tag-colors-secondary-danger-color: theme(
@@ -64,11 +64,11 @@ $tag-colors-secondary-danger-color: theme(
 );
 $tag-colors-secondary-danger-background-color: theme(
   'tag-colors-secondary-danger-background-color',
-  colors.button(secondary-danger)
+  colors.button(secondary-danger-default)
 );
 $tag-colors-secondary-danger-hover-background-color: theme(
   'tag-colors-secondary-danger-hover-background-color',
-  colors.button(hover-secondary-danger)
+  colors.button(secondary-danger-hover)
 );
 
 $tag-colors-warning-color: theme(
@@ -77,11 +77,11 @@ $tag-colors-warning-color: theme(
 );
 $tag-colors-warning-background-color: theme(
   'tag-colors-warning-background-color',
-  colors.button(warning)
+  colors.button(warning-default)
 );
 $tag-colors-warning-hover-background-color: theme(
   'tag-colors-warning-hover-background-color',
-  colors.button(hover-warning)
+  colors.button(warning-hover)
 );
 
 $tag-colors-disabled-color: theme(
