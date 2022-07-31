@@ -8,6 +8,7 @@ export const inputWithMultilinePlainTextInput: readonly UiKit.LayoutBlock[] = [
       blockId: 'dummy-block-id',
       type: 'plain_text_input',
       multiline: true,
+      multilineSize: 'small',
       actionId: 'input-0',
     },
     label: {
@@ -26,7 +27,8 @@ export const inputWithMediumMultilinePlainTextInput: readonly UiKit.LayoutBlock[
         appId: 'dummy-app-id',
         blockId: 'dummy-block-id',
         type: 'plain_text_input',
-        multilineMedium: true,
+        multiline: true,
+        multilineSize: 'medium',
         actionId: 'input-0',
       },
       label: {
@@ -45,7 +47,8 @@ export const inputWithLargeMultilinePlainTextInput: readonly UiKit.LayoutBlock[]
         appId: 'dummy-app-id',
         blockId: 'dummy-block-id',
         type: 'plain_text_input',
-        multilineLarge: true,
+        multiline: true,
+        multilineSize: 'large',
         actionId: 'input-0',
       },
       label: {

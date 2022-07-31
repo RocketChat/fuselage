@@ -16,7 +16,7 @@ const PlainTextInputElement = ({
 }: PlainTextInputElementProps): ReactElement => {
   const [{ loading, value, error }, action] = useUiKitState(block, context);
 
-  if (block.multilineLarge) {
+  if (block.multiline && block.multilineSize === 'large') {
     return (
       <TextAreaInput
         disabled={loading}
@@ -35,7 +35,7 @@ const PlainTextInputElement = ({
     );
   }
 
-  if (block.multilineMedium) {
+  if (block.multiline && block.multilineSize === 'medium') {
     return (
       <TextAreaInput
         disabled={loading}
@@ -54,7 +54,7 @@ const PlainTextInputElement = ({
     );
   }
 
-  if (block.multiline || block.multilineSmall) {
+  if (block.multiline || (block.multiline && block.multilineSize === 'small')) {
     return (
       <TextAreaInput
         disabled={loading}
