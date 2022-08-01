@@ -1,6 +1,6 @@
-@use '../../../styles/colors.scss';
-@use '../../../styles/lengths.scss';
-@use '../../../styles/typography.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
 $variants: (
   'success': colors.success(700),
