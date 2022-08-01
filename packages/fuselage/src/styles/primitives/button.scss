@@ -5,10 +5,10 @@
 
 @mixin kind-variant($colors) {
   color: map.get($colors, color);
-  border-width: 2px;
+  border-width: theme('button-border-width', 2px);
   border-style: solid;
   border-color: map.get($colors, border-color);
-  border-radius: 2px;
+  border-radius: theme('button-border-radius', 2px);
   background-color: map.get($colors, background-color);
 
   appearance: none;

@@ -3,8 +3,12 @@ import { ModalBackdrop } from './ModalBackdrop';
 import { ModalClose } from './ModalClose';
 import { ModalContent } from './ModalContent';
 import { ModalFooter } from './ModalFooter';
+import { ModalFooterAnnotation } from './ModalFooterAnnotation';
+import { ModalFooterControllers } from './ModalFooterControllers';
 import { ModalHeader } from './ModalHeader';
+import { ModalHeaderText } from './ModalHeaderText';
 import { ModalIcon } from './ModalIcon';
+import { ModalTagline } from './ModalTagline';
 import { ModalThumb } from './ModalThumb';
 import { ModalTitle } from './ModalTitle';
 
@@ -18,6 +22,10 @@ export default Object.assign(Modal, {
   Icon: ModalIcon,
   Thumb: ModalThumb,
   Title: ModalTitle,
+  Tagline: ModalTagline,
+  HeaderText: ModalHeaderText,
+  FooterControllers: ModalFooterControllers,
+  FooterAnnotation: ModalFooterAnnotation,
 });
 
 export {
@@ -29,4 +37,8 @@ export {
   ModalThumb,
   ModalTitle,
   ModalIcon,
+  ModalTagline,
+  ModalHeaderText,
+  ModalFooterControllers,
+  ModalFooterAnnotation,
 };
