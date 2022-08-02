@@ -40,7 +40,6 @@ export const Default: ComponentStory<typeof Dropdown> = () => {
       <Dropdown
         ref={target}
         reference={anchor}
-        placement='bottom-end'
         visible={isVisible}
         onShow={() => setIsVisible(true)}
         onClose={() => setIsVisible(false)}
