@@ -4613,7 +4613,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.18.9":
+"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.8.7":
   version: 7.18.9
   resolution: "@babel/runtime@npm:7.18.9"
   dependencies:
@@ -7544,6 +7544,7 @@ __metadata:
     "@testing-library/react": ^12.1.2
     "@types/invariant": ^2.2.35
     "@types/jest": ~27.4.0
+    "@types/react-transition-group": ^4
     autoprefixer: ~10.4.2
     babel-loader: ~8.2.3
     bump: "workspace:~"
@@ -7573,6 +7574,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-keyed-flatten-children: ^1.3.0
+    react-transition-group: ~4.4.5
     react-virtuoso: ~2.6.0
     rimraf: ^3.0.2
     sass: ~1.49.7
@@ -10549,6 +10551,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: ecaae8df36cd8cfeb89080d52534856acc3789bad9a6e369ff5119426377c827b4e5b5daa638507f2c1c2fd6c994bf45de288a698143178cd4049c2cd8b77b35
+  languageName: node
+  linkType: hard
+
+"@types/react-transition-group@npm:^4":
+  version: 4.4.5
+  resolution: "@types/react-transition-group@npm:4.4.5"
+  dependencies:
+    "@types/react": "*"
+  checksum: 265f1c74061556708ffe8d15559e35c60d6c11478c9950d3735575d2c116ca69f461d85effa06d73a613eb8b73c84fd32682feb57cf7c5f9e4284021dbca25b0
   languageName: node
   linkType: hard
 
@@ -16616,6 +16627,16 @@ __metadata:
   dependencies:
     utila: ~0.4
   checksum: ea52fe303f5392e48dea563abef0e6fb3a478b8dbe3c599e99bb5d53981c6c38fc4944e56bb92a8ead6bb989d10b7914722ae11febbd2fd0910e33b9fc4aaa77
+  languageName: node
+  linkType: hard
+
+"dom-helpers@npm:^5.0.1":
+  version: 5.2.1
+  resolution: "dom-helpers@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": ^7.8.7
+    csstype: ^3.0.2
+  checksum: 863ba9e086f7093df3376b43e74ce4422571d404fc9828bf2c56140963d5edf0e56160f9b2f3bb61b282c07f8fc8134f023c98fd684bddcb12daf7b0f14d951c
   languageName: node
   linkType: hard
 
@@ -27866,7 +27887,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.4, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.4, prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -28697,6 +28718,21 @@ fsevents@~2.1.2:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: c474e955ff20bb14c6a1d4b8b24e0d4b0247850eb6222c4f8722e59bf1bd4c545624334e2ef808e98c8297831e75e348067d37e1354c535112599b9aea1c4c74
+  languageName: node
+  linkType: hard
+
+"react-transition-group@npm:~4.4.5":
+  version: 4.4.5
+  resolution: "react-transition-group@npm:4.4.5"
+  dependencies:
+    "@babel/runtime": ^7.5.5
+    dom-helpers: ^5.0.1
+    loose-envify: ^1.4.0
+    prop-types: ^15.6.2
+  peerDependencies:
+    react: ">=16.6.0"
+    react-dom: ">=16.6.0"
+  checksum: 75602840106aa9c6545149d6d7ae1502fb7b7abadcce70a6954c4b64a438ff1cd16fc77a0a1e5197cdd72da398f39eb929ea06f9005c45b132ed34e056ebdeb1
   languageName: node
   linkType: hard
 

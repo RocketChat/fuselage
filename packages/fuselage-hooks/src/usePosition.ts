@@ -1,6 +1,7 @@
 import type { RefObject } from 'react';
 import { useEffect, useRef } from 'react';
 
+import { useDebouncedCallback } from './useDebouncedCallback';
 import { useDebouncedState } from './useDebouncedState';
 import { useMutableCallback } from './useMutableCallback';
 
@@ -59,6 +60,7 @@ type PositionStyle = {
   transition: 'none !important';
   bottom?: '0px';
   overflowY?: 'auto';
+  visibility: undefined;
 };
 
 type PositionEmptyResult = {
@@ -238,6 +240,7 @@ export const getPositionStyle = ({
   const variantPoint =
     variantStore[`${directionVertical ? 'v' : 'h'}${variantsAttempts[0]}`];
 
+  console.log(target, { top, left, bottom, right }, container);
   return {
     style: {
       top: `${point}px`,
@@ -306,35 +309,43 @@ export const usePosition = <T extends Element, R extends Element>(
   const {
     margin = 8,
     placement = 'bottom-start',
-    container: containerElement = document.body,
+    container: containerElement = document.documentElement,
     watch = true,
   } = options;
   const container = useRef(containerElement);
 
   const [style, setStyle] = useDebouncedState<PositionResult>(emptyStyle, 10);
 
-  const callback = useMutableCallback(() => {
-    const boundaries = target.current.getBoundingClientRect();
-    const targetBoundaries = getTargetBoundaries({
-      referenceBox: reference.current.getBoundingClientRect(),
-      target: boundaries,
-      margin,
-    });
-    const variantStore = getVariantBoundaries({
-      referenceBox: reference.current.getBoundingClientRect(),
-      target: boundaries,
-    });
-    setStyle(
-      getPositionStyle({
-        placement,
-        container: container.current.getBoundingClientRect(),
-        targetBoundaries,
-        variantStore,
+  const callback = useDebouncedCallback(
+    useMutableCallback(() => {
+      const boundaries = target.current?.getBoundingClientRect();
+      const targetBoundaries = getTargetBoundaries({
+        referenceBox: reference.current.getBoundingClientRect(),
         target: boundaries,
         margin,
-      })
-    );
-  });
+      });
+      const variantStore = getVariantBoundaries({
+        referenceBox: reference.current.getBoundingClientRect(),
+        target: boundaries,
+      });
+      setStyle(
+        getPositionStyle({
+          placement,
+          container: {
+            ...container.current.getBoundingClientRect(),
+            ...(container.current === document.documentElement && {
+              height: window.innerHeight,
+            }),
+          },
+          targetBoundaries,
+          variantStore,
+          target: boundaries,
+          margin,
+        })
+      );
+    }),
+    10
+  );
 
   useBoundingClientRect(target, watch, callback);
   useBoundingClientRect(reference, watch, callback);
