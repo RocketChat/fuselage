@@ -89,7 +89,8 @@ export const Menu = ({
         reference={reference}
         ref={target}
         placement={placement}
-        visible={visible === 'visible'}
+        visible={true}
+        // visible={visible === 'visible'}
         onShow={() => show()}
         onClose={() => hide()}
       >

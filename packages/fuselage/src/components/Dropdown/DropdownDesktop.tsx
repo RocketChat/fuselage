@@ -35,7 +35,7 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
       overflow='auto'
       width={width}
     >
-      <Box flexShrink={1} pb='x16'>
+      <Box flexShrink={1}>
         {(style as any).visibility === 'hidden' ? null : children}
       </Box>
     </Tile>
