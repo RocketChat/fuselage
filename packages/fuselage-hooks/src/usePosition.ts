@@ -240,7 +240,6 @@ export const getPositionStyle = ({
   const variantPoint =
     variantStore[`${directionVertical ? 'v' : 'h'}${variantsAttempts[0]}`];
 
-  console.log(target, { top, left, bottom, right }, container);
   return {
     style: {
       top: `${point}px`,
