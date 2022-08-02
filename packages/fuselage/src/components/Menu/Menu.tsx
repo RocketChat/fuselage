@@ -54,7 +54,7 @@ export const Menu = ({
       hide();
     });
 
-  const reference = useRef<HTMLElement>(null);
+  const anchor = useRef<HTMLElement>(null);
   const target = useRef<HTMLElement>(null);
 
   const onClick = useCallback(() => {
@@ -74,7 +74,7 @@ export const Menu = ({
     <>
       <IconButton
         data-testid='menu'
-        ref={reference}
+        ref={anchor}
         small={small}
         tiny={tiny}
         mini={mini}
@@ -86,8 +86,8 @@ export const Menu = ({
         {...props}
       />
       <Dropdown
-        reference={reference}
         ref={target}
+        reference={anchor}
         placement={placement}
         visible={visible === 'visible'}
         onShow={() => show()}
