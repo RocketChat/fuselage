@@ -90,8 +90,8 @@ export const Menu = ({
         reference={anchor}
         placement={placement}
         visible={visible === 'visible'}
-        onShow={() => show()}
-        onClose={() => hide()}
+        onShow={show}
+        onClose={hide}
       >
         <Options
           maxHeight={maxHeight}
