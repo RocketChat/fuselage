@@ -25,7 +25,7 @@ $-map-type-to-prefix: (
       math.div($grade, 100) >=
       1 and
       math.div($grade, 100) <=
-      9
+      10
   )
   {
     @error 'invalid color grade';
@@ -257,7 +257,7 @@ $-button-backgrounds: (
   // success
   success-default: success(800),
   success-hover: success(900),
-  success-press: #0e543c,
+  success-press: success(1000),
   success-focus: success(800),
   success-keyfocus: success(800),
   success-disabled: success(200),
