@@ -1,9 +1,9 @@
-import { css } from "@rocket.chat/css-in-js";
-import { Tabs } from "@rocket.chat/fuselage";
-import type { FC } from "react";
-import React, { useContext } from "react";
+import { css } from '@rocket.chat/css-in-js';
+import { Tabs } from '@rocket.chat/fuselage';
+import type { FC } from 'react';
+import React, { useContext } from 'react';
 
-import { context, tabsToggleAction } from "../../../Context";
+import { context, tabsToggleAction } from '../../../Context';
 
 const TabChange: FC<{ tabsItem: string[] }> = ({ tabsItem }) => {
   const {

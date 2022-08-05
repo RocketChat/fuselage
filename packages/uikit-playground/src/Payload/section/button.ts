@@ -1,20 +1,20 @@
-import type { LayoutBlock } from "@rocket.chat/ui-kit";
+import type { LayoutBlock } from '@rocket.chat/ui-kit';
 
 export const sectionWithButtonDefault: readonly LayoutBlock[] = [
   {
-    type: "section",
+    type: 'section',
     text: {
-      type: "mrkdwn",
-      text: "This is a section block with a button.",
+      type: 'mrkdwn',
+      text: 'This is a section block with a button.',
     },
     accessory: {
-      type: "button",
-      appId: "app-id",
-      blockId: "block-id",
-      actionId: "action-id",
+      type: 'button',
+      appId: 'app-id',
+      blockId: 'block-id',
+      actionId: 'action-id',
       text: {
-        type: "plain_text",
-        text: "Click Me",
+        type: 'plain_text',
+        text: 'Click Me',
         emoji: true,
       },
     },
@@ -23,66 +23,66 @@ export const sectionWithButtonDefault: readonly LayoutBlock[] = [
 
 export const sectionWithButtonPrimary: readonly LayoutBlock[] = [
   {
-    type: "section",
+    type: 'section',
     text: {
-      type: "mrkdwn",
-      text: "This is a section block with a button.",
+      type: 'mrkdwn',
+      text: 'This is a section block with a button.',
     },
     accessory: {
-      type: "button",
-      appId: "app-id",
-      blockId: "block-id",
-      actionId: "action-id",
+      type: 'button',
+      appId: 'app-id',
+      blockId: 'block-id',
+      actionId: 'action-id',
       text: {
-        type: "plain_text",
-        text: "Click Me",
+        type: 'plain_text',
+        text: 'Click Me',
         emoji: true,
       },
-      style: "primary",
+      style: 'primary',
     },
   },
 ];
 
 export const sectionWithButtonDanger: readonly LayoutBlock[] = [
   {
-    type: "section",
+    type: 'section',
     text: {
-      type: "mrkdwn",
-      text: "This is a section block with a button.",
+      type: 'mrkdwn',
+      text: 'This is a section block with a button.',
     },
     accessory: {
-      type: "button",
-      appId: "app-id",
-      blockId: "block-id",
-      actionId: "action-id",
+      type: 'button',
+      appId: 'app-id',
+      blockId: 'block-id',
+      actionId: 'action-id',
       text: {
-        type: "plain_text",
-        text: "Click Me",
+        type: 'plain_text',
+        text: 'Click Me',
         emoji: true,
       },
-      style: "danger",
+      style: 'danger',
     },
   },
 ];
 
 export const sectionWithButtonAsLink: readonly LayoutBlock[] = [
   {
-    type: "section",
+    type: 'section',
     text: {
-      type: "mrkdwn",
-      text: "This is a section block with a button.",
+      type: 'mrkdwn',
+      text: 'This is a section block with a button.',
     },
     accessory: {
-      type: "button",
-      appId: "app-id",
-      blockId: "block-id",
-      actionId: "action-id",
+      type: 'button',
+      appId: 'app-id',
+      blockId: 'block-id',
+      actionId: 'action-id',
       text: {
-        type: "plain_text",
-        text: "Click Me",
+        type: 'plain_text',
+        text: 'Click Me',
         emoji: true,
       },
-      url: "https://rocket.chat",
+      url: 'https://rocket.chat',
     },
   },
 ];

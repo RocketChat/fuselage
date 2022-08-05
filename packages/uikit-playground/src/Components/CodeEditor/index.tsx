@@ -1,12 +1,12 @@
-import type { Extension } from "@codemirror/state";
-import { Box } from "@rocket.chat/fuselage";
-import { useDebouncedValue } from "@rocket.chat/fuselage-hooks";
-import json5 from "json5";
-import { useEffect, useContext } from "react";
+import type { Extension } from '@codemirror/state';
+import { Box } from '@rocket.chat/fuselage';
+import { useDebouncedValue } from '@rocket.chat/fuselage-hooks';
+import json5 from 'json5';
+import { useEffect, useContext } from 'react';
 
-import { docAction, context } from "../../Context";
-import useCodeMirror from "../../hooks/useCodeMirror";
-import codePrettier from "../../utils/codePrettier";
+import { docAction, context } from '../../Context';
+import useCodeMirror from '../../hooks/useCodeMirror';
+import codePrettier from '../../utils/codePrettier';
 
 type CodeMirrorProps = {
   extensions?: Extension[];
@@ -60,7 +60,7 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
 
   return (
     <>
-      <Box display="grid" height="100%" width={"100%"} ref={editor} />
+      <Box display='grid' height='100%' width={'100%'} ref={editor} />
     </>
   );
 };

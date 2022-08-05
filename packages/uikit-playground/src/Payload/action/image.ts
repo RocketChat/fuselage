@@ -1,10 +1,10 @@
 export const actionWithImage = {
-  type: "actions",
+  type: 'actions',
   elements: [
     {
-      type: "image",
-      imageUrl: "string",
-      altText: "string",
+      type: 'image',
+      imageUrl: 'string',
+      altText: 'string',
     },
   ],
 };

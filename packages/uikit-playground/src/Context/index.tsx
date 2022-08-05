@@ -1,8 +1,8 @@
-import createCtx from "./createCtx";
-import { initialState } from "./initialState";
-import reducer from "./reducer";
+import createCtx from './createCtx';
+import { initialState } from './initialState';
+import reducer from './reducer';
 
-export * from "./action";
+export * from './action';
 // export { isTabletAction } from "./action";
 // export { sidebarToggleAction } from "./action";
 // export { tabsToggleAction } from "./action";

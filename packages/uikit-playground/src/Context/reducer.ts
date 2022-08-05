@@ -1,22 +1,22 @@
-import type { initialStateType } from "./initialState";
+import type { initialStateType } from './initialState';
 
 type actionType = { type: string; payload: any };
 
 const reducer = (state: initialStateType, action: actionType) => {
   switch (action.type) {
-    case "isMobile":
+    case 'isMobile':
       return { ...state, isMobile: action.payload };
-    case "isTablet":
+    case 'isTablet':
       return { ...state, isTablet: action.payload };
-    case "sidebarToggle":
+    case 'sidebarToggle':
       return { ...state, sideBarToggle: action.payload };
-    case "editorToggle":
+    case 'editorToggle':
       return { ...state, tabsToggle: action.payload };
-    case "navMenuToggle":
+    case 'navMenuToggle':
       return { ...state, navMenuToggle: action.payload };
-    case "surface":
+    case 'surface':
       return { ...state, surface: action.payload };
-    case "doc":
+    case 'doc':
       return {
         ...state,
         doc: {
