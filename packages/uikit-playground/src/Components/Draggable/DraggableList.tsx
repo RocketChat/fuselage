@@ -1,9 +1,9 @@
-import type { LayoutBlock } from "@rocket.chat/ui-kit";
-import * as React from "react";
-import type { OnDragEndResponder } from "react-beautiful-dnd";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import type { LayoutBlock } from '@rocket.chat/ui-kit';
+import * as React from 'react';
+import type { OnDragEndResponder } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
-import DraggableListItem from "./DraggableListItem";
+import DraggableListItem from './DraggableListItem';
 
 export type Block = {
   id: string;
@@ -21,10 +21,10 @@ const DraggableList = React.memo(
     <>
       <DragDropContext onDragEnd={onDragEnd}>
         <>
-          <Droppable droppableId="droppable-list">
+          <Droppable droppableId='droppable-list'>
             {(provided) => (
               <div
-                style={{ padding: "10px" }}
+                style={{ padding: '10px' }}
                 ref={provided.innerRef}
                 {...provided.droppableProps}
               >

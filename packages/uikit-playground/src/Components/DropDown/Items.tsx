@@ -1,11 +1,11 @@
-import { css } from "@rocket.chat/css-in-js";
-import { Box, Label, Chevron } from "@rocket.chat/fuselage";
-import React, { useState, useContext } from "react";
+import { css } from '@rocket.chat/css-in-js';
+import { Box, Label, Chevron } from '@rocket.chat/fuselage';
+import React, { useState, useContext } from 'react';
 
-import { context, docAction } from "../../Context";
-import ItemsIcon from "./ItemsIcon";
-import { itemStyle, labelStyle } from "./itemsStyle";
-import type { ItemProps } from "./types";
+import { context, docAction } from '../../Context';
+import ItemsIcon from './ItemsIcon';
+import { itemStyle, labelStyle } from './itemsStyle';
+import type { ItemProps } from './types';
 
 const Items = ({ label, children, layer, payload }: ItemProps) => {
   const [isOpen, toggleItemOpen] = useState<boolean>(layer === 1);
@@ -24,31 +24,31 @@ const Items = ({ label, children, layer, payload }: ItemProps) => {
   };
 
   return (
-    <Box mbe={layer === 1 ? "10px" : "0px"}>
+    <Box mbe={layer === 1 ? '10px' : '0px'}>
       <Box
-        display="flex"
-        alignItems="center"
+        display='flex'
+        alignItems='center'
         className={itemStyle(layer, hover)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         onClick={itemClickHandler}
       >
-        <Box size={16} display="flex" alignItems="center">
+        <Box size={16} display='flex' alignItems='center'>
           {children && children.length > 0 && (
             <Box
               size={16}
-              display={"flex"}
-              alignItems={"center"}
+              display={'flex'}
+              alignItems={'center'}
               className={css`
-                transform: rotate(${!isOpen ? "-90deg" : "0deg"});
+                transform: rotate(${!isOpen ? '-90deg' : '0deg'});
                 transition: var(--animation-very-fast);
               `}
             >
-              <Chevron width="12px" color={hover ? "#fff" : "#000"} />
+              <Chevron width='12px' color={hover ? '#fff' : '#000'} />
             </Box>
           )}
         </Box>
-        <Box height="25px" display="flex" alignItems="center">
+        <Box height='25px' display='flex' alignItems='center'>
           <ItemsIcon
             layer={layer}
             hover={hover}

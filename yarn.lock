@@ -7962,6 +7962,8 @@ __metadata:
     eslint4b-prebuilt: ^6.7.2
     gh-pages: ^4.0.0
     json5: ^2.2.1
+    lint-all: "workspace:~"
+    lint-staged: ~12.3.3
     prettier: ^2.5.1
     react: ^17.0.2
     react-beautiful-dnd: ^13.1.0

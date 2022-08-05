@@ -2,13 +2,13 @@ import {
   completionKeymap,
   closeBrackets,
   closeBracketsKeymap,
-} from "@codemirror/autocomplete";
+} from '@codemirror/autocomplete';
 import {
   defaultKeymap,
   history,
   historyKeymap,
   indentWithTab,
-} from "@codemirror/commands";
+} from '@codemirror/commands';
 import {
   defaultHighlightStyle,
   syntaxHighlighting,
@@ -16,10 +16,10 @@ import {
   bracketMatching,
   foldGutter,
   foldKeymap,
-} from "@codemirror/language";
-import { lintKeymap } from "@codemirror/lint";
-import { searchKeymap, highlightSelectionMatches } from "@codemirror/search";
-import type { Extension } from "@codemirror/state";
+} from '@codemirror/language';
+import { lintKeymap } from '@codemirror/lint';
+import { searchKeymap, highlightSelectionMatches } from '@codemirror/search';
+import type { Extension } from '@codemirror/state';
 import {
   keymap,
   drawSelection,
@@ -28,7 +28,7 @@ import {
   crosshairCursor,
   lineNumbers,
   EditorView,
-} from "@codemirror/view";
+} from '@codemirror/view';
 
 const basicSetup: Extension = (() => [
   lineNumbers(),

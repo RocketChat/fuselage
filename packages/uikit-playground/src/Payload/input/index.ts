@@ -1,7 +1,7 @@
-export * from "./input";
+export * from './input';
 
-export * from "./staticSelect";
+export * from './staticSelect';
 
-export * from "./datePicker";
+export * from './datePicker';
 
-export * from "./linearScale";
+export * from './linearScale';

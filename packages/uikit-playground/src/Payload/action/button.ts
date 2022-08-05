@@ -1,17 +1,17 @@
-import type { LayoutBlock } from "@rocket.chat/ui-kit";
+import type { LayoutBlock } from '@rocket.chat/ui-kit';
 
 export const actionWithButtonDefault: readonly LayoutBlock[] = [
   {
-    type: "actions",
+    type: 'actions',
     elements: [
       {
-        type: "button",
-        appId: "app-id",
-        blockId: "block-id",
-        actionId: "action-id",
+        type: 'button',
+        appId: 'app-id',
+        blockId: 'block-id',
+        actionId: 'action-id',
         text: {
-          type: "plain_text",
-          text: "Click Me",
+          type: 'plain_text',
+          text: 'Click Me',
           emoji: true,
         },
       },
@@ -21,19 +21,19 @@ export const actionWithButtonDefault: readonly LayoutBlock[] = [
 
 export const actionWithButtonPrimary: readonly LayoutBlock[] = [
   {
-    type: "actions",
+    type: 'actions',
     elements: [
       {
-        type: "button",
-        appId: "app-id",
-        blockId: "block-id",
-        actionId: "action-id",
+        type: 'button',
+        appId: 'app-id',
+        blockId: 'block-id',
+        actionId: 'action-id',
         text: {
-          type: "plain_text",
-          text: "Click Me",
+          type: 'plain_text',
+          text: 'Click Me',
           emoji: true,
         },
-        style: "primary",
+        style: 'primary',
       },
     ],
   },
@@ -41,19 +41,19 @@ export const actionWithButtonPrimary: readonly LayoutBlock[] = [
 
 export const actionWithButtonDanger: readonly LayoutBlock[] = [
   {
-    type: "actions",
+    type: 'actions',
     elements: [
       {
-        type: "button",
-        appId: "app-id",
-        blockId: "block-id",
-        actionId: "action-id",
+        type: 'button',
+        appId: 'app-id',
+        blockId: 'block-id',
+        actionId: 'action-id',
         text: {
-          type: "plain_text",
-          text: "Click Me",
+          type: 'plain_text',
+          text: 'Click Me',
           emoji: true,
         },
-        style: "danger",
+        style: 'danger',
       },
     ],
   },
@@ -61,19 +61,19 @@ export const actionWithButtonDanger: readonly LayoutBlock[] = [
 
 export const actionWithButtonAsLink: readonly LayoutBlock[] = [
   {
-    type: "actions",
+    type: 'actions',
     elements: [
       {
-        type: "button",
-        appId: "app-id",
-        blockId: "block-id",
-        actionId: "action-id",
+        type: 'button',
+        appId: 'app-id',
+        blockId: 'block-id',
+        actionId: 'action-id',
         text: {
-          type: "plain_text",
-          text: "Click Me",
+          type: 'plain_text',
+          text: 'Click Me',
           emoji: true,
         },
-        url: "https://rocket.chat",
+        url: 'https://rocket.chat',
       },
     ],
   },

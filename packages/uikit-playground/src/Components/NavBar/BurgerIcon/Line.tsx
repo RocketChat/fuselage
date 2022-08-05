@@ -1,7 +1,7 @@
-import { css } from "@rocket.chat/css-in-js";
-import { Box } from "@rocket.chat/fuselage";
-import type { ReactElement } from "react";
-import React from "react";
+import { css } from '@rocket.chat/css-in-js';
+import { Box } from '@rocket.chat/fuselage';
+import type { ReactElement } from 'react';
+import React from 'react';
 
 const Line = ({
   animated,
@@ -15,7 +15,7 @@ const Line = ({
         will-change: transform;
         transition: transform 0.1s ease-out;
       `
-    : "";
+    : '';
 
   const movedStyle = moved
     ? css`
@@ -26,26 +26,26 @@ const Line = ({
         &:nth-child(1) {
           transform: translate(-25%, 3px) rotate(-45deg) scale(0.5, 1);
         }
-        [dir="rtl"] &:nth-child(1) {
+        [dir='rtl'] &:nth-child(1) {
           transform: translate(25%, 3px) rotate(45deg) scale(0.5, 1);
         }
         &:nth-child(3) {
           transform: translate(-25%, -3px) rotate(45deg) scale(0.5, 1);
         }
-        [dir="rtl"] &:nth-child(3) {
+        [dir='rtl'] &:nth-child(3) {
           transform: translate(25%, -3px) rotate(-45deg) scale(0.5, 1);
         }
       `
-    : "";
+    : '';
 
   return (
     <Box
-      is="span"
-      width="x20"
-      height="x2"
-      backgroundColor="currentColor"
+      is='span'
+      width='x20'
+      height='x2'
+      backgroundColor='currentColor'
       className={[animatedStyle, movedStyle]}
-      aria-hidden="true"
+      aria-hidden='true'
     />
   );
 };

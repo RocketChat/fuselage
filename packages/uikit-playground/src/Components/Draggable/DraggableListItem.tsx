@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Draggable } from "react-beautiful-dnd";
+import * as React from 'react';
+import { Draggable } from 'react-beautiful-dnd';
 
-import RenderPayload from "../Preview/Display/RenderPayload/RenderPayload";
-import type { Block } from "./DraggableList";
+import RenderPayload from '../Preview/Display/RenderPayload/RenderPayload';
+import type { Block } from './DraggableList';
 
 export type DraggableListItemProps = {
   block: Block;

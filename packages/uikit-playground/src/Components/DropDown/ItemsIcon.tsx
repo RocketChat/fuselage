@@ -1,5 +1,5 @@
-import { Icon } from "@rocket.chat/fuselage";
-import React from "react";
+import { Icon } from '@rocket.chat/fuselage';
+import React from 'react';
 
 const ItemsIcon = ({
   layer,
@@ -13,13 +13,13 @@ const ItemsIcon = ({
   const selectIcon = (layer: number, hover: boolean) => {
     if (layer === 1) {
       return (
-        <Icon name="folder" size="x12" color={hover ? "#fff" : "#1d74f5"} />
+        <Icon name='folder' size='x12' color={hover ? '#fff' : '#1d74f5'} />
       );
     }
     if (lastNode) {
-      return <Icon name="cube" size="x12" color={hover ? "#fff" : "#f5455c"} />;
+      return <Icon name='cube' size='x12' color={hover ? '#fff' : '#f5455c'} />;
     }
-    return <Icon name="burger" size="x12" color={hover ? "#fff" : "#19ac7c"} />;
+    return <Icon name='burger' size='x12' color={hover ? '#fff' : '#19ac7c'} />;
   };
   return <>{selectIcon(layer, hover)}</>;
 };
