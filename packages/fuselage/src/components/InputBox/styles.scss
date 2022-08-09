@@ -259,7 +259,7 @@
 
   border-width: lengths.border-width(2);
   border-color: #{$input-colors-border-color};
-  border-radius: $border-radius-small;
+  border-radius: $border-radius-medium;
   background-color: #{$input-colors-background-color};
 
   @include typography.use-font-scale(p2);
