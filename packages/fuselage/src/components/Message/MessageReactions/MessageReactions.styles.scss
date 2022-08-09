@@ -19,7 +19,7 @@
 
     color: colors.foreground(info);
     border: lengths.border-width(1) solid colors.neutral(400);
-    border-radius: lengths.border-radius(4);
+    border-radius: $border-radius-medium;
 
     &--action {
       @include mixins.visible-on-hover();

@@ -31,7 +31,7 @@ $status-bullet-loading-background: theme(
   flex-grow: 0;
   flex-shrink: 0;
 
-  border-radius: lengths.border-radius(full);
+  border-radius: $border-radius-full;
 
   background: $status-bullet-loading-background;
   background-size: contain;

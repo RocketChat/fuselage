@@ -22,6 +22,7 @@ $tooltip-text-color: functions.theme(
     border-width: 4px;
     border-color: transparent transparent $tooltip-background-color
       $tooltip-background-color;
+    // TODO: fix border-radius
     border-radius: 0 0 0 (2px);
 
     block-size: 0;
@@ -73,6 +74,7 @@ $tooltip-text-color: functions.theme(
 
   color: $tooltip-text-color;
 
+  // TODO: fix border-radius
   border-radius: 4px;
 
   background-color: $tooltip-background-color;

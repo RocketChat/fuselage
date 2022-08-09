@@ -18,7 +18,7 @@ $progress-bar-color-background: theme(
 
   height: 8px;
 
-  border-radius: lengths.border-radius(2);
+  border-radius: $border-radius-small;
   background-color: $progress-bar-color-background;
 }
 
@@ -27,7 +27,7 @@ $progress-bar-color-background: theme(
 
   height: 8px;
 
-  border-radius: lengths.border-radius(2);
+  border-radius: $border-radius-small;
 
   &-complete::before {
     position: absolute;
@@ -42,7 +42,7 @@ $progress-bar-color-background: theme(
     animation: rcx-progress-bar__animation 2s ease-out infinite;
 
     opacity: 0;
-    border-radius: lengths.border-radius(2);
+    border-radius: $border-radius-small;
     background: $progress-bar-color-shine;
   }
 }

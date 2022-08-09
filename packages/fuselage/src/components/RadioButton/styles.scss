@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
 
-    border-radius: lengths.border-radius(full);
+    border-radius: $border-radius-full;
     inline-size: lengths.size(20);
   }
 
@@ -25,7 +25,7 @@
 
     content: '';
 
-    border-radius: lengths.border-radius(full);
+    border-radius: $border-radius-full;
 
     background-color: currentColor;
   }

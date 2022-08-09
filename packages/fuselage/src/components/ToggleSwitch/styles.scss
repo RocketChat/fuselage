@@ -11,7 +11,7 @@
     @extend %selection-button__fake;
     width: lengths.size(2 * 20);
 
-    border-radius: lengths.border-radius(full);
+    border-radius: $border-radius-full;
   }
 
   &__input + &__fake::before {
@@ -23,7 +23,7 @@
 
     content: '';
 
-    border-radius: lengths.border-radius(full);
+    border-radius: $border-radius-full;
 
     background-color: currentColor;
   }

@@ -110,7 +110,7 @@ $tag-colors-disabled-background-color: theme(
   word-break: keep-all;
 
   color: $tag-colors-default-color;
-  border-radius: lengths.border-radius(2);
+  border-radius: $border-radius-small;
   background-color: $tag-colors-default-background-color;
 
   @include typography.use-font-scale(micro);

@@ -75,7 +75,7 @@ $badge-colors-disabled-background-color: theme(
 
   word-break: keep-all;
 
-  border-radius: lengths.border-radius(full);
+  border-radius: $border-radius-full;
 
   @include typography.use-font-scale(micro);
 

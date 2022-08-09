@@ -28,7 +28,7 @@ $modal-margin: theme('modal-margin', auto);
     padding: 0;
 
     color: colors.foreground(default);
-    border-radius: theme('modal-border-radius', lengths.border-radius(2));
+    border-radius: theme('modal-border-radius', $border-radius-small);
     background-color: colors.surface(light);
     @include typography.use-font-scale(p2);
   }
