@@ -13,7 +13,7 @@
   border-width: lengths.border-width(2);
 
   border-color: #{$border-color};
-  border-radius: $border-radius-small;
+  border-radius: $border-radius-medium;
   background-color: #{$background-color};
   @include use-no-shadow;
 

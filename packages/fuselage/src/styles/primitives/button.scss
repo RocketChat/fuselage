@@ -9,7 +9,7 @@
   border-width: theme('button-border-width', 2px);
   border-style: solid;
   border-color: map.get($colors, border-color);
-  border-radius: theme('button-border-radius', $border-radius-small);
+  border-radius: theme('button-border-radius', $border-radius-medium);
   background-color: map.get($colors, background-color);
 
   appearance: none;
