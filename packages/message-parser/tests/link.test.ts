@@ -239,6 +239,18 @@ test.each([
     '[custom](custom://google.com)',
     [paragraph([link('custom://google.com', plain('custom'))])],
   ],
+  [
+    'https://t.me/joinchat/chatexample',
+    [paragraph([link('https://t.me/joinchat/chatexample')])],
+  ],
+  [
+    '[telegram invite](https://t.me/joinchat/chatexample)',
+    [
+      paragraph([
+        link('https://t.me/joinchat/chatexample', plain('telegram invite')),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });

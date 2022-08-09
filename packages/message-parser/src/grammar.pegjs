@@ -371,11 +371,11 @@ hexByte = a:hexdigit b:hexdigit { return parseInt(a + b, 16); }
 
 domainName
   = "localhost"
-  / $(domainNameLabel ("." domainNameLabel)+)
+  / $(domainNameLabel ("." domainChar domainNameLabel)+)
 
-domainNameLabel = $(domainChar domainChar+ $("-" domainChar+)*)
+domainNameLabel = $(domainChar+ $("-" domainChar+)*)
 
-domainChar = !"/" !"|" !">" !"<" !safe !extra !EndOfLine !Space .
+domainChar = !"\\" !"/" !"|" !">" !"<" !safe !extra !EndOfLine !Space .
 
 /**
  *
