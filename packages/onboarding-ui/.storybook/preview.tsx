@@ -1,3 +1,4 @@
+import { DarkModeProvider } from '@rocket.chat/layout';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import type { DecoratorFunction } from '@storybook/addons';
 import { addParameters } from '@storybook/react';
@@ -8,8 +9,6 @@ import type { ElementType, ReactElement } from 'react';
 import { Suspense } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { useDarkMode } from 'storybook-dark-mode';
-
-import DarkModeProvider from '../src/common/DarkModeProvider';
 
 addParameters({
   backgrounds: {
@@ -52,9 +51,9 @@ export const decorators: DecoratorFunction<ReactElement>[] = [
     return (
       <Suspense fallback={null}>
         <I18nextProvider i18n={getI18n()}>
-          <DarkModeProvider forcedDarkMode={dark}>
+          <DarkModeProvider.default forcedDarkMode={dark}>
             <Story />
-          </DarkModeProvider>
+          </DarkModeProvider.default>
         </I18nextProvider>
       </Suspense>
     );

@@ -1,10 +1,8 @@
 import { Box, Button } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-
-import BackgroundLayer from '../../common/BackgroundLayer';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type OauthAuthorizationPageProps = {
   clientName?: string;
@@ -36,7 +34,7 @@ const OauthAuthorizationPage = ({
         paddingBlock={32}
         paddingInline={16}
       >
-        <OnboardingLogo />
+        <LayoutLogo.LayoutLogo />
         <Box
           fontWeight={500}
           width='100%'

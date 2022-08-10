@@ -9,13 +9,12 @@ import {
   Box,
   CheckBox,
 } from '@rocket.chat/fuselage';
+import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useEffect } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
-
-import Form from '../../common/Form';
 
 export type NewAccountPayload = {
   name: string;
