@@ -9,7 +9,7 @@ export type ModalIconProps = ComponentProps<typeof Box> & {
 };
 
 export const ModalIcon = ({
-  size = 'x24',
+  size = 'x20',
   name,
   alignItems = 'center',
   ...props
