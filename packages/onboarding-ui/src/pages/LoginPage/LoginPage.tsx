@@ -1,11 +1,9 @@
 import { Box } from '@rocket.chat/fuselage';
+import { BackgroundLayer, ActionLink, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
-import ActionLink from '../../common/ActionLink';
-import BackgroundLayer from '../../common/BackgroundLayer';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 import LoginForm from '../../forms/LoginForm';
 import type { LoginFormPayload } from '../../forms/LoginForm/LoginForm';
 import TotpForm from '../../forms/TotpForm';
@@ -50,7 +48,7 @@ const LoginPage = ({
         paddingBlock={32}
         paddingInline={16}
       >
-        <OnboardingLogo />
+        <LayoutLogo.LayoutLogo />
         <Box
           fontWeight={500}
           width='100%'

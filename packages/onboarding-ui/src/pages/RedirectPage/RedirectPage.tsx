@@ -1,11 +1,9 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
+import { ActionLink, LayoutLogo } from '@rocket.chat/layout';
+import BackgroundLayer from '@rocket.chat/layout/src/BackgroundLayer';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
-
-import ActionLink from '../../common/ActionLink';
-import BackgroundLayer from '../../common/BackgroundLayer';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type RedirectPageProps = {
   title: string;
@@ -49,7 +47,7 @@ const RedirectPage = ({
         paddingInline={16}
       >
         <Margins blockEnd={32}>
-          <OnboardingLogo />
+          <LayoutLogo.LayoutLogo />
 
           <Box fontScale='hero'>{title}</Box>
 
