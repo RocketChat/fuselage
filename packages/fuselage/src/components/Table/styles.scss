@@ -86,14 +86,14 @@
     text-align: unset;
     vertical-align: middle;
 
-    color: colors.foreground(info);
+    color: colors.font(secondary-info);
     @include typography.use-font-scale(p2);
 
     &--header {
       position: relative;
 
       @include typography.use-font-scale(c2);
-      color: colors.foreground(hint);
+      color: colors.font(secondary-info);
 
       &::after {
         position: absolute;
