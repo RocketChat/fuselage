@@ -26,7 +26,7 @@
     "/dist"
   ],
   "scripts": {
-    "build": "run-s .:build:clean .:build:esm .:build:cjs",
+    "build": "run-s .:build:clean .:build:cjs .:build:esm",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig-esm.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
@@ -78,6 +78,7 @@
     "typescript": "~4.3.5"
   },
   "dependencies": {
+    "@rocket.chat/layout": "workspace:~",
     "i18next": "~21.6.11",
     "react-hook-form": "~7.27.0",
     "tslib": "~2.3.1"

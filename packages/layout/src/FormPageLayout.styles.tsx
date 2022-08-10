@@ -1,6 +1,6 @@
 import styled from '@rocket.chat/styled';
 
-import { sans } from '../helpers/tokenFontFamilies';
+import { sans } from './helpers/tokenFontFamilies';
 
 export const Wrapper = styled('div')`
   width: 100%;

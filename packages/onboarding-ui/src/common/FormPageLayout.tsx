@@ -1,18 +1,9 @@
+import { FormPageLayout, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import {
-  Aside,
-  Description,
-  Content,
-  Logo,
-  Subtitle,
-  Title,
-  Wrapper,
-  TitleHighlight,
-} from './FormPageLayout.styles';
-import { OnboardingLogo } from './OnboardingLogo';
-import type { FormPageLayoutStyleProps } from './Types';
+// import { OnboardingLogo } from './OnboardingLogo';
+import type { FormPageLayoutStyleProps } from '../Types';
 
 type FormPageLayoutProps = {
   logo?: ReactNode;
@@ -24,7 +15,7 @@ type FormPageLayoutProps = {
   tag?: string;
 };
 
-const FormPageLayout = ({
+const FormPageLayoutOnboard = ({
   logo,
   title,
   subtitle,
@@ -34,31 +25,34 @@ const FormPageLayout = ({
 }: FormPageLayoutProps): ReactElement => {
   useTranslation();
   return (
-    <Wrapper>
-      <Aside justifyContent={styleProps?.justifyContent}>
-        <Logo>{logo ?? <OnboardingLogo />}</Logo>
-        <Title>
+    <FormPageLayout.Wrapper>
+      <FormPageLayout.Aside justifyContent={styleProps?.justifyContent}>
+        <FormPageLayout.Logo>
+          {logo ?? <LayoutLogo.LayoutLogo />}
+        </FormPageLayout.Logo>
+        <FormPageLayout.Title>
           {title || (
             <Trans i18nKey='page.form.title'>
               Let's
-              <TitleHighlight>Launch</TitleHighlight>
+              <FormPageLayout.TitleHighlight>
+                Launch
+              </FormPageLayout.TitleHighlight>
               Your Workspace
             </Trans>
           )}
-        </Title>
+        </FormPageLayout.Title>
         {subtitle && (
-          <Subtitle
+          <FormPageLayout.Subtitle
             fontWeight={styleProps?.subTitleProps?.fontWeight}
             fontColor={styleProps?.subTitleProps?.color}
           >
             {subtitle}
-          </Subtitle>
+          </FormPageLayout.Subtitle>
         )}
-        <Description>{description}</Description>
-      </Aside>
-      <Content>{children}</Content>
-    </Wrapper>
+        <FormPageLayout.Description>{description}</FormPageLayout.Description>
+      </FormPageLayout.Aside>
+      <FormPageLayout.Content>{children}</FormPageLayout.Content>
+    </FormPageLayout.Wrapper>
   );
 };
-
-export default FormPageLayout;
+export default FormPageLayoutOnboard;

@@ -10,14 +10,12 @@ import {
   Box,
 } from '@rocket.chat/fuselage';
 import { useBreakpoints, useUniqueId } from '@rocket.chat/fuselage-hooks';
+import { ActionLink, Form } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
 import { useEffect } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-
-import ActionLink from '../../common/ActionLink';
-import Form from '../../common/Form';
 
 export type OrganizationInfoPayload = {
   organizationName: string;
