@@ -60,6 +60,10 @@ test.each([
   ['ssh://test@test.test', [paragraph([link('ssh://test@test.test')])]],
   ['custom://test@test.test', [paragraph([link('custom://test@test.test')])]],
   ['ftp://test.com', [paragraph([link('ftp://test.com')])]],
+  [
+    'https://www.thingiverse.com/thing:5451684',
+    [paragraph([link('https://www.thingiverse.com/thing:5451684')])],
+  ],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });

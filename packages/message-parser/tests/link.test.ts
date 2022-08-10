@@ -239,6 +239,14 @@ test.each([
     '[custom](custom://google.com)',
     [paragraph([link('custom://google.com', plain('custom'))])],
   ],
+  [
+    '[thing](https://www.thingiverse.com/thing:5451684)',
+    [
+      paragraph([
+        link('https://www.thingiverse.com/thing:5451684', plain('thing')),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parser(input)).toMatchObject(output);
 });
