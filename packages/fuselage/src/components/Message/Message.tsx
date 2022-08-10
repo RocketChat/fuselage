@@ -1,8 +1,6 @@
 import type { AllHTMLAttributes, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
-import './Messages.styles.scss';
-
 import { prependClassName } from '../../helpers/prependClassName';
 
 type MessageProps = AllHTMLAttributes<HTMLDivElement> & {

@@ -18,7 +18,10 @@
   }
 
   &__selection {
-    border-radius: lengths.border-radius(2);
+    border-radius: theme(
+      'table-selected-border-radius',
+      lengths.border-radius(small)
+    );
     background-color: colors.primary(500);
   }
 

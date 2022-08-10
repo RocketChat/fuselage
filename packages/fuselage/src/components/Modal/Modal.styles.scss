@@ -2,7 +2,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$modal-container-margin: theme('modal-container-margin', lengths.size(32));
+$modal-container-margin: theme('modal-container-margin', lengths.size(24));
 
 $modal-margin: theme('modal-margin', auto);
 
@@ -28,7 +28,7 @@ $modal-margin: theme('modal-margin', auto);
     padding: 0;
 
     color: colors.font(default);
-    border-radius: theme('modal-border-radius', lengths.border-radius(2));
+    border-radius: theme('modal-border-radius', lengths.border-radius(large));
     background-color: colors.surface(light);
     @include typography.use-font-scale(p2);
   }
