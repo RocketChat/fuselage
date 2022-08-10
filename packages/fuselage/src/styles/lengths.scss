@@ -75,9 +75,9 @@
     @return 0;
   } @else if $value == 'full' {
     @return 9999px;
-  } @else if $value == 2 or $value == 4 {
+  } @else if $value == 2 or $value == 4 or $value == 8 {
     @return functions.to-rem($value);
   } @else {
-    @error 'value must be none, full, 2, or 4';
+    @error 'value must be none, full, 2, 4 or 8';
   }
 }

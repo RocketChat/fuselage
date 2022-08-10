@@ -149,6 +149,7 @@ $sidebar-footer-highlight-color: theme(
     }
 
     &__avatar {
+      display: flex;
       flex: 0 0 auto;
 
       @include typography.use-with-truncated-text();
