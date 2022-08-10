@@ -10,7 +10,10 @@
   padding: lengths.padding(2);
 
   border: lengths.border-width(2) solid colors.neutral(200);
-  border-radius: $border-radius-small;
+  border-radius: theme(
+    'message-toolbox-border-radius',
+    lengths.border-radius(small)
+  );
   background: colors.foreground(alternative);
 
   &__wrapper {

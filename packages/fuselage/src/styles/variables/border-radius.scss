@@ -1,6 +1,0 @@
-@use '../lengths.scss';
-
-$border-radius-small: theme('border-radius-small', lengths.border-radius(2));
-$border-radius-medium: theme('border-radius-medium', lengths.border-radius(4));
-$border-radius-large: theme('border-radius-large', lengths.border-radius(8));
-$border-radius-full: theme('border-radius-full', lengths.border-radius(full));

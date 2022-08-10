@@ -18,7 +18,10 @@
   }
 
   &__selection {
-    border-radius: $border-radius-small;
+    border-radius: theme(
+      'table-selected-border-radius',
+      lengths.border-radius(small)
+    );
     background-color: colors.primary(500);
   }
 

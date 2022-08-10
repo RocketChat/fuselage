@@ -11,7 +11,7 @@
 
   color: theme('callout-color', colors.font(default));
 
-  border-radius: $border-radius-small;
+  border-radius: theme('callout-border-radius', lengths.border-radius(medium));
 
   background-color: theme('callout-background-color', colors.surface(neutral));
 

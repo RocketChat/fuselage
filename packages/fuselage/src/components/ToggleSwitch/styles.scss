@@ -1,5 +1,9 @@
 @use '../../styles/lengths.scss';
 
+$toggle-switch-border-radius: theme(
+  'toggle-switch-border-radius',
+  lengths.border-radius(full)
+);
 .rcx-toggle-switch {
   @include is-selection-button($checked: 'primary', $unchecked: 'off');
 
@@ -11,7 +15,7 @@
     @extend %selection-button__fake;
     width: lengths.size(2 * 20);
 
-    border-radius: $border-radius-full;
+    border-radius: $toggle-switch-border-radius;
   }
 
   &__input + &__fake::before {
@@ -23,7 +27,7 @@
 
     content: '';
 
-    border-radius: $border-radius-full;
+    border-radius: $toggle-switch-border-radius;
 
     background-color: currentColor;
   }

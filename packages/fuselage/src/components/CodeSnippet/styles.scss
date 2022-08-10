@@ -13,7 +13,10 @@
   min-height: lengths.size(60);
   padding: lengths.padding(16);
 
-  border-radius: $border-radius-small;
+  border-radius: theme(
+    'code-snippet-border-radius',
+    lengths.border-radius(medium)
+  );
   background-color: colors.neutral(300);
 
   &__codebox {

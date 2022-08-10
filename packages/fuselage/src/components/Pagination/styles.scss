@@ -31,7 +31,10 @@
 
       content: '';
 
-      border-radius: $border-radius-small;
+      border-radius: theme(
+        'pagination-border-radius',
+        lengths.border-radius(small)
+      );
       background-color: colors.stroke(extra-light);
     }
   }

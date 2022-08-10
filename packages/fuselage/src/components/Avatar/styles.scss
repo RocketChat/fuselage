@@ -22,11 +22,20 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
         @include square(functions.to-rem($size));
 
         @if $size <= 18 {
-          border-radius: $border-radius-small;
+          border-radius: theme(
+            'avatar-border-radius-#{$size}',
+            lengths.border-radius(small)
+          );
         } @else if $size == 332 {
-          border-radius: $border-radius-large;
+          border-radius: theme(
+            'avatar-border-radius-#{$size}',
+            lengths.border-radius(large)
+          );
         } @else {
-          border-radius: $border-radius-medium;
+          border-radius: theme(
+            'avatar-border-radius-#{$size}',
+            lengths.border-radius(medium)
+          );
         }
       }
     }
@@ -36,7 +45,10 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     }
 
     &--rounded {
-      border-radius: $border-radius-full;
+      border-radius: theme(
+        'avatar-border-radius-rounded',
+        lengths.border-radius(full)
+      );
     }
   }
 

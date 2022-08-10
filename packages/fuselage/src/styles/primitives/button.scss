@@ -1,15 +1,17 @@
 @use 'sass:map';
+@use '../lengths';
+
+@import '../mixins/states.scss';
 @import '../mixins/states.scss';
 @import '../mixins/shadows.scss';
 @import '../variables/button-colors';
-@import '../variables/border-radius.scss';
 
 @mixin kind-variant($colors) {
   color: map.get($colors, color);
   border-width: theme('button-border-width', 2px);
   border-style: solid;
   border-color: map.get($colors, border-color);
-  border-radius: theme('button-border-radius', $border-radius-medium);
+  border-radius: theme('button-border-radius', lengths.border-radius(medium));
   background-color: map.get($colors, background-color);
 
   appearance: none;

@@ -26,7 +26,7 @@ $variants: (
 
     color: colors.foreground(info);
 
-    border-radius: $border-radius-full;
+    border-radius: lengths.border-radius(full);
 
     background-color: colors.neutral(200);
 

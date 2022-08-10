@@ -57,7 +57,7 @@ $sidebar-footer-highlight-color: theme(
 
   align-items: center;
 
-  border-radius: $border-radius-small;
+  border-radius: lengths.border-radius(small);
   @include typography.use-font-scale(p2);
 }
 

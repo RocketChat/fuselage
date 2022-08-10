@@ -18,7 +18,7 @@
     transform: scale(1, 0.6);
     transform-origin: 0 60%;
 
-    border-radius: $border-radius-small;
+    border-radius: lengths.border-radius(medium);
 
     &:empty::before {
       content: '\00a0';

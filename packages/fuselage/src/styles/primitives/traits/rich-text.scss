@@ -148,7 +148,7 @@
     border-width: lengths.border-width(1);
     border-color: colors.neutral(500);
     // TODO: fix border-radius
-    border-radius: lengths.border-radius(2);
+    border-radius: lengths.border-radius(medium);
     background-color: colors.neutral(100);
 
     font: inherit;
@@ -231,7 +231,7 @@
     border-style: solid;
     border-color: currentColor;
     // TODO: fix border-radius
-    border-radius: lengths.border-radius(2);
+    border-radius: lengths.border-radius(small);
 
     font: inherit;
     font-family: typography.font-family(mono);
