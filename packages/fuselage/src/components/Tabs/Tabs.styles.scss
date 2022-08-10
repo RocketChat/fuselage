@@ -113,7 +113,7 @@ $tabs-disabled-selected-border-color: theme(
 
   @include on-focus-visible {
     border-color: $tabs-focus-border-color;
-    border-radius: lengths.border-radius(2);
+    border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
 
     @include use-button-focus-shadow($tabs-focus-shadow-color);
   }

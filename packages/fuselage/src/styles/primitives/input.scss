@@ -13,7 +13,7 @@
   border-width: lengths.border-width(2);
 
   border-color: #{$border-color};
-  border-radius: lengths.border-radius(2);
+  border-radius: theme('input-border-radius', lengths.border-radius(medium));
   background-color: #{$background-color};
   @include use-no-shadow;
 
