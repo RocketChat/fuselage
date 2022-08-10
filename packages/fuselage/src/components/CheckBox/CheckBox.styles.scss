@@ -22,7 +22,10 @@
     justify-content: center;
     align-items: center;
 
-    border-radius: lengths.border-radius(2);
+    border-radius: theme(
+      'check-box-border-radius',
+      lengths.border-radius(small)
+    );
     inline-size: lengths.size(20);
 
     &::before,

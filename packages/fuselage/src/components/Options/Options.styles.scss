@@ -23,7 +23,7 @@ $variants: (
 
   list-style: none;
 
-  color: colors.foreground(default);
+  color: colors.font(default);
 
   &__title {
     @include typography.use-font-scale(c1);
@@ -31,7 +31,7 @@ $variants: (
     padding-block-end: lengths.padding(8);
     padding-inline: lengths.padding(16);
 
-    color: colors.foreground(default);
+    color: colors.font(default);
   }
 
   &__wrapper {
@@ -96,7 +96,7 @@ $variants: (
     @extend %column;
     display: inline;
 
-    color: colors.foreground(hint);
+    color: colors.font(secondary-info);
   }
 
   &:hover,

@@ -17,26 +17,38 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
   &__element {
     position: relative;
 
-    &--radius {
-      @each $size in $sizes {
-        &--x#{$size} {
-          @if $size <= 18 {
-            border-radius: lengths.border-radius(2);
-          } @else if $size == 332 {
-            border-radius: lengths.border-radius(8);
-          } @else {
-            border-radius: lengths.border-radius(4);
-          }
+    @each $size in $sizes {
+      &--x#{$size} {
+        @include square(functions.to-rem($size));
+
+        @if $size <= 18 {
+          border-radius: theme(
+            'avatar-border-radius-#{$size}',
+            lengths.border-radius(small)
+          );
+        } @else if $size == 332 {
+          border-radius: theme(
+            'avatar-border-radius-#{$size}',
+            lengths.border-radius(large)
+          );
+        } @else {
+          border-radius: theme(
+            'avatar-border-radius-#{$size}',
+            lengths.border-radius(medium)
+          );
         }
       }
     }
 
-    &--rounded {
-      border-radius: 100%;
-    }
-
     &--object-fit {
       object-fit: contain;
+    }
+
+    &--rounded {
+      border-radius: theme(
+        'avatar-border-radius-rounded',
+        lengths.border-radius(full)
+      );
     }
   }
 
@@ -53,12 +65,6 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
       & > .rcx-avatar__element {
         border: lengths.border-width(2) solid currentColor;
       }
-    }
-  }
-
-  @each $size in $sizes {
-    &--x#{$size} {
-      @include square(functions.to-rem($size));
     }
   }
 }

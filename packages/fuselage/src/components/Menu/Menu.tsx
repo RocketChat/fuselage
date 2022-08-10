@@ -1,8 +1,8 @@
 import type { Placements } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps, ElementType, ReactNode } from 'react';
-import React, { useRef, useCallback, useEffect } from 'react';
+import React, { useRef, useCallback } from 'react';
 
-import { PositionAnimated, Options, useCursor } from '..';
+import { Dropdown, Options, useCursor } from '..';
 import type Box from '../Box';
 import { IconButton } from '../Button/IconButton';
 import type { OptionType } from '../Options';
@@ -54,18 +54,12 @@ export const Menu = ({
       hide();
     });
 
-  const ref = useRef<HTMLElement>(null);
+  const anchor = useRef<HTMLElement>(null);
+  const target = useRef<HTMLElement>(null);
+
   const onClick = useCallback(() => {
-    if (ref.current?.classList.contains('focus-visible')) {
-      ref.current.classList.remove('focus-visible');
-      return hide();
-    }
-    if (ref.current) {
-      ref.current.focus();
-      show();
-      ref.current.classList.add('focus-visible');
-    }
-  }, [hide, show]);
+    visible === 'hidden' ? show() : hide();
+  }, [hide, show, visible]);
 
   const handleSelection = useCallback(
     (args) => {
@@ -76,17 +70,11 @@ export const Menu = ({
     [hide, reset, options]
   );
 
-  useEffect(() => {
-    if (visible === 'hidden') {
-      ref.current?.classList.remove('focus-visible');
-    }
-  }, [visible]);
-
   return (
     <>
       <IconButton
         data-testid='menu'
-        ref={ref}
+        ref={anchor}
         small={small}
         tiny={tiny}
         mini={mini}
@@ -97,11 +85,13 @@ export const Menu = ({
         icon={icon}
         {...props}
       />
-      <PositionAnimated
-        width='auto'
-        visible={visible}
-        anchor={ref}
+      <Dropdown
+        ref={target}
+        reference={anchor}
         placement={placement}
+        visible={visible === 'visible'}
+        onShow={show}
+        onClose={hide}
       >
         <Options
           maxHeight={maxHeight}
@@ -110,9 +100,9 @@ export const Menu = ({
           onSelect={handleSelection}
           options={mappedOptions}
           cursor={cursor}
-          ref={ref}
+          ref={target}
         />
-      </PositionAnimated>
+      </Dropdown>
     </>
   );
 };

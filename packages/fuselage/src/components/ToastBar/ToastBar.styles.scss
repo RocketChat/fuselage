@@ -8,14 +8,14 @@
   min-width: lengths.size(232);
   max-width: lengths.size(416);
 
-  border-radius: lengths.border-radius(4);
+  border-radius: theme('toastbar-border-radius', lengths.border-radius(medium));
 
   @include typography.use-font-scale(p2);
 
   &--info {
     background-color: theme(
       'toastbar-info-background-color',
-      colors.surface(tint)
+      colors.surface(neutral)
     );
   }
 
@@ -47,6 +47,11 @@
   margin: lengths.margin(0) lengths.margin(16);
 }
 
+$toastbar-border-radius: theme(
+  'toastbar-progressbar-border-radius',
+  lengths.border-radius(medium)
+);
+
 .rcx-toastbar-progressbar {
   position: absolute;
   bottom: 0;
@@ -56,7 +61,7 @@
   width: 100%;
   height: lengths.size(4);
 
-  border-radius: 0 0 lengths.border-radius(4) lengths.border-radius(4);
+  border-radius: 0 0 $toastbar-border-radius $toastbar-border-radius;
 
   &::after {
     display: block;
