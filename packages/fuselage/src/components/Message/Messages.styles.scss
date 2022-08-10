@@ -23,27 +23,27 @@
 
 $message-background-color: functions.theme(
   'message-background-color',
-  colors.foreground(alternative)
+  colors.font(white)
 );
 
 $message-background-color-focus: functions.theme(
   'message-background-color-focus',
-  colors.neutral(100)
+  colors.surface(tint)
 );
 
 $message-background-color-selected: functions.theme(
   'message-background-color-selected',
-  colors.foreground(success-light)
+  colors.status-background(success)
 );
 
 $message-background-color-editing: functions.theme(
   'message-background-color-editing',
-  colors.foreground(highlight)
+  colors.status-background(warning)
 );
 
 $message-background-color-highlight: functions.theme(
   'message-background-color-highlight',
-  colors.foreground(highlight)
+  colors.status-background(warning)
 );
 
 .rcx-message {
@@ -130,7 +130,7 @@ $message-background-color-highlight: functions.theme(
       @include typography.use-font-scale(c1);
       flex-shrink: 0;
 
-      color: colors.neutral(600);
+      color: colors.font(annotation);
     }
 
     &__name {
@@ -139,7 +139,7 @@ $message-background-color-highlight: functions.theme(
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
-      color: colors.foreground(default);
+      color: colors.font(default);
     }
 
     &__username {
@@ -148,7 +148,7 @@ $message-background-color-highlight: functions.theme(
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
-      color: colors.foreground(hint);
+      color: colors.font(secondary-info);
     }
 
     &__roles {
@@ -172,7 +172,7 @@ $message-background-color-highlight: functions.theme(
 
     opacity: 1;
 
-    color: colors.neutral(800);
+    color: colors.font(default);
 
     & ul,
     ol {

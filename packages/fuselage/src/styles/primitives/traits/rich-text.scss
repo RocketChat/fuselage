@@ -33,17 +33,17 @@
     &:link {
       text-decoration: none;
 
-      color: colors.foreground(link);
+      color: colors.font(info);
     }
 
     &:visited,
     &.is-visited {
-      color: colors.foreground(visited-link);
+      color: colors.font(info);
     }
 
     &:active,
     &.is-active {
-      color: colors.foreground(active-link);
+      color: colors.status-font(on-danger);
     }
 
     &:hover,
@@ -144,7 +144,7 @@
     letter-spacing: inherit;
     word-wrap: break-word;
 
-    color: colors.foreground(default);
+    color: colors.font(default);
     border-width: lengths.border-width(1);
     border-color: colors.neutral(500);
     border-radius: lengths.border-radius(medium);
@@ -163,7 +163,7 @@
   time {
     letter-spacing: inherit;
 
-    color: colors.foreground(info);
+    color: colors.font(secondary-info);
 
     font: inherit;
   }
@@ -171,7 +171,7 @@
   dfn {
     letter-spacing: inherit;
 
-    color: colors.foreground(info);
+    color: colors.font(secondary-info);
 
     font: inherit;
     font-style: italic;

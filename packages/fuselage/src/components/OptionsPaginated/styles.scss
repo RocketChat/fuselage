@@ -82,7 +82,7 @@
   @extend %column;
   display: inline;
 
-  color: colors.foreground(hint);
+  color: colors.font(secondary-info);
 }
 
 .rcx-options:hover {

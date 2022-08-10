@@ -29,7 +29,7 @@
 
     margin-inline: lengths.margin(4);
 
-    color: colors.foreground(info);
+    color: colors.font(secondary-info);
 
     &-label {
       margin-inline-start: lengths.margin(4);

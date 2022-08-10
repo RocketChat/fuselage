@@ -4,7 +4,7 @@
 
 $status-bullet-online-background-color: theme(
   'status-bullet-online-background-color',
-  colors.foreground('success')
+  colors.success(500)
 );
 $status-bullet-away-background: theme(
   'status-bullet-away-background',
