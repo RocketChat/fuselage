@@ -9,10 +9,9 @@
   max-height: fit-content;
 
   color: colors.font(default);
-  // TODO: fix border-radius
   border-radius: functions.theme(
     'tile-border-radius',
-    lengths.border-radius(large)
+    lengths.border-radius(medium)
   );
   background-color: colors.surface(light);
 
