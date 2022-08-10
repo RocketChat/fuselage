@@ -2,12 +2,19 @@
 version = 1
 
 merge.require_automerge_label = false
+merge.method = "squash"
 
 [merge.automerge_dependencies]
 # only auto merge "minor" and "patch" version upgrades.
 # do not automerge "major" version upgrades.
 versions = ["minor", "patch"]
 usernames = ["dependabot", "renovate"]
+
+
+[merge.message]
+title = "pull_request_title"
+body = "empty"
+include_coauthors=true
 
 merge.blocking_labels = ["wip"]
 
