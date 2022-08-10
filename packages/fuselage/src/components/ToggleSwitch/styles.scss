@@ -4,6 +4,7 @@ $toggle-switch-border-radius: theme(
   'toggle-switch-border-radius',
   lengths.border-radius(full)
 );
+
 .rcx-toggle-switch {
   @include is-selection-button($checked: 'primary', $unchecked: 'off');
 
