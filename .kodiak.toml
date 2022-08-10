@@ -1,0 +1,14 @@
+# .kodiak.toml
+version = 1
+
+merge.require_automerge_label = false
+
+[merge.automerge_dependencies]
+# only auto merge "minor" and "patch" version upgrades.
+# do not automerge "major" version upgrades.
+versions = ["minor", "patch"]
+usernames = ["dependabot", "renovate"]
+
+merge.blocking_labels = ["wip"]
+
+merge.prioritize_ready_to_merge = true
