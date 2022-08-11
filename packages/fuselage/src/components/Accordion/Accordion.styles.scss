@@ -1,0 +1,87 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+.rcx-accordion {
+  display: flex;
+  flex-flow: column nowrap;
+  border-block-end-color: colors.neutral(300);
+
+  border-block-end-width: lengths.border-width(2);
+}
+
+.rcx-accordion-item {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.rcx-accordion-item__bar {
+  display: flex;
+  flex-flow: row nowrap;
+
+  min-height: lengths.size(2 * 32 + 24);
+  padding: (lengths.padding(32) - lengths.border-width(2))
+    (lengths.padding(8) - lengths.border-width(2));
+
+  text-align: start;
+
+  color: colors.font(default);
+
+  border-width: lengths.border-width(2);
+  border-color: colors.neutral(300) transparent transparent;
+
+  &[tabindex] {
+    @include clickable;
+
+    &.hover,
+    &:hover {
+      background-color: colors.neutral(100);
+    }
+
+    &.focus,
+    &:focus {
+      border-color: colors.primary(500);
+      @include use-focus-shadow($outer-color: colors.primary(100));
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+
+    color: colors.font(disabled);
+    background-color: colors.neutral(100);
+  }
+}
+
+.rcx-accordion-item__title {
+  flex: 1 1 lengths.size(none);
+
+  @include typography.use-text-ellipsis;
+  white-space: nowrap;
+
+  @include typography.use-font-scale(h4);
+}
+
+.rcx-accordion-item__toggle-switch {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+
+  margin: lengths.margin(none) lengths.margin(24);
+}
+
+.rcx-accordion-item__panel {
+  visibility: hidden;
+
+  overflow: hidden;
+
+  height: lengths.size(none);
+  padding: lengths.padding(none) lengths.padding(8);
+
+  &--expanded {
+    visibility: visible;
+
+    height: auto;
+    padding: lengths.padding(32) lengths.padding(8);
+  }
+}

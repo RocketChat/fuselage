@@ -1,11 +1,10 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import BackgroundLayer from '../../common/BackgroundLayer';
 import EmailCodeFallback from '../../common/EmailCodeFallback';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type AwaitingConfirmationPageProps = {
   emailAddress: string;
@@ -35,7 +34,7 @@ const AwaitingConfirmationPage = ({
         paddingInline={16}
       >
         <Margins blockEnd={32}>
-          <OnboardingLogo />
+          <LayoutLogo.LayoutLogo />
 
           <Box fontScale='hero'>{t('page.awaitingConfirmation.title')}</Box>
 

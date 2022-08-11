@@ -1,11 +1,11 @@
-import { css } from "@rocket.chat/css-in-js";
-import { Box } from "@rocket.chat/fuselage";
-import type { FC } from "react";
-import React from "react";
+import { css } from '@rocket.chat/css-in-js';
+import { Box } from '@rocket.chat/fuselage';
+import type { FC } from 'react';
+import React from 'react';
 
-import SurfaceSelect from "../../SurfaceSelect";
-import MenuItem from "./MenuItem";
-import Wrapper from "./Wrapper";
+import SurfaceSelect from '../../SurfaceSelect';
+import MenuItem from './MenuItem';
+import Wrapper from './Wrapper';
 
 const Menu: FC<{ isOpen: boolean }> = ({ isOpen }) => {
   const basicStyle = css`
@@ -24,23 +24,23 @@ const Menu: FC<{ isOpen: boolean }> = ({ isOpen }) => {
 
   return (
     <Box
-      position="absolute"
-      width="min(85%, 280px)"
-      height="100%"
-      bg="default"
-      elevation="2"
+      position='absolute'
+      width='min(85%, 280px)'
+      height='100%'
+      bg='default'
+      elevation='2'
       className={[basicStyle, toggleStyle]}
       onClick={(e) => {
         e.stopPropagation();
       }}
     >
       <Wrapper>
-        <Box alignSelf={"flex-start"}>
+        <Box alignSelf={'flex-start'}>
           <SurfaceSelect />
         </Box>
-        <MenuItem name={"Clear Blocks"} />
-        <MenuItem name={"Copy Payload"} />
-        <MenuItem name={"Send to RocketChat"} />
+        <MenuItem name={'Clear Blocks'} />
+        <MenuItem name={'Copy Payload'} />
+        <MenuItem name={'Send to RocketChat'} />
       </Wrapper>
     </Box>
   );

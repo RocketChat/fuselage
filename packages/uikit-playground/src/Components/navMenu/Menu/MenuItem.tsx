@@ -1,7 +1,7 @@
-import { css } from "@rocket.chat/css-in-js";
-import { Box, Label } from "@rocket.chat/fuselage";
-import type { FC } from "react";
-import React from "react";
+import { css } from '@rocket.chat/css-in-js';
+import { Box, Label } from '@rocket.chat/fuselage';
+import type { FC } from 'react';
+import React from 'react';
 
 const MenuItem: FC<{ name: string }> = ({ name }) => {
   const pointer = css`
@@ -19,14 +19,14 @@ const MenuItem: FC<{ name: string }> = ({ name }) => {
   `;
   return (
     <Box
-      width="100%"
-      height="28px"
-      paddingBlock="4px"
-      display="flex"
-      alignItems="center"
+      width='100%'
+      height='28px'
+      paddingBlock='4px'
+      display='flex'
+      alignItems='center'
       className={[pointer, style]}
     >
-      <Label className={pointer} color="hint" fontSize={"x14"}>
+      <Label className={pointer} color='hint' fontSize={'x14'}>
         {name}
       </Label>
     </Box>

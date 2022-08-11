@@ -1,10 +1,9 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
+import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-import BackgroundLayer from '../../common/BackgroundLayer';
 import EmailCodeFallback from '../../common/EmailCodeFallback';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type CheckYourEmailPageProps = {
   title?: string;
@@ -45,7 +44,7 @@ const CheckYourEmailPage = ({
         paddingInline={16}
       >
         <Margins blockEnd={32}>
-          <OnboardingLogo />
+          <LayoutLogo.LayoutLogo />
 
           <Box fontScale='hero'>{title}</Box>
 

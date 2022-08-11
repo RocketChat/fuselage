@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Icon } from "@rocket.chat/fuselage";
-import React, { useContext } from "react";
+import { Icon } from '@rocket.chat/fuselage';
+import React, { useContext } from 'react';
 
-import { context, docAction } from "../../../../Context";
+import { context, docAction } from '../../../../Context';
 
 const Display = ({ elementIndex }: { elementIndex: number }) => {
   const { state, dispatch } = useContext(context);
@@ -18,24 +18,24 @@ const Display = ({ elementIndex }: { elementIndex: number }) => {
   return (
     <div
       style={{
-        position: "absolute",
-        width: "20px",
-        height: "20px",
-        top: "6px",
-        right: "6px",
-        visibility: "hidden",
-        cursor: "pointer",
+        position: 'absolute',
+        width: '20px',
+        height: '20px',
+        top: '6px',
+        right: '6px',
+        visibility: 'hidden',
+        cursor: 'pointer',
         zIndex: 1,
-        backgroundColor: "white",
-        borderRadius: "4px",
-        border: "var(--elements-border)",
-        display: "grid",
-        placeItems: "center",
+        backgroundColor: 'white',
+        borderRadius: '4px',
+        border: 'var(--elements-border)',
+        display: 'grid',
+        placeItems: 'center',
       }}
-      className={"closeBtn"}
+      className={'closeBtn'}
       onClick={deleteElement}
     >
-      <Icon name="cross" size="x20" />
+      <Icon name='cross' size='x20' />
     </div>
   );
 };

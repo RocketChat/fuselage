@@ -1,14 +1,14 @@
-import { Box } from "@rocket.chat/fuselage";
-import type { FC } from "react";
-import React, { useContext, useState, useEffect } from "react";
-import type { DropResult } from "react-beautiful-dnd";
+import { Box } from '@rocket.chat/fuselage';
+import type { FC } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import type { DropResult } from 'react-beautiful-dnd';
 
-import { context, docAction } from "../../../../Context";
-import type { Block } from "../../../Draggable/DraggableList";
-import BannerSurface from "./BannerSurface";
-import MessageSurface from "./MessageSurface";
-import ModalSurface from "./ModalSurface";
-import { reorder } from "./Reorder";
+import { context, docAction } from '../../../../Context';
+import type { Block } from '../../../Draggable/DraggableList';
+import BannerSurface from './BannerSurface';
+import MessageSurface from './MessageSurface';
+import ModalSurface from './ModalSurface';
+import { reorder } from './Reorder';
 
 const Surface: FC = () => {
   const {
@@ -47,11 +47,15 @@ const Surface: FC = () => {
   };
 
   const surfaceRender: { [key: number]: any } = {
-    "1": () => <MessageSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
-    "2": () => <BannerSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
-    "3": () => <ModalSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
+    '1': () => <MessageSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
+    '2': () => <BannerSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
+    '3': () => <ModalSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
   };
-  return <Box padding="20px">{surfaceRender[surface]()}</Box>;
+  return (
+    <Box pb='40px' pi='x20'>
+      {surfaceRender[surface]()}
+    </Box>
+  );
 };
 
 export default Surface;

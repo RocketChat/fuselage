@@ -1,11 +1,9 @@
 import { Box, ButtonGroup, Button } from '@rocket.chat/fuselage';
+import { Form, List } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-
-import Form from '../../common/Form';
-import List from '../../common/List';
 
 export type StandaloneServerPayload = {
   registerType: 'registered' | 'standalone';

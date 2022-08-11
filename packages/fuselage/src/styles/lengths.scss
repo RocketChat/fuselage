@@ -1,5 +1,7 @@
 @use 'sass:math';
 @use 'sass:meta';
+@use 'sass:map';
+
 @use './functions.scss';
 
 @function inset($value) {
@@ -70,14 +72,23 @@
   }
 }
 
+$border-radius-sizes: (
+  'small': 2,
+  'medium': 4,
+  'large': 8,
+);
+
 @function border-radius($value) {
   @if $value == 'none' {
     @return 0;
   } @else if $value == 'full' {
     @return 9999px;
-  } @else if $value == 2 or $value == 4 or $value == 8 {
-    @return functions.to-rem($value);
+  } @else if $value == 'small' or $value == 'medium' or $value == 'large' {
+    @return functions.theme(
+      'border-radius-#{$value}',
+      functions.to-rem(map.get($border-radius-sizes, $value))
+    );
   } @else {
-    @error 'value must be none, full, 2, 4 or 8';
+    @error 'value must be none, full, small, medium or large';
   }
 }

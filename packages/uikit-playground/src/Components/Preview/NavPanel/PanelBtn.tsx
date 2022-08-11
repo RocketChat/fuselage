@@ -1,7 +1,7 @@
-import { css } from "@rocket.chat/css-in-js";
-import { Button, Label } from "@rocket.chat/fuselage";
-import type { FC, ReactNode } from "react";
-import React, { useState } from "react";
+import { css } from '@rocket.chat/css-in-js';
+import { Button, Label } from '@rocket.chat/fuselage';
+import type { FC, ReactNode } from 'react';
+import React, { useState } from 'react';
 
 const PanelBtn: FC<{ icon: ReactNode; name: string; isSmall: boolean }> = ({
   icon,
@@ -11,7 +11,7 @@ const PanelBtn: FC<{ icon: ReactNode; name: string; isSmall: boolean }> = ({
   const [hover, setHover] = useState(false);
 
   const style = css`
-    width: ${hover ? "100%" : "0px"};
+    width: ${hover ? '100%' : '0px'};
     white-space: nowrap;
     transition: 0.3s ease;
   `;
@@ -26,12 +26,12 @@ const PanelBtn: FC<{ icon: ReactNode; name: string; isSmall: boolean }> = ({
       >
         {icon}
       </Button>
-      <Label overflow={"hidden"} className={style} fontSize="x10">
+      <Label overflow={'hidden'} className={style} fontSize='x10'>
         {name}
       </Label>
     </>
   ) : (
-    <Button small>{name}</Button>
+    <Button>{name}</Button>
   );
 };
 

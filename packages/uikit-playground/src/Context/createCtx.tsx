@@ -1,7 +1,7 @@
-import type { Dispatch, Reducer, ReactElement } from "react";
-import { createContext, useReducer } from "react";
+import type { Dispatch, Reducer, ReactElement } from 'react';
+import { createContext, useReducer } from 'react';
 
-import type { initialStateType } from "./initialState";
+import type { initialStateType } from './initialState';
 
 export default function createCtx<ActionType>(
   reducer: Reducer<initialStateType, ActionType>,

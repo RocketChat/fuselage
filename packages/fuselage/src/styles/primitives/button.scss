@@ -1,4 +1,7 @@
 @use 'sass:map';
+@use '../lengths';
+
+@import '../mixins/states.scss';
 @import '../mixins/states.scss';
 @import '../mixins/shadows.scss';
 @import '../variables/button-colors';
@@ -8,7 +11,7 @@
   border-width: theme('button-border-width', 2px);
   border-style: solid;
   border-color: map.get($colors, border-color);
-  border-radius: theme('button-border-radius', 2px);
+  border-radius: theme('button-border-radius', lengths.border-radius(medium));
   background-color: map.get($colors, background-color);
 
   appearance: none;
