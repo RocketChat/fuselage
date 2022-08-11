@@ -7809,6 +7809,7 @@ __metadata:
     "@rocket.chat/fuselage-hooks": "*"
     "@rocket.chat/fuselage-polyfills": "*"
     "@rocket.chat/icons": "*"
+    "@rocket.chat/layout": "*"
     "@rocket.chat/logo": "*"
     "@rocket.chat/styled": "*"
     react: 17.0.2
