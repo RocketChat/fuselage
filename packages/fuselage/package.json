@@ -58,8 +58,7 @@
     "@rocket.chat/memo": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
     "invariant": "^2.2.4",
-    "react-keyed-flatten-children": "^1.3.0",
-    "react-transition-group": "~4.4.5"
+    "react-keyed-flatten-children": "^1.3.0"
   },
   "devDependencies": {
     "@babel/core": "~7.17.2",
@@ -86,7 +85,6 @@
     "@testing-library/react": "^12.1.2",
     "@types/invariant": "^2.2.35",
     "@types/jest": "~27.4.0",
-    "@types/react-transition-group": "^4",
     "autoprefixer": "~10.4.2",
     "babel-loader": "~8.2.3",
     "bump": "workspace:~",
