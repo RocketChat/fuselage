@@ -1,6 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
-import { ActionLink } from '@rocket.chat/layout';
-import BackgroundLayer from '@rocket.chat/layout/src/BackgroundLayer';
+import { ActionLink, BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';

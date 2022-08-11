@@ -1,6 +1,5 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
-import { ActionLink, LayoutLogo } from '@rocket.chat/layout';
-import BackgroundLayer from '@rocket.chat/layout/src/BackgroundLayer';
+import { ActionLink, LayoutLogo, BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
