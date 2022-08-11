@@ -12,7 +12,7 @@
 
 ---
 
-![npm@latest](https://img.shields.io/npm/v/@rocket.chat/layout/latest?style=flat-square) ![npm@next](https://img.shields.io/npm/v/@rocket.chat/layout/next?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/layout?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/layout?style=flat-square)
+[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/layout/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/layout/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/Rocket.Chat.Fuselage/layout) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/layout?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/layout?style=flat-square)
 
 ![deps](https://img.shields.io/david/RocketChat/fuselage?path=packages%2Flayout&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/fuselage?path=packages%2Flayout&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/fuselage?path=packages%2Flayout&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/layout?style=flat-square)
 
