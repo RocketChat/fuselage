@@ -39,11 +39,14 @@
     "docs": "typedoc",
     "storybook": "start-storybook -p 6006"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@rocket.chat/fuselage": "*",
-    "react-i18next": "~11.18.3"
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-i18next": "~11.15.4"
   },
   "devDependencies": {
+    "@rocket.chat/fuselage": "workspace:~",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "@storybook/addon-essentials": "~6.4.18",
