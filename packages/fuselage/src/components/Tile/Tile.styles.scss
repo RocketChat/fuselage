@@ -6,8 +6,6 @@
 .rcx-tile {
   display: block;
 
-  max-height: fit-content;
-
   color: colors.font(default);
   border-radius: functions.theme(
     'tile-border-radius',

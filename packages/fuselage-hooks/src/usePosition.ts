@@ -1,7 +1,6 @@
 import type { RefObject } from 'react';
 import { useEffect, useRef } from 'react';
 
-import { useDebouncedCallback } from './useDebouncedCallback';
 import { useDebouncedState } from './useDebouncedState';
 import { useMutableCallback } from './useMutableCallback';
 
@@ -60,7 +59,6 @@ type PositionStyle = {
   transition: 'none !important';
   bottom?: '0px';
   overflowY?: 'auto';
-  visibility: undefined;
 };
 
 type PositionEmptyResult = {
@@ -308,43 +306,35 @@ export const usePosition = <T extends Element, R extends Element>(
   const {
     margin = 8,
     placement = 'bottom-start',
-    container: containerElement = document.documentElement,
+    container: containerElement = document.body,
     watch = true,
   } = options;
   const container = useRef(containerElement);
 
   const [style, setStyle] = useDebouncedState<PositionResult>(emptyStyle, 10);
 
-  const callback = useDebouncedCallback(
-    useMutableCallback(() => {
-      const boundaries = target.current?.getBoundingClientRect();
-      const targetBoundaries = getTargetBoundaries({
-        referenceBox: reference.current.getBoundingClientRect(),
+  const callback = useMutableCallback(() => {
+    const boundaries = target.current.getBoundingClientRect();
+    const targetBoundaries = getTargetBoundaries({
+      referenceBox: reference.current.getBoundingClientRect(),
+      target: boundaries,
+      margin,
+    });
+    const variantStore = getVariantBoundaries({
+      referenceBox: reference.current.getBoundingClientRect(),
+      target: boundaries,
+    });
+    setStyle(
+      getPositionStyle({
+        placement,
+        container: container.current.getBoundingClientRect(),
+        targetBoundaries,
+        variantStore,
         target: boundaries,
         margin,
-      });
-      const variantStore = getVariantBoundaries({
-        referenceBox: reference.current.getBoundingClientRect(),
-        target: boundaries,
-      });
-      setStyle(
-        getPositionStyle({
-          placement,
-          container: {
-            ...container.current.getBoundingClientRect(),
-            ...(container.current === document.documentElement && {
-              height: window.innerHeight,
-            }),
-          },
-          targetBoundaries,
-          variantStore,
-          target: boundaries,
-          margin,
-        })
-      );
-    }),
-    10
-  );
+      })
+    );
+  });
 
   useBoundingClientRect(target, watch, callback);
   useBoundingClientRect(reference, watch, callback);
