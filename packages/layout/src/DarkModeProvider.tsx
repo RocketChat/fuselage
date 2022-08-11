@@ -9,7 +9,7 @@ type DarkModeProviderProps = {
   forcedDarkMode?: boolean;
 };
 
-const DarkModeProvider = ({
+export const Provider = ({
   children,
   forcedDarkMode,
 }: DarkModeProviderProps): ReactElement => {
@@ -17,6 +17,7 @@ const DarkModeProvider = ({
   return <DarkModeContext.Provider children={children} value={value} />;
 };
 
-export default DarkModeProvider;
-
 export const useDarkMode = (): boolean => useContext(DarkModeContext);
+
+// TODO: remove
+export default Provider;
