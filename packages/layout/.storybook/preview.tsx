@@ -52,9 +52,9 @@ export const decorators: DecoratorFunction<ReactElement>[] = [
     return (
       <Suspense fallback={null}>
         <I18nextProvider i18n={getI18n()}>
-          <DarkModeProvider forcedDarkMode={dark}>
+          <DarkModeProvider.Provider forcedDarkMode={dark}>
             <Story />
-          </DarkModeProvider>
+          </DarkModeProvider.Provider>
         </I18nextProvider>
       </Suspense>
     );
