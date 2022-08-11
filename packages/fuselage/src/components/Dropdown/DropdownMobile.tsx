@@ -27,6 +27,7 @@ export const DropdownMobile = forwardRef(function DropdownMobile<
       overflow='auto'
       style={{ bottom: 0, left: 0 }}
       zIndex={2}
+      data-testid='dropdown'
     >
       <Box flexShrink={1} pb='x16'>
         {children}

@@ -28,7 +28,13 @@ export const Default: ComponentStory<typeof Dropdown> = () => {
       justifyContent='center'
       alignItems='center'
     >
-      <IconButton secondary small ref={anchor} icon='doner' />
+      <IconButton
+        secondary
+        small
+        ref={anchor}
+        icon='doner'
+        data-testid='dropdown-anchor'
+      />
       <Dropdown ref={target} reference={anchor} placement='bottom-end'>
         {list.map((_, i) => (
           <Option key={i}>Example {i + 1}</Option>
