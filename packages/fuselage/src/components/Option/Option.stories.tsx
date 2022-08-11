@@ -10,8 +10,8 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Menu, StatusBullet } from '../..';
-import { exampleAvatar, menuOptions } from '../../../../.storybook/helpers.js';
-import { Avatar } from '../../Avatar';
+import { exampleAvatar, menuOptions } from '../../../.storybook/helpers.js';
+import { Avatar } from '../Avatar';
 import Option from './Option';
 import OptionAvatar from './OptionAvatar';
 import OptionColumn from './OptionColumn';
@@ -22,7 +22,7 @@ import OptionMenu from './OptionMenu';
 import OptionSkeleton from './OptionSkeleton';
 
 export default {
-  title: 'Navigation/Options/Option',
+  title: 'Navigation/Option',
   component: Option,
   parameters: {
     docs: {

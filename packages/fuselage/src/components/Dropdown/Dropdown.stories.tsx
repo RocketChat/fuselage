@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 
 import { Box } from '..';
 import { IconButton } from '../Button';
-import Option from '../Options/Option/Option';
+import Option from '../Option';
 import { Dropdown } from './Dropdown';
 
 export default {

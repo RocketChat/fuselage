@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Skeleton } from '../../Skeleton';
+import { Skeleton } from '../Skeleton';
 import Option from './Option';
 import OptionAvatar from './OptionAvatar';
 import OptionContent from './OptionContent';
