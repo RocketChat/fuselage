@@ -20,7 +20,7 @@ const CodeSnippet = ({
   if (!children) {
     return (
       <Box is='pre' rcx-code-snippet {...props}>
-        <Skeleton w='100%' />
+        <Skeleton w='100%' data-testid='code-snippet-skeleton' />
       </Box>
     );
   }
@@ -32,7 +32,12 @@ const CodeSnippet = ({
       </Box>
       {onClick && children && (
         <Box>
-          <Button small primary onClick={onClick}>
+          <Button
+            small
+            primary
+            onClick={onClick}
+            data-testid='code-snippet-button-box'
+          >
             {buttonText}
           </Button>
         </Box>
