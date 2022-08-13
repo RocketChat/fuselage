@@ -16,7 +16,7 @@ const RightNavBtn: FC = () => {
       mie='15px'
       onClick={() => isMobile && dispatch(navMenuToggleAction(true))}
     >
-      {isMobile ? <BurgerIcon /> : <Button primary>Send to RocketChat</Button>}
+      {isMobile ? <BurgerIcon /> : <Button danger>Send to RocketChat</Button>}
     </Box>
   );
 };

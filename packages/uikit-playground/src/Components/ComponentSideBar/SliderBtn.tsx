@@ -77,7 +77,7 @@ const SliderBtn: FC = () => {
       onClick={() =>
         !sideBarToggle && dispatch(sidebarToggleAction(!sideBarToggle))
       }
-      zIndex={1}
+      zIndex={'1'}
       className={toggleStyle}
     >
       <Label

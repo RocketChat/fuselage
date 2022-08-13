@@ -10,8 +10,10 @@ const reducer = (state: initialStateType, action: actionType) => {
       return { ...state, isTablet: action.payload };
     case 'sidebarToggle':
       return { ...state, sideBarToggle: action.payload };
+    case 'previewToggle':
+      return { ...state, previewTabsToggle: action.payload };
     case 'editorToggle':
-      return { ...state, tabsToggle: action.payload };
+      return { ...state, editorTabsToggle: action.payload };
     case 'navMenuToggle':
       return { ...state, navMenuToggle: action.payload };
     case 'surface':
@@ -24,8 +26,13 @@ const reducer = (state: initialStateType, action: actionType) => {
           changedByEditor: action.payload.changedByEditor === undefined,
         },
       };
+    case 'actionPreview':
+      return { ...state, actionPreview: action.payload };
+    case 'user':
+      return { ...state, user: action.payload };
     default:
       return state;
   }
 };
+
 export default reducer;

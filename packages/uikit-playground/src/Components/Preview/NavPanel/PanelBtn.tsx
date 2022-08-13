@@ -31,7 +31,7 @@ const PanelBtn: FC<{ icon: ReactNode; name: string; isSmall: boolean }> = ({
       </Label>
     </>
   ) : (
-    <Button>{name}</Button>
+    <Button small>{name}</Button>
   );
 };
 

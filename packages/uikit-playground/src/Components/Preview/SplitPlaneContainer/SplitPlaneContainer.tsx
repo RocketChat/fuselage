@@ -3,9 +3,9 @@ import type { FC } from 'react';
 import React, { useEffect, useContext } from 'react';
 import SplitPane from 'react-split-pane';
 
-import { context, tabsToggleAction } from '../../../Context';
+import { context, previewTabsToggleAction } from '../../../Context';
 import Display from '../Display';
-import Editor from '../Editor';
+import EditorPanel from '../Editor';
 
 type PreviewSizeType = {
   blockSize: number;
@@ -20,7 +20,7 @@ const SplitPlaneContainer: FC<{ PreviewSize: PreviewSizeType }> = ({
   } = useContext(context);
 
   useEffect(() => {
-    dispatch(tabsToggleAction(0));
+    dispatch(previewTabsToggleAction(0));
   }, [isTablet, dispatch]);
 
   const splitPaneProps = {
@@ -33,12 +33,12 @@ const SplitPlaneContainer: FC<{ PreviewSize: PreviewSizeType }> = ({
   return isTablet ? (
     <>
       <Display />
-      <Editor />
+      <EditorPanel />
     </>
   ) : (
     <SplitPane {...splitPaneProps}>
       <Display />
-      <Editor />
+      <EditorPanel />
     </SplitPane>
   );
 };

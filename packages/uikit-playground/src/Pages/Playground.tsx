@@ -28,6 +28,15 @@ const Playground: FC = () => {
     dispatch(isTabletAction(isTablet));
   }, [isTablet, dispatch]);
 
+  // console.log(fui, UiKit, result, button, stateFunction());
+  // useEffect(() => {
+  //   console.log(result);
+  // }, [result]);
+
+  // useEffect(() => {
+  //   console.log(stateFunction());
+  // }, [stateFunction()]);
+
   return (
     <Box
       display={'flex'}
@@ -38,6 +47,7 @@ const Playground: FC = () => {
       bg={'var(--primaryBackgroundColor)'}
     >
       <NavBar />
+
       {navMenuToggle && <NavMenu />}
       <Box width={'100%'} flexGrow={1} position={'relative'} zIndex={0}>
         <ComponentSideBar />

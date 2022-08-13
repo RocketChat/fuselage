@@ -1,7 +1,5 @@
-declare module '*.svg' {
+declare module "*.svg" {
   export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
-  const src: any;
+  const src: *;
   export default src;
 }
-
-declare module 'eslint4b-prebuilt';
