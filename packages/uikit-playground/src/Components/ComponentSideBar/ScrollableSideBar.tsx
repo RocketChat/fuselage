@@ -9,7 +9,6 @@ import DropDown from '../DropDown';
 const ScrollableSideBar: FC = () => (
   <Scrollable vertical>
     <Box
-      flexGrow='1'
       mbs='39px'
       borderBlockStart='var(--default-border)'
       bg={'var(--primaryBackgroundColor)'}
