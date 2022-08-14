@@ -12,11 +12,11 @@ type CodeMirrorProps = {
   extensions?: Extension[],
 };
 
-const CodeEditor = ({ extensions }: CodeMirrorProps) => {
+const BlockEditor = ({ extensions }: CodeMirrorProps) => {
   const { state, dispatch } = useContext(context);
   const { editor, changes, setValue } = useCodeMirror(
     extensions,
-    json5.stringify(state.doc.payload, undefined, 4)
+    JSON.stringify(state.doc.payload, undefined, 4)
   );
   const debounceValue = useDebouncedValue(changes?.value, 1500);
 
@@ -24,13 +24,6 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
     if (!changes?.isDispatch) {
       try {
         const parsedCode = json5.parse(changes.value);
-        dispatch(
-          docAction({
-            payload: parsedCode,
-            changedByEditor: false,
-          })
-        );
-
         dispatch(docAction({ payload: parsedCode }));
       } catch (e) {
         // do nothing
@@ -64,4 +57,4 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   );
 };
 
-export default CodeEditor;
+export default BlockEditor;

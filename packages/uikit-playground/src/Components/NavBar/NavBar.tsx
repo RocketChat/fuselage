@@ -1,5 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import { Box, Tile, Flex } from '@rocket.chat/fuselage';
+import { Box, Tile, Flex, ButtonGroup, Button } from '@rocket.chat/fuselage';
 import type { FC } from 'react';
 import React from 'react';
 
@@ -23,7 +23,24 @@ const NabBar: FC = () => (
     >
       <Logo />
       <Divider />
-      <Box flexGrow={1} minWidth='15px' />
+      <Box
+        flexGrow={1}
+        minWidth='15px'
+        display={'flex'}
+        justifyContent={'flex-end'}
+      >
+        <Box display='flex' height='100%'>
+          <ButtonGroup
+            pie={'20px'}
+            className={css`
+              column-gap: 5px;
+            `}
+          >
+            <Button small>Clear Blocks</Button>
+            <Button small>Copy Payload</Button>
+          </ButtonGroup>
+        </Box>
+      </Box>
       <RightNavBtn />
     </Box>
   </Flex.Container>

@@ -16,7 +16,7 @@ const Playground: FC = () => {
   } = useContext(context);
 
   const [isMobile, isTablet] = useMediaQueries(
-    '(max-width: 500px)',
+    '(max-width: 630px)',
     '(max-width: 1050px)'
   );
 
@@ -38,6 +38,7 @@ const Playground: FC = () => {
       bg={'var(--primaryBackgroundColor)'}
     >
       <NavBar />
+
       {navMenuToggle && <NavMenu />}
       <Box width={'100%'} flexGrow={1} position={'relative'} zIndex={0}>
         <ComponentSideBar />
