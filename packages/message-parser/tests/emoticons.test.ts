@@ -3,6 +3,18 @@ import { bigEmoji, paragraph, plain, emoticon } from '../src/utils';
 
 test.each([
   // Should render normal Emojis
+  [
+    `test
+     :) test`,
+    [
+      paragraph([plain('test')]),
+      paragraph([
+        plain('     '),
+        emoticon(':)', 'slight_smile'),
+        plain(' test'),
+      ]),
+    ],
+  ],
   [':) asd', [paragraph([emoticon(':)', 'slight_smile'), plain(' asd')])]],
   [':) asd', [paragraph([emoticon(':)', 'slight_smile'), plain(' asd')])]],
   [
