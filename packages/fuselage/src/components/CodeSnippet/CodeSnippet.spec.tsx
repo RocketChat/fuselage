@@ -17,17 +17,22 @@ describe('[CodeSnippet Component]', () => {
     screen.getByText('Children');
   });
 
-  it('should display button, when component receives onClick property', () => {
-    render(<CopyButton />);
-    screen.getByRole('button');
-  });
+  describe('Button behavior', () => {
+    let onClickSpy: ReturnType<typeof jest.fn>;
+    beforeEach(() => {
+      onClickSpy = jest.fn();
+      render(<CopyButton onClick={onClickSpy} />);
+    });
 
-  it('should call onClick function when button is clicked', () => {
-    const onClickSpy = jest.fn();
-    render(<CopyButton onClick={onClickSpy} />);
-    const button = screen.getByRole('button');
-    button.click();
-    expect(onClickSpy).toHaveBeenCalled();
+    it('should display button, when component receives onClick property', () => {
+      screen.getByRole('button');
+    });
+
+    it('should call onClick function when button is clicked', () => {
+      const button = screen.getByRole('button');
+      button.click();
+      expect(onClickSpy).toHaveBeenCalled();
+    });
   });
 
   it('should change button name, when buttonText property is passed', () => {
@@ -36,7 +41,7 @@ describe('[CodeSnippet Component]', () => {
   });
 
   it('should display skeleton, when there is no children', () => {
-    render(<LoadingCode />);
-    screen.getByTestId('code-snippet-skeleton');
+    const { container } = render(<LoadingCode />);
+    expect(container.querySelector('.rcx-skeleton')).toBeInTheDocument();
   });
 });
