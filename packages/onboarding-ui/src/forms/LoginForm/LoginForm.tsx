@@ -6,13 +6,12 @@ import {
   Button,
   Box,
 } from '@rocket.chat/fuselage';
+import { Form, ActionLink } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
-import ActionLink from '../../common/ActionLink';
-import Form from '../../common/Form';
 import { LoginActionsWrapper } from './LoginForm.styles';
 
 export type LoginFormPayload = {

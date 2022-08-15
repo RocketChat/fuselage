@@ -1,8 +1,6 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
+import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
-
-import BackgroundLayer from '../../common/BackgroundLayer';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type InformationPageProps = {
   title: string;
@@ -25,7 +23,7 @@ const InformationPage = ({
       paddingInline={16}
     >
       <Margins blockEnd={32}>
-        <OnboardingLogo />
+        <LayoutLogo.LayoutLogo />
 
         <Box fontScale='hero'>{title}</Box>
 

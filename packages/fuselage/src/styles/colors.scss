@@ -101,41 +101,6 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-$-foreground-colors: (
-  default: map.get(token-colors.$colors, n800),
-  info: map.get(token-colors.$colors, n700),
-  hint: map.get(token-colors.$colors, n600),
-  disabled: map.get(token-colors.$colors, n400),
-  alternative: white,
-  primary: map.get(token-colors.$colors, p500),
-  success: map.get(token-colors.$colors, s500),
-  success-light: map.get(token-colors.$colors, s200),
-  danger: map.get(token-colors.$colors, d500),
-  warning: map.get(token-colors.$colors, w700),
-  warning-alternative: map.get(token-colors.$colors, w500),
-  highlight: map.get(token-colors.$colors, w100),
-  link: map.get(token-colors.$colors, p500),
-  visited-link: map.get(token-colors.$colors, s2-500),
-  active-link: map.get(token-colors.$colors, d500),
-);
-
-@function _get-foreground-color($type) {
-  @if not map.has-key($-foreground-colors, $type) {
-    @error 'invalid foreground type';
-  }
-
-  $color: map.get($-foreground-colors, $type);
-
-  @return (--rcx-color-foreground-#{$type}, $color);
-}
-
-@function foreground($type) {
-  $pair: _get-foreground-color($type);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-$foreground-types: map-keys($-foreground-colors);
-
 $-surfaces: (
   light: white,
   tint: neutral(100),
@@ -157,7 +122,7 @@ $-font: (
   secondary-info: neutral(700),
   default: neutral(800),
   titles-labels: neutral(900),
-  info: info(600),
+  info: primary(600),
   danger: danger(600),
 );
 
@@ -172,7 +137,7 @@ $-status-backgrounds: (
   danger: danger(200),
   service-1: service-1(200),
   service-2: service-2(200),
-  info: info(200),
+  info: primary(200),
 );
 
 @function status-background($type) {
@@ -186,7 +151,7 @@ $-status-fonts: (
   on-danger: danger(800),
   on-service-1: service-1(800),
   on-service-2: service-2(600),
-  on-info: info(600),
+  on-info: primary(600),
 );
 
 @function status-font($type) {
@@ -276,7 +241,7 @@ $-button-fonts: (
   on-primary-disabled: white,
   // secondary
   on-secondary: neutral(900),
-  on-secondary-disabled: neutral(600),
+  on-secondary-disabled: neutral(500),
   // danger
   on-danger: white,
   on-danger-disabled: white,

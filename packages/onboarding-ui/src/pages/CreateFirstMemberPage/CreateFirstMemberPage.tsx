@@ -1,8 +1,8 @@
+import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ComponentProps, ReactElement } from 'react';
 
-import BackgroundLayer from '../../common/BackgroundLayer';
+import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
-import type { FormPageLayoutStyleProps } from '../../common/Types';
 import CreateFirstMemberForm from '../../forms/CreateFirstMemberForm';
 import TitleCreateFirstMemberPage from './TitleCreateFirstMemberPage';
 

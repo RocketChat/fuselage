@@ -17,9 +17,12 @@
 
     cursor: pointer;
 
-    color: colors.foreground(info);
+    color: colors.font(secondary-info);
     border: lengths.border-width(1) solid colors.neutral(400);
-    border-radius: lengths.border-radius(4);
+    border-radius: theme(
+      'message-reaction-border-radius',
+      lengths.border-radius(medium)
+    );
 
     &--action {
       @include mixins.visible-on-hover();
