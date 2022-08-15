@@ -32,12 +32,7 @@ const CodeSnippet = ({
       </Box>
       {onClick && children && (
         <Box>
-          <Button
-            small
-            primary
-            onClick={onClick}
-            data-testid='code-snippet-button-box'
-          >
+          <Button small primary onClick={onClick}>
             {buttonText}
           </Button>
         </Box>
