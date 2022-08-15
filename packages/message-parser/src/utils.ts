@@ -131,10 +131,37 @@ export const emoticon = (emoticon: string, shortCode: string): Emoji => ({
   shortCode,
 });
 
+const emoticonTransform = (values: Paragraph['value']): Paragraph['value'] =>
+  values.map((item, index, array) => {
+    if (item && item.type === 'EMOJI' && item.value) {
+      const prevItem = array[index - 1];
+      const nextItem = array[index + 1];
+
+      if (
+        prevItem &&
+        ((prevItem.type === 'PLAIN_TEXT' && prevItem.value !== ' ') ||
+          prevItem.type === 'EMOJI')
+      ) {
+        return item?.value;
+      }
+
+      if (
+        nextItem &&
+        ((nextItem.type === 'PLAIN_TEXT' && nextItem.value !== ' ') ||
+          nextItem.type === 'EMOJI')
+      ) {
+        return item?.value;
+      }
+    }
+
+    return item;
+  });
+
 export const reducePlainTexts = (
   values: Paragraph['value']
-): Paragraph['value'] =>
-  values.reduce((result, item, index) => {
+): Paragraph['value'] => {
+  const items = emoticonTransform(values);
+  return items.reduce((result, item, index) => {
     if (index > 0) {
       const previous = result[result.length - 1];
       if (item.type === 'PLAIN_TEXT' && item.type === previous.type) {
@@ -145,6 +172,7 @@ export const reducePlainTexts = (
 
     return [...result, item];
   }, [] as Paragraph['value']);
+};
 
 export const lineBreak = (): LineBreak => ({
   type: 'LINE_BREAK',

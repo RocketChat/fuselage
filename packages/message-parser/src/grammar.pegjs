@@ -28,6 +28,7 @@
     task,
     tasks,
     unorderedList,
+    reduceEmoticons,
   } = require('./utils');
 }
 
@@ -546,7 +547,6 @@ inlineKatexEnd
   / & { return options.katex?.dollarSyntax; } "$"
 
 /* Emoticons */
-
 emoticon = & { return options.emoticons; } e:emoticonPattern { return e; }
 
 emoticonPattern
