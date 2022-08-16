@@ -33,7 +33,7 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
       overflow='auto'
       data-testid='dropdown'
     >
-      <Box flexShrink={1} pb='x16'>
+      <Box flexShrink={1} pb='x12'>
         {children}
       </Box>
     </Tile>

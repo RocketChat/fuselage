@@ -39,6 +39,7 @@
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
+    "watch": "jest --watch",
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage",
     "build-storybook": "cross-env NODE_ENV=production build-storybook",
     "bump-next": "bump-next"
