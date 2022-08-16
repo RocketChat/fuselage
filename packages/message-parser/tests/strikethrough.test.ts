@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { strike, paragraph, plain, link } from '../src/utils';
 
 test.each([
@@ -91,5 +91,5 @@ test.each([
     ],
   ],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });
