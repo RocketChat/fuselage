@@ -140,15 +140,13 @@ const joinEmoji = (
     return current;
   }
 
-  if (previous?.type === current.type || current.type === next?.type) {
-    return current.value;
-  }
+  const hasEmojiAsNeighbor =
+    previous?.type === current.type || current.type === next?.type;
+  const hasPlainAsNeighbor =
+    (previous?.type === 'PLAIN_TEXT' && previous.value.trim() !== '') ||
+    (next?.type === 'PLAIN_TEXT' && next.value.trim() !== '');
 
-  if (previous?.type === 'PLAIN_TEXT' && previous.value.trim() !== '') {
-    return current.value;
-  }
-
-  if (next?.type === 'PLAIN_TEXT' && next.value.trim() !== '') {
+  if (current.value && (hasEmojiAsNeighbor || hasPlainAsNeighbor)) {
     return current.value;
   }
 
