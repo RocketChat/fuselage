@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { paragraph, plain, mentionUser, mentionChannel } from '../src/utils';
 
 test.each([
@@ -9,5 +9,5 @@ test.each([
   ],
   ['#GENERAL', [paragraph([mentionChannel('GENERAL')])]],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });

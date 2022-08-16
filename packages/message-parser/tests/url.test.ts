@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { link, paragraph, plain } from '../src/utils';
 
 test.each([
@@ -61,7 +61,7 @@ test.each([
   ['custom://test@test.test', [paragraph([link('custom://test@test.test')])]],
   ['ftp://test.com', [paragraph([link('ftp://test.com')])]],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });
 
 describe('link helper function', () => {
