@@ -18,7 +18,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Shows a count.',
+        component: "Communicates notification's amount and types.",
       },
       page: () => (
         <>
@@ -36,28 +36,41 @@ export default {
 
 const Template: ComponentStory<typeof Badge> = (args) => (
   <Box display='inline-flex'>
-    <Badge {...args}>99</Badge>
+    <Badge {...args} />
   </Box>
 );
 
 export const Default = Template.bind({});
+Default.args = {
+  children: '99',
+};
 
 export const Primary = Template.bind({});
 Primary.args = {
+  children: '99',
   variant: 'primary',
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: '99',
+  variant: 'secondary',
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
+  children: '99',
   variant: 'danger',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
+  children: '99',
   variant: 'warning',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
+  children: '99',
   disabled: true,
 };
