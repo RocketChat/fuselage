@@ -27,8 +27,7 @@
     strike,
     task,
     tasks,
-    unorderedList,
-    reduceEmoticons,
+    unorderedList
   } = require('./utils');
 }
 
