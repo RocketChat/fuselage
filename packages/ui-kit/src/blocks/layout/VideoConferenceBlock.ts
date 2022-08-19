@@ -3,5 +3,5 @@ import type { LayoutBlockish } from '../LayoutBlockish';
 
 export type VideoConferenceBlock = LayoutBlockish<{
   type: `${LayoutBlockType.VIDEO_CONF}`;
-  videoId: string;
+  callId: string;
 }>;
