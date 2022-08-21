@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { unorderedList, plain, listItem, bold } from '../src/utils';
 
 test.each([
@@ -74,5 +74,5 @@ test.each([
   //     [paragraph([])],
   //   ],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });
