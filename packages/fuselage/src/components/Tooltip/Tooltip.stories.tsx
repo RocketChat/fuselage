@@ -12,7 +12,10 @@ export default {
 } as ComponentMeta<typeof Tooltip>;
 
 export const Default: ComponentStory<typeof Tooltip> = () => (
-  <Tooltip>A example tooltip</Tooltip>
+  <Tooltip>An example tooltip</Tooltip>
+);
+export const DarkTooltip: ComponentStory<typeof Tooltip> = () => (
+  <Tooltip dark>An example tooltip</Tooltip>
 );
 
 export const ArrowPositioning = () => (
