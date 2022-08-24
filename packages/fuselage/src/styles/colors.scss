@@ -107,6 +107,7 @@ $-surfaces: (
   neutral: neutral(400),
   disabled: neutral(100),
   hover: neutral(400),
+  dark: neutral(800),
 );
 
 @function surface($type) {

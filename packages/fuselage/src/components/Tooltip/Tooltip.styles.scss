@@ -7,9 +7,17 @@ $tooltip-background-color: functions.theme(
   'tooltip-background-color',
   colors.surface(neutral)
 );
+$tooltip-dark-background-color: functions.theme(
+  'tooltip-dark-background-color',
+  colors.surface(dark)
+);
 $tooltip-text-color: functions.theme(
   'tooltip-text-color',
   colors.font(default)
+);
+$tooltip-dark-text-color: functions.theme(
+  'tooltip-text-color',
+  colors.font(white)
 );
 
 @mixin triangle-direction($direction) {
@@ -97,6 +105,11 @@ $tooltip-text-color: functions.theme(
 
   &--dir-right {
     @include triangle-direction('right');
+  }
+
+  &--dark {
+    color: $tooltip-dark-text-color;
+    background-color: $tooltip-dark-background-color;
   }
 
   &--pos {

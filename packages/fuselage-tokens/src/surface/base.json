@@ -4,6 +4,7 @@
     "tint": { "value": "{colors.n100}" },
     "neutral": { "value": "{colors.n400}" },
     "disabled": { "value": "{colors.n100}" },
-    "hover": { "value": "{colors.n400}" }
+    "hover": { "value": "{colors.n400}" },
+    "dark": { "value": "{colors.n800}" }
   }
 }
