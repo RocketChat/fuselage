@@ -6,6 +6,7 @@ import type { ImageBlock } from './layout/ImageBlock';
 import type { InputBlock } from './layout/InputBlock';
 import type { PreviewBlock } from './layout/PreviewBlock';
 import type { SectionBlock } from './layout/SectionBlock';
+import type { VideoConferenceBlock } from './layout/VideoConferenceBlock';
 
 export type LayoutBlock =
   | PreviewBlock
@@ -16,4 +17,5 @@ export type LayoutBlock =
   | ImageBlock
   | InputBlock
   | SectionBlock
+  | VideoConferenceBlock
   | PreviewBlock;
