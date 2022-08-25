@@ -17,16 +17,16 @@ describe('[Callout Component]', () => {
       ['Success', Success],
       ['Warning', Warning],
       ['Danger', Danger],
-    ])('Story %p renders without crashing', (storyName, Story) => {
+    ])('renders %p story without crashing', (storyName, Story) => {
       render(<Story />);
     });
 
     it.each([
-      ['Info', '.rcx-callout--type-info', Info],
-      ['Success', '.rcx-callout--type-success', Success],
-      ['Warning', '.rcx-callout--type-warning', Warning],
-      ['Danger', '.rcx-callout--type-danger', Danger],
-    ])('story %p should have class %p', (storyName, className, Story) => {
+      ['.rcx-callout--type-info', 'info', Info],
+      ['.rcx-callout--type-success', 'success', Success],
+      ['.rcx-callout--type-warning', 'warning', Warning],
+      ['.rcx-callout--type-danger', 'danger', Danger],
+    ])('should have class %p when type is %p', (className, typeName, Story) => {
       const { container } = render(<Story />);
       expect(container.querySelector(className)).toBeInTheDocument();
     });
