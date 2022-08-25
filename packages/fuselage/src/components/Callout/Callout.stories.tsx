@@ -37,32 +37,26 @@ export default {
 } as ComponentMeta<typeof Callout>;
 
 const Template: ComponentStory<typeof Callout> = (args) => (
-  <Callout {...args} />
+  <Callout {...args}>This is a generic description.</Callout>
 );
 
 export const Default = Template.bind({});
 Default.args = {
   title: 'This is a generic title',
-  children: 'This is a generic description.',
 };
 
 export const WithDescriptionOnly = Template.bind({});
-WithDescriptionOnly.args = {
-  children: 'This is a generic description.',
-};
 
 export const Info = Template.bind({});
 Info.args = {
   type: 'info',
   title: 'This is a info message',
-  children: 'This is a generic description.',
 };
 
 export const Success = Template.bind({});
 Success.args = {
   type: 'success',
   title: 'This is a success message',
-  children: 'This is a generic description.',
 };
 Success.parameters = setStoryDescription(
   'Communicates that an important aspect of the system is working as expected.'
@@ -72,7 +66,6 @@ export const Warning = Template.bind({});
 Warning.args = {
   type: 'warning',
   title: 'This is a warning message',
-  children: 'This is a generic description.',
 };
 Warning.parameters = setStoryDescription(
   'Communicates that an important aspect of the system needs attention.'
@@ -82,7 +75,6 @@ export const Danger = Template.bind({});
 Danger.args = {
   type: 'danger',
   title: 'This is a danger message',
-  children: 'This is a generic description.',
 };
 Danger.parameters = setStoryDescription(
   'Communicates that an important aspect of the system is not working as expected and requires urgent action.'
