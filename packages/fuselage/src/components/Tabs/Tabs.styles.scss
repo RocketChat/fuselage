@@ -54,6 +54,10 @@ $tabs-disabled-selected-border-color: theme(
   position: relative;
 
   display: flex;
+
+  &--underline {
+    border-block-end: lengths.border-width(4) solid colors.stroke(light);
+  }
 }
 
 .rcx-tabs__scroll-box {
@@ -157,6 +161,17 @@ $tabs-disabled-selected-border-color: theme(
         color: $tabs-disabled-selected-color;
         border-block-end-color: $tabs-disabled-selected-border-color;
       }
+    }
+  }
+
+  &--underline {
+    margin-block-end: lengths.margin(-4);
+
+    border-width: 0;
+    border-block-width: lengths.border-width(4);
+
+    &:first-child {
+      margin-inline-start: lengths.margin(-12);
     }
   }
 }
