@@ -49,17 +49,6 @@ $tabs-disabled-selected-border-color: theme(
   colors.primary(200)
 );
 
-// TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
-.rcx-tabs {
-  position: relative;
-
-  display: flex;
-
-  &--underline {
-    border-block-end: lengths.border-width(4) solid colors.stroke(light);
-  }
-}
-
 .rcx-tabs__scroll-box {
   position: relative;
 
@@ -163,15 +152,26 @@ $tabs-disabled-selected-border-color: theme(
       }
     }
   }
+}
+
+// TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
+.rcx-tabs {
+  position: relative;
+
+  display: flex;
 
   &--underline {
-    margin-block-end: lengths.margin(-4);
+    border-block-end: lengths.border-width(4) solid colors.stroke(light);
 
-    border-width: 0;
-    border-block-width: lengths.border-width(4);
+    .rcx-tabs__item {
+      margin-block-end: lengths.margin(-4);
 
-    &:first-child {
-      margin-inline-start: lengths.margin(-12);
+      border-width: 0;
+      border-block-width: lengths.border-width(4);
+
+      &:first-child {
+        margin-inline-start: lengths.margin(-12);
+      }
     }
   }
 }
