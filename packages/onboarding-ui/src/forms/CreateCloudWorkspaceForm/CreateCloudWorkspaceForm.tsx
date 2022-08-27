@@ -215,7 +215,7 @@ const CreateCloudWorkspaceForm = ({
                 </a>
                 and
                 <a
-                  href='https://rocket.chat/policy'
+                  href='https://rocket.chat/privacy'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
