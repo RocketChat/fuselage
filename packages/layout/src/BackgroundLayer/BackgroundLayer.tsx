@@ -3,9 +3,9 @@ import type { ReactElement, ReactNode } from 'react';
 import { useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
+import { useDarkMode } from '../DarkModeProvider';
+import BackgroundImage from './BackgroundImage';
 import { Wrapper } from './BackgroundLayer.styles';
-import BackgroundImage from './BackgroundLayer/BackgroundImage';
-import { useDarkMode } from './DarkModeProvider';
 
 type BackgroundLayerProps = {
   children?: ReactNode;
