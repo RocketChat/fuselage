@@ -12,7 +12,7 @@ $variants: (
 %column {
   flex: 0 0 auto;
 
-  margin-inline: lengths.margin(2);
+  margin-inline: lengths.margin(4);
 }
 
 .rcx-option {
@@ -88,7 +88,7 @@ $variants: (
     justify-content: center;
     align-items: center;
 
-    min-width: lengths.size(28);
+    min-width: lengths.size(20);
     min-height: lengths.size(20);
   }
 
