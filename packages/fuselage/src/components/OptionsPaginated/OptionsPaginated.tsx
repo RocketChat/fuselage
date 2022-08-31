@@ -9,7 +9,7 @@ import { Virtuoso } from 'react-virtuoso';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import { CheckBox } from '../CheckBox';
-import Option from '../Options/Option';
+import Option from '../Option';
 import Tile from '../Tile';
 
 const prevent = (e: SyntheticEvent) => {

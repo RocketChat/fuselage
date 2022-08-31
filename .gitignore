@@ -17,3 +17,4 @@ storybook-static/
 .turbo
 **/.storybook/jest-results.json
 **/bundle-report.html
+.env

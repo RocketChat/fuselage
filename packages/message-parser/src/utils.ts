@@ -67,14 +67,19 @@ export const plain = generate('PLAIN_TEXT');
 export const strike = generate('STRIKE');
 
 export const codeLine = generate('CODE_LINE');
+
+const isValidLink = (link: string) => {
+  try {
+    return Boolean(new URL(link));
+  } catch (error) {
+    return false;
+  }
+};
 export const link = (() => {
   const fn = generate('LINK');
 
   return (src: string, label?: Markup) => {
-    const href =
-      src !== '' && !src.startsWith('http') && !src.startsWith('//')
-        ? `//${src}`
-        : src;
+    const href = isValidLink(src) || src.startsWith('//') ? src : `//${src}`;
 
     return fn({ src: plain(href), label: label || plain(src) });
   };
@@ -126,21 +131,45 @@ export const emoticon = (emoticon: string, shortCode: string): Emoji => ({
   shortCode,
 });
 
+const joinEmoji = (
+  current: Inlines,
+  previous: Inlines | undefined,
+  next: Inlines | undefined
+): Inlines => {
+  if (current.type !== 'EMOJI' || !current.value || (!previous && !next)) {
+    return current;
+  }
+
+  const hasEmojiAsNeighbor =
+    previous?.type === current.type || current.type === next?.type;
+  const hasPlainAsNeighbor =
+    (previous?.type === 'PLAIN_TEXT' && previous.value.trim() !== '') ||
+    (next?.type === 'PLAIN_TEXT' && next.value.trim() !== '');
+
+  if (current.value && (hasEmojiAsNeighbor || hasPlainAsNeighbor)) {
+    return current.value;
+  }
+
+  return current;
+};
+
 export const reducePlainTexts = (
   values: Paragraph['value']
 ): Paragraph['value'] =>
   values.reduce((result, item, index) => {
-    if (index > 0) {
-      const previous = result[result.length - 1];
-      if (item.type === 'PLAIN_TEXT' && item.type === previous.type) {
-        previous.value += item.value;
+    const next = values[index + 1];
+    const current = joinEmoji(item, values[index - 1], next);
+    const previous: Inlines = result[result.length - 1];
+
+    if (previous) {
+      if (current.type === 'PLAIN_TEXT' && current.type === previous.type) {
+        previous.value += current.value;
         return result;
       }
     }
 
-    return [...result, item];
+    return [...result, current];
   }, [] as Paragraph['value']);
-
 export const lineBreak = (): LineBreak => ({
   type: 'LINE_BREAK',
   value: undefined,

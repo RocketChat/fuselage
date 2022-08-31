@@ -16,7 +16,7 @@
     "backgroundSecondaryKeyfocus": { "value": "{colors.n400}" },
     "backgroundSecondaryDisabled": { "value": "{colors.n300}" },
     "fontOnSecondary": { "value": "{colors.n900}" },
-    "fontOnSecondaryDisabled": { "value": "{colors.n600}" },
+    "fontOnSecondaryDisabled": { "value": "{colors.n500}" },
 
     "backgroundSecondaryDangerDefault": { "value": "{colors.n400}" },
     "backgroundSecondaryDangerHover": { "value": "{colors.n500}" },

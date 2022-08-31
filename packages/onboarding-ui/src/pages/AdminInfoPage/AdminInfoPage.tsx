@@ -1,9 +1,9 @@
+import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 
-import BackgroundLayer from '../../common/BackgroundLayer';
+import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
-import type { FormPageLayoutStyleProps } from '../../common/Types';
 import AdminInfoForm from '../../forms/AdminInfoForm';
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
 

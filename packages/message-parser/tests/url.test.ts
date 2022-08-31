@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { link, paragraph, plain } from '../src/utils';
 
 test.each([
@@ -58,6 +58,56 @@ test.each([
     [paragraph([link('ftp://user:pass@localhost:21/etc/hosts')])],
   ],
   ['ssh://test@test.test', [paragraph([link('ssh://test@test.test')])]],
+  ['custom://test@test.test', [paragraph([link('custom://test@test.test')])]],
+  ['ftp://test.com', [paragraph([link('ftp://test.com')])]],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
+});
+
+describe('link helper function', () => {
+  it('should preserve the original protocol if the protocol is http or https', () => {
+    expect(link('https://rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('https://rocket.chat/test'),
+        label: plain('https://rocket.chat/test'),
+      },
+    });
+    expect(link('http://rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('http://rocket.chat/test'),
+        label: plain('http://rocket.chat/test'),
+      },
+    });
+  });
+
+  it('should preserve the original protocol even if for custom protocols', () => {
+    expect(link('custom://rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('custom://rocket.chat/test'),
+        label: plain('custom://rocket.chat/test'),
+      },
+    });
+  });
+
+  it('should return // as the protocol if // is the protocol specified', () => {
+    expect(link('//rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('//rocket.chat/test'),
+        label: plain('//rocket.chat/test'),
+      },
+    });
+  });
+  it("should return an url concatenated '//' if the url has no protocol", () => {
+    expect(link('rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('//rocket.chat/test'),
+        label: plain('rocket.chat/test'),
+      },
+    });
+  });
 });

@@ -430,10 +430,7 @@ $button-empty-border-color: theme(
   'button-empty-border-color',
   colors.neutral(400)
 );
-$button-empty-color: theme(
-  'button-empty-color',
-  colors.foreground(alternative)
-);
+$button-empty-color: theme('button-empty-color', colors.font(white));
 $button-empty-hover-background-color: theme(
   'button-empty-hover-background-color',
   colors.surface(light)
@@ -472,7 +469,7 @@ $button-empty-disabled-border-color: theme(
 );
 $button-empty-disabled-color: theme(
   'button-empty-disabled-color',
-  colors.foreground(alternative)
+  colors.font(white)
 );
 
 // off
@@ -481,7 +478,7 @@ $button-off-background-color: theme(
   colors.neutral(400)
 );
 $button-off-border-color: theme('button-off-border-color', colors.neutral(400));
-$button-off-color: theme('button-off-color', colors.foreground(alternative));
+$button-off-color: theme('button-off-color', colors.font(white));
 $button-off-hover-background-color: theme(
   'button-off-hover-background-color',
   colors.neutral(500)

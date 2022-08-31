@@ -1,0 +1,125 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+.rcx-table {
+  display: table;
+
+  width: 100%;
+
+  border-spacing: lengths.padding(none) lengths.padding(2);
+
+  border-collapse: collapse;
+
+  background-color: colors.surface(light);
+
+  &--fixed {
+    table-layout: fixed;
+  }
+
+  &__selection {
+    border-radius: theme(
+      'table-selected-border-radius',
+      lengths.border-radius(small)
+    );
+    background-color: colors.primary(500);
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__head {
+    display: table-header-group;
+  }
+
+  &__body {
+    display: table-row-group;
+  }
+
+  &__foot {
+    display: table-footer-group;
+  }
+
+  &--striped {
+    .rcx-table__row:nth-child(even) {
+      background-color: colors.neutral(100);
+    }
+  }
+
+  &--sticky {
+    .rcx-table__cell--header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+
+      background-color: colors.surface(light);
+    }
+  }
+
+  &__row {
+    display: table-row;
+
+    background-color: colors.surface(light);
+
+    &--selected {
+      background-color: colors.primary(100);
+
+      &.rcx-table__row--action {
+        &:hover,
+        &:focus {
+          background-color: colors.primary(300);
+        }
+      }
+    }
+
+    &--action:hover,
+    &--action:focus {
+      @include clickable();
+      background-color: colors.neutral(200);
+    }
+  }
+
+  &__cell {
+    display: table-cell;
+
+    padding: lengths.padding(8);
+
+    user-select: text;
+    text-align: unset;
+    vertical-align: middle;
+
+    color: colors.font(secondary-info);
+    @include typography.use-font-scale(p2);
+
+    &--header {
+      position: relative;
+
+      @include typography.use-font-scale(c2);
+      color: colors.font(secondary-info);
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        inset-inline: lengths.inset(none);
+        left: 0;
+        right: 0;
+
+        display: flex;
+
+        content: '';
+        border-block-end: lengths.border-width(2) solid colors.neutral(300);
+      }
+    }
+
+    &--clickable {
+      @include clickable();
+    }
+
+    @each $align in (start, end, center, justify) {
+      &--align-#{$align} {
+        text-align: $align;
+      }
+    }
+  }
+}

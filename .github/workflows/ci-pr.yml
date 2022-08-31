@@ -42,5 +42,6 @@ jobs:
           name: "storybooks-${{ github.event.number }}"
           path: |
             packages/fuselage/storybook-static
+            packages/uikit-playground/build
             packages/fuselage-ui-kit/storybook-static
             packages/onboarding-ui/storybook-static
