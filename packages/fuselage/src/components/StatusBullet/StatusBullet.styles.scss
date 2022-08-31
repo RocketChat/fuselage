@@ -3,23 +3,23 @@
 @use '../../styles/functions.scss';
 @use '../../styles/mixins/size.scss';
 
-$status-bullet-online-background-color: theme(
+$status-bullet-online-background-color: functions.theme(
   'status-bullet-online-background-color',
   colors.success(500)
 );
-$status-bullet-away-background: theme(
+$status-bullet-away-background: functions.theme(
   'status-bullet-away-background',
   url('./icons/away.svg') top left / contain no-repeat
 );
-$status-bullet-busy-background: theme(
+$status-bullet-busy-background: functions.theme(
   'status-bullet-busy-background',
   url('./icons/busy.svg') top left / contain no-repeat
 );
-$status-bullet-offline-background: theme(
+$status-bullet-offline-background: functions.theme(
   'status-bullet-offline-background',
   url('./icons/offline.svg') top left / contain no-repeat
 );
-$status-bullet-loading-background: theme(
+$status-bullet-loading-background: functions.theme(
   'status-bullet-loading-background',
   url('./icons/loading.svg') top left / contain no-repeat
 );
