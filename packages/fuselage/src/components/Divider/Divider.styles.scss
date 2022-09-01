@@ -22,11 +22,13 @@ $divider-color: theme('divider-color', colors.stroke(extra-light));
 
     &::after {
       flex-grow: 1;
-      border: $divider-size solid $divider-color;
 
       content: '';
+
+      border: $divider-size solid $divider-color;
     }
   }
+
   &__wrapper {
     margin-block: lengths.margin(8);
     padding-inline: lengths.padding(8);
