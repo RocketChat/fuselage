@@ -1,12 +1,9 @@
 import { Box, Button } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import {
-  ActionLink,
-  LayoutLogo,
   VerticalWizardLayout,
   VerticalWizardLayoutTitle,
   VerticalWizardLayoutForm,
-  VerticalWizardLayoutFooter,
 } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
