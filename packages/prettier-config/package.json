@@ -1,7 +1,7 @@
 {
   "name": "@rocket.chat/prettier-config",
   "description": "Prettier configuration for Rocket.Chat repositories",
-  "version": "0.31.16",
+  "version": "0.31.17",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
