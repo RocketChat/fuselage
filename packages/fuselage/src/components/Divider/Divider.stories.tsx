@@ -1,8 +1,7 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { ButtonGroup } from '..';
-import { Divider, IconButton } from '../..';
+import { ButtonGroup, Divider, IconButton } from '..';
 
 export default {
   title: 'Data Display/Divider',
