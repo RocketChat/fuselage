@@ -124,8 +124,9 @@ jobs:
           name: docs
           path: .
       - run: |
-          rm -rf "fuselage/${{ needs.build-and-test.outputs.branch-name }}" "uikit-playground/${{ needs.build-and-test.outputs.branch-name }}" "fuselage-ui-kit/${{ needs.build-and-test.outputs.branch-name }}" "onboarding-ui/${{ needs.build-and-test.outputs.branch-name }}"
+          rm -rf "fuselage/${{ needs.build-and-test.outputs.branch-name }}" "layout/${{ needs.build-and-test.outputs.branch-name }}" "uikit-playground/${{ needs.build-and-test.outputs.branch-name }}" "fuselage-ui-kit/${{ needs.build-and-test.outputs.branch-name }}" "onboarding-ui/${{ needs.build-and-test.outputs.branch-name }}"
           mv -v "packages/fuselage/storybook-static" "fuselage/${{ needs.build-and-test.outputs.branch-name }}"
+          mv -v "packages/layout/storybook-static" "layout/${{ needs.build-and-test.outputs.branch-name }}"
           mv -v "packages/uikit-playground/build" "uikit-playground/${{ needs.build-and-test.outputs.branch-name }}"
           mv -v "packages/fuselage-ui-kit/storybook-static" "fuselage-ui-kit/${{ needs.build-and-test.outputs.branch-name }}"
           mv -v "packages/onboarding-ui/storybook-static" "onboarding-ui/${{ needs.build-and-test.outputs.branch-name }}"
