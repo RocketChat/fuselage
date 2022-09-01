@@ -37,7 +37,8 @@
     "test": "jest --runInBand",
     "bump-next": "bump-next",
     "docs": "typedoc",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "cross-env NODE_ENV=production build-storybook"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
