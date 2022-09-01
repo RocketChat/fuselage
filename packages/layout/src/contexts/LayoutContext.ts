@@ -6,6 +6,7 @@ export type LayoutContextValue = {
   logoDark?: ReactElement;
   background?: string;
   backgroundDark?: string;
+  forceDarkMode?: boolean;
 };
 
 export const LayoutContext = createContext<LayoutContextValue>({});

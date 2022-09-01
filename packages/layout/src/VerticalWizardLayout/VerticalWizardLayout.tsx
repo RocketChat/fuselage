@@ -2,6 +2,7 @@ import { Box, Tile } from '@rocket.chat/fuselage';
 import type { ReactElement, ReactNode } from 'react';
 
 import BackgroundLayer from '../BackgroundLayer';
+import DarkModeProvider from '../DarkModeProvider';
 import { LayoutLogo } from '../LayoutLogo';
 import type { LayoutContextValue } from '../contexts/LayoutContext';
 import { LayoutContext } from '../contexts/LayoutContext';
@@ -45,27 +46,30 @@ export const VerticalWizardLayoutFooter = ({
 
 export const VerticalWizardLayout = ({
   children,
+  forceDarkMode,
   ...rest
 }: LayoutContextValue & {
   children: ReactNode;
 }): ReactElement => (
-  <LayoutContext.Provider value={{ ...rest }}>
-    <BackgroundLayer>
-      <Box
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-        textAlign='center'
-        width='100%'
-        maxWidth={576}
-        pb={32}
-        pi={16}
-      >
-        <Box mb='x12'>
-          <LayoutLogo />
+  <DarkModeProvider forcedDarkMode={forceDarkMode}>
+    <LayoutContext.Provider value={{ ...rest }}>
+      <BackgroundLayer>
+        <Box
+          display='flex'
+          flexDirection='column'
+          alignItems='center'
+          textAlign='center'
+          width='100%'
+          maxWidth={576}
+          pb={32}
+          pi={16}
+        >
+          <Box mb='x12'>
+            <LayoutLogo />
+          </Box>
+          {children}
         </Box>
-        {children}
-      </Box>
-    </BackgroundLayer>
-  </LayoutContext.Provider>
+      </BackgroundLayer>
+    </LayoutContext.Provider>
+  </DarkModeProvider>
 );

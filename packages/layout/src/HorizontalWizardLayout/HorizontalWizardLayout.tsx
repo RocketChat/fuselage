@@ -2,6 +2,7 @@ import { Box } from '@rocket.chat/fuselage';
 import type { ReactElement, ReactNode } from 'react';
 
 import BackgroundLayer from '../BackgroundLayer';
+import DarkModeProvider from '../DarkModeProvider';
 import * as FormPageLayout from '../FormPageLayout/FormPageLayout.styles';
 import { LayoutLogo } from '../LayoutLogo';
 import type { LayoutContextValue } from '../contexts/LayoutContext';
@@ -9,15 +10,18 @@ import { LayoutContext } from '../contexts/LayoutContext';
 
 export const HorizontalWizardLayout = ({
   children,
+  forceDarkMode,
   ...rest
 }: LayoutContextValue & {
   children: ReactNode;
 }): ReactElement => (
-  <LayoutContext.Provider value={{ ...rest }}>
-    <BackgroundLayer>
-      <FormPageLayout.Wrapper>{children}</FormPageLayout.Wrapper>
-    </BackgroundLayer>
-  </LayoutContext.Provider>
+  <DarkModeProvider forcedDarkMode={forceDarkMode}>
+    <LayoutContext.Provider value={{ ...rest }}>
+      <BackgroundLayer>
+        <FormPageLayout.Wrapper>{children}</FormPageLayout.Wrapper>
+      </BackgroundLayer>
+    </LayoutContext.Provider>
+  </DarkModeProvider>
 );
 
 export const HorizontalWizardLayoutAside = ({
@@ -68,7 +72,7 @@ export const HorizontalWizardLayoutFooter = ({
 }) => (
   <Box
     display='flex'
-    fontScale='p2'
+    fontScale='h4'
     flexDirection='column'
     alignItems='center'
     pb='x32'
