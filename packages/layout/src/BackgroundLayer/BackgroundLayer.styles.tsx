@@ -19,7 +19,7 @@ export const Wrapper = styled('div', filterWrapperProps)`
   align-items: center;
   width: 100vw;
   min-height: 100vh;
-  background-image: url('data:image/svg+xml,${(p) => p.backgroundImage}');
+  background-image: url('${(p) => p.backgroundImage}');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
