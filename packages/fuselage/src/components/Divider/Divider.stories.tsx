@@ -13,6 +13,10 @@ const Template: ComponentStory<typeof Divider> = (args) => (
 );
 
 export const Default: ComponentStory<typeof Divider> = Template.bind({});
+export const WithText: ComponentStory<typeof Divider> = Template.bind({});
+WithText.args = {
+  children: 'Divider',
+};
 
 export const Vertical: ComponentStory<typeof Divider> = Template.bind({});
 Vertical.args = {

@@ -1,8 +1,8 @@
 import { Tile } from '@rocket.chat/fuselage';
 import type { Story, Meta } from '@storybook/react';
 
+import DarkModeProvider from '../DarkModeProvider';
 import BackgroundLayer from './BackgroundLayer';
-import DarkModeProvider from './DarkModeProvider';
 
 export default {
   title: 'common/BackgroundLayer',
