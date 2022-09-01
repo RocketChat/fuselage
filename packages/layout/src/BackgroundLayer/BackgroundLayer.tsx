@@ -24,8 +24,7 @@ const BackgroundLayer = ({ children }: BackgroundLayerProps): ReactElement => {
         renderToStaticMarkup(
           <BackgroundImage backgroundColor={backgroundColor} />
         )
-      )}
-      `,
+      )}`,
     [backgroundColor]
   );
 
