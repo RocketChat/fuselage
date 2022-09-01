@@ -36,7 +36,7 @@
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "bump-next": "bump-next",
-    "docs": "typedoc",
+    "docs": "build-storybook -o ../../static/layout",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "cross-env NODE_ENV=production build-storybook"
   },
