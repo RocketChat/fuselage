@@ -7450,7 +7450,7 @@ __metadata:
     lint-all: "workspace:~"
     lint-staged: ~12.3.3
     npm-run-all: ^4.1.5
-    postcss-scss: ~4.0.3
+    postcss-scss: ~4.0.4
     prettier: ~2.5.1
     rimraf: ^3.0.2
     style-dictionary: ~3.7.0
@@ -7562,12 +7562,12 @@ __metadata:
     normalize.css: ^8.0.1
     npm-run-all: ^4.1.5
     path-browserify: ^1.0.1
-    postcss: ~8.4.6
-    postcss-custom-properties: ~12.1.4
-    postcss-dir-pseudo-class: ~6.0.4
+    postcss: ~8.4.16
+    postcss-custom-properties: ~12.1.8
+    postcss-dir-pseudo-class: ~6.0.5
     postcss-loader: ~6.2.1
     postcss-logical: ~5.0.4
-    postcss-scss: ~4.0.3
+    postcss-scss: ~4.0.4
     postcss-svg: ~3.0.0
     prettier: ~2.5.1
     react: ^17.0.2
@@ -27570,7 +27570,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"postcss-custom-properties@npm:^12.1.8":
+"postcss-custom-properties@npm:^12.1.8, postcss-custom-properties@npm:~12.1.8":
   version: 12.1.8
   resolution: "postcss-custom-properties@npm:12.1.8"
   dependencies:
@@ -27578,17 +27578,6 @@ fsevents@~2.1.2:
   peerDependencies:
     postcss: ^8.4
   checksum: 4615b8181fe61c2df9f3a739b3257a9d76d00088c8fc3c502a59de52b25ab90be3d65ece8d372bcd1f9f8ba6bb99da5075707f9f11cb3522826a5d3553265ee5
-  languageName: node
-  linkType: hard
-
-"postcss-custom-properties@npm:~12.1.4":
-  version: 12.1.4
-  resolution: "postcss-custom-properties@npm:12.1.4"
-  dependencies:
-    postcss-value-parser: ^4.2.0
-  peerDependencies:
-    postcss: ^8.4
-  checksum: c5ef5c5ff126a65adcae9f1842b6c82df8adc337481497a405de5dfb2121c799d381e75aed3dbfe855f4258e9d90927e77801012166fb667ea5c8f7d79562ada
   languageName: node
   linkType: hard
 
@@ -27603,7 +27592,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"postcss-dir-pseudo-class@npm:^6.0.4":
+"postcss-dir-pseudo-class@npm:^6.0.4, postcss-dir-pseudo-class@npm:~6.0.5":
   version: 6.0.5
   resolution: "postcss-dir-pseudo-class@npm:6.0.5"
   dependencies:
@@ -27611,17 +27600,6 @@ fsevents@~2.1.2:
   peerDependencies:
     postcss: ^8.2
   checksum: 7810c439d8d1a9072c00f8ab39261a1492873ad170425745bd2819c59767db2f352f906588fc2a7d814e91117900563d7e569ecd640367c7332b26b9829927ef
-  languageName: node
-  linkType: hard
-
-"postcss-dir-pseudo-class@npm:~6.0.4":
-  version: 6.0.4
-  resolution: "postcss-dir-pseudo-class@npm:6.0.4"
-  dependencies:
-    postcss-selector-parser: ^6.0.9
-  peerDependencies:
-    postcss: ^8.4
-  checksum: e493e6ed54c50b8b1bda1a0cde55fc2dec04d22983e5af178090ff592854a29866c1c255637cb047b2b40c18e6ef15c1aa45aa354735f79a7709e9add5ea2e3e
   languageName: node
   linkType: hard
 
@@ -28576,12 +28554,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"postcss-scss@npm:~4.0.3":
-  version: 4.0.3
-  resolution: "postcss-scss@npm:4.0.3"
+"postcss-scss@npm:~4.0.4":
+  version: 4.0.4
+  resolution: "postcss-scss@npm:4.0.4"
   peerDependencies:
     postcss: ^8.3.3
-  checksum: d11110376ce2dcf624426d9edfb49d794d4f628aa4253849e841047761563ac2fe6e79a98aa46f8ed7f687cedd8c475a0956fa5e9e6802f8448ccd6538955b48
+  checksum: b4f240dd5eeb0c21738b673d9caf9a06b9a6db665a5b1c815ee4ca10c4c74a67c54f11cd5a4970dea98475cbb9e6d846e05dd3e48924189c2ecbf1f50cd44aa4
   languageName: node
   linkType: hard
 
@@ -28762,7 +28740,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.3.11, postcss@npm:^8.4.5, postcss@npm:^8.4.6, postcss@npm:~8.4.6":
+"postcss@npm:^8.3.11, postcss@npm:^8.4.5, postcss@npm:^8.4.6":
   version: 8.4.6
   resolution: "postcss@npm:8.4.6"
   dependencies:
@@ -28770,6 +28748,17 @@ fsevents@~2.1.2:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 60e7808f39c4a9d0fa067bfd5eb906168c4eb6d3ff0093f7d314d1979b001a16363deedccd368a7df869c63ad4ae350d27da439c94ff3fb0f8fc93d49fe38a90
+  languageName: node
+  linkType: hard
+
+"postcss@npm:~8.4.16":
+  version: 8.4.16
+  resolution: "postcss@npm:8.4.16"
+  dependencies:
+    nanoid: ^3.3.4
+    picocolors: ^1.0.0
+    source-map-js: ^1.0.2
+  checksum: 10eee25efd77868036403858577da0cefaf2e0905feeaba5770d5438ccdddba3d01cba8063e96b8aac4c6daa0ed413dd5ae0554a433a3c4db38df1d134cffc1f
   languageName: node
   linkType: hard
 
