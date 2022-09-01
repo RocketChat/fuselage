@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.18](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.17...v0.31.18) (2022-09-01)
+
+### Bug Fixes
+
+- **fuselage:** `StatusBullet` styles ([#841](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/841)) ([1963f2e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1963f2e0c79758e9e260fbde7a2ece78083f20d9))
+
 ### [0.31.17](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.16...v0.31.17) (2022-08-31)
 
 ### Features
