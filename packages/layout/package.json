@@ -36,8 +36,9 @@
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "bump-next": "bump-next",
-    "docs": "typedoc",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "docs": "build-storybook -o ../../static/layout",
+    "build-storybook": "build-storybook"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
