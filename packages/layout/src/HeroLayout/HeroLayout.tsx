@@ -3,6 +3,8 @@ import type { ReactElement, ReactNode } from 'react';
 
 import BackgroundLayer from '../BackgroundLayer';
 import { LayoutLogo } from '../LayoutLogo';
+import type { LayoutContextValue } from '../contexts/LayoutContext';
+import { LayoutContext } from '../contexts/LayoutContext';
 
 export const HeroLayoutTitle = ({
   children,
@@ -18,25 +20,28 @@ export const HeroLayoutSubtitle = ({
 
 export const HeroLayout = ({
   children,
-}: {
+  ...rest
+}: LayoutContextValue & {
   children: ReactNode;
 }): ReactElement => (
-  <BackgroundLayer>
-    <Box
-      display='flex'
-      flexDirection='column'
-      alignItems='center'
-      textAlign='center'
-      width='100%'
-      maxWidth={576}
-      paddingBlock={32}
-      paddingInline={16}
-    >
-      <Margins blockEnd={32}>
-        <LayoutLogo />
+  <LayoutContext.Provider value={{ ...rest }}>
+    <BackgroundLayer>
+      <Box
+        display='flex'
+        flexDirection='column'
+        alignItems='center'
+        textAlign='center'
+        width='100%'
+        maxWidth={576}
+        paddingBlock={32}
+        paddingInline={16}
+      >
+        <Margins blockEnd={32}>
+          <LayoutLogo />
 
-        {children}
-      </Margins>
-    </Box>
-  </BackgroundLayer>
+          {children}
+        </Margins>
+      </Box>
+    </BackgroundLayer>
+  </LayoutContext.Provider>
 );

@@ -3,6 +3,8 @@ import type { ReactElement, ReactNode } from 'react';
 
 import BackgroundLayer from '../BackgroundLayer';
 import { LayoutLogo } from '../LayoutLogo';
+import type { LayoutContextValue } from '../contexts/LayoutContext';
+import { LayoutContext } from '../contexts/LayoutContext';
 
 export const VerticalWizardLayoutTitle = ({
   children,
@@ -43,24 +45,27 @@ export const VerticalWizardLayoutFooter = ({
 
 export const VerticalWizardLayout = ({
   children,
-}: {
+  ...rest
+}: LayoutContextValue & {
   children: ReactNode;
 }): ReactElement => (
-  <BackgroundLayer>
-    <Box
-      display='flex'
-      flexDirection='column'
-      alignItems='center'
-      textAlign='center'
-      width='100%'
-      maxWidth={576}
-      pb={32}
-      pi={16}
-    >
-      <Box mb='x12'>
-        <LayoutLogo />
+  <LayoutContext.Provider value={{ ...rest }}>
+    <BackgroundLayer>
+      <Box
+        display='flex'
+        flexDirection='column'
+        alignItems='center'
+        textAlign='center'
+        width='100%'
+        maxWidth={576}
+        pb={32}
+        pi={16}
+      >
+        <Box mb='x12'>
+          <LayoutLogo />
+        </Box>
+        {children}
       </Box>
-      {children}
-    </Box>
-  </BackgroundLayer>
+    </BackgroundLayer>
+  </LayoutContext.Provider>
 );
