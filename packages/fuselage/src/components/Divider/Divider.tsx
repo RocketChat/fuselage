@@ -6,14 +6,16 @@ import Box from '../Box';
 type DividerProps = ComponentProps<typeof Box> & {
   variation?: 'danger';
   children?: ReactNode;
+  vertical?: boolean;
 };
 
-const Divider = ({ variation, children, ...props }: DividerProps) => {
+const Divider = ({ variation, children, vertical, ...props }: DividerProps) => {
   if (!children) {
     return (
       <Box
         is='hr'
         rcx-divider
+        rcx-divider--vertical={vertical}
         rcx-divider--danger={variation === 'danger'}
         {...props}
       />

@@ -33,4 +33,11 @@ $divider-color: theme('divider-color', colors.stroke(extra-light));
     margin-block: lengths.margin(8);
     padding-inline: lengths.padding(8);
   }
+
+  &--vertical {
+    width: 0;
+    height: lengths.size(20);
+    margin-block: 0;
+    margin-inline: lengths.margin(8);
+  }
 }
