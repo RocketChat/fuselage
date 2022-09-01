@@ -1,14 +1,36 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
 
+$divider-size: theme('divider-size', lengths.border-width(1));
 $divider-color: theme('divider-color', colors.stroke(extra-light));
 
 .rcx-divider {
   margin-block: lengths.margin(8);
 
-  border: lengths.border-width(1) solid $divider-color;
+  border: $divider-size solid $divider-color;
 
   &--danger {
     border-color: colors.stroke(danger);
+  }
+
+  &__bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+
+    &::after {
+      flex-grow: 1;
+
+      content: '';
+
+      border: $divider-size solid $divider-color;
+    }
+  }
+
+  &__wrapper {
+    margin-block: lengths.margin(8);
+    padding-inline: lengths.padding(8);
   }
 }
