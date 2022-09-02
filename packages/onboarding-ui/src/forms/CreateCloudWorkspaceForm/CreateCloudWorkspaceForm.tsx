@@ -70,7 +70,9 @@ const CreateCloudWorkspaceForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
+      <Form.Header>
+        <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
+      </Form.Header>
 
       <FieldGroup mbs='x16'>
         <Field>
@@ -213,7 +215,7 @@ const CreateCloudWorkspaceForm = ({
                 </a>
                 and
                 <a
-                  href='https://rocket.chat/policy'
+                  href='https://rocket.chat/privacy'
                   target='_blank'
                   rel='noopener noreferrer'
                 >

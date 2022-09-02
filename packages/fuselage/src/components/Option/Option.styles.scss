@@ -26,7 +26,7 @@ $variants: (
   color: colors.font(default);
 
   &__title {
-    @include typography.use-font-scale(c1);
+    @include typography.use-font-scale(c2);
 
     padding-block-start: lengths.padding(8);
     padding-block-end: lengths.padding(4);

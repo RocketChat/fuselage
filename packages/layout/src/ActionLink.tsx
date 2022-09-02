@@ -19,8 +19,7 @@ const ActionLink = ({
   children,
   href = '#',
   onClick,
-  fontScale = 'c2',
-  fontWeight,
+  ...props
 }: ActionLinkProps): ReactElement => {
   const handleClick = useCallback(
     (event: MouseEvent<HTMLAnchorElement>) => {
@@ -32,9 +31,9 @@ const ActionLink = ({
 
   return (
     <Box
+      {...props}
       is='a'
-      fontScale={fontScale}
-      fontWeight={fontWeight}
+      fontScale={'p2'}
       href={href}
       color='primary-500'
       mi='x4'
