@@ -45,6 +45,7 @@ jobs:
           path: |
             packages/fuselage/storybook-static
             packages/fuselage-ui-kit/storybook-static
+            packages/layout/storybook-static
             packages/onboarding-ui/storybook-static
             packages/uikit-playground/build
       - if: github.ref == 'refs/heads/master'

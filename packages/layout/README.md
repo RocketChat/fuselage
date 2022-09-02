@@ -8,7 +8,7 @@
 
 # `@rocket.chat/layout`
 
-> layout
+> Shared Application Layout Components
 
 ---
 
