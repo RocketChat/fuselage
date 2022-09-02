@@ -7402,7 +7402,7 @@ __metadata:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/onboarding-ui": "workspace:~"
+    "@rocket.chat/layout": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
     "@storybook/addon-essentials": ~6.4.18
@@ -7768,7 +7768,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui, @rocket.chat/onboarding-ui@workspace:~":
+"@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
   dependencies:
