@@ -25,7 +25,7 @@ $-map-type-to-prefix: (
       math.div($grade, 100) >=
       1 and
       math.div($grade, 100) <=
-      9
+      10
   )
   {
     @error 'invalid color grade';
@@ -101,88 +101,62 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-$-foreground-colors: (
-  default: map.get(token-colors.$colors, n800),
-  info: map.get(token-colors.$colors, n700),
-  hint: map.get(token-colors.$colors, n600),
-  disabled: map.get(token-colors.$colors, n400),
-  alternative: white,
-  primary: map.get(token-colors.$colors, p500),
-  success: map.get(token-colors.$colors, s500),
-  success-light: map.get(token-colors.$colors, s200),
-  danger: map.get(token-colors.$colors, d500),
-  warning: map.get(token-colors.$colors, w700),
-  warning-alternative: map.get(token-colors.$colors, w500),
-  highlight: map.get(token-colors.$colors, w100),
-  link: map.get(token-colors.$colors, p500),
-  visited-link: map.get(token-colors.$colors, s2-500),
-  active-link: map.get(token-colors.$colors, d500),
-);
-
-@function _get-foreground-color($type) {
-  @if not map.has-key($-foreground-colors, $type) {
-    @error 'invalid foreground type';
-  }
-
-  $color: map.get($-foreground-colors, $type);
-
-  @return (--rcx-color-foreground-#{$type}, $color);
-}
-
-@function foreground($type) {
-  $pair: _get-foreground-color($type);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-$foreground-types: map-keys($-foreground-colors);
-
 $-surfaces: (
   light: white,
   tint: neutral(100),
   neutral: neutral(400),
   disabled: neutral(100),
   hover: neutral(400),
-  info: info(200),
+);
+
+@function surface($type) {
+  $color: map.get($-surfaces, $type);
+  @return var(--rcx-color-surface-#{$type}, $color);
+}
+
+$-font: (
+  white: white,
+  disabled: neutral(500),
+  annotation: neutral(600),
+  hint: neutral(700),
+  secondary-info: neutral(700),
+  default: neutral(800),
+  titles-labels: neutral(900),
+  info: primary(600),
+  danger: danger(600),
+);
+
+@function font($type) {
+  $color: map.get($-font, $type);
+  @return var(--rcx-font-#{$type}, $color);
+}
+
+$-status-backgrounds: (
   success: success(200),
   warning: warning(200),
   danger: danger(200),
   service-1: service-1(200),
   service-2: service-2(200),
+  info: primary(200),
 );
 
-@function surface($type) {
-  $color: map.get($-surfaces, $type);
-  @return var(--rcx-color-surface, $color);
+@function status-background($type) {
+  $color: map.get($-status-backgrounds, $type);
+  @return var(--rcx-status-background-#{$type}, $color);
 }
 
-$-text: (
-  white: white,
-  disabled: neutral(500),
-  annotation: neutral(600),
-  hint: neutral(700),
-  default: neutral(800),
-  titles-labels: neutral(900),
-  danger: danger(600),
-  secondary-info: neutral(700),
-  on-info: info(600),
+$-status-fonts: (
   on-success: success(800),
   on-warning: warning(900),
   on-danger: danger(800),
   on-service-1: service-1(800),
   on-service-2: service-2(600),
+  on-info: primary(600),
 );
 
-@function text($type) {
-  @return map.get($-text, $type);
-}
-
-$-backgrounds: (
-  light: white,
-  tint: neutral(100),
-);
-
-@function background($type) {
-  @return map.get($-backgrounds, $type);
+@function status-font($type) {
+  $color: map.get($-status-fonts, $type);
+  @return var(--rcx-status-fonts-#{$type}, $color);
 }
 
 $-strokes: (
@@ -195,76 +169,111 @@ $-strokes: (
   highlight: primary(500),
   extra-light-error: danger(200),
   error: danger(500),
-  warning: warning(200),
-  success: success(200),
 );
 
 @function stroke($type) {
-  @return map.get($-strokes, $type);
+  $color: map.get($-strokes, $type);
+  @return var(--rcx-stroke-#{$type}, $color);
 }
 
-$-buttons: (
-  primary: primary(500),
-  secondary: neutral(400),
-  danger: danger(500),
-  secondary-danger: neutral(400),
-  warning: warning(400),
-  secondary-warning: neutral(400),
-  success: success(500),
-  secondary-success: neutral(400),
-  hover-primary: primary(600),
-  hover-secondary: neutral(500),
-  hover-danger: danger(600),
-  hover-secondary-danger: neutral(500),
-  hover-warning: warning(500),
-  hover-secondary-warning: neutral(500),
-  hover-success: success(600),
-  hover-secondary-success: neutral(500),
-  press-primary: primary(700),
-  press-secondary: neutral(600),
-  press-danger: danger(700),
-  press-secondary-danger: neutral(600),
-  press-warning: warning(600),
-  press-secondary-warning: neutral(600),
-  press-success: success(700),
-  press-secondary-success: neutral(600),
-  focus-primary: primary(500),
-  focus-secondary: neutral(400),
-  focus-danger: danger(500),
-  focus-secondary-danger: neutral(400),
-  focus-warning: warning(400),
-  focus-secondary-warning: neutral(400),
-  focus-success: success(500),
-  focus-secondary-success: neutral(400),
-  keyfocus-primary: primary(500),
-  keyfocus-secondary: neutral(400),
-  keyfocus-danger: danger(500),
-  keyfocus-secondary-danger: neutral(400),
-  keyfocus-warning: warning(400),
-  keyfocus-secondary-warning: neutral(400),
-  keyfocus-success: success(500),
-  keyfocus-secondary-success: neutral(400),
-  disabled-primary: primary(200),
-  disabled-secondary: neutral(300),
-  disabled-danger: danger(200),
-  disabled-secondary-danger: neutral(300),
-  disabled-warning: warning(200),
-  disabled-secondary-warning: neutral(300),
-  disabled-success: success(200),
-  disabled-secondary-success: neutral(300),
+$-button-backgrounds: (
+  // primary
+  primary-default: primary(500),
+  primary-hover: primary(600),
+  primary-press: primary(700),
+  primary-focus: primary(500),
+  primary-keyfocus: primary(500),
+  primary-disabled: primary(200),
+  // secondary
+  secondary-default: neutral(400),
+  secondary-hover: neutral(500),
+  secondary-press: neutral(600),
+  secondary-focus: neutral(400),
+  secondary-keyfocus: neutral(400),
+  secondary-disabled: neutral(300),
+  // danger
+  danger-default: danger(500),
+  danger-hover: danger(600),
+  danger-press: danger(700),
+  danger-focus: danger(500),
+  danger-keyfocus: danger(500),
+  danger-disabled: danger(200),
+  // secondary-danger
+  secondary-danger-default: neutral(400),
+  secondary-danger-hover: neutral(500),
+  secondary-danger-press: neutral(600),
+  secondary-danger-focus: neutral(400),
+  secondary-danger-keyfocus: neutral(400),
+  secondary-danger-disabled: neutral(300),
+  // warning
+  warning-default: warning(400),
+  warning-hover: warning(500),
+  warning-press: warning(600),
+  warning-focus: warning(400),
+  warning-keyfocus: warning(400),
+  warning-disabled: warning(200),
+  // secondary-warning
+  secondary-warning-default: neutral(400),
+  secondary-warning-hover: neutral(500),
+  secondary-warning-press: neutral(600),
+  secondary-warning-focus: neutral(400),
+  secondary-warning-keyfocus: neutral(400),
+  secondary-warning-disabled: neutral(300),
+  // success
+  success-default: success(800),
+  success-hover: success(900),
+  success-press: success(1000),
+  success-focus: success(800),
+  success-keyfocus: success(800),
+  success-disabled: success(200),
+  // secondary-success
+  secondary-success-default: neutral(400),
+  secondary-success-hover: neutral(500),
+  secondary-success-press: neutral(600),
+  secondary-success-focus: neutral(400),
+  secondary-success-keyfocus: neutral(400),
+  secondary-success-disabled: neutral(300)
+);
+
+$-button-fonts: (
+  // primary
   on-primary: white,
+  on-primary-disabled: white,
+  // secondary
   on-secondary: neutral(900),
+  on-secondary-disabled: neutral(500),
+  // danger
   on-danger: white,
+  on-danger-disabled: white,
+  // secondary-danger
   on-secondary-danger: danger(700),
+  on-secondary-danger-disabled: danger(300),
+  // warning
   on-warning: neutral(900),
+  on-warning-disabled: neutral(600),
+  // secondary-warning
   on-secondary-warning: warning(900),
-  on-success: neutral(900),
-  on-secondary-success: success(600),
-  on-disabled: neutral(600),
+  on-secondary-warning-disabled: warning(600),
+  // success
+  on-success: white,
+  on-success-disabled: white,
+  // secondary-success
+  on-secondary-success: success(800),
+  on-secondary-success-disabled: success(400),
+  // disabled
+  on-disabled: neutral(600)
 );
 
 @function button($type) {
-  @return map.get($-buttons, $type);
+  @if (map.get($-button-backgrounds, $type)) {
+    $background: map.get($-button-backgrounds, $type);
+    @return var(--rcx-color-button-background-#{$type}, $background);
+  }
+  @if map.get($-button-fonts, $type) {
+    $foreground: map.get($-button-fonts, $type);
+    @return var(--rcx-color-button-font-#{$type}, $foreground);
+  }
+  @error "Unknown button type #{$type}.";
 }
 
 $-neutral-alpha-level: (

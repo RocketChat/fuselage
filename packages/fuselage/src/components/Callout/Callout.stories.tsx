@@ -11,6 +11,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Callout } from '../..';
+import { setStoryDescription } from '../../helpers/setStoryDescription';
 
 export default {
   title: 'Feedback/Callout',
@@ -36,36 +37,45 @@ export default {
 } as ComponentMeta<typeof Callout>;
 
 const Template: ComponentStory<typeof Callout> = (args) => (
-  <>
-    <Callout title='This is a generic message'>{args.children}</Callout>
-    <Callout title='This is a info message' type='info'>
-      {args.children}
-    </Callout>
-    <Callout title='This is a successful message' type='success'>
-      {args.children}
-    </Callout>
-    <Callout title='This is a warning message' type='warning'>
-      {args.children}
-    </Callout>
-    <Callout title='This is a danger message' type='danger'>
-      {args.children}
-    </Callout>
-  </>
+  <Callout {...args}>This is a generic description.</Callout>
 );
 
 export const Default = Template.bind({});
-
-export const WithDescription = Template.bind({});
-WithDescription.args = {
-  children: 'This is a generic description.',
+Default.args = {
+  title: 'This is a generic title',
 };
 
-export const WithDescriptionOnly = () => (
-  <>
-    <Callout>This is a generic description.</Callout>
-    <Callout type='info'>This is a generic description.</Callout>
-    <Callout type='success'>This is a successful description.</Callout>
-    <Callout type='warning'>This is a warning description.</Callout>
-    <Callout type='danger'>This is a danger description.</Callout>
-  </>
+export const WithDescriptionOnly = Template.bind({});
+
+export const Info = Template.bind({});
+Info.args = {
+  type: 'info',
+  title: 'This is a info message',
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  type: 'success',
+  title: 'This is a success message',
+};
+Success.parameters = setStoryDescription(
+  'Communicates that an important aspect of the system is working as expected.'
+);
+
+export const Warning = Template.bind({});
+Warning.args = {
+  type: 'warning',
+  title: 'This is a warning message',
+};
+Warning.parameters = setStoryDescription(
+  'Communicates that an important aspect of the system needs attention.'
+);
+
+export const Danger = Template.bind({});
+Danger.args = {
+  type: 'danger',
+  title: 'This is a danger message',
+};
+Danger.parameters = setStoryDescription(
+  'Communicates that an important aspect of the system is not working as expected and requires urgent action.'
 );

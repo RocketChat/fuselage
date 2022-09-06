@@ -1,0 +1,13 @@
+{
+  "font": {
+    "white": { "value": "{colors.white}" },
+    "disabled": { "value": "{colors.n500}" },
+    "annotation": { "value": "{colors.n600}" },
+    "hint": { "value": "{colors.n700}" },
+    "secondaryInfo": { "value": "{colors.n700}" },
+    "default": { "value": "{colors.n800}" },
+    "titlesLabels": { "value": "{colors.n900}" },
+    "info": { "value": "{colors.i600}" },
+    "danger": { "value": "{colors.d600}" }
+  }
+}

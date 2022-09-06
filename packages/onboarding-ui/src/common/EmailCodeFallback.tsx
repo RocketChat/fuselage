@@ -1,8 +1,7 @@
 import { Box } from '@rocket.chat/fuselage';
+import { ActionLink } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { Trans } from 'react-i18next';
-
-import ActionLink from './ActionLink';
 
 type EmailCodeFallbackProps = {
   onResendEmailRequest: () => void;

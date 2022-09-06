@@ -5,7 +5,7 @@ import React, { createRef } from 'react';
 
 import { OptionsPaginated, CheckOption } from '.';
 import { Box } from '..';
-import Option from '../Options/Option/Option';
+import Option from '../Option';
 // ComponentProps<typeof Option.Icon>['name']
 const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
   length: 90,

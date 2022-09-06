@@ -8,8 +8,6 @@
     "extraLightHighlight": { "value": "{colors.p200}" },
     "highlight": { "value": "{colors.p500}" },
     "extraLightError": { "value": "{colors.d200}" },
-    "error": { "value": "{colors.d500}" },
-    "warning": { "value": "{colors.w200}" },
-    "success": { "value": "{colors.s200}" }
+    "error": { "value": "{colors.d500}" }
   }
 }
