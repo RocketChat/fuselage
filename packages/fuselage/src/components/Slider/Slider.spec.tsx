@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { composeStories } from '@storybook/testing-react';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
 import * as stories from './Slider.stories';
@@ -38,10 +37,11 @@ describe('[Slider Component]', () => {
 
     const slider = screen.getByRole<HTMLFormElement>('slider');
 
-    userEvent.tab();
-    userEvent.type(slider, '{arrowright}{arrowright}{arrowright}{arrowright}', {
-      skipClick: true,
-    });
+    slider.focus();
+    fireEvent.keyDown(slider, { key: 'ArrowRight' });
+    fireEvent.keyDown(slider, { key: 'ArrowRight' });
+    fireEvent.keyDown(slider, { key: 'ArrowRight' });
+    fireEvent.keyDown(slider, { key: 'ArrowRight' });
 
     expect(slider.value).toBe('4');
   });
