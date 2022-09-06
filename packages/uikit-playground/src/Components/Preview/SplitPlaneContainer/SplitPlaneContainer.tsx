@@ -8,8 +8,8 @@ import Display from '../Display';
 import EditorPanel from '../Editor';
 
 type PreviewSizeType = {
-  blockSize: number;
-  inlineSize: number;
+  blockSize: number,
+  inlineSize: number,
 };
 const SplitPlaneContainer: FC<{ PreviewSize: PreviewSizeType }> = ({
   PreviewSize,

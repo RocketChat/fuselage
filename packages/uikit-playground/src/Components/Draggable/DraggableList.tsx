@@ -6,14 +6,14 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import DraggableListItem from './DraggableListItem';
 
 export type Block = {
-  id: string;
-  payload: LayoutBlock;
+  id: string,
+  payload: LayoutBlock,
 };
 
 export type DraggableListProps = {
-  blocks: Block[];
-  surface?: number;
-  onDragEnd: OnDragEndResponder;
+  blocks: Block[],
+  surface?: number,
+  onDragEnd: OnDragEndResponder,
 };
 
 const DraggableList = React.memo(

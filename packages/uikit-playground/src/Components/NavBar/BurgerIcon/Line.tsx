@@ -7,8 +7,8 @@ const Line = ({
   animated,
   moved,
 }: {
-  animated: boolean;
-  moved?: boolean;
+  animated: boolean,
+  moved?: boolean,
 }): ReactElement => {
   const animatedStyle = animated
     ? css`

@@ -5,7 +5,7 @@ import Items from './Items';
 import type { Item, ItemBranch } from './types';
 
 interface DropDownProps {
-  readonly BlocksTree: Item;
+  readonly BlocksTree: Item,
 }
 
 const DropDown = ({ BlocksTree }: DropDownProps) => {
