@@ -138,6 +138,7 @@ const getForegroundColor = (
 const paletteColorRegex =
   /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
+const cssSupportsVariable = cssSupports('(--foo: bar)');
 export const color = memoize((value) => {
   if (typeof value !== 'string') {
     return;
@@ -159,25 +160,40 @@ export const color = memoize((value) => {
 
     const [customProperty, color] = getPaletteColor(type, grade, alpha);
 
-    if (customProperty && cssSupports('(--foo: bar)')) {
+    if (customProperty && cssSupportsVariable) {
       return `var(${customProperty}, ${color})`;
     }
 
     return color;
   }
 
-  if (value === 'surface') {
-    if (cssSupports('(--foo: bar)')) {
-      return 'var(--rcx-color-surface, white)';
+  if (value === 'surface' || value === 'surface-light') {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-surface-light, ${tokenColors.white})`;
     }
 
-    return 'white';
+    return tokenColors.white;
+  }
+
+  if (value === 'surface-tint') {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-surface-tint, ${tokenColors.n100})`;
+    }
+
+    return tokenColors.n100;
+  }
+
+  if (value === 'surface-neutral') {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-surface-neutral, ${tokenColors.n400})`;
+    }
+    return tokenColors.n400;
   }
 
   if (isForegroundColorRef(value)) {
     const [customProperty, color] = getForegroundColor(value);
 
-    if (customProperty && cssSupports('(--foo: bar)')) {
+    if (customProperty && cssSupportsVariable) {
       return `var(${customProperty}, ${color})`;
     }
 
@@ -237,7 +253,7 @@ export const fontFamily = memoize((value: unknown): string | undefined => {
     .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))
     .join(', ');
 
-  if (cssSupports('(--foo: bar)')) {
+  if (cssSupportsVariable) {
     return `var(--rcx-font-family-${value}, ${fontFamily})`;
   }
 
