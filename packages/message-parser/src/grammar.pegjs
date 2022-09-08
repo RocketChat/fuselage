@@ -476,7 +476,7 @@ urlAuthorityHostName
 urlAuthorityPort
   = digits // TODO: from "0" to "65535"
 
-urlPath = $("/" $(!"?" !"/" !"#" !")" !">" !"|" .)* urlPath*)
+urlPath = $("/" $(!"?" !"/" !"#" !")" !">" !"|" !" " .)* urlPath*)
 
 urlQuery = $("?" $(alpha_digit / safe)*)
 

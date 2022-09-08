@@ -76,6 +76,45 @@ test.each([
       ]),
     ],
   ],
+  [
+    'https://developer.rocket.chat/reference/api/rest-api look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat/reference/api/rest-api'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+
+  [
+    'https://developer.rocket.chat/reference/api/rest-api#fragment?query=query look at this',
+    [
+      paragraph([
+        link(
+          'https://developer.rocket.chat/reference/api/rest-api#fragment?query=query'
+        ),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat?query=query'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
