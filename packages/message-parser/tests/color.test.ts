@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { color, paragraph, plain } from '../src/utils';
 
 test.each([
@@ -26,9 +26,9 @@ test.each([
   ['color:#c7', [paragraph([plain('color:#c7')])], undefined],
   ['color:#zzz', [paragraph([plain('color:#zzz')])], undefined],
 ])('parses %p', (input, output, disabledOutput) => {
-  expect(parser(input, { colors: true })).toMatchObject(output);
+  expect(parse(input, { colors: true })).toMatchObject(output);
 
   if (disabledOutput) {
-    expect(parser(input, { colors: false })).toMatchObject(disabledOutput);
+    expect(parse(input, { colors: false })).toMatchObject(disabledOutput);
   }
 });

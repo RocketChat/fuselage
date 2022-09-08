@@ -12,12 +12,10 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
     children,
     reference,
     placement = 'bottom-start',
-    width,
   }: {
     reference: RefObject<T>;
     placement?: Parameters<typeof usePosition>[2]['placement'];
     children: ReactNode;
-    width?: number;
   },
   ref: Ref<R>
 ) {
@@ -33,10 +31,10 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
       display='flex'
       flexDirection='column'
       overflow='auto'
-      width={width}
+      data-testid='dropdown'
     >
-      <Box flexShrink={1}>
-        {(style as any).visibility === 'hidden' ? null : children}
+      <Box flexShrink={1} pb='x12'>
+        {children}
       </Box>
     </Tile>
   );

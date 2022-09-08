@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { emoji, bigEmoji, paragraph, plain, emojiUnicode } from '../src/utils';
 
 test.each([
@@ -14,12 +14,14 @@ test.each([
     [paragraph([plain('asdas '), emoji('smille'), plain(' asd')])],
   ],
   [
-    'normal emojis :smile::smile::smile:',
+    'normal emojis :smile: :smile: :smile:',
     [
       paragraph([
         plain('normal emojis '),
         emoji('smile'),
+        plain(' '),
         emoji('smile'),
+        plain(' '),
         emoji('smile'),
       ]),
     ],
@@ -43,7 +45,7 @@ test.each([
   [':smile::smile:', [bigEmoji([emoji('smile'), emoji('smile')])]],
   [':smile:', [bigEmoji([emoji('smile')])]],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });
 
 test.each([
@@ -80,5 +82,5 @@ test.each([
   ],
   ['👆🏺', [bigEmoji([emojiUnicode('👆'), emojiUnicode('🏺')])]],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });

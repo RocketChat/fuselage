@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { link, paragraph, plain } from '../src/utils';
 
 test.each([
@@ -64,21 +64,20 @@ test.each([
     'https://www.thingiverse.com/thing:5451684',
     [paragraph([link('https://www.thingiverse.com/thing:5451684')])],
   ],
-  [
-    'http://📙.la/❤️',
-    [paragraph([link('http://📙.la/❤️')])],
-  ],
+  ['http://📙.la/❤️', [paragraph([link('http://📙.la/❤️')])]],
   [
     'https://developer.rocket.chat/reference/api/rest-api#production-security-concerns look at this',
     [
       paragraph([
-        link('https://developer.rocket.chat/reference/api/rest-api#production-security-concerns'),
+        link(
+          'https://developer.rocket.chat/reference/api/rest-api#production-security-concerns'
+        ),
         plain('look at this'),
       ]),
     ],
   ],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });
 
 describe('link helper function', () => {

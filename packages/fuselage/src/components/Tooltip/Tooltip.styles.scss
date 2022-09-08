@@ -74,7 +74,10 @@ $tooltip-text-color: functions.theme(
 
   color: $tooltip-text-color;
 
-  border-radius: theme('tooltip-border-radius', lengths.border-radius(medium));
+  border-radius: functions.theme(
+    'tooltip-border-radius',
+    lengths.border-radius(medium)
+  );
 
   background-color: $tooltip-background-color;
 

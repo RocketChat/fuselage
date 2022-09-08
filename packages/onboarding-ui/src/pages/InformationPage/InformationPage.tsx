@@ -1,8 +1,9 @@
-import { Box, Margins } from '@rocket.chat/fuselage';
+import {
+  HeroLayout,
+  HeroLayoutSubtitle,
+  HeroLayoutTitle,
+} from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
-
-import BackgroundLayer from '../../common/BackgroundLayer';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type InformationPageProps = {
   title: string;
@@ -13,26 +14,10 @@ const InformationPage = ({
   title,
   description,
 }: InformationPageProps): ReactElement => (
-  <BackgroundLayer>
-    <Box
-      display='flex'
-      flexDirection='column'
-      alignItems='center'
-      textAlign='center'
-      width='100%'
-      maxWidth={624}
-      paddingBlock={32}
-      paddingInline={16}
-    >
-      <Margins blockEnd={32}>
-        <OnboardingLogo />
-
-        <Box fontScale='hero'>{title}</Box>
-
-        {description && <Box fontScale='p1'>{description}</Box>}
-      </Margins>
-    </Box>
-  </BackgroundLayer>
+  <HeroLayout>
+    <HeroLayoutTitle>{title}</HeroLayoutTitle>
+    {description && <HeroLayoutSubtitle>{description}</HeroLayoutSubtitle>}
+  </HeroLayout>
 );
 
 export default InformationPage;

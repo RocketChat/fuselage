@@ -9,13 +9,13 @@ import React, { useState, useRef, useCallback, forwardRef, memo } from 'react';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import Chip from '../Chip';
-import { Dropdown } from '../Dropdown';
 import Flex from '../Flex';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
+import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
@@ -60,13 +60,13 @@ export const PaginatedMultiSelect = ({
   );
 
   const internalChanged = ([value]: PaginatedMultiSelecOption[]) => {
-    const valueAlreadySelected = currentValue.some(
-      (item: PaginatedMultiSelecOption) => item === value
-    );
-
-    if (valueAlreadySelected) {
+    if (
+      currentValue.some(
+        (item: PaginatedMultiSelecOption) => item.value === value.value
+      )
+    ) {
       const newValue = currentValue.filter(
-        (item: PaginatedMultiSelecOption) => item !== value
+        (item: PaginatedMultiSelecOption) => item.value !== value.value
       );
       setInternalValue(newValue);
       return onChange(newValue);
@@ -90,7 +90,6 @@ export const PaginatedMultiSelect = ({
       return show();
     }
   });
-
   return (
     <Box
       is='div'
@@ -175,25 +174,21 @@ export const PaginatedMultiSelect = ({
           />
         </Margins>
       </Flex.Item>
-      <Dropdown
-        ref={ref}
-        reference={containerRef}
-        visible={visible === 'visible'}
-        onShow={show}
-        onClose={hide}
-      >
-        <_Options
-          {...(withTitle && { title: withTitle })}
-          width={borderBoxSize.inlineSize}
-          onMouseDown={prevent}
-          multiple
-          filter={filter}
-          role='listbox'
-          options={options}
-          onSelect={internalChanged}
-          endReached={endReached}
-        />
-      </Dropdown>
+      <AnimatedVisibility visibility={visible}>
+        <Position anchor={containerRef}>
+          <_Options
+            {...(withTitle && { title: withTitle })}
+            width={borderBoxSize.inlineSize}
+            onMouseDown={prevent}
+            multiple
+            filter={filter}
+            role='listbox'
+            options={options}
+            onSelect={internalChanged}
+            endReached={endReached}
+          />
+        </Position>
+      </AnimatedVisibility>
     </Box>
   );
 };

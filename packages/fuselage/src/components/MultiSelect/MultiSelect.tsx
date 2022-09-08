@@ -17,11 +17,12 @@ import type { SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
-import { Dropdown } from '../Dropdown';
 import Flex from '../Flex';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
-import { Options, CheckOption, useCursor } from '../Options';
+import { CheckOption } from '../Option';
+import { Options, useCursor } from '../Options';
+import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import MultiSelectAnchor from './MultiSelectAnchor';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
@@ -125,8 +126,7 @@ export const MultiSelect = forwardRef(
     const innerRef = useRef<HTMLElement>(null);
     const anchorRef = useMergedRefs(ref, innerRef);
 
-    const { ref: containerRef, borderBoxSize } =
-      useResizeObserver<HTMLElement>();
+    const { ref: containerRef, borderBoxSize } = useResizeObserver();
     useOutsideClick([containerRef], removeFocusClass);
 
     const renderAnchor = (params: MultiSelectAnchorParams) => {
@@ -236,26 +236,22 @@ export const MultiSelect = forwardRef(
             />
           </Margins>
         </Flex.Item>
-        <Dropdown
-          ref={ref || innerRef}
-          reference={containerRef}
-          visible={visible === 'visible'}
-          onShow={show}
-          onClose={hide}
-        >
-          <_Options
-            width={borderBoxSize.inlineSize}
-            onMouseDown={prevent}
-            multiple
-            filter={filter}
-            renderItem={renderItem || CheckOption}
-            role='listbox'
-            options={filteredOptions}
-            onSelect={internalChanged}
-            cursor={cursor}
-            customEmpty={customEmpty}
-          />
-        </Dropdown>
+        <AnimatedVisibility visibility={visible}>
+          <Position anchor={containerRef}>
+            <_Options
+              width={borderBoxSize.inlineSize}
+              onMouseDown={prevent}
+              multiple
+              filter={filter}
+              renderItem={renderItem || CheckOption}
+              role='listbox'
+              options={filteredOptions}
+              onSelect={internalChanged}
+              cursor={cursor}
+              customEmpty={customEmpty}
+            />
+          </Position>
+        </AnimatedVisibility>
       </Box>
     );
   }

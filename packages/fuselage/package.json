@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.31.16",
+  "version": "0.31.18",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -39,6 +39,7 @@
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
+    "watch": "jest --watch",
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage",
     "build-storybook": "cross-env NODE_ENV=production build-storybook",
     "bump-next": "bump-next"
@@ -58,8 +59,7 @@
     "@rocket.chat/memo": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
     "invariant": "^2.2.4",
-    "react-keyed-flatten-children": "^1.3.0",
-    "react-transition-group": "~4.4.5"
+    "react-keyed-flatten-children": "^1.3.0"
   },
   "devDependencies": {
     "@babel/core": "~7.17.2",
@@ -86,7 +86,6 @@
     "@testing-library/react": "^12.1.2",
     "@types/invariant": "^2.2.35",
     "@types/jest": "~27.4.0",
-    "@types/react-transition-group": "^4",
     "autoprefixer": "~10.4.2",
     "babel-loader": "~8.2.3",
     "bump": "workspace:~",
@@ -104,12 +103,12 @@
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "path-browserify": "^1.0.1",
-    "postcss": "~8.4.6",
-    "postcss-custom-properties": "~12.1.4",
-    "postcss-dir-pseudo-class": "~6.0.4",
+    "postcss": "~8.4.16",
+    "postcss-custom-properties": "~12.1.8",
+    "postcss-dir-pseudo-class": "~6.0.5",
     "postcss-loader": "~6.2.1",
     "postcss-logical": "~5.0.4",
-    "postcss-scss": "~4.0.3",
+    "postcss-scss": "~4.0.4",
     "postcss-svg": "~3.0.0",
     "prettier": "~2.5.1",
     "react": "^17.0.2",
