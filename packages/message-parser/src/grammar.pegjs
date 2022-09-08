@@ -27,7 +27,7 @@
     strike,
     task,
     tasks,
-    unorderedList
+    unorderedList,
   } = require('./utils');
 }
 
@@ -355,7 +355,6 @@ extra
   / ":"
   / ";"
   / ","
-  / " "
   / "("
   / ")"
   / "?"
@@ -477,7 +476,7 @@ urlAuthorityHostName
 urlAuthorityPort
   = digits // TODO: from "0" to "65535"
 
-urlPath = $("/" $(alpha_digit / safe)* urlPath*)
+urlPath = $("/" $(!"?" !"/" !"#" !")" !">" !"|" .)* urlPath*)
 
 urlQuery = $("?" $(alpha_digit / safe)*)
 

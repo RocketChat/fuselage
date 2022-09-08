@@ -72,7 +72,7 @@ test.each([
         link(
           'https://developer.rocket.chat/reference/api/rest-api#production-security-concerns'
         ),
-        plain('look at this'),
+        plain(' look at this'),
       ]),
     ],
   ],
