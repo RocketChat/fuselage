@@ -1,13 +1,12 @@
-import type { ComponentProps } from 'react';
+import type { ReactNode } from 'react';
 import React from 'react';
 
-import { ButtonGroup } from '../..';
 import { MessageBlock } from '../MessageBlock';
 
-type MessageReactionsProps = ComponentProps<typeof ButtonGroup>;
+type MessageReactionsProps = { children: ReactNode };
 
 export const MessageReactions = (props: MessageReactionsProps) => (
   <MessageBlock className='rcx-message-reactions'>
-    <ButtonGroup {...{ small: true }} {...props} />
+    <div className='rcx-message-reactions__container' {...props} />
   </MessageBlock>
 );
