@@ -7,11 +7,21 @@
 @use '../mixins.scss';
 
 .rcx-message-reactions {
+  &__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+
+    margin: lengths.margin(-2);
+  }
+
   &__reaction {
     @include button.kind-variant(buttons.$icon);
     @include typography.use-font-scale(c1);
     display: inline-flex;
     align-items: center;
+
+    margin: lengths.margin(2);
 
     padding: lengths.padding(2);
 
