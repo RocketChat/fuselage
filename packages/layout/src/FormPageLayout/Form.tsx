@@ -1,11 +1,13 @@
 import { Tile } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import type { ReactElement, FC, FormHTMLAttributes } from 'react';
+import type { ReactElement, FormHTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
 const Form = forwardRef<
   HTMLElement,
-  FC<Omit<FormHTMLAttributes<HTMLFormElement>, 'is'>>
+  Omit<FormHTMLAttributes<HTMLFormElement>, 'is'> & {
+    children: ReactNode;
+  }
 >(
   ({ ...props }, ref): ReactElement => (
     <Tile
