@@ -240,6 +240,14 @@ test.each([
     [paragraph([link('custom://google.com', plain('custom'))])],
   ],
   [
+    '[thing](https://www.thingiverse.com/thing:5451684)',
+    [
+      paragraph([
+        link('https://www.thingiverse.com/thing:5451684', plain('thing')),
+      ]),
+    ],
+  ],
+  [
     'https://t.me/joinchat/chatexample',
     [paragraph([link('https://t.me/joinchat/chatexample')])],
   ],

@@ -12,25 +12,25 @@ $variants: (
 %column {
   flex: 0 0 auto;
 
-  margin-inline: lengths.margin(2);
+  margin-inline: lengths.margin(4);
 }
 
 .rcx-option {
   @include clickable;
   @include typography.use-font-scale(p2);
 
-  padding: lengths.padding(4) lengths.padding(16);
+  padding: lengths.padding(4) lengths.padding(12);
 
   list-style: none;
 
   color: colors.font(default);
 
   &__title {
-    @include typography.use-font-scale(c1);
+    @include typography.use-font-scale(c2);
 
     padding-block-start: lengths.padding(8);
     padding-block-end: lengths.padding(4);
-    padding-inline: lengths.padding(16);
+    padding-inline: lengths.padding(12);
 
     color: colors.font(default);
   }

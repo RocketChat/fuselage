@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.18](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.17...v0.31.18) (2022-09-01)
+
+### Bug Fixes
+
+- **fuselage:** `StatusBullet` styles ([#841](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/841)) ([1963f2e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1963f2e0c79758e9e260fbde7a2ece78083f20d9))
+
+### [0.31.17](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.16...v0.31.17) (2022-08-31)
+
+### Features
+
+- **monorepo:** Layout package ([#802](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/802)) ([fc1efc0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/fc1efc0c957fa5e735f175dd3c59c62461841d53))
+- **ui-kit:** video_conf block ([#831](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/831)) ([70080e2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/70080e2ae2d32da7c2dac91062808e2239de861f))
+- **uikit-playground:** Uikit Playground ([#793](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/793)) ([8cf78e7](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8cf78e7861dc4009e5cd14216db6467df07c7fc7))
+
+### Bug Fixes
+
+- bump-next ([5a52dc6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5a52dc6ad460cf42f29c8a6775ecae34c3190806))
+- **fuselage:** `StatusBullet` not using the stylesheets ([#833](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/833)) ([b927cbe](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b927cbe3471e09327340ba027319c929c3e96535))
+- **fuselage:** Message roles size ([#788](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/788)) ([ce6273b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ce6273be1a9b47421ff9362919ff0e75bb7bf0ce))
+- **fuselage:** misaligned sidebar image ([#798](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/798)) ([d5d552c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d5d552c5570ddec2979d1d26e9c91cef45527aa3))
+- **fuselage:** Modal improves ([#776](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/776)) ([7660993](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7660993f0575961afcae023b0daf5b556da6dc1a))
+- **fuselage:** Sidebar colors ([#810](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/810)) ([112f9e2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/112f9e25dcb99d1dccb904d045aab5bac7f7cd47))
+- **fuselage:** Tooltip border-radius ([37610c1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/37610c1934e2772e3faa6a8001496166db0f81e7))
+- **fuselage:** update optionTitle component styles ([#790](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/790)) ([3a2cbb3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3a2cbb3e0ab6d28888c2186a5723d3d20f08d04b))
+- Layout imports ([b52cc67](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b52cc671ac8166fb09738ea5d7a61159c517878d))
+- **layout:** Layout peerDependencies ([b6b5bdc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b6b5bdcac20b9fb211d870ce92c356975809f560))
+- **message-parser:** Fix payload generation for custom protocols ([#799](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/799)) ([7451b58](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7451b584d36726b447eee1513394ee1d70564735))
+- **message-rewrite:** Remove emojis inside links ([#800](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/800)) ([670a5f2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/670a5f2def524d81b213d4b4e06dfe9685392fd8))
+- onboarding ui imports ([3322b10](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3322b1022dc4d4962a2687f8ed0d0defef92e55b))
+- Privacy policy broken link on New Account Form ([#834](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/834)) ([530d056](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/530d056ba19eded027f6218407211aeae73c17ac))
+- Remove italic style from system messages ([#830](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/830)) ([96df38b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/96df38b5a1e1c5a8ef8a2a5e43cb979195b06180))
+- **ui-kit:** export VideoConferenceBlock ([66b247d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/66b247d2c748156bad0c0f43e189c48efb5d21b1))
+
 ### [0.31.16](https://github.com/RocketChat/fuselage/compare/v0.31.15...v0.31.16) (2022-07-21)
 
 ### Bug Fixes

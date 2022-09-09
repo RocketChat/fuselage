@@ -50,11 +50,14 @@ const LoginForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Subtitle>
-        {!isPasswordLess
-          ? t('form.loginForm.content.default')
-          : t('form.loginForm.content.passwordLess')}
-      </Form.Subtitle>
+      <Form.Header>
+        <Form.Title>{t('form.loginForm.content.logIn')}</Form.Title>
+        <Form.Subtitle>
+          {!isPasswordLess
+            ? t('form.loginForm.content.default')
+            : t('form.loginForm.content.passwordLess')}
+        </Form.Subtitle>
+      </Form.Header>
       <Form.Container>
         <FieldGroup>
           <Field>
