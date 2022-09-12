@@ -60,6 +60,61 @@ test.each([
   ['ssh://test@test.test', [paragraph([link('ssh://test@test.test')])]],
   ['custom://test@test.test', [paragraph([link('custom://test@test.test')])]],
   ['ftp://test.com', [paragraph([link('ftp://test.com')])]],
+  [
+    'https://www.thingiverse.com/thing:5451684',
+    [paragraph([link('https://www.thingiverse.com/thing:5451684')])],
+  ],
+  ['http://📙.la/❤️', [paragraph([link('http://📙.la/❤️')])]],
+  [
+    'https://developer.rocket.chat/reference/api/rest-api#production-security-concerns look at this',
+    [
+      paragraph([
+        link(
+          'https://developer.rocket.chat/reference/api/rest-api#production-security-concerns'
+        ),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat/reference/api/rest-api look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat/reference/api/rest-api'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+
+  [
+    'https://developer.rocket.chat/reference/api/rest-api#fragment?query=query look at this',
+    [
+      paragraph([
+        link(
+          'https://developer.rocket.chat/reference/api/rest-api#fragment?query=query'
+        ),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat?query=query'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
