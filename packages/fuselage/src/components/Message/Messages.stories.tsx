@@ -728,3 +728,47 @@ export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
     </Message>
   </Box>
 );
+
+export const LotsOfReactions: ComponentStory<typeof Message> = () => (
+  <Box>
+    <MessageDivider>May, 24, 2020</MessageDivider>
+    <Message className='customclass' clickable>
+      <Message.LeftContainer>
+        <Avatar url={avatarUrl} size={'x36'} />
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.Name>Haylie George</Message.Name>
+          <Message.Username>@haylie.george</Message.Username>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <Message.Body>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam...
+        </Message.Body>
+        <MessageReactions>
+          {Array.from({ length: 100 }).map((_, index) => (
+            <MessageReactions.Reaction counter={index} mine={!(index % 3)} />
+          ))}
+          <MessageReactions.Action />
+        </MessageReactions>
+      </Message.Container>
+      <MessageToolbox.Wrapper>
+        <MessageToolbox>
+          <MessageToolbox.Item icon='quote' />
+          <MessageToolbox.Item icon='clock' />
+          <MessageToolbox.Item icon='thread' />
+        </MessageToolbox>
+      </MessageToolbox.Wrapper>
+    </Message>
+  </Box>
+);

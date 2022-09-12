@@ -39,7 +39,13 @@ export const VerticalWizardLayoutFooter = ({
 }: {
   children: ReactNode;
 }) => (
-  <Box display='flex' fontScale='p2' justifyContent='flex-end' pb='x32'>
+  <Box
+    display='flex'
+    fontScale='p2'
+    flexDirection='column'
+    justifyContent='flex-end'
+    pb='x32'
+  >
     {children}
   </Box>
 );

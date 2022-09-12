@@ -67,7 +67,7 @@ export const Title = styled('div')`
   padding-block-end: 24px;
   font-size: ${String(40 / 16)}rem;
   font-family: ${sans};
-  font-weight: 500;
+  font-weight: 800;
   line-height: ${String(42 / 16)}rem;
   text-align: center;
 
