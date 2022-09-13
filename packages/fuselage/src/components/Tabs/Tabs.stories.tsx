@@ -26,7 +26,7 @@ export default {
 } as ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => (
-  <Tabs>
+  <Tabs {...args}>
     <Tabs.Item {...args}>Tab text 1</Tabs.Item>
     <Tabs.Item>Tab text 2</Tabs.Item>
     <Tabs.Item>Tab text 3</Tabs.Item>
@@ -53,4 +53,10 @@ export const SelectedAndDisabled: ComponentStory<typeof Tabs> = Template.bind(
 SelectedAndDisabled.args = {
   disabled: true,
   selected: true,
+};
+
+export const Underline: ComponentStory<typeof Tabs> = Template.bind({});
+Underline.args = {
+  selected: true,
+  underline: true,
 };
