@@ -26,7 +26,7 @@ export default {
 } as ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => (
-  <Tabs {...{ underline: args.underline }}>
+  <Tabs {...args}>
     <Tabs.Item {...args}>Tab text 1</Tabs.Item>
     <Tabs.Item>Tab text 2</Tabs.Item>
     <Tabs.Item>Tab text 3</Tabs.Item>
