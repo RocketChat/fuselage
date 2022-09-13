@@ -1,5 +1,4 @@
 import { css } from '@rocket.chat/css-in-js';
-import '../../styles/colors.scss';
 import React, { useRef } from 'react';
 import {
   mergeProps,
