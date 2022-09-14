@@ -55,8 +55,8 @@ SelectedAndDisabled.args = {
   selected: true,
 };
 
-export const Underline: ComponentStory<typeof Tabs> = Template.bind({});
-Underline.args = {
+export const NoUnderline: ComponentStory<typeof Tabs> = Template.bind({});
+NoUnderline.args = {
   selected: true,
-  underline: true,
+  divider: false,
 };

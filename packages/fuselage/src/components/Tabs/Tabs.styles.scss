@@ -4,8 +4,10 @@
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);
-$tabs-color: theme('tabs-color', colors.font(secondary-info));
-$tabs-hover-color: theme('tabs-hover-border-color', colors.font(titles-labels));
+$tabs-color: theme('tabs-color', colors.font(annotation));
+
+$tabs-hover-color: theme('tabs-hover-border-color', colors.font(hint));
+
 $tabs-selected-color: theme(
   'tabs-selected-color',
   colors.button(primary-default)
@@ -23,6 +25,7 @@ $tabs-hover-selected-border-color: theme(
   colors.button(primary-hover)
 );
 $tabs-active-color: theme('tabs-active-color', colors.font(titles-labels));
+
 $tabs-active-selected-color: theme(
   'tabs-active-selected-color',
   colors.button(primary-press)
@@ -97,11 +100,15 @@ $tabs-disabled-selected-border-color: theme(
   &.hover,
   &:hover {
     color: $tabs-hover-color;
+    border-block-end-color: $tabs-hover-color;
+    border-block-end-width: lengths.border-width(4);
   }
 
   &.active,
   &:active {
     color: $tabs-active-color;
+    border-block-end-color: $tabs-active-color;
+    border-block-end-width: lengths.border-width(4);
   }
 
   @include on-focus-visible {
@@ -129,14 +136,14 @@ $tabs-disabled-selected-border-color: theme(
     border-block-end-width: lengths.border-width(2);
     border-inline-width: lengths.border-width(2);
 
-    &:hover:not(.rcx-tabs__item--selected--disabled) {
+    &:hover:not(.rcx-tabs__item--selected--disabled),
+    &.hover:not(.rcx-tabs__item--selected--disabled) {
       color: $tabs-hover-selected-color;
       border-block-end-color: $tabs-hover-selected-border-color;
-      border-block-end-width: lengths.border-width(4);
     }
 
-    &.active,
-    &:active {
+    &.active:not(.rcx-tabs__item--selected--disabled),
+    &:active:not(.rcx-tabs__item--selected--disabled) {
       color: $tabs-active-selected-color;
       border-block-end-color: $tabs-active-selected-border-color;
     }
@@ -161,18 +168,12 @@ $tabs-disabled-selected-border-color: theme(
 
   display: flex;
 
-  &--underline {
+  &--with-divider {
     border-block-end: lengths.border-width(2) solid colors.stroke(light);
 
     .rcx-tabs__item {
       margin-block-end: lengths.margin(-2);
-
-      border-width: 0;
       border-block-width: lengths.border-width(2);
-
-      &:first-child {
-        margin-inline-start: lengths.margin(-12);
-      }
     }
   }
 }
