@@ -8,6 +8,11 @@ test.each([
     [paragraph([mentionUser('guilherme.gazzo.'), plain(' ')])],
   ],
   ['#GENERAL', [paragraph([mentionChannel('GENERAL')])]],
+  ['@user:server.com', [paragraph([mentionUser('user:server.com')])]],
+  [
+    '@marcos.defendi:matrix.org',
+    [paragraph([mentionUser('marcos.defendi:matrix.org')])],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
