@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 import {
   Title,
   Description,
@@ -55,7 +54,7 @@ SliderPlayExample.play = async () => {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  isDisabled: true,
+  disabled: true,
 };
 
 export const Default: ComponentStory<typeof Slider> = Template.bind({});
@@ -129,7 +128,7 @@ MultiThumb.args = {
 } as const;
 
 export const ControlledValue: ComponentStory<typeof Slider> = () => {
-  const [value, setValue] = useState<number | number[]>(20);
+  const [value, setValue] = useState<number>(20);
   return (
     <Box width='500px' height='80px' display='flex' alignItems='center'>
       <Slider label='Range' value={value} onChange={setValue} />

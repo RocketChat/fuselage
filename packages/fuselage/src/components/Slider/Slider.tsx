@@ -1,7 +1,8 @@
 /* eslint-disable no-nested-ternary */
 import { css } from '@rocket.chat/css-in-js';
-import type { AriaAttributes } from 'react';
+import type { AriaAttributes, ReactElement } from 'react';
 import React, { useMemo, useRef } from 'react';
+import type { AriaSliderProps } from 'react-aria';
 import { useNumberFormatter, useSlider } from 'react-aria';
 import { useSliderState } from 'react-stately';
 
@@ -10,7 +11,7 @@ import { SliderHead } from './SliderHead';
 import { SliderThumb } from './SliderThumb';
 import { SliderTrack } from './SliderTrack';
 
-type SliderProps<T = number | number[]> = AriaAttributes & {
+type SliderProps<T extends number | number[]> = AriaAttributes & {
   /**
    * The display format of the value output.
    */
@@ -32,7 +33,7 @@ type SliderProps<T = number | number[]> = AriaAttributes & {
    */
   maxValue?: number;
   orientation?: 'horizontal' | 'vertical';
-  isDisabled?: boolean;
+  disabled?: boolean;
   defaultValue?: T;
   small?: boolean;
   /**
@@ -50,7 +51,9 @@ type SliderProps<T = number | number[]> = AriaAttributes & {
       }
   );
 
-export const Slider = (props: SliderProps) => {
+export function Slider<T extends number | [min: number, max: number]>(
+  props: SliderProps<T>
+): ReactElement {
   const {
     label,
     formatOptions,
@@ -63,39 +66,49 @@ export const Slider = (props: SliderProps) => {
   } = props;
 
   // Get a defaultValue in the range for multiThumb
-  const getMultiThumbDefaultValue = () => {
+  const getMultiThumbDefaultValue = (): T | undefined => {
     if (multiThumb && !defaultValue) {
       if (minValue && maxValue) {
-        return [minValue, maxValue];
+        return [minValue, maxValue] as T;
       }
       if (minValue) {
-        return [minValue, 100];
+        return [minValue, 100] as T;
       }
       if (maxValue) {
-        return [0, maxValue];
+        return [0, maxValue] as T;
       }
-      return [0, 100];
+      return [0, 100] as T;
     }
   };
 
   const { defaultValue = getMultiThumbDefaultValue() } = props;
 
+  const sliderProps = {
+    ...props,
+    isDisabled: props.disabled,
+  } as AriaSliderProps<number | number[]>;
+
   const trackRef = useRef(null);
   const numberFormatter = useNumberFormatter(formatOptions);
-  const state = useSliderState({ defaultValue, ...props, numberFormatter });
+  const sliderState = useSliderState({
+    defaultValue,
+    ...sliderProps,
+    numberFormatter,
+  });
+
   const { groupProps, trackProps, labelProps, outputProps } = useSlider(
-    props,
-    state,
+    sliderProps,
+    sliderState,
     trackRef
   );
 
   const isHorizontal = useMemo(
-    () => state.orientation === 'horizontal',
-    [state.orientation]
+    () => sliderState.orientation === 'horizontal',
+    [sliderState.orientation]
   );
   const isVertical = useMemo(
-    () => state.orientation === 'vertical',
-    [state.orientation]
+    () => sliderState.orientation === 'vertical',
+    [sliderState.orientation]
   );
 
   const slider = useStyle(
@@ -112,7 +125,7 @@ export const Slider = (props: SliderProps) => {
         height: ${small ? '50px' : large ? '100%' : '100px'};
       `}
     `,
-    state
+    sliderState
   );
 
   return (
@@ -120,22 +133,22 @@ export const Slider = (props: SliderProps) => {
       <SliderHead
         labelProps={labelProps}
         outputProps={outputProps}
-        state={state}
+        state={sliderState}
         showOutput={showOutput}
         label={label}
         multiThumb={multiThumb}
       />
       <SliderTrack
-        state={state}
+        state={sliderState}
         trackProps={trackProps}
         trackRef={trackRef}
         multiThumb={multiThumb}
       >
-        <SliderThumb index={0} state={state} trackRef={trackRef} />
+        <SliderThumb index={0} state={sliderState} trackRef={trackRef} />
         {multiThumb && (
-          <SliderThumb index={1} state={state} trackRef={trackRef} />
+          <SliderThumb index={1} state={sliderState} trackRef={trackRef} />
         )}
       </SliderTrack>
     </div>
   );
-};
+}
