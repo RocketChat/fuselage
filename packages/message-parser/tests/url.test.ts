@@ -1,5 +1,5 @@
 import { parse } from '../src';
-import { link, paragraph, plain } from '../src/utils';
+import { lineBreak, link, paragraph, plain } from '../src/utils';
 
 test.each([
   [
@@ -112,6 +112,18 @@ test.each([
       paragraph([
         link('https://developer.rocket.chat?query=query'),
         plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query\nline break',
+    [
+      paragraph([
+        link('https://developer.rocket.chat?query=query'),
+      ]),
+      lineBreak(),
+      paragraph([
+        plain('line break'),
       ]),
     ],
   ],
