@@ -59,7 +59,9 @@
     "@rocket.chat/memo": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
     "invariant": "^2.2.4",
-    "react-keyed-flatten-children": "^1.3.0"
+    "react-aria": "~3.19.0",
+    "react-keyed-flatten-children": "^1.3.0",
+    "react-stately": "~3.17.0"
   },
   "devDependencies": {
     "@babel/core": "~7.17.2",
@@ -73,13 +75,16 @@
     "@rocket.chat/icons": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "@storybook/addon-essentials": "~6.4.18",
+    "@storybook/addon-interactions": "~6.5.10",
     "@storybook/addon-links": "~6.4.18",
     "@storybook/addons": "~6.4.18",
     "@storybook/builder-webpack5": "~6.4.18",
     "@storybook/client-api": "~6.4.19",
+    "@storybook/jest": "~0.0.10",
     "@storybook/manager-webpack5": "~6.4.18",
     "@storybook/react": "~6.4.18",
     "@storybook/source-loader": "~6.4.18",
+    "@storybook/testing-library": "~0.0.13",
     "@storybook/testing-react": "~1.3.0",
     "@storybook/theming": "~6.4.18",
     "@testing-library/jest-dom": "~5.16.2",
