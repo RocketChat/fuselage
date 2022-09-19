@@ -118,13 +118,9 @@ test.each([
   [
     'https://developer.rocket.chat?query=query\nline break',
     [
-      paragraph([
-        link('https://developer.rocket.chat?query=query'),
-      ]),
+      paragraph([link('https://developer.rocket.chat?query=query')]),
       lineBreak(),
-      paragraph([
-        plain('line break'),
-      ]),
+      paragraph([plain('line break')]),
     ],
   ],
 ])('parses %p', (input, output) => {
