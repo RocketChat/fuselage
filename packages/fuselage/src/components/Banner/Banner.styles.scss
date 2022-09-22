@@ -140,4 +140,12 @@ $banner-colors-danger-background-color: functions.theme(
       padding-block: 0;
     }
   }
+
+  &__link {
+    padding-left: 10px;
+
+    text-decoration: underline;
+
+    color: inherit;
+  }
 }
