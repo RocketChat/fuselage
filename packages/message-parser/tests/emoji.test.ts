@@ -3,6 +3,8 @@ import { emoji, bigEmoji, paragraph, plain, emojiUnicode } from '../src/utils';
 
 test.each([
   [':smille: asd', [paragraph([emoji('smille'), plain(' asd')])]],
+  ['text:inner:outer', [paragraph([plain('text:inner:outer')])]],
+  ['10:20:30', [paragraph([plain('10:20:30')])]],
   [
     `:smille:
   :smille:
@@ -48,6 +50,7 @@ test.each([
   expect(parse(input)).toMatchObject(output);
 });
 
+// Tests for unicode emojis
 test.each([
   ['😀', [bigEmoji([emojiUnicode('😀')])]],
   ['😃', [bigEmoji([emojiUnicode('😃')])]],
