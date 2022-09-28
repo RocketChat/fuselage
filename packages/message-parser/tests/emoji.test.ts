@@ -2,18 +2,22 @@ import { parse } from '../src';
 import { emoji, bigEmoji, paragraph, plain, emojiUnicode } from '../src/utils';
 
 test.each([
-  [':smille: asd', [paragraph([emoji('smille'), plain(' asd')])]],
+  [':smile: asd', [paragraph([emoji('smile'), plain(' asd')])]],
   ['text:inner:outer', [paragraph([plain('text:inner:outer')])]],
   ['10:20:30', [paragraph([plain('10:20:30')])]],
+  ['10:20:30:', [paragraph([plain('10:20:30:')])]],
+  ['":smile:"', [paragraph([plain('":smile:"')])]],
+  ['":smile: "', [paragraph([plain('":smile: "')])]],
+  ['" :smile: "', [paragraph([plain('" '), emoji('smile'), plain(' "')])]],
   [
-    `:smille:
-  :smille:
+    `:smile:
+  :smile:
   `,
-    [bigEmoji([emoji('smille'), emoji('smille')])],
+    [bigEmoji([emoji('smile'), emoji('smile')])],
   ],
   [
-    'asdas :smille: asd',
-    [paragraph([plain('asdas '), emoji('smille'), plain(' asd')])],
+    'asdas :smile: asd',
+    [paragraph([plain('asdas '), emoji('smile'), plain(' asd')])],
   ],
   [
     'normal emojis :smile: :smile: :smile:',
