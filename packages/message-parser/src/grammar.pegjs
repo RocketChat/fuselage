@@ -608,7 +608,7 @@ emoticonPattern
   / e:$(":'(" / ":'-(" / ";(" / ";-(") { return emoticon(e, 'cry'); }
   / e:$(">:(" / ">:-(" / ":@") { return emoticon(e, 'angry'); }
   / e:$(":$" / "=$") { return emoticon(e, 'flushed'); }
-  / e:$"D:" { return emoticon(e, 'fearfulc'); }
+  / e:$"D:" { return emoticon(e, 'fearful'); }
   / e:$("':(" / "':-(" / "'=(") { return emoticon(e, 'sweat'); }
   / e:$(":-X" / ":X" / ":-#" / ":#" / "=X" / "=#") {
       return emoticon(e, 'no_mouth');
