@@ -22397,7 +22397,7 @@ fsevents@~2.1.2:
   resolution: "git-up@npm:4.0.2"
   dependencies:
     is-ssh: ^1.3.0
-    parse-url: ^6.0.1
+    parse-url: ^8.1.0
   checksum: 852603d6fc292f825845c4c79ea1538e21cf04e78a58d3034ee320b9f2253cfa5f718f88529e5b47b10a4a27bbd4095054b0a765da4bb1dd962bf072a321bccb
   languageName: node
   linkType: hard
@@ -23223,7 +23223,7 @@ fsevents@~2.1.2:
     he: ^1.2.0
     param-case: ^3.0.3
     relateurl: ^0.2.7
-    terser: ^4.6.3
+    terser: ^4.8.1
   bin:
     html-minifier-terser: cli.js
   checksum: 75ff3ff886631b9ecb3035acb8e7dd98c599bb4d4618ad6f7e487ee9752987dddcf6848dc3c1ab1d7fc1ad4484337c2ce39c19eac17b0342b4b15e4294c8a904
@@ -23240,7 +23240,7 @@ fsevents@~2.1.2:
     he: ^1.2.0
     param-case: ^3.0.4
     relateurl: ^0.2.7
-    terser: ^5.10.0
+    terser: ^5.14.2
   bin:
     html-minifier-terser: cli.js
   checksum: ac52c14006476f773204c198b64838477859dc2879490040efab8979c0207424da55d59df7348153f412efa45a0840a1ca3c757bf14767d23a15e3e389d37a93
@@ -27887,7 +27887,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"normalize-url@npm:^6.0.1, normalize-url@npm:^6.1.0":
+"normalize-url@npm:^6.0.1":
   version: 6.1.0
   resolution: "normalize-url@npm:6.1.0"
   checksum: 4a4944631173e7d521d6b80e4c85ccaeceb2870f315584fa30121f505a6dfd86439c5e3fdd8cd9e0e291290c41d0c3599f0cb12ab356722ed242584c30348e50
@@ -28868,24 +28868,21 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"parse-path@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "parse-path@npm:5.0.0"
+"parse-path@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "parse-path@npm:7.0.0"
   dependencies:
     protocols: ^2.0.0
-  checksum: e9f670559cd8e535f39f548bf5d41ad96a220190ea98df33d0babd9dfaa7c3c70ee2e55394078517d5e7e93c6a39c8eac1261ed3f9e68033656614fc954262e8
+  checksum: 244b46523a58181d251dda9b888efde35d8afb957436598d948852f416d8c76ddb4f2010f9fc94218b4be3e5c0f716aa0d2026194a781e3b8981924142009302
   languageName: node
   linkType: hard
 
-"parse-url@npm:^6.0.1":
-  version: 6.0.2
-  resolution: "parse-url@npm:6.0.2"
+"parse-url@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "parse-url@npm:8.1.0"
   dependencies:
-    is-ssh: ^1.3.0
-    normalize-url: ^6.1.0
-    parse-path: ^5.0.0
-    protocols: ^1.4.0
-  checksum: cbd11ad5e5100821aaee8ef2d05df339209e8bc87b2bdccc213bf27b85c0b50c5aee6ab96ad7401f18e0982ba913107c940bab30a8982db08337a056e667d917
+    parse-path: ^7.0.0
+  checksum: b93e21ab4c93c7d7317df23507b41be7697694d4c94f49ed5c8d6288b01cba328fcef5ba388e147948eac20453dee0df9a67ab2012415189fff85973bdffe8d9
   languageName: node
   linkType: hard
 
@@ -30931,7 +30928,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"protocols@npm:^1.1.0, protocols@npm:^1.4.0":
+"protocols@npm:^1.1.0":
   version: 1.4.8
   resolution: "protocols@npm:1.4.8"
   checksum: 2d555c013df0b05402970f67f7207c9955a92b1d13ffa503c814b5fe2f6dde7ac6a03320e0975c1f5832b0113327865e0b3b28bfcad023c25ddb54b53fab8684
@@ -32855,7 +32852,7 @@ resolve@^2.0.0-next.3:
     "@babel/code-frame": ^7.10.4
     jest-worker: ^26.2.1
     serialize-javascript: ^4.0.0
-    terser: ^5.0.0
+    terser: ^5.14.2
   peerDependencies:
     rollup: ^2.0.0
   checksum: af84bb7a7a894cd00852b6486528dfb8653cf94df4c126f95f389a346f401d054b08c46bee519a2ab6a22b33804d1d6ac6d8c90b1b2bf8fffb097eed73fc3c72
@@ -33891,7 +33888,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.19":
+"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12":
   version: 0.5.19
   resolution: "source-map-support@npm:0.5.19"
   dependencies:
@@ -33932,7 +33929,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"source-map@npm:^0.7.3, source-map@npm:~0.7.2":
+"source-map@npm:^0.7.3":
   version: 0.7.3
   resolution: "source-map@npm:0.7.3"
   checksum: cd24efb3b8fa69b64bf28e3c1b1a500de77e84260c5b7f2b873f88284df17974157cc88d386ee9b6d081f08fdd8242f3fc05c953685a6ad81aad94c7393dedea
@@ -35392,7 +35389,7 @@ resolve@^2.0.0-next.3:
     schema-utils: ^1.0.0
     serialize-javascript: ^4.0.0
     source-map: ^0.6.1
-    terser: ^4.1.2
+    terser: ^4.8.1
     webpack-sources: ^1.4.0
     worker-farm: ^1.7.0
   peerDependencies:
@@ -35412,7 +35409,7 @@ resolve@^2.0.0-next.3:
     schema-utils: ^3.0.0
     serialize-javascript: ^5.0.1
     source-map: ^0.6.1
-    terser: ^5.3.4
+    terser: ^5.14.2
     webpack-sources: ^1.4.3
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
@@ -35429,7 +35426,7 @@ resolve@^2.0.0-next.3:
     schema-utils: ^3.0.0
     serialize-javascript: ^5.0.1
     source-map: ^0.6.1
-    terser: ^5.5.1
+    terser: ^5.14.2
   peerDependencies:
     webpack: ^5.1.0
   checksum: 4b3dbd353022400dba04a5c695f2746dc513f22a4673fee22945821e209948c8cfc6068d2bffc06f3159a1b86cf7f5bd9e4df6d581feebde0bfbd24d2f813d32
@@ -35445,7 +35442,7 @@ resolve@^2.0.0-next.3:
     schema-utils: ^3.0.0
     serialize-javascript: ^6.0.0
     source-map: ^0.6.1
-    terser: ^5.7.0
+    terser: ^5.14.2
   peerDependencies:
     webpack: ^5.1.0
   checksum: 7e5f97ac1944aaff12460201496314ab75d842f4f088e0344ca5143caf85a340d7b0294ed6b4e32b52bbd1bea71648d6417034e889872c582c1be4840e9bd0e7
@@ -35460,7 +35457,7 @@ resolve@^2.0.0-next.3:
     jest-worker: ^27.4.5
     schema-utils: ^3.1.1
     serialize-javascript: ^6.0.0
-    terser: ^5.7.2
+    terser: ^5.14.2
   peerDependencies:
     webpack: ^5.1.0
   peerDependenciesMeta:
@@ -35474,35 +35471,22 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"terser@npm:^4.1.2, terser@npm:^4.6.3":
-  version: 4.8.0
-  resolution: "terser@npm:4.8.0"
+"terser@npm:^4.8.1":
+  version: 4.8.1
+  resolution: "terser@npm:4.8.1"
   dependencies:
     commander: ^2.20.0
     source-map: ~0.6.1
     source-map-support: ~0.5.12
   bin:
     terser: bin/terser
-  checksum: f980789097d4f856c1ef4b9a7ada37beb0bb022fb8aa3057968862b5864ad7c244253b3e269c9eb0ab7d0caf97b9521273f2d1cf1e0e942ff0016e0583859c71
+  checksum: b342819bf7e82283059aaa3f22bb74deb1862d07573ba5a8947882190ad525fd9b44a15074986be083fd379c58b9a879457a330b66dcdb77b485c44267f9a55a
   languageName: node
   linkType: hard
 
-"terser@npm:^5.0.0":
-  version: 5.3.8
-  resolution: "terser@npm:5.3.8"
-  dependencies:
-    commander: ^2.20.0
-    source-map: ~0.7.2
-    source-map-support: ~0.5.19
-  bin:
-    terser: bin/terser
-  checksum: a0ec4d6490c0e27e5256eb565a23d26c6b7d26507fdf34d20b3daeb6cb8b9761a590c7571ceb2cedb570d032333a9d41d5758029085cbfce5677ddca63a7c750
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.10.0, terser@npm:^5.7.2":
-  version: 5.14.2
-  resolution: "terser@npm:5.14.2"
+"terser@npm:^5.14.2":
+  version: 5.15.0
+  resolution: "terser@npm:5.15.0"
   dependencies:
     "@jridgewell/source-map": ^0.3.2
     acorn: ^8.5.0
@@ -35510,33 +35494,7 @@ resolve@^2.0.0-next.3:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: cabb50a640d6c2cfb351e4f43dc7bf7436f649755bb83eb78b2cacda426d5e0979bd44e6f92d713f3ca0f0866e322739b9ced888ebbce6508ad872d08de74fcc
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.3.4, terser@npm:^5.7.0":
-  version: 5.7.1
-  resolution: "terser@npm:5.7.1"
-  dependencies:
-    commander: ^2.20.0
-    source-map: ~0.7.2
-    source-map-support: ~0.5.19
-  bin:
-    terser: bin/terser
-  checksum: 9354af5c22ade95004c103893606968cbd5390824c9d89df540f9e578c6e6559a5e9c56a1bf23ed055cdb61c60defdbc2c29e773514f9f2fbc7fd7ed335f1f58
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.5.1":
-  version: 5.6.0
-  resolution: "terser@npm:5.6.0"
-  dependencies:
-    commander: ^2.20.0
-    source-map: ~0.7.2
-    source-map-support: ~0.5.19
-  bin:
-    terser: bin/terser
-  checksum: 5932e620ffd2222cde2d0610ff9a608910c1ffec2e755e95db983cc43968f87e3ad7b6808420067805432ee03d46216b9919ff6b37f1c6ca4adef2f715d23711
+  checksum: b2358c989fcb76b4a1c265f60e175c950d3f776e5f619a9f58f54e8d2d792cd6b4cca86071834075f3b9943556d695357bafdd4ee2390de2fc9fd96ba3efa8c8
   languageName: node
   linkType: hard
 
