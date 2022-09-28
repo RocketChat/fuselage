@@ -118,6 +118,10 @@ test.each([
 
   // Should not render Emojis or BigEmojis if they are not surrounded by spaces
   ['normal emojis :):):)', [paragraph([plain('normal emojis :):):)')])]],
+  [':)10:30', [paragraph([plain(':)10:30')])]],
+  [':smile::)text', [paragraph([plain(':smile::)text')])]],
+  ['text:):smile:', [paragraph([plain('text:):smile:')])]],
+  ['text:):)', [paragraph([plain('text:):)')])]],
   [':):):) normal emojis', [paragraph([plain(':):):) normal emojis')])]],
   [':):):):)', [paragraph([plain(':):):):)')])]],
   ['10:30', [paragraph([plain('10:30')])]],
