@@ -436,6 +436,21 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   </Story>
 </Canvas>
 
+#### Word Break
+
+<Canvas>
+  <Story name='Word break'>
+    <>
+      <Box wordBreak='break-word'>
+        Breakwoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooord
+      </Box>
+      <Box wordBreak='break-all'>
+        Breakaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaall
+      </Box>
+    </>
+  </Story>
+</Canvas>
+
 ### Layout
 
 #### Widths
@@ -620,11 +635,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   </Story>
 </Canvas>
 
-#### Border radii
+#### Border radius
 
 <Canvas>
   <Story
-    name='Border radii'
+    name='Border radius'
     decorators={[
       (fn) => (
         <Box display='flex' flexWrap='wrap' alignItems='center'>
