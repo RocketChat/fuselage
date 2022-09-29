@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
 
+import { FieldGroup, Field, TextInput } from '..';
 import { Button, Modal } from '../..';
 
 export default {
@@ -130,6 +131,41 @@ export const _WithAnnotation = () => (
       <Modal.FooterControllers>
         <Button>Cancel</Button>
         <Button primary onClick={action('click')}>
+          Submit
+        </Button>
+      </Modal.FooterControllers>
+    </Modal.Footer>
+  </Modal>
+);
+
+export const WithForm = () => (
+  <Modal
+    asForm
+    onSubmit={(e) => {
+      e.preventDefault();
+      action('form submitted')(e);
+    }}
+  >
+    <Modal.Header>
+      <Modal.HeaderText>
+        <Modal.Title>Modal Header</Modal.Title>
+      </Modal.HeaderText>
+      <Modal.Close />
+    </Modal.Header>
+    <Modal.Content>
+      <FieldGroup>
+        <Field>
+          <Field.Label>Label</Field.Label>
+          <Field.Row>
+            <TextInput placeholder='Placeholder' />
+          </Field.Row>
+        </Field>
+      </FieldGroup>
+    </Modal.Content>
+    <Modal.Footer>
+      <Modal.FooterControllers>
+        <Button>Cancel</Button>
+        <Button type='submit' primary>
           Submit
         </Button>
       </Modal.FooterControllers>
