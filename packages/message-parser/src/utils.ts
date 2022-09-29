@@ -145,9 +145,17 @@ const joinEmoji = (
   const hasPlainAsNeighbor =
     (previous?.type === 'PLAIN_TEXT' && previous.value.trim() !== '') ||
     (next?.type === 'PLAIN_TEXT' && next.value.trim() !== '');
+  const isEmoticon = current.shortCode !== current.value.value;
 
   if (current.value && (hasEmojiAsNeighbor || hasPlainAsNeighbor)) {
-    return current.value;
+    if (isEmoticon) {
+      return current.value;
+    }
+
+    return {
+      ...current.value,
+      value: `:${current.value.value}:`,
+    };
   }
 
   return current;
