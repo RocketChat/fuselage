@@ -9,19 +9,13 @@ export { TextObject } from './blocks/TextObject';
 export { Conditions } from './rendering/Conditions';
 
 export { ButtonElement } from './blocks/elements/ButtonElement';
-export { ChannelsSelectElement } from './blocks/elements/ChannelsSelectElement';
-export { ConversationsSelectElement } from './blocks/elements/ConversationsSelectElement';
 export { DatePickerElement } from './blocks/elements/DatePickerElement';
 export { ImageElement } from './blocks/elements/ImageElement';
 export { LinearScaleElement } from './blocks/elements/LinearScaleElement';
 export { MultiStaticSelectElement } from './blocks/elements/MultiStaticSelectElement';
-export { MultiChannelsSelectElement } from './blocks/elements/MultiChannelsSelectElement';
-export { MultiConversationsSelectElement } from './blocks/elements/MultiConversationsSelectElement';
-export { MultiUsersSelectElement } from './blocks/elements/MultiUsersSelectElement';
 export { OverflowElement } from './blocks/elements/OverflowElement';
 export { PlainTextInputElement } from './blocks/elements/PlainTextInputElement';
 export { StaticSelectElement } from './blocks/elements/StaticSelectElement';
-export { UsersSelectElement } from './blocks/elements/UsersSelectElement';
 export { BlockElement } from './blocks/BlockElement';
 
 export { ActionsBlock } from './blocks/layout/ActionsBlock';
