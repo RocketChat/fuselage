@@ -50,6 +50,8 @@ test.each([
   ],
   [':smile::smile:', [bigEmoji([emoji('smile'), emoji('smile')])]],
   [':smile:', [bigEmoji([emoji('smile')])]],
+  ['Hi :+1:', [paragraph([plain('Hi '), emoji('+1')])]],
+  ['Hi :+1_tone4:', [paragraph([plain('Hi '), emoji('+1_tone4')])]],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
@@ -88,6 +90,7 @@ test.each([
     [bigEmoji([emojiUnicode('👆🏽'), emojiUnicode('👆🏽'), emojiUnicode('👆🏽')])],
   ],
   ['👆🏺', [bigEmoji([emojiUnicode('👆'), emojiUnicode('🏺')])]],
+  ['Hi 👍', [paragraph([plain('Hi '), emojiUnicode('👍')])]],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
