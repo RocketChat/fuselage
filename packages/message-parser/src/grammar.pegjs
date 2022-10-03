@@ -203,12 +203,14 @@ ChannelMention
     }
   / "#" channel:utf8_names_validation { return mentionChannel(channel); }
 
+emoji_shortCode_name = $[0-9a-zA-Z-_+.]+
+
 Emoji
   = Emoji_shortCode
   / ch:unicodeEmoji { return emojiUnicode(ch); }
 
 Emoji_shortCode
-  = ":" shortCode:$(text:utf8_names_validation) ":" { return emoji(shortCode); }
+  = ":" shortCode:$(text:emoji_shortCode_name) ":" { return emoji(shortCode); }
 
 /* __Italic__ */
 /* _Italic_ */
