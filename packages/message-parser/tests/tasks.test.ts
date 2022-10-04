@@ -27,7 +27,7 @@ test.each([
             plain(', '),
             mentionChannel('refs'),
             plain(', '),
-            link('http://localhost', plain('links')),
+            link('http://localhost', [plain('links')]),
             plain(', '),
             bold([plain('formatting')]),
           ],
