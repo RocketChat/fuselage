@@ -78,10 +78,10 @@ const isValidLink = (link: string) => {
 export const link = (() => {
   const fn = generate('LINK');
 
-  return (src: string, label?: Markup) => {
+  return (src: string, label?: Markup[]) => {
     const href = isValidLink(src) || src.startsWith('//') ? src : `//${src}`;
 
-    return fn({ src: plain(href), label: label || plain(src) });
+    return fn({ src: plain(href), label: label || [plain(src)] });
   };
 })();
 
