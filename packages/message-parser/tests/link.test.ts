@@ -271,7 +271,7 @@ test.each([
       paragraph([
         link(
           'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351',
-          [plain(`Test with `), bold([plain('bold')]), plain(` element`)]
+          [plain('Test with '), bold([plain('bold')]), plain(' element')]
         ),
       ]),
     ],
@@ -282,7 +282,7 @@ test.each([
       paragraph([
         link(
           'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351',
-          [plain(`Test with `), bold([plain('bold')]), plain(` element`)]
+          [plain('Test with '), bold([plain('bold')]), plain(' element')]
         ),
       ]),
     ],
@@ -293,7 +293,7 @@ test.each([
       paragraph([
         link(
           'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351',
-          [plain(`Test with `), italic([plain('italic')]), plain(` element`)]
+          [plain('Test with '), italic([plain('italic')]), plain(' element')]
         ),
       ]),
     ],
@@ -304,7 +304,7 @@ test.each([
       paragraph([
         link(
           'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351',
-          [plain(`Test with `), strike([plain('strike')]), plain(` element`)]
+          [plain('Test with '), strike([plain('strike')]), plain(' element')]
         ),
       ]),
     ],
@@ -316,9 +316,9 @@ test.each([
         link(
           'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351',
           [
-            plain(`Test with `),
+            plain('Test with '),
             italic([bold([strike([plain('title')])])]),
-            plain(` element`),
+            plain(' element'),
           ]
         ),
       ]),
@@ -330,7 +330,7 @@ test.each([
       paragraph([
         link(
           'https://github.com/RocketChat/Rocket.Chat/pull/26751/files#diff-c87b108ecf1ede549f8ede68eca840fbb330180b927df0b8a0b4df5d06cbd89b',
-          [plain(`Github link with hash`)]
+          [plain('Github link with hash')]
         ),
       ]),
     ],
@@ -341,7 +341,7 @@ test.each([
       paragraph([
         link(
           'https://github.com/RocketChat/Rocket.Chat/pull/26751/files#diff',
-          [plain(`Github link with hash`)]
+          [plain('Github link with hash')]
         ),
       ]),
     ],
@@ -351,7 +351,7 @@ test.each([
     [
       paragraph([
         link('https://github.com/RocketChat/Rocket.Chat/pull/26751/files', [
-          plain(`Github link without hash`),
+          plain('Github link without hash'),
         ]),
       ]),
     ],
@@ -361,7 +361,7 @@ test.each([
     [
       paragraph([
         link('https://github.com/RocketChat/Rocket.Chat*[/]^_`{}~', [
-          plain(`Link with special chars`),
+          plain('Link with special chars'),
         ]),
       ]),
     ],
@@ -372,7 +372,7 @@ test.each([
       paragraph([
         link(
           'https://www.google.com/url?rct=j&sa=t&url=https://ga.de/freizeit/region-erleben/bonn-und-region-tipps-fuers-wochenende-flohmarkt-rheinaue-weltkindertag-stadtfest_aid-53876987&ct=ga&cd=CAIyHDQ0NzEyYWE3MDA1MGNhNTQ6Y29tOmRlOkRFOlI&usg=AOvVaw3ySYrO9lM0iNSnk43gPVwZ',
-          [plain(`Google complex Link`)]
+          [plain('Google complex Link')]
         ),
       ]),
     ],
