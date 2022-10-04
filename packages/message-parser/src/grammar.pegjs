@@ -353,7 +353,8 @@ domainName
 
 domainNameLabel = $(domainChar+ $("-" domainChar+)*)
 
-domainChar = !"\\" !"/" !"|" !">" !"<" !"%" !safe !extra !EndOfLine !Space .
+domainChar
+  = !"\\" !"/" !"|" !">" !"<" !"%" !"`" !safe !extra !EndOfLine !Space .
 
 /**
  *
