@@ -37,7 +37,9 @@ export default {
 } as ComponentMeta<typeof Callout>;
 
 const Template: ComponentStory<typeof Callout> = (args) => (
-  <Callout {...args}>This is a generic description.</Callout>
+  <Callout {...args}>
+    {args.children || 'This is a generic description.'}
+  </Callout>
 );
 
 export const Default = Template.bind({});
