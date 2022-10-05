@@ -7,6 +7,10 @@ import {
   strike,
   italic,
   quote,
+  lineBreak,
+  unorderedList,
+  listItem,
+  orderedList,
 } from '../src/utils';
 
 test.each([
@@ -259,6 +263,164 @@ test.each([
       ]),
     ],
   ],
+  [
+    '[Github link with hash](https://github.com/RocketChat/Rocket.Chat/pull/26751/files#diff-c87b108ecf1ede549f8ede68eca840fbb330180b927df0b8a0b4df5d06cbd89b)',
+    [
+      paragraph([
+        link(
+          'https://github.com/RocketChat/Rocket.Chat/pull/26751/files#diff-c87b108ecf1ede549f8ede68eca840fbb330180b927df0b8a0b4df5d06cbd89b',
+          plain('Github link with hash')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[Github link with hash](https://github.com/RocketChat/Rocket.Chat/pull/26751/files#diff)',
+    [
+      paragraph([
+        link(
+          'https://github.com/RocketChat/Rocket.Chat/pull/26751/files#diff',
+          plain('Github link with hash')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[Github link without hash](https://github.com/RocketChat/Rocket.Chat/pull/26751/files)',
+    [
+      paragraph([
+        link(
+          'https://github.com/RocketChat/Rocket.Chat/pull/26751/files',
+          plain('Github link without hash')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[Link with special chars](https://github.com/RocketChat/Rocket.Chat*[/]^_`{}~)',
+    [
+      paragraph([
+        link(
+          'https://github.com/RocketChat/Rocket.Chat*[/]^_`{}~',
+          plain('Link with special chars')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[Google complex Link](https://www.google.com/url?rct=j&sa=t&url=https://ga.de/freizeit/region-erleben/bonn-und-region-tipps-fuers-wochenende-flohmarkt-rheinaue-weltkindertag-stadtfest_aid-53876987&ct=ga&cd=CAIyHDQ0NzEyYWE3MDA1MGNhNTQ6Y29tOmRlOkRFOlI&usg=AOvVaw3ySYrO9lM0iNSnk43gPVwZ)',
+    [
+      paragraph([
+        link(
+          'https://www.google.com/url?rct=j&sa=t&url=https://ga.de/freizeit/region-erleben/bonn-und-region-tipps-fuers-wochenende-flohmarkt-rheinaue-weltkindertag-stadtfest_aid-53876987&ct=ga&cd=CAIyHDQ0NzEyYWE3MDA1MGNhNTQ6Y29tOmRlOkRFOlI&usg=AOvVaw3ySYrO9lM0iNSnk43gPVwZ',
+          plain('Google complex Link')
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[Rocket.Chat](https://rocket.chat) Inline Text',
+    [
+      paragraph([
+        link('https://rocket.chat', plain('Rocket.Chat')),
+        plain(' Inline Text'),
+      ]),
+    ],
+  ],
+  [
+    'https://analytics.zoho.com/open-view/123456789 Same Line',
+    [
+      paragraph([
+        link(
+          'https://analytics.zoho.com/open-view/123456789',
+          plain('https://analytics.zoho.com/open-view/123456789')
+        ),
+        plain(' Same Line'),
+      ]),
+    ],
+  ],
+  [
+    `[Rocket.Chat](https://rocket.chat)
+Text after in a new line after link`,
+    [
+      paragraph([link('https://rocket.chat', plain('Rocket.Chat'))]),
+      paragraph([plain('Text after in a new line after link')]),
+    ],
+  ],
+  [
+    `https://analytics.zoho.com/open-view/123456789
+Second line`,
+    [
+      paragraph([
+        link(
+          'https://analytics.zoho.com/open-view/123456789',
+          plain('https://analytics.zoho.com/open-view/123456789')
+        ),
+      ]),
+      paragraph([plain('Second line')]),
+    ],
+  ],
+  [
+    `[Rocket.Chat](https://rocket.chat)
+
+Text after line break`,
+    [
+      paragraph([link('https://rocket.chat', plain('Rocket.Chat'))]),
+      lineBreak(),
+      paragraph([plain('Text after line break')]),
+    ],
+  ],
+  [
+    `
+[List Header Link](https://rocket.chat)
+- First item
+- Second item
+- Third item
+- *Fourth item*
+`.trim(),
+    [
+      paragraph([link('https://rocket.chat', plain('List Header Link'))]),
+      unorderedList([
+        listItem([plain('First item')]),
+        listItem([plain('Second item')]),
+        listItem([plain('Third item')]),
+        listItem([bold([plain('Fourth item')])]),
+      ]),
+    ],
+  ],
+  [
+    `[List Header Link](https://rocket.chat)
+7. First item
+2. Second item
+8. Third item
+4. *Fourth item*
+15. *Fifteenth item*
+`.trim(),
+    [
+      paragraph([link('https://rocket.chat', plain('List Header Link'))]),
+      orderedList([
+        listItem([plain('First item')], 7),
+        listItem([plain('Second item')], 2),
+        listItem([plain('Third item')], 8),
+        listItem([bold([plain('Fourth item')])], 4),
+        listItem([bold([plain('Fifteenth item')])], 15),
+      ]),
+    ],
+  ],
+  [
+    '[9gag](https://9gag.com/)',
+    [paragraph([link('https://9gag.com/', plain(`9gag`))])],
+  ],
+  ['[9gag](9gag.com)', [paragraph([link('9gag.com', plain(`9gag`))])]],
+  ['<9gag.com|9gag>', [paragraph([link('9gag.com', plain(`9gag`))])]],
+  ['9gag.com', [paragraph([link('9gag.com')])]],
+
+  // Should not parse as link
+  ['[77.77%](77.77%)', [paragraph([plain('[77.77%](77.77%)')])]],
+  ['77.77%', [paragraph([plain('77.77%')])]],
+  ['[77.77](77.77)', [paragraph([plain('[77.77](77.77)')])]],
+  ['77.77', [paragraph([plain('77.77')])]],
+  ['test.9gag', [paragraph([plain('test.9gag')])]],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
