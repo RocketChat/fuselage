@@ -7,9 +7,10 @@ test.each([
     [
       paragraph([
         bold([
-          link('https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4', [
-            plain('A brand new Gist'),
-          ]),
+          link(
+            'https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4',
+            plain('A brand new Gist')
+          ),
         ]),
       ]),
     ],
