@@ -115,9 +115,26 @@ test.each([
   [' :)', [bigEmoji([emoticon(':)', 'slight_smile')])]],
   [':) ', [bigEmoji([emoticon(':)', 'slight_smile')])]],
   [' :) ', [bigEmoji([emoticon(':)', 'slight_smile')])]],
+  ['D:', [bigEmoji([emoticon('D:', 'fearful')])]],
+  ['D: D:', [bigEmoji([emoticon('D:', 'fearful'), emoticon('D:', 'fearful')])]],
+  [
+    ' D: D: D: ',
+    [
+      bigEmoji([
+        emoticon('D:', 'fearful'),
+        emoticon('D:', 'fearful'),
+        emoticon('D:', 'fearful'),
+      ]),
+    ],
+  ],
+  ['Hi D:', [paragraph([plain('Hi '), emoticon('D:', 'fearful')])]],
 
   // Should not render Emojis or BigEmojis if they are not surrounded by spaces
   ['normal emojis :):):)', [paragraph([plain('normal emojis :):):)')])]],
+  [':)10:30', [paragraph([plain(':)10:30')])]],
+  [':smile::)text', [paragraph([plain(':smile::)text')])]],
+  ['text:):smile:', [paragraph([plain('text:):smile:')])]],
+  ['text:):)', [paragraph([plain('text:):)')])]],
   [':):):) normal emojis', [paragraph([plain(':):):) normal emojis')])]],
   [':):):):)', [paragraph([plain(':):):):)')])]],
   ['10:30', [paragraph([plain('10:30')])]],

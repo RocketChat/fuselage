@@ -171,16 +171,9 @@ Space
   / "\t"
 
 anyText
-  = [\x20-\x27] /*     ! " # $ % & ' ( )   */
+  = [\x20-\x27] //     ! " # $ % & '
   / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
   / [\x41-\x5A] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-  / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
-  / nonascii
-
-SectionText
-  = [-]+
-  / [\x20-\x40] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x60] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
   / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
@@ -203,12 +196,14 @@ ChannelMention
     }
   / "#" channel:utf8_names_validation { return mentionChannel(channel); }
 
+emoji_shortCode_name = $[0-9a-zA-Z-_+.]+
+
 Emoji
   = Emoji_shortCode
   / ch:unicodeEmoji { return emojiUnicode(ch); }
 
 Emoji_shortCode
-  = ":" shortCode:$(text:utf8_names_validation) ":" { return emoji(shortCode); }
+  = ":" shortCode:$(text:emoji_shortCode_name) ":" { return emoji(shortCode); }
 
 /* __Italic__ */
 /* _Italic_ */
@@ -301,27 +296,6 @@ escape
   = unicode
   / "\\" ch:[^\r\n\f0-9a-f]i { return ch; }
 
-nmstart
-  = [_a-z]i
-  / nonascii
-  / escape
-
-nmchar
-  = [_a-z0-9-]i
-  / nonascii
-  / escape
-
-string1
-  = "\"" chars:$([^\n\r\f\\"] / "\\" nl:nl { return ''; } / escape)* "\"" {
-      return chars;
-    }
-
-nl
-  = "\n"
-  / "\r\n"
-  / "\r"
-  / "\f"
-
 AutolinkedPhone = p:Phone { return link('tel:' + p.number, plain(p.text)); }
 
 AutolinkedURL = u:URL { return link(u); }
@@ -375,11 +349,12 @@ hexByte = a:hexdigit b:hexdigit { return parseInt(a + b, 16); }
 
 domainName
   = "localhost"
-  / $(domainNameLabel ("." domainChar domainNameLabel)+)
+  / $(domainNameLabel ("." (!digit domainChar) domainNameLabel)+)
 
 domainNameLabel = $(domainChar+ $("-" domainChar+)*)
 
-domainChar = !"\\" !"/" !"|" !">" !"<" !safe !extra !EndOfLine !Space .
+domainChar
+  = !"\\" !"/" !"|" !">" !"<" !"%" !"`" !safe !extra !EndOfLine !Space .
 
 /**
  *
@@ -409,23 +384,8 @@ phonePrefix
  */
 
 URL
-  = $(
-    s:urlScheme
-      a:urlAuthority
-      p:urlPath?
-      q:urlQuery?
-      f:urlFragment?
-      g:urlPath?
-      h:urlQuery?
-  )
-  / $(
-    urlAuthorityHost
-      p:urlPath?
-      q:urlQuery?
-      f:urlFragment?
-      g:urlPath?
-      h:urlQuery?
-  )
+  = $(urlScheme urlAuthority urlBody)
+  / $(urlAuthorityHost urlBody)
 
 urlScheme
   = $(
@@ -464,6 +424,25 @@ urlScheme
       ":"
   )
 
+urlBody
+  = (
+    !Whitespace
+      (
+        anyText
+        / "*"
+        / "["
+        / "\/"
+        / "]"
+        / "^"
+        / "_"
+        / "`"
+        / "{"
+        / "}"
+        / "~"
+        / "("
+      )
+  )*
+
 urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
 
 urlAuthorityUserInfo = $(urlAuthorityUser (":" urlAuthorityPassword)? "@")
@@ -480,12 +459,6 @@ urlAuthorityHostName
 
 urlAuthorityPort
   = digits // TODO: from "0" to "65535"
-
-urlPath = $("/" $(!"?" !"/" !"#" !")" !">" !"|" !" " .)* urlPath*)
-
-urlQuery = $("?" $(alpha_digit / safe)*)
-
-urlFragment = $("#" $(alpha_digit / extra / safe)*)
 
 /**
  *
@@ -608,7 +581,7 @@ emoticonPattern
   / e:$(":'(" / ":'-(" / ";(" / ";-(") { return emoticon(e, 'cry'); }
   / e:$(">:(" / ">:-(" / ":@") { return emoticon(e, 'angry'); }
   / e:$(":$" / "=$") { return emoticon(e, 'flushed'); }
-  / e:$"D:" { return emoticon(e, 'fearfulc'); }
+  / e:$"D:" { return emoticon(e, 'fearful'); }
   / e:$("':(" / "':-(" / "'=(") { return emoticon(e, 'sweat'); }
   / e:$(":-X" / ":X" / ":-#" / ":#" / "=X" / "=#") {
       return emoticon(e, 'no_mouth');
