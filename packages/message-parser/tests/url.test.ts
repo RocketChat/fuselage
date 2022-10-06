@@ -1,5 +1,5 @@
 import { parse } from '../src';
-import { lineBreak, link, paragraph, plain } from '../src/utils';
+import { link, paragraph, plain } from '../src/utils';
 
 test.each([
   [
