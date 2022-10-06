@@ -79,6 +79,11 @@ $message-generic-preview-content-hover-background-color: theme(
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: cover;
+
+    &--link {
+      background-position: initial;
+      background-size: contain;
+    }
   }
 
   &__title {
