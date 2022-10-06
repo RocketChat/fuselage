@@ -174,6 +174,17 @@ test.each([
       ]),
     ],
   ],
+  [
+    'two urls https://developer.rocket.chat , https://rocket.chat',
+    [
+      paragraph([
+        plain('two urls '),
+        link('https://developer.rocket.chat'),
+        plain(' , '),
+        link('https://rocket.chat'),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
