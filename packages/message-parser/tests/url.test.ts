@@ -1,5 +1,5 @@
 import { parse } from '../src';
-import { link, paragraph, plain } from '../src/utils';
+import { lineBreak, link, paragraph, plain } from '../src/utils';
 
 test.each([
   [
@@ -15,6 +15,14 @@ test.each([
   [
     'https://pt.wikipedia.org/',
     [paragraph([link('https://pt.wikipedia.org/')])],
+  ],
+  [
+    'https://pt.wikipedia.org/with-hyphen',
+    [paragraph([link('https://pt.wikipedia.org/with-hyphen')])],
+  ],
+  [
+    'https://pt.wikipedia.org/with_underscore',
+    [paragraph([link('https://pt.wikipedia.org/with_underscore')])],
   ],
   [
     'https://www.npmjs.com/package/@rocket.chat/message-parser',
@@ -120,6 +128,41 @@ test.each([
     [
       paragraph([link('https://developer.rocket.chat?query=query')]),
       paragraph([plain('line break')]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query\n\nline break',
+    [
+      paragraph([link('https://developer.rocket.chat?query=query')]),
+      lineBreak(),
+      paragraph([plain('line break')]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query_with_underscore look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat?query=query_with_underscore'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat/path_with_underscore look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat/path_with_underscore'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat#fragment_with_underscore look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat#fragment_with_underscore'),
+        plain(' look at this'),
+      ]),
     ],
   ],
   [
