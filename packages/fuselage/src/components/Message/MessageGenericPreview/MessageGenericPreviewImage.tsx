@@ -16,7 +16,6 @@ export const MessageGenericPreviewImage = ({
   width,
   height,
   externalUrl,
-  imagePreview,
   className,
   ...props
 }: MessageGenericPreviewImageProps) => {
@@ -24,9 +23,7 @@ export const MessageGenericPreviewImage = ({
     'data-testid': 'preview-image',
     'className': prependClassName(
       className,
-      `rcx-message-generic-preview__preview ${
-        imagePreview && 'rcx-message-generic-preview__preview--image'
-      }`
+      'rcx-message-generic-preview__preview'
     ),
     'style': { backgroundImage: `url(${url})`, maxWidth: '100%' },
     'children': <div style={{ paddingTop: `${(height / width) * 100}%` }} />,
