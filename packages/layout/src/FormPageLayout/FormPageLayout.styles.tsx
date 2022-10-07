@@ -1,6 +1,6 @@
 import styled from '@rocket.chat/styled';
 
-import { sans } from './helpers/tokenFontFamilies';
+import { sans } from '../helpers/tokenFontFamilies';
 
 export const Wrapper = styled('div')`
   width: 100%;
@@ -9,10 +9,11 @@ export const Wrapper = styled('div')`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: stretch;
+  justify-content: center;
 
   @media (min-width: 1440px) {
     flex-flow: row nowrap;
+    align-items: start;
     padding-inline: 0;
     width: 100%;
     max-width: 1152px;
@@ -37,7 +38,7 @@ export const Aside = styled('div', asideProps)`
 
   @media (min-width: 1440px) {
     align-items: flex-start;
-    min-height: 40rem;
+
     flex: 1 0 50%;
     padding-inline: 32px;
   }
@@ -66,7 +67,7 @@ export const Title = styled('div')`
   padding-block-end: 24px;
   font-size: ${String(40 / 16)}rem;
   font-family: ${sans};
-  font-weight: 500;
+  font-weight: 800;
   line-height: ${String(42 / 16)}rem;
   text-align: center;
 
