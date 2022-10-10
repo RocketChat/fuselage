@@ -157,7 +157,7 @@ $message-generic-preview-content-hover-background-color: theme(
     max-width: inherit;
     max-height: inherit;
 
-    cursor: zoom-in;
+    cursor: pointer;
 
     border: lengths.border-width(2) solid $message-generic-preview-border-color;
   }
