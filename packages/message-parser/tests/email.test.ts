@@ -4,13 +4,13 @@ import { link, paragraph, plain } from '../src/utils';
 test.each([
   [
     'joe@joe.com',
-    [paragraph([link('mailto:joe@joe.com', plain('joe@joe.com'))])],
+    [paragraph([link('mailto:joe@joe.com', [plain('joe@joe.com')])])],
   ],
   [
     "joe@joe.com is Joe's email",
     [
       paragraph([
-        link('mailto:joe@joe.com', plain('joe@joe.com')),
+        link('mailto:joe@joe.com', [plain('joe@joe.com')]),
         plain(" is Joe's email"),
       ]),
     ],
@@ -19,7 +19,7 @@ test.each([
     "joe@joe.com is Joe's email",
     [
       paragraph([
-        link('mailto:joe@joe.com', plain('joe@joe.com')),
+        link('mailto:joe@joe.com', [plain('joe@joe.com')]),
         plain(" is Joe's email"),
       ]),
     ],
@@ -29,7 +29,7 @@ test.each([
     [
       paragraph([
         plain("Joe's email is "),
-        link('mailto:joe@joe.com', plain('joe@joe.com')),
+        link('mailto:joe@joe.com', [plain('joe@joe.com')]),
         plain(' because it is'),
       ]),
     ],
@@ -39,7 +39,7 @@ test.each([
     [
       paragraph([
         plain("Joe's email is "),
-        link('mailto:joe@joe.com', plain('joe@joe.com')),
+        link('mailto:joe@joe.com', [plain('joe@joe.com')]),
       ]),
     ],
   ],
@@ -48,7 +48,7 @@ test.each([
     [
       paragraph([
         plain("Joe's email is "),
-        link('mailto:joe@joe.com', plain('joe@joe.com')),
+        link('mailto:joe@joe.com', [plain('joe@joe.com')]),
         plain('. Try emailing him'),
       ]),
     ],
@@ -58,7 +58,7 @@ test.each([
     [
       paragraph([
         plain("Joe's email is "),
-        link('mailto:joe.smith@joe.com', plain('joe.smith@joe.com')),
+        link('mailto:joe.smith@joe.com', [plain('joe.smith@joe.com')]),
       ]),
     ],
   ],
@@ -67,7 +67,7 @@ test.each([
     [
       paragraph([
         plain("Joe's email is "),
-        link('mailto:JOE@JOE.COM', plain('JOE@JOE.COM')),
+        link('mailto:JOE@JOE.COM', [plain('JOE@JOE.COM')]),
       ]),
     ],
   ],
@@ -76,7 +76,7 @@ test.each([
     [
       paragraph([
         plain("Joe's email is ("),
-        link('mailto:joe@joe.com', plain('joe@joe.com')),
+        link('mailto:joe@joe.com', [plain('joe@joe.com')]),
         plain(')'),
       ]),
     ],
@@ -86,7 +86,7 @@ test.each([
     [
       paragraph([
         plain("Joe's email is ("),
-        link('mailto:joe_roe@joe.com', plain('joe_roe@joe.com')),
+        link('mailto:joe_roe@joe.com', [plain('joe_roe@joe.com')]),
         plain(')'),
       ]),
     ],
@@ -96,7 +96,7 @@ test.each([
     [
       paragraph([
         plain("Joe's email is ("),
-        link("mailto:joe'roe@joe.com", plain("joe'roe@joe.com")),
+        link("mailto:joe'roe@joe.com", [plain("joe'roe@joe.com")]),
         plain(')'),
       ]),
     ],
@@ -106,7 +106,7 @@ test.each([
     [
       paragraph([
         plain("Joe's email is "),
-        link('mailto:mañana@mañana.com', plain('mañana@mañana.com')),
+        link('mailto:mañana@mañana.com', [plain('mañana@mañana.com')]),
       ]),
     ],
   ],
@@ -115,10 +115,9 @@ test.each([
     [
       paragraph([
         plain("Joe's email is "),
-        link(
-          'mailto:Кириллица@Кириллица.com',
-          plain('Кириллица@Кириллица.com')
-        ),
+        link('mailto:Кириллица@Кириллица.com', [
+          plain('Кириллица@Кириллица.com'),
+        ]),
       ]),
     ],
   ],
@@ -128,7 +127,7 @@ test.each([
     [
       paragraph([
         plain('My email is '),
-        link('mailto:busueng.kim@aaa.com', plain('busueng.kim@aaa.com')),
+        link('mailto:busueng.kim@aaa.com', [plain('busueng.kim@aaa.com')]),
       ]),
     ],
   ],
@@ -137,7 +136,7 @@ test.each([
     [
       paragraph([
         plain('My email is '),
-        link('mailto:asdf@asdf.com', plain('asdf@asdf.com')),
+        link('mailto:asdf@asdf.com', [plain('asdf@asdf.com')]),
       ]),
     ],
   ],
