@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import {
   italic,
   paragraph,
@@ -98,5 +98,5 @@ test.each([
   ['_hello_text', [paragraph([plain('_hello_text')])]],
   ['text_hello_', [paragraph([plain('text_hello_')])]],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });

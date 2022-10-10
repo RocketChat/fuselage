@@ -36,7 +36,7 @@
   }
 
   &__message {
-    color: colors.foreground(default);
+    color: colors.font(default);
     @include typography.use-with-truncated-text();
   }
 
@@ -57,7 +57,7 @@
     &--follow {
       cursor: pointer;
 
-      color: colors.foreground(info);
+      color: colors.font(secondary-info);
     }
 
     &--unfollow {

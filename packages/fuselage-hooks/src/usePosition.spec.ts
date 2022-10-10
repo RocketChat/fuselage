@@ -1,9 +1,13 @@
+import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
+
 import {
   getPositionStyle,
   getTargetBoundaries,
   getVariantBoundaries,
 } from './usePosition';
 // TODO: add tests targeting the hook itself
+
+withResizeObserverMock();
 
 const container = {
   bottom: 1000,
@@ -243,6 +247,25 @@ describe('usePosition hook', () => {
       });
       expect(result.style.left).toEqual('50px');
       expect(result.style.top).toEqual('110px');
+    });
+    it('returns a style for placement bottom-end if the element height does not fit container height', () => {
+      const targetBoundaries = getTargetBoundaries({ referenceBox, target });
+      const variantStore = getVariantBoundaries({ referenceBox, target });
+      const result = getPositionStyle({
+        placement: 'bottom-end',
+        container: {
+          ...container,
+          bottom: 50,
+          height: 50,
+        },
+        targetBoundaries,
+        variantStore,
+        target,
+      });
+      console.log(result.style);
+      expect(result.style.overflowY).toEqual('auto');
+      expect(result.style.left).toEqual('50px');
+      expect(result.style.top).toEqual('300px');
     });
   });
 });

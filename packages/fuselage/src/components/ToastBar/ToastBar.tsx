@@ -53,20 +53,27 @@ export function ToastBar({
   `;
 
   const progressBarAnimation = css`
-  &::after {
-    width: 0%;
-    animation: ${progressBar} ${time}s;
-  ;`;
+    &::after {
+      width: 0%;
+      animation: ${progressBar} ${time}s;
+    }
+  `;
 
   const uniqueId = useUniqueId();
   const toastId = id || uniqueId;
 
   return (
-    <Box className={['rcx-toastbar-wrapper', toastBarAnimation]}>
+    <Box
+      className={['rcx-toastbar-wrapper', toastBarAnimation]}
+      role='alert'
+      aria-labelledby={toastId}
+    >
       <div className={`rcx-toastbar rcx-toastbar--${variant} ${className}`}>
         <div className='rcx-toastbar-inner'>
           <Icon size='x20' name={iconName} />
-          <div className='rcx-toastbar-content'>{children}</div>
+          <div className='rcx-toastbar-content' id={toastId}>
+            {children}
+          </div>
           {onClose && (
             <div className='rcx-toastbar-close'>
               <IconButton

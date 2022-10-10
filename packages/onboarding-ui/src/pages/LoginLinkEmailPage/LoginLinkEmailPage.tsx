@@ -1,10 +1,9 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
+import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import BackgroundLayer from '../../common/BackgroundLayer';
 import EmailCodeFallback from '../../common/EmailCodeFallback';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type LoginLinkEmailProps = {
   onResendEmailRequest: () => void;
@@ -30,7 +29,7 @@ const LoginLinkEmailPage = ({
         paddingInline={16}
       >
         <Margins blockEnd={32}>
-          <OnboardingLogo />
+          <LayoutLogo.LayoutLogo />
 
           <Box fontScale='hero' width='100%'>
             {t('page.magicLinkEmail.title')}

@@ -1,0 +1,279 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+@import '../../styles/mixins/all.scss';
+
+$sidebar-header-height: theme(
+  'sidebar-header-height',
+  theme('header-height', lengths.size(64))
+);
+
+$sidebar-section-height: theme(
+  'sidebar-section-height',
+  theme('section-height', lengths.size(56))
+);
+$sidebar-item-background-color: theme(
+  'sidebar-item-background-color',
+  colors.surface(light)
+);
+$sidebar-item-color: theme('sidebar-item-color', colors.font(annotation));
+$sidebar-item-color-highlighted: theme(
+  'sidebar-item-color-highlighted',
+  colors.font(white)
+);
+$sidebar-item-background-color-hover: theme(
+  'sidebar-item-background-color-hover',
+  transparent
+);
+$sidebar-item-color-hover: theme(
+  'sidebar-item-color-hover',
+  colors.font(annotation)
+);
+$sidebar-item-color-focus: theme(
+  'sidebar-item-color-focus',
+  colors.neutral(900)
+);
+$sidebar-item-background-color-selected: theme(
+  'sidebar-item-background-color-selected',
+  colors.neutral(200)
+);
+$sidebar-item-color-selected: theme(
+  'sidebar-item-color-selected',
+  colors.font(annotation)
+);
+
+$sidebar-title-color: theme('sidebar-title-color', colors.font(annotation));
+
+$sidebar-footer-box-shadow: theme(
+  'sidebar-footer-box-shadow',
+  rgba(0, 0, 0, 0.1)
+);
+
+$sidebar-footer-highlight-color: theme(
+  'sidebar-footer-highlight-color',
+  colors.font(annotation)
+);
+
+%sidebar-base {
+  display: flex;
+
+  align-items: center;
+
+  border-radius: lengths.border-radius(small);
+  @include typography.use-font-scale(p2);
+}
+
+%highlighted {
+  color: $sidebar-item-color-highlighted;
+}
+
+@mixin highlighted {
+  &--highlighted {
+    @extend %highlighted;
+  }
+}
+
+.rcx-sidebar {
+  &-topbar {
+    display: flex;
+    flex-direction: column;
+
+    height: $sidebar-header-height;
+
+    color: $sidebar-item-color;
+
+    &--section {
+      padding-block-start: lengths.padding(4);
+    }
+
+    &--toolbox {
+      height: $sidebar-section-height;
+    }
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      flex-grow: 1;
+
+      padding-block: lengths.padding(12);
+      padding-inline: lengths.padding(16);
+    }
+
+    &__title {
+      @include typography.use-font-scale(p2m);
+
+      color: $sidebar-title-color;
+    }
+  }
+
+  &-item {
+    @extend %sidebar-base;
+    @include highlighted;
+
+    padding-block: lengths.padding(4);
+    padding-inline: lengths.padding(16);
+
+    color: $sidebar-item-color;
+
+    &__wrapper {
+      @extend %sidebar-base;
+      @include typography.use-with-truncated-text();
+      flex: 1 0;
+
+      margin-inline: lengths.margin(-2);
+    }
+
+    &--clickable {
+      @include clickable;
+
+      @include on-focus-visible {
+        color: $sidebar-item-color-hover;
+        background-color: $sidebar-item-background-color-hover;
+      }
+
+      @include on-hover {
+        @include use-no-shadow;
+        color: $sidebar-item-color-hover;
+        background-color: $sidebar-item-background-color-hover;
+      }
+
+      @include on-focus-visible {
+        @include use-focus-shadow-inset($sidebar-item-color-focus);
+      }
+    }
+
+    &:active,
+    &--selected {
+      color: $sidebar-item-color-selected;
+      background-color: $sidebar-item-background-color-selected;
+    }
+
+    &__avatar {
+      display: flex;
+      flex: 0 0 auto;
+
+      @include typography.use-with-truncated-text();
+    }
+
+    &__container {
+      @extend %sidebar-base;
+      flex: 0 0 auto;
+
+      margin-inline: lengths.margin(2);
+    }
+
+    &__icon {
+      @include typography.use-with-truncated-text();
+      @include highlighted;
+
+      display: flex;
+      justify-content: center;
+
+      width: lengths.size(16);
+      margin-inline: lengths.margin(2);
+    }
+
+    &__content {
+      @include typography.use-with-truncated-text();
+      flex-wrap: wrap;
+      flex: 1 1 100%;
+    }
+
+    &__title,
+    &__subtitle {
+      @extend %sidebar-base;
+      @include typography.use-with-truncated-text();
+      display: block;
+      flex: 1 1 1%;
+
+      margin-inline: lengths.margin(2);
+    }
+
+    &__subtitle {
+      @include typography.use-font-scale(c1);
+    }
+
+    &__time {
+      @include typography.use-font-scale(micro);
+      margin-inline: lengths.margin(4);
+    }
+
+    &__badge {
+      margin-inline: lengths.margin(4);
+    }
+
+    &:hover &__menu-wrapper,
+    &.focus-within &__menu-wrapper {
+      position: static;
+
+      width: lengths.size(20);
+      margin-inline: lengths.margin(4);
+
+      opacity: 1;
+    }
+
+    &:focus-within &__menu-wrapper {
+      width: lengths.size(20);
+
+      margin-inline: lengths.margin(4);
+
+      opacity: 1;
+    }
+
+    &__menu {
+      position: absolute;
+
+      transform: translateY(-50%);
+    }
+
+    &__menu-wrapper {
+      position: relative;
+
+      flex-shrink: 0;
+
+      width: 0;
+
+      height: 100%;
+
+      opacity: 0;
+    }
+  }
+
+  &-title {
+    @include typography.use-font-scale(c2);
+    @include typography.use-with-truncated-text();
+
+    color: $sidebar-title-color;
+  }
+
+  &-section {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-block: lengths.margin(8);
+    padding-inline: lengths.padding(16);
+  }
+
+  &-footer {
+    padding-block: lengths.padding(4);
+
+    &--elevated {
+      box-shadow: 0 -4px 12px $sidebar-footer-box-shadow;
+    }
+
+    &__highlights {
+      @include typography.use-font-scale(c1);
+
+      display: flex;
+      justify-content: center;
+
+      padding-block-start: lengths.padding(4);
+
+      color: $sidebar-footer-highlight-color;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+.rcx-code-snippet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  min-height: lengths.size(60);
+  padding: lengths.padding(16);
+
+  border-radius: theme(
+    'code-snippet-border-radius',
+    lengths.border-radius(medium)
+  );
+  background-color: colors.neutral(300);
+
+  &__codebox {
+    margin-right: lengths.margin(8);
+
+    white-space: pre-line;
+    word-break: break-all;
+  }
+}

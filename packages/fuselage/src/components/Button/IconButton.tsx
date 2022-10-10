@@ -5,27 +5,22 @@ import Box from '../Box';
 import { Icon } from '../Icon';
 
 type ButtonSize = {
-  square?: boolean;
   mini?: boolean;
   tiny?: boolean;
   small?: boolean;
 };
-type IconButtonProps = ComponentProps<typeof Box> &
-  ButtonSize & {
-    icon: ComponentProps<typeof Icon>['name'];
-    children?: ReactNode;
 
-    primary?: boolean;
-    secondary?: boolean;
-    info?: boolean;
-    secondaryInfo?: boolean;
-    danger?: boolean;
-    secondaryDanger?: boolean;
-    warning?: boolean;
-    secondaryWarning?: boolean;
-    success?: boolean;
-    secondarySuccess?: boolean;
-  };
+type IconButtonProps = {
+  icon: ComponentProps<typeof Icon>['name'];
+  children?: ReactNode;
+  primary?: boolean;
+  secondary?: boolean;
+  info?: boolean;
+  danger?: boolean;
+  warning?: boolean;
+  success?: boolean;
+} & ButtonSize &
+  ComponentProps<typeof Box>;
 
 const getSize = ({ mini }: ButtonSize) => (mini ? 'x16' : 'x20');
 
@@ -37,14 +32,9 @@ export const IconButton = forwardRef(
       primary,
       info,
       secondary,
-      secondaryInfo,
       danger,
-      secondaryDanger,
       warning,
-      secondaryWarning,
       success,
-      secondarySuccess,
-      square,
       small,
       tiny,
       mini,
@@ -54,15 +44,15 @@ export const IconButton = forwardRef(
   ) => {
     const kindAndVariantProps = useMemo(() => {
       const variant =
+        (secondary && info && 'secondary-info') ||
+        (secondary && danger && 'secondary-danger') ||
+        (secondary && warning && 'secondary-warning') ||
+        (secondary && success && 'secondary-success') ||
         ((primary || info) && 'info') ||
-        (secondary && 'secondary') ||
-        (secondaryInfo && 'secondary-info') ||
-        (danger && 'danger') ||
-        (secondaryDanger && 'secondary-danger') ||
-        (warning && 'warning') ||
-        (secondaryWarning && 'secondary-warning') ||
         (success && 'success') ||
-        (secondarySuccess && 'secondary-success');
+        (warning && 'warning') ||
+        (danger && 'danger') ||
+        (secondary && 'secondary');
 
       if (variant) {
         return {
@@ -71,25 +61,15 @@ export const IconButton = forwardRef(
       }
 
       return {};
-    }, [
-      primary,
-      info,
-      secondary,
-      secondaryInfo,
-      danger,
-      secondaryDanger,
-      warning,
-      secondaryWarning,
-      success,
-      secondarySuccess,
-    ]);
+    }, [primary, info, secondary, danger, warning, success]);
 
     return (
       <Box
         is='button'
+        type='button'
         rcx-button
         rcx-button--icon
-        rcx-button--square={square}
+        rcx-button--square
         {...kindAndVariantProps}
         rcx-button--small-square={small}
         rcx-button--tiny-square={tiny}

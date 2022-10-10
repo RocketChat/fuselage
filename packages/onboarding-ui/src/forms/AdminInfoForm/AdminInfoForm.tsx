@@ -10,13 +10,12 @@ import {
   CheckBox,
 } from '@rocket.chat/fuselage';
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
+import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useEffect } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-
-import Form from '../../common/Form';
 
 export type AdminInfoPayload = {
   fullname: string;
@@ -74,9 +73,11 @@ const AdminInfoForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-      <Form.Title>{t('form.adminInfoForm.title')}</Form.Title>
-      <Form.Subtitle>{t('form.adminInfoForm.subtitle')}</Form.Subtitle>
+      <Form.Header>
+        <Form.Steps currentStep={currentStep} stepCount={stepCount} />
+        <Form.Title>{t('form.adminInfoForm.title')}</Form.Title>
+        <Form.Subtitle>{t('form.adminInfoForm.subtitle')}</Form.Subtitle>
+      </Form.Header>
       <Form.Container>
         <FieldGroup>
           <Field>

@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import {
   heading,
   lineBreak,
@@ -54,5 +54,5 @@ test.each([
   ['# Hello\n', [heading([plain('Hello')], 1), lineBreak()]],
   ['# # Hello\n', [heading([plain('# Hello')], 1), lineBreak()]],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });

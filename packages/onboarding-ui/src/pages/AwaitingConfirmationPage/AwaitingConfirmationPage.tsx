@@ -1,11 +1,14 @@
-import { Box, Margins } from '@rocket.chat/fuselage';
+import { Box } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import {
+  HeroLayout,
+  HeroLayoutTitle,
+  HeroLayoutSubtitle,
+} from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import BackgroundLayer from '../../common/BackgroundLayer';
 import EmailCodeFallback from '../../common/EmailCodeFallback';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type AwaitingConfirmationPageProps = {
   emailAddress: string;
@@ -23,45 +26,29 @@ const AwaitingConfirmationPage = ({
   const { t } = useTranslation();
 
   return (
-    <BackgroundLayer>
+    <HeroLayout>
+      <HeroLayoutTitle>{t('page.awaitingConfirmation.title')}</HeroLayoutTitle>
+      <HeroLayoutSubtitle>
+        {t('page.awaitingConfirmation.subtitle', { emailAddress })}
+      </HeroLayoutSubtitle>
+
       <Box
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-        textAlign='center'
-        width='100%'
-        maxWidth={576}
-        paddingBlock={32}
-        paddingInline={16}
+        maxWidth={498}
+        padding='x18'
+        width='full'
+        fontSize='x22'
+        lineHeight='x32'
+        backgroundColor={colors.n700}
+        borderRadius='x3'
       >
-        <Margins blockEnd={32}>
-          <OnboardingLogo />
-
-          <Box fontScale='hero'>{t('page.awaitingConfirmation.title')}</Box>
-
-          <Box fontScale='p1'>
-            {t('page.awaitingConfirmation.subtitle', { emailAddress })}
-          </Box>
-
-          <Box
-            maxWidth={498}
-            padding='x18'
-            width='full'
-            fontSize='x22'
-            lineHeight='x32'
-            backgroundColor={colors.n700}
-            borderRadius='x3'
-          >
-            {securityCode}
-          </Box>
-
-          <EmailCodeFallback
-            onResendEmailRequest={onResendEmailRequest}
-            onChangeEmailRequest={onChangeEmailRequest}
-          />
-        </Margins>
+        {securityCode}
       </Box>
-    </BackgroundLayer>
+
+      <EmailCodeFallback
+        onResendEmailRequest={onResendEmailRequest}
+        onChangeEmailRequest={onChangeEmailRequest}
+      />
+    </HeroLayout>
   );
 };
 

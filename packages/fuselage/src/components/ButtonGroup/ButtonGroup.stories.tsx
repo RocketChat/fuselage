@@ -35,16 +35,16 @@ export default {
   },
 } as ComponentMeta<typeof ButtonGroup>;
 
-export const Default: ComponentStory<typeof ButtonGroup> = () => (
-  <ButtonGroup>
+const Template: ComponentStory<typeof ButtonGroup> = (args) => (
+  <ButtonGroup {...args}>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
     <Button>Button 3</Button>
   </ButtonGroup>
 );
 
-export const Wrap: ComponentStory<typeof ButtonGroup> = () => (
-  <ButtonGroup wrap>
+const TemplateMultiple: ComponentStory<typeof ButtonGroup> = (args) => (
+  <ButtonGroup {...args}>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
     <Button>Button 3</Button>
@@ -68,54 +68,58 @@ export const Wrap: ComponentStory<typeof ButtonGroup> = () => (
   </ButtonGroup>
 );
 
-export const Strech: ComponentStory<typeof ButtonGroup> = () => (
-  <ButtonGroup stretch>
-    <Button>Button 1</Button>
-    <Button>Button 2</Button>
-    <Button>Button 3</Button>
-  </ButtonGroup>
+export const Default: ComponentStory<typeof ButtonGroup> = Template.bind({});
+
+export const Medium: ComponentStory<typeof ButtonGroup> = Template.bind({});
+Medium.args = {
+  medium: true,
+};
+
+export const Small: ComponentStory<typeof ButtonGroup> = Template.bind({});
+Small.args = {
+  small: true,
+};
+
+export const Wrap: ComponentStory<typeof ButtonGroup> = TemplateMultiple.bind(
+  {}
 );
+Wrap.args = {
+  wrap: true,
+};
 
-export const Vertical: ComponentStory<typeof ButtonGroup> = () => (
-  <ButtonGroup vertical>
-    <Button>Button 1</Button>
-    <Button>Button 2</Button>
-    <Button>Button 3</Button>
-  </ButtonGroup>
+export const Stretch: ComponentStory<typeof ButtonGroup> = Template.bind({});
+Stretch.args = {
+  stretch: true,
+};
+
+export const Vertical: ComponentStory<typeof ButtonGroup> = Template.bind({});
+Vertical.args = {
+  vertical: true,
+};
+
+export const VerticalStretch: ComponentStory<typeof ButtonGroup> =
+  Template.bind({});
+VerticalStretch.args = {
+  vertical: true,
+  stretch: true,
+};
+
+export const AlignedAtStart: ComponentStory<typeof ButtonGroup> = Template.bind(
+  {}
 );
-
-export const WithStretch: ComponentStory<typeof ButtonGroup> = () => (
-  <ButtonGroup vertical stretch>
-    <Button>Button 1</Button>
-    <Button>Button 2</Button>
-    <Button>Button 3</Button>
-  </ButtonGroup>
-);
-
-const GroupAlignment: ComponentStory<typeof ButtonGroup> = (args) => (
-  <ButtonGroup {...args}>
-    <Button>Button 1</Button>
-    <Button>Button 2</Button>
-    <Button>Button 3</Button>
-  </ButtonGroup>
-);
-
-GroupAlignment.storyName = 'Alignment';
-
-export const AlignedAtStart: ComponentStory<typeof ButtonGroup> =
-  GroupAlignment.bind({});
 AlignedAtStart.args = {
   align: 'start',
 };
 
 export const AlignedAtCenter: ComponentStory<typeof ButtonGroup> =
-  GroupAlignment.bind({});
+  Template.bind({});
 AlignedAtCenter.args = {
   align: 'center',
 };
 
-export const AlignedAtEnd: ComponentStory<typeof ButtonGroup> =
-  GroupAlignment.bind({});
+export const AlignedAtEnd: ComponentStory<typeof ButtonGroup> = Template.bind(
+  {}
+);
 AlignedAtEnd.args = {
   align: 'end',
 };

@@ -1,11 +1,11 @@
 import type { SelectOption } from '@rocket.chat/fuselage';
+import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import BackgroundLayer from '../../common/BackgroundLayer';
+import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
-import type { FormPageLayoutStyleProps } from '../../common/Types';
 import OrganizationInfoForm from '../../forms/OrganizationInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
 

@@ -39,9 +39,9 @@ export const Avatar = ({
   );
   const innerClass = [
     'rcx-avatar__element',
-    rounded && 'rcx-avatar__element--rounded',
     objectFit && 'rcx-avatar__element--object-fit',
-    size && `rcx-avatar--${size}`,
+    size && `rcx-avatar__element--${size}`,
+    rounded && 'rcx-avatar__element--rounded',
   ]
     .filter(Boolean)
     .join(' ');

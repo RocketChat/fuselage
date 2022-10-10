@@ -6,7 +6,7 @@
 
 $message-system-background-color-selected: functions.theme(
   'message-system-background-color-selected',
-  colors.foreground(success-light)
+  colors.status-background(success)
 );
 
 .rcx-message-system {
@@ -35,23 +35,21 @@ $message-system-background-color-selected: functions.theme(
   }
 
   &__body {
-    @include typography.use-font-scale(p2m);
+    @include typography.use-font-scale(c1);
     @include typography.use-with-truncated-text();
     margin-inline: lengths.margin(4);
 
-    color: colors.foreground(hint);
-
-    font-style: italic;
+    color: colors.font(annotation);
   }
 
   &__name {
-    @include typography.use-font-scale(h5);
+    @include typography.use-font-scale(c2);
     @include typography.use-with-truncated-text();
     flex-shrink: 0;
 
     margin-inline: lengths.margin(4);
 
-    color: colors.foreground(default);
+    color: colors.font(default);
   }
 
   &__block {

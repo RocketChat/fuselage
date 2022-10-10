@@ -1,8 +1,8 @@
 {
-  "version": "0.31.13",
+  "version": "0.31.19",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": ["packages/*", "scripts"],
+  "packages": ["packages/*", "tools/*"],
   "command": {
     "version": {
       "allowBranch": ["master", "feature*"]

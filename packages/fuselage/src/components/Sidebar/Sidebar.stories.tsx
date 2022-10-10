@@ -91,9 +91,9 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction secondarySuccess icon='phone' />
-          <SidebarItemAction secondaryDanger icon='circle-cross' />
-          <SidebarItemAction secondaryInfo icon='trash' />
+          <SidebarItemAction secondary success icon='phone' />
+          <SidebarItemAction secondary danger icon='circle-cross' />
+          <SidebarItemAction secondary info icon='trash' />
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -118,9 +118,9 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction secondarySuccess icon='phone' />
-          <SidebarItemAction secondaryDanger icon='circle-cross' />
-          <SidebarItemAction secondaryInfo icon='trash' />
+          <SidebarItemAction secondary success icon='phone' />
+          <SidebarItemAction secondary danger icon='circle-cross' />
+          <SidebarItemAction secondary info icon='trash' />
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -155,9 +155,9 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction secondarySuccess icon='phone' />
-          <SidebarItemAction secondaryDanger icon='circle-cross' />
-          <SidebarItemAction secondaryInfo icon='trash' />
+          <SidebarItemAction secondary success icon='phone' />
+          <SidebarItemAction secondary danger icon='circle-cross' />
+          <SidebarItemAction secondary info icon='trash' />
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -218,9 +218,9 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction secondarySuccess icon='phone' />
-          <SidebarItemAction secondaryDanger icon='circle-cross' />
-          <SidebarItemAction secondaryInfo icon='trash' />
+          <SidebarItemAction secondary success icon='phone' />
+          <SidebarItemAction secondary danger icon='circle-cross' />
+          <SidebarItemAction secondary info icon='trash' />
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -245,9 +245,9 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction secondarySuccess icon='phone' />
-          <SidebarItemAction secondaryDanger icon='circle-cross' />
-          <SidebarItemAction secondaryInfo icon='trash' />
+          <SidebarItemAction secondary success icon='phone' />
+          <SidebarItemAction secondary danger icon='circle-cross' />
+          <SidebarItemAction secondary info icon='trash' />
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -282,9 +282,9 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
       </SidebarItemContent>
       <SidebarItemContainer>
         <SidebarItemActions>
-          <SidebarItemAction secondarySuccess icon='phone' />
-          <SidebarItemAction secondaryDanger icon='circle-cross' />
-          <SidebarItemAction secondaryInfo icon='trash' />
+          <SidebarItemAction secondary success icon='phone' />
+          <SidebarItemAction secondary danger icon='circle-cross' />
+          <SidebarItemAction secondary info icon='trash' />
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
@@ -336,7 +336,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
         </SidebarItemContent>
         <SidebarItemContainer>
           <SidebarItemActions>
-            <SidebarItemAction secondaryDanger icon='phone-off' />
+            <SidebarItemAction secondary danger icon='phone-off' />
           </SidebarItemActions>
         </SidebarItemContainer>
       </SidebarItem>

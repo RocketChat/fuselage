@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 
 import { Box } from '..';
 import { IconButton } from '../Button';
-import Option from '../Options/Option/Option';
+import Option from '../Option';
 import { Dropdown } from './Dropdown';
 
 export default {
@@ -28,7 +28,13 @@ export const Default: ComponentStory<typeof Dropdown> = () => {
       justifyContent='center'
       alignItems='center'
     >
-      <IconButton secondary small ref={anchor} icon='doner' />
+      <IconButton
+        secondary
+        small
+        ref={anchor}
+        icon='doner'
+        data-testid='dropdown-anchor'
+      />
       <Dropdown ref={target} reference={anchor} placement='bottom-end'>
         {list.map((_, i) => (
           <Option key={i}>Example {i + 1}</Option>

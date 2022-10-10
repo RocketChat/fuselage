@@ -11,7 +11,7 @@ import React from 'react';
 import type { SelectOption } from '../..';
 import { Select, SelectFiltered } from '../..';
 
-export const options: SelectOption[] = Array.from({
+const options: SelectOption[] = Array.from({
   length: 10,
 }).map((_, i) => [`${i + 1}`, `a teste ${i + 1}`]);
 

@@ -10,7 +10,7 @@ import { useMutableCallback } from './useMutableCallback';
  * @public
  */
 
-export function useOutsideClick<T extends HTMLElement>(
+export function useOutsideClick<T extends Element>(
   elements: RefObject<T>[],
   cb: (e: MouseEvent) => void
 ): void {

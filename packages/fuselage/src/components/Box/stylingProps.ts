@@ -147,6 +147,7 @@ export type StylingProps = {
   textAlign: CSSProperties['textAlign'];
   textTransform: CSSProperties['textTransform'];
   textDecorationLine: CSSProperties['textDecorationLine'];
+  wordBreak: CSSProperties['wordBreak'];
 
   elevation: '0' | '1' | '2';
   invisible: boolean;
@@ -349,6 +350,7 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   textAlign: stringProp,
   textTransform: stringProp,
   textDecorationLine: stringProp,
+  wordBreak: stringProp,
 
   elevation: {
     toStyle: (value) => {

@@ -8,11 +8,5 @@ type MessageRoleProps = {
 };
 
 export const MessageRole = (props: MessageRoleProps) => (
-  <Tag
-    onClick={undefined}
-    className='rcx-box rcx-box--full rcx-message-header__role'
-    {...props}
-    small
-    disabled={true}
-  />
+  <Tag className='rcx-box rcx-box--full rcx-message-header__role' {...props} />
 );

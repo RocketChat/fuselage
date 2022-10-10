@@ -57,8 +57,8 @@ type PositionStyle = {
   position?: 'fixed';
   ZIndex: '9999';
   transition: 'none !important';
-  bottom?: 0;
-  display: 'flex';
+  bottom?: '0px';
+  overflowY?: 'auto';
 };
 
 type PositionEmptyResult = {
@@ -66,6 +66,7 @@ type PositionEmptyResult = {
   top: '-9999px';
   left: '-9999px';
   position: 'fixed';
+  overflowY?: 'initial';
 };
 
 type PositionResult = {
@@ -139,10 +140,18 @@ const useBoundingClientRect = (
     const parents = getScrollParents(element.current);
     const passive = { passive: true };
 
+    const observer = new ResizeObserver(() => {
+      if (!element.current) {
+        return;
+      }
+      callback();
+    });
+    observer.observe(element.current);
     window.addEventListener('resize', callback);
     parents.forEach((el) => el.addEventListener('scroll', callback, passive));
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', callback);
       parents.forEach((el) => el.removeEventListener('scroll', callback));
     };
@@ -235,8 +244,8 @@ export const getPositionStyle = ({
       left: `${variantPoint}px`,
       position: 'fixed',
       ...(bottom < target.height + point && {
-        bottom: margin,
-        display: 'flex',
+        bottom: `${margin}px`,
+        overflowY: 'auto',
       }),
       ZIndex: '9999',
     },

@@ -1,0 +1,41 @@
+@use '../../styles/lengths.scss';
+
+$toggle-switch-border-radius: theme(
+  'toggle-switch-border-radius',
+  lengths.border-radius(full)
+);
+
+.rcx-toggle-switch {
+  @include is-selection-button($checked: 'primary', $unchecked: 'off');
+
+  &__input {
+    @extend %selection-button__input;
+  }
+
+  &__fake {
+    @extend %selection-button__fake;
+    width: lengths.size(2 * 20);
+
+    border-radius: $toggle-switch-border-radius;
+  }
+
+  &__input + &__fake::before {
+    position: absolute;
+    inset-inline-start: lengths.inset(none);
+
+    width: lengths.size(20) - 2 * lengths.border-width(2);
+    height: lengths.size(20) - 2 * lengths.border-width(2);
+
+    content: '';
+
+    border-radius: $toggle-switch-border-radius;
+
+    background-color: currentColor;
+  }
+
+  &__input:checked + &__fake::before {
+    inset-inline-start: calc(
+      100% - #{lengths.inset(20) - 2 * lengths.border-width(2)}
+    );
+  }
+}
