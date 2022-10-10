@@ -6,13 +6,12 @@ import { prependClassName } from '../../../helpers/prependClassName';
 type MessageGenericPreviewImageLinkProps = {
   url: string;
   className?: string;
-  onError?: ImgHTMLAttributes<HTMLImageElement>['onError'];
-};
+} & ImgHTMLAttributes<HTMLImageElement>;
 
 export const MessageGenericPreviewImageLink = ({
   url,
   className,
-  onError,
+  ...props
 }: MessageGenericPreviewImageLinkProps) => (
   <img
     src={url}
@@ -21,6 +20,6 @@ export const MessageGenericPreviewImageLink = ({
       'rcx-message-generic-preview__image'
     )}
     alt=''
-    onError={onError}
+    {...props}
   />
 );
