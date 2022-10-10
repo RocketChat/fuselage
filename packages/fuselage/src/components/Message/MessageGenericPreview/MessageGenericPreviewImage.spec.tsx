@@ -20,22 +20,4 @@ describe('MessageGenericPreviewImage', () => {
       'rcx-message-generic-preview__preview--image'
     );
   });
-
-  it('should render anchor with background image when has external url', () => {
-    render(
-      <MessageGenericPreviewImage
-        url='test'
-        externalUrl='external'
-        width={200}
-        height={200}
-      />
-    );
-    const previewImage = screen.getByTestId('preview-image');
-
-    expect(previewImage).toHaveStyle({
-      background: 'test',
-    });
-    expect(previewImage).toHaveAttribute('href', 'external');
-    expect(previewImage).toHaveAttribute('target', '_blank');
-  });
 });

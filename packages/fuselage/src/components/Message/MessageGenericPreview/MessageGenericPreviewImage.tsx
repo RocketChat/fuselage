@@ -15,29 +15,18 @@ export const MessageGenericPreviewImage = ({
   url,
   width,
   height,
-  externalUrl,
   className,
   ...props
-}: MessageGenericPreviewImageProps) => {
-  const componentProps = {
-    'data-testid': 'preview-image',
-    'className': prependClassName(
+}: MessageGenericPreviewImageProps) => (
+  <div
+    className={prependClassName(
       className,
       'rcx-message-generic-preview__preview'
-    ),
-    'style': { backgroundImage: `url(${url})`, maxWidth: '100%' },
-    'children': <div style={{ paddingTop: `${(height / width) * 100}%` }} />,
-  };
-
-  return externalUrl ? (
-    <a
-      href={externalUrl}
-      target='_blank'
-      rel='noopener noreferrer'
-      {...componentProps}
-      {...props}
-    />
-  ) : (
-    <div {...componentProps} {...props} />
-  );
-};
+    )}
+    style={{ backgroundImage: `url(${url})`, maxWidth: '100%' }}
+    data-testid='preview-image'
+    {...props}
+  >
+    <div style={{ paddingTop: `${(height / width) * 100}%` }} />
+  </div>
+);
