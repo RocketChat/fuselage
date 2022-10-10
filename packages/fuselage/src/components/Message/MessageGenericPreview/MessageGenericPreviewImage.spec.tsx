@@ -5,19 +5,14 @@ import { MessageGenericPreviewImage } from './MessageGenericPreviewImage';
 
 describe('MessageGenericPreviewImage', () => {
   it('renders without crashing', () => {
-    render(<MessageGenericPreviewImage url='' width={200} height={200} />);
+    render(<MessageGenericPreviewImage url='' />);
   });
 
-  it('should render div with background image', () => {
-    render(<MessageGenericPreviewImage url='test' width={200} height={200} />);
-    const previewImage = screen.getByTestId('preview-image');
+  it('should render image', () => {
+    render(<MessageGenericPreviewImage url='test' />);
+    const previewImage = screen.getByRole('img');
 
-    expect(previewImage).toHaveStyle({
-      background: 'test',
-    });
-    expect(previewImage).toHaveClass('rcx-message-generic-preview__preview');
-    expect(previewImage).not.toHaveClass(
-      'rcx-message-generic-preview__preview--image'
-    );
+    expect(previewImage).toBeInTheDocument();
+    expect(previewImage).toHaveAttribute('src', 'test');
   });
 });
