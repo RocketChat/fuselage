@@ -115,11 +115,7 @@ const LoginForm = ({
           <Box mbs='x24' fontScale='p2' textAlign='left'>
             <Trans i18nKey='form.loginForm.resetPassword'>
               Forgot your password?
-              <ActionLink
-                fontWeight={400}
-                fontScale='p2'
-                onClick={onResetPassword}
-              >
+              <ActionLink fontScale='p2' onClick={onResetPassword}>
                 Reset password
               </ActionLink>
             </Trans>
