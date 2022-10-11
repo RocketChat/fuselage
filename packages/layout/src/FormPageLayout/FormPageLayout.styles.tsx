@@ -63,26 +63,31 @@ export const Logo = styled('div')`
   }
 `;
 
-export const Title = styled('div')`
-  padding-block-end: 24px;
-  font-size: ${String(40 / 16)}rem;
+export const Title = styled('h1')`
+  padding-block-end: 32px;
+  font-size: ${String(48 / 16)}rem;
   font-family: ${sans};
   font-weight: 800;
-  line-height: ${String(42 / 16)}rem;
+  line-height: ${String(64 / 16)}rem;
   text-align: center;
 
   @media (min-width: 1440px) {
     text-align: start;
-    font-size: ${String(52 / 16)}rem;
-    line-height: ${String(62 / 16)}rem;
   }
 `;
 
 export const TitleHighlight = styled(
   'span',
-  ({ fontColor: _fontColor, ...props }: { fontColor?: string }) => props
+  ({
+    fontColor: _fontColor,
+    isDark: _isDark,
+    ...props
+  }: {
+    fontColor?: string;
+    isDark: boolean;
+  }) => props
 )`
-  color: ${(p) => (p.fontColor ? p.fontColor : '#1D74F5')};
+  color: ${(p) => (p.isDark ? '#76B7FC' : '#095AD2')};
   display: inline-block;
 `;
 
@@ -95,7 +100,7 @@ const SubTitleFormPageProps = ({
   fontWeight?: string;
 }) => props;
 
-export const Subtitle = styled('div', SubTitleFormPageProps)`
+export const Subtitle = styled('h2', SubTitleFormPageProps)`
   font-size: ${String(16 / 16)}rem;
   line-height: ${String(22 / 16)}rem;
   font-family: ${sans};
@@ -109,9 +114,12 @@ export const Subtitle = styled('div', SubTitleFormPageProps)`
   }
 `;
 
-export const Description = styled('div')`
-  display: none;
+export const Description = styled('p')`
   font-family: ${sans};
+
+  // p2
+  font-size: ${String(14 / 16)}rem;
+  line-height: ${String(20 / 16)}rem;
 
   @media (min-width: 1440px) {
     display: unset;
