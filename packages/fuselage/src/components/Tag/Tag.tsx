@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react';
 import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
-import type Box from '../Box';
+import Box from '../Box';
 
 type TagProps = ComponentProps<typeof Box> & {
   small?: boolean;
@@ -12,7 +12,7 @@ type TagProps = ComponentProps<typeof Box> & {
 };
 
 export function Tag({
-  is: TagName = 'span',
+  is = 'span',
   small,
   medium,
   className,
@@ -33,7 +33,8 @@ export function Tag({
     .join(' ');
 
   return (
-    <TagName
+    <Box
+      is={is}
       className={prependClassName(className as string, `rcx-tag ${modifiers}`)}
       onClick={onClick}
       {...props}
