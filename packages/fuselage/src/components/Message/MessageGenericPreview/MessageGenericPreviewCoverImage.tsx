@@ -6,8 +6,6 @@ type MessageGenericPreviewCoverImageProps = {
   url: string;
   width: number;
   height: number;
-  externalUrl?: string;
-  imagePreview?: boolean;
   className?: string;
 };
 
