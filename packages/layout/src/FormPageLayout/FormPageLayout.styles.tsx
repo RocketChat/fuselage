@@ -84,7 +84,7 @@ export const TitleHighlight = styled(
     ...props
   }: {
     fontColor?: string;
-    isDark: boolean;
+    isDark?: boolean;
   }) => props
 )`
   color: ${(p) => (p.isDark ? '#76B7FC' : '#095AD2')};
