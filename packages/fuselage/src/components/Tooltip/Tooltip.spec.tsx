@@ -3,7 +3,7 @@ import React from 'react';
 
 import * as stories from './Tooltip.stories';
 
-const { Default, DarkTooltip } = stories;
+const { Default, LightTooltip } = stories;
 
 describe('[Tooltip Component]', () => {
   it('renders without crashing', () => {
@@ -13,10 +13,14 @@ describe('[Tooltip Component]', () => {
     const { container } = render(<Default />);
     expect(container.firstChild).toHaveTextContent('An example tooltip');
   });
-  describe('Dark Tooltip', () => {
+  it('has the correct class', () => {
+    const { container } = render(<Default />);
+    expect(container.firstChild).toHaveClass('rcx-tooltip--dark');
+  });
+  describe('Light Tooltip', () => {
     it('has the correct class', () => {
-      const { container } = render(<DarkTooltip />);
-      expect(container.firstChild).toHaveClass('rcx-tooltip--dark');
+      const { container } = render(<LightTooltip />);
+      expect(container.firstChild).toHaveClass('rcx-tooltip--light');
     });
   });
 });
