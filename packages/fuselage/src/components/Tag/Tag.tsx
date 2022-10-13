@@ -1,18 +1,17 @@
-import type { ComponentProps } from 'react';
+import type { AllHTMLAttributes, ComponentProps } from 'react';
 import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
-import Box from '../Box';
+import type Box from '../Box';
 
-type TagProps = ComponentProps<typeof Box> & {
+type TagProps = Pick<ComponentProps<typeof Box>, 'onClick' | 'className'> & {
   small?: boolean;
   variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'secondary-danger';
   medium?: boolean;
   disabled?: boolean;
-};
+} & AllHTMLAttributes<HTMLSpanElement>;
 
-export function Tag({
-  is = 'span',
+export const Tag = ({
   small,
   medium,
   className,
@@ -20,7 +19,7 @@ export function Tag({
   onClick,
   variant,
   ...props
-}: TagProps) {
+}: TagProps) => {
   const modifiers = [
     variant,
     small && 'small',
@@ -33,11 +32,10 @@ export function Tag({
     .join(' ');
 
   return (
-    <Box
-      is={is}
+    <span
       className={prependClassName(className as string, `rcx-tag ${modifiers}`)}
       onClick={onClick}
       {...props}
     />
   );
-}
+};
