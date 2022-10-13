@@ -14,8 +14,8 @@ export default {
 export const Default: ComponentStory<typeof Tooltip> = () => (
   <Tooltip>An example tooltip</Tooltip>
 );
-export const DarkTooltip: ComponentStory<typeof Tooltip> = () => (
-  <Tooltip dark>An example tooltip</Tooltip>
+export const LightTooltip: ComponentStory<typeof Tooltip> = () => (
+  <Tooltip variation='light'>An example tooltip</Tooltip>
 );
 
 export const ArrowPositioning = () => (
