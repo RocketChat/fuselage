@@ -45,3 +45,4 @@ jobs:
             packages/uikit-playground/build
             packages/fuselage-ui-kit/storybook-static
             packages/onboarding-ui/storybook-static
+            packages/layout/storybook-static

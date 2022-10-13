@@ -1,4 +1,12 @@
-import { FormPageLayout, LayoutLogo } from '@rocket.chat/layout';
+import {
+  FormPageLayout,
+  HorizontalWizardLayout,
+  HorizontalWizardLayoutAside,
+  HorizontalWizardLayoutTitle,
+  HorizontalWizardLayoutSubtitle,
+  HorizontalWizardLayoutDescription,
+  HorizontalWizardLayoutContent,
+} from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -16,21 +24,16 @@ type FormPageLayoutProps = {
 };
 
 const FormPageLayoutOnboard = ({
-  logo,
   title,
   subtitle,
   description,
-  styleProps,
   children,
 }: FormPageLayoutProps): ReactElement => {
   useTranslation();
   return (
-    <FormPageLayout.Wrapper>
-      <FormPageLayout.Aside justifyContent={styleProps?.justifyContent}>
-        <FormPageLayout.Logo>
-          {logo ?? <LayoutLogo.LayoutLogo />}
-        </FormPageLayout.Logo>
-        <FormPageLayout.Title>
+    <HorizontalWizardLayout>
+      <HorizontalWizardLayoutAside>
+        <HorizontalWizardLayoutTitle>
           {title || (
             <Trans i18nKey='page.form.title'>
               Let's
@@ -40,19 +43,21 @@ const FormPageLayoutOnboard = ({
               Your Workspace
             </Trans>
           )}
-        </FormPageLayout.Title>
+        </HorizontalWizardLayoutTitle>
         {subtitle && (
-          <FormPageLayout.Subtitle
-            fontWeight={styleProps?.subTitleProps?.fontWeight}
-            fontColor={styleProps?.subTitleProps?.color}
+          <HorizontalWizardLayoutSubtitle
+          // fontWeight={styleProps?.subTitleProps?.fontWeight}
+          // fontColor={styleProps?.subTitleProps?.color}
           >
             {subtitle}
-          </FormPageLayout.Subtitle>
+          </HorizontalWizardLayoutSubtitle>
         )}
-        <FormPageLayout.Description>{description}</FormPageLayout.Description>
-      </FormPageLayout.Aside>
-      <FormPageLayout.Content>{children}</FormPageLayout.Content>
-    </FormPageLayout.Wrapper>
+        <HorizontalWizardLayoutDescription>
+          {description}
+        </HorizontalWizardLayoutDescription>
+      </HorizontalWizardLayoutAside>
+      <HorizontalWizardLayoutContent>{children}</HorizontalWizardLayoutContent>
+    </HorizontalWizardLayout>
   );
 };
 export default FormPageLayoutOnboard;

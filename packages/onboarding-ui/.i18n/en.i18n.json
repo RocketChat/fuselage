@@ -254,6 +254,7 @@
     "loginForm": {
       "content": {
         "default": "Enter your password to continue.",
+        "logIn": "Log in",
         "passwordLess": "If you’re already registered we’ll email you a link to log in."
       },
       "fields": {

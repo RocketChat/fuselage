@@ -78,9 +78,11 @@ const OrganizationInfoForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-      <Form.Title>{t('form.organizationInfoForm.title')}</Form.Title>
-      <Form.Subtitle>{t('form.organizationInfoForm.subtitle')}</Form.Subtitle>
+      <Form.Header>
+        <Form.Steps currentStep={currentStep} stepCount={stepCount} />
+        <Form.Title>{t('form.organizationInfoForm.title')}</Form.Title>
+        <Form.Subtitle>{t('form.organizationInfoForm.subtitle')}</Form.Subtitle>
+      </Form.Header>
       <Form.Container>
         <FieldGroup>
           <Field>

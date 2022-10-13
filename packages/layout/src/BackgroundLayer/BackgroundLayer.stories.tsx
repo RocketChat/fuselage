@@ -2,7 +2,6 @@ import { Tile } from '@rocket.chat/fuselage';
 import type { Story, Meta } from '@storybook/react';
 
 import BackgroundLayer from './BackgroundLayer';
-import DarkModeProvider from './DarkModeProvider';
 
 export default {
   title: 'common/BackgroundLayer',
@@ -10,19 +9,6 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-  argTypes: {
-    forcedDarkMode: {
-      options: [undefined, true, false],
-      control: { type: 'inline-radio' },
-    },
-  },
-  decorators: [
-    (Story, context) => (
-      <DarkModeProvider forcedDarkMode={context.args.forcedDarkMode}>
-        <Story />
-      </DarkModeProvider>
-    ),
-  ],
 } as Meta;
 
 export const SystemDarkMode: Story = () => (
@@ -31,15 +17,15 @@ export const SystemDarkMode: Story = () => (
   </BackgroundLayer>
 );
 
-export const DarkMode: Story = () => (
-  <BackgroundLayer>
+export const DarkMode: Story = (props) => (
+  <BackgroundLayer {...props}>
     <Tile>An example tile</Tile>
   </BackgroundLayer>
 );
 DarkMode.args = { forcedDarkMode: true };
 
-export const LightMode: Story = () => (
-  <BackgroundLayer>
+export const LightMode: Story = (props) => (
+  <BackgroundLayer {...props}>
     <Tile>An example tile</Tile>
   </BackgroundLayer>
 );

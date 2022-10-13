@@ -18,27 +18,31 @@ const variants: VariantType[] = [
 ];
 
 type BannerProps = {
-  inline?: boolean;
   actionable?: boolean;
   closeable?: boolean;
   icon?: ReactNode;
-  title?: string;
-  variant?: VariantType;
+  inline?: boolean;
+  link?: string;
+  linkText?: string;
   onAction?: () => void;
   onClose?: () => void;
+  title?: string;
+  variant?: VariantType;
 } & AllHTMLAttributes<HTMLElement>;
 
 const Banner = ({
-  inline = false,
+  actionable,
   children,
   className,
-  actionable,
   closeable,
   icon,
-  title,
-  variant = 'neutral',
+  inline = false,
+  link,
+  linkText = 'More info',
   onAction,
   onClose,
+  title,
+  variant = 'neutral',
   ...props
 }: BannerProps) => {
   useStyleSheet();
@@ -98,6 +102,15 @@ const Banner = ({
           <h6 className={cx('rcx-banner__title')({ inline })}>{title}</h6>
         )}
         {children}
+        {link && (
+          <a
+            href={link}
+            target='_blank'
+            className={cx('rcx-banner__link')({ [variant]: true })}
+          >
+            {linkText}
+          </a>
+        )}
       </div>
       {closeable && (
         <div className={cx('rcx-banner__close-button')({ inline })}>

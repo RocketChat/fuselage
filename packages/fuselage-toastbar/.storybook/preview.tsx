@@ -7,7 +7,8 @@ import type { ElementType, ReactElement } from 'react';
 import { Suspense } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import ToastBarProvider from '../src/ToastBarProvider';
-import { DarkModeProvider } from '@rocket.chat/onboarding-ui';
+import { DarkModeProvider } from '@rocket.chat/layout';
+import React from 'react';
 
 addParameters({
   backgrounds: {
@@ -32,11 +33,11 @@ export const decorators: DecoratorFunction<ReactElement>[] = [
 
     return (
       <Suspense fallback={null}>
-        <DarkModeProvider forcedDarkMode={dark}>
+        <DarkModeProvider.default forcedDarkMode={dark}>
           <ToastBarProvider>
             <Story />
           </ToastBarProvider>
-        </DarkModeProvider>
+        </DarkModeProvider.default>
       </Suspense>
     );
   },

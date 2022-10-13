@@ -10,6 +10,7 @@ import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import DarkModeProvider from '../src/DarkModeProvider';
+import React from 'react';
 
 addParameters({
   backgrounds: {
@@ -51,11 +52,11 @@ export const decorators: DecoratorFunction<ReactElement>[] = [
     const dark = useDarkMode();
     return (
       <Suspense fallback={null}>
-        <I18nextProvider i18n={getI18n()}>
-          <DarkModeProvider.Provider forcedDarkMode={dark}>
-            <Story />
-          </DarkModeProvider.Provider>
-        </I18nextProvider>
+        {/* <I18nextProvider i18n={getI18n()}> */}
+        <DarkModeProvider forcedDarkMode={dark}>
+          <Story />
+        </DarkModeProvider>
+        {/* </I18nextProvider> */}
       </Suspense>
     );
   },

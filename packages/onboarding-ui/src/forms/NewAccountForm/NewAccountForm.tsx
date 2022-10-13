@@ -137,11 +137,11 @@ const NewAccountForm = ({
                   </a>
                   and
                   <a
-                    href='https://rocket.chat/policy'
+                    href='https://rocket.chat/privacy'
                     target='_blank'
                     rel='noopener noreferrer'
                   >
-                    Privacy Polic
+                    Privacy Policy
                   </a>
                 </Trans>
               </Box>
