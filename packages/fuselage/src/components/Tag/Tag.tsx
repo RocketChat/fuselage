@@ -1,18 +1,17 @@
-import type { AllHTMLAttributes, ComponentProps } from 'react';
+import type { AllHTMLAttributes } from 'react';
 import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
-import type Box from '../Box';
 
-type TagProps = Pick<ComponentProps<typeof Box>, 'onClick' | 'className'> & {
-  small?: boolean;
-  variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'secondary-danger';
+type TagProps = {
   medium?: boolean;
+  large?: boolean;
+  variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'secondary-danger';
   disabled?: boolean;
 } & AllHTMLAttributes<HTMLSpanElement>;
 
 export const Tag = ({
-  small,
+  large,
   medium,
   className,
   disabled,
@@ -22,8 +21,8 @@ export const Tag = ({
 }: TagProps) => {
   const modifiers = [
     variant,
-    small && 'small',
     medium && 'medium',
+    large && 'large',
     disabled && 'disabled',
     onClick && 'clickable',
   ]

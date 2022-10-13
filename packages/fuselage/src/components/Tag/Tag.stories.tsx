@@ -83,12 +83,12 @@ Clickable.args = {
   onClick: action('click'),
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  small: true,
-};
-
 export const Medium = Template.bind({});
 Medium.args = {
   medium: true,
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  large: true,
 };
