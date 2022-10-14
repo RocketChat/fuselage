@@ -4,6 +4,7 @@ import * as DarkModeProvider from './DarkModeProvider';
 import Form from './FormPageLayout';
 import * as FormPageLayout from './FormPageLayout/FormPageLayout.styles';
 import * as LayoutLogo from './LayoutLogo';
+import Link from './Link';
 import List from './List';
 import TooltipWrapper from './TooltipWrapper';
 
@@ -17,6 +18,7 @@ export {
   LayoutLogo,
   Form,
   List,
+  Link,
   ActionLink,
   DarkModeProvider,
   TooltipWrapper,
