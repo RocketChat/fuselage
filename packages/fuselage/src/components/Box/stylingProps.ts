@@ -7,12 +7,15 @@ import {
   borderRadius,
   borderWidth,
   color,
+  backgroundColor,
+  fontColor,
   fontFamily,
   fontScale,
   inset,
   margin,
   padding,
   size,
+  strokeColor,
 } from '../../styleTokens';
 
 type FontScale =
@@ -189,8 +192,16 @@ const borderRadiusProp: PropDefinition = {
   toCSSValue: borderRadius,
 };
 
-const colorProp: PropDefinition = {
-  toCSSValue: color,
+const backgroundColorProp: PropDefinition = {
+  toCSSValue: backgroundColor,
+};
+
+const fontColorProp: PropDefinition = {
+  toCSSValue: fontColor,
+};
+
+const strokeColorProp: PropDefinition = {
+  toCSSValue: strokeColor,
 };
 
 const sizeProp: PropDefinition = {
@@ -257,21 +268,21 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   borderInlineStyle: stringProp,
   borderInlineStartStyle: stringProp,
   borderInlineEndStyle: stringProp,
-  borderColor: colorProp,
-  borderBlockColor: colorProp,
-  borderBlockStartColor: colorProp,
-  borderBlockEndColor: colorProp,
-  borderInlineColor: colorProp,
-  borderInlineStartColor: colorProp,
-  borderInlineEndColor: colorProp,
+  borderColor: strokeColorProp,
+  borderBlockColor: strokeColorProp,
+  borderBlockStartColor: strokeColorProp,
+  borderBlockEndColor: strokeColorProp,
+  borderInlineColor: strokeColorProp,
+  borderInlineStartColor: strokeColorProp,
+  borderInlineEndColor: strokeColorProp,
   borderRadius: borderRadiusProp,
   borderStartStartRadius: borderRadiusProp,
   borderStartEndRadius: borderRadiusProp,
   borderEndStartRadius: borderRadiusProp,
   borderEndEndRadius: borderRadiusProp,
 
-  color: colorProp,
-  backgroundColor: colorProp,
+  color: fontColorProp,
+  backgroundColor: backgroundColorProp,
   bg: aliasOf('backgroundColor'),
   opacity: numberOrStringProp,
 

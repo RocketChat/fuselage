@@ -139,6 +139,120 @@ const paletteColorRegex =
   /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
 const cssSupportsVariable = cssSupports('(--foo: bar)');
+
+const backgroundColors = {
+  light: tokenColors.white,
+  tint: tokenColors.n100,
+};
+
+type BackgroundColors = keyof typeof backgroundColors;
+
+const surfaceColors = {
+  'surface-light': tokenColors.white,
+  'surface-tint': tokenColors.n100,
+  'surface-neutral': tokenColors.n400,
+  'surface-disabled': tokenColors.n100,
+  'surface-hover': tokenColors.n400,
+  'surface-info': tokenColors.i200,
+  'surface-success': tokenColors.s200,
+  'surface-warning': tokenColors.w200,
+  'surface-danger': tokenColors.d200,
+  'surface-service-1': tokenColors['s1-200'],
+  'surface-service-2': tokenColors['s2-200'],
+};
+
+type SurfaceColors = keyof typeof surfaceColors;
+
+const strokeColors = {
+  'stroke-extra-light': tokenColors.n200,
+  'stroke-light': tokenColors.n500,
+  'stroke-medium': tokenColors.n600,
+  'stroke-dark': tokenColors.n700,
+  'stroke-extra-dark': tokenColors.n800,
+  'stroke-extra-light-highlight': tokenColors.p200,
+  'stroke-highlight': tokenColors.p500,
+  'stroke-extra-light-error': tokenColors.d200,
+  'stroke-error': tokenColors.d500,
+};
+
+type StrokeColor = keyof typeof strokeColors;
+
+const textIconColors = {
+  'font-white': tokenColors.white,
+  'font-disabled': tokenColors.n500,
+  'font-annotation': tokenColors.n600,
+  'font-hint': tokenColors.n700,
+  'font-text': tokenColors.n800,
+  'font-title-labels': tokenColors.n900,
+  'font-danger': tokenColors.d600,
+  'font-secondary-info': tokenColors.n700,
+  'font-on-info': tokenColors.i600,
+  'font-on-success': tokenColors.s800,
+  'font-on-warning': tokenColors.w900,
+  'font-on-danger': tokenColors.d800,
+  'font-on-service-1': tokenColors['s1-800'],
+  'font-on-service-2': tokenColors['s2-600'],
+};
+
+type TextIconColors = keyof typeof textIconColors;
+
+const isSurfaceColor = (color: unknown): color is SurfaceColors =>
+  typeof color === 'string' && color in surfaceColors;
+
+const isStrokeColor = (color: unknown): color is StrokeColor =>
+  typeof color === 'string' && color in strokeColor;
+
+const isTextIconColor = (color: unknown): color is TextIconColors =>
+  typeof color === 'string' && color in textIconColors;
+
+const isBackgroundColor = (color: unknown): color is BackgroundColors =>
+  typeof color === 'string' && color in backgroundColors;
+
+export const strokeColor = memoize((value) => {
+  if (isStrokeColor(value)) {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-${value}, ${strokeColors[value]})`;
+    }
+    return strokeColors[value];
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn(`invalid color: ${value}`, new Error().stack);
+  }
+  return color(value);
+});
+
+export const backgroundColor = memoize((value) => {
+  if (isSurfaceColor(value)) {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-${value}, ${surfaceColors[value]})`;
+    }
+    return surfaceColors[value];
+  }
+  if (isBackgroundColor(value)) {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-${value}, ${backgroundColors[value]})`;
+    }
+    return backgroundColors[value];
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn(`invalid color: ${value}`, new Error().stack);
+  }
+  return color(value);
+});
+
+export const fontColor = memoize((value) => {
+  if (isTextIconColor(value)) {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-${value}, ${textIconColors[value]})`;
+    }
+    return textIconColors[value];
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn(`invalid color: ${value}`, new Error().stack);
+  }
+  return color(value);
+});
+
 export const color = memoize((value) => {
   if (typeof value !== 'string') {
     return;
@@ -167,12 +281,25 @@ export const color = memoize((value) => {
     return color;
   }
 
-  if (value === 'surface' || value === 'surface-light') {
+  if (isSurfaceColor(value)) {
     if (cssSupportsVariable) {
-      return `var(--rcx-color-surface-light, ${tokenColors.white})`;
+      return `var(--rcx-color-${value}, ${surfaceColors[value]})`;
     }
+    return surfaceColors[value];
+  }
 
-    return tokenColors.white;
+  if (isStrokeColor(value)) {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-${value}, ${strokeColors[value]})`;
+    }
+    return strokeColors[value];
+  }
+
+  if (isTextIconColor(value)) {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-${value}, ${textIconColors[value]})`;
+    }
+    return textIconColors[value];
   }
 
   if (value === 'surface-tint') {
@@ -206,7 +333,6 @@ export const color = memoize((value) => {
 
     return color;
   }
-
   return value;
 });
 
