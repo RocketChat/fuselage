@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
 
-import { Button, Modal } from '../..';
+import { FieldGroup, Field, TextInput, Button, Modal, Box } from '../..';
 
 export default {
   title: 'Containers/Modal',
@@ -162,6 +162,45 @@ export const _WithHeroImage = () => (
       <Modal.FooterControllers>
         <Button>Cancel</Button>
         <Button primary onClick={action('click')}>
+          Submit
+        </Button>
+      </Modal.FooterControllers>
+    </Modal.Footer>
+  </Modal>
+);
+
+export const WithForm = () => (
+  <Modal
+    wrapper={
+      <Box
+        is='form'
+        onSubmit={(e) => {
+          e.preventDefault();
+          action('form submitted')(e);
+        }}
+      />
+    }
+  >
+    <Modal.Header>
+      <Modal.HeaderText>
+        <Modal.Title>Modal Header</Modal.Title>
+      </Modal.HeaderText>
+      <Modal.Close />
+    </Modal.Header>
+    <Modal.Content>
+      <FieldGroup>
+        <Field>
+          <Field.Label>Label</Field.Label>
+          <Field.Row>
+            <TextInput placeholder='Placeholder' />
+          </Field.Row>
+        </Field>
+      </FieldGroup>
+    </Modal.Content>
+    <Modal.Footer>
+      <Modal.FooterControllers>
+        <Button>Cancel</Button>
+        <Button type='submit' primary>
           Submit
         </Button>
       </Modal.FooterControllers>
