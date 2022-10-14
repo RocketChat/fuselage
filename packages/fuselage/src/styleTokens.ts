@@ -204,7 +204,7 @@ const isSurfaceColor = (color: unknown): color is SurfaceColors =>
   typeof color === 'string' && color in surfaceColors;
 
 const isStrokeColor = (color: unknown): color is StrokeColor =>
-  typeof color === 'string' && color in strokeColor;
+  typeof color === 'string' && color in strokeColors;
 
 const isTextIconColor = (color: unknown): color is TextIconColors =>
   typeof color === 'string' && color in textIconColors;
@@ -267,6 +267,19 @@ export const color = memoize((value) => {
     }
 
     return color;
+  }
+
+  if (isSurfaceColor(value)) {
+    return toCSSValue(value, surfaceColors[value]);
+  }
+  if (isBackgroundColor(value)) {
+    return toCSSValue(value, backgroundColors[value]);
+  }
+  if (isStrokeColor(value)) {
+    return toCSSValue(value, strokeColors[value]);
+  }
+  if (isTextIconColor(value)) {
+    return toCSSValue(value, textIconColors[value]);
   }
 
   if (value === 'surface-tint') {
