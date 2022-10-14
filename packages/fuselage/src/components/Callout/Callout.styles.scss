@@ -5,15 +5,14 @@
 .rcx-callout {
   display: flex;
 
-  padding-block: lengths.padding(16);
-  padding-inline-start: lengths.padding(16);
-  padding-inline-end: lengths.padding(32);
+  padding-block: lengths.padding(8);
+  padding-inline: lengths.padding(16);
 
   color: theme('callout-color', colors.font(default));
 
   border-radius: theme('callout-border-radius', lengths.border-radius(medium));
 
-  background-color: theme('callout-background-color', colors.surface(neutral));
+  background-color: theme('callout-background-color', colors.neutral(200));
 
   &--type-info {
     color: theme('callout-color-info', colors.status-font(on-info));
@@ -55,21 +54,24 @@
   flex-flow: column nowrap;
   flex: 1 1 0;
 
-  margin-inline-start: lengths.margin(8);
+  margin-inline-start: lengths.margin(12);
 
   @include typography.use-font-scale(c1);
+
+  > :nth-child(2) {
+    margin-block-start: lengths.margin(4);
+  }
 }
 
 .rcx-callout__title {
-  padding-block: lengths.padding(2);
-
-  @include typography.use-font-scale(c2);
-  @include typography.use-text-ellipsis;
   white-space: nowrap;
+
+  @include typography.use-font-scale(p2b);
+  @include typography.use-text-ellipsis;
 }
 
 .rcx-callout__children {
   display: block;
 
-  padding-block: lengths.padding(2);
+  @include typography.use-font-scale(p2);
 }

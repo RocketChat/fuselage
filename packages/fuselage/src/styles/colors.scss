@@ -107,6 +107,7 @@ $-surfaces: (
   neutral: neutral(400),
   disabled: neutral(100),
   hover: neutral(400),
+  dark: neutral(900),
 );
 
 @function surface($type) {
@@ -128,7 +129,7 @@ $-font: (
 
 @function font($type) {
   $color: map.get($-font, $type);
-  @return var(--rcx-font-#{$type}, $color);
+  @return var(--rcx-color-font-#{$type}, $color);
 }
 
 $-status-backgrounds: (
@@ -142,10 +143,10 @@ $-status-backgrounds: (
 
 @function status-background($type) {
   $color: map.get($-status-backgrounds, $type);
-  @return var(--rcx-status-background-#{$type}, $color);
+  @return var(--rcx-color-status-background-#{$type}, $color);
 }
 
-$-status-fonts: (
+$-status-font: (
   on-success: success(800),
   on-warning: warning(900),
   on-danger: danger(800),
@@ -155,8 +156,8 @@ $-status-fonts: (
 );
 
 @function status-font($type) {
-  $color: map.get($-status-fonts, $type);
-  @return var(--rcx-status-fonts-#{$type}, $color);
+  $color: map.get($-status-font, $type);
+  @return var(--rcx-color-status-font-#{$type}, $color);
 }
 
 $-strokes: (
@@ -173,7 +174,7 @@ $-strokes: (
 
 @function stroke($type) {
   $color: map.get($-strokes, $type);
-  @return var(--rcx-stroke-#{$type}, $color);
+  @return var(--rcx-color-stroke-#{$type}, $color);
 }
 
 $-button-backgrounds: (

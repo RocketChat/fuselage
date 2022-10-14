@@ -2,7 +2,7 @@ import { Box } from '@rocket.chat/fuselage';
 import type { ReactElement, ReactNode } from 'react';
 
 import BackgroundLayer from '../BackgroundLayer';
-import DarkModeProvider from '../DarkModeProvider';
+import DarkModeProvider, { useDarkMode } from '../DarkModeProvider';
 import * as FormPageLayout from '../FormPageLayout/FormPageLayout.styles';
 import { LayoutLogo } from '../LayoutLogo';
 import type { LayoutContextValue } from '../contexts/LayoutContext';
@@ -59,11 +59,38 @@ export const HorizontalWizardLayoutDescription = ({
   <FormPageLayout.Description>{children}</FormPageLayout.Description>
 );
 
+export const HorizontalWizardTextHighlight = (props: {
+  children: ReactNode;
+}) => {
+  const isDark = useDarkMode();
+  return <FormPageLayout.TitleHighlight {...props} isDark={isDark} />;
+};
+
 export const HorizontalWizardLayoutContent = ({
   children,
 }: {
   children: ReactNode;
 }): ReactElement => <FormPageLayout.Content>{children}</FormPageLayout.Content>;
+
+export const HorizontalWizardLayoutCaption = ({
+  children,
+}: {
+  children: ReactNode;
+}): ReactElement => {
+  const isDark = useDarkMode();
+  return (
+    <Box
+      display='inline-block'
+      flexDirection='row'
+      fontScale='c1'
+      color={isDark ? 'white' : 'secondary-info'}
+      mb='x16'
+      alignItems='center'
+    >
+      {children}
+    </Box>
+  );
+};
 
 export const HorizontalWizardLayoutFooter = ({
   children,
@@ -75,7 +102,7 @@ export const HorizontalWizardLayoutFooter = ({
     fontScale='h4'
     flexDirection='column'
     alignItems='center'
-    pb='x32'
+    mb='x32'
   >
     {children}
   </Box>
