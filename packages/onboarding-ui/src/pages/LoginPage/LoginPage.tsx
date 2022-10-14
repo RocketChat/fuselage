@@ -58,11 +58,7 @@ const LoginPage = ({
         {!isMfa && (
           <Trans i18nKey='page.loginPage.createAccount.label'>
             New here?
-            <ActionLink
-              fontWeight={400}
-              fontScale='p2'
-              onClick={onCreateAccount}
-            >
+            <ActionLink fontScale='p2' onClick={onCreateAccount}>
               Create account
             </ActionLink>
           </Trans>

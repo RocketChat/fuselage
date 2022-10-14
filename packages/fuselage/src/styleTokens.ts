@@ -183,6 +183,13 @@ export const color = memoize((value) => {
     return tokenColors.n100;
   }
 
+  if (value === 'secondary-info') {
+    if (cssSupportsVariable) {
+      return `var(--rcx-color-secondary-info, ${tokenColors.n700})`;
+    }
+    return tokenColors.n700;
+  }
+
   if (value === 'surface-neutral') {
     if (cssSupportsVariable) {
       return `var(--rcx-color-surface-neutral, ${tokenColors.n400})`;
