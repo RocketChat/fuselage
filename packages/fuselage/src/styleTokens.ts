@@ -140,6 +140,10 @@ const paletteColorRegex =
 
 const cssSupportsVariable = cssSupports('(--foo: bar)');
 
+const toCSSValue = cssSupportsVariable
+  ? (label: string, value: string) => `var(--rcx-color-${label}, ${value})`
+  : (label: string, value: string) => value;
+
 const backgroundColors = {
   light: tokenColors.white,
   tint: tokenColors.n100,
@@ -210,50 +214,34 @@ const isBackgroundColor = (color: unknown): color is BackgroundColors =>
 
 export const strokeColor = memoize((value) => {
   if (isStrokeColor(value)) {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-${value}, ${strokeColors[value]})`;
-    }
-    return strokeColors[value];
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    console.warn(`invalid color: ${value}`, new Error().stack);
+    return toCSSValue(value, strokeColors[value]);
   }
   return color(value);
 });
 
 export const backgroundColor = memoize((value) => {
   if (isSurfaceColor(value)) {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-${value}, ${surfaceColors[value]})`;
-    }
-    return surfaceColors[value];
+    return toCSSValue(value, surfaceColors[value]);
   }
   if (isBackgroundColor(value)) {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-${value}, ${backgroundColors[value]})`;
-    }
-    return backgroundColors[value];
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    console.warn(`invalid color: ${value}`, new Error().stack);
+    return toCSSValue(value, backgroundColors[value]);
   }
   return color(value);
 });
 
 export const fontColor = memoize((value) => {
   if (isTextIconColor(value)) {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-${value}, ${textIconColors[value]})`;
-    }
-    return textIconColors[value];
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    console.warn(`invalid color: ${value}`, new Error().stack);
+    return toCSSValue(value, textIconColors[value]);
   }
   return color(value);
 });
 
+/** @deprecated **/
 export const color = memoize((value) => {
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn(`invalid color: ${value}`, new Error().stack);
+  }
+
   if (typeof value !== 'string') {
     return;
   }
@@ -274,61 +262,30 @@ export const color = memoize((value) => {
 
     const [customProperty, color] = getPaletteColor(type, grade, alpha);
 
-    if (customProperty && cssSupportsVariable) {
-      return `var(${customProperty}, ${color})`;
+    if (customProperty) {
+      return toCSSValue(customProperty, color);
     }
 
     return color;
   }
 
-  if (isSurfaceColor(value)) {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-${value}, ${surfaceColors[value]})`;
-    }
-    return surfaceColors[value];
-  }
-
-  if (isStrokeColor(value)) {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-${value}, ${strokeColors[value]})`;
-    }
-    return strokeColors[value];
-  }
-
-  if (isTextIconColor(value)) {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-${value}, ${textIconColors[value]})`;
-    }
-    return textIconColors[value];
-  }
-
   if (value === 'surface-tint') {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-surface-tint, ${tokenColors.n100})`;
-    }
-
-    return tokenColors.n100;
+    return toCSSValue(value, tokenColors.n100);
   }
 
   if (value === 'secondary-info') {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-secondary-info, ${tokenColors.n700})`;
-    }
-    return tokenColors.n700;
+    return toCSSValue(value, tokenColors.n700);
   }
 
   if (value === 'surface-neutral') {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-surface-neutral, ${tokenColors.n400})`;
-    }
-    return tokenColors.n400;
+    return toCSSValue(value, tokenColors.n400);
   }
 
   if (isForegroundColorRef(value)) {
     const [customProperty, color] = getForegroundColor(value);
 
-    if (customProperty && cssSupportsVariable) {
-      return `var(${customProperty}, ${color})`;
+    if (customProperty) {
+      return toCSSValue(customProperty, color);
     }
 
     return color;
