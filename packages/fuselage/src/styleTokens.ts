@@ -238,12 +238,53 @@ export const fontColor = memoize((value) => {
 
 /** @deprecated **/
 export const color = memoize((value) => {
-  if (process.env.NODE_ENV !== 'production') {
+  if (typeof value !== 'string') {
+    return;
+  }
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
     console.warn(`invalid color: ${value}`, new Error().stack);
   }
 
-  if (typeof value !== 'string') {
-    return;
+  if (isSurfaceColor(value)) {
+    return toCSSValue(value, surfaceColors[value]);
+  }
+  if (isBackgroundColor(value)) {
+    return toCSSValue(value, backgroundColors[value]);
+  }
+  if (isStrokeColor(value)) {
+    return toCSSValue(value, strokeColors[value]);
+  }
+  if (isTextIconColor(value)) {
+    return toCSSValue(value, textIconColors[value]);
+  }
+
+  if (value === 'surface' || value === 'surface-light') {
+    return toCSSValue('surface-light', surfaceColors['surface-light']);
+  }
+
+  if (value === 'surface-tint') {
+    return toCSSValue(value, tokenColors.n100);
+  }
+
+  if (value === 'secondary-info') {
+    return toCSSValue(value, tokenColors.n700);
+  }
+
+  if (value === 'surface-neutral') {
+    return toCSSValue(value, tokenColors.n400);
+  }
+
+  if (isForegroundColorRef(value)) {
+    const [customProperty, color] = getForegroundColor(value);
+
+    if (customProperty) {
+      return toCSSValue(customProperty, color);
+    }
+
+    return color;
   }
 
   const paletteMatches = paletteColorRegex.exec(String(value));
@@ -261,41 +302,6 @@ export const color = memoize((value) => {
     invariant(isPaletteColorAlpha(alpha), 'invalid color alpha');
 
     const [customProperty, color] = getPaletteColor(type, grade, alpha);
-
-    if (customProperty) {
-      return toCSSValue(customProperty, color);
-    }
-
-    return color;
-  }
-
-  if (isSurfaceColor(value)) {
-    return toCSSValue(value, surfaceColors[value]);
-  }
-  if (isBackgroundColor(value)) {
-    return toCSSValue(value, backgroundColors[value]);
-  }
-  if (isStrokeColor(value)) {
-    return toCSSValue(value, strokeColors[value]);
-  }
-  if (isTextIconColor(value)) {
-    return toCSSValue(value, textIconColors[value]);
-  }
-
-  if (value === 'surface-tint') {
-    return toCSSValue(value, tokenColors.n100);
-  }
-
-  if (value === 'secondary-info') {
-    return toCSSValue(value, tokenColors.n700);
-  }
-
-  if (value === 'surface-neutral') {
-    return toCSSValue(value, tokenColors.n400);
-  }
-
-  if (isForegroundColorRef(value)) {
-    const [customProperty, color] = getForegroundColor(value);
 
     if (customProperty) {
       return toCSSValue(customProperty, color);
