@@ -8,18 +8,20 @@ import type {
 } from 'react';
 import { useCallback } from 'react';
 
-type ActionLinkProps = {
+import { useDarkMode } from './DarkModeProvider';
+
+type LinkProps = {
   children?: ReactNode;
   href?: string;
   fontScale?: ComponentProps<typeof Box>['fontScale'];
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-const ActionLink = ({
+const Link = ({
   children,
   href = '#',
   onClick,
   ...props
-}: ActionLinkProps): ReactElement => {
+}: LinkProps): ReactElement => {
   const handleClick = useCallback(
     (event: MouseEvent<HTMLAnchorElement>) => {
       if (onClick) {
@@ -30,14 +32,14 @@ const ActionLink = ({
     [onClick]
   );
 
+  const isDarkMode = useDarkMode();
+
   return (
     <Box
       {...props}
       is='a'
-      fontScale={'p2'}
       href={href}
-      color='primary-600'
-      mi='x4'
+      color={isDarkMode ? 'primary-300' : 'primary-600'} // info
       textDecorationLine='none'
       onClick={handleClick}
     >
@@ -46,4 +48,4 @@ const ActionLink = ({
   );
 };
 
-export default ActionLink;
+export default Link;
