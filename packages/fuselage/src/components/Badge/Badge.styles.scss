@@ -113,8 +113,5 @@ $badge-colors-disabled-background-color: theme(
   &--small {
     min-width: lengths.size(8);
     min-height: lengths.size(8);
-
-    color: $badge-colors-primary-color;
-    background-color: $badge-colors-primary-background-color;
   }
 }

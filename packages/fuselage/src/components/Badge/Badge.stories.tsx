@@ -34,35 +34,42 @@ export default {
   },
 } as ComponentMeta<typeof Badge>;
 
-const Template: ComponentStory<typeof Badge> = (args) => (
+const Variants: ComponentStory<typeof Badge> = (args) => (
   <Box display='inline-flex'>
-    <Badge {...args}>{args.variant !== 'small' ? '99' : ''}</Badge>
+    <Badge {...args}>99</Badge>
   </Box>
 );
 
-export const Default = Template.bind({});
+export const Default = Variants.bind({});
 
-export const Primary = Template.bind({});
+export const Primary = Variants.bind({});
 Primary.args = {
   variant: 'primary',
 };
 
-export const Danger = Template.bind({});
+export const Danger = Variants.bind({});
 Danger.args = {
   variant: 'danger',
 };
 
-export const Warning = Template.bind({});
+export const Warning = Variants.bind({});
 Warning.args = {
   variant: 'warning',
 };
 
-export const Disabled = Template.bind({});
+export const Disabled = Variants.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const Update = Template.bind({});
-Update.args = {
-  variant: 'small',
-};
+const Size: ComponentStory<typeof Badge> = () => (
+  <Box display='flex' alignItems='center'>
+    <Badge small />
+    <Badge small variant='primary' />
+    <Badge small variant='danger' />
+    <Badge small variant='warning' />
+    <Badge small disabled />
+  </Box>
+);
+
+export const Small = Size.bind({});
