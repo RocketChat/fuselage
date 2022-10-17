@@ -18,6 +18,7 @@ import {
   surfaceColors,
   textIconColors,
   statusColors,
+  throwErrorOnInvalidToken,
 } from './Theme';
 
 const measure = (
@@ -210,6 +211,11 @@ export const color = memoize((value) => {
     process.env.NODE_ENV !== 'test'
   ) {
     console.warn(`invalid color: ${value}`, new Error().stack);
+  }
+  if (throwErrorOnInvalidToken) {
+    throw new Error(
+      `The color token "${value}" is deprecated. Please use the new color tokens instead.`
+    );
   }
 
   if (isSurfaceColor(value)) {

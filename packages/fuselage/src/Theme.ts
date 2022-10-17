@@ -25,6 +25,11 @@ export class Var {
 
 const white = new Var('white', '#ffffff');
 
+export let throwErrorOnInvalidToken = false;
+export const __setThrowErrorOnInvalidToken__ = (value: boolean) => {
+  throwErrorOnInvalidToken = value;
+};
+
 export const neutral = {
   n100: new Var('neutral-100', tokenColors.n100),
   n200: new Var('neutral-200', tokenColors.n200),
