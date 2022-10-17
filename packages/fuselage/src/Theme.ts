@@ -1,6 +1,7 @@
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 
-const cssSupportsVariable = true;
+import { toCSSColorValue } from './helpers/toCSSValue';
+
 export class Var {
   private name: string;
 
@@ -12,10 +13,7 @@ export class Var {
   }
 
   toString() {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-${this.name}, ${this.value})`;
-    }
-    return this.value;
+    return toCSSColorValue(this.name, this.value);
   }
 
   theme(name: string) {

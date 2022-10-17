@@ -20,6 +20,11 @@ import {
   statusColors,
   throwErrorOnInvalidToken,
 } from './Theme';
+import {
+  toCSSColorValue,
+  toCSSFontValue,
+  toCSSValue,
+} from './helpers/toCSSValue';
 
 const measure = (
   computeSpecialValue?: (value: string) => null | undefined | string
@@ -155,17 +160,6 @@ const getForegroundColor = (
 const paletteColorRegex =
   /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
-const cssSupportsVariable = cssSupports('(--foo: bar)');
-
-type cssToValueType = <T extends string | { toString: () => string }>(
-  label: string,
-  value: T
-) => string;
-const toCSSValue: cssToValueType = cssSupportsVariable
-  ? (((label, value) =>
-      `var(--rcx-color-${label}, ${value})`) as cssToValueType)
-  : (((label, value) => value) as cssToValueType);
-
 export const strokeColor = memoize((value) => {
   const colorName = `stroke-${value}`;
   if (isStrokeColor(colorName)) {
@@ -241,15 +235,15 @@ export const color = memoize((value) => {
   }
 
   if (value === 'surface-tint') {
-    return toCSSValue(value, neutral.n100);
+    return toCSSColorValue(value, neutral.n100);
   }
 
   if (value === 'secondary-info') {
-    return toCSSValue(value, neutral.n700);
+    return toCSSColorValue(value, neutral.n700);
   }
 
   if (value === 'surface-neutral') {
-    return toCSSValue(value, neutral.n400);
+    return toCSSColorValue(value, neutral.n400);
   }
 
   if (isForegroundColorRef(value)) {
@@ -337,11 +331,7 @@ export const fontFamily = memoize((value: unknown): string | undefined => {
     .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))
     .join(', ');
 
-  if (cssSupportsVariable) {
-    return `var(--rcx-font-family-${value}, ${fontFamily})`;
-  }
-
-  return fontFamily;
+  return toCSSFontValue(value, fontFamily);
 });
 
 type FontScale = keyof typeof tokenTypography.fontScales;
