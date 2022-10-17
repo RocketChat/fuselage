@@ -198,12 +198,12 @@ export const statusBackgroundColors = {
 type StatusBackgroundColors = keyof typeof statusBackgroundColors;
 
 export const statusColors = {
-  'status-font-on-info': info.i600,
-  'status-font-on-success': success.s800,
-  'status-font-on-warning': warning.w900,
-  'status-font-on-danger': danger.d800,
-  'status-font-on-service-1': service1[800],
-  'status-font-on-service-2': service2[600],
+  'status-font-on-info': info.i600.theme('status-font-on-info'),
+  'status-font-on-success': success.s800.theme('status-font-on-success'),
+  'status-font-on-warning': warning.w900.theme('status-font-on-warning'),
+  'status-font-on-danger': danger.d800.theme('status-font-on-danger'),
+  'status-font-on-service-1': service1[800].theme('status-font-on-service-1'),
+  'status-font-on-service-2': service2[600].theme('status-font-on-service-2'),
 };
 
 type StatusColors = keyof typeof statusColors;
