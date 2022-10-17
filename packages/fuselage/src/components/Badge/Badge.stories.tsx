@@ -36,7 +36,7 @@ export default {
 
 const Template: ComponentStory<typeof Badge> = (args) => (
   <Box display='inline-flex'>
-    <Badge {...args}>99</Badge>
+    <Badge {...args}>{args.variant !== 'small' ? '99' : ''}</Badge>
   </Box>
 );
 
@@ -60,4 +60,9 @@ Warning.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
+};
+
+export const Update = Template.bind({});
+Update.args = {
+  variant: 'small',
 };

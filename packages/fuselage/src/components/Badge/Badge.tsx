@@ -5,7 +5,7 @@ import { prependClassName } from '../../helpers/prependClassName';
 
 export type BadgeProps = {
   is?: ElementType;
-  variant?: 'secondary' | 'primary' | 'danger' | 'warning' | 'ghost';
+  variant?: 'secondary' | 'primary' | 'danger' | 'warning' | 'ghost' | 'small';
   disabled?: boolean;
   className?: string;
   children?: any;
