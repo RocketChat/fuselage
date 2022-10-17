@@ -2,6 +2,7 @@ import type { cssFn } from '@rocket.chat/css-in-js';
 import { css } from '@rocket.chat/css-in-js';
 import type { CSSProperties } from 'react';
 
+import type { Var } from '../../Theme';
 import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
 import {
   borderRadius,
@@ -70,9 +71,9 @@ export type StylingProps = {
   borderEndStartRadius: CSSProperties['borderEndStartRadius'];
   borderEndEndRadius: CSSProperties['borderEndEndRadius'];
 
-  color: CSSProperties['color'];
-  backgroundColor: CSSProperties['backgroundColor'];
-  bg: CSSProperties['backgroundColor'];
+  color: CSSProperties['color'] | Var;
+  backgroundColor: CSSProperties['backgroundColor'] | Var;
+  bg: CSSProperties['backgroundColor'] | Var;
   opacity: CSSProperties['opacity'];
 
   alignItems: CSSProperties['alignItems'];

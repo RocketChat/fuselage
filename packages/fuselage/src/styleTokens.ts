@@ -4,6 +4,18 @@ import tokenTypography from '@rocket.chat/fuselage-tokens/dist/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
 
+import {
+  backgroundColors,
+  isBackgroundColor,
+  isStrokeColor,
+  isSurfaceColor,
+  isTextIconColor,
+  neutral,
+  strokeColors,
+  surfaceColors,
+  textIconColors,
+} from './Theme';
+
 const measure = (
   computeSpecialValue?: (value: string) => null | undefined | string
 ) =>
@@ -140,93 +152,30 @@ const paletteColorRegex =
 
 const cssSupportsVariable = cssSupports('(--foo: bar)');
 
-const toCSSValue = cssSupportsVariable
-  ? (label: string, value: string) => `var(--rcx-color-${label}, ${value})`
-  : (label: string, value: string) => value;
-
-const backgroundColors = {
-  'background-light': tokenColors.white,
-  'background-tint': tokenColors.n100,
-};
-
-type BackgroundColors = keyof typeof backgroundColors;
-
-const surfaceColors = {
-  'surface-light': tokenColors.white,
-  'surface-tint': tokenColors.n100,
-  'surface-neutral': tokenColors.n400,
-  'surface-disabled': tokenColors.n100,
-  'surface-hover': tokenColors.n400,
-  'surface-info': tokenColors.i200,
-  'surface-success': tokenColors.s200,
-  'surface-warning': tokenColors.w200,
-  'surface-danger': tokenColors.d200,
-  'surface-service-1': tokenColors['s1-200'],
-  'surface-service-2': tokenColors['s2-200'],
-};
-
-type SurfaceColors = keyof typeof surfaceColors;
-
-const strokeColors = {
-  'stroke-extra-light': tokenColors.n200,
-  'stroke-light': tokenColors.n500,
-  'stroke-medium': tokenColors.n600,
-  'stroke-dark': tokenColors.n700,
-  'stroke-extra-dark': tokenColors.n800,
-  'stroke-extra-light-highlight': tokenColors.p200,
-  'stroke-highlight': tokenColors.p500,
-  'stroke-extra-light-error': tokenColors.d200,
-  'stroke-error': tokenColors.d500,
-};
-
-type StrokeColor = keyof typeof strokeColors;
-
-const textIconColors = {
-  'font-white': tokenColors.white,
-  'font-disabled': tokenColors.n500,
-  'font-annotation': tokenColors.n600,
-  'font-hint': tokenColors.n700,
-  'font-default': tokenColors.n800,
-  'font-title-labels': tokenColors.n900,
-  'font-danger': tokenColors.d600,
-  'font-secondary-info': tokenColors.n700,
-  'font-on-info': tokenColors.i600,
-  'font-on-success': tokenColors.s800,
-  'font-on-warning': tokenColors.w900,
-  'font-on-danger': tokenColors.d800,
-  'font-on-service-1': tokenColors['s1-800'],
-  'font-on-service-2': tokenColors['s2-600'],
-};
-
-type TextIconColors = keyof typeof textIconColors;
-
-const isSurfaceColor = (color: unknown): color is SurfaceColors =>
-  typeof color === 'string' && color in surfaceColors;
-
-const isStrokeColor = (color: unknown): color is StrokeColor =>
-  typeof color === 'string' && color in strokeColors;
-
-const isTextIconColor = (color: unknown): color is TextIconColors =>
-  typeof color === 'string' && color in textIconColors;
-
-const isBackgroundColor = (color: unknown): color is BackgroundColors =>
-  typeof color === 'string' && color in backgroundColors;
+type cssToValueType = <T extends string | { toString: () => string }>(
+  label: string,
+  value: T
+) => string;
+const toCSSValue: cssToValueType = cssSupportsVariable
+  ? (((label, value) =>
+      `var(--rcx-color-${label}, ${value})`) as cssToValueType)
+  : (((label, value) => value) as cssToValueType);
 
 export const strokeColor = memoize((value) => {
   const colorName = `stroke-${value}`;
   if (isStrokeColor(colorName)) {
-    return toCSSValue(colorName, strokeColors[colorName]);
+    return strokeColors[colorName].toString();
   }
   return color(value);
 });
 
 export const backgroundColor = memoize((value) => {
   if (isSurfaceColor(value)) {
-    return toCSSValue(value, surfaceColors[value]);
+    return surfaceColors[value].toString();
   }
   const colorName = `background-${value}`;
   if (isBackgroundColor(colorName)) {
-    return toCSSValue(colorName, backgroundColors[colorName]);
+    return backgroundColors[colorName].toString();
   }
   return color(value);
 });
@@ -234,7 +183,7 @@ export const backgroundColor = memoize((value) => {
 export const fontColor = memoize((value) => {
   const colorName = `font-${value}`;
   if (isTextIconColor(colorName)) {
-    return toCSSValue(colorName, textIconColors[colorName]);
+    return textIconColors[colorName].toString();
   }
   return color(value);
 });
@@ -252,32 +201,32 @@ export const color = memoize((value) => {
   }
 
   if (isSurfaceColor(value)) {
-    return toCSSValue(value, surfaceColors[value]);
+    return surfaceColors[value].toString();
   }
   if (isBackgroundColor(value)) {
-    return toCSSValue(value, backgroundColors[value]);
+    return backgroundColors[value].toString();
   }
   if (isStrokeColor(value)) {
-    return toCSSValue(value, strokeColors[value]);
+    return strokeColors[value].toString();
   }
   if (isTextIconColor(value)) {
-    return toCSSValue(value, textIconColors[value]);
+    return textIconColors[value].toString();
   }
 
   if (value === 'surface' || value === 'surface-light') {
-    return toCSSValue('surface-light', surfaceColors['surface-light']);
+    return surfaceColors['surface-light'].toString();
   }
 
   if (value === 'surface-tint') {
-    return toCSSValue(value, tokenColors.n100);
+    return toCSSValue(value, neutral.n100);
   }
 
   if (value === 'secondary-info') {
-    return toCSSValue(value, tokenColors.n700);
+    return toCSSValue(value, neutral.n700);
   }
 
   if (value === 'surface-neutral') {
-    return toCSSValue(value, tokenColors.n400);
+    return toCSSValue(value, neutral.n400);
   }
 
   if (isForegroundColorRef(value)) {
