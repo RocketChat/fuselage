@@ -145,8 +145,8 @@ const toCSSValue = cssSupportsVariable
   : (label: string, value: string) => value;
 
 const backgroundColors = {
-  light: tokenColors.white,
-  tint: tokenColors.n100,
+  'background-light': tokenColors.white,
+  'background-tint': tokenColors.n100,
 };
 
 type BackgroundColors = keyof typeof backgroundColors;
@@ -186,7 +186,7 @@ const textIconColors = {
   'font-disabled': tokenColors.n500,
   'font-annotation': tokenColors.n600,
   'font-hint': tokenColors.n700,
-  'font-text': tokenColors.n800,
+  'font-default': tokenColors.n800,
   'font-title-labels': tokenColors.n900,
   'font-danger': tokenColors.d600,
   'font-secondary-info': tokenColors.n700,
@@ -213,8 +213,9 @@ const isBackgroundColor = (color: unknown): color is BackgroundColors =>
   typeof color === 'string' && color in backgroundColors;
 
 export const strokeColor = memoize((value) => {
-  if (isStrokeColor(value)) {
-    return toCSSValue(value, strokeColors[value]);
+  const colorName = `stroke-${value}`;
+  if (isStrokeColor(colorName)) {
+    return toCSSValue(colorName, strokeColors[colorName]);
   }
   return color(value);
 });
@@ -223,15 +224,17 @@ export const backgroundColor = memoize((value) => {
   if (isSurfaceColor(value)) {
     return toCSSValue(value, surfaceColors[value]);
   }
-  if (isBackgroundColor(value)) {
-    return toCSSValue(value, backgroundColors[value]);
+  const colorName = `background-${value}`;
+  if (isBackgroundColor(colorName)) {
+    return toCSSValue(colorName, backgroundColors[colorName]);
   }
   return color(value);
 });
 
 export const fontColor = memoize((value) => {
-  if (isTextIconColor(value)) {
-    return toCSSValue(value, textIconColors[value]);
+  const colorName = `font-${value}`;
+  if (isTextIconColor(colorName)) {
+    return toCSSValue(colorName, textIconColors[colorName]);
   }
   return color(value);
 });
