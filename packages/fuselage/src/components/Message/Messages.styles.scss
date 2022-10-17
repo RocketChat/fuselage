@@ -23,7 +23,7 @@
 
 $message-background-color: functions.theme(
   'message-background-color',
-  colors.font(white)
+  colors.surface(light)
 );
 
 $message-background-color-focus: functions.theme(
@@ -45,6 +45,11 @@ $message-background-color-highlight: functions.theme(
   'message-background-color-highlight',
   colors.status-background(warning)
 );
+
+.rcx-message-container,
+.messages-list {
+  background-color: $message-background-color;
+}
 
 .rcx-message {
   @include mixins.container();
@@ -110,6 +115,8 @@ $message-background-color-highlight: functions.theme(
     flex-shrink: 1;
 
     min-width: 1px;
+
+    background-color: $message-background-color;
 
     &__wrapper {
       @include typography.use-with-truncated-text();
