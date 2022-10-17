@@ -7,13 +7,17 @@ import invariant from 'invariant';
 import {
   backgroundColors,
   isBackgroundColor,
+  isStatusBackgroundColor,
+  isStatusColor,
   isStrokeColor,
   isSurfaceColor,
   isTextIconColor,
   neutral,
+  statusBackgroundColors,
   strokeColors,
   surfaceColors,
   textIconColors,
+  statusColors,
 } from './Theme';
 
 const measure = (
@@ -177,6 +181,11 @@ export const backgroundColor = memoize((value) => {
   if (isBackgroundColor(colorName)) {
     return backgroundColors[colorName].toString();
   }
+
+  if (isStatusBackgroundColor(value)) {
+    return statusBackgroundColors[value].toString();
+  }
+
   return color(value);
 });
 
@@ -184,6 +193,9 @@ export const fontColor = memoize((value) => {
   const colorName = `font-${value}`;
   if (isTextIconColor(colorName)) {
     return textIconColors[colorName].toString();
+  }
+  if (isStatusColor(value)) {
+    return statusColors[value].toString();
   }
   return color(value);
 });
@@ -206,6 +218,11 @@ export const color = memoize((value) => {
   if (isBackgroundColor(value)) {
     return backgroundColors[value].toString();
   }
+
+  if (isStatusBackgroundColor(value)) {
+    return statusBackgroundColors[value].toString();
+  }
+
   if (isStrokeColor(value)) {
     return strokeColors[value].toString();
   }

@@ -202,6 +202,36 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   </Story>
 </Canvas>
 
+#### Status Colors
+<Canvas>
+  <Story
+    name='Status Colors'
+    decorators={[
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { m: 'x4', size: 'x122' }, child.props.bg)
+          )}
+        </Box>
+      ),
+    ]}
+  >
+    <>
+      <Box bg='status-background-info' color='status-font-on-info'/>
+      <Box bg='status-background-success' color="status-font-on-success"/>
+      <Box bg='status-background-danger'  color='status-font-on-danger' />
+      <Box bg='status-background-warning'  color='status-font-on-warning' />
+      <Box bg='status-background-service-1' color='status-font-on-service-1' />
+      <Box bg='status-background-service-2' color='status-font-on-service-2' />
+    </>
+  </Story>
+</Canvas>
+
 #### Stroke Colors
 
 <Canvas>

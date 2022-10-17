@@ -2,7 +2,14 @@ import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 
 const cssSupportsVariable = true;
 export class Var {
-  constructor(private readonly name: string, private readonly value: string) {}
+  private name: string;
+
+  private value: string;
+
+  constructor(name: string, value: string) {
+    this.name = name;
+    this.value = value;
+  }
 
   toString() {
     if (cssSupportsVariable) {
@@ -172,6 +179,32 @@ export const textIconColors = {
 
 type TextIconColors = keyof typeof textIconColors;
 
+export const statusBackgroundColors = {
+  'status-background-info': info.i200.theme('status-background-info'),
+  'status-background-success': success.s200.theme('status-background-success'),
+  'status-background-danger': danger.d200.theme('status-background-danger'),
+  'status-background-warning': warning.w200.theme('status-background-warning'),
+  'status-background-service-1': service1['200'].theme(
+    'status-background-service-1'
+  ),
+  'status-background-service-2': service2['200'].theme(
+    'status-background-service-2'
+  ),
+};
+
+type StatusBackgroundColors = keyof typeof statusBackgroundColors;
+
+export const statusColors = {
+  'status-font-on-info': info.i600,
+  'status-font-on-success': success.s800,
+  'status-font-on-warning': warning.w900,
+  'status-font-on-danger': danger.d800,
+  'status-font-on-service-1': service1[800],
+  'status-font-on-service-2': service2[600],
+};
+
+type StatusColors = keyof typeof statusColors;
+
 export const isSurfaceColor = (color: unknown): color is SurfaceColors =>
   typeof color === 'string' && color in surfaceColors;
 
@@ -184,9 +217,19 @@ export const isTextIconColor = (color: unknown): color is TextIconColors =>
 export const isBackgroundColor = (color: unknown): color is BackgroundColors =>
   typeof color === 'string' && color in backgroundColors;
 
+export const isStatusBackgroundColor = (
+  color: unknown
+): color is StatusBackgroundColors =>
+  typeof color === 'string' && color in statusBackgroundColors;
+
+export const isStatusColor = (color: unknown): color is StatusColors =>
+  typeof color === 'string' && color in statusColors;
+
 export const Palette = {
   background: backgroundColors,
   surface: surfaceColors,
+  status: statusBackgroundColors,
+  statusColor: statusColors,
   text: textIconColors,
   stroke: strokeColors,
 };
