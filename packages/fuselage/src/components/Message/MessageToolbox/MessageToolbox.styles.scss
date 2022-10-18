@@ -14,7 +14,7 @@
     'message-toolbox-border-radius',
     lengths.border-radius(small)
   );
-  background: colors.surface(light);
+  background: colors.background(light);
 
   &__wrapper {
     @include mixins.visible-on-hover();

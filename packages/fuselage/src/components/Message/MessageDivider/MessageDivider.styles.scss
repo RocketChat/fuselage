@@ -4,12 +4,12 @@
 
 $message-background-color: theme(
   'message-background-color',
-  colors.surface(light)
+  colors.background(light)
 );
 
 $message-divider-background-color: theme(
   'message-divider-background-color',
-  colors.neutral(300)
+  colors.stroke(extra-light)
 );
 $message-divider-color: theme('message-divider-color', colors.font(default));
 
