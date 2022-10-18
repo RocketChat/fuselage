@@ -211,17 +211,6 @@ test.each([
     ],
   ],
   [
-    '[title](https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases?query=test12-34&query2=abcd!e/dv/413244000073043351)',
-    [
-      paragraph([
-        link(
-          'https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases?query=test12-34&query2=abcd!e/dv/413244000073043351',
-          [plain('title')]
-        ),
-      ]),
-    ],
-  ],
-  [
     '[title](https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351?query=test12-34&query2=abcd!~-._%2B+)',
     [
       paragraph([

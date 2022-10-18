@@ -16,15 +16,6 @@ test.each([
     ],
   ],
   [
-    "joe@joe.com is Joe's email",
-    [
-      paragraph([
-        link('mailto:joe@joe.com', [plain('joe@joe.com')]),
-        plain(" is Joe's email"),
-      ]),
-    ],
-  ],
-  [
     "Joe's email is joe@joe.com because it is",
     [
       paragraph([
@@ -59,15 +50,6 @@ test.each([
       paragraph([
         plain("Joe's email is "),
         link('mailto:joe.smith@joe.com', [plain('joe.smith@joe.com')]),
-      ]),
-    ],
-  ],
-  [
-    "Joe's email is JOE@JOE.COM",
-    [
-      paragraph([
-        plain("Joe's email is "),
-        link('mailto:JOE@JOE.COM', [plain('JOE@JOE.COM')]),
       ]),
     ],
   ],
