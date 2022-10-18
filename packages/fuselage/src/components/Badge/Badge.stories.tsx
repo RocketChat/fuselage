@@ -34,42 +34,46 @@ export default {
   },
 } as ComponentMeta<typeof Badge>;
 
-const Variants: ComponentStory<typeof Badge> = (args) => (
+const Template: ComponentStory<typeof Badge> = ({
+  children = '99',
+  ...args
+}) => (
   <Box display='inline-flex'>
-    <Badge {...args}>99</Badge>
+    <Badge {...args}>{children}</Badge>
   </Box>
 );
 
-export const Default = Variants.bind({});
+export const Default = Template.bind({});
 
-export const Primary = Variants.bind({});
+export const Primary = Template.bind({});
 Primary.args = {
   variant: 'primary',
 };
 
-export const Danger = Variants.bind({});
+export const Danger = Template.bind({});
 Danger.args = {
   variant: 'danger',
 };
 
-export const Warning = Variants.bind({});
+export const Warning = Template.bind({});
 Warning.args = {
   variant: 'warning',
 };
 
-export const Disabled = Variants.bind({});
+export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-const Size: ComponentStory<typeof Badge> = () => (
-  <Box display='flex' alignItems='center'>
-    <Badge small />
-    <Badge small variant='primary' />
-    <Badge small variant='danger' />
-    <Badge small variant='warning' />
-    <Badge small disabled />
-  </Box>
-);
+export const Empty = Template.bind({});
+Empty.args = {
+  children: '',
+  variant: 'primary',
+};
 
-export const Small = Size.bind({});
+export const Small = Template.bind({});
+Small.args = {
+  children: '',
+  variant: 'primary',
+  small: true,
+};
