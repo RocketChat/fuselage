@@ -34,12 +34,9 @@ export default {
   },
 } as ComponentMeta<typeof Badge>;
 
-const Template: ComponentStory<typeof Badge> = ({
-  children = '99',
-  ...args
-}) => (
+const Template: ComponentStory<typeof Badge> = (args) => (
   <Box display='inline-flex'>
-    <Badge {...args}>{children}</Badge>
+    <Badge {...args} />
   </Box>
 );
 
@@ -65,9 +62,9 @@ Disabled.args = {
   disabled: true,
 };
 
-export const Empty = Template.bind({});
-Empty.args = {
-  children: '',
+export const WithValue = Template.bind({});
+WithValue.args = {
+  children: '99',
   variant: 'primary',
 };
 
