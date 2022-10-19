@@ -8,7 +8,7 @@ $badge-colors-secondary-color: theme(
 );
 $badge-colors-secondary-background-color: theme(
   'badge-colors-secondary-background-color',
-  colors.primary(100)
+  colors.surface(tint)
 );
 
 $badge-colors-primary-color: theme(
@@ -53,7 +53,7 @@ $badge-colors-disabled-color: theme(
 );
 $badge-colors-disabled-background-color: theme(
   'badge-colors-disabled-background-color',
-  colors.neutral(400)
+  colors.surface(neutral)
 );
 
 .rcx-badge {

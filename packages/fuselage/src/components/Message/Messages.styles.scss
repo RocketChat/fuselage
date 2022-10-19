@@ -46,6 +46,18 @@ $message-background-color-highlight: functions.theme(
   colors.status-background(warning)
 );
 
+.rcx-message-container,
+.messages-list {
+  background-color: $message-background-color;
+}
+
+.rcx-message-container {
+  &:hover,
+  &:focus {
+    background-color: $message-background-color-focus;
+  }
+}
+
 .rcx-message {
   @include mixins.container();
   position: relative;
@@ -110,6 +122,8 @@ $message-background-color-highlight: functions.theme(
     flex-shrink: 1;
 
     min-width: 1px;
+
+    background-color: $message-background-color;
 
     &__wrapper {
       @include typography.use-with-truncated-text();
