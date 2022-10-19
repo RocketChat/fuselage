@@ -54,6 +54,15 @@ test.each([
     ],
   ],
   [
+    "Joe's email is JOE@JOE.COM",
+    [
+      paragraph([
+        plain("Joe's email is "),
+        link('mailto:JOE@JOE.COM', [plain('JOE@JOE.COM')]),
+      ]),
+    ],
+  ],
+  [
     "Joe's email is (joe@joe.com)",
     [
       paragraph([
