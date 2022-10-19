@@ -7,7 +7,7 @@
 
 $message-generic-preview-border-color: theme(
   'message-generic-preview-border-color',
-  colors.neutral(200)
+  colors.stroke(extra-light)
 );
 
 $message-generic-preview-title-color: theme(
