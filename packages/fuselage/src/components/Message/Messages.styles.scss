@@ -111,8 +111,6 @@ $message-background-color-highlight: functions.theme(
 
     min-width: 1px;
 
-    background-color: $message-background-color;
-
     &__wrapper {
       @include typography.use-with-truncated-text();
       display: flex;
