@@ -14,7 +14,6 @@ test.each([
       ]),
     ],
   ],
-  ['__test__test__', [paragraph([plain('__test__test__')])]],
   ['~~strike~~', [paragraph([strike([plain('strike')])])]],
   [
     'pre~~strike~~post',

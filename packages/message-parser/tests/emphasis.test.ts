@@ -25,6 +25,7 @@ test.each([
   ],
   ['__italic__', [paragraph([italic([plain('italic')])])]],
   ['__italic__non', [paragraph([plain('__italic__non')])]],
+  ['__test__test__', [paragraph([plain('__test__test__')])]],
   ['pre__italic__post', [paragraph([plain('pre__italic__post')])]],
   [' pre__italic__post', [paragraph([plain(' pre__italic__post')])]],
   [
