@@ -51,6 +51,13 @@ $message-background-color-highlight: functions.theme(
   background-color: $message-background-color;
 }
 
+.rcx-message-container {
+  &:hover,
+  &:focus {
+    background-color: $message-background-color-focus;
+  }
+}
+
 .rcx-message {
   @include mixins.container();
   position: relative;

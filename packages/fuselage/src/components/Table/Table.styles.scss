@@ -43,7 +43,7 @@
 
   &--striped {
     .rcx-table__row:nth-child(even) {
-      background-color: colors.neutral(100);
+      background-color: colors.surface(tint);
     }
   }
 
@@ -63,7 +63,7 @@
     background-color: colors.surface(light);
 
     &--selected {
-      background-color: colors.primary(100);
+      background-color: colors.surface(tinr);
 
       &.rcx-table__row--action {
         &:hover,

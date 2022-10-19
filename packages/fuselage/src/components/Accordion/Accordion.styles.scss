@@ -35,12 +35,12 @@
 
     &.hover,
     &:hover {
-      background-color: colors.neutral(100);
+      background-color: colors.surface(tint);
     }
 
     &.focus,
     &:focus {
-      border-color: colors.primary(500);
+      border-color: colors.stroke(highlight);
       @include use-focus-shadow($outer-color: colors.primary(100));
     }
   }
@@ -49,7 +49,7 @@
     cursor: not-allowed;
 
     color: colors.font(disabled);
-    background-color: colors.neutral(100);
+    background-color: colors.surface(disabled);
   }
 }
 

@@ -291,6 +291,7 @@ $-neutral-alpha-level: (
   8: neutral(800, 0.08),
   10: neutral(800, 0.1),
   12: neutral(800, 0.12),
+  50: neutral(800, 0.5),
 );
 
 @function surface-neutral-alpha($level) {

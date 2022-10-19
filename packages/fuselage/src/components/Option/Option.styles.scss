@@ -102,7 +102,7 @@ $variants: (
 
   &:hover,
   &--focus {
-    background: colors.neutral(100);
+    background: colors.surface(tint);
   }
 
   &--selected {
