@@ -18,11 +18,12 @@
   }
 
   &__selection {
+    color: colors.status-font(on-info);
     border-radius: theme(
       'table-selected-border-radius',
       lengths.border-radius(small)
     );
-    background-color: colors.primary(500);
+    background-color: colors.status-background(info);
   }
 
   &__wrapper {
@@ -63,12 +64,12 @@
     background-color: colors.surface(light);
 
     &--selected {
-      background-color: colors.surface(tinr);
+      background-color: colors.surface(tint);
 
       &.rcx-table__row--action {
         &:hover,
         &:focus {
-          background-color: colors.primary(300);
+          background-color: colors.surface(hover);
         }
       }
     }
@@ -76,7 +77,7 @@
     &--action:hover,
     &--action:focus {
       @include clickable();
-      background-color: colors.neutral(200);
+      background-color: colors.surface(hover);
     }
   }
 
@@ -108,7 +109,7 @@
         display: flex;
 
         content: '';
-        border-block-end: lengths.border-width(2) solid colors.neutral(300);
+        border-block-end: lengths.border-width(2) solid colors.stroke(light);
       }
     }
 

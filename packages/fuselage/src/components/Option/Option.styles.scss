@@ -102,11 +102,11 @@ $variants: (
 
   &:hover,
   &--focus {
-    background: colors.surface(tint);
+    background: colors.surface(hover);
   }
 
   &--selected {
-    background: colors.neutral(500);
+    background: colors.surface(selected);
   }
 
   &:hover &__menu-wrapper,
