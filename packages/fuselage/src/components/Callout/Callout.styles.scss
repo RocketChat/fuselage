@@ -12,7 +12,7 @@
 
   border-radius: theme('callout-border-radius', lengths.border-radius(medium));
 
-  background-color: theme('callout-background-color', colors.neutral(200));
+  background-color: theme('callout-background-color', colors.surface(tint));
 
   &--type-info {
     color: theme('callout-color-info', colors.status-font(on-info));
