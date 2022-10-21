@@ -14,10 +14,10 @@
 
     border-radius: 100%;
 
-    background-color: colors.primary(500);
+    background-color: colors.button(primary-default);
 
     &--disabled {
-      background-color: colors.neutral(500);
+      background-color: colors.button(secondary-default);
     }
 
     &--inherit-color {

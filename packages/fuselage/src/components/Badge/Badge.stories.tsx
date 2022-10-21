@@ -47,14 +47,19 @@ Primary.args = {
   variant: 'primary',
 };
 
-export const Danger = Template.bind({});
-Danger.args = {
-  variant: 'danger',
+export const Secondary = Template.bind({});
+Secondary.args = {
+  variant: 'secondary',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
   variant: 'warning',
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  variant: 'danger',
 };
 
 export const Disabled = Template.bind({});
