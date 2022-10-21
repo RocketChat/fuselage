@@ -863,7 +863,7 @@
   "store": {
     "start": "\ue105"
   },
-  "maintenance": {
-    "start": "\ue107"
+  "spanner": {
+    "start": "\ue109"
   }
 }
