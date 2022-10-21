@@ -111,11 +111,12 @@ To use the fuselage icons, you need to import the css first:
 @import url('@rocket.chat/icons/dist/rocketchat.css');
 ```
 
-then you can use,
+Usage Example:
 
 ```html
-<!-- recommended -->
-<Icon name="hash" size="x20" />
-<!-- or -->
-<i class="rcx-icon">{icon}</i>
+<!-- Using Fuselage's Icon Component (Recommended) -->
+<Icon name='hash' size='x20' />
+
+<!-- HTML direclty -->
+<i class='rcx-icon'>{icon}</i>
 ```
