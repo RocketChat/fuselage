@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.20](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.19...v0.31.20) (2022-10-21)
+
+### Features
+
+- **fuselage:** Callout Custom Icon [#881](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/881) ([3dadd68](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3dadd6878eef22eb496c4054b6a0af5c5ad2222d))
+
+### Bug Fixes
+
+- **fuselage:** add message generic preview cover image ([#863](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/863)) ([f1f19f0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f1f19f0980854e5eeb39903551873fc7d1e6a331))
+- **fuselage:** Message Toolbox margin [#882](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/882) ([c7516c1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c7516c18d968394eba747bab828e397f97123509))
+- **fuselage:** Palette classes ([#873](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/873)) ([6a3f3ff](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6a3f3ff8557b4463481516c7128dee924007ea70))
+- **fuselage:** Tag not receiving props properly ([#865](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/865)) ([5e5f25d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5e5f25d6f5decca320a1f24b8dcb6b10adc0f18e))
+- **fuselage:** Token colors usage ([#875](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/875)) ([b7527f4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b7527f472e79f8783e8c595f8cf77d8368fb56cb))
+- **layout:** Design adjustments ([#867](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/867)) ([99eabc9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/99eabc9a8e41d5877cac17c9a591f41d350590e1))
+
 ### [0.31.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.18...v0.31.19) (2022-10-07)
 
 ### Features
