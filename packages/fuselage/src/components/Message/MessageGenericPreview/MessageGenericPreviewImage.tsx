@@ -1,22 +1,25 @@
+import type { ImgHTMLAttributes } from 'react';
 import React from 'react';
+
+import { prependClassName } from '../../../helpers/prependClassName';
 
 type MessageGenericPreviewImageProps = {
   url: string;
-  width: number;
-  height: number;
-};
+  className?: string;
+} & ImgHTMLAttributes<HTMLImageElement>;
 
 export const MessageGenericPreviewImage = ({
   url,
-  width,
-  height,
+  className,
   ...props
 }: MessageGenericPreviewImageProps) => (
-  <div
-    className='rcx-message-generic-preview__preview'
-    style={{ backgroundImage: `url(${url})`, maxWidth: '100%' }}
+  <img
+    src={url}
+    className={prependClassName(
+      className,
+      'rcx-message-generic-preview__image'
+    )}
+    alt=''
     {...props}
-  >
-    <div style={{ paddingTop: `${(height / width) * 100}%` }} />
-  </div>
+  />
 );

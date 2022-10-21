@@ -23,12 +23,12 @@
 
 $message-background-color: functions.theme(
   'message-background-color',
-  colors.font(white)
+  colors.surface(light)
 );
 
 $message-background-color-focus: functions.theme(
   'message-background-color-focus',
-  colors.surface(tint)
+  colors.surface(hover)
 );
 
 $message-background-color-selected: functions.theme(

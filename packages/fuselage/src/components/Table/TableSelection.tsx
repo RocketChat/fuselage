@@ -15,7 +15,6 @@ export const TableSelection = ({
   ...props
 }: TableSelectionProps) => (
   <Box
-    color='alternative'
     rcx-table__selection
     display='flex'
     alignItems='center'
