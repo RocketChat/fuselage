@@ -115,8 +115,8 @@ Usage Example:
 
 ```html
 <!-- Using Fuselage's Icon Component (Recommended) -->
-<Icon name='hash' size='x20' />
+<Icon name="hash" size="x20" />
 
 <!-- HTML markup -->
-<i class='rcx-icon'>{icon}</i>
+<i class="rcx-icon">{icon}</i>
 ```
