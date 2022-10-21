@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import {
   Title,
   Subtitle,
@@ -64,18 +65,18 @@ export const SuccessWithCloseButton = Template.bind({});
 SuccessWithCloseButton.args = {
   children: 'Lorem ipsum dolor sit amet',
   variant: 'success',
-  onClose: () => {},
+  onClose: action('clicked'),
 };
 
 export const ErrorWithCloseButton = Template.bind({});
 ErrorWithCloseButton.args = {
   children: 'Lorem ipsum dolor sit amet',
   variant: 'error',
-  onClose: () => {},
+  onClose: action('clicked'),
 };
 
 export const DefaultWithCloseButton = Template.bind({});
 DefaultWithCloseButton.args = {
   children: 'Lorem ipsum dolor sit amet',
-  onClose: () => {},
+  onClose: action('clicked'),
 };

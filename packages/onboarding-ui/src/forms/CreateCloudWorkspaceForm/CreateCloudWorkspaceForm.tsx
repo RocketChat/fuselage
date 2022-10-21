@@ -12,12 +12,12 @@ import {
   CheckBox,
   Grid,
 } from '@rocket.chat/fuselage';
+import { Form } from '@rocket.chat/layout';
 import type { ReactElement, FocusEvent } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
-import Form from '../../common/Form';
 import Tooltip from '../../common/InformationTooltipTrigger';
 import WorkspaceUrlInput from './WorkspaceUrlInput';
 
@@ -70,7 +70,9 @@ const CreateCloudWorkspaceForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
+      <Form.Header>
+        <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
+      </Form.Header>
 
       <FieldGroup mbs='x16'>
         <Field>
@@ -213,7 +215,7 @@ const CreateCloudWorkspaceForm = ({
                 </a>
                 and
                 <a
-                  href='https://rocket.chat/policy'
+                  href='https://rocket.chat/privacy'
                   target='_blank'
                   rel='noopener noreferrer'
                 >

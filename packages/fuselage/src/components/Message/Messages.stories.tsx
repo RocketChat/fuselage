@@ -5,6 +5,7 @@ import Message from '.';
 import { Box, Avatar } from '..';
 import { MessageDivider } from './MessageDivider';
 import { MessageEmoji } from './MessageEmoji';
+import MessageMetrics from './MessageMetrics';
 import MessageReactions from './MessageReactions';
 import MessageToolbox from './MessageToolbox';
 import ThreadMessage, { ThreadMessageEmoji } from './ThreadMessage';
@@ -31,9 +32,11 @@ export const Default: ComponentStory<typeof Message> = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -73,9 +76,11 @@ export const WithSequential = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -184,9 +189,11 @@ export const MessageWithThread = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -317,9 +324,11 @@ export const MessageSelected = () => {
           <Message.Header>
             <Message.Name>Haylie George</Message.Name>
             <Message.Username>@haylie.george</Message.Username>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
+            <Message.Roles>
+              <Message.Role>Admin</Message.Role>
+              <Message.Role>User</Message.Role>
+              <Message.Role>Owner</Message.Role>
+            </Message.Roles>
             <Message.Timestamp>12:00 PM</Message.Timestamp>
           </Message.Header>
           <Message.Body>
@@ -353,9 +362,11 @@ export const MessageEditing = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -433,9 +444,11 @@ export const MessageUnorderedList = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -475,9 +488,11 @@ export const MessageOrderedList = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -517,9 +532,11 @@ export const MessageHighlighted = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -597,9 +614,11 @@ export const MessagePending = () => (
         <Message.Header>
           <Message.Name>Haylie George</Message.Name>
           <Message.Username>@haylie.george</Message.Username>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
           <Message.Timestamp>12:00 PM</Message.Timestamp>
         </Message.Header>
         <Message.Body>
@@ -648,6 +667,100 @@ export const MessagePending = () => (
         <Message.Body>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
+      </Message.Container>
+      <MessageToolbox.Wrapper>
+        <MessageToolbox>
+          <MessageToolbox.Item icon='quote' />
+          <MessageToolbox.Item icon='clock' />
+          <MessageToolbox.Item icon='thread' />
+        </MessageToolbox>
+      </MessageToolbox.Wrapper>
+    </Message>
+  </Box>
+);
+export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
+  <Box>
+    <MessageDivider>May, 24, 2020</MessageDivider>
+    <Message className='customclass'>
+      <Message.LeftContainer>
+        <Avatar url={avatarUrl} size={'x36'} />
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.Name>Haylie George</Message.Name>
+          <Message.Username>@haylie.george</Message.Username>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <Message.Body>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+        </Message.Body>
+        <Message.Block>
+          <MessageMetrics>
+            <MessageMetrics.Reply>Reply</MessageMetrics.Reply>
+            <MessageMetrics.Item>
+              <MessageMetrics.Item.Icon name='thread' />
+              <MessageMetrics.Item.Label>1</MessageMetrics.Item.Label>
+            </MessageMetrics.Item>
+            <MessageMetrics.Item>
+              <MessageMetrics.Item.Icon name='user' />
+              <MessageMetrics.Item.Label>2</MessageMetrics.Item.Label>
+            </MessageMetrics.Item>
+            <MessageMetrics.Item>
+              <MessageMetrics.Item.Icon name='clock' />
+              <MessageMetrics.Item.Label>12:30 PM</MessageMetrics.Item.Label>
+            </MessageMetrics.Item>
+            <MessageMetrics.Following name='bell' />
+          </MessageMetrics>
+        </Message.Block>
+      </Message.Container>
+      <MessageToolbox.Wrapper>
+        <MessageToolbox>
+          <MessageToolbox.Item icon='quote' />
+          <MessageToolbox.Item icon='clock' />
+          <MessageToolbox.Item icon='thread' />
+        </MessageToolbox>
+      </MessageToolbox.Wrapper>
+    </Message>
+  </Box>
+);
+
+export const LotsOfReactions: ComponentStory<typeof Message> = () => (
+  <Box>
+    <MessageDivider>May, 24, 2020</MessageDivider>
+    <Message className='customclass' clickable>
+      <Message.LeftContainer>
+        <Avatar url={avatarUrl} size={'x36'} />
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.Name>Haylie George</Message.Name>
+          <Message.Username>@haylie.george</Message.Username>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <Message.Body>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam...
+        </Message.Body>
+        <MessageReactions>
+          {Array.from({ length: 100 }).map((_, index) => (
+            <MessageReactions.Reaction counter={index} mine={!(index % 3)} />
+          ))}
+          <MessageReactions.Action />
+        </MessageReactions>
       </Message.Container>
       <MessageToolbox.Wrapper>
         <MessageToolbox>

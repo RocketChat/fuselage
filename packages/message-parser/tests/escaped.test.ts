@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { paragraph, plain, bold } from '../src/utils';
 
 test.each([
@@ -34,5 +34,5 @@ test.each([
     [paragraph([plain('&ouml; not a character entity')])],
   ],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });

@@ -1,12 +1,24 @@
 @use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/functions.scss';
 
-$tooltip-background-color: functions.theme(
-  'tooltip-background-color',
+$tooltip-dark-background-color: functions.theme(
+  'tooltip-dark-background-color',
+  colors.surface(dark)
+);
+$tooltip-dark-text-color: functions.theme(
+  'tooltip-dark-text-color',
+  colors.font(white)
+);
+$tooltip-light-background-color: functions.theme(
+  'tooltip-light-background-color',
   colors.surface(neutral)
 );
-$tooltip-text-color: functions.theme('tooltip-text-color', colors.text(text));
+$tooltip-light-text-color: functions.theme(
+  'tooltip-light-text-color',
+  colors.font(default)
+);
 
 @mixin triangle-direction($direction) {
   &::after {
@@ -17,8 +29,8 @@ $tooltip-text-color: functions.theme('tooltip-text-color', colors.text(text));
     content: ' ';
 
     border-width: 4px;
-    border-color: transparent transparent $tooltip-background-color
-      $tooltip-background-color;
+    border-color: transparent transparent $tooltip-dark-background-color
+      $tooltip-dark-background-color;
     border-radius: 0 0 0 (2px);
 
     block-size: 0;
@@ -68,11 +80,14 @@ $tooltip-text-color: functions.theme('tooltip-text-color', colors.text(text));
 
   pointer-events: none;
 
-  color: $tooltip-text-color;
+  color: $tooltip-dark-text-color;
 
-  border-radius: 4px;
+  border-radius: functions.theme(
+    'tooltip-border-radius',
+    lengths.border-radius(medium)
+  );
 
-  background-color: $tooltip-background-color;
+  background-color: $tooltip-dark-background-color;
 
   @include typography.use-font-scale(p2m);
 
@@ -90,6 +105,16 @@ $tooltip-text-color: functions.theme('tooltip-text-color', colors.text(text));
 
   &--dir-right {
     @include triangle-direction('right');
+  }
+
+  &--dark {
+    color: $tooltip-dark-text-color;
+    background-color: $tooltip-dark-background-color;
+  }
+
+  &--light {
+    color: $tooltip-light-text-color;
+    background-color: $tooltip-light-background-color;
   }
 
   &--pos {

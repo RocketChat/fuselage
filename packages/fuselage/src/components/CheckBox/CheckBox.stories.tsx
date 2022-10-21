@@ -30,6 +30,10 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
+export const DefaultChecked = Template.bind({});
+DefaultChecked.args = {
+  defaultChecked: true,
+};
 
 export const States = () => (
   <PropsVariationSection

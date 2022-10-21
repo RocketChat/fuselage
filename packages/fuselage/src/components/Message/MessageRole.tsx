@@ -8,9 +8,5 @@ type MessageRoleProps = {
 };
 
 export const MessageRole = (props: MessageRoleProps) => (
-  <Tag
-    className='rcx-box rcx-box--full rcx-message-header__role'
-    {...props}
-    small
-  />
+  <Tag className='rcx-box rcx-box--full rcx-message-header__role' {...props} />
 );

@@ -32,6 +32,7 @@ export { DividerBlock } from './blocks/layout/DividerBlock';
 export { ImageBlock } from './blocks/layout/ImageBlock';
 export { InputBlock } from './blocks/layout/InputBlock';
 export { SectionBlock } from './blocks/layout/SectionBlock';
+export { VideoConferenceBlock } from './blocks/layout/VideoConferenceBlock';
 export { LayoutBlock } from './blocks/LayoutBlock';
 
 export { InputElementDispatchAction } from './blocks/InputElementDispatchAction';

@@ -1,8 +1,8 @@
 import { Box } from '@rocket.chat/fuselage';
+import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ComponentProps, ReactElement } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-import BackgroundLayer from '../../common/BackgroundLayer';
 import FormPageLayout from '../../common/FormPageLayout';
 import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
 import Description from './Description';

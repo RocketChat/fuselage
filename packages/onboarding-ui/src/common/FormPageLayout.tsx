@@ -1,18 +1,17 @@
+import {
+  FormPageLayout,
+  HorizontalWizardLayout,
+  HorizontalWizardLayoutAside,
+  HorizontalWizardLayoutTitle,
+  HorizontalWizardLayoutSubtitle,
+  HorizontalWizardLayoutDescription,
+  HorizontalWizardLayoutContent,
+} from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import {
-  Aside,
-  Description,
-  Content,
-  Logo,
-  Subtitle,
-  Title,
-  Wrapper,
-  TitleHighlight,
-} from './FormPageLayout.styles';
-import { OnboardingLogo } from './OnboardingLogo';
-import type { FormPageLayoutStyleProps } from './Types';
+// import { OnboardingLogo } from './OnboardingLogo';
+import type { FormPageLayoutStyleProps } from '../Types';
 
 type FormPageLayoutProps = {
   logo?: ReactNode;
@@ -24,41 +23,41 @@ type FormPageLayoutProps = {
   tag?: string;
 };
 
-const FormPageLayout = ({
-  logo,
+const FormPageLayoutOnboard = ({
   title,
   subtitle,
   description,
-  styleProps,
   children,
 }: FormPageLayoutProps): ReactElement => {
   useTranslation();
   return (
-    <Wrapper>
-      <Aside justifyContent={styleProps?.justifyContent}>
-        <Logo>{logo ?? <OnboardingLogo />}</Logo>
-        <Title>
+    <HorizontalWizardLayout>
+      <HorizontalWizardLayoutAside>
+        <HorizontalWizardLayoutTitle>
           {title || (
             <Trans i18nKey='page.form.title'>
               Let's
-              <TitleHighlight>Launch</TitleHighlight>
+              <FormPageLayout.TitleHighlight>
+                Launch
+              </FormPageLayout.TitleHighlight>
               Your Workspace
             </Trans>
           )}
-        </Title>
+        </HorizontalWizardLayoutTitle>
         {subtitle && (
-          <Subtitle
-            fontWeight={styleProps?.subTitleProps?.fontWeight}
-            fontColor={styleProps?.subTitleProps?.color}
+          <HorizontalWizardLayoutSubtitle
+          // fontWeight={styleProps?.subTitleProps?.fontWeight}
+          // fontColor={styleProps?.subTitleProps?.color}
           >
             {subtitle}
-          </Subtitle>
+          </HorizontalWizardLayoutSubtitle>
         )}
-        <Description>{description}</Description>
-      </Aside>
-      <Content>{children}</Content>
-    </Wrapper>
+        <HorizontalWizardLayoutDescription>
+          {description}
+        </HorizontalWizardLayoutDescription>
+      </HorizontalWizardLayoutAside>
+      <HorizontalWizardLayoutContent>{children}</HorizontalWizardLayoutContent>
+    </HorizontalWizardLayout>
   );
 };
-
-export default FormPageLayout;
+export default FormPageLayoutOnboard;

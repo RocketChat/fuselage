@@ -18,15 +18,15 @@ $variants: (
 
   padding: lengths.padding(16);
 
-  color: colors.foreground(info);
+  color: colors.font(secondary-info);
 
   &__icon {
     margin-block-end: lengths.margin(20);
     padding: lengths.margin(16);
 
-    color: colors.foreground(info);
+    color: colors.font(secondary-info);
 
-    border-radius: 100%;
+    border-radius: lengths.border-radius(full);
 
     background-color: colors.neutral(200);
 
@@ -40,7 +40,7 @@ $variants: (
   &__title {
     margin-block-end: lengths.margin(8);
 
-    color: colors.foreground(default);
+    color: colors.font(default);
     @include typography.use-font-scale(h2);
   }
 

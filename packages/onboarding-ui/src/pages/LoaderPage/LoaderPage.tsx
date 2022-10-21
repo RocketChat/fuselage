@@ -1,9 +1,7 @@
 import { Box, Margins, ProgressBar } from '@rocket.chat/fuselage';
+import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
-
-import BackgroundLayer from '../../common/BackgroundLayer';
-import { OnboardingLogo } from '../../common/OnboardingLogo';
 
 type LoaderPageProps = {
   title: string;
@@ -54,7 +52,7 @@ const LoaderPage = ({
         paddingInline={16}
       >
         <Margins blockEnd={32}>
-          <OnboardingLogo />
+          <LayoutLogo.LayoutLogo />
 
           <Box fontScale='hero'>{title}</Box>
 

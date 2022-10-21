@@ -22,12 +22,12 @@ $variants: (
   &__text {
     white-space: nowrap;
 
-    color: colors.foreground('info');
+    color: colors.font(secondary-info);
     @include typography.use-font-scale(c1);
   }
 
   &__item {
-    color: colors.foreground('hint');
+    color: colors.font(secondary-info);
     @each $name, $color in $variants {
       &--#{$name} {
         color: theme('message-status-variant-color-#{$name}', $color);

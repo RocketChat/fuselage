@@ -1,0 +1,70 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+.rcx-field {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  flex-shrink: 0;
+
+  width: 100%;
+
+  &__label {
+    @include typography.use-font-scale(p2m);
+    flex: 1 1 0;
+    align-self: flex-start;
+
+    margin-block: lengths.margin(2);
+
+    color: colors.font(default);
+  }
+
+  &__description {
+    @include typography.use-font-scale(p2);
+    margin-block: lengths.margin(2);
+
+    color: colors.font(secondary-info);
+    @extend %--with-inline-elements;
+  }
+
+  &__row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-block-start: lengths.margin(4);
+    margin-block-end: lengths.margin(2);
+
+    & .rcx-field__label {
+      padding-inline-start: lengths.padding(8);
+    }
+  }
+
+  &__hint {
+    @include typography.use-font-scale(p2);
+    margin-block: lengths.margin(2);
+
+    color: colors.font(secondary-info);
+    @extend %--with-inline-elements;
+  }
+
+  &__error {
+    @include typography.use-font-scale(p2);
+    margin-block: lengths.margin(2);
+
+    color: colors.font(danger);
+    @extend %--with-inline-elements;
+  }
+
+  &__link {
+    @include typography.use-font-scale(p2);
+    margin-block: lengths.margin(2);
+
+    text-decoration: none;
+
+    color: colors.font(info);
+    @extend %--with-inline-elements;
+  }
+}

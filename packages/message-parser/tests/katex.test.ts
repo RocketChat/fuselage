@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { inlineKatex, katex, paragraph, plain } from '../src/utils';
 
 test.each([
@@ -27,7 +27,7 @@ test.each([
     ],
   ],
 ])('parses %p', (input, output) => {
-  expect(parser(input, { katex: { parenthesisSyntax: true } })).toMatchObject(
+  expect(parse(input, { katex: { parenthesisSyntax: true } })).toMatchObject(
     output
   );
 });

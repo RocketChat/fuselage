@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { paragraph, plain, codeLine, code } from '../src/utils';
 
 const multiply = <T>(a: number, element: T): Array<T> =>
@@ -79,5 +79,5 @@ code
     [code([codeLine(plain(`# code`)), codeLine(plain(`**code**`))])],
   ],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });

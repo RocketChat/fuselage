@@ -8,14 +8,11 @@ import {
   Icon,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
+import { Form, List, ActionLink } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
-
-import ActionLink from '../../common/ActionLink';
-import Form from '../../common/Form';
-import List from '../../common/List';
 
 export type RegisteredServerPayload = {
   email: string;
@@ -73,8 +70,10 @@ const RegisterServerForm = ({
   return (
     <FormProvider {...form}>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-        <Form.Title>{t('form.registeredServerForm.title')}</Form.Title>
+        <Form.Header>
+          <Form.Steps currentStep={currentStep} stepCount={stepCount} />
+          <Form.Title>{t('form.registeredServerForm.title')}</Form.Title>
+        </Form.Header>
         <Box mbe='x24' mbs='x16'>
           <List>
             <List.Item fontScale='p2' icon='check'>

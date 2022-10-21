@@ -45,6 +45,7 @@
     "s700": { "value": "#19AC7C", "group": "colors" },
     "s800": { "value": "#148660", "group": "colors" },
     "s900": { "value": "#106D4F", "group": "colors" },
+    "s1000": { "value": "#0D5940", "group": "colors" },
     "s1-100": { "value": "#FDE8D7", "group": "colors" },
     "s1-200": { "value": "#FAD1B0", "group": "colors" },
     "s1-300": { "value": "#F7B27B", "group": "colors" },

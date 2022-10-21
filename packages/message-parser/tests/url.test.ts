@@ -1,5 +1,5 @@
-import { parser } from '../src';
-import { link, paragraph, plain } from '../src/utils';
+import { parse } from '../src';
+import { lineBreak, link, paragraph, plain } from '../src/utils';
 
 test.each([
   [
@@ -15,6 +15,14 @@ test.each([
   [
     'https://pt.wikipedia.org/',
     [paragraph([link('https://pt.wikipedia.org/')])],
+  ],
+  [
+    'https://pt.wikipedia.org/with-hyphen',
+    [paragraph([link('https://pt.wikipedia.org/with-hyphen')])],
+  ],
+  [
+    'https://pt.wikipedia.org/with_underscore',
+    [paragraph([link('https://pt.wikipedia.org/with_underscore')])],
   ],
   [
     'https://www.npmjs.com/package/@rocket.chat/message-parser',
@@ -58,6 +66,173 @@ test.each([
     [paragraph([link('ftp://user:pass@localhost:21/etc/hosts')])],
   ],
   ['ssh://test@test.test', [paragraph([link('ssh://test@test.test')])]],
+  ['custom://test@test.test', [paragraph([link('custom://test@test.test')])]],
+  ['ftp://test.com', [paragraph([link('ftp://test.com')])]],
+  [
+    'https://www.thingiverse.com/thing:5451684',
+    [paragraph([link('https://www.thingiverse.com/thing:5451684')])],
+  ],
+  ['http://📙.la/❤️', [paragraph([link('http://📙.la/❤️')])]],
+  [
+    'https://developer.rocket.chat/reference/api/rest-api#production-security-concerns look at this',
+    [
+      paragraph([
+        link(
+          'https://developer.rocket.chat/reference/api/rest-api#production-security-concerns'
+        ),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat/reference/api/rest-api look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat/reference/api/rest-api'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+
+  [
+    'https://developer.rocket.chat/reference/api/rest-api#fragment?query=query look at this',
+    [
+      paragraph([
+        link(
+          'https://developer.rocket.chat/reference/api/rest-api#fragment?query=query'
+        ),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat?query=query'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query\nline break',
+    [
+      paragraph([link('https://developer.rocket.chat?query=query')]),
+      paragraph([plain('line break')]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query\n\nline break',
+    [
+      paragraph([link('https://developer.rocket.chat?query=query')]),
+      lineBreak(),
+      paragraph([plain('line break')]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query_with_underscore look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat?query=query_with_underscore'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat/path_with_underscore look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat/path_with_underscore'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat#fragment_with_underscore look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat#fragment_with_underscore'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat followed by text',
+    [
+      paragraph([
+        link('https://developer.rocket.chat'),
+        plain(' followed by text'),
+      ]),
+    ],
+  ],
+  [
+    'two urls https://developer.rocket.chat , https://rocket.chat',
+    [
+      paragraph([
+        plain('two urls '),
+        link('https://developer.rocket.chat'),
+        plain(' , '),
+        link('https://rocket.chat'),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
+});
+
+describe('link helper function', () => {
+  it('should preserve the original protocol if the protocol is http or https', () => {
+    expect(link('https://rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('https://rocket.chat/test'),
+        label: plain('https://rocket.chat/test'),
+      },
+    });
+    expect(link('http://rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('http://rocket.chat/test'),
+        label: plain('http://rocket.chat/test'),
+      },
+    });
+  });
+
+  it('should preserve the original protocol even if for custom protocols', () => {
+    expect(link('custom://rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('custom://rocket.chat/test'),
+        label: plain('custom://rocket.chat/test'),
+      },
+    });
+  });
+
+  it('should return // as the protocol if // is the protocol specified', () => {
+    expect(link('//rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('//rocket.chat/test'),
+        label: plain('//rocket.chat/test'),
+      },
+    });
+  });
+  it("should return an url concatenated '//' if the url has no protocol", () => {
+    expect(link('rocket.chat/test')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('//rocket.chat/test'),
+        label: plain('rocket.chat/test'),
+      },
+    });
+  });
 });

@@ -25,11 +25,11 @@
 Firstly, install the peer dependencies (prerequisites):
 
 ```sh
-npm i @rocket.chat/fuselage @rocket.chat/fuselage-hooks @rocket.chat/fuselage-polyfills @rocket.chat/icons @rocket.chat/logo @rocket.chat/styled react react-dom react-i18next
+npm i @rocket.chat/fuselage @rocket.chat/fuselage-hooks @rocket.chat/fuselage-polyfills @rocket.chat/icons @rocket.chat/layout @rocket.chat/logo @rocket.chat/styled react react-dom react-i18next
 
 # or, if you are using yarn:
 
-yarn add @rocket.chat/fuselage @rocket.chat/fuselage-hooks @rocket.chat/fuselage-polyfills @rocket.chat/icons @rocket.chat/logo @rocket.chat/styled react react-dom react-i18next
+yarn add @rocket.chat/fuselage @rocket.chat/fuselage-hooks @rocket.chat/fuselage-polyfills @rocket.chat/icons @rocket.chat/layout @rocket.chat/logo @rocket.chat/styled react react-dom react-i18next
 ```
 
 Add `@rocket.chat/onboarding-ui` as a dependency:

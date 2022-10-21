@@ -856,5 +856,11 @@
   },
   "arrow-forward": {
     "start": "\ue101"
+  },
+  "address-book": {
+    "start": "\ue103"
+  },
+  "store": {
+    "start": "\ue105"
   }
 }

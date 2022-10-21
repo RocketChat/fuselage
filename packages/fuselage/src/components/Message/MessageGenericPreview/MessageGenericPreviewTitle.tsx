@@ -1,10 +1,11 @@
-import type { ReactNode } from 'react';
+import type { AnchorHTMLAttributes, HTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
 type MessageGenericPreviewTitleProps = {
   children?: ReactNode;
   externalUrl?: string;
-};
+} & HTMLAttributes<HTMLSpanElement> &
+  AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export const MessageGenericPreviewTitle = ({
   externalUrl,

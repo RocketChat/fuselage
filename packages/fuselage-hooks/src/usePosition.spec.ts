@@ -1,9 +1,13 @@
+import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
+
 import {
   getPositionStyle,
   getTargetBoundaries,
   getVariantBoundaries,
 } from './usePosition';
 // TODO: add tests targeting the hook itself
+
+withResizeObserverMock();
 
 const container = {
   bottom: 1000,

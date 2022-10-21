@@ -1,0 +1,21 @@
+@use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
+
+.rcx-label {
+  @include typography.use-font-scale(p2m);
+  color: colors.font(default);
+
+  &--disabled {
+    pointer-events: none;
+
+    color: colors.font(secondary-info);
+  }
+
+  &--required {
+    &::before {
+      content: '*\0a0';
+
+      color: colors.font(danger);
+    }
+  }
+}

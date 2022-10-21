@@ -6,13 +6,12 @@ import {
   Button,
   Box,
 } from '@rocket.chat/fuselage';
+import { Form, ActionLink } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
-import ActionLink from '../../common/ActionLink';
-import Form from '../../common/Form';
 import { LoginActionsWrapper } from './LoginForm.styles';
 
 export type LoginFormPayload = {
@@ -51,11 +50,14 @@ const LoginForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Subtitle>
-        {!isPasswordLess
-          ? t('form.loginForm.content.default')
-          : t('form.loginForm.content.passwordLess')}
-      </Form.Subtitle>
+      <Form.Header>
+        <Form.Title>{t('form.loginForm.content.logIn')}</Form.Title>
+        <Form.Subtitle>
+          {!isPasswordLess
+            ? t('form.loginForm.content.default')
+            : t('form.loginForm.content.passwordLess')}
+        </Form.Subtitle>
+      </Form.Header>
       <Form.Container>
         <FieldGroup>
           <Field>
@@ -113,11 +115,7 @@ const LoginForm = ({
           <Box mbs='x24' fontScale='p2' textAlign='left'>
             <Trans i18nKey='form.loginForm.resetPassword'>
               Forgot your password?
-              <ActionLink
-                fontWeight={400}
-                fontScale='p2'
-                onClick={onResetPassword}
-              >
+              <ActionLink fontScale='p2' onClick={onResetPassword}>
                 Reset password
               </ActionLink>
             </Trans>

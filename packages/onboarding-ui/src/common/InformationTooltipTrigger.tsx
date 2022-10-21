@@ -1,7 +1,6 @@
 import { Icon } from '@rocket.chat/fuselage';
+import { TooltipWrapper } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-
-import TooltipWrapper from './TooltipWrapper';
 
 type InformationTooltipTriggerProps = {
   text: string;

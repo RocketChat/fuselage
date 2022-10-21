@@ -25,6 +25,7 @@ export const MultiSelectFiltered = ({
     <MultiSelect
       {...props}
       filter={propFilter || filter}
+      setFilter={propSetFilter || setFilter}
       options={options}
       anchor={(params: MultiSelectAnchorParams) => (
         <MultiSelectFilteredAnchor

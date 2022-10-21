@@ -5,7 +5,6 @@ import Box from '../Box';
 import { Icon } from '../Icon';
 
 type ButtonSize = {
-  square?: boolean;
   mini?: boolean;
   tiny?: boolean;
   small?: boolean;
@@ -36,7 +35,6 @@ export const IconButton = forwardRef(
       danger,
       warning,
       success,
-      square,
       small,
       tiny,
       mini,
@@ -71,7 +69,7 @@ export const IconButton = forwardRef(
         type='button'
         rcx-button
         rcx-button--icon
-        rcx-button--square={square}
+        rcx-button--square
         {...kindAndVariantProps}
         rcx-button--small-square={small}
         rcx-button--tiny-square={tiny}

@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 
-import './States.styles.scss';
-
 type StatesProps = {
   children?: ReactNode;
 };

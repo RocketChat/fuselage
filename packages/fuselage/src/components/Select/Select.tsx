@@ -2,6 +2,7 @@ import {
   useMergedRefs,
   useMutableCallback,
   useResizeObserver,
+  useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
 import type {
   ComponentProps,
@@ -115,14 +116,18 @@ export const Select = forwardRef(
     const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
       useCursor(index, filteredOptions, internalChangedByKeyboard);
 
+    const innerRef = useRef<HTMLInputElement | null>(null);
+    const anchorRef = useMergedRefs(ref, innerRef);
+
+    const removeFocusClass = () =>
+      innerRef.current?.classList.remove('focus-visible');
+
     const internalChangedByClick = useMutableCallback(([value]) => {
       setInternalValue(value);
       onChange(value);
+      removeFocusClass();
       hide();
     });
-
-    const innerRef = useRef<HTMLInputElement | null>(null);
-    const anchorRef = useMergedRefs(ref, innerRef);
 
     const renderAnchor = (params: SelectAnchorParams) => {
       if (isForwardRefType(Anchor)) {
@@ -139,6 +144,7 @@ export const Select = forwardRef(
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
     useDidUpdate(reset, [filter, internalValue]);
+    useOutsideClick([containerRef], removeFocusClass);
 
     const valueLabel = getLabel(option);
 
@@ -147,9 +153,12 @@ export const Select = forwardRef(
       (valueLabel || placeholder || typeof placeholder === 'string');
 
     const handleClick = useMutableCallback(() => {
-      if (visible === AnimatedVisibility.VISIBLE) {
+      if (innerRef.current?.classList.contains('focus-visible')) {
+        removeFocusClass();
         return hide();
       }
+
+      innerRef.current?.classList.add('focus-visible');
       innerRef.current?.focus();
       return show();
     });
@@ -207,7 +216,7 @@ export const Select = forwardRef(
                 <Icon
                   name={
                     visible === AnimatedVisibility.VISIBLE
-                      ? 'cross'
+                      ? 'chevron-up'
                       : addonIcon || 'chevron-down'
                   }
                   size='x20'

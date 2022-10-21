@@ -1,0 +1,40 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+
+.rcx-skeleton {
+  display: block;
+
+  height: 1.2em;
+
+  animation: rcx-skeleton__animation 1s linear 0s infinite running;
+
+  background-color: colors.stroke(extra-dark);
+
+  &--text {
+    height: auto;
+    margin-block: lengths.margin(none);
+
+    transform: scale(1, 0.6);
+    transform-origin: 0 60%;
+
+    border-radius: lengths.border-radius(medium);
+
+    &:empty::before {
+      content: '\00a0';
+    }
+  }
+}
+
+@keyframes rcx-skeleton__animation {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+}

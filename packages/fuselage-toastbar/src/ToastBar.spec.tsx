@@ -1,9 +1,12 @@
-import { ToastBar } from '@rocket.chat/fuselage';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { composeStories } from '@storybook/testing-react';
+import { render } from '@testing-library/react';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<ToastBar />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import * as stories from './stories';
+
+const { ToastBarWithData } = composeStories(stories);
+
+describe('[ToastBarWithData Component]', () => {
+  it('renders without crashing', () => {
+    render(<ToastBarWithData />);
+  });
 });

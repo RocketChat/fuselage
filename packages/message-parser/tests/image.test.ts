@@ -1,4 +1,4 @@
-import { parser } from '../src';
+import { parse } from '../src';
 import { image, paragraph, plain } from '../src/utils';
 
 test.each([
@@ -15,5 +15,5 @@ test.each([
     [paragraph([image('https://rocket.chat/assets/img/header/logo.svg')])],
   ],
 ])('parses %p', (input, output) => {
-  expect(parser(input)).toMatchObject(output);
+  expect(parse(input)).toMatchObject(output);
 });
