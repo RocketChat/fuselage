@@ -14,7 +14,7 @@ const SurfaceSelect: FC = () => {
     <Select
       options={options}
       value={`${surface}`}
-      placeholder='Surface'
+      placeholder={'Surface'}
       onChange={(e) => {
         dispatch(surfaceAction(parseInt(e)));
       }}

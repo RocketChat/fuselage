@@ -9,7 +9,7 @@ import useCodeMirror from '../../hooks/useCodeMirror';
 import codePrettier from '../../utils/codePrettier';
 
 type CodeMirrorProps = {
-  extensions?: Extension[];
+  extensions?: Extension[],
 };
 
 const CodeEditor = ({ extensions }: CodeMirrorProps) => {
@@ -33,7 +33,6 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
 
         dispatch(docAction({ payload: parsedCode }));
       } catch (e) {
-        console.log(e);
         // do nothing
       }
     }

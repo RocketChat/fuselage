@@ -1,9 +1,11 @@
 import { Box } from '@rocket.chat/fuselage';
+import { kitContext } from '@rocket.chat/fuselage-ui-kit';
 import type { FC } from 'react';
 import React, { useContext, useState, useEffect } from 'react';
 import type { DropResult } from 'react-beautiful-dnd';
 
-import { context, docAction } from '../../../../Context';
+import { context, docAction, actionPreviewAction } from '../../../../Context';
+import generateActionPreview from '../../../../Payload/actionPreview/generateActionPreview';
 import type { Block } from '../../../Draggable/DraggableList';
 import BannerSurface from './BannerSurface';
 import MessageSurface from './MessageSurface';
@@ -18,42 +20,73 @@ const Surface: FC = () => {
     },
     dispatch,
   } = useContext(context);
-  const [uniqueBlocks, setUniqueBlocks] = useState<Block[]>(
-    payload.map((block, i) => ({ id: `${i}`, payload: block }))
-  );
+  const [uniqueBlocks, setUniqueBlocks] = useState<{
+    block: Block[],
+    isChangeByDnd: boolean,
+  }>({
+    block: payload.map((block, i) => ({ id: `${i}`, payload: block })),
+    isChangeByDnd: false,
+  });
+  const preview = generateActionPreview('Action Block', {});
+  useEffect(() => {
+    setUniqueBlocks({
+      block: payload.map((block, i) => ({ id: `${i}`, payload: block })),
+      isChangeByDnd: false,
+    });
+  }, [payload]);
 
   useEffect(() => {
-    console.log(payload);
-    setUniqueBlocks(
-      payload.map((block, i) => ({ id: `${i}`, payload: block }))
-    );
-  }, [payload.length]);
-
-  useEffect(() => {
-    dispatch(
-      docAction({
-        payload: uniqueBlocks.map((block) => block.payload),
-        changedByEditor: false,
-      })
-    );
+    if (uniqueBlocks.isChangeByDnd) {
+      dispatch(
+        docAction({
+          payload: uniqueBlocks.block.map((block) => block.payload),
+          changedByEditor: false,
+        })
+      );
+    }
   }, [uniqueBlocks]);
 
   const onDragEnd = ({ destination, source }: DropResult) => {
     if (!destination) return;
 
-    const newBlocks = reorder(uniqueBlocks, source.index, destination.index);
+    const newBlocks = reorder(
+      uniqueBlocks.block,
+      source.index,
+      destination.index
+    );
 
-    setUniqueBlocks(newBlocks);
+    setUniqueBlocks({ block: newBlocks, isChangeByDnd: true });
   };
 
   const surfaceRender: { [key: number]: any } = {
-    '1': () => <MessageSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
-    '2': () => <BannerSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
-    '3': () => <ModalSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
+    '1': () => (
+      <MessageSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
+    ),
+    '2': () => (
+      <BannerSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
+    ),
+    '3': () => (
+      <ModalSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
+    ),
   };
   return (
-    <Box pb='40px' pi='x20'>
-      {surfaceRender[surface]()}
+    <Box padding='20px'>
+      <kitContext.Provider
+        value={{
+          action: (a) => {
+            preview.action = a;
+            dispatch(actionPreviewAction({ ...preview }));
+          },
+          state: (s) => {
+            preview.state = s;
+            dispatch(actionPreviewAction({ ...preview }));
+          },
+          values: {},
+          appId: 'core',
+        }}
+      >
+        {surfaceRender[surface]()}{' '}
+      </kitContext.Provider>
     </Box>
   );
 };

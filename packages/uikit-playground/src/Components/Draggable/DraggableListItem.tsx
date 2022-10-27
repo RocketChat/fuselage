@@ -5,9 +5,9 @@ import RenderPayload from '../Preview/Display/RenderPayload/RenderPayload';
 import type { Block } from './DraggableList';
 
 export type DraggableListItemProps = {
-  block: Block;
-  surface: number;
-  index: number;
+  block: Block,
+  surface: number,
+  index: number,
 };
 
 const DraggableListItem = ({

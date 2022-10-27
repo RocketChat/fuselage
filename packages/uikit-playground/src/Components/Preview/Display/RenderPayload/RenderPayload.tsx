@@ -15,9 +15,9 @@ const RenderPayload = ({
   payload,
   surface,
 }: {
-  index: number;
-  payload: readonly LayoutBlock[];
-  surface: number;
+  index: number,
+  payload: readonly LayoutBlock[],
+  surface: number,
 }) => {
   const uiKitRender: { [key: number]: any } = {
     '1': () => uiKitMessage(payload),

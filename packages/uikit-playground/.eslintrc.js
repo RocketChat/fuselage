@@ -6,6 +6,13 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 'off',
     'react/display-name': 'off',
     'react/no-multi-comp': 'off',
+    'prettier/prettier': [
+      'warn',
+      {
+        singleQuote: true,
+        parser: 'flow',
+      },
+    ],
   },
   env: {
     jest: true,
@@ -25,7 +32,7 @@ module.exports = {
       rules: {
         'new-cap': 'off',
         'prefer-arrow-callback': 'off',
-        'semi': 'off',
+        semi: 'off',
       },
     },
   ],

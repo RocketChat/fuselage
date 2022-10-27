@@ -6,9 +6,9 @@ const ItemsIcon = ({
   lastNode,
   hover,
 }: {
-  layer: number;
-  lastNode: boolean;
-  hover: boolean;
+  layer: number,
+  lastNode: boolean,
+  hover: boolean,
 }) => {
   const selectIcon = (layer: number, hover: boolean) => {
     if (layer === 1) {

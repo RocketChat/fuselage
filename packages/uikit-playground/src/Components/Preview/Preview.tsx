@@ -3,7 +3,7 @@ import { Box } from '@rocket.chat/fuselage';
 import type { FC } from 'react';
 import React, { useEffect, useContext } from 'react';
 
-import { context, tabsToggleAction } from '../../Context';
+import { context, previewTabsToggleAction } from '../../Context';
 import NavPanel from './NavPanel';
 import Wrapper from './Wrapper';
 
@@ -14,7 +14,7 @@ const Preview: FC = () => {
   } = useContext(context);
 
   useEffect(() => {
-    dispatch(tabsToggleAction(0));
+    dispatch(previewTabsToggleAction(0));
   }, [isTablet, dispatch]);
 
   return (
