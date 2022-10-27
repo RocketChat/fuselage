@@ -859,5 +859,11 @@
   },
   "address-book": {
     "start": "\ue103"
+  },
+  "store": {
+    "start": "\ue105"
+  },
+  "spanner": {
+    "start": "\ue109"
   }
 }

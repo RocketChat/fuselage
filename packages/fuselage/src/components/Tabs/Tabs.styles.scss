@@ -45,11 +45,11 @@ $tabs-focus-shadow-color: theme(
 $tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
 $tabs-disabled-selected-color: theme(
   'tabs-disabled-selected-color',
-  colors.primary(200)
+  colors.status-background(info)
 );
 $tabs-disabled-selected-border-color: theme(
   'tabs-disabled-selected-border-color',
-  colors.primary(200)
+  colors.status-background(info)
 );
 
 .rcx-tabs__scroll-box {

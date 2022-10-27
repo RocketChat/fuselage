@@ -1,5 +1,5 @@
 import { parse } from '../src';
-import { link, paragraph, plain } from '../src/utils';
+import { lineBreak, link, paragraph, plain } from '../src/utils';
 
 test.each([
   [
@@ -15,6 +15,14 @@ test.each([
   [
     'https://pt.wikipedia.org/',
     [paragraph([link('https://pt.wikipedia.org/')])],
+  ],
+  [
+    'https://pt.wikipedia.org/with-hyphen',
+    [paragraph([link('https://pt.wikipedia.org/with-hyphen')])],
+  ],
+  [
+    'https://pt.wikipedia.org/with_underscore',
+    [paragraph([link('https://pt.wikipedia.org/with_underscore')])],
   ],
   [
     'https://www.npmjs.com/package/@rocket.chat/message-parser',
@@ -115,6 +123,68 @@ test.each([
       ]),
     ],
   ],
+  [
+    'https://developer.rocket.chat?query=query\nline break',
+    [
+      paragraph([link('https://developer.rocket.chat?query=query')]),
+      paragraph([plain('line break')]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query\n\nline break',
+    [
+      paragraph([link('https://developer.rocket.chat?query=query')]),
+      lineBreak(),
+      paragraph([plain('line break')]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat?query=query_with_underscore look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat?query=query_with_underscore'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat/path_with_underscore look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat/path_with_underscore'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat#fragment_with_underscore look at this',
+    [
+      paragraph([
+        link('https://developer.rocket.chat#fragment_with_underscore'),
+        plain(' look at this'),
+      ]),
+    ],
+  ],
+  [
+    'https://developer.rocket.chat followed by text',
+    [
+      paragraph([
+        link('https://developer.rocket.chat'),
+        plain(' followed by text'),
+      ]),
+    ],
+  ],
+  [
+    'two urls https://developer.rocket.chat , https://rocket.chat',
+    [
+      paragraph([
+        plain('two urls '),
+        link('https://developer.rocket.chat'),
+        plain(' , '),
+        link('https://rocket.chat'),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
@@ -125,14 +195,14 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('https://rocket.chat/test'),
-        label: plain('https://rocket.chat/test'),
+        label: [plain('https://rocket.chat/test')],
       },
     });
     expect(link('http://rocket.chat/test')).toMatchObject({
       type: 'LINK',
       value: {
         src: plain('http://rocket.chat/test'),
-        label: plain('http://rocket.chat/test'),
+        label: [plain('http://rocket.chat/test')],
       },
     });
   });
@@ -142,7 +212,7 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('custom://rocket.chat/test'),
-        label: plain('custom://rocket.chat/test'),
+        label: [plain('custom://rocket.chat/test')],
       },
     });
   });
@@ -152,7 +222,7 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('//rocket.chat/test'),
-        label: plain('//rocket.chat/test'),
+        label: [plain('//rocket.chat/test')],
       },
     });
   });
@@ -161,7 +231,7 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('//rocket.chat/test'),
-        label: plain('rocket.chat/test'),
+        label: [plain('rocket.chat/test')],
       },
     });
   });

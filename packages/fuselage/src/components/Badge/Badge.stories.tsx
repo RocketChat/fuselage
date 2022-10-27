@@ -36,7 +36,7 @@ export default {
 
 const Template: ComponentStory<typeof Badge> = (args) => (
   <Box display='inline-flex'>
-    <Badge {...args}>99</Badge>
+    <Badge {...args} />
   </Box>
 );
 
@@ -47,9 +47,9 @@ Primary.args = {
   variant: 'primary',
 };
 
-export const Danger = Template.bind({});
-Danger.args = {
-  variant: 'danger',
+export const Secondary = Template.bind({});
+Secondary.args = {
+  variant: 'secondary',
 };
 
 export const Warning = Template.bind({});
@@ -57,7 +57,25 @@ Warning.args = {
   variant: 'warning',
 };
 
+export const Danger = Template.bind({});
+Danger.args = {
+  variant: 'danger',
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
+};
+
+export const WithValue = Template.bind({});
+WithValue.args = {
+  children: '99',
+  variant: 'primary',
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  children: '',
+  variant: 'primary',
+  small: true,
 };
