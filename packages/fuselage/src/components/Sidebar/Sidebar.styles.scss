@@ -31,11 +31,11 @@ $sidebar-item-color-hover: theme(
 );
 $sidebar-item-color-focus: theme(
   'sidebar-item-color-focus',
-  colors.neutral(900)
+  colors.surface(dark)
 );
 $sidebar-item-background-color-selected: theme(
   'sidebar-item-background-color-selected',
-  colors.neutral(200)
+  colors.surface(tint)
 );
 $sidebar-item-color-selected: theme(
   'sidebar-item-color-selected',

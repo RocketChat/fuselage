@@ -102,3 +102,21 @@ yarn lint-and-fix
 ```
 
 <!--/yarn(lint-and-fix)-->
+
+### Usage
+
+To use the fuselage icons, you need to import the css first:
+
+```css
+@import url('@rocket.chat/icons/dist/rocketchat.css');
+```
+
+Usage Example:
+
+```html
+<!-- Using Fuselage's Icon Component (Recommended) -->
+<Icon name="hash" size="x20" />
+
+<!-- HTML markup -->
+<i class="rcx-icon">{icon}</i>
+```

@@ -4,6 +4,8 @@
 @use '../../styles/functions';
 @use '../../styles/primitives/button.scss';
 
+// to do: replace button with stroke
+
 $chip-background-color: functions.theme(
   'chip-background-color',
   colors.button(secondary-default)

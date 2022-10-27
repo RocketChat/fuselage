@@ -64,7 +64,7 @@ $modal-margin: theme('modal-margin', auto);
   }
 
   &__tagline {
-    color: colors.neutral(600);
+    color: colors.font(annotation);
 
     @include typography.use-font-scale(c2);
   }
@@ -103,7 +103,7 @@ $modal-margin: theme('modal-margin', auto);
     margin: $modal-container-margin;
 
     &-annotation {
-      color: colors.neutral(600);
+      color: colors.font(annotation);
       @include typography.use-font-scale(c1);
     }
   }
