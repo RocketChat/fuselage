@@ -862,5 +862,8 @@
   },
   "store": {
     "start": "\ue105"
+  },
+  "spanner": {
+    "start": "\ue109"
   }
 }
