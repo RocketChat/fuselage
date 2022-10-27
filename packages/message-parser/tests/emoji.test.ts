@@ -75,13 +75,7 @@ test.each([
   ['🧑🏾‍💻🧑🏾‍💻', [bigEmoji([emojiUnicode('🧑🏾‍💻'), emojiUnicode('🧑🏾‍💻')])]],
   [
     '🧑🏾‍💻🧑🏾‍💻🧑🏾‍💻',
-    [
-      bigEmoji([
-        emojiUnicode('🧑🏾‍💻'),
-        emojiUnicode('🧑🏾‍💻'),
-        emojiUnicode('🧑🏾‍💻'),
-      ]),
-    ],
+    [bigEmoji([emojiUnicode('🧑🏾‍💻'), emojiUnicode('🧑🏾‍💻'), emojiUnicode('🧑🏾‍💻')])],
   ],
   ['👆🏽', [bigEmoji([emojiUnicode('👆🏽')])]],
   ['👆🏽👆🏽', [bigEmoji([emojiUnicode('👆🏽'), emojiUnicode('👆🏽')])]],
