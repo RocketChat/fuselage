@@ -35,7 +35,7 @@
   "peerDependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "eslint": "^7.29.0",
-    "prettier": "^2.3.2"
+    "prettier": "~2.7.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "~7.19.1",
@@ -43,7 +43,7 @@
     "eslint": "~8.26.0",
     "lint-all": "workspace:~",
     "lint-staged": "~12.3.8",
-    "prettier": "~2.5.1"
+    "prettier": "~2.7.1"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "~5.11.0",
