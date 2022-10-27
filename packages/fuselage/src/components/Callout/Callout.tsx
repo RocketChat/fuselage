@@ -8,10 +8,17 @@ type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
   type?: 'info' | 'success' | 'warning' | 'danger';
   title?: ReactNode;
   children?: ReactNode;
+  icon?: ComponentProps<typeof Icon>['name'];
 };
 
-export const Callout = ({ children, title, type, ...props }: CalloutProps) => {
-  const iconName: 'info-circled' | 'checkmark-circled' | 'warning' | 'ban' =
+export const Callout = ({
+  type,
+  title,
+  children,
+  icon,
+  ...props
+}: CalloutProps) => {
+  const defaultIcon =
     (type === 'info' && 'info-circled') ||
     (type === 'success' && 'checkmark-circled') ||
     (type === 'warning' && 'warning') ||
@@ -20,7 +27,7 @@ export const Callout = ({ children, title, type, ...props }: CalloutProps) => {
 
   return (
     <Box is='section' rcx-callout rcx-callout--type={type} {...props}>
-      <Icon name={iconName} size='x20' />
+      <Icon name={icon || defaultIcon} size='x20' />
       <Box rcx-callout__wrapper>
         {title && (
           <Box is='h1' rcx-callout__title>

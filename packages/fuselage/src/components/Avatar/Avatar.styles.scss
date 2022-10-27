@@ -57,7 +57,7 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     flex-direction: row-reverse;
     justify-content: center;
 
-    color: #{$avatar-stack-background-color};
+    background-color: #{$avatar-stack-background-color};
 
     & > .rcx-avatar {
       margin: auto lengths.margin(-2);

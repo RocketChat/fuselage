@@ -188,6 +188,18 @@ $-strokes: (
   @return var(--rcx-color-stroke-#{$type}, $color);
 }
 
+$-badge-backgrounds: (
+  primary: primary(500),
+  secondary: neutral(700),
+  warning: service-1(500),
+  danger: danger(500),
+);
+
+@function badge($type) {
+  $color: map.get($-badge-backgrounds, $type);
+  @return var(--rcx-color-badge-background-#{$type}, $color);
+}
+
 $-button-backgrounds: (
   // primary
   primary-default: primary(500),
@@ -292,6 +304,7 @@ $-neutral-alpha-level: (
   8: neutral(800, 0.08),
   10: neutral(800, 0.1),
   12: neutral(800, 0.12),
+  50: neutral(800, 0.5),
 );
 
 @function surface-neutral-alpha($level) {
