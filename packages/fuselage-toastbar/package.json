@@ -62,7 +62,7 @@
     "@types/react": "~17.0.51",
     "@types/react-dom": "^17.0.17",
     "bump": "workspace:~",
-    "eslint": "~8.8.0",
+    "eslint": "~8.26.0",
     "jest": "~27.5.1",
     "lint-all": "workspace:~",
     "lint-staged": "~12.3.8",

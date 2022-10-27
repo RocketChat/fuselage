@@ -57,7 +57,7 @@
     "@types/resize-observer-browser": "~0.1.7",
     "@types/use-sync-external-store": "~0.0.3",
     "bump": "workspace:~",
-    "eslint": "~8.8.0",
+    "eslint": "~8.26.0",
     "jest": "~27.5.1",
     "lint-all": "workspace:~",
     "lint-staged": "~12.3.8",
