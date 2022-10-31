@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.21](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.20...v0.31.21) (2022-10-31)
+
+### Features
+
+- **fuselage:** Empty `Badge` and small variants ([#876](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/876)) ([16bff6d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/16bff6d4a89dede5284c0c8dbf3706fddae682e8))
+- **icons:** Add spanner icon ([#880](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/880)) ([a16a786](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a16a78648d18d91192f08ffeb0f6bac5a27db111))
+- **message-parser:** Enabling Emphasis elements (bold, strike and italic) inside link label ([#864](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/864)) ([7e521bb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7e521bbc4a257fac3bea292f40220419c411fdc6))
+
 ### [0.31.20](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.19...v0.31.20) (2022-10-21)
 
 ### Features
