@@ -7,13 +7,15 @@ test.each([
     [
       paragraph([
         strike([
-          link('https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4', [
-            plain('A brand new Gist'),
-          ]),
+          link(
+            'https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4',
+            plain('A brand new Gist')
+          ),
         ]),
       ]),
     ],
   ],
+  ['__test__test__', [paragraph([plain('__test__test__')])]],
   ['~~strike~~', [paragraph([strike([plain('strike')])])]],
   [
     'pre~~strike~~post',

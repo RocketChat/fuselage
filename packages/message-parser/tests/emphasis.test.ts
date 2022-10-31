@@ -16,16 +16,16 @@ test.each([
     [
       paragraph([
         italic([
-          link('https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4', [
-            plain('A brand new Gist'),
-          ]),
+          link(
+            'https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4',
+            plain('A brand new Gist')
+          ),
         ]),
       ]),
     ],
   ],
   ['__italic__', [paragraph([italic([plain('italic')])])]],
   ['__italic__non', [paragraph([plain('__italic__non')])]],
-  ['__test__test__', [paragraph([plain('__test__test__')])]],
   ['pre__italic__post', [paragraph([plain('pre__italic__post')])]],
   [' pre__italic__post', [paragraph([plain(' pre__italic__post')])]],
   [
