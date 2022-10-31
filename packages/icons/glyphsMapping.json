@@ -862,5 +862,8 @@
   },
   "store": {
     "start": "\ue105"
+  },
+  "lightning": {
+    "start": "\ue107"
   }
 }
