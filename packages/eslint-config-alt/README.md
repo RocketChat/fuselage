@@ -14,7 +14,7 @@
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/eslint-config-alt/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/eslint-config-alt/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/eslint-config-alt/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/eslint-config-alt/v/next) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/eslint-config-alt?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/eslint-config-alt?style=flat-square)
 
-![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/eslint-config-alt?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/eslint-config-alt?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/eslint-config-alt?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/eslint-config-alt?style=flat-square)
+![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/eslint-config-alt?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/eslint-config-alt?style=flat-square)
 
 <!--/header-->
 

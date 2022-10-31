@@ -14,7 +14,7 @@
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-polyfills/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-polyfills/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-polyfills/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-polyfills/v/next) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-polyfills?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage-polyfills?style=flat-square)
 
-![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-polyfills?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-polyfills?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-polyfills?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-polyfills?style=flat-square)
+![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-polyfills?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-polyfills?style=flat-square)
 
 <!--/header-->
 

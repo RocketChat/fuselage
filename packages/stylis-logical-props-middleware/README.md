@@ -14,7 +14,7 @@
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/stylis-logical-props-middleware/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/stylis-logical-props-middleware/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/stylis-logical-props-middleware/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/stylis-logical-props-middleware/v/next) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/stylis-logical-props-middleware?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/stylis-logical-props-middleware?style=flat-square)
 
-![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/stylis-logical-props-middleware?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/stylis-logical-props-middleware?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/stylis-logical-props-middleware?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/stylis-logical-props-middleware?style=flat-square)
+![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/stylis-logical-props-middleware?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/stylis-logical-props-middleware?style=flat-square)
 
 <!--/header-->
 

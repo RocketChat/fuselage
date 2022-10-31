@@ -14,7 +14,7 @@
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/memo/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/memo/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/memo/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/memo/v/next) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/memo?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/memo?style=flat-square)
 
-![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/memo?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/memo?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/memo?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/memo?style=flat-square)
+![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/memo?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/memo?style=flat-square)
 
 <!--/header-->
 

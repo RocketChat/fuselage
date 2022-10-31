@@ -14,7 +14,7 @@
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-hooks/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-hooks/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-hooks/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-hooks/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage-hooks/peer/react?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-hooks?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage-hooks?style=flat-square)
 
-![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-hooks?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-hooks?style=flat-square) ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-hooks?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-hooks?style=flat-square)
+![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-hooks?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-hooks?style=flat-square)
 
 <!--/header-->
 
