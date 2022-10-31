@@ -62,7 +62,7 @@ removed:
 The `src/` directory holds all the SVG icons that would be processed. The filenames define the icon names, so they
 should stick with a basic rule: **an icon name must describe the icon shape, not its utility**. For instance:
 
-- [-] `message.svg` (wrong)
+- [ ] `message.svg` (wrong)
 - [x] `balloon.svg` (right)
 
 If the icon must be mirrored for right-to-left read direction, it required to add a trailing `.dir` before the file
