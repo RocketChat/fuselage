@@ -195,14 +195,14 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('https://rocket.chat/test'),
-        label: plain('https://rocket.chat/test'),
+        label: [plain('https://rocket.chat/test')],
       },
     });
     expect(link('http://rocket.chat/test')).toMatchObject({
       type: 'LINK',
       value: {
         src: plain('http://rocket.chat/test'),
-        label: plain('http://rocket.chat/test'),
+        label: [plain('http://rocket.chat/test')],
       },
     });
   });
@@ -212,7 +212,7 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('custom://rocket.chat/test'),
-        label: plain('custom://rocket.chat/test'),
+        label: [plain('custom://rocket.chat/test')],
       },
     });
   });
@@ -222,7 +222,7 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('//rocket.chat/test'),
-        label: plain('//rocket.chat/test'),
+        label: [plain('//rocket.chat/test')],
       },
     });
   });
@@ -231,7 +231,7 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('//rocket.chat/test'),
-        label: plain('rocket.chat/test'),
+        label: [plain('rocket.chat/test')],
       },
     });
   });

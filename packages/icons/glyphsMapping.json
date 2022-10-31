@@ -865,5 +865,8 @@
   },
   "lightning": {
     "start": "\ue107"
+  },
+  "spanner": {
+    "start": "\ue109"
   }
 }

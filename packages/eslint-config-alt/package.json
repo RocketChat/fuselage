@@ -35,24 +35,24 @@
   "peerDependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "eslint": "^7.29.0",
-    "prettier": "^2.3.2"
+    "prettier": "~2.7.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "~7.17.0",
+    "@babel/eslint-parser": "~7.19.1",
     "bump": "workspace:~",
-    "eslint": "~8.8.0",
+    "eslint": "~8.26.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.3",
-    "prettier": "~2.5.1"
+    "lint-staged": "~12.3.8",
+    "prettier": "~2.7.1"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "~5.11.0",
     "@typescript-eslint/parser": "~5.11.0",
-    "eslint-config-prettier": "~8.3.0",
-    "eslint-import-resolver-typescript": "~2.5.0",
-    "eslint-plugin-import": "~2.25.4",
-    "eslint-plugin-prettier": "~4.0.0",
-    "eslint-plugin-react": "~7.28.0",
-    "eslint-plugin-react-hooks": "~4.3.0"
+    "eslint-config-prettier": "~8.5.0",
+    "eslint-import-resolver-typescript": "~3.5.2",
+    "eslint-plugin-import": "~2.26.0",
+    "eslint-plugin-prettier": "~4.2.1",
+    "eslint-plugin-react": "~7.31.10",
+    "eslint-plugin-react-hooks": "~4.6.0"
   }
 }
