@@ -10,5 +10,5 @@
     "stylelint": "~14.14.0",
     "tools-utils": "workspace:~"
   },
-  "version": "0.31.20"
+  "version": "0.31.21"
 }
