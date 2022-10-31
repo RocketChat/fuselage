@@ -138,7 +138,7 @@ export type Link = {
   type: 'LINK';
   value: {
     src: Plain;
-    label: Markup[];
+    label: Markup;
   };
 };
 
