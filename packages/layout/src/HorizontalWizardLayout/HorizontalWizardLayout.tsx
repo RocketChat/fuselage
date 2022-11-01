@@ -102,7 +102,6 @@ export const HorizontalWizardLayoutFooter = ({
     fontScale='h4'
     flexDirection='column'
     alignItems='center'
-    mb='x32'
   >
     {children}
   </Box>
