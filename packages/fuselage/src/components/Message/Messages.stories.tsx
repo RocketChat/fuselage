@@ -30,8 +30,10 @@ export const Default: ComponentStory<typeof Message> = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -74,8 +76,10 @@ export const WithSequential = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -187,8 +191,10 @@ export const MessageWithThread = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -322,8 +328,10 @@ export const MessageSelected = () => {
         </Message.LeftContainer>
         <Message.Container>
           <Message.Header>
-            <Message.Name>Haylie George</Message.Name>
-            <Message.Username>@haylie.george</Message.Username>
+            <Message.Names>
+              <Message.Name>Haylie George</Message.Name>{' '}
+              <Message.Username>@haylie.george</Message.Username>
+            </Message.Names>
             <Message.Roles>
               <Message.Role>Admin</Message.Role>
               <Message.Role>User</Message.Role>
@@ -360,8 +368,10 @@ export const MessageEditing = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -442,8 +452,10 @@ export const MessageUnorderedList = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -486,8 +498,10 @@ export const MessageOrderedList = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -530,8 +544,10 @@ export const MessageHighlighted = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -612,8 +628,10 @@ export const MessagePending = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -687,8 +705,10 @@ export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -738,8 +758,10 @@ export const LotsOfReactions: ComponentStory<typeof Message> = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>

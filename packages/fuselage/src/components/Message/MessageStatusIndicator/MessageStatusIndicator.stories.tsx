@@ -38,8 +38,10 @@ export const Default = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.Names>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.Names>
           <Message.Role>Admin</Message.Role>
           <Message.Role>User</Message.Role>
           <Message.Role>Owner</Message.Role>
