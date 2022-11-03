@@ -8,7 +8,7 @@ import { MessageHeader } from './MessageHeader';
 import { MessageLeftContainer } from './MessageLeftContainer';
 import MessageMetrics from './MessageMetrics';
 import { MessageName } from './MessageName';
-import { MessageNames } from './MessageNames';
+import { MessageNameContainer } from './MessageNameContainer';
 import { MessageRole } from './MessageRole';
 import { MessageRoles } from './MessageRoles';
 import { MessageTimestamp } from './MessageTimestamp';
@@ -28,7 +28,7 @@ export * from './MessageBody';
 export * from './MessageContainer';
 export * from './MessageContainerFixed';
 export * from './MessageHeader';
-export * from './MessageNames';
+export * from './MessageNameContainer';
 export * from './MessageLeftContainer';
 export * from './MessageName';
 export * from './MessageRole';
@@ -47,7 +47,7 @@ export default Object.assign(Message, {
   Body: MessageBody,
   Block: MessageBlock,
   Timestamp: MessageTimestamp,
-  Names: MessageNames,
+  NameContainer: MessageNameContainer,
   Name: MessageName,
   Username: MessageUsername,
   Roles: MessageRoles,

@@ -24,10 +24,10 @@ const MessageSurface = ({ blocks, onDragEnd }: DraggableListProps) => (
     </Message.LeftContainer>
     <Message.Container>
       <Message.Header>
-        <Message.Names>
+        <Message.NameContainer>
           <Message.Name>Haylie George</Message.Name>{' '}
           <Message.Username>@haylie.george</Message.Username>
-        </Message.Names>
+        </Message.NameContainer>
         <Message.Role>Admin</Message.Role>
         <Message.Role>User</Message.Role>
         <Message.Role>Owner</Message.Role>

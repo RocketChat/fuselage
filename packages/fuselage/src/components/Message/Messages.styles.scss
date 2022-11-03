@@ -133,7 +133,7 @@ $message-background-color-highlight: functions.theme(
       color: colors.font(annotation);
     }
 
-    &__names {
+    &__name-container {
       @extend %rcx-margins-header;
 
       display: inline;

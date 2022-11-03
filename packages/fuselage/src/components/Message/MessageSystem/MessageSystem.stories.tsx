@@ -10,7 +10,7 @@ import {
 } from '.';
 import {
   MessageDivider,
-  MessageNames,
+  MessageNameContainer,
   MessageSystemBlock,
   MessageUsername,
 } from '..';
@@ -46,9 +46,9 @@ export const Default = () => (
       </MessageSystemLeftContainer>
       <MessageSystemContainer>
         <MessageSystemBlock>
-          <MessageNames>
+          <MessageNameContainer>
             <MessageSystemName>Haylie George</MessageSystemName>
-          </MessageNames>
+          </MessageNameContainer>
           <MessageSystemBody>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
@@ -81,9 +81,9 @@ export const Default = () => (
       </MessageSystemLeftContainer>
       <MessageSystemContainer>
         <MessageSystemBlock>
-          <MessageNames>
+          <MessageNameContainer>
             <MessageSystemName>Haylie George</MessageSystemName>
-          </MessageNames>
+          </MessageNameContainer>
           <MessageSystemBody>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
@@ -115,9 +115,9 @@ export const Default = () => (
       </MessageSystemLeftContainer>
       <MessageSystemContainer>
         <MessageSystemBlock>
-          <MessageNames>
+          <MessageNameContainer>
             <MessageSystemName>Haylie George</MessageSystemName>
-          </MessageNames>
+          </MessageNameContainer>
           <MessageSystemBody>
             Reprehenderit ut aliquip ex ea commodo consequat a duis aute irure
             dolor in in voluptate velit esse cillum dolore eu fugiat nulla
@@ -148,10 +148,10 @@ export const Default = () => (
       </MessageSystemLeftContainer>
       <MessageSystemContainer>
         <MessageSystemBlock>
-          <MessageNames>
+          <MessageNameContainer>
             <MessageSystemName>Haylie George</MessageSystemName>{' '}
             <MessageUsername>@haylie.george</MessageUsername>
-          </MessageNames>
+          </MessageNameContainer>
           <MessageSystemBody>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
@@ -183,9 +183,9 @@ export const Default = () => (
       </MessageSystemLeftContainer>
       <MessageSystemContainer>
         <MessageSystemBlock>
-          <MessageNames>
+          <MessageNameContainer>
             <MessageSystemName>Haylie George</MessageSystemName>
-          </MessageNames>
+          </MessageNameContainer>
           <MessageSystemBody>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
