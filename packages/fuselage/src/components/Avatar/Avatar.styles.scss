@@ -11,6 +11,7 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
 
 .rcx-avatar {
   display: inline-flex;
+  align-items: center;
 
   vertical-align: middle;
 
@@ -63,7 +64,7 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
       margin: auto lengths.margin(-2);
 
       & > .rcx-avatar__element {
-        border: lengths.border-width(2) solid currentColor;
+        border: lengths.border-width(2) solid transparent;
       }
     }
   }
