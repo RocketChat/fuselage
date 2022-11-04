@@ -38,7 +38,7 @@ $message-system-background-color-selected: functions.theme(
     @include typography.use-font-scale(p2);
     @include typography.use-with-truncated-text();
     margin-inline: lengths.margin(2);
-
+    white-space: pre-wrap;
     color: colors.font(annotation);
   }
 
@@ -63,6 +63,6 @@ $message-system-background-color-selected: functions.theme(
   &__block {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
   }
 }
