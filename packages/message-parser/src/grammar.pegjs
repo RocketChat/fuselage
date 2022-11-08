@@ -181,11 +181,16 @@ utf8_names_validation = $[0-9a-zA-Z-_.]+
 
 matrix_server_validation = ":" utf8_names_validation
 
+username_email__validation = "@" utf8_names_validation
+
 UserMention
   = t:Text "@"+ user:utf8_names_validation {
       return reducePlainTexts([t, plain('@' + user)])[0];
     }
   / "@"+ user:$(utf8_names_validation matrix_server_validation) {
+      return mentionUser(user);
+    }
+  / "@"+ user:$(utf8_names_validation username_email__validation) {
       return mentionUser(user);
     }
   / "@"+ user:utf8_names_validation { return mentionUser(user); }

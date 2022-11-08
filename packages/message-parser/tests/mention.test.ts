@@ -13,6 +13,11 @@ test.each([
     '@marcos.defendi:matrix.org',
     [paragraph([mentionUser('marcos.defendi:matrix.org')])],
   ],
+  ['@username@example.com', [paragraph([mentionUser('username@example.com')])]],
+  [
+    '@099fnd2ee@example.com',
+    [paragraph([mentionUser('099fnd2ee@example.com')])],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
