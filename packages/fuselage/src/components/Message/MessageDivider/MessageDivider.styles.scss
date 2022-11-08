@@ -4,7 +4,7 @@
 
 $message-background-color: theme(
   'message-background-color',
-  colors.background(light)
+  colors.surface(light)
 );
 
 $message-divider-background-color: theme(
