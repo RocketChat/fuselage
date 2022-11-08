@@ -48,6 +48,14 @@
     cursor: pointer;
 
     color: colors.primary(500);
+
+    &--system {
+      color: colors.font(annotation);
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
   }
 
   &__icon {

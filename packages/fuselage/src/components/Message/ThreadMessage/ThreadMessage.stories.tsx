@@ -86,3 +86,34 @@ export const WithEmoji = () => (
     </ThreadMessage>
   </Box>
 );
+
+export const WithSystemMessage = () => (
+  <Box>
+    <ThreadMessage>
+      <ThreadMessage.Row>
+        <ThreadMessage.LeftContainer>
+          <ThreadMessage.Icon />
+        </ThreadMessage.LeftContainer>
+        <ThreadMessage.Container>
+          <ThreadMessage.Origin system>system message</ThreadMessage.Origin>
+          <ThreadMessage.Unfollow />
+        </ThreadMessage.Container>
+      </ThreadMessage.Row>
+      <ThreadMessage.Row>
+        <ThreadMessage.LeftContainer>
+          <Avatar url={avatarUrl} size='x16' />
+        </ThreadMessage.LeftContainer>
+        <ThreadMessage.Container>
+          <ThreadMessage.Message>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam...
+          </ThreadMessage.Message>
+        </ThreadMessage.Container>
+      </ThreadMessage.Row>
+    </ThreadMessage>
+  </Box>
+);
