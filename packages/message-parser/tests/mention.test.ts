@@ -18,6 +18,17 @@ test.each([
     '@099fnd2ee@example.com',
     [paragraph([mentionUser('099fnd2ee@example.com')])],
   ],
+  ['@téstãçâò', [paragraph([mentionUser('téstãçâò')])]],
+  ['@สมชาย', [paragraph([mentionUser('สมชาย')])]],
+  ['@李祖阳', [paragraph([mentionUser('李祖阳')])]],
+  ['@あおい', [paragraph([mentionUser('あおい')])]],
+  ['@アオイ', [paragraph([mentionUser('アオイ')])]],
+  ['@Владимир', [paragraph([mentionUser('Владимир')])]],
+  ['@Кириллица', [paragraph([mentionUser('Кириллица')])]],
+  [
+    'test @Кириллица test',
+    [paragraph([plain('test '), mentionUser('Кириллица'), plain(' test')])],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });

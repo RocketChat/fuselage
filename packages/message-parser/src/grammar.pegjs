@@ -177,20 +177,20 @@ anyText
   / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
-utf8_names_validation = $[0-9a-zA-Z-_.]+
+utf8_names_validation = $([-_.] / alphaChar / decimalNumberChar)+
 
-matrix_server_validation = ":" utf8_names_validation
+username_matrix_server_validation = ":" utf8_names_validation
 
-username_email__validation = "@" utf8_names_validation
+username_email_validation = "@" utf8_names_validation
 
 UserMention
   = t:Text "@"+ user:utf8_names_validation {
       return reducePlainTexts([t, plain('@' + user)])[0];
     }
-  / "@"+ user:$(utf8_names_validation matrix_server_validation) {
+  / "@"+ user:$(utf8_names_validation username_matrix_server_validation) {
       return mentionUser(user);
     }
-  / "@"+ user:$(utf8_names_validation username_email__validation) {
+  / "@"+ user:$(utf8_names_validation username_email_validation) {
       return mentionUser(user);
     }
   / "@"+ user:utf8_names_validation { return mentionUser(user); }
