@@ -149,7 +149,7 @@ Inline
 
 Whitespace = w:$" "+ { return plain(w); }
 
-Escaped = "\\" t:$. { return plain(t); }
+Escaped = "\\" t:$("*" / "_" / "~" / "`" / "#" / ".") { return plain(t); }
 
 Any = !EndOfLine t:$. u:$URL? { return plain(t + u); }
 
@@ -291,10 +291,6 @@ unicode
   = "\\" digits:$(h h? h? h? h? h?) ("\r\n" / [ \t\r\n\f])? {
       return String.fromCharCode(parseInt(digits, 16));
     }
-
-escape
-  = unicode
-  / "\\" ch:[^\r\n\f0-9a-f]i { return ch; }
 
 AutolinkedPhone = p:Phone { return link('tel:' + p.number, plain(p.text)); }
 
