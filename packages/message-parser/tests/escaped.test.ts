@@ -17,7 +17,10 @@ test.each([
   ['*_~`#.'.split('').join('\\'), [paragraph([plain('*_~`#.')])]],
   ['\\*not emphasized*', [paragraph([plain('*not emphasized*')])]],
   ['\\<br/> tag plain text', [paragraph([plain('\\<br/> tag plain text')])]],
-  ['\\[it is a link](/foo)', [paragraph([plain('\\[it is a link](/foo)')])]],
+  [
+    '\\[it is not a link](/foo)',
+    [paragraph([plain('\\[it is not a link](/foo)')])],
+  ],
   ['\\`not code`', [paragraph([plain('`not code`')])]],
   ['1\\. not a list', [paragraph([plain('1. not a list')])]],
   ['\\* not a list', [paragraph([plain('* not a list')])]],
