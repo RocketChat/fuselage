@@ -298,10 +298,7 @@ unicode
       return String.fromCharCode(parseInt(digits, 16));
     }
 
-AutolinkedPhone
-  = p:Phone (EndOfLine / Space / !anyText) {
-      return phoneChecker(p.text, p.number);
-    }
+AutolinkedPhone = p:Phone { return phoneChecker(p.text, p.number); }
 
 AutolinkedURL = u:URL { return link(u); }
 
