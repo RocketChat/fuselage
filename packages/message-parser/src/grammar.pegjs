@@ -28,6 +28,7 @@
     task,
     tasks,
     unorderedList,
+    phoneChecker,
   } = require('./utils');
 }
 
@@ -151,7 +152,7 @@ Whitespace = w:$" "+ { return plain(w); }
 
 Escaped = "\\" t:$("*" / "_" / "~" / "`" / "#" / ".") { return plain(t); }
 
-Any = !EndOfLine t:$. u:$URL? { return plain(t + u); }
+Any = !EndOfLine t:$. p:$AutolinkedPhone? u:$URL? { return plain(t + p + u); }
 
 // = Line
 
@@ -297,7 +298,7 @@ unicode
       return String.fromCharCode(parseInt(digits, 16));
     }
 
-AutolinkedPhone = p:Phone { return link('tel:' + p.number, plain(p.text)); }
+AutolinkedPhone = p:Phone { return phoneChecker(p.text, p.number); }
 
 AutolinkedURL = u:URL { return link(u); }
 
@@ -368,6 +369,9 @@ Phone = "+" p:phoneNumber { return { text: '+' + p.text, number: p.number }; }
 phoneNumber
   = p:phonePrefix "-" d:digits {
       return { text: p.text + '-' + d, number: p.number + d };
+    }
+  / p:phonePrefix d1:digits "-" d2:digits {
+      return { text: p.text + d1 + '-' + d2, number: p.number + d1 + d2 };
     }
   / p:phonePrefix d:digits {
       return { text: p.text + d, number: p.number + d };
