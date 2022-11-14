@@ -34,6 +34,11 @@ test.each([
     '+(11)99999-9999',
     [paragraph([link('tel:11999999999', plain('+(11)99999-9999'))])],
   ],
+  ['5 +51231', [paragraph([plain('5 '), link('tel:51231', plain('+51231'))])]],
+  [
+    '5 +51231 5',
+    [paragraph([plain('5 '), link('tel:51231', plain('+51231')), plain(' 5')])],
+  ],
   ['+(12)3-45', [paragraph([link('tel:12345', plain('+(12)3-45'))])]],
   ['+1.599123', [paragraph([plain('+1.599123')])]],
   ['1+1=2', [paragraph([plain('1+1=2')])]],
@@ -43,6 +48,7 @@ test.each([
   ['+1234', [paragraph([plain('+1234')])]],
   ['+(12)3-4', [paragraph([plain('+(12)3-4')])]],
   ['+123-4', [paragraph([plain('+123-4')])]],
+  ['5+51231', [paragraph([plain('5+51231')])]],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });

@@ -152,7 +152,7 @@ Whitespace = w:$" "+ { return plain(w); }
 
 Escaped = "\\" t:$("*" / "_" / "~" / "`" / "#" / ".") { return plain(t); }
 
-Any = !EndOfLine t:$. u:$URL? { return plain(t + u); }
+Any = !EndOfLine t:$. p:$AutolinkedPhone? u:$URL? { return plain(t + p + u); }
 
 // = Line
 
