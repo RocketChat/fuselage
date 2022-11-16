@@ -148,7 +148,7 @@ Inline
     )+
     EndOfLine? { return reducePlainTexts(value); }
 
-Whitespace = w:$" "+ { return plain(w); }
+Whitespace = w:$Space+ { return plain(w); }
 
 Escaped = "\\" t:$("*" / "_" / "~" / "`" / "#" / ".") { return plain(t); }
 
@@ -263,9 +263,14 @@ InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
 
 InlineCode__ = $(!"`" !"\n" $:.)
 
+FilePath = $(urlScheme urlBody+)
+
 LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
 
-LinkRef = text:(URL / p:Phone { return 'tel:' + p.number; }) { return text; }
+LinkRef
+  = text:(URL / FilePath / p:Phone { return 'tel:' + p.number; }) {
+      return text;
+    }
 
 Image
   = "![](" href:LinkRef ")" { return image(href); }
@@ -389,13 +394,13 @@ phonePrefix
  */
 
 URL
-  = $(urlScheme urlAuthority urlBody)
-  / $(urlAuthorityHost urlBody)
+  = $(urlScheme urlAuthority urlBody*)
+  / $(urlAuthorityHost urlBody*)
 
 urlScheme
   = $(
     [[A-Za-z0-9+.-]
-      [A-Za-z0-9+.-]
+      [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
@@ -446,7 +451,7 @@ urlBody
         / "~"
         / "("
       )
-  )*
+  )
 
 urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
 
