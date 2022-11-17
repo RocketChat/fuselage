@@ -185,6 +185,10 @@ test.each([
       ]),
     ],
   ],
+  [
+    'https://1developer.rocket.chat',
+    [paragraph([link('https://1developer.rocket.chat')])],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });

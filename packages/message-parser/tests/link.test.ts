@@ -406,6 +406,25 @@ Text after line break`,
   ['<9gag.com|9gag>', [paragraph([link('9gag.com', [plain(`9gag`)])])]],
   ['9gag.com', [paragraph([link('9gag.com')])]],
   [
+    '[notes link](notes://Server/C3257116002CAD60/0/CCAF6BE2824A1F49432588D2001FA73E)',
+    [
+      paragraph([
+        link(
+          'notes://Server/C3257116002CAD60/0/CCAF6BE2824A1F49432588D2001FA73E',
+          [plain('notes link')]
+        ),
+      ]),
+    ],
+  ],
+  [
+    '[File Path](C:/Users/user1/Documents/projects/file.js)',
+    [
+      paragraph([
+        link('C:/Users/user1/Documents/projects/file.js', [plain('File Path')]),
+      ]),
+    ],
+  ],
+  [
     '[Test with **bold** element](https://desk.rocket.chat/support/rocketchat/ShowHomePage.do#Cases/dv/413244000073043351)',
     [
       paragraph([
@@ -464,7 +483,6 @@ Text after line break`,
       ]),
     ],
   ],
-
   // Should not parse as link
   ['[77.77%](77.77%)', [paragraph([plain('[77.77%](77.77%)')])]],
   ['77.77%', [paragraph([plain('77.77%')])]],

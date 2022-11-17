@@ -8,11 +8,13 @@
 
 # `@rocket.chat/icons`
 
+> Rocket.Chat's Icons
+
 ---
 
 [![npm@latest](https://img.shields.io/npm/v/@rocket.chat/icons/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/icons/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/icons?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/icons?style=flat-square)
 
-![deps](https://img.shields.io/david/RocketChat/fuselage?path=packages%2Ficons&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/fuselage?path=packages%2Ficons&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/fuselage?path=packages%2Ficons&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/icons?style=flat-square)
+![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/icons?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/icons?style=flat-square)
 
 <!--/header-->
 
@@ -62,7 +64,7 @@ removed:
 The `src/` directory holds all the SVG icons that would be processed. The filenames define the icon names, so they
 should stick with a basic rule: **an icon name must describe the icon shape, not its utility**. For instance:
 
-- [-] `message.svg` (wrong)
+- [ ] `message.svg` (wrong)
 - [x] `balloon.svg` (right)
 
 If the icon must be mirrored for right-to-left read direction, it required to add a trailing `.dir` before the file

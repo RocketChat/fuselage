@@ -193,3 +193,11 @@ export const inlineKatex = (content: string): InlineKaTeX => ({
   type: 'INLINE_KATEX',
   value: content,
 });
+
+export const phoneChecker = (text: string, number: string) => {
+  if (number.length < 5) {
+    return plain(text);
+  }
+
+  return link(`tel:${number}`, plain(text));
+};

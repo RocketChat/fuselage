@@ -97,13 +97,7 @@ export const HorizontalWizardLayoutFooter = ({
 }: {
   children: ReactNode;
 }) => (
-  <Box
-    display='flex'
-    fontScale='h4'
-    flexDirection='column'
-    alignItems='center'
-    mb='x32'
-  >
+  <Box display='flex' fontScale='h4' flexDirection='column' alignItems='center'>
     {children}
   </Box>
 );

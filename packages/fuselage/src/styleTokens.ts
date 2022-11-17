@@ -4,8 +4,6 @@ import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
 
 import {
-  backgroundColors,
-  isBackgroundColor,
   isStatusBackgroundColor,
   isStatusColor,
   isStrokeColor,
@@ -168,12 +166,14 @@ export const strokeColor = memoize((value) => {
 });
 
 export const backgroundColor = memoize((value) => {
+  const colorName = `surface-${value}`;
+
   if (isSurfaceColor(value)) {
     return surfaceColors[value].toString();
   }
-  const colorName = `background-${value}`;
-  if (isBackgroundColor(colorName)) {
-    return backgroundColors[colorName].toString();
+
+  if (isSurfaceColor(colorName)) {
+    return surfaceColors[colorName].toString();
   }
 
   if (isStatusBackgroundColor(value)) {
@@ -213,9 +213,6 @@ export const color = memoize((value) => {
 
   if (isSurfaceColor(value)) {
     return surfaceColors[value].toString();
-  }
-  if (isBackgroundColor(value)) {
-    return backgroundColors[value].toString();
   }
 
   if (isStatusBackgroundColor(value)) {

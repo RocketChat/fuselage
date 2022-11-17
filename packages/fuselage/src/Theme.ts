@@ -124,19 +124,12 @@ const service2 = {
   900: new Var('service-2-900', tokenColors['s2-900']),
 };
 
-export const backgroundColors = {
-  'background-light': white.theme('background-light'),
-  'background-tint': neutral.n100.theme('background-tint'),
-};
-
-type BackgroundColors = keyof typeof backgroundColors;
-
 export const surfaceColors = {
   'surface-light': white.theme('surface-light'),
   'surface-tint': neutral.n100.theme('surface-tint'),
   'surface-neutral': neutral.n400.theme('surface-neutral'),
   'surface-disabled': neutral.n100.theme('surface-disabled'),
-  'surface-hover': neutral.n400.theme('surface-hover'),
+  'surface-hover': neutral.n200.theme('surface-hover'),
   'surface-info': info.i200.theme('surface-info'),
   'surface-success': success.s200.theme('surface-success'),
   'surface-warning': warning.w200.theme('surface-warning'),
@@ -217,9 +210,6 @@ export const isStrokeColor = (color: unknown): color is StrokeColor =>
 export const isTextIconColor = (color: unknown): color is TextIconColors =>
   typeof color === 'string' && color in textIconColors;
 
-export const isBackgroundColor = (color: unknown): color is BackgroundColors =>
-  typeof color === 'string' && color in backgroundColors;
-
 export const isStatusBackgroundColor = (
   color: unknown
 ): color is StatusBackgroundColors =>
@@ -229,7 +219,6 @@ export const isStatusColor = (color: unknown): color is StatusColors =>
   typeof color === 'string' && color in statusColors;
 
 export const Palette = {
-  background: backgroundColors,
   surface: surfaceColors,
   status: statusBackgroundColors,
   statusColor: statusColors,

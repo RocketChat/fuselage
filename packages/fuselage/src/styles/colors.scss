@@ -101,23 +101,13 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-$-backgrounds: (
-  light: white,
-  tint: neutral(100),
-);
-
-@function background($type) {
-  $color: map.get($-backgrounds, $type);
-  @return var(--rcx-color-background-#{$type}, $color);
-}
-
 $-surfaces: (
   light: white,
   tint: neutral(100),
   neutral: neutral(400),
   disabled: neutral(100),
   selected: neutral(500),
-  hover: neutral(400),
+  hover: neutral(200),
   dark: neutral(900),
 );
 

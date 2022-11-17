@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/css-supports",
-  "version": "0.31.20",
+  "version": "0.31.21",
   "description": "Memoized and SSR-compatible facade of CSS.supports API",
   "author": {
     "name": "Rocket.Chat",
@@ -38,12 +38,12 @@
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "bump": "workspace:~",
-    "eslint": "~8.8.0",
+    "eslint": "~8.26.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.3",
-    "prettier": "~2.5.1",
+    "lint-staged": "~12.3.8",
+    "prettier": "~2.7.1",
     "rimraf": "~3.0.2",
-    "typedoc": "~0.22.11",
+    "typedoc": "~0.22.18",
     "typescript": "~4.3.5"
   },
   "dependencies": {
