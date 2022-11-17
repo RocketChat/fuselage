@@ -28,18 +28,27 @@ test.each([
   ],
   [
     '[**here**](+(075)63546725)',
-    [paragraph([link('tel:07563546725', bold([plain('here')]))])],
+    [paragraph([link('tel:07563546725', [bold([plain('here')])])])],
   ],
   [
     '+(11)99999-9999',
-    [paragraph([link('tel:11999999999', plain('+(11)99999-9999'))])],
+    [paragraph([link('tel:11999999999', [plain('+(11)99999-9999')])])],
   ],
-  ['5 +51231', [paragraph([plain('5 '), link('tel:51231', plain('+51231'))])]],
+  [
+    '5 +51231',
+    [paragraph([plain('5 '), link('tel:51231', [plain('+51231')])])],
+  ],
   [
     '5 +51231 5',
-    [paragraph([plain('5 '), link('tel:51231', plain('+51231')), plain(' 5')])],
+    [
+      paragraph([
+        plain('5 '),
+        link('tel:51231', [plain('+51231')]),
+        plain(' 5'),
+      ]),
+    ],
   ],
-  ['+(12)3-45', [paragraph([link('tel:12345', plain('+(12)3-45'))])]],
+  ['+(12)3-45', [paragraph([link('tel:12345', [plain('+(12)3-45')])])]],
   ['+1.599123', [paragraph([plain('+1.599123')])]],
   ['1+1=2', [paragraph([plain('1+1=2')])]],
   ['1+1=2 text', [paragraph([plain('1+1=2 text')])]],

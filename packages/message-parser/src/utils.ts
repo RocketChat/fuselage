@@ -199,5 +199,5 @@ export const phoneChecker = (text: string, number: string) => {
     return plain(text);
   }
 
-  return link(`tel:${number}`, plain(text));
+  return link(`tel:${number}`, [plain(text)]);
 };
