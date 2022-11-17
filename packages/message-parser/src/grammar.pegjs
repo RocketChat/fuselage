@@ -28,6 +28,7 @@
     task,
     tasks,
     unorderedList,
+    phoneChecker,
   } = require('./utils');
 }
 
@@ -147,11 +148,11 @@ Inline
     )+
     EndOfLine? { return reducePlainTexts(value); }
 
-Whitespace = w:$" "+ { return plain(w); }
+Whitespace = w:$Space+ { return plain(w); }
 
-Escaped = "\\" t:$. { return plain(t); }
+Escaped = "\\" t:$("*" / "_" / "~" / "`" / "#" / ".") { return plain(t); }
 
-Any = !EndOfLine t:$. u:$URL? { return plain(t + u); }
+Any = !EndOfLine t:$. p:$AutolinkedPhone? u:$URL? { return plain(t + p + u); }
 
 // = Line
 
@@ -262,9 +263,14 @@ InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
 
 InlineCode__ = $(!"`" !"\n" $:.)
 
+FilePath = $(urlScheme urlBody+)
+
 LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
 
-LinkRef = text:(URL / p:Phone { return 'tel:' + p.number; }) { return text; }
+LinkRef
+  = text:(URL / FilePath / p:Phone { return 'tel:' + p.number; }) {
+      return text;
+    }
 
 Image
   = "![](" href:LinkRef ")" { return image(href); }
@@ -297,11 +303,7 @@ unicode
       return String.fromCharCode(parseInt(digits, 16));
     }
 
-escape
-  = unicode
-  / "\\" ch:[^\r\n\f0-9a-f]i { return ch; }
-
-AutolinkedPhone = p:Phone { return link('tel:' + p.number, plain(p.text)); }
+AutolinkedPhone = p:Phone { return phoneChecker(p.text, p.number); }
 
 AutolinkedURL = u:URL { return link(u); }
 
@@ -373,6 +375,9 @@ phoneNumber
   = p:phonePrefix "-" d:digits {
       return { text: p.text + '-' + d, number: p.number + d };
     }
+  / p:phonePrefix d1:digits "-" d2:digits {
+      return { text: p.text + d1 + '-' + d2, number: p.number + d1 + d2 };
+    }
   / p:phonePrefix d:digits {
       return { text: p.text + d, number: p.number + d };
     }
@@ -389,13 +394,13 @@ phonePrefix
  */
 
 URL
-  = $(urlScheme urlAuthority urlBody)
-  / $(urlAuthorityHost urlBody)
+  = $(urlScheme urlAuthority urlBody*)
+  / $(urlAuthorityHost urlBody*)
 
 urlScheme
   = $(
     [[A-Za-z0-9+.-]
-      [A-Za-z0-9+.-]
+      [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
@@ -446,7 +451,7 @@ urlBody
         / "~"
         / "("
       )
-  )*
+  )
 
 urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
 
