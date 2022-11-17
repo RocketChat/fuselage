@@ -75,6 +75,7 @@ const isValidLink = (link: string) => {
     return false;
   }
 };
+
 export const link = (() => {
   const fn = generate('LINK');
 
@@ -145,9 +146,17 @@ const joinEmoji = (
   const hasPlainAsNeighbor =
     (previous?.type === 'PLAIN_TEXT' && previous.value.trim() !== '') ||
     (next?.type === 'PLAIN_TEXT' && next.value.trim() !== '');
+  const isEmoticon = current.shortCode !== current.value.value;
 
   if (current.value && (hasEmojiAsNeighbor || hasPlainAsNeighbor)) {
-    return current.value;
+    if (isEmoticon) {
+      return current.value;
+    }
+
+    return {
+      ...current.value,
+      value: `:${current.value.value}:`,
+    };
   }
 
   return current;
@@ -184,3 +193,11 @@ export const inlineKatex = (content: string): InlineKaTeX => ({
   type: 'INLINE_KATEX',
   value: content,
 });
+
+export const phoneChecker = (text: string, number: string) => {
+  if (number.length < 5) {
+    return plain(text);
+  }
+
+  return link(`tel:${number}`, plain(text));
+};

@@ -37,7 +37,9 @@ export default {
 } as ComponentMeta<typeof Callout>;
 
 const Template: ComponentStory<typeof Callout> = (args) => (
-  <Callout {...args}>This is a generic description.</Callout>
+  <Callout {...args}>
+    {args.children || 'This is a generic description.'}
+  </Callout>
 );
 
 export const Default = Template.bind({});
@@ -79,3 +81,9 @@ Danger.args = {
 Danger.parameters = setStoryDescription(
   'Communicates that an important aspect of the system is not working as expected and requires urgent action.'
 );
+
+export const CustomIcon = Template.bind({});
+CustomIcon.args = {
+  title: 'This is a danger message',
+  icon: 'hash',
+};

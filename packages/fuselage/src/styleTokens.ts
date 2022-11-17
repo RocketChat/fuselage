@@ -1,8 +1,27 @@
-import { cssSupports } from '@rocket.chat/css-supports';
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 import tokenTypography from '@rocket.chat/fuselage-tokens/dist/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
+
+import {
+  isStatusBackgroundColor,
+  isStatusColor,
+  isStrokeColor,
+  isSurfaceColor,
+  isTextIconColor,
+  neutral,
+  statusBackgroundColors,
+  strokeColors,
+  surfaceColors,
+  textIconColors,
+  statusColors,
+  throwErrorOnInvalidToken,
+} from './Theme';
+import {
+  toCSSColorValue,
+  toCSSFontValue,
+  toCSSValue,
+} from './helpers/toCSSValue';
 
 const measure = (
   computeSpecialValue?: (value: string) => null | undefined | string
@@ -138,10 +157,99 @@ const getForegroundColor = (
 const paletteColorRegex =
   /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
-const cssSupportsVariable = cssSupports('(--foo: bar)');
+export const strokeColor = memoize((value) => {
+  const colorName = `stroke-${value}`;
+  if (isStrokeColor(colorName)) {
+    return strokeColors[colorName].toString();
+  }
+  return color(value);
+});
+
+export const backgroundColor = memoize((value) => {
+  const colorName = `surface-${value}`;
+
+  if (isSurfaceColor(value)) {
+    return surfaceColors[value].toString();
+  }
+
+  if (isSurfaceColor(colorName)) {
+    return surfaceColors[colorName].toString();
+  }
+
+  if (isStatusBackgroundColor(value)) {
+    return statusBackgroundColors[value].toString();
+  }
+
+  return color(value);
+});
+
+export const fontColor = memoize((value) => {
+  const colorName = `font-${value}`;
+  if (isTextIconColor(colorName)) {
+    return textIconColors[colorName].toString();
+  }
+  if (isStatusColor(value)) {
+    return statusColors[value].toString();
+  }
+  return color(value);
+});
+
+/** @deprecated **/
 export const color = memoize((value) => {
   if (typeof value !== 'string') {
     return;
+  }
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    console.warn(`invalid color: ${value}`, new Error().stack);
+  }
+  if (throwErrorOnInvalidToken) {
+    throw new Error(
+      `The color token "${value}" is deprecated. Please use the new color tokens instead.`
+    );
+  }
+
+  if (isSurfaceColor(value)) {
+    return surfaceColors[value].toString();
+  }
+
+  if (isStatusBackgroundColor(value)) {
+    return statusBackgroundColors[value].toString();
+  }
+
+  if (isStrokeColor(value)) {
+    return strokeColors[value].toString();
+  }
+  if (isTextIconColor(value)) {
+    return textIconColors[value].toString();
+  }
+
+  if (value === 'surface' || value === 'surface-light') {
+    return surfaceColors['surface-light'].toString();
+  }
+
+  if (value === 'surface-tint') {
+    return toCSSColorValue(value, neutral.n100);
+  }
+
+  if (value === 'secondary-info') {
+    return toCSSColorValue(value, neutral.n700);
+  }
+
+  if (value === 'surface-neutral') {
+    return toCSSColorValue(value, neutral.n400);
+  }
+
+  if (isForegroundColorRef(value)) {
+    const [customProperty, color] = getForegroundColor(value);
+
+    if (customProperty) {
+      return toCSSValue(customProperty, color);
+    }
+
+    return color;
   }
 
   const paletteMatches = paletteColorRegex.exec(String(value));
@@ -160,46 +268,12 @@ export const color = memoize((value) => {
 
     const [customProperty, color] = getPaletteColor(type, grade, alpha);
 
-    if (customProperty && cssSupportsVariable) {
-      return `var(${customProperty}, ${color})`;
+    if (customProperty) {
+      return toCSSValue(customProperty, color);
     }
 
     return color;
   }
-
-  if (value === 'surface' || value === 'surface-light') {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-surface-light, ${tokenColors.white})`;
-    }
-
-    return tokenColors.white;
-  }
-
-  if (value === 'surface-tint') {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-surface-tint, ${tokenColors.n100})`;
-    }
-
-    return tokenColors.n100;
-  }
-
-  if (value === 'surface-neutral') {
-    if (cssSupportsVariable) {
-      return `var(--rcx-color-surface-neutral, ${tokenColors.n400})`;
-    }
-    return tokenColors.n400;
-  }
-
-  if (isForegroundColorRef(value)) {
-    const [customProperty, color] = getForegroundColor(value);
-
-    if (customProperty && cssSupportsVariable) {
-      return `var(${customProperty}, ${color})`;
-    }
-
-    return color;
-  }
-
   return value;
 });
 
@@ -253,11 +327,7 @@ export const fontFamily = memoize((value: unknown): string | undefined => {
     .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))
     .join(', ');
 
-  if (cssSupportsVariable) {
-    return `var(--rcx-font-family-${value}, ${fontFamily})`;
-  }
-
-  return fontFamily;
+  return toCSSFontValue(value, fontFamily);
 });
 
 type FontScale = keyof typeof tokenTypography.fontScales;

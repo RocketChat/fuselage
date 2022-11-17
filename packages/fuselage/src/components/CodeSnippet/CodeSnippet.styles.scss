@@ -17,7 +17,7 @@
     'code-snippet-border-radius',
     lengths.border-radius(medium)
   );
-  background-color: colors.neutral(300);
+  background-color: colors.surface(neutral);
 
   &__codebox {
     margin-right: lengths.margin(8);

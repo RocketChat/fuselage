@@ -1,7 +1,7 @@
 {
   "name": "@rocket.chat/fuselage-root",
   "private": true,
-  "version": "0.31.18",
+  "version": "0.31.21",
   "workspaces": [
     "packages/*",
     "tools/*"
@@ -9,12 +9,12 @@
   "devDependencies": {
     "bump": "workspace:~",
     "husky": "~7.0.4",
-    "hygen": "~6.1.0",
+    "hygen": "~6.1.5",
     "lerna": "~4.0.0",
-    "lint-staged": "~12.3.3",
-    "turbo": "~1.1.2",
+    "lint-staged": "~12.3.8",
+    "turbo": "~1.1.10",
     "update-readme": "workspace:~",
-    "webpack": "~5.68.0"
+    "webpack": "~5.74.0"
   },
   "scripts": {
     "postinstall": "husky install",
@@ -39,5 +39,5 @@
     "node": "14.17.6",
     "yarn": "1.22.11"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.4"
 }

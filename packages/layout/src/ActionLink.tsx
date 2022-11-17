@@ -4,6 +4,7 @@ import type {
   ComponentProps,
   ReactElement,
   ReactNode,
+  AnchorHTMLAttributes,
 } from 'react';
 import { useCallback } from 'react';
 
@@ -11,9 +12,7 @@ type ActionLinkProps = {
   children?: ReactNode;
   href?: string;
   fontScale?: ComponentProps<typeof Box>['fontScale'];
-  fontWeight?: number;
-  onClick?: () => void;
-};
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const ActionLink = ({
   children,
@@ -23,8 +22,10 @@ const ActionLink = ({
 }: ActionLinkProps): ReactElement => {
   const handleClick = useCallback(
     (event: MouseEvent<HTMLAnchorElement>) => {
-      event.preventDefault();
-      onClick?.();
+      if (onClick) {
+        event.preventDefault();
+        onClick(event);
+      }
     },
     [onClick]
   );
@@ -35,7 +36,7 @@ const ActionLink = ({
       is='a'
       fontScale={'p2'}
       href={href}
-      color='primary-500'
+      color='primary-600'
       mi='x4'
       textDecorationLine='none'
       onClick={handleClick}

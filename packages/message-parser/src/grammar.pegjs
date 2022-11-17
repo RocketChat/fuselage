@@ -28,6 +28,7 @@
     task,
     tasks,
     unorderedList,
+    phoneChecker,
   } = require('./utils');
 }
 
@@ -147,11 +148,11 @@ Inline
     )+
     EndOfLine? { return reducePlainTexts(value); }
 
-Whitespace = w:$" "+ { return plain(w); }
+Whitespace = w:$Space+ { return plain(w); }
 
-Escaped = "\\" t:$. { return plain(t); }
+Escaped = "\\" t:$("*" / "_" / "~" / "`" / "#" / ".") { return plain(t); }
 
-Any = !EndOfLine t:$. u:$URL? { return plain(t + u); }
+Any = !EndOfLine t:$. p:$AutolinkedPhone? u:$URL? { return plain(t + p + u); }
 
 // = Line
 
@@ -171,24 +172,27 @@ Space
   / "\t"
 
 anyText
-  = [\x20-\x27] /*     ! " # $ % & ' ( )   */
+  = [\x20-\x27] //     ! " # $ % & '
   / [\x2B-\x40] // + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
   / [\x41-\x5A] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
   / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
-SectionText
-  = [-]+
-  / [\x20-\x40] //   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @
-  / [\x41-\x60] // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ `
-  / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
-  / nonascii
+utf8_names_validation = $([-_.] / alphaChar / decimalNumberChar)+
 
-utf8_names_validation = $[0-9a-zA-Z-_.]+
+username_matrix_server_validation = ":" utf8_names_validation
+
+username_email_validation = "@" utf8_names_validation
 
 UserMention
   = t:Text "@"+ user:utf8_names_validation {
       return reducePlainTexts([t, plain('@' + user)])[0];
+    }
+  / "@"+ user:$(utf8_names_validation username_matrix_server_validation) {
+      return mentionUser(user);
+    }
+  / "@"+ user:$(utf8_names_validation username_email_validation) {
+      return mentionUser(user);
     }
   / "@"+ user:utf8_names_validation { return mentionUser(user); }
 
@@ -198,12 +202,14 @@ ChannelMention
     }
   / "#" channel:utf8_names_validation { return mentionChannel(channel); }
 
+emoji_shortCode_name = $[0-9a-zA-Z-_+.]+
+
 Emoji
   = Emoji_shortCode
   / ch:unicodeEmoji { return emojiUnicode(ch); }
 
 Emoji_shortCode
-  = ":" shortCode:$(text:utf8_names_validation) ":" { return emoji(shortCode); }
+  = ":" shortCode:$(text:emoji_shortCode_name) ":" { return emoji(shortCode); }
 
 /* __Italic__ */
 /* _Italic_ */
@@ -257,9 +263,14 @@ InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
 
 InlineCode__ = $(!"`" !"\n" $:.)
 
+FilePath = $(urlScheme urlBody+)
+
 LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
 
-LinkRef = text:(URL / p:Phone { return 'tel:' + p.number; }) { return text; }
+LinkRef
+  = text:(URL / FilePath / p:Phone { return 'tel:' + p.number; }) {
+      return text;
+    }
 
 Image
   = "![](" href:LinkRef ")" { return image(href); }
@@ -292,32 +303,7 @@ unicode
       return String.fromCharCode(parseInt(digits, 16));
     }
 
-escape
-  = unicode
-  / "\\" ch:[^\r\n\f0-9a-f]i { return ch; }
-
-nmstart
-  = [_a-z]i
-  / nonascii
-  / escape
-
-nmchar
-  = [_a-z0-9-]i
-  / nonascii
-  / escape
-
-string1
-  = "\"" chars:$([^\n\r\f\\"] / "\\" nl:nl { return ''; } / escape)* "\"" {
-      return chars;
-    }
-
-nl
-  = "\n"
-  / "\r\n"
-  / "\r"
-  / "\f"
-
-AutolinkedPhone = p:Phone { return link('tel:' + p.number, plain(p.text)); }
+AutolinkedPhone = p:Phone { return phoneChecker(p.text, p.number); }
 
 AutolinkedURL = u:URL { return link(u); }
 
@@ -370,11 +356,12 @@ hexByte = a:hexdigit b:hexdigit { return parseInt(a + b, 16); }
 
 domainName
   = "localhost"
-  / $(domainNameLabel ("." domainChar domainNameLabel)+)
+  / $(domainNameLabel ("." (!digit domainChar) domainNameLabel)+)
 
 domainNameLabel = $(domainChar+ $("-" domainChar+)*)
 
-domainChar = !"\\" !"/" !"|" !">" !"<" !safe !extra !EndOfLine !Space .
+domainChar
+  = !"\\" !"/" !"|" !">" !"<" !"%" !"`" !safe !extra !EndOfLine !Space .
 
 /**
  *
@@ -387,6 +374,9 @@ Phone = "+" p:phoneNumber { return { text: '+' + p.text, number: p.number }; }
 phoneNumber
   = p:phonePrefix "-" d:digits {
       return { text: p.text + '-' + d, number: p.number + d };
+    }
+  / p:phonePrefix d1:digits "-" d2:digits {
+      return { text: p.text + d1 + '-' + d2, number: p.number + d1 + d2 };
     }
   / p:phonePrefix d:digits {
       return { text: p.text + d, number: p.number + d };
@@ -404,28 +394,13 @@ phonePrefix
  */
 
 URL
-  = $(
-    s:urlScheme
-      a:urlAuthority
-      p:urlPath?
-      q:urlQuery?
-      f:urlFragment?
-      g:urlPath?
-      h:urlQuery?
-  )
-  / $(
-    urlAuthorityHost
-      p:urlPath?
-      q:urlQuery?
-      f:urlFragment?
-      g:urlPath?
-      h:urlQuery?
-  )
+  = $(urlScheme urlAuthority urlBody*)
+  / $(urlAuthorityHost urlBody*)
 
 urlScheme
   = $(
-    [[A-Za-z]
-      [A-Za-z0-9+.-]
+    [[A-Za-z0-9+.-]
+      [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
@@ -459,6 +434,25 @@ urlScheme
       ":"
   )
 
+urlBody
+  = (
+    !Whitespace
+      (
+        anyText
+        / "*"
+        / "["
+        / "\/"
+        / "]"
+        / "^"
+        / "_"
+        / "`"
+        / "{"
+        / "}"
+        / "~"
+        / "("
+      )
+  )
+
 urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
 
 urlAuthorityUserInfo = $(urlAuthorityUser (":" urlAuthorityPassword)? "@")
@@ -475,12 +469,6 @@ urlAuthorityHostName
 
 urlAuthorityPort
   = digits // TODO: from "0" to "65535"
-
-urlPath = $("/" $(!"?" !"/" !"#" !")" !">" !"|" !" " .)* urlPath*)
-
-urlQuery = $("?" $(alpha_digit / safe)*)
-
-urlFragment = $("#" $(alpha_digit / extra / safe)*)
 
 /**
  *
@@ -603,7 +591,7 @@ emoticonPattern
   / e:$(":'(" / ":'-(" / ";(" / ";-(") { return emoticon(e, 'cry'); }
   / e:$(">:(" / ">:-(" / ":@") { return emoticon(e, 'angry'); }
   / e:$(":$" / "=$") { return emoticon(e, 'flushed'); }
-  / e:$"D:" { return emoticon(e, 'fearfulc'); }
+  / e:$"D:" { return emoticon(e, 'fearful'); }
   / e:$("':(" / "':-(" / "'=(") { return emoticon(e, 'sweat'); }
   / e:$(":-X" / ":X" / ":-#" / ":#" / "=X" / "=#") {
       return emoticon(e, 'no_mouth');

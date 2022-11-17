@@ -23,12 +23,12 @@
 
 $message-background-color: functions.theme(
   'message-background-color',
-  colors.font(white)
+  colors.surface(light)
 );
 
 $message-background-color-focus: functions.theme(
   'message-background-color-focus',
-  colors.surface(tint)
+  colors.surface(hover)
 );
 
 $message-background-color-selected: functions.theme(
@@ -133,8 +133,13 @@ $message-background-color-highlight: functions.theme(
       color: colors.font(annotation);
     }
 
-    &__name {
+    &__name-container {
       @extend %rcx-margins-header;
+
+      display: inline;
+    }
+
+    &__name {
       @include typography.use-font-scale(h5);
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
@@ -143,8 +148,7 @@ $message-background-color-highlight: functions.theme(
     }
 
     &__username {
-      @extend %rcx-margins-header;
-      @include typography.use-font-scale(p2m);
+      @include typography.use-font-scale(p2);
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
@@ -233,17 +237,6 @@ $message-background-color-highlight: functions.theme(
 
       width: 100;
       max-width: functions.theme('message-block-width-fixed', 368px);
-    }
-  }
-
-  &-paragraph {
-    margin: 0;
-    padding: 0;
-
-    &:empty::before {
-      display: inline-block;
-
-      content: '';
     }
   }
 

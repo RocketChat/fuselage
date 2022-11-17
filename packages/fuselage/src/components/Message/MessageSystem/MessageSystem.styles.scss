@@ -35,21 +35,29 @@ $message-system-background-color-selected: functions.theme(
   }
 
   &__body {
-    @include typography.use-font-scale(c1);
+    @include typography.use-font-scale(p2);
     @include typography.use-with-truncated-text();
-    margin-inline: lengths.margin(4);
+    margin-inline: lengths.margin(2);
 
     color: colors.font(annotation);
   }
 
   &__name {
-    @include typography.use-font-scale(c2);
+    @include typography.use-font-scale(p2b);
     @include typography.use-with-truncated-text();
     flex-shrink: 0;
 
-    margin-inline: lengths.margin(4);
-
     color: colors.font(default);
+  }
+
+  &__time {
+    @include typography.use-with-truncated-text();
+    @include typography.use-font-scale(p2);
+    flex-shrink: 0;
+
+    margin-inline: lengths.margin(2);
+
+    color: colors.font(annotation);
   }
 
   &__block {

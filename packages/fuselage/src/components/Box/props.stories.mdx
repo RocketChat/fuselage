@@ -166,6 +166,148 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   </Story>
 </Canvas>
 
+#### Surface Colors
+
+<Canvas>
+  <Story
+    name='Surface Colors'
+    decorators={[
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { m: 'x4', size: 'x122' }, child.props.bg)
+          )}
+        </Box>
+      ),
+    ]}
+  >
+    <>
+      <Box bg='surface-light' />
+      <Box bg='surface-tint' />
+      <Box bg='surface-neutral' />
+      <Box bg='surface-disabled' />
+      <Box bg='surface-hover' />
+      <Box bg='surface-info' />
+      <Box bg='surface-success' />
+      <Box bg='surface-warning' />
+      <Box bg='surface-danger' />
+      <Box bg='surface-service-1' />
+      <Box bg='surface-service-2' />
+    </>
+  </Story>
+</Canvas>
+
+#### Status Colors
+<Canvas>
+  <Story
+    name='Status Colors'
+    decorators={[
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { m: 'x4', size: 'x122' }, child.props.bg)
+          )}
+        </Box>
+      ),
+    ]}
+  >
+    <>
+      <Box bg='status-background-info' color='status-font-on-info'/>
+      <Box bg='status-background-success' color='status-font-on-success' />
+      <Box bg='status-background-danger'  color='status-font-on-danger' />
+      <Box bg='status-background-warning'  color='status-font-on-warning' />
+      <Box bg='status-background-service-1' color='status-font-on-service-1' />
+      <Box bg='status-background-service-2' color='status-font-on-service-2' />
+    </>
+  </Story>
+</Canvas>
+
+#### Stroke Colors
+
+<Canvas>
+  <Story
+    name='Stroke Colors'
+    decorators={[
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { m: 'x4', size: 'x122' }, child.props.bg)
+          )}
+        </Box>
+      ),
+    ]}
+  >
+    <>
+      <Box bg='stroke-extra-light' />
+      <Box bg='stroke-light' />
+      <Box bg='stroke-medium' />
+      <Box bg='stroke-dark' />
+      <Box bg='stroke-extra-dark' />
+      <Box bg='stroke-extra-light-highlight' />
+      <Box bg='stroke-highlight' />
+      <Box bg='stroke-extra-light-error' />
+      <Box bg='stroke-error' />
+    </>
+  </Story>
+</Canvas>
+
+
+#### Font Colors
+
+<Canvas>
+  <Story
+    name='Font Colors'
+    decorators={[
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(child, { m: 'x4', size: 'x122'  }, child.props.bg)
+          )}
+        </Box>
+      ),
+    ]}
+  >
+    <>
+      <Box bg='font-white' />
+      <Box bg='font-disabled' />
+      <Box bg='font-annotation' />
+      <Box bg='font-hint' />
+      <Box bg='font-text' />
+      <Box bg='font-title-labels' />
+      <Box bg='font-danger' />
+      <Box bg='font-secondary-info' />
+      <Box bg='font-on-info' />
+      <Box bg='font-on-success' />
+      <Box bg='font-on-warning' />
+      <Box bg='font-on-danger' />
+      <Box bg='font-on-service-1' />
+      <Box bg='font-on-service-2' />
+    </>
+  </Story>
+</Canvas>
+
+
+
 #### Background colors
 
 <Canvas>
@@ -432,6 +574,21 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box textDecorationLine='underline'>underline</Box>
       <Box textDecorationLine='overline'>overline</Box>
       <Box textDecorationLine='line-through'>line-through</Box>
+    </>
+  </Story>
+</Canvas>
+
+#### Word Break
+
+<Canvas>
+  <Story name='Word break'>
+    <>
+      <Box wordBreak='break-word'>
+        Breakwoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooord
+      </Box>
+      <Box wordBreak='break-all'>
+        Breakaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaall
+      </Box>
     </>
   </Story>
 </Canvas>

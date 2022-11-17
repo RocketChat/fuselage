@@ -106,7 +106,9 @@ $-surfaces: (
   tint: neutral(100),
   neutral: neutral(400),
   disabled: neutral(100),
-  hover: neutral(400),
+  selected: neutral(500),
+  hover: neutral(200),
+  dark: neutral(900),
 );
 
 @function surface($type) {
@@ -128,7 +130,7 @@ $-font: (
 
 @function font($type) {
   $color: map.get($-font, $type);
-  @return var(--rcx-font-#{$type}, $color);
+  @return var(--rcx-color-font-#{$type}, $color);
 }
 
 $-status-backgrounds: (
@@ -142,10 +144,10 @@ $-status-backgrounds: (
 
 @function status-background($type) {
   $color: map.get($-status-backgrounds, $type);
-  @return var(--rcx-status-background-#{$type}, $color);
+  @return var(--rcx-color-status-background-#{$type}, $color);
 }
 
-$-status-fonts: (
+$-status-font: (
   on-success: success(800),
   on-warning: warning(900),
   on-danger: danger(800),
@@ -155,8 +157,8 @@ $-status-fonts: (
 );
 
 @function status-font($type) {
-  $color: map.get($-status-fonts, $type);
-  @return var(--rcx-status-fonts-#{$type}, $color);
+  $color: map.get($-status-font, $type);
+  @return var(--rcx-color-status-font-#{$type}, $color);
 }
 
 $-strokes: (
@@ -173,7 +175,19 @@ $-strokes: (
 
 @function stroke($type) {
   $color: map.get($-strokes, $type);
-  @return var(--rcx-stroke-#{$type}, $color);
+  @return var(--rcx-color-stroke-#{$type}, $color);
+}
+
+$-badge-backgrounds: (
+  primary: primary(500),
+  secondary: neutral(700),
+  warning: service-1(500),
+  danger: danger(500),
+);
+
+@function badge($type) {
+  $color: map.get($-badge-backgrounds, $type);
+  @return var(--rcx-color-badge-background-#{$type}, $color);
 }
 
 $-button-backgrounds: (
@@ -280,6 +294,7 @@ $-neutral-alpha-level: (
   8: neutral(800, 0.08),
   10: neutral(800, 0.1),
   12: neutral(800, 0.12),
+  50: neutral(800, 0.5),
 );
 
 @function surface-neutral-alpha($level) {
