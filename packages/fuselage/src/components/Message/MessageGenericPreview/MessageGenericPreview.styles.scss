@@ -31,7 +31,7 @@ $message-generic-preview-content-background-color: theme(
 );
 $message-generic-preview-content-hover-background-color: theme(
   'message-generic-preview-content-hover-background-color',
-  colors.stroke(extra-light)
+  colors.surface(hover)
 );
 
 .rcx-message-generic-preview {
