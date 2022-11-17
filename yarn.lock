@@ -6803,7 +6803,7 @@ __metadata:
     error-stack-parser: ^2.0.6
     find-up: ^5.0.0
     html-entities: ^2.1.0
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     schema-utils: ^3.0.0
     source-map: ^0.7.3
   peerDependencies:
@@ -10303,7 +10303,7 @@ __metadata:
     "@mdx-js/mdx": ^1.6.22
     "@types/lodash": ^4.14.167
     js-string-escape: ^1.0.1
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     lodash: ^4.17.21
     prettier: ">=2.2.1 <=2.3.0"
     ts-dedent: ^2.0.0
@@ -10497,7 +10497,7 @@ __metadata:
     core-js: ^3.8.2
     estraverse: ^5.2.0
     global: ^4.4.0
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     lodash: ^4.17.21
     prettier: ">=2.2.1 <=2.3.0"
     regenerator-runtime: ^0.13.7
@@ -10775,7 +10775,7 @@ __metadata:
     "@svgr/core": ^5.5.0
     "@svgr/plugin-jsx": ^5.5.0
     "@svgr/plugin-svgo": ^5.5.0
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
   checksum: 540391bd63791625d26d6b5e0dd3c716ef51176bfba53bf0979a1ac4781afd2672f4bef2d76cf3d9cdc8e9ee61bda6863ed405a237b10406633ede4cd524f1cc
   languageName: node
   linkType: hard
@@ -12884,7 +12884,7 @@ __metadata:
   version: 4.0.0
   resolution: "adjust-sourcemap-loader@npm:4.0.0"
   dependencies:
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     regex-parser: ^2.2.11
   checksum: d524ae23582f41e2275af5d88faab7a9dc09770ed588244e0a76d3196d0d6a90bf02760c71bc6213dbfef3aef4a86232ac9521bfd629752c32b7af37bc74c660
   languageName: node
@@ -13740,7 +13740,7 @@ __metadata:
   resolution: "babel-loader@npm:8.2.3"
   dependencies:
     find-cache-dir: ^3.3.1
-    loader-utils: ^1.4.0
+    loader-utils: ^1.4.2
     make-dir: ^3.1.0
     schema-utils: ^2.6.5
   peerDependencies:
@@ -13755,7 +13755,7 @@ __metadata:
   resolution: "babel-loader@npm:8.2.5"
   dependencies:
     find-cache-dir: ^3.3.1
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     make-dir: ^3.1.0
     schema-utils: ^2.6.5
   peerDependencies:
@@ -16627,7 +16627,7 @@ __metadata:
     camelcase: ^5.3.1
     cssesc: ^3.0.0
     icss-utils: ^4.1.1
-    loader-utils: ^1.2.3
+    loader-utils: ^1.4.2
     normalize-path: ^3.0.0
     postcss: ^7.0.36
     postcss-modules-extract-imports: ^2.0.0
@@ -16649,7 +16649,7 @@ __metadata:
   dependencies:
     camelcase: ^6.2.0
     icss-utils: ^5.1.0
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     postcss: ^8.2.13
     postcss-modules-extract-imports: ^3.0.0
     postcss-modules-local-by-default: ^4.0.0
@@ -19427,7 +19427,7 @@ __metadata:
   version: 6.2.0
   resolution: "file-loader@npm:6.2.0"
   dependencies:
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     schema-utils: ^3.0.0
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
@@ -21262,7 +21262,7 @@ fsevents@~2.1.2:
     "@types/tapable": ^1.0.5
     "@types/webpack": ^4.41.8
     html-minifier-terser: ^5.0.1
-    loader-utils: ^1.2.3
+    loader-utils: ^1.4.2
     lodash: ^4.17.21
     pretty-error: ^2.1.1
     tapable: ^1.1.3
@@ -24219,7 +24219,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"loader-utils@npm:^1.2.3, loader-utils@npm:^1.4.0":
+"loader-utils@npm:^1.4.2":
   version: 1.4.2
   resolution: "loader-utils@npm:1.4.2"
   dependencies:
@@ -24230,21 +24230,21 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"loader-utils@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "loader-utils@npm:2.0.0"
+"loader-utils@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "loader-utils@npm:2.0.4"
   dependencies:
     big.js: ^5.2.2
     emojis-list: ^3.0.0
     json5: ^2.1.2
-  checksum: 6856423131b50b6f5f259da36f498cfd7fc3c3f8bb17777cf87fdd9159e797d4ba4288d9a96415fd8da62c2906960e88f74711dee72d03a9003bddcd0d364a51
+  checksum: a5281f5fff1eaa310ad5e1164095689443630f3411e927f95031ab4fb83b4a98f388185bb1fe949e8ab8d4247004336a625e9255c22122b815bb9a4c5d8fc3b7
   languageName: node
   linkType: hard
 
-"loader-utils@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "loader-utils@npm:3.2.0"
-  checksum: c7b9a8dc4b3bc19e9ef563c48e3a18ea9f8bb2da1ad38a12e4b88358cfba5f148a7baf12d78fe78ffcb718ce1e062ab31fcf5c148459f1247a672a4213471e80
+"loader-utils@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "loader-utils@npm:3.2.1"
+  checksum: 4e3ea054cdc8be1ab1f1238f49f42fdf0483039eff920fb1d442039f3f0ad4ebd11fb8e584ccdf2cb7e3c56b3d40c1832416e6408a55651b843da288960cc792
   languageName: node
   linkType: hard
 
@@ -27699,7 +27699,7 @@ fsevents@~2.1.2:
   dependencies:
     cosmiconfig: ^7.0.0
     klona: ^2.0.4
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     schema-utils: ^3.0.0
     semver: ^7.3.4
   peerDependencies:
@@ -29199,7 +29199,7 @@ fsevents@~2.1.2:
   version: 4.0.2
   resolution: "raw-loader@npm:4.0.2"
   dependencies:
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     schema-utils: ^3.0.0
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
@@ -29315,7 +29315,7 @@ fsevents@~2.1.2:
     gzip-size: ^6.0.0
     immer: ^9.0.7
     is-root: ^2.1.0
-    loader-utils: ^3.2.0
+    loader-utils: ^3.2.1
     open: ^8.4.0
     pkg-up: ^3.1.0
     prompts: ^2.4.2
@@ -30411,7 +30411,7 @@ fsevents@~2.1.2:
   dependencies:
     adjust-sourcemap-loader: ^4.0.0
     convert-source-map: ^1.7.0
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     postcss: ^7.0.35
     source-map: 0.6.1
   peerDependencies:
@@ -32547,7 +32547,7 @@ resolve@^2.0.0-next.3:
   version: 1.3.0
   resolution: "style-loader@npm:1.3.0"
   dependencies:
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     schema-utils: ^2.7.0
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
@@ -32559,7 +32559,7 @@ resolve@^2.0.0-next.3:
   version: 2.0.0
   resolution: "style-loader@npm:2.0.0"
   dependencies:
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     schema-utils: ^3.0.0
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
@@ -34590,7 +34590,7 @@ resolve@^2.0.0-next.3:
   version: 4.1.1
   resolution: "url-loader@npm:4.1.1"
   dependencies:
-    loader-utils: ^2.0.0
+    loader-utils: ^2.0.4
     mime-types: ^2.1.27
     schema-utils: ^3.0.0
   peerDependencies:
@@ -35303,7 +35303,7 @@ resolve@^2.0.0-next.3:
     eslint-scope: ^4.0.3
     json-parse-better-errors: ^1.0.2
     loader-runner: ^2.4.0
-    loader-utils: ^1.2.3
+    loader-utils: ^1.4.2
     memory-fs: ^0.4.1
     micromatch: ^3.1.10
     mkdirp: ^0.5.3
