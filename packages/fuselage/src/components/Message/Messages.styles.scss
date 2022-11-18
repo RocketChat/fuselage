@@ -178,6 +178,22 @@ $message-background-color-highlight: functions.theme(
 
     color: colors.font(default);
 
+    & h1 {
+      @include typography.use-font-scale(h1);
+    }
+
+    & h2 {
+      @include typography.use-font-scale(h2);
+    }
+
+    & h3 {
+      @include typography.use-font-scale(h3);
+    }
+
+    & h4 {
+      @include typography.use-font-scale(h4);
+    }
+
     & ul,
     ol {
       margin: 0;
