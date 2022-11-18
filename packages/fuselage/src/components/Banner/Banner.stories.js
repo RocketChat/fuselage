@@ -23,7 +23,7 @@ export const _Banner = () => (
 );
 _Banner.storyName = 'Banner';
 
-export const Variantions = () => (
+export const Variations = () => (
   <>
     <Banner
       closeable
