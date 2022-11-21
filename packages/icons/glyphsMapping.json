@@ -55,6 +55,12 @@
   "chevron-down": {
     "start": "\ue010"
   },
+  "chevron-double-down": {
+    "start": "\ue10b"
+  },
+  "chevron-double-up": {
+    "start": "\ue10d"
+  },
   "chevron-left": {
     "start": "{",
     "end": "}"
@@ -134,6 +140,9 @@
   },
   "emoji": {
     "start": "\ue028"
+  },
+  "equal": {
+    "start": "\ue10f"
   },
   "eraser": {
     "start": "\ue029"
