@@ -109,7 +109,7 @@
         display: flex;
 
         content: '';
-        border-block-end: lengths.border-width(2) solid colors.stroke(light);
+        border-block-end: lengths.border-width(1) solid colors.stroke(light);
       }
     }
 

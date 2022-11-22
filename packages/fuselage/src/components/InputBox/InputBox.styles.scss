@@ -16,7 +16,7 @@
   min-width: 8rem;
 
   padding-block: lengths.padding(8);
-  padding-inline: lengths.padding(16) - lengths.border-width(2);
+  padding-inline: lengths.padding(16) - lengths.border-width(1);
 
   vertical-align: baseline;
 
@@ -165,7 +165,7 @@
     min-width: lengths.size(128);
     min-height: lengths.size(40);
 
-    padding: lengths.padding(8) (lengths.padding(16) - lengths.border-width(2));
+    padding: lengths.padding(8) (lengths.padding(16) - lengths.border-width(1));
 
     @extend %input;
 
@@ -250,14 +250,14 @@
   min-width: lengths.size(128);
   min-height: lengths.size(40);
 
-  padding: (lengths.padding(12) - lengths.border-width(2))
-    (lengths.padding(16) - lengths.border-width(2));
+  padding: (lengths.padding(12) - lengths.border-width(1))
+    (lengths.padding(16) - lengths.border-width(1));
 
   vertical-align: baseline;
 
   color: #{$input-colors-color};
 
-  border-width: lengths.border-width(2);
+  border-width: lengths.border-width(1);
   border-color: #{$input-colors-border-color};
   border-radius: theme('input-border-radius', lengths.border-radius(medium));
   background-color: #{$input-colors-background-color};
