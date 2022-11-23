@@ -39,6 +39,8 @@ $banner-colors-danger-color: functions.theme(
 );
 
 .rcx-banner {
+  z-index: 1;
+
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
