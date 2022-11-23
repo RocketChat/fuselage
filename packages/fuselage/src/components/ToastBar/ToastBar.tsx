@@ -68,10 +68,7 @@ export function ToastBar({
       role='alert'
       aria-labelledby={toastId}
     >
-      <Box
-        className={`rcx-toastbar rcx-toastbar--${variant} ${className}`}
-        elevation='2'
-      >
+      <Box className={`rcx-toastbar rcx-toastbar--${variant} ${className}`}>
         <div className='rcx-toastbar-inner'>
           <Icon size='x20' name={iconName} />
           <div className='rcx-toastbar-content' id={toastId}>
