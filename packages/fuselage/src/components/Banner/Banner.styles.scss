@@ -50,6 +50,8 @@ $banner-colors-danger-color: functions.theme(
   padding-block: 14px;
   padding-inline: 16px;
 
+  color: $banner-colors-neutral-color;
+
   border-top-width: lengths.border-width(4);
   border-top-style: solid;
 
