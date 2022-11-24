@@ -3,6 +3,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/elevation.scss';
 
 // neutral
 $banner-colors-neutral-color: functions.theme(
@@ -39,6 +40,10 @@ $banner-colors-danger-color: functions.theme(
 );
 
 .rcx-banner {
+  @include elevation.elevation-level(2);
+
+  z-index: 1;
+
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -50,6 +55,7 @@ $banner-colors-danger-color: functions.theme(
   padding-block: 14px;
   padding-inline: 16px;
 
+  color: $banner-colors-neutral-color;
   border-top-width: lengths.border-width(4);
   border-top-style: solid;
 
