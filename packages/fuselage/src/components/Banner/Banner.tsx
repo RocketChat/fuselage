@@ -4,7 +4,6 @@ import React, { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { useStyleSheet } from '../../hooks/useStyleSheet';
-import Box from '../Box';
 import { IconButton } from '../Button';
 import styleSheet from './Banner.styles.scss';
 
@@ -29,7 +28,7 @@ type BannerProps = {
   onClose?: () => void;
   title?: string;
   variant?: VariantType;
-} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
+} & AllHTMLAttributes<HTMLElement>;
 
 const Banner = ({
   actionable,
@@ -76,7 +75,7 @@ const Banner = ({
   );
 
   return (
-    <Box
+    <section
       className={cx('rcx-banner')(
         { [variant]: true, inline, actionable },
         className
@@ -84,7 +83,6 @@ const Banner = ({
       ref={ref}
       role='banner'
       onClick={handleBannerClick}
-      elevation='2'
       {...props}
     >
       {icon && isIconVisible && (
@@ -116,7 +114,7 @@ const Banner = ({
           <IconButton small onClick={handleCloseButtonClick} icon='cross' />
         </div>
       )}
-    </Box>
+    </section>
   );
 };
 
