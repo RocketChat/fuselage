@@ -20,10 +20,12 @@
   }
 
   &--elevation-1 {
+    border: 1px solid colors.stroke(extra-light);
     box-shadow: 0 0 12px 0 colors.elevation(1);
   }
 
   &--elevation-2 {
+    border: 1px solid colors.stroke(extra-light);
     box-shadow: 0 0 2px 0 colors.elevation('2x'),
       0 0 12px 0 colors.elevation('2y');
   }
