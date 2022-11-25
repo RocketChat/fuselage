@@ -201,6 +201,15 @@ export const statusColors = {
 
 type StatusColors = keyof typeof statusColors;
 
+export const badgeBackgroundColors = {
+  'badge-background-level-1': neutral.n600.theme('badge-background-level-1'),
+  'badge-background-level-2': '#1D74F5',
+  'badge-background-level-3': service1[500].theme('badge-background-level-3'),
+  'badge-background-level-4': '#F5455C',
+};
+
+type BadgeBackgroundColors = keyof typeof badgeBackgroundColors;
+
 export const isSurfaceColor = (color: unknown): color is SurfaceColors =>
   typeof color === 'string' && color in surfaceColors;
 
@@ -209,6 +218,9 @@ export const isStrokeColor = (color: unknown): color is StrokeColor =>
 
 export const isTextIconColor = (color: unknown): color is TextIconColors =>
   typeof color === 'string' && color in textIconColors;
+
+export const isBadgeColor = (color: unknown): color is BadgeBackgroundColors =>
+  typeof color === 'string' && color in badgeBackgroundColors;
 
 export const isStatusBackgroundColor = (
   color: unknown
@@ -222,6 +234,7 @@ export const Palette = {
   surface: surfaceColors,
   status: statusBackgroundColors,
   statusColor: statusColors,
+  badge: badgeBackgroundColors,
   text: textIconColors,
   stroke: strokeColors,
 };
