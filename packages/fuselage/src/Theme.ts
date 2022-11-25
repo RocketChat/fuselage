@@ -46,6 +46,7 @@ const primary = {
   p300: new Var('primary-300', tokenColors.p300),
   p400: new Var('primary-400', tokenColors.p400),
   p500: new Var('primary-500', tokenColors.p500),
+  p550: new Var('primary-550', tokenColors.p550),
   p600: new Var('primary-600', tokenColors.p600),
   p700: new Var('primary-700', tokenColors.p700),
   p800: new Var('primary-800', tokenColors.p800),
@@ -94,6 +95,7 @@ const danger = {
   d300: new Var('danger-300', tokenColors.d300),
   d400: new Var('danger-400', tokenColors.d400),
   d500: new Var('danger-500', tokenColors.d500),
+  d550: new Var('danger-550', tokenColors.d550),
   d600: new Var('danger-600', tokenColors.d600),
   d700: new Var('danger-700', tokenColors.d700),
   d800: new Var('danger-800', tokenColors.d800),
@@ -203,9 +205,9 @@ type StatusColors = keyof typeof statusColors;
 
 export const badgeBackgroundColors = {
   'badge-background-level-1': neutral.n600.theme('badge-background-level-1'),
-  'badge-background-level-2': '#1D74F5',
+  'badge-background-level-2': primary.p550.theme('badge-background-level-2'),
   'badge-background-level-3': service1[500].theme('badge-background-level-3'),
-  'badge-background-level-4': '#F5455C',
+  'badge-background-level-4': danger.d550.theme('badge-background-level-4'),
 };
 
 type BadgeBackgroundColors = keyof typeof badgeBackgroundColors;
