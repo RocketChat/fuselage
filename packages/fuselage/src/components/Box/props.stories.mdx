@@ -108,64 +108,6 @@ The `is` prop allows `Box` to render any component capable of handling common DO
 
 ### Color
 
-#### Colors
-
-<Canvas>
-  <Story
-    name='Colors'
-    decorators={[
-      (fn) => (
-        <Box
-          display='flex'
-          flexWrap='wrap'
-          alignItems='center'
-          overflow='hidden'
-        >
-          {flattenChildren(fn().props.children).map((child) =>
-            React.cloneElement(
-              child,
-              { bg: 'neutral-200', m: 'x4', p: 'x4' },
-              child.props.color
-            )
-          )}
-        </Box>
-      ),
-    ]}
-  >
-    <>
-      <Box color='neutral-500' />
-      <Box color='neutral-500-50' />
-      <Box color='primary-500' />
-      <Box color='primary-500-50' />
-      <Box color='info-500' />
-      <Box color='info-500-50' />
-      <Box color='success-500' />
-      <Box color='success-500-50' />
-      <Box color='warning-500' />
-      <Box color='warning-500-50' />
-      <Box color='danger-500' />
-      <Box color='danger-500-50' />
-      <Box color='surface' />
-      <Box color='surface-light' />
-      <Box color='surface-tint' />
-      <Box color='surface-neutral' />
-      <Box color='default' />
-      <Box color='info' />
-      <Box color='hint' />
-      <Box color='disabled' />
-      <Box color='alternative' />
-      <Box color='primary' />
-      <Box color='success' />
-      <Box color='danger' />
-      <Box color='warning' />
-      <Box color='link' />
-      <Box color='visited-link' />
-      <Box color='active-link' />
-      <Box color='rebeccapurple' />
-    </>
-  </Story>
-</Canvas>
-
 #### Surface Colors
 
 <Canvas>
@@ -203,6 +145,7 @@ The `is` prop allows `Box` to render any component capable of handling common DO
 </Canvas>
 
 #### Status Colors
+
 <Canvas>
   <Story
     name='Status Colors'
@@ -222,10 +165,10 @@ The `is` prop allows `Box` to render any component capable of handling common DO
     ]}
   >
     <>
-      <Box bg='status-background-info' color='status-font-on-info'/>
+      <Box bg='status-background-info' color='status-font-on-info' />
       <Box bg='status-background-success' color='status-font-on-success' />
-      <Box bg='status-background-danger'  color='status-font-on-danger' />
-      <Box bg='status-background-warning'  color='status-font-on-warning' />
+      <Box bg='status-background-danger' color='status-font-on-danger' />
+      <Box bg='status-background-warning' color='status-font-on-warning' />
       <Box bg='status-background-service-1' color='status-font-on-service-1' />
       <Box bg='status-background-service-2' color='status-font-on-service-2' />
     </>
@@ -266,7 +209,6 @@ The `is` prop allows `Box` to render any component capable of handling common DO
   </Story>
 </Canvas>
 
-
 #### Font Colors
 
 <Canvas>
@@ -281,32 +223,34 @@ The `is` prop allows `Box` to render any component capable of handling common DO
           overflow='hidden'
         >
           {flattenChildren(fn().props.children).map((child) =>
-            React.cloneElement(child, { m: 'x4', size: 'x122'  }, child.props.bg)
+            React.cloneElement(
+              child,
+              { bg: 'neutral-200', m: 'x4', p: 'x4' },
+              child.props.color
+            )
           )}
         </Box>
       ),
     ]}
   >
     <>
-      <Box bg='font-white' />
-      <Box bg='font-disabled' />
-      <Box bg='font-annotation' />
-      <Box bg='font-hint' />
-      <Box bg='font-text' />
-      <Box bg='font-title-labels' />
-      <Box bg='font-danger' />
-      <Box bg='font-secondary-info' />
-      <Box bg='font-on-info' />
-      <Box bg='font-on-success' />
-      <Box bg='font-on-warning' />
-      <Box bg='font-on-danger' />
-      <Box bg='font-on-service-1' />
-      <Box bg='font-on-service-2' />
+      <Box color='font-white' />
+      <Box color='font-disabled' />
+      <Box color='font-annotation' />
+      <Box color='font-hint' />
+      <Box color='font-text' />
+      <Box color='font-title-labels' />
+      <Box color='font-danger' />
+      <Box color='font-secondary-info' />
+      <Box color='font-on-info' />
+      <Box color='font-on-success' />
+      <Box color='font-on-warning' />
+      <Box color='font-on-danger' />
+      <Box color='font-on-service-1' />
+      <Box color='font-on-service-2' />
     </>
   </Story>
 </Canvas>
-
-
 
 #### Background colors
 
