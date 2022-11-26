@@ -118,8 +118,13 @@ $-font: (
   danger: danger(600),
 );
 
-@function font($type) {
+@function font($type, $scape: false) {
   $color: map.get($-font, $type);
+
+  @if $scape {
+    @return $color;
+  }
+
   @return var(--rcx-color-font-#{$type}, $color);
 }
 

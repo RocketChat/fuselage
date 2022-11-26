@@ -19,7 +19,7 @@ $sidebar-item-background-color: theme(
 $sidebar-item-color: theme('sidebar-item-color', colors.font(annotation));
 $sidebar-item-color-highlighted: theme(
   'sidebar-item-color-highlighted',
-  colors.font(white)
+  colors.font(white, true)
 );
 $sidebar-item-background-color-hover: theme(
   'sidebar-item-background-color-hover',
