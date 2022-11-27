@@ -17,17 +17,7 @@ $-map-type-to-prefix: (
 );
 
 @function _get-palette-color($type, $grade, $alpha) {
-  @if not(
-    $grade
-      %
-      100 ==
-      0 and
-      math.div($grade, 100) >=
-      1 and
-      math.div($grade, 100) <=
-      10
-  )
-  {
+  @if not($grade % 50 == 0 and math.div($grade, 50) >= 1) {
     @error 'invalid color grade';
   }
 
@@ -128,8 +118,13 @@ $-font: (
   danger: danger(600),
 );
 
-@function font($type) {
+@function font($type, $scape: false) {
   $color: map.get($-font, $type);
+
+  @if $scape {
+    @return $color;
+  }
+
   @return var(--rcx-color-font-#{$type}, $color);
 }
 
@@ -179,10 +174,10 @@ $-strokes: (
 }
 
 $-badge-backgrounds: (
-  primary: primary(500),
-  secondary: neutral(700),
-  warning: service-1(500),
-  danger: danger(500),
+  level-1: neutral(600),
+  level-2: primary(550),
+  level-3: service-1(500),
+  level-4: danger(550),
 );
 
 @function badge($type) {
