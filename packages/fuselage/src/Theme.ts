@@ -209,7 +209,7 @@ export const statusColors = {
   'status-font-on-danger': danger.d800.theme('status-font-on-danger'),
   'status-font-on-service-1': service1[800].theme('status-font-on-service-1'),
   'status-font-on-service-2': service2[600].theme('status-font-on-service-2'),
-  'status-font-on-service-3': neutral.n800.theme('status-font-on-service-3'),
+  'status-font-on-service-3': white.theme('status-font-on-service-3'),
 };
 
 type StatusColors = keyof typeof statusColors;
