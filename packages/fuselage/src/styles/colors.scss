@@ -116,6 +116,8 @@ $-font: (
   titles-labels: neutral(900),
   info: primary(600),
   danger: danger(600),
+  pure-black: neutral(800),
+  pure-white: white,
 );
 
 @function font($type, $scape: false) {
@@ -131,9 +133,11 @@ $-font: (
 $-status-backgrounds: (
   success: success(200),
   warning: warning(200),
+  warning-2: warning(100),
   danger: danger(200),
   service-1: service-1(200),
   service-2: service-2(200),
+  service-3: service-2(700),
   info: primary(200),
 );
 
