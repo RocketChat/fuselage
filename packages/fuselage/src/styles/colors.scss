@@ -149,9 +149,12 @@ $-status-backgrounds: (
 $-status-font: (
   on-success: success(800),
   on-warning: warning(900),
+  on-warning: warning(900),
+  on-warning-2: neutral(800),
   on-danger: danger(800),
   on-service-1: service-1(800),
   on-service-2: service-2(600),
+  on-service-3: neutral(800),
   on-info: primary(600),
 );
 
