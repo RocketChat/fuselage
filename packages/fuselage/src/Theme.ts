@@ -31,6 +31,7 @@ export const __setThrowErrorOnInvalidToken__ = (value: boolean) => {
 export const neutral = {
   n100: new Var('neutral-100', tokenColors.n100),
   n200: new Var('neutral-200', tokenColors.n200),
+  n250: new Var('neutral-250', tokenColors.n250),
   n300: new Var('neutral-300', tokenColors.n300),
   n400: new Var('neutral-400', tokenColors.n400),
   n500: new Var('neutral-500', tokenColors.n500),
@@ -143,7 +144,7 @@ export const surfaceColors = {
 type SurfaceColors = keyof typeof surfaceColors;
 
 export const strokeColors = {
-  'stroke-extra-light': neutral.n200.theme('stroke-extra-light'),
+  'stroke-extra-light': neutral.n250.theme('stroke-extra-light'),
   'stroke-light': neutral.n500.theme('stroke-light'),
   'stroke-medium': neutral.n600.theme('stroke-medium'),
   'stroke-dark': neutral.n700.theme('stroke-dark'),

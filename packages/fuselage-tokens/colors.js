@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   'd100': '#FFE9EC',
   'd200': '#FFC1C9',
@@ -20,6 +22,7 @@ module.exports = {
   'i900': '#012247',
   'n100': '#f7f8fa',
   'n200': '#f2f3f5',
+  'n250': '#EBECEF',
   'n300': '#eeeff1',
   'n400': '#e4e7ea',
   'n500': '#cbced1',
@@ -46,7 +49,6 @@ module.exports = {
   's700': '#19AC7C',
   's800': '#148660',
   's900': '#106D4F',
-  's1000': '#0D5940',
   's1-100': '#FDE8D7',
   's1-200': '#FAD1B0',
   's1-300': '#F7B27B',
