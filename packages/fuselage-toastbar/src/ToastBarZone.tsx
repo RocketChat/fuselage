@@ -1,6 +1,4 @@
-// import { Box } from '@rocket.chat/fuselage';
 import styled from '@rocket.chat/styled';
-// import { css } from '@rocket'
 import type { ReactNode, ReactElement } from 'react';
 import React from 'react';
 
@@ -19,11 +17,11 @@ export const ToastBarContainer = styled(
     props
 )`
   position: fixed;
-  gap: 1rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   margin: 1rem;
+  z-index: 1;
   ${(p) => (p.position ? positionProps[p.position] : '')}
 `;
 
