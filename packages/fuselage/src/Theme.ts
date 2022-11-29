@@ -185,11 +185,17 @@ export const statusBackgroundColors = {
   'status-background-success': success.s200.theme('status-background-success'),
   'status-background-danger': danger.d200.theme('status-background-danger'),
   'status-background-warning': warning.w200.theme('status-background-warning'),
+  'status-background-warning-2': warning.w100.theme(
+    'status-background-warning-2'
+  ),
   'status-background-service-1': service1['200'].theme(
     'status-background-service-1'
   ),
   'status-background-service-2': service2['200'].theme(
     'status-background-service-2'
+  ),
+  'status-background-service-3': service2['700'].theme(
+    'status-background-service-3'
   ),
 };
 
@@ -199,9 +205,11 @@ export const statusColors = {
   'status-font-on-info': info.i600.theme('status-font-on-info'),
   'status-font-on-success': success.s800.theme('status-font-on-success'),
   'status-font-on-warning': warning.w900.theme('status-font-on-warning'),
+  'status-font-on-warning-2': neutral.n800.theme('status-font-on-warning-2'),
   'status-font-on-danger': danger.d800.theme('status-font-on-danger'),
   'status-font-on-service-1': service1[800].theme('status-font-on-service-1'),
   'status-font-on-service-2': service2[600].theme('status-font-on-service-2'),
+  'status-font-on-service-3': neutral.n800.theme('status-font-on-service-3'),
 };
 
 type StatusColors = keyof typeof statusColors;
