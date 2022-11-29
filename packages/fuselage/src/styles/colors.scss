@@ -116,6 +116,8 @@ $-font: (
   titles-labels: neutral(900),
   info: primary(600),
   danger: danger(600),
+  pure-black: neutral(800),
+  pure-white: white,
 );
 
 @function font($type, $scape: false) {
@@ -131,9 +133,11 @@ $-font: (
 $-status-backgrounds: (
   success: success(200),
   warning: warning(200),
+  warning-2: warning(100),
   danger: danger(200),
   service-1: service-1(200),
   service-2: service-2(200),
+  service-3: service-2(700),
   info: primary(200),
 );
 
@@ -145,9 +149,11 @@ $-status-backgrounds: (
 $-status-font: (
   on-success: success(800),
   on-warning: warning(900),
+  on-warning-2: neutral(800),
   on-danger: danger(800),
   on-service-1: service-1(800),
   on-service-2: service-2(600),
+  on-service-3: white,
   on-info: primary(600),
 );
 
@@ -157,7 +163,7 @@ $-status-font: (
 }
 
 $-strokes: (
-  extra-light: neutral(200),
+  extra-light: neutral(250),
   light: neutral(500),
   medium: neutral(600),
   dark: neutral(700),

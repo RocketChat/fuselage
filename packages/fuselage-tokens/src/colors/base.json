@@ -21,6 +21,7 @@
     "i900": { "value": "#012247", "group": "colors" },
     "n100": { "value": "#f7f8fa", "group": "colors" },
     "n200": { "value": "#f2f3f5", "group": "colors" },
+    "n250": { "value": "#EBECEF", "group": "colors" },
     "n300": { "value": "#eeeff1", "group": "colors" },
     "n400": { "value": "#e4e7ea", "group": "colors" },
     "n500": { "value": "#cbced1", "group": "colors" },

@@ -20,6 +20,7 @@ export default {
   'i900': '#012247',
   'n100': '#f7f8fa',
   'n200': '#f2f3f5',
+  'n250': '#EBECEF',
   'n300': '#eeeff1',
   'n400': '#e4e7ea',
   'n500': '#cbced1',
