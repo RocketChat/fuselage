@@ -42,7 +42,7 @@ $banner-colors-danger-color: functions.theme(
 .rcx-banner {
   @include elevation.elevation-level(2);
 
-  z-index: 1;
+  z-index: 2;
 
   display: flex;
   flex-flow: row nowrap;

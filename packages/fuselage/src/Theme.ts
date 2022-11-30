@@ -32,6 +32,7 @@ export const __setThrowErrorOnInvalidToken__ = (value: boolean) => {
 export const neutral = {
   n100: new Var('neutral-100', tokenColors.n100),
   n200: new Var('neutral-200', tokenColors.n200),
+  n250: new Var('neutral-250', tokenColors.n250),
   n300: new Var('neutral-300', tokenColors.n300),
   n400: new Var('neutral-400', tokenColors.n400),
   n500: new Var('neutral-500', tokenColors.n500),
@@ -144,7 +145,7 @@ export const surfaceColors = {
 type SurfaceColors = keyof typeof surfaceColors;
 
 export const strokeColors = {
-  'stroke-extra-light': neutral.n200.theme('stroke-extra-light'),
+  'stroke-extra-light': neutral.n250.theme('stroke-extra-light'),
   'stroke-light': neutral.n500.theme('stroke-light'),
   'stroke-medium': neutral.n600.theme('stroke-medium'),
   'stroke-dark': neutral.n700.theme('stroke-dark'),
@@ -174,6 +175,8 @@ export const textIconColors = {
   'font-on-danger': danger.d800.theme('font-on-danger'),
   'font-on-service-1': service1[800].theme('font-on-service-1'),
   'font-on-service-2': service2[600].theme('font-on-service-2'),
+  'font-pure-black': neutral.n800.theme('font-pure-black'),
+  'font-pure-white': white.theme('font-pure-white'),
 };
 
 type TextIconColors = keyof typeof textIconColors;
@@ -183,11 +186,17 @@ export const statusBackgroundColors = {
   'status-background-success': success.s200.theme('status-background-success'),
   'status-background-danger': danger.d200.theme('status-background-danger'),
   'status-background-warning': warning.w200.theme('status-background-warning'),
+  'status-background-warning-2': warning.w100.theme(
+    'status-background-warning-2'
+  ),
   'status-background-service-1': service1['200'].theme(
     'status-background-service-1'
   ),
   'status-background-service-2': service2['200'].theme(
     'status-background-service-2'
+  ),
+  'status-background-service-3': service2['700'].theme(
+    'status-background-service-3'
   ),
 };
 
@@ -197,9 +206,11 @@ export const statusColors = {
   'status-font-on-info': info.i600.theme('status-font-on-info'),
   'status-font-on-success': success.s800.theme('status-font-on-success'),
   'status-font-on-warning': warning.w900.theme('status-font-on-warning'),
+  'status-font-on-warning-2': neutral.n800.theme('status-font-on-warning-2'),
   'status-font-on-danger': danger.d800.theme('status-font-on-danger'),
   'status-font-on-service-1': service1[800].theme('status-font-on-service-1'),
   'status-font-on-service-2': service2[600].theme('status-font-on-service-2'),
+  'status-font-on-service-3': white.theme('status-font-on-service-3'),
 };
 
 type StatusColors = keyof typeof statusColors;
