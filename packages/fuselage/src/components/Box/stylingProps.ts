@@ -8,7 +8,6 @@ import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
 import {
   borderRadius,
   borderWidth,
-  color,
   backgroundColor,
   fontColor,
   fontFamily,
