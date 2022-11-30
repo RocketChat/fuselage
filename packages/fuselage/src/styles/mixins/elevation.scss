@@ -7,14 +7,18 @@
       0
       12px
       0
-      functions.theme('shadow-elevation-1', colors.elevation(1));
+      functions.theme('color-shadow-elevation-1', colors.elevation(1));
   }
   @if $level == 2 {
     box-shadow: 0
         0
         2px
         0
-        functions.theme('shadow-elevation-2x', colors.elevation('2x')),
-      0 0 12px 0 functions.theme('shadow-elevation-2y', colors.elevation('2y'));
+        functions.theme('color-shadow-elevation-2x', colors.elevation('2x')),
+      0
+        0
+        12px
+        0
+        functions.theme('color-shadow-elevation-2y', colors.elevation('2y'));
   }
 }
