@@ -96,7 +96,7 @@ const isPaletteColorAlpha = (alpha: unknown): alpha is number | undefined =>
 const isPaletteColorRef = (ref: unknown): ref is keyof typeof tokenColors =>
   typeof ref === 'string' && ref in tokenColors;
 
-const getPaletteColor = (
+export const getPaletteColor = (
   type: keyof typeof mapTypeToPrefix,
   grade: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
   alpha?: number
