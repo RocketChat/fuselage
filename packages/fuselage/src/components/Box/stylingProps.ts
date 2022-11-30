@@ -3,11 +3,11 @@ import { css } from '@rocket.chat/css-in-js';
 import type { CSSProperties } from 'react';
 
 import type { Var } from '../../Theme';
+import { Palette } from '../../Theme';
 import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
 import {
   borderRadius,
   borderWidth,
-  color,
   backgroundColor,
   fontColor,
   fontFamily,
@@ -374,14 +374,16 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
 
       if (value === '1') {
         return css`
-          box-shadow: 0px 0px 12px 0px ${color('neutral-800-10')};
+          box-shadow: 0px 0px 12px 0px ${Palette.shadow['shadow-elevation-1']};
+          border: 1px solid ${Palette.shadow['shadow-elevation-border']};
         `;
       }
 
       if (value === '2') {
         return css`
-          box-shadow: 0px 0px 2px 0px ${color('neutral-800-8')},
-            0px 0px 12px 0px ${color('neutral-800-12')};
+          box-shadow: 0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
+            0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
+          border: 1px solid ${Palette.shadow['shadow-elevation-border']};
         `;
       }
     },
