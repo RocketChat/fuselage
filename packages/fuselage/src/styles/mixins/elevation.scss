@@ -3,9 +3,6 @@
 
 @mixin elevation-level($level) {
   @if $level == 1 {
-    border: 1px
-      solid
-      functions.theme('shadow-elevation-border', colors.elevation(border));
     box-shadow: 0
       0
       12px
@@ -13,9 +10,6 @@
       functions.theme('shadow-elevation-1', colors.elevation(1));
   }
   @if $level == 2 {
-    border: 1px
-      solid
-      functions.theme('shadow-elevation-border', colors.elevation(border));
     box-shadow: 0
         0
         2px

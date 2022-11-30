@@ -375,7 +375,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
       if (value === '1') {
         return css`
           box-shadow: 0px 0px 12px 0px ${Palette.shadow['shadow-elevation-1']};
-          border: 1px solid ${Palette.shadow['shadow-elevation-border']};
         `;
       }
 
@@ -383,7 +382,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
         return css`
           box-shadow: 0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
             0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
-          border: 1px solid ${Palette.shadow['shadow-elevation-border']};
         `;
       }
     },
