@@ -38,12 +38,16 @@ $message-background-color-selected: functions.theme(
 
 $message-background-color-editing: functions.theme(
   'message-background-color-editing',
-  colors.status-background(warning)
+  colors.status-background(warning-2)
+);
+$message-color-editing: functions.theme(
+  'message-background-color-editing',
+  colors.status-font(on-warning-2)
 );
 
 $message-background-color-highlight: functions.theme(
   'message-background-color-highlight',
-  colors.status-background(warning)
+  colors.status-background(warning-2)
 );
 
 .rcx-message {
@@ -71,6 +75,7 @@ $message-background-color-highlight: functions.theme(
   }
 
   &--editing {
+    color: $message-color-editing !important;
     background: $message-background-color-editing !important;
   }
 
