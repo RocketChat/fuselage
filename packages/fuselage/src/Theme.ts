@@ -1,7 +1,7 @@
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 
+import { getPaletteColor } from './getPaletteColor';
 import { toCSSColorValue } from './helpers/toCSSValue';
-import { getPaletteColor } from './styleTokens';
 
 export class Var {
   private name: string;
@@ -214,9 +214,21 @@ export const badgeBackgroundColors = {
 type BadgeBackgroundColors = keyof typeof badgeBackgroundColors;
 
 export const shadowColors = {
-  'shadow-elevation-1': getPaletteColor('neutral', 800, 0.1)[1],
-  'shadow-elevation-2x': getPaletteColor('neutral', 800, 0.08)[1],
-  'shadow-elevation-2y': getPaletteColor('neutral', 800, 0.12)[1],
+  'shadow-elevation-border': strokeColors['stroke-extra-light'].theme(
+    'shadow-elevation-border'
+  ),
+  'shadow-elevation-1': new Var(
+    'shadow-elevation-1',
+    getPaletteColor('neutral', 800, 0.1)[1]
+  ),
+  'shadow-elevation-2x': new Var(
+    'shadow-elevation-2x',
+    getPaletteColor('neutral', 800, 0.08)[1]
+  ),
+  'shadow-elevation-2y': new Var(
+    'shadow-elevation-2y',
+    getPaletteColor('neutral', 800, 0.12)[1]
+  ),
 };
 
 type ShadowColors = keyof typeof shadowColors;

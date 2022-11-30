@@ -2,9 +2,11 @@
 
 @mixin elevation-level($level) {
   @if $level == 1 {
+    border: 1px solid colors.elevation(border);
     box-shadow: 0 0 12px 0 colors.elevation(1);
   }
   @if $level == 2 {
+    border: 1px solid colors.elevation(border);
     box-shadow: 0 0 2px 0 colors.elevation('2x'),
       0 0 12px 0 colors.elevation('2y');
   }
