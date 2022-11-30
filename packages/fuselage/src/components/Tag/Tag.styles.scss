@@ -85,15 +85,15 @@ $tag-colors-warning-hover-background-color: theme(
 );
 
 $tag-colors-featured-color: theme(
-  'tag-colors-warning-color',
+  'tag-colors-featured-color',
   colors.button(on-primary)
 );
 $tag-colors-featured-background-color: theme(
-  'tag-colors-warning-background-color',
+  'tag-colors-featured-background-color',
   colors.tag(featured)
 );
 $tag-colors-featured-hover-background-color: theme(
-  'tag-colors-warning-hover-background-color',
+  'tag-colors-featured-hover-background-color',
   colors.tag(featured-hover)
 );
 
