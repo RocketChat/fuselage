@@ -2,6 +2,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/functions.scss';
+@use '../../styles/mixins/elevation.scss';
 
 .rcx-tile {
   display: block;
@@ -20,13 +21,10 @@
   }
 
   &--elevation-1 {
-    border: 1px solid colors.stroke(extra-light);
-    box-shadow: 0 0 12px 0 colors.elevation(1);
+    @include elevation.elevation-level(1);
   }
 
   &--elevation-2 {
-    border: 1px solid colors.stroke(extra-light);
-    box-shadow: 0 0 2px 0 colors.elevation('2x'),
-      0 0 12px 0 colors.elevation('2y');
+    @include elevation.elevation-level(2);
   }
 }

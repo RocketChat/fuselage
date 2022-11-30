@@ -1,5 +1,6 @@
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 
+import { getPaletteColor } from './getPaletteColor';
 import { toCSSColorValue } from './helpers/toCSSValue';
 
 export class Var {
@@ -223,6 +224,26 @@ export const badgeBackgroundColors = {
 
 type BadgeBackgroundColors = keyof typeof badgeBackgroundColors;
 
+export const shadowColors = {
+  'shadow-elevation-border': strokeColors['stroke-extra-light'].theme(
+    'shadow-elevation-border'
+  ),
+  'shadow-elevation-1': new Var(
+    'shadow-elevation-1',
+    getPaletteColor('neutral', 800, 0.1)[1]
+  ),
+  'shadow-elevation-2x': new Var(
+    'shadow-elevation-2x',
+    getPaletteColor('neutral', 800, 0.08)[1]
+  ),
+  'shadow-elevation-2y': new Var(
+    'shadow-elevation-2y',
+    getPaletteColor('neutral', 800, 0.12)[1]
+  ),
+};
+
+type ShadowColors = keyof typeof shadowColors;
+
 export const isSurfaceColor = (color: unknown): color is SurfaceColors =>
   typeof color === 'string' && color in surfaceColors;
 
@@ -243,6 +264,9 @@ export const isStatusBackgroundColor = (
 export const isStatusColor = (color: unknown): color is StatusColors =>
   typeof color === 'string' && color in statusColors;
 
+export const isShadowColor = (color: unknown): color is ShadowColors =>
+  typeof color === 'string' && color in shadowColors;
+
 export const Palette = {
   surface: surfaceColors,
   status: statusBackgroundColors,
@@ -250,4 +274,5 @@ export const Palette = {
   badge: badgeBackgroundColors,
   text: textIconColors,
   stroke: strokeColors,
+  shadow: shadowColors,
 };
