@@ -70,7 +70,7 @@ export function ToastBar({
     >
       <Box
         className={`rcx-toastbar rcx-toastbar--${variant} ${className}`}
-        elevation='1'
+        elevation='2nb'
       >
         <div className='rcx-toastbar-inner'>
           <Icon size='x20' name={iconName} />
