@@ -50,15 +50,6 @@ Secondary.args = {
   variant: 'secondary',
 };
 
-export const WithIcon = Template.bind({});
-WithIcon.args = {
-  children: (
-    <>
-      <Icon size='x12' mie='x4' name='team-lock' /> Team
-    </>
-  ),
-};
-
 export const _Danger = Template.bind({});
 _Danger.args = {
   variant: 'danger',
@@ -71,6 +62,16 @@ _SecondaryDanger.args = {
 export const Warning = Template.bind({});
 Warning.args = {
   variant: 'warning',
+};
+
+export const Featured = Template.bind({});
+Featured.args = {
+  variant: 'featured',
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  icon: <Icon size='x12' mie='x2' name='team-lock' />,
 };
 
 export const Disabled = Template.bind({});
