@@ -71,11 +71,7 @@ Featured.args = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  children: (
-    <>
-      <Icon size='x12' mie='x4' name='team-lock' /> Team
-    </>
-  ),
+  icon: <Icon size='x12' mie='x2' name='team-lock' />,
 };
 
 export const Disabled = Template.bind({});
