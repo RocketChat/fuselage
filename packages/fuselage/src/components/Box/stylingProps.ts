@@ -153,7 +153,7 @@ export type StylingProps = {
   textDecorationLine: CSSProperties['textDecorationLine'];
   wordBreak: CSSProperties['wordBreak'];
 
-  elevation: '0' | '1' | '2';
+  elevation: '0' | '1' | '2' | '1nb' | '2nb';
   invisible: boolean;
   withTruncatedText: boolean;
   size: CSSProperties['blockSize'];
