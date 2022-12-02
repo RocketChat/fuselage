@@ -116,6 +116,15 @@ $tag-colors-disabled-background-color: theme(
 
   @include typography.use-font-scale(micro);
 
+  &__inner {
+    overflow: hidden;
+
+    min-width: 0;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   &--primary {
     color: $tag-colors-primary-color;
     background-color: $tag-colors-primary-background-color;
