@@ -4,7 +4,7 @@
 
 $message-background-color: theme(
   'message-background-color',
-  colors.background(light)
+  colors.surface(light)
 );
 
 $message-divider-background-color: theme(
@@ -39,7 +39,7 @@ $message-divider-size-neg: theme(
   align-items: center;
 
   margin-bottom: $message-divider-size-neg;
-  margin-inline: lengths.margin(20);
+  padding-inline: lengths.margin(20);
 
   color: $message-divider-color;
   background-color: $message-background-color;

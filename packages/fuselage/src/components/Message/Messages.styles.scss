@@ -38,12 +38,16 @@ $message-background-color-selected: functions.theme(
 
 $message-background-color-editing: functions.theme(
   'message-background-color-editing',
-  colors.status-background(warning)
+  colors.status-background(warning-2)
+);
+$message-color-editing: functions.theme(
+  'message-background-color-editing',
+  colors.status-font(on-warning-2)
 );
 
 $message-background-color-highlight: functions.theme(
   'message-background-color-highlight',
-  colors.status-background(warning)
+  colors.status-background(warning-2)
 );
 
 .rcx-message {
@@ -71,6 +75,7 @@ $message-background-color-highlight: functions.theme(
   }
 
   &--editing {
+    color: $message-color-editing !important;
     background: $message-background-color-editing !important;
   }
 
@@ -133,8 +138,13 @@ $message-background-color-highlight: functions.theme(
       color: colors.font(annotation);
     }
 
-    &__name {
+    &__name-container {
       @extend %rcx-margins-header;
+
+      display: inline;
+    }
+
+    &__name {
       @include typography.use-font-scale(h5);
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
@@ -143,8 +153,7 @@ $message-background-color-highlight: functions.theme(
     }
 
     &__username {
-      @extend %rcx-margins-header;
-      @include typography.use-font-scale(p2m);
+      @include typography.use-font-scale(p2);
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
@@ -173,6 +182,22 @@ $message-background-color-highlight: functions.theme(
     opacity: 1;
 
     color: colors.font(default);
+
+    & h1 {
+      @include typography.use-font-scale(h1);
+    }
+
+    & h2 {
+      @include typography.use-font-scale(h2);
+    }
+
+    & h3 {
+      @include typography.use-font-scale(h3);
+    }
+
+    & h4 {
+      @include typography.use-font-scale(h4);
+    }
 
     & ul,
     ol {
@@ -233,17 +258,6 @@ $message-background-color-highlight: functions.theme(
 
       width: 100;
       max-width: functions.theme('message-block-width-fixed', 368px);
-    }
-  }
-
-  &-paragraph {
-    margin: 0;
-    padding: 0;
-
-    &:empty::before {
-      display: inline-block;
-
-      content: '';
     }
   }
 

@@ -56,15 +56,6 @@ const Banner = ({
   const isIconVisible = useMemo(() => inlineSize > 375, [inlineSize]);
 
   variant = variants.includes(variant) ? variant : variants[0];
-  const closeButtonProps = useMemo(
-    () => ({
-      info: variant === 'info',
-      success: variant === 'success',
-      warning: variant === 'warning',
-      danger: variant === 'danger',
-    }),
-    [variant]
-  );
 
   const handleBannerClick = useCallback(() => {
     if (onAction) {
@@ -95,7 +86,13 @@ const Banner = ({
       {...props}
     >
       {icon && isIconVisible && (
-        <div className={cx('rcx-banner__icon')({ inline })}>{icon}</div>
+        <div
+          className={cx(`rcx-banner__icon rcx-banner__icon--${variant}`)({
+            inline,
+          })}
+        >
+          {icon}
+        </div>
       )}
       <div className={cx('rcx-banner__content')({ inline })}>
         {title && (
@@ -114,12 +111,7 @@ const Banner = ({
       </div>
       {closeable && (
         <div className={cx('rcx-banner__close-button')({ inline })}>
-          <IconButton
-            small
-            {...closeButtonProps}
-            onClick={handleCloseButtonClick}
-            icon='cross'
-          />
+          <IconButton small onClick={handleCloseButtonClick} icon='cross' />
         </div>
       )}
     </section>

@@ -4,8 +4,6 @@ import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
 
 import {
-  backgroundColors,
-  isBackgroundColor,
   isStatusBackgroundColor,
   isStatusColor,
   isStrokeColor,
@@ -19,6 +17,7 @@ import {
   statusColors,
   throwErrorOnInvalidToken,
 } from './Theme';
+import { getPaletteColor } from './getPaletteColor';
 import {
   toCSSColorValue,
   toCSSFontValue,
@@ -95,38 +94,6 @@ const isPaletteColorAlpha = (alpha: unknown): alpha is number | undefined =>
   alpha === undefined ||
   (typeof alpha === 'number' && alpha >= 0 && alpha <= 1);
 
-const isPaletteColorRef = (ref: unknown): ref is keyof typeof tokenColors =>
-  typeof ref === 'string' && ref in tokenColors;
-
-const getPaletteColor = (
-  type: keyof typeof mapTypeToPrefix,
-  grade: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
-  alpha?: number
-): [customPropertyName: string, value: string] => {
-  const ref = `${mapTypeToPrefix[type]}${grade}`;
-  invariant(isPaletteColorRef(ref), 'invalid color reference');
-
-  const baseColor = tokenColors[ref];
-
-  const matches = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/.exec(
-    baseColor
-  );
-
-  invariant(!!matches, 'invalid color token format');
-
-  if (alpha !== undefined) {
-    const [, r, g, b] = matches;
-    return [
-      `--rcx-color-${type}-${grade}-${(alpha * 100).toFixed(0)}`,
-      `rgba(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)}, ${
-        alpha * 100
-      }%)`,
-    ];
-  }
-
-  return [`--rcx-color-${type}-${grade}`, baseColor];
-};
-
 const foregroundColors = {
   'default': tokenColors.n800,
   'info': tokenColors.n700,
@@ -168,12 +135,14 @@ export const strokeColor = memoize((value) => {
 });
 
 export const backgroundColor = memoize((value) => {
+  const colorName = `surface-${value}`;
+
   if (isSurfaceColor(value)) {
     return surfaceColors[value].toString();
   }
-  const colorName = `background-${value}`;
-  if (isBackgroundColor(colorName)) {
-    return backgroundColors[colorName].toString();
+
+  if (isSurfaceColor(colorName)) {
+    return surfaceColors[colorName].toString();
   }
 
   if (isStatusBackgroundColor(value)) {
@@ -213,9 +182,6 @@ export const color = memoize((value) => {
 
   if (isSurfaceColor(value)) {
     return surfaceColors[value].toString();
-  }
-  if (isBackgroundColor(value)) {
-    return backgroundColors[value].toString();
   }
 
   if (isStatusBackgroundColor(value)) {

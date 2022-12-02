@@ -30,12 +30,7 @@ export const header = (pkg) =>
       licenseBadge(pkg)
     )}
 
-    ${badges(
-      depsBadge(pkg),
-      depsBadge(pkg, 'peer'),
-      depsBadge(pkg, 'dev'),
-      bundleSizeBadge(pkg)
-    )}
+    ${badges(depsBadge(pkg), bundleSizeBadge(pkg))}
   `,
   ]
     .filter(Boolean)

@@ -1,6 +1,7 @@
 {
   "name": "@rocket.chat/icons",
   "version": "0.31.21",
+  "description": "Rocket.Chat's Icons",
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
