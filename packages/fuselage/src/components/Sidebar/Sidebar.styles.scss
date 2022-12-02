@@ -180,11 +180,6 @@ $sidebar-footer-highlight-color: theme(
     &--clickable {
       @include clickable;
 
-      @include on-focus-visible {
-        // color: $sidebar-item-color-hover;
-        // background-color: $sidebar-item-background-color-hover;
-      }
-
       @include on-hover {
         @include use-no-shadow;
         // color: $sidebar-item-color-hover;
@@ -199,15 +194,16 @@ $sidebar-footer-highlight-color: theme(
 
     &:active,
     &--selected {
-      background-color: $sidebar-color-surface-selected !important;
+      background-color: $sidebar-color-surface-selected;
     }
 
     &--featured {
       color: $sidebar-item-color-featured;
       background-color: $sidebar-item-background-color-featured;
 
-      &:hover {
-        background-color: $sidebar-item-background-color-featured-hover !important;
+      &:hover,
+      :active {
+        background-color: $sidebar-item-background-color-featured-hover;
       }
     }
 
