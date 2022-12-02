@@ -153,7 +153,7 @@ export type StylingProps = {
   textDecorationLine: CSSProperties['textDecorationLine'];
   wordBreak: CSSProperties['wordBreak'];
 
-  elevation: '0' | '1' | '2' | '1nb' | '2nb';
+  elevation: '0' | '1' | '2';
   invisible: boolean;
   withTruncatedText: boolean;
   size: CSSProperties['blockSize'];
@@ -374,29 +374,36 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
 
       if (value === '1') {
         return css`
-          box-shadow: 0px 0px 12px 0px ${Palette.shadow['shadow-elevation-1']};
-          border: 1px solid ${Palette.shadow['shadow-elevation-border']};
-        `;
-      }
-
-      if (value === '1nb') {
-        return css`
-          box-shadow: 0px 0px 12px 0px ${Palette.shadow['shadow-elevation-1']};
+          position: relative;
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            box-shadow: 0px 0px 12px 0px ${Palette.shadow['shadow-elevation-1']};
+            border: 1px solid ${Palette.shadow['shadow-elevation-border']};
+          }
         `;
       }
 
       if (value === '2') {
         return css`
-          box-shadow: 0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
-            0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
-          border: 1px solid ${Palette.shadow['shadow-elevation-border']};
-        `;
-      }
-
-      if (value === '2nb') {
-        return css`
-          box-shadow: 0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
-            0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
+          position: relative;
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            box-shadow: 0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
+              0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
+            border: 1px solid ${Palette.shadow['shadow-elevation-border']};
+          }
         `;
       }
     },

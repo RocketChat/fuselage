@@ -1,32 +1,42 @@
 @use '../colors.scss';
 @use '../../styles/functions.scss';
 
-@mixin elevation-level($level, $border: true) {
-  @if $level == 1 {
-    box-shadow: 0
-      0
-      12px
-      0
-      functions.theme('color-shadow-elevation-1', colors.elevation(1));
-  }
-  @if $level == 2 {
-    box-shadow: 0
-        0
-        2px
-        0
-        functions.theme('color-shadow-elevation-2x', colors.elevation('2x')),
-      0
+@mixin elevation-level($level) {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    content: '';
+    @if $level == 1 {
+      border: 1px
+        solid
+        functions.theme('shadow-elevation-border', colors.elevation(border));
+      box-shadow: 0
         0
         12px
         0
-        functions.theme('color-shadow-elevation-2y', colors.elevation('2y'));
-  }
-  @if $border {
-    border: 1px
-      solid
-      functions.theme(
-        'color-shadow-elevation-border',
-        colors.elevation(border)
-      );
+        functions.theme('shadow-elevation-1', colors.elevation(1));
+    }
+    @if $level == 2 {
+      border: 1px
+        solid
+        functions.theme('shadow-elevation-border', colors.elevation(border));
+      box-shadow: 0
+          0
+          2px
+          0
+          functions.theme('shadow-elevation-2x', colors.elevation('2x')),
+        0
+          0
+          12px
+          0
+          functions.theme('shadow-elevation-2y', colors.elevation('2y'));
+    }
   }
 }
