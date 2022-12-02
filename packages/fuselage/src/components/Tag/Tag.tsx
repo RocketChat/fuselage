@@ -1,4 +1,4 @@
-import type { AllHTMLAttributes, ReactNode } from 'react';
+import type { AllHTMLAttributes } from 'react';
 import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
@@ -6,15 +6,8 @@ import { prependClassName } from '../../helpers/prependClassName';
 type TagProps = {
   medium?: boolean;
   large?: boolean;
-  variant?:
-    | 'primary'
-    | 'secondary'
-    | 'danger'
-    | 'warning'
-    | 'secondary-danger'
-    | 'featured';
+  variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'secondary-danger';
   disabled?: boolean;
-  icon?: ReactNode;
 } & AllHTMLAttributes<HTMLSpanElement>;
 
 export const Tag = ({
@@ -24,8 +17,6 @@ export const Tag = ({
   disabled,
   onClick,
   variant,
-  children,
-  icon,
   ...props
 }: TagProps) => {
   const modifiers = [
@@ -44,9 +35,6 @@ export const Tag = ({
       className={prependClassName(className as string, `rcx-tag ${modifiers}`)}
       onClick={onClick}
       {...props}
-    >
-      {icon}
-      <span className='rcx-tag__inner'>{children}</span>
-    </span>
+    />
   );
 };
