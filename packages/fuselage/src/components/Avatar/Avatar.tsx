@@ -1,8 +1,16 @@
-import type { DetailedHTMLProps, HTMLAttributes } from 'react';
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { prependClassName } from '../../helpers/prependClassName';
+import { AvatarEmoji } from './AvatarEmoji';
+
+export type AvatarEmojiProps = {
+  name: string;
+  className?: string;
+  children?: ReactNode;
+  image?: string;
+};
 
 export type AvatarProps = {
   size?:
@@ -21,6 +29,7 @@ export type AvatarProps = {
   rounded?: boolean;
   objectFit?: boolean;
   url: string;
+  emoji?: AvatarEmojiProps;
 } & HTMLAttributes<HTMLElement>;
 
 export const Avatar = ({
@@ -29,6 +38,7 @@ export const Avatar = ({
   rounded = false,
   objectFit = false,
   url,
+  emoji,
   ...props
 }: AvatarProps) => {
   props.className = prependClassName(
@@ -48,7 +58,14 @@ export const Avatar = ({
 
   return (
     <figure aria-label={title} {...props}>
-      <img src={`${url}`} className={`${innerClass}`} />
+      {emoji ? (
+        <AvatarEmoji
+          {...emoji}
+          className={`${emoji.className} ${innerClass}`}
+        />
+      ) : (
+        <img src={`${url}`} className={`${innerClass}`} />
+      )}
     </figure>
   );
 };
