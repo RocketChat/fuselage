@@ -27,7 +27,12 @@ const Template: ComponentStory<typeof Avatar> = (args) => (
   <Margins all='x16'>
     {sizes.map((size, i) => (
       <Box display='inline-flex' verticalAlign='middle' key={i}>
-        <Avatar url={args.url} size={size} rounded={args.rounded} />
+        <Avatar
+          url={args.url}
+          size={size}
+          rounded={args.rounded}
+          emoji={args.emoji}
+        />
       </Box>
     ))}
   </Margins>
@@ -70,4 +75,14 @@ export const StackRounded = StackTemplate.bind({});
 StackRounded.args = {
   url: imgUrl,
   rounded: true,
+};
+
+export const EmojiAvatar = Template.bind({});
+EmojiAvatar.args = {
+  url: imgUrl,
+  emoji: {
+    className: '',
+    children: <i className='emoji emoji-smile' />,
+    name: '',
+  },
 };
