@@ -6,13 +6,7 @@ import { prependClassName } from '../../helpers/prependClassName';
 type TagProps = {
   medium?: boolean;
   large?: boolean;
-  variant?:
-    | 'primary'
-    | 'secondary'
-    | 'danger'
-    | 'warning'
-    | 'secondary-danger'
-    | 'featured';
+  variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'secondary-danger';
   disabled?: boolean;
   icon?: ReactNode;
 } & AllHTMLAttributes<HTMLSpanElement>;
