@@ -17,11 +17,10 @@ export const ToastBarContainer = styled(
     props
 )`
   position: fixed;
+  gap: 1rem;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   margin: 1rem;
-  z-index: 1;
   ${(p) => (p.position ? positionProps[p.position] : '')}
 `;
 

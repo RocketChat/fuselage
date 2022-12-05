@@ -312,23 +312,3 @@ $-elevation-level: (
 @function elevation($level) {
   @return map.get($-elevation-level, $level);
 }
-
-$-tag-backgrounds: (
-  default: neutral(400),
-  default-hover: neutral(500),
-  primary: primary(500),
-  primary-hover: primary(600),
-  secondary: neutral(400),
-  secondary-hover: neutral(500),
-  danger: danger(500),
-  danger-hover: danger(600),
-  warning: warning(400),
-  warning-hover: warning(500),
-  featured: service-2(700),
-  featured-hover: service-2(800),
-);
-
-@function tag($type) {
-  $color: map.get($-tag-backgrounds, $type);
-  @return var(--rcx-color-tag-background-#{$type}, $color);
-}
