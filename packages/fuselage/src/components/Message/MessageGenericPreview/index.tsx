@@ -6,3 +6,4 @@ export * from './MessageGenericPreviewCoverImage';
 export * from './MessageGenericPreviewImage';
 export * from './MessageGenericPreviewThumb';
 export * from './MessageGenericPreviewTitle';
+export * from './MessageGenericPreviewIcon';
