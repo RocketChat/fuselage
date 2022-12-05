@@ -99,7 +99,8 @@ $-surfaces: (
   selected: neutral(500),
   hover: neutral(200),
   dark: neutral(900),
-  featured: service-2(700) featured-hover: service-2(800),
+  featured: service-2(700),
+  featured-hover: service-2(800),
 );
 
 @function surface($type) {
