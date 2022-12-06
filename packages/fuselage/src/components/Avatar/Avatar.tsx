@@ -56,13 +56,12 @@ export const Avatar = ({
     .filter(Boolean)
     .join(' ');
 
+  const emojiClassName = prependClassName(emoji?.className, innerClass);
+
   return (
     <figure aria-label={title} {...props}>
       {emoji ? (
-        <AvatarEmoji
-          {...emoji}
-          className={`${emoji.className} ${innerClass}`}
-        />
+        <AvatarEmoji {...emoji} className={`${emojiClassName}`} />
       ) : (
         <img src={`${url}`} className={`${innerClass}`} />
       )}
