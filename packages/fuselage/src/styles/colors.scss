@@ -99,6 +99,8 @@ $-surfaces: (
   selected: neutral(500),
   hover: neutral(200),
   dark: neutral(900),
+  featured: service-2(700),
+  featured-hover: service-2(800),
 );
 
 @function surface($type) {
@@ -137,7 +139,6 @@ $-status-backgrounds: (
   danger: danger(200),
   service-1: service-1(200),
   service-2: service-2(200),
-  service-3: service-2(700),
   info: primary(200),
 );
 
@@ -153,7 +154,6 @@ $-status-font: (
   on-danger: danger(800),
   on-service-1: service-1(800),
   on-service-2: service-2(600),
-  on-service-3: white,
   on-info: primary(600),
 );
 
@@ -311,24 +311,4 @@ $-elevation-level: (
 
 @function elevation($level) {
   @return map.get($-elevation-level, $level);
-}
-
-$-tag-backgrounds: (
-  default: neutral(400),
-  default-hover: neutral(500),
-  primary: primary(500),
-  primary-hover: primary(600),
-  secondary: neutral(400),
-  secondary-hover: neutral(500),
-  danger: danger(500),
-  danger-hover: danger(600),
-  warning: warning(400),
-  warning-hover: warning(500),
-  featured: service-2(700),
-  featured-hover: service-2(800),
-);
-
-@function tag($type) {
-  $color: map.get($-tag-backgrounds, $type);
-  @return var(--rcx-color-tag-background-#{$type}, $color);
 }

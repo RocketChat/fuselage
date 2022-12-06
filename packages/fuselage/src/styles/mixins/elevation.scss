@@ -1,14 +1,8 @@
 @use '../colors.scss';
 @use '../../styles/functions.scss';
 
-@mixin elevation-level($level) {
+@mixin elevation-level($level, $border: true) {
   @if $level == 1 {
-    border: 1px
-      solid
-      functions.theme(
-        'color-shadow-elevation-border',
-        colors.elevation(border)
-      );
     box-shadow: 0
       0
       12px
@@ -16,12 +10,6 @@
       functions.theme('color-shadow-elevation-1', colors.elevation(1));
   }
   @if $level == 2 {
-    border: 1px
-      solid
-      functions.theme(
-        'color-shadow-elevation-border',
-        colors.elevation(border)
-      );
     box-shadow: 0
         0
         2px
@@ -32,5 +20,13 @@
         12px
         0
         functions.theme('color-shadow-elevation-2y', colors.elevation('2y'));
+  }
+  @if $border {
+    border: 1px
+      solid
+      functions.theme(
+        'color-shadow-elevation-border',
+        colors.elevation(border)
+      );
   }
 }
