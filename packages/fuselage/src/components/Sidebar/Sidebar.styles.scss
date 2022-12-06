@@ -41,7 +41,7 @@ $sidebar-color-stroke-focus: theme(
 $sidebar-item-color: theme('sidebar-item-color', colors.font(annotation));
 $sidebar-item-color-highlighted: theme(
   'sidebar-item-color-highlighted',
-  colors.font(white, true)
+  colors.font(pure-white)
 );
 $sidebar-item-background-color-hover: theme(
   'sidebar-item-background-color-hover',
@@ -66,7 +66,7 @@ $sidebar-item-color-selected: theme(
 
 $sidebar-item-background-color-featured: theme(
   'sidebar-item-background-color-featured',
-  colors.tag(featured)
+  colors.surface(featured)
 );
 $sidebar-item-color-featured: theme(
   'sidebar-item-color-featured',
@@ -74,11 +74,11 @@ $sidebar-item-color-featured: theme(
 );
 $sidebar-item-background-color-featured-hover: theme(
   'sidebar-item-background-color-featured-hover',
-  colors.tag(featured-hover)
+  colors.surface(featured-hover)
 );
 $sidebar-item-background-color-featured-selected: theme(
   'sidebar-item-background-color-featured-selected',
-  colors.tag(featured-hover)
+  colors.surface(featured-hover)
 );
 
 $sidebar-title-color: theme('sidebar-title-color', colors.font(annotation));
@@ -123,8 +123,15 @@ $sidebar-footer-highlight-color: theme(
 }
 
 .rcx-sidebar {
-  color: $sidebar-color-font-primary;
+  color: $sidebar-color-font-secondary;
   background: $sidebar-color-surface-default;
+
+  &--divider {
+    border-color: theme(
+      'sidebar-color-stroke-extra-light',
+      colors.stroke(extra-light)
+    );
+  }
 
   &-topbar {
     display: flex;
@@ -156,7 +163,7 @@ $sidebar-footer-highlight-color: theme(
     &__title {
       @include typography.use-font-scale(p2m);
 
-      color: $sidebar-title-color;
+      color: $sidebar-color-font-secondary;
     }
   }
 
@@ -167,7 +174,7 @@ $sidebar-footer-highlight-color: theme(
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
 
-    color: inherit;
+    color: $sidebar-color-font-secondary;
 
     &__wrapper {
       @extend %sidebar-base;
@@ -302,7 +309,7 @@ $sidebar-footer-highlight-color: theme(
     @include typography.use-font-scale(c2);
     @include typography.use-with-truncated-text();
 
-    // color: $sidebar-title-color;
+    color: $sidebar-color-font-secondary;
   }
 
   &-section {
