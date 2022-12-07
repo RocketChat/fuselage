@@ -4,43 +4,43 @@
 
 $badge-colors-primary-color: theme(
   'badge-colors-primary-color',
-  colors.font(white)
+  colors.font(pure-white)
 );
 $badge-colors-primary-background-color: theme(
   'badge-colors-primary-background-color',
-  colors.badge(primary)
+  colors.badge(level-2)
 );
 
 $badge-colors-secondary-color: theme(
   'badge-colors-secondary-color',
-  colors.font(white)
+  colors.font(pure-white)
 );
 $badge-colors-secondary-background-color: theme(
   'badge-colors-secondary-background-color',
-  colors.badge(secondary)
+  colors.badge(level-1)
 );
 
 $badge-colors-warning-color: theme(
   'badge-colors-warning-color',
-  colors.font(white)
+  colors.font(pure-white)
 );
 $badge-colors-warning-background-color: theme(
   'badge-colors-warning-background-color',
-  colors.badge(warning)
+  colors.badge(level-3)
 );
 
 $badge-colors-danger-color: theme(
   'badge-colors-danger-color',
-  colors.font(white)
+  colors.font(pure-white)
 );
 $badge-colors-danger-background-color: theme(
   'badge-colors-danger-background-color',
-  colors.badge(danger)
+  colors.badge(level-4)
 );
 
 $badge-colors-ghost-color: theme(
   'badge-colors-ghost-color',
-  colors.font(white)
+  colors.font(pure-white)
 );
 $badge-colors-ghost-background-color: theme(
   'badge-colors-ghost-background-color',

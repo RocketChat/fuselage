@@ -18,7 +18,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Shows a count.',
+        component: "Communicates notification's amount and types.",
       },
       page: () => (
         <>
@@ -52,14 +52,14 @@ Secondary.args = {
   variant: 'secondary',
 };
 
-export const Warning = Template.bind({});
-Warning.args = {
-  variant: 'warning',
-};
-
 export const Danger = Template.bind({});
 Danger.args = {
   variant: 'danger',
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  variant: 'warning',
 };
 
 export const Disabled = Template.bind({});
