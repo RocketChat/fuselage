@@ -6,6 +6,7 @@ import {
   Box,
   PasswordInput,
   TextInput,
+  Throbber,
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
@@ -106,8 +107,13 @@ const CreateFirstMemberForm = ({
             type='submit'
             primary
             disabled={isValidating || isSubmitting || !isValid}
+            minHeight='x40'
           >
-            {t('form.createFirstMemberForm.button.submit')}
+            {isSubmitting ? (
+              <Throbber inheritColor />
+            ) : (
+              t('form.createFirstMemberForm.button.submit')
+            )}
           </Button>
         </ButtonGroup>
       </Form.Footer>
