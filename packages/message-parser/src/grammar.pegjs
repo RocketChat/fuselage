@@ -287,9 +287,9 @@ LinkTitle2
 
 References
   = "[](" href:LinkRef ")" { return link(href); }
-  / "[" title:LinkTitle "](" href:LinkRef ")" { return link(href, title); }
+  / "[" title:LinkTitle* "](" href:LinkRef ")" { return link(href, title); }
   / "<" href:LinkRef "|" title:LinkTitle2 ">" {
-      return link(href, plain(title));
+      return link(href, [plain(title)]);
     }
 
 /* Macros */
@@ -307,7 +307,7 @@ AutolinkedPhone = p:Phone { return phoneChecker(p.text, p.number); }
 
 AutolinkedURL = u:URL { return link(u); }
 
-AutolinkedEmail = e:Email { return link('mailto:' + e, plain(e)); }
+AutolinkedEmail = e:Email { return link('mailto:' + e, [plain(e)]); }
 
 alpha = [a-zA-Z]
 

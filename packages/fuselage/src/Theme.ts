@@ -140,6 +140,8 @@ export const surfaceColors = {
   'surface-danger': danger.d200.theme('surface-danger'),
   'surface-service-1': service1['200'].theme('surface-service-1'),
   'surface-service-2': service2['200'].theme('surface-service-2'),
+  'surface-featured': service2['700'].theme('surface-featured'),
+  'surface-featured-hover': service2['800'].theme('surface-featured-hover'),
 };
 
 type SurfaceColors = keyof typeof surfaceColors;
@@ -195,9 +197,6 @@ export const statusBackgroundColors = {
   'status-background-service-2': service2['200'].theme(
     'status-background-service-2'
   ),
-  'status-background-service-3': service2['700'].theme(
-    'status-background-service-3'
-  ),
 };
 
 type StatusBackgroundColors = keyof typeof statusBackgroundColors;
@@ -210,7 +209,6 @@ export const statusColors = {
   'status-font-on-danger': danger.d800.theme('status-font-on-danger'),
   'status-font-on-service-1': service1[800].theme('status-font-on-service-1'),
   'status-font-on-service-2': service2[600].theme('status-font-on-service-2'),
-  'status-font-on-service-3': white.theme('status-font-on-service-3'),
 };
 
 type StatusColors = keyof typeof statusColors;
