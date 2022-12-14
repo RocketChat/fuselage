@@ -5,7 +5,7 @@
 @import './button-colors.scss';
 
 @function -color($type, $name, $value) {
-  @return var(--rcx-button-#{$type}-#{$name}, $value);
+  @return var(--rcx-color-button-#{$type}-#{$name}, $value);
 }
 
 @function palette-color($name) {
