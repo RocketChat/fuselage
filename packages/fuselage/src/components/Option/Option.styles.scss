@@ -109,6 +109,10 @@ $variants: (
     background: colors.surface(selected);
   }
 
+  &--disabled {
+    color: colors.font(disabled);
+  }
+
   &:hover &__menu-wrapper,
   &.focus-within &__menu-wrapper,
   &:focus-within &__menu-wrapper {
