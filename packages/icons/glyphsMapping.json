@@ -877,5 +877,11 @@
   },
   "spanner": {
     "start": "\ue109"
+  },
+  "attachment-file": {
+    "start": "\ue111"
+  },
+  "cloud-arrow-down": {
+    "start": "\ue113"
   }
 }
