@@ -168,7 +168,7 @@ export const WithIcon: ComponentStory<typeof Option> = () => (
   </Box>
 );
 
-export const WithDisabled: ComponentStory<typeof Option> = () => (
+export const Disabled: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={330}>
     <Option onClick={action('click')}>
       <OptionContent>Enabled</OptionContent>

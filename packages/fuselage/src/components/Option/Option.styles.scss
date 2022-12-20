@@ -110,6 +110,8 @@ $variants: (
   }
 
   &--disabled {
+    cursor: not-allowed;
+
     color: colors.font(disabled);
   }
 

@@ -1,7 +1,7 @@
 import type { SyntheticEvent } from 'react';
 
-export const prevent = (e: SyntheticEvent) => {
-  e.preventDefault();
-  e.stopPropagation();
-  e.nativeEvent.stopImmediatePropagation();
+export const prevent = (event: SyntheticEvent) => {
+  event.preventDefault();
+  event.stopPropagation();
+  event.nativeEvent.stopImmediatePropagation();
 };
