@@ -15,6 +15,7 @@ import React, { useState, useRef, useEffect, forwardRef } from 'react';
 
 import type { SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
+import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import Flex from '../Flex';
@@ -27,12 +28,6 @@ import SelectAddon from '../Select/SelectAddon';
 import MultiSelectAnchor from './MultiSelectAnchor';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import { SelectedOptions } from './SelectedOptions';
-
-const prevent = (e: SyntheticEvent) => {
-  e.preventDefault();
-  e.stopPropagation();
-  e.nativeEvent.stopImmediatePropagation();
-};
 
 type MultiSelectProps = Omit<
   ComponentProps<typeof Box>,
