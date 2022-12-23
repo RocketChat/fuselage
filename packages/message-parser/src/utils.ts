@@ -79,10 +79,10 @@ const isValidLink = (link: string) => {
 export const link = (() => {
   const fn = generate('LINK');
 
-  return (src: string, label?: Markup) => {
+  return (src: string, label?: Markup[]) => {
     const href = isValidLink(src) || src.startsWith('//') ? src : `//${src}`;
 
-    return fn({ src: plain(href), label: label || plain(src) });
+    return fn({ src: plain(href), label: label || [plain(src)] });
   };
 })();
 
@@ -193,3 +193,11 @@ export const inlineKatex = (content: string): InlineKaTeX => ({
   type: 'INLINE_KATEX',
   value: content,
 });
+
+export const phoneChecker = (text: string, number: string) => {
+  if (number.length < 5) {
+    return plain(text);
+  }
+
+  return link(`tel:${number}`, [plain(text)]);
+};

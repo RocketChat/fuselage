@@ -13,7 +13,7 @@
       "outputs": []
     },
     "build-storybook": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"]
     },
     "lint-staged": {

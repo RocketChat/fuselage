@@ -8,14 +8,14 @@ const getWidth = (percentage: number): string =>
 
 const getColor = (percentage: number, error?: string) => {
   if (error) {
-    return 'danger-200';
+    return 'status-font-on-danger';
   }
 
   if (percentage >= 100) {
-    return 'success-200';
+    return 'status-font-on-success';
   }
 
-  return 'primary-200';
+  return 'status-font-on-info';
 };
 
 type ProgressBarProps = ComponentProps<typeof Box> & {

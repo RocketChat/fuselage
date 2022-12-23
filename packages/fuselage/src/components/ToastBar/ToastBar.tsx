@@ -68,7 +68,11 @@ export function ToastBar({
       role='alert'
       aria-labelledby={toastId}
     >
-      <div className={`rcx-toastbar rcx-toastbar--${variant} ${className}`}>
+      <Box
+        className={`rcx-toastbar rcx-toastbar--${variant} ${className}`}
+        elevation='2nb'
+        borderRadius='x4'
+      >
         <div className='rcx-toastbar-inner'>
           <Icon size='x20' name={iconName} />
           <div className='rcx-toastbar-content' id={toastId}>
@@ -89,7 +93,7 @@ export function ToastBar({
           )}
         </div>
         <Box className={[progressBarAnimation, 'rcx-toastbar-progressbar']} />
-      </div>
+      </Box>
     </Box>
   );
 }

@@ -55,6 +55,12 @@
   "chevron-down": {
     "start": "\ue010"
   },
+  "chevron-double-down": {
+    "start": "\ue10b"
+  },
+  "chevron-double-up": {
+    "start": "\ue10d"
+  },
   "chevron-left": {
     "start": "{",
     "end": "}"
@@ -134,6 +140,9 @@
   },
   "emoji": {
     "start": "\ue028"
+  },
+  "equal": {
+    "start": "\ue10f"
   },
   "eraser": {
     "start": "\ue029"
@@ -862,5 +871,17 @@
   },
   "store": {
     "start": "\ue105"
+  },
+  "lightning": {
+    "start": "\ue107"
+  },
+  "spanner": {
+    "start": "\ue109"
+  },
+  "attachment-file": {
+    "start": "\ue111"
+  },
+  "cloud-arrow-down": {
+    "start": "\ue113"
   }
 }

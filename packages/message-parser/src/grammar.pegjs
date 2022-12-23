@@ -28,6 +28,7 @@
     task,
     tasks,
     unorderedList,
+    phoneChecker,
   } = require('./utils');
 }
 
@@ -147,11 +148,11 @@ Inline
     )+
     EndOfLine? { return reducePlainTexts(value); }
 
-Whitespace = w:$" "+ { return plain(w); }
+Whitespace = w:$Space+ { return plain(w); }
 
-Escaped = "\\" t:$. { return plain(t); }
+Escaped = "\\" t:$("*" / "_" / "~" / "`" / "#" / ".") { return plain(t); }
 
-Any = !EndOfLine t:$. u:$URL? { return plain(t + u); }
+Any = !EndOfLine t:$. p:$AutolinkedPhone? u:$URL? { return plain(t + p + u); }
 
 // = Line
 
@@ -177,15 +178,20 @@ anyText
   / [\x61-\x7A] // a b c d e f g h i j k l m n o p q r s t u v w x y z
   / nonascii
 
-utf8_names_validation = $[0-9a-zA-Z-_.]+
+utf8_names_validation = $([-_.] / alphaChar / decimalNumberChar)+
 
-matrix_server_validation = ":" utf8_names_validation
+username_matrix_server_validation = ":" utf8_names_validation
+
+username_email_validation = "@" utf8_names_validation
 
 UserMention
   = t:Text "@"+ user:utf8_names_validation {
       return reducePlainTexts([t, plain('@' + user)])[0];
     }
-  / "@"+ user:$(utf8_names_validation matrix_server_validation) {
+  / "@"+ user:$(utf8_names_validation username_matrix_server_validation) {
+      return mentionUser(user);
+    }
+  / "@"+ user:$(utf8_names_validation username_email_validation) {
       return mentionUser(user);
     }
   / "@"+ user:utf8_names_validation { return mentionUser(user); }
@@ -257,9 +263,14 @@ InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
 
 InlineCode__ = $(!"`" !"\n" $:.)
 
+FilePath = $(urlScheme urlBody+)
+
 LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
 
-LinkRef = text:(URL / p:Phone { return 'tel:' + p.number; }) { return text; }
+LinkRef
+  = text:(URL / FilePath / p:Phone { return 'tel:' + p.number; }) {
+      return text;
+    }
 
 Image
   = "![](" href:LinkRef ")" { return image(href); }
@@ -276,9 +287,9 @@ LinkTitle2
 
 References
   = "[](" href:LinkRef ")" { return link(href); }
-  / "[" title:LinkTitle "](" href:LinkRef ")" { return link(href, title); }
+  / "[" title:LinkTitle* "](" href:LinkRef ")" { return link(href, title); }
   / "<" href:LinkRef "|" title:LinkTitle2 ">" {
-      return link(href, plain(title));
+      return link(href, [plain(title)]);
     }
 
 /* Macros */
@@ -292,15 +303,11 @@ unicode
       return String.fromCharCode(parseInt(digits, 16));
     }
 
-escape
-  = unicode
-  / "\\" ch:[^\r\n\f0-9a-f]i { return ch; }
-
-AutolinkedPhone = p:Phone { return link('tel:' + p.number, plain(p.text)); }
+AutolinkedPhone = p:Phone { return phoneChecker(p.text, p.number); }
 
 AutolinkedURL = u:URL { return link(u); }
 
-AutolinkedEmail = e:Email { return link('mailto:' + e, plain(e)); }
+AutolinkedEmail = e:Email { return link('mailto:' + e, [plain(e)]); }
 
 alpha = [a-zA-Z]
 
@@ -368,6 +375,9 @@ phoneNumber
   = p:phonePrefix "-" d:digits {
       return { text: p.text + '-' + d, number: p.number + d };
     }
+  / p:phonePrefix d1:digits "-" d2:digits {
+      return { text: p.text + d1 + '-' + d2, number: p.number + d1 + d2 };
+    }
   / p:phonePrefix d:digits {
       return { text: p.text + d, number: p.number + d };
     }
@@ -384,13 +394,13 @@ phonePrefix
  */
 
 URL
-  = $(urlScheme urlAuthority urlBody)
-  / $(urlAuthorityHost urlBody)
+  = $(urlScheme urlAuthority urlBody*)
+  / $(urlAuthorityHost urlBody*)
 
 urlScheme
   = $(
-    [[A-Za-z]
-      [A-Za-z0-9+.-]
+    [[A-Za-z0-9+.-]
+      [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
       [A-Za-z0-9+.-]?
@@ -441,7 +451,7 @@ urlBody
         / "~"
         / "("
       )
-  )*
+  )
 
 urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
 

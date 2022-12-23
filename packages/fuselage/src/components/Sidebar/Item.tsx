@@ -1,4 +1,4 @@
-import type { ComponentProps, ReactNode } from 'react';
+import type { AllHTMLAttributes, ComponentProps, ReactNode } from 'react';
 import React from 'react';
 
 import type Box from '../Box';
@@ -9,14 +9,16 @@ type SidebarItemProps = {
   selected?: boolean;
   highlighted?: boolean;
   clickable?: boolean;
+  featured?: boolean;
   is?: ComponentProps<typeof Box>['is'];
   children?: ReactNode;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItem = ({
   selected,
   highlighted,
   clickable,
+  featured,
   is: Tag = 'div',
   children,
   ...props
@@ -27,6 +29,7 @@ export const SidebarItem = ({
       highlighted && 'rcx-sidebar-item--highlighted',
       clickable && 'rcx-sidebar-item--clickable',
       selected && 'rcx-sidebar-item--selected',
+      featured && 'rcx-sidebar-item--featured',
     ]
       .filter(Boolean)
       .join(' ')}
@@ -41,7 +44,7 @@ export const SidebarItem = ({
 
 type SidebarItemContainerProps = {
   children?: ReactNode;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItemContainer = (props: SidebarItemContainerProps) => (
   <div
@@ -52,7 +55,7 @@ export const SidebarItemContainer = (props: SidebarItemContainerProps) => (
 
 type SidebarItemMenuProps = {
   children?: ReactNode;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItemMenu = (props: SidebarItemMenuProps) => (
   <div
@@ -64,7 +67,7 @@ export const SidebarItemMenu = (props: SidebarItemMenuProps) => (
 type SidebarItemContentProps = {
   children?: ReactNode;
   className?: string;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItemContent = ({
   className = '',
@@ -79,7 +82,7 @@ export const SidebarItemContent = ({
 type SidebarItemTitleProps = {
   children?: ReactNode;
   className?: string;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItemTitle = ({
   className = '',
@@ -94,7 +97,7 @@ export const SidebarItemTitle = ({
 type SidebarItemTimeProps = {
   children?: ReactNode;
   className?: string;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItemTime = ({
   className,
@@ -109,7 +112,7 @@ export const SidebarItemTime = ({
 type SidebarItemBadgeProps = {
   children?: ReactNode;
   className?: string;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItemBadge = ({
   className,
@@ -124,7 +127,7 @@ export const SidebarItemBadge = ({
 type SidebarItemSubtitleProps = {
   children?: ReactNode;
   className?: string;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItemSubtitle = ({
   className,
@@ -139,7 +142,7 @@ export const SidebarItemSubtitle = ({
 type SidebarItemWrapperProps = {
   children?: ReactNode;
   className?: string;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItemWrapper = ({
   className = '',
@@ -156,7 +159,7 @@ type SidebarItemIconProps = {
   className?: string;
   highlighted?: boolean;
   icon: ComponentProps<typeof FuselageIcon>['name'];
-};
+} & Omit<AllHTMLAttributes<HTMLElement>, 'name' | 'is'>;
 
 export const SidebarItemIcon = ({
   highlighted,
@@ -180,7 +183,7 @@ export const SidebarItemIcon = ({
 
 type SidebarItemAvatarProps = {
   children?: ReactNode;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SidebarItemAvatar = ({ ...props }: SidebarItemAvatarProps) => (
   <SidebarItemContainer>

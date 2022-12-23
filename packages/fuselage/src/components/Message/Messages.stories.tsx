@@ -30,8 +30,10 @@ export const Default: ComponentStory<typeof Message> = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -65,7 +67,7 @@ export const Default: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const WithSequential = () => (
+export const WithSequential: ComponentStory<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -74,8 +76,10 @@ export const WithSequential = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -178,7 +182,7 @@ export const WithSequential = () => (
   </Box>
 );
 
-export const MessageWithThread = () => (
+export const MessageWithThread: ComponentStory<typeof Message> = () => (
   <Box>
     <MessageDivider unreadLabel='Unread'>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -187,8 +191,10 @@ export const MessageWithThread = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -294,7 +300,7 @@ export const MessageWithThread = () => (
   </Box>
 );
 
-export const MessageSelected = () => {
+export const MessageSelected: ComponentStory<typeof Message> = () => {
   const [selected, setSelected] = useState(true);
   return (
     <Box>
@@ -322,8 +328,10 @@ export const MessageSelected = () => {
         </Message.LeftContainer>
         <Message.Container>
           <Message.Header>
-            <Message.Name>Haylie George</Message.Name>
-            <Message.Username>@haylie.george</Message.Username>
+            <Message.NameContainer>
+              <Message.Name>Haylie George</Message.Name>{' '}
+              <Message.Username>@haylie.george</Message.Username>
+            </Message.NameContainer>
             <Message.Roles>
               <Message.Role>Admin</Message.Role>
               <Message.Role>User</Message.Role>
@@ -351,7 +359,7 @@ export const MessageSelected = () => {
   );
 };
 
-export const MessageEditing = () => (
+export const MessageEditing: ComponentStory<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -360,8 +368,10 @@ export const MessageEditing = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -433,7 +443,7 @@ export const MessageEditing = () => (
   </Box>
 );
 
-export const MessageUnorderedList = () => (
+export const MessageUnorderedList: ComponentStory<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -442,8 +452,10 @@ export const MessageUnorderedList = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -477,7 +489,7 @@ export const MessageUnorderedList = () => (
   </Box>
 );
 
-export const MessageOrderedList = () => (
+export const MessageOrderedList: ComponentStory<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -486,8 +498,10 @@ export const MessageOrderedList = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -521,7 +535,7 @@ export const MessageOrderedList = () => (
   </Box>
 );
 
-export const MessageHighlighted = () => (
+export const MessageHighlighted: ComponentStory<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' highlight>
@@ -530,8 +544,10 @@ export const MessageHighlighted = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -603,7 +619,7 @@ export const MessageHighlighted = () => (
   </Box>
 );
 
-export const MessagePending = () => (
+export const MessagePending: ComponentStory<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' isPending>
@@ -612,8 +628,10 @@ export const MessagePending = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -678,6 +696,7 @@ export const MessagePending = () => (
     </Message>
   </Box>
 );
+
 export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
@@ -687,8 +706,10 @@ export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>
@@ -729,6 +750,54 @@ export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
+export const MessageWithHeadings: ComponentStory<typeof Message> = () => (
+  <Box>
+    <MessageDivider>May, 24, 2020</MessageDivider>
+    <Message className='customclass' clickable>
+      <Message.LeftContainer>
+        <Avatar url={avatarUrl} size={'x36'} />
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <Message.Body>
+          <h1 style={{ marginTop: 0 }}>Heading 1</h1>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+          <h2>Heading 2</h2>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          <h3>Heading 3</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          <h4>Heading 4</h4>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        </Message.Body>
+      </Message.Container>
+      <MessageToolbox.Wrapper>
+        <MessageToolbox>
+          <MessageToolbox.Item icon='quote' />
+          <MessageToolbox.Item icon='clock' />
+          <MessageToolbox.Item icon='thread' />
+        </MessageToolbox>
+      </MessageToolbox.Wrapper>
+    </Message>
+  </Box>
+);
+
 export const LotsOfReactions: ComponentStory<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
@@ -738,8 +807,10 @@ export const LotsOfReactions: ComponentStory<typeof Message> = () => (
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
-          <Message.Name>Haylie George</Message.Name>
-          <Message.Username>@haylie.george</Message.Username>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
           <Message.Roles>
             <Message.Role>Admin</Message.Role>
             <Message.Role>User</Message.Role>

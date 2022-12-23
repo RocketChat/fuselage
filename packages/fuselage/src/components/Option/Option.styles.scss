@@ -102,11 +102,17 @@ $variants: (
 
   &:hover,
   &--focus {
-    background: colors.neutral(100);
+    background: colors.surface(hover);
   }
 
   &--selected {
-    background: colors.neutral(500);
+    background: colors.surface(selected);
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+
+    color: colors.font(disabled);
   }
 
   &:hover &__menu-wrapper,

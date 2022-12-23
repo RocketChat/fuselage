@@ -81,3 +81,9 @@ Danger.args = {
 Danger.parameters = setStoryDescription(
   'Communicates that an important aspect of the system is not working as expected and requires urgent action.'
 );
+
+export const CustomIcon = Template.bind({});
+CustomIcon.args = {
+  title: 'This is a message with custom icon',
+  icon: 'hash',
+};

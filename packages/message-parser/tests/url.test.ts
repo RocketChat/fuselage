@@ -185,6 +185,10 @@ test.each([
       ]),
     ],
   ],
+  [
+    'https://1developer.rocket.chat',
+    [paragraph([link('https://1developer.rocket.chat')])],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
@@ -195,14 +199,14 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('https://rocket.chat/test'),
-        label: plain('https://rocket.chat/test'),
+        label: [plain('https://rocket.chat/test')],
       },
     });
     expect(link('http://rocket.chat/test')).toMatchObject({
       type: 'LINK',
       value: {
         src: plain('http://rocket.chat/test'),
-        label: plain('http://rocket.chat/test'),
+        label: [plain('http://rocket.chat/test')],
       },
     });
   });
@@ -212,7 +216,7 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('custom://rocket.chat/test'),
-        label: plain('custom://rocket.chat/test'),
+        label: [plain('custom://rocket.chat/test')],
       },
     });
   });
@@ -222,7 +226,7 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('//rocket.chat/test'),
-        label: plain('//rocket.chat/test'),
+        label: [plain('//rocket.chat/test')],
       },
     });
   });
@@ -231,7 +235,7 @@ describe('link helper function', () => {
       type: 'LINK',
       value: {
         src: plain('//rocket.chat/test'),
-        label: plain('rocket.chat/test'),
+        label: [plain('rocket.chat/test')],
       },
     });
   });

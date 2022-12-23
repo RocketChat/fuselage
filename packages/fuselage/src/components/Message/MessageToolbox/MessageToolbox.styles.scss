@@ -12,7 +12,7 @@
   border: lengths.border-width(2) solid colors.stroke(extra-light);
   border-radius: theme(
     'message-toolbox-border-radius',
-    lengths.border-radius(small)
+    lengths.border-radius(medium)
   );
   background: colors.surface(light);
 

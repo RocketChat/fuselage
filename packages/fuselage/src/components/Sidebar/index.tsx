@@ -4,6 +4,7 @@ import React from 'react';
 import Box from '../Box';
 import SidebarItem from './Item';
 import SidebarSection from './Section';
+import { SidebarDivider } from './SidebarDivider';
 import SidebarTopBar from './TopBar';
 
 type SidebarProps = ComponentProps<typeof Box>;
@@ -14,6 +15,7 @@ export default Object.assign(Sidebar, {
   TopBar: SidebarTopBar,
   Item: SidebarItem,
   Section: SidebarSection,
+  Divider: SidebarDivider,
 });
 
 export { default as SidebarItem } from './Item';
@@ -24,3 +26,5 @@ export { default as SidebarTopBar } from './TopBar';
 export * from './TopBar';
 
 export * from './SidebarFooter';
+
+export { SidebarDivider };

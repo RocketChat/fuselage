@@ -6,6 +6,7 @@ import {
 import type { SyntheticEvent, ComponentProps, Ref } from 'react';
 import React, { useState, useRef, useCallback, forwardRef, memo } from 'react';
 
+import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import Chip from '../Chip';
@@ -23,11 +24,6 @@ const SelectedOptions = memo((props) => (
   <Chip maxWidth='150px' withTruncatedText {...props} />
 ));
 
-const prevent = (e: SyntheticEvent) => {
-  e.preventDefault();
-  e.stopPropagation();
-  e.nativeEvent.stopImmediatePropagation();
-};
 type PaginatedMultiSelecOption = {
   value?: string | number;
   label?: string | number;
