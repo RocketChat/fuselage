@@ -27,7 +27,7 @@ $input-colors-focus-border-color: theme(
 );
 $input-colors-focus-shadow-color: theme(
   'input-colors-focus-shadow-color',
-  colors.stroke(extra-light-highlight)
+  colors.shadow(highlight)
 );
 
 $input-colors-focus-icon-color: theme(
@@ -86,7 +86,7 @@ $input-colors-invalid-focus-border-color: theme(
 );
 $input-colors-invalid-focus-shadow-color: theme(
   'input-colors-invalid-focus-shadow-color',
-  colors.danger(100)
+  colors.shadow(danger)
 );
 $input-colors-invalid-focus-caret-color: theme(
   'input-colors-invalid-focus-caret-color',

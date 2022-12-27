@@ -239,6 +239,7 @@ export const shadowColors = {
     getPaletteColor('neutral', 800, 0.12)[1]
   ),
   'shadow-highlight': primary.p200.theme('shadow-highlight'),
+  'shadow-danger': danger.d100.theme('shadow-danger'),
 };
 
 type ShadowColors = keyof typeof shadowColors;
