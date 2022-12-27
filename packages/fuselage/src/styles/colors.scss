@@ -191,6 +191,18 @@ $-badge-backgrounds: (
   @return var(--rcx-color-badge-background-#{$type}, $color);
 }
 
+$shadow-colors: (
+  highlight: primary(200),
+  elevation-1: neutral(800, 0.1),
+  elevation-2x: neutral(800, 0.08),
+  elevation-2y: neutral(800, 0.12),
+  elevation-border: stroke(extra-light),
+);
+@function shadow($type) {
+  $color: map.get($shadow-colors, $type);
+  @return var(--rcx-color-shadow-#{$type}, $color);
+}
+
 $-button-backgrounds: (
   // primary
   primary-default: primary(500),

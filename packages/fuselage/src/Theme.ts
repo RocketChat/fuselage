@@ -238,6 +238,7 @@ export const shadowColors = {
     'shadow-elevation-2y',
     getPaletteColor('neutral', 800, 0.12)[1]
   ),
+  'shadow-highlight': primary.p200.theme('shadow-highlight'),
 };
 
 type ShadowColors = keyof typeof shadowColors;
