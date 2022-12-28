@@ -38,7 +38,8 @@ $message-generic-preview-content-hover-background-color: theme(
   display: flex;
   flex-direction: column;
 
-  border: lengths.border-width(1) solid $message-generic-preview-border-color;
+  border: lengths.border-width(default) solid
+    $message-generic-preview-border-color;
 
   font-size: 0;
 
@@ -159,6 +160,7 @@ $message-generic-preview-content-hover-background-color: theme(
 
     cursor: pointer;
 
-    border: lengths.border-width(1) solid $message-generic-preview-border-color;
+    border: lengths.border-width(default) solid
+      $message-generic-preview-border-color;
   }
 }

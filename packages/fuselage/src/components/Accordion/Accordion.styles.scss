@@ -7,7 +7,7 @@
   flex-flow: column nowrap;
   border-block-end-color: colors.stroke(extra-light);
 
-  border-block-end-width: lengths.border-width(1);
+  border-block-end-width: lengths.border-width(default);
 }
 
 .rcx-accordion-item {
@@ -20,14 +20,14 @@
   flex-flow: row nowrap;
 
   min-height: lengths.size(2 * 32 + 24);
-  padding: (lengths.padding(32) - lengths.border-width(1))
-    (lengths.padding(8) - lengths.border-width(1));
+  padding: (lengths.padding(32) - lengths.border-width(default, true))
+    (lengths.padding(8) - lengths.border-width(default, true));
 
   text-align: start;
 
   color: colors.font(default);
 
-  border-width: lengths.border-width(1);
+  border-width: lengths.border-width(default);
   border-color: colors.neutral(300) transparent transparent;
 
   &[tabindex] {

@@ -22,7 +22,10 @@ $message-divider-background-color-unread: theme(
   colors.danger(300)
 );
 
-$message-divider-size: theme('message-divider-size', lengths.border-width(1));
+$message-divider-size: theme(
+  'message-divider-size',
+  lengths.border-width(default)
+);
 
 $message-divider-size-neg: theme(
   'message-divider-size-neg',
