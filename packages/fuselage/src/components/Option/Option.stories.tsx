@@ -168,6 +168,17 @@ export const WithIcon: ComponentStory<typeof Option> = () => (
   </Box>
 );
 
+export const Disabled: ComponentStory<typeof Option> = () => (
+  <Box position='relative' maxWidth={330}>
+    <Option onClick={action('click')}>
+      <OptionContent>Enabled</OptionContent>
+    </Option>
+    <Option disabled={true}>
+      <OptionContent>Disabled</OptionContent>
+    </Option>
+  </Box>
+);
+
 export const AsUserItem: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={330}>
     <Option onClick={action('click')}>

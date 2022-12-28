@@ -1,5 +1,6 @@
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 
+import { getPaletteColor } from './getPaletteColor';
 import { toCSSColorValue } from './helpers/toCSSValue';
 
 export class Var {
@@ -31,6 +32,7 @@ export const __setThrowErrorOnInvalidToken__ = (value: boolean) => {
 export const neutral = {
   n100: new Var('neutral-100', tokenColors.n100),
   n200: new Var('neutral-200', tokenColors.n200),
+  n250: new Var('neutral-250', tokenColors.n250),
   n300: new Var('neutral-300', tokenColors.n300),
   n400: new Var('neutral-400', tokenColors.n400),
   n500: new Var('neutral-500', tokenColors.n500),
@@ -46,6 +48,7 @@ const primary = {
   p300: new Var('primary-300', tokenColors.p300),
   p400: new Var('primary-400', tokenColors.p400),
   p500: new Var('primary-500', tokenColors.p500),
+  p550: new Var('primary-550', tokenColors.p550),
   p600: new Var('primary-600', tokenColors.p600),
   p700: new Var('primary-700', tokenColors.p700),
   p800: new Var('primary-800', tokenColors.p800),
@@ -94,6 +97,7 @@ const danger = {
   d300: new Var('danger-300', tokenColors.d300),
   d400: new Var('danger-400', tokenColors.d400),
   d500: new Var('danger-500', tokenColors.d500),
+  d550: new Var('danger-550', tokenColors.d550),
   d600: new Var('danger-600', tokenColors.d600),
   d700: new Var('danger-700', tokenColors.d700),
   d800: new Var('danger-800', tokenColors.d800),
@@ -136,12 +140,14 @@ export const surfaceColors = {
   'surface-danger': danger.d200.theme('surface-danger'),
   'surface-service-1': service1['200'].theme('surface-service-1'),
   'surface-service-2': service2['200'].theme('surface-service-2'),
+  'surface-featured': service2['700'].theme('surface-featured'),
+  'surface-featured-hover': service2['800'].theme('surface-featured-hover'),
 };
 
 type SurfaceColors = keyof typeof surfaceColors;
 
 export const strokeColors = {
-  'stroke-extra-light': neutral.n200.theme('stroke-extra-light'),
+  'stroke-extra-light': neutral.n250.theme('stroke-extra-light'),
   'stroke-light': neutral.n500.theme('stroke-light'),
   'stroke-medium': neutral.n600.theme('stroke-medium'),
   'stroke-dark': neutral.n700.theme('stroke-dark'),
@@ -171,6 +177,8 @@ export const textIconColors = {
   'font-on-danger': danger.d800.theme('font-on-danger'),
   'font-on-service-1': service1[800].theme('font-on-service-1'),
   'font-on-service-2': service2[600].theme('font-on-service-2'),
+  'font-pure-black': neutral.n800.theme('font-pure-black'),
+  'font-pure-white': white.theme('font-pure-white'),
 };
 
 type TextIconColors = keyof typeof textIconColors;
@@ -180,6 +188,9 @@ export const statusBackgroundColors = {
   'status-background-success': success.s200.theme('status-background-success'),
   'status-background-danger': danger.d200.theme('status-background-danger'),
   'status-background-warning': warning.w200.theme('status-background-warning'),
+  'status-background-warning-2': warning.w100.theme(
+    'status-background-warning-2'
+  ),
   'status-background-service-1': service1['200'].theme(
     'status-background-service-1'
   ),
@@ -194,12 +205,42 @@ export const statusColors = {
   'status-font-on-info': info.i600.theme('status-font-on-info'),
   'status-font-on-success': success.s800.theme('status-font-on-success'),
   'status-font-on-warning': warning.w900.theme('status-font-on-warning'),
+  'status-font-on-warning-2': neutral.n800.theme('status-font-on-warning-2'),
   'status-font-on-danger': danger.d800.theme('status-font-on-danger'),
   'status-font-on-service-1': service1[800].theme('status-font-on-service-1'),
   'status-font-on-service-2': service2[600].theme('status-font-on-service-2'),
 };
 
 type StatusColors = keyof typeof statusColors;
+
+export const badgeBackgroundColors = {
+  'badge-background-level-1': neutral.n600.theme('badge-background-level-1'),
+  'badge-background-level-2': primary.p550.theme('badge-background-level-2'),
+  'badge-background-level-3': service1[500].theme('badge-background-level-3'),
+  'badge-background-level-4': danger.d550.theme('badge-background-level-4'),
+};
+
+type BadgeBackgroundColors = keyof typeof badgeBackgroundColors;
+
+export const shadowColors = {
+  'shadow-elevation-border': strokeColors['stroke-extra-light'].theme(
+    'shadow-elevation-border'
+  ),
+  'shadow-elevation-1': new Var(
+    'shadow-elevation-1',
+    getPaletteColor('neutral', 800, 0.1)[1]
+  ),
+  'shadow-elevation-2x': new Var(
+    'shadow-elevation-2x',
+    getPaletteColor('neutral', 800, 0.08)[1]
+  ),
+  'shadow-elevation-2y': new Var(
+    'shadow-elevation-2y',
+    getPaletteColor('neutral', 800, 0.12)[1]
+  ),
+};
+
+type ShadowColors = keyof typeof shadowColors;
 
 export const isSurfaceColor = (color: unknown): color is SurfaceColors =>
   typeof color === 'string' && color in surfaceColors;
@@ -210,6 +251,9 @@ export const isStrokeColor = (color: unknown): color is StrokeColor =>
 export const isTextIconColor = (color: unknown): color is TextIconColors =>
   typeof color === 'string' && color in textIconColors;
 
+export const isBadgeColor = (color: unknown): color is BadgeBackgroundColors =>
+  typeof color === 'string' && color in badgeBackgroundColors;
+
 export const isStatusBackgroundColor = (
   color: unknown
 ): color is StatusBackgroundColors =>
@@ -218,10 +262,15 @@ export const isStatusBackgroundColor = (
 export const isStatusColor = (color: unknown): color is StatusColors =>
   typeof color === 'string' && color in statusColors;
 
+export const isShadowColor = (color: unknown): color is ShadowColors =>
+  typeof color === 'string' && color in shadowColors;
+
 export const Palette = {
   surface: surfaceColors,
   status: statusBackgroundColors,
   statusColor: statusColors,
+  badge: badgeBackgroundColors,
   text: textIconColors,
   stroke: strokeColors,
+  shadow: shadowColors,
 };

@@ -1,3 +1,4 @@
+import { Emitter } from '@rocket.chat/emitter';
 import type { Dispatch, SetStateAction } from 'react';
 import { useState, useEffect, useCallback } from 'react';
 
@@ -13,6 +14,8 @@ const makeStorage = (
   }
 
   const getKey = (key: string): string => `fuselage-${name}-${key}`;
+
+  const ee = new Emitter();
 
   return function useGenericStorage<T>(
     key: string,
@@ -33,6 +36,7 @@ const makeStorage = (
           const valueToStore: T =
             typeof value === 'function' ? value(prevValue) : value;
           storage.setItem(getKey(key), JSON.stringify(valueToStore));
+          ee.emit(key, valueToStore);
           return valueToStore;
         });
       },
@@ -48,8 +52,13 @@ const makeStorage = (
         setStoredValue(JSON.parse(event.newValue));
       };
 
+      const handleSyntheticEvent = (value: T): void => {
+        setStoredValue(value);
+      };
+      ee.on(key, handleSyntheticEvent);
       window.addEventListener('storage', handleEvent);
       return () => {
+        ee.off(key, handleSyntheticEvent);
         window.removeEventListener('storage', handleEvent);
       };
     }, [key]);

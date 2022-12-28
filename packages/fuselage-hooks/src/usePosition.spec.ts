@@ -262,7 +262,6 @@ describe('usePosition hook', () => {
         variantStore,
         target,
       });
-      console.log(result.style);
       expect(result.style.overflowY).toEqual('auto');
       expect(result.style.left).toEqual('50px');
       expect(result.style.top).toEqual('300px');
