@@ -49,6 +49,7 @@ const Option = memo(
       id={id}
       ref={ref}
       aria-selected={selected}
+      aria-disabled={String(disabled)}
       title={title}
       onClick={(e: React.MouseEvent<HTMLDivElement>) => {
         if (disabled) {
