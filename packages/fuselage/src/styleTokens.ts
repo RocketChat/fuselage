@@ -56,6 +56,9 @@ export const borderWidth = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
+  if (value === 'default') {
+    return borderWidth('x1');
+  }
 });
 
 export const borderRadius = measure((value: unknown) => {

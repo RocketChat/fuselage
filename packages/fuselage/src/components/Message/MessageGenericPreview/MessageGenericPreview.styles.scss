@@ -40,7 +40,8 @@ $message-generic-preview-icon-background-color: theme(
   overflow: hidden;
   flex-direction: column;
 
-  border: lengths.border-width(1) solid $message-generic-preview-border-color;
+  border: lengths.border-width(default) solid
+    $message-generic-preview-border-color;
   border-radius: lengths.border-radius(medium);
 
   background-color: $message-generic-preview-content-background-color;

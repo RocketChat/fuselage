@@ -137,6 +137,8 @@ $sidebar-footer-highlight-color: theme(
     display: flex;
     flex-direction: column;
 
+    flex-shrink: 0;
+
     height: $sidebar-header-height;
 
     color: $sidebar-item-color;
@@ -270,8 +272,6 @@ $sidebar-footer-highlight-color: theme(
 
     &:hover &__menu-wrapper,
     &.focus-within &__menu-wrapper {
-      position: static;
-
       width: lengths.size(20);
       margin-inline: lengths.margin(4);
 
@@ -293,7 +293,7 @@ $sidebar-footer-highlight-color: theme(
     }
 
     &__menu-wrapper {
-      position: relative;
+      position: static;
 
       flex-shrink: 0;
 
