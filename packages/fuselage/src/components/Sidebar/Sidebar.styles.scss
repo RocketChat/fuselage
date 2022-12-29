@@ -3,23 +3,45 @@
 @use '../../styles/typography.scss';
 @import '../../styles/mixins/all.scss';
 
-$sidebar-header-height: theme(
-  'sidebar-header-height',
-  theme('header-height', lengths.size(64))
+$sidebar-color-surface-default: theme(
+  'sidebar-color-surface-default',
+  colors.surface(tint)
 );
 
-$sidebar-section-height: theme(
-  'sidebar-section-height',
-  theme('section-height', lengths.size(56))
+$sidebar-color-surface-hover: theme(
+  'sidebar-color-surface-hover',
+  colors.surface(hover)
 );
-$sidebar-item-background-color: theme(
-  'sidebar-item-background-color',
-  colors.surface(light)
+
+$sidebar-color-surface-selected: theme(
+  'sidebar-color-surface-selected',
+  colors.surface(selected)
 );
-$sidebar-item-color: theme('sidebar-item-color', colors.font(annotation));
+
+$sidebar-color-font-primary: theme(
+  'sidebar-color-font-primary',
+  colors.font(annotation)
+);
+
+$sidebar-color-font-secondary: theme(
+  'sidebar-color-font-secondary',
+  colors.font(secondary-info)
+);
+
+$sidebar-color-stroke-default: theme(
+  'sidebar-color-stroke-default',
+  colors.stroke(light)
+);
+
+$sidebar-color-stroke-focus: theme(
+  'sidebar-color-stroke-focus',
+  colors.stroke(medium)
+);
+
+$sidebar-item-color: theme('sidebar-item-color', colors.font(secondary-info));
 $sidebar-item-color-highlighted: theme(
   'sidebar-item-color-highlighted',
-  colors.font(white, true)
+  colors.font(pure-white)
 );
 $sidebar-item-background-color-hover: theme(
   'sidebar-item-background-color-hover',
@@ -42,7 +64,34 @@ $sidebar-item-color-selected: theme(
   colors.font(annotation)
 );
 
+$sidebar-item-background-color-featured: theme(
+  'sidebar-item-background-color-featured',
+  colors.surface(featured)
+);
+$sidebar-item-color-featured: theme(
+  'sidebar-item-color-featured',
+  colors.font(pure-white)
+);
+$sidebar-item-background-color-featured-hover: theme(
+  'sidebar-item-background-color-featured-hover',
+  colors.surface(featured-hover)
+);
+$sidebar-item-background-color-featured-selected: theme(
+  'sidebar-item-background-color-featured-selected',
+  colors.surface(featured-hover)
+);
+
 $sidebar-title-color: theme('sidebar-title-color', colors.font(annotation));
+
+$sidebar-header-height: theme(
+  'sidebar-header-height',
+  theme('header-height', lengths.size(64))
+);
+
+$sidebar-section-height: theme(
+  'sidebar-section-height',
+  theme('section-height', lengths.size(56))
+);
 
 $sidebar-footer-box-shadow: theme(
   'sidebar-footer-box-shadow',
@@ -74,9 +123,21 @@ $sidebar-footer-highlight-color: theme(
 }
 
 .rcx-sidebar {
+  color: $sidebar-color-font-secondary;
+  background: $sidebar-color-surface-default;
+
+  &--divider {
+    border-color: theme(
+      'sidebar-color-stroke-extra-light',
+      colors.stroke(extra-light)
+    );
+  }
+
   &-topbar {
     display: flex;
     flex-direction: column;
+
+    flex-shrink: 0;
 
     height: $sidebar-header-height;
 
@@ -104,7 +165,7 @@ $sidebar-footer-highlight-color: theme(
     &__title {
       @include typography.use-font-scale(p2m);
 
-      color: $sidebar-title-color;
+      color: $sidebar-color-font-secondary;
     }
   }
 
@@ -115,7 +176,7 @@ $sidebar-footer-highlight-color: theme(
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
 
-    color: $sidebar-item-color;
+    color: $sidebar-color-font-secondary;
 
     &__wrapper {
       @extend %sidebar-base;
@@ -128,26 +189,31 @@ $sidebar-footer-highlight-color: theme(
     &--clickable {
       @include clickable;
 
-      @include on-focus-visible {
-        color: $sidebar-item-color-hover;
-        background-color: $sidebar-item-background-color-hover;
-      }
-
       @include on-hover {
         @include use-no-shadow;
-        color: $sidebar-item-color-hover;
-        background-color: $sidebar-item-background-color-hover;
+        // color: $sidebar-item-color-hover;
+        background-color: $sidebar-color-surface-hover;
       }
 
       @include on-focus-visible {
-        @include use-focus-shadow-inset($sidebar-item-color-focus);
+        border: 1px solid $sidebar-color-stroke-focus;
+        // @include use-focus-shadow-inset($sidebar-item-color-focus);
       }
     }
 
     &:active,
     &--selected {
-      color: $sidebar-item-color-selected;
-      background-color: $sidebar-item-background-color-selected;
+      background-color: $sidebar-color-surface-selected;
+    }
+
+    &--featured {
+      color: $sidebar-item-color-featured;
+      background-color: $sidebar-item-background-color-featured;
+
+      &:hover,
+      :active {
+        background-color: $sidebar-item-background-color-featured-hover;
+      }
     }
 
     &__avatar {
@@ -206,8 +272,6 @@ $sidebar-footer-highlight-color: theme(
 
     &:hover &__menu-wrapper,
     &.focus-within &__menu-wrapper {
-      position: static;
-
       width: lengths.size(20);
       margin-inline: lengths.margin(4);
 
@@ -229,7 +293,7 @@ $sidebar-footer-highlight-color: theme(
     }
 
     &__menu-wrapper {
-      position: relative;
+      position: static;
 
       flex-shrink: 0;
 
@@ -245,7 +309,7 @@ $sidebar-footer-highlight-color: theme(
     @include typography.use-font-scale(c2);
     @include typography.use-with-truncated-text();
 
-    color: $sidebar-title-color;
+    color: $sidebar-color-font-secondary;
   }
 
   &-section {

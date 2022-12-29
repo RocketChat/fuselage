@@ -62,11 +62,23 @@
   }
 }
 
-@function border-width($value) {
+$border-width-sizes: (
+  'default': 1,
+);
+
+@function border-width($value, $scape: false) {
   @if $value == 'none' {
     @return 0;
   } @else if $value == 1 or $value == 2 or $value == 4 {
     @return functions.to-rem($value);
+  } @else if $value == 'default' {
+    @if $scape {
+      @return functions.to-rem(map.get($border-width-sizes, $value));
+    }
+    @return functions.theme(
+      'border-width-default',
+      functions.to-rem(map.get($border-width-sizes, $value))
+    );
   } @else {
     @error 'value must be none, 1, 2, or 4';
   }

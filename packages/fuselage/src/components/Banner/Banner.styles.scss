@@ -54,7 +54,7 @@ $banner-colors-danger-color: functions.theme(
   color: $banner-colors-neutral-color;
   border-top-width: lengths.border-width(4);
   border-top-style: solid;
-  border-bottom: lengths.border-width(2) solid colors.stroke(extra-light);
+  border-bottom: lengths.border-width(default) solid colors.stroke(extra-light);
 
   background-color: $banner-colors-neutral-background-color;
 
