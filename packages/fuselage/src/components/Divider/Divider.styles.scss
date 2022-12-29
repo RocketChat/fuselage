@@ -8,7 +8,7 @@ $divider-color: theme('divider-color', colors.stroke(extra-light));
 .rcx-divider {
   margin-block: lengths.margin(8);
 
-  border-top: $divider-size solid $divider-color;
+  border-block-start: $divider-size solid $divider-color;
 
   &--danger {
     border-color: colors.stroke(danger);
