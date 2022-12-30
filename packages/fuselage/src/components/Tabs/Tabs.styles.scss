@@ -85,7 +85,7 @@ $tabs-disabled-selected-border-color: theme(
   min-height: lengths.size(40);
 
   margin: lengths.margin(none) lengths.margin(12);
-  padding: (lengths.padding(4) + lengths.border-width(default, true))
+  padding: (lengths.padding(4) + lengths.border-width(default, rem))
     lengths.padding(none);
 
   color: $tabs-color;

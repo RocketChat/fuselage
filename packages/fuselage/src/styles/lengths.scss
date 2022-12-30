@@ -64,23 +64,21 @@
 
 $border-width-sizes: (
   'default': 1,
+  'medium': 2,
 );
 
-@function border-width($value, $scape: false) {
+@function border-width($value, $scape: px) {
   @if $value == 'none' {
     @return 0;
   } @else if $value == 1 or $value == 2 or $value == 4 {
-    @return functions.to-rem($value);
-  } @else if $value == 'default' {
-    @if $scape {
-      @return functions.to-rem(map.get($border-width-sizes, $value));
+    @return $value * 1px;
+  } @else if map.get($border-width-sizes, $value) {
+    @if $scape == px {
+      @return map.get($border-width-sizes, $value) * 1px;
     }
-    @return functions.theme(
-      'border-width-default',
-      functions.to-rem(map.get($border-width-sizes, $value))
-    );
+    @return functions.to-rem(map.get($border-width-sizes, $value));
   } @else {
-    @error 'value must be none, 1, 2, or 4';
+    @error 'value must be none, default, medium, 1, 2, or 4';
   }
 }
 
