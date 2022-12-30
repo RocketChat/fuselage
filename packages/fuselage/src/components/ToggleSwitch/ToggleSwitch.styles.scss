@@ -23,8 +23,8 @@ $toggle-switch-border-radius: theme(
     position: absolute;
     inset-inline-start: lengths.inset(none);
 
-    width: lengths.size(20) - 2 * lengths.border-width(default, true);
-    height: lengths.size(20) - 2 * lengths.border-width(default, true);
+    width: lengths.size(20) - 2 * lengths.border-width(default, rem);
+    height: lengths.size(20) - 2 * lengths.border-width(default, rem);
 
     content: '';
 
@@ -35,7 +35,7 @@ $toggle-switch-border-radius: theme(
 
   &__input:checked + &__fake::before {
     inset-inline-start: calc(
-      100% - #{lengths.inset(20) - 2 * lengths.border-width(default, true)}
+      100% - #{lengths.inset(20) - 2 * lengths.border-width(default, rem)}
     );
   }
 }

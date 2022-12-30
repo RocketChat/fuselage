@@ -5,12 +5,12 @@
 }
 
 @mixin use-focus-shadow($outer-color) {
-  box-shadow: 0 0 0 #{lengths.border-width('default')} #{$outer-color};
+  box-shadow: 0 0 0 #{lengths.border-width('medium')} #{$outer-color};
 }
 @mixin use-button-focus-shadow($outer-color) {
-  box-shadow: 0 0 0 #{lengths.border-width('default')} #{$outer-color};
+  box-shadow: 0 0 0 #{lengths.border-width('medium')} #{$outer-color};
 }
 
 @mixin use-focus-shadow-inset($outer-color) {
-  box-shadow: 0 0 0 #{lengths.border-width('default')} #{$outer-color} inset;
+  box-shadow: 0 0 0 #{lengths.border-width('medium')} #{$outer-color} inset;
 }

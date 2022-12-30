@@ -8,7 +8,7 @@ $divider-color: theme('divider-color', colors.stroke(extra-light));
 .rcx-divider {
   margin-block: lengths.margin(8);
 
-  border-block-start: $divider-size solid $divider-color;
+  border-top: $divider-size solid $divider-color;
 
   &--danger {
     border-color: colors.stroke(danger);
@@ -40,6 +40,6 @@ $divider-color: theme('divider-color', colors.stroke(extra-light));
     margin-block: 0;
     margin-inline: lengths.margin(8);
 
-    border-inline-start: $divider-size solid $divider-color;
+    border-left: $divider-size solid $divider-color;
   }
 }
