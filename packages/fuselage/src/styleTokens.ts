@@ -16,6 +16,8 @@ import {
   textIconColors,
   statusColors,
   throwErrorOnInvalidToken,
+  isBadgeColor,
+  badgeBackgroundColors,
 } from './Theme';
 import { getPaletteColor } from './getPaletteColor';
 import {
@@ -150,6 +152,10 @@ export const backgroundColor = memoize((value) => {
 
   if (isStatusBackgroundColor(value)) {
     return statusBackgroundColors[value].toString();
+  }
+
+  if (isBadgeColor(value)) {
+    return badgeBackgroundColors[value].toString();
   }
 
   return color(value);
