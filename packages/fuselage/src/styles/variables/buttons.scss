@@ -168,7 +168,7 @@ $icon: (
   focus-shadow-color: -color('icon', 'focus-shadow-color', map.get($secondary, focus-shadow-color)),
   disabled-background-color: -color('icon', 'disabled-background-color', transparent),
   disabled-border-color: -color('icon', 'disabled-border-color', transparent),
-  disabled-color: -color('icon', 'disabled-color', map.get($secondary, disabled-background-color)),
+  disabled-color: -color('icon', 'disabled-color', map.get($secondary, disabled-color)),
 );
 
 $icon-info: (
@@ -184,7 +184,7 @@ $icon-info: (
   focus-shadow-color: -color('icon-info', 'focus-shadow-color', map.get($secondary, focus-shadow-color)),
   disabled-background-color: -color('icon', 'disabled-background-color', transparent),
   disabled-border-color: -color('icon', 'disabled-border-color', transparent),
-  disabled-color: -color('icon-info', 'disabled-color', map.get($primary, disabled-background-color)),
+  disabled-color: -color('icon-info', 'disabled-color', map.get($secondary, disabled-color)),
 );
 
 $icon-success: (
@@ -200,7 +200,7 @@ $icon-success: (
   focus-shadow-color: -color('icon-success', 'focus-shadow-color', map.get($secondary, focus-shadow-color)),
   disabled-background-color: -color('icon', 'disabled-background-color', transparent),
   disabled-border-color: -color('icon', 'disabled-border-color', transparent),
-  disabled-color: -color('icon-success', 'disabled-color', map.get($success, disabled-background-color)),
+  disabled-color: -color('icon-success', 'disabled-color', map.get($secondary, disabled-color)),
 );
 
 $icon-warning: (
@@ -216,7 +216,7 @@ $icon-warning: (
   focus-shadow-color: -color('icon-warning', 'focus-shadow-color', map.get($secondary, focus-shadow-color)),
   disabled-background-color: -color('icon', 'disabled-background-color', transparent),
   disabled-border-color: -color('icon', 'disabled-border-color', transparent),
-  disabled-color: -color('icon-warning', 'disabled-color', map.get($warning, disabled-background-color)),
+  disabled-color: -color('icon-warning', 'disabled-color', map.get($secondary, disabled-color)),
 );
 
 $icon-danger: (
@@ -232,5 +232,5 @@ $icon-danger: (
   focus-shadow-color: -color('icon-danger', 'focus-shadow-color', map.get($secondary, focus-shadow-color)),
   disabled-background-color: -color('icon', 'disabled-background-color', transparent),
   disabled-border-color: -color('icon', 'disabled-border-color', transparent),
-  disabled-color: -color('icon-danger', 'disabled-color', map.get($danger, disabled-background-color)),
+  disabled-color: -color('icon-danger', 'disabled-color', map.get($secondary, disabled-color)),
 );

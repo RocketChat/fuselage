@@ -2,13 +2,13 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$divider-size: theme('divider-size', lengths.border-width(1));
+$divider-size: theme('divider-size', lengths.border-width(default));
 $divider-color: theme('divider-color', colors.stroke(extra-light));
 
 .rcx-divider {
   margin-block: lengths.margin(8);
 
-  border: $divider-size solid $divider-color;
+  border-top: $divider-size solid $divider-color;
 
   &--danger {
     border-color: colors.stroke(danger);
@@ -39,5 +39,7 @@ $divider-color: theme('divider-color', colors.stroke(extra-light));
     height: lengths.size(20);
     margin-block: 0;
     margin-inline: lengths.margin(8);
+
+    border-left: $divider-size solid $divider-color;
   }
 }

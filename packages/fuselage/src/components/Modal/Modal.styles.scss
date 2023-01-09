@@ -74,7 +74,6 @@ $modal-margin: theme('modal-margin', auto);
 
     width: 100%;
     height: auto;
-    max-height: lengths.size(256);
     object-fit: contain;
 
     &-wrapper {

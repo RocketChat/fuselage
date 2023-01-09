@@ -15,7 +15,7 @@
   background-color: theme('callout-background-color', colors.surface(tint));
 
   &--type-info {
-    color: theme('callout-color-info', colors.status-font(on-info));
+    color: theme('callout-color-info', colors.font(pure-black));
     background-color: theme(
       'callout-background-color-info',
       colors.status-background(info)
@@ -23,7 +23,7 @@
   }
 
   &--type-success {
-    color: theme('callout-color-success', colors.status-font(on-success));
+    color: theme('callout-color-success', colors.font(pure-black));
     background-color: theme(
       'callout-background-color-success',
       colors.status-background(success)
@@ -31,7 +31,7 @@
   }
 
   &--type-warning {
-    color: theme('callout-color-warning', colors.status-font(on-warning));
+    color: theme('callout-color-warning', colors.font(pure-black));
     background-color: theme(
       'callout-background-color-warning',
       colors.status-background(warning)
@@ -39,7 +39,7 @@
   }
 
   &--type-danger {
-    color: theme('callout-color-danger', colors.status-font(on-danger));
+    color: theme('callout-color-danger', colors.font(pure-black));
     background-color: theme(
       'callout-background-color-danger',
       colors.status-background(danger)
