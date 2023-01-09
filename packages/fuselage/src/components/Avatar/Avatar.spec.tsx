@@ -12,7 +12,7 @@ describe('[Avatar Component]', () => {
   });
 
   it('should render emoji avatar', () => {
-    render(<Default emoji={{ children: '😄', name: '' }} />);
+    render(<Default children='😄' />);
 
     expect(screen.getAllByText('😄').length).toBeGreaterThanOrEqual(1);
   });

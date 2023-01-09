@@ -31,7 +31,7 @@ const Template: ComponentStory<typeof Avatar> = (args) => (
           url={args.url}
           size={size}
           rounded={args.rounded}
-          emoji={args.emoji}
+          children={args.children}
         />
       </Box>
     ))}
@@ -80,9 +80,5 @@ StackRounded.args = {
 export const EmojiAvatar = Template.bind({});
 EmojiAvatar.args = {
   url: imgUrl,
-  emoji: {
-    className: '',
-    children: <i className='emoji emoji-smile' />,
-    name: '',
-  },
+  children: <i className='emoji emoji-smile' />,
 };
