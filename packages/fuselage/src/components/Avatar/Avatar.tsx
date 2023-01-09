@@ -3,14 +3,6 @@ import React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { prependClassName } from '../../helpers/prependClassName';
-import { AvatarEmoji } from './AvatarEmoji';
-
-export type AvatarEmojiProps = {
-  name: string;
-  className?: string;
-  children?: ReactNode;
-  image?: string;
-};
 
 export type AvatarProps = {
   size?:
@@ -29,7 +21,8 @@ export type AvatarProps = {
   rounded?: boolean;
   objectFit?: boolean;
   url: string;
-  emoji?: AvatarEmojiProps;
+  children?: ReactNode;
+  image?: string;
 } & HTMLAttributes<HTMLElement>;
 
 export const Avatar = ({
@@ -38,12 +31,17 @@ export const Avatar = ({
   rounded = false,
   objectFit = false,
   url,
-  emoji,
+  children,
+  image,
   ...props
 }: AvatarProps) => {
   props.className = prependClassName(
     props.className,
-    ['rcx-box rcx-box--full rcx-avatar', size && `rcx-avatar--${size}`]
+    [
+      'rcx-box rcx-box--full rcx-avatar',
+      size && `rcx-avatar--${size}`,
+      children && 'rcx-avatar__element--emoji',
+    ]
       .filter(Boolean)
       .join(' ')
   );
@@ -56,12 +54,15 @@ export const Avatar = ({
     .filter(Boolean)
     .join(' ');
 
-  const emojiClassName = prependClassName(emoji?.className, innerClass);
-
   return (
     <figure aria-label={title} {...props}>
-      {emoji ? (
-        <AvatarEmoji {...emoji} className={`${emojiClassName}`} />
+      {children || image ? (
+        <span
+          className={`${innerClass}`}
+          style={image && image.length ? { backgroundImage: image } : undefined}
+        >
+          {children}
+        </span>
       ) : (
         <img src={`${url}`} className={`${innerClass}`} />
       )}
