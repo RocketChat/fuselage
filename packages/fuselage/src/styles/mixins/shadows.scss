@@ -1,14 +1,16 @@
+@use '../lengths.scss';
+
 @mixin use-no-shadow {
   box-shadow: none;
 }
 
 @mixin use-focus-shadow($outer-color) {
-  box-shadow: 0 0 0 #{to-rem(4)} #{$outer-color};
+  box-shadow: 0 0 0 #{lengths.border-width('medium')} #{$outer-color};
 }
 @mixin use-button-focus-shadow($outer-color) {
-  box-shadow: 0 0 0 4px #{$outer-color};
+  box-shadow: 0 0 0 #{lengths.border-width('medium')} #{$outer-color};
 }
 
 @mixin use-focus-shadow-inset($outer-color) {
-  box-shadow: 0 0 0 #{to-rem(4)} #{$outer-color} inset;
+  box-shadow: 0 0 0 #{lengths.border-width('medium')} #{$outer-color} inset;
 }
