@@ -134,6 +134,7 @@ export const surfaceColors = {
   'surface-neutral': neutral.n400.theme('surface-neutral'),
   'surface-disabled': neutral.n100.theme('surface-disabled'),
   'surface-hover': neutral.n200.theme('surface-hover'),
+  'surface-dark': neutral.n800.theme('surface-dark'),
   'surface-info': info.i200.theme('surface-info'),
   'surface-success': success.s200.theme('surface-success'),
   'surface-warning': warning.w200.theme('surface-warning'),
