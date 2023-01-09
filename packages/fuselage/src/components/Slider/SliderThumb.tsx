@@ -29,7 +29,7 @@ export const SliderThumb = (props: any) => {
       height: 16px;
 
       cursor: ${state.isDisabled ? 'not-allowed' : 'pointer'};
-      border: 2px solid #095ad2;
+      border: 1px solid #095ad2;
       border-radius: 50%;
       background: ${isFocusVisible || isDragging ? '#76B7FC' : '#156ff5'};
       ${state.orientation === 'horizontal'
