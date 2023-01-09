@@ -2,6 +2,7 @@ import type { Ref, ComponentProps, ReactNode, MouseEvent } from 'react';
 import React, { memo } from 'react';
 
 import type { Icon } from '../..';
+import { prevent } from '../../helpers/prevent';
 import type Box from '../Box';
 import OptionAvatar from './OptionAvatar';
 import OptionContent from './OptionContent';
@@ -19,6 +20,7 @@ type OptionProps = {
   icon?: ComponentProps<typeof Icon>['name'];
   avatar?: ReactNode;
   title?: string;
+  disabled?: boolean;
   value?: string;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
   onClick?: (event: MouseEvent<HTMLDivElement>) => void;
@@ -37,6 +39,7 @@ const Option = memo(
     icon,
     avatar,
     title,
+    disabled,
     onClick,
     variant,
     ...options
@@ -46,14 +49,22 @@ const Option = memo(
       id={id}
       ref={ref}
       aria-selected={selected}
+      aria-disabled={String(disabled)}
       title={title}
-      onClick={onClick}
+      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+        if (disabled) {
+          prevent(e);
+          return;
+        }
+        onClick?.(e);
+      }}
       {...options}
       className={[
         'rcx-option',
         className,
         focus && 'rcx-option--focus',
         selected && 'rcx-option--selected',
+        disabled && 'rcx-option--disabled',
         variant && `rcx-option--${variant}`,
       ]
         .filter(Boolean)

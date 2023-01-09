@@ -84,6 +84,6 @@ Danger.parameters = setStoryDescription(
 
 export const CustomIcon = Template.bind({});
 CustomIcon.args = {
-  title: 'This is a danger message',
+  title: 'This is a message with custom icon',
   icon: 'hash',
 };

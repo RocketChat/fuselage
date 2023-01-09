@@ -8,7 +8,7 @@ $progress-bar-color-shine: theme(
 );
 $progress-bar-color-background: theme(
   'progress-bar-color-background',
-  colors.neutral(400, 1)
+  colors.surface(neutral)
 );
 
 $progress-bar-border-radius: theme(

@@ -6,16 +6,12 @@ import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
 import React, { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
+import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import { CheckBox } from '../CheckBox';
 import Option from '../Option';
 import Tile from '../Tile';
-
-const prevent = (e: SyntheticEvent) => {
-  e.preventDefault();
-  e.stopPropagation();
-};
 
 type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;

@@ -28,7 +28,7 @@
     cursor: pointer;
 
     color: colors.font(secondary-info);
-    border: lengths.border-width(1) solid colors.neutral(400);
+    border: lengths.border-width(default) solid colors.neutral(400);
     border-radius: theme(
       'message-reaction-border-radius',
       lengths.border-radius(medium)
@@ -72,7 +72,7 @@
             ),
         )
       );
-      border-width: lengths.border-width(1);
+      border-width: lengths.border-width(default);
     }
   }
 
