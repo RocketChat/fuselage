@@ -76,9 +76,3 @@ StackRounded.args = {
   url: imgUrl,
   rounded: true,
 };
-
-export const EmojiAvatar = Template.bind({});
-EmojiAvatar.args = {
-  url: imgUrl,
-  children: <i className='emoji emoji-smile' />,
-};
