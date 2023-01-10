@@ -1,16 +1,18 @@
-import type { ComponentProps, Ref, FC } from 'react';
-import React, { forwardRef } from 'react';
+import type { ComponentProps, Ref, ElementType } from 'react';
+import React, { createElement, forwardRef } from 'react';
 import { FocusScope } from 'react-aria';
 
 import Box from '../Box';
 
-type ModalProps = { wrapper?: FC<ComponentProps<typeof Box>> } & ComponentProps<
-  typeof Box
->;
+type ModalProps = {
+  wrapper?: ElementType<
+    Pick<ComponentProps<typeof Box>, 'elevation' | 'className' | 'children'>
+  >;
+} & ComponentProps<typeof Box>;
 
 export const Modal = forwardRef(
-  ({ children, wrapper, ...props }: ModalProps, ref: Ref<HTMLDivElement>) => (
-    <Box is='dialog' rcx-modal {...props}>
+  ({ children, wrapper, ...props }: ModalProps, ref: Ref<Element>) => (
+    <Box is='dialog' rcx-modal ref={ref} {...props}>
       {!wrapper && (
         <Box rcx-modal__inner elevation='2'>
           <FocusScope contain restoreFocus autoFocus>
@@ -19,18 +21,15 @@ export const Modal = forwardRef(
         </Box>
       )}
       {wrapper &&
-        wrapper(
-          {
-            'children': (
-              <FocusScope contain restoreFocus autoFocus>
-                {children}
-              </FocusScope>
-            ),
-            'rcx-modal__inner': true,
-            'elevation': '2',
-          },
-          ref
-        )}
+        createElement(wrapper, {
+          children: (
+            <FocusScope contain restoreFocus autoFocus>
+              {children}
+            </FocusScope>
+          ),
+          className: 'rcx-modal__inner',
+          elevation: '2',
+        })}
     </Box>
   )
 );
