@@ -131,6 +131,7 @@ const service2 = {
 export const surfaceColors = {
   'surface-light': white.theme('surface-light'),
   'surface-tint': neutral.n100.theme('surface-tint'),
+  'surface-room': white.theme('surface-room'),
   'surface-neutral': neutral.n400.theme('surface-neutral'),
   'surface-disabled': neutral.n100.theme('surface-disabled'),
   'surface-hover': neutral.n200.theme('surface-hover'),
