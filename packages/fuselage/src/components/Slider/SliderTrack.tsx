@@ -73,7 +73,7 @@ export const SliderTrack = ({
         background: linear-gradient(${getTrackGradient()});
         transform: translateX(-50%);
         border-radius: 1rem;
-        border: 2px solid #095ad2;
+        border: 1px solid #095ad2;
       }
       ${isHorizontal &&
       css`
