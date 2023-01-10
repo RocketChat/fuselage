@@ -11,25 +11,15 @@ type ModalProps = {
 } & ComponentProps<typeof Box>;
 
 export const Modal = forwardRef(
-  ({ children, wrapper, ...props }: ModalProps, ref: Ref<Element>) => (
+  ({ children, wrapper = Box, ...props }: ModalProps, ref: Ref<Element>) => (
     <Box is='dialog' rcx-modal ref={ref} {...props}>
-      {!wrapper && (
-        <Box rcx-modal__inner elevation='2'>
-          <FocusScope contain restoreFocus autoFocus>
-            {children}
-          </FocusScope>
-        </Box>
-      )}
-      {wrapper &&
-        createElement(wrapper, {
-          children: (
-            <FocusScope contain restoreFocus autoFocus>
-              {children}
-            </FocusScope>
-          ),
+      <FocusScope contain restoreFocus autoFocus>
+        {createElement(wrapper, {
+          children,
           className: 'rcx-modal__inner',
           elevation: '2',
         })}
+      </FocusScope>
     </Box>
   )
 );
