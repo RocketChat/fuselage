@@ -16,7 +16,6 @@
   }
 
   &__reaction {
-    // @include button.kind-variant(buttons.$icon);
     @include typography.use-font-scale(c1);
     display: inline-flex;
     align-items: center;
