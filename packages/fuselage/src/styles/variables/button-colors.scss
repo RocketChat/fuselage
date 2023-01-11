@@ -457,7 +457,7 @@ $button-empty-focus-border-color: theme(
 );
 $button-empty-focus-shadow-color: theme(
   'button-empty-focus-shadow-color',
-  colors.shadow(highlight)
+  colors.stroke(light)
 );
 $button-empty-disabled-background-color: theme(
   'button-empty-disabled-background-color',
@@ -475,33 +475,36 @@ $button-empty-disabled-color: theme(
 // off
 $button-off-background-color: theme(
   'button-off-background-color',
-  colors.button(secondary-default)
+  colors.stroke(medium)
 );
-$button-off-border-color: theme('button-off-border-color', colors.neutral(400));
+$button-off-border-color: theme(
+  'button-off-border-color',
+  colors.stroke(medium)
+);
 $button-off-color: theme('button-off-color', colors.font(white));
 $button-off-hover-background-color: theme(
   'button-off-hover-background-color',
-  colors.button(secondary-hover)
+  colors.font(hint)
 );
 $button-off-hover-border-color: theme(
   'button-off-hover-border-color',
-  colors.stroke(light)
+  colors.font(hint)
 );
 $button-off-active-background-color: theme(
   'button-off-active-background-color',
-  colors.button(secondary-press)
+  colors.stroke(dark)
 );
 $button-off-active-border-color: theme(
   'button-off-active-border-color',
-  colors.stroke(medium)
+  colors.stroke(dark)
 );
 $button-off-focus-background-color: theme(
   'button-off-focus-background-color',
-  colors.button(secondary-focus)
+  colors.stroke(medium)
 );
 $button-off-focus-border-color: theme(
   'button-off-focus-border-color',
-  colors.stroke(highlight)
+  colors.stroke(extra-dark)
 );
 $button-off-focus-shadow-color: theme(
   'button-off-focus-shadow-color',
@@ -509,13 +512,13 @@ $button-off-focus-shadow-color: theme(
 );
 $button-off-disabled-background-color: theme(
   'button-off-disabled-background-color',
-  colors.button(secondary-default)
+  colors.button(secondary-disabled)
 );
 $button-off-disabled-border-color: theme(
   'button-off-disabled-border-color',
-  colors.stroke(extra-light)
+  colors.button(secondary-disabled)
 );
 $button-off-disabled-color: theme(
   'button-off-disabled-color',
-  colors.font(default)
+  colors.button(on-secondary-disabled)
 );

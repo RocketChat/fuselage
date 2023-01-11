@@ -1,3 +1,4 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 $toggle-switch-border-radius: theme(
@@ -30,7 +31,7 @@ $toggle-switch-border-radius: theme(
 
     border-radius: $toggle-switch-border-radius;
 
-    background-color: currentColor;
+    background-color: colors.button(on-primary);
   }
 
   &__input:checked + &__fake::before {
