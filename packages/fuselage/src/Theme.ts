@@ -169,7 +169,7 @@ export const textIconColors = {
   'font-white': white.theme('font-white'),
   'font-disabled': neutral.n500.theme('font-disabled'),
   'font-annotation': neutral.n600.theme('font-annotation'),
-  'font-hint': neutral.n600.theme('font-hint'),
+  'font-hint': neutral.n700.theme('font-hint'),
   'font-default': neutral.n800.theme('font-default'),
   'font-title-labels': neutral.n900.theme('font-title-labels'),
   'font-danger': danger.d600.theme('font-danger'),
