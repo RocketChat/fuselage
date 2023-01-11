@@ -33,7 +33,7 @@ module.exports = (env, { mode = 'production' }) => ({
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: /node_modules\/(?!@react-aria|@react-stately).*/,
         use: 'babel-loader',
       },
       {
@@ -89,6 +89,7 @@ module.exports = (env, { mode = 'production' }) => ({
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
   },
   externals: [
+    ...Object.keys(require('./package.json').peerDependencies),
     {
       react: {
         commonjs: 'react',
