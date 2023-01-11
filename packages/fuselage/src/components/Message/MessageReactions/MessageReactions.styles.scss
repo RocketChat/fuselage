@@ -27,7 +27,7 @@
 
     cursor: pointer;
 
-    color: colors.font(secondary-info);
+    color: colors.font(hint);
     border: lengths.border-width(default) solid colors.stroke(light);
     border-radius: theme(
       'message-reaction-border-radius',
@@ -41,7 +41,7 @@
     &:hover {
       border-color: theme(
         'message-reaction-hover-border-color',
-        colors.stroke(light)
+        colors.stroke(dark)
       );
       background-color: theme(
         'message-reaction-hover-background-color',
@@ -55,12 +55,9 @@
     }
 
     &--mine {
-      color: theme('message-reaction-color', colors.font(hint));
+      color: theme('message-reaction-color', colors.font(default));
       border-width: lengths.border-width(default);
-      border-color: theme(
-        'message-reaction-border-color',
-        colors.stroke(light)
-      );
+      border-color: theme('message-reaction-border-color', colors.stroke(dark));
       background-color: theme(
         'message-reaction-background-color',
         colors.surface(selected)
