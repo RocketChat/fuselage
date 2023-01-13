@@ -883,5 +883,14 @@
   },
   "cloud-arrow-down": {
     "start": "\ue113"
+  },
+  "code-block": {
+    "start": "\ue115"
+  },
+  "formula": {
+    "start": "\ue117"
+  },
+  "katex": {
+    "start": "\ue119"
   }
 }
