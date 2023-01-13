@@ -34,9 +34,15 @@ $toggle-switch-border-radius: theme(
     background-color: colors.button(on-primary);
   }
 
+  &__input:disabled + &__fake::before {
+    background-color: colors.button(on-secondary-disabled);
+  }
+
   &__input:checked + &__fake::before {
     inset-inline-start: calc(
       100% - #{lengths.inset(20) - 2 * lengths.border-width(default, rem)}
     );
+
+    background-color: colors.button(on-primary);
   }
 }
