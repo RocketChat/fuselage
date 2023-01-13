@@ -145,6 +145,7 @@ export const surfaceColors = {
   'surface-service-2': service2['200'].theme('surface-service-2'),
   'surface-featured': service2['700'].theme('surface-featured'),
   'surface-featured-hover': service2['800'].theme('surface-featured-hover'),
+  'surface-transparent': 'transparent',
 };
 
 type SurfaceColors = keyof typeof surfaceColors;
