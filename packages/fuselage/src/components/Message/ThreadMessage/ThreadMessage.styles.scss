@@ -12,7 +12,7 @@
 
   padding-block: 0;
 
-  color: colors.primary(500);
+  color: colors.font(info);
 }
 
 .rcx-message-thread {
@@ -49,7 +49,7 @@
 
     cursor: pointer;
 
-    color: colors.primary(500);
+    color: colors.font(info);
 
     &--system {
       color: colors.font(annotation);
@@ -61,7 +61,7 @@
   }
 
   &__icon {
-    color: colors.primary(500);
+    color: colors.font(info);
 
     &--unfollow,
     &--follow {
