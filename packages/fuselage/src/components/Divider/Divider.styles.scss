@@ -11,7 +11,7 @@ $divider-color: theme('divider-color', colors.stroke(extra-light));
   border-top: $divider-size solid $divider-color;
 
   &--danger {
-    border-color: colors.stroke(danger);
+    border-color: colors.stroke(error);
   }
 
   &__bar {
