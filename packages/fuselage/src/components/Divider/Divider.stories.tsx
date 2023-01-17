@@ -24,7 +24,7 @@ Vertical.args = {
 };
 
 export const AsButtonSeparator = () => (
-  <ButtonGroup medium>
+  <ButtonGroup>
     <IconButton small icon='phone' />
     <Divider vertical />
     <IconButton small icon='user' />
