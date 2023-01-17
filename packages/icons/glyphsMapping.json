@@ -892,5 +892,8 @@
   },
   "katex": {
     "start": "\ue119"
+  },
+  "compass": {
+    "start": "\ue11b"
   }
 }
