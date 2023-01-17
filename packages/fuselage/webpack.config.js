@@ -33,7 +33,7 @@ module.exports = (env, { mode = 'production' }) => ({
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules\/(?!@react-aria|@react-stately).*/,
+        exclude: /node_modules/,
         use: 'babel-loader',
       },
       {
