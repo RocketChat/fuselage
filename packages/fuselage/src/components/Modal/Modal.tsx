@@ -1,6 +1,5 @@
 import type { ComponentProps, Ref, ElementType } from 'react';
 import React, { createElement, forwardRef } from 'react';
-import { FocusScope } from 'react-aria';
 
 import Box from '../Box';
 
@@ -13,13 +12,11 @@ type ModalProps = {
 export const Modal = forwardRef(
   ({ children, wrapper = Box, ...props }: ModalProps, ref: Ref<Element>) => (
     <Box is='dialog' rcx-modal ref={ref} {...props}>
-      <FocusScope contain restoreFocus autoFocus>
-        {createElement(wrapper, {
-          children,
-          className: 'rcx-modal__inner',
-          elevation: '2',
-        })}
-      </FocusScope>
+      {createElement(wrapper, {
+        children,
+        className: 'rcx-modal__inner',
+        elevation: '2',
+      })}
     </Box>
   )
 );
