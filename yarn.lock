@@ -6886,7 +6886,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/breadcrumbs@npm:^3.4.1":
+"@react-aria/breadcrumbs@npm:^3.3.1":
   version: 3.4.1
   resolution: "@react-aria/breadcrumbs@npm:3.4.1"
   dependencies:
@@ -6903,7 +6903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/button@npm:^3.6.4":
+"@react-aria/button@npm:^3.6.1":
   version: 3.6.4
   resolution: "@react-aria/button@npm:3.6.4"
   dependencies:
@@ -6920,7 +6920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/calendar@npm:^3.0.5":
+"@react-aria/calendar@npm:^3.0.2":
   version: 3.0.5
   resolution: "@react-aria/calendar@npm:3.0.5"
   dependencies:
@@ -6941,7 +6941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/checkbox@npm:^3.7.1":
+"@react-aria/checkbox@npm:^3.5.1":
   version: 3.7.1
   resolution: "@react-aria/checkbox@npm:3.7.1"
   dependencies:
@@ -6959,7 +6959,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/combobox@npm:^3.4.4":
+"@react-aria/combobox@npm:^3.4.1":
   version: 3.4.4
   resolution: "@react-aria/combobox@npm:3.4.4"
   dependencies:
@@ -6986,7 +6986,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/datepicker@npm:^3.2.1":
+"@react-aria/datepicker@npm:^3.1.1":
   version: 3.2.1
   resolution: "@react-aria/datepicker@npm:3.2.1"
   dependencies:
@@ -7013,7 +7013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/dialog@npm:^3.4.2":
+"@react-aria/dialog@npm:^3.3.1":
   version: 3.4.2
   resolution: "@react-aria/dialog@npm:3.4.2"
   dependencies:
@@ -7030,29 +7030,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/dnd@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@react-aria/dnd@npm:3.0.1"
-  dependencies:
-    "@internationalized/string": ^3.0.1
-    "@react-aria/i18n": ^3.6.3
-    "@react-aria/interactions": ^3.13.1
-    "@react-aria/live-announcer": ^3.1.2
-    "@react-aria/overlays": ^3.12.1
-    "@react-aria/utils": ^3.14.2
-    "@react-aria/visually-hidden": ^3.6.1
-    "@react-stately/dnd": ^3.0.1
-    "@react-types/button": ^3.7.0
-    "@react-types/shared": ^3.16.0
-    "@swc/helpers": ^0.4.14
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 609b107666c19ab253788affb7a4266defd74f14698050aedffb9f708a74a1cea37cf6355aefb5445ed29d503c1b02c1601b0d0561d785b17452acd87a85a2a9
-  languageName: node
-  linkType: hard
-
-"@react-aria/focus@npm:^3.10.1":
+"@react-aria/focus@npm:^3.10.1, @react-aria/focus@npm:^3.8.0":
   version: 3.10.1
   resolution: "@react-aria/focus@npm:3.10.1"
   dependencies:
@@ -7091,7 +7069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/gridlist@npm:^3.1.2":
+"@react-aria/gridlist@npm:^3.0.0":
   version: 3.1.2
   resolution: "@react-aria/gridlist@npm:3.1.2"
   dependencies:
@@ -7147,7 +7125,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/interactions@npm:^3.13.1":
+"@react-aria/interactions@npm:^3.11.0, @react-aria/interactions@npm:^3.13.1":
   version: 3.13.1
   resolution: "@react-aria/interactions@npm:3.13.1"
   dependencies:
@@ -7160,7 +7138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/label@npm:^3.4.4":
+"@react-aria/label@npm:^3.4.1, @react-aria/label@npm:^3.4.4":
   version: 3.4.4
   resolution: "@react-aria/label@npm:3.4.4"
   dependencies:
@@ -7174,7 +7152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/link@npm:^3.3.6":
+"@react-aria/link@npm:^3.3.3, @react-aria/link@npm:^3.3.6":
   version: 3.3.6
   resolution: "@react-aria/link@npm:3.3.6"
   dependencies:
@@ -7190,7 +7168,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/listbox@npm:^3.7.2":
+"@react-aria/listbox@npm:^3.6.1, @react-aria/listbox@npm:^3.7.2":
   version: 3.7.2
   resolution: "@react-aria/listbox@npm:3.7.2"
   dependencies:
@@ -7219,7 +7197,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/menu@npm:^3.7.1":
+"@react-aria/menu@npm:^3.6.1, @react-aria/menu@npm:^3.7.1":
   version: 3.7.1
   resolution: "@react-aria/menu@npm:3.7.1"
   dependencies:
@@ -7242,7 +7220,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/meter@npm:^3.3.4":
+"@react-aria/meter@npm:^3.3.1":
   version: 3.3.4
   resolution: "@react-aria/meter@npm:3.3.4"
   dependencies:
@@ -7256,7 +7234,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/numberfield@npm:^3.3.4":
+"@react-aria/numberfield@npm:^3.3.1":
   version: 3.3.4
   resolution: "@react-aria/numberfield@npm:3.3.4"
   dependencies:
@@ -7279,7 +7257,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/overlays@npm:^3.12.1":
+"@react-aria/overlays@npm:^3.10.1, @react-aria/overlays@npm:^3.12.1":
   version: 3.12.1
   resolution: "@react-aria/overlays@npm:3.12.1"
   dependencies:
@@ -7301,7 +7279,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/progress@npm:^3.3.4":
+"@react-aria/progress@npm:^3.3.1, @react-aria/progress@npm:^3.3.4":
   version: 3.3.4
   resolution: "@react-aria/progress@npm:3.3.4"
   dependencies:
@@ -7317,7 +7295,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/radio@npm:^3.4.2":
+"@react-aria/radio@npm:^3.3.1":
   version: 3.4.2
   resolution: "@react-aria/radio@npm:3.4.2"
   dependencies:
@@ -7336,7 +7314,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/searchfield@npm:^3.4.4":
+"@react-aria/searchfield@npm:^3.4.1":
   version: 3.4.4
   resolution: "@react-aria/searchfield@npm:3.4.4"
   dependencies:
@@ -7355,7 +7333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/select@npm:^3.8.4":
+"@react-aria/select@npm:^3.8.1":
   version: 3.8.4
   resolution: "@react-aria/select@npm:3.8.4"
   dependencies:
@@ -7397,7 +7375,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/separator@npm:^3.2.6":
+"@react-aria/separator@npm:^3.2.3":
   version: 3.2.6
   resolution: "@react-aria/separator@npm:3.2.6"
   dependencies:
@@ -7410,7 +7388,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/slider@npm:^3.2.4":
+"@react-aria/slider@npm:^3.2.1":
   version: 3.2.4
   resolution: "@react-aria/slider@npm:3.2.4"
   dependencies:
@@ -7470,7 +7448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/switch@npm:^3.3.1":
+"@react-aria/switch@npm:^3.2.3":
   version: 3.3.1
   resolution: "@react-aria/switch@npm:3.3.1"
   dependencies:
@@ -7484,7 +7462,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/table@npm:^3.7.0":
+"@react-aria/table@npm:^3.4.1":
   version: 3.7.0
   resolution: "@react-aria/table@npm:3.7.0"
   dependencies:
@@ -7509,7 +7487,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/tabs@npm:^3.3.4":
+"@react-aria/tabs@npm:^3.3.1":
   version: 3.3.4
   resolution: "@react-aria/tabs@npm:3.3.4"
   dependencies:
@@ -7529,7 +7507,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/textfield@npm:^3.8.1":
+"@react-aria/textfield@npm:^3.7.1, @react-aria/textfield@npm:^3.8.1":
   version: 3.8.1
   resolution: "@react-aria/textfield@npm:3.8.1"
   dependencies:
@@ -7563,7 +7541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/tooltip@npm:^3.3.4":
+"@react-aria/tooltip@npm:^3.3.1":
   version: 3.3.4
   resolution: "@react-aria/tooltip@npm:3.3.4"
   dependencies:
@@ -7610,7 +7588,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/visually-hidden@npm:^3.6.1":
+"@react-aria/visually-hidden@npm:^3.4.1, @react-aria/visually-hidden@npm:^3.6.1":
   version: 3.6.1
   resolution: "@react-aria/visually-hidden@npm:3.6.1"
   dependencies:
@@ -7787,19 +7765,6 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
   checksum: c2272ac0e495d7bf2cff57817d89ee17eb772074fbd4cfff6fed742d16d3c615c4904829626c330340b371732fe5c0125cbc565ecf9e7692e9ca8e00144b4355
-  languageName: node
-  linkType: hard
-
-"@react-stately/dnd@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@react-stately/dnd@npm:3.0.1"
-  dependencies:
-    "@react-stately/selection": ^3.11.2
-    "@react-types/shared": ^3.16.0
-    "@swc/helpers": ^0.4.14
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: a7b2cb37fa01c1b1e9d366b3b8996f31441e684c198c2819b070f5a0243d9c5d14a50090136d234843ea0cac99b8915019402b7b436902047f2258c08f8d8ecc
   languageName: node
   linkType: hard
 
@@ -9153,7 +9118,7 @@ __metadata:
     postcss-svg: ~3.0.0
     prettier: ~2.7.1
     react: ^17.0.2
-    react-aria: ~3.22.0
+    react-aria: ~3.19.0
     react-dom: ^17.0.2
     react-keyed-flatten-children: ^1.3.0
     react-stately: ~3.17.0
@@ -9179,7 +9144,7 @@ __metadata:
     "@rocket.chat/icons": "*"
     react: ^17.0.2
     react-dom: ^17.0.2
-    react-virtuoso: 1.2.4
+    react-virtuoso: "*"
   languageName: unknown
   linkType: soft
 
@@ -30015,48 +29980,46 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-aria@npm:~3.22.0":
-  version: 3.22.0
-  resolution: "react-aria@npm:3.22.0"
+"react-aria@npm:~3.19.0":
+  version: 3.19.0
+  resolution: "react-aria@npm:3.19.0"
   dependencies:
-    "@react-aria/breadcrumbs": ^3.4.1
-    "@react-aria/button": ^3.6.4
-    "@react-aria/calendar": ^3.0.5
-    "@react-aria/checkbox": ^3.7.1
-    "@react-aria/combobox": ^3.4.4
-    "@react-aria/datepicker": ^3.2.1
-    "@react-aria/dialog": ^3.4.2
-    "@react-aria/dnd": ^3.0.1
-    "@react-aria/focus": ^3.10.1
-    "@react-aria/gridlist": ^3.1.2
-    "@react-aria/i18n": ^3.6.3
-    "@react-aria/interactions": ^3.13.1
-    "@react-aria/label": ^3.4.4
-    "@react-aria/link": ^3.3.6
-    "@react-aria/listbox": ^3.7.2
-    "@react-aria/menu": ^3.7.1
-    "@react-aria/meter": ^3.3.4
-    "@react-aria/numberfield": ^3.3.4
-    "@react-aria/overlays": ^3.12.1
-    "@react-aria/progress": ^3.3.4
-    "@react-aria/radio": ^3.4.2
-    "@react-aria/searchfield": ^3.4.4
-    "@react-aria/select": ^3.8.4
-    "@react-aria/selection": ^3.12.1
-    "@react-aria/separator": ^3.2.6
-    "@react-aria/slider": ^3.2.4
-    "@react-aria/ssr": ^3.4.1
-    "@react-aria/switch": ^3.3.1
-    "@react-aria/table": ^3.7.0
-    "@react-aria/tabs": ^3.3.4
-    "@react-aria/textfield": ^3.8.1
-    "@react-aria/tooltip": ^3.3.4
-    "@react-aria/utils": ^3.14.2
-    "@react-aria/visually-hidden": ^3.6.1
+    "@react-aria/breadcrumbs": ^3.3.1
+    "@react-aria/button": ^3.6.1
+    "@react-aria/calendar": ^3.0.2
+    "@react-aria/checkbox": ^3.5.1
+    "@react-aria/combobox": ^3.4.1
+    "@react-aria/datepicker": ^3.1.1
+    "@react-aria/dialog": ^3.3.1
+    "@react-aria/focus": ^3.8.0
+    "@react-aria/gridlist": ^3.0.0
+    "@react-aria/i18n": ^3.6.0
+    "@react-aria/interactions": ^3.11.0
+    "@react-aria/label": ^3.4.1
+    "@react-aria/link": ^3.3.3
+    "@react-aria/listbox": ^3.6.1
+    "@react-aria/menu": ^3.6.1
+    "@react-aria/meter": ^3.3.1
+    "@react-aria/numberfield": ^3.3.1
+    "@react-aria/overlays": ^3.10.1
+    "@react-aria/progress": ^3.3.1
+    "@react-aria/radio": ^3.3.1
+    "@react-aria/searchfield": ^3.4.1
+    "@react-aria/select": ^3.8.1
+    "@react-aria/separator": ^3.2.3
+    "@react-aria/slider": ^3.2.1
+    "@react-aria/ssr": ^3.3.0
+    "@react-aria/switch": ^3.2.3
+    "@react-aria/table": ^3.4.1
+    "@react-aria/tabs": ^3.3.1
+    "@react-aria/textfield": ^3.7.1
+    "@react-aria/tooltip": ^3.3.1
+    "@react-aria/utils": ^3.13.3
+    "@react-aria/visually-hidden": ^3.4.1
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 5788055e80c6438215e5fbd394e4ff3c6a1288b4247413d4f35ffaa17b8ab29766d8ac746b4914eb6ca5b53e5ade6f0869fea91cbdda8faa5afed964869bad17
+  checksum: 67213326b319b2ccb1d50ed6a5e57f8f4893ae0c1ebfa2ec11d1f467173437ba88830bb596c17f0b5ac7fa7b385d686434ab859f69b8ff504a9054a8022c8175
   languageName: node
   linkType: hard
 
