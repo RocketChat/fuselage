@@ -51,7 +51,7 @@
     "@rocket.chat/icons": "*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-virtuoso": "1.2.4"
+    "react-virtuoso": "*"
   },
   "dependencies": {
     "@rocket.chat/css-in-js": "workspace:~",
@@ -60,7 +60,7 @@
     "@rocket.chat/memo": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
     "invariant": "^2.2.4",
-    "react-aria": "~3.22.0",
+    "react-aria": "~3.19.0",
     "react-keyed-flatten-children": "^1.3.0",
     "react-stately": "~3.17.0"
   },
