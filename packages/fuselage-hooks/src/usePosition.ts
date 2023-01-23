@@ -106,56 +106,22 @@ const emptyStyle: PositionResult = {
   },
 };
 
-const getParents = function (element: Element): Array<Element | Window> {
-  // Set up a parent array
-  const parents = [];
-  for (let el = element.parentNode; el && el !== document; el = el.parentNode) {
-    parents.push(el);
-  }
-  return parents.filter((element) => element.nodeType !== Node.TEXT_NODE);
-};
-
-function getScrollParents(element: Element): Array<Element | Window> {
-  const parents = getParents(element);
-
-  return parents;
-}
-
-const useBoundingClientRect = (
-  element: RefObject<Element>,
-  watch = false,
-  callback: () => void
-): void =>
+const useBoundingClientRect = (watch = false, callback: () => void): void =>
   useEffect(() => {
-    if (!element.current) {
-      return;
-    }
-
     callback();
 
     if (!watch) {
       return;
     }
 
-    const parents = getScrollParents(element.current);
-    const passive = { passive: true };
-
-    const observer = new ResizeObserver(() => {
-      if (!element.current) {
-        return;
-      }
-      callback();
-    });
-    observer.observe(element.current);
+    const observer = new ResizeObserver(() => callback());
     window.addEventListener('resize', callback);
-    parents.forEach((el) => el.addEventListener('scroll', callback, passive));
 
     return () => {
       observer.disconnect();
       window.removeEventListener('resize', callback);
-      parents.forEach((el) => el.removeEventListener('scroll', callback));
     };
-  }, [watch, callback, element]);
+  }, [watch, callback]);
 
 export const getPositionStyle = ({
   placement = 'bottom-start',
@@ -336,8 +302,8 @@ export const usePosition = <T extends Element, R extends Element>(
     );
   });
 
-  useBoundingClientRect(target, watch, callback);
-  useBoundingClientRect(reference, watch, callback);
-  useBoundingClientRect(container, watch, callback);
+  useBoundingClientRect(watch, callback);
+  useBoundingClientRect(watch, callback);
+  useBoundingClientRect(watch, callback);
   return style;
 };
