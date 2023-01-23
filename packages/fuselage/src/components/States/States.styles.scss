@@ -40,6 +40,8 @@ $variants: (
   &__title {
     margin-block-end: lengths.margin(8);
 
+    text-align: center;
+
     color: colors.font(default);
     @include typography.use-font-scale(h2);
   }

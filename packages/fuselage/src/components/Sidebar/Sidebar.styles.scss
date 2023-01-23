@@ -5,7 +5,7 @@
 
 $sidebar-color-surface-default: theme(
   'sidebar-color-surface-default',
-  colors.surface(tint)
+  colors.surface(neutral)
 );
 
 $sidebar-color-surface-hover: theme(

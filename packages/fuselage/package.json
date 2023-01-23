@@ -135,5 +135,8 @@
     "webpack": "~5.74.0",
     "webpack-bundle-analyzer": "~4.7.0",
     "webpack-cli": "~4.10.0"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }
