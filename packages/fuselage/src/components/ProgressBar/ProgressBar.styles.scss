@@ -13,11 +13,13 @@ $progress-bar-color-background: theme(
 
 $progress-bar-border-radius: theme(
   'progress-bar-border-radius',
-  lengths.border-radius(small)
+  lengths.border-radius(large)
 );
 
 .rcx-progress-bar {
   display: block;
+
+  overflow: hidden;
 
   width: 100%;
 

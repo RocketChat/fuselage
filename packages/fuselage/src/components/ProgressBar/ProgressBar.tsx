@@ -6,33 +6,34 @@ import Box from '../Box';
 const getWidth = (percentage: number): string =>
   `${Math.min(Math.max(0, percentage), 100).toFixed(1)}%`;
 
-const getColor = (percentage: number, error?: string) => {
-  if (error) {
-    return 'status-font-on-danger';
-  }
-
-  if (percentage >= 100) {
-    return 'status-font-on-success';
-  }
-
-  return 'status-font-on-info';
+const colors = {
+  info: 'status-font-on-info',
+  success: 'status-font-on-success',
+  warning: 'status-font-on-warning',
+  danger: 'status-font-on-danger',
 };
 
 type ProgressBarProps = ComponentProps<typeof Box> & {
-  barColor?: ComponentProps<typeof Box>['bg'];
   percentage: number;
+  variant?: 'info' | 'success' | 'warning' | 'danger';
   error?: string;
   animated?: boolean;
 };
 
 export const ProgressBar = forwardRef(function ProgressBar(
-  { barColor, percentage, error, animated = true, ...props }: ProgressBarProps,
+  { percentage, variant = 'info', error, animated, ...props }: ProgressBarProps,
   ref
 ) {
   return (
-    <Box ref={ref} rcx-progress-bar title={error || undefined} {...props}>
+    <Box
+      ref={ref}
+      rcx-progress-bar
+      title={error || undefined}
+      overflow='hidden'
+      {...props}
+    >
       <Box
-        bg={barColor || getColor(percentage, error)}
+        bg={error ? colors.danger : colors[variant]}
         rcx-progress-bar__fill
         rcx-progress-bar__fill-complete={animated && percentage >= 100}
         width={getWidth(percentage)}

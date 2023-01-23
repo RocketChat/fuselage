@@ -44,10 +44,29 @@ Default.args = {
 export const Success: ComponentStory<typeof ProgressBar> = Template.bind({});
 Success.args = {
   percentage: 100,
+  variant: 'success',
+};
+
+export const Warning: ComponentStory<typeof ProgressBar> = Template.bind({});
+Warning.args = {
+  percentage: 60,
+  variant: 'warning',
+};
+
+export const Danger: ComponentStory<typeof ProgressBar> = Template.bind({});
+Danger.args = {
+  percentage: 100,
+  variant: 'danger',
 };
 
 export const Error: ComponentStory<typeof ProgressBar> = Template.bind({});
 Error.args = {
-  percentage: 51,
+  percentage: 21,
   error: 'Error Downloading File',
+};
+
+export const Animated: ComponentStory<typeof ProgressBar> = Template.bind({});
+Animated.args = {
+  percentage: 100,
+  animated: true,
 };
