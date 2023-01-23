@@ -302,8 +302,7 @@ export const usePosition = <T extends Element, R extends Element>(
     );
   });
 
-  useBoundingClientRect(watch, callback);
-  useBoundingClientRect(watch, callback);
-  useBoundingClientRect(watch, callback);
+  useBoundingClientRect(reference, watch, callback);
+  useBoundingClientRect(container, watch, callback);
   return style;
 };
