@@ -11,7 +11,7 @@ type ButtonGroupProps = Omit<ComponentProps<typeof Box>, 'wrap'> & {
   wrap?: boolean;
   vertical?: boolean;
   small?: boolean;
-  medium?: boolean;
+  large?: boolean;
 };
 
 export const ButtonGroup = ({
@@ -21,7 +21,7 @@ export const ButtonGroup = ({
   vertical,
   wrap,
   small,
-  medium,
+  large,
   ...props
 }: ButtonGroupProps) => (
   <Box
@@ -30,7 +30,7 @@ export const ButtonGroup = ({
     rcx-button-group--stretch={stretch}
     rcx-button-group--vertical={vertical}
     rcx-button-group--small={small}
-    rcx-button-group--medium={medium}
+    rcx-button-group--large={large}
     rcx-button-group--wrap={wrap}
     role='group'
     {...props}
