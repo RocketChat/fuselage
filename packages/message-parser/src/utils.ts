@@ -1,3 +1,5 @@
+import { parse as tldParse } from 'tldts';
+
 import type {
   BigEmoji,
   Code,
@@ -80,6 +82,16 @@ export const link = (() => {
   const fn = generate('LINK');
 
   return (src: string, label?: Markup[]) => {
+    const { isIcann, isIp, isPrivate } = tldParse(src, {
+      detectIp: false,
+      allowPrivateDomains: true,
+      validHosts: ['rocket.chattt'],
+    });
+
+    if (!(isIcann || isIp || isPrivate || label)) {
+      return plain(src);
+    }
+
     const href = isValidLink(src) || src.startsWith('//') ? src : `//${src}`;
 
     return fn({ src: plain(href), label: label || [plain(src)] });

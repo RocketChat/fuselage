@@ -9315,6 +9315,7 @@ __metadata:
     prettier: ~2.7.1
     prettier-plugin-pegjs: ~0.5.3
     rimraf: ^3.0.2
+    tldts: ~5.7.104
     ts-jest: ~27.1.5
     ts-loader: ~9.2.9
     typedoc: ~0.22.18
@@ -34162,6 +34163,24 @@ resolve@^2.0.0-next.3:
     no-case: ^2.2.0
     upper-case: ^1.0.3
   checksum: e88ddfc4608a7fb18ed440139d9c42a5f8a50f916e07062be2aef5e2038720746ed51c4fdf9e7190d24a8cc10e6dec9773027fc44450b3a4a5e5c49b4a931fb1
+  languageName: node
+  linkType: hard
+
+"tldts-core@npm:^5.7.104":
+  version: 5.7.104
+  resolution: "tldts-core@npm:5.7.104"
+  checksum: 61681f05f80cddebcbb86b44d246841d73f28f0ecea7e4c8fbd0dbfc736e829a385bdd88640ef805326ac4ef2549f1eabd5a1df59c177f83607c114654ac7f68
+  languageName: node
+  linkType: hard
+
+"tldts@npm:~5.7.104":
+  version: 5.7.104
+  resolution: "tldts@npm:5.7.104"
+  dependencies:
+    tldts-core: ^5.7.104
+  bin:
+    tldts: bin/cli.js
+  checksum: 7328b8552eeab149466e9bb6406bd8304608aa171a3939844d9992068bee211376f3b92828eb4276a7fea1158079f21f45bb8e509e1b536956492d635e624a4c
   languageName: node
   linkType: hard
 
