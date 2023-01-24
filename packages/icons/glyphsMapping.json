@@ -895,5 +895,8 @@
   },
   "compass": {
     "start": "\ue11b"
+  },
+  "palette": {
+    "start": "\ue11d"
   }
 }
