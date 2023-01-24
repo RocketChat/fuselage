@@ -58,7 +58,7 @@ const LoaderPage = ({
 
           <Box fontScale='p1b'>{subtitles[subtitleIndex]}</Box>
 
-          <ProgressBar barColor='#1D74F5' percentage={percentage} />
+          <ProgressBar percentage={percentage} />
         </Margins>
       </Box>
     </BackgroundLayer>
