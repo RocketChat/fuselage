@@ -287,7 +287,9 @@ LinkTitle2
 
 References
   = "[](" href:LinkRef ")" { return link(href); }
-  / "[" title:LinkTitle* "](" href:LinkRef ")" { return link(href, title); }
+  / "[" title:LinkTitle* "](" href:LinkRef ")" {
+      return link(href, reducePlainTexts(title));
+    }
   / "<" href:LinkRef "|" title:LinkTitle2 ">" {
       return link(href, [plain(title)]);
     }
@@ -321,30 +323,28 @@ digits = d:$digit+
 
 safe
   = "$"
-  / "-"
-  / "\_"
   / "@"
-  / "."
   / "&"
-  / "="
-  / "%"
-  / "!"
-  / "~"
-  / "_"
   / "+"
+  / "\_"
+  / "_"
+  / "-"
+  / "#"
+  / "?"
 
 extra
-  = "!"
+  = "."
+  / ","
+  / "!"
+  / "%"
+  / "~"
   / "*"
   / "\""
   / "'"
   / ":"
   / ";"
-  / ","
   / "("
   / ")"
-  / "?"
-  / "#"
   / "="
   / "~"
 
@@ -356,12 +356,23 @@ hexByte = a:hexdigit b:hexdigit { return parseInt(a + b, 16); }
 
 domainName
   = "localhost"
-  / $(domainNameLabel ("." (!digit domainChar) domainNameLabel)+)
+  / $(domainNameLabel ("." domainChar domainNameLabel)+)
 
 domainNameLabel = $(domainChar+ $("-" domainChar+)*)
 
 domainChar
-  = !"\\" !"/" !"|" !">" !"<" !"%" !"`" !safe !extra !EndOfLine !Space .
+  = !extra
+    ("\_" / "_" / "-" / !safe)
+    !EndOfLine
+    !Space
+    !"\\"
+    !"/"
+    !"|"
+    !">"
+    !"<"
+    !"%"
+    !"`"
+    .
 
 /**
  *
@@ -399,44 +410,44 @@ URL
 
 urlScheme
   = $(
-    [[A-Za-z0-9+.-]
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]?
-      [A-Za-z0-9+.-]? // up to 32 characters
+    [[A-Za-z0-9+-]
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]?
+      [A-Za-z0-9+-]? // up to 32 characters
       ":"
   )
 
 urlBody
   = (
-    !Whitespace
+    !(extra+ (Whitespace / EndOfLine) / Whitespace)
       (
         anyText
         / "*"
@@ -451,7 +462,7 @@ urlBody
         / "~"
         / "("
       )
-  )
+  )+
 
 urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
 
