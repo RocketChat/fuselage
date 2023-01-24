@@ -59,16 +59,16 @@ Danger.args = {
   variant: 'danger',
 };
 
+export const Animated: ComponentStory<typeof ProgressBar> = Template.bind({});
+Animated.args = {
+  percentage: 80,
+  animated: true,
+};
+
 export const Error: ComponentStory<typeof ProgressBar> = Template.bind({});
 Error.args = {
   percentage: 21,
   error: 'Error Downloading File',
-};
-
-export const Animated: ComponentStory<typeof ProgressBar> = Template.bind({});
-Animated.args = {
-  percentage: 100,
-  animated: true,
 };
 
 export const DefaultLight: ComponentStory<typeof ProgressBar> = Template.bind(
@@ -103,5 +103,12 @@ export const DangerLight: ComponentStory<typeof ProgressBar> = Template.bind(
 DangerLight.args = {
   percentage: 100,
   variant: 'danger',
+  light: true,
+};
+
+export const ErrorLight: ComponentStory<typeof ProgressBar> = Template.bind({});
+ErrorLight.args = {
+  percentage: 20,
+  error: 'Error downloading file',
   light: true,
 };

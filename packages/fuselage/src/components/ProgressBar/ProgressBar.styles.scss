@@ -36,7 +36,7 @@ $progress-bar-border-radius: theme(
 
   border-radius: $progress-bar-border-radius;
 
-  &-complete::before {
+  &--animated::before {
     position: absolute;
     top: 0;
     bottom: 0;

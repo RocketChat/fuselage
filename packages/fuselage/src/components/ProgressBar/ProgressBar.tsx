@@ -59,8 +59,8 @@ export const ProgressBar = forwardRef(function ProgressBar(
     >
       <Box
         bg={getColor(light, variant, error)}
+        rcx-progress-bar__fill--animated={animated}
         rcx-progress-bar__fill
-        rcx-progress-bar__fill-complete={animated && percentage >= 100}
         width={getWidth(percentage)}
       />
     </Box>
