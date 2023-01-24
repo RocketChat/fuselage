@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import type { AllHTMLAttributes } from 'react';
 import React, { forwardRef } from 'react';
 
 import Box from '../Box';
@@ -30,13 +30,13 @@ const getColor = (
   return isLight ? lightColors[variant] : colors[variant];
 };
 
-type ProgressBarProps = ComponentProps<typeof Box> & {
+type ProgressBarProps = {
   percentage: number;
   variant?: 'info' | 'success' | 'warning' | 'danger';
   error?: string;
   animated?: boolean;
   light?: boolean;
-};
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 export const ProgressBar = forwardRef(function ProgressBar(
   {
