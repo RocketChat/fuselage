@@ -12,16 +12,41 @@ const colors = {
   warning: 'status-font-on-warning',
   danger: 'status-font-on-danger',
 };
+const lightColors = {
+  info: 'status-background-info',
+  success: 'status-background-success',
+  warning: 'status-background-warning',
+  danger: 'status-background-danger',
+};
+
+const getColor = (
+  isLight: boolean,
+  variant: 'info' | 'success' | 'warning' | 'danger',
+  error?: string
+) => {
+  if (error) {
+    return isLight ? lightColors.danger : colors.danger;
+  }
+  return isLight ? lightColors[variant] : colors[variant];
+};
 
 type ProgressBarProps = ComponentProps<typeof Box> & {
   percentage: number;
   variant?: 'info' | 'success' | 'warning' | 'danger';
   error?: string;
   animated?: boolean;
+  light?: boolean;
 };
 
 export const ProgressBar = forwardRef(function ProgressBar(
-  { percentage, variant = 'info', error, animated, ...props }: ProgressBarProps,
+  {
+    percentage,
+    variant = 'info',
+    error,
+    animated,
+    light = false,
+    ...props
+  }: ProgressBarProps,
   ref
 ) {
   return (
@@ -33,7 +58,7 @@ export const ProgressBar = forwardRef(function ProgressBar(
       {...props}
     >
       <Box
-        bg={error ? colors.danger : colors[variant]}
+        bg={getColor(light, variant, error)}
         rcx-progress-bar__fill
         rcx-progress-bar__fill-complete={animated && percentage >= 100}
         width={getWidth(percentage)}
