@@ -154,6 +154,16 @@ export const backgroundColor = memoize((value) => {
     return statusBackgroundColors[value].toString();
   }
 
+  if (isStatusColor(value)) {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      console.warn(`${value} shouldn't be used as a backgroundColor.`);
+    }
+    return statusColors[value].toString();
+  }
+
   if (isBadgeColor(value)) {
     return badgeBackgroundColors[value].toString();
   }
