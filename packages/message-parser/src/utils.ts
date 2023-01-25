@@ -85,11 +85,15 @@ export const link = (() => {
     const { isIcann, isIp, isPrivate } = tldParse(src, {
       detectIp: false,
       allowPrivateDomains: true,
-      validHosts: ['rocket.chattt'],
     });
 
     if (!(isIcann || isIp || isPrivate || label)) {
       return plain(src);
+    }
+
+    const tldLengthChecker = src.split('.');
+    if (tldLengthChecker[tldLengthChecker.length - 1].length < 2) {
+      return plain(src.replace('mailto:', ''));
     }
 
     const href = isValidLink(src) || src.startsWith('//') ? src : `//${src}`;

@@ -189,6 +189,10 @@ test.each([
     'https://1developer.rocket.chat',
     [paragraph([link('https://1developer.rocket.chat')])],
   ],
+  [
+    'https://en.m.wikipedia.org/wiki/Main_Page',
+    [paragraph([link('https://en.m.wikipedia.org/wiki/Main_Page')])],
+  ],
   ['test.1test.com', [paragraph([link('test.1test.com')])]],
   ['http://test.e-xample.com', [paragraph([link('http://test.e-xample.com')])]],
   ['www.n-tv.de', [paragraph([link('www.n-tv.de')])]],
