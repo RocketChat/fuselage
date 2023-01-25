@@ -24,6 +24,10 @@ $status-bullet-loading-background: functions.theme(
   'status-bullet-loading-background',
   url('./icons/loading.svg') top left / contain no-repeat
 );
+$status-bullet-disabled-background: functions.theme(
+  'status-bullet-disabled-background',
+  url('./icons/disabled.svg') top left / contain no-repeat
+);
 
 .rcx-status-bullet {
   display: inline-block;
@@ -56,5 +60,9 @@ $status-bullet-loading-background: functions.theme(
 
   &--offline {
     background: $status-bullet-offline-background;
+  }
+
+  &--disabled {
+    background: $status-bullet-disabled-background;
   }
 }

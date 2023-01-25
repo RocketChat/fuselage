@@ -5,7 +5,7 @@ import { useStyleSheet } from '../../hooks/useStyleSheet';
 import styleSheet from './StatusBullet.styles.scss';
 
 type StatusBulletProps = {
-  status?: 'loading' | 'online' | 'busy' | 'away' | 'offline';
+  status?: 'loading' | 'online' | 'busy' | 'away' | 'offline' | 'disabled';
   size?: 'small' | 'large';
 } & Omit<AllHTMLAttributes<HTMLElement>, 'size'>;
 
