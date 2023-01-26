@@ -278,7 +278,7 @@ export const getVariantBoundaries = ({
  * @public
  */
 
-export const usePosition = <T extends Element, R extends Element>(
+export const usePosition = <T extends HTMLElement, R extends HTMLElement>(
   reference: RefObject<R>,
   target: RefObject<T>,
   options: PositionOptions
