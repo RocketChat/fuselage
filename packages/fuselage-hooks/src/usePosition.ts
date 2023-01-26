@@ -51,22 +51,6 @@ type VariantBoundaries = {
   hm: number;
 };
 
-// type PositionStyle = {
-//   top: string;
-//   left: string;
-//   position?: 'fixed';
-//   zIndex: '9999';
-//   transition: 'none !important';
-//   bottom?: '0px';
-//   overflowY?: 'auto';
-// };
-
-// type PositionEmptyResult = {
-//   visibility: 'hidden';
-//   position: 'fixed';
-//   overflowY?: 'initial';
-// };
-
 type PositionResult = {
   style: AllHTMLAttributes<HTMLElement>['style'];
   placement?: Placements;
