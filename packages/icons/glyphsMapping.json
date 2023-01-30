@@ -898,5 +898,14 @@
   },
   "palette": {
     "start": "\ue11d"
+  },
+  "play-unfilled": {
+    "start": "\ue11f"
+  },
+  "stop-unfilled": {
+    "start": "\ue121"
+  },
+  "stop": {
+    "start": "\ue123"
   }
 }
