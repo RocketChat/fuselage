@@ -111,6 +111,9 @@ export const InputBox = forwardRef(function InputBox(
   if (type === 'date') {
     addon = <Icon name='calendar' size='x20' />;
   }
+  if (type === 'time') {
+    addon = <Icon name='clock' size='x20' />;
+  }
 
   if (!addon) {
     return (

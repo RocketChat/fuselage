@@ -150,7 +150,8 @@
     white-space: initial;
   }
 
-  &--type-date {
+  &--type-date,
+  &--type-time {
     &::-webkit-inner-spin-button,
     &::-webkit-calendar-picker-indicator {
       position: absolute;

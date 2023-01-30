@@ -50,6 +50,13 @@ Date.args = {
   type: 'date',
 };
 
+export const Time: ComponentStory<typeof InputBox> = Template.bind({});
+Time.args = {
+  defaultValue: 'Value',
+  onChange: action('change'),
+  type: 'time',
+};
+
 export const WithAddon: ComponentStory<typeof InputBox> = Template.bind({});
 WithAddon.args = {
   addon: <Icon name='send' size='x20' />,
