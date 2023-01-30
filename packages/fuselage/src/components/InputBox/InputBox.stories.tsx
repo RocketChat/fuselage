@@ -43,6 +43,13 @@ Default.args = {
   onChange: action('change'),
 };
 
+export const Date: ComponentStory<typeof InputBox> = Template.bind({});
+Date.args = {
+  defaultValue: 'Value',
+  onChange: action('change'),
+  type: 'date',
+};
+
 export const WithAddon: ComponentStory<typeof InputBox> = Template.bind({});
 WithAddon.args = {
   addon: <Icon name='send' size='x20' />,
