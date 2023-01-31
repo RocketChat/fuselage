@@ -1,5 +1,9 @@
 import { useBorderBoxSize } from '@rocket.chat/fuselage-hooks';
-import type { ReactNode, AllHTMLAttributes } from 'react';
+import type {
+  ReactNode,
+  AllHTMLAttributes,
+  HTMLAttributeAnchorTarget,
+} from 'react';
 import React, { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
@@ -23,7 +27,7 @@ type BannerProps = {
   icon?: ReactNode;
   inline?: boolean;
   link?: string;
-  linkTarget?: string;
+  linkTarget?: HTMLAttributeAnchorTarget;
   linkText?: string;
   onAction?: () => void;
   onClose?: () => void;
