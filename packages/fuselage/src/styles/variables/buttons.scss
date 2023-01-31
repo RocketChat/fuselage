@@ -174,7 +174,7 @@ $icon: (
 $icon-info: (
   background-color: -color('icon-info', 'background-color', transparent),
   border-color: -color('icon-info', 'border-color', transparent),
-  color: -color('icon-info', 'color', map.get($primary, background-color)),
+  color: -color('icon-info', 'color', colors.status-font(on-info)),
   hover-background-color: -color('icon-info', 'hover-background-color', map.get($secondary, hover-background-color)),
   hover-border-color: -color('icon-info', 'hover-border-color', map.get($secondary, hover-border-color)),
   active-background-color: -color('icon-info', 'active-background-color', map.get($secondary, active-background-color)),
@@ -190,7 +190,7 @@ $icon-info: (
 $icon-success: (
   background-color: -color('icon-success', 'background-color', transparent),
   border-color: -color('icon-success', 'border-color', transparent),
-  color: -color('icon-success', 'color', map.get($success, background-color)),
+  color: -color('icon-success', 'color', colors.status-font(on-success)),
   hover-background-color: -color('icon-success', 'hover-background-color', map.get($secondary, hover-background-color)),
   hover-border-color: -color('icon-success', 'hover-border-color', map.get($secondary, hover-border-color)),
   active-background-color: -color('icon-success', 'active-background-color', map.get($secondary, active-background-color)),
@@ -206,7 +206,7 @@ $icon-success: (
 $icon-warning: (
   background-color: -color('icon-warning', 'background-color', transparent),
   border-color: -color('icon-warning', 'border-color', transparent),
-  color: -color('icon-warning', 'color', map.get($warning, background-color)),
+  color: -color('icon-warning', 'color', colors.status-font(on-warning)),
   hover-background-color: -color('icon-warning', 'hover-background-color', map.get($secondary, hover-background-color)),
   hover-border-color: -color('icon-warning', 'hover-border-color', map.get($secondary, hover-border-color)),
   active-background-color: -color('icon-warning', 'active-background-color', map.get($secondary, active-background-color)),
@@ -222,7 +222,7 @@ $icon-warning: (
 $icon-danger: (
   background-color: -color('icon-danger', 'background-color', transparent),
   border-color: -color('icon-danger', 'border-color', transparent),
-  color: -color('icon-danger', 'color', map.get($danger, background-color)),
+  color: -color('icon-danger', 'color', colors.status-font(on-danger)),
   hover-background-color: -color('icon-danger', 'hover-background-color', map.get($secondary, hover-background-color)),
   hover-border-color: -color('icon-danger', 'hover-border-color', map.get($secondary, hover-border-color)),
   active-background-color: -color('icon-danger', 'active-background-color', map.get($secondary, active-background-color)),
