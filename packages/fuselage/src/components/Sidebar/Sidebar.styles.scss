@@ -55,15 +55,6 @@ $sidebar-item-color-focus: theme(
   'sidebar-item-color-focus',
   colors.surface(dark)
 );
-$sidebar-item-background-color-selected: theme(
-  'sidebar-item-background-color-selected',
-  colors.surface(tint)
-);
-$sidebar-item-color-selected: theme(
-  'sidebar-item-color-selected',
-  colors.font(annotation)
-);
-
 $sidebar-item-background-color-featured: theme(
   'sidebar-item-background-color-featured',
   colors.surface(featured)
@@ -80,8 +71,6 @@ $sidebar-item-background-color-featured-selected: theme(
   'sidebar-item-background-color-featured-selected',
   colors.surface(featured-hover)
 );
-
-$sidebar-title-color: theme('sidebar-title-color', colors.font(annotation));
 
 $sidebar-header-height: theme(
   'sidebar-header-height',
