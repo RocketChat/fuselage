@@ -5,7 +5,7 @@
 
 $sidebar-color-surface-default: theme(
   'sidebar-color-surface-default',
-  colors.surface(neutral)
+  colors.surface(light)
 );
 
 $sidebar-color-surface-hover: theme(
@@ -129,7 +129,7 @@ $sidebar-footer-highlight-color: theme(
   &--divider {
     border-color: theme(
       'sidebar-color-stroke-extra-light',
-      colors.stroke(extra-light)
+      colors.stroke(light)
     );
   }
 
