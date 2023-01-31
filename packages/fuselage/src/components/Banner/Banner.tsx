@@ -23,6 +23,7 @@ type BannerProps = {
   icon?: ReactNode;
   inline?: boolean;
   link?: string;
+  linkTarget?: string;
   linkText?: string;
   onAction?: () => void;
   onClose?: () => void;
@@ -39,6 +40,7 @@ const Banner = ({
   inline = false,
   link,
   linkText = 'More info',
+  linkTarget = '_blank',
   onAction,
   onClose,
   title,
@@ -102,7 +104,7 @@ const Banner = ({
         {link && (
           <a
             href={link}
-            target='_blank'
+            target={linkTarget}
             className={cx('rcx-banner__link')({ [variant]: true })}
           >
             {linkText}
