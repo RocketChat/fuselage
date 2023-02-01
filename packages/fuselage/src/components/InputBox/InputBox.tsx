@@ -11,6 +11,7 @@ import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 import type { InputBoxSkeleton } from '.';
 import { Input, Wrapper } from '.';
 import type Box from '../Box';
+import { Icon } from '../Icon';
 import { Addon } from './Addon';
 import type { Option } from './Option';
 import type { Placeholder } from './Placeholder';
@@ -106,6 +107,13 @@ export const InputBox = forwardRef(function InputBox(
     },
     [addon, onChange]
   );
+
+  if (type === 'date') {
+    addon = <Icon name='calendar' size='x20' />;
+  }
+  if (type === 'time') {
+    addon = <Icon name='clock' size='x20' />;
+  }
 
   if (!addon) {
     return (
