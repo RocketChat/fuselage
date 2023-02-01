@@ -907,5 +907,8 @@
   },
   "stop": {
     "start": "\ue123"
+  },
+  "log-view": {
+    "start": "\ue125"
   }
 }
