@@ -1,5 +1,9 @@
 import { useBorderBoxSize } from '@rocket.chat/fuselage-hooks';
-import type { ReactNode, AllHTMLAttributes } from 'react';
+import type {
+  ReactNode,
+  AllHTMLAttributes,
+  HTMLAttributeAnchorTarget,
+} from 'react';
 import React, { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
@@ -23,6 +27,7 @@ type BannerProps = {
   icon?: ReactNode;
   inline?: boolean;
   link?: string;
+  linkTarget?: HTMLAttributeAnchorTarget;
   linkText?: string;
   onAction?: () => void;
   onClose?: () => void;
@@ -39,6 +44,7 @@ const Banner = ({
   inline = false,
   link,
   linkText = 'More info',
+  linkTarget = '_blank',
   onAction,
   onClose,
   title,
@@ -102,7 +108,7 @@ const Banner = ({
         {link && (
           <a
             href={link}
-            target='_blank'
+            target={linkTarget}
             className={cx('rcx-banner__link')({ [variant]: true })}
           >
             {linkText}
