@@ -368,14 +368,17 @@ $sidebar-banner-color-danger: theme(
     color: $sidebar-banner-color-default;
     background-color: $sidebar-banner-background-default;
 
-    &--title {
+    &--text {
       @include typography.use-font-scale(h5);
     }
 
-    &--action {
-      cursor: pointer;
+    &--description {
       @include typography.use-font-scale(p2m);
       color: currentColor;
+
+      &--clickable {
+        cursor: pointer;
+      }
     }
 
     &--info {

@@ -397,8 +397,8 @@ export const WithBanner: ComponentStory<typeof Sidebar> = () => (
     </Box>
     <Divider />
     <SidebarBanner
-      title='This is a sidebar banner'
-      actionText='Learn more'
+      text='This is a sidebar banner'
+      description='Learn more'
       onClick={action('click')}
       onClose={action('click')}
     />
@@ -427,4 +427,34 @@ export const WithBanner: ComponentStory<typeof Sidebar> = () => (
       </Box>
     </SidebarItem>
   </div>
+);
+
+export const CustomBannerContent: ComponentStory<typeof SidebarBanner> = () => (
+  <SidebarBanner>
+    <Box display='flex' justifyContent='space-between'>
+      <Icon name='modal-warning' size='x20' mi='x8' />
+      <div>This is a customized banner content</div>
+    </Box>
+  </SidebarBanner>
+);
+
+export const BannerVariations: ComponentStory<typeof SidebarBanner> = () => (
+  <>
+    <SidebarBanner text='This is a default banner variation' />
+    <Divider />
+    <SidebarBanner text='This is an info banner variation' variant='info' />
+    <Divider />
+    <SidebarBanner
+      text='This is a success banner variation'
+      variant='success'
+    />
+    <Divider />
+    <SidebarBanner
+      text='This is a warning banner variation'
+      variant='warning'
+    />
+    <Divider />
+    <SidebarBanner text='This is a danger banner variation' variant='danger' />
+    <Divider />
+  </>
 );
