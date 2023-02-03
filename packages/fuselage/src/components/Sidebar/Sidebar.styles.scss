@@ -18,6 +18,11 @@ $sidebar-color-surface-selected: theme(
   colors.surface(selected)
 );
 
+$sidebar-color-font-default: theme(
+  'sidebar-color-font-default',
+  colors.font(default)
+);
+
 $sidebar-color-font-primary: theme(
   'sidebar-color-font-primary',
   colors.font(annotation)
@@ -98,7 +103,7 @@ $sidebar-banner-background-default: theme(
   colors.surface(hover)
 );
 $sidebar-banner-color-default: theme(
-  'sidebar-banner-background-default',
+  'sidebar-banner-color-default',
   colors.font(default)
 );
 
@@ -199,8 +204,7 @@ $sidebar-banner-color-danger: theme(
 
     &__title {
       @include typography.use-font-scale(p2m);
-
-      color: $sidebar-color-font-secondary;
+      color: $sidebar-color-font-default;
     }
   }
 

@@ -92,7 +92,7 @@ type TopBarTitleProps = {
 };
 
 export const TopBarTitle = (props: TopBarTitleProps) => (
-  <Box rcx-sidebar-top-bar__title withTruncatedText {...props} />
+  <Box className='rcx-sidebar-topbar__title' withTruncatedText {...props} />
 );
 
 export default Object.assign(TopBar, {
