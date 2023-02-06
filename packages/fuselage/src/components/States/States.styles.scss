@@ -4,10 +4,10 @@
 @use '../../styles/typography.scss';
 
 $variants: (
-  'success': colors.success(600),
-  'danger': colors.danger(600),
-  'warning': colors.warning(600),
-  'primary': colors.primary(600),
+  'success': colors.status-font(on-success),
+  'danger': colors.status-font(on-danger),
+  'warning': colors.status-font(on-warning),
+  'primary': colors.status-font(on-info),
 );
 
 .rcx-states {
@@ -28,7 +28,7 @@ $variants: (
 
     border-radius: lengths.border-radius(full);
 
-    background-color: colors.neutral(200);
+    background-color: colors.surface(tint);
 
     @each $name, $color in $variants {
       &--#{$name} {
@@ -39,6 +39,8 @@ $variants: (
 
   &__title {
     margin-block-end: lengths.margin(8);
+
+    text-align: center;
 
     color: colors.font(default);
     @include typography.use-font-scale(h2);

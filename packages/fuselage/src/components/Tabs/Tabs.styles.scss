@@ -42,7 +42,7 @@ $tabs-focus-shadow-color: theme(
   'tabs-focus-shadow-color',
   colors.stroke(extra-light-highlight)
 );
-$tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
+$tabs-disabled-color: theme('tabs-disabled-color', colors.font(disabled));
 $tabs-disabled-selected-color: theme(
   'tabs-disabled-selected-color',
   colors.status-background(info)

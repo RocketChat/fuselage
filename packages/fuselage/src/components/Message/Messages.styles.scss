@@ -23,7 +23,7 @@
 
 $message-background-color: functions.theme(
   'message-background-color',
-  colors.surface(light)
+  colors.surface(room)
 );
 
 $message-background-color-focus: functions.theme(
@@ -63,7 +63,7 @@ $message-background-color-highlight: functions.theme(
 
   padding-inline: lengths.padding(20);
 
-  background-color: $message-background-color;
+  // background-color: $message-background-color;
 
   &:hover,
   &:focus {

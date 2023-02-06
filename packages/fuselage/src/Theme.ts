@@ -35,6 +35,7 @@ export const neutral = {
   n250: new Var('neutral-250', tokenColors.n250),
   n300: new Var('neutral-300', tokenColors.n300),
   n400: new Var('neutral-400', tokenColors.n400),
+  n450: new Var('neutral-450', tokenColors.n450),
   n500: new Var('neutral-500', tokenColors.n500),
   n600: new Var('neutral-600', tokenColors.n600),
   n700: new Var('neutral-700', tokenColors.n700),
@@ -131,9 +132,12 @@ const service2 = {
 export const surfaceColors = {
   'surface-light': white.theme('surface-light'),
   'surface-tint': neutral.n100.theme('surface-tint'),
+  'surface-room': white.theme('surface-room'),
   'surface-neutral': neutral.n400.theme('surface-neutral'),
   'surface-disabled': neutral.n100.theme('surface-disabled'),
   'surface-hover': neutral.n200.theme('surface-hover'),
+  'surface-selected': neutral.n450.theme('surface-selected'),
+  'surface-dark': neutral.n800.theme('surface-dark'),
   'surface-info': info.i200.theme('surface-info'),
   'surface-success': success.s200.theme('surface-success'),
   'surface-warning': warning.w200.theme('surface-warning'),
@@ -142,6 +146,7 @@ export const surfaceColors = {
   'surface-service-2': service2['200'].theme('surface-service-2'),
   'surface-featured': service2['700'].theme('surface-featured'),
   'surface-featured-hover': service2['800'].theme('surface-featured-hover'),
+  'surface-transparent': 'transparent',
 };
 
 type SurfaceColors = keyof typeof surfaceColors;
@@ -204,7 +209,7 @@ type StatusBackgroundColors = keyof typeof statusBackgroundColors;
 export const statusColors = {
   'status-font-on-info': info.i600.theme('status-font-on-info'),
   'status-font-on-success': success.s800.theme('status-font-on-success'),
-  'status-font-on-warning': warning.w900.theme('status-font-on-warning'),
+  'status-font-on-warning': warning.w800.theme('status-font-on-warning'),
   'status-font-on-warning-2': neutral.n800.theme('status-font-on-warning-2'),
   'status-font-on-danger': danger.d800.theme('status-font-on-danger'),
   'status-font-on-service-1': service1[800].theme('status-font-on-service-1'),
@@ -238,6 +243,8 @@ export const shadowColors = {
     'shadow-elevation-2y',
     getPaletteColor('neutral', 800, 0.12)[1]
   ),
+  'shadow-highlight': primary.p200.theme('shadow-highlight'),
+  'shadow-danger': danger.d100.theme('shadow-danger'),
 };
 
 type ShadowColors = keyof typeof shadowColors;

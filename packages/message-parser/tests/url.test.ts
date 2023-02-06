@@ -189,6 +189,52 @@ test.each([
     'https://1developer.rocket.chat',
     [paragraph([link('https://1developer.rocket.chat')])],
   ],
+  [
+    'https://en.m.wikipedia.org/wiki/Main_Page',
+    [paragraph([link('https://en.m.wikipedia.org/wiki/Main_Page')])],
+  ],
+  ['test.1test.com', [paragraph([link('test.1test.com')])]],
+  ['http://test.e-xample.com', [paragraph([link('http://test.e-xample.com')])]],
+  ['www.n-tv.de', [paragraph([link('www.n-tv.de')])]],
+  [
+    'www.n-tv.de/test, test',
+    [paragraph([link('www.n-tv.de/test'), plain(', test')])],
+  ],
+  ['www.n-tv.de/, test', [paragraph([link('www.n-tv.de/'), plain(', test')])]],
+  ['www.n-tv.de, test', [paragraph([link('www.n-tv.de'), plain(', test')])]],
+  [
+    'https://www.n-tv.de, test',
+    [paragraph([link('https://www.n-tv.de'), plain(', test')])],
+  ],
+  ['http://te_st.com', [paragraph([link('http://te_st.com')])]],
+  ['www.te_st.com', [paragraph([link('www.te_st.com')])]],
+  [
+    '[google_search](http://google.com)',
+    [paragraph([link('http://google.com', [plain('google_search')])])],
+  ],
+  [
+    'app...https://rocket.chat https://rocket.chat',
+    [
+      paragraph([
+        plain('app...https://rocket.chat '),
+        link('https://rocket.chat'),
+      ]),
+    ],
+  ],
+  [
+    'Hey check it out the best communication platform https://rocket.chat! There is not discussion about it.',
+    [
+      paragraph([
+        plain('Hey check it out the best communication platform '),
+        link('https://rocket.chat'),
+        plain('! There is not discussion about it.'),
+      ]),
+    ],
+  ],
+  [
+    'This is a normal phrase.This in another phrase.',
+    [paragraph([plain('This is a normal phrase.This in another phrase.')])],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
@@ -237,6 +283,21 @@ describe('link helper function', () => {
         src: plain('//rocket.chat/test'),
         label: [plain('rocket.chat/test')],
       },
+    });
+  });
+  it("should return an url concatenated '//' if the url has no protocol and has sub-domain", () => {
+    expect(link('spark-public.s3.amazonaws.com')).toMatchObject({
+      type: 'LINK',
+      value: {
+        src: plain('//spark-public.s3.amazonaws.com'),
+        label: [plain('spark-public.s3.amazonaws.com')],
+      },
+    });
+  });
+  it("should return an plain text url due to invalid TLD that's validate with the external library TLDTS", () => {
+    expect(link('rocket.chattt/url_path')).toMatchObject({
+      type: 'PLAIN_TEXT',
+      value: 'rocket.chattt/url_path',
     });
   });
 });

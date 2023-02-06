@@ -1,3 +1,4 @@
+@use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 
 $toggle-switch-border-radius: theme(
@@ -30,12 +31,18 @@ $toggle-switch-border-radius: theme(
 
     border-radius: $toggle-switch-border-radius;
 
-    background-color: currentColor;
+    background-color: colors.button(on-primary);
+  }
+
+  &__input:disabled + &__fake::before {
+    background-color: colors.button(on-secondary-disabled);
   }
 
   &__input:checked + &__fake::before {
     inset-inline-start: calc(
       100% - #{lengths.inset(20) - 2 * lengths.border-width(default, rem)}
     );
+
+    background-color: colors.button(on-primary);
   }
 }
