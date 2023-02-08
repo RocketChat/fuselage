@@ -10,7 +10,7 @@ it('renders without crashing', () => {
       stepCount={1}
       validateEmail={() => true}
       onBackButtonClick={() => undefined}
-      onClickContinue={() => undefined}
+      onClickRegisterLater={() => undefined}
       onSubmit={() => undefined}
     />,
     div

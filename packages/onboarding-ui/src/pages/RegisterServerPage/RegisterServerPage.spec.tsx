@@ -10,7 +10,7 @@ it('renders without crashing', () => {
       stepCount={1}
       onSubmit={() => undefined}
       onBackButtonClick={() => undefined}
-      onClickContinue={() => undefined}
+      onClickRegisterLater={() => undefined}
     />,
     div
   );

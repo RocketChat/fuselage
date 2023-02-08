@@ -23,4 +23,10 @@ export default {
 export const _RegisterServerPage: Story<Args> = (args) => (
   <RegisterServerPage {...args} />
 );
-_RegisterServerPage.storyName = 'RegisterServerPage';
+_RegisterServerPage.storyName = 'Online';
+
+export const _RegisterServerPageOffline: Story<Args> = (args) => (
+  <RegisterServerPage {...args} offline />
+);
+
+_RegisterServerPageOffline.storyName = 'Offline';

@@ -22,3 +22,9 @@ export const _RegisterServerForm: Story<Args> = (args) => (
   <RegisterServerForm {...args} />
 );
 _RegisterServerForm.storyName = 'RegisterServerForm';
+
+export const _RegisterServerFormOffline: Story<Args> = (args) => (
+  <RegisterServerForm {...args} offline />
+);
+
+_RegisterServerFormOffline.storyName = 'RegisterServerFormOffline';

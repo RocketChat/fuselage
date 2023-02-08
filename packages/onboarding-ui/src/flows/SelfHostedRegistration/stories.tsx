@@ -31,7 +31,7 @@ export default {
   },
 } as Meta;
 
-export const SelfHostedRegistration: Story = () => {
+export const SelfHostedRegistration: Story = ({ offline }) => {
   const [path, navigateTo] =
     useState<`/${
       | 'admin-info'
@@ -129,7 +129,8 @@ export const SelfHostedRegistration: Story = () => {
         }}
         onBackButtonClick={() => navigateTo('/org-info')}
         onSubmit={handleRegisterServerSubmit}
-        onClickContinue={() => navigateTo('/standalone-confirmation')}
+        offline={offline}
+        onClickRegisterLater={() => navigateTo('/standalone-confirmation')}
       />
     );
   }
@@ -198,3 +199,9 @@ export const SelfHostedRegistration: Story = () => {
   throw new Error('invalid path');
 };
 SelfHostedRegistration.storyName = 'Self-Hosted Registration';
+
+export const SelfHostedRegistrationOffline: Story = () => (
+  <SelfHostedRegistration offline />
+);
+
+SelfHostedRegistrationOffline.storyName = 'Airgapped Self-Hosted Registration';

@@ -17,7 +17,8 @@ type RegisterServerPageProps = {
   initialValues?: Partial<RegisterServerPayload>;
   onSubmit: SubmitHandler<RegisterServerPayload>;
   onBackButtonClick: () => void;
-  onClickContinue: () => void;
+  onClickRegisterLater: () => void;
+  offline?: boolean;
   validateEmail?: Validate<string>;
   termsHref?: string;
   policyHref?: string;

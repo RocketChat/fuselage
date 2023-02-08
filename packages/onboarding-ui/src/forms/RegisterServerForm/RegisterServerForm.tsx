@@ -28,9 +28,10 @@ type RegisterServerFormProps = {
   validateEmail?: Validate<string>;
   onSubmit: SubmitHandler<RegisterServerPayload>;
   onBackButtonClick: () => void;
-  onClickContinue: () => void;
+  onClickRegisterLater: () => void;
   termsHref?: string;
   policyHref?: string;
+  offline?: boolean;
 };
 
 const RegisterServerForm = ({
@@ -38,9 +39,10 @@ const RegisterServerForm = ({
   stepCount,
   initialValues,
   validateEmail,
+  offline,
   onSubmit,
   onBackButtonClick,
-  onClickContinue,
+  onClickRegisterLater,
   termsHref = 'https://rocket.chat/terms',
   policyHref = 'https://rocket.chat/privacy',
 }: RegisterServerFormProps): ReactElement => {
@@ -87,90 +89,103 @@ const RegisterServerForm = ({
             </List.Item>
           </List>
         </Box>
-        <Form.Container>
-          <Field>
-            <Field.Label
-              display='flex'
-              alignItems='center'
-              htmlFor={emailField}
-            >
-              {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
-              <Icon
-                title={t(
-                  'form.registeredServerForm.fields.accountEmail.tooltipLabel'
-                )}
-                mis='x4'
-                size='x16'
-                name='info'
-              />
-            </Field.Label>
-            <Field.Row>
-              <EmailInput
-                {...register('email', {
-                  required: true,
-                  validate: validateEmail,
-                })}
-                placeholder={t(
-                  'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
-                )}
-                id={emailField}
-              />
-            </Field.Row>
-            {errors.email && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
-            )}
-          </Field>
-          <Box mbs='x24'>
-            <Box
-              mbe='x8'
-              display='flex'
-              flexDirection='row'
-              alignItems='flex-start'
-              fontScale='c1'
-              lineHeight={20}
-            >
-              <CheckBox mie='x8' {...register('updates')} />{' '}
-              <Box is='label' htmlFor='updates'>
-                {t('form.registeredServerForm.keepInformed')}
+        {!offline && (
+          <Form.Container>
+            <Field>
+              <Field.Label
+                display='flex'
+                alignItems='center'
+                htmlFor={emailField}
+              >
+                {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
+                <Icon
+                  title={t(
+                    'form.registeredServerForm.fields.accountEmail.tooltipLabel'
+                  )}
+                  mis='x4'
+                  size='x16'
+                  name='info'
+                />
+              </Field.Label>
+              <Field.Row>
+                <EmailInput
+                  {...register('email', {
+                    required: true,
+                    validate: validateEmail,
+                  })}
+                  placeholder={t(
+                    'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
+                  )}
+                  id={emailField}
+                />
+              </Field.Row>
+              {errors.email && (
+                <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              )}
+            </Field>
+            <Box mbs='x24'>
+              <Box
+                mbe='x8'
+                display='flex'
+                flexDirection='row'
+                alignItems='flex-start'
+                fontScale='c1'
+                lineHeight={20}
+              >
+                <CheckBox mie='x8' {...register('updates')} />{' '}
+                <Box is='label' htmlFor='updates'>
+                  {t('form.registeredServerForm.keepInformed')}
+                </Box>
               </Box>
-            </Box>
-            <Box
-              display='flex'
-              flexDirection='row'
-              alignItems='flex-start'
-              color='default'
-              fontScale='c1'
-              lineHeight={20}
-            >
-              <CheckBox
-                mie='x8'
-                {...register('agreement', { required: true })}
-              />{' '}
-              <Box is='label' htmlFor='agreement' withRichContent>
-                <Trans i18nKey='component.form.termsAndConditions'>
-                  I agree with
-                  <a href={termsHref} target='_blank' rel='noopener noreferrer'>
-                    Terms and Conditions
-                  </a>
-                  and
-                  <a
-                    href={policyHref}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    Privacy Policy
-                  </a>
-                </Trans>
+              <Box
+                display='flex'
+                flexDirection='row'
+                alignItems='flex-start'
+                color='default'
+                fontScale='c1'
+                lineHeight={20}
+              >
+                <CheckBox
+                  mie='x8'
+                  {...register('agreement', { required: true })}
+                />{' '}
+                <Box is='label' htmlFor='agreement' withRichContent>
+                  <Trans i18nKey='component.form.termsAndConditions'>
+                    I agree with
+                    <a
+                      href={termsHref}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      Terms and Conditions
+                    </a>
+                    and
+                    <a
+                      href={policyHref}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      Privacy Policy
+                    </a>
+                  </Trans>
+                </Box>
               </Box>
-            </Box>
 
-            <Box mbs='x32' fontScale='c1' htmlFor='agreement' withRichContent>
-              {t('form.registeredServerForm.agreeToReceiveUpdates')}
+              <Box mbs='x32' fontScale='c1' htmlFor='agreement' withRichContent>
+                {t('form.registeredServerForm.agreeToReceiveUpdates')}
+              </Box>
             </Box>
-          </Box>
-        </Form.Container>
+          </Form.Container>
+        )}
+        {offline && (
+          <Form.Container>
+            <Box mbs='x32' fontScale='c1' withRichContent>
+              {t('form.registeredServerForm.notConnectedToInternet')}
+            </Box>
+          </Form.Container>
+        )}
         <Form.Footer>
-          <ButtonGroup vertical={isMobile}>
+          <ButtonGroup vertical={isMobile} flexGrow={1}>
             <Button onClick={onBackButtonClick}>
               {t('component.form.action.back')}
             </Button>
@@ -179,16 +194,18 @@ const RegisterServerForm = ({
               primary
               disabled={isValidating || isSubmitting || !isValid}
             >
-              {t('component.form.action.register')}
+              {offline
+                ? t('component.form.action.registerNow')
+                : t('component.form.action.register')}
             </Button>
 
-            <Box withTruncatedText flexGrow={1}>
-              <ButtonGroup flexGrow={1} align='end'>
-                <ActionLink onClick={onClickContinue}>
-                  {t('form.registeredServerForm.continueStandalone')}
+            {offline && (
+              <ButtonGroup flexGrow={1} align='end' withTruncatedText>
+                <ActionLink onClick={onClickRegisterLater}>
+                  {t('form.registeredServerForm.registerLater')}
                 </ActionLink>
               </ButtonGroup>
-            </Box>
+            )}
           </ButtonGroup>
         </Form.Footer>
       </Form>
