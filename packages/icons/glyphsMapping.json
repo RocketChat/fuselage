@@ -908,7 +908,7 @@
   "stop": {
     "start": "\ue123"
   },
-  "log-view": {
+  "desktop-text": {
     "start": "\ue125"
   }
 }
