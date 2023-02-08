@@ -4,13 +4,13 @@ import { useState } from 'react';
 
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
-import type { RegisteredServerPayload } from '../../forms/RegisteredServerForm/RegisteredServerForm';
+import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
 import AdminInfoPage from '../../pages/AdminInfoPage';
 import AwaitingConfirmationPage from '../../pages/AwaitingConfirmationPage';
 import ConfirmationProcessPage from '../../pages/ConfirmationProcessPage';
 import EmailConfirmedPage from '../../pages/EmailConfirmedPage';
 import OrganizationInfoPage from '../../pages/OrganizationInfoPage';
-import RegisteredServerPage from '../../pages/RegisteredServerPage';
+import RegisteredServerPage from '../../pages/RegisterServerPage';
 import StandaloneServerPage from '../../pages/StandaloneServerPage';
 import {
   countryOptions,
@@ -71,7 +71,7 @@ export const SelfHostedRegistration: Story = () => {
   );
 
   const handleRegisterServerSubmit = logSubmit(
-    (data: RegisteredServerPayload) => {
+    (data: RegisterServerPayload) => {
       setServerRegistration((serverRegistration) => ({
         ...serverRegistration,
         updates: data.updates,

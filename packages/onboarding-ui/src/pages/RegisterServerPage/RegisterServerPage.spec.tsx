@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom';
 
-import RegisteredServerPage from './RegisteredServerPage';
+import RegisterServerPage from './RegisterServerPage';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <RegisteredServerPage
+    <RegisterServerPage
       currentStep={1}
       stepCount={1}
       onSubmit={() => undefined}

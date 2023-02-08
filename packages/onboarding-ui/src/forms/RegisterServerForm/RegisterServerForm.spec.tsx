@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom';
 
-import RegisteredServerForm from './RegisteredServerForm';
+import RegisterServerForm from './RegisterServerForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <RegisteredServerForm
+    <RegisterServerForm
       currentStep={1}
       stepCount={1}
       validateEmail={() => true}

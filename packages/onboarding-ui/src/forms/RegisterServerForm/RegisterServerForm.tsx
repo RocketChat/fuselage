@@ -14,7 +14,7 @@ import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
-export type RegisteredServerPayload = {
+export type RegisterServerPayload = {
   email: string;
   registerType: 'registered' | 'standalone';
   agreement: boolean;
@@ -24,9 +24,9 @@ export type RegisteredServerPayload = {
 type RegisterServerFormProps = {
   currentStep: number;
   stepCount: number;
-  initialValues?: Partial<RegisteredServerPayload>;
+  initialValues?: Partial<RegisterServerPayload>;
   validateEmail?: Validate<string>;
-  onSubmit: SubmitHandler<RegisteredServerPayload>;
+  onSubmit: SubmitHandler<RegisterServerPayload>;
   onBackButtonClick: () => void;
   onClickContinue: () => void;
   termsHref?: string;
@@ -50,7 +50,7 @@ const RegisterServerForm = ({
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
 
-  const form = useForm<RegisteredServerPayload>({
+  const form = useForm<RegisterServerPayload>({
     mode: 'onChange',
     defaultValues: {
       email: '',

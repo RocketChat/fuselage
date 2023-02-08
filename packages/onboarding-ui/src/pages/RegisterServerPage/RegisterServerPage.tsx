@@ -8,14 +8,14 @@ import { Trans } from 'react-i18next';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
-import RegisteredServerForm from '../../forms/RegisteredServerForm';
-import type { RegisteredServerPayload } from '../../forms/RegisteredServerForm/RegisteredServerForm';
+import RegisterServerForm from '../../forms/RegisterServerForm';
+import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
 
-type RegisteredServerPageProps = {
+type RegisterServerPageProps = {
   currentStep: number;
   stepCount: number;
-  initialValues?: Partial<RegisteredServerPayload>;
-  onSubmit: SubmitHandler<RegisteredServerPayload>;
+  initialValues?: Partial<RegisterServerPayload>;
+  onSubmit: SubmitHandler<RegisterServerPayload>;
   onBackButtonClick: () => void;
   onClickContinue: () => void;
   validateEmail?: Validate<string>;
@@ -27,9 +27,7 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
 };
 
-const RegisteredServerPage = (
-  props: RegisteredServerPageProps
-): ReactElement => (
+const RegisteredServerPage = (props: RegisterServerPageProps): ReactElement => (
   <BackgroundLayer>
     <FormPageLayout
       title={
@@ -43,7 +41,7 @@ const RegisteredServerPage = (
       }
       styleProps={pageLayoutStyleProps}
     >
-      <RegisteredServerForm {...props} />
+      <RegisterServerForm {...props} />
     </FormPageLayout>
   </BackgroundLayer>
 );
