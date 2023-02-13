@@ -1,4 +1,10 @@
-import type { Ref, ComponentProps, ReactNode, MouseEvent } from 'react';
+import type {
+  Ref,
+  ComponentProps,
+  ReactNode,
+  MouseEvent,
+  AllHTMLAttributes,
+} from 'react';
 import React, { memo } from 'react';
 
 import type { Icon } from '../..';
@@ -24,7 +30,7 @@ type OptionProps = {
   value?: string;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
   onClick?: (event: MouseEvent<HTMLDivElement>) => void;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 const Option = memo(
   ({
