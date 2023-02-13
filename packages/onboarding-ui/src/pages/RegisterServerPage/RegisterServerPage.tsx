@@ -28,7 +28,7 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
 };
 
-const RegisteredServerPage = (props: RegisterServerPageProps): ReactElement => (
+const RegisterServerPage = (props: RegisterServerPageProps): ReactElement => (
   <BackgroundLayer>
     <FormPageLayout
       title={
@@ -47,4 +47,4 @@ const RegisteredServerPage = (props: RegisterServerPageProps): ReactElement => (
   </BackgroundLayer>
 );
 
-export default RegisteredServerPage;
+export default RegisterServerPage;
