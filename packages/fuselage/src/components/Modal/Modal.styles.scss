@@ -107,10 +107,6 @@ $modal-margin: theme('modal-margin', auto);
     }
   }
 
-  &__content-wrapper {
-    margin-inline: $modal-container-margin;
-  }
-
   @include on-breakpoint(sm) {
     max-width: lengths.size(640);
     padding: lengths.padding(16);
