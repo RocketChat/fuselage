@@ -26,6 +26,7 @@ export type OptionType = [
   value: string | number,
   label: ReactNode,
   selected?: boolean,
+  disabled?: boolean,
   type?: 'heading' | 'divider' | 'option',
   url?: string
 ];
@@ -81,7 +82,7 @@ export const Options = forwardRef(
 
     const optionsMemoized = useMemo(
       () =>
-        options?.map(([value, label, selected, type, url], i) => {
+        options?.map(([value, label, selected, disabled, type, url], i) => {
           switch (type) {
             case 'heading':
               return <OptionHeader key={value}>{label}</OptionHeader>;
@@ -94,12 +95,13 @@ export const Options = forwardRef(
                   label={label}
                   onMouseDown={(e: SyntheticEvent) => {
                     prevent(e);
-                    onSelect([value, label, selected, type, url]);
+                    onSelect([value, label, selected, disabled, type, url]);
                     return false;
                   }}
                   key={value}
                   value={value}
                   selected={selected || (multiple !== true && null)}
+                  disabled={disabled}
                   focus={cursor === i || null}
                 />
               );
