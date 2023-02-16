@@ -108,10 +108,9 @@ export const InputBox = forwardRef(function InputBox(
     [addon, onChange]
   );
 
-  const handleAddonClick = () => {
-    if ('showPicker' in HTMLInputElement)
-      (innerRef.current as HTMLInputElement).showPicker();
-  };
+  const handleAddonClick = () =>
+    (innerRef.current as HTMLInputElement).showPicker();
+
   if (type === 'date') {
     addon = <Icon name='calendar' size='x20' onClick={handleAddonClick} />;
   }
