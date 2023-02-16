@@ -150,6 +150,26 @@
     white-space: initial;
   }
 
+  &--type-date,
+  &--type-time {
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      width: auto;
+      height: auto;
+
+      cursor: pointer;
+
+      color: transparent;
+      background: transparent;
+    }
+  }
+
   &--type-select {
     @extend %--with-scrollbars;
 

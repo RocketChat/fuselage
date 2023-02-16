@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import type { Ref, ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 import React from 'react';
 
 import { FieldGroup, Field, TextInput, Button, Modal, Box } from '../..';
@@ -170,13 +170,9 @@ export const _WithHeroImage = () => (
   </Modal>
 );
 
-const FormContainer = (
-  props: ComponentProps<typeof Box>,
-  ref: Ref<HTMLDivElement>
-) => (
+const FormContainer = (props: ComponentProps<typeof Box>) => (
   <Box
     {...props}
-    ref={ref}
     is='form'
     onSubmit={(e) => {
       e.preventDefault();

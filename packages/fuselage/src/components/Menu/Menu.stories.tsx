@@ -55,6 +55,11 @@ Complex.args = {
       label: 'Example',
       action: action('example.action'),
     },
+    disabled: {
+      label: 'Disabled',
+      action: action('disabled.action'),
+      disabled: true,
+    },
     divider1: {
       type: 'divider',
     },

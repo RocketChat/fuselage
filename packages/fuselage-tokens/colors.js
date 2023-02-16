@@ -25,6 +25,7 @@ module.exports = {
   'n250': '#EBECEF',
   'n300': '#eeeff1',
   'n400': '#e4e7ea',
+  'n450': '#d7dbe0',
   'n500': '#cbced1',
   'n600': '#9ea2a8',
   'n700': '#6c727a',

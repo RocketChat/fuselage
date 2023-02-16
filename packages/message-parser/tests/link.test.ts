@@ -483,11 +483,22 @@ Text after line break`,
       ]),
     ],
   ],
+  [
+    '([Github Issue: #24929](https://github.com/RocketChat/Rocket.Chat/issues/24929))',
+    [
+      paragraph([
+        plain('('),
+        link('https://github.com/RocketChat/Rocket.Chat/issues/24929', [
+          plain('Github Issue: #24929'),
+        ]),
+        plain(')'),
+      ]),
+    ],
+  ],
   // Should not parse as link
-  ['[77.77%](77.77%)', [paragraph([plain('[77.77%](77.77%)')])]],
   ['77.77%', [paragraph([plain('77.77%')])]],
-  ['[77.77](77.77)', [paragraph([plain('[77.77](77.77)')])]],
   ['77.77', [paragraph([plain('77.77')])]],
+  ['https://77.77', [paragraph([plain('https://77.77')])]],
   ['test.9gag', [paragraph([plain('test.9gag')])]],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);

@@ -5803,6 +5803,7 @@ __metadata:
     prettier: ~2.7.1
     prettier-plugin-pegjs: ~0.5.3
     rimraf: ^3.0.2
+    tldts: ~5.7.104
     ts-jest: ~27.1.5
     ts-loader: ~9.2.9
     typedoc: ~0.22.18
@@ -16482,9 +16483,9 @@ fsevents@^1.2.7:
   linkType: hard
 
 "http-cache-semantics@npm:^4.0.0, http-cache-semantics@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "http-cache-semantics@npm:4.1.0"
-  checksum: 974de94a81c5474be07f269f9fd8383e92ebb5a448208223bfb39e172a9dbc26feff250192ecc23b9593b3f92098e010406b0f24bd4d588d631f80214648ed42
+  version: 4.1.1
+  resolution: "http-cache-semantics@npm:4.1.1"
+  checksum: 83ac0bc60b17a3a36f9953e7be55e5c8f41acc61b22583060e8dedc9dd5e3607c823a88d0926f9150e571f90946835c7fe150732801010845c72cd8bbff1a236
   languageName: node
   linkType: hard
 
@@ -27042,6 +27043,24 @@ resolve@^2.0.0-next.3:
     no-case: ^2.2.0
     upper-case: ^1.0.3
   checksum: e88ddfc4608a7fb18ed440139d9c42a5f8a50f916e07062be2aef5e2038720746ed51c4fdf9e7190d24a8cc10e6dec9773027fc44450b3a4a5e5c49b4a931fb1
+  languageName: node
+  linkType: hard
+
+"tldts-core@npm:^5.7.104":
+  version: 5.7.104
+  resolution: "tldts-core@npm:5.7.104"
+  checksum: 61681f05f80cddebcbb86b44d246841d73f28f0ecea7e4c8fbd0dbfc736e829a385bdd88640ef805326ac4ef2549f1eabd5a1df59c177f83607c114654ac7f68
+  languageName: node
+  linkType: hard
+
+"tldts@npm:~5.7.104":
+  version: 5.7.104
+  resolution: "tldts@npm:5.7.104"
+  dependencies:
+    tldts-core: ^5.7.104
+  bin:
+    tldts: bin/cli.js
+  checksum: 7328b8552eeab149466e9bb6406bd8304608aa171a3939844d9992068bee211376f3b92828eb4276a7fea1158079f21f45bb8e509e1b536956492d635e624a4c
   languageName: node
   linkType: hard
 

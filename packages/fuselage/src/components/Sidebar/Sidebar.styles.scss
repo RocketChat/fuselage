@@ -18,6 +18,11 @@ $sidebar-color-surface-selected: theme(
   colors.surface(selected)
 );
 
+$sidebar-color-font-default: theme(
+  'sidebar-color-font-default',
+  colors.font(default)
+);
+
 $sidebar-color-font-primary: theme(
   'sidebar-color-font-primary',
   colors.font(annotation)
@@ -55,15 +60,6 @@ $sidebar-item-color-focus: theme(
   'sidebar-item-color-focus',
   colors.surface(dark)
 );
-$sidebar-item-background-color-selected: theme(
-  'sidebar-item-background-color-selected',
-  colors.surface(tint)
-);
-$sidebar-item-color-selected: theme(
-  'sidebar-item-color-selected',
-  colors.font(annotation)
-);
-
 $sidebar-item-background-color-featured: theme(
   'sidebar-item-background-color-featured',
   colors.surface(featured)
@@ -80,8 +76,6 @@ $sidebar-item-background-color-featured-selected: theme(
   'sidebar-item-background-color-featured-selected',
   colors.surface(featured-hover)
 );
-
-$sidebar-title-color: theme('sidebar-title-color', colors.font(annotation));
 
 $sidebar-header-height: theme(
   'sidebar-header-height',
@@ -101,6 +95,52 @@ $sidebar-footer-box-shadow: theme(
 $sidebar-footer-highlight-color: theme(
   'sidebar-footer-highlight-color',
   colors.font(annotation)
+);
+
+// sidebar-banner-colors
+$sidebar-banner-background-default: theme(
+  'sidebar-banner-background-default',
+  colors.surface(hover)
+);
+$sidebar-banner-color-default: theme(
+  'sidebar-banner-color-default',
+  colors.font(default)
+);
+
+$sidebar-banner-background-info: theme(
+  'sidebar-banner-background-info',
+  colors.status-background(info)
+);
+$sidebar-banner-color-info: theme(
+  'sidebar-banner-background-info',
+  colors.status-font(on-info)
+);
+
+$sidebar-banner-background-success: theme(
+  'sidebar-banner-background-success',
+  colors.status-background(success)
+);
+$sidebar-banner-color-success: theme(
+  'sidebar-banner-background-success',
+  colors.status-font(on-success)
+);
+
+$sidebar-banner-background-warning: theme(
+  'sidebar-banner-background-warning',
+  colors.status-background(warning)
+);
+$sidebar-banner-color-warning: theme(
+  'sidebar-banner-background-warning',
+  colors.status-font(on-warning)
+);
+
+$sidebar-banner-background-danger: theme(
+  'sidebar-banner-background-danger',
+  colors.status-background(danger)
+);
+$sidebar-banner-color-danger: theme(
+  'sidebar-banner-background-danger',
+  colors.status-font(on-danger)
 );
 
 %sidebar-base {
@@ -129,7 +169,7 @@ $sidebar-footer-highlight-color: theme(
   &--divider {
     border-color: theme(
       'sidebar-color-stroke-extra-light',
-      colors.stroke(extra-light)
+      colors.stroke(light)
     );
   }
 
@@ -164,8 +204,7 @@ $sidebar-footer-highlight-color: theme(
 
     &__title {
       @include typography.use-font-scale(p2m);
-
-      color: $sidebar-color-font-secondary;
+      color: $sidebar-color-font-default;
     }
   }
 
@@ -320,6 +359,51 @@ $sidebar-footer-highlight-color: theme(
 
     margin-block: lengths.margin(8);
     padding-inline: lengths.padding(16);
+  }
+
+  &-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100px;
+    padding: lengths.padding(16);
+
+    color: $sidebar-banner-color-default;
+    background-color: $sidebar-banner-background-default;
+
+    &--text {
+      @include typography.use-font-scale(h5);
+    }
+
+    &--description {
+      @include typography.use-font-scale(p2m);
+      color: currentColor;
+
+      &--clickable {
+        cursor: pointer;
+      }
+    }
+
+    &--info {
+      color: $sidebar-banner-color-info;
+      background-color: $sidebar-banner-background-info;
+    }
+
+    &--success {
+      color: $sidebar-banner-color-success;
+      background-color: $sidebar-banner-background-success;
+    }
+
+    &--warning {
+      color: $sidebar-banner-color-warning;
+      background-color: $sidebar-banner-background-warning;
+    }
+
+    &--danger {
+      color: $sidebar-banner-color-danger;
+      background-color: $sidebar-banner-background-danger;
+    }
   }
 
   &-footer {

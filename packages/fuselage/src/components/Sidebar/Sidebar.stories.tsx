@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
@@ -19,7 +20,7 @@ import Sidebar, {
   SidebarFooterHighlight,
   SidebarItemIcon,
 } from '.';
-import { Avatar, Icon, Box, Tag, Divider } from '../..';
+import { Avatar, Icon, Box, Tag, Divider, SidebarBanner } from '../..';
 
 export default {
   title: 'Sidebar/Sidebar',
@@ -382,4 +383,78 @@ export const Admin: ComponentStory<typeof Sidebar> = () => (
       </Box>
     </SidebarItem>
   </div>
+);
+
+export const WithBanner: ComponentStory<typeof Sidebar> = () => (
+  <div className='rcx-sidebar'>
+    <Box display='flex' is='header' pbs='x16' pbe='x8' pi='x24'>
+      <Box fontSize='p2' fontWeight='p2'>
+        Administration
+      </Box>
+      <Box mi='x8'>
+        <Tag variant='featured'>Development</Tag>
+      </Box>
+    </Box>
+    <Divider />
+    <SidebarBanner
+      text='This is a sidebar banner'
+      description='Learn more'
+      onClick={action('click')}
+      onClose={action('click')}
+    />
+    <SidebarItem clickable>
+      <Box display='flex' justifyContent='center' pb='x8'>
+        <Icon name='import' mi='x4' size='x20' />
+        Import
+      </Box>
+    </SidebarItem>
+    <SidebarItem clickable>
+      <Box display='flex' justifyContent='center' pb='x8'>
+        <Icon name='user' mi='x4' size='x20' />
+        Users
+      </Box>
+    </SidebarItem>
+    <SidebarItem clickable>
+      <Box display='flex' justifyContent='center' pb='x8'>
+        <Icon name='hashtag' mi='x4' size='x20' />
+        Rooms
+      </Box>
+    </SidebarItem>
+    <SidebarItem clickable>
+      <Box display='flex' justifyContent='center' pb='x8'>
+        <Icon name='cube' mi='x4' size='x20' />
+        Apps
+      </Box>
+    </SidebarItem>
+  </div>
+);
+
+export const CustomBannerContent: ComponentStory<typeof SidebarBanner> = () => (
+  <SidebarBanner>
+    <Box display='flex' justifyContent='space-between'>
+      <Icon name='modal-warning' size='x20' mi='x8' />
+      <div>This is a customized banner content</div>
+    </Box>
+  </SidebarBanner>
+);
+
+export const BannerVariations: ComponentStory<typeof SidebarBanner> = () => (
+  <>
+    <SidebarBanner text='This is a default banner variation' />
+    <Divider />
+    <SidebarBanner text='This is an info banner variation' variant='info' />
+    <Divider />
+    <SidebarBanner
+      text='This is a success banner variation'
+      variant='success'
+    />
+    <Divider />
+    <SidebarBanner
+      text='This is a warning banner variation'
+      variant='warning'
+    />
+    <Divider />
+    <SidebarBanner text='This is a danger banner variation' variant='danger' />
+    <Divider />
+  </>
 );
