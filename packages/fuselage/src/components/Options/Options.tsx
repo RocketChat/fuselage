@@ -94,6 +94,9 @@ export const Options = forwardRef(
                   role='option'
                   label={label}
                   onMouseDown={(e: SyntheticEvent) => {
+                    if (disabled) {
+                      return;
+                    }
                     prevent(e);
                     onSelect([value, label, selected, disabled, type, url]);
                     return false;
