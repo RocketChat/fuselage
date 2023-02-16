@@ -40,6 +40,7 @@ export const neutral = {
   n600: new Var('neutral-600', tokenColors.n600),
   n700: new Var('neutral-700', tokenColors.n700),
   n800: new Var('neutral-800', tokenColors.n800),
+  n850: new Var('neutral-850', tokenColors.n850),
   n900: new Var('neutral-900', tokenColors.n900),
 };
 
@@ -140,6 +141,7 @@ export const surfaceColors = {
   'surface-dark': neutral.n800.theme('surface-dark'),
   'surface-featured': service2['700'].theme('surface-featured'),
   'surface-featured-hover': service2['800'].theme('surface-featured-hover'),
+  'surface-overlay': neutral.n850.theme('surface-overlay'),
   'surface-transparent': 'transparent',
 };
 
