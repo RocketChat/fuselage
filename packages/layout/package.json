@@ -49,11 +49,11 @@
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/fuselage": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
-    "@storybook/addon-essentials": "~6.5.13",
-    "@storybook/addons": "~6.5.13",
-    "@storybook/react": "~6.5.13",
-    "@storybook/source-loader": "~6.5.13",
-    "@storybook/theming": "~6.5.13",
+    "@storybook/addon-essentials": "~6.5.15",
+    "@storybook/addons": "~6.5.15",
+    "@storybook/react": "~6.5.15",
+    "@storybook/source-loader": "~6.5.15",
+    "@storybook/theming": "~6.5.15",
     "@types/jest": "~27.4.1",
     "bump": "workspace:~",
     "eslint": "~8.26.0",
@@ -66,7 +66,7 @@
     "storybook-dark-mode": "^1.1.2",
     "ts-jest": "~27.1.5",
     "typedoc": "~0.22.18",
-    "typescript": "~4.3.5"
+    "typescript": "~4.9.4"
   },
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/typescript",
