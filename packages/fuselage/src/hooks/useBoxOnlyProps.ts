@@ -11,7 +11,7 @@ export const useBoxOnlyProps = <
     elevation?: '0' | '1' | '2';
     htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
     size?: AllHTMLAttributes<HTMLElement>['size'];
-  } & Record<`rcx-${string}`, unknown>
+  }
 ): T => {
   Object.entries(props).forEach(([key, value]) => {
     if (key.slice(0, 4) === 'rcx-') {
