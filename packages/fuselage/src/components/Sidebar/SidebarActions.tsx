@@ -7,7 +7,7 @@ import { ButtonGroup } from '../ButtonGroup';
 type SidebarActionsProps = ComponentProps<typeof ButtonGroup>;
 
 export const SidebarActions = (props: SidebarActionsProps) => (
-  <ButtonGroup mb='neg-x2' {...props} />
+  <ButtonGroup {...props} />
 );
 
 type SidebarActionProps = ComponentProps<typeof IconButton>;
