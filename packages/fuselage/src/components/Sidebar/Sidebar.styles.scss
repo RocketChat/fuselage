@@ -312,6 +312,7 @@ $sidebar-banner-color-danger: theme(
     &:hover &__menu-wrapper,
     &.focus-within &__menu-wrapper {
       position: static;
+
       width: lengths.size(20);
       margin-inline: lengths.margin(4);
 
