@@ -32,6 +32,9 @@ type PaginatedMultiSelectProps = ComponentProps<typeof Box> & {
   error?: boolean;
   options: PaginatedMultiSelecOption[];
   withTitle?: boolean;
+  placeholder: string;
+  endReached?: (start?: number, end?: number) => void;
+  value?: PaginatedMultiSelecOption['value'];
 };
 
 export const PaginatedMultiSelect = ({
@@ -189,13 +192,9 @@ export const PaginatedMultiSelect = ({
   );
 };
 
-type PaginatedMultiSelectFilteredProps = ComponentProps<typeof Box> & {
+type PaginatedMultiSelectFilteredProps = PaginatedMultiSelectProps & {
   setFilter?: (value: PaginatedMultiSelecOption['value']) => void;
-  placeholder: string;
-  error?: boolean;
-  options: PaginatedMultiSelecOption[];
   filter?: string;
-  value?: PaginatedMultiSelecOption['value'];
 };
 
 export const PaginatedMultiSelectFiltered = ({
