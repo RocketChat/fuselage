@@ -48,6 +48,7 @@ $modal-margin: theme('modal-margin', auto);
   &__header-inner {
     display: flex;
     flex-wrap: nowrap;
+    align-items: center;
 
     margin: -4px;
   }
@@ -61,6 +62,10 @@ $modal-margin: theme('modal-margin', auto);
 
     color: colors.font(default);
     @include typography.use-font-scale(h2);
+
+    span {
+      vertical-align: text-bottom;
+    }
   }
 
   &__tagline {

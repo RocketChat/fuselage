@@ -7,6 +7,6 @@ export type ModalTitleProps = ComponentProps<typeof Box>;
 
 export const ModalTitle = ({ children, ...props }: ModalTitleProps) => (
   <Box rcx-modal__title {...props}>
-    {children}
+    <span>{children}</span>
   </Box>
 );
