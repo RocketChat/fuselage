@@ -24,17 +24,18 @@ const SelectedOptions = memo((props) => (
   <Chip maxWidth='150px' withTruncatedText {...props} />
 ));
 
-type PaginatedMultiSelecOption = {
+type PaginatedMultiSelectOption = {
   value?: string | number;
   label?: string | number;
 };
+
 type PaginatedMultiSelectProps = ComponentProps<typeof Box> & {
   error?: boolean;
-  options: PaginatedMultiSelecOption[];
+  options: PaginatedMultiSelectOption[];
   withTitle?: boolean;
   placeholder: string;
   endReached?: (start?: number, end?: number) => void;
-  value?: PaginatedMultiSelecOption['value'];
+  value?: PaginatedMultiSelectOption['value'];
 };
 
 export const PaginatedMultiSelect = ({
@@ -193,7 +194,7 @@ export const PaginatedMultiSelect = ({
 };
 
 type PaginatedMultiSelectFilteredProps = PaginatedMultiSelectProps & {
-  setFilter?: (value: PaginatedMultiSelecOption['value']) => void;
+  setFilter?: (value: PaginatedMultiSelectOption['value']) => void;
   filter?: string;
 };
 
