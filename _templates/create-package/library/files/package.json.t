@@ -42,16 +42,16 @@ to: packages/<%=package%>/package.json
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
-    "@types/jest": "~27.4.0",
-    "eslint": "~8.8.0",
-    "jest": "~27.5.1",
+    "@types/jest": "~29.4.0",
+    "eslint": "~8.35.0",
+    "jest": "~29.4.3",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.3",
-    "prettier": "~2.5.1",
-    "rimraf": "~3.0.2",
-    "ts-jest": "~27.1.3",
-    "typedoc": "~0.22.11",
-    "typescript": "~4.3.5"
+    "lint-staged": "~13.1.2",
+    "prettier": "~2.7.1",
+    "rimraf": "~4.1.2",
+    "ts-jest": "~29.0.5",
+    "typedoc": "~0.23.26",
+    "typescript": "~4.9.5"
   },
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/typescript",

@@ -5,6 +5,7 @@
     "./*": "./*.mjs"
   },
   "peerDependencies": {
+    "@rocket.chat/eslint-config-alt": "workspace:~",
     "eslint": "*",
     "prettier": "*",
     "stylelint": "*"
@@ -12,7 +13,12 @@
   "dependencies": {
     "fast-glob": "~3.2.12",
     "json5": "^2.2.3",
-    "rimraf": "^3.0.2"
+    "rimraf": "~4.1.2"
   },
-  "version": "0.31.22"
+  "version": "0.31.22",
+  "eslintConfig": {
+    "extends": [
+      "@rocket.chat/eslint-config-alt"
+    ]
+  }
 }

@@ -17,7 +17,7 @@
     "@rocket.chat/icons": "workspace:~",
     "@rocket.chat/logo": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
-    "@types/jest": "^27.5.2",
+    "@types/jest": "^29.4.0",
     "@types/node": "^16.11.36",
     "@types/react": "^17.0.53",
     "@types/react-dom": "^17.0.18",
@@ -31,7 +31,7 @@
     "react-scripts": "5.0.1",
     "react-split-pane": "^0.1.92",
     "react-virtuoso": "~3.1.5",
-    "typescript": "~4.9.4",
+    "typescript": "~4.9.5",
     "use-subscription": "^1.7.0",
     "web-vitals": "^2.1.4",
     "webpack": "^5.74.0"
@@ -68,11 +68,11 @@
     "@babel/eslint-parser": "^7.19.1",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@types/react-beautiful-dnd": "^13.1.2",
-    "eslint": "~8.26.0",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint": "~8.35.0",
+    "eslint-plugin-import": "~2.26.0",
     "gh-pages": "^4.0.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.8",
+    "lint-staged": "~13.1.2",
     "prettier": "~2.7.1"
   },
   "postcss": {
